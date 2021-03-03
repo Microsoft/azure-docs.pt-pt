@@ -9,20 +9,19 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.assetid: 887caaec-02ba-4711-bd4d-204a7d16b32b
-ms.service: virtual-machines-windows
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/29/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e098256a43add6df026ab136bcd6a6b549c147e7
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 842c56ef1fb6f68c3d8b82e2633d9a604db9fde2
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98871320"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101671631"
 ---
 # <a name="sap-workload-configurations-with-azure-availability-zones"></a>Configurações de carga de trabalho de SAP com Zonas de Disponibilidade do Azure
 Adicionalmente para a implantação das diferentes camadas de arquitetura SAP em conjuntos de disponibilidade de Azure, as zonas de [disponibilidade Azure](../../../availability-zones/az-overview.md) mais recentemente introduzidas podem ser usadas também para implementações de carga de trabalho SAP. Uma Zona de Disponibilidade Azul é definida como: "Localizações físicas únicas dentro de uma região. Cada zona é composta por um ou mais datacenters equipados com potência, arrefecimento e networking independentes". As Zonas de Disponibilidade Azure não estão disponíveis em todas as regiões. Para as regiões de Azure que fornecem Zonas de Disponibilidade, consulte o mapa da [região de Azure.](https://azure.microsoft.com/global-infrastructure/geographies/) Este mapa vai mostrar-lhe quais as regiões que fornecem ou são anunciadas para fornecer Zonas de Disponibilidade. 
@@ -217,7 +216,7 @@ Aplicam-se as seguintes considerações a esta configuração:
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Aqui estão alguns próximos passos para implantação em todas as Zonas de Disponibilidade Azure:
 
 - [Cluster uma instância SAP ASCS/SCS num cluster de failover do Windows utilizando um disco partilhado em Azure](./sap-high-availability-guide-wsfc-shared-disk.md)

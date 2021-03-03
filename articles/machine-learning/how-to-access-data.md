@@ -11,31 +11,33 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 11/03/2020
 ms.custom: how-to, contperf-fy21q1, devx-track-python, data4ml
-ms.openlocfilehash: bb63ac6de6c48bb3853bd235d908ee745ff5279d
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 0bc247e473ea96f2f9301eeaebb543b3317c84c7
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97032852"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101659669"
 ---
 # <a name="connect-to-storage-services-on-azure"></a>Conecte-se aos serviços de armazenamento em Azure
 
-Neste artigo, aprenda a **ligar-se aos serviços de armazenamento no Azure via Azure Machine Learning datastores**. As datas conectam-se de forma segura ao seu serviço de armazenamento Azure sem colocar em risco as suas credenciais de autenticação e a integridade da sua fonte de dados original. Armazenam informações de ligação, como o ID de subscrição e a autorização simbólica no [cofre-chave](https://azure.microsoft.com/services/key-vault/) associado ao espaço de trabalho, para que possa aceder de forma segura ao seu armazenamento sem ter de os codificar nos scripts. Você pode usar o [Azure Machine Learning Python SDK](#python) ou o [estúdio Azure Machine Learning](how-to-connect-data-ui.md) para criar e registar datastores.
+Neste artigo, aprenda a ligar-se aos serviços de armazenamento de dados em Azure com as lojas de dados Azure Machine Learning e a [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py).
 
-Se preferir criar e gerir as datastores utilizando a extensão do Código VS de Aprendizagem de Máquinas Azure; visite a [gestão de recursos do Código VS como orientar](how-to-manage-resources-vscode.md#datastores) para saber mais.
-
-Pode criar datastores a partir [destas soluções de armazenamento Azure](#matrix). **Para soluções de armazenamento não suportadas**, e para poupar o custo da saída de dados durante as experiências de ML, [mova os seus dados](#move) para uma solução de armazenamento Azure suportada.  
+As datas conectam-se de forma segura ao seu serviço de armazenamento no Azure sem colocar em risco as suas credenciais de autenticação e a integridade da sua fonte de dados original. Armazenam informações de conexão, como o ID de subscrição e a autorização simbólica no [cofre](https://azure.microsoft.com/services/key-vault/) chave que está associado ao espaço de trabalho, para que possa aceder de forma segura ao seu armazenamento sem ter de os codificar nos scripts. Pode criar datastores que se liguem a [estas soluções de armazenamento Azure](#matrix).
 
 Para entender onde as datas-tores se encaixam no fluxo de trabalho global de acesso a dados da Azure Machine Learning, consulte o artigo [de dados de acesso seguro.](concept-data.md#data-workflow)
 
+Para uma experiência de baixo código, consulte como utilizar o [estúdio Azure Machine Learning para criar e registar datastores.](how-to-connect-data-ui.md#create-datastores)
+
+>[!TIP]
+> Este artigo pressupõe que pretende ligar-se ao seu serviço de armazenamento com credenciais de autenticação baseadas em credenciais, como um principal de serviço ou um token de assinatura de acesso partilhado (SAS). Tenha em mente que, se as credenciais forem registadas nas datastores, todos os utilizadores com função de *leitor* de espaço de trabalho são capazes de recuperar estas credenciais. [Saiba mais sobre o papel do *workspace Reader.*](how-to-assign-roles.md#default-roles) <br><br>Se isso for uma preocupação, aprenda a [ligar-se aos serviços de armazenamento com acesso à identidade.](how-to-identity-based-data-access.md) <br><br>Esta capacidade é uma funcionalidade de pré-visualização [experimental](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py#stable-vs-experimental) e pode mudar a qualquer momento. 
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Precisará:
 - Uma subscrição do Azure. Se não tiver uma subscrição do Azure, crie uma conta gratuita antes de começar. Experimente a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree).
 
 - Uma conta de armazenamento Azure com um [tipo de armazenamento suportado](#matrix).
 
-- O [Azure Machine Learning SDK para Python,](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)ou acesso ao [estúdio Azure Machine Learning.](https://ml.azure.com/)
+- [O Azure Machine Learning SDK para Python.](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)
 
 - Uma área de trabalho do Azure Machine Learning.
   
@@ -59,7 +61,10 @@ Precisará:
 
 ## <a name="supported-data-storage-service-types"></a>Tipos de serviços de armazenamento de dados suportados
 
-As datas-lojas suportam atualmente o armazenamento de informações de ligação aos serviços de armazenamento listados na seguinte matriz.
+As datas-lojas suportam atualmente o armazenamento de informações de ligação aos serviços de armazenamento listados na seguinte matriz. 
+
+> [!TIP]
+> **Para soluções de armazenamento não suportadas**, e para poupar o custo da saída de dados durante as experiências de ML, [mova os seus dados](#move) para uma solução de armazenamento Azure suportada. 
 
 | Tipo de armazenamento &nbsp; | Tipo de autenticação &nbsp; | [Estúdio Azure &nbsp; Machine &nbsp; Learning](https://ml.azure.com/) | [Azure &nbsp; Máquina &nbsp; aprendendo Python &nbsp; SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) |  [Azure &nbsp; Machine &nbsp; Learning CLI](reference-azure-machine-learning-cli.md) | [Azure &nbsp; Machine &nbsp; Learning &nbsp; Rest API](/rest/api/azureml/) | Código VS
 ---|---|---|---|---|---|---
@@ -88,7 +93,16 @@ Para garantir uma ligação segura ao seu serviço de armazenamento Azure, o Azu
 
 ### <a name="virtual-network"></a>Rede virtual 
 
-Se a sua conta de armazenamento de dados estiver numa **rede virtual,** são necessários passos de configuração adicionais para garantir que o Azure Machine Learning tenha acesso aos seus dados. Consulte [o estúdio De Aprendizagem automática Azure numa rede virtual Azure](how-to-enable-studio-virtual-network.md) para garantir que os passos de configuração apropriados são aplicados quando cria e regista a sua loja de dados.  
+Por predefinição, o Azure Machine Learning não consegue comunicar com uma conta de armazenamento que está por trás de uma firewall ou dentro de uma rede virtual. Se a sua conta de armazenamento de dados estiver numa **rede virtual,** são necessários passos de configuração adicionais para garantir que o Azure Machine Learning tenha acesso aos seus dados. 
+
+> [!NOTE]
+> Esta orientação aplica-se também às [datas-lojas criadas com acesso de dados baseados na identidade (pré-visualização)](how-to-identity-based-data-access.md). 
+
+**Para os utilizadores do Python SDK**, aceder aos seus dados através do seu script de treino num alvo de computação, o alvo do cálculo precisa de estar dentro da mesma rede virtual e sub-rede do armazenamento.  
+
+**Para os utilizadores de estúdios Azure Machine Learning,** várias funcionalidades dependem da capacidade de ler dados a partir de um conjunto de dados; tais como pré-visualizações de conjuntos de dados, perfis e aprendizagem automática de máquinas. Para que estas funcionalidades funcionem com armazenamento por detrás de redes virtuais, utilize um [espaço de trabalho gerido identidade no estúdio](how-to-enable-studio-virtual-network.md) para permitir que a Azure Machine Learning aceda à conta de armazenamento de fora da rede virtual. 
+
+O Azure Machine Learning pode receber pedidos de clientes fora da rede virtual. Para garantir que a entidade que solicita dados do serviço é segura, [crie o Azure Private Link para o seu espaço de trabalho.](how-to-configure-private-link.md)
 
 ### <a name="access-validation"></a>Validação de acesso
 
@@ -204,18 +218,27 @@ adlsgen2_datastore = Datastore.register_azure_data_lake_gen2(workspace=ws,
                                                              client_secret=client_secret) # the secret of service principal
 ```
 
-<a name="arm"></a>
 
-## <a name="create-datastores-using-azure-resource-manager"></a>Criar lojas de dados utilizando o Gestor de Recursos Azure
+
+## <a name="create-datastores-with-other-azure-tools"></a>Criar lojas de dados com outras ferramentas Azure
+Além de criar datastores com o Python SDK e o estúdio, também pode usar modelos de Gestor de Recursos Azure ou a extensão do Código VS de Aprendizagem de Máquinas Azure. 
+
+<a name="arm"></a>
+### <a name="azure-resource-manager"></a>Azure Resource Manager
 
 Há uma série de modelos [https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-datastore-create-*](https://github.com/Azure/azure-quickstart-templates/tree/master/) que podem ser usados para criar datastores.
 
 Para obter informações sobre a utilização destes modelos, consulte [utilize um modelo de Gestor de Recursos Azure para criar um espaço de trabalho para a aprendizagem de máquinas Azure](how-to-create-workspace-template.md).
 
+### <a name="vs-code-extension"></a>Extensão do Código VS
+
+Se preferir criar e gerir as datas usando a extensão do Código VS de Aprendizagem de Máquinas Azure, visite a [gestão de recursos do Código VS como orientar](how-to-manage-resources-vscode.md#datastores) para saber mais.
 <a name="train"></a>
 ## <a name="use-data-in-your-datastores"></a>Utilize dados nas suas datastores
 
-Depois de criar uma loja de dados, [crie um conjunto de dados Azure Machine Learning](how-to-create-register-datasets.md) para interagir com os seus dados. Os conjuntos de dados embalam os seus dados num objeto consumível avaliado preguiçosamente para tarefas de aprendizagem automática, como o treino. Também fornecem a capacidade de [descarregar ou montar](how-to-train-with-datasets.md#mount-vs-download) ficheiros de qualquer formato a partir de serviços de armazenamento Azure Blob e ADLS Gen 2. Também pode usá-los para carregar dados tabulares num pandas ou No Spark DataFrame.
+Depois de criar uma loja de dados, [crie um conjunto de dados Azure Machine Learning](how-to-create-register-datasets.md) para interagir com os seus dados. Os conjuntos de dados embalam os seus dados num objeto consumível avaliado preguiçosamente para tarefas de aprendizagem automática, como o treino. 
+
+Com conjuntos de dados, pode [descarregar ou montar](how-to-train-with-datasets.md#mount-vs-download) ficheiros de qualquer formato dos serviços de armazenamento Azure para formação de modelos num alvo de computação. [Saiba mais sobre como treinar modelos ML com conjuntos de dados.](how-to-train-with-datasets.md)
 
 <a name="get"></a>
 
@@ -254,7 +277,7 @@ A Azure Machine Learning fornece várias formas de usar os seus modelos para pon
 | Método | Acesso à loja de dados | Descrição |
 | ----- | :-----: | ----- |
 | [Predição de lote](./tutorial-pipeline-batch-scoring-classification.md) | ✔ | Faça previsões sobre grandes quantidades de dados assíncroneamente. |
-| [Serviço web](how-to-deploy-and-where.md) | &nbsp; | Implementar modelos como um serviço web. |
+| [Serviço Web](how-to-deploy-and-where.md) | &nbsp; | Implementar modelos como um serviço web. |
 | [Módulo Azure IoT Edge](how-to-deploy-and-where.md) | &nbsp; | Implementar modelos para dispositivos IoT Edge. |
 
 Para situações em que o SDK não fornece acesso às datastores, poderá ser capaz de criar código personalizado utilizando o Azure SDK relevante para aceder aos dados. Por exemplo, o [Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python) é uma biblioteca de clientes que pode utilizar para aceder a dados armazenados em bolhas ou ficheiros.

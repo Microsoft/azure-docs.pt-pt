@@ -5,17 +5,19 @@ services: virtual-machines
 documentationcenter: ''
 author: mathapli
 manager: westonh
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.subservice: azure-hybrid-benefit
+ms.collection: linux
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: mathapli
-ms.openlocfilehash: 44d78d9a47f86520a3a4778806c4ddc0f96eec94
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 17b2e260f9a90ddda6e246058cefb1bec8b1ac5e
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737902"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101671202"
 ---
 # <a name="how-azure-hybrid-benefit-applies-for-linux-virtual-machines"></a>Como o Azure Hybrid Benefit se aplica às máquinas virtuais Linux
 
@@ -177,7 +179,7 @@ Para obter mais informações sobre a conformidade com a subscrição da Red Hat
 
 Para utilizar o Azure Hybrid Benefit para os seus VMs SLES e para obter informações sobre a mudança do SLES PAYG para BYOS ou passar de SLES BYOS para PAYG, consulte [a SUSE Linux Enterprise e a Azure Hybrid Benefit.](https://www.suse.com/c/suse-linux-enterprise-and-azure-hybrid-benefit/) 
 
-## <a name="frequently-asked-questions"></a>Perguntas frequentes
+## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 *P: Posso usar um tipo de licença `RHEL_BYOS` com uma imagem SLES, ou vice-versa?*
 
 A: Não, não pode. Tentar introduzir um tipo de licença que corresponda incorretamente à distribuição em execução no seu VM não atualizará nenhum metadados de faturação. Mas se introduzir acidentalmente o tipo de licença errada, atualizar o seu VM novamente para o tipo de licença correta ainda permitirá o benefício.
@@ -226,5 +228,5 @@ Esta secção enumera problemas comuns que poderá encontrar e passos para atenu
 | ----- | ---------- |
 | "A ação não pôde ser concluída porque os nossos registos mostram que não habilitou com sucesso o Red Hat Cloud Access na sua subscrição do Azure...." | Para utilizar o benefício com os VMs RHEL, tem primeiro de [registar as suas subscrições Azure com o Red Hat Cloud Access](https://access.redhat.com/management/cloud).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Saiba como criar e atualizar VMs e adicionar tipos de licença (RHEL_BYOS, SLES_BYOS) para benefício híbrido Azure utilizando o CLI Azure](/cli/azure/vm)

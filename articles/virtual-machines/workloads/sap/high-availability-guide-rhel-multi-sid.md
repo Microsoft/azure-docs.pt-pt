@@ -1,5 +1,5 @@
 ---
-title: Azure VMs alta disponibilidade para SAP NW no guia MULTI-SID RHEL Microsoft Docs
+title: Azure VMs alta disponibilidade para SAP NW em guia RHEL multi-SID | Microsoft Docs
 description: Estabeleça uma elevada disponibilidade para SAP NW em máquinas virtuais Azure (VMs) RHEL multi-SID.
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
@@ -8,19 +8,18 @@ manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
-ms.service: virtual-machines-windows
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 01/11/2021
 ms.author: radeltch
-ms.openlocfilehash: 746cd6cbbb79cd1f35c9d703fe182abbd988d36f
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: ec2121754a24a44288c158e630a4e84219c744e3
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98117967"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101676920"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-red-hat-enterprise-linux-for-sap-applications-multi-sid-guide"></a>Alta disponibilidade para SAP NetWeaver em VMs Azure em Red Hat Enterprise Linux para aplicações SAP multi-SID guide
 
@@ -74,7 +73,7 @@ O artigo não cobre a camada de base de dados e a implantação das ações sap 
 
 Antes de começar, consulte primeiro as seguintes notas e documentos SAP:
 
-* Nota SAP [1928533,]que tem:
+* Nota SAP [1928533], que tem:
   * Lista de tamanhos Azure VM que são suportados para a implementação de software SAP
   * Informações importantes sobre a capacidade dos tamanhos Azure VM
   * Combinações suportadas de software SAP e sistema operativo (OS) e de base de dados

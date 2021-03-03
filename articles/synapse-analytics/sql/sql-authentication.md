@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: ed9b67e9c3d21d11c6e413694190850c20d2c46c
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 505c0de5a508bd97b10091451116ec3670a20493
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98682941"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101677554"
 ---
 # <a name="sql-authentication"></a>Autenticação SQL
 
@@ -92,18 +92,18 @@ Uma destas funções administrativas é o papel **de dbmanager.** Os membros des
 Para criar uma base de dados, o utilizador deve ser um utilizador baseado num login do SQL Server na `master` base de dados ou no utilizador da base de dados contido com base num utilizador do Azure Ative Directory.
 
 1. Utilizando uma conta de administrador, ligue-se à `master` base de dados.
-2. Crie um login de autenticação SQL Server, utilizando a declaração [DE LOGIN CREATE.](/sql/t-sql/statements/create-login-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) Instrução de exemplo:
+2. Crie um login de autenticação SQL Server, utilizando a declaração [DE LOGIN CREATE.](/sql/t-sql/statements/create-login-transact-sql?view=azure-sqldw-latest&preserve-view=true) Instrução de exemplo:
 
    ```sql
    CREATE LOGIN Mary WITH PASSWORD = '<strong_password>';
    ```
 
    > [!NOTE]
-   > Utilize uma palavra-passe forte ao criar um utilizador de base de dados contido ou de início de sessão. Para obter mais informações, veja [Strong Passwords (Palavras-passe Fortes)](/sql/relational-databases/security/strong-passwords?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
+   > Utilize uma palavra-passe forte ao criar um utilizador de base de dados contido ou de início de sessão. Para obter mais informações, veja [Strong Passwords (Palavras-passe Fortes)](/sql/relational-databases/security/strong-passwords?view=azure-sqldw-latest&preserve-view=true).
 
-   Para melhorar o desempenho, os início de sessão (principais ao nível do servidor) são temporariamente colocados em cache ao nível da base de dados. Para atualizar a cache de autenticação, veja [DBCC FLUSHAUTHCACHE](/sql/t-sql/database-console-commands/dbcc-flushauthcache-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
+   Para melhorar o desempenho, os início de sessão (principais ao nível do servidor) são temporariamente colocados em cache ao nível da base de dados. Para atualizar a cache de autenticação, veja [DBCC FLUSHAUTHCACHE](/sql/t-sql/database-console-commands/dbcc-flushauthcache-transact-sql?view=azure-sqldw-latest&preserve-view=true).
 
-3. Crie um utilizador de bases de dados utilizando a declaração [DO UTILIZADOR CREATE.](/sql/t-sql/statements/create-user-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) O utilizador pode ser um utilizador de autenticação do Azure Ative Directory (se configurar o seu ambiente para a autenticação AD AZure), ou um utilizador de autenticação sql Server contido na base de dados, ou um utilizador de autenticação do SQL Server com base num login de autenticação do SQL Server (criado no passo anterior).) Declarações de amostras:
+3. Crie um utilizador de bases de dados utilizando a declaração [DO UTILIZADOR CREATE.](/sql/t-sql/statements/create-user-transact-sql?view=azure-sqldw-latest&preserve-view=true) O utilizador pode ser um utilizador de autenticação do Azure Ative Directory (se configurar o seu ambiente para a autenticação AD AZure), ou um utilizador de autenticação sql Server contido na base de dados, ou um utilizador de autenticação do SQL Server com base num login de autenticação do SQL Server (criado no passo anterior).) Declarações de amostras:
 
    ```sql
    CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER; -- To create a user with Azure Active Directory
@@ -111,7 +111,7 @@ Para criar uma base de dados, o utilizador deve ser um utilizador baseado num lo
    CREATE USER Mary FROM LOGIN Mary;  -- To create a SQL Server user based on a SQL Server authentication login
    ```
 
-4. Adicione o novo utilizador, à função de base de dados **dbmanager** na `master` utilização do procedimento [de sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=azure-sqldw-latest&preserve-view=true) (note que a declaração [ALTER ROLE](/sql/t-sql/statements/alter-role-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) não é suportada no SQL a provisionado). Instruções de exemplo:
+4. Adicione o novo utilizador, à função de base de dados **dbmanager** na `master` utilização do procedimento [de sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=azure-sqldw-latest&preserve-view=true) (note que a declaração [ALTER ROLE](/sql/t-sql/statements/alter-role-transact-sql?view=azure-sqldw-latest&preserve-view=true) não é suportada no SQL a provisionado). Instruções de exemplo:
 
    ```sql
    EXEC sp_addrolemember 'dbmanager', 'Mary'; 
@@ -127,7 +127,7 @@ Agora o utilizador pode ligar-se à `master` base de dados e criar novas bases d
 
 ### <a name="login-managers"></a>Gestores de início de sessão
 
-A outra função administrativa é a função de gestor de início de sessão. Os membros desta função podem criar novos inícios de sessão na base de dados mestra. Se pretender, pode seguir os mesmos passos (criar um início de sessão e um utilizador e adicionar um utilizador à função **loginmanager**) para permitir que um utilizador crie novos inícios de sessão na base de dados mestra. Normalmente, os logins não são necessários, uma vez que a Microsoft recomenda a utilização de utilizadores de bases de dados contidos, que autenticam ao nível da base de dados em vez de utilizarem os utilizadores com base em logins. Para obter mais informações, veja [Contained Database Users - Making Your Database Portable (Utilizadores de Base de Dados Contidos – Tornar a Sua Base de Dados Portátil)](/sql/relational-databases/security/contained-database-users-making-your-database-portable?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
+A outra função administrativa é a função de gestor de início de sessão. Os membros desta função podem criar novos inícios de sessão na base de dados mestra. Se pretender, pode seguir os mesmos passos (criar um início de sessão e um utilizador e adicionar um utilizador à função **loginmanager**) para permitir que um utilizador crie novos inícios de sessão na base de dados mestra. Normalmente, os logins não são necessários, uma vez que a Microsoft recomenda a utilização de utilizadores de bases de dados contidos, que autenticam ao nível da base de dados em vez de utilizarem os utilizadores com base em logins. Para obter mais informações, veja [Contained Database Users - Making Your Database Portable (Utilizadores de Base de Dados Contidos – Tornar a Sua Base de Dados Portátil)](/sql/relational-databases/security/contained-database-users-making-your-database-portable?view=azure-sqldw-latest&preserve-view=true).
 
 ---
 
@@ -158,7 +158,7 @@ Na Base de Dados Azure SQL ou na sinapse sem servidor, utilize a `ALTER ROLE` de
 ALTER ROLE db_owner ADD MEMBER Mary;
 ```
 
-Na piscina de SQL dedicada utilize [sp_addrolemember EXEC](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
+Na piscina de SQL dedicada utilize [sp_addrolemember EXEC](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=azure-sqldw-latest&preserve-view=true).
 
 ```sql
 EXEC sp_addrolemember 'db_owner', 'Mary';
@@ -167,11 +167,11 @@ EXEC sp_addrolemember 'db_owner', 'Mary';
 > [!NOTE]
 > Uma razão comum para criar um utilizador de base de dados com base num login de servidor é para utilizadores que precisam de acesso a várias bases de dados. Uma vez que os utilizadores de bases de dados contidos são entidades individuais, cada base de dados mantém o seu próprio utilizador e a sua própria senha. Isto pode causar sobrecarga, uma vez que o utilizador deve então lembrar cada palavra-passe de cada base de dados, e pode tornar-se insustentável quando tem de alterar várias palavras-passe para muitas bases de dados. No entanto, ao utilizar logins do SQL Server e alta disponibilidade (grupos de geo-replicação e falha), os logins do SQL Server devem ser definidos manualmente em cada servidor. Caso contrário, o utilizador da base de dados deixará de ser mapeado para o login do servidor após a ocorrência de uma falha, e não poderá aceder ao registo de registo de base de dados por falha. 
 
-Para obter mais informações sobre a configuração de logins para a geo-replicação, consulte  [configurar e gerir a segurança da Base de Dados Azure SQL para geo-restauro ou falha](../../azure-sql/database/active-geo-replication-security-configure.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+Para obter mais informações sobre a configuração de logins para a geo-replicação, consulte  [configurar e gerir a segurança da Base de Dados Azure SQL para geo-restauro ou falha](../../azure-sql/database/active-geo-replication-security-configure.md).
 
 ### <a name="configuring-the-database-level-firewall"></a>Configurar a firewall ao nível da base de dados
 
-Como melhor prática, os utilizadores não administradores só devem ter acesso às bases de dados que utilizam através da firewall. Em vez de autorizar os endereços IP deles através da firewall ao nível do servidor e conceder acesso a todas as bases de dados, utilize a instrução [sp_set_database_firewall_rule](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) para configurar a firewall ao nível da base de dados. Não é possível configurar a firewall ao nível da base de dados no portal.
+Como melhor prática, os utilizadores não administradores só devem ter acesso às bases de dados que utilizam através da firewall. Em vez de autorizar os endereços IP deles através da firewall ao nível do servidor e conceder acesso a todas as bases de dados, utilize a instrução [sp_set_database_firewall_rule](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database?view=azure-sqldw-latest&preserve-view=true) para configurar a firewall ao nível da base de dados. Não é possível configurar a firewall ao nível da base de dados no portal.
 
 ### <a name="non-administrator-access-path"></a>Caminho de acesso para não administradores
 
@@ -183,9 +183,9 @@ Quando a firewall ao nível da base de dados está devidamente configurada, os u
 
 A gestão de acessos eficaz utiliza permissões atribuídas a grupos e funções em vez de utilizadores individuais.
 
-- Quando utilizar a autenticação do Azure Active Directory, coloque os utilizadores do Azure Active Directory num grupo do Azure Active Directory. Crie um utilizador de base de dados contido para o grupo. Coloque um ou mais utilizadores de base de dados numa [função de base de dados](/sql/relational-databases/security/authentication-access/database-level-roles?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) e, em seguida, atribua [permissões](/sql/relational-databases/security/permissions-database-engine?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) à função de base de dados.
+- Quando utilizar a autenticação do Azure Active Directory, coloque os utilizadores do Azure Active Directory num grupo do Azure Active Directory. Crie um utilizador de base de dados contido para o grupo. Coloque um ou mais utilizadores de base de dados numa [função de base de dados](/sql/relational-databases/security/authentication-access/database-level-roles?view=azure-sqldw-latest&preserve-view=true) e, em seguida, atribua [permissões](/sql/relational-databases/security/permissions-database-engine?view=azure-sqldw-latest&preserve-view=true) à função de base de dados.
 
-- Ao utilizar a autenticação do SQL Server, crie utilizadores de base de dados contida na base de dados. Coloque um ou mais utilizadores de base de dados numa [função de base de dados](/sql/relational-databases/security/authentication-access/database-level-roles?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) e, em seguida, atribua [permissões](/sql/relational-databases/security/permissions-database-engine?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) à função de base de dados.
+- Ao utilizar a autenticação do SQL Server, crie utilizadores de base de dados contida na base de dados. Coloque um ou mais utilizadores de base de dados numa [função de base de dados](/sql/relational-databases/security/authentication-access/database-level-roles?view=azure-sqldw-latest&preserve-view=true) e, em seguida, atribua [permissões](/sql/relational-databases/security/permissions-database-engine?view=azure-sqldw-latest&preserve-view=true) à função de base de dados.
 
 As funções de base de dados podem ser as funções incorporadas, tais como **db_owner**, **db_ddladmin**, **db_datawriter**, **db_datareader**, **db_denydatawriter** e **db_denydatareader**. **db_owner** é, geralmente, utilizada para conceder permissão total apenas a alguns utilizadores. As outras funções de base de dados fixas são úteis para colocar bases de dados simples em desenvolvimento rapidamente, mas não são recomendadas para a maioria das bases de dados de produção. 
 
@@ -212,7 +212,7 @@ Ao gerir logins e utilizadores na Base de Dados SQL, considere os seguintes pont
 - Tem de estar ligado à base de dados mestra ao executar as instruções `CREATE/ALTER/DROP LOGIN`. No entanto, não é aconselhável utilizar inícios de sessão. Utilize os utilizadores de base de dados contida.
 - Para ligar a uma base de dados do utilizador, tem de fornecer o nome da base de dados na cadeia de ligação.
 - Apenas o início de sessão principal ao nível do servidor e os membros da função de base de dados **loginmanager** na base de dados **mestra** têm permissão para executar as instruções `CREATE LOGIN`, `ALTER LOGIN`, e `DROP LOGIN`.
-- Ao executar as `CREATE/ALTER/DROP LOGIN` declarações e `CREATE/ALTER/DROP DATABASE` declarações numa aplicação ADO.NET, não é permitido usar comandos parametrizados. Para obter mais informações, consulte [Comandos e Parâmetros](/dotnet/framework/data/adonet/commands-and-parameters?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+- Ao executar as `CREATE/ALTER/DROP LOGIN` declarações e `CREATE/ALTER/DROP DATABASE` declarações numa aplicação ADO.NET, não é permitido usar comandos parametrizados. Para obter mais informações, consulte [Comandos e Parâmetros](/dotnet/framework/data/adonet/commands-and-parameters).
 - Ao executar as instruções `CREATE/ALTER/DROP DATABASE` e `CREATE/ALTER/DROP LOGIN`, cada uma das seguintes declarações tem de ser a única instrução num batch do Transact-SQL. Caso contrário, ocorrerá um erro. Por exemplo, o Transact-SQL seguinte verifica se a base de dados existe. Se existir, é chamada uma instrução `DROP DATABASE` para remover a base de dados. Uma vez que a instrução `DROP DATABASE` não é a única instrução no batch, executar a seguinte instrução do Transact-SQL ocorre um erro.
 
   ```sql

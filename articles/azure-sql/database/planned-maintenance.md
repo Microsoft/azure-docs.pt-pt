@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: aamalvea
 ms.author: aamalvea
 ms.reviewer: sstein
-ms.date: 08/25/2020
-ms.openlocfilehash: 3f87f47f652f71a57796d1cacd047b0448b49b7c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 1/21/2021
+ms.openlocfilehash: d38ac9731959cf9a23052753b09c9e7819846705
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91333040"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101664122"
 ---
 # <a name="plan-for-azure-maintenance-events-in-azure-sql-database-and-azure-sql-managed-instance"></a>Plano para eventos de manutenção Azure em Azure SQL Database e Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -31,7 +31,7 @@ Para cada base de dados, a Base de Dados Azure SQL e a Azure SQL Managed Instanc
 
 ## <a name="what-to-expect-during-a-planned-maintenance-event"></a>O que esperar durante um evento de manutenção planeado
 
-O evento de manutenção pode produzir falhas individuais ou múltiplas, dependendo da constelação das réplicas primárias e secundárias no início do evento de manutenção. Em média, ocorrem 1,7 falhas por evento de manutenção planeado. As reconfigurações/falhas geralmente terminam dentro de 30 segundos. A média é de 8 segundos. Se já estiver ligado, a sua aplicação deve voltar a ligar-se à nova réplica primária da sua base de dados. Se uma nova ligação for tentada enquanto a base de dados está a sofrer uma reconfiguração antes da nova réplica primária estar on-line, obtém-se o erro 40613 (Base de dados Indisponível): *"Base de dados '{databasename}' no servidor '{servername}' não está atualmente disponível. Por favor, re-tentar a ligação mais tarde.* Se a sua base de dados tiver uma consulta de longa duração, esta consulta será interrompida durante uma reconfiguração e terá de ser reiniciada.
+O evento de manutenção pode produzir falhas individuais ou múltiplas, dependendo da constelação das réplicas primárias e secundárias no início do evento de manutenção. Em média, ocorrem 1,7 falhas por evento de manutenção planeado. As reconfigurações/falhas geralmente terminam dentro de 30 segundos. A média é de oito segundos. Se já estiver ligado, a sua aplicação deve voltar a ligar-se à nova réplica primária da sua base de dados. Se uma nova ligação for tentada enquanto a base de dados está a sofrer uma reconfiguração antes da nova réplica primária estar on-line, obtém-se o erro 40613 (Base de dados Indisponível): *"Base de dados '{databasename}' no servidor '{servername}' não está atualmente disponível. Por favor, re-tentar a ligação mais tarde.* Se a sua base de dados tiver uma consulta de longa duração, esta consulta será interrompida durante uma reconfiguração e terá de ser reiniciada.
 
 ## <a name="how-to-simulate-a-planned-maintenance-event"></a>Como simular um evento de manutenção planeado
 
@@ -45,7 +45,12 @@ Qualquer aplicação de produção de clientes que se conecte a um serviço de b
 
 Se a sua base de dados estiver a registar falhas de login, verifique a janela [de Saúde](../../service-health/resource-health-overview.md#get-started) de Recursos no [portal Azure](https://portal.azure.com) para obter o estado atual. A secção De Histórico de Saúde contém a razão de inatividade para cada evento (quando disponível).
 
+## <a name="maintenance-window-feature"></a>Função da janela de manutenção
+
+A função janela de manutenção permite a configuração de horários previsíveis das janelas de manutenção para bases de dados Elegívels do SQL e instâncias geridas pelo SQL. Consulte [a janela manutenção](maintenance-window.md) para obter mais informações.
+
 ## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [a Saúde dos Recursos](resource-health-to-troubleshoot-connectivity.md) para Azure SQL Database e Azure SQL Managed Instance.
 - Para obter mais informações sobre a lógica de relemissão, consulte [a lógica retry para erros transitórios](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors).
+- Configure os horários das janelas de manutenção com a [função de janela de manutenção.](maintenance-window.md)

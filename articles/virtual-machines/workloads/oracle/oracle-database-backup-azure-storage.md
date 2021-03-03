@@ -2,18 +2,19 @@
 title: Ressarça uma base de dados oracle Database 19c em um Azure Linux VM com RMAN e Azure Storage
 description: Saiba como fazer o back up de uma base de dados Oracle Database 19c para o armazenamento em nuvem Azure.
 author: cro27
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: oracle
+ms.collection: linux
 ms.topic: article
 ms.date: 01/28/2021
 ms.author: cholse
 ms.reviewer: dbakevlar
-ms.openlocfilehash: fce947c43e8559f4ea2a65645805e987a9015d3f
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: a6ce5446bd6470ef7a829925646d486801b28ebc
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99806278"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101670018"
 ---
 # <a name="back-up-and-recover-an-oracle-database-19c-database-on-an-azure-linux-vm-using-azure-storage"></a>Recue e recupere uma base de dados oracle Database 19c num VM Azure Linux usando o Armazenamento Azure
 
@@ -405,4 +406,4 @@ az group delete --name rg-oracle
 
 [Tutorial: Criar VMs altamente disponíveis](../../linux/create-cli-complete.md)
 
-[Explore amostras de CLI de implantação VM](../../linux/cli-samples.md)
+[Explore amostras de CLI de implantação VM](https://github.com/Azure-Samples/azure-cli-samples/tree/master/virtual-machine)

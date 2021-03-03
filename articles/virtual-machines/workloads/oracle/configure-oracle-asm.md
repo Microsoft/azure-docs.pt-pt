@@ -1,19 +1,19 @@
 ---
-title: Configurar o Oracle ASM numa máquina virtual Azure Linux Microsoft Docs
+title: Instale o Oracle ASM numa máquina virtual Azure Linux | Microsoft Docs
 description: Rapidamente coloque a Oracle ASM a funcionar no seu ambiente Azure.
 author: dbakevlar
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: oracle
+ms.collection: linux
 ms.topic: article
 ms.date: 08/02/2018
 ms.author: kegorman
-ms.reviewer: cynthn
-ms.openlocfilehash: 6f0b58374ae3eb972993b544117d8cbb98371ce5
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: b180a0f148db5222a288958724ad248acd18b565
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602619"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101673864"
 ---
 # <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>Configurar o Oracle ASM numa máquina virtual Azure Linux  
 
@@ -574,7 +574,7 @@ Configura com sucesso a Oracle Automated Storage Management na imagem Do Oracle 
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Tutorial: Configurar o Oracle DataGuard](configure-oracle-dataguard.md)
 

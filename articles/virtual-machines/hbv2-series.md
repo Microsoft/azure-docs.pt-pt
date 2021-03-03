@@ -3,17 +3,17 @@ title: Série HBv2 - Azure Virtual Machines
 description: Especificações para os VMs da série HBv2.
 author: vermagit
 ms.service: virtual-machines
-ms.subservice: sizes
+ms.subservice: hpc
 ms.topic: conceptual
 ms.date: 10/09/2020
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: 6e4dd4340ba1b7a933b79f9dad616cfdc396f03c
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 5bcb3d8a6928127de5f0f25e92c8de3a6e510c15
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99091116"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101671287"
 ---
 # <a name="hbv2-series"></a>Série HBv2
 

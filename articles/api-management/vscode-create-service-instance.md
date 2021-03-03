@@ -1,5 +1,5 @@
 ---
-title: Criar um exemplo de Gestão API Azure usando o Código do Estúdio Visual Microsoft Docs
+title: Crie um exemplo de Gestão API Azure usando o Código do Estúdio Visual | Microsoft Docs
 description: Código de Estúdio Visual para criar uma instância de Gestão API Azure.
 ms.service: api-management
 ms.workload: integration
@@ -7,18 +7,18 @@ author: vladvino
 ms.author: apimpm
 ms.topic: quickstart
 ms.date: 09/14/2020
-ms.openlocfilehash: fdf7e842959e09a8ec35017031f745cb16d13c6d
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 3105b6f34d7ece81e8145fdd9e89568e66360ddb
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400408"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101649517"
 ---
 # <a name="quickstart-create-a-new-azure-api-management-service-instance-using-visual-studio-code"></a>Quickstart: Criar uma nova instância de serviço de gestão API da Azure usando o Código do Estúdio Visual
 
 A Gestão de API (APIM) do Azure ajuda as organizações a publicar APIs para programadores externos, parceiros e internos, de modo a que estes possam explorar ao máximo o potencial dos seus dados e serviços. A Gestão de API fornece as competências essenciais para garantir um programa de API bem-sucedido através do envolvimento dos programadores, das informações de negócio, da análise, da segurança e da proteção. A APIM permite-lhe criar e gerir gateways de API modernos para serviços de back-end existentes alojados em qualquer lado. Para obter mais informações, consulte o tópico [Descrição Geral](api-management-key-concepts.md).
 
-Este quickstart descreve os passos para criar um novo exemplo de Gestão de API usando a *pré-visualização da extensão de gestão da API Azure* para o Código do Estúdio Visual. Também pode utilizar a extensão para realizar operações de gestão comuns na sua instância de Gestão de API.
+Este quickstart descreve os passos para criar uma nova instância de Gestão de API usando a *Extensão de Gestão API AZure* para Código do Estúdio Visual. Também pode utilizar a extensão para realizar operações de gestão comuns na sua instância de Gestão de API.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -28,7 +28,7 @@ Além disso, certifique-se de que instalou o seguinte:
 
 - [Visual Studio Code](https://code.visualstudio.com/)
 
-- [Extensão de gestão da API Azure para código de estúdio visual (pré-visualização)](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement&ssr=false#overview)
+- [Extensão de gestão da API Azure para código de estúdio visual](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement&ssr=false#overview)
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 

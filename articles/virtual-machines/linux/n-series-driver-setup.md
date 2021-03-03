@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: vikancha
-ms.openlocfilehash: 22c7a70379649876de4af88080543438e58998a6
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.openlocfilehash: 553a0fb1f7eb578bcd5c89c1aec45c38a1d2305e
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2021
-ms.locfileid: "98746650"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101672535"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Instale os controladores da NVIDIA GPU em VMs da série N que executam o Linux
 
@@ -143,6 +143,9 @@ Skip this step if you are not using the Kernel versions listed above.
    ```bash
    sudo yum install cuda
    ```
+   > [!NOTE]
+   >  Se vir uma mensagem de erro relacionada com pacotes em falta como o sistema de ficheiros vulkan, então poderá ter de editar /etc/yum.repos.d/rh-cloud, procure opcionais-rpms e esteja ativado para 1
+   >  
 
 5. Reinicie o VM e proceda à verificação da instalação.
 
@@ -383,6 +386,6 @@ Em seguida, crie uma entrada para o seu script de atualização `/etc/rc.d/rc3.d
 * Se atualizou os controladores da NVIDIA CUDA para a versão mais recente e descobriu que a conectividade RDMA já não está a funcionar, [reinstale os controladores RDMA](#rdma-network-connectivity) para restabelecer essa conectividade. 
 * Se uma determinada versão CentOS/RHEL OS (ou kernel) não for suportada para LIS, é lançado um erro "versão kernel não suportada". Por favor, reporte este erro juntamente com as versões SO e kernel.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para capturar uma imagem Linux VM com os seus controladores NVIDIA instalados, consulte [Como generalizar e capturar uma máquina virtual Linux](capture-image.md).

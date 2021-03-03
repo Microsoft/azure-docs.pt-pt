@@ -8,16 +8,14 @@ ms.author: chpalm
 ms.date: 10/03/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 5ea4e4fcce380a3bd9c30312639f7aa10bf0bb90
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 8e08c531cd46d5112138a3feedf97b27307e3dca
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100653470"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101656198"
 ---
 # <a name="region-availability-and-data-residency"></a>Disponibilidade de região e residência dos dados
-
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
 A Azure Communication Services está empenhada em ajudar os nossos clientes a cumprir os seus requisitos de privacidade e dados pessoais. Como desenvolvedor que usa serviços de comunicação com uma relação direta com os seres humanos usando a aplicação, você é potencialmente um controlador dos seus dados. Uma vez que a Azure Communication Services está a armazenar estes dados em seu nome, provavelmente somos um processador destes dados. Esta página resume como o serviço retém dados e como pode identificar, exportar e eliminar estes dados.
 
@@ -65,7 +63,7 @@ As linhas de chat e as mensagens são mantidas até serem explicitamente elimina
 
 ### <a name="sms"></a>SMS
 
-As mensagens SMS enviadas e recebidas são processadas efemérides pelo serviço e não retidas. 
+As mensagens SMS enviadas e recebidas são processadas efemérides pelo serviço e não retidas.
 
 ### <a name="pstn-voice-calling"></a>Chamada de voz PSTN
 

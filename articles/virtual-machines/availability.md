@@ -5,13 +5,13 @@ author: cynthn
 ms.author: cynthn
 ms.service: virtual-machines
 ms.topic: conceptual
-ms.date: 05/10/2019
-ms.openlocfilehash: a0ea9a0871dd57088473999b28553258ff210038
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.date: 02/18/2021
+ms.openlocfilehash: 6601cd31cf6e332bf292cd887b498a92946d8af7
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94628769"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101668304"
 ---
 # <a name="availability-options-for-virtual-machines-in-azure"></a>Opções de disponibilidade das máquinas virtuais no Azure
 
@@ -52,6 +52,10 @@ Conjuntos de escala de máquina virtual Azure permitem criar e gerir um grupo de
 **Domínios de avaria e domínios de atualização**
 
 Os conjuntos de escala de máquina virtual simplificam o design para uma alta disponibilidade, alinhando domínios de falhas e domínios de atualização. Só terá de definir a contagem de domínios de avaria para o conjunto de escalas. O número de domínios de avaria disponíveis para os conjuntos de escala pode variar por região. Ver [Gerir a disponibilidade de máquinas virtuais em Azure](./manage-availability.md).
+
+**Modos de orquestração para conjuntos de escala**
+
+Os modos de orquestração de escala de máquina virtual permitem-lhe ter um maior controlo sobre como as instâncias de máquinas virtuais são geridas pelo conjunto de escalas. Pode ativar um modo de orquestração uniforme ou flexível no seu conjunto de escala. A orquestração uniforme é otimizada para cargas apátridas em larga escala com instâncias idênticas. A orquestração flexível (pré-visualização) destina-se a uma elevada disponibilidade à escala com tipos de máquinas virtuais idênticos ou múltiplos. Saiba mais sobre estes [modos de orquestração](./virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md) e como capacitá-los.
 
 
 ## <a name="availability-sets"></a>Conjuntos de disponibilidade

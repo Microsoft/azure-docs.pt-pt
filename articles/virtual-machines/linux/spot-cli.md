@@ -3,17 +3,18 @@ title: Utilize o CLI para implantar máquinas virtuais Azure Spot
 description: Saiba como usar o CLI para implementar máquinas virtuais Azure Spot para economizar custos.
 author: cynthn
 ms.service: virtual-machines
+ms.subservice: spot
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 06/26/2020
 ms.author: cynthn
 ms.reviewer: jagaveer
-ms.openlocfilehash: abb29c0826e38af0bbbc1b59e41234acdaaca0f9
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: f1ad1dff695755e88881773bdcbebc2da283b75d
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100554773"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101669365"
 ---
 # <a name="deploy-azure-spot-virtual-machines-using-the-azure-cli"></a>Implementar máquinas virtuais Azure Spot utilizando o Azure CLI
 

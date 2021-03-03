@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 02/10/2021
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 599cf17e1ab2b85aac77893e8b2d520d412e1cea
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 5d43d6f56b48a34fa34baf727508ad8f1c151aa7
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100418224"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101674317"
 ---
 # <a name="connect-to-a-secure-azure-storage-account-from-your-synapse-workspace"></a>Conecte-se a uma conta de armazenamento Azure segura a partir do seu espaço de trabalho Synapse
 
@@ -21,7 +21,7 @@ Este artigo irá ensiná-lo a conectar-se a uma conta de armazenamento Azure seg
 
 
 ## <a name="secured-azure-storage-accounts"></a>Contas de armazenamento Azure seguras
-O armazenamento Azure fornece um modelo de segurança em camadas que lhe permite proteger e controlar o acesso às suas contas de armazenamento. Pode configurar as regras de firewall IP para conceder tráfego a partir de intervalos de endereços IP públicos selecionados acesso à sua conta de armazenamento. Também pode configurar regras de rede para conceder o acesso ao tráfego de redes virtuais selecionadas à sua conta de armazenamento. Pode combinar regras de firewall IP que permitem o acesso a partir de intervalos de endereços IP selecionados e regras de rede que concedem acesso a redes virtuais selecionadas na mesma conta de armazenamento. Estas regras aplicam-se ao ponto final público de uma conta de armazenamento. Não precisa de nenhuma regra de acesso para permitir o tráfego de pontos finais privados geridos criados no seu espaço de trabalho para uma conta de armazenamento. As regras de firewall de armazenamento podem ser aplicadas às contas de armazenamento existentes ou a novas contas de armazenamento quando as cria. Pode saber mais sobre a segurança da sua conta de armazenamento [aqui.](https://docs.microsoft.com/azure/storage/common/storage-network-security)
+O armazenamento Azure fornece um modelo de segurança em camadas que lhe permite proteger e controlar o acesso às suas contas de armazenamento. Pode configurar as regras de firewall IP para conceder tráfego a partir de intervalos de endereços IP públicos selecionados acesso à sua conta de armazenamento. Também pode configurar regras de rede para conceder o acesso ao tráfego de redes virtuais selecionadas à sua conta de armazenamento. Pode combinar regras de firewall IP que permitem o acesso a partir de intervalos de endereços IP selecionados e regras de rede que concedem acesso a redes virtuais selecionadas na mesma conta de armazenamento. Estas regras aplicam-se ao ponto final público de uma conta de armazenamento. Não precisa de nenhuma regra de acesso para permitir o tráfego de pontos finais privados geridos criados no seu espaço de trabalho para uma conta de armazenamento. As regras de firewall de armazenamento podem ser aplicadas às contas de armazenamento existentes ou a novas contas de armazenamento quando as cria. Pode saber mais sobre a segurança da sua conta de armazenamento [aqui.](../../storage/common/storage-network-security.md)
 
 ## <a name="synapse-workspaces-and-virtual-networks"></a>Espaços de trabalho da Sinapse e redes virtuais
 Quando criar um espaço de trabalho synapse, pode optar por permitir que uma rede virtual gerida seja associada a ela. Se não ativar a rede virtual gerida para o seu espaço de trabalho quando o cria, o seu espaço de trabalho está numa rede virtual partilhada juntamente com outros espaços de trabalho da Synapse que não têm uma rede virtual gerida associada a ela. Se ativou a rede virtual gerida quando criou o espaço de trabalho, então o seu espaço de trabalho está associado a uma rede virtual dedicada gerida pela Azure Synapse. Estas redes virtuais não são criadas na subscrição do seu cliente. Portanto, não será possível conceder ao tráfego destas redes virtuais acesso à sua conta de armazenamento segura usando as regras de rede acima descritas.  

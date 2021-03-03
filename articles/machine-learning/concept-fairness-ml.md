@@ -10,18 +10,18 @@ ms.author: luquinta
 author: luisquintanilla
 ms.date: 01/26/2021
 ms.custom: responsible-ml
-ms.openlocfilehash: 6daa03728a5f323f6f8b749975d31fbca24d5602
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 276c91ad7fb5b09dbe18d989741f0f54b8b0eb09
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98871507"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101659686"
 ---
 # <a name="mitigate-unfairness-in-machine-learning-models-preview"></a>Mitigar a injustiça nos modelos de aprendizagem automática (pré-visualização)
 
 Saiba mais sobre a equidade na aprendizagem automática e como o pacote Detona de código aberto [fairlearn](https://fairlearn.github.io/) pode ajudá-lo a mitigar problemas de injustiça em modelos de aprendizagem automática. Se não está a fazer um esforço para compreender as questões de equidade e avaliar a equidade na construção de modelos de aprendizagem automática, pode construir modelos que produzam resultados injustos.
 
-O seguinte resumo do guia de [utilizador](https://fairlearn.github.io/master/user_guide/index.html) para o pacote fairlearn open-source, descreve como usá-lo para avaliar a equidade dos sistemas de IA que está a construir.  O pacote fairlearn open-source também pode oferecer opções para ajudar a mitigar, ou ajudar a reduzir, quaisquer problemas de equidade que você observa.  Consulte os cadernos [de como fazer](how-to-machine-learning-fairness-aml.md) e [amostrar](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness) para permitir a avaliação da equidade dos sistemas de IA durante a formação em Azure Machine Learning.
+O seguinte resumo do guia de [utilizador](https://fairlearn.github.io/main/user_guide/index.html) para o pacote fairlearn open-source, descreve como usá-lo para avaliar a equidade dos sistemas de IA que está a construir.  O pacote fairlearn open-source também pode oferecer opções para ajudar a mitigar, ou ajudar a reduzir, quaisquer problemas de equidade que você observa.  Consulte os cadernos [de como fazer](how-to-machine-learning-fairness-aml.md) e [amostrar](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness) para permitir a avaliação da equidade dos sistemas de IA durante a formação em Azure Machine Learning.
 
 
 ## <a name="what-is-fairness-in-machine-learning-models"></a>O que é a equidade nos modelos de aprendizagem automática?
@@ -107,8 +107,8 @@ O pacote fairlearn open-source fornece algoritmos de mitigação pós-processame
 | `GridSearch` | Abordagem black-box que implementa uma variante de pesquisa de grelha de Regressão Justa com o algoritmo para perda de grupo delimitada descrita em [Regressão Justa: Definições Quantitativas e Algoritmos baseados na Redução](https://arxiv.org/abs/1905.12843) | Regressão | Binário | [Perda de grupo limitada](#parity-constraints) | Redução |
 | `ThresholdOptimizer` | Algoritmo pós-processamento baseado no artigo [Igualdade de Oportunidades em Aprendizagem Supervisionada.](https://arxiv.org/abs/1610.02413) Esta técnica toma como entrada um classificador existente e a característica sensível, e deriva uma transformação monotone da previsão do classificador para impor as restrições de paridade especificadas. | Classificação binária | Categórico | [Paridade demográfica,](#parity-constraints) [odds iguais](#parity-constraints) | Pós-processamento |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-- Saiba como utilizar os diferentes componentes verificando o [GitHub](https://github.com/fairlearn/fairlearn/)do Fairlearn, o guia do [utilizador,](https://fairlearn.github.io/master/user_guide/index.html) [exemplos](https://fairlearn.github.io/master/auto_examples/)e [os cadernos de amostras.](https://github.com/fairlearn/fairlearn/tree/master/notebooks)
+- Saiba como utilizar os diferentes componentes verificando o [GitHub](https://github.com/fairlearn/fairlearn/)do Fairlearn, o guia do [utilizador,](https://fairlearn.github.io/main/user_guide/index.html) [exemplos](https://fairlearn.github.io/main/auto_examples/index.html)e [os cadernos de amostras.](https://github.com/fairlearn/fairlearn/tree/master/notebooks)
 - Saiba como permitir [a](how-to-machine-learning-fairness-aml.md) avaliação da equidade dos modelos de aprendizagem automática em Azure Machine Learning.
 - Consulte os cadernos de amostras para obter [cenários](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness) adicionais de avaliação da equidade no Azure Machine Learning. 

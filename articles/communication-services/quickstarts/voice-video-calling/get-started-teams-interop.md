@@ -7,20 +7,32 @@ ms.author: chpalm
 ms.date: 10/10/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 48b9e1139ecae3deed513c954bf4faa7022a88a1
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+zone_pivot_groups: acs-plat-web-ios-android
+ms.openlocfilehash: 6da700fdd8149a7fff92ed0edef2015e354eca05
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936690"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101660087"
 ---
 # <a name="quickstart-join-your-calling-app-to-a-teams-meeting"></a>Quickstart: Junte-se à sua app de chamadas para uma reunião de equipas
 
-[!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
+> [!IMPORTANT]
+> Para permitir/desativar [a interoperabilidade do inquilino das equipas,](../concepts/teams-interop.md)preencha [este formulário](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR21ouQM6BHtHiripswZoZsdURDQ5SUNQTElKR0VZU0VUU1hMOTBBMVhESS4u).
 
 Inicie-se com os Serviços de Comunicação Azure ligando a sua solução de chamada às Equipas Microsoft utilizando a biblioteca de clientes JavaScript.
 
-[!INCLUDE [Join Teams meetings](./includes/teams-interop-javascript.md)]
+::: zone pivot="platform-web"
+[!INCLUDE [Calling with JavaScript](./includes/teams-interop-javascript.md)]
+::: zone-end
+
+::: zone pivot="platform-android"
+[!INCLUDE [Calling with Android](./includes/teams-interop-android.md)]
+::: zone-end
+
+::: zone pivot="platform-ios"
+[!INCLUDE [Calling with iOS](./includes/teams-interop-ios.md)]
+::: zone-end
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

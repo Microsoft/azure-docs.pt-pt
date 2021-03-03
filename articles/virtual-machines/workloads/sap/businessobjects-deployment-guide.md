@@ -1,5 +1,5 @@
 ---
-title: SAP BusinessObjects Implantação de plataforma bi em Azure Microsoft Docs
+title: SAP BusinessObjects Implantação de plataforma bi em | de Azure Microsoft Docs
 description: Planear, implementar e configurar a PLATAFORMA BI DO SAP BusinessObjects em Azure
 services: virtual-machines-windows,virtual-network,storage,azure-netapp-files,azure-files
 documentationcenter: saponazure
@@ -8,23 +8,22 @@ manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
-ms.service: virtual-machines-windows
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/05/2020
 ms.author: depadia
-ms.openlocfilehash: 0c2deb1ae1d41f8daaed8856f97c4b458930c616
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: e753d810bbc2ed1079b58d20a0659bf5e2219d11
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96484384"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101671910"
 ---
 # <a name="sap-businessobjects-bi-platform-planning-and-implementation-guide-on-azure"></a>Guia de planeamento e implementação da plataforma de BI SAP BusinessObjects no Azure
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 O objetivo deste guia é fornecer diretrizes para o planeamento, implementação e configuração da Plataforma BI SAP BusinessObjects, também conhecida como Plataforma SAP BOBI em Azure. Este guia destina-se a abranger serviços e funcionalidades comuns da Azure que sejam relevantes para a Plataforma SAP BOBI. Este guia não é uma lista exaustiva de todas as opções de configuração possíveis. Abrange soluções comuns a cenários típicos de implantação.
 

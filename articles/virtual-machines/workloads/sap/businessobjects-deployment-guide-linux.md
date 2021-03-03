@@ -8,19 +8,18 @@ manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/05/2020
 ms.author: depadia
-ms.openlocfilehash: a7361dafce30b07e76d971bdcda41cf4b3cd9e6e
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 7a40acf7dea11781a0381e93ea180c5185b7818b
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98806178"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101671924"
 ---
 # <a name="sap-businessobjects-bi-platform-deployment-guide-for-linux-on-azure"></a>Guia de implementação da plataforma de BI SAP BusinessObjects para Linux no Azure
 
@@ -691,7 +690,7 @@ Segue-se a recomendação para a recuperação de catástrofes de cada nível ut
 | Azure NetApp Files        | Ferramenta de cópia baseada em ficheiros para replicar dados para região secundária **ou** replicação da região transversal ANF (pré-visualização) |
 | Base de Dados do Azure para MySQL  | Cruze a região leia réplicas **ou** restaure o backup de backups geo-redundantes.                             |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Configurar a recuperação de desastres para uma implementação de aplicativos SAP de vários níveis](../../../site-recovery/site-recovery-sap.md)
 - [Azure Virtual Machines planejamento e implementação para SAP](planning-guide.md)

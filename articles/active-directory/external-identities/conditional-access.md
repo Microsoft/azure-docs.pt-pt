@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 42b3c3d4d474c61cbe472b4122ac2f80f218bf8d
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: 74bfa4987f584bbd3490bc5f4f187dee5bc1bd87
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98797273"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101646287"
 ---
 # <a name="conditional-access-for-b2b-collaboration-users"></a>Acesso Condicional para utilizadores de colaboração B2B
 
@@ -42,7 +42,7 @@ O diagrama a seguir ilustra o fluxo: ![ a imagem mostra o fluxo de autenticaçã
 | Passo | Descrição |
 |--------------|-----------------------|
 | 1. |O utilizador solicita o acesso a um recurso noutro inquilino. O recurso redireciona o utilizador para o seu inquilino de recursos, um IdP de confiança.|
-| 2. | O inquilino identifica o utilizador como um [utilizador de senha única (OTP) e](https://docs.microsoft.com/azure/active-directory/external-identities/one-time-passcode) envia um e-mail com a OTP ao utilizador.|
+| 2. | O inquilino identifica o utilizador como um [utilizador de senha única (OTP) e](./one-time-passcode.md) envia um e-mail com a OTP ao utilizador.|
 | 3. | O utilizador recupera o OTP e envia o código. O inquilino de recursos avalia o utilizador contra as suas políticas de CA.
 | 4. | Uma vez que todas as políticas de CA estão satisfeitas, o inquilino de recursos emite um símbolo e redireciona o utilizador para o seu recurso. |
 
@@ -64,7 +64,7 @@ O inquilino de recursos é sempre responsável pela Autenticação Multi-Factor 
 
 5. Este cenário funciona para qualquer identidade – Azure AD ou Personal Microsoft Account (MSA). Por exemplo, se o utilizador em Contoso autenticar a utilização de ID social.
 
-6. A Fabrikam deve ter licenças AD AZure premium suficientes que suportem a autenticação multi-factor Azure AD. O utilizador de Contoso consome então esta licença da Fabrikam. Consulte [o modelo de faturação das identidades externas da Azure AD](https://docs.microsoft.com/azure/active-directory/external-identities/external-identities-pricing) para obter informações sobre o licenciamento B2B.
+6. A Fabrikam deve ter licenças AD AZure premium suficientes que suportem a autenticação multi-factor Azure AD. O utilizador de Contoso consome então esta licença da Fabrikam. Consulte [o modelo de faturação das identidades externas da Azure AD](./external-identities-pricing.md) para obter informações sobre o licenciamento B2B.
 
 >[!NOTE]
 >A autenticação multi-factor Azure AD é feita no arrendamento de recursos para garantir a previsibilidade.
@@ -115,44 +115,43 @@ Existem vários fatores que influenciam as políticas de CA para os utilizadores
 
 ### <a name="device-based-conditional-access"></a>Acesso Condicional com base em dispositivos
 
-Na AC, existe uma opção para exigir que o dispositivo de um utilizador [seja conforme ou a AD Híbrido Azure aderido](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-conditions#device-state-preview). Os utilizadores de hóspedes B2B só podem satisfazer a conformidade se o arrendatário de recursos puder gerir o seu dispositivo. Os dispositivos não podem ser geridos por mais de uma organização de cada vez. Os utilizadores de hóspedes B2B não conseguem satisfazer a ad AD híbrida Azure porque não têm uma conta AD no local. Só se o dispositivo do utilizador convidado não for gerido, podem registar ou inscrever o seu dispositivo no arrendatário de recursos e, em seguida, tornar o dispositivo conforme. O utilizador pode então satisfazer o controlo da concessão.
+Na AC, existe uma opção para exigir que o dispositivo de um utilizador [seja conforme ou a AD Híbrido Azure aderido](../conditional-access/concept-conditional-access-conditions.md#device-state-preview). Os utilizadores de hóspedes B2B só podem satisfazer a conformidade se o arrendatário de recursos puder gerir o seu dispositivo. Os dispositivos não podem ser geridos por mais de uma organização de cada vez. Os utilizadores de hóspedes B2B não conseguem satisfazer a ad AD híbrida Azure porque não têm uma conta AD no local. Só se o dispositivo do utilizador convidado não for gerido, podem registar ou inscrever o seu dispositivo no arrendatário de recursos e, em seguida, tornar o dispositivo conforme. O utilizador pode então satisfazer o controlo da concessão.
 
 >[!Note]
 >Não é aconselhável exigir um dispositivo gerido para utilizadores externos.
 
 ### <a name="mobile-application-management-policies"></a>Políticas de gestão de aplicações móveis
 
-Os controlos de concessão da AC, tais como **requerer aplicações de clientes aprovadas** e exigir políticas de proteção de **aplicações** precisam que o dispositivo seja registado no arrendatário. Estes controlos só podem ser aplicados em [dispositivos iOS e Android.](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-conditions#device-platforms) No entanto, nenhum destes controlos pode ser aplicado aos utilizadores de hóspedes B2B se o dispositivo do utilizador já estiver a ser gerido por outra organização. Um dispositivo móvel não pode ser registado em mais de um inquilino de cada vez. Se o dispositivo móvel for gerido por outra organização, o utilizador será bloqueado. Só se o dispositivo do utilizador convidado não for gerido, podem registar o seu dispositivo no arrendatário de recursos. O utilizador pode então satisfazer o controlo da concessão.  
+Os controlos de concessão da AC, tais como **requerer aplicações de clientes aprovadas** e exigir políticas de proteção de **aplicações** precisam que o dispositivo seja registado no arrendatário. Estes controlos só podem ser aplicados em [dispositivos iOS e Android.](../conditional-access/concept-conditional-access-conditions.md#device-platforms) No entanto, nenhum destes controlos pode ser aplicado aos utilizadores de hóspedes B2B se o dispositivo do utilizador já estiver a ser gerido por outra organização. Um dispositivo móvel não pode ser registado em mais de um inquilino de cada vez. Se o dispositivo móvel for gerido por outra organização, o utilizador será bloqueado. Só se o dispositivo do utilizador convidado não for gerido, podem registar o seu dispositivo no arrendatário de recursos. O utilizador pode então satisfazer o controlo da concessão.  
 
 >[!NOTE]
 >Não é aconselhável exigir uma política de proteção de aplicações para utilizadores externos.
 
 ### <a name="location-based-conditional-access"></a>Acesso Condicional baseado em localização
 
-A [política baseada na localização](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-conditions#locations) baseada em intervalos IP pode ser aplicada se a organização convidativa puder criar um intervalo de endereços IP confiável que define as suas organizações parceiras.
+A [política baseada na localização](../conditional-access/concept-conditional-access-conditions.md#locations) baseada em intervalos IP pode ser aplicada se a organização convidativa puder criar um intervalo de endereços IP confiável que define as suas organizações parceiras.
 
 As políticas também podem ser aplicadas com base em **localizações geográficas.**
 
 ### <a name="risk-based-conditional-access"></a>Acesso Condicional baseado em riscos
 
-A [política de risco de inscrição](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-conditions#sign-in-risk) é aplicada se o utilizador convidado B2B satisfizer o controlo da concessão. Por exemplo, uma organização pode exigir autenticação multi-factor Azure AD para risco médio ou alto de sinalização. No entanto, se um utilizador não tiver registado previamente a autenticação multi-factor Azure AD no arrendatário de recursos, o utilizador será bloqueado. Isto é feito para evitar que utilizadores maliciosos registem as suas próprias credenciais de autenticação multi-factor Azure AD no caso de comprometerem a palavra-passe de um utilizador legítimo.
+A [política de risco de inscrição](../conditional-access/concept-conditional-access-conditions.md#sign-in-risk) é aplicada se o utilizador convidado B2B satisfizer o controlo da concessão. Por exemplo, uma organização pode exigir autenticação multi-factor Azure AD para risco médio ou alto de sinalização. No entanto, se um utilizador não tiver registado previamente a autenticação multi-factor Azure AD no arrendatário de recursos, o utilizador será bloqueado. Isto é feito para evitar que utilizadores maliciosos registem as suas próprias credenciais de autenticação multi-factor Azure AD no caso de comprometerem a palavra-passe de um utilizador legítimo.
 
-No [entanto, a política de risco de utilizador](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-conditions#user-risk) não pode ser resolvida no arrendatário de recursos. Por exemplo, se necessitar de uma alteração de palavra-passe para utilizadores de hóspedes de alto risco, eles serão bloqueados devido à incapacidade de redefinir palavras-passe no diretório de recursos.
+No [entanto, a política de risco de utilizador](../conditional-access/concept-conditional-access-conditions.md#user-risk) não pode ser resolvida no arrendatário de recursos. Por exemplo, se necessitar de uma alteração de palavra-passe para utilizadores de hóspedes de alto risco, eles serão bloqueados devido à incapacidade de redefinir palavras-passe no diretório de recursos.
 
 ### <a name="conditional-access-client-apps-condition"></a>Condição de aplicações de cliente de acesso condicional
 
-[As condições das aplicações](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-conditions#client-apps) do cliente comportam-se da mesma forma para os utilizadores convidados B2B, como para qualquer outro tipo de utilizador. Por exemplo, pode impedir que os utilizadores convidados utilizem protocolos de autenticação antigas.
+[As condições das aplicações](../conditional-access/concept-conditional-access-conditions.md#client-apps) do cliente comportam-se da mesma forma para os utilizadores convidados B2B, como para qualquer outro tipo de utilizador. Por exemplo, pode impedir que os utilizadores convidados utilizem protocolos de autenticação antigas.
 
 ### <a name="conditional-access-session-controls"></a>Controlos de sessão de acesso condicional
 
-[Os controlos de](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-session) sessão comportam-se da mesma forma para os utilizadores convidados B2B, como para qualquer outro tipo de utilizador.
+[Os controlos de](../conditional-access/concept-conditional-access-session.md) sessão comportam-se da mesma forma para os utilizadores convidados B2B, como para qualquer outro tipo de utilizador.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para mais informações, consulte os seguintes artigos sobre a colaboração Azure AD B2B:
 
-- [O que é a colaboração B2B do Azure AD?](https://docs.microsoft.com/azure/active-directory/external-identities/what-is-b2b)
-- [Utilizadores de proteção de identidade e B2B](https://docs.microsoft.com/azure/active-directory/identity-protection/concept-identity-protection-b2b)
+- [O que é a colaboração B2B do Azure AD?](./what-is-b2b.md)
+- [Utilizadores de proteção de identidade e B2B](../identity-protection/concept-identity-protection-b2b.md)
 - [Preços das Identidades Externas](https://azure.microsoft.com/pricing/details/active-directory/)
-- [Perguntas frequentes (Perguntas Frequentes)](https://docs.microsoft.com/azure/active-directory/external-identities/faq)
-
+- [Perguntas frequentes (Perguntas Frequentes)](./faq.md)

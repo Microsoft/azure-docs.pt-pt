@@ -3,16 +3,16 @@ title: Série NC - Azure Virtual Machines
 description: Especificações para os VMs da série NC.
 author: vikancha-MSFT
 ms.service: virtual-machines
-ms.subservice: sizes
+ms.subservice: hpc
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 759ae69784e9e9e1c472ffa7f00ae07e28f9b37e
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: c3899e9a38aee9531d61678c77ab3d54d5220100
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99091702"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101670271"
 ---
 # <a name="nc-series"></a>Série NC
 

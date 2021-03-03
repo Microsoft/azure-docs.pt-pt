@@ -13,12 +13,12 @@ ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit, project-no-code
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 8a3cca7740adb6fa44b162e8c8740d1be1c7aa6b
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 9e315812f7e281cf281cad9e052ab4546bde05f9
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98953891"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101645851"
 ---
 # <a name="set-up-sign-in-for-a-specific-azure-active-directory-organization-in-azure-active-directory-b2c"></a>Configurar o sº de inscrição para uma organização específica do Azure Ative Directory em Azure Ative Directory B2C
 
@@ -90,7 +90,7 @@ Se quiser obter as `family_name` `given_name` reclamações da Azure AD, pode co
 
 1. Para **identificação do cliente,** introduza o ID da aplicação que gravou anteriormente.
 1. Para **segredo do Cliente,** insira o segredo do cliente que gravou anteriormente.
-1. Para o **Âmbito,** insira o `openid profile` .
+1. Para o **Âmbito,** insira `openid profile` .
 1. Deixe os valores predefinidos para o **tipo de resposta** e modo **resposta**.
 1. (Opcional) Para a **sugestão de Domínio,** insira `contoso.com` . Para obter mais informações, consulte [Configurar o insusimento direto utilizando o Azure Ative Directory B2C](direct-signin.md#redirect-sign-in-to-a-social-provider).
 1. No âmbito **do mapeamento de reclamações do fornecedor de identidade,** selecione as seguintes reclamações:

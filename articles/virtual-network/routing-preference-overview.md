@@ -15,11 +15,11 @@ ms.date: 02/01/2021
 ms.author: mnayak
 ms.custom: references_regions
 ms.openlocfilehash: b0235286260910a45523e3236e7ed3a114eaf57f
-ms.sourcegitcommit: 8c93b05c27c7e8a5ba62a4d6fc6fc4d0c3980a21
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2021
-ms.locfileid: "101601334"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101672934"
 ---
 # <a name="what-is-routing-preference"></a>O que é a preferência de encaminhamento?
 

@@ -11,16 +11,16 @@ author: knicholasa
 manager: martinco
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8ed99338a10eb226823c4bd4857d812038ff632
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 039dd8b6fa0769b6798630e666bfbf6de48ccf14
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101094512"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101649245"
 ---
 # <a name="browser-support-of-fido2-passwordless-authentication"></a>Suporte ao navegador da autenticação sem palavras-passe FIDO2
 
-O Azure Ative Directory permite que [as chaves de segurança FIDO2](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-passwordless#fido2-security-keys) sejam usadas como um dispositivo sem palavras-passe. A disponibilidade de autenticação fidod2 para contas da Microsoft foi [anunciada em 2018](https://techcommunity.microsoft.com/t5/identity-standards-blog/all-about-fido2-ctap2-and-webauthn/ba-p/288910). Tal como discutido no anúncio, devem ser implementadas determinadas funcionalidades e extensões opcionais à especificação FIDO2 CTAP para suportar a autenticação segura com as contas microsoft e Azure Ative Directory. O diagrama que se segue mostra quais os navegadores e combinações do sistema operativo que suportam a autenticação sem palavras-passe utilizando chaves de autenticação FIDO2 com diretório Azure Ative.
+O Azure Ative Directory permite que [as chaves de segurança FIDO2](./concept-authentication-passwordless.md#fido2-security-keys) sejam usadas como um dispositivo sem palavras-passe. A disponibilidade de autenticação fidod2 para contas da Microsoft foi [anunciada em 2018](https://techcommunity.microsoft.com/t5/identity-standards-blog/all-about-fido2-ctap2-and-webauthn/ba-p/288910). Tal como discutido no anúncio, devem ser implementadas determinadas funcionalidades opcionais e extensões à especificação CTAP do FIDO2 para suportar a autenticação segura com as contas microsoft e Azure Ative Directory. O diagrama que se segue mostra quais os navegadores e combinações do sistema operativo que suportam a autenticação sem palavras-passe utilizando chaves de autenticação FIDO2 com diretório Azure Ative.
 
 ## <a name="supported-browsers"></a>Browsers suportados
 
@@ -35,7 +35,7 @@ Esta tabela mostra suporte para autenticar o Azure Ative Directory (Azure AD) e 
 
 ## <a name="unsupported-browsers"></a>Navegadores não suportados
 
-As seguintes combinações de sistema operativo e navegador não são suportadas, mas o futuro suporte e testes estão a ser investigados. Se quiser ver sistema operativo adicional e suporte ao navegador, por favor deixe feedback usando a ferramenta de feedback do produto na parte inferior da página.
+As seguintes combinações de sistema operativo e navegador não são suportadas, mas o futuro suporte e testes estão a ser investigados. Se quiser ver outro sistema operativo e suporte ao navegador, por favor deixe feedback usando a ferramenta de feedback do produto na parte inferior da página.
 
 | Sistema operativo | Browser |
 | ---- | ---- |
@@ -44,18 +44,21 @@ As seguintes combinações de sistema operativo e navegador não são suportadas
 | Android | Chrome |
 | ChromeOS | Chrome |
 
-## <a name="operating-system-versions-tested"></a>Versões do sistema operativo testadas
+## <a name="minimum-browser-version"></a>Versão mínima do browser
 
-As informações no quadro acima foram testadas para as seguintes versões do sistema operativo.
+Seguem-se os requisitos mínimos de versão do navegador. 
 
-| Sistema operativo | Versão mais recente testada |
-| --- | --- |
-| Windows | Windows 10 20H2 |
-| macOS | OS X 11 Big Sur |
-| Linux | Estação de trabalho fedora 32 |
+| Browser | Versão mínima |
+| ---- | ---- |
+| Chrome | 76 |
+| Microsoft Edge | Versão 1903 1 do Windows<sup>10</sup> |
+| Firefox | Chrome |
+| ChromeOS | 66 |
+
+<sup>1</sup> Todas as versões do novo Suporte Microsoft Edge baseado em Chromium. O suporte ao legado da Microsoft Edge foi adicionado em 1903.
 
 ## <a name="next-steps"></a>Passos seguintes
-[Ativar o sing-in da chave de segurança sem palavras-passe (pré-visualização)](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-security-key)
+[Ativar o sing-in da chave de segurança sem palavras-passe (pré-visualização)](./howto-authentication-passwordless-security-key.md)
 
 <!--Image references-->
 [y]: ./media/fido2-compatibility/yes.png

@@ -4,16 +4,17 @@ description: Aprenda a usar máquinas virtuais Azure Spot para economizar custos
 author: JagVeerappan
 ms.author: jagaveer
 ms.service: virtual-machines
+ms.subservice: spot
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 10/05/2020
 ms.reviewer: cynthn
-ms.openlocfilehash: 460529ab6e3227a998ac04c4819171274307ff9e
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 0ed079dbfef50ae74914998c6b2e558b7e41aeae
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100557824"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101673939"
 ---
 # <a name="use-azure-spot-virtual-machines"></a>Use máquinas virtuais Azure Spot 
 

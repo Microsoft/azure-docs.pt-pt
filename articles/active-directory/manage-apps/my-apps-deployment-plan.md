@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 02/29/2020
 ms.author: kenwith
 ms.reviewer: baselden
-ms.openlocfilehash: 10e548eb87b7ac4254fa916f804a6710252be7fc
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: f63a8fd05e1a6ed5e41eeb64aa852ff01db295af
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99830724"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101645472"
 ---
 # <a name="plan-azure-active-directory-my-apps-configuration"></a>Plan Azure Ative Directory My Apps configuração
 
@@ -143,7 +143,7 @@ Se tiver de integrar estas aplicações, deverá definir um mecanismo para impla
 
 * [Descarregamento e configuração orientados pelo utilizador para Chrome, Firefox, Microsoft Edge ou IE](../user-help/my-apps-portal-end-user-access.md)
 
-* [Gestor de configuração para Internet Explorer](https://docs.microsoft.com/mem/configmgr/core/clients/deploy/deploy-clients-to-windows-computers)
+* [Gestor de configuração para Internet Explorer](/mem/configmgr/core/clients/deploy/deploy-clients-to-windows-computers)
 
 A extensão permite que os utilizadores lancem qualquer app a partir da sua barra de pesquisa, encontrando acesso a aplicações recentemente utilizadas, e tendo um link para a página My Apps.
 
@@ -271,4 +271,3 @@ Pode utilizar a [Gestão de Identidade Privilegiada](../privileged-identity-mana
 
 [Planear uma implementação do Proxy da Aplicação](application-proxy-deployment-plan.md)
 
- 

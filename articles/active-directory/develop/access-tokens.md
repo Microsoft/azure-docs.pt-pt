@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/27/2020
+ms.date: 2/18/2021
 ms.author: hirsin
 ms.reviewer: mmacy, hirsin
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: e1dcd52660ff43a93c6a170912fea5a5847fe9d3
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 7601b99cec70d982b663249855b05fcd636a9e62
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99575759"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101648711"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Fichas de acesso à plataforma de identidade da Microsoft
 
@@ -115,7 +115,7 @@ Algumas alegações são usadas para ajudar a Azure AD a proteger os tokens em c
 | `hasgroups` | Booleano | Se estiver presente, `true` denota sempre, o utilizador está em pelo menos um grupo. Utilizado em vez da reclamação de `groups` JWTs em fluxos de subvenções implícitos se os grupos completos alegarem estender o fragmento URI para além dos limites de comprimento do URL (atualmente 6 ou mais grupos). Indica que o cliente deve utilizar a API do Microsoft Graph para determinar os grupos do utilizador `https://graph.microsoft.com/v1.0/users/{userID}/getMemberObjects` (). |
 | `groups:src1` | Objeto JSON | Para pedidos simbólicos que não sejam limitados (ver `hasgroups` acima) mas ainda demasiado grandes para o token, será incluído um link para a lista completa de grupos para o utilizador. Para os JWTs como uma reclamação distribuída, para a SAML como uma nova reivindicação em vez da `groups` reclamação. <br><br>**Exemplo JWT Valor**: <br> `"groups":"src1"` <br> `"_claim_sources`: `"src1" : { "endpoint" : "https://graph.microsoft.com/v1.0/users/{userID}/getMemberObjects" }` |
 | `sub` | String | O principal sobre o qual o token afirma informações, como o utilizador de uma aplicação. Este valor é imutável e não pode ser reatribuído ou reutilizado. Pode ser usado para efetuar verificações de autorização com segurança, como quando o token é usado para aceder a um recurso, e pode ser usado como chave em tabelas de bases de dados. Como o assunto está sempre presente nos tokens que a Azure AD emite, recomendamos a utilização deste valor num sistema de autorização para fins gerais. O sujeito é, no entanto, um identificador de pares - é exclusivo de um determinado ID de aplicação. Portanto, se um único utilizador assinar duas aplicações diferentes usando dois IDs de clientes diferentes, essas aplicações receberão dois valores diferentes para a reivindicação do assunto. Isto pode ou não ser desejado dependendo da sua arquitetura e requisitos de privacidade. Consulte também a `oid` reclamação (que permanece a mesma entre aplicações dentro de um inquilino). |
-| `oid` | String, um GUID | O identificador imutável de um objeto na plataforma de identidade da Microsoft, neste caso, uma conta de utilizador. Também pode ser utilizado para efetuar verificações de autorização com segurança e como chave nas tabelas de bases de dados. Este ID identifica exclusivamente o utilizador através de aplicações - duas aplicações diferentes que assinam no mesmo utilizador receberão o mesmo valor na `oid` reclamação. Assim, `oid` pode ser usado ao fazer consultas aos serviços online da Microsoft, como o Microsoft Graph. O Microsoft Graph devolverá este ID como `id` propriedade para uma determinada conta de [utilizador.](/graph/api/resources/user) Uma vez `oid` que permite que várias aplicações correlacionem os utilizadores, o `profile` âmbito é necessário para receber esta reclamação. Note que se um único utilizador existir em vários inquilinos, o utilizador conterá um ID de objeto diferente em cada inquilino - são considerados contas diferentes, mesmo que o utilizador faça logins em cada conta com as mesmas credenciais. |
+| `oid` | String, um GUID | O identificador imutável para o "principal" do pedido - o utilizador ou o principal de serviço cuja identidade foi verificada.  Em fichas de ID e fichas de app+utilizador, este é o ID do objeto do utilizador.  Em fichas só para aplicações, este é o id objeto do principal do serviço de chamadas. Também pode ser utilizado para efetuar verificações de autorização com segurança e como chave nas tabelas de bases de dados. Este ID identifica exclusivamente o principal através de aplicações - duas aplicações diferentes que assinam no mesmo utilizador receberão o mesmo valor na `oid` reclamação. Assim, `oid` pode ser usado ao fazer consultas aos serviços online da Microsoft, como o Microsoft Graph. O Microsoft Graph devolverá este ID como `id` propriedade para uma determinada conta de [utilizador.](/graph/api/resources/user) Uma vez `oid` que permite que várias aplicações correlacionem os principais, o `profile` âmbito é necessário para receber esta reclamação para os utilizadores. Note que se um único utilizador existir em vários inquilinos, o utilizador conterá um ID de objeto diferente em cada inquilino - são considerados contas diferentes, mesmo que o utilizador faça logins em cada conta com as mesmas credenciais. |
 | `tid` | String, um GUID | Representa o inquilino AZure AD de que o utilizador é. Para contas de trabalho e escola, o GUID é o imutável ID de inquilino da organização a que o utilizador pertence. Para contas pessoais, o valor `9188040d-6c67-4c5b-b112-36a304b66dad` é. O `profile` âmbito é necessário para receber esta reclamação. |
 | `unique_name` | String | Só presentes em fichas v1.0. Fornece um valor legível por humanos que identifica o requerente do token. Este valor não é garantido ser único dentro de um inquilino e deve ser usado apenas para fins de exposição. |
 | `uti` | Corda Opaca | Uma alegação interna usada por Azure para revalidar fichas. Os recursos não devem usar esta reivindicação. |

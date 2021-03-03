@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 03/12/2019
-ms.openlocfilehash: 98e3eb4927b8eb9e52fd974c1ef7c417aff2ad54
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 89d285a56553f5c521d1edbc92786debd4a92e32
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422795"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101659295"
 ---
 # <a name="tutorial-implement-a-geo-distributed-database-azure-sql-database"></a>Tutorial: Implementar uma base de dados geo-distribuída (Base de Dados Azure SQL)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -184,7 +184,7 @@ As definições de geo-replicação também podem ser alteradas no portal Azure,
 
 1. Guarde e feche o ficheiro *pom.xml*.
 
-1. Abra o ficheiro *App.java* localizado em .. \SqlDbSample\src\main\java\com\sqldbsamples e substituir o conteúdo pelo seguinte código:
+1. Abra o ficheiro *.java App* localizado em .. \SqlDbSample\src\main\java\com\sqldbsamples e substituir o conteúdo pelo seguinte código:
 
    ```java
    package com.sqldbsamples;
@@ -227,10 +227,10 @@ As definições de geo-replicação também podem ser alteradas no portal Azure,
             for(int i = 1; i < 1000; i++) {
                 //  loop will run for about 1 hour
                 System.out.print(i + ": insert on primary " +
-                   (insertData((highWaterMark + i))?"successful":"failed"));
+                   (insertData((highWaterMark + i)) ? "successful" : "failed"));
                 TimeUnit.SECONDS.sleep(1);
                 System.out.print(", read from secondary " +
-                   (selectData((highWaterMark + i))?"successful":"failed") + "\n");
+                   (selectData((highWaterMark + i)) ? "successful" : "failed") + "\n");
                 TimeUnit.SECONDS.sleep(3);
             }
          } catch(Exception e) {
@@ -290,7 +290,7 @@ As definições de geo-replicação também podem ser alteradas no portal Azure,
    }
    ```
 
-1. Guarde e feche o ficheiro *App.java.*
+1. Guarde e feche o ficheiro *.java App.*
 
 1. Na consola de comando, executar o seguinte comando:
 

@@ -1,19 +1,19 @@
 ---
-title: Configurar interface de passagem de mensagens para HPC - Azure Virtual Machines Microsoft Docs
+title: Configurar interface de passagem de mensagens para HPC - Azure Virtual Machines | Microsoft Docs
 description: Saiba como configurar o MPI para o HPC em Azure.
 author: vermagit
 ms.service: virtual-machines
-ms.subservice: workloads
+ms.subservice: hpc
 ms.topic: article
 ms.date: 08/06/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 08d952738a085aa6ed814668ece898f7460b4f33
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 9804ed23da4cb9ccbb7515cec03fcc9b4147f749
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94963747"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101673258"
 ---
 # <a name="set-up-message-passing-interface-for-hpc"></a>Configurar interface de passagem de mensagens para HPC
 
@@ -189,7 +189,7 @@ Descubra as teclas de partição (teclas p) para comunicar com outros VMs dentro
 /sys/class/infiniband/mlx5_0/ports/1/pkeys/1
 ```
 
-A maior das duas é a chave do inquilino que deve ser usada com MPI. Exemplo: Se forem as teclas p, 0x800b deve ser utilizado com MPI.
+A maior das duas é a chave do inquilino que deve ser usada com MPI. Exemplo: Se forem as teclas p, 0x800b deve ser utilizada com MPI.
 
 ```bash
 cat /sys/class/infiniband/mlx5_0/ports/1/pkeys/0

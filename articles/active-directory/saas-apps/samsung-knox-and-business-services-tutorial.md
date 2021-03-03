@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/27/2021
 ms.author: jeedes
-ms.openlocfilehash: e1cf12d676de84bc18a123fbdf05b1170725eda8
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: 3c1ec38e792987f4bd7208c3bf57a882a05f4f46
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99072887"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101648055"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-samsung-knox-and-business-services"></a>Tutorial: Azure Ative Directory integração única (SSO) com a Samsung Knox e os Business Services
 
@@ -31,7 +31,7 @@ Neste tutorial, você vai aprender a integrar a Samsung Knox e os Business Servi
 Para começar, precisa dos seguintes itens:
 
 * Uma assinatura AD Azure. Se não tiver uma subscrição, pode obter uma [conta gratuita.](https://azure.microsoft.com/free/)
-* A assinatura ativada pela Samsung Knox e pelos Business Services (SSO).
+* Uma conta Samsung Knox.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
@@ -55,7 +55,7 @@ Para configurar a integração da Samsung Knox e dos Business Services no Azure 
 
 ## <a name="configure-and-test-azure-ad-sso-for-samsung-knox-and-business-services"></a>Configure e teste Azure AD SSO para a Samsung Knox e serviços empresariais
 
-Configure e teste Azure AD SSO com a Samsung Knox e a Business Services utilizando um utilizador de teste chamado **B.Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador Azure AD e o utilizador relacionado na Samsung Knox e nos Business Services.
+Configure e teste Azure AD SSO com a Samsung Knox e a Business Services utilizando um utilizador de teste chamado **B.Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador AZure AD e o utilizador relacionado em [SamsungKnox.com](https://samsungknox.com/).
 
 Para configurar e testar a Azure AD SSO com a Samsung Knox e a Business Services, execute os seguintes passos:
 
@@ -78,7 +78,10 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Na secção **Configuração Básica SAML,** insira os valores para os seguintes campos:
 
-    Na caixa de texto **URL, digite** o URL:  `https://www.samsungknox.com`
+    * Na caixa de texto **URL, digite** o URL: `https://www.samsungknox.com`
+    * Na caixa de texto **URL de resposta (URL de serviço ao consumidor de afirmação),** digite o URL: `https://central.samsungknox.com/ams/ad/saml/acs`
+    
+    ![Valores básicos de configuração SAML](https://docs.samsungknox.com/assets/merge/ad-sso/basic-saml-configuration.png)
 
 1. Na **configuração de um único sessão de inscrição com** a página SAML, na secção **Certificado de Assinatura SAML,** clique no botão de cópia para copiar o Url de **metadados da Federação de Aplicações** e guarde-o no seu computador.
 
@@ -110,7 +113,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 ## <a name="configure-samsung-knox-and-business-services-sso"></a>Configure a Samsung Knox e a Business Services SSO
 
-1. Numa janela diferente do navegador web, inscreva-se no site da empresa Samsung Knox e Business Services como administrador.
+1. Numa janela diferente do navegador, inscreva-se para [SamsungKnox.com](https://samsungknox.com/) como administrador.
 
 1. Clique no **Avatar** no canto superior direito.
 
@@ -118,31 +121,28 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. Na barra lateral esquerda, clique em **CONFIGURAÇÕES DE DIRETÓRIO ATIVO** e execute os seguintes passos.
 
-    ![DEFINIÇÕES DE DIRETÓRIO ATIVO](./media/samsung-knox-and-business-services-tutorial/sso-settings.png)
+    ![DEFINIÇÕES DE DIRETÓRIO ATIVO](https://docs.samsungknox.com/assets/merge/ad-sso/ad-5.png)
 
     a. Na caixa de texto **identifier(entity ID),** cole o valor **identificador** que inseriu no portal Azure.
 
     b. Na caixa de texto **URL da federação de metadados** da App, cole o valor url da **Federação de Metadados** da App que copiou a partir do portal Azure.
 
-    c. clique em **CONNECT TO AD SSO**.
+    c. Clique em **CONNECT TO AD SSO**.
 
 ### <a name="create-samsung-knox-and-business-services-test-user"></a>Criar utilizador de teste samsung Knox e Business Services
 
-Nesta secção, cria-se um utilizador chamado Britta Simon na Samsung Knox e business Services. Trabalhe com a [equipa de apoio da Samsung Knox e business Services](mailto:noreplyk.sec@samsung.com) para adicionar os utilizadores na plataforma Samsung Knox e Business Services. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação.
+Nesta secção, cria-se um utilizador chamado Britta Simon na Samsung Knox e business Services. Consulte os guias de [administração](https://docs.samsungknox.com/admin/knox-mobile-enrollment/kme-add-an-admin.htm) [knox configure](https://docs.samsungknox.com/admin/knox-configure/Administrators.htm) ou Knox Mobile Inscrição para obter instruções sobre como convidar um sub-administrador, ou utilizador de teste, para a sua organização Samsung Knox. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação.
 
 ## <a name="test-sso"></a>Teste SSO 
 
 Nesta secção, testa a configuração de um único sinal de inscrição Azure AD com as seguintes opções. 
 
-* Clique em **Testar esta aplicação** no portal Azure. Isto irá redirecionar para o URL de assinatura da Samsung Knox e serviços empresariais, onde pode iniciar o fluxo de login. 
+* Clique em **Testar esta aplicação** no portal Azure. Isto irá redirecionar para [SamsungKnox.com,](https://samsungknox.com/)onde pode iniciar o fluxo de login. 
 
-* Vá diretamente à SAMSUNG Knox e aos Serviços empresariais URL e inicie o fluxo de login a partir daí.
+* Vá diretamente para [SamsungKnox.com](https://samsungknox.com/) e inicie o fluxo de login a partir daí.
 
-* Pode utilizar as minhas apps do Microsoft. Quando clicar no azulejo da Samsung Knox e business Services nas My Apps, este será redirecionado para o URL de sign-on da Samsung Knox e dos Serviços Empresariais. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
-
+* Pode utilizar as minhas apps do Microsoft. Quando clicar no azulejo da Samsung Knox e business Services nas Minhas Apps, este será redirecionado para [SamsungKnox.com](https://samsungknox.com/). Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Uma vez configurado a Samsung Knox e os Business Services, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Uma vez configurado a Samsung Knox e os Business Services, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

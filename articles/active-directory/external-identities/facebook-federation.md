@@ -5,23 +5,27 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 05/19/2020
+ms.date: 03/02/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 547b455dc776b7304e413b3b6f1330e7cedcf2a2
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: d68f83bd042af6612b91807f2adeed54d24bfe01
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92442002"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101648626"
 ---
 # <a name="add-facebook-as-an-identity-provider-for-external-identities"></a>Adicione o Facebook como fornecedor de identidades externas
 
-Pode adicionar o Facebook aos fluxos de utilizador de inscrição de autosserviço (Preview) para que os utilizadores possam iniciar scontabilidade nas suas aplicações utilizando as suas próprias contas de Facebook. Para permitir que os utilizadores entrem no Facebook, primeiro terá de ativar a [inscrição de autosserviço](self-service-sign-up-user-flow.md) para o seu inquilino. Depois de adicionar o Facebook como fornecedor de identidade, crie um fluxo de utilizador para a aplicação e selecione o Facebook como uma das opções de entrada.
+Pode adicionar o Facebook aos fluxos de utilizador de inscrição de autosserviço para que os utilizadores possam iniciar sôm nas suas aplicações usando as suas próprias contas de Facebook. Para permitir que os utilizadores entrem no Facebook, primeiro terá de ativar a [inscrição de autosserviço](self-service-sign-up-user-flow.md) para o seu inquilino. Depois de adicionar o Facebook como fornecedor de identidade, crie um fluxo de utilizador para a aplicação e selecione o Facebook como uma das opções de entrada.
+
+Depois de ter adicionado o Facebook como uma das opções de entrada da sua aplicação, no **Sinal na** página, um utilizador pode simplesmente introduzir o e-mail que usa para iniciar sins no Facebook, ou pode selecionar **opções de Iniciar s-in** e escolher **Iniciar sê-in com o Facebook.** Em qualquer dos casos, serão redirecionados para a página de login do Facebook para autenticação.
+
+![Iniciar sinsções para utilizadores do Facebook](media/facebook-federation/sign-in-with-facebook-overview.png)
 
 > [!NOTE]
 > Os utilizadores só podem utilizar as suas contas do Facebook para se inscreverem através de apps que utilizam a inscrição de self-service e fluxos de utilizadores. Os utilizadores não podem ser convidados e resgatar o seu convite através de uma conta no Facebook.
@@ -39,17 +43,17 @@ Para utilizar uma conta do Facebook como fornecedor de [identidade,](identity-pr
 1. Inscreva-se no [Facebook para programadores](https://developers.facebook.com/) com as suas credenciais de conta no Facebook.
 2. Se ainda não o fez, tem de se registar como programador do Facebook. Para isso, **selecione Começar** no canto superior direito da página, aceite as políticas do Facebook e complete as etapas de inscrição.
 3. Selecione **as minhas apps** e, em seguida, **crie app.**
-4. Introduza um **Nome de Exibição** e um **e-mail de contacto**válido.
+4. Introduza um **Nome de Exibição** e um **e-mail de contacto** válido.
 5. Selecione **Criar ID de aplicação.** Isto pode exigir que aceite as políticas da plataforma do Facebook e preencha uma verificação de segurança online.
 6. Selecione **Definições**  >  **Básicas**.
 7. Escolha uma **categoria,** por exemplo Negócios e Páginas. Este valor é exigido pelo Facebook, mas não é utilizado para a Azure AD.
-8. Na parte inferior da página, selecione **Add Platform**e, em seguida, selecione **Website**.
+8. Na parte inferior da página, selecione **Add Platform** e, em seguida, selecione **Website**.
 9. No **URL do site,** insira o URL apropriado (indicado acima).
 10. No **URL de Política de Privacidade,** insira o URL para a página onde mantém informações de privacidade para a sua aplicação, por exemplo `http://www.contoso.com` .
 11. Selecione **Guardar alterações**.
 12. No topo da página, copie o valor do ID da **aplicação.**
 13. Selecione **Mostrar** e copie o valor da **App Secret.** Usa os dois para configurar o Facebook como fornecedor de identidade no seu inquilino. **App Secret** é uma importante credencial de segurança.
-14. Selecione o sinal de mais ao lado **de PRODUTOS**e, em seguida, selecione **Configurar** no **Facebook Login**.
+14. Selecione o sinal de mais ao lado **de PRODUTOS** e, em seguida, selecione **Configurar** no **Facebook Login**.
 15. No **Início de Sessão do Facebook**, selecione **Definições**.
 16. Em **IURD de redireccionamento válido,** insira o URL apropriado (acima referido).
 17. Selecione **Guardar Alterações** na parte inferior da página.
@@ -62,7 +66,7 @@ Agora você vai definir o ID do cliente do Facebook e o segredo do cliente, quer
 1. Inscreva-se no [portal Azure](https://portal.azure.com) como administrador global do seu inquilino AZure AD.
 2. Ao abrigo **dos serviços Azure,** selecione **Azure Ative Directory**.
 3. No menu esquerdo, selecione **Identidades Externas.**
-4. Selecione **Todos os fornecedores de identidade**e, em seguida, selecione **Facebook**.
+4. Selecione **Todos os fornecedores de identidade** e, em seguida, selecione **Facebook**.
 5. Para o ID do **Cliente,** insira o ID da **aplicação** do Facebook que criou anteriormente.
 6. Para o segredo do **Cliente,** insira a **App Secret** que gravou.
 
@@ -84,7 +88,7 @@ Agora você vai definir o ID do cliente do Facebook e o segredo do cliente, quer
 Pode eliminar a configuração da federação do Facebook. Se o fizer, qualquer utilizador que se tenha inscrito através dos fluxos de utilizadores com as suas contas do Facebook deixará de poder fazer login. 
 
 ### <a name="to-delete-facebook-federation-in-the-azure-ad-portal"></a>Para eliminar a federação do Facebook no portal AD Azure: 
-1. Aceda ao [portal do Azure](https://portal.azure.com). No painel esquerdo, selecione **Azure Active Directory**. 
+1. Aceda ao [Portal do Azure](https://portal.azure.com). No painel esquerdo, selecione **Azure Active Directory**. 
 2. Selecione **identidades externas**.
 3. Selecione **Todos os fornecedores de identidade**.
 4. Na linha do **Facebook,** selecione o menu de contexto **(...)** e, em seguida, selecione **Delete**. 
@@ -92,7 +96,7 @@ Pode eliminar a configuração da federação do Facebook. Se o fizer, qualquer 
 
 ### <a name="to-delete-facebook-federation-by-using-powershell"></a>Para eliminar a federação do Facebook utilizando o PowerShell: 
 1. Instale a versão mais recente do Azure AD PowerShell para módulo Graph[(AzureADPreview).](https://www.powershellgallery.com/packages/AzureADPreview)
-2. Execute `Connect-AzureAD`.  
+2. Execute o `Connect-AzureAD`.  
 4. No pedido de inscrição, inscreva-se na conta gerida do Administrador Global.  
 5. Introduza o seguinte comando:
 

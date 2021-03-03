@@ -6,15 +6,15 @@ ms.author: jagaveer
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
 ms.subservice: spot
-ms.date: 03/25/2020
+ms.date: 02/26/2021
 ms.reviewer: cynthn
-ms.custom: jagaveer, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 265f78970f17fe7321db8786c2fb8dd2304bb578
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: 33aa553e688b595551c20e8b1432163152865537
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100558681"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101675023"
 ---
 # <a name="azure-spot-virtual-machines-for-virtual-machine-scale-sets"></a>Máquinas virtuais Azure Spot para conjuntos de escala de máquinas virtuais 
 
@@ -46,19 +46,38 @@ Os [seguintes tipos de oferta](https://azure.microsoft.com/support/legal/offer-d
 -   Contrato Enterprise
 -   Código de oferta pay-as-you-go 003P
 -   Patrocinado
-- Para Provedor de Serviços cloud (CSP), contacte o seu parceiro
+- Para Provedor de Serviços em Nuvem (CSP), consulte o [Centro de Parceiros](https://docs.microsoft.com/partner-center/azure-plan-get-started) ou contacte diretamente o seu parceiro.
 
 ## <a name="eviction-policy"></a>Política de expulsão
 
-Ao criar conjuntos de escala de máquina virtual Azure Spot, pode definir a política de despejo para *Deallocate* (predefinição) ou *Eliminar*. 
+Ao criar um conjunto de escala utilizando máquinas virtuais Azure Spot, pode definir a política de despejo para *Deallocate* (predefinição) ou *Eliminar*. 
 
 A política *deallocate* move as suas instâncias despejadas para o estado de paragem que lhe permite redistribuir casos despejados. No entanto, não há garantias de que a dotação seja bem sucedida. Os VMs deallocados contarão com a sua quota de instância definida em escala e você será cobrado pelos seus discos subjacentes. 
 
-Se quiser que os seus casos na escala de máquinas Azure Spot Virtual sejam eliminados quando forem despejados, pode definir a política de despejo para *eliminar*. Com a política de despejo definida para apagar, pode criar novos VMs aumentando a escala definida caso contando propriedade. Os VMs despejados são eliminados juntamente com os seus discos subjacentes, pelo que não será cobrado pelo armazenamento. Também pode utilizar a função de escala automática dos conjuntos de escala para tentar compensar automaticamente os VMs despejados, no entanto, não há garantias de que a atribuição tenha sucesso. Recomenda-se que utilize apenas a função de escala automática nos conjuntos de escala de máquinas Azure Spot Virtual quando definir a política de despejo para eliminar para evitar o custo dos seus discos e bater os limites de quota. 
+Se quiser que os seus casos sejam apagados quando forem despejados, pode definir a política de despejo para *eliminar*. Com a política de despejo definida para apagar, pode criar novos VMs aumentando a escala definida caso contando propriedade. Os VMs despejados são eliminados juntamente com os seus discos subjacentes, pelo que não será cobrado pelo armazenamento. Também pode utilizar a função de escala automática dos conjuntos de escala para tentar compensar automaticamente os VMs despejados, no entanto, não há garantias de que a atribuição tenha sucesso. Recomenda-se que utilize apenas a função de escala automática nos conjuntos de escala de máquinas Azure Spot Virtual quando definir a política de despejo para eliminar para evitar o custo dos seus discos e bater os limites de quota. 
 
 Os utilizadores podem optar por receber notificações in-VM através de [Eventos Agendados Azure.](../virtual-machines/linux/scheduled-events.md) Isto irá notificá-lo se os seus VMs estiverem a ser despejados e terá 30 segundos para terminar quaisquer trabalhos e executar tarefas de encerramento antes do despejo. 
 
+<a name="bkmk_try"></a>
+## <a name="try--restore-preview"></a>Experimente & restauro (pré-visualização)
+
+Esta nova funcionalidade ao nível da plataforma irá utilizar a IA para tentar restaurar automaticamente as instâncias da Máquina Virtual Azure Spot despejadas dentro de uma escala definida para manter a contagem de casos de alvo. 
+
+> [!IMPORTANT]
+> Tente & restauro está atualmente em pré-visualização pública.
+> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Experimente & restaurar os benefícios:
+- Ativado por predefinição ao implementar uma Máquina Virtual Azure Spot num conjunto de escala.
+- Tentativas de restaurar máquinas virtuais Azure Spot despejadas devido à capacidade.
+- Espera-se que as máquinas virtuais do Azure Spot restauradas sejam executadas por uma duração mais longa, com uma menor probabilidade de uma capacidade desencadeada de despejo.
+- Melhora o tempo de vida útil de uma Máquina Virtual Azure Spot, para que as cargas de trabalho decorram por uma duração mais longa.
+- Ajuda os conjuntos de escala de máquinas virtuais a manter a contagem de alvos para máquinas virtuais Azure Spot, semelhantes para manter a funcionalidade de contagem de alvos que já existe para VMs Pay-As-You-Go.
+
+Experimente & a restauração seja desativada em conjuntos de escala que utilizam [a Autoscale](virtual-machine-scale-sets-autoscale-overview.md). O número de VMs no conjunto de escala é impulsionado pelas regras de autoescala.
+
 ## <a name="placement-groups"></a>Grupos de colocação
+
 O grupo de colocação é uma construção semelhante a um conjunto de disponibilidades Azure, com os seus próprios domínios de falha e domínios de upgrade. Por predefinição, um conjunto de dimensionamento consiste num único grupo de colocação com o tamanho máximo de 100 VMs. Se a propriedade definida em escala `singlePlacementGroup` for definida como *falsa,* o conjunto de escala pode ser composto por vários grupos de colocação e tem uma gama de 0-1.000 VMs. 
 
 > [!IMPORTANT]
@@ -136,6 +155,24 @@ Adicione o `priority` , e propriedades à `evictionPolicy` `billingProfile` `"vi
 ```
 
 Para eliminar o caso depois de ter sido despejado, altere o `evictionPolicy` parâmetro para `Delete` .
+
+
+## <a name="simulate-an-eviction"></a>Simular um despejo
+
+Você pode [simular um despejo](https://docs.microsoft.com/rest/api/compute/virtualmachines/simulateeviction) de uma Máquina Virtual Azure Spot para testar quão bem a sua aplicação irá responder a um despejo súbito. 
+
+Substitua as seguintes informações: 
+
+- `subscriptionId`
+- `resourceGroupName`
+- `vmName`
+
+
+```rest
+POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}/simulateEviction?api-version=2020-06-01
+```
+
+`Response Code: 204` significa que o despejo simulado foi bem sucedido. 
 
 ## <a name="faq"></a>FAQ
 

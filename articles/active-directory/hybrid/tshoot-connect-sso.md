@@ -1,5 +1,5 @@
 ---
-title: 'Azure Ative Directory Connect: Troubleshoot Seamless Single Sign-On [ Microsoft Docs'
+title: 'Azure Ative Directory Connect: Troubleshoot Seamless Single Sign-On | Microsoft Docs'
 description: Este tópico descreve como resolver problemas no Azure Ative Directory Seamless Single Sign-On
 services: active-directory
 author: billmath
@@ -13,12 +13,12 @@ ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5bc638eec174a52d501120d5e53bb2dc9e35b688
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: eef58f6e84fb3b4dec947fa3614b6ec1043ff89e
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97591179"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101644651"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Resolução de problemas Azure Ative Directory Single Sign-On
 
@@ -32,6 +32,7 @@ Este artigo ajuda-o a encontrar informações sobre problemas comuns no que diz 
 - Os clientes Microsoft 365 Win32 (Outlook, Word, Excel e outros) com as versões 16.0.8730.xxxx e acima são suportados com um fluxo não interativo. Outras versões não são suportadas; nessas versões, os utilizadores introduzirão os seus nomes de utilizador, mas não palavras-passe, para iniciar sintrodução. Para o OneDrive, terá de ativar a [funcionalidade de config silencioso OneDrive](https://techcommunity.microsoft.com/t5/Microsoft-OneDrive-Blog/Previews-for-Silent-Sync-Account-Configuration-and-Bandwidth/ba-p/120894) para uma experiência de sinal-on silenciosa.
 - O SSO sem emenda não funciona em modo de navegação privada no Firefox.
 - O SSO sem emenda não funciona no Internet Explorer quando o modo Protegido Melhorado é ligado.
+- O SSO sem emenda não funciona em modo de navegação privada no Microsoft Edge (legado).
 - O Seamless SSO não funciona em navegadores móveis em iOS e Android.
 - Se um utilizador fizer parte de demasiados grupos no Ative Directory, o bilhete Kerberos do utilizador será provavelmente demasiado grande para ser processado, o que fará com que o SSO sem emenda falhe. Os pedidos Azure AD HTTPS podem ter cabeçalhos com um tamanho máximo de 50 KB; Os bilhetes Kerberos precisam de ser menores do que esse limite para acomodar outros artefactos AD Azure (normalmente, 2 - 5 KB) como cookies. A nossa recomendação é reduzir os membros do grupo de utilizadores e tentar novamente.
 - Se estiver a sincronizar 30 ou mais florestas de Ative Directory, não pode ativar o SSO sem emenda através do Azure AD Connect. Como solução alternativa, pode [ativar manualmente](#manual-reset-of-the-feature) a funcionalidade no seu inquilino.

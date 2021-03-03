@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/18/2021
+ms.date: 02/15/2021
 ms.author: jeedes
-ms.openlocfilehash: 745a82300cbbc87070a117cd8dd094236821aee7
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 390ccfa828ebaa0d3dec15990ffeb60cbb24360e
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98625402"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101648599"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-overdrive"></a>Tutorial: Integração do Diretório Ativo Azure com Overdrive
 
@@ -37,9 +37,9 @@ Para começar, precisa dos seguintes itens:
 
 Neste tutorial, você configura e testa Azure AD um único sinal de acesso em um ambiente de teste.
 
-* Overdrive suporta **SSO** iniciado sp
+* Overdrive suporta SSO iniciado **SP.**
 
-* Overdrive suporta **provisão do** utilizador Just In Time
+* Overdrive suporta o fornecimento do utilizador **Just In Time.**
 
 ## <a name="add-overdrive-from-the-gallery"></a>Adicione Overdrive da galeria
 
@@ -65,7 +65,7 @@ Para configurar e testar a Azure AD SSO com Overdrive, execute os seguintes pass
     1. **[Create Overdrive test user](#create-overdrive-test-user)** - para ter uma contraparte de B.Simon em Overdrive que está ligada à representação AD AD do utilizador.
 1. **[Teste SSO](#test-sso)** - para verificar se a configuração funciona.
 
-### <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
+## <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
 Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
@@ -121,7 +121,7 @@ Nesta secção, você permite que Britta Simon utilize a Azure single sign-on, c
 
 7. No diálogo **'Adicionar Atribuição'** clique no botão **'Atribuir'.**
 
-### <a name="configure-overdrive-sso"></a>Configurar overdrive SSO
+## <a name="configure-overdrive-sso"></a>Configurar overdrive SSO
 
 Para configurar um único sinal no lado **overdrive,** é necessário enviar os **Metadados XML da Federação** descarregados e URLs copiados apropriados do portal Azure para a equipa de [suporte overdrive](https://help.overdrive.com/). Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
 
@@ -133,7 +133,7 @@ Nesta secção, um utilizador chamado Britta Simon é criado em Overdrive. Overd
 >Pode utilizar quaisquer outras ferramentas de criação de conta de utilizador OverDrive ou APIs fornecidas pelo OverDrive para fornecer contas de utilizador Azure AD.
 >
 
-### <a name="test-sso"></a>Teste SSO
+## <a name="test-sso"></a>Teste SSO
 
 Nesta secção, testa a configuração de um único sinal de inscrição Azure AD com as seguintes opções. 
 
@@ -141,8 +141,8 @@ Nesta secção, testa a configuração de um único sinal de inscrição Azure A
 
 * Vá diretamente ao URL de inscrição de overdrive e inicie o fluxo de login a partir daí.
 
-* Pode utilizar as minhas apps do Microsoft. Quando clicar no azulejo Overdrive nas Minhas Apps, este irá redirecionar para URL de sinalização de overdrive. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+* Pode utilizar as minhas apps do Microsoft. Quando clicar no azulejo Overdrive nas Minhas Apps, este irá redirecionar para URL de sinalização de overdrive. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](../user-help/my-apps-portal-end-user-access.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Uma vez configurado Overdrive, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Uma vez configurado Overdrive, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

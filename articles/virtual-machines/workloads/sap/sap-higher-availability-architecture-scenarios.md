@@ -1,5 +1,5 @@
 ---
-title: Utilizar VMs Azure reinicia para "maior disponibilidade" de um sistema SAP Microsoft Docs
+title: Utilizar VMs Azure reinicia para "maior disponibilidade" de um sistema SAP | Microsoft Docs
 description: Utilizar a infraestrutura VM da utilização para alcançar uma "maior disponibilidade" de aplicações SAP
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
@@ -9,20 +9,19 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.assetid: f0b2f8f0-e798-4176-8217-017afe147917
-ms.service: virtual-machines-windows
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5d7904b950fa79f9ccbf98ec08f09aa6688f8a99
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: a107453e040c1b4e31b833fedca0d2017e983740
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94957899"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101672995"
 ---
 # <a name="utilize-azure-infrastructure-vm-restart-to-achieve-higher-availability-of-an-sap-system"></a>Utilizar a infraestrutura Azure VM reiniciar para alcançar "maior disponibilidade" de um sistema SAP
 

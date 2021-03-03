@@ -96,6 +96,8 @@
   items:
     - name: Pesquisa em texto completo
       href: search-lucene-query-architecture.md
+    - name: Pesquisa semântica
+      href: semantic-search-overview.md
     - name: Classificação de relevância
       href: index-similarity-and-scoring.md
     - name: Indexadores
@@ -218,6 +220,8 @@
           href: search-howto-schedule-indexers.md
         - name: Definir mapeamentos de campo
           href: search-indexer-field-mappings.md
+        - name: Propriedades de metadados de conteúdo
+          href: search-blob-metadata-properties.md
         - name: Ligar com identidades geridas
           items:
             - name: Descrição geral das identidades geridas
@@ -228,6 +232,8 @@
               href: search-howto-managed-identities-cosmos-db.md
             - name: SQL Database
               href: search-howto-managed-identities-sql.md
+        - name: SharePoint Online
+          href: search-howto-index-sharepoint-online.md
         - name: Blobs do Azure
           items:
             - name: Pesquisar em blobs
@@ -248,8 +254,6 @@
               href: search-howto-index-json-blobs.md
             - name: Indexar blobs encriptados
               href: search-howto-index-encrypted-blobs.md
-            - name: Propriedades de metadados para conteúdo de bolhas
-              href: search-blob-metadata-properties.md
         - name: Tabelas do Azure
           href: search-howto-indexing-azure-tables.md
         - name: Azure Cosmos DB
@@ -306,6 +310,10 @@
       items:
         - name: Criar uma consulta básica
           href: search-query-create.md
+        - name: Criar uma consulta semântica
+          href: semantic-how-to-query-request.md
+        - name: Adicione verificação ortográfica a consultas
+          href: speller-how-to-add.md
         - name: Tipos de consulta e composição
           href: search-query-overview.md
         - name: Utilizar sintaxe simples (exemplos)
@@ -348,6 +356,8 @@
       items:
         - name: Trabalhar com os resultados
           href: search-pagination-page-layout.md
+        - name: Estruturar uma resposta semântica
+          href: semantic-how-to-query-response.md
         - name: Perfis de classificação
           href: index-add-scoring-profiles.md
         - name: Algoritmo de semelhança
@@ -388,6 +398,8 @@
           href: search-manage.md
         - name: PowerShell
           href: search-manage-powershell.md
+        - name: CLI do Azure
+          href: search-manage-azure-cli.md
         - name: Mover o serviço entre regiões
           href: search-howto-move-across-regions.md
         - name: Acesso administrativo baseado em funções

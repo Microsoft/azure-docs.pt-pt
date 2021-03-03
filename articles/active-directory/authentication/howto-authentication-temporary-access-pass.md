@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 02/12/2021
+ms.date: 02/19/2021
 ms.author: justinha
 author: inbarckms
 manager: daveba
 ms.reviewer: inbarckms
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 56d45119fa86ab47e6a625c628d8cb9763db83bd
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: b0f49f39e6bc291c3242fe739866a015ac154a8b
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100520990"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101651166"
 ---
 # <a name="configure-temporary-access-pass-in-azure-ad-to-register-passwordless-authentication-methods-preview"></a>Configure o Passe de Acesso Temporário em Azure AD para registar métodos de autenticação sem palavras-passe (Pré-visualização)
 
@@ -75,6 +75,9 @@ Para criar uma TAP:
 1. Abaixo **Escolha o método**, clique no Passe de Acesso Temporário **(Pré-visualização)**.
 1. Defina um tempo ou duração de ativação personalizado e clique em **Adicionar**.
 
+   >[!NOTE]
+   >A utilização única da TAP não é aplicada quando o Keep Me Signed In (KMSI) está ativado no arrendatário. Se estiver a criar uma TAP única, certifique-se de desativar o KMSI.
+
    ![Screenshot de como criar uma TAP](./media/how-to-authentication-temporary-access-pass/create.png)
 
 1. Uma vez adicionados, os detalhes da TAP são mostrados. Tome nota do valor real da TAP. Fornece este valor ao utilizador. Não pode ver este valor depois de clicar **em Ok**.
@@ -125,6 +128,7 @@ Tenha em mente estas limitações:
 - Os utilizadores convidados não podem fazer sômis com uma TAP.
 - Os utilizadores no âmbito da política de registo de Autosserviço De Reset (SSPR) serão obrigados a registar um dos métodos SSPR depois de terem assinado com a TAP. Se o utilizador apenas utilizar a chave FIDO2, exclua-a da política SSPR ou desative a política de registo SSPR. 
 - A TAP não pode ser utilizada com a extensão do Servidor de Política de Rede (NPS) e o adaptador Ative Directory Federation Services (AD FS).
+- A utilização única da TAP não é aplicada quando a KMSI está ativada no arrendatário.
 - Quando o SSO sem emenda está ativado no arrendatário, os utilizadores são solicitados a introduzir uma senha. Em **vez disso,** o link Utilizar o seu Passe de Acesso Temporário estará disponível para o utilizador iniciar sação com a TAP.
 
 ![Screenshot de Usar uma TAP em vez](./media/how-to-authentication-temporary-access-pass/alternative.png)

@@ -1,5 +1,5 @@
 ---
-title: Azure AD garante acesso híbrido / Microsoft Docs
+title: Azure AD assegura acesso híbrido | Microsoft Docs
 description: Este artigo descreve soluções parceiras para integrar o seu legado no local, nuvem pública ou aplicações em nuvem privada com Azure AD. Proteja as suas aplicações antigas ligando controladores ou redes de entrega de aplicações ao Azure AD.
 services: active-directory
 author: gargi-sinha
@@ -8,21 +8,21 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
-ms.date: 9/10/2020
+ms.date: 2/16/2021
 ms.author: gasinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 521439da044fb4fc3c2f578f28658215266138d9
-ms.sourcegitcommit: e5f9126c1b04ffe55a2e0eb04b043e2c9e895e48
+ms.openlocfilehash: 68a4241a70577ce359320d388882312cf06090ba
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96317100"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101645430"
 ---
 # <a name="secure-hybrid-access-secure-legacy-apps-with-azure-active-directory"></a>Acesso híbrido seguro: Aplicações antigas seguras com diretório ativo Azure
 
 Pode agora proteger as suas aplicações de autenticação de legados no local e em nuvem, ligando-as ao Azure Ative Directory (AD) com:
 
-- [Proxy de Aplicações do Azure AD](#secure-hybrid-access-sha-through-azure-ad-application-proxy)
+- [Azure AD Application Proxy](#secure-hybrid-access-sha-through-azure-ad-application-proxy)
 
 - [Os controladores e redes de entrega de aplicações existentes](#sha-through-networking-and-delivery-controllers)
 
@@ -44,13 +44,15 @@ Além do [Azure AD Application Proxy](./what-is-application-proxy.md), para lhe 
 
 Os seguintes fornecedores de rede oferecem soluções pré-construídas e orientações detalhadas para a integração com a Azure AD.
 
-- [Akamai Enterprise Application Access (EAA)](../saas-apps/akamai-tutorial.md)
+- [Akamai Enterprise Application Access (EAA)](https://docs.microsoft.com/azure/active-directory/saas-apps/akamai-tutorial)
 
-- [Controlador de entrega de aplicações Citrix (ADC)](../saas-apps/citrix-netscaler-tutorial.md)
+- [Controlador de entrega de aplicações Citrix (ADC)](https://docs.microsoft.com/azure/active-directory/saas-apps/citrix-netscaler-tutorial)
 
-- [F5 Big-IP APM](f5-aad-integration.md)
+- [F5 Big-IP APM](https://docs.microsoft.com/azure/active-directory/saas-apps/headerf5-tutorial)
 
-- [Rio Kemp](../saas-apps/kemp-tutorial.md)
+- [Rio Kemp](https://docs.microsoft.com/azure/active-directory/saas-apps/kemp-tutorial)
+
+- [Pulse Secure Virtual Traffic Manager (VTM)](https://docs.microsoft.com/azure/active-directory/saas-apps/pulse-secure-virtual-traffic-manager-tutorial)
 
 ### <a name="sha-through-vpn-and-sdp-applications"></a>SHA através de aplicações VPN e SDP
 
@@ -58,14 +60,26 @@ Utilizando soluções VPN e SDP, pode fornecer acesso seguro à sua rede empresa
 
 ![Imagem mostra acesso híbrido seguro com parceiros VPN e procuração de aplicativos ](./media/secure-hybrid-access/app-proxy-vpn.png)
 
-Os seguintes fornecedores VPN e SDP oferecem soluções pré-construídas e orientações detalhadas para a integração com a Azure AD.
+Os seguintes fornecedores VPN oferecem soluções pré-construídas e orientações detalhadas para a integração com a Azure AD.
 
-• [Cisco AnyConnect](../saas-apps/cisco-anyconnect.md)
+- [Cisco AnyConnect](https://docs.microsoft.com/azure/active-directory/saas-apps/cisco-anyconnect)
 
-• [Fortinet](../saas-apps/fortigate-ssl-vpn-tutorial.md)
+- [Fortinet](https://docs.microsoft.com/azure/active-directory/saas-apps/fortigate-ssl-vpn-tutorial)
 
-• [F5 Big-IP APM](f5-aad-password-less-vpn.md)
+- [F5 Big-IP APM](https://docs.microsoft.com/azure/active-directory/manage-apps/f5-aad-password-less-vpn)
 
-• [Palo Alto Networks Global Protect](../saas-apps/paloaltoadmin-tutorial.md)
+- [Palo Alto Networks Global Protect](https://docs.microsoft.com/azure/active-directory/saas-apps/paloaltoadmin-tutorial)
 
-• [Zscaler Private Access (ZPA)](../saas-apps/zscalerprivateaccess-tutorial.md)
+- [Pulse Secure Pulse Connect Secure (PCS)](https://docs.microsoft.com/azure/active-directory/saas-apps/pulse-secure-pcs-tutorial)
+
+Os seguintes fornecedores de SDP oferecem soluções pré-construídas e orientações detalhadas para a integração com a Azure AD.
+
+- [Corretor de acesso datawiza](https://docs.microsoft.com/azure/active-directory/manage-apps/add-application-portal-setup-oidc-sso)
+
+- [Perimeter 81](https://docs.microsoft.com/azure/active-directory/saas-apps/perimeter-81-tutorial#:~:text=For%20SSO%20to%20work,%20you%20need%20to%20establish,to%20test%20Azure%20AD%20single%20sign-on%20with%20B.Simon.)
+
+- [Plataforma de Autenticação Silverfort](https://docs.microsoft.com/azure/active-directory/manage-apps/add-application-portal-setup-oidc-sso)
+
+- [Strata](https://docs.microsoft.com/azure/active-directory/saas-apps/maverics-identity-orchestrator-saml-connector-tutorial)
+
+- [Zscaler Private Access (ZPA)](https://docs.microsoft.com/azure/active-directory/saas-apps/zscalerprivateaccess-tutorial)

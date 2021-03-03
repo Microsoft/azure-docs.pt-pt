@@ -6,19 +6,19 @@ ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 11/24/2020
-ms.openlocfilehash: a0eed27636a3f65d68489d1f2249db784ba1d722
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.date: 01/17/2021
+ms.openlocfilehash: b6ea3e762ad098e373baa8487d8926105820f226
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98196542"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101666509"
 ---
 # <a name="classification-insights-about-your-data-from-azure-purview"></a>Insights de classificação sobre os seus dados a partir do Azure Purview
 
 Este guia de como aceder, visualizar e filtrar relatórios de insight de classificação purview para os seus dados.
 
-As fontes de dados suportadas incluem: Azure Blob Storage, Azure Data Lake Storage (ADLS) GEN 1, Azure Data Lake Storage (ADLS) GEN 2, Azure Cosmos DB (SQL API), Azure Synapse Analytics (anteriormente SQL DW), Azure SQL Database, Azure SQL Managed Instance, SQL Server
+Fontes de dados suportadas incluem: Azure Blob Storage, Azure Data Lake Storage (ADLS) GEN 1, Azure Data Lake Storage (ADLS) GEN 2, Azure Cosmos DB (SQL API), Azure Synapse Analytics (anteriormente SQL DW), Azure SQL Database, Azure SQL Managed Instance, SQL Server, Amazon S3 buckets
 
 Neste guia de como guiar, aprenderá a:
 
@@ -33,7 +33,7 @@ Antes de começar com as introspeções de Competência, certifique-se de que co
 
 - Configurar os seus recursos Azure e povoar as contas relevantes com dados de teste
 
-- Configurar e completar uma verificação dos dados de teste em cada fonte de dados
+- Configurar e completar uma verificação dos dados de teste em cada fonte de dados. Para obter mais informações, consulte [Gerir as fontes de dados em Azure Purview (Preview)](manage-data-sources.md) e [criar um conjunto de regras de digitalização](create-a-scan-rule-set.md).
 
 - Inscreva-se em Purview com uma função de [Data Reader ou Data Curator](catalog-permissions.md#azure-purviews-pre-defined-data-plane-roles).
 

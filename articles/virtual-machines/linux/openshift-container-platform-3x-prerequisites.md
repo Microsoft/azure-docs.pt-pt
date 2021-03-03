@@ -3,18 +3,19 @@ title: Plataforma de contentores OpenShift 3.11 em pré-requisitos Azure
 description: Pré-requisitos para implantar a Plataforma de Contentores OpenShift 3.11 em Azure.
 author: haroldwongms
 manager: mdotson
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: openshift
+ms.collection: linux
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 10/23/2019
 ms.author: haroldw
-ms.openlocfilehash: 51f6a2ac4f524ac2a504fb8e0c3dd90ec25c9f93
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 645402d6c6b1fe744938ef5597098f46bc80c78e
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98734735"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101672361"
 ---
 # <a name="common-prerequisites-for-deploying-openshift-container-platform-311-in-azure"></a>Pré-requisitos comuns para a implantação da Plataforma de Contentores OpenShift 3.11 em Azure
 
@@ -64,7 +65,7 @@ az group create --name keyvaultrg --location eastus
 ```
 
 ## <a name="create-a-key-vault"></a>Criar um cofre de chaves
-Crie um cofre chave para armazenar as teclas SSH para o cluster com o [comando de criação de chave az.](/cli/azure/keyvault) O nome do cofre de chaves deve ser globalmente único e deve ser ativado para a implementação do modelo ou a implementação falhará com o erro "KeyVaultParameterReferenceReretrieveFailed".
+Crie um cofre chave para armazenar as teclas SSH para o cluster com o [comando de criação de chave az.](/cli/azure/keyvault) O nome do cofre de chaves deve ser globalmente único e deve ser ativado para a implementação do modelo ou a implementação falhará com o erro "KeyVaultParameterReferenceReretretretretrieveFailed".
 
 O exemplo a seguir cria um cofre-chave denominado *keyvault* no grupo de recursos *keyvaultrg:*
 
@@ -163,7 +164,7 @@ Crie os segredos usando o Azure CLI. Abaixo está um exemplo.
 az keyvault secret set --vault-name KeyVaultName -n mastercafile --file ~/certificates/masterca.pem
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Este artigo abordou os seguintes tópicos:
 > [!div class="checklist"]

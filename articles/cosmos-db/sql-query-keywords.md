@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 01/20/2021
 ms.author: tisande
-ms.openlocfilehash: 09148e65e446d723fbfe7a54602db59ee0739f83
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 4711401172c4a2b224c231db4a773e0c4219d3a7
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98599360"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101659839"
 ---
 # <a name="keywords-in-azure-cosmos-db"></a>Palavras-chave em Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -113,7 +113,7 @@ SELECT COUNT(1) FROM (SELECT DISTINCT f.lastName FROM f)
 Devolve um valor Boolean dependendo se uma corda de carácter específico corresponde a um padrão especificado. Um padrão pode incluir caracteres regulares e caracteres wildcard. Pode escrever consultas logicamente equivalentes utilizando a `LIKE` palavra-chave ou a função do sistema [RegexMatch.](sql-query-regexmatch.md) Observará a mesma utilização do índice independentemente da escolha. Por isso, deve utilizar `LIKE` se preferir a sintaxe mais do que expressões regulares.
 
 > [!NOTE]
-> Porque `LIKE` pode utilizar um índice, deve criar um índice de [gama](indexing-policy.md) para propriedades que está a comparar usando `LIKE` .
+> Porque `LIKE` pode utilizar um índice, deve criar um índice de [gama](./index-policy.md) para propriedades que está a comparar usando `LIKE` .
 
 Pode utilizar os seguintes caracteres wildcard com LIKE:
 

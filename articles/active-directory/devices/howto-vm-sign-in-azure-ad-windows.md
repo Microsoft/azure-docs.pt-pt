@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions, devx-track-azurecli
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66958e275a6dee13244f0f283b1ee1dbb5d40470
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: ee392666a6c6807497eeac2a2291dac915c4e136
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101093457"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101644311"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Iniciar sedutação na máquina virtual do Windows em Azure utilizando a autenticação do Azure Ative Directory (Preview)
 
@@ -62,10 +62,10 @@ As seguintes regiões de Azure são atualmente apoiadas durante a pré-visualiza
 
 Para ativar a autenticação AZure AD para os seus VMs windows em Azure, tem de garantir que a configuração da rede VMs permite o acesso de saída aos seguintes pontos finais sobre a porta TCP 443:
 
-- https: \/ /enterpriseregistration.windows.net
-- https:\//login.microsoftonline.com
-- https: \/ /device.login.microsoftonline.com
-- https: \/ /pas.windows.net
+- `https://enterpriseregistration.windows.net`
+- `https://login.microsoftonline.com`
+- `https://device.login.microsoftonline.com`
+- `https://pas.windows.net`
 
 ## <a name="enabling-azure-ad-login-in-for-windows-vm-in-azure"></a>Habilitar o Azure AD a iniciar sessão para o Windows VM em Azure
 
@@ -98,9 +98,9 @@ Para criar um VM do Datacenter 2019 do Windows Server em Azure com o logon AD do
 
 O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para executar os passos neste artigo. As ferramentas comuns do Azure estão pré-instaladas e configuradas no Cloud Shell para que possa utilizá-las com a sua conta. Basta selecionar o botão Copiar para copiar o código, colá-lo no Cloud Shell e, em seguida, premir Enter para executá-lo. Existem algumas formas de abrir o Cloud Shell:
 
-Selecione Experimentar no canto superior direito de um bloco de código.
-Abrir o Cloud Shell no seu browser.
-Selecione o botão Cloud Shell no menu, no canto superior direito do [portal do Azure](https://portal.azure.com).
+- Selecione **Experimentar** no canto superior direito de um bloco de código.
+- Abrir o Cloud Shell no seu browser.
+- Selecione o botão Cloud Shell no menu, no canto superior direito do [portal do Azure](https://portal.azure.com).
 
 Se optar por instalar e utilizar o CLI localmente, este artigo requer que esteja a executar a versão Azure CLI 2.0.31 ou posterior. Execute az --version para localizar a versão. Se necessitar de instalar ou atualizar, consulte o artigo Instalar O [Azure CLI](/cli/azure/install-azure-cli).
 
@@ -127,7 +127,7 @@ az vm create \
 
 São necessários alguns minutos para criar a VM e os recursos de suporte.
 
-Por fim, instale a extensão VM de login Azure AD para permitir o login Azure AD para o Windows VM. As extensões VM são pequenas aplicações que fornecem tarefas de configuração e automatização pós-implantação em máquinas virtuais Azure. Utilize o conjunto [de extensão az vm](/cli/azure/vm/extension#az-vm-extension-set) para instalar a extensão AADLoginForWindows no VM nomeado myVM no grupo de recursos myResourceGroup:
+Por fim, instale a extensão VM de login Azure AD para permitir o login Azure AD para o Windows VM. As extensões VM são pequenas aplicações que fornecem tarefas de configuração e automatização pós-implantação em máquinas virtuais Azure. Utilize o conjunto [de extensão az vm](/cli/azure/vm/extension#az-vm-extension-set) para instalar a extensão AADLoginForWindows no VM nomeado `myVM` no grupo de `myResourceGroup` recursos:
 
 > [!NOTE]
 > Pode instalar a extensão AADLoginForWindows num Windows Server 2019 ou Windows 10 1809 existente e mais tarde em VM para a permitir a autenticação AD do Azure. Um exemplo de AZ CLI é mostrado abaixo.
@@ -200,7 +200,7 @@ Para obter mais informações sobre como utilizar o Azure RBAC para gerir o aces
 
 ## <a name="using-conditional-access"></a>Usando acesso condicional
 
-Pode impor políticas de Acesso Condicional, tais como autenticação de vários fatores ou verificação de risco de entrada no utilizador antes de autorizar o acesso a VMs do Windows em Azure que estão ativados com o sinal AD do Azure. Para aplicar a política de Acesso Condicional, tem de selecionar a aplicação "Azure Windows VM Sign-In" a partir da opção de atribuição de aplicações na nuvem ou ações e, em seguida, utilizar o risco de acesso como condição e/ou exigir a autenticação de vários fatores como controlo de acesso a subvenções. 
+Pode impor políticas de Acesso Condicional, tais como autenticação de vários fatores ou verificação de risco de entrada no utilizador antes de autorizar o acesso a VMs do Windows em Azure que estão ativados com o sinal AD do Azure. Para aplicar a política de Acesso Condicional, tem de selecionar a aplicação "Azure Windows VM Sign-In" a partir da opção de atribuição de aplicações na nuvem ou ações e, em seguida, utilizar o risco de Acesso como condição e/ou exigir a autenticação de vários fatores como controlo de acesso a subvenções. 
 
 > [!NOTE]
 > Se utilizar a "Requer autenticação multi-factor" como um controlo de acesso a subvenções para solicitar acesso à aplicação "Azure Windows VM Sign-In", então deve fornecer a reclamação de autenticação multi-factor como parte do cliente que inicia a sessão DE PDR para o windows VM alvo em Azure. A única forma de o conseguir num cliente do Windows 10 é utilizar o Windows Hello para Business PIN ou a autenticação biométrica com o cliente RDP. O suporte à autenticação biométrica foi adicionado ao cliente RDP na versão 1809 do Windows 10. O ambiente de trabalho remoto que utiliza a autenticação do Windows Hello for Business apenas está disponível para implementações que utilizam o modelo cert trust e que atualmente não estão disponíveis para o modelo de confiança chave.
@@ -211,7 +211,7 @@ Pode impor políticas de Acesso Condicional, tais como autenticação de vários
 ## <a name="log-in-using-azure-ad-credentials-to-a-windows-vm"></a>Faça login usando credenciais AZure AD para um Windows VM
 
 > [!IMPORTANT]
-> A ligação remota aos VMs aderidos ao Azure AD só é permitida a partir de PCs windows 10 que estejam registados aZure AD (a construção mínima exigida é 20H1) ou a Azure AD unida ou híbrida Azure AD unida ao **mesmo** diretório que o VM. Além disso, para RDP utilizando credenciais AZure AD, o utilizador deve pertencer a uma das duas funções Azure, O Login do Administrador de Máquina Virtual ou Login do Utilizador de Máquina Virtual. Se utilizar um PC do Windows 10 registado no Azure AD, deve introduzir credenciais no formato AzureAD\UPN (por AzureAD\john@contoso.com exemplo). Neste momento, o Azure Bastion não pode ser utilizado para fazer login utilizando a autenticação do Azure Ative Directory com a extensão AADLoginForWindows; apenas é suportado RDP direto.
+> A ligação remota aos VMs aderidos ao Azure AD só é permitida a partir de PCs windows 10 que estejam registados aZure AD (a construção mínima exigida é 20H1) ou a Azure AD unida ou híbrida Azure AD unida ao **mesmo** diretório que o VM. Além disso, para RDP utilizando credenciais AZure AD, o utilizador deve pertencer a uma das duas funções Azure, O Login do Administrador de Máquina Virtual ou Login do Utilizador de Máquina Virtual. Se utilizar um PC AZURE AD registado no Windows 10, deve introduzir credenciais no `AzureAD\UPN` formato (por exemplo, `AzureAD\john@contoso.com` ). Neste momento, o Azure Bastion não pode ser utilizado para fazer login utilizando a autenticação do Azure Ative Directory com a extensão AADLoginForWindows; apenas é suportado RDP direto.
 
 Para iniciar sessão na sua máquina virtual Windows Server 2019 utilizando Azure AD: 
 
@@ -233,12 +233,12 @@ Está agora a fazer sessão no Windows Server 2019 Azure virtual machine com as 
 
 A extensão AADLoginForWindows deve ser instalada com sucesso para que o VM complete o processo de ad AD Azure. Execute os seguintes passos se a extensão VM não for instalada corretamente.
 
-1. RDP para o VM usando a conta de administrador local e examinar o CommandExecuti'n.log  
+1. PDR para o VM utilizando a conta de administrador local e examina o `CommandExecution.log` ficheiro em:
    
-   C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.ActiveDirectory.AADLoginForWindows\0.3.1.0. 
+   `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.ActiveDirectory.AADLoginForWindows\0.3.1.0.`
 
    > [!NOTE]
-   > Se a extensão recomeçar após a falha inicial, o registo com o erro de implantação será guardado à medida que CommandExecution_YYYYMMDDHHMMSSSSS.log. "
+   > Se a extensão recomeçar após a falha inicial, o registo com o erro de implantação será guardado como `CommandExecution_YYYYMMDDHHMMSSSSS.log` . "
 1. Abra uma solicitação de comando PowerShell no VM e verifique estas consultas contra o Serviço de Metadados de Instância (IMDS) que está a ser executada nas devoluções do anfitrião Azure:
 
    | Comando para correr | Resultado esperado |
@@ -248,61 +248,61 @@ A extensão AADLoginForWindows deve ser instalada com sucesso para que o VM comp
    | `curl -H @{"Metadata"="true"} "http://169.254.169.254/metadata/identity/oauth2/token?resource=urn:ms-drs:enterpriseregistration.windows.net&api-version=2018-02-01"` | Ficha de acesso válida emitida pela Azure Ative Directory para a identidade gerida atribuída a este VM |
 
    > [!NOTE]
-   > O token de acesso pode ser descodificado usando uma ferramenta como [http://calebb.net/](http://calebb.net/) . Verifique se o "appid" no token de acesso corresponde à identidade gerida atribuída ao VM.
+   > O token de acesso pode ser descodificado usando uma ferramenta como [calebb.net](http://calebb.net/). Verifique se `appid` o token de acesso corresponde à identidade gerida atribuída ao VM.
 
 1. Certifique-se de que os pontos finais necessários estão acessíveis a partir do VM utilizando a linha de comando:
    
-   - Curl https: \/ /login.microsoftonline.com/ -D –
-   - Curl https: \/ /login.microsoftonline.com/ `<TenantID>` / -D –
+   - `curl https://login.microsoftonline.com/ -D -`
+   - `curl https://login.microsoftonline.com/<TenantID>/ -D -`
 
    > [!NOTE]
    > `<TenantID>`Substitua-se pelo ID do Inquilino Azure que está associado à assinatura Azure.
 
-   - Curl https: \/ /enterpriseregistration.windows.net/ -D -
-   - Curl https: \/ /device.login.microsoftonline.com/ -D -
-   - Curl https: \/ /pas.windows.net/ -D -
+   - `curl https://enterpriseregistration.windows.net/ -D -`
+   - `curl https://device.login.microsoftonline.com/ -D -`
+   - `curl https://pas.windows.net/ -D -`
 
 1. O Estado do Dispositivo pode ser visto em funcionamento `dsregcmd /status` . O objetivo é que o Estado do Dispositivo mostre como `AzureAdJoined : YES` .
 
    > [!NOTE]
-   > A atividade de ad AD azure é capturada no espectador de evento sob o registo do dispositivo de utilizador\Admin.
+   > A atividade de ad AD A azul é capturada no espectador do evento sob o `User Device Registration\Admin` log.
 
 Se a extensão AADLoginForWindows falhar com determinado código de erro, pode executar os seguintes passos:
 
-#### <a name="issue-1-aadloginforwindows-extension-fails-to-install-with-terminal-error-code-1007-and-exit-code--2145648574"></a>Emissão 1: A extensão AADLoginForWindows não é instalada com código de erro de terminal '1007' e código de saída: -2145648574.
+#### <a name="issue-1-aadloginforwindows-extension-fails-to-install-with-terminal-error-code-1007-and-exit-code--2145648574"></a>Edição 1: A extensão AADLoginForWindows não é instalada com código de erro de terminal '1007' e código de saída: -2145648574.
 
-Este código de saída traduz-se em DSREG_E_MSI_TENANTID_UNAVAILABLE porque a extensão não é capaz de consultar a informação do Azure AD Tenant.
+Este código de saída traduz-se `DSREG_E_MSI_TENANTID_UNAVAILABLE` porque a extensão não é capaz de consultar a informação do Azure AD Tenant.
 
 1. Verifique se o Azure VM pode recuperar o TenantID do Serviço de Metadados de Exemplo.
 
    - RDP para o VM como administrador local e verificar o ponto final devolve o ID do inquilino válido executando este comando a partir de uma linha de comando elevada no VM:
       
-      - curl -H Metadados:verdadeiro http://169.254.169.254/metadata/identity/info?api-version=2018-02-01
+      - `curl -H Metadata:true http://169.254.169.254/metadata/identity/info?api-version=2018-02-01`
 
 1. O administrador VM tenta instalar a extensão AADLoginForWindows, mas um sistema atribuído identidade gerida não ativou primeiro o VM. Navegue até à lâmina de identidade do VM. A partir do separador Designado sistema, verifique se o Estado é alternado para On.
 
 #### <a name="issue-2-aadloginforwindows-extension-fails-to-install-with-exit-code--2145648607"></a>Edição 2: Extensão AADLoginForWindows falha na instalação com código de saída: -2145648607
 
-Este código de saída traduz-se em DSREG_AUTOJOIN_DISC_FAILED porque a extensão não é capaz de chegar ao `https://enterpriseregistration.windows.net` ponto final.
+Este código de saída traduz-se `DSREG_AUTOJOIN_DISC_FAILED` porque a extensão não é capaz de chegar ao `https://enterpriseregistration.windows.net` ponto final.
 
 1. Verifique se os pontos finais necessários estão acessíveis a partir do VM utilizando a linha de comando:
 
-   - Curl https: \/ /login.microsoftonline.com/ -D –
-   - Curl https: \/ /login.microsoftonline.com/ `<TenantID>` / -D –
+   - `curl https://login.microsoftonline.com/ -D -`
+   - `curl https://login.microsoftonline.com/<TenantID>/ -D -`
    
    > [!NOTE]
-   > `<TenantID>`Substitua-se pelo ID do Inquilino Azure que está associado à assinatura Azure. Se precisar de encontrar o ID do inquilino, pode pairar sobre o nome da sua conta para obter o ID do diretório/inquilino, ou selecionar O Diretório Ativo > Propriedades > ID do Diretório no portal Azure.
+   > `<TenantID>`Substitua-se pelo ID do Inquilino Azure que está associado à assinatura Azure. Se precisar de encontrar o ID do inquilino, pode pairar sobre o nome da sua conta para obter o ID do diretório/inquilino, ou selecionar **O Diretório Ativo > Propriedades > ID do Diretório** no portal Azure.
 
-   - Curl https: \/ /enterpriseregistration.windows.net/ -D -
-   - Curl https: \/ /device.login.microsoftonline.com/ -D -
-   - Curl https: \/ /pas.windows.net/ -D -
+   - `curl https://enterpriseregistration.windows.net/ -D -`
+   - `curl https://device.login.microsoftonline.com/ -D -`
+   - `curl https://pas.windows.net/ -D -`
 
 1. Se algum dos comandos falhar com "Não conseguiu resolver o `<URL>` anfitrião", tente executar este comando para determinar o servidor DNS que está a ser utilizado pelo VM.
    
    `nslookup <URL>`
 
    > [!NOTE] 
-   > `<URL>`Substitua-os pelos nomes de domínio totalmente qualificados utilizados pelos pontos finais, tais como "login.microsoftonline.com".
+   > `<URL>`Substitua-os pelos nomes de domínio totalmente qualificados utilizados pelos pontos finais, tais como `login.microsoftonline.com` .
 
 1. Em seguida, veja se especificar um servidor DNS público permite que o comando tenha sucesso:
 
@@ -322,13 +322,13 @@ Alguns erros comuns quando tentas pDR com credenciais AZure AD incluem nenhuma f
 
 O Dispositivo e o Estado SSO podem ser vistos em funcionamento `dsregcmd /status` . O objetivo é que o Estado do Dispositivo mostre como `AzureAdJoined : YES` e `SSO State` mostrar `AzureAdPrt : YES` .
 
-Além disso, o login RDP que utiliza as contas AZure AD é capturado no visualizador do Evento sob os registos de eventos AAD\Operational.
+Além disso, o login RDP que utiliza as contas AZure AD é capturado no visualizador do Evento sob os registos do `AAD\Operational` evento.
 
 #### <a name="azure-role-not-assigned"></a>Papel de Azure não atribuído
 
 Se vir a seguinte mensagem de erro quando iniciar uma ligação remota de ambiente de trabalho ao seu VM: 
 
-- A sua conta está configurada para evitar que utilize este dispositivo. Para mais informações, contacte o administrador do seu sistema
+- A sua conta está configurada para evitar que utilize este dispositivo. Para mais informações, contacte o administrador do seu sistema.
 
 ![A sua conta está configurada para evitar que utilize este dispositivo.](./media/howto-vm-sign-in-azure-ad-windows/rbac-role-not-assigned.png)
 
@@ -348,11 +348,11 @@ Se vir a seguinte mensagem de erro quando iniciar uma ligação remota de ambien
 Verifique se o PC Windows 10 que está a utilizar para iniciar a ligação remota de ambiente de trabalho é aquele que está ligado ao Azure AD ou o AD híbrido Azure juntou-se ao mesmo diretório AD AD Azure onde o seu VM está ligado. Para obter mais informações sobre a identidade do dispositivo, consulte o artigo [O que é uma identidade do dispositivo](./overview.md).
 
 > [!NOTE]
-> O Windows 10 Build 20H1 adicionou suporte para um PC AD registado no Azure para iniciar a ligação RDP ao seu VM. Ao utilizar um AD AZure registado (não a Azure AD ligado ou híbrido Azure AD) PC como cliente RDP para iniciar ligações ao seu VM, deve introduzir credenciais no formato AzureAD\UPn (por AzureAD\john@contoso.com exemplo).
+> O Windows 10 Build 20H1 adicionou suporte para um PC AD registado no Azure para iniciar a ligação RDP ao seu VM. Ao utilizar um AD AZure registado (não a Azure AD ligado ou híbrido Azure AD) PC como cliente RDP para iniciar ligações ao seu VM, deve introduzir credenciais no formato `AzureAD\UPN` (por exemplo, `AzureAD\john@contoso.com` ).
 
 Verifique se a extensão AADLoginForWindows não foi desinstalada após a junção AD do Azure ter terminado.
 
-Além disso, certifique-se de que a política de segurança "Segurança da rede: permitir que os pedidos de autenticação PKU2U a este computador utilizem identidades online" esteja ativada tanto no *servidor* como no cliente.
+Além disso, certifique-se de que a política de segurança "Segurança da rede: permitir que os pedidos de autenticação PKU2U a este computador utilizem identidades online" esteja ativada tanto no **servidor** como no cliente.
  
 #### <a name="mfa-sign-in-method-required"></a>Método de inscrição do MFA necessário
 
@@ -367,7 +367,7 @@ Se tiver configurado uma política de Acesso Condicional que exija autenticaçã
 Se não tiver implementado o Windows Hello for Business e se isso não for uma opção por enquanto, pode excluir a exigência de MFA configurando a política de Acesso Condicional que exclui a aplicação "Azure Windows VM Sign-In" da lista de aplicações na nuvem que requerem MFA. Para saber mais sobre o Windows Hello for Business, consulte [o Windows Hello for Business Overview](/windows/security/identity-protection/hello-for-business/hello-identity-verification).
 
 > [!NOTE]
-> A autenticação do Windows Hello for Business PIN com RDP foi suportada pelo Windows 10 para várias versões, no entanto o suporte para autenticação biométrica com RDP foi adicionado na versão 1809 do Windows 10. A utilização do Windows Hello for Business auth durante o RDP só está disponível para implementações que utilizem o modelo cert trust e que atualmente não estão disponíveis para o modelo de confiança chave.
+> A autenticação do Windows Hello for Business PIN com RDP foi suportada pelo Windows 10 para várias versões, no entanto o suporte para autenticação biométrica com RDP foi adicionado na versão 1809 do Windows 10. A utilização do Windows Hello para autenticação empresarial durante o RDP só está disponível para implementações que utilizem o modelo cert trust e que atualmente não estão disponíveis para o modelo key trust.
  
 ## <a name="preview-feedback"></a>Comentários sobre a pré-visualização
 
@@ -375,4 +375,4 @@ Partilhe o seu feedback sobre esta funcionalidade de pré-visualização ou info
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para mais informações sobre o Diretório Ativo Azure, consulte [o que é o Diretório Ativo Azure](../fundamentals/active-directory-whatis.md)
+Para obter mais informações sobre o Diretório Ativo Azure, consulte [o que é o Diretório Ativo Azure](../fundamentals/active-directory-whatis.md).

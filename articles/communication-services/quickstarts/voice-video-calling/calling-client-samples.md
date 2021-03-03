@@ -10,16 +10,14 @@ ms.date: 03/18/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-web-ios-android
-ms.openlocfilehash: 1e5b0e88c4a84e27d662b2f2c4b39b14538af92a
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: e99af324e02e81e4b6888ee0e054ef466df899c1
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126808"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101661539"
 ---
 # <a name="quickstart-use-the-communication-services-calling-client-library"></a>Quickstart: Utilize os Serviços de Comunicação chamando a biblioteca do cliente
-
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 Inicie-se com os Serviços de Comunicação da Azure utilizando os Serviços de Comunicação chamando a biblioteca do cliente para adicionar chamadas de voz e vídeo à sua app.
 
@@ -35,7 +33,7 @@ Inicie-se com os Serviços de Comunicação da Azure utilizando os Serviços de 
 [!INCLUDE [Calling with iOS](./includes/calling-sdk-ios.md)]
 ::: zone-end
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se pretender limpar e remover uma assinatura de Serviços de Comunicação, pode eliminar o grupo de recursos ou recursos. A eliminação do grupo de recursos também elimina quaisquer outros recursos que lhe sejam associados. Saiba mais sobre [a limpeza de recursos.](../create-communication-resource.md#clean-up-resources)
 

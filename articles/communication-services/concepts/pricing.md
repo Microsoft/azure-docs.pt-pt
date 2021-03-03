@@ -9,17 +9,14 @@ ms.author: mikben
 ms.date: 09/29/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 883be25716d94130984baef5e7a1eab80888a2b9
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: bf255837a08a4810321f2f03cb97838e31a7cddc
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100558471"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101657762"
 ---
 # <a name="pricing-scenarios"></a>Cenários de preços
-
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
-
 
 Os preços dos Serviços de Comunicação Azure baseiam-se geralmente num modelo de pagamento. Os preços dos seguintes exemplos são para fins ilustrativos e podem não refletir os preços mais recentes do Azure.
 
@@ -50,7 +47,7 @@ A Alice fez uma chamada em grupo com os colegas, Bob e Charlie. Alice e Bob usar
 
 ### <a name="pricing-example-a-user-of-the-communication-services-js-client-library-joins-a-scheduled-microsoft-teams-meeting"></a>Exemplo de preços: Um utilizador da biblioteca de clientes JS dos Serviços de Comunicação junta-se a uma reunião agendada da Microsoft Teams
 
-A Alice está a encontrar-se com o paciente, Bob. Alice juntar-se-á à visita da aplicação Teams Desktop. Bob receberá um link para se juntar ao site do prestador de cuidados de saúde, que se conecta à reunião usando a biblioteca de clientes JS dos Serviços de Comunicação. Bob usará o seu telemóvel para entrar na reunião usando um navegador web (iPhone com Safari). O chat estará disponível durante a visita virtual. 
+A Alice está a encontrar-se com o paciente, Bob. Alice juntar-se-á à visita da aplicação Teams Desktop. Bob receberá um link para se juntar ao site do prestador de cuidados de saúde, que se conecta à reunião usando a biblioteca de clientes JS dos Serviços de Comunicação. Bob usará o seu telemóvel para entrar na reunião usando um navegador web (iPhone com Safari). O chat estará disponível durante a visita virtual.
 
 - A chamada dura um total de 30 minutos.
 - Alice e Bob participam de toda a ligação. Alice liga o vídeo cinco minutos depois da chamada começar e partilha o ecrã durante 13 minutos. O Bob tem o vídeo dele ligado para toda a chamada.
@@ -60,15 +57,15 @@ A Alice está a encontrar-se com o paciente, Bob. Alice juntar-se-á à visita d
 **Cálculos de custos**
 
 - 1 participante (Bob) x 30 minutos x $0,004 por participante por minuto = $0,12 [tanto o vídeo como o áudio são cobrados à mesma taxa]
-- 1 participante (Alice) x 30 minutos x $0,000 por participante por minuto = $0,0*. 
+- 1 participante (Alice) x 30 minutos x $0,000 por participante por minuto = $0,0*.
 - 1 participante (Bob) x 3 mensagens de chat x $0,0008 = $0,0024.
-- 1 participante (Alice) x 5 mensagens de chat x $0,000 = $0,0*. 
+- 1 participante (Alice) x 5 mensagens de chat x $0,000 = $0,0*.
 
 *A participação da Alice está coberta pela licença das equipas. A sua fatura Azure mostrará as minutos e mensagens de chat que os utilizadores das Equipas tinham com os Utilizadores dos Serviços de Comunicação para sua conveniência, mas esses minutos e mensagens originárias do cliente das Equipas não custarão.
 
-**Custo total da visita:** 
+**Custo total da visita:**
 - Utilização do utilizador através da biblioteca de clientes JS dos Serviços de Comunicação: $0,12 + $0,0024 = $0,1224
-- Adesão do utilizador à aplicação de ambiente de trabalho teams: $0 (coberto pela licença das equipas) 
+- Adesão do utilizador à aplicação de ambiente de trabalho teams: $0 (coberto pela licença das equipas)
 
 
 ## <a name="chat"></a>Chat
@@ -79,27 +76,27 @@ Com os Serviços de Comunicação pode melhorar a sua aplicação com a capacida
 
 Cobram-lhe $0.0008 por cada mensagem de chat enviada.
 
-### <a name="pricing-example-chat-between-two-users"></a>Exemplo de preços: Conversa entre dois utilizadores 
+### <a name="pricing-example-chat-between-two-users"></a>Exemplo de preços: Conversa entre dois utilizadores
 
 Geeta inicia um chat thread com Emily para partilhar uma atualização e envia 5 mensagens. A conversa dura 10 minutos. Geeta e Emily enviam mais 15 mensagens cada.
 
-**Cálculos de custos** 
+**Cálculos de custos**
 - Número de mensagens enviadas (5 + 15 + 15) x $0,0008 = $0,028
 
-### <a name="pricing-example-group-chat-with-multiple-users"></a>Exemplo de preços: Chat de grupo com vários utilizadores 
+### <a name="pricing-example-group-chat-with-multiple-users"></a>Exemplo de preços: Chat de grupo com vários utilizadores
 
-Charlie começa uma conversa com os amigos Casey & Jasmine para planear umas férias. Conversam durante algum tempo onde Charlie, Casey & Jasmine enviam 20, 30 e 18 mensagens, respectivamente. Eles percebem que a sua amiga Rose também pode estar interessada em juntar-se à viagem, por isso acrescentam-na ao chat thread e partilham toda a história da mensagem com ela. 
+Charlie começa uma conversa com os amigos Casey & Jasmine para planear umas férias. Conversam durante algum tempo onde Charlie, Casey & Jasmine enviam 20, 30 e 18 mensagens, respectivamente. Eles percebem que a sua amiga Rose também pode estar interessada em juntar-se à viagem, por isso acrescentam-na ao chat thread e partilham toda a história da mensagem com ela.
 
 Rose vê as mensagens e começa a conversar. Entretanto, o Casey recebe uma chamada e decide pôr a conversa em dia mais tarde. Charlie, Jasmine & Rose decidem as datas de viagem e enviam mais 30, 25, 35 mensagens, respectivamente.
 
-**Cálculos de custos** 
+**Cálculos de custos**
 
 - Número de mensagens enviadas (20 + 30 + 18 + 30 + 25 + 35) x $0,0008 = $0,1264
 
 
 ## <a name="telephony-and-sms"></a>Telefonia e SMS
 
-## <a name="price"></a>Preço 
+## <a name="price"></a>Preço
 
 Os serviços de telefonia têm preços por minuto, enquanto os SMS têm preços por mensagem. O preço é determinado pelo tipo e localização do número que está a utilizar, bem como pelo destino das suas chamadas e mensagens SMS.
 

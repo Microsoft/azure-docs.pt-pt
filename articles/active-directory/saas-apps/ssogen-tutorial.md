@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/11/2021
 ms.author: jeedes
-ms.openlocfilehash: f9c09dbef072ff1d006603cbc3d0767fc530a99b
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 9eeafaf0f5fbfaff9394ced0a0623f2fb462ed4d
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100558371"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101647001"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ssogen---azure-ad-sso-gateway-for-oracle-e-business-suite---ebs-peoplesoft-and-jde"></a>Tutorial: Azure Ative Directy integração única de sign-on (SSO) com SSOGEN - Azure AD SSO Gateway para Oracle E-Business Suite - EBS, PeopleSoft e JDE
 
@@ -148,8 +148,8 @@ Nesta secção, testa a configuração de um único sinal de inscrição Azure A
 
 * Clique em **Testar esta aplicação** no portal Azure e deverá ser automaticamente inscrito no SSOGEN - Azure AD SSO Gateway para Oracle E-Business Suite - EBS, PeopleSoft e JDE para os quais configura o SSO. 
 
-Também pode utilizar o Microsoft My Apps para testar a aplicação em qualquer modo. Ao clicar no SSOGEN - Azure AD SSO Gateway para Oracle E-Business Suite - EBS, PeopleSoft e TL JDE nas Minhas Apps, se configurado no modo SP, você seria redirecionado para o sinal de aplicação na página para iniciar o fluxo de login e se configurado no modo IDP, você deve ser automaticamente inscrito no SSOGEN - Azure AD SSO Gateway para Oracle E-Business Suite - EBS , PeopleSoft, e JDE para os quais você criou o SSO. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+Também pode utilizar o Microsoft My Apps para testar a aplicação em qualquer modo. Ao clicar no SSOGEN - Azure AD SSO Gateway para Oracle E-Business Suite - EBS, PeopleSoft e TL JDE nas Minhas Apps, se configurado no modo SP, você seria redirecionado para o sinal de aplicação na página para iniciar o fluxo de login e se configurado no modo IDP, você deve ser automaticamente inscrito no SSOGEN - Azure AD SSO Gateway para Oracle E-Business Suite - EBS , PeopleSoft, e JDE para os quais você criou o SSO. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](../user-help/my-apps-portal-end-user-access.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Assim que configurar o SSOGEN - Azure AD SSO Gateway para a Oracle E-Business Suite - EBS, PeopleSoft e JDE, pode impor o controlo de sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Assim que configurar o SSOGEN - Azure AD SSO Gateway para a Oracle E-Business Suite - EBS, PeopleSoft e JDE, pode impor o controlo de sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

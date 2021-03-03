@@ -12,12 +12,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 02/15/2021
 ms.author: jeedes
-ms.openlocfilehash: aab1f99984ed5286692cbf9dae39fb4f7d28599c
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 3c1b4b3d57bdce4a66adb35717f46d8989ee2453
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100652467"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101648820"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Como: Configurar a alegação de papel emitida no token SAML para aplicações empresariais
 
@@ -29,7 +29,7 @@ Ao utilizar o Azure Ative Directory (Azure AD), pode personalizar o tipo de recl
 - Uma subscrição que tenha um único sign-on (SSO) ativado. Tem de configurar a SSO com a sua aplicação.
 
 > [!NOTE]
-> Este artigo explica como criar/atualizar/eliminar funções de aplicação no principal serviço usando APIs em Azure AD. Se quiser utilizar a nova interface de utilizador para Apps Roles, consulte os detalhes [aqui.](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps)
+> Este artigo explica como criar/atualizar/eliminar funções de aplicação no principal serviço usando APIs em Azure AD. Se quiser utilizar a nova interface de utilizador para Apps Roles, consulte os detalhes [aqui.](./howto-add-app-roles-in-azure-ad-apps.md)
 
 ## <a name="when-to-use-this-feature"></a>Quando utilizar esta funcionalidade
 

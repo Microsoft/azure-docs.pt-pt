@@ -11,13 +11,13 @@ metadata:
   author: stevestein
   ms.author: sstein
   ms.reviewer: 
-  ms.date: 10/13/2020
-  ms.openlocfilehash: 2ef30f2ed2bdbf761110a9530c9a8cf3aa7c4ce2
-  ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
-  ms.translationtype: HT
+  ms.date: 01/25/2021
+  ms.openlocfilehash: 2baf4f9a2ac510ca53a6e7d2eb91c4d74088864c
+  ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+  ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 11/13/2020
-  ms.locfileid: "94593625"
+  ms.lasthandoff: 03/02/2021
+  ms.locfileid: "101660785"
 landingContent:
 - title: Base de Dados SQL do Azure
   linkLists:
@@ -159,3 +159,19 @@ landingContent:
       url: elastic-scale-introduction.md
     - text: Consulta elástica
       url: elastic-query-overview.md
+- title: Manutenção planeada
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Plano para eventos de manutenção do Azure
+      url: planned-maintenance.md
+    - text: Janela de manutenção
+      url: maintenance-window.md
+    - text: Estado de funcionamento de recursos
+      url: resource-health-to-troubleshoot-connectivity.md
+  - linkListType: how-to-guide
+    links:
+    - text: Janela de manutenção configurada
+      url: maintenance-window-configure.md
+    - text: Notificações de janelas de manutenção
+      url: advance-notifications.md

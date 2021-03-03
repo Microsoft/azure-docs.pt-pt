@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 02/17/2021
-ms.openlocfilehash: 517b07eecdbc63754f46fcf1051bf5b987dbc20e
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 8d7d482f38d58c8d6a8959acb51c94c0fb814697
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100654449"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101668440"
 ---
 # <a name="create-scoped-resource-set-configuration-rules"></a>Criar regras de configuração definidas por recursos âmbito
 
@@ -43,7 +43,7 @@ Siga os passos abaixo para criar uma nova configuração de conjunto de recursos
 
 Ao criar regras definidas por recursos, utilize a seguinte sintaxe para especificar a que regras de ativos se aplicam.
 
-### <a name="static-replacers-single-brackets"></a>Substituidores estáticos (suportes individuais)
+### <a name="dynamic-replacers-single-brackets"></a>Substitutos dinâmicos (suportes individuais)
 
 Os suportes individuais são utilizados como **substitutos dinâmicos** numa regra definida por recursos. Especifique um substituto dinâmico no nome qualificado utilizando o formato `{<replacerName:<replacerType>}` . Se combinados, os substitutos dinâmicos são usados como uma condição de agrupamento que indica que os ativos devem ser representados como um conjunto de recursos. Se os ativos forem agrupados num conjunto de recursos, o caminho qualificado definido pelo recurso conterá `{replacerName}` onde o substituto foi especificado.
 
@@ -92,7 +92,7 @@ Segue-se a ordem de operações para a aplicação de regras definidas por recur
 
 Extração de dados SAP em cargas completas e delta
 
-*Entradas*
+#### <a name="inputs"></a>Entradas
 
 Ficheiros:
 -   `https://myazureblob.blob.core.windows.net/bar/customer/full/2020/01/13/saptable_customer_20200101_20200102_01.txt`
@@ -102,7 +102,7 @@ Ficheiros:
 -   `https://myazureblob.blob.core.windows.net/bar/customer/full/2020/01/17/saptable_customer_20200101_20200102_02.txt`
 
 
-*Regra do conjunto de recursos alargado*
+#### <a name="scoped-resource-set-rule"></a>Regra do conjunto de recursos alargado 
 
 **Âmbito:**https://myazureblob.blob.core.windows.net/bar/
 
@@ -112,7 +112,7 @@ Ficheiros:
 
 **Conjunto de recursos:** verdadeiro
 
-*Saída*
+#### <a name="output"></a>Saída 
 
 Um ativo conjunto de recursos
 
@@ -124,7 +124,7 @@ Um ativo conjunto de recursos
 
 Dados IoT em formato avro
 
-*Entradas*
+#### <a name="inputs"></a>Entradas 
 
 Ficheiros:
 -   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/01-01-2020/22:33:22-001.avro`
@@ -132,7 +132,7 @@ Ficheiros:
 -   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/02-01-2020/22:33:22-001.avro`
 -   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-90/01-01-2020/22:33:22-001.avro`
 
-*Regras definidas por conjunto de recursos*
+#### <a name="scoped-resource-set-rules"></a>Regras definidas por conjunto de recursos 
 
 **Âmbito:**https://myazureblob.blob.core.windows.net/bar/
 
@@ -150,9 +150,9 @@ Regra 2
 
 **Nome qualificado:**`raw/machinename-90/{date:date}/{time:time}-{id:int}.avro`
 
-**Conjunto de recursos: verdadeiro**
+#### <a name="resource-set-true"></a>*Conjunto de recursos: verdadeiro* 
 
-*Saídas*
+#### <a name="outputs"></a>Saídas 
 
 2 conjuntos de recursos 
 
@@ -172,7 +172,7 @@ Conjunto de recursos 2
 
 Dados IoT em formato avro
 
-*Entradas*
+#### <a name="inputs"></a>Entradas 
 
 Ficheiros:
 -   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/01-01-2020/22:33:22-001.avro`
@@ -180,7 +180,7 @@ Ficheiros:
 -   `https://myazureblob.blob.core.windows.netbar/raw/machinename-89/02-01-2020/22:33:22-001.avro`
 -   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-90/01-01-2020/22:33:22-001.avro`
 
-*Regra do conjunto de recursos alargado*
+#### <a name="scoped-resource-set-rule"></a>Regra do conjunto de recursos alargado 
 
 **Âmbito:**https://myazureblob.blob.core.windows.net/bar/
 
@@ -190,7 +190,7 @@ Ficheiros:
 
 **Conjunto de recursos:** verdadeiro
 
-*Saídas*
+#### <a name="outputs"></a>Saídas 
 
 Conjunto de recursos 1
 
@@ -208,7 +208,7 @@ Conjunto de recursos 2
 
 Não agrupar em conjuntos de recursos
 
-*Entradas*
+#### <a name="inputs"></a>Entradas 
 
 Ficheiros:
 -   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/01-01-2020/22:33:22-001.avro`
@@ -216,7 +216,7 @@ Ficheiros:
 -   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/02-01-2020/22:33:22-001.avro`
 -   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-90/01-01-2020/22:33:22-001.avro`
 
-*Regra do conjunto de recursos alargado*
+#### <a name="scoped-resource-set-rule"></a>Regra do conjunto de recursos alargado 
 
 **Âmbito:**https://myazureblob.blob.core.windows.net/bar/
 
@@ -226,7 +226,7 @@ Ficheiros:
 
 **Conjunto de recursos:** falso
 
-*Saídas*
+#### <a name="outputs"></a>Saídas 
 
 4 ativos individuais
 

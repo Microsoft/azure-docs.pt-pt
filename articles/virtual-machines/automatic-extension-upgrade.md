@@ -3,16 +3,17 @@ title: Atualização automática de extensão para VMs e conjuntos de escala em 
 description: Saiba como ativar o Upgrade automático de extensão para as suas máquinas virtuais e conjuntos de balanças de máquinas virtuais em Azure.
 author: mayanknayar
 ms.service: virtual-machines
+ms.subservice: automatic-extension-upgrades
 ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 02/12/2020
 ms.author: manayar
-ms.openlocfilehash: acc014785105d14c3109cfa420f0e9402ca3f534
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 104eada6dc342c21b8da2f409756e9f34c103936
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100417555"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101668338"
 ---
 # <a name="preview-automatic-extension-upgrade-for-vms-and-scale-sets-in-azure"></a>Pré-visualização: Atualização automática de extensão para VMs e conjuntos de escala em Azure
 
@@ -21,7 +22,7 @@ A Atualização automática de extensão está disponível em pré-visualizaçã
  A atualização automática da extensão tem as seguintes funcionalidades:
 - Suportado para VMs Azure e conjuntos de balança de máquina virtual Azure. Os conjuntos de balança de máquina virtual do tecido de serviço não estão atualmente suportados.
 - As atualizações são aplicadas num modelo de implantação de primeira disponibilidade (detalhado abaixo).
-- Quando aplicados a um conjunto de balanças de máquina virtual, não mais de 20% das máquinas virtuais de escala de máquinas serão atualizadas num único lote (sujeito a um mínimo de uma máquina virtual por lote).
+- Para um conjunto de balança de máquina virtual, não mais de 20% das máquinas virtuais definidas em escala serão atualizadas num único lote. O tamanho mínimo do lote é uma máquina virtual.
 - Funciona para todos os tamanhos VM, e para extensões Windows e Linux.
 - Pode optar por não fazer upgrades automáticos a qualquer momento.
 - A atualização automática da extensão pode ser ativada num conjunto de escala de máquina virtual de qualquer tamanho.
@@ -36,24 +37,9 @@ A Atualização automática de extensão está disponível em pré-visualizaçã
 
 
 ## <a name="how-does-automatic-extension-upgrade-work"></a>Como funciona a atualização automática da extensão?
-O processo de atualização de extensão funciona substituindo a versão de extensão existente num VM com a nova versão de extensão publicada pela editora de extensão. A saúde do VM é monitorizada após a instalação da nova extensão. Se o VM não estiver em estado saudável no prazo de 5 minutos após a conclusão da atualização, a nova versão de extensão é revertida para a versão anterior.
+O processo de atualização de extensão substitui a versão de extensão existente num VM por uma nova versão da mesma extensão quando publicada pela editora de extensão. A saúde do VM é monitorizada após a instalação da nova extensão. Se o VM não estiver num estado saudável dentro de 5 minutos após a conclusão da atualização, a versão de extensão é revertida para a versão anterior.
 
 Uma atualização de extensão falhada é automaticamente novamente experimentada. Uma repetição é tentada de vez em quando automaticamente sem a intervenção do utilizador.
-
-
-## <a name="upgrade-process-for-virtual-machine-scale-sets"></a>Processo de upgrade para conjuntos de escala de máquina virtual
-1. Antes de iniciar o processo de upgrade, o orquestrador garantirá que não mais de 20% dos VM em toda a escala definida não são saudáveis (por qualquer motivo).
-
-2. O orquestrador de upgrade identifica o lote de instâncias VM para atualizar, com qualquer lote com um máximo de 20% da contagem total de VM, sujeito a um tamanho mínimo de lote de uma máquina virtual.
-
-3. Para conjuntos de escala com sondas de saúde de aplicação configuradas ou extensão de Saúde de Aplicação, a atualização espera até 5 minutos (ou a configuração definida da sonda de saúde) para que o VM fique saudável, antes de avançar para atualizar o próximo lote. Se um VM não recuperar a sua saúde após uma atualização, então, por predefinição, a versão de extensão anterior para o VM é reinstalada.
-
-4. O orquestrador de upgrade também acompanha a percentagem de VMs que se tornam insalubres após uma atualização. A atualização irá parar se mais de 20% das instâncias atualizadas ficarem insalubres durante o processo de upgrade.
-
-O processo acima continua até que todas as instâncias do conjunto de escala tenham sido atualizadas.
-
-A escala configurada para atualizar o orquestrador verifica a saúde global definida antes de atualizar cada lote. Ao atualizar um lote, pode haver outras atividades de manutenção planeadas ou não planeadas que possam afetar a saúde das máquinas virtuais definidas à escala. Nesses casos, se mais de 20% dos casos do conjunto de escalas ficarem insalubres, então a escala de atualização para no final do lote atual.
-
 
 ### <a name="availability-first-updates"></a>Atualizações de disponibilidade
 O modelo de disponibilidade primeiro para atualizações orquestradas pela plataforma irá garantir que as configurações de disponibilidade no Azure sejam respeitadas em vários níveis de disponibilidade.
@@ -62,9 +48,9 @@ Para um grupo de máquinas virtuais submetidas a uma atualização, a plataforma
 
 **Em todas as regiões:**
 - Uma atualização irá mover-se através do Azure globalmente de forma faseada para evitar falhas de implantação em todo o Azure.
-- Uma «fase» pode constituir uma ou mais regiões, e uma atualização só se move por fases se os VM elegíveis numa fase forem atualizados com êxito.
+- Uma "fase" pode ter uma ou mais regiões, e uma atualização só se move através de fases se os VM elegíveis na atualização da fase anterior forem bem sucedidos.
 - As regiões geo-emparelhadas não serão atualizadas simultaneamente e não podem estar na mesma fase regional.
-- O sucesso de uma atualização é medido através do rastreio da saúde de uma atualização de posts VM. A saúde vM é rastreada através de indicadores de saúde da plataforma para o VM. No caso dos Conjuntos de Balanças De Máquina Virtual, a saúde VM é rastreada através de sondas de saúde de aplicação ou da extensão de Saúde da Aplicação, se aplicada ao conjunto de escalas.
+- O sucesso de uma atualização é medido através do rastreio da saúde de uma atualização de posts VM. A saúde vM é rastreada através de indicadores de saúde da plataforma para o VM. Para conjuntos de escala de máquinas virtuais, a saúde VM é rastreada através de sondas de saúde de aplicação ou da extensão de Saúde da Aplicação, se aplicada ao conjunto de escala.
 
 **Dentro de uma região:**
 - VMs em diferentes Zonas de Disponibilidade não são atualizados simultaneamente.
@@ -75,6 +61,18 @@ Para um grupo de máquinas virtuais submetidas a uma atualização, a plataforma
 - Os VMs num conjunto de disponibilidade comum são atualizados dentro dos limites do Domínio de Atualização e os VMs em vários domínios de atualização não são atualizados simultaneamente.  
 - Os VMs num conjunto de escala de máquina virtual comum são agrupados em lotes e atualizados dentro dos limites do Domínio de Atualização.
 
+### <a name="upgrade-process-for-virtual-machine-scale-sets"></a>Processo de upgrade para conjuntos de escala de máquina virtual
+1. Antes de iniciar o processo de upgrade, o orquestrador garantirá que não mais de 20% dos VM em toda a escala definida não são saudáveis (por qualquer motivo).
+
+2. O orquestrador de upgrade identifica o lote de instâncias VM para atualizar. Um lote de upgrade pode ter um máximo de 20% da contagem total de VM, sujeito a um tamanho mínimo de lote de uma máquina virtual.
+
+3. Para conjuntos de escala com sondas de saúde de aplicação configuradas ou extensão de Saúde de Aplicação, a atualização espera até 5 minutos (ou a configuração definida da sonda de saúde) para que o VM fique saudável antes de atualizar o próximo lote. Se um VM não recuperar a sua saúde após uma atualização, então, por predefinição, a versão de extensão anterior no VM é reinstalada.
+
+4. O orquestrador de upgrade também acompanha a percentagem de VMs que se tornam insalubres após uma atualização. A atualização irá parar se mais de 20% das instâncias atualizadas ficarem insalubres durante o processo de upgrade.
+
+O processo acima continua até que todas as instâncias do conjunto de escala tenham sido atualizadas.
+
+A escala configurada para atualizar o orquestrador verifica a saúde global definida antes de atualizar cada lote. Ao atualizar um lote, pode haver outras atividades de manutenção planeadas ou não planeadas que possam afetar a saúde das máquinas virtuais definidas à escala. Nesses casos, se mais de 20% dos casos do conjunto de escalas ficarem insalubres, então a escala de atualização para no final do lote atual.
 
 ## <a name="supported-extensions"></a>Extensões apoiadas
 A pré-visualização da Atualização Automática de Extensões suporta as seguintes extensões (e mais são adicionadas periodicamente):
@@ -258,13 +256,13 @@ az vmss extension set \
 
 ## <a name="extension-upgrades-with-multiple-extensions"></a>Atualizações de extensão com múltiplas extensões
 
-Um Conjunto de Balanças VM ou Máquina Virtual pode ter múltiplas extensões com atualização de extensão automática ativada, além de outras extensões sem atualizações automáticas de extensão.  
+Um conjunto de balança de vm ou máquina virtual pode ter múltiplas extensões com atualização de extensão automática ativada. O mesmo conjunto de VM ou escala também pode ter outras extensões sem a atualização automática de extensão ativada.  
 
-Se várias atualizações de extensão estiverem disponíveis para uma máquina virtual, as atualizações podem ser emgrurentas. No entanto, cada atualização de extensão é aplicada individualmente numa máquina virtual. Uma falha numa extensão não afeta a outra extensão que pode estar a ser melhorada. Por exemplo, se duas extensões estiverem agendadas para uma atualização, e a primeira atualização de extensão falhar, a segunda extensão ainda será atualizada.
+Se várias atualizações de extensão estiverem disponíveis para uma máquina virtual, as atualizações podem ser emgrubadas, mas cada atualização de extensão é aplicada individualmente numa máquina virtual. Uma falha numa extensão não afeta a outra extensão que pode estar a ser melhorada. Por exemplo, se duas extensões estiverem agendadas para uma atualização, e a primeira atualização de extensão falhar, a segunda extensão ainda será atualizada.
 
-As atualizações automáticas de extensão também podem ser aplicadas quando um conjunto de escala de VM ou de máquina virtual tem múltiplas extensões configuradas com [sequenciação de extensão](../virtual-machine-scale-sets/virtual-machine-scale-sets-extension-sequencing.md). A sequência de extensão é aplicável para a primeira implantação do VM, e quaisquer atualizações subsequentes de extensão de uma extensão são aplicadas de forma independente.
+As atualizações automáticas de extensão também podem ser aplicadas quando um conjunto de escala de VM ou de máquina virtual tem múltiplas extensões configuradas com [sequenciação de extensão](../virtual-machine-scale-sets/virtual-machine-scale-sets-extension-sequencing.md). A sequência de extensão é aplicável para a primeira implantação do VM, e quaisquer futuras atualizações de extensão de uma extensão são aplicadas de forma independente.
 
 
 ## <a name="next-steps"></a>Passos seguintes
 > [!div class="nextstepaction"]
-> [Conheça a Extensão de Saúde da Aplicação](./windows/automatic-vm-guest-patching.md)
+> [Conheça a Extensão de Saúde da Aplicação](../virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension.md)

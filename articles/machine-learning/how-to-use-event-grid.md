@@ -11,12 +11,12 @@ ms.author: shipatel
 author: shivp950
 ms.reviewer: larryfr
 ms.date: 05/11/2020
-ms.openlocfilehash: 1fd177273c9dafb04add64d8a8bfef1d81cc65d0
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 06b871d29c26241c38be27c4ace8ab7461834fd1
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93319322"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101655722"
 ---
 # <a name="trigger-applications-processes-or-cicd-workflows-based-on-azure-machine-learning-events-preview"></a>Ativar aplicações, processos ou fluxos de trabalho ci/CD baseados em eventos de Aprendizagem automática Azure (pré-visualização)
 
@@ -29,9 +29,6 @@ Quando utilizar a Grade de Eventos para ações orientadas para eventos:
 * Utilize uma função Azure depois de registado um modelo
 * Eventos de streaming de Azure Machine Learning para vários pontos finais
 * Desencadeie um gasoduto ML quando a deriva for detetada
-
-> [!NOTE] 
-> Atualmente, os eventos runStatusChanged só disparam quando o estado de execução é **falhado**
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para utilizar a Grade de Eventos, precisa de acesso do colaborador ou proprietário ao espaço de trabalho Azure Machine Learning para o que irá criar eventos.
@@ -84,7 +81,7 @@ As subscrições de eventos de aprendizagem automática Azure estão protegidas 
   | `Microsoft.MachineLearningServices.DatasetDriftDetected` | `datadrift/{data.DataDriftId}/run/{data.RunId}` | `datadrift/4e694bf5-712e-4e40-b06a-d2a2755212d4/run/my_driftrun1_1550564444_fbbcdc0f` |
   | `Microsoft.MachineLearningServices.RunStatusChanged` | `experiments/{ExperimentId}/runs/{RunId}` | `experiments/b1d7966c-f73a-4c68-b846-992ace89551f/runs/my_exp1_1554835758_38dbaa94` | 
 
-+ **Filtragem avançada** : A Azure Event Grid também suporta filtragem avançada com base em esquemas de eventos publicados. Os detalhes do esquema do esquema do evento Azure Machine Learning podem ser encontrados no [esquema de eventos Azure Event Grid para Azure Machine Learning](../event-grid/event-schema-machine-learning.md).  Algumas amostras de filtragem avançadas que pode realizar incluem:
++ **Filtragem avançada**: A Azure Event Grid também suporta filtragem avançada com base em esquemas de eventos publicados. Os detalhes do esquema do esquema do evento Azure Machine Learning podem ser encontrados no [esquema de eventos Azure Event Grid para Azure Machine Learning](../event-grid/event-schema-machine-learning.md).  Algumas amostras de filtragem avançadas que pode realizar incluem:
 
   Para `Microsoft.MachineLearningServices.ModelRegistered` o evento, filtrar o valor da etiqueta do modelo:
 

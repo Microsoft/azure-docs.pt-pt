@@ -6,12 +6,12 @@ ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/30/2020
-ms.openlocfilehash: cef5f178ea879ba98df90da36ec9c4b639dd100a
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: 885aab68c769c0705994bad34bee6aaa4fdc3f3d
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99627785"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101658474"
 ---
 # <a name="frequently-asked-questions-about-azure-synapse-link-for-azure-cosmos-db"></a>Perguntas mais frequentes sobre o Azure Synapse Link para o Azure Cosmos DB
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -67,6 +67,12 @@ Sim, a loja analítica pode ser ativada em recipientes com produção de autoesc
 ### <a name="is-there-any-effect-on-azure-cosmos-db-transactional-store-provisioned-rus"></a>Existe algum efeito na loja de transações Azure Cosmos DB aprovisionada RUs?
 
 A Azure Cosmos DB garante o isolamento do desempenho entre as cargas de trabalho transacionais e analíticas. Permitir a loja analítica num recipiente não terá impacto no RU/s aprovisionado na loja transacional Azure Cosmos DB. As transações (leia-se & escrever) e os custos de armazenamento da loja analítica serão cobrados separadamente. Consulte o [preço da loja analítica Azure Cosmos DB](analytical-store-introduction.md#analytical-store-pricing) para obter mais detalhes.
+
+### <a name="can-i-restrict-access-to-azure-cosmos-db-analytical-store"></a>Posso restringir o acesso à loja analítica Azure Cosmos DB?
+
+Sim, pode configurar um [ponto final privado gerido](analytical-store-private-endpoints.md) e restringir o acesso à rede analítica à rede virtual gerida pela Azure Synapse. Os pontos finais privados geridos estabelecem uma ligação privada à sua loja analítica. Este ponto final privado também restringirá o acesso de escrita à loja transacional, entre outros serviços de dados Azure.
+
+Pode adicionar tanto a loja transacional como os pontos finais privados da loja analítica à mesma conta DB da Azure Cosmos num espaço de trabalho Azure Synapse Analytics. Se quiser apenas fazer consultas analíticas, só pode querer mapear o ponto final privado analítico.
 
 ### <a name="are-delete-and-update-operations-on-the-transactional-store-reflected-in-the-analytical-store"></a>As operações de exclusão e atualização da loja transacional são refletidas na loja analítica?
 

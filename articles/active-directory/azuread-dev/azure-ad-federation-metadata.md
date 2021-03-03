@@ -1,5 +1,5 @@
 ---
-title: Metadados da Federação Azure Ad Microsoft Docs
+title: Metadados da Federação AD Azure | Microsoft Docs
 description: Este artigo descreve o documento de metadados da federação que o Azure Ative Directory publica para serviços que aceitam fichas do Azure Ative Directory.
 services: active-directory
 author: rwike77
@@ -13,12 +13,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: bcc44f61ccb7b4a19e7df39ab979669c5aa37da1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7f3bd8851fe723461c618499e539c987d79c0d68
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80154904"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101650146"
 ---
 # <a name="federation-metadata"></a>Metadados de federação
 
@@ -39,7 +39,7 @@ A Azure AD publica metadados da federação em `https://login.microsoftonline.co
 Para **os pontos finais específicos do arrendatário,** pode ser um dos `TenantDomainName` seguintes tipos:
 
 * Um nome de domínio registado de um inquilino da AD Azure, tais como: `contoso.onmicrosoft.com` .
-* O imutável imutável imutável imutável id do domínio, tais como `72f988bf-86f1-41af-91ab-2d7cd011db45` .
+* O imutável imutável id do domínio, tais como `72f988bf-86f1-41af-91ab-2d7cd011db45` .
 
 Para **os pontos finais independentes dos inquilinos,** o `TenantDomainName` is `common` . Este documento lista apenas os elementos de metadados da Federação que são comuns a todos os inquilinos AD Azure que estão hospedados em login.microsoftonline.com.
 
@@ -96,7 +96,7 @@ Na secção específica da WS-Federação, um leitor de metadados WS-Federation 
 Os metadados que se seguem mostram um elemento de `RoleDescriptor` amostra.
 
 ```
-<RoleDescriptor xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns:fed="https://docs.oasis-open.org/wsfed/federation/200706" xsi:type="fed:SecurityTokenServiceType"protocolSupportEnumeration="https://docs.oasis-open.org/wsfed/federation/200706">
+<RoleDescriptor xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns:fed="https://docs.oasis-open.org/wsfed/federation/200706" xsi:type="fed:SecurityTokenServiceType" protocolSupportEnumeration="https://docs.oasis-open.org/wsfed/federation/200706">
 ```
 
 Na secção específica da SAML, um leitor de metadados WS-Federation leria os certificados a partir de um `IDPSSODescriptor` elemento.

@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/01/2021
 ms.custom: references_regions
-ms.openlocfilehash: 5e8b873e0e4e89979769183cfbf0ad473069e897
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 60371888dbc4f0cbc33f1ad1b2a685dbb071c01a
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101096433"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101670715"
 ---
 # <a name="scale-for-performance-on-azure-cognitive-search"></a>Escala para desempenho na Pesquisa Cognitiva Azure
 
@@ -91,7 +91,7 @@ Uma vez que as réplicas são cópias dos seus dados, ter múltiplas réplicas p
 
 ### <a name="availability-zones"></a>Zonas de Disponibilidade
 
-[As Zonas de Disponibilidade](https://docs.microsoft.com/azure/availability-zones/az-overview) dividem os centros de dados de uma região em grupos de localização física distintos para fornecer alta disponibilidade, dentro da mesma região. Para pesquisa cognitiva, réplicas individuais são as unidades para atribuição de zona. Um serviço de pesquisa funciona dentro de uma região; suas réplicas funcionam em diferentes zonas.
+[As Zonas de Disponibilidade](../availability-zones/az-overview.md) dividem os centros de dados de uma região em grupos de localização física distintos para fornecer alta disponibilidade, dentro da mesma região. Para pesquisa cognitiva, réplicas individuais são as unidades para atribuição de zona. Um serviço de pesquisa funciona dentro de uma região; suas réplicas funcionam em diferentes zonas.
 
 Pode utilizar Zonas de Disponibilidade com Pesquisa Cognitiva Azure adicionando duas ou mais réplicas ao seu serviço de pesquisa. Cada réplica será colocada numa zona de disponibilidade diferente dentro da região. Se tiver mais réplicas do que Zonas de Disponibilidade, as réplicas serão distribuídas pelas Zonas de Disponibilidade da forma mais homogénea possível.
 

@@ -16,12 +16,12 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 59cc50274b291c23aeec4620ec7a09312cc0c1fb
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: e49ed356f294baca6e339faeebe92ca02b2723df
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98762260"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101644787"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quickstart"></a>Azure Ative Directory Sem Emenda Single Sign-On: Quickstart
 
@@ -161,10 +161,10 @@ Existem duas formas de modificar as definições da zona intranet dos utilizador
     ![Screenshot que mostra "Registry" selecionado e "Registry Item" selecionado.](./media/how-to-connect-sso-quick-start/sso15.png)
 
 4. Introduza os seguintes valores nos campos apropriados e clique **em OK**.
-   - **Caminho chave**: **_Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\microsoftazuread-sso.com\autologon_* _
-   - _*Nome de valor**: **_https_*_
-   - _*Valor tipo**: **_REG_DWORD_*_
-   - _*Dados de valor**: **_00000001_*_
+   - **Caminho chave**: **_Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\microsoftazuread-sso.com\autologon_**
+   - **Nome do valor**: **_https_**
+   - **Tipo de valor**: **_REG_DWORD_**
+   - **Dados de valor:** **_0000001_**
  
      ![Screenshot que mostra a janela "Novas Propriedades de Registo".](./media/how-to-connect-sso-quick-start/sso16.png)
  
@@ -176,7 +176,7 @@ Existem duas formas de modificar as definições da zona intranet dos utilizador
 
 O Mozilla Firefox não utiliza automaticamente a autenticação Kerberos. Cada utilizador deve adicionar manualmente o URL AD AD do Azure às suas definições firefox utilizando os seguintes passos:
 1. Corra o Firefox e insira `about:config` na barra de endereços. Dispense quaisquer notificações que veja.
-2. Procure a preferência _ *network.negotiate-auth.trust-uris** Esta preferência lista os sites fidedignos do Firefox para a autenticação Kerberos.
+2. Procure a **preferência network.negotiate-auth.trust-uris.** Esta preferência lista os sites fidedignos do Firefox para a autenticação Kerberos.
 3. Clique à direita e selecione **Modificar.**
 4. Entra `https://autologon.microsoftazuread-sso.com` no campo.
 5. Selecione **OK** e, em seguida, reabra o navegador.
@@ -205,7 +205,7 @@ A utilização de extensões de política de grupo de diretório ativo de tercei
 
 #### <a name="known-browser-limitations"></a>Limitações conhecidas do navegador
 
-O Seamless SSO não funciona em modo de navegação privada nos navegadores Firefox e Microsoft Edge. Também não funciona no Internet Explorer se o navegador estiver a funcionar em modo Protegido Melhorado. Para a próxima versão do Microsoft Edge baseada no Chromium, não funcionará no modo InPrivate e Guest por design.
+O Seamless SSO não funciona em modo de navegação privada nos navegadores Firefox e Microsoft Edge (legado). Também não funciona no Internet Explorer se o navegador estiver a funcionar em modo Protegido Melhorado. O Seamless SSO suporta a próxima versão do Microsoft Edge com base no Chromium e funciona no modo InPrivate e Guest por design.
 
 ## <a name="step-4-test-the-feature"></a>Passo 4: Testar a funcionalidade
 
@@ -216,10 +216,10 @@ Para testar a funcionalidade para um utilizador específico, certifique-se de qu
   - Lançou [a funcionalidade](#step-3-roll-out-the-feature) a este utilizador através da Política de Grupo.
 
 Para testar o cenário em que o utilizador introduz apenas o nome de utilizador, mas não a palavra-passe:
-   - Inscreva-se `https://myapps.microsoft.com/` numa nova sessão de navegador privado.
+   - Inscreva-se em ' https://myapps.microsoft.com/ . Certifique-se de limpar a cache do navegador ou usar uma nova sessão de navegador privado com qualquer um dos navegadores suportados em modo privado.
 
 Para testar o cenário em que o utilizador não tem de introduzir o nome de utilizador ou a palavra-passe, utilize um destes passos: 
-   - Inscreva-se `https://myapps.microsoft.com/contoso.onmicrosoft.com` numa nova sessão de navegador privado. Substitua *o Contoso* pelo nome do seu inquilino.
+   - Entre em `https://myapps.microsoft.com/contoso.onmicrosoft.com` sessão para ter certeza de limpar a cache do navegador ou usar uma nova sessão de navegador privado com qualquer um dos navegadores suportados em modo privado. Substitua *o Contoso* pelo nome do seu inquilino.
    - Inscreva-se `https://myapps.microsoft.com/contoso.com` numa nova sessão de navegador privado. Substitua *contoso.com* por um domínio verificado (não um domínio federado) no seu inquilino.
 
 ## <a name="step-5-roll-over-keys"></a>Passo 5: Rolar as chaves
@@ -234,7 +234,7 @@ Para obter instruções sobre como rolar as teclas, consulte [O Diretório Azure
 >[!IMPORTANT]
 >Não precisa de fazer este passo _imediatamente_ depois de ter ativado a funcionalidade. Revir as chaves de desencriptação Kerberos pelo menos uma vez a cada 30 dias.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Mergulho profundo técnico](how-to-connect-sso-how-it-works.md): Compreenda como funciona a funcionalidade de Sign-On Sem Emenda.
 - [Perguntas frequentes](how-to-connect-sso-faq.md): Obtenha respostas a perguntas frequentes sobre o Sign-On Único Sem Emenda.

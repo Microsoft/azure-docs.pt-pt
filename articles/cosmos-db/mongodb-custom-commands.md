@@ -5,15 +5,15 @@ author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
-ms.date: 05/28/2020
+ms.date: 03/02/2021
 ms.author: chrande
 ms.custom: devx-track-js
-ms.openlocfilehash: 2fd2fa7620e57c58f72dad73c1012a19190e8fbc
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: deba6696eb71287902fa3970ed2d83d0b09ac08d
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93359651"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101658491"
 ---
 # <a name="use-mongodb-extension-commands-to-manage-data-stored-in-azure-cosmos-dbs-api-for-mongodb"></a>Utilize comandos de extensão MongoDB para gerir os dados armazenados na API da Azure Cosmos para o MongoDB 
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -24,7 +24,7 @@ Ao utilizar a API da Azure Cosmos para a MongoDB, poderá usufruir dos benefíci
 
 ## <a name="mongodb-protocol-support"></a>Apoio ao protocolo mongoDB
 
-A API da Azure Cosmos DB para o MongoDB é compatível com a versão 3.2 e 3.6 do servidor MongoDB. Consulte [funcionalidades suportadas e sintaxe](mongodb-feature-support.md) para mais detalhes. 
+A API da Azure Cosmos DB para MongoDB é compatível com a versão 4.0, 3.6 e 3.2 do servidor MongoDB. Consulte funcionalidades e sintaxe suportadas em [4.0](mongodb-feature-support-40.md), [3.6](mongodb-feature-support-36.md)e [3.2](mongodb-feature-support.md) artigos para mais detalhes. 
 
 Os seguintes comandos de extensão fornecem a capacidade de criar e modificar recursos específicos da Azure Cosmos através de pedidos de base de dados:
 
@@ -90,7 +90,7 @@ db.runCommand({customAction: "CreateDatabase", autoScaleSettings: { maxThroughpu
 
 ## <a name="update-database"></a><a id="update-database"></a> Base de dados de atualização
 
-O comando de extensão da base de dados de atualização atualiza as propriedades associadas à base de dados especificada. A tabela a seguir descreve os parâmetros dentro do comando:
+O comando de extensão da base de dados de atualização atualiza as propriedades associadas à base de dados especificada. A alteração da sua base de dados de produção a prazo para auto-escala e vice-versa é suportada apenas no Portal Azure. A tabela a seguir descreve os parâmetros dentro do comando:
 
 |**Campo**|**Tipo** |**Descrição** |
 |---------|---------|---------|
@@ -206,8 +206,8 @@ O comando de extensão de coleção criar uma nova coleção MongoDB. O nome da 
   customAction: "CreateCollection",
   collection: "<Collection Name>",
   shardKey: "<Shard key path>",
-  offerThroughput: (int), // Amount of throughput allocated to a specific collection
-
+  // Replace the line below with "autoScaleSettings: { maxThroughput: (int) }" to use Autoscale instead of Provisioned Throughput. Fill the required Autoscale max throughput setting.
+  offerThroughput: (int) // Provisioned Throughput enabled with required throughput amount set
 }
 ```
 
@@ -292,13 +292,14 @@ db.runCommand({customAction: "CreateCollection", collection: "testCollection", s
 
 ## <a name="update-collection"></a><a id="update-collection"></a> Coleção de atualização
 
-O comando de extensão de recolha de atualização atualiza as propriedades associadas à recolha especificada.
+O comando de extensão de recolha de atualização atualiza as propriedades associadas à recolha especificada. A alteração da sua coleção de produção a prazo para autoescalada e vice-versa é suportada apenas no Portal Azure.
 
 ```javascript
 {
   customAction: "UpdateCollection",
   collection: "<Name of the collection that you want to update>",
-  offerThroughput: (int) // New throughput that will be set to the collection
+  // Replace the line below with "autoScaleSettings: { maxThroughput: (int) }" if using Autoscale instead of Provisioned Throughput. Fill the required Autoscale max throughput setting. Changing between Autoscale and Provisioned throughput is only supported in the Azure Portal.
+  offerThroughput: (int) // Provisioned Throughput enabled with required throughput amount set
 }
 ```
 
@@ -431,7 +432,7 @@ Por exemplo:
 { "ok" : 1 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Em seguida, você pode proceder para aprender os seguintes conceitos Azure Cosmos DB: 
 

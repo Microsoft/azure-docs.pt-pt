@@ -3,17 +3,17 @@ title: Série HB
 description: Especificações para os VMs da série HB.
 author: ju-shim
 ms.service: virtual-machines
-ms.subservice: sizes
+ms.subservice: hpc
 ms.topic: conceptual
 ms.date: 10/09/2020
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: 964ed9b7d2631d4a545a53a0dc2d89d978406c49
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 4e38811f79eb5d0adbf29f9d6aa5fa7bb2b18ff0
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99096836"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101667257"
 ---
 # <a name="hb-series"></a>Série HB
 

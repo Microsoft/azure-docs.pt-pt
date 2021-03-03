@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/28/2021
-ms.openlocfilehash: 5381c12253f3f301099d469639cc75e390ebceff
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 596eca0d73ffc4a590fae9b346658a2c31a1d68c
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100360963"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101676476"
 ---
 # <a name="creating-indexers-in-azure-cognitive-search"></a>Criação de indexantes na Pesquisa Cognitiva Azure
 
@@ -155,7 +155,7 @@ A forma como um indexante suporta a deteção de alterações varia consoante a 
 
 Para grandes cargas de indexação, um indexante também acompanha o último documento que processou através de uma "marca de água alta" interna. O marcador nunca é exposto na API, mas internamente o indexante mantém o local onde parou. Quando a indexação retoma, seja através de uma execução programada ou de uma invocação a pedido, o indexante faz referência à marca de água elevada para que possa retomar onde deixou de lado.
 
-Se precisar de limpar a marca de água elevada para voltar a indexar na íntegra, pode utilizar [o Indexer reset](https://docs.microsoft.com/rest/api/searchservice/reset-indexer). Para uma re indexação seletiva, utilize [competências de reposição](https://docs.microsoft.com/rest/api/searchservice/preview-api/reset-skills) ou [documentos de reposição](https://docs.microsoft.com/rest/api/searchservice/preview-api/reset-documents). Através das APIs de reset, pode limpar o estado interno e também lavar a cache se ativar o [enriquecimento incremental](search-howto-incremental-index.md). Para obter mais antecedentes e comparação de cada opção de reset, consulte [indexadores, competências e documentos de execução ou reposição](search-howto-run-reset-indexers.md).
+Se precisar de limpar a marca de água elevada para voltar a indexar na íntegra, pode utilizar [o Indexer reset](/rest/api/searchservice/reset-indexer). Para uma re indexação seletiva, utilize [competências de reposição](/rest/api/searchservice/preview-api/reset-skills) ou [documentos de reposição](/rest/api/searchservice/preview-api/reset-documents). Através das APIs de reset, pode limpar o estado interno e também lavar a cache se ativar o [enriquecimento incremental](search-howto-incremental-index.md). Para obter mais antecedentes e comparação de cada opção de reset, consulte [indexadores, competências e documentos de execução ou reposição](search-howto-run-reset-indexers.md).
 
 ## <a name="know-your-data"></a>Conheça os seus dados
 
@@ -165,7 +165,7 @@ Para aplainar dados relacionais num conjunto de linhas, deve criar uma vista SQL
 
 Além dos dados achatados, é importante obter apenas dados pesmáveis. Os dados pesmáveis são alfanuméricos. A Pesquisa Cognitiva não pode pesquisar dados binários em qualquer formato, embora possa extrair e inferir descrições de texto de ficheiros de imagem (ver [enriquecimento de IA)](cognitive-search-concept-intro.md)para criar conteúdo pescável. Da mesma forma, usando o enriquecimento de IA, um grande texto pode ser analisado por modelos de linguagem natural para encontrar estrutura ou informação relevante, gerando novos conteúdos que pode adicionar a um documento de pesquisa.
 
-Dado que os indexantes não resolvem problemas de dados, outras formas de limpeza ou manipulação de dados podem ser necessárias. Para mais informações, consulte a documentação do produto do seu produto de base de [dados Azure.](/azure/?product=databases)
+Dado que os indexantes não resolvem problemas de dados, outras formas de limpeza ou manipulação de dados podem ser necessárias. Para mais informações, consulte a documentação do produto do seu produto de base de [dados Azure.](../index.yml?product=databases)
 
 ## <a name="know-your-index"></a>Conheça o seu índice
 

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 10/02/2020
-ms.openlocfilehash: b3503dead21eeca32d82e896f889b99d11435642
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 62f4b6c76cafab5c6cc46a73851abce1e38551a1
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879735"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101677729"
 ---
 # <a name="register-and-scan-an-azure-sql-database"></a>Registe-se e digitalize uma Base de Dados Azure SQL
 
@@ -149,9 +149,7 @@ Para registar uma nova Base de Dados Azure SQL no seu catálogo de dados, faça 
 No ecrã **'Azure SQL Database',** faça o seguinte:
 
 1. Introduza um **Nome** que a fonte de dados será listada no Catálogo.
-1. Escolha como pretende apontar para a sua conta de armazenamento desejada:
-   1. **Selecione A partir da subscrição Azure**, selecione a subscrição apropriada da caixa de entrega de **subscrição Azure** e o servidor apropriado a partir da caixa de entrega do **nome do Servidor.**
-   1. Ou, pode selecionar **Entrar manualmente** e inserir um **nome de Servidor**.
+1. **Selecione A partir da subscrição Azure**, selecione a subscrição apropriada da caixa de entrega de **subscrição Azure** e o servidor apropriado a partir da caixa de entrega do **nome do Servidor.**
 1. **Termine** para registar a fonte de dados.
 
 :::image type="content" source="media/register-scan-azure-sql-database/add-azure-sql-database.png" alt-text="registar opções de fontes" border="true":::
@@ -161,7 +159,7 @@ No ecrã **'Azure SQL Database',** faça o seguinte:
 > [!NOTE]
 > A eliminação da sua verificação não elimina os seus ativos de análises anteriores da Base de Dados Azure SQL.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Navegue no catálogo de dados Azure Purview Data](how-to-browse-catalog.md)
 - [Pesse o Catálogo de Dados da Azure Purview](how-to-search-catalog.md)

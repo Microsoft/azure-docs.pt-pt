@@ -4,20 +4,19 @@ description: Azure Virtual Machines planejamento e implementação para SAP NetW
 author: MSSedusch
 manager: juergent
 tags: azure-resource-manager
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/17/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017, devx-track-azurecli
-ms.openlocfilehash: bd45b0e1070efae7ae69a74ad96e1fa94a136006
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 98cc41b735a5a25f84bed4b443b735fadb0925e5
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96019400"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101668036"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure Virtual Machines planejamento e implementação para SAP NetWeaver
 
@@ -621,7 +620,7 @@ A figura acima mostra que duas subscrições Azure têm subgrupos de endereço I
 
 A VPN ponto-a-local requer que todas as máquinas de clientes se conectem com a sua própria VPN em Azure. Para os cenários SAP, estamos a olhar para, a conectividade ponto-a-local não é prática. Por conseguinte, não são dadas mais referências à conectividade VPN ponto-a-local.
 
-Pode encontrar mais informações aqui
+Mais informações podem ser encontradas aqui
 * [Configure uma ligação ponto-a-local a um VNet utilizando o portal Azure](../../../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 * [Configurar uma ligação de Ponto a Site a uma VNet com o PowerShell](../../../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
 

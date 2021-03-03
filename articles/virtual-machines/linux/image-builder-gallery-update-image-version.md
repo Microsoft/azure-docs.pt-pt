@@ -5,15 +5,16 @@ author: cynthn
 ms.author: cynthn
 ms.date: 05/05/2020
 ms.topic: how-to
-ms.service: virtual-machines-linux
-ms.subservice: imaging
+ms.service: virtual-machines
+ms.subservice: image-builder
+ms.collection: linux
 ms.reviewer: danis
-ms.openlocfilehash: 13cdb444046fd8d3138e1c33ed65495e9bfe5e98
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 26b0a989e6f16bfffe324dc31a739093b7d99802
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98685073"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101676205"
 ---
 # <a name="preview-create-a-new-vm-image-version-from-an-existing-image-version-using-azure-image-builder-in-linux"></a>Pré-visualização: Criar uma nova versão de imagem VM a partir de uma versão de imagem existente usando Azure Image Builder em Linux
 

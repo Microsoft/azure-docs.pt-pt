@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c3e6c1d6bfa83ef238ef38b25b189510cf142a38
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: c42b79cb8b92b5f96f31eb58f091ff0ce79b84f5
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98661090"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101652135"
 ---
 # <a name="overview-of-user-accounts-in-azure-active-directory-b2c"></a>Visão geral das contas dos utilizadores no Azure Ative Directory B2C
 
@@ -80,8 +80,8 @@ O utilizador do consumidor pode iniciar seducação em aplicações protegidas p
 
 Pode especificar os dados recolhidos quando uma conta de utilizador de consumo é criada. Para obter mais informações, consulte [Adicionar os atributos do utilizador e personalizar a entrada do utilizador.](configure-user-input.md)
 
-Para obter mais informações sobre a gestão das contas dos consumidores, consulte [as contas de utilizadores do Manage AD B2C com o Microsoft Graph](manage-user-accounts-graph-api.md).
+Para obter mais informações sobre a gestão das contas dos consumidores, consulte [as contas de utilizadores do Manage AD B2C com o Microsoft Graph](./microsoft-graph-operations.md).
 
 ### <a name="migrate-consumer-user-accounts"></a>Migrar contas de utilizadores de consumidores
 
-Poderá ter a necessidade de migrar as contas de utilizadores de consumidores existentes de qualquer fornecedor de identidade para Azure AD B2C. Para obter mais informações, consulte [os utilizadores da Migração para Azure AD B2C](user-migration.md).
+Poderá ter a necessidade de migrar as contas de utilizadores de consumidores existentes de qualquer fornecedor de identidade para Azure AD B2C. Para obter mais informações, veja [Migrar utilizadores para o AAD B2C](user-migration.md).

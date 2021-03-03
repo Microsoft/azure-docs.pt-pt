@@ -3,16 +3,17 @@ title: Códigos de erro para máquinas virtuais Azure Spot e conjuntos de escala
 description: Saiba mais sobre códigos de erro que poderá ver ao utilizar máquinas virtuais Azure Spot e definir instâncias.
 author: cynthn
 ms.service: virtual-machines
+ms.subservice: spot
 ms.workload: infrastructure-services
 ms.topic: troubleshooting
 ms.date: 03/25/2020
 ms.author: cynthn
-ms.openlocfilehash: 9bea9978f1755e5a40b5fb3ff967eb7f32384d19
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 6d43935365580233063deb0e523d222351c22d54
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100557746"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101670617"
 ---
 # <a name="error-messages-for-azure-spot-virtual-machines-and-scale-sets"></a>Mensagens de erro para máquinas virtuais Azure Spot e conjuntos de escala
 

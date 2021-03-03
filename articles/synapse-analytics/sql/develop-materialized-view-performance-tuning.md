@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: d10b7084cfc49d60e9d14c3c857d1ade839398ac
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: e6c3987e2de7f9592a1f7f6086657592e1bf0c16
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93305108"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101676599"
 ---
 # <a name="performance-tuning-with-materialized-views-using-dedicated-sql-pool-in-azure-synapse-analytics"></a>Afinação de desempenho com vistas materializadas usando piscina SQL dedicada em Azure Synapse Analytics
 
@@ -29,7 +29,7 @@ Uma visão padrão calcula os seus dados cada vez que a vista é usada.  Não h�
 
 Uma vista materializada pré-computação, lojas e mantém os seus dados em piscinas SQL dedicadas como uma mesa.  A recomputação não é necessária cada vez que uma vista materializada é usada.  É por isso que as consultas que usam todos ou um subconjunto dos dados em vistas materializadas podem ganhar um desempenho mais rápido.  Ainda melhor, as consultas podem usar uma visão materializada sem fazer referência direta a ela, por isso não há necessidade de alterar o código de aplicação.  
 
-A maioria dos requisitos de visão padrão ainda se aplicam a uma visão materializada. Para obter mais informações sobre a sintaxe de vista materializada e outros requisitos, consulte a [VISÃO MATERIALIZADA COMO SELECT](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
+A maioria dos requisitos de visão padrão ainda se aplicam a uma visão materializada. Para obter mais informações sobre a sintaxe de vista materializada e outros requisitos, consulte a [VISÃO MATERIALIZADA COMO SELECT](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?view=azure-sqldw-latest&preserve-view=true).
 
 | Comparação                     | Vista                                         | Vista materializada
 |:-------------------------------|:---------------------------------------------|:--------------------------------------------------------------|
@@ -37,7 +37,7 @@ A maioria dos requisitos de visão padrão ainda se aplicam a uma visão materia
 |Ver conteúdos                    | Gerada cada vez que a vista é usada.   | Pré-processado e armazenado no armazém de dados Azure durante a criação de visualização. Atualizado à medida que os dados são adicionados às tabelas subjacentes.
 |Atualização de dados                    | Sempre atualizado                               | Sempre atualizado
 |Velocidade para recuperar dados de visualização de consultas complexas     | Lento                                         | Rápido  
-|Armazenamento extra                   | No                                           | Yes
+|Armazenamento extra                   | Não                                           | Sim
 |Syntax                          | CREATE VIEW                                  | CRIAR VISTA MATERIALIZADA COMO SELEÇÃO
 
 ## <a name="benefits-of-materialized-views"></a>Benefícios de vistas materializadas
@@ -55,8 +55,8 @@ Uma visão materializada devidamente concebida proporciona os seguintes benefíc
 Em comparação com outros fornecedores de armazéns de dados, as vistas materializadas implementadas no pool de SQL dedicado também proporcionam os seguintes benefícios adicionais:
 
 - Atualização automática e sincronizada de dados com alterações de dados nas tabelas base. Não é necessária qualquer ação do utilizador.
-- Suporte de função agregado alargado. Consulte [CREATE VISTA MATERIALIZADA COMO SELECT (Transact-SQL)](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
-- O apoio à recomendação de visualização materializada específica da consulta.  Ver [EXPLAIN (Transact-SQL)](/sql/t-sql/queries/explain-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
+- Suporte de função agregado alargado. Consulte [CREATE VISTA MATERIALIZADA COMO SELECT (Transact-SQL)](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?view=azure-sqldw-latest&preserve-view=true).
+- O apoio à recomendação de visualização materializada específica da consulta.  Ver [EXPLAIN (Transact-SQL)](/sql/t-sql/queries/explain-transact-sql?view=azure-sqldw-latest&preserve-view=true).
 
 ## <a name="common-scenarios"></a>Cenários comuns  
 
@@ -147,7 +147,7 @@ O otimizador de armazém de dados pode automaticamente usar vistas materializada
 
 Uma vista materializada é armazenada no armazém de dados tal como uma tabela com índice de loja de colunas agrupado (CCI).  Ler dados de uma vista materializada inclui digitalizar o índice e aplicar alterações a partir da loja delta.  Quando o número de linhas na loja delta é demasiado elevado, a resolução de uma consulta a partir de uma vista materializada pode demorar mais do que consultar diretamente as tabelas base.  
 
-Para evitar a degradação do desempenho da consulta, é uma boa prática executar [a DBCC PDW_SHOWMATERIALIZEDVIEWOVERHEAD](/sql/t-sql/database-console-commands/dbcc-pdw-showmaterializedviewoverhead-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) monitorizar o overhead_ratio da vista (total_rows/base_view_row).  Se o overhead_ratio for demasiado elevado, considere reconstruir a vista materializada para que todas as linhas da loja delta sejam transferidas para o índice da loja de colunas.  
+Para evitar a degradação do desempenho da consulta, é uma boa prática executar [a DBCC PDW_SHOWMATERIALIZEDVIEWOVERHEAD](/sql/t-sql/database-console-commands/dbcc-pdw-showmaterializedviewoverhead-transact-sql?view=azure-sqldw-latest&preserve-view=true) monitorizar o overhead_ratio da vista (total_rows/base_view_row).  Se o overhead_ratio for demasiado elevado, considere reconstruir a vista materializada para que todas as linhas da loja delta sejam transferidas para o índice da loja de colunas.  
 
 **Vista materializada e conjunto de resultados**
 

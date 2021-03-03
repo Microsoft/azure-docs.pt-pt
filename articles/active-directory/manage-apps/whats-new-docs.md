@@ -9,12 +9,12 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: daveba
-ms.openlocfilehash: 53339623ee435362d248b794776681972000173e
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 9de518f53a6054a47a72e40ebe546a32dd48aabe
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99258579"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101647277"
 ---
 # <a name="azure-active-directory-application-management-whats-new"></a>Gestão de aplicações do Azure Ative Directory: Quais as novidades
 
@@ -34,7 +34,7 @@ Bem-vindos às novidades da documentação de gestão de aplicações do Azure A
 - [Diretório Ativo (Azure AD) Aplicação Proxy frequentemente perguntas](application-proxy-faq.md)
 - [Tutorial: Adicionar uma aplicação no local para acesso remoto através de Aplicação Proxy em Diretório Ativo Azure](application-proxy-add-on-premises-application.md)
 - [Trabalhar com servidores proxy existentes no local](application-proxy-configure-connectors-with-proxy-servers.md)
-- [Desenvolver aplicativos de linha de negócios para o Azure Ative Directory](developer-guidance-for-integrating-applications.md)
+- [Desenvolver aplicativos de linha de negócios para o Azure Ative Directory](../develop/v2-overview.md)
 - [Compreenda os conectores Proxy de aplicação AD Azure](application-proxy-connectors.md)
 - [Compreender o sinal de inscrição ligado](configure-linked-sign-on.md)
 - [Compreender o sign-on único baseado em palavra-passe](configure-password-single-sign-on-non-gallery-applications.md)

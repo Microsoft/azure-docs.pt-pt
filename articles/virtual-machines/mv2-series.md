@@ -3,16 +3,16 @@ title: Série Mv2 - Azure Virtual Machines
 description: Especificações para os VMs da série Mv2.
 author: ayshakeen
 ms.service: virtual-machines
-ms.subservice: sizes
+ms.subservice: hpc
 ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: jushiman
-ms.openlocfilehash: 962fb8cbd4c64aa2ef625b478afa587099234617
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 52acf04b6f6cbc1acb1478c12d669465f08387a7
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99427639"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101670299"
 ---
 # <a name="mv2-series"></a>Série Mv2
 

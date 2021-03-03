@@ -1,7 +1,7 @@
 ---
 title: Quickstart - Criar e gerir fichas de acesso
 titleSuffix: An Azure Communication Services quickstart
-description: Saiba como gerir identidades e fichas de acesso utilizando a biblioteca de clientes da Administração de Serviços de Comunicação Azure.
+description: Saiba como gerir identidades e fichas de acesso utilizando a biblioteca de clientes de identidade dos Serviços de Comunicação Azure.
 author: tomaschladek
 manager: nmurav
 services: azure-communication-services
@@ -10,18 +10,16 @@ ms.date: 08/20/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
 zone_pivot_groups: acs-js-csharp-java-python
-ms.openlocfilehash: 246b8041e7e12ea1a1391cb4690d02892bc31b63
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 8937210b366981d9768e5329989a8ad14f5e8f35
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96325319"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101657064"
 ---
 # <a name="quickstart-create-and-manage-access-tokens"></a>Quickstart: Criar e gerir fichas de acesso
 
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
-
-Inicie com os Serviços de Comunicação Azure utilizando a biblioteca de clientes da Administração de Serviços de Comunicação. Permite-lhe criar identidades e gerir os seus tokens de acesso. A identidade representa a entidade da sua aplicação no Serviço de Comunicação Azure (por exemplo, utilizador ou dispositivo). Os tokens de acesso permitem que as suas bibliotecas de clientes Chat e Call autentem diretamente contra os Serviços de Comunicação Azure. Recomendamos gerar fichas de acesso num serviço do lado do servidor. Os tokens de acesso são então utilizados para inicializar as bibliotecas de clientes dos Serviços de Comunicação em dispositivos clientes.
+Inicie com os Serviços de Comunicação Azure utilizando a biblioteca de clientes de identidade dos serviços de comunicação. Permite-lhe criar identidades e gerir os seus tokens de acesso. A identidade representa a entidade da sua aplicação no Serviço de Comunicação Azure (por exemplo, utilizador ou dispositivo). Os tokens de acesso permitem que as suas bibliotecas de clientes Chat e Call autentem diretamente contra os Serviços de Comunicação Azure. Recomendamos gerar fichas de acesso num serviço do lado do servidor. Os tokens de acesso são então utilizados para inicializar as bibliotecas de clientes dos Serviços de Comunicação em dispositivos clientes.
 
 Os preços vistos em imagens ao longo deste tutorial são apenas para fins de demonstração.
 
@@ -69,7 +67,7 @@ Neste início rápido, aprendeu a:
 > [!div class="checklist"]
 > * Gerir identidades
 > * Emitir fichas de acesso
-> * Utilizar a biblioteca de clientes da Administração de Serviços de Comunicação
+> * Utilizar a biblioteca de clientes de identidade dos serviços de comunicação
 
 
 > [!div class="nextstepaction"]
@@ -80,4 +78,3 @@ Também pode querer:
  - [Saiba mais sobre a autenticação](../concepts/authentication.md)
  - [Adicionar o chat à aplicação](./chat/get-started.md)
  - [Conheça a arquitetura do cliente e do servidor](../concepts/client-and-server-architecture.md)
- 

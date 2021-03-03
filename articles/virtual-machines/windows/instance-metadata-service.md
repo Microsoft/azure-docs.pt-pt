@@ -8,14 +8,14 @@ ms.service: virtual-machines
 ms.subservice: monitoring
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 02/11/2021
+ms.date: 02/21/2021
 ms.author: sukumari
 ms.reviewer: azmetadatadev
-ms.openlocfilehash: 9d7dc098a2dcca9b6fd12aa300751c065d851d25
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 159506c14db98d40c1e30e9c81dd429b9339d123
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100373318"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101673338"
 ---
 [!INCLUDE [virtual-machines-imds](../../../includes/virtual-machines-imds.md)]

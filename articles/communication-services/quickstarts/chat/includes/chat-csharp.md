@@ -10,17 +10,17 @@ ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 1db7eeb61bc4ded2d7015baecaacd974d7767812
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: cea87f23bcd9dc21ab9f594d6cb0d6008ef98f13
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100653560"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101661686"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar, certifique-se de:
-- Crie uma conta Azure com uma subscrição ativa. Para mais detalhes, consulte [Criar uma conta gratuitamente.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 
-- Instalar [Estúdio Visual](https://visualstudio.microsoft.com/downloads/) 
+- Crie uma conta Azure com uma subscrição ativa. Para mais detalhes, consulte [Criar uma conta gratuitamente.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+- Instalar [Estúdio Visual](https://visualstudio.microsoft.com/downloads/)
 - Criar um recurso Azure Communication Services. Para mais detalhes, consulte [Criar um Recurso de Comunicação Azure](../../create-communication-resource.md). Terá de gravar o seu **ponto final** de recurso para este arranque rápido.
 - Um [token de acesso ao utilizador](../../access-tokens.md). Certifique-se de definir o âmbito para "chat", e note a cadeia simbólica, bem como a cadeia userId.
 
@@ -47,7 +47,7 @@ Instale a biblioteca de clientes Azure Communication Chat para .NET
 
 ```PowerShell
 dotnet add package Azure.Communication.Chat --version 1.0.0-beta.4
-``` 
+```
 
 ## <a name="object-model"></a>Modelo de objeto
 
@@ -60,7 +60,7 @@ As seguintes aulas lidam com algumas das principais características da bibliote
 
 ## <a name="create-a-chat-client"></a>Criar um cliente de chat
 
-Para criar um cliente de chat, utilizará o seu ponto final dos Serviços de Comunicação e o token de acesso que foi gerado como parte dos passos pré-requisitos. Você precisa usar a `CommunicationIdentityClient` classe da biblioteca do cliente para criar um utilizador e emitir um símbolo para passar para o seu `Administration` cliente de chat.
+Para criar um cliente de chat, utilizará o seu ponto final dos Serviços de Comunicação e o token de acesso que foi gerado como parte dos passos pré-requisitos. Você precisa usar a `CommunicationIdentityClient` classe da biblioteca do cliente Identidade para criar um utilizador e emitir um símbolo para passar para o seu cliente de chat.
 
 Saiba mais sobre [tokens de acesso ao utilizador.](../../access-tokens.md)
 
@@ -83,7 +83,7 @@ Use o `createChatThread` método no chatClient para criar um fio de chat
 - Use `topic` para dar um tópico a este chat; O tópico pode ser atualizado após a criação do fio de chat utilizando a `UpdateTopic` função.
 - Utilize `participants` propriedade para passar uma lista de `ChatParticipant` objetos a adicionar ao fio de chat. O `ChatParticipant` objeto é inicializado com um `CommunicationIdentifier` objeto. `CommunicationIdentifier` pode ser do `CommunicationUserIdentifier` tipo, `MicrosoftTeamsUserIdentifier` ou `PhoneNumberIdentifier` . Por exemplo, para obter um `CommunicationIdentifier` objeto, terá de passar um ID de acesso que criou seguindo instruções para [criar um utilizador](../../access-tokens.md#create-an-identity)
 
-O objeto de resposta do método createChatThread contém os detalhes do chatThread. Para interagir com as operações do fio de chat, como adicionar participantes, enviar uma mensagem, apagar uma mensagem, etc., uma instância de cliente chatThreadClient precisa de ser instantânea usando o método GetChatThreadClient no cliente ChatClient. 
+O objeto de resposta do `createChatThread` método contém os `chatThread` detalhes. Para interagir com as operações do fio de chat, como adicionar participantes, enviar uma mensagem, apagar uma mensagem, etc., uma `chatThreadClient` instância do cliente precisa de ser instantânea usando o método no `GetChatThreadClient` `ChatClient` cliente.
 
 ```csharp
 var chatParticipant = new ChatParticipant(communicationIdentifier: new CommunicationUserIdentifier(id: "<Access_ID>"))

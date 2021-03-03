@@ -2,18 +2,18 @@
 title: Azure Arc via Kubernetes frequentemente fazer perguntas
 services: azure-arc
 ms.service: azure-arc
-ms.date: 02/17/2021
+ms.date: 02/19/2021
 ms.topic: conceptual
 author: shashankbarsin
 ms.author: shasb
 description: Este artigo contém uma lista de perguntas frequentes relacionadas com a Azure Arc habilitada a Kubernetes
 keywords: Kubernetes, Arc, Azure, contentores, configuração, GitOps, faq
-ms.openlocfilehash: e0d7501dc1a82940571d0168222c396f61a70bce
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: dc12294b5d53372be5f2e1dd71436973fefbb194
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100652501"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101647868"
 ---
 # <a name="frequently-asked-questions---azure-arc-enabled-kubernetes"></a>Perguntas frequentes - Azure Arc habilitado Kubernetes
 
@@ -32,6 +32,8 @@ N.º Todas as funcionalidades de Kubernetes habilitados pelo Azure Arc, incluind
 ## <a name="should-i-connect-my-aks-hci-cluster-and-kubernetes-clusters-on-azure-stack-hub-and-azure-stack-edge-to-azure-arc"></a>Devo ligar o meu cluster AKS-HCI e os clusters Kubernetes no Azure Stack Hub e no Azure Stack Edge ao Azure Arc?
 
 Sim, ligar o seu cluster AKS-HCI ou agrupamentos Kubernetes no Azure Stack Edge ou no Azure Stack Hub ao Azure Arc fornece clusters com representação de recursos no Azure Resource Manager. Esta representação de recursos estende as capacidades como Cluster Configuration, Azure Monitor e Azure Policy (Gatekeeper) a clusters kubernetes conectados.
+
+Se o cluster Kubernetes ativado pelo Arco Azure estiver no Azure Stack Edge, AKS on Azure Stack HCI (>= atualização de abril de 2021), ou AKS no Windows Server 2019 Datacenter (>= atualização de abril de 2021), então a configuração de Kubernetes está incluída sem custos.
 
 ## <a name="how-to-address-expired-azure-arc-enabled-kubernetes-resources"></a>Como tratar o Azure Arc expirado permitiu recursos kubernetes?
 
@@ -70,6 +72,6 @@ Esta funcionalidade aplica configurações de base (como políticas de rede, enc
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Ligue um cluster ao Arco de Azure](./connect-cluster.md)
+* [Ligue um cluster ao Arco de Azure](./quickstart-connect-cluster.md)
 * [Crie configurações no seu cluster Kubernetes ativado pelo Arco](./use-gitops-connected-cluster.md)
 * [Use a Política Azure para aplicar configurações à escala](./use-azure-policy.md)

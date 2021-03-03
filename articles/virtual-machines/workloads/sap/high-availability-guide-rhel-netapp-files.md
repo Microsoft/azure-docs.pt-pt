@@ -1,5 +1,5 @@
 ---
-title: Azure VMs alta disponibilidade para SAP NW na RHEL com ficheiros Azure NetApp Microsoft Docs
+title: Azure VMs alta disponibilidade para SAP NW em RHEL com ficheiros Azure NetApp| Microsoft Docs
 description: Estabeleça uma elevada disponibilidade para SAP NW em máquinas virtuais Azure (VMs) RHEL com ficheiros Azure NetApp.
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
@@ -8,19 +8,18 @@ manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
-ms.service: virtual-machines-windows
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 01/11/2021
 ms.author: radeltch
-ms.openlocfilehash: 8fa51bec1918b8dce99c80a61da0160c9650d5e4
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: e652d1374db12d797dc4505f07350e6e110d6408
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98116097"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101674442"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux-with-azure-netapp-files-for-sap-applications"></a>Azure Virtual Machines alta disponibilidade para SAP NetWeaver em Red Hat Enterprise Linux com Ficheiros Azure NetApp para aplicações SAP
 
@@ -58,7 +57,7 @@ A camada de base de dados não está coberta em detalhe neste artigo.
 Leia primeiro as seguintes notas e artigos SAP:
 
 * [Documentação dos Ficheiros Azure NetApp][anf-azure-doc] 
-* Nota SAP [1928533,]que tem:
+* Nota SAP [1928533], que tem:
   * Lista de tamanhos Azure VM que são suportados para a implementação de software SAP
   * Informações importantes sobre a capacidade dos tamanhos Azure VM
   * Combinações suportadas de software SAP e sistema operativo (OS) e de base de dados

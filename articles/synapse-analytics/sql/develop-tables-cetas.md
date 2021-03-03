@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 09/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 8ffb3a0948267ea40a5d0511de63a80ad23584d1
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 23b74c06ebd45092b9efe36a870eeac7f6fb828a
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96454678"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101677566"
 ---
 # <a name="cetas-with-synapse-sql"></a>CETAS com Sinaapse SQL
 
@@ -29,7 +29,7 @@ Pode utilizar a CRIAÇÃO DE TABELA EXTERNA AS SELECT (CETAS) em piscina SQL ded
 
 ## <a name="cetas-in-dedicated-sql-pool"></a>CETAS em piscina SQL dedicada
 
-Para obter piscina SQL dedicada, utilização cetas e sintaxe, verifique o artigo [CREATE EXTERNAL TABLE AS SELECT.](/sql/t-sql/statements/create-external-table-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) Além disso, para obter orientação sobre ctas utilizando piscina SQL dedicada, consulte o artigo [CREATE TABLE AS SELECT.](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
+Para obter piscina SQL dedicada, utilização cetas e sintaxe, verifique o artigo [CREATE EXTERNAL TABLE AS SELECT.](/sql/t-sql/statements/create-external-table-as-select-transact-sql?view=azure-sqldw-latest&preserve-view=true) Além disso, para obter orientação sobre ctas utilizando piscina SQL dedicada, consulte o artigo [CREATE TABLE AS SELECT.](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?view=azure-sqldw-latest&preserve-view=true)
 
 ## <a name="cetas-in-serverless-sql-pool"></a>CETAS na piscina SQL sem servidor
 
@@ -54,7 +54,7 @@ CREATE EXTERNAL TABLE [ [database_name  . [ schema_name ] . ] | schema_name . ] 
 
 ## <a name="arguments"></a>Argumentos
 
-*[database_name *database_name* . *[schema_name* ] . ] | *schema_name.* ] *table_name**
+*[database_name  . *[schema_name* ] . ] | *schema_name.* ] *table_name**
 
 O nome de uma a três partes da mesa para criar. Para uma tabela externa, a piscina SQL sem servidor armazena apenas os metadados da tabela. Nenhum dado real é movido ou armazenado em piscina SQL sem servidor.
 
@@ -72,11 +72,11 @@ Especifica o nome do objeto de formato de ficheiro externo que contém o formato
 
 COM *<common_table_expression>*
 
-Especifica um conjunto de resultados nomeado temporário, conhecido como uma expressão de mesa comum (CTE). Para obter mais informações, consulte [with common_table_expression (Transact-SQL)](/sql/t-sql/queries/with-common-table-expression-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
+Especifica um conjunto de resultados nomeado temporário, conhecido como uma expressão de mesa comum (CTE). Para obter mais informações, consulte [with common_table_expression (Transact-SQL)](/sql/t-sql/queries/with-common-table-expression-transact-sql?view=azure-sqldw-latest&preserve-view=true).
 
 SELECIONE <select_criteria>
 
-Povoa a nova tabela com os resultados de uma declaração SELECT. *select_criteria* é o corpo da declaração SELECT que determina quais os dados a copiar para a nova tabela. Para obter informações sobre declarações SELECT, consulte [SELECT (Transact-SQL)](/sql/t-sql/queries/select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
+Povoa a nova tabela com os resultados de uma declaração SELECT. *select_criteria* é o corpo da declaração SELECT que determina quais os dados a copiar para a nova tabela. Para obter informações sobre declarações SELECT, consulte [SELECT (Transact-SQL)](/sql/t-sql/queries/select-transact-sql?view=azure-sqldw-latest&preserve-view=true).
 
 > [!NOTE]
 > ENCOMENDA POR cláusula em SELECT não é suportado para CETAS.
@@ -147,7 +147,7 @@ O CETAS pode ser utilizado para armazenar conjuntos de resultados com os seguint
 - nchar
 - nvarchar
 - pequeno encontro
-- date
+- data
 - datetime
 - datetime2
 - datatimeoffoff

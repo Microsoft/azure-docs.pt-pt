@@ -11,12 +11,12 @@ metadata:
   manager: eliotgra
   ms.date: 03/23/2020
   ms.custom: amqp
-  ms.openlocfilehash: 665692e1d902dfed8cdab535d0639f356f4e709c
-  ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
-  ms.translationtype: HT
+  ms.openlocfilehash: 5e26ebb2bd19806e23c9c044021df97200da21ea
+  ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+  ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 11/19/2020
-  ms.locfileid: "94885925"
+  ms.lasthandoff: 03/02/2021
+  ms.locfileid: "101658389"
 landingContent:
 - title: Introdução
   linkLists:
@@ -78,6 +78,24 @@ landingContent:
       url: tutorial-routing-config-message-routing-rm-template.md
     - text: Executar e ver resultados de encaminhamento
       url: tutorial-routing-view-message-routing-results.md
+- title: Atualização do dispositivo para IoT Hub (pré-visualização)
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Visão geral da atualização do dispositivo para ioT hub
+      url: /iot-hub-device-update/understand-device-update.md
+  - linkListType: how-to-guide
+    links:
+    - text: Importar uma atualização
+      url: /iot-hub-device-update/import-update.md
+  - linkListType: how-to-guide
+    links:
+    - text: Criar um grupo de atualização
+      url: /iot-hub-device-update/create-update-group.md
+  - linkListType: how-to-guide
+    links:
+    - text: Implementar uma atualização
+      url: /iot-hub-device-update/deploy-update.md
 - title: Hub IoT no Azure Stack Hub (pré-visualização)
   linkLists:
   - linkListType: overview

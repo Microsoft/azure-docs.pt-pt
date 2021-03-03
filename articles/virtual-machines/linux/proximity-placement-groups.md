@@ -3,16 +3,17 @@ title: Utilizar grupos de colocação por proximidade
 description: Saiba como criar e utilizar grupos de colocação de proximidade para máquinas virtuais em Azure.
 author: cynthn
 ms.service: virtual-machines
+ms.subservice: proximity-placement-groups
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 10/30/2019
 ms.author: cynthn
-ms.openlocfilehash: a264996c3a2d907e58746c0fcf3eb8b2aefe43ba
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 21f657af60fa0012c517e4788a5d087b3924823f
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878872"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101666241"
 ---
 # <a name="deploy-vms-to-proximity-placement-groups-using-azure-cli"></a>Implementar VMs em grupos de colocação por proximidade com a CLI do Azure
 
@@ -69,6 +70,6 @@ Também pode criar um conjunto de disponibilidade no seu grupo de colocação de
 
 Também pode criar um conjunto de escala no seu grupo de colocação de proximidade. Utilize o mesmo `--ppg` parâmetro com [az vmss criar](/cli/azure/vmss#az_vmss_create) para criar um conjunto de escala e todas as instâncias serão criadas no mesmo grupo de colocação de proximidade.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre os comandos [Azure CLI](/cli/azure/ppg) para grupos de colocação de proximidade.

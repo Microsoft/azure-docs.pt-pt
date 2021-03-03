@@ -1,6 +1,6 @@
 ---
 title: Iniciar sing-in sem palavras-passe com a app Microsoft Authenticator - Azure Ative Directory
-description: Ativar o acesso sem palavras-passe ao Azure AD utilizando a aplicação Microsoft Authenticator (pré-visualização)
+description: Ativar o acesso sem palavra-passe ao Azure AD utilizando a app Microsoft Authenticator
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,14 +11,14 @@ author: justinha
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 62dea67f139857befc7ca24b8b8a105241b5c949
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: 51e6cd7efcd0e851c15975aba5ff9b99c615eb7d
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99626160"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101653478"
 ---
-# <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>Ativar o sing-in sem palavras-passe com a aplicação Microsoft Authenticator (pré-visualização)
+# <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app"></a>Ativar o acesso sem palavras-passe com a aplicação Microsoft Authenticator 
 
 A aplicação Microsoft Authenticator pode ser usada para iniciar serção em qualquer conta AD Azure sem usar uma palavra-passe. O Microsoft Authenticator utiliza a autenticação baseada em chaves para ativar uma credencial do utilizador que está ligada a um dispositivo, onde o dispositivo utiliza um PIN ou um biométrico. [O Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-identity-verification) utiliza uma tecnologia semelhante.
 
@@ -40,7 +40,7 @@ Para utilizar o acesso telefónico sem palavras-passe com a aplicação Microsof
 - A versão mais recente do Microsoft Authenticator instalada em dispositivos com o iOS 8.0 ou superior, ou Android 6.0 ou superior.
 
 > [!NOTE]
-> Se ativou a pré-visualização de entrada sem palavras-passe do Microsoft Authenticator utilizando o Azure AD PowerShell, foi ativado para todo o seu diretório. Se ativar a utilização deste novo método, substitui a política PowerShell. Recomendamos que ative todos os utilizadores do seu inquilino através do novo menu *Métodos de Autenticação,* caso contrário os utilizadores que não constam da nova política já não possam iniciar sação sem senha.
+> Se ativou o pedido de entrada sem palavras-passe do Microsoft Authenticator utilizando o Azure AD PowerShell, foi ativado para todo o seu diretório. Se ativar a utilização deste novo método, substitui a política PowerShell. Recomendamos que ative todos os utilizadores do seu inquilino através do novo menu *Métodos de Autenticação,* caso contrário os utilizadores que não constam da nova política já não possam iniciar sação sem senha.
 
 ## <a name="enable-passwordless-authentication-methods"></a>Ativar métodos de autenticação sem palavras-passe
 
@@ -58,7 +58,7 @@ Para ativar o método de autenticação para a entrada de telefone sem palavras-
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) com uma conta *de administrador global.*
 1. Procure e selecione *Azure Ative Directory* e, em seguida, navegue pelos  >  **métodos de autenticação de** segurança  >  **Políticas**.
-1. Sob **o Autenticador microsoft (pré-visualização)**, escolha as seguintes opções:
+1. Sob **o Autenticador microsoft,** escolha as seguintes opções:
    1. **Ativar** - Sim ou Não
    1. **Alvo** - Todos os utilizadores ou utilizadores selecionados
 1. Cada grupo ou utilizador adicionado é ativado por padrão para utilizar o Microsoft Authenticator nos modos de notificação sem palavras-passe e push ("Any"). Para mudar isto, para cada linha:
@@ -104,7 +104,7 @@ Depois de o utilizador ter utilizado o início de surgiu no registo do telefone 
 
 ## <a name="known-issues"></a>Problemas Conhecidos
 
-As seguintes questões conhecidas existem na experiência atual de pré-visualização.
+Existem as seguintes questões conhecidas.
 
 ### <a name="not-seeing-option-for-passwordless-phone-sign-in"></a>Não ver opção para o acesso telefónico sem palavra-passe
 

@@ -6,19 +6,19 @@ ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 11/24/2020
-ms.openlocfilehash: dffecb48a8faa869cb3df450cc220e86195bbc87
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.date: 01/17/2021
+ms.openlocfilehash: bb8ac82b2e59ec86db89c7eba0ce607fcfc0ac2d
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98199381"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101676556"
 ---
 # <a name="sensitivity-label-insights-about-your-data-in-azure-purview"></a>Insights do rótulo de sensibilidade sobre os seus dados em Azure Purview
 
 Este guia de como aceder, visualizar e filtrar insights de segurança fornecidos por etiquetas de sensibilidade aplicadas aos seus dados.
 
-As fontes de dados suportadas incluem: Azure Blob Storage, Azure Data Lake Storage (ADLS) GEN 1, Azure Data Lake Storage (ADLS) GEN 2, SQL Server, Azure SQL Database, Azure SQL Managed Instance
+As fontes de dados suportadas incluem: Azure Blob Storage, Azure Data Lake Storage (ADLS) GEN 1, Azure Data Lake Storage (ADLS) GEN 2, SQL Server, Azure SQL Database, Azure SQL Managed Instance, Amazon S3 buckets
 
 Neste guia de como guiar, aprenderá a:
 
@@ -40,7 +40,7 @@ Antes de começar com as introspeções de Competência, certifique-se de que co
 
 - [Alargou as etiquetas de sensibilidade da Microsoft 365 a ativos em Azure Purview](create-sensitivity-label.md), e criou ou selecionou as etiquetas que pretende aplicar aos seus dados.
 
-- Configurar e completar uma verificação dos dados de teste em cada fonte de dados
+- Configurar e completar uma verificação dos dados de teste em cada fonte de dados. Para obter mais informações, consulte [Gerir as fontes de dados em Azure Purview (Preview)](manage-data-sources.md) e [criar um conjunto de regras de digitalização](create-a-scan-rule-set.md).
 
 - Inscreva-se em Purview com uma função de [Data Reader ou Data Curator](catalog-permissions.md#azure-purviews-pre-defined-data-plane-roles).
 

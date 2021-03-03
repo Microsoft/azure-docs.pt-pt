@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: ffa9e7b5685f9a200f6a403045687626f67f66f4
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 8607355069bbae5983239ddbd3e8752143f31497
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98218302"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101676340"
 ---
 # <a name="quickstart-use-serverless-sql-pool"></a>Quickstart: Use a piscina SQL sem servidor
 
@@ -153,7 +153,7 @@ Os ficheiros são armazenados em recipiente *json,* *livros* de pastas, e contê
 
 ### <a name="query-json-files"></a>Consultar ficheiros JSON
 
-A seguinte consulta mostra como usar [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) para recuperar valores escalar (título, editor) de um livro com o título *Métodos Probabilísticos e Estatísticos em Criptologia, Uma Introdução por Artigos Selecionados*:
+A seguinte consulta mostra como usar [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?view=azure-sqldw-latest&preserve-view=true) para recuperar valores escalar (título, editor) de um livro com o título *Métodos Probabilísticos e Estatísticos em Criptologia, Uma Introdução por Artigos Selecionados*:
 
 ```sql
 SELECT

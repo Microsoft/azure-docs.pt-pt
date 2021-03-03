@@ -3,19 +3,18 @@ title: Explore dados e modelo no Windows
 titleSuffix: Azure Data Science Virtual Machine
 description: Execute tarefas de exploração e modelação de dados na Máquina Virtual da Ciência dos Dados do Windows.
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: data-science-vm
+ms.service: data-science-vm
 ms.custom: devx-track-python
 author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: 09a4dc8467b9b3c11c8daeb5ca8c62a0e26e79de
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: c44c40f2ddab53cf0beb5ecd48127d126fdb4333
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96575011"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101657405"
 ---
 # <a name="data-science-with-a-windows-data-science-virtual-machine"></a>Ciência de dados com uma máquina virtual de ciência de dados do Windows
 
@@ -315,7 +314,7 @@ Pode precisar de alguma análise em larga escala e precisar de mais CPU, memóri
 ## <a name="add-more-tools"></a>Adicione mais ferramentas
 As ferramentas pré-construídas no DSVM podem responder a muitas necessidades comuns de análise de dados. Isto poupa-lhe tempo porque não precisa de instalar e configurar os seus ambientes um a um. Também te poupa dinheiro, porque só pagas os recursos que usas.
 
-Pode utilizar outros serviços de dados e análises da Azure perfilado neste artigo para melhorar o seu ambiente de análise. Em alguns casos, poderá precisar de ferramentas adicionais, incluindo algumas ferramentas de parceiros proprietários. Tem acesso administrativo total na máquina virtual para instalar novas ferramentas de que necessita. Também pode instalar pacotes adicionais em Python e R que não estejam pré-instalados. Para Python, você pode usar qualquer um ```conda``` ou ```pip``` . Para R, pode utilizar ```install.packages()``` na consola R ou utilizar o IDE e selecionar Pacotes de Instalação de **Packages**  >  **Pacotes**.
+Pode utilizar outros serviços de dados e análises da Azure perfilado neste artigo para melhorar o seu ambiente de análise. Em alguns casos, poderá precisar de ferramentas adicionais, incluindo algumas ferramentas de parceiros proprietários. Tem acesso administrativo total na máquina virtual para instalar novas ferramentas de que necessita. Também pode instalar pacotes adicionais em Python e R que não estejam pré-instalados. Para Python, você pode usar qualquer um ```conda``` ou ```pip``` . Para R, pode utilizar ```install.packages()``` na consola R ou utilizar o IDE e selecionar Pacotes de Instalação de   >  **Pacotes**.
 
 ## <a name="deep-learning"></a>Aprendizagem aprofundada
 

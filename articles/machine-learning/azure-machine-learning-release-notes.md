@@ -8,17 +8,48 @@ ms.subservice: core
 ms.topic: reference
 ms.author: larryfr
 author: BlackMist
-ms.date: 09/10/2020
-ms.openlocfilehash: c54034ef927bb49a955ef6121f5a8d56b57f0bd3
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 02/18/2021
+ms.openlocfilehash: b19c5e8ca1f7984f33a5cedf37a2774532c79350
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100375566"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101661108"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de lançamento do Azure Machine Learning
 
 Neste artigo, saiba mais sobre os lançamentos da Azure Machine Learning.  Para obter o conteúdo completo de referência SDK, visite a página de referência principal do Azure Machine Learning para a página de referência [**python.**](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)
+
+__Feed RSS__: Seja notificado quando esta página for atualizada copiando e colando o seguinte URL no seu leitor de feed: `https://docs.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes%22&locale=en-us`
+
+## <a name="2021-02-16"></a>2021-02-16
+
+### <a name="azure-machine-learning-sdk-for-python-v1230"></a>Azure Machine Learning SDK para Python v1.23.0
++ **Novas funcionalidades**
+  + **azureml-core**
+    + [Recurso experimental] Adicione suporte para ligar o espaço de trabalho da sinapse à AML como um serviço ligado
+    + [Recurso experimental] Adicione suporte para anexar a piscina de faíscas sinapse em AML como um cálculo
+    + [Recurso experimental] Adicione suporte para acesso de dados baseados na identidade. Os utilizadores podem registar datastore ou conjuntos de dados sem fornecer credenciais. Nesse caso, o token AAD ou a identidade gerida do alvo do computação serão utilizados para a autenticação. Saiba mais [aqui.](https://aka.ms/data-access)
+  + **azureml-pipeline-steps**
+    + [Recurso experimental] Adicionar suporte para [SynapseSparkStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.synapsesparkstep?preserve-view=true&view=azure-ml-py)
+  + **azureml-synapse**
+    + [Recurso experimental] Adicione suporte à magia da faísca para executar uma sessão interativa na piscina de faíscas sinapse.
++ **Correções e melhorias de bugs**
+  + **azureml-automl-runtime**
+    + Nesta atualização, adicionámos a suavização exponencial holt winters à caixa de ferramentas de previsão de AutoML SDK. Tendo em conta uma série de tempo, o melhor modelo é selecionado pela [AICc (Critério de Informação de Akaike corrigido)](https://otexts.com/fpp3/selecting-predictors.html#selecting-predictors) e devolvido.
+    + O AutoML irá agora gerar dois ficheiros de registo em vez de um. As declarações de registo irão para um ou outro, dependendo do processo em que a declaração de registo foi gerada.
+    + Remova a previsão desnecessária da amostra durante o treino do modelo com validações cruzadas. Isto pode diminuir o tempo de formação do modelo em alguns casos, especialmente para os modelos de previsão de séries temporais.
+  + **azureml-contrib-fairness**
+    + Adicione um esquema JSON para os uploads do dashboardDictionary.
+  + **azureml-contrib-interpret**
+    + azureml-contrib-interpret README é atualizado para refletir que o pacote será removido na próxima atualização depois de ser depreciado desde outubro, use o pacote de interpretação azureml
+  + **azureml-core**
+    + Anteriormente, foi possível criar uma configuração de provisionamento com a contagem mínima de nól inferior à contagem máxima de nós. Isto foi agora corrigido. Se tentar agora criar uma configuração de provisionamento com `min_nodes < max_nodes` o SDK levantará um `ComputeTargetException` .
+    +  Correções de bug em wait_for_completion em AmlCompute que fez com que a função devolvesse o fluxo de controlo antes da operação estar realmente concluída
+    + Run.fail() está agora precotado, use Run.tag() para marcar run como falhado ou usar Run.cancel() para marcar a execução como cancelado.
+    + Mostrar mensagem de erro "Nome ambiente esperado str, {} encontrado" quando o nome do ambiente não é uma corda.
+  + **azureml-train-automl-client**
+    + Corrigiu um bug que impedia que as experiências automl realizadas em clusters Azure Databricks fossem canceladas.
 
 
 ## <a name="2021-02-09"></a>2021-02-09
@@ -54,11 +85,11 @@ Neste artigo, saiba mais sobre os lançamentos da Azure Machine Learning.  Para 
 ### <a name="azure-machine-learning-studio-notebooks-experience-january-update"></a>Experiência de cadernos do estúdio de aprendizagem de máquinas Azure (atualização de janeiro)
 + **Novas funcionalidades**
   + Editor Nativo de Markdown em AzureML. Os utilizadores podem agora renderizar e editar ficheiros de markdown de forma nativa no AzureML Studio.
-  + [Executar botão para scripts (.py, . R e .sh)](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#run-a-notebook-or-python-script). Os utilizadores podem facilmente executar o script Python, R e Bash em AzureML
-  + [Explorador Variável](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#explore-variables-in-the-notebook). Explore o conteúdo de variáveis e quadros de dados num painel pop-up. Os utilizadores podem facilmente verificar o tipo de dados, o tamanho e o conteúdo.
-  + [Tabela de Conteúdos](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#navigate-with-a-toc). Navegue para secções do seu caderno, indicadas por cabeçalhos Markdown.
+  + [Executar botão para scripts (.py, . R e .sh)](./how-to-run-jupyter-notebooks.md#run-a-notebook-or-python-script). Os utilizadores podem facilmente executar o script Python, R e Bash em AzureML
+  + [Explorador Variável](./how-to-run-jupyter-notebooks.md#explore-variables-in-the-notebook). Explore o conteúdo de variáveis e quadros de dados num painel pop-up. Os utilizadores podem facilmente verificar o tipo de dados, o tamanho e o conteúdo.
+  + [Tabela de Conteúdos](./how-to-run-jupyter-notebooks.md#navigate-with-a-toc). Navegue para secções do seu caderno, indicadas por cabeçalhos Markdown.
   + Exporte o seu Caderno como Látex/HTML/Py. Crie ficheiros de cadernos fáceis de partilhar exportando para LaTex, HTML ou .py
-  + Intellicode. Os resultados movidos a ML proporcionam uma [experiência de auto-completação inteligente](https://docs.microsoft.com/visualstudio/intellicode/overview)melhorada.
+  + Intellicode. Os resultados movidos a ML proporcionam uma [experiência de auto-completação inteligente](/visualstudio/intellicode/overview)melhorada.
 
 + **Correções e melhorias de bugs**
   + Tempos de carga de página melhorados
@@ -971,7 +1002,7 @@ Agora pode criar, editar e partilhar cadernos e ficheiros de machine learning di
 
 Aceda às seguintes ferramentas de autoria baseadas na web do estúdio:
     
-| Ferramenta baseada na web  |     Description  |
+| Ferramenta baseada na web  |     Descrição  |
 |---|---|
 | Cadernos do estúdio Azure ML   |     Primeira autoria em classe para ficheiros de portátil e suporte a toda a operação disponível no Azure ML Python SDK. | 
 
@@ -1483,7 +1514,7 @@ A partir do estúdio, você pode treinar, testar, implementar e gerir ativos de 
 
 Aceda às seguintes ferramentas de autoria baseadas na web do estúdio:
 
-| Ferramenta baseada na web | Description | 
+| Ferramenta baseada na web | Descrição | 
 |-|-|-|
 | VM do portátil (pré-visualização) | Estação de trabalho totalmente gerida em nuvem | 
 | [Aprendizagem automática de máquinas](tutorial-first-experiment-automated-ml.md) (pré-visualização) | Nenhuma experiência de código para automatizar o desenvolvimento de modelos de aprendizagem automática | 
@@ -1867,7 +1898,7 @@ Utilizando esta nova interface Azure Machine Learning, pode agora:
 
 No momento desta versão, os seguintes navegadores são suportados: Chrome, Firefox, Safari e Microsoft Edge Preview.
 
-**Questões conhecidas:**
+**Problemas conhecidos:**
 
 1. Refresque o seu navegador se vir "Algo correu mal! Erros de carregamento de ficheiros de pedaços" quando a implementação está em curso.
 

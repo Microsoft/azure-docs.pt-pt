@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 01/14/2021
 ms.author: alsin
-ms.openlocfilehash: 13388bf289c1d10a2e7da04a4dd5d26be109535e
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: df5133ad4bb3155afdc9d43e595591d9cfda4ea0
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98697865"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101644447"
 ---
 # <a name="troubleshoot-common-automanage-onboarding-errors"></a>Resolução de problemas erros comuns de auto-produção de bordo
 A auto-produção pode não conseguir embarcar uma máquina no serviço. Este documento explica como resolver falhas de implementação, partilha algumas razões comuns pelas quais as implementações podem falhar e descreve potenciais próximos passos na mitigação.
@@ -37,7 +37,7 @@ Se não vir nenhuma falha no grupo de recursos ou subscrição que contenha o se
 Erro |  Mitigação
 :-----|:-------------|
 Erro de permissões insuficientes da conta de auto-controlo | Isto pode acontecer se mudou recentemente uma subscrição contendo uma nova Conta de Automanage para um novo inquilino. Os passos para resolver isto estão localizados [aqui.](./repair-automanage-account.md)
-Região do espaço de trabalho não corresponde aos requisitos de mapeamento da região | A automanagem não foi capaz de embarcar na sua máquina, mas o espaço de trabalho log Analytics ao qual a máquina está atualmente ligada não está mapeado para uma região de Automação suportada. Certifique-se de que o seu espaço de trabalho e conta de Automação do Log Analytics existentes estão localizados num [mapeamento de região suportada.](https://docs.microsoft.com/azure/automation/how-to/region-mappings)
+Região do espaço de trabalho não corresponde aos requisitos de mapeamento da região | A automanagem não foi capaz de embarcar na sua máquina, mas o espaço de trabalho log Analytics ao qual a máquina está atualmente ligada não está mapeado para uma região de Automação suportada. Certifique-se de que o seu espaço de trabalho e conta de Automação do Log Analytics existentes estão localizados num [mapeamento de região suportada.](../automation/how-to/region-mappings.md)
 "A atribuição falhou; não há informação adicional disponível" | Por favor, abra um caso com o suporte do Microsoft Azure.
 
 ## <a name="next-steps"></a>Passos seguintes
@@ -46,4 +46,3 @@ Região do espaço de trabalho não corresponde aos requisitos de mapeamento da 
 
 > [!div class="nextstepaction"]
 > [Ativar a auto-produção de máquinas virtuais no portal Azure](quick-create-virtual-machines-portal.md)
-

@@ -7,25 +7,22 @@ manager: celestedg
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 06/16/2020
+ms.date: 03/02/2021
 ms.author: mimart
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e64ab70fed13d4ca907b2bfb3aa448acdedc39e9
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 46b498f8b8512d0202f47dd31ba25cc851ca71e6
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92441458"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101644107"
 ---
-# <a name="define-custom-attributes-for-user-flows-preview"></a>Definir atributos personalizados para fluxos de utilizador (Pré-visualização)
-
-> [!NOTE]
-> A funcionalidade de atributos personalizados do utilizador é uma funcionalidade de pré-visualização pública do Azure Ative Directory. Para obter mais informações sobre pré-visualizações, veja [Termos de Utilização Suplementares do Microsoft Azure para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="define-custom-attributes-for-user-flows"></a>Definir atributos personalizados para fluxos de utilizador
 
 Para cada aplicação, poderá ter diferentes requisitos para a informação que pretende recolher durante a inscrição. A Azure AD vem com um conjunto incorporado de informações armazenadas em atributos, tais como Nome Dado, Apelido, Cidade e Código Postal. Com o Azure AD, pode estender o conjunto de atributos armazenados numa conta de hóspedes quando o utilizador externo se inscreve através de um fluxo de utilizador.
 
-Pode criar atributos personalizados no portal Azure e usá-los nos fluxos de utilizador de inscrição de autosserviço. Também pode ler e escrever estes atributos utilizando a [API](../../active-directory-b2c/manage-user-accounts-graph-api.md)do Gráfico microsoft . A Microsoft Graph API suporta a criação e atualização de um utilizador com atributos de extensão. Os atributos de extensão na API do gráfico são nomeados através da convenção `extension_<extensions-app-id>_attributename` . Por exemplo:
+Pode criar atributos personalizados no portal Azure e usá-los nos fluxos de utilizador de inscrição de autosserviço. Também pode ler e escrever estes atributos utilizando a [API](../../active-directory-b2c/microsoft-graph-operations.md)do Gráfico microsoft . A Microsoft Graph API suporta a criação e atualização de um utilizador com atributos de extensão. Os atributos de extensão na API do gráfico são nomeados através da convenção `extension_<extensions-app-id>_attributename` . Por exemplo:
 
 ```JSON
 "extension_831374b3bd5041bfaa54263ec9e050fc_loyaltyNumber": "212342"
@@ -38,7 +35,7 @@ O `<extensions-app-id>` é específico para o seu inquilino. Para encontrar este
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) como administrador do Azure Active Directory.
 2. Ao abrigo **dos serviços Azure,** selecione **Azure Ative Directory**.
 3. No menu esquerdo, selecione **Identidades Externas.**
-4. Selecione **atributos de utilizador personalizados (pré-visualização)**. Os atributos disponíveis do utilizador estão listados.
+4. Selecione **atributos de utilizador personalizados**. Os atributos disponíveis do utilizador estão listados.
 
    ![Selecione os atributos do utilizador para a inscrição](media/user-flow-add-custom-attributes/user-attributes.png)
 

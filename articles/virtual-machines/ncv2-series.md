@@ -3,16 +3,16 @@ title: NCv2-série - Azure Virtual Machines
 description: Especificações para os VMs da série NCv2.
 author: vikancha-MSFT
 ms.service: virtual-machines
-ms.subservice: sizes
+ms.subservice: hpc
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: abe3fbb9fb48021be7c44ddded436460633807ce
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 4fec1d16cc9ba8f55dca66648f97113bee0778ed
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99094780"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101670283"
 ---
 # <a name="ncv2-series"></a>Série NCv2
 

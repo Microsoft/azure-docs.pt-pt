@@ -9,16 +9,14 @@ ms.author: dademath
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 80fdedb29f70c961431c987558a42d5fa46dfa7d
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 1a28ca967404bf6a5329f8d590a8f1f4f8715407
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98760803"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101657031"
 ---
 # <a name="get-started-with-the-group-chat-hero-sample"></a>Começa com a amostra de herói de chat de grupo
-
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
 <!----
 > [!WARNING]
@@ -34,15 +32,15 @@ A amostra de **chat hero do grupo** de serviços de comunicação Azure mostra c
 Neste quickstart da amostra, vamos aprender como a amostra funciona antes de passarmos a amostra na sua máquina local. Em seguida, enviaremos a amostra para Azure usando os seus próprios recursos dos Serviços de Comunicação Azure.
 
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
-A amostra tem uma aplicação do lado do cliente e uma aplicação do lado do servidor. A **aplicação do lado do cliente** é uma aplicação web React/Redux que utiliza a estrutura fluente da Microsoft. Esta aplicação envia pedidos para uma **aplicação do ASP.NET** Core que ajuda a aplicação do lado do cliente a ligar-se ao Azure. 
+A amostra tem uma aplicação do lado do cliente e uma aplicação do lado do servidor. A **aplicação do lado do cliente** é uma aplicação web React/Redux que utiliza a estrutura fluente da Microsoft. Esta aplicação envia pedidos para uma **aplicação do ASP.NET** Core que ajuda a aplicação do lado do cliente a ligar-se ao Azure.
 
 Aqui está o aspeto da amostra:
 
 :::image type="content" source="./media/chat/landing-page.png" alt-text="Screenshot mostrando a página de aterragem da aplicação da amostra.":::
 
-Quando carrega no botão "Iniciar um Chat", a aplicação web requer um token de acesso do utilizador a partir da aplicação do lado do servidor. Este token é então usado para ligar a app do cliente aos Serviços de Comunicação Azure. Assim que o sinal for recuperado, serão solicitados a especificar o seu nome e emoji que o representarão no chat. 
+Quando carrega no botão "Iniciar um Chat", a aplicação web requer um token de acesso do utilizador a partir da aplicação do lado do servidor. Este token é então usado para ligar a app do cliente aos Serviços de Comunicação Azure. Assim que o sinal for recuperado, serão solicitados a especificar o seu nome e emoji que o representarão no chat.
 
 :::image type="content" source="./media/chat/pre-chat.png" alt-text="Screenshot mostrando o ecrã pré-chat da aplicação.":::
 
@@ -54,7 +52,7 @@ Componentes do ecrã principal do chat:
 
 - **Principal Área de Chat**: Esta é a experiência principal de chat onde os utilizadores podem enviar e receber mensagens. Para enviar mensagens, pode utilizar a área de entrada e premir a entrada (ou utilizar o botão enviar). As mensagens de chat recebidas são categorizadas pelo remetente com o nome e emoji corretos. Verá dois tipos de notificações na área do chat: 1) digitando notificações quando um utilizador está a escrever e 2) enviados e ler notificações para mensagens.
 - **Cabeçalho**: É aqui que o utilizador verá o título do fio de chat e os controlos para toggling participante e definições barras laterais, e um botão de deixar para sair da sessão de chat.
-- **Barra lateral**: É aqui que os participantes e a definição de informações são mostrados quando alternados utilizando os comandos no cabeçalho. A barra lateral dos participantes contém uma lista de participantes no chat e um link para convidar os participantes para a sessão de chat. A barra lateral das definições permite-lhe configurar o título do fio de conversação. 
+- **Barra lateral**: É aqui que os participantes e a definição de informações são mostrados quando alternados utilizando os comandos no cabeçalho. A barra lateral dos participantes contém uma lista de participantes no chat e um link para convidar os participantes para a sessão de chat. A barra lateral das definições permite-lhe configurar o título do fio de conversação.
 
 Abaixo encontrará mais informações sobre pré-requisitos e passos para configurar a amostra.
 
@@ -86,7 +84,7 @@ Pode testar a amostra localmente abrindo várias sessões de navegador com o URL
 1. Vá à pasta Chat e abra a `Chat.csproj` solução no Visual Studio
 2. Executar o projeto. O navegador será aberto na localidade:5000.
 
-#### <a name="troubleshooting"></a>Resolução de Problemas
+#### <a name="troubleshooting"></a>Resolução de problemas
 
 - A solução não constrói, lança erros durante a instalação/construção do NPM
 
@@ -102,9 +100,9 @@ Pode testar a amostra localmente abrindo várias sessões de navegador com o URL
 
 Se pretender limpar e remover uma assinatura de Serviços de Comunicação, pode eliminar o grupo de recursos ou recursos. A eliminação do grupo de recursos também elimina quaisquer outros recursos que lhe sejam associados. Saiba mais sobre [a limpeza de recursos.](../quickstarts/create-communication-resource.md#clean-up-resources)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
->[!div class="nextstepaction"] 
+>[!div class="nextstepaction"]
 >[Faça o download da amostra do GitHub](https://github.com/Azure-Samples/communication-services-web-chat-hero)
 
 Para obter mais informações, veja os seguintes artigos:

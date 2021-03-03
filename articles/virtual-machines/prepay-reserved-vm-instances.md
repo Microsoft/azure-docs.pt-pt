@@ -4,17 +4,17 @@ description: Saiba como comprar Azure Reserved Virtual Machine Instances para ec
 author: vikramdesai01
 manager: vikramdesai01
 ms.service: virtual-machines
-ms.subservice: sizes
+ms.subservice: reserved-instances
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 10/30/2017
 ms.author: vikdesai
-ms.openlocfilehash: e6cf097e927c4606885dd3f885de6ab8235bf6be
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 7eab410bb2344617e555a7a9d1d44cd9adcc676d
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98682598"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101674721"
 ---
 # <a name="save-costs-with-azure-reserved-vm-instances"></a>Economize custos com Azure Reservado VM Instances
 
@@ -104,9 +104,9 @@ Se tiver um acordo EA, pode utilizar a **opção Adicionar mais** rapidamente pa
 
 | Campo      | Descrição|
 |------------|--------------|
-|Subscrição|A assinatura usada para pagar a reserva. Os custos de reserva são cobrados de acordo com o método de pagamento indicado na subscrição. O tipo de subscrição deve ser um acordo de empresa (números de oferta: MS-AZR-0017P ou MS-AZR-0148P) ou Microsoft Customer Agreement ou uma subscrição individual com taxas pay-as-you-go (números de oferta: MS-AZR-0003P ou MS-AZR-0023P). Os encargos são deduzidos do saldo Azure Prepayment (anteriormente chamado de compromisso monetário), se disponível, ou cobrado como excesso. Para uma subscrição com taxas pay-as-you-go, os encargos são cobrados no cartão de crédito ou no método de pagamento da fatura na subscrição.|    
+|Subscrição|A assinatura usada para pagar a reserva. Os custos de reserva são cobrados de acordo com o método de pagamento indicado na subscrição. O tipo de subscrição deve ser um acordo de empresa (números de oferta: MS-AZR-0017P ou MS-AZR-0148P) ou Microsoft Customer Agreement ou uma subscrição individual com taxas pay-as-you-go (números de oferta: MS-AZR-0003P ou MS-AZR-0023P). Os custos são deduzidos do saldo do Pré-pagamento do Azure (que antes se chamava alocação monetária), se disponível, ou cobrados como utilização excedida. Para uma subscrição com taxas pay-as-you-go, os encargos são cobrados no cartão de crédito ou no método de pagamento da fatura na subscrição.|    
 |Âmbito       |O âmbito da reserva pode abranger uma subscrição ou várias subscrições (âmbito partilhado). Se selecionar: <ul><li>**Âmbito de grupo de recursos único** – aplica o desconto de reserva aos recursos correspondentes apenas no grupo de recursos selecionado.</li><li>**Âmbito de subscrição individual** – aplica o desconto de reserva aos recursos correspondentes na subscrição selecionada.</li><li>**Âmbito partilhado** – aplica o desconto de reserva aos recursos correspondentes em subscrições elegíveis que estejam no contexto de faturação. Para os clientes da EA, o contexto de faturação é a inscrição. Para subscrições individuais com taxas pay as you go, o âmbito da faturação reside em todas as subscrições elegíveis criadas pelo administrador de conta.</li></ul>|
-|Região    |A região de Azure que está coberta pela reserva.|    
+|Region    |A região de Azure que está coberta pela reserva.|    
 |Tamanho da VM     |O tamanho das instâncias VM.|
 |Otimizar para     |A flexibilidade do tamanho da instância VM é selecionada por padrão. Clique **em definições avançadas** para alterar o valor de flexibilidade do tamanho da instância para aplicar o desconto de reserva a outros VMs no mesmo [grupo de tamanho VM](reserved-vm-instance-size-flexibility.md). A prioridade de capacidade prioriza a capacidade de datacenter das implementações. Oferece confiança adicional na sua capacidade de lançar as instâncias VM quando precisa delas. A prioridade da capacidade só está disponível quando o âmbito de reserva é uma subscrição única. |
 |Termo        |Um ano ou três anos. Há também um prazo de 5 anos disponível apenas para HBv2 VMs.|

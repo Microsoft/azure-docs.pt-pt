@@ -1,5 +1,5 @@
 ---
-title: Disponibilidade do SAP HANA nas regiões do Azure Microsoft Docs
+title: Disponibilidade de SAP HANA em todas as regiões de Azure | Microsoft Docs
 description: Uma visão geral das considerações de disponibilidade ao executar SAP HANA em VMs Azure em várias regiões do Azure.
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
@@ -8,20 +8,19 @@ manager: patfilot
 editor: ''
 tags: azure-resource-manager
 keywords: ''
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/12/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 799034d9060e8afe101e86e7b98ac7e01c28d191
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: f925e72493a94bcdbde64bdfbcef6acf83977f52
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96019315"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101669736"
 ---
 # <a name="sap-hana-availability-across-azure-regions"></a>Disponibilidade de SAP HANA em todas as regiões de Azure
 

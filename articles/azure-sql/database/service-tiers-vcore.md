@@ -10,12 +10,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake
 ms.date: 01/15/2021
-ms.openlocfilehash: c55e2d2d9eaeae441e8a7505d0f391ed0860cedf
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: 499e0aa1ee451969923dbdf5f84be1c844a9aab4
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100634214"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101659346"
 ---
 # <a name="vcore-model-overview---azure-sql-database-and-azure-sql-managed-instance"></a>vCore model overview - Azure SQL Database e Azure SQL Managed Instance 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -37,7 +37,7 @@ As opções de nível de serviço no modelo vCore incluem Final Geral, Critical 
 |Armazenamento|Usa armazenamento remoto.<br/>**Cálculo da base de dados SQL:**<br/>5 GB - 4 TB<br/>**Computação sem servidor:**<br/>5 GB - 3 TB<br/>**Sql Gestão de Instância**: 32 GB - 8 TB |Utiliza o armazenamento SSD local.<br/>**Cálculo da base de dados SQL:**<br/>5 GB - 4 TB<br/>**Sql Caso gerido**:<br/>32 GB - 4 TB |Flexível autogrow de armazenamento, se necessário. Suporta até 100 TB de armazenamento. Utiliza o armazenamento SSD local para cache local de piscina tampão e armazenamento de dados local. Utiliza o armazenamento remoto Azure como loja final de dados a longo prazo. |
 |IOPS e produção (aproximada)|**Base de Dados SQL**: Consulte os limites de recursos para [bases de dados individuais](resource-limits-vcore-single-databases.md) e [piscinas elásticas.](resource-limits-vcore-elastic-pools.md)<br/>**SQL Managed Instance**: Ver [visão geral Azure SQL Managed Instance limites de recursos](../managed-instance/resource-limits.md#service-tier-characteristics).|Consulte os limites de recursos para [bases de dados individuais](resource-limits-vcore-single-databases.md) e [piscinas elásticas.](resource-limits-vcore-elastic-pools.md)|Hyperscale é uma arquitetura multi-camadas com caching em vários níveis. O IOPS eficaz e a produção dependerão da carga de trabalho.|
 |Disponibilidade|1 réplica, sem réplicas em escala de leitura|3 réplicas, 1 [réplica em escala de leitura,](read-scale-out.md)<br/>zona redundante alta disponibilidade (HA)|1 réplica de leitura-escrita, mais 0-4 [réplicas em escala de leitura](read-scale-out.md)|
-|Cópias de segurança|[Armazenamento geo-redundante de acesso à leitura (RA-GRS)](../../storage/common/geo-redundant-design.md), 7-35 dias (7 dias por defeito)|[RA-GRS,](../..//storage/common/geo-redundant-design.md)7-35 dias (7 dias por defeito)|Cópias de segurança baseadas em instantâneos no armazenamento remoto Azure. Os restauradores usam estas fotos para uma rápida recuperação. As cópias de segurança são instantâneas e não têm impacto no desempenho de I/O do cálculo. As restaurações são rápidas e não são uma operação de tamanho de dados (demorando minutos em vez de horas ou dias).|
+|Cópias de segurança|[Armazenamento geo-redundante de acesso à leitura (RA-GRS)](../../storage/common/geo-redundant-design.md), 1-35 dias (7 dias por defeito)|[RA-GRS,](../..//storage/common/geo-redundant-design.md)1-35 dias (7 dias por defeito)|Cópias de segurança baseadas em instantâneos no armazenamento remoto Azure. Os restauradores usam estas fotos para uma rápida recuperação. As cópias de segurança são instantâneas e não têm impacto no desempenho de I/O do cálculo. As restaurações são rápidas e não são uma operação de tamanho de dados (demorando minutos em vez de horas ou dias).|
 |Dentro da memória|Não suportado|Suportado|Não suportado|
 |||
 

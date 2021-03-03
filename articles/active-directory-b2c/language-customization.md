@@ -12,12 +12,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: e2aab537c2235fe3e008fa619c96a3098cfa7a27
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: e29ef68bb6f02e329d0406cd80dceb25beab8932
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100361218"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101645913"
 ---
 # <a name="language-customization-in-azure-active-directory-b2c"></a>Personalização linguística no Azure Ative Directory B2C
 
@@ -115,6 +115,7 @@ Se quiser alterar a cadeia para um atributo de utilizador personalizado, ou se p
       "Value": "<ExtensionAttributeValue>"
     }
     [...]
+  ]
 }
 ```
 
@@ -129,22 +130,24 @@ Se quiser fornecer uma lista definida de valores para respostas, precisa de cria
 ```json
 {
   "LocalizedStrings": [...],
-  "LocalizedCollections": [{
+  "LocalizedCollections": [
+    {
       "ElementType":"ClaimType",
       "ElementId":"<UserAttribute>",
       "TargetCollection":"Restriction",
       "Override": true,
       "Items":[
-           {
-                "Name":"<Response1>",
-                "Value":"<Value1>"
-           },
-           {
-                "Name":"<Response2>",
-                "Value":"<Value2>"
-           }
-     ]
-  }]
+        {
+          "Name":"<Response1>",
+          "Value":"<Value1>"
+        },
+        {
+          "Name":"<Response2>",
+          "Value":"<Value2>"
+        }
+      ]
+    }
+  ]
 }
 ```
 
@@ -181,7 +184,7 @@ https://wingtiptoysb2c.blob.core.windows.net/fr/wingtip/unified.html
 
 ## <a name="add-custom-languages"></a>Adicionar idiomas personalizados
 
-Também pode adicionar idiomas para os quais a Microsoft não fornece traduções. Terá de fornecer as traduções para todas as cordas do fluxo do utilizador. Os códigos linguísticos e locais estão limitados aos da norma ISO 639-1. O formato de código local deve ser "ISO_639-1_code"-"CountryCode" para Eg: en-GB. Para mais informações sobre os formatos de ID local, consulte https://docs.microsoft.com/openspecs/office_standards/ms-oe376/6c085406-a698-4e12-9d4d-c3b0ee3dbc4a
+Também pode adicionar idiomas para os quais a Microsoft não fornece traduções. Terá de fornecer as traduções para todas as cordas do fluxo do utilizador. Os códigos linguísticos e locais estão limitados aos da norma ISO 639-1. O formato de código local deve ser "ISO_639-1_code"-"CountryCode", por `en-GB` exemplo. Para mais informações sobre os formatos de ID local, consulte https://docs.microsoft.com/openspecs/office_standards/ms-oe376/6c085406-a698-4e12-9d4d-c3b0ee3dbc4a
 
 1. No seu inquilino Azure AD B2C, selecione **fluxos de utilizador**.
 2. Clique no fluxo do utilizador onde pretende adicionar idiomas personalizados e, em seguida, clique em **Idiomas**.

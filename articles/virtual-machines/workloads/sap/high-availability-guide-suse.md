@@ -1,5 +1,5 @@
 ---
-title: Azure VMs alta disponibilidade para SAP NetWeaver em SLES Microsoft Docs
+title: Azure VMs alta disponibilidade para SAP NetWeaver em SLES | Microsoft Docs
 description: Guia de alta disponibilidade para SAP NetWeaver no SUSE Linux Enterprise Server para aplicações SAP
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
@@ -9,19 +9,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
-ms.service: virtual-machines-windows
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/22/2020
 ms.author: radeltch
-ms.openlocfilehash: ac70833d10c7cbcf5c4dc0fe709e2a6a58a30f26
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: e33b514f61aec69c566eae455d2e59b1a66813f6
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96484214"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101673809"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>Alta disponibilidade para SAP NetWeaver em VMs Azure no SUSE Linux Enterprise Server para aplicações SAP
 
@@ -58,7 +57,7 @@ Nas configurações de exemplo, comandos de instalação, etc. É utilizado o n�
 
 Leia primeiro as seguintes notas e artigos SAP
 
-* Nota SAP [1928533,][1928533]que tem:
+* Nota SAP [1928533][1928533], que tem:
   * Lista de tamanhos Azure VM que são suportados para a implementação de software SAP
   * Informações importantes sobre a capacidade dos tamanhos Azure VM
   * Combinações suportadas de software SAP e sistema operativo (OS) e de base de dados

@@ -9,16 +9,14 @@ ms.author: dademath
 ms.date: 07/28/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: d4fdef6406bfa2e64456f14778cc136735070656
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 1d1c6adc15652a8ddbb05eeeda5f5aa013d73f2e
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94886637"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101661339"
 ---
 # <a name="build-a-trusted-authentication-service-using-azure-functions"></a>Criar um serviço de autenticação fidedigno com as Funções do Azure
-
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
 [!INCLUDE [Trusted Service JavaScript](./includes/trusted-service-js.md)]
 

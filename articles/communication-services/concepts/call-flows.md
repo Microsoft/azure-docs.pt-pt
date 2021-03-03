@@ -9,26 +9,24 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 79382dde5780827d7b0393858fe8896c5da1b56d
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 5b1d24dc6056de0b8dd19d0d0e52c85055596a1d
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100559435"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101664131"
 ---
 # <a name="call-flow-basics"></a>Básicos de fluxo de chamada
-
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
 A secção abaixo apresenta uma visão geral dos fluxos de chamadas nos Serviços de Comunicação Azure. A sinalização e os fluxos de mídia dependem do tipo de chamadas que os seus utilizadores estão a fazer. Exemplos de tipos de chamadas incluem VoIP de um para um, PSTN um a um, e chamadas de grupo contendo uma combinação de participantes ligados ao VoIP e PSTN. Rever [tipos de chamadas](./voice-video-calling/about-call-types.md).
 
 ## <a name="about-signaling-and-media-protocols"></a>Sobre protocolos de sinalização e media
 
-Quando estabelece uma chamada peer-to-peer ou grupo, são utilizados dois protocolos nos bastidores - HTTP (REST) para sinalização e SRTP para meios de comunicação. 
+Quando estabelece uma chamada peer-to-peer ou grupo, são utilizados dois protocolos nos bastidores - HTTP (REST) para sinalização e SRTP para meios de comunicação.
 
-A sinalização entre as bibliotecas do cliente ou entre bibliotecas de clientes e controladores de sinalização de serviços de comunicação é tratada com HTTP REST (TLS). Para Real-Time Tráfego de Meios de Comunicação Social (RTP), é preferível o Protocolo de Datagrama do Utilizador (UDP). Se a utilização de UDP for impedida pela sua firewall, a biblioteca do cliente utilizará o Protocolo de Controlo de Transmissão (TCP) para meios de comunicação. 
+A sinalização entre as bibliotecas do cliente ou entre bibliotecas de clientes e controladores de sinalização de serviços de comunicação é tratada com HTTP REST (TLS). Para Real-Time Tráfego de Meios de Comunicação Social (RTP), é preferível o Protocolo de Datagrama do Utilizador (UDP). Se a utilização de UDP for impedida pela sua firewall, a biblioteca do cliente utilizará o Protocolo de Controlo de Transmissão (TCP) para meios de comunicação.
 
-Vamos rever os protocolos de sinalização e media em vários cenários. 
+Vamos rever os protocolos de sinalização e media em vários cenários.
 
 ## <a name="call-flow-cases"></a>Casos de fluxo de chamadas
 
@@ -40,7 +38,7 @@ Em chamadas voIP ou vídeo-1, o tráfego prefere o caminho mais direto. "Caminho
 
 ### <a name="case-2-voip-where-a-direct-connection-between-devices-is-not-possible-but-where-connection-between-nat-devices-is-possible"></a>Caso 2: VoIP onde não é possível uma ligação direta entre dispositivos, mas onde é possível a ligação entre dispositivos NAT
 
-Se dois dispositivos estiverem localizados em sub-redes que não conseguem chegar uns aos outros (por exemplo, Alice trabalha a partir de um café e Bob trabalha a partir do seu escritório) mas a ligação entre os dispositivos NAT é possível, as bibliotecas do cliente do cliente estabelecerão conectividade através de dispositivos NAT. 
+Se dois dispositivos estiverem localizados em sub-redes que não conseguem chegar uns aos outros (por exemplo, Alice trabalha a partir de um café e Bob trabalha a partir do seu escritório) mas a ligação entre os dispositivos NAT é possível, as bibliotecas do cliente do cliente estabelecerão conectividade através de dispositivos NAT.
 
 Para Alice será o NAT do café e para Bob será o NAT do escritório. O dispositivo da Alice vai enviar o endereço externo da NAT e o Bob vai fazer o mesmo. As bibliotecas de clientes aprendem os endereços externos a partir de um serviço STUN (Session Traversal Utilities for NAT) que a Azure Communication Services fornece gratuitamente. A lógica que lida com o aperto de mão entre Alice e Bob está incorporada nos Serviços de Comunicação Azure fornecidos bibliotecas de clientes. (Não precisa de nenhuma configuração adicional)
 
@@ -51,7 +49,7 @@ Para Alice será o NAT do café e para Bob será o NAT do escritório. O disposi
 Se um ou ambos os dispositivos clientes estiverem por detrás de um NAT simétrico, é necessário um serviço de nuvem separado para transmitir os meios de comunicação entre as duas bibliotecas clientes. Este serviço chama-se TURN (Traversal Using Relays em torno do NAT) e também é fornecido pelos Serviços de Comunicação. Os Serviços de Comunicação que ligam para a biblioteca de clientes utilizam automaticamente os serviços TURN com base nas condições de rede detetadas. A utilização do serviço TURN da Microsoft é carregada separadamente.
 
 :::image type="content" source="./media/call-flows/about-voice-case-3.png" alt-text="Diagrama mostrando uma chamada VOIP que utiliza uma ligação TURN.":::
- 
+
 ### <a name="case-4-group-calls-with-pstn"></a>Caso 4: Chamadas de grupo com PSTN
 
 Tanto a sinalização como os meios de comunicação para chamadas PSTN utilizam o recurso de telefonia dos Serviços de Comunicação Azure. Este recurso está interligado com outros transportadores.
@@ -78,7 +76,7 @@ Se a biblioteca do cliente não puder utilizar o UDP para meios de comunicação
 
 ### <a name="case-5-communication-services-client-library-and-microsoft-teams-in-a-scheduled-teams-meeting"></a>Caso 5: Biblioteca de clientes de serviços de comunicação e equipas da Microsoft numa reunião agendada de equipas
 
-A sinalização flui através do controlador de sinalização. Os meios de comunicação fluem através do Processador de Mídia. O controlador de sinalização e o processador de mídia são partilhados entre os Serviços de Comunicação e as Equipas microsoft. 
+A sinalização flui através do controlador de sinalização. Os meios de comunicação fluem através do Processador de Mídia. O controlador de sinalização e o processador de mídia são partilhados entre os Serviços de Comunicação e as Equipas microsoft.
 
 :::image type="content" source="./media/call-flows/teams-communication-services-meeting.png" alt-text="Diagrama mostrando biblioteca de clientes de Serviços de Comunicação e Cliente de Equipas numa reunião agendada para equipas.":::
 

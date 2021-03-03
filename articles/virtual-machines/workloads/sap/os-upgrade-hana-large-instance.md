@@ -1,34 +1,30 @@
 ---
-title: Atualização do sistema operativo para o SAP HANA em Azure (Grandes Instâncias)/ Microsoft Docs
+title: Atualização do sistema operativo para o SAP HANA em Azure (Grandes Instâncias)| Microsoft Docs
 description: Executar Atualização do sistema operativo para SAP HANA em Azure (Grandes Instâncias)
 services: virtual-machines-linux
 documentationcenter: ''
 author: saghorpa
 manager: juergent
 editor: ''
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/04/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cdc6dd49fe98085edf3c6fb16606b9f540b5a3a0
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: a3c4026616b19656c708f4dd4ac8a419f7774198
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96608695"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101668627"
 ---
 # <a name="operating-system-upgrade"></a>Atualização do sistema operativo
 Este documento descreve os detalhes sobre as atualizações do sistema operativo nas Grandes Instâncias HANA.
 
 >[!NOTE]
 >A atualização do SO é da responsabilidade do cliente, o suporte de operações da Microsoft pode guiá-lo para as áreas-chave para ter cuidado durante a atualização. Deve consultar também o seu fornecedor do sistema operativo antes de planear uma atualização.
-
-> [!NOTE]
-> Este artigo contém referências ao termo *blacklist*, um termo que a Microsoft já não utiliza. Quando o termo for removido do software, vamos removê-lo deste artigo.
 
 Durante o fornecimento da unidade HLI, a equipa de operações da Microsoft instala o sistema operativo.
 Ao longo do tempo, é necessário manter o sistema operativo (Exemplo: Remendos, afinação, atualização, etc.) na unidade HLI.

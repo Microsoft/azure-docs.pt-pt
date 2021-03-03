@@ -3,17 +3,18 @@ title: Visão geral dos anfitriões dedicados Azure para máquinas virtuais
 description: Saiba mais sobre como os Anfitriões Dedicados Azure podem ser usados para implementar máquinas virtuais.
 author: cynthn
 ms.service: virtual-machines
+ms.subservice: dedicated-hosts
 ms.topic: conceptual
 ms.workload: infrastructure
 ms.date: 12/07/2020
 ms.author: cynthn
 ms.reviewer: zivr
-ms.openlocfilehash: 4e29bb0fee496af6a8c0fd30d5559bf865123c39
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: 46de182c7acfaf75b2e65fa318717348dd1c4b73
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97007896"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101667348"
 ---
 # <a name="azure-dedicated-hosts"></a>Anfitriões Dedicados Azure
 
@@ -163,7 +164,7 @@ Os tamanhos e os tipos de hardware variam por região. Consulte a [página de pr
 
 Azure monitoriza e gere o estado de saúde dos seus anfitriões. Os seguintes estados serão devolvidos quando consultar o seu anfitrião:
 
-| Estado da Saúde   | Descrição       |
+| Estado de Funcionamento   | Descrição       |
 |----------|----------------|
 | Anfitrião Disponível     | Não há problemas conhecidos com o seu anfitrião.   |
 | Hospedeiro sob investigação  | Estamos tendo alguns problemas com o anfitrião que estamos procurando. Este é um estado transitório necessário para que a Azure tente identificar o âmbito e a causa principal para a questão identificada. As máquinas virtuais que estão a funcionar no hospedeiro podem ser afetadas. |

@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 09/28/2020
 ms.custom: designer
-ms.openlocfilehash: 46098b2b7ebbf219a3c17b4fa40e1fd52344f683
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 7f602f82063e2a8092eecf533a75449231c1e900
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879801"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101660989"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer"></a>Tutorial: Prever o preço de um automóvel com o estruturador
 
@@ -176,7 +176,7 @@ O seu conjunto de dados ainda tem valores em falta depois de remover a coluna **
 
     O seu oleoduto deve agora ser parecido com isto:
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-clean.png"alt-text="Selecione coluna":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-clean.png" alt-text="Selecione coluna":::
 
 ## <a name="train-a-machine-learning-model"></a>Preparar um modelo de machine learning
 
@@ -224,7 +224,7 @@ Treine o modelo dando-lhe um conjunto de dados que inclui o preço. O algoritmo 
     > [!IMPORTANT]
     > Certifique-se de que as portas de saída esquerda de **Dados Divididos** se ligam ao **Modelo de Comboio.** A porta esquerda contém o conjunto de treino. A porta direita contém o conjunto de teste.
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-model.png"alt-text="Screenshot mostrando a configuração correta do módulo Modelo de Comboio. O módulo linear de regressão liga-se à porta esquerda do módulo Modelo de Comboio e o módulo de Dados Divididos liga-se à porta direita do Modelo de Comboio.":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-model.png" alt-text="Screenshot mostrando a configuração correta do módulo Modelo de Comboio. O módulo linear de regressão liga-se à porta esquerda do módulo Modelo de Comboio e o módulo de Dados Divididos liga-se à porta direita do Modelo de Comboio.":::
 
 1. Selecione o módulo **Modelo de Comboio.**
 
@@ -239,7 +239,7 @@ Treine o modelo dando-lhe um conjunto de dados que inclui o preço. O algoritmo 
 
     O seu oleoduto deve ser assim:
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-graph.png"alt-text="Screenshot mostrando a configuração correta do pipeline depois de adicionar o módulo Modelo de Comboio.":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-graph.png" alt-text="Screenshot mostrando a configuração correta do pipeline depois de adicionar o módulo Modelo de Comboio.":::
 
 ### <a name="add-the-score-model-module"></a>Adicione o módulo Modelo de Pontuação
 
@@ -259,7 +259,7 @@ Utilize o módulo **Modelo avaliar** para avaliar o quão bem o seu modelo obtev
 
     O oleoduto final deve ser mais ou menos assim:
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-final-graph.png"alt-text="Screenshot mostrando a configuração correta do pipeline.":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-final-graph.png" alt-text="Screenshot mostrando a configuração correta do pipeline.":::
 
 ## <a name="submit-the-pipeline"></a>Enviar o oleoduto
 
@@ -288,7 +288,7 @@ Após a execução concluída, pode ver os resultados do percurso do gasoduto. P
 
     Aqui pode ver os preços previstos e os preços reais a partir dos dados de teste.
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/score-result.png"alt-text="Screenshot da visualização de saída realçando a coluna Marcador":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/score-result.png" alt-text="Screenshot da visualização de saída realçando a coluna Marcador":::
 
 ### <a name="evaluate-models"></a>Avaliar modelos
 
@@ -312,7 +312,7 @@ Salte esta secção se quiser continuar com a parte 2 do tutorial, [implantando 
 
 [!INCLUDE [aml-ui-cleanup](../../includes/aml-ui-cleanup.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Na segunda parte, aprenderás a implantar o teu modelo como ponto final em tempo real.
 

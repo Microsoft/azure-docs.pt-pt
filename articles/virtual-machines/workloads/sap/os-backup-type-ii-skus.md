@@ -1,25 +1,24 @@
 ---
-title: Backup do sistema operativo e restauro do SAP HANA em Azure (Grandes Instâncias) TIPO II SKUs / Microsoft Docs
+title: Backup do sistema operativo e restauro do SAP HANA em SKUs do tipo II do tipo Azure| Microsoft Docs
 description: Executar backup do sistema operativo e restaurar para SAP HANA em Azure (Grandes Instâncias) SKUs tipo II
 services: virtual-machines-linux
 documentationcenter: ''
 author: saghorpa
 manager: juergent
 editor: ''
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/12/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e690f6abc9c597cc1facb7b3e59604bb711cf274
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: c03aa119b40a81f553a97ec013f89f88daabf293
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94955672"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101668661"
 ---
 # <a name="os-backup-and-restore-for-type-ii-skus-of-revision-3-stamps"></a>Backup de SO e restauro para SKUs tipo II de revisão 3 selos
 

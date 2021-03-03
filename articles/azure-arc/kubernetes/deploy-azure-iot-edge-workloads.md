@@ -2,18 +2,18 @@
 title: Implementar cargas de trabalho de borda IoTure (pré-visualização)
 services: azure-arc
 ms.service: azure-arc
-ms.date: 02/10/2021
+ms.date: 02/19/2021
 ms.topic: article
 author: mlearned
 ms.author: mlearned
 description: Implementar cargas de trabalho de borda IoTure Azure
 keywords: Kubernetes, Arc, Azure, K8s, contentores
-ms.openlocfilehash: f228b79f14ab24281415cd4bd5964fc86a095d3c
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: c352455b69360df0b26f5aac38fc40ccb30fb9de
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100390441"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101650418"
 ---
 # <a name="deploy-azure-iot-edge-workloads-preview"></a>Implementar cargas de trabalho de borda IoTure (pré-visualização)
 
@@ -43,7 +43,7 @@ O diagrama abaixo ilustra a relação de Azure Arc e Azure IoT Edge:
   $ kubectl create secret generic dcs --from-file=fully-qualified-path-to-values.yaml --namespace iotedge
   ```
 
-  Também pode configurar remotamente usando o [exemplo de configuração](./use-gitops-connected-cluster.md)do cluster .
+  Também pode configurar remotamente usando o [exemplo de configuração](./tutorial-use-gitops-connected-cluster.md)do cluster .
 
 ## <a name="connect-a-cluster"></a>Ligar um cluster
 
@@ -57,10 +57,10 @@ Utilize a `az` extensão Azure CLI `connectedk8s` para ligar um cluster Kubernet
 
 O [exemplo git repo](https://github.com/veyalla/edgearc) aponta para o gráfico IoT Edge Helm e faz referência ao segredo criado na secção pré-requisitos.
 
-Utilize a `az` extensão Azure CLI `k8sconfiguration` para criar uma configuração que ligue o cluster ligado ao repo Git:
+Utilize a `az` extensão Azure CLI `k8s-configuration` para criar uma configuração que ligue o cluster ligado ao repo Git:
 
   ```
-  az k8sconfiguration create --name iotedge --cluster-name AzureArcIotEdge --resource-group AzureArcTest --operator-instance-name iotedge --operator-namespace azure-arc-iot-edge --enable-helm-operator --helm-operator-chart-version 0.6.0 --helm-operator-chart-values "--set helm.versions=v3" --repository-url "git://github.com/veyalla/edgearc.git" --cluster-scoped
+  az k8s-configuration create --name iotedge --cluster-name AzureArcIotEdge --resource-group AzureArcTest --operator-instance-name iotedge --operator-namespace azure-arc-iot-edge --enable-helm-operator --helm-operator-chart-version 0.6.0 --helm-operator-chart-values "--set helm.versions=v3" --repository-url "git://github.com/veyalla/edgearc.git" --cluster-scoped
   ```
 
 Em poucos minutos, deverá ver os módulos de carga de trabalho IoT Edge implantados no espaço de nome do seu `iotedge` cluster. 
@@ -72,7 +72,7 @@ Veja os registos de `SimulatedTemperatureSensor` pod nesse espaço de nome para 
 Remover a configuração utilizando:
 
 ```
-az k8sconfiguration delete -g AzureArcTest --cluster-name AzureArcIotEdge --name iotedge
+az k8s-configuration delete -g AzureArcTest --cluster-name AzureArcIotEdge --name iotedge
 ```
 
 ## <a name="next-steps"></a>Passos seguintes

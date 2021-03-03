@@ -5,15 +5,15 @@ author: timsander1
 ms.service: cosmos-db
 ms.topic: troubleshooting
 ms.subservice: cosmosdb-mongo
-ms.date: 10/12/2020
+ms.date: 03/02/2021
 ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: 88ef081c75a64b5cb7517ba6994834b3a64a0e6f
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 5302cb7bb3f4683d200f6f9ea106991bb934fc17
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340894"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101659907"
 ---
 # <a name="troubleshoot-query-issues-when-using-the-azure-cosmos-db-api-for-mongodb"></a>Problemas de consulta de resolução de problemas ao utilizar a API DB API do Azure Cosmos para a MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -30,7 +30,7 @@ Se reduzir a carga RU de uma consulta, você normalmente diminuirá a latência 
 Este artigo fornece exemplos que pode recriar utilizando o conjunto de [dados nutricionais](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json).
 
 > [!NOTE] 
-> Este artigo pressupõe que está a usar a versão 3.6 da API da Azure Cosmos DB para o MongoDB. Algumas consultas que têm um desempenho fraco na versão 3.2 têm melhorias significativas na versão 3.6. Upgrade para a versão 3.6, apresentando um pedido de [apoio](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+> Este artigo pressupõe que está a usar a API da Azure Cosmos para contas MongoDB com a versão 3.6 ou superior. Algumas consultas que têm um desempenho fraco na versão 3.2 têm melhorias significativas nas versões 3.6+. Upgrade para a versão 3.6, apresentando um pedido de [apoio](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ## <a name="use-explain-command-to-get-metrics"></a>Use $explain comando para obter métricas
 
@@ -113,7 +113,7 @@ db.coll.find({foodGroup: "Baby Foods"}).explain({"executionStatistics": true })
 
 A `$explain` saída do comando é longa e tem informações detalhadas sobre a execução de consultas. No entanto, em geral, existem algumas secções em que deve focar-se na otimização do desempenho da consulta:
 
-| Métrica | Descrição | 
+| Metric | Descrição | 
 | ------ | ----------- |
 | `timeInclusiveMS` | Latência de consulta de backend |
 | `pathsIndexed` | Mostra índices que a consulta usada | 
@@ -348,4 +348,4 @@ O valor `estimatedDelayFromRateLimitingInMilliseconds` dá uma ideia dos potenci
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Desempenho da consulta de resolução de problemas (SQL API)](troubleshoot-query-performance.md)
-* [Gerir a indexação na API da Azure Cosmos para a MongoDB](mongodb-indexing.md)
+* [Gerir os índices na API para MongoDB do Azure Cosmos DB](mongodb-indexing.md)

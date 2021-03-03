@@ -1,19 +1,19 @@
 ---
-title: Ativar InifinBand em VMs HPC - Azure Virtual Machines Microsoft Docs
+title: Ativar InifinBand em VMs HPC - Azure Virtual Machines | Microsoft Docs
 description: Saiba como ativar a InfiniBand em VMs Azure HPC.
 author: vermagit
 ms.service: virtual-machines
-ms.subservice: workloads
+ms.subservice: hpc
 ms.topic: article
 ms.date: 11/06/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 2b2b9a8188bc83bba029755ffbbc590999cf9b3d
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: cd4d928217ceba80fa5ea0252a6ed20803a812d3
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966994"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101666958"
 ---
 # <a name="enable-infiniband"></a>Ativar o Infiniband
 
@@ -34,7 +34,7 @@ No Windows, a [extensão VM InfiniBandDriverWindows](../../extensions/hpc-comput
 Para adicionar a extensão VM a um VM, pode utilizar cmdlets [Azure PowerShell.](/powershell/azure/) Para obter mais informações, consulte [extensões e funcionalidades da máquina virtual.](../../extensions/overview.md) Também pode trabalhar com extensões para VMs implantados no [modelo clássico de implantação.](/previous-versions/azure/virtual-machines/windows/classic/agents-and-extensions-classic)
 
 ## <a name="manual-installation"></a>Instalação manual
-[Os controladores Mellanox OpenFabrics (OFED)](https://www.mellanox.com/products/InfiniBand-VPI-Software) podem ser instalados manualmente nos VMs da série H e da série N [ativados sr-IOV.](../../sizes-hpc.md#rdma-capable-instances) [H-series](../../sizes-hpc.md) [N-series](../../sizes-gpu.md)
+[Os controladores Mellanox OpenFabrics (OFED)](https://www.mellanox.com/products/InfiniBand-VPI-Software) podem ser instalados manualmente nos VMs da série H e da série N [ativados sr-IOV.](../../sizes-hpc.md#rdma-capable-instances) [](../../sizes-hpc.md) [](../../sizes-gpu.md)
 
 ### <a name="linux"></a>Linux
 Os [controladores OFED para Linux](https://www.mellanox.com/products/infiniband-drivers/linux/mlnx_ofed) podem ser instalados com o exemplo abaixo. Embora o exemplo aqui seja para RHEL/CentOS, mas os passos são gerais e podem ser usados para qualquer sistema operativo Linux compatível, como Ubuntu (16.04, 18.04 19.04, 20.04) e SLES (12 SP4 e 15). Mais exemplos para outros distros está no [repo azhpc-images](https://github.com/Azure/azhpc-images/blob/master/ubuntu/ubuntu-18.x/ubuntu-18.04-hpc/install_mellanoxofed.sh). Os condutores de caixas de entrada também funcionam, mas os condutores da Mellanox OFED fornecem mais funcionalidades.

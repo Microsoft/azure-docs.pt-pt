@@ -1,20 +1,20 @@
 ### YamlMime:Landing
 title: Azure Communication Services
-summary: O Azure Communication Services é um serviço de comunicações baseado na cloud que permite adicionar voz, vídeo, chat e telefonia às suas aplicações. Tenha em atenção que o Azure Communication Services está atualmente em pré-visualização pública.
+summary: O Azure Communication Services é um serviço de comunicações baseado na cloud que permite adicionar voz, vídeo, chat e telefonia às suas aplicações.
 metadata:
   title: Azure Communication Services
-  description: O Azure Communication Services é um serviço de comunicações baseado na cloud que permite adicionar voz, vídeo, chat e telefonia às suas aplicações. Tenha em atenção que o Azure Communication Services está atualmente em pré-visualização pública.
+  description: O Azure Communication Services é um serviço de comunicações baseado na cloud que permite adicionar voz, vídeo, chat e telefonia às suas aplicações.
   ms.service: azure-communication-services
   ms.topic: landing-page
   author: mikben
   ms.author: mikben
   ms.date: 08/10/2020
-  ms.openlocfilehash: a39493fd0a1487602fd9cd2ad81fa81900f860d2
-  ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+  ms.openlocfilehash: dd6e3a7685ded2d7f5b292d9436694eddc95163c
+  ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 02/18/2021
-  ms.locfileid: "100652705"
+  ms.lasthandoff: 03/02/2021
+  ms.locfileid: "101657592"
 landingContent:
 - title: Acerca do Azure Communication Services
   linkLists:
@@ -26,6 +26,8 @@ landingContent:
     links:
     - text: Opções de biblioteca de cliente
       url: concepts/sdk-options.md
+    - text: Equipas Interop
+      url: concepts/teams-interop.md
 - title: Introdução
   linkLists:
   - linkListType: quickstart

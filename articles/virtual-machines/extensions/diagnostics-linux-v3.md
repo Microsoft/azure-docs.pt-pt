@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: akjosh
-ms.openlocfilehash: 88f8d62a6321deae8a46d32441625c5960547694
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 6b03d4fb51021019da4c7d31fccf28b0ee157f32
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99982121"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101670539"
 ---
 # <a name="use-linux-diagnostic-extension-30-to-monitor-metrics-and-logs"></a>Utilize a extensão de diagnóstico Linux 3.0 para monitorizar métricas e registos
 
@@ -825,6 +825,6 @@ Consulte a documentação relevante do [EventHubs](../../event-hubs/event-hubs-a
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Crie alertas métricos no [Azure Monitor](../../azure-monitor/platform/alerts-classic-portal.md) para as métricas que recolhe.
-* Crie [gráficos de monitorização](../../azure-monitor/platform/data-platform.md) para as suas métricas.
+* Crie alertas métricos no [Azure Monitor](../../azure-monitor/alerts/alerts-classic-portal.md) para as métricas que recolhe.
+* Crie [gráficos de monitorização](../../azure-monitor/data-platform.md) para as suas métricas.
 * Aprenda a [criar um conjunto de balança de máquina virtual](../linux/tutorial-create-vmss.md) utilizando as suas métricas para controlar a autoscalagem.

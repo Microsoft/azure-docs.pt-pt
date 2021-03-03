@@ -5,29 +5,27 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 06/16/2020
+ms.date: 03/02/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51602e97a8424bade542eec6f88b673130fee8b5
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: a08cc9f5b6bf7f02666406bcc541edb677196eeb
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97586028"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101647341"
 ---
-# <a name="add-a-self-service-sign-up-user-flow-to-an-app-preview"></a>Adicione um fluxo de utilizador de inscrição de autosserviço a uma aplicação (Preview)
-> [!NOTE]
-> A inscrição de self-service é uma funcionalidade de pré-visualização pública do Azure Ative Directory. Para obter mais informações sobre pré-visualizações, veja [Termos de Utilização Suplementares do Microsoft Azure para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="add-a-self-service-sign-up-user-flow-to-an-app"></a>Adicione um fluxo de utilizador de inscrição de autosserviço a uma aplicação
 
 Pode criar fluxos de utilizadores para apps que são construídas pela sua organização. Associar o fluxo do utilizador a uma aplicação permite-lhe ativar o inscrição nessa aplicação. Pode escolher mais do que uma aplicação para estar associada ao fluxo do utilizador. Uma vez associado o fluxo do utilizador a uma ou mais aplicações, os utilizadores que visitarem essa aplicação poderão inscrever-se e obter uma conta de hóspedes utilizando as opções configuradas no fluxo do utilizador.
 
 > [!NOTE]
 > Pode associar fluxos de utilizadores a aplicações construídas pela sua organização. Os fluxos de utilizadores não podem ser utilizados para aplicações da Microsoft, como o SharePoint ou o Teams.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 ### <a name="add-social-identity-providers-optional"></a>Adicionar fornecedores de identidade social (opcional)
 
@@ -35,9 +33,6 @@ A Azure AD é o fornecedor de identidade padrão para a inscrição de autosserv
 
 - [Adicione o Facebook à sua lista de fornecedores de identidade social](facebook-federation.md)
 - [Adicione o Google à sua lista de fornecedores de identidade social](google-federation.md)
-
-> [!NOTE]
-> Na pré-visualização atual, se um fluxo de utilizador de inscrição de autosserviço estiver associado a uma aplicação e enviar um convite a um utilizador para essa aplicação, o utilizador não poderá utilizar uma conta Gmail para resgatar o convite. Como uma solução alternativa, o utilizador pode passar pelo processo de inscrição de autosserviço. Ou, podem resgatar o convite acedendo a uma aplicação diferente ou usando o portal My Apps em https://myapps.microsoft.com .
 
 ### <a name="define-custom-attributes-optional"></a>Defina atributos personalizados (opcional)
 
@@ -50,7 +45,7 @@ Antes de poder adicionar um fluxo de utilizador de inscrição autosserviço às
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) como administrador do Azure Active Directory.
 2. Ao abrigo **dos serviços Azure,** selecione **Azure Ative Directory**.
 3. Selecione **as definições do Utilizador** e, em seguida, em **utilizadores externos**, selecione **Gerir as definições de colaboração externa**.
-4. Descreva o **autosserviço do hóspede ativado através de fluxos de utilizador (Pré-visualização)** para alternar para **Sim**.
+4. Descreva o **autosserviço do hóspede Ativar-se através de fluxos de utilizador** alternar para **Sim**.
 
    ![Ativar o autosserviço do hóspede](media/self-service-sign-up-user-flow/enable-self-service-sign-up.png)
 5. Selecione **Guardar**.
@@ -61,7 +56,7 @@ Em seguida, irá criar o fluxo de utilizador para inscrição de autosserviço e
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) como administrador do Azure Active Directory.
 2. Ao abrigo **dos serviços Azure,** selecione **Azure Ative Directory**.
 3. No menu esquerdo, selecione **Identidades Externas.**
-4. Selecione **os fluxos do utilizador (pré-visualização)** e, em seguida, selecione **Novo fluxo de utilizador**.
+4. Selecione **os fluxos do utilizador** e, em seguida, selecione Novo fluxo de **utilizador**.
 
    ![Adicione um novo botão de fluxo de utilizador](media/self-service-sign-up-user-flow/new-user-flow.png)
 
@@ -75,14 +70,14 @@ Em seguida, irá criar o fluxo de utilizador para inscrição de autosserviço e
 > Só é possível recolher atributos quando um utilizador se inscreve pela primeira vez. Depois de um utilizador se inscrever, deixará de ser solicitado a recolher informações de atributos, mesmo que altere o fluxo do utilizador.
 
 8. Selecione **Criar**.
-9. O novo fluxo de utilizador aparece na lista de **fluxos do Utilizador (Pré-visualização).** Se necessário, refresque a página.
+9. O novo fluxo de utilizador aparece na lista de fluxos do **Utilizador.** Se necessário, refresque a página.
 
 ## <a name="select-the-layout-of-the-attribute-collection-form"></a>Selecione o layout do formulário de recolha de atributos
 
 Pode escolher a ordem na qual os atributos são apresentados na página de inscrição. 
 
 1. No [portal do Azure](https://portal.azure.com), selecione **Azure Active Directory**.
-2. Selecione **identidades externas**, selecione **fluxos de utilizador (pré-visualização)**.
+2. Selecione **identidades externas,** selecione **fluxos de utilizador**.
 3. Selecione o fluxo de utilizador de inscrição automática da lista.
 4. Em **Personalizar, selecione** **layouts de página**.
 5. Os atributos que escolheu para recolher estão listados. Para alterar a ordem de visualização, selecione um atributo e, em seguida, **selecione Mova-se** para cima , **Mova-se para cima**, ou **mova-se para a parte inferior**. 
@@ -95,7 +90,7 @@ Agora pode associar aplicações ao fluxo do utilizador.
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) como administrador do Azure Active Directory.
 2. Ao abrigo **dos serviços Azure,** selecione **Azure Ative Directory**.
 3. No menu esquerdo, selecione **Identidades Externas.**
-4. No **self-service sign up**, selecione **Fluxos de Utilizador (Pré-visualização)**.
+4. No **self-service inscreva-se**, selecione **fluxos de utilizador**.
 5. Selecione o fluxo de utilizador de inscrição automática da lista.
 6. No menu esquerdo, em **Utilização**, selecione **Aplicações**.
 7. Selecione **Adicionar a aplicação**.

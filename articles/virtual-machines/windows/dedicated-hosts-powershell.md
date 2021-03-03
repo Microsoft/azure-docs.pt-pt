@@ -2,18 +2,19 @@
 title: Implementar anfitriões dedicados do Azure usando o Azure PowerShell
 description: Implemente VMs para anfitriões dedicados utilizando a Azure PowerShell.
 author: cynthn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.subservice: dedicated-hosts
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 11/12/2020
 ms.author: cynthn
 ms.reviewer: zivr
-ms.openlocfilehash: 2f8f2d9eb14e1272af126c9a6d6663f41aaee33f
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: 4517c939e14f3157db606f087ef042c1ba7eba3e
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97005091"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101672266"
 ---
 # <a name="deploy-vms-to-dedicated-hosts-using-the-azure-powershell"></a>Implementar VMs para anfitriões dedicados usando o Azure PowerShell
 

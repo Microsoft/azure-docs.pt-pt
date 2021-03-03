@@ -10,12 +10,12 @@ ms.author: peterlu
 ms.date: 06/28/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 70f5e17c4cc42201e9aa3d36c9937f6ceb9527d0
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 10904275d382c7f9dbf223ded78cab0adf14992a
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880208"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101661057"
 ---
 # <a name="transform-data-in-azure-machine-learning-designer"></a>Transforme dados em Azure Machine Learning designer
 
@@ -76,7 +76,7 @@ Nesta secção, utiliza-se o [módulo de Dados Divididos](algorithm-module-refer
 
 O seu oleoduto deve ser assim:
 
-:::image type="content" source="./media/how-to-designer-transform-data/split-data.png"alt-text="Screenshot mostrando como configurar o pipeline e o módulo de dados divididos":::
+:::image type="content" source="./media/how-to-designer-transform-data/split-data.png" alt-text="Screenshot mostrando como configurar o pipeline e o módulo de dados divididos":::
 
 
 ## <a name="save-the-datasets"></a>Guardar os conjuntos de dados
@@ -168,7 +168,7 @@ Salte esta secção se quiser continuar com a parte 2 deste como, [retrain model
 
 [!INCLUDE [aml-ui-cleanup](../../includes/aml-ui-cleanup.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu a transformar um conjunto de dados e guardá-lo para uma datastore registada.
 

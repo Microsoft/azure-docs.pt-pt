@@ -8,20 +8,19 @@ manager: bburns
 editor: ''
 tags: azure-resource-manager
 keywords: ''
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/31/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b03f3f93e8f829c6ab7dec965850117895a8b52d
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: d32adab35852cd19933fe3877c2742a21ddc5f1e
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98882489"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101676981"
 ---
 # <a name="azure-hana-large-instances-control-through-azure-portal"></a>Controlo de Grandes Instâncias do Azure HANA através do portal do Azure
 
@@ -162,7 +161,7 @@ Em cada um dos diferentes tipos de problemas, é-lhe oferecida uma seleção de 
 
 À medida que respondeu às perguntas e forneceu detalhes adicionais, pode dar o passo seguinte para rever o pedido de apoio e submetê-lo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Como monitorizar o SAP HANA (grandes instâncias) em Azure](./troubleshooting-monitoring.md)
 - [Monitorizar e resolver problemas do lado do HANA](./hana-monitor-troubleshoot.md)

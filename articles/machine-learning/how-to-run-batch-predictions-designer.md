@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: keli19
 author: likebupt
-ms.date: 09/09/2020
+ms.date: 02/05/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 2ef125f65e13f7a9fa756553b1de148d4849babc
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: dda47d3ff561d4d57045dbb28f8c411e193086d5
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94553951"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101657377"
 ---
 # <a name="run-batch-predictions-using-azure-machine-learning-designer"></a>Executar previsões de lote usando O designer de aprendizagem de máquinas Azure
 
@@ -51,7 +51,7 @@ O seu gasoduto de treino deve ser executado pelo menos uma vez para poder criar 
 
 Agora que o gasoduto de treino foi executado, pode criar um pipeline de inferência de lote.
 
-1. Ao lado de **Enviar** , selecione o novo pipeline de **inferências Dedesemesta .**
+1. Ao lado de **Enviar**, selecione o novo pipeline de **inferências Dedesemesta .**
 
 1. Selecione **pipeline de inferência do lote**.
 
@@ -144,6 +144,22 @@ Ao publicar um oleoduto, pode optar por torná-lo o novo pipeline padrão para e
 Também pode definir um novo pipeline padrão no **separador de gasodutos Publicado do** seu ponto final.
 
 ![Desafine o gasoduto predefinido na página de pipeline publicada](./media/how-to-run-batch-predictions-designer/set-new-default-pipeline.png)
+
+## <a name="limitations"></a>Limitações
+
+Se fizer algumas modificações no seu gasoduto de treino, deverá reenucam o gasoduto de treino, **atualizar**  o gasoduto de inferência e voltar a executar o gasoduto de inferência.
+
+Note que apenas os modelos serão atualizados no pipeline de inferência, enquanto a transformação de dados não será atualizada.
+
+Para utilizar a transformação atualizada no pipeline de inferência, é necessário registar a saída de transformação do módulo de transformação como conjunto de dados.
+
+![Screenshot mostrando como registar conjunto de dados de transformação](./media/how-to-run-batch-predictions-designer/register-transformation-dataset.png)
+
+Em seguida, substitua manualmente o módulo **TD** no pipeline de inferência pelo conjunto de dados registado.
+
+![Screenshot mostrando como substituir módulo de transformação](./media/how-to-run-batch-predictions-designer/replace-td-module-batch-inference-pipeline.png)
+
+Em seguida, pode submeter o pipeline de inferência com o modelo e transformação atualizados, e publicar.
 
 ## <a name="next-steps"></a>Passos seguintes
 

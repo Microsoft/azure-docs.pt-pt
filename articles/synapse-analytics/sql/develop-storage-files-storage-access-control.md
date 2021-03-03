@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: c9a5be358c40c3411115d8c2ee3f9471c68771b8
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 116fb10956b02b5f6fe578565b9049d9fad54837
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576215"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101674195"
 ---
 # <a name="control-storage-account-access-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Acesso de conta de armazenamento de controlo para piscina SQL sem servidor em Azure Synapse Analytics
 
@@ -192,16 +192,14 @@ Para utilizar a credencial, o utilizador deve ter `REFERENCES` permissão numa c
 GRANT REFERENCES ON CREDENTIAL::[storage_credential] TO [specific_user];
 ```
 
-Para garantir uma experiência de passagem AD Azure suave, todos os utilizadores terão, por padrão, o direito de usar a `UserIdentity` credencial.
-
 ## <a name="server-scoped-credential"></a>Credencial de âmbito do servidor
 
-As credenciais de âmbito do servidor são utilizadas quando as chamadas de login do SQL `OPENROWSET` funcionam sem `DATA_SOURCE` ler ficheiros em alguma conta de armazenamento. O nome da credencial com âmbito de servidor **deve** coincidir com o URL do armazenamento Azure. Uma credencial é adicionada executando [CREATE CREDENTIAL](/sql/t-sql/statements/create-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). Terá de fornecer um argumento DE NOME CREDENTIAL. Deve coincidir com qualquer parte do caminho ou todo o caminho para os dados no Armazenamento (ver abaixo).
+As credenciais de âmbito do servidor são utilizadas quando as chamadas de login do SQL `OPENROWSET` funcionam sem `DATA_SOURCE` ler ficheiros em alguma conta de armazenamento. O nome da credencial com âmbito de servidor **deve** coincidir com o URL base do armazenamento Azure (opcionalmente seguido de um nome de recipiente). Uma credencial é adicionada executando [CREATE CREDENTIAL](/sql/t-sql/statements/create-credential-transact-sql?view=azure-sqldw-latest&preserve-view=true). Terá de fornecer um argumento DE NOME CREDENTIAL.
 
 > [!NOTE]
 > O `FOR CRYPTOGRAPHIC PROVIDER` argumento não é apoiado.
 
-O nome CREDENCIAL ao nível do servidor deve corresponder ao caminho completo da conta de armazenamento (e opcionalmente do recipiente) no seguinte formato: `<prefix>://<storage_account_path>/<storage_path>` . Os caminhos da conta de armazenamento são descritos no quadro seguinte:
+O nome CREDENCIAL ao nível do servidor deve corresponder ao caminho completo da conta de armazenamento (e opcionalmente do recipiente) no seguinte formato: `<prefix>://<storage_account_path>[/<container_name>]` . Os caminhos da conta de armazenamento são descritos no quadro seguinte:
 
 | Fonte de Dados Externos       | Prefixo | Caminho da conta de armazenamento                                |
 | -------------------------- | ------ | --------------------------------------------------- |
@@ -224,11 +222,13 @@ O seguinte script cria uma credencial de nível de servidor que pode ser usada p
 Troque <*mystorageaccountname*> com o seu nome de conta de armazenamento real, e <*mystorageaccountcontainername*> com o nome real do recipiente:
 
 ```sql
-CREATE CREDENTIAL [https://<storage_account>.dfs.core.windows.net/<container>]
+CREATE CREDENTIAL [https://<mystorageaccountname>.dfs.core.windows.net/<mystorageaccountcontainername>]
 WITH IDENTITY='SHARED ACCESS SIGNATURE'
 , SECRET = 'sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-04-18T20:42:12Z&st=2019-04-18T12:42:12Z&spr=https&sig=lQHczNvrk1KoYLCpFdSsMANd0ef9BrIPBNJ3VYEIq78%3D';
 GO
 ```
+
+Opcionalmente, pode utilizar apenas o URL base da conta de armazenamento, sem o nome do recipiente.
 
 ### <a name="managed-identity"></a>[Identidade Gerida](#tab/managed-identity)
 
@@ -238,6 +238,8 @@ O seguinte script cria uma credencial de nível de servidor que pode ser usada p
 CREATE CREDENTIAL [https://<storage_account>.dfs.core.windows.net/<container>]
 WITH IDENTITY='Managed Identity'
 ```
+
+Opcionalmente, pode utilizar apenas o URL base da conta de armazenamento, sem o nome do recipiente.
 
 ### <a name="public-access"></a>[Acesso público](#tab/public-access)
 

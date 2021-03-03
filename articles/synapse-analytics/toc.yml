@@ -419,7 +419,7 @@
           items:
             - name: Criar pontos de restauro
               href: ./backuprestore/sqlpool-create-restore-point.md
-            - name: Restaurar um conjunto de SQL do Synapse
+            - name: Restaurar uma piscina SQL dedicada
               href: ./backuprestore/restore-sql-pool.md
         - name: Gerir e monitorizar
           items:

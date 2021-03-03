@@ -2,19 +2,21 @@
 title: Eventos Agendados para VMs windows em Azure
 description: Eventos regulares utilizando o Serviço de Metadados Azure para as suas máquinas virtuais Windows.
 author: EricRadzikowskiMSFT
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.subservice: scheduled-events
+ms.collection: windows
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 06/01/2020
 ms.author: ericrad
 ms.reviwer: mimckitt
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e4b5248ecb47c9456836aa9c4d7ebb2ad122c1dd
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 0dcfdfbd480cdc708fced38d421b7588c5224a52
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98231876"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101673319"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Serviço de Metadados Azure: Eventos agendados para VMs windows
 
@@ -73,7 +75,7 @@ Se o VM não for criado dentro de uma Rede Virtual, os casos padrão para servi�
 ### <a name="version-and-region-availability"></a>Disponibilidade de versão e região
 O serviço Eventos Agendados é versão. As versões são obrigatórias; a versão atual é `2019-01-01` .
 
-| Versão | Tipo de libertação | Regiões | Notas de Versão | 
+| Versão | Tipo de libertação | Regiões | Release Notes (Notas de Lançamento) | 
 | - | - | - | - | 
 | 2019-08-01 | Disponibilidade Geral | Todos | <li> Suporte adicional para EventSource |
 | 2019-04-01 | Disponibilidade Geral | Todos | <li> Apoio adicional para descrição do evento |

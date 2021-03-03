@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configurar GitHub AE para fornecimento automático de utilizadores com Diretório Ativo Azure / Microsoft Docs'
+title: 'Tutorial: Configurar GitHub AE para fornecimento automático de utilizadores com Azure Ative Directory | Microsoft Docs'
 description: Saiba como provisão e desavisagem automática de contas de utilizadores do Azure AD para GitHub AE.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2020
 ms.author: Zhchia
-ms.openlocfilehash: 4e43ebba9f5f3d0c52d1d03bbf6baca92d5b87a4
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: c3384effc961c6c588bc2d7f4f75bc386d63076b
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96178743"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101651587"
 ---
 # <a name="tutorial-configure-github-ae-for-automatic-user-provisioning"></a>Tutorial: Configurar GitHub AE para fornecimento automático de utilizadores
 
@@ -111,17 +111,27 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
    |nome.formatado|String|
    |displayName|String|
 
-10. Para configurar filtros de âmbito, veja as instruções seguintes disponibilizadas no [Tutorial de filtro de âmbito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+10. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Groups to GitHub AE**.
 
-11. Para ativar o serviço de prestação de Ad Azure para GitHub AE, altere o **Estado de Provisionamento** para **On** na secção **Definições.**
+11. Reveja os atributos do grupo que são sincronizados de Azure AD a GitHub AE na secção **De mapeamento de atributos.** Os atributos selecionados como propriedades **de correspondência** são usados para combinar com os grupos no GitHub AE para operações de atualização. Selecione o botão **Guardar** para escoar quaisquer alterações.
+
+      |Atributo|Tipo|
+      |---|---|
+      |displayName|String|
+      |externalId|String|
+      |membros|Referência|
+
+12. Para configurar filtros de âmbito, veja as instruções seguintes disponibilizadas no [Tutorial de filtro de âmbito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+
+13. Para ativar o serviço de prestação de Ad Azure para GitHub AE, altere o **Estado de Provisionamento** para **On** na secção **Definições.**
 
     ![Estado do Aprovisionamento Ativado](common/provisioning-toggle-on.png)
 
-12. Defina os utilizadores e/ou grupos que deseja prestar ao GitHub AE, escolhendo os valores desejados no **Âmbito** na secção **Definições.**
+14. Defina os utilizadores e/ou grupos que deseja prestar ao GitHub AE, escolhendo os valores desejados no **Âmbito** na secção **Definições.**
 
     ![Âmbito de Aprovisionamento](common/provisioning-scope.png)
 
-13. Quando estiver pronto para aprovisionar, clique em **Guardar**.
+15. Quando estiver pronto para aprovisionar, clique em **Guardar**.
 
     ![Guardar Configuração de Aprovisionamento](common/provisioning-configuration-save.png)
 
@@ -133,6 +143,10 @@ Depois de configurar o aprovisionamento, utilize os seguintes recursos para moni
 1. Utilize os [registos de aprovisionamento](../reports-monitoring/concept-provisioning-logs.md) para determinar quais os utilizadores que foram aprovisionados com ou sem êxito
 2. Verifique a [barra de progresso](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) para ver o estado do ciclo de aprovisionamento e quão próximo está da conclusão
 3. Se a configuração de aprovisionamento parecer estar num mau estado de funcionamento, a aplicação vai entrar em quarentena. Saiba mais sobre os estados de quarentena [aqui](../app-provisioning/application-provisioning-quarantine-status.md).  
+
+## <a name="change-log"></a>Change log
+
+* 02/18/2021 - Apoio adicional ao provisionamento dos grupos.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

@@ -6,22 +6,30 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 02/09/2021
+ms.date: 03/02/2021
 ms.custom: references_regions
-ms.openlocfilehash: 6de91d51f3700c25ba1e0f361c948dc8ab338c43
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 606b102b1922d382f479235ffc4c61b68e7db766
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100590549"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101676393"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Novidades na Pesquisa Cognitiva Azure
 
-Saiba o que há de novo no serviço. Marque esta página para manter-se atualizado com o serviço. Confira a [lista de funcionalidades de pré-visualização](search-api-preview.md) para ver as funcionalidades na pré-visualização pública.
+Saiba o que há de novo no serviço. Marque esta página para manter-se atualizado com o serviço. Consulte a [lista de funcionalidades de pré-visualização](search-api-preview.md) para ver uma lista completa de funcionalidades que ainda não estão disponíveis em geral.
+
+## <a name="march-2021"></a>março de 2021
+
+|Recurso&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Descrição | Disponibilidade  |
+|------------------------------|---------------|---------------|
+| [Pesquisa semântica](semantic-search-overview.md) | Uma coleção de funcionalidades relacionadas com consultas que modificam os resultados da pesquisa para produzir resultados mais relevantes. Com pequenas alterações a um pedido de pesquisa, pode experimentar estas funcionalidades nos índices existentes.</br></br>[A consulta semântica](semantic-how-to-query-request.md) é um novo tipo de consulta que aproveita os avanços no processamento de linguagem natural para melhorar o ranking, bem como compreender a intenção de consulta de fornecer respostas, legendas e destaques semânticos.</br></br>[Classificações e respostas semânticas (respostas, legendas e destaques)](semantic-how-to-query-response.md) referem-se ao algoritmo que define uma consulta semântica e à estrutura da resposta. | Pré-visualização pública ([a pedido).](https://aka.ms/SemanticSearchPreviewSignup) </br></br>Utilize documentos de [pesquisa (REST)](/rest/api/searchservice/preview-api/search-documents) versão api=2020-06-30-Preview e [Explorador de Pesquisa](search-explorer.md) no portal Azure. </br></br>Aplicam-se restrições de região e de nível. |
+| [Termos de consulta de verificação ortográfica](speller-how-to-add.md) | Antes de os termos de consulta chegarem ao motor de busca, pode verificar se há erros ortográficos. A `speller` opção funciona com qualquer tipo de consulta (simples, completa ou semântica). |  Pré-visualização pública, REST only, api-version=2020-06-30-Preview|
+| [Indexador Online SharePoint](search-howto-index-sharepoint-online.md) | Este indexante liga-o a um site SharePoint Online para que possa indexar o conteúdo a partir de uma biblioteca de documentos. | Pré-visualização pública, REST only, api-version=2020-06-30-Preview |
 
 ## <a name="february-2021"></a>Fevereiro de 2021
 
-|Recurso&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Description | Disponibilidade  |
+|Recurso&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Descrição | Disponibilidade  |
 |------------------------------|---------------|---------------|
 | [Documentos de reset (pré-visualização)](search-howto-run-reset-indexers.md) |  Reprocessa documentos de pesquisa selecionados individualmente em cargas de trabalho indexantes. | [Pesquisa REST API 2020-06-30-Preview](/rest/api/searchservice/index-preview) |
 | [Zonas de Disponibilidade](search-performance-optimization.md#availability-zones)| Os serviços de pesquisa com duas ou mais réplicas em determinadas regiões, conforme listados em [Escala para desempenho,](search-performance-optimization.md#availability-zones)ganham resiliência por terem réplicas em dois ou locais físicos mais distintos.  | A região e a data de criação do serviço de pesquisa determinam a disponibilidade. Consulte a Escala para obter mais detalhes. |
@@ -29,7 +37,7 @@ Saiba o que há de novo no serviço. Marque esta página para manter-se atualiza
 
 ## <a name="january-2021"></a>Janeiro de 2021
 
-|Recurso&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Description | Disponibilidade  |
+|Recurso&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Descrição | Disponibilidade  |
 |------------------------------|-------------|---------------|
 | [Acelerador de soluções para Azure Cognitive Search e QnA Maker](https://github.com/Azure-Samples/search-qna-maker-accelerator) | Retira perguntas e respostas do documento e sugere as respostas mais relevantes. Uma aplicação de demonstração ao vivo pode ser encontrada em [https://aka.ms/qnaWithAzureSearchDemo](https://aka.ms/qnaWithAzureSearchDemo) .  | Projeto de código aberto (sem SLA) |
 

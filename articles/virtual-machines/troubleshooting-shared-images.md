@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 10/27/2020
 ms.author: olayemio
 ms.reviewer: cynthn
-ms.openlocfilehash: 9a905dd61bcc267b47dcd075f54a0ed6563a3797
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 507dd224ddeb935cc8b3718bb2e2628be36066f4
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879634"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101676012"
 ---
 # <a name="troubleshoot-shared-image-galleries-in-azure"></a>Resolução de problemas partilhadas galerias de imagens em Azure
 
@@ -52,9 +52,13 @@ Se tiver problemas em realizar quaisquer operações em galerias de imagem parti
 **Porque:** Tentou apagar uma galeria que contém pelo menos uma definição de imagem existente. Uma galeria deve estar vazia antes de poder ser apagada.  
 **Solução alternativa**: Elimine todas as definições de imagem no interior da galeria e, em seguida, proceda à eliminação da galeria. Se a definição de imagem contiver versões de imagem, deve eliminar as versões de imagem antes de eliminar as definições de imagem.
 
+*O nome da galeria '<galleryName \> ' não é único dentro da subscrição <subscriptionId> '. Por favor, escolha outro nome da galeria.*  
+**Causa:** Tem uma galeria existente com o mesmo nome e tentou criar outra galeria com o mesmo nome.  
+**Solução alternativa**: Escolha um nome diferente para a galeria.
+
 *O recurso <galeriaName \> já existe na localização <região \_ 1 no grupo de recursos <\> grupo de \> recursosGroup. Um recurso com o mesmo nome não pode ser criado na localização <região \_ 2 \> . Por favor, selecione um novo nome de recurso.*  
-**Causa**: Tem uma galeria existente no grupo de recursos com o mesmo nome e tentou criar outra galeria com o mesmo nome, mas numa região diferente.  
-**Solução alternativa**: Utilize uma galeria diferente ou utilize um grupo de recursos diferente.
+**Causa:** Tem uma galeria existente com o mesmo nome e tentou criar outra galeria com o mesmo nome.  
+**Solução alternativa**: Escolha um nome diferente para a galeria.
 
 ## <a name="creating-or-modifying-image-definitions"></a>Criar ou modificar definições de imagem ##
 
@@ -105,7 +109,7 @@ Se tiver problemas em realizar quaisquer operações em galerias de imagem parti
 
 *O EndOfLifeDate tem de ser definido para uma data futura.*  
 **Causa**: A propriedade de data de fim de vida não está devidamente formatada como uma data que é depois da data de hoje.  
-**Solução :** Forneça uma data no formato yyyy-MM-dd, yy-MM-dd'T'HH:mm:sszzz ou [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)-válido.
+**Solução :** Forneça uma data no formato yyyy-MM-dd, yyyy-MM-dd'T'HH:mm:sszzz ou [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)-válido.
 
 *argumento --<propriedade \> : valor int inválido: valor <\>*  
 **Causa:**<propriedade \> aceita apenas valores inteiros, e <valor \> não é um inteiro.  
@@ -341,6 +345,6 @@ Utilize a bandeira **replicationStatus** de expansão para verificar se a replic
 [Limites e quotas azure](../azure-resource-manager/management/azure-subscription-service-limits.md) aplicam-se a todos os recursos de galeria de imagens partilhadas, definição de imagem e versão de imagem. Certifique-se de que está dentro dos limites das suas subscrições. 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre [galerias de imagens partilhadas.](./shared-image-galleries.md)

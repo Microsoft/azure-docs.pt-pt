@@ -8,16 +8,14 @@ ms.author: nmurav
 ms.date: 01/03/2012
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 4655a20ddd419993f5a73ec54420abec96d32a62
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: d682524ae3ff5b82233a69959a309a7495e30bed
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100546181"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101658068"
 ---
 # <a name="tutorial-prepare-a-web-app-for-azure-communication-services-nodejs"></a>Tutorial: Preparar uma aplicação web para serviços de comunicação Azure (Node.js)
-
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
 Os Serviços de Comunicação Azure permitem-lhe adicionar comunicações em tempo real às suas aplicações. Neste tutorial, você vai aprender a configurar uma aplicação web que suporta os Serviços de Comunicação Azure. Este é um tutorial introdutório destinado a novos desenvolvedores que querem começar com comunicações em tempo real.
 
@@ -38,12 +36,12 @@ Neste tutorial, ficará a saber como:
 - [Código do Estúdio Visual](https://code.visualstudio.com/): Vamos usar isto para editar código no seu ambiente de desenvolvimento local.
 - [webpack](https://webpack.js.org/): Isto será usado para embalar e hospedar localmente o seu código.
 - [Node.js](https://nodejs.org/en/): Isto será usado para instalar e gerir dependências como bibliotecas de clientes Azure Communication Services e webpack.
-- [nvm e npm](https://docs.microsoft.com/windows/nodejs/setup-on-windows) para lidar com o controlo da versão.
-- A [extensão de armazenamento Azure](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage) para Código de Estúdio Visual. Esta extensão é necessária para publicar a sua aplicação no Azure Storage. [Leia mais sobre hospedar sites estáticos no Azure Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website)
+- [nvm e npm](/windows/nodejs/setup-on-windows) para lidar com o controlo da versão.
+- A [extensão de armazenamento Azure](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage) para Código de Estúdio Visual. Esta extensão é necessária para publicar a sua aplicação no Azure Storage. [Leia mais sobre hospedar sites estáticos no Azure Storage](../../storage/blobs/storage-blob-static-website.md)
 - [A extensão do Serviço de Aplicações Azure](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice). A extensão permite a implementação de websites (semelhantes aos anteriores), mas com a opção de configurar a integração contínua e a entrega contínua totalmente geridas (CI/CD).
 - A [extensão Azure Function](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) para construir as suas próprias aplicações sem servidor. Por exemplo, pode hospedar a sua aplicação de autenticação em funções Azure.
 - Um recurso ativo dos Serviços de Comunicação e cadeia de ligação. [Criar um recurso de Serviços de Comunicação.](../quickstarts/create-communication-resource.md)
-- Um sinal de acesso ao utilizador. Consulte o [acesso rápido ou](https://docs.microsoft.com/azure/communication-services/quickstarts/access-tokens?pivots=programming-language-javascript) o tutorial de serviço [fidedigno](https://docs.microsoft.com/azure/communication-services/tutorials/trusted-service-tutorial) para obter instruções.
+- Um sinal de acesso ao utilizador. Consulte o [acesso rápido ou](../quickstarts/access-tokens.md?pivots=programming-language-javascript) o tutorial de serviço [fidedigno](./trusted-service-tutorial.md) para obter instruções.
 
 
 ## <a name="configure-your-development-environment"></a>Configure o seu ambiente de desenvolvimento
@@ -57,7 +55,7 @@ O seu ambiente de desenvolvimento local será configurado assim:
 
 Usaremos Node.js para descarregar e instalar várias dependências que precisamos para a nossa aplicação do lado do cliente. Vamos usá-lo para gerar ficheiros estáticos que vamos hospedar no Azure, para que não tenhas de te preocupar em configurar o mesmo no teu servidor.
 
-Os desenvolvedores windows podem seguir [este tutorial NodeJS](https://docs.microsoft.com/windows/nodejs/setup-on-windows) para configurar o Nó, nvm e npm. 
+Os desenvolvedores windows podem seguir [este tutorial NodeJS](/windows/nodejs/setup-on-windows) para configurar o Nó, nvm e npm.
 
 Testámos este tutorial usando a versão LTS 12.20.0. Depois de instalar o nvm, utilize o seguinte comando PowerShell para implementar a versão que pretende utilizar:
 
@@ -161,7 +159,7 @@ module.exports ={
     output: {
         filename:'app.js',
         path: path.resolve(__dirname, 'dist'),
-    }     
+    }
 }
 ```
 
@@ -218,7 +216,7 @@ O seu ficheiro agora deve ser assim:
 }
 ```
 
-Acrescentou o comando que pode ser usado a partir das npm. 
+Acrescentou o comando que pode ser usado a partir das npm.
 
 :::image type="content" source="./media/step-one-pic-12.png" alt-text="Modificação package.jsem":::
 
@@ -279,13 +277,13 @@ npm run build:dev
 A consola irá mostrar-lhe onde o servidor está a funcionar. Por defeito, `http://localhost:8080` é. O comando build:dev é o comando que adicionámos ao nosso `package.json` anterior.
 
  :::image type="content" source="./media/step-one-pic-16.png" alt-text="Iniciar um servidor de desenvolvimento":::
- 
+
  Navegue para o endereço no seu navegador e deverá ver a página e o alerta, configurados em passos anteriores.
- 
+
   :::image type="content" source="./media/step-one-pic-17.png" alt-text="Página html":::
-  
- 
-Enquanto o servidor estiver em funcionamento, pode alterar o código e o servidor e a página HTML recarregam automaticamente. 
+
+
+Enquanto o servidor estiver em funcionamento, pode alterar o código e o servidor e a página HTML recarregam automaticamente.
 
 Em seguida, vá ao `app.js` ficheiro no Código do Estúdio Visual e apague `alert('Hello world alert!');` . Guarde o seu ficheiro e verifique se o alerta desaparece do seu navegador.
 
@@ -323,11 +321,11 @@ const { merge } = require('webpack-merge');
  ```
 
 Note que esta configuração será fundida com o webpack.common.js (onde especificamos o ficheiro de entrada e onde armazenar os resultados) e definirá o modo de "produção".
- 
+
 In `package.json` , adicione o seguinte código:
 
 ```JavaScript
-"build:prod": "webpack --config webpack.prod.js" 
+"build:prod": "webpack --config webpack.prod.js"
 ```
 
 O seu ficheiro deverá ter o seguinte aspeto:
@@ -341,14 +339,14 @@ O seu ficheiro deverá ter o seguinte aspeto:
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:dev": "webpack-dev-server --config webpack.dev.js",
-    "build:prod": "webpack --config webpack.prod.js" 
+    "build:prod": "webpack --config webpack.prod.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@azure/communication-calling": "^1.0.0-beta.3",
-    "@azure/communication-common": "^1.0.0-beta.3"
+    "@azure/communication-calling": "^1.0.0-beta.6",
+    "@azure/communication-common": "^1.0.0"
   },
   "devDependencies": {
     "webpack": "^4.42.0",
@@ -368,13 +366,13 @@ Na execução do terminal:
 npm run build:prod
 ```
 
-O comando criará uma `dist` pasta e um ficheiro estático pronto para a produção. `app.js` 
+O comando criará uma `dist` pasta e um ficheiro estático pronto para a produção. `app.js`
 
  :::image type="content" source="./media/step-one-pic-21.png" alt-text="Construção de produção":::
- 
- 
+
+
 ### <a name="deploy-your-app-to-azure-storage"></a>Implemente a sua app para o Azure Storage
- 
+
 Copiar `index.html` e para a `app.css` `dist` pasta.
 
 Na `dist` pasta, crie um novo ficheiro e nomeie-o `404.html` . Copie a seguinte marcação nesse ficheiro:
@@ -399,45 +397,45 @@ Guarde o ficheiro (Ctrl + S).
 Clique com o botão direito e selecione implementar para o Site Estático via Azure Storage.
 
 :::image type="content" source="./media/step-one-pic-22.png" alt-text="Comece a implantar para Azure":::
- 
+
 No `Select subscription` campo, selecione "Iniciar sessão no Azure "ou "Criar uma Conta Azure Gratuita" se ainda não tiver criado uma subscrição antes)
- 
+
 :::image type="content" source="./media/step-one-pic-23.png" alt-text="Iniciar sessão no Azure":::
- 
+
 `Create new Storage Account`  >  `Advanced` Selecione:
 
  :::image type="content" source="./media/step-one-pic-24.png" alt-text="Criação do Grupo de Conta de Armazenamento":::
- 
+
  Fornecer o nome do grupo de armazenamento:
- 
+
  :::image type="content" source="./media/step-one-pic-25.png" alt-text="Adicionar um nome para a conta":::
- 
+
 Criar um novo grupo de recursos, se necessário:
- 
+
   :::image type="content" source="./media/step-one-pic-26.png" alt-text="Criação de um novo grupo":::
-  
+
   Responda "Sim" a gostaria de ativar o alojamento estático do site?"
-  
+
   :::image type="content" source="./media/step-one-pic-27.png" alt-text="Selecionando opção para permitir hospedagem estática do site":::
-  
+
 Aceite o nome de ficheiro predefinido em "Insira o nome do documento de índice", tal como criamos o ficheiro `index.html` .
 
-Digite o `404.html` "Insira o caminho do documento de erro 404".  
-  
-Selecione a localização da aplicação. A localização selecionada definirá qual processador de mídia será utilizado na sua futura aplicação de chamada em chamadas de grupo. 
+Digite o `404.html` "Insira o caminho do documento de erro 404".
+
+Selecione a localização da aplicação. A localização selecionada definirá qual processador de mídia será utilizado na sua futura aplicação de chamada em chamadas de grupo.
 
 A Azure Communication Services seleciona o Processador de Mídia com base na localização da aplicação.
 
 :::image type="content" source="./media/step-one-pic-28.png" alt-text="Selecione localização":::
-  
-Aguarde até que o recurso e o seu website sejam criados. 
- 
+
+Aguarde até que o recurso e o seu website sejam criados.
+
 Clique em "Procurar no site":
 
 :::image type="content" source="./media/step-one-pic-29.png" alt-text="Implantação concluída":::
- 
+
 A partir das ferramentas de desenvolvimento do seu navegador, pode inspecionar a fonte e ver o nosso ficheiro, preparado para a produção.
- 
+
 :::image type="content" source="./media/step-one-pic-30.png" alt-text="Site":::
 
 Vá ao [portal Azure,](https://portal.azure.com/#home)selecione o seu grupo de recursos, selecione a aplicação que criou e navegue para `Settings`  >  `Static website` . Pode ver que os websites estáticos estão ativados e anotar os ficheiros de documentos de fim primário, documento de índice e de trajetória de erro.
@@ -448,7 +446,7 @@ Em "Serviço Blob" selecione os "Contentores" e verá dois contentores criados, 
 
 :::image type="content" source="./media/step-one-pic-32.png" alt-text="Configuração do recipiente":::
 
-Se for a `$web` casa verá os seus ficheiros que criou no Visual Studio e foi implantado para a Azure. 
+Se for a `$web` casa verá os seus ficheiros que criou no Visual Studio e foi implantado para a Azure.
 
 :::image type="content" source="./media/step-one-pic-33.png" alt-text="Implementação":::
 

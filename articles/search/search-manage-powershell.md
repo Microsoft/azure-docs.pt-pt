@@ -9,17 +9,18 @@ ms.service: cognitive-search
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 02/09/2021
-ms.openlocfilehash: c992693bfb278ac559feb6fa82fa947086ceafbb
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 111424ab3a3bd6020e70a08ddf2c494996f6f0ea
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100381142"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101676685"
 ---
 # <a name="manage-your-azure-cognitive-search-service-with-powershell"></a>Gerencie o seu serviço de Pesquisa Cognitiva Azure com o PowerShell
 > [!div class="op_single_selector"]
 > * [Portal](search-manage.md)
 > * [PowerShell](search-manage-powershell.md)
+> * [CLI do Azure](search-manage-azure-cli.md)
 > * [API REST](/rest/api/searchmanagement/)
 > * [SDK do .NET](/dotnet/api/microsoft.azure.management.search)
 > * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)
@@ -316,7 +317,7 @@ New-AzPrivateDnsZoneGroup `
     -PrivateDnsZoneConfig $config
 ```
 
-Para obter mais detalhes sobre a criação de pontos finais privados no PowerShell, consulte este [Private Link Quickstart](https://docs.microsoft.com/azure/private-link/create-private-endpoint-powershell)
+Para obter mais detalhes sobre a criação de pontos finais privados no PowerShell, consulte este [Private Link Quickstart](../private-link/create-private-endpoint-powershell.md)
 
 ### <a name="manage-private-endpoint-connections"></a>Gerir ligações privadas de ponto final
 
@@ -410,7 +411,7 @@ Uma lista completa dos Recursos Azure para os quais pode criar pontos finais pri
 [New-AzSearchSharedPrivateLinkResource](/powershell/module/az.search/New-AzSearchSharedPrivateLinkResource) é usado para criar o recurso de ligação privada compartilhado. Tenha em mente que poderá ser necessária alguma configuração para a fonte de dados antes de executar este comando.
 
 ```azurepowershell-interactive
-New-AzSearchSharedPrivateLinkResource -ResourceGroupName <resource-group-name> -ServiceName <search-service-name> -Name <spl-name> -PrivateLinkResourceId /subscriptions/<alphanumeric-subscription-ID>/resourcegroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/myBlobStorage -GroupId <group-id> -RequestMessage "Please approve" 
+New-AzSearchSharedPrivateLinkResource -ResourceGroupName <resource-group-name> -ServiceName <search-service-name> -Name <spl-name> -PrivateLinkResourceId /subscriptions/<alphanumeric-subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/myBlobStorage -GroupId <group-id> -RequestMessage "Please approve" 
 ```
 
 [O Get-AzSearchSharedPrivateLinkResource](/powershell/module/az.search/Get-AzSearchSharedPrivateLinkResource) permite-lhe recuperar os recursos de ligação privada partilhados e ver o seu estado.

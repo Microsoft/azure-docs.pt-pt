@@ -1,25 +1,24 @@
 ---
-title: Conectividade criada desde a rede virtual até à SAP HANA em Azure (grandes instâncias) Microsoft Docs
+title: Conectividade criada de rede virtual para SAP HANA em Azure (grandes instâncias) | Microsoft Docs
 description: Conectividade configurada a partir de rede virtual para usar SAP HANA em Azure (grandes instâncias).
 services: virtual-machines-linux
 documentationcenter: ''
 author: msjuergent
 manager: bburns
 editor: ''
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/25/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c5a8a8157721f34abf7761a85febc7bcea3abb88
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 218862b2df959fc0a39baa3c2934fc05f252af32
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967844"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101672970"
 ---
 # <a name="connect-a-virtual-network-to-hana-large-instances"></a>Ligue uma rede virtual a grandes instâncias HANA
 

@@ -1,24 +1,24 @@
 ---
-title: Soluções Oracle no Microsoft Azure Microsoft Docs
+title: Soluções Oracle no Microsoft Azure | Microsoft Docs
 description: Saiba mais sobre opções para implementar aplicações e soluções oracle no Microsoft Azure, incluindo executar inteiramente na infraestrutura Azure ou usar conectividade cross-cloud com Oracle Cloud Infrastructure (OCI).
-services: virtual-machines-linux
 documentationcenter: ''
 author: dbakevlar
 tags: azure-resource-management
 ms.assetid: ''
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: oracle
+ms.collection: linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/05/2020
 ms.author: kegorman
-ms.openlocfilehash: d9b032bbd89f8b6d300650ac54567b07ae3307b8
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 971f7c919595f915451faf9266ee3bb18b35087e
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94948396"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101677169"
 ---
 # <a name="overview-of-oracle-applications-and-solutions-on-azure"></a>Visão geral das aplicações e soluções da Oracle no Azure
 
@@ -90,7 +90,7 @@ Também implemente aplicações personalizadas no Azure que se conectam com o OC
 Utilize os Serviços de Nuvem oracle Database (Base de Dados Autónoma, RAC, Exadata, DBaaS, Nó Único) em conjunto com o software Oracle em execução em Azure. Saiba mais sobre [as opções de base de dados de OCI.](https://docs.cloud.oracle.com/iaas/Content/Database/Concepts/databaseoverview.htm) 
  
 
-## <a name="licensing"></a>Licenciamento
+## <a name="licensing"></a>Licensing
 
 A implementação de aplicações oracle em Azure baseia-se num modelo de "traga a sua própria licença". Presume-se que está devidamente licenciado para usar o software Oracle e que tem um acordo de apoio atual em vigor com a Oracle. A Oracle garantiu a mobilidade de licenças de instalações para Azure. Veja as [faq Oracle-Azure.](https://www.oracle.com/cloud/technologies/oracle-azure-faq.html)
 
@@ -102,4 +102,4 @@ A implementação de aplicações oracle em Azure baseia-se num modelo de "traga
 
 * Saiba mais sobre como [interligar Azure com OCI](oracle-oci-overview.md).
 
-* Confira a sessão geral do [Oráculo em Azure](https://myignite.techcommunity.microsoft.com/sessions/82915) da Ignite 2019. 
+* Confira a sessão geral do [Oráculo em Azure](https://www.pluralsight.com/courses/microsoft-ignite-session-57) da Ignite 2019. 

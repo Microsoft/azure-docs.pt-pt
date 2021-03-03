@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 12/01/2020
-ms.openlocfilehash: f9791fa8932792398efdea39fe0d39a967420596
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: a30980ba61a1dfec918dce1a55e78f1be2a36dd7
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99491727"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101677877"
 ---
 # <a name="register-and-scan-an-azure-sql-database-managed-instance"></a>Registe e digitalize uma caixa de dados de base de dados Azure SQL
 
@@ -117,7 +117,7 @@ O principal do serviço ou identidade gerida deve ter permissão para obter meta
 
     :::image type="content" source="media/register-scan-azure-sql-database-managed-instance/set-up-the-sql-data-source.png" alt-text="Configurar a fonte de dados SQL":::
 
-1. Selecione **Entrar manualmente**
+1. **Selecione A partir da subscrição Azure**, selecione a subscrição apropriada da caixa de entrega de **subscrição Azure** e o servidor apropriado a partir da caixa de entrega do **nome do Servidor.**
 
 1. Forneça ao ponto final público o nome de domínio e **o número de porta** totalmente **qualificados** . Em seguida, **selecione Terminar** para registar a fonte de dados.
 

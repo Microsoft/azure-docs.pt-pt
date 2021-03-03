@@ -11,16 +11,16 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 08/31/2020
 ms.custom: devx-track-python, data4ml
-ms.openlocfilehash: 9e4722933ec224712c8d649c0d9d850a9ee3e322
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 1c2a917712cbde95fda9321e56fe1c033ad444aa
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98872014"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101659720"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Acesso seguro a dados em Azure Machine Learning
 
-O Azure Machine Learning facilita a ligação aos seus dados na nuvem.  Fornece uma camada de abstração sobre o serviço de armazenamento subjacente, para que possa aceder e trabalhar com os seus dados de forma segura sem ter de escrever código específico para o seu tipo de armazenamento. A Azure Machine Learning também fornece as seguintes capacidades de dados:
+O Azure Machine Learning facilita a ligação aos seus dados na nuvem. Fornece uma camada de abstração sobre o serviço de armazenamento subjacente, para que possa aceder e trabalhar com os seus dados de forma segura sem ter de escrever código específico para o seu tipo de armazenamento. A Azure Machine Learning também fornece as seguintes capacidades de dados:
 
 *    Interoperabilidade com Pandas e Spark DataFrames
 *    Versão e rastreio da linhagem de dados
@@ -53,7 +53,7 @@ O diagrama seguinte proporciona uma demonstração visual deste fluxo de trabalh
 <a name="datastores"></a>
 ## <a name="connect-to-storage-with-datastores"></a>Conecte-se ao armazenamento com datastores
 
-As lojas de dados Azure Machine Learning mantêm as informações de ligação ao seu armazenamento Azure, para que não tenha de codificá-la nos seus scripts. [Registe-se e crie uma loja de dados](how-to-access-data.md) para ligar facilmente à sua conta de armazenamento e aceder aos dados no seu serviço de armazenamento Azure subjacente. 
+As lojas de dados Azure Machine Learning mantêm de forma segura as informações de ligação ao armazenamento de dados no Azure, para que não tenha de co-la nos seus scripts. [Registe-se e crie uma loja de dados](how-to-access-data.md) para ligar facilmente à sua conta de armazenamento e aceder aos dados no seu serviço de armazenamento subjacente. 
 
 Serviços de armazenamento baseados em nuvem suportados em Azure que podem ser registados como datastores:
 
@@ -65,6 +65,9 @@ Serviços de armazenamento baseados em nuvem suportados em Azure que podem ser r
 + Base de Dados do Azure para PostgreSQL
 + Sistema de Ficheiros do Databricks
 + Base de Dados do Azure para MySQL
+
+>[!TIP]
+> A funcionalidade geralmente disponível para a criação de datastores requer autenticação baseada em credenciais para aceder a serviços de armazenamento, como um símbolo principal de serviço ou assinatura de acesso partilhado (SAS). Estas credenciais podem ser acedidas por utilizadores que tenham acesso ao espaço de trabalho do *Leitor.* <br><br>Se isso for uma preocupação,  [crie uma loja de dados que utilize o acesso de dados baseados na identidade aos serviços de armazenamento (pré-visualização)](how-to-identity-based-data-access.md). Esta capacidade é uma funcionalidade de pré-visualização [experimental](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py#stable-vs-experimental) e pode mudar a qualquer momento.
 
 <a name="datasets"></a>
 ## <a name="reference-data-in-storage-with-datasets"></a>Dados de referência no armazenamento com conjuntos de dados
@@ -100,7 +103,7 @@ Com conjuntos de dados, você pode realizar uma série de tarefas de machine lea
 + Modelos de aprendizagem de máquinas de comboio:
      + [experiências automatizadas de ML](how-to-use-automated-ml-for-ml-models.md)
      + o [designer](tutorial-designer-automobile-price-train-score.md#import-data)
-     + [cadernos](how-to-train-with-datasets.md)
+     + [notebooks](how-to-train-with-datasets.md)
      + [Oleodutos Azure Machine Learning](./how-to-create-machine-learning-pipelines.md)
 + Aceder a conjuntos de dados para pontuação com [inferência de lote](./tutorial-pipeline-batch-scoring-classification.md) em [gasodutos de aprendizagem automática](./how-to-create-machine-learning-pipelines.md).
 + Crie um monitor de conjunto de dados para deteção [de deriva de dados.](#drift)
@@ -123,7 +126,7 @@ No contexto da aprendizagem automática, a deriva de dados é a mudança nos dad
 
 Consulte o artigo [do monitor do conjunto de dados,](how-to-monitor-datasets.md) para saber mais sobre como detetar e alertar para a deriva de dados em novos dados num conjunto de dados.
 
-## <a name="next-steps"></a>Próximos passos 
+## <a name="next-steps"></a>Passos seguintes 
 
 + Crie um conjunto de dados no estúdio Azure Machine Learning ou com o Python SDK [usando estes passos.](how-to-create-register-datasets.md)
 + Experimente exemplos de formação de dataset com os [nossos cadernos de amostras.](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/work-with-data/)

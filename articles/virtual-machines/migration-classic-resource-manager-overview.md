@@ -4,16 +4,17 @@ description: Caminhe pela migração de recursos suportadas pela plataforma do c
 author: tanmaygore
 manager: vashan
 ms.service: virtual-machines
+ms.subservice: classic-to-arm-migration
 ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: 44b89aae2f446a13207c8e3b586892ad085bd790
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 69eae2bd2e2db27c6cc9d0a0c1eb29576e96179a
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879415"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101669326"
 ---
 # <a name="platform-supported-migration-of-iaas-resources-from-classic-to-azure-resource-manager-in-linux"></a>Migração suportada pela plataforma de recursos iaas do clássico para o Azure Resource Manager em Linux
 
@@ -147,7 +148,7 @@ As seguintes configurações não são suportadas atualmente.
 | Serviços de ciclo de vida da Microsoft Dynamics |Redes virtuais que contêm máquinas virtuais que são geridas pela Dynamics Lifecycle Services |Atualmente, isto não é apoiado. |
 | API Management do Azure |Redes virtuais que contêm implementações de Gestão API da Azure |Atualmente, isto não é apoiado. Para migrar o IaaS VNET, mude o VNET da implementação da API Management, que não é uma operação de inatividade. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Technical deep dive on platform-supported migration from classic to Azure Resource Manager](migration-classic-resource-manager-deep-dive.md) (Análise detalhada técnica sobre a migração suportada por plataforma da clássica para Azure Resource Manager)
 * [Planear a migração de recursos de IaaS do clássico para o Azure Resource Manager](migration-classic-resource-manager-plan.md)

@@ -1,31 +1,30 @@
 ---
-title: Alta disponibilidade criada com STONITH para SAP HANA em Azure (Grandes Instâncias)/ Microsoft Docs
+title: Alta disponibilidade configurada com STONITH para SAP HANA em Azure (Grandes Instâncias)| Microsoft Docs
 description: Estabelecer alta disponibilidade para SAP HANA em Azure (Grandes Instâncias) em SUSE usando o STONITH
 services: virtual-machines-linux
 documentationcenter: ''
 author: saghorpa
 manager: juergent
 editor: ''
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/21/2017
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b34a7665770308b45732711f5d8328eb1d0a785f
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 83bf6b6123cf7e0d57296f1f344a264c8a18ed77
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965073"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101671051"
 ---
 # <a name="high-availability-set-up-in-suse-using-the-stonith"></a>High availability set up in SUSE using the STONITH (Utilizar STONITH para configurar a elevada disponibilidade em SUSE)
 Este documento fornece as instruções detalhadas passo a passo para configurar a Alta Disponibilidade no sistema operativo SUSE utilizando o dispositivo STONITH.
 
 **Aviso:** *Este guia é derivado através do teste da configuração no ambiente Microsoft HANA Large Instances, que funciona com sucesso. Dado que a equipa de Gestão de Serviços da Microsoft para HANA Large Instances não suporta o sistema operativo, poderá ter de contactar a SUSE para qualquer resolução de problemas ou esclarecimentos sobre a camada do sistema operativo. A equipa de gestão de serviços da Microsoft cria dispositivoS STONITH e suporta totalmente e pode estar envolvida na resolução de problemas para problemas com dispositivos STONITH.*
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Para configurar a alta disponibilidade utilizando o agrupamento SUSE, os seguintes pré-requisitos devem reunir-se.
 ### <a name="pre-requisites"></a>Pré-requisitos
 - HANA Grandes Instâncias são a provisionadas

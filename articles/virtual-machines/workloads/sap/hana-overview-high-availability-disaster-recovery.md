@@ -1,25 +1,24 @@
 ---
-title: Alta disponibilidade e recuperação de desastres da SAP HANA em Azure (Grandes Instâncias) Microsoft Docs
+title: Alta disponibilidade e recuperação de desastres da SAP HANA em Azure (Grandes Instâncias) | Microsoft Docs
 description: Estabelecer uma elevada disponibilidade e plano para a recuperação de desastres da SAP HANA em Azure (Grandes Instâncias)
 services: virtual-machines-linux
 documentationcenter: ''
 author: saghorpa
 manager: juergent
 editor: ''
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 56e2e2a048e44dcad626208b059e258d55ba7057
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 3e1fd4d53a642052c55bbe5d31bf80133ae89d35
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967606"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101675465"
 ---
 # <a name="sap-hana-large-instances-high-availability-and-disaster-recovery-on-azure"></a>SAP HANA Grandes Instâncias alta disponibilidade e recuperação de desastres em Azure 
 

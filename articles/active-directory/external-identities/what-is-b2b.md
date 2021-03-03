@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: overview
-ms.date: 02/12/2021
+ms.date: 03/02/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e02cb23188b552b1779d184a2384835f4195762
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 8bee6a007004253106703ae2c19b940bf3de5d44
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100365383"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101649296"
 ---
 # <a name="what-is-guest-user-access-in-azure-active-directory-b2b"></a>O que é o acesso do utilizador convidado na colaboração B2B do Azure Active Directory?
 
@@ -85,7 +85,7 @@ A Azure AD suporta fornecedores de identidade externos como Facebook, contas mic
 ![Screenshot mostrando a página de fornecedores de identidade](media/what-is-b2b/identity-providers.png)
 
 
-## <a name="create-a-self-service-sign-up-user-flow-preview"></a>Criar um fluxo de utilizador de inscrição de autosserviço (Pré-visualização)
+## <a name="create-a-self-service-sign-up-user-flow"></a>Criar um fluxo de utilizador de inscrição de autosserviço
 
 Com um fluxo de utilizador de inscrição de autosserviço, pode criar uma experiência de inscrição para utilizadores externos que queiram aceder às suas apps. Como parte do fluxo de inscrição, você pode fornecer opções para diferentes fornecedores de identidade social ou empresarial, e recolher informações sobre o utilizador. Saiba mais sobre [a inscrição de self-service e como a configurar.](self-service-sign-up-overview.md)
 

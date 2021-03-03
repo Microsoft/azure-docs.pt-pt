@@ -1,185 +1,237 @@
 ---
-title: Arkose Labs com Azure Ative Directory B2C
+title: Tutorial para configurar Azure Ative Directory B2C com Arkose Labs
 titleSuffix: Azure AD B2C
-description: Saiba como integrar a autenticação Azure AD B2C com a Arkose Labs para ajudar a proteger contra ataques de bots, ataques de aquisição de contas e aberturas fraudulentas de contas.
+description: Tutorial para configurar O Azure Ative Directory B2C com a Arkose Labs para identificar utilizadores arriscados e fraudulentos
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: gargi-sinha
+manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/08/2020
-ms.author: mimart
+ms.date: 02/18/2021
+ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 2c7eea87101a36edb0d77026489ea351b601158b
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 04492abc0f235c2dc6139adbe543bcce82f7f7b3
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97584600"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101646902"
 ---
-# <a name="tutorial-for-configuring-arkose-labs-with-azure-active-directory-b2c"></a>Tutorial para configurar arkose Labs com Azure Ative Directory B2C
+# <a name="tutorial-configure-arkose-labs-with-azure-active-directory-b2c"></a>Tutorial: Configurar arkose Labs com Azure Ative Directory B2C
 
-Neste tutorial, aprenda a integrar a autenticação Azure AD B2C com a Arkose Labs. A Arkose Labs ajuda organizações contra ataques de bots, ataques de aquisição de contas e aberturas fraudulentas de contas.  
+Neste tutorial, aprenda a integrar a autenticação do Azure Ative Directory (AD) B2C com [a Arkose Labs.](https://www.arkoselabs.com/) A Arkose Labs ajuda organizações contra ataques de bots, ataques de aquisição de contas e aberturas fraudulentas de contas.  
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para começar, vai precisar de:
 
-* Uma assinatura AD Azure. Se não tiver uma subscrição, pode obter uma [conta gratuita.](https://azure.microsoft.com/free/)
-* [Um inquilino Azure AD B2C](tutorial-create-tenant.md) que está ligado à sua assinatura Azure.
+- Uma subscrição do Azure. Se não tiver uma subscrição, pode obter uma [conta gratuita.](https://azure.microsoft.com/free/)
+
+- [Um inquilino Azure AD B2C](tutorial-create-tenant.md) que está ligado à sua assinatura Azure.
+
+- Uma conta [da Arkose Labs.](https://www.arkoselabs.com/book-a-demo/)
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
+A integração da Arkose Labs inclui os seguintes componentes:
+
+- **Arkose Labs** - Um serviço de fraude e abuso para proteger contra bots e outros abusos automatizados.
+
+- **Fluxo de utilizador de inscrição Azure AD B2C** - A experiência de inscrição que utilizará o serviço Arkose Labs. Utilizará os conectores html e JavaScript personalizados e API para integrar-se com o serviço Arkose Labs.
+
+- **Funções Azure** - Ponto final da API hospedado por si que trabalha com a função de conectores API. Esta API é responsável por fazer a validação do lado do servidor do token da sessão arkose Labs.
+
 O diagrama seguinte descreve como a Arkose Labs se integra com a Azure AD B2C.
 
-![Diagrama de arquitetura Arkose Labs](media/partner-arkose-labs/arkose-architecture-diagram.png)
+![Imagem mostra diagrama de arquitetura Arkose Labs](media/partner-arkose-labs/arkose-labs-architecture-diagram.png)
 
 | Passo  | Descrição |
 |---|---|
-|1     | Um utilizador inscreve-se com uma conta previamente criada. Quando o utilizador seleciona submeter, aparece um desafio arkose Labs Enforcement. Após o utilizador completar o desafio, o estado é enviado para a Arkose Labs para gerar um token.        |
-|2     |  Arkose Labs envia o símbolo de volta para Azure AD B2C.       |
-|3     |  Antes do formulário de inscrição ser submetido, o token é enviado para arkose Labs para verificação.       |
-|4     |  Arkose envia de volta um resultado de sucesso ou fracasso do desafio.       |
-|5     |  Se o desafio for concluído com sucesso, um formulário de inscrição é submetido ao Azure AD B2C, e a Azure AD B2C completa a autenticação.       |
-|   |   |
+|1     | Um utilizador inscreve-se e cria uma conta. Quando o utilizador seleciona submeter, aparece um desafio de aplicação da Arkose Labs.         |
+|2     |  Após o utilizador completar o desafio, a Azure AD B2C envia o estatuto à Arkose Labs para gerar um token. |
+|3     |  Arkose Labs gera um símbolo e envia-o de volta para Azure AD B2C.   |
+|4     |  Azure AD B2C chama uma API web intermédia para passar o formulário de inscrição.      |
+|5     |  A API da web intermediária envia o formulário de inscrição para o Arkose Lab para verificação de fichas.    |
+|6     | Arkose Lab processa e envia os resultados de verificação de volta para a API da web intermediária.|
+|7     | A API da web intermédia envia o resultado do sucesso ou falha do desafio para Azure AD B2C. |
+|8     | Se o desafio for concluído com sucesso, é submetido um formulário de inscrição ao Azure AD B2C e o Azure AD B2C completa a autenticação.|
 
 ## <a name="onboard-with-arkose-labs"></a>A bordo com arkose Labs
 
-1. Comece por contactar a [Arkose Labs](https://www.arkoselabs.com/book-a-demo/) e criar uma conta.
+1. Contacte [arkose](https://www.arkoselabs.com/book-a-demo/) e crie uma conta.
 
-2. Assim que a sua conta for criada, navegue para https://dashboard.arkoselabs.com/login .
+2. Uma vez criada a conta, navegue para https://dashboard.arkoselabs.com/login  
 
-3. Dentro do painel de instrumentos, navegue nas definições do local para encontrar a sua chave pública e chave privada. Estas informações serão necessárias mais tarde para configurar a Azure AD B2C.
+3. Dentro do painel de instrumentos, navegue nas definições do local para encontrar a sua chave pública e chave privada. Estas informações serão necessárias mais tarde para configurar a Azure AD B2C. Os valores das chaves públicas e privadas são referidos como `ARKOSE_PUBLIC_KEY` e no código de `ARKOSE_PRIVATE_KEY` [amostra](https://github.com/Azure-Samples/active-directory-b2c-node-sign-up-user-flow-arkose).
 
 ## <a name="integrate-with-azure-ad-b2c"></a>Integrar com o Azure AD B2C
 
-### <a name="part-1--create-blob-storage-to-store-the-custom-html"></a>Parte 1 - Criar armazenamento de bolhas para armazenar o HTML personalizado
+### <a name="part-1--create-a-arkosesessiontoken-custom-attribute"></a>Parte 1 - Criar um atributo personalizado ArkoseSessionToken
 
-Para criar uma conta de armazenamento, siga estes passos:  
+Para criar um atributo personalizado, siga estes passos:  
 
-1. Inscreva-se no portal Azure.
+1. Ir ao **portal Azure**  >  **Azure AD B2C**
 
-2. Certifique-se de que utiliza o diretório que contém a sua assinatura Azure. Selecione o filtro **Diretório + Subscrição** no menu superior e escolha o diretório que contém a sua subscrição. Este diretório é diferente daquele que contém o seu inquilino Azure B2C.
+2. Selecione **atributos do Utilizador**
 
-3. Escolha **todos os serviços** no canto superior esquerdo do portal Azure e, em seguida, procure e selecione  **contas de Armazenamento**.
+3. Selecione **Adicionar**
 
-4. Selecione  **Adicionar**.
+4. **Insira ArkoseSessionToken** como o nome do atributo
 
-5. No  **grupo de Recursos**, selecione Criar  **novo,** insira um nome para o novo grupo de recursos e, em seguida, selecione **OK**.
+5. Selecione **Criar**
 
-6. Introduza um nome para a conta de armazenamento. O nome que escolher tem de ser exclusivo no Azure, deve ter entre 3 e 24 carateres de comprimento e apenas pode conter números e letras minúsculas.
+Saiba mais sobre [atributos personalizados.](https://docs.microsoft.com/azure/active-directory-b2c/user-flow-custom-attributes?pivots=b2c-user-flow)
 
-7. Selecione a localização da conta de armazenamento ou aceite a localização predefinitiva.
+### <a name="part-2---create-a-user-flow"></a>Parte 2 - Criar um fluxo de utilizador
 
-8. Aceite todos os outros valores predefinidos,  **selecione Rever & criar.**  >  
+O fluxo do utilizador pode ser para **inscrição** e **inscrição** ou apenas **inscrição**. O fluxo de utilizador da Arkose Labs só será mostrado durante a inscrição.
 
-9. Depois de criar a conta de armazenamento, selecione  **Ir para o recurso**.
+1. Consulte as [instruções](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-user-flows) para criar um fluxo de utilizador. Se utilizar um fluxo de utilizador existente, deve ser do tipo de versão **recomendada (pré-visualização da próxima geração).**
 
-#### <a name="create-a-container"></a>Criar um contentor
+2. Nas definições de fluxo do utilizador, aceda aos **atributos do Utilizador** e selecione a **reivindicação ArkoseSessionToken.**
 
-1. Na página geral da conta de armazenamento, selecione  **Blobs**.
+![A imagem mostra como selecionar atributos personalizados](media/partner-arkose-labs/select-custom-attribute.png)
 
-2. Selecione   **O Recipiente**, introduza um nome para o recipiente, escolha   **Blob** (acesso de leitura anónima apenas para bolhas) e, em seguida, selecione **OK**.
+### <a name="part-3---configure-custom-html-javascript-and-page-layouts"></a>Parte 3 - Configurar layouts personalizados HTML, JavaScript e páginas
 
-#### <a name="enable-cross-origin-resource-sharing-cors"></a>Permitir a partilha de recursos de origem cruzada (CORS)
+Aceda ao [script HTML](https://github.com/Azure-Samples/active-directory-b2c-node-sign-up-user-flow-arkose/blob/main/Assets/selfAsserted.html)fornecido. O ficheiro contém um modelo HTML com tags JavaScript `<script>` que farão três coisas:
 
-O código AD B2C do Azure em um navegador usa uma abordagem moderna e padrão para carregar conteúdo personalizado a partir de um URL que você especifica em um fluxo de utilizador. O CORS permite que os recursos restritos numa página web sejam solicitados a partir de outros domínios.
+1. Carregue o script Arkose Labs, que torna o widget Arkose Labs e faz a validação da Arkose Labs do lado do cliente.
 
-1. No menu, selecione  **CORS**.
+2. Ocultar o `extension_ArkoseSessionToken` elemento de entrada e a etiqueta, correspondente ao atributo `ArkoseSessionToken` personalizado, da UI mostrada ao utilizador.
 
-2. Para  **origens permitidas,** insira  `https://your-tenant-name.b2clogin.com` . Substitua o seu nome de inquilino pelo nome do seu inquilino Azure AD B2C. Por exemplo,  `https://fabrikam.b2clogin.com`. Use todas as letras minúsculas ao inserir o nome do seu inquilino.
+3. Quando um utilizador completa o desafio Arkose Labs, a Arkose Labs verifica a resposta do utilizador e gera um símbolo. A chamada `arkoseCallback` no JavaScript personalizado define o valor do `extension_ArkoseSessionToken` valor simbólico gerado. Este valor será submetido ao ponto final da API, tal como descrito na secção seguinte.
 
-3. Para  **Métodos Permitidos**, selecione  **GET,** **PUT** e  **OPÇÕES**.
+    Veja [este artigo](https://arkoselabs.atlassian.net/wiki/spaces/DG/pages/214176229/Standard+Setup) para saber sobre a validação do lado do cliente da Arkose Labs.
 
-4. Para **cabeçalhos permitidos,** introduza um asterisco (*).
+Siga os passos mencionados para utilizar o HTML e o JavaScript personalizados para o fluxo do utilizador.
 
-5. Para **cabeçalhos expostos,** introduza um asterisco (*).
+1. ModifiqueselfAsserted.htmficheiro [ L](https://github.com/Azure-Samples/active-directory-b2c-node-sign-up-user-flow-arkose/blob/main/Assets/selfAsserted.html) de modo `<ARKOSE_PUBLIC_KEY>` a corresponder ao valor que gerou para a validação do lado do cliente, e usado para carregar o script arkose Labs para a sua conta.
 
-6. Para **a idade máxima,** insira 200.
+2. Hospedar a página HTML num ponto final de partilha de recursos de origem cruzada (CORS) ativado na web. [Crie uma conta de armazenamento de bolhas Azure](https://docs.microsoft.com/azure/storage/common/storage-account-create?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=azure-portal) e [configuure CORS](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services).
 
-   ![Arkose Labs inscrever-se e inscrever-se](media/partner-arkose-labs/signup-signin-arkose.png)
+  >[!NOTE]
+  >Se tiver o seu próprio HTML personalizado, copie e cole os `<script>` elementos na sua página HTML.
 
-7. Selecione **Guardar**.
+3. Siga estes passos para configurar os layouts da página
 
-### <a name="part-2--set-up-a-back-end-server"></a>Parte 2 - Criar um servidor de back-end
+   a. Do portal Azure, vá ao **Azure AD B2C**
 
-Baixe Git Bash e siga os passos abaixo:
+   b. Navegue para os **fluxos do Utilizador** e selecione o fluxo do seu utilizador
 
-1. Siga as instruções para [criar uma aplicação web,](../app-service/quickstart-php.md)até à mensagem "Parabéns!Implementou a sua primeira aplicação PHP para o Serviço de Aplicações" exibe.
+   c. Selecione **layouts de página**
 
-2. Abra a pasta local e mude o nome do ficheiro **.php índice** **para verificar.php**.
+   d. Selecione **O layout da página** local
 
-3. Abra o ficheiro de verificação de ficheiros recentemente renomeado.php ficheiro e:
+   e. Toggle **Use conteúdo de página personalizada** para **SIM**
 
-   a. Substitua o conteúdo pelo conteúdo do ficheiro check-token.php encontrado no [repositório GitHub](https://github.com/ArkoseLabs/Azure-AD-B2C).
+   f. Cole o URI onde o seu HTML personalizado vive no **Use conteúdo de página personalizada**
 
-   b. Substitua <private_key> na linha 3 com a sua chave privada obtida no painel arkose Labs.
+   exemplo, Se estiver a utilizar fornecedores de identidade social, repita **o passo e** f para o layout da página de  **inscrição da conta social.**
 
-4. Na janela do terminal local, cometa as suas alterações em Git e, em seguida, empurre as alterações de código para Azure digitando o seguinte em Git Bash:
+   ![imagem mostrando layouts de página](media/partner-arkose-labs/page-layouts.png)
 
-   ``git commit -am "updated output"``
+4. A partir do fluxo do seu utilizador, vá a **Propriedades** e selecione **Ative JavaScript** a impor o layout da página (pré-visualização). Veja este [artigo](https://docs.microsoft.com/azure/active-directory-b2c/javascript-and-page-layout?pivots=b2c-user-flow) para saber mais.
 
-   ``git push azure main``  
+### <a name="part-4---create-and-deploy-your-api"></a>Parte 4 - Criar e implementar a sua API
 
-### <a name="part-3---final-setup"></a>Parte 3 - Configuração final
+Instale a [extensão de Funções Azure](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) para Código de Estúdio Visual.
 
-#### <a name="store-the-custom-html"></a>Armazenar o HTML personalizado
+>[!Note]
+>Os passos mencionados nesta secção pressupõe que está a utilizar o Código do Estúdio Visual para implementar a Função Azure. Também pode utilizar o portal Azure, o terminal ou o comando, ou qualquer outro editor de código para implementar.
 
-1. Abra o ficheiro index.html armazenado no [repositório GitHub](https://github.com/ArkoseLabs/Azure-AD-B2C).
+#### <a name="run-the-api-locally"></a>Executar a API localmente
 
-2. Substitua todas as instâncias `<tenantname>` do seu nome de inquilino b2C (por outras palavras, `<tenantname>.b2clogin.com` ). Deve haver quatro casos.
+1. Navegue para a extensão Azure no código Visual Studio na barra de navegação esquerda. Selecione a pasta **de projeto local** representando a sua Função Azure local.
 
-3. Substitua o `<appname>` nome da aplicação que criou na Parte 2, passo 1.
+2. Prima **F5** ou utilize o menu **Debug**  >  **Start Debugging** para lançar o depurador e ligar ao anfitrião Azure Functions. Este comando utiliza automaticamente a configuração de depuração única criada pelo Azure Function.
 
-   ![Screenshot mostrando Arkose Labs Azure CLI](media/partner-arkose-labs/arkose-azure-cli.png)
+3. A extensão Azure Function gerará automaticamente alguns ficheiros para o desenvolvimento local, instalará dependências e instalará as ferramentas 'Núcleo de Função' se ainda não estiver presente. Estas ferramentas ajudam com a experiência de depuragem.
 
-4. Substitua a `<public_key>` linha 64 pela chave pública que obteve do painel arkose Labs.
+4. A saída da ferramenta Núcleo de Função aparece no painel **do Terminal de Código** do Estúdio Visual. Uma vez iniciado o anfitrião, **o Alt+clique** no URL local mostrado na saída para abrir o navegador e executar a função. No explorador de Funções Azure, clique à direita na função para ver o url da função alojada localmente.
 
-5. Faça o upload do ficheiro index.html para o armazenamento de bolhas acima criado.
+Para recolocar a instância local durante os testes, repita os passos 1 a 4.
 
-6. Vá ao **upload do** contentor  >    >  **de armazenamento.**
+#### <a name="add-environment-variables"></a>Adicionar variáveis ambientais
 
-#### <a name="set-up-azure-ad-b2c"></a>Configurar Azure AD B2C
+Esta amostra protege o ponto final da API web utilizando [a autenticação básica HTTP](https://tools.ietf.org/html/rfc7617).
 
-> [!NOTE]
-> Se ainda não tiver um, [crie um inquilino Azure AD B2C](tutorial-create-tenant.md) que esteja ligado à sua assinatura Azure.
+O nome de utilizador e a palavra-passe são armazenados como variáveis ambientais e não como parte do repositório. Consulte [local.settings.jsno](https://docs.microsoft.com/azure/azure-functions/functions-run-local?tabs=macos%2Ccsharp%2Cbash#local-settings-file) arquivo para mais informações.
 
-1. Crie um fluxo de utilizador com base nas informações [aqui.](tutorial-create-user-flows.md) Parar quando chegar à secção **Teste o fluxo do utilizador**.
+1. Crie um local.settings.jsno ficheiro na sua pasta raiz
 
-2. Ativar o JavaScript no [fluxo do utilizador.](javascript-and-page-layout.md)
+2. Copiar e colar o código abaixo no ficheiro:
 
-3. Na mesma página de fluxo do utilizador, ative o URL da página personalizada: Vá ao layout da página **de fluxo do utilizador** use conteúdo de página  >    >  **personalizada**  =  **sim**  >  **insira URL de página personalizada**.
-Este URL de página personalizada é obtido a partir da localização do ficheiro index.html dentro do armazenamento do blob  
+```
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "",
+    "FUNCTIONS_WORKER_RUNTIME": "node",
+    "BASIC_AUTH_USERNAME": "<USERNAME>",
+    "BASIC_AUTH_PASSWORD": "<PASSWORD>",
+    "ARKOSE_PRIVATE_KEY": "<ARKOSE_PRIVATE_KEY>",
+    "B2C_EXTENSIONS_APP_ID": "<B2C_EXTENSIONS_APP_ID>"
+  }
+}
+```
+Os **valores BASIC_AUTH_USERNAME** e **BASIC_AUTH_PASSWORD** serão as credenciais utilizadas para autenticar a chamada da API para a sua Função Azure. Escolha os valores desejados.
 
-   ![Screenshot mostrando o url de armazenamento arkose Labs](media/partner-arkose-labs/arkose-storage-url.png)
+O `<ARKOSE_PRIVATE_KEY>` segredo do lado do servidor que gerou no serviço Arkose Labs. É usado para chamar a [API de validação do lado do servidor Arkose Labs](https://arkoselabs.atlassian.net/wiki/spaces/DG/pages/266214758/Server-Side+Instructions) para validar o valor do `ArkoseSessionToken` gerado pela parte frontal.
+
+O `<B2C_EXTENSIONS_APP_ID>` iD da aplicação utilizada pelo Azure AD B2C para armazenar atributos personalizados no diretório. Pode encontrar este ID de aplicação navegando para os registos da App, procurando a aplicação de extensões b2c e copiando o ID da Aplicação (cliente) a partir do painel **de visão** geral. Remova os `-` caracteres.
+
+![Imagem mostra pesquisa por id de aplicativo](media/partner-arkose-labs/search-app-id.png)
+
+#### <a name="deploy-the-application-to-the-web"></a>Implementar a aplicação para a web
+
+1. Siga os passos mencionados [neste](https://docs.microsoft.com/azure/javascript/tutorial-vscode-serverless-node-04) guia para implementar a sua Função Azure na nuvem. Copie o URL web de ponto final da sua Função Azure.
+
+2. Uma vez implementado, selecione a opção **definições de upload.** Irá enviar as variáveis ambientais para as definições de [Aplicação](https://docs.microsoft.com/azure/azure-functions/functions-develop-vs-code?tabs=csharp#application-settings-in-azure) do serviço App. Estas configurações de aplicação também podem ser configuradas ou [geridas através do portal Azure.](https://docs.microsoft.com/azure/azure-functions/functions-how-to-use-azure-function-app-settings)
+
+Consulte [este artigo](https://docs.microsoft.com/azure/azure-functions/functions-develop-vs-code?tabs=csharp#republish-project-files) para saber mais sobre o desenvolvimento do Código do Estúdio Visual para Funções Azure.
+
+#### <a name="configure-and-enable-the-api-connector"></a>Configurar e ativar o conector API
+
+[Crie um conector API](https://docs.microsoft.com/azure/active-directory-b2c/add-api-connector) e ative-o para o fluxo do utilizador. A configuração do conector API deve ser:
+
+![Imagem mostra pesquisa por id de aplicativo](media/partner-arkose-labs/configure-api-connector.png)
+
+- **URL de ponto final** - é o URL de função que copiou anteriormente enquanto implementou a Função Azure.
+
+- **Username e Password** - são o nome de utilizador e palavra-passe que definiu como variáveis ambientais anteriormente.
+
+Para ativar o conector API, nas definições do **conector API** para o fluxo do utilizador, selecione o conector API a ser invocado no Antes de criar o passo **do utilizador.** Isto invocará a API quando um utilizador selecionar **Criar** no fluxo de inscrição. A API fará uma validação do valor do lado do `ArkoseSessionToken` servidor, que foi definida pela chamada do widget Arkose `arkoseCallback` .
+
+![A imagem mostra o conector api ativador](media/partner-arkose-labs/enable-api-connector.png)
 
 ## <a name="test-the-user-flow"></a>Teste o fluxo do utilizador
 
-1. Abra o inquilino Azure AD B2C e, em **Políticas,** selecione **fluxos de utilizador**.
+1. Abra o inquilino Azure AD B2C e em Políticas selecione **fluxos de utilizador**.
 
 2. Selecione o seu Fluxo de Utilizador previamente criado.
 
 3. Selecione **Executar o fluxo do utilizador** e selecione as definições:
 
-   a. **Aplicação** - Selecione a aplicação registada (a amostra é JWT).
+   a. Aplicação: selecione a aplicação registada (a amostra é JWT)
 
-   b. **URL de resposta** - Selecione o URL de redirecionamento.
+   b. URL de resposta: selecione o URL de redirecionamento
 
    c. Selecione **Executar o fluxo do utilizador**.
 
-4. Passe pelo fluxo de inscrição e crie uma conta.
+4. Vá através do fluxo de inscrição e crie uma conta
 
-5. Termine a sessão.
+5. Terminar sessão
 
-6. Ando pelo fluxo de entrada.
+6. Vá através do fluxo de entrada  
 
 7. Um puzzle arkose Labs aparecerá depois de selecionar **continuar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="additional-resources"></a>Recursos adicionais
 
-Para obter informações adicionais, reveja os seguintes artigos:
+- [Códigos de amostra](https://github.com/Azure-Samples/active-directory-b2c-node-sign-up-user-flow-arkose) para fluxo de utilizador de inscrição Azure AD B2C
 
-- [Políticas personalizadas no Azure AD B2C](custom-policy-overview.md)
+- [Políticas personalizadas no Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
 
-- [Começar com políticas personalizadas em Azure AD B2C](custom-policy-get-started.md?tabs=applications)
+- [Começar com políticas personalizadas em Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)

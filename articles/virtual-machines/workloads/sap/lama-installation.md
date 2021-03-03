@@ -1,5 +1,5 @@
 ---
-title: Conector SAP LaMa para Azure Microsoft Docs
+title: Conector SAP LaMa para Azure | Microsoft Docs
 description: Gerir sistemas SAP em Azure usando SAP LaMa
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
@@ -8,19 +8,18 @@ manager: timlt
 editor: ''
 tags: azure-resource-manager
 keywords: ''
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/29/2019
 ms.author: sedusch
-ms.openlocfilehash: e3f541e28f47bb6456b441811d23baa9e020fde7
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 4772fdae06f23430d829fa411068b7af7a85b3dd
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94959157"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101668712"
 ---
 # <a name="sap-lama-connector-for-azure"></a>Conector de SAP LaMa para o Azure
 
@@ -106,7 +105,7 @@ O Diretor de Serviço não tem permissões para aceder aos seus recursos Azure p
 
 ### <a name="use-a-managed-identity-to-get-access-to-the-azure-api"></a><a name="af65832e-6469-4d69-9db5-0ed09eac126d"></a>Use uma Identidade Gerida para ter acesso à AZure API
 
-Para poder utilizar uma Identidade Gerida, o seu caso SAP LaMa tem de funcionar num VM Azure que tenha um sistema ou identidade atribuída ao utilizador. Para obter mais informações sobre identidades geridas, leia O que [Configure managed identities for Azure resources on a VM using the Azure portal](../../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md) [são identidades geridas para recursos Azure?](../../../active-directory/managed-identities-azure-resources/overview.md)
+Para poder utilizar uma Identidade Gerida, o seu caso SAP LaMa tem de funcionar num VM Azure que tenha um sistema ou identidade atribuída ao utilizador. Para obter mais informações sobre identidades geridas, leia O que [](../../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md) [são identidades geridas para recursos Azure?](../../../active-directory/managed-identities-azure-resources/overview.md)
 
 A Identidade Gerida não tem permissões para aceder aos seus recursos Azure por padrão. Tens de lhe dar permissão para aceder a eles.
 
@@ -486,7 +485,7 @@ Utilize *o as1-di-0* para o *nome do anfitrião* da instância PAS em *identific
 ### <a name="errors-and-warnings-during-a-system-copy"></a>Erros e avisos durante uma cópia do sistema
 
 * Ocorreu um erro ao validar o passo de provisionamento do sistema
-  * Causada por: com.sap.nw.lm.aci.engine.base.api.util.exception.HAOperationException Calling '/usr/sap/hostctrl/exe/sapacext -a ShowHanaBackups -m HN1 -f 50 -h hn1-db -o nível=0 \; \; status=5 port=35013 pf=/usr/sap/hostctrl/exe/host_profile -R-T dev_lvminfo -u SYSTEM -p gancho -r' / /usr/sap/hostctrl/exe/sapacext -a ShowHanaBackups -m HN1 -f 50 -h hn1-db -o level=0 \; \; status=5 port=35013 pf=/usr/sap/hostctrl/exe/host_profile -R -T dev_lvminfo -u SYSTEM -p gancho -r
+  * Causada por: com.sap.nw.lm.aci.engine.base.api.util.exception.HAOperationException Calling '/usr/sap/hostctrl/exe/sapacext -a ShowHanaBackups -m HN1 -f 50 -h hn1-db -o nível=0 \; \; status=5 porta=35013 pf=/usr/sap/hostctrl/exe/host_profile -R -T dev_lvminfo -u SYSTEM -p hook -r' | /usr/sap/hostctrl/exe/sapacext -a ShowHanaBackups -m HN1 -f 50 -h hn1--db -o level=0 \; \; status=5 port=35013 pf=/usr/sap/hostctrl/exe/host_profile -R -T dev_lvminfo -u SYSTEM -p gancho -r
   * Solução  
     Faça cópias de segurança de todas as bases de dados no sistema HANA de origem
 
@@ -510,7 +509,7 @@ Utilize *o as1-di-0* para o *nome do anfitrião* da instância PAS em *identific
 ### <a name="errors-and-warnings-during-create-system-replication"></a>Erros e avisos durante a criação de replicação do sistema
 
 * Exceção ao clicar na Replicação do Sistema Criar
-  * Causada por: com.sap.nw.lm.aci.engine.base.api.util.exception.HAOperationException Calling '/usr/sap/hostctrl/exe/sapacext -a ShowHanaBackups -m HN1 -f 50 -h hn1-db -o nível=0 \; \; status=5 port=35013 pf=/usr/sap/hostctrl/exe/host_profile -R-T dev_lvminfo -u SYSTEM -p gancho -r' / /usr/sap/hostctrl/exe/sapacext -a ShowHanaBackups -m HN1 -f 50 -h hn1-db -o level=0 \; \; status=5 port=35013 pf=/usr/sap/hostctrl/exe/host_profile -R -T dev_lvminfo -u SYSTEM -p gancho -r
+  * Causada por: com.sap.nw.lm.aci.engine.base.api.util.exception.HAOperationException Calling '/usr/sap/hostctrl/exe/sapacext -a ShowHanaBackups -m HN1 -f 50 -h hn1-db -o nível=0 \; \; status=5 porta=35013 pf=/usr/sap/hostctrl/exe/host_profile -R -T dev_lvminfo -u SYSTEM -p hook -r' | /usr/sap/hostctrl/exe/sapacext -a ShowHanaBackups -m HN1 -f 50 -h hn1--db -o level=0 \; \; status=5 port=35013 pf=/usr/sap/hostctrl/exe/host_profile -R -T dev_lvminfo -u SYSTEM -p gancho -r
   * Solução  
     Teste se sapacext pode ser executado como `<hanasid`>anúncio
 
@@ -534,12 +533,12 @@ Utilize *o as1-di-0* para o *nome do anfitrião* da instância PAS em *identific
 ### <a name="errors-and-warnings-during-application-server-installation"></a>Erros e avisos durante a instalação do servidor de aplicações
 
 * Erro de execução do passo SAPinst: getProfileDir
-  * ERRO: (Último erro relatado pelo passo: Apanhado ESAPinstException na chamada do módulo: Validador do passo '/ NW_DI ind[ind] ind[ind] NW_GetSidFromProfiles ind[ind] ind[getSid] NW_readProfileDir ind[ind]ind[ind]ind[readProfile] reportou um erro: Nó \\ \as1-ascs\sapmnt\AS1\SYS\perfil não existe. Inicie o SAPinst em modo interativo para resolver este problema)
+  * ERRO: (Último erro relatado pelo passo: Apanhado ESAPinstExcepção na chamada do módulo: Validador do passo '| NW_DI|ind|ind||ind|ind|ind|0|0| NW_GetSidFromProfiles|ind|ind||ind|ind|getSid|0| NW_readProfileDir|ind|ind|ind|ind|readProfile|0|getProfileDir" relatou um erro: Não existe nó \\ \as1-ascs\sapmnt\AS1\SYS\perfil. Inicie o SAPinst em modo interativo para resolver este problema)
   * Solução  
     Certifique-se de que o SWPM está a funcionar com um utilizador que tenha acesso ao perfil. Este utilizador pode ser configurado no assistente de instalação do servidor de aplicações
 
 * Erro na execução do passo SAPinst: askUnicode
-  * ERRO: (Último erro relatado pelo passo: Apanhado ESAPinstException na chamada do módulo: Validador do passo '/ NW_DI ind[ind] ind[ind] NW_GetSidFromProfiles ind[ind] ind[getSid] NW_getUnicode ind[ind]ind[ind]ind[ind], reportou um erro: Iniciar a SAPinst em modo interativo para resolver este problema)
+  * ERRO: (Último erro relatado pelo passo: Apanhado ESAPinstExcepção na chamada do módulo: Validador do passo '| NW_DI|ind|ind||ind|ind|ind|0|0| NW_GetSidFromProfiles|ind|ind||ind|ind|getSid|0| NW_getUnicode|ind|ind||ind|unicode|0|askUnicode' relatou um erro: Iniciar a SAPinst em modo interativo para resolver este problema)
   * Solução  
     Se utilizar um kernel SAP recente, o SWPM não pode determinar se o sistema é mais um sistema unicode utilizando o servidor de mensagens do ASCS. Consulte a Nota [SAP 2445033] para mais detalhes.  
     Esta questão será corrigida num novo pacote de suporte/patch de SAP LaMa.  
@@ -556,7 +555,7 @@ Utilize *o as1-di-0* para o *nome do anfitrião* da instância PAS em *identific
     Certifique-se de que o controlador Microsoft ODBC para SQL Server está instalado na máquina virtual na qual pretende instalar o servidor de aplicações
 
 * Erro de execução do passo SAPinst: copyScripts
-  * Último erro relatado pelo passo: A chamada do sistema falhou. DETALHES: Erro 13 (0x00000000d) (Permissão negada) na execução da chamada de sistema 'fopenU' com parâmetro \\ (\as1-ascs/sapmnt/AS1/SYS/exe/uc/NTAMD64/strdbs.cmd, w), linha (494) em ficheiro (\bas/bas/749_REL/bc_749_REL/src/ins/SAPINST/impl/src/syslib/filesystem/syxxcfstrm2.cpp), traço de pilha:  
+  * Último erro relatado pelo passo: A chamada do sistema falhou. DETALHES: Erro 13 (0x0000000d) (Permissão negada) na execução da chamada de sistema 'fopenU' com parâmetro \\ (\as1-ascs/sapmnt/AS1/SYS/exe/uc/NTAMD64/strdbs.cmd, w), linha (494) em ficheiro (\bas/bas/749_REL/bc_749_REL/src/ins/SAPINST/impl/src/syslib/filesystem/syxxcfstrm2.cpp), traço de pilha:  
   CThrThread.cpp: 85: CThrThread::threadFunction()  
   CSiServiceSet.cpp: 63: CSiServiceSet::executeService()  
   CSiStepExecute.cpp: 913: CSiStepExecute::execute()  
@@ -574,7 +573,7 @@ Utilize *o as1-di-0* para o *nome do anfitrião* da instância PAS em *identific
     Certifique-se de que o SWPM está a funcionar com um utilizador que tenha acesso ao perfil. Este utilizador pode ser configurado no assistente de instalação do servidor de aplicações
 
 * Erro na execução do passo SAPinst: askPasswords
-  * Último erro relatado pelo passo: A chamada do sistema falhou. DETALHES: Erro 5 (0x000000000) (Acesso é negado.) na execução da chamada de sistema 'NetValidatePasswordPolicy' com parâmetro (...), linha (359) em ficheiro (\bas/bas/749_REL/bc_749_REL/src/ins/SAPINST/impl/src/syslib/account/synxcacccc.cpp), stack: tracet/traceinst/src/syslib/account/synxcaccmg.cpp pilha:  
+  * Último erro relatado pelo passo: A chamada do sistema falhou. DETALHES: Erro 5 (0x00000005) (O acesso é negado.) na execução da chamada de sistema 'NetValidatePasswordPolicy' com parâmetro (...), linha (359) em ficheiro (\bas/bas/749_REL/bc_749_REL/src/ins/SAPINST/impl/src/syslib/account/synxcaccmg.cpp), traço de pilha:  
   CThrThread.cpp: 85: CThrThread::threadFunction()  
   CSiServiceSet.cpp: 63: CSiServiceSet::executeService()  
   CSiStepExecute.cpp: 913: CSiStepExecute::execute()  

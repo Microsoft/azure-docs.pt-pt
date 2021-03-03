@@ -8,20 +8,19 @@ manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
-ms.service: virtual-machines-windows
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/01/2020
 ms.author: radeltch
-ms.openlocfilehash: 62b235fa9ea84409a5c29609a5dc0fde1671684c
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 6f2268ae9a86978e9266ea0e35411727b238d4b4
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878770"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101671648"
 ---
 # <a name="public-endpoint-connectivity-for-virtual-machines-using-azure-standard-load-balancer-in-sap-high-availability-scenarios"></a>Conectividade de ponto final público para máquinas virtuais usando O Balançador de Carga Padrão Azure em cenários de alta disponibilidade SAP
 
@@ -29,7 +28,7 @@ O âmbito deste artigo é descrever configurações que permitirão a conectivid
 
 Se estiver a utilizar o Pacemaker com o agente de cerca Azure na sua solução de alta disponibilidade, então os VMs devem ter conectividade de saída com a API de gestão Azure. O artigo apresenta várias opções para que possa selecionar a opção mais adequada para o seu cenário.  
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Ao implementar uma elevada disponibilidade para soluções SAP através de clustering, um dos componentes necessários é o [Azure Load Balancer](../../../load-balancer/load-balancer-overview.md). A Azure oferece dois SKUs de balançadores de carga: standard e básico.
 
@@ -227,7 +226,7 @@ Se o tráfego de saída for encaminhado por terceiros, o proxy de firewall basea
 - se utilizar o agente de cerca Azure certifique-se de que a configuração da firewall permite a conectividade de saída à API de gestão Azure: `https://management.azure.com``https://login.microsoftonline.com`   
 - se utilizar a infraestrutura de atualização de nuvem pública Azure da SUSE para aplicar atualizações e patches, consulte [a Infraestrutura de Atualização da Nuvem Pública do Azure 101](https://suse.com/c/azure-public-cloud-update-infrastructure-101/)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Saiba como configurar o Pacemaker na SUSE em Azure](./high-availability-guide-suse-pacemaker.md)
 * [Saiba como configurar pacemaker no Chapéu Vermelho em Azure](./high-availability-guide-rhel-pacemaker.md)

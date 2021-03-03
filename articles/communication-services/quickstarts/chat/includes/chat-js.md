@@ -10,17 +10,17 @@ ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: af42b83fc005397d4564b7570eedaff0305a8bc8
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 18282bbe902599c471775a853704e459ea44bac1
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100653585"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101661635"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar, certifique-se de:
 
-- Crie uma conta Azure com uma subscrição ativa. Para mais detalhes, consulte [Criar uma conta gratuitamente.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 
+- Crie uma conta Azure com uma subscrição ativa. Para mais detalhes, consulte [Criar uma conta gratuitamente.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - Instale [Node.js](https://nodejs.org/en/download/) versões LTS e de manutenção ativas (8.11.1 e 10.14.1 recomendado).
 - Criar um recurso Azure Communication Services. Para mais detalhes, consulte [Criar um Recurso de Comunicação Azure](../../create-communication-resource.md). Terá de **gravar o seu ponto final de recurso** para este arranque rápido.
 - Crie *três* Utilizadores ACS e emita-lhes um token de acesso ao [utilizador Token](../../access-tokens.md). Certifique-se de definir o âmbito para **o chat**, e note a **cadeia simbólica, bem como a cadeia userId**. A demonstração completa cria um fio com dois participantes iniciais e, em seguida, adiciona um terceiro participante ao fio.
@@ -34,7 +34,7 @@ Primeiro, abra o seu terminal ou janela de comando crie um novo diretório para 
 ```console
 mkdir chat-quickstart && cd chat-quickstart
 ```
-   
+
 Corra `npm init -y` para criar umapackage.js **no** ficheiro com definições predefinidos.
 
 ```console
@@ -48,7 +48,7 @@ Utilize o `npm install` comando para instalar as bibliotecas de clientes abaixo 
 ```console
 npm install @azure/communication-common --save
 
-npm install @azure/communication-administration --save
+npm install @azure/communication-identity --save
 
 npm install @azure/communication-signaling --save
 
@@ -86,7 +86,7 @@ Crie um ficheiro no diretório de raiz do seu projeto chamado **client.js** para
 
 ### <a name="create-a-chat-client"></a>Criar um cliente de chat
 
-Para criar um cliente de chat na sua aplicação web, utilizará o **ponto final** do Serviço de Comunicações e o **token** de acesso que foi gerado como parte das etapas pré-necessárias. 
+Para criar um cliente de chat na sua aplicação web, utilizará o **ponto final** do Serviço de Comunicações e o **token** de acesso que foi gerado como parte dos passos pré-requisitos.
 
 Os tokens de acesso ao utilizador permitem-lhe construir aplicações de clientes que autenticam diretamente os Serviços de Comunicação Azure. Este quickstart não cobre a criação de um nível de serviço para gerir fichas para a sua aplicação de chat. Consulte [os conceitos de chat](../../../concepts/chat/concepts.md) para obter mais informações sobre a arquitetura de chat e os [tokens de acesso ao utilizador](../../access-tokens.md) para obter mais informações sobre os tokens de acesso.
 
@@ -122,7 +122,7 @@ Na consola de ferramentas de desenvolvimento dentro do seu navegador deve ver o 
 Azure Communication Chat client created!
 ```
 
-## <a name="object-model"></a>Modelo de objeto 
+## <a name="object-model"></a>Modelo de objeto
 As seguintes classes e interfaces lidam com algumas das principais funcionalidades da biblioteca de clientes Azure Communication Services Chat para o JavaScript.
 
 | Nome                                   | Descrição                                                                                                                                                                           |
@@ -137,7 +137,7 @@ Utilize o `createThread` método para criar um fio de chat.
 
 `createThreadRequest` é utilizado para descrever o pedido de linha:
 
-- Use `topic` para dar um tópico a este chat; O tópico pode ser atualizado após a criação do fio de chat utilizando a `UpdateThread` função. 
+- Use `topic` para dar um tópico a esta conversa. Os tópicos podem ser atualizados após a criação do fio de chat utilizando a `UpdateThread` função.
 - Utilize `participants` para listar os participantes a adicionar ao fio de chat.
 
 Quando resolvido, `createChatThread` o método devolve a `CreateChatThreadResponse` . Este modelo contém uma `chatThread` propriedade onde pode aceder ao fio `id` recém-criado. Em seguida, pode usar `id` o para obter um exemplo de um `ChatThreadClient` . `ChatThreadClient`Em seguida, pode ser usado para executar o funcionamento dentro do fio, como enviar mensagens ou listar participantes.
@@ -203,7 +203,7 @@ Utilize `sendMessage` o método para enviar uma mensagem de chat para o fio que 
 
 `sendMessageOptions` descreve os campos opcionais do pedido de mensagem de chat:
 
-- Utilize `priority` para especificar o nível prioritário da mensagem de chat, como 'Normal' ou 'High'; esta propriedade pode ser usada para ter indicador de UI para o utilizador recetor na sua app para chamar a atenção para a mensagem ou executar lógica de negócio personalizada.   
+- Utilize `priority` para especificar o nível prioritário da mensagem de chat, como 'Normal' ou 'Alto'. Esta propriedade pode ser usada para exibir um indicador de UI para o utilizador recetor na sua app para chamar a atenção para a mensagem ou executar lógica de negócio personalizada.
 - Utilizar `senderDisplayName` para especificar o nome de visualização do remetente;
 
 A resposta `sendChatMessageResult` contém um ID, que é o ID único dessa mensagem.
@@ -246,7 +246,7 @@ chatClient.on("chatMessageReceived", (e) => {
 Adicione este código em vez de `<RECEIVE A CHAT MESSAGE FROM A CHAT THREAD>` comentarclient.js. ****
 Refresque o separador do seu navegador, deve ver na consola uma `Notification chatMessageReceived` mensagem;
 
-Alternativamente, pode obter mensagens de chat sondando o `listMessages` método em intervalos especificados. 
+Alternativamente, pode obter mensagens de chat sondando o `listMessages` método em intervalos especificados.
 
 ```JavaScript
 

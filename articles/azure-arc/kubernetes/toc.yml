@@ -1,9 +1,19 @@
-- name: Documentação do Kubernetes preparado para o Azure Arc
+- name: Kubernetes ativado pelo Azure Arc
   href: index.yml
 - name: Descrição geral
   items:
     - name: Acerca do Kubernetes preparado para o Arc
       href: overview.md
+    - name: Programa de Validação do Arco Azure
+      href: validation-program.md
+- name: Tutoriais
+  items:
+    - name: Implementar configurações com o GitOps
+      href: tutorial-use-gitops-connected-cluster.md
+- name: Guias de Início Rápido
+  items:
+    - name: Ligue um cluster ao Arco de Azure
+      href: quickstart-connect-cluster.md
 - name: Conceitos
   items:
     - name: Arquitetura de agente
@@ -16,20 +26,20 @@
   items:
     - name: Ligar ao Azure Arc
       items:
-        - name: Ligar cluster
-          href: connect-cluster.md
         - name: Incluir principal de serviço
           href: create-onboarding-service-principal.md
+    - name: Gerir
+      items:
+        - name: Atualizações de agentes
+          href: agent-upgrade.md
     - name: Cenários
       items:
-        - name: Implementar configurações com o GitOps
-          href: use-gitops-connected-cluster.md
         - name: Implementar gráficos Helm com o GitOps
           href: use-gitops-with-helm.md
         - name: Impor o GitOps com o Azure Policy
           href: use-azure-policy.md
         - name: Monitorizar com o Azure Monitor para contentores
-          href: ../../azure-monitor/insights/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/kubernetes/toc.yml
+          href: ../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=%2fazure%2fazure-arc%2fkubernetes%2ftoc.yml
         - name: Políticas de controlo de acesso com o Azure Policy
           href: ../../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/azure-arc/kubernetes/toc.yml
         - name: Implementar cargas de trabalho de IoT

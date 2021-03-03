@@ -1,25 +1,24 @@
 ---
-title: Matriz de compatibilidade do sistema operativo para SAP HANA (Grandes Instâncias)/ Microsoft Docs
+title: Matriz de compatibilidade do sistema operativo para SAP HANA (Grandes Instâncias)| Microsoft Docs
 description: A matriz de compatibilidade representa a compatibilidade de diferentes versões do Sistema Operativo com diferentes tipos de hardware (Grandes Instâncias)
 services: virtual-machines-linux
 documentationcenter: ''
 author: sasarava
 manager: hrushib
 editor: ''
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/21/2020
 ms.author: sasarava
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6d9ae1f7b8741da1116c6591ee672e4073cfc5af
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: ccfdffc4e488de7f3cecb150305596743b3a9e44
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94955553"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101675408"
 ---
 # <a name="compatible-operating-systems-for-hana-large-instances"></a>Sistemas operativos compatíveis para grandes instâncias HANA
 

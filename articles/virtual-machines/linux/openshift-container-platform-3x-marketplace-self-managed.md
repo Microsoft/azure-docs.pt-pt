@@ -3,19 +3,20 @@ title: Implementar plataforma de contentores openshift 3.11 Self-Managed oferta 
 description: Implementar a Plataforma de Contentores OpenShift 3.11 Self-Managed Oferta de Mercado em Azure.
 author: haroldwongms
 manager: mdotson
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: openshift
+ms.collection: linux
 ms.topic: how-to
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.openlocfilehash: 36adf35c5fbfc3e88b7d9af425ebabc852707e69
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f257ed1097f49074d70f45f59e9040265f6cedef
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87374104"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101670450"
 ---
 # <a name="configure-prerequisites"></a>Configurar pré-requisitos
 
@@ -93,7 +94,7 @@ Introduza os valores para os parâmetros de entrada e clique **em OK**.
 
 **Alterar tamanho**
 
-Para selecionar um tamanho VM diferente, clique em ***Alterar o tamanho***.  A janela de seleção VM abrir-se-á.  Selecione o tamanho VM que deseja e clique em **Selecionar**.
+Para selecionar um tamanho VM diferente, clique em ***Alterar o tamanho** _.  A janela de seleção VM abrir-se-á.  Selecione o tamanho VM que deseja e clique em _*Select**.
 
    ![Selecione tamanho VM](media/openshift-marketplace-self-managed/ocp-selectvmsize.png)  
 <br>

@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/27/2019
 ms.author: magoedte
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: c4dc7e4d3c19a341daaf8e75844e175451a91f03
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: de038fe087e479ef1e9212c21197fbe1844d5e3b
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100592983"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101670382"
 ---
 # <a name="tutorial-monitor-changes-and-update-a-linux-virtual-machine-in-azure"></a>Tutorial: Monitorize alterações e atualize uma máquina virtual Linux em Azure
 
@@ -201,4 +201,4 @@ Neste tutorial, configura e reviu a Change Tracking and Update Management para o
 Avance para o próximo tutorial para aprender sobre a monitorização do seu VM.
 
 > [!div class="nextstepaction"]
-> [Monitorizar máquinas virtuais](tutorial-monitor.md)
+> [Monitorizar máquinas virtuais](/previous-versions/azure/virtual-machines/linux/tutorial-monitor)

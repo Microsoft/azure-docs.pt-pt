@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 07/06/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 6412036e3f16e2efb3bbf6669f6a31e9dc6e3584
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a18899ffc6b19be6226d9e0a3efd9a9519434601
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89434644"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101666225"
 ---
 # <a name="troubleshooting-vm-provisioning-with-cloud-init"></a>Resolução de problemas de fornecimento de VM com cloud-init
 
@@ -58,7 +58,7 @@ Enquanto o VM está em funcionamento, você precisará dos registos do VM para e
 
 - [Consola de Série](../troubleshooting/serial-console-grub-single-user-mode.md)
 
-- [Ativar o Boot Diagnostics](./tutorial-monitor.md#enable-boot-diagnostics) antes de criar o VM e depois [vê-los](./tutorial-monitor.md#view-boot-diagnostics) durante a bota.
+- [Ativar o Boot Diagnostics](/previous-versions/azure/virtual-machines/linux/tutorial-monitor#enable-boot-diagnostics) antes de criar o VM e depois [vê-los](/previous-versions/azure/virtual-machines/linux/tutorial-monitor#view-boot-diagnostics) durante a bota.
 
 - [Executar A AZ VM Reparação](../troubleshooting/repair-linux-vm-using-azure-virtual-machine-repair-commands.md) para anexar e montar o disco OS, que lhe permitirá recolher estes registos:
 ```bash
@@ -133,4 +133,4 @@ Nem todas as falhas no nebulosidade resulta numa falha fatal no fornecimento. Po
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Se ainda não consegue isolar o porquê de a cloud-init não ter executado a configuração, precisa de olhar mais de perto para o que acontece em cada fase de cloud-init e quando os módulos são executados. Consulte [mergulhar mais profundamente na configuração do cloud-init](./cloud-init-deep-dive.md) para obter mais informações. 
+Se ainda não consegue isolar o porquê de a cloud-init não ter executado a configuração, precisa de olhar mais de perto para o que acontece em cada fase de cloud-init e quando os módulos são executados. Consulte [mergulhar mais profundamente na configuração do cloud-init](./cloud-init-deep-dive.md) para obter mais informações.

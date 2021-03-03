@@ -5,15 +5,16 @@ author: cynthn
 ms.author: cynthn
 ms.date: 05/05/2019
 ms.topic: how-to
-ms.service: virtual-machines-linux
-ms.subservice: imaging
+ms.service: virtual-machines
+ms.subservice: image-builder
+ms.collection: linux
 ms.reviewer: danis
-ms.openlocfilehash: 4714d9e089094e8990ac71d94107a20e0b7be776
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 658f8353d3aea1197e0e51ef38aa84c9f3cbe533
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98876314"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101673368"
 ---
 # <a name="preview-create-a-linux-image-and-distribute-it-to-a-shared-image-gallery-by-using-azure-cli"></a>Pré-visualização: Crie uma imagem Linux e distribua-a para uma Galeria de Imagens Partilhadas utilizando o Azure CLI
 
@@ -296,6 +297,6 @@ Elimine o grupo de recursos.
 az group delete -n $sigResourceGroup -y
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre [galerias de imagem partilhadas Azure.](../shared-image-galleries.md)

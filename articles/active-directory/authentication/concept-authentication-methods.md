@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/22/2021
+ms.date: 02/22/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: 1459dd41fcdc30a29a5f9f93ec9704083767a342
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 0bbaf5fa4f3404b0e4fdb4dc016b703c58910457
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98725676"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101652084"
 ---
 # <a name="what-authentication-and-verification-methods-are-available-in-azure-active-directory"></a>Que métodos de autenticação e verificação estão disponíveis no Azure Active Directory?
 
@@ -42,8 +42,8 @@ O quadro que se segue descreve as considerações de segurança para os métodos
 |--------------------------------|:--------:|:---------:|:------------:|
 | Windows Hello para empresas     | Alto     | Alto      | Alto         |
 | Aplicação Microsoft Authenticator    | Alto     | Alto      | Alto         |
-| Chave de segurança FIDO2 (pré-visualização)   | Alto     | Alto      | Alto         |
-| Fichas de hardware do OATH (pré-visualização) | Médio   | Médio    | Alto         |
+| Chave de segurança FIDO2             | Alto     | Alto      | Alto         |
+| Tokens de hardware de OATH           | Médio   | Médio    | Alto         |
 | Fichas de software OATH           | Médio   | Médio    | Alto         |
 | SMS                            | Médio   | Alto      | Médio       |
 | Voz                          | Médio   | Médio    | Médio       |
@@ -66,9 +66,9 @@ Os seguintes contornos da tabela quando um método de autenticação pode ser ut
 | Método                         | Autenticação primária | Autenticação secundária  |
 |--------------------------------|:----------------------:|:-------------------------:|
 | Windows Hello para empresas     | Sim                    | MFA                       |
-| Aplicação Microsoft Authenticator    | Sim (pré-visualização)          | MFA e SSPR              |
-| Chave de segurança FIDO2 (pré-visualização)   | Sim                    | MFA                       |
-| Fichas de hardware do OATH (pré-visualização) | Não                     | MFA                       |
+| Aplicação Microsoft Authenticator    | Sim                    | MFA e SSPR              |
+| Chave de segurança FIDO2             | Sim                    | MFA                       |
+| Tokens de hardware de OATH           | Não                     | MFA                       |
 | Fichas de software OATH           | Não                     | MFA                       |
 | SMS                            | Sim                    | MFA e SSPR              |
 | Chamada de voz                     | Não                     | MFA e SSPR              |
@@ -80,8 +80,8 @@ Para saber mais sobre o funcionamento de cada método de autenticação, consult
 
 * [Windows Hello para empresas](/windows/security/identity-protection/hello-for-business/hello-overview)
 * [Aplicação Microsoft Authenticator](concept-authentication-authenticator-app.md)
-* [Chave de segurança FIDO2 (pré-visualização)](concept-authentication-passwordless.md#fido2-security-keys)
-* [Fichas de hardware do OATH (pré-visualização)](concept-authentication-oath-tokens.md#oath-hardware-tokens-preview)
+* [Chave de segurança FIDO2](concept-authentication-passwordless.md#fido2-security-keys)
+* [Tokens de hardware de OATH](concept-authentication-oath-tokens.md#oath-hardware-tokens)
 * [Fichas de software OATH](concept-authentication-oath-tokens.md#oath-software-tokens)
 * [Sindução](howto-authentication-sms-signin.md) e [verificação](concept-authentication-phone-options.md#mobile-phone-verification) por SMS
 * [Verificação de chamadas de voz](concept-authentication-phone-options.md)
@@ -96,7 +96,7 @@ Em certos cenários, podem ser utilizados os seguintes métodos de verificação
 * [Questões de segurança](concept-authentication-security-questions.md) - apenas utilizadas para sSPR
 * [Endereço de e-mail](concept-sspr-howitworks.md#authentication-methods) - usado apenas para SSPR
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para começar, consulte o [tutorial para reset de senha de autosserviço (SSPR)][tutorial-sspr] e [autenticação multi-factor AD Azure][tutorial-azure-mfa].
 

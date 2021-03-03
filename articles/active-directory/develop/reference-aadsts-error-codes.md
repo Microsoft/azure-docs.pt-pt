@@ -12,12 +12,12 @@ ms.date: 02/01/2021
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: b948de6ad9e07a650df98ef38104c02462ab532d
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 78f844295c16d15be65f345881ec92fa15a9734a
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99428036"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101649228"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Códigos de erro da Autenticação e autorização do Azure AD
 
@@ -95,7 +95,7 @@ Por exemplo, se recebeu o código de erro "AADSTS50058" então faça uma pesquis
 | AADSTS50000 | TokenIssuanceError - Há um problema com o serviço de inscrição. [Crie um pedido de suporte](../fundamentals/active-directory-troubleshooting-support-howto.md) para resolver este problema. |
 | AADSTS50001 | InvalidResource - O recurso é desativado ou não existe. Verifique o código da sua aplicação para garantir que especificou o URL de recurso exato para o recurso a que está a tentar aceder.  |
 | AADSTS50002 | NotAllowedTenant - A inscrição falhou devido a um acesso restrito por procuração ao inquilino. Se for a sua própria política de inquilino, pode alterar as definições de restrição do inquilino para corrigir este problema. |
-| AADSTS500021 | O acesso ao inquilino '{inquilino}' é negado. O AADSTS500021 indica que a funcionalidade de restrição do arrendatário está configurada e que o utilizador está a tentar aceder a um inquilino que não está na lista de inquilinos autorizados especificados no `Restrict-Access-To-Tenant` cabeçalho. Para obter mais informações, consulte [as restrições de utilização do arrendatário para gerir o acesso às aplicações em nuvem SaaS.](/azure/active-directory/manage-apps/tenant-restrictions)|
+| AADSTS500021 | O acesso ao inquilino '{inquilino}' é negado. O AADSTS500021 indica que a funcionalidade de restrição do arrendatário está configurada e que o utilizador está a tentar aceder a um inquilino que não está na lista de inquilinos autorizados especificados no `Restrict-Access-To-Tenant` cabeçalho. Para obter mais informações, consulte [as restrições de utilização do arrendatário para gerir o acesso às aplicações em nuvem SaaS.](../manage-apps/tenant-restrictions.md)|
 | AADSTS50003 | MissingSigningKey - O sessão falhou devido à falta de uma chave ou certificado de assinatura. Isto pode ser porque não havia nenhuma chave de assinatura configurada na app. Confira as resoluções delineadas em [.. /gestão de apps/aplicação-sign-in-problem-federated-sso-gallery.md#certificate-or-key-not-configurado](../manage-apps/application-sign-in-problem-federated-sso-gallery.md#certificate-or-key-not-configured). Se ainda vir problemas, contacte o proprietário da aplicação ou um administrador de aplicações. |
 | AADSTS50005 | DevicePolicyError - O utilizador tentou iniciar sessão num dispositivo a partir de uma plataforma que não é suportada através da política de Acesso Condicional. |
 | AADSTS50006 | InvalidSignature - A verificação de assinatura falhou devido a uma assinatura inválida. |
@@ -168,6 +168,7 @@ Por exemplo, se recebeu o código de erro "AADSTS50058" então faça uma pesquis
 | AADSTS50168 | ChromeBrowserSsoInterruptRequired - O cliente é capaz de obter um token SSO através da extensão de Contas Windows 10, mas o token não foi encontrado no pedido ou o token fornecido expirou. |
 | AADSTS50169 | InvalidRequestBadRealm - O reino não é um reino configurado do espaço de nome de serviço atual. |
 | AADSTS50170 | MissingExternalClaimsProviderMapping - Falta mapeamento de controlos externos. |
+| AADSTS50173 | FreshTokenNeeded - A subvenção concedida expirou devido à sua revogação, e é necessário um novo símbolo. Um administrador ou um utilizador revogaram as fichas para este utilizador, fazendo com que as atualizações posteriores do token falhassem e exigissem a reauferição. Volte a fazer o sinal do utilizador. |
 | AADSTS50177 | ExternalChallengeNotSupportedForPassthroughUsers - O desafio externo não é suportado para os utilizadores passthrough. |
 | AADSTS50178 | SessionControlNotSupportForPassthroughUsers - O controlo de sessão não é suportado para os utilizadores passthrough. |
 | AADSTS50180 | WindowsIntegratedAuthMissing - É necessária a autenticação integrada do Windows. Ativar o inquilino para SSO Totalmente Integrado. |

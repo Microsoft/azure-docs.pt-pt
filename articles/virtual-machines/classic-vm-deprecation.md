@@ -4,16 +4,17 @@ description: Este artigo fornece uma visão geral de alto nível da reforma dos 
 author: tanmaygore
 manager: vashan
 ms.service: virtual-machines
+ms.subservice: classic-to-arm-migration
 ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: tagore
-ms.openlocfilehash: 004a84cd98381af027c554a7ef40e27e69ec6dbc
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 2fb710bab03d595d6e54bc8dd8fbda38c57123e7
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100587924"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101668192"
 ---
 # <a name="migrate-your-iaas-resources-to-azure-resource-manager-by-march-1-2023"></a>Migrar os seus recursos IaaS para o Azure Resource Manager até 1 de março de 2023 
 
@@ -30,10 +31,20 @@ Os VMs criados utilizando o modelo de implementação clássico seguirão a [Pol
 - No dia 1 de março de 2023, as subscrições que não forem migradas para o Azure Resource Manager serão informadas sobre os prazos para a eliminação de quaisquer VMs restantes (clássicos).  
 
 Esta aposentadoria *não* afeta os seguintes serviços e funcionalidades da Azure: 
-- [Azure Cloud Services (clássico)](https://docs.microsoft.com/azure/cloud-services/cloud-services-choose-me)
+- [Azure Cloud Services (clássico)](../cloud-services/cloud-services-choose-me.md)
 - Contas de armazenamento *não* utilizadas por VMs (clássico) 
 - Redes virtuais *não* utilizadas por VMs (clássico) 
 - Outros recursos clássicos
+
+## <a name="what-resources-are-available-for-this-migration"></a>Que recursos estão disponíveis para esta migração?
+
+- [Microsoft Q&A](/answers/topics/azure-virtual-machines-migration.html): Microsoft e suporte comunitário para a migração.
+
+- [Apoio à Migração Azure](https://ms.portal.azure.com/#create/Microsoft.Support/Parameters/{"pesId":"6f16735c-b0ae-b275-ad3a-03479cfa1396","supportTopicId":"1135e3d0-20e2-aec5-4ef0-55fd3dae2d58"}): Equipa de apoio dedicada à assistência técnica durante a migração. Os clientes sem suporte técnico podem utilizar [a capacidade de suporte gratuito](https://ms.portal.azure.com/#create/Microsoft.Support/Parameters/%7B%0A%20%20%20%20%22pesId%22%3A%20%22f3dc5421-79ef-1efa-41a5-42bf3cbb52c6%22%2C%0A%20%20%20%20%22supportTopicId%22%3A%20%22794bb734-af1b-e2d5-a757-dac7438009ab%22%2C%0A%20%20%20%20%22contextInfo%22%3A%20%22Migrate%20IAAS%20resources%20from%20Classic%20%28ASM%29%20to%20Azure%20Resource%20Manager%20%28ARM%29%22%2C%0A%20%20%20%20%22caller%22%3A%20%22NoSupportPlanASM2ARM%22%2C%0A%20%20%20%20%22severity%22%3A%20%222%22%0A%7D) fornecida especificamente para esta migração. 
+
+- [Microsoft Fast Track](https://www.microsoft.com/fasttrack): Fast track pode ajudar clientes elegíveis a planear & execução para esta migração. [Nomeie-se](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fprograms%2Fazure-fasttrack%2F%23nomination&data=02%7C01%7CTanmay.Gore%40microsoft.com%7C3e75bbf3617944ec663a08d85c058340%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637360526032558561&sdata=CxWTVQQPVWNwEqDZKktXzNV74pX91uyJ8dY8YecIgGc%3D&reserved=0) para o Programa de Migração de DC.  
+
+- Se a sua empresa/organização tiver uma parceria com a Microsoft ou trabalhar com representantes da Microsoft (como arquitetos de solução em nuvem (CSAs) ou gestores técnicos de contas (TAMs)), trabalhe com eles para obter recursos adicionais para a migração.
 
 ## <a name="what-actions-should-i-take"></a>Que ações devo tomar? 
 
@@ -43,7 +54,7 @@ Comece a planear a sua migração para o Azure Resource Manager, hoje.
 
    - Os VMs de máquinas virtuais tipo **(clássicas)** no [painel VM do portal Azure](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.ClassicCompute%2FVirtualMachines) são todos os VMs afetados dentro da subscrição. 
    - Também pode consultar o Azure Resource Graph utilizando o [portal](https://portal.azure.com/#blade/HubsExtension/ArgQueryBlade/query/resources%0A%7C%20where%20type%20%3D%3D%20%22microsoft.classiccompute%2Fvirtualmachines%22) ou [o PowerShell](../governance/resource-graph/concepts/work-with-data.md) para ver a lista de todos os VMs sinalizados (clássicos) e informações relacionadas para as subscrições selecionadas. 
-   - Nos dias 8 de fevereiro e 2 de setembro de 2020, enviamos e-mails aos proprietários de subscrições com uma lista de todas as subscrições que contêm estes VMs (clássico). Por favor, use-os para construir esta lista. 
+   - Nos dias 8 de fevereiro e 2 de setembro de 2020, enviamos e-mails com o tema "Comece a planear a sua migração IaaS VM para Azure Resource Manager" para os proprietários de subscrições. O e-mail fornece uma lista de todas as subscrições e VMs (clássico) VMs nele. Por favor, use-os para construir esta lista. 
 
 1. [Saiba mais](./migration-classic-resource-manager-overview.md) sobre a migração dos seus [VMs Linux](./migration-classic-resource-manager-plan.md) e [Windows](./migration-classic-resource-manager-plan.md) (clássico) para o Azure Resource Manager. Para obter mais informações, consulte [Perguntas frequentes sobre a migração clássica do Azure Resource Manager.](./migration-classic-resource-manager-faq.md)
 
@@ -58,13 +69,3 @@ Comece a planear a sua migração para o Azure Resource Manager, hoje.
 1. Para questões técnicas, problemas e ajuda na adição de subscrições à lista de admissões, [suporte de contacto](https://ms.portal.azure.com/#create/Microsoft.Support/Parameters/{"pesId":"6f16735c-b0ae-b275-ad3a-03479cfa1396","supportTopicId":"8a82f77d-c3ab-7b08-d915-776b4ff64ff4"}).
 
 1. Complete a migração o mais rapidamente possível para prevenir o impacto do negócio e para tirar partido do melhor desempenho, segurança e novas funcionalidades do Azure Resource Manager. 
-
-## <a name="what-resources-are-available-for-this-migration"></a>Que recursos estão disponíveis para esta migração?
-
-- [Microsoft Q&A](/answers/topics/azure-virtual-machines-migration.html): Microsoft e suporte comunitário para a migração.
-
-- [Apoio à Migração Azure](https://ms.portal.azure.com/#create/Microsoft.Support/Parameters/{"pesId":"6f16735c-b0ae-b275-ad3a-03479cfa1396","supportTopicId":"1135e3d0-20e2-aec5-4ef0-55fd3dae2d58"}): Equipa de apoio dedicada à assistência técnica durante a migração.
-
-- [Microsoft Fast Track](https://www.microsoft.com/fasttrack): Fast track pode ajudar clientes elegíveis a planear & execução desta migração. [Nomeie-se](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fprograms%2Fazure-fasttrack%2F%23nomination&data=02%7C01%7CTanmay.Gore%40microsoft.com%7C3e75bbf3617944ec663a08d85c058340%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637360526032558561&sdata=CxWTVQQPVWNwEqDZKktXzNV74pX91uyJ8dY8YecIgGc%3D&reserved=0) para o Programa de Migração de DC.  
-
-- Se a sua empresa/organização tiver uma parceria com a Microsoft ou trabalhar com representantes da Microsoft (como arquitetos de solução em nuvem (CSAs) ou gestores técnicos de contas (TAMs)), trabalhe com eles para obter recursos adicionais para a migração.

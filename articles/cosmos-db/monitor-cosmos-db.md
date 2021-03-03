@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 12/01/2020
 ms.author: sngun
 ms.custom: subject-monitoring
-ms.openlocfilehash: 026724b6c9636a0c4b89ca8390a997d9640be6ec
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: e23318684294a833c59fd5666db8c0a14efde890
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100582229"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101658508"
 ---
 # <a name="monitor-azure-cosmos-db"></a>Monitorizar o Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -129,7 +129,7 @@ Os dados em Registos monitores Azure são armazenados em tabelas que cada mesa t
 
 Todos os registos de recursos no Azure Monitor têm os mesmos campos seguidos por campos específicos de serviço. O esquema comum é delineado no [esquema de registo de recursos do Azure Monitor](../azure-monitor/essentials/resource-logs-schema.md#top-level-common-schema). Para obter uma lista dos tipos de registos de recursos recolhidos para a Azure Cosmos DB, consulte [a referência de dados DB do Azure Cosmos](monitor-cosmos-db-reference.md#resource-logs).
 
-O [registo de Atividades](../azure-monitor/platform/activity-log.md) é um Azure de login de plataforma que fornece informações sobre eventos de nível de subscrição. Pode vê-lo de forma independente ou encaminhá-lo para Registos do Monitor Azure, onde pode fazer consultas muito mais complexas usando o Log Analytics.  
+O [registo de Atividades](../azure-monitor/essentials/activity-log.md) é um Azure de login de plataforma que fornece informações sobre eventos de nível de subscrição. Pode vê-lo de forma independente ou encaminhá-lo para Registos do Monitor Azure, onde pode fazer consultas muito mais complexas usando o Log Analytics.  
 
 A Azure Cosmos DB armazena dados nas seguintes tabelas.
 
@@ -176,7 +176,7 @@ Os alertas do Azure Monitor notificam-no proativamente quando forem encontradas 
 
 Por exemplo, a tabela que se segue lista poucas regras de alerta para os seus recursos. Pode encontrar uma lista detalhada de regras de alerta do portal Azure. Para saber mais, veja como configurar o artigo [alertas.](create-alerts.md)  
 
-| Tipo de alerta | Condição | Description  |
+| Tipo de alerta | Condição | Descrição  |
 |:---|:---|:---|
 |Limitação da taxa nas unidades de pedido (alerta métrico) |Nome de dimensão: StatusCode, Operador: Iguais, Valores de dimensão: 429  | Alertas se o contentor ou uma base de dados exceder o limite de produção previsto. |
 |Região falhou mais |Operador: Maior do que, Tipo de Agregação: Contagem, Valor limiar: 1 | Quando uma única região é chumbada. Este alerta é útil se não tiver ativado a falha automática. |

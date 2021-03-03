@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4fb45f222fcf5abd762d97d702925655db6cba60
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 7338fb480f76ed1a5edbf9502dc0946d08618a63
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100365774"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101644923"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Tutorial: configurar a associação ao Azure Active Directory para os domínios geridos
 
@@ -82,7 +82,7 @@ Se não utilizar o WPAD, pode configurar as definições de procuração winHTTP
 
 Se a sua organização necessitar de acesso à internet através de um representante de saída autenticado, certifique-se de que os seus computadores Windows 10 podem autenticar com sucesso o representante de saída. Como os computadores windows 10 executam o registo do dispositivo utilizando o contexto da máquina, configuram a autenticação por procuração de saída utilizando o contexto da máquina. Consulte o seu fornecedor de proxy de saída sobre os requisitos de configuração.
 
-Verifique se o dispositivo pode aceder aos recursos da Microsoft acima, utilizando o script [de conectividade de registo do dispositivo de teste.](https://docs.microsoft.com/samples/azure-samples/testdeviceregconnectivity/testdeviceregconnectivity/)
+Verifique se o dispositivo pode aceder aos recursos da Microsoft acima, utilizando o script [de conectividade de registo do dispositivo de teste.](/samples/azure-samples/testdeviceregconnectivity/testdeviceregconnectivity/)
 
 ## <a name="configure-hybrid-azure-ad-join"></a>Configurar a associação ao Azure AD híbrido
 

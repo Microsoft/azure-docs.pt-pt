@@ -1,25 +1,24 @@
 ---
-title: Monitorização e resolução de problemas do lado da HANA na SAP HANA em Azure (Grandes Instâncias) Microsoft Docs
+title: Monitorização e resolução de problemas do lado hana na SAP HANA em Azure (Grandes Instâncias) | Microsoft Docs
 description: Monitorização e resolução de problemas do lado hana em SAP HANA em um Azure (Grandes Instâncias).
 services: virtual-machines-linux
 documentationcenter: ''
 author: msjuergent
 manager: bburns
 editor: ''
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e560fc996393969eecb45a3fdda24bc940436dc0
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 83743a6985bef8ce6c03e01ed8d10aa740852106
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967725"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101668803"
 ---
 # <a name="monitoring-and-troubleshooting-from-hana-side"></a>Monitorizar e resolver problemas do lado do HANA
 
@@ -74,7 +73,7 @@ Um dos controlos mais importantes para o SAP HANA no Linux é garantir que as P�
 - Pode verificar se as páginas enormes transparentes estão ativadas através do seguinte comando Linux: **cat /sys/kernel/mm/transparente \_ hugepage/enabled**
 - Se _estiver sempre_ incluído em parênteses como abaixo, significa que as Páginas Enormes Transparentes estão ativadas: [sempre] madvise nunca; se _nunca_ for fechado em parênteses como abaixo, significa que as Páginas Enormes Transparentes são desativadas: sempre loucas [nunca]
 
-O seguinte comando Linux não deve devolver nada: **rpm -qa [ grep ulimit.** Se parecer _que o ulimit_ está instalado, desinstale-o imediatamente.
+O seguinte comando Linux não deve devolver nada: **rpm -qa | grep ulimit.** Se parecer _que o ulimit_ está instalado, desinstale-o imediatamente.
 
 ## <a name="memory"></a>Memória
 

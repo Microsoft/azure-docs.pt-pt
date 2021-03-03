@@ -1,5 +1,5 @@
 ---
-title: Fichas de configuração - Azure Ative Directory B2C / Microsoft Docs
+title: Fichas de configuração - Azure Ative Directory B2C | Microsoft Docs
 description: Saiba como configurar as definições de vida útil e compatibilidade simbólicas no Azure Ative Directory B2C.
 services: active-directory-b2c
 author: msmimart
@@ -12,14 +12,14 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: a4299eff296d9795f8d256ff1236a8e8b4ad3e42
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: f22a55a65b7dc4fd4f714d880804e6fd65dbbe46
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97585212"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101654379"
 ---
-# <a name="configure-tokens-in-azure-active-directory-b2c"></a>Fichas de configuração no Azure Ative Directory B2C
+# <a name="configure-tokens-in-azure-active-directory-b2c"></a>Configurar tokens no Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
@@ -43,7 +43,8 @@ O diagrama seguinte mostra o comportamento de tempo de vida da janela deslizante
 ![Refrescar a vida útil do token](./media/configure-tokens/refresh-token-lifetime.png)
 
 > [!NOTE]
-> As aplicações de uma página única que utilizam o fluxo de código de autorização com O PKCE têm sempre um prazo de vida útil de 24 horas. [Saiba mais sobre as implicações de segurança dos tokens de atualização no navegador.](../active-directory/develop/reference-third-party-cookies-spas.md#security-implications-of-refresh-tokens-in-the-browser)
+> >As aplicações de uma página única que utilizam o fluxo de código de autorização com o PKCE têm sempre um prazo de vida útil de 24 horas, enquanto aplicações móveis, aplicações de desktop e aplicações web não experimentam esta limitação. [Saiba mais sobre as implicações de segurança dos tokens de atualização no navegador.](../active-directory/develop/reference-third-party-cookies-spas.md#security-implications-of-refresh-tokens-in-the-browser)
+
 
 ## <a name="configure-token-lifetime"></a>Configurar a vida útil simbólica
 

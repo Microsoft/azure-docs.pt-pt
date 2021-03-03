@@ -5,15 +5,16 @@ author: danielsollondon
 ms.author: danis
 ms.date: 08/10/2020
 ms.topic: how-to
-ms.service: virtual-machines-linux
-ms.subservice: imaging
+ms.service: virtual-machines
+ms.subservice: image-builder
+ms.collection: linux
 ms.reviewer: danis
-ms.openlocfilehash: cbff2358dcf8685298e31f18c430c35ec7de4948
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 0b2f5f7881ab9c07320eba323e690de109eab8c7
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96437342"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101673394"
 ---
 # <a name="use-azure-image-builder-for-linux-vms-allowing-access-to-an-existing-azure-vnet"></a>Use O Azure Image Builder para VMs Linux permitindo o acesso a um Azure VNET existente
 
@@ -75,7 +76,7 @@ Crie o grupo de recursos.
 az group create -n $imageResourceGroup -l $location
 ```
 
-## <a name="configure-networking"></a>Configurar rede
+## <a name="configure-networking"></a>Configurar as redes
 
 Se não tiver um VNET\Subnet\NSG existente, utilize o seguinte script para criar um.
 
@@ -316,4 +317,4 @@ Se criou um VNET para este arranque rápido, pode eliminar o VNET se já não es
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre [galerias de imagem partilhadas Azure.](shared-image-galleries.md)
+Saiba mais sobre [galerias de imagem partilhadas Azure.](../shared-image-galleries.md)

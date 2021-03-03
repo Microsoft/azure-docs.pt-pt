@@ -2,18 +2,19 @@
 title: Conceça e implemente uma base de dados da Oracle em Azure | Microsoft Docs
 description: Desenhe e implemente uma base de dados Oracle no seu ambiente Azure.
 author: dbakevlar
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: oracle
+ms.collection: linux
 ms.topic: article
 ms.date: 12/17/2020
 ms.author: kegorman
 ms.reviewer: tigorman
-ms.openlocfilehash: 0b6f4e652ca8fef7bee4165bcd0673be2fa11eac
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 6e59d0065dfa74979bf3bbc72458bda516e3b641
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98890769"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101669988"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Conceça e implemente uma base de dados oracle em Azure
 
@@ -51,7 +52,7 @@ O quadro que se segue enumera algumas das diferenças entre uma implementação 
 | **Dimensionamento** |Escala vertical |Dimensionamento horizontal|
 
 
-### <a name="requirements"></a>Requirements
+### <a name="requirements"></a>Requisitos
 
 - Determinar o uso real do CPU, uma vez que a Oracle é licenciada pelo núcleo, dimensionar as necessidades do vCPU pode ser um exercício essencial para poupar custos. 
 - Determine o tamanho da base de dados, armazenamento de backup e taxa de crescimento.
@@ -227,7 +228,7 @@ Depois de configurar e configurar o seu ambiente Azure, o próximo passo é prot
 - [Configure Portão Dourado oráculo](configure-oracle-golden-gate.md)
 - [Apoio e recuperação da Oráculo](./oracle-overview.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Tutorial: Criar VMs altamente disponíveis](../../linux/create-cli-complete.md)
 - [Explore amostras de CLI de implantação VM](https://github.com/Azure-Samples/azure-cli-samples/tree/master/virtual-machine)

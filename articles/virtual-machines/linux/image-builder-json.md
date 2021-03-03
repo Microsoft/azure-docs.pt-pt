@@ -3,17 +3,18 @@ title: Criar um modelo de construtor de imagem Azure (pré-visualização)
 description: Aprenda a criar um modelo para usar com O Azure Image Builder.
 author: danielsollondon
 ms.author: danis
-ms.date: 08/13/2020
+ms.date: 02/18/2021
 ms.topic: reference
 ms.service: virtual-machines
-ms.subservice: imaging
+ms.subservice: image-builder
+ms.collection: linux
 ms.reviewer: cynthn
-ms.openlocfilehash: 9ae477dd04237e285915157615dcb6a6b841ca99
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: c2e4a2c2700af99a074dfd640177a6baefe763e2
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98678260"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101670419"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Pré-visualização: Criar um modelo de construtor de imagens Azure 
 
@@ -308,11 +309,28 @@ Personalize propriedades:
 - **sha256Checksum** - Valor da obra de verificação sha256 do ficheiro, gere-o localmente e, em seguida, o Image Builder verificará e validará.
     * Para gerar o sha256Checksum, utilizando um terminal na execução Mac/Linux: `sha256sum <fileName>`
 
-
-Para que os comandos sejam executados com privilégios super-utilizadores, devem ser pré-fixados com `sudo` .
-
 > [!NOTE]
 > Os comandos inline são armazenados como parte da definição do modelo de imagem, pode vê-los quando despeja a definição de imagem, e estes também são visíveis para o Microsoft Support em caso de um caso de suporte para efeitos de resolução de problemas. Se tiver comandos ou valores sensíveis, recomenda-se vivamente que estes sejam movidos para scripts e utilize uma identidade de utilizador para autenticar para o Azure Storage.
+
+#### <a name="super-user-privileges"></a>Privilégios super-utilizadores
+Para que os comandos sejam executados com privilégios super-utilizadores, eles devem ser `sudo` pré-fixados, você pode adicionar estes em scripts ou usá-lo em comandos inline, por exemplo:
+```json
+                "type": "Shell",
+                "name": "setupBuildPath",
+                "inline": [
+                    "sudo mkdir /buildArtifacts",
+                    "sudo cp /tmp/index.html /buildArtifacts/index.html"
+```
+Exemplo de um script que usa sudo que pode fazer referência usando scriptUri:
+```bash
+#!/bin/bash -e
+
+echo "Telemetry: creating files"
+mkdir /myfiles
+
+echo "Telemetry: running sudo 'as-is' in a script"
+sudo touch /myfiles/somethingElevated.txt
+```
 
 ### <a name="windows-restart-customizer"></a>Windows reinicia personalizador 
 O personalizador Restart permite-lhe reiniciar um VM do Windows e esperar que volte a estar online, o que lhe permite instalar um software que requer um reboot.  
@@ -397,6 +415,10 @@ Suporte oss: Linux e Windows
 Propriedades do personalizador de arquivos:
 
 - **sourceUri** - um ponto final de armazenamento acessível, este pode ser o armazenamento GitHub ou Azure. Só pode descarregar um ficheiro, não um diretório inteiro. Se precisar de descarregar um diretório, use um ficheiro comprimido e, em seguida, descomprimir-se utilizando os personalizadores Shell ou PowerShell. 
+
+> [!NOTE]
+> Se a fonteUri for uma Conta de Armazenamento Azure, independentemente de a bolha ser marcada como pública, concederá às permissões de Identidade de Utilizador Gerida para ler o acesso na bolha. Consulte este [exemplo](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-user-assigned-identity#create-a-resource-group) para definir as permissões de armazenamento.
+
 - **destino** – este é o caminho de destino completo e nome de arquivo. Qualquer caminho e subdireções referenciados devem existir, utilize os personalizadores Shell ou PowerShell para os configurar previamente. Pode utilizar os personalizadores de scripts para criar o caminho. 
 
 Isto é suportado por diretórios Windows e caminhos Linux, mas existem algumas diferenças: 
@@ -408,8 +430,6 @@ Se houver um erro ao tentar descarregar o ficheiro, ou colocá-lo num diretório
 
 > [!NOTE]
 > O personalizador de ficheiros só é adequado para pequenos downloads de ficheiros, < 20MB. Para transferências de ficheiros maiores, utilize um script ou um comando inline, o código de utilização para descarregar ficheiros, tais como, Linux `wget` ou `curl` Windows, `Invoke-WebRequest` .
-
-Os ficheiros no personalizador de ficheiros podem ser descarregados a partir do Azure Storage utilizando [o MSI](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage).
 
 ### <a name="windows-update-customizer"></a>Personalizador de atualização do Windows
 Este personalizador é construído na [comunidade Windows Update Provisioner](https://packer.io/docs/provisioners/community-supported.html) para Packer, que é um projeto de código aberto mantido pela comunidade Packer. A Microsoft testa e valida o provisionador com o serviço Image Builder, e irá apoiar a investigação de problemas com o mesmo, e trabalhará para resolver problemas, no entanto o projeto open source não é oficialmente suportado pela Microsoft. Para obter documentação detalhada e ajudar com o Windows Update Provisioner, consulte o repositório do projeto.

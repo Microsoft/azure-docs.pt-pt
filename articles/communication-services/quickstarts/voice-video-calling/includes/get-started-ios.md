@@ -6,14 +6,17 @@ ms.author: marobert
 ms.date: 07/24/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 5f604847faf01d1b267e6cbb73481d57ef397bd9
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 36ec27f3a0e69126a91b52bed26dc645ec89e46e
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95562732"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101656650"
 ---
 Neste arranque rápido, você vai aprender a iniciar uma chamada usando a biblioteca de clientes Azure Communication Services Call para iOS.
+
+> [!NOTE]
+> Este documento utiliza a versão 1.0.0-beta.8 da biblioteca do cliente chamador.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -41,13 +44,13 @@ No Xcode, crie um novo projeto iOS e selecione o modelo **de Aplicação Single 
    use_frameworks!
 
    target 'AzureCommunicationCallingSample' do
-     pod 'AzureCommunicationCalling', '~> 1.0.0-beta.5'
-     pod 'AzureCommunication', '~> 1.0.0-beta.5'
-     pod 'AzureCore', '~> 1.0.0-beta.5'
+     pod 'AzureCommunicationCalling', '~> 1.0.0-beta.8'
+     pod 'AzureCommunication', '~> 1.0.0-beta.8'
+     pod 'AzureCore', '~> 1.0.0-beta.8'
    end
    ```
 
-2. Execute `pod install`.
+2. Execute o `pod install`.
 3. Abra o `.xcworkspace` com Xcode.
 
 ### <a name="request-access-to-the-microphone"></a>Solicitar acesso ao microfone
@@ -119,19 +122,19 @@ As seguintes classes e interfaces lidam com algumas das principais característi
 
 | Nome                                  | Descrição                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
-| ACSCallClient | O CallClient é o principal ponto de entrada para a biblioteca do cliente Call.|
-| ACSCallagent | O CallAgent é usado para iniciar e gerir chamadas. |
-| ComunicadoUserCredential | O CommunicationUserCredential é usado como credencial simbólica para instantaneaizar o CallAgent.| 
-| Identificador de Comunicação | O ComunicadoIdentifier é utilizado para representar a identidade do utilizador que pode ser uma das seguintes: CommunicationUser/PhoneNumber/CallApplication. |
+| CallClient | O CallClient é o principal ponto de entrada para a biblioteca do cliente Call.|
+| Callagent | O CallAgent é usado para iniciar e gerir chamadas. |
+| ComunicadoTokenCredential | O CommunicationTokenCredential é usado como credencial simbólica para instantaneaizar o CallAgent.| 
+| ComunicadoUserIdentifier | O CommunicationUserIdentifier é utilizado para representar a identidade do utilizador que pode ser uma das seguintes: CommunicationUserIdentifier/PhoneNumberIdentifier/CallingApplication. |
 
 ## <a name="authenticate-the-client"></a>Autenticar o cliente
 
 Inicialize um `CallAgent` exemplo com um Token de Acesso ao Utilizador que nos permitirá efetuar e receber chamadas. Adicione o seguinte código à `onAppear` chamada no **ContentView.swift**:
 
 ```swift
-var userCredential: CommunicationUserCredential?
+var userCredential: CommunicationTokenCredential?
 do {
-    userCredential = try CommunicationUserCredential(token: "<USER ACCESS TOKEN>")
+    userCredential = try CommunicationTokenCredential(token: "<USER ACCESS TOKEN>")
 } catch {
     print("ERROR: It was not possible to create user credential.")
     return
@@ -140,9 +143,10 @@ do {
 self.callClient = CallClient()
 
 // Creates the call agent
-self.callClient?.createCallAgent(userCredential) { (agent, error) in
+self.callClient?.createCallAgent(userCredential: userCredential) { (agent, error) in
     if error != nil {
         print("ERROR: It was not possible to create a call agent.")
+        return
     }
 
     if let agent = agent {
@@ -165,8 +169,8 @@ func startCall()
     AVAudioSession.sharedInstance().requestRecordPermission { (granted) in
         if granted {
             // start call logic
-            let callees:[CommunicationIdentifier] = [CommunicationUser(identifier: self.callee)]
-            self.call = self.callAgent?.call(callees, options: StartCallOptions())
+            let callees:[CommunicationIdentifier] = [CommunicationUserIdentifier(identifier: self.callee)]
+            self.call = self.callAgent?.call(participants: callees, options: StartCallOptions())
         }
     }
 }

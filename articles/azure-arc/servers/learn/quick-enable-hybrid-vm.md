@@ -3,14 +3,14 @@ title: Ligue a máquina híbrida com servidores ativados do Arco Azure
 description: Saiba como conectar e registar a sua máquina híbrida com servidores ativados Azure Arc.
 ms.topic: quickstart
 ms.date: 12/15/2020
-ms.openlocfilehash: 68869854cbfcf6d7297137e6239b2229a20c04a1
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: c52b8d1f7098a7a2a88a9770a3b768b7fea31775
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97516788"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101646831"
 ---
-# <a name="quickstart-connect-hybrid-machine-with-azure-arc-enabled-servers"></a>Quickstart: Ligue a máquina híbrida com servidores ativados do Azure Arc
+# <a name="quickstart-connect-hybrid-machines-with-azure-arc-enabled-servers"></a>Quickstart: Ligue máquinas híbridas com servidores ativados Azure Arc
 
 [Os servidores ativados pelo Azure Arc](../overview.md) permitem gerir e governar as suas máquinas Windows e Linux hospedadas em ambientes no local, borda e multicloud. Neste arranque rápido, irá implementar e configurar o agente Máquina Conectada na sua máquina Windows ou Linux hospedada fora do Azure para gestão por servidores ativados pela Arc.
 

@@ -4,16 +4,16 @@ description: Saiba mais sobre os níveis de desempenho para discos geridos.
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 11/19/2020
+ms.date: 03/02/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 28980756ac9e41c9477d687ea9df608b512759e3
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: af1509073248b46575881beef7b9800107e7fed7
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94986788"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101677309"
 ---
 # <a name="performance-tiers-for-managed-disks"></a>Níveis de desempenho para discos geridos
 
@@ -50,7 +50,7 @@ Para obter informações sobre faturação, consulte [preços de disco geridos](
 
 [!INCLUDE [virtual-machines-disks-performance-tiers-restrictions](../../includes/virtual-machines-disks-performance-tiers-restrictions.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para aprender a alterar o seu nível de desempenho, consulte [o portal](disks-performance-tiers-portal.md) ou os artigos [PowerShell/CLI.](disks-performance-tiers.md)
 

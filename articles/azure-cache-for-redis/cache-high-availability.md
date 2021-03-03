@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
 ms.author: yegu
-ms.openlocfilehash: d9c8f5dd8b2647756087ce6f36ff3a25b2aaaadc
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 2005b24e9a5692adda8c8e3a5100a6450c67663c
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100387976"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101653852"
 ---
 # <a name="high-availability-for-azure-cache-for-redis"></a>Alta disponibilidade para Azure Cache para Redis
 
@@ -23,7 +23,7 @@ Azure Cache para Redis implementa alta disponibilidade usando vários VMs, *cham
 | ------------------- | ------- | ------- | :------: | :---: | :---: |
 | [Replicação padrão](#standard-replication)| Configuração replicada de duplo nó num único datacenter com falha automática | 99,9% |✔|✔|-|
 | [Redundância entre zonas](#zone-redundancy) | Configuração replicada em vários nóns em AZs, com falha automática | 99,95% (Nível Premium), 99,99% (Níveis empresariais) |-|Pré-visualizar|Pré-visualizar|
-| [Georreplicação](#geo-replication) | Casos de cache ligados em duas regiões, com falha controlada pelo utilizador | 99,9% (Nível Premium, região única) |-|✔|-|
+| [Georreplicação](#geo-replication) | Casos de cache ligados em duas regiões, com falha controlada pelo utilizador | 99,999% (nível de empresa) |-|✔|-|
 
 ## <a name="standard-replication"></a>Replicação padrão
 
@@ -45,7 +45,7 @@ Um nó primário pode sair de serviço como parte de uma atividade de manutenç�
 >
 >
 
-Além disso, a Azure Cache para Redis permite nómada de réplica adicional no nível Premium. Uma [cache multi-réplica](cache-how-to-multi-replicas.md) pode ser configurada com até três nós de réplica. Ter mais réplicas geralmente melhora a resiliência devido aos nós adicionais que apoiam as primárias. Mesmo com mais réplicas, um Azure Cache para o caso Redis ainda pode ser severamente impactado por uma paragem de datacenter ou AZ- wide. Pode aumentar a disponibilidade de cache utilizando várias réplicas em conjunto com [a redundância de zona.](#zone-redundancy)
+Além disso, a Azure Cache para Redis permite nómada de réplica adicional no nível Premium. Uma [cache multi-réplica](cache-how-to-multi-replicas.md) pode ser configurada com até três nós de réplica. Ter mais réplicas geralmente melhora a resiliência devido aos nós adicionais que apoiam as primárias. Mesmo com mais réplicas, uma cache Azure para o caso Redis ainda pode ser severamente impactada por uma paragem de nível de datacenter ou AZ. Pode aumentar a disponibilidade de cache utilizando várias réplicas em conjunto com [a redundância de zona.](#zone-redundancy)
 
 ## <a name="zone-redundancy"></a>Redundância entre zonas
 
@@ -66,7 +66,7 @@ Azure Cache para Redis distribui nós numa área de cache redundante de forma re
 
 Uma cache redundante de zona proporciona falha automática. Quando o nó primário atual não estiver disponível, uma das réplicas assumirá. A sua aplicação pode experimentar um tempo de resposta de cache mais elevado se o novo nó primário estiver localizado num AZ diferente. As AZs estão geograficamente separadas. Mudar de um AZ para outro altera a distância física entre onde a sua aplicação e cache estão hospedados. Esta alteração tem impacto nas latências da rede de ida e volta da sua aplicação para a cache. Espera-se que a latência extra se encava dentro de um intervalo aceitável para a maioria das aplicações. Recomendamos que teste a sua aplicação para garantir que pode funcionar bem com uma cache redundante de zona.
 
-### <a name="enterprise-and-enterprise-flash-tiers"></a>Níveis de Enterprise e Enterprise Flash
+### <a name="enterprise-tiers"></a>Escalões Enterprise
 
 Uma cache em cada nível da Enterprise funciona num cluster da Redis Enterprise. Requer um número ímpar de nós de servidor em todos os momentos para formar um quórum. Por padrão, é composto por três nós, cada um hospedado num VM dedicado. Uma cache Enterprise tem dois nós de *dados* do mesmo tamanho e um *nó de quórum* menor. Uma cache Enterprise Flash tem três nós de dados do mesmo tamanho. O cluster enterprise divide os dados do Redis em divisórias internamente. Cada divisória tem uma *réplica primária* e pelo menos uma *réplica.* Cada nó de dados contém uma ou mais divisórias. O cluster Enterprise garante que as réplicas primárias e réplicas de qualquer partição nunca são aparadas no mesmo nó de dados. As partições replicam os dados assíncronosamente das primárias às réplicas correspondentes.
 
@@ -74,9 +74,27 @@ Quando um nó de dados fica indisponível ou uma divisão de rede acontece, ocor
 
 ## <a name="geo-replication"></a>Georreplicação
 
-[A geo-replicação](cache-how-to-geo-replication.md) é um mecanismo para ligar duas caches Azure para instâncias Redis, tipicamente abrangendo duas regiões de Azure. Uma cache é escolhida como a cache primária ligada, e a outra como cache ligada secundária. Apenas a cache primária ligada aceita pedidos de leitura e escrita. Os dados escritos na cache primária são replicados na cache ligada secundária. A cache ligada secundária pode ser usada para servir pedidos de leitura. A transferência de dados entre as instâncias de cache primária e secundária é assegurada pelo TLS.
+[A geo-replicação](cache-how-to-geo-replication.md) é um mecanismo para ligar duas ou mais caches Azure para instâncias Redis, tipicamente abrangendo duas regiões de Azure. 
 
-A geo-replicação é projetada principalmente para a recuperação de desastres. Dá-lhe a capacidade de fazer o back up dos seus dados de cache para uma região diferente. Por predefinição, a sua aplicação escreve e lê da região primária. Pode opcionalmente ser configurado para ser lido a partir da região secundária. A geo-replicação não fornece falhas automáticas devido a preocupações sobre a latência da rede adicionada entre regiões se o resto da sua aplicação permanecer na região primária. Terá de gerir e iniciar a falha desvinculando a cache secundária. Isto irá promovê-lo para ser o novo exemplo primário.
+### <a name="premium-tier"></a>Escalão Premium
+
+>[!NOTE]
+>A geo-replicação no nível Premium é projetada principalmente para a recuperação de desastres.
+>
+>
+
+Duas instâncias de cache de nível Premium podem ser ligadas através [de geo-replicação](cache-how-to-geo-replication.md) para que possa fazer o back up dos seus dados de cache para uma região diferente. Uma vez ligados entre si, um caso é designado como cache principal ligado e o outro como a cache ligada secundária. Apenas a cache primária aceita ler e escrever pedidos. Os dados escritos na cache primária são replicados na cache secundária. Uma aplicação acede à cache através de pontos finais separados para as caches primárias e secundárias. A aplicação deve enviar todos os pedidos de escrita para a cache primária quando é implantado em várias regiões do Azure. Pode ler a partir da cache primária ou secundária. Em geral, pretende que as instâncias de cálculo da sua aplicação leiam a partir dos caches mais próximos para reduzir a latência. A transferência de dados entre as duas instâncias de cache é assegurada pela TLS.
+
+A geo-replicação não fornece falhas automáticas devido a preocupações sobre o tempo de ida e volta de rede adicionado entre regiões se o resto da sua aplicação permanecer na região primária. Terá de gerir e iniciar a falha desvinculando a cache secundária. Isto irá promovê-lo para ser o novo exemplo primário.
+
+### <a name="enterprise-tiers"></a>Escalões Enterprise
+
+>[!NOTE]
+>Isto está disponível como pré-visualização.
+>
+>
+
+Os níveis enterprise suportam uma forma mais avançada de geo-replicação, chamada [geo-replicação ativa.](cache-how-to-active-geo-replication.md) Aproveitando tipos de dados replicados sem conflitos, o software Redis Enterprise suporta escrever em múltiplas instâncias de cache e cuida da fusão de alterações e na resolução de conflitos, se necessário. Duas ou mais instâncias de cache de nível empresarial em diferentes regiões de Azure podem ser unidas para formar uma cache geo-replicada ativa. Uma aplicação utilizando tal cache pode ler e escrever para as instâncias de cache geo-distribuídas através dos pontos finais correspondentes. Deve usar o que é mais próximo de cada instância computacional, o que dá a menor latência. A aplicação também precisa de monitorizar as instâncias de cache e mudar para outra região se uma das instâncias ficar indisponível. Para obter mais informações sobre o funcionamento da geo-replicação ativa, consulte [Geo-Distriubtion Active-Active (Baseado em CRDTs)](https://redislabs.com/redis-enterprise/technology/active-active-geo-distribution/).
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -10,14 +10,14 @@ ms.author: peterlu
 author: peterclu
 ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: 059b521461969d8148ced90cb3ceffd14a00c4bb
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: b439c5f084c762d3a256806d2e45dab96832bb78
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322260"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101661091"
 ---
-# <a name="what-is-azure-machine-learning-designer"></a>O que é a designer de Aprendizagem automática Azure? 
+# <a name="what-is-azure-machine-learning-designer"></a>O que é o estruturador do Azure Machine Learning? 
 
 
 O designer de Machine Learning Azure permite-lhe conectar visualmente conjuntos de [dados](#datasets) e [módulos](#module) numa tela interativa para criar modelos de aprendizagem automática. Para aprender a começar com o designer, consulte [Tutorial: Predict automobile price with the designer](tutorial-designer-automobile-price-train-score.md)
@@ -81,7 +81,7 @@ Um módulo é um algoritmo que pode utilizar nos seus dados. O designer tem vár
 
 Um módulo pode ter um conjunto de parâmetros que pode utilizar para configurar algoritmos internos do módulo. Quando seleciona um módulo na tela, os parâmetros do módulo são apresentados no painel Propriedades à direita da tela. Pode modificar os parâmetros nesse painel para otimizar o seu modelo. Pode definir os recursos de computação para módulos individuais no designer. 
 
-:::image type="content" source="./media/concept-designer/properties.png"alt-text="Propriedades do módulo":::
+:::image type="content" source="./media/concept-designer/properties.png" alt-text="Propriedades do módulo":::
 
 
 Para alguma ajuda na navegação através da biblioteca de algoritmos de machine learning disponíveis, consulte [algoritmo & visão geral de referência do módulo](algorithm-module-reference/module-reference.md). Para ajudar a escolher um algoritmo, consulte a Folha de Batota do [Algoritmo de Aprendizagem de Máquinas Azure.](algorithm-cheat-sheet.md)

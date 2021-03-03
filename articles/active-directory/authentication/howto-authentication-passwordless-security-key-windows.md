@@ -1,36 +1,33 @@
 ---
 title: Sinal de chave de segurança sem palavra-passe Windows - Azure Ative Directory
-description: Saiba como ativar o acesso da chave de segurança sem palavras-passe ao Azure Ative Directory utilizando teclas de segurança FIDO2 (pré-visualização)
+description: Saiba como ativar o acesso à chave de segurança sem palavras-passe no Azure Ative Directory utilizando as teclas de segurança FIDO2
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 11/24/2020
+ms.date: 02/22/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04a46a691b2f629b64cfe09c22813b05c593af1c
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 190e9c857f1ec9d19eb89493dc4b4a9fb68fac87
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743467"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101653512"
 ---
-# <a name="enable-passwordless-security-key-sign-in-to-windows-10-devices-with-azure-active-directory-preview"></a>Ativar o acesso da chave de segurança sem palavras-passe aos dispositivos windows 10 com o Azure Ative Directory (pré-visualização)
+# <a name="enable-passwordless-security-key-sign-in-to-windows-10-devices-with-azure-active-directory"></a>Ativar o acesso à chave de segurança sem palavras-passe para dispositivos Windows 10 com Diretório Ativo Azure 
 
 Este documento centra-se em permitir a autenticação sem palavras-passe baseada em chaves de segurança FIDO2 com dispositivos Windows 10. No final deste artigo, poderás iniciar súb na sua AD Azure e o híbrido Azure AD juntou-se aos dispositivos Do Windows 10 com a sua conta AZure AD utilizando uma chave de segurança FIDO2.
-
-> [!NOTE]
-> As chaves de segurança FIDO2 são uma funcionalidade de pré-visualização pública do Azure Ative Directory. Para obter mais informações sobre pré-visualizações, consulte  [Termos Complementares de Utilização para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="requirements"></a>Requisitos
 
 | Tipo de Dispositivo | Azure AD associado | associado ao Azure AD Híbrido |
 | --- | --- | --- |
 | [Multi-Factor Authentication do Azure AD](howto-mfa-getstarted.md) | X | X |
-| [Pré-visualização do registo combinado de informações de segurança](concept-registration-mfa-sspr-combined.md) | X | X |
+| [Registo combinado de informações de segurança](concept-registration-mfa-sspr-combined.md) | X | X |
 | Chaves de [segurança FIDO2](concept-authentication-passwordless.md#fido2-security-keys) compatíveis | X | X |
 | WebAuthN requer versão 10 do Windows 1903 ou superior | X | X |
 | [Dispositivos aderidos a AD AZure](../devices/concept-azure-ad-join.md) requerem versão 1909 ou superior ao Windows 10 | X |   |
@@ -54,9 +51,9 @@ Os seguintes cenários não são suportados:
 - Iniciar ou desbloquear um dispositivo Windows 10 com uma chave de segurança contendo várias contas AD Azure. Este cenário utiliza a última conta adicionada à chave de segurança. A WebAuthN permite que os utilizadores escolham a conta que pretendem utilizar.
 - Desbloqueie um dispositivo que executa a versão 1809 do Windows 10. Para uma melhor experiência, utilize o Windows 10 versão 1903 ou superior.
 
-## <a name="prepare-devices-for-preview"></a>Preparar dispositivos para pré-visualização
+## <a name="prepare-devices"></a>Preparar dispositivos
 
-O Azure AD juntou-se a dispositivos que está a pilotar durante a pré-visualização da funcionalidade com que deve executar a versão 1909 ou superior do Windows 10.
+Os dispositivos aderidos a AD AD devem executar a versão 1909 ou superior do Windows 10.
 
 Os dispositivos híbridos Azure AD devem executar a versão 2004 ou mais recente do Windows 10.
 
@@ -150,13 +147,13 @@ No exemplo abaixo, um utilizador chamado Bala Sandhu já forrei a sua chave de s
 
 ## <a name="troubleshooting-and-feedback"></a>Resolução de problemas e feedback
 
-Se quiser partilhar feedback ou encontrar problemas durante a pré-visualização desta funcionalidade, partilhe através da aplicação Windows Feedback Hub utilizando os seguintes passos:
+Se quiser partilhar comentários ou encontrar problemas sobre esta funcionalidade, partilhe através da aplicação Windows Feedback Hub utilizando os seguintes passos:
 
 1. Lance **o Feedback Hub** e certifique-se de que está assinado.
 1. Enviar feedback ao abrigo da seguinte categorização:
    - Categoria: Segurança e Privacidade
    - Subcategoria: FIDO
-1. Para capturar registos, use a opção para **recriar o meu problema**
+1. Para capturar registos, utilize a opção para **recriar o meu problema.**
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -12,32 +12,28 @@ ms.date: 11/04/2019
 ms.author: kenwith
 ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66a6317b0cb59d656cdb2e402c5ade1b78ed60aa
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 646c2216c3d71aa441d33dde0ab3e2ef7bb4fd89
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99258325"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101643563"
 ---
 # <a name="grant-tenant-wide-admin-consent-to-an-application"></a>Conceder consentimento de administrador ao nível do inquilino a uma aplicação
 
-Saiba como simplificar a experiência do utilizador concedendo consentimento administrativo a um pedido. Este artigo dá as diferentes formas de o conseguir. Os métodos aplicam-se a todos os utilizadores finais do seu inquilino Azure Ative(Azure AD).
+  Saiba como conceder o consentimento administrativo do arrendatário a um pedido. Este artigo dá as diferentes formas de o conseguir.
 
 Para obter mais informações sobre o consentimento dos pedidos, consulte [o quadro de consentimento do Diretório Ativo Azure](../develop/consent-framework.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-A concessão do consentimento administrativo ao inquilinos requer que se inscreva como [Administrador Global,](../roles/permissions-reference.md#global-administrator) [Administrador de Aplicação](../roles/permissions-reference.md#application-administrator)ou [Administrador de Aplicação em Nuvem.](../roles/permissions-reference.md#cloud-application-administrator)
-
-> [!IMPORTANT]
-> Quando uma aplicação tiver recebido o consentimento administrativo do arrendatário, todos os utilizadores poderão inscrever-se na app a menos que tenha sido configurada para exigir a atribuição do utilizador. Para restringir quais os utilizadores que podem iniciar sessão numa aplicação, exija a atribuição do utilizador e, em seguida, atribua utilizadores ou grupos à aplicação. Para obter mais informações, consulte [Métodos para atribuir utilizadores e grupos.](./assign-user-or-group-access-portal.md)
->
-> A função de Administrador Global é necessária para fornecer consentimento administrativo para permissões de aplicação para a API do Gráfico microsoft.
+A concessão do consentimento administrativo ao arrendatário requer que se inscreva como utilizador autorizado a consentir em nome da organização. Isto inclui [administrador global](../roles/permissions-reference.md#global-administrator) e [administrador privilegiado,](../roles/permissions-reference.md#privileged-role-administrator)e, para algumas aplicações, [Administrador de Aplicação](../roles/permissions-reference.md#application-administrator) e [Administrador de Aplicação cloud](../roles/permissions-reference.md#cloud-application-administrator). Um utilizador também pode ser autorizado a conceder o consentimento ao arrendatário se lhe for atribuída uma [função de diretório personalizado](../roles/custom-create.md) que inclua [a permissão para conceder permissões a aplicações.](../roles/custom-consent-permissions.md)
 
 > [!WARNING]
 > A concessão do consentimento administrativo a uma aplicação concederá à app e ao editor da app acesso aos dados da sua organização. Reveja cuidadosamente as permissões que o pedido solicita antes de conceder o consentimento.
->
-> A função de Administrador Global é necessária para fornecer consentimento administrativo para permissões de aplicação para a API do Gráfico microsoft.
+
+> [!IMPORTANT]
+> Quando uma aplicação tiver recebido o consentimento administrativo do arrendatário, todos os utilizadores poderão inscrever-se na app a menos que tenha sido configurada para exigir a atribuição do utilizador. Para restringir quais os utilizadores que podem iniciar sessão numa aplicação, exija a atribuição do utilizador e, em seguida, atribua utilizadores ou grupos à aplicação. Para obter mais informações, consulte [Métodos para atribuir utilizadores e grupos.](./assign-user-or-group-access-portal.md)
 
 ## <a name="grant-admin-consent-from-the-azure-portal"></a>Conceder consentimento administrativo do portal Azure
 
@@ -101,4 +97,4 @@ Como sempre, reveja cuidadosamente as permissões que um pedido de pedido antes 
 
 [Permissões e consentimento na plataforma de identidade da Microsoft](../develop/v2-permissions-and-consent.md)
 
-[Azure AD no Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-active-directory.html)
+[Azure AD no Microsoft Q&A](/answers/topics/azure-active-directory.html)

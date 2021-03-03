@@ -6,14 +6,14 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 02/26/2021
 ms.author: jushiman
-ms.openlocfilehash: 61897a790da8a5f52b1b8f8e208629e7755690fa
-ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
+ms.openlocfilehash: dcc599daaa8d124c7188165ff5e024767a5e3cd7
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97759743"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101672634"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Suporte para VMs de geração 2 no Azure
 
@@ -79,11 +79,13 @@ A Azure não suporta atualmente algumas das funcionalidades que o Hyper-V suport
 
 | Característica da Geração 2                | Hyper-V no local | Azure |
 |-------------------------------------|---------------------|-------|
-| Bota segura                         | :heavy_check_mark:  | :x:   |
+| Bota segura                         | :heavy_check_mark:  | Com lançamento fidedigno (pré-visualização)   |
 | VM Blindada                         | :heavy_check_mark:  | :x:   |
-| vTPM                                | :heavy_check_mark:  | :x:   |
-| Segurança baseada na virtualização (VBS) | :heavy_check_mark:  | :x:   |
+| vTPM                                | :heavy_check_mark:  | Com lançamento fidedigno (pré-visualização)  |
+| Segurança baseada na virtualização (VBS) | :heavy_check_mark:  | Com lançamento fidedigno (pré-visualização)   |
 | Formato VHDX                         | :heavy_check_mark:  | :x:   |
+
+Para obter mais informações, consulte [lançamento fidedigno (pré-visualização)](trusted-launch.md).
 
 ## <a name="features-and-capabilities"></a>Funcionalidades e capacidades
 
@@ -105,7 +107,7 @@ A Azure não suporta atualmente algumas das funcionalidades que o Hyper-V suport
 | Azure Site Recovery               | :heavy_check_mark: | :heavy_check_mark: |
 | Cópia de segurança/restauro                    | :heavy_check_mark: | :heavy_check_mark: |
 | Galeria de imagens partilhada              | :heavy_check_mark: | :heavy_check_mark: |
-| [Encriptação do disco Azure](../security/fundamentals/azure-disk-encryption-vms-vmss.md)             | :heavy_check_mark: | :x:                |
+| [Encriptação do disco Azure](../security/fundamentals/azure-disk-encryption-vms-vmss.md)             | :heavy_check_mark: | :heavy_check_mark:                |
 | [Encriptação do lado do servidor](disk-encryption.md)            | :heavy_check_mark: | :heavy_check_mark: |
 
 ## <a name="creating-a-generation-2-vm"></a>Criar uma geração 2 VM
@@ -168,7 +170,7 @@ Também pode criar geração de 2 VMs utilizando conjuntos de escala de máquina
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
 * **A geração 2 VMs está disponível em todas as regiões de Azure?**  
-    Yes. Mas nem todos os [tamanhos de geração 2 VM](#generation-2-vm-sizes) estão disponíveis em todas as regiões. A disponibilidade da geração 2 VM depende da disponibilidade do tamanho VM.
+    Sim. Mas nem todos os [tamanhos de geração 2 VM](#generation-2-vm-sizes) estão disponíveis em todas as regiões. A disponibilidade da geração 2 VM depende da disponibilidade do tamanho VM.
 
 * **Existe uma diferença de preço entre a geração 1 e a geração 2 VMs?**  
    N.º
@@ -203,16 +205,16 @@ Também pode criar geração de 2 VMs utilizando conjuntos de escala de máquina
   Pode ver um aviso para discos de SO maiores que 2 TiB. O aviso não se aplica à geração 2 VMs. No entanto, os tamanhos do disco DEL superior a 4 TiB não são suportados.
 
 * **A geração 2 VMs suporta rede acelerada?**  
-    Yes. Para obter mais informações, consulte [Criar um VM com rede acelerada.](../virtual-network/create-vm-accelerated-networking-cli.md)
+    Sim. Para obter mais informações, consulte [Criar um VM com rede acelerada.](../virtual-network/create-vm-accelerated-networking-cli.md)
 
 * **A geração 2 VMs suporta Secure Boot ou vTPM em Azure?**
-    Tanto a geração 1 como a geração 2 VMs em Azure não suportam o Secure Boot ou o vTPM. 
+    Ambos vTPM e Secure Boot são funcionalidades de lançamento fidedigno (pré-visualização) para a geração 2 VMs. Para mais informações, consulte [o lançamento trusted](trusted-launch.md).
     
 * **A VHDX é suportada na geração 2?**  
     Não, a geração 2 VMs suporta apenas VHD.
 
 * **A geração 2 VMs suporta o armazenamento do disco Azure Ultra?**  
-    Yes.
+    Sim.
 
 * **Posso migrar um VM da geração 1 para a geração 2?**  
     Não, não podes mudar a geração de um VM depois de o criares. Se precisar de alternar entre gerações VM, crie um novo VM de uma geração diferente.
@@ -225,5 +227,7 @@ Também pode criar geração de 2 VMs utilizando conjuntos de escala de máquina
     1. Verifique se está à procura de um [tamanho VM que suporte VMs Gen2](#generation-2-vm-sizes).
 
 ## <a name="next-steps"></a>Passos seguintes
+
+Saiba mais sobre o [lançamento fidedigno (pré-visualização)](trusted-launch-portal.md) com os G VMs da gen 2.
 
 Saiba mais sobre [máquinas virtuais de geração 2 em Hyper-V.](/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v)

@@ -2,18 +2,18 @@
 title: Crie uma base de dados Oráculo num | VM Azure Microsoft Docs
 description: Obtenha rapidamente uma base de dados Oracle Database 12c em funcionamento no seu ambiente Azure.
 author: dbakevlar
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: oracle
+ms.collection: linux
 ms.topic: quickstart
 ms.date: 10/05/2020
 ms.author: kegorman
-ms.reviewer: cynthn
-ms.openlocfilehash: a202c8d176d6b9a8893a7bc5aaad6771942dda04
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: ec6a8382e2c0ce2cb359a62dd3f80fc977c4b1c2
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99063067"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101674655"
 ---
 # <a name="create-an-oracle-database-in-an-azure-vm"></a>Criar uma Base de Dados Oráculo num VM Azure
 
@@ -188,16 +188,16 @@ Nesta tarefa, deve configurar alguns pontos finais externos para o ouvinte da ba
    echo "/dev/sdc1               /u02                    ext4    defaults        0 0" >> /etc/fstab
    ```
    
-10. Atualize o ficheiro ***/etc/hosts** _ com o nome de IP e anfitrião público.
+10. Atualize o ficheiro ***/etc/hosts*** com o IP público e o nome de anfitrião.
 
-    Altere o _*_IP público e o VMname_*_ para refletir os seus valores reais:
+    Altere o ***IP público e o VMname*** para refletir os seus valores reais:
   
     ```bash
     echo "<Public IP> <VMname>.eastus.cloudapp.azure.com <VMname>" >> /etc/hosts
     ```
 11. Atualizar o ficheiro nome de anfitrião
     
-    Utilize o seguinte comando para adicionar o nome de domínio do VM ao ficheiro _ */etc/hostname** . Isto pressupõe que criou o seu grupo de recursos e VM na região **leste:**
+    Utilize o seguinte comando para adicionar o nome de domínio do VM ao ficheiro **/etc/nome de anfitrião.** Isto pressupõe que criou o seu grupo de recursos e VM na região **leste:**
     
     ```bash
     sed -i 's/$/\.eastus\.cloudapp\.azure\.com &/' /etc/hostname

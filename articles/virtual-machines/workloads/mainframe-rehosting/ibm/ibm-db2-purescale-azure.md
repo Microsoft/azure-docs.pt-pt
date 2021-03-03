@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 11/09/2018
 ms.author: edprice
-ms.openlocfilehash: 711c1ba49ad0f347d30f2c8c40352ed95c1fd057
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 29150f229f1bd6adbbe6a335fdb91a44f3a2345b
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99221736"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101675680"
 ---
 # <a name="ibm-db2-purescale-on-azure"></a>IBM DB2 pureScale em Azure
 
@@ -96,9 +96,9 @@ Um grande cluster DB2 pureScale pode requerer 200 terabytes (TB) ou mais de arma
 
 A IBM recomenda a rede InfiniBand para todos os membros num cluster DB2 pureScale. DB2 pureScale também utiliza acesso remoto de memória direta (RDMA), sempre que disponível, para os CFs.
 
-Durante a configuração, cria um [grupo de recursos](https://docs.microsoft.com/azure/azure-resource-manager/management/overview) Azure para conter todas as máquinas virtuais. Em geral, agrupar recursos baseados na sua vida e quem os vai gerir. As máquinas virtuais desta arquitetura requerem [uma rede acelerada.](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) É uma funcionalidade Azure que fornece latência de rede consistente e ultra-baixa através da virtualização de I/O de raiz única (SR-IOV) a uma máquina virtual.
+Durante a configuração, cria um [grupo de recursos](../../../../azure-resource-manager/management/overview.md) Azure para conter todas as máquinas virtuais. Em geral, agrupar recursos baseados na sua vida e quem os vai gerir. As máquinas virtuais desta arquitetura requerem [uma rede acelerada.](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) É uma funcionalidade Azure que fornece latência de rede consistente e ultra-baixa através da virtualização de I/O de raiz única (SR-IOV) a uma máquina virtual.
 
-Todas as máquinas virtuais Azure são implantadas numa rede virtual que tem sub-redes: principal, Gluster FS front end (gfsfe), Gluster FS back end (bfsbe), DB2 pureScale (db2be) e DB2 pureScale front end (db2fe). O script de instalação também cria os [NICs primários](https://docs.microsoft.com/azure/virtual-machines/windows/multiple-nics) nas máquinas virtuais na sub-rede principal.
+Todas as máquinas virtuais Azure são implantadas numa rede virtual que tem sub-redes: principal, Gluster FS front end (gfsfe), Gluster FS back end (bfsbe), DB2 pureScale (db2be) e DB2 pureScale front end (db2fe). O script de instalação também cria os [NICs primários](../../../windows/multiple-nics.md) nas máquinas virtuais na sub-rede principal.
 
 Utilize [grupos de segurança](../../../../virtual-network/virtual-network-vnet-plan-design-arm.md) de rede para restringir o tráfego de rede dentro da rede virtual e isolar as sub-redes.
 

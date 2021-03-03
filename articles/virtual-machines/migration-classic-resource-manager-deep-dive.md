@@ -4,16 +4,17 @@ description: Mergulho técnico profundo na migração de recursos suportado pela
 author: tanmaygore
 manager: vashan
 ms.service: virtual-machines
+ms.subservice: classic-to-arm-migration
 ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 12/17/2020
 ms.author: tagore
-ms.openlocfilehash: bc12d626d8a331981cbbad015b376b826c617209
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 43473b734968b25ca90bd8809c8291625011d46f
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735137"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101667016"
 ---
 # <a name="technical-deep-dive-on-platform-supported-migration-from-classic-to-azure-resource-manager"></a>Technical deep dive on platform-supported migration from classic to Azure Resource Manager (Análise detalhada técnica sobre a migração suportada por plataforma da clássica para Azure Resource Manager)
 
@@ -173,13 +174,13 @@ Pode encontrar o modelo de implementação clássico e as representações do Ge
 | Nomes DNS internos na VM |Nomes DNS internos na NIC |Durante a migração, os sufixos de DNS internos das VMs são migrados para uma propriedade só de leitura com o nome “InternalDomainNameSuffix” na NIC. O sufixo permanece inalterado após a migração, e a resolução de VM deve continuar a funcionar como anteriormente. |
 | Gateway de rede virtual |Gateway de rede virtual |As propriedades do gateway de rede virtual são migradas inalteradas. O VIP associado ao gateway também não muda. |
 | Site de rede local |Gateway de rede local |As propriedades do site da rede local são migradas inalteradas para um novo recurso chamado gateway de rede local. Isto representa prefixos de endereço no local e o IP de gateway remoto. |
-| Referências de ligações |Ligação |As referências de conectividade entre o gateway e o site de rede local na configuração da rede são representadas por um novo recurso chamado Conexão. Todas as propriedades de referência de conectividade em ficheiros de configuração de rede são copiadas inalteradamente para o recurso Connection. A conectividade entre redes virtuais no modelo clássico de implementação é conseguida através da criação de dois túneis IPsec para sites de rede locais que representam as redes virtuais. Isto é transformado para o tipo de ligação virtual rede-virtual no modelo Gestor de Recursos, sem necessitar de portais de rede locais. |
+| Referências de ligações |Ligação |As referências de conectividade entre o gateway e o site de rede local na configuração da rede são representadas por um novo recurso chamado Conexão. Todas as propriedades de referência de conectividade em ficheiros de configuração de rede são copiadas inalteradamente para o recurso Connection. A conectividade entre redes virtuais no modelo clássico de implementação é conseguida através da criação de dois túneis IPsec para sites de rede locais que representam as redes virtuais. Isto é transformado para o tipo de ligação virtual rede-rede-rede-virtual no modelo Gestor de Recursos, sem necessitar de portais de rede locais. |
 
 ## <a name="changes-to-your-automation-and-tooling-after-migration"></a>Alterações à automatização e às ferramentas após a migração
 Como parte da migração dos seus recursos do modelo de implementação clássico para o modelo de implementação do Gestor de Recursos, tem de atualizar a automatização ou ferramenta existente para garantir que continua a funcionar após a migração.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Visão geral da migração suportada pela plataforma de recursos iaas do clássico para o Azure Resource Manager](migration-classic-resource-manager-overview.md)
 * [Planear a migração de recursos de IaaS do clássico para o Azure Resource Manager](migration-classic-resource-manager-plan.md)

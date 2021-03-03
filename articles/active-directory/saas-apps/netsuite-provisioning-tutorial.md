@@ -10,19 +10,19 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 294870d3448886b9cea573a0e79b3ac436941f89
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: b1c03bafd6d97dd6a60defee00d4efe854315631
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98696494"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101648089"
 ---
 # <a name="tutorial-configuring-netsuite-for-automatic-user-provisioning"></a>Tutorial: Configurar o NetSuite para o fornecimento automático de utilizadores
 
 O objetivo deste tutorial é mostrar-lhe os passos que precisa de executar no NetSuite OneWorld e AD Azure para provisões automáticas e desavisagem de contas de utilizadores de Azure AD para NetSuite.
 
 > [!WARNING]
-> Esta integração de provisionamento deixará de funcionar em fevereiro de 2020 devido a uma alteração nas APIs NetSuite que são usadas pela Microsoft para a provisionar utilizadores no NetSuite. Como resultado, a funcionalidade de provisionamento da aplicação NetSuite na Azure Ative Directory Enterprise App Gallery será removida em breve. A funcionalidade SSO da aplicação permanecerá intacta. A Microsoft está a trabalhar com a NetSuite para construir uma nova integração de provisão modernizada, mas atualmente não existe nenhuma ETA sobre quando será concluída.
+> Esta integração de provisionamento deixará de funcionar com o lançamento da atualização primavera 2021 da NetSuite devido a uma alteração nas APIs netSuite que são usadas pela Microsoft para a provisionar utilizadores na NetSuite.  Esta atualização chegará aos clientes da NetSuite entre fevereiro e abril de 2021. Como resultado, a funcionalidade de provisionamento da aplicação NetSuite na Azure Ative Directory Enterprise App Gallery será removida em breve. A funcionalidade SSO da aplicação permanecerá intacta. A Microsoft está a trabalhar com a NetSuite para construir uma nova integração de provisão modernizada, mas atualmente não existe nenhuma ETA sobre quando será concluída.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

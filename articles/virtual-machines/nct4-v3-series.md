@@ -1,19 +1,18 @@
 ---
 title: NCas T4 v3 série
 description: Especificações para os VMs da série NCas T4 v3.
-services: virtual-machines
-ms.subservice: sizes
-author: vikancha-MSFT
 ms.service: virtual-machines
+ms.subservice: hpc
+author: vikancha-MSFT
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: vikancha
-ms.openlocfilehash: ac1147435bee60db0f3028289a83026e1f9c1c15
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 3b536f08b8917fa05942a35a8ca930b08687c83b
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99091685"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101674711"
 ---
 # <a name="ncast4_v3-series"></a>Série NCasT4_v3 
 

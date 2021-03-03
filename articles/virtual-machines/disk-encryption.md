@@ -8,12 +8,12 @@ ms.author: rogarana
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 9ed811f96e08e8ebab2e6fd090a4322d9f7827fb
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: f9152e341ac04209754bbf5f008cd56373967b9f
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92681746"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101677451"
 ---
 # <a name="server-side-encryption-of-azure-disk-storage"></a>Encriptação do lado do servidor do armazenamento do disco Azure
 
@@ -51,6 +51,17 @@ Por enquanto, as chaves geridas pelo cliente têm as seguintes restrições:
 #### <a name="supported-regions"></a>Regiões suportadas
 
 As chaves geridas pelo cliente estão disponíveis em todas as regiões que os discos geridos estão disponíveis.
+
+A rotação automática da chave está em pré-visualização e só está disponível nas seguintes regiões:
+
+- E.U.A. Leste
+- E.U.A. Leste 2
+- E.U.A. Centro-Sul
+- E.U.A. Oeste
+- E.U.A. Oeste 2
+- Europa do Norte
+- Europa Ocidental
+- França Central
 
 > [!IMPORTANT]
 > As chaves geridas pelo cliente dependem de identidades geridas para recursos Azure, uma característica do Azure Ative Directory (Azure AD). Ao configurar as chaves geridas pelo cliente, uma identidade gerida é automaticamente atribuída aos seus recursos sob as capas. Se posteriormente mover a subscrição, o grupo de recursos ou o disco gerido de um diretório AD Azure para outro, a identidade gerida associada aos discos geridos não é transferida para o novo inquilino, pelo que as chaves geridas pelo cliente podem deixar de funcionar. Para obter mais informações, consulte [a transferência de uma subscrição entre os diretórios AD da Azure](../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).

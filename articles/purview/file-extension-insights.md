@@ -6,23 +6,23 @@ ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 11/24/2020
-ms.openlocfilehash: 246a9dcfa35498d99fd403f10e5c17d7707efe84
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.date: 01/17/2021
+ms.openlocfilehash: 5cbfb41d50e055f745864e4d5f8bc15a55d925e7
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202628"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101668574"
 ---
 # <a name="file-extension-insights-about-your-data-from-azure-purview"></a>Insights de extensão de ficheiros sobre os seus dados a partir do Azure Purview 
 
 Este guia de como aceder, visualizar e filtrar insights sobre as extensões de ficheiros, ou tipos de ficheiros, encontrados nos seus dados.
 
-As fontes de dados suportadas incluem: Azure Blob Storage, Azure Data Lake Storage (ADLS) GEN 1, Azure Data Lake Storage (ADLS) GEN 2
+As fontes de dados suportadas incluem: Azure Blob Storage, Azure Data Lake Storage (ADLS) GEN 1, Azure Data Lake Storage (ADLS) GEN 2, Baldes Amazon S3
 
 Neste guia de como guiar, aprenderá a:
 > [!div class="checklist"]
-> * Lance a sua conta Desemis da Azure. 
+> * Lance a sua conta Desemis da Azure 
 > - Ver insights de extensão de ficheiros nos seus dados
 > - Faça um exercício para obter mais detalhes da extensão do ficheiro nos seus dados
 
@@ -32,7 +32,7 @@ Antes de começar com as introspeções de Competência, certifique-se de que co
 
 - Configurar os seus recursos Azure e povoar as contas relevantes com dados de teste
 
-- Configurar e completar uma verificação dos dados de teste em cada fonte de dados
+- Configurar e completar uma verificação dos dados de teste em cada fonte de dados. Para obter mais informações, consulte [Gerir as fontes de dados em Azure Purview (Preview)](manage-data-sources.md) e [criar um conjunto de regras de digitalização](create-a-scan-rule-set.md).
 
 - Inscreva-se em Purview com uma função de [Data Reader ou Data Curator](catalog-permissions.md#azure-purviews-pre-defined-data-plane-roles).
 

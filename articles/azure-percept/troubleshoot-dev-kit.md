@@ -1,0 +1,103 @@
+---
+title: Problemas gerais de resolução de problemas com Azure Percept DK e IoT Edge
+description: Obtenha dicas de resolução de problemas para algumas das questões mais comuns encontradas durante a experiência de embarque
+author: mimcco
+ms.author: mimcco
+ms.service: azure-percept
+ms.topic: how-to
+ms.date: 02/18/2021
+ms.custom: template-how-to
+ms.openlocfilehash: c8027b62c0c463e134817f589ba3e1957cea5b39
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101680084"
+---
+# <a name="azure-percept-dk-dev-kit-troubleshooting"></a>Azure Percept DK (dev kit) resolução de problemas
+
+Consulte as orientações abaixo para obter dicas gerais de resolução de problemas para o Azure Percept DK.
+
+## <a name="general-troubleshooting-commands"></a>Comandos gerais de resolução de problemas
+
+Para executar estes comandos, 
+1. Ligue-se ao [Wi-Fi AP do dev](./quickstart-percept-dk-set-up.md)
+1. [SSH no dev kit](./how-to-ssh-into-percept-dk.md)
+1. Insira os comandos no terminal SSH
+
+Para redirecionar qualquer saída para um ficheiro .txt para análise mais aprofundada, utilize a seguinte sintaxe:
+
+```console
+[command] > [file name].txt
+```
+
+Depois de redirecionar a saída para um ficheiro .txt, copie o ficheiro para o seu PC anfitrião via SCP:
+
+```console
+scp [remote username]@[IP address]:[remote file path]/[file name].txt [local host file path]
+```
+
+```[local host file path]``` refere-se à localização no seu PC anfitrião a que gostaria de copiar o ficheiro .txt. ```[remote username]``` é o nome de utilizador SSH escolhido durante a [experiência de configuração](./quickstart-percept-dk-set-up.md). Se não tiver configurado um login SSH durante o OOBE, o seu nome de utilizador remoto é ```root``` .
+
+Para obter informações adicionais sobre os comandos Azure IoT Edge, consulte a documentação de [resolução de problemas do dispositivo Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/troubleshoot).
+
+|Categoria:         |Comando:                    |Função:                  |
+|------------------|----------------------------|---------------------------|
+|SO                |```cat /etc/os-release```         |verificar versão de imagem Mariner |
+|SO                |```cat /etc/os-subrelease```      |verificar versão de imagem derivada |
+|SO                |```cat /etc/adu-version```        |verificar versão ADU |
+|Temperatura       |```cat /sys/class/thermal/thermal_zone0/temp``` |verificar a temperatura do devkit |
+|Wi-Fi             |```journalctl -u hostapd.service``` |verifique os registos SoftAP|
+|Wi-Fi             |```journalctl -u wpa_supplicant.service``` |verificar registos de serviços Wi-Fi |
+|Wi-Fi             |```journalctl -u ztpd.service```  |verificar Wi-Fi registos de Serviço de Provisionamento de Toque Zero |
+|Wi-Fi             |```journalctl -u systemd-networkd``` |verificar registos de pilhas de rede mariner |
+|Wi-Fi             |```/data/misc/wifi/hostapd_virtual.conf``` |verificar detalhes de configuração de ponto de acesso wi-fi |
+|OOBE              |```journalctl -u oobe -b```       |verifique os registos da OOBE |
+|Telemetria         |```azure-device-health-id```      |encontrar telemetria única HW_ID |
+|Azure IoT Edge          |```sudo iotedge check```          |executar verificações de configuração e conectividade para questões comuns |
+|Azure IoT Edge          |```sudo iotedge logs [container name]``` |verificar registos de contentores, tais como módulos de fala e visão |
+|Azure IoT Edge          |```sudo iotedge support-bundle --since 1h``` |recolher registos de módulos, registos de gestores de segurança Azure IoT Edge, troncos de motor de contentores, ```iotedge check``` saída JSON e outras informações úteis de depuração da última hora |
+|Azure IoT Edge          |```sudo journalctl -u iotedge -f``` |ver os registos do gestor de segurança Azure IoT Edge |
+|Azure IoT Edge          |```sudo systemctl restart iotedge``` |reiniciar o Azure IoT Edge Security Daemon |
+|Azure IoT Edge          |```sudo iotedge list```           |listar os módulos Azure IoT Edge implantados |
+|Outro             |```df [option] [file]```          |exibir informações sobre o espaço disponível/total em sistemas de ficheiros especificados |
+|Outro             |```ip route get 1.1.1.1```        |informação do dispositivo de exibição IP e interface |
+|Outro             |```ip route get 1.1.1.1 \| awk '{print $7}'``` <br> ```ifconfig [interface]``` |apenas endereço IP do dispositivo de exibição |
+
+
+Os ```journalctl``` comandos Wi-Fi podem ser combinados no seguinte comando único:
+
+```console
+journalctl -u hostapd.service -u wpa_supplicant.service -u ztpd.service -u systemd-networkd -b
+```
+
+## <a name="docker-troubleshooting-commands"></a>Comandos de resolução de problemas de Docker
+
+|Comando:                        |Função:                  |
+|--------------------------------|---------------------------|
+|```docker ps``` |[mostra quais os contentores que estão a correr](https://docs.docker.com/engine/reference/commandline/ps/) |
+|```docker images``` |[mostra quais as imagens que estão no dispositivo](https://docs.docker.com/engine/reference/commandline/images/)|
+|```docker rmi [image id] -f``` |[elimina uma imagem do dispositivo](https://docs.docker.com/engine/reference/commandline/rmi/) |
+|```docker logs -f edgeAgent``` <br> ```docker logs -f [module_name]``` |[toma registos de contentores de módulo especificado](https://docs.docker.com/engine/reference/commandline/logs/) |
+|```docker image prune``` |[remove todas as imagens penduradas](https://docs.docker.com/engine/reference/commandline/image_prune/) |
+|```watch docker ps``` <br> ```watch ifconfig [interface]``` |verificar estado de descarregamento de contentor de estivador |
+
+## <a name="usb-updating"></a>Atualização USB
+
+|Erro:                                    |Solução:                                               |
+|------------------------------------------|--------------------------------------------------------|
+|LIBUSB_ERROR_XXX durante flash USB via UUU |Este erro é o resultado de uma falha de ligação USB durante a atualização da UUU. Se o cabo USB não estiver corretamente ligado às portas USB do PC ou do PE-10X, ocorrerá um erro deste formulário. Tente desligar e reboçar ambas as extremidades do cabo USB e agitar o cabo para garantir uma ligação segura. Isto quase sempre resolve o problema. |
+
+## <a name="azure-percept-dk-carrier-board-led-states"></a>Azure Percept DK porta-aviões LED afirma
+
+Há três pequenos LEDs em cima da caixa do quadro de transporte. Um ícone de nuvem é impresso ao lado do LED 1, um ícone de Wi-Fi é impresso ao lado do LED 2, e um ícone de marca de exclamação é impresso ao lado do LED 3. Consulte a tabela abaixo para obter informações sobre cada estado LED.
+
+|LED             |Estado      |Descrição                      |
+|----------------|-----------|---------------------------------|
+|LED 1 (Hub IoT) |Em (sólido) |O dispositivo está ligado a um hub IoT. |
+|LED 2 (Wi-Fi)   |Piscar lentamente |Autenticação do dispositivo em curso. |
+|LED 2 (Wi-Fi)   |Piscar rápido |A autenticação foi bem sucedida, a associação de dispositivos em curso. |
+|LED 2 (Wi-Fi)   |Em (sólido) |A autenticação e a associação foram bem sucedidas; o dispositivo está ligado a uma rede Wi-Fi. |
+|LED 3           |ND         |LED não está a ser utilizado. |
+
+

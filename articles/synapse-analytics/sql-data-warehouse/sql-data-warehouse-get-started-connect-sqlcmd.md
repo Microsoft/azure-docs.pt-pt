@@ -1,6 +1,6 @@
 ---
 title: Conecte-se com sqlcmd
-description: Utilize um utilitário de linha de comando sqlcmd para ligar e consultar uma piscina Sinapse SQL.
+description: Utilize um utilitário de linha de comando sqlcmd para ligar e consultar uma piscina SQL dedicada em Azure Synapse Analytics.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,14 +11,14 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 3d1d8d3ce3afece5a979aadc27cd82dc7ddaf0d5
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: f8b4d54585bc70c3ee5f24846e216f75e985cf84
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98676238"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101675722"
 ---
-# <a name="connect-to-sql-pool-in-azure-synapse-analytics-with-sqlcmd"></a>Conecte-se à piscina SQL em Azure Synapse Analytics com sqlcmd
+# <a name="connect-to-a-dedicated-sql-pool-in-azure-synapse-analytics-with-sqlcmd"></a>Conecte-se a uma piscina SQL dedicada em Azure Synapse Analytics com sqlcmd
 
 > [!div class="op_single_selector"]
 >
@@ -28,15 +28,15 @@ ms.locfileid: "98676238"
 > * [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
 > * [SSMS](sql-data-warehouse-query-ssms.md)
 
-Utilize o utilitário de linha de comando [sqlcmd] para ligar e consultar uma piscina SQL.  
+Utilize o utilitário de linha de comando [sqlcmd] para ligar e consultar uma piscina SQL dedicada.  
 
 ## <a name="1-connect"></a>1. Ligar
 
-Para começar com [sqlcmd][sqlcmd], abra a solicitação de comando e entre **em sqlcmd** seguido pela cadeia de ligação para a sua piscina SQL. A cadeia de ligação requer os parâmetros seguintes:
+Para começar com [sqlcmd][sqlcmd], abra o pedido de comando e entre **em sqlcmd** seguido pela cadeia de ligação para a sua piscina SQL dedicada. A cadeia de ligação requer os parâmetros seguintes:
 
 * **Server (-S):** servidor sob a forma `<`Nome do Servidor`>`. database.windows.net
-* **Base de dados (-d):** Nome da piscina SQL.
-* **Ativar identificadores citados (-I):** Os identificadores citados devem ser habilitados a ligar-se a uma placa de piscina SQL.
+* **Base de dados (-d):** nome de piscina SQL dedicado.
+* **Ativar identificadores citados (-I):** Os identificadores citados devem ser habilitados a ligar-se a uma instância dedicada da piscina SQL.
 
 Para utilizar a Autenticação do SQL Server tem de adicionar os parâmetros de nome de utilizador/palavra-passe:
 

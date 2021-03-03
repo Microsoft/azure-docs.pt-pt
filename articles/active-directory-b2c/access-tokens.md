@@ -11,16 +11,16 @@ ms.date: 10/26/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 937041bbb48f112e2c8ed7d222dc7c7ef7ea8d81
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: e5168d5e5e3935da267fb26f38735a88bdfd7837
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92631398"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101654481"
 ---
 # <a name="request-an-access-token-in-azure-active-directory-b2c"></a>Pedir tokens de acesso no Azure Active Directory B2C
 
-Os *tokens de acesso* contêm afirmações que podem ser utilizadas no Azure Active Directory B2C (Azure AD B2C) para identificar as permissões concedidas às suas APIs. Ao chamar um servidor de recursos, tem de estar presente u token de acesso no pedido HTTP. Nas respostas do Azure AD B2C, os tokens de acesso são denotados como **access_token** .
+Os *tokens de acesso* contêm afirmações que podem ser utilizadas no Azure Active Directory B2C (Azure AD B2C) para identificar as permissões concedidas às suas APIs. Ao chamar um servidor de recursos, tem de estar presente u token de acesso no pedido HTTP. Nas respostas do Azure AD B2C, os tokens de acesso são denotados como **access_token**.
 
 Este artigo mostra-lhe como pedir um token de acesso para uma aplicação Web e uma API Web. Para obter mais informações sobre os tokens no Azure AD B2C, veja a [descrição geral dos tokens no Azure Active Directory B2C](tokens-overview.md).
 
@@ -91,7 +91,7 @@ https://jwt.ms/?code=eyJraWQiOiJjcGltY29yZV8wOTI1MjAxNSIsInZlciI6IjEuMC...
 Depois de receber o código de autorização, pode utilizá-lo para pedir um token de acesso:
 
 ```http
-POST <tenant-name>.onmicrosoft.com/<policy-name>/oauth2/v2.0/token HTTP/1.1
+POST <tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/<policy-name>/oauth2/v2.0/token HTTP/1.1
 Host: <tenant-name>.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
 

@@ -13,12 +13,12 @@ ms.reviewer: ''
 ms.date: 11/30/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 90b2cd4521613a7b449598f0d097a7ec1c2958c6
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: a834d4d30c40b618b1601a7f8901c68143ef4912
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98724547"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101648522"
 ---
 # <a name="resilience-through-monitoring-and-analytics"></a>Resiliência através da monitorização e análise
 
@@ -49,7 +49,7 @@ Por exemplo, acompanhe as seguintes métricas, uma vez que uma queda súbita em 
 
    - **Período anterior**: Criar gráficos temporais para mostrar alterações na taxa total de pedidos e sucesso (%) em algum período anterior para fins de referência, por exemplo, na semana passada.
 
-- **Aviso:** A utilização de registos de análise define [alertas](../../azure-monitor/platform/alerts-log.md) que são acionados quando há alterações repentinas nos indicadores-chave. Estas alterações podem ter um impacto negativo nos SLOs. Os alertas utilizam várias formas de métodos de notificação, incluindo e-mail, SMS e webhooks. Comece por definir um critério que atue como um limiar contra o qual o alerta será desencadeado. Por exemplo:
+- **Aviso:** A utilização de registos de análise define [alertas](../../azure-monitor/alerts/alerts-log.md) que são acionados quando há alterações repentinas nos indicadores-chave. Estas alterações podem ter um impacto negativo nos SLOs. Os alertas utilizam várias formas de métodos de notificação, incluindo e-mail, SMS e webhooks. Comece por definir um critério que atue como um limiar contra o qual o alerta será desencadeado. Por exemplo:
   - Alerta contra queda abrupta nos pedidos totais: Desencadeie um alerta quando o número total de pedidos cair abruptamente. Por exemplo, quando houver uma queda de 25% no número total de pedidos em relação ao período anterior, levante um alerta.  
   - Alerta contra uma queda significativa na taxa de sucesso (%): Desencadear um alerta quando a taxa de sucesso da política selecionada baixar significativamente.
   - Ao receber um alerta, resolva o problema usando [Log Analytics,](../reports-monitoring/howto-install-use-log-analytics-views.md) [Application Insights](../../active-directory-b2c/troubleshoot-with-application-insights.md)e [extensão do Código VS](https://marketplace.visualstudio.com/items?itemName=AzureADB2CTools.aadb2c) para Azure AD B2C. Depois de resolver o problema e implementar uma aplicação ou política atualizada, continua a monitorizar os indicadores-chave até que regressem ao normal.
@@ -57,11 +57,11 @@ Por exemplo, acompanhe as seguintes métricas, uma vez que uma queda súbita em 
 - **Alertas de serviço**: Utilize os alertas de nível de [serviço Azure AD B2C](../../service-health/service-health-overview.md) para ser notificado de problemas de serviço, manutenção planeada, aconselhamento de saúde e aviso de segurança.
 
 - **Reportagem**: [Ao utilizar a análise de registos,](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)crie relatórios que o ajudem a compreender os conhecimentos dos utilizadores, os desafios técnicos e as oportunidades de crescimento.
-  - **Painel de Saúde**: Crie dashboards personalizados utilizando a função [Azure Dashboard,](../../azure-monitor/learn/tutorial-app-dashboards.md) que suporta a adição de gráficos usando consultas de Log Analytics. Por exemplo, identificar padrões de inserções bem sucedidas e falhadas, razões de falha e telemetria sobre dispositivos utilizados para fazer os pedidos.
+  - **Painel de Saúde**: Crie dashboards personalizados utilizando a função [Azure Dashboard,](../../azure-monitor/app/tutorial-app-dashboards.md) que suporta a adição de gráficos usando consultas de Log Analytics. Por exemplo, identificar padrões de inserções bem sucedidas e falhadas, razões de falha e telemetria sobre dispositivos utilizados para fazer os pedidos.
   - **Abandone as viagens Azure AD B2C**: Utilize o [livro](https://github.com/azure-ad-b2c/siem#list-of-abandon-journeys) para acompanhar a lista de viagens abandonadas do Azure AD B2C onde o utilizador iniciou a viagem de inscrição ou inscrição, mas nunca terminou. Fornece-lhe detalhes sobre o ID da política e a repartição das medidas que são tomadas pelo utilizador antes de abandonar a viagem.
   - **Azure AD B2C monitorando livros**: Utilize os [livros de monitorização](https://github.com/azure-ad-b2c/siem), que inclui o painel Azure AD B2C, operações de autenticação multi-factor (MFA), relatório de acesso condicional e registos de pesquisa por correlaid, para obter melhores informações sobre a saúde do seu ambiente Azure AD B2C.
   
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Recursos de resiliência para desenvolvedores Azure AD B2C](resilience-b2c.md)
   - [Experiência resiliente do utilizador final](resilient-end-user-experience.md)

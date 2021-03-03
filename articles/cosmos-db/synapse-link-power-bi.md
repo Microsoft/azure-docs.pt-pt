@@ -6,22 +6,19 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 11/30/2020
 ms.author: acomet
-ms.openlocfilehash: f0111228b9b0030cbbceb9fc70d829a7a22fda01
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.openlocfilehash: a16d22a49e42408271c91d961bcdb004536e3980
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98247017"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101659754"
 ---
-# <a name="use-power-bi-and-serverless-synapse-sql-pool-preview-to-analyze-azure-cosmos-db-data-with-synapse-link"></a>Use power BI e serverless Synapse SQL pool (pré-visualização) para analisar dados DB do Azure Cosmos com Synapse Link 
+# <a name="use-power-bi-and-serverless-synapse-sql-pool-to-analyze-azure-cosmos-db-data-with-synapse-link"></a>Use power BI e sem servidor Piscina SQL synapse para analisar dados DB do Azure Cosmos com Synapse Link 
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
 Neste artigo, você aprende a construir uma base de dados de piscinas SQL sem servidor e vistas sobre Synapse Link para Azure Cosmos DB. Você vai consultar os recipientes DB Azure Cosmos e, em seguida, construir um modelo com Power BI sobre essas vistas para refletir essa consulta.
 
 Neste cenário, utilizará dados falsos sobre as vendas de produtos Surface numa loja de retalho parceira. Irá analisar as receitas por loja com base na proximidade com as grandes famílias e no impacto da publicidade para uma semana específica. Neste artigo, cria **duas vistas chamadas RetailSales** e **StoreDemographics** e uma consulta entre eles. Pode obter os dados do produto da amostra deste [repo GitHub.](https://github.com/Azure-Samples/Synapse/tree/main/Notebooks/PySpark/Synapse%20Link%20for%20Cosmos%20DB%20samples/Retail/RetailData)
-
-> [!IMPORTANT]
-> O suporte para a piscina sql sem servidor sinaapse para Azure Synapse Link para Azure Cosmos DB está atualmente em pré-visualização. Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 06/24/2020
+ms.date: 03/02/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9afb5a078d5359ed236b44c0a6712985bf8c305
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: d07aa283c40a54ba02faa13b07e466e519bd68ae
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99257190"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101649427"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>Federação direta com FS AD e fornecedores de terceiros para utilizadores convidados (pré-visualização)
 
@@ -26,9 +26,7 @@ ms.locfileid: "99257190"
 
 Este artigo descreve como criar uma federação direta com outra organização para a colaboração B2B. Pode criar uma federação direta com qualquer organização cujo fornecedor de identidade (IdP) suporte o protocolo SAML 2.0 ou WS-Fed.
 Quando configurar uma federação direta com o IdP de um parceiro, novos utilizadores convidados desse domínio podem usar a sua própria conta organizacional gerida pelo IdP para se inscreverem no seu inquilino Azure AD e começar a colaborar consigo. Não há necessidade de o utilizador convidado criar uma conta AD Azure separada.
-> [!NOTE]
-> Os utilizadores convidados da federação direta devem inscrever-se através de um link que inclua o contexto do inquilino (por `https://myapps.microsoft.com/?tenantid=<tenant id>` `https://portal.azure.com/<tenant id>` exemplo, ou, no caso de um domínio verificado, `https://myapps.microsoft.com/\<verified domain>.onmicrosoft.com` ). As ligações diretas a aplicações e recursos também funcionam desde que incluam o contexto do inquilino. Os utilizadores diretos da federação não conseguem assinar o uso de pontos finais comuns que não têm contexto de inquilino. Por exemplo, utilizar `https://myapps.microsoft.com` `https://portal.azure.com` , ou `https://teams.microsoft.com` resultará num erro.
- 
+
 ## <a name="when-is-a-guest-user-authenticated-with-direct-federation"></a>Quando é que um utilizador convidado é autenticado com federação direta?
 Depois de configurar uma federação direta com uma organização, quaisquer novos utilizadores convidados que convidar serão autenticados através da federação direta. É importante notar que a criação de uma federação direta não altera o método de autenticação para utilizadores convidados que já tenham resgatado um convite de si. Eis alguns exemplos:
  - Se os utilizadores convidados já terem resgatado convites de si, e posteriormente criarem uma federação direta com a sua organização, esses utilizadores convidados continuarão a utilizar o mesmo método de autenticação que usaram antes de criarem a federação direta.
@@ -42,10 +40,28 @@ A federação direta está ligada a espaços de nome de domínio, como contoso.c
 ## <a name="end-user-experience"></a>Experiência do utilizador final 
 Com a federação direta, os utilizadores convidados inscrevem-se no seu inquilino Azure AD usando a sua própria conta organizacional. Quando estão a aceder a recursos partilhados e são solicitados para a entrada, os utilizadores diretos da federação são redirecionados para o seu IdP. Após o sucesso da sação, são devolvidos à Azure AD para aceder aos recursos. As fichas de atualização dos utilizadores da federação direta são válidas por 12 horas, o [comprimento padrão para o token de atualização passthrough](../develop/active-directory-configurable-token-lifetimes.md#exceptions) em Azure AD. Se o IdP federado tiver SSO ativado, o utilizador experimentará SSO e não verá qualquer pedido de inscrição após a autenticação inicial.
 
+## <a name="sign-in-endpoints"></a>Pontos finais de inscrição
+
+Os utilizadores de hóspedes da federação direta podem agora iniciar sposição nas suas aplicações multi-inquilinas ou na Microsoft, utilizando um [ponto final comum](redemption-experience.md#redemption-and-sign-in-through-a-common-endpoint) (por outras palavras, um URL de aplicações gerais que não inclua o contexto do seu inquilino). Seguem-se exemplos de pontos finais comuns:
+
+- `https://teams.microsoft.com`
+- `https://myapps.microsoft.com`
+- `https://portal.azure.com`
+
+Durante o processo de entrada, o utilizador convidado escolhe **as opções de Inscrição** e, em seguida, seleciona **Iniciar sação para uma organização**. Em seguida, o utilizador escreve o nome da sua organização e continua a iniciar sessão com as suas próprias credenciais.
+
+Os utilizadores convidados da federação direta também podem usar pontos finais de aplicação que incluem informações do seu inquilino, por exemplo:
+
+  * `https://myapps.microsoft.com/?tenantid=<your tenant ID>`
+  * `https://myapps.microsoft.com/<your verified domain>.onmicrosoft.com`
+  * `https://portal.azure.com/<your tenant ID>`
+
+Também pode dar aos utilizadores convidados da federação direta uma ligação direta a uma aplicação ou recurso, incluindo as informações do seu inquilino, por `https://myapps.microsoft.com/signin/Twitter/<application ID?tenantId=<your tenant ID>` exemplo.
+
 ## <a name="limitations"></a>Limitações
 
 ### <a name="dns-verified-domains-in-azure-ad"></a>Domínios verificados pelo DNS em Azure AD
-O domínio com o que pretende federar deve ***não** _ ser verificado em DNS-verificado em Azure AD. Você está autorizado a criar uma federação direta com inquilinos não geridos (verificados por e-mail ou "virais") Azure AD porque eles não são verificados PELO DNS.
+O domínio com o que pretende federar ***não*** deve ser verificado em Azure AD. Você está autorizado a criar uma federação direta com inquilinos não geridos (verificados por e-mail ou "virais") Azure AD porque eles não são verificados PELO DNS.
 
 ### <a name="authentication-url"></a>URL de autenticação
 A federação direta só é permitida para políticas em que o domínio do URL de autenticação corresponda ao domínio alvo, ou quando o URL de autenticação é um desses fornecedores de identidade permitidos (esta lista está sujeita a alterações):
@@ -60,7 +76,7 @@ A federação direta só é permitida para políticas em que o domínio do URL d
 -   federation.exostar.com
 -   federation.exostartest.com
 
-Por exemplo, ao configurar a federação direta para _*fabrikam.com***, o URL de autenticação `https://fabrikam.com/adfs` passará a validação. Um hospedeiro no mesmo domínio também passará, por `https://sts.fabrikam.com/adfs` exemplo. No entanto, o URL de autenticação `https://fabrikamconglomerate.com/adfs` ou para o mesmo domínio não `https://fabrikam.com.uk/adfs` passará.
+Por exemplo, ao configurar a federação direta para **fabrikam.com,** o URL de autenticação `https://fabrikam.com/adfs` passará a validação. Um hospedeiro no mesmo domínio também passará, por `https://sts.fabrikam.com/adfs` exemplo. No entanto, o URL de autenticação `https://fabrikamconglomerate.com/adfs` ou para o mesmo domínio não `https://fabrikam.com.uk/adfs` passará.
 
 ### <a name="signing-certificate-renewal"></a>Assinatura de renovação de certificado
 Se especificar o URL dos metadados nas definições do fornecedor de identidade, o Azure AD renovará automaticamente o certificado de assinatura quando expirar. No entanto, se o certificado for rotativo por qualquer motivo antes do prazo de validade, ou se não fornecer um URL de metadados, a Azure AD não poderá renová-lo. Neste caso, terá de atualizar manualmente o certificado de assinatura.
@@ -147,7 +163,7 @@ Em seguida, você vai configurar a federação com o fornecedor de identidade co
 
 1. Aceda ao [Portal do Azure](https://portal.azure.com/). No painel esquerdo, selecione **Azure Active Directory**. 
 2. Selecione **Identidades Externas**  >  **Todos os fornecedores de identidade**.
-3. Selecione e, em seguida, selecione **Novo IdP SAML/WS-Fed**.
+3. Selecione **Novo IdP SAML/WS-Fed**.
 
     ![Screenshot mostrando botão para adicionar um novo SAML ou WS-Fed IdP](media/direct-federation/new-saml-wsfed-idp.png)
 

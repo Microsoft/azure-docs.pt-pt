@@ -4,18 +4,17 @@ titleSuffix: Azure Data Science Virtual Machine
 description: Saiba como fazer upgrade de CentOS e Ubuntu 16.04 para a mais recente Máquina Virtual Ubuntu 18.04 Data Science.
 keywords: aprendizagem profunda, IA, ferramentas de ciência de dados, máquina virtual de ciência de dados, processo de ciência de dados de equipa
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: data-science-vm
+ms.service: data-science-vm
 author: samkemp
 ms.author: samkemp
 ms.topic: conceptual
 ms.date: 10/07/2020
-ms.openlocfilehash: 5b98384d4d735f4c124c6af40d6edbff896900ce
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 5b897ff7527d2d60234162ccbdeb08a00260bb1d
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93320987"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101659465"
 ---
 # <a name="upgrade-your-data-science-virtual-machine-to-ubuntu-1804"></a>Atualizar a Máquina Virtual de Ciência de Dados para o Ubuntu 18.04
 
@@ -25,7 +24,7 @@ Se tiver uma Máquina Virtual de Ciência de Dados a executar uma versão mais a
 
 - Familiaridade com o SSH e a linha de comando Linux
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Há duas formas possíveis de migrar:
 
@@ -38,7 +37,7 @@ No portal Azure, utilize a barra de pesquisa para encontrar a funcionalidade **S
 
 :::image type="content" source="media/ubuntu_upgrade/azure-portal-search-bar.png" alt-text="Screenshot mostrando portal Azure e barra de pesquisa, com **Snapshots** em destaque":::
 
-1. **Selecione Adicionar** , que irá levá-lo para a página **'Criar' instantâneo.** Selecione o grupo de subscrição e recursos da sua máquina virtual. Para **a Região** , selecione a mesma região em que o armazenamento alvo existe. Selecione o disco de armazenamento DSVM e opções de backup adicionais. **O HDD padrão** é um tipo de armazenamento apropriado para este cenário de backup.
+1. **Selecione Adicionar**, que irá levá-lo para a página **'Criar' instantâneo.** Selecione o grupo de subscrição e recursos da sua máquina virtual. Para **a Região**, selecione a mesma região em que o armazenamento alvo existe. Selecione o disco de armazenamento DSVM e opções de backup adicionais. **O HDD padrão** é um tipo de armazenamento apropriado para este cenário de backup.
 
 :::image type="content" source="media/ubuntu_upgrade/create-snapshot-options.png" alt-text="Screenshot mostrando as opções de 'Criar instantâneo'":::
 
@@ -103,7 +102,7 @@ Pode optar por atualizar as partes do sistema operativo do sistema de ficheiros 
 
 Se ainda não criou um instantâneo VM como descrito anteriormente, faça-o. 
 
-1. No portal Azure, procure **discos** e selecione **Add** , que abrirá a página **do Disco.**
+1. No portal Azure, procure **discos** e selecione **Add**, que abrirá a página **do Disco.**
 
 :::image type="content" source="media/ubuntu_upgrade/portal-disks-search.png" alt-text="Screenshot do portal Azure mostrando a pesquisa da página de Discos e do botão Adicionar":::
 

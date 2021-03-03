@@ -8,20 +8,19 @@ manager: bburns
 editor: ''
 tags: azure-resource-manager
 keywords: SAP, Azure, Oráculo, Data Guard
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 01/18/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b4cf2e79acf4cd58ff94a2e90f07202341672a1d
-ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
+ms.openlocfilehash: 29b1bcec58d6350d0f63c3fe0ce11ef99a648019
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98569441"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101668983"
 ---
 # <a name="azure-virtual-machines-oracle-dbms-deployment-for-sap-workload"></a>Azure Virtual Machines Oracle DBMS implantação para carga de trabalho SAP
 
@@ -347,7 +346,7 @@ Mesmo que esteja a executar as suas instâncias de aplicação Oracle DBMS e SAP
 
 De acordo com o manual de instalação SAP, os ficheiros relacionados com a Oracle não devem ser instalados ou localizados no disco OS do VM (unidade c:). Máquinas virtuais de diferentes tamanhos podem suportar um número variado de discos anexos. Os tipos de máquinas virtuais mais pequenos podem suportar um número menor de discos anexos. 
 
-Se tiver VMs mais pequenos e atingir o limite do número de discos que pode anexar ao VM, pode instalar/localizar o Oracle em casa, estágio, `saptrace` `saparch` ou no disco `sapbackup` `sapcheck` `sapreorg` oss. Estas partes dos componentes do Oracle DBMS não são muito intensas na produção de I/O e I/O. Isto significa que o disco DE pode lidar com os requisitos de E/S. O tamanho predefinido do disco de so deve ser de 127 GB. 
+Se tiver VMs mais pequenos e atingir o limite do número de discos que pode anexar ao VM, pode instalar/localizar o Oracle em casa, estágio, `saptrace` , , , , ou no disco `saparch` `sapbackup` `sapcheck` `sapreorg` oss. Estas partes dos componentes do Oracle DBMS não são muito intensas na produção de I/O e I/O. Isto significa que o disco DE pode lidar com os requisitos de E/S. O tamanho predefinido do disco de so deve ser de 127 GB. 
 
 A Oracle Database e os ficheiros de registo de redo precisam de ser armazenados em discos de dados separados. Há uma exceção para o espaço temporário do Oráculo. `Tempfiles` pode ser criado em D:/ (unidade não persistente). O D não persistente:\ drive também oferece melhor latência e produção de I/O (com exceção de VMs série A). 
 
@@ -360,7 +359,7 @@ Consulte o artigo [Azure Storage types for SAP workload](./planning-guide-storag
 
 Recomendamos vivamente a utilização de [Discos Geridos Azure](../../managed-disks-overview.md). Recomendamos também vivamente a utilização de [armazenamento premium Azure ou disco Azure Ultra](../../disks-types.md) para as suas implementações oracle Database.
 
-As unidades de rede ou as ações remotas, como os serviços de ficheiros Azure, não são suportadas por ficheiros Oracle Database. Para obter mais informações, veja:
+As unidades de rede ou as ações remotas, como os serviços de ficheiros Azure, não são suportadas por ficheiros Oracle Database. Para obter mais informações, consulte:
 
 - [Introdução ao Serviço do Ficheiro do Microsoft Azure](/archive/blogs/windowsazurestorage/introducing-microsoft-azure-file-service)
 
@@ -440,7 +439,7 @@ Informações gerais sobre a gestão da SAP Business Suite na Oracle podem ser e
 
 De acordo com os manuais de instalação DA SAP, os ficheiros relacionados com a Oracle não devem ser instalados ou localizados em controladores de sistema para o disco de arranque de um VM. Diferentes tamanhos de máquinas virtuais suportam um número variado de discos anexos. Os tipos de máquinas virtuais mais pequenos podem suportar um número menor de discos anexos. 
 
-Neste caso, recomendamos a instalação/localização da Oracle em casa, palco, `saptrace` ou para iniciar o `saparch` `sapbackup` `sapcheck` `sapreorg` disco. Estas partes dos componentes do Oracle DBMS não são intensas na produção de I/O e I/O. Isto significa que o disco DE pode lidar com os requisitos de E/S. O tamanho padrão do disco de so é de 30 GB. Pode expandir o disco de arranque utilizando o portal Azure, PowerShell ou CLI. Depois de o disco de arranque ter sido expandido, pode adicionar uma divisória adicional para binários Oráculos.
+Neste caso, recomendamos a instalação/localização da Oracle em casa, palco, `saptrace` , ou para iniciar o `saparch` `sapbackup` `sapcheck` `sapreorg` disco. Estas partes dos componentes do Oracle DBMS não são intensas na produção de I/O e I/O. Isto significa que o disco DE pode lidar com os requisitos de E/S. O tamanho padrão do disco de so é de 30 GB. Pode expandir o disco de arranque utilizando o portal Azure, PowerShell ou CLI. Depois de o disco de arranque ter sido expandido, pode adicionar uma divisória adicional para binários Oráculos.
 
 
 ### <a name="storage-configuration"></a>Configuração do armazenamento

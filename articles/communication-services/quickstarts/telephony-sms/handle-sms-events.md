@@ -9,26 +9,25 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: d6409c005e006372f55e77aeb4d977e6b1c45832
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: b3bdbef5680561d60ab4db6ee42033553e691ed3
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96936293"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101660128"
 ---
 # <a name="quickstart-handle-sms-events"></a>Quickstart: Lidar com eventos DE SMS
 
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 [!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
 
-Inicie-se com os Serviços de Comunicação Azure utilizando a Azure Event Grid para lidar com eventos DE SMS dos Serviços de Comunicação. 
+Inicie-se com os Serviços de Comunicação Azure utilizando a Azure Event Grid para lidar com eventos DE SMS dos Serviços de Comunicação.
 
 ## <a name="about-azure-event-grid"></a>Sobre a grelha de eventos de Azure
 
 [A azure Event Grid](../../../event-grid/overview.md) é um serviço de eventos baseado na nuvem. Neste artigo, você vai aprender a subscrever eventos para [eventos de serviço de comunicação](../../concepts/event-handling.md), e desencadear um evento para ver o resultado. Normalmente, envia eventos para um ponto final que processa os dados de eventos e efetua ações. Neste artigo, enviaremos os eventos para uma aplicação web que recolhe e exibe as mensagens.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-- Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuita.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 
+- Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuita.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - Um recurso do Serviço de Comunicação Azure. Mais detalhes podem ser encontrados no [Quickstart Criar um Recurso de Comunicação Azure.](../create-communication-resource.md)
 - Um número de telefone por SMS habilitado. [Obter um número de telefone.](./get-phone-number.md)
 
@@ -44,13 +43,13 @@ No portal do Azure:
 2. Selecione a subscrição que pretende utilizar para Event Grid.
 3. No menu esquerdo, em **Definições,** selecione **Fornecedores de Recursos**.
 4. Localize **Microsoft.EventGrid**.
-5. Se não estiver registado, selecione **Registar**. 
+5. Se não estiver registado, selecione **Registar**.
 
 Pode demorar algum tempo para o registo terminar. Selecione **Atualizar** para atualizar o estado. Quando **Estado** for **Registado**, está preparado para continuar.
 
 ### <a name="event-grid-viewer-deployment"></a>Implementação do espectador de grelha de evento
 
-Para este arranque rápido, usaremos a amostra de [visualização da grelha de eventos Azure](/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/) para ver eventos em tempo quase real. Isto proporcionará ao utilizador a experiência de um feed em tempo real. Além disso, a carga útil de cada evento também deve estar disponível para inspeção.  
+Para este arranque rápido, usaremos a amostra de [visualização da grelha de eventos Azure](/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/) para ver eventos em tempo quase real. Isto proporcionará ao utilizador a experiência de um feed em tempo real. Além disso, a carga útil de cada evento também deve estar disponível para inspeção.
 
 ## <a name="subscribe-to-the-sms-events-using-web-hooks"></a>Subscreva os eventos SMS utilizando ganchos web
 
@@ -62,7 +61,7 @@ No portal, navegue para o seu Recurso de Serviços de Comunicação Azure que cr
 
 Na página **'Criar Subscrição de** Eventos', insira um **nome** para a subscrição do evento.
 
-Pode subscrever eventos específicos para dizer à Grade de Eventos quais dos eventos SMS que pretende rastrear e para onde enviar os eventos. Selecione os eventos que pretende subscrever no menu suspenso. Para SMS terá a opção de escolher `SMS Received` e `SMS Delivery Report Received` . 
+Pode subscrever eventos específicos para dizer à Grade de Eventos quais dos eventos SMS que pretende rastrear e para onde enviar os eventos. Selecione os eventos que pretende subscrever no menu suspenso. Para SMS terá a opção de escolher `SMS Received` e `SMS Delivery Report Received` .
 
 Se lhe for solicitado que forneça um **Nome Tópico do Sistema,** sinta-se à vontade para fornecer uma cadeia única. Este campo não tem impacto na sua experiência e é utilizado para fins de telemetria interna.
 
@@ -70,7 +69,7 @@ Confira a lista completa de [eventos suportados pelos Serviços de Comunicação
 
 :::image type="content" source="./media/handle-sms-events/select-events-create-eventsub.png" alt-text="Screenshot mostrando o relatório de entrega de SMS Recebido e SMS Recebeu tipos de eventos sendo selecionados.":::
 
-Selecione **Web Hook** para **o tipo Endpoint**. 
+Selecione **Web Hook** para **o tipo Endpoint**.
 
 :::image type="content" source="./media/handle-sms-events/select-events-create-linkwebhook.png" alt-text="Screenshot mostrando o campo Endpoint Type a ser definido para Web Hook.":::
 
@@ -111,7 +110,7 @@ Se pretender limpar e remover uma assinatura de Serviços de Comunicação, pode
 
 Neste arranque rápido, aprendeu a consumir eventos de SMS. Pode receber mensagens SMS criando uma subscrição de Grade de Eventos.
 
-> [!div class="nextstepaction"] 
+> [!div class="nextstepaction"]
 > [Enviar SMS](../telephony-sms/send.md)
 
 Também pode querer:

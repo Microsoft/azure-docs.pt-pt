@@ -3,16 +3,16 @@ title: Série NV - Azure Virtual Machines
 description: Especificações para os VMs da série NV.
 author: vikancha-MSFT
 ms.service: virtual-machines
-ms.subservice: sizes
+ms.subservice: hpc
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 6c2ac4247945436f5c32d25fbae1c1fe9a9c0ceb
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 5d417691192fac34284688fe15edda2195c13132
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99097729"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101670161"
 ---
 # <a name="nv-series"></a>Série NV
 

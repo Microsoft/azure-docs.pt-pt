@@ -13,12 +13,12 @@ ms.date: 08/07/2020
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: f32c81d4d247eb6c819adf5015cf36c846f4e83b
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 6517cdd7aafa7ae2fe351b349e62a66104469dcd
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99218235"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101653784"
 ---
 # <a name="migrate-applications-to-the-microsoft-authentication-library-msal"></a>Migrar aplicações para a Biblioteca de Autenticação da Microsoft (MSAL)
 
@@ -64,7 +64,7 @@ __P: Por que devo investir na mudança para a MSAL?__
 R: O MSAL contém novas funcionalidades não no ADAL, incluindo consentimento incremental, súpido único e gestão de cache simbólica. Além disso, ao contrário da ADAL, a MSAL continuará a receber patches de segurança para além de 30 de junho de 2022. [Saiba mais](msal-overview.md).
 
 __P: A Microsoft irá atualizar as suas próprias aplicações para o MSAL?__  
-Yes. A Microsoft está em processo de migrar as suas aplicações para a MSAL até ao fim do prazo de suporte, garantindo que beneficiarão das melhorias de segurança e funcionalidades em curso da MSAL.
+Sim. A Microsoft está em processo de migrar as suas aplicações para a MSAL até ao fim do prazo de suporte, garantindo que beneficiarão das melhorias de segurança e funcionalidades em curso da MSAL.
 
 __P: Vai lançar uma ferramenta que me ajuda a mover as minhas aplicações de ADAL para MSAL?__  
 R: Não. As diferenças entre as bibliotecas exigiriam a dedicação de recursos ao desenvolvimento e manutenção da ferramenta que, de outra forma, seriam gastas a melhorar a MSAL. No entanto, fornecemos o conjunto anterior de guias de migração para ajudá-lo a fazer as alterações necessárias na sua aplicação.
@@ -73,7 +73,7 @@ __P: Como funciona a MSAL com a AD FS?__
 R: MSAL.NET apoia certos cenários para autenticar contra a AD FS 2019. Se a sua aplicação precisar de adquirir fichas diretamente da versão anterior do AD FS, deverá permanecer no ADAL. [Saiba mais](msal-net-adfs-support.md).
 
 __P: Como consigo ajuda a migrar a minha candidatura?__  
-R: Consulte a secção de orientação para a [migração](#migration-guidance) deste artigo. Se, depois de ler o guia da plataforma da sua aplicação, tiver perguntas adicionais, pode publicar no [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-ad-adal-deprecation.html) com a etiqueta ou abrir um problema no `[azure-ad-adal-deprecation]` repositório GitHub da biblioteca. Consulte a secção [de Línguas e Quadros](msal-overview.md#languages-and-frameworks) do artigo de visão geral do MSAL para obter links para o repo de cada biblioteca.
+R: Consulte a secção de orientação para a [migração](#migration-guidance) deste artigo. Se, depois de ler o guia da plataforma da sua aplicação, tiver perguntas adicionais, pode publicar no [Microsoft Q&A](/answers/topics/azure-ad-adal-deprecation.html) com a etiqueta ou abrir um problema no `[azure-ad-adal-deprecation]` repositório GitHub da biblioteca. Consulte a secção [de Línguas e Quadros](msal-overview.md#languages-and-frameworks) do artigo de visão geral do MSAL para obter links para o repo de cada biblioteca.
 
 ## <a name="next-steps"></a>Passos seguintes
 

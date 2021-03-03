@@ -1,5 +1,5 @@
 ---
-title: SKUs para SAP HANA em Azure (Grandes Instâncias) Microsoft Docs
+title: SKUs for SAP HANA on Azure (Grandes Instâncias) | Microsoft Docs
 description: SKUs para SAP HANA em Azure (Grandes Instâncias).
 services: virtual-machines-linux
 documentationcenter: ''
@@ -7,20 +7,19 @@ author: msjuergent
 manager: juergent
 editor: ''
 keywords: HLI, HANA, SKUs, S896, S224, S448, S672, Optane, SAP
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/21/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 886cd57b59bd4103ced9d496021e54ab0bdc99ad
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 25a11bf96ba680608e5bb22835becf80fadee4f3
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97723291"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101668923"
 ---
 # <a name="available-skus-for-hana-large-instances"></a>SKUs disponíveis para grandes instâncias HANA
 
@@ -52,7 +51,7 @@ A lista de instâncias disponíveis do Azure Large que são oferecidas listas co
 
 
 
-| SAP HANA certificado | Modelo | Memória Total | DRAM de memória | Optane memória | Armazenamento | Disponibilidade |
+| SAP HANA certificado | Modelação | Memória Total | DRAM de memória | Optane memória | Armazenamento | Disponibilidade |
 | --- | --- | --- | --- | --- | --- | --- |
 | SIM <br />[OLAP,](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure&recordid=2185) [OLTP](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure&recordid=2265) | SAP HANA em Azure S96<br /> – 2 x Intel® Xeon® Processador E7-8890 v4 <br /> 48 núcleos de CPU e 96 fios de CPU |  768 GB | 768 GB | --- | 3.0 TB | Disponível |
 | SIM <br /> [OLAP,](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure&recordid=2186) [OLTP](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure&recordid=2269) | SAP HANA em Azure S224<br /> – 4 x Processador Intel® Xeon® Platinum 8276 <br /> 112 núcleos de CPU e 224 fios de CPU |  3.0 TB | 3.0 TB | --- | 6.3 TB | Disponível |

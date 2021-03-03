@@ -3,18 +3,19 @@ title: Implementar plataforma de contentores openshift 3.11 em Azure
 description: Implementar a Plataforma de Contentores OpenShift 3.11 em Azure.
 author: haroldwongms
 manager: mdotson
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: openshift
+ms.collection: linux
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 04/05/2020
 ms.author: haroldw
-ms.openlocfilehash: fab8f88a39730411503af273902a53f169e3fe57
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: 054fb2ffc65b44d5436282eab5327f0facf39c06
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97703743"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101671183"
 ---
 # <a name="deploy-openshift-container-platform-311-in-azure"></a>Implementar plataforma de contentores openshift 3.11 em Azure
 
@@ -276,7 +277,7 @@ Diferentes versões podem ter diferentes parâmetros, por isso verifique os par�
 | `keyVaultName` | O nome do Cofre-Chave que criaste |  |  |
 | `enableAzure` | Ativar o Fornecedor de Nuvem Azure | true <br> false | true |
 | `aadClientId` | ID do cliente do Azure Ative Directory também conhecido como ID de aplicação para diretor de serviço |  |  |
-| `domainName` | Nome do nome de domínio personalizado a utilizar (se aplicável). Definido para "nenhum" se não implementar cluster totalmente privado |  | nenhuma |
+| `domainName` | Nome do nome de domínio personalizado a utilizar (se aplicável). Definido para "nenhum" se não implementar cluster totalmente privado |  | nenhum |
 | `masterClusterDnsType` | Tipo de domínio para consola web OpenShift. 'predefinição' utilizará a etiqueta DNS do IP principal infra público. 'costume' permite-lhe definir o seu próprio nome | predefinição <br> personalizadas | predefinição |
 | `masterClusterDns` | O nome DNS personalizado para usar para aceder à consola web OpenShift se selecionou 'custom' para `masterClusterDnsType` |  | console.contoso.com |
 | `routingSubDomainType` | Se estiver definido para 'nipio', `routingSubDomain` utilizará nip.io.  Use 'personalizado' se tiver o seu próprio domínio que pretende usar para encaminhamento | nipio <br> personalizadas | nipio |

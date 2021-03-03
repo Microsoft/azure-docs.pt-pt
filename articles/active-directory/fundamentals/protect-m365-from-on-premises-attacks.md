@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e2e87196f9d4d38743847ee68983216b8790e0b
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 9913132ca6ff3ce2840b55aa771f7bd9be2404ea
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99257275"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101650979"
 ---
 # <a name="protecting-microsoft-365-from-on-premises-attacks"></a>Proteger a Microsoft 365 de ataques no local
 
@@ -141,7 +141,7 @@ Recomendamos os seguintes métodos de provisionamento:
 
     *   Bloqueie o acesso ao portal Azure. Pode fazer raras exceções necessárias.  Crie uma política de Acesso Condicional que inclua todos os hóspedes e utilizadores externos. Em seguida, [implementar uma política para bloquear o acesso](../../role-based-access-control/conditional-access-azure-management.md). 
 
-* **Florestas desligadas**: Utilize [o provisionamento de nuvens Azure AD](../cloud-provisioning/what-is-cloud-provisioning.md). Este método permite ligar-se a florestas desligadas, eliminando a necessidade de estabelecer conectividade ou fidedignidades florestais, que podem alargar o efeito de uma violação no local. 
+* **Florestas desligadas**: Utilize [o provisionamento de nuvens Azure AD](../cloud-sync/what-is-cloud-sync.md). Este método permite ligar-se a florestas desligadas, eliminando a necessidade de estabelecer conectividade ou fidedignidades florestais, que podem alargar o efeito de uma violação no local. 
  
 ### <a name="limitations-and-tradeoffs"></a>Limitações e compensações
 

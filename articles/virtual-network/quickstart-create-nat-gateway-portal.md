@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/24/2020
 ms.author: allensu
-ms.openlocfilehash: 5010dc08b695a0376ace5dde935c63caf0c39633
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 98989a38a0c1a7f57fc8eba70e064e5d6f2cce8f
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96012085"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101671535"
 ---
 # <a name="tutorial-create-a-nat-gateway-using-the-azure-portal"></a>Tutorial: Criar uma porta de entrada NAT utilizando o portal Azure
 
@@ -43,9 +43,9 @@ Nesta secção, deverá substituir os seguintes parâmetros nos passos pelas inf
 | **\<resource-group-name>**  | myResourceGroupNAT |
 | **\<virtual-network-name>** | myVNet          |
 | **\<region-name>**          | E.U.A. Leste 2      |
-| **\<IPv4-address-space>**   | 192.168.0.0\16          |
+| **\<IPv4-address-space>**   | 192.168.0.0/16          |
 | **\<subnet-name>**          | mySubnet        |
-| **\<subnet-address-range>** | 192.168.0.0\24          |
+| **\<subnet-address-range>** | 192.168.0.0/24          |
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
@@ -89,7 +89,7 @@ Esta secção detalha como pode criar e configurar os seguintes componentes do s
 
 ### <a name="create-a-public-ip-address"></a>Crie um endereço IP público
 
-1. No lado superior esquerdo do portal, selecione **Criar um** endereço IP público em rede de recursos ou procurar endereço  >  **Networking**  >  **Public IP address** **IP público** na pesquisa do Marketplace.
+1. No lado superior esquerdo do portal, selecione **Criar um** endereço IP público em rede de recursos ou procurar endereço  >    >   **IP público** na pesquisa do Marketplace.
 
 2. Para **criar o endereço IP público,** insira ou selecione estas informações:
 
@@ -97,7 +97,7 @@ Esta secção detalha como pode criar e configurar os seguintes componentes do s
     | ------- | ----- |
     | Versão IP | Selecione **IPv4**.
     | SKU | Selecione **Standard**.
-    | Nome | Insira **o myPublicIP**. |
+    | Name | Insira **o myPublicIP**. |
     | Subscrição | Selecione a sua subscrição.|
     | Grupo de recursos | Selecione **myResourceGroupNAT**. |
     | Localização | Selecione **E.U.A. Leste 2**.|
@@ -106,7 +106,7 @@ Esta secção detalha como pode criar e configurar os seguintes componentes do s
 
 ### <a name="create-a-public-ip-prefix"></a>Criar um prefixo IP público
 
-1. No lado superior esquerdo do portal, selecione **Criar um**  >  prefixo IP público em rede **de** recursos ou  >  **Public IP prefix** procurar **prefixo IP público** na pesquisa do Marketplace. 
+1. No lado superior esquerdo do portal, selecione **Criar um**  >  prefixo IP público em rede **de** recursos ou  >  procurar **prefixo IP público** na pesquisa do Marketplace. 
 
 2. Na **Criação de um prefixo IP público,** escreva ou selecione os seguintes valores no separador **Básicos:**
    - **Assinatura**  >  **Grupo de Recursos**: Selecione **myResourceGroupNAT**>
@@ -121,7 +121,7 @@ Esta secção detalha como pode criar e configurar os seguintes componentes do s
 
 ### <a name="create-a-nat-gateway-resource"></a>Criar um recurso de gateway NAT
 
-1. No lado superior esquerdo do portal, selecione **Criar um** gateway NAT  >  **de rede de**  >  **NAT gateway** recursos, ou procurar por **gateway NAT** na pesquisa do Marketplace.
+1. No lado superior esquerdo do portal, selecione **Criar um** gateway NAT  >  **de rede de**  >  recursos, ou procurar por **gateway NAT** na pesquisa do Marketplace.
 
 2. No **Portal de Tradução de Endereços de Rede (NAT),** escreva ou selecione os seguintes valores no **separador Básicos:**
    - **Assinatura**  >  **Grupo de Recursos**: Selecione **myResourceGroupNAT**.

@@ -2,18 +2,18 @@
 title: Configurações e GitOps - Azure Arc habilitado Kubernetes
 services: azure-arc
 ms.service: azure-arc
-ms.date: 02/17/2021
+ms.date: 03/02/2021
 ms.topic: conceptual
 author: shashankbarsin
 ms.author: shasb
 description: Este artigo fornece uma visão geral conceptual de GitOps e capacidade de configurações de Azure Arc habilitado Kubernetes.
 keywords: Kubernetes, Arc, Azure, contentores, configuração, GitOps
-ms.openlocfilehash: f8fe1522eee4cc855ae1f396d9c98323114a25ce
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: d016e2bae9fcef21642f00cf6f25a8b595d54710
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100652552"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101650378"
 ---
 # <a name="configurations-and-gitops-with-azure-arc-enabled-kubernetes"></a>Configurações e GitOps com Arco Azure habilitados Kubernetes
 
@@ -27,20 +27,20 @@ Em relação a Kubernetes, GitOps é a prática de declarar o estado desejado da
 
 [![Arquitetura de configurações ](./media/conceptual-configurations.png)](./media/conceptual-configurations.png#lightbox)
 
-A ligação entre o seu cluster e um repositório Git é criada como um `Microsoft.KubernetesConfiguration/sourceControlConfigurations` recurso de extensão em cima do Arco Azure habilitado recurso Kubernetes (representado `Microsoft.Kubernetes/connectedClusters` por) em Azure Resource Manager. 
+A ligação entre o seu cluster e um repositório Git é criada como um recurso de configuração `Microsoft.KubernetesConfiguration/sourceControlConfigurations` () em cima do Arco Azure habilitado recurso Kubernetes (representado `Microsoft.Kubernetes/connectedClusters` por) em Azure Resource Manager. 
 
-As `sourceControlConfiguration` propriedades dos recursos são utilizadas para implantar o operador flux no cluster com os parâmetros apropriados, tais como o repositório git a partir do qual puxar manifestos e o intervalo de votação para os puxar. Os `sourceControlConfiguration` dados são armazenados encriptados e em repouso numa base de dados DB da Azure Cosmos para garantir a confidencialidade dos dados.
+As propriedades dos recursos de configuração são utilizadas para implantar o operador flux no cluster com os parâmetros apropriados, tais como o repo Git a partir do qual puxar manifestos e o intervalo de votação para os puxar. Os dados de recursos de configuração são armazenados encriptados em repouso numa base de dados DB Azure Cosmos para garantir a confidencialidade dos dados.
 
 A `config-agent` corrida no seu cluster é responsável por:
-* Rastrear novos ou `sourceControlConfiguration` atualizados recursos de extensão no Arco Azure permitiu o recurso Kubernetes.
-* Implantação de um operador de fluxo para assistir ao repositório git para cada `sourceControlConfiguration` um .'
-* Aplicando quaisquer atualizações feitas a qualquer `sourceControlConfiguration` . 
+* Rastrear recursos de configuração novos ou atualizados no Arco Azure permitiu o recurso Kubernetes.
+* Implantação de um operador de fluxo para observar o repositório Git para cada recurso de configuração.
+* Aplicando quaisquer atualizações feitas a qualquer recurso de configuração. 
 
-Pode criar vários recursos com âmbito de nome `sourceControlConfiguration` no mesmo Arco Azure que permitiu que o cluster Kubernetes alcançasse o multi-arrendamento.
+Pode criar vários recursos de configuração com âmbito de nome no mesmo Arco Azure que permitiu que o cluster Kubernetes alcançasse o multi-arrendamento.
 
 > [!NOTE]
-> * `config-agent` Monitores contínuos para recursos de extensão novos ou atualizados `sourceControlConfiguration` disponíveis no Arco Azure habilitados recurso Kubernetes. Assim, os agentes requerem conectividade consistente para puxar as propriedades do estado desejadas para o cluster. Se os agentes não puderem ligar-se ao Azure, o estado pretendido não é aplicado no cluster.
-> * Entradas sensíveis do cliente, como chave privada, conteúdo conhecido dos anfitriões, nome de utilizador HTTPS e token ou palavra-passe são armazenados por até 48 horas nos serviços de Kubernetes habilitados pelo Arco Azure. Se estiver a utilizar entradas sensíveis para configurações, leve os clusters on-line o mais regularmente possível.
+> * `config-agent` monitores para recursos de configuração novos ou atualizados a serem disponíveis no recurso Arc habilitado Kubernetes. Assim, os agentes requerem conectividade para que o estado desejado seja puxado para baixo para o cluster. Se os agentes não puderem ligar-se ao Azure, há um atraso na propagação do estado desejado para o cluster.
+> * Entradas sensíveis do cliente como chave privada, conteúdo conhecido dos anfitriões, nome de utilizador HTTPS e token/password não são armazenadas por mais de 48 horas nos serviços de Kubernetes ativados pelo Arco Azure. Se estiver a utilizar entradas sensíveis para configurações, leve os clusters on-line o mais regularmente possível.
 
 ## <a name="apply-configurations-at-scale"></a>Aplicar configurações à escala
 
@@ -50,6 +50,6 @@ Esta aplicação em escala garante uma configuração de base comum (contendo co
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Ligue um cluster ao Arco de Azure](./connect-cluster.md)
+* [Ligue um cluster ao Arco de Azure](./quickstart-connect-cluster.md)
 * [Crie configurações no seu cluster Kubernetes ativado pelo Arco](./use-gitops-connected-cluster.md)
 * [Use a Política Azure para aplicar configurações à escala](./use-azure-policy.md)

@@ -11,12 +11,12 @@ ms.date: 11/16/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d97128c15d974bfb704fdd446dbd9c727d7fa469
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: 411a8e46151a762bcd270fb676f78a91f760ac4f
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98614227"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101653801"
 ---
 # <a name="azure-ad-connect-cloud-provisioning-agent-gmsa-powershell-cmdlets"></a>Azure AD Connect agente de provisão de nuvem gMSA PowerShell cmdlets
 
@@ -36,7 +36,7 @@ São necessários os seguintes pré-requisitos para a utilização destes cmdlet
 2. Módulo PS do Agente de Provisionamento de Importação numa sessão PowerShell. 
 
  ```PowerShell
- Import-Module "C:\Program Files\Microsoft Azure AD Connect Provisioning Agent\Microsoft.CloudSync.Powershell.dll"  
+ Import-Module "C:\Program Files\Microsoft Azure AD Connect Provisioning Agent\Microsoft.CloudSync.Powershell.dll"  
  ```
 3. Remova as permissões existentes.  Para remover todas as permissões existentes na conta de serviço, exceto a utilização self: `Set-AADCloudSyncRestrictedPermission` .  
 
@@ -67,7 +67,7 @@ São necessários os seguintes pré-requisitos para a utilização destes cmdlet
 |PasswordHashSync|Consulte permissões [PasswordHashSync](../../active-directory/hybrid/how-to-connect-configure-ad-ds-connector-account.md#permissions-for-password-hash-synchronization) para Azure AD Connect|
 |PasswordWriteBack|Consulte permissões [PasswordWriteBack](../../active-directory/hybrid/how-to-connect-configure-ad-ds-connector-account.md#permissions-for-password-writeback) para Azure AD Connect|
 |HybridExchangePermissions|Ver [permissões híbridasExchangePermissions](../../active-directory/hybrid/how-to-connect-configure-ad-ds-connector-account.md#permissions-for-exchange-hybrid-deployment) para Azure AD Connect| 
-|ExchangeMailPublicFolderPermissions| Ver [Permissão de Permissions ExchangeMailMailPublicFolder](../../active-directory/hybrid/how-to-connect-configure-ad-ds-connector-account.md#permissions-for-exchange-mail-public-folders-preview) para Azure AD Connect| 
+|ExchangeMailPublicFolderPermissions| Ver [Permissão de Permissão de Permissão de Permissions ExchangeMailMailPublicFolder](../../active-directory/hybrid/how-to-connect-configure-ad-ds-connector-account.md#permissions-for-exchange-mail-public-folders-preview) para Azure AD Connect| 
 |CloudHR| Aplica 'Controlo total' em 'Objetos de utilizador descendentes' e 'Criar/eliminar objetos do Utilizador' em 'Este objeto e todos os objetos descendentes'| 
 |Todos|adiciona todas as permissões acima.| 
 

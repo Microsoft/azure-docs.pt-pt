@@ -2,18 +2,18 @@
 title: Visão geral dos servidores azure Arc
 description: Saiba como usar o Azure Arc habilitado os servidores a gerir servidores hospedados fora do Azure como um recurso Azure.
 keywords: automação azul, DSC, powershell, configuração de estado desejada, gestão de atualização, rastreio de alterações, inventário, runbooks, python, gráfico, híbrido
-ms.date: 11/12/2020
+ms.date: 02/18/2021
 ms.topic: overview
-ms.openlocfilehash: be5955e9bf02e591fdbba3f080d034c126379c2f
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 615835e5a11fac0b09a56e10084249ea493d794d
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100584788"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101651115"
 ---
 # <a name="what-is-azure-arc-enabled-servers"></a>O que são servidores preparados para o Azure Arc?
 
-Os servidores ativados Azure Arc permitem-lhe gerir as suas máquinas Windows e Linux hospedadas fora do Azure, na sua rede corporativa ou noutro fornecedor de nuvem consistente com a forma como gere as máquinas virtuais nativas do Azure. Quando uma máquina híbrida está ligada ao Azure, torna-se uma máquina conectada e é tratada como um recurso em Azure. Cada máquina conectada tem um ID de recurso, está incluída num grupo de recursos, e beneficia de construções padrão do Azure, tais como Azure Policy e aplicação de tags. Os prestadores de serviços que gerem a infraestrutura de um cliente no local podem gerir as suas máquinas híbridas, tal como fazem hoje com recursos nativos da Azure, em vários ambientes de clientes, utilizando [o Farol Azure](../../lighthouse/how-to/manage-hybrid-infrastructure-arc.md) com arco Azure.
+Os servidores ativados do Azure Arc permitem-lhe gerir os seus servidores físicos Windows e Linux e máquinas virtuais hospedadas *fora* do Azure, na sua rede corporativa ou noutro fornecedor de nuvem. Esta experiência de gestão é projetada para ser consistente com a forma como gere as máquinas virtuais nativas do Azure. Quando uma máquina híbrida está ligada ao Azure, torna-se uma máquina conectada e é tratada como um recurso em Azure. Cada máquina conectada tem um ID de recurso, está incluída num grupo de recursos, e beneficia de construções padrão do Azure, tais como Azure Policy e aplicação de tags. Os prestadores de serviços que gerem a infraestrutura de um cliente no local podem gerir as suas máquinas híbridas, tal como fazem hoje com recursos nativos da Azure, em vários ambientes de clientes, utilizando [o Farol Azure](../../lighthouse/how-to/manage-hybrid-infrastructure-arc.md) com arco Azure.
 
 Para entregar esta experiência com as suas máquinas híbridas hospedadas fora de Azure, o agente Azure Connected Machine precisa de ser instalado em cada máquina que planeia ligar ao Azure. Este agente não fornece qualquer outra funcionalidade, e não substitui o agente Azure [Log Analytics](../../azure-monitor/agents/log-analytics-agent.md). O agente Log Analytics para Windows e Linux é necessário quando pretende monitorizar proactivamente o SISTEMA e as cargas de trabalho em funcionamento na máquina, geri-lo utilizando livros de automação ou soluções como a Update Management, ou utilizar outros serviços Azure como o [Azure Security Center.](../../security-center/security-center-introduction.md)
 
@@ -44,7 +44,7 @@ Registar dados recolhidos e armazenados num espaço de trabalho log Analytics da
 
 Para obter uma lista definitiva de regiões suportadas com servidores habilitados Azure Arc, consulte os [produtos Azure por página de região.](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc)
 
-Na maioria dos casos, a localização selecionada quando cria o script de instalação deve ser a região Azure geograficamente mais próxima da localização da sua máquina. Os dados em repouso são armazenados dentro da geografia Azure que contém a região que especifica, o que também pode afetar a sua escolha de região se tiver requisitos de residência de dados. Se a região Azure a que a sua máquina se conecta for afetada por uma falha, a máquina ligada não é afetada, mas as operações de gestão utilizando o Azure podem não conseguir completar. Em caso de paragem regional, se tiver múltiplas localizações que suportam um serviço geograficamente redundante, o melhor é ligar as máquinas em cada local a uma região de Azure diferente.
+Na maioria dos casos, a localização selecionada quando cria o script de instalação deve ser a região Azure geograficamente mais próxima da localização da sua máquina. Os dados em repouso são armazenados dentro da geografia Azure que contém a região que especifica, o que também pode afetar a sua escolha de região se tiver requisitos de residência de dados. Se a região Azure a que a sua máquina se conecta for afetada por uma falha, a máquina ligada não é afetada, mas as operações de gestão utilizando o Azure podem não conseguir completar. Se houver uma paragem regional, e se tiver múltiplas localizações que suportam um serviço geograficamente redundante, o melhor é ligar as máquinas em cada local a uma região de Azure diferente.
 
 As seguintes informações sobre metadados sobre a máquina conectada são recolhidas e armazenadas na região onde o recurso da máquina Azure Arc está configurado:
 
@@ -54,6 +54,13 @@ As seguintes informações sobre metadados sobre a máquina conectada são recol
 - Versão do agente da máquina conectada
 
 Por exemplo, se a máquina estiver registada com a Azure Arc na região leste dos EUA, estes dados são armazenados na região dos EUA.
+
+### <a name="supported-environments"></a>Ambientes apoiados
+
+Os servidores ativados pelo Arco suportam a gestão de servidores físicos e máquinas virtuais hospedadas *fora* de Azure. Para obter detalhes específicos dos ambientes híbridos em nuvem que hospedam VMs, consulte [agent-overview.md#supported-environments].
+
+> [!NOTE]
+> Os servidores ativados pelo Arco não são concebidos ou suportados para permitir a gestão de máquinas virtuais em funcionamento em Azure.
 
 ### <a name="agent-status"></a>Estado do agente
 

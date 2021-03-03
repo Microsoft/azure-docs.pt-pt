@@ -1,29 +1,26 @@
 ---
-title: Entrada de chave de segurança sem palavras-passe para recursos no local (pré-visualização) - Diretório Ativo Azure
-description: Saiba como ativar o acesso à chave de segurança sem palavras-passe para os recursos no local utilizando o Azure Ative Directory (pré-visualização)
+title: Entrada de chave de segurança sem palavras-passe para recursos no local - Azure Ative Directory
+description: Saiba como ativar o acesso à chave de segurança sem palavras-passe para os recursos no local utilizando o Azure Ative Directory
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 03/09/2020
+ms.date: 02/22/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1459442f7d99d1de88a685eed34493da530c1a4
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: db1b559bb4f6a1f8866116c287df5b814500210b
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743484"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101647477"
 ---
-# <a name="enable-passwordless-security-key-sign-in-to-on-premises-resources-with-azure-active-directory-preview"></a>Ativar o acesso à chave de segurança sem palavras-passe para os recursos no local com o Azure Ative Directory (pré-visualização)
+# <a name="enable-passwordless-security-key-sign-in-to-on-premises-resources-with-azure-active-directory"></a>Ativar o acesso à chave de segurança sem palavras-passe para os recursos no local com o Azure Ative Directory 
 
 Este documento centra-se em permitir a autenticação sem palavras-passe para recursos no local para ambientes com **a AZure AD ligado** e **híbrido Azure AD juntou-se a** dispositivos Windows 10. Esta funcionalidade fornece um único sign-on (SSO) sem emenda aos recursos no local utilizando chaves de segurança compatíveis com a Microsoft.
-
-> [!NOTE]
-> As chaves de segurança FIDO2 são uma funcionalidade de pré-visualização pública do Azure Ative Directory. Para obter mais informações sobre pré-visualizações, veja [Termos de Utilização Suplementares do Microsoft Azure para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="sso-to-on-premises-resources-using-fido2-keys"></a>SSO para recursos no local usando chaves FIDO2
 
@@ -42,7 +39,7 @@ Um objeto Azure AD Kerberos Server é criado no seu Ative Directory e depois pub
 
 ## <a name="requirements"></a>Requisitos
 
-As organizações devem completar os passos para ativar o [sinal de chave de segurança sem palavras-passe para dispositivos Windows 10 (pré-visualização)](howto-authentication-passwordless-security-key.md) antes de completar os passos neste artigo.
+As organizações devem completar os passos para ativar o [sinal de chave de segurança sem palavras-passe para dispositivos Windows 10](howto-authentication-passwordless-security-key.md) antes de completar os passos neste artigo.
 
 As organizações também devem cumprir os seguintes requisitos de software.
 
@@ -156,13 +153,13 @@ O súbb insi por conta de baixo da fido está bloqueado se a sua palavra-passe t
 
 ## <a name="troubleshooting-and-feedback"></a>Resolução de problemas e feedback
 
-Se quiser partilhar feedback ou encontrar problemas durante a pré-visualização desta funcionalidade, partilhe através da aplicação Windows Feedback Hub utilizando os seguintes passos:
+Se quiser partilhar feedback ou encontrar problemas com esta funcionalidade, partilhe através da aplicação Windows Feedback Hub utilizando os seguintes passos:
 
 1. Lance **o Feedback Hub** e certifique-se de que está assinado.
 1. Enviar feedback ao abrigo da seguinte categorização:
    - Categoria: Segurança e Privacidade
    - Subcategoria: FIDO
-1. Para capturar registos, use a opção para **recriar o meu problema**
+1. Para capturar registos, utilize a opção para **recriar o meu problema.**
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 

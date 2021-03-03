@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 12/03/2020
-ms.openlocfilehash: b13d03f05b7225a1c88f6b10b454749bd7b42477
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 4cb3965d359980856c238cd563ed8b761754660b
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100588342"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101667747"
 ---
 # <a name="azure-purview-metrics-in-azure-monitor"></a>Métricas de Azure Purview no Monitor Azure
 
@@ -62,7 +62,7 @@ Para se familiarizar com a utilização da secção métrica no portal Azure pr�
 
 A tabela a seguir contém a lista de métricas disponíveis para explorar no portal Azure:
 
-| Nome da Métrica | Espaço de Nomes das Métricas | Tipo de agregação | Description |
+| Nome da Métrica | Espaço de Nomes das Métricas | Tipo de agregação | Descrição |
 | ------------------- | ------------------- | ------------------- | ----------------- |
 | Digitalização cancelada | Digitalização automatizada | Soma <br> de palavras | Agregar as análises de fontes de dados canceladas ao longo do período de tempo |
 | Digitalização Concluída | Digitalização automatizada | Soma <br> de palavras | Agregar as análises completas da fonte de dados ao longo do período de tempo |
@@ -83,7 +83,7 @@ Siga os passos para criar uma definição de Diagnóstico para a sua conta Azure
 
    :::image type="content" source="./media/how-to-monitor-with-azure-monitor/step-two-diagnostic-setting.png" alt-text="Screenshot mostrando a atribuição da conta de armazenamento para o registo de diagnóstico." lightbox="./media/how-to-monitor-with-azure-monitor/step-two-diagnostic-setting.png":::
 
-Deixe até 15 minutos para começar a receber registos na conta de armazenamento recém-criada. [Consulte a retenção de dados e o esquema dos registos de recursos na conta de Armazenamento Azure](../azure-monitor/platform/resource-logs.md#send-to-azure-storage). Uma vez configurados os registos de diagnóstico, os eventos fluem para a conta de armazenamento.
+Deixe até 15 minutos para começar a receber registos na conta de armazenamento recém-criada. [Consulte a retenção de dados e o esquema dos registos de recursos na conta de Armazenamento Azure](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage). Uma vez configurados os registos de diagnóstico, os eventos fluem para a conta de armazenamento.
 
 ### <a name="scanstatuslogevent"></a>ScanStatusLogEvent
 

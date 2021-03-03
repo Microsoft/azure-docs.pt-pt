@@ -8,12 +8,12 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 10/16/2020
-ms.openlocfilehash: b8c7792a09dd86e7d4ac043c572f69fc47ee6e63
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 3f1e3fd360197310a89a67d43053649d904aeb18
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93307177"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101677615"
 ---
 # <a name="tutorial-create-apache-spark-job-definition-in-synapse-studio"></a>Tutorial: Criar definição de emprego apache spark no Estúdio Synapse
 
@@ -32,7 +32,7 @@ Este tutorial abrange as seguintes tarefas:
 
 Antes de começar este tutorial, certifique-se de que cumpre os seguintes requisitos:
 
-* Um espaço de trabalho Azure Synapse Analytics. Para obter instruções, consulte [Criar um espaço de trabalho Azure Synapse Analytics](../../machine-learning/how-to-manage-workspace.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#create-a-workspace).
+* Um espaço de trabalho Azure Synapse Analytics. Para obter instruções, consulte [Criar um espaço de trabalho Azure Synapse Analytics](../../machine-learning/how-to-manage-workspace.md).
 * Uma piscina Apache Spark sem servidor.
 * Uma conta de armazenamento da ADLS Gen2. Tem de ser o Proprietário de **Dados blob** de armazenamento do sistema de ficheiros ADLS Gen2 com o que pretende trabalhar. Se não estiver, tem de adicionar a permissão manualmente.
 * Se não quiser utilizar o armazenamento padrão do espaço de trabalho, ligue a conta de armazenamento ADLS Gen2 necessária no Synapse Studio. 
@@ -43,11 +43,11 @@ Nesta secção, você cria uma definição de trabalho Apache Spark para PySpark
 
 1. Open [Azure Synapse Studio](https://web.azuresynapse.net/).
 
-2. Pode ir aos [ficheiros Sample para criar definições de emprego do Apache Spark](https://github.com/Azure-Samples/Synapse/tree/master/Spark/Python) para descarregar **ficheiros de amostras para python.zip** , em seguida, desapertar o pacote comprimido e extrair os ficheiros **wordcount.py** e **shakespeare.txt.** 
+2. Pode ir aos [ficheiros Sample para criar definições de emprego do Apache Spark](https://github.com/Azure-Samples/Synapse/tree/master/Spark/Python) para descarregar **ficheiros de amostras para python.zip**, em seguida, desapertar o pacote comprimido e extrair os ficheiros **wordcount.py** e **shakespeare.txt.** 
 
      ![ficheiros de amostra](./media/apache-spark-job-definitions/sample-files.png)
 
-3. Selecione **Dados**  ->  **Ligados**  ->  **Azure Data Lake Storage Gen2** , e faça o upload **wordcount.py** e **shakespeare.txt** no seu sistema de ficheiros ADLS Gen2. 
+3. Selecione **Dados**  ->  **Ligados**  ->  **Azure Data Lake Storage Gen2**, e faça o upload **wordcount.py** e **shakespeare.txt** no seu sistema de ficheiros ADLS Gen2. 
 
      ![carregar arquivo python](./media/apache-spark-job-definitions/upload-python-file.png)
 
@@ -85,11 +85,11 @@ Nesta secção, você cria uma definição de trabalho Apache Spark para Apache 
 
  1. Open [Azure Synapse Studio](https://web.azuresynapse.net/).
 
- 2. Pode ir aos [ficheiros Sample para criar definições de emprego apache Spark](https://github.com/Azure-Samples/Synapse/tree/master/Spark/Scala) para descarregar **ficheiros de amostras para scala.zip** , em seguida, desapertar o pacote comprimido e extrair os ficheiros **wordcount.jar** e **shakespeare.txt.** 
+ 2. Pode ir aos [ficheiros Sample para criar definições de emprego do Apache Spark](https://github.com/Azure-Samples/Synapse/tree/master/Spark/Scala) para descarregar **ficheiros de amostras para scala.zip**, em seguida, desapertar o pacote comprimido e extrair os ficheiros **wordcount.jar** e **shakespeare.txt.** 
  
      ![amostra ficheiros scala](./media/apache-spark-job-definitions/sample-files-scala.png)
 
- 3. Selecione **Dados**  ->  **Ligados**  ->  **Azure Data Lake Storage Gen2** , e carreque **wordcount.jar** e **shakespeare.txt** no seu sistema de ficheiros ADLS Gen2.
+ 3. Selecione **Dados**  ->  **Ligados**  ->  **Azure Data Lake Storage Gen2**, e carrema **o contador de palavras.jar** e **shakespeare.txt** no seu sistema de ficheiros ADLS Gen2.
  
      ![preparar estrutura scala](./media/apache-spark-job-definitions/prepare-scala-structure.png)
 
@@ -125,11 +125,11 @@ Nesta secção, você cria uma definição de trabalho Apache Spark para Apache 
 Nesta secção, você cria uma definição de trabalho Apache Spark para .NET Spark (C#/F#).
  1. Open [Azure Synapse Studio](https://web.azuresynapse.net/).
 
- 2. Pode ir aos [ficheiros Sample para criar definições de emprego do Apache Spark](https://github.com/Azure-Samples/Synapse/tree/master/Spark/DotNET) para descarregar **ficheiros de amostras para dotnet.zip** , em seguida, desapertar o pacote comprimido e extrair os ficheiros **wordcount.zip** e **shakespeare.txt.** 
+ 2. Pode ir aos [ficheiros Sample para criar definições de emprego do Apache Spark](https://github.com/Azure-Samples/Synapse/tree/master/Spark/DotNET) para descarregar **ficheiros de amostras para dotnet.zip**, em seguida, desapertar o pacote comprimido e extrair os ficheiros **wordcount.zip** e **shakespeare.txt.** 
 
      ![amostra dotnet](./media/apache-spark-job-definitions/sample-dotnet.png)
 
- 3. Selecione **Dados**  ->  **Ligados**  ->  **Azure Data Lake Storage Gen2** , e faça o upload **wordcount.zip** e **shakespeare.txt** no seu sistema de ficheiros ADLS Gen2.
+ 3. Selecione **Dados**  ->  **Ligados**  ->  **Azure Data Lake Storage Gen2**, e faça o upload **wordcount.zip** e **shakespeare.txt** no seu sistema de ficheiros ADLS Gen2.
  
      ![preparar estrutura de dotnet](./media/apache-spark-job-definitions/prepare-dotnet-structure.png)
 
@@ -187,7 +187,7 @@ Depois de criar uma definição de emprego Apache Spark, você pode submetê-lo 
 
 ### <a name="scenario-3-check-output-file"></a>Cenário 3: Verifique o ficheiro de saída
 
- 1. Selecione **Dados**  ->  **Linked**  ->  **Ligados Azure Data Lake Storage Gen2** (hozhaobdbj), abra a pasta **de resultados** criada anteriormente, pode ir à pasta de resultados e verificar se a saída é gerada.
+ 1. Selecione **Dados**  ->    ->  **Ligados Azure Data Lake Storage Gen2** (hozhaobdbj), abra a pasta **de resultados** criada anteriormente, pode ir à pasta de resultados e verificar se a saída é gerada.
 
      ![Ver ficheiro de saída](./media/apache-spark-job-definitions/view-output-file.png)
 

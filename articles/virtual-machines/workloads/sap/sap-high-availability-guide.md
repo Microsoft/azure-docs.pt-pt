@@ -9,20 +9,19 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
-ms.service: virtual-machines-windows
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8e0baeb7eddb1d74a8d7708b04391134d2e188b2
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 67b472d1629c2b59f80d36aaf43df1e783d2ffa4
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96005678"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101666797"
 ---
 # <a name="high-availability-azure-virtual-machines-for-sap-netweaver"></a>Máquinas virtuais Azure de alta disponibilidade para SAP NetWeaver
 
@@ -416,13 +415,13 @@ _**Figura 11:** Definir parâmetros de gestor de recursos Azure de alta disponib
 
   * **Máquinas virtuais:**
     * Máquinas virtuais do Servidor de Aplicações SAP: <NÚMERO>-di-<*DO* *SAPSystemSID*>
-    * Máquinas virtuais de cluster ASCS/SCS: <*NÚMERO*>-ascs-ascs-<*Number*>
-    * Cluster DBMS: <*NÚMERO*>-db-<*SAPSystemSID*>
+    * Máquinas virtuais de cluster ASCS/SCS: <*NÚMERO*>-ascs-ascs-<>
+    * Cluster DBMS: <*NÚMERO*>-db-<>
 
   * **Cartões de rede para todas as máquinas virtuais, com endereços IP associados:**
-    * <Número>-nic-di-<*SAPSystemSID* *Number*>
+    * <Número>-nic-di-<*SAPSystemSID* >
     * <*Número*>-ascs-<*SAPSystemSID*>
-    * <Número>-nic-db-<*SAPSystemSID* *Number*>
+    * <Número>-nic-db-<*SAPSystemSID* >
 
   * **Contas de armazenamento Azure (apenas discos não geridos)**
 
@@ -627,7 +626,7 @@ Pode criar manualmente os outros dois nomes de anfitriões virtuais, **pr1-ascs-
 ### <a name="set-static-ip-addresses-for-the-sap-virtual-machines"></a><a name="84c019fe-8c58-4dac-9e54-173efd4b2c30"></a> Definir endereços IP estáticos para as máquinas virtuais SAP
 Depois de colocar as máquinas virtuais para utilizar no seu cluster, precisa de definir endereços IP estáticos para todas as máquinas virtuais. Faça isto na configuração da Rede Virtual Azure e não no sistema operativo dos hóspedes.
 
-1. No portal Azure, selecione O endereço IP das definições **do**  >  **cartão de rede** de grupo de recursos  >  **Settings**  >  **IP Address**.
+1. No portal Azure, selecione O endereço IP das definições **do**  >  **cartão de rede** de grupo de recursos  >    >  .
 2. Na lâmina dos **endereços IP,** em **Atribuição**, selecione **Estática**. Na caixa **de endereços IP,** insira o endereço IP que pretende utilizar.
 
    > [!NOTE]
@@ -741,7 +740,7 @@ Se pretender utilizar números diferentes para as instâncias SAP ASCS ou SCS, t
 1. No portal Azure, selecione **< *SID*>-lb-ascs load Balancer Regras**  >  **de equilíbrio** de carga .
 2. Para todas as regras de equilíbrio de carga que pertencem à instância SAP ASCS ou SCS, altere estes valores:
 
-   * Nome
+   * Name
    * Porta
    * Porta traseira
 

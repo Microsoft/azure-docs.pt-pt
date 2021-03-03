@@ -1,25 +1,24 @@
 ---
-title: Princípios de recuperação de desastres e preparação no SAP HANA em Azure (Grandes Instâncias) Microsoft Docs
+title: Princípios de recuperação de desastres e preparação sobre SAP HANA em Azure (Grandes Instâncias) | Microsoft Docs
 description: Princípios de recuperação de desastres e preparação sobre SAP HANA em Azure (Grandes Instâncias)
 services: virtual-machines-linux
 documentationcenter: ''
 author: saghorpa
 manager: gwallace
 editor: ''
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7f0782738a8aa57b2bc0b87e1378972e3fa5d31c
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: babd7c1dcae9d83af1f6c41e756b663d92d6d486
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967861"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101677122"
 ---
 # <a name="disaster-recovery-principles"></a>Princípios de recuperação de desastres
 

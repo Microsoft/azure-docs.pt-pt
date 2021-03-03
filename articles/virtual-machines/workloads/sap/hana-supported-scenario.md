@@ -1,25 +1,24 @@
 ---
-title: Cenários apoiados para SAP HANA em Azure (Grandes Instâncias)/ Microsoft Docs
+title: Cenários apoiados para SAP HANA em Azure (Grandes Instâncias)| Microsoft Docs
 description: Cenários apoiados e os seus detalhes de arquitetura para SAP HANA em Azure (Grandes Instâncias)
 services: virtual-machines-linux
 documentationcenter: ''
 author: saghorpa
 manager: juergent
 editor: ''
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/26/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7f33ef81282dd8e60eba64cc77cbd95ab8dbc557
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: a49c55da0bb8018b3faa7c6f70b02e79d9478603
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967572"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101666690"
 ---
 # <a name="supported-scenarios-for-hana-large-instances"></a>Cenários apoiados para HANA Grandes Instâncias
 Este artigo descreve os cenários apoiados e detalhes da arquitetura para HANA Large Instances (HLI).
@@ -40,7 +39,7 @@ Vamos entender os termos e definições que são usados neste artigo:
 - **Multi-SID**: Um sistema com múltiplas instâncias configuradas; também chamado de ambiente MCOS
 - **HSR**: Replicação do sistema SAP HANA
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 HANA Large Instances suporta uma variedade de arquiteturas para ajudá-lo a cumprir os seus requisitos de negócio. As secções seguintes cobrem os cenários arquitetónicos e os seus detalhes de configuração. 
 
 O design de arquitetura derivada é puramente do ponto de vista da infraestrutura, e você deve consultar SAP ou seus parceiros de implementação para a implementação HANA. Se os seus cenários não estiverem listados neste artigo, contacte a equipa de conta da Microsoft para rever a arquitetura e obter uma solução para si.

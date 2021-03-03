@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Utilize o modo de dispositivo partilhado com a Microsoft Authentication Library (MSAL) para Android Rio Azure'
+title: 'Tutorial: Utilize o modo de dispositivo partilhado com a Microsoft Authentication Library (MSAL) para Android | Rio Azure'
 titleSuffix: Microsoft identity platform
 description: Neste tutorial, aprende-se a preparar um dispositivo Android para funcionar em modo partilhado e executar uma aplicação de trabalhador de primeira linha.
 services: active-directory
@@ -13,12 +13,12 @@ ms.date: 1/15/2020
 ms.author: hahamil
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 981d3a0c5d01d70625fc0d022318c5bc866f23a0
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 6a173ed4dae9237d8aae991c943817ed70246eea
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95756405"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101649060"
 ---
 # <a name="tutorial-use-shared-device-mode-in-your-android-application"></a>Tutorial: Utilize o modo de dispositivo partilhado na sua aplicação Android
 
@@ -65,7 +65,7 @@ Configurar `"shared_device_mode_supported"` para o seu ficheiro de `true` config
 
 Pode não estar a planear suportar o modo de conta múltipla. Pode ser se não estiver a utilizar um dispositivo partilhado, e o utilizador puder entrar na aplicação com mais do que uma conta ao mesmo tempo. Em caso afirmativo, desação `"account_mode"` para `"SINGLE"` . Isto garante que a sua aplicação irá sempre receber `ISingleAccountPublicClientApplication` , e simplifica significativamente a sua integração MSAL. O valor predefinido `"account_mode"` é de , por isso é importante alterar este valor no ficheiro `"MULTIPLE"` config se estiver a utilizar o `"single account"` modo.
 
-Aqui está um exemplo do auth_config.jsno ficheiro **app** incluído no > diretório **principal** > **de res** > **raw** da app:
+Aqui está um exemplo do auth_config.jsno ficheiro incluído no > diretório **principal** > **de res** > **raw** da app:
 
 ```json
 {
@@ -96,7 +96,7 @@ Utilize `isSharedDevice()` para determinar se uma aplicação está em execuçã
 Aqui está um código que mostra como podes `isSharedDevice()` usar.  É da `SingleAccountModeFragment` classe na aplicação da amostra:
 
 ```Java
-deviceModeTextView.setText(mSingleAccountApp.isSharedDevice() ?"Shared" :"Non-Shared");
+deviceModeTextView.setText(mSingleAccountApp.isSharedDevice() ? "Shared" : "Non-Shared");
 ```
 
 ### <a name="initialize-the-publicclientapplication-object"></a>Inicializar o objeto PublicClientApplication

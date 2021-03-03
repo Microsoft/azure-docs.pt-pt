@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 04/15/2020
-ms.openlocfilehash: 04faaa05cf51f740958238ece0a9a211c43fca41
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: a4512a8f75d59f617058a50846d7578a90b9d062
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98935443"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101675819"
 ---
 # <a name="tutorial-create-an-apache-spark-application-with-intellij-using-a-synapse-workspace"></a>Tutorial: Criar uma aplicação Apache Spark com IntelliJ usando um espaço de trabalho synapse
 
@@ -34,7 +34,7 @@ Neste tutorial, ficará a saber como:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - [Versão comunitária intellij IDEA](https://www.jetbrains.com/idea/download/download-thanks.html?platform=windows&code=IIC).
-- Ficha de kit de ferramentas Azure 3.27.0-2019.2 – Instalação do [repositório IntelliJ Plugin](/java/azure/intellij/azure-toolkit-for-intellij-installation?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+- Ficha de kit de ferramentas Azure 3.27.0-2019.2 – Instalação do [repositório IntelliJ Plugin](/java/azure/intellij/azure-toolkit-for-intellij-installation)
 - [JDK (versão 1.8)](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
 - Scala Plugin – Instalar no [repositório IntelliJ Plugin](../../hdinsight/spark/apache-spark-intellij-tool-plugin.md#install-scala-plugin-for-intellij-idea).
 - O seguinte pré-requisito é apenas para utilizadores do Windows:
@@ -145,7 +145,7 @@ Depois de criar uma aplicação Scala, pode executá-la remotamente.
     |Nome da classe principal|O valor predefinido é a classe principal do ficheiro selecionado. Pode alterar a classe selecionando a elipsee escolhendo outra classe.|
     |Configurações de trabalho|Pode alterar a chave e valores predefinidos. Para mais informações, consulte [a Apache Livy REST API.](http://livy.incubator.apache.org./docs/latest/rest-api.html)|
     |Argumentos de linha de comando|Pode introduzir argumentos separados por espaço para a classe principal, se necessário.|
-    |Frascos referenciados e ficheiros referenciados|Pode introduzir os caminhos para os frascos e ficheiros referenciados, se houver. Também pode navegar em ficheiros no sistema de ficheiros virtuais Azure, que atualmente apenas suporta o cluster ADLS Gen2. Para mais informações: [Configuração de faíscas Apache] https://spark.apache.org/docs/2.4.5/configuration.html#runtime-environment) e Como carregar recursos para [cluster](../../storage/blobs/storage-quickstart-blobs-storage-explorer.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).|
+    |Frascos referenciados e ficheiros referenciados|Pode introduzir os caminhos para os frascos e ficheiros referenciados, se houver. Também pode navegar em ficheiros no sistema de ficheiros virtuais Azure, que atualmente apenas suporta o cluster ADLS Gen2. Para mais informações: [Configuração de faíscas Apache] https://spark.apache.org/docs/2.4.5/configuration.html#runtime-environment) e Como carregar recursos para [cluster](../../storage/blobs/storage-quickstart-blobs-storage-explorer.md).|
     |Armazenamento de upload de trabalho|Expandir para revelar opções adicionais.|
     |Tipo de armazenamento|**Selecione Use Azure Blob para carregar** ou Use a conta de armazenamento **predefinida** do cluster para fazer o upload da lista de drop-down.|
     |Conta de Armazenamento|Insira a sua conta de armazenamento.|
@@ -270,7 +270,7 @@ Pode querer ver o resultado do script enviando algum código para a consola loca
 
    ![Enviar Seleção para consola Spark](./media/intellij-tool-synapse/send-selection-to-console.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Azure Synapse Analytics](../overview-what-is.md)
 - [Crie uma nova piscina Apache Spark para um espaço de trabalho Azure Synapse Analytics](../../synapse-analytics/quickstart-create-apache-spark-pool-studio.md)

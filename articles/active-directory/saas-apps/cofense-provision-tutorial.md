@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/11/2020
 ms.author: Zhchia
-ms.openlocfilehash: 084592a8db47a94a0fcd683105f749f514c05ea3
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.openlocfilehash: 70766fd93f0a70ecf6b5ee54dbdba3571f783878
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98247578"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101646049"
 ---
 # <a name="tutorial-configure-cofense-recipient-sync-for-automatic-user-provisioning"></a>Tutorial: Configurar o Cofense Recipient Sync para o fornecimento automático de utilizadores
 
@@ -117,19 +117,19 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
    |name.givenName|String|
    |name.familyName|String|
    |nome.honorificS suléix|String|
-   |phoneNumbers[type eq"work"].value|String|
-   |números de telefone[tipo eq"home"].valor|String|
-   |phoneNumbers[tipo eq"other"].value|String|
-   |phoneNumbers[type eq"pager"].value|String|
-   |números de telefone[tipo eq"mobile"].valor|String|
-   |phoneNumbers[type eq"fax"].value|String|
-   |endereços[tipo eq""other"].formatado|String|
-   |endereços[tipo eq"work"].formatado|String|
-   |endereços[tipo eq"work"].streetAddress|String|
-   |endereços[tipo eq"work"].localidade|String|
-   |endereços[tipo eq"work"].região|String|
-   |endereços[tipo eq"work"].postalCode|String|
-   |endereços[tipo eq"work"].país|String|
+   |phoneNumbers[type eq "work"].value|String|
+   |números de telefone[tipo eq "home"].value|String|
+   |phoneNumbers[tipo eq "outro"].value|String|
+   |números de telefone[tipo eq "pager"].valor|String|
+   |phoneNumbers[type eq "mobile"].value|String|
+   |números de telefone[tipo eq "fax"].valor|String|
+   |endereços[tipo eq "outros"].formatados|String|
+   |endereços[tipo eq "work"].formatado|String|
+   |endereços[tipo eq "work"].streetAddress|String|
+   |endereços[tipo eq "work"].localidade|String|
+   |endereços[tipo eq "work"].região|String|
+   |endereços[tipo eq "work"].postalCode|String|
+   |endereços[tipo eq "work"].país|String|
    |título|String|
    |emails[type eq "work"].value|String|
    |e-mails[tipo eq "casa"].valor|String|

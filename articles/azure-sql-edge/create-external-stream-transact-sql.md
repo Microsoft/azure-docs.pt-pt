@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 07/27/2020
-ms.openlocfilehash: 92658584030fa83da067eceab391d9bba2f034c0
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 203abe2b6def478dc1747dd4ce638b5b62707612
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93392304"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101659227"
 ---
 # <a name="create-external-stream-transact-sql"></a>CRIAR FLUXO EXTERNO (Transact-SQL)
 
@@ -24,11 +24,11 @@ Um FLUXO EXTERNO também pode ser especificado e criado como uma saída e entrad
 
 A Azure SQL Edge suporta atualmente apenas as seguintes fontes de dados como entradas e saídas de fluxo.
 
-| Tipo de fonte de dados | Input | Saída | Description |
+| Tipo de fonte de dados | Input | Saída | Descrição |
 |------------------|-------|--------|------------------|
 | Hub Azure IoT Edge | Y | Y | Fonte de dados para ler e escrever dados de streaming para um hub Azure IoT Edge. Para mais informações, consulte [o IoT Edge Hub.](../iot-edge/iot-edge-runtime.md#iot-edge-hub)|
 | SQL Database | N | Y | Ligação de fonte de dados para escrever dados de streaming para a Base de Dados SQL. A base de dados pode ser uma base de dados local em Azure SQL Edge, ou uma base de dados remota no SQL Server ou na Base de Dados Azure SQL.|
-| Kafka | S | N | Fonte de dados para ler dados de streaming de um tópico kafka. O suporte kafka não está disponível para a versão ARM64 do Azure SQL Edge.|
+| Kafka | Y | N | Fonte de dados para ler dados de streaming de um tópico kafka. O suporte kafka não está disponível para a versão ARM64 do Azure SQL Edge.|
 
 
 
@@ -94,12 +94,12 @@ WITH  ( <with_options> )
 
 - [DATA_SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql/)
 - [FILE_FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql/)
-- **LOCALIZAÇÃO** : Especifica o nome para os dados reais ou localização na fonte de dados. 
+- **LOCALIZAÇÃO**: Especifica o nome para os dados reais ou localização na fonte de dados. 
    - Para objetos de fluxo Edge Hub ou Kafka, a localização especifica o nome do tópico Edge Hub ou Kafka para ler ou escrever para.
    - Para objetos de fluxo SQL (SQL Server, Azure SQL Database ou Azure SQL Edge) a localização especifica o nome da tabela. Se o fluxo for criado na mesma base de dados e esquema que a tabela de destino, basta o nome da tabela. Caso contrário, tem de qualificar totalmente (<database_name.schema_name.table_name) o nome da tabela.
    - Para a localização do objeto de fluxo de armazenamento Azure Blob refere-se ao padrão do caminho a utilizar dentro do recipiente blob. Para obter mais informações sobre esta funcionalidade, consulte (/articles/stream-analytics/stream-analytics-define-outputs.md#blob-storage-and-azure-data-lake-gen2)
 
-- **INPUT_OPTIONS** : Especifique as opções como pares de valor-chave para serviços como Kafka, IoT Edge Hub que são entradas para consultas de streaming
+- **INPUT_OPTIONS**: Especifique as opções como pares de valor-chave para serviços como Kafka, IoT Edge Hub que são entradas para consultas de streaming
     - PARTIÇÕES: Número de divisórias definidas para um tópico. O número máximo de divisórias que podem ser utilizadas é limitado a 32.
       - Aplica-se a Streams de Entrada Kafka
     - CONSUMER_GROUP: Os Hubs de Eventos e IoT limitam o número de leitores dentro de um grupo de consumidores (a 5). Deixar este campo vazio utilizará o grupo de consumidores "$Default".
@@ -111,8 +111,8 @@ WITH  ( <with_options> )
     - OUT_OF_ORDER_EVENT_TOLERANCE: Os eventos podem chegar fora de ordem depois de terem feito a viagem desde a entrada até à consulta de streaming. Estes eventos podem ser aceites como está, ou pode optar por uma pausa por um período definido para reordená-los.
       - Reservado para uso futuro. Não se aplica ao Azure SQL Edge.
         
-- **OUTPUT_OPTIONS** : Especifique as opções como pares de valor-chave para serviços suportados que são saídas para consultas de streaming 
-  - REJECT_POLICY: DROP / ReTRY Espécies as políticas de tratamento de erros de dados quando ocorrem erros de conversão de dados. 
+- **OUTPUT_OPTIONS**: Especifique as opções como pares de valor-chave para serviços suportados que são saídas para consultas de streaming 
+  - REJECT_POLICY: | DROP ReTRY Espécies as políticas de tratamento de erros de dados quando ocorrem erros de conversão de dados. 
     - Aplica-se a todas as saídas suportadas 
   - MINIMUM_ROWS:  
     Filas mínimas necessárias por lote escrito para uma saída. Para o Parquet, cada lote criará um novo ficheiro. 
@@ -162,7 +162,7 @@ WITH
  
 CREATE EXTERNAL FILE FORMAT myFileFormat  
 WITH (  
-   FORMAT_TYPE = 'JSON', 
+   FORMAT_TYPE = JSON, 
 ); 
  
 CREATE EXTERNAL STREAM Stream_A  

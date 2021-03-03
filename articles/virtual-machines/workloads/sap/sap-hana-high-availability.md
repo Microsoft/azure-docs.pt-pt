@@ -1,24 +1,23 @@
 ---
-title: Alta disponibilidade de SAP HANA em VMs Azure em SLES Microsoft Docs
+title: Alta disponibilidade de SAP HANA em VMs Azure em SLES | Microsoft Docs
 description: Alta disponibilidade de SAP HANA em VMs Azure no SUSE Linux Enterprise Server
 services: virtual-machines-linux
 documentationcenter: ''
 author: rdeltcheva
 manager: juergent
 editor: ''
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/16/2020
 ms.author: radeltch
-ms.openlocfilehash: 5af2c40dd1efa542ac13bd4cf96ba3017810bf00
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: 817a17de240ee10966a6cd20d758def7c2ab9c87
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96608678"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101669672"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-suse-linux-enterprise-server"></a>Alta disponibilidade de SAP HANA em VMs Azure no SUSE Linux Enterprise Server
 
@@ -55,7 +54,7 @@ Nas configurações de exemplo, são utilizados comandos de instalação, instâ
 
 Leia primeiro as seguintes notas e artigos SAP:
 
-* Nota SAP [1928533,]que tem:
+* Nota SAP [1928533], que tem:
   * A lista de tamanhos Azure VM que são suportados para a implementação de software SAP.
   * Informações importantes sobre a capacidade dos tamanhos Azure VM.
   * O software SAP suportado, e as combinações de sistema operativo (OS) e base de dados.
@@ -146,7 +145,7 @@ Para implementar o modelo, siga estes passos:
    
       1. Abra o balançador de carga, selecione **o pool IP frontend** e selecione **Adicionar**.
       1. Insira o nome do novo pool IP frontal (por exemplo, **hana-frontend).**
-      1. Desaponda a **Estática** e introduza o endereço IP (por exemplo, **10.0.0.13**). **Static**
+      1. Desaponda a **Estática** e introduza o endereço IP (por exemplo, **10.0.0.13**). 
       1. Selecione **OK**.
       1. Após a criação do novo pool IP frontal, note o endereço IP do pool.
    
@@ -182,7 +181,7 @@ Para implementar o modelo, siga estes passos:
    
       1. Abra o balançador de carga, selecione **o pool IP frontend** e selecione **Adicionar**.
       1. Insira o nome do novo pool IP frontal (por exemplo, **hana-frontend).**
-      1. Desaponda a **Estática** e introduza o endereço IP (por exemplo, **10.0.0.13**). **Static**
+      1. Desaponda a **Estática** e introduza o endereço IP (por exemplo, **10.0.0.13**). 
       1. Selecione **OK**.
       1. Após a criação do novo pool IP frontal, note o endereço IP do pool.
    

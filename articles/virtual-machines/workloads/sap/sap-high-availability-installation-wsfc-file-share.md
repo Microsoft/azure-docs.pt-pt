@@ -1,5 +1,5 @@
 ---
-title: INSTALAÇÃO DE ALTA Disponibilidade DO SAP NetWeaver num cluster de falha do Windows e partilha de ficheiros para casos SAP ASCS/SCS no Azure ; Microsoft Docs
+title: Instalação de alta disponibilidade DO SAP NetWeaver num cluster de falha do Windows e partilha de ficheiros para casos SAP ASCS/SCS no Azure | Microsoft Docs
 description: Instalação de alta disponibilidade DO SAP NetWeaver num cluster de falha do Windows e partilha de ficheiros para casos SAP ASCS/SCS
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
@@ -9,20 +9,19 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.assetid: 71296618-673b-4093-ab17-b7a80df6e9ac
-ms.service: virtual-machines-windows
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/04/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c7df3934862efa9798735d0c163f7fb1bac98423
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: d5fa4cba67e279f66c090c8cb30eadf099f3c998
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94951048"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101673546"
 ---
 # <a name="install-sap-netweaver-high-availability-on-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances-on-azure"></a>Instale a alta disponibilidade do SAP NetWeaver num cluster de failover do Windows e partilhe a partilha de ficheiros para as instâncias SAP ASCS/SCS no Azure
 

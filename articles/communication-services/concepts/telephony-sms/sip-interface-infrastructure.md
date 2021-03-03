@@ -8,12 +8,12 @@ ms.author: bobazile
 ms.date: 02/09/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: b258f2ef82e74073e3e4f1aa61b036d423c30300
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 432a9dab851bda65ecf8736d725b08c5e726ac16
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100422486"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101659261"
 ---
 # <a name="sip-interface-infrastructure-requirements"></a>Requisitos de infraestrutura sip Interface 
 
@@ -31,7 +31,7 @@ Os requisitos de infraestrutura para os SBCs suportados, domínios e outros requ
 |Controlador de fronteira da sessão (SBC)|Um SBC apoiado. Para obter mais informações, consulte [SBCs suportados.](#supported-session-border-controllers-sbcs)|
 |Troncos de telefonia ligados ao SBC|Um ou mais troncos de telefonia ligados ao SBC. Numa das extremidades, o SBC liga-se ao Serviço de Comunicação Azure via Sip Interface. O SBC também pode ligar a entidades de telefonia de terceiros, tais como PBXs, Adaptadores de Telefonia Analógica, e assim por diante. Qualquer opção de conectividade PSTN ligada ao SBC funcionará. (Para configurar os troncos PSTN para o SBC, consulte os fornecedores de SBC ou fornecedores de troncos.)|
 |Subscrição do Azure|Uma subscrição Azure que utiliza para criar recurso ACS, e a configuração e ligação ao SBC.|
-|Acesso de serviços de comunicação Token|Para estoque de chamadas, precisa de um Access Token válido com `voip` âmbito. Ver [Fichas de Acesso](https://docs.microsoft.com/azure/communication-services/concepts/identity-model#access-tokens)|
+|Acesso de serviços de comunicação Token|Para estoque de chamadas, precisa de um Access Token válido com `voip` âmbito. Ver [Fichas de Acesso](../identity-model.md#access-tokens)|
 |Endereço IP público para o SBC|Um endereço IP público que pode ser usado para ligar ao SBC. Com base no tipo de SBC, o SBC pode usar NAT.|
 |Nome de domínio totalmente qualificado (FQDN) para o SBC|Um FQDN para o SBC, onde a parte de domínio do FQDN não corresponde aos domínios registados na sua organização Microsoft 365 ou Office 365. Para obter mais informações, consulte [os nomes do domínio SBC](#sbc-domain-names).|
 |Entrada pública de DNS para o SBC |Uma entrada pública de DNS mapeando o SBC FQDN para o endereço IP público. |
@@ -47,8 +47,8 @@ A tabela a seguir mostra exemplos de nomes DNS registados para o inquilino, se o
 
 |Nome DNS|Pode ser usado para SBC FQDN|Exemplos de nomes FQDN|
 |:--- |:--- |:--- |
-contoso.com|Yes|**Nomes válidos:**<br/>sbc1.contoso.com<br/>ssbcs15.contoso.com<br/>europe.contoso.com|
-|contoso.onmicrosoft.com|No|A utilização de domínios *.onmicrosoft.com não é suportada para nomes SBC
+contoso.com|Sim|**Nomes válidos:**<br/>sbc1.contoso.com<br/>ssbcs15.contoso.com<br/>europe.contoso.com|
+|contoso.onmicrosoft.com|Não|A utilização de domínios *.onmicrosoft.com não é suportada para nomes SBC
 
 Se você é um cliente do Office 365, então o nome de domínio SBC não deve corresponder registado em Domínios do Inquilino Office 365. Segue-se o exemplo da coexistência do Office 365 e do Serviço de Comunicação Azure:
 
@@ -187,7 +187,7 @@ Na perna entre o Processador Cloud Media e a app ACS SDK é utilizada SILK ou G.
 
 ## <a name="supported-session-border-controllers-sbcs"></a>Controladores de fronteira de sessão suportados (SBCs)
 
-A certificação está em andamento. Entretanto, os clientes podem utilizar [controladores de fronteira de sessão certificada de equipas.](https://docs.microsoft.com/MicrosoftTeams/direct-routing-border-controllers) 
+A certificação está em andamento. Entretanto, os clientes podem utilizar [controladores de fronteira de sessão certificada de equipas.](/MicrosoftTeams/direct-routing-border-controllers) 
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -12,12 +12,12 @@ metadata:
   author: msmimart
   ms.author: mimart
   manager: celested
-  ms.openlocfilehash: ecc69f8e2e281b4456861397bdd5af4ba41448e8
-  ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
-  ms.translationtype: HT
+  ms.openlocfilehash: 578eb6859114eeef9672e7b58e6bb6b56189dc5a
+  ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+  ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/23/2020
-  ms.locfileid: "92441764"
+  ms.lasthandoff: 03/02/2021
+  ms.locfileid: "101647375"
 landingContent:
 - title: Sobre as Identidades Externas
   linkLists:
@@ -69,7 +69,7 @@ landingContent:
     links:
     - text: Criar fluxos de utilizador no Azure AD B2C
       url: ../../active-directory-b2c/tutorial-create-user-flows.md
-- title: Fluxos de inscrição personalizada para utilizadores convidados B2B (pré-visualização)
+- title: Fluxos de inscrição de autosserviço para utilizadores convidados B2B
   linkLists:
   - linkListType: overview
     links:

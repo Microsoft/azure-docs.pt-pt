@@ -9,13 +9,13 @@ ms.topic: how-to
 author: danimir
 ms.author: danil
 ms.reviewer: douglas, sstein
-ms.date: 02/17/2021
-ms.openlocfilehash: ecd97efbf12fb149037a94749bc899169f2c5a92
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.date: 02/23/2021
+ms.openlocfilehash: c154699b7701b584e465ebea7950d4fe50be961f
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101096518"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101660802"
 ---
 # <a name="user-initiated-manual-failover-on-sql-managed-instance"></a>Ativação pós-falha manual iniciada pelo utilizador no SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -34,7 +34,7 @@ Pode considerar a execução de um [failover manual](../database/high-availabili
 - Em alguns casos de degradação do desempenho da consulta, o failover manual pode ajudar a atenuar a questão do desempenho.
 
 > [!NOTE]
-> Garantir que as suas aplicações são resistentes antes de serem implementadas para a produção ajudará a mitigar o risco de falhas de aplicação na produção e contribuirá para a disponibilidade de aplicações para os seus clientes.
+> Garantir que as suas aplicações são resistentes antes de serem implementadas para a produção ajudará a mitigar o risco de falhas de aplicação na produção e contribuirá para a disponibilidade de aplicações para os seus clientes. Saiba mais sobre o teste das suas aplicações para a prontidão na nuvem com [a aplicação de testes Cloud Readiness for Failover Resiliency with SQL Managed Instance](https://youtu.be/FACWYLgYDL8) video recoding.
 
 ## <a name="initiate-manual-failover-on-sql-managed-instance"></a>Iniciar falha manual em SqL Managed Instance
 
@@ -43,7 +43,7 @@ Pode considerar a execução de um [failover manual](../database/high-availabili
 O utilizador que iniciar uma falha terá de ter uma das seguintes funções do Azure:
 
 - Função do Proprietário de Assinatura, ou
-- Papel de contribuinte de instância gerida, ou
+- [Papel de contribuinte de instância gerida,](../../role-based-access-control/built-in-roles.md#sql-managed-instance-contributor) ou
 - Função personalizada com a seguinte permissão:
   - `Microsoft.Sql/managedInstances/failover/action`
 
@@ -153,6 +153,6 @@ A curta perda de conectividade do seu cliente durante a execução, tipicamente 
 > - A falha não será permitida até que a primeira cópia de segurança completa de uma nova base de dados seja concluída por sistemas de backup automatizados.
 
 ## <a name="next-steps"></a>Passos seguintes
-
+- Saiba mais sobre o teste das suas aplicações para a prontidão na nuvem com [a aplicação de testes Cloud Readiness for Failover Resiliency with SQL Managed Instance](https://youtu.be/FACWYLgYDL8) video recoding.
 - Saiba mais sobre a alta disponibilidade de exemplo gerido [Alta disponibilidade para Azure SQL Managed Instance](../database/high-availability-sla.md).
 - Para uma visão geral, veja [o que é Azure SQL Managed Instance?](sql-managed-instance-paas-overview.md). .

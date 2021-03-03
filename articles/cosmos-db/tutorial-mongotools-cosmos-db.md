@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.topic: tutorial
 ms.date: 02/10/2021
 ms.reviewer: sngun
-ms.openlocfilehash: 2b52a9227e8bd487a8929df11047eef4672f7f4a
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 2e9f3c877a5c4650d3e31fa414cac76837f4c9e8
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100421919"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101655756"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-offline-using-mongodb-native-tools"></a>Tutorial: Migrar a MongoDB para a API da Azure Cosmos para a MongoDB offline usando ferramentas nativas do MongoDB
 
@@ -31,7 +31,7 @@ Neste tutorial, você migra um conjunto de dados em MongoDB hospedado em uma má
 
 As ferramentas nativas do MongoDB só podem mover dados tão rapidamente quanto o hardware do anfitrião permite; as ferramentas nativas podem ser a solução mais simples para pequenos conjuntos de dados onde o tempo total de migração não é uma preocupação. [O conector De Faísca MongoDB](https://docs.mongodb.com/spark-connector/current/), [O Serviço de Migração de Dados (DMS)](../dms/tutorial-mongodb-cosmos-db.md)ou [Azure Data Factory (ADF)](../data-factory/connector-azure-cosmos-db-mongodb-api.md) podem ser melhores alternativas se precisar de um gasoduto de migração escalável.
 
-Se ainda não tiver uma fonte MongoDB configurada, consulte o artigo [Instalar e configurar o MongoDB num Windows VM em Azure](../virtual-machines/windows/install-mongodb.md).
+Se ainda não tiver uma fonte MongoDB configurada, consulte o artigo [Instalar e configurar o MongoDB num Windows VM em Azure](/previous-versions/azure/virtual-machines/windows/install-mongodb).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

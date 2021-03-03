@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/02/2020
+ms.date: 02/22/2021
 ms.author: mnayak
-ms.openlocfilehash: 2c6295db96f951abd1fd069535b98639e723d93a
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: f445eab65e8d2448e57bad19c52a4b72732016bb
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98217571"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101672927"
 ---
 # <a name="configure-routing-preference-for-a-public-ip-address-using-the-azure-portal"></a>Configure a preferência de encaminhamento para um endereço IP público utilizando o portal Azure
 
@@ -32,20 +32,26 @@ Este artigo mostra-lhe como configurar a preferência de [encaminhamento](./rout
 
 Por padrão, a preferência de encaminhamento para endereço IP público está definida para a rede global da Microsoft para todos os serviços Azure e pode ser associada a qualquer serviço Azure.
 
-> [!IMPORTANT]
-> A preferência de encaminhamento está atualmente em visualização pública.
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) agora.
 
 ## <a name="create-a-public-ip-address-with-a-routing-preference"></a>Criar um endereço IP público com uma preferência de encaminhamento
-1. Inicie sessão no [portal do Azure](https://preview.portal.azure.com/).
-2. Selecione **Criar um recurso**. 
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+2. Selecione **Criar um recurso**.
 3. Na caixa de pesquisa, *digite o endereço IP público.*
 3. Nos resultados da pesquisa, selecione **o endereço IP público.** Em seguida, na página **de endereços IP público,** selecione **Criar**.
-3. Nas opções **de preferência de encaminhamento,** selecione **Internet**.
+1. Para SKU, selecione **Standard**.
+1. Para **obter a preferência por encaminhamento**, selecione **Internet**.
 
-      ![Criar um endereço IP público](./media/routing-preference-portal/pip-new.png)
+      ![Criar um endereço IP público](./media/routing-preference-portal/public-ip-new.png)
+1. Na secção configuração do **endereço IP IPv4,** introduza ou selecione estas informações:
+
+    | Definição | Valor |
+    | ------- | ----- |
+    | Subscrição | Selecione a sua subscrição.|
+    | Grupo de recursos | **Selecione Criar novo,** insira *o RoutingPreferenceResourceGroup* e, em seguida, selecione **OK**. |
+    | Localização | Selecione **East US**.|
+    | Zona de disponibilidade | Mantenha o valor padrão - **Zona redundante**. |
+1. Selecione **Criar**.
 
     > [!NOTE]
     > Os endereços IP públicos são criados com um endereço IPv4 ou IPv6. No entanto, a preferência de encaminhamento apenas suporta o IPV4 atualmente.

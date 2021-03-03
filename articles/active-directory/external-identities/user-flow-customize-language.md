@@ -7,21 +7,18 @@ manager: celestedg
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 05/06/2020
+ms.date: 03/02/2021
 ms.author: mimart
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7cddb40a6a43c38079906699d9fa4865c4daf558
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: a199c207e8ea35f1471df9bfd0c4134551b9995f
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94837095"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101653495"
 ---
-# <a name="language-customization-in-azure-active-directory-preview"></a>Personalização linguística no Diretório Ativo Azure (Pré-visualização)
-
-> [!NOTE]
-> A inscrição de self-service é uma funcionalidade de pré-visualização pública do Azure Ative Directory. Para obter mais informações sobre pré-visualizações, veja [Termos de Utilização Suplementares do Microsoft Azure para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="language-customization-in-azure-active-directory"></a>Personalização linguística no Diretório Ativo Azure
 
 A personalização de linguagem no Azure Ative Directory (Azure AD) permite que o seu fluxo de utilizador acomode diferentes idiomas de acordo com as necessidades do seu utilizador. A Microsoft fornece as traduções para [36 idiomas.](#supported-languages) Mesmo que a sua experiência seja fornecida apenas para um único idioma, pode personalizar os nomes de atributos na página de recolha de atributos.
 
@@ -39,7 +36,7 @@ A personalização de linguagem permite-lhe personalizar qualquer cadeia no flux
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) como administrador do Azure Active Directory.
 2. Ao abrigo **dos serviços Azure,** selecione **Azure Ative Directory**.
 3. No menu esquerdo, selecione **Identidades Externas.**
-4. Selecione **fluxos de utilizador (pré-visualização)**.
+4. Selecione **fluxos de utilizador**.
 3. Selecione o fluxo de utilizador que deseja ativar para traduções.
 4. Selecione **Línguas**.
 5. Na página **idiomas** para o fluxo do utilizador, selecione o idioma que pretende personalizar.

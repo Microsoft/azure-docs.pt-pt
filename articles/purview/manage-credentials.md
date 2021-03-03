@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 02/11/2021
-ms.openlocfilehash: 9ffc450294f186b77cc7a6c44c10eecf266161d3
-ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
+ms.openlocfilehash: 1857eab485e8651c05959f82cf11e69b6353c575
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100526702"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101673513"
 ---
 # <a name="credentials-for-source-authentication-in-azure-purview"></a>Credenciais para autenticação de origem em Azure Purview
 
@@ -85,8 +85,9 @@ Estes tipos de credenciais são suportados em Purview:
 - Diretor de serviço: Adiciona-se a **chave principal** do serviço como segredo no cofre das chaves.
 - Autenticação SQL: Adicione a **palavra-passe** como segredo no cofre de chaves.
 - Chave de conta: Adicione a chave da **conta** como um segredo no cofre de chaves.
+- Role ARN: Para uma fonte de dados Damazon S3, adicione o seu **papel ARN** em AWS. 
 
-Para mais informações, consulte [Adicionar um segredo ao Key Vault.](../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault)
+Para obter mais informações, consulte [Adicionar um segredo ao Key Vault](../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault) e criar um novo papel [AWS para a Purga.](register-scan-amazon-s3.md#create-a-new-aws-role-for-purview)
 
 Depois de guardar os seus segredos no cofre da chave:
 

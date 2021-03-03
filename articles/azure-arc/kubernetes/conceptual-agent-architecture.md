@@ -2,18 +2,18 @@
 title: Azure Arc permitiu a Arquitetura do Agente Kubernetes
 services: azure-arc
 ms.service: azure-arc
-ms.date: 02/17/2021
+ms.date: 02/19/2021
 ms.topic: conceptual
 author: shashankbarsin
 ms.author: shasb
 description: Este artigo fornece uma visão geral arquitetônica de Azure Arc habilitado agentes Kubernetes
 keywords: Kubernetes, Arc, Azure, contentores
-ms.openlocfilehash: 287ffdd40dc9ffdb91abb58b305d8b35b0bc3674
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: b4fb836cc7782f4026a28f4af0ca372c76486a31
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100652569"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101650537"
 ---
 # <a name="azure-arc-enabled-kubernetes-agent-architecture"></a>Azure Arc permitiu a Arquitetura do Agente Kubernetes
 
@@ -42,7 +42,7 @@ A maioria dos centros de dados pré-directrizes de rede aplicam regras rígidas 
 
         | Agente | Description |
         | ----- | ----------- |
-        | `deployment.apps/clusteridentityoperator` | Azure Arc habilitado kubernetes atualmente suporta apenas [identidades atribuídas ao sistema](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). `clusteridentityoperator` inicia a primeira comunicação de saída. Esta primeira comunicação ressaltou o certificado de Identidade de Serviço Gerido (MSI) utilizado por outros agentes para comunicação com a Azure. |
+        | `deployment.apps/clusteridentityoperator` | Azure Arc habilitado kubernetes atualmente suporta apenas [identidades atribuídas ao sistema](../../active-directory/managed-identities-azure-resources/overview.md). `clusteridentityoperator` inicia a primeira comunicação de saída. Esta primeira comunicação ressaltou o certificado de Identidade de Serviço Gerido (MSI) utilizado por outros agentes para comunicação com a Azure. |
         | `deployment.apps/config-agent` | Observa o cluster ligado para recursos de configuração de controlo de origem aplicados no cluster. Atualiza o estado de conformidade. |
         | `deployment.apps/controller-manager` | Um operador de operadores que orquestra interações entre componentes do Arco Azure. |    
         | `deployment.apps/metrics-agent` | Recolhe métricas de outros agentes da Arc para verificar o desempenho ideal. |
@@ -85,7 +85,7 @@ A maioria dos centros de dados pré-directrizes de rede aplicam regras rígidas 
 
 ## <a name="understand-connectivity-modes"></a>Compreender os modos de conectividade
 
-| Modo conectividade | Description |
+| Modo conectividade | Descrição |
 | ----------------- | ----------- |
 | Totalmente conectado | Os agentes podem comunicar consistentemente com o Azure com pouco atraso na propagação das configurações do GitOps, na aplicação das políticas de Azure Policy e Gatekeeper, e na recolha de métricas e registos de carga de trabalho no Azure Monitor. |
 | Semi-conectado | O certificado MSI retirado pelo `clusteridentityoperator` is valido até 90 dias antes do termo do certificado. Após a expiração, o Arco Azure permitiu que o recurso Kubernetes deixasse de funcionar. Para reativar todas as funcionalidades do Arco Azure no cluster, elimine e recrie o Arco Azure ativado recursos e agentes kubernetes. Durante os 90 dias, ligue o cluster pelo menos uma vez a cada 30 dias. |
@@ -93,5 +93,5 @@ A maioria dos centros de dados pré-directrizes de rede aplicam regras rígidas 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Ligue um cluster ao Arco de Azure](./connect-cluster.md)
+* [Ligue um cluster ao Arco de Azure](./quickstart-connect-cluster.md)
 * [Visão geral conceptual das configurações](./conceptual-configurations.md)

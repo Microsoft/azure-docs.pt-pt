@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 08a919338789a02d50cbb6976ee50b214cb0d612
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: d081754616b40a21b3b842758844eb13e2752569
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100417474"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101650962"
 ---
 # <a name="securing-standalone-managed-service-accounts"></a>Assegurar contas de serviço geridas autónomas
 
@@ -44,7 +44,7 @@ as SMSAs oferecem maior segurança do que as contas de utilizador utilizadas com
 
    * O nome DNS do computador anfitrião é alterado.
 
-   * Ao adicionar ou remover um nome adicional de conta de sam ou parâmetros dns-hostname usando [PowerShell](https://docs.microsoft.com/powershell/module/addsadministration/set-adserviceaccount?view=win10-ps)
+   * Ao adicionar ou remover um nome adicional de conta de sam ou parâmetros dns-hostname usando [PowerShell](/powershell/module/addsadministration/set-adserviceaccount?view=win10-ps)
 
 ## <a name="when-to-use-smsas"></a>Quando usar sMSAs
 
@@ -53,7 +53,7 @@ sMSAs podem simplificar tarefas de gestão e segurança. Utilize sMSAs quando ti
 > [!NOTE] 
 > Embora possa utilizar sMSAs para mais de um serviço, recomendamos que cada serviço tenha a sua própria identidade para fins de auditoria. 
 
-Se o criador do software não lhe puder dizer se pode utilizar um MSA, tem de testar a sua aplicação. Para tal, crie um ambiente de teste e garanta que pode aceder a todos os recursos necessários. Consulte [criar e instalar um SMSA](https://docs.microsoft.com/archive/blogs/askds/managed-service-accounts-understanding-implementing-best-practices-and-troubleshooting) para as instruções passo a passo.
+Se o criador do software não lhe puder dizer se pode utilizar um MSA, tem de testar a sua aplicação. Para tal, crie um ambiente de teste e garanta que pode aceder a todos os recursos necessários. Consulte [criar e instalar um SMSA](/archive/blogs/askds/managed-service-accounts-understanding-implementing-best-practices-and-troubleshooting) para as instruções passo a passo.
 
 ### <a name="assess-security-posture-of-smsas"></a>Avaliar a postura de segurança das SMSAs
 
@@ -112,7 +112,7 @@ Pode utilizar os seguintes cmdlets Ative Directory PowerShell para gerir as SMSA
 
 ## <a name="move-to-smsas"></a>Mude-se para as SMSAs
 
-Se um serviço de aplicação suporta sMSA mas não gMSAs, e está atualmente a utilizar uma conta de utilizador ou conta de computador para o contexto de segurança, [crie e instale um SMSA](https://docs.microsoft.com/archive/blogs/askds/managed-service-accounts-understanding-implementing-best-practices-and-troubleshooting) no servidor. 
+Se um serviço de aplicação suporta sMSA mas não gMSAs, e está atualmente a utilizar uma conta de utilizador ou conta de computador para o contexto de segurança, [crie e instale um SMSA](/archive/blogs/askds/managed-service-accounts-understanding-implementing-best-practices-and-troubleshooting) no servidor. 
 
 Idealmente, mova recursos para Azure, e use identidades geridas azure ou diretores de serviço.
 
@@ -133,4 +133,3 @@ Ver os seguintes artigos sobre a garantia de contas de serviço
 
 * [Governar contas de serviço no local](service-accounts-govern-on-premises.md)
 
- 

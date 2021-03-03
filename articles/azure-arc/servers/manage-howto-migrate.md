@@ -3,12 +3,12 @@ title: Como migrar o Arco Azure permitiu servidores através de regiões
 description: Saiba como migrar um servidor Azure Arc ativado de uma região para outra.
 ms.date: 02/10/2021
 ms.topic: conceptual
-ms.openlocfilehash: d4e0f1e41e928ab489f7c2c167eea31785d9bc21
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 251a347205d93af715add52db293d8000438df44
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100418208"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101650180"
 ---
 # <a name="how-to-migrate-azure-arc-enabled-servers-across-regions"></a>Como migrar o Arco Azure permitiu servidores através de regiões
 
@@ -36,4 +36,4 @@ Para migrar um Azure Arc ativado servidor de uma região Azure para outra, você
 
 * As informações relativas à resolução de problemas podem ser encontradas no guia do [agente da máquina conectado de resolução de problemas.](troubleshoot-agent-onboard.md)
 
-* Aprenda a gerir a sua máquina utilizando a [Azure Policy](../../governance/policy/overview.md), para coisas como [a configuração do hóspede](../../governance/policy/concepts/guest-configuration.md)VM , verificando que a máquina está a reportar ao espaço de trabalho esperado do Log Analytics, permitir a monitorização com a política do [Azure Monitor com VMs,](../../azure-monitor/insights/vminsights-enable-policy.md) e muito mais.
+* Aprenda a gerir a sua máquina utilizando a [Azure Policy](../../governance/policy/overview.md), para coisas como [a configuração do hóspede](../../governance/policy/concepts/guest-configuration.md)VM , verificando que a máquina está a reportar ao espaço de trabalho esperado do Log Analytics, permitir a monitorização com a política do [Azure Monitor com VMs,](../../azure-monitor/vm/vminsights-enable-policy.md) e muito mais.

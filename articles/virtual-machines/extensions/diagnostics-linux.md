@@ -10,19 +10,19 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 02/05/2021
 ms.author: akjosh
-ms.openlocfilehash: d45535f11568fddd10130d506af3329dcdfb0484
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 741db5ea10847e2fe6711e7ca01d65efb1f09dea
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100580280"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101667319"
 ---
 # <a name="use-linux-diagnostic-extension-40-to-monitor-metrics-and-logs"></a>Utilize a extensão de diagnóstico Linux 4.0 para monitorizar métricas e registos
 
 Este documento descreve a versão 4.0 e a mais recente da extensão de diagnóstico linux.
 
 > [!IMPORTANT]
-> Para obter informações sobre a versão 3.*, consulte  [este documento](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-linux-v3). Para obter informações sobre a versão 2.3 ou mais antiga, consulte [este documento](/previous-versions/azure/virtual-machines/linux/classic/diagnostic-extension-v2).
+> Para obter informações sobre a versão 3.*, consulte  [este documento](./diagnostics-linux-v3.md). Para obter informações sobre a versão 2.3 ou mais antiga, consulte [este documento](/previous-versions/azure/virtual-machines/linux/classic/diagnostic-extension-v2).
 
 ## <a name="introduction"></a>Introdução
 
@@ -108,7 +108,7 @@ O python2 executável deve ser aliasado a *pitão.* Segue-se um método que pode
 A configuração da amostra descarregada nestes exemplos recolhe um conjunto de dados padrão e envia-os para o armazenamento de mesas. O URL para a configuração da amostra e o seu conteúdo estão sujeitos a alterações. Na maioria dos casos, deve descarregar uma cópia do ficheiro JSON de definições de portal e personalizá-lo para as suas necessidades, em seguida, ter quaisquer modelos ou automatização que construa usar a sua própria versão do ficheiro de configuração em vez de descarregar esse URL cada vez.
 
 > [!NOTE]
-> Para permitir a nova Pia do Monitor Azure, os VMs precisam de ter a Identidade Atribuída do Sistema ativada para a geração de token MSI Auth. Isto pode ser feito durante a criação de VM ou após a criação do VM. Passos para ativar a identidade atribuída ao sistema através do portal, CLI, PowerShell e gestor de recursos.  estão listados em detalhe [aqui.](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm) 
+> Para permitir a nova Pia do Monitor Azure, os VMs precisam de ter a Identidade Atribuída do Sistema ativada para a geração de token MSI Auth. Isto pode ser feito durante a criação de VM ou após a criação do VM. Passos para ativar a identidade atribuída ao sistema através do portal, CLI, PowerShell e gestor de recursos.  estão listados em detalhe [aqui.](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md) 
 
 #### <a name="azure-cli-sample"></a>Amostra de Azure CLI
 
@@ -490,7 +490,7 @@ Exemplos incluem `LinuxSyslog20170410` `LinuxSyslog20170609` e.
 Esta secção opcional controla permitindo o envio de métricas para a pia do Monitor Azure, para além da conta de Armazenamento e da lâmina padrão das Métricas do Hóspede.
 
 > [!NOTE]
-> Isto requer que a identidade atribuída ao sistema seja ativada nos VMs/VMSS. Isto pode ser feito através do portal, CLI, PowerShell e gestor de recursos. Os passos são listados em detalhe [aqui.](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm) As etapas para o permitir também constam das amostras de instalação para AZ CLI, PowerShell, etc. acima. 
+> Isto requer que a identidade atribuída ao sistema seja ativada nos VMs/VMSS. Isto pode ser feito através do portal, CLI, PowerShell e gestor de recursos. Os passos são listados em detalhe [aqui.](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md) As etapas para o permitir também constam das amostras de instalação para AZ CLI, PowerShell, etc. acima. 
 
 ```json
   "sinksConfig": {

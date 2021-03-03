@@ -11,12 +11,12 @@ ms.reviewer: peterlu
 ms.date: 01/14/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 962054943a68aa61ac681de97eeebc10fe3f2b0a
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: cb556466a5a76cbb9447538e98a5a2385f7b5614
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98216636"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101661006"
 ---
 # <a name="train-pytorch-models-at-scale-with-azure-machine-learning"></a>Treinar modelos PyTorch em escala com Azure Machine Learning
 
@@ -285,35 +285,90 @@ Para um tutorial completo sobre a execução de PyTorch distribuído com Horovod
 ### <a name="distributeddataparallel"></a>DistribuídoDataParallel
 Se estiver a utilizar o módulo [DistributedDataParallel](https://pytorch.org/tutorials/intermediate/ddp_tutorial.html) incorporado da PyTorch que é construído utilizando o pacote **distribuído pela tocha** no seu código de treino, também pode lançar o trabalho distribuído através do Azure ML.
 
-Para executar um trabalho PyTorch distribuído com DistributedDataParallel, especifique uma [Configuração PyTorch](/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration?preserve-view=true&view=azure-ml-py) para o `distributed_job_config` parâmetro do construtor ScriptRunConfig. Para utilizar o backend NCCL para tocha.distribuído, especifique `communication_backend='Nccl'` na Configuração PyTorch. O código abaixo configurará um trabalho distribuído de 2 nós. O backend NCCL é o backend recomendado para o treino de GPU distribuído por PyTorch.
+Para lançar um trabalho PyTorch distribuído na Azure ML, tem duas opções:
+1. Lançamento por processo: especifique o número total de processos de trabalhador que pretende executar, e a Azure ML tratará do lançamento de cada processo.
+2. Lançamento per-node `torch.distributed.launch` com: forneça o `torch.distributed.launch` comando que pretende executar em cada nó. O utilitário de lançamento da tocha tratará do lançamento dos processos de trabalho em cada nó.
 
-Para os trabalhos de PyTorch distribuídos configurados através da Configuração PyTorch, a Azure ML definirá as seguintes variáveis ambientais nos nódos do alvo do cálculo:
+Não existem diferenças fundamentais entre estas opções de lançamento; está em grande parte à altura da preferência do utilizador ou das convenções das estruturas/bibliotecas construídas em cima do PyTorch de baunilha (como o Relâmpago ou o Rosto Abraçado).
 
-* `AZ_BATCHAI_PYTORCH_INIT_METHOD`: URL para a inicialização do sistema de ficheiros partilhados do grupo de processos
-* `AZ_BATCHAI_TASK_INDEX`: classificação global do processo de trabalhador
+#### <a name="per-process-launch"></a>Lançamento por processo
+Para utilizar esta opção para executar um trabalho PyTorch distribuído, faça o seguinte:
+1. Especificar o roteiro de treino e os argumentos
+2. Crie uma [Configuração PyTorch](/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration?preserve-view=true&view=azure-ml-py) e especifique o `process_count` bem como `node_count` . Corresponde `process_count` ao número total de processos que pretende candidatar para o seu trabalho. Isto deve tipicamente igualar o número de GPUs por nó multiplicado pelo número de nós. Se `process_count` não for especificado, a Azure ML lançará por predeta.
 
-Pode especificar estas variáveis ambientais para os argumentos correspondentes do script de treino através `arguments` do parâmetro do ScriptRunConfig.
+A Azure ML definirá as seguintes variáveis ambientais:
+* `MASTER_ADDR` - Endereço IP da máquina que irá acolher o processo com a classificação 0.
+* `MASTER_PORT` - Uma porta livre na máquina que irá acolher o processo com a classificação 0.
+* `NODE_RANK` - O nível do nó para o treino de vários nós. Os valores possíveis são de 0 a (total # de nó - 1).
+* `WORLD_SIZE` - O número total de processos. Isto deve ser igual ao número total de dispositivos (GPU) utilizados para a formação distribuída.
+* `RANK` - A classificação (global) do processo atual. Os valores possíveis são de 0 a (tamanho mundial - 1).
+* `LOCAL_RANK` - A classificação local (relativa) do processo dentro do nó. Os valores possíveis são 0 a (# dos processos no nó - 1).
+
+Uma vez que as variáveis ambientais necessárias serão definidas por Azure ML, pode utilizar [o método de inicialização variável do ambiente padrão](https://pytorch.org/docs/stable/distributed.html#environment-variable-initialization) para inicializar o grupo de processos no seu código de formação.
+
+O seguinte código corta-código configura um trabalho PyTorch de 2 nó, 2 processos por nó:
+```python
+from azureml.core import ScriptRunConfig
+from azureml.core.runconfig import PyTorchConfiguration
+
+curated_env_name = 'AzureML-PyTorch-1.6-GPU'
+pytorch_env = Environment.get(workspace=ws, name=curated_env_name)
+distr_config = PyTorchConfiguration(process_count=4, node_count=2)
+
+src = ScriptRunConfig(
+  source_directory='./src',
+  script='train.py',
+  arguments=['--epochs', 25],
+  compute_target=compute_target,
+  environment=pytorch_env,
+  distributed_job_config=distr_config,
+)
+
+run = Experiment(ws, 'experiment_name').submit(src)
+```
+
+> [!WARNING]
+> Para utilizar esta opção para o treino multi-process-per-nó, terá de utilizar o >Azure ML Python SDK = 1.22.0, tal como `process_count` foi introduzido em 1.22.0.
+
+> [!TIP]
+> Se o seu script de treino passar informações como classificação local ou classificação como argumentos de script, pode referenciar a variável ambiente(s) nos argumentos: `arguments=['--epochs', 50, '--local_rank', $LOCAL_RANK]` .
+
+#### <a name="per-node-launch-with-torchdistributedlaunch"></a>Lançamento por nó com `torch.distributed.launch`
+O PyTorch fornece um utilitário de lançamento em [torch.distributed.launch](https://pytorch.org/docs/stable/distributed.html#launch-utility) que os utilizadores podem usar para lançar vários processos por nó. O `torch.distributed.launch` módulo irá gerar múltiplos processos de treino em cada um dos nós.
+
+Os seguintes passos demonstrarão como configurar um trabalho PyTorch com um lançador por nó em Azure ML que alcançará o equivalente a executar o seguinte comando:
+
+```shell
+python -m torch.distributed.launch --nproc_per_node <num processes per node> \
+  --nnodes <num nodes> --node_rank $NODE_RANK --master_addr $MASTER_ADDR \
+  --master_port $MASTER_PORT --use_env \
+  <your training script> <your script arguments>
+```
+
+1. Fornecer o `torch.distributed.launch` comando ao parâmetro do `command` `ScriptRunConfig` construtor. AZure ML executará este comando em cada nó do seu cluster de treino. `--nproc_per_node` deve ser inferior ou igual ao número de GPUs disponíveis em cada nó. `MASTER_ADDR`, `MASTER_PORT` e são todos `NODE_RANK` definidos por Azure ML, para que você possa apenas referenciar as variáveis ambientais no comando. Azure ML define `MASTER_PORT` para 6105, mas pode passar um valor diferente ao `--master_port` argumento do `torch.distributed.launch` comando, se desejar. (O utilitário de lançamento irá redefinir as variáveis ambientais.)
+2. Crie um `PyTorchConfiguration` e especifique o `node_count` . Não precisa de ser `process_count` definido, uma vez que o Azure ML irá por defeito lançar um processo por nó, que irá executar o comando de lançamento especificado.
 
 ```python
 from azureml.core import ScriptRunConfig
 from azureml.core.runconfig import PyTorchConfiguration
 
-args = ['--dist-backend', 'nccl',
-        '--dist-url', '$AZ_BATCHAI_PYTORCH_INIT_METHOD',
-        '--rank', '$AZ_BATCHAI_TASK_INDEX',
-        '--world-size', 2]
+curated_env_name = 'AzureML-PyTorch-1.6-GPU'
+pytorch_env = Environment.get(workspace=ws, name=curated_env_name)
+distr_config = PyTorchConfiguration(node_count=2)
+launch_cmd = "python -m torch.distributed.launch --nproc_per_node 2 --nnodes 2 --node_rank $NODE_RANK --master_addr $MASTER_ADDR --master_port $MASTER_PORT --use_env train.py --epochs 50".split()
 
-src = ScriptRunConfig(source_directory=project_folder,
-                      script='pytorch_mnist.py',
-                      arguments=args,
-                      compute_target=compute_target,
-                      environment=pytorch_env,
-                      distributed_job_config=PyTorchConfiguration(communication_backend='Nccl', node_count=2))
+src = ScriptRunConfig(
+  source_directory='./src',
+  command=launch_cmd,
+  compute_target=compute_target,
+  environment=pytorch_env,
+  distributed_job_config=distr_config,
+)
+
+run = Experiment(ws, 'experiment_name').submit(src)
 ```
 
-Se em vez disso, gostaria de usar o backend Gloo para treino distribuído, especifique. `communication_backend='Gloo'` O backend Gloo é recomendado para o treino de CPU distribuído.
-
-Para obter um tutorial completo sobre a execução do PyTorch distribuído no Azure ML, consulte [PyTorch Distribuído com DadoParallel Distribuído](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/pytorch/distributed-pytorch-with-nccl-gloo).
+Para obter um tutorial completo sobre a execução do PyTorch distribuído no Azure ML, consulte [PyTorch Distribuído com DadoParallel Distribuído](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/pytorch/distributed-pytorch-with-distributeddataparallel).
 
 ### <a name="troubleshooting"></a>Resolução de problemas
 

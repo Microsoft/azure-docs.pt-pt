@@ -1,24 +1,23 @@
 ---
-title: Alta disponibilidade de SAP HANA em VMs Azure na RHEL Microsoft Docs
+title: Alta disponibilidade de SAP HANA em VMs Azure em | RHEL Microsoft Docs
 description: Estabelecer uma elevada disponibilidade de SAP HANA em máquinas virtuais Azure (VMs).
 services: virtual-machines-linux
 documentationcenter: ''
 author: rdeltcheva
 manager: juergent
 editor: ''
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/16/2020
 ms.author: radeltch
-ms.openlocfilehash: 277ed8ad5f9888daa911cb3b5c7dcf00fd285bf4
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: a98fd5785174d681b333cdaa29fe53ae06f137e1
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96489161"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101675372"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-red-hat-enterprise-linux"></a>Alta disponibilidade de SAP HANA em VMs Azure em Red Hat Enterprise Linux
 
@@ -53,7 +52,7 @@ Nas configurações de exemplo, são utilizados comandos de instalação, instâ
 
 Leia primeiro as seguintes notas e artigos SAP:
 
-* Nota SAP [1928533,]que tem:
+* Nota SAP [1928533], que tem:
   * A lista de tamanhos Azure VM que são suportados para a implementação de software SAP.
   * Informações importantes sobre a capacidade dos tamanhos Azure VM.
   * O software SAP suportado, e as combinações de sistema operativo (OS) e base de dados.
@@ -79,7 +78,7 @@ Leia primeiro as seguintes notas e artigos SAP:
   * [Instalar e Configurar um Red Hat Enterprise Linux 7.4 (e mais tarde) High-Availability Cluster no Microsoft Azure](https://access.redhat.com/articles/3252491)
   * [Instale SAP HANA no Red Hat Enterprise Linux para utilização no Microsoft Azure](https://access.redhat.com/solutions/3193782)
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Para obter uma elevada disponibilidade, o SAP HANA está instalado em duas máquinas virtuais. Os dados são replicados utilizando a replicação do sistema HANA.
 
@@ -136,7 +135,7 @@ Para implementar o modelo, siga estes passos:
 
       1. Abra o balançador de carga, selecione **o pool IP frontend** e selecione **Adicionar**.
       1. Insira o nome do novo pool IP frontal (por exemplo, **hana-frontend).**
-      1. Desaponda a **Estática** e introduza o endereço IP (por exemplo, **10.0.0.13**). **Static**
+      1. Desaponda a **Estática** e introduza o endereço IP (por exemplo, **10.0.0.13**). 
       1. Selecione **OK**.
       1. Após a criação do novo pool IP frontal, note o endereço IP do pool.
 
@@ -172,7 +171,7 @@ Para implementar o modelo, siga estes passos:
 
       1. Abra o balançador de carga, selecione **o pool IP frontend** e selecione **Adicionar**.
       1. Insira o nome do novo pool IP frontal (por exemplo, **hana-frontend).**
-      1. Desaponda a **Estática** e introduza o endereço IP (por exemplo, **10.0.0.13**). **Static**
+      1. Desaponda a **Estática** e introduza o endereço IP (por exemplo, **10.0.0.13**). 
       1. Selecione **OK**.
       1. Após a criação do novo pool IP frontal, note o endereço IP do pool.
 

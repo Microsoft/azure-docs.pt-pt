@@ -1,25 +1,24 @@
 ---
-title: Requisitos adicionais de rede para SAP HANA em Azure (grandes instâncias) Microsoft Docs
+title: Requisitos adicionais de rede para SAP HANA em Azure (grandes instâncias) | Microsoft Docs
 description: Requisitos adicionais de rede para SAP HANA em Azure (grandes instâncias).
 services: virtual-machines-linux
 documentationcenter: ''
 author: msjuergent
 manager: bburns
 editor: ''
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 308d30118349e020d3b407243f106d9ad8368118
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 83a695792e78916bf79f4d4cf1394ae197c25fb9
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98198990"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101671871"
 ---
 # <a name="additional-network-requirements-for-large-instances"></a>Requisitos adicionais de rede para grandes instâncias
 

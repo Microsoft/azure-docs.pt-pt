@@ -12,12 +12,12 @@ ms.date: 01/13/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli
 adobe-target: true
-ms.openlocfilehash: d8c6a9cc000d307490745b923a1f1ba6c93abf53
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: f8865c9e6726a19e5e215886f92507734ebf0662
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100652229"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101657320"
 ---
 # <a name="deploy-machine-learning-models-to-azure"></a>Implementar modelos de aprendizagem automática para Azure
 
@@ -315,22 +315,22 @@ Durante a implementação do modelo, poderá ver a alteração do estado de serv
 
 A tabela a seguir descreve os diferentes estados de serviço:
 
-| Estado do serviço web | Description | Estado final?
+| Estado do serviço web | Descrição | Estado final?
 | ----- | ----- | ----- |
-| Transição | O serviço está em processo de implantação. | No |
-| Mau estado de funcionamento | O serviço foi implantado, mas está atualmente inacessível.  | No |
-| Insodulável | O serviço não pode ser implantado neste momento devido à falta de recursos. | No |
-| Com falhas | O serviço falhou em ser acionado devido a um erro ou acidente. | Yes |
-| Bom estado de funcionamento | O serviço é saudável e o ponto final está disponível. | Yes |
+| Transição | O serviço está em processo de implantação. | Não |
+| Mau estado de funcionamento | O serviço foi implantado, mas está atualmente inacessível.  | Não |
+| Insodulável | O serviço não pode ser implantado neste momento devido à falta de recursos. | Não |
+| Com falhas | O serviço falhou em ser acionado devido a um erro ou acidente. | Sim |
+| Bom estado de funcionamento | O serviço é saudável e o ponto final está disponível. | Sim |
 
 > [!TIP]
 > Ao implementar, as imagens do Docker para alvos de computação são construídas e carregadas a partir do Registo de Contentores de Azure (ACR). Por predefinição, o Azure Machine Learning cria um ACR que utiliza o nível *básico* de serviço. Mudar o ACR para o seu espaço de trabalho para um nível normal ou premium pode reduzir o tempo que leva para construir e implementar imagens para os seus alvos de computação. Para mais informações, consulte [os níveis de serviço de registo de contentores Azure.](../container-registry/container-registry-skus.md)
 
 > [!NOTE]
-> Se estiver a implementar um modelo para o Serviço Azure Kubernetes (AKS), aconselhamos que adinga [o Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-enable-existing-clusters) para esse cluster. Isto irá ajudá-lo a compreender a saúde geral do cluster e o uso de recursos. Também poderá encontrar os seguintes recursos úteis:
+> Se estiver a implementar um modelo para o Serviço Azure Kubernetes (AKS), aconselhamos que adinga [o Azure Monitor](../azure-monitor/containers/container-insights-enable-existing-clusters.md) para esse cluster. Isto irá ajudá-lo a compreender a saúde geral do cluster e o uso de recursos. Também poderá encontrar os seguintes recursos úteis:
 >
-> * [Verifique se os eventos de Saúde de Recursos impactam o seu cluster AKS](https://docs.microsoft.com/azure/aks/aks-resource-health)
-> * [Diagnóstico de Serviço Azure Kubernetes](https://docs.microsoft.com/azure/aks/concepts-diagnostics)
+> * [Verifique se os eventos de Saúde de Recursos impactam o seu cluster AKS](../aks/aks-resource-health.md)
+> * [Diagnóstico de Serviço Azure Kubernetes](../aks/concepts-diagnostics.md)
 >
 > Se estiver a tentar implantar um modelo num cluster pouco saudável ou sobrecarregado, espera-se que experimente problemas. Se precisar de ajuda para resolver problemas de resolução de problemas de cluster AKS contacte o Suporte AKS.
 

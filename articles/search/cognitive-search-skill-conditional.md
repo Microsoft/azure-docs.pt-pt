@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: b5f1fc7f877854dd06fbbe09ff82e47208fa12d0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f47ca56fa1b40422edeb0d4e11c24be6f60e49e5
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "72792037"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101666367"
 ---
 # <a name="conditional-cognitive-skill"></a>Habilidade cognitiva condicional
 
@@ -65,7 +65,7 @@ Os seguintes itens são valores válidos de uma expressão:
         "= $(/document/sentiment) >= 0.5"
     ```
 
--   Expressões que usam operadores Boolean (&&, [,!' <br/>
+-   Expressões que utilizam operadores Boolean (&&, ||, !, ^) <br/>
     Exemplos:
     ```
         "= $(/document/language) == 'en' && $(/document/sentiment) > 0.5"
@@ -85,7 +85,7 @@ Como a habilidade condicional suporta a avaliação, pode usá-la em cenários d
 ## <a name="skill-inputs"></a>Entradas de habilidades
 As entradas são sensíveis a casos.
 
-| Input   | Descrição |
+| Entrada   | Descrição |
 |-------------|-------------|
 | condição   | Esta entrada é um [campo avaliado](#evaluated-fields) que representa a condição para avaliar. Esta condição deve avaliar a um valor booleano *(verdadeiro* ou *falso).*   <br/>  Exemplos: <br/> "= verdadeiro" <br/> "= $(/documento/linguagem) ='fr'" <br/> "= $(/documento/páginas/ \* /linguagem) ==$(/documento/expectLanguage)" <br/> |
 | quandoTrue    | Esta entrada é um [campo avaliado](#evaluated-fields) que representa o valor a devolver se a condição for avaliada como *verdadeira*. As cordas constantes devem ser devolvidas em aspas únicas (' e '). <br/>Valores da amostra: <br/> "= 'contrato'"<br/>"= $(/documento/contra-contratoType)" <br/> "= $(/documento/entidades/ \* )" <br/> |
@@ -134,7 +134,7 @@ A seguinte saída cria uma anotação ("/document/languageWithDefault") que é d
 
 ### <a name="sample-skill-definition-3-merge-values-from-two-fields-into-one"></a>Definição de habilidade de amostra 3: Fundir valores de dois campos em um
 
-Neste exemplo, algumas frases têm uma propriedade *francesa.* Sempre que a *propriedade frenchSentiment* for nula, queremos usar o valor *do direito de inscrição.* Atribuímos a saída a um membro chamado *sentimento* ("/document/sentiment/*/sentiment").
+Neste exemplo, algumas frases têm uma propriedade *francesa.* Sempre que a *propriedade frenchSentiment* for nula, queremos usar o valor *do direito de inscrição.* Atribuímos a saída a um membro chamado *sentimento* ("/document/sentences/*/sentiment").
 
 ```json
 {

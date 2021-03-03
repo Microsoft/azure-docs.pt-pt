@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: cynthn
 ms.topic: conceptual
-ms.openlocfilehash: b7f6d30ffa849f78b0f7baa2d84e4fb01f3bf192
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 291b9a210bf5f8cc18ccf8a523e282d3fc85aa28
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500347"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101673357"
 ---
 # <a name="secure-and-use-policies-on-virtual-machines-in-azure"></a>Proteger e utilizar políticas em máquinas virtuais no Azure
 
@@ -57,7 +57,7 @@ As principais políticas de acesso ao cofre concedem permissões a chaves, segre
 
 Quando se conecta a VMs, deve utilizar a criptografia de chaves públicas para fornecer uma forma mais segura de iniciar súplica. Este processo envolve uma troca de chaves pública e privada utilizando o comando secure shell (SSH) para autenticar-se em vez de um nome de utilizador e senha. As palavras-passe são vulneráveis a ataques de força bruta, especialmente em VMs virados para a Internet, como servidores web. Com um par de chaves secure shell (SSH), pode criar um [VM Linux](linux/mac-create-ssh-keys.md) que utiliza chaves SSH para autenticação, eliminando a necessidade de senhas de inscrição. Também pode utilizar as teclas SSH para ligar de um [VM do Windows](linux/ssh-from-windows.md) a um Linux VM.
 
-## <a name="managed-identities-for-azure-resources"></a>Identidades geridas para os recursos do Azure
+## <a name="managed-identities-for-azure-resources"></a>Identidades geridas dos recursos do Azure
 
 Um desafio comum inerente à criação de aplicações na cloud passa pela gestão das credenciais que estão no seu código para a autenticação nos serviços cloud. Manter essas credenciais protegidas é uma tarefa importante. Idealmente, nunca aparecem nas estações de trabalho dos programadores nem são verificadas no controlo de origem. O Azure Key Vault oferece uma forma de armazenar credenciais, segredos e outras chaves em segurança, mas o código tem de se autenticar no Key Vault para poder obtê-los. 
 
@@ -73,4 +73,4 @@ Utilizando [o controlo de acesso baseado em funções (Azure RBAC) ( Azure RBAC)
 
 
 ## <a name="next-steps"></a>Passos seguintes
-- Caminhe pelos degraus para monitorizar a segurança da máquina virtual utilizando o Azure Security Center para [Linux](../security/fundamentals/overview.md) ou [Windows](./tutorial-azure-security.md).
+- Caminhe pelos degraus para monitorizar a segurança da máquina virtual utilizando o Azure Security Center para [Linux](../security/fundamentals/overview.md) ou [Windows](/previous-versions/azure/virtual-machines/tutorial-azure-security).

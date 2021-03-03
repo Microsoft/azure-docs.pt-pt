@@ -1,25 +1,24 @@
 ---
-title: Requisitos de embarque para SAP HANA em Azure (Grandes Instâncias) Microsoft Docs
+title: Requisitos de embarque para SAP HANA em Azure (Grandes Instâncias) | Microsoft Docs
 description: Requisitos de embarque para SAP HANA em Azure (Grandes Instâncias).
 services: virtual-machines-linux
 documentationcenter: ''
 author: msjuergent
 manager: bburns
 editor: ''
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 01/31/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f72342a318e3436fb80fb06b2312f664c9d04969
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 16608facab27fc18924cf3a5c6da7e35db048f76
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967623"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101675609"
 ---
 # <a name="onboarding-requirements"></a>Requisitos de integração
 

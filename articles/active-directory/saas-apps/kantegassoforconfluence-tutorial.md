@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com a Kantega SSO para Confluence Microsoft Docs'
+title: 'Tutorial: Integração do Azure Ative Directory com a Kantega SSO para confluência | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Kantega SSO para Confluence.
 services: active-directory
 author: jeevansd
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: ff2d7f45626055cdbc98ca944eecaa01f9bd052b
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: be86e04359c29696d208994d85d36b7740b60cc3
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92459208"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101646219"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-confluence"></a>Tutorial: Integração do Azure Ative Directory com a Kantega SSO para a Confluência
 
@@ -148,7 +148,7 @@ Para configurar o Azure AD single sign-on com a Kantega SSO para Confluence, exe
 
     ![Screenshot que mostra o ecrã plugin "Instalar".](./media/kantegassoforconfluence-tutorial/addon3.png)
 
-1. Uma vez concluída a instalação. Clique em **Close** (Fechar).
+1. Uma vez concluída a instalação. Clique em **Fechar**.
 
     ![Screenshot que mostra o ecrã "Instalado e pronto a ir" com a ação "Fechar" selecionada.](./media/kantegassoforconfluence-tutorial/addon33.png)
 
@@ -184,7 +184,7 @@ Para configurar o Azure AD single sign-on com a Kantega SSO para Confluence, exe
 
     ![Screenshot que mostra a secção "Importação de Metadados" com "Ficheiro metadados no meu computador" selecionado.](./media/kantegassoforconfluence-tutorial/addon7.png)
 
-    a. Selecione **o ficheiro Metadados no meu computador**e carreja o ficheiro metadados, que descarregou a partir do portal Azure.
+    a. Selecione **o ficheiro Metadados no meu computador** e carreja o ficheiro metadados, que descarregou a partir do portal Azure.
 
     b. Clique em **Seguinte**.
 
@@ -281,7 +281,7 @@ Para permitir que os utilizadores da Azure AD inscrevam-se na Confluence, devem 
 
 1. Inscreva-se no seu SSO Kantega para o site da empresa Confluence como administrador.
 
-1. Hover on cog e clique na **gestão**do Utilizador .
+1. Hover on cog e clique na **gestão** do Utilizador .
 
     ![Screenshot que mostra o ícone "Cog" e "Gestão do utilizador" selecionados.](./media/kantegassoforconfluence-tutorial/user1.png)
 

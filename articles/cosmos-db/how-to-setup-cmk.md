@@ -4,17 +4,20 @@ description: Saiba como configurar chaves geridas pelo cliente para a sua conta 
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 08/05/2020
+ms.date: 02/19/2021
 ms.author: thweiss
-ms.openlocfilehash: e87f6f158265fd8ac210a0a071e35b0bb77df4d9
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 3ee566a598ea7fdf060712c934305ef63467e548
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96338287"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101656521"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-cosmos-account-with-azure-key-vault"></a>Configure chaves geridas pelo cliente para a sua conta do Azure Cosmos com o Azure Key Vault
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
+
+> [!NOTE]
+> A utilização de chaves geridas pelo cliente com a [loja analítica](analytical-store-introduction.md) Azure Cosmos DB requer atualmente uma configuração adicional na sua conta. Por favor contacte [azurecosmosdbcmk@service.microsoft.com](mailto:azurecosmosdbcmk@service.microsoft.com) para mais detalhes.
 
 Os dados armazenados na sua conta Azure Cosmos são automaticamente e sem problemas encriptados com teclas geridas pela Microsoft **(teclas geridas** pelo serviço). Opcionalmente, pode optar por adicionar uma segunda camada de encriptação com as teclas geridas **(teclas geridas pelo cliente).**
 
@@ -291,6 +294,10 @@ Todos os dados armazenados na sua conta Azure Cosmos estão encriptados com as t
 ### <a name="are-customer-managed-keys-supported-for-existing-azure-cosmos-accounts"></a>As chaves geridas pelo cliente são suportadas para as contas existentes da Azure Cosmos?
 
 Esta funcionalidade encontra-se atualmente disponível apenas para novas contas.
+
+### <a name="is-it-possible-to-use-customer-managed-keys-in-conjunction-with-the-azure-cosmos-db-analytical-store"></a>É possível utilizar chaves geridas pelo cliente em conjunto com a [loja analítica](analytical-store-introduction.md)Azure Cosmos DB?
+
+Sim, mas atualmente isto requer uma configuração adicional na sua conta. Por favor contacte [azurecosmosdbcmk@service.microsoft.com](mailto:azurecosmosdbcmk@service.microsoft.com) para mais detalhes.
 
 ### <a name="is-there-a-plan-to-support-finer-granularity-than-account-level-keys"></a>Existe um plano para suportar uma granularidade mais fina do que as chaves de nível de conta?
 

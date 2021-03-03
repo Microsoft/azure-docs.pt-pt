@@ -1,5 +1,5 @@
 ---
-title: IMPLANTAÇÃO SAP MaxDB, liveCache e Servidor de Conteúdo em VMs Azure Microsoft Docs
+title: IMPLEMENTAÇÃO DE SAP MaxDB, liveCache e Servidor de Conteúdo em VMs Azure | Microsoft Docs
 description: IMPLEMENTAÇÃO DE SAP MaxDB, liveCache e Servidor de Conteúdo no Azure
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
@@ -8,20 +8,19 @@ manager: patfilot
 editor: ''
 tags: azure-resource-manager
 keywords: ''
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/12/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f4257fcca1172502560c182651d649745e494cc1
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: e15b592aaa780ea80b6931c6d44fbf99e2f3a730
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94958970"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101673068"
 ---
 # <a name="sap-maxdb-livecache-and-content-server-deployment-on-azure-vms"></a>IMPLANTAÇÃO DE SAP MaxDB, liveCache e Servidor de Conteúdo em VMs Azure
 
@@ -349,7 +348,7 @@ Em suma, tem que:
 ![Configuração de referência do Azure IaaS VM para SAP MaxDB DBMS](./media/dbms_maxdb_deployment_guide/Simple_disk_structure_maxdb.PNG)
 
 
-#### <a name="backup-and-restore"></a><a name="23c78d3b-ca5a-4e72-8a24-645d141a3f5d"></a>Backup e Restauro
+#### <a name="backup-and-restore"></a><a name="23c78d3b-ca5a-4e72-8a24-645d141a3f5d"></a>Cópia de Segurança e Restauro
 Ao colocar o SAP MaxDB no Azure, tem de rever a sua metodologia de backup. Mesmo que o sistema não seja um sistema produtivo, a base de dados SAP hospedada pelo SAP MaxDB deve ser apoiada periodicamente. Uma vez que o Azure Storage mantém três imagens, uma cópia de segurança é agora menos importante em termos de proteção do seu sistema contra falhas de armazenamento e falhas operacionais ou administrativas mais importantes. A principal razão para manter um plano de backup e restauro adequado é para que possa compensar erros lógicos ou manuais fornecendo capacidades de recuperação pontuais. Assim, o objetivo é usar backups para restaurar a base de dados a um determinado ponto no tempo ou usar as cópias de segurança em Azure para semear outro sistema copiando a base de dados existente. 
 
 O backup e restauro de uma base de dados em Azure funciona da mesma forma que funciona para os sistemas no local, para que possa utilizar ferramentas de backup/restauro SAP MaxDB padrão, que são descritas num dos documentos de documentação SAP MaxDB listados no SAP Note [767598]. 
@@ -468,7 +467,7 @@ Se configurar o Servidor de Conteúdo SAP para armazenar ficheiros na base de da
 
 Se configurar o Servidor de Conteúdo SAP para armazenar ficheiros no sistema de ficheiros, uma opção é executar a cópia de segurança/restauro manual de toda a estrutura de ficheiros onde os documentos estão localizados. Semelhante ao backup/restauro SAP MaxDB, recomenda-se ter um volume de disco dedicado para fins de backup. 
 
-#### <a name="other"></a>Outros
+#### <a name="other"></a>Outro
 Outras definições específicas do Servidor de Conteúdo SAP são transparentes para VMs Azure e são descritas em vários documentos e notas SAP:
 
 * <https://service.sap.com/contentserver> 

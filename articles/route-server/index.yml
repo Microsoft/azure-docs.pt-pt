@@ -1,0 +1,41 @@
+### YamlMime:Landing
+title: Documentação do Servidor de Rota de Azure
+summary: Aprenda a utilizar o Azure Route Server para simplificar o encaminhamento dinâmico entre os seus Aparelhos Virtuais de Rede e a sua rede virtual.
+metadata:
+  title: Documentação do Servidor de Rota de Azure
+  description: Saiba mais sobre o Azure Route Server
+  services: route-server
+  ms.service: route-server
+  ms.topic: landing-page
+  author: duongau
+  ms.author: duau
+  ms.date: 03/02/2021
+  ms.openlocfilehash: f235d7118ce207d793c4ba03d357e2db09662c1f
+  ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+  ms.translationtype: MT
+  ms.contentlocale: pt-PT
+  ms.lasthandoff: 03/02/2021
+  ms.locfileid: "101680680"
+landingContent:
+- title: Sobre o Azure Route Server (pré-visualização)
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que é O Azure Route Server (Pré-visualização)?
+      url: overview.md
+- title: Introdução
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Criar e configurar um Servidor de Rota - PowerShell
+      url: quickstart-configure-route-server-powershell.md
+    - text: Criar e configurar um Servidor de Rota - CLI
+      url: quickstart-configure-route-server-cli.md
+- title: Planeamento
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Suporte ExpressRoute e VPN Gateway
+      url: expressroute-vpn-support.md
+    - text: FaQ do servidor de rota FAQ
+      url: route-server-faq.md

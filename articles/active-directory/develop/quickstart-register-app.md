@@ -12,12 +12,12 @@ ms.date: 09/03/2020
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, contperf-fy21q1, contperf-fy21q2
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: 430ab980f51ff06ad5e39d6402abf5f649cc6d39
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: 027d1bf005ac052bf48e2c0aa3a4a71fc29f36f2
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99593100"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101647443"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Quickstart: Registar uma aplicação com a plataforma de identidade microsoft
 
@@ -36,14 +36,14 @@ O registo da sua aplicação estabelece uma relação de confiança entre a sua 
 
 Siga estes passos para criar o registo da aplicação:
 
-1. Inscreva-se no <a href="https://portal.azure.com/" target="_blank">portal <span class="docon docon-navigate-external x-hidden-focus"></span> Azure</a>.
+1. Inicie sessão no <a href="https://portal.azure.com/" target="_blank">portal do Azure</a>.
 1. Se tiver acesso a vários inquilinos, no menu superior, utilize o filtro **de subscrição Diretório +** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: para selecionar o inquilino no qual pretende registar uma candidatura.
 1. Procure e selecione **Azure Active Directory**.
 1. Em **Gestão**, selecione **registos de aplicações**  >  **Novo registo**.
 1. Insira um **Nome** para a sua inscrição. Os utilizadores da sua aplicação podem ver este nome. Pode mudá-lo mais tarde.
 1. Especificar quem pode usar a aplicação, por vezes chamada *de público de inscrição*.
 
-    | Tipos de conta suportados | Description |
+    | Tipos de conta suportados | Descrição |
     |-------------------------|-------------|
     | **Contas apenas neste diretório organizacional** | Selecione esta opção se estiver a construir uma aplicação para uso apenas pelos utilizadores (ou hóspedes) no *seu* inquilino.<br><br>Muitas vezes chamada de aplicação *line-of-business* (LOB), esta aplicação é uma aplicação *de inquilino único* na plataforma de identidade da Microsoft. |
     | **Contas em qualquer diretório organizacional** | Selecione esta opção se quiser que os utilizadores em *qualquer* inquilino do Azure Ative (Azure AD) possam utilizar a sua aplicação. Esta opção é apropriada se, por exemplo, estiver a construir uma aplicação de software-as-a-service (SaaS) que pretende fornecer a várias organizações.<br><br>Este tipo de aplicação é conhecido como uma aplicação *multitenante* na plataforma de identidade da Microsoft. |

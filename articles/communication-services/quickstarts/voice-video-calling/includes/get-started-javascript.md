@@ -6,14 +6,18 @@ ms.author: nimag
 ms.date: 08/11/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: e878aa00261d446d049f5a7b3c68b14bc2fe8a4e
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: d27a79e180a0219773a3094fb85f842773d75183
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100548507"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101656621"
 ---
 Neste arranque rápido, você vai aprender como iniciar uma chamada usando a biblioteca de clientes Azure Communication Services Call para JavaScript.
+Este documento refere-se a tipos na versão 1.0.0-beta.5 da biblioteca de chamadas.
+
+> [!NOTE]
+> Este documento utiliza a versão 1.0.0-beta.6 da biblioteca do cliente chamador.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -102,7 +106,7 @@ Adicione um manipulador de eventos para iniciar uma chamada quando o `callButton
 callButton.addEventListener("click", () => {
     // start a call
     const userToCall = calleeInput.value;
-    call = callAgent.call(
+    call = callAgent.startCall(
         [{ communicationUserId: userToCall }],
         {}
     );

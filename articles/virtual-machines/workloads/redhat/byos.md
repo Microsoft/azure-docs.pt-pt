@@ -2,18 +2,18 @@
 title: Red Hat Enterprise Linux traz imagens Azure de subscrição própria | Microsoft Docs
 description: Saiba mais sobre as imagens de trazer a sua própria subscrição para Red Hat Enterprise Linux em Azure.
 author: asinn826
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: redhat
+ms.collection: linux
 ms.topic: article
 ms.date: 06/10/2020
 ms.author: alsin
-ms.reviewer: cynthn
-ms.openlocfilehash: 38bf8b3c1c39322aea27f5f4d427c31010837bfb
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: af4f9dac30c1e443e9647a5b752cdabf9c094a6c
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100391025"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101676084"
 ---
 # <a name="red-hat-enterprise-linux-bring-your-own-subscription-gold-images-in-azure"></a>Red Hat Enterprise Linux traz imagens de ouro em Azure
 

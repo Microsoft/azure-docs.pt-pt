@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Directy integração única (SSO) com uniFLOW Online Microsoft Docs'
+title: 'Tutorial: Azure Ative Directory integração única de sign-on (SSO) com uniFLOW Online | Microsoft Docs'
 description: Saiba como configurar um único sinal de entrada entre o Azure Ative Directory e o uniFLOW Online.
 services: active-directory
 author: jeevansd
@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/02/2019
+ms.date: 02/04/2021
 ms.author: jeedes
-ms.openlocfilehash: fc1317ffce7c958f092ad01feff473e123581439
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 0b048e0cb282332c47dade7f13162012d4a0f526
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92521769"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101654142"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-uniflow-online"></a>Tutorial: Azure Ative Directy integração única (SSO) com uniFLOW Online
 
@@ -25,8 +25,6 @@ Neste tutorial, você vai aprender a integrar uniFLOW Online com Azure Ative Dir
 * Controlo em Azure AD que tem acesso a uniFLOW Online.
 * Capacitar os seus utilizadores a iniciar súmido no uniFLOW Online com as suas contas AD Azure.
 * Gerencie as suas contas numa localização central - o portal Azure.
-
-Para saber mais sobre a integração da aplicação SaaS com a Azure AD, consulte o que é o acesso à [aplicação e o único sign-on com o Azure Ative Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -41,42 +39,43 @@ Neste tutorial, você configura e testa Azure AD SSO em um ambiente de teste.
 
 * uniFLOW Online suporta **SSO** iniciado SP
 
-## <a name="adding-uniflow-online-from-the-gallery"></a>Adicionar uniFLOW Online da galeria
+## <a name="add-uniflow-online-from-the-gallery"></a>Adicionar uniFLOW Online da galeria
 
 Para configurar a integração do uniFLOW Online no AD Azure, é necessário adicionar uniFLOW Online da galeria à sua lista de aplicações geridas pelo SaaS.
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
+1. Inscreva-se no portal Azure usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
 1. No painel de navegação à esquerda, selecione o serviço **Azure Ative Directory.**
 1. Navegue para **aplicações empresariais** e, em seguida, selecione **Todas as Aplicações**.
 1. Para adicionar nova aplicação, selecione **Nova aplicação**.
 1. Na secção Adicionar a partir da secção **de galeria,** **escreva uniFLOW Online** na caixa de pesquisa.
 1. Selecione **uniFLOW Online** do painel de resultados e, em seguida, adicione a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-uniflow-online"></a>Configure e teste Azure AD único sinal de entrada para uniFLOW Online
+## <a name="configure-and-test-azure-ad-sso-for-uniflow-online"></a>Configure e teste Azure AD SSO para uniFLOW Online
 
 Configure e teste Azure AD SSO com uniFLOW Online usando um utilizador de teste chamado **B.Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador AZure AD e o utilizador relacionado no uniFLOW Online.
 
-Para configurar e testar o Azure AD SSO com uniFLOW Online, complete os seguintes blocos de construção:
+Para configurar e testar o Azure AD SSO com uniFLOW Online, execute os seguintes passos:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
    1. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com B.Simon.
    1. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que b.Simon utilize um único sinal de Ad AD.
 1. **[Configure uniFLOW Online SSO](#configure-uniflow-online-sso)** - para configurar as definições de inscrição única no lado da aplicação.
-    * **[Inscreva-se no uniFLOW Online utilizando o utilizador de teste criado](#sign-in-to-uniflow-online-using-the-created-test-user)** - para testar o pedido de entrada do utilizador no lado da aplicação.
+    1. **[Inscreva-se no uniFLOW Online utilizando o utilizador de teste criado](#sign-in-to-uniflow-online-using-the-created-test-user)** - para testar o pedido de entrada do utilizador no lado da aplicação.
+1. **[Teste SSO](#test-sso)** - para verificar se a configuração funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
 Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
-1. No [portal Azure,](https://portal.azure.com/)na página **uniFLOW de** integração de aplicações online, encontre a secção **Gerir** e selecione um único sinal **de sação**.
+1. No portal Azure, na página **uniFLOW de** integração de aplicações online, encontre a secção **Gerir** e selecione um único sinal **de sação**.
 1. Na página de método **de inscrição** única, selecione **SAML**.
-1. No **set-on único com** a página SAML, clique no ícone edit/pen para **Configuração SAML Básica** para editar as definições.
+1. No **set-on único com** a página SAML, clique no ícone de lápis para **configuração SAML Básica** para editar as definições.
 
    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
 1. Na secção **Configuração Básica SAML,** insira os valores para os seguintes campos:
 
-    a. Na caixa de texto **URL, digite** um URL utilizando o seguinte padrão:
+    a. Na caixa de texto **URL, digite** um URL utilizando um dos seguintes padrões:
 
     - `https://<tenant_domain_name>.eu.uniflowonline.com`
     - `https://<tenant_domain_name>.us.uniflowonline.com`
@@ -84,7 +83,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     - `https://<tenant_domain_name>.jp.uniflowonline.com`
     - `https://<tenant_domain_name>.au.uniflowonline.com`
 
-    b. Na caixa de texto **identifier (Entity ID),** digite um URL utilizando o seguinte padrão:
+    b. Na caixa de texto **identifier (Entity ID),** digite um URL utilizando um dos seguintes padrões:
 
     - `https://<tenant_domain_name>.eu.uniflowonline.com`
     - `https://<tenant_domain_name>.us.uniflowonline.com`
@@ -101,7 +100,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Além de acima, a aplicação uniFLOW Online espera que alguns mais atributos sejam repercutidos na resposta SAML que são mostrados abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com os seus requisitos.
 
-    | Nome |  Atributo de origem|
+    | Name |  Atributo de origem|
     | -----------| --------------- |
     | nome de exibição | user.displayname |
     | apelido | user.onpremisessamaccountname |
@@ -129,18 +128,12 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
 
 Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso ao uniFLOW Online.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de candidaturas, selecione **uniFLOW Online.**
-1. Na página geral da aplicação, vá à secção **Gerir** e selecione **Utilizadores e grupos**.
-
-   ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
-
+1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 1. **Selecione Adicionar utilizador,** em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
-
-   ![O link do utilizador adicionar](common/add-assign-user.png)
-
 1. No diálogo **de Utilizadores e grupos,** selecione **B.Simon** da lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
-1. Se estiver à espera de qualquer valor de função na afirmação SAML, no diálogo **'Fun's Select,** selecione a função adequada para o utilizador da lista e, em seguida, clique no botão **Selecione** na parte inferior do ecrã.
+1. Se estiver à espera que uma função seja atribuída aos utilizadores, pode selecioná-la a partir do Dropdown de **função** Select. Se não tiver sido configurada qualquer função para esta aplicação, vê a função "Acesso Predefinido" selecionada.
 1. No diálogo **'Adicionar Atribuição',** clique no botão **'Atribuir'.**
 
 > [!NOTE]
@@ -152,19 +145,19 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. A partir do painel de navegação esquerdo, selecione **o separador Utilizador.**
 
-    ![A screenshot mostra o utilizador selecionado a partir do site uniflow Online.](./media/uniflow-online-tutorial/configure1.png)
+    ![A screenshot mostra o utilizador selecionado a partir do site uniflow Online.](./media/uniflow-online-tutorial/configure-1.png)
 
 1. Clique **em fornecedores de identidade.**
 
-    ![A screenshot mostra fornecedores de identidade selecionados.](./media/uniflow-online-tutorial/configure2.png)
+    ![A screenshot mostra fornecedores de identidade selecionados.](./media/uniflow-online-tutorial/configure-2.png)
 
 1. Clique no **Adicionar fornecedor de identidade.**
 
-    ![Screenshot mostra Adicionar fornecedor de identidade selecionado.](./media/uniflow-online-tutorial/configure3.png)
+    ![Screenshot mostra Adicionar fornecedor de identidade selecionado.](./media/uniflow-online-tutorial/configure-3.png)
 
 1. Na secção **ADD IDENTITY PROVIDER,** execute os seguintes passos:
 
-    ![A screenshot mostra a secção ADD IDENTITY PROVIDER onde pode introduzir os valores descritos.](./media/uniflow-online-tutorial/configure4.png)
+    ![A screenshot mostra a secção ADD IDENTITY PROVIDER onde pode introduzir os valores descritos.](./media/uniflow-online-tutorial/configure-4.png)
 
     a. Introduza o nome de exibição Ex: *AzureAD SSO*.
 
@@ -176,7 +169,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. No separador **Geral,** execute os seguintes passos:
 
-    ![A screenshot mostra o separador Geral onde pode introduzir os valores descritos.](./media/uniflow-online-tutorial/configure5.png)
+    ![A screenshot mostra o separador Geral onde pode introduzir os valores descritos.](./media/uniflow-online-tutorial/configure-5.png)
 
     a. Introduza o nome de exibição Ex: *AzureAD SSO*.
 
@@ -198,12 +191,16 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. Inscreva-se utilizando o utilizador de teste.
 
-## <a name="additional-resources"></a>Recursos adicionais
+## <a name="test-sso"></a>Teste SSO
 
-- [ Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure ](./tutorial-list.md)
+Nesta secção, testa a configuração de um único sinal de inscrição Azure AD com as seguintes opções. 
 
-- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory? ](../manage-apps/what-is-single-sign-on.md)
+* Clique em **Testar esta aplicação** no portal Azure. Isto irá redirecionar para o URL de inscrição online uniFLOW, onde pode iniciar o fluxo de login. 
 
-- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)
+* Vá diretamente para o URL de inscrição online uniFLOW e inicie o fluxo de login a partir daí.
 
-- [Experimente uniFLOW Online com Azure AD](https://aad.portal.azure.com/)
+* Pode utilizar as minhas apps do Microsoft. Quando clicar no azulejo uniFLOW online nas Minhas Apps, este será redirecionado para o URL de inscrição online uniFLOW. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+
+## <a name="next-steps"></a>Passos seguintes
+
+Uma vez configurado uniFLOW Online, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

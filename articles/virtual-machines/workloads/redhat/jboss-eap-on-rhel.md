@@ -4,16 +4,17 @@ description: Como implementar aplicações java da empresa utilizando o Red Hat 
 author: theresa-nguyen
 ms.author: bicnguy
 ms.topic: quickstart
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: redhat
+ms.collection: linux
 ms.assetid: 8a4df7bf-be49-4198-800e-db381cda98f5
 ms.date: 10/30/2020
-ms.openlocfilehash: bd6ff46807c22309679ba7e8518685bb05cc77e2
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.openlocfilehash: 4027e9c336d938c3877e56b0eb59edea6ac1d992
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97830722"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101671979"
 ---
 # <a name="deploy-enterprise-java-applications-to-azure-with-jboss-eap-on-red-hat-enterprise-linux"></a>Implementar aplicações Java empresariais no Azure com o JBoss EAP no Red Hat Enterprise Linux
 

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 1/17/2021
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: c8a5666d373852da5ff79490f435b2d66d5cc6e0
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: b817cfc347ee79ff7c9cbb4124e3f2b7e4d2b7ee
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99090371"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101644260"
 ---
 # <a name="tutorial-configure-keyless-with-azure-active-directory-b2c"></a>Tutorial: Configurar Keyless com Azure Ative Directory B2C
 
@@ -30,7 +30,7 @@ Para começar, vai precisar de:
 
 - Uma subscrição do Azure. Se não tiver uma subscrição, pode obter uma [conta gratuita.](https://azure.microsoft.com/free/)
 
-- Um [inquilino Azure AD B2C.](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant) O inquilino deve estar ligado à sua assinatura Azure.
+- Um [inquilino Azure AD B2C.](./tutorial-create-tenant.md) O inquilino deve estar ligado à sua assinatura Azure.
 
 - Um inquilino de nuvem sem chave, obtenha uma [conta de teste](https://keyless.io/go)grátis.
 
@@ -50,7 +50,7 @@ O seguinte diagrama de arquitetura mostra a implementação.
 
 ![Imagem mostra diagrama de arquitetura keyless](./media/partner-keyless/keyless-architecture-diagram.png)
 
-|Passo | Description |
+|Passo | Descrição |
 |:-----| :-----------|
 | 1. | O utilizador chega a uma página de login. Os utilizadores selecionam o pré-in/inscrição e introduzem o nome de utilizador
 | 2. | A aplicação envia os atributos do utilizador ao Azure AD B2C para verificação de identidade.
@@ -157,6 +157,6 @@ Deverá agora ver Keyless como um novo fornecedor de identidade OIDC listado nos
 
 Para obter informações adicionais, reveja os seguintes artigos:
 
-- [Políticas personalizadas no Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Políticas personalizadas no Azure AD B2C](./custom-policy-overview.md)
 
-- [Começar com políticas personalizadas em Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Começar com políticas personalizadas em Azure AD B2C](./custom-policy-get-started.md?tabs=applications)

@@ -4,15 +4,15 @@ description: Saiba como configurar o Azure Private Link para aceder a uma conta 
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 12/16/2020
+ms.date: 03/02/2021
 ms.author: thweiss
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9a6db0d25165059581d7ffafa5b8e7fd19330c87
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: c684bd38f5e82cc53da002278495c2d4a859edc2
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97629651"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101661295"
 ---
 # <a name="configure-azure-private-link-for-an-azure-cosmos-account"></a>Configure Azure Private Link para uma conta Azure Cosmos
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -22,11 +22,11 @@ Ao utilizar o Azure Private Link, pode ligar-se a uma conta Azure Cosmos atravé
 > [!NOTE]
 > O Private Link não impede que os seus pontos finais do Azure Cosmos sejam resolvidos pelo DNS público. A filtragem dos pedidos de entrada ocorre ao nível da aplicação, não ao nível do transporte ou da rede.
 
-O Private Link permite que os utilizadores acedam a uma conta Azure Cosmos a partir da rede virtual ou de qualquer rede virtual. Os recursos mapeados para private link também são acessíveis no local através de peering privado através de VPN ou Azure ExpressRoute. 
+O Private Link permite que os utilizadores acedam a uma conta Azure Cosmos a partir da rede virtual ou de qualquer rede virtual. Os recursos mapeados para private link também são acessíveis no local através de peering privado através de VPN ou Azure ExpressRoute.
 
-Pode ligar-se a uma conta Azure Cosmos configurada com Private Link utilizando o método de aprovação automática ou manual. Para saber mais, consulte a secção de fluxo de trabalho de [aprovação](../private-link/private-endpoint-overview.md#access-to-a-private-link-resource-using-approval-workflow) da documentação Private Link. 
+Pode ligar-se a uma conta Azure Cosmos configurada com Private Link utilizando o método de aprovação automática ou manual. Para saber mais, consulte a secção de fluxo de trabalho de [aprovação](../private-link/private-endpoint-overview.md#access-to-a-private-link-resource-using-approval-workflow) da documentação Private Link.
 
-Este artigo descreve os passos para criar um ponto final privado. Assume que está a usar o método de aprovação automática.
+Este artigo descreve como configurar pontos finais privados para a loja transacional Azure Cosmos DB. Assume que está a usar o método de aprovação automática. Se estiver a utilizar a loja analítica, consulte [os pontos finais privados para o artigo da loja analítica.](analytical-store-private-endpoints.md)
 
 ## <a name="create-a-private-endpoint-by-using-the-azure-portal"></a>Criar um ponto final privado utilizando o portal Azure
 
@@ -47,7 +47,7 @@ Utilize os seguintes passos para criar um ponto final privado para uma conta Azu
     | Grupo de recursos | Selecione um grupo de recursos.|
     | **Detalhes da instância** |  |
     | Name | Insira qualquer nome para o seu ponto final privado. Se este nome for tomado, crie um único. |
-    |Região| Selecione a região onde pretende implantar Private Link. Crie o ponto final privado no mesmo local onde existe a sua rede virtual.|
+    |Region| Selecione a região onde pretende implantar Private Link. Crie o ponto final privado no mesmo local onde existe a sua rede virtual.|
     |||
 1. Selecione **Seguinte: Recurso**.
 1. Em **Criar um ponto final privado - Recurso,** insira ou selecione estas informações:
@@ -403,7 +403,7 @@ $deploymentOutput = New-AzResourceGroupDeployment -Name "PrivateCosmosDbEndpoint
 $deploymentOutput
 ```
 
-No script PowerShell, a `GroupId` variável pode conter apenas um valor. Este valor é o tipo API da conta. Os valores permitidos são: `Sql` `MongoDB` , e `Cassandra` `Gremlin` `Table` . Alguns tipos de conta Azure Cosmos são acessíveis através de várias APIs. Por exemplo:
+No script PowerShell, a `GroupId` variável pode conter apenas um valor. Este valor é o tipo API da conta. Os valores permitidos são: `Sql` , , , e `MongoDB` `Cassandra` `Gremlin` `Table` . Alguns tipos de conta Azure Cosmos são acessíveis através de várias APIs. Por exemplo:
 
 * Uma conta API gremlin pode ser acedida a partir de contas de API gremlin e SQL.
 * Uma conta API de tabela pode ser acedida a partir de contas API de Tabela e SQL.
@@ -671,7 +671,7 @@ Aplicam-se as seguintes limitações quando utiliza o Private Link com uma conta
 
 * Quando está a utilizar a API da Azure Cosmos para contas MongoDB, um ponto final privado é suportado para contas apenas na versão 3.6 do servidor (isto é, contas que utilizam o ponto final no `*.mongo.cosmos.azure.com` formato). O Private Link não é suportado para contas na versão 3.2 do servidor (isto é, contas que utilizam o ponto final no `*.documents.azure.com` formato). Para utilizar o Private Link, deverá migrar contas antigas para a nova versão.
 
-* Quando estiver a utilizar uma API da Azure Cosmos para a conta MongoDB que tenha Ligação Privada, algumas ferramentas ou bibliotecas podem não funcionar, uma vez que retiram automaticamente o `appName` parâmetro da cadeia de ligação. Este parâmetro é necessário para ligar à conta sobre um ponto final privado. Algumas ferramentas, como o Visual Studio Code, não removem este parâmetro da cadeia de ligação e são, portanto, compatíveis.
+* Quando estiver a utilizar uma conta AZure Cosmos DB para a conta MongoDB que tenha uma Ligação Privada, as ferramentas/bibliotecas devem suportar a Identificação de Nome de Serviço (SNI) ou passar o `appName` parâmetro da cadeia de ligação para se ligar corretamente. Algumas ferramentas/bibliotecas mais antigas podem não ser compatíveis para utilizar a função De ligação privada.
 
 * Um administrador de rede deve ser concedido pelo menos a `Microsoft.DocumentDB/databaseAccounts/PrivateEndpointConnectionsApproval/action` permissão no âmbito da conta Azure Cosmos para criar pontos finais privados automaticamente aprovados.
 

@@ -1,5 +1,5 @@
 ---
-title: Debug Azure API Management políticas em Código estúdio visual Microsoft Docs
+title: Debug Azure API Políticas de Gestão em Código de Estúdio Visual | Microsoft Docs
 description: Saiba como depurar as políticas de gestão da API da Azure utilizando a extensão do Código do Estúdio Visual de Gestão de API da Azure
 services: api-management
 documentationcenter: ''
@@ -12,21 +12,18 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/22/2020
 ms.author: apimpm
-ms.openlocfilehash: a8ed834c9ab093ae063e386978bca4d73fa46543
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 2e45d1274cf7332dbca70eaa8fc51f0ac98e5359
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400731"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101648021"
 ---
 # <a name="debug-azure-api-management-policies-in-visual-studio-code"></a>Debug Azure API Políticas de Gestão em Código de Estúdio Visual
 
 [As políticas](api-management-policies.md) na Azure API Management fornecem capacidades poderosas que ajudam os editores da API a lidar com preocupações transversais como a autenticação, autorização, estrangulamento, caching e transformação. As políticas são uma coleção de instruções que são executadas sequencialmente no pedido ou na resposta de uma API. 
 
 Este artigo descreve como depurar políticas de gestão da API utilizando a [Extensão de Gestão da API Azure para o Código do Estúdio Visual.](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement) 
-
-> [!NOTE]
-> Esta funcionalidade está em pré-visualização pública.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

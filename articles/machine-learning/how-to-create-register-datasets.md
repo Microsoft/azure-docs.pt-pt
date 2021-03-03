@@ -12,12 +12,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 07/31/2020
-ms.openlocfilehash: 39973fe8c15364dc214392985cecd8b8bc7834ed
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 9a50d8402515cb7aafa9a1b02c8b8c18412f6618
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878210"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101659397"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Criar conjuntos de dados do Azure Machine Learning
 
@@ -25,7 +25,7 @@ Neste artigo, aprende-se a criar conjuntos de dados de Aprendizagem automática 
 
 Ao criar um conjunto de dados, cria uma referência para a localização da origem de dados, juntamente com uma cópia dos metadados. Como os dados permanecem na sua localização existente, não incorre nenhum custo extra de armazenamento e não arrisca a integridade das suas fontes de dados. Também os conjuntos de dados são avaliados preguiçosamente, o que ajuda nas velocidades de desempenho do fluxo de trabalho. Pode criar conjuntos de dados a partir de datastores, URLs públicos e [Conjuntos de Dados Abertos Azure](../open-datasets/how-to-create-azure-machine-learning-dataset-from-open-dataset.md).
 
-Para uma experiência de baixo código, [crie conjuntos de dados de Aprendizagem automática Azure com o estúdio Azure Machine Learning.](how-to-connect-data-ui.md#create-datasets)
+Para uma experiência de baixo código, crie conjuntos de [dados de aprendizagem automática Azure com o estúdio Azure Machine Learning.](how-to-connect-data-ui.md#create-datasets)
 
 Com conjuntos de dados de aprendizagem automática Azure, pode:
 
@@ -82,7 +82,7 @@ Com os Separadores Tabular, pode especificar um carimbo de tempo a partir de uma
 Crie um TabularDataset com o estúdio [Python SDK](#create-a-tabulardataset) ou [Azure Machine Learning](how-to-connect-data-ui.md#create-datasets).
 
 >[!NOTE]
-> Os fluxos de trabalho autoML gerados através do estúdio Azure Machine Learning suportam atualmente apenas Os Separadores Tabular. 
+> [Fluxos de trabalho automatizados de ML](concept-automated-ml.md) gerados através do estúdio Azure Machine Learning suportam atualmente apenas OsDatasets Tabular. 
 
 ## <a name="access-datasets-in-a-virtual-network"></a>Aceder a conjuntos de dados numa rede virtual
 
@@ -90,15 +90,20 @@ Se o seu espaço de trabalho estiver numa rede virtual, tem de configurar o conj
 
 <a name="datasets-sdk"></a>
 
-## <a name="create-datasets"></a>Criar conjuntos de dados
+## <a name="create-datasets-from-datastores"></a>Criar conjuntos de dados a partir de datastores
 
-Para que os dados sejam acessíveis pela Azure Machine Learning, os conjuntos de dados devem ser criados a partir de caminhos nas [datastores Azure](how-to-access-data.md) ou URLs web públicos. 
+Para que os dados sejam acessíveis pela Azure Machine Learning, os conjuntos de dados devem ser criados a partir de caminhos nas lojas de [dados de Aprendizagem de Máquinas Azure](how-to-access-data.md) ou URLs web. 
 
-Para criar conjuntos de dados a partir de uma [loja de dados Azure](how-to-access-data.md) com o Python SDK:
+> [!TIP] 
+> Pode criar conjuntos de dados diretamente a partir de urls de armazenamento com acesso de dados baseados na identidade. Saiba mais no [Connect para armazenamento com acesso de dados baseado na identidade (pré-visualização)](how-to-identity-based-data-access.md)<br><br>
+Esta capacidade é uma funcionalidade de pré-visualização [experimental](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py#stable-vs-experimental) e pode mudar a qualquer momento. 
 
-1. Verifique se tem `contributor` ou `owner` acede à loja de dados Azure registada.
+ 
+Para criar conjuntos de dados a partir de uma datastore com o Python SDK:
 
-2. Crie o conjunto de dados referindo caminhos na datastore. Pode criar um conjunto de dados a partir de vários caminhos em várias datastores. Não existe um limite rígido no número de ficheiros ou tamanho de dados a partir do qual pode criar um conjunto de dados a partir de. 
+1. Verifique se tem `contributor` ou acesso ao serviço de armazenamento subjacente da sua loja de `owner` dados Azure Machine Learning registada. [Consulte as permissões da sua conta de armazenamento no portal Azure](../role-based-access-control/check-access.md).
+
+1. Crie o conjunto de dados referindo caminhos na datastore. Pode criar um conjunto de dados a partir de vários caminhos em várias datastores. Não existe um limite rígido no número de ficheiros ou tamanho de dados a partir do qual pode criar um conjunto de dados a partir de. 
 
 > [!NOTE]
 > Para cada caminho de dados, serão enviados alguns pedidos para o serviço de armazenamento para verificar se aponta para um ficheiro ou uma pasta. Esta sobrecarga pode levar a um desempenho ou falha degradado. Um conjunto de dados que faz referência a uma pasta com 1000 ficheiros no interior é considerado como referenciação de um caminho de dados. Recomendamos a criação de conjuntos de dados que referenciam menos de 100 caminhos nas datastores para um desempenho ideal.
@@ -261,7 +266,7 @@ Há uma série de modelos [https://github.com/Azure/azure-quickstart-templates/t
 Para obter informações sobre a utilização destes modelos, consulte [utilize um modelo de Gestor de Recursos Azure para criar um espaço de trabalho para a aprendizagem de máquinas Azure](how-to-create-workspace-template.md).
 
 
-## <a name="create-datasets-with-azure-open-datasets"></a>Criar conjuntos de dados com conjuntos de dados abertos Azure
+## <a name="create-datasets-from-azure-open-datasets"></a>Criar conjuntos de dados a partir de conjuntos de dados abertos do Azure
 
 [Os conjuntos de dados Azure Open](https://azure.microsoft.com/services/open-datasets/) são conjuntos de dados públicos com curadoria que pode utilizar para adicionar funcionalidades específicas de cenários a soluções de machine learning para modelos mais precisos. Os conjuntos de dados incluem dados de domínio público para o tempo, recenseamento, feriados, segurança pública e localização que o ajudam a treinar modelos de aprendizagem automática e a enriquecer soluções preditivas. Os Conjuntos de Dados Abertos estão na nuvem no Microsoft Azure e estão incluídos tanto no SDK como no estúdio.
 
@@ -269,7 +274,7 @@ Saiba como criar [conjuntos de dados de aprendizagem de máquinas Azure a partir
 
 ## <a name="train-with-datasets"></a>Preparar com conjuntos de dados
 
-Utilize os seus conjuntos de dados nas suas experiências de aprendizagem automática para treinar modelos ML. [Saiba mais sobre como treinar com conjuntos de dados](how-to-train-with-datasets.md)
+Utilize os seus conjuntos de dados nas suas experiências de aprendizagem automática para treinar modelos ML. [Saiba mais sobre como treinar com conjuntos de dados.](how-to-train-with-datasets.md)
 
 ## <a name="version-datasets"></a>Conjuntos de dados de versão
 
@@ -287,7 +292,7 @@ titanic_ds = titanic_ds.register(workspace = workspace,
                                  create_new_version = True)
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba [como treinar com conjuntos de dados.](how-to-train-with-datasets.md)
 * Utilize machine learning automatizado para [treinar com OsDatasets Tabular](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb).

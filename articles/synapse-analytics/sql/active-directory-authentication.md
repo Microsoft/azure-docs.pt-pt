@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 962e0e734abd73f5a66f9b9ee6067155dd839e5d
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 92d06a95dcd32501a05dfd50e81f768f59742bd5
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98118290"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101674330"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-synapse-sql"></a>Utilize autenticação de diretório ativo Azure para autenticação com Sinapse SQL
 
@@ -30,7 +30,7 @@ Com a autenticação AZure AD, pode gerir centralmente as identidades dos utiliz
 - A Azure AD suporta a autenticação baseada em símbolos para aplicações que se ligam ao Azure Synapse.
 - A autenticação AZure AD suporta a autenticação ADFS (federação de domínio) ou a autenticação nativa do utilizador/palavra-passe para um Diretório Ativo Azure local sem sincronização de domínio.
 - O Azure Active Directory suporta ligações do SQL Server Management Studio que utilizam a Autenticação Universal do Active Directory, o que inclui a Multi-Factor Authentication (MFA).  O MFA inclui a autenticação forte com um leque de opções de verificação fáceis, incluindo chamada telefónica, mensagem de texto, cartões inteligentes com pin ou notificação de aplicações móveis. Para mais informações, consulte [o suporte SSMS para Azure AD MFA com Synapse SQL](mfa-authentication.md).
-- O Azure Active Directory suporta ligações semelhante do SQL Server Data Tools (SSDT), que utilizam a Autenticação Interativa do Active Directory. Para obter mais informações, veja [Azure Active Directory support in SQL Server Data Tools (SSDT)](/sql/ssdt/azure-active-directory?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)(Suporte do Azure Active Directory no SQL Server Data Tools [SSDT]).
+- O Azure Active Directory suporta ligações semelhante do SQL Server Data Tools (SSDT), que utilizam a Autenticação Interativa do Active Directory. Para obter mais informações, veja [Azure Active Directory support in SQL Server Data Tools (SSDT)](/sql/ssdt/azure-active-directory?view=azure-sqldw-latest&preserve-view=true)(Suporte do Azure Active Directory no SQL Server Data Tools [SSDT]).
 
 As etapas de configuração incluem os seguintes procedimentos para configurar e utilizar a autenticação do Azure Ative Directory.
 
@@ -81,12 +81,12 @@ Qualquer autenticação AZure AD só é possível se o administrador AD AD Azure
 
 - Os seguintes membros da Azure AD podem ser a provisionados na Synapse SQL:
 
-  - Membros nativos: Um membro criado em Azure AD no domínio gerido ou no domínio do cliente. Para obter mais informações, consulte [Adicionar o seu próprio nome de domínio ao Azure AD](../../active-directory/fundamentals/add-custom-domain.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+  - Membros nativos: Um membro criado em Azure AD no domínio gerido ou no domínio do cliente. Para obter mais informações, consulte [Adicionar o seu próprio nome de domínio ao Azure AD](../../active-directory/fundamentals/add-custom-domain.md).
   - Membros de domínio federado: Um membro criado em Azure AD com um domínio federado. Para obter mais informações, consulte [o Microsoft Azure agora suporta a federação com o Windows Server Ative Directory](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/).
   - Membros importados de outros ADs Azure que são membros de domínio nativo ou federado.
   - Grupos de diretório ativo criados como grupos de segurança.
 
-- Os utilizadores de AD Azure que fazem parte de um grupo que tem função de `db_owner` servidor não podem usar a sintaxe **[CREDENTIAL CREATE DATABASE SCOPED](/sql/t-sql/statements/create-database-scoped-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)** contra o Synapse SQL. Verá o seguinte erro:
+- Os utilizadores de AD Azure que fazem parte de um grupo que tem função de `db_owner` servidor não podem usar a sintaxe **[CREDENTIAL CREATE DATABASE SCOPED](/sql/t-sql/statements/create-database-scoped-credential-transact-sql?view=azure-sqldw-latest&preserve-view=true)** contra o Synapse SQL. Verá o seguinte erro:
 
     `SQL Error [2760] [S0001]: The specified schema name 'user@mydomain.com' either does not exist or you do not have permission to use it.`
 
@@ -123,13 +123,13 @@ Os seguintes métodos de autenticação são suportados para os principais servi
 - Apenas um administrador AD AZure para o SYNAPSE SQL pode inicialmente ligar-se ao Synapse SQL utilizando uma conta do Azure Ative Directory. O administrador ative directory pode configurar os utilizadores subsequentes da base de dados Azure AD.
 - Recomendamos que se ajuste o tempo limite de ligação para 30 segundos.
 - SQL Server 2016 Management Studio e SQL Server Data Tools for Visual Studio 2015 (versão 14.0.60311.1April 2016 ou posterior) suportam a autenticação do Azure Ative Directory. (A autenticação AZURE AD é suportada pelo **Fornecedor de Dados-Quadro .NET para SqlServer**; pelo menos versão .NET Framework 4.6). Assim, as versões mais recentes destas ferramentas e aplicações de nível de dados (DAC e . BACPAC) pode utilizar a autenticação AD AZure.
-- Começando com a versão 15.0.1, [utilitário sqlcmd](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) e suporte [de utilitário do BCP](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) Ative Directy Interactive autenticação com MFA.
-- As Ferramentas de Dados do Servidor SQL para o Visual Studio 2015 requerem pelo menos a versão abril de 2016 das Ferramentas de Dados (versão 14.0.60311.1). Atualmente, os utilizadores de AZure AD não são mostrados no SSDT Object Explorer. Como solução alternativa, veja os utilizadores em [sys.database_principals](/sql/relational-databases/system-catalog-views/sys-database-principals-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
-- [O Microsoft JDBC Driver 6.0 para o SQL Server](https://www.microsoft.com/download/details.aspx?id=11774) suporta a autenticação AD AZure. Consulte também [a Definição das Propriedades de Ligação](/sql/connect/jdbc/setting-the-connection-properties?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
+- Começando com a versão 15.0.1, [utilitário sqlcmd](/sql/tools/sqlcmd-utility?view=azure-sqldw-latest&preserve-view=true) e suporte [de utilitário do BCP](/sql/tools/bcp-utility?view=azure-sqldw-latest&preserve-view=true) Ative Directy Interactive autenticação com MFA.
+- As Ferramentas de Dados do Servidor SQL para o Visual Studio 2015 requerem pelo menos a versão abril de 2016 das Ferramentas de Dados (versão 14.0.60311.1). Atualmente, os utilizadores de AZure AD não são mostrados no SSDT Object Explorer. Como solução alternativa, veja os utilizadores em [sys.database_principals](/sql/relational-databases/system-catalog-views/sys-database-principals-transact-sql?view=azure-sqldw-latest&preserve-view=true).
+- [O Microsoft JDBC Driver 6.0 para o SQL Server](https://www.microsoft.com/download/details.aspx?id=11774) suporta a autenticação AD AZure. Consulte também [a Definição das Propriedades de Ligação](/sql/connect/jdbc/setting-the-connection-properties?view=azure-sqldw-latest&preserve-view=true).
 
 ## <a name="next-steps"></a>Passos seguintes
 
 - Para obter uma visão geral do acesso e controlo em Synapse SQL, consulte [o controlo de acesso Sinaapse SQL](../security/synapse-workspace-access-control-overview.md).
-- Para obter mais informações sobre os principais de bases de dados, veja [Principals (Principais)](/sql/relational-databases/security/authentication-access/principals-database-engine?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
-- Para obter mais informações sobre as funções de base de dados, veja [Database roles (Funções de base de dados)](/sql/relational-databases/security/authentication-access/database-level-roles?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
+- Para obter mais informações sobre os principais de bases de dados, veja [Principals (Principais)](/sql/relational-databases/security/authentication-access/principals-database-engine?view=azure-sqldw-latest&preserve-view=true).
+- Para obter mais informações sobre as funções de base de dados, veja [Database roles (Funções de base de dados)](/sql/relational-databases/security/authentication-access/database-level-roles?view=azure-sqldw-latest&preserve-view=true).
 

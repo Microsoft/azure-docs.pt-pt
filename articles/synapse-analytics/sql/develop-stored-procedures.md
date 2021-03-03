@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 11/03/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 3940d762dbc249e0303ddf905acbeeed7f96aa4f
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 083077b2b29bc415e83d6f5a76941fa83fa853e3
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93315562"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101674156"
 ---
 # <a name="stored-procedures-using-synapse-sql-in-azure-synapse-analytics"></a>Procedimentos armazenados utilizando o SQL synapse em Azure Synapse Analytics
 
@@ -181,7 +181,7 @@ EXEC clean_up 'mytest'  -- This call is nest level 1
 ```
 
 > [!NOTE]
-> O Sinaapse SQL não suporta atualmente [@ @NESTLEVEL ](/sql/t-sql/functions/nestlevel-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). Tens de seguir o nível do ninho. É pouco provável que ultrapasse o limite de oito ninhos, mas se o fizer, tem de reformular o seu código para encaixar nos níveis de nidificação dentro deste limite.
+> O Sinaapse SQL não suporta atualmente [@ @NESTLEVEL ](/sql/t-sql/functions/nestlevel-transact-sql?view=azure-sqldw-latest&preserve-view=true). Tens de seguir o nível do ninho. É pouco provável que ultrapasse o limite de oito ninhos, mas se o fizer, tem de reformular o seu código para encaixar nos níveis de nidificação dentro deste limite.
 
 ## <a name="insertexecute"></a>INSERT..EXEBONITO
 
@@ -193,18 +193,18 @@ Existem alguns aspetos dos procedimentos armazenados transact-SQL que não são 
 
 | Recurso/opção | Aprovisionado | Sem servidor |
 | --- | --- |
-| Procedimentos temporários armazenados | No | Yes |
-| Procedimentos armazenados numerados | No | No |
-| Procedimentos armazenados expandidos | No | No |
-| Procedimentos armazenados do CLR | No | No |
-| Opção de encriptação | No | Yes |
-| Opção de replicação | No | No |
-| Parâmetros de valor de tabela | No | No |
-| Parâmetros apenas de leitura | No | No |
-| Parâmetros padrão | No | Yes |
-| Contextos de execução | No | No |
-| Declaração de devolução | No | Yes |
-| INSIRA EM .. EXEC | No | Sim |
+| Procedimentos temporários armazenados | Não | Sim |
+| Procedimentos armazenados numerados | Não | Não |
+| Procedimentos armazenados expandidos | Não | Não |
+| Procedimentos armazenados do CLR | Não | Não |
+| Opção de encriptação | Não | Sim |
+| Opção de replicação | Não | Não |
+| Parâmetros de valor de tabela | Não | Não |
+| Parâmetros apenas de leitura | Não | Não |
+| Parâmetros padrão | Não | Sim |
+| Contextos de execução | Não | Não |
+| Declaração de devolução | Não | Sim |
+| INSIRA EM .. EXEC | Não | Sim |
 
 ## <a name="next-steps"></a>Próximos passos
 

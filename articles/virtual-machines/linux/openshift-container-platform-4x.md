@@ -3,18 +3,19 @@ title: Implementar plataforma de contentores openshift 4.x em Azure
 description: Implementar a Plataforma de Recipientes OpenShift 4.x em Azure.
 author: haroldwongms
 manager: mdotson
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: openshift
+ms.collection: linux
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.openlocfilehash: f2fb1657c26fce3e1fdd67f36b0c6511b78dd216
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e8650802b4add9b33664205367bb3242b32b9754
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87373543"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101670386"
 ---
 # <a name="deploy-openshift-container-platform-4x-in-azure"></a>Implementar plataforma de contentores openshift 4.x em Azure
 

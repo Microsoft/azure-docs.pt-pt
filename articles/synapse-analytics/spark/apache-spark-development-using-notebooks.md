@@ -10,12 +10,12 @@ ms.date: 10/19/2020
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: devx-track-python
-ms.openlocfilehash: 57999ce53e536d422e6502a77aaccdc66b4c5077
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: d5ff3fb988a7e907308ccccc8d0900d45a0601c0
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98898499"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101671598"
 ---
 # <a name="create-develop-and-maintain-synapse-studio-notebooks-in-azure-synapse-analytics"></a>Criar, desenvolver e manter os cadernos do Estúdio Synapse em Azure Synapse Analytics
 
@@ -149,10 +149,10 @@ As características do IntelliSense estão em diferentes níveis de maturidade p
 
 |Idiomas| Destaque de sintaxe | Marcador de erro de sintaxe  | Conclusão do Código sintaxe | Conclusão do código variável| Conclusão do código de função do sistema| Conclusão do código de função do utilizador| Avanço Inteligente | Dobragem de código|
 |--|--|--|--|--|--|--|--|--|
-|PySpark (Python)|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
-|Apache Spark (Scala)|Yes|Yes|Yes|Yes|-|-|-|Yes|
-|Sparksql|Yes|Yes|-|-|-|-|-|-|
-|.NET for Spark (C#)|Yes|-|-|-|-|-|-|-|
+|PySpark (Python)|Sim|Sim|Sim|Sim|Sim|Sim|Sim|Sim|
+|Apache Spark (Scala)|Sim|Sim|Sim|Sim|-|-|-|Sim|
+|Sparksql|Sim|Sim|-|-|-|-|-|-|
+|.NET for Spark (C#)|Sim|-|-|-|-|-|-|-|
 
 ### <a name="format-text-cell-with-toolbar-buttons"></a>Célula de texto de formato com botões de barra de ferramentas
 
@@ -549,10 +549,10 @@ Utilizando os seguintes atalhos de teclas, pode navegar e executar código mais 
 
 ---
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - [Confira os cadernos da amostra da Sinapse](https://github.com/Azure-Samples/Synapse/tree/master/Notebooks)
 - [Quickstart: Criar uma piscina Apache Spark em Azure Synapse Analytics usando ferramentas web](../quickstart-apache-spark-notebook.md)
 - [O que é Apache Spark em Azure Synapse Analytics](apache-spark-overview.md)
 - [Utilizar o .NET para Apache Spark com o Azure Synapse Analytics](spark-dotnet.md)
-- [.NET para documentação Apache Spark](/dotnet/spark?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+- [.NET para documentação Apache Spark](/dotnet/spark)
 - [Azure Synapse Analytics](../index.yml)

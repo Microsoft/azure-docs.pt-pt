@@ -5,15 +5,16 @@ author: cynthn
 ms.author: cynthn
 ms.date: 05/29/2020
 ms.topic: how-to
-ms.service: virtual-machines-windows
-ms.subservice: imaging
+ms.service: virtual-machines
+ms.subervice: image-builder
+ms.colletion: windows
 ms.reviewer: danis
-ms.openlocfilehash: f4f55e9a5d08b2c2cd14b1ca94efac15f84f1978
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 8700a43ca026b45dbbf7a3db1ea580ba7b5a3dd9
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879532"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101669106"
 ---
 # <a name="use-azure-image-builder-for-windows-vms-allowing-access-to-an-existing-azure-vnet"></a>Utilize o Azure Image Builder para VMs windows permitindo o acesso a um Azure VNET existente
 
@@ -294,6 +295,6 @@ Remove-AzResourceGroup $imageResourceGroup -Force
 # BEWARE!!!!! In this example, you have either used an existing VNET or created one for this example. Do not delete your existing VNET. If you want to delete the VNET Resource group used in this example '$vnetRgName', modify the above code.
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre [galerias de imagem partilhadas Azure.](../shared-image-galleries.md)

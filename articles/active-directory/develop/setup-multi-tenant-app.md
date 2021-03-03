@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 07/15/2019
 ms.author: ryanwi
 ROBOTS: NOINDEX
-ms.openlocfilehash: 9564727cfe59f243fd1096c93d7eadf1d830be9e
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 9c6272901600886958d4339d067ca75bb9a73793
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99052554"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101649126"
 ---
 # <a name="how-to-configure-a-new-multi-tenant-application"></a>Como configurar uma nova aplicação multi-inquilino
 
@@ -29,4 +29,4 @@ Aqui está uma lista de tópicos recomendados para saber mais sobre aplicações
 - Para obter mais profundidade, saiba [como uma aplicação multi-arrendatário é configurada e codificada de ponta a ponta,](./howto-convert-app-to-be-multi-tenant.md)incluindo como registar- se, usar o ponto final "comum", implementar o consentimento "utilizador" e "administrador", como implementar cenários multi-camadas mais avançados
 
 ## <a name="next-steps"></a>Passos seguintes
-[AzureAD Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-active-directory.html)
+[AzureAD Microsoft Q&A](/answers/topics/azure-active-directory.html)

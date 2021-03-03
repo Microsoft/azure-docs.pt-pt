@@ -10,12 +10,12 @@ ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
 ms.custom: has-adal-ref
-ms.openlocfilehash: 511d5841652b1f7b6487a42341ec392cb86d2b3a
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 7b3b8aae1345339dc34137550f3fe4c5be915ae5
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98120381"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101672726"
 ---
 # <a name="use-multi-factor-aad-authentication-with-synapse-sql-ssms-support-for-mfa"></a>Utilize a autenticação AAD multi-factor com sinaapse SQL (suporte SSMS para MFA)
 
@@ -23,7 +23,7 @@ Ligações de suporte Sinaapse SQL do SQL Server Management Studio (SSMS) utiliz
 
 Este artigo discute as diferenças entre as várias opções de autenticação, bem como as limitações associadas à utilização da Autenticação Universal. 
 
-**Descarregue o mais recente SSMS** - No computador cliente, descarregue a versão mais recente do SSMS, do [Download SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
+**Descarregue o mais recente SSMS** - No computador cliente, descarregue a versão mais recente do SSMS, do [Download SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms?view=azure-sqldw-latest&preserve-view=true).
 
 Para todas as funcionalidades discutidas neste artigo, use pelo menos julho de 2017, versão 17.2.  A mais recente caixa de diálogo de ligação deve ser semelhante à seguinte imagem:
 
@@ -46,11 +46,11 @@ O método interativo é que também suporta a autenticação multi-factor Azure 
 
 A MFA do Azure AD ajuda a salvaguardar o acesso a dados e aplicações, satisfazendo, em simultâneo, a necessidade dos utilizadores de terem um processo de início de sessão simples. Oferece uma autenticação forte com um leque de opções de verificação fáceis (chamada telefónica, mensagem de texto, cartões inteligentes com pin ou notificação de aplicações móveis), permitindo que os utilizadores escolham o método que preferem. O MFA interativo com Azure AD pode resultar numa caixa de diálogo pop-up para validação.
 
-Para obter uma descrição da autenticação multi-factor, consulte [a autenticação multi-factor.](../../active-directory/authentication//concept-mfa-howitworks.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+Para obter uma descrição da autenticação multi-factor, consulte [a autenticação multi-factor.](../../active-directory/authentication//concept-mfa-howitworks.md)
 
 ### <a name="azure-ad-domain-name-or-tenant-id-parameter"></a>Nome de domínio AD azul ou parâmetro de identificação do inquilino
 
-Começando pela [versão SSMS 17,](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)os utilizadores que são importados para o atual Diretório Ativo de outros Diretórios Azure Ative como utilizadores convidados, podem fornecer o nome de domínio AD Azure ou ID do inquilino quando se conectam. 
+Começando pela [versão SSMS 17,](/sql/ssms/download-sql-server-management-studio-ssms?view=azure-sqldw-latest&preserve-view=true)os utilizadores que são importados para o atual Diretório Ativo de outros Diretórios Azure Ative como utilizadores convidados, podem fornecer o nome de domínio AD Azure ou ID do inquilino quando se conectam. 
 
 Os utilizadores convidados incluem utilizadores convidados de outros ADs Azure, contas da Microsoft como outlook.com, hotmail.com, live.com ou outras contas como gmail.com. Esta informação permite ao **Ative Directory Universal com Autenticação MFA** identificar a autoridade de autenticação correta. Esta opção também é necessária para suportar contas microsoft (MSA), tais como contas outlook.com, hotmail.com, live.com ou não MSA. 
 

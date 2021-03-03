@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 11/14/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: a2145c217c19e80c2ca70880e0f9b01ae2ba140e
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 4067fc4e47dce83852af971daae6cda3933d0e39
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202577"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101667171"
 ---
 # <a name="linux-virtual-machines-in-azure"></a>Máquinas virtuais do Linux no Azure
 
@@ -51,10 +51,6 @@ Esta tabela apresenta algumas das formas de obter uma lista de localizações di
 | Azure PowerShell |Use o comando [Get-AzLocation.](/powershell/module/az.resources/get-azlocation) |
 | API REST |Utilize a operação [Listar localizações](/rest/api/resources/subscriptions). |
 | CLI do Azure |Utilize a operação [az account list-locations](/cli/azure/account). |
-
-### <a name="singapore-data-residency"></a>Residência de dados de Singapura
-
-Em Azure, a funcionalidade para permitir o armazenamento de dados de clientes numa única região está atualmente apenas disponível na Região do Sudeste Asiático (Singapura) da Asia Pacific Geo. Para todas as outras regiões, os dados dos clientes são armazenados na Geo. Para mais informações, consulte [o Trust Center.](https://azuredatacentermap.azurewebsites.net/)
 
 ## <a name="availability"></a>Disponibilidade
 O Azure anunciou um Contrato de Nível de Serviço líder da indústria de 99,9% para máquinas virtuais de instância única, desde que implemente a VM com armazenamento premium para todos os discos.  Para a sua implementação se qualificar para o Contrato de Nível de Serviço de VM de 99,95% standard, continua a ter de implementar duas ou mais VMs que executem a sua carga de trabalho num conjunto de disponibilidade. Um conjunto de disponibilidade garante que as suas VMs são distribuídas em vários domínios de falha nos datacenters do Azure, bem como implementadas em anfitriões com diferentes janelas de manutenção. O [SLA do Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) completo explica a disponibilidade garantida do Azure em termos globais.
@@ -119,7 +115,7 @@ O Azure suporta [a inibição de nuvens na](https://cloud-init.io/) maioria dos 
 
 ## <a name="data-residency"></a>Residência dos dados
 
-Em Azure, a funcionalidade para permitir o armazenamento de dados de clientes numa única região está atualmente disponível apenas na Região do Sudeste Asiático (Singapura) da Região Ásia-Pacífico Geo e Brasil Sul (Estado de São Paulo) do Brasil Geo. Para todas as outras regiões, os dados dos clientes são armazenados na Geo. Para mais informações, consulte [o Trust Center.](https://azuredatacentermap.azurewebsites.net/)
+Em Azure, a funcionalidade para permitir o armazenamento de dados de clientes numa única região está atualmente disponível apenas na Região do Sudeste Asiático (Singapura) da Região Ásia-Pacífico Geo e Brasil Sul (Estado de São Paulo) do Brasil Geo. Para todas as outras regiões, os dados dos clientes são armazenados na Geo. Para mais informações, consulte [o Trust Center.](https://azure.microsoft.com/global-infrastructure/data-residency/)
 
 
 ## <a name="next-steps"></a>Passos seguintes

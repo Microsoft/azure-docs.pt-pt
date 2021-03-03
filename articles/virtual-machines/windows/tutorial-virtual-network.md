@@ -10,12 +10,12 @@ ms.workload: infrastructure
 ms.date: 08/04/2020
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 963a84c55a5433a204f387d1936eb7ceee60d913
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 9552e9c6deaabc9c847a8fbd26b1246b073dcc1b
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98730044"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101673285"
 ---
 # <a name="tutorial-create-and-manage-azure-virtual-networks-for-windows-virtual-machines-with-azure-powershell"></a>Tutorial: Criar e gerir redes virtuais do Azure para máquinas virtuais do Windows com o Azure PowerShell
 
@@ -269,7 +269,7 @@ New-AzVM `
 
 A imagem neste exemplo tem SQL Server instalado, mas não é usado neste tutorial. Está incluído para lhe mostrar como pode configurar um VM para lidar com o tráfego web e um VM para lidar com a gestão de bases de dados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, criou e protegeu redes do Azure relacionadas com máquinas virtuais. 
 
@@ -280,4 +280,4 @@ Neste tutorial, criou e protegeu redes do Azure relacionadas com máquinas virtu
 > * Proteger o tráfego de rede
 > * Criar uma VM de back-end
 
-Para aprender a proteger os seus discos VM, consulte [backup e recuperação de desastres para discos](backup-and-disaster-recovery-for-azure-iaas-disks.md).
+Para aprender a proteger os seus discos VM, consulte [backup e recuperação de desastres para discos](../backup-and-disaster-recovery-for-azure-iaas-disks.md).

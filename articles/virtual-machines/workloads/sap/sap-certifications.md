@@ -1,5 +1,5 @@
 ---
-title: Certificações Microsoft Azure para SAP Microsoft Docs
+title: Certificações Microsoft Azure para | SAP Microsoft Docs
 description: Lista atualizada das configurações e certificações atuais do SAP na plataforma Azure.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -9,20 +9,19 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.assetid: ''
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/21/2020
 ms.author: juergent
 ms.custom: ''
-ms.openlocfilehash: 184f01f27023ce5976e5204bed384df54bab82d4
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 76f67204b41a36d10541974e78a22f7d065e144b
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94950436"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101669699"
 ---
 # <a name="sap-certifications-and-configurations-running-on-microsoft-azure"></a>Certificações e configurações SAP em execução no Microsoft Azure
 
@@ -33,7 +32,7 @@ Referências:
 
 - [A SAP HANA certificou as plataformas IaaS](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) para suporte SAP HANA para VMs nativos Azure e HANA Large Instances.
 
-| Produto SAP | SoA apoiado | Ofertas Azure |
+| Produto SAP | SOs Suportados | Ofertas Azure |
 | --- | --- | --- |
 | SAP HANA Developer Edition (incluindo o software do cliente HANA composto por SQLODBC, ODBO-Windows apenas, ODBC, motoristas JDBC, estúdio HANA e base de dados HANA) | Red Hat Enterprise Linux, SUSE Linux Enterprise | Família VM série D |
 | Negócio Um em HANA | SUSE Linux Enterprise | DS14_v2, M32ts, M32ls, M64ls, M64s <br /> [Plataformas IAAS Certificadas SAP HANA](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure%23SAP%20Business%20One) |

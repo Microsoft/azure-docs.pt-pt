@@ -9,18 +9,16 @@ ms.author: apistrak
 ms.date: 01/15/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 12f78ee2bae7ede26d8ef8581370b08e1a306aea
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: 2ff787c88c044929bb7eec063f4e8b3906813964
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99628365"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101656997"
 ---
 # <a name="sign-an-http-request"></a>Assine um pedido HTTP
 
 Neste tutorial, você aprenderá a assinar um pedido HTTP com uma assinatura HMAC.
-
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
 [!INCLUDE [Sign an HTTP request C#](./includes/hmac-header-csharp.md)]
 

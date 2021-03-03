@@ -15,12 +15,12 @@ ms.date: 10/29/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 88fda4ec810d0b410dcd75ac9c6be69bd54b16d9
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: d976cd924644828f5861e4c54460a8b4e4f81444
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99092654"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101643869"
 ---
 # <a name="troubleshooting-errors-during-synchronization"></a>Erros de resolução de problemas durante a sincronização
 Podem ocorrer erros quando os dados de identidade são sincronizados do Windows Server Ative Directory (AD DS) para o Azure Ative Directory (Azure AD). Este artigo fornece uma visão geral de diferentes tipos de erros de sincronização, alguns dos cenários possíveis que causam esses erros e formas potenciais de corrigir os erros. Este artigo inclui os tipos de erros comuns e pode não cobrir todos os erros possíveis.
@@ -41,7 +41,7 @@ Erros durante a Exportação para Azure AD indicam que a operação \( adicionar
 
 ## <a name="data-mismatch-errors"></a>Erros de incompatibilidade de dados
 ### <a name="invalidsoftmatch"></a>InvalidSoftMatch
-#### <a name="description"></a>Description
+#### <a name="description"></a>Descrição
 * Quando o motor de sincronização Azure AD Connect \( \) instrui o Azure Ative Directory a adicionar ou atualizar objetos, o Azure AD corresponde ao objeto de entrada utilizando o atributo **sourceAnchor** ao atributo **ImuttableId** de objetos em Azure AD. Este jogo chama-se **Hard Match**.
 * Quando o Azure AD **não encontra** nenhum objeto que corresponda ao atributo **imutávelid** com o atributo **SourceAnchor** do objeto de entrada, antes de aprovisionar um novo objeto, volta a utilizar os atributos ProxyAddresses e UserPrincipalName para encontrar uma correspondência. Esta partida chama-se **Soft Match**. O Soft Match foi concebido para combinar os objetos já presentes no AZure AD (que são obtidos em Azure AD) com os novos objetos a serem adicionados/atualizados durante a sincronização que representam a mesma entidade (utilizadores, grupos) nas instalações.
 * **InvalidSoftMatch** erro ocorre quando o jogo duro não encontra nenhum objeto correspondente **E** correspondência suave encontra um objeto correspondente, mas esse objeto tem um valor diferente de *ImuttableId* do que o *SourceAnchor* do objeto de entrada, sugerindo que o objeto correspondente foi sincronizado com outro objeto a partir das instalações Ative Directy.
@@ -109,7 +109,7 @@ Os relatórios de erro sincronizados dentro do Azure AD Connect Health para sinc
 * [Atributos duplicados ou inválidos impedem a sincronização do diretório na Microsoft 365](https://support.microsoft.com/kb/2647098)
 
 ### <a name="objecttypemismatch"></a>ObjectTypeMismatch
-#### <a name="description"></a>Description
+#### <a name="description"></a>Descrição
 Quando a Azure AD tenta combinar dois objetos suavemente, é possível que dois objetos de diferente "tipo de objeto" (como Utilizador, Grupo, Contacto, etc.) tenham os mesmos valores para os atributos utilizados para executar a combinação suave. Como a duplicação destes atributos não é permitida no Azure AD, a operação pode resultar num erro de sincronização "ObjectTypeMismatch".
 
 #### <a name="example-scenarios-for-objecttypemismatch-error"></a>Exemplo de cenários para erro objectTypeMismatch
@@ -130,7 +130,7 @@ A razão mais comum para o erro ObjectTypeMismatch é dois objetos de tipo difer
 
 ## <a name="duplicate-attributes"></a>Atributos duplicados
 ### <a name="attributevaluemustbeunique"></a>AtributoValueMustBeUnique
-#### <a name="description"></a>Description
+#### <a name="description"></a>Descrição
 O esquema do Azure Ative Directory não permite que dois ou mais objetos tenham o mesmo valor dos seguintes atributos. Este é cada objeto em Azure AD é forçado a ter um valor único destes atributos em um dado caso.
 
 * ProxyAddresses
@@ -168,7 +168,7 @@ A razão mais comum para o erro AttributeValueMustBeUnique é dois objetos com i
 
 ## <a name="data-validation-failures"></a>Falhas de validação de dados
 ### <a name="identitydatavalidationfailed"></a>IdentidadeDataValidationFailed
-#### <a name="description"></a>Description
+#### <a name="description"></a>Descrição
 O Azure Ative Directory impõe várias restrições aos dados em si antes de permitir que esses dados sejam escritos no diretório. Estas restrições destinam-se a garantir que os utilizadores finais obtenham as melhores experiências possíveis ao utilizarem as aplicações que dependem destes dados.
 
 #### <a name="scenarios"></a>Cenários
@@ -182,7 +182,7 @@ a. Certifique-se de que o atributo UserPrincipalName tem caracteres suportados e
 * [Prepare-se para a provisionar utilizadores através da sincronização do diretório para o Microsoft 365](https://support.office.com/article/Prepare-to-provision-users-through-directory-synchronization-to-Office-365-01920974-9e6f-4331-a370-13aea4e82b3e)
 
 ### <a name="federateddomainchangeerror"></a>FederatedDomainChangeError
-#### <a name="description"></a>Description
+#### <a name="description"></a>Descrição
 Este caso resulta num erro de sincronização **"FederatedDomainChangeError"** quando o sufixo do UserPrincipalName de um utilizador é alterado de um domínio federado para outro domínio federado.
 
 #### <a name="scenarios"></a>Cenários
@@ -201,10 +201,10 @@ Se o sufixo do Nome De Utilizador de um utilizador foi atualizado de bob@**conto
 2. Deixe o próximo ciclo de sincronização tentar a sincronização. Desta vez, a sincronização será bem sucedida e atualizará o Nome Do UtilizadorPrincipal de Bob bob@fabrikam.com como esperado.
 
 #### <a name="related-articles"></a>Artigos Relacionados
-* [As alterações não são sincronizadas pela ferramenta Azure Ative Directory Sync depois de alterar a UPN de uma conta de utilizador para utilizar um domínio federado diferente](/azure/active-directory/hybrid/howto-troubleshoot-upn-changes)
+* [As alterações não são sincronizadas pela ferramenta Azure Ative Directory Sync depois de alterar a UPN de uma conta de utilizador para utilizar um domínio federado diferente](./howto-troubleshoot-upn-changes.md)
 
 ## <a name="largeobject"></a>Grande Polícia
-### <a name="description"></a>Description
+### <a name="description"></a>Descrição
 Quando um atributo excede o limite de tamanho permitido, limite de comprimento ou limite de contagem definido pelo esquema do Azure Ative Directory, a operação de sincronização resulta no erro de sincronização **LargeObject** ou **ExceededAllowedLength.** Tipicamente este erro ocorre para os seguintes atributos
 
 * userCertificate
@@ -223,7 +223,7 @@ Quando um atributo excede o limite de tamanho permitido, limite de comprimento o
 
 ## <a name="existing-admin-role-conflict"></a>Conflito de funções de administrador existente
 
-### <a name="description"></a>Description
+### <a name="description"></a>Descrição
 Um **conflito de funções de administrador existente** ocorrerá num objeto do utilizador durante a sincronização quando esse objeto do utilizador tiver:
 
 - permissões administrativas e

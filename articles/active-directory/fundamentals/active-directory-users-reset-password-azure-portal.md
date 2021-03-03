@@ -1,5 +1,5 @@
 ---
-title: Redefinir a palavra-passe de um utilizador - Azure Ative Directory Microsoft Docs
+title: Redefinir a palavra-passe de um utilizador - Azure Ative Directory | Microsoft Docs
 description: Instruções sobre como redefinir a palavra-passe de um utilizador utilizando o Azure Ative Directory.
 services: active-directory
 author: ajburnle
@@ -14,12 +14,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 397c74203aae2f52ce81844695266cc36fdf3042
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 0b42ac7b4e379559d86942279eaa19fe58533840
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370904"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101651892"
 ---
 # <a name="reset-a-users-password-using-azure-active-directory"></a>Repor a palavra-passe do utilizador com o Azure Active Directory
 
@@ -50,6 +50,10 @@ Como administrador, pode redefinir a palavra-passe de um utilizador se a palavra
 
     >[!Note]
     >A senha temporária nunca expira. Da próxima vez que o utilizador entrar, a palavra-passe continuará a funcionar, independentemente do tempo que passou desde que a senha temporária foi gerada.
+
+> [!IMPORTANT]
+> Se um administrador não conseguir redefinir a palavra-passe do utilizador e nos Registos de Eventos de Aplicação no servidor Azure AD Connect é visto o seguinte código de erro hr=80231367, reveja os atributos do utilizador no Ative Directory.  Se o atributo **AdminCount** estiver definido para 1, isto impedirá um administrador de redefinir a palavra-passe do utilizador.  O atributo **AdminCount** deve ser definido para 0, para que um administrador reponha a palavra-passe do utilizador.
+
 
 ## <a name="next-steps"></a>Passos seguintes
 

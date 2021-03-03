@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3778b6046c750bb131be1e51bf1afdc7b0df7184
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 83c5595dc64b46e1c30f3c36866e0efbbd8d3c7f
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98116794"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101674139"
 ---
 # <a name="design-tables-using-synapse-sql-in-azure-synapse-analytics"></a>Tabelas de design usando Synapse SQL em Azure Synapse Analytics
 
@@ -27,27 +27,27 @@ A tabela a seguir lista os tópicos que são relevantes para piscina SQL dedicad
 
 | Tópico                                                        | piscina de SQL dedicada | conjunto de SQL sem servidor |
 | ------------------------------------------------------------ | ------------------ | ----------------------- |
-| [Determinar categoria de tabela](#determine-table-category)        | Yes                | Não                      |
-| [Nomes de schema](#schema-names)                                | Yes                | Yes                     |
-| [Nomes de tabelas](#table-names)                                  | Yes                | Não                      |
-| [Persistência da tabela](#table-persistence)                      | Yes                | Não                      |
-| [Tabela regular](#regular-table)                              | Yes                | Não                      |
-| [Tabela temporária](#temporary-table)                          | Yes                | Yes                     |
-| [Tabela externa](#external-table)                            | Yes                | Yes                     |
-| [Tipos de dados](#data-types)                                    | Yes                | Yes                     |
-| [Tabelas distribuídas](#distributed-tables)                    | Yes                | Não                      |
-| [Tabelas distribuídas com hash](#hash-distributed-tables)          | Yes                | Não                      |
-| [Tabelas replicadas](#replicated-tables)                      | Yes                | Não                      |
-| [Mesas de rodapé](#round-robin-tables)                    | Yes                | Não                      |
-| [Métodos de distribuição comuns para tabelas](#common-distribution-methods-for-tables) | Yes                | Não                      |
-| [Partições](#partitions)                                    | Yes                | Yes                     |
-| [Índices Columnstore](#columnstore-indexes)                  | Yes                | Não                      |
-| [Estatísticas](#statistics)                                    | Yes                | Yes                     |
-| [Chave primária e chave única](#primary-key-and-unique-key)    | Yes                | Não                      |
-| [Comandos para criar tabelas](#commands-for-creating-tables) | Yes                | Não                      |
-| [Alinhamento dos dados de origem com o armazém de dados](#align-source-data-with-the-data-warehouse) | Yes                | Não                      |
-| [Características da tabela não suportadas](#unsupported-table-features)    | Yes                | Não                      |
-| [Consultas de tamanho de mesa](#table-size-queries)                    | Yes                | Não                      |
+| [Determinar categoria de tabela](#determine-table-category)        | Sim                | Não                      |
+| [Nomes de schema](#schema-names)                                | Sim                | Sim                     |
+| [Nomes de tabelas](#table-names)                                  | Sim                | Não                      |
+| [Persistência da tabela](#table-persistence)                      | Sim                | Não                      |
+| [Tabela regular](#regular-table)                              | Sim                | Não                      |
+| [Tabela temporária](#temporary-table)                          | Sim                | Sim                     |
+| [Tabela externa](#external-table)                            | Sim                | Sim                     |
+| [Tipos de dados](#data-types)                                    | Sim                | Sim                     |
+| [Tabelas distribuídas](#distributed-tables)                    | Sim                | Não                      |
+| [Tabelas distribuídas com hash](#hash-distributed-tables)          | Sim                | Não                      |
+| [Tabelas replicadas](#replicated-tables)                      | Sim                | Não                      |
+| [Mesas de rodapé](#round-robin-tables)                    | Sim                | Não                      |
+| [Métodos de distribuição comuns para tabelas](#common-distribution-methods-for-tables) | Sim                | Não                      |
+| [Divisórias](#partitions)                                    | Sim                | Sim                     |
+| [Índices Columnstore](#columnstore-indexes)                  | Sim                | Não                      |
+| [Estatísticas](#statistics)                                    | Sim                | Sim                     |
+| [Chave primária e chave única](#primary-key-and-unique-key)    | Sim                | Não                      |
+| [Comandos para criar tabelas](#commands-for-creating-tables) | Sim                | Não                      |
+| [Alinhamento dos dados de origem com o armazém de dados](#align-source-data-with-the-data-warehouse) | Sim                | Não                      |
+| [Características da tabela não suportadas](#unsupported-table-features)    | Sim                | Não                      |
+| [Consultas de tamanho de mesa](#table-size-queries)                    | Sim                | Não                      |
 
 ## <a name="determine-table-category"></a>Determinar categoria de tabela
 
@@ -61,7 +61,7 @@ Um [esquema estelar](https://en.wikipedia.org/wiki/Star_schema) organiza dados e
 
 ## <a name="schema-names"></a>Nomes de schema
 
-Os esquemas são uma boa maneira de agrupar objetos que são usados de forma semelhante. O código a seguir cria um [esquema definido pelo utilizador](/sql/t-sql/statements/create-schema-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) chamado wwi.
+Os esquemas são uma boa maneira de agrupar objetos que são usados de forma semelhante. O código a seguir cria um [esquema definido pelo utilizador](/sql/t-sql/statements/create-schema-transact-sql?view=azure-sqldw-latest&preserve-view=true) chamado wwi.
 
 ```sql
 CREATE SCHEMA wwi;
@@ -69,7 +69,7 @@ CREATE SCHEMA wwi;
 
 ## <a name="table-names"></a>Nomes de tabelas
 
-Se você está migrando várias bases de dados de uma solução on-prem para piscina de SQL dedicada, a melhor prática é migrar todas as tabelas de fato, dimensão e integração para um esquema de piscina SQL. Por exemplo, você poderia armazenar todas as tabelas no armazém de dados da amostra [WideWorldImportersDW](/sql/samples/wide-world-importers-dw-database-catalog?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) dentro de um esquema chamado wwi.
+Se você está migrando várias bases de dados de uma solução on-prem para piscina de SQL dedicada, a melhor prática é migrar todas as tabelas de fato, dimensão e integração para um esquema de piscina SQL. Por exemplo, você poderia armazenar todas as tabelas no armazém de dados da amostra [WideWorldImportersDW](/sql/samples/wide-world-importers-dw-database-catalog?view=azure-sqldw-latest&preserve-view=true) dentro de um esquema chamado wwi.
 
 Para mostrar a organização das mesas na piscina dedicada SQL, você poderia usar fato, dim, e int como prefixos para os nomes de mesa. A tabela abaixo mostra alguns dos nomes de esquema e tabelas para WideWorldImportersDW.  
 
@@ -108,7 +108,7 @@ Para a piscina SQL sem servidor, pode utilizar [o CETAS](develop-tables-cetas.md
 
 ## <a name="data-types"></a>Tipos de dados
 
-O pool DE SQL dedicado suporta os tipos de dados mais utilizados. Para obter uma lista dos tipos de dados suportados, consulte [os tipos de dados na referência CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest#DataTypes&preserve-view=true) na declaração CREATE TABLE. Para obter mais informações sobre a utilização de tipos de dados, consulte [os tipos de dados](../sql/develop-tables-data-types.md).
+O pool DE SQL dedicado suporta os tipos de dados mais utilizados. Para obter uma lista dos tipos de dados suportados, consulte [os tipos de dados na referência CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?view=azure-sqldw-latest#DataTypes&preserve-view=true) na declaração CREATE TABLE. Para obter mais informações sobre a utilização de tipos de dados, consulte [os tipos de dados](../sql/develop-tables-data-types.md).
 
 ## <a name="distributed-tables"></a>Tabelas distribuídas
 
@@ -153,7 +153,7 @@ Em piscinas SQL dedicadas, uma mesa dividida armazena e executa operações nas 
 Também pode manter os dados através da comutação de divisórias. Uma vez que os dados de um pool de SQL dedicado já está distribuído, muitas divisórias podem retardar o desempenho da consulta. Para obter mais informações, consulte [a orientação de partição.](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)  
 
 > [!TIP]
-> Quando a partição mudar para divisórias que não estão vazias, considere utilizar a opção TRUNCATE_TARGET na sua declaração [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) se os dados existentes forem truncados.
+> Quando a partição mudar para divisórias que não estão vazias, considere utilizar a opção TRUNCATE_TARGET na sua declaração [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql?view=azure-sqldw-latest&preserve-view=true) se os dados existentes forem truncados.
 
 O código abaixo comuta os dados diários transformados numa partição SalesFact e substitui quaisquer dados existentes.
 
@@ -190,7 +190,7 @@ Por padrão, a piscina SQL dedicada armazena uma tabela como um índice de loja 
 > [!TIP]
 > Uma tabela de pilhas pode ser especialmente útil para o carregamento de dados transitórios, como uma tabela de encenação, que é transformada em uma mesa final.
 
-Para obter uma lista de funcionalidades de loja de colunas, consulte [as novidades para os índices de loja de colunas.](/sql/relational-databases/indexes/columnstore-indexes-what-s-new?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) Para melhorar o desempenho do índice de loja de colunas, consulte [maximizar a qualidade do grupo de linha para índices de loja de colunas](../sql/data-load-columnstore-compression.md).
+Para obter uma lista de funcionalidades de loja de colunas, consulte [as novidades para os índices de loja de colunas.](/sql/relational-databases/indexes/columnstore-indexes-what-s-new?view=azure-sqldw-latest&preserve-view=true) Para melhorar o desempenho do índice de loja de colunas, consulte [maximizar a qualidade do grupo de linha para índices de loja de colunas](../sql/data-load-columnstore-compression.md).
 
 ## <a name="statistics"></a>Estatísticas
 
@@ -208,10 +208,10 @@ Para piscina SQL dedicada, você pode criar uma mesa como uma nova mesa vazia. T
 
 | Declaração T-SQL | Descrição |
 |:----------------|:------------|
-| [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | Cria uma mesa vazia definindo todas as colunas e opções de mesa. |
-| [CRIAR TABELA EXTERNA](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | Cria uma mesa externa. A definição da tabela é armazenada em piscina SQL dedicada. Os dados da tabela são armazenados no armazenamento do Azure Blob ou no Azure Data Lake Storage. |
-| [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | Povoa uma nova tabela com os resultados de uma declaração selecionada. As colunas de tabela e os tipos de dados baseiam-se nos resultados da declaração selecionada. Para importar dados, esta declaração pode selecionar a partir de uma tabela externa. |
-| [CRIAR TABELA EXTERNA COMO SELEÇÃO](/sql/t-sql/statements/create-external-table-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | Cria uma nova tabela externa exportando os resultados de uma declaração selecionada para um local externo.  A localização é o armazenamento de Azure Blob ou Azure Data Lake Storage. |
+| [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?view=azure-sqldw-latest&preserve-view=true) | Cria uma mesa vazia definindo todas as colunas e opções de mesa. |
+| [CRIAR TABELA EXTERNA](/sql/t-sql/statements/create-external-table-transact-sql?view=azure-sqldw-latest&preserve-view=true) | Cria uma mesa externa. A definição da tabela é armazenada em piscina SQL dedicada. Os dados da tabela são armazenados no armazenamento do Azure Blob ou no Azure Data Lake Storage. |
+| [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?view=azure-sqldw-latest&preserve-view=true) | Povoa uma nova tabela com os resultados de uma declaração selecionada. As colunas de tabela e os tipos de dados baseiam-se nos resultados da declaração selecionada. Para importar dados, esta declaração pode selecionar a partir de uma tabela externa. |
+| [CRIAR TABELA EXTERNA COMO SELEÇÃO](/sql/t-sql/statements/create-external-table-as-select-transact-sql?view=azure-sqldw-latest&preserve-view=true) | Cria uma nova tabela externa exportando os resultados de uma declaração selecionada para um local externo.  A localização é o armazenamento de Azure Blob ou Azure Data Lake Storage. |
 
 ## <a name="align-source-data-with-the-data-warehouse"></a>Alinhar os dados de origem com o armazém de dados
 
@@ -226,20 +226,20 @@ Se os dados forem provenientes de várias lojas de dados, pode depositá-lo no a
 
 O pool dedicado SQL suporta muitas, mas não todas, funcionalidades de tabela oferecidas por outras bases de dados.  A lista que se segue mostra algumas das funcionalidades da tabela que não são suportadas na piscina SQL dedicada.
 
-- Chave estrangeira, verifique [restrições de tabela](/sql/t-sql/statements/alter-table-table-constraint-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
-- [Colunas Computadas](/sql/t-sql/statements/alter-table-computed-column-definition-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
-- [Vistas Indexadas](/sql/relational-databases/views/create-indexed-views?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
-- [Sequence](/sql/t-sql/statements/create-sequence-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
-- [Colunas Escassas](/sql/relational-databases/tables/use-sparse-columns?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
+- Chave estrangeira, verifique [restrições de tabela](/sql/t-sql/statements/alter-table-table-constraint-transact-sql?view=azure-sqldw-latest&preserve-view=true)
+- [Colunas Computadas](/sql/t-sql/statements/alter-table-computed-column-definition-transact-sql?view=azure-sqldw-latest&preserve-view=true)
+- [Vistas Indexadas](/sql/relational-databases/views/create-indexed-views?view=azure-sqldw-latest&preserve-view=true)
+- [Sequence](/sql/t-sql/statements/create-sequence-transact-sql?view=azure-sqldw-latest&preserve-view=true)
+- [Colunas Escassas](/sql/relational-databases/tables/use-sparse-columns?view=azure-sqldw-latest&preserve-view=true)
 - Chaves de substituição, implementar com [identidade](../sql-data-warehouse/sql-data-warehouse-tables-identity.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
-- [Sinónimos](/sql/t-sql/statements/create-synonym-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
-- [Acionadores](/sql/t-sql/statements/create-trigger-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
-- [Índices Únicos](/sql/t-sql/statements/create-index-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
-- [Tipos definidos pelo utilizador](/sql/relational-databases/native-client/features/using-user-defined-types?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
+- [Sinónimos](/sql/t-sql/statements/create-synonym-transact-sql?view=azure-sqldw-latest&preserve-view=true)
+- [Acionadores](/sql/t-sql/statements/create-trigger-transact-sql?view=azure-sqldw-latest&preserve-view=true)
+- [Índices Únicos](/sql/t-sql/statements/create-index-transact-sql?view=azure-sqldw-latest&preserve-view=true)
+- [Tipos definidos pelo utilizador](/sql/relational-databases/native-client/features/using-user-defined-types?view=azure-sqldw-latest&preserve-view=true)
 
 ## <a name="table-size-queries"></a>Consultas de tamanho de mesa
 
-Na piscina SQL dedicada, uma forma simples de identificar o espaço e as linhas consumidas por uma mesa em cada uma das 60 distribuições é utilizar o [DBCC PDW_SHOWSPACEUSED](/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
+Na piscina SQL dedicada, uma forma simples de identificar o espaço e as linhas consumidas por uma mesa em cada uma das 60 distribuições é utilizar o [DBCC PDW_SHOWSPACEUSED](/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql?view=azure-sqldw-latest&preserve-view=true).
 
 ```sql
 DBCC PDW_SHOWSPACEUSED('dbo.FactInternetSales');

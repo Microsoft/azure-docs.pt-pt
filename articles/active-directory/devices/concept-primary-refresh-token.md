@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f2b059bb6ae63d7f427ce970b2538da922e2dec
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 46cc8ef1158c02190f905cbe8eb1d12ea7be50a2
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94837268"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101644940"
 ---
 # <a name="what-is-a-primary-refresh-token"></a>O que é um Token de Atualização Primário?
 
@@ -103,7 +103,7 @@ Um PRT está protegido ligando-o ao dispositivo ao qual o utilizador assinou. O 
 * Durante o **primeiro sinal:** Durante o primeiro sinal, é emitido um PRT assinando pedidos utilizando a chave do dispositivo criptograficamente gerada durante o registo do dispositivo. Num dispositivo com um TPM válido e funcional, a tecla do dispositivo é fixada pelo TPM impedindo qualquer acesso malicioso. Não é emitida uma RPT se a assinatura da chave do dispositivo correspondente não puder ser validada.
 * **Durante os pedidos simbólicos e a renovação**: Quando um PRT é emitido, a Azure AD também emite uma chave de sessão encriptada para o dispositivo. É encriptado com a chave de transporte público (tkpub) gerada e enviada para a Azure AD como parte do registo do dispositivo. Esta chave de sessão só pode ser desencriptada pela chave de transporte privado (tkpriv) assegurada pelo TPM. A chave da sessão é a chave de Prova de Posse (POP) para quaisquer pedidos enviados para a Azure AD.  A chave de sessão também está protegida pelo TPM e nenhum outro componente de SO pode aceder-lhe. Os pedidos de token ou pedidos de renovação de PRT são assinados de forma segura por esta chave de sessão através do TPM e, portanto, não podem ser adulterados. O Azure AD invalidará quaisquer pedidos do dispositivo que não sejam assinados pela tecla de sessão correspondente.
 
-Ao proteger estas chaves com o TPM, os atores mal-intencionados não podem roubar as chaves nem reproduzir o PRT em outro lugar, uma vez que o TPM é inacessível mesmo que um intruso tenha posse física do dispositivo.  Assim, a utilização de um TPM aumenta consideravelmente a segurança da Azure AD Joined, a Hybrid Azure AD juntou-se, e a Azure AD registou dispositivos contra roubo de credenciais. Para desempenho e fiabilidade, O TPM 2.0 é a versão recomendada para todos os cenários de registo de dispositivos AD Azure no Windows 10.
+Ao assegurar estas chaves com o TPM, aumentamos a segurança do PRT de atores maliciosos que tentam roubar as chaves ou reproduzir o PrT.  Assim, a utilização de um TPM aumenta consideravelmente a segurança da Azure AD Joined, a Hybrid Azure AD juntou-se, e a Azure AD registou dispositivos contra roubo de credenciais. Para desempenho e fiabilidade, O TPM 2.0 é a versão recomendada para todos os cenários de registo de dispositivos AD Azure no Windows 10. A partir da atualização do Windows 10, 1903, o Azure AD não utiliza o TPM 1.2 para qualquer uma das teclas acima devido a problemas de fiabilidade. 
 
 ### <a name="how-are-app-tokens-and-browser-cookies-protected"></a>Como são protegidas as fichas de aplicação e os cookies do navegador?
 
@@ -111,7 +111,7 @@ Ao proteger estas chaves com o TPM, os atores mal-intencionados não podem rouba
 
 **Cookies de navegador**: No Windows 10, o Azure AD suporta o navegador SSO no Internet Explorer e Microsoft Edge de forma nativa ou no Google Chrome através da extensão de contas do Windows 10. A segurança é construída não só para proteger os cookies, mas também para os pontos finais para os quais os cookies são enviados. Os cookies do navegador são protegidos da mesma forma que um PRT, utilizando a chave de sessão para assinar e proteger os cookies.
 
-Quando um utilizador inicia uma interação de navegador, o navegador (ou extensão) invoca um anfitrião de cliente nativo COM. O anfitrião do cliente nativo garante que a página é de um dos domínios permitidos. O navegador poderia enviar outros parâmetros para o anfitrião do cliente nativo, incluindo um nonce, no entanto o anfitrião do cliente nativo garante validação do nome anfitrião. O anfitrião do cliente nativo solicita um cookie PRT do plugin CloudAP, que cria e assina com a chave de sessão protegida por TPM. Como o cookie PRT é assinado pela chave da sessão, não pode ser adulterado. Este cookie PRT está incluído no cabeçalho de pedido da Azure AD para validar o dispositivo de onde provém. Se utilizar o navegador Chrome, apenas a extensão explicitamente definida no manifesto do anfitrião do cliente nativo pode invocar o mesmo impedindo que extensões arbitrárias não escamem estes pedidos. Assim que o Azure AD validar o cookie PRT, emite um cookie de sessão para o navegador. Este cookie de sessão também contém a mesma chave de sessão emitida com um PRT. Durante os pedidos subsequentes, a tecla de sessão é validada efetivamente ligando o cookie ao dispositivo e evitando repetições de outros lugares.
+Quando um utilizador inicia uma interação de navegador, o navegador (ou extensão) invoca um anfitrião de cliente nativo COM. O anfitrião do cliente nativo garante que a página é de um dos domínios permitidos. O navegador poderia enviar outros parâmetros para o anfitrião do cliente nativo, incluindo um nonce, no entanto o anfitrião do cliente nativo garante validação do nome anfitrião. O anfitrião do cliente nativo solicita um cookie PRT do plugin CloudAP, que cria e assina com a chave de sessão protegida por TPM. Como o cookie PRT é assinado pela chave da sessão, é muito difícil de adulterar. Este cookie PRT está incluído no cabeçalho de pedido da Azure AD para validar o dispositivo de onde provém. Se utilizar o navegador Chrome, apenas a extensão explicitamente definida no manifesto do anfitrião do cliente nativo pode invocar o mesmo impedindo que extensões arbitrárias não escamem estes pedidos. Assim que o Azure AD validar o cookie PRT, emite um cookie de sessão para o navegador. Este cookie de sessão também contém a mesma chave de sessão emitida com um PRT. Durante os pedidos subsequentes, a tecla de sessão é validada efetivamente ligando o cookie ao dispositivo e evitando repetições de outros lugares.
 
 ## <a name="when-does-a-prt-get-an-mfa-claim"></a>Quando é que um PRT recebe uma reclamação de MFA?
 
@@ -196,7 +196,7 @@ Os seguintes diagramas ilustram os detalhes subjacentes na emissão, renovação
 | A | O utilizador entra no Windows com as suas credenciais para obter um PRT. Assim que o utilizador abrir o navegador, o navegador (ou extensão) carrega os URLs a partir do registo. |
 | B | Quando um utilizador abre um URL de login Azure AD, o navegador ou extensão valida o URL com os obtidos a partir do registo. Se corresponderem, o navegador invoca o anfitrião do cliente nativo para obter um token. |
 | C | O anfitrião do cliente nativo valida que os URLs pertencem aos fornecedores de identidade da Microsoft (conta Microsoft ou AD AZure), extrai um nonce enviado do URL e faz uma chamada para o plugin CloudAP para obter um cookie PRT. |
-| D | O plugin CloudAP criará o cookie PRT, iniciará sessão com a tecla de sessão ligada ao TPM e enviará-o de volta para o anfitrião do cliente nativo. Como o cookie é assinado pela chave da sessão, não pode ser adulterado. |
+| D | O plugin CloudAP criará o cookie PRT, iniciará sessão com a tecla de sessão ligada ao TPM e enviará-o de volta para o anfitrião do cliente nativo. |
 | E | O anfitrião do cliente nativo devolverá este cookie PRT ao navegador, que o incluirá como parte do cabeçalho de pedido chamado x-ms-RefreshTokenCredential e solicitará fichas da Azure AD. |
 | F | O Azure AD valida a assinatura da chave Sessão no cookie PRT, valida o nonce, verifica se o dispositivo é válido no inquilino, e emite um token de ID para a página web e um cookie de sessão encriptado para o navegador. |
 

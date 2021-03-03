@@ -2,18 +2,18 @@
 title: Arquiteturas de referência para bases de dados oracle em Azure | Microsoft Docs
 description: Referências arquiteturas para executar bases de dados Da Oracle Database Enterprise Edition em Microsoft Azure Virtual Machines.
 author: dbakevlar
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: oracle
+ms.collection: linux
 ms.topic: article
 ms.date: 12/13/2019
 ms.author: kegorman
-ms.reviewer: cynthn
-ms.openlocfilehash: 27a1c57c234d3450cee606c4ffb7484f7b63e732
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 8257c58c4185172218b833c3d4988b4db661a97a
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98882302"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101669892"
 ---
 # <a name="reference-architectures-for-oracle-database-enterprise-edition-on-azure"></a>Arquiteturas de referência para Oracle Database Enterprise Edition em Azure
 
@@ -222,7 +222,7 @@ Remendar o sistema operativo da máquina virtual pode ser automatizado utilizand
 - Utilize [pipelines Azure](/azure/devops/pipelines/get-started/what-is-azure-pipelines) para gerir remendos e atualizações na sua base de dados sem qualquer tempo de inatividade.
 - Ajuste o seu código de aplicação para adicionar padrões nativos da nuvem, tais como padrão de [retrip,](/azure/architecture/patterns/retry) [padrão de disjuntor](/azure/architecture/patterns/circuit-breaker)de circuitos, e outros padrões definidos no [guia Cloud Design Patterns](/azure/architecture/patterns/) que podem ajudar a sua aplicação a ser mais resistente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Reveja os seguintes artigos de referência da Oracle que se aplicam ao seu cenário.
 

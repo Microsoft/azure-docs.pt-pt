@@ -1,5 +1,5 @@
 ---
-title: Azure VMs alta disponibilidade para SAP NW em SLES com Ficheiros Azure NetApp Microsoft Docs
+title: Azure VMs alta disponibilidade para SAP NW em SLES com Ficheiros Azure NetApp| Microsoft Docs
 description: Guia de alta disponibilidade para SAP NetWeaver no SUSE Linux Enterprise Server com Ficheiros Azure NetApp para aplicações SAP
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
@@ -9,19 +9,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
-ms.service: virtual-machines-windows
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/22/2020
 ms.author: radeltch
-ms.openlocfilehash: b8f2054296c5b4e567699924305b7f3385f30835
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 83e770cb7eb1aace49745253dac3c757cebb4047
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96486220"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101668678"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-with-azure-netapp-files-for-sap-applications"></a>Alta disponibilidade para SAP NetWeaver em VMs Azure no SUSE Linux Enterprise Server com Ficheiros Azure NetApp para aplicações SAP
 
@@ -66,7 +65,7 @@ Este artigo explica como obter alta disponibilidade para aplicação SAP NetWeav
 Leia primeiro as seguintes notas e artigos SAP:
 
 * [Documentação dos Ficheiros Azure NetApp][anf-azure-doc] 
-* Nota SAP [1928533,][1928533]que tem:  
+* Nota SAP [1928533][1928533], que tem:  
   * Lista de tamanhos Azure VM que são suportados para a implementação de software SAP
   * Informações importantes sobre a capacidade dos tamanhos Azure VM
   * Combinações suportadas de software SAP e sistema operativo (OS) e de base de dados
@@ -87,7 +86,7 @@ Leia primeiro as seguintes notas e artigos SAP:
 * [SUSE Extensão de Alta Disponibilidade 12 Notas de lançamento SP3][suse-ha-12sp3-relnotes]
 * [Aplicações NETApp SAP no Microsoft Azure utilizando ficheiros Azure NetApp][anf-sap-applications-azure]
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 A elevada disponibilidade (HA) para os serviços centrais DA NETWEaver requer armazenamento partilhado.
 Para o conseguir em SUSE Linux até agora, era necessário construir um cluster NFS altamente disponível. 

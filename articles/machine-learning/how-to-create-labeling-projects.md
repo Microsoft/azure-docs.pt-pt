@@ -9,12 +9,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
 ms.custom: data4ml
-ms.openlocfilehash: 4b2777bfd9905a1caa8b69b78ff892b661e4dc4b
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 62801d40295762b0066f0d2887d7d528ee7b7c2a
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99097544"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101656827"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Criar um projeto de rotulagem de dados e rótulos de exportação 
 
@@ -107,12 +107,9 @@ Se pretende adicionar novas imagens ao seu conjunto de dados, utilize a atualiza
 
 Para adicionar mais imagens ao seu projeto, utilize o [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) para fazer o upload para a pasta apropriada no armazenamento de bolhas. 
 
-Verifique a caixa para **Ativar a atualização incremental** quando pretender que o seu projeto monitorize continuamente novos dados na datastore. Estes dados serão retirados do seu projeto uma vez por dia quando estiver ativado.
+Verifique a caixa para **Ativar a atualização incremental** quando pretender que o seu projeto monitorize continuamente novos dados na datastore. Estes dados serão retirados do seu projeto uma vez por dia quando estiver ativado, pelo que terá de esperar depois de adicionar novos dados à datastore antes de aparecer no seu projeto.  Pode ver um timetamp para quando os dados foram atualizados pela última vez no **separador De atualização Incremental** **do** seu projeto.
 
 Desmarque esta caixa se não quiser que novas imagens que apareçam na datastore sejam adicionadas ao seu projeto.
-
-Pode encontrar o tempo de duração para a última atualização no **separador De atualização Incremental** **para** o seu projeto.
-
 
 ## <a name="specify-label-classes"></a>Especificar classes de etiquetas
 

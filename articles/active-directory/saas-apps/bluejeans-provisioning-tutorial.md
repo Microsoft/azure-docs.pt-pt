@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: d029f033a3c452587dbeeadf69c46cc99f604031
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 58cd69ebe97d9d0965d7e648b0ded012ac71cd0d
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99053860"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101646134"
 ---
 # <a name="tutorial-configure-bluejeans-for-automatic-user-provisioning"></a>Tutorial: Configurar BlueJeans para o fornecimento automático de utilizadores
 
@@ -27,7 +27,7 @@ Este tutorial descreve os passos que precisa de executar tanto no BlueJeans como
 > * Criar utilizadores em BlueJeans
 > * Remova os utilizadores em BlueJeans quando já não necessitam de acesso
 > * Mantenha os atributos do utilizador sincronizados entre Azure AD e BlueJeans
-> * [Único sinal de](https://docs.microsoft.com/azure/active-directory/saas-apps/bluejeans-tutorial) BlueJeans (recomendado)
+> * [Único sinal de](./bluejeans-tutorial.md) BlueJeans (recomendado)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -141,7 +141,7 @@ Esta operação inicia a sincronização inicial de todos os utilizadores defini
 Depois de configurar o aprovisionamento, utilize os seguintes recursos para monitorizar a sua implementação:
 
 1. Utilize os [registos de aprovisionamento](../reports-monitoring/concept-provisioning-logs.md) para determinar quais os utilizadores que foram aprovisionados com ou sem êxito
-2. Verifique a [barra de progresso](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) para ver o estado do ciclo de aprovisionamento e quão próximo está da conclusão
+2. Verifique a [barra de progresso](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) para ver o estado do ciclo de aprovisionamento e quão próximo está da conclusão
 3. Se a configuração de aprovisionamento parecer estar num mau estado de funcionamento, a aplicação vai entrar em quarentena. Saiba mais sobre os estados de quarentena [aqui](../app-provisioning/application-provisioning-quarantine-status.md).  
 
 ## <a name="connector-limitations"></a>Limitações do conector

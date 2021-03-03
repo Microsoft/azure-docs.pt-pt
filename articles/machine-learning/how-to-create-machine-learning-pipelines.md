@@ -11,12 +11,12 @@ author: NilsPohlmann
 ms.date: 12/10/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperf-fy21q1
-ms.openlocfilehash: 168e5340842dca3c26e4fa48d2f14b8ade529cd9
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 18d93a1a6ac9661b18054611015b02e41219bc14
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505753"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101659652"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Criar e executar gasodutos de aprendizagem automática com Azure Machine Learning SDK
 
@@ -92,6 +92,7 @@ from azureml.core import Dataset
 
 my_dataset = Dataset.File.from_files([(def_blob_store, 'train-images/')])
 ```
+
 Os dados intermédios (ou saída de um passo) são representados por um objeto [PipelineData.](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?preserve-view=true&view=azure-ml-py) `output_data1` é produzido como a saída de um passo, e usado como a entrada de um ou mais passos futuros. `PipelineData` introduz uma dependência de dados entre passos, e cria uma ordem de execução implícita no oleoduto. Este objeto será utilizado mais tarde ao criar passos de gasoduto.
 
 ```python
@@ -108,7 +109,7 @@ output_data1 = PipelineData(
 > Os dados intermédios persistentes entre as etapas do gasoduto também são possíveis com a classe de pré-visualização pública, [`OutputFileDatasetConfig`](/python/api/azureml-core/azureml.data.outputfiledatasetconfig?preserve-view=true&view=azure-ml-py) . Para um exemplo de código utilizando a `OutputFileDatasetConfig` classe, consulte como [construir um gasoduto ML](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/pipeline-with-datasets/pipeline-for-image-classification.ipynb)de dois passos .
 
 > [!TIP]
-> Faça o upload de ficheiros relevantes para o trabalho em questão. Qualquer alteração nos ficheiros dentro do diretório de dados será vista como razão para refazer o passo da próxima vez que o pipeline for executado, mesmo que seja especificada a reutilização. 
+> Carregue apenas ficheiros relevantes para o trabalho em questão. Qualquer alteração nos ficheiros dentro do diretório de dados será vista como razão para refazer o passo da próxima vez que o pipeline for executado, mesmo que seja especificada a reutilização. 
 
 ## <a name="set-up-a-compute-target"></a>Configurar um alvo de computação
 
@@ -116,7 +117,7 @@ output_data1 = PipelineData(
 No Azure Machine Learning, o termo __compute__ (ou __meta de computação)__ refere-se às máquinas ou clusters que realizam os passos computacionais no seu pipeline de aprendizagem automática.   Consulte [metas de cálculo para formação](concept-compute-target.md#train) de modelos para uma lista completa de alvos de computação e Crie metas de [computação](how-to-create-attach-compute-studio.md) para como criá-los e anexá-los ao seu espaço de trabalho.   O processo de criação e ou fixação de um alvo de computação é o mesmo, quer esteja a treinar um modelo ou a executar um passo de pipeline. Depois de criar e fixar o seu alvo de cálculo, utilize o `ComputeTarget` objeto no seu passo de [pipeline](#steps).
 
 > [!IMPORTANT]
-> A realização de operações de gestão em objetivos de computação não é suportada a partir de trabalhos remotos internos. Uma vez que os gasodutos de aprendizagem automática são submetidos como um trabalho remoto, não utilize operações de gestão em alvos de computação a partir do interior do oleoduto.
+> A execução de operações de gestão em destinos de computação não é suportada a partir de trabalhos remotos. Como os pipelines de aprendizagem automática são enviados como um trabalho remoto, não utilize operações de gestão em destinos de computação a partir do pipeline.
 
 ### <a name="azure-machine-learning-compute"></a>Azure Machine Learning compute
 

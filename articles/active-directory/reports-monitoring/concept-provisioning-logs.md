@@ -17,12 +17,12 @@ ms.date: 1/29/2021
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad69df37d2635156873dc59d6fbf700a67ade548
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 284b554581534a8493225fba0b70b074fb7dd982
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99091937"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101651942"
 ---
 # <a name="overview-of-provisioning-logs-in-the-azure-portal-preview"></a>Visão geral dos registos de provisionamento no portal Azure (pré-visualização)
 
@@ -60,8 +60,8 @@ Para que possa ver o relatório de atividades de provisionamento, o seu inquilin
 Os clientes podem interagir com os registos de provisionamento de quatro formas:
 
 - Acedendo aos registos do portal Azure, conforme descrito na secção seguinte.
-- Transmitir os registos de provisionamento para [o Azure Monitor](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-log-analytics). Este método permite a retenção alargada de dados e a construção de dashboards, alertas e consultas personalizados.
-- Consulta da [API do Gráfico microsoft](https://docs.microsoft.com/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta) para os registos de provisionamento.
+- Transmitir os registos de provisionamento para [o Azure Monitor](../app-provisioning/application-provisioning-log-analytics.md). Este método permite a retenção alargada de dados e a construção de dashboards, alertas e consultas personalizados.
+- Consulta da [API do Gráfico microsoft](/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta) para os registos de provisionamento.
 - Descarregando os registos de provisionamento como um ficheiro CSV ou JSON.
 
 ## <a name="access-the-logs-from-the-azure-portal"></a>Aceda aos registos a partir do portal Azure
@@ -207,7 +207,7 @@ O ficheiro JSON é descarregado em formato minificado para reduzir o tamanho do 
 
 Aqui estão alguns comandos de amostra para trabalhar com o ficheiro JSON utilizando o PowerShell. Pode usar qualquer linguagem de programação com a qual se sinta confortável.  
 
-Primeiro, [leia o ficheiro JSON](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/convertfrom-json?view=powershell-7.1) executando este comando:
+Primeiro, [leia o ficheiro JSON](/powershell/module/microsoft.powershell.utility/convertfrom-json?view=powershell-7.1) executando este comando:
 
 ` $JSONContent = Get-Content -Path "<PATH TO THE PROVISIONING LOGS FILE>" | ConvertFrom-JSON`
 
@@ -243,7 +243,7 @@ Aqui ficam algumas dicas e considerações para os relatórios de provisionament
 
 Utilize a tabela seguinte para entender melhor como resolver os erros que encontra nos registos de provisionamento. Para quaisquer códigos de erro que faltem, forneça feedback utilizando o link na parte inferior desta página. 
 
-|Código de erro|Description|
+|Código de erro|Descrição|
 |---|---|
 |Conflito, Conflito de Entrada|Corrija os valores de atributos contraditórios em AZure AD ou na aplicação. Ou, reveja a configuração do seu atributo correspondente se a conta de utilizador conflituosa deveria ser correspondida e assumida. Reveja a [documentação](../app-provisioning/customize-application-attributes.md) para obter mais informações sobre a configuração de atributos correspondentes.|
 |TooManyRequests|A aplicação-alvo rejeitou esta tentativa de atualizar o utilizador por estar sobrecarregado e receber demasiados pedidos. Não há nada para fazer. Esta tentativa será automaticamente retirada. A Microsoft também foi notificada deste problema.|

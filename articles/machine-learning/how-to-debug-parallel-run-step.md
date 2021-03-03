@@ -11,12 +11,12 @@ ms.reviewer: larryfr, vaidyas, laobri, tracych
 ms.author: trmccorm
 author: tmccrmck
 ms.date: 09/23/2020
-ms.openlocfilehash: a0f813253520d76731a9b49a89b0bcace7c2ef34
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: a907bf61cb7ccb8b6d287840c12a00451cad782f
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99979169"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101657864"
 ---
 # <a name="troubleshooting-the-parallelrunstep"></a>Resolver problemas de ParallelRunStep
 
@@ -119,7 +119,7 @@ Crie o ParallelRunStep utilizando o script, a configuração do ambiente e os pa
 - `parallel_run_config`: Um `ParallelRunConfig` objeto, tal como definido anteriormente.
 - `inputs`: Um ou mais conjuntos de dados de aprendizagem de máquinas Azure de tipo único a serem divididos para processamento paralelo.
 - `side_inputs`: Um ou mais dados de referência ou conjuntos de dados utilizados como entradas laterais sem necessidade de serem divididos.
-- `output`: Um `PipelineData` objeto que corresponda ao diretório de saída.
+- `output`: Um `OutputDatasetConfig` ou um objeto que `PipelineData` corresponda ao diretório de saída.
 - `arguments`: Uma lista de argumentos passados para o script do utilizador. Utilize unknown_args para os recuperar no seu script de entrada (opcional).
 - `allow_reuse`: Se o passo deve reutilizar os resultados anteriores quando executado com as mesmas definições/entradas. Se este parâmetro `False` for, será sempre gerado um novo ensaio para este passo durante a execução do gasoduto. (opcional; o valor predefinido é `True` .)
 

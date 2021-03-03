@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: article
-ms.date: 06/16/2020
+ms.date: 03/02/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26403c20d7f3274e8f3f2dcae479f72e9a7e3354
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 5265b875769e6a1b8f1728c9c41c0bee00619956
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807025"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101647392"
 ---
 # <a name="add-an-api-connector-to-a-user-flow"></a>Adicione um conector API a um fluxo de utilizador
 
@@ -30,7 +30,7 @@ Para utilizar um [conector API,](api-connectors-overview.md)primeiro cria o cone
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/) como administrador do Azure Active Directory.
 2. Ao abrigo **dos serviços Azure,** selecione **Azure Ative Directory**.
 3. No menu esquerdo, selecione **Identidades Externas.**
-4. Selecione **todos os conectores API (Pré-visualização)** e, em seguida, selecione **novo conector API**.
+4. Selecione **todos os conectores API** e, em seguida, selecione **novo conector API**.
 
    ![Adicione um novo conector API](./media/self-service-sign-up-add-api-connector/api-connector-new.png)
 
@@ -97,7 +97,7 @@ Siga estes passos para adicionar um conector API a um fluxo de utilizador de ins
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/) como administrador do Azure Active Directory.
 2. Ao abrigo **dos serviços Azure,** selecione **Azure Ative Directory**.
 3. No menu esquerdo, selecione **Identidades Externas.**
-4. Selecione **os fluxos do Utilizador (Pré-visualização)** e, em seguida, selecione o fluxo do utilizador a que pretende adicionar o conector API.
+4. Selecione **os fluxos do Utilizador** e, em seguida, selecione o fluxo do utilizador a que pretende adicionar o conector API.
 5. Selecione **conectores API** e, em seguida, selecione os pontos finais da API que pretende invocar nos seguintes passos no fluxo do utilizador:
 
    - **Depois de iniciar sessão com um fornecedor de identidade**
@@ -249,10 +249,10 @@ Content-type: application/json
 
 | Parâmetro                                          | Tipo              | Necessário | Descrição                                                                                                                                                                                                                                                                            |
 | -------------------------------------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| versão                                            | String            | Yes      | A versão da API.                                                                                                                                                                                                                                                                |
-| ação                                             | String            | Yes      | O valor deve `Continue` ser.                                                                                                                                                                                                                                                              |
-| \<builtInUserAttribute>                            | \<attribute-type> | No       | Os valores podem ser armazenados no diretório se forem selecionados como Uma **Reivindicação para receber** na configuração do conector API e **nos atributos do Utilizador** para um fluxo de utilizador. Os valores podem ser devolvidos no token se forem selecionados como **reclamação de Candidatura.**                                              |
-| \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | No       | A reclamação devolvida não precisa de `_<extensions-app-id>_` conter. Os valores são armazenados no diretório se forem selecionados como Uma **Reivindicação a receber** na configuração do conector API e **no atributo do Utilizador** para um fluxo de utilizador. Os atributos personalizados não podem ser enviados de volta no token. |
+| versão                                            | String            | Sim      | A versão da API.                                                                                                                                                                                                                                                                |
+| ação                                             | String            | Sim      | O valor deve `Continue` ser.                                                                                                                                                                                                                                                              |
+| \<builtInUserAttribute>                            | \<attribute-type> | Não       | Os valores podem ser armazenados no diretório se forem selecionados como Uma **Reivindicação para receber** na configuração do conector API e **nos atributos do Utilizador** para um fluxo de utilizador. Os valores podem ser devolvidos no token se forem selecionados como **reclamação de Candidatura.**                                              |
+| \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | Não       | A reclamação devolvida não precisa de `_<extensions-app-id>_` conter. Os valores são armazenados no diretório se forem selecionados como Uma **Reivindicação a receber** na configuração do conector API e **no atributo do Utilizador** para um fluxo de utilizador. Os atributos personalizados não podem ser enviados de volta no token. |
 
 ### <a name="example-of-a-blocking-response"></a>Exemplo de uma resposta de bloqueio
 
@@ -271,10 +271,10 @@ Content-type: application/json
 
 | Parâmetro   | Tipo   | Necessário | Descrição                                                                |
 | ----------- | ------ | -------- | -------------------------------------------------------------------------- |
-| versão     | String | Yes      | A versão da API.                                                    |
-| ação      | String | Yes      | Valor deve ser `ShowBlockPage`                                              |
-| userMessage | String | Yes      | A mensagem a apresentar ao utilizador.                                            |
-| code        | String | No       | Código de erro. Pode ser usado para depurar propósitos. Não apresentado ao utilizador. |
+| versão     | String | Sim      | A versão da API.                                                    |
+| ação      | String | Sim      | Valor deve ser `ShowBlockPage`                                              |
+| userMessage | String | Sim      | A mensagem a apresentar ao utilizador.                                            |
+| code        | String | Não       | Código de erro. Pode ser usado para depurar propósitos. Não apresentado ao utilizador. |
 
 **Experiência de utilizador final com uma resposta de bloqueio**
 
@@ -297,11 +297,11 @@ Content-type: application/json
 
 | Parâmetro   | Tipo    | Necessário | Descrição                                                                |
 | ----------- | ------- | -------- | -------------------------------------------------------------------------- |
-| versão     | String  | Yes      | A versão da API.                                                    |
-| ação      | String  | Yes      | O valor deve `ValidationError` ser.                                           |
-| status      | Número inteiro | Yes      | Deve ser valor `400` para uma resposta do ValidationError.                        |
-| userMessage | String  | Yes      | A mensagem a apresentar ao utilizador.                                            |
-| code        | String  | No       | Código de erro. Pode ser usado para depurar propósitos. Não apresentado ao utilizador. |
+| versão     | String  | Sim      | A versão da API.                                                    |
+| ação      | String  | Sim      | O valor deve `ValidationError` ser.                                           |
+| status      | Número inteiro | Sim      | Deve ser valor `400` para uma resposta do ValidationError.                        |
+| userMessage | String  | Sim      | A mensagem a apresentar ao utilizador.                                            |
+| code        | String  | Não       | Código de erro. Pode ser usado para depurar propósitos. Não apresentado ao utilizador. |
 
 **Experiência de utilizador final com uma resposta de erro de validação**
 

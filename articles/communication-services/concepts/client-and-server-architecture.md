@@ -9,20 +9,18 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 2cc7e1d0c108d45383a68258fb6f62fcab87d1f7
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 0dbd1770030eeee8768c0b610171f5f27456ed70
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100653820"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101656232"
 ---
 # <a name="client-and-server-architecture"></a>Arquitetura de Clientes e Servidores
 
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
-
 <!--
 > [!WARNING]
-> This document is under construction and needs the following items to be addressed: 
+> This document is under construction and needs the following items to be addressed:
 > - Need to add security best practices for token management here
 > - Reference docs:
 > - https://docs.microsoft.com/windows/security/threat-protection/security-policy-settings/create-a-token-object
@@ -56,7 +54,7 @@ Muitos cenários são melhor servidos com aplicações nativas. O Azure Communic
 Comunicar através do sistema telefónico pode aumentar drasticamente o alcance da sua aplicação. Para suportar cenários de voz e SMS pstn, os Serviços de Comunicação Azure ajudam-no a [adquirir números](../quickstarts/telephony-sms/get-phone-number.md) de telefone diretamente do portal Azure ou a utilizar APIs de REST e bibliotecas de clientes. Uma vez adquiridos os números de telefone, podem ser utilizados para chegar a clientes usando tanto a chamada PSTN como a SMS em cenários de entrada e saída. Um fluxo de arquitetura de amostra pode ser encontrado abaixo:
 
 > [!Note]
-> Durante a pré-visualização pública, o fornecimento de números de telefone dos EUA está disponível para clientes com endereços de faturação localizados nos EUA e Canadá. 
+> Durante a pré-visualização pública, o fornecimento de números de telefone dos EUA está disponível para clientes com endereços de faturação localizados nos EUA e Canadá.
 
 :::image type="content" source="../media/scenarios/archdiagram-pstn.png" alt-text="Diagrama mostrando a arquitetura PSTN dos Serviços de Comunicação.":::
 

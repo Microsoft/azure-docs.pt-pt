@@ -1,5 +1,5 @@
 ---
-title: Definir expiração para os grupos Microsoft 365 - Azure Ative Directory Microsoft Docs
+title: Desativar a expiração para os grupos Microsoft 365 - Azure Ative Directory | Microsoft Docs
 description: Como configurar a expiração para os grupos Microsoft 365 no Azure Ative Directory
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60d71c44ebaba5b0cbcb03afa41ad15237dceaef
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 1e40ad90910f7b2244401386fb01a4e4fefe03ca
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96547479"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101647409"
 ---
 # <a name="configure-the-expiration-policy-for-microsoft-365-groups"></a>Configure a política de expiração para os grupos Microsoft 365
 
@@ -42,7 +42,7 @@ Para obter informações sobre como descarregar e instalar os cmdlets Azure AD P
 
 ## <a name="activity-based-automatic-renewal"></a>Renovação automática baseada na atividade
 
-Com a inteligência AD AZure, os grupos são agora automaticamente renovados com base no facto de terem sido usados recentemente. Esta funcionalidade elimina a necessidade de ação manual por parte dos proprietários do grupo, uma vez que se baseia na atividade do utilizador em grupos em todos os serviços da Microsoft 365, como Outlook, SharePoint ou Teams. Por exemplo, se um proprietário ou membro do grupo fizer algo como carregar um documento no SharePoint, visitar um canal de Equipas ou enviar um e-mail para o grupo no Outlook, o grupo é automaticamente renovado e o proprietário não recebe notificações de renovação.
+Com a inteligência AD AZure, os grupos são agora automaticamente renovados com base no facto de terem sido usados recentemente. Esta funcionalidade elimina a necessidade de ação manual por parte dos proprietários do grupo, uma vez que se baseia na atividade do utilizador em grupos em todos os serviços da Microsoft 365, como Outlook, SharePoint ou Teams. Por exemplo, se um proprietário ou membro do grupo fizer algo como carregar um documento no SharePoint, visitar um canal de Equipas ou enviar um e-mail para o grupo no Outlook, o grupo é automaticamente renovado cerca de 35 dias antes do fim do grupo e o proprietário não recebe notificações de renovação.
 
 ### <a name="activities-that-automatically-renew-group-expiration"></a>Atividades que renovam automaticamente a expiração do grupo
 
@@ -65,7 +65,7 @@ Seguem-se as funções que podem configurar e utilizar a expiração para os gru
 Função | Permissões
 -------- | --------
 Administrador global, administrador do grupo ou administrador de utilizadores | Pode criar, ler, atualizar ou eliminar as definições de política de expiração dos grupos Microsoft 365<br>Pode renovar qualquer grupo Microsoft 365
-Utilizador | Pode renovar um grupo Microsoft 365 que possuem<br>Pode restaurar um grupo Microsoft 365 que possuem<br>Pode ler as definições da política de expiração
+User | Pode renovar um grupo Microsoft 365 que possuem<br>Pode restaurar um grupo Microsoft 365 que possuem<br>Pode ler as definições da política de expiração
 
 Para obter mais informações sobre permissões para restaurar um grupo eliminado, consulte [Restaurar um grupo Microsoft 365 eliminado no Azure Ative Directory](groups-restore-deleted.md).
 

@@ -10,12 +10,12 @@ ms.author: sagopal
 ms.date: 12/3/2020
 ms.topic: troubleshooting
 ms.custom: devx-track-python
-ms.openlocfilehash: 7ddd5dec87a122a0b36fee17b5434c8a49dcf434
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 5b2f62e8e04bddadc7068eb75405bcf1568f5713
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881640"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101657303"
 ---
 # <a name="troubleshoot-environment-image-builds"></a>A imagem do ambiente de resolução de problemas constrói
 
@@ -143,7 +143,7 @@ Erro do subprocessamento do Pip:
    ERROR: THESE PACKAGES DO NOT MATCH THE HASHES FROM THE REQUIREMENTS FILE. If you have updated the package versions, update the hashes as well. Otherwise, examine the package contents carefully; someone may have tampered with them.
    ```
 
-A instalação do Pip pode ficar presa num ciclo infinito se houver conflitos irresolúveis nas dependências. Se estiver a trabalhar localmente, reduza a versão pip para < 20,3. Num ambiente conda criado a partir de um ficheiro YAML, só verá este problema se a Conda-forge for o canal de maior prioridade. Para atenuar o problema, especifique explicitamente o pip < 20.3 (!=20.3 ou =20.2.4 pino para outra versão) como uma dependência conda no ficheiro de especificação conda.
+A instalação do Pip pode ficar presa num ciclo infinito se houver conflitos irresolúveis nas dependências. Se estiver a trabalhar localmente, reduza a versão pip para < 20,3. Num ambiente conda criado a partir de um ficheiro YAML, só verá este problema se a Conda-forge for for for for o canal de maior prioridade. Para atenuar o problema, especifique explicitamente o pip < 20.3 (!=20.3 ou =20.2.4 pino para outra versão) como uma dependência conda no ficheiro de especificação conda.
 
 ## <a name="service-side-failures"></a>Falhas do lado do serviço
 
@@ -153,8 +153,8 @@ Consulte os seguintes cenários para resolver possíveis falhas do lado do servi
 
 Possíveis questões:
 - O nome do caminho para o registo do contentor pode não estar a ser corretamente corrigido. Verifique se os nomes de imagem usam barras duplas e a direção dos cortes nos anfitriões Linux contra Windows está correta.
-- Se um registo de contentores por detrás de uma rede virtual estiver a utilizar um ponto final privado numa [região não suportada,](/azure/private-link/private-link-overview#availability)configure o registo do contentor utilizando o ponto final de serviço (acesso público) a partir do portal e refaça.
-- Depois de colocar o registo do contentor atrás de uma rede virtual, execute o [modelo do Gestor de Recursos Azure](/azure/machine-learning/how-to-enable-virtual-network#azure-container-registry) para que o espaço de trabalho possa comunicar com a instância de registo do contentor.
+- Se um registo de contentores por detrás de uma rede virtual estiver a utilizar um ponto final privado numa [região não suportada,](../private-link/private-link-overview.md#availability)configure o registo do contentor utilizando o ponto final de serviço (acesso público) a partir do portal e refaça.
+- Depois de colocar o registo do contentor atrás de uma rede virtual, execute o [modelo do Gestor de Recursos Azure](./how-to-network-security-overview.md) para que o espaço de trabalho possa comunicar com a instância de registo do contentor.
 
 ### <a name="you-get-a-401-error-from-a-workspace-container-registry"></a>Obtém-se um erro de 401 de um registo de contentores de espaço de trabalho
 
@@ -166,7 +166,7 @@ Quando uma construção de imagem está em andamento, conda é bloqueado pelo cl
 
 ### <a name="your-custom-docker-image-isnt-in-the-registry"></a>A tua imagem personalizada do Docker não está no registo.
 
-Verifique se a [etiqueta correta](/azure/machine-learning/how-to-use-environments#create-an-environment) é utilizada e isso `user_managed_dependencies = True` . `Environment.python.user_managed_dependencies = True` desativa a conda e utiliza as embalagens instaladas do utilizador.
+Verifique se a [etiqueta correta](./how-to-use-environments.md#create-an-environment) é utilizada e isso `user_managed_dependencies = True` . `Environment.python.user_managed_dependencies = True` desativa a conda e utiliza as embalagens instaladas do utilizador.
 
 ### <a name="you-get-one-of-the-following-common-virtual-network-issues"></a>Obtém-se um dos seguintes problemas de rede virtual comuns
 
@@ -184,15 +184,15 @@ Verifique se a [etiqueta correta](/azure/machine-learning/how-to-use-environment
 
 ### <a name="you-cant-run-experiments-when-storage-has-network-security-enabled"></a>Não é possível fazer experiências quando o armazenamento tem segurança de rede ativada
 
-Se estiver a utilizar imagens padrão do Docker e a permitir dependências geridas pelo utilizador, utilize as [tags](/azure/machine-learning/how-to-enable-virtual-network) de serviço MicrosoftContainerRegistry e AzureFrontDoor.FirstParty para permitir o Registo de Contentores Azure E as suas dependências.
+Se estiver a utilizar imagens padrão do Docker e a permitir dependências geridas pelo utilizador, utilize as [tags](./how-to-network-security-overview.md) de serviço MicrosoftContainerRegistry e AzureFrontDoor.FirstParty para permitir o Registo de Contentores Azure E as suas dependências.
 
- Para obter mais informações, consulte [Ativar redes virtuais.](/azure/machine-learning/how-to-enable-virtual-network#azure-container-registry)
+ Para obter mais informações, consulte [Ativar redes virtuais.](./how-to-network-security-overview.md)
 
 ### <a name="you-need-to-create-an-icm"></a>Você precisa criar um ICM
 
 Quando estiver a criar/atribuir um ICM à Metastore, inclua o bilhete de suporte CSS para que possamos entender melhor o problema.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Treine um modelo de aprendizagem automática para categorizar flores](how-to-train-scikit-learn.md)
 - [Treine um modelo de aprendizagem automática usando uma imagem personalizada do Docker](how-to-train-with-custom-image.md)

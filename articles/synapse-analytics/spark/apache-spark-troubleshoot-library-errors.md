@@ -8,12 +8,12 @@ ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: conceptual
 ms.date: 01/04/2021
-ms.openlocfilehash: 60ea97ea2df271f867febec3fa0f0826a18dbbbf
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: e812fa47d35889a9cf8c671a4df6034812272a6a
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100417455"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101670634"
 ---
 # <a name="troubleshoot-library-installation-errors"></a>Erros de instalação da biblioteca de resolução de problemas 
 Para disponibilizar códigos de terceiros ou construído localmente para as suas aplicações, pode instalar uma biblioteca numa das suas piscinas Apache Spark sem servidor. Os pacotes listados no ficheiro requirements.txt são descarregados do PyPi no momento da startup de pool. Este ficheiro de requisitos é usado sempre que uma instância Spark é criada a partir dessa piscina Spark. Uma vez instalada uma biblioteca para uma piscina Spark, está disponível para todas as sessões usando a mesma piscina. 
@@ -54,7 +54,7 @@ df = spark.createDataFrame(data=data2,schema=schema)
 df.write.csv("abfss://<<ENTER NAME OF FILE SYSTEM>>@<<ENTER NAME OF PRIMARY STORAGE ACCOUNT>>.dfs.core.windows.net/validate_permissions.csv")
 
 ```
-Se receber um erro, é provável que esteja a perder as permissões necessárias. Para obter as permissões necessárias, visite este documento: [Atribua permissões ao Contribuinte de Dados blob de armazenamento ou ao proprietário do depósito](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal#assign-an-azure-built-in-role)de dados do Armazenamento Blob .
+Se receber um erro, é provável que esteja a perder as permissões necessárias. Para obter as permissões necessárias, visite este documento: [Atribua permissões ao Contribuinte de Dados blob de armazenamento ou ao proprietário do depósito](../../storage/common/storage-auth-aad-rbac-portal.md#assign-an-azure-built-in-role)de dados do Armazenamento Blob .
 
 Além disso, se estiver a executar um Pipeline, o MSI do Espaço de Trabalho deve também ter permissões de Storage Blob Data Owner ou De Armazenamento Blob Data Contributor. Para aprender a conceder a sua identidade de espaço de trabalho esta permissão, visite: [Conceder permissões ao espaço de trabalho identidade gerida.](../security/how-to-grant-workspace-managed-identity-permissions.md)
 
@@ -98,4 +98,3 @@ Para recriar o ambiente e validar as suas atualizações:
 
 ## <a name="next-steps"></a>Passos seguintes
 - Ver as bibliotecas padrão: [Suporte à versão Apache Spark](apache-spark-version-support.md)
-

@@ -2,18 +2,18 @@
 title: Imagens Red Hat Enterprise Linux disponíveis em Azure
 description: Saiba mais sobre imagens Red Hat Enterprise Linux no Microsoft Azure
 author: asinn826
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: redhat
+ms.collection: linux
 ms.topic: article
 ms.date: 04/16/2020
 ms.author: alsin
-ms.reviewer: cynthn
-ms.openlocfilehash: ea0e8c148a847ecc23bab5e87a1dc60a626cf0c1
-ms.sourcegitcommit: 1d366d72357db47feaea20c54004dc4467391364
+ms.openlocfilehash: 0a4d2ef5b7f367130151fabda3f1d97b65605931
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95411619"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101676030"
 ---
 # <a name="red-hat-enterprise-linux-rhel-images-available-in-azure"></a>Imagens red hat enterprise Linux (RHEL) disponíveis em Azure
 O Azure oferece uma variedade de imagens RHEL para diferentes casos de uso.
@@ -49,7 +49,7 @@ RHEL          | 6.7      | RAW    | Agente Linux | Suporte prolongado de ciclo d
 |             | 77-gen2  | LVM    | Agente Linux | Anexado aos repositórios eus por defeito.
 |             | 7.8      | LVM    | Agente Linux | Anexado aos repositórios regulares (EUS indisponível para RHEL 7.8)
 |             | 78-gen2  | LVM    | Agente Linux | Anexado aos repositórios regulares (EUS indisponível para RHEL 7.8)
-|             | 7.9      | LVM    | Agente Linux | Anexado aos repositórios regulares (EUS indisponível para RHEL 7.9)
+|             | 7,9      | LVM    | Agente Linux | Anexado aos repositórios regulares (EUS indisponível para RHEL 7.9)
 |             | 79-gen2  | LVM    | Agente Linux | Anexado aos repositórios regulares (EUS indisponível para RHEL 7.9)
 |             | 8-LVM    | LVM    | Agente Linux | FAMÍLIA RHEL 8.x de imagens. Ligado a repositórios regulares.
 |             | 8-lvm-gen2| LVM    | Agente Linux | Hiper-V Geração 2 - FAMÍLIA RHEL 8.x de imagens. Ligado a repositórios regulares.
@@ -115,7 +115,7 @@ rhel-byos     |rhel-lvm74| LVM    | Agente Linux | As imagens RHEL 7.4 BYOS, nã
 > [!NOTE]
 > A oferta de produtos RHEL-SAP-HANA é considerada fim de vida pela Red Hat. As implementações existentes continuarão a funcionar normalmente, mas a Red Hat recomenda que os clientes migram das imagens RHEL-SAP-HANA para as imagens RHEL-SAP-HA, que inclui os repositórios SAP HANA, bem como o addon HA. Mais detalhes sobre as ofertas de nuvem SAP da Red Hat estão disponíveis [aqui.](https://access.redhat.com/articles/3751271)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Saiba mais sobre as [imagens do Chapéu Vermelho em Azure.](./redhat-images.md)
 * Saiba mais sobre a [Infraestrutura de Atualização do Chapéu Vermelho.](./redhat-rhui.md)
 * Saiba mais sobre a [oferta DA RHEL BYOS.](./byos.md)

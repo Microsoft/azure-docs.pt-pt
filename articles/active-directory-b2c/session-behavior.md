@@ -1,5 +1,5 @@
 ---
-title: Configure comportamento da sessão - Azure Ative Directory B2C / Microsoft Docs
+title: Configure comportamento da sessão - Azure Ative Directory B2C | Microsoft Docs
 description: Saiba como configurar o comportamento da sessão no Azure Ative Directory B2C.
 services: active-directory-b2c
 author: msmimart
@@ -7,19 +7,19 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/14/2020
+ms.date: 02/23/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: ad9bd8dec94660d94cf3a106d31dafdad06f47a8
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 85d00b393ad169764a2f26e324295308ef49d3ba
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97584515"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101646586"
 ---
-# <a name="configure-session-behavior-in-azure-active-directory-b2c"></a>Configurar comportamento de sessão no Azure Ative Directory B2C
+# <a name="configure-session-behavior-in-azure-active-directory-b2c"></a>Configurar o comportamento da sessão no Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
@@ -71,9 +71,9 @@ A sessão de aplicação pode ser uma sessão baseada em cookies armazenada sob 
 
 Pode configurar o comportamento da sessão Azure AD B2C, incluindo:
 
-- **Duração da sessão de aplicações web (minutos)** - A quantidade de tempo que o cookie de sessão AZure AD B2C é armazenado no navegador do utilizador após a autenticação bem sucedida. Pode definir o tempo de vida da sessão para um valor de 15 a 720 minutos.
+- **Duração da sessão de aplicações web (minutos)** - A quantidade de tempo que o cookie de sessão AZure AD B2C é armazenado no navegador do utilizador após a autenticação bem sucedida. Pode definir a vida útil da sessão para um valor de 15 a 720 minutos.
 
-- **Tempo limite de sessão de aplicações web** - Indica como uma sessão é prolongada pela definição do tempo de vida da sessão ou pela definição de me manter inscrito.
+- **Tempo limite de sessão de aplicações web** - Indica como uma sessão é prolongada pela definição de vida útil da sessão ou pela definição Keep me signed in (KMSI).
   - **Rolar** - Indica que a sessão é prolongada sempre que o utilizador realiza uma autenticação baseada em cookies (predefinição).
   - **Absoluto** - Indica que o utilizador é obrigado a reautensar após o período de tempo especificado.
 
@@ -82,9 +82,7 @@ Pode configurar o comportamento da sessão Azure AD B2C, incluindo:
   - **Aplicação** - Esta definição permite manter uma sessão de utilizador exclusivamente para uma aplicação, independente de outras aplicações. Por exemplo, pode utilizar esta definição se quiser que o utilizador faça o sôm.
   - **Política** - Esta definição permite manter uma sessão de utilizador exclusivamente para um fluxo de utilizador, independente das aplicações que a utilizam. Por exemplo, se o utilizador já tiver assinado e concluído um passo de autenticação multi-factor (MFA), o utilizador pode ter acesso a partes de segurança superior de várias aplicações, desde que a sessão ligada ao fluxo do utilizador não expire.
   - **Desativado** - Esta definição obriga o utilizador a executar todo o fluxo do utilizador em cada execução da apólice.
-::: zone pivot="b2c-custom-policy"
-- **Keep me signed-in** - prolonga o tempo de vida da sessão através do uso de um cookie persistente. A sessão permanece ativa após o fecho do utilizador e reabre o navegador. A sessão só é revogada quando um utilizador assina. O recurso Keep me signed-in só se aplica ao sin-in com contas locais. O recurso Keep me signed-in tem precedência sobre o tempo de vida da sessão. Se a função Desinsessão keep me estiver ativada e o utilizador o selecionar, esta funcionalidade dita quando a sessão expirará. 
-::: zone-end
+- **Mantenha-me inscrito (KMSI)** - Prolonga a duração da sessão através da utilização de um cookie persistente. Se esta funcionalidade estiver ativada e o utilizador a selecionar, a sessão permanece ativa mesmo depois de o utilizador fechar e reabrir o navegador. A sessão só é revogada quando o utilizador assinar. A funcionalidade KMSI aplica-se apenas ao sinsub-in com contas locais. A funcionalidade KMSI tem precedência ao longo da vida útil da sessão.
 
 ::: zone pivot="b2c-user-flow"
 
@@ -112,12 +110,43 @@ Para alterar o comportamento da sessão e as configurações SSO, adicione um el
    <SessionExpiryInSeconds>86400</SessionExpiryInSeconds>
 </UserJourneyBehaviors>
 ```
+::: zone-end
 
 ## <a name="enable-keep-me-signed-in-kmsi"></a>Enable Keep me signed in (KMSI)
 
-Pode ativar a funcionalidade Keep Me Signed In para utilizadores da sua web e aplicações nativas que tenham contas locais no seu diretório Azure Ative Directory B2C (Azure AD B2C). Esta funcionalidade permite ao acesso aos utilizadores que regressem à sua aplicação sem que estes voltem a entrar no seu nome de utilizador e senha. Este acesso é revogado quando um utilizador assina.
+Pode ativar a funcionalidade KMSI para utilizadores da sua web e aplicações nativas que tenham contas locais no seu diretório Azure AD B2C. Quando ativar a funcionalidade, os utilizadores podem optar por permanecer assinados para que a sessão permaneça ativa após o fecho do navegador. Em seguida, podem reabrir o navegador sem serem solicitados a reentrar no seu nome de utilizador e senha. Este acesso é revogado quando um utilizador assina.
 
 ![Página de inscrição de exemplo mostrando um Mantenha-me assinado na caixa de verificação](./media/session-behavior/keep-me-signed-in.png)
+
+
+::: zone pivot="b2c-user-flow"
+
+O KMSI é configurável ao nível de fluxo de cada utilizador. Antes de permitir kmsi para os fluxos do seu utilizador, considere o seguinte:
+
+- O KMSI é suportado apenas para as versões **recomendadas** de inscrição e inscrição (SUSI), entrada e edição de perfis fluxos de utilizador. Se atualmente tiver **pré-visualização** **Standard** ou Legacy - versões V2 destes fluxos de utilizador e quiser ativar o KMSI, terá de criar novas versões **recomendadas** destes fluxos de utilizador.
+- O KMSI não é suportado com fluxos de utilizador de redefinição de palavra-passe ou de inscrição.
+- Se pretender ativar o KMSI para todas as aplicações no seu inquilino, recomendamos que adi ative o KMSI para todos os fluxos de utilizador no seu inquilino. Como um utilizador pode ser apresentado com múltiplas políticas durante uma sessão, é possível que possam encontrar uma que não tenha KMSI ativado, o que removeria o cookie KMSI da sessão.
+- O KMSI não deve ser ativado em computadores públicos.
+
+### <a name="configure-kmsi-for-a-user-flow"></a>Configure KMSI para um fluxo de utilizador
+
+Para ativar o KMSI para o fluxo do seu utilizador:
+
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+2. Certifique-se de que está a usar o diretório que contém o seu inquilino Azure AD B2C. Selecione o filtro **de subscrição Diretório +**   no menu superior e escolha o diretório que contém o seu inquilino Azure AD B2C.
+3. Escolha **todos os serviços**   no canto superior esquerdo do portal Azure e, em seguida, procure e selecione **Azure AD B2C**.
+4. Selecione **fluxos de utilizador (políticas)**.
+5. Abra o fluxo de utilizador que criou anteriormente.
+6. Selecione **Propriedades**.
+
+7. Em  **comportamento de Sessão**, selecione **Mantenha-me assinado na sessão**. Ao lado **de Manter-me assinado em sessão (dias)**, insira um valor de 1 a 90 para especificar o número de dias em que uma sessão pode permanecer aberta.
+
+
+   ![Habilitar manter-me assinado na sessão](media/session-behavior/enable-keep-me-signed-in.png)
+
+::: zone-end
+
+::: zone pivot="b2c-custom-policy"
 
 Os utilizadores não devem ativar esta opção em computadores públicos.
 

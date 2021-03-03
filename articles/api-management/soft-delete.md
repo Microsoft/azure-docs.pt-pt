@@ -1,24 +1,24 @@
 ---
-title: Azure API Management soft-delete (pré-visualização) Microsoft Docs
+title: Azure API Management soft-delete (pré-visualização) | Microsoft Docs
 description: O soft-delete permite-lhe recuperar instâncias de Gestão de API eliminadas.
 ms.service: api-management
 ms.topic: conceptual
 author: vladvino
 ms.author: apimpm
 ms.date: 11/27/2020
-ms.openlocfilehash: 72e91715398b4920c62afae5f36aa09954a577f9
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: e2842f3e428abb4f0eb628dbb8e446f2714d5d89
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97092147"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101652390"
 ---
 # <a name="api-management-soft-delete-preview"></a>API Management soft-delete (pré-visualização)
 
 Com a API Management soft-delete (pré-visualização), pode recuperar e restaurar casos de Gestão de API (APIM) recentemente eliminados.
 
 > [!IMPORTANT]
-> Apenas as instâncias de Gestão da API eliminadas utilizando `2020-01-01-preview` e versões API posteriores serão eliminadas e recuperáveis usando os passos descritos neste artigo. As instâncias APIM eliminadas utilizando versões API anteriores continuarão a ser duramente eliminadas. A Azure PowerShell e Azure CLI não utilizam atualmente a `2020-06-01-preview` versão e também resultarão em comportamentos de eliminação dura.
+> Apenas as instâncias de Gestão da API eliminadas utilizando `2020-06-01-preview` e versões API posteriores serão eliminadas e recuperáveis usando os passos descritos neste artigo. As instâncias APIM eliminadas utilizando versões API anteriores continuarão a ser duramente eliminadas. A Azure PowerShell e Azure CLI não utilizam atualmente a `2020-06-01-preview` versão e também resultarão em comportamentos de eliminação dura.
 
 ## <a name="supporting-interfaces"></a>Interfaces de apoio
 
@@ -31,14 +31,14 @@ A funcionalidade de eliminação suave está disponível através da [REST API](
 |--|--|--|--|
 | [Criar ou Atualizar](/rest/api/apimanagement/2020-06-01-preview/apimanagementservice/createorupdate) | Cria ou atualiza um serviço de Gestão API.  | Serviço de Gestão da API | Qualquer |
 | [Criar ou Atualizar](/rest/api/apimanagement/2020-06-01-preview/apimanagementservice/createorupdate) com `restore` conjunto de propriedade para **verdadeiro** | Undeletes Serviço de Gestão API se anteriormente foi apagado. Se `restore` for especificado e definido para todas as `true` outras propriedades será ignorado.  | Serviço de Gestão da API |  Antevisão de 2020-06-01 |
-| [Eliminar](/rest/api/apimanagement/2020-06-01-preview/apimanagementservice/delete) | Elimina um serviço de Gestão de API existente. | Serviço de Gestão da API | Antevisão 2020-01-01|
+| [Eliminar](/rest/api/apimanagement/2020-06-01-preview/apimanagementservice/delete) | Elimina um serviço de Gestão de API existente. | Serviço de Gestão da API | Antevisão de 2020-06-01|
 | [Obter pelo nome](/rest/api/apimanagement/2020-06-01-preview/deletedservices/getbyname) | Obtenha o Serviço de Gestão Api com o nome de Api. | Serviços Eliminados | Antevisão de 2020-06-01 |
 | [Lista por subscrição](/rest/api/apimanagement/2020-06-01-preview/deletedservices/listbysubscription) | Lista todos os serviços de soft-deles disponíveis para não ser entregue para a subscrição dada. | Serviços Eliminados | Antevisão de 2020-06-01
 | [Remover](/rest/api/apimanagement/2020-06-01-preview/deletedservices/purge) | Purga o Serviço de Gestão da API (elimina-o sem opção de desdelete). | Serviços Eliminados | Antevisão de 2020-06-01
 
-## <a name="soft-delete-behavior"></a>Comportamento de eliminação suave
+## <a name="soft-delete-behavior"></a>Comportamento de eliminação recuperável
 
-Pode utilizar qualquer versão API para criar a sua instância de Gestão API, no entanto terá de utilizar `2020-01-01-preview` ou versões posteriores para eliminar suavemente a sua instância APIM (e ter a opção de a recuperar).
+Pode utilizar qualquer versão API para criar a sua instância de Gestão API, no entanto terá de utilizar `2020-06-01-preview` ou versões posteriores para eliminar suavemente a sua instância APIM (e ter a opção de a recuperar).
 
 Ao eliminar uma instância de Gestão da API, o serviço existirá num estado apagado, tornando-o inacessível a quaisquer operações da APIM. Enquanto neste estado, a instância APIM só pode ser listada, recuperada ou purgada (permanentemente eliminada).
 

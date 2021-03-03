@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: c67b0bab554f363b8389c5557eadeac6e4c577a2
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: f94134b2a06155b1b1f390175578e501a840038b
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98625236"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101669424"
 ---
 # <a name="self-help-for-serverless-sql-pool"></a>Autoajuda para piscina SQL sem servidor
 
@@ -30,7 +30,7 @@ Se o Synapse Studio não conseguir estabelecer ligação à piscina SQL sem serv
 ## <a name="query-fails-because-file-cannot-be-opened"></a>Consulta falha porque o ficheiro não pode ser aberto
 
 Se a sua consulta falhar com o erro dizendo "O Ficheiro não pode ser aberto porque não existe ou é usado por outro processo" e tem a certeza de que ambos os ficheiros existem e não são utilizados por outro processo, significa que o pool SQL sem servidor não pode aceder ao ficheiro. Este problema geralmente acontece porque a sua identidade do Azure Ative Directory não tem direitos de acesso ao ficheiro. Por predefinição, o pool SQL sem servidor está a tentar aceder ao ficheiro utilizando a sua identidade do Azure Ative Directory. Para resolver este problema, é necessário ter os direitos adequados de acesso ao ficheiro. A forma mais fácil é conceder a si próprio a função de“Contribuinte de Dados do Armazenamento de Blobs” na conta de armazenamento que está a tentar consultar. 
-- [Veja o guia completo no controlo de acesso do Azure Active Directory para obter mais informações](../../storage/common/storage-auth-aad-rbac-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). 
+- [Veja o guia completo no controlo de acesso do Azure Active Directory para obter mais informações](../../storage/common/storage-auth-aad-rbac-portal.md). 
 - [Visit Control storage account access for serverless SQL pool in Azure Synapse Analytics](develop-storage-files-storage-access-control.md)
 
 ## <a name="query-fails-because-it-cannot-be-executed-due-to-current-resource-constraints"></a>Consulta falha porque não pode ser executada devido a restrições de recursos atuais 

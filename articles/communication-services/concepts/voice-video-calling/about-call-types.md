@@ -9,16 +9,14 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 98c1ce9367e9bf2aa1a381a772b3cbc73f96b519
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 515921c4e69b7c2cff8e1055182503b5ce89971c
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100650954"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101657150"
 ---
 # <a name="voice-and-video-concepts"></a>Conceitos de voz e vídeo
-
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 Pode utilizar os Serviços de Comunicação Azure para fazer e receber uma a uma ou chamadas de voz e vídeo em grupo. As suas chamadas podem ser feitas para outros dispositivos ligados à Internet e para telefones simples. Pode utilizar as bibliotecas de clientes JavaScript, Android ou iOS para construir aplicações que permitam aos seus utilizadores falar em conversas privadas ou em discussões de grupo. A Azure Communication Services suporta chamadas de e para serviços ou Bots.
 
@@ -26,7 +24,7 @@ Pode utilizar os Serviços de Comunicação Azure para fazer e receber uma a uma
 
 Existem vários tipos de chamadas que pode fazer nos Serviços de Comunicação Azure. O tipo de chamadas que faz determinam o seu esquema de sinalização, fluxos de tráfego de mídia e modelo de preços.
 
-### <a name="voice-over-ip-voip"></a>Voz sobre IP (VoIP) 
+### <a name="voice-over-ip-voip"></a>Voz sobre IP (VoIP)
 
 Quando um utilizador da sua aplicação chama outro utilizador da sua aplicação através de uma ligação à Internet ou aos dados, a chamada é feita através do Voice Over IP (VoIP). Neste caso, tanto a sinalização como os meios de comunicação fluem pela internet.
 
@@ -43,14 +41,14 @@ Uma chamada de um para um nos Serviços de Comunicação Azure acontece quando u
 Uma chamada de grupo nos Serviços de Comunicação Azure acontece quando três ou mais participantes se ligam entre si. Qualquer combinação de utilizadores ligados a VoIP e PSTN pode estar presente numa chamada de grupo. Uma chamada de um para um pode ser convertida numa chamada de grupo adicionando mais participantes à chamada. Um desses participantes pode ser um bot.
 
 ### <a name="supported-video-standards"></a>Padrões de vídeo suportados
-Apoiamos H.264 (MPEG-4) 
+Apoiamos H.264 (MPEG-4)
 
 ### <a name="video-quality"></a>Qualidade do vídeo 
-Apoiamos até Full HD 1080p nos SDKs nativos (iOS, Android). Para Web (JS) SDK apoiamos Standard HD 720p. A qualidade depende da largura de banda disponível.  
+Apoiamos até Full HD 1080p nos SDKs nativos (iOS, Android). Para Web (JS) SDK apoiamos Standard HD 720p. A qualidade depende da largura de banda disponível.
 
 ### <a name="rooms-concept"></a>Conceito de quartos
 Os quartos são um conjunto de APIs e SDKs que permitem adicionar facilmente interações de áudio, vídeo, partilha de ecrã, PSTN e SMS ao seu website ou aplicação nativa.
-Durante a pré-visualização pode utilizar o ID do grupo para se juntar à mesma conversa. Pode criar os iDs de grupo que precisar e separar os utilizadores pelos "quartos". Avançar vai introduzir mais controlos em torno de "quartos" 
+Durante a pré-visualização pode utilizar o ID do grupo para se juntar à mesma conversa. Pode criar os iDs de grupo que precisar e separar os utilizadores pelos "quartos". Avançar vai introduzir mais controlos em torno de "quartos"
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 02/09/2021
-ms.openlocfilehash: 75ea473c8669e9d50d2e9971a20a5fc1c3070779
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 7a6213528f204ac31fbcf8a29625787fc73d5153
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100368018"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101656810"
 ---
 # <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace"></a>Configure Azure Private Link para um espaço de trabalho de aprendizagem de máquinas Azure
 
@@ -172,7 +172,12 @@ Para obter informações sobre máquinas virtuais Azure, consulte a [documentaç
 
 ## <a name="enable-public-access"></a>Permitir o acesso do público
 
-Depois de configurar um espaço de trabalho com um ponto final privado, pode opcionalmente permitir o acesso do público ao espaço de trabalho. Ao fazê-lo, não retira o ponto final privado. Permite o acesso do público para além do acesso privado. Para permitir o acesso do público a um espaço de trabalho privado, utilize os seguintes passos:
+Em algumas situações, pode querer permitir que alguém se conecte ao seu espaço de trabalho seguro sobre um ponto final público, em vez de através do VNet. Depois de configurar um espaço de trabalho com um ponto final privado, pode opcionalmente permitir o acesso do público ao espaço de trabalho. Ao fazê-lo, não retira o ponto final privado. Todas as comunicações entre os componentes por trás do VNet ainda estão seguras. Permite o acesso do público apenas ao espaço de trabalho, além do acesso privado através do VNet.
+
+> [!WARNING]
+> Ao ligar-se ao ponto final público, algumas funcionalidades do estúdio não conseguirão aceder aos seus dados. Este problema acontece quando os dados são armazenados num serviço que é protegido por trás do VNet. Por exemplo, uma Conta de Armazenamento Azure.
+
+Para permitir o acesso do público a um espaço de trabalho privado, utilize os seguintes passos:
 
 # <a name="python"></a>[Python](#tab/python)
 

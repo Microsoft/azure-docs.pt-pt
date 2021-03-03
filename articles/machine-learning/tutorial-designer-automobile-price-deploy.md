@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 01/15/2021
 ms.custom: designer
-ms.openlocfilehash: e93f912915303ce903a32ceba4f079593657a4ac
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: ec563371ab505113117707f56c31f506f7fdf377
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576062"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101659522"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer"></a>Tutorial: Implementar um modelo de machine learning com o designer
 
@@ -42,7 +42,7 @@ Para implantar o seu oleoduto, tem primeiro de converter o gasoduto de treino nu
 
 1. Acima da tela do gasoduto, **selecione Criar o gasoduto** de  >  **inferência em tempo real**.
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-deploy/tutorial2-create-inference-pipeline.png"alt-text="Screenshot mostrando onde encontrar o botão de pipeline criar":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-deploy/tutorial2-create-inference-pipeline.png" alt-text="Screenshot mostrando onde encontrar o botão de pipeline criar":::
 
     O seu oleoduto deve agora ser assim: 
 
@@ -97,13 +97,13 @@ Depois de o seu serviço AKS ter terminado o fornecimento, volte ao gasoduto de 
 
 1. Selecione o cluster AKS que criou.
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-deploy/setup-endpoint.png"alt-text="Screenshot mostrando como configurar um novo ponto final em tempo real":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-deploy/setup-endpoint.png" alt-text="Screenshot mostrando como configurar um novo ponto final em tempo real":::
 
     Também pode alterar a definição **Avançada** para o seu ponto final em tempo real.
     
-    |Definição avançada|Description|
+    |Definição avançada|Descrição|
     |---|---|
-    |Ativar diagnósticos de Insights de Aplicações e recolha de dados| Se permitir que a Azure Application Ingishts recolha dados dos pontos finais implantados. </br> Por padrão: falso |
+    |Ativar diagnósticos de Insights de Aplicações e recolha de dados| Se permite ao Azure Application Insights recolher dados dos pontos finais implantados. </br> Por padrão: falso |
     |Tempo limite de pontuação| Um intervalo em milissegundos para impor chamadas de pontuação para o serviço web.</br>Por padrão: 60000|
     |Escala automática ativada|   Se permitir a autoscalagem para o serviço web.</br>Por padrão: verdadeiro|
     |Réplicas min| O número mínimo de recipientes a utilizar ao fazer a autoscalagem deste serviço web.</br>Por predefinição: 1|
@@ -137,6 +137,22 @@ Após o fim da implementação, pode ver o seu ponto de chegada em tempo real in
 1. Para testar o seu ponto final, vá ao separador **Teste.** A partir daqui, pode introduzir dados de teste e selecionar **Testar** verificar a saída do seu ponto final.
 
 Para obter mais informações sobre o consumo do seu serviço web, consulte [Consumir um modelo implementado como um webservice](how-to-consume-web-service.md)
+
+## <a name="limitations"></a>Limitações
+
+Se fizer algumas modificações no seu gasoduto de treino, deverá voltar aubscrevê-lo, **atualizar** o gasoduto de inferência e voltar a executar o gasoduto de inferência.
+
+Note que apenas os modelos treinados serão atualizados no pipeline de inferência, enquanto a transformação de dados não será atualizada.
+
+Para utilizar a transformação atualizada no pipeline de inferência, é necessário registar a saída de transformação do módulo de transformação como conjunto de dados.
+
+![Screenshot mostrando como registar conjunto de dados de transformação](./media/tutorial-designer-automobile-price-deploy/register-transformation-dataset.png)
+
+Em seguida, substitua manualmente o módulo **TD** no pipeline de inferência pelo conjunto de dados registado.
+
+![Screenshot mostrando como substituir módulo de transformação](./media/tutorial-designer-automobile-price-deploy/replace-td-module.png)
+
+Em seguida, pode submeter o pipeline de inferência com o modelo e transformação atualizados, e implementar.
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

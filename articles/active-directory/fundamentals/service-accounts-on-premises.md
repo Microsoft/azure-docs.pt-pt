@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 55de24975dadf27293f305611c6ba07522e8aa90
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: a9024bc9fbd460f403db2da8a65af1e9bd2e771b
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100417484"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101645621"
 ---
 # <a name="introduction-to-active-directory-service-accounts"></a>Introdução às contas de serviço do Ative Directory
 
@@ -34,7 +34,7 @@ Com base no seu caso de utilização, pode utilizar uma conta de serviço gerida
 
 ### <a name="group-msa-accounts"></a>Contas MSA do grupo
 
-Utilize [contas de serviço geridas pelo grupo](service-accounts-group-managed.md) (gMSAs) sempre que possível para serviços que executam no seu ambiente no local. gMSAs fornecem uma única solução de identidade para um serviço que funciona numa fazenda de servidor, ou atrás de um equilibrador de carga de rede. Também podem ser utilizados para um serviço em execução num único servidor. [gMSAs têm requisitos específicos que devem ser cumpridos](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/getting-started-with-group-managed-service-accounts)
+Utilize [contas de serviço geridas pelo grupo](service-accounts-group-managed.md) (gMSAs) sempre que possível para serviços que executam no seu ambiente no local. gMSAs fornecem uma única solução de identidade para um serviço que funciona numa fazenda de servidor, ou atrás de um equilibrador de carga de rede. Também podem ser utilizados para um serviço em execução num único servidor. [gMSAs têm requisitos específicos que devem ser cumpridos](/windows-server/security/group-managed-service-accounts/getting-started-with-group-managed-service-accounts)
 
 ### <a name="standalone-msa-accounts"></a>Contas MSA autónomas
 
@@ -43,7 +43,7 @@ Se não puder utilizar um gMSA, utilize uma conta de [serviço gerida autónoma]
 ### <a name="computer-account"></a>Conta informática
 
 Se não puder utilizar um MSA, investigue utilizando uma [conta de computador.](service-accounts-computer.md) A conta LocalSystem é uma conta local predefinida que tem amplos privilégios no computador local, e funciona como a identidade de computador na rede.   
-Os serviços que funcionam como recurso de rede de acesso à conta do Sistema Local utilizando as credenciais da conta do computador no formato <domain_name>\<computer_name> .
+‎Services that run as a LocalSystem account access network resource by using the credentials of the computer account in the format <domain_name>\<computer_name> .
 
 NT AUTHORITY\SYSTEM é o nome predefinido para a conta LocalSystem. Pode ser usado para iniciar um serviço e fornecer o contexto de segurança para esse serviço.
 
@@ -67,11 +67,11 @@ Uma conta de utilizador local (formato de nome: ".\UserName") existe apenas na b
 | Critérios| gMSA| sMSA| Conta informática| Conta de utilizador |
 | - | - | - | - | - |
 | App é executado em servidor único| Sim| Sim. Use um gMSA, se possível| Sim. Use um MSA, se possível| Sim. Utilize MSA, se possível. |
-| App é executado em vários servidores| Yes| No| N.º A conta está ligada ao servidor| Sim. Utilize MSA, se possível. |
-| App corre atrás de equilibradores de carga| Yes| No| Não| Yes. Utilize apenas se não puder utilizar um gMSA |
-| App é executado no Windows Server 2008 R2| No| Sim| Sim. Utilize MSA, se possível.| Sim. Utilize MSA, se possível. |
+| App é executado em vários servidores| Sim| Não| N.º A conta está ligada ao servidor| Sim. Utilize MSA, se possível. |
+| App corre atrás de equilibradores de carga| Sim| Não| Não| Yes. Utilize apenas se não puder utilizar um gMSA |
+| App é executado no Windows Server 2008 R2| Não| Sim| Sim. Utilize MSA, se possível.| Sim. Utilize MSA, se possível. |
 | Executa no servidor Windows 2012| Sim| Sim. Use gMSA se possível| Sim. Use MSA, se possível| Sim. Utilize MSA, se possível. |
-| Requisito para restringir a conta de serviço a um único servidor| No| Sim| Sim. Utilizar sMSA se possível| N.º |
+| Requisito para restringir a conta de serviço a um único servidor| Não| Sim| Sim. Utilizar sMSA se possível| N.º |
 
 
  
@@ -138,4 +138,3 @@ Ver os seguintes artigos sobre a garantia de contas de serviço
 
 * [Governar contas de serviço no local](service-accounts-govern-on-premises.md)
 
- 

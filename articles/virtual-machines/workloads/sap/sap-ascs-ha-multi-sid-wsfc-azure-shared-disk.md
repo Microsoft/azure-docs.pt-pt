@@ -1,5 +1,5 @@
 ---
-title: SAP ASCS/SCS multi-SID HA com WSFC e Azure disco compartilhado Microsoft Docs
+title: SAP ASCS/SCS multi-SID HA com WSFC e Azure disco partilhado | Microsoft Docs
 description: Disponibilidade alta multi-SID para uma instância SAP ASCS/SCS com disco compartilhado WSFC e Azure
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
@@ -9,20 +9,19 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.assetid: cbf18abe-41cb-44f7-bdec-966f32c89325
-ms.service: virtual-machines-windows
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/12/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4dfbffcaedb6c544a34e347633d5adc173fab33e
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 8b216fafad5cd2f7406320dce3ec28b8830015d7
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97655990"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101673765"
 ---
 # <a name="sap-ascsscs-instance-multi-sid-high-availability-with-windows-server-failover-clustering-and-azure-shared-disk"></a>SAP ASCS/SCS exemplo multi-SID alta disponibilidade com cluster de failover do servidor Windows e disco compartilhado Azure
 

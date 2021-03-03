@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein
-ms.date: 12/8/2020
-ms.openlocfilehash: 1b8be7fc6295c6332d26718b5752d2fd8f2a6f73
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 2/22/2021
+ms.openlocfilehash: 4dd7bbe613b30df2611bfe6631950e121235204a
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100393246"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101658593"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database sem servidor
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -103,11 +103,11 @@ Note que quando a utilização do CPU é baixa, a utilização ativa da cache po
 
 A cache SQL cresce à medida que os dados são recolhidos do disco da mesma forma e com a mesma velocidade que para as bases de dados a provisionadas. Quando a base de dados está ocupada, a cache é permitida a crescer sem restrições até ao limite máximo de memória.
 
-## <a name="auto-pause-and-auto-resume"></a>Pausa automática e auto-currículo
+## <a name="auto-pausing-and-auto-resuming"></a>Pausa automática e retoma automática
 
-### <a name="auto-pause"></a>Pausa automática
+### <a name="auto-pausing"></a>Pausa automática
 
-A pausa automática é ativada se todas as seguintes condições forem verdadeiras durante a duração do atraso de pausa automática:
+A pausa automática é desencadeada se todas as seguintes condições forem verdadeiras durante a duração do atraso de pausa automática:
 
 - Sessões de número = 0
 - CPU = 0 para a carga de trabalho do utilizador em execução na piscina de utilizadores

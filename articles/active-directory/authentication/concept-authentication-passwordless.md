@@ -1,22 +1,22 @@
 ---
-title: Azure Ative Directory sem palavras-passe (pré-visualização)
+title: Azure Ative Directory sem palavras-passe
 description: Saiba mais sobre opções de entrada sem palavras-passe no Azure Ative Directory utilizando chaves de segurança FIDO2 ou a aplicação Microsoft Authenticator
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/14/2020
+ms.date: 02/22/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1b82dbe169e01b68e7d4b8a4c243cb72d3a3e8b
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: e36acb5a6a0984b003e4e8deb597bddfc43b064a
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98013010"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101647562"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Opções de autenticação sem palavras-passe para Azure Ative Directory
 
@@ -62,8 +62,6 @@ Também pode permitir que o telefone do seu colaborador se torne um método de a
 
 A App Authenticator transforma qualquer telefone iOS ou Android numa credencial forte e sem palavras-passe. Os utilizadores podem iniciar sposição em qualquer plataforma ou navegador através da notificação do seu telemóvel, correspondendo um número exibido no ecrã ao do telemóvel e, em seguida, utilizando o seu biométrico (toque ou rosto) ou PIN para confirmar. Consulte o [Download e instale a aplicação Microsoft Authenticator](../user-help/user-help-auth-app-download-install.md) para obter detalhes de instalação.
 
-O sôs-in sem palavras-passe com a aplicação Microsoft Authenticator para Azure AD está atualmente em pré-visualização. A utilização da aplicação Microsoft Authenticator para autenticação secundária para autenticação multi-factor AD Azure, redefinição de senha de autosserviço (SSPR) ou fichas de software OATH é GA. Para obter mais informações sobre pré-visualizações, veja [Termos de Utilização Suplementares do Microsoft Azure para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 A autenticação sem palavras-passe utilizando a aplicação Authenticator segue o mesmo padrão básico que o Windows Hello for Business. É um pouco mais complicado, uma vez que o utilizador precisa de ser identificado para que o Azure AD possa encontrar a versão da Microsoft Authenticator App a ser utilizada:
 
 ![Diagrama que descreve os passos envolvidos para o sôm-in do utilizador com a App autenticador da Microsoft](./media/concept-authentication-passwordless/authenticator-app-flow.png)
@@ -91,8 +89,6 @@ As chaves de segurança FIDO2 são um método de autenticação sem palavras-pas
 Os utilizadores podem registar-se e, em seguida, selecionar uma chave de segurança FIDO2 na interface de entrada como principal meio de autenticação. Estas teclas de segurança FIDO2 são normalmente dispositivos USB, mas também podem utilizar Bluetooth ou NFC. Com um dispositivo de hardware que trata da autenticação, a segurança de uma conta é aumentada, uma vez que não há nenhuma senha que possa ser exposta ou adivinhada.
 
 As chaves de segurança FIDO2 podem ser usadas para iniciar súbs no seu AD Azure ou no híbrido Azure AD que se uniu aos dispositivos Windows 10 e obter um único sinal sobre os seus recursos na nuvem e no local. Os utilizadores também podem iniciar sedução para navegadores suportados. As chaves de segurança FIDO2 são uma ótima opção para empresas que são muito sensíveis à segurança ou têm cenários ou funcionários que não estão dispostos ou capazes de usar o seu telefone como um segundo fator.
-
-As chaves de segurança FIDO2 do Azure AD estão atualmente em pré-visualização. Para obter mais informações sobre pré-visualizações, veja [Termos de Utilização Suplementares do Microsoft Azure para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ![Inscreva-se no Microsoft Edge com uma chave de segurança](./media/concept-authentication-passwordless/concept-web-sign-in-security-key.png)
 
@@ -152,15 +148,15 @@ Para começar com as chaves de segurança FIDO2, complete o seguinte como:
 > [!div class="nextstepaction"]
 > [Ativar sinal sem palavra-passe usando chaves de segurança FIDO2](howto-authentication-passwordless-security-key.md)
 
-## <a name="what-scenarios-work-with-the-preview"></a>Que cenários funcionam com a pré-estreia?
+## <a name="supported-scenarios"></a>Cenários suportados
 
-As funcionalidades de sing insusição sem palavras-passe Azure Estão atualmente em pré-visualização. As seguintes considerações são aplicáveis:
+As seguintes considerações são aplicáveis:
 
 - Os administradores podem ativar métodos de autenticação sem palavras-passe para o seu inquilino
 - Os administradores podem direcionar todos os utilizadores ou selecionar utilizadores/grupos dentro do seu inquilino para cada método
 - Os utilizadores finais podem registar-se e gerir estes métodos de autenticação sem palavras-passe no portal da conta
-- Os utilizadores finais podem iniciar sação com estes métodos de autenticação sem palavras-passe
-   - Microsoft Authenticator App: Funciona em cenários onde a autenticação Azure AD é utilizada, incluindo em todos os navegadores, durante a configuração do Windows 10 out Of Box (OOBE) e com aplicações móveis integradas em qualquer sistema operativo.
+- Os utilizadores finais podem iniciar sação com estes métodos de autenticação sem palavras-passe:
+   - Microsoft Authenticator App: Funciona em cenários onde a autenticação Azure AD é utilizada, incluindo em todos os navegadores, durante a configuração do Windows 10 e com aplicações móveis integradas em qualquer sistema operativo.
    - Chaves de segurança: Trabalhe no ecrã de bloqueio para o Windows 10 e na web em navegadores suportados como o Microsoft Edge (tanto o legado como o novo Edge).
 
 ## <a name="choose-a-passwordless-method"></a>Escolha um método sem palavra-passe
@@ -187,7 +183,7 @@ Utilize a seguinte tabela para escolher qual o método que suporta os seus requi
 |**Técnico de informação**|Trabalho de produtividade| Dispositivo móvel ou não-janelas|Iniciar sing-in sem palavra-passe com a aplicação Microsoft Authenticator|
 |**Trabalhador da linha da frente**|Quiosques numa fábrica, instalações, retalhistas ou entrada de dados|Dispositivos compartilhados do Windows 10|Chaves de segurança FIDO2|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para começar com sem palavras-passe em Azure AD, complete um dos seguintes como-tos:
 

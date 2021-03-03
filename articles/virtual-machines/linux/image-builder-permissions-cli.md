@@ -6,13 +6,14 @@ ms.author: danis
 ms.date: 05/06/2020
 ms.topic: article
 ms.service: virtual-machines
-ms.subservice: imaging
-ms.openlocfilehash: 19320b8b497202c473f72f4751daf2110a347080
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.subservice: image-builder
+ms.collection: linux
+ms.openlocfilehash: accefe6644f8959bb9426a154d4f33e0834fc06c
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98676772"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101674883"
 ---
 # <a name="configure-azure-image-builder-service-permissions-using-azure-cli"></a>Configure permissões do Serviço de Construtores de Imagem Azure usando O Azure CLI
 

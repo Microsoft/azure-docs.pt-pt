@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0211388f3b638080c79a58330ba1fff1989def7d
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 41a63d7d0c5844e7837be44b359b6d04a9009eb4
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101095864"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101651830"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Administrator role permissions in Azure Active Directory (Permissões de cargos de administrador no Azure Active Directory)
 
@@ -85,9 +85,9 @@ A [função de administrador de política de autenticação](#authentication-pol
 
 | Função | Gerir os métodos de auth do utilizador | Gerir por utilizador MFA | Gerir as definições de MFA | Gerir a política do método auth | Gerir a política de proteção de senhas |
 | ---- | ---- | ---- | ---- | ---- | ---- | 
-| Administrador de autenticação | Sim para alguns utilizadores (ver acima) | Sim para alguns utilizadores (ver acima) | No | No | No | 
-| Administrador de autenticação privilegiada| Sim para todos os utilizadores | Sim para todos os utilizadores | No | No | No | 
-| Administrador de política de autenticação | No |No | Yes | Yes | Yes | 
+| Administrador de autenticação | Sim para alguns utilizadores (ver acima) | Sim para alguns utilizadores (ver acima) | Não | Não | Não | 
+| Administrador de autenticação privilegiada| Sim para todos os utilizadores | Sim para todos os utilizadores | Não | Não | Não | 
+| Administrador de política de autenticação | Não |Não | Sim | Sim | Sim | 
 
 > [!IMPORTANT]
 > Os utilizadores com esta função podem alterar credenciais para pessoas que possam ter acesso a informações sensíveis ou privadas ou configuração crítica dentro e fora do Azure Ative Directory. Alterar as credenciais de um utilizador pode significar a capacidade de assumir a identidade e permissões desse utilizador. Por exemplo:
@@ -99,7 +99,7 @@ A [função de administrador de política de autenticação](#authentication-pol
 >* Não administradores como executivos, advogados e funcionários de recursos humanos que possam ter acesso a informações confidenciais ou privadas.
 
 > [!IMPORTANT]
-> Esta função não é atualmente capaz de gerir o MFA por utilizador no antigo portal de gestão de MFA. As mesmas funções podem ser executadas utilizando o módulo Azure AD Powershell do comando [Set-MsolUser.](https://docs.microsoft.com/powershell/module/msonline/set-msoluser)
+> Esta função não é atualmente capaz de gerir o MFA por utilizador no antigo portal de gestão de MFA. As mesmas funções podem ser executadas utilizando o módulo Azure AD Powershell do comando [Set-MsolUser.](/powershell/module/msonline/set-msoluser)
 
 ### <a name="authentication-policy-administrator"></a>[Administrador de Política de Autenticação](#authentication-policy-administrator-permissions)
 
@@ -109,9 +109,9 @@ As funções [de administrador de autenticação](#authentication-administrator)
 
 | Função | Gerir os métodos de auth do utilizador | Gerir por utilizador MFA | Gerir as definições de MFA | Gerir a política do método auth | Gerir a política de proteção de senhas |
 | ---- | ---- | ---- | ---- | ---- | ---- | 
-| Administrador de autenticação | Sim para alguns utilizadores (ver acima) | Sim para alguns utilizadores (ver acima) | No | No | No | 
-| Administrador de autenticação privilegiada| Sim para todos os utilizadores | Sim para todos os utilizadores | No | No | No | 
-| Administrador de política de autenticação | No | No | Yes | Yes | Yes | 
+| Administrador de autenticação | Sim para alguns utilizadores (ver acima) | Sim para alguns utilizadores (ver acima) | Não | Não | Não | 
+| Administrador de autenticação privilegiada| Sim para todos os utilizadores | Sim para todos os utilizadores | Não | Não | Não | 
+| Administrador de política de autenticação | Não | Não | Sim | Sim | Sim | 
 
 > [!IMPORTANT]
 > Esta função não é atualmente capaz de gerir as definições de MFA no antigo portal de gestão de MFA.
@@ -391,9 +391,9 @@ A [função de administrador de política de autenticação](#authentication-pol
 
 | Função | Gerir os métodos de auth do utilizador | Gerir por utilizador MFA | Gerir as definições de MFA | Gerir a política do método auth | Gerir a política de proteção de senhas |
 | ---- | ---- | ---- | ---- | ---- | ---- | 
-| Administrador de autenticação | Sim para alguns utilizadores (ver acima) | Sim para alguns utilizadores (ver acima) | No | No | No | 
-| Administrador de autenticação privilegiada| Sim para todos os utilizadores | Sim para todos os utilizadores | No | No | No | 
-| Administrador de política de autenticação | No | No | Yes | Yes | Yes | 
+| Administrador de autenticação | Sim para alguns utilizadores (ver acima) | Sim para alguns utilizadores (ver acima) | Não | Não | Não | 
+| Administrador de autenticação privilegiada| Sim para todos os utilizadores | Sim para todos os utilizadores | Não | Não | Não | 
+| Administrador de política de autenticação | Não | Não | Sim | Sim | Sim | 
 
 > [!IMPORTANT]
 > Os utilizadores com esta função podem alterar credenciais para pessoas que possam ter acesso a informações sensíveis ou privadas ou configuração crítica dentro e fora do Azure Ative Directory. Alterar as credenciais de um utilizador pode significar a capacidade de assumir a identidade e permissões desse utilizador. Por exemplo:
@@ -406,7 +406,7 @@ A [função de administrador de política de autenticação](#authentication-pol
 
 
 > [!IMPORTANT]
-> Esta função não é atualmente capaz de gerir o MFA por utilizador no antigo portal de gestão de MFA. As mesmas funções podem ser executadas utilizando o módulo Azure AD Powershell do comando [Set-MsolUser.](https://docs.microsoft.com/powershell/module/msonline/set-msoluser)
+> Esta função não é atualmente capaz de gerir o MFA por utilizador no antigo portal de gestão de MFA. As mesmas funções podem ser executadas utilizando o módulo Azure AD Powershell do comando [Set-MsolUser.](/powershell/module/msonline/set-msoluser)
 
 ### <a name="privileged-role-administrator"></a>[Administrador privilegiado](#privileged-role-administrator-permissions)
 

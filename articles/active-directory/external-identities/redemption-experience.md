@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 02/12/2021
+ms.date: 03/02/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: elisol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 08f560f076caf90c9c930cedfd6a7ba9c6c8b37d
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 95c7ca826eaf7d72cb35985b154458f149ef4a0e
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100365451"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101649323"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Resgate de convite para colaboração B2B do Azure Active Directory
 
@@ -28,21 +28,19 @@ Quando adiciona um utilizador convidado ao seu diretório, a conta de utilizador
    > - **A partir de 4 de janeiro de 2021, a** Google está [a depreciar o suporte de sing-in webView](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). Se estiver a utilizar a federação do Google ou a inscrição de self-service com o Gmail, deverá [testar as suas aplicações nativas de linha de negócios para compatibilidade](google-federation.md#deprecation-of-webview-sign-in-support).
    > - **A partir de outubro de 2021, a** Microsoft deixará de apoiar o resgate de convites através da criação de contas AZure AD não geridas e inquilinos para cenários de colaboração B2B. Em preparação, encorajamos os clientes a optar em autenticação de senha única por [e-mail.](one-time-passcode.md) Congratulamo-nos com o seu feedback sobre esta funcionalidade de pré-visualização pública e estamos entusiasmados por criar ainda mais formas de colaborar.
 
-## <a name="redemption-through-the-invitation-email"></a>Redenção através do e-mail de convite
+## <a name="redemption-and-sign-in-through-a-common-endpoint"></a>Redenção e inscrição através de um ponto final comum
 
-Quando adiciona um utilizador convidado ao seu diretório [utilizando o portal Azure,](./b2b-quickstart-add-guest-users-portal.md)é enviado um e-mail de convite ao hóspede no processo. Também pode optar por enviar e-mails de convite quando estiver a [usar o PowerShell](./b2b-quickstart-invite-powershell.md) para adicionar utilizadores convidados ao seu diretório. Aqui está uma descrição da experiência do hóspede quando eles resgatar o link no e-mail.
+Os utilizadores convidados podem agora iniciar sposição nas suas aplicações de primeira parte ou da Microsoft através de um ponto final comum (URL), por `https://myapps.microsoft.com` exemplo. Anteriormente, um URL comum redirecionaria um utilizador convidado para o seu inquilino de casa em vez do seu inquilino de recursos para a autenticação, pelo que era necessário um link específico para o inquilino (por `https://myapps.microsoft.com/?tenantid=<tenant id>` exemplo). Agora o utilizador convidado pode ir ao URL comum da aplicação, escolher **opções de Inscrição** e, em seguida, selecionar **Iniciar sposição numa organização**. Em seguida, o utilizador escreve o nome da sua organização.
 
-1. O hóspede recebe um [e-mail de convite](./invitation-email-elements.md) enviado da **Microsoft Invitations.**
-2. O hóspede seleciona **Aceite convite** no e-mail.
-3. O hóspede usará as suas credenciais para se inscrever no seu diretório. Se o hóspede não tiver uma conta que possa ser federada para o seu diretório e a funcionalidade [de senha única (OTP) por e-mail](./one-time-passcode.md) não estiver ativada; o hóspede é solicitado a criar um [MSA](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create) pessoal ou uma [conta de autosserviço AZure AD](../enterprise-users/directory-self-service-signup.md). Consulte o fluxo de resgate de [convites](#invitation-redemption-flow) para mais detalhes.
-4. O hóspede é guiado através da [experiência de consentimento](#consent-experience-for-the-guest) descrita abaixo.
+![Sinal de ponto final comum](media/redemption-experience/common-endpoint-flow-small.png)
 
+O utilizador é então redirecionado para o seu ponto final, onde pode iniciar sôms com o seu endereço de e-mail ou selecionar um fornecedor de identidade que configuraste.
 ## <a name="redemption-through-a-direct-link"></a>Redenção através de um link direto
 
-Como alternativa ao e-mail do convite, pode dar a um hóspede um link direto para a sua app ou portal. Primeiro tem de adicionar o utilizador convidado ao seu diretório através do [portal Azure](./b2b-quickstart-add-guest-users-portal.md) ou [PowerShell](./b2b-quickstart-invite-powershell.md). Em seguida, pode utilizar qualquer uma das [formas personalizáveis de implementar aplicações para os utilizadores](../manage-apps/end-user-experiences.md), incluindo links de acesso direto. Quando um hóspede usa um link direto em vez do e-mail de convite, eles ainda serão guiados através da experiência de consentimento pela primeira vez.
+Como alternativa ao e-mail de convite ou url comum de uma aplicação, pode dar a um hóspede um link direto para a sua app ou portal. Primeiro tem de adicionar o utilizador convidado ao seu diretório através do [portal Azure](./b2b-quickstart-add-guest-users-portal.md) ou [PowerShell](./b2b-quickstart-invite-powershell.md). Em seguida, pode utilizar qualquer uma das [formas personalizáveis de implementar aplicações para os utilizadores](../manage-apps/end-user-experiences.md), incluindo links de acesso direto. Quando um hóspede usa um link direto em vez do e-mail de convite, eles ainda serão guiados através da experiência de consentimento pela primeira vez.
 
-> [!IMPORTANT]
-> A ligação direta deve ser específica do inquilino. Por outras palavras, deve incluir um ID do inquilino ou domínio verificado para que o hóspede possa ser autenticado no seu inquilino, onde a app partilhada está localizada. Um URL comum como https://myapps.microsoft.com não funcionará para um hóspede porque irá redirecionar para o seu inquilino de casa para autenticação. Aqui estão alguns exemplos de ligações diretas com o contexto do inquilino:
+> [!NOTE]
+> Uma ligação direta é específica do inquilino. Por outras palavras, inclui um ID do inquilino ou domínio verificado para que o hóspede possa ser autenticado no seu inquilino, onde a app partilhada está localizada. Aqui estão alguns exemplos de ligações diretas com o contexto do inquilino:
  > - Painel de acesso a apps: `https://myapps.microsoft.com/?tenantid=<tenant id>`
  > - Painel de acesso de aplicações para um domínio verificado: `https://myapps.microsoft.com/<;verified domain>`
  > - Portal Azure: `https://portal.azure.com/<tenant id>`
@@ -53,6 +51,14 @@ Existem alguns casos em que o e-mail de convite é recomendado por um link diret
  - Por vezes, o objeto de utilizador convidado pode não ter um endereço de e-mail devido a um conflito com um objeto de contacto (por exemplo, um objeto de contacto do Outlook). Neste caso, o utilizador deve clicar no URL de resgate no e-mail do convite.
  - O utilizador pode iniciar sôms com um pseudónimo do endereço de e-mail que foi convidado. (Um pseudónimo é um endereço de e-mail adicional associado a uma conta de e-mail.) Neste caso, o utilizador deve clicar no URL de resgate no e-mail do convite.
 
+## <a name="redemption-through-the-invitation-email"></a>Redenção através do e-mail de convite
+
+Quando adiciona um utilizador convidado ao seu diretório [utilizando o portal Azure,](./b2b-quickstart-add-guest-users-portal.md)é enviado um e-mail de convite ao hóspede no processo. Também pode optar por enviar e-mails de convite quando estiver a [usar o PowerShell](./b2b-quickstart-invite-powershell.md) para adicionar utilizadores convidados ao seu diretório. Aqui está uma descrição da experiência do hóspede quando eles resgatar o link no e-mail.
+
+1. O hóspede recebe um [e-mail de convite](./invitation-email-elements.md) enviado da **Microsoft Invitations.**
+2. O hóspede seleciona **Aceite convite** no e-mail.
+3. O hóspede usará as suas credenciais para se inscrever no seu diretório. Se o hóspede não tiver uma conta que possa ser federada para o seu diretório e a funcionalidade [de senha única (OTP) por e-mail](./one-time-passcode.md) não estiver ativada; o hóspede é solicitado a criar um [MSA](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create) pessoal ou uma [conta de autosserviço AZure AD](../enterprise-users/directory-self-service-signup.md). Consulte o fluxo de resgate de [convites](#invitation-redemption-flow) para mais detalhes.
+4. O hóspede é guiado através da [experiência de consentimento](#consent-experience-for-the-guest) descrita abaixo.
 ## <a name="invitation-redemption-flow"></a>Fluxo de resgate de convites
 
 Quando um utilizador clica no link de **convite Accept** num [e-mail de convite,](invitation-email-elements.md)a Azure AD resgata automaticamente o convite com base no fluxo de resgate, como mostrado abaixo:

@@ -11,12 +11,12 @@ ms.date: 07/28/2020
 ms.author: euang
 ms.custom: devx-track-csharp
 zone_pivot_groups: programming-languages-spark-all-minus-sql
-ms.openlocfilehash: d960b64d71861044aa1b0344ccbfdaf5e6328e6a
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 1e0dfd597e7f445eeba6cef332d8ea12b27dc3a2
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98120330"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101676313"
 ---
 # <a name="linux-foundation-delta-lake-overview"></a>Visão geral do Lago Delta da Fundação Linux
 
@@ -296,7 +296,7 @@ Resultados em:
 |Fornecedor                    |delta                                                                                                        |       |
 |Propriedades de mesa            |[transient_lastDdlTime=1587774934]                                                                           |       |
 |Estatísticas                  |2407 bytes                                                                                                   |       |
-|A localização                    |abfss://data@ <data lake> .dfs.core.windows.net/synapse/workspaces/ <workspace name> /armazém/manageddeltatable|       |
+|Localização                    |abfss://data@ <data lake> .dfs.core.windows.net/synapse/workspaces/ <workspace name> /armazém/manageddeltatable|       |
 |Biblioteca Serde               |org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe                                                           |       |
 |InputFormat                 |org.apache.hadoop.mapred.SequenceFileInputFormat                                                             |       |
 |OutputFormat                |org.apache.hadoop.hive.ql.io.HiveSequenceFileOutputFormat                                                    |       |
@@ -342,7 +342,7 @@ Resultados em:
 |Tipo                        |EXTERNA                                                              |       |
 |Fornecedor                    |DELTA                                                                 |       |
 |Propriedades de mesa            |[transient_lastDdlTime=1587774938]                                    |       |
-|A localização                    |abfss://data@ <data lake> .dfs.core.windows.net/delta/delta-table-587152|       |
+|Localização                    |abfss://data@ <data lake> .dfs.core.windows.net/delta/delta-table-587152|       |
 |Biblioteca Serde               |org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe                    |       |
 |InputFormat                 |org.apache.hadoop.mapred.SequenceFileInputFormat                      |       |
 |OutputFormat                |org.apache.hadoop.hive.ql.io.HiveSequenceFileOutputFormat             |       |
@@ -567,7 +567,7 @@ Resultados em:
 |versão|          carimbo de data/hora|userId|userName|operation|                                                operaçãoParametros| tarefa|bloco de notas|clusterId|readVersão|isolamentoLevel|isBlindAppend|
 |-------|-------------------|------|--------|---------|-------------------------------------------------------------------|----|--------|---------|-----------|--------------|-------------|
 |      4|2020-04-25 00:36:27|  nulo|    nulo|    FUSÃO|                       [predicado -> (oldData.`ID` = `ID` novosData.]]|nulo|    nulo|     nulo|          3|          nulo|        false|
-|      3|2020-04-25 00:36:08|  nulo|    nulo|   DELETE|[predicado -> ["(% `ID` CAST(2 AS BIGINT)) = CAST(0 AS BIGINT)]|nulo|    nulo|     nulo|          2|          nulo|        false|
+|      3|2020-04-25 00:36:08|  nulo|    nulo|   DELETE|[predicado -> ["(% `ID` CAST(2 AS BIGINT)) = CAST(0 AS BIGINT)]]|nulo|    nulo|     nulo|          2|          nulo|        false|
 |      2|2020-04-25 00:35:51|  nulo|    nulo|   UPDATE| [predicado -> ((ID#744L % cast (2 como bigint)) = elenco (0 como bigint)]]|nulo|    nulo|     nulo|          1|          nulo|        false|
 |      1|2020-04-25 00:35:05|  nulo|    nulo|    ESCREVER|                             [modo -> Overwrite, partitionBy -> []]|nulo|    nulo|     nulo|          0|          nulo|        false|
 |      0|2020-04-25 00:34:34|  nulo|    nulo|    ESCREVER|                         [mode -> ErrorIfExists, partitionBy -> []]|nulo|    nulo|     nulo|       nulo|          nulo|         true|
@@ -749,7 +749,7 @@ Resultados em:
 |-------|-------------------|----------------|-------------------------------------------------------------------------------------|-----------|
 |      5|2020-04-25 00:37:09|ATUALIZAÇÃO DE STREAMING|[outputMode -> Append, queryId -> d26b4f8a-7e5a-44f2-a5fb-23a7bd02aef7, epoId -> 0]|          4|
 |      4|2020-04-25 00:36:27|           FUSÃO|                                         [predicado -> (oldData.`id` = `id` novosData.]]|          3|
-|      3|2020-04-25 00:36:08|          DELETE|                  [predicado -> ["(% `id` CAST(2 AS BIGINT)) = CAST(0 AS BIGINT)]|          2|
+|      3|2020-04-25 00:36:08|          DELETE|                  [predicado -> ["(% `id` CAST(2 AS BIGINT)) = CAST(0 AS BIGINT)]]|          2|
 |      2|2020-04-25 00:35:51|          UPDATE|                   [predicado -> ((id#744L % elenco (2 como bigint)) = elenco (0 como bigint)]]|          1|
 |      1|2020-04-25 00:35:05|           ESCREVER|                                               [modo -> Overwrite, partitionBy -> []]|          0|
 |      0|2020-04-25 00:34:34|           ESCREVER|                                           [mode -> ErrorIfExists, partitionBy -> []]|       nulo|
@@ -787,7 +787,7 @@ Resultados em:
 |-------|-------------------|----------------|-------------------------------------------------------------------------------------|-----------|
 |      5|2020-04-25 00:37:09|ATUALIZAÇÃO DE STREAMING|[outputMode -> Append, queryId -> d26b4f8a-7e5a-44f2-a5fb-23a7bd02aef7, epoId -> 0]|          4|
 |      4|2020-04-25 00:36:27|           FUSÃO|                                         [predicado -> (oldData.`id` = `id` novosData.]]|          3|
-|      3|2020-04-25 00:36:08|          DELETE|                  [predicado -> ["(% `id` CAST(2 AS BIGINT)) = CAST(0 AS BIGINT)]|          2|
+|      3|2020-04-25 00:36:08|          DELETE|                  [predicado -> ["(% `id` CAST(2 AS BIGINT)) = CAST(0 AS BIGINT)]]|          2|
 |      2|2020-04-25 00:35:51|          UPDATE|                   [predicado -> ((id#744L % elenco (2 como bigint)) = elenco (0 como bigint)]]|          1|
 |      1|2020-04-25 00:35:05|           ESCREVER|                                               [modo -> Overwrite, partitionBy -> []]|          0|
 |      0|2020-04-25 00:34:34|           ESCREVER|                                           [mode -> ErrorIfExists, partitionBy -> []]|       nulo|
@@ -996,5 +996,5 @@ Para mais informações, consulte [o Projeto Delta Lake.](https://github.com/del
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [.NET para documentação Apache Spark](/dotnet/spark?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+* [.NET para documentação Apache Spark](/dotnet/spark)
 * [Azure Synapse Analytics](../index.yml)

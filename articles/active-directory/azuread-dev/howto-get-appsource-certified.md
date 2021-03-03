@@ -13,12 +13,12 @@ ms.author: ryanwi
 ms.reviewer: jeedes
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: 15a4dd56b509571094ef202fbce781104bda9188
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: d9a4da6fe65fda07609c7399518fa324017ea44c
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99052249"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101649350"
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Como obter AppSource Certificado para Azure Ative Directory
 
@@ -113,9 +113,9 @@ Para obter mais informações sobre a experiência de teste appSource, consulte 
 
 ## <a name="get-support"></a>Obter suporte
 
-Para a integração do AD Azure, usamos [o Microsoft Q&A](https://docs.microsoft.com/answers/products/) com a comunidade para fornecer suporte.
+Para a integração do AD Azure, usamos [o Microsoft Q&A](/answers/products/) com a comunidade para fornecer suporte.
 
-Recomendamos vivamente que faça as suas perguntas sobre o Microsoft Q&A primeiro e navegue nos problemas existentes para ver se alguém já fez a sua pergunta antes. Certifique-se de que as suas perguntas ou comentários estão marcados com [`[azure-active-directory]`](https://docs.microsoft.com/answers/topics/azure-active-directory.html) .
+Recomendamos vivamente que faça as suas perguntas sobre o Microsoft Q&A primeiro e navegue nos problemas existentes para ver se alguém já fez a sua pergunta antes. Certifique-se de que as suas perguntas ou comentários estão marcados com [`[azure-active-directory]`](/answers/topics/azure-active-directory.html) .
 
 Utilize a secção de comentários a seguir para fornecer feedback e ajude-nos a aperfeiçoar e moldar o nosso conteúdo.
 

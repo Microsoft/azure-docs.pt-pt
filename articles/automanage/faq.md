@@ -6,14 +6,14 @@ ms.service: virtual-machines
 ms.subservice: automanage
 ms.workload: infrastructure
 ms.topic: troubleshooting
-ms.date: 09/04/2020
+ms.date: 02/22/2021
 ms.author: deanwe
-ms.openlocfilehash: b8f2b3e1ffde49c8df3c3a6d7c0b9b3751fda5fa
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: 214730733780ef3492048f697b1c5e180434a527
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98696181"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101654022"
 ---
 # <a name="frequently-asked-questions-for-azure-automanage-for-vms"></a>Perguntas frequentes para Azure Automanage para VMs
 
@@ -27,7 +27,7 @@ Se a sua questão Azure não for abordada neste artigo, visite os fóruns Azure 
 **Quais são todos os pré-requisitos necessários para permitir a Azure Automanage?**
 
 São os seguintes pré-requisitos para permitir a auto-produção da Azure:
-- Apenas VMs do Servidor windows
+- Versões suportadas [do Windows Server](automanage-windows-server.md#supported-windows-server-versions) e [distros Linux](automanage-linux.md#supported-linux-distributions-and-versions)
 - Os VMs devem estar numa região apoiada
 - O utilizador deve ter permissões corretas
 - VMs definidos não escala apenas
@@ -42,12 +42,12 @@ Se estiver a utilizar uma nova Conta de Autoadministração ao habilitar, tem de
 
 **Que regiões são apoiadas?**
 
-Os VMs nas seguintes regiões são apoiados: Europa Ocidental, Leste dos EUA, Eua Ocidental 2, Canadá Central, Centro Ocidental dos EUA, Japão Leste.
+A lista completa das regiões apoiadas está disponível [aqui.](./automanage-virtual-machines.md#supported-regions)
 
 
 **Que capacidades automatiza a Azure Automanage?**
 
-Automanagem matricula, configura e monitoriza ao longo do ciclo de vida do VM os serviços listados [aqui](virtual-machines-best-practices.md).
+Automanagem matricula, configura e monitoriza ao longo do ciclo de vida do VM os serviços listados [aqui](automanage-virtual-machines.md).
 
 **A Azure Automanage funciona com VMs ativados pelo Azure Arc?**
 
@@ -55,12 +55,12 @@ A automanagem atualmente não suporta VMs ativados pelo Arco.
 
 **Posso personalizar configurações na Azure Automanage?**
 
-Os clientes podem personalizar configurações para serviços específicos, como a retenção de Backup Azure, através de preferências de configuração. Para obter a lista completa de configurações que podem ser alteradas, consulte a nossa documentação [aqui.](virtual-machines-best-practices.md)
+Os clientes podem personalizar configurações para serviços específicos, como a retenção de Backup Azure, através de preferências de configuração. Para obter a lista completa de configurações que podem ser alteradas, consulte a nossa documentação [aqui.](automanage-virtual-machines.md#customizing-an-environment-using-preferences)
 
 
 **A Azure Automanage funciona com os VMs Linux e Windows?**
 
-Atualmente, a auto-gestão suporta VMs Azure do Windows Server.
+Sim, consulte as [versões](automanage-windows-server.md#supported-windows-server-versions) suportadas do Windows Server e [os distros Linux](automanage-linux.md#supported-linux-distributions-and-versions).
 
 
 **Posso aplicar seletivamente a auto-produção apenas num conjunto de VMs?**

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: ea96e1056e6157cfddbdc2f0b6451ed55a74d1de
-ms.sourcegitcommit: 90caa05809d85382c5a50a6804b9a4d8b39ee31e
+ms.openlocfilehash: 8b2a61a92a25e1c0da9f85439438e75969fcfbf0
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97756063"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101661023"
 ---
 # <a name="monitor-and-view-ml-run-logs-and-metrics"></a>Monitorar e visualizar ML executar registos e métricas
 
@@ -78,6 +78,17 @@ Quando utilizar **o ScriptRunConfig,** pode utilizar ```run.wait_for_completion(
 
 <a id="queryrunmetrics"></a>
 
+### <a name="logging-run-metrics"></a>Métricas de execução de registo 
+
+Utilize os seguintes métodos nas APIs de exploração madeireira para influenciar as visualizações de métricas. Note os [limites de serviço](https://docs.microsoft.com/azure/machine-learning/resource-limits-quotas-capacity#metrics) para estas métricas registadas. 
+
+|Valor Registado|Código de exemplo| Formato no portal|
+|----|----|----|
+|Registar uma matriz de valores numéricos| `run.log_list(name='Fibonacci', value=[0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89])`|gráfico de linha de uma única variável|
+|Registar um único valor numérico com o mesmo nome métrico repetidamente utilizado (como de dentro de um loop)| `for i in tqdm(range(-10, 10)):    run.log(name='Sigmoid', value=1 / (1 + np.exp(-i))) angle = i / 2.0`| Gráfico de linha de variável única|
+|Faça um registo de linha com 2 colunas numéricas repetidamente|`run.log_row(name='Cosine Wave', angle=angle, cos=np.cos(angle))   sines['angle'].append(angle)      sines['sine'].append(np.sin(angle))`|Gráfico de linha de duas variáveis|
+|Tabela de registo com 2 colunas numéricas|`run.log_table(name='Sine Wave', value=sines)`|Gráfico de linha de duas variáveis|
+
 ## <a name="query-run-metrics"></a>Métricas de execução de consulta
 
 Pode ver as métricas de um modelo treinado utilizando ```run.get_metrics()``` . Por exemplo, pode usar isto com o exemplo acima para determinar o melhor modelo procurando o modelo com o menor valor quadrado de erro quadrado médio (mse).
@@ -96,18 +107,6 @@ Também pode editar a tabela de listas de execução para selecionar várias exe
 
 ![Execute detalhes no estúdio Azure Machine Learning](media/how-to-track-experiments/experimentation-tab.gif)
 
-### <a name="format-charts"></a>Gráficos de formato 
-
-Utilize os seguintes métodos nas APIs de exploração madeireira para influenciar as visualizações de métricas.
-
-|Valor Registado|Código de exemplo| Formato no portal|
-|----|----|----|
-|Registar uma matriz de valores numéricos| `run.log_list(name='Fibonacci', value=[0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89])`|gráfico de linha de uma única variável|
-|Registar um único valor numérico com o mesmo nome métrico repetidamente utilizado (como de dentro de um loop)| `for i in tqdm(range(-10, 10)):    run.log(name='Sigmoid', value=1 / (1 + np.exp(-i))) angle = i / 2.0`| Gráfico de linha de variável única|
-|Faça um registo de linha com 2 colunas numéricas repetidamente|`run.log_row(name='Cosine Wave', angle=angle, cos=np.cos(angle))   sines['angle'].append(angle)      sines['sine'].append(np.sin(angle))`|Gráfico de linha de duas variáveis|
-|Tabela de registo com 2 colunas numéricas|`run.log_table(name='Sine Wave', value=sines)`|Gráfico de linha de duas variáveis|
-
-
 ### <a name="view-log-files-for-a-run"></a>Ver ficheiros de registo para uma execução 
 
 Os ficheiros de registo são um recurso essencial para depurar as cargas de trabalho do Azure ML. Aprofundar até uma corrida específica para ver os seus registos e saídas:  
@@ -125,7 +124,7 @@ As tabelas abaixo mostram o conteúdo dos ficheiros de registo nas pastas que ve
 
 #### <a name="azureml-logs-folder"></a>`azureml-logs` pasta
 
-|Ficheiro  |Description  |
+|Ficheiro  |Descrição  |
 |---------|---------|
 |20_image_build_log.txt     | Registo de construção de imagem estivador para o ambiente de treino, opcional, um por corrida. Só é aplicável na atualização do seu Ambiente. Caso contrário, a AML reutilizará a imagem em cache. Se for bem sucedido, contém detalhes do registo de imagem para a imagem correspondente.         |
 |55_azureml execução-<node_id>.txt     | stdout/stderr log da ferramenta hospedeira, um por nó. Puxa a imagem para calcular o alvo. Note que este registo só aparece depois de ter garantido recursos de computação.         |
@@ -138,7 +137,7 @@ As tabelas abaixo mostram o conteúdo dos ficheiros de registo nas pastas que ve
 
 #### <a name="logs--azureml-folder"></a>`logs > azureml` pasta
 
-|Ficheiro  |Description  |
+|Ficheiro  |Descrição  |
 |---------|---------|
 |110_azureml.log      |         |
 |job_prep_azureml.log     |   registo do sistema para a preparação do trabalho        |
@@ -148,7 +147,7 @@ As tabelas abaixo mostram o conteúdo dos ficheiros de registo nas pastas que ve
 
 Quando o sidecar estiver ativado, os scripts de preparação de emprego e de lançamento de emprego serão executados dentro do contentor sidecar.  Há uma pasta para cada nó. 
 
-|Ficheiro  |Description  |
+|Ficheiro  |Descrição  |
 |---------|---------|
 |start_cms.txt     |  Registo de processo que começa quando o Contentor Sidecar começa       |
 |prep_cmd.txt      |   Log for ContextManagers introduzidos quando `job_prep.py` é executado (alguns destes serão transmitidos `azureml-logs/65-job_prep` para)       |

@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40bfa27dba905cb2e9a363c7739f0a43e7c2afdf
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: ad99c8d319a22f8b5388838b9d537de2f610478a
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100101377"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101650996"
 ---
 # <a name="monitoring-application-sign-in-health-for-resilience"></a>Monitorização da saúde de inscrição do pedido de resiliência
 
@@ -51,7 +51,7 @@ Este artigo percorre a criação do livro de saúde de inscrição para monitori
 
 * Um espaço de trabalho log Analytics na sua subscrição Azure para enviar registos para registos do Azure Monitor. 
 
-   * Saiba como [criar um espaço de trabalho Log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)
+   * Saiba como [criar um espaço de trabalho Log Analytics](../../azure-monitor/logs/quick-create-workspace.md)
 
 * Registos AD AD azure integrados com registos do Azure Monitor
 
@@ -94,7 +94,7 @@ Utilize as seguintes instruções para criar alertas de e-mail com base nas cons
 
  Para configurar a consulta subjacente e definir alertas, complete os seguintes passos. Utilizará a Consulta de Amostra como base para a sua configuração. Uma explicação da estrutura de consulta aparece no final desta secção.
 
-Para obter mais informações sobre como criar, visualizar e gerir alertas de registo usando o Azure Monitor consulte [Gerir os alertas de registo .](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log)
+Para obter mais informações sobre como criar, visualizar e gerir alertas de registo usando o Azure Monitor consulte [Gerir os alertas de registo .](../../azure-monitor/alerts/alerts-log.md)
 
  
 1. No livro de trabalhos, **selecione Editar,** em seguida, selecione o ícone de **consulta** logo acima do lado direito do gráfico.   
@@ -216,7 +216,7 @@ thisWeek
    [![Screenshot mostrando o novo ecrã de regra de alerta.](./media/monitor-sign-in-health-for-resilience/new-alert-rule.png)](./media/monitor-sign-in-health-for-resilience/new-alert-rule.png)
 
 
-5. Configure as condições de alerta. Na secção Condição, selecione o link **Sempre que a procura média de registo personalizado for maior do que a contagem definida pela lógica.** No painel de lógica de sinal de configuração, percorra para a lógica de alerta
+5. Configure as condições de alerta. ‎In the Condition section, select the link **Whenever the average custom log search is greater than logic defined count**. No painel de lógica de sinal de configuração, percorra para a lógica de alerta
 
    [![Screenshot mostrando ecrã de alertas de configuração.](./media/monitor-sign-in-health-for-resilience/configure-alerts.png)](./media/monitor-sign-in-health-for-resilience/configure-alerts.png)
  
@@ -280,10 +280,9 @@ Depois de configurar a consulta e alertas, crie processos de negócio para gerir
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Saiba mais sobre livros de trabalho](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-use-azure-monitor-workbooks)
+[Saiba mais sobre livros de trabalho](../reports-monitoring/howto-use-azure-monitor-workbooks.md)
 
  
 
  
 
- 

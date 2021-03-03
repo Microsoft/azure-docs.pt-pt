@@ -2,18 +2,19 @@
 title: Faça backup e recupere uma base de dados oracle Database 19c em um VM Azure Linux usando Azure Backup
 description: Saiba como fazer backup e recuperar uma base de dados Oracle Database 19c utilizando o serviço de backup Azure.
 author: cro27
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: oracle
+ms.collection: linux
 ms.topic: article
 ms.date: 01/28/2021
 ms.author: cholse
 ms.reviewer: dbakevlar
-ms.openlocfilehash: ac045694e8975509635e03221a8cb9cc84446b55
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 90f86a198ad36c2961f77336092d863953ee45ba
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99806414"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101673887"
 ---
 # <a name="back-up-and-recover-an-oracle-database-19c-database-on-an-azure-linux-vm-using-azure-backup"></a>Faça backup e recupere uma base de dados oracle Database 19c em um VM Azure Linux usando Azure Backup
 
@@ -199,13 +200,13 @@ Este passo pressupõe que você tem uma instância Oráculo *(teste)* que está 
      RMAN> backup as compressed backupset database plus archivelog;
      ```
 
-## <a name="using-azure-backup"></a>Utilizar o Azure Backup
+## <a name="using-azure-backup-preview"></a>Utilização de backup Azure (pré-visualização)
 
 O serviço Azure Backup fornece soluções simples, seguras e económicas que lhe permitem fazer cópias de segurança dos seus dados e recuperá-los a partir da cloud do Microsoft Azure. A Azure Backup fornece backups independentes e isolados para proteger contra a destruição acidental de dados originais. As cópias de segurança são armazenadas num cofre dos Serviços de Recuperação com gestão de pontos de recuperação incorporada. A configuração e a escalabilidade são simples, as cópias de segurança são otimizadas e pode facilmente restaurar conforme necessário.
 
-O serviço Azure Backup fornece uma [estrutura](../../../backup/backup-azure-linux-app-consistent.md) para alcançar a consistência da aplicação durante cópias de segurança de Windows e Linux VMs para várias aplicações como Oracle, MySQL, Mongo DB, SAP HANA e PostGreSQL. Isto envolve invocar um pré-script (para quiesce as aplicações) antes de tirar uma foto dos discos e chamar o pós-script (comandos para descongelar as aplicações) após a conclusão do instantâneo, para devolver as aplicações ao modo normal. Enquanto os pré-scripts e pós-scripts da amostra são fornecidos no GitHub, a criação e manutenção destes scripts é da sua responsabilidade. 
+O serviço Azure Backup fornece uma [estrutura](../../../backup/backup-azure-linux-app-consistent.md) para alcançar a consistência da aplicação durante cópias de segurança de Windows e Linux VMs para várias aplicações como Oracle, MySQL, Mongo DB e PostGreSQL. Isto envolve invocar um pré-script (para quiesce as aplicações) antes de tirar uma foto dos discos e chamar o pós-script (comandos para descongelar as aplicações) após a conclusão do instantâneo, para devolver as aplicações ao modo normal. Enquanto os pré-scripts e pós-scripts da amostra são fornecidos no GitHub, a criação e manutenção destes scripts é da sua responsabilidade.
 
-Agora, o Azure Backup está a fornecer um quadro de pré-scripts e pós-scripts melhorados, onde o serviço de Backup Azure fornecerá pré-scripts e pós-scripts embalados para aplicações selecionadas. Os utilizadores do Azure Backup apenas precisam de nomear a aplicação e, em seguida, a cópia de segurança Azure VM irá automaticamente invocar os scripts pré-post relevantes. Os pré-scripts e pós-scripts embalados serão mantidos pela equipa de Backup do Azure e para que os utilizadores possam ter a certeza do suporte, propriedade e validade destes scripts. Atualmente, as aplicações apoiadas para o quadro reforçado são *a Oracle* e *a MySQL.*
+Agora, o Azure Backup está a fornecer um quadro de pré-scripts e pós-scripts melhorados -**que está atualmente em pré-visualização**), onde o serviço Azure Backup fornecerá pré-scripts e pós-scripts embalados para aplicações selecionadas. Os utilizadores do Azure Backup apenas precisam de nomear a aplicação e, em seguida, a cópia de segurança Azure VM irá automaticamente invocar os scripts pré-post relevantes. Os pré-scripts e pós-scripts embalados serão mantidos pela equipa de Backup do Azure e para que os utilizadores possam ter a certeza do suporte, propriedade e validade destes scripts. Atualmente, as aplicações apoiadas para o quadro reforçado são *a Oracle* e *a MySQL.*
 
 Nesta secção, utilizará o quadro melhorado do Azure Backup para tirar fotos consistentes da sua base de dados VM e Oracle em execução. A base de dados será colocada no modo de backup permitindo que ocorra uma cópia de segurança on-line consistente transacionalmente enquanto o Azure Backup tira uma foto dos discos VM. O instantâneo será uma cópia completa do armazenamento e não um incremental ou copy on Write snapshot, por isso é um meio eficaz para restaurar a sua base de dados a partir de. A vantagem de usar instantâneos consistentes com aplicações Azure Backup é que são extremamente rápidos a tomar, não importa o tamanho da sua base de dados, e um instantâneo pode ser usado para operações de restauro assim que é tomada, sem ter que esperar que seja transferido para o cofre dos Serviços de Recuperação.
 
@@ -314,7 +315,7 @@ Para utilizar o Azure Backup para fazer backup na base de dados, complete estes 
    sudo su -
    ```
 
-2. Criar o diretório de trabalho de backup consistente com aplicações:
+2. Verifique se há pasta "etc/azul". Se isso não estiver presente, crie o diretório de trabalho de backup consistente da aplicação:
 
    ```bash
    if [ ! -d "/etc/azure" ]; then
@@ -322,7 +323,7 @@ Para utilizar o Azure Backup para fazer backup na base de dados, complete estes 
    fi
    ```
 
-3. Criar um ficheiro no diretório */etc/azure* chamado *workload.conf* com os seguintes conteúdos, que devem começar por `[workload]` . O seguinte comando criará o ficheiro e preencherá o conteúdo:
+3. Verifique se há "workload.conf" dentro da pasta. Se isso não estiver presente, crie um ficheiro no diretório */etc/azure* chamado *workload.conf* com os seguintes conteúdos, que devem começar por `[workload]` . Se o ficheiro já estiver presente, basta editar os campos de modo a que corresponda ao seguinte conteúdo. Caso contrário, o seguinte comando criará o ficheiro e preencherá o conteúdo:
 
    ```bash
    echo "[workload]
@@ -330,14 +331,6 @@ Para utilizar o Azure Backup para fazer backup na base de dados, complete estes 
    command_path = /u01/app/oracle/product/19.0.0/dbhome_1/bin/
    timeout = 90
    linux_user = azbackup" > /etc/azure/workload.conf
-   ```
-
-4. Descarregue os scripts pré-OracleMaster.sql e postOracleMaster.sql do [Repositório GitHub](https://github.com/Azure/azure-linux-extensions/tree/master/VMBackup/main/workloadPatch/DefaultScripts) e copie-os para o diretório */etc/azure.*
-
-5. Alterar as permissões do ficheiro
-
-```bash
-   chmod 744 workload.conf preOracleMaster.sql postOracleMaster.sql 
    ```
 
 ### <a name="trigger-an-application-consistent-backup-of-the-vm"></a>Desencadear uma cópia de segurança consistente da aplicação do VM
@@ -970,4 +963,4 @@ az group delete --name rg-oracle
 
 [Tutorial: Criar VMs altamente disponíveis](../../linux/create-cli-complete.md)
 
-[Explore amostras de CLI de implantação VM](../../linux/cli-samples.md)
+[Explore amostras de CLI de implantação VM](https://github.com/Azure-Samples/azure-cli-samples/tree/master/virtual-machine)

@@ -1,19 +1,18 @@
 ---
-title: Configurar IBM Db2 HADR em máquinas virtuais Azure (VMs) Microsoft Docs
+title: Configurar o IBM Db2 HADR em máquinas virtuais Azure (VMs) | Microsoft Docs
 description: Estabelecer uma elevada disponibilidade de IBM Db2 LUW em máquinas virtuais Azure (VMs).
 author: msjuergent
-ms.service: virtual-machines
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.date: 10/16/2020
 ms.author: juergent
 ms.reviewer: cynthn
-ms.openlocfilehash: 54bde8c9dd47e88ffdc831ccb9f7833720583238
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: faafce32c3452a5c4ff08783ec2edd28f7f961e9
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96621387"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101671883"
 ---
 # <a name="high-availability-of-ibm-db2-luw-on-azure-vms-on-suse-linux-enterprise-server-with-pacemaker"></a>Alta disponibilidade de IBM Db2 LUW em VMs Azure no SUSE Linux Enterprise Server com Pacemaker
 
@@ -30,7 +29,7 @@ As versões IBM Db2 suportadas são 10.5 e posteriormente, como documentado na n
 
 Antes de iniciar uma instalação, consulte as seguintes notas e documentação SAP:
 
-| Nota SAP | Description |
+| Nota SAP | Descrição |
 | --- | --- |
 | [1928533] | Aplicações SAP no Azure: Produtos suportados e tipos de VM Azure |
 | [2015553] | SAP on Azure: Pré-requisitos de apoio |
@@ -104,7 +103,7 @@ Complete o processo de planeamento antes de executar a implementação. O planea
 | Nome de anfitrião virtual e IP virtual para base de dados IBM Db2| O ip virtual ou o nome do anfitrião que é usado para a ligação de servidores de aplicações SAP. **db-virt-hostname,** **db-virt-ip**. |
 | Esgrima azul | Esgrima azul ou esgrima SBD (altamente recomendado). Método para evitar situações cerebrais divididas. |
 | SBD VM | Tamanho da máquina virtual SBD, armazenamento, rede. |
-| Azure Load Balancer | Utilização de Porta-sonda Básica ou Padrão (recomendada), porta-sonda para base de dados Db2 (nossa recomendação 62500) **porta-sonda**. |
+| Balanceador de Carga do Azure | Utilização de Porta-sonda Básica ou Padrão (recomendada), porta-sonda para base de dados Db2 (nossa recomendação 62500) **porta-sonda**. |
 | Resolução de nomes| Como funciona a resolução de nomes no ambiente. O serviço DNS é altamente recomendado. O ficheiro de anfitriões locais pode ser usado. |
     
 Para obter mais informações sobre o Pacemaker Linux em Azure, consulte [Configurar o Pacemaker no SUSE Linux Enterprise Server em Azure](./high-availability-guide-suse-pacemaker.md).
@@ -171,7 +170,7 @@ Para configurar a primeira instância da base de dados IBM Db2 LUW:
 
 Para configurar o servidor de base de dados Standby utilizando o procedimento de cópia homogénea do sistema SAP, execute estas etapas:
 
-1. Selecione a opção **de cópia do Sistema** > instância de base de **dados** distribuída por sistemas  >  **Distributed**  >  **Database instance** alvo.
+1. Selecione a opção **de cópia do Sistema** > instância de base de **dados** distribuída por sistemas  >    >  alvo.
 1. Como método de cópia, selecione **Homogeneous System** para que possa utilizar a cópia de segurança para restaurar uma cópia de segurança na instância do servidor de espera.
 1. Quando chegar ao passo de saída para restaurar a base de dados para cópia homogénea do sistema, saia do instalador. Restaurar a base de dados a partir de uma cópia de segurança do hospedeiro principal. Todas as fases de instalação subsequentes já foram executadas no servidor de base de dados primário.
 1. Configurar HADR para a IBM Db2.
@@ -407,7 +406,7 @@ Para configurar o Balançador de Carga Azure, recomendamos que utilize o [Azure 
 
    b. Introduza o nome do novo pool IP frontal (por exemplo, **ligação Db2**).
 
-   c. Desaponda a **Estática** e introduza o endereço IP **Virtual-IP** definido no início. **Static**
+   c. Desaponda a **Estática** e introduza o endereço IP **Virtual-IP** definido no início. 
 
    d. Selecione **OK**.
 
@@ -495,7 +494,7 @@ O arquivo de registos é realizado apenas pela base de dados primária. Se alter
 
 Recomendamos configurar uma partilha comum de NFS onde os registos são escritos de ambos os nós. A quota da NFS tem de estar altamente disponível. 
 
-Você pode usar ações NFS altamente disponíveis para transportes ou um diretório de perfil. Para obter mais informações, veja:
+Você pode usar ações NFS altamente disponíveis para transportes ou um diretório de perfil. Para obter mais informações, consulte:
 
 - [Alta disponibilidade para NFS em VMs Azure no SUSE Linux Enterprise Server][nfs-ha] 
 - [Alta disponibilidade para SAP NetWeaver em VMs Azure no SUSE Linux Enterprise Server com Ficheiros Azure NetApp para aplicações SAP](./high-availability-guide-suse-netapp-files.md)

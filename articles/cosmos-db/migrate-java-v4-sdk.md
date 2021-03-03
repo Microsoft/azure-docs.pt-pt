@@ -9,12 +9,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 06/11/2020
 ms.reviewer: sngun
-ms.openlocfilehash: e537c964d6063b76df63b3d80c5ef72b1ea56c92
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 92a9abec36bd75c594c67843286bf8fa067d7dba
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98600248"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101658542"
 ---
 # <a name="migrate-your-application-to-use-the-azure-cosmos-db-java-sdk-v4"></a>Migrar a sua aplicação para usar o Azure Cosmos DB Java SDK v4
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -33,10 +33,10 @@ Este artigo explica como atualizar a sua aplicação java existente que está us
 
 A tabela a seguir lista diferentes SDKs Azure Cosmos DB Java, o nome do pacote e as informações de lançamento:
 
-| SDK Java| Data da versão: | APIs agregados   | Jarro Maven  | Nome do pacote java  |Referência da API   | Notas de Versão  |
+| SDK Java| Data da versão: | APIs agregados   | Jarro Maven  | Nome do pacote java  |Referência da API   | Release Notes (Notas de Lançamento)  |
 |-------|------|-----------|-----------|--------------|-------------|---------------------------|
-| Async 2.x.x  | junho de 2018    | Async (RxJava)  | `com.microsoft.azure::azure-cosmosdb` | `com.microsoft.azure.cosmosdb.rx` | [API](https://azure.github.io/azure-cosmosdb-java/2.0.0/) | [Notas de lançamento](sql-api-sdk-async-java.md) |
-| Sincronização 2.x.x     | Setembro 2018    | Sync   | `com.microsoft.azure::azure-documentdb` | `com.microsoft.azure.cosmosdb` | [API](https://azure.github.io/azure-cosmosdb-java/2.0.0/) | [Notas de lançamento](sql-api-sdk-java.md)  |
+| Async 2.x.x  | junho de 2018    | Async (RxJava)  | `com.microsoft.azure::azure-cosmosdb` | `com.microsoft.azure.cosmosdb.rx` | [API](https://azure.github.io/azure-cosmosdb-java/2.0.0/) | [Release Notes (Notas de Lançamento)](sql-api-sdk-async-java.md) |
+| Sincronização 2.x.x     | Setembro 2018    | Sync   | `com.microsoft.azure::azure-documentdb` | `com.microsoft.azure.cosmosdb` | [API](https://azure.github.io/azure-cosmosdb-java/2.0.0/) | [Release Notes (Notas de Lançamento)](sql-api-sdk-java.md)  |
 | 3.x.x    | Julho de 2019    | Async(Reator)/Sync  | `com.microsoft.azure::azure-cosmos`  | `com.azure.data.cosmos` | [API](https://azure.github.io/azure-cosmosdb-java/3.0.0/) | - |
 | 4.0   | Junho de 2020   | Async(Reator)/Sync  | `com.azure::azure-cosmos` | `com.azure.cosmos`   | -  | [API](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-cosmos/4.0.1/index.html)  |
 
@@ -60,7 +60,7 @@ Seguem-se as alterações de nível API em Azure Cosmos DB Java SDK 4.x.x em com
 
 :::image type="content" source="./media/migrate-java-v4-sdk/java-sdk-naming-conventions.png" alt-text="Azure Cosmos DB Java SDK nomeando convenções":::
 
-* O Azure Cosmos DB Java SDK 3.x.x e 4.0 referem os recursos do cliente como `Cosmos<resourceName>` . Por `CosmosClient` exemplo, `CosmosDatabase` . `CosmosContainer` Enquanto na versão 2.x.x, os SDKs Azure Cosmos DB Java não têm um esquema uniforme de nomeação.
+* O Azure Cosmos DB Java SDK 3.x.x e 4.0 referem os recursos do cliente como `Cosmos<resourceName>` . Por `CosmosClient` exemplo, `CosmosDatabase` . . . `CosmosContainer` . Enquanto na versão 2.x.x, os SDKs Azure Cosmos DB Java não têm um esquema uniforme de nomeação.
 
 * Azure Cosmos DB Java SDK 3.x.x e 4.0 oferecem APIs sync e Async.
 
@@ -145,7 +145,7 @@ client.createDatabaseIfNotExists("YourDatabaseName")
         CosmosContainerProperties containerProperties = 
             new CosmosContainerProperties("YourContainerName", "/id");
         // Create container with specified properties & provisioned throughput
-        return database"createContainerIf"otExists(containerProperties, 400);
+        return database.createContainerIfNotExists(containerProperties, 400);
     }).flatMap(containerResponse -> {
         container = containerResponse.container();
         return Mono.empty();

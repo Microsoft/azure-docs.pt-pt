@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/24/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 128e053016faf3ed2a9c53ad21f35a13f3ac1265
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 4abef9c848a32d9fa6a34eabe407c4d10f913797
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99258172"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101643801"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Autenticação baseada em cabeçalho para início de sessão único com o Proxy de Aplicações e PingAccess
 
@@ -175,7 +175,8 @@ Para recolher esta informação:
 Reclamações opcionais permitem-lhe adicionar alegações padrão, mas não incluídas por padrão, que cada utilizador e inquilino tem. Pode configurar reclamações opcionais para a sua aplicação modificando o manifesto de aplicação. Para mais informações, consulte o [Artigo manifesto de aplicação AD Azure](../develop/reference-app-manifest.md)
 
 Exemplo para incluir o endereço de e-mail no access_token que o PingAccess irá consumir:
-```
+
+```json
     "optionalClaims": {
         "idToken": [],
         "accessToken": [

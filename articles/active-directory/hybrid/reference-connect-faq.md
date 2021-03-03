@@ -15,12 +15,12 @@ ms.date: 08/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1fa195fd8d40c6b67a9c446f0b2320fe47d75259
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 29c0ae8ec210356f6027a46ed01f2a7126ea4a49
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99092671"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101644736"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Diretório Ativo Azure Conecta FAQ
 
@@ -52,7 +52,7 @@ A instalação Azure AD Connect só é suportada quando utilizar o assistente de
 A partir das construções de fevereiro de 2016, este cenário é apoiado.
 
 **P: O agente de saúde Azure Ative Directory Domain Services (Azure AD DS) funciona no núcleo do servidor?**  
-Yes. Depois de instalar o agente, pode concluir o processo de registo utilizando o seguinte cmdlet PowerShell: 
+Sim. Depois de instalar o agente, pode concluir o processo de registo utilizando o seguinte cmdlet PowerShell: 
 
 `Register-AzureADConnectHealthADDSAgent -Credentials $cred`
 
@@ -201,7 +201,7 @@ Dependendo do tamanho do ambiente, o processo pode demorar algumas horas. Enquan
 **P: Recebi um e-mail a dizer-me que a minha atualização automática já não funciona e preciso de instalar uma nova versão. Porque é que tenho de fazer isto?**  
 No ano passado, lançámos uma versão do Azure AD Connect que, em determinadas circunstâncias, poderia ter desativado a funcionalidade de atualização automática no seu servidor. Corrigimos o problema na versão 1.1.750.0 do Azure AD Connect. Se tiver sido afetado pelo problema, pode atenuá-lo executando um script PowerShell para repará-lo ou atualizando manualmente para a versão mais recente do Azure AD Connect. 
 
-Para executar o script PowerShell, [descarregue o script](https://aka.ms/repairaadconnect) e execute-o no servidor Azure AD Connect numa janela administrativa do PowerShell. Para aprender a executar o script, [veja este pequeno vídeo](https://aka.ms/repairaadcau).
+Para executar o script PowerShell, [descarregue o script](/samples/browse/?redirectedfrom=TechNet-Gallery) e execute-o no servidor Azure AD Connect numa janela administrativa do PowerShell. Para aprender a executar o script, [veja este pequeno vídeo](https://aka.ms/repairaadcau).
 
 Para fazer o upgrade manual, tem de descarregar e executar a versão mais recente do ficheiro AADConnect.msi.
  

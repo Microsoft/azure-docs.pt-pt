@@ -1,21 +1,21 @@
 ---
-title: Tutorial - Importar e gerir APIs - Azure API Management e Visual Studio Code ! Microsoft Docs
+title: Tutorial - Importar e gerir APIs - Azure API Management e Visual Studio Code | Microsoft Docs
 description: Neste tutorial, aprenda a usar a Extensão de Gestão da API Azure para o Código do Estúdio Visual para importar, testar e gerir APIs.
 ms.service: api-management
 author: dlepow
 ms.author: apimpm
 ms.topic: tutorial
 ms.date: 12/10/2020
-ms.openlocfilehash: 6cf5c6f716912689b39264ed71f6a7c55f944ad2
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 0dea8e43d5f09b84c5795bc257cf3331ad919fcb
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97439521"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101649551"
 ---
 # <a name="tutorial-use-the-api-management-extension-for-visual-studio-code-to-import-and-manage-apis"></a>Tutorial: Utilize a Extensão de Gestão da API para código de estúdio visual para importar e gerir APIs
 
-Neste tutorial, aprende-se a utilizar a pré-visualização da extensão de gestão da API para o Código do Estúdio Visual para operações comuns na Gestão da API. Utilize o ambiente familiar do Código do Estúdio Visual para importar, atualizar, testar e gerir APIs.
+Neste tutorial, aprende-se a utilizar a Extensão de Gestão da API para Código de Estúdio Visual para operações comuns na Gestão da API. Utilize o ambiente familiar do Código do Estúdio Visual para importar, atualizar, testar e gerir APIs.
 
 Saiba como:
 
@@ -32,7 +32,7 @@ Para uma introdução a funcionalidades adicionais de Gestão da API, consulte o
 
 ## <a name="prerequisites"></a>Pré-requisitos
 - Compreender [a terminologia da Gestão da API Azure](api-management-terminology.md)
-- Certifique-se de que instalou o [Código do Estúdio Visual](https://code.visualstudio.com/) e a mais recente [extensão de gestão API para código de estúdio visual (pré-visualização)](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement&ssr=false#overview)
+- Certifique-se de que instalou o [Código do Estúdio Visual](https://code.visualstudio.com/) e a mais recente [extensão de gestão da API para código de estúdio visual](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement&ssr=false#overview)
 - [Criar um caso de Gestão de API](vscode-create-service-instance.md)
 
 ## <a name="import-an-api"></a>Importar uma API

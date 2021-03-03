@@ -5,14 +5,14 @@ author: TheovanKraay
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: troubleshooting
-ms.date: 12/01/2020
+ms.date: 03/02/2021
 ms.author: thvankra
-ms.openlocfilehash: 6d9a74729768a326379b5efddb864a4fee02fa59
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: f9b6e586879b8697660ced7aa6f1e75083e3ee29
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99493226"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101658576"
 ---
 # <a name="troubleshoot-common-issues-in-azure-cosmos-db-cassandra-api"></a>Resolução de problemas problemas comuns na Azure Cosmos DB Cassandra API
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -32,7 +32,7 @@ Algumas causas e soluções populares são as seguintes:
 Pode ver este erro: `Cannot connect to any host, scheduling retry in 600000 milliseconds` . 
 
 ### <a name="solution"></a>Solução
-Isto pode ser exaustão do SNAT do lado do cliente. Por favor, siga os passos no [SNAT para que as ligações de saída](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) excluam esta questão. Isto também pode ser um problema de tempo de ciosidade em que o equilibrador de carga Azure tem 4 minutos de tempo de inatividade por defeito. Consulte a documentação no [tempo limite de marcha lenta .](../load-balancer/load-balancer-tcp-idle-timeout.md?tabs=tcp-reset-idle-portal) Ativar a televisão a manter-se viva a partir das definições do condutor (ver [abaixo)](#enable-keep-alive-for-java-driver)e definir `keepAlive` o intervalo no sistema operativo para menos de 4 minutos.
+Isto pode ser exaustão do SNAT do lado do cliente. Por favor, siga os passos no [SNAT para que as ligações de saída](../load-balancer/load-balancer-outbound-connections.md) excluam esta questão. Isto também pode ser um problema de tempo de ciosidade em que o equilibrador de carga Azure tem 4 minutos de tempo de inatividade por defeito. Consulte a documentação no [tempo limite de marcha lenta .](../load-balancer/load-balancer-tcp-idle-timeout.md?tabs=tcp-reset-idle-portal) Ativar a televisão a manter-se viva a partir das definições do condutor (ver [abaixo)](#enable-keep-alive-for-java-driver)e definir `keepAlive` o intervalo no sistema operativo para menos de 4 minutos.
 
  
 

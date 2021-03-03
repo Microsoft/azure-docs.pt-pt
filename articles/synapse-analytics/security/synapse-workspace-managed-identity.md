@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 10/16/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5506a54193efc813927663533ddfd89be3ddf40a
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 7790bc2895449e8ab21cbd30d7da0e5529eb0562
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461308"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101670682"
 ---
 # <a name="azure-synapse-workspace-managed-identity"></a>Identidade gerida da área de trabalho do Azure Synapse
 
@@ -23,7 +23,7 @@ Neste artigo, você vai aprender sobre identidade gerida no espaço de trabalho 
 
 A identidade gerida para recursos Azure é uma característica do Azure Ative Directory. Oferece aos serviços do Azure uma identidade gerida automaticamente no Azure AD. Pode utilizar a capacidade de Identidade Gerida para autenticar qualquer serviço que suporte a autenticação AD Azure.
 
-Identidades geridas para recursos Azure são o novo nome para o serviço anteriormente conhecido como Identidade de Serviço Gerido (MSI). Consulte [identidades geridas](../../active-directory/managed-identities-azure-resources/overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) para saber mais.
+Identidades geridas para recursos Azure são o novo nome para o serviço anteriormente conhecido como Identidade de Serviço Gerido (MSI). Consulte [identidades geridas](../../active-directory/managed-identities-azure-resources/overview.md) para saber mais.
 
 ## <a name="azure-synapse-workspace-managed-identity"></a>Identidade gerida da área de trabalho do Azure Synapse
 

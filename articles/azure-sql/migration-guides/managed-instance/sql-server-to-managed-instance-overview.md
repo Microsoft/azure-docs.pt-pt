@@ -9,13 +9,13 @@ ms.topic: how-to
 author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
-ms.date: 11/06/2020
-ms.openlocfilehash: 9afe50e419f9c180b0b5efcd6182eb693dc6622a
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.date: 02/18/2020
+ms.openlocfilehash: 5485d97638679651a3890e0b7578787e481437c6
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99094014"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101656283"
 ---
 # <a name="migration-overview-sql-server-to-sql-managed-instance"></a>Visão geral da migração: SQL Server para SQL Managed Instance
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -90,6 +90,7 @@ O quadro que se segue lista as ferramentas de migração recomendadas:
 |---------|---------|
 |[Azure Database Migration Service (DMS)](../../../dms/tutorial-sql-server-to-managed-instance.md)  | Primeiro serviço Azure que suporta a migração no modo offline para aplicações que podem pagar tempo de inatividade durante o processo de migração. Ao contrário da migração contínua no modo on-line, a migração em modo offline executa uma única vez a restauração de uma cópia de segurança completa da base de dados da fonte para o alvo. | 
 |[Backup nativo e restauro](../../managed-instance/restore-sample-database-quickstart.md) | SQL Managed Instance suporta o RESTORE de backups nativos da base de dados do SQL Server (.bak ficheiros), tornando-se a opção de migração mais fácil para clientes que podem fornecer cópias de dados completas para armazenamento Azure. Cópias de segurança completas e diferenciais também são apoiadas e documentadas na [secção de ativos de migração](#migration-assets) mais tarde neste artigo.| 
+|[Serviço de reprodução de registo (LRs)](../../managed-instance/log-replay-service-migrate.md) | Este é um serviço de nuvem ativado para Instância Gerida com base na tecnologia de envio de registos SQL Server, tornando-o uma opção de migração para clientes que podem fornecer cópias de dados completas, diferenciais e de base de dados de registo para armazenamento Azure. O LRS é utilizado para restaurar ficheiros de backup do Azure Blob Storage para SQL Managed Instance.| 
 | | |
 
 ### <a name="alternative-tools"></a>Ferramentas alternativas
@@ -116,6 +117,7 @@ O quadro a seguir compara as opções de migração recomendadas:
 |---------|---------|---------|
 |[Azure Database Migration Service (DMS)](../../../dms/tutorial-sql-server-to-managed-instance.md) | - Migrar bases de dados únicas ou várias bases de dados à escala. </br> - Pode acomodar tempo de inatividade durante o processo de migração. </br> </br> Fontes apoiadas: </br> - SQL Server (2005 - 2019) no local ou Azure VM </br> - AWS EC2 </br> - AWS RDS </br> - GCP Compute SQL Server VM |  - As migrações em escala podem ser automatizadas através do [PowerShell](../../../dms/howto-sql-server-to-azure-sql-mi-powershell.md). </br> - O tempo para completar a migração depende do tamanho da base de dados e impactado pelo tempo de backup e restauro. </br> - Pode ser necessário um tempo de inatividade suficiente. |
 |[Backup nativo e restauro](../../managed-instance/restore-sample-database-quickstart.md) | - Migrar a base de dados de aplicações individuais em linha de negócio.  </br> - Migração rápida e fácil sem serviço ou ferramenta de migração separada.  </br> </br> Fontes apoiadas: </br> - SQL Server (2005 - 2019) no local ou Azure VM </br> - AWS EC2 </br> - AWS RDS </br> - GCP Compute SQL Server VM | - A cópia de segurança da base de dados utiliza vários fios para otimizar a transferência de dados para o armazenamento de Azure Blob, mas a largura de banda isv e o tamanho da base de dados podem ter impacto na taxa de transferência. </br> - O tempo de paragem deve acomodar o tempo necessário para efetuar uma cópia de segurança completa e restaurar (que é um tamanho de operação de dados).| 
+|[Serviço de reprodução de registo (LRs)](../../managed-instance/log-replay-service-migrate.md) | - Migrar a base de dados de aplicações individuais em linha de negócio.  </br> - É necessário mais controlo para as migrações na base de dados.  </br> </br> Fontes apoiadas: </br> - SQL Server (2008 - 2019) no local ou Azure VM </br> - AWS EC2 </br> - AWS RDS </br> - GCP Compute SQL Server VM | - A migração implica fazer cópias de dados completas no SQL Server e copiar ficheiros de backup para o Azure Blob Storage. O LRS é utilizado para restaurar ficheiros de backup do Azure Blob Storage para SQL Managed Instance. </br> - As bases de dados que estão a ser restauradas durante o processo de migração estarão em modo de restauração e não podem ser utilizadas para ler ou escrever até que o processo esteja concluído..| 
 | | | |
 
 ### <a name="alternative-options"></a>Opções alternativas
@@ -141,7 +143,7 @@ Migrar pacotes e projetos de serviços e projetos de integração de servidores 
 Apenas os pacotes SSIS em SSISDB a partir do SQL Server 2012 são suportados para migração. Converter pacotes SSIS legados antes da migração. Consulte o [tutorial de conversão](/sql/integration-services/lesson-6-2-converting-the-project-to-the-project-deployment-model) do projeto para saber mais. 
 
 
-#### <a name="sql-server-reporting-services"></a>SQL Server Reporting Services
+#### <a name="sql-server-reporting-services"></a>SQL Server Reporting Services
 
 Os relatórios dos Serviços de Relato de Servidores sql (SSRS) podem ser migrados para relatórios paginados no Power BI. Utilize a [Ferramenta de Migração RDL](https://github.com/microsoft/RdlMigration) para ajudar a preparar e migrar os seus relatórios. Essa ferramenta foi desenvolvida pela Microsoft para ajudar os clientes a migrar relatórios RDL dos seus servidores do SSRS para o Power BI. Está disponível no GitHub, e documenta uma passagem de ponta a ponta do cenário de migração. 
 
@@ -203,7 +205,7 @@ Algumas funcionalidades só estão disponíveis quando o [nível de compatibilid
 
 Para assistência adicional, consulte os seguintes recursos que foram desenvolvidos para projetos de migração no mundo real.
 
-|Recurso  |Description  |
+|Recurso  |Descrição  |
 |---------|---------|
 |[Modelo e ferramenta de avaliação da carga de trabalho de dados](https://github.com/Microsoft/DataMigrationTeam/tree/master/Data%20Workload%20Assessment%20Model%20and%20Tool)| Esta ferramenta fornece plataformas-alvo sugeridas "melhor ajuste", prontidão na nuvem e nível de remediação de aplicações/bases de dados para uma determinada carga de trabalho. Oferece um cálculo simples e de um clique e uma geração de relatórios que ajuda a acelerar as grandes avaliações imobiliárias, fornecendo e automatizada e uniforme processo de decisão da plataforma-alvo.|
 |[Utilidade DBLoader](https://github.com/microsoft/DataMigrationTeam/tree/master/DBLoader%20Utility)|O DBLoader pode ser usado para carregar dados de ficheiros de texto delimitados para o SQL Server. Este utilitário de consola Windows utiliza a interface de volume de pessoal do cliente nativo do SQL Server, que funciona em todas as versões do SQL Server, incluindo O SQL MI.|

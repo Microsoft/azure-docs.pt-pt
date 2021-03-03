@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 10/01/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 13706b900c64b1d0aa5ce03fc95442e8dfc41051
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a8d98485b180d999fb0762551e05ea5e3ef365b4
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099832"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101661482"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-net-sdk-and-azure-cosmos-db"></a>Quickstart: Construa uma app Cassandra com .NET SDK e Azure Cosmos DB
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -37,7 +37,7 @@ O Azure Cosmos DB é um serviço de bases de dados com vários modelos e distrib
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] Em alternativa, pode [experimentar gratuitamente a Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) sem uma subscrição Azure, gratuitamente e compromissos.
 
 Além disso, necessita: 
-* Se ainda não tiver o Visual Studio 2019 instalado, **free** pode baixar e utilizar a [Edição Comunitária visual 2019 gratuita do Visual Studio 2019.](https://www.visualstudio.com/downloads/) Confirme que ativa o **desenvolvimento do Azure** durante a configuração do Visual Studio.
+* Se ainda não tiver o Visual Studio 2019 instalado,  pode baixar e utilizar a [Edição Comunitária visual 2019 gratuita do Visual Studio 2019.](https://www.visualstudio.com/downloads/) Confirme que ativa o **desenvolvimento do Azure** durante a configuração do Visual Studio.
 * Instalar [Git](https://www.git-scm.com/) para clonar o exemplo.
 
 <a id="create-account"></a>
@@ -120,7 +120,7 @@ Este passo é opcional. Se estiver interessado em saber de que forma o código c
 
 Agora, regresse ao portal do Azure para obter as informações da cadeia de ligação e copie-as para a aplicação. As informações da cadeia de ligação permitem à aplicação comunicar com a base de dados alojada.
 
-1. No [portal do Azure](https://portal.azure.com/), clique em **Cadeia de Ligação** .
+1. No [portal do Azure](https://portal.azure.com/), clique em **Cadeia de Ligação**.
 
 1. Utilize o :::image type="icon" source="./media/create-cassandra-dotnet/copy.png"::: botão no lado direito do ecrã para copiar o valor USERNAME.
 
@@ -150,7 +150,7 @@ Agora, regresse ao portal do Azure para obter as informações da cadeia de liga
     
 ## <a name="run-the-net-app"></a>Executar a aplicação .NET
 
-1. No Estúdio Visual, selecione **Tools**  >  **NuGet Package Manager** Package Manager  >  **Consola** .
+1. No Estúdio Visual, selecione **Tools**  >  **NuGet Package Manager** Package Manager  >  **Consola**.
 
 2. Na linha de comandos, utilize o comando seguinte para instalar o pacote NuGet do controlador do .NET. 
 
@@ -159,19 +159,19 @@ Agora, regresse ao portal do Azure para obter as informações da cadeia de liga
     ```
 3. Prima CTRL + F5 para executar a aplicação. A aplicação é apresentada na janela da consola. 
 
-    :::image type="content" source="./media/create-cassandra-dotnet/output.png" alt-text="Ver e copiar uma chave de acesso no portal do Azure, página Cadeia de ligação":::
+    :::image type="content" source="./media/create-cassandra-dotnet/output.png" alt-text="Ver e verificar a saída":::
 
     Prima CTRL + C para interromper a execução do programa e feche a janela da consola. 
     
 4. No portal do Azure, abra o **Data Explorer** para consultar, modificar e trabalhar com estes dados novos.
 
-    :::image type="content" source="./media/create-cassandra-dotnet/data-explorer.png" alt-text="Ver e copiar uma chave de acesso no portal do Azure, página Cadeia de ligação":::
+    :::image type="content" source="./media/create-cassandra-dotnet/data-explorer.png" alt-text="Ver os dados no Data Explorer":::
 
 ## <a name="review-slas-in-the-azure-portal"></a>Rever os SLAs no portal do Azure
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 

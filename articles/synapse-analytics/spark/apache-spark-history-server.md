@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 10/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: 94c30cad1e09a01686a9042a6271a152d0f433fd
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4471fed7b423fe05147db30afe57f6c845fe640e
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95995391"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101670697"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>Utilize o servidor de histórico Apache Spark estendido para depurar e diagnosticar aplicações Apache Spark
 
@@ -22,7 +22,7 @@ Este artigo fornece orientações sobre como usar o servidor de histórico Apach
 
 A extensão inclui um separador de dados, separador gráfico e separador de diagnóstico. Utilize o separador **Dados** para verificar os dados de entrada e saída da função Spark. O **separador Gráfico** mostra-lhe o fluxo de dados e a repetição do gráfico de trabalho. O separador **de Diagnóstico** mostra-lhe  **distorcer dados,** **distorcer o tempo** e a análise de **utilização do executor**.
 
-## <a name="access-the-apache-spark-history-server"></a>Aceda ao servidor histórico Apache Spark
+## <a name="access-the-apache-spark-history-server"></a>Aceder ao servidor do histórico Apache Spark
 
 O servidor de histórico Apache Spark é a interface do utilizador web para aplicações Spark concluídas e executando. Pode abrir a interface web do servidor de histórico Apache Spark a partir do Azure Synapse Analytics.
 
@@ -100,7 +100,7 @@ Selecione o Job ID para o trabalho que deseja ver. Em seguida, selecione **Dados
 
 Selecione o Job ID para o trabalho que deseja ver. Em seguida, selecione **Gráfico** no menu de ferramentas para obter a visualização do gráfico de trabalho.
 
-### <a name="overview"></a>Descrição geral
+### <a name="overview"></a>Descrição Geral
 
 Pode ver uma visão geral do seu trabalho no gráfico de trabalho gerado. Por defeito, o gráfico mostra todos os trabalhos. Pode filtrar esta vista por **Job ID**.
 
@@ -239,5 +239,5 @@ Os dados de entrada/saída que utilizam conjuntos de dados distribuídos resilie
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Azure Synapse Analytics](../overview-what-is.md)
-- [.NET para documentação Apache Spark](/dotnet/spark?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+- [.NET para documentação Apache Spark](/dotnet/spark)
 

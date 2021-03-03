@@ -1,19 +1,19 @@
 ---
-title: Cargas de trabalho do Chapéu Vermelho na visão geral do Azure Microsoft Docs
+title: Cargas de trabalho do Chapéu Vermelho na visão geral de Azure | Microsoft Docs
 description: Conheça as ofertas de produtos Red Hat disponíveis no Azure.
 author: asinn826
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: redhat
+ms.collection: linux
 ms.topic: overview
 ms.date: 02/10/2020
 ms.author: alsin
-ms.reviewer: cynthn
-ms.openlocfilehash: 09612ff3d86c669801f9e824d367a2b9a5bb10ac
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.openlocfilehash: bd8f2e5b825f88d1b0e04ed231b85296ac47e998
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97830654"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101676052"
 ---
 # <a name="red-hat-workloads-on-azure"></a>Cargas de carga de chapéu vermelho em Azure
 

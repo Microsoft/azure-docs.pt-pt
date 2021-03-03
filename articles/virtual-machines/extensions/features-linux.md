@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
-ms.openlocfilehash: 129897d3288a900803efbfba8abf86c276077fa8
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 66687f5954894d962a67767669081de15a30c7c3
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966076"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101672611"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Extensões e funcionalidades de máquina virtual para Linux
 
@@ -33,7 +33,7 @@ Este artigo fornece uma visão geral das extensões VM, pré-requisitos para a u
 Estão disponíveis várias extensões VM Azure diferentes, cada uma com um caso de utilização específico. Alguns exemplos incluem:
 
 - Aplicar as configurações do Estado Desejado PowerShell a um VM com a extensão DSC para Linux. Para obter mais informações, consulte [a extensão de configuração do Estado Desejado Azure](https://github.com/Azure/azure-linux-extensions/tree/master/DSC).
-- Configure a monitorização de um VM com a extensão VM do Agente de Monitorização da Microsoft. Para mais informações, consulte [Como monitorizar um Linux VM](../linux/tutorial-monitor.md).
+- Configure a monitorização de um VM com a extensão VM do Agente de Monitorização da Microsoft. Para mais informações, consulte [Como monitorizar um Linux VM](/previous-versions/azure/virtual-machines/linux/tutorial-monitor).
 - Configure a monitorização da sua infraestrutura Azure com a extensão do Chef ou Datadog. Para mais informações, consulte o [chef docs](https://docs.chef.io/azure_portal.html) ou [o blog Datadog.](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/)
 
 Além de extensões específicas do processo, está disponível uma extensão de Script Personalizado para máquinas virtuais Windows e Linux. A extensão de Script Personalizado para Linux permite que qualquer script Bash seja executado em um VM. Scripts personalizados são úteis para projetar implementações Azure que requerem configuração além do que a ferramenta nativa Azure pode fornecer. Para mais informações, consulte a [extensão do Script Personalizado Linux VM](custom-script-linux.md).

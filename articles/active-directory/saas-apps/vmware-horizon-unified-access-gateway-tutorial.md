@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Directy integração única (SSO) com VMware Horizon - Portal de Acesso Unificado / Microsoft Docs'
+title: 'Tutorial: Azure Ative Directory integração única de sign-on (SSO) com VMware Horizon - Portal de Acesso Unificado | Microsoft Docs'
 description: Saiba como configurar um único sinal entre o Azure Ative Directory e o VMware Horizon - Portal de Acesso Unificado.
 services: active-directory
 author: jeevansd
@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/02/2020
+ms.date: 02/04/2021
 ms.author: jeedes
-ms.openlocfilehash: cfdcc39966e58a845be0096474cb8a3366f3dd7a
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: cf1e71d67424258ccae6794f28d37399cd68996e
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92503611"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101654331"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-vmware-horizon---unified-access-gateway"></a>Tutorial: Azure Ative Directory integração única de sign-on (SSO) com VMware Horizon - Portal de Acesso Unificado
 
@@ -39,7 +39,7 @@ Neste tutorial, você configura e testa Azure AD SSO em um ambiente de teste.
 
 * VMware Horizon - Portal de Acesso Unificado suporta **SP e IDP** iniciado SSO
 
-## <a name="adding-vmware-horizon---unified-access-gateway-from-the-gallery"></a>Adicionar VMware Horizon - Portal de Acesso Unificado da galeria
+## <a name="add-vmware-horizon---unified-access-gateway-from-the-gallery"></a>Adicionar VMware Horizon - Portal de Acesso Unificado da galeria
 
 Para configurar a integração da VMware Horizon - Portal de Acesso Unificado em AD Azure, é necessário adicionar VMware Horizon - Portal de Acesso Unificado da galeria à sua lista de aplicações geridas para o SaaS.
 
@@ -70,7 +70,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. No portal Azure, na página de integração de aplicações **VMware Horizon - Portal de Acesso Unificado,** encontre a secção **Gerir** e selecione **um único sinal de sação**.
 1. Na página de método **de inscrição** única, selecione **SAML**.
-1. No **set-on único com** a página SAML, clique no ícone edit/pen para **Configuração SAML Básica** para editar as definições.
+1. No **set-on único com** a página SAML, clique no ícone de lápis para **configuração SAML Básica** para editar as definições.
 
    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -111,7 +111,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
 
 Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso a VMware Horizon - Portal de Acesso Unificado.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de aplicações, selecione **VMware Horizon - Portal de Acesso Unificado**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 1. **Selecione Adicionar utilizador,** em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
@@ -145,4 +145,4 @@ Também pode utilizar o Microsoft Access Panel para testar a aplicação em qual
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Assim que configurar o VMware Horizon - Portal de Acesso Unificado, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Assim que configurar o VMware Horizon - Portal de Acesso Unificado, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

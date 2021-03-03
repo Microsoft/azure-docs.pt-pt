@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 503d5c5c8d605e56ca510f12cd9c6f5a1f21c0bc
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 88fdfa1f449a0b65861ee09f2e78055a606c99d3
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100417494"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101649211"
 ---
 # <a name="governing-on-premises-service-accounts"></a>Que regem as contas de serviço no local
 
@@ -60,11 +60,11 @@ Utilize os seguintes critérios ao criar uma nova conta de serviço.
 
 Utilize as seguintes definições com contas de utilizador utilizadas como contas de serviço:
 
-* [**Expiração da conta**](https://docs.microsoft.com/powershell/module/activedirectory/set-adaccountexpiration?view=winserver2012-ps): desempura a conta de serviço para expirar automaticamente um tempo definido após o período de revisão, a menos que seja determinado que deve continuar
+* [**Expiração da conta**](/powershell/module/activedirectory/set-adaccountexpiration?view=winserver2012-ps): desempura a conta de serviço para expirar automaticamente um tempo definido após o período de revisão, a menos que seja determinado que deve continuar
 
 *  **Início de sposição:** restringir permissões para onde a conta de serviço pode iniciar sposição. Se funciona localmente numa máquina e acede apenas a recursos nessa máquina, impeça-a de iniciar sessão em qualquer outro lugar.
 
-* [**Não é possível alterar a palavra-passe**](https://docs.microsoft.com/powershell/module/addsadministration/set-aduser?view=win10-ps): impedir que a conta de serviço altere a sua própria palavra-passe, definindo o parâmetro para falso.
+* [**Não é possível alterar a palavra-passe**](/powershell/module/addsadministration/set-aduser?view=win10-ps): impedir que a conta de serviço altere a sua própria palavra-passe, definindo o parâmetro para falso.
 
  
 ## <a name="build-a-lifecycle-management-process"></a>Construir um processo de gestão do ciclo de vida
@@ -149,17 +149,17 @@ A avaliação dos riscos, uma vez realizada e documentada, pode ter impacto em:
 
 Crie conta de serviço apenas depois de as informações relevantes estiverem documentadas no seu CMDB e realizar uma avaliação de risco. As restrições à conta devem ser alinhadas com a avaliação de risco. Considere as seguintes restrições quando relevante para a sua avaliação.:
 
-* [Expiração da conta](https://docs.microsoft.com/powershell/module/activedirectory/set-adaccountexpiration?view=winserver2012-ps)
+* [Expiração da conta](/powershell/module/activedirectory/set-adaccountexpiration?view=winserver2012-ps)
 
-   * Para todas as contas de utilizador utilizadas como contas de serviço, defina uma data final realista e definitiva para utilização. Desa esta utilização da bandeira "Sucedes da Conta". Para obter mais detalhes, consulte a[ Set-ADAccountExpiration](https://docs.microsoft.com/powershell/module/addsadministration/set-adaccountexpiration?view=win10-ps). 
+   * Para todas as contas de utilizador utilizadas como contas de serviço, defina uma data final realista e definitiva para utilização. Desa esta utilização da bandeira "Sucedes da Conta". Para obter mais detalhes, consulte a[ Set-ADAccountExpiration](/powershell/module/addsadministration/set-adaccountexpiration?view=win10-ps). 
 
-* Iniciar sessão[(LogonWorkstation)](https://docs.microsoft.com/powershell/module/addsadministration/set-aduser?view=win10-ps)
+* Iniciar sessão[(LogonWorkstation)](/powershell/module/addsadministration/set-aduser?view=win10-ps)
 
-* Requisitos [de Política de Passwords](https://docs.microsoft.com/azure/active-directory-domain-services/password-policy)
+* Requisitos [de Política de Passwords](../../active-directory-domain-services/password-policy.md)
 
-* Criação num [local da UO](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/delegating-administration-of-account-ous-and-resource-ous) que garante a gestão apenas para utilizadores privilegiados
+* Criação num [local da UO](/windows-server/identity/ad-ds/plan/delegating-administration-of-account-ous-and-resource-ous) que garante a gestão apenas para utilizadores privilegiados
 
-* Configurar e recolher [auditorias que detetem alterações](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-directory-service-changes) na conta de serviço – e [utilização da conta de serviço](https://www.manageengine.com/products/active-directory-audit/how-to/audit-kerberos-authentication-events.html).
+* Configurar e recolher [auditorias que detetem alterações](/windows/security/threat-protection/auditing/audit-directory-service-changes) na conta de serviço – e [utilização da conta de serviço](https://www.manageengine.com/products/active-directory-audit/how-to/audit-kerberos-authentication-events.html).
 
 Quando estiver pronto para ser posto em produção, conceda o acesso à conta de serviço de forma segura. 
 
@@ -193,7 +193,7 @@ Depois de remover todas as permissões, utilize este processo para remover a con
 
 3. Eliminar a conta de serviço após o cumprimento da política de desativação. 
 
-   * Para os MSAs, pode [desinstalá-lo](https://docs.microsoft.com/powershell/module/activedirectory/uninstall-adserviceaccount?view=winserver2012-ps) utilizando o PowerShell ou eliminar manualmente do recipiente de conta de serviço gerido.
+   * Para os MSAs, pode [desinstalá-lo](/powershell/module/activedirectory/uninstall-adserviceaccount?view=winserver2012-ps) utilizando o PowerShell ou eliminar manualmente do recipiente de conta de serviço gerido.
 
    * Para contas de computador ou utilizador, pode eliminar manualmente a conta no Ative Directory.
 

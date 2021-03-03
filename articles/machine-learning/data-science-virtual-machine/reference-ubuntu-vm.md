@@ -3,18 +3,18 @@ title: 'Referência: Máquina Virtual Ubuntu Data Science'
 titleSuffix: Azure Data Science Virtual Machine
 description: Detalhes sobre ferramentas incluídas na Máquina Virtual de Ciência de Dados Ubuntu
 author: gvashishtha
-ms.service: machine-learning
-ms.subservice: data-science-vm
+services: machine-learning
+ms.service: data-science-vm
 ms.custom: devx-track-python
 ms.author: gopalv
 ms.date: 09/11/2019
 ms.topic: reference
-ms.openlocfilehash: 6fb7b7c2e9022b6b629a039a48bb559b36393f79
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: e9a55f72718d6ed5991f3d0f16323409bb0f699f
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96013858"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101661074"
 ---
 # <a name="reference-ubuntu-linux-data-science-virtual-machine"></a>Referência: Máquina Virtual Ubuntu (Linux) Data Science
 
@@ -253,7 +253,7 @@ Também pode construir os seus modelos em R ou Python no VM e, em seguida, impla
 
 ## <a name="machine-learning-tools"></a>Ferramentas de aprendizagem automática
 
-O VM vem com ferramentas de machine learning e algoritmos que foram pré-compilados e pré-instalados localmente. Estas incluem:
+O VM vem com ferramentas de machine learning e algoritmos que foram pré-compilados e pré-instalados localmente. Incluem-se:
 
 * **Vowpal Wabbit:** Um algoritmo de aprendizagem online rápido.
 * **xgboost**: Uma ferramenta que fornece algoritmos de árvores otimizados e impulsionados.
@@ -318,7 +318,7 @@ Para obter mais informações sobre o xgboost, consulte a [página de documenta�
 
 O Chocalho (o **R** **A** nalytical **T** ool **T** o **L** ganha **E)** utiliza a exploração e modelação de dados baseadas em GUI. Apresenta resumos estatísticos e visuais de dados, transforma dados que podem ser facilmente modelados, constrói modelos não supervisionados e supervisionados a partir dos dados, apresenta o desempenho dos modelos graficamente, e marca novos conjuntos de dados. Também gera código R, replicando as operações na UI que podem ser executadas diretamente em R ou usadas como ponto de partida para uma análise mais aprofundada.
 
-Para executar o Rattle, precisa de estar numa sessão de sessão de sessão de sessão de sessão de sessão de sessão de sessão de sessão gráfica. No terminal, introduza **R** para abrir o ambiente R. Na introdução r, insira os seguintes comandos:
+Para executar o Rattle, precisa de estar numa sessão de sessão de sessão gráfica. No terminal, introduza **R** para abrir o ambiente R. Na introdução r, insira os seguintes comandos:
 
 ```R
 library(rattle)

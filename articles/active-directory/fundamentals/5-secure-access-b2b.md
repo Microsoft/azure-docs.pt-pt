@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 654e1c163a16f427958320ea081c38338e0ab4e1
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 4206ba7617032e34310682d1468e6b1b661b8c8a
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98725397"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101648592"
 ---
 # <a name="transition-to-governed-collaboration-with-azure-active-directory-b2b-collaboration"></a>Transição para colaboração governada com a colaboração B2B do Azure Ative Directory 
 
@@ -100,7 +100,7 @@ Determine quem pode convidar os utilizadores convidados a aceder aos recursos.
 
 Se utilizar a gestão de direitos Azure AD, pode configurar perguntas para utilizadores externos responderem. As perguntas serão então apresentadas aos aprovadores para ajudá-los a tomar uma decisão. Pode configurar diferentes conjuntos de perguntas para cada política de [pacotes](../governance/entitlement-management-access-package-approval-policy.md) de acesso para que os aprovadores possam ter informações relevantes para o acesso que estão a aprovar. Por exemplo, se um pacote de acesso for destinado ao acesso do fornecedor, então o solicitador pode ser solicitado para o seu número de contrato de fornecedor. Um pacote de acesso diferente destinado aos fornecedores pode solicitar o seu país de origem.
 
-Se utilizar um portal de self-service, pode utilizar [conectores API](../external-identities/api-connectors-overview.md) para recolher atributos adicionais sobre os utilizadores à medida que se inscrevem. Em seguida, pode potencialmente usar esses atributos para atribuir acesso. Por exemplo, se durante o processo de inscrição recolher o seu ID de fornecedor, poderá utilizar esse atributo para atribuí-los dinamicamente a um grupo ou pacote de acesso a esse fornecedor. Pode criar atributos personalizados no portal Azure e usá-los nos fluxos de utilizador de inscrição de autosserviço. Também pode ler e escrever estes atributos utilizando a [API](../../active-directory-b2c/manage-user-accounts-graph-api.md)do Gráfico microsoft . 
+Se utilizar um portal de self-service, pode utilizar [conectores API](../external-identities/api-connectors-overview.md) para recolher atributos adicionais sobre os utilizadores à medida que se inscrevem. Em seguida, pode potencialmente usar esses atributos para atribuir acesso. Por exemplo, se durante o processo de inscrição recolher o seu ID de fornecedor, poderá utilizar esse atributo para atribuí-los dinamicamente a um grupo ou pacote de acesso a esse fornecedor. Pode criar atributos personalizados no portal Azure e usá-los nos fluxos de utilizador de inscrição de autosserviço. Também pode ler e escrever estes atributos utilizando a [API](../../active-directory-b2c/microsoft-graph-operations.md)do Gráfico microsoft . 
 
 ### <a name="troubleshoot-invitation-redemption-to-azure-ad-users"></a>Resgate de convites de resolução de problemas para utilizadores da AD Azure
 
@@ -202,7 +202,7 @@ Para obter mais informações sobre a gestão de aplicações não proibidas, co
 * [Sancionar e não sancionar um pedido.](/cloud-app-security/governance-discovery)
 
  
-### <a name="next-steps"></a>Próximos passos
+### <a name="next-steps"></a>Passos seguintes
 
 Consulte os seguintes artigos sobre a garantia do acesso externo aos recursos. Recomendamos que tome as ações na ordem listada.
 

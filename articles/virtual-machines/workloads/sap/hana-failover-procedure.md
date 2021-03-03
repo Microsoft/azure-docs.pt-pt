@@ -1,25 +1,24 @@
 ---
-title: Hana failover procedure to a disaster site for SAP HANA on Azure (Large Instances) Microsoft Docs
+title: Hana procedimento de failover para um local de desastre para SAP HANA em Azure (Grandes Instâncias) | Microsoft Docs
 description: Como executar failover para um local de recuperação de desastres para SAP HANA em Azure (Grandes Instâncias)
 services: virtual-machines-linux
 documentationcenter: ''
 author: saghorpa
 manager: juergent
 editor: ''
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/22/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1daba0819e0164602ae78ece87421834f36fb09a
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 2a33340524556f5da1703cae3532f053fbe8ba13
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967827"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101670980"
 ---
 # <a name="disaster-recovery-failover-procedure"></a>Procedimento de ativação pós-falha de recuperação após desastre
 

@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 87f592f0cff8504fbafba392d20f405640e2578a
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: e1a0f4f22411e506cab3b54e955a4cdc16986fe2
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98682975"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101667496"
 ---
 # <a name="serverless-sql-pool-in-azure-synapse-analytics"></a>Piscina SQL sem servidor em Azure Synapse Analytics 
 
@@ -75,7 +75,7 @@ A segurança pode ser aplicada utilizando:
 
 T-SQL suportado:
 
-- A área de superfície [select](/sql/t-sql/queries/select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) full select é suportada, incluindo a maioria das funções SQL
+- A área de superfície [select](/sql/t-sql/queries/select-transact-sql?view=azure-sqldw-latest&preserve-view=true) full select é suportada, incluindo a maioria das funções SQL
 - CETAS - CRIE UMA TABELA EXTERNA COMO SELEÇÃO
 - Declarações DDL relacionadas apenas com pontos de vista e segurança
 
@@ -89,7 +89,7 @@ O pool SQL sem servidor não tem armazenamento local, apenas os objetos de metad
 
 ### <a name="extensions"></a>Extensões
 
-De forma a permitir uma experiência suave para a consulta em vigor de dados que residem em ficheiros em data lake, o pool SQL sem servidor alarga a função [openrowset](/sql/t-sql/functions/openrowset-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) existente, adicionando as seguintes capacidades:
+De forma a permitir uma experiência suave para a consulta em vigor de dados que residem em ficheiros em data lake, o pool SQL sem servidor alarga a função [openrowset](/sql/t-sql/functions/openrowset-transact-sql?view=azure-sqldw-latest&preserve-view=true) existente, adicionando as seguintes capacidades:
 
 [Consultar vários ficheiros ou pastas](query-data-storage.md#query-multiple-files-or-folders)
 
@@ -113,7 +113,7 @@ O pool SQL sem servidor oferece mecanismos para garantir o acesso aos seus dados
 
 ### <a name="azure-active-directory-integration-and-multi-factor-authentication"></a>Integração do Azure Active Directory e a autenticação multifator
 
-O pool SQL sem servidor permite-lhe gerir centralmente identidades de utilizador de base de dados e outros serviços da Microsoft com [integração do Azure Ative Directory](../../azure-sql/database/authentication-aad-configure.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). Esta capacidade simplifica a gestão de permissões e melhora a segurança. O Azure Ative Directory (Azure AD) suporta a [autenticação de vários fatores](../../azure-sql/database/authentication-mfa-ssms-configure.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) (MFA) para aumentar a segurança de dados e aplicações, suportando um único processo de inscrição.
+O pool SQL sem servidor permite-lhe gerir centralmente identidades de utilizador de base de dados e outros serviços da Microsoft com [integração do Azure Ative Directory](../../azure-sql/database/authentication-aad-configure.md). Esta capacidade simplifica a gestão de permissões e melhora a segurança. O Azure Ative Directory (Azure AD) suporta a [autenticação de vários fatores](../../azure-sql/database/authentication-mfa-ssms-configure.md) (MFA) para aumentar a segurança de dados e aplicações, suportando um único processo de inscrição.
 
 #### <a name="authentication"></a>Autenticação
 
@@ -125,7 +125,7 @@ A autenticação da piscina SQL sem servidor refere-se à forma como os utilizad
 
 - **Autenticação do Diretório Ativo Azure:**
 
-  Este método de autenticação utiliza identidades geridas pelo Azure Ative Directory. Para os utilizadores AD Azure, a autenticação multi-factor pode ser ativada. Utilize a autenticação do Active Directory (segurança integrada) [sempre que possível](/sql/relational-databases/security/choose-an-authentication-mode?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
+  Este método de autenticação utiliza identidades geridas pelo Azure Ative Directory. Para os utilizadores AD Azure, a autenticação multi-factor pode ser ativada. Utilize a autenticação do Active Directory (segurança integrada) [sempre que possível](/sql/relational-databases/security/choose-an-authentication-mode?view=azure-sqldw-latest&preserve-view=true).
 
 #### <a name="authorization"></a>Autorização
 

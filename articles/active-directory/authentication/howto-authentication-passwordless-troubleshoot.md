@@ -1,24 +1,24 @@
 ---
 title: Problemas conhecidos e resolução de problemas para chaves de segurança híbridas FIDO2 - Azure Ative Directory
-description: Conheça alguns problemas e formas de resolução de problemas híbridos fido2 chave de segurança híbrido usando O Diretório Ativo Azure (pré-visualização)
+description: Conheça alguns problemas e formas de resolução de problemas híbridos fido2 chave de segurança híbrido usando O Diretório Ativo Azure
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
-ms.date: 08/19/2020
+ms.date: 02/22/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea034974e85febcffeb2494d87b666a39e524eb1
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 435b27255ce58a3541d6b0d3a76bdf4080aa3962
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743280"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101648785"
 ---
-# <a name="troubleshooting-for-hybrid-deployments-of-fido2-security-keys-in-azure-ad-preview"></a>Resolução de problemas para implantações híbridas de chaves de segurança FIDO2 em Azure AD (pré-visualização)
+# <a name="troubleshooting-for-hybrid-deployments-of-fido2-security-keys-in-azure-ad"></a>Resolução de problemas para implantações híbridas de chaves de segurança FIDO2 em Azure AD 
 
 Este artigo abrange perguntas frequentes para dispositivos híbridos Azure AD unidos e entrada sem palavra-passe para recursos on-prem. Com esta funcionalidade sem palavras-passe, pode ativar a autenticação AD do Azure em dispositivos do Windows 10 para dispositivos híbridos Azure AD ligados utilizando chaves de segurança FIDO2. Os utilizadores podem assinar no Windows nos seus dispositivos com credenciais modernas como chaves FIDO2 e aceder aos tradicionais Serviços de Domínio do Diretório Ativo (AD DS) com uma experiência de assinatura única (SSO) sem emenda aos seus recursos on-prem.
 
@@ -31,10 +31,7 @@ Para começar com as chaves de segurança FIDO2 e acesso híbrido aos recursos n
 
 * [Chaves de segurança sem palavra-passe](howto-authentication-passwordless-security-key.md)
 * [Windows 10 sem palavra-passe](howto-authentication-passwordless-security-key-windows.md)
-* [Sem palavras-passe Nas -instalações](howto-authentication-passwordless-security-key-on-premises.md)
-
-> [!NOTE]
-> As chaves de segurança FIDO2 são uma funcionalidade de pré-visualização pública do Azure Ative Directory. Para obter mais informações sobre pré-visualizações, veja [Termos de Utilização Suplementares do Microsoft Azure para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+* [Sem palavra-passe no local](howto-authentication-passwordless-security-key-on-premises.md)
 
 ## <a name="known-issues"></a>Problemas conhecidos
 

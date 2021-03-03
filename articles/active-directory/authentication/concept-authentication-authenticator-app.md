@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 10/09/2020
+ms.date: 02/22/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7309d9d32eba5cae350bbe8a1df325dfb2ab0c8
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 7fafeae02bce001d473b0ed916624046a559a795
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96744368"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101648803"
 ---
 # <a name="authentication-methods-in-azure-active-directory---microsoft-authenticator-app"></a>Métodos de autenticação no Azure Ative Directory - Microsoft Authenticator app
 
@@ -23,7 +23,7 @@ A aplicação Microsoft Authenticator fornece um nível adicional de segurança 
 
 Os utilizadores podem receber uma notificação através da aplicação móvel para que possam aprovar ou negar, ou utilizar a aplicação Authenticator para gerar um código de verificação do OATH que pode ser introduzido numa interface de entrada. Se ativar um código de notificação e verificação, os utilizadores que registem a aplicação Authenticator podem utilizar qualquer método para verificar a sua identidade.
 
-Para utilizar a aplicação Authenticator num pedido de entrada de dados em vez de uma combinação de nome de utilizador e palavra-passe, consulte [Ativar o início de sção sem palavras-passe com a aplicação Microsoft Authenticator (pré-visualização)](howto-authentication-passwordless-phone.md).
+Para utilizar a aplicação Authenticator num pedido de entrada em vez de um nome de utilizador e uma combinação de palavra-passe, consulte [Ativar o início de sção sem palavras-passe com a aplicação Microsoft Authenticator](howto-authentication-passwordless-phone.md).
 
 > [!NOTE]
 > Os utilizadores não têm a opção de registar a sua aplicação móvel quando ativam o SSPR. Em vez disso, os utilizadores podem registar a sua aplicação móvel no [https://aka.ms/mfasetup](https://aka.ms/mfasetup) ou como parte do registo combinado de informações de segurança em [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo) .
@@ -34,7 +34,7 @@ Em vez de ver uma solicitação para uma palavra-passe depois de introduzir um n
 
 ![Exemplo de um sinal de inscrição no navegador pedindo ao utilizador que aprove o sign-in](./media/howto-authentication-passwordless-phone/phone-sign-in-microsoft-authenticator-app.png)
 
-Este método de autenticação proporciona um elevado nível de segurança e elimina a necessidade de o utilizador fornecer uma palavra-passe no início da sação. O sing-in sem palavras-passe utilizando a aplicação Microsoft Authenticator encontra-se atualmente em pré-visualização.
+Este método de autenticação proporciona um elevado nível de segurança e elimina a necessidade de o utilizador fornecer uma palavra-passe no início da sação. 
 
 Para começar com o início do sent in sem palavras-passe, consulte Ativar o [início de sing in sem palavras-passe com a aplicação Microsoft Authenticator](howto-authentication-passwordless-phone.md).
 

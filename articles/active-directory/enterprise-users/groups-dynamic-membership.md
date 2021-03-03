@@ -1,5 +1,5 @@
 ---
-title: Regras para a adesão a grupos dinamicamente povoados - Azure AD / Microsoft Docs
+title: Regras para a adesão a grupos dinamicamente povoados - Azure AD | Microsoft Docs
 description: Como criar regras de adesão para povoar automaticamente grupos, e uma referência de regra.
 services: active-directory
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c60d54a905f460eb5c26c2f183cd22b175a5b3c4
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 8ca000e105f70f1a4940e7fc9a0292061e94b5ea
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96860818"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101648650"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regras dinâmicas de adesão para grupos no Azure Ative Directory
 
@@ -277,6 +277,14 @@ A expressão a seguir seleciona todos os utilizadores que tenham qualquer plano 
 
 ```
 user.assignedPlans -any (assignedPlan.service -eq "SCO" -and assignedPlan.capabilityStatus -eq "Enabled")
+```
+
+#### <a name="example-3"></a>Exemplo 3
+
+A expressão a seguir seleciona todos os utilizadores que não tenham um plano de serviço assinado:
+
+```
+user.assignedPlans -all (assignedPlan.servicePlanId -eq "")
 ```
 
 ### <a name="using-the-underscore-_-syntax"></a>Utilizando a sintaxe sublinhada ( \_ )

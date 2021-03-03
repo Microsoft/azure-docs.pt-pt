@@ -6,13 +6,13 @@ ms.author: daperlov
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
-ms.date: 12/01/2020
-ms.openlocfilehash: f778a55c206e012884b44c1fea0a63e2de6b481a
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.date: 02/22/2020
+ms.openlocfilehash: 5285d5b2c7cbe6845fb6043fa1096f94254602e7
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97693335"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101677842"
 ---
 # <a name="tutorial-navigate-the-azure-purview-preview-home-page-and-search-for-an-asset"></a>Tutorial: Navegue na página inicial do Azure Purview (pré-visualização) e procure um ativo
 
@@ -45,7 +45,7 @@ Os passos seguintes acompanham-no através da página inicial do Azure Purview.
 
 1. Navegue para o seu recurso Azure Purview no portal Azure e selecione **Open Purview Studio**. É automaticamente levado para a página inicial do seu Estúdio de Purview.
 
-   O topo da página inicial exibe o nome do seu catálogo e um conjunto de análises de catálogos. Incluem-se o número de utilizadores, ativos de dados e termos glossários. No resumo, pode ver que existem mais de 200 ativos no total e 113 termos glossários. Este número atualiza à medida que a sua organização digitaliza e adiciona mais termos ao Azure Purview.
+   O topo da página inicial exibe o nome do seu catálogo e um conjunto de análises de catálogos. Incluem-se o número de fontes, ativos de dados e termos glossários. No resumo, pode ver que existem mais de 200 ativos no total e 113 termos glossários. Este número atualiza à medida que a sua organização digitaliza e adiciona mais termos ao Azure Purview.
 
    :::image type="content" source="./media/tutorial-asset-search/purview-home-page.png" alt-text="Screenshot mostrando a página inicial do Azure Purview.":::
 
@@ -59,7 +59,7 @@ Antes de começar, aqui está uma rápida atualização sobre alguma terminologi
   
 * **Schema**: Também conhecido como coluna ou atributo, um esquema representa a estrutura de um ativo ou de um conjunto de recursos.
 
-* **Conjunto de recursos**: Um único objeto no catálogo que representa muitos objetos físicos no armazenamento. Estes objetos geralmente partilham um esquema comum, e na maioria dos casos, uma convenção de nomeação ou estrutura de pasta. Por exemplo, o formato de data é *yy/mm/dd*. Para obter mais informações, consulte [os conjuntos de recursos de Compreensão.](concept-resource-sets.md)
+* **Conjunto de recursos**: Um único objeto no catálogo que representa muitos objetos físicos no armazenamento. Estes objetos geralmente partilham um esquema comum, e na maioria dos casos, uma convenção de nomeação ou estrutura de pasta. Por exemplo, o formato de data é *yyyy/mm/dd*. Para obter mais informações, consulte [os conjuntos de recursos de Compreensão.](concept-resource-sets.md)
 
 * **Tipo de ativo**: Agrupamento de ativos e conjuntos de recursos sob um nome lógico, que normalmente mapeia para o nome da plataforma de dados.
 
