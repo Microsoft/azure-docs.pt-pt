@@ -9,25 +9,25 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: b5025aa322ae26f9dd7c683d0e54762fd33eb355
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: d299afca0bd8070a1da738e02812b64c41a7101c
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735386"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101675051"
 ---
 # <a name="query-storage-files-with-serverless-sql-pool-in-azure-synapse-analytics"></a>Ficheiros de armazenamento de consultas com piscina SQL sem servidor em Azure Synapse Analytics
 
 O pool SQL sem servidor permite-lhe consultar dados no seu lago de dados. Oferece uma área de superfície de consulta T-SQL que acomoda consultas de dados semi-estruturadas e não estruturadas. Para consulta, os seguintes aspetos T-SQL são suportados:
 
-- Área de superfície [SELECT](/sql/t-sql/queries/select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) completa, incluindo a maioria das [funções e operadores SQL.](overview-features.md)
+- Área de superfície [SELECT](/sql/t-sql/queries/select-transact-sql?view=azure-sqldw-latest&preserve-view=true) completa, incluindo a maioria das [funções e operadores SQL.](overview-features.md)
 - CRIAR TABELA EXTERNA COMO SELECT[(CETAS)](develop-tables-cetas.md)cria uma [tabela externa](develop-tables-external-tables.md) e, em seguida, exporta, paralelamente, os resultados de uma declaração De Select Transact-SQL para o Azure Storage.
 
 Para obter mais informações sobre o que é vs. o que não é suportado atualmente, leia o artigo [de visão geral da piscina sql sem servidor,](on-demand-workspace-overview.md) ou os seguintes artigos:
 - [Desenvolva o acesso](develop-storage-files-overview.md) ao armazenamento onde pode aprender a usar a [função Externa](develop-tables-external-tables.md) e [OPENROWSET](develop-openrowset.md) para ler dados a partir do armazenamento.
 - [Controle o acesso](develop-storage-files-storage-access-control.md) ao armazenamento onde pode aprender a permitir que o Sinaapse SQL aceda ao armazenamento usando a autenticação SAS ou identidade gerida do espaço de trabalho.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Para suportar uma experiência suave para a consulta em vigor de dados localizados em ficheiros de armazenamento Azure, o pool SQL sem servidor utiliza a função [OPENROWSET](develop-openrowset.md) com capacidades adicionais:
 
@@ -184,21 +184,21 @@ Por predefinição, a `OPENROWSET` função corresponde ao nome e caminho do cam
 - A função devolve um valor escalar, como int, decimal e varchar, do elemento especificado, e no caminho especificado, para todos os tipos de Parquet que não estão no grupo Do Tipo Aninhado.
 - Se o caminho aponta para um elemento que é de um Tipo Aninhado, a função devolve um fragmento JSON a partir do elemento superior no caminho especificado. O fragmento JSON é do tipo varchar(8000).
 - Se a propriedade não puder ser encontrada no column_name especificado, a função retorna um erro.
-- Se a propriedade não puder ser encontrada no column_path especificado, dependendo do [modo Path,](/sql/relational-databases/json/json-path-expressions-sql-server?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true#PATHMODE)a função retorna um erro quando em modo rígido ou nulo quando em modo laxista.
+- Se a propriedade não puder ser encontrada no column_path especificado, dependendo do [modo Path,](/sql/relational-databases/json/json-path-expressions-sql-server?view=azure-sqldw-latest&preserve-view=true#PATHMODE)a função retorna um erro quando em modo rígido ou nulo quando em modo laxista.
 
 Para obter amostras de consulta, reveja os elementos de acesso da secção de colunas aninhadas no artigo [dos tipos aninhados que tanto em Query Parquet.](query-parquet-nested-types.md#read-properties-from-nested-object-columns)
 
 #### <a name="access-elements-from-repeated-columns"></a>Elementos de acesso a colunas repetidas
 
-Para aceder a elementos de uma coluna repetida, como um elemento de um Array ou Mapa, utilize a função [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) para cada elemento escalar que você precisa projetar e fornecer:
+Para aceder a elementos de uma coluna repetida, como um elemento de um Array ou Mapa, utilize a função [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?view=azure-sqldw-latest&preserve-view=true) para cada elemento escalar que você precisa projetar e fornecer:
 
 - Coluna aninhada ou repetida, como o primeiro parâmetro
-- Um [caminho JSON](/sql/relational-databases/json/json-path-expressions-sql-server?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) que especifica o elemento ou propriedade para aceder, como um segundo parâmetro
+- Um [caminho JSON](/sql/relational-databases/json/json-path-expressions-sql-server?view=azure-sqldw-latest&preserve-view=true) que especifica o elemento ou propriedade para aceder, como um segundo parâmetro
 
-Para aceder a elementos não escalares a partir de uma coluna repetida, utilize a função [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) para cada elemento não escalar que você precisa projetar e fornecer:
+Para aceder a elementos não escalares a partir de uma coluna repetida, utilize a função [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?view=azure-sqldw-latest&preserve-view=true) para cada elemento não escalar que você precisa projetar e fornecer:
 
 - Coluna aninhada ou repetida, como o primeiro parâmetro
-- Um [caminho JSON](/sql/relational-databases/json/json-path-expressions-sql-server?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) que especifica o elemento ou propriedade para aceder, como um segundo parâmetro
+- Um [caminho JSON](/sql/relational-databases/json/json-path-expressions-sql-server?view=azure-sqldw-latest&preserve-view=true) que especifica o elemento ou propriedade para aceder, como um segundo parâmetro
 
 Consulte o fragmento de sintaxe abaixo:
 
@@ -260,7 +260,7 @@ Os dados de demonstração contêm os seguintes conjuntos de dados:
 | /json/livros/                                                 | Ficheiros JSON com dados de livros                                   |
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre como consultar diferentes tipos de ficheiros e criar e utilizar pontos de vista, consulte os seguintes artigos:
 

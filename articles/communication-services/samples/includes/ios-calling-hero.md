@@ -10,12 +10,12 @@ ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 618efc8d2c3784a487c302661f35d5a284c68178
-ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
+ms.openlocfilehash: 7d39decaa6376c614e48b65ad2fc1b3043aa0a3c
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99475638"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101682416"
 ---
 [!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
 
@@ -74,8 +74,8 @@ Para fins de demonstração, esta amostra utiliza um ponto final acessível ao p
 Com uma configuração adicional, esta amostra suporta a ligação a um ponto final protegido do **Azure Ative** (Azure AD) para que o login do utilizador seja necessário para que a aplicação seja recortada por um token dos Serviços de Comunicação Azure. Veja os passos abaixo:
 
 1. Ativar a autenticação do Azure Ative Directory na sua aplicação.  
-   - [Registe a sua aplicação no Diretório Ativo Azure (utilizando as definições da plataforma iOS/macOS)](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-ios) 
-    - [Configure o seu Serviço de Aplicações ou app Azure Functions para usar o login AZure AD](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-aad)
+   - [Registe a sua aplicação no Diretório Ativo Azure (utilizando as definições da plataforma iOS/macOS)](../../../active-directory/develop/tutorial-v2-ios.md) 
+    - [Configure o seu Serviço de Aplicações ou app Azure Functions para usar o login AZure AD](../../../app-service/configure-authentication-provider-aad.md)
 2. Aceda à página geral da sua aplicação registada no âmbito dos Registos de Aplicações do Diretório Ativo Azure. Tome nota do `Application (client) ID` `Directory (tenant) ID` , `Application ID URI`
 
 :::image type="content" source="../media/calling/aad-overview.png" alt-text="Configuração do Diretório Ativo Azure no portal Azure.":::

@@ -10,15 +10,13 @@ ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 61b3b3abace5c7a1cd846c1e3c1e7ac166efd5c7
-ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
+ms.openlocfilehash: eb420a8d5242cb6a122e7f7062e457b64f1fb5db
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99475654"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101682439"
 ---
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-
 O Grupo de Serviços de Comunicação Azure **Call Hero Sample** demonstra como a biblioteca de clientes web dos Serviços de Comunicação pode ser usada para construir uma experiência de chamada de grupo.
 
 Neste quickstart da amostra, vamos aprender como a amostra funciona antes de passarmos a amostra na sua máquina local. Em seguida, enviaremos a amostra para Azure usando os seus próprios recursos dos Serviços de Comunicação Azure.
@@ -29,7 +27,7 @@ Encontre o código finalizado para este arranque rápido no [GitHub](https://git
 
 ## <a name="overview"></a>Descrição Geral
 
-A amostra tem uma aplicação do lado do cliente e uma aplicação do lado do servidor. A **aplicação do lado do cliente** é uma aplicação web React/Redux que utiliza a estrutura fluente da Microsoft. Esta aplicação envia pedidos para uma **aplicação do ASP.NET** Core que ajuda a aplicação do lado do cliente a ligar-se ao Azure. 
+A amostra tem uma aplicação do lado do cliente e uma aplicação do lado do servidor. A **aplicação do lado do cliente** é uma aplicação web React/Redux que utiliza a estrutura fluente da Microsoft. Esta aplicação envia pedidos para uma **aplicação do ASP.NET** Core que ajuda a aplicação do lado do cliente a ligar-se ao Azure.
 
 Aqui está o aspeto da amostra:
 
@@ -91,7 +89,7 @@ Se pretender limpar e remover uma assinatura de Serviços de Comunicação, pode
 
 ## <a name="next-steps"></a>Passos seguintes
 
->[!div class="nextstepaction"] 
+>[!div class="nextstepaction"]
 >[Faça o download da amostra do GitHub](https://github.com/Azure-Samples/communication-services-web-calling-hero)
 
 Para obter mais informações, veja os seguintes artigos:
