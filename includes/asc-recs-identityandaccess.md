@@ -2,19 +2,19 @@
 author: memildin
 ms.service: security-center
 ms.topic: include
-ms.date: 02/16/2021
+ms.date: 02/28/2021
 ms.author: memildin
 ms.custom: generated
-ms.openlocfilehash: 8ebd7f245205844ac4b9f35d7205fc7f28502484
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 1bce65cf0a2edbf87efd2d1d745d90c32fb004c5
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100574471"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102100394"
 ---
 Há **21** recomendações nesta categoria.
 
-|Recomendação |Description |Gravidade |
+|Recomendação |Descrição |Gravidade |
 |---|---|---|
 |Um máximo de 3 proprietários deve ser designado para a sua subscrição |Para reduzir o potencial de infrações por contas de proprietários comprometidas, recomendamos limitar o número de contas do proprietário a um máximo de 3<br />(Política relacionada: [Um máximo de 3 proprietários deve ser designado para a sua subscrição)](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f4f11b553-d42e-4e3a-89be-32ca364cad4c) |Alto |
 |Azure Defender para o Cofre de Chaves deve ser ativado |O Azure Security Center inclui o Azure Defender para o Key Vault, fornecendo uma camada adicional de inteligência de segurança.<br>O Azure Defender for Key Vault deteta tentativas incomuns e potencialmente nocivas de aceder ou explorar contas do Key Vault.<br><br>Importante: Remediar esta recomendação resultará em encargos para proteger os seus cofres chave. Se não tiver cofres chave nesta subscrição, não serão incorridos quaisquer encargos.<br>Se criar algum cofre chave nesta subscrição no futuro, eles serão automaticamente protegidos e as cargas começarão nessa altura.<br> <a href='https://docs.microsoft.com/azure/security-center/advanced-threat-protection-key-vault'>Saiba mais sobre o Azure Defender para Key Vault.</a><br />(Política relacionada: [Azure Defender for Key Vault deve ser ativado](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fmicrosoft.authorization%2fpolicyDefinitions%2f0e6763cc-5078-4e64-889d-ff4d9a839047)) |Alto |

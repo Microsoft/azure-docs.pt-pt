@@ -7,12 +7,12 @@ ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: a5d66e43485ec66b6297ef11ed382e8fb82b7cb3
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: ee4992e41e792b570d8937edfe31efb4c651d742
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96014584"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102100734"
 ---
 # <a name="use-azure-defender-for-container-registries-to-scan-your-images-for-vulnerabilities"></a>Utilizar o Azure Defender dos registos de contentores para analisar as imagens quanto a vulnerabilidades
 
@@ -21,8 +21,6 @@ Esta página explica como usar o scanner de vulnerabilidade incorporado para dig
 Quando o **Azure Defender para registos de contentor** estiver ativado, qualquer imagem que emitir para o registo será imediatamente verificada. Além disso, qualquer imagem puxada nos últimos 30 dias também é digitalizada. 
 
 Quando o scanner reporta vulnerabilidades ao Centro de Segurança, o Centro de Segurança apresenta as conclusões e informações relacionadas como recomendações. Além disso, as conclusões incluem informações relacionadas, tais como medidas de reparação, CVEs relevantes, pontuações de CVSS, e muito mais. Pode ver as vulnerabilidades identificadas para uma ou mais subscrições ou para um registo específico.
-
-[!INCLUDE [Defender for container registries availability info](../../includes/security-center-availability-defender-for-container-registries.md)]
 
 
 ## <a name="identify-vulnerabilities-in-images-in-azure-container-registries"></a>Identificar vulnerabilidades em imagens nos registos de contentores do Azure 

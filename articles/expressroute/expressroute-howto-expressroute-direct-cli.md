@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: duau
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: aea51e56f2d96fa634b1ece2029c9ea5bf3f60fc
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: d68011afe044535783dd8a8c56ed5d950c6d06b1
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98011310"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102099884"
 ---
 # <a name="configure-expressroute-direct-by-using-the-azure-cli"></a>Configure ExpressRoute Direct usando o Azure CLI
 
@@ -21,12 +21,21 @@ O ExpressRoute Direct dá-lhe a capacidade de se conectar diretamente à rede gl
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Antes de utilizar o ExpressRoute Direct, tem primeiro de inscrever a sua subscrição. Para se inscrever, envie um Email para <ExpressRouteDirect@microsoft.com> o seu ID de subscrição, incluindo os seguintes detalhes:
+Antes de utilizar o ExpressRoute Direct, tem primeiro de inscrever a sua subscrição. Antes de utilizar o ExpressRoute Direct, tem primeiro de inscrever a sua subscrição. Para se inscrever, por favor faça o seguinte através da Azure PowerShell:
+1.  Faça o súmis no Azure e selecione a subscrição que deseja inscrever.
 
-* Cenários que pretende realizar com o **ExpressRoute Direct**
-* Preferências de localização - consulte [parceiros e locais de observação](expressroute-locations-providers.md) para obter uma lista completa de todos os locais
-* Linha cronológica da implementação
-* Quaisquer outras perguntas
+    ```azurepowershell-interactive
+    Connect-AzAccount 
+
+    Select-AzSubscription -Subscription "<SubscriptionID or SubscriptionName>"
+    ```
+
+2. Registe a sua subscrição para Visualização Pública utilizando o seguinte comando:
+    ```azurepowershell-interactive
+    Register-AzProviderFeature -FeatureName AllowExpressRoutePorts -ProviderNamespace Microsoft.Network
+    ```
+
+Uma vez inscrito, verifique se o fornecedor de recursos **Microsoft.Network** está registado na sua subscrição. O registo de um fornecedor de recursos configura a sua subscrição para trabalhar com o fornecedor de recursos.
 
 ## <a name="create-the-resource"></a><a name="resources"></a>Criar o recurso
 
@@ -342,6 +351,6 @@ Criar um circuito no recurso ExpressRoute Direct:
   }  
   ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para mais informações sobre o ExpressRoute Direct, consulte a [visão geral.](expressroute-erdirect-about.md)

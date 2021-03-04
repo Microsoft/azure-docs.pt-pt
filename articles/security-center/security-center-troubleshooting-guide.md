@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 20241ad316da1c5d713617f3f371d02e2a4e6cc9
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: e49d8bcc55036b21f53720aab17be02edb114d4b
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100570828"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102100258"
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Guia de Resolução de Problemas do Centro de Segurança do Azure
 
@@ -81,7 +81,7 @@ Existem dois cenários de instalação que podem produzir resultados diferentes 
 
 O **estado da monitorização** define o motivo pelo qual o Centro de Segurança não consegue monitorizar com êxito VMs e computadores inicializados para aprovisionamento automático. A tabela seguinte mostra os valores, as descrições e os passos de resolução do **Estado de monitorização**.
 
-| Estado de monitorização | Description | Passos de resolução |
+| Estado de monitorização | Descrição | Passos de resolução |
 |---|---|---|
 | Instalação de agente pendente | A instalação do agente Log Analytics ainda está em funcionamento.  A instalação pode demorar algumas horas. | Aguarde até que a instalação automática esteja concluída. |
 | Estado de energia desligado | A VM está parada.  O agente Log Analytics só pode ser instalado num VM que está em funcionamento. | Reinicie a VM. |
@@ -105,10 +105,10 @@ A tabela seguinte mostra os recursos necessários para a comunicação.
 
 | Recursos do Agente | Portas | Inspeção de HTTPS direto |
 |---|---|---|
-| *.ods.opinsights.azure.com | 443 | Yes |
-| *.oms.opinsights.azure.com | 443 | Yes |
-| *.blob.core.windows.net | 443 | Yes |
-| *.azure-automation.net | 443 | Yes |
+| *.ods.opinsights.azure.com | 443 | Sim |
+| *.oms.opinsights.azure.com | 443 | Sim |
+| *.blob.core.windows.net | 443 | Sim |
+| *.azure-automation.net | 443 | Sim |
 
 Se encontrar problemas de integração com o agente, certifique-se de que lê o artigo [How to troubleshoot Operations Management Suite onboarding issues](https://support.microsoft.com/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues) (Como resolver problemas de integração do Operations Management Suite).
 
@@ -141,7 +141,6 @@ Alguns problemas podem ser identificados usando as diretrizes fornecidas neste a
 Neste documento, aprendeu a configurar as políticas de segurança no Centro de Segurança do Azure. Para saber mais acerca do Centro de Segurança do Azure, consulte o seguinte:
 
 * [Guia de Planeamento e Operações do Centro de Segurança Azure](security-center-planning-and-operations-guide.md) — Aprenda a planear e a compreender as considerações de design para adotar o Centro de Segurança Azure.
-* [Monitorização de saúde de segurança no Azure Security Center](security-center-monitoring.md) — Saiba como monitorizar a saúde dos seus recursos Azure
 * [Gerir e responder a alertas de segurança no Centro de Segurança do Azure](security-center-managing-and-responding-alerts.md) – Saiba como gerir e responder a alertas de segurança
 * [Compreender os alertas de segurança no Centro de Segurança do Azure](./security-center-alerts-overview.md)
 * [Tutorial: responder a incidentes de segurança](tutorial-security-incident.md)

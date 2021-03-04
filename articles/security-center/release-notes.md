@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/18/2021
 ms.author: memildin
-ms.openlocfilehash: e34d5520e13d45d15079a5f11775d2ef930fc62a
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 327103df21dd34347439a833d7ac4b8a21dc66b4
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101727095"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102099850"
 ---
 # <a name="whats-new-in-azure-security-center"></a>O que há de novo no Centro de Segurança Azure?
 
@@ -277,7 +277,7 @@ Se um utilizador não tiver permissões para ver os dados do Security Center, ir
 
 :::image type="content" source="media/security-center-management-groups/request-tenant-permissions.png" alt-text="Banner informando um utilizador que pode solicitar permissões em todo o inquilino.":::
 
-Saiba mais em [Permissões de inquilinos quando as suas são insuficientes.](security-center-management-groups.md#request-tenant-wide-permissions-when-yours-are-insufficient)
+Saiba mais em [Permissões de inquilinos quando as suas são insuficientes.](tenant-wide-permissions-management.md#request-tenant-wide-permissions-when-yours-are-insufficient)
 
 
 ### <a name="35-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark"></a>35 recomendações de pré-visualização adicionadas para aumentar a cobertura do Benchmark de Segurança Azure
@@ -339,7 +339,7 @@ Quando definir uma exportação contínua, defina a frequência de exportação:
 - **Streaming** – as avaliações serão enviadas em tempo real quando o estado de saúde de um recurso for atualizado (se não ocorrerem atualizações, não serão enviados dados).
 - **Snapshots** – uma imagem do estado atual de todas as avaliações de conformidade regulamentar será enviada todas as semanas (esta é uma funcionalidade de pré-visualização para instantâneos semanais de pontuações seguras e dados de conformidade regulamentar).
 
-Saiba mais sobre as capacidades completas desta funcionalidade nos dados do Centro de [Segurança de Exportação Contínua](continuous-export.md)
+Saiba mais sobre as capacidades completas desta funcionalidade nos dados do Centro de [Segurança de exportação contínua.](continuous-export.md)
 
 ## <a name="december-2020"></a>Dezembro de 2020
 
@@ -393,7 +393,7 @@ Saiba mais sobre [o Azure Defender para a SQL](defender-for-sql-introduction.md)
 
 Um utilizador com o papel **de** Administrador Ativo Azure pode ter responsabilidades em todo o inquilino, mas não tem as permissões do Azure para visualizar essa informação em toda a organização no Azure Security Center. 
 
-Para atribuir permissão ao nível do inquilino, siga as instruções em [permissões de concessão de inquilinos para si mesmo.](security-center-management-groups.md#grant-tenant-wide-permissions-to-yourself)
+Para atribuir permissão ao nível do inquilino, siga as instruções em [permissões de concessão de inquilinos para si mesmo.](tenant-wide-permissions-management.md#grant-tenant-wide-permissions-to-yourself)
 
 
 ### <a name="two-new-azure-defender-plans-azure-defender-for-dns-and-azure-defender-for-resource-manager-in-preview"></a>Dois novos planos do Azure Defender: Azure Defender para DNS e Azure Defender para Gestor de Recursos (na pré-visualização)

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2020
 ms.author: memildin
-ms.openlocfilehash: 754e9516c5fd47668cbff5bdc64b8dfdeed050d8
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: dc277d71f8f39b342095d0ac14b592eb866984d5
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101705151"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102100530"
 ---
 # <a name="faq---questions-about-data-collection-agents-and-workspaces"></a>FAQ - Perguntas sobre recolha de dados, agentes e espaços de trabalho
 
@@ -33,7 +33,7 @@ N.º Os espaços de trabalho criados pelo Security Center, enquanto configurados
 
 - **O Azure Defender on** – Security Center permite a solução "Segurança" no espaço de trabalho predefinido.
 
-Para obter mais informações sobre preços, consulte [os preços do Security Center](https://azure.microsoft.com/pricing/details/security-center/).
+Para obter detalhes sobre preços na sua moeda de eleição e de acordo com a sua região, consulte [os preços do Security Center](https://azure.microsoft.com/pricing/details/security-center/).
 
 > [!NOTE]
 > O nível de preços de registo de espaços de trabalho criados pelo Security Center não afeta a faturação do Centro de Segurança.

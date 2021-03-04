@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2020
 ms.author: memildin
-ms.openlocfilehash: ca3a1083b512709ad5ef070b6f5bd0e363baf80b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 432729417a65376533d9ecc201f2f6f52376cc58
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101720754"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102099408"
 ---
 # <a name="sql-information-protection-policy-in-azure-security-center"></a>Política de proteção de informação SQL no Centro de Segurança Azure
  
@@ -32,7 +32,7 @@ O mecanismo de classificação baseia-se nos dois elementos seguintes:
 As opções de política de proteção da informação dentro do Centro de Segurança fornecem um conjunto predefinido de rótulos e tipos de informação que servem como os predefinidos para o motor de classificação. Pode personalizar a política, de acordo com as necessidades da sua organização, conforme descrito abaixo.
 
 > [!IMPORTANT]
-> Para personalizar a política de proteção de informação para o seu inquilino Azure, você precisará de privilégios administrativos no grupo de gestão de raiz do inquilino. Saiba mais em [Ganhar visibilidade em todo o inquilino para o Azure Security Center.](security-center-management-groups.md)
+> Para personalizar a política de proteção de informação para o seu inquilino Azure, você precisará de privilégios administrativos no grupo de gestão de raiz do inquilino. Saiba mais em [Grant e solicite visibilidade em todo o inquilino.](tenant-wide-permissions-management.md)
 
 :::image type="content" source="./media/security-center-info-protection-policy/sql-information-protection-policy-page.png" alt-text="A página que mostra a sua política de proteção de informação SQL":::
  
@@ -58,7 +58,7 @@ Cada um destes é mostrado no separador abaixo.
 A partir da página **de preços e definições** do Security Center, selecione **a proteção de informação SQL**.
 
 > [!NOTE]
-> Esta opção só aparece para utilizadores com permissões ao nível do inquilino. [Conceda permissões a si mesmo.](./security-center-management-groups.md#grant-tenant-wide-permissions-to-yourself)
+> Esta opção só aparece para utilizadores com permissões ao nível do inquilino. [Conceda permissões a si mesmo.](tenant-wide-permissions-management.md#grant-tenant-wide-permissions-to-yourself)
 
 :::image type="content" source="./media/security-center-info-protection-policy/pricing-settings-link-to-information-protection.png" alt-text="Aceder à política de proteção de informação SQL a partir da página de preços e definições do Centro de Segurança Azure":::
 

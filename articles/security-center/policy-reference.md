@@ -7,12 +7,12 @@ author: memildin
 ms.author: memildin
 ms.service: security-center
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 3b5860cc4ada88e2e7c7813e3441db3ec89f31af
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: b80ceffe22c797d46b82ec33a47c726d68bf4cdb
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101729937"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102099833"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-security-center"></a>Definições incorporadas do Azure Policy para o Centro de Segurança do Azure
 
@@ -44,13 +44,4 @@ Para conhecer as políticas incorporadas que são monitorizadas pelo Centro de S
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, você aprendeu sobre as definições de política de segurança da Azure Policy no Centro de Segurança. Para saber mais, consulte os seguintes artigos.
-
-- Veja as incorporações no [repositório do GitHub do Azure Policy](https://github.com/Azure/azure-policy).
-- Reveja a [estrutura de definição do Azure Policy](../governance/policy/concepts/definition-structure.md).
-- Veja [Compreender os efeitos do Policy](../governance/policy/concepts/effects.md).
-- [Guia de planeamento e operações do Azure Security Center](./security-center-planning-and-operations-guide.md): Saiba como planear e compreender considerações de design no Centro de Segurança Azure.
-- [Monitorização de estado de funcionamento de segurança no Centro de Segurança do Azure](./security-center-monitoring.md): saiba como monitorizar o estado de funcionamento dos seus recursos do Azure.
-- [Gerir e responder a alertas de segurança no Centro de Segurança do Azure](./security-center-managing-and-responding-alerts.md): saiba como gerir e responder a alertas de segurança.
-- [Monitor partner solutions with Azure Security Center](./security-center-partner-integration.md) (Monitorizar soluções de parceiros com o Centro de Segurança do Azure): saiba como monitorizar o estado de funcionamento das suas soluções de parceiros.
-- [Política Azure](../governance/policy/overview.md): Aprenda a auditar e a governar os seus recursos Azure.
+Neste artigo, você aprendeu sobre as definições de política de segurança da Azure Policy no Centro de Segurança. Para saber mais sobre iniciativas, políticas e como se relacionam com as recomendações do Centro de Segurança, veja [o que são políticas de segurança, iniciativas e recomendações?](security-policy-concept.md)

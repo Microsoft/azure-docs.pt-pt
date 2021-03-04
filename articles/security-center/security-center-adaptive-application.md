@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/07/2021
 ms.author: memildin
-ms.openlocfilehash: b18b498f250e9ff62180ba21c3bcbda562b13b8c
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: be37f2d361b6bb164a3e01b9ac6f115294137dd0
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101735867"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102099544"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>Utilize controlos de aplicação adaptativos para reduzir as superfícies de ataque das suas máquinas
 
@@ -193,6 +193,12 @@ Para remediar as questões:
 
 1. Para mais detalhes e a lista de máquinas afetadas, selecione um alerta.
 
+    A página de alertas mostra mais detalhes dos alertas e fornece uma ligação **de ação para tomar** com recomendações de como mitigar a ameaça.
+
+    :::image type="content" source="media/security-center-adaptive-application/adaptive-application-alerts-start-time.png" alt-text="O tempo de início dos alertas de controlos de aplicações adaptativas é o ":::
+
+    > [!NOTE]
+    > Os controlos de aplicação adaptativa calculam os eventos uma vez a cada doze horas. A "hora de início de atividade" mostrada na página de alertas é o momento em que os controlos adaptativos da aplicação criaram o alerta, **e não** o momento em que o processo suspeito estava ativo.
 
 
 ## <a name="move-a-machine-from-one-group-to-another"></a>Mover uma máquina de um grupo para outro

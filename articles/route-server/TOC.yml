@@ -6,6 +6,8 @@
       href: overview.md
 - name: Guias de Início Rápido
   items:
+    - name: Configurar um Servidor de Rota - Portal
+      href: quickstart-configure-route-server-portal.md
     - name: Configurar um servidor de rota - PowerShell
       href: quickstart-configure-route-server-powershell.md
     - name: Configurar um Servidor de Rota - CLI

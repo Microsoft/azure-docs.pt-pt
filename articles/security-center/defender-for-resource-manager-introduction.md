@@ -7,12 +7,12 @@ ms.date: 12/07/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 922189909da21aac65d1e2e898df58598868b929
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 903853f9f37921a68c918d09a94087548b5c562c
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100590460"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102100666"
 ---
 # <a name="introduction-to-azure-defender-for-resource-manager"></a>Introdução ao Azure Defender para Gestor de Recursos
 
@@ -20,15 +20,15 @@ ms.locfileid: "100590460"
 
 A camada de gestão de nuvens é um serviço crucial ligado a todos os seus recursos em nuvem. Por isso, é também um alvo potencial para os atacantes. Consequentemente, recomendamos que as equipas de operações de segurança monitorizem de perto a camada de gestão de recursos. 
 
-O Azure Defender for Resource Manager monitoriza automaticamente as operações de gestão de recursos na sua organização, quer sejam realizadas através do portal Azure REST, Azure REST APIs, Azure CLI ou outros clientes programáticos Azure. O Azure Defender executa análises avançadas de segurança para detetar ameaças e alertá-lo sobre atividades suspeitas.
+O Azure Defender for Resource Manager monitoriza automaticamente as operações de gestão de recursos na sua organização, quer sejam realizadas através do portal Azure REST, Azure REST APIs, Azure CLI ou outros clientes programáticos Azure. O Azure Defender executa análises avançadas de segurança para detetar ameaças e alerta-o sobre atividades suspeitas.
 
 ## <a name="availability"></a>Disponibilidade
 
 |Aspeto|Detalhes|
 |----|:----|
 |Estado de libertação:|Pré-visualizar<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
-|Preços:|**Azure Defender for Resource Manager** é faturado como mostrado na página de [preços](security-center-pricing.md)|
-|Nuvens:|![Yes](./media/icons/yes-icon.png) Nuvens comerciais<br>![No](./media/icons/no-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
+|Preços:|**Azure Defender for Resource Manager** é faturado como mostrado nos preços do Centro de [Segurança](https://azure.microsoft.com/pricing/details/security-center/)|
+|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Não](./media/icons/no-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
 |||
 
 ## <a name="what-are-the-benefits-of-azure-defender-for-resource-manager"></a>Quais são os benefícios do Azure Defender para o Gestor de Recursos?
@@ -75,4 +75,4 @@ Neste artigo, você aprendeu sobre Azure Defender para Gestor de Recursos. Para 
 - Os alertas de segurança podem ser gerados pelo Security Center ou recebidos pelo Security Center a partir de diferentes produtos de segurança. Para exportar todos estes alertas para a Azure Sentinel, qualquer SIEM de terceiros, ou qualquer outra ferramenta externa, siga as instruções em [alertas de exportação para um SIEM](continuous-export.md).
 
 - > [!div class="nextstepaction"]
-    > [Ativar o Azure Defender](security-center-pricing.md#enable-azure-defender)
+    > [Ativar o Azure Defender](enable-azure-defender.md)

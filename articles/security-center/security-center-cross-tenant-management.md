@@ -1,5 +1,5 @@
 ---
-title: Gestão de inquilinos cruzados no Centro de Segurança Azure Microsoft Docs
+title: Gestão de inquilinos cruzados no Centro de Segurança Azure | Microsoft Docs
 description: Saiba como configurar a gestão de inquilinos cruzados para gerir a postura de segurança de vários inquilinos no Centro de Segurança usando a gestão de recursos delegada da Azure.
 services: security-center
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2019
 ms.author: memildin
-ms.openlocfilehash: d76ecc55c2e156199b2db789721946fd1f36de27
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 493a06e85ad6c8260c342cf8167386394835b1c6
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96922918"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102099493"
 ---
 # <a name="cross-tenant-management-in-security-center"></a>Gestão de inquilinos cruzados no Centro de Segurança
 
@@ -51,8 +51,4 @@ As opiniões e as ações são basicamente as mesmas. Eis alguns exemplos:
 - **Gerir funcionalidades avançadas** de defesa em nuvem e muito mais : Gerir os vários serviços de proteção de ameaças, tais como [acesso vm just-in-time (JIT),](security-center-just-in-time.md) [Hardening de Rede Adaptativa,](security-center-adaptive-network-hardening.md) [controlos de aplicações adaptativos](security-center-adaptive-application.md), e muito mais.
  
 ## <a name="next-steps"></a>Passos seguintes
-Este artigo explica como funciona a gestão de inquilinos cruzados no Centro de Segurança. Para saber mais acerca do Centro de Segurança, consulte o seguinte:
-
-* [Fortaleça a sua postura de segurança com o Azure Security Center](security-center-monitoring.md) - Aprenda a monitorizar a saúde dos seus recursos Azure.
-* [Azure Security Center FAQ](faq-general.md) - Encontre perguntas frequentes sobre a utilização do serviço.
-* [Saiba mais sobre o Farol Azure em cenários empresariais](../lighthouse/concepts/enterprise.md) - Descubra como o Farol Azure pode simplificar a gestão de inquilinos cruzados dentro de uma empresa que utiliza vários inquilinos da AD Azure.
+Este artigo explica como funciona a gestão de inquilinos cruzados no Centro de Segurança. Para descobrir como o Azure Lighthouse pode simplificar a gestão de inquilinos cruzados dentro de uma empresa que utiliza vários inquilinos da AD Azure, consulte [o Farol Azure em cenários empresariais.](../lighthouse/concepts/enterprise.md)

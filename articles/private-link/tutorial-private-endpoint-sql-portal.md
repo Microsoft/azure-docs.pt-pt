@@ -7,18 +7,19 @@ ms.service: private-link
 ms.topic: tutorial
 ms.date: 10/20/2020
 ms.author: allensu
-ms.openlocfilehash: a7eca29dc9390306ac6ad4e66eec75a25c2d33ff
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.custom: fasttrack-edit
+ms.openlocfilehash: dfbd1f4077caa2fd80a00e3cf950735363a0a971
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95522163"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102099901"
 ---
 # <a name="tutorial---connect-to-an-azure-sql-server-using-an-azure-private-endpoint---azure-portal"></a>Tutorial - Conecte-se a um servidor Azure SQL utilizando um Azure Private Endpoint - Portal Azure
 
 O ponto final privado Azure é o bloco de construção fundamental para private link em Azure. Permite que os recursos do Azure, como máquinas virtuais (VMs), comuniquem com os recursos de Private Link em privado.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Crie uma rede virtual e um hospedeiro de bastião.
@@ -92,7 +93,7 @@ O hospedeiro de bastião será utilizado para ligar de forma segura à máquina 
 
 Nesta secção, irá criar uma máquina virtual que será usada para testar o ponto final privado.
 
-1. No lado superior esquerdo do portal, selecione **Criar uma** máquina Virtual compute de recurso ou procurar por máquina  >  **Compute**  >  **Virtual machine** **Virtual** na caixa de pesquisa.
+1. No lado superior esquerdo do portal, selecione **Criar uma** máquina Virtual compute de recurso ou procurar por máquina  >    >   **Virtual** na caixa de pesquisa.
    
 2. Na **Criação de uma máquina virtual,** escreva ou selecione os valores no **separador Básicos:**
 
@@ -134,7 +135,7 @@ Nesta secção, irá criar uma máquina virtual que será usada para testar o po
 
 Nesta secção, irá criar um servidor SQL em Azure. 
 
-1. No lado superior esquerdo do ecrã no portal Azure, **selecione Criar uma** base de  >  dados SQL **de bases de dados de** recursos  >  **SQL database**.
+1. No lado superior esquerdo do ecrã no portal Azure, **selecione Criar uma** base de  >  dados SQL **de bases de dados de** recursos  >  .
 
 1. No separador **Básico da** base de **dados Create SQL,** insira ou selecione estas informações:
 
@@ -145,7 +146,7 @@ Nesta secção, irá criar um servidor SQL em Azure.
     | Grupo de recursos | Selecione **CreateSQLEndpointTutorial**. Criou este grupo de recursos na secção anterior.|
     | **Detalhes da base de dados** |  |
     | Nome da base de dados  | Insira **a base de dados mysql**. Se este nome for tomado, crie um nome único. |
-    | Server | Selecione **Criar novo**. |
+    | Servidor | Selecione **Criar novo**. |
 
 6. No **novo servidor,** insira ou selecione estas informações:
 
@@ -239,7 +240,7 @@ Nesta secção, utilizará a máquina virtual que criou no passo anterior para l
     | Palavra-passe | Introduza a palavra-passe que introduziu durante a criação do servidor |
     | Memorizar palavra-passe | Selecione **Yes** (Sim). |
 
-1. Selecione **Connect** (Ligar).
+1. Selecione **Ligar**.
 2. Procure bases de dados a partir do menu esquerdo.
 3. (Opcionalmente) Criar ou consultar informações a partir da **mysqldatabase**.
 4. Feche a ligação remota do ambiente de trabalho ao **myVM**. 
@@ -259,6 +260,8 @@ Neste tutorial, criou um:
 * Servidor Azure SQL com ponto final privado.
 
 Utilizou a máquina virtual para testar a conectividade de forma segura para o servidor SQL através do ponto final privado.
+
+Como próximo passo, poderá também estar interessado na aplicação Web com conectividade privada ao cenário de arquitetura [de base de dados Azure SQL,](https://docs.microsoft.com/azure/architecture/example-scenario/private-web-app/private-web-app) que liga uma aplicação web fora da rede virtual ao ponto final privado de uma base de dados.
 
 Saiba como criar um serviço de Ligação Privada:
 > [!div class="nextstepaction"]

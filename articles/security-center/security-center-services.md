@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/16/2021
 ms.author: memildin
-ms.openlocfilehash: 0e1f669b6955d5c5b70f2f29ff39ba5aef0a9a56
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 1ba030ea42d3e865021aa52c651cd72eead9f1a1
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100544821"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102100275"
 ---
 # <a name="feature-coverage-for-machines"></a>Cobertura de recursos para máquinas
 
@@ -117,7 +117,7 @@ Para obter informações sobre quando são geradas recomendações para cada uma
 |[Microsoft Defender para Endpoint](harden-docker-hosts.md) (1)|✔|-|
 |[Ligue a conta AWS](quickstart-onboard-aws.md) (1)|-|-|
 |[Conecte a conta GCP](quickstart-onboard-gcp.md) (1)|-|-|
-|[Exportação contínua](continuous-export.md)|✔|✔ (2)|
+|[Exportação contínua](continuous-export.md)|✔|✔|
 |[Automatização do fluxo de trabalho](workflow-automation.md)|✔|✔|
 |[Regras de isenção de recomendação](exempt-resource.md)|-|-|
 |[Regras de supressão de alertas](alerts-suppression-rules.md)|✔|✔|

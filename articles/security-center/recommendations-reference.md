@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 02/16/2021
 ms.author: memildin
 ms.custom: generated
-ms.openlocfilehash: ecc9279b66f7dca431cc8c33a47b07a6349d8ed6
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d484802b35ffec26d1248e51b365ac9041fc7934
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100574448"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102100411"
 ---
 # <a name="security-recommendations---a-reference-guide"></a>Recomendações de segurança: um guia de referência
 
@@ -57,5 +57,5 @@ A sua pontuação segura baseia-se no número de recomendações do Centro de Se
 
 Para saber mais sobre recomendações, consulte o seguinte:
 
-- [Recomendações de segurança no Centro de Segurança do Azure](security-center-recommendations.md)
-- [Proteger a sua rede no Centro de Segurança do Azure](security-center-network-recommendations.md)
+- [O que são políticas de segurança, iniciativas e recomendações?](security-policy-concept.md)
+- [Reveja as suas recomendações de segurança](security-center-recommendations.md)

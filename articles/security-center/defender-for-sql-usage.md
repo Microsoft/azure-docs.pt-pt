@@ -1,6 +1,6 @@
 ---
-title: Como utilizar o Azure Defender para o SQL
-description: Saiba como usar o Azure Security Center opcional para o plano SQL
+title: Como configurar o Azure Defender para o SQL
+description: Saiba como ativar o Azure Security Center opcional Azure Defender para o plano SQL
 services: security-center
 documentationcenter: na
 author: memildin
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/11/2021
 ms.author: memildin
-ms.openlocfilehash: 96af34b5b68fca5ab8061c8c99f03bee094dc175
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: b82f0ca0624fcbd64f1c23f87f8f21f96d8e4d4c
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100590376"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102100581"
 ---
-# <a name="azure-defender-for-sql-servers-on-machines"></a>Azure Defender para servidores SQL em máquinas 
+# <a name="enable-azure-defender-for-sql-servers-on-machines"></a>Ativar o Azure Defender para servidores SQL em máquinas 
 
 Este plano Azure Defender deteta atividades anómalas que indiquem tentativas invulgares e potencialmente nocivas de aceder ou explorar bases de dados.
 
@@ -31,20 +31,19 @@ Você verá alertas quando há atividades de base de dados suspeitas, potenciais
 |Aspeto|Detalhes|
 |----|:----|
 |Estado de libertação:|Disponibilidade Geral (GA)|
-|Preços:|**O Azure Defender para servidores SQL em máquinas** é faturado como mostrado [na página de preços](security-center-pricing.md)|
+|Preços:|**O Azure Defender para servidores SQL em máquinas** é faturado como mostrado nos [preços do Centro de Segurança](https://azure.microsoft.com/pricing/details/security-center/)|
 |Versões SQL protegidas:|Azure SQL Server (todas as versões abrangidas pelo suporte da Microsoft)|
-|Nuvens:|![Yes](./media/icons/yes-icon.png) Nuvens comerciais<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) China Gov, Outro Gov|
+|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) US Gov<br>![Não](./media/icons/no-icon.png) China Gov, Outro Gov|
 |||
 
 ## <a name="set-up-azure-defender-for-sql-servers-on-machines"></a>Configurar o Azure Defender para servidores SQL em máquinas
 
 Para ativar este plano:
 
-* Provisionar o agente Log Analytics no anfitrião do seu servidor SQL. Isto fornece a ligação ao Azure.
+[Passo 1. Provisionar o agente Log Analytics no anfitrião do seu servidor SQL:](#step-1-provision-the-log-analytics-agent-on-your-sql-servers-host)
 
-* Ativar o plano opcional na página de preços e definições do Centro de Segurança.
+[Passo 2. Ativar o plano opcional na página de preços e definições do Centro de Segurança:](#step-2-enable-the-optional-plan-in-security-centers-pricing-and-settings-page)
 
-Ambos são descritos abaixo.
 
 ### <a name="step-1-provision-the-log-analytics-agent-on-your-sql-servers-host"></a>Passo 1. Provisionar o agente Log Analytics no anfitrião do seu servidor SQL:
 
@@ -62,7 +61,7 @@ Ambos são descritos abaixo.
 
 1. A partir do menu do Security Center, abra a página **de definições de preços &.**
 
-    - Se estiver a utilizar o **espaço de trabalho predefinido do Azure Security Center** (denominado "espaço de trabalho predefinido-[o seu id de subscrição]-[região]"), selecione a **subscrição** relevante .
+    - Se estiver a utilizar o **espaço de trabalho predefinido do Azure Security Center** (denominado "espaço de trabalho predefinido-[o seu ID de subscrição]-[região]"), selecione a **subscrição** relevante .
 
     - Se estiver a utilizar **um espaço de trabalho não padrão,** selecione o espaço de **trabalho** relevante (introduza o nome do espaço de trabalho no filtro, se necessário):
 
@@ -81,31 +80,6 @@ Ambos são descritos abaixo.
 1. Opcionalmente, configurar a notificação de e-mail para alertas de segurança. 
     Pode definir uma lista de destinatários para receber uma notificação por e-mail quando os alertas do Centro de Segurança forem gerados. O e-mail contém uma ligação direta ao alerta no Azure Security Center com todos os detalhes relevantes. Para mais informações, consulte [Configurar notificações de email para alertas de segurança.](security-center-provide-security-contact-details.md)
 
-
-
-## <a name="explore-vulnerability-assessment-reports"></a>Explore relatórios de avaliação de vulnerabilidades
-
-O serviço de avaliação de vulnerabilidades verifica as suas bases de dados uma vez por semana. As tomografias são executadas no mesmo dia da semana em que ativou o serviço.
-
-O painel de avaliação de vulnerabilidades fornece uma visão geral dos resultados da sua avaliação em todas as suas bases de dados, juntamente com um resumo de bases de dados saudáveis e pouco saudáveis, e um resumo geral de verificações falhadas de acordo com a distribuição de riscos.
-
-Pode ver os resultados da avaliação da vulnerabilidade diretamente do Centro de Segurança.
-
-1. A partir da barra lateral do Centro de Segurança, abra a página **recomendações** e selecione a recomendação **Vulnerabilidades nos seus servidores SQL em máquinas devem ser remediadas (Pré-visualização)**. Para mais informações, consulte [as Recomendações do Centro de Segurança.](security-center-recommendations.md) 
-
-    :::image type="content" source="./media/security-center-advanced-iaas-data/data-and-storage-sqldb-vulns-on-vm.png" alt-text="As conclusões da Avaliação de Vulnerabilidade nos seus servidores SQL em máquinas devem ser remediadas (Pré-visualização)":::
-
-    A opinião pormenorizada desta recomendação aparece.
-
-    :::image type="content" source="./media/security-center-advanced-iaas-data/all-servers-view.png" alt-text="Visão detalhada da recomendação":::
-
-1. Para mais detalhes, desacaia:
-
-    * Para uma visão geral dos recursos digitalizados (bases de dados) e da lista de verificações de segurança que foram testadas, selecione o servidor de interesse.
-
-    * Para uma visão geral das vulnerabilidades agrupadas por uma base de dados SQL específica, selecione a base de dados de interesses.
-
-    Em cada vista, os controlos de segurança são classificados pela **Severidade**. Clique numa verificação de segurança específica para ver um painel de detalhes com uma **Descrição**, como **remediar** e outras informações relacionadas, como **Impacto** ou **Benchmark**.
 
 ## <a name="azure-defender-for-sql-alerts"></a>Azure Defender para alertas SQL
 Os alertas são gerados por tentativas incomuns e potencialmente nocivas de aceder ou explorar máquinas SQL. Estes eventos podem desencadear alertas mostrados na página de referência dos [alertas](alerts-reference.md#alerts-sql-db-and-warehouse).

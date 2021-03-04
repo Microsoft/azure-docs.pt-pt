@@ -3,12 +3,12 @@ title: Parceiros que se integram com o Azure Monitor
 description: Conheça os parceiros do Azure Monitor e como pode aceder à documentação para integração com eles.
 ms.topic: conceptual
 ms.date: 02/19/2021
-ms.openlocfilehash: b971aa70411212e96c39e6bf824fa9e28bd8a1f1
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: ca58023510eb9329bc8ddf1339df4d8c27aae5e6
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "102052369"
+ms.locfileid: "102101023"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Integrações de parceiros do Azure Monitor
 
@@ -291,8 +291,7 @@ Com o Site24x7 Azure Monitoring, poderá:
 * Monitorize a sua ecosfera completa da Microsoft, incluindo aplicações SQL, Exchange, Ative Directory, Office 365, IIS e Hyper-V.
 * Integre-se perfeitamente com serviços de terceiros como Microsoft Teams, PagerDuty, Zapier, e muito mais.
 
-[Documentação do site 24X7](https://www.site24x7.com/)
-
+[Documentação do Site24X7](https://www.site24x7.com/azure/?utm_source=microsoft-partner-page&utm_medium=webpage&utm_campaign=ms-partner)
 
 ## <a name="solarwinds"></a>Ventos Solares
 

@@ -5,12 +5,12 @@ author: noakup
 ms.author: noakuper
 ms.topic: conceptual
 ms.date: 10/05/2020
-ms.openlocfilehash: bf9ffe3640c704fb1da51f6f9c2fe42ca5d46851
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 65af5810152034fd7b6014041edd07835eebd194
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "102047558"
+ms.locfileid: "102101482"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Utilizar o Azure Private Link para se ligar em segurança a redes do Azure Monitor
 
@@ -172,7 +172,8 @@ O Ponto Final Privado que criou deverá agora ter quatro zonas DNS configuradas:
 * privatelink-ods-opinsights-azure-com
 * privatelink-agentesvc-azure-automation-net
 
-Cada uma destas zonas mapeia pontos finais específicos do Azure Monitor para iPs privados a partir da piscina de IPs do VNet do Endpoint Privado.
+> [!NOTE]
+> Cada uma destas zonas mapeia pontos finais específicos do Azure Monitor para iPs privados a partir do conjunto de IPs do VNet. Os endereços IP mostrados nas imagens abaixo são apenas exemplos. A sua configuração deve, em vez disso, mostrar IPs privados da sua própria rede.
 
 #### <a name="privatelink-monitor-azure-com"></a>Privatelink-monitor-azure-com
 Esta zona abrange os pontos finais globais utilizados pelo Azure Monitor, o que significa que estes pontos finais servem pedidos considerando todos os recursos, e não um específico. Esta zona deve ter pontos finais mapeados para:
@@ -218,7 +219,7 @@ As definições na parte inferior desta página controlam o acesso a partir de r
 
 ### <a name="exceptions"></a>Exceções
 Restringir o acesso como explicado acima não se aplica ao Gestor de Recursos Azure e, portanto, tem as seguintes limitações:
-* O acesso aos dados - ao mesmo tempo que bloqueia/permite consultas de redes públicas aplica-se à maioria das experiências do Log Analytics, algumas experiências consultam dados através do Azure Resource Manager e, portanto, não poderão consultar dados a menos que as definições de Private Link sejam aplicadas também ao Gestor de Recursos (funcionalidade que está a chegar em breve). Isto inclui, por exemplo, soluções Azure Monitor, Workbooks e Insights, e o conector LogicApp.
+* O acesso aos dados - ao mesmo tempo que bloqueia/permite consultas de redes públicas aplica-se à maioria das experiências do Log Analytics, algumas experiências consultam dados através do Azure Resource Manager e, portanto, não poderão consultar dados a menos que as definições de Private Link sejam aplicadas também ao Gestor de Recursos (funcionalidade que está a chegar em breve). Exemplos são soluções Azure Monitor, Workbooks e Insights e o conector LogicApp.
 * Gestão do espaço de trabalho - As alterações na configuração do espaço de trabalho e nas alterações de configuração (incluindo ligar ou desligar estas definições de acesso) são geridas pelo Azure Resource Manager. Restringir o acesso à gestão do espaço de trabalho utilizando as funções, permissões, controlos de rede e auditoria adequados. Para mais informações, consulte [as Funções, Permissões e Segurança do Monitor Azure.](../roles-permissions-security.md)
 
 > [!NOTE]
@@ -248,17 +249,17 @@ Em segundo lugar, pode controlar como este recurso pode ser alcançado a partir 
 > [!NOTE]
 > As experiências de consumo não-portal também devem ser executadas no VNET de ligação privada que inclui as cargas de trabalho monitorizadas.
 
-Você precisará adicionar recursos que hospedam as cargas de trabalho monitorizadas para o link privado. Aqui está a [documentação](../../app-service/networking/private-endpoint.md) para como fazer isto para os Serviços de Aplicações.
+Você precisará adicionar recursos que hospedam as cargas de trabalho monitorizadas para o link privado. Por exemplo, consulte [utilizar pontos finais privados para a aplicação web Azure](../../app-service/networking/private-endpoint.md).
 
 Restringir o acesso desta forma só se aplica aos dados do recurso Application Insights. No entanto, as alterações de configuração, incluindo ligar ou desligar estas definições de acesso, são geridas pelo Azure Resource Manager. Portanto, deve restringir o acesso ao Gestor de Recursos usando as funções, permissões, controlos de rede e auditorias apropriados. Para mais informações, consulte [as Funções, Permissões e Segurança do Monitor Azure.](../roles-permissions-security.md)
 
 > [!NOTE]
 > Para garantir totalmente os Insights de Aplicação baseados no espaço de trabalho, é necessário bloquear tanto o acesso ao recurso Application Insights como o espaço de trabalho subjacente ao Log Analytics.
 >
-> Os diagnósticos ao nível do código (profiler/debugger) precisam que forneça a sua própria conta de armazenamento para suportar uma ligação privada. Aqui está a [documentação](../app/profiler-bring-your-own-storage.md) para como fazer isto.
+> Os diagnósticos ao nível do código (profiler/debugger) precisam que forneça a [sua própria conta de armazenamento](../app/profiler-bring-your-own-storage.md) para suportar uma ligação privada.
 
 ### <a name="handling-the-all-or-nothing-nature-of-private-links"></a>Lidar com a natureza tudo ou nada das ligações privadas
-Como explicado no [Planeamento da sua configuração private link,](#planning-your-private-link-setup)a criação de um Link Privado mesmo para um único recurso afeta todos os recursos do Azure Monitor nessas redes e noutras redes que partilham o mesmo DNS. Isto pode tornar o seu processo de embarque desafiante. Considere as seguintes opções:
+Como explicado no [Planeamento da sua configuração private link,](#planning-your-private-link-setup)a criação de um Link Privado mesmo para um único recurso afeta todos os recursos do Azure Monitor nessas redes e noutras redes que partilham o mesmo DNS. Este comportamento pode tornar o seu processo de embarque desafiante. Considere as seguintes opções:
 
 * Tudo em - a abordagem mais simples e segura é adicionar todos os seus componentes de Insights de Aplicação ao AMPLS. Para componentes que deseja ainda aceder a partir de outras redes, deixe as bandeiras "Permitir o acesso público à Internet para ingestão/consulta" definidas como Sim (o padrão).
 * Isolar as redes - se estiver (ou puder alinhar-se) utilizando vnets faladores, siga a orientação na [topologia da rede de fala-de-hub em Azure](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke). Em seguida, configurar as definições de ligação privada separadas nos VNets de spoke relevantes. Certifique-se de separar as zonas DNS também, uma vez que a partilha de zonas DNS com outras redes de raios-DNS irá causar [sobreposições de DNS](#the-issue-of-dns-overrides).

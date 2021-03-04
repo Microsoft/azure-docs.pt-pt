@@ -1,5 +1,5 @@
 ---
-title: Remediar recomendações no Centro de Segurança Azure Microsoft Docs
+title: Recomendações remediar no Centro de Segurança Azure | Microsoft Docs
 description: Este artigo explica como responder às recomendações do Azure Security Center para proteger os seus recursos e satisfazer as políticas de segurança.
 services: security-center
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/08/2020
 ms.author: memildin
-ms.openlocfilehash: dabd7e9e2c3c74225efc4611c7ad3523a6c76ba5
-ms.sourcegitcommit: 02ed9acd4390b86c8432cad29075e2204f6b1bc3
+ms.openlocfilehash: 6222491d35317e549a3d21f29395b9c25813ea9f
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97807995"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102100360"
 ---
 # <a name="remediate-recommendations-in-azure-security-center"></a>Recomendações de remediação no Centro de Segurança do Azure
 
@@ -81,5 +81,5 @@ A operação de remediação utiliza uma implementação de modelo ou chamada AP
 
 Neste documento, foi-lhe mostrado como remediar recomendações no Centro de Segurança. Para saber mais sobre o Centro de Segurança, consulte as seguintes páginas:
 
-* [Definir políticas de segurança no Azure Security Center](tutorial-security-policy.md) - Saiba como configurar políticas de segurança para as suas subscrições e grupos de recursos Azure.
-* [Segurança monitorização de saúde no Azure Security Center](security-center-monitoring.md) - Saiba como monitorizar a saúde dos seus recursos Azure.
+* [Definir políticas de segurança no Azure Security Center](tutorial-security-policy.md) - Saiba como configurar políticas de segurança para as suas subscrições e grupos de recursos Azure
+* [O que são políticas de segurança, iniciativas e recomendações?](security-policy-concept.md)

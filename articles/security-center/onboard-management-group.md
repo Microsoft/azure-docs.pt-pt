@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/10/2020
 ms.author: memildin
-ms.openlocfilehash: 31472b0a0eedee03d5cfcb6ff47a97033a8c78e0
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: 9db276425d510316c41126f8e942a1e2a362ea35
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98796073"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102101295"
 ---
 # <a name="enable-security-center-on-all-subscriptions-in-a-management-group"></a>Ativar o Centro de Segurança em todas as subscrições de um grupo de gestão
 
@@ -60,7 +60,7 @@ Existem várias formas de escolher modificar a definição da Política Azure:
     A definição fornecida define *qualquer uma* das definições de "preços" abaixo conforme. O que significa que uma subscrição definida como 'standard' ou 'free' está em conformidade.
 
     > [!TIP]
-    > Quando um plano Azure Defender está ativado, é descrito como estando na definição 'Standard'. Quando está desativado, é "Grátis". [Saiba mais sobre os planos do Azure Defender](security-center-pricing.md).
+    > Quando um plano Azure Defender está ativado, é descrito numa definição de política como estando na definição 'Standard'. Quando está desativado, é "Grátis". Para conhecer as diferenças entre estes planos, consulte o [Security Center free vs Azure Defender ativado](security-center-pricing.md). 
 
     ```
     "existenceCondition": {
@@ -98,4 +98,4 @@ Existem várias formas de escolher modificar a definição da Política Azure:
 Agora que insaltou um grupo de gestão inteiro, permita as proteções avançadas do Azure Defender. 
 
 > [!div class="nextstepaction"]
-> [Ativar o Azure Defender](security-center-pricing.md#enable-azure-defender)
+> [Ativar o Azure Defender](enable-azure-defender.md)

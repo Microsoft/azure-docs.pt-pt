@@ -1,44 +1,32 @@
 ---
 title: Trabalhar com políticas de segurança | Microsoft Docs
 description: Este artigo descreve como trabalhar com políticas de segurança no Azure Security Center.
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetid: 2d248817-ae97-4c10-8f5d-5c207a8019ea
 ms.service: security-center
 ms.devlang: na
 ms.topic: conceptual
-ms.custom: mvc
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 01/24/2021
 ms.author: memildin
-ms.openlocfilehash: 19128f0372f9a5bda0d16155167a507eccaf436a
-ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
+ms.openlocfilehash: 6ecedc20cf6924a82b6b4640d3caa75bc5958de0
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98986622"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102101329"
 ---
 # <a name="manage-security-policies"></a>Manage security policies (Gerir políticas de segurança)
 
 Este artigo explica como as políticas de segurança são configuradas e como vê-las no Centro de Segurança. 
 
-## <a name="introduction-to-security-policies"></a>Introdução às políticas de segurança
+## <a name="who-can-edit-security-policies"></a>Quem pode editar políticas de segurança?
 
-Uma política de segurança define a configuração desejada das suas cargas de trabalho e ajuda a garantir que está a cumprir os requisitos de segurança da sua empresa ou reguladores.
+Pode editar políticas de segurança através do portal Azure Policy, através da REST API ou utilizando o Windows PowerShell.
 
-O Azure Security Center faz as suas recomendações de segurança com base nas suas políticas escolhidas. As políticas do Centro de Segurança baseiam-se em iniciativas políticas criadas na Política Azure. Pode utilizar [a Azure Policy](../governance/policy/overview.md) para gerir as suas políticas e definir políticas entre grupos de Gestão e várias subscrições.
+O Security Center utiliza o controlo de acesso baseado em funções Azure (Azure RBAC), que fornece funções incorporadas que pode atribuir aos utilizadores, grupos e serviços da Azure. Quando os utilizadores abrem o Centro de Segurança, vêem apenas informações relacionadas com os recursos a que podem aceder. O que significa que os utilizadores são atribuídos ao papel de *proprietário,* *contribuinte* ou *leitor* à subscrição do recurso. Há também duas funções específicas do Centro de Segurança:
 
-O Centro de Segurança oferece as seguintes opções para trabalhar com políticas de segurança:
-
-* **Ver e editar a política de incumprimento incorporada** - Quando ativar o Centro de Segurança, a iniciativa denominada 'Azure Security Benchmark' é automaticamente atribuída a todas as subscrições registadas do Security Center. Para personalizar esta iniciativa, pode ativar ou desativar políticas individuais dentro dela. Consulte a lista de [políticas de segurança incorporadas](./policy-reference.md) para entender as opções disponíveis fora da caixa.
-
-* **Adicione as suas próprias políticas personalizadas** - Se quiser personalizar as iniciativas de segurança aplicadas à sua subscrição, pode fazê-lo dentro do Security Center. Em seguida, receberá recomendações se as suas máquinas não seguirem as políticas que cria. Para obter instruções sobre a construção e atribuição de políticas personalizadas, consulte [utilizando políticas de segurança personalizadas](custom-security-policies.md).
-
-* **Adicionar políticas de conformidade regulamentar** - O painel de conformidade regulamentar do Centro de Segurança mostra o estado de todas as avaliações dentro do seu ambiente no contexto de uma determinada norma ou regulamento (como Azure CIS, NIST SP 800-53 R4, SWIFT CSP CSCF-v2020). Para obter mais informações, consulte [Melhorar a sua conformidade regulamentar.](security-center-compliance-dashboard.md)
-
+- **Leitor de segurança**: Tem direito a visualizar itens do Centro de Segurança, tais como recomendações, alertas, política e saúde. Não posso fazer mudanças.
+- **Administrador de segurança**: Tem os mesmos direitos de visão que *o leitor de segurança.* Também pode atualizar a política de segurança e dispensar alertas.
 
 ## <a name="manage-your-security-policies"></a>Gerir as suas políticas de segurança
 
@@ -59,14 +47,13 @@ Para ver as suas políticas de segurança no Centro de Segurança:
     > [!NOTE]
     > Se houver um rótulo "MG Herdado" ao lado da sua política de incumprimento, significa que a apólice foi atribuída a um grupo de gestão e herdada pela subscrição que está a ver.
 
-
 1. Escolha entre as opções disponíveis nesta página:
 
-    1. Para trabalhar com as políticas da indústria, **selecione Adicione mais padrões**. Para obter mais informações, consulte [Update to dynamic compliance packages](update-regulatory-compliance-packages.md).
+    1. Para trabalhar com os padrões da indústria, **selecione Adicione mais padrões**. Para obter mais informações, consulte [Personalizar o conjunto de normas no seu painel de conformidade regulamentar](update-regulatory-compliance-packages.md).
 
-    1. Para atribuir e gerir iniciativas personalizadas, **selecione Adicionar iniciativas personalizadas.** Para obter mais informações, consulte [utilizando políticas de segurança personalizadas.](custom-security-policies.md)
+    1. Para atribuir e gerir iniciativas personalizadas, **selecione Adicionar iniciativas personalizadas.** Para obter mais informações, consulte [utilizando iniciativas e políticas de segurança personalizadas.](custom-security-policies.md)
 
-    1. Para visualizar e editar a política predefinitiva, **selecione Ver política eficaz** e proceda como descrito abaixo. 
+    1. Para visualizar e editar a iniciativa predefinitiva, **selecione Ver política eficaz** e proceda como descrito abaixo. 
 
         :::image type="content" source="./media/security-center-policies/policy-screen.png" alt-text="Tela de política eficaz":::
 
@@ -80,16 +67,6 @@ Para ver as suas políticas de segurança no Centro de Segurança:
 
        > [!NOTE]
        > Quando vê as políticas atribuídas, pode ver várias atribuições e pode ver como cada atribuição é configurada por si só.
-
-
-## <a name="who-can-edit-security-policies"></a>Quem pode editar políticas de segurança?
-
-Pode editar políticas de segurança através do portal Azure Policy, através da REST API ou utilizando o Windows PowerShell.
-
-O Security Center utiliza o controlo de acesso baseado em funções Azure (Azure RBAC), que fornece funções incorporadas que pode atribuir aos utilizadores, grupos e serviços da Azure. Quando os utilizadores abrem o Centro de Segurança, vêem apenas informações relacionadas com os recursos a que podem aceder. O que significa que os utilizadores são atribuídos ao papel de *proprietário,* *contribuinte* ou *leitor* à subscrição do recurso. Há também duas funções específicas do Centro de Segurança:
-
-- **Leitor de segurança**: Tem direito a visualizar itens do Centro de Segurança, tais como recomendações, alertas, política e saúde. Não posso fazer mudanças.
-- **Administrador de segurança**: Tem os mesmos direitos de visão que *o leitor de segurança.* Também pode atualizar a política de segurança e dispensar alertas.
 
 
 ## <a name="disable-security-policies-and-disable-recommendations"></a>Desativar as políticas de segurança e desativar recomendações
@@ -129,7 +106,7 @@ Para obter mais informações sobre recomendações, consulte [recomendações d
 ## <a name="next-steps"></a>Passos seguintes
 Esta página explicou as políticas de segurança. Para obter informações relacionadas, consulte as seguintes páginas:
 
-- [Saiba como definir políticas usando o PowerShell](../governance/policy/assign-policy-powershell.md) - 
-- [Saiba como editar uma política de segurança na Política Azure](../governance/policy/tutorials/create-and-manage.md) - 
-- [Saiba como definir uma política entre subscrições ou grupos de Gestão utilizando a Política Azure.](../governance/policy/overview.md)
+- [Saiba como definir políticas usando o PowerShell](../governance/policy/assign-policy-powershell.md)
+- [Saiba como editar uma política de segurança na Política Azure](../governance/policy/tutorials/create-and-manage.md)
+- [Saiba como definir uma política entre subscrições ou grupos de Gestão usando a Política Azure](../governance/policy/overview.md)
 - [Saiba como ativar o Centro de Segurança em todas as subscrições de um grupo de gestão](onboard-management-group.md)

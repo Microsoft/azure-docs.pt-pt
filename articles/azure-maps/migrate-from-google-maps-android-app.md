@@ -3,18 +3,18 @@ title: Tutorial - Migrar uma aplicação Android | Microsoft Azure Maps
 description: Tutorial sobre como migrar uma aplicação Android do Google Maps para o Microsoft Azure Maps
 author: rbrundritt
 ms.author: richbrun
-ms.date: 08/19/2020
+ms.date: 02/26/2021
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.custom: ''
-ms.openlocfilehash: 7f3d32a782c653b3be8b3d6f6714bc9065a73518
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+zone_pivot_groups: azure-maps-android
+ms.openlocfilehash: 3d160649008199233fa0b676d938470569a27853
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "102042900"
+ms.locfileid: "102101499"
 ---
 # <a name="tutorial-migrate-an-android-app-from-google-maps"></a>Tutorial: Migrar uma aplicação Android do Google Maps
 
@@ -26,8 +26,6 @@ O Azure Maps Android SDK tem uma interface API semelhante à Web SDK. Se você d
 > * Adicione marcadores, polilinas e polígonos.
 > * Sobrepor uma camada de azulejo
 > * Mostrar dados de tráfego
-
-O Azure Maps Android SDK suporta uma versão mínima android de API 21: Android 5.0.0 (Lollipop).
 
 Todos os exemplos são fornecidos em Java; no entanto, você pode usar Kotlin com o Azure Maps Android SDK.
 
@@ -79,6 +77,8 @@ Para exibir um mapa utilizando o Google Maps SDK para Android, seriam dados os s
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
     ```
+
+::: zone pivot="programming-language-java-android"
 
 5. No ficheiro **MainActivity.java,** terá de importar o Google Maps SDK. Encaminhar todos os métodos do ciclo de vida da atividade que contém a vista do mapa para os correspondentes na classe de mapas. Recupere um `MapView` exemplo do fragmento do mapa utilizando o `getMapAsync(OnMapReadyCallback)` método. `MapView`Iniciona-se automaticamente o sistema de mapas e a vista. Editar o ficheiro **.java MainActivity** da seguinte forma:
 
@@ -155,6 +155,77 @@ Para exibir um mapa utilizando o Google Maps SDK para Android, seriam dados os s
     }
     ```
 
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+5. No ficheiro **MainActivity.kt,** terá de importar o Google Maps SDK. Encaminhar todos os métodos do ciclo de vida da atividade que contém a vista do mapa para os correspondentes na classe de mapas. Recupere um `MapView` exemplo do fragmento do mapa utilizando o `getMapAsync(OnMapReadyCallback)` método. `MapView`Iniciona-se automaticamente o sistema de mapas e a vista. Editar o ficheiro **MainActivity.kt** da seguinte forma:
+
+    ```kotlin
+    import com.google.android.gms.maps.GoogleMap;
+    import com.google.android.gms.maps.MapView;
+    import com.google.android.gms.maps.OnMapReadyCallback;
+ 
+    import androidx.appcompat.app.AppCompatActivity
+    import android.os.Bundle
+
+    class MainActivity : AppCompatActivity() implements OnMapReadyCallback {
+    
+        var mapView: MapView? = null
+    
+        override fun onCreate(savedInstanceState: Bundle?) {
+            super.onCreate(savedInstanceState)
+            setContentView(R.layout.activity_main)
+    
+            mapView = findViewById(R.id.myMap)
+    
+            mapView?.onCreate(savedInstanceState)
+            mapView?.getMapAsync(this)
+        }
+
+        public fun onMapReady(GoogleMap map) {
+            //Add your post map load code here.
+        }
+    
+        public override fun onStart() {
+            super.onStart()
+            mapView?.onStart()
+        }
+    
+        public override fun onResume() {
+            super.onResume()
+            mapView?.onResume()
+        }
+    
+        public override fun onPause() {
+            mapView?.onPause()
+            super.onPause()
+        }
+    
+        public override fun onStop() {
+            mapView?.onStop()
+            super.onStop()
+        }
+    
+        override fun onLowMemory() {
+            mapView?.onLowMemory()
+            super.onLowMemory()
+        }
+    
+        override fun onDestroy() {
+            mapView?.onDestroy()
+            super.onDestroy()
+        }
+    
+        override fun onSaveInstanceState(outState: Bundle) {
+            super.onSaveInstanceState(outState)
+            mapView?.onSaveInstanceState(outState)
+        }
+    }
+    ```
+
+::: zone-end
+
 Quando executam uma aplicação, o controlo do mapa carrega como na imagem seguinte.
 
 ![Mapas simples do Google](media/migrate-google-maps-android-app/simple-google-maps.png)
@@ -165,7 +236,7 @@ Para exibir um mapa utilizando o Azure Maps SDK para Android, é necessário faz
 
 1. Abra o ficheiro **build.gradle** de nível superior e adicione o seguinte código à secção de **blocos de todos os projetos:**
 
-    ```java
+    ```gradel
     maven {
         url "https://atlas.microsoft.com/sdk/android"
     }
@@ -177,7 +248,7 @@ Para exibir um mapa utilizando o Azure Maps SDK para Android, é necessário faz
 
     2. Adicione o seguinte código à secção Android:
 
-        ```java
+        ```gradel
         compileOptions {
             sourceCompatibility JavaVersion.VERSION_1_8
             targetCompatibility JavaVersion.VERSION_1_8
@@ -186,7 +257,7 @@ Para exibir um mapa utilizando o Azure Maps SDK para Android, é necessário faz
 
     3. Atualize o seu bloco de dependências. Adicione uma nova linha de dependência de implementação para o mais recente Azure Maps Android SDK:
 
-        ```Java
+        ```gradel
         implementation "com.microsoft.azure.maps:mapcontrol:0.7"
         ```
 
@@ -214,6 +285,8 @@ Para exibir um mapa utilizando o Azure Maps SDK para Android, é necessário faz
     </FrameLayout>
     ```
 
+::: zone pivot="programming-language-java-android"
+
 4. No ficheiro **MainActivity.java** que terá de:
 
     * Importa o Azure Maps SDK
@@ -235,10 +308,9 @@ Para exibir um mapa utilizando o Azure Maps SDK para Android, é necessário faz
 
     Editar o ficheiro **.java MainActivity** da seguinte forma:
 
-    ```Java
+    ```java
     package com.example.myapplication;
     
-    //For older versions use: import android.support.v7.app.AppCompatActivity; 
     import androidx.appcompat.app.AppCompatActivity;
     import com.microsoft.azure.maps.mapcontrol.AzureMaps;
     import com.microsoft.azure.maps.mapcontrol.MapControl;
@@ -316,6 +388,105 @@ Para exibir um mapa utilizando o Azure Maps SDK para Android, é necessário faz
     }}
     ```
 
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+4. No ficheiro **MainActivity.kt,** terá de:
+
+    * Importa o Azure Maps SDK
+    * Desconfie das suas informações de autenticação Azure Maps
+    * Obtenha a instância de controlo do mapa no método **onCreate**
+
+     Desa estade as informações de autenticação na `AzureMaps` classe utilizando os `setSubscriptionKey` métodos ou `setAadProperties` métodos. Esta atualização global, certifique-se de que adiciona as suas informações de autenticação a todas as vistas.
+
+    O controlo do mapa contém os seus próprios métodos de ciclo de vida para gerir o ciclo de vida OpenGL do Android. Estes métodos devem ser chamados diretamente da Atividade contida. Para chamar corretamente os métodos de ciclo de vida do controlo do mapa, deve sobrepor-se aos seguintes métodos de ciclo de vida na Atividade que contém o controlo do mapa. Ligue para o respetivo método de controlo do mapa.
+
+    * `onCreate(Bundle)`
+    * `onStart()`
+    * `onResume()`
+    * `onPause()`
+    * `onStop()`
+    * `onDestroy()`
+    * `onSaveInstanceState(Bundle)`
+    * `onLowMemory()`
+
+    Editar o ficheiro **MainActivity.kt** da seguinte forma:
+
+    ```kotlin
+    package com.example.myapplication;
+
+    import androidx.appcompat.app.AppCompatActivity
+    import android.os.Bundle
+    import com.microsoft.azure.maps.mapcontrol.AzureMap
+    import com.microsoft.azure.maps.mapcontrol.AzureMaps
+    import com.microsoft.azure.maps.mapcontrol.MapControl
+    import com.microsoft.azure.maps.mapcontrol.events.OnReady
+    
+    class MainActivity : AppCompatActivity() {
+    
+        companion object {
+            init {
+                AzureMaps.setSubscriptionKey("<Your Azure Maps subscription key>");
+    
+                //Alternatively use Azure Active Directory authenticate.
+                //AzureMaps.setAadProperties("<Your aad clientId>", "<Your aad AppId>", "<Your aad Tenant>");
+            }
+        }
+    
+        var mapControl: MapControl? = null
+    
+        override fun onCreate(savedInstanceState: Bundle?) {
+            super.onCreate(savedInstanceState)
+            setContentView(R.layout.activity_main)
+    
+            mapControl = findViewById(R.id.mapcontrol)
+    
+            mapControl?.onCreate(savedInstanceState)
+    
+            //Wait until the map resources are ready.
+            mapControl?.onReady(OnReady { map: AzureMap -> })
+        }
+    
+        public override fun onStart() {
+            super.onStart()
+            mapControl?.onStart()
+        }
+    
+        public override fun onResume() {
+            super.onResume()
+            mapControl?.onResume()
+        }
+    
+        public override fun onPause() {
+            mapControl?.onPause()
+            super.onPause()
+        }
+    
+        public override fun onStop() {
+            mapControl?.onStop()
+            super.onStop()
+        }
+    
+        override fun onLowMemory() {
+            mapControl?.onLowMemory()
+            super.onLowMemory()
+        }
+    
+        override fun onDestroy() {
+            mapControl?.onDestroy()
+            super.onDestroy()
+        }
+    
+        override fun onSaveInstanceState(outState: Bundle) {
+            super.onSaveInstanceState(outState)
+            mapControl?.onSaveInstanceState(outState)
+        }
+    }
+    ```
+
+::: zone-end
+
 Se executar a sua aplicação, o controlo do mapa será carregado como na imagem seguinte.
 
 ![Mapas simples do Azure](media/migrate-google-maps-android-app/simple-azure-maps.png)
@@ -333,15 +504,39 @@ A localização é importante se o seu público estiver espalhado por vários pa
 
 Adicione o seguinte código ao `onCreate` método para definir a linguagem do mapa. O código deve ser adicionado antes de definir a visão de contexto do mapa. O código linguístico "fr" limita a língua ao francês.
 
+::: zone pivot="programming-language-java-android"
+
 ```java
 String languageToLoad = "fr";
 Locale locale = new Locale(languageToLoad);
 Locale.setDefault(locale);
+
 Configuration config = new Configuration();
 config.locale = locale;
+
 getBaseContext().getResources().updateConfiguration(config,
         getBaseContext().getResources().getDisplayMetrics());
 ```
+
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+val languageToLoad = "fr"
+val locale = Locale(languageToLoad)
+Locale.setDefault(locale)
+
+val config = Configuration()
+config.locale = locale
+
+baseContext.resources.updateConfiguration(
+    config,
+    baseContext.resources.displayMetrics
+)
+```
+
+::: zone-end
 
 Aqui está um exemplo do Google Maps com o idioma definido para "fr".
 
@@ -350,6 +545,8 @@ Aqui está um exemplo do Google Maps com o idioma definido para "fr".
 ### <a name="after-azure-maps"></a>Depois: Mapas Azure
 
 O Azure Maps oferece três maneiras diferentes de definir a língua e a visão regional do mapa. A primeira opção é passar a informação de visão linguística e regional para a `AzureMaps` classe. Esta opção utiliza a estática `setLanguage` e `setView` os métodos a nível global. Ou seja, o idioma padrão e a visão regional são definidos em todos os controlos Azure Maps carregados na sua aplicação. Este exemplo define o francês utilizando o código linguístico "fr-FR".
+
+::: zone pivot="programming-language-java-android"
 
 ```java
 static {
@@ -363,6 +560,27 @@ static {
     AzureMaps.setView("Auto");
 }
 ```
+
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+companion object {
+    init {
+            //Set your Azure Maps Key.
+        AzureMaps.setSubscriptionKey("<Your Azure Maps Key>");
+    
+        //Set the language to be used by Azure Maps.
+        AzureMaps.setLanguage("fr-FR");
+    
+        //Set the regional view to be used by Azure Maps.
+        AzureMaps.setView("Auto");
+    }
+}
+```
+
+::: zone-end
 
 A segunda opção é passar o idioma e ver informações para o código XML de controlo do mapa.
 
@@ -378,6 +596,8 @@ A segunda opção é passar o idioma e ver informações para o código XML de c
 
 A terceira opção é programar a visão do mapa linguístico e regional usando o método dos `setStyle` mapas. Esta opção atualiza a visão linguística e regional sempre que o código é executado.
 
+::: zone pivot="programming-language-java-android"
+
 ```java
 mapControl.onReady(map -> {
     map.setStyle(
@@ -386,6 +606,21 @@ mapControl.onReady(map -> {
     );
 });
 ```
+
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+mapControl!!.onReady { map: AzureMap ->
+    map.setStyle(
+        language("fr-FR"),
+        view("Auto")
+    )
+}
+```
+
+::: zone-end
 
 Aqui está um exemplo de Azure Maps com a linguagem definida como "fr-FR".
 
@@ -401,6 +636,8 @@ Mapas dinâmicos tanto no Azure Maps como no Google Maps podem ser movidos progr
 
 A câmara do controlo de mapas do Google Maps pode ser movida programáticamente usando o `moveCamera` método. O `moveCamera` método permite especificar o centro do mapa e um nível de zoom. O `setMapType` método altera o tipo de mapa a visualizar.
 
+::: zone pivot="programming-language-java-android"
+
 ```java
 @Override
 public void onMapReady(GoogleMap googleMap) {
@@ -410,6 +647,21 @@ public void onMapReady(GoogleMap googleMap) {
     mapView.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
 }
 ```
+
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+public override fun onMapReady(googleMap: GoogleMap) {
+    mapView = googleMap
+
+    mapView.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(35.0272, -111.0225), 15))
+    mapView.setMapType(GoogleMap.MAP_TYPE_SATELLITE)
+}
+```
+
+::: zone-end
 
 ![Vista definida do Google Maps](media/migrate-google-maps-android-app/google-maps-set-view.png)
 
@@ -436,6 +688,8 @@ A visão inicial do mapa pode ser definida em atributos XML no controlo do mapa.
 
 A vista do mapa pode ser programada usando os mapas `setCamera` e `setStyle` métodos.
 
+::: zone pivot="programming-language-java-android"
+
 ```java
 mapControl.onReady(map -> {
     //Set the camera of the map.
@@ -445,6 +699,22 @@ mapControl.onReady(map -> {
     map.setStyle(style(MapStyle.SATELLITE));
 });
 ```
+
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+mapControl!!.onReady { map: AzureMap ->
+    //Set the camera of the map.
+    map.setCamera(center(Point.fromLngLat(-111.0225, 35.0272)), zoom(14))
+
+    //Set the style of the map.
+    map.setStyle(style(MapStyle.SATELLITE))
+}
+```
+
+::: zone-end
 
 ![Vista definida Azure Maps](media/migrate-google-maps-android-app/azure-maps-set-view.png)
 
@@ -460,6 +730,8 @@ Os dados de pontos são muitas vezes renderizados usando uma imagem no mapa. Est
 
 Com o Google Maps, os marcadores são adicionados usando o método dos `addMarker` mapas.
 
+::: zone pivot="programming-language-java-android"
+
 ```java
 @Override
 public void onMapReady(GoogleMap googleMap) {
@@ -469,25 +741,61 @@ public void onMapReady(GoogleMap googleMap) {
 }
 ```
 
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+public override fun onMapReady(googleMap: GoogleMap) {
+    mapView = googleMap
+
+    mapView.addMarker(MarkerOptions().position(LatLng(47.64, -122.33)))
+}
+```
+
+::: zone-end
+
 ![Marcador do Google Maps](media/migrate-google-maps-android-app/google-maps-marker.png)
 
 ### <a name="after-azure-maps"></a>Depois: Mapas Azure
 
 No Azure Maps, rendereja os dados do ponto no mapa adicionando primeiro os dados a uma fonte de dados. Em seguida, ligando essa fonte de dados a uma camada de símbolo. A fonte de dados otimiza a gestão de dados espaciais no controlo do mapa. A camada de símbolo especifica como fazer dados de ponto usando como imagem ou texto.
 
+::: zone pivot="programming-language-java-android"
+
 ```java
 mapControl.onReady(map -> {
     //Create a data source and add it to the map.
-    DataSource dataSource = new DataSource();
-    map.sources.add(dataSource);
+    DataSource source = new DataSource();
+    map.sources.add(source);
 
     //Create a point feature and add it to the data source.
-    dataSource.add(Feature.fromGeometry(Point.fromLngLat(-122.33, 47.64)));
+    source.add(Feature.fromGeometry(Point.fromLngLat(-122.33, 47.64)));
 
     //Create a symbol layer and add it to the map.
-    map.layers.add(new SymbolLayer(dataSource));
+    map.layers.add(new SymbolLayer(source));
 });
 ```
+
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+mapControl!!.onReady { map: AzureMap ->
+    //Create a data source and add it to the map.
+    val source = new DataSource()
+    map.sources.add(source)
+
+    //Create a point feature and add it to the data source.
+    source.add(Feature.fromGeometry(Point.fromLngLat(-122.33, 47.64)))
+
+    //Create a symbol layer and add it to the map.
+    map.layers.add(SymbolLayer(source))
+}
+```
+
+::: zone-end
 
 ![Marcador de Mapas Azure](media/migrate-google-maps-android-app/azure-maps-marker.png)
 
@@ -504,6 +812,8 @@ Em ambos os exemplos, a imagem acima é adicionada à pasta desenhável dos recu
 
 Com o Google Maps, as imagens personalizadas podem ser usadas para marcadores. Carregue imagens personalizadas usando a opção do `icon` marcador. Para alinhar o ponto da imagem com a coordenada, utilize a `anchor` opção. A âncora é relativa às dimensões da imagem. Neste caso, a âncora tem 0,2 unidades de largura e 1 unidade de altura.
 
+::: zone pivot="programming-language-java-android"
+
 ```java
 @Override
 public void onMapReady(GoogleMap googleMap) {
@@ -515,31 +825,75 @@ public void onMapReady(GoogleMap googleMap) {
 }
 ```
 
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+public override fun onMapReady(googleMap: GoogleMap) {
+    mapView = googleMap;
+
+    mapView.addMarker(MarkerOptions().position(LatLng(47.64, -122.33))
+    .icon(BitmapDescriptorFactory.fromResource(R.drawable.yellow-pushpin))
+    .anchor(0.2f, 1f))
+}
+```
+
+::: zone-end
+
 ![Marcador personalizado do Google Maps](media/migrate-google-maps-android-app/google-maps-custom-marker.png)
 
 ### <a name="after-azure-maps"></a>Depois: Mapas Azure
 
 As camadas de símbolo no Azure Maps suportam imagens personalizadas, mas primeiro, a imagem precisa de ser carregada para os recursos do mapa e atribuída um ID único. Em seguida, a camada de símbolo precisa de referenciar este ID. Compense o símbolo para alinhar com o ponto correto da imagem utilizando a `iconOffset` opção. O offset do ícone está em pixels. Por predefinição, a compensação é relativa ao centro inferior da imagem, mas este valor de compensação pode ser ajustado usando a `iconAnchor` opção. Este exemplo define `iconAnchor` a opção de `"center"` . Usa um offset de ícone para mover a imagem cinco pixels para a direita e 15 pixels para se alinhar com o ponto da imagem do pino.
 
+::: zone pivot="programming-language-java-android"
+
 ```java
 mapControl.onReady(map -> {
     //Create a data source and add it to the map.
-    DataSource dataSource = new DataSource();
-    map.sources.add(dataSource);
+    DataSource source = new DataSource();
+    map.sources.add(source);
 
     //Create a point feature and add it to the data source.
-    dataSource.add(Feature.fromGeometry(Point.fromLngLat(-122.33, 47.64)));
+    source.add(Feature.fromGeometry(Point.fromLngLat(-122.33, 47.64)));
 
     //Load the custom image icon into the map resources.
     map.images.add("my-yellow-pin", R.drawable.yellow_pushpin);
 
     //Create a symbol that uses the custom image icon and add it to the map.
-    map.layers.add(new SymbolLayer(dataSource,
+    map.layers.add(new SymbolLayer(source,
         iconImage("my-yellow-pin"),
-        iconAnchor(AnchorType.CENTER
+        iconAnchor(AnchorType.CENTER),
         iconOffset(new Float[]{5f, -15f})));
 });
 ```
+
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+mapControl!!.onReady { map: AzureMap ->
+    //Create a data source and add it to the map.
+    val source = DataSource()
+    map.sources.add(source)
+
+    //Create a point feature and add it to the data source.
+    source.add(Feature.fromGeometry(Point.fromLngLat(-122.33, 47.64)))
+
+    //Load the custom image icon into the map resources.
+    map.images.add("my-yellow-pin", R.drawable.yellow_pushpin)
+
+    //Create a symbol that uses the custom image icon and add it to the map.
+    map.layers.add(SymbolLayer(source,
+        iconImage("my-yellow-pin"),
+        iconAnchor(AnchorType.CENTER),
+        iconOffset(arrayOf(0f, -1.5f))))
+}
+```
+
+::: zone-end
 
 ![Marcador personalizado Azure Maps](media/migrate-google-maps-android-app/azure-maps-custom-marker.png)
 
@@ -551,6 +905,8 @@ Os polilinas são usados para representar uma linha ou caminho no mapa. Os exemp
 
 Com o Google Maps, torne um poliline usando a `PolylineOptions` classe. Adicione o polilina ao mapa utilizando o `addPolyline` método. Desa parte da cor do traçado utilizando a `color` opção. Desa estale a largura do curso utilizando a `width` opção. Adicione uma matriz de traço de traçado utilizando a `pattern` opção.
 
+::: zone pivot="programming-language-java-android"
+
 ```java
 @Override
 public void onMapReady(GoogleMap googleMap) {
@@ -558,18 +914,43 @@ public void onMapReady(GoogleMap googleMap) {
 
     //Create the options for the polyline.
     PolylineOptions lineOptions = new PolylineOptions()
-            .add(new LatLng(46, -123))
-            .add(new LatLng(49, -122))
-            .add(new LatLng(46, -121))
-            .color(Color.RED)
-            .width(10f)
-            .pattern(Arrays.<PatternItem>asList(
-                    new Dash(30f), new Gap(30f)));
+        .add(new LatLng(46, -123))
+        .add(new LatLng(49, -122))
+        .add(new LatLng(46, -121))
+        .color(Color.RED)
+        .width(10f)
+        .pattern(Arrays.<PatternItem>asList(
+                new Dash(30f), new Gap(30f)));
 
     //Add the polyline to the map.
     Polyline polyline = mapView.addPolyline(lineOptions);
 }
 ```
+
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+public override fun onMapReady(googleMap: GoogleMap) {
+    mapView = googleMap
+
+    //Create the options for the polyline.
+    val lineOptions = new PolylineOptions()
+        .add(new LatLng(46, -123))
+        .add(new LatLng(49, -122))
+        .add(new LatLng(46, -121))
+        .color(Color.RED)
+        .width(10f)
+        .pattern(Arrays.<PatternItem>asList(
+                new Dash(30f), new Gap(30f)))
+
+    //Add the polyline to the map.
+    val polyline = mapView.addPolyline(lineOptions)
+}
+```
+
+::: zone-end
 
 ![Poliline do Google Maps](media/migrate-google-maps-android-app/google-maps-polyline.png)
 
@@ -579,11 +960,13 @@ Nos Mapas Azure, os polilinas são chamados `LineString` ou `MultiLineString` ob
 
 A largura do traçado e as unidades "pixel" da matriz de traços no Azure Maps Web SDK, é a mesma que no serviço Google Maps. Ambos aceitam os mesmos valores para produzir os mesmos resultados.
 
+::: zone pivot="programming-language-java-android"
+
 ```java
 mapControl.onReady(map -> {
     //Create a data source and add it to the map.
-    DataSource dataSource = new DataSource();
-    map.sources.add(dataSource);
+    DataSource source = new DataSource();
+    map.sources.add(source);
 
     //Create an array of points.
     List<Point> points = Arrays.asList(
@@ -592,15 +975,44 @@ mapControl.onReady(map -> {
         Point.fromLngLat(-121, 46));
 
     //Create a LineString feature and add it to the data source.
-    dataSource.add(Feature.fromGeometry(LineString.fromLngLats(points)));
+    source.add(Feature.fromGeometry(LineString.fromLngLats(points)));
 
     //Create a line layer and add it to the map.
-    map.layers.add(new LineLayer(dataSource,
+    map.layers.add(new LineLayer(source,
         strokeColor("red"),
         strokeWidth(4f),
         strokeDashArray(new Float[]{3f, 3f})));
 });
 ```
+
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+mapControl!!.onReady { map: AzureMap ->
+    //Create a data source and add it to the map.
+    val source = DataSource()
+    map.sources.add(source)
+
+    //Create an array of points.
+    val points = Arrays.asList(
+        Point.fromLngLat(-123, 46),
+        Point.fromLngLat(-122, 49),
+        Point.fromLngLat(-121, 46))
+
+    //Create a LineString feature and add it to the data source.
+    source.add(Feature.fromGeometry(LineString.fromLngLats(points)))
+
+    //Create a line layer and add it to the map.
+    map.layers.add(LineLayer(source,
+        strokeColor("red"),
+        strokeWidth(4f),
+        strokeDashArray(new Float[]{3f, 3f})))
+}
+```
+
+::: zone-end
 
 ![Polilina Azure Maps](media/migrate-google-maps-android-app/azure-maps-polyline.png)
 
@@ -611,6 +1023,8 @@ Os polígonos são usados para representar uma área no mapa. Os próximos exemp
 ### <a name="before-google-maps"></a>Antes: Google Maps
 
 Com o Google Maps, renderega um polígono usando a `PolygonOptions` classe. Adicione o polígono ao mapa utilizando o `addPolygon` método. Desa estale as cores de preenchimento e de traçado utilizando as `fillColor` `strokeColor` e opções, respectivamente. Desa estale a largura do curso utilizando a `strokeWidth` opção.
+
+::: zone pivot="programming-language-java-android"
 
 ```java
 @Override
@@ -632,6 +1046,31 @@ public void onMapReady(GoogleMap googleMap) {
 }
 ```
 
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+public override fun onMapReady(googleMap: GoogleMap) {
+    mapView = googleMap;
+
+    //Create the options for the polygon.
+    val polygonOptions = PolygonOptions()
+        .add(new LatLng(46, -123))
+        .add(new LatLng(49, -122))
+        .add(new LatLng(46, -121))
+        .add(new LatLng(46, -123))  //Close the polygon.
+        .fillColor(Color.argb(128, 0, 128, 0))
+        .strokeColor(Color.RED)
+        .strokeWidth(5f)
+
+    //valAdd the polygon to the map.
+    Polygon polygon = mapView.addPolygon(polygonOptions)
+}
+```
+
+::: zone-end
+
 ![Polígono do Google Maps](media/migrate-google-maps-android-app/google-maps-polygon.png)
 
 ### <a name="after-azure-maps"></a>Depois: Mapas Azure
@@ -640,11 +1079,13 @@ No Azure Maps, adicione `Polygon` e `MultiPolygon` objetos a uma fonte de dados 
 
 A largura do curso e as unidades de "pixel" da matriz de traços em Azure Maps Web SDK alinham-se com as respetivas unidades no Google Maps. Ambos aceitam os mesmos valores e produzem os mesmos resultados.
 
+::: zone pivot="programming-language-java-android"
+
 ```java
 mapControl.onReady(map -> {
     //Create a data source and add it to the map.
-    DataSource dataSource = new DataSource();
-    map.sources.add(dataSource);
+    DataSource source = new DataSource();
+    map.sources.add(source);
 
     //Create an array of point arrays to create polygon rings.
     List<List<Point>> rings = Arrays.asList(Arrays.asList(
@@ -654,19 +1095,53 @@ mapControl.onReady(map -> {
         Point.fromLngLat(-123, 46)));
 
     //Create a Polygon feature and add it to the data source.
-    dataSource.add(Feature.fromGeometry(Polygon.fromLngLats(rings)));
+    source.add(Feature.fromGeometry(Polygon.fromLngLats(rings)));
 
     //Add a polygon layer for rendering the polygon area.
-    map.layers.add(new PolygonLayer(dataSource,
+    map.layers.add(new PolygonLayer(source,
         fillColor("green"),
         fillOpacity(0.5f)));
 
     //Add a line layer for rendering the polygon outline.
-    map.layers.add(new LineLayer(dataSource,
+    map.layers.add(new LineLayer(source,
         strokeColor("red"),
         strokeWidth(2f)));
 });
 ```
+
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+mapControl!!.onReady { map: AzureMap ->
+    //Create a data source and add it to the map.
+    val source = DataSource()
+    map.sources.add(source)
+
+    //Create an array of point arrays to create polygon rings.
+    val rings = Arrays.asList(Arrays.asList(
+        Point.fromLngLat(-123, 46),
+        Point.fromLngLat(-122, 49),
+        Point.fromLngLat(-121, 46),
+        Point.fromLngLat(-123, 46)))
+
+    //Create a Polygon feature and add it to the data source.
+    source.add(Feature.fromGeometry(Polygon.fromLngLats(rings)))
+
+    //Add a polygon layer for rendering the polygon area.
+    map.layers.add(PolygonLayer(source,
+        fillColor("green"),
+        fillOpacity(0.5f)))
+
+    //Add a line layer for rendering the polygon outline.
+    map.layers.add(LineLayer(source,
+        strokeColor("red"),
+        strokeWidth(2f)))
+}
+```
+
+::: zone-end
 
 ![Polígono Azure Maps](media/migrate-google-maps-android-app/azure-maps-polygon.png)
 
@@ -678,7 +1153,9 @@ Os exemplos a seguir sobrepõem uma camada de azulejos de radar meteorológico d
 
 ### <a name="before-google-maps"></a>Antes: Google Maps
 
-Com o Google Maps, uma camada de azulejos pode ser sobreposta no topo do mapa. Usa a `TileOverlayOptions` aula. Adicione a camada de azulejo ao mapa utilizando o `addTileLauer` método. Para tornar os azulejos semi-transparentes, a `transparency` opção é definida em 0,2, ou 20% transparente.
+Com o Google Maps, uma camada de azulejos pode ser sobreposta no topo do mapa. Usa a `TileOverlayOptions` aula. Adicione a camada de azulejo ao mapa utilizando o `addTileLayer` método. Para tornar os azulejos semi-transparentes, a `transparency` opção é definida em 0,2, ou 20% transparente.
+
+::: zone pivot="programming-language-java-android"
 
 ```java
 @Override
@@ -705,6 +1182,38 @@ public void onMapReady(GoogleMap googleMap) {
 }
 ```
 
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+public override fun onMapReady(googleMap: GoogleMap) {
+    mapView = googleMap
+    //Create the options for the tile layer.
+    val tileLayer: TileOverlayOptions = TileOverlayOptions()
+        .tileProvider(object : UrlTileProvider(256, 256) {
+            fun getTileUrl(x: Int, y: Int, zoom: Int): URL? {
+                return try { //Define the URL pattern for the tile images.
+                    URL(
+                        String.format(
+                            "https://mesonet.agron.iastate.edu/cache/tile.py/1.0.0/nexrad-n0q-900913/%d/%d/%d.png",
+                            zoom,
+                            x,
+                            y
+                        )
+                    )
+                } catch (e: MalformedURLException) {
+                    throw AssertionError(e)
+                }
+            }
+        }).transparency(0.2f)
+    //Add the tile layer to the map.
+    mapView.addTileOverlay(tileLayer)
+}
+```
+
+::: zone-end
+
 ![Camada de azulejo do Google Maps](media/migrate-google-maps-android-app/google-maps-tile-layer.png)
 
 ### <a name="after-azure-maps"></a>Depois: Mapas Azure
@@ -713,6 +1222,8 @@ Uma camada de azulejo pode ser adicionada ao mapa de uma forma semelhante a qual
 
 > [!TIP]
 > Em Azure Maps, é conveniente renderizar camadas abaixo de outras camadas, incluindo camadas de mapa base. Além disso, é muitas vezes desejável tornar as camadas de azulejos abaixo dos rótulos do mapa para que sejam fáceis de ler. O `map.layers.add` método requer um segundo parâmetro que é o id da camada em que inserir a nova camada abaixo. Para inserir uma camada de azulejos abaixo das etiquetas do mapa, pode utilizar-se o seguinte código: `map.layers.add(myTileLayer, "labels");`
+
+::: zone pivot="programming-language-java-android"
 
 ```java
 mapControl.onReady(map -> {
@@ -725,6 +1236,23 @@ mapControl.onReady(map -> {
 });
 ```
 
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+mapControl!!.onReady { map: AzureMap ->
+    //Add a tile layer to the map, below the map labels.
+    map.layers.add(TileLayer(
+        tileUrl("https://mesonet.agron.iastate.edu/cache/tile.py/1.0.0/nexrad-n0q-900913/{z}/{x}/{y}.png"),
+        opacity(0.8f),
+        tileSize(256)
+    ), "labels")
+}
+```
+
+::: zone-end
+
 ![Camada de azulejos Azure Maps](media/migrate-google-maps-android-app/azure-maps-tile-layer.png)
 
 ## <a name="show-traffic"></a>Mostrar trânsito
@@ -735,6 +1263,8 @@ Tanto o Azure Maps como o Google Maps têm opções para sobrepor dados de tráf
 
 Com o Google Maps, os dados de fluxo de tráfego podem ser sobrepostos no topo do mapa, passando fiel ao método do `setTrafficEnabled` mapa.
 
+::: zone pivot="programming-language-java-android"
+
 ```java
 @Override
 public void onMapReady(GoogleMap googleMap) {
@@ -744,11 +1274,27 @@ public void onMapReady(GoogleMap googleMap) {
 }
 ```
 
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+public override fun onMapReady(googleMap: GoogleMap) {
+    mapView = googleMap
+
+    mapView.setTrafficEnabled(true)
+}
+```
+
+::: zone-end
+
 ![Tráfego do Google Maps](media/migrate-google-maps-android-app/google-maps-traffic.png)
 
 ### <a name="after-azure-maps"></a>Depois: Mapas Azure
 
 O Azure Maps oferece várias opções diferentes para exibir tráfego. Incidentes de trânsito, como encerramentos de estradas e acidentes, podem ser exibidos como ícones no mapa. O fluxo de tráfego e as estradas codificadas por cores podem ser sobrepostas no mapa. As cores podem ser modificadas para aparecerem em relação ao limite de velocidade registado, em relação ao atraso normal esperado, ou ao atraso absoluto. Os dados do incidente no Azure Maps são atualizados a cada minuto e os dados de fluxo são atualizados a cada dois minutos.
+
+::: zone pivot="programming-language-java-android"
 
 ```java
 mapControl.onReady(map -> {
@@ -757,6 +1303,20 @@ mapControl.onReady(map -> {
         flow(TrafficFlow.RELATIVE));
 });
 ```
+
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+mapControl!!.onReady { map: AzureMap ->
+    map.setTraffic(
+        incidents(true),
+        flow(TrafficFlow.RELATIVE))
+}
+```
+
+::: zone-end
 
 ![Tráfego Azure Maps](media/migrate-google-maps-android-app/azure-maps-traffic.png)
 

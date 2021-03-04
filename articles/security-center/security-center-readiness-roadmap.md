@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/03/2018
 ms.author: memildin
-ms.openlocfilehash: fcaf427c2e0ab275a5a6e08306dda785bca690d6
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: e4f905b7a08564eadb20d65d651c137ef3741376
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92784172"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102100326"
 ---
 # <a name="azure-security-center-readiness-roadmap"></a>Roteiro de prontidão do Centro de Segurança Azure
 Este documento fornece um plano de preparação que irá ajudá-lo a começar a utilizar o Centro de Segurança do Azure.
@@ -59,7 +59,6 @@ O Centro de Segurança recolhe, analisa e integra automaticamente dados de regis
 Utilize os seguintes recursos para ajudá-lo a gerir alertas de segurança e proteger os seus recursos.
 
 Artigos    
-- [Monitorização de estado de funcionamento de segurança no Centro de Segurança do Azure](./security-center-monitoring.md)
 - [Proteger a sua rede no Centro de Segurança do Azure](./security-center-network-recommendations.md)
 - [Proteger o serviço SQL do Azure e os dados no Centro de Segurança do Azure](./security-center-remediate-recommendations.md)
 

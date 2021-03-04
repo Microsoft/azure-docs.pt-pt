@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 79a428c322b65bfbb982be7a7e0c8b9fab7eed18
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 3f358bebc1cc4eb17b8c50b1e3a13366717ae98c
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98132737"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102100717"
 ---
 # <a name="introduction-to-azure-defender-for-container-registries"></a>Introdução ao Azure Defender dos registos de contentores
 
@@ -73,15 +73,15 @@ A imagem é retirada do registo. É então executado numa caixa de areia isolada
 O Centro de Segurança filtra e classifica as descobertas do scanner. Quando uma imagem é saudável, o Centro de Segurança marca-a como tal. O Centro de Segurança gera recomendações de segurança apenas para imagens que têm problemas a resolver. Ao notificar apenas quando há problemas, o Centro de Segurança reduz o potencial de alertas informativos indesejados.
 
 ### <a name="can-i-get-the-scan-results-via-rest-api"></a>Posso obter os resultados da digitalização através da REST API?
-Yes. Os resultados encontram-se em [API REST das Subavaliações](/rest/api/securitycenter/subassessments/list/). Além disso, pode utilizar o Azure Resource Graph (ARG), a API semelhante a Kusto para todos os seus recursos: uma consulta pode obter uma digitalização específica.
+Sim. Os resultados encontram-se em [API REST das Subavaliações](/rest/api/securitycenter/subassessments/list/). Além disso, pode utilizar o Azure Resource Graph (ARG), a API semelhante a Kusto para todos os seus recursos: uma consulta pode obter uma digitalização específica.
 
 ### <a name="what-registry-types-are-scanned-what-types-are-billed"></a>Que tipos de registo são digitalizados? Que tipos são cobrados?
-Para obter uma lista dos tipos de registos de contentores suportados pelo Azure Defender para registos de contentores, consulte [Disponibilidade](defender-for-container-registries-usage.md#availability).
+Para obter uma lista dos tipos de registos de contentores suportados pelo Azure Defender para registos de contentores, consulte [Disponibilidade](#availability).
 
 Se ligar registos não suportados à sua assinatura Azure, eles não serão digitalizados e não será cobrado por eles.
 
 ### <a name="can-i-customize-the-findings-from-the-vulnerability-scanner"></a>Posso personalizar as descobertas do scanner de vulnerabilidade?
-Yes. Se tiver uma necessidade organizacional de ignorar uma descoberta, em vez de remediar, pode desativá-la opcionalmente. As descobertas desativadas não afetam a sua pontuação segura ou geram ruídos indesejados.
+Sim. Se tiver uma necessidade organizacional de ignorar uma descoberta, em vez de remediar, pode desativá-la opcionalmente. As descobertas desativadas não afetam a sua pontuação segura ou geram ruídos indesejados.
 
 [Saiba como criar regras para desativar as descobertas da ferramenta integrada de avaliação de vulnerabilidades.](defender-for-container-registries-usage.md#disable-specific-findings-preview)
 

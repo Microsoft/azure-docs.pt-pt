@@ -3,12 +3,12 @@ title: Visão geral do Backup Center
 description: Este artigo fornece uma visão geral do Backup Center for Azure.
 ms.topic: conceptual
 ms.date: 09/30/2020
-ms.openlocfilehash: 0acf3a17e41b89b462a7fb07c5d3ebd55d4052af
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: fee7bf41d0c72238231d9c4aba52a26cac9fb960
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101725378"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102100003"
 ---
 # <a name="overview-of-backup-center"></a>Visão geral do Backup Center
 
@@ -27,7 +27,7 @@ Alguns dos principais benefícios do Backup Center incluem:
 
 ## <a name="get-started"></a>Introdução
 
-Para começar a utilizar o Backup Center, procure o **Backup Center** no portal Azure e navegue para o painel **de instrumentos do Backup Center (Preview).**
+Para começar a utilizar o Backup Center, procure o **Backup Center** no portal Azure e navegue para o painel do **Backup Center.**
 
 ![Pesquisa de backup center](./media/backup-center-overview/backup-center-search.png)
 
@@ -37,7 +37,7 @@ O primeiro ecrã que vê é a **Visão Geral.** Contém dois azulejos - **Casos 
 
 No azulejo **Jobs,** você tem uma visão resumida de todos os backups e restaurar empregos relacionados que foram desencadeados em toda a sua propriedade de reserva nas últimas 24 horas. Pode ver informações sobre o número de postos de trabalho que concluíram, falharam e estão em curso. A seleção de qualquer um dos números deste azulejo permite-lhe visualizar mais informações sobre trabalhos para um determinado tipo de fonte de dados, tipo de operação e estado.
 
-No azulejo **de Back Instances,** obtém uma visão resumida de todas as instâncias de backup em toda a sua propriedade de reserva. Por exemplo, pode ver o número de casos de backup que estão em estado de apagação suave em comparação com o número de casos que ainda estão configurados para proteção. A seleção de qualquer um dos números deste azulejo permite-lhe visualizar mais informações sobre casos de backup para um determinado tipo de fonte de dados e estado de proteção.
+No azulejo **de Back Instances,** obtém uma visão resumida de todas as instâncias de backup em toda a sua propriedade de reserva. Por exemplo, pode ver o número de casos de backup que estão em estado de apagação suave em comparação com o número de casos que ainda estão configurados para proteção. A seleção de qualquer um dos números deste azulejo permite-lhe visualizar mais informações sobre casos de backup para um determinado tipo de fonte de dados e estado de proteção. Também pode ver todas as instâncias de backup cuja fonte de dados subjacente não seja encontrada (a fonte de dados pode ser eliminada, ou pode não ter acesso à fonte de dados).
 
 Veja o seguinte vídeo para entender as capacidades do Backup Center:
 

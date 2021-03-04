@@ -1,15 +1,16 @@
 ---
 title: Implementar consórcio de tecidos hiper-iniciantes no serviço Azure Kubernetes
 description: Como implementar e configurar uma rede de consórcios Hyperledger Fabric no Serviço Azure Kubernetes
-ms.date: 01/08/2021
+ms.date: 03/01/2021
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: c0e7f3e7ab83f64cebd990de57d48c97891edb7f
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.custom: contperf-fy21q3
+ms.openlocfilehash: 42d16adbc5e6396c8d5d38176ac7681c712f4555
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897263"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102101108"
 ---
 # <a name="deploy-hyperledger-fabric-consortium-on-azure-kubernetes-service"></a>Implementar consórcio de tecidos hiper-iniciantes no serviço Azure Kubernetes
 
@@ -31,34 +32,6 @@ Opção | Modelo de serviço | Caso de uso comum
 Modelos de solução | IaaS | Os modelos de solução são modelos do Gestor de Recursos Azure que pode utilizar para providenciar uma topologia de rede blockchain totalmente configurada. Os modelos implementam e configuram os serviços de computação, networking e armazenamento do Microsoft Azure para um tipo de rede blockchain. Os modelos de solução são fornecidos sem um acordo de nível de serviço. Utilize a [página microsoft Q&A](/answers/topics/azure-blockchain-workbench.html) para suporte.
 [Azure Blockchain Service](../service/overview.md) | PaaS | A antevisão do serviço Azure Blockchain simplifica a formação, gestão e governação das redes blockchain do consórcio. Utilize o Serviço Azure Blockchain para soluções que exijam PaaS, gestão de consórcios ou privacidade de contratos e transações.
 [Azure Blockchain Workbench](../workbench/overview.md) | IaaS e PaaS | A Azure Blockchain Workbench Preview é uma coleção de serviços e capacidades da Azure que o ajudam a criar e implementar aplicações blockchain para partilhar processos de negócio e dados com outras organizações. Utilize a Azure Blockchain Workbench para prototipar uma solução blockchain ou uma prova de conceito para uma aplicação blockchain. A Azure Blockchain Workbench é fornecida sem um acordo de nível de serviço. Utilize a [página microsoft Q&A](/answers/topics/azure-blockchain-workbench.html) para suporte.
-
-## <a name="hyperledger-fabric-consortium-architecture"></a>Arquitetura do consórcio de tecido hiper-ledger
-
-Para construir uma rede de tecido hiper-ledger em Azure, você precisa implementar um serviço de encomendas e organização com nós de pares. Ao utilizar o tecido hiper-ledger no modelo de solução de serviço Azure Kubernetes, pode criar nós de encomenda ou pares. Tem de implantar o modelo para cada nó que pretende criar.
-
-Os componentes fundamentais que são criados como parte da implementação do modelo são:
-
-- **Nós do orderer**: Um nó responsável pela encomenda de transações no livro de contabilidade. Juntamente com outros nós, os nós ordenados formam o serviço de encomenda da rede Hyperledger Fabric.
-
-- **Nó de pares**: Um nó que acolhe principalmente livros-razões e contratos inteligentes, que são elementos fundamentais da rede.
-
-- **Fabric CA**: A autoridade de certificados (CA) para o Tecido Hiper-ledger. O Fabric CA permite-lhe inicializar e iniciar um processo de servidor que acolhe a autoridade do certificado. Permite-lhe gerir identidades e certificados. Cada cluster AKS implantado como parte do modelo terá uma cápsula Fabric CA por padrão.
-
-- **CouchDB ou LevelDB**: Bases de dados do estado mundial para os nós pares. LevelDB é a base de dados de estado padrão incorporada no nó de pares. Armazena dados de código de corrente como simples pares chave/valor e suporta chaves, gama de chaves e consultas de chaves compostas apenas. CouchDB é uma base de dados alternativa opcional que suporta consultas ricas quando os valores de dados de código de corrente são modelados como JSON.
-
-O modelo na implementação gira vários recursos Azure na sua subscrição. Os recursos Azure implantados são:
-
-- **Cluster AKS**: Cluster de serviço Azure Kubernetes configurado de acordo com os parâmetros de entrada fornecidos pelo cliente. O cluster AKS tem várias cápsulas configuradas para executar os componentes da rede Hyperledger Fabric. As cápsulas criadas são:
-
-  - **Ferramentas de** tecido : Ferramentas responsáveis pela configuração dos componentes do Tecido Hiper-conjugador.
-  - **Cápsulas de encomenda/pares**: Os nós da rede Hyperledger Fabric.
-  - **Proxy**: Um casulo de procuração NGNIX através do qual as aplicações do cliente podem comunicar com o cluster AKS.
-  - **Fabric CA**: A cápsula que executa o Fabric CA.
-- **PostgreSQL**: Caso de base de dados que mantém as identidades da Fabric CA.
-
-- **Cofre chave**: Exemplo do serviço Azure Key Vault que está implantado para salvar as credenciais de Fabric CA e os certificados de raiz fornecidos pelo cliente. O cofre é utilizado em caso de nova operação de implantação do modelo, para manusear a mecânica do modelo.
-- **Disco gerido**: Exemplo do serviço Azure Managed Disks que fornece uma loja persistente para o livro de contabilidade e para a base de dados do estado mundial do nó de pares.
-- **IP público**: Ponto final do cluster AKS implantado para comunicação com o cluster.
 
 ## <a name="deploy-the-orderer-and-peer-organization"></a>Implementar a organização de encomendas e pares
 
@@ -85,10 +58,10 @@ Para começar com a implantação de componentes de rede Hyperledger Fabric, ace
     - **Nome da organização**: Introduza o nome da organização Hyperledger Fabric, que é necessária para várias operações de data plane. O nome da organização tem de ser único por implantação.
     - **Componente de rede de** tecido : Escolha o **serviço de encomenda** ou os **nós peer,** com base no componente da rede blockchain que pretende configurar.
     - Número de nós : **Seguem-se** os dois tipos de nós:
-        - **Serviço de encomendas**: Selecione o número de nós para proporcionar tolerância a falhas à rede. A contagem de nós de ordem apoiada é 3, 5 e 7.
-        - **Nó de pares**: Pode escolher 1 a 10 nós com base na sua exigência.
-    - **Base de dados do estado do nó de pares:** Escolha entre LevelDB e CouchDB. Este campo é apresentado quando escolhe **nós Peer** na lista de drop-down de componentes da rede **De Tecido.**
-    - **Nome de utilizador Ca do tecido**: Introduza o nome de utilizador utilizado para a autenticação do Fabric CA.
+        - **Serviço de encomenda**: Nó responsáveis pela encomenda de transações no livro-razão. Selecione o número de nós para fornecer tolerância a falhas à rede. A contagem de nós de ordem apoiada é 3, 5 e 7.
+        - **Nó de pares**: Nós que acolhem livros e contratos inteligentes. Pode escolher 1 a 10 nós com base na sua exigência.
+    - **Base de dados do estado do nó de pares**: Bases de dados do Estado mundial para os nós dos pares. LevelDB é a base de dados de estado padrão incorporada no nó de pares. Armazena dados de código de corrente como simples pares chave/valor e suporta chaves, gama de chaves e consultas de chaves compostas apenas. CouchDB é uma base de dados alternativa opcional que suporta consultas ricas quando os valores de dados de código de corrente são modelados como JSON. Este campo é apresentado quando escolhe **nós Peer** na lista de drop-down de componentes da rede **De Tecido.**
+    - **Nome de utilizador Fabric CA**: A autoridade do certificado de tecido permite-lhe inicializar e iniciar um processo de servidor que acolhe a autoridade do certificado. Permite-lhe gerir identidades e certificados. Cada cluster AKS implantado como parte do modelo terá uma cápsula Fabric CA por padrão. Introduza o nome de utilizador utilizado para a autenticação fabricac ca.
     - **Senha ca do tecido**: Introduza a palavra-passe para autenticação Fabric CA.
     - **Confirme a palavra-passe**: Confirme a palavra-passe Fabric CA.
     - **Certificados**: Se pretender utilizar os seus próprios certificados de raiz para rubricar o Fabric CA, escolha o certificado de raiz upload para a opção **Fabric CA.** Caso contrário, o Fabric CA cria certificados auto-assinados por padrão.
@@ -96,11 +69,21 @@ Para começar com a implantação de componentes de rede Hyperledger Fabric, ace
     - **Chave privada do Certificado de Raiz**: Carre faça o upload da chave privada do certificado raiz. Se tiver um certificado .pem, que tem uma chave combinada pública e privada, faça o upload aqui também.
 
 
-6. Selecione o **separador definições do cluster AKS** para definir a configuração do cluster do Serviço Azure Kubernetes que é a infraestrutura subjacente à qual serão configurado os componentes da rede Hyperledger Fabric.
+6. Selecione o **separador definições do cluster AKS** para definir a configuração do cluster do serviço Azure Kubernetes. O cluster AKS tem várias cápsulas configuradas para executar os componentes da rede Hyperledger Fabric. Os recursos Azure implantados são:
+
+    - **Ferramentas de** tecido : Ferramentas responsáveis pela configuração dos componentes do Tecido Hiper-conjugador.
+    - **Cápsulas de encomenda/pares**: Os nós da rede Hyperledger Fabric.
+    - **Proxy**: Um casulo de procuração NGNIX através do qual as aplicações do cliente podem comunicar com o cluster AKS.
+    - **Fabric CA**: A cápsula que executa o Fabric CA.
+    - **PostgreSQL**: Caso de base de dados que mantém as identidades da Fabric CA.
+    - **Cofre chave**: Exemplo do serviço Azure Key Vault que está implantado para salvar as credenciais de Fabric CA e os certificados de raiz fornecidos pelo cliente. O cofre é utilizado em caso de nova operação de implantação do modelo, para manusear a mecânica do modelo.
+    - **Disco gerido**: Exemplo do serviço Azure Managed Disks que fornece uma loja persistente para o livro de contabilidade e para a base de dados do estado mundial do nó de pares.
+    - **IP público**: Ponto final do cluster AKS implantado para comunicação com o cluster.
+
+    Introduza os seguintes detalhes: 
 
     ![Screenshot que mostra o separador de definições do cluster A K S.](./media/hyperledger-fabric-consortium-azure-kubernetes-service/create-for-hyperledger-fabric-aks-cluster-settings-1.png)
 
-7. Introduza os seguintes detalhes:
     - **Nome do cluster Kubernetes**: Mude o nome do cluster AKS, se necessário. Este campo é pré-voizado com base no prefixo de recursos fornecido.
     - **Versão Kubernetes**: Escolha a versão de Kubernetes que será implantada no cluster. Com base na região que selecionou no separador **Básicos,** as versões suportadas disponíveis podem mudar.
     - **Prefixo DNS**: Introduza um prefixo de nome do Sistema de Nome de Domínio (DNS) para o cluster AKS. Utilizará o DNS para ligar à API de Kubernetes ao gerir os contentores depois de criar o cluster.
@@ -334,7 +317,7 @@ Executar o seguinte comando para instalar o código de corrente na organização
 ```
 O comando instalará o código de corrente em todos os nós pares da organização de pares definidos na `ORGNAME` variável ambiental. Se duas ou mais organizações de pares estiverem no seu canal e pretender instalar o código de corrente em todas elas, execute este comando separadamente para cada organização de pares.  
 
-Siga estes passos.  
+Siga estes passos:  
 
 1.  Definir `ORGNAME` e de acordo com e executar o `USER_IDENTITY` `peerOrg1` `./azhlf chaincode install` comando.  
 2.  Definir `ORGNAME` e de acordo com e executar o `USER_IDENTITY` `peerOrg2` `./azhlf chaincode install` comando.  

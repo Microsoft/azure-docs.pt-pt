@@ -7,12 +7,12 @@ ms.date: 12/07/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 957e39f7629337182c3e19a1a514c42883666301
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: dffb505719e6778adfdd8e99f62790df9ebd615a
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98797005"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102100700"
 ---
 # <a name="introduction-to-azure-defender-for-dns"></a>Introdução ao Azure Defender para DNS
 
@@ -28,8 +28,8 @@ O Azure Defender for DNS fornece uma camada adicional de proteção para os seus
 |Aspeto|Detalhes|
 |----|:----|
 |Estado de libertação:|Pré-visualizar<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
-|Preços:|**Azure Defender para DNS** é faturado como mostrado [na página de preços](security-center-pricing.md)|
-|Nuvens:|![Yes](./media/icons/yes-icon.png) Nuvens comerciais<br>![No](./media/icons/no-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
+|Preços:|**Azure Defender para DNS** é faturado como mostrado nos [preços do Security Center](https://azure.microsoft.com/pricing/details/security-center/)|
+|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Não](./media/icons/no-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
 |||
 
 ## <a name="what-are-the-benefits-of-azure-defender-for-dns"></a>Quais são os benefícios do Azure Defender para o DNS?
@@ -47,14 +47,14 @@ Uma lista completa dos alertas fornecidos pelo Azure Defender para o DNS está n
 
 O Azure Defender para o DNS não usa nenhum agente. 
 
-Para proteger a sua camada de DNS, ative o Azure Defender para DNS para cada uma das suas subscrições, conforme descrito no [Enable Azure Defender](security-center-pricing.md#enable-azure-defender).
+Para proteger a sua camada de DNS, ative o Azure Defender para DNS para cada uma das suas subscrições, conforme descrito no [Enable Azure Defender](enable-azure-defender.md).
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu sobre o Azure Defender para o DNS. Para material relacionado, consulte o seguinte artigo: 
 
 - Os alertas de segurança podem ser gerados pelo Security Center ou recebidos pelo Security Center a partir de diferentes produtos de segurança. Para exportar todos estes alertas para a Azure Sentinel, qualquer SIEM de terceiros, ou qualquer outra ferramenta externa, siga as instruções em [alertas de exportação para um SIEM](continuous-export.md).
 
 - > [!div class="nextstepaction"]
-    > [Ativar o Azure Defender](security-center-pricing.md#enable-azure-defender)
+    > [Ativar o Azure Defender](enable-azure-defender.md)

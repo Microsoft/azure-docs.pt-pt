@@ -3,12 +3,12 @@ title: Aceda aos recursos comunitários usando o Backup Center
 description: Use o Backup Center para aceder a modelos de amostras, scripts e pedidos de funcionalidades
 ms.topic: conceptual
 ms.date: 02/18/2021
-ms.openlocfilehash: ee377ed393aa4afe1f41d243230686020f5825aa
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 23892c11df26bd3799ca247ef31a7d4c1b6e8bf5
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101747179"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102100037"
 ---
 # <a name="access-community-resources-using-backup-center"></a>Aceda aos recursos comunitários usando o Backup Center
 
@@ -26,7 +26,7 @@ Alguns dos recursos disponíveis através do Hub Comunitário são:
 
 - **Pedidos de funcionalidades**: Pode navegar para o UserVoice e solicitar pedidos de funcionalidades de ficheiro.
 
-- **Amostras para implementações automatizadas**: Utilizando o Hub Comunitário, pode descobrir modelos de gestão de recursos Azure (ARM) e Políticas de Azure que pode utilizar fora da caixa. Também pode encontrar scripts PowerShell, comandos CLI e scripts MSDB.
+- **Amostras para implementações automatizadas**: Utilizando o Hub Comunitário, pode descobrir modelos de gestão de recursos Azure (ARM) e Políticas de Azure que pode utilizar fora da caixa. Também pode encontrar scripts PowerShell, comandos CLI e backup de bases de dados da Microsoft.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

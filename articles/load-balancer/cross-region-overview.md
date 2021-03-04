@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: allensu
 ms.custom: references_regions
-ms.openlocfilehash: 64432e2717057c1ff6bb09e0158ddb779d5b5373
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 272fb0a27cf57483af6c07373e35a30f7f6e1c4b
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101742607"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102101380"
 ---
 # <a name="cross-region-load-balancer-preview"></a>Balanceador de carga transversal (Pré-visualização)
 
@@ -143,7 +143,7 @@ O balançador de carga transversal encaminha o tráfego para o equilibrador regi
 
 * Uma sonda de saúde não pode ser configurada atualmente. Uma sonda de saúde predefinida recolhe automaticamente informações de disponibilidade sobre o balançador regional de carga a cada 20 segundos. 
 
-* A integração com o Serviço Azure Kubernetes (AKS) não está disponível atualmente. A perda de conectividade ocorrerá ao implantar um equilibrador de carga transversal com o equilibrador de carga público AKS.
+* A integração com o Serviço Azure Kubernetes (AKS) não está disponível atualmente. A perda de conectividade ocorrerá ao implantar um equilibrador de carga transversal com o equilibrador de carga Standard com o cluster AKS implantado no backend.
 
 ## <a name="pricing-and-sla"></a>Preços e SLA
 Balanceador de carga transversal, partilha o [SLA](https://azure.microsoft.com/support/legal/sla/load-balancer/v1_0/ ) do balanceador de carga padrão.
