@@ -1,17 +1,16 @@
 ---
 title: Monitorizar a saúde do espaço de trabalho log Analytics no Azure Monitor
 description: Descreve como monitorizar a saúde do seu espaço de trabalho Log Analytics utilizando dados na tabela Operação.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/20/2020
-ms.openlocfilehash: 09df1c2ecb94089f23a88dd36c5343bb4cf2feea
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 9eda0acc15badfe7bb2e754d887786aa990d6e24
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101710945"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102034970"
 ---
 # <a name="monitor-health-of-log-analytics-workspace-in-azure-monitor"></a>Monitorizar a saúde do espaço de trabalho log Analytics no Azure Monitor
 Para manter o desempenho e disponibilidade do seu espaço de trabalho Log Analytics no Azure Monitor, é necessário ser capaz de detetar proativamente quaisquer problemas que surjam. Este artigo descreve como monitorizar a saúde do seu espaço de trabalho Log Analytics utilizando dados na tabela [Operação.](/azure/azure-monitor/reference/tables/operation) Esta tabela está incluída em todos os espaços de trabalho do Log Analytics e contém erros e avisos que ocorrem no seu espaço de trabalho. Deve rever regularmente estes dados e criar alertas para ser notificado proativamente quando houver incidentes importantes no seu espaço de trabalho.

@@ -3,12 +3,12 @@ title: Azure Service Bus Geo-disaster recovery | Microsoft Docs
 description: Como utilizar as regiões geográficas para falhar e recuperar desastres no Azure Service Bus
 ms.topic: article
 ms.date: 02/10/2021
-ms.openlocfilehash: 86d35465e5b31514f4d215095932b857ce7dcb35
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 3e8050cdaaae7e16a0f5125292df4b89b3690ed3
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100384335"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102035399"
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Recuperação de geo-desastre de autocarro de serviço Azure
 
@@ -47,11 +47,7 @@ São utilizados neste artigo os seguintes termos:
 -  *Pseudónimo :* O nome para uma configuração de recuperação de desastres que configura. O pseudónimo fornece uma única cadeia estável de nome de domínio totalmente qualificado (FQDN). As aplicações utilizam este fio de ligação de pseudónimo para ligar a um espaço de nome. A utilização de um pseudónimo garante que a cadeia de ligação se mantém inalterada quando a falha é acionada.
 
 -  *Espaço de nome primário/secundário*: Os espaços de nome que correspondem ao pseudónimo. O espaço de nome primário é "ativo" e recebe mensagens (este pode ser um espaço de nome existente ou novo). O espaço de nome secundário é "passivo" e não recebe mensagens. Os metadados entre ambos estão sincronizados, pelo que ambos podem aceitar mensagens sem qualquer código de aplicação ou alterações nas cordas de ligação. Para garantir que apenas o espaço de nome ativo recebe mensagens, deve utilizar o pseudónimo. 
-
-    > [!IMPORTANT]
-    > A funcionalidade de recuperação de geo-desastres requer que a subscrição e o grupo de recursos sejam os mesmos para espaços de nome primário e secundário.
 -  *Metadados*: Entidades como filas, tópicos e subscrições; e as suas propriedades do serviço que estão associados ao espaço de nome. Apenas as entidades e as suas configurações são replicadas automaticamente. As mensagens não são replicadas.
-
 -  *Failover*: O processo de ativação do espaço de nome secundário.
 
 ## <a name="setup"></a>Configuração
@@ -63,13 +59,13 @@ A seguinte secção é uma visão geral para configurar o emparelhamento entre o
 Primeiro cria-se ou usa-se um espaço de nome primário existente, e um novo espaço de nome secundário, em seguida, emparelha os dois. Este emparelhamento dá-lhe um pseudónimo que pode usar para ligar. Porque usas um pseudónimo, não tens de mudar as cordas de ligação. Apenas novos espaços de nome podem ser adicionados ao seu emparelhamento failover. 
 
 1. Crie o espaço de nome primário.
-1. Crie o espaço de nome secundário na subscrição e no grupo de recursos que tem o espaço de nome primário, mas numa região diferente. Este passo é opcional. Pode criar o espaço de nome secundário enquanto cria o emparelhamento no passo seguinte. 
+1. Crie o espaço de nome secundário numa região diferente. Este passo é opcional. Pode criar o espaço de nome secundário enquanto cria o emparelhamento no passo seguinte. 
 1. No portal Azure, navegue para o seu espaço de nome principal.
 1. Selecione **Geo-recuperação** no menu esquerdo e selecione Iniciar o **emparelhamento** na barra de ferramentas. 
 
     :::image type="content" source="./media/service-bus-geo-dr/primary-namspace-initiate-pairing-button.png" alt-text="Iniciar o emparelhamento a partir do espaço de nome primário":::    
 1. Na página **de emparelhamento Iniciar,** siga estes passos:
-    1. Selecione um espaço de nome secundário existente ou crie um na subscrição e no grupo de recursos que tem o espaço de nome primário. Neste exemplo, um espaço de nome existente é usado como espaço de nome secundário.  
+    1. Selecione um espaço de nome secundário existente ou crie um em uma região diferente. Neste exemplo, um espaço de nome existente é usado como espaço de nome secundário.  
     1. Para **Alias, insira** um pseudónimo para o emparelhamento geo-dr. 
     1. Em seguida, selecione **Criar**. 
 

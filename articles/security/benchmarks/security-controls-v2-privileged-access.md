@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 02/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: a4f1c6e32bbc679a7ec946384903b2bda3887d05
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 29d4acc50ed872c37268a0b21c3e34837249a026
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101720584"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102035421"
 ---
 # <a name="security-control-v2-privileged-access"></a>Controlo de Segurança V2: Acesso Privilegiado
 
 O Acesso Privilegiado cobre controlos para proteger o acesso privilegiado ao seu inquilino e recursos Azure. Isto inclui uma gama de controlos para proteger o seu modelo administrativo, contas administrativas e estações de trabalho privilegiadas de acesso contra riscos deliberados e inadvertidos.
 
-Para ver a política de Azure incorporada aplicável, consulte [detalhes da iniciativa Azure Security Benchmark Regulatory Compliance built-in: Privileged Access](../../governance/policy/samples/azure-security-benchmark#privileged-access)
+Para ver a política de Azure incorporada aplicável, consulte [detalhes da iniciativa Azure Security Benchmark Regulatory Compliance built-in: Privileged Access](../../governance/policy/samples/azure-security-benchmark.md#privileged-access)
 
 ## <a name="pa-1-protect-and-limit-highly-privileged-users"></a>PA-1: Proteger e limitar utilizadores com muitos privilégios
 
@@ -160,8 +160,6 @@ Utilize funcionalidades de gestão de direitos Azure AD para automatizar fluxos 
 Estações de trabalho seguras e isoladas são de importância crucial para a segurança de funções sensíveis como administrador, desenvolvedor e operador de serviços críticos. Utilize estações de trabalho de utilizador altamente seguras e/ou Bastião Azure para tarefas administrativas. Utilize o Azure Active Directory, a Proteção Avançada Contra Ameaças do Microsoft Defender (ATP) e/ou o Microsoft Intune para implementar uma estação de trabalho de utilizador gerida e segura para tarefas administrativas. As estações de trabalho seguras podem ser geridas centralmente para impor a configuração segura, incluindo a autenticação forte, linhas de base de software e hardware, e acesso lógico e de rede restrito. 
 
 - [Compreender estações de trabalho de acesso privilegiada](/security/compass/privileged-access-deployment)
-
-- [Implementar uma estação de trabalho de acesso privilegiado](../../active-directory/devices/howto-azure-managed-workstation)
 
 **Responsabilidade**: Cliente
 

@@ -1,17 +1,16 @@
 ---
 title: expressão de espaço de trabalho na consulta de registo do Monitor de Azure | Microsoft Docs
 description: A expressão do espaço de trabalho é usada numa consulta de registo do Azure Monitor para obter dados de um espaço de trabalho específico no mesmo grupo de recursos, outro grupo de recursos ou outra subscrição.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/10/2018
-ms.openlocfilehash: 34b1f850b262a0027d3a9cb2e926bcb2c8a49665
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 2f6eb3998c611cb7a72886d1c577c665d73cb5a2
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101710911"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102035573"
 ---
 # <a name="workspace-expression-in-azure-monitor-log-query"></a>expressão de espaço de trabalho na consulta de log do Monitor de Azure
 

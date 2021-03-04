@@ -25,8 +25,12 @@
       href: tutorial-respond-threats-playbook.md
 - name: Conceitos
   items:
-    - name: Atribuir permissões através de funções
-      href: roles.md
+    - name: Gerir o acesso
+      items:
+        - name: Permissões no Azure Sentinel
+          href: roles.md
+        - name: Gerir o acesso por recurso
+          href: resource-context-rbac.md
     - name: Deteção avançada de ataques em várias fases
       href: fusion.md
     - name: Trazer a sua própria plataforma de machine learning
@@ -236,7 +240,7 @@
           href: connect-azure-stack.md
         - name: Monitorizar o estado de funcionamento do conector de dados
           href: monitor-data-connector-health.md
-    - name: Ativar Análise de Comportamentos do Utilizador e da Entidade
+    - name: Ativar a análise de comportamento do utilizador e da entidade
       href: enable-entity-behavior-analytics.md
     - name: Gerir vários inquilinos (MSSP)
       href: multiple-tenants-service-providers.md
@@ -248,6 +252,8 @@
       href: create-incidents-from-alerts.md
     - name: Gerir melhor o SOC com métricas de incidentes
       href: manage-soc-with-incident-metrics.md
+    - name: Auditoria Azure Sentinel consultas e atividades
+      href: audit-sentinel-data.md
     - name: Investigação
       href: hunting.md
       items:
@@ -259,6 +265,8 @@
           href: livestream.md
     - name: Remover o Azure Sentinel
       href: offboard.md
+    - name: Implementar RBAC avançado
+      items: null
 - name: Referência
   items:
     - name: Funções RBAC do Azure
@@ -293,8 +301,8 @@
   items:
     - name: Recursos úteis
       href: resources.md
-    - name: 'Blogue sobre Segurança, Privacidade e Conformidade do Azure'
-      href: /archive/blogs/azuresecurity/
+    - name: Blog Azure Sentinel
+      href: 'https://techcommunity.microsoft.com/t5/azure-sentinel/bg-p/AzureSentinelBlog'
     - name: Disponibilidade regional
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=azure-sentinel'
     - name: Preços

@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 01/22/2021
+ms.date: 03/03/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: 277b1a46ad480be8313f6971dc600d3dd911c09d
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: b108e757ed9fe9ab7038cae4240f0f749ac19675
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98762350"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102036049"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-pro-with-gpu"></a>Tutorial: Prepare-se para implementar Azure Stack Edge Pro com GPU 
 
@@ -66,7 +66,7 @@ Seguem-se os pré-requisitos de configuração para o seu recurso Azure Stack Ed
 
 Antes de começar, certifique-se de que:
 
-- A subscrição do Microsoft Azure tem de estar ativada para um recurso do Azure Stack Edge. Certifique-se de que utilizou uma subscrição suportada, como [o Microsoft Enterprise Agreement (EA),](https://azure.microsoft.com/overview/sales-number/)o Cloud Solution Provider [(CSP)](/partner-center/azure-plan-lp)ou [o Microsoft Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/). Não são suportadas subscrições Pay as you go. Para identificar o tipo de subscrição Azure que tem, veja [o que é uma oferta Azure?](../cost-management-billing/manage/switch-azure-offer.md#what-is-an-azure-offer)
+- A subscrição do Microsoft Azure tem de estar ativada para um recurso do Azure Stack Edge. Certifique-se de que utilizou uma subscrição suportada, como [o Microsoft Enterprise Agreement (EA),](https://azure.microsoft.com/overview/sales-number/)o Cloud Solution Provider [(CSP)](/partner-center/azure-plan-lp)ou [o Microsoft Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/). As assinaturas pay-as-you-go não são suportadas. Para identificar o tipo de subscrição Azure que tem, veja [o que é uma oferta Azure?](../cost-management-billing/manage/switch-azure-offer.md#what-is-an-azure-offer)
 - Tem acesso ao proprietário ou colaborador a nível de grupo de recursos para os recursos Azure Stack Edge Pro/Data Box Gateway, IoT Hub e Azure Storage.
 
     - Para criar qualquer recurso Azure Stack Edge / Data Box Gateway, deverá ter permissões como contribuinte (ou superior) a nível de grupo de recursos. 
@@ -102,6 +102,8 @@ Antes de começar, certifique-se de que:
 ## <a name="create-a-new-resource"></a>Criar um novo recurso
 
 Se tiver um recurso Azure Stack Edge existente para gerir o seu dispositivo físico, ignore este passo e vá para [obter a chave de ativação](#get-the-activation-key).
+
+### <a name="portal"></a>[Portal](#tab/azure-portal)
 
 Para criar um recurso Azure Stack Edge, tome os seguintes passos no portal Azure.
 
@@ -143,7 +145,7 @@ Para criar um recurso Azure Stack Edge, tome os seguintes passos no portal Azure
 
         ![Criar um recurso 6](media/azure-stack-edge-gpu-deploy-prep/create-resource-6.png)
 
-    - Se este for o novo dispositivo que está a encomendar, insira o nome de contacto, a empresa, o endereço para enviar o dispositivo e as informações de contacto.
+    - Se este é o novo dispositivo que está a encomendar, insira o nome de contacto, a empresa, o endereço para enviar o dispositivo e as informações de contacto.
 
         ![Criar um recurso 7](media/azure-stack-edge-gpu-deploy-prep/create-resource-7.png)
 
@@ -172,6 +174,51 @@ Após a encomenda ser feita, a Microsoft revê a encomenda e contacta-o (via e-m
 
 Se encontrar problemas durante o processo de encomenda, consulte [problemas de ordem de resolução de problemas](azure-stack-edge-troubleshoot-ordering.md).
 
+### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
+Se necessário, prepare o seu ambiente para o Azure CLI.
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+Para criar um recurso Azure Stack Edge, execute os seguintes comandos em Azure CLI.
+
+1. Crie um grupo de recursos utilizando o [grupo az criar](/cli/azure/group#az_group_create) comando ou utilizar um grupo de recursos existente:
+
+   ```azurecli
+   az group create --name myasepgpu1 --location eastus
+   ```
+
+1. Para criar um dispositivo, utilize o [dispositivo az databoxedge criar](/cli/azure/databoxedge/device#az_databoxedge_device_create) comando:
+
+   ```azurecli
+   az databoxedge device create --resource-group myasepgpu1 \
+      --device-name myasegpu1 --location eastus --sku EdgeP_Base
+   ```
+
+   Escolha uma localização mais próxima da região geográfica onde pretende implementar o dispositivo. A região armazena apenas os metadados para a gestão do dispositivo. Os dados reais podem ser armazenados em qualquer conta de armazenamento.
+
+   Para obter uma lista de todas as regiões onde o recurso Azure Stack Edge está disponível, consulte [os produtos Azure disponíveis por região.](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all) Se utilizar o Governo de Azure, todas as regiões governamentais estão disponíveis, como mostra as regiões de [Azure.](https://azure.microsoft.com/global-infrastructure/regions/)
+
+1. Para criar uma encomenda, executar a [ordem az databoxedge criar](/cli/azure/databoxedge/order#az_databoxedge_order_create) comando:
+
+   ```azurecli 
+   az databoxedge order create --resource-group myasepgpu1 \
+      --device-name myasegpu1 --company-name "Contoso" \
+      --address-line1 "1020 Enterprise Way" --city "Sunnyvale" \
+      --state "California" --country "United States" --postal-code 94089 \
+      --contact-person "Gus Poland" --email-list gus@contoso.com --phone 4085555555
+   ```
+
+A criação do recurso demora alguns minutos. Executar a [ordem de databoxedge az mostrar](/cli/azure/databoxedge/order#az_databoxedge_order_show) comando para ver a ordem:
+
+```azurecli
+az databoxedge order show --resource-group myasepgpu1 --device-name myasegpu1 
+```
+
+Depois de estoirar um pedido, a Microsoft revê a encomenda e contacta-o por e-mail com detalhes de envio.
+
+---
+
 ## <a name="get-the-activation-key"></a>Obter a chave de ativação
 
 Depois de o recurso Azure Stack Edge estar a funcionar, terás de obter a chave de ativação. Esta chave é utilizada para ativar e ligar o seu dispositivo Azure Stack Edge Pro ao recurso. Pode obter esta chave agora enquanto está no portal do Azure.
@@ -193,7 +240,7 @@ Depois de o recurso Azure Stack Edge estar a funcionar, terás de obter a chave 
 > - A chave de ativação expira três dias após a sua geração.
 > - Se a chave tiver expirado, gere uma nova chave. A chave mais antiga não é válida.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, você aprendeu sobre tópicos Azure Stack Edge Pro tais como:
 

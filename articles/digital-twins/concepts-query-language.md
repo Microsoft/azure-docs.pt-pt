@@ -8,18 +8,18 @@ ms.date: 11/19/2020
 ms.topic: conceptual
 ms.service: digital-twins
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 742cff544886a1499bccfa575684edef708da7bd
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 9549e6ea30be0cd9eb1a8c200a5af4a4721793a6
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97028364"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102034681"
 ---
 # <a name="about-the-query-language-for-azure-digital-twins"></a>Sobre a linguagem de consulta para Azure Digital Twins
 
 Recorde-se que o centro das Gémeas Digitais Azure é o [gráfico gémeo](concepts-twins-graph.md), construído a partir de gémeos digitais e relacionamentos. 
 
-Este gráfico pode ser questionado para obter informações sobre os gémeos digitais e as relações que contém. Estas consultas são escritas numa linguagem de consulta personalizada semelhante ao SQL, referida como a **linguagem de consulta Azure Digital Twins.** Isto é semelhante ao [ioT Hub linguagem de consulta](../iot-hub/iot-hub-devguide-query-language.md) com muitas características comparáveis.
+Este gráfico pode ser questionado para obter informações sobre os gémeos digitais e as relações que contém. Essas consultas são escritas numa linguagem de consulta personalizada do tipo SQL, denominada **linguagem de consulta do Azure Digital Twins**. Isto é semelhante ao [ioT Hub linguagem de consulta](../iot-hub/iot-hub-devguide-query-language.md) com muitas características comparáveis.
 
 Este artigo descreve os fundamentos da linguagem de consulta e as suas capacidades. Para exemplos mais detalhados de sintaxe de consulta e como executar pedidos de consulta, consulte [*Como-a-fazer: Consultar o gráfico gémeo*](how-to-query-graph.md).
 
@@ -33,12 +33,17 @@ Você pode usar a linguagem de consulta Azure Digital Twins para recuperar géme
 
 Para submeter uma consulta ao serviço a partir de uma aplicação de cliente, utilizará a [**API de Consulta**](/rest/api/digital-twins/dataplane/query)de Gémeos Digitais Azure. Uma forma de usar a API é através de um dos [SDKs](how-to-use-apis-sdks.md#overview-data-plane-apis) para Azure Digital Twins.
 
+### <a name="considerations-for-querying"></a>Considerações para consulta
+
+Ao escrever consultas para Azure Digital Twins, tenha em mente as seguintes considerações:
+* **Lembre-se da sensibilidade** do caso : Todas as operações de consulta Azure Digital Twins são sensíveis a casos, por isso tenha cuidado para utilizar os nomes exatos definidos nos modelos. Se os nomes dos imóveis estiverem mal escritos ou mal arquivados, o conjunto de resultados está vazio sem erros devolvidos.
+* **Escape citações individuais**: Se o seu texto de consulta incluir um único carácter de citação nos dados, a citação terá de ser escapada com o `\` personagem. Aqui está um exemplo que lida com um valor patrimonial de *D'Souza:*
+
+  :::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="EscapedSingleQuote":::
+
 ## <a name="reference-expressions-and-conditions"></a>Referência: Expressões e condições
 
 Esta secção descreve os operadores e funções que estão disponíveis para escrever consultas Azure Digital Twins. Por exemplo, consultas que ilustram a utilização destas funcionalidades, consulte [*Como fazer: Consultar o gráfico gémeo*](how-to-query-graph.md).
-
-> [!NOTE]
-> Todas as operações de consulta Azure Digital Twins são sensíveis a casos, por isso tenha cuidado para usar os nomes exatos definidos nos modelos. Se os nomes dos imóveis estiverem mal escritos ou mal arquivados, o conjunto de resultados está vazio sem erros devolvidos.
 
 ### <a name="operators"></a>Operadores
 

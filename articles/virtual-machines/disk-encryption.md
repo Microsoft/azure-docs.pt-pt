@@ -2,18 +2,18 @@
 title: Encriptação do lado do servidor dos discos geridos pelo Azure
 description: O Azure Storage protege os seus dados encriptando-os em repouso antes de os persistir nos clusters de armazenamento. Pode utilizar as chaves geridas pelo cliente para gerir a encriptação com as suas próprias chaves, ou pode confiar nas chaves geridas pela Microsoft para a encriptação dos seus discos geridos.
 author: roygara
-ms.date: 10/22/2020
+ms.date: 03/02/2021
 ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: f9152e341ac04209754bbf5f008cd56373967b9f
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: a1fbd536943023d3e6724b9c1638f7a0bd97d847
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101677451"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102036950"
 ---
 # <a name="server-side-encryption-of-azure-disk-storage"></a>Encriptação do lado do servidor do armazenamento do disco Azure
 
@@ -66,6 +66,8 @@ A rotação automática da chave está em pré-visualização e só está dispon
 > [!IMPORTANT]
 > As chaves geridas pelo cliente dependem de identidades geridas para recursos Azure, uma característica do Azure Ative Directory (Azure AD). Ao configurar as chaves geridas pelo cliente, uma identidade gerida é automaticamente atribuída aos seus recursos sob as capas. Se posteriormente mover a subscrição, o grupo de recursos ou o disco gerido de um diretório AD Azure para outro, a identidade gerida associada aos discos geridos não é transferida para o novo inquilino, pelo que as chaves geridas pelo cliente podem deixar de funcionar. Para obter mais informações, consulte [a transferência de uma subscrição entre os diretórios AD da Azure](../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).
 
+Para permitir chaves geridas pelo cliente para discos geridos, consulte os nossos artigos que cobrem como o permitir com o [módulo Azure PowerShell,](windows/disks-enable-customer-managed-keys-powershell.md)o [Azure CLI](linux/disks-enable-customer-managed-keys-cli.md) ou o [portal Azure](disks-enable-customer-managed-keys-portal.md). Para obter a forma de ativar as teclas geridas pelo cliente com a rotação automática da chave, consulte [Configurar um Cofre de Chave Azure e DiskEncryptionSet com rotação automática da chave (pré-visualização)](windows/disks-enable-customer-managed-keys-powershell.md#set-up-an-azure-key-vault-and-diskencryptionset-with-automatic-key-rotation-preview).
+
 ## <a name="encryption-at-host---end-to-end-encryption-for-your-vm-data"></a>Encriptação no anfitrião - Encriptação de ponta a ponta para os seus dados VM
 
 Quando ativa a encriptação no anfitrião, essa encriptação começa no próprio anfitrião VM, o servidor Azure a que o seu VM está atribuído. Os dados relativos ao disco temporário e às caches de disco de oss/dados são armazenados no anfitrião VM. Depois de permitir a encriptação no anfitrião, todos estes dados são encriptados em repouso e fluem encriptados para o serviço de Armazenamento, onde é persistido. Essencialmente, a encriptação no anfitrião encripta os seus dados de ponta a ponta. A encriptação no anfitrião não utiliza o CPU do seu VM e não afeta o desempenho do seu VM. 
@@ -84,6 +86,8 @@ Os discos temporários e os discos de OS efémeros são encriptados em repouso c
 
 [!INCLUDE [virtual-machines-disks-encryption-at-host-suported-sizes](../../includes/virtual-machines-disks-encryption-at-host-suported-sizes.md)]
 
+Para permitir a encriptação de ponta a ponta utilizando encriptação no anfitrião, consulte os nossos artigos que cobrem como a capacitar com o [módulo Azure PowerShell,](windows/disks-enable-host-based-encryption-powershell.md)o [Azure CLI,](linux/disks-enable-host-based-encryption-cli.md)ou o [portal Azure](disks-enable-host-based-encryption-portal.md).
+
 ## <a name="double-encryption-at-rest"></a>Dupla encriptação em repouso
 
 Clientes sensíveis de alta segurança que estejam preocupados com o risco associado a qualquer algoritmo de encriptação, implementação ou chave que está a ser comprometido podem agora optar por camadas adicionais de encriptação usando um algoritmo/modo de encriptação diferente na camada de infraestrutura usando chaves de encriptação geridas pela plataforma. Esta nova camada pode ser aplicada a sos e discos de dados, instantâneos e imagens, que serão encriptados em repouso com dupla encriptação.
@@ -91,6 +95,8 @@ Clientes sensíveis de alta segurança que estejam preocupados com o risco assoc
 ### <a name="supported-regions"></a>Regiões suportadas
 
 A dupla encriptação está disponível em todas as regiões que os discos geridos estão disponíveis.
+
+Para permitir a dupla encriptação em repouso para discos geridos, consulte os nossos artigos que cobrem como a capacitar com o [módulo Azure PowerShell,](windows/disks-enable-double-encryption-at-rest-powershell.md)o [Azure CLI](linux/disks-enable-double-encryption-at-rest-cli.md) ou o [portal Azure](disks-enable-double-encryption-at-rest-portal.md).
 
 ## <a name="server-side-encryption-versus-azure-disk-encryption"></a>Encriptação do lado do servidor contra encriptação do disco Azure
 

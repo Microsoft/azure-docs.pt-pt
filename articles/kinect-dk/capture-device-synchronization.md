@@ -7,16 +7,16 @@ ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: kinect, azul, sensor, sdk, profundidade, rgb, interno, externo, sincronização, cadeia de margaridas, offset de fase
-ms.openlocfilehash: 914a29882277c11c388d3f81f0b1fe827fc2f156
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ce0c72d3d708d5696a9775b3885f278f0c23cac1
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85277513"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102034320"
 ---
 # <a name="capture-azure-kinect-device-synchronization"></a>Capture Azure Kinect device synchronization
 
-O hardware Azure Kinect pode alinhar o tempo de captura de imagens de cor e profundidade. O alinhamento entre as câmaras no mesmo dispositivo é **a sincronização interna**. O alinhamento do tempo de captura entre vários dispositivos conectados é **sincronização externa**.
+O hardware Azure Kinect pode alinhar o tempo de captura de imagens de cor e profundidade. O alinhamento entre as câmaras no mesmo dispositivo é **a sincronização interna**. O alinhamento do tempo de captura entre vários dispositivos conectados é **sincronização externa**. A matriz do microfone funciona independentemente das câmaras de cor e profundidade.
 
 ## <a name="device-internal-synchronization"></a>Sincronização interna do dispositivo
 

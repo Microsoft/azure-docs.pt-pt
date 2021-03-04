@@ -1,24 +1,24 @@
 ---
 title: Quickstart - Explore um cenário de amostra
 titleSuffix: Azure Digital Twins
-description: Quickstart - Utilize a amostra do ADT Explorer para visualizar e explorar um cenário pré-construído.
+description: Quickstart - Use a amostra Azure Digital Twins Explorer para visualizar e explorar um cenário pré-construído.
 author: baanders
 ms.author: baanders
 ms.date: 9/24/2020
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: 9d09bca246938f972a212f7ee71f03a618e16ac4
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: cb501dd8e548ea2f6ce8b63fbffb1c4b2403c9a6
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99575695"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102035964"
 ---
-# <a name="quickstart---explore-a-sample-azure-digital-twins-scenario-using-adt-explorer"></a>Quickstart - Explore uma amostra do cenário Azure Digital Twins usando o ADT Explorer
+# <a name="quickstart---explore-a-sample-azure-digital-twins-scenario-using-azure-digital-twins-explorer"></a>Quickstart - Explore uma amostra do cenário Azure Digital Twins usando o Azure Digital Twins Explorer
 
 Com a Azure Digital Twins, pode criar e interagir com modelos ao vivo dos seus ambientes do mundo real. Primeiro, modela elementos individuais como *gémeos digitais.* Em seguida, conectá-los a um *gráfico de* conhecimento que pode responder a eventos ao vivo e ser questionado para obter informações.
 
-Neste quickstart, você explorará um gráfico pré-construído Azure Digital Twins, com a ajuda de uma aplicação de amostra chamada [Azure Digital Twins (ADT) Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Utiliza o ADT Explorer para:
+Neste quickstart, você explorará um gráfico pré-construído Azure Digital Twins, com a ajuda de uma aplicação de amostra chamada [Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Usa o Azure Digital Twins Explorer para:
 
 - Faça upload de uma representação digital de um ambiente.
 - Veja imagens visuais dos gémeos e gráfico que são criados para representar o ambiente em Azure Digital Twins.
@@ -26,7 +26,7 @@ Neste quickstart, você explorará um gráfico pré-construído Azure Digital Tw
 
 O quickstart contém os seguintes passos principais:
 
-1. Crie uma instância Azure Digital Twins e ADT Explorer.
+1. Crie um exemplo de Azure Digital Twins e Azure Digital Twins Explorer.
 1. Faça upload de modelos pré-construídos e dados gráficos para construir o cenário da amostra.
 1. Explore o gráfico de cenário que foi criado.
 1. Faça alterações no gráfico.
@@ -41,11 +41,11 @@ Você precisará de uma subscrição Azure para completar este arranque rápido.
 
 Também vai precisar de **Node.js** na sua máquina. Para obter a versão mais recente, consulte [Node.js](https://nodejs.org/).
 
-Por fim, também terá de descarregar a amostra para ser utilizada durante o arranque rápido. A aplicação da amostra é **ADT Explorer.** Esta amostra contém a aplicação que utiliza no arranque rápido para carregar e explorar um cenário Azure Digital Twins. Também contém os ficheiros do cenário da amostra. Para obter a amostra, vá ao [Azure Digital Twins (ADT) Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Selecione o botão **Baixar ZIP** para descarregar um ficheiro .zip deste código de amostra para a sua máquina. Desaperte a pasta **Azure_Digital_Twins__ADT__explorer.zip** e extraa os ficheiros.
+Por fim, também terá de descarregar a amostra para ser utilizada durante o arranque rápido. A aplicação da amostra é **Azure Digital Twins Explorer.** Esta amostra contém a aplicação que utiliza no arranque rápido para carregar e explorar um cenário Azure Digital Twins. Também contém os ficheiros do cenário da amostra. Para obter a amostra, vá ao [Azure Digital Twins Explorer.](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) Selecione o botão **Baixar ZIP** para descarregar um ficheiro .zip deste código de amostra para a sua máquina. Desaperte a pasta **Azure_Digital_Twins__ADT__explorer.zip** e extraa os ficheiros.
 
-## <a name="set-up-azure-digital-twins-and-adt-explorer"></a>Configurar gémeos digitais Azure e ADT Explorer
+## <a name="set-up-azure-digital-twins-and-azure-digital-twins-explorer"></a>Configurar Azure Digital Twins e Azure Digital Twins Explorer
 
-O primeiro passo para trabalhar com a Azure Digital Twins é criar um exemplo de Azure Digital Twins. Depois de criar uma instância do serviço e configurar as suas credenciais para autenticar com o ADT Explorer, pode ligar-se ao caso no ADT Explorer e povoá-lo com os dados de exemplo mais tarde no arranque rápido.
+O primeiro passo para trabalhar com a Azure Digital Twins é criar um exemplo de Azure Digital Twins. Depois de criar uma instância do serviço e configurar as suas credenciais para autenticar com o Azure Digital Twins Explorer, pode ligar-se ao caso no Azure Digital Twins Explorer e povoá-lo com os dados do exemplo mais tarde no arranque rápido.
 
 O resto desta secção leva-o por estes degraus.
 
@@ -55,11 +55,11 @@ O resto desta secção leva-o por estes degraus.
 
 ### <a name="set-up-local-azure-credentials"></a>Configurar credenciais locais do Azure
 
-A aplicação ADT Explorer utiliza [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?preserve-view=true&view=azure-dotnet) (parte da `Azure.Identity` biblioteca) para autenticar os utilizadores com a instância Azure Digital Twins quando a executam na sua máquina local. Para obter mais informações sobre diferentes formas de uma aplicação do cliente poder autenticar-se com a Azure Digital Twins, consulte [o código de autenticação da aplicação Write](how-to-authenticate-client.md).
+A aplicação Azure Digital Twins Explorer utiliza [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?preserve-view=true&view=azure-dotnet) (parte da `Azure.Identity` biblioteca) para autenticar os utilizadores com a instância Azure Digital Twins quando a executam na sua máquina local. Para obter mais informações sobre diferentes formas de uma aplicação do cliente poder autenticar-se com a Azure Digital Twins, consulte [o código de autenticação da aplicação Write](how-to-authenticate-client.md).
 
-Com este tipo de autenticação, o ADT Explorer procurará credenciais dentro do seu ambiente local, como um azure in in a [azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) local ou em Visual Studio ou Visual Studio Code. Por esta razão, deverá *iniciar seduca no Azure localmente* através de um destes mecanismos para configurar credenciais para a aplicação ADT Explorer.
+Com este tipo de autenticação, o Azure Digital Twins Explorer procurará credenciais dentro do seu ambiente local, como um azure in em um [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) local ou em Visual Studio ou Visual Studio Code. Por esta razão, deverá *iniciar seduca no Azure localmente* através de um destes mecanismos para configurar credenciais para a aplicação Azure Digital Twins Explorer.
 
-Se já se inscreveu no Azure através de uma destas formas, pode saltar para a [secção seguinte.](#run-and-configure-adt-explorer)
+Se já se inscreveu no Azure através de uma destas formas, pode saltar para a [secção seguinte.](#run-and-configure-azure-digital-twins-explorer)
 
 Caso contrário, pode instalar o Azure CLI local com estes passos:
 
@@ -68,13 +68,13 @@ Caso contrário, pode instalar o Azure CLI local com estes passos:
 1. Executar `az login` , e siga as instruções de autenticação para iniciar súm na sua conta Azure.
 1. Possível último passo: Se utilizar várias subscrições Azure nesta conta, deslo aproveite o contexto de autenticação para a subscrição Azure que contém a sua instância Azure Digital Twins executando `az account set --subscription "<your-subscription-name-or-ID>"` (o nome ou o valor de ID da subscrição funcionarão).
 
-Depois de iniciar sação, o ADT Explorer deve recolher automaticamente as suas credenciais Azure quando a executar na secção seguinte.
+Depois de iniciar sação, o Azure Digital Twins Explorer deve recolher automaticamente as suas credenciais Azure quando a executar na secção seguinte.
 
 Pode fechar a janela da consola de autenticação, se quiser. Ou pode mantê-lo aberto para ser usado no próximo passo.
 
-### <a name="run-and-configure-adt-explorer"></a>Executar e configurar o Explorador ADT
+### <a name="run-and-configure-azure-digital-twins-explorer"></a>Executar e configurar Azure Digital Twins Explorer
 
-Em seguida, execute a aplicação ADT Explorer e configuure-a para a sua instância Azure Digital Twins.
+Em seguida, execute a aplicação Azure Digital Twins Explorer e configuure-a para a sua instância Azure Digital Twins.
 
 1. Vá para a pasta **Azure_Digital_Twins__ADT__explorer** descarregada e desapertado.
 Abra uma janela da consola para a localização da pasta **Azure_Digital_Twins__ADT__explorer/cliente/src**.
@@ -85,11 +85,11 @@ Abra uma janela da consola para a localização da pasta **Azure_Digital_Twins__
 
    Após alguns segundos, uma janela do navegador abre e a aplicação aparece no navegador.
 
-   :::image type="content" source="media/quickstart-adt-explorer/explorer-blank.png" alt-text="Janela do navegador mostrando uma aplicação em execução na localidade:3000. A aplicação chama-se ADT Explorer e contém caixas para Explorador de Consultas, Visualização de Modelos, Visão de Gráfico e Explorador de Propriedades. Ainda não há dados no ecrã." lightbox="media/quickstart-adt-explorer/explorer-blank.png":::
+   :::image type="content" source="media/quickstart-adt-explorer/explorer-blank.png" alt-text="Janela do navegador mostrando uma aplicação em execução na localidade:3000. A aplicação chama-se Azure Digital Twins Explorer e contém caixas para Explorador de Consultas, Visualização de Modelos, Visão de Gráfico e Explorador de Propriedades. Ainda não há dados no ecrã." lightbox="media/quickstart-adt-explorer/explorer-blank.png":::
 
-1. Selecione o botão **Sign In** no canto superior direito da janela, como mostra a imagem seguinte, para configurar o ADT Explorer para trabalhar com a instância configurada.
+1. Selecione o botão **Sign In** no canto superior direito da janela, como mostra a imagem seguinte, para configurar o Azure Digital Twins Explorer para trabalhar com a instância que configuraste.
 
-   :::image type="content" source="media/quickstart-adt-explorer/sign-in.png" alt-text="ADT Explorer destacando o ícone Sign In perto do topo da janela. O ícone mostra uma silhueta simples de uma pessoa sobreposta com uma silhueta de uma chave." lightbox="media/quickstart-adt-explorer/sign-in.png":::
+   :::image type="content" source="media/quickstart-adt-explorer/sign-in.png" alt-text="Azure Digital Twins Explorer destacando o ícone Sign In perto do topo da janela. O ícone mostra uma silhueta simples de uma pessoa sobreposta com uma silhueta de uma chave." lightbox="media/quickstart-adt-explorer/sign-in.png":::
 
 1. Introduza o URL de exemplo de gémeos digitais Azure que recolheu anteriormente na secção Configurar uma secção [de exemplos Azure Digital Twins,](#set-up-an-azure-digital-twins-instance) no formato *https://{instance host name}*.
 
@@ -103,7 +103,7 @@ Se vir uma janela pop-up **solicitada pela Microsoft,** conceda o consentimento 
 
 ## <a name="add-the-sample-data"></a>Adicione os dados da amostra
 
-Em seguida, importará o cenário da amostra e gráfico para o ADT Explorer. O cenário da amostra também está localizado na pasta **Azure_Digital_Twins__ADT__explorer** que descarregou anteriormente.
+Em seguida, você importará o cenário da amostra e gráfico para Azure Digital Twins Explorer. O cenário da amostra também está localizado na pasta **Azure_Digital_Twins__ADT__explorer** que descarregou anteriormente.
 
 ### <a name="models"></a>Modelos
 
@@ -138,7 +138,7 @@ Siga estes passos para carregar os modelos.
 >Se vir a seguinte mensagem de erro: :::image type="content" source="media/quickstart-adt-explorer/error-models-popup.png" alt-text="Uma caixa pop-up que lê 'Error: Error fetching models: ClientAuthError: Error opening popup window. Isto pode acontecer se estiver a utilizar o IE ou se os popups estiverem bloqueados no navegador.' com um botão Close na parte inferior." border="false"::: 
 > Tente desativar o seu bloqueador pop-up ou utilizar um browser diferente.
 
-O ADT Explorer agora envia estes ficheiros de modelo para a sua instância Azure Digital Twins. Devem aparecer na caixa **MODEL VIEW** e apresentar os seus nomes amigáveis e iDs de modelo completo. Pode selecionar os ícones de informação **do Modelo ver** para ver o código DTDL por trás deles.
+O Azure Digital Twins Explorer agora envia estes ficheiros de modelos para a sua instância Azure Digital Twins. Devem aparecer na caixa **MODEL VIEW** e apresentar os seus nomes amigáveis e iDs de modelo completo. Pode selecionar os ícones de informação **do Modelo ver** para ver o código DTDL por trás deles.
 
 :::row:::
     :::column:::
@@ -173,7 +173,7 @@ Siga estes passos para importar o gráfico.
 
 2. Na caixa de seletor de ficheiros, vá à pasta **Azure_Digital_Twins__ADT__explorer/cliente/exemplos** e selecione o ficheiro **buildingScenario.xlsx** folha de cálculo. Este ficheiro contém uma descrição do gráfico da amostra. Selecione **OK**.
 
-   Após alguns segundos, o ADT Explorer abre uma vista **importância** que mostra uma pré-visualização do gráfico a ser carregado.
+   Após alguns segundos, o Azure Digital Twins Explorer abre uma vista **importância** que mostra uma pré-visualização do gráfico a ser carregado.
 
 3. Para confirmar o upload do gráfico, selecione o ícone **Guardar** no canto superior direito da caixa **GRAPH VIEW.**
 
@@ -185,7 +185,7 @@ Siga estes passos para importar o gráfico.
     :::column-end:::
    :::row-end:::
 
-4. O ADT Explorer usa agora o ficheiro carregado para criar os gémeos e relações entre eles. Uma caixa de diálogo aparece quando está terminada. Selecione **Fechar**.
+4. O Azure Digital Twins Explorer usa agora o ficheiro carregado para criar os gémeos e relações entre eles. Uma caixa de diálogo aparece quando está terminada. Selecione **Fechar**.
 
    :::row:::
     :::column:::
@@ -197,11 +197,11 @@ Siga estes passos para importar o gráfico.
     :::column-end:::
    :::row-end:::
 
-5. O gráfico foi agora enviado para o ADT Explorer. Para ver o gráfico, selecione o botão **''Fazer',** na caixa **GRAPH EXPLORER,** perto da parte superior da janela ADT Explorer.
+5. O gráfico foi agora enviado para o Azure Digital Twins Explorer. Para ver o gráfico, selecione o botão **'Fazer',** na caixa **GRAPH EXPLORER,** perto da parte superior da janela Azure Digital Twins Explorer.
 
    :::image type="content" source="media/quickstart-adt-explorer/run-query.png" alt-text="Destaca-se o botão 'Fazer-do-lado direito' no canto superior direito da janela." lightbox="media/quickstart-adt-explorer/run-query.png":::
 
-Esta ação executa a consulta predefinitiva para selecionar e exibir todos os gémeos digitais. O ADT Explorer recupera todos os gémeos e relacionamentos do serviço. Desenha o gráfico definido por eles na caixa **GRAPH VIEW.**
+Esta ação executa a consulta predefinitiva para selecionar e exibir todos os gémeos digitais. O Azure Digital Twins Explorer recupera todos os gémeos e relacionamentos do serviço. Desenha o gráfico definido por eles na caixa **GRAPH VIEW.**
 
 ## <a name="explore-the-graph"></a>Explore o gráfico
 
@@ -262,7 +262,7 @@ Lembre-se de ver as propriedades gémeas mais cedo que o Quarto0 tem uma tempera
 
 ## <a name="edit-data-in-the-graph"></a>Editar dados no gráfico
 
-Pode utilizar o ADT Explorer para editar as propriedades dos gémeos representados no seu gráfico. Nesta secção, vamos aumentar a temperatura da Sala 0 para 76.
+Pode utilizar o Azure Digital Twins Explorer para editar as propriedades dos gémeos representados no seu gráfico. Nesta secção, vamos aumentar a temperatura da Sala 0 para 76.
 
 Para começar, selecione **Room0** para apresentar a sua lista de propriedades na caixa **PROPERTY EXPLORER.**
 
@@ -290,7 +290,7 @@ Agora que a temperatura da Sala 0 foi alterada de 70 para 76, ambos os gémeos d
 
 ## <a name="review-and-contextualize-learnings"></a>Rever e contextualizar aprendizagens
 
-Neste quickstart, criou um exemplo de Azure Digital Twins, ligou-o ao ADT Explorer, e povoou-o com um cenário de amostragem.
+Neste quickstart, criou um exemplo de Azure Digital Twins, ligou-o ao Azure Digital Twins Explorer, e povoou-o com um cenário de amostragem.
 
 Em seguida, explorou o gráfico, por:
 
@@ -304,7 +304,7 @@ Neste arranque rápido, fez a atualização da temperatura manualmente. É comum
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Para embrulhar o trabalho para este arranque rápido, primeiro termine a aplicação de consola de execução. Esta ação desliga a ligação à aplicação ADT Explorer no navegador. Não poderá mais ver dados ao vivo no navegador. Pode fechar o separador do navegador.
+Para embrulhar o trabalho para este arranque rápido, primeiro termine a aplicação de consola de execução. Esta ação desliga a ligação à aplicação Azure Digital Twins Explorer no navegador. Não poderá mais ver dados ao vivo no navegador. Pode fechar o separador do navegador.
 
 Depois, pode escolher quais os recursos que gostaria de remover, dependendo do que quiser fazer a seguir.
 

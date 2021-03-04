@@ -1,17 +1,16 @@
 ---
 title: Ativar o Azure Monitor para uma única máquina virtual ou escala de máquina virtual definida no portal Azure
 description: Saiba como ativar insights em VM numa única máquina virtual Azure ou conjunto de balança de máquina virtual utilizando o portal Azure.
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: 47dde48e916361620a832d26e6249c4147d0f8b5
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 076fcab7b0747a7993407edd65f9d08efc27309f
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101733742"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102035590"
 ---
 # <a name="enable-azure-monitor-for-single-virtual-machine-or-virtual-machine-scale-set-in-the-azure-portal"></a>Ativar o Azure Monitor para uma única máquina virtual ou escala de máquina virtual definida no portal Azure
 Este artigo descreve como ativar insights VM para uma máquina virtual ou conjunto de escala de máquina virtual usando o portal Azure. Este procedimento pode ser utilizado para o seguinte procedimento:

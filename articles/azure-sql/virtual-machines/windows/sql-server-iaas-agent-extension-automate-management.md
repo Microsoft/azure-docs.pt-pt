@@ -17,12 +17,12 @@ ms.date: 11/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 481a4ff21c361e4cf82a21d9e98357a4c8b7b1b4
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: cab5ac5e6a8fd900a41ff3690763746033b6200e
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98663677"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102034817"
 ---
 # <a name="automate-management-with-the-sql-server-iaas-agent-extension"></a>Automatizar a gestão com a extensão do Agente IAAS do SQL Server
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -32,7 +32,7 @@ A extensão do Agente IAAS do SQL Server (SqlIaasExtension) funciona no SQL Serv
 
 Este artigo fornece uma visão geral da extensão. Para instalar a extensão IAAS do SQL Server ao SQL Server em VMs Azure, consulte os artigos de [instalação automática,](sql-agent-extension-automatic-registration-all-vms.md) [VMs simples](sql-agent-extension-manually-register-single-vm.md)ou [VMs a granel](sql-agent-extension-manually-register-vms-bulk.md). 
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 A extensão do Agente IAAS do SQL Server permite a integração com o portal Azure, e dependendo do modo de gestão, desbloqueia uma série de benefícios de funcionalidade para o SQL Server em VMs Azure: 
 
@@ -55,9 +55,6 @@ A extensão do Agente IAAS do SQL Server permite a integração com o portal Azu
    ```azurecli-interactive
    $ az sql vm list --query "[?sqlServerLicenseType=='AHUB']"
    ```
-
-
-
    ---
 
 
@@ -100,6 +97,7 @@ Pode ver o modo atual do seu agente IAAS do Servidor SQL utilizando o Azure Powe
   $sqlvm = Get-AzSqlVM -Name $vm.Name  -ResourceGroupName $vm.ResourceGroupName
   $sqlvm.SqlManagementType
   ```
+
 
 ## <a name="installation"></a>Instalação
 
@@ -166,97 +164,11 @@ A extensão do Agente IAAS SQL apenas suporta:
 - VMs do servidor SQL implantados para o público ou nuvem do Governo Azure. As deslocações para outras nuvens privadas ou governamentais não são apoiadas. 
 
 
-## <a name="frequently-asked-questions"></a>Perguntas mais frequentes 
-
-**Devo registar o meu SQL Server VM a partir de uma imagem do SQL Server no Azure Marketplace?**
-
-N.º A Microsoft regista automaticamente VMs a partir das imagens do SQL Server no Azure Marketplace. O registo com a extensão só é necessário se o VM *não* tiver sido aprovisionado a partir das imagens do SQL Server no Azure Marketplace e no SQL Server se autoinstalar.
-
-**A extensão do Agente IAAS SQL está disponível para todos os clientes?** 
-
-Yes. Os clientes devem registar os seus VMs sql server com a extensão se não utilizarem uma imagem sql Server do Azure Marketplace e, em vez disso, o SqL Server auto-instalado, ou se trouxerem o seu VHD personalizado. Os VMs detidos por todos os tipos de subscrições (Direct, Enterprise Agreement e Cloud Solution Provider) podem registar-se com a extensão do Agente IAAS SQL.
-
-**Qual é o modo de gestão predefinido ao registar-se com a extensão do Agente IAAS SQL?**
-
-O modo de gestão predefinido quando se regista com a extensão SQL IaaS Agent é *leve*. Se a propriedade de gestão do SQL Server não estiver definida quando se registar com a extensão, o modo será definido como leve e o seu serviço SQL Server não reiniciará. Recomenda-se registar-se primeiro com a extensão SQL IaaS Agent em modo leve e, em seguida, atualizar para a totalidade durante uma janela de manutenção. Da mesma forma, a gestão predefinitiva também é leve quando se utiliza a [função de registo automático](sql-agent-extension-automatic-registration-all-vms.md).
-
-**Quais são os pré-requisitos para se registar com a extensão do Agente IAAS SQL?**
-
-Não existem pré-requisitos para registar-se com a extensão sql IaaS Agent além de ter o SQL Server instalado no VM. Note que se a extensão do agente SQL IaaS for instalada em pleno modo, o serviço SQL Server reiniciará, assim o recomendará durante uma janela de manutenção.
-
-**Registar-se com a extensão do Agente IAAS SQL vai instalar um agente no meu VM?**
-
-Sim, registar-se com a extensão sql IaaS Agent em modo de gestão total instala um agente no VM. Registar-se em modo leve ou NoAgent não. 
-
-Registar-se com a extensão SQL IaaS Agent em modo leve apenas copia as *binárias* de extensão sql IaaS Agent para o VM, não instala o agente. Estes binários são então utilizados para instalar o agente quando o modo de gestão é atualizado para o máximo.
-
-
-**O registo com a extensão do SqL IaaS Agent reiniciará o SQL Server no meu VM?**
-
-Depende do modo especificado durante o registo. Se for especificado o modo "NoAgent" leve ou noAgent, o serviço SQL Server não será reiniciado. No entanto, especificar o modo de gestão como completo fará com que o serviço SQL Server reinicie. A função de registo automático regista os seus VMs do SQL Server em modo leve, a menos que a versão do Windows Server seja 2008, caso em que o SQL Server VM será registado no modo NoAgent. 
-
-**Qual é a diferença entre os modos de gestão leve e NoAgent ao registar-se com a extensão do Agente IAAS SQL?** 
-
-O modo de gestão NoAgent é o único modo de gestão disponível para SQL Server 2008 e SQL Server 2008 R2 no Windows Server 2008. Para todas as versões posteriores do Windows Server, os dois modos de gestão disponíveis são leves e cheios. 
-
-O modo NoAgent requer que a versão e as propriedades de edição do SQL Server sejam definidas pelo cliente. O modo leve consulta o VM para encontrar a versão e edição da instância SQL Server.
-
-**Posso registar-me com a extensão do Agente IAAS SQL sem especificar o tipo de licença SQL Server?**
-
-N.º O tipo de licença SQL Server não é uma propriedade opcional quando se regista com a extensão do Agente IAAS SQL. Tem de definir o tipo de licença SQL Server como pay-as-you-go ou Azure Hybrid Benefit ao registar-se com a extensão sql IaaS Agent em todos os modos de gestão (NoAgent, leve e completo). Se tiver alguma das versões gratuitas do SQL Server instaladas, como a edição de Desenvolvimento ou Avaliação, deve registar-se com o licenciamento pay-as-you-go. O Azure Hybrid Benefit só está disponível para versões pagas do SQL Server, como edições Enterprise e Standard.
-
-**Posso atualizar a extensão IAAS do SQL Server do modo NoAgent para o modo completo?**
-
-N.º A atualização do modo de gestão para o modo de gestão para o modo NoAgent ou para o modo NoAgent não está disponível para o modo NoAgent. Esta é uma limitação técnica do Windows Server 2008. Terá de atualizar o SISTEMA primeiro para o Windows Server 2008 R2 ou superior, e depois poderá fazer o upgrade para o modo de gestão completa. 
-
-**Posso atualizar a extensão IAAS do SQL Server do modo leve para o modo completo?**
-
-Yes. A atualização do modo de gestão de peso para cheio é suportada através do Azure PowerShell ou do portal Azure. Isto irá desencadear um reinício do serviço SQL Server.
-
-**Posso reduzir a extensão IAAS do SQL Server de modo completo para modo NoAgent ou modo de gestão leve?**
-
-N.º A redução do modo de gestão de extensão SQL Server IaaS não é suportada. O modo de gestão não pode ser desclassificado do modo completo para o modo leve ou noAgent, e não pode ser desclassificado do modo leve para o modo NoAgent. 
-
-Para alterar o modo de gestão da plena gestibilidade, [desagrega](sql-agent-extension-manually-register-single-vm.md#unregister-from-extension) o SQL Server VM a partir da extensão SQL IaaS Agent, largando o _recurso_ da máquina virtual SQL e reregistando novamente o SQL Server VM com a extensão SQL IaaS Agent novamente num modo de gestão diferente.
-
-**Posso registar-me com a extensão do Agente IAAS sql do portal Azure?**
-
-N.º O registo com a extensão do Agente IAAS SQL não está disponível no portal Azure. Registar-se com a extensão sql IaaS Agent só é suportado com o Azure CLI ou Azure PowerShell. 
-
-**Posso registar um VM com a extensão SQL IaaS Agent antes da instalação do SQL Server?**
-
-N.º Um VM deve ter pelo menos uma instância SQL Server (Database Engine) para registar com sucesso com a extensão do Agente IAAS SQL. Se não houver nenhuma instância do SQL Server no VM, o novo recurso Microsoft.SqlVirtualMachine estará num estado falhado.
-
-**Posso registar um VM com a extensão do Agente IAAS SQL se existirem várias instâncias do SQL Server?**
-
-Sim, desde que haja uma instância padrão no VM. A extensão do Agente IAAS SQL registará apenas uma instância do SQL Server (Database Engine). A extensão do Agente SQL IaaS registará a instância padrão do SQL Server no caso de múltiplas instâncias.
-
-**Posso registar uma instância de cluster de falha do SQL Server com a extensão do Agente IAAS SQL?**
-
-Yes. Sql Server falha casos de cluster num Azure VM pode ser registado com a extensão sql IaaS Agent em modo leve. No entanto, as instâncias de cluster de failover do SQL Server não podem ser atualizadas para o modo de gestão completa.
-
-**Posso registar o meu VM com a extensão do Agente IAAS SQL se um grupo de disponibilidade Always On estiver configurado?**
-
-Yes. Não existem restrições ao registo de uma instância do SQL Server num VM Azure com a extensão SQL IaaS Agent se estiver a participar numa configuração do grupo de disponibilidade Always On.
-
-**Qual o custo para o registo com a extensão do Agente IAAS SQL, ou com o upgrade para o modo de gestão completa?**
-
-Nenhum. Não existe qualquer taxa associada ao registo com a extensão do Agente IAAS SQL, ou à utilização de qualquer um dos três modos de gestão. Gerir o seu SQL Server VM com a extensão é completamente gratuito. 
-
-**Qual é o impacto de desempenho da utilização dos diferentes modos de gestão?**
-
-Não há impacto na utilização dos modos de gestão *NoAgent* e *leves.* Existe um impacto mínimo ao utilizar o modo de gestão *total* de dois serviços instalados no SISTEMA. Estes podem ser monitorizados através do gestor de tarefas e vistos na consola de Serviços Windows incorporada. 
-
-Os dois nomes de serviço são:
-- `SqlIaaSExtensionQuery` (Nome de exibição - `Microsoft SQL Server IaaS Query Service` )
-- `SQLIaaSExtension` (Nome de exibição - `Microsoft SQL Server IaaS Agent` )
-
-**Como retiro a extensão?**
-
-Remova a extensão [não registrando](sql-agent-extension-manually-register-single-vm.md#unregister-from-extension) o SQL Server VM da extensão SQL IaaS Agent. 
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Para instalar a extensão IAAS do SQL Server ao SQL Server em VMs Azure, consulte os artigos de [instalação automática,](sql-agent-extension-automatic-registration-all-vms.md) [VMs simples](sql-agent-extension-manually-register-single-vm.md)ou [VMs a granel](sql-agent-extension-manually-register-vms-bulk.md).
 
 Para obter mais informações sobre a execução do SQL Server em Máquinas Virtuais Azure, consulte o [Servidor SQL em Máquinas Virtuais Azure?](sql-server-on-azure-vm-iaas-what-is-overview.md)
+
+Para saber mais, consulte [perguntas frequentes.](frequently-asked-questions-faq.md) 

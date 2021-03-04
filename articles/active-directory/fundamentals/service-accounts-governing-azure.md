@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c43125edab0f5ed097b99798ca22e5543e15a2d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 4311d0acc7c417bf31c71f46e6c25c65312b894d
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101693256"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102034548"
 ---
 # <a name="governing-azure-ad-service-accounts"></a>Contas de serviço AZure AD governando
 
@@ -51,14 +51,14 @@ Recomendamos as seguintes práticas para privilégios de conta de serviço.
 
 **Permissões**
 
-* Não atribuir funções incorporadas a contas de serviço. Em vez disso, utilize o [modelo de concessão de permissão OAuth2 para o Microsoft Graph](https://docs.microsoft.com/graph/api/resources/oauth2permissiongrant?view=graph-rest-1.0),
+* Não atribuir funções incorporadas a contas de serviço. Em vez disso, utilize o [modelo de concessão de permissão OAuth2 para o Microsoft Graph](/graph/api/resources/oauth2permissiongrant),
 
 * Se o diretor de serviço tiver de ser atribuído a um papel privilegiado, considere atribuir um [papel personalizado](https://docs.microsoft.com/azure/active-directory/roles/custom-create) com privilégios específicos e necessários, de forma limitada ao tempo.
 
 * Não inclua contas de serviço como membros de quaisquer grupos com permissões elevadas. 
 
-* [Use o PowerShell para enumerar membros de funções privilegiadas,](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)tais como   
-‎ `Get-AzureADDirectoryRoleMember` , and filter for objectType "Service Principal."
+* [Use o PowerShell para enumerar membros de funções privilegiadas,](/powershell/module/azuread/get-azureaddirectoryrolemember)tais como   
+‎ `Get-AzureADDirectoryRoleMember` , and filter for objectType "Service Principal".
 
    ou usar  
 ‎   `Get-AzureADServicePrincipal | % { Get-AzureADServiceAppRoleAssignment -ObjectId $_ }`
@@ -117,7 +117,7 @@ Recomendamos que exporte registos de login Azure AD e os importe para as ferrame
 
 Reveja regularmente as permissões concedidas e os âmbitos acedidos por contas de serviço para ver se podem ser eliminados.
 
-* Utilize [o PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureadserviceprincipaloauth2permissiongrant?view=azureadps-2.0) para [criar automatização para verificar e documentar](https://gist.github.com/psignoret/41793f8c6211d2df5051d77ca3728c09) âmbitos aos quais o consentimento é concedido a uma conta de serviço.
+* Utilize [o PowerShell](/powershell/module/azuread/get-azureadserviceprincipaloauth2permissiongrant) para [criar automatização para verificar e documentar](https://gist.github.com/psignoret/41793f8c6211d2df5051d77ca3728c09) âmbitos aos quais o consentimento é concedido a uma conta de serviço.
 
 * Utilize o PowerShell para [rever as credenciais dos principais do serviço existentes](https://github.com/AzureAD/AzureADAssessment) e verificar a sua validade.
 
@@ -172,7 +172,7 @@ Estabeleça um processo de revisão para garantir que as contas de serviço são
 
 **Os processos de desprovisionamento devem incluir as seguintes tarefas.**
 
-1. Uma vez desprovisionada a aplicação ou script associado, [monitorize as entradas](../reports-monitoring/concept-all-sign-ins#sign-ins-report.md) e o acesso aos recursos pela conta de serviço.
+1. Uma vez desprovisionada a aplicação ou script associado, [monitorize as entradas](../reports-monitoring/concept-all-sign-ins.md#sign-ins-report) e o acesso aos recursos pela conta de serviço.
 
    * Se a conta ainda estiver ativa, determine como está a ser usada antes de tomar os passos subsequentes.
  

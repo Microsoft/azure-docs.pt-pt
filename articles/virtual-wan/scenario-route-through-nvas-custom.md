@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/25/2021
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 8916fbc7c2a0b9789dcc73697324cee370f1fc1c
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 6291964aff7c215df7f738ab103947dcb9b1b1d4
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101704910"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102036902"
 ---
 # <a name="scenario-route-traffic-through-nvas-by-using-custom-settings"></a>Cenário: Encaminhar o tráfego através de NVAs utilizando configurações personalizadas
 
@@ -176,7 +176,7 @@ Para configurar o encaminhamento via NVA, considere os seguintes passos:
    >
    > * Os utilizadores do portal devem permitir que a rota 'Propagar para o predefinido' nas ligações (VPN/ER/P2S/VNet) para a rota 0.0.0.0/0 produza efeitos.
    > * Os utilizadores de PS/CLI/REST devem definir a bandeira "permitir a internetsegurança" para a rota 0.0.0.0/0 entrar em vigor.
-   >
+   > * A Conexão de Rede Virtual não suporta o ip de lúpulo 'multiple/unique' no "mesmo" aparelho virtual de rede num VNet FALADO 'se' uma das rotas com o próximo IP de lúpulo é indicada como endereço IP público ou 0.0.0.0/0 (internet)
 
 ## <a name="next-steps"></a>Passos seguintes
 

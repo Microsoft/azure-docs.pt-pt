@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/14/2021
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: d610e79773dabb9942352747f1f032b17730ffca
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 39420afbd2b1dd8a4e239b814c73e17bb258663c
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101738757"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102035208"
 ---
 # <a name="set-up-a-staging-environment-in-azure-spring-cloud"></a>Crie um ambiente de encenação em Azure Spring Cloud
 
@@ -69,7 +69,7 @@ mvn clean packge -DskipTests
 ```
 5. Crie a aplicação no seu exemplo Azure Spring Cloud:
 ```azurecli
-az spring-cloud app create -n demo -g <resourceGroup> -s <Azure Spring Cloud instance> --is-public
+az spring-cloud app create -n demo -g <resourceGroup> -s <Azure Spring Cloud instance> --assign-endpoint
 ```
 6. Implementar a aplicação para Azure Spring Cloud:
 ```azurecli

@@ -5,18 +5,28 @@ author: yashesvi
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 12/15/2020
+ms.date: 02/24/2021
 ms.author: banders
-ms.openlocfilehash: 045ab35a35aa4caefb1e1bcbbf7bf78b726c09f7
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
-ms.translationtype: HT
+ms.openlocfilehash: 9015cbcd669665467d3836112b152aa504176f2b
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98601454"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102035998"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Trocas e reembolsos personalizados das Reservas do Azure
 
-As Reservas do Azure fornecem flexibilidade para ajudar a dar resposta às suas necessidades em evolução. Pode trocar uma reserva por outra reserva do mesmo tipo. Por exemplo, pode trocar uma reserva de máquina virtual para comprar outra reserva para qualquer outro tamanho de VM ou região. Do mesmo modo, uma reserva da Base Dados SQL PaaS pode ser trocada para comprar outra reserva de qualquer tipo ou região da Base de Dados SQL PaaS. Também pode reembolsar reservas, mas a soma total da alocação de reservas canceladas no seu âmbito de faturação (como EA, Contrato de Cliente Microsoft e Contrato de Parceiro da Microsoft) não pode exceder 50 000 USD num período de 12 meses. A capacidade reservada do Azure Databricks, a reserva da solução VMware no Azure da CloudSimple, a reserva do Azure Red Hat Open Shift, os planos Red Hat e os planos SUSE Linux não são elegíveis para reembolso.
+As Reservas do Azure fornecem flexibilidade para ajudar a dar resposta às suas necessidades em evolução. Pode trocar reservas por outra reserva do mesmo tipo. Por exemplo, pode devolver várias reservas de computação, incluindo Azure Dedicated Host, Azure VMware Solution e Azure Virtual Machines de uma só vez. Por outras palavras, os produtos de reserva são permutáveis uns com os outros se forem o mesmo tipo de reserva. Num outro exemplo, pode trocar vários tipos de reservas de base de dados SQL, incluindo Casos Geridos e Piscina Elástica entre si.
+
+No entanto, não pode trocar reservas diferentes. Por exemplo, não é possível trocar uma reserva Cosmos DB para a Base de Dados SQL.
+
+Você também pode trocar uma reserva para comprar outra reserva de um tipo semelhante em uma região diferente. Por exemplo, você pode trocar uma reserva que está no Oeste dos EUA 2 por uma que está na Europa Ocidental.
+
+Quando troca uma reserva, pode alterar o seu mandato de um ano para três anos.
+
+Também pode reembolsar reservas, mas a soma total da alocação de reservas canceladas no seu âmbito de faturação (como EA, Contrato de Cliente Microsoft e Contrato de Parceiro da Microsoft) não pode exceder 50 000 USD num período de 12 meses.
+
+A capacidade reservada do Azure Databricks, a reserva da solução VMware no Azure da CloudSimple, a reserva do Azure Red Hat Open Shift, os planos Red Hat e os planos SUSE Linux não são elegíveis para reembolso.
 
 A capacidade de troca self-service e de cancelamento não está disponível para os clientes com o Contrato Enterprise US Government. São suportados outros tipos de subscrições de administração pública dos EUA, incluindo Pay As You Go e Fornecedor de Soluções Cloud (CSP).
 
@@ -37,9 +47,26 @@ Pode trocar a sua reserva no [portal do Azure](https://portal.azure.com/#blade/M
 
 Para reembolsar uma reserva, aceda a **Detalhes da Reserva** e selecione **Reembolsar**.
 
+## <a name="exchange-multiple-reservations"></a>Trocar várias reservas
+
+Você pode devolver tipos semelhantes de reservas em uma ação.
+
+Ao trocar reservas, o novo valor da moeda de compra deve ser superior ao valor do reembolso. Se o seu novo valor de compra for inferior ao valor do reembolso, terá um erro. Se vir o erro, reduza a quantidade que pretende devolver ou aumente o valor a comprar.
+
+1. Inicie sessão no portal do Azure e navegue para **Reservas**.
+1. Na lista de reservas, selecione a caixa para cada reserva que pretende trocar.
+1. No topo da página, selecione **Exchange**.
+1. Se necessário, reveja a quantidade para retornar para cada reserva.
+1. Se selecionar a quantidade de devolução de preenchimento automático, pode optar por **reembolsar tudo** para preencher a lista com a quantidade completa que possui para cada reserva ou **Otimizar para utilização (7 dias)** para preencher a lista com uma quantidade que otimize a utilização com base nos últimos sete dias de utilização. **Selecione Aplicar**.
+1. Na parte inferior da página, selecione **Seguinte: Compra**.
+1. No separador de compra, selecione os produtos disponíveis que pretende trocar. Pode selecionar vários produtos de diferentes tipos.
+1. No Selecionar o produto que pretende adquirir, selecione os produtos que deseja e, em seguida, **selecione Adicione ao carrinho** e, em seguida, selecione **Fechar**.
+1. Quando terminar, selecione **Seguinte: Revisão**.
+1. Reveja as suas reservas para devolver e novas reservas para comprar e, em seguida, **selecione Confirm exchange**.
+
 ## <a name="exchange-non-premium-storage-for-premium-storage"></a>Troca de armazenamento não premium por armazenamento premium
 
-Pode trocar uma reserva comprada para um tamanho de VM que não suporta armazenamento premium por um tamanho de VM correspondente que o faça. Por exemplo, um _F1_ por um _F1s_. Para fazer a troca, aceda a Detalhes da Reserva e selecione **Trocar**. A troca não repõe o termo da instância reservada nem cria uma nova transação. 
+Pode trocar uma reserva comprada para um tamanho de VM que não suporta armazenamento premium por um tamanho de VM correspondente que o faça. Por exemplo, um _F1_ por um _F1s_. Para fazer a troca, aceda a Detalhes da Reserva e selecione **Trocar**. A troca não repõe o termo da instância reservada nem cria uma nova transação.
 
 ## <a name="how-transactions-are-processed"></a>Como as transações são processadas
 

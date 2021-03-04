@@ -3,12 +3,12 @@ title: Entrega segura da WebHook com Azure AD na grelha de eventos Azure
 description: Descreve como entregar eventos a pontos finais HTTPS protegidos pelo Azure Ative Directory usando a Azure Event Grid
 ms.topic: how-to
 ms.date: 02/03/2021
-ms.openlocfilehash: b01f0342e185883c4d1552800ab9bdb30cea3040
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: be38edfb4edfee5b3a3b42d7b1c5a44c9d72ceef
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99549157"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102035450"
 ---
 # <a name="publish-events-to-azure-active-directory-protected-endpoints"></a>Publicar eventos nos pontos finais protegidos do Azure Active Directory
 
@@ -26,7 +26,7 @@ Comece por criar uma aplicação AD AZure para o seu ponto final protegido. Cons
 Esta secção mostra-lhe como ativar a Grelha de Eventos para utilizar a sua aplicação AD AZure. 
 
 > [!NOTE]
-> Você deve ser um membro da função de [Administrador de Aplicação AD Azure](../active-directory/roles/permissions-reference.md#available-roles) para executar este script.
+> Você deve ser um membro da função de [Administrador de Aplicação AD Azure](../active-directory/roles/permissions-reference.md#all-roles) para executar este script.
 
 ### <a name="connect-to-your-azure-tenant"></a>Ligue-se ao seu inquilino Azure
 Primeiro, ligue-se ao seu inquilino Azure usando o `Connect-AzureAD` comando. 

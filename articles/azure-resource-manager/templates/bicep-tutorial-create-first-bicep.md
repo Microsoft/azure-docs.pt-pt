@@ -2,16 +2,16 @@
 title: Tutorial - Criar & implementar ficheiros Bicep do Gestor de Recursos Azure
 description: Crie o seu primeiro ficheiro Bicep para a implementação de recursos Azure. No tutorial, você aprende sobre a sintaxe do ficheiro Bicep e como implementar uma conta de armazenamento.
 author: mumian
-ms.date: 03/02/2021
+ms.date: 03/03/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: a0e4d4e56974e2f5bb44a3a300ce185c18582463
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 6a335b554fa0cfc2e12c8ddbe3e24a50fdedec0f
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101748162"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102036354"
 ---
 # <a name="tutorial-create-and-deploy-first-azure-resource-manager-bicep-file"></a>Tutorial: Criar e implementar primeiro ficheiro Azure Resource Manager Bicep
 
@@ -76,7 +76,7 @@ Está pronto para começar a aprender sobre o Bicep.
     A declaração de recursos tem quatro componentes:
 
     - **recurso**: palavra-chave.
-    - **nome simbólico** (stg): Um nome simbólico é um identificador para fazer referência ao recurso em todo o seu ficheiro bicep. Não é o nome do recurso quando for implantado. O nome do recurso é definido pela propriedade **do nome.**  Veja o quarto componente desta lista.
+    - **nome simbólico** (stg): Um nome simbólico é um identificador para fazer referência ao recurso em todo o seu ficheiro bicep. Não é o nome do recurso quando for implantado. O nome do recurso é definido pela propriedade **do nome.**  Veja o quarto componente desta lista. Para tornar os tutoriais fáceis de seguir, **o STG** é usado como o nome simbólico para o recurso de conta de armazenamento nesta série tutorial.
     - **tipo de recurso** Microsoft.Storage/storageAccounts@2019-06-01 (): É composto pelo fornecedor de recursos (Microsoft.Storage), tipo de recurso (armazenamentoCocounts) e apiVersion (2019-06-01). Cada fornecedor de recursos publica as suas próprias versões API, pelo que este valor é específico do tipo. Pode encontrar mais tipos e apiversões para vários recursos Azure a partir da [referência ao modelo ARM](/azure/templates/).
     - **propriedades** (tudo dentro = {...}): Estas são as propriedades específicas que gostaria de especificar para o tipo de recurso dado. Estas são exatamente as mesmas propriedades disponíveis para você em um modelo ARM. Cada recurso tem uma `name` propriedade. A maioria dos recursos também tem um `location` imóvel, que define a região onde o recurso é implantado. As outras propriedades variam de acordo com o tipo de recurso e a versão API. É importante entender a ligação entre a versão API e as propriedades disponíveis, por isso vamos entrar em mais detalhes.
 

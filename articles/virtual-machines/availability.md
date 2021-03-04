@@ -6,12 +6,12 @@ ms.author: cynthn
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/18/2021
-ms.openlocfilehash: 6601cd31cf6e332bf292cd887b498a92946d8af7
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: c336c1632cf206cdf2bf7151dc191c4de5ef820d
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101668304"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102036933"
 ---
 # <a name="availability-options-for-virtual-machines-in-azure"></a>Opções de disponibilidade das máquinas virtuais no Azure
 
@@ -55,7 +55,7 @@ Os conjuntos de escala de máquina virtual simplificam o design para uma alta di
 
 **Modos de orquestração para conjuntos de escala**
 
-Os modos de orquestração de escala de máquina virtual permitem-lhe ter um maior controlo sobre como as instâncias de máquinas virtuais são geridas pelo conjunto de escalas. Pode ativar um modo de orquestração uniforme ou flexível no seu conjunto de escala. A orquestração uniforme é otimizada para cargas apátridas em larga escala com instâncias idênticas. A orquestração flexível (pré-visualização) destina-se a uma elevada disponibilidade à escala com tipos de máquinas virtuais idênticos ou múltiplos. Saiba mais sobre estes [modos de orquestração](./virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md) e como capacitá-los.
+Os modos de orquestração de escala de máquina virtual permitem-lhe ter um maior controlo sobre como as instâncias de máquinas virtuais são geridas pelo conjunto de escalas. Pode ativar um modo de orquestração uniforme ou flexível no seu conjunto de escala. A orquestração uniforme é otimizada para cargas apátridas em larga escala com instâncias idênticas. A orquestração flexível (pré-visualização) destina-se a uma elevada disponibilidade à escala com tipos de máquinas virtuais idênticos ou múltiplos. Saiba mais sobre estes [modos de orquestração](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md) e como capacitá-los.
 
 
 ## <a name="availability-sets"></a>Conjuntos de disponibilidade

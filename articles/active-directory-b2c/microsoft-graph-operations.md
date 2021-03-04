@@ -12,12 +12,12 @@ ms.date: 01/28/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a7e9e523d3aae7cf1444c048c023ca1d85fde41f
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: a8ff94acbd9ffd491bf628ae61ee87634a9c6dd6
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98952240"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102033627"
 ---
 # <a name="manage-azure-ad-b2c-with-microsoft-graph"></a>Gerir Azure AD B2C com o Microsoft Graph
 
@@ -137,6 +137,14 @@ O Azure AD B2C fornece um diretório que pode conter 100 atributos personalizado
 - [Listar registos de auditoria](/graph/api/directoryaudit-list)
 
 Para obter mais informações sobre o acesso aos registos de auditoria do Azure AD B2C, consulte [os registos de auditoria do Azure AD B2C](view-audit-logs.md).
+
+## <a name="conditional-access"></a>Acesso Condicional
+
+- [Listar todas as políticas de acesso condicional](/graph/api/resources/conditionalaccessroot-list-policies)
+- [Ler propriedades e relações de uma política de acesso condicional](/graph/api/conditionalaccesspolicy-get)
+- [Criar uma nova política de acesso condicional](/graph/api/resources/application)
+- [Atualizar uma política de acesso condicional](/graph/api/conditionalaccesspolicy-update)
+- [Eliminar uma política de acesso condicional](/graph/api/conditionalaccesspolicy-delete)
 
 ## <a name="code-sample-how-to-programmatically-manage-user-accounts"></a>Amostra de código: Como gerir programáticamente as contas dos utilizadores
 

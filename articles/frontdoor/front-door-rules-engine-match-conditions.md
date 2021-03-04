@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/14/2020
+ms.date: 03/01/2020
 ms.author: duau
-ms.openlocfilehash: 0e874ae3d29f4143a4f8a9275d5ffcde48d08e6d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a352624fc802e4224aa1b60768c064c0054cdfd6
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91569765"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102035879"
 ---
 # <a name="azure-front-door-rules-engine-match-conditions"></a>Regras da porta dianteira Azure Condições de jogo do motor
 
@@ -51,7 +51,7 @@ Identifica os pedidos com base em argumentos definidos para o método de pedido 
 
 Nome do argumento | Operador | Valor do argumento | Transformação de caso
 --------------|----------|----------------|---------------
-Cadeia | [Lista de operadores padrão](#standard-operator-list) | String | Minúscula, Maiúscula, Guarnição, Remover Whitespace, URL Codificação, DEcode URL
+String | [Lista de operadores padrão](#standard-operator-list) | String | Minúscula, Maiúscula, Guarnição, Remover Whitespace, URL Codificação, DEcode URL
 
 ## <a name="query-string"></a>Cadeias de consulta
 
@@ -84,7 +84,7 @@ Não jogo IP | Endereço IP (separado pelo espaço)
   - **IPv6 exemplo**: *1:2:3:4:5:6:7:8 10:20:30:40:60:70:80* corresponde a qualquer pedido que chegam de qualquer endereço 1:2:3:4:5:6:7:8 ou 10:20:30:40:50:60:70:80.
 - A sintaxe para um bloco de endereços IP é o endereço IP base seguido de um corte dianteiro e o tamanho do prefixo. Por exemplo:
   - **IPv4 exemplo:** *5.5.5.64/26* corresponde a quaisquer pedidos que cheguem dos endereços 5.5.5.64 até 5.5.5.127.
-  - **IPv6 exemplo**: *1:2:3:/48* corresponde a qualquer pedido que chegue de endereços 1:2:3:0:0:0:0:0:0:0:0:0:0:0:0:0:0:3: ffff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff.ff.ff.ff.ff.ff.
+  - **IPv6 exemplo**: *1:2:3:/48* corresponde a qualquer pedido que chegue de endereços 1:2:3:0:0:0:0:0:0:0:0:0:0:0:0:0:0:3: ffff:ff:ff:ff:ff:ff:ff.
 
 ## <a name="request-body"></a>Corpo do pedido
 
@@ -104,7 +104,7 @@ Identifica os pedidos que utilizam um cabeçalho específico no pedido.
 
 Nome do cabeçalho | Operador | Valor do cabeçalho | Transformação de caso
 ------------|----------|--------------|---------------
-Cadeia | [Lista de operadores padrão](#standard-operator-list) | String | Minúscula, Maiúscula, Guarnição, Remover Whitespace, URL Codificação, DEcode URL
+String | [Lista de operadores padrão](#standard-operator-list) | String | Minúscula, Maiúscula, Guarnição, Remover Whitespace, URL Codificação, DEcode URL
 
 ## <a name="request-method"></a>Método de pedido
 
@@ -142,7 +142,7 @@ Operador | URL do Pedido | Transformação de caso
 
 #### <a name="key-information"></a>Informações-chave
 
-- Quando utilizar esta condição de regra, certifique-se de incluir informações de protocolo. Por exemplo: * https://www \<yourdomain\> . . com*.
+- Quando utilizar esta condição de regra, certifique-se de incluir informações de protocolo. Por exemplo: `https://www.<yourdomain\>.com`.
 
 ## <a name="request-file-extension"></a>Pedido de extensão de ficheiro
 
@@ -182,6 +182,10 @@ Operador | Valor | Transformação de caso
 ---------|-------|---------------
 [Lista de operadores padrão](#standard-operator-list) | String | Minúscula, Maiúscula, Guarnição, Remover Whitespace, URL Codificação, DEcode URL
 
+#### <a name="key-information"></a>Informações-chave
+
+- Quando utilizar esta condição de regra, note que a partida começa após o primeiro `/` do caminho. Por exemplo: `https://www.<yourdomain>.com/folder/page` começaria a combinar `folder/page` .
+
 ## <a name="standard-operator-list"></a>Lista de operadores padrão
 
 Para as regras que aceitam valores da lista de operadores padrão, os seguintes operadores são válidos:
@@ -191,9 +195,9 @@ Para as regras que aceitam valores da lista de operadores padrão, os seguintes 
 - Contains 
 - Começa com 
 - Termina com 
-- Menor do que
+- Menor que
 - Menos ou igual
-- Maior do que
+- Maior que
 - Maior do que ou igual
 - Nem qualquer
 - Não contém

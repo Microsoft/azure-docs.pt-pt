@@ -1,17 +1,16 @@
 ---
 title: Recolher fontes de dados de registo de eventos do Windows com o agente Log Analytics no Azure Monitor
 description: Descreve como configurar a recolha de registos do Evento Do Windows pelo Azure Monitor e detalhes dos registos que criam.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/21/2020
-ms.openlocfilehash: b747a4b58c9c460178d415d0b45ade814723d8fe
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 02/26/2021
+ms.openlocfilehash: a3baa83e2ae306f1e43aee52e29a151bad6f85d9
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101719870"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102036605"
 ---
 # <a name="collect-windows-event-log-data-sources-with-log-analytics-agent"></a>Recolher fontes de dados de registo de eventos do Windows com o agente Log Analytics
 Os registos do Windows Event são uma das fontes de dados mais [comuns](../agents/agent-data-sources.md) para agentes do Log Analytics em máquinas virtuais windows, uma vez que muitas aplicações escrevem no registo de eventos do Windows.  Pode recolher eventos a partir de registos padrão, como Sistema e Aplicação, além de especificar quaisquer registos personalizados criados pelas aplicações que precisa de monitorizar.
@@ -22,13 +21,13 @@ Os registos do Windows Event são uma das fontes de dados mais [comuns](../agent
 ![Eventos do Windows](media/data-sources-windows-events/overview.png)     
 
 ## <a name="configuring-windows-event-logs"></a>Configurar registos de eventos do Windows
-Configurar registos do Evento do Windows a partir do [menu de dados em Definições Avançadas](../agents/agent-data-sources.md#configuring-data-sources) para o espaço de trabalho Do Log Analytics.
+Configurar os registos do Evento do Windows a partir do menu de [configuração de Agentes](../agents/agent-data-sources.md#configuring-data-sources) para o espaço de trabalho Log Analytics.
 
 O Azure Monitor recolhe apenas eventos a partir dos registos de eventos do Windows que são especificados nas definições.  Pode adicionar um registo de eventos digitando o nome do registo e clicando **+** .  Para cada registo, apenas são recolhidos os eventos com as severidades selecionadas.  Verifique as gravidades do registo específico que pretende recolher.  Não é possível fornecer critérios adicionais para filtrar eventos.
 
 Ao escrever o nome de um registo de eventos, o Azure Monitor fornece sugestões de nomes comuns de registo de eventos. Se o registo que pretende adicionar não aparecer na lista, ainda pode adicioná-lo digitando o nome completo do registo. Pode encontrar o nome completo do registo utilizando o visualizador do evento. No espectador de eventos, abra a página *Propriedades* para o registo e copie a cadeia do campo *Nome Completo.*
 
-![Configurar eventos windows](media/data-sources-windows-events/configure.png)
+[![Configurar eventos windows](media/data-sources-windows-events/configure.png)](media/data-sources-windows-events/configure.png#lightbox)
 
 > [!NOTE]
 > Os eventos críticos do registo de eventos do Windows terão uma gravidade de "Erro" nos Registos do Monitor Azure.

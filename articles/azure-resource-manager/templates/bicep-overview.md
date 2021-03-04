@@ -2,21 +2,19 @@
 title: Linguagem bicep para modelos de gestor de recursos Azure
 description: Descreve a linguagem Bicep para implantar infraestruturas para Azure através de modelos Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 03/02/2021
-ms.openlocfilehash: 6a2750dc99e82c9cf8c9b8b97d156d3a9fe30f31
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/03/2021
+ms.openlocfilehash: 2fb13bca9e9d456889185d512ee2fc9d4cbbe673
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101747189"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102036389"
 ---
 # <a name="what-is-bicep-preview"></a>O que é Bicep (Pré-visualização)?
 
-Bicep é uma linguagem para a implantação declarativa dos recursos do Azure. Simplifica a experiência de autoria fornecendo sintaxe concisa e melhor suporte para a modularidade e reutilização de códigos. Bicep é uma língua específica do domínio (DSL), o que significa que é projetado para um determinado cenário ou domínio. Bicep não se destina a ser uma linguagem de programação geral para escrever aplicações.
+Bicep é uma linguagem para a implantação declarativa dos recursos do Azure. Simplifica a experiência de autoria fornecendo sintaxe concisa e melhor suporte para a reutilização de códigos. Bicep é uma língua específica do domínio (DSL), o que significa que é projetado para um determinado cenário ou domínio. Bicep não se destina a ser uma linguagem de programação geral para escrever aplicações.
 
-Bicep é uma abstração transparente sobre os modelos Azure Resource Manager (modelos ARM). Cada ficheiro Bicep compila-se com um modelo ARM padrão. Os tipos de recursos, versões API e propriedades válidas num modelo ARM são válidos num ficheiro Bicep.
-
-[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
+No passado, desenvolveu modelos de Gestor de Recursos Azure (modelos ARM) com JSON. A sintaxe JSON para criar o modelo pode ser verbosa e requer expressão complicada. Bicep melhora essa experiência sem perder nenhuma das capacidades de um modelo JSON. É uma abstração transparente sobre o JSON para modelos ARM. Cada ficheiro Bicep compila-se com um modelo ARM padrão. Os tipos de recursos, versões API e propriedades válidas num modelo ARM são válidos num ficheiro Bicep.
 
 ## <a name="get-started"></a>Introdução
 
@@ -30,7 +28,26 @@ Se tiver um modelo ARM existente que gostaria de converter em Bicep, consulte [D
 
 ## <a name="bicep-improvements"></a>Melhorias do Bicep
 
-Bicep oferece uma sintaxe mais fácil e concisa quando comparada com o JSON equivalente. Não se usam `[...]` expressões. Em vez disso, você chama diretamente funções, obtém valores de parâmetros e variáveis, e recursos de referência. Para uma comparação completa da sintaxe, consulte [comparar JSON e Bicep para modelos](compare-template-syntax.md).
+Bicep oferece uma sintaxe mais fácil e concisa quando comparada com o JSON equivalente. Não se usam `[...]` expressões. Em vez disso, você chama diretamente funções, e obtém valores a partir de parâmetros e variáveis. Você dá a cada recurso implantado um nome simbólico, o que facilita a referência desse recurso no seu modelo.
+
+Por exemplo, o seguinte JSON devolve um valor de saída de uma propriedade de recurso.
+
+```json
+"outputs": {
+  "hostname": {
+      "type": "string",
+      "value": "[reference(resourceId('Microsoft.Network/publicIPAddresses', variables('publicIPAddressName'))).dnsSettings.fqdn]"
+    },
+}
+```
+
+A expressão de saída equivalente em Bicep é mais fácil de escrever. O exemplo a seguir devolve a mesma propriedade utilizando o nome simbólico **publicIP** para um recurso definido dentro do modelo:
+
+```bicep
+output hostname string = publicIP.properties.dnsSettings.fqdn
+```
+
+Para uma comparação completa da sintaxe, consulte [comparar JSON e Bicep para modelos](compare-template-syntax.md).
 
 A Bicep gere automaticamente as dependências entre os recursos. Pode evitar a definição `dependsOn` quando o nome simbólico de um recurso é utilizado noutra declaração de recursos.
 

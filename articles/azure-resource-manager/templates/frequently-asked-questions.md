@@ -2,15 +2,15 @@
 title: Modelo ARM frequentemente fez perguntas
 description: Perguntas frequentes (FAQ) sobre modelos de Gestor de Recursos Azure (modelos ARM).
 ms.topic: conceptual
-ms.date: 09/17/2020
+ms.date: 03/03/2021
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 757dfa119649e21c6e1787671afa61ee18184300
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 24baa0dc7444f632040ddaf9fcc2266f9e4ccae5
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97561907"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102036145"
 ---
 # <a name="frequently-asked-questions-about-arm-templates"></a>Perguntas frequentes sobre modelos ARM
 
@@ -88,7 +88,7 @@ Este artigo responde frequentemente a perguntas sobre modelos de Gestor de Recur
 
 * **Ouvi dizer que estás a trabalhar numa nova linguagem de modelo. Onde posso saber mais sobre isto?**
 
-  Para visualizar a nova língua, consulte o [repositório do Projeto Bicep.](https://github.com/Azure/bicep) Para se manter informado sobre o novo idioma, [inscreva-se para notificações](https://aka.ms/armLangUpdates).
+  Para conhecer a nova linguagem, veja [o que é Bicep (Preview)?](bicep-overview.md)
 
 * **Existe um plano para apoiar a criação de modelos na YAML?**
 
@@ -100,7 +100,7 @@ Este artigo responde frequentemente a perguntas sobre modelos de Gestor de Recur
 
 * **Você vai oferecer uma ferramenta para converter os meus modelos JSON para a nova linguagem de modelo?**
 
-  Yes.
+  Sim. Ver [Decompile JSON a Bicep](compare-template-syntax.md#decompile-json-to-bicep).
 
 ## <a name="template-specs"></a>Especificações de Modelo
 
@@ -182,7 +182,7 @@ Este artigo responde frequentemente a perguntas sobre modelos de Gestor de Recur
 
 * **Posso integrar modelos ARM em Pipelines Azure?**
 
-  Yes. Para obter uma explicação de como utilizar modelos e oleodutos, consulte [Tutorial: Integração contínua de modelos ARM com Pipelines Azure](deployment-tutorial-pipeline.md) e [Integrar modelos ARM com Pipelines Azure](add-template-to-azure-pipelines.md).
+  Sim. Para obter uma explicação de como utilizar modelos e oleodutos, consulte [Tutorial: Integração contínua de modelos ARM com Pipelines Azure](deployment-tutorial-pipeline.md) e [Integrar modelos ARM com Pipelines Azure](add-template-to-azure-pipelines.md).
 
 * **Posso usar as ações do GitHub para implementar um modelo?**
 

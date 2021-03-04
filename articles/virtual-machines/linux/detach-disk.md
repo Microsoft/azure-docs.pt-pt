@@ -8,12 +8,12 @@ ms.date: 07/18/2018
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 7e618475d7d0160bce5aee39c267bb191a3a9f0a
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: d8694a715e53f820556231ae6a549e98b2963fa1
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897144"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102035709"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-linux-virtual-machine"></a>Como desanexar um disco de dados de uma máquina virtual do Linux
 
@@ -108,15 +108,12 @@ O disco permanece no armazenamento mas já não está ligado a uma máquina virt
 
 1. No menu esquerdo, selecione **Máquinas Virtuais.**
 1. Na lâmina da máquina virtual, selecione **Discos**.
-1. Na parte superior da lâmina **discos,** **selecione Editar**.
-1. Na lâmina **Discos,** à extrema direita do disco de dados que gostaria de desmontar, clique no ![ ](./media/detach-disk/detach.png) botão de desconexão da imagem do botão Desprender.
-1. Depois de removido o disco, clique em **Guardar** na parte superior da lâmina.
+1. Na lâmina **Discos,** à extrema direita do disco de dados que gostaria de desmontar, selecione o botão **X,** para desprender o disco.
+1. Depois de remover o disco, **selecione Guarde** na parte superior da lâmina.
 
-O disco permanece no armazenamento mas já não está ligado a uma máquina virtual.
+O disco permanece no armazenamento mas já não está ligado a uma máquina virtual. O disco não é apagado.
 
-
-
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Se pretender reutilizar o disco de dados, pode [fixá-lo a outro VM](add-disk.md).
 
 Se pretender eliminar o disco, para que não incorram mais custos de armazenamento, consulte [Localizar e eliminar discos geridos e não geridos do Azure não geridos e não geridos - portal Azure](../disks-find-unattached-portal.md).
