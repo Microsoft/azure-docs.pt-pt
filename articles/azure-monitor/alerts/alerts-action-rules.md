@@ -3,13 +3,12 @@ title: Regras de ação para alertas do Monitor Azure
 description: Compreender quais são as regras de ação no Azure Monitor e como configurá-las e geri-las.
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.subservice: alerts
-ms.openlocfilehash: 1a837ac9aa94effa021d5395fb4856d1d5df2e90
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 07d179f557671a515a7933b64a25e6d41f75219b
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101718153"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102045620"
 ---
 # <a name="action-rules-preview"></a>Regras de ação (pré-visualização)
 

@@ -1,18 +1,17 @@
 ---
 title: Criar e partilhar dashboards de dados do Log Analytics do Azure | Microsoft Docs
 description: Este tutorial ajuda-o a entender como os dashboards do Log Analytics podem visualizar todas as suas consultas de registos guardados, dando-lhe uma única lente para ver o seu ambiente.
-ms.subservice: logs
 ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 05/28/2020
 ms.custom: mvc
-ms.openlocfilehash: e268ae3a48117d7b1cf6ad00b22cbe3e4d37b5f4
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 84c710e44fbbccdefd5bf811477e1fa4c3989114
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100627980"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102043461"
 ---
 # <a name="create-and-share-dashboards-of-log-analytics-data"></a>Criar e partilhar dashboards dos dados do Log Analytics
 

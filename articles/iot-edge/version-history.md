@@ -4,16 +4,16 @@ description: Descubra as novidades no IoT Edge com informações sobre novas fun
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 02/11/2021
+ms.date: 03/01/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9db51fe9298b7f3329d35df375d027046e1f272e
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 9b06a9d1065fe27a7ac38d45c2a0aaba635b40eb
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100366154"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102044855"
 ---
 # <a name="azure-iot-edge-versions-and-release-notes"></a>Versões Azure IoT Edge e notas de lançamento
 
@@ -24,8 +24,7 @@ Azure IoT Edge é um produto construído a partir do projeto IoT Edge de código
 A documentação IoT Edge neste site está disponível para duas versões diferentes do produto, para que possa escolher o conteúdo que se aplica ao seu ambiente IoT Edge. Atualmente, as duas versões suportadas são:
 
 * **IoT Edge 1.1 (LTS)** é a primeira versão de suporte a longo prazo (LTS) do IoT Edge. A documentação desta versão abrange todas as funcionalidades e capacidades de todas as versões anteriores até 1.1. Esta versão de documentação será estável através do tempo de vida suportado da versão 1.1, e não refletirá novas funcionalidades lançadas em versões posteriores. O lançamento 1.1 é a versão mais recente geralmente disponível do IoT Edge.
-* **IoT Edge 1.2 (pré-visualização)** contém conteúdo adicional para funcionalidades e capacidades que estão no último lançamento de [pré-visualização, 1.2-rc1](https://github.com/Azure/azure-iotedge/releases/tag/1.2.0-rc1)
-  * Enquanto o IoT Edge 1.2 estiver em pré-visualização, é necessário instalar as versões dos candidatos de lançamento. Para obter mais informações, consulte [offline ou instalação de versão específica](how-to-install-iot-edge.md?tabs=linux#offline-or-specific-version-installation-optional).
+* **IoT Edge 1.2 (pré-visualização)** contém conteúdo adicional para funcionalidades e capacidades que estão no último lançamento de [pré-visualização, 1.2-rc4](https://github.com/Azure/azure-iotedge/releases/tag/1.2.0-rc4).
 
 Para obter mais informações sobre as versões IoT Edge, consulte [os sistemas suportados Azure IoT Edge](support.md).
 
@@ -35,6 +34,7 @@ Esta tabela fornece o histórico de versão recente para lançamentos de pacotes
 
 | Notas de lançamento e ativos | Tipo | Data | Destaques |
 | ------------------------ | ---- | ---- | ---------- |
+| [1.2-rc4](https://github.com/Azure/azure-iotedge/releases/tag/1.2.0-rc1) | Pré-visualizar | março de 2021 | Novos pacotes IoT Edge introduzidos, com novos passos de instalação e configuração. Para mais informações, consulte [atualização de 1.0 ou 1.1 a 1.2](how-to-update-iot-edge.md#special-case-update-from-10-or-11-to-12).
 | [1.1](https://github.com/Azure/azure-iotedge/releases/tag/1.1.0) | Suporte de longo prazo (LTS) | Fevereiro de 2021 | [Plano de apoio a longo prazo e atualizações de sistemas suportados](support.md) |
 | [1.2-rc1](https://github.com/Azure/azure-iotedge/releases/tag/1.2.0-rc1) | Pré-visualizar | Novembro de 2020 | [Dispositivos IoT Edge por trás de gateways](how-to-connect-downstream-iot-edge-device.md?view=iotedge-2020-11&preserve-view=true)<br>[Corretor MQTT IoT Edge](how-to-publish-subscribe.md?view=iotedge-2020-11&preserve-view=true) |
 | [1.0.10](https://github.com/Azure/azure-iotedge/releases/tag/1.0.10) | Estável | Outubro de 2020 | [Método direto uploadSupportBundle](how-to-retrieve-iot-edge-logs.md#upload-support-bundle-diagnostics)<br>[Carregar métricas de tempo de execução](how-to-access-built-in-metrics.md)<br>[Prioridade de rota e tempo a viver](module-composition.md#priority-and-time-to-live)<br>[Pedido de arranque de módulos](module-composition.md#configure-modules)<br>[Fornecimento manual X.509](how-to-register-device.md) |

@@ -1,5 +1,5 @@
 ---
-title: Dados de pontos de agrupamento num mapa Microsoft Azure Maps
+title: Dados de ponto de agrupamento num mapa | Microsoft Azure Maps
 description: Saiba como agrupar dados de pontos nos mapas. Veja como usar o Azure Maps Web SDK para cluster de dados, reagir a eventos de rato de cluster e exibir agregados de cluster.
 author: rbrundritt
 ms.author: richbrun
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: e80465cf8d43918e6ed6da8ebb3b96f3f197e887
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: 0af327f624d0fed648012ce1d12bacabca688cec
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97679951"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102044192"
 ---
 # <a name="clustering-point-data"></a>Dados de pontos de agrupamento
 
@@ -26,17 +26,17 @@ Ao visualizar muitos pontos de dados no mapa, os pontos de dados podem sobrepor-
 
 ## <a name="enabling-clustering-on-a-data-source"></a>Habilitação de agrupamento numa fonte de dados
 
-Ativar o agrupamento na `DataSource` classe definindo a `cluster` opção para a verdade. Definir `ClusterRadius` para selecionar pontos próximos e combiná-los em um cluster. O valor dos `ClusterRadius` pixéis está em pixels. Utilize `clusterMaxZoom` para especificar um nível de zoom para desativar a lógica de agrupamento. Aqui está um exemplo de como permitir o agrupamento numa fonte de dados.
+Ativar o agrupamento na `DataSource` classe definindo a `cluster` opção para a verdade. `clusterRadius`Desapase para selecionar pontos próximos e combine-os num cluster. O valor dos `clusterRadius` pixéis está em pixels. Utilize `clusterMaxZoom` para especificar um nível de zoom para desativar a lógica de agrupamento. Aqui está um exemplo de como permitir o agrupamento numa fonte de dados.
 
 ```javascript
 //Create a data source and enable clustering.
 var datasource = new atlas.source.DataSource(null, {
     //Tell the data source to cluster point data.
     cluster: true,
-
+    
     //The radius in pixels to cluster points together.
     clusterRadius: 45,
-
+    
     //The maximum zoom level in which clustering occurs.
     //If you zoom in more than this, all points are rendered as symbols.
     clusterMaxZoom: 15
@@ -46,7 +46,7 @@ var datasource = new atlas.source.DataSource(null, {
 > [!TIP]
 > Se dois pontos de dados estiverem próximos no terreno, é possível que o cluster nunca se desfaça, por muito perto que o utilizador se aproxime. Para resolver isto, pode definir a `clusterMaxZoom` opção de desativar a lógica de clustering e simplesmente exibir tudo.
 
-Aqui estão os métodos adicionais que a `DataSource` classe prevê para o agrupamento:
+A `DataSource` classe fornece os seguintes métodos relacionados com o agrupamento também.
 
 | Método | Tipo de retorno | Descrição |
 |--------|-------------|-------------|

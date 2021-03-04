@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 6cafbff86a55ad0bed7da17fcef1aea2b0a53d1b
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: f0f3baf1bf56f958408f789961812c0555f289f1
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101680205"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102043648"
 ---
 # <a name="redundancy-options-for-managed-disks"></a>Opções de redundância para discos geridos
 
@@ -34,7 +34,7 @@ Se o seu fluxo de trabalho não suporta escritas sincronizadas ao nível da apli
 
 O armazenamento redundante de zona (ZRS) replica o seu disco gerido aZure sincronizadamente em três zonas de disponibilidade de Azure na região selecionada. Cada zona de disponibilidade é uma localização física separada com energia, refrigeração e rede independentes, 
 
-Os discos ZRS permitem-lhe recuperar de falhas nas zonas de disponibilidade. Se uma zona inteira caiu, um disco ZRS pode ser ligado a um VM numa zona diferente. Também pode utilizar discos ZRS em combinação com discos partilhados para proporcionar uma melhor disponibilidade para aplicações agrupadas ou distribuídas como SQL FCI, SAP ASCS/SCS ou GFS2. Pode anexar um disco ZRS partilhado a VMs primários e secundários em diferentes zonas para tirar partido das zonas ZRS e [Availability.](../availability-zones/az-overview.md) Se a sua zona primária falhar, pode falhar rapidamente no VM secundário utilizando [a reserva persistente SCSI](disks-shared-enable.md#supported-scsi-pr-commands).
+Os discos ZRS permitem-lhe recuperar de falhas nas zonas de disponibilidade. Se uma zona inteira caiu, um disco ZRS pode ser ligado a um VM numa zona diferente. Também pode utilizar discos ZRS como disco partilhado para fornecer uma melhor disponibilidade para aplicações agrupadas ou distribuídas como SQL FCI, SAP ASCS/SCS ou GFS2. Pode anexar um disco ZRS partilhado a VMs primários e secundários em diferentes zonas para tirar partido das zonas ZRS e [Availability.](../availability-zones/az-overview.md) Se a sua zona primária falhar, pode falhar rapidamente no VM secundário utilizando [a reserva persistente SCSI](disks-shared-enable.md#supported-scsi-pr-commands).
 
 ### <a name="limitations"></a>Limitações
 
@@ -56,7 +56,7 @@ Com exceção de mais latência de escrita, os discos que usam ZRS são idêntic
 
 ### <a name="create-zrs-managed-disks"></a>Criar discos geridos ZRS
 
-Tem de utilizar a `2020-12-01` API com o seu modelo Azure Resource Manager para criar um disco ZRS.
+Utilize a `2020-12-01` API com o seu modelo Azure Resource Manager para criar um disco ZRS.
 
 #### <a name="create-a-vm-with-zrs-disks"></a>Criar um VM com discos ZRS
 
@@ -120,3 +120,7 @@ New-AzResourceGroupDeployment -ResourceGroupName zrstesting `
 -osDiskType "StandardSSD_LRS" `
 -dataDiskType "Premium_ZRS" `
 ```
+
+## <a name="next-steps"></a>Passos seguintes
+
+- Utilize estes [modelos de gestor de recursos Azure para criar um VM com discos ZRS](https://github.com/Azure-Samples/managed-disks-powershell-getting-started/tree/master/ZRSDisks).

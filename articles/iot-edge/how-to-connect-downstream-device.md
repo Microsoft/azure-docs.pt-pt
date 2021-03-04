@@ -1,5 +1,5 @@
 ---
-title: Ligar dispositivos a jusante - Azure IoT Edge / Microsoft Docs
+title: Ligar dispositivos a jusante - Azure IoT Edge | Microsoft Docs
 description: Como configurar dispositivos a jusante ou de folhas para ligar aos dispositivos de gateway Azure IoT Edge.
 author: kgremban
 manager: philmea
@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - devx-track-js
-ms.openlocfilehash: 35bb17a5cdfcc6aff4a513a594a08283ab1f1305
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 44fe128658b90d2327f17f22b2a33aaa1d4da1fc
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96437036"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102046130"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>Ligar um dispositivo a jusante a um gateway do Azure IoT Edge
 
@@ -214,7 +214,7 @@ A saída deste comando pode ser longa, incluindo informações sobre todos os ce
 
 Se o seu dispositivo de folha tiver ligação intermitente ao seu dispositivo gateway, experimente os seguintes passos para resolução.
 
-1. O nome de anfitrião do gateway na cadeia de ligação é o mesmo que o valor do nome hospedeiro no ficheiro IoT Edge config.yaml no dispositivo gateway?
+1. O nome de anfitrião do gateway na cadeia de ligação é o mesmo que o valor do nome hospedeiro no ficheiro IoT Edge config no dispositivo gateway?
 2. O nome de anfitrião do portal é resolúvel para um endereço IP? Pode resolver ligações intermitentes utilizando DNS ou adicionando uma entrada de ficheiro de anfitrião no dispositivo de folha.
 3. As portas de comunicação estão abertas na sua firewall? A comunicação com base no protocolo utilizado (MQTTS:8883/AMQPS:5671/HTTPS:433) deve ser possível entre o dispositivo a jusante e o IoT Edge transparente.
 

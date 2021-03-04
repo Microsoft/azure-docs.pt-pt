@@ -3,15 +3,14 @@ title: Azure Monitor vê designer para resumo de conversão de livros e acesso
 description: Permissões necessárias para aceder a livros de trabalho durante a transição de vistas no Azure Monitor.
 author: austonli
 ms.author: aul
-ms.subservice: ''
 ms.topic: conceptual
 ms.date: 02/07/2020
-ms.openlocfilehash: c5b3096c4eb8cf71ff1d13476fa09cc65ef413a7
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 42cb8db0f67d3a01b2e8443e6cb7c47f0fc44c4b
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100613111"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102043395"
 ---
 # <a name="view-designer-to-workbooks-conversion-summary-and-access"></a>Ver designer para resumo de conversão de livros de trabalho e acesso
 [O view designer](view-designer.md) é uma funcionalidade do Azure Monitor que lhe permite criar visualizações personalizadas para o ajudar a visualizar dados no seu espaço de trabalho Log Analytics, com gráficos, listas e linhas de tempo. Estão a ser eliminados e substituídos por livros de trabalho, que fornecem funcionalidades adicionais. Este artigo detalha como pode criar um resumo geral e permissões necessárias para aceder a livros de trabalho.

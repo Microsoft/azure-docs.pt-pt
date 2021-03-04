@@ -5,13 +5,12 @@ author: dkamstra
 ms.topic: conceptual
 ms.date: 02/25/2021
 ms.author: dukek
-ms.subservice: alerts
-ms.openlocfilehash: 50fb898e1ea55d0bcc09fc10dfee051ca7b1d809
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: ca43315258ea6439b08682898612137f7de1d61b
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101701166"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102045637"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Criar e gerir grupos de ações no portal do Azure
 Um grupo de ação é uma coleção de preferências de notificação definidas pelo proprietário de uma subscrição Azure. Os alertas Azure Monitor e Service Health utilizam grupos de ação para notificar os utilizadores de que foi desencadeado um alerta. Vários alertas podem utilizar o mesmo grupo de ação ou diferentes grupos de ação, dependendo dos requisitos do utilizador. 
@@ -176,7 +175,7 @@ A ação Action Groups Webhook permite-lhe aproveitar o Azure Ative Directory pa
 2. Ative os Grupos de Ação para utilizar a sua aplicação AD Azure.
 
     > [!NOTE]
-    > Você deve ser um membro da função de [Administrador de Aplicação AD Azure](../../active-directory/roles/permissions-reference.md#available-roles) para executar este script.
+    > Você deve ser um membro da função de [Administrador de Aplicação AD Azure](../../active-directory/roles/permissions-reference.md#all-roles) para executar este script.
     
     - Modifique a chamada de Connect-AzureAD do script PowerShell para usar o seu ID do inquilino Azure.
     - Modifique a variável $myAzureADApplicationObjectId do script PowerShell para utilizar o ID do objeto da sua aplicação AD Azure.

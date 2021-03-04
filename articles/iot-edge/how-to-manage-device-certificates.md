@@ -1,19 +1,19 @@
 ---
-title: Gerir certificados de dispositivo - Azure IoT Edge / Microsoft Docs
+title: Gerir certificados de dispositivo - Azure IoT Edge | Microsoft Docs
 description: Crie certificados de teste, instale-os e gerencie-os num dispositivo Azure IoT Edge para preparar a implantação da produção.
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/02/2020
+ms.date: 03/01/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 1f07f9d481ca8ede29c8b8443dad81a442962a71
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 6a4cade6a740bffc33695c40663609df38ba6e7a
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044144"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102044906"
 ---
 # <a name="manage-certificates-on-an-iot-edge-device"></a>Gerir certificados num dispositivo IoT Edge
 
@@ -51,8 +51,13 @@ Deve utilizar a sua própria autoridade de certificados para criar os seguintes 
 
 Neste artigo, o que chamamos de *CA raiz* não é a autoridade de certificados mais alta para uma organização. É a autoridade de certificados mais alta para o cenário IoT Edge, que o módulo hub IoT Edge, módulos de utilizador e quaisquer dispositivos a jusante usam para estabelecer confiança entre si.
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+
 > [!NOTE]
 > Atualmente, uma limitação no libiothsmo impede a utilização de certificados que expirem em ou após 1 de janeiro de 2038.
+
+:::moniker-end
 
 Para ver um exemplo destes certificados, reveja os scripts que criam certificados de demonstração em [Gestão de certificados ca para amostras e tutoriais.](https://github.com/Azure/iotedge/tree/master/tools/CACertificates)
 
@@ -60,19 +65,20 @@ Para ver um exemplo destes certificados, reveja os scripts que criam certificado
 
 Instale a sua cadeia de certificados no dispositivo IoT Edge e configuure o tempo de execução IoT Edge para fazer referência aos novos certificados.
 
+Copie os três certificados e ficheiros chave no seu dispositivo IoT Edge. Pode utilizar um serviço como [o Azure Key Vault](../key-vault/index.yml) ou uma função como o protocolo de cópia [Secure](https://www.ssh.com/ssh/scp/) para mover os ficheiros de certificado.  Se tiver gerado os certificados no próprio dispositivo IoT Edge, pode saltar este passo e utilizar o caminho para o diretório de trabalho.
+
 Por exemplo, se utilizar os scripts de amostra para [criar certificados de demonstração,](how-to-create-test-certificates.md)copie os seguintes ficheiros no seu dispositivo IoT-Edge:
 
 * Certificado ca do dispositivo: `<WRKDIR>\certs\iot-edge-device-MyEdgeDeviceCA-full-chain.cert.pem`
 * Chave privada ca do dispositivo: `<WRKDIR>\private\iot-edge-device-MyEdgeDeviceCA.key.pem`
 * Raiz CA: `<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem`
 
-1. Copie os três certificados e ficheiros chave no seu dispositivo IoT Edge.
-
-   Pode utilizar um serviço como [o Azure Key Vault](../key-vault/index.yml) ou uma função como o protocolo de cópia [Secure](https://www.ssh.com/ssh/scp/) para mover os ficheiros de certificado.  Se tiver gerado os certificados no próprio dispositivo IoT Edge, pode saltar este passo e utilizar o caminho para o diretório de trabalho.
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
 
 1. Abra o ficheiro IoT Edge security daemon config.
 
-   * Janelas: `C:\ProgramData\iotedge\config.yaml`
+   * Windows: `C:\ProgramData\iotedge\config.yaml`
    * Linux: `/etc/iotedge/config.yaml`
 
 1. Desafie as propriedades do **certificado** em config.yaml para o caminho URI do ficheiro para o certificado e ficheiros chave no dispositivo IoT Edge. Retire o `#` carácter antes das propriedades do certificado para descomprometer as quatro linhas. Certifique-se de que os **certificados:** a linha não tem espaço em branco anterior e que os itens aninhados são recortados por dois espaços. Por exemplo:
@@ -102,6 +108,41 @@ Por exemplo, se utilizar os scripts de amostra para [criar certificados de demon
    * Janelas: `C:\ProgramData\iotedge\hsm\certs` e `C:\ProgramData\iotedge\hsm\cert_keys`
 
    * Linux: `/var/lib/iotedge/hsm/certs` e `/var/lib/iotedge/hsm/cert_keys`
+:::moniker-end
+<!-- end 1.1 -->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+1. Abra o ficheiro IoT Edge security daemon config: `/etc/aziot/config.toml`
+
+1. Encontre o `trust_bundle_cert` parâmetro no início do ficheiro. Descompromete esta linha e forneça o ficheiro URI ao certificado de CA raiz no seu dispositivo.
+
+   ```toml
+   trust_bundle_cert = "file:///<path>/<root CA cert>"
+   ```
+
+1. Encontre a `[edge_ca]` secção no ficheiro config.toml. Descompromete as linhas nesta secção e forneça os caminhos URI de ficheiros para o certificado e ficheiros chave no dispositivo IoT Edge.
+
+   ```toml
+   [edge_ca]
+   cert = "file:///<path>/<device CA cert>"
+   pk = "file:///<path>/<device CA key>"
+   ```
+
+1. Certifique-se de que o utilizador **iotedge** leu permissões para o diretório que detém os certificados.
+
+1. Se já utilizou outros certificados para ioT Edge no dispositivo antes, elimine os ficheiros nos dois diretórios seguintes antes de iniciar ou reiniciar o IoT Edge:
+
+   * `/var/lib/aziot/certd/certs`
+   * `/var/lib/aziot/keyd/keys`
+
+:::moniker-end
+<!-- end 1.2 -->
+
+<!-- 1.1. -->
+<!-- Temporarily, customizable certificate lifetime not available in 1.2. Update before GA. -->
+:::moniker range="iotedge-2018-06"
 
 ## <a name="customize-certificate-lifetime"></a>Personalize o tempo de vida útil do certificado
 
@@ -112,31 +153,29 @@ O IoT Edge gera automaticamente certificados no dispositivo em vários casos, in
 
 Para obter mais informações sobre a função dos diferentes certificados num dispositivo IoT Edge, consulte [como a Azure IoT Edge utiliza certificados](iot-edge-certs.md).
 
-Para estes dois certificados gerados automaticamente, tem a opção de definir a bandeira **auto_generated_ca_lifetime_days** em config.yaml para configurar o número de dias para o tempo de vida dos certificados.
+Para estes dois certificados gerados automaticamente, tem a opção de definir a bandeira **auto_generated_ca_lifetime_days** no ficheiro config para configurar o número de dias para o tempo de vida dos certificados.
 
 >[!NOTE]
 >Existe um terceiro certificado autogerado que o gestor de segurança IoT Edge cria, o **certificado de servidor do hub IoT Edge**. Este certificado tem sempre uma vida útil de 90 dias, mas é automaticamente renovado antes de expirar. O **valor auto_generated_ca_lifetime_days** não afeta este certificado.
 
-Para configurar a expiração do certificado para algo que não seja o padrão de 90 dias, adicione o valor em dias à secção de **certificados** do ficheiro **config.yaml.**
+Após o termo após o número especificado de dias, o IoT Edge tem de ser reiniciado para regenerar o certificado de CA do dispositivo. O certificado de CA do dispositivo não será renovado automaticamente.
 
-Após o termo após o número especificado de dias, o daemon de segurança IoT Edge tem de ser reiniciado para regenerar o certificado de AC do dispositivo, não será renovado automaticamente.
+1. Para configurar a expiração do certificado para algo que não seja o padrão de 90 dias, adicione o valor em dias à secção de **certificados** do ficheiro config.
 
-```yaml
-certificates:
-  device_ca_cert: "<ADD URI TO DEVICE CA CERTIFICATE HERE>"
-  device_ca_pk: "<ADD URI TO DEVICE CA PRIVATE KEY HERE>"
-  trusted_ca_certs: "<ADD URI TO TRUSTED CA CERTIFICATES HERE>"
-  auto_generated_ca_lifetime_days: <value>
-```
+   ```yaml
+   certificates:
+     device_ca_cert: "<ADD URI TO DEVICE CA CERTIFICATE HERE>"
+     device_ca_pk: "<ADD URI TO DEVICE CA PRIVATE KEY HERE>"
+     trusted_ca_certs: "<ADD URI TO TRUSTED CA CERTIFICATES HERE>"
+     auto_generated_ca_lifetime_days: <value>
+   ```
 
-> [!NOTE]
-> Atualmente, uma limitação no libiothsmo impede a utilização de certificados que expirem em ou após 1 de janeiro de 2038.
+   > [!NOTE]
+   > Atualmente, uma limitação no libiothsmo impede a utilização de certificados que expirem em ou após 1 de janeiro de 2038.
 
-Depois de especificar o valor no ficheiro config.yaml, tome os seguintes passos:
+1. Elimine o conteúdo da `hsm` pasta para remover quaisquer certificados anteriormente gerados.
 
-1. Elimine o conteúdo da `hsm` pasta.
-
-   Janelas: `C:\ProgramData\iotedge\hsm\certs and C:\ProgramData\iotedge\hsm\cert_keys` Linux: `/var/lib/iotedge/hsm/certs and /var/lib/iotedge/hsm/cert_keys`
+   Janelas: `C:\ProgramData\iotedge\hsm\certs` e `C:\ProgramData\iotedge\hsm\cert_keys` Linux: `/var/lib/iotedge/hsm/certs` e `/var/lib/iotedge/hsm/cert_keys`
 
 1. Reinicie o serviço IoT Edge.
 
@@ -167,6 +206,42 @@ Depois de especificar o valor no ficheiro config.yaml, tome os seguintes passos:
    ```
 
    Verifique a saída da prontidão de produção: verificação de **certificados,** que lista o número de dias até que os certificados ca do dispositivo gerado automaticamente expirem.
+
+:::moniker-end
+<!-- end 1.1 -->
+
+<!-- 
+<!-- 1.2 --
+:::moniker range=">=iotedge-2020-11"
+
+1. To configure the certificate expiration to something other than the default 90 days, add the value in days to the **certificates** section of the config file.
+
+   ```toml
+   [certificates]
+   device_ca_cert = "<ADD URI TO DEVICE CA CERTIFICATE HERE>"
+   device_ca_pk = "<ADD URI TO DEVICE CA PRIVATE KEY HERE>"
+   trusted_ca_certs = "<ADD URI TO TRUSTED CA CERTIFICATES HERE>"
+   auto_generated_ca_lifetime_days = <value>
+   ```
+
+1. Delete the contents of the `certd` and `keyd` folders to remove any previously generated certificates: `/var/lib/aziot/certd/certs` `/var/lib/aziot/keyd/keys`
+
+1. Restart IoT Edge.
+
+   ```bash
+   sudo iotedge system restart
+   ```
+
+1. Confirm the new lifetime setting.
+
+   ```bash
+   sudo iotedge check --verbose
+   ```
+
+   Check the output of the **production readiness: certificates** check, which lists the number of days until the automatically generated device CA certificates expire.
+:::moniker-end
+<!-- end 1.2 --
+-->
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -3,13 +3,12 @@ title: Visão geral dos alertas clássicos no Azure Monitor
 description: Os alertas clássicos estão a ser depreciados. Os alertas permitem-lhe monitorizar métricas, eventos ou registos de recursos do Azure e ser notificado quando uma condição especificada for cumprida.
 ms.topic: conceptual
 ms.date: 02/14/2021
-ms.subservice: alerts
-ms.openlocfilehash: 38b393281692ac14083a0a8bbf5b8908b5758a39
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: bce29c94c3cbacd5b7e38cf30b699ab5ca57f904
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101737312"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102045433"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>O que são alertas clássicos no Microsoft Azure?
 

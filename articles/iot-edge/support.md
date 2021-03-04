@@ -8,20 +8,22 @@ ms.date: 02/11/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9a9361df817db46028259d8792d9a1431df4ce67
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 75beb214682536b996cf4896588ea32d568579f1
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100516330"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102045994"
 ---
 # <a name="azure-iot-edge-supported-systems"></a>Sistemas suportados Azure IoT Edge
 
 Este artigo fornece detalhes sobre quais os sistemas e componentes que são suportados pela IoT Edge, seja oficialmente ou em pré-visualização.
 
+## <a name="get-support"></a>Obter suporte
+
 Se tiver problemas durante a utilização do serviço Azure IoT Edge, existem várias formas de procurar suporte. Experimente um dos seguintes canais de apoio:
 
-**Reportar bugs** – A maior parte do desenvolvimento que vai para o produto Azure IoT Edge acontece no projeto de código aberto IoT Edge. Os bugs podem ser reportados na página de [assuntos](https://github.com/azure/iotedge/issues) do projeto. As correções fazem rapidamente o seu caminho desde o projeto até atualizações de produtos.
+**Bugs** de relatório – A maior parte do desenvolvimento que vai para o produto Azure IoT Edge acontece no projeto de código aberto IoT Edge. Os bugs podem ser reportados na página de [assuntos](https://github.com/azure/iotedge/issues) do projeto. As correções fazem rapidamente o seu caminho desde o projeto até atualizações de produtos.
 
 **Equipa de Apoio ao Cliente da Microsoft** – Os utilizadores que tenham um plano de [suporte](https://azure.microsoft.com/support/plans/) podem envolver a equipa de Suporte ao Cliente da Microsoft criando um bilhete de suporte diretamente do [portal Azure](https://ms.portal.azure.com/signin/index/?feature.settingsportalinstance=mpac).
 

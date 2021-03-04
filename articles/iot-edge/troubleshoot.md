@@ -8,12 +8,12 @@ ms.date: 11/12/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: c5f28e2c2d370329dbee0fb76284a4b76b2b945e
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: d46ad8238faa42ca657b18b3997407d91a224537
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100376515"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102045926"
 ---
 # <a name="troubleshoot-your-iot-edge-device"></a>Resolução de problemas do seu dispositivo IoT Edge
 
@@ -42,7 +42,7 @@ iotedge check
 
 A ferramenta de resolução de problemas executa muitas verificações que são classificadas nestas três categorias:
 
-* *As verificações* de configuração examinam detalhes que podem impedir que os dispositivos IoT Edge se conectem à nuvem, incluindo problemas com *config.yaml* e o motor do recipiente.
+* *As verificações* de configuração examinam detalhes que podem impedir que os dispositivos IoT Edge se conectem à nuvem, incluindo problemas com o ficheiro config e o motor do contentor.
 * *Verificações de ligação* verificam se o tempo de execução IoT Edge pode aceder às portas do dispositivo anfitrião e que todos os componentes IoT Edge podem ligar-se ao Hub IoT. Este conjunto de verificações retorna erros se o dispositivo IoT Edge estiver por trás de um representante.
 * *Os controlos de prontidão da produção* procuram as melhores práticas de produção recomendadas, tais como o estado dos certificados da Autoridade de Certificados do Dispositivo (CA) e a configuração do ficheiro de registo de módulos.
 
@@ -102,6 +102,9 @@ O [gestor de segurança IoT Edge](iot-edge-security-manager.md) é responsável 
 
 Em Linux:
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+
 * Veja o estado do gestor de segurança IoT Edge:
 
    ```bash
@@ -110,32 +113,68 @@ Em Linux:
 
 * Ver os registos do gestor de segurança IoT Edge:
 
-    ```bash
-    sudo journalctl -u iotedge -f
-    ```
+   ```bash
+   sudo journalctl -u iotedge -f
+   ```
 
 * Ver registos mais detalhados do gestor de segurança IoT Edge:
 
-  * Editar as definições do daemon IoT Edge:
+  1. Editar as definições do daemon IoT Edge:
 
-      ```bash
-      sudo systemctl edit iotedge.service
-      ```
+     ```bash
+     sudo systemctl edit iotedge.service
+     ```
 
-  * Atualizar as seguintes linhas:
+  2. Atualizar as seguintes linhas:
 
-      ```bash
-      [Service]
-      Environment=IOTEDGE_LOG=edgelet=debug
-      ```
+     ```bash
+     [Service]
+     Environment=IOTEDGE_LOG=edgelet=debug
+     ```
 
-  * Reinicie o Daemon de Segurança IoT Edge:
+  3. Reinicie o daemon de segurança IoT Edge:
 
-      ```bash
-      sudo systemctl cat iotedge.service
-      sudo systemctl daemon-reload
-      sudo systemctl restart iotedge
-      ```
+     ```bash
+     sudo systemctl cat iotedge.service
+     sudo systemctl daemon-reload
+     sudo systemctl restart iotedge
+     ```
+<!--end 1.1 -->
+:::moniker-end
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+* Veja o estado dos serviços do sistema IoT Edge:
+
+   ```bash
+   sudo iotedge system status
+   ```
+
+* Ver os registos dos serviços do sistema IoT Edge:
+
+   ```bash
+   sudo iotedge system logs -- -f
+   ```
+
+* Permitir que os registos de nível de depurado vejam registos mais detalhados dos serviços do sistema IoT Edge:
+
+  1. Ativar registos de nível de depurado.
+
+     ```bash
+     sudo iotedge system set-log-level debug
+     sudo iotedge system restart
+     ```
+
+  1. Volte para os registos de nível de informação predefinidos após a depuração.
+
+     ```bash
+     sudo iotedge system set-log-level info
+     sudo iotedge system restart
+     ```
+
+<!-- end 1.2 -->
+:::moniker-end
 
 No Windows:
 
@@ -159,52 +198,17 @@ No Windows:
 
 * Ver registos mais detalhados do gestor de segurança IoT Edge:
 
-  * Adicione uma variável de ambiente ao nível do sistema:
+  1. Adicione uma variável de ambiente ao nível do sistema:
 
-      ```powershell
-      [Environment]::SetEnvironmentVariable("IOTEDGE_LOG", "debug", [EnvironmentVariableTarget]::Machine)
-      ```
+     ```powershell
+     [Environment]::SetEnvironmentVariable("IOTEDGE_LOG", "debug", [EnvironmentVariableTarget]::Machine)
+     ```
 
-  * Reinicie o Daemon de Segurança IoT Edge:
+  2. Reinicie o Daemon de Segurança IoT Edge:
 
-      ```powershell
-      Restart-Service iotedge
-      ```
-
-### <a name="if-the-iot-edge-security-manager-is-not-running-verify-your-yaml-configuration-file"></a>Se o gestor de segurança IoT Edge não estiver em execução, verifique o seu ficheiro de configuração yaml
-
-> [!WARNING]
-> Os ficheiros YAML não podem conter separadores como recuo. Utilize 2 espaços em vez disso. Elementos de alto nível não devem ter espaços de liderança.
-
-Em Linux:
-
-   ```bash
-   sudo nano /etc/iotedge/config.yaml
-   ```
-
-No Windows:
-
-   ```cmd
-   notepad C:\ProgramData\iotedge\config.yaml
-   ```
-
-### <a name="restart-the-iot-edge-security-manager"></a>Reiniciar o gestor de segurança IoT Edge
-
-Se o problema persistir, pode tentar reiniciar o gestor de segurança IoT Edge.
-
-Em Linux:
-
-   ```cmd
-   sudo systemctl restart iotedge
-   ```
-
-No Windows:
-
-   ```powershell
-   Stop-Service iotedge -NoWait
-   sleep 5
-   Start-Service iotedge
-   ```
+     ```powershell
+     Restart-Service iotedge
+     ```
 
 ## <a name="check-container-logs-for-issues"></a>Verifique os registos dos contentores para obter problemas
 
@@ -217,6 +221,9 @@ iotedge logs <container name>
 Também pode utilizar uma chamada [de método direto](how-to-retrieve-iot-edge-logs.md#upload-module-logs) para um módulo no seu dispositivo para fazer o upload dos registos desse módulo para o Azure Blob Storage.
 
 ## <a name="view-the-messages-going-through-the-iot-edge-hub"></a>Veja as mensagens que passam pelo hub IoT Edge
+
+<!--1.1 -->
+:::moniker range="iotedge-2018-06"
 
 Pode visualizar as mensagens que passam pelo hub IoT Edge e recolher insights dos registos verbosos dos recipientes de tempo de execução. Para ligar os registos verbosos nestes recipientes, coloque `RuntimeLogLevel` no seu ficheiro de configuração yaml. Para abrir o ficheiro:
 
@@ -256,7 +263,29 @@ Substitua `env: {}` por:
 
 Guarde o ficheiro e reinicie o gestor de segurança IoT Edge.
 
-Também pode verificar as mensagens que são enviadas entre o Hub IoT e os dispositivos do IoT Edge. Consulte estas mensagens utilizando a [extensão Azure IoT Hub para Código de Estúdio Visual](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit). Para obter mais informações, consulte [a ferramenta Handy quando se desenvolver com a Azure IoT](https://blogs.msdn.microsoft.com/iotdev/2017/09/01/handy-tool-when-you-develop-with-azure-iot/).
+<!-- end 1.1 -->
+:::moniker-end
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+Pode visualizar as mensagens que passam pelo hub IoT Edge e recolher insights dos registos verbosos dos recipientes de tempo de funcionação. Para ligar os troncos verbosos nestes recipientes, deite a `RuntimeLogLevel` variável ambiente no manifesto de implantação.
+
+Para visualizar as mensagens que passam pelo hub IoT Edge, desacorda a `RuntimeLogLevel` variável ambiente `debug` para o módulo edgeHub.
+
+Tanto os módulos edgeHub como edgeAgent têm esta variável de ambiente de log de tempo de execução, com o valor padrão definido para `info` . Esta variável ambiental pode assumir os seguintes valores:
+
+* fatal
+* erro
+* aviso
+* informações
+* depurar
+* verbose
+
+<!-- end 1.2 -->
+:::moniker-end
+
+Também pode verificar as mensagens que estão a ser enviadas entre dispositivos IoT Hub e IoT. Consulte estas mensagens utilizando a [extensão Azure IoT Hub para Código de Estúdio Visual](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit). Para obter mais informações, consulte [a ferramenta Handy quando se desenvolver com a Azure IoT](https://blogs.msdn.microsoft.com/iotdev/2017/09/01/handy-tool-when-you-develop-with-azure-iot/).
 
 ## <a name="restart-containers"></a>Reiniciar contentores
 

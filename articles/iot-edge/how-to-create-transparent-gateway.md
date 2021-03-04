@@ -4,19 +4,19 @@ description: Use um dispositivo Azure IoT Edge como um gateway transparente que 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 10/15/2020
+ms.date: 03/01/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 9ecb1c50fe99cc93417a37e892049e03585945a5
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 431c116fee22da27ed0487fc6d2fe3644575491f
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100370432"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102046028"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>Configurar um dispositivo IoT Edge para atuar como um gateway transparente
 
@@ -26,10 +26,9 @@ Este artigo fornece instruções detalhadas para configurar um dispositivo IoT E
 ::: moniker range="iotedge-2018-06"
 
 >[!NOTE]
->Atualmente:
+>Nas versões IoT Edge 1.1 ou mais antigas, um dispositivo IoT Edge não pode estar a jusante de um gateway IoT Edge.
 >
-> * Os dispositivos ativados por arestas não conseguem ligar-se aos gateways IoT Edge.
-> * Os dispositivos a jusante não podem usar o upload de ficheiros.
+>Os dispositivos a jusante não podem usar o upload de ficheiros.
 
 ::: moniker-end
 
@@ -37,9 +36,7 @@ Este artigo fornece instruções detalhadas para configurar um dispositivo IoT E
 ::: moniker range=">=iotedge-2020-11"
 
 >[!NOTE]
->Atualmente:
->
-> * Os dispositivos a jusante não podem usar o upload de ficheiros.
+>Os dispositivos a jusante não podem usar o upload de ficheiros.
 
 ::: moniker-end
 
@@ -51,7 +48,17 @@ Existem três passos gerais para estabelecer uma ligação transparente de gatew
 
 Para que um dispositivo atue como um portal, tem de se ligar de forma segura aos seus dispositivos a jusante. O Azure IoT Edge permite-lhe utilizar uma infraestrutura de chaves públicas (PKI) para estabelecer ligações seguras entre dispositivos. Neste caso, estamos a permitir que um dispositivo a jusante se conecte a um dispositivo IoT Edge agindo como um gateway transparente. Para manter uma segurança razoável, o dispositivo a jusante deve confirmar a identidade do dispositivo gateway. Esta verificação de identidade impede que os seus dispositivos se conectem a gateways potencialmente maliciosos.
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
 Um dispositivo a jusante pode ser qualquer aplicação ou plataforma que tenha uma identidade criada com o serviço de nuvem [Azure IoT Hub.](../iot-hub/index.yml) Estas aplicações utilizam frequentemente o [dispositivo Azure IoT SDK](../iot-hub/iot-hub-devguide-sdks.md). Um dispositivo a jusante pode até ser uma aplicação em execução no próprio dispositivo de gateway IoT Edge. No entanto, um dispositivo IoT Edge não pode ser a jusante de um gateway IoT Edge.
+:::moniker-end
+<!-- end 1.1 -->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+Um dispositivo a jusante pode ser qualquer aplicação ou plataforma que tenha uma identidade criada com o serviço de nuvem [Azure IoT Hub.](../iot-hub/index.yml) Estas aplicações utilizam frequentemente o [dispositivo Azure IoT SDK](../iot-hub/iot-hub-devguide-sdks.md). Um dispositivo a jusante pode até ser uma aplicação em execução no próprio dispositivo de gateway IoT Edge.
+:::moniker-end
+<!-- end 1.2 -->
 
 Pode criar qualquer infraestrutura de certificado que permita a confiança necessária para a sua topologia de porta de dispositivos. Neste artigo, assumimos a mesma configuração de certificado que você usaria para permitir a [segurança X.509 CA](../iot-hub/iot-hub-x509ca-overview.md) no IoT Hub, que envolve um certificado DE CA X.509 associado a um hub IoT específico (o hub IoT raiz CA), uma série de certificados assinados com este CA, e um CA para o dispositivo IoT Edge.
 
@@ -64,7 +71,7 @@ Os passos seguintes acompanham-no através do processo de criação dos certific
 
 Um dispositivo Linux ou Windows com IoT Edge instalado.
 
-Se não tiver um dispositivo pronto, pode criar um numa máquina virtual Azure. Siga os passos no [Implementar o seu primeiro módulo IoT Edge para um dispositivo Linux virtual](quickstart-linux.md) para criar um Hub IoT, criar uma máquina virtual e configurar o tempo de execução IoT Edge. 
+Se não tiver um dispositivo pronto, pode criar um numa máquina virtual Azure. Siga os passos no [Implementar o seu primeiro módulo IoT Edge para um dispositivo Linux virtual](quickstart-linux.md) para criar um Hub IoT, criar uma máquina virtual e configurar o tempo de execução IoT Edge.
 
 ## <a name="set-up-the-device-ca-certificate"></a>Configurar o certificado ca do dispositivo
 
@@ -72,7 +79,7 @@ Todos os gateways IoT Edge precisam de um certificado de CA do dispositivo insta
 
 ![Configuração do certificado gateway](./media/how-to-create-transparent-gateway/gateway-setup.png)
 
-O certificado de CA raiz e o certificado CA do dispositivo (com a sua chave privada) têm de estar presentes no dispositivo de gateway IoT Edge e configurados no ficheiro IoT Edge config.yaml. Lembre-se que, neste *caso, o certificado de CA raiz* significa a autoridade de certificado mais alta para este cenário IoT Edge. O certificado de CA do dispositivo de gateway e os certificados do dispositivo a jusante têm de chegar ao mesmo certificado de CA raiz.
+O certificado de CA raiz e o certificado CA do dispositivo (com a sua chave privada) têm de estar presentes no dispositivo de gateway IoT Edge e configurados no ficheiro IoT Edge config. Lembre-se que, neste *caso, o certificado de CA raiz* significa a autoridade de certificado mais alta para este cenário IoT Edge. O certificado de CA do dispositivo de gateway e os certificados do dispositivo a jusante têm de chegar ao mesmo certificado de CA raiz.
 
 >[!TIP]
 >O processo de instalação do certificado de CA raiz e do certificado ca do dispositivo num dispositivo IoT Edge também é explicado mais detalhadamente em [certificados De gestão num dispositivo IoT Edge](how-to-manage-device-certificates.md).
@@ -85,7 +92,7 @@ Tenha os seguintes ficheiros prontos:
 
 Para cenários de produção, deve gerar estes ficheiros com a sua própria autoridade de certificados. Para cenários de desenvolvimento e teste, pode utilizar certificados de demonstração.
 
-1. Se estiver a utilizar certificados de demonstração, utilize as instruções em [Criar certificados de demonstração para testar as funcionalidades do dispositivo IoT Edge](how-to-create-test-certificates.md) para criar os seus ficheiros. Nessa página, é necessário dar os seguintes passos:
+Se não tiver a sua própria autoridade de certificados e quiser utilizar certificados de demonstração, siga as instruções nos [certificados de demonstração create para testar as funcionalidades do dispositivo IoT Edge](how-to-create-test-certificates.md) para criar os seus ficheiros. Nessa página, é necessário dar os seguintes passos:
 
    1. Para começar, configurar os scripts para gerar certificados no seu dispositivo.
    2. Crie um certificado de CA de raiz. No final dessas instruções, terá um ficheiro de certificado de CA raiz:
@@ -94,24 +101,55 @@ Para cenários de produção, deve gerar estes ficheiros com a sua própria auto
       * `<path>/certs/iot-edge-device-<cert name>-full-chain.cert.pem` e
       * `<path>/private/iot-edge-device-<cert name>.key.pem`
 
-2. Se criou os certificados numa máquina diferente, copie-os para o seu dispositivo IoT Edge.
+Se criou os certificados numa máquina diferente, copie-os para o seu dispositivo IoT Edge e, em seguida, proceda aos próximos passos.
 
-3. No seu dispositivo IoT Edge, abra o ficheiro de segurança daemon config.
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+
+1. No seu dispositivo IoT Edge, abra o ficheiro de segurança daemon config.
+
    * Windows: `C:\ProgramData\iotedge\config.yaml`
    * Linux: `/etc/iotedge/config.yaml`
 
-4. Encontre a secção de **definições** de Certificado do ficheiro. Descomprometar as quatro linhas a começar pelos **certificados:** e fornecer os URIs de ficheiros aos seus três ficheiros como valores para as seguintes propriedades:
+1. Encontre a secção de **definições** de Certificado do ficheiro. Descomprometar as quatro linhas a começar pelos **certificados:** e fornecer os URIs de ficheiros aos seus três ficheiros como valores para as seguintes propriedades:
    * **device_ca_cert**: certificado ca do dispositivo
    * **device_ca_pk**: chave privada ca do dispositivo
    * **trusted_ca_certs**: certificado de CA raiz
 
    Certifique-se de que não existe um espaço branco anterior nos **certificados:** linha, e que as outras linhas são recortadas por dois espaços.
 
-5. Guarde e feche o ficheiro.
+1. Guarde e feche o ficheiro.
 
-6. Reiniciar ioT Edge.
+1. Reiniciar ioT Edge.
    * Windows: `Restart-Service iotedge`
    * Linux: `sudo systemctl restart iotedge`
+:::moniker-end
+<!-- end 1.1 -->
+
+<!--1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+1. No seu dispositivo IoT Edge, abra o ficheiro config: `/etc/aziot/config.toml`
+
+   >[!TIP]
+   >Se o ficheiro config ainda não existir no seu dispositivo, então use `/etc/aziot/config.toml.edge.template` como modelo para criar um.
+
+1. Encontre o `trust_bundle_cert` parâmetro. Descompromete esta linha e forneça o ficheiro URI ao ficheiro de certificado de CA raiz no seu dispositivo.
+
+1. Encontre a `[edge_ca]` secção do ficheiro. Descomprometar as três linhas desta secção e fornecer os URIs de ficheiros ao seu certificado e ficheiros-chave como valores para as seguintes propriedades:
+   * **cert**: certificado ca dispositivo
+   * **pk**: chave privada ca dispositivo
+
+1. Guarde e feche o ficheiro.
+
+1. Reiniciar ioT Edge.
+
+   ```bash
+   sudo iotedge system restart
+   ```
+
+:::moniker-end
+<!-- end 1.2 -->
 
 ## <a name="deploy-edgehub-and-route-messages"></a>Implementar edgeHub e mensagens de rota
 

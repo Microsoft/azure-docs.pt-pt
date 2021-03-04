@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/11/2020
 ms.author: mohitku
 ms.reviewer: tyao
-ms.openlocfilehash: 4c710792dd7966fad76b33954fdf7c2253cf18f0
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 8752886bc5304de420083212d29ccd3e1cb14084
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96488243"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102043699"
 ---
 # <a name="tuning-web-application-firewall-waf-for-azure-front-door"></a>Firewall de aplicação web de afinação (WAF) para Azure Front Door
  
@@ -38,9 +38,17 @@ UserId=20&captchaId=7&captchaId=15&comment="1=1"&rating=3
 
 Se experimentar o pedido, o WAF bloqueia o tráfego que contém a sua corda *1=1* em qualquer parâmetro ou campo. Esta é uma corda frequentemente associada a um ataque de injeção SQL. Pode consultar os registos e ver o tempo de verificação do pedido e as regras que bloqueiam/correspondem.
  
-No exemplo seguinte, exploramos um `FrontdoorWebApplicationFirewallLog` registo gerado devido a uma correspondência de regras.
+No exemplo seguinte, exploramos um `FrontdoorWebApplicationFirewallLog` registo gerado devido a uma correspondência de regras. A seguinte consulta log analytics pode ser usada para encontrar pedidos que tenham sido bloqueados nas últimas 24 horas:
+
+```kusto
+AzureDiagnostics
+| where Category == 'FrontdoorWebApplicationFirewallLog'
+| where TimeGenerated > ago(1d)
+| where action_s == 'Block'
+
+```
  
-No campo "requestUri", pode ver que o pedido foi feito `/api/Feedbacks/` especificamente. Indo mais longe, encontramos a identificação da regra `942110` no campo "RuleName". Conhecendo a regra ID, você pode ir ao [OWASP ModSecurity Core Rule Definir Repositório Oficial](https://github.com/coreruleset/coreruleset) e pesquisar por essa [regra ID](https://github.com/coreruleset/coreruleset/blob/v3.1/dev/rules/REQUEST-942-APPLICATION-ATTACK-SQLI.conf) para rever o seu código e entender exatamente o que esta regra corresponde. 
+No `requestUri` campo, pode ver-se que o pedido foi feito `/api/Feedbacks/` especificamente. Indo mais longe, encontramos a identificação da regra `942110` no `ruleName` campo. Conhecendo a regra ID, você pode ir ao [OWASP ModSecurity Core Rule Definir Repositório Oficial](https://github.com/coreruleset/coreruleset) e pesquisar por essa [regra ID](https://github.com/coreruleset/coreruleset/blob/v3.1/dev/rules/REQUEST-942-APPLICATION-ATTACK-SQLI.conf) para rever o seu código e entender exatamente o que esta regra corresponde. 
  
 Em seguida, verificando o `action` campo, vemos que esta regra está definida para bloquear pedidos após a correspondência, e confirmamos que o pedido foi, de facto, bloqueado pela WAF porque `policyMode` o conjunto está definido para `prevention` . 
  
@@ -125,14 +133,14 @@ Com esta informação, e o conhecimento de que a regra 942110 é a que correspon
   * Consulte [as Ações da WAF](afds-overview.md#waf-actions) para obter mais informações sobre que ações podem ser tomadas quando um pedido corresponde às condições de uma regra.
 * Use regras personalizadas
   * Consulte [as regras personalizadas para firewall de aplicação web com porta frontal Azure](waf-front-door-custom-rules.md) para obter mais informações sobre regras personalizadas.
-* Regras para desativar 
+* Desativar regras 
 
 > [!TIP]
 > Ao selecionar uma abordagem para permitir pedidos legítimos através da WAF, tente torná-lo o mais estreito possível. Por exemplo, é melhor usar uma lista de exclusão do que desativar uma regra inteiramente.
 
 ### <a name="using-exclusion-lists"></a>Utilização de listas de exclusão
 
-Um benefício da utilização de uma lista de exclusão é que apenas a variável de correspondência que seleciona para excluir deixará de ser inspecionada para esse pedido dado. Ou seja, pode escolher entre cabeçalhos de pedido específicos, solicitar cookies, argumentar argumentos de argumento de argumento de argumento de cartão de corpo para ser excluído se uma determinada condição for satisfeita, em oposição a excluir todo o pedido de inspeção. As outras variáveis não especificadas do pedido continuarão a ser inspecionadas normalmente.
+Um benefício da utilização de uma lista de exclusão é que apenas a variável de correspondência que seleciona para excluir deixará de ser inspecionada para esse pedido dado. Ou seja, pode escolher entre cabeçalhos de pedido específicos, solicitar cookies, argumentar argumentos de argumento de cartão de corpo para ser excluído se uma determinada condição for satisfeita, em oposição a excluir todo o pedido de inspeção. As outras variáveis não especificadas do pedido continuarão a ser inspecionadas normalmente.
  
 É importante considerar que as exclusões são um cenário global. Isto significa que a exclusão configurada se aplicará a todo o tráfego que passa pela sua WAF, e não apenas a uma aplicação web específica ou uri. Por exemplo, isto pode ser uma preocupação se *1=1* é um pedido válido no organismo para uma determinada aplicação web, mas não para outros sob a mesma política da WAF. Se fizer sentido utilizar diferentes listas de exclusão para diferentes aplicações, considere usar diferentes políticas waf para cada aplicação e aplicá-las no frontend de cada aplicação.
  
@@ -181,7 +189,7 @@ No exemplo abaixo, criámos uma regra personalizada com duas condições. A prim
 
 A utilização de uma regra personalizada permite-lhe ser o mais granular ao afinar as suas regras de WAF e lidar com falsos positivos. Neste caso, não estamos a tomar medidas apenas com base no valor corporal do `comment` pedido, que pode existir em vários sites ou aplicações sob a mesma política da WAF. Ao incluir outra condição para também corresponder a um pedido específico `/api/Feedbacks/` URI, garantimos que esta regra personalizada se aplica verdadeiramente a este caso de uso explícito que nós examinamos. Isto garante que o mesmo ataque, se realizado em diferentes condições, ainda seria inspecionado e impedido pelo motor WAF.
 
-![Registar](../media/waf-front-door-tuning/custom-rule.png)
+![Registo](../media/waf-front-door-tuning/custom-rule.png)
 
 Ao explorar o registo, pode ver que o `ruleName_s` campo contém o nome dado à regra personalizada que criamos: `redirectcomment` . No `action_s` campo, pode ver que a ação *de redirecionamento* foi tomada para este evento. No `details_matches_s` campo, podemos ver os detalhes de ambas as condições foram combinados.
 
@@ -196,6 +204,9 @@ No entanto, desativar uma regra é um cenário global que se aplica a todos os a
 Se pretender utilizar o Azure PowerShell para desativar uma regra gerida, consulte a documentação do [`PSAzureManagedRuleOverride`](/powershell/module/az.frontdoor/new-azfrontdoorwafmanagedruleoverrideobject?preserve-view=true&view=azps-4.7.0) objeto. Se quiser utilizar o Azure CLI, consulte a [`az network front-door waf-policy managed-rules override`](/cli/azure/ext/front-door/network/front-door/waf-policy/managed-rules/override?preserve-view=true&view=azure-cli-latest) documentação.
 
 ![Regras da WAF](../media/waf-front-door-tuning/waf-rules.png)
+
+> [!TIP]
+> É uma boa ideia documentar quaisquer alterações que faça na sua política da WAF. Inclua pedidos de exemplo para ilustrar a deteção falsamente positiva, e explique claramente por que adicionou uma regra personalizada, desativou uma regra ou regras ou acrescentou uma exceção. Esta documentação pode ser útil se redesenhar a sua aplicação no futuro e precisar de verificar se as suas alterações ainda são válidas. Também pode ajudar se alguma vez for auditado ou precisar de justificar o porquê de ter reconfigurado a política da WAF a partir das suas definições predefinidas.
 
 ## <a name="finding-request-fields"></a>Encontrar campos de pedido
 

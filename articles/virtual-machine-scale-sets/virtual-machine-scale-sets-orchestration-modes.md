@@ -9,12 +9,12 @@ ms.subservice: extensions
 ms.date: 02/12/2021
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 1a276915f8132f2941bfb4425011c2d34454093b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 3350ff7aa05232173e5fd3b21451a76a0a40683d
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101693888"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102043716"
 ---
 # <a name="preview-orchestration-modes-for-virtual-machine-scale-sets-in-azure"></a>Pré-visualização: Modos de orquestração para conjuntos de escala de máquina virtual em Azure 
 
@@ -73,7 +73,7 @@ O método preferido é utilizar o Gráfico de Recursos Azure para consultar todo
 | order by resourceGroup desc, name desc 
 ```
 
-Consultar recursos com [o Azure Resource Graph](../governance/resource-graph/overview) é uma forma conveniente e eficiente de consultar os recursos da Azure e minimiza as chamadas de API para o fornecedor de recursos. O Azure Resource Graph é uma cache eventualmente consistente onde recursos novos ou atualizados podem não ser refletidos até 60 segundos. Pode:
+Consultar recursos com [o Azure Resource Graph](../governance/resource-graph/overview.md) é uma forma conveniente e eficiente de consultar os recursos da Azure e minimiza as chamadas de API para o fornecedor de recursos. O Azure Resource Graph é uma cache eventualmente consistente onde recursos novos ou atualizados podem não ser refletidos até 60 segundos. Pode:
 - Listar VMs em um grupo de recursos ou subscrição.
 - Utilize a opção de expansão para recuperar a visualização do caso (estados de atribuição de domínio de avaria, potência e provisionamento) para todos os VMs na sua subscrição.
 - Utilize a API Get VM e os comandos para obter a visualização do modelo e da instância para uma única instância.

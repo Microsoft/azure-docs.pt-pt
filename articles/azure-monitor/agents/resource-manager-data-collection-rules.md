@@ -1,17 +1,16 @@
 ---
 title: Amostras de modelo do gestor de recursos para regras de recolha de dados
 description: Experimente modelos de Gestor de Recursos Azure para criar associações entre regras de recolha de dados e máquinas virtuais no Azure Monitor.
-ms.subservice: logs
 ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 11/17/2020
-ms.openlocfilehash: 60de25231f5fad3e7b1ddec21048d048e31f3416
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 5ceaaa7ed9288299019f3e87d8c214e53013f5ec
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101737329"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102045756"
 ---
 # <a name="resource-manager-template-samples-for-data-collection-rules-in-azure-monitor"></a>Amostras de modelo do gestor de recursos para regras de recolha de dados no Azure Monitor
 Este artigo inclui [modelos de gestor de recursos Azure](../../azure-resource-manager/templates/template-syntax.md) para implantar e configurar o [agente Log Analytics](./log-analytics-agent.md) e a [extensão de diagnóstico](./diagnostics-extension-overview.md) para máquinas virtuais no Azure Monitor. Cada amostra inclui um ficheiro de modelo e um ficheiro de parâmetros com valores de amostra para fornecer ao modelo.

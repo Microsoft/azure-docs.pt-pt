@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 11/23/2020
+ms.date: 03/02/2021
 ms.author: aahi
 ms.custom: seodec18, cog-serv-seo-aug-2020
 keywords: no local, OCR, Docker, contentor
-ms.openlocfilehash: 843000963bc05cab5415c9bb1db32b3272c8dc9f
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 93d59e78241dcc94785ca139818d72908c7184a4
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100391780"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102043920"
 ---
 # <a name="install-read-ocr-docker-containers-preview"></a>Instalar Ler recipientes OCR Docker (Pré-visualização) 
 
@@ -436,7 +436,7 @@ Os contentores dos Serviços Cognitivos enviam informações de faturação para
 
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
-Para obter mais informações sobre estas opções, consulte [os recipientes Configure](./computer-vision-resource-container-config.md).
+Para obter mais informações sobre estas opções, consulte [os recipientes Configure](./computer-vision-resource-container-config.md). 
 
 ## <a name="summary"></a>Resumo
 

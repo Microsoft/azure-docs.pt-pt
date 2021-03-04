@@ -1,17 +1,16 @@
 ---
 title: Amostras de modelo de gestor de recursos para livros
 description: Experimente os modelos do Gestor de Recursos Azure para implementar livros de trabalho do Azure Monitor.
-ms.subservice: logs
 ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2020
-ms.openlocfilehash: 1a3a67ff223199663d35ffad3b39cdbf0c020d98
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: bcd477d30c74f12e2836f41facec23103547c31b
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100628334"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102043512"
 ---
 # <a name="resource-manager-template-samples-for-workbooks-in-azure-monitor"></a>Amostras de modelo de gestor de recursos para livros em Azure Monitor
 Este artigo inclui [modelos de gestor de recursos Azure](../../azure-resource-manager/templates/template-syntax.md) para criar livros no Azure Monitor. Cada amostra inclui um ficheiro de modelo e um ficheiro de parâmetros com valores de amostra para fornecer ao modelo.

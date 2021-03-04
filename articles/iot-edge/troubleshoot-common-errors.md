@@ -4,19 +4,19 @@ description: Utilize este artigo para resolver problemas comuns encontrados ao i
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/10/2020
+ms.date: 03/01/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: e1605f45dc8a7a1c03b5481ea17478064414df59
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: a3e646f44978e8897c22d579639efcef0fcd2205
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100382213"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102045977"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Problemas comuns e resoluções do Azure IoT Edge
 
@@ -216,6 +216,9 @@ O tempo de execução IoT Edge só pode suportar os anfitriões com menos de 64 
 
 Quando vir este erro, pode resolvê-lo configurando o nome DNS da sua máquina virtual e, em seguida, definindo o nome DNS como o nome de anfitrião no comando de configuração.
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+
 1. No portal Azure, navegue para a página geral da sua máquina virtual.
 2. **Selecione configurar** em nome DNS. Se a sua máquina virtual já tiver um nome DNS configurado, não precisa de configurar um novo.
 
@@ -236,6 +239,39 @@ Quando vir este erro, pode resolvê-lo configurando o nome DNS da sua máquina v
       ```cmd
       notepad C:\ProgramData\iotedge\config.yaml
       ```
+
+:::moniker-end
+<!-- end 1.1 -->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+1. No portal Azure, navegue para a página geral da sua máquina virtual.
+
+2. **Selecione configurar** em nome DNS. Se a sua máquina virtual já tiver um nome DNS configurado, não precisa de configurar um novo.
+
+   ![Configurar o nome DNS da máquina virtual](./media/troubleshoot/configure-dns.png)
+
+3. Forneça um valor para **a etiqueta de nome DNS** e selecione **Save**.
+
+4. Copie o novo nome DNS, que deve estar no formato **\<DNSnamelabel\> . \<vmlocation\> . cloudapp.azure.com.**
+
+5. No dispositivo IoT Edge, abra o ficheiro config.
+
+   ```bash
+   sudo nano /etc/aziot/config.toml
+   ```
+
+6. Substitua o valor do `hostname` seu nome DNS.
+
+7. Guarde e feche o ficheiro e, em seguida, aplique as alterações no IoT Edge.
+
+   ```bash
+   sudo iotedge config apply
+   ```
+
+:::moniker-end
+<!-- end 1.2 -->
 
 ## <a name="cant-get-the-iot-edge-daemon-logs-on-windows"></a>Não consigo obter os registos do daemon IoT Edge no Windows
 
@@ -343,7 +379,7 @@ O daemon IoT Edge está ativo com um ficheiro de configuração válido, mas nã
 
 **Causa raiz:**
 
-Os dispositivos IoT Edge por trás de um gateway obtêm as suas imagens de módulo do dispositivo IoT Edge dos pais especificados no `parent_hostname` campo do ficheiro config.yaml. O `Could not perform HTTP request` erro significa que o dispositivo da criança não é capaz de chegar ao seu dispositivo principal através de HTTP.
+Os dispositivos IoT Edge por trás de um gateway obtêm as suas imagens de módulo do dispositivo IoT Edge dos pais especificados no `parent_hostname` campo do ficheiro config. O `Could not perform HTTP request` erro significa que o dispositivo da criança não é capaz de chegar ao seu dispositivo principal através de HTTP.
 
 **Resolução:**
 

@@ -2,13 +2,13 @@
 title: Parâmetros em modelos
 description: Descreve como definir parâmetros num modelo de Gestor de Recursos Azure (modelo ARM) e ficheiro Bicep.
 ms.topic: conceptual
-ms.date: 02/22/2021
-ms.openlocfilehash: 3b5da4b14fc338ba81be39d1e3ff6965294f0a0b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/03/2021
+ms.openlocfilehash: b23417766524204e490450568bb80b8c49e2d328
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101710639"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102043937"
 ---
 # <a name="parameters-in-arm-templates"></a>Parâmetros em modelos ARM
 
@@ -215,6 +215,8 @@ Pode utilizar outro valor de parâmetro para construir um valor padrão. O model
 param siteName string = 'site${uniqueString(resourceGroup().id)}'
 param hostingPlanName string = '${siteName}-plan'
 ```
+
+---
 
 ## <a name="length-constraints"></a>Restrições de comprimento
 

@@ -1,17 +1,16 @@
 ---
 title: Amostras de modelo de gestor de recursos para agentes
 description: Experimente os modelos do Gestor de Recursos Azure para implantar e configurar agentes de máquinas virtuais no Azure Monitor.
-ms.subservice: logs
 ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 11/17/2020
-ms.openlocfilehash: 4d4f9b7caed81f8c01e7e2d7e9f94ec3acf3ba92
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 9aae62b9f4ca74b11c4f62c44f6d310628d36316
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101737346"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102045773"
 ---
 # <a name="resource-manager-template-samples-for-agents-in-azure-monitor"></a>Amostras de modelo de gestor de recursos para agentes no Azure Monitor
 Este artigo inclui [modelos de gestor de recursos Azure](../../azure-resource-manager/templates/template-syntax.md) para implantar e configurar o [agente Log Analytics](./log-analytics-agent.md) e a [extensão de diagnóstico](./diagnostics-extension-overview.md) para máquinas virtuais no Azure Monitor. Cada amostra inclui um ficheiro de modelo e um ficheiro de parâmetros com valores de amostra para fornecer ao modelo.
