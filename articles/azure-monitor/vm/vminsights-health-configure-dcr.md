@@ -1,17 +1,16 @@
 ---
 title: Configure a monitorização em VM insights saúde dos hóspedes usando regras de recolha de dados (pré-visualização)
 description: Descreve como modificar a monitorização predefinida em VM insights saúde do hóspede em escala usando modelos de Gestor de Recursos.
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/15/2020
-ms.openlocfilehash: 907aea16b018fb5dd3846db546787d132f8f5a9f
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 0db6ed7566c53429f8b9798ac8cdafe76ca7bd5a
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101731226"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102052148"
 ---
 # <a name="configure-monitoring-in-vm-insights-guest-health-using-data-collection-rules-preview"></a>Configure a monitorização em VM insights saúde dos hóspedes usando regras de recolha de dados (pré-visualização)
 [A saúde do hóspede](vminsights-health-overview.md) permite-lhe ver a saúde de uma máquina virtual como definida por um conjunto de medições de desempenho que são amostradas a intervalos regulares. Este artigo descreve como pode modificar a monitorização predefinitiva em várias máquinas virtuais usando regras de recolha de dados.

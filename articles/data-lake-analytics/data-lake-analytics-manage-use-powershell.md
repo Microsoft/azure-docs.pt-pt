@@ -5,12 +5,12 @@ ms.service: data-lake-analytics
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 06/29/2018
-ms.openlocfilehash: 2f56fc285ed263b4b58985b5df620740a33cb3f5
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: f1d5d732433a78b8e3e7ff94bd6aaa2eea8f4a87
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99092356"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102051791"
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-powershell"></a>Gerir a Análise do Azure Data Lake com o Azure PowerShell
 
@@ -296,9 +296,6 @@ Em vez de repetir `Get-AdlAnalyticsJob` até que um trabalho termine, pode usar 
 Wait-AdlJob -Account $adla -JobId $job.JobId
 ```
 
-## <a name="analyzing-job-history"></a>Analisar o histórico de empregos
-
-Usar a Azure PowerShell para analisar a história dos trabalhos que têm funcionado na análise do Data Lake é uma técnica poderosa. Pode usá-lo para obter informações sobre o uso e o custo. Você pode aprender mais olhando para a [amostra de história](https://github.com/jpalbright31/data-lake-analytics-powershell-job-history-analysis) de trabalho repo  
 
 ## <a name="list-job-pipelines-and-recurrences"></a>Listar gasodutos e recorrências
 

@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/26/2019
+ms.date: 03/03/2021
 ms.author: duau
-ms.openlocfilehash: fa8dba12a050e42e258e4224f29e379ff53f09d8
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 163436ad82ea6f5067ad41b7fdd7e315db6dc29a
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100576671"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102095022"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Gestor de tráfego frequentemente perguntas (FAQ)
 
@@ -447,7 +447,18 @@ Se não for fornecida nenhuma definição personalizada do cabeçalho do anfitri
 
 ### <a name="what-are-the-ip-addresses-from-which-the-health-checks-originate"></a>Quais são os endereços IP de onde provêm os controlos sanitários?
 
-Clique [aqui](https://azuretrafficmanagerdata.blob.core.windows.net/probes/azure/probe-ip-ranges.json) para ver o ficheiro JSON que lista os endereços IP a partir dos quais os controlos de saúde do Traffic Manager podem ser originados. Reveja os IPs listados no ficheiro JSON para garantir que as ligações recebidas destes endereços IP sejam permitidas nos pontos finais para verificar o seu estado de saúde.
+Clique [aqui](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview) para saber como recuperar as listas de endereços IP a partir dos quais os controlos de saúde do Traffic Manager podem ser originados. Pode utilizar rest API, Azure CLI ou Azure PowerShell para recuperar a lista mais recente. Reveja os IPs listados para garantir que as ligações recebidas destes endereços IP sejam permitidas nos pontos finais para verificar o seu estado de saúde.
+
+Exemplo utilizando a Azure PowerShell:
+
+```azurepowershell-interactive
+$serviceTags = Get-AzNetworkServiceTag -Location eastus
+$result = $serviceTags.Values | Where-Object { $_.Name -eq "AzureTrafficManager" }
+$result.Properties.AddressPrefixes
+```
+
+> [!NOTE]
+> Os endereços IP públicos podem ser alterados sem aviso prévio. Certifique-se de recuperar as informações mais recentes usando o ficheiro API da Tag de Serviço ou descarregamento JSON.
 
 ### <a name="how-many-health-checks-to-my-endpoint-can-i-expect-from-traffic-manager"></a>Quantos cheques de saúde para o meu ponto final posso esperar do Gerente de Tráfego?
 

@@ -1,22 +1,22 @@
 ---
 title: Veja o seu fluxo de vídeo RTSP do Azure Percept DK
-description: Saiba como ver o fluxo de vídeo RTSP a partir do Vision SoM do Azure Percept DK
+description: Saiba como ver o fluxo de vídeo RTSP da Azure Percept DK
 author: elqu20
 ms.author: v-elqu
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/12/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 20fb8495e17d4294351a50c3bc97436de9f03450
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 5f77e99dc5c34867fef2b0ac47c709824fa4477d
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101662987"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102096008"
 ---
 # <a name="view-your-azure-percept-dks-rtsp-video-stream"></a>Veja o seu fluxo de vídeo RTSP do Azure Percept DK
 
-Siga este guia para ver o fluxo de vídeo RTSP a partir do Vision SoM do Azure Percept DK dentro do Azure Percept Studio. A inferenção dos modelos de IA da visão implantados no seu dispositivo será visível no webstream.
+Siga este guia para ver o fluxo de vídeo RTSP do Azure Percept DK dentro do Azure Percept Studio. A inferenção dos modelos de IA de visão implantados no seu dispositivo será visível no stream da web.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -36,15 +36,15 @@ Siga este guia para ver o fluxo de vídeo RTSP a partir do Vision SoM do Azure P
 
 1. Selecione o seu devkit na lista.
 
-    :::image type="content" source="./media/how-to-view-video-stream/select-device.png" alt-text="Ecrã geral do Azure Percept Studio.":::
+    :::image type="content" source="./media/how-to-view-video-stream/select-device.png" alt-text="Screenshot dos dispositivos disponíveis no Azure Percept Studio.":::
 
 1. Clique **em Ver o fluxo do seu dispositivo**.
 
-    :::image type="content" source="./media/how-to-view-video-stream/view-device-stream.png" alt-text="Ecrã geral do Azure Percept Studio.":::
+    :::image type="content" source="./media/how-to-view-video-stream/view-device-stream.png" alt-text="Screenshot da página do dispositivo mostrando as ações disponíveis do projeto de visão.":::
 
-    Isto abre um separador que mostra o webstream ao vivo a partir do Vision SoM do seu Azure Percept DK.
+    Isto abre um separador mostrando o stream web ao vivo do seu Azure Percept DK.
 
-    :::image type="content" source="./media/how-to-view-video-stream/webstream.png" alt-text="Ecrã geral do Azure Percept Studio.":::
+    :::image type="content" source="./media/how-to-view-video-stream/webstream.png" alt-text="Screenshot do web stream do dispositivo.":::
 
 ## <a name="next-steps"></a>Passos seguintes
 

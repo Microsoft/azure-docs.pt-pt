@@ -1,5 +1,5 @@
 ---
-title: 'Parceiros de Rede: Azure Networking / Microsoft Docs'
+title: 'Parceiros de Rede: Azure Networking | Microsoft Docs'
 description: Saiba mais sobre o Azure Networking Managed Service Provider Partner Program e encontre uma lista de parceiros que oferecem serviços de networking em nuvem e híbridos.
 services: networking
 author: skishen525
@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.author: sukishen
-ms.openlocfilehash: 069d9c761ea6eef3ea5d451e7f1492a262e3a345
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: e9e1789405e76b8de76f83a926734d720e61c540
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97617345"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102095974"
 ---
 # <a name="about-azure-networking-msp-partners"></a>Sobre os parceiros MSP da Azure Networking
 
@@ -39,6 +39,7 @@ Utilize os links nesta secção para obter mais informações sobre serviços de
 |[Equinix](https://www.equinix.com/)|[Workshop WAN otimizado em nuvem](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/equinix.cloudoptimizedwan?tab=Overview)|[Workshop de Estratégia de Conectividade ExpressRoute;](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/equinix.expressroutestrategy?tab=Overview) [Tecido de troca de nuvens Equinix](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/equinix.equinix_ecx_fabric?tab=Overview)||||
 |[IIJ](https://www.iij.ad.jp/biz/cloudex/)|[Implementação ExpressRoute: Briefing 1-Hr](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/internet_initiative_japan_inc.iij_cxm_consulting)|[ExpressRoute: Implementação 2-Wk](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/internet_initiative_japan_inc.iij_cxmer_consulting)||||
 |[Sem fios federado](https://www.federatedwireless.com/caas/)||||[Conectividade Sem Fios Federada-as-a-Service](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/federatedwireless1580839623708.fw_caas?tab=Overview)|
+|[HCL](https://www.hcltech.com/)||||[Oferta LTE privada HCL Azure - Avaliação de 1 dia](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/hcl-technologies.hclazureprivatelteoffering)|
 |[Infosys](https://www.infosys.com/services/microsoft-cloud-business/pages/index.aspx)|[Infosys Integra+ para Azure](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/infosysltd.infosys-integrate-for-azure?tab=Overview)|||||
 |[Interxion](https://www.interxion.com/products/interconnection/cloud-connect/support-your-cloud-strategy/)|[Avaliação de Networking Azure - 5 dias](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/interxionhq.inxn_azure_networking_assessment)|||||
 |[Liquid Telecom](https://liquidcloud.africa/)|[Preparação para a nuvem - Avaliação de 2 horas](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/liquidtelecommunicationsoperationslimited.liquid_cloud_readiness_assessment)|[Serviços especializados da Liquid Azure](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/liquidtelecommunicationsoperationslimited.5dab29ab-bb14-4df8-8978-9a8608a41ad7?tab=Overview)||||
@@ -52,6 +53,7 @@ Utilize os links nesta secção para obter mais informações sobre serviços de
 |[OpenSystems](https://open-systems.com/solutions/microsoft-azure-virtual-wan)|||[Gerido seguro SD-WAN alavancando Microsoft Azure](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/open_systems_ag.sdwan_0820?tab=Overview)||
 |[Serviços empresariais laranja](https://www.orange-business.com/en/partners/orange-business-services-become-microsoft-azure-networking-managed-services-provider)||[Estudo da Rede ExpressRoute : implementação de 3 semanas](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/orangebusinessservicessa1603182943272.expressroute_study_obs_connectivity)|||
 |[Orixcom]( https://www.orixcom.com/cloud-solutions/)||[Orixcom Managed ExpressRoute](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/orixcom.orixcom_managed_expressroute?tab=Overview)|[Orixcom SD-WAN](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/orixcom.orixcom_sd_wan?tab=Overview)|||
+|[Proximus](https://www.proximus.be/en/companies-and-public-sector/?)|[Serviços Proximus Azure - Quadro Operacional](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/proximusnv1580135963165.pas-lighthouse?tab=Reviews)|||||
 |[SoftBank]( https://www.softbank.jp/biz/nw/nwp/cloud_access/direct_access_for_az/)|[Serviço de Consultoria em Rede Azure: Avaliação 1-Wk;](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/sbmpn.softbank_nw_msp_service_azure) [Serviço de Avaliação Azure: 1Week](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/sbmpn.softbank_msp_service_azure_01?tab=Overview&pub_source=email&pub_status=success)|||||
 |[TCTS](https://www.tatacommunications-ts.com/index.php)|[Migração Azure: Avaliação de 3 semanas](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/tcs.azure_migration_assessment)|||||
 |[Tata Communications](https://www.tatacommunications.com/about/our-alliances/microsoft-alliance/)||[Gerido Azure ExpressRoute](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/tata_communications.managed_expressroute?tab=Overview)|[GERIDO VIRTUAL WAN](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/tata_communications.managed_azure_vwan_for_sdwan?tab=Overview)|||
@@ -59,7 +61,7 @@ Utilize os links nesta secção para obter mais informações sobre serviços de
 |[Vigilante](https://vigilant.it/manage-cloud-service/)|[Verificação de Saúde Azure: Avaliação de 5 dias](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/vigilant-it.ahc01)|[ExpressRoute: Implementação de 5 dias](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/vigilant-it.erd01)|||
 |[Vandis](https://www.vandis.com/microsoft-azure-practice/)|[Gerido NAC com Aruba ClearPass Policy Manager](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vandis.vandis_aruba_clearpass?tab=Overview)|[Vandis Managed ExpressRoute](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vandis.vandis_managed_expressroute?tab=Overview)|[Vandis Managed VWAN Powered by Fortinet;](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vandis.vandis_managed_vwan_powered_by_fortinet?tab=Overview) [Vandis Managed VWAN Powered by Palo Alto Networks;](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vandis.vandis_managed_vwan_powered_by_palo_alto_networks?tab=Overview) [Gerido VWAN Powered by Barracuda CloudGen WAN](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vandis.vandis_barracuda_vwan?tab=Overview)|
 
-As ofertas do Azure Marketplace para Serviços Geridos ExpressRoute, Virtual WAN, Security Services e Private Edge Zone dos seguintes Parceiros MSP de Rede Azure estão no nosso roteiro: [Amdocs;](https://www.amdocs.com/) [Cirrus Core Networks;](https://cirruscorenetworks.com/) [Cognizant;](https://www.cognizant.com/cognizant-digital-systems-technology/cloud-enablement-services) [Deutsche Telekom;](https://www.telekom.com/en/media/media-information/archive/deutsche-telekom-offers-managed-network-services-for-microsoft-azure-598406)  [IX Reach;](https://www.ixreach.com/services/sdn-cloud-connect/)  [InterCloud;](https://intercloud.com/partners/microsoft-azure/)  [KINX;](https://www.kinx.net/service/cloud/?lang=en) [OmniClouds;](https://omniclouds.com/) [Sejong Telecom](https://www.sejongtelecom.net/en/pages/service/cloud_ms)
+As ofertas do Azure Marketplace para Serviços Geridos ExpressRoute, Virtual WAN, Security Services e Private Edge Zone dos seguintes Parceiros MSP de Rede Azure estão no nosso roteiro: [Amdocs;](https://www.amdocs.com/) [Cirrus Core Networks;](https://cirruscorenetworks.com/) [Cognizant;](https://www.cognizant.com/cognizant-digital-systems-technology/cloud-enablement-services) [Deutsche Telekom;](https://www.telekom.com/en/media/media-information/archive/deutsche-telekom-offers-managed-network-services-for-microsoft-azure-598406)  [IX Reach;](https://www.ixreach.com/services/sdn-cloud-connect/)  [InterCloud;](https://intercloud.com/partners/microsoft-azure/)  [KINX;](https://www.kinx.net/service/cloud/?lang=en) [OmniClouds;](https://omniclouds.com/) [Sejong Telecom;](https://www.sejongtelecom.net/en/pages/service/cloud_ms) [Zertia](https://zertia.es/)
 
 ## <a name="expressroute-partners"></a><a name="expressroute"></a>Parceiros ExpressRoute
 

@@ -1,17 +1,16 @@
 ---
 title: VM insights alertas de saúde dos hóspedes (pré-visualização)
 description: Descreve os alertas criados pela VM insights saúde dos hóspedes, incluindo como habilitar e configurar notificações.
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/10/2020
-ms.openlocfilehash: a32ba9f1c4cf5d6bb9de69e1a6860c858e3ee2a6
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 1b5fd10b3e0bd84aa7d34a918f4f2376130d2e45
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101707511"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102052267"
 ---
 # <a name="vm-insights-guest-health-alerts-preview"></a>VM insights alertas de saúde dos hóspedes (pré-visualização)
 A saúde do hóspede permite-lhe ver a saúde de uma máquina virtual como definida por um conjunto de medições de desempenho que são amostradas a intervalos regulares. Um alerta pode ser criado quando uma máquina virtual ou monitor muda para um estado pouco saudável. Pode ver e gerir estes alertas com [os criados pelas regras de alerta no Azure Monitor](../alerts/alerts-overview.md) e optar por ser notificado proativamente quando um novo alerta for criado.

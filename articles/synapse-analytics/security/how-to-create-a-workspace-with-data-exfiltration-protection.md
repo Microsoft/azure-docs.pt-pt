@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 12/01/2020
 ms.author: NanditaV
 ms.reviewer: jrasnick
-ms.openlocfilehash: 6fd28c9392d760888eafde37471a49ffaa2e4423
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a3dc0b9e83af5a29172189f75e5a2174dc4d393d
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101694143"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102096127"
 ---
 # <a name="create-a-workspace-with-data-exfiltration-protection-enabled"></a>Criar um espaço de trabalho com proteção de exfiltração de dados ativada
 Este artigo descreve como criar um espaço de trabalho com proteção de exfiltração de dados habilitado e como gerir os inquilinos aprovados da AZure AD para este espaço de trabalho.
@@ -50,7 +50,9 @@ Você pode criar pontos finais privados geridos para conectar aos recursos Azure
 >Os recursos em inquilinos que não sejam o inquilino do espaço de trabalho não devem ter regras de firewall bloqueadas para que as piscinas SQL se conectem a eles. Os recursos dentro da rede virtual gerida do espaço de trabalho, como os clusters Spark, podem ligar-se sobre ligações privadas geridas a recursos protegidos por firewall.
 
 ## <a name="known-limitations"></a>Limitações conhecidas
-Os utilizadores podem fornecer um ficheiro de configuração ambiental para instalar pacotes Python a partir de repositórios públicos como o PyPI. Nos espaços de trabalho protegidos pela exfiltração de dados, as ligações aos repositórios de saída estão bloqueadas. Como resultado, a biblioteca Python instalada a partir de repositórios públicos como pyPI não são suportados. Como alternativa, os utilizadores podem criar um canal privado dentro da sua conta primária de Armazenamento de Data Lake Azure e referenciar que dentro do seu ficheiro de configuração ambiental Conda. 
+Os utilizadores podem fornecer um ficheiro de configuração ambiental para instalar pacotes Python a partir de repositórios públicos como o PyPI. Nos espaços de trabalho protegidos pela exfiltração de dados, as ligações aos repositórios de saída estão bloqueadas. Como resultado, a biblioteca Python instalada a partir de repositórios públicos como pyPI não são suportados. 
+
+Como alternativa, os utilizadores podem carregar pacotes de espaço de trabalho ou criar um canal privado dentro da sua conta primária de Armazenamento de Data Lake. Para mais informações, visite [a gestão de pacotes em Azure Synapse Analytics](./spark/../../spark/apache-spark-azure-portal-add-libraries.md) 
   
 ## <a name="next-steps"></a>Passos seguintes
 

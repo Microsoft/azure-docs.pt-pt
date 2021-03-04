@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 02/18/2021
 ms.custom: template-concept
-ms.openlocfilehash: c7ee2289680bb50fabb8e6eb2a3ea0466bd58afb
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 1d956e33a84b5509c16400c8f5f8e813d116411a
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101663434"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102095753"
 ---
 # <a name="azure-percept-audio-button-and-led-behavior"></a>Botão de áudio Azure Percept e comportamento de LED
 
@@ -25,7 +25,7 @@ Pode utilizar os botões para controlar o comportamento do dispositivo.
 |Estado do botão|  Comportamento|
 |------------|----------|
 |Mudo|  Pressione para silenciar/desativar o microfone-matriz. O evento do botão é acionado quando pressionado.|
-|PTT/PTS|   Prima PTT para contornar o estado de visualização da palavra-chave e ativar o estado de audição do comando. Pressione novamente para parar o diálogo ativo do agente e volte ao estado de deteção de palavras-chave.|
+|PTT/PTS|   Prima PTT para contornar o estado de visualização da palavra-chave e ativar o estado de audição do comando. Pressione novamente para parar o diálogo ativo do agente e volte ao estado de deteção de palavras-chave. O evento do botão é acionado quando pressionado. O PTS só funciona quando o botão é premido enquanto o agente fala, não quando o agente está a ouvir ou a pensar.|
 
 ## <a name="led-behavior"></a>Comportamento do LED
 
@@ -35,7 +35,7 @@ Pode utilizar indicadores LED para perceber em que estado se encontra o disposit
 |---|------------|----------------| 
 |L02|   1x branco, estática em |Ligado |
 |L02|   1x branco, 0,5 Hz piscando|  Autenticação em curso |
-|L01 & L02 & L03|   3x azul, estática em|     Palavra-chave detetada|
+|L01 & L02 & L03|   3x azul, estática em|     À espera da palavra-chave|
 |L01 & L02 & L03|   Matriz LED piscando, 20fps | Ouvir ou falar|
 |L01 & L02 & L03|   Corrida de matriz led, 20fps|    Pensar|
 |L01 & L02 & L03|   3x vermelho, estática em | Mudo|

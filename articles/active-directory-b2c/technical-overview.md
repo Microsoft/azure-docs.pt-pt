@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 05/28/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 3a044faf5546a22c997b8358d8809e240d563ac9
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 77dab865b2b023f59e6776349b4045107bdb3a29
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100556815"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102095498"
 ---
 # <a name="technical-and-feature-overview-of-azure-active-directory-b2c"></a>Visão geral técnica e de características do Azure Ative Directory B2C
 
@@ -134,7 +134,7 @@ Saiba mais sobre políticas [personalizadas em políticas personalizadas no Azur
 
 ## <a name="protocols-and-tokens"></a>Protocolos e fichas
 
-- Para aplicações, o Azure AD B2C suporta os [protocolos](connect-with-saml-service-providers.md) [OAuth 2.0](protocols-overview.md), [OpenID Connect](openid-connect.md)e SAML para viagens de utilizador. A sua aplicação inicia a jornada do utilizador emitindo pedidos de autenticação ao Azure AD B2C. O resultado de um pedido ao Azure AD B2C é um símbolo de segurança, como um [token de ID, token de acesso](tokens-overview.md)ou ficha SAML. Este símbolo de segurança define a identidade do utilizador dentro da aplicação.
+- Para aplicações, o Azure AD B2C suporta os [protocolos](saml-service-provider.md) [OAuth 2.0](protocols-overview.md), [OpenID Connect](openid-connect.md)e SAML para viagens de utilizador. A sua aplicação inicia a jornada do utilizador emitindo pedidos de autenticação ao Azure AD B2C. O resultado de um pedido ao Azure AD B2C é um símbolo de segurança, como um [token de ID, token de acesso](tokens-overview.md)ou ficha SAML. Este símbolo de segurança define a identidade do utilizador dentro da aplicação.
 
 - Para identidades externas, a Azure AD B2C apoia a federação com quaisquer fornecedores de identidade OAuth 1.0, OAuth 2.0, OpenID Connect e SAML.
 

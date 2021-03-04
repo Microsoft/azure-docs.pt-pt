@@ -7,12 +7,12 @@ ms.date: 9/30/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 23d00acc03ee879036a823f0c3d7fe2f67902e31
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: aafd4c6695101042cb30a44e1d2bd30611256779
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98797022"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102096161"
 ---
 # <a name="introduction-to-azure-defender"></a>Introdução ao Azure Defender
 
@@ -94,9 +94,9 @@ Saiba mais nas seguintes páginas:
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu sobre os benefícios do Azure Defender. 
 
 > [!div class="nextstepaction"]
-> [Ativar o Azure Defender](security-center-pricing.md#enable-azure-defender)
+> [Ativar o Azure Defender](enable-azure-defender.md)

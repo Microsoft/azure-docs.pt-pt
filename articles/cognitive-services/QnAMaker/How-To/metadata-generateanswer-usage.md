@@ -9,12 +9,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 18b70d60ade7cd40f7ed51aa7c219c8c046abfc3
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 1c2b608107beff2a4f34325f8a6e5be3a0551053
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99584747"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102051910"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>Obtenha uma resposta com a API generateAnswer e metadados
 
@@ -272,6 +272,44 @@ Pode pesquisar através do kb publicado, utilizando `isTest=false` ou no kb de t
   "RankerType":"QuestionOnly"
 }
 ```
+
+## <a name="return-precise-answers"></a>Respostas precisas de retorno
+
+### <a name="generate-answer-api"></a>Gerar Resposta API 
+
+O utilizador pode ativar [respostas precisas](../reference-precise-answering.md) ao utilizar o recurso gerido pelo QnA Maker. O parâmetro respostaSpanRequest tem de ser atualizado para o mesmo.
+
+```json
+{
+    "question": "How long it takes to charge surface pro 4?",
+    "top": 3,
+    "answerSpanRequest": {
+        "enable": true,
+        "topAnswersWithSpan": 1
+    }
+}
+```
+
+Da mesma forma, os utilizadores podem optar por desativar respostas precisas não definindo o parâmetro respostaSpanRequest.
+
+```json
+{
+    "question": "How long it takes to charge surface pro 4?",
+    "top": 3
+}
+```
+### <a name="bot-settings"></a>Configurações do bot
+
+Se pretender configurar definições precisas de resposta para o seu serviço de bot, navegue para o recurso de serviço app para o seu bot. Em seguida, tem de atualizar as configurações adicionando a seguinte definição.
+
+- EnablePreciseAnswer
+- DisplayPreciseAnswerOnly
+
+|Configuração do ecrã|EnablePreciseAnswer|DisplayPreciseAnswerOnly|
+|:--|--|--|
+|Apenas respostas precisas|true|true|
+|Apenas respostas longas|false|false|
+|Respostas longas e precisas|true|false|
 
 ## <a name="common-http-errors"></a>Erros http comuns
 

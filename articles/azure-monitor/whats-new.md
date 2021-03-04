@@ -1,17 +1,16 @@
 ---
 title: Novidades na documentação do Azure Monitor
 description: Atualizações significativas da documentação do Azure Monitor atualizadas todos os meses.
-ms.subservice: ''
 ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 02/10/2021
-ms.openlocfilehash: b21e5ea8e25844e3e025915b0b9f15162c642f25
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: dd6c44587ce3f4e2b5de940ef831a20a4079c4ef
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101713444"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102051927"
 ---
 # <a name="whats-new-in-azure-monitor-documentation"></a>O que há de novo na documentação do Monitor Azure?
 
@@ -48,7 +47,7 @@ Este artigo fornece listas de artigos do Azure Monitor que são novos ou foram s
 
 ### <a name="logs"></a>Registos    
 - [Chave gerida pelo cliente Azure Monitor](./logs/customer-managed-keys.md) - Introduza a identidade gerida pelo utilizador.
-- [Azure Monitor Logs Clusters Dedicados](./logs/logs-dedicated-clusters.md) - Código de repouso atualizado.
+- [Azure Monitor Logs Clusters Dedicados](./logs/logs-dedicated-clusters.md) - Código de resposta atualizado.
 - [Consulta de serviço cross - Azure Monitor e Azure Data Explorer (Preview)](/azure/azure-monitor/platform/azure-data-explorer-monitor-cross-service-query) - Novo artigo.
 
 ### <a name="metrics"></a>Métricas
@@ -721,7 +720,7 @@ Múltiplas atualizações como parte da reescrita do conteúdo de extensão de d
 
 - [Visão geral dos agentes de monitorização Azure](agents/agents-overview.md) - Tabelas reestruturadas para clarificar melhor as características únicas de cada agente.
 - [Visão geral da extensão do Azure Diagnostics](agents/diagnostics-extension-overview.md) - Reescrita completa.
-- [Utilize o armazenamento de bolhas para iIS e armazenamento de mesa para eventos no Azure Monitor](essentials/diagnostics-extension-logs.md) - Reescrita geral para atualização e clareza.
+- [Utilize o armazenamento de bolhas para iIS e armazenamento de mesa para eventos no Azure Monitor](agents/diagnostics-extension-logs.md) - Reescrita geral para atualização e clareza.
 - [Instalar e configurar a extensão de diagnóstico do Windows Azure (WAD)](agents/diagnostics-extension-windows-install.md) - Novo artigo. 
 - [Esquema de extensão de diagnóstico do Windows](agents/diagnostics-extension-schema-windows.md) - Reorganizado.
 - [Enviar dados da extensão de diagnóstico do Windows Azure para Azure Event Hubs](agents/diagnostics-extension-stream-event-hubs.md) - Completamente reescrito e atualizado.

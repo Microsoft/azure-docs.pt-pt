@@ -1,18 +1,17 @@
 ---
 title: Ativar a saúde dos hóspedes (pré-visualização)
 description: Descreve como ativar a saúde dos hóspedes em VM na sua subscrição e como embarcar VMs.
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/16/2020
 ms.custom: references_regions
-ms.openlocfilehash: 3747e9190010bd3c0b88dfdbe9da01009316c275
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 5d4ff622f69445880c0de8cb74dc1aeee422c89b
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101733725"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102052165"
 ---
 # <a name="enable-vm-insights-guest-health-preview"></a>Ativar a saúde dos hóspedes (pré-visualização)
 A saúde do hóspede permite-lhe ver a saúde de uma máquina virtual como definida por um conjunto de medições de desempenho que são amostradas a intervalos regulares. Este artigo descreve como ativar esta funcionalidade na sua subscrição e como ativar a monitorização do hóspede para cada máquina virtual.

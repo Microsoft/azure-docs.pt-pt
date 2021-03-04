@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/17/2021
+ms.date: 03/04/2021
 ms.author: memildin
-ms.openlocfilehash: 375e8a748e8833e9483d92353ed04add287e90fb
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 6bec9f0a1c22691d818566cec3f59c1ec0f3d3bb
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101705097"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102051621"
 ---
 # <a name="important-upcoming-changes-to-azure-security-center"></a>Mudanças importantes para o Centro de Segurança Azure
 
@@ -31,10 +31,28 @@ Se procura as últimas notas de lançamento, vai encontrá-las no [What's new in
 
 ## <a name="planned-changes"></a>Alterações planeadas
 
+- [As recomendações da AWS serão divulgadas para disponibilidade geral (GA)](#recommendations-from-aws-will-be-released-for-general-availability-ga)
 - [Duas recomendações antigas deixarão de escrever dados diretamente para o registo de atividades do Azure](#two-legacy-recommendations-will-no-longer-write-data-directly-to-azure-activity-log)
 - [Duas recomendações do controlo de segurança "Aplicar atualizações do sistema" que estão a ser depreciadas](#two-recommendations-from-apply-system-updates-security-control-being-deprecated)
 - [Melhorias à recomendação de classificação de dados sql](#enhancements-to-sql-data-classification-recommendation)
 - [Depreciação de 11 alertas do Azure Defender](#deprecation-of-11-azure-defender-alerts)
+
+
+### <a name="recommendations-from-aws-will-be-released-for-general-availability-ga"></a>As recomendações da AWS serão divulgadas para disponibilidade geral (GA)
+
+**Data estimada para a alteração:** abril de 2021
+
+O Azure Security Center protege cargas de trabalho em Azure, Amazon Web Services (AWS) e Google Cloud Platform (GCP).
+
+As recomendações provenientes do AWS Security Hub têm estado em pré-visualização desde que os conectores de nuvem foram introduzidos. As recomendações assinaladas como **Preview** não estão incluídas nos cálculos da sua pontuação segura, mas devem continuar a ser remediadas sempre que possível, para que quando o período de pré-visualização terminar contribuam para a sua pontuação.
+
+Com esta mudança, dois conjuntos de recomendações da AWS passarão para GA:
+
+- [Controlos PCI DSS do Security Hub](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-pci-controls.html)
+- [Controlos de benchmark da CIS AWS Foundations do Security Hub](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-cis-controls.html)
+
+Quando estes são GA e as avaliações são executadas nos seus recursos AWS, os resultados impactarão a sua pontuação segura combinada para todos os seus recursos multi e híbridos em nuvem. 
+
 
 
 ### <a name="two-legacy-recommendations-will-no-longer-write-data-directly-to-azure-activity-log"></a>Duas recomendações antigas deixarão de escrever dados diretamente para o registo de atividades do Azure 
@@ -53,7 +71,7 @@ Se tem acedido a informações para estas duas recomendações na categoria "Rec
 
 ### <a name="two-recommendations-from-apply-system-updates-security-control-being-deprecated"></a>Duas recomendações do controlo de segurança "Aplicar atualizações do sistema" que estão a ser depreciadas 
 
-**Data estimada para a alteração:** fevereiro de 2021
+**Data estimada para a alteração:** março de 2021
 
 As duas recomendações que se seguem deverão ser depreadas em fevereiro de 2021:
 
@@ -69,7 +87,7 @@ Saiba mais sobre estas recomendações na página de referência das [recomenda�
 
 **Data estimada para a alteração:** 2º trimestre de 2021
 
-A recomendação **Os dados sensíveis nas suas bases de dados SQL devem ser classificados** no controlo de segurança de classificação de **dados Apply** será substituído por uma nova versão mais alinhada com a estratégia de classificação de dados da Microsoft. Como resultado, o ID da recomendação também mudará (atualmente b0df6f56-862d-4730-8597-38c0fd4ebd59).
+A recomendação **Os dados sensíveis nas suas bases de dados SQL devem ser classificados** no controlo de segurança de classificação de **dados Apply** será substituído por uma nova versão mais alinhada com a estratégia de classificação de dados da Microsoft. Como resultado, o ID da recomendação também mudará (atualmente, é b0df6f56-862d-4730-8597-38c0fd4ebd59).
 
 
 ### <a name="deprecation-of-11-azure-defender-alerts"></a>Depreciação de 11 alertas do Azure Defender

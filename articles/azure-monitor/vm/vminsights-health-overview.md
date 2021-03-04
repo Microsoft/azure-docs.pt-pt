@@ -1,17 +1,16 @@
 ---
 title: VM insights saúde dos hóspedes (pré-visualização)
 description: Visão geral da funcionalidade de saúde em insights de VM, incluindo como você pode ver a saúde das suas máquinas virtuais e receber alertas quando uma máquina virtual fica insalubre.
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/27/2020
-ms.openlocfilehash: 3db6c2f4da28bba2d12aacc90b2fa8e420aa6fbf
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 2922ca4068531c45e6acad0ce54aa96624c6238e
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101707460"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102052131"
 ---
 # <a name="vm-insights-guest-health-preview"></a>VM insights saúde dos hóspedes (pré-visualização)
 A saúde dos hóspedes permite-lhe visualizar a saúde das máquinas virtuais com base num conjunto de medições de desempenho que são amostradas a intervalos regulares do sistema operativo do hóspede. Pode verificar rapidamente a saúde de todas as máquinas virtuais num grupo de subscrição ou de recursos, aprofundar a saúde detalhada de uma determinada máquina virtual ou ser notificado proativamente quando uma máquina virtual fica insalubre. 

@@ -12,12 +12,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 85d00b393ad169764a2f26e324295308ef49d3ba
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: e0516c25a69f22f5e66dd3ed083805cd4a9f1a61
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101646586"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102096144"
 ---
 # <a name="configure-session-behavior-in-azure-active-directory-b2c"></a>Configurar o comportamento da sessão no Azure Active Directory B2C
 
@@ -251,7 +251,7 @@ Após um pedido de sinalização, Azure AD B2C:
 3. Tentativas de assinatura de fornecedores de identidade federados:
    - OpenId Connect - Se o ponto final de configuração bem conhecido do fornecedor de identidade especificar uma `end_session_endpoint` localização.
    - OAuth2 - Se os [metadados do fornecedor de identidade](oauth2-technical-profile.md#metadata) contiver a `end_session_endpoint` localização.
-   - SAML - Se os [metadados do fornecedor de identidade](saml-identity-provider-technical-profile.md#metadata) contiver a `SingleLogoutService` localização.
+   - SAML - Se os [metadados do fornecedor de identidade](identity-provider-generic-saml.md) contiver a `SingleLogoutService` localização.
 4. Opcionalmente, o sinal de saída de outras aplicações. Para mais informações, consulte a secção [de sinalização única.](#single-sign-out)
 
 > [!NOTE]
