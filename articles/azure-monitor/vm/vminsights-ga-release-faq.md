@@ -1,17 +1,16 @@
 ---
 title: Os conhecimentos de VM (GA) frequentemente fizeram perguntas | Microsoft Docs
 description: A VM insights é uma solução no Azure que combina monitorização de saúde e desempenho do sistema operativo Azure VM, bem como descobrir automaticamente componentes de aplicação e dependências com outros recursos e mapear a comunicação entre eles. Este artigo responde a perguntas comuns sobre o lançamento da AG.
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/31/2020
-ms.openlocfilehash: 0c55463847e0bf55cf14db2a35de1de16526cd90
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: fbef73bfe8058110277b200b8c4091fcde110c04
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101710758"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102031883"
 ---
 # <a name="vm-insights-generally-available-ga-frequently-asked-questions"></a>Informações VM Geralmente disponíveis (GA) Perguntas frequentes
 Esta Disponibilidade Geral de FAQ abrange as alterações que foram feitas nos quartos de final de 2019 e 1º trimestre de 2020 como nos preparamos para a AG.
@@ -20,15 +19,15 @@ Esta Disponibilidade Geral de FAQ abrange as alterações que foram feitas nos q
 Lançámos uma nova versão de insights VM em janeiro de 2020 antes do nosso anúncio de GA. Os clientes que permitirem insights VM passarão a receber a versão GA, mas os clientes existentes que utilizam a versão de informações VM do 4º trimestre de 2019 e mais cedo serão solicitados a fazer o upgrade. Este FAQ oferece orientação para realizar um upgrade em escala se você tiver grandes implementações em vários espaços de trabalho.
 
 
-Com esta atualização, o Azure Monitor para os dados de desempenho dos VMs é armazenado na mesma tabela *InsightsMetrics* que [os insights do Contentor](../containers/container-insights-overview.md), o que facilita a consulta dos dois conjuntos de dados. Além disso, é capaz de armazenar conjuntos de dados mais diversos que não conseguimos armazenar na tabela anteriormente utilizada. 
+Com esta atualização, os dados de desempenho dos insights VM são armazenados na mesma tabela *InsightsMetrics* que [os insights do Contentor](../containers/container-insights-overview.md), o que facilita a consulta dos dois conjuntos de dados. Além disso, é capaz de armazenar conjuntos de dados mais diversos que não conseguimos armazenar na tabela anteriormente utilizada. 
 
 As nossas vistas de desempenho estão agora a utilizar os dados que armazenamos na tabela *InsightsMetrics.*  Se ainda não tiver atualizado para utilizar a mais recente solução VMInsights no seu espaço de trabalho, os seus gráficos deixarão de apresentar informações.  Pode atualizar a partir da nossa página **Get Started,** conforme descrito abaixo.
 
 
 ## <a name="what-is-changing"></a>O que está a mudar?
-Lançámos uma nova solução, denominada VMInsights, que inclui capacidades adicionais para a recolha de dados, juntamente com uma nova localização para armazenar estes dados no seu espaço de trabalho Log Analytics. 
+Lançámos uma nova solução, denominada VMInsights, que inclui mais capacidades para recolha de dados, juntamente com uma nova localização para armazenar estes dados no seu espaço de trabalho Log Analytics. 
 
-No passado, viabilámos a solução ServiceMap no seu espaço de trabalho e balcões de desempenho de configuração no seu espaço de trabalho Log Analytics para enviar os dados para a tabela *Perf.* Esta nova solução envia os dados para uma tabela chamada *InsightsMetrics* que também é utilizada por insights de contentores. Este esquema de tabela permite-nos armazenar métricas adicionais e conjuntos de dados de serviço que não são compatíveis com o formato da tabela *Perf.*
+No passado, viabilámos a solução ServiceMap no seu espaço de trabalho e balcões de desempenho de configuração no seu espaço de trabalho Log Analytics para enviar os dados para a tabela *Perf.* Esta nova solução envia os dados para uma tabela chamada *InsightsMetrics* que também é utilizada por insights de contentores. Este esquema de tabela permite-nos armazenar mais métricas e conjuntos de dados de serviço que não são compatíveis com o formato da tabela *Perf.*
 
 Atualizámos os nossos gráficos de Desempenho para utilizar os dados que armazenamos na tabela *InsightsMetrics.* Pode atualizar para utilizar a tabela *InsightsMetrics* a partir da nossa página **Get Started,** conforme descrito abaixo.
 
@@ -58,7 +57,7 @@ Se criou [alertas de Log](../alerts/alerts-unified-log.md) que consultam os `Per
 
 Atualizaremos este FAQ e a nossa documentação para incluir as regras de alerta de pesquisa de registo de exemplo para os conjuntos de dados que recolhemos.
 
-## <a name="how-will-this-affect-my-bill"></a>Como é que isto vai afetar a minha conta?
+## <a name="how-will-this-change-affect-my-bill"></a>Como é que esta mudança vai afetar a minha conta?
 
 A faturação ainda é baseada em dados ingeridos e retidos no seu espaço de trabalho Log Analytics.
 
@@ -84,13 +83,13 @@ A `InsightsMetrics` tabela armazenará conjuntos de dados de VM, processo e serv
 
 Não, as duas soluções partilham os conjuntos de dados do mapa em que armazenamos `VMComputer` (anteriormente ServiceMapComputer_CL), `VMProcess` (anteriormente ServiceMapProcess_CL), `VMConnection` e `VMBoundPort` . Não será cobrado duas vezes por estes dados se tiver ambas as soluções no seu espaço de trabalho.
 
-## <a name="if-i-remove-either-the-service-map-or-vminsights-solution-will-it-remove-my-data"></a>Se eu remover o Mapa de Serviço ou a solução VMInsights removerá os meus dados?
+## <a name="if-i-remove-either-the-service-map-or-vminsights-solution-will-it-remove-my-data"></a>Se eu remover o Mapa de Serviço ou a solução VMInsights, irá remover os meus dados?
 
 Não, as duas soluções partilham os conjuntos de dados do mapa em que armazenamos `VMComputer` (anteriormente ServiceMapComputer_CL), `VMProcess` (anteriormente ServiceMapProcess_CL), `VMConnection` e `VMBoundPort` . Se remover uma das soluções, estes conjuntos de dados notam que ainda existe uma solução que utiliza os dados e permanece no espaço de trabalho do Log Analytics. É necessário remover ambas as soluções do seu espaço de trabalho para que os dados sejam removidos do mesmo.
 
 ## <a name="health-feature-is-in-limited-public-preview"></a>A funcionalidade de saúde está em pré-visualização pública limitada
 
-Recebemos um grande feedback dos clientes sobre o nosso conjunto de funcionalidades VM Health. Há muito interesse em torno desta funcionalidade e excitação sobre o seu potencial de apoio a monitores de fluxos de trabalho. Estamos a planear fazer uma série de alterações para adicionar funcionalidade e abordar o feedback que recebemos. 
+Recebemos um grande feedback dos clientes sobre o nosso conjunto de funcionalidades VM Health. Existe um interesse significativo em torno desta funcionalidade e excitação sobre o seu potencial de apoio aos fluxos de trabalho de monitorização. Estamos a planear fazer uma série de alterações para adicionar funcionalidade e abordar o feedback que recebemos. 
 
 Para minimizar o impacto destas alterações em novos clientes, mudamos esta funcionalidade para uma **pré-visualização pública limitada.** Esta atualização aconteceu em outubro de 2019.
 

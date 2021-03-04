@@ -1,17 +1,16 @@
 ---
 title: Grupos de computador em Azure Monitor consultas de registo | Microsoft Docs
 description: Os grupos informáticos no Azure Monitor permitem-lhe fazer consultas de registo a um determinado conjunto de computadores.  Este artigo descreve os diferentes métodos que pode usar para criar grupos de computador e como usá-los numa consulta de registo.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/05/2019
-ms.openlocfilehash: 3dffab040b8ee17760e23aa8b1d8fb65aa0417e7
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: d8702b498e08561175aa7ee975c7b6b46fdf1687
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101734133"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102031094"
 ---
 # <a name="computer-groups-in-azure-monitor-log-queries"></a>Grupos de computador em consultas de registo do Monitor Azure
 Os grupos informáticos no Azure Monitor permitem-lhe fazer [consultas de registo](./log-query-overview.md) a um determinado conjunto de computadores.  Cada grupo é preenchido com computadores, quer utilizando uma consulta que define ou importando grupos de diferentes fontes.  Quando o grupo é incluído numa consulta de registo, os resultados limitam-se a registos que correspondem aos computadores do grupo.

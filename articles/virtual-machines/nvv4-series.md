@@ -1,19 +1,18 @@
 ---
 title: Série NVv4
 description: Especificações para os VMs da série NVv4.
-services: virtual-machines
-ms.subservice: hpc
 author: vikancha-MSFT
 ms.service: virtual-machines
+ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 01/12/2020
 ms.author: vikancha
-ms.openlocfilehash: d91491b052a1195e54b5e8e1313ddc490f033696
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: ba7d2997c4ebb2981c1135255fe6e9cb53fbdcfb
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101670036"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102032471"
 ---
 # <a name="nvv4-series"></a>Série NVv4 
 

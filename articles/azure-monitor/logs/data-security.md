@@ -1,17 +1,16 @@
 ---
 title: Registar | de segurança de dados do Registo Microsoft Docs
 description: Saiba como o Log Analytics protege a sua privacidade e protege os seus dados.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/11/2020
-ms.openlocfilehash: 128a82fdc9b5a37258b5ca245a63bf52c050db26
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 8f193cface177e6be6343f28ef4dc27c2d6c6a7b
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101713614"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102030907"
 ---
 # <a name="log-analytics-data-security"></a>Log Analytics segurança de dados
 Este documento destina-se a fornecer informações específicas ao Log Analytics, que é uma característica do Azure Monitor, para complementar a informação no [Azure Trust Center](https://www.microsoft.com/en-us/trust-center?rtc=1).  

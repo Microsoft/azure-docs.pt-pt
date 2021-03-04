@@ -6,13 +6,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
-ms.subservice: metrics
-ms.openlocfilehash: b042049c803ad04b54bb6c2a242ca1008bc17dd3
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: d728dfb364cb0f82326a472196cb28d79b85b1e9
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101734524"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102031478"
 ---
 # <a name="advanced-features-of-the-azure-metrics-explorer"></a>Características avançadas do explorador de métricas Azure
 

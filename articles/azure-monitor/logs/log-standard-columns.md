@@ -1,17 +1,16 @@
 ---
 title: Colunas padrão em registos de registos do Monitor Azure | Microsoft Docs
 description: Descreve colunas que são comuns a vários tipos de dados nos registos do Monitor Azure.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/25/2021
-ms.openlocfilehash: c479f525435139b2f92838bf15edf4563aeed4e2
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 3e12bef7569110084cd059b0dfde8562bd914823
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101704128"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102030771"
 ---
 # <a name="standard-columns-in-azure-monitor-logs"></a>Colunas padrão em Registos monitores Azure
 Os dados em Registos monitores Azure são [armazenados como um conjunto de registos num espaço de trabalho do Log Analytics ou na aplicação Application Insights](../logs/data-platform-logs.md), cada um com um determinado tipo de dados que tem um conjunto único de colunas. Muitos tipos de dados terão colunas padrão que são comuns em vários tipos. Este artigo descreve estas colunas e fornece exemplos de como pode usá-las em consultas.

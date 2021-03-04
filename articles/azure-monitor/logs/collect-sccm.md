@@ -1,17 +1,16 @@
 ---
 title: Ligue o Gestor de Configuração ao monitor Azure | Microsoft Docs
 description: Este artigo mostra os passos para ligar o Gestor de Configuração ao espaço de trabalho no Azure Monitor e começar a analisar dados.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/30/2020
-ms.openlocfilehash: f2d2670b974555b83ec622b22eb2dae8f3c9899b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 7302f61fce6763fdbb41c2b4899dea749ac3225f
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101710984"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102031077"
 ---
 # <a name="connect-configuration-manager-to-azure-monitor"></a>Ligue o Gestor de Configuração ao Monitor Azure
 Pode ligar o ambiente do Microsoft Endpoint Configuration Manager ao Azure Monitor para sincronizar os dados de recolha de dispositivos e fazer referência a estas coleções no Azure Monitor e na Azure Automation.  

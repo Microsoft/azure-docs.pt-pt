@@ -4,15 +4,14 @@ description: Consultar os dados do Azure Data Explorer através das ferramentas 
 author: osalzberg
 ms.author: bwren
 ms.reviewer: bwren
-ms.subservice: logs
 ms.topic: conceptual
 ms.date: 06/12/2020
-ms.openlocfilehash: 1ab0f4f0baede20b035dfa15ba5319333d0f7bb1
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 7a259af17943643e722633592e53f219726c4437
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100618611"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102031213"
 ---
 # <a name="cross-service-query---azure-monitor-and-azure-data-explorer-preview"></a>Consulta de serviço cross - Azure Monitor e Azure Data Explorer (Preview)
 Criar consultas de serviço cruzada entre [Azure Data Explorer,](/azure/data-explorer/) [Application Insights](../app/app-insights-overview.md)e [Log Analytics](../logs/data-platform-logs.md).

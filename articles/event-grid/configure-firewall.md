@@ -2,13 +2,13 @@
 title: Configure firewall IP para tópicos ou domínios da Grelha de Eventos Azure
 description: Este artigo descreve como configurar as definições de firewall para tópicos ou domínios da Grade de Eventos.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: fd190a13a177b6b6d0f6b0dbcaa35d63dccd93c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 03/02/2021
+ms.openlocfilehash: 178b9d84ea8b2e0f764f7584526db8dbcf5284f3
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324166"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102031842"
 ---
 # <a name="configure-ip-firewall-for-azure-event-grid-topics-or-domains"></a>Configure firewall IP para tópicos ou domínios da Grelha de Eventos Azure 
 Por predefinição, o tópico e o domínio estão acessíveis a partir da Internet desde que o pedido venha com autenticação e autorização válidas. Com a firewall IP, pode restringi-lo ainda mais a um conjunto de endereços IPv4 ou intervalos de endereços IPv4 na notação [CIDR (Classless Inter-Domain Encaminhamento).](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) Os editores originários de qualquer outro endereço IP serão rejeitados e receberão uma resposta 403 (Proibida). Para obter mais informações sobre funcionalidades de segurança de rede suportadas pela Grade de Eventos, consulte [a segurança da rede de eventos](network-security.md).
@@ -34,19 +34,6 @@ Esta secção mostra-lhe como usar o portal Azure para criar regras de firewall 
 ## <a name="use-azure-cli"></a>Utilizar a CLI do Azure
 Esta secção mostra-lhe como usar comandos Azure CLI para criar tópicos com regras IP de entrada. Os passos mostrados nesta secção são para tópicos. Pode utilizar passos semelhantes para criar regras ip de entrada para **domínios**. 
 
-
-### <a name="prerequisites"></a>Pré-requisitos
-Atualize a extensão da Grelha de Eventos Azure para o CLI executando o seguinte comando: 
-
-```azurecli-interactive
-az extension update -n eventgrid
-```
-
-Se a extensão não estiver instalada, executar o seguinte comando para instalá-la: 
-
-```azurecli-interactive
-az extension add -n eventgrid
-```
 
 ### <a name="enable-or-disable-public-network-access"></a>Permitir ou desativar o acesso à rede pública
 Por padrão, o acesso à rede pública está ativado para tópicos e domínios. Também pode ativá-lo explicitamente ou desativá-lo. Pode restringir o tráfego configurando as regras de firewall IP de entrada. 

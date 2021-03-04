@@ -10,12 +10,12 @@ author: lobrien
 ms.date: 02/26/2021
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy20q4, devx-track-python, data4ml
-ms.openlocfilehash: 5a83211654ad1abafff59d5968c191ec1fa63616
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 3bcbe846d102b0ef821394246e10d2af4d48cacf
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101692407"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102032624"
 ---
 # <a name="moving-data-into-and-between-ml-pipeline-steps-python"></a>Mover dados para e entre os passos de pipeline de ML (Python)
 
@@ -245,7 +245,7 @@ step1_output_ds = step1_output_data.register_on_complete(name='processed_data',
 O Azure não apaga automaticamente os dados intermédios escritos com `OutputFileDatasetConfig` . Para evitar encargos de armazenamento de grandes quantidades de dados não sofridos, deve:
 
 * Excluir programaticamente dados intermédios no final de uma corrida de gasodutos, quando já não é necessário
-* Utilize o armazenamento de bolhas com uma política de armazenamento de curto prazo para dados intermédios (ver [otimizar os custos automatizando os níveis de acesso ao armazenamento Azure Blob](../storage/blobs/storage/blobs/storage-lifecycle-management-concepts.md)) 
+* Utilize o armazenamento de bolhas com uma política de armazenamento de curto prazo para dados intermédios (ver [otimizar os custos automatizando os níveis de acesso ao armazenamento Azure Blob](../storage/blobs/storage-lifecycle-management-concepts.md)) 
 * Reveja e elimine regularmente os dados já não necessários
 
 Para obter mais informações, consulte [Plano e gerencie os custos para a Azure Machine Learning.](concept-plan-manage-cost.md)

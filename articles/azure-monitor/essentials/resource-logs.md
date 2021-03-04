@@ -6,13 +6,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: bwren
-ms.subservice: logs
-ms.openlocfilehash: dcd6522c46b6ca35031092c634803267a8486647
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: cb4f1ecdada68218c104558a85277417641906f6
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101731464"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102033017"
 ---
 # <a name="azure-resource-logs"></a>Registos de recursos do Azure
 Os registos de recursos Azure são [registos de plataformas](../essentials/platform-logs-overview.md) que fornecem informações sobre operações que foram realizadas dentro de um recurso Azure. O conteúdo dos registos de recursos varia consouros e de tipo de recurso. Os registos de recursos não são recolhidos por predefinição. Tem de criar uma definição de diagnóstico para cada recurso Azure para enviar os seus registos de recursos para um espaço de trabalho do Log Analytics para utilizar com [registos do Monitor Azure,](../logs/data-platform-logs.md)Azure Event Hubs para encaminhar para fora do Azure, ou para o Azure Storage para arquivar.

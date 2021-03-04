@@ -7,12 +7,12 @@ ms.custom:
 - devx-track-python
 - devx-track-azurecli
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 76ec99e5f892438aaa637b15bb7382843d90f334
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: da7f6fdaedd8105363cc62bf55bae2cb5f72f234
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101749039"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102031655"
 ---
 # <a name="quickstart-create-a-python-function-in-azure-from-the-command-line"></a>Quickstart: Criar uma função Python em Azure a partir da linha de comando
 
@@ -62,7 +62,7 @@ Verifique os seus pré-requisitos, que dependem se está a utilizar o Azure CLI 
 
 # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
-+ Numa janela de terminal ou comando, corra `func --version` para verificar se as Ferramentas Centrais de Funções Azure são a versão 3.x.
++ Em um terminal ou janela de comando, correr `func --version` para verificar que o <abbr title="O conjunto de ferramentas de linha de comando para trabalhar com funções Azure no seu computador local.">Azure Functions Core Tools</abbr> são a versão 3.x.
 
 + Executar `(Get-Module -ListAvailable Az).Version` e verificar a versão 5.0 ou mais tarde. 
 
@@ -292,7 +292,7 @@ Antes de poder implementar o seu código de função para Azure, tem de criar um
 
     ---
 
-    Substitua `<STORAGE_NAME>` por um nome que lhe seja adequado e <abbr title="O nome deve ser único em todas as contas de armazenamento utilizadas por todos os clientes da Azure em todo o mundo. Por exemplo, pode utilizar uma combinação do seu nome pessoal ou da empresa, nome de aplicação e um identificador numérico, como em contosobizappstorage20">único em Azure Storage</abbr>. Os nomes devem conter apenas três a 24 caracteres e letras minúsculas. `Standard_LRS` especifica uma conta de finalidade geral, que é [suportada por Funções](storage-considerations.md#storage-account-requirements).
+    Substitua `<STORAGE_NAME>` por um nome que lhe seja adequado e <abbr title="O nome deve ser único em todas as contas de armazenamento utilizadas por todos os clientes da Azure em todo o mundo. Por exemplo, pode utilizar uma combinação do seu nome pessoal ou da empresa, nome de aplicação e um identificador numérico, como em contosobizappstorage20.">único em Azure Storage</abbr>. Os nomes devem conter apenas três a 24 caracteres e letras minúsculas. `Standard_LRS` especifica uma conta de finalidade geral, que é [suportada por Funções](storage-considerations.md#storage-account-requirements).
     
     A conta de armazenamento incorre apenas alguns cêntimos (USD) para este arranque rápido.
 

@@ -1,17 +1,16 @@
 ---
 title: Ativar insights VM usando modelos de Gestor de Recursos
 description: Este artigo descreve como permite insights VM para uma ou mais máquinas virtuais Azure ou conjuntos de escala de máquina virtual utilizando modelos Azure PowerShell ou Azure Resource Manager.
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: 57e2649dfe651bfa1e2ef18ff52ca611c122d696
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: fc0c304a3fea81f44e01d3e815f34e44728ea42e
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101707494"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102031884"
 ---
 # <a name="enable-vm-insights-using-resource-manager-templates"></a>Ativar insights VM usando modelos de Gestor de Recursos
 Este artigo descreve como ativar insights VM para uma máquina virtual ou conjunto de escala de máquina virtual usando modelos de Gestor de Recursos. Este procedimento pode ser utilizado para o seguinte procedimento:

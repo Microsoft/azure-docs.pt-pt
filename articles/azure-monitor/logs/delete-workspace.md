@@ -1,17 +1,16 @@
 ---
 title: Elimine e recupere o espaço de trabalho do Azure Log Analytics | Microsoft Docs
 description: Saiba como eliminar o seu espaço de trabalho Log Analytics se criou um numa subscrição pessoal ou reestruturar o seu modelo de espaço de trabalho.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/20/2020
-ms.openlocfilehash: 5bb072d0ea710e35b4f741836aed143e962a326e
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 83a64e3348d4af768c56609df3df5c9194ec5af1
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100615002"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102030873"
 ---
 # <a name="delete-and-recover-azure-log-analytics-workspace"></a>Apagar e recuperar o espaço de trabalho do Azure Log Analytics
 

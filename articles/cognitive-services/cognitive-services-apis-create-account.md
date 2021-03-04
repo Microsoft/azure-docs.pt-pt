@@ -7,15 +7,15 @@ author: aahill
 manager: nitinme
 keywords: serviços cognitivos, inteligência cognitiva, soluções cognitivas, serviços ai
 ms.service: cognitive-services
-ms.topic: conceptual
+ms.topic: quickstart
 ms.date: 09/14/2020
 ms.author: aahi
-ms.openlocfilehash: 3fd1d9e708a5f1a500440f20c2947ddfe4bc7460
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 0ad2d0a10b20aa049147d61bd4e8168ea956392c
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94368921"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102031927"
 ---
 # <a name="quickstart-create-a-cognitive-services-resource-using-the-azure-portal"></a>Quickstart: Criar um recurso de Serviços Cognitivos utilizando o portal Azure
 
@@ -64,15 +64,15 @@ Os Azure Cognitive Services são serviços baseados na nuvem com APIs rest, e SD
     | [Reconhecedor de Tinta Digital](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesInkRecognizer)        |                         | [Análise de Texto](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics)                |  [Assistente de Métricas](https://go.microsoft.com/fwlink/?linkid=2142156)                    | [Verificação Ortográfica do Bing](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSpellCheck-v7)   |
     |           |                         | [Tradutor](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation)               |                      | [Sugestão Automática do Bing](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingAutosuggest-v7)                       |
 
-    **_
+    ***
 
-3. Na página _ *Criar* * forneça as seguintes informações:
+3. Na página **Criar,** forneça as seguintes informações:
 
     #### <a name="multi-service-resource"></a>[Recurso multi-serviço](#tab/multiservice)
 
     |    |    |
     |--|--|
-    | **Name** | Um nome descritivo para o seu recurso de serviços cognitivos. Por exemplo, *MyCognitiveServicesResource*. |
+    | **Nome** | Um nome descritivo para o seu recurso de serviços cognitivos. Por exemplo, *MyCognitiveServicesResource*. |
     | **Subscrição** | Selecione uma das suas subscrições Azure disponíveis. |
     | **Localização** | A localização do seu serviço cognitivo. Diferentes localizações podem introduzir latência, mas não têm impacto na disponibilidade de tempo de execução do seu recurso. |
     | **Escalão de preço** | O custo da sua conta de Serviços Cognitivos depende das opções que escolher e da sua utilização. Para mais informações, consulte os [detalhes dos preços da](https://azure.microsoft.com/pricing/details/cognitive-services/)API.
@@ -86,7 +86,7 @@ Os Azure Cognitive Services são serviços baseados na nuvem com APIs rest, e SD
 
     |    |    |
     |--|--|
-    | **Name** | Um nome descritivo para o seu recurso de serviços cognitivos. Por exemplo, *TextAnalyticsResource*. |
+    | **Nome** | Um nome descritivo para o seu recurso de serviços cognitivos. Por exemplo, *TextAnalyticsResource*. |
     | **Subscrição** | Selecione uma das suas subscrições Azure disponíveis. |
     | **Localização** | A localização do seu serviço cognitivo. Diferentes localizações podem introduzir latência, mas não têm impacto na disponibilidade de tempo de execução do seu recurso. |
     | **Escalão de preço** | O custo da sua conta de Serviços Cognitivos depende das opções que escolher e da sua utilização. Para mais informações, consulte os [detalhes dos preços da](https://azure.microsoft.com/pricing/details/cognitive-services/)API.
@@ -96,13 +96,13 @@ Os Azure Cognitive Services são serviços baseados na nuvem com APIs rest, e SD
 
     Clique em **Criar**.
 
-    **_
+    ***
 
 [!INCLUDE [Register Azure resource for subscription](./includes/register-resource-subscription.md)]
 
 ## <a name="get-the-keys-for-your-resource"></a>Obtenha as chaves do seu recurso
 
-1. Depois de o seu recurso ser implementado com sucesso, clique em _ *Vá para o recurso* * nos **Próximos Passos**.
+1. Depois de o seu recurso ter sido implementado com sucesso, clique em **Ir para o recurso** sob os **Próximos Passos**.
 
     ![Pesquisa de Serviços Cognitivos](media/cognitive-services-apis-create-account/resource-next-steps.png)
 
@@ -112,11 +112,11 @@ Os Azure Cognitive Services são serviços baseados na nuvem com APIs rest, e SD
 
 [!INCLUDE [cognitive-services-environment-variables](../../includes/cognitive-services-environment-variables.md)]
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se pretender limpar e remover uma subscrição dos Serviços Cognitivos, pode eliminar o grupo de recursos ou recursos. A eliminação do grupo de recursos também elimina quaisquer outros recursos contidos no grupo.
 
-1. No portal do Azure, expanda o menu no lado esquerdo para abrir o menu de serviços e escolha **Grupos de Recursos** , para apresentar a lista dos seus grupos de recursos.
+1. No portal do Azure, expanda o menu no lado esquerdo para abrir o menu de serviços e escolha **Grupos de Recursos**, para apresentar a lista dos seus grupos de recursos.
 2. Localizar o grupo de recursos que contém o recurso a eliminar
 3. Clique com o botão direito na listagem do grupo de recursos. Selecione **Eliminar grupo de recursos** e confirme.
 

@@ -3,12 +3,12 @@ title: Como planear uma implantação em escala de servidores ativados pelo Azur
 description: Saiba como permitir que um grande número de máquinas para o Azure Arc permitiu que os servidores simplificassem a configuração das capacidades essenciais de segurança, gestão e monitorização em Azure.
 ms.date: 02/23/2021
 ms.topic: conceptual
-ms.openlocfilehash: fd02e7c0b4d65efde13fbc428a15d60adab174d4
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 0e77fc00f94f2f46c60bb2c5dcecc10a4e2e3bc5
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101693096"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102032233"
 ---
 # <a name="planing-for-an-at-scale-deployment-of-azure-arc-enabled-servers"></a>Planar para uma implantação em escala de servidores ativados do Arco Azure
 
@@ -71,7 +71,7 @@ Em seguida, adicionamos à fundação estabelecida na fase 1, preparando a impla
 
 |Tarefa |Detalhes |Duração |
 |-----|-------|---------|
-| Descarregue o script de instalação pré-definido | Reveja e personalize o script de instalação pré-definido para a implantação à escala do agente da Máquina Conectada para suportar os seus requisitos de implementação automatizados.<br><br> Amostra de recursos de bordo à escala:<br><br> * [Script de implementação básica em escala](servers/onboard-service-principal.md)<br><br> * [VMware vMware vS de vMware vS de vMware do Windows à escala](https://github.com/microsoft/azure_arc/blob/master/azure_arc_servers_jumpstart/docs/vmware_scaled_powercli_win.md)<br><br> * [PMware vSMware vSphere Linux VMs à escala](https://github.com/microsoft/azure_arc/blob/master/azure_arc_servers_jumpstart/docs/vmware_scaled_powercli_linux.md)<br><br> * [Instâncias AWS EC2 de bordo à escala utilizando ansible](https://github.com/microsoft/azure_arc/blob/master/azure_arc_servers_jumpstart/docs/aws_scale_ansible.md)<br><br> * [Implementação em escala utilizando o remoting PowerShell](https://docs.microsoft.com/azure/azure-arc/servers/onboard-powershell) (apenas windows)| Um ou mais dias dependendo dos requisitos, processos organizacionais (por exemplo, Gestão de Alterações e Libertação) e método de automatização utilizado. |
+| Descarregue o script de instalação pré-definido | Reveja e personalize o script de instalação pré-definido para a implantação à escala do agente da Máquina Conectada para suportar os seus requisitos de implementação automatizados.<br><br> Amostra de recursos de bordo à escala:<br><br> <ul><li> [Script de implementação básica em escala](onboard-service-principal.md)</ul></li> <ul><li>[VMware vMware vS de vMware vS de vMware do Windows à escala](https://github.com/microsoft/azure_arc/blob/master/azure_arc_servers_jumpstart/docs/vmware_scaled_powercli_win.md)</ul></li> <ul><li>[PMware vSMware vSphere Linux VMs à escala](https://github.com/microsoft/azure_arc/blob/master/azure_arc_servers_jumpstart/docs/vmware_scaled_powercli_linux.md)</ul></li> <ul><li>[Instâncias AWS EC2 de bordo à escala utilizando ansible](https://github.com/microsoft/azure_arc/blob/master/azure_arc_servers_jumpstart/docs/aws_scale_ansible.md)</ul></li> <ul><li>[Implementação em escala utilizando o remoting PowerShell](https://docs.microsoft.com/azure/azure-arc/servers/onboard-powershell) (apenas windows)</ul></li>| Um ou mais dias dependendo dos requisitos, processos organizacionais (por exemplo, Gestão de Alterações e Libertação) e método de automatização utilizado. |
 | [Criar um principal de serviço](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) |Crie um principal de serviço para ligar máquinas não interativamente usando a Azure PowerShell ou a partir do portal.| Uma hora |
 | Implemente o agente 'Máquina Conectada' nos servidores e máquinas-alvo |Utilize a sua ferramenta de automatização para implantar os scripts nos seus servidores e conectá-los ao Azure.| Um ou mais dias dependendo do seu plano de libertação e se seguir um lançamento faseado. |
 
@@ -83,7 +83,7 @@ A fase 3 vê administradores ou engenheiros de sistema que permitem automatizar 
 |-----|-------|---------|
 |Criar um alerta de saúde de recursos |Se um servidor parar de enviar batimentos cardíacos para Azure por mais de 15 minutos, pode significar que está offline, a ligação de rede foi bloqueada ou o agente não está em funcionamento. Desenvolva um plano para como irá responder e investigar estes incidentes e use [alertas de Saúde de Recursos](../..//service-health/resource-health-alert-monitor-guide.md) para ser notificado quando começarem.<br><br> Especificar o seguinte ao configurar o alerta:<br> Tipo de **recurso**  =  **Servidores ativados Azure Arc**<br> **Estado atual do recurso**  =  **Indisponível**<br> **Estado dos recursos**  =  anteriores **Disponível** | Uma hora |
 |Criar um alerta de Conselheiro Azure | Para obter a melhor experiência e as correções mais recentes de segurança e bugs, recomendamos manter o agente de servidores ativado pelo Arco Azure atualizado. Agentes desatualizados serão identificados com um [alerta de Azure Advisor](../../advisor/advisor-alerts-portal.md).<br><br> Especificar o seguinte ao configurar o alerta:<br> Tipo de **recomendação**  =  **Upgrade para a versão mais recente do Azure Connected Machine Agent** | Uma hora |
-|[Atribua as políticas Azure](../../governance/policy/assign-policy-portal.md) ao seu âmbito de subscrição ou grupo de recursos |Atribua o Monitor De Ativação para a política **de VMs** e outros que satisfaçam as suas necessidades no âmbito de subscrição ou grupo de recursos, para garantir que todos os seus servidores ativados pelo Arco estão automaticamente configurados para monitorização com o Azure Monitor para VMs.| Varia |
+|[Atribua as políticas Azure](../../governance/policy/assign-policy-portal.md) ao seu âmbito de subscrição ou grupo de recursos |Atribua o **Enable Azure Monitor para** a [política](../../azure-monitor/vm/vminsights-enable-policy.md) de VMs (e outros que atendam às suas necessidades) para o âmbito de subscrição ou grupo de recursos. A Azure Policy permite-lhe atribuir definições de política que instalam os agentes necessários para o Azure Monitor para VMs em todo o seu ambiente.| Varia |
 |[Ativar a Gestão de Atualização para os servidores ativados pelo Arco](../../automation/update-management/enable-from-automation-account.md) |Configure Update Management in Azure Automation para gerir as atualizações do sistema operativo para as suas máquinas virtuais Windows e Linux registadas com servidores ativados pelo Arc. | 15 minutos |
 
 ## <a name="next-steps"></a>Passos seguintes

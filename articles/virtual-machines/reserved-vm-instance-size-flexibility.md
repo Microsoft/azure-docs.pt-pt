@@ -6,14 +6,14 @@ ms.service: virtual-machines
 ms.subservice: reserved-instances
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 02/02/2021
+ms.date: 03/01/2021
 ms.author: yashar
-ms.openlocfilehash: 6b04caec380a481569de4a33ea0159fd641c000f
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 9270b7fb135eddd78a7aeb30cf88af4d704e176e
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101673969"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102030713"
 ---
 # <a name="virtual-machine-size-flexibility-with-reserved-vm-instances"></a>Flexibilidade de tamanho da máquina virtual com o Reserved VM Instances
 
@@ -48,7 +48,13 @@ CSV abaixo tem os grupos de flexibilidade de tamanho de instância, ArmSkuName e
 
 [Rácios de flexibilidade de tamanho de instância](https://isfratio.blob.core.windows.net/isfratio/ISFRatio.csv)
 
-Manteremos o URL de ficheiro e o esquema corrigidos para que possa consumir este ficheiro programáticamente. Os dados também estarão disponíveis através da API em breve.
+O Azure mantém o link e o esquema atualizados para que possa utilizar o ficheiro programáticamente.
+
+## <a name="view-vm-size-recommendations"></a>Ver recomendações de tamanho VM
+
+O Azure mostra recomendações de tamanho VM na experiência de compra. Para ver as recomendações de menor dimensão, selecione **Grupo por menor tamanho**.
+
+:::image type="content" source="./media/reserved-vm-instance-size-flexibility/select-product-recommended-quantity.png" alt-text="Screenshot mostrando quantidades recomendadas." lightbox="./media/reserved-vm-instance-size-flexibility/select-product-recommended-quantity.png" :::
 
 ## <a name="next-steps"></a>Passos seguintes
 

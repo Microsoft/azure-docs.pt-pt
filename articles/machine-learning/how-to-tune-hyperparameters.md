@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 02/26/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperf-fy21q1
-ms.openlocfilehash: 0212ed1378dbb1d2165e9333a38fa911598c4c6d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 768d2011ae3f2826b42befa8f0d40f0e56b993fd
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101691489"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102032692"
 ---
 # <a name="hyperparameter-tuning-a-model-with-azure-machine-learning"></a>Hiperparametro afinando um modelo com Azure Machine Learning
 
@@ -332,7 +332,7 @@ hd_config = HyperDriveConfig(run_config=script_run_config,
                              max_concurrent_runs=4)
 ```
 
-Os `HyperDriveConfig` conjuntos os parâmetros passaram para o `ScriptRunConfig script_run_config` . O `script_run_config` , por sua vez, passa parâmetros para o roteiro de treino. O corte de código acima é retirado do portátil de amostra [Train, hiperparameter tune, e implementar com PyTorch](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/pytorch/train-hyperparameter-tune-deploy-with-pytorch). Nesta amostra, os `learning_rate` parâmetros e `momentum` parâmetros serão afinados. A paragem precoce das corridas será determinada por um `BanditPolicy` , que impede uma corrida cuja métrica primária cai fora da `slack_factor` (ver referência da classe [BanditPolicy).](python/api/azureml-train-core/azureml.train.hyperdrive.banditpolicy?view=azure-ml-py) 
+Os `HyperDriveConfig` conjuntos os parâmetros passaram para o `ScriptRunConfig script_run_config` . O `script_run_config` , por sua vez, passa parâmetros para o roteiro de treino. O corte de código acima é retirado do portátil de amostra [Train, hiperparameter tune, e implementar com PyTorch](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/pytorch/train-hyperparameter-tune-deploy-with-pytorch). Nesta amostra, os `learning_rate` parâmetros e `momentum` parâmetros serão afinados. A paragem precoce das corridas será determinada por um `BanditPolicy` , que impede uma corrida cuja métrica primária cai fora da `slack_factor` (ver referência da classe [BanditPolicy).](/python/api/azureml-train-core/azureml.train.hyperdrive.banditpolicy) 
 
 O seguinte código da amostra mostra como os valores afinados são recebidos, analisados e passados para a função do script de `fine_tune_model` treino:
 

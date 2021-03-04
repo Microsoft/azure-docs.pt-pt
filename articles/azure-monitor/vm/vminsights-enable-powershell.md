@@ -1,17 +1,16 @@
 ---
 title: Ativar insights VM utilizando PowerShell
 description: Descreve como ativar insights VM para máquinas virtuais Azure ou conjuntos de escala de máquina virtual usando Azure PowerShell.
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: 47ac71797684f82dfd94acff2d18bca11b2f50d1
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: b51a49abda76a4d1433336cf73dc9a0dd6e40787
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101717082"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102031886"
 ---
 # <a name="enable-vm-insights-using-powershell"></a>Ativar insights VM utilizando PowerShell
 Este artigo descreve como ativar insights VM sobre máquinas virtuais Azure usando PowerShell. Este procedimento pode ser utilizado para o seguinte procedimento:

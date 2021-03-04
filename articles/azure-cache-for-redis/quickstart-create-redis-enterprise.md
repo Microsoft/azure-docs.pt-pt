@@ -7,12 +7,12 @@ ms.service: cache
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 02/08/2021
-ms.openlocfilehash: 50535ab9ac2a3541ade7b9abd8f355bbeaf6d4b3
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 37496b9358ec72c79f8d26e32a92485f001e0e9d
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100365009"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102031672"
 ---
 # <a name="quickstart-create-a-redis-enterprise-cache-preview"></a>Quickstart: Criar uma cache Redis Enterprise (Pré-visualização)
 
@@ -22,7 +22,7 @@ Azure Cache para os níveis da Redis Enterprise fornecem a [Redis Enterprise](ht
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Vai precisar de uma assinatura Azure antes de começar. Se não tiver uma, crie uma [conta.](https://azure.microsoft.com/) Para obter mais informações, consulte [os requisitos de nível da Enterprise.](cache-overview.md#enterprise-and-enterprise-flash-tier-requirements)
+Vai precisar de uma assinatura Azure antes de começar. Se não tiver uma, crie uma [conta.](https://azure.microsoft.com/) Para mais informações, consulte [considerações especiais para os níveis da Enterprise](cache-overview.md#special-considerations-for-enterprise-tiers).
 
 ## <a name="create-a-cache"></a>Criar uma cache
 1. Para criar uma cache, inscreva-se no portal Azure utilizando o link no seu convite de pré-visualização e selecione **Criar um recurso**.
@@ -41,7 +41,7 @@ Vai precisar de uma assinatura Azure antes de começar. Se não tiver uma, crie 
    | **Localização** | Desça e selecione um local. | Os níveis de empresa estão disponíveis em regiões de Azure limitadas durante a pré-visualização. |
    | **Tipo cache** | Desça e selecione um nível *Enterprise* ou *Enterprise Flash* e um tamanho. |  O nível determina o tamanho, desempenho e funcionalidades que estão disponíveis para a cache. |
    
-   :::image type="content" source="media/cache-create/enterprise-tier-basics.png" alt-text="Básicos de nível da empresa":::
+   :::image type="content" source="media/cache-create/enterprise-tier-basics.png" alt-text="Separador básico de nível de empresa":::
 
    > [!NOTE] 
    > Certifique-se de verificar a caixa em "Termos" antes de prosseguir.
@@ -57,17 +57,13 @@ Vai precisar de uma assinatura Azure antes de começar. Se não tiver uma, crie 
    
    Pode manter as definições predefinidos ou alterá-las conforme apropriado. Ao **ligar, permita o acesso apenas através do TLS,** tem de utilizar o TLS para aceder à nova cache a partir da sua aplicação.
 
-   :::image type="content" source="media/cache-create/enterprise-tier-advanced.png" alt-text="Nível de empresa avançado":::
+   :::image type="content" source="media/cache-create/enterprise-tier-advanced.png" alt-text="Separador avançado de nível empresarial":::
 
-   > [!NOTE] 
-   > Os Módulos Redis ainda não estão suportados no nível Enterprise Flash. Se planeia utilizar um Módulo Redis, não se esqueça de escolher uma cache de nível Enterprise.
-   >
-   
 1. Selecione **Seguinte: Etiquetas** e saltar.
 
 1. Selecione **Seguinte: Rever + criar**.
 
-   :::image type="content" source="media/cache-create/enterprise-tier-summary.png" alt-text="Resumo do nível da empresa":::
+   :::image type="content" source="media/cache-create/enterprise-tier-summary.png" alt-text="Análise de nível de empresa + Criar separador":::
 
 1. Reveja as definições e clique em **Criar**.
    

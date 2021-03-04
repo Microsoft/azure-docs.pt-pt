@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.date: 11/04/2020
 ms.custom: devx-track-python
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 19a8a73428bef3c29c5bf9e56b45750adf5fb2dd
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 42f07b76cefed38aad53caba9ba35c74238540fe
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101748948"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102031740"
 ---
 # <a name="quickstart-create-a-function-in-azure-with-python-using-visual-studio-code"></a>Quickstart: Criar uma função em Azure com Python usando Código de Estúdio Visual
 
@@ -90,12 +90,12 @@ As questões mais comuns a resolver na criação de um projeto de Funções loca
 
 1. No painel **Terminal,** consulte o ponto final url da sua função a funcionar localmente.
 
-    ![Função local saída do Código VS](./media/functions-run-function-test-local-vs-code/functions-vscode-f5.png)
+    ![Função local saída do Código VS](../../includes/media/functions-run-function-test-local-vs-code/functions-vscode-f5.png)
 
 
 1. Com as Ferramentas Core em funcionamento, vá para a área **Azure: Funções.** Em **Funções**, expandir funções **de projeto**  >  **locais.** Clique à direita (Windows) ou <kbd>Ctrl -</kbd> clique (macOS) na `HttpExample` função e escolha **Executar Função Agora...**.
 
-    :::image type="content" source="media/functions-run-function-test-local-vs-code/execute-function-now.png" alt-text="Execute a função agora a partir do Código do Estúdio Visual":::
+    :::image type="content" source="../../includes/media/functions-run-function-test-local-vs-code/execute-function-now.png" alt-text="Execute a função agora a partir do Código do Estúdio Visual":::
 
 1. In **Enter request body** você vê o valor do corpo da mensagem de pedido de `{ "name": "Azure" }` . Prima Insira para enviar esta mensagem de pedido para a sua função.  
 

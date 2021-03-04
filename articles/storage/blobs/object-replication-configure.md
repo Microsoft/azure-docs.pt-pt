@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/09/2020
+ms.date: 03/02/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 226601eadf922a9d834ab84520fd1edf964348fa
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 2b6855d72b644a3fe1fa46c883eb7414383a1a57
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98762934"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102031706"
 ---
 # <a name="configure-object-replication-for-block-blobs"></a>Configurar a replicação do objeto para bolhas de bloco
 
@@ -238,10 +238,10 @@ Tenha em mente que deve ser atribuída a função **de Contribuinte** de Recurso
 
 A tabela seguinte resume quais os valores a utilizar para o ID da política e iDs de regra no ficheiro JSON em cada cenário.
 
-| Quando estiver a criar o ficheiro JSON para esta conta... | Desa estacie o ID da política e regra os IDs a este valor... |
-|-|-|
-| Conta de destino | O *padrão de* valor de cadeia . O Azure Storage criará o ID da política e irá remundo iDs para si. |
-| Conta fonte | Os valores do ID da política e iDs de regra devolvidos quando descarrega a política definida na conta de destino como um ficheiro JSON. |
+| Quando estiver a criar o ficheiro JSON para esta conta... | Desa estação o ID da política a este valor | Definir IDs de regra para este valor |
+|-|-|-|
+| Conta de destino | O *padrão de* valor de cadeia . O Azure Storage irá criar o valor de identificação da apólice para si. | Uma corda vazia. O Azure Storage criará os valores de identificação de regra para si. |
+| Conta fonte | O valor do ID da apólice devolveu quando descarrega a política definida na conta de destino como um ficheiro JSON. | Os valores dos IDs de regra devolvidos quando descarrega a política definida na conta de destino como um ficheiro JSON. |
 
 O exemplo a seguir define uma política de replicação na conta de destino com uma única regra que corresponde ao prefixo *b* e define o tempo mínimo de criação para as bolhas que devem ser replicadas. Lembre-se de substituir valores em suportes angulares por seus próprios valores:
 
@@ -253,7 +253,7 @@ O exemplo a seguir define uma política de replicação na conta de destino com 
     "destinationAccount": "<dest-account>",
     "rules": [
       {
-        "ruleId": "default",
+        "ruleId": "",
         "sourceContainer": "<source-container>",
         "destinationContainer": "<destination-container>",
         "filters": {
@@ -272,7 +272,7 @@ O exemplo a seguir define uma política de replicação na conta de destino com 
 
 Para configurar a replicação de objetos na conta de destino com um ficheiro JSON no portal Azure, siga estes passos:
 
-1. Crie um ficheiro JSON local que defina a política de replicação na conta de destino. Defina o campo **policyId** por **defeito** para que o Azure Storage defina o ID da política.
+1. Crie um ficheiro JSON local que defina a política de replicação na conta de destino. Defina o campo **policyId** por *defeito* para que o Azure Storage defina o ID da política.
 
     Uma forma fácil de criar um ficheiro JSON que defina uma política de replicação é primeiro criar uma política de replicação de teste entre duas contas de armazenamento no portal Azure. Em seguida, pode descarregar as regras de replicação e modificar o ficheiro JSON conforme necessário.
 
@@ -441,7 +441,7 @@ az storage account or-policy delete \
 
 ---
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Visão geral da replicação do objeto](object-replication-overview.md)
 - [Ativar e gerir a versão blob](versioning-enable.md)

@@ -1,15 +1,15 @@
 ---
-author: IEvangelist
-ms.author: dapine
-ms.date: 02/19/2020
+author: aahill
+ms.author: aahi
+ms.date: 03/02/2021
 ms.service: cognitive-services
 ms.topic: include
-ms.openlocfilehash: 2ac93f5aba722eea78267a512999a5581a887b99
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: d61813e723992f4381c5ea82121da8bbb70016dc
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95996481"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102032940"
 ---
 As consultas ao contentor são cobradas no nível de preços do recurso Azure que é usado para `ApiKey` .
 
@@ -17,7 +17,7 @@ Os recipientes Azure Cognitive Services não estão licenciados para funcionar s
 
 ### <a name="connect-to-azure"></a>Ligar ao Azure
 
-O contentor precisa que os valores do argumento da faturação corram. Estes valores permitem que o recipiente se conecte ao ponto final de faturação. O recipiente relata o uso a cada 10 a 15 minutos. Se o recipiente não ligar ao Azure dentro da janela de tempo permitida, o recipiente continua a funcionar, mas não serve consultas até que o ponto final de faturação seja restaurado. A ligação é tentada 10 vezes ao mesmo tempo de 10 a 15 minutos. Se não conseguir ligar-se ao ponto final de faturação dentro dos 10 tentativas, o recipiente deixa de servir os pedidos.
+O contentor precisa que os valores do argumento da faturação corram. Estes valores permitem que o recipiente se conecte ao ponto final de faturação. O recipiente relata o uso a cada 10 a 15 minutos. Se o recipiente não ligar ao Azure dentro da janela de tempo permitida, o recipiente continua a funcionar, mas não serve consultas até que o ponto final de faturação seja restaurado. A ligação é tentada 10 vezes ao mesmo tempo de 10 a 15 minutos. Se não conseguir ligar-se ao ponto final de faturação dentro dos 10 tentativas, o recipiente deixa de servir os pedidos. Consulte o [contentor de serviços cognitivos FAQ](../articles/cognitive-services/containers/container-faq.yml#how-does-billing-work) para um exemplo das informações enviadas à Microsoft para faturação.
 
 ### <a name="billing-arguments"></a>Argumentos de faturação
 

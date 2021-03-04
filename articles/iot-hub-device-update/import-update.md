@@ -1,17 +1,17 @@
 ---
 title: Como importar uma nova atualização | Microsoft Docs
 description: How-To guia para importar uma nova atualização para ioT Hub Device Update para IoT Hub.
-author: andbrown
+author: andrewbrownmsft
 ms.author: andbrown
 ms.date: 2/11/2021
 ms.topic: how-to
 ms.service: iot-hub-device-update
-ms.openlocfilehash: d8757f3076f784576f95bbdfc30abf578446c776
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: c83221743e0566d783c38c40aaf92111a0cd80f7
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101663289"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102030737"
 ---
 # <a name="import-new-update"></a>Importação Nova Atualização
 Saiba como importar uma nova atualização para a Atualização de Dispositivos para IoT Hub.
@@ -53,7 +53,7 @@ Saiba como importar uma nova atualização para a Atualização de Dispositivos 
     $importManifest | Out-File '.\importManifest.json' -Encoding UTF8
     ```
 
-    Para referência rápida, aqui estão alguns valores de exemplo para os parâmetros acima. Para obter documentação completa, consulte o esquema manifesto de importação completo abaixo.
+    Para referência rápida, aqui estão alguns valores de exemplo para os parâmetros acima. Você também pode ver o esquema completo [de importação manifesto](import-schema.md) para mais detalhes.
 
     | Parâmetro | Descrição |
     | --------- | ----------- |
@@ -66,19 +66,6 @@ Saiba como importar uma nova atualização para a Atualização de Dispositivos 
     | instaladoCriteria | <ul><li>Especificar o valor da SWVersion para `microsoft/swupdate:1` o tipo de atualização</li><li>Especifique o valor recomendado para `microsoft/apt:1` o tipo de atualização.
     | actualizarFilePath(s) | Caminho para o(s) ficheiros de atualização no seu computador
 
-    Esquema manifesto de importação completa
-
-    | Nome | Tipo | Descrição | Restrições |
-    | --------- | --------- | --------- | --------- |
-    | UpdateId | `UpdateId` objeto | Atualizar identidade. |
-    | Atualização DeType | string | Tipo de atualização: <ul><li>Especifique `microsoft/apt:1` ao executar uma atualização baseada em pacotes utilizando o agente de referência.</li><li>Especifique `microsoft/swupdate:1` ao executar uma atualização baseada em imagem usando o agente de referência.</li><li>Especifique `microsoft/simulator:1` quando utilizar o simulador do agente de amostra.</li><li>Especifique um tipo personalizado se desenvolver um agente personalizado.</li></ul> | <ul><li>Formato: `{provider}/{type}:{typeVersion}`</li><li>Máximo de 32 caracteres no total</li></ul> |
-    | Criteria instalada | string | String interpretado pelo agente para determinar se a atualização foi aplicada com sucesso:  <ul><li>Especifique **o valor** da SWVersion para o tipo de atualização `microsoft/swupdate:1` .</li><li>Especificar `{name}-{version}` para o tipo de atualização , de qual nome e versão são `microsoft/apt:1` obtidos a partir do ficheiro APT.</li><li>Especifique o hash do ficheiro de atualização para o tipo de atualização `microsoft/simulator:1` .</li><li>Especifique uma cadeia personalizada se desenvolver um agente personalizado.</li></ul> | Máximo de 64 caracteres |
-    | Compatibilidade | Matriz de `CompatibilityInfo` objetos | Informações de compatibilidade do dispositivo compatíveis com esta atualização. | Máximo de 10 itens |
-    | CreatedDateTime | data/hora | Data e hora em que a atualização foi criada. | Iso 8601 delimitado, data e formato de hora, em UTC |
-    | Manifestação | string | Importar versão de esquema manifesto. `2.0`Especificar, que será compatível com interface `urn:azureiot:AzureDeviceUpdateCore:1` e `urn:azureiot:AzureDeviceUpdateCore:4` interface.</li></ul> | Deve ser `2.0` |
-    | Ficheiros | Matriz de `File` objetos | Atualizar ficheiros de carga útil | Máximo de 5 ficheiros |
-
-Nota: Todos os campos são necessários.
 
 ## <a name="review-generated-import-manifest"></a>Manifesto de importação gerado por revisão
 

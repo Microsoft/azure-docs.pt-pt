@@ -4,15 +4,14 @@ description: Utilize o Azure Monitor para realizar consultas entre o Azure Data 
 author: osalzberg
 ms.author: bwren
 ms.reviewer: bwren
-ms.subservice: logs
 ms.topic: conceptual
 ms.date: 12/02/2020
-ms.openlocfilehash: 8bc47eb2a6a22224f4df186136da2c184979ea24
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 1857f0e39cd5d9ddc616eed1db18cd58b98721a4
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100618492"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102031128"
 ---
 # <a name="cross-resource-query-azure-data-explorer-by-using-azure-monitor"></a>Consulta de recursos cruzados Azure Data Explorer usando O Monitor de Azure
 O Azure Monitor suporta consultas de serviços cruzados entre O Explorador de Dados Azure, [Insights de Aplicação](../app/app-insights-overview.md)e [Log Analytics](../logs/data-platform-logs.md). Em seguida, pode consultar o seu cluster Azure Data Explorer utilizando ferramentas De Registo Analytics/Application Insights e consultar-se numa consulta de serviço transversal. O artigo mostra como fazer uma consulta de cross-service.

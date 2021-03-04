@@ -1,17 +1,16 @@
 ---
 title: Limites de serviço do Monitor Azure | Microsoft Docs
 description: Lista limites em diferentes áreas do Monitor Azure.
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/10/2019
-ms.openlocfilehash: 41dcd4fb342c257777d950ee5b8cacc7e8d417c0
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 73598c7f5733dd65222770b80e79e2cf6ec27fbf
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100587006"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102032012"
 ---
 # <a name="azure-monitor-service-limits"></a>Limites de serviço do Azure Monitor
 

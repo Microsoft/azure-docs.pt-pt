@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/20/2019
-ms.openlocfilehash: ed9690a750ad6e1167ba0a0ae4a87b603c4a1f15
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a889275782388781eadffb7cf0a24771bf6e9e4f
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101717405"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102030839"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Criar a implementação de Registos do Azure Monitor
 
@@ -87,9 +87,9 @@ Os utilizadores têm duas opções para aceder aos dados:
 
     > [!NOTE]
     > Os registos só estão disponíveis para consultas de contexto de recursos se estiverem devidamente associados ao recurso relevante. Atualmente, os seguintes recursos têm limitações:
-    > - Computadores fora de Azure
+    > - Computadores fora do Azure - Suportado para contexto de recursos apenas via [Azure Arc para Servidores](../../azure-arc/servers/index.yml)
     > - Service Fabric
-    > - Application Insights
+    > - Insights de Aplicação - Suportado apenas para contexto de recursos quando utilizar [o recurso De Insights de Aplicação baseado no Espaço de Trabalho](../app/create-workspace-resource.md)
     >
     > Pode testar se os registos estão devidamente associados ao seu recurso, executando uma consulta e inspecionando os registos em que está interessado. Se o ID de recurso correto estiver na propriedade [_ResourceId,](./log-standard-columns.md#_resourceid) então os dados estão disponíveis para consultas centradas em recursos.
 

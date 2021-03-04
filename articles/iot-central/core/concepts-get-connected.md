@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - device-developer
-ms.openlocfilehash: 4db7c9fdfd439e049ca76fec6f0e66bd4a37fffd
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 828f0ff81048ca0b6f07b7fdee9ed29c87991db4
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101702713"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102032641"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Ligar-se ao Azure IoT Central
 
@@ -215,47 +215,6 @@ Quando um dispositivo real se liga à sua aplicação IoT Central, o estado do d
 
     O Operador pode associar um dispositivo a um modelo de dispositivo a partir da página **dispositivos** utilizando o botão **Migrar.**
 
-## <a name="best-practices"></a>Melhores práticas
-
-Estas recomendações mostram como implementar dispositivos para aproveitar a recuperação de desastres incorporada e a escala automática na IoT Central.
-
-A lista a seguir mostra o fluxo de alto nível quando um dispositivo se liga à IoT Central:
-
-1. Utilize O DPS para abastecer o dispositivo e obter uma cadeia de ligação do dispositivo.
-
-1. Utilize o fio de ligação para ligar o ponto final interno do Hub IoT da IoT Central. Envie dados e receba dados da sua aplicação IoT Central.
-
-1. Se o dispositivo obtiver falhas de ligação, então, dependendo do tipo de erro, ou recandidrói a ligação ou reprovisione o dispositivo.
-
-### <a name="use-dps-to-provision-the-device"></a>Utilize dPS para o fornecimento do dispositivo
-
-Para providenciar um dispositivo com DPS, utilize o ID de âmbito, credenciais e identificação do dispositivo a partir da sua aplicação IoT Central. Para saber mais sobre os tipos de credenciais, consulte [a inscrição em grupo X.509](#x509-group-enrollment) e [a inscrição no grupo SAS.](#sas-group-enrollment) Para saber mais sobre os IDs do dispositivo, consulte [o registo do Dispositivo.](#device-registration)
-
-Com o sucesso, o DPS devolve uma cadeia de ligação que o dispositivo pode utilizar para ligar à sua aplicação IoT Central. Para resolver os erros de provisão, consulte [Verifique o estado de provisionamento do seu dispositivo](troubleshoot-connection.md#check-the-provisioning-status-of-your-device).
-
-O dispositivo pode cache a cadeia de ligação para utilização para ligações posteriores. No entanto, o aparelho deve estar preparado para [lidar com falhas de ligação](#handle-connection-failures).
-
-### <a name="connect-to-iot-central"></a>Ligue-se à IoT Central
-
-Utilize o fio de ligação para ligar o ponto final interno do Hub IoT da IoT Central. A ligação permite-lhe enviar telemetria para a sua aplicação IoT Central, sincronizar os valores de propriedade com a sua aplicação IoT Central e responder aos comandos enviados pela sua aplicação IoT Central.
-
-### <a name="handle-connection-failures"></a>Lidar com falhas de ligação
-
-Para fins de escala ou recuperação de desastres, a IoT Central pode atualizar o seu hub IoT subjacente. Para manter a conectividade, o código do dispositivo deve lidar com erros de ligação específicos, estabelecendo uma ligação ao novo ponto final do Hub IoT.
-
-Se o dispositivo obtiver algum dos seguintes erros quando se liga, deve refazer o passo de provisionamento com DPS para obter uma nova cadeia de ligação. Estes erros significam que a cadeia de ligação que o dispositivo está a utilizar já não é válida:
-
-- Ponto final IoT Hub inacessível.
-- Ficha de segurança expirada.
-- Dispositivo desativado no Hub IoT.
-
-Se o dispositivo obtiver algum dos seguintes erros quando se liga, deve utilizar uma estratégia de back-off para voltar a tentar a ligação. Estes erros significam que a cadeia de ligação que o dispositivo está a utilizar ainda é válida, mas as condições transitórias estão a impedir o dispositivo de se ligar:
-
-- Dispositivo bloqueado pelo operador.
-- Erro interno 500 do serviço.
-
-Para saber mais sobre os códigos de erro do dispositivo, consulte [as ligações do dispositivo de resolução de problemas](troubleshoot-connection.md).
-
 ## <a name="sdk-support"></a>Suporte de SKDs
 
 Os SDKs do dispositivo Azure oferecem a forma mais fácil de implementar o código do dispositivo. Estão disponíveis os seguintes SDKs do dispositivo:
@@ -304,8 +263,8 @@ Todos os dados trocados entre dispositivos e o seu Azure IoT Central estão encr
 
 Se você é um desenvolvedor de dispositivos, alguns passos sugeridos seguintes são:
 
+- Reveja as [melhores práticas](concepts-best-practices.md) para o desenvolvimento de dispositivos.
 - Reveja algum código de amostra que mostre como usar fichas SAS em [Tutorial: Criar e ligar uma aplicação de cliente à sua aplicação Azure IoT Central](tutorial-connect-device.md)
 - Saiba como [conectar dispositivos com certificados X.509 utilizando Node.js dispositivo SDK para aplicação central IoT](how-to-connect-devices-x509.md)
 - Saiba como monitorizar a [conectividade do dispositivo utilizando o Azure CLI](./howto-monitor-devices-azure-cli.md)
-- Saiba como definir um novo tipo de [dispositivo IoT na sua aplicação Azure IoT Central](./howto-set-up-template.md)
 - Leia sobre [dispositivos Azure IoT Edge e Azure IoT Central](./concepts-iot-edge.md)

@@ -1,17 +1,16 @@
 ---
 title: Consulta através de recursos com a Azure Monitor | Microsoft Docs
 description: Este artigo descreve como pode consultar recursos de vários espaços de trabalho e app App Insights na sua subscrição.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/22/2020
-ms.openlocfilehash: a765525b12431c68aa0bba0c0f49c477defff0f0
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 57ed43b25c9031138a91f0870d316e1ae7a07a5b
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101723219"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102030972"
 ---
 # <a name="perform-log-query-in-azure-monitor-that-span-across-workspaces-and-apps"></a>Realize consulta de log no Azure Monitor que se estende por espaços de trabalho e apps
 

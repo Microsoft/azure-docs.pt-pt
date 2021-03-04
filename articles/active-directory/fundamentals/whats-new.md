@@ -16,12 +16,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c767d114ad6a1b5cb8b9c6bf4c0fe4f2ccd1dae6
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 2e0315eda72681f650172117038ff5ede9f602cc
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101650129"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102032437"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Quais as novidades no Diretório Ativo do Azure?
 
@@ -651,7 +651,7 @@ A experiência do Assistente de Integração (pré-visualização) já está dis
 
 Agora pode ver o ID do modelo de cada papel AD Azure no portal Azure. Em Azure AD, selecione  **a descrição** da função selecionada. 
 
-Recomenda-se que os clientes utilizem IDs de modelo de função no seu script e código PowerShell, em vez do nome de exibição. O ID do modelo de função é suportado para uso para [diretórios](/graph/api/resources/directoryrole) e [funDefinition](/graph/api/resources/unifiedroledefinition?view=graph-rest-beta) objects. Para obter mais informações sobre iDs de modelo de papel, consulte [iDs do modelo de função](../roles/permissions-reference.md#role-template-ids).
+Recomenda-se que os clientes utilizem IDs de modelo de função no seu script e código PowerShell, em vez do nome de exibição. O ID do modelo de função é suportado para uso para [diretórios](/graph/api/resources/directoryrole) e [funDefinition](/graph/api/resources/unifiedroledefinition?view=graph-rest-beta) objects. Para obter mais informações sobre os IDs do modelo de funções, consulte [as funções incorporadas AD AD do Azure](../roles/permissions-reference.md).
 
 ---
 

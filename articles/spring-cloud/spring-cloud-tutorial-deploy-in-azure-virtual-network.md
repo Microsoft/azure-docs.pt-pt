@@ -4,15 +4,15 @@ description: Implementar a nuvem de mola Azure numa rede virtual (injeção VNet
 author: MikeDodaro
 ms.author: brendm
 ms.service: spring-cloud
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 07/21/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 73dd60dba50d3bd29cda0f538462884822054cf9
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 82dcd8c59c55a2866b51fd6dee896ea1298b6cf6
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880607"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102031808"
 ---
 # <a name="deploy-azure-spring-cloud-in-a-virtual-network"></a>Implementar Azure Spring Cloud numa rede virtual
 
@@ -50,7 +50,7 @@ A rede virtual à qual implementa a sua instância Azure Spring Cloud deve satis
     * Um para as suas aplicações de microserviços Spring Boot.
     * Há uma relação um-para-um entre estas sub-redes e um exemplo de Azure Spring Cloud. Utilize uma nova sub-rede para cada instância de serviço que implementar. Cada sub-rede só pode incluir uma única instância de serviço.
 * **Espaço de endereço**: CIDR bloqueia até */28* tanto para a sub-rede de tempo de funcionamento como para a sub-rede de micro-serviços spring boot.
-* **Tabela de rotas**: As sub-redes não devem ter uma tabela de rotas existente associada.
+* **Tabela de rotas**: Por predefinição, as sub-redes não necessitam de tabelas de rota existentes associadas. Pode [trazer a sua própria mesa de rota.](#bring-your-own-route-table)
 
 Os seguintes procedimentos descrevem a configuração da rede virtual para conter a instância de Azure Spring Cloud.
 
@@ -180,11 +180,31 @@ Para sub-redes, cinco endereços IP são reservados pela Azure, e pelo menos qua
 
 Para uma sub-rede de tempo de funcionação de serviço, o tamanho mínimo é /28. Este tamanho não tem qualquer influência no número de instâncias de aplicações.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="bring-your-own-route-table"></a>Traga a sua própria mesa de rota
+
+Azure Spring Cloud suporta a utilização de sub-redes e tabelas de rotas existentes.
+
+Se as suas sub-redes personalizadas não contiverem tabelas de rotas, a Azure Spring Cloud cria-as para cada uma das sub-redes e adiciona-lhes regras ao longo do ciclo de vida do caso. Se as suas subnetas personalizadas contiverem tabelas de rotas, a Azure Spring Cloud reconhece as tabelas de rotas existentes durante as operações de exemplo e adiciona/atualizações e/ou regras em conformidade para as operações.
+
+> [!Warning] 
+> As regras personalizadas podem ser adicionadas às tabelas de rotas personalizadas e atualizadas. No entanto, as regras são adicionadas pela Azure Spring Cloud e estas não devem ser atualizadas ou removidas. Regras como 0.0.0.0/0 devem existir sempre numa tabela de rota e mapa para o alvo do seu portal de internet, como um gateway NVA ou outro gateway de saída. Tenha cuidado ao atualizar as regras quando apenas as suas regras personalizadas estiverem a ser modificadas.
+
+
+### <a name="route-table-requirements"></a>Requisitos do quadro de rotas
+
+As tabelas de rota a que o seu vnet personalizado está associado devem satisfazer os seguintes requisitos:
+
+* Só pode associar as suas tabelas de rotas Azure ao seu vnet quando criar uma nova instância de serviço Azure Spring Cloud. Não é possível alterar para usar outra tabela de rotas depois da criação da Azure Spring Cloud.
+* Tanto a sub-rede de aplicação de micro-serviço como a sub-rede de tempo de funcionamento de serviço devem associar-se a diferentes tabelas de rota ou nenhuma delas.
+* As permissões devem ser atribuídas antes da criação de exemplos. Certifique-se de conceder permissão ao *Azure Spring Cloud Owner* para as suas mesas de rota.
+* O recurso de tabela de rotas associado não pode ser atualizado após a criação do cluster. Embora o recurso da tabela de rotas não possa ser atualizado, as regras personalizadas podem ser modificadas na tabela de rotas.
+* Não é possível reutilizar uma tabela de rotas com múltiplas instâncias devido a potenciais regras de encaminhamento conflituosas.
+
+## <a name="next-steps"></a>Passos seguintes
 
 [Implementar aplicação para Azure Spring Cloud no seu VNet](https://github.com/microsoft/vnet-in-azure-spring-cloud/blob/master/02-deploy-application-to-azure-spring-cloud-in-your-vnet.md)
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 - [Resolução de problemas Azure Spring Cloud em VNET](https://github.com/microsoft/vnet-in-azure-spring-cloud/blob/master/05-troubleshooting-azure-spring-cloud-in-vnet.md)
 - [Responsabilidades do cliente para correr Azure Spring Cloud em VNET](https://github.com/microsoft/vnet-in-azure-spring-cloud/blob/master/06-customer-responsibilities-for-running-azure-spring-cloud-in-vnet.md)

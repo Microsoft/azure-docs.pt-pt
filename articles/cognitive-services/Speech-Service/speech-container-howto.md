@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/17/2020
+ms.date: 03/02/2021
 ms.author: aahi
 ms.custom: cog-serv-seo-aug-2020
 keywords: no local, Docker, contentor
-ms.openlocfilehash: 7bebaf7558de8ec5c1fcca3c9a4526330da1d695
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 4970b33d51ed7ef54727c1c15e2482ff10d70506
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99575793"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102032950"
 ---
 # <a name="install-and-run-docker-containers-for-the-speech-service-apis"></a>Instale e execute os recipientes Docker para as APIs do serviço de fala 
 
@@ -455,7 +455,7 @@ Este comando:
 * Executa um recipiente *personalizado de discurso a texto* a partir da imagem do recipiente.
 * Verifique e devolva os modelos base disponíveis do local alvo.
 
-A saída dá-lhe uma lista de modelos base com a informação local, id de modelo e hora de data de criação. Pode utilizar o id do modelo para descarregar e utilizar o modelo base específico que prefere. Por exemplo:
+A saída dá-lhe uma lista de modelos base com o local de informação, iD do modelo e hora de data de criação. Pode utilizar o ID do modelo para descarregar e utilizar o modelo base específico que prefere. Por exemplo:
 ```
 Checking available base model for en-us
 2020/10/30 21:54:20 [Info] Searching available base models for en-us

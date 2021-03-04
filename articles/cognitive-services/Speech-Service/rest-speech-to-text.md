@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/08/2021
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 70c5593f29b5e83d5d3f318179d365a9235849ca
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 24cc7773d281d98b6a0943f5e0a61b6f547991ee
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98790618"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102032828"
 ---
 # <a name="speech-to-text-rest-api"></a>API REST de conversão de voz em texto
 
@@ -152,7 +152,7 @@ var pronAssessmentHeader = Convert.ToBase64String(pronAssessmentParamsBytes);
 Recomendamos vivamente o streaming (em pedaços) ao publicar os dados áudio, o que pode reduzir significativamente a latência. Consulte [o código de amostra em diferentes linguagens de programação](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/PronunciationAssessment) para saber como permitir o streaming.
 
 >[!NOTE]
->A funcionalidade de avaliação da pronúncia só está atualmente disponível em `westus` `eastasia` regiões e `centralindia` regiões. E esta funcionalidade está atualmente disponível apenas em `en-US` idioma.
+>A funcionalidade de avaliação da pronúncia está atualmente disponível apenas em `en-US` linguagem.
 
 ### <a name="sample-request"></a>Pedido de amostra
 
@@ -335,7 +335,7 @@ Uma resposta típica para o reconhecimento com avaliação da pronúncia:
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Criar uma conta do Azure gratuita](https://azure.microsoft.com/free/cognitive-services/)
 - [Personalizar modelos acústicos](./how-to-custom-speech-train-model.md)

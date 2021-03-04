@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 01/13/2021
-ms.openlocfilehash: 29ac0c5991964de48cedd15622d15e929bc9d733
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: d5a013fc4e4ef931579da4fa13f400d5f4fcff0d
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101709551"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102030754"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Como configurar a base de dados Azure para a replicação de dados do MySQL
 
@@ -102,7 +102,7 @@ Os passos seguintes preparam e configuram o servidor MySQL alojado no local, num
 
    Se a variável [`log_bin`](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_log_bin) for devolvida com o valor "ON", a sessão binária está ativada no seu servidor.
    
-   Se `log_bin` for devolvido com o valor "OFF", 
+    Se `log_bin` for devolvido com o valor "OFF" e o seu servidor de origem estiver a funcionar no local ou em máquinas virtuais onde pode aceder ao ficheiro de configuração (my.cnf), pode seguir os passos abaixo:
    1. Localize o seu ficheiro de configuração MySQL (my.cnf) no servidor de origem. Por exemplo: /etc/my.cnf
    2. Abra o ficheiro de configuração para editá-lo e localize a secção **mysqld** no ficheiro.
    3.  Na secção mysqld, adicione a seguinte linha

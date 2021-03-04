@@ -1,17 +1,16 @@
 ---
 title: Azure Monitor HTTP Data Collector API | Microsoft Docs
 description: Pode utilizar a Azure Monitor HTTP Data Collector API para adicionar dados POST JSON a um espaço de trabalho Log Analytics de qualquer cliente que possa ligar para a API REST. Este artigo descreve como usar a API, e tem exemplos de como publicar dados usando diferentes linguagens de programação.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/14/2020
-ms.openlocfilehash: 446e375cbbfc577dfc5bdff39e151cef5ae9e4c0
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 8c5b4eac17b4c7ae9b4081d0eb9118285dc74bd5
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101737006"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102030958"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>Envie dados de registo para O Monitor de Azure com a API do Colecionador de Dados HTTP (pré-visualização pública)
 Este artigo mostra-lhe como utilizar a API de Retorno de Dados HTTP para enviar dados de registo para o Azure Monitor a partir de um cliente REST API.  Descreve como formatar dados recolhidos pelo seu script ou aplicação, incluí-lo num pedido, e ter esse pedido autorizado pelo Azure Monitor.  Exemplos são fornecidos para PowerShell, C#e Python.

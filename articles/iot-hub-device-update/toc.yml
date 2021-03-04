@@ -40,6 +40,8 @@
       href: connected-cache-disconnected-device-update.md
     - name: Configure a cache conectada da Microsoft para atualização de dispositivos para ioT hub
       href: connected-cache-configure.md
+    - name: Esquemas relacionados com as importações e outras informações
+      href: import-schema.md
 - name: Guias de procedimentos
   items:
     - name: Criar uma conta de atualização de dispositivo

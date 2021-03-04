@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 10/28/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7882fc6a6823a93d09c04a8ae2c19005df4843d8
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 37768b994d4b61ee728e04352f027a6f5a478341
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98917098"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102031621"
 ---
 # <a name="what-is-azure-synapse-analytics"></a>O que é o Azure Synapse Analytics?
 
@@ -64,20 +64,20 @@ O Azure Synapse fornece uma única forma de as empresas gerirem os recursos anal
 * Controlo de acesso de grãos finos sobre dados e código
 * Um único dashboard para monitorizar recursos, uso e utilizadores em SQL e Spark
 
-### <a name="synapse-studio"></a>Synapse Studio
+### <a name="unified-experience"></a>Experiência unificada
 
-**O Synapse Studio** é a experiência nativa da web que une tudo para os engenheiros de dados, permitindo-lhes num local fazer todas as tarefas necessárias para construir uma solução completa.
+**O Synapse Studio** é a experiência do utilizador que une tudo para engenheiros de dados. Permite-lhes fazer todas as tarefas necessárias para construir uma solução de análise completa.
 
-* Construir uma solução de análise de ponta a ponta num só local: ingerir, explorar, preparar, orquestrar, visualizar
-* Produtividade líder na indústria para engenheiros de dados que escrevem código SQL ou Spark: autoria, depuração e otimização de desempenho
-* Integrar-se com processos ci/CD da empresa
+* Principais tarefas de engingeer de dados num só lugar: ingerir, explorar, preparar, orquestrar, visualizar
+* Produtividade líder na indústria para a escrita de CÓDIGO SQL ou Spark: autoria, depuração e otimização de desempenho
+* Integrar-se com o processo CI/CD da empresa
 
 ## <a name="engage-with-the-synapse-engineering-team"></a>Envolva-se com a equipa de engenharia da Sinapse
 
 - [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-synapse): Faça perguntas de desenvolvimento.
 - [Microsoft Q&Uma página de perguntas](/answers/topics/azure-synapse-analytics.html): Faça perguntas técnicas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Introdução ao Azure Synapse Analytics](get-started.md)
 * [Criar uma área de trabalho](quickstart-create-workspace.md)

@@ -4,12 +4,12 @@ description: Aprenda a criar uma função Java e, em seguida, publique o projeto
 ms.topic: quickstart
 ms.date: 11/03/2020
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 38ed05d8bf9f7714b9cd58449f565cf94cb481e5
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 6c84bf4ebc73857fa0280ffbcbf46b68c2da630f
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101748823"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102031723"
 ---
 # <a name="quickstart-create-a-java-function-in-azure-using-visual-studio-code"></a>Quickstart: Criar uma função Java em Azure usando Código de Estúdio Visual
 
@@ -140,7 +140,7 @@ A sua primeira implementação do seu código inclui a criação de um recurso f
 
     + **Selecione subscrição**: Escolha a subscrição para usar. Não verá isto se tiver apenas uma assinatura.
 
-    + **Selecione Aplicação de Funções no Azure**: Selecione `- Create new Function App`.
+    + **Selecione Aplicação de Funções no Azure**: Selecione `Create new Function App`.
 
     + **Introduza um nome globalmente único para a aplicação de função**: Escreva um nome único em Azure num caminho URL. O nome que digita é validado para garantir a singularidade global.
 
