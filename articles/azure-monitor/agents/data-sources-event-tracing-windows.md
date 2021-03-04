@@ -2,17 +2,16 @@
 title: Recolha de rastreio de eventos para windows (ETW) Eventos para análise Registos do Monitor Azure
 description: Saiba como recolher o Rastreio de Eventos para Windows (ETW) para análise em Registos monitores Azure.
 services: azure-monitor
-ms.subservice: logs
 ms.topic: conceptual
 ms.author: jamesfit
 author: jimmyfit
 ms.date: 01/29/2021
-ms.openlocfilehash: d0ded409d76d0b26a76aebb47b8de8f6143ceba5
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 096d16bb2c7249ec99f37fbee9d8ffc8f0e45db2
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101719904"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102050771"
 ---
 # <a name="collecting-event-tracing-for-windows-etw-events-for-analysis-azure-monitor-logs"></a>Recolha de rastreio de eventos para windows (ETW) Eventos para análise Registos do Monitor Azure
 
@@ -72,7 +71,7 @@ Uma vez gerados eventos correspondentes, você deve começar a ver os eventos ET
 
 ### <a name="step-4-configure-log-analytics-storage-account-collection"></a>Passo 4: Configurar a recolha de conta de armazenamento Log Analytics
 
-Siga [estas instruções](/azure/azure-monitor/agents/diagnostics-extension-logs#collect-logs-from-azure-storage) para recolher os registos do Azure Storage. Uma vez configurados, os dados do evento ETW devem aparecer no Log Analytics sob a tabela **ETWEvent.**
+Siga [estas instruções](https://docs.microsoft.com/azure/azure-monitor/essentials/diagnostics-extension-logs#collect-logs-from-azure-storage) para recolher os registos do Azure Storage. Uma vez configurados, os dados do evento ETW devem aparecer no Log Analytics sob a tabela **ETWEvent.**
 
 ## <a name="next-steps"></a>Passos seguintes
 - Use [campos personalizados](../logs/custom-fields.md) para criar estrutura nos seus eventos ETW

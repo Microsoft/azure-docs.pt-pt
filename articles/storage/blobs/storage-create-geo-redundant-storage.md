@@ -6,17 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: tutorial
-ms.date: 04/16/2020
+ms.date: 02/18/2021
 ms.author: tamram
 ms.reviewer: artek
 ms.custom: mvc, devx-track-python, devx-track-js, devx-track-csharp
 ms.subservice: blobs
-ms.openlocfilehash: dfb7e7c7c93a8af2b59f6d3d7049e2c14b8f382a
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: 0d597f0742cfc43f1c7fb38568b2a2bbda352beb
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98611054"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102049343"
 ---
 # <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>Tutorial: Construa uma aplicação altamente disponível com armazenamento Blob
 
@@ -39,18 +39,30 @@ Na primeira parte da série, saiba como:
 
 Para concluir este tutorial:
 
-# <a name="net"></a>[.NET](#tab/dotnet)
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+
+Estamos neste momento a trabalhar para criar códigos que reflitam a versão 12.x das bibliotecas de clientes do Azure Storage. Para mais informações, consulte [anunciando o Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
 
 * Instale [o Visual Studio 2019](https://www.visualstudio.com/downloads/) com a carga de trabalho **de desenvolvimento do Azure.**
 
   ![Desenvolvimento do Azure (na Web e na Cloud)](media/storage-create-geo-redundant-storage/workloads.png)
 
-# <a name="python"></a>[Python](#tab/python)
+# <a name="python-v12"></a>[Python v12](#tab/python)
+
+Estamos neste momento a trabalhar para criar códigos que reflitam a versão 12.x das bibliotecas de clientes do Azure Storage. Para mais informações, consulte [anunciando o Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+
+# <a name="python-v21"></a>[Python v2.1](#tab/python2)
 
 * Instalar [Python](https://www.python.org/downloads/)
 * Transfira e instale o [SDK de Armazenamento do Azure para Python](https://github.com/Azure/azure-storage-python).
 
-# <a name="nodejs"></a>[Node.js](#tab/nodejs)
+# <a name="nodejs-v12"></a>[Node.js v12](#tab/nodejs)
+
+Estamos neste momento a trabalhar para criar códigos que reflitam a versão 12.x das bibliotecas de clientes do Azure Storage. Para mais informações, consulte [anunciando o Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+
+# <a name="nodejs-v11"></a>[Node.js v11](#tab/nodejs11)
 
 * Instale [Node.js](https://nodejs.org).
 
@@ -73,7 +85,7 @@ Siga estes passos para criar uma conta de armazenamento de geo-zonas de acesso d
    | Definição       | Valor da amostra | Descrição |
    | ------------ | ------------------ | ------------------------------------------------- |
    | **Subscrição** | *A minha assinatura* | Para obter detalhes sobre as suas subscrições, veja [Subscriptions](https://account.azure.com/Subscriptions) (Subscrições). |
-   | **ResourceGroup** | *myResourceGroup* | Para nomes de grupo de recursos válidos, veja [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming) (Atribuição de nomes de regras e restrições). |
+   | **Grupo de Recursos** | *myResourceGroup* | Para nomes de grupo de recursos válidos, veja [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming) (Atribuição de nomes de regras e restrições). |
    | **Nome** | *conta de mystorage* | Um nome único para a sua conta de armazenamento. |
    | **Localização** | *E.U.A. Leste* | Escolher uma localização. |
    | **Desempenho** | *Standard* | O desempenho padrão é uma boa opção para o cenário de exemplo. |
@@ -85,7 +97,11 @@ Siga estes passos para criar uma conta de armazenamento de geo-zonas de acesso d
 
 ## <a name="download-the-sample"></a>Transferir o exemplo
 
-# <a name="net"></a>[.NET](#tab/dotnet)
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+
+Estamos neste momento a trabalhar para criar códigos que reflitam a versão 12.x das bibliotecas de clientes do Azure Storage. Para mais informações, consulte [anunciando o Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
 
 [Transfira o projeto de exemplo](https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs/archive/master.zip) e extraia (deszipe) o ficheiro storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs.zip. Também pode utilizar o [git](https://git-scm.com/) para transferir uma cópia da aplicação para o seu ambiente de desenvolvimento. O projeto de exemplo contém uma aplicação de consola.
 
@@ -93,7 +109,11 @@ Siga estes passos para criar uma conta de armazenamento de geo-zonas de acesso d
 git clone https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs.git
 ```
 
-# <a name="python"></a>[Python](#tab/python)
+# <a name="python-v12"></a>[Python v12](#tab/python)
+
+Estamos neste momento a trabalhar para criar códigos que reflitam a versão 12.x das bibliotecas de clientes do Azure Storage. Para mais informações, consulte [anunciando o Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+
+# <a name="python-v21"></a>[Python v2.1](#tab/python2)
 
 [Transfira o projeto de exemplo](https://github.com/Azure-Samples/storage-python-circuit-breaker-pattern-ha-apps-using-ra-grs/archive/master.zip) e extraia (deszipe) o ficheiro storage-python-circuit-breaker-pattern-ha-apps-using-ra-grs.zip. Também pode utilizar o [git](https://git-scm.com/) para transferir uma cópia da aplicação para o seu ambiente de desenvolvimento. O projeto de exemplo contém uma aplicação Python básica.
 
@@ -101,7 +121,11 @@ git clone https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-patter
 git clone https://github.com/Azure-Samples/storage-python-circuit-breaker-pattern-ha-apps-using-ra-grs.git
 ```
 
-# <a name="nodejs"></a>[Node.js](#tab/nodejs)
+# <a name="nodejs-v12"></a>[Node.js v12](#tab/nodejs)
+
+Estamos neste momento a trabalhar para criar códigos que reflitam a versão 12.x das bibliotecas de clientes do Azure Storage. Para mais informações, consulte [anunciando o Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+
+# <a name="nodejs-v11"></a>[Node.js v11](#tab/nodejs11)
 
 [Descarregue o projeto da amostra](https://github.com/Azure-Samples/storage-node-v10-ha-ra-grs) e desaperte o ficheiro. Também pode utilizar o [git](https://git-scm.com/) para transferir uma cópia da aplicação para o seu ambiente de desenvolvimento. O projeto de amostra contém uma aplicação Node.js básica.
 
@@ -113,7 +137,11 @@ git clone https://github.com/Azure-Samples/storage-node-v10-ha-ra-grs
 
 ## <a name="configure-the-sample"></a>Configure a amostra
 
-# <a name="net"></a>[.NET](#tab/dotnet)
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+
+Estamos neste momento a trabalhar para criar códigos que reflitam a versão 12.x das bibliotecas de clientes do Azure Storage. Para mais informações, consulte [anunciando o Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
 
 Na aplicação, tem de indicar a cadeia de ligação da sua conta de armazenamento. Pode armazenar esta cadeia de ligação numa variável de ambiente no computador local que executa a aplicação. Siga um dos exemplos abaixo, consoante o Sistema Operativo para criar a variável de ambiente.
 
@@ -131,7 +159,11 @@ export storageconnectionstring=<yourconnectionstring>
 setx storageconnectionstring "<yourconnectionstring>"
 ```
 
-# <a name="python"></a>[Python](#tab/python)
+# <a name="python-v12"></a>[Python v12](#tab/python)
+
+Estamos neste momento a trabalhar para criar códigos que reflitam a versão 12.x das bibliotecas de clientes do Azure Storage. Para mais informações, consulte [anunciando o Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+
+# <a name="python-v21"></a>[Python v2.1](#tab/python2)
 
 Na aplicação, deve fornecer as suas credenciais de conta de armazenamento. Pode armazenar esta informação em variáveis ambientais na máquina local que executa a aplicação. Siga um dos exemplos abaixo, dependendo do seu Sistema Operativo para criar as variáveis ambientais.
 
@@ -151,7 +183,11 @@ setx accountname "<youraccountname>"
 setx accountkey "<youraccountkey>"
 ```
 
-# <a name="nodejs"></a>[Node.js](#tab/nodejs)
+# <a name="nodejs-v12"></a>[Node.js v12](#tab/nodejs)
+
+Estamos neste momento a trabalhar para criar códigos que reflitam a versão 12.x das bibliotecas de clientes do Azure Storage. Para mais informações, consulte [anunciando o Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+
+# <a name="nodejs-v11"></a>[Node.js v11](#tab/nodejs11)
 
 Para executar esta amostra, deve adicionar as suas credenciais de conta de armazenamento ao `.env.example` ficheiro e, em seguida, renomeá-la para `.env` .
 
@@ -168,7 +204,11 @@ Instale as dependências necessárias. Para isso, abra um pedido de comando, nav
 
 ## <a name="run-the-console-application"></a>Executar a aplicação de consola
 
-# <a name="net"></a>[.NET](#tab/dotnet)
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+
+Estamos neste momento a trabalhar para criar códigos que reflitam a versão 12.x das bibliotecas de clientes do Azure Storage. Para mais informações, consulte [anunciando o Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
 
 No Visual Studio, prima **F5** ou selecione **Comece** a depurar a aplicação. O estúdio visual restaura automaticamente os pacotes NuGet em falta se configurado, visite [instalar e reinstalar pacotes com o restauro do pacote](/nuget/consume-packages/package-restore#package-restore-overview) para saber mais.
 
@@ -178,7 +218,11 @@ No Visual Studio, prima **F5** ou selecione **Comece** a depurar a aplicação. 
 
 No código de exemplo, a tarefa `RunCircuitBreakerAsync` no ficheiro `Program.cs` é utilizada para transferir uma imagem da conta de armazenamento através do método [DownloadToFileAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.downloadtofileasync). Antes do download, é definido um [Texto OperaçãoContexto.](/dotnet/api/microsoft.azure.cosmos.table.operationcontext) O contexto da operação define os processadores de eventos que são acionados se uma transferência for concluída com êxito ou se falhar e estiver a repetir a operação.
 
-# <a name="python"></a>[Python](#tab/python)
+# <a name="python-v12"></a>[Python v12](#tab/python)
+
+Estamos neste momento a trabalhar para criar códigos que reflitam a versão 12.x das bibliotecas de clientes do Azure Storage. Para mais informações, consulte [anunciando o Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+
+# <a name="python-v21"></a>[Python v2.1](#tab/python2)
 
 Para executar a aplicação num terminal ou numa linha de comandos, aceda ao diretório **circuitbreaker.py** e introduza `python circuitbreaker.py`. A aplicação carrega a imagem **HelloWorld.png** da solução para a conta de armazenamento. A aplicação verifica para garantir que a imagem foi replicada no ponto final secundário raR-GZRS. Em seguida, começa a transferir a imagem até 999 vezes. Cada leitura é representada por um **P** ou um **S**. Onde **P** representa o ponto final primário e **S** representa o ponto final secundário.
 
@@ -190,7 +234,11 @@ A função de repetição do objeto de armazenamento está definida como uma pol
 
 Antes do download, o objeto de serviço [retry_callback](/python/api/azure-storage-common/azure.storage.common.storageclient.storageclient) e [response_callback](/python/api/azure-storage-common/azure.storage.common.storageclient.storageclient) função é definido. Estas funções definem os processadores de eventos que são acionados se uma transferência for concluída com êxito ou se falhar e estiver a repetir a operação.
 
-# <a name="nodejs"></a>[Node.js](#tab/nodejs)
+# <a name="nodejs-v12"></a>[Node.js v12](#tab/nodejs)
+
+Estamos neste momento a trabalhar para criar códigos que reflitam a versão 12.x das bibliotecas de clientes do Azure Storage. Para mais informações, consulte [anunciando o Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+
+# <a name="nodejs-v11"></a>[Node.js v11](#tab/nodejs11)
 
 Para executar a amostra, abra um pedido de comando, navegue na pasta da amostra e, em seguida, introduza `node index.js` .
 
@@ -221,7 +269,11 @@ Deleted container newcontainer1550799840726
 
 ## <a name="understand-the-sample-code"></a>Compreender o código de exemplo
 
-### <a name="net"></a>[.NET](#tab/dotnet)
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+
+Estamos neste momento a trabalhar para criar códigos que reflitam a versão 12.x das bibliotecas de clientes do Azure Storage. Para mais informações, consulte [anunciando o Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
 
 ### <a name="retry-event-handler"></a>Processador de eventos de repetição
 
@@ -272,7 +324,11 @@ private static void OperationContextRequestCompleted(object sender, RequestEvent
 }
 ```
 
-### <a name="python"></a>[Python](#tab/python)
+# <a name="python-v12"></a>[Python v12](#tab/python)
+
+Estamos neste momento a trabalhar para criar códigos que reflitam a versão 12.x das bibliotecas de clientes do Azure Storage. Para mais informações, consulte [anunciando o Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+
+# <a name="python-v21"></a>[Python v2.1](#tab/python2)
 
 ### <a name="retry-event-handler"></a>Processador de eventos de repetição
 
@@ -315,7 +371,11 @@ def response_callback(response):
             secondary_read_count = 0
 ```
 
-### <a name="nodejs"></a>[Node.js](#tab/nodejs)
+# <a name="nodejs-v12"></a>[Node.js v12](#tab/nodejs)
+
+Estamos neste momento a trabalhar para criar códigos que reflitam a versão 12.x das bibliotecas de clientes do Azure Storage. Para mais informações, consulte [anunciando o Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+
+# <a name="nodejs-v11"></a>[Node.js v11](#tab/nodejs11)
 
 Com o Node.js V10 SDK, os manipuladores de chamadas são desnecessários. Em vez disso, a amostra cria um gasoduto configurado com opções de repetição e um ponto final secundário. Isto permite que a aplicação mude automaticamente para o gasoduto secundário se não conseguir alcançar os seus dados através do pipeline primário.
 

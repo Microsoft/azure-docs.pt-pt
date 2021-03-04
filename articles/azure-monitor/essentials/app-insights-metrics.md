@@ -6,13 +6,12 @@ services: azure-monitor
 ms.topic: reference
 ms.date: 07/03/2019
 ms.author: vitalyg
-ms.subservice: application-insights
-ms.openlocfilehash: ca19fdfa617b71b1465e4710d8ca52b18c9ebff5
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: bd28fa9f20775be659de6cef99f9ceda29fe52cc
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101731685"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102049139"
 ---
 # <a name="application-insights-log-based-metrics"></a>Métricas baseadas em registos de insights de aplicação
 

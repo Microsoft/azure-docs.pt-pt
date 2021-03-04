@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
 ms.date: 03/02/2021
-ms.openlocfilehash: 43dd047738538b0dcc76904e951eccea3a327c19
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 0850830e6f8101feae80154a0e245196a690f276
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101715958"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102050244"
 ---
 # <a name="create-stateful-and-stateless-workflows-in-visual-studio-code-with-the-azure-logic-apps-preview-extension"></a>Criar fluxos de trabalho apátridas e apátridas no Código do Estúdio Visual com a extensão Azure Logic Apps (Preview)
 
@@ -140,7 +140,8 @@ Para construir e executar localmente o seu projeto de aplicação lógica no Có
 
 * Para utilizar a ação [Inline Code Operations](../logic-apps/logic-apps-add-run-inline-code.md) que executa o JavaScript, instale [Node.js versões 10.x, 11.x.x ou 12.x.x](https://nodejs.org/en/download/releases/).
 
-  > [!TIP] Para windows, descarregue a versão MSI. Se utilizar a versão ZIP em vez disso, tem de disponibilizar manualmente Node.js utilizando uma variável ambiente PATH para o seu sistema operativo.
+  > [!TIP] 
+  > Para windows, descarregue a versão MSI. Se utilizar a versão ZIP em vez disso, tem de disponibilizar manualmente Node.js utilizando uma variável ambiente PATH para o seu sistema operativo.
 
 * Para executar localmente os gatilhos e ações baseados em webhook, como o [gatilho HTTP Webhook incorporado,](../connectors/connectors-native-webhook.md)no Código do Estúdio Visual, é necessário [configurar o reencaminhamento para o URL de retorno](#webhook-setup).
 

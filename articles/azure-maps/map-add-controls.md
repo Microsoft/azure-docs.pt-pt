@@ -1,5 +1,5 @@
 ---
-title: Adicione controlos a um mapa Microsoft Azure Maps
+title: Adicione controlos a um mapa | Microsoft Azure Maps
 description: Como adicionar controlo de zoom, controlo de tom, controlo de rotação e um picker de estilo para um mapa no Microsoft Azure Maps.
 author: anastasia-ms
 ms.author: v-stharr
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: devx-track-js
-ms.openlocfilehash: 2a225d4ea19cccea114e47cc61a8055d28e8cd99
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: bbcfe4935843a00bc5274273e79f4ffc72dc25ed
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895295"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102051060"
 ---
 # <a name="add-controls-to-a-map"></a>Adicionar controlos a um mapa
 
@@ -58,11 +58,11 @@ Abaixo está a amostra completa do código de execução da funcionalidade acima
 
 ## <a name="add-compass-control"></a>Adicionar controlo de bússola
 
-Um controlo da bússola adiciona um botão para rodar o mapa. A amostra de código a seguir cria uma instância da classe [de Controlo de Bússola](/javascript/api/azure-maps-control/atlas.control.compasscontrol) e adiciona-a ao canto inferior esquerdo do mapa.
+Um controlo da bússola adiciona um botão para rodar o mapa. A amostra de código a seguir cria uma instância da classe [CompassControl](/javascript/api/azure-maps-control/atlas.control.compasscontrol) e adiciona-a o canto inferior esquerdo do mapa.
 
 ```javascript
 //Construct a compass control and add it to the map.
-map.controls.add(new atlas.control.Compass(), {
+map.controls.add(new atlas.control.CompassControl(), {
     position: 'bottom-left'
 });
 ```

@@ -1,14 +1,14 @@
 ---
 title: Experiências de gestão entre inquilinos
 description: A gestão de recursos delegados Azure permite uma experiência de gestão de inquilinos cruzados.
-ms.date: 02/08/2021
+ms.date: 03/02/2021
 ms.topic: conceptual
-ms.openlocfilehash: 644cac70ef6459a1b0be45e9ab8f2757fafddeed
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 844ac637f9fcaed5d78520923e5f7184fcde0d25
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101699254"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102050397"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiências de gestão entre inquilinos
 
@@ -113,9 +113,11 @@ A maioria das tarefas e serviços podem ser realizados em recursos delegados ent
 [Política de Azure:](../../governance/policy/index.yml)
 
 - Criar e editar definições de políticas dentro de subscrições delegadas
+- Implementar definições políticas e atribuições políticas em vários inquilinos
 - Atribuir definições de política definidas pelo cliente dentro de subscrições delegadas
 - Os clientes vêem políticas da autoria do prestador de serviços ao lado de quaisquer políticas que tenham sido autores
 - Pode [remediar o implementaçãoIfNotExists ou modificar atribuições dentro do inquilino gerido](../how-to/deploy-policy-remediation.md)
+- Note que a visualização de detalhes de conformidade para recursos não conformes em inquilinos de clientes não é atualmente suportada
 
 [Gráfico de recursos Azure:](../../governance/resource-graph/index.yml)
 

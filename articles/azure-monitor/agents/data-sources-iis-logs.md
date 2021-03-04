@@ -1,17 +1,16 @@
 ---
 title: Recolher registos IIS com agente Log Analytics no Azure Monitor
 description: O Serviço de Informação da Internet (IIS) armazena a atividade do utilizador em ficheiros de registo que podem ser recolhidos pelo Azure Monitor.  Este artigo descreve como configurar a recolha de registos IIS e detalhes dos registos que criam no Azure Monitor.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/13/2020
-ms.openlocfilehash: 96eab2d93ae0212568f8ef23e32a35016cb17248
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 02/26/2021
+ms.openlocfilehash: 484e49219b94f5974661b1e76f533236666ebcfb
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101732059"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102050737"
 ---
 # <a name="collect-iis-logs-with-log-analytics-agent-in-azure-monitor"></a>Recolher registos IIS com agente Log Analytics no Azure Monitor
 O Serviço de Informação da Internet (IIS) armazena a atividade do utilizador em ficheiros de registo que podem ser recolhidos pelo agente Log Analytics e armazenados em [Registos do Monitor Azure](../data-platform.md).
@@ -26,7 +25,7 @@ O Azure Monitor recolhe entradas a partir de ficheiros de registo criados pelo I
 
 O Azure Monitor suporta apenas ficheiros de registo do IIS armazenados no formato W3C e não suporta campos personalizados nem Registos Avançados do IIS. Não recolhe registos no formato NCSA ou IIS nativo.
 
-Configurar registos IIS no Monitor Azure a partir do [menu Definições Avançadas](../agents/agent-data-sources.md#configuring-data-sources) para o agente Log Analytics.  Não é necessária outra configuração que não seja a seleção de **ficheiros de registo IIS do formato Collect W3C**.
+Configurar os registos IIS no Azure Monitor a partir do menu de [configuração do Agente](../agents/agent-data-sources.md#configuring-data-sources) para o agente Log Analytics.  Não é necessária outra configuração que não seja a seleção de **ficheiros de registo IIS do formato Collect W3C**.
 
 
 ## <a name="data-collection"></a>Recolha de dados

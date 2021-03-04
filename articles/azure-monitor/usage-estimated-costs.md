@@ -7,13 +7,12 @@ ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: lagayhar
 ms.reviewer: Dale.Koetke
-ms.subservice: ''
-ms.openlocfilehash: 94bc4479f4eba195dfb377f33c5a8a44538f035b
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: c4aded73334e38539e1c671831fe812a9525698c
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100619992"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102048680"
 ---
 # <a name="monitoring-usage-and-estimated-costs-in-azure-monitor"></a>Monitorização da utilização e dos custos estimados no Azure Monitor
 

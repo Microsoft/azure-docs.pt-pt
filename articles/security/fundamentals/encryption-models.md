@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 141daa485fae5aba2db23647fada30ba5b621cd0
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 9194f38ddea5570d94ba6c87ea6a537cb41fb98c
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96854619"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102051383"
 ---
 # <a name="data-encryption-models"></a>Modelos de encriptação de dados
 
@@ -151,15 +151,15 @@ Os serviços Azure que suportam cada modelo de encriptação:
 | Azure Machine Learning           | Sim                | Sim                | -                  |
 | Azure Machine Learning Studio (clássico) | Sim         | Pré-visualização, RSA 2048-bit | -               |
 | Content Moderator                | Sim                | Sim                | -                  |
-| Rostos                             | Sim                | Sim                | -                  |
-| Language Understanding           | Sim                | Sim                | -                  |
+| Face                             | Sim                | Sim                | -                  |
+| Compreensão de Idiomas           | Sim                | Sim                | -                  |
 | Personalizador                     | Sim                | Sim                | -                  |
-| QnA Maker                        | Sim                | Sim                | -                  |
+| Criador de FAQ                        | Sim                | Sim                | -                  |
 | Serviços de Voz                  | Sim                | Sim                | -                  |
 | Tradução de Texto                  | Sim                | Sim                | -                  |
 | Power BI                         | Sim                | Sim, RSA 4096-bit  | -                  |
 | **Análise**                    |                    |                    |                    |
-| Azure Stream Analytics           | Sim                | Sim, é o seu\*\*            | -                  |
+| Azure Stream Analytics           | Sim                | Sim\*\*            | -                  |
 | Hubs de Eventos                       | Sim                | Sim                | -                  |
 | Funções                        | Sim                | Sim                | -                  |
 | Azure Analysis Services          | Sim                | -                  | -                  |
@@ -173,21 +173,21 @@ Os serviços Azure que suportam cada modelo de encriptação:
 | **Contentores**                   |                    |                    |                    |
 | Azure Kubernetes Service         | Sim                | Sim                | -                  |
 | Container Instances              | Sim                | Sim                | -                  |
-| Registo de Contentor               | Sim                | Sim                | -                  |
+| Container Registry               | Sim                | Sim                | -                  |
 | **Computação**                      |                    |                    |                    |
 | Máquinas Virtuais                 | Sim                | Sim                | -                  |
 | Conjunto de escala de máquina virtual        | Sim                | Sim                | -                  |
 | SAP HANA                         | Sim                | Sim                | -                  |
-| Serviço de Aplicações                      | Sim                | Sim, é o seu\*\*            | -                  |
-| Automatização                       | Sim                | Sim, é o seu\*\*            | -                  |
-| Funções do Azure                  | Sim                | Sim, é o seu\*\*            | -                  |
-| Portal do Azure                     | Sim                | Sim, é o seu\*\*            | -                  |
-| Aplicações Lógicas                       | Sim                | Sim                | -                  |
-| Aplicações geridas pelo Azure       | Sim                | Sim, é o seu\*\*            | -                  |
+| Serviço de Aplicações                      | Sim                | Sim\*\*            | -                  |
+| Automatização                       | Sim                | Sim\*\*            | -                  |
+| Funções do Azure                  | Sim                | Sim\*\*            | -                  |
+| Portal do Azure                     | Sim                | Sim\*\*            | -                  |
+| Logic Apps                       | Sim                | Sim                | -                  |
+| Aplicações geridas pelo Azure       | Sim                | Sim\*\*            | -                  |
 | Service Bus                      | Sim                | Sim                | -                  |
 | Recuperação de sites                    | Sim                | Sim                | -                  |
 | **Bases de dados**                    |                    |                    |                    |
-| SQL Server em Máquinas Virtuais   | Sim                | Sim                | Sim                |
+| SQL Server nas Máquinas Virtuais   | Sim                | Sim                | Sim                |
 | Base de Dados SQL do Azure               | Sim                | Sim, RSA 3072-bit  | Sim                |
 | Base de Dados Azure SQL para MariaDB   | Sim                | -                  | -                  |
 | Base de Dados Azure SQL para MySQL     | Sim                | Sim                | -                  |
@@ -199,8 +199,8 @@ Os serviços Azure que suportam cada modelo de encriptação:
 | Azure Databricks                 | Sim                | Sim                | -                  |
 | Azure Database Migration Service | Sim                | N/A\*              | -                  |
 | **DevOps**                       |                    |                    |                    |
-| Azure DevOps Services            | Sim                | -                  | Sim                |
-| Repositórios do Azure                      | Sim                | -                  | Sim                |
+| Azure DevOps Services            | Sim                | -                  | -                  |
+| Repositórios do Azure                      | Sim                | -                  | -                  |
 | **Identidade**                     |                    |                    |                    |
 | Azure Active Directory           | Sim                | -                  | -                  |
 | Azure Active Directory Domain Services | Sim          | Sim                | -                  |
@@ -222,13 +222,13 @@ Os serviços Azure que suportam cada modelo de encriptação:
 | **Armazenamento**                      |                    |                    |                    |
 | Blob Storage                     | Sim                | Sim                | Sim                |
 | Armazenamento Premium Blob             | Sim                | Sim                | Sim                |
-| Armazenamento em Disco                     | Sim                | Sim                | -                  |
+| Armazenamento de Discos                     | Sim                | Sim                | -                  |
 | Armazenamento ultra disco               | Sim                | Sim                | -                  |
 | Armazenamento de discos geridos             | Sim                | Sim                | -                  |
 | Armazenamento de Ficheiros                     | Sim                | Sim                | -                  |
 | Armazenamento Premium de Arquivo             | Sim                | Sim                | -                  |
 | File Sync                         | Sim                | Sim                | -                  |
-| Armazenamento de filas                    | Sim                | Sim                | Sim                |
+| Armazenamento de Filas                    | Sim                | Sim                | Sim                |
 | Avere vFXT                       | Sim                | -                  | -                  |
 | Cache do Azure para Redis            | Sim                | N/A\*              | -                  |
 | Azure NetApp Files               | Sim                | Sim                | -                  |

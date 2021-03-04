@@ -7,12 +7,12 @@ ms.custom:
 - devx-track-java
 - devx-track-azurecli
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: fc5a9627ed22db7d1754c2713ce7c39a0daa1af2
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 32d91f01fcebec3e1ae0d19b1bff29a71f41c0d1
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101703591"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102050431"
 ---
 # <a name="quickstart-create-a-java-function-in-azure-from-the-command-line"></a>Quickstart: Criar uma função Java em Azure a partir da linha de comando
 

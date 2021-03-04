@@ -4,13 +4,12 @@ description: Discussão de valores NU VS Zero ao exportar métricas e um ponteir
 services: azure-monitor
 ms.topic: reference
 ms.date: 07/22/2020
-ms.subservice: metrics
-ms.openlocfilehash: d48dcb4e45bbaf3d516f2a45e14a6be0837b55c0
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 47b98fe46ac1f2a3e2f3f1a8078ad9ca6f867554
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101734388"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102048850"
 ---
 # <a name="azure-monitor-platform-metrics-exportable-via-diagnostic-settings"></a>Métricas da plataforma do Azure Monitor exportáveis através de Definições de Diagnóstico
 

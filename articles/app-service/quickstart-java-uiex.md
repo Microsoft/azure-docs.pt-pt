@@ -11,12 +11,12 @@ ms.author: jafreebe
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
 zone_pivot_groups: app-service-platform-windows-linux
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 03bfca6fe350612b657ad1b8b39534c43cf38db9
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 64e4c05e9439c164329dede5d714bec160bc5ae2
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101748859"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102050380"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service"></a>Quickstart: Criar uma aplicação Java no Azure App Service
 
@@ -93,7 +93,7 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.12.0:config
 # <a name="java-se"></a>[Java SE](#tab/javase)
 
 1. Quando lhe for pedido para confirmar a opção **Subscription** (Subscrição), selecione a `Subscription` (Subscrição) adequada ao introduzir o número impresso no início da linha.
-1. Quando solicitado com a opção **Web App,** aceite a opção difamar `<create>` pressionando a entrada ou selecione uma aplicação existente.
+1. Quando solicitado com a opção **Web App,** aceite a opção padrão `<create>` pressionando a entrada ou selecione uma aplicação existente.
 1. Quando solicitado com opção **OS,** selecione **Windows** inserindo `3` .
 1. Quando solicitado com a opção **Priceing Tier,** selecione **B2** entrando `2` .
 1. Utilize a versão Java padrão, **Java 8,** premindo a entrada.
@@ -125,7 +125,7 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.12.0:config
 # <a name="tomcat"></a>[Tomcat](#tab/tomcat)
 
 1. Quando lhe for pedido para confirmar a opção **Subscription** (Subscrição), selecione a `Subscription` (Subscrição) adequada ao introduzir o número impresso no início da linha.
-1. Quando solicitado com a opção **Web App,** aceite a opção difamar `<create>` pressionando a entrada ou selecione uma aplicação existente.
+1. Quando solicitado com a opção **Web App,** aceite a opção padrão `<create>` pressionando a entrada ou selecione uma aplicação existente.
 1. Quando solicitado com opção **OS,** selecione **Windows** inserindo `3` .
 1. Quando solicitado com a opção **Priceing Tier,** selecione **B2** entrando `2` .
 1. Utilize a versão Java padrão, **Java 8,** premindo a entrada.
@@ -163,7 +163,7 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.12.0:config
 ### <a name="java-se"></a>[Java SE](#tab/javase)
 
 1. Quando lhe for pedido para confirmar a opção **Subscription** (Subscrição), selecione a `Subscription` (Subscrição) adequada ao introduzir o número impresso no início da linha.
-1. Quando solicitado com a opção **Web App,** aceite a opção difamar `<create>` pressionando a entrada ou selecione uma aplicação existente.
+1. Quando solicitado com a opção **Web App,** aceite a opção padrão `<create>` pressionando a entrada ou selecione uma aplicação existente.
 1. Quando solicitado com opção **SO,** selecione **Linux** pressionando a entrada.
 1. Quando solicitado com a opção **Priceing Tier,** selecione **B2** entrando `2` .
 1. Utilize a versão Java padrão, **Java 8,** premindo a entrada.
@@ -192,7 +192,7 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.12.0:config
 ### <a name="tomcat"></a>[Tomcat](#tab/tomcat)
 
 1. Quando lhe for pedido para confirmar a opção **Subscription** (Subscrição), selecione a `Subscription` (Subscrição) adequada ao introduzir o número impresso no início da linha.
-1. Quando solicitado com a opção **Web App,** aceite a opção difamar `<create>` pressionando a entrada ou selecione uma aplicação existente.
+1. Quando solicitado com a opção **Web App,** aceite a opção padrão `<create>` pressionando a entrada ou selecione uma aplicação existente.
 1. Quando solicitado com opção **SO,** selecione **Linux** pressionando a entrada.
 1. Quando solicitado com a opção **Priceing Tier,** selecione **B2** entrando `2` .
 1. Utilize a versão Java padrão, **Java 8,** premindo a entrada.
@@ -228,7 +228,7 @@ Pode modificar as configurações do Serviço de Aplicações diretamente no `po
 Propriedade | Necessário | Descrição | Versão
 ---|---|---|---
 `<schemaVersion>` | false | Especifique a versão do esquema de configuração. Os valores suportados são: `v1` `v2` . . | 1.5.2
-`<subscriptionId>` | false | Especificar o id de assinatura. | 0.1.0+
+`<subscriptionId>` | false | Especificar o ID de assinatura. | 0.1.0+
 `<resourceGroup>` | true | Azure <abbr title="Um recipiente lógico para recursos Azure relacionados que você pode gerir como uma unidade.">grupo de recursos</abbr> para a sua Web App. | 0.1.0+
 `<appName>` | true | O nome da sua Aplicação Web. | 0.1.0+
 `<region>` | true | Especifica a região onde a sua Web App será hospedada; o valor predefinido é **westeurope**. Todas as regiões válidas na secção [Regiões Apoiadas.](https://azure.microsoft.com/global-infrastructure/services/?products=app-service) | 0.1.0+

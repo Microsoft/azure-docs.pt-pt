@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 02/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: fd9a01868230efd9e9078171359d81302b472cd3
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 39466ad621eff1a7d3490c936c90fbff6f63e0fc
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101724426"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102051553"
 ---
 # <a name="security-control-v2-backup-and-recovery"></a>Controlo de Segurança V2: Backup e Recuperação
 
 A Cópia de Segurança e Recuperação abrange os controlos para garantir que as cópias de segurança de dados e de configuração nos diferentes níveis de serviço sejam executadas, validadas e protegidas.
 
-Para ver a política de Azure incorporada aplicável, consulte [detalhes da iniciativa de conformidade regulamentar de referência de segurança Azure: Backup and Recovery](../../governance/policy/samples/azure-security-benchmark#backup-and-recovery)
+Para ver a política de Azure incorporada aplicável, consulte [detalhes da iniciativa de conformidade regulamentar de referência de segurança Azure: Backup and Recovery](../../governance/policy/samples/azure-security-benchmark.md#backup-and-recovery)
 
 ## <a name="br-1-ensure-regular-automated-backups"></a>BR-1: Garantir backups automáticos regulares
 
@@ -66,7 +66,7 @@ Utilize o controlo de acesso baseado em funções Azure em Azure Backup, Azure K
 
 - [Encriptação de dados de cópias de segurança com chaves geridas pelo cliente](../../backup/encryption-at-rest-with-cmk.md) 
 
-- [Como apoiar chaves do Cofre chave em Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
+- [Como apoiar chaves do Cofre chave em Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
 
 - [Funcionalidades de segurança para ajudar a proteger os backups híbridos de ataques](../../backup/backup-azure-security-feature.md#prevent-attacks)
 
@@ -90,7 +90,7 @@ Efetue periodicamente a restauração de dados da sua cópia de segurança. Cert
 
 - [Como recuperar ficheiros da cópia de segurança da Azure Virtual Machine](../../backup/backup-azure-restore-files-from-vm.md)
 
-- [Como restaurar chaves do Cofre chave em Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+- [Como restaurar chaves do Cofre chave em Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey)
 
 **Responsabilidade**: Cliente
 

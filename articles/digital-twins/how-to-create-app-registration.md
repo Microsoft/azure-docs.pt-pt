@@ -1,5 +1,5 @@
 ---
-title: Criar um registo de aplicativos
+title: Criar um registo de aplicação
 titleSuffix: Azure Digital Twins
 description: Veja como criar um registo de aplicações AD Azure, como uma opção de autenticação para aplicações de clientes.
 author: baanders
@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 10/13/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: f252471cd3cd7e3a950bf2cfe324e580da129041
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: acb5457f10c54a741a738dd8a1008e703b0f23b0
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92210171"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102051026"
 ---
 # <a name="create-an-app-registration-to-use-with-azure-digital-twins"></a>Criar um registo de aplicativos para usar com a Azure Digital Twins
 
-Ao trabalhar com uma instância Azure Digital Twins, é comum interagir com esse caso através de aplicações de clientes, como uma aplicação personalizada para clientes ou uma amostra como [o ADT Explorer.](quickstart-adt-explorer.md) Essas aplicações precisam de autenticar com a Azure Digital Twins para interagir com ela, e alguns dos mecanismos de autenticação que as [aplicações](how-to-authenticate-client.md) podem usar envolvem um registo de **aplicações** [Azure Ative (Azure AD).](../active-directory/fundamentals/active-directory-whatis.md)
+Ao trabalhar com uma instância Azure Digital Twins, é comum interagir com esse caso através de aplicações de clientes, como uma aplicação personalizada para clientes ou uma amostra como [o Azure Digital Twins Explorer.](quickstart-adt-explorer.md) Essas aplicações precisam de autenticar com a Azure Digital Twins para interagir com ela, e alguns dos mecanismos de autenticação que as [aplicações](how-to-authenticate-client.md) podem usar envolvem um registo de **aplicações** [Azure Ative (Azure AD).](../active-directory/fundamentals/active-directory-whatis.md)
 
 Isto não é necessário para todos os cenários de autenticação. No entanto, se estiver a utilizar uma estratégia de autenticação ou uma amostra de código que exija um registo de aplicações, incluindo um **ID de cliente** e **iD do inquilino,** este artigo mostra-lhe como configurar uma.
 
@@ -24,7 +24,7 @@ Isto não é necessário para todos os cenários de autenticação. No entanto, 
 
 [Azure Ative Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) é o serviço de gestão de identidade e acesso baseado na nuvem da Microsoft. A criação de um **registo de aplicações** no Azure AD é uma forma de conceder acesso a uma aplicação de clientes a Azure Digital Twins.
 
-Este registo de aplicações é onde configura permissões de acesso às [APIs das Gémeas Digitais Azure.](how-to-use-apis-sdks.md) Posteriormente, as aplicações do cliente podem autenticar-se contra o registo da aplicação utilizando os valores de **identificação**do cliente e do inquilino do registo , e como resultado ser-lhes concedidas as permissões de acesso configuradas às APIs.
+Este registo de aplicações é onde configura permissões de acesso às [APIs das Gémeas Digitais Azure.](how-to-use-apis-sdks.md) Posteriormente, as aplicações do cliente podem autenticar-se contra o registo da aplicação utilizando os valores de **identificação** do cliente e do inquilino do registo , e como resultado ser-lhes concedidas as permissões de acesso configuradas às APIs.
 
 >[!TIP]
 > Pode preferir configurar um novo registo de aplicações sempre que precisar de uma, *ou* fazê-lo apenas uma vez, estabelecendo um registo de uma única aplicação que será partilhado entre todos os cenários que o exijam.
@@ -42,7 +42,7 @@ No *Registo de uma* página de candidatura que se segue, preencha os valores sol
 
 Quando terminar, acerte no botão *Registar.*
 
-:::image type="content" source="media/how-to-create-app-registration/register-an-application.png" alt-text="Vista da página de serviço AZure AD no portal Azure, destacando a opção de menu 'Registos de Aplicações' e o botão '+ Novo registo'":::
+:::image type="content" source="media/how-to-create-app-registration/register-an-application.png" alt-text="Vista da página 'Registar uma candidatura' com os valores descritos preenchidos":::
 
 Quando a inscrição terminar a configuração, o portal irá redirecioná-lo para a página de detalhes.
 
@@ -50,7 +50,7 @@ Quando a inscrição terminar a configuração, o portal irá redirecioná-lo pa
 
 Em seguida, colete alguns valores importantes sobre o registo da aplicação na sua página de detalhes:
 
-:::image type="content" source="media/how-to-create-app-registration/app-important-values.png" alt-text="Vista da página de serviço AZure AD no portal Azure, destacando a opção de menu 'Registos de Aplicações' e o botão '+ Novo registo'":::
+:::image type="content" source="media/how-to-create-app-registration/app-important-values.png" alt-text="Visão do portal dos valores importantes para o registo da aplicação":::
 
 Tome nota do ID de _**Aplicação (cliente)**_ e _**Diretório (inquilino)**_ mostrado na **sua** página. Estes são os valores que uma aplicação do cliente terá de utilizar este registo para autenticar com a Azure Digital Twins.
 
@@ -60,19 +60,19 @@ Em seguida, configurar o registo de aplicações que criou com permissões de ba
 
 A partir da página do portal para o registo da sua aplicação, selecione *permissões API* no menu. Na página de permissões seguintes, carregar no botão + Adicionar um botão *de permissão.*
 
-:::image type="content" source="media/how-to-create-app-registration/add-permission.png" alt-text="Vista da página de serviço AZure AD no portal Azure, destacando a opção de menu 'Registos de Aplicações' e o botão '+ Novo registo'":::
+:::image type="content" source="media/how-to-create-app-registration/add-permission.png" alt-text="Vista para o registo da aplicação no portal Azure, destacando a opção de menu 'permissões API' e botão '+ Adicionar uma permissão'":::
 
 Na página de permissões da *API request* que se segue, mude para as *APIs a minha organização usa* o separador e procura *gémeos digitais azuis.* Selecione _**Azure Digital Twins**_ a partir dos resultados da pesquisa para proceder à atribuição de permissões para as APIs de Gémeos Digitais Azure.
 
-:::image type="content" source="media/how-to-create-app-registration/request-api-permissions-1.png" alt-text="Vista da página de serviço AZure AD no portal Azure, destacando a opção de menu 'Registos de Aplicações' e o botão '+ Novo registo'":::
+:::image type="content" source="media/how-to-create-app-registration/request-api-permissions-1.png" alt-text="Veja o resultado da página 'Request API Permissões' mostrando Azure Digital Twins, com um ID de Aplicação (cliente) de 0b07f429-9f4b-4714-9392-cc5e8e80c8b0.":::
 
 >[!NOTE]
 > Se a sua subscrição ainda tiver uma instância Azure Digital Twins existente da pré-visualização pública do serviço (antes de julho de 2020), terá de procurar e selecionar o _**Azure Smart Spaces Service.**_ Este é um nome mais antigo para o mesmo conjunto de APIs (note que o *ID de Aplicação (cliente)* é o mesmo que na imagem acima), e a sua experiência não será alterada para além deste passo.
-> :::image type="content" source="media/how-to-create-app-registration/request-api-permissions-1-smart-spaces.png" alt-text="Vista da página de serviço AZure AD no portal Azure, destacando a opção de menu 'Registos de Aplicações' e o botão '+ Novo registo'":::
+> :::image type="content" source="media/how-to-create-app-registration/request-api-permissions-1-smart-spaces.png" alt-text="Vista do resultado da pesquisa da página 'Request API Permissões' mostrando O Serviço de Espaços Inteligentes Azure":::
 
 Em seguida, você irá selecionar quais permissões conceder para estas APIs. Expanda a permissão **de Ler (1)** e verifique a caixa que diz *Ler.Escreva* para conceder a esta aplicação de registo de permissões e permissões de escritor.
 
-:::image type="content" source="media/how-to-create-app-registration/request-api-permissions-2.png" alt-text="Vista da página de serviço AZure AD no portal Azure, destacando a opção de menu 'Registos de Aplicações' e o botão '+ Novo registo'":::
+:::image type="content" source="media/how-to-create-app-registration/request-api-permissions-2.png" alt-text="Vista da página 'Request API Permissões' selecionando permissões 'Read.Write' para as APIs de Gémeos Digitais Azure":::
 
 *Acerte As permissões* de adicionar quando terminar.
 
@@ -80,27 +80,27 @@ Em seguida, você irá selecionar quais permissões conceder para estas APIs. Ex
 
 Na página de permissões da *API,* verifique se existe agora uma entrada para as Gémeas Digitais Azure que refletem permissões de Leitura/Escrita:
 
-:::image type="content" source="media/how-to-create-app-registration/verify-api-permissions.png" alt-text="Vista da página de serviço AZure AD no portal Azure, destacando a opção de menu 'Registos de Aplicações' e o botão '+ Novo registo'":::
+:::image type="content" source="media/how-to-create-app-registration/verify-api-permissions.png" alt-text="Vista do portal das permissões da API para o registo da aplicação AZure AD, mostrando 'Read/Write Access' para Azure Digital Twins":::
 
-Também é possível verificar a ligação com a Azure Digital Twins dentro do *manifest.js*do registo da aplicação , que foi automaticamente atualizado com as informações da Azure Digital Twins quando adicionou as permissões da API.
+Também é possível verificar a ligação com a Azure Digital Twins dentro do *manifest.js* do registo da aplicação , que foi automaticamente atualizado com as informações da Azure Digital Twins quando adicionou as permissões da API.
 
 Para isso, *selecione Manifesto* no menu para ver o código manifesto do registo da aplicação. Percorra a parte inferior da janela de código e procure estes campos sob `requiredResourceAccess` . Os valores devem corresponder aos da imagem abaixo:
 
-:::image type="content" source="media/how-to-create-app-registration/verify-manifest.png" alt-text="Vista da página de serviço AZure AD no portal Azure, destacando a opção de menu 'Registos de Aplicações' e o botão '+ Novo registo'":::
+:::image type="content" source="media/how-to-create-app-registration/verify-manifest.png" alt-text="Vista do portal do manifesto para o registo da aplicação Azure AD. Aninhado em &quot;RequeredResourceAccess&quot;, há um valor 'resourceAppId' de 0b07f429-9f4b-4714-9392-cc5e8e80c8b0, e um valor 'resourceAccess > id' de 4589bd03-58cb-4e6c-b17f-b580e39652f8":::
 
 Se estes valores estiverem em falta, respiro os passos na [secção para adicionar a permissão da API](#provide-azure-digital-twins-api-permission).
 
 ## <a name="other-possible-steps-for-your-organization"></a>Outros passos possíveis para a sua organização
 
-É possível que a sua organização exija ações adicionais de proprietários/administradores de subscrição para configurar com sucesso um registo de aplicações. Os passos necessários podem variar dependendo das definições específicas da sua organização.
+É possível que a sua organização exija ações adicionais de proprietários/administradores de subscrição para configurar com sucesso um registo de aplicações. Os passos necessários podem variar consoante as configurações específicas da sua organização.
 
-Aqui estão algumas atividades potenciais comuns que um Proprietário/administrador na subscrição pode precisar realizar. Estas e outras operações podem ser realizadas a partir da página de registos da [*App Azure AD*](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) no portal Azure.
-* Conceder consentimento administrativo para o registo da aplicação. A sua organização pode ter *o Consentimento Admin Exigido* globalmente ligado em Azure AD para todos os registos de aplicações dentro da sua subscrição. Em caso afirmativo, o Proprietário/administrador terá de selecionar este botão para a sua empresa na página de *permissões API* do registo da aplicação para que o registo da aplicação seja válido:
+Eis algumas atividades possíveis comuns que um Proprietário/administrador da subscrição pode ter de executar. Estas e outras operações podem ser realizadas a partir da página de registos da [*App Azure AD*](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) no portal Azure.
+* Conceda consentimento do administrador para o registo da aplicação. A sua organização pode ter *o Consentimento Admin Exigido* globalmente ligado em Azure AD para todos os registos de aplicações dentro da sua subscrição. Em caso afirmativo, o Proprietário/administrador terá de selecionar este botão para a sua empresa na página de *permissões API* do registo da aplicação para que o registo da aplicação seja válido:
 
-    :::image type="content" source="media/how-to-create-app-registration/grant-admin-consent.png" alt-text="Vista da página de serviço AZure AD no portal Azure, destacando a opção de menu 'Registos de Aplicações' e o botão '+ Novo registo'":::
-  - Se o consentimento tiver sido concedido com sucesso, a entrada para a Azure Digital Twins deve então mostrar um valor de *Estado* de _Concedido para **(a sua empresa)** _
+    :::image type="content" source="media/how-to-create-app-registration/grant-admin-consent.png" alt-text="Visão do portal do botão 'Conceder consentimento administrativo' sob permissões API":::
+  - Se o consentimento tiver sido concedido com sucesso, a entrada para a Azure Digital Twins deve então mostrar um valor de *Estado* de _Concedido para **(a sua empresa)**_
    
-    :::image type="content" source="media/how-to-create-app-registration/granted-admin-consent-done.png" alt-text="Vista da página de serviço AZure AD no portal Azure, destacando a opção de menu 'Registos de Aplicações' e o botão '+ Novo registo'":::
+    :::image type="content" source="media/how-to-create-app-registration/granted-admin-consent-done.png" alt-text="Visão do portal do consentimento administrativo concedido à empresa ao abrigo de permissões da API":::
 * Ativar o acesso do cliente público
 * Definir URLs de resposta específico para acesso web e desktop
 * Permitir fluxos implícitos de autenticação OAuth2

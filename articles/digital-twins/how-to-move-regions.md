@@ -8,12 +8,12 @@ ms.date: 08/26/2020
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.service: digital-twins
-ms.openlocfilehash: 6393b0b8d794345fded95718a2581ae9b929ad49
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: e268cca87479625af023b5970bb27c56721f6d39
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94381155"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102049853"
 ---
 # <a name="move-an-azure-digital-twins-instance-to-a-different-azure-region"></a>Mover uma instância Azure Digital Twins para uma região de Azure diferente
 
@@ -52,18 +52,18 @@ Eis algumas das questões a considerar:
     - Serviço Aprovisionamento de Dispositivos no Hub IoT do Azure
 * Que outras *aplicações pessoais ou da empresa* tenho que se ligam ao meu caso?
 
-Pode recolher esta informação utilizando o [portal Azure](https://portal.azure.com) [, APIs e SDKs,](how-to-use-apis-sdks.md) [Azure Digital Twins CLI](how-to-use-cli.md)ou a amostra [do Azure Digital Twins (ADT).](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/)
+Pode recolher esta informação utilizando o [portal Azure](https://portal.azure.com) [, APIs e SDKs,](how-to-use-apis-sdks.md) [Azure Digital Twins CLI](how-to-use-cli.md)ou a amostra [Azure Digital Twins Explorer.](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/)
 
 ## <a name="prepare"></a>Preparação
 
-Nesta secção, você se preparará para recriar o seu exemplo, descarregando os seus modelos originais, gémeos e gráficos da sua instância original. Este artigo utiliza a amostra [do ADT Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) para esta tarefa.
+Nesta secção, você se preparará para recriar o seu exemplo, descarregando os seus modelos originais, gémeos e gráficos da sua instância original. Este artigo utiliza a amostra [Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) para esta tarefa.
 
 >[!NOTE]
 >Pode já ter ficheiros que contenham os modelos ou o gráfico no seu caso. Em caso afirmativo, não precisa de descarregar tudo de novo — apenas as peças que está a perder ou coisas que podem ter mudado desde que fez o upload original destes ficheiros. Por exemplo, pode ter gémeos que foram atualizados com novos dados.
 
-### <a name="limitations-of-adt-explorer"></a>Limitações do Explorador ADT
+### <a name="limitations-of-azure-digital-twins-explorer"></a>Limitações do Azure Digital Twins Explorer
 
-A [amostra do ADT Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) é uma amostra de aplicação do cliente que suporta uma representação visual do seu gráfico e proporciona interação visual com o seu exemplo. Este artigo mostra como usá-lo para descarregar, e mais tarde recarregar, os seus modelos, gémeos e gráficos.
+A [amostra Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) é uma amostra de aplicação do cliente que suporta uma representação visual do seu gráfico e proporciona interação visual com o seu exemplo. Este artigo mostra como usá-lo para descarregar, e mais tarde recarregar, os seus modelos, gémeos e gráficos.
 
 Esta amostra não é uma ferramenta completa. Não foi testado pelo stress e não foi construído para lidar com gráficos de grande dimensão. Por conseguinte, tenha em mente as seguintes limitações de amostra fora da caixa:
 
@@ -77,27 +77,27 @@ Se a amostra não for capaz de lidar com o tamanho do seu gráfico, pode exporta
 * [Comandos CLI de Gémeos Digitais Azure](how-to-use-cli.md)
 * [APIs e SDKs de gémeos digitais Azure](how-to-use-apis-sdks.md)
 
-### <a name="set-up-the-adt-explorer-application"></a>Configurar a aplicação ADT Explorer
+### <a name="set-up-the-azure-digital-twins-explorer-application"></a>Configurar a aplicação Azure Digital Twins Explorer
 
-Para prosseguir com o ADT Explorer, primeiro descarregue o código de aplicação da amostra e confita-o para funcionar na sua máquina.
+Para prosseguir com o Azure Digital Twins Explorer, primeiro descarregue o código de aplicação da amostra e confime-o para funcionar na sua máquina.
 
-Para obter a amostra, consulte o [ADT Explorer.](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) Selecione o botão **Download ZIP** para transferir um ficheiro .zip deste código de amostra para a sua máquina à medida **queAzure_Digital_Twins__ADT__explorer.zip**. Desaperte o ficheiro.
+Para obter a amostra, consulte o [Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Selecione o botão **Baixar ZIP** para transferir um ficheiro .zip deste código de amostra para a sua máquina **Azure_Digital_Twins__ADT__explorer.zip**. Deszipe o ficheiro.
 
-Em seguida, configurar e configurar permissões para o ADT Explorer. Siga as instruções na secção [Configurar Gémeos Digitais Azure e ADT Explorer](quickstart-adt-explorer.md#set-up-azure-digital-twins-and-adt-explorer) do arranque rápido das Gémeas Digitais Azure. Esta secção acompanha-o através dos seguintes passos:
+Em seguida, configurar e configurar permissões para o Azure Digital Twins Explorer. Siga as instruções na secção [Configurar Gémeos Digitais Azure e Azure Digital Twins Explorer](quickstart-adt-explorer.md#set-up-azure-digital-twins-and-azure-digital-twins-explorer) da Azure Digital Twins Quickstart. Esta secção acompanha-o através dos seguintes passos:
 
 1. Crie uma instância Azure Digital Twins. Podes saltar esta parte porque já tens um caso.
 1. Crie credenciais locais do Azure para fornecer acesso ao seu caso.
-1. Executar o ADT Explorer e configurá-lo para ligar ao seu caso. Vais usar o nome de *anfitrião* da tua instância original dos Gémeos Digitais Azure que estás a mover.
+1. Gere o Azure Digital Twins Explorer e configura-o para ligar ao seu exemplo. Vais usar o nome de *anfitrião* da tua instância original dos Gémeos Digitais Azure que estás a mover.
 
-Agora deve ter a aplicação de amostra do ADT Explorer a funcionar num browser na sua máquina. A amostra deve ser ligada à sua instância original da Azure Digital Twins.
+Agora você deve ter a aplicação de amostra Azure Digital Twins Explorer em execução em um navegador na sua máquina. A amostra deve ser ligada à sua instância original da Azure Digital Twins.
 
-:::image type="content" source="media/how-to-move-regions/explorer-blank.png" alt-text="Janela do navegador mostrando uma aplicação em execução na localidade:3000. A aplicação chama-se ADT Explorer e contém caixas para Explorador de Consultas, Visualização de Modelos, Visão de Gráfico e Explorador de Propriedades. Ainda não há dados no ecrã." lightbox="media/how-to-move-regions/explorer-blank.png":::
+:::image type="content" source="media/how-to-move-regions/explorer-blank.png" alt-text="Janela do navegador mostrando uma aplicação em execução na localidade:3000. A aplicação chama-se Azure Digital Twins Explorer e contém caixas para Explorador de Consultas, Visualização de Modelos, Visão de Gráfico e Explorador de Propriedades. Ainda não há dados no ecrã." lightbox="media/how-to-move-regions/explorer-blank.png":::
 
 Para verificar a ligação, selecione o botão **''Fazer',** para executar a consulta predefinitiva que exibe todos os gémeos e relações no gráfico na caixa **GRAPH EXPLORER.**
 
 :::image type="content" source="media/how-to-move-regions/run-query.png" alt-text="Um botão de leitura Executar Consulta no canto superior direito da janela é realçado." lightbox="media/how-to-move-regions/run-query.png":::
 
-Pode deixar o ADT Explorer em funcionamento porque voltará a usá-lo mais tarde neste artigo para recarregar estes itens para o seu novo caso na região alvo.
+Pode deixar o Azure Digital Twins Explorer em funcionamento porque voltará a usá-lo mais tarde neste artigo para recarregar estes itens para o seu novo caso na região alvo.
 
 ### <a name="download-models-twins-and-graph"></a>Baixar modelos, gémeos e gráfico
 
@@ -131,21 +131,21 @@ Depois deste passo estar completo, vai precisar do nome de anfitrião da sua nov
 
 Em seguida, vai configurar o novo caso para que seja uma cópia do original.
 
-#### <a name="upload-the-original-models-twins-and-graph-by-using-adt-explorer"></a>Faça upload dos modelos, gémeos e gráficos originais usando o ADT Explorer
+#### <a name="upload-the-original-models-twins-and-graph-by-using-azure-digital-twins-explorer"></a>Faça upload dos modelos originais, gémeos e gráfico usando O Azure Digital Twins Explorer
 
 Nesta secção, pode recarregar os seus modelos, gémeos e gráfico para a nova instância. Se não tiver modelos, gémeos ou gráficos no seu caso original ou não quiser movê-los para a nova instância, pode saltar para a [secção seguinte](#re-create-endpoints-and-routes).
 
-Caso contrário, volte à janela do navegador executando o ADT Explorer e siga estes passos.
+Caso contrário, volte à janela do navegador que executa o Azure Digital Twins Explorer e siga estes passos.
 
 ##### <a name="connect-to-the-new-instance"></a>Ligue-se à nova instância
 
-Atualmente, o ADT Explorer está ligado à sua instância original do Azure Digital Twins. Mude a ligação para apontar para a sua nova instância selecionando o botão **Sign In** no canto superior direito da janela.
+Atualmente, o Azure Digital Twins Explorer está ligado à sua instância original da Azure Digital Twins. Mude a ligação para apontar para a sua nova instância selecionando o botão **Sign In** no canto superior direito da janela.
 
-:::image type="content" source="media/how-to-move-regions/sign-in.png" alt-text="ADT Explorer destacando o ícone Sign In no canto superior direito da janela. O ícone mostra uma silhueta simples de uma pessoa sobreposta com uma silhueta de uma chave." lightbox="media/how-to-move-regions/sign-in.png":::
+:::image type="content" source="media/how-to-move-regions/sign-in.png" alt-text="Azure Digital Twins Explorer destacando o ícone Sign In no canto superior direito da janela. O ícone mostra uma silhueta simples de uma pessoa sobreposta com uma silhueta de uma chave." lightbox="media/how-to-move-regions/sign-in.png":::
 
 Substitua o **URL ADT** para refletir a sua nova instância. Altere este valor de modo a ler *https://{novo nome de anfitrião de instância}*.
 
-Selecione **Connect** (Ligar). Pode ser-lhe pedido que volte a assinar com as suas credenciais Azure ou conceder este consentimento de pedido para o seu exemplo.
+Selecione **Ligar**. Pode ser-lhe pedido que volte a assinar com as suas credenciais Azure ou conceder este consentimento de pedido para o seu exemplo.
 
 ##### <a name="upload-models-twins-and-graph"></a>Upload modelos, gémeos e gráfico
 
@@ -157,7 +157,7 @@ Para fazer o upload dos seus modelos, gémeos e gráfico, selecione o ícone **I
 
 Na caixa de seletor de ficheiros, vá ao seu gráfico descarregado. Selecione o ficheiro **gráfico .json** e selecione **Abrir**.
 
-Após alguns segundos, o ADT Explorer abre uma vista **importância** que mostra uma pré-visualização do gráfico a ser carregado.
+Após alguns segundos, o Azure Digital Twins Explorer abre uma vista **importância** que mostra uma pré-visualização do gráfico a ser carregado.
 
 Para confirmar o upload do gráfico, selecione o ícone **Guardar** no canto superior direito da caixa **GRAPH VIEW.**
 
@@ -169,7 +169,7 @@ Para confirmar o upload do gráfico, selecione o ícone **Guardar** no canto sup
     :::column-end:::
 :::row-end:::
 
-O ADT Explorer agora envia os seus modelos e gráficos (incluindo os gémeos e relacionamentos) para o seu novo exemplo de Azure Digital Twins. Devias ver uma mensagem de sucesso a notar quantos modelos, gémeos e relacionamentos foram carregados.
+O Azure Digital Twins Explorer agora envia os seus modelos e gráficos (incluindo os gémeos e relacionamentos) para o seu novo exemplo de Azure Digital Twins. Devias ver uma mensagem de sucesso a notar quantos modelos, gémeos e relacionamentos foram carregados.
 
 :::row:::
     :::column:::
@@ -187,7 +187,7 @@ Para verificar se tudo foi carregado com sucesso, selecione o botão **''Fazer',
 
 Deve ver o seu gráfico com todos os seus gémeos e relacionamentos exibidos na caixa **GRAPH EXPLORER.** Também deverá ver os seus modelos listados na caixa **MODEL VIEW.**
 
-:::image type="content" source="media/how-to-move-regions/post-upload.png" alt-text="Uma vista do ADT Explorer mostrando dois modelos destacados na caixa Model View e um gráfico destacado na caixa do Graph Explorer." lightbox="media/how-to-move-regions/post-upload.png":::
+:::image type="content" source="media/how-to-move-regions/post-upload.png" alt-text="Uma visão do Azure Digital Twins Explorer mostrando dois modelos em destaque na caixa Model View e um gráfico destacado na caixa do Graph Explorer." lightbox="media/how-to-move-regions/post-upload.png":::
 
 Estas opiniões confirmam que os seus modelos, gémeos e gráficos foram re-carregados para a nova instância na região alvo.
 
@@ -228,7 +228,7 @@ Para verificar se a sua nova instância foi configurada corretamente, utilize as
 
 * [Portal do Azure](https://portal.azure.com). O portal é bom para verificar se o seu novo exemplo existe e está na região alvo correta. Também é bom para verificar pontos finais e rotas e ligações a outros serviços Azure.
 * [Comandos CLI de Gémeos Digitais Azure](how-to-use-cli.md). Estes comandos são bons para verificar se o seu novo exemplo existe e está na região alvo correta. Também podem ser usados para verificar dados de instância.
-* [ADT Explorer.](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) O ADT Explorer é bom para verificar dados de exemplos como modelos, gémeos e gráficos.
+* [Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). O Azure Digital Twins Explorer é bom para verificar dados de exemplos como modelos, gémeos e gráficos.
 * [APIs e SDKs de gémeos digitais Azure](how-to-use-apis-sdks.md). Estes recursos são bons para verificar dados de exemplos como modelos, gémeos e gráficos. Também são bons para verificar pontos finais e rotas.
 
 Também pode tentar executar quaisquer aplicações personalizadas ou fluxos de ponta a ponta que tenha em execução com a sua instância original para ajudá-lo a verificar se estão a trabalhar corretamente com a nova instância.

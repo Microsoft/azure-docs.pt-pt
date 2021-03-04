@@ -1,18 +1,17 @@
 ---
 title: Log Analytics exportação de dados do espaço de trabalho em Azure Monitor (pré-visualização)
 description: A exportação de dados do Log Analytics permite-lhe exportar continuamente dados de tabelas selecionadas do seu espaço de trabalho Log Analytics para uma conta de armazenamento Azure ou Azure Event Hubs à medida que são recolhidos.
-ms.subservice: logs
 ms.topic: conceptual
 ms.custom: references_regions, devx-track-azurecli
 author: bwren
 ms.author: bwren
 ms.date: 02/07/2021
-ms.openlocfilehash: df165b83a6635fbcf72c94a4d16cbdf16c337636
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: f0bbe02576323342376ad155878d575c6403cf70
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101713597"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102048816"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Log Analytics exportação de dados do espaço de trabalho em Azure Monitor (pré-visualização)
 A exportação de dados do espaço de trabalho do Log Analytics no Azure Monitor permite-lhe exportar continuamente dados de tabelas selecionadas no seu espaço de trabalho Log Analytics para uma conta de armazenamento Azure ou Azure Event Hubs à medida que são recolhidos. Este artigo fornece detalhes sobre esta funcionalidade e passos para configurar a exportação de dados nos seus espaços de trabalho.
@@ -36,9 +35,9 @@ Os dados do espaço de trabalho log Analytics exportam continuamente dados de um
 
 - A configuração pode ser realizada usando pedidos CLI ou REST atualmente. O portal Azure ou o PowerShell ainda não estão suportados.
 - A ```--export-all-tables``` opção em CLI e REST não é suportada e será removida. Deve fornecer explicitamente a lista de tabelas nas regras de exportação.
-- As tabelas suportadas são atualmente limitadas às específicas na secção de [tabelas suportadas](#supported-tables) abaixo. 
+- As tabelas suportadas são atualmente limitadas às específicas na secção de [tabelas suportadas](#supported-tables) abaixo. Por exemplo, as tabelas de registo personalizadas não são suportadas atualmente.
 - Se a regra de exportação de dados incluir uma tabela não apoiada, a operação será bem sucedida, mas nenhum dado será exportado para esse quadro até que a tabela seja apoiada. 
-- Se a regra de exportação de dados incluir uma tabela que não existe, falhará com o erro ```Table <tableName> does not exist in the workspace``` .
+- Se a regra de exportação de dados incluir uma tabela que não existe, falhará com erro ```Table <tableName> does not exist in the workspace``` .
 - O seu espaço de trabalho Log Analytics pode estar em qualquer região, exceto no seguinte:
   - Regiões do Azure Government
   - Oeste do Japão
@@ -76,7 +75,7 @@ A exportação de dados do Log Analytics pode escrever blobs de apêndice para c
 Os dados são enviados para o seu centro de eventos em tempo quase real, à medida que chegam ao Azure Monitor. É criado um hub de eventos para cada tipo de dados que exporta com o nome *am-* seguido pelo nome da tabela. Por exemplo, a tabela *SecurityEvent* enviaria para um centro de eventos chamado *am-SecurityEvent*. Se quiser que os dados exportados cheguem a um centro de eventos específico, ou se tiver uma tabela com um nome que exceda o limite de 47 caracteres, pode fornecer o nome do seu próprio centro de eventos e exportar todos os dados para tabelas definidas para ele.
 
 > [!IMPORTANT]
-> O [número de centros de eventos suportados por espaço de nome é de 10](../../event-hubs/event-hubs-quotas#common-limits-for-all-tiers). Se exportar mais de 10 mesas, forneça o seu próprio nome de hub de eventos para exportar todas as suas mesas para o centro de eventos. 
+> O [número de centros de eventos suportados por espaço de nome é de 10](../../event-hubs/event-hubs-quotas.md#common-limits-for-all-tiers). Se exportar mais de 10 mesas, forneça o seu próprio nome de hub de eventos para exportar todas as suas mesas para o centro de eventos. 
 
 Considerações:
 1. O sku 'Basic' event hub suporta [um limite](../../event-hubs/event-hubs-quotas.md#basic-vs-standard-tiers) de tamanho de evento mais baixo e alguns registos no seu espaço de trabalho podem ultrapassá-lo e ser largados. Recomendamos a utilização do centro de eventos 'Standard' ou 'Dedicado' como destino de exportação.

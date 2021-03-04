@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/05/2020
-ms.openlocfilehash: b57d55e91918ba612ad42acd5e6059ae0dbd0090
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: aa44a27fa5bf6b7b4ea649e1a9b9a69ef8cd78d3
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422455"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102049326"
 ---
 # <a name="data-import-overview---azure-cognitive-search"></a>Visão geral da importação de dados - Azure Cognitive Search
 
@@ -52,7 +52,7 @@ Na API REST, emita http post solicitando aos corpos de pedido json para o URL do
 No .NET SDK, embale os seus dados num `IndexBatch` objeto. Um `IndexBatch` encapsula uma coleção de `IndexAction` objetos, cada um dos quais contém um documento e uma propriedade que diz à Azure Cognitive Search que ação a executar nesse documento. Para um exemplo de código, consulte o [C# Quickstart](search-get-started-dotnet.md).
 
 
-| @search.action | Description | Campos necessários para cada documento | Notas |
+| @search.action | Descrição | Campos necessários para cada documento | Notas |
 | -------------- | ----------- | ---------------------------------- | ----- |
 | `upload` |Um ação `upload` é semelhante a um "upsert" onde o documento será inserido se for novo e atualizado/substituído se já existir. |chave, juntamente com quaisquer outros campos que pretende definir |Quando atualizar/substituir um documento existente, qualquer campo que não está especificado no pedido terá o respetivo campo definido como `null`. Isto ocorre mesmo quando o campo foi anteriormente definido para um valor não nulo. |
 | `merge` |Atualiza um documento existente com os campos especificados. Se o documento não existe no índice, a intercalação irá falhar. |chave, juntamente com quaisquer outros campos que pretende definir |Qualquer campo que especifique numa intercalação irá substituir o campo existente no documento. No .NET SDK, isto inclui campos de tipo `DataType.Collection(DataType.String)` . Na API REST, isto inclui campos de `Collection(Edm.String)` tipo. Por exemplo, se o documento contém um campo `tags` com o valor `["budget"]` e executar uma intercalação com o valor `["economy", "pool"]` para `tags`, o valor final do campo `tags` será `["economy", "pool"]`. Não será `["budget", "economy", "pool"]`. |
@@ -79,8 +79,10 @@ O modelo de extração pesquisa uma origem de dados suportada e carrega automati
 
 + [Armazenamento de blobs](search-howto-indexing-azure-blob-storage.md)
 + [Armazenamento de tabelas](search-howto-indexing-azure-tables.md)
-+ [BD do Cosmos para o Azure](search-howto-index-cosmosdb.md)
++ [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 + [Base de Dados Azure SQL, SQL Managed Instance e SQL Server em VMs Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
++ [SharePoint Online (pré-visualização)](search-howto-index-sharepoint-online.md)
++ [Azure Data Lake Storage Gen2 (pré-visualização)](search-howto-index-azure-data-lake-storage.md)
 
 Os indexadores ligam índices a uma origem de dados (geralmente, uma tabela, vista ou estrutura equivalente) e mapeiam os campos da origem para os campos equivalentes nos índices. Durante a execução, o conjunto de linhas é automaticamente transformado em JSON e carregado para o índice especificado. Todos os indexadores suportam o agendamento, de modo a que possa especificar a frequência com que os dados devem ser atualizados. A maioria dos indexadores disponibilizam o registo de alterações, se as origens de dados o suportarem. Os indexadores, através do registo de alterações e eliminações aos documentos existentes, além do reconhecimento de novos documentos, suprimem a gestão ativa dos dados no índice.
 

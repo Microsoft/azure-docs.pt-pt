@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b5cb7e1521c649be4abc155d9f28a49b43a11e6d
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: fea9662b6f5890c6240e91b26cf641d6166d560a
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99071273"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102051196"
 ---
 # <a name="delegate-app-registration-permissions-in-azure-active-directory"></a>Delegar permissões de registo de aplicativos no Azure Ative Directory
 
@@ -77,7 +77,7 @@ A Azure AD tem um conjunto de funções de administração incorporadas para gar
 - Administrador de aplicação: Os utilizadores nesta função podem criar e gerir todos os aspetos das aplicações empresariais, registos de aplicações e configurações de procuração de aplicações. Esta função também concede a capacidade de consentir com permissões delegadas e permissões de aplicação excluindo o Microsoft Graph. Os utilizadores destacados para esta função não são adicionados como proprietários ao criar novos registos de aplicações ou aplicações empresariais.
 - Administrador de aplicação na nuvem: Os utilizadores nesta função têm as mesmas permissões que a função de Administrador de Aplicação, excluindo a capacidade de gerir o proxy da aplicação. Os utilizadores destacados para esta função não são adicionados como proprietários ao criar novos registos de aplicações ou aplicações empresariais.
 
-Para mais informações e para ver a descrição destas funções, consulte [as funções Disponíveis.](permissions-reference.md#available-roles)
+Para obter mais informações e para ver a descrição destas funções, consulte [as funções incorporadas da AZure AD](permissions-reference.md).
 
 Siga as instruções nas [funções De atribuir aos utilizadores com diretório ativo Azure](../fundamentals/active-directory-users-assign-role-azure-portal.md) como orientar para atribuir as funções de Administrador de Aplicação ou Administrador de Aplicação cloud.
 

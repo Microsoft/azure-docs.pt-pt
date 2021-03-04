@@ -6,13 +6,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: bwren
-ms.subservice: metrics
-ms.openlocfilehash: 0051ec15cafc60af6a0523631f77a9b52294e69c
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 8e510cf2e6fed9f9ffdec1dcc4dacf16a866d66b
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101731719"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102049020"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine"></a>Envie métricas de SO para a loja métrica do Azure Monitor utilizando um modelo de Gestor de Recursos Azure para uma máquina virtual Windows
 Os dados de desempenho do os hóspedes AS das máquinas virtuais Azure não são recolhidos automaticamente como [outras métricas da plataforma.](./monitor-azure-resource.md#monitoring-data) Instale a [extensão](../agents/diagnostics-extension-overview.md) de diagnóstico do Azure Monitor para recolher as métricas de SO dos hóspedes na base de dados de métricas para que possa ser utilizada com todas as funcionalidades de Azure Monitor Metrics, incluindo alerta em tempo real, gráfico, encaminhamento e acesso a partir de uma API REST. Este artigo descreve o processo de envio de métricas de desempenho do Guest OS para uma máquina virtual do Windows para a base de dados de métricas usando um modelo de Gestor de Recursos. 

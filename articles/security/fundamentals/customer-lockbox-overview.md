@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: terrylan
 manager: rkarlin
 ms.date: 02/19/2021
-ms.openlocfilehash: 04fc020b2b08d4d3dc68b62c417eb8e2d2e85b97
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: b39b1d33885de46607cd55acee9919473fab7733
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101720618"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102051434"
 ---
 # <a name="customer-lockbox-for-microsoft-azure"></a>Sistema de Proteção de Dados do Cliente para o Microsoft Azure
 
@@ -24,7 +24,8 @@ O Sistema de Proteção de Dados do Cliente para o Microsoft Azure proporciona u
 
 Este artigo abrange como ativar o Lockbox do Cliente e como os pedidos do Lockbox são iniciados, rastreados e armazenados para avaliações e auditorias posteriores.
 
-<a id='supported-services-and-scenarios-in-preview'>## Serviços e cenários suportados (Disponibilidade Geral)
+<a name='supported-services-and-scenarios-in-general-availability'><a name='supported-services-and-scenarios-in-preview'>
+## <a name="supported-services-and-scenarios-general-availability"></a>Serviços e cenários apoiados (Disponibilidade Geral)
 
 Os seguintes serviços estão agora geralmente disponíveis para o Lockbox do cliente:
 

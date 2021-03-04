@@ -1,17 +1,16 @@
 ---
 title: Criar & configurar o Log Analytics com PowerShell
 description: Log Analytics espaços de trabalho no Azure Monitor armazena dados de servidores nas suas instalações ou infraestruturas de nuvem. Pode recolher dados de máquinas a partir do armazenamento Azure quando gerados por diagnósticos Azure.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/26/2020
-ms.openlocfilehash: 378967657a487d27a9fdae16fe783bc0a3865d0d
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d876a380bfc2d318cddc0964266cc3f0a870aa16
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100620372"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102050992"
 ---
 # <a name="create-and-configure-a-log-analytics-workspace-in-azure-monitor-using-powershell"></a>Criar e configurar um espaço de trabalho Log Analytics no Monitor Azure utilizando o PowerShell
 Este artigo fornece duas amostras de código que mostram como criar e configurar um espaço de trabalho Log Analytics no Azure Monitor.  

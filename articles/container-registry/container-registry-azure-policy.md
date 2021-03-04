@@ -2,13 +2,13 @@
 title: Conformidade usando a Política Azure
 description: Atribuir políticas incorporadas na Política Azure para auditar o cumprimento dos seus registos de contentores Azure
 ms.topic: article
-ms.date: 06/11/2020
-ms.openlocfilehash: 26c56616bcc411063d0ebfda28ba1e6fdf44c7fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 03/01/2021
+ms.openlocfilehash: 3f6809698171950060b54257a365889242f4636e
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89291025"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102050584"
 ---
 # <a name="audit-compliance-of-azure-container-registries-using-azure-policy"></a>Conformidade de auditoria dos registos de contentores da Azure utilizando a Política Azure
 
@@ -22,7 +22,7 @@ Não há acusações por usar a Política Azure.
 
 As seguintes definições de política incorporadas são específicas do Registo de Contentores de Azure:
 
-[!INCLUDE [azure-policy-reference-policies-container-registry](../../includes/policy/reference/bycat/policies-container-registry.md)]
+[!INCLUDE [azure-policy-reference-rp-containerreg](../../includes/policy/reference/byrp/microsoft.containerregistry.md)]
 
 Consulte também a definição de política de rede incorporada: [O registo de contentores deve utilizar um ponto final de serviço de rede virtual](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc4857be7-912a-4c75-87e6-e30292bcdf78).
 
@@ -43,7 +43,7 @@ Quando um recurso não é conforme, existem muitas razões possíveis. Para dete
 
 ### <a name="policy-compliance-in-the-portal"></a>Conformidade da política no portal:
 
-1. Selecione **Todos os serviços**e procure **por Política.**
+1. Selecione **Todos os serviços** e procure **por Política.**
 1. Selecione **Compliance**.
 1. Utilize os filtros para limitar os estados de conformidade ou para procurar políticas.
 

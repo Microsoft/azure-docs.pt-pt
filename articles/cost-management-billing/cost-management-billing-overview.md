@@ -4,17 +4,17 @@ description: Utilize as funcionalidades do Azure Cost Management + Faturação p
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/28/2021
+ms.date: 03/03/2021
 ms.topic: overview
 ms.service: cost-management-billing
 ms.subservice: common
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: a070b2329777accab6f62b767f74dbc28e5d2623
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 9fe658a1755ce3731f220ec656845da1f861fa9b
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99051098"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102050545"
 ---
 # <a name="what-is-azure-cost-management--billing"></a>O que é o Azure Cost Management + Faturação?
 
@@ -33,6 +33,8 @@ Com os produtos e os serviços do Azure, paga apenas o que utiliza. Os recursos 
 
 Para saber mais sobre como abordar a gestão de custos como uma organização, veja o artigo [Melhores práticas do Azure Cost Management](./costs/cost-mgt-best-practices.md).
 
+![Diagrama do processo de otimização de Gestão de Custos + Faturação.](./media/cost-management-optimization-process.png)
+
 ## <a name="understand-azure-billing"></a>Compreender a Faturação do Azure
 
 As funcionalidades Faturação do Azure servem para analisar os custos faturados e gerir o acesso às informações de faturação. Em organizações maiores, normalmente, as equipas de aprovisionamento e finanças realizam tarefas de faturação.
@@ -48,32 +50,6 @@ O portal do Azure suporta atualmente os seguintes tipos de contas de faturação
 - **Contrato Enterprise**: uma conta de faturação para um Contrato Enterprise é criada quando a sua organização assina um Contrato Enterprise (EA) para utilizar o Azure.
 
 - **Contrato de Cliente da Microsoft**: uma conta de faturação para um Contrato de Cliente Microsoft é criada quando a sua organização trabalha com um representante da Microsoft para assinar um Contrato de Cliente da Microsoft. Alguns clientes em determinadas regiões, que se inscrevem no site do Azure numa conta com tarifas pay as you go ou atualizam a respetiva [Conta Gratuita do Azure](./manage/create-free-services.md), também podem ter uma conta de faturação para um Contrato de Cliente da Microsoft.
-
-### <a name="scopes-for-billing-accounts"></a>Âmbitos de contas de faturação
-Um âmbito é um nó numa conta de faturação que utiliza para ver e gerir a faturação. É onde gere os dados de faturação, os pagamentos, as faturas e onde realiza a gestão global da conta.
-
-#### <a name="microsoft-online-services-program"></a>Programa Microsoft Online Services
-
-|Âmbito  |Definição  |
-|---------|---------|
-|Conta de faturação     | Representa um único proprietário (Administrador da conta) de uma ou mais subscrições do Azure. Um Administrador de Conta está autorizado a executar várias tarefas de faturação, como criar subscrições, ver faturas ou alterar a faturação de subscrições.  |
-|Subscrição     |  Representa um agrupamento de recursos do Azure. Uma fatura é gerada no âmbito da subscrição. Tem os seus próprios métodos de pagamento que são utilizados para pagar as faturas.|
-
-#### <a name="enterprise-agreement"></a>Contrato Enterprise
-
-|Âmbito  |Definição  |
-|---------|---------|
-|Conta de faturação    | Representa uma inscrição do Contrato Enterprise. A fatura é gerada no âmbito da conta de faturação. É estruturada através de departamentos e contas de inscrição.  |
-|Departamento     |  Agrupamento opcional de contas de inscrição.      |
-|Conta de inscrição     |  Representa um único proprietário da conta. As subscrições do Azure são criadas no âmbito da conta de inscrição.  |
-
-#### <a name="microsoft-customer-agreement"></a>Contrato de Cliente da Microsoft
-
-|Âmbito  |Tarefas  |
-|---------|---------|
-|Conta de faturação     |   Representa um contrato de cliente para múltiplos produtos e serviços Microsoft. A conta de faturação é estruturada através de perfis de faturação e secções de fatura.   |
-|Perfil de faturação     |  Representa uma fatura e os respetivos métodos de pagamento. A fatura é gerada neste âmbito. O perfil de faturação pode ter várias secções de fatura.      |
-|Secção de fatura     |   Representa um grupo de custos numa fatura. As subscrições e outras compras estão associadas ao âmbito da secção de faturação.    |
 
 ## <a name="understand-azure-cost-management"></a>Compreender o Azure Cost Management
 

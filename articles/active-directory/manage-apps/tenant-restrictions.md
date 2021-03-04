@@ -12,12 +12,12 @@ ms.date: 2/23/2021
 ms.author: kenwith
 ms.reviewer: hpsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b545afb370b84404d3e15f885464aabf00d2eaf2
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: bdcdd387575faec87656430860e24fee56387775
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101687078"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102050907"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Use restrições de inquilinos para gerir o acesso a aplicações em nuvem SaaS
 
@@ -29,7 +29,7 @@ Com as restrições ao arrendamento, as organizações podem especificar a lista
 
 Este artigo centra-se nas restrições de inquilinos para o Microsoft 365, mas a funcionalidade protege todas as aplicações que enviam o utilizador para Azure AD para um único sign-on. Se utilizar aplicativos SaaS com um inquilino AD AZure diferente do inquilino utilizado pelo seu Microsoft 365, certifique-se de que todos os inquilinos necessários são permitidos (por exemplo, em cenários de colaboração B2B). Para obter mais informações sobre as aplicações em nuvem SaaS, consulte o [Ative Directory Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps).
 
-Além disso, a funcionalidade de restrições ao arrendatário suporta agora [o bloqueio ao uso de todas as aplicações de consumidores da Microsoft](#blocking-consumer-applications) (apps MSA) como OneDrive, Hotmail e Xbox.com.  Isto usa um cabeçalho separado para o `login.live.com` ponto final, e é detalhado no final do documento.
+Além disso, a funcionalidade de restrições ao arrendatário suporta agora [o bloqueio ao uso de todas as aplicações de consumidores da Microsoft](#blocking-consumer-applications-public-preview) (apps MSA) como OneDrive, Hotmail e Xbox.com.  Isto usa um cabeçalho separado para o `login.live.com` ponto final, e é detalhado no final do documento.
 
 ## <a name="how-it-works"></a>Como funciona
 

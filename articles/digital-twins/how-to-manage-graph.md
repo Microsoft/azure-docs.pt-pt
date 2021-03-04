@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 11/03/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: b713a19cbe572998bb6e5050ab2d7721a844f07a
-ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
+ms.openlocfilehash: a2732c3979998ea3429833f96056b88bc2dccf75
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100530455"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102050941"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>Gerir um gráfico de gémeos digitais usando relacionamentos
 
@@ -30,7 +30,7 @@ Este artigo centra-se na gestão das relações e do gráfico como um todo; para
 
 [!INCLUDE [digital-twins-ways-to-manage.md](../../includes/digital-twins-ways-to-manage.md)]
 
-Também pode fazer alterações no seu gráfico utilizando a amostra do Explorador Azure Digital Twins (ADT), que lhe permite visualizar os seus gémeos e gráficos, e faz uso do SDK nos bastidores. A secção seguinte descreve esta amostra em detalhe.
+Também pode fazer alterações no seu gráfico utilizando a amostra Azure Digital Twins Explorer, que lhe permite visualizar os seus gémeos e gráficos, e faz uso do SDK nos bastidores. A secção seguinte descreve esta amostra em detalhe.
 
 [!INCLUDE [visualizing with Azure Digital Twins explorer](../../includes/digital-twins-visualization.md)]
 

@@ -6,14 +6,14 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 12/15/2020
+ms.date: 02/24/2021
 ms.author: banders
-ms.openlocfilehash: 8c69f477f363654b8bd707949f0a5b4c46a4e8df
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
-ms.translationtype: HT
+ms.openlocfilehash: 477dff9db28672f8231710af34786ac387f43b71
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97561109"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102050346"
 ---
 # <a name="view-azure-reservations"></a>Ver as reservas do Azure
 
@@ -47,8 +47,15 @@ Para permitir que outras pessoas façam a gestão de reservas, tem duas opções
 
 ### <a name="how-billing-administrators-view-or-manage-reservations"></a>Como os administradores de faturação veem ou gerem as reservas
 
-1. Aceda a **Cost Management + Faturação** e, no lado esquerdo da página, selecione **Transações de Reservas**.
-2. Se tiver as permissões de faturação necessárias, pode ver e gerir reservas. Se não vir reservas, confirme que tem sessão iniciada com o inquilino do Azure AD em que as reservas foram criadas.
+Se tiver acesso a reservas ou pedidos de reserva com acesso Azure RBAC, poderá ver apenas um subconjunto de transações de reservas ou nenhuma quando navegar para Reservas. Use os seguintes passos para visualizar e gerir todas as reservas e transações de reservas.
+
+1. Inscreva-se no [portal Azure](https://portal.azure.com) e navegue para **Gestão de Custos + Faturação.**
+    - Se você é um administrador da EA, no menu esquerdo, selecione **os âmbitos de faturação** e, em seguida, na lista de âmbitos de faturação, selecione um.
+    - Se for dono de um perfil de faturação do Microsoft Customer Agreement, no menu esquerdo, selecione **perfis de Faturação**. Na lista de perfis de faturação, selecione um.
+1. No menu esquerdo, selecione **Transações de Reserva.** A lista de transações de reserva é mostrada.
+1. Um banner no topo da página lê *agora Os administradores de faturação podem gerir reservas. Clique aqui para gerir reservas.* Selecione o banner.
+1. É apresentada a lista completa de reservas para a sua inscrição ou perfil de faturação da EA.
+1. Se quiser tomar posse de uma reserva, selecione-a. Em seguida, na página de configuração de permissões, selecione **o acesso ao Grant**. É-lhe dado ao proprietário acesso à reserva e à ordem de reserva.
 
 ## <a name="view-reservation-and-utilization-in-the-azure-portal"></a>Ver reserva e utilização no portal do Azure
 

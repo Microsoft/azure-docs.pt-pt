@@ -6,13 +6,12 @@ ms.author: bwren
 services: azure-monitor
 ms.topic: conceptual
 ms.date: 02/08/2021
-ms.subservice: logs
-ms.openlocfilehash: dde18460862eb2ac61ed7e9bbf95d70ecf61496b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 254d403adc687074eae772bcdcc55793bb25b336
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101726024"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102048918"
 ---
 # <a name="create-diagnostic-settings-to-send-platform-logs-and-metrics-to-different-destinations"></a>Criar definições de diagnóstico para enviar registos e métricas da plataforma para destinos diferentes
 [Os registos da plataforma](./platform-logs-overview.md) em Azure, incluindo os registos de atividades Azure e registos de recursos, fornecem informações detalhadas de diagnóstico e auditoria para os recursos do Azure e para a plataforma Azure em que dependem. [As métricas da plataforma](./data-platform-metrics.md) são recolhidas por padrão e normalmente armazenadas na base de dados de métricas do Azure Monitor. Este artigo fornece detalhes sobre a criação e configuração de configurações de diagnóstico para enviar métricas de plataforma e registos de plataforma para diferentes destinos.

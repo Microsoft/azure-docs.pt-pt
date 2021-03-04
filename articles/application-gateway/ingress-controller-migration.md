@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/02/2021
 ms.author: caya
-ms.openlocfilehash: 4b5cb9abe53cdb29cbc1b4c9711fb8efcf0348d6
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: e83834fd5f8ca95826118c952f7884a494c7abbb
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101746305"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102050839"
 ---
 # <a name="migrate-from-agic-helm-to-agic-add-on"></a>Migrar do AGIC Helm para o addon AGIC 
 
@@ -46,7 +46,7 @@ az aks enable-addons -n myCluster -g myResourceGroup -a ingress-appgw --appgw-id
 
 Em alternativa, pode navegar para o seu cluster AKS no Portal utilizando este [link](https://portal.azure.com/?feature.aksagic=true) e ativar o addon AGIC no separador de Rede do seu cluster. Selecione o gateway de aplicações existente no menu suspenso quando escolher qual o Gateway de Aplicação que o add-on deve ter como alvo. 
 
-![Portal do Controlador de Entrada de Gateway de Aplicação](./media/tutorial-ingress-controller-add-on-existing/portal_ingress_controller_addon.png)
+![Portal do Controlador de Entrada de Gateway de Aplicação](./media/tutorial-ingress-controller-add-on-existing/portal-ingress-controller-add-on.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 - Resolução de problemas do controlador de entrada de aplicações Gateway [**Ingress**](ingress-controller-troubleshoot.md): Guia de resolução de problemas para a AGIC 

@@ -3,15 +3,15 @@ title: Adicionar e gerir certificados TLS/SSL
 description: Crie um certificado gratuito, importe um certificado de Serviço de Aplicações, importe um certificado Key Vault ou compre um certificado de Serviço de Aplicações no Azure App Service.
 tags: buy-ssl-certificates
 ms.topic: tutorial
-ms.date: 10/25/2019
+ms.date: 03/02/2021
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: e563981d3a68375105256aa6015aa94ada91326b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: d6f6db34239cf8c77b6e43d4426d889fa12c0690
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101711710"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102051349"
 ---
 # <a name="add-a-tlsssl-certificate-in-azure-app-service"></a>Adicionar um certificado TLS/SSL no Serviço de Aplicações do Azure
 
@@ -26,7 +26,7 @@ A tabela que se segue lista as opções que tem para adicionar certificados no S
 
 |Opção|Descrição|
 |-|-|
-| Criar um Certificado Gerido de Serviço de Aplicações gratuita (Pré-visualização) | Um certificado privado que é fácil de usar se apenas precisar de proteger o seu `www` [domínio personalizado](app-service-web-tutorial-custom-domain.md) ou qualquer domínio não nu no Serviço de Aplicações. |
+| Criar um Certificado Gerido de Serviço de Aplicações gratuita (Pré-visualização) | Um certificado privado que é gratuito e fácil de usar se precisar apenas de proteger o seu [domínio personalizado](app-service-web-tutorial-custom-domain.md) no Serviço de Aplicações. |
 | Comprar um certificado de Serviço de Aplicações | Um certificado privado que é gerido pelo Azure. Combina a simplicidade da gestão automatizada de certificados e a flexibilidade das opções de renovação e exportação. |
 | Importar um certificado do Cofre-Chave | Útil se utilizar [o Cofre da Chave Azure](../key-vault/index.yml) para gerir os seus [certificados PKCS12](https://wikipedia.org/wiki/PKCS_12). Consulte [os requisitos de certificado privado.](#private-certificate-requirements) |
 | Faça upload de um certificado privado | Se já tem um certificado privado de um fornecedor de terceiros, pode carregá-lo. Consulte [os requisitos de certificado privado.](#private-certificate-requirements) |
@@ -34,19 +34,17 @@ A tabela que se segue lista as opções que tem para adicionar certificados no S
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para acompanhar este guia:
-
 - [Criar uma aplicação de Serviço de Aplicações.](./index.yml)
-- Certificado gratuito apenas: mapear um subdomínio (por exemplo, `www.contoso.com` ) para o Serviço de Aplicações com um registo [CNAME](app-service-web-tutorial-custom-domain.md#map-a-cname-record).
+- Para um certificado privado, certifique-se de que satisfaz todos os [requisitos do Serviço de Aplicações.](#private-certificate-requirements)
+- **Certificado gratuito apenas:**
+    - Mapear o domínio para o serviço de aplicações. Para obter informações, consulte [Tutorial: Mapeie um nome DNS personalizado existente para o Azure App Service](app-service-web-tutorial-custom-domain.md).
+    - Para um domínio de raiz (como contoso.com), certifique-se de que a sua aplicação não tem [quaisquer restrições IP](app-service-ip-restrictions.md) configuradas. Tanto a criação de certificados como a sua renovação periódica para um domínio de raiz depende da sua aplicação ser acessível a partir da internet.
 
 ## <a name="private-certificate-requirements"></a>Requisitos de certificados privados
 
-> [!NOTE]
-> O Azure Web Apps **não** suporta AES256 e todos os ficheiros pfx devem ser encriptados com TripleDES.
+O [Certificado Gerido do Serviço de Aplicações gratuito](#create-a-free-managed-certificate-preview) e o certificado de Serviço de [Aplicações](#import-an-app-service-certificate) já satisfazem os requisitos do Serviço de Aplicações. Se optar por fazer o upload ou importação de um certificado privado para o Serviço de Aplicações, o seu certificado deve satisfazer os seguintes requisitos:
 
-O [Certificado Gerido do Serviço de Aplicações gratuito](#create-a-free-certificate-preview) ou o certificado de Serviço de [Aplicações](#import-an-app-service-certificate) já satisfazem os requisitos do Serviço de Aplicações. Se optar por fazer o upload ou importação de um certificado privado para o Serviço de Aplicações, o seu certificado deve satisfazer os seguintes requisitos:
-
-* Exportado como um [ficheiro PFX protegido por palavra-passe](https://en.wikipedia.org/w/index.php?title=X.509&section=4#Certificate_filename_extensions)
+* Exportado como um [ficheiro PFX protegido por palavra-passe,](https://en.wikipedia.org/w/index.php?title=X.509&section=4#Certificate_filename_extensions)encriptado utilizando o triplo DES.
 * Conter uma chave privada com, pelo menos, 2048 bits de comprimento
 * Conter todos os certificados intermédios na cadeia de certificados
 
@@ -60,21 +58,21 @@ Para garantir um domínio personalizado numa ligação TLS, o certificado tem re
 
 [!INCLUDE [Prepare your web app](../../includes/app-service-ssl-prepare-app.md)]
 
-## <a name="create-a-free-certificate-preview"></a>Criar um certificado gratuito (Pré-visualização)
+## <a name="create-a-free-managed-certificate-preview"></a>Criar um certificado gerido gratuitamente (Pré-visualização)
+
+> [!NOTE]
+> Antes de criar um certificado gerido gratuitamente, certifique-se de ter [cumprido os pré-requisitos](#prerequisites) para a sua aplicação.
 
 O Certificado Gerido por Serviço de Aplicações gratuito é uma solução chave-na-mão para garantir o nome DNS personalizado no Serviço de Aplicações. É um certificado TLS/SSL totalmente funcional que é gerido pelo App Service e renovado automaticamente. O certificado gratuito vem com as seguintes limitações:
 
 - Não suporta certificados wildcard.
-- Não suporta domínios nus.
 - Não é exportável.
-- Não é suportado no Ambiente de Serviço de Aplicações (ASE)
-- Não suporta registos A. Por exemplo, a renovação automática não funciona com registos A.
+- Não é suportado no Ambiente de Serviço de Aplicações (ASE).
+- Não é suportado com domínios de raiz que são integrados com Gestor de Tráfego.
 
 > [!NOTE]
 > O certificado gratuito é emitido pela DigiCert. Para alguns domínios de alto nível, deve explicitamente permitir o DigiCert como emitente de certificado, criando um [registo de domínio CAA](https://wikipedia.org/wiki/DNS_Certification_Authority_Authorization) com o valor: `0 issue digicert.com` .
 > 
-
-Para criar um Certificado Gerido de Serviço de Aplicações gratuito:
 
 No <a href="https://portal.azure.com" target="_blank">portal Azure,</a>a partir do menu esquerdo, selecione **Serviços de Aplicações**  >  **\<app-name>** .
 
@@ -82,7 +80,7 @@ A partir da navegação à esquerda da sua aplicação, selecione **TLS/SSL**  >
 
 ![Criar certificado gratuito no Serviço de Aplicações](./media/configure-ssl-certificate/create-free-cert.png)
 
-Qualquer domínio não nu que esteja devidamente mapeado para a sua aplicação com um registo CNAME está listado no diálogo. Selecione o domínio personalizado para criar um certificado gratuito e selecione **Criar**. Pode criar apenas um certificado para cada domínio personalizado suportado.
+Selecione o domínio personalizado para criar um certificado gratuito e selecione **Criar**. Pode criar apenas um certificado para cada domínio personalizado suportado.
 
 Quando a operação estiver concluída, consulte o certificado na lista **de Certificados-Chave Privados.**
 

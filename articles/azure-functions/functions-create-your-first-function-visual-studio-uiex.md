@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.date: 09/30/2020
 ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, 23113853-34f2-4f
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: fb3ba4ad49cc78b6082d347521cd87be5409cd34
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 9e3144738bd259ab9be75059af00f125581bb37c
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101749038"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102050125"
 ---
 # <a name="quickstart-create-your-first-function-in-azure-using-visual-studio"></a>Quickstart: Crie a sua primeira função em Azure usando o Visual Studio
 
@@ -27,9 +27,10 @@ Completar este quickstart incorre um pequeno custo de alguns USD centavo ou meno
 
 ![Instale o Estúdio Visual com a carga de trabalho de desenvolvimento do Azure](media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
 
+<br/>
 <details>
-<summary>Utilize um projeto Azure Functions em vez</summary>
-Se quiser criar um <abbr title="Um recipiente lógico para uma ou mais funções individuais que podem ser implantadas e geridas em conjunto. "> Projeto Azure Functions</abbr> utilizando o Visual Studio 2017, deve primeiro instalar as [mais recentes ferramentas Azure Functions](functions-develop-vs.md#check-your-tools-version).
+<summary><strong>Utilize um projeto Azure Functions em vez</strong></summary>
+Se quiser criar um <abbr title="Um recipiente lógico para uma ou mais funções individuais que podem ser implantadas e geridas em conjunto.">Projeto Azure Functions</abbr> utilizando o Visual Studio 2017, deve primeiro instalar as [mais recentes ferramentas Azure Functions](functions-develop-vs.md#check-your-tools-version).
 </details>
 
 ## <a name="2-create-a-function-app-project"></a>2. Criar um projeto de aplicação de função
@@ -42,13 +43,13 @@ Se quiser criar um <abbr title="Um recipiente lógico para uma ou mais funções
 
 1. Fornecer as seguintes informações para a configuração da **aplicação Criar um novo Azure Functions:**
 
-    + Selecione **<abbr title=" Este valor cria um projeto de função que utiliza a versão 3.x runtime das Funções Azure, que suporta .NET Core 3.x. As funções azure 1.x suporta o Quadro .NET. Para obter mais informações, consulte [as versões de tempo de execução do Azure Functions](functions-versions.md). "> Funções Azure v3 (.NET Core) </abbr>** do dropdown de tempo de funções
+    + Selecione **<abbr title=" Este valor cria um projeto de função que utiliza a versão 3.x runtime das Funções Azure, que suporta .NET Core 3.x. As funções azure 1.x suporta o Quadro .NET. "> Funções Azure v3 (.NET Core) </abbr>** do dropdown de tempo de funções. (Para obter mais informações, consulte [as versões de tempo de execução do Azure Functions](functions-versions.md).)
     
     + Selecione **<abbr title=" Este valor cria uma função desencadeada por um pedido HTTP. "> HTTP </abbr> gatilho** como o modelo de função.
     
-    + Selecione **<abbr="Como uma função Azure requer uma conta de armazenamento, uma é atribuída ou criada quando publica o seu projeto no Azure. Um gatilho HTTP não utiliza uma cadeia de ligação de conta Azure Storage; todos os outros tipos de gatilho requerem uma cadeia de ligação de conta Azure Storage válida." >emulador </abbr>** de armazenamento da conta de armazenamento.
+    + Selecione **<abbr title=" Porque uma Função Azure requer uma conta de armazenamento, uma é atribuída ou criada quando publica o seu projeto ao Azure. Um gatilho HTTP não utiliza uma cadeia de ligação de conta Azure Storage; todos os outros tipos de gatilho requerem uma cadeia de ligação válida da conta Azure Storage. "> Emulador </abbr> de armazenamento** da conta de armazenamento.
         
-    + Selecione **Anonymous** a partir do <abbr title="A função criada pode ser acionada por qualquer cliente sem fornecer uma chave. Esta definição de autorização torna mais fácil testar a função nova. Para obter mais informações sobre chaves e autorização, consulte [as chaves de autorização](functions-bindings-http-webhook-trigger.md#authorization-keys) e as [ligações HTTP e webhook](functions-bindings-http-webhook.md).">Nível de autorização</abbr> dropdown
+    + Selecione **Anonymous** a partir do <abbr title="A função criada pode ser acionada por qualquer cliente sem fornecer uma chave. Esta definição de autorização torna mais fácil testar a função nova.">Nível de autorização</abbr> dropdown. (Para obter mais informações sobre chaves e autorização, consulte [as chaves de autorização](functions-bindings-http-webhook-trigger.md#authorization-keys) e as [ligações HTTP e webhook](functions-bindings-http-webhook.md).)
 
     + Selecione **Criar**
         
@@ -77,8 +78,9 @@ O `FunctionName` atributo método define o nome da função, que por padrão é 
 
 1. Para parar de depurar, prima <kbd>Shift</kbd> + <kbd>F5</kbd> em Estúdio Visual.
 
+<br/>
 <details>
-<summary>Resolução de problemas</summary>
+<summary><strong>Resolução de problemas</strong></summary>
  Pode ser necessário ativar uma exceção de firewall para que as ferramentas possam lidar com pedidos HTTP. Os níveis de autorização nunca são aplicados quando se executa uma função local.
 </details>
 
@@ -102,7 +104,7 @@ O `FunctionName` atributo método define o nome da função, que por padrão é 
     
     + **Selecione** uma existente <abbr title="Um recipiente lógico para recursos Azure relacionados que você pode gerir como uma unidade.">grupo de recursos</abbr> a partir da lista de drop-down ou escolha **Novo** para criar um novo grupo de recursos.
     
-    + **Selecionar** <abbr title="Quando publica o seu projeto numa aplicação de função que funciona num [plano de Consumo,](consumption-plan.md)paga apenas para execuções da sua aplicação de funções. Outros planos de hospedagem incorrem em custos mais elevados.">Consumo</abbr> no drop-down do tipo de jogo
+    + **Selecionar** <abbr title="Quando publica o seu projeto numa aplicação de função que funciona num plano de Consumo, paga apenas para execuções da sua aplicação de funções. Outros planos de hospedagem incorrem em custos mais elevados.">Consumo</abbr> no drop-down do tipo de reprodução. (Para mais informações, consulte [o plano de consumo](consumption-plan.md).)
     
     + **Selecione** um  <abbr title="Uma referência geográfica a um centro de dados específico do Azure no qual os recursos são atribuídos. Consulte [as regiões](https://azure.microsoft.com/regions/) para obter uma lista das regiões disponíveis.">localização</abbr> da queda.
     
@@ -116,8 +118,9 @@ O `FunctionName` atributo método define o nome da função, que por padrão é 
 
     :::image type="content" source="../../includes/media/functions-vstools-publish/functions-visual-studio-publish-profile-step-4.png" alt-text="Terminar a criação de perfil":::
 
+    <br/>
     <details>
-    <summary>O que faz esta configuração?</summary>
+    <summary><strong>O que faz esta configuração?</strong></summary>
     Ao utilizar **Run from package file**, a sua aplicação de função é implementada utilizando o zip [deploy](functions-deployment-technologies.md#zip-deploy) com o modo [Run-From-Package](run-functions-from-deployment-package.md) ativado. Este é o método de implementação recomendado para o seu projeto de funções, uma vez que resulta num melhor desempenho.    
     </details>   
 
@@ -127,14 +130,14 @@ O `FunctionName` atributo método define o nome da função, que por padrão é 
 
 1. Na página Publicar, reveja o URL raiz da aplicação de função.
 
-1. No separador Publicar, escolha **Gerir no Cloud Explorer <abbr title=" permite-lhe utilizar o Visual Studio para visualizar os conteúdos do site, iniciar e parar a aplicação de função, e navegar diretamente para funcionar recursos de aplicações no Azure e no portal Azure. "> Cloud Explorer</>**.
+1. No separador Publicar, escolha **Gerir no Cloud Explorer <abbr title=" permite-lhe utilizar o Visual Studio para visualizar os conteúdos do site, iniciar e parar a aplicação de função, e navegar diretamente para funcionar recursos de aplicações no Azure e no portal Azure. "> Explorador </abbr> de Nuvens**.
     
     :::image type="content" source="../../includes/media/functions-vstools-publish/functions-visual-studio-publish-complete.png" alt-text="Mensagem de publicação bem-sucedida":::
     
 
 ## <a name="6-test-your-function-in-azure"></a>6. Teste a sua função em Azure
 
-1. No Cloud Explorer, a sua nova aplicação de função deve ser selecionada. Caso contrário, expanda a sua subscrição > **Serviços de Aplicações** e selecione a sua nova aplicação de função.
+1. No Cloud Explorer, a sua nova aplicação de função deve ser selecionada. Caso contrário, expanda a sua subscrição, expanda **os Serviços de Aplicações** e selecione a sua nova aplicação de função.
 
 1. Clique com o botão direito na aplicação de função e escolha **Abrir no Browser.** Isto abre a raiz da sua aplicação de função no seu navegador web padrão e exibe a página que indica que a sua aplicação de função está em execução. 
 
@@ -154,7 +157,7 @@ O `FunctionName` atributo método define o nome da função, que por padrão é 
 
 Elimine a aplicação de função e os seus recursos para evitar incorrer em custos adicionais.
 
-1. No Cloud Explorer, expanda a sua subscrição > **Serviços de Aplicação,** clique com o botão direito na sua aplicação de função e escolha **Abrir no Portal**. 
+1. No Cloud Explorer, expanda a sua subscrição, expanda os Serviços de **Aplicações,** clique com o botão direito na sua aplicação de função e escolha **Abrir no Portal.** 
 
 1. Na página de aplicações da função, selecione o **separador 'Vista Geral'** e, em seguida, selecione o link no **grupo De recursos**.
 

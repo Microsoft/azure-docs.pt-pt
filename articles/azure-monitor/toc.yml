@@ -416,7 +416,7 @@
                 - name: Enviar para os Hubs de Eventos
                   href: agents/diagnostics-extension-stream-event-hubs.md
                 - name: Enviar para os Registos
-                  href: essentials/diagnostics-extension-logs.md
+                  href: agents/diagnostics-extension-logs.md
                 - name: Enviar para o Application Insights
                   href: agents/diagnostics-extension-to-application-insights.md
                 - name: Histórico de versões
@@ -993,7 +993,7 @@
         - name: FAQ sobre Disponibilidade Geral
           href: vm/vminsights-ga-release-faq.md
         - name: FAQ
-          href: faq.md#azure-monitor-for-vms
+          href: faq.md#vm-insights
         - name: Configurar a área de trabalho
           href: vm/vminsights-configure-workspace.md
         - name: Instalar agentes
@@ -1045,7 +1045,7 @@
         - name: Descrição geral
           href: containers/container-insights-overview.md
         - name: FAQ
-          href: faq.md#azure-monitor-for-containers
+          href: faq.md#container-insights
         - name: Ativar monitorização
           items:
             - name: Ativar descrição geral da monitorização

@@ -7,12 +7,12 @@ ms.service: data-catalog
 ms.subservice: data-catalog-gen2
 ms.topic: conceptual
 ms.date: 11/24/2020
-ms.openlocfilehash: 77bfa3d22d628cf179e95cd4892ec030f22ab35f
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 493d3ceb596bb29da0e60ab08518375412417a0e
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101693769"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102049492"
 ---
 # <a name="how-to-bulk-edit-assets-to-tag-glossary-terms"></a>Como editar em massa os ativos para marcar termos glossários
 
@@ -65,13 +65,13 @@ Este artigo descreve como marcar vários termos glossários para uma lista de at
 
 7. Repita o acima para classificações, proprietários e especialistas.
 
-    :::image type="content" source="media/how-to-bulk-edit-assets/all-list.png" alt-text="Screenshot dos termos de remoção.":::
+    :::image type="content" source="media/how-to-bulk-edit-assets/all-list.png" alt-text="Screenshot das classificações e contactos.":::
 
 8. Uma vez concluída, feche a lâmina de edição a granel selecionando **Fechar** ou **remover tudo e fechar**. O encerramento não removerá os ativos selecionados, enquanto que remover todos e fechar removerá todos os ativos selecionados.
     :::image type="content" source="media/how-to-bulk-edit-assets/close-list.png" alt-text="Imagem de perto.":::
 
    > [!Important]
-   > O número recomendado de ativos para edição a granel é de 15. A seleção de mais de 25 pode causar problemas de desempenho.
+   > O número recomendado de ativos para edição a granel é de 25. A seleção de mais de 25 pode causar problemas de desempenho.
    > A caixa **Visualizada** só será visível se houver pelo menos um ativo selecionado.
 
 

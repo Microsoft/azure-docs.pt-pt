@@ -2,17 +2,16 @@
 title: Utilize registos de monitores Azure com apps lógicas Azure e automatizar energia
 description: Saiba como pode utilizar apps e power automate Azure Logic para automatizar rapidamente processos repetíveis utilizando o conector Azure Monitor.
 ms.service: azure-monitor
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/13/2020
-ms.openlocfilehash: 9d93e3ec08ff16a1fcca0c914b9e817d4ca89d60
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 4a25d7a23d486c8ce22fa433cc1ead390726facc
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101707953"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102048867"
 ---
 # <a name="azure-monitor-logs-connector-for-logic-apps-and-power-automate"></a>Conector de registos Azure Monitor para Apps Lógicas e Automatização de Energia
 [As Azure Logic Apps](../../logic-apps/index.yml) e [Power Automamate](https://flow.microsoft.com) permitem criar fluxos de trabalho automatizados usando centenas de ações para uma variedade de serviços. O conector Azure Monitor Logs permite-lhe construir fluxos de trabalho que recuperem dados de um espaço de trabalho do Log Analytics ou de uma aplicação de Insights de Aplicação no Azure Monitor. Este artigo descreve as ações incluídas com o conector e fornece uma passagem para construir um fluxo de trabalho usando estes dados.
