@@ -8,16 +8,20 @@ ms.devlang: dotnet
 ms.custom: devx-track-csharp, mvc
 ms.topic: quickstart
 ms.date: 06/18/2020
-ms.openlocfilehash: 945d4a3d2bba84bf8f5973fd8dec092c66794c11
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 525ad6df1bb94a1fb917e41495d7f8aafa1e79ae
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96004301"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102121427"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-in-net-core"></a>Quickstart: Use Azure Cache para Redis em .NET Core
 
 Neste quickstart, incorpora o Azure Cache para Redis numa aplicação .NET Core para ter acesso a uma cache segura e dedicada que esteja acessível a partir de qualquer aplicação dentro do Azure. Utilize especificamente o cliente [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) com código C# numa aplicação de consola .NET Core.
+
+## <a name="skip-to-the-code-on-github"></a>Salte para o código no GitHub
+
+Se quiser saltar diretamente para o código, consulte o [quickstart .NET Core](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/quickstart/dotnet-core) no GitHub.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -116,7 +120,7 @@ dotnet add package StackExchange.Redis
 Depois de concluída a instalação, o cliente de cache *StackExchange.Redis* está disponível para utilizar com o seu projeto.
 
 
-## <a name="connect-to-the-cache"></a>Ligar à cache
+## <a name="connect-to-the-cache"></a>Ligar-se à cache
 
 Adicione a seguinte instrução `using` ao ficheiro *Program.cs*:
 

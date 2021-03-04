@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.date: 11/03/2020
 ms.custom: devx-track-csharp
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 69a057f92009fd712d39666be223f1cfd99d73b5
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 2848ce6214d59ba2732dcfc148ccaf9936497f17
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101748817"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102121036"
 ---
 # <a name="quickstart-create-a-c-function-in-azure-using-visual-studio-code"></a>Quickstart: Criar uma função C# em Azure utilizando o Código do Estúdio Visual
 
@@ -87,7 +87,7 @@ Nesta secção, cria uma aplicação de função e recursos relacionados na sua 
 
 1. Escolha o ícone Azure na barra de Atividade, em seguida, na área **Azure: Funções,** escolha o **botão Implementar para funcionar...** botão.
 
-    ![Publicar o projeto no Azure](./media/functions-create-first-function-vs-code/function-app-publish-project.png)
+    
 
 1. Forneça as seguintes informações nos pedidos:
 

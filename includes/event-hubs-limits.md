@@ -1,20 +1,8 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
-services: event-hubs
-author: spelluru
-ms.service: event-hubs
-ms.topic: include
-ms.date: 02/01/2021
-ms.author: spelluru
-ms.custom: include file
-ms.openlocfilehash: 45cc5120072f2a8c7742f79cfb79161042345505
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
-ms.translationtype: MT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99427423"
+título: incluir descrição de ficheiros: incluir serviços de ficheiros: autor de centros de eventos: spelluru ms.service: event-hubs ms.topic: include ms.date: 02/01/2021 ms.author: spelluru ms.custom: "include file", "fasttrack-edit","iot","event-hubs"
+
 ---
+
 As tabelas a seguir fornecem quotas e limites específicos aos [Hubs de Eventos Azure](https://azure.microsoft.com/services/event-hubs/). Para obter informações sobre os preços dos Event Hubs, consulte [os preços do Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/).
 
 ### <a name="common-limits-for-all-tiers"></a>Limites comuns para todos os níveis
@@ -24,7 +12,6 @@ Os seguintes limites são comuns em todos os níveis.
 | --- |  --- | --- |
 | Número de espaços de nomes de Centros de Eventos por subscrição |- |100 |
 | Número de centros de eventos por espaço de nome | Os pedidos subsequentes para a criação de um novo centro de eventos são rejeitados. |10 |
-| Número de divisórias por centro de eventos |- |32 |
 | Tamanho de um nome de centro de evento |- | 256 caracteres |
 | Tamanho de um nome de grupo de consumidores |- | 256 caracteres |
 | Número de recetores não-época por grupo de consumidores |- |5 |
@@ -39,11 +26,17 @@ O quadro a seguir mostra limites que podem ser diferentes para os níveis básic
 
 | Limite | Notas | Básica | Standard |
 |---|---|--|---|
-| Tamanho máximo do evento Event Hubs| &nbsp; | 256 KB | 1 MB |
+| Tamanho máximo da publicação de Event Hubs| &nbsp; | 256 KB | 1 MB |
 | Número de grupos de consumidores por centro de eventos | &nbsp; |1 |20 |
 | Número de ligações AMQP por espaço de nome | Os pedidos subsequentes de ligações adicionais são rejeitados e uma exceção é recebida pelo código de chamada. |100 |5000|
 | Período máximo de retenção dos dados do evento | &nbsp; |1 dia |1-7 dias |
 | Unidades de produção máxima |Ultrapassar este limite faz com que os seus dados sejam estrangulados e gera uma [exceção ocupada pelo servidor](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception). Para solicitar um maior número de unidades de produção para um nível Standard, apresente um pedido de [suporte](../articles/azure-portal/supportability/how-to-create-azure-support-request.md). [Unidades de produção adicionais](../articles/event-hubs/event-hubs-auto-inflate.md) estão disponíveis em blocos de 20 numa base de compra comprometida. |20 | 20 | 
+| Número de divisórias por centro de eventos | |32 | 32 | 
+
+> [!NOTE]
+>
+> Pode publicar eventos individualmente ou em lotados. 
+> O limite de publicação (de acordo com a SKU) aplica-se independentemente de se trate de um evento ou de um lote. Os eventos de publicação superiores ao limiar máximo serão rejeitados.
 
 ### <a name="dedicated-tier-vs-standard-tier"></a>Nível dedicado vs. nível padrão
 A oferta dedicada do Event Hubs é faturada a um preço mensal fixo, com um mínimo de 4 horas de utilização. O tier dedicado oferece todas as características do plano Standard, mas com capacidade de escala empresarial e limites para clientes com cargas de trabalho exigentes. 

@@ -1,5 +1,5 @@
 ---
-title: UserJourneys [ Microsoft Docs
+title: '| de | de UserJourneys Microsoft Docs'
 description: Especificar o elemento UserJourneys de uma política personalizada no Azure Ative Directory B2C.
 services: active-directory-b2c
 author: msmimart
@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/14/2020
+ms.date: 03/04/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ce41edd2c0048a20368dd02c2dd6101248e26c14
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: aac75e7876ce59b90e27f9e87c96240755d26235
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400018"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102120747"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
@@ -80,7 +80,7 @@ O exemplo a seguir mostra um elemento de viagem do utilizador com perfis técnic
 
 Uma viagem de utilizador é representada como uma sequência de orquestração que deve ser seguida para uma transação bem sucedida. Se algum passo falhar, a transação falha. Estes passos de orquestração referem-se tanto aos blocos de construção como aos fornecedores de sinistros permitidos no ficheiro político. Qualquer passo de orquestração responsável por mostrar ou tornar uma experiência de utilizador também tem uma referência ao identificador de definição de conteúdo correspondente.
 
-Os passos de orquestração podem ser executados condicionalmente com base em condições prévias definidas no elemento do passo de orquestração. Por exemplo, só pode verificar para executar um passo de orquestração se existir uma reclamação específica, ou se uma reclamação é igual ou não ao valor especificado.
+Os passos de orquestração podem ser executados condicionalmente com base em condições prévias definidas no elemento do passo de orquestração. Por exemplo, pode verificar para executar um passo de orquestração apenas se uma reivindicação específica existe, ou se uma reclamação é igual ou não ao valor especificado.
 
 Para especificar a lista ordenada de etapas de orquestração, um elemento **OrchestrationSteps** é adicionado como parte da política. Este elemento é necessário.
 
@@ -189,9 +189,12 @@ As condições prévias podem verificar várias condições prévias. O exemplo 
 </OrchestrationStep>
 ```
 
-## <a name="claimsproviderselection"></a>ReivindicaçõesProviderSele
+## <a name="identity-provider-selection"></a>Seleção de fornecedores de identidade
 
-Um passo de orquestração do tipo `ClaimsProviderSelection` ou pode conter uma lista de `CombinedSignInAndSignUp` fornecedores de sinistros com os quais um utilizador pode iniciar sação. A ordem dos elementos dentro dos `ClaimsProviderSelections` elementos controla a ordem dos fornecedores de identidade apresentados ao utilizador.
+A seleção do fornecedor de identidade permite que os utilizadores selecionem uma ação a partir de uma lista de opções. A seleção do fornecedor de identidade consiste num par de duas etapas de orquestração: 
+
+1. **Botões** - Começa com o tipo de `ClaimsProviderSelection` , ou que contém uma lista de `CombinedSignInAndSignUp` opções que um utilizador pode escolher. A ordem das opções no interior do `ClaimsProviderSelections` elemento controla a ordem dos botões apresentados ao utilizador.
+2. **Ações** - Seguido por tipo de `ClaimsExchange` . O ClaimsExchange contém uma lista de ações. A ação é uma referência a um perfil técnico, como [OAuth2,](oauth2-technical-profile.md) [OpenID Connect,](openid-connect-technical-profile.md) [transformação de reivindicações,](claims-transformation-technical-profile.md)ou [autoafirmação.](self-asserted-technical-profile.md) Quando um utilizador clica num dos botões, a ação correspondente é executada.
 
 O elemento **ClaimsProviderSelections** contém o seguinte elemento:
 
@@ -242,7 +245,7 @@ No seguinte passo de orquestração, o utilizador pode optar por iniciar scontab
   <ClaimsExchanges>
     <ClaimsExchange Id="FacebookExchange" TechnicalProfileReferenceId="Facebook-OAUTH" />
     <ClaimsExchange Id="SignUpWithLogonEmailExchange" TechnicalProfileReferenceId="LocalAccountSignUpWithLogonEmail" />
-  <ClaimsExchange Id="GoogleExchange" TechnicalProfileReferenceId="Google-OAUTH" />
+    <ClaimsExchange Id="GoogleExchange" TechnicalProfileReferenceId="Google-OAUTH" />
     <ClaimsExchange Id="LinkedInExchange" TechnicalProfileReferenceId="LinkedIn-OAUTH" />
     <ClaimsExchange Id="TwitterExchange" TechnicalProfileReferenceId="Twitter-OAUTH1" />
   </ClaimsExchanges>

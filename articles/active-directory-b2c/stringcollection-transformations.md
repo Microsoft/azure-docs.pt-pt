@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/21/2020
+ms.date: 03/04/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1ad9cc3d6d07c8d744ec667e2fffb035848121b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c9104fb4598eb62ed96d0b21734053fa118b5237
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85203253"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102120287"
 ---
 # <a name="stringcollection-claims-transformations"></a>StringCollection reivindica transformações
 
@@ -31,7 +31,7 @@ Adiciona uma reivindicação de corda a um novo valor único alegação de strin
 | Item | TransformaçãoClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | item | string | O ClaimType a ser adicionado à reclamação de saída. |
-| InputClaim | coleção | stringCollection | [Opcional] Se especificado, a transformação de sinistros copia os itens desta coleção e adiciona o item ao fim do pedido de recolha de saída. |
+| InputClaim | coleção | stringCollection | A coleção de cordas a ser adicionada à reivindicação de saída. Se a coleção contiver itens, a transformação de sinistros copia os itens e adiciona o item ao fim da reclamação de recolha de saída. |
 | OutputClaim | coleção | stringCollection | O ClaimType que é produzido após esta transformação de sinistros foi invocado, com o valor especificado na reclamação de entrada. |
 
 Utilize esta transformação de alegações para adicionar uma corda a uma cadeia nova ou existenteCollection. É comumente usado num perfil técnico **AAD-UserWriteUsingAlternativeSecurityId.** Antes de uma nova conta social ser criada, **a CreateOtherMailsFromEmail** alega que a transformação lê o ClaimType e acrescenta o valor aos **outros Correios** ClaimType.
@@ -64,7 +64,7 @@ Adiciona um parâmetro de corda a um novo valor único alegação de cadeias.
 
 | Item | TransformaçãoClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | coleção | stringCollection | [Opcional] Se especificado, a transformação de sinistros copia os itens desta coleção e adiciona o item ao fim do pedido de recolha de saída. |
+| InputClaim | coleção | stringCollection | A coleção de cordas a ser adicionada à reivindicação de saída. Se a coleção contiver itens, a transformação de sinistros copia os itens e adiciona o item ao fim da reclamação de recolha de saída. |
 | InputParameter | item | string | O valor a adicionar à reivindicação de saída. |
 | OutputClaim | coleção | stringCollection | O ClaimType que é produzido após esta transformação de sinistros foi invocado, com o valor especificado no parâmetro de entrada. |
 
@@ -125,7 +125,7 @@ O exemplo a seguir lê a **alegação de outros Emails** e devolve o primeiro it
 
 ## <a name="stringcollectioncontains"></a>StringCollectionContains
 
-Verifica se um tipo de reclamação StringCollection contém um elemento
+Verifica se um tipo de reclamação StringCollection contém um elemento.
 
 | Item | TransformaçãoClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |

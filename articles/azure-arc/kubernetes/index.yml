@@ -9,14 +9,14 @@ metadata:
   ms.topic: landing-page
   ms.date: 03/02/2021
   ms.author: shasb
-  ms.openlocfilehash: f97b1560e062d1849f726baff8cd66d8e75f8b7f
-  ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+  ms.openlocfilehash: e9acbb8206985fbc9edebba8d4183ca1a97736f7
+  ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/02/2021
-  ms.locfileid: "101647851"
+  ms.lasthandoff: 03/04/2021
+  ms.locfileid: "102121665"
 landingContent:
-- title: Ligar clusters Kubernetes ao Azure utilizando Azure Arc
+- title: Acerca do Kubernetes ativado pelo Azure Arc
   linkLists:
   - linkListType: overview
     links:
@@ -30,6 +30,8 @@ landingContent:
       url: conceptual-agent-architecture.md
     - text: Configurações e GitOps
       url: conceptual-configurations.md
+    - text: Fluxo de trabalho CI/CD utilizando GitOps
+      url: conceptual-gitops-ci-cd.md
     - text: Perguntas Mais Frequentes
       url: faq.md
 - title: Introdução
@@ -44,6 +46,8 @@ landingContent:
     links:
     - text: Implementar configurações com o GitOps
       url: tutorial-use-gitops-connected-cluster.md
+    - text: Implementar CI/CD com GitOps
+      url: tutorial-gitops-ci-cd.md
 - title: Configurar, governar e monitorizar aglomerados
   linkLists:
   - linkListType: how-to-guide

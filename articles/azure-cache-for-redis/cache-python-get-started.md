@@ -11,16 +11,20 @@ ms.custom:
 - seo-python-october2019
 - devx-track-python
 ms.date: 11/05/2019
-ms.openlocfilehash: 79add54478e9cd52ffd3041d5f85bf588929b44f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 048c31bedb56bdb66dc3b80d12c3014652e34625
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96008876"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102121155"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-in-python"></a>Quickstart: Use Azure Cache para Redis em Python
 
 Neste artigo, incorpora o Azure Cache for Redis numa aplicação Python para ter acesso a uma cache segura e dedicada que esteja acessível a partir de qualquer aplicação dentro do Azure.
+
+## <a name="skip-to-the-code-on-github"></a>Salte para o código no GitHub
+
+Se quiser saltar diretamente para o código, veja o [quickstart Python](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/quickstart/python) no GitHub.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

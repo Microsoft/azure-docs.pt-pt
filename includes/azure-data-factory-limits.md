@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/16/2020
 ms.author: chez
 ms.custom: include file
-ms.openlocfilehash: 1e8d13e7cf302c486bab291ef6482216122b62a3
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 10aa9b06af439fe701c53ef736ec691167560f95
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94680810"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102109321"
 ---
 A Azure Data Factory é um serviço multitenant que tem os seguintes limites padrão em vigor para garantir que as subscrições do cliente estão protegidas das cargas de trabalho uns dos outros. Para elevar os limites até ao máximo para a sua subscrição, contacte o suporte.
 
@@ -56,9 +56,9 @@ A Azure Data Factory é um serviço multitenant que tem os seguintes limites pad
 
 | Grupo regional | Regiões |
 | -------- | ------ |
-| Região grupo 1 | Central EUA, Leste dos EUA, Leste DOS EUA, Norte da Europa, Europa Ocidental, Eua Ocidental, Oeste dos EUA 2 |
-| Grupo regional 2 | Austrália Leste, Austrália Sudeste, Brasil Sul, Índia Central, Japão Leste, Norte-Americano norte-americano, Sudeste Asiático, Centro-Oeste dos EUA |
-| Grupo regional 3 | Canadá Central, Ásia Oriental, França Central, Coreia Central, Reino Unido Sul |
+| Região grupo 1 | Central EUA, Leste dos EUA, Leste dos EUA 2, Norte da Europa, Europa Ocidental, Eua Ocidental, Oeste dos EUA 2 |
+| Grupo regional 2 | Austrália Leste, Austrália Sudeste, Brasil Sul, Índia Central, Japão Leste, Norte Central EUA, Sudeste Asiático, Centro-Oeste dos EUA |
+| Grupo regional 3 | Outras regiões |
 
 <sup>3</sup> Pipeline, conjunto de dados e objetos de serviço ligados representam um agrupamento lógico da sua carga de trabalho. Os limites para estes objetos não se relacionam com a quantidade de dados que pode mover e processar com a Azure Data Factory. A Data Factory foi concebida para escalar para lidar com petabytes de dados.
 

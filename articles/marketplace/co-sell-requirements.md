@@ -7,12 +7,12 @@ ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
 ms.date: 2/24/2021
-ms.openlocfilehash: 5d978410cae2b2de1a2f6711de82ae71a1da168c
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 9fb86b3d4a46a70d71aa0c3fe9fd1b4a1ea6f298
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101746297"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102120135"
 ---
 # <a name="co-sell-requirements"></a>Requisitos de co-venda
 
@@ -24,7 +24,7 @@ Esta tabela mostra todos os possíveis estatutos de co-venda:
 | ------------ | ------------- |
 | Não co-vender pronto | Os [requisitos mínimos para o estatuto de co-venda pronta](#requirements-for-co-sell-ready-status) não foram cumpridos. |
 | Co-vender pronto | Todos os [requisitos para o estatuto de co-venda pronta](#requirements-for-co-sell-ready-status) foram cumpridos. |
-| Azure IP Co-venda incentivado | Os requisitos de co-venda prontos foram cumpridos para além [destes requisitos adicionais.](#requirements-for-IP-Co-sell-incentivized-status) |
+| Azure IP Co-venda incentivado | Os requisitos de co-venda prontos foram cumpridos para além [destes requisitos adicionais.](#requirements-for-ip-co-sell-incentivized-status) |
 | Biz Apps ISV Connect Premium incentivo  | Este estatuto aplica-se às ofertas da Dynamics 365 e power apps e indica que todos os requisitos para este estatuto foram [cumpridos.](#requirements-for-biz-apps-isv-connect-premium-incentive-status) |
 |||
 

@@ -8,16 +8,20 @@ ms.topic: quickstart
 ms.date: 05/21/2018
 ms.author: yegu
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-js
-ms.openlocfilehash: aa22cffc1fc38e055c6c2bb504c311c012f31ac2
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: e4c58d67668a67eee38a73d46a2a40ca29c1dfd8
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96012906"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102121257"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-in-nodejs"></a>Quickstart: Use Azure Cache para Redis em Node.js
 
 Neste quickstart, incorpora o Azure Cache para Redis numa aplicação Node.js para ter acesso a uma cache segura e dedicada que esteja acessível a partir de qualquer aplicação dentro do Azure.
+
+## <a name="skip-to-the-code-on-github"></a>Salte para o código no GitHub
+
+Se quiser saltar diretamente para o código, consulte o [Node.js arranque rápido](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/quickstart/nodejs) no GitHub.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -39,7 +43,7 @@ set REDISCACHEHOSTNAME=contosoCache.redis.cache.windows.net
 set REDISCACHEKEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
 
-## <a name="connect-to-the-cache"></a>Ligar à cache
+## <a name="connect-to-the-cache"></a>Ligar-se à cache
 
 As mais recentes construções de [node_redis](https://github.com/mranney/node_redis) fornecem suporte para a ligação à Cache Azure para redis usando TLS. O exemplo a seguir mostra como ligar a Cache Azure para Redis utilizando o ponto final TLS de 6380. 
 

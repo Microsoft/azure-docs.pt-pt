@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/11/2020
+ms.date: 03/04/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: bbb0c5617696347b566ba09a481afae4f52379aa
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: a70b8be6c034f002f0e387b5d3b4ba5deafa1a5e
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "102096042"
+ms.locfileid: "102120509"
 ---
 # <a name="technicalprofiles"></a>TechnicalProfiles
 
@@ -555,7 +555,7 @@ A referência do elemento **useTechnicalProfileForSessionManagement** ao [perfil
 
 ## <a name="enabled-for-user-journeys"></a>Habilitado para viagens de utilizador
 
-As [ReivindicaçõesProviderSelecções](userjourneys.md#claimsproviderselection) numa jornada de utilizador define a lista de opções de seleção do fornecedor de sinistros e a sua encomenda. Com o elemento **EnabledForUserJourneys** filtra-se, que o fornecedor alega estar disponível para o utilizador. O elemento **EnabledForUserJourneys** contém um dos seguintes valores:
+As [ReivindicaçõesProviderSelecções](userjourneys.md#identity-provider-selection) numa jornada de utilizador define a lista de opções de seleção do fornecedor de sinistros e a sua encomenda. Com o elemento **EnabledForUserJourneys** filtra-se, que o fornecedor alega estar disponível para o utilizador. O elemento **EnabledForUserJourneys** contém um dos seguintes valores:
 
 - **Sempre,** execute o perfil técnico.
 - **Nunca,** ignore o perfil técnico.

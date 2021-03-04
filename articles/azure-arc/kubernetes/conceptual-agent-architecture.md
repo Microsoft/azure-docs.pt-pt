@@ -2,18 +2,18 @@
 title: Azure Arc permitiu a Arquitetura do Agente Kubernetes
 services: azure-arc
 ms.service: azure-arc
-ms.date: 02/19/2021
+ms.date: 03/03/2021
 ms.topic: conceptual
 author: shashankbarsin
 ms.author: shasb
 description: Este artigo fornece uma visão geral arquitetônica de Azure Arc habilitado agentes Kubernetes
 keywords: Kubernetes, Arc, Azure, contentores
-ms.openlocfilehash: b4fb836cc7782f4026a28f4af0ca372c76486a31
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 5e53e99c492f08deab8dea89ec95190782661012
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101650537"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102121903"
 ---
 # <a name="azure-arc-enabled-kubernetes-agent-architecture"></a>Azure Arc permitiu a Arquitetura do Agente Kubernetes
 
@@ -93,5 +93,5 @@ A maioria dos centros de dados pré-directrizes de rede aplicam regras rígidas 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Ligue um cluster ao Arco de Azure](./quickstart-connect-cluster.md)
-* [Visão geral conceptual das configurações](./conceptual-configurations.md)
+* Caminhe pelo nosso quickstart para [ligar um cluster Kubernetes ao Arco Azure.](./connect-cluster.md)
+* Saiba mais sobre a criação de ligações entre o seu cluster e um repositório Git como um [recurso de configuração com Azure Arc ativado Kubernetes](./conceptual-configurations.md).

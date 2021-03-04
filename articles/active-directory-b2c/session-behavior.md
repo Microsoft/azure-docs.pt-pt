@@ -7,17 +7,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/23/2021
+ms.date: 03/04/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: e0516c25a69f22f5e66dd3ed083805cd4a9f1a61
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 2d64e85576b35caa2262ad1d635fc72fc7e2d2b8
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "102096144"
+ms.locfileid: "102120628"
 ---
 # <a name="configure-session-behavior-in-azure-active-directory-b2c"></a>Configurar o comportamento da sessão no Azure Active Directory B2C
 
@@ -71,7 +71,7 @@ A sessão de aplicação pode ser uma sessão baseada em cookies armazenada sob 
 
 Pode configurar o comportamento da sessão Azure AD B2C, incluindo:
 
-- **Duração da sessão de aplicações web (minutos)** - A quantidade de tempo que o cookie de sessão AZure AD B2C é armazenado no navegador do utilizador após a autenticação bem sucedida. Pode definir a vida útil da sessão para um valor de 15 a 720 minutos.
+- **Duração da sessão de aplicações web (minutos)** - A quantidade de tempo que o cookie de sessão AZure AD B2C é armazenado no navegador do utilizador após a autenticação bem sucedida. Pode definir a vida útil da sessão até 24 horas.
 
 - **Tempo limite de sessão de aplicações web** - Indica como uma sessão é prolongada pela definição de vida útil da sessão ou pela definição Keep me signed in (KMSI).
   - **Rolar** - Indica que a sessão é prolongada sempre que o utilizador realiza uma autenticação baseada em cookies (predefinição).

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 08/24/2020
+ms.date: 03/04/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 491549933817a127a92180b0e4b455e461e4d3a2
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: df94bb5e6066b83afd566181debbc0872dc1a5b4
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99492251"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102120267"
 ---
 # <a name="page-layout-versions"></a>Versões do esquema de página
 
@@ -76,7 +76,7 @@ Os pacotes de layout da página são periodicamente atualizados para incluir cor
 
 **2.1.2**
 - Corrigiu a questão da codificação da localização para línguas como o espanhol e o francês.
-- Permitindo que o link "esqueceu-se da palavra-passe" para usar como troca de reclamações como IDP social.
+- Permitindo que o link "esqueceu-se da palavra-passe" para usar como troca de reclamações. Para obter mais informações, consulte [a palavra-passe self-service reposta](add-password-reset-policy.md#self-service-password-reset-recommended).
 
 **2.1.1**
 - Adicionei um UXString `heading` para `intro` além de exibir na página como um título. Isto é escondido por defeito.

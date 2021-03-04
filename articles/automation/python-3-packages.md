@@ -3,26 +3,26 @@ title: Gerir pacotes Python 3 em Azure Automation
 description: Este artigo diz como gerir pacotes Python 3 (pré-visualização) na Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 12/22/2020
+ms.date: 02/19/2021
 ms.topic: conceptual
-ms.openlocfilehash: 3f39f49ff47b935da7ffc777ee45bd219f5740b5
-ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
+ms.openlocfilehash: fd4d8ee92b670bc2544619a0dce16a26d9342c13
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97734306"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102122039"
 ---
 # <a name="manage-python-3-packages-preview-in-azure-automation"></a>Gerir pacotes Python 3 (pré-visualização) em Azure Automation
 
-A Azure Automation permite-lhe executar livros python 3 (pré-visualização) no Azure e no Linux Hybrid Runbook Workers. Para ajudar na simplificação dos livros de execução, pode utilizar pacotes Python para importar os módulos de que necessita. Este artigo descreve como gerir e utilizar pacotes Python 3 (pré-visualização) na Azure Automation.
+A Azure Automation permite-lhe executar livros python 3 (pré-visualização) no Azure e no Linux Hybrid Runbook Workers. Para ajudar na simplificação dos livros de execução, pode utilizar pacotes Python para importar os módulos de que necessita. Para importar um único pacote, consulte [importar um pacote.](#import-a-package) Para importar um pacote com vários pacotes, consulte [Importar um pacote com dependências.](#import-a-package-with-dependencies) Este artigo descreve como gerir e utilizar pacotes Python 3 (pré-visualização) na Azure Automation.
 
-## <a name="import-packages"></a>Importar pacotes
+## <a name="import-a-package"></a>Importar um pacote
 
 Na sua conta Automation, selecione **pacotes Python** em Recursos **Partilhados.** selecionar **+ Adicionar um pacote Python**.
 
 :::image type="content" source="media/python-3-packages/add-python-3-package.png" alt-text="Screenshot da página de pacotes Python 3 mostra pacotes Python 3 no menu esquerdo e Adicionar um pacote Python 2 em destaque.":::
 
-Na página **'Adicionar Pacote Python',** selecione Python 3 para a **versão** e selecione um pacote local para carregar. O pacote pode ser um ficheiro **.whl** ou **.tar.gz.** Quando a embalagem for selecionada, selecione **OK** para o carregar.
+Na página **'Adicionar Pacote Python',** selecione **Python 3** para a **versão** e selecione um pacote local para carregar. O pacote pode ser um ficheiro **.whl** ou **.tar.gz.** Quando a embalagem for selecionada, selecione **OK** para o carregar.
 
 :::image type="content" source="media/python-3-packages/upload-package.png" alt-text="A screenshot mostra a página do Pacote Add Python 3 com um ficheiro de alcatrão .gz carregado selecionado.":::
 
@@ -30,19 +30,35 @@ Uma vez importado um pacote, está listado na página de pacotes Python na sua c
 
 :::image type="content" source="media/python-3-packages/python-3-packages-list.png" alt-text="A screenshot mostra a página de pacotes Python 3 depois de um pacote ter sido importado.":::
 
-## <a name="import-packages-with-dependencies"></a>Pacotes de importação com dependências
+### <a name="import-a-package-with-dependencies"></a>Importar um pacote com dependências
 
-A Azure Automation não resolve as dependências dos pacotes Python durante o processo de importação. No entanto, existe uma forma de importar um pacote com todas as suas dependências.
-
-### <a name="manually-download"></a>Download manual
-
-Numa máquina Windows 64-bit com [Python 3.8](https://www.python.org/downloads/release/python-380/) e [pip](https://pip.pypa.io/en/stable/) instalado, executar o seguinte comando para descarregar um pacote e todas as suas dependências:
+Você pode importar um pacote Python 3 e suas dependências importando o seguinte script Python em um livro python 3, e depois executá-lo.
 
 ```cmd
-C:\Python38\Scripts\pip3.8.exe download -d <output dir> <package name>
+https://github.com/azureautomation/runbooks/blob/master/Utility/Python/import_py3package_from_pypi.py
 ```
 
-Assim que os pacotes forem descarregados, pode importá-los para a sua conta Automation.
+#### <a name="importing-the-script-into-a-runbook"></a>Importando o guião em um livro de bordo
+Para obter informações sobre a importação do livro de bordo, consulte [Importar um livro de bordo do portal Azure.](manage-runbooks.md#import-a-runbook-from-the-azure-portal) Copie o ficheiro do GitHub para o armazenamento a que o portal pode aceder antes de executar a importação.
+
+A página **De Importação de um livro de contas** predefine o nome do livro de execução para corresponder ao nome do script. Se tiver acesso ao campo, pode alterar o nome. **O tipo de runbook** pode passar por defeito para **Python 2**. Se o fizer, certifique-se de alterá-lo para **Python 3**.
+
+:::image type="content" source="media/python-3-packages/import-python-3-package.png" alt-text="A screenshot mostra a página de importação de livros de bordo Python 3.":::
+
+#### <a name="executing-the-runbook-to-import-the-package-and-dependencies"></a>Execução do livro de bordo para importar o pacote e dependências
+
+Depois de criar e publicar o livro de bordo, execute-o para importar o pacote. Consulte [iniciar um livro de recortes na Azure Automation](start-runbooks.md) para obter mais informações sobre a execução do livro de recortes.
+
+O script requer `import_py3package_from_pypi.py` os seguintes parâmetros.
+
+| Parâmetro | Descrição |
+|---------------|-----------------|
+|subscription_id | ID de assinatura da conta Automation |
+| resource_group | Nome do grupo de recursos que a conta Automation é definida em |
+| automation_account | Nome da conta de automação |
+| module_name | Nome do módulo para importar a partir de `pypi.org` |
+
+Para obter mais informações sobre a utilização de parâmetros com livros de recortes, consulte [Trabalhar com parâmetros de runbook](start-runbooks.md#work-with-runbook-parameters).
 
 ## <a name="use-a-package-in-a-runbook"></a>Use um pacote em um livro de corridas
 

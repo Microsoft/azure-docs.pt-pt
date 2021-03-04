@@ -7,16 +7,20 @@ ms.service: cache
 ms.devlang: rust
 ms.topic: quickstart
 ms.date: 01/08/2021
-ms.openlocfilehash: b55a706aa25b21620226690c172c996fe10a84fa
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 17f38d79b75179d7a54ca5ed1d20dff18d0a0363
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98203512"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102121104"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-rust"></a>Quickstart: Use cache Azure para Redis com Ferrugem
 
 Neste artigo, você aprenderá a usar a [linguagem de programação Rust](https://www.rust-lang.org/) para interagir com [Azure Cache para Redis](./cache-overview.md). Irá demonstrar exemplos de estruturas de dados redis comumente utilizadas, tais como [String,](https://redis.io/topics/data-types-intro#redis-strings) [Hash,](https://redis.io/topics/data-types-intro#redis-hashes) [List,](https://redis.io/topics/data-types-intro#redis-lists) etc. usando a biblioteca [redis-rs](https://github.com/mitsuhiko/redis-rs) para Redis. Este cliente expõe APIs de alto e baixo nível e você verá ambos estes estilos em ação com a ajuda do código de amostra apresentado neste artigo.
+
+## <a name="skip-to-the-code-on-github"></a>Salte para o código no GitHub
+
+Se quiser saltar diretamente para o código, consulte o [quickstart rust](https://github.com/Azure-Samples/azure-redis-cache-rust-quickstart/) no GitHub.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -322,7 +326,7 @@ A aplicação aceita conectividade e credenciais sob a forma de variáveis ambie
     }
     ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se terminar com o grupo de recursos Azure e os recursos que criou neste quickstart, pode eliminá-los para evitar encargos.
 

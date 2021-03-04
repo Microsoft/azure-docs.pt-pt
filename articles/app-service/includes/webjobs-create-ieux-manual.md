@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 10/16/2018
 ms.title: include
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 5ef61502d0b2fccc92ca606992e965b45764baa0
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 5687fb99c27b8b2141e0a2a817327cfbb124951a
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101746669"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102109282"
 ---
 ## <a name="create-a-manually-triggered-webjob"></a><a name="CreateOnDemand"></a> Criar um WebJob ativado manualmente
 
@@ -28,8 +28,8 @@ ms.locfileid: "101746669"
 
     ![Screenshot que mostra as definições que precisam de ser definidas para criar um WebJob ativado manualmente.](../media/web-sites-create-web-jobs/addwjtriggered.png)
     
-    | Definição      | Valor da amostra   | Descrição  |
-    | ------------ | ----------------- | ------------ |
+    | Definição      | Valor da amostra   | 
+    | ------------ | ----------------- | 
    | <abbr title="Um nome único dentro de uma aplicação do Serviço de Aplicações. Deve começar com uma letra ou um número e não pode conter caracteres especiais para além `-` de `_` .">Name</abbr> | myTriggeredWebJob | 
     | <abbr title="Um *ficheiro .zip* que contenha o seu ficheiro executável ou script, bem como quaisquer ficheiros de suporte necessários para executar o programa ou script.">Upload de ficheiros</abbr> | ConsoleApp.zip |
     | <abbr title="Os tipos incluem contínuo, desencadeado.">Tipo</abbr> | Desencadeado | 

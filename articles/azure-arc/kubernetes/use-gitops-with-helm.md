@@ -2,18 +2,18 @@
 title: Implementar gráficos de leme usando GitOps em Arc ativado cluster Kubernetes
 services: azure-arc
 ms.service: azure-arc
-ms.date: 03/02/2021
+ms.date: 03/03/2021
 ms.topic: article
 author: mlearned
 ms.author: mlearned
 description: Use GitOps com leme para uma configuração de cluster ativada pelo Arco Azure
 keywords: GitOps, Kubernetes, K8s, Azure, Helm, Arc, AKS, Azure Kubernetes Service, contentores
-ms.openlocfilehash: 0176d614a6bf44e2bf20cc7935521a6387a3b574
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 75e2fcb25680817fc3e2bddabbbdd9c52b7dd059
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101687295"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102121410"
 ---
 # <a name="deploy-helm-charts-using-gitops-on-an-arc-enabled-kubernetes-cluster"></a>Implementar gráficos de leme usando GitOps em um cluster de Kubernetes ativado por arco
 
@@ -136,4 +136,4 @@ kubectl port-forward -n arc-k8s-demo svc/arc-k8s-demo 8080:8080
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Use a política do Azure para governar a configuração do cluster](./use-azure-policy.md)
+Aplicar configurações de cluster à escala utilizando [a Política Azure](./use-azure-policy.md).

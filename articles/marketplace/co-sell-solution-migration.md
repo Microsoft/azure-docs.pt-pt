@@ -7,12 +7,12 @@ ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
 ms.date: 12/07/2020
-ms.openlocfilehash: 84d98eedb3ea6f3faaeaecf832811f9f4c78c7c5
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 445810d5873bb935ded180a969e4612542bde5ed
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880360"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102120186"
 ---
 # <a name="migration-of-co-sell-solutions-from-ocp-gtm-to-the-commercial-marketplace"></a>Migração de soluções de co-venda da OCP GTM para o mercado comercial
 
@@ -136,7 +136,7 @@ Para obter instruções detalhadas sobre as informações que necessita de forne
 
     :::image type="content" source="media/co-sell-migrate/offer-setup.png" alt-text="Os separadores de configuração da oferta no Partner Center.":::
 
-3. Alguns dos detalhes voltados para o vendedor da Microsoft foram copiados da solução OCP GTM. Preencha as restantes informações necessárias no separador **Co-venda com** o separador Microsoft para tornar a sua oferta co-venda pronta. Quando estiver concluído, **selecione 'Rever' e publicar**. Para obter mais informações, consulte [Como submeter materiais de co-venda no centro parceiro.](marketplace-co-sell.md#how-to-submit-co-sell-materials-in-partner-center)
+3. Alguns dos detalhes voltados para o vendedor da Microsoft foram copiados da solução OCP GTM. Preencha as restantes informações necessárias no separador **Co-venda com** o separador Microsoft para tornar a sua oferta co-venda pronta. Quando estiver concluído, **selecione 'Rever' e publicar**. Para obter mais informações, consulte [Como submeter materiais de co-venda no centro parceiro.](marketplace-co-sell.md)
 
     :::image type="content" source="media/co-sell-migrate/co-sell-page.png" alt-text="A oferta co-vende o separador no Partner Center.":::
 
@@ -151,8 +151,8 @@ Para obter instruções detalhadas sobre as informações que necessita de forne
 6. Iremos notificá-lo quando a nossa avaliação de certificação estiver completa. Se fornecermos feedback acionável, endereçá-lo e, em seguida, selecionar **Publicar** para iniciar uma recertificação.
 7. Assim que a sua oferta passar pela certificação, faça a pré-visualização da oferta com o link fornecido e faça quaisquer ajustes finais que possa desejar. Quando estiver pronto, selecione **Go live** (ver botão acima) para publicar a sua oferta para lojas de mercado comerciais relevantes. Uma vez ao vivo, a sua oferta manterá o seu estatuto de co-venda a partir da solução original do OCP GTM.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Revenda através de Parceiros CSP](cloud-solution-providers.md)
-- [Como submeter materiais de co-venda no centro parceiro](marketplace-co-sell.md#how-to-submit-co-sell-materials-in-partner-center)
+- [Como submeter materiais de co-venda no centro parceiro](marketplace-co-sell.md)
 - Ver estas [PERGUNTAS Frequentes](https://partner.microsoft.com/resources/detail/co-sell-requirements-publish-commercial-marketplace-faq-pdf) (PDF)

@@ -27,12 +27,12 @@
         - name: A bordo do Defender para solução baseada em agente IoT
           displayName: 'IoT Hub, existing, enable'
           href: quickstart-onboard-iot-hub.md
-        - name: Instale o Defender para o micro agente IoT (pré-visualização)
+        - name: Instale o Defender para o micro agente IoT
           displayName: 'package, authentication, methods, certificate, authenticate, version'
           href: quickstart-standalone-agent-binary-installation.md
-        - name: Criar um módulo de micro agente Defender IoT twin (Pré-visualização)
+        - name: Criar um módulo de micro agente Defender IoT gémeo
           href: quickstart-create-micro-agent-module-twin.md
-        - name: Construa o Defender para micro-agente IoT a partir do código fonte (Pré-visualização)
+        - name: Construa o Defender para micro-agente IoT a partir do código fonte
           displayName: 'baseline, configuration, customize, distribution'
           href: quickstart-building-the-defender-micro-agent-from-source.md
         - name: Configure módulo de segurança para Azure RTOS
@@ -56,18 +56,18 @@
           href: concept-key-concepts.md
     - name: Solução com base em agente para Criadores de Dispositivos
       items:
-        - name: Visão geral do portfólio de agentes e suporte ao OS (Pré-visualização)
+        - name: Visão geral do portfólio de agentes e suporte do SO
           displayName: 'standalone agent, micro agent, RTOS'
           href: concept-agent-portfolio-overview-os-support.md
-        - name: Visão geral autónoma do micro-agente (Visualização)
+        - name: Visão geral do micro-agente autónomo
           displayName: 'endpoint, posture, distribution, flexible, model'
           href: concept-standalone-micro-agent-overview.md
-        - name: Autenticação de agente de segurança (Pré-visualização)
+        - name: Autenticação do agente de segurança
           displayName: 'connection string, certificate, authentication'
           href: concept-security-agent-authentication.md
         - name: Postura de segurança - referência cis
           href: concept-security-posture.md
-        - name: Agregação de eventos (Pré-visualização)
+        - name: Agregação de eventos
           displayName: 'process events, network connection'
           href: concept-event-aggregation.md
         - name: Alertas incorporados para IoT Hub
@@ -249,9 +249,6 @@
           displayName: 'data, collection, geolocation, log analytics, raw events'
           href: how-to-configure-agent-based-solution.md
         - name: Investigar recomendação de referência do CIS
-          displayName: 'investigation, queries, investigate'
-          href: how-to-configure-agent-based-solution.md
-        - name: Investigar recomendação de referência do CIS
           href: how-to-investigate-cis-benchmark.md
         - name: Criar alertas personalizados
           displayName: security group
@@ -300,7 +297,7 @@
               href: how-to-investigate-device.md
 - name: Resolução de problemas
   items:
-    - name: Resolução de problemas do micro agente do Defender IoT (Pré-visualização)
+    - name: Resolução de problemas do micro agente defender IoT
       displayName: 'service status, review logs'
       href: troubleshoot-defender-micro-agent.md
 - name: Suporte de recurso e aposentadoria

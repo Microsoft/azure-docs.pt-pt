@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/03/2021
+ms.date: 03/04/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 44a084266a083b2cc7c0609e4bfedb10a018585d
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 075b04414c752ce87365d03212fcdabab6eaa7dd
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "102107809"
+ms.locfileid: "102119829"
 ---
 # <a name="configure-saml-identity-provider-options-with-azure-active-directory-b2c"></a>Configure opções de fornecedor de identidade SAML com Azure Ative Directory B2C
 
@@ -43,8 +43,8 @@ Também pode incluir reclamações que não são devolvidas pelo fornecedor de i
 O elemento de reclamação de saída contém os seguintes atributos:
 
 - **ClaimTypeReferenceId** é a referência a um tipo de reclamação. 
-- **PartnerClaimType** é o nome da propriedade que aparece no Azure Insights. Utilize a `{property:NAME}` sintaxe, onde a propriedade está a ser adicionada ao `NAME` evento.
-- **DefaultValue** é um valor predefinido a ser gravado, como o nome do evento. Uma alegação que é utilizada na viagem do utilizador, como o nome do fornecedor de identidade. Se a reclamação estiver vazia, o valor predefinido será utilizado. Por exemplo, a `identityProvider` alegação é definida pelos perfis técnicos da federação, como o Facebook. Se a reclamação estiver vazia, indica o utilizador a iniciar scontabilidade com uma conta local. Assim, o valor predefinido é definido para *Local.* Também pode registar uma [reclamação](claim-resolver-overview.md) com um valor contextual, como o ID da aplicação ou o endereço IP do utilizador.
+- **PartnerClaimType** é o nome da propriedade que aparece afirmação SAML. 
+- **DefaultValue** é um valor predefinido por defeito. Se a reclamação estiver vazia, o valor predefinido será utilizado. Também pode utilizar uma [reclamação](claim-resolver-overview.md) com um valor contextual, como o ID de correlação ou o endereço IP do utilizador.
 
 ### <a name="subject-name"></a>Nome do requerente
 

@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/12/2021
+ms.date: 03/04/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 2956f0ffb562214477249da3198ebbe42ef9bb45
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: c84966f7b4dc1740235fe6414da2ba832a1334fd
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98660374"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102119914"
 ---
 # <a name="set-up-a-sign-in-flow-in-azure-active-directory-b2c"></a>Configurar um fluxo de entrada no Azure Ative Directory B2C
 
@@ -30,7 +30,7 @@ A política de inscrição permite aos utilizadores:
 * Os utilizadores podem iniciar sação com uma Conta Local Azure AD B2C
 * Inscreva-se ou inscreva-se com uma conta social
 * Reposição de palavras-passe
-* Os utilizadores não podem inscrever-se numa Conta Local AZure AD B2C - Para criar uma conta, um Administrador pode utilizar [a API do Ms Graph](microsoft-graph-operations.md).
+* Os utilizadores não podem inscrever-se numa Conta Local Azure AD B2C. Para criar uma conta, um administrador pode utilizar [o portal Azure,](manage-users-portal.md#create-a-consumer-user)ou [MS Graph API](microsoft-graph-operations.md).
 
 ![Fluxo de edição de perfis](./media/add-sign-in-policy/sign-in-user-flow.png)
 
@@ -75,26 +75,34 @@ O perfil técnico **SelfAsserted-LocalAccountSignin-Email** é um perfil [autoaf
 1. Adicione o seguinte provedor de reclamações ao `ClaimsProviders` elemento:
 
     ```xml
-    <ClaimsProvider>
-      <DisplayName>Local Account</DisplayName>
-      <TechnicalProfiles>
-        <TechnicalProfile Id="SelfAsserted-LocalAccountSignin-Email">
-          <Metadata>
-            <Item Key="setting.showSignupLink">false</Item>
-          </Metadata>
-        </TechnicalProfile>
-      </TechnicalProfiles>
-    </ClaimsProvider>
+    <!--
+    <ClaimsProviders> -->
+      <ClaimsProvider>
+        <DisplayName>Local Account</DisplayName>
+        <TechnicalProfiles>
+          <TechnicalProfile Id="SelfAsserted-LocalAccountSignin-Email">
+            <Metadata>
+              <Item Key="setting.showSignupLink">false</Item>
+            </Metadata>
+          </TechnicalProfile>
+        </TechnicalProfiles>
+      </ClaimsProvider>
+    <!--
+    </ClaimsProviders> -->
     ```
 
 1. Dentro `<BuildingBlocks>` do elemento, adicione o seguinte [ContentDefinition](contentdefinitions.md) para fazer referência à versão 1.2.0 ou URI de dados mais recentes:
 
     ```XML
-    <ContentDefinitions>
-     <ContentDefinition Id="api.localaccountsignup">
-        <DataUri>urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:1.2.0</DataUri>
-      </ContentDefinition>
-    </ContentDefinitions>
+    <!-- 
+    <BuildingBlocks> 
+      <ContentDefinitions>-->
+        <ContentDefinition Id="api.localaccountsignup">
+          <DataUri>urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:1.2.0</DataUri>
+        </ContentDefinition>
+      <!--
+      </ContentDefinitions>
+    </BuildingBlocks> -->
     ```
 
 ## <a name="update-and-test-your-policy"></a>Atualizar e testar a sua política
@@ -103,7 +111,7 @@ O perfil técnico **SelfAsserted-LocalAccountSignin-Email** é um perfil [autoaf
 1. Certifique-se de que está a usar o diretório que contém o seu inquilino Azure AD selecionando o filtro **de subscrição Diretório +** no menu superior e escolhendo o diretório que contém o seu inquilino Azure AD.
 1. Escolha **todos os serviços** no canto superior esquerdo do portal Azure e, em seguida, procure e selecione **as inscrições da App.**
 1. Selecione **o Quadro de Experiência de Identidade.**
-1. Selecione **''Personal's Personal Policy ' 'Upload'** e, em seguida, faça o upload dos dois ficheiros de política que alterou.
+1. Selecione **Carregar a Política Personalizada** e, em seguida, carregar o ficheiro de política que alterou, *TrustFrameworkExtensions.xml*.
 1. Selecione a política de inscrição que fez o upload e clique no botão **Executar agora.**
 1. Deverá poder iniciar scontabilidade com a conta que criou (utilizando a MS Graph API), sem o link de inscrição.
 

@@ -9,15 +9,15 @@ ms.author: roastala
 author: rastala
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 12/04/2020
+ms.date: 03/04/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 3eaab31d3948e41a216eaa402c2a11e470a6545d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: fb877b208e6c9599347e2b45e140545e5815e695
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101691506"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102120815"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>Iniciar, monitorizar e cancelar treinos em Python
 
@@ -113,6 +113,10 @@ Vai precisar dos seguintes itens:
     
         Para obter mais informações, consulte [o roteiro de submissão az ml run](/cli/azure/ext/azure-cli-ml/ml/run?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-submit-script).
 
+    # <a name="studio"></a>[Studio](#tab/azure-studio)
+
+    Para um exemplo de formação de um modelo no designer Azure Machine Learning, consulte [Tutorial: Predict Automobile price with the designer](tutorial-designer-automobile-price-train-score.md).
+
     ---
 
 * Monitorizar o estado de uma corrida
@@ -195,8 +199,7 @@ Uma descrição de execução pode ser adicionada a uma corrida para fornecer ma
 
 Navegue na página **'Detalhes de execução'** para a sua execução e selecione o ícone de edição ou lápis para adicionar, editar ou apagar descrições para a sua execução. Para persistir nas alterações à lista de execuções, guarde as alterações na sua Visualização Personalizada existente ou numa nova Vista Personalizada. O formato markdown é suportado para descrições de execução que permitem que as imagens sejam incorporadas e ligações profundas como mostrado abaixo.
 
-:::image type="content" source="media/how-to-manage-runs/rundescription.gif" alt-text="Screenshot: criar uma descrição de execução"::: 
-    
+:::image type="content" source="media/how-to-manage-runs/run-description.gif" alt-text="Screenshot: criar uma descrição de execução"::: 
 
 ## <a name="tag-and-find-runs"></a>Etiquetar e encontrar corridas
 

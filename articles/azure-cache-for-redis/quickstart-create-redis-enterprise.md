@@ -7,12 +7,12 @@ ms.service: cache
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 02/08/2021
-ms.openlocfilehash: 37496b9358ec72c79f8d26e32a92485f001e0e9d
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 8dbde1f74c700e772823d61b3e35a464f9bbc17e
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "102031672"
+ms.locfileid: "102120968"
 ---
 # <a name="quickstart-create-a-redis-enterprise-cache-preview"></a>Quickstart: Criar uma cache Redis Enterprise (Pré-visualização)
 
@@ -49,13 +49,7 @@ Vai precisar de uma assinatura Azure antes de começar. Se não tiver uma, crie 
 
 1. Selecione **Seguinte: Networking** e saltar.
 
-   > [!NOTE] 
-   > A opção de ligação privada está a ser lançada e pode não estar disponível imediatamente na sua região.
-   >
-
-1. Selecione **Seguinte: Política avançada** e definida **de clustering** para a **Enterprise**.
-   
-   Pode manter as definições predefinidos ou alterá-las conforme apropriado. Ao **ligar, permita o acesso apenas através do TLS,** tem de utilizar o TLS para aceder à nova cache a partir da sua aplicação.
+1. Selecione **Seguinte: Política avançada** e definida **de clustering** para a **Enterprise**. Ativar **o acesso não-TLS apenas** se pretender ligar-se à nova cache sem utilizar o TLS. No entanto, isto não é recomendado.
 
    :::image type="content" source="media/cache-create/enterprise-tier-advanced.png" alt-text="Separador avançado de nível empresarial":::
 

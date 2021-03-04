@@ -3,18 +3,18 @@ title: Ressarça os seus dados para Azure com Commvault
 titleSuffix: Azure Blob Storage Docs
 description: A página web fornece uma visão geral dos fatores a considerar e passos a seguir para alavancar o Azure como alvo de armazenamento e localização de recuperação para o Commvault Complete Backup and Recovery
 keywords: Commvault, Backup to Cloud, Backup, Backup to Azure, Recuperação de Desastres, Continuidade do Negócio
-author: Karl Rautenstrauch
+author: karauten
 ms.author: karauten
 ms.date: 11/11/2020
 ms.topic: article
 ms.service: Storage
 ms.subservice: Blob Storage
-ms.openlocfilehash: f5b35abd58d99478014c1227b6e3c03c2fc7a177
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 381775b8cdba173cc1752a45b83670c7251e50ec
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101746200"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102101567"
 ---
 # <a name="back-up-to-azure-with-commvault"></a>De volta a Azure com Commvault
 

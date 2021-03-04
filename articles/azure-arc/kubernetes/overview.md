@@ -2,19 +2,19 @@
 title: Visão geral de Azure Arc habilitado Kubernetes
 services: azure-arc
 ms.service: azure-arc
-ms.date: 02/19/2021
+ms.date: 03/03/2021
 ms.topic: overview
 author: mlearned
 ms.author: mlearned
 description: Este artigo fornece uma visão geral de Azure Arc habilitado Kubernetes.
 keywords: Kubernetes, Arc, Azure, contentores
 ms.custom: references_regions
-ms.openlocfilehash: 42a04bb349b2acbd68c7088bc0348deda1ee09e1
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: b3296aa1c1d5d463cc7f4cb932b44ad76632e19e
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101652273"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102121597"
 ---
 # <a name="what-is-azure-arc-enabled-kubernetes"></a>O que é o Kubernetes ativado pelo Azure Arc?
 
@@ -66,4 +66,6 @@ Azure Arc habilitado Kubernetes é atualmente apoiado nestas regiões:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Ligue um cluster ao Arco de Azure](./quickstart-connect-cluster.md)
+Aprenda a ligar um cluster ao Arco de Azure.
+> [!div class="nextstepaction"]
+> [Ligue um cluster ao Arco de Azure](./quickstart-connect-cluster.md)

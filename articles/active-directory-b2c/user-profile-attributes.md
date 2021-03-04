@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/02/2021
+ms.date: 03/04/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: dcd0ccdc42a820f1e264b739cb0063516a0cb53e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: db2715f0827203dac505fa4dc15c22bdab953010
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101688557"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102120220"
 ---
 # <a name="user-profile-attributes"></a>Atributos de perfil de utilizador
 
@@ -101,9 +101,9 @@ Uma conta de cliente, que pode ser um consumidor, parceiro ou cidadão, pode ser
 - **Identidade local** - O nome de utilizador e a palavra-passe são armazenados localmente no diretório Azure AD B2C. Muitas vezes nos referimos a estas identidades como "contas locais".
 - Identidade **federada** - Também conhecida como contas *sociais* ou *empresariais,* a identidade do utilizador é gerida por um fornecedor de identidade federado como Facebook, Microsoft, ADFS ou Salesforce.
 
-Um utilizador com uma conta de cliente pode iniciar súmuta com múltiplas identidades. Por exemplo, nome de utilizador, e-mail, identificação de funcionários, ID do governo, e outros. Uma única conta pode ter múltiplas identidades, tanto locais como sociais, com a mesma senha.
+Um utilizador com uma conta de cliente pode iniciar súmuta com múltiplas identidades. Por exemplo, nome de utilizador, e-mail, identificação de funcionários, ID do governo, e outros. Uma única conta pode ter múltiplas identidades, tanto locais como sociais, com a mesma senha. 
 
-Na Microsoft Graph API, as identidades locais e federadas são armazenadas no `identities` atributo do utilizador, que é do tipo [entidade objectIdentity][entidade de gráfico-objectIdentity]. A `identities` coleção representa um conjunto de identidades usadas para iniciar scontabilidade de um utilizador. Esta recolha permite ao utilizador iniciar seduções na conta do utilizador com qualquer uma das suas identidades associadas.
+Na API do Gráfico da Microsoft, as identidades locais e federadas são armazenadas no atributo do `identities` utilizador, que é de tipo [objetoIdentity](/graph/api/resources/objectidentity). A `identities` coleção representa um conjunto de identidades usadas para iniciar scontabilidade de um utilizador. Esta recolha permite ao utilizador iniciar seduções na conta do utilizador com qualquer uma das suas identidades associadas. As identidades atribuídas podem conter até dez objetos [objectIdentity.](/graph/api/resources/objectidentity) Cada objeto contém as seguintes propriedades:
 
 | Nome   | Tipo |Descrição|
 |:---------------|:--------|:----------|

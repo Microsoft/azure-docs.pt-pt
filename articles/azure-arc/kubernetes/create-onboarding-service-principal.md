@@ -2,18 +2,18 @@
 title: Criar um diretor de serviço de embarque para a Azure Arc habilitado a Kubernetes
 services: azure-arc
 ms.service: azure-arc
-ms.date: 02/09/2021
+ms.date: 03/03/2021
 ms.topic: article
 author: mlearned
 ms.author: mlearned
 description: 'Criar um Arco Azure habilitado a bordo principal '
 keywords: Kubernetes, Arc, Azure, contentores
-ms.openlocfilehash: bda088bdae5c866493718db94c9a2da89cada8c9
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 610b355073473f0e492350753a523b7943666f13
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101650351"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102121750"
 ---
 # <a name="create-an-onboarding-service-principal-for-azure-arc-enabled-kubernetes"></a>Criar um diretor de serviço de embarque para a Azure Arc habilitado a Kubernetes
 
@@ -89,4 +89,4 @@ az connectedk8s connect -n myConnectedClusterName -g myResoureGroupName
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Use a política do Azure para governar a configuração do cluster](./use-azure-policy.md)
+Regule a sua configuração de cluster [utilizando a Política Azure](./use-azure-policy.md).

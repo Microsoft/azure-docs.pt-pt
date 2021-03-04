@@ -2,30 +2,31 @@
 title: Fluxo de trabalho CI/CD utilizando GitOps - Azure Arc habilitado Kubernetes
 services: azure-arc
 ms.service: azure-arc
-ms.date: 02/26/2021
+ms.date: 03/03/2021
 ms.topic: conceptual
 author: tcare
 ms.author: tcare
 description: Este artigo fornece uma visão geral conceptual de um fluxo de trabalho CI/CD usando GitOps
 keywords: GitOps, Kubernetes, K8s, Azure, Helm, Arc, AKS, Azure Kubernetes Service, contentores, CI, CD, Azure DevOps
-ms.openlocfilehash: 044275db0977a20474aa1451324486ad1750a7f9
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: a51a9f2b32f1088cec390dc4d74300a38f37b160
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "102055128"
+ms.locfileid: "102121784"
 ---
-# <a name="overview"></a>Descrição Geral
+# <a name="cicd-workflow-using-gitops---azure-arc-enabled-kubernetes"></a>Fluxo de trabalho CI/CD usando GitOps - Azure Arc habilitado Kubernetes
 
 Os modernos implantadores kubernetes abrigam múltiplas aplicações, clusters e ambientes. Com o GitOps, você pode gerir estas configurações complexas mais facilmente, rastreando o estado desejado dos ambientes Kubernetes declarativamente com Git. Usando ferramentas git comuns para rastrear o estado do cluster, você pode aumentar a responsabilidade, facilitar a investigação de falhas e permitir a automação para gerir ambientes.
 
-Este artigo fornece uma visão geral conceptual de como fazer do GitOps uma realidade em pleno ciclo de vida de uma mudança de aplicação usando Azure Arc, Azure Repos e Azure Pipelines. Caminhe através de um exemplo de uma única mudança numa aplicação de um desenvolvedor para ambientes Kubernetes controlados por GitOps.
+Esta visão geral conceptual explica gitOps como uma realidade em toda a aplicação mudar o ciclo de vida usando Azure Arc, Azure Repos e Azure Pipelines. [Salte para um exemplo](#example-workflow) de uma única mudança de aplicação para ambientes Kubernetes controlados por GitOps.
 
 ## <a name="architecture"></a>Arquitetura
 
 Considere uma aplicação implantada num ou mais ambientes Kubernetes.
 
 ![GitOps arquitetura CI/CD](./media/gitops-arch.png)
+
 ### <a name="application-repo"></a>Repo de aplicação
 O repo de aplicação contém o código de aplicação em que os desenvolvedores trabalham durante o seu loop interno. Os modelos de implementação da aplicação vivem neste repo de uma forma genérica, como Helm ou Kustomize. Valores específicos do ambiente não são armazenados. As alterações a este repo invocam um pipeline de Relações Públicas ou CI que inicia o processo de implantação.
 ### <a name="container-registry"></a>Container Registry
@@ -39,9 +40,9 @@ O Flux é um serviço que funciona em cada cluster e é responsável pela manute
 ### <a name="cd-pipeline"></a>CD Pipeline
 O gasoduto de CD é automaticamente acionado por construções de CI bem sucedidas. Utiliza os modelos anteriormente publicados, substitui os valores ambientais e abre um PR ao repo GitOps para solicitar uma alteração ao estado desejado de um ou mais clusters Kubernetes. Os administradores de clusters analisam o Pr de mudança de estado e aprovam a fusão para o repo GitOps. O oleoduto aguarda então a conclusão do Pr, o que permite ao Flux captar a mudança de estado.
 ### <a name="gitops-repo"></a>GitOps repo
-O repo GitOps representa o estado atual desejado de todos os ambientes em todos os aglomerados. Qualquer alteração a esta repo é captada pelo serviço Flux em cada cluster e implantada. Os PRs são criados com alterações ao estado desejado, revistos e fundidos. Estes PRs contêm alterações tanto nos modelos de implantação como nos manifestos de Kubernetes renderizados resultantes. Os manifestos renderizados de baixo nível evitam quaisquer surpresas por trás da substituição do modelo, permitindo uma inspeção cuidadosa de alterações tipicamente invisíveis ao nível do modelo.
+O repo GitOps representa o estado atual desejado de todos os ambientes em todos os aglomerados. Qualquer alteração a esta repo é captada pelo serviço Flux em cada cluster e implantada. Os PRs são criados com alterações ao estado desejado, revistos e fundidos. Estes PRs contêm alterações tanto nos modelos de implantação como nos manifestos de Kubernetes renderizados resultantes. Manifestos renderizados de baixo nível permitem uma inspeção mais cuidadosa de alterações tipicamente invisíveis ao nível do modelo.
 ### <a name="kubernetes-clusters"></a>Clusters do Kubernetes
-Um ou mais aglomerados de Azure Arc habilitados a Kubernetes servem os diferentes ambientes necessários pela aplicação. Por exemplo, um único cluster pode servir um ambiente dev e QA através de diferentes espaços de nome. Um segundo aglomerado pode proporcionar uma separação mais fácil dos ambientes e um controlo mais fino.
+Pelo menos um arco Azure habilitado a clusters Kubernetes serve os diferentes ambientes necessários pela aplicação. Por exemplo, um único cluster pode servir um ambiente dev e QA através de diferentes espaços de nome. Um segundo aglomerado pode proporcionar uma separação mais fácil dos ambientes e um controlo mais fino.
 ## <a name="example-workflow"></a>Fluxo de trabalho exemplo
 Como desenvolvedora de aplicações, Alice:
 * Escreve código de aplicação.
@@ -60,7 +61,7 @@ Suponha que Alice queira fazer uma alteração de aplicação que altere a image
     * A mudança é segura para ser implantada no cluster, e os artefactos são guardados para o gasoduto ci.
 4. A mudança de Alice funde-se e aciona o oleoduto de CD.
     * O oleoduto de CD capta os artefactos armazenados pelo gasoduto de Alice.
-    * O pipeline de CD substitui os modelos por valores específicos do ambiente, e encena quaisquer alterações em relação ao estado de cluster existente no repo GitOps.
+    * O pipeline de CD substitui os modelos por valores específicos do ambiente e encena quaisquer alterações em relação ao estado de cluster existente no repo GitOps.
     * O oleoduto de CD cria um PR para o GitOps repo com as alterações desejadas para o estado de cluster.
 5. A equipa da Alice analisa e aprova o relações públicas.
     * A alteração é fundida no ramo-alvo correspondente ao ambiente.
@@ -73,4 +74,4 @@ Suponha que Alice queira fazer uma alteração de aplicação que altere a image
 8.  Uma vez que todos os ambientes tenham recebido implementações bem sucedidas, o gasoduto completa.
 
 ## <a name="next-steps"></a>Passos seguintes
-[Configurações e GitOps com Arco Azure habilitados Kubernetes](./conceptual-configurations.md)
+Saiba mais sobre a criação de ligações entre o seu cluster e um repositório Git como um [recurso de configuração com o Arco Azure habilitado a Kubernetes](./conceptual-configurations.md)
