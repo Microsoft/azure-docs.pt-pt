@@ -7,12 +7,12 @@ ms.date: 9/23/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: d9aaa00527462f5bbb999ddb76e125d1dfbee7a4
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 36c32c4eefdaa1c7604f2b0f19e98cf6a6d4310d
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101701999"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102096535"
 ---
 # <a name="introduction-to-azure-defender-for-servers"></a>Introdução ao Azure Defender para servidores
 
@@ -97,4 +97,4 @@ Para obter material relacionado, consulte os seguintes artigos:
 - Se um alerta é gerado pelo Security Center, ou recebido pelo Security Center a partir de um produto de segurança diferente, você pode exportá-lo. Para exportar os seus alertas para a Azure Sentinel, qualquer SIEM de terceiros, ou qualquer outra ferramenta externa, siga as instruções em [alertas de exportação para um SIEM](continuous-export.md).
 
 - > [!div class="nextstepaction"]
-    > [Ativar o Azure Defender](security-center-pricing.md#enable-azure-defender)
+    > [Ativar o Azure Defender](enable-azure-defender.md)

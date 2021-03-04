@@ -7,20 +7,16 @@ ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 02/18/2021
 ms.custom: template-concept
-ms.openlocfilehash: 0d53ca9a2203dc4c901c62226c584dcef580d648
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 68244e1669bbdce8215df467564ea3aca56b530c
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101663710"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102098133"
 ---
 # <a name="the-azure-percept-dk-update-experience"></a>A experiência de atualização Azure Percept DK
 
-Com o Azure Percept DK, tem duas opções para atualizar o seu dev kit OS e firmware: over-the-air (OTA) ou via USB. A OTA é a melhor forma de manter facilmente os dispositivos atualizados à escala, enquanto a atualização USB é uma boa opção para quando a OTA não é possível ou quando pretende restabelecer o seu dispositivo.
-
-## <a name="update-experience-guides"></a>Atualizar guias de experiência
-
-Para garantir que você é capaz de aproveitar qualquer método de atualização melhor para você, nós reunimos uma coleção de guias de como ajudá-lo.
+Com o Azure Percept DK, tem duas opções para atualizar o seu dev kit OS e firmware: over-the-air (OTA) ou via USB. A atualização da OTA é uma forma fácil de manter os dispositivos atualizados, enquanto a atualização USB é uma boa opção para quando a OTA não é possível ou quando pretende restabelecer o seu dispositivo. Para garantir que você é capaz de aproveitar qualquer método de atualização melhor para você, nós reunimos uma coleção de guias de como ajudá-lo. 
 
 - [Como configurar o Azure IoT Hub para implementar as atualizações aéreas do seu Azure Percept DK](./how-to-set-up-over-the-air-updates.md)
 - [Como atualizar o seu Azure Percept DK no ar](./how-to-update-over-the-air.md)

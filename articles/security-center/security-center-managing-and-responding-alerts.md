@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/17/2021
 ms.author: memildin
-ms.openlocfilehash: a47ece762f2df3fa18cf2b79d338c28d4069c4ad
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: 490f94c71611e07e765f5882cb4e3eec13033a6a
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100633494"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102099340"
 ---
 # <a name="manage-and-respond-to-security-alerts-in-azure-security-center"></a>Gerir e responder a alertas de segurança no Centro de Segurança Azure
 
 Este tópico mostra-lhe como visualizar e processar os alertas do Security Center e proteger os seus recursos.
 
-As deteções avançadas que desencadeiam alertas de segurança só estão disponíveis com o Azure Defender. Está disponível uma avaliação gratuita. Para atualizar, consulte [Enable Azure Defender](security-center-pricing.md#enable-azure-defender).
+As deteções avançadas que desencadeiam alertas de segurança só estão disponíveis com o Azure Defender. Está disponível uma avaliação gratuita. Para atualizar, consulte [Enable Azure Defender](enable-azure-defender.md).
 
 ## <a name="what-are-security-alerts"></a>O que são alertas de segurança?
 O Centro de Segurança recolhe, analisa e integra automaticamente dados de registo a partir dos seus recursos do Azure, da rede e soluções de parceiros ligadas, tal como soluções de proteção de ponto final e firewall, para detetar ameaças reais e reduzir os falsos positivos. Uma lista de alertas de segurança prioritários é apresentada no Centro de Segurança juntamente com as informações necessárias para investigar rapidamente o problema e fornecer recomendações sobre como remediar um ataque.

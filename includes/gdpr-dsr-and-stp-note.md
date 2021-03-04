@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: lizross
 ms.custom: include file
-ms.openlocfilehash: 062956e4895287d943cfffa0e8e078ca8412dafc
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
-ms.translationtype: HT
+ms.openlocfilehash: 5bf486da8fc17b08c4e4cc3abf163312426d5f72
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186813"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102096365"
 ---
->[!NOTE] 
->Para obter informações sobre a visualização ou eliminação de dados pessoais, veja [Azure Data Subject Requests for the GDPR](/microsoft-365/compliance/gdpr-dsr-azure) (Pedidos de Titulares de Dados do Azure relativos aos RGPD). Para obter mais informações sobre o RGPD, veja a [secção RGPD do Portal de Confiança do Serviço](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted).
+> [!NOTE]
+> Para obter informações sobre a visualização ou eliminação de dados pessoais, veja [Azure Data Subject Requests for the GDPR](/microsoft-365/compliance/gdpr-dsr-azure) (Pedidos de Titulares de Dados do Azure relativos aos RGPD). Para obter mais informações sobre o RGPD, consulte a [secção rGPD do Microsoft Trust Center](https://www.microsoft.com/trust-center/privacy/gdpr-overview) e a secção [rGPD do portal Service Trust](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted).

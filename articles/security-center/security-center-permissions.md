@@ -1,5 +1,5 @@
 ---
-title: Permissões no Centro de Segurança Azure Microsoft Docs
+title: Permissões no Centro de Segurança Azure | Microsoft Docs
 description: Este artigo explica como o Azure Security Center usa o controlo de acesso baseado em funções para atribuir permissões aos utilizadores e identifica as ações permitidas para cada função.
 services: security-center
 cloud: na
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 12/01/2020
 ms.author: memildin
-ms.openlocfilehash: 668fe1436feeb0888f7d871144da6cb6b8e3864e
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 14ee9f23379a26c1756c622efb7d739f49dd0537
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96922612"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102099187"
 ---
 # <a name="permissions-in-azure-security-center"></a>Permissions in Azure Security Center (Permissões no Centro de Segurança do Azure)
 
@@ -59,6 +59,5 @@ Este artigo explicou como o Security Center usa o Azure RBAC para atribuir permi
 
 - [Definir políticas de segurança no Centro de Segurança](tutorial-security-policy.md)
 - [Gerir recomendações de segurança no Centro de Segurança](security-center-recommendations.md)
-- [Monitorize a saúde de segurança dos seus recursos Azure](security-center-monitoring.md)
 - [Gerir e responder a alertas de segurança no Centro de Segurança](security-center-managing-and-responding-alerts.md)
 - [Monitorizar soluções de segurança dos parceiros](./security-center-partner-integration.md)

@@ -3,14 +3,14 @@ title: Executar cargas de trabalho em VMs de baixa prioridade com baixo nível d
 description: Saiba como providenciar VMs de baixa prioridade para reduzir o custo das cargas de trabalho do Azure Batch.
 author: mscurrell
 ms.topic: how-to
-ms.date: 02/02/2021
+ms.date: 03/03/2021
 ms.custom: seodec18
-ms.openlocfilehash: 9214ef83ec9b8bef4fb7bc7489aa0ab388f67c0d
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: cafc7216e8112640f823ecee1aea055ab78b3fc6
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99507283"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102098473"
 ---
 # <a name="use-low-priority-vms-with-batch"></a>Utilizar VMs de baixa prioridade com o Batch
 
@@ -25,9 +25,9 @@ Os VM de baixa prioridade são oferecidos a um preço significativamente reduzid
 > [!NOTE]
 > [Os VM spot](https://azure.microsoft.com/pricing/spot/) estão agora disponíveis para conjuntos de escala [de VMs](../virtual-machines/spot-vms.md) e VM de [exemplo.](../virtual-machine-scale-sets/use-spot.md) Os VM spot são uma evolução de VMs de baixa prioridade, mas diferem nesse preço pode variar e um preço máximo opcional pode ser definido ao atribuir VMs spot.
 >
-> As piscinas Azure Batch começarão a suportar VMs spot dentro de alguns meses após a sua disponibilidade geral, com novas versões das [APIs do lote e ferramentas](./batch-apis-tools.md). Uma vez que o suporte spot VM esteja disponível, os VM de baixa prioridade serão depreciados - continuarão a ser suportados utilizando as atuais APIs e versões de ferramentas durante pelo menos 12 meses, para permitir tempo suficiente para a migração para os VMs spot.
+>As piscinas Azure Batch vão começar a suportar VMs spot no futuro, com novas versões das [APIs e ferramentas](./batch-apis-tools.md)do Lote. Após o suporte spot VM estar disponível, os VM de baixa prioridade serão depreciados - continuarão a ser suportados utilizando as atuais APIs e versões de ferramentas durante pelo menos 12 meses, para permitir tempo suficiente para a migração para os VMs spot.
 >
-> Os VMs spot não serão suportados para piscinas [de configuração de serviço](/rest/api/batchservice/pool/add#cloudserviceconfiguration) de nuvem. Para utilizar vMs spot, as piscinas de Cloud Service terão de ser migradas para piscinas [de configuração de máquinas virtuais.](/rest/api/batchservice/pool/add#virtualmachineconfiguration)
+> Os VMs spot só serão suportados para piscinas de configuração de máquinas virtuais. Para utilizar VMs spot, quaisquer piscinas de configuração de serviço de nuvem terão de ser [migradas para piscinas de configuração de máquinas virtuais.](batch-pool-cloud-service-to-virtual-machine-configuration.md)
 
 ## <a name="batch-support-for-low-priority-vms"></a>Suporte de lote para VMs de baixa prioridade
 

@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 06/26/2020
 ms.author: cynthn
 ms.reviewer: jagaveer
-ms.openlocfilehash: b7a4dc65a3f9285c27b4bf34f65244c37aaf850c
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 33172004ac4361de51b92389fbf56bd699f7124f
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101672138"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102096450"
 ---
 # <a name="deploy-azure-spot-virtual-machines-using-azure-powershell"></a>Implementar máquinas virtuais Azure Spot usando Azure PowerShell
 
@@ -85,9 +85,11 @@ Substitua as seguintes informações:
 - `vmName`
 
 
-```http
+```rest
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}/simulateEviction?api-version=2020-06-01
 ```
+
+`Response Code: 204` significa que o despejo simulado foi bem sucedido. 
 
 ## <a name="next-steps"></a>Passos seguintes
 

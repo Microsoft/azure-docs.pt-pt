@@ -7,26 +7,27 @@ ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 02/18/2021
 ms.custom: template-concept
-ms.openlocfilehash: 4fd0a7cb575a109d1393527b48de3fa4e3446167
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 4c2ace609d67cc48d1b73bdb044e7048ebda21e7
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101663470"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102098337"
 ---
 # <a name="azure-percept-dk-overview"></a>Visão geral de Azure Percept DK
 
-Azure Percept DK é um kit de desenvolvimento de IA de borda projetado para desenvolver a prova de conceitos de IA de visão. Quando combinado com [o Azure Percept Studio,](./overview-azure-percept-studio.md)torna-se uma plataforma poderosa mas simples de usar para construir soluções de IA de ponta para uma ampla gama de aplicações de IA de visão. Está disponível para compra na loja online da [Microsoft.](https://go.microsoft.com/fwlink/p/?LinkId=2155270)
+Azure Percept DK é um kit de desenvolvimento de IA e IoT de borda projetado para desenvolver visão e prova de IA áudio de conceitos. Quando combinado com [o Azure Percept Studio](./overview-azure-percept-studio.md) e [o Azure Percept Audio,](./overview-azure-percept-audio.md)torna-se uma plataforma poderosa mas simples de usar para construir soluções de IA de borda para uma ampla gama de aplicações de IA de visão ou áudio. Está disponível para compra na loja online da [Microsoft.](https://go.microsoft.com/fwlink/p/?LinkId=2155270)
 
-:::image type="content" source="./media/overview-azure-percept-dk/dk-image.png" alt-text="A imagem.":::
+:::image type="content" source="./media/overview-azure-percept-dk/dk-image.png" alt-text="Dispositivo Azure Percept DK.":::
 
 ## <a name="key-features"></a>Principais Funcionalidades
 
 - **A capacidade de executar IA no limite.** Com a aceleração de hardware incorporada, pode executar modelos de IA de visão sem ligação à nuvem.
 - **Raiz de hardware da segurança de confiança incorporada em**. Consulte esta visão geral da [Azure Percept Security](./overview-percept-security.md) para mais detalhes.
 - **Integração perfeita com [o Azure Percept Studio](./overview-azure-percept-studio.md)** e outros serviços Azure. Tais como, Azure IoT Hub, Azure Cognitive Services e [Live Video Analytics](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/overview)
+- **Integração perfeita com [opcional Azure Percept Audio](./overview-azure-percept-audio.md)**
 - **Suporte para as principais plataformas de IA.** Como ONNX e TensorFlow.
-- **Integração com o sistema de gradeamento 80/20**. Facilitando a construção de protótipos em ambientes de produção. Saiba mais sobre a [integração 8/20](./overview-8020-integration.md).
+- **Integração com o sistema de gradeamento 80/20**. Facilitando a construção de protótipos em ambientes de produção. Saiba mais sobre a [integração 80/20](./overview-8020-integration.md).
 
 ## <a name="hardware-components"></a>Componentes de hardware
 

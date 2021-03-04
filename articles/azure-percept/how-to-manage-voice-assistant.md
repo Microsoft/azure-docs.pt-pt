@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/15/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 593d2ccadf814cb5af27a4bb738f28132f39ab7d
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 5e41dea3b47c608b9e82ac57fa1cfe5247ea6cc2
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101663047"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102099017"
 ---
 # <a name="managing-your-voice-assistant"></a>Gerir o seu assistente de voz
 
@@ -28,7 +28,7 @@ Uma palavra-chave é uma palavra ou frase curta usada para ativar um assistente 
 
 1. Clique **em alterar** ao lado da **palavra-chave personalizada** na página de demonstração.
 
-    :::image type="content" source="./media/manage-voice-assistant/hospitality-demo.png" alt-text="A imagem.":::
+    :::image type="content" source="./media/manage-voice-assistant/hospitality-demo.png" alt-text="Imagem de janela de demonstração de hospitalidade.":::
 
     Se não tiver a página de demonstração aberta, navegue na página do dispositivo (ver abaixo) e clique em **Testar o seu assistente de voz** em **Ações** para aceder à demonstração.
 
@@ -40,17 +40,17 @@ Uma palavra-chave é uma palavra ou frase curta usada para ativar um assistente 
 
 1. Na página geral do [Azure Percept Studio,](https://go.microsoft.com/fwlink/?linkid=2135819)clique em **Dispositivos** no painel de menus esquerdo.
 
-    :::image type="content" source="./media/manage-voice-assistant/portal-overview-devices.png" alt-text="A imagem.":::
+    :::image type="content" source="./media/manage-voice-assistant/portal-overview-devices.png" alt-text="Screenshot da página geral do Azure Percept Studio com dispositivos em destaque.":::
 
 1. Selecione o dispositivo para o qual a sua aplicação de assistente de voz foi implantada.
 
 1. Abra a conta **de discurso.**
 
-    :::image type="content" source="./media/manage-voice-assistant/device-page.png" alt-text="A imagem.":::
+    :::image type="content" source="./media/manage-voice-assistant/device-page.png" alt-text="Screenshot da página do dispositivo de borda com o separador Discurso realçado.":::
 
 1. Clique em **Alterar** ao lado da **palavra-chave**.
 
-    :::image type="content" source="./media/manage-voice-assistant/change-keyword-device.png" alt-text="A imagem.":::
+    :::image type="content" source="./media/manage-voice-assistant/change-keyword-device.png" alt-text="Screenshot das ações de solução de fala disponíveis.":::
 
 1. Selecione uma das palavras-chave disponíveis e clique em **Guardar** para aplicar alterações.
 

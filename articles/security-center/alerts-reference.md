@@ -1,23 +1,20 @@
 ---
 title: Tabela de referência para todos os alertas de segurança no Centro de Segurança Azure
-description: Este artigo lista os alertas de segurança visíveis no painel Azure Defender do Azure Security Center.
+description: Este artigo lista os alertas de segurança visíveis no painel Azure Defender do Azure Security Center
 services: security-center
 documentationcenter: na
 author: memildin
 manager: rkarlin
 ms.service: security-center
-ms.devlang: na
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/21/2021
+ms.date: 03/03/2021
 ms.author: memildin
-ms.openlocfilehash: a9ba66580d6b98cfde0abe934f53f05d27edc57f
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: e8ebf47420150c82c8e94299291e9ea6bd7d4d88
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101735850"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102096960"
 ---
 # <a name="security-alerts---a-reference-guide"></a>Alertas de segurança – um guia de referência
 
@@ -278,6 +275,9 @@ Na parte inferior desta página, há uma tabela que descreve a cadeia de morte d
 
 ## <a name="alerts-for-containers---host-level"></a><a name="alerts-containerhost"></a>Alertas para contentores - nível de hospedeiro
 
+Os alertas do Azure Defender para os anfitriões dos contentores não se limitam aos alertas abaixo. Muitos dos alertas listados nos alertas para a [camada de rede Azure](#alerts-azurenetlayer), [alertas para máquinas Windows](#alerts-windows)– e alertas para as [tabelas de máquinas Linux](#alerts-linux) também podem ser acionados nos anfitriões dos seus contentores. A equipa global de inteligência de ameaças da Microsoft mede e afina continuamente muitos tipos de alertas contra os clusters kubernetes para otimizar a deteção e reduzir falsos positivos.
+
+
 [Mais detalhes e notas](defender-for-kubernetes-introduction.md)
 
 | Alerta                                                                          | Descrição                                                                                                                                                                                                                                                                                                | Táticas MITRE<br>(Saiba[mais)](#intentions) | Gravidade |
@@ -294,9 +294,7 @@ Na parte inferior desta página, há uma tabela que descreve a cadeia de morte d
 
 ## <a name="alerts-for-sql-database-and-azure-synapse-analytics"></a><a name="alerts-sql-db-and-warehouse"></a>Alertas para A SQL Database e Azure Synapse Analytics
 
-[Mais detalhes e notas](defender-for-sql-introduction.md)
-
-| Alerta                                                    | Descrição                                                                                                                                                                                                                                                                                                                                                                                                                               | Táticas MITRE<br>(Saiba[mais)](#intentions) | Gravidade |
+[Mais detalhes e notas](defender-for-sql-introduction.md)| Alerta                                                    | Descrição                                                                                                                                                                                                                                                                                                                                                                                                                               | Táticas MITRE<br>(Saiba[mais)](#intentions) | Gravidade |
 |----------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------:|----------|
 | **Uma possível vulnerabilidade à injeção de SQL**            | Uma aplicação gerou uma declaração SQL defeituosa na base de dados. Isto pode indicar uma possível vulnerabilidade a ataques de injeção DE SQL. Há duas razões possíveis para uma declaração defeituosa. Um defeito no código de aplicação pode ter construído a declaração SQL defeituosa. Ou, o código de aplicação ou os procedimentos armazenados não higienizaram a entrada do utilizador ao construir a declaração SQL defeituosa, que pode ser explorada para a injeção de SQL. | -                                            | Médio   |
 | **Tentativa de início de são por uma aplicação potencialmente prejudicial** | Uma aplicação potencialmente prejudicial tentou aceder ao servidor SQL '{name}'.                                                                                                                                                                                                                                                                                                                                                               | Pré-Ataque                                    | Alto     |
@@ -477,8 +475,7 @@ Na parte inferior desta página, há uma tabela que descreve a cadeia de morte d
 
 ## <a name="security-incident-alerts"></a><a name="alerts-fusion"></a>Alertas de incidentes de segurança
 
-[Mais detalhes e notas](security-center-alerts-cloud-smart.md)
-
+[Mais detalhes e notas](security-center-alerts-overview.md#cloud-smart-alert-correlation-in-azure-security-center-incidents)
 
 | Alerta                                   | Descrição                                                          | Táticas MITRE<br>(Saiba[mais)](#intentions) | Gravidade |
 |-----------------------------------------|----------------------------------------------------------------------|:----------------------------------:|----------|

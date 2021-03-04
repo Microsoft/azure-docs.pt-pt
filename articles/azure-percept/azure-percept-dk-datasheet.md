@@ -6,12 +6,12 @@ ms.author: v-elqu
 ms.service: azure-percept
 ms.topic: reference
 ms.date: 02/16/2021
-ms.openlocfilehash: 1d94dea1424ad31dab5c5b0ea338aa07f27784ac
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 5b8a84b77fbde41748a2d9ef99a92cb6af1bbea6
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101663374"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102097589"
 ---
 # <a name="azure-percept-dk-datasheet"></a>Folha de dados Azure Percept DK
 
@@ -24,17 +24,17 @@ ms.locfileid: "101663374"
 |Incluído na Caixa                 |1x Azure Percept DK Carrier Board  <br> 1x [Visão Percept Azure](./azure-percept-vision-datasheet.md) <br> Sensor RGB 1x (Câmara) <br> Cabo 1x USB 3.0 Tipo C <br> Cabo de alimentação 1x DC <br> 1x Conversor AC/DC <br> Antenas de Wi-Fi 2x  |
 |SO                              |[CBL-Mariner](https://github.com/microsoft/CBL-Mariner)           |
 |Plano de Controlo de Gestão        |Atualização do dispositivo Azure (ADU) <br> [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) <br> [Hub IoT do Azure](https://azure.microsoft.com/services/iot-hub/)          |
-|Software e Serviços Suportados |Atualização do dispositivo Azure <br> [Azure IoT](https://azure.microsoft.com/overview/iot/) <br> [Hub IoT do Azure](https://azure.microsoft.com/services/iot-hub/) <br> [Azure IoT Central](https://azure.microsoft.com/services/iot-central/) <br> [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) e [Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1) <br> [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) <br> [Azure Mariner OS com Conectividade](https://github.com/microsoft/CBL-Mariner) <br> [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) <br> [ONNX Runtime](https://www.onnxruntime.ai/) <br> [TensorFlow](https://www.tensorflow.org/) <br> [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) <br> Azure PnP <br> [Serviço de Fornecimento de Dispositivos Azure (DPS)](https://docs.microsoft.com/azure/iot-dps/) <br> [Serviços Cognitivos do Azure](https://azure.microsoft.com/services/cognitive-services/) <br> [Power BI](https://powerbi.microsoft.com/)      |
+|Software e Serviços Suportados |Atualização do dispositivo Azure <br> [Azure IoT](https://azure.microsoft.com/overview/iot/) <br> [Hub IoT do Azure](https://azure.microsoft.com/services/iot-hub/) <br> [Azure IoT Central](https://azure.microsoft.com/services/iot-central/) <br> [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) e [Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1) <br> [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) <br> [Azure Mariner OS com Conectividade](https://github.com/microsoft/CBL-Mariner) <br> [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) <br> [ONNX Runtime](https://www.onnxruntime.ai/) <br> [TensorFlow](https://www.tensorflow.org/) <br> [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) <br> IoT Plug and Play <br> [Serviço de Fornecimento de Dispositivos Azure (DPS)](https://docs.microsoft.com/azure/iot-dps/) <br> [Serviços Cognitivos do Azure](https://azure.microsoft.com/services/cognitive-services/) <br> [Power BI](https://powerbi.microsoft.com/)      |
 |Processador Geral               |NXP iMX8m (Azure Percept DK Carrier Board)        |
 |Aceleração da IA                 |1x Intel Movidius Myriad X IsP Integrado (Azure Percept Vision) |
-|Sensores e Indicadores Visuais   |Câmara Omni Vision 5670 <br> Lente GSO GS8882AA (Resolução: 5MP a 30FPS, Distância: 50cm - infinito, FoV: 120 graus, Cor: Gama Dinâmica Larga, Fecho de Enrolamento de Foco Fixo)          |
+|Sensores e Indicadores Visuais   |Sensor de câmara Sony IMX219 com lente de 6P<br>Resolução: 8MP a 30FPS, Distância: 50cm - infinito<br>FoV: 120 graus diagonal, Cor: Gama dinâmica larga, fecho de rolamento de foco fixo|
 |Segurança                        |TPM 2.0 Nuvoton NCPT750 |
 |Conectividade                    |Wi-Fi e Bluetooth através do controlador realtek RTL882CE single-chip     |
 |Armazenamento                         |16GB     |
 |Memória                          |4GB     |
-|Portas                           |1x Ethernet <br> 2x USB-A 3.0 <br> 1x USB-C <br> 1x HDMI (inativo)     |
-|Certificação                   |CE <br> FCC     |
-|Temperatura operacional           |-20 a 70 graus C     |
-|Humidade relativa               |8% a 90%    |
+|Portas                           |1x Ethernet <br> 2x USB-A 3.0 <br> 1x USB-C     |
+|Temperatura operacional           |0 a 35 graus C     |
+|Temperatura não operacional       |-40 a 85 graus C     |
+|Humidade relativa               |10% a 95%    |
+|Certificação                   |FCC <br> IC <br> Rio Rohs <br> ALCANCE <br> RIO UL   |
 |Fornecimento de energia                    |19VDC a 3.42A (65W) |
-|Vibração                       |2,0Grms de 1 a 300Hz.     |

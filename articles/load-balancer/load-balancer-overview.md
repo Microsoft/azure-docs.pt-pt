@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 1/25/2021
 ms.author: allensu
-ms.openlocfilehash: a514edef1ef1f67fba3efae883ceb46dee249d6e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 14e6990579f61b28c091f18b45a06d1ddcc00e89
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101705505"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102097538"
 ---
 # <a name="what-is-azure-load-balancer"></a>O que é o Balanceador de Carga do Azure?
 
 *O equilíbrio de carga* refere-se à distribuição uniforme da carga (tráfego de rede de entrada) através de um grupo de recursos ou servidores de backend. 
 
-O Azure Load Balancer opera na quarta camada do modelo Open Systems Interconnection (OSI). É o único ponto de contacto para os clientes. O Balancer de Carga distribui fluxos de entrada que chegam à parte frontal do balançador de carga para anular as instâncias da piscina. Estes fluxos são de acordo com regras de equilíbrio de carga configuradas e sondas de saúde. As instâncias de backend pool podem ser Máquinas Virtuais Azure ou instâncias em um conjunto de escala de máquina virtual.
+O Azure Load Balancer funciona na camada 4 do modelo De Interconexão de Sistemas Abertos (OSI). É o único ponto de contacto para os clientes. O equilibrador de carga distribui fluxos de entrada que chegam à parte frontal do balançador de carga para anular as instâncias da piscina. Estes fluxos são de acordo com regras de equilíbrio de carga configuradas e sondas de saúde. As instâncias de backend pool podem ser Máquinas Virtuais Azure ou instâncias em um conjunto de escala de máquina virtual.
 
 Um **[equilibrador de carga pública](./components.md#frontend-ip-configurations)** pode fornecer ligações de saída para máquinas virtuais (VMs) dentro da sua rede virtual. Estas ligações são realizadas traduzindo os seus endereços IP privados para endereços IP públicos. Os Balançadores de Carga Pública são utilizados para carregar o tráfego de internet de equilíbrio para os seus VMs.
 
@@ -39,10 +39,20 @@ Um **[equilibrador de carga interno (ou privado)](./components.md#frontend-ip-co
 
 Para obter mais informações sobre os componentes do balançador de carga individual, consulte [os componentes do Balançador de Carga Azure](./components.md).
 
-## <a name="why-use-azure-load-balancer"></a>Porquê usar o Equilibrador de Carga Azure?
-Com o Balancer de Carga Padrão, pode escalar as suas aplicações e criar serviços altamente disponíveis. O equilibrador de carga suporta cenários de entrada e saída. O balanceador de carga proporciona baixa latência e alta produção, e escala até milhões de fluxos para todas as aplicações TCP e UDP.
+>[!NOTE]
+> O Azure oferece um conjunto de soluções de balanceamento de carga totalmente geridas para os seus cenários. 
+> * Se estiver a procurar fazer o encaminhamento global baseado em DNS e **não** tiver requisitos para a rescisão do protocolo de Segurança da Camada de Transporte (TLS) ("descarga SSL"), por pedido HTTP/HTTPS ou processamento de camadas de aplicação, reveja [o Gestor de Tráfego.](../traffic-manager/traffic-manager-overview.md) 
+> * Se pretender carregar o equilíbrio entre os seus servidores numa região na camada de aplicação, reveja o [Gateway de Aplicações](../application-gateway/overview.md)
+> * Se precisar de otimizar o encaminhamento global do seu tráfego web e otimizar o desempenho e fiabilidade do utilizador final de topo através de uma rápida falha global, consulte [a Porta frontal](../frontdoor/front-door-overview.md)
+> 
+> Os seus cenários de ponta a ponta podem beneficiar de combinar estas soluções conforme necessário.
+> Para uma comparação de opções de equilíbrio de carga Azure, consulte [a visão geral das opções de equilíbrio de carga em Azure](/azure/architecture/guide/technology-choices/load-balancing-overview).
 
-Os cenários-chave que pode realizar usando o Balancer de Carga Padrão incluem:
+
+## <a name="why-use-azure-load-balancer"></a>Porquê usar o Equilibrador de Carga Azure?
+Com o Azure Load Balancer, pode escalar as suas aplicações e criar serviços altamente disponíveis. O equilibrador de carga suporta cenários de entrada e saída. O balanceador de carga proporciona baixa latência e alta produção, e escala até milhões de fluxos para todas as aplicações TCP e UDP.
+
+Os cenários-chave que pode realizar usando o Azure Standard Load Balancer incluem:
 
 - Balance o tráfego **[interno](./quickstart-load-balancer-standard-internal-portal.md)** e **[externo](./quickstart-load-balancer-standard-public-portal.md)** para as máquinas virtuais Azure.
 
@@ -56,7 +66,7 @@ Os cenários-chave que pode realizar usando o Balancer de Carga Padrão incluem:
 
 - Ativar o suporte para **[o equilíbrio](../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md)** de carga do **[IPv6](../virtual-network/ipv6-overview.md)**.
 
-- O Balanceador de Carga Padrão fornece métricas multidimensionais através do [Azure Monitor.](../azure-monitor/overview.md)  Estas métricas podem ser filtradas, agrupadas e partidas para uma determinada dimensão.  Fornecem insights atuais e históricos sobre o desempenho e saúde do seu serviço. [Insights for Azure Load Balancer](./load-balancer-insights.md) oferece um dashboard pré-configurado com visualizações úteis para estas métricas.  A Saúde dos Recursos também é apoiada. Reveja **[o Diagnóstico Padrão do Balanceador de Carga](load-balancer-standard-diagnostics.md)** para mais detalhes.
+- O balanceador de carga padrão fornece métricas multidimensionais através do [Azure Monitor](../azure-monitor/overview.md).  Estas métricas podem ser filtradas, agrupadas e partidas para uma determinada dimensão.  Fornecem insights atuais e históricos sobre o desempenho e saúde do seu serviço. [Insights for Azure Load Balancer](./load-balancer-insights.md) oferece um dashboard pré-configurado com visualizações úteis para estas métricas.  A Saúde dos Recursos também é apoiada. Reveja **[os diagnósticos do balanceador de carga standard](load-balancer-standard-diagnostics.md)** para mais detalhes.
 
 - Carregue os serviços de balanço em **[várias portas, vários endereços IP, ou ambos](./load-balancer-multivip-overview.md)**.
 
@@ -66,14 +76,21 @@ Os cenários-chave que pode realizar usando o Balancer de Carga Padrão incluem:
 
 ### <a name="secure-by-default"></a><a name="securebydefault"></a>Proteger por defeito
 
-O Balancer de Carga Padrão é construído no modelo de segurança da rede de confiança zero no seu núcleo. O Balancer de Carga Padrão é seguro por predefinição e parte da sua rede virtual. A rede virtual é uma rede privada e isolada.  Isto significa que os balanceadores de carga padrão e os endereços IP públicos padrão estão fechados para fluxos de entrada, a menos que sejam abertos por Grupos de Segurança de Rede. Os NSGs são usados para permitir explicitamente o tráfego permitido.  Se não tiver um NSG numa sub-rede ou NIC do seu recurso de máquina virtual, o tráfego não pode chegar a este recurso. Para saber mais sobre os NSGs e como aplicá-los para o seu cenário, consulte [os Grupos de Segurança da Rede.](../virtual-network/network-security-groups-overview.md)
-O Balancer de Carga Básica está aberto à internet por padrão. Além disso, o Balancer de Carga não armazena os dados do cliente.
+* O balanceador de carga padrão é construído no modelo de segurança da rede de confiança zero.
+
+* O Balancer de Carga Padrão é seguro por predefinição e parte da sua rede virtual. A rede virtual é uma rede privada e isolada.  
+
+* Os equilibradores de carga padrão e os endereços IP públicos padrão estão fechados para ligações de entrada, a menos que sejam abertos por Grupos de Segurança da Rede. Os NSGs são usados para permitir explicitamente o tráfego permitido.  Se não tiver um NSG numa sub-rede ou NIC do seu recurso de máquina virtual, o tráfego não está autorizado a chegar a este recurso. Para saber mais sobre os NSGs e como aplicá-los ao seu cenário, consulte [os Grupos de Segurança da Rede](../virtual-network/network-security-groups-overview.md).
+
+* O balanceador de carga básico está aberto à internet por padrão. 
+
+* O balanceador de carga não armazena os dados do cliente.
 
 ## <a name="pricing-and-sla"></a>Preços e SLA
 
-Para obter informações sobre preços do balanceador de carga padrão, consulte [os preços do balanceador de carga](https://azure.microsoft.com/pricing/details/load-balancer/).
-O Balanceador de Carga Básico é disponibilizado sem custos.
-Ver [SLA para balanceador de carga](https://aka.ms/lbsla). O Balanceador de Carga Básica não tem SLA.
+Para obter informações sobre preços padrão do balançador de carga, consulte [os preços do balançador de carga](https://azure.microsoft.com/pricing/details/load-balancer/).
+O balanceador de carga básico é oferecido gratuitamente.
+Consulte [o SLA para o balanceador de carga](https://aka.ms/lbsla). O balanceador de carga básico não tem SLA.
 
 ## <a name="whats-new"></a>Novidades?
 
@@ -83,4 +100,4 @@ Subscreva o feed RSS e veja as atualizações mais recentes da funcionalidade Az
 
 Consulte [Criar um equilibrador de carga padrão público](quickstart-load-balancer-standard-public-portal.md) para começar com um equilibrador de carga.
 
-Para obter mais informações sobre as limitações e componentes do Balançador de Carga Azure consulte os componentes do [Balançador de Carga Azure](./components.md) e [os conceitos do Balançador de Carga Azure](./concepts.md)
+Para obter mais informações sobre as limitações e componentes do Balançador de Carga Azure, consulte os componentes do [Balançador de Carga Azure](./components.md) e [os conceitos de Balançador de Carga Azure](./concepts.md)

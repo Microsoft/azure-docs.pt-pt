@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: duau
-ms.openlocfilehash: acbd5c3aa88c2c8c14407ebda0c42d228aa6c9e3
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: b133f1cce4af07d8d5e50e04670741fcf7c936a4
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98018943"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102097079"
 ---
 # <a name="create-expressroute-direct-using-the-azure-portal"></a>Criar ExpressRoute Direct usando o portal Azure
 
@@ -21,12 +21,19 @@ O ExpressRoute Direct permite-lhe ligar-se diretamente à rede global da Microso
 
 ## <a name="before-you-begin"></a><a name="before"></a>Antes de começar
 
-Antes de utilizar o ExpressRoute Direct, tem primeiro de inscrever a sua subscrição. Para se inscrever, envie um Email para <ExpressRouteDirect@microsoft.com> o seu ID de subscrição, incluindo os seguintes detalhes:
+Antes de utilizar o ExpressRoute Direct, tem primeiro de inscrever a sua subscrição. Para se inscrever, por favor faça o seguinte através da Azure PowerShell:
+1.  Faça o súmis no Azure e selecione a subscrição que deseja inscrever.
 
-* Cenários que pretende realizar com o **ExpressRoute Direct**
-* Preferências de localização - consulte [parceiros e locais de observação](expressroute-locations-providers.md) para obter uma lista completa de todos os locais
-* Linha cronológica da implementação
-* Quaisquer outras perguntas
+    ```azurepowershell-interactive
+    Connect-AzAccount 
+
+    Select-AzSubscription -Subscription "<SubscriptionID or SubscriptionName>"
+    ```
+
+2. Registe a sua subscrição para Visualização Pública utilizando o seguinte comando:
+    ```azurepowershell-interactive
+    Register-AzProviderFeature -FeatureName AllowExpressRoutePorts -ProviderNamespace Microsoft.Network
+    ```
 
 Uma vez inscrito, verifique se o fornecedor de recursos **Microsoft.Network** está registado na sua subscrição. O registo de um fornecedor de recursos configura a sua subscrição para trabalhar com o fornecedor de recursos.
 
@@ -120,6 +127,6 @@ Os seguintes passos ajudam-no a criar um circuito ExpressRoute a partir do fluxo
 
 1. Selecione **Criar**. Verá uma mensagem a dizer-lhe que a sua implantação está em curso. O estado será exibido nesta página à medida que os recursos forem criados. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para mais informações sobre o ExpressRoute Direct, consulte a [Visão Geral.](expressroute-erdirect-about.md)

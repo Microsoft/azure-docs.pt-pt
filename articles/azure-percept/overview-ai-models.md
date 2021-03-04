@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 02/16/2021
 ms.custom: template-concept
-ms.openlocfilehash: 28a8de231f179cf69342da81e6a2ae1989d2a5d6
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 8a9ed564012e8b530436152d931f5a5f6470ff98
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "102041591"
+ms.locfileid: "102098371"
 ---
 # <a name="azure-percept-ai-models"></a>Modelos Azure Percept AI
 
@@ -52,6 +52,8 @@ Palavras-chave e comandos pré-construídos do assistente de voz estão disponí
 
 ## <a name="advanced-development"></a>Desenvolvimento avançado
 
-Para desenvolvedores avançados, o [portátil Jupyter](https://github.com/microsoft/Project-Santa-Cruz-Preview/blob/main/Sample-Scripts-and-Notebooks/Official/Machine%20Learning%20Notebooks/Transferlearningusing_SSDLiteV2%20Model.ipynb) disponível realiza a aprendizagem de transferência utilizando um modelo de TensorFlow pré-treinado (MobileNetSSDV2Lite) em Python com um conjunto de dados personalizado para deteção de objetos. O portátil utiliza instâncias de computação remota através do [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/#product-overview) e pode ser executado na nuvem utilizando o portal AzureML ou localmente no [Código do Estúdio Visual.](https://code.visualstudio.com/)
+Consulte o [Azure Percept DK desenvolvimento avançado GitHub](https://github.com/microsoft/azure-percept-advanced-development) para orientação atualizada, tutoriais e exemplos para coisas como:
 
-Também estão [incluídos alguns scripts](https://github.com/microsoft/Project-Santa-Cruz-Preview/tree/main/Sample-Scripts-and-Notebooks/Official/Scripts) Python úteis para gerir conjuntos de dados e o [Instalador Dev Tools Pack](https://github.com/microsoft/Project-Santa-Cruz-Preview/blob/main/Sample-Scripts-and-Notebooks/Official/Machine%20Learning%20Notebooks/dev-tools-installer.md), que instala e configura todas as ferramentas necessárias para desenvolver uma solução de IA avançada.
+* Trazer um modelo de IA personalizado para o dispositivo
+* Atualizar um modelo que já apoiamos com a aprendizagem de transferências
+* E mais

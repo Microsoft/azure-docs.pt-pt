@@ -3,21 +3,24 @@ title: Mostrar informações sobre funcionalidades em mapas Android | Microsoft 
 description: Saiba como exibir informações quando os utilizadores interagem com as funcionalidades do mapa. Utilize o Azure Maps Android SDK para exibir mensagens torradas e outros tipos de mensagens.
 author: rbrundritt
 ms.author: richbrun
-ms.date: 08/08/2019
+ms.date: 2/26/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 4e84bd821d53048b134db635c7ec541db74fbf11
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+zone_pivot_groups: azure-maps-android
+ms.openlocfilehash: b9926d5d6a70d959c0baacd9602341bb69abe924
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "102047723"
+ms.locfileid: "102097249"
 ---
 # <a name="display-feature-information"></a>Apresentar informações da funcionalidade
 
 Os dados espaciais são frequentemente representados usando pontos, linhas e polígonos. Estes dados têm frequentemente informações de metadados associadas aos mesmos. Por exemplo, um ponto pode representar a localização de um restaurante e metadados sobre aquele restaurante pode ser o seu nome, endereço e tipo de comida que serve. Estes metadados podem ser adicionados como propriedades de um `Feature` GeoJSON. O seguinte código cria uma característica de ponto simples com uma `title` propriedade que tem um valor de "Hello World!"
+
+::: zone pivot="programming-language-java-android"
 
 ```java
 //Create a data source and add it to the map.
@@ -34,9 +37,32 @@ feature.addStringProperty("title", "Hello World!");
 source.add(feature);
 ```
 
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+//Create a data source and add it to the map.
+val source = DataSource()
+map.sources.add(source)
+
+//Create a point feature.
+val feature = Feature.fromGeometry(Point.fromLngLat(-122.33, 47.64))
+
+//Add a property to the feature.
+feature.addStringProperty("title", "Hello World!")
+
+//Create a point feature, pass in the metadata properties, and add it to the data source.
+source.add(feature)
+```
+
+::: zone-end
+
 Consulte a [Documentação de fonte de dados](create-data-source-android-sdk.md) para obter formas de criar e adicionar dados ao mapa.
 
 Quando um utilizador interage com uma funcionalidade no mapa, os eventos podem ser usados para reagir a essas ações. Um cenário comum é exibir uma mensagem feita das propriedades dos metadados de uma funcionalidade com a qual o utilizador interagiu. O `OnFeatureClick` evento é o principal evento utilizado para detetar quando o utilizador tocou numa funcionalidade no mapa. Há também um `OnLongFeatureClick` evento. Ao adicionar o `OnFeatureClick` evento ao mapa, pode limitar-se a uma única camada, passando no ID de uma camada para limitá-lo. Se nenhum ID de camada for passado, tocar em qualquer característica no mapa, independentemente da camada em que se encontre, dispararia este evento. O código a seguir cria uma camada de símbolo para render os dados de pontos no mapa, em seguida, adiciona um `OnFeatureClick` evento e limita-o a esta camada de símbolo.
+
+::: zone pivot="programming-language-java-android"
 
 ```java
 //Create a symbol and add it to the map.
@@ -52,9 +78,31 @@ map.events.add((OnFeatureClick) (features) -> {
 }, layer.getId());    //Limit this event to the symbol layer.
 ```
 
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+//Create a symbol and add it to the map.
+val layer = SymbolLayer(source)
+map.layers.add(layer)
+
+//Add a feature click event to the map.
+map.events.add(OnFeatureClick { features: List<Feature> ->
+    //Retrieve the title property of the feature as a string.
+    val msg = features[0].getStringProperty("title")
+
+    //Do something with the message.
+}, layer.getId()) //Limit this event to the symbol layer.
+```
+
+::: zone-end
+
 ## <a name="display-a-toast-message"></a>Mostrar uma mensagem de torrada
 
 Uma mensagem de brinde é uma das formas mais fáceis de apresentar informação ao utilizador e está disponível em todas as versões do Android. Não suporta qualquer tipo de entrada do utilizador e é apresentado apenas por um curto período de tempo. Se quiser informar rapidamente o utilizador sobre o que tocou, uma mensagem de torrada pode ser uma boa opção. O código que se segue mostra como uma mensagem de torrada pode ser usada com o `OnFeatureClick` evento.
+
+::: zone pivot="programming-language-java-android"
 
 ```java
 //Add a feature click event to the map.
@@ -67,7 +115,24 @@ map.events.add((OnFeatureClick) (features) -> {
 }, layer.getId());    //Limit this event to the symbol layer.
 ```
 
-![Animação de uma funcionalidade a ser tocada e uma mensagem de torrada a ser exibida](./media/display-feature-information-android/symbol-layer-click-toast-message.gif)
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+//Add a feature click event to the map.
+map.events.add(OnFeatureClick { features: List<Feature> ->
+    //Retrieve the title property of the feature as a string.
+    val msg = features[0].getStringProperty("title")
+
+    //Display a toast message with the title information.
+    Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
+}, layer.getId()) //Limit this event to the symbol layer.
+```
+
+::: zone-end
+
+![Animação de uma funcionalidade a ser tocada e uma mensagem de torrada a ser exibida](media/display-feature-information-android/symbol-layer-click-toast-message.gif)
 
 Além de brindar mensagens, existem muitas outras formas de apresentar as propriedades dos metadados de uma funcionalidade, tais como:
 
@@ -104,6 +169,8 @@ O Azure Maps Android SDK fornece uma `Popup` classe que facilita a criação de 
 ```
 
 Assumindo que o layout acima é armazenado num ficheiro chamado `popup_text.xml` na pasta de uma `res -> layout` aplicação, o seguinte código cria um pop-up, adiciona-o ao mapa. Quando uma funcionalidade é clicada, a `title` propriedade é exibida usando o `popup_text.xml` layout, com o centro inferior do layout ancorado à posição especificada no mapa.
+
+::: zone pivot="programming-language-java-android"
 
 ```java
 //Create a popup and add it to the map.
@@ -144,8 +211,54 @@ map.events.add((OnFeatureClick)(feature) -> {
     //Open the popup.
     popup.open();
 });
-
 ```
+
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+//Create a popup and add it to the map.
+val popup = Popup()
+map.popups.add(popup)
+
+map.events.add(OnFeatureClick { feature: List<Feature> ->
+    //Get the first feature and it's properties.
+    val f = feature[0]
+    val props = f.properties()
+
+    //Retrieve the custom layout for the popup.
+    val customView: View = LayoutInflater.from(this).inflate(R.layout.popup_text, null)
+
+    //Access the text view within the custom view and set the text to the title property of the feature.
+    val tv: TextView = customView.findViewById(R.id.message)
+    tv.text = props!!["title"].asString
+
+    //Get the coordinates from the clicked feature and create a position object.
+    val c: List<Double> = (f.geometry() as Point?).coordinates()
+    val pos = Position(c[0], c[1])
+
+    //Set the options on the popup.
+    popup.setOptions( 
+        //Set the popups position.
+        position(pos),  
+
+        //Set the anchor point of the popup content.
+        anchor(AnchorType.BOTTOM),  
+
+        //Set the content of the popup.
+        content(customView) 
+
+        //Optionally, hide the close button of the popup.
+        //, closeButton(false)
+    )
+
+    //Open the popup.
+    popup.open()
+})
+```
+
+::: zone-end
 
 A captura de ecrã a seguir mostra popups aparecendo quando as funcionalidades são clicadas e ancoradas à sua localização especificada no mapa à medida que se move.
 

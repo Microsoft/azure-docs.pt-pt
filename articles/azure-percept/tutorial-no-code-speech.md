@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: tutorial
 ms.date: 02/17/2021
 ms.custom: template-how-to
-ms.openlocfilehash: de85c4f8cdcd9781345ee1488549aab23e38ec5c
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 3c5e6fd62e4f4db9ccc1306d32d09b8338cbf963
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101665221"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102098031"
 ---
 # <a name="create-a-voice-assistant-with-azure-percept-dk-and-azure-percept-audio"></a>Crie um assistente de voz com Azure Percept DK e Azure Percept Audio
 
@@ -24,30 +24,11 @@ Este guia irá acompanhá-lo através do processo de configuração dos seus dis
 
 - Azure Percept DK (devkit)
 - Áudio Azure Percept
-- Altifalantes ou auscultadores (opcional)
+- Altifalantes ou auscultadores que podem ligar-se a tomada de áudio de 3,5 mm (opcional)
 - [Subscrição do Azure](https://azure.microsoft.com/free/)
 - Experiência de [configuração Azure Percept DK](./quickstart-percept-dk-set-up.md): ligou o seu devkit a uma rede Wi-Fi, criou um Hub IoT e ligou o seu devkit ao IoT Hub
+- [Configuração de áudio Azure Percept](./quickstart-percept-audio-setup.md)
 
-## <a name="device-setup"></a>Configuração do dispositivo
-
-1. (Opcionalmente) ligue o seu altifalante ou auscultadores ao SoM áudio através da tomada dos auscultadores, que está rotulado como "Line out". Isto permitir-lhe-á ouvir as respostas áudio do seu assistente de voz. Se não ligar um altifalante ou auscultadores, ainda poderá ver as respostas como texto na janela de demonstração.
-
-1. Ligue o Audio SoM à placa de transporte do seu devkit com o cabo USB-A incluído ao cabo micro B.
-
-1. Energia no devkit.
-
-    - O LED L01 no Audio SoM mudará para verde sólido para indicar que o dispositivo foi ligado.
-    - O LED L02 mudará para verde intermitente para indicar que o SoM áudio está a autenticar..
-
-1. Aguarde que o processo de autenticação esteja concluído-- isto pode demorar até 3 minutos.
-
-1. Dirija-se à secção seguinte quando vir uma das seguintes:
-
-    - O LED L01 desliga-se e o L02 fica branco. Isto indica que a autenticação está completa e o devkit ainda não foi configurado com uma palavra-chave.
-    - Os três LEDs ficam azuis. Isto indica que a autenticação está completa e o devkit é configurado com uma palavra-chave.
-
-    > [!NOTE]
-    > Contacte para suporte se o seu devkit não autenticar.
 
 ## <a name="create-a-voice-assistant-using-an-available-template"></a>Crie um assistente de voz usando um modelo disponível
 
@@ -119,6 +100,7 @@ A demonstração automóvel tem um aquecedor de assento virtual, descongelador e
 * "Definir a temperatura em X graus." (X é a temperatura desejada, por exemplo 75.)
 * "Aumentar/diminuir a temperatura em graus Y."
 
+
 :::image type="content" source="./media/tutorial-no-code-speech/auto-demo.png" alt-text="Imagem de janela de demonstração de automóveis.":::
 
 ### <a name="inventory-demo-commands"></a>Comandos de demonstração de inventário
@@ -131,19 +113,30 @@ A demonstração de inventário tem uma seleção de caixas virtuais azuis, amar
 * "Caixas do Conde Y" (Y é a cor das caixas, por exemplo, amarelo.)
 * "Envie tudo em stock."
 
+
 :::image type="content" source="./media/tutorial-no-code-speech/inventory-demo.png" alt-text="Screenshot da janela de demonstração de inventário.":::
 
 ## <a name="configure-your-keyword"></a>Configure a sua palavra-chave
 
-Para alterar a sua palavra-chave, clique em **alterar** ao lado da **palavra-chave personalizada** na janela de demonstração. Selecione uma das palavras-chave disponíveis e clique em **Guardar**. Poderá escolher entre uma seleção de palavras-chave pré-construídas e quaisquer palavras-chave personalizadas que tenha criado.
+Pode personalizar a palavra-chave para a sua aplicação de assistente de voz.
 
-:::image type="content" source="./media/tutorial-no-code-speech/change-keyword.png" alt-text="Screenshot da seleção de palavras-chave disponíveis.":::
+1. Clique em **alterar** ao lado **da palavra-chave personalizada** na janela de demonstração.
+
+1. Selecione uma das palavras-chave disponíveis. Poderá escolher entre uma seleção de palavras-chave de amostra e quaisquer palavras-chave personalizadas que tenha criado.
+
+1. Clique em **Guardar**.
 
 ### <a name="create-a-custom-keyword"></a>Crie uma palavra-chave personalizada
 
-Para criar uma palavra-chave personalizada, clique **em + Crie palavra-chave personalizada** perto da parte superior da janela de demonstração. Introduza a palavra-chave desejada, que pode ser uma única palavra ou uma frase curta, selecione o seu **recurso De expressão** (este está listado ao lado do Comando **Personalizado** na janela de demonstração e contém o prefixo da aplicação) e clique em **Guardar**. O treino para a sua palavra-chave personalizada pode ser concluído em apenas alguns segundos.
+Pode criar a sua própria palavra-chave para a sua aplicação de voz. O treino para a sua palavra-chave personalizada pode ser concluído em apenas alguns minutos.
 
-:::image type="content" source="./media/tutorial-no-code-speech/custom-keyword.png" alt-text="Screenshot da janela de criação de palavras-chave personalizadas.":::
+1. Clique **+ Crie a palavra-chave personalizada** perto da parte superior da janela de demonstração. 
+
+1. Insira a sua palavra-chave desejada, que pode ser uma única palavra ou uma frase curta.
+
+1. Selecione o seu **recurso Speech** (este encontra-se listado ao lado **do Comando Personalizado** na janela de demonstração e contém o seu prefixo de aplicação).
+
+1. Clique em **Guardar**. 
 
 ## <a name="create-a-custom-command"></a>Criar um comando personalizado
 
@@ -185,13 +178,13 @@ Para obter mais informações sobre o desenvolvimento de comandos personalizados
 
 ### <a name="voice-assistant-was-created-but-does-not-respond-to-commands"></a>Assistente de voz foi criado mas não responde aos comandos
 
-Verifique as luzes LED no Audio SoM:
+Verifique as luzes LED na Placa Interposer:
 
 * Três luzes azuis sólidas indicam que o assistente de voz está pronto e à espera da palavra-chave.
 * Se o LED central (L02) for branco, o devkit completou a inicialização e precisa de ser configurado com uma palavra-chave.
-* Qualquer combinação de luzes verdes indica que o Audio SoM ainda não completou a inicialização. A inicialização pode demorar alguns minutos a ser concluída.
+* Se o LED central (L02) estiver a piscar de branco, o Audio SoM ainda não completou a inicialização. A inicialização pode demorar alguns minutos a ser concluída.
 
-Para obter mais informações sobre os indicadores LED Audio SoM, consulte o artigo LED.
+Para obter mais informações sobre os indicadores LED, consulte o [artigo LED](./audio-button-led-behavior.md).
 
 ### <a name="voice-assistant-does-not-respond-to-a-custom-keyword-created-in-speech-studio"></a>Assistente de voz não responde a uma palavra-chave personalizada criada no Speech Studio
 
@@ -207,22 +200,20 @@ Isto pode ocorrer se o módulo de fala estiver desatualizado. Siga estes passos 
 
 1. Verifique a versão do módulo de fala. Se houver uma atualização disponível, verá um botão **De atualização** ao lado do número da versão.
 
-    :::image type="content" source="./media/tutorial-no-code-speech/devkit.png" alt-text="Screenshot da janela de definições de discurso devkit.":::
-
 1. Clique em **Update** para implementar a atualização do módulo de fala. O processo de atualização geralmente demora 2-3 minutos a ser concluído.
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
 Assim que terminar de trabalhar com a sua aplicação de assistente de voz, siga estes passos para limpar os recursos de fala que implementou durante este tutorial:
 
-1. A partir do [portal Azure,](https://ms.portal.azure.com/#home)selecione **grupos** de recursos do painel de menus esquerdo ou digite-o na barra de pesquisa.
+1. A partir do [portal Azure,](https://portal.azure.com)selecione **grupos** de recursos do painel de menus esquerdo ou digite-o na barra de pesquisa.
 
     :::image type="content" source="./media/tutorial-no-code-speech/azure-portal.png" alt-text="Screenshot da página inicial do portal Azure mostrando painel de menu esquerdo e grupos de recursos.":::
 
 1. Selecione o seu grupo de recursos.
 
 1. Selecione todos os seis recursos que contêm o prefixo da sua aplicação e clique no ícone **Eliminar** no painel de menu superior.
-
+\
     :::image type="content" source="./media/tutorial-no-code-speech/select-resources.png" alt-text="Screenshot dos recursos da fala selecionados para eliminação.":::
 
 1. Para confirmar a eliminação, escreva **sim** na caixa de confirmação, verifique se selecionou os recursos corretos e clique em **Eliminar**.

@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 12/24/2020
 ms.author: memildin
-ms.openlocfilehash: 9b8dc635781c96dcbd7aa423c77f60ff0556bd71
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: fc3774a01665b88ccae2e25ae8382497f8010c35
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100634073"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102096977"
 ---
 # <a name="continuously-export-security-center-data"></a>Exportar continuamente dados do Centro de Segurança
 
@@ -44,7 +44,7 @@ Este artigo descreve como configurar a exportação contínua para espaços de t
 |Estado de libertação:|Disponibilidade Geral (GA)|
 |Preços:|Gratuito|
 |Funções e permissões necessárias:|<ul><li>**Administrador de segurança** ou **Proprietário** no grupo de recursos</li><li>Escreva permissões para o recurso alvo</li><li>Se estiver a utilizar as políticas de Azure 'DeployIfNotExist' descritas abaixo, também necessitará de permissões para atribuir políticas</li></ul>|
-|Nuvens:|![Yes](./media/icons/yes-icon.png) Nuvens comerciais<br>![Yes](./media/icons/yes-icon.png) US Gov, Outro Gov<br>![Yes](./media/icons/yes-icon.png) China Gov (para o Centro de Eventos)|
+|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) US Gov, Outro Gov<br>![Sim](./media/icons/yes-icon.png) China Gov|
 |||
 
 
@@ -65,7 +65,7 @@ A exportação contínua pode exportar os seguintes tipos de dados sempre que es
 
 Pode configurar a exportação contínua a partir das páginas do Centro de Segurança no portal Azure, através do Centro de Segurança REST API, ou em escala utilizando os modelos de Política Azure fornecidos. Selecione o separador apropriado abaixo para obter detalhes de cada um.
 
-### <a name="use-the-azure-portal"></a>[**Utilizar o portal do Azure**](#tab/azure-portal)
+### <a name="use-the-azure-portal"></a>[**Use o portal Azure**](#tab/azure-portal)
 
 ### <a name="configure-continuous-export-from-the-security-center-pages-in-azure-portal"></a>Configure a exportação contínua das páginas do Centro de Segurança no portal Azure
 
@@ -171,7 +171,7 @@ Se quiser analisar os dados do Azure Security Center dentro de um espaço de tra
 
 ### <a name="log-analytics-tables-and-schemas"></a>Registar tabelas e esquemas de Analítica
 
-Os alertas e recomendações de segurança são armazenados nas tabelas *SecurityAlert* e *SecurityRecommendations,* respectivamente. 
+Os alertas e recomendações de segurança são armazenados nas tabelas *SecurityAlert* e *SecurityRecommendation,* respectivamente. 
 
 O nome da solução Log Analytics que contém estas tabelas depende se tem o Azure Defender ativado: Segurança ('Segurança e Auditoria') ou SecurityCenterFree. 
 

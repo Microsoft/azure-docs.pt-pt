@@ -5,13 +5,13 @@ ms.topic: tutorial
 ms.date: 02/04/2021
 ms.service: media-services
 ms.author: faneerde
-author: faneerde
-ms.openlocfilehash: 8679e3d2fc2459e5775c525a0d5dadd4ba42ebb0
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+author: fvneerden
+ms.openlocfilehash: 62787bfb586f2847d984499cf966708749184ee1
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101748137"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102096348"
 ---
 # <a name="tutorial-analyze-live-video-by-using-intel-openvino-dl-streamer--edge-ai-extension"></a>Tutorial: Analise o vídeo ao vivo utilizando Intel OpenVINO™ DL Streamer – Extensão Edge AI 
 

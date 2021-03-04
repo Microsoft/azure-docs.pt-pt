@@ -6,12 +6,12 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: 9a7a3a603944970a5e78a24ca4042f97b1c43fcc
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: d695758849fd4f7e6f595820221f6b8606fe7cf1
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "102047864"
+ms.locfileid: "102096195"
 ---
 # <a name="azure-migrate-appliance-architecture"></a>Arquitetura de aplicação do Azure Migrate
 
@@ -62,7 +62,7 @@ O aparelho comunica com as fontes de descoberta utilizando o seguinte processo.
 
 **Processo** | **Aparelho VMware** | **Aparelho Hiper-V** | **Aparelho físico**
 ---|---|---|---
-**Iniciar a descoberta**| O aparelho comunica com o servidor vCenter na porta TCP 443 por predefinição. Se o servidor vCenter ouvir uma porta diferente, pode configurá-la no gestor de configuração do aparelho. | O aparelho comunica com os anfitriões Hyper-V na porta WinRM 5985 (HTTP). | O aparelho comunica com servidores Windows sobre a porta WinRM 5985 (HTTP) com servidores Linux sobre a porta 22 (TCP).
+**Iniciar a descoberta** | O aparelho comunica com o servidor vCenter na porta TCP 443 por predefinição. Se o servidor vCenter ouvir uma porta diferente, pode configurá-la no gestor de configuração do aparelho. | O aparelho comunica com os anfitriões Hyper-V na porta WinRM 5985 (HTTP). | O aparelho comunica com servidores Windows sobre a porta WinRM 5985 (HTTP) com servidores Linux sobre a porta 22 (TCP).
 **Recolha metadados de configuração e desempenho** | O aparelho recolhe os metadados dos servidores em execução no vCenter Server utilizando APIs vSphere ligando-os na porta 443 (porta predefinido) ou em qualquer outra porta que o servidor vCenter da porta ou seja ouvido. | O aparelho recolhe os metadados dos servidores em execução em anfitriões Hiper-V utilizando uma sessão de Modelo de Informação Comum (CIM) com anfitriões na porta 5985.| O aparelho recolhe metadados de servidores windows utilizando a sessão Common Information Model (CIM) com servidores na porta 5985 e a partir de servidores Linux utilizando conectividade SSH na porta 22.
 **Enviar dados de descoberta** | O aparelho envia os dados recolhidos para Azure Migrate: Avaliação do servidor e Migração do Azure: Migração do servidor sobre a porta SSL 443.<br/><br/> O aparelho pode ligar-se ao Azure através da internet ou via ExpressRoute (requer o olhar da Microsoft). | O aparelho envia os dados recolhidos para a Azure Migrate: Avaliação do servidor sobre a porta SSL 443.<br/><br/> O aparelho pode ligar-se ao Azure através da internet ou via ExpressRoute (requer o olhar da Microsoft).| O aparelho envia os dados recolhidos para a Azure Migrate: Avaliação do servidor sobre a porta SSL 443.<br/><br/> O aparelho pode ligar-se ao Azure através da internet ou via ExpressRoute (requer o olhar da Microsoft).
 **Frequência de recolha de dados** | Os metadados de configuração são recolhidos e enviados a cada 30 minutos. <br/><br/> Os metadados de desempenho são recolhidos a cada 20 segundos e são agregados para enviar um ponto de dados para Azure a cada 10 minutos. <br/><br/> Os dados de inventário de software são enviados para a Azure uma vez a cada 12 horas. <br/><br/> Os dados de dependência sem agente são recolhidos a cada 5 minutos, agregados em aparelhos e enviados para Azure a cada 6 horas. <br/><br/> Os dados de configuração do SQL Server são atualizados uma vez a cada 24 horas e os dados de desempenho são capturados a cada 30 segundos.| Os metadados de configuração são recolhidos e enviados a cada 30 minutos. <br/><br/> Os metadados de desempenho são recolhidos a cada 30 segundos e são agregados para enviar um ponto de dados para Azure a cada 10 minutos.|  Os metadados de configuração são recolhidos e enviados a cada 30 minutos. <br/><br/> Os metadados de desempenho são recolhidos a cada 5 minutos e são agregados para enviar um ponto de dados para Azure a cada 10 minutos.

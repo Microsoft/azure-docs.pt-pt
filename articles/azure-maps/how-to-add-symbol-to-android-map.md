@@ -3,17 +3,18 @@ title: Adicione uma camada de símbolo aos mapas Android | Microsoft Azure Maps
 description: Aprenda a adicionar um marcador a um mapa. Veja um exemplo que usa o Azure Maps Android SDK para adicionar uma camada de símbolo que contém dados baseados em pontos a partir de uma fonte de dados.
 author: rbrundritt
 ms.author: richbrun
-ms.date: 12/08/2020
+ms.date: 2/26/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 1706b60a61bd3b507d9fbcf555e478b388f51168
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+zone_pivot_groups: azure-maps-android
+ms.openlocfilehash: edb758469a06dcb7914025ea449b9d952e939533
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "102047575"
+ms.locfileid: "102097215"
 ---
 # <a name="add-a-symbol-layer-android-sdk"></a>Adicione uma camada de símbolo (Android SDK)
 
@@ -32,6 +33,8 @@ Antes de poder adicionar uma camada de símbolo ao mapa, tem de dar alguns passo
 
 O código abaixo demonstra o que deve ser adicionado ao mapa depois de carregado. Esta amostra torna um único ponto no mapa usando uma camada de símbolo.
 
+::: zone pivot="programming-language-java-android"
+
 ```java
 //Create a data source and add it to the map.
 DataSource source = new DataSource();
@@ -47,6 +50,27 @@ SymbolLayer layer = new SymbolLayer(source);
 map.layers.add(layer);
 ```
 
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+//Create a data source and add it to the map.
+val source = DataSource()
+map.sources.add(source)
+
+//Create a point and add it to the data source.
+source.add(Point.fromLngLat(0, 0))
+
+//Create a symbol layer to render icons and/or text at points on the map.
+val layer = SymbolLayer(source)
+
+//Add the layer to the map.
+map.layers.add(layer)
+```
+
+::: zone-end
+
 Existem três tipos diferentes de dados de pontos que podem ser adicionados ao mapa:
 
 - Geometria geojson Point - Este objeto contém apenas uma coordenada de um ponto e nada mais. O `Point.fromLngLat` método estático pode ser usado para criar facilmente estes objetos.
@@ -56,6 +80,8 @@ Existem três tipos diferentes de dados de pontos que podem ser adicionados ao m
 Para obter mais informações, consulte o [Documento de Origem de Dados](create-data-source-android-sdk.md) da Criação e a adição de dados ao mapa.
 
 A amostra de código que se segue cria uma geometria geoJSON Point e passa-a para a Funcionalidade GeoJSON e tem um `title` valor acrescentado às suas propriedades. A `title` propriedade é exibida como texto acima do ícone do símbolo no mapa.
+
+::: zone pivot="programming-language-java-android"
 
 ```java
 //Create a data source and add it to the map.
@@ -81,6 +107,36 @@ SymbolLayer layer = new SymbolLayer(source,
 map.layers.add(layer);
 ```
 
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+//Create a data source and add it to the map.
+val source = DataSource()
+map.sources.add(source)
+
+//Create a point feature.
+val feature = Feature.fromGeometry(Point.fromLngLat(0, 0))
+
+//Add a property to the feature.
+feature.addStringProperty("title", "Hello World!")
+
+//Add the feature to the data source.
+source.add(feature)
+
+//Create a symbol layer to render icons and/or text at points on the map.
+val layer = SymbolLayer(
+    source,  //Get the title property of the feature and display it on the map.
+    textField(get("title"))
+)
+
+//Add the layer to the map.
+map.layers.add(layer)
+```
+
+::: zone-end
+
 A imagem que se segue mostra o código acima a rending uma função de ponto usando um ícone e etiqueta de texto com uma camada de símbolo.
 
 ![Mapa com ponto renderizado usando uma camada de símbolo exibindo um ícone e rótulo de texto para uma característica de ponto](media/how-to-add-symbol-to-android-map/android-map-pin.png)
@@ -91,6 +147,8 @@ A imagem que se segue mostra o código acima a rending uma função de ponto usa
 ## <a name="add-a-custom-icon-to-a-symbol-layer"></a>Adicione um ícone personalizado a uma camada de símbolo
 
 As camadas de símbolo são renderizadas através do WebGL. Como tal, todos os recursos, como imagens de ícones, devem ser carregados no contexto WebGL. Esta amostra mostra como adicionar um ícone personalizado aos recursos do mapa. Este ícone é então utilizado para renderizar dados de pontos com um símbolo personalizado no mapa. A `textField` propriedade da camada de símbolo requer uma expressão a especificar. Neste caso, queremos tornar a propriedade da temperatura. Como a temperatura é um número, tem de ser convertido numa corda. Além disso, queremos anexar-lhe "°F". Uma expressão pode ser usada para fazer esta concatenação; `concat(Expression.toString(get("temperature")), literal("°F"))`.
+
+::: zone pivot="programming-language-java-android"
 
 ```java
 //Load a custom icon image into the image sprite of the map.
@@ -120,6 +178,39 @@ SymbolLayer layer = new SymbolLayer(source,
 );
 ```
 
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+//Load a custom icon image into the image sprite of the map.
+map.images.add("my-custom-icon", R.drawable.showers)
+
+//Create a data source and add it to the map.
+val source = DataSource()
+map.sources.add(source)
+
+//Create a point feature.
+val feature = Feature.fromGeometry(Point.fromLngLat(-73.985708, 40.75773))
+
+//Add a property to the feature.
+feature.addNumberProperty("temperature", 64)
+
+//Add the feature to the data source.
+source.add(feature)
+
+//Create a symbol layer to render icons and/or text at points on the map.
+val layer = SymbolLayer(
+    source,
+    iconImage("my-custom-icon"),
+    iconSize(0.5f),  //Get the title property of the feature and display it on the map.
+    textField(concat(Expression.toString(get("temperature")), literal("°F"))),
+    textOffset(arrayOf(0f, -1.5f))
+)
+```
+
+::: zone-end
+
 Para esta amostra, a imagem a seguir foi carregada na pasta desaudante da aplicação.
 
 | ![Imagem de ícone do tempo de chuveiros de chuva](media/how-to-add-symbol-to-android-map/showers.png)|
@@ -135,13 +226,27 @@ A imagem que se segue mostra o código acima a rending uma característica de po
 
 ## <a name="modify-symbol-colors"></a>Modificar as cores dos símbolos
 
-O Azure Maps Android SDK vem com um conjunto de variações de cores predefinidas do ícone do marcador padrão. Por exemplo, `marker-red` pode ser passado para a `iconImage` opção de uma camada de símbolo para renderizar uma versão vermelha do ícone do marcador nessa camada. 
+O Azure Maps Android SDK vem com um conjunto de variações de cores predefinidas do ícone do marcador padrão. Por exemplo, `marker-red` pode ser passado para a `iconImage` opção de uma camada de símbolo para renderizar uma versão vermelha do ícone do marcador nessa camada.
+
+::: zone pivot="programming-language-java-android"
 
 ```java
 SymbolLayer layer = new SymbolLayer(source,
     iconImage("marker-red")
 );
 ```
+
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+val layer = SymbolLayer(source,
+    iconImage("marker-red")
+)
+```
+
+::: zone-end
 
 A tabela abaixo lista todos os nomes de imagem de ícone incorporados disponíveis. Todos estes marcadores retiram as suas cores dos recursos coloridos que podes sobrepor-te. Além de sobressarir a cor de preenchimento principal deste marcador. No entanto, note que sobrevair a cor de um destes marcadores seria aplicável a todas as camadas que usam essa imagem de ícone.
 

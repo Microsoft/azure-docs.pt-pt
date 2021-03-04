@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.reviewer: dseven
 ms.author: cavoeg
 author: zxue
-ms.date: 02/24/2021
-ms.openlocfilehash: 73e1db2754749e1fb1142231e7179771bcce8e76
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/03/2021
+ms.openlocfilehash: 8dde5c6206087c8bb1c1f456a0c858abbccf0cc4
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101712781"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102096314"
 ---
 # <a name="enable-diagnostic-logging-in-azure-api-for-fhir"></a>Ativar o registo de diagnóstico na API Azure para FHIR
 
@@ -50,7 +50,7 @@ Pode ver as métricas em Monitorização | Métricas do portal. As métricas inc
 
 
 > [!Note] 
-> Pode levar até 15 minutos para os primeiros Registos mostrarem no Log Analytics.  
+> Pode levar até 15 minutos para os primeiros Registos mostrarem no Log Analytics. Além disso, se a Azure API para fHIR for transferida de um grupo de recursos ou subscrição para outra, atualize a definição assim que o movimento estiver concluído. 
  
 Para obter mais informações sobre como trabalhar com registos de diagnóstico, consulte a documentação do [Registo de Recursos Azure](../azure-monitor/essentials/platform-logs-overview.md)
 

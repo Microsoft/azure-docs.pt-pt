@@ -6,18 +6,23 @@ author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 10/12/2020
-ms.author: matjazl
-ms.openlocfilehash: cdb41f12e8f050e3c74fccddb392d7a816c15b2f
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.date: 03/03/2021
+ms.author: zxue
+ms.openlocfilehash: 5e24c7666fd2ece7d284b7705bc481866d7604de
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98621883"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102097045"
 ---
 # <a name="configure-private-link"></a>Configure a ligação privada
 
 O link privado permite-lhe aceder a Azure API para FHIR através de um ponto final privado, uma interface de rede que o conecta de forma privada e segura utilizando um endereço IP privado a partir da sua rede virtual. Com um link privado, pode aceder aos nossos serviços de forma segura a partir do seu Vnet como um serviço de primeira festa sem ter de passar por um DNS público. Este artigo acompanha-o como criar, testar e gerir o seu ponto final privado para a Azure API para fHIR.
+
+>[!Note]
+>Nem o Private Link nem o API Azure para fHIR podem ser transferidos de um grupo de recursos ou subscrição para outro assim que o Private Link estiver ativado. Para se mover, elimine primeiro o Link Privado, em seguida, mova a AZure API para fHIR e crie um novo Link Privado uma vez que o movimento esteja completo. Avalie potenciais ramificações de segurança antes de eliminar o Private Link.
+>
+>Se os registos de auditoria de exportação e/métricas estiverem habilitados para a API Azure para fHIR, atualize a definição de exportação através de Definições de Diagnóstico a partir do portal.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

@@ -6,12 +6,12 @@ ms.author: valls
 ms.date: 2/16/2021
 ms.topic: how-to
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 79bac3f057412f3973121f48cd735f72d0a97d04
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 01ce213f71fc2ac070ca0b09780bd45ede4e61c1
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101680013"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102097760"
 ---
 # <a name="device-update-agent"></a>Agente de atualização de dispositivos
 
@@ -32,7 +32,7 @@ Assim que o agente estiver a construir com sucesso, está na hora de [executar](
 
 ## <a name="modifying-the-device-update-agent"></a>Modificar o agente de atualização do dispositivo
 
-Agora, faça as alterações necessárias para incorporar o agente na sua imagem.  Veja como [modificar](https://github.com/Azure/iot-hub-device-update/blob/main/docs/agent-reference/how-to-modify-the-agent-code.m) o Agente de Atualização do Dispositivo para obter orientação.
+Agora, faça as alterações necessárias para incorporar o agente na sua imagem.  Veja como [modificar](https://github.com/Azure/iot-hub-device-update/blob/main/docs/agent-reference/how-to-modify-the-agent-code.md) o Agente de Atualização do Dispositivo para obter orientação.
 
 ### <a name="troubleshooting-guide"></a>Guia de Resolução de Problemas
 

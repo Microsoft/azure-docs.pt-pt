@@ -7,18 +7,19 @@ ms.service: private-link
 ms.topic: tutorial
 ms.date: 11/03/2020
 ms.author: allensu
-ms.openlocfilehash: 8cfe44b9433ee1daac028253aa45c97804c88ae5
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.custom: fasttrack-edit
+ms.openlocfilehash: ab530817e912495049ad3fe8b36f9a5fad47eb2c
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95544110"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102096586"
 ---
 # <a name="tutorial---connect-to-an-azure-sql-server-using-an-azure-private-endpoint---azure-cli"></a>Tutorial - Conecte-se a um servidor Azure SQL utilizando um Azure Private Endpoint - Azure CLI
 
 O ponto final privado Azure é o bloco de construção fundamental para private link em Azure. Permite que os recursos do Azure, como máquinas virtuais (VMs), comuniquem com os recursos de Private Link em privado.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Crie uma rede virtual e um hospedeiro de bastião.
@@ -300,7 +301,7 @@ Nesta secção, utilizará a máquina virtual que criou no passo anterior para l
     | Palavra-passe | Introduza a palavra-passe que introduziu durante a criação do servidor |
     | Memorizar palavra-passe | Selecione **Yes** (Sim). |
 
-13. Selecione **Connect** (Ligar).
+13. Selecione **Ligar**.
 
 14. Procure bases de dados a partir do menu esquerdo.
 
@@ -326,6 +327,8 @@ Neste tutorial, criou um:
 * Servidor Azure SQL com ponto final privado.
 
 Utilizou a máquina virtual para testar a conectividade de forma segura para o servidor SQL através do ponto final privado.
+
+Como próximo passo, poderá também estar interessado na aplicação Web com conectividade privada ao cenário de arquitetura [de base de dados Azure SQL,](https://docs.microsoft.com/azure/architecture/example-scenario/private-web-app/private-web-app) que liga uma aplicação web fora da rede virtual ao ponto final privado de uma base de dados.
 
 Saiba como criar um serviço de Ligação Privada:
 > [!div class="nextstepaction"]
