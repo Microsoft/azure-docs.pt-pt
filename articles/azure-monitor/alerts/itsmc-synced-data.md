@@ -1,18 +1,17 @@
 ---
 title: Dados sincronizados do seu produto ITSM para o ESPAÇO DE TRABALHO DE LA
 description: Este artigo fornece uma visão geral dos Dados sincronizados do seu produto ITSM para o ESPAÇO DE TRABALHO DE LA.
-ms.subservice: logs
 ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 12/29/2020
 ms.custom: references_regions
-ms.openlocfilehash: fd570950190ceabac413aca2d68368e5e722a3da
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 83994c1b6e150342a777a079d79d6a594d30c3ff
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614401"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102041608"
 ---
 # <a name="data-synced-from-your-itsm-product"></a>Dados sincronizados com o seu produto ITSM
 
@@ -84,7 +83,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - Data de fim planeada
 - Data de início do trabalho
 - Data de fim do trabalho
-- Description
+- Descrição
 - Computador
 
 ## <a name="servicenow-example"></a>Exemplo de ServiceNow 
@@ -132,7 +131,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | PlannedEndDate_t  | Data de fim prevista |
 | WorkStartDate_t  | Data de início real |
 | WorkEndDate_t | Data de fim real|
-| Description_s | Description |
+| Description_s | Descrição |
 | Computador  | Item de configuração |
 
 ## <a name="next-steps"></a>Passos seguintes

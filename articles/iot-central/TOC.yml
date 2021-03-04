@@ -183,6 +183,8 @@
       href: core/concepts-telemetry-properties-commands.md
     - name: Ligar dispositivos do IoT Edge
       href: core/concepts-iot-edge.md
+    - name: Melhores práticas
+      href: core/concepts-best-practices.md
 - name: Guias de procedimentos
   items:
     - name: Desenvolver e ligar dispositivos

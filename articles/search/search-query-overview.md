@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/14/2020
-ms.openlocfilehash: 7277ad060c57b44d633054c4fc4d29d151bd7192
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.date: 03/03/2021
+ms.openlocfilehash: 234a0137f0a9487a56b3e0343eaea375d2f9a1af
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400816"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102043019"
 ---
 # <a name="querying-in-azure-cognitive-search"></a>Consulta em Pesquisa Cognitiva Azure
 
@@ -84,8 +84,8 @@ Também pode precisar de filtros para invocar um formulário de consulta especia
 
 | Cenário de filtro | Descrição |
 |-----------------|-------------|
-| Filtros de gama | Na Pesquisa Cognitiva Azure, as consultas de alcance são construídas usando o parâmetro do filtro. Para obter mais informações e exemplos, consulte [o exemplo do filtro Range](search-query-simple-examples.md#example-4-range-filters). |
-| Pesquisa de geolocalização | Se um campo pescatório for do [tipo Edm.GeographyPoint,](/rest/api/searchservice/supported-data-types)pode criar uma expressão de filtro para "encontrar perto de mim" ou controlos de pesquisa baseados em mapas. Os campos que impulsionam a geo-pesquisa contêm coordenadas. Para obter mais informações e um exemplo, consulte [o exemplo de Geo-pesquisa.](search-query-simple-examples.md#example-5-geo-search) |
+| Filtros de gama | Na Pesquisa Cognitiva Azure, as consultas de alcance são construídas usando o parâmetro do filtro. Para obter mais informações e exemplos, consulte [o exemplo do filtro Range](search-query-simple-examples.md#example-5-range-filters). |
+| Pesquisa de geolocalização | Se um campo pescatório for do [tipo Edm.GeographyPoint,](/rest/api/searchservice/supported-data-types)pode criar uma expressão de filtro para "encontrar perto de mim" ou controlos de pesquisa baseados em mapas. Os campos que impulsionam a geo-pesquisa contêm coordenadas. Para obter mais informações e um exemplo, consulte [o exemplo de Geo-pesquisa.](search-query-simple-examples.md#example-6-geo-search) |
 | Navegação por facetas | Uma estrutura de navegação faceta torna-se fundamental na navegação dirigida pelo utilizador quando invoca um filtro em resposta a `onclick` um evento numa faceta. Como tal, as facetas e os filtros andam de mãos dadas. Se adicionar navegação faceta, precisará de filtros para completar a experiência. Para obter mais informações, consulte [Como construir um filtro de faceta.](search-filters-facets.md) |
 
 > [!NOTE]
@@ -101,12 +101,12 @@ Um formulário de consulta avançado depende do parser e operadores de Lucene co
 
 | Tipo de consulta | Utilização | Exemplos e mais informações |
 |------------|--------|------------------------------|
-| [Pesquisa de campo](query-lucene-syntax.md#bkmk_fields) | **`search`**  parâmetro, **`queryType=full`**  | Construa uma expressão de consulta composta dirigida a um único campo. <br/>[Exemplo de pesquisa em campo](search-query-lucene-examples.md#example-2-fielded-search) |
-| [pesquisa fuzzy](query-lucene-syntax.md#bkmk_fuzzy) | **`search`** parâmetro, **`queryType=full`** | Corresponde em termos de construção ou ortografia semelhantes. <br/>[Exemplo de pesquisa difusa](search-query-lucene-examples.md#example-3-fuzzy-search) |
-| [pesquisa de proximidade](query-lucene-syntax.md#bkmk_proximity) | **`search`** parâmetro, **`queryType=full`** | Encontra termos que estão perto um do outro num documento. <br/>[Exemplo de pesquisa de proximidade](search-query-lucene-examples.md#example-4-proximity-search) |
-| [aumento de prazos](query-lucene-syntax.md#bkmk_termboost) | **`search`** parâmetro, **`queryType=full`** | Classifica um documento mais alto se contiver o termo aumentado, em relação a outros que não. <br/>[Exemplo de reforço de prazos](search-query-lucene-examples.md#example-5-term-boosting) |
-| [pesquisa regular de expressão](query-lucene-syntax.md#bkmk_regex) | **`search`** parâmetro, **`queryType=full`** | Fósforos baseados no conteúdo de uma expressão regular. <br/>[Exemplo de expressão regular](search-query-lucene-examples.md#example-6-regex) |
-|  [pesquisa de wildcard ou prefixo](query-lucene-syntax.md#bkmk_wildcard) | **`search`** parâmetro com * *_`~`_* **`?`** ou, **`queryType=full`**| Corresponde com base num prefixo e num único `~` carácter (). `?` <br/>[Exemplo de pesquisa wildcard](search-query-lucene-examples.md#example-7-wildcard-search) |
+| [Pesquisa de campo](query-lucene-syntax.md#bkmk_fields) | **`search`**  parâmetro, **`queryType=full`**  | Construa uma expressão de consulta composta dirigida a um único campo. <br/>[Exemplo de pesquisa em campo](search-query-lucene-examples.md#example-1-fielded-search) |
+| [pesquisa fuzzy](query-lucene-syntax.md#bkmk_fuzzy) | **`search`** parâmetro, **`queryType=full`** | Corresponde em termos de construção ou ortografia semelhantes. <br/>[Exemplo de pesquisa difusa](search-query-lucene-examples.md#example-2-fuzzy-search) |
+| [pesquisa de proximidade](query-lucene-syntax.md#bkmk_proximity) | **`search`** parâmetro, **`queryType=full`** | Encontra termos que estão perto um do outro num documento. <br/>[Exemplo de pesquisa de proximidade](search-query-lucene-examples.md#example-3-proximity-search) |
+| [aumento de prazos](query-lucene-syntax.md#bkmk_termboost) | **`search`** parâmetro, **`queryType=full`** | Classifica um documento mais alto se contiver o termo aumentado, em relação a outros que não. <br/>[Exemplo de reforço de prazos](search-query-lucene-examples.md#example-4-term-boosting) |
+| [pesquisa regular de expressão](query-lucene-syntax.md#bkmk_regex) | **`search`** parâmetro, **`queryType=full`** | Fósforos baseados no conteúdo de uma expressão regular. <br/>[Exemplo de expressão regular](search-query-lucene-examples.md#example-5-regex) |
+|  [pesquisa de wildcard ou prefixo](query-lucene-syntax.md#bkmk_wildcard) | **`search`** parâmetro com * *_`~`_* **`?`** ou, **`queryType=full`**| Corresponde com base num prefixo e num único `~` carácter (). `?` <br/>[Exemplo de pesquisa wildcard](search-query-lucene-examples.md#example-6-wildcard-search) |
 
 ## <a name="next-steps"></a>Passos seguintes
 

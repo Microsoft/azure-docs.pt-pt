@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/13/2020
-ms.openlocfilehash: 1d9f1c5beafb7b54c5fd0189dd738ff8e346a3e8
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 911238efafb948b304455cf75cc4ec2c3c605c76
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101695994"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102042100"
 ---
 # <a name="deploy-the-metadata-extraction-abap-function-module-for-the-sap-r3-family-of-bridges"></a>Implementar o módulo de função ABAP de extração de metadados para a família de pontes SAP R3 
 Este artigo descreve os passos para implantar o módulo de função ABAP no SERVIDOR SAP
@@ -74,7 +74,7 @@ Quando o módulo tiver sido criado, especifique as seguintes informações:
 
 3.  Navegue para o \" separador código \" Fonte. Existem duas formas de implementar código para a função:
 
-    a.  A partir do menu principal, faça o upload do ficheiro Z \_ MITI \_DOWNLOAD.txt selecionando Utilities= \> Mais Utilitários= \> Upload/Download= \> Upload.
+    a.  A partir do menu principal, faça o upload do ficheiro de texto [Z \_ MITI \_ DOWNLOAD](https://github.com/Azure/Purview-Samples/tree/master/connectors/sap) selecionando Utilities= \> Mais Utilitários= \> Upload/Download= \> Upload.
 
     b.  Em alternativa, abra o ficheiro, copie o seu conteúdo e cole-o na \" área do código \" Fonte.
 

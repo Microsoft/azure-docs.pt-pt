@@ -4,14 +4,14 @@ description: Saiba como configurar o controlo de acesso baseado em funções com
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 03/02/2021
+ms.date: 03/03/2021
 ms.author: thweiss
-ms.openlocfilehash: d83109f380a3044073cf2dd8d10f29027ebb9f41
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: acb82a66c8ef4adcfeef0fcb527c44512ad4feaf
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101690911"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102040877"
 ---
 # <a name="configure-role-based-access-control-with-azure-active-directory-for-your-azure-cosmos-db-account-preview"></a>Configure o controlo de acesso baseado em funções com o Azure Ative Directory para a sua conta DB Azure Cosmos (Preview)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -370,6 +370,7 @@ Esta informação adicional flui na categoria **dataPlaneRequests** e consiste e
 - Você pode criar até 100 definições de papel e 2.000 atribuições de papel por conta DB Azure Cosmos.
 - A resolução do grupo AZure AD não é atualmente apoiada para identidades que pertencem a mais de 200 grupos.
 - O token AD AZure é atualmente passado como um cabeçalho com cada pedido individual enviado para o serviço DB Azure Cosmos, aumentando o tamanho total da carga útil.
+- O acesso aos seus dados com a Azure AD através do [Azure Cosmos DB Explorer](data-explorer.md) ainda não está suportado. A utilização do Azure Cosmos DB Explorer ainda requer que o utilizador tenha acesso à chave principal da conta por enquanto.
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 

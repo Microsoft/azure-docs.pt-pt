@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Migrar uma aplicação Android / Microsoft Azure Maps
+title: Tutorial - Migrar uma aplicação Android | Microsoft Azure Maps
 description: Tutorial sobre como migrar uma aplicação Android do Google Maps para o Microsoft Azure Maps
 author: rbrundritt
 ms.author: richbrun
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: f4b0642ce54b862b4d4c7b9663cf10e74b206281
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: 7f3d32a782c653b3be8b3d6f6714bc9065a73518
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97680491"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102042900"
 ---
 # <a name="tutorial-migrate-an-android-app-from-google-maps"></a>Tutorial: Migrar uma aplicação Android do Google Maps
 
@@ -187,7 +187,7 @@ Para exibir um mapa utilizando o Azure Maps SDK para Android, é necessário faz
     3. Atualize o seu bloco de dependências. Adicione uma nova linha de dependência de implementação para o mais recente Azure Maps Android SDK:
 
         ```Java
-        implementation "com.microsoft.azure.maps:mapcontrol:0.6"
+        implementation "com.microsoft.azure.maps:mapcontrol:0.7"
         ```
 
         > [!Note]

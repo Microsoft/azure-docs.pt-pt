@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - mvc
 - device-developer
-ms.openlocfilehash: 326fed659be43be3115cae1d7c2b14d0708f4a96
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: f69bbecfc2acc24cd63b87212197342b28723a9f
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100377810"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102043104"
 ---
 # <a name="iot-central-device-development-guide"></a>Guia de desenvolvimento de dispositivos IoT Central
 
@@ -68,7 +68,7 @@ A utilização de DPS permite:
 - Você deve usar os seus próprios IDs de dispositivo para registar dispositivos na IoT Central. A utilização dos iDs do seu próprio dispositivo simplifica a integração com os sistemas de back-office existentes.
 - Uma forma única e consistente de ligar os dispositivos à IoT Central.
 
-Para saber mais, consulte [Get connected to Azure IoT Central](./concepts-get-connected.md).
+Para saber mais, consulte [Get connected to Azure IoT Central](./concepts-get-connected.md) and Best [Practices](concepts-best-practices.md).
 
 ### <a name="security"></a>Segurança
 

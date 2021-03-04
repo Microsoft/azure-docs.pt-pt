@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: overview
 ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: a5fa6b1c75bee562394af42fcea9ebfabeb732f0
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 858f006de7425a9fa8bea25e356a148b877aa30d
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100389540"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102040605"
 ---
 # <a name="about-azure-migrate"></a>Acerca do Azure Migrate
 
@@ -37,7 +37,7 @@ O hub Azure Migrate inclui estas ferramentas:
 --- | --- | ---
 **Azure Migrate: Avaliação do servidor** | Avaliar servidores. | Descubra e avalie no local VMware VMs, VMs hiper-V e servidores físicos em preparação para a migração para Azure.
 **Azure Migrate: Migração de servidores** | Migrar servidores. | Migrar VMware VMs, VMs Hiper-V, servidores físicos, outras máquinas virtualizadas e VMs de nuvem pública para Azure.
-**Assistente de Migração de Dados** | Avaliar bases de dados do SQL Server para migração para Azure SQL Database, Azure SQL Managed Instance ou Azure VMs que executam o SQL Server. | Data Migration Assistant ajuda a identificar potenciais problemas que bloqueiam a migração. Identifica funcionalidades não apoiadas, novas funcionalidades que podem beneficiar-te após a migração e o caminho certo para a migração de bases de dados. [Saiba mais](/sql/dma/dma-overview?view=sql-server-2017).
+**Assistente de Migração de Dados** | Avaliar bases de dados do SQL Server para migração para Azure SQL Database, Azure SQL Managed Instance ou Azure VMs que executam o SQL Server. | Data Migration Assistant ajuda a identificar potenciais problemas que bloqueiam a migração. Identifica funcionalidades não apoiadas, novas funcionalidades que podem beneficiar-te após a migração e o caminho certo para a migração de bases de dados. [Saiba mais](/sql/dma/dma-overview).
 **Azure Database Migration Service** | Migrar bases de dados no local para VMs Azure que executam o SQL Server, Azure SQL Database ou SQL Managed Instances. | [Saiba mais](../dms/dms-overview.md) sobre o Serviço de Migração de Bases de Dados.
 **Movere** | Avaliar servidores. | [Saiba mais](#movere) sobre o Movere.
 **Assistente de migração de aplicativos web** | Avalie as aplicações web no local e emigre-as para Azure. |  Utilize o Assistente de Migração do Serviço de Aplicações Azure para avaliar os sites no local para migração para o Azure App Service.<br/><br/> Utilize o Assistente de Migração para migrar aplicações web .NET e PHP para Azure. [Saiba mais](https://appmigration.microsoft.com/) sobre o Assistente de Migração do Serviço de Aplicações Azure.
@@ -79,11 +79,14 @@ A Avaliação do Servidor utiliza um [aparelho Azure Migrate](migrate-appliance.
 - A descoberta do aparelho é sem agente. Nada está instalado em máquinas descobertas.
 - Após a descoberta do aparelho, pode recolher máquinas descobertas em grupos e fazer avaliações para cada grupo.
 
+> [!Note]
+> A descoberta e avaliação de instâncias e bases de dados do SQL Server em execução no seu ambiente VMware está agora em pré-visualização. Para experimentar esta funcionalidade, utilize [**este link**](https://go.microsoft.com/fwlink/?linkid=2155668) para criar um projeto na região **leste da Austrália.** Se já tem um projeto na Austrália East e quer experimentar esta funcionalidade, certifique-se de que completou estes [**pré-requisitos**](how-to-discover-sql-existing-project.md) no portal.
+
 ## <a name="azure-migrate-server-migration-tool"></a>Azure Migrate: Ferramenta de migração de servidores
 
 A ferramenta Azure Migrate: Servidor Migração ajuda-o a migrar para Azure:
 
-**Migrate** | **Detalhes**
+**Migrar** | **Detalhes**
 --- | ---
 VMs VMware no local | Migrar VMs para Azure utilizando migração sem agentes ou por agentes.<br/><br/> Para a migração sem agentes, a Migração do Servidor utiliza o mesmo aparelho Azure Migrate que também pode ser usado pela Avaliação do Servidor para a descoberta e avaliação de VMware VMs.<br/><br/> Para a migração baseada em agentes, a Migração do Servidor utiliza um aparelho de replicação.
 VMs de Hyper-V no local | Migrar VMs para Azure.<br/><br/> A Migração do Servidor utiliza agentes de fornecedor instalados no hospedeiro Hyper-V para a migração.

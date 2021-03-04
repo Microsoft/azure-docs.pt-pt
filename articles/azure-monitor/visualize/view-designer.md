@@ -1,17 +1,16 @@
 ---
 title: Criar vistas para analisar dados de registo no Azure Monitor | Microsoft Docs
 description: Ao utilizar o View Designer no Azure Monitor, pode criar vistas personalizadas que são exibidas no portal Azure e conter uma variedade de visualizações de dados no espaço de trabalho Log Analytics. Este artigo contém uma visão geral do View Designer e apresenta procedimentos para criar e editar vistas personalizadas.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/04/2020
-ms.openlocfilehash: 11a6d21a7a066d331a92453e9aaa876800da0bf4
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: cb0274260022c55ae657b5b28b2c9ad1903d0296
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101700546"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102043274"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-azure-monitor"></a>Crie vistas personalizadas utilizando o View Designer no Azure Monitor
 Ao utilizar o View Designer no Azure Monitor, pode criar uma variedade de visualizações personalizadas no portal Azure que podem ajudá-lo a visualizar dados no seu espaço de trabalho Log Analytics. Este artigo apresenta uma visão geral do View Designer e procedimentos para criar e editar vistas personalizadas.

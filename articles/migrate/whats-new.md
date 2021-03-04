@@ -7,16 +7,20 @@ ms.author: anvar
 ms.manager: bsiva
 ms.date: 04/19/2020
 ms.custom: mvc
-ms.openlocfilehash: cc207522048e3f0491e3aa54f2ae21d2e7e63bc2
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: f50737bdefc9065c9b16633ba3360bda1d028cd6
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99834040"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102043053"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Novidades em Azure Migrate
 
 [O Azure Migrate](migrate-services-overview.md) ajuda-o a descobrir, avaliar e migrar para o local servidores, apps e dados para a nuvem do Microsoft Azure. Este artigo resume novos lançamentos e funcionalidades em Azure Migrate.
+
+## <a name="update-march-2021"></a>Atualização (março de 2021)
+- Suporte para fornecer múltiplas credenciais de servidor no aparelho Azure Migrate para descobrir aplicações instaladas (inventário de software), análise de dependência de agentes e descobrir instâncias e bases de dados do SQL Server no seu ambiente VMware. [Saiba mais](tutorial-discover-vmware.md#provide-server-credentials)
+- A descoberta e avaliação de instâncias e bases de dados do SQL Server em execução no seu ambiente VMware está agora em pré-visualização. [Saiba mais](concepts-azure-sql-assessment-calculation.md)<br/>Para experimentar esta funcionalidade, utilize [este link](https://aka.ms/AzureMigrate/SQL) para criar um projeto na região **leste da Austrália.** Consulte os tutoriais [de descoberta](tutorial-discover-vmware.md) e [avaliação](tutorial-assess-sql.md) para começar.
 
 ## <a name="update-january-2021"></a>Atualização (janeiro de 2021)
 -  Azure Migrate: A ferramenta de migração do servidor permite-lhe agora migrar máquinas virtuais VMware, servidores físicos e máquinas virtuais de outras nuvens para máquinas virtuais Azure com discos encriptados com encriptação do lado do servidor com teclas geridas pelo cliente (CMK).
@@ -84,7 +88,7 @@ Foram adicionadas várias novidades à Azure Migrate:
 
 Foram adicionados novos instrumentos de avaliação e migração à Azure Migrate:
 
-- **Rackware**: Oferecendo migração em nuvem.
+- **RackWare**: Oferecendo migração em nuvem.
 - **Movere**: Avaliação de oferta.
 
 [Saiba mais](migrate-services-overview.md) sobre a utilização de ferramentas e ofertas isv para avaliação e migração em Azure Migrate.

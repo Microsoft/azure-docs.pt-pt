@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 10/09/2019
+ms.date: 03/03/2021
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 6165499ef0dad61910f26bc9d740bd19a28c43c7
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 7374c2727048e323ce0483dd42c574134e7315bd
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100106284"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102040550"
 ---
 Pode consultar os links desta secção para obter mais informações sobre os serviços oferecidos pelos parceiros. Se o seu parceiro de dispositivo de filial não estiver listado na secção abaixo, contacte-nos. Podem contactar-nos enviando um e-mail azurevirtualwan@microsoft.com para.
 
@@ -32,7 +32,7 @@ Pode consultar os links desta secção para obter mais informações sobre os se
 |[Palo Alto Networks](https://researchcenter.paloaltonetworks.com/2018/09/azure-vwan-integration/) |[Guia de implantação virtual WAN da Palo Alto Networks Azure](https://github.com/PaloAltoNetworks/microsoft_azure_virtual_wan)|
 |[Riverbed Technology](https://www.riverbed.com/go/steelconnect-azurewan.html)|[Azure Virtual WAN & SteelConnect EX](https://www.riverbed.com/partners/microsoft-azure-virtual-wan.html) |
 |[Pico de Prata]( https://www.silver-peak.com/silver-peak-expands-integration-with-microsoft-cloud-services)|[Guia de integração de Azure Virtual WAN do EdgeConnect e do Microsoft Azure](https://www.silver-peak.com/documentation/edgeconnect-and-azure-vwan-integration-guide)|
-|[Velocloud-VMWare]( https://wan.velocloud.com/rs/098-RBR-178/images/sdwan-654-connect-azure-vwan-so-0819.pdf)|[Guia de implementação de velocloud Azure Virtual WAN](https://kb.vmware.com/s/article/79000)|
+|[VMware SD-WAN]( https://wan.velocloud.com/rs/098-RBR-178/images/sdwan-654-connect-azure-vwan-so-0819.pdf)|[Guia de implantação Azure Virtual WAN VMware SD-WAN](https://kb.vmware.com/s/article/79000)|
 | [Versa](https://www.versa-networks.com/partners/microsoft-azure-virtual-WAN) | [Configurar Versa SD-WAN e Microsoft Azure vWAN (Disponível para clientes registados)](https://docs.versa-networks.com/Versa_Director/Versa_Director_Configuration/Integrate_Director_and_Azure_Virtual_WAN) |
 
 *\* Ligação direta indisponível. Por favor contacte a empresa parceira para obter apoio.*

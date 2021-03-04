@@ -3,12 +3,12 @@ title: Autenticar com a identidade gerida
 description: Fornecer acesso a imagens no seu registo de contentores privados utilizando uma identidade Azure gerida atribuída pelo utilizador ou pelo sistema.
 ms.topic: article
 ms.date: 01/16/2019
-ms.openlocfilehash: 68564cc5743b1deb43bf39f897c239dc683c334c
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.openlocfilehash: e6c0d21f7bdefa94241655225589a52c02110f70
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99987750"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102041472"
 ---
 # <a name="use-an-azure-managed-identity-to-authenticate-to-an-azure-container-registry"></a>Utilize uma identidade gerida a Azure para autenticar num registo de contentores Azure 
 
@@ -107,13 +107,13 @@ Saia da sessão do SSH.
 
 ### <a name="create-an-identity"></a>Criar uma identidade
 
-Crie uma identidade na sua subscrição utilizando o comando [de criação de identidade az.](/cli/azure/identit#az-identity-create) Pode utilizar o mesmo grupo de recursos que usou anteriormente para criar o registo do contentor ou máquina virtual, ou um outro.
+Crie uma identidade na sua subscrição utilizando o comando [de criação de identidade az.](/cli/azure/identity#az_identity_create) Pode utilizar o mesmo grupo de recursos que usou anteriormente para criar o registo do contentor ou máquina virtual, ou um outro.
 
 ```azurecli-interactive
 az identity create --resource-group myResourceGroup --name myACRId
 ```
 
-Para configurar a identidade nos seguintes passos, utilize o comando [de demonstração de identidade az][az-identity-show] para armazenar o ID de recursos da identidade e o ID principal de serviço em variáveis.
+Para configurar a identidade nos seguintes passos, utilize o comando [az identity show][az_identity_show] para armazenar o ID de recursos da identidade e o ID principal de serviço em variáveis.
 
 ```azurecli
 # Get resource ID of the user-assigned identity

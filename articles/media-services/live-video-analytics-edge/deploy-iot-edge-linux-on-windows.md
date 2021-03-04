@@ -3,12 +3,12 @@ title: Implementar para uma borda IoT para Linux no Windows - Azure
 description: Este artigo fornece orientações sobre como implementar para um IoT Edge para Linux no dispositivo Windows.
 ms.topic: how-to
 ms.date: 02/18/2021
-ms.openlocfilehash: 5cf4184857f12065d808d7b528dbfe8258950cd8
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: b635070d6a4834da2c6d82cc768684b6cde9cd71
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101746464"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102042186"
 ---
 # <a name="deploy-to-an-iot-edge-for-linux-on-windows-eflow-device"></a>Implementar para um IoT Edge para Linux no dispositivo Windows (EFLOW)
 
@@ -107,7 +107,7 @@ O seguinte retrata o fluxo global do documento e em 5 passos simples deve estar 
 ## <a name="next-steps"></a>Passos seguintes
 
 * Tente a deteção de movimentos juntamente com a gravação de vídeos relevantes na nuvem. Siga os passos do movimento de [deteção, grave os videoclips para o](detect-motion-record-video-clips-media-services-quickstart.md#review-the-sample-video) Quickstart dos Media Services.
-* Executar [IA em Live Video](use-your-model-quickstart#overview) (pode saltar a configuração pré-requisito como já foi feito acima)
+* Executar [IA em Live Video](use-your-model-quickstart.md#overview) (pode saltar a configuração pré-requisito como já foi feito acima)
 * Utilize a nossa [extensão vs Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.live-video-analytics-edge) para visualizar gráficos de mídia adicionais.
 * Utilize uma [câmara IP](https://en.wikipedia.org/wiki/IP_camera)  que suporte o RTSP em vez de utilizar o simulador RTSP. Pode encontrar câmaras IP que suportam RTSP na página de [produtos conformantes ONVIF.](https://www.onvif.org/conformant-products/) Procure dispositivos em conformidade com os perfis G, S ou T.
 

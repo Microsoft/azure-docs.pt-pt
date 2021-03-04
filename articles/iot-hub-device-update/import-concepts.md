@@ -1,17 +1,17 @@
 ---
 title: Compreenda atualização do dispositivo para o IoT Hub que importa | Microsoft Docs
 description: Conceitos-chave para importar uma nova atualização para a Atualização do Dispositivo para ioT Hub.
-author: andbrown
+author: andrewbrownmsft
 ms.author: andbrown
 ms.date: 2/10/2021
 ms.topic: conceptual
 ms.service: iot-hub-device-update
-ms.openlocfilehash: c6c6707a74007898c3cd73250709f4df3fabb37d
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 4cd5e0c016b98a3dc9336237a5c1b14e6b0f5789
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101663343"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102040588"
 ---
 # <a name="importing-updates-into-device-update-for-iot-hub"></a>Importar atualizações para atualização de dispositivos para ioT hub
 Para implementar uma atualização para dispositivos a partir de Device Update para IoT Hub, primeiro tem de _importar_ essa atualização para o serviço de Atualização de Dispositivos. Aqui está uma visão geral de alguns conceitos importantes para entender quando se trata de importar atualizações.

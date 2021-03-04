@@ -6,12 +6,12 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 09/15/2020
-ms.openlocfilehash: 9badbfe6cfe12d67e07f0889d175ed32bc455321
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 5a050d9aab9e8665c6048391488e57c9b4af10a5
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96753880"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102043070"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Aparelho Azure Migrate: Questões comuns
 
@@ -36,21 +36,20 @@ Aqui está mais informações sobre o aparelho Azure Migrate:
 
 ## <a name="how-can-i-deploy-the-appliance"></a>Como posso colocar o aparelho?
 
-O aparelho pode ser acionado da seguinte forma:
+O aparelho pode ser implantado utilizando um par de métodos:
 
-- Usando um modelo para a descoberta de VMware VMs (. Ficheiro OVA) e Hiper-VMs (. Ficheiro VHD) para criar um novo VM que acolhe o aparelho.
-- Se não quiser utilizar um modelo, pode implantar o aparelho numa máquina física ou virtual existente para a descoberta de VMware VMs ou VMs hiper-V usando um script instalador PowerShell, disponível para download num ficheiro zip a partir do portal.
-- Para servidores físicos ou virtuais a partir de instalações ou de qualquer nuvem, utilize sempre o aparelho utilizando um script num servidor existente.
-- Para o Governo Azure, os três aparelhos só podem ser implantados utilizando o script do instalador PowerShell.
+- O aparelho pode ser implantado utilizando um modelo para servidores em execução em ambiente VMware ou Hiper-V[(modelo OVA para VMware](how-to-set-up-appliance-vmware.md) ou [VHD para Hiper-V](how-to-set-up-appliance-hyper-v.md)).
+- Se não quiser utilizar um modelo, pode implantar o aparelho para ambiente VMware ou Hiper-V utilizando um [script instalador PowerShell](deploy-appliance-script.md).
+- No Governo Azure, deve utilizar o aparelho utilizando um script instalador PowerShell. Consulte os passos de implantação [aqui.](deploy-appliance-script-government.md)
+- Para servidores físicos ou virtualizados no local ou em qualquer outra nuvem, utilize sempre o aparelho utilizando um script instalador PowerShell. Consulte os passos de implantação [aqui.](how-to-set-up-appliance-physical.md)
 
 ## <a name="how-does-the-appliance-connect-to-azure"></a>Como é que o aparelho se liga ao Azure?
 
 O aparelho pode ligar-se através da internet ou utilizando o Azure ExpressRoute. 
 
 - Certifique-se de que o aparelho pode ligar-se a estes [URLs Azure](./migrate-appliance.md#url-access). 
-- Pode utilizar o ExpressRoute com o microsoft a espreitar.  O olhar público é preprotecado, e não está disponível para novos circuitos ExpressRoute.
+- Pode utilizar o ExpressRoute com o microsoft a espreitar. O olhar público é preprotecado, e não está disponível para novos circuitos ExpressRoute.
 - O olhar privado só não é apoiado.
-
 
 
 ## <a name="does-appliance-analysis-affect-performance"></a>A análise do aparelho afeta o desempenho?
@@ -105,15 +104,15 @@ Estes passos descrevem como o aparelho se conecta ao VMware vCenter Server:
 
 ## <a name="can-the-azure-migrate-appliance-connect-to-multiple-vcenter-servers"></a>O aparelho Azure Migrate pode ligar-se a vários servidores vCenter?
 
-Não. Há um mapeamento de um para um entre um [aparelho Azure Migrate](migrate-appliance.md) e vCenter Server. Para descobrir VMs em várias instâncias do VCenter Server, tem de implantar vários aparelhos. 
+N.º Há um mapeamento de um para um entre um [aparelho Azure Migrate](migrate-appliance.md) e vCenter Server. Para descobrir VMs em várias instâncias do VCenter Server, tem de implantar vários aparelhos. 
 
 ## <a name="can-an-azure-migrate-project-have-multiple-appliances"></a>Um projeto Azure Migrate pode ter vários aparelhos?
 
-Um projeto pode ter vários aparelhos ligados a ele. No entanto, um aparelho só pode ser associado a um projeto. 
+Um projeto pode ter vários aparelhos registados. No entanto, um aparelho só pode ser registado com um projeto.
 
 ## <a name="can-the-azure-migrate-appliancereplication-appliance-connect-to-the-same-vcenter"></a>O aparelho Azure Migrate/aparelho de replicação pode ligar-se ao mesmo vCenter?
 
-Yes. Pode adicionar tanto o aparelho Azure Migrate (utilizado para avaliação e migração de VMware sem agente) como o aparelho de replicação (utilizado para a migração baseada em agentes de VMware VMs) ao mesmo servidor vCenter. Mas certifique-se de que não está a montar ambos os aparelhos no mesmo VM e que, atualmente, não está suportado.
+Sim. Pode adicionar tanto o aparelho Azure Migrate (utilizado para avaliação e migração de VMware sem agente) como o aparelho de replicação (utilizado para a migração baseada em agentes de VMware VMs) ao mesmo servidor vCenter. Mas certifique-se de que não está a montar ambos os aparelhos no mesmo VM e que, atualmente, não está suportado.
 
 ## <a name="how-many-vms-or-servers-can-i-discover-with-an-appliance"></a>Quantos VMs ou servidores posso descobrir com um aparelho?
 
@@ -135,11 +134,11 @@ Além disso, não é possível reutilizar uma chave de projeto Azure Migrate exi
 
 ## <a name="can-i-set-up-the-appliance-on-an-azure-vm"></a>Posso montar o aparelho num Azure VM?
 
-Não. Atualmente, esta opção não é suportada. 
+N.º Atualmente, esta opção não é suportada.
 
 ## <a name="can-i-discover-on-an-esxi-host"></a>Posso descobrir num hospedeiro ESXi?
 
-Não. Para descobrir VMware VMs, tem de ter o vCenter Server.
+N.º Para descobrir VMware VMs, tem de ter o vCenter Server.
 
 ## <a name="how-do-i-update-the-appliance"></a>Como atualizei o aparelho?
 
@@ -149,7 +148,20 @@ Apenas o aparelho e os agentes do aparelho são atualizados através destas atua
 
 ## <a name="can-i-check-agent-health"></a>Posso verificar a saúde do agente?
 
-Yes. No portal, vá à página **de saúde do Agente** para o Azure Migrate: Avaliação do Servidor ou Azure Migrate: Ferramenta de migração do servidor. Lá, pode verificar o estado de ligação entre a Azure e os agentes de descoberta e avaliação do aparelho.
+Sim. No portal, vá à página **de saúde do Agente** para o Azure Migrate: Avaliação do Servidor ou Azure Migrate: Ferramenta de migração do servidor. Lá, pode verificar o estado de ligação entre a Azure e os agentes de descoberta e avaliação do aparelho.
+
+## <a name="can-i-add-multiple-server-credentials-on-vmware-appliance"></a>Posso adicionar várias credenciais de servidor no aparelho VMware?
+
+Sim, agora suportamos múltiplas credenciais de servidor para realizar o inventário de software (descoberta de aplicações instaladas), análise de dependência de agentes e descoberta de instâncias e bases de dados do SQL Server. [Saiba mais](tutorial-discover-vmware.md#provide-server-credentials) sobre como fornecer credenciais no gestor de configuração do aparelho.
+
+## <a name="what-type-of-server-credentials-can-i-add-on-the-vmware-appliance"></a>Que tipo de credenciais de servidor posso adicionar no aparelho VMware?
+Pode fornecer credenciais de autenticação de domínio/ Windows (não domínio)/ Linux (não domínio)/ SQL Server no gestor de configuração do aparelho. [Saiba mais](add-server-credentials.md) sobre como fornecer credenciais e como as lidamos.
+
+## <a name="what-type-of-sql-server-connection-properties-are-supported-by-azure-migrate-for-sql-discovery"></a>Que tipo de propriedades de conexão SQL Server são suportadas pela Azure Migrate para a descoberta do SQL?
+A Azure Migrate encriptará a comunicação entre o aparelho Azure Migrate e as instâncias do SQL Server de origem (com a propriedade de ligação encriptada definida para TRUE). Estas ligações são encriptadas com [TrustServerCertificate](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlconnectionstringbuilder.trustservercertificate) (definido para TRUE); a camada de transporte utilizará o SSL para encriptar o canal e contornar a cadeia de certificados para validar a confiança. O servidor do aparelho deve ser criado para [confiar na autoridade principal do certificado](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).
+
+Se não tiver sido fornectado nenhum certificado no servidor quando este começa, o SQL Server gera um certificado auto-assinado que é utilizado para encriptar pacotes de login. [Saiba mais](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).
+
 
 ## <a name="next-steps"></a>Passos seguintes
 

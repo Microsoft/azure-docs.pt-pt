@@ -1,17 +1,16 @@
 ---
 title: Tutorial do Log Analytics
 description: Aprenda com este tutorial como utilizar funcionalidades do Log Analytics no Azure Monitor para construir uma consulta de registo e analisar os seus resultados no portal Azure.
-ms.subservice: logs
 ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 10/07/2020
-ms.openlocfilehash: a7a6ba395769677fe46ddfff675640f6e15060a0
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 06a73b495cefc361db88d80413f4f4be50e105d1
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101723185"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102041149"
 ---
 # <a name="log-analytics-tutorial"></a>Tutorial do Log Analytics
 O Log Analytics é uma ferramenta no portal Azure para editar e executar consultas de registo a partir de dados recolhidos pelos Registos do Monitor Azure e analisar interativamente os seus resultados. Pode utilizar consultas de Log Analytics para obter registos que correspondam a critérios específicos, identificar tendências, analisar padrões e fornecer uma variedade de insights nos seus dados. 

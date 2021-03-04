@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 02/10/2021
 ms.author: jodowns
 ms.custom: fasttrack-new
-ms.openlocfilehash: 9dc44b4b898603df88d1bdd8c36ddfb6449335ac
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 55951f288314d92cf5057e7d5c1e988f65cb3e14
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100547201"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102040384"
 ---
 # <a name="versions-in-azure-api-management"></a>Versões em Gestão API Azure
 
@@ -42,7 +42,7 @@ Quando o esquema de versão de caminhos é utilizado, o identificador de versão
 
 Por exemplo, `https://apis.contoso.com/products/v1` e `https://apis.contoso.com/products/v2` poderia referir-se à mesma `products` API, mas a versões `v1` `v2` e, respectivamente.
 
-O formato de um URL de pedido de API ao utilizar a versão baseada em cabeçalho é: `https://{yourDomain}/{apiName}/{versionIdentifier}/{operationId}` .
+O formato de um URL de pedido de API ao utilizar a versão baseada no caminho é: `https://{yourDomain}/{apiName}/{versionIdentifier}/{operationId}` .
 
 ### <a name="header-based-versioning"></a>Veragem baseada em cabeçalho
 

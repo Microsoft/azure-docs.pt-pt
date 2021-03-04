@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 11/07/2020
-ms.openlocfilehash: 1ef7943586123a1870ed9a2d0c21aa8b5fd38c1c
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 139852949a3744fd603cb197b2e27fa32679aae0
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97360004"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102042427"
 ---
 # <a name="automatic-registration-with-sql-iaas-agent-extension"></a>Inscrição automática com extensão do Agente SQL IaaS
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -24,13 +24,13 @@ Ative a função de registo automático no portal Azure para registar automatica
 
 Este artigo ensina-o a ativar a função de registo automático. Em alternativa, pode [registar um único VM,](sql-agent-extension-manually-register-single-vm.md)ou [registar os seus VMs a granel](sql-agent-extension-manually-register-vms-bulk.md) com a extensão sql IaaS Agent. 
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Registar o seu SQL Server VM com a [extensão SQL IaaS Agent](sql-server-iaas-agent-extension-automate-management.md) para desbloquear um conjunto completo de benefícios. 
 
 Quando o registo automático está ativado, um trabalho é executado diariamente para detetar se o SQL Server está ou não instalado em todos os VMs não registados na subscrição. Isto é feito copiando os binários de extensão do agente SQL IaaS para o VM, executando então um utilitário único que verifica a colmeia de registo sql Server. Se for detetada a colmeia SQL Server, a máquina virtual é registada com a extensão em modo leve. Se não existir colmeia SQL Server no registo, os binários são removidos.
 
-Uma vez que o registo automático esteja habilitado para uma subscrição, todos os VMs atuais e futuros que tenham o SQL Server instalado serão registados com a extensão sql IaaS Agent em modo leve. Ainda precisa de [fazer um upgrade manual para o modo de gestão completa](sql-agent-extension-manually-register-single-vm.md#upgrade-to-full) para tirar partido do conjunto completo de funcionalidades. 
+Uma vez que o registo automático esteja ativado para uma subscrição, todos os VMs atuais e futuros que tenham o SQL Server instalado serão registados com a extensão sql IaaS Agent **em modo leve sem tempo de inatividade, e sem reiniciar o serviço SQL Server**. Ainda precisa de [fazer um upgrade manual para o modo de gestão completa](sql-agent-extension-manually-register-single-vm.md#upgrade-to-full) para tirar partido do conjunto completo de funcionalidades. 
 
 > [!IMPORTANT]
 > A extensão do Agente IAAS SQL recolhe dados com o propósito expresso de dar aos clientes benefícios opcionais ao utilizar o SQL Server dentro de Máquinas Virtuais Azure. A Microsoft não utilizará estes dados para licenciar auditorias sem o consentimento prévio do cliente. Consulte o [suplemento de privacidade SQL Server](/sql/sql-server/sql-server-privacy#non-personal-data) para obter mais informações.
@@ -47,7 +47,7 @@ Para registar o seu SQL Server VM com a extensão, necessitará de:
 
 Para ativar o registo automático dos seus VMs do seu SQL Server no portal Azure, siga estes passos:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 1. Navegue para a página de recursos [**de máquinas virtuais SQL.**](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.SqlVirtualMachine%2FSqlVirtualMachines) 
 1. Selecione **o registo automático do SQL Server VM** para abrir a página de registo **automático.** 
 

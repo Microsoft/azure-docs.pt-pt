@@ -1,21 +1,24 @@
 ---
-title: Referência do programador Azure Functions C#
-description: Entenda como desenvolver funções Azure usando C#.
+title: Desenvolver funções C# utilizando funções Azure
+description: Entenda como usar O C# para desenvolver e publicar código que executa em processo com o tempo de funcionamento das Funções Azure.
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 07/24/2020
-ms.openlocfilehash: 335cc3017e7b016666324306181c90a0e405a956
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: e29b250b25bdafb2b3af26f5669f2ae5ed485457
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98806316"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102041200"
 ---
-# <a name="azure-functions-c-developer-reference"></a>Referência do programador Azure Functions C#
+# <a name="develop-c-functions-using-azure-functions"></a>Desenvolver funções C# utilizando funções Azure
 
 <!-- When updating this article, make corresponding changes to any duplicate content in functions-reference-csharp.md -->
 
 Este artigo é uma introdução ao desenvolvimento de Funções Azure utilizando C# em bibliotecas de classe .NET.
+
+>[!IMPORTANT]
+>Este artigo suporta funções de biblioteca de classe .NET que funcionam em processo com o tempo de funcionamento. As funções também suportam .NET 5.x executando as suas funções C# fora do processo e isoladas do tempo de funcionamento. Para saber mais, consulte [as funções de processo isoladas .NET](dotnet-isolated-process-guide.md).
 
 Como desenvolvedor C#, também poderá estar interessado num dos seguintes artigos:
 
@@ -31,9 +34,11 @@ As versões do tempo de execução das Funções funcionam com versões específ
 
 | Versão de tempo de execução de funções | Versão Max .NET |
 | ---- | ---- |
-| Funções 3.x | .NET Core 3.1 |
+| Funções 3.x | .NET Core 3.1<br/>.NET 5.0<sup>*</sup> |
 | Funções 2.x | .NET Core 2.2 |
 | Funções 1.x | .Net Quadro 4.7 |
+
+<sup>*</sup>Deve [ficar fora de processo.](dotnet-isolated-process-guide.md)
 
 Para saber mais, consulte [as versões de tempo de execução do Azure Functions](functions-versions.md)
 
@@ -94,9 +99,11 @@ A assinatura do método pode conter parâmetros diferentes dos utilizados com o 
 
 A ordem dos parâmetros na assinatura da função não importa. Por exemplo, pode colocar parâmetros de gatilho antes ou depois de outras encadernações, e pode colocar o parâmetro do madeireiros antes ou depois do gatilho ou parâmetros de ligação.
 
-### <a name="output-binding-example"></a>Exemplo vinculativo de saída
+### <a name="output-bindings"></a>Enlaces de saída
 
-O exemplo a seguir modifica o anterior adicionando uma encadernação de fila de saída. A função escreve a mensagem de fila que desencadeia a função para uma nova mensagem de fila numa fila diferente.
+Uma função pode ter ligações de saída zero ou uma definidas utilizando parâmetros de saída. 
+
+O exemplo a seguir modifica o anterior adicionando uma fila de saída com o nome `myQueueItemCopy` . A função escreve o conteúdo da mensagem que desencadeia a função para uma nova mensagem numa fila diferente.
 
 ```csharp
 public static class SimpleExampleWithOutput
@@ -112,6 +119,8 @@ public static class SimpleExampleWithOutput
     }
 }
 ```
+
+Os valores atribuídos às ligações de saída são escritos quando a função sai. Pode utilizar mais do que uma ligação de saída numa função simplesmente atribuindo valores a vários parâmetros de saída. 
 
 Os artigos de referência de encadernação[(filas de armazenamento,](functions-bindings-storage-queue.md)por exemplo) explicam quais os tipos de parâmetros que pode utilizar com atributos de detonação, entrada ou ligação de saída.
 
@@ -361,7 +370,7 @@ Aqui está uma amostra json representação de `customDimensions` dados:
 }
 ```
 
-## <a name="log-custom-telemetry-in-c-functions"></a>Registar telemetria personalizada em funções C#
+### <a name="log-custom-telemetry"></a><a name="log-custom-telemetry-in-c-functions"></a>Registar telemetria personalizada
 
 Existe uma versão específica de Funções do SDK Application Insights que pode utilizar para enviar dados de telemetria personalizados das suas funções para Insights de Aplicação: [Microsoft.Azure.WebJobs.Logging.ApplicationInsights](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Logging.ApplicationInsights). Utilize o seguinte comando a partir da solicitação de comando para instalar este pacote:
 
@@ -647,7 +656,7 @@ public static class IBinderExampleMultipleAttributes
 
 [!INCLUDE [Supported triggers and bindings](../../includes/functions-bindings.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre gatilhos e encadernações](functions-triggers-bindings.md)

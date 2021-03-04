@@ -1,5 +1,5 @@
 ---
-title: Novidades
+title: Novidades?
 titleSuffix: Azure SQL Database & SQL Managed Instance
 description: Conheça as novas funcionalidades e melhorias de documentação para a Azure SQL Database & SQL Managed Instance.
 services: sql-database
@@ -11,19 +11,19 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: sstein
-ms.openlocfilehash: 607b588d3371b20c2b3fa9854e27a7ccdfe2e551
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 86687e8259e7abcb9ff0e97f8cb75d96c0abfca8
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98703772"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102042509"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>Quais as novidades na Base de Dados Azure SQL & SQL Managed Instance?
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 Este artigo lista as funcionalidades Azure SQL Database e Azure SQL Managed Instance que estão atualmente em pré-visualização pública. Para atualizações e melhorias de exemplos de bases de dados sql e sql geridos, consulte a [Base de Dados SQL & atualizações do serviço sql Managed Instance](https://azure.microsoft.com/updates/?product=sql-database). Para atualizações e melhorias a outros serviços Azure, consulte [as atualizações do Serviço](https://azure.microsoft.com/updates).
 
-## <a name="whats-new"></a>Novidades
+## <a name="whats-new"></a>Novidades?
 
 A documentação da Azure SQL Database e da Azure SQL Managed Instance foi dividida em secções separadas. Também atualizámos a forma como nos referimos a um caso gerido da *Azure SQL Database gerido instância* para *Azure SQL Managed Instance*.
 
@@ -89,7 +89,7 @@ As seguintes funcionalidades estão ativadas no modelo de implementação sql Ma
   - Suporte para <a href="/sharepoint/administration/deploy-azure-sql-managed-instance-with-sharepoint-servers-2016-2019"> SharePoint 2016 e SharePoint 2019 </a> e <a href="/business-applications-release-notes/october18/dynamics365-business-central/support-for-azure-sql-database-managed-instance"> Dynamics 365 Business Central. </a>
   - Crie um caso gerido com <a href="/azure/azure-sql/managed-instance/scripts/create-powershell-azure-resource-manager-template">colagem ao nível de exemplo</a> e um <a href="https://azure.microsoft.com/updates/managed-instance-time-zone-ga/">fuso horário</a> à sua escolha.
   - As instâncias geridas estão agora protegidas com [firewall incorporada.](../managed-instance/management-endpoint-verify-built-in-firewall.md)
-  - Configure a SQL Managed Instance para utilizar [pontos finais públicos](../managed-instance/public-endpoint-configure.md), Ligação [de substituição proxy](connectivity-architecture.md#connection-policy) para obter um melhor desempenho da rede, <a href="https://aka.ms/four-cores-sql-mi-update"> 4 vCores na geração de hardware da Gen5</a> ou <a href="/azure/azure-sql/database/automated-backups-overview">retenção de backup Configure até 35 dias</a> para a restauração pontual. [A retenção de backup de longo prazo](long-term-retention-overview.md#sql-managed-instance-support) (até 10 anos) encontra-se atualmente em pré-visualização pública limitada.  
+  - Configure a SQL Managed Instance para utilizar [pontos finais públicos](../managed-instance/public-endpoint-configure.md), Ligação [de substituição proxy](connectivity-architecture.md#connection-policy) para obter um melhor desempenho da rede, <a href="https://aka.ms/four-cores-sql-mi-update"> 4 vCores na geração de hardware da Gen5</a> ou <a href="/azure/azure-sql/database/automated-backups-overview">retenção de backup Configure até 35 dias</a> para a restauração pontual. [A retenção de backup de longo prazo](long-term-retention-overview.md) (até 10 anos) está atualmente em pré-visualização pública.  
   - As novas funcionalidades <a href="https://medium.com/@jocapc/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa">permitem-lhe restaurar a sua base de dados para outro centro de dados utilizando o PowerShell,</a>a base de [dados do nome,](https://azure.microsoft.com/updates/azure-sql-database-managed-instance-database-rename-is-supported/) [eliminar o cluster virtual.](../managed-instance/virtual-cluster-delete.md)
   - O novo [papel de contribuinte](../../role-based-access-control/built-in-roles.md#sql-managed-instance-contributor) incorporado permite a separação do dever (SoD) o cumprimento dos princípios de segurança e o cumprimento das normas empresariais.
   - SQL Managed Instance está disponível nas seguintes regiões do Governo Azure para GA (EUA Gov Texas, EUA Gov Arizona) e na China Norte 2 e China East 2. Também está disponível nas seguintes regiões públicas: Austrália Central, Austrália Central 2, Brasil Sul, França Sul, UAE Central, UAE North, África do Sul Norte, África do Sul Oeste.

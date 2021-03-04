@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 03/02/2021
 ms.author: caya
-ms.openlocfilehash: 1daf5fef1383272f728ff3dac7557e55398f7d50
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: bfff962f6d302f589acc437550fa25f76ec7ce35
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101720227"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102040431"
 ---
 # <a name="tutorial-enable-application-gateway-ingress-controller-add-on-for-an-existing-aks-cluster-with-an-existing-application-gateway"></a>Tutorial: Ativar o addon do controlador de entrada de entrada de aplicação para um cluster AKS existente com um Gateway de aplicação existente
 
@@ -82,7 +82,7 @@ az aks enable-addons -n myCluster -g myResourceGroup -a ingress-appgw --appgw-id
 
 Se quiser utilizar o portal Azure para ativar o addon AGIC, vá [até ( https://aka.ms/azure/portal/aks/agic) ](https://aka.ms/azure/portal/aks/agic) e navegue para o seu cluster AKS através da ligação Portal. A partir daí, vá ao separador Networking dentro do seu cluster AKS. Verá uma secção de controlador de entrada de gateway de aplicação, que lhe permite ativar/desativar o addon do controlador de entrada utilizando o Portal UI. Verifique a caixa ao lado de "Enable ingresss controller", e selecione o Gateway de Aplicação que criou, *myApplicationGateway* a partir do menu suspenso. 
 
-![Portal do Controlador de Entrada de Gateway de Aplicação](./media/tutorial-ingress-controller-add-on-existing/portal_ingress_controller_addon.png)
+![Portal do Controlador de Entrada de Gateway de Aplicação](./media/tutorial-ingress-controller-add-on-existing/portal-ingress-controller-add-on.png)
 
 ## <a name="peer-the-two-virtual-networks-together"></a>Par as duas redes virtuais juntas
 

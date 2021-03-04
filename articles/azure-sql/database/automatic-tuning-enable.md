@@ -10,17 +10,16 @@ ms.topic: how-to
 author: danimir
 ms.author: danil
 ms.reviewer: wiassaf, sstein
-ms.date: 12/03/2019
-ms.openlocfilehash: 35e2a73b0cfae104cee417e7d4a159e7fd169a17
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 03/03/2021
+ms.openlocfilehash: d60810c291984e0f57df1968f69678de8179273c
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500908"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102042526"
 ---
 # <a name="enable-automatic-tuning-in-the-azure-portal-to-monitor-queries-and-improve-workload-performance"></a>Permitir a sintonização automática no portal Azure para monitorizar consultas e melhorar o desempenho da carga de trabalho
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
-
 
 O Azure SQL Database gere automaticamente os serviços de dados que monitorizam constantemente as suas consultas e identifica a ação que pode realizar para melhorar o desempenho da sua carga de trabalho. Pode rever recomendações e aplicá-las manualmente, ou deixar a Azure SQL Database aplicar automaticamente ações corretivas - isto é conhecido como **modo de afinação automática**.
 
@@ -111,11 +110,26 @@ A definição da opção de sintonização individual para ON irá sobrepor qual
 
 Para obter mais opções de T-SQL para configurar a sintonização automática, consulte [OPções DE SET ALTER DATABASE (Transact-SQL)](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current&preserve-view=true).
 
-## <a name="disabled-by-the-system"></a>Desativado pelo sistema
+## <a name="troubleshooting"></a>Resolução de problemas
 
-A sintonização automática está a monitorizar todas as ações que toma na base de dados e, em alguns casos, pode determinar que a sintonização automática não pode funcionar corretamente na base de dados. Nesta situação, a opção de afinação será desativada pelo sistema. Na maioria dos casos isto acontece porque a Query Store não está ativada ou está em estado de leitura apenas numa base de dados específica.
+### <a name="automated-recommendation-management-is-disabled"></a>A gestão automatizada de recomendações é desativada
 
-## <a name="permissions"></a>Permissões
+Em caso de mensagens de erro que a gestão automatizada de recomendações tenha sido desativada, ou simplesmente desativada pelo sistema, as causas mais comuns são:
+- A Loja de Consultas não está ativada, ou
+- A Loja de Consulta está em modo apenas de leitura para uma base de dados especificada, ou
+- A Loja de Consultas deixou de funcionar porque usou o espaço de armazenamento atribuído.
+
+Podem ser considerados os seguintes passos para corrigir esta questão:
+- Limpe a Loja de Consultas ou modifique o período de retenção de dados para "auto" utilizando o T-SQL. Veja como configurar a [política recomendada de retenção e captura para a Loja de Consultas.](/azure/azure-sql/database/query-performance-insight-use#recommended-retention-and-capture-policy)
+- Use o SQL Server Management Studio (SSMS) e siga estes passos:
+  - Ligue-se à Base de Dados Azure SQL
+  - Clique direito na base de dados
+  - Vá a Propriedades e clique na Loja de Consultas
+  - Mude o modo de operação para Read-Write
+  - Alterar o modo de captura da loja para Auto
+  - Altere o modo de limpeza baseado em tamanho para automático
+
+### <a name="permissions"></a>Permissões
 
 Como a sintonização automática é uma função Azure, para usá-la, terá de utilizar as funções incorporadas do Azure. A utilização da autenticação SQL apenas não será suficiente para utilizar a funcionalidade a partir do portal Azure.
 
@@ -123,7 +137,7 @@ Para utilizar a sintonização automática, a permissão mínima necessária par
 
 ## <a name="configure-automatic-tuning-e-mail-notifications"></a>Configure notificações automáticas de afinação de e-mails
 
-Consulte o guia [de notificações por e-mail de afinação automática.](automatic-tuning-email-notifications-configure.md)
+Para receber notificações automáticas de email sobre recomendações feitas pela sintonização automática, consulte o guia [de notificações de e-mail automático.](automatic-tuning-email-notifications-configure.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 

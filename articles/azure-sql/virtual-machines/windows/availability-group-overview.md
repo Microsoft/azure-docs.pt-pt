@@ -15,19 +15,19 @@ ms.workload: iaas-sql-server
 ms.date: 10/07/2020
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 213b973bfc93cb2237473b6bc4c7f1e138457409
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: d879039e6d3ad94e55ed7f7bd283f8b99a5b2161
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131904"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102042458"
 ---
 # <a name="always-on-availability-group-on-sql-server-on-azure-vms"></a>Sempre no grupo de disponibilidade no SQL Server em VMs Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 Este artigo introduz grupos de disponibilidade always on para SQL Server em Azure Virtual Machines (VMs). 
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Sempre Em grupos de disponibilidade em Azure Virtual Machines são semelhantes a [Always On availability groups no local](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server). No entanto, uma vez que as máquinas virtuais estão hospedadas em Azure, existem também algumas considerações adicionais, como a redundância de VM e o tráfego de encaminhamento na rede Azure. 
 
@@ -51,6 +51,7 @@ Numa implantação tradicional no local, os clientes conectam-se ao ouvinte do g
 
 Com o SQL Server em VMs Azure, configurar um equilibrador de carga para [encaminhar](availability-group-vnn-azure-load-balancer-configure.md) o tráfego para o seu ouvinte do grupo de disponibilidade, ou, se estiver no SQL Server 2019 CU8 e mais tarde, pode configurar um [ouvinte de rede distribuído (DNN)](availability-group-distributed-network-name-dnn-listener-configure.md) para substituir o ouvinte de grupo de disponibilidade tradicional VNN. 
 
+Para obter mais detalhes sobre as opções de conectividade do cluster, consulte [as ligações Route HADR ao SQL Server em VMs Azure](hadr-cluster-best-practices.md#connectivity). 
 
 ### <a name="vnn-listener"></a>Serviço de escuta VNN 
 
@@ -82,17 +83,17 @@ O quadro a seguir fornece uma comparação das opções disponíveis:
 |**Versão do SQL Server** |2016 + |2016 +|2016 +|2012 +|
 |**Edição do SQL Server** |Grandes Empresas |Grandes Empresas |Grandes Empresas |Enterprise, Standard|
 |**Versão do Windows Server**| 2016 + | 2016 + | 2016 + | Todos|
-|**Cria o cluster para si**|Yes|Yes | Yes |Não|
-|**Cria o grupo de disponibilidade para si** |Yes |Não|Não|Não|
-|**Cria ouvinte e equilibrador de carga de forma independente** |Não|Não|Não|Yes|
-|**Possível criar ouvinte dNN utilizando este método?**|Não|Não|Não|Yes|
+|**Cria o cluster para si**|Sim|Sim | Sim |Não|
+|**Cria o grupo de disponibilidade para si** |Sim |Não|Não|Não|
+|**Cria ouvinte e equilibrador de carga de forma independente** |Não|Não|Não|Sim|
+|**Possível criar ouvinte dNN utilizando este método?**|Não|Não|Não|Sim|
 |**Configuração do quórum WSFC**|Testemunha de cloud|Testemunha de cloud|Testemunha de cloud|Todos|
-|**DR com várias regiões** |Não|Não|Não|Yes|
-|**Suporte multi-subscrição** |Yes|Yes|Yes|Yes|
-|**Apoio a um AD existente**|Yes|Yes|Yes|Yes|
-|**DR com multizona na mesma região**|Yes|Yes|Yes|Yes|
-|**AG distribuído sem AD**|Não|Não|Não|Yes|
-|**AG distribuído sem cluster** |Não|Não|Não|Yes|
+|**DR com várias regiões** |Não|Não|Não|Sim|
+|**Suporte multi-subscrição** |Sim|Sim|Sim|Sim|
+|**Apoio a um AD existente**|Sim|Sim|Sim|Sim|
+|**DR com multizona na mesma região**|Sim|Sim|Sim|Sim|
+|**AG distribuído sem AD**|Não|Não|Não|Sim|
+|**AG distribuído sem cluster** |Não|Não|Não|Sim|
 
 Para mais informações, consulte [o portal Azure,](availability-group-azure-portal-configure.md) [Azure CLI / PowerShell,](./availability-group-az-commandline-configure.md) [Quickstart Templates](availability-group-quickstart-template-configure.md)e [Manual](availability-group-manually-configure-prerequisites-tutorial.md).
 
