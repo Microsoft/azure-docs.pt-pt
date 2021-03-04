@@ -5,16 +5,16 @@ services: synapse-analytics
 author: midesa
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.date: 03/01/2020
+ms.date: 02/26/2020
 ms.author: midesa
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: 296bd3a4a75cdd7f5dab3b6eb5fdcb00a889703d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 4bb323e0e8f72456b6a522ede9a98d193e1c3c7e
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101695974"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102098779"
 ---
 # <a name="manage-python-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Gerir bibliotecas Python para Apache Spark em Azure Synapse Analytics
 
@@ -36,13 +36,13 @@ Quando uma instância Spark começa, estas bibliotecas serão automaticamente in
 Uma vez identificadas as bibliotecas Python que gostaria de usar para a sua aplicação Spark, pode instalá-las numa piscina spark. Bibliotecas ao nível da piscina estão disponíveis para todos os cadernos e empregos que estão funcionando na piscina.
 
 Há duas maneiras primárias de instalar uma biblioteca num cluster:
--  Instale uma biblioteca de espaço de trabalho que tenha sido carregada como um pacote workspace.
+-  Instale uma biblioteca de espaço de trabalho que tenha sido carregada como um pacote de espaço de trabalho.
 -  Forneça uma especificação ambiental *requirements.txt* ou *Conda ambiente.yml* para instalar pacotes de repositórios como PyPI, Conda-Forge, entre outros.
 
 > [!IMPORTANT]
 > - Se a embalagem que está a instalar for grande ou demorar muito tempo a ser instalada, isto afeta o tempo de arranque da instância Spark.
 > - Alterar a versão PySpark, Python, Scala/Java, .NET ou Spark não é suportado.
-> - A instalação de pacotes de PyPI não é suportada em espaços de trabalho habilitados a DEP.
+> - A instalação de pacotes de repositórios externos como pyPI, Conda-Forge ou os canais Conda predefinidos não é suportado em espaços de trabalho habilitados a DEP.
 
 ### <a name="install-python-packages"></a>Instalar pacotes Python
 Os pacotes Python podem ser instalados a partir de repositórios como PyPI e Conda-Forge fornecendo um ficheiro de especificação ambiental. 
@@ -140,9 +140,6 @@ Para adicionar pacotes de espaço de trabalho:
 
 ![Screenshot que destaca pacotes de espaço de trabalho.](./media/apache-spark-azure-portal-add-libraries/studio-add-workspace-package.png "Ver pacotes de espaço de trabalho")
 
-> [!IMPORTANT]
-> A instalação de pacotes workspace ainda não é suportada nos espaços de trabalho protegidos por exfiltração de dados (DEP).
-
 ### <a name="storage-account"></a>Conta de armazenamento
 Os pacotes de rodas personalizados podem ser instalados na piscina Apache Spark, enviando todos os ficheiros das rodas para a conta Azure Data Lake Storage (Gen2) que está ligada ao espaço de trabalho da Synapse. 
 
@@ -158,10 +155,10 @@ Pode ser necessário adicionar a ```python``` pasta dentro da pasta se ela já n
 > Para instalar bibliotecas personalizadas utilizando o método de armazenamento de dados Azure DataLake, tem de ter as permissões **do Fornecedor de Dados blob de armazenamento** ou do proprietário do armazenamento **na** conta primária de Armazenamento Gen2 que está ligada ao espaço de trabalho Azure Synapse Analytics.
 
 >[!WARNING]
-> Ao fornecer ficheiros de rodas personalizados, os utilizadores não podem fornecer ficheiros de rodas tanto na conta de armazenamento como na interface da biblioteca do espaço de trabalho. Se ambos forem fornecidos, apenas serão instalados os ficheiros das rodas especificados na lista de pacotes workspace. 
+> Ao fornecer ficheiros de rodas personalizados, os utilizadores não podem fornecer ficheiros de rodas tanto na conta de armazenamento como na interface da biblioteca do espaço de trabalho. Se ambos forem fornecidos, apenas serão instalados os ficheiros das rodas especificados na lista de pacotes de espaço de trabalho. 
 
-## <a name="session-scoped-libraries-preview"></a>Bibliotecas com âmbito de sessão (pré-visualização)
-Além das bibliotecas ao nível da piscina, também pode especificar bibliotecas com âmbito de sessão no início de uma sessão de cadernos.  As bibliotecas com âmbito de sessão permitem especificar e utilizar ambientes piton personalizados dentro de uma sessão de portátil. 
+## <a name="session-scoped-packages-preview"></a>Pacotes com âmbito de sessão (pré-visualização)
+Além dos pacotes ao nível da piscina, também pode especificar bibliotecas com âmbito de sessão no início de uma sessão de cadernos.  As bibliotecas com âmbito de sessão permitem especificar e utilizar ambientes piton personalizados dentro de uma sessão de portátil. 
 
 Ao utilizar bibliotecas com âmbito de sessão, é importante ter em mente os seguintes pontos:
    - Quando instala bibliotecas com âmbito de sessão, apenas o caderno atual tem acesso às bibliotecas especificadas. 
@@ -187,3 +184,4 @@ Em alguns casos, para ver as versões do pacote da Conda, poderá ter de inspeci
 ## <a name="next-steps"></a>Passos seguintes
 - Ver as bibliotecas padrão: [Suporte à versão Apache Spark](apache-spark-version-support.md)
 - Erros de instalação da biblioteca de resolução de [problemas: Erros na biblioteca de resolução de problemas](apache-spark-troubleshoot-library-errors.md)
+- Crie um canal Conda privado utilizando a sua Conta de Armazenamento do Lago de Dados Azure: [canais privados Conda](./spark/../apache-spark-custom-conda-channel.md)

@@ -1,14 +1,14 @@
 ---
-title: Converter modelos de gestor de recursos Azure entre JSON e Bicep
-description: Compara os modelos do Gestor de Recursos Azure desenvolvidos com JSON e Bicep.
+title: Compare a sintaxe para modelos de Gestor de Recursos Azure em JSON e Bicep
+description: Compara os modelos do Azure Resource Manager desenvolvidos com JSON e Bicep, e mostra como se converter entre os idiomas.
 ms.topic: conceptual
-ms.date: 02/19/2021
-ms.openlocfilehash: 9388ed50f13d6885d0a0668b61a9141dae375244
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/03/2021
+ms.openlocfilehash: 29c2b9948957ebc10a26f22f0fe3daf383dfe5ba
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101746129"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102036219"
 ---
 # <a name="comparing-json-and-bicep-for-templates"></a>Comparando JSON e Bicep para modelos
 
@@ -18,40 +18,21 @@ Este artigo compara a sintaxe Bicep com a sintaxe JSON para os modelos Azure Res
 
 Se estiver familiarizado com a utilização de JSON para desenvolver modelos ARM, use a seguinte tabela para aprender sobre a sintaxe equivalente para Bicep.
 
-| Scenario | Modelo ARM | Bicep |
+| Scenario | Bicep | JSON |
 | -------- | ------------ | ----- |
-| Autor de uma expressão | `"[func()]"` | `func()` |
-| Obtenha valor de parâmetro | `[parameters('exampleParameter'))]` | `exampleParameter` |
-| Obtenha valor variável | `[variables('exampleVar'))]` | `exampleVar` |
-| Concatenar cadeias | `[concat(parameters('namePrefix'), '-vm')]` | `'${namePrefix}-vm'` |
-| Definir propriedade de recursos | `"sku": "2016-Datacenter",` | `sku: '2016-Datacenter'` |
-| Devolva o lógico E | `[and(parameter('isMonday'), parameter('isNovember'))]` | `isMonday && isNovember` |
-| Obtenha iD de recurso de recurso no modelo | `[resourceId('Microsoft.Network/networkInterfaces', variables('nic1Name'))]` | `nic1.id` |
-| Obtenha propriedade a partir de recurso no modelo | `[reference(resourceId('Microsoft.Storage/storageAccounts', variables('diagStorageAccountName'))).primaryEndpoints.blob]` | `diagsAccount.properties.primaryEndpoints.blob` |
-| Configurar um valor condicional | `[if(parameters('isMonday'), 'valueIfTrue', 'valueIfFalse')]` | `isMonday ? 'valueIfTrue' : 'valueIfFalse'` |
-| Separar uma solução em vários ficheiros | Use modelos ligados | Utilizar módulos |
-| Definir o âmbito alvo da implantação | `"$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#"` | `targetScope = 'subscription'` |
-| Definir dependência | `"dependsOn": ["[resourceId('Microsoft.Storage/storageAccounts', 'parameters('storageAccountName'))]"]` | Ou depende da deteção automática de dependências ou da dependência manualmente definida com `dependsOn: [ stg ]` |
-
-Para declarar o tipo e a versão para um recurso, utilize o seguinte em Bicep:
-
-```bicep
-resource vm 'Microsoft.Compute/virtualMachines@2020-06-01' = {
-  ...
-}
-```
-
-Em vez da sintaxe equivalente em JSON:
-
-```json
-"resources": [
-  {
-    "type": "Microsoft.Compute/virtualMachines",
-    "apiVersion": "2020-06-01",
-    ...
-  }
-]
-```
+| Autor de uma expressão | `func()` | `"[func()]"` |
+| Obtenha valor de parâmetro | `exampleParameter` | `[parameters('exampleParameter'))]` |
+| Obtenha valor variável | `exampleVar` | `[variables('exampleVar'))]` |
+| Concatenar cadeias | `'${namePrefix}-vm'` | `[concat(parameters('namePrefix'), '-vm')]` |
+| Definir propriedade de recursos | `sku: '2016-Datacenter'` | `"sku": "2016-Datacenter",` |
+| Devolva o lógico E | `isMonday && isNovember` | `[and(parameter('isMonday'), parameter('isNovember'))]` |
+| Obtenha iD de recurso de recurso no modelo | `nic1.id` | `[resourceId('Microsoft.Network/networkInterfaces', variables('nic1Name'))]` |
+| Obtenha propriedade a partir de recurso no modelo | `diagsAccount.properties.primaryEndpoints.blob` | `[reference(resourceId('Microsoft.Storage/storageAccounts', variables('diagStorageAccountName'))).primaryEndpoints.blob]` |
+| Configurar um valor condicional | `isMonday ? 'valueIfTrue' : 'valueIfFalse'` | `[if(parameters('isMonday'), 'valueIfTrue', 'valueIfFalse')]` |
+| Separar uma solução em vários ficheiros | Utilizar módulos | Use modelos ligados |
+| Definir o âmbito alvo da implantação | `targetScope = 'subscription'` | `"$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#"` |
+| Definir dependência | Ou depende da deteção automática de dependências ou da dependência manualmente definida com `dependsOn: [ stg ]` | `"dependsOn": ["[resourceId('Microsoft.Storage/storageAccounts', 'parameters('storageAccountName'))]"]` |
+| Declaração de recursos | `resource vm 'Microsoft.Compute/virtualMachines@2020-06-01' = {...}` | `"resources": [ { "type": "Microsoft.Compute/virtualMachines", "apiVersion": "2020-06-01", ... } ]` |
 
 ## <a name="recommendations"></a>Recomendações
 
@@ -63,10 +44,7 @@ Em vez da sintaxe equivalente em JSON:
 
 O Bicep CLI fornece um comando para decompiler qualquer modelo ARM existente para um ficheiro Bicep. Para descompiler um ficheiro JSON, utilize: `bicep decompile "path/to/file.json"`
 
-Este comando fornece um ponto de partida para a autoria de Bicep, mas o comando não funciona para todos os modelos. O comando pode falhar ou poderá ter de corrigir problemas após a descompilação. Atualmente, o comando tem as seguintes limitações:
-
-* Os modelos que utilizam laços de cópia não podem ser descompiliados.
-* Os modelos de aninhados só podem ser descompilados se utilizarem o âmbito de avaliação da expressão 'interior'.
+Este comando fornece um ponto de partida para a autoria de Bicep, mas o comando não funciona para todos os modelos. O comando pode falhar ou poderá ter de corrigir problemas após a descompilação. Atualmente, os modelos aninhados só podem ser descompilados se usarem o âmbito de avaliação de expressão 'interior'.
 
 Pode exportar o modelo para um grupo de recursos e, em seguida, passá-lo diretamente para o comando decompile bicep. O exemplo a seguir mostra como descompilar um modelo exportado.
 
@@ -100,4 +78,4 @@ O [recreio Bicep](https://aka.ms/bicepdemo) permite-lhe visualizar ficheiros JSO
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter informações sobre o projeto Bicep, consulte [o Projeto Bicep.](https://github.com/Azure/bicep)
+Para obter informações sobre o Bicep, consulte o [tutorial de Bicep.](./bicep-tutorial-create-first-bicep.md)

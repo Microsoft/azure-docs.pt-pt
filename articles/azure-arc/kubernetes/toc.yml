@@ -10,6 +10,8 @@
   items:
     - name: Implementar configurações com o GitOps
       href: tutorial-use-gitops-connected-cluster.md
+    - name: Implementar CI/CD com GitOps
+      href: tutorial-gitops-ci-cd.md
 - name: Guias de Início Rápido
   items:
     - name: Ligue um cluster ao Arco de Azure
@@ -20,6 +22,8 @@
       href: conceptual-agent-architecture.md
     - name: Configurações e GitOps
       href: conceptual-configurations.md
+    - name: Fluxo de trabalho CI/CD utilizando GitOps
+      href: conceptual-gitops-ci-cd.md
     - name: Perguntas Mais Frequentes
       href: faq.md
 - name: Guias de procedimentos

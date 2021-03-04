@@ -1,6 +1,6 @@
 - name: Azure Synapse Analytics
   href: index.yml
-- name: 'Mudar para conjunto de SQL dedicado (anteriormente, SQL DW)'
+- name: Mude para piscina SQL dedicada (anteriormente SQL DW) >
   href: ./sql-data-warehouse/sql-data-warehouse-overview-what-is.md
 - name: Descrição geral
   items:
@@ -48,17 +48,19 @@
   items:
     - name: Guias de Início Rápido
       items:
-        - name: Criar uma área de trabalho com o portal do Azure
-          href: quickstart-create-workspace.md
-          displayName: quickstart
-        - name: Criar uma área de trabalho com o Azure CLI
-          href: quickstart-create-workspace-cli.md
-          displayName: quickstart
-        - name: Criar uma área de trabalho com o Azure PowerShell
-          href: quickstart-create-workspace-powershell.md
-          displayName: quickstart
-        - name: Implementar com um modelo
-          href: quickstart-deployment-template-workspaces.md
+        - name: Criar uma área de trabalho
+          items:
+            - name: Portal do Azure
+              href: quickstart-create-workspace.md
+              displayName: quickstart
+            - name: CLI do Azure
+              href: quickstart-create-workspace-cli.md
+              displayName: quickstart
+            - name: Azure PowerShell
+              href: quickstart-create-workspace-powershell.md
+              displayName: quickstart
+            - name: Modelo ARM
+              href: quickstart-deployment-template-workspaces.md
           displayName: quickstart
         - name: Associar uma Área de trabalho do Power BI
           href: quickstart-power-bi.md
@@ -586,6 +588,8 @@
               href: ./spark/apache-spark-manage-scala-packages.md
             - name: Erros de instalação do pacote Python de resolução de problemas
               href: ./spark/apache-spark-troubleshoot-library-errors.md
+            - name: Criar um canal privado Conda
+              href: ./spark/apache-spark-custom-conda-channel.md
         - name: Utilize blocos de notas e ferramentas de IDE
           items:
             - name: Gerir os blocos de notas

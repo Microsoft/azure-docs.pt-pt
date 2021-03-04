@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 04/06/2020
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 53884c2f6d9f2e8cbb5676e9ac10e8fb15ed919e
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 13b57a8ef57e1d5f2fe066a9fc8b0b74382f066f
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024284"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102042849"
 ---
 # <a name="use-circuit-breaker-dashboard-with-azure-spring-cloud"></a>Use o painel de disjuntores com a nuvem de mola Azure
 
@@ -46,9 +46,9 @@ Siga o procedimento, [Provisão uma instância de serviço no Azure CLI](./sprin
 ## <a name="deploy-your-applications-to-azure-spring-cloud"></a>Implemente as suas aplicações para Azure Spring Cloud
 Estas aplicações não utilizam **o Config Server**, pelo que não é necessário configurar o **Config Server** para a Azure Spring Cloud.  Criar e implementar da seguinte forma:
 ```azurecli
-az spring-cloud app create -n user-service --is-public
+az spring-cloud app create -n user-service --assign-endpoint
 az spring-cloud app create -n recommendation-service
-az spring-cloud app create -n hystrix-turbine --is-public
+az spring-cloud app create -n hystrix-turbine --assign-endpoint
 
 az spring-cloud app deploy -n user-service --jar-path user-service/target/user-service.jar
 az spring-cloud app deploy -n recommendation-service --jar-path recommendation-service/target/recommendation-service.jar
@@ -80,7 +80,7 @@ As métricas hystrix também são acessíveis a partir de `test-endpoint` . Como
 
 Como uma aplicação web, o painel Hystrix deve estar a trabalhar `test-endpoint` em . Se não estiver a funcionar corretamente, pode haver duas razões: primeiro, utilizar `test-endpoint` o URL base de , `/ to /<APP-NAME>/<DEPLOYMENT-NAME>` ou, em segundo lugar, a aplicação web está a usar o caminho absoluto para o recurso estático. Para que `test-endpoint` funcione, poderá ter de editar manualmente os <base> ficheiros frontais.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Prestação de uma instância de serviço no CLI Azure](./spring-cloud-quickstart.md#provision-an-instance-of-azure-spring-cloud)
 * [Prepare uma aplicação java spring para implantação em Azure Spring Cloud](./spring-cloud-tutorial-prepare-app-deployment.md)
 

@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: quickstart
 ms.date: 02/15/2021
 ms.custom: template-quickstart
-ms.openlocfilehash: 77ccf09903b6cff83b52d60d43d0c52533c9c1ad
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 78c5d2d03ebca45bcf1602b35453914d033db5c8
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "102041693"
+ms.locfileid: "102098252"
 ---
 # <a name="set-up-your-azure-percept-dk-and-deploy-your-first-ai-model"></a>Configure o seu Azure Percept DK e implemente o seu primeiro modelo de IA
 
@@ -25,7 +25,7 @@ Se tiver algum problema durante este Quick Start, consulte o guia [de resoluçã
 - Um Azure Percept DK.
 - Um computador anfitrião baseado em Windows, Linux ou OS X com capacidade wi-fi e um navegador web.
 - Uma conta Azure com uma subscrição ativa. [Criar uma conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- A conta Azure deve ter a função "proprietário" ou "contribuinte" na subscrição. Saiba mais sobre definições de papel do Azure
+- A conta Azure deve ter a função "proprietário" ou "contribuinte" na subscrição. Saiba mais sobre [as definições de funções do Azure.](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles#azure-roles)
 
 ### <a name="prerequisite-check"></a>Verificação pré-requisito
 

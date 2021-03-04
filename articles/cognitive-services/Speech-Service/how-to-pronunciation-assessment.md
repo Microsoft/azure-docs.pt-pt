@@ -12,12 +12,12 @@ ms.date: 01/12/2021
 ms.author: yulili
 ms.custom: references_regions
 zone_pivot_groups: programming-languages-speech-services-nomore-variant
-ms.openlocfilehash: 8602d43113f4ce21cdb430e1fa3e83f006c64753
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: dc1ab8bd1a851f7fafd5c001ac73e66973e1b64c
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98185568"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102051893"
 ---
 # <a name="pronunciation-assessment"></a>Avaliação da pronúncia
 
@@ -28,7 +28,7 @@ Os educadores podem usar a capacidade de avaliar a pronúncia de vários falante
 Neste artigo, você vai aprender a configurar `PronunciationAssessmentConfig` e recuperar o uso do discurso `PronunciationAssessmentResult` SDK.
 
 > [!NOTE]
-> A funcionalidade de avaliação da pronúncia só está disponível nas regiões `westus` `eastasia` `centralindia` e, e só suporta a `en-US` linguagem.
+> A funcionalidade de avaliação da pronúncia apenas suporta a linguagem `en-US` atualmente.
 
 ## <a name="pronunciation-assessment-with-the-speech-sdk"></a>Avaliação de pronúncia com o SDK do discurso
 
@@ -140,8 +140,8 @@ pronunciationAssessmentConfig.applyTo(speechRecognizer);
 
 speechRecognizer.recognizeOnceAsync((result: SpeechSDK.SpeechRecognitionResult) => {
         var pronunciationAssessmentResult = SpeechSDK.PronunciationAssessmentResult.fromResult(result);
-        var pronunciationScore = pronResult.pronunciationScore;
-        var wordLevelResult = pronResult.detailResult.Words;
+        var pronunciationScore = pronunciationAssessmentResult.pronunciationScore;
+        var wordLevelResult = pronunciationAssessmentResult.detailResult.Words;
 },
 {});
 ```

@@ -2,14 +2,13 @@
 title: Esquema de alerta comum para alertas do Monitor Azure
 description: Compreender o esquema de alerta comum, por que deve usá-lo e como habilitá-lo
 ms.topic: conceptual
-ms.subservice: alerts
 ms.date: 03/14/2019
-ms.openlocfilehash: 70e37f8f1c9391eee5901f611bae579efe1cd9b9
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 39ea469b4109f4715db0d0a73ad069121058a46f
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101737295"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102038262"
 ---
 # <a name="common-alert-schema"></a>Esquema de alertas comuns
 

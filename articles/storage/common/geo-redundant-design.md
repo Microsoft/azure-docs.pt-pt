@@ -6,17 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/05/2020
+ms.date: 02/18/2021
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c16f8233a2800025a8c6f601e236b86d2fd044fd
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 1a07acedadfaf3d5158ba8e494d4527301655425
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92480688"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102035106"
 ---
 # <a name="use-geo-redundancy-to-design-highly-available-applications"></a>Use geo-redundância para projetar aplicações altamente disponíveis
 
@@ -148,6 +148,12 @@ Tem três opções principais para monitorizar a frequência de retração na re
 
 * Adicione um manipulador para o evento [**de Retripação**](/dotnet/api/microsoft.azure.cosmos.table.operationcontext.retrying) no objeto [**OperationContext**](/java/api/com.microsoft.applicationinsights.extensibility.context.operationcontext) que transmite aos seus pedidos de armazenamento – este é o método apresentado neste artigo e utilizado na amostra que o acompanha. Estes eventos disparam sempre que o cliente re-tenta um pedido, permitindo-lhe rastrear a frequência com que o cliente encontra erros retripáveis num ponto final primário.
 
+    # <a name="net-v12"></a>[.NET v12](#tab/current)
+
+    Estamos neste momento a trabalhar para criar códigos que reflitam a versão 12.x das bibliotecas de clientes do Azure Storage. Para mais informações, consulte [anunciando o Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+
+    # <a name="net-v11"></a>[.NET v11](#tab/legacy)
+
     ```csharp
     operationContext.Retrying += (sender, arguments) =>
     {
@@ -156,8 +162,15 @@ Tem três opções principais para monitorizar a frequência de retração na re
             ...
     };
     ```
+    ---
 
 * No método [**Avaliar**](/dotnet/api/microsoft.azure.cosmos.table.iextendedretrypolicy.evaluate) numa política de relícola personalizada, pode executar código personalizado sempre que ocorrer uma nova volta. Além de gravar quando uma nova tentou acontecer, isso também lhe dá a oportunidade de modificar o seu comportamento de relemgar.
+
+    # <a name="net-v12"></a>[.NET v12](#tab/current)
+
+    Estamos neste momento a trabalhar para criar códigos que reflitam a versão 12.x das bibliotecas de clientes do Azure Storage. Para mais informações, consulte [anunciando o Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+
+    # <a name="net-v11"></a>[.NET v11](#tab/legacy)
 
     ```csharp
     public RetryInfo Evaluate(RetryContext retryContext,
@@ -184,6 +197,7 @@ Tem três opções principais para monitorizar a frequência de retração na re
         return info;
     }
     ```
+    ---
 
 * A terceira abordagem é implementar um componente de monitorização personalizado na sua aplicação que continuamente pinga o seu ponto final de armazenamento primário com pedidos de leitura falsa (como ler uma pequena bolha) para determinar a sua saúde. Isto ocuparia alguns recursos, mas não uma quantidade significativa. Quando for descoberto um problema que atinja o seu limiar, efetuaria o interruptor para **o modo SecondaryOnly** e apenas de leitura.
 
@@ -218,6 +232,13 @@ Para saber como verificar a última hora de sincronização, consulte [a proprie
 É importante testar que a sua aplicação se comporta como esperado quando encontra erros retripáveis. Por exemplo, é necessário testar que a aplicação muda para o modo secundário e apenas de leitura quando deteta um problema e volta a ligar quando a região primária volta a estar disponível. Para isso, precisa de uma forma de simular erros retripáveis e controlar a frequência com que ocorrem.
 
 Pode utilizar [o Violinista](https://www.telerik.com/fiddler) para intercetar e modificar respostas HTTP num script. Este script pode identificar respostas que vêm do seu ponto final primário e alterar o código de estado HTTP para um que a Biblioteca do Cliente de Armazenamento reconhece como um erro retripável. Este código mostra um exemplo simples de um script do Fiddler que interceta respostas para ler pedidos contra a tabela **de dados dos empregados** para devolver um estado 502:
+
+
+# <a name="java-v12"></a>[Java v12](#tab/current)
+
+Estamos neste momento a trabalhar para criar códigos que reflitam a versão 12.x das bibliotecas de clientes do Azure Storage. Para mais informações, consulte [anunciando o Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+
+# <a name="java-v11"></a>[Java v11](#tab/legacy)
 
 ```java
 static function OnBeforeResponse(oSession: Session) {

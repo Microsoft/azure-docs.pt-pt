@@ -1,5 +1,5 @@
 ---
-title: Adicione uma camada de extrusão de polígono a um mapa Microsoft Azure Maps
+title: Adicione uma camada de extrusão de polígono a um mapa | Microsoft Azure Maps
 description: Como adicionar uma camada de extrusão de polígono ao Microsoft Azure Maps Web SDK.
 author: anastasia-ms
 ms.author: v-stharr
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 211bcbf27f3a9e885a4bc2c4e5edd27db7907edf
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 19675a92101ed1a13b07bc1a4039701cd029a020
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92890773"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102044090"
 ---
 # <a name="add-a-polygon-extrusion-layer-to-the-map"></a>Adicione uma camada de extrusão de polígono ao mapa
 
@@ -22,7 +22,7 @@ Este artigo mostra-lhe como usar a camada de extrusão do polígono para tornar 
 
 ## <a name="use-a-polygon-extrusion-layer"></a>Use uma camada de extrusão de polígono
 
-Ligue a [camada de extrusão do polígono](/javascript/api/azure-maps-control/atlas.layer.polygonextrusionlayer) a uma fonte de dados. Depois, carreguei-o no mapa. A camada de extrusão do polígono torna as áreas de um `Polygon` e `MultiPolygon` apresenta-se como formas extrudidas. As  `height` propriedades e propriedades da camada de `base` extrusão do polígono definem a distância de base do solo e da altura da forma extrudida em **metros** . O código que se segue mostra como criar um polígono, adicioná-lo a uma fonte de dados, e torná-lo usando a classe de camada de extrusão do Polygon.
+Ligue a [camada de extrusão do polígono](/javascript/api/azure-maps-control/atlas.layer.polygonextrusionlayer) a uma fonte de dados. Depois, carreguei-o no mapa. A camada de extrusão do polígono torna as áreas de um `Polygon` e `MultiPolygon` apresenta-se como formas extrudidas. As `height` propriedades e propriedades da camada de `base` extrusão do polígono definem a distância de base do solo e da altura da forma extrudida em **metros**. O código que se segue mostra como criar um polígono, adicioná-lo a uma fonte de dados, e torná-lo usando a classe de camada de extrusão do Polygon.
 
 > [!Note]
 > O `base` valor definido na camada de extrusão do polígono deve ser inferior ou igual ao da `height` .
@@ -32,10 +32,9 @@ Ligue a [camada de extrusão do polígono](/javascript/api/azure-maps-control/at
 <iframe height="500" style="width: 100%;" scrolling="no" title="Polígono extrudido" src="https://codepen.io/azuremaps/embed/wvvBpvE?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
 Veja o <a href='https://codepen.io/azuremaps/pen/wvvBpvE'>polígono Pen Extruded</a> by Azure Maps <a href='https://codepen.io/azuremaps'>@azuremaps</a> () no <a href='https://codepen.io'>CodePen</a>.</iframe>
 
-
 ## <a name="add-data-driven-polygons"></a>Adicionar polígonos orientados a dados
 
-Um mapa de choropleth pode ser renderizado usando a camada de extrusão do polígono. Definir as `height` propriedades e propriedades da camada de `fillColor` extrusão para a medição da variável estatística nas `Polygon` `MultiPolygon` geometrias e características. A seguinte amostra de código mostra um mapa extrudido do choropleth dos EUA com base na medição da densidade populacional por estado.
+Um mapa de choropleth pode ser renderizado usando a camada de extrusão do polígono. Definir as `height` propriedades e propriedades da camada de `fillColor` extrusão para a medição da variável estatística nas `Polygon` `MultiPolygon` geometrias e características. A seguinte amostra de código mostra um mapa extrudido dos Estados Unidos com base na medição da densidade populacional por estado.
 
 <br/>
 
@@ -45,7 +44,7 @@ Veja o mapa do choropleth da Pen <a href='https://codepen.io/azuremaps/pen/eYYYN
 
 ## <a name="add-a-circle-to-the-map"></a>Adicione um círculo ao mapa
 
-O Azure Maps utiliza uma versão estendida do esquema GeoJSON que fornece uma definição para círculos como aqui [se](./extend-geojson.md#circle)nota. Um círculo extrudido pode ser renderizado no mapa criando uma `point` característica com uma propriedade e uma propriedade `subType` `Circle` numerada `Radius` representando o raio em **metros** . Por exemplo:
+O Azure Maps utiliza uma versão estendida do esquema GeoJSON que fornece uma definição para círculos como aqui [se](./extend-geojson.md#circle)nota. Um círculo extrudido pode ser renderizado no mapa criando uma `point` característica com uma propriedade e uma propriedade `subType` `Circle` numerada `Radius` representando o raio em **metros**. Por exemplo:
 
 ```javascript
 {

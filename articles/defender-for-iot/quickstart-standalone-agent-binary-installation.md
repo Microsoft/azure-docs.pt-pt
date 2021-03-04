@@ -5,15 +5,15 @@ description: Aprenda a instalar e autentica o Micro-Agente Defender.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 1/18/2021
+ms.date: 3/3/2021
 ms.topic: quickstart
 ms.service: azure
-ms.openlocfilehash: 8d7e6dffcc40ba1e34a4a84ecccccc1f8b181393
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 4125fc3c2f03104eeca108a73d83f2fad44bebc1
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101703053"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102051757"
 ---
 # <a name="install-defender-for-iot-micro-agent-preview"></a>Instale o Defender para o micro agente IoT (pré-visualização)
 
@@ -21,7 +21,7 @@ Este artigo fornece uma explicação de como instalar e autenticar o micro-agent
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de instalar o módulo Defender para IoT, tem de criar uma identidade de módulo no Hub IoT. Para obter mais informações sobre como criar uma identidade de módulo, consulte [Criar um módulo de azureiotsecurity twin](quickstart-create-security-twin.md)
+Antes de instalar o módulo Defender para IoT, tem de criar uma identidade de módulo no Hub IoT. Para obter mais informações sobre como criar uma identidade de módulo, consulte Criar um módulo de [micro-agente Defender IoT twin (Preview)](quickstart-create-micro-agent-module-twin.md).
 
 ## <a name="install-the-package"></a>Instale o pacote
 

@@ -9,18 +9,22 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 766136731cb92b1bd4f0965d4929b1ac5eda14dc
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
-ms.translationtype: HT
+ms.openlocfilehash: 996c974473c53833dd26abae2fb61585999f33b4
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690498"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102050448"
 ---
 # <a name="terms-in-your-microsoft-customer-agreement-invoice"></a>Termos na sua fatura do Contrato de Cliente da Microsoft
 
-Este artigo aplica-se à conta de faturação do Azure de um Contrato de Cliente da Microsoft. [Verificar se tem acesso a um Contrato de Cliente da Microsoft](#check-access-to-a-microsoft-customer-agreement).
+Este artigo aplica-se à conta de faturação do Azure de um Contrato de Cliente da Microsoft. [Verifique se tem acesso a um Contrato de Cliente da Microsoft](#check-access-to-a-microsoft-customer-agreement).
 
 A sua fatura disponibiliza um resumo dos seus custos e instruções para o pagamento. Está disponível para transferência em .pdf (Portable Document Format) a partir do [portal do Azure](https://portal.azure.com/) ou pode ser enviada por e-mail. Para obter mais informações, veja [Ver e transferir a sua fatura do Microsoft Azure](download-azure-invoice.md).
+
+Veja o vídeo da fatura do [Microsoft Customer Agreement](https://www.youtube.com/watch?v=e2LGZZ7GubA) para saber mais sobre a sua fatura e como analisar os encargos.
+
+>[!VIDEO https://www.youtube.com/embed/e2LGZZ7GubA]
 
 ## <a name="billing-period"></a>Período de faturação
 
@@ -41,7 +45,7 @@ O **Resumo da Fatura** está na parte superior da primeira página e mostra info
 | Vendido a |Endereço da sua entidade legal, que se encontra nas propriedades da conta de faturação|
 | Faturar a |Endereço de faturação do perfil de faturação que recebe a fatura, encontrado nas propriedades do perfil de faturação|
 | Perfil de Faturação |O nome do perfil de faturação que recebe a fatura |
-| Nota de compra – número |Um número de ordem de compra opcional, atribuído por si para controlo |
+| Nota de compra –  número |Um número de ordem de compra opcional, atribuído por si para controlo |
 | Número da fatura |Um número de fatura exclusivo gerado pela Microsoft utilizado para fins de controlo |
 | Data da fatura |Data em que a fatura é gerada, normalmente cinco a 12 dias após o fim do Ciclo de faturação. Pode verificar a data da fatura nas propriedades do perfil de faturação.|
 | Termos de pagamento |Como paga pela sua fatura da Microsoft. *30 dias de calendário* significa que paga dentro de 30 dias a partir da data da fatura. |

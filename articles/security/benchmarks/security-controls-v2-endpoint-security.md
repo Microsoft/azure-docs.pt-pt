@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 02/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 7672f4eb4530dbfb5d039b066fe7cf6eaf79e5a7
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 48b22ba913370b27cd01319a14a2a627d7589ce4
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101718646"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102051519"
 ---
 # <a name="security-control-v2-endpoint-security"></a>Controlo de Segurança V2: Segurança de ponto final
 
 A Endpoint Security cobre os controlos na deteção e resposta do ponto final. Isto inclui a utilização de deteção e resposta de pontos finais (EDR) e serviço anti-malware para pontos finais em ambientes Azure.
 
-Para ver a política de Azure incorporada aplicável, consulte [detalhes da iniciativa de conformidade regulamentar de referência de segurança Azure: Endpoint Security](../../governance/policy/samples/azure-security-benchmark#endpoint-security)
+Para ver a política de Azure incorporada aplicável, consulte [detalhes da iniciativa de conformidade regulamentar de referência de segurança Azure: Endpoint Security](../../governance/policy/samples/azure-security-benchmark.md#endpoint-security)
 
 ## <a name="es-1-use-endpoint-detection-and-response-edr"></a>ES-1: Utilizar deteção e resposta de ponto final (EDR)
 

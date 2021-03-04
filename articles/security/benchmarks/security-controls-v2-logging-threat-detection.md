@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 02/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 43119a51be2359ed2ddfb4e5d5fa629badedb054
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a274ec1aab3f530700f89ef810fa667fdf4d08e6
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101720686"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102042985"
 ---
 # <a name="security-control-v2-logging-and-threat-detection"></a>Controlo de Segurança V2: Registo e deteção de ameaças
 
 A deteção de registos e deteção de ameaças abrange os controlos de deteção de ameaças no Azure e a capacitação, recolha e armazenamento de registos de auditoria para os serviços Azure. Isto inclui permitir processos de deteção, investigação e remediação com controlos para gerar alertas de alta qualidade com deteção de ameaças nativas nos serviços Azure; inclui também a recolha de registos com o Azure Monitor, a centralização da análise de segurança com o Azure Sentinel, a sincronização do tempo e a retenção de registos.
 
-Para ver a política de Azure incorporada aplicável, consulte detalhes da iniciativa de conformidade regulamentar de referência de [segurança Azure: Registo e Deteção de Ameaças](../../governance/policy/samples/azure-security-benchmark#logging-and-threat-detection)
+Para ver a política de Azure incorporada aplicável, consulte detalhes da iniciativa de conformidade regulamentar de referência de [segurança Azure: Registo e Deteção de Ameaças](../../governance/policy/samples/azure-security-benchmark.md#logging-and-threat-detection)
 
 ## <a name="lt-1-enable-threat-detection-for-azure-resources"></a>LT-1: Permitir a deteção de ameaças para recursos Azure
 

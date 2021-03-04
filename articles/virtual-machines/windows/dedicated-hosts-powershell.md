@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 11/12/2020
 ms.author: cynthn
 ms.reviewer: zivr
-ms.openlocfilehash: 4517c939e14f3157db606f087ef042c1ba7eba3e
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: ed6319d5374db56cfe85e7ef9413480e523d9a34
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101672266"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102050890"
 ---
 # <a name="deploy-vms-to-dedicated-hosts-using-the-azure-powershell"></a>Implementar VMs para anfitriões dedicados usando o Azure PowerShell
 
@@ -24,7 +24,6 @@ Certifique-se de que instalou a versão 2.8.0 ou posterior do Azure PowerShell e
 
 ## <a name="limitations"></a>Limitações
 
-- Os conjuntos de escala de máquinas virtuais não são suportados atualmente em anfitriões dedicados.
 - Os tamanhos e tipos de hardware disponíveis para anfitriões dedicados variam por região. Consulte a [página de preços do](https://aka.ms/ADHPricing) anfitrião para saber mais.
 
 ## <a name="create-a-host-group"></a>Criar um grupo de anfitriões

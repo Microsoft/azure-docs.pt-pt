@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: overview
 ms.date: 02/18/2021
 ms.custom: template-overview
-ms.openlocfilehash: 0581e659eca0a59719db0dd0e48cf3628b64dd2a
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 85b7f3a62324bc93cd78649cd39e0f4dc7d0baed
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101665631"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102098201"
 ---
 # <a name="introduction-to-azure-percept"></a>Introdução a Azure Percept
 
@@ -22,21 +22,21 @@ Os desafios de integração que se enfrentam ao tentar implementar soluções de
 
 - Identificar e selecionar o silício certo para alimentar as soluções.
 - Garantir a segurança coletiva do hardware, software, modelos e dados.
-- A capacidade de construir e gerir soluções que funcionam perfeitamente.
+- A capacidade de construir e gerir soluções que funcionam perfeitamente, em escala.
 
 ## <a name="components-of-azure-percept"></a>Componentes do Azure Percept
 
 Os principais componentes do Azure Percept são:
 
-- Programas de design e certificação de referência de hardware da IA.
+1. Programas de design e certificação de referência de hardware da IA.
 
     - Fornece ao ecossistema de desenvolvedores de hardware padrões e melhores práticas para o desenvolvimento de hardware de IA de borda que pode ser facilmente integrado com serviços Azure AI e IoT.
 
-- Azure Percept DK (devkit).
+2. Azure Percept DK (devkit).
 
-    - Um kit de desenvolvimento suficientemente flexível para suportar uma grande variedade de cenários de prototipagem.
+    - Um kit de desenvolvimento suficientemente flexível para suportar uma grande variedade de cenários de prototipagem para construtores de dispositivos, construtores de soluções e clientes.
 
-- Serviços e fluxos de trabalho para acelerar o modelo de IA de borda e desenvolvimento de soluções.
+3. Serviços e fluxos de trabalho para acelerar o modelo de IA de borda e desenvolvimento de soluções.
 
     - Fluxos de trabalho de desenvolvimento e modelos pré-construídos acessíveis a partir do Azure Percept Studio.
     - Serviços de desenvolvimento de modelos.

@@ -7,22 +7,22 @@ author: tamram
 ms.service: storage
 ms.devlang: python
 ms.topic: how-to
-ms.date: 12/04/2019
+ms.date: 02/18/2021
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 511166e156591562b2120b58cc420f3fccd1d8c4
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: ffdfd4dc8a81587d757e3f9853f1bb34e0b93c0d
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96008940"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102043750"
 ---
 # <a name="client-side-encryption-with-python"></a>Encriptação do lado do cliente com Python
 
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 A [Biblioteca do Cliente de Armazenamento Azure para Python](https://pypi.python.org/pypi/azure-storage) suporta encriptar dados dentro das aplicações do cliente antes de fazer o upload para o Azure Storage e desencriptar dados enquanto descarrega para o cliente.
 
 > [!NOTE]
@@ -54,7 +54,7 @@ A desencriptação através da técnica do envelope funciona da seguinte forma:
 A biblioteca do cliente de armazenamento utiliza [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) para encriptar os dados do utilizador. Especificamente, o modo [de cadeia de blocos cifra (CBC)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) com AES. Cada serviço funciona de forma um pouco diferente, por isso vamos discutir cada um deles aqui.
 
 ### <a name="blobs"></a>Blobs
-A biblioteca do cliente suporta atualmente a encriptação de bolhas inteiras apenas. Especificamente, a encriptação é suportada quando os utilizadores usam os métodos **create** _. Para downloads, tanto os downloads completos como os de gama são suportados, e a paralelização tanto do upload como do download está disponível.
+A biblioteca do cliente suporta atualmente a encriptação de bolhas inteiras apenas. Especificamente, a encriptação é suportada quando os utilizadores usam os métodos **de criação*** . Para downloads, tanto os downloads completos como os de gama são suportados, e a paralelização tanto do upload como do download está disponível.
 
 Durante a encriptação, a biblioteca do cliente gerará um Vetor de Inicialização aleatória (IV) de 16 bytes, juntamente com uma chave de encriptação de conteúdo aleatório (CEK) de 32 bytes, e executará encriptação do envelope dos dados blob usando esta informação. O CEK embrulhado e alguns metadados de encriptação adicionais são então armazenados como metadados blob juntamente com a bolha encriptada no serviço.
 
@@ -63,9 +63,9 @@ Durante a encriptação, a biblioteca do cliente gerará um Vetor de Inicializa�
 > 
 > 
 
-O download de uma bolha encriptada envolve a recuperação do conteúdo de toda a bolha utilizando os métodos de conveniência _*get.* *_ O CEK embrulhado é desembrulhado e utilizado juntamente com o IV (armazenado como metadados blob neste caso) para devolver os dados desencriptados aos utilizadores.
+O download de uma bolha encriptada envolve a recuperação do conteúdo de toda a bolha utilizando os métodos de conveniência **get*** . O CEK embrulhado é desembrulhado e utilizado juntamente com o IV (armazenado como metadados blob neste caso) para devolver os dados desencriptados aos utilizadores.
 
-O download de uma gama arbitrária _*(obter* *_ métodos com parâmetros de alcance passados) na bolha encriptada envolve ajustar a gama fornecida pelos utilizadores de forma a obter uma pequena quantidade de dados adicionais que podem ser usados para desencriptar com sucesso a gama solicitada.
+O download de uma gama arbitrária **(obter*** métodos com parâmetros de alcance passados) na bolha encriptada envolve ajustar a gama fornecida pelos utilizadores de forma a obter uma pequena quantidade de dados adicionais que podem ser usados para desencriptar com sucesso a gama solicitada.
 
 As bolhas de blocos e as bolhas de página só podem ser encriptadas/desencriptadas utilizando este esquema. Atualmente, não existe suporte para encriptar as bolhas dos apêndices.
 
@@ -114,7 +114,7 @@ Note que as entidades são encriptadas à medida que são inseridas no lote usan
 > [!IMPORTANT]
 > Esteja atento a estes pontos importantes ao utilizar a encriptação do lado do cliente:
 > 
-> _ Ao ler ou escrever para uma bolha encriptada, utilize comandos inteiros de upload de blob e comandos de descarregamento de gama/blob inteiro. Evite escrever para uma bolha encriptada utilizando operações de protocolo como Put Block, Put Block List, Write Pages ou Clear Pages; caso contrário, pode corromper a bolha encriptada e torná-la ilegível.
+> * Ao ler ou escrever para uma bolha encriptada, utilize comandos inteiros de upload de blob e comandos de descarregamento de gama/blob inteiro. Evite escrever para uma bolha encriptada utilizando operações de protocolo como Put Block, Put Block List, Write Pages ou Clear Pages; caso contrário, pode corromper a bolha encriptada e torná-la ilegível.
 > * Para as tabelas, existe uma restrição semelhante. Tenha cuidado para não atualizar as propriedades encriptadas sem atualizar os metadados de encriptação.
 > * Se definir metadados na bolha encriptada, poderá substituir os metadados relacionados com encriptação necessários para a desencriptação, uma vez que a definição de metadados não é aditivo. Isto também é verdade para instantâneos; evite especificar metadados enquanto cria uma imagem instantânea de uma bolha encriptada. Se os metadados embora tão devem ser definidos, certifique-se de ligar primeiro para o método **get_blob_metadata** para obter os metadados de encriptação atuais e evitar gravações simultâneas enquanto os metadados estão a ser definidos.
 > * Ativar a bandeira **require_encryption** no objeto de serviço para utilizadores que devem funcionar apenas com dados encriptados. Veja abaixo mais informações.
@@ -150,6 +150,12 @@ Os utilizadores podem opcionalmente ativar um modo de funcionamento onde todos o
 ### <a name="blob-service-encryption"></a>Encriptação do serviço blob
 Descreva os campos de política de encriptação no objeto blockblobservice. Todo o resto será tratado pela biblioteca do cliente internamente.
 
+# <a name="python-v12"></a>[Python v12](#tab/python)
+
+Estamos neste momento a trabalhar para criar códigos que reflitam a versão 12.x das bibliotecas de clientes do Azure Storage. Para mais informações, consulte [anunciando o Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+
+# <a name="python-v21"></a>[Python v2.1](#tab/python2)
+
 ```python
 # Create the KEK used for encryption.
 # KeyWrapper is the provided sample implementation, but the user may use their own object as long as it implements the interface above.
@@ -171,9 +177,16 @@ my_block_blob_service.create_blob_from_stream(
 # Download and decrypt the encrypted contents from the blob.
 blob = my_block_blob_service.get_blob_to_bytes(container_name, blob_name)
 ```
+---
 
 ### <a name="queue-service-encryption"></a>Encriptação do serviço de fila
 Desajei os campos de política de encriptação no objeto do serviço de fila. Todo o resto será tratado pela biblioteca do cliente internamente.
+
+# <a name="python-v12"></a>[Python v12](#tab/python)
+
+Estamos neste momento a trabalhar para criar códigos que reflitam a versão 12.x das bibliotecas de clientes do Azure Storage. Para mais informações, consulte [anunciando o Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+
+# <a name="python-v21"></a>[Python v2.1](#tab/python2)
 
 ```python
 # Create the KEK used for encryption.
@@ -195,11 +208,18 @@ my_queue_service.put_message(queue_name, content)
 # Retrieve message
 retrieved_message_list = my_queue_service.get_messages(queue_name)
 ```
+---
 
 ### <a name="table-service-encryption"></a>Encriptação do serviço de mesa
 Além de criar uma política de encriptação e defini-la nas opções de pedido, deve especificar uma **encryption_resolver_function** no **serviço de tabelas**, ou definir o atributo encriptado na EntityProperty.
 
 ### <a name="using-the-resolver"></a>Usando o resolver
+
+# <a name="python-v12"></a>[Python v12](#tab/python)
+
+Estamos neste momento a trabalhar para criar códigos que reflitam a versão 12.x das bibliotecas de clientes do Azure Storage. Para mais informações, consulte [anunciando o Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+
+# <a name="python-v21"></a>[Python v2.1](#tab/python2)
 
 ```python
 # Create the KEK used for encryption.
@@ -233,13 +253,21 @@ my_table_service.insert_entity(table_name, entity)
 my_table_service.get_entity(
     table_name, entity['PartitionKey'], entity['RowKey'])
 ```
+---
 
 ### <a name="using-attributes"></a>Utilização de atributos
 Como mencionado acima, uma propriedade pode ser marcada para encriptação armazenando-a num objeto EntityProperty e definindo o campo de encriptação.
 
+# <a name="python-v12"></a>[Python v12](#tab/python)
+
+Estamos neste momento a trabalhar para criar códigos que reflitam a versão 12.x das bibliotecas de clientes do Azure Storage. Para mais informações, consulte [anunciando o Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+
+# <a name="python-v21"></a>[Python v2.1](#tab/python2)
+
 ```python
 encrypted_property_1 = EntityProperty(EdmType.STRING, value, encrypt=True)
 ```
+---
 
 ## <a name="encryption-and-performance"></a>Encriptação e desempenho
 Note que encriptar os seus dados de armazenamento resulta em despesas adicionais de desempenho. A chave de conteúdo e IV devem ser gerados, o conteúdo em si deve ser encriptado, e os metadados adicionais devem ser formatados e carregados. Esta sobrecarga variará dependendo da quantidade de dados que estão a ser encriptados. Recomendamos que os clientes testem sempre as suas aplicações para desempenho durante o desenvolvimento.

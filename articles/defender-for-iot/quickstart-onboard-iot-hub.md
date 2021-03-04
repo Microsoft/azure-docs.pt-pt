@@ -1,5 +1,5 @@
 ---
-title: A bordo do Defender para solução baseada em agente IoT
+title: Defender a bordo para IoT para uma solução baseada em agente
 description: Aprenda a bordo e ative o serviço de segurança IoT no seu Azure IoT Hub.
 services: defender-for-iot
 ms.service: defender-for-iot
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/20/2021
 ms.author: shhazam
-ms.openlocfilehash: 127e439a7740cb97cbe126071aaaa5245cd85782
-ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
+ms.openlocfilehash: 62ea7b95609f9e1f896852da5c10244d1bd16ce1
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99809138"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102049946"
 ---
-# <a name="onboard-to-defender-for-iot-agent-based-solution"></a>A bordo do Defender para solução baseada em agente IoT
+# <a name="onboard-defender-for-iot-to-an-agent-based-solution"></a>Defender a bordo para IoT para uma solução baseada em agente
 
 Este artigo explica como ativar o serviço Defender para IoT no seu IoT Hub existente. Se não tiver atualmente um Hub IoT, consulte [Criar um Hub IoT utilizando o portal Azure](../iot-hub/iot-hub-create-through-portal.md) para começar.
 
@@ -35,7 +35,7 @@ Você pode gerir a sua segurança IoT através do IoT Hub in Defender para IoT. 
 > [!NOTE]
 > Atualmente, o Defender for IoT apenas suporta os hubs IoT de nível padrão.
 
-## <a name="onboard-to-defender-for-iot-in-iot-hub"></a>A bordo do Defender para IoT no IoT Hub
+## <a name="onboard-defender-for-iot-to-an-iot-hub"></a>Defender a bordo para IoT para um hub IoT
 
 Para todos os novos hubs IoT, o Defender for IoT está definido para **On** por padrão. Pode verificar se o Defender for IoT está ligado a **On** durante o processo de criação do IoT Hub.
 
@@ -55,14 +55,23 @@ Para verificar o toggle está definido para **:**
 
 ## <a name="onboard-defender-for-iot-to-an-existing-iot-hub"></a>Defender a bordo para IoT para um hub IoT existente
 
-Pode monitorizar a gestão da identidade do seu dispositivo, dispositivo para nuvem e nuvem para padrões de comunicação do dispositivo, fazer o seguinte para iniciar o serviço: 
+Pode embarcar o Defender for IoT para um Hub IoT existente, onde pode monitorizar a gestão da identidade do dispositivo, dispositivo para nuvem e nuvem para padrões de comunicação do dispositivo.
+
+Para embarcar Defender para IoT para um hub IoT existente:
 
 1. Navegue até ao Hub IoT. 
 
-1. Selecione o menu **de visão geral de segurança.**   
+1. Selecione o Hub IoT para estar a bordo.
 
-1. Clique em Secure your IoT solution and complete the onboarding form. 
+1. Selecione qualquer opção na secção **Segurança.**
 
+1. Clique **em Secure your IoT solution** and complete the   onboarding form. 
+
+    :::image type="content" source="media/quickstart-onboard-iot-hub/secure-your-iot-solution.png" alt-text="Selecione o botão de solução IoT para fixar a sua solução.":::
+
+O botão **Secure a sua solução IoT** só aparecerá se o Hub IoT ainda não tiver sido a bordo, ou se durante o embarque deixou o Defender para o IoT a **alternar** desligado .
+
+:::image type="content" source="media/quickstart-onboard-iot-hub/toggle-is-off.png" alt-text="Se o seu toggle foi programado para fora durante o embarque.":::
 
 ## <a name="next-steps"></a>Passos seguintes
 

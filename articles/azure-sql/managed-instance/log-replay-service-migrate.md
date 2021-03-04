@@ -4,17 +4,17 @@ description: Saiba como migrar bases de dados do SQL Server para SQL Managed Ins
 services: sql-database
 ms.service: sql-managed-instance
 ms.custom: seo-lt-2019, sqldbrb=1
-ms.devlang: ''
 ms.topic: how-to
 author: danimir
+ms.author: danil
 ms.reviewer: sstein
 ms.date: 03/01/2021
-ms.openlocfilehash: bc0dc72c7547c8f74aec53b7153fc5384c6b634b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 74403b7ec1469ce7cdaadc9931eb5ac95f55f6f5
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101690792"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102096841"
 ---
 # <a name="migrate-databases-from-sql-server-to-sql-managed-instance-using-log-replay-service-preview"></a>Migrar bases de dados do SQL Server para SQL Managed Instance usando o Serviço de Reprodução de Registo (Pré-visualização)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -56,7 +56,7 @@ O LRS pode ser iniciado em modo auto-completa ou contínuo. Quando iniciada no m
 
 Uma vez interrompido o LRS, quer automaticamente, quer em corte manual, o processo de restauro não pode ser retomado para uma base de dados que foi introduzida online em SQL Managed Instance. Para restaurar ficheiros de cópia de segurança adicionais uma vez que a migração foi concluída através de autocomplete, ou manualmente em corte, a base de dados precisa de ser eliminada e toda a cadeia de backup precisa de ser restaurada do zero reiniciando o LRS.
 
-![Passos de orquestração do Serviço de Reprodução de Registo explicados para SQL Managed Instance](./media/log-replay-service-migrate/log-replay-service-conceptual.png)
+   :::image type="content" source="./media/log-replay-service-migrate/log-replay-service-conceptual.png" alt-text="Passos de orquestração do Serviço de Reprodução de Registo explicados para SQL Managed Instance" border="false":::
     
 | Operação | Detalhes |
 | :----------------------------- | :------------------------- |
@@ -193,18 +193,30 @@ WITH COMPRESSION, CHECKSUM
 O Azure Blob Storage é usado como um armazenamento intermediário para ficheiros de backup entre o SQL Server e o SQL Managed Instance. O token de autenticação SAS com list e ler apenas as permissões devem ser geradas para utilização pelo serviço LRS. Isto permitirá que o serviço LRS aceda ao Azure Blob Storage e utilize os ficheiros de backup para restaurá-los em SQL Managed Instance. Siga estes passos para gerar a autenticação SAS para utilização de LRS:
 
 1. Aceda ao Explorador de Armazenamento a partir do portal Azure
+
 2. Expandir recipientes blob
-3. Clique no recipiente blob e selecione Get Shared Access  ![ Signature Replay Service gerem ficha de autenticação SAS](./media/log-replay-service-migrate/lrs-sas-token-01.png)
+
+3. Clique direito no recipiente blob e selecione Obter Assinatura de Acesso Partilhado
+
+   :::image type="content" source="./media/log-replay-service-migrate/lrs-sas-token-01.png" alt-text="Serviço de Reprodução de Registo - Obtenha assinatura de acesso compartilhado":::
+
 4. Selecione o prazo de validade do símbolo. Certifique-se de que o token é válido durante a duração da sua migração.
+
 5. Selecione o fuso horário para o token - UTC ou a sua hora local
-    - O fuso horário do token e o seu SQL Managed Instance podem desajustar.. Certifique-se de que o token SAS tem a validade adequada, tendo em conta os fusos horários. Se possível, defina o fuso horário para uma hora mais cedo e mais tarde da sua janela de migração planeada.
+
+   - O fuso horário do token e o seu SQL Managed Instance podem desajustar.. Certifique-se de que o token SAS tem a validade adequada, tendo em conta os fusos horários. Se possível, defina o fuso horário para uma hora mais cedo e mais tarde da sua janela de migração planeada.
+
 6. Selecione apenas permissões de Leitura e Lista
-    - Não devem ser selecionadas outras permissões, caso contrário o LRS não poderá iniciar. Este requisito de segurança é por desígnio.
-7. Clique em Criar serviço de reprodução de registo de botão  ![ gerar token de autenticação SAS](./media/log-replay-service-migrate/lrs-sas-token-02.png)
 
-A autenticação SAS será gerada com a validade do tempo que especificou anteriormente. Você precisará da versão URI do token gerado - como mostrado na imagem abaixo.
+   - Não devem ser selecionadas outras permissões, caso contrário o LRS não poderá iniciar. Este requisito de segurança é por desígnio.
 
-![Serviço de Reprodução de Registo gerou exemplo URI de autenticação SAS](./media/log-replay-service-migrate/lrs-generated-uri-token.png)
+7. Clique no botão Criar
+
+   :::image type="content" source="./media/log-replay-service-migrate/lrs-sas-token-02.png" alt-text="Log Replay Service - gere o token de autenticação SAS":::
+
+   A autenticação SAS será gerada com a validade do tempo que especificou anteriormente. Você precisará da versão URI do token gerado - como mostrado na imagem abaixo.
+
+   :::image type="content" source="./media/log-replay-service-migrate/lrs-generated-uri-token.png" alt-text="Log Replay Service - copie a assinatura de acesso partilhado URI":::
 
 ### <a name="copy-parameters-from-sas-token-generated"></a>Parâmetros de cópia do token SAS gerados
 
@@ -212,7 +224,7 @@ Para podermos utilizar corretamente o token SAS para iniciar o LRS, precisamos d
 - StorageContainerUri, e 
 - StorageContainerSasToken, separado com um ponto de interrogação (?), como mostra a imagem abaixo.
 
-    ![Serviço de Reprodução de Registo gerou exemplo URI de autenticação SAS](./media/log-replay-service-migrate/lrs-token-structure.png)
+   :::image type="content" source="./media/log-replay-service-migrate/lrs-token-structure.png" alt-text="Serviço de Reprodução de Registo gerou exemplo URI de autenticação SAS" border="false":::
 
 - A primeira parte começa com "https://" até que o ponto de interrogação (?) seja utilizado para o parâmetro StorageContainerURI que é alimentado como na entrada para o LRS. Isto dá informações ao LRS sobre a pasta onde os ficheiros de cópia de segurança da base de dados são armazenados.
 - A segunda parte, a partir do ponto de interrogação (?), no exemplo "sp=" e até ao fim da cadeia é o parâmetro StorageContainerSasToken. Este é o token de autenticação assinado real, válido pelo período de tempo especificado. Esta parte não precisa necessariamente de começar com "sp=" como mostrado, e que o seu caso pode diferir.
@@ -221,11 +233,11 @@ Copiar parâmetros da seguinte forma:
 
 1. Copie a primeira parte do token a partir de https:// até ao ponto de interrogação (?) e use-a como parâmetro StorageContainerUri em PowerShell ou CLI para iniciar lRS, como mostrado na imagem abaixo.
 
-    ![Registar reprodução De serviço cópia StorageContainerUri parâmetro](./media/log-replay-service-migrate/lrs-token-uri-copy-part-01.png)
+   :::image type="content" source="./media/log-replay-service-migrate/lrs-token-uri-copy-part-01.png" alt-text="Registar reprodução De serviço cópia StorageContainerUri parâmetro":::
 
 2. Copie a segunda parte do token a partir do ponto de interrogação (?), até ao fim da cadeia, e use-a como parâmetro StorageContainerSasToken em PowerShell ou CLI para iniciar lRS, como mostrado na imagem abaixo.
 
-    ![Registar reprodução de serviço cópia StorageContainerSasToken parâmetro](./media/log-replay-service-migrate/lrs-token-uri-copy-part-02.png)
+   :::image type="content" source="./media/log-replay-service-migrate/lrs-token-uri-copy-part-02.png" alt-text="Registar reprodução de serviço cópia StorageContainerSasToken parâmetro":::
 
 > [!IMPORTANT]
 > - As permissões para o token SAS para o armazenamento de blob Azure têm de ser lidas e enumeradas. Se forem concedidas outras permissões para o token de autenticação SAS, o serviço LRS inicial falhará. Estes requisitos de segurança são por desígnio.

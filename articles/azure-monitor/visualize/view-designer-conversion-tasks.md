@@ -3,15 +3,14 @@ title: Azure Monitor vê designer para trabalhos de conversão de tarefas comuns
 description: Tarefas comuns na transição de pontos de vista para livros de trabalho no Azure Monitor.
 author: austonli
 ms.author: aul
-ms.subservice: ''
 ms.topic: conceptual
 ms.date: 02/07/2020
-ms.openlocfilehash: 4e9d9e65dedae083138f3b29a2a609e124ce0fc8
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d479e64620519491ba4847349ea33820747fcea7
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100619121"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102043478"
 ---
 # <a name="view-designer-to-workbooks-conversion-common-tasks"></a>Ver designer para trabalhos de conversão de tarefas comuns
 [O view designer](view-designer.md) é uma funcionalidade do Azure Monitor que lhe permite criar visualizações personalizadas para o ajudar a visualizar dados no seu espaço de trabalho Log Analytics, com gráficos, listas e linhas de tempo. Estão a ser eliminados e substituídos por livros que fornecem funcionalidades adicionais. Este artigo detalha tarefas que são comuns na conversão de visualizações para livros de trabalho.

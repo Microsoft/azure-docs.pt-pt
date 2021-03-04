@@ -1,5 +1,5 @@
 ---
-title: Implementar Gestão de Identidade Privilegiada (PIM) - Azure AD / Microsoft Docs
+title: Implementar Gestão de Identidade Privilegiada (PIM) - Ad AD Azure | Microsoft Docs
 description: Descreve como planear a implantação da Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.date: 08/27/2020
 ms.author: curtand
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c9ba7217dfc167a06a1fea389cfc40a5e1251ca
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 7b1d18982a4f2a9ee8ba585af56a5e9ded7c1c62
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367810"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102036831"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Implementar gestão de identidade privilegiada da Azure AD (PIM)
 
@@ -111,7 +111,7 @@ Para as funções de Azure AD, é comum que as organizações atribuam o papel d
 
 Siga estes passos para implementar o princípio do menor privilégio para as suas funções de AD Azure.
 
-1. Compreender a granularidade das funções lendo e compreendendo as [funções de administrador da AD Azure disponível.](../roles/permissions-reference.md#available-roles) Você e a sua equipa também devem referenciar [funções de administrador por tarefa de identidade no AD AZure,](../roles/delegate-by-task.md)o que explica o papel menos privilegiado para tarefas específicas.
+1. Compreender a granularidade dos papéis lendo e compreendendo os [papéis integrados Azure AD disponível.](../roles/permissions-reference.md) Você e a sua equipa também devem referenciar [funções de administrador por tarefa de identidade no AD AZure,](../roles/delegate-by-task.md)o que explica o papel menos privilegiado para tarefas específicas.
 
 1. Lista quem tem papéis privilegiados na sua organização. Pode utilizar a Descoberta de Gestão de Identidade Privilegiada [e insights (pré-visualização)](pim-security-wizard.md) para reduzir a sua exposição.
 
@@ -402,4 +402,4 @@ Pode aceder aos registos de auditoria se for administrador global ou administrad
 Se pretender armazenar automaticamente os seus eventos de auditoria por um período mais longo, o registo de auditoria da Gestão de Identidade Privilegiada é automaticamente sincronizado nos registos de auditoria da [AD Azure](../reports-monitoring/concept-audit-logs.md).
 
 > [!TIP]
-> :heavy_check_mark: A Microsoft recomenda que crie [monitorização de registos Azure](../reports-monitoring/concept-activity-logs-azure-monitor.md) para arquivar eventos de auditoria numa conta de armazenamento Azure para uma maior segurança e conformidade. **Microsoft recommends**
+> :heavy_check_mark: A Microsoft recomenda que crie [monitorização de registos Azure](../reports-monitoring/concept-activity-logs-azure-monitor.md) para arquivar eventos de auditoria numa conta de armazenamento Azure para uma maior segurança e conformidade. 

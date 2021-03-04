@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/28/2020
 ms.author: sideeksh
-ms.openlocfilehash: d207a5629647ef3582f1e0490ef6ccc407f935f7
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: beba8e1d8126818f142e4873d551ed077af869d2
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99584843"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102035242"
 ---
 # <a name="enable-azure-vm-disaster-recovery-between-availability-zones"></a>Permitir a recuperação de desastres em Azure VM entre zonas de disponibilidade
 
@@ -20,7 +20,7 @@ Este artigo descreve como replicar, falhar e falhar as máquinas virtuais Azure 
 
 >[!NOTE]
 >
->- O apoio à recuperação de desastres zona-a-zona está atualmente limitado a nove regiões: Sudeste Asiático, Japão Oriental, Austrália Oriental, Reino Unido Sul, Europa Ocidental, Europa do Norte, EUA Central, Leste dos EUA e Eua Ocidental 2.  
+>- Atualmente, o apoio à recuperação de desastres zona para zona está limitado às seguintes regiões: Sudeste Asiático, Japão Oriental, Austrália Oriental, Reino Unido Sul, Europa Ocidental, Europa do Norte, Eua Central, Leste dos EUA, Leste dos EUA 2 e Eua Ocidental 2.  
 >- A Recuperação do Site não move nem armazena os dados dos clientes para fora da região em que é implantado quando o cliente está a utilizar a Zone to Zone Disaster Recovery. Os clientes podem selecionar um Cofre de Serviços de Recuperação de uma região diferente, se assim o desejarem. O Cofre de Serviços de Recuperação contém metadados, mas nenhum dado real do cliente.
 
 O serviço de recuperação de sites contribui para a sua estratégia de continuidade e recuperação de desastres, mantendo as suas aplicações de negócio em funcionamento, durante as paragens planeadas e não planeadas. É a opção recomendada de recuperação de desastres para manter as suas aplicações em funcionamento se houver paragens regionais.

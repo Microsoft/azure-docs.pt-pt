@@ -6,13 +6,13 @@ ms.author: csugunan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 11/22/2020
-ms.openlocfilehash: 010cfc307d2b2c10c31168fce73673fb1fb611b8
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.date: 03/03/2021
+ms.openlocfilehash: 6a71999f0896a5d056b7d0b38be4d494c347e9f9
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807653"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102049377"
 ---
 # <a name="how-to-connect-azure-data-factory-and-azure-purview"></a>Como ligar a Azure Data Factory e a Azure Purview
 
@@ -73,7 +73,7 @@ Siga os passos abaixo para ligar as contas existentes da Data Factory ao seu Cat
 
 Quando um utilizador da Purview regista uma Fábrica de Dados à qual têm acesso, o seguinte acontece no backend:
 
-1. O **MSI da Data Factory** é adicionado ao papel de Purview RBAC: **Purview Data Curator**.
+1. A **identidade gerida pela Data Factory** é adicionada ao papel de Purview RBAC: **Purview Data Curator**.
 
     :::image type="content" source="./media/how-to-link-azure-data-factory/adf-msi.png" alt-text="Screenshot mostrando Azure Data Factory MSI." lightbox="./media/how-to-link-azure-data-factory/adf-msi.png":::
      
@@ -88,76 +88,91 @@ Para remover uma ligação à fábrica de dados, faça o seguinte:
 
     :::image type="content" source="./media/how-to-link-azure-data-factory/remove-data-factory-connection.png" alt-text="Screenshot mostrando como selecionar fábricas de dados para remover a ligação." lightbox="./media/how-to-link-azure-data-factory/remove-data-factory-connection.png":::
 
-## <a name="configure-a-self-hosted-ir-to-collect-lineage-from-on-prem-sql"></a>Configure um IR auto-hospedado para recolher a linhagem a partir de SQL on-prem
+## <a name="configure-a-self-hosted-integration-runtime-to-collect-lineage"></a>Configurar um tempo de integração auto-hospedado para recolher linhagem
 
-A linhagem para a atividade de Cópia de Fábrica de Dados está disponível para bases de dados SQL no local. Se estiver a executar o tempo de integração auto-hospedado para o movimento de dados com a Azure Data Factory e quiser capturar a linhagem em Azure Purview, certifique-se de que a versão é 4.8.7418.1 ou mais tarde. Para obter mais informações sobre o tempo de integração auto-hospedado, consulte [Criar e configurar um tempo de integração auto-hospedado.](../data-factory/create-self-hosted-integration-runtime.md)
+A linhagem para a atividade de Cópia de Fábrica de Dados está disponível para lojas de dados no local, como bases de dados SQL. Se estiver a executar o tempo de integração auto-hospedado para o movimento de dados com a Azure Data Factory e quiser capturar a linhagem em Azure Purview, certifique-se de que a versão é 5.0 ou mais tarde. Para obter mais informações sobre o tempo de integração auto-hospedado, consulte [Criar e configurar um tempo de integração auto-hospedado.](../data-factory/create-self-hosted-integration-runtime.md)
 
 ## <a name="supported-azure-data-factory-activities"></a>Atividades da Azure Data Factory apoiadas
 
 A Azure Purview captura a linhagem de tempo de execução das seguintes atividades da Azure Data Factory:
 
-- Copiar Dados
-- Fluxo de Dados
-- Executar pacote SSIS
+- [Copiar Dados](../data-factory/copy-activity-overview.md)
+- [Fluxo de Dados](../data-factory/concepts-data-flow-overview.md)
+- [Executar pacote SSIS](../data-factory/how-to-invoke-ssis-package-ssis-activity.md)
 
 > [!IMPORTANT]
 > A Azure Purview deixa cair a linhagem se a fonte ou destino utilizar um sistema de armazenamento de dados não suportado.
 
 A integração entre a Data Factory e a Purview suporta apenas um subconjunto dos sistemas de dados que a Data Factory suporta, conforme descrito nas secções seguintes.
 
-### <a name="data-factory-copy-data-support"></a>Suporte de dados de cópia de fábrica de dados
+### <a name="data-factory-copy-activity-support"></a>Suporte à atividade da Cópia da Fábrica de Dados
 
-| Sistema de armazenamento de dados | Suportado como fonte | 
+| Arquivo de dados | Suportado | 
 | ------------------- | ------------------- | 
-| ADLS Gen1 | Yes | 
-| ADLS Gen2 | Yes | 
-| Blob do Azure | Yes |
-| Azure Cosmos DB (SQL API) | Yes | 
-| Azure Cosmos DB (Mongo API) | Yes |
-| Azure Cognitive Search | Yes | 
-| Azure Data Explorer | Yes | 
-| Base de Dados Azure para Maria DB \* | Yes | 
-| Base de Dados Azure para MYSQL \* | Yes | 
-| Base de Dados Azure para PostgreSQL \* | Yes |
+| Armazenamento de Blobs do Azure | Sim |
+| Azure Cognitive Search | Sim | 
+| Azure Cosmos DB (SQL API) \* | Sim | 
+| A API da Azure Cosmos DB para MongoDB \* | Sim |
+| Explorador de Dados Azure \* | Sim | 
+| Azure Data Lake Storage Gen1 | Sim | 
+| Azure Data Lake Storage Gen2 | Sim | 
+| Base de Dados Azure para Maria DB \* | Sim | 
+| Base de Dados Azure para MySQL \* | Sim | 
+| Base de Dados Azure para PostgreSQL \* | Sim |
 | Armazenamento de Ficheiros do Azure | Sim | 
-| Armazenamento de Tabelas do Azure | Yes |
-| Base de Dados Azure SQL \* | Yes | 
-| Azure SQL MI \* | Yes | 
-| Azure Synapse Analytics (anteriormente SQL DW) \* | Yes | 
-| SQL Server On-prem  \* | Yes | 
-| Amazon S3 | Yes | 
-| Teradata | Yes | 
-| Conector de mesa SAP | Yes |
-| SAP ECC | Yes | 
-| Hive | Yes | 
+| Base de Dados Azure SQL \* | Sim | 
+| Azure SQL Caso Gerido \* | Sim | 
+| Azure Synapse Analytics \* | Sim | 
+| Armazenamento de mesa Azure \* | Sim |
+| Servidor SQL \* | Sim | 
+| Amazon S3 | Sim | 
+| Colmeia \* | Sim | 
+| SAP ECC \* | Sim |
+| Tabela SAP \* | Sim |
+| Rio Teradata \* | Sim |
+
+*\* A Azure Purview atualmente não suporta consulta ou procedimento armazenado para linhagem ou digitalização. A linhagem é limitada apenas a fontes de mesa e visualização.*
 
 > [!Note]
 > A funcionalidade de linhagem tem uma certa sobrecarga de desempenho na atividade de cópia da Data Factory. Para aqueles que configuram ligações de fábrica de dados em Purview, você pode observar certos trabalhos de cópia demorando mais tempo a completar. A maior parte do impacto não é insignificante. Por favor contacte o suporte com a comparação de tempo se os trabalhos de cópia demorarem significativamente mais tempo a terminar do que o habitual.
 
+#### <a name="known-limitations-on-copy-activity-lineage"></a>Limitações conhecidas na linhagem da atividade da cópia
+
+Atualmente, se utilizar as seguintes funcionalidades de atividade de cópia, a linhagem ainda não está suportada:
+
+- Copie os dados para a Azure Data Lake Storage Gen1 utilizando o formato binário.
+- Copie os dados para a Azure Synapse Analytics utilizando a declaração PolyBase ou COPY.
+- Definição de compressão para texto binário, delimitado, excel, JSON e ficheiros XML.
+- Opções de partição de origem para Azure SQL Database, Azure SQL Managed Instance, Azure Synapse Analytics, SQL Server e SAP Table.
+- Copie os dados para a pia baseada em ficheiros com a definição de linhas máximas por ficheiro.
+- Adicione colunas adicionais durante a cópia.
+
 ### <a name="data-factory-data-flow-support"></a>Suporte ao fluxo de dados da fábrica de dados
 
-| Sistema de armazenamento de dados | Suportado |
+| Arquivo de dados | Suportado |
 | ------------------- | ------------------- | 
-| ADLS Gen1 | Yes |
-| ADLS Gen2 | Yes |
-| Blob do Azure | Yes |
-| Base de Dados Azure SQL \* | Yes |
-| Azure Synapse Analytics (anteriormente SQL DW) \* | Yes |
+| Armazenamento de Blobs do Azure | Sim |
+| Azure Data Lake Storage Gen1 | Sim |
+| Azure Data Lake Storage Gen2 | Sim |
+| Base de Dados Azure SQL \* | Sim |
+| Azure Synapse Analytics \* | Sim |
+
+*\* A Azure Purview atualmente não suporta consulta ou procedimento armazenado para linhagem ou digitalização. A linhagem é limitada apenas a fontes de mesa e visualização.*
 
 ### <a name="data-factory-execute-ssis-package-support"></a>Data Factory Executa suporte ao pacote SSIS
 
-| Sistema de armazenamento de dados | Suportado |
+| Arquivo de dados | Suportado |
 | ------------------- | ------------------- |
-| Blob do Azure | Yes |
-| ADLS Gen1 | Yes |
-| ADLS Gen2 | Yes |
-| Base de Dados Azure SQL \* | Yes |
-| Azure SQL MI \*| Yes |
-| Azure Synapse Analytics (anteriormente SQL DW) \* | Yes |
-| SQL Server On-prem \* | Yes |
-| Armazenamento de Ficheiros do Azure | Yes |
+| Armazenamento de Blobs do Azure | Sim |
+| Azure Data Lake Storage Gen1 | Sim |
+| Azure Data Lake Storage Gen2 | Sim |
+| Armazenamento de Ficheiros do Azure | Sim |
+| Base de Dados Azure SQL \* | Sim |
+| Azure SQL Caso Gerido \*| Sim |
+| Azure Synapse Analytics \* | Sim |
+| Servidor SQL \* | Sim |
 
-*\* Para cenários SQL (Azure e no local), o Azure Purview não suporta procedimentos ou scripts armazenados para linhagem ou digitalização. A linhagem é limitada apenas a fontes de mesa e visualização.*
+*\* A Azure Purview atualmente não suporta consulta ou procedimento armazenado para linhagem ou digitalização. A linhagem é limitada apenas a fontes de mesa e visualização.*
 
 > [!Note]
 > O Azure Data Lake Storage Gen2 já está em disponibilidade geral. Recomendamos que comece a utilizar hoje. Para mais informações, consulte a página do [produto.](https://azure.microsoft.com/en-us/services/storage/data-lake-storage/)
@@ -172,7 +187,7 @@ Algumas formas adicionais de encontrar informações na visão da linhagem, incl
 
 - No **separador Linhagem,** paire sobre formas para visualizar informações adicionais sobre o ativo na ponta da ferramenta .
 - Selecione o nó ou borda para ver o tipo de ativo a que pertence ou para mudar de ativo.
-- As colunas de um conjunto de dados são apresentadas no lado esquerdo do **separador Linhagem.** Para obter mais informações sobre a linhagem ao nível da coluna, consulte [a linhagem ao nível da coluna](catalog-lineage-user-guide.md#column-level-lineage).
+- As colunas de um conjunto de dados são apresentadas no lado esquerdo do **separador Linhagem.** Para obter mais informações sobre a linhagem ao nível da coluna, consulte [a linhagem da coluna Dataset](catalog-lineage-user-guide.md#dataset-column-lineage).
 
 ### <a name="data-lineage-for-11-operations"></a>Linhagem de dados para operações 1:1
 

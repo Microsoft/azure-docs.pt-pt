@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/15/2021
 ms.custom: template-how-to
-ms.openlocfilehash: ec3e06b2d161785b5e6978cdf4cc6415fc0eb592
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: b22ef4ee0a8b5978bb2ec1c02fadf368815f3014
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101663087"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102095787"
 ---
 # <a name="configure-voice-assistant-application-using-azure-iot-hub"></a>Configure a aplicação de assistente de voz usando O Hub IoT do Azure
 
@@ -20,7 +20,7 @@ Este artigo descreve como configurar a sua aplicação de assistente de voz usan
 
 ## <a name="update-your-voice-assistant-configuration"></a>Atualize a configuração do seu assistente de voz
 
-1. Abra o [portal Azure](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_Azure_Iothub=aduprod&microsoft_azure_marketplace_ItemHideKey=Microsoft_Azure_ADUHidden#home) e **escreva O Hub IoT** na barra de pesquisa. Clique no ícone para abrir a página IoT Hub.
+1. Abra o [portal Azure](https://portal.azure.com) e **escreva O Hub IoT** na barra de pesquisa. Clique no ícone para abrir a página IoT Hub.
 
 1. Na página IoT Hub, selecione o Hub IoT para o qual o seu dispositivo foi a provisionado.
 
@@ -30,7 +30,7 @@ Este artigo descreve como configurar a sua aplicação de assistente de voz usan
 
 1. Clique em **Módulos De Conjunto**.
 
-    :::image type="content" source="./media/manage-voice-assistant-using-iot-hub/set-modules.png" alt-text="A imagem.":::
+    :::image type="content" source="./media/manage-voice-assistant-using-iot-hub/set-modules.png" alt-text="Screenshot da página do dispositivo com módulos de conjunto em destaque.":::
 
 1. Verifique se a seguinte entrada está presente na secção **Credenciais de Registo de Contentores.** Adicione credenciais se necessário.
 
@@ -40,30 +40,17 @@ Este artigo descreve como configurar a sua aplicação de assistente de voz usan
 
 1. Na secção **módulos IoT Edge,** selecione **azureearspeechclientmodule**.
 
-    :::image type="content" source="./media/manage-voice-assistant-using-iot-hub/modules.png" alt-text="A imagem.":::
+    :::image type="content" source="./media/manage-voice-assistant-using-iot-hub/modules.png" alt-text="Screenshot mostrando a lista de todos os módulos IoT Edge no dispositivo.":::
 
 1. Clique no **separador Definições** do Módulo. Verifique a seguinte configuração:
 
-    |URI de imagem|Reiniciar a política|Estado desejado|
-    |---------|--------------|--------------|
-    |azureedgedevices.azurecr.io/azureearspeechclientmodule:preload-devkit |sempre|correndo|
+    URI de imagem|Reiniciar a política|Estado desejado
+    ---------|--------------|--------------
+    mcr.microsoft.com/azureedgedevices/azureearspeechclientmodule:preload-devkit|sempre|correndo
 
     Se as suas definições não corresponderem, edite-as e clique em **Atualizar**.
 
 1. Clique no separador **Variáveis ambiente.** Verifique se não existem variáveis ambientais definidas.
-
-1. Clique no **separador Opções de Criar Recipientes.** Verifique as definições **hostConfig** que correspondem às mostradas abaixo. Caso contrário, não correspondem, atualize as suas definições.
-
-    ```
-    {
-        "HostConfig": {
-            "Privileged": true,
-            "Binds": [
-                "/dev:/dev"
-            ]
-        }
-    }
-    ```
 
 1. Clique no **separador Definições Gémeas** do Módulo. Atualizar a secção **deconfigs** de discurso da seguinte forma:
 
@@ -72,7 +59,7 @@ Este artigo descreve como configurar a sua aplicação de assistente de voz usan
         "appId": "<Application id for custom command project>",
         "key": "<Speech Resource key for custom command project>",
         "region": "<Region for the speech service>",
-        "keywordModelUrl": "https://aedspeechscenarios.blob.core.windows.net/keyword-tables/computer.table",
+        "keywordModelUrl": "https://aedsamples.blob.core.windows.net/speech/keyword-tables/computer.table",
         "keyword": "computer"
     }
     ```
@@ -88,16 +75,16 @@ Para localizar o seu **appID,** **chave** e **região,** vá ao [Speech Studio:]
 1. Na página inicial do **Estúdio de Discurso,** clique em **Comandos Personalizados** em **Assistentes de Voz**.
 1. Selecione o seu projeto-alvo.
 
-    :::image type="content" source="./media/manage-voice-assistant-using-iot-hub/project.png" alt-text="A imagem.":::
+    :::image type="content" source="./media/manage-voice-assistant-using-iot-hub/project.png" alt-text="Screenshot da página do projeto no Estúdio da Fala.":::
 
 1. Clique em **Definições** no painel do menu à esquerda.
 1. O **appID** e **a chave** estarão localizados no **separador Definições Gerais.**
 
-    :::image type="content" source="./media/manage-voice-assistant-using-iot-hub/general-settings.png" alt-text="A imagem.":::
+    :::image type="content" source="./media/manage-voice-assistant-using-iot-hub/general-settings.png" alt-text="Screenshot das definições gerais do projeto de fala.":::
 
 1. Para encontrar a sua **região,** abra o separador **recursos LUIS** dentro das definições. A **seleção de recursos de autoria** conterá informações sobre a região.
 
-    :::image type="content" source="./media/manage-voice-assistant-using-iot-hub/luis-resources.png" alt-text="A imagem.":::
+    :::image type="content" source="./media/manage-voice-assistant-using-iot-hub/luis-resources.png" alt-text="Screenshot dos recursos do projeto de fala LUIS.":::
 
 1. Depois de inserir o seu **discursoConfigs** informações, clique em **Update**.
 
@@ -113,6 +100,8 @@ Para localizar o seu **appID,** **chave** e **região,** vá ao [Speech Studio:]
 
 1. Clique em **Criar**.
 
+
 ## <a name="next-steps"></a>Passos seguintes
 
 Depois de atualizar a configuração do seu assistente de voz, volte à demonstração no Azure Percept Studio para interagir com a aplicação.
+

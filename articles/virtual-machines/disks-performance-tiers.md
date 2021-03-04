@@ -8,12 +8,12 @@ ms.date: 03/02/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 161aafce1c04e5d09cf08529bcbf1baf6b8a86b1
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 429845aa22b6d069b8d7233132de8eb3b24b2985
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101674933"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102043682"
 ---
 # <a name="change-your-performance-tier-using-the-azure-powershell-module-or-the-azure-cli"></a>Mude o seu nível de desempenho utilizando o módulo Azure PowerShell ou o Azure CLI
 
@@ -117,7 +117,7 @@ $disk.Tier
 
 ## <a name="change-the-performance-tier-of-a-disk-without-downtime-preview"></a>Alterar o nível de desempenho de um disco sem tempo de inatividade (pré-visualização)
 
-Também pode alterar o seu nível de desempenho sem tempo de inatividade, para que não tenha de negociar o seu VM ou desprender o seu disco para alterar o nível. Para obter mais informações e a ligação de inscrição para a pré-visualização, consulte o nível de desempenho de Alteração sem a secção [de tempo de inatividade (pré-visualização).](#changing-performance-tier-without-downtime-preview)
+Também pode alterar o seu nível de desempenho sem tempo de inatividade, para que não tenha de negociar o seu VM ou desprender o seu disco para alterar o nível. Para obter mais informações e o link de inscrição para a pré-visualização, consulte o nível de desempenho change sem a secção [de tempo de inatividade (pré-visualização).](#change-performance-tier-without-downtime-preview)
 
 
 O seguinte script atualizará o nível de um disco superior ao nível de base utilizando o modelo de amostra [CreateUpdateDataDiskWithTier.jsem](https://github.com/Azure/azure-managed-disks-performance-tiers/blob/main/CreateUpdateDataDiskWithTier.json). Substitua `<yourSubScriptionID>` , , , , `<yourResourceGroupName>` `<yourDiskName>` `<yourDiskSize>` `<yourDesiredPerformanceTier>` e, em seguida, executar o script:

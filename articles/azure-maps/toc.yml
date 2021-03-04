@@ -244,6 +244,8 @@
           href: how-to-use-android-map-control-library.md
         - name: Alterar o estilo do mapa
           href: set-android-map-styles.md
+        - name: Adicionar controlos ao mapa
+          href: map-add-controls-android.md
         - name: Criar uma origem de dados
           href: create-data-source-android-sdk.md
         - name: Adicionar uma camada de símbolo
@@ -256,8 +258,12 @@
           href: android-map-add-line-layer.md
         - name: Adicionar uma camada de polígonos
           href: how-to-add-shapes-to-android-map.md
+        - name: Adicionar uma camada de extrusão de polígonos
+          href: map-extruded-polygon-android.md
         - name: Adicionar camada de mapa térmico
           href: map-add-heat-map-layer-android.md
+        - name: Adicionar uma camada de imagem
+          href: map-add-image-layer-android.md
         - name: Adicionar uma camada de mosaico
           href: how-to-add-tile-layer-android-map.md
         - name: Mostrar dados de tráfego

@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 5/25/2020
 ms.author: baanders
-ms.openlocfilehash: f5b332415f1abf7d4c1002bdd4f3bfcef12f1267
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: ff9d1f0ff75a6df6c115ecfe2b8c5f71b12049e4
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96023273"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102036181"
 ---
 ## <a name="configure-the-sample-project"></a>Configure o projeto da amostra
 
@@ -22,7 +22,7 @@ Uma vez dentro da pasta, navegue no _AdtSampleApp_. Open _**AdtE2ESample.sln**_ 
 
 No Estúdio Visual, selecione o _SampleClientApp > **appsettings.jsno**_ ficheiro para o abrir na janela de edição. Isto servirá como um ficheiro JSON pré-definido com as variáveis de configuração necessárias para executar o projeto.
 
-No corpo do ficheiro, mude o para o `instanceUrl` seu exemplo Azure Digital Twins *hostName* URL (com *https://* à sua frente, como mostrado abaixo).
+No corpo do ficheiro, mude o para o `instanceUrl` seu exemplo Azure Digital Twins *hostName URL* (adicionando **_https://_** em frente ao *nome anfitrião,* como mostrado abaixo).
 
 ```json
 {
@@ -32,7 +32,7 @@ No corpo do ficheiro, mude o para o `instanceUrl` seu exemplo Azure Digital Twin
 
 Guarde e feche o ficheiro. 
 
-Em seguida, configurar o *appsettings.jsno* ficheiro a ser copiado para o diretório de saída quando construir o *SampleClientApp*. Para isso, selecione o *appsettings.jsno* ficheiro e escolha *Propriedades.* No inspetor *de Imóveis,* altere o valor da *propriedade Copy para Output Directory* para Copy se for mais *recente*.
+Em seguida, configurar o *appsettings.jsno* ficheiro a ser copiado para o diretório de saída quando construir o *SampleClientApp*. Para isso, selecione o *appsettings.jsno* ficheiro e escolha **Propriedades**. No inspetor **imobiliário,** procure a *propriedade Copy to Output Directory.* Altere o valor para **Copiar se** já não estiver definido para tal.
 
 :::image type="content" source="../articles/digital-twins/media/includes/copy-config.png" alt-text="Excerto da janela do Estúdio Visual mostrando o painel do Solution Explorer com appsettings.jsem destaque, e o painel de propriedades com a propriedade 'Copy to Output Directory' definido para 'Copy if new'" border="false" lightbox="../articles/digital-twins/media/includes/copy-config.png":::
 

@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/10/2020
 ms.author: yelevin
-ms.openlocfilehash: d388478fb3bc9b4e355d8c3cd3f16c0a785b8b27
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: da7d540a4b7982c7f743a7ae968515485b45aa5a
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100578924"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102035433"
 ---
 # <a name="use-logstash-to-connect-data-sources-to-azure-sentinel"></a>Utilize o Logstash para ligar fontes de dados ao Azure Sentinel
 
 > [!IMPORTANT]
 > A ingestão de dados utilizando o plugin de saída Logstash está atualmente em pré-visualização pública. Esta funcionalidade é fornecida sem um contrato de nível de serviço, e não é recomendado para cargas de trabalho de produção. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Utilizando o novo plugin de saída do Azure Sentinel para o motor de recolha de **dados logstash,** pode agora enviar qualquer tipo de registo que pretenda através do Logstash diretamente para o seu espaço de trabalho Log Analytics em Azure Sentinel. Os seus registos serão enviados para uma tabela personalizada que definirá utilizando o plugin de saída.
+Utilizando o plugin de saída do Azure Sentinel para o motor de recolha de **dados logstash,** pode enviar qualquer tipo de registo que pretenda através do Logstash diretamente para o seu espaço de trabalho Log Analytics em Azure Sentinel. Os seus registos serão enviados para uma tabela personalizada que definirá utilizando o plugin de saída.
 
 Para saber mais sobre como trabalhar com o motor de recolha de dados Logstash, consulte [Começar com Logstash.](https://www.elastic.co/guide/en/logstash/current/getting-started-with-logstash.html)
 
@@ -65,7 +65,7 @@ O plugin de saída Azure Sentinel está disponível na coleção Logstash.
 
 Utilize as informações na Estrutura de Logstash de um documento [de ficheiro config](https://www.elastic.co/guide/en/logstash/current/configuration-file-structure.html) e adicione o plugin de saída Azure Sentinel à configuração com as seguintes teclas e valores. (A sintaxe de ficheiro config adequada é mostrada após a tabela.)
 
-| Nome do campo | Tipo de dados | Description |
+| Nome do campo | Tipo de dados | Descrição |
 |----------------|---------------|-----------------|
 | `workspace_id` | cadeia (de carateres) | Insira o seu espaço de trabalho ID GUID. * |
 | `workspace_key` | string | Insira a sua chave primária do espaço de trabalho GUID. * |
@@ -76,8 +76,10 @@ Utilize as informações na Estrutura de Logstash de um documento [de ficheiro c
 | `plugin_flush_interval` | número | Campo opcional. Definir para definir o intervalo máximo (em segundos) entre as transmissões de mensagens para Log Analytics. O padrão é 5. |
     | `amount_resizing` | boolean | True ou false. Ativar ou desativar o mecanismo automático de escala, que ajusta o tamanho do tampão de mensagem de acordo com o volume de dados de registo recebidos. |
 | `max_items` | número | Campo opcional. Só se aplica se `amount_resizing` for definido como "falso". Utilize para definir uma tampa no tamanho do tampão de mensagem (em registos). A predefinição é 2 000.  |
+| `azure_resource_id` | string | Campo opcional. Define o ID do recurso Azure onde os dados residem. <br>O valor de ID de recursos é especialmente útil se estiver a utilizar [o RBAC de contexto de recursos](resource-context-rbac.md) para fornecer acesso apenas a dados específicos. |
+| | | |
 
-\*Pode encontrar o ID do espaço de trabalho e a chave primária no recurso do espaço de trabalho, sob **gestão de Agentes.**
+* Pode encontrar o ID do espaço de trabalho e a chave primária no recurso do espaço de trabalho, sob **gestão de Agentes.**
 
 #### <a name="sample-configurations"></a>Configurações de amostras
 

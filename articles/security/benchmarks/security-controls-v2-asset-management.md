@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 02/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 32b0a7e31fc0d595eacc2bf5257f41e4ce35566b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: fbeb88b6aa542666481458fde97d7c63f467fa30
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101735816"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102051536"
 ---
 # <a name="security-control-v2-asset-management"></a>Controlo de Segurança V2: Gestão de Ativos
 
 A Gestão de Ativos cobre controlos para garantir visibilidade e governação de segurança sobre os recursos da Azure. Isto inclui recomendações sobre permissões para pessoal de segurança, acesso de segurança ao inventário de ativos, e gestão de aprovações para serviços e recursos (inventário, pista e correto).
 
-Para ver a política de Azure incorporada aplicável, consulte [detalhes da iniciativa Azure Security Benchmark Regulatory Compliance built-in: Network Security](../../governance/policy/samples/azure-security-benchmark#asset-management)
+Para ver a política de Azure incorporada aplicável, consulte [detalhes da iniciativa Azure Security Benchmark Regulatory Compliance built-in: Network Security](../../governance/policy/samples/azure-security-benchmark.md#asset-management)
 
 ## <a name="am-1-ensure-security-team-has-visibility-into-risks-for-assets"></a>AM-1: Certifique-se de que a equipa de segurança tem visibilidade para os riscos dos ativos
 
@@ -154,7 +154,7 @@ Também pode usar uma solução de terceiros para descobrir e identificar softwa
 
 - [Compreender o rastreio e inventário de mudança de automatização da Azure](../../automation/change-tracking/overview.md)
 
-- [Como controlar a execução do script PowerShell em ambientes Windows](/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6)
+- [Como controlar a execução do script PowerShell em ambientes Windows](/powershell/module/microsoft.powershell.security/set-executionpolicy)
 
 **Responsabilidade**: Cliente
 

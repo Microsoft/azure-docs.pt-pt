@@ -1,18 +1,18 @@
 ---
 title: Modelo de recursos para a função de restauro ponto-a-tempo da Azure Cosmos.
-description: Este artigo explica o modelo de recursos para a funcionalidade de restauro ponto-a-tempo da Azure Cosmos. Explica os parâmetros que suportam a backup contínua e os recursos que podem ser restaurados em Azure Cosmos DB API para contas SQL e MongoDB.
+description: Este artigo explica o modelo de recursos da funcionalidade de restauro para um ponto anterior no tempo do Azure Cosmos DB. Explica os parâmetros que suportam a cópia de segurança contínua e os recursos que podem ser restaurados na API para contas SQL e MongoDB do Azure Cosmos DB.
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 02/01/2021
+ms.date: 02/22/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: d838425583638aef5199b52df4869923c826553d
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: edf60a5c454d34a2424ef7981b02952ffbfd3bde
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100369973"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102097232"
 ---
 # <a name="resource-model-for-the-azure-cosmos-db-point-in-time-restore-feature-preview"></a>Modelo de recursos para a funcionalidade de restauro ponto-a-tempo do Azure Cosmos (Preview)
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -22,7 +22,7 @@ ms.locfileid: "100369973"
 > Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
 > Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Este artigo explica o modelo de recursos para a funcionalidade de restauro ponto-a-tempo do Azure Cosmos (Preview). Explica os parâmetros que suportam a backup contínua e os recursos que podem ser restaurados em Azure Cosmos DB API para contas SQL e MongoDB.
+Este artigo explica o modelo de recursos para a funcionalidade de restauro ponto-a-tempo do Azure Cosmos (Preview). Explica os parâmetros que suportam a cópia de segurança contínua e os recursos que podem ser restaurados na API para contas SQL e MongoDB do Azure Cosmos DB.
 
 ## <a name="database-accounts-resource-model"></a>Modelo de recursos da conta de base de dados
 
@@ -43,7 +43,7 @@ Esta propriedade indica como a conta foi criada. Os valores possíveis são *Pre
 
 O `RestoreParameters` recurso contém os detalhes da operação de restauro, incluindo, o ID da conta, o tempo para restaurar, e recursos que precisam de ser restaurados.
 
-|Nome da Propriedade |Description  |
+|Nome da Propriedade |Descrição  |
 |---------|---------|
 |restaurarMode  | O modo de restauro deve ser *PointInTime* |
 |restaurarSource   |  O casoId da conta de origem a partir da qual a restauração será iniciada.       |
@@ -52,7 +52,7 @@ O `RestoreParameters` recurso contém os detalhes da operação de restauro, inc
 
 **DatabaseRestoreResource** - Cada recurso representa uma única base de dados e todas as coleções nessa base de dados.
 
-|Nome da Propriedade |Description  |
+|Nome da Propriedade |Descrição  |
 |---------|---------|
 |base de dados Nome | O nome da base de dados |
 | coleçõesAmmos| A lista de contentores nesta base de dados |
@@ -128,13 +128,13 @@ Este recurso contém uma instância de conta de base de dados que pode ser resta
 | RestorableLocações: criaçãoTime | O tempo na UTC quando a conta regional foi criada.|
 | RestorableLocações: eliminaçãoTime | O tempo na UTC quando a conta regional foi suprimida. Este valor é vazio se a conta regional estiver ao vivo.|
 
-Para obter uma lista de todas as contas ressaráveis, consulte [as Contas de Base de Dados Restauraveis - lista](restorable-database-accounts-list.md) ou Contas de Base de [Dados Restauradoras- por](restorable-database-accounts-list-by-location.md) artigos de localização.
+Para obter uma lista de todas as contas ressaráveis, consulte [as Contas de Base de Dados Restauraveis - lista](/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorabledatabaseaccounts/list) ou Contas de Base de [Dados Restauradoras- por](/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorabledatabaseaccounts/listbylocation) artigos de localização.
 
 ### <a name="restorable-sql-database"></a>Base de dados SQL restauradora
 
 Cada recurso contém informações de um evento de mutação, como criação e eliminação que ocorreu na Base de Dados SQL. Esta informação pode ajudar em cenários onde a base de dados foi acidentalmente eliminada e se você precisa descobrir quando esse evento aconteceu.
 
-|Nome da Propriedade |Description  |
+|Nome da Propriedade |Descrição  |
 |---------|---------|
 | eventTimestamp | A hora na UTC quando a base de dados é criada ou eliminada. |
 | proprietárioId | O nome da base de dados SQL. |
@@ -142,13 +142,13 @@ Cada recurso contém informações de um evento de mutação, como criação e e
 | operationType | O tipo de operação deste evento de base de dados. Aqui estão os valores possíveis:<br/><ul><li>Criar: evento de criação de base de dados</li><li>Excluir: evento de eliminação de bases de dados</li><li>Substituir: evento de modificação da base de dados</li><li>Funcionação do Sistema: evento de modificação da base de dados desencadeado pelo sistema. Este evento não é iniciado pelo utilizador</li></ul> |
 | base de dados |As propriedades da base de dados SQL no momento do evento|
 
-Para obter uma lista de todas as mutações da base de dados, consulte [as Bases de Dados De Sql Restauradoras - Artigo da lista.](restorable-sql-databases-list.md)
+Para obter uma lista de todas as mutações da base de dados, consulte [as Bases de Dados De Sql Restauradoras - Artigo da lista.](/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorablesqldatabases/list)
 
 ### <a name="restorable-sql-container"></a>Recipiente SQL restaurador
 
 Cada recurso contém informações de um evento de mutação, como a criação e eliminação que ocorreram no contentor SQL. Esta informação pode ajudar em cenários onde o recipiente foi modificado ou eliminado, e se você precisa descobrir quando esse evento aconteceu.
 
-|Nome da Propriedade |Description  |
+|Nome da Propriedade |Descrição  |
 |---------|---------|
 | eventTimestamp    | A hora na UTC quando este evento de contentores aconteceu.|
 | proprietárioId| O nome do contentor SQL.|
@@ -156,55 +156,55 @@ Cada recurso contém informações de um evento de mutação, como a criação e
 | operationType | O tipo de operação deste evento de contentores. Aqui estão os valores possíveis: <br/><ul><li>Criar: evento de criação de contentores</li><li>Excluir: evento de eliminação de contentores</li><li>Substituição: evento de modificação do contentor</li><li>Funcionação do Sistema: evento de modificação do contentor desencadeado pelo sistema. Este evento não é iniciado pelo utilizador</li></ul> |
 | contentor | As propriedades do contentor SQL no momento do evento.|
 
-Para obter uma lista de todas as mutações de contentores na mesma base de dados, consulte [os Recipientes De Sql Restauraable - List.](restorable-sql-containers-list.md)
+Para obter uma lista de todas as mutações de contentores na mesma base de dados, consulte [os Recipientes De Sql Restauraable - List.](/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorablesqlcontainers/list)
 
 ### <a name="restorable-sql-resources"></a>Recursos SQL restauradores
 
 Cada recurso representa uma única base de dados e todos os contentores debaixo dessa base de dados.
 
-|Nome da Propriedade |Description  |
+|Nome da Propriedade |Descrição  |
 |---------|---------|
 | base de dados Nome  | O nome da base de dados SQL.
 | coleçõesAmmos   | A lista de contentores SQL nesta base de dados.|
 
-Para obter uma lista de bases de dados SQL e combinação de contentores que existem na conta no determinado timetamp e localização, consulte o [artigo Restorable Sql Resources - List.](restorable-sql-resources-list.md)
+Para obter uma lista de bases de dados SQL e combinação de contentores que existem na conta no determinado timetamp e localização, consulte o [artigo Restorable Sql Resources - List.](/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorablesqlresources/list)
 
 ### <a name="restorable-mongodb-database"></a>Base de dados MongoDB restauradora
 
 Cada recurso contém informações de um evento de mutação, como criação e eliminação que ocorreram na Base de Dados mongoDB. Estas informações podem ajudar no cenário em que a base de dados foi acidentalmente eliminada e o utilizador precisa de saber quando esse evento aconteceu.
 
-|Nome da Propriedade |Description  |
+|Nome da Propriedade |Descrição  |
 |---------|---------|
 |eventTimestamp| A hora na UTC quando este evento de base de dados aconteceu.|
 | proprietárioId| O nome da base de dados do MongoDB. |
 | proprietárioResourceId   | A identificação de recursos da base de dados mongoDB. |
 | operationType |   O tipo de operação deste evento de base de dados. Aqui estão os valores possíveis:<br/><ul><li> Criar: evento de criação de base de dados</li><li> Excluir: evento de eliminação de bases de dados</li><li> Substituir: evento de modificação da base de dados</li><li> Funcionação do Sistema: evento de modificação da base de dados desencadeado pelo sistema. Este evento não é iniciado pelo utilizador </li></ul> |
 
-Para obter uma lista de todas as mutações na base de [dados, consulte as Bases de Dados de Mongodb Restauradoras - Artigo da lista.](restorable-mongodb-databases-list.md)
+Para obter uma lista de todas as mutações na base de [dados, consulte as Bases de Dados de Mongodb Restauradoras - Artigo da lista.](/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorablemongodbdatabases/list)
 
 ### <a name="restorable-mongodb-collection"></a>Coleção MongoDB restauradora
 
 Cada recurso contém informações de um evento de mutação, como a criação e a eliminação que ocorreram na Coleção MongoDB. Esta informação pode ajudar em cenários onde a recolha foi modificada ou eliminada, e o utilizador precisa de saber quando esse evento aconteceu.
 
-|Nome da Propriedade |Description  |
+|Nome da Propriedade |Descrição  |
 |---------|---------|
 | eventTimestamp |A hora na UTC quando este evento de coleção aconteceu. |
 | proprietárioId| O nome da coleção MongoDB. |
 | proprietárioResourceId   | O ID de recursos da coleção MongoDB. |
 | operationType |O tipo de operação deste evento de recolha. Aqui estão os valores possíveis:<br/><ul><li>Criar: evento de criação de coleção</li><li>Excluir: evento de eliminação de recolha</li><li>Substituir: evento de modificação de recolha</li><li>Funcionação do Sistema: evento de modificação de recolha desencadeado pelo sistema. Este evento não é iniciado pelo utilizador</li></ul> |
 
-Para obter uma lista de todas as mutações de contentores na mesma base de dados, consulte [o Restorable Mongodb Collections - Artigo da lista.](restorable-mongodb-collections-list.md)
+Para obter uma lista de todas as mutações de contentores na mesma base de dados, consulte [o Restorable Mongodb Collections - Artigo da lista.](/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorablemongodbcollections/list)
 
 ### <a name="restorable-mongodb-resources"></a>Recursos mongoDB restauradores
 
 Cada recurso representa uma única base de dados e todas as coleções nessa base de dados.
 
-|Nome da Propriedade |Description  |
+|Nome da Propriedade |Descrição  |
 |---------|---------|
 | base de dados Nome  |O nome da base de dados do MongoDB. |
 | coleçõesAmmos | A lista de coleções mongoDB nesta base de dados. |
 
-Para obter uma lista de todas as combinações de bases de dados e recolhas mongoDB que existem na conta no determinado timetamp e localização, consulte [recursos de Mongodb Restauraable -](restorable-mongodb-resources-list.md) Artigo da lista.
+Para obter uma lista de todas as combinações de bases de dados e recolhas mongoDB que existem na conta no determinado timetamp e localização, consulte [recursos de Mongodb Restauraable -](/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorablemongodbresources/list) Artigo da lista.
 
 ## <a name="next-steps"></a>Passos seguintes
 
