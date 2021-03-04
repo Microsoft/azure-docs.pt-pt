@@ -1,17 +1,16 @@
 ---
 title: Amostras de modelo de gestor de recursos para insights de VM
 description: Experimente os modelos do Gestor de Recursos Azure para implementar e configurar insights de VM.
-ms.subservice: logs
 ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2020
-ms.openlocfilehash: fa18a5f2af79d75c4eba8c6822f1a7ed8ca4efa8
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 2ee447b1e5f72ce916808a5832f999eea493994c
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101733759"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102046844"
 ---
 # <a name="resource-manager-template-samples-for-vm-insights"></a>Amostras de modelo de gestor de recursos para insights de VM
 Este artigo inclui [modelos de gestor de recursos Azure](../../azure-resource-manager/templates/template-syntax.md) para permitir insights de VM em máquinas virtuais. Cada amostra inclui um ficheiro de modelo e um ficheiro de parâmetros com valores de amostra para fornecer ao modelo.

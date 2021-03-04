@@ -6,90 +6,67 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: 42d4a722be25eec4b3e27012350346018fdba0f3
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 9a7a3a603944970a5e78a24ca4042f97b1c43fcc
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96754118"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102047864"
 ---
 # <a name="azure-migrate-appliance-architecture"></a>Arquitetura de aplicação do Azure Migrate
 
-Este artigo descreve a arquitetura e processos do aparelho Azure Migrate. O aparelho Azure Migrate é um aparelho leve que é implantado no local, para descobrir VMs e servidores físicos para migração para Azure. 
+Este artigo descreve a arquitetura e processos do aparelho Azure Migrate. O aparelho Azure Migrate é um aparelho leve que é implantado no local, para descobrir VMs e servidores físicos para migração para Azure.
 
 ## <a name="deployment-scenarios"></a>Cenários de implementação
 
 O aparelho Azure Migrate é utilizado nos seguintes cenários.
 
-**Cenário** | **Ferramenta** | **Utilizado para** 
+**Cenário** | **Ferramenta** | **Costumava** 
 --- | --- | ---
-**Avaliação VMware VM** | Azure Migrate:Avaliação do servidor | Descubra VMware VMs.<br/><br/> Descubra aplicativos e dependências de máquinas.<br/><br/> Recolha metadados de máquina e metadados de desempenho e envie para a Azure.
-**VMware VM migração (sem agente)** | Azure Migrate:Migração de servidores | Detetar VMs VMware<br/><br/>  Replicar VMware VMs com [migração sem agentes](server-migrate-overview.md).
-**Avaliação de VM hiper-V** | Azure Migrate:Avaliação do servidor | Descubra os VMs Hiper-V.<br/><br/> Recolha metadados de máquina e metadados de desempenho e envie para a Azure.
-**Máquina física** |  Azure Migrate:Avaliação do servidor |  Descubra servidores físicos.<br/><br/> Recolha metadados de máquina e metadados de desempenho e envie para a Azure.
+**Descoberta e avaliação de servidores em execução em ambiente VMware** | Azure Migrate:Avaliação do servidor | Descubra servidores em execução no seu ambiente VMware<br/><br/> Realize a descoberta de aplicações instaladas, análise de dependência sem agentes e descubra instâncias e bases de dados do SQL Server.<br/><br/> Colete a configuração do servidor e metadados de desempenho para avaliações.
+**Migração sem agente de servidores em execução em ambiente VMware** | Azure Migrate:Migração de servidores | Descubra os servidores em execução no seu ambiente VMware.<br/><br/> Replicar servidores sem instalar quaisquer agentes neles.
+**Descoberta e avaliação de servidores em execução em ambiente Hiper-V** | Azure Migrate:Avaliação do servidor | Descubra servidores em execução no seu ambiente Hiper-V.<br/><br/> Colete a configuração do servidor e metadados de desempenho para avaliações.
+**Descoberta e avaliação de servidores físicos ou virtualizados no local** |  Azure Migrate:Avaliação do servidor |  Descubra servidores físicos ou virtualizados no local.<br/><br/> Colete a configuração do servidor e metadados de desempenho para avaliações.
 
-## <a name="appliance-components"></a>Componentes do aparelho
+## <a name="deployment-methods"></a>Métodos de implantação
 
-O aparelho tem vários componentes.
+O aparelho pode ser implantado utilizando um par de métodos:
 
-- **Aplicação de gestão**: Esta é uma aplicação web para a entrada do utilizador durante a implementação do aparelho. Usado na avaliação de máquinas para migração para Azure.
-- **Agente de** descoberta: O agente recolhe dados de configuração da máquina. Usado na avaliação de máquinas para migração para Azure. 
-- **Agente de recolha**: O agente recolhe dados de desempenho. Usado na avaliação de máquinas para migração para Azure.
-- **Agente DRA**: Orquestra a replicação VM e coordena a comunicação entre máquinas replicadas e Azure. Utilizado apenas na replicação de VMware VMs para Azure usando migração sem agente.
-- **Gateway**: Envia dados replicados para Azure. Utilizado apenas na replicação de VMware VMs para Azure usando migração sem agente.
-- **Serviço de atualização automática**: Atualiza os componentes do aparelho (funciona a cada 24 horas).
+- O aparelho pode ser implantado utilizando um modelo para servidores em execução em ambiente VMware ou Hiper-V[(modelo OVA para VMware](how-to-set-up-appliance-vmware.md) ou [VHD para Hiper-V](how-to-set-up-appliance-hyper-v.md)).
+- Se não quiser utilizar um modelo, pode implantar o aparelho para ambiente VMware ou Hiper-V utilizando um [script instalador PowerShell](deploy-appliance-script.md).
+- No Governo Azure, deve utilizar o aparelho utilizando um script instalador PowerShell. Consulte os passos de implantação [aqui.](deploy-appliance-script-government.md)
+- Para servidores físicos ou virtualizados no local ou em qualquer outra nuvem, utilize sempre o aparelho utilizando um script instalador PowerShell. Consulte os passos de implantação [aqui.](how-to-set-up-appliance-physical.md)
+- Os links de descarregamento estão disponíveis nas tabelas abaixo.
 
+## <a name="appliance-services"></a>Serviços de eletrodomés
 
+O aparelho dispõe dos seguintes serviços:
 
-## <a name="appliance-deployment"></a>Implantação do aparelho
+- **Gestor de configuração do aparelho**: Esta é uma aplicação web que pode ser configurada com detalhes de origem para iniciar a descoberta e avaliação dos servidores. 
+- **Agente de** descoberta : O agente recolhe metadados de configuração do servidor que podem ser usados para criar como avaliações no local.
+- **Agente de avaliação**: O agente recolhe metadados de desempenho do servidor que podem ser utilizados para criar avaliações baseadas no desempenho.
+- **Serviço de atualização automática**: O serviço mantém todos os agentes a trabalhar no aparelho atualizados. Funciona automaticamente uma vez a cada 24 horas.
+- **Agente DRA**: Orquestra a replicação do servidor e coordena a comunicação entre servidores replicados e Azure. Usado apenas para replicar servidores para Azure usando migração sem agente.
+- **Gateway**: Envia dados replicados para Azure. Usado apenas para replicar servidores para Azure usando migração sem agente.
+- **SQL discovery and assessment agent**: envia os metadados de configuração e desempenho de instâncias e bases de dados do SQL Server para O Azure.
 
-- O aparelho Azure Migrate pode ser configurado utilizando um modelo para [Hiper-V](how-to-set-up-appliance-hyper-v.md) ou [VMware](how-to-set-up-appliance-vmware.md) ou utilizando um instalador de scripts PowerShell para [VMware/Hyper-V](deploy-appliance-script.md), e para [servidores físicos](how-to-set-up-appliance-physical.md). 
-- Os requisitos de suporte do aparelho e os pré-requisitos de implantação são resumidos na [matriz de suporte](migrate-appliance.md)do aparelho .
+> [!Note]
+> Os últimos 3 serviços só estão disponíveis no aparelho utilizado para a descoberta e avaliação dos servidores em execução no seu ambiente VMware.<br/> A descoberta e avaliação de instâncias e bases de dados do SQL Server em execução no seu ambiente VMware está agora em pré-visualização. Para experimentar esta funcionalidade, utilize [**este link**](https://aka.ms/AzureMigrate/SQL) para criar um projeto na região **leste da Austrália.** Se já tem um projeto na Austrália East e quer experimentar esta funcionalidade, certifique-se de que completou estes [**pré-requisitos**](how-to-discover-sql-existing-project.md) no portal.
 
-
-## <a name="appliance-registration"></a>Registo do aparelho
-
-Durante a instalação do aparelho, registe o aparelho com o Azure Migrate e ocorrem as ações resumidas na tabela.
-
-**Ação** | **Detalhes** | **Permissões**
---- | --- | ---
-**Fornecedores de fontes de registo** | Estes fornecedores de recursos estão registados na subscrição que escolher durante a configuração do aparelho: Microsoft.OffAzure, Microsoft.Migrate e Microsoft.KeyVault.<br/><br/> O registo de um fornecedor de recursos configura a sua subscrição para trabalhar com o fornecedor de recursos. | Para registar os fornecedores de recursos, precisa de uma função de Contribuinte ou Proprietário na subscrição.
-**Criar comunicação de aplicativos AZure AD** | A Azure Migrate cria uma aplicação Azure Ative Directory (Azure AD) para comunicação (autenticação e autorização) entre os agentes que estão a trabalhar no aparelho e os respetivos serviços em execução no Azure.<br/><br/> Esta aplicação não tem privilégios para fazer chamadas do Azure Resource Manager, ou acesso Azure RBAC em qualquer recurso. | Precisa [destas permissões](./tutorial-discover-vmware.md#prepare-an-azure-user-account) para que o Azure Migrate crie a app.
-**Criar ad apps AD Azure** | Esta aplicação é criada apenas para migração sem agentes de VMware VMs para Azure.<br/><br/> É usado exclusivamente para aceder ao cofre-chave criado na subscrição do utilizador para migração sem agentes.<br/><br/> Tem acesso Azure RBAC no cofre de chaves Azure (criado no inquilino do cliente), quando a descoberta é iniciada a partir do aparelho. | Precisa [destas permissões](./tutorial-discover-vmware.md#prepare-an-azure-user-account) para que o Azure Migrate crie a app.
-
-
-
-## <a name="collected-data"></a>Dados recolhidos
-
-Os dados recolhidos pelo cliente para todos os cenários de implantação são resumidos na [matriz de suporte](migrate-appliance.md)do aparelho .
 
 ## <a name="discovery-and-collection-process"></a>Processo de descoberta e recolha
 
-![Arquitetura](./media/migrate-appliance-architecture/architecture1.png)
+:::image type="content" source="./media/migrate-appliance-architecture/architecture1.png" alt-text="Arquitetura de eletrodoméstico":::
 
-O aparelho comunica com servidores/agrupamentos vCenter e hiper-V utilizando o seguinte processo.
+O aparelho comunica com as fontes de descoberta utilizando o seguinte processo.
 
-1. **Iniciar a descoberta:**
-    - Quando inicia a descoberta no aparelho Hyper-V, comunica-se com os anfitriões Hiper-V na porta WinRM 5985 (HTTP).
-    - Quando começa a ser descoberto no aparelho VMware, comunica-se com o servidor vCenter na porta 443 da TCP por defeito. Se o servidor vCenter ouvir numa porta diferente, pode configurá-la na aplicação web do aparelho.
-2. **Recolha metadados e dados de desempenho:**
-    - O aparelho utiliza uma sessão de Modelo de Informação Comum (CIM) para recolher dados de VM hiper-V do hospedeiro Hyper-V na porta 5985.
-    - O aparelho comunica com a porta 443 por predefinição, para recolher dados VMware VM do servidor vCenter.
-3. **Enviar dados**: O aparelho envia os dados recolhidos para a Avaliação do Servidor Azure Migrate e para a Migração do Servidor Azure Migrar sobre a porta SSL 443. O aparelho pode ligar-se ao Azure através da internet ou via ExpressRoute (requer o olhar da Microsoft).
-    - Para os dados de desempenho, o aparelho recolhe dados de utilização em tempo real.
-        - Os dados de desempenho são recolhidos a cada 20 segundos para VMware, e a cada 30 segundos para o Hyper-V, para cada métrica de desempenho.
-        - Os dados recolhidos são recolhidos para criar um único ponto de dados durante 10 minutos.
-        - O valor máximo de utilização é selecionado a partir de todos os pontos de dados de 20/30 segundos, e enviado ao Azure para avaliação.
-        - Com base no valor percentil especificado nas propriedades de avaliação (50º/90º/95º/99º), os dez minutos são classificados em ordem ascendente, e o valor percentil apropriado é usado para calcular a avaliação
-    - Para a migração do servidor, o aparelho começa a recolher dados VM e replica-os ao Azure.
-4. **Avaliar e migrar:** Pode agora criar avaliações a partir dos metadados recolhidos pelo aparelho utilizando a Avaliação do Servidor Azure Migrate. Além disso, também pode começar a migrar VMware VMs usando Azure Migrate Server Migration para orquestrar a replicação de VM sem agente.
-
-## <a name="appliance-upgrades"></a>Atualizações de aparelhos
-
-O aparelho é atualizado à medida que os agentes Azure Migrate que estão a trabalhar no aparelho são atualizados. Isto acontece automaticamente porque a atualização automática é ativada no aparelho por predefinição. Pode alterar esta definição predefinida para atualizar os agentes manualmente.
-
-Desligue a atualização automática do registo definindo a tecla "AutoUpdate" HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance para 0 (DWORD).
-
+**Processo** | **Aparelho VMware** | **Aparelho Hiper-V** | **Aparelho físico**
+---|---|---|---
+**Iniciar a descoberta**| O aparelho comunica com o servidor vCenter na porta TCP 443 por predefinição. Se o servidor vCenter ouvir uma porta diferente, pode configurá-la no gestor de configuração do aparelho. | O aparelho comunica com os anfitriões Hyper-V na porta WinRM 5985 (HTTP). | O aparelho comunica com servidores Windows sobre a porta WinRM 5985 (HTTP) com servidores Linux sobre a porta 22 (TCP).
+**Recolha metadados de configuração e desempenho** | O aparelho recolhe os metadados dos servidores em execução no vCenter Server utilizando APIs vSphere ligando-os na porta 443 (porta predefinido) ou em qualquer outra porta que o servidor vCenter da porta ou seja ouvido. | O aparelho recolhe os metadados dos servidores em execução em anfitriões Hiper-V utilizando uma sessão de Modelo de Informação Comum (CIM) com anfitriões na porta 5985.| O aparelho recolhe metadados de servidores windows utilizando a sessão Common Information Model (CIM) com servidores na porta 5985 e a partir de servidores Linux utilizando conectividade SSH na porta 22.
+**Enviar dados de descoberta** | O aparelho envia os dados recolhidos para Azure Migrate: Avaliação do servidor e Migração do Azure: Migração do servidor sobre a porta SSL 443.<br/><br/> O aparelho pode ligar-se ao Azure através da internet ou via ExpressRoute (requer o olhar da Microsoft). | O aparelho envia os dados recolhidos para a Azure Migrate: Avaliação do servidor sobre a porta SSL 443.<br/><br/> O aparelho pode ligar-se ao Azure através da internet ou via ExpressRoute (requer o olhar da Microsoft).| O aparelho envia os dados recolhidos para a Azure Migrate: Avaliação do servidor sobre a porta SSL 443.<br/><br/> O aparelho pode ligar-se ao Azure através da internet ou via ExpressRoute (requer o olhar da Microsoft).
+**Frequência de recolha de dados** | Os metadados de configuração são recolhidos e enviados a cada 30 minutos. <br/><br/> Os metadados de desempenho são recolhidos a cada 20 segundos e são agregados para enviar um ponto de dados para Azure a cada 10 minutos. <br/><br/> Os dados de inventário de software são enviados para a Azure uma vez a cada 12 horas. <br/><br/> Os dados de dependência sem agente são recolhidos a cada 5 minutos, agregados em aparelhos e enviados para Azure a cada 6 horas. <br/><br/> Os dados de configuração do SQL Server são atualizados uma vez a cada 24 horas e os dados de desempenho são capturados a cada 30 segundos.| Os metadados de configuração são recolhidos e enviados a cada 30 minutos. <br/><br/> Os metadados de desempenho são recolhidos a cada 30 segundos e são agregados para enviar um ponto de dados para Azure a cada 10 minutos.|  Os metadados de configuração são recolhidos e enviados a cada 30 minutos. <br/><br/> Os metadados de desempenho são recolhidos a cada 5 minutos e são agregados para enviar um ponto de dados para Azure a cada 10 minutos.
+**Avaliar e migrar** | Pode criar avaliações a partir dos metadados recolhidos pelo aparelho utilizando a ferramenta Azure Migrate:Server Assessment.<br/><br/>Além disso, também pode começar a migrar servidores em execução no seu ambiente VMware utilizando a ferramenta Azure Migrate: Server Migration para orquestrar a replicação do servidor sem agente.| Pode criar avaliações a partir dos metadados recolhidos pelo aparelho utilizando a ferramenta Azure Migrate: Server Assessment. | Pode criar avaliações a partir dos metadados recolhidos pelo aparelho utilizando a ferramenta Azure Migrate: Server Assessment.
 
 ## <a name="next-steps"></a>Passos seguintes
 

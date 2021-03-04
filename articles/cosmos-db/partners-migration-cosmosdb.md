@@ -6,12 +6,12 @@ ms.author: sngun
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
-ms.openlocfilehash: 7fe0817abfac3070f77303bb0d2d662d18010862
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 66f26cfa14d51a985e2bb420bec294f7ef3a6cd1
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99090508"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102048153"
 ---
 # <a name="azure-cosmos-db-nosql-migration-and-application-development-partners"></a>Parceiros de migração e desenvolvimento de aplicações Azure Cosmos DB NoSQL
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -31,7 +31,6 @@ Da migração noSQL ao desenvolvimento de aplicações, pode escolher entre uma 
 | [Capgemini](https://www.capgemini.com/) | Retalho (inventário), IoT, Analytics Operacional (Faísca), Desenvolvimento de Aplicações | EUA, França, Reino Unido, Holanda, Finlândia  |
 | [Cognizant](https://www.cognizant.com/) | IoT, Personalização, Retalho (inventário), Analytics Operacional (Faísca), Desenvolvimento de Aplicações |EUA, Canadá, Reino Unido, Dinamarca, Holanda, Suíça, Austrália, Japão |
 |[Infosys](https://www.infosys.com/)     | Programação de aplicações      |    E.U.A.    |  
-| [Sistemas Lagash](https://www.devex.com/organizations/lagash-systems-131346) | IoT, arquitetura serverless, desenvolvimento de aplicativos | Argentina, Chile, Colômbia, México|
 | [Informática Lambda3](https://www.lambda3.com.br/) | Personalização em tempo real, inventário de retalho, desenvolvimento de aplicações | Brasil|
 |[Neal Analytics](https://www.nealanalytics.com/)    |     Personalização, Retalho (inventário), Analytics Operacional (Faísca), Desenvolvimento de Aplicações  |    E.U.A.     |  
 |[Pragmático Works Software Inc](https://www.pragmaticworks.com/)    |   Migração noSQL      |   E.U.A.      |

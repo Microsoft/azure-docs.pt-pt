@@ -1,18 +1,17 @@
 ---
 title: Recolher dados de uma máquina virtual Azure com | do Azure Monitor Microsoft Docs
 description: Saiba como ativar a Extensão de VM do agente do Log Analytics e a recolha de dados das VMs do Azure com o Log Analytics.
-ms.subservice: logs
 ms.topic: quickstart
 author: bwren
 ms.author: bwren
 ms.date: 08/19/2019
 ms.custom: mvc, sec-javascript-october2019
-ms.openlocfilehash: 2e267682118c4ba6fe25c11a4ae5088916d0e6fb
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 2f73614253a1ce442d2a93ce5e9b9d7051542511
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101736989"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102047031"
 ---
 # <a name="collect-data-from-an-azure-virtual-machine-with-azure-monitor"></a>Recolher dados de uma máquina virtual Azure com o Azure Monitor
 

@@ -8,14 +8,14 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 02/28/2021
+ms.date: 03/03/2021
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: 8635e3590d4196e407dfc591a55ee240806358ed
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: e01f44d363d038bd2ea4b985e12c9afc200f2c20
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101691523"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102046453"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Auditoria para Azure SQL Database e Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -58,6 +58,11 @@ Uma política de auditoria pode ser definida para uma base de dados específica 
 
 - Se *a auditoria do servidor estiver ativada,* *aplica-se sempre à base de dados*. A base de dados será auditada, independentemente das definições de auditoria da base de dados.
 
+- Quando a política de auditoria for definida ao nível da base de dados para um espaço de trabalho Log Analytics ou um destino Desaquise, as seguintes operações não manterão a política de auditoria ao nível da base de dados de origem:
+    - [Cópia da base de dados](database-copy.md)
+    - [Restauro para um ponto anterior no tempo](recovery-using-backups.md)
+    - [Geo-replicação](active-geo-replication-overview.md) (Base de dados secundária não terá auditoria ao nível da base de dados)
+
 - Ativar a auditoria na base de dados, além de a permitir no servidor, *não* substitui nem altera nenhuma das definições da auditoria do servidor. Ambas as auditorias existirão lado a lado. Por outras palavras, a base de dados é auditada duas vezes em paralelo; uma vez pela política do servidor e uma vez pela política de base de dados.
 
    > [!NOTE]
@@ -94,7 +99,8 @@ A Azure SQL Database e a Azure Synapse Audit armazenam 4000 caracteres de dados 
 A secção seguinte descreve a configuração da auditoria utilizando o portal Azure.
 
   > [!NOTE]
-  > Não é possível permitir a auditoria a uma piscina SQL dedicada a uma pausa. Para permitir a auditoria, desempaco fique desmesumos na piscina dedicada SQL. Saiba mais sobre [a piscina SQL dedicada.](../..//synapse-analytics/sql/best-practices-sql-pool.md)
+  > - Não é possível permitir a auditoria a uma piscina SQL dedicada a uma pausa. Para permitir a auditoria, desempaco fique desmesumos na piscina dedicada SQL. Saiba mais sobre [a piscina SQL dedicada.](../..//synapse-analytics/sql/best-practices-sql-pool.md)
+  > - Quando a auditoria é configurada para um espaço de trabalho Log Analytics ou para um destino Even Hub através do portal Azure ou cmdlet PowerShell, é criada uma [Definição de Diagnóstico](../../azure-monitor/essentials/diagnostic-settings.md) com a categoria "SQLSecurityAuditEvents" ativada.
 
 1. Aceda ao [Portal do Azure](https://portal.azure.com).
 2. Navegue para **a Auditoria** sob o título de Segurança na sua base **de dados SQL** ou painel **de servidor SQL.**
@@ -104,18 +110,18 @@ A secção seguinte descreve a configuração da auditoria utilizando o portal A
 
 4. Se preferir ativar a auditoria ao nível da base de dados, **altere a Auditoria** para **ON**. Se a auditoria do servidor estiver ativada, a auditoria configurada pela base de dados existirá lado a lado com a auditoria do servidor.
 
-5. Tem várias opções para configurar onde os registos de auditoria serão escritos. Pode escrever registos numa conta de armazenamento Azure, num espaço de trabalho Log Analytics para consumo por registos Azure Monitor (pré-visualização) ou para o centro de eventos para consumo utilizando o centro de eventos (pré-visualização). Pode configurar qualquer combinação destas opções, e os registos de auditoria serão escritos a cada um.
+5. Tem várias opções para configurar onde os registos de auditoria serão escritos. Pode escrever registos numa conta de armazenamento Azure, num espaço de trabalho Log Analytics para consumo por registos Azure Monitor ou para o centro de eventos para consumo utilizando o centro de eventos. Pode configurar qualquer combinação destas opções, e os registos de auditoria serão escritos a cada um.
   
    ![opções de armazenamento](./media/auditing-overview/auditing-select-destination.png)
 
-### <a name="auditing-of-microsoft-support-operations-preview"></a><a id="auditing-of-microsoft-support-operations"></a>Auditoria das operações de Suporte do Microsoft (Pré-visualização)
+### <a name="auditing-of-microsoft-support-operations"></a><a id="auditing-of-microsoft-support-operations"></a>Auditoria das operações de Suporte do Microsoft
 
-A auditoria das operações de Suporte do Microsoft (Preview) para O Azure SQL Server permite-lhe auditar as operações dos engenheiros de suporte da Microsoft quando precisam de aceder ao seu servidor durante um pedido de suporte. A utilização desta capacidade, juntamente com a sua auditoria, permite uma maior transparência na sua força de trabalho e permite a deteção de anomalias, visualização de tendências e prevenção de perda de dados.
+A auditoria das operações de Suporte do Microsoft para o Azure SQL Server permite-lhe auditar as operações dos engenheiros de suporte da Microsoft quando precisam de aceder ao seu servidor durante um pedido de suporte. A utilização desta capacidade, juntamente com a sua auditoria, permite uma maior transparência na sua força de trabalho e permite a deteção de anomalias, visualização de tendências e prevenção de perda de dados.
 
-Para ativar a auditoria das operações de suporte do Microsoft (Preview) navegue para **a Auditoria** sob a rubrica de Segurança no painel de **servidores Azure SQL** e **altere a auditoria das operações de suporte da Microsoft (Preview)** para **ON**.
+Para permitir a auditoria das operações de suporte do Microsoft, navegue para **a Auditoria** sob a rubrica De Segurança no seu painel de **servidor Azure SQL** e **altere a auditoria das operações de suporte da Microsoft** para **ON**.
 
   > [!IMPORTANT]
-  > A auditoria das operações de suporte da Microsoft (Preview) não suporta o destino da conta de armazenamento. Para ativar a capacidade, um espaço de trabalho log Analytics ou um destino Event Hub tem de ser configurado.
+  > A auditoria das operações de suporte da Microsoft não suporta o destino da conta de armazenamento. Para ativar a capacidade, um espaço de trabalho log Analytics ou um destino Event Hub tem de ser configurado.
 
 ![Screenshot das operações de suporte da Microsoft](./media/auditing-overview/support-operations.png)
 
@@ -137,7 +143,7 @@ Para configurar registos de auditoria de escrita numa conta de armazenamento, se
 
 ### <a name="audit-to-log-analytics-destination"></a><a id="audit-log-analytics-destination"></a>Auditoria ao destino Log Analytics
   
-Para configurar os registos de auditoria de escrita para um espaço de trabalho do Log Analytics, selecione **Log Analytics (Preview)** e abra **detalhes do Log Analytics**. Selecione ou crie o espaço de trabalho Log Analytics onde os registos serão escritos e, em seguida, clique em **OK**.
+Para configurar registos de auditoria de escrita num espaço de trabalho do Log Analytics, selecione **Log Analytics** e abra detalhes do **Log Analytics**. Selecione ou crie o espaço de trabalho Log Analytics onde os registos serão escritos e, em seguida, clique em **OK**.
 
    ![LogAnalyticsworkspace](./media/auditing-overview/auditing_select_oms.png)
 
@@ -145,7 +151,7 @@ Para obter mais detalhes sobre o espaço de trabalho do Azure Monitor Log Analyt
    
 ### <a name="audit-to-event-hub-destination"></a><a id="audit-event-hub-destination"></a>Auditoria ao destino Event Hub
 
-Para configurar registos de auditoria de escrita para um centro de eventos, selecione **Event Hub (Preview)** e abra detalhes do **Event Hub**. Selecione o centro de eventos onde os registos serão escritos e, em seguida, clique em **OK**. Certifique-se de que o centro de eventos está na mesma região que a sua base de dados e servidor.
+Para configurar registos de auditoria de escrita para um centro de eventos, selecione **Event Hub** e abra detalhes do **Event Hub**. Selecione o centro de eventos onde os registos serão escritos e, em seguida, clique em **OK**. Certifique-se de que o centro de eventos está na mesma região que a sua base de dados e servidor.
 
    ![Eventhub](./media/auditing-overview/auditing_select_event_hub.png)
 

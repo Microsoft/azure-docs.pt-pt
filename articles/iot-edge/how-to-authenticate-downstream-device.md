@@ -8,12 +8,12 @@ ms.date: 10/15/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 13ac18abd0a557d02435c3805e1ab86bcbf1ff84
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: d9e3e0f96d235829928c1f7c79864b1dc732f9e4
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100391988"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102046351"
 ---
 # <a name="authenticate-a-downstream-device-to-azure-iot-hub"></a>Autenticar um dispositivo a jusante no Hub IoT do Azure
 
@@ -35,7 +35,7 @@ Complete os passos em [Configurar um dispositivo IoT Edge para funcionar como um
 
 Se estiver a utilizar a autenticação X.509, irá gerar certificados para o seu dispositivo a jusante. Tenha o mesmo certificado de CA de raiz e o script gerador de certificado que usou para o artigo transparente de gateway disponível para usar novamente.
 
-Este artigo refere-se ao *nome de anfitrião gateway* em vários pontos. O nome de anfitrião do gateway é declarado no parâmetro **do nome anfitrião** do ficheiro config.yaml no dispositivo de gateway IoT Edge. É referido na cadeia de ligação do dispositivo a jusante. O nome de anfitrião do gateway tem de ser resolúvel para um Endereço IP, utilizando DNS ou uma entrada de ficheiro de anfitrião no dispositivo a jusante.
+Este artigo refere-se ao *nome de anfitrião gateway* em vários pontos. O nome de anfitrião do gateway é declarado no parâmetro **do nome de anfitrião** do ficheiro config no dispositivo de gateway IoT Edge. É referido na cadeia de ligação do dispositivo a jusante. O nome de anfitrião do gateway tem de ser resolúvel para um Endereço IP, utilizando DNS ou uma entrada de ficheiro de anfitrião no dispositivo a jusante.
 
 ## <a name="register-device-with-iot-hub"></a>Dispositivo de registo com IoT Hub
 
@@ -192,7 +192,7 @@ As cadeias de ligação para dispositivos a jusante necessitam dos seguintes com
 * O método de autenticação, seja a chave simétrica ou os certificados X.509
   * Se utilizar a autenticação simétrica da chave, forneça a chave primária ou secundária: `SharedAccessKey={key}`
   * Se utilizar a autenticação do certificado X.509, forneça uma bandeira: `x509=true`
-* O dispositivo de gateway através do dispositivo. Fornecer o valor do **nome do anfitrião** a partir do ficheiro config.yaml do dispositivo de gateway IoT Edge: `GatewayHostName={gateway hostname}`
+* O dispositivo de gateway através do dispositivo. Fornecer o valor do **nome do anfitrião** a partir do ficheiro config do dispositivo de gateway IoT Edge: `GatewayHostName={gateway hostname}`
 
 Tudo junto, parece:
 
@@ -200,7 +200,7 @@ Tudo junto, parece:
 HostName=myiothub.azure-devices.net;DeviceId=myDownstreamDevice;SharedAccessKey=xxxyyyzzz;GatewayHostName=myGatewayDevice
 ```
 
-Arte
+Ou:
 
 ```console
 HostName=myiothub.azure-devices.net;DeviceId=myDownstreamDevice;x509=true;GatewayHostName=myGatewayDevice

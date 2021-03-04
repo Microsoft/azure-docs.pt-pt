@@ -1,5 +1,5 @@
 ---
-title: Expressões de estilo orientados por dados em mapas Android Microsoft Azure Maps
+title: Expressões de estilo orientadas por dados em mapas Android | Microsoft Azure Maps
 description: Saiba mais sobre expressões de estilo baseadas em dados. Veja como usar estas expressões no Azure Maps Android SDK para ajustar estilos em mapas.
 author: rbrundritt
 ms.author: richbrun
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 61d7a295d86fd7da74dee03cd35c79feea0218ed
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: 7e4af0647a2810a27001c15a5030fca660828147
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97681731"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102047745"
 ---
 # <a name="data-driven-style-expressions-android-sdk"></a>Expressões de estilo orientadas por dados (Android SDK)
 
@@ -662,7 +662,7 @@ HeatMapLayer layer = new HeatMapLayer(dataSource,
 
 Além de usar um gradiente liso para colorir um mapa de calor, as cores podem ser especificadas dentro de um conjunto de gamas usando uma `step` expressão. Usar uma `step` expressão para colorir o mapa de calor separa visualmente a densidade em intervalos que se assemelham a um mapa de contorno ou estilo de radar.  
 
-```java 
+```java
 HeatMapLayer layer = new HeatMapLayer(dataSource,
     heatmapColor(
         step(
@@ -679,6 +679,36 @@ HeatMapLayer layer = new HeatMapLayer(dataSource,
 ```
 
 Para obter mais informações, consulte a documentação da camada de [mapa de calor](map-add-heat-map-layer-android.md) adicionar.
+
+### <a name="line-progress-expression"></a>Expressão de progresso de linha
+
+Uma expressão de progresso de linha recupera o progresso ao longo de uma linha de gradiente numa camada de linha e é definida como `lineProgress()` . Este valor é um número entre 0 e 1. É usado em combinação com uma `interpolation` `step` ou expressão. Esta expressão só pode ser utilizada com a `strokeGradient` opção da camada de linha.
+
+> [!NOTE]
+> A `strokeGradient` opção da camada de linha requer que a `lineMetrics` opção da fonte de dados seja definida para `true` .
+
+**Exemplo**
+
+Este exemplo usa a `lineProgress()` expressão para aplicar um gradiente de cor ao curso de uma linha.
+
+```javascript
+LineLayer layer = new LineLayer(source,
+    strokeGradient(
+        interpolate(
+            linear(),
+            lineProgress(),
+            stop(0, color(Color.BLUE)),
+            stop(0.1, color(Color.argb(255, 65, 105, 225))), //Royal Blue
+            stop(0.3, color(Color.CYAN)),
+            stop(0.5, color(Color.argb(255,0, 255, 0))), //Lime
+            stop(0.7, color(Color.YELLOW)),
+            stop(1, color(Color.RED))
+        )
+    )
+);
+```
+
+[Ver exemplo ao vivo](map-add-line-layer.md#line-stroke-gradient)
 
 ### <a name="text-field-format-expression"></a>Expressão de formato de campo de texto
 

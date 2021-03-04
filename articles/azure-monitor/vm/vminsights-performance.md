@@ -1,17 +1,16 @@
 ---
 title: Como traçar o desempenho com insights VM
 description: O desempenho é uma característica dos insights VM que descobre automaticamente componentes de aplicações em sistemas Windows e Linux e mapeia a comunicação entre serviços. Este artigo fornece detalhes sobre como usá-lo em vários cenários.
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/31/2020
-ms.openlocfilehash: 9c69ea3da71063d7e20ebf31ae2eb3df9a51e2c2
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 02cb6a0c69fef1a33dd9327ddbd86e02b376a60e
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101725446"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102046470"
 ---
 # <a name="how-to-chart-performance-with-vm-insights"></a>Como traçar o desempenho com insights VM
 

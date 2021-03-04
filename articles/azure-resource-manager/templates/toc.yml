@@ -4,6 +4,8 @@
   items:
     - name: O que são modelos do ARM?
       href: overview.md
+    - name: Visão geral do Bicep
+      href: bicep-overview.md
 - name: Guias de Início Rápido
   items:
     - name: Criar modelos - portal
@@ -324,9 +326,7 @@
       href: template-best-practices.md
     - name: Bicep
       items:
-        - name: Descrição Geral
-          href: bicep-overview.md
-        - name: Indo de JSON para Bicep
+        - name: Comparando JSON a Bicep
           href: compare-template-syntax.md
     - name: Perguntas mais frequentes
       href: frequently-asked-questions.md

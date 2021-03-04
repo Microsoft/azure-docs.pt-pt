@@ -2,17 +2,16 @@
 title: Monitor Azure máquinas virtuais com Monitor Azure
 description: Descreve como recolher e analisar dados de monitorização de máquinas virtuais em Azure usando o Azure Monitor.
 ms.service: azure-monitor
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/05/2020
-ms.openlocfilehash: 6209389843b19d933bdce2726b55946b8839a264
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 2c93471436030f9260f4fa0d95d656c27d382346
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101731379"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102047048"
 ---
 # <a name="monitoring-azure-virtual-machines-with-azure-monitor"></a>Monitorização de máquinas virtuais Azure com Monitor Azure
 Este artigo descreve como usar o Azure Monitor para recolher e analisar dados de monitorização de máquinas virtuais Azure para manter a sua saúde. As máquinas virtuais podem ser monitorizadas para disponibilidade e desempenho com o Azure Monitor como qualquer [outro recurso Azure](../essentials/monitor-azure-resource.md), mas são únicas a partir de outros recursos, uma vez que também é necessário monitorizar o funcionamento e o sistema de hóspedes e as cargas de trabalho que o operam. 
@@ -56,7 +55,7 @@ Para ativar todas as funcionalidades do Azure Monitor para monitorizar uma máqu
 | Passo de configuração | Ações concluídas | Funcionalidades ativadas |
 |:---|:---|:---|
 | Sem configuração | - Métricas de plataforma de anfitrião recolhidas em Métricas.<br>- Registo de atividade recolhido. | - Explorador de métricas para hospedeiro.<br>- Alertas de métricas para hospedeiro.<br>- Alertas de registo de atividade. |
-| [Ativar insights VM](#enable-azure-monitor-for-vms) | - Agente de registo de análise instalado.<br>- Agente de dependência instalado.<br>- Dados de desempenho dos hóspedes recolhidos nos Registos.<br>- Detalhes de processo e dependência recolhidos nos Registos. | - Gráficos de desempenho e livros de trabalho para dados de desempenho dos hóspedes.<br>- Registar consultas para os dados de desempenho dos hóspedes.<br>- Registar alertas para os dados de desempenho dos hóspedes.<br>- Mapa de dependência. |
+| [Ativar insights VM](#enable-vm-insights) | - Agente de registo de análise instalado.<br>- Agente de dependência instalado.<br>- Dados de desempenho dos hóspedes recolhidos nos Registos.<br>- Detalhes de processo e dependência recolhidos nos Registos. | - Gráficos de desempenho e livros de trabalho para dados de desempenho dos hóspedes.<br>- Registar consultas para os dados de desempenho dos hóspedes.<br>- Registar alertas para os dados de desempenho dos hóspedes.<br>- Mapa de dependência. |
 | [Instale a extensão de diagnóstico e o agente telegraf](#enable-diagnostics-extension-and-telegraf-agent) | - Dados de desempenho dos hóspedes recolhidos nas Métricas. | - Explorador de métricas para hóspede.<br>- Alertas de métricas para o hóspede.  |
 | [Configurar a área de trabalho do Log Analytics](#configure-log-analytics-workspace) | - Eventos recolhidos pelo hóspede. | - Registar consultas para eventos de hóspedes.<br>- Registar alertas para eventos de hóspedes. |
 | [Criar definição de diagnóstico para máquina virtual](#collect-platform-metrics-and-activity-log) | - Métricas de plataforma recolhidas em Registos.<br>- Registo de atividade recolhido em Registos. | - Registar consultas para métricas de anfitrião.<br>- Registar alertas para as métricas do anfitrião.<br>- Registar consultas para registo de atividade.

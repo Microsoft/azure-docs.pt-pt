@@ -1,17 +1,16 @@
 ---
 title: Alterar análises em insights de VM
 description: A integração de insights VM com a integração de Application Change Analysis permite-lhe visualizar quaisquer alterações feitas a uma máquina virtual que possa ter afetado o seu desempenho.
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/23/2020
-ms.openlocfilehash: 48f0f0e124040dc070bd5e31f956f75e759303d3
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 375812813d704eb9b48d0ed8fbbc65dd5e47da49
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101704009"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102046776"
 ---
 # <a name="change-analysis-in-vm-insights"></a>Alterar análises em insights de VM
 A integração de insights VM com a integração [de Application Change Analysis](../app/change-analysis.md) permite-lhe visualizar quaisquer alterações feitas a uma máquina virtual que possa ter afetado o seu desempenho.

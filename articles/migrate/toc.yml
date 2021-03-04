@@ -36,6 +36,8 @@
           items:
             - name: Avaliar VMs VMware para migração para VMs do Azure
               href: tutorial-assess-vmware-azure-vm.md
+            - name: Avaliar os casos sql para migração para Azure SQL
+              href: tutorial-assess-sql.md
             - name: Avaliar VMs VMware para migração para o AVS
               href: tutorial-assess-vmware-azure-vmware-solution.md
         - name: Avaliar VMs Hyper-V para migração para o Azure
@@ -102,6 +104,8 @@
       items:
         - name: Descrição geral das avaliações (migrar para VMs do Azure)
           href: concepts-assessment-calculation.md
+        - name: Visão geral das avaliações (migrar para Azure SQL)
+          href: concepts-azure-sql-assessment-calculation.md
         - name: Descrição geral da avaliação (migrar para o AVS)
           href: concepts-azure-vmware-solution-assessment-calculation.md
         - name: Melhores práticas de avaliação
@@ -144,8 +148,12 @@
               href: deploy-appliance-script-government.md
         - name: Limitar o âmbito de deteção para VMs VMware
           href: set-discovery-scope.md
+        - name: Como adicionar credenciais de servidor
+          href: add-server-credentials.md
         - name: Detetar aplicações/funções/funcionalidades
           href: how-to-discover-applications.md
+        - name: Descubra as ocorrências do SQL num projeto existente
+          href: how-to-discover-sql-existing-project.md
         - name: Analisar dependências de máquinas (baseadas em agente)
           href: how-to-create-group-machine-dependencies.md
         - name: Analisar dependências de máquinas (sem agente)
@@ -158,6 +166,8 @@
           href: how-to-create-a-group.md
         - name: Criar uma avaliação de VM do Azure
           href: how-to-create-assessment.md
+        - name: Criar uma avaliação Azure SQL
+          href: how-to-create-azure-sql-assessment.md
         - name: Criar uma avaliação do AVS
           href: how-to-create-azure-vmware-solution-assessment.md
         - name: Avaliar uma base de dados do SQL Server
@@ -176,6 +186,8 @@
       items:
         - name: Adicionar ferramentas de migração
           href: how-to-migrate.md
+        - name: Replicar usando ExpressRoute
+          href: replicate-using-expressroute.md
         - name: Preparar máquinas para migração
           href: prepare-for-migration.md
         - name: Preparar os servidores do Windows 2003 para migração

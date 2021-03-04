@@ -1,5 +1,5 @@
 ---
-title: Adicione uma camada de Imagem a um mapa Microsoft Azure Maps
+title: Adicione uma camada de imagem a um mapa | Microsoft Azure Maps
 description: Saiba como adicionar imagens a um mapa. Veja como usar o Azure Maps Web SDK para personalizar camadas de imagem e sobrepor imagens em conjuntos fixos de coordenadas.
 author: rbrundritt
 ms.author: richbrun
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 43de832095e2c2dd674a156da914ed26f1e472d0
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: f0c24940e606020dc45e5a000cfcb030fd806d4b
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92892949"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102047490"
 ---
 # <a name="add-an-image-layer-to-a-map"></a>Adicione uma camada de imagem a um mapa
 
@@ -70,6 +70,9 @@ O código utiliza a função estática `getCoordinatesFromEdges` da classe [Imag
 
 <iframe height='500' scrolling='no' title='Sobreposição de solo KML como camada de imagem' src='//codepen.io/azuremaps/embed/EOJgpj/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a sobreposição do solo de Pen <a href='https://codepen.io/azuremaps/pen/EOJgpj/'>KML como Camada de Imagem</a> por Azure Maps ( ) em <a href='https://codepen.io/azuremaps'>@azuremaps</a> <a href='https://codepen.io'>CodePen</a>.
 </iframe>
+
+> [!TIP]
+> Utilize as `getPixels` funções e `getPositions` funções da classe camada de imagem para converter entre coordenadas geográficas da camada de imagem posicionada e as coordenadas de pixel de imagem local.
 
 ## <a name="customize-an-image-layer"></a>Personalize uma camada de imagem
 

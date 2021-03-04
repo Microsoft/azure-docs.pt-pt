@@ -2,13 +2,13 @@
 title: Descrição geral de modelos
 description: Descreve os benefícios usando modelos de Gestor de Recursos Azure (modelos ARM) para a implementação de recursos.
 ms.topic: conceptual
-ms.date: 01/20/2021
-ms.openlocfilehash: dd9207ca1d0397b7dce63eb826567f07b1d0b892
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.date: 03/03/2021
+ms.openlocfilehash: 7f850d06066a6892db9f17ae86a6bba9496bad58
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98621844"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102046385"
 ---
 # <a name="what-are-arm-templates"></a>O que são modelos do ARM?
 
@@ -17,6 +17,8 @@ Com a mudança para a nuvem, muitas equipas adotaram métodos de desenvolvimento
 Para responder a estes desafios, pode automatizar implementações e usar a prática da infraestrutura como código. Em código, define-se a infraestrutura que precisa de ser implantada. O código de infraestrutura torna-se parte do seu projeto. Tal como o código de aplicação, armazena-se o código de infraestrutura num repositório de origem e versão-o. Qualquer um na sua equipa pode executar o código e implementar ambientes semelhantes.
 
 Para implementar a infraestrutura como código para as suas soluções Azure, utilize modelos de Gestor de Recursos Azure (modelos ARM). O modelo é um ficheiro JavaScript Object Notation (JSON) que define a infraestrutura e configuração para o seu projeto. O modelo utiliza a sintaxe declarativa, que permite afirmar o que quer implementar sem ter de escrever a sequência de comandos de programação para a criar. No modelo, você especifica os recursos a implementar e as propriedades para esses recursos.
+
+Introduzimos uma nova linguagem para o desenvolvimento de modelos ARM. A língua chama-se Bicep, e está atualmente em pré-visualização. Os modelos Bicep e JSON oferecem as mesmas capacidades. Pode converter o modelo entre as duas línguas. Bicep fornece uma sintaxe que é mais fácil de usar para criar modelos. Para mais informações, consulte [o que é Bicep (Preview)?](bicep-overview.md)
 
 ## <a name="why-choose-arm-templates"></a>Porquê escolher modelos ARM?
 
@@ -68,7 +70,7 @@ O modelo tem as seguintes secções:
 
 * [Funções definidas pelo utilizador](template-user-defined-functions.md) - Crie funções personalizadas que simplifiquem o seu modelo.
 
-* [Recursos](template-syntax.md#resources) - Especifique os recursos a utilizar.
+* [Recursos](resource-declaration.md) - Especifique os recursos a utilizar.
 
 * [Saídas](template-outputs.md) - Retorno dos valores dos recursos implantados.
 

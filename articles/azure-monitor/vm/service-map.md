@@ -1,17 +1,16 @@
 ---
 title: Utilizar a solução de mapa de serviço em Azure | Microsoft Docs
 description: O Mapa de Serviços é uma solução no Azure que deteta componentes da aplicação em sistemas Windows e Linux e mapeia a comunicação entre os serviços. Este artigo fornece detalhes para implementar o Mapa de Serviços no seu ambiente e usá-lo em vários cenários.
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/24/2019
-ms.openlocfilehash: 688adcf0012f8871c4034cbba6ce2ddcacdbcc43
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: ad3f8821189e6e7aabb5653e5f938bb73f57a34b
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101717150"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102047014"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Utilizar a solução Mapa de Serviços no Azure
 
@@ -26,7 +25,7 @@ Este artigo descreve os detalhes do embarque e utilização do Mapa de Serviços
 * O [agente Desapeito](vminsights-enable-overview.md#agents) instalado no computador Windows ou no servidor Linux.
 
 >[!NOTE]
->Se já implementou o Mapa de Serviços, pode agora também ver os seus mapas em insights VM, que incluem funcionalidades adicionais para monitorizar a saúde e o desempenho do VM. Para saber mais, consulte a [visão geral dos insights em VM](../vm/vminsights-overview.md). Para saber mais sobre as diferenças entre a solução de Mapa de Serviço e a funcionalidade de mapa de insights VM, consulte as [seguintes FAQ](../faq.md#azure-monitor-for-vms).
+>Se já implementou o Mapa de Serviços, pode agora também ver os seus mapas em insights VM, que incluem funcionalidades adicionais para monitorizar a saúde e o desempenho do VM. Para saber mais, consulte a [visão geral dos insights em VM](../vm/vminsights-overview.md). Para saber mais sobre as diferenças entre a solução de Mapa de Serviço e a funcionalidade de mapa de insights VM, consulte as [seguintes FAQ](../faq.md#vm-insights).
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 

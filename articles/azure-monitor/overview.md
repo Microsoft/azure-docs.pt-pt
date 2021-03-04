@@ -1,17 +1,16 @@
 ---
 title: Visão geral do Monitor Azure | Microsoft Docs
 description: Descrição geral dos serviços e das funcionalidades da Microsoft que contribuem para uma estratégia completa de monitorização para os seus serviços e aplicações do Azure.
-ms.subservice: ''
 ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 11/17/2019
-ms.openlocfilehash: 00f1bec4d4117d9ccebb4440e3649dd9dff32058
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 544d6937e412e3e1cfc2cf4e520c02f3f804fc8c
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101717354"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102047167"
 ---
 # <a name="azure-monitor-overview"></a>Descrição geral do Azure Monitor
 
@@ -145,7 +144,7 @@ Estão disponíveis várias APIs para ler e escrever métricas e registos de e p
 ## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre:
 
-* [Métricas e registos](data-platform.md) para os dados recolhidos pelo Azure Monitor.
+* [Métricas e registos](https://docs.microsoft.com/azure/azure-monitor/data-platform#metrics) para os dados recolhidos pelo Azure Monitor.
 * [Fontes de dados](agents/data-sources.md) para como os diferentes componentes da sua aplicação enviam telemetria.
 * [Registar consultas](logs/log-query-overview.md) para analisar dados recolhidos.
 * [Melhores práticas](/azure/architecture/best-practices/monitoring) para monitorizar aplicações e serviços em nuvem.

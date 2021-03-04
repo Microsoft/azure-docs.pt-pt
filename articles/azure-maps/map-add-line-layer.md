@@ -1,5 +1,5 @@
 ---
-title: Adicione uma camada de linha a um mapa Microsoft Azure Maps
+title: Adicione uma camada de linha a um mapa | Microsoft Azure Maps
 description: Saiba como adicionar linhas aos mapas. Veja exemplos que usam o Azure Maps Web SDK para adicionar camadas de linha aos mapas e para personalizar linhas com símbolos e gradientes de cor.
 author: rbrundritt
 ms.author: richbrun
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 9cf2f4876d62572ace118562fe5760f2b4010fa5
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: fedf1bc37661100404106859d3aef52b3eddf06d
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92891164"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102048142"
 ---
 # <a name="add-a-line-layer-to-the-map"></a>Adicione uma camada de linha ao mapa
 
@@ -66,7 +66,7 @@ Veja a <a href='https://codepen.io/azuremaps/pen/drBJwX/'>seta</a> Pen Show ao l
 
 ## <a name="add-a-stroke-gradient-to-a-line"></a>Adicione um gradiente de curso a uma linha
 
-Pode aplicar uma cor de um único traçado numa linha. Também pode preencher uma linha com um gradiente de cores para mostrar a transição de um segmento de linha para o segmento de linha seguinte. Por exemplo, os gradientes de linha podem ser usados para representar mudanças ao longo do tempo e da distância, ou diferentes temperaturas através de uma linha de objetos conectados. Para aplicar esta funcionalidade a uma linha, a fonte de dados deve ter a `lineMetrics` opção definida como verdadeira, e então uma expressão de gradiente de cor pode ser passada para a `strokeColor` opção da linha. A expressão do gradiente de curso tem de fazer referência à expressão de `['line-progress']` dados que expõe as métricas de linha calculadas à expressão.
+Pode aplicar uma cor de um único traçado numa linha. Também pode preencher uma linha com um gradiente de cores para mostrar a transição de um segmento de linha para o segmento de linha seguinte. Por exemplo, os gradientes de linha podem ser usados para representar mudanças ao longo do tempo e da distância, ou diferentes temperaturas através de uma linha de objetos conectados. Para aplicar esta funcionalidade a uma linha, a fonte de dados deve ter a `lineMetrics` opção definida para `true` , e então uma expressão de gradiente de cor pode ser passada para a `strokeColor` opção da linha. A expressão do gradiente de curso tem de fazer referência à expressão de `['line-progress']` dados que expõe as métricas de linha calculadas à expressão.
 
 <br/>
 

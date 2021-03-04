@@ -1,17 +1,16 @@
 ---
 title: Ver dependências de aplicativos com insights VM
 description: O mapa é uma característica dos insights de VM. Descobre automaticamente componentes de aplicações nos sistemas Windows e Linux e mapeia a comunicação entre serviços. Este artigo fornece detalhes sobre como usar a funcionalidade Mapa em vários cenários.
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/20/2020
-ms.openlocfilehash: 19da3e3e02581ce9fad080bb23bc48dcb9a3ceb3
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 267ec0ed01fb85e9e29b0b8c9294d20d610db8fb
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101719649"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102046572"
 ---
 # <a name="use-the-map-feature-of-vm-insights-to-understand-application-components"></a>Utilize a funcionalidade mapa dos insights VM para compreender os componentes da aplicação
 Em insights VM, pode ver os componentes de aplicações descobertos em máquinas virtuais Windows e Linux (VMs) que funcionam em Azure ou no seu ambiente. Pode observar os VMs de duas maneiras. Veja um mapa diretamente de um VM ou veja um mapa do Azure Monitor para ver os componentes em grupos de VMs. Este artigo irá ajudá-lo a entender estes dois métodos de visualização e como usar a funcionalidade Mapa. 

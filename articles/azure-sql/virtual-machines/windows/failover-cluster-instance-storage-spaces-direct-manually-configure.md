@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/18/2020
 ms.author: mathoma
-ms.openlocfilehash: 6ed5e11a8492314e99b9f105d259fa910dcdb77d
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: aa19cf6b59b1efa4b14501fbf64e319da3e4c0b3
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97357811"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102048646"
 ---
 # <a name="create-an-fci-with-storage-spaces-direct-sql-server-on-azure-vms"></a>Criar um FCI com espaços de armazenamento direto (SQL Server em VMs Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -29,7 +29,7 @@ Este artigo explica como criar uma instância de cluster failover (FCI) utilizan
 Para saber mais, consulte uma visão geral da [FCI com o SQL Server em VMs Azure](failover-cluster-instance-overview.md) e [as melhores práticas do cluster](hadr-cluster-best-practices.md). 
 
 
-## <a name="overview"></a>Descrição geral 
+## <a name="overview"></a>Descrição Geral 
 
 [Espaços de Armazenamento Direct (S2D)](/windows-server/storage/storage-spaces/storage-spaces-direct-overview) suporta dois tipos de arquiteturas: convergentes e hiperconvergados. Uma infraestrutura hiperconverizada coloca o armazenamento nos mesmos servidores que acolhem a aplicação agrupada, de modo que o armazenamento está em cada nó SQL Server FCI. 
 
@@ -236,6 +236,8 @@ New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $v
 
 Para encaminhar o tráfego adequadamente para o nó primário atual, configufique a opção de conectividade adequada para o seu ambiente. Pode criar um [equilibrador de carga Azure](failover-cluster-instance-vnn-azure-load-balancer-configure.md) ou, se estiver a utilizar o SQL Server 2019 CU2 (ou mais tarde) e o Windows Server 2016 (ou mais tarde), pode utilizar a funcionalidade [de nome de rede distribuída.](failover-cluster-instance-distributed-network-name-dnn-configure.md) 
 
+Para obter mais detalhes sobre as opções de conectividade do cluster, consulte [as ligações Route HADR ao SQL Server em VMs Azure](hadr-cluster-best-practices.md#connectivity). 
+
 ## <a name="limitations"></a>Limitações
 
 - As máquinas virtuais Azure suportam o Coordenador de Transações Distribuídas da Microsoft (MSDTC) no Windows Server 2019 com armazenamento em CSVs e um [balanceador de carga padrão](../../../load-balancer/load-balancer-overview.md).
@@ -250,6 +252,6 @@ Se o Storage Spaces Direct não for a solução de armazenamento FCI adequada pa
 
 Para saber mais, consulte uma visão geral da [FCI com o SQL Server em VMs Azure](failover-cluster-instance-overview.md) e [as melhores práticas de configuração do cluster](hadr-cluster-best-practices.md). 
 
-Para obter mais informações, veja: 
+Para obter mais informações, consulte: 
 - [Tecnologias de cluster windows](/windows-server/failover-clustering/failover-clustering-overview)   
 - [SQL Server falha casos de cluster](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)

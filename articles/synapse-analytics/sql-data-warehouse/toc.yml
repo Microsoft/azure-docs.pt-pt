@@ -1,6 +1,6 @@
 - name: 'Conjunto de SQL dedicado (anteriormente, SQL DW)'
   href: sql-data-warehouse-overview-what-is.md
-- name: Mudar para o Azure Synapse
+- name: Mude para Azure Synapse >
   href: ../overview-what-is.md
 - name: Descrição geral
   items:

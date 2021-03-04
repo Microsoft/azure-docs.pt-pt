@@ -1,17 +1,16 @@
 ---
 title: Amostras de modelo de gestor de recursos para consultas de registo
 description: Experimente os modelos do Gestor de Recursos Azure para implementar consultas de registo do Monitor Azure.
-ms.subservice: logs
 ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2020
-ms.openlocfilehash: ad8d984f7d363499ed2e85d7d46b95c05460f3eb
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 97b3ac4d693afb8ee2f2dba362e1e2f307e50f78
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100628340"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102047269"
 ---
 # <a name="resource-manager-template-samples-for-log-queries-in-azure-monitor"></a>Amostras de modelo de gestor de recursos para consultas de registo no Azure Monitor
 Este artigo inclui [modelos de gestor de recursos Azure](../../azure-resource-manager/templates/template-syntax.md) para criar e configurar consultas de registo no Azure Monitor. Cada amostra inclui um ficheiro de modelo e um ficheiro de parâmetros com valores de amostra para fornecer ao modelo.

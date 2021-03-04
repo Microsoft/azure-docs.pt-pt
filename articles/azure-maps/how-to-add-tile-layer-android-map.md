@@ -1,19 +1,20 @@
 ---
-title: Adicione uma camada de azulejos aos mapas Android Microsoft Azure Maps
+title: Adicione uma camada de azulejos aos mapas Android | Microsoft Azure Maps
 description: Aprenda a adicionar uma camada de azulejos a um mapa. Veja um exemplo que usa o Azure Maps Android SDK para adicionar uma sobreposição de radares meteorológicos a um mapa.
 author: rbrundritt
 ms.author: richbrun
-ms.date: 12/08/2020
+ms.date: 2/26/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 8ea6f44c47c5cd4d223b053640f65827f46db482
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+zone_pivot_groups: azure-maps-android
+ms.openlocfilehash: 6a920dc222cae4aedd77b667644de317637bbb69
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97679306"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102047507"
 ---
 # <a name="add-a-tile-layer-to-a-map-android-sdk"></a>Adicione uma camada de azulejo a um mapa (Android SDK)
 
@@ -36,6 +37,7 @@ O URL de azulejos passados para uma camada de azulejos deve ser um URL http/http
 * `{quadkey}` - Identificador de azulejos de azulejos baseado na convenção de nomeação do sistema de azulejos Bing Maps.
 * `{bbox-epsg-3857}` - Uma cadeia de caixa de limitação com o formato `{west},{south},{east},{north}` no Sistema de Referência Espacial EPSG 3857.
 * `{subdomain}` - Um espaço reservado para os valores do subdomínio, se o valor do subdomínio for especificado.
+* `azmapsdomain.invalid` - Um espaço reservado para alinhar o domínio e a autenticação de pedidos de azulejos com os mesmos valores utilizados pelo mapa. Utilize isto ao chamar um serviço de azulejos hospedado pelo Azure Maps.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -44,6 +46,8 @@ Para completar o processo neste artigo, precisa instalar [o Azure Maps Android S
 ## <a name="add-a-tile-layer-to-the-map"></a>Adicione uma camada de azulejo ao mapa
 
 Esta amostra mostra como criar uma camada de azulejos que aponta para um conjunto de azulejos. Esta amostra utiliza o sistema de inclinação "x, y, zoom". A fonte desta camada de azulejos é o [projeto OpenSeaMap,](https://openseamap.org/index.php)que contém gráficos náuticos de multidões. Muitas vezes, ao ver camadas de azulejos, é desejável ser capaz de ver claramente os rótulos das cidades no mapa. Este comportamento pode ser alcançado inserindo a camada de azulejos abaixo das camadas de etiqueta do mapa.
+
+::: zone pivot="programming-language-java-android"
 
 ```java
 TileLayer layer = new TileLayer(
@@ -57,16 +61,31 @@ TileLayer layer = new TileLayer(
 map.layers.add(layer, "labels");
 ```
 
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+val layer = TileLayer(
+    tileUrl("https://tiles.openseamap.org/seamark/{z}/{x}/{y}.png"),
+    opacity(0.8f),
+    tileSize(256),
+    minSourceZoom(7),
+    maxSourceZoom(17)
+)
+
+map.layers.add(layer, "labels")
+```
+
+::: zone-end
+
 A imagem que se segue mostra o código acima mostrando uma camada de azulejos de informações náuticas num mapa que tem um estilo escuro em tons de cinza.
 
 ![Mapa android exibindo camada de azulejo](media/how-to-add-tile-layer-android-map/xyz-tile-layer-android.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Veja o seguinte artigo para saber mais sobre formas de definir estilos de mapa
+Veja o seguinte artigo para saber mais sobre formas de sobrepor imagens num mapa.
 
 > [!div class="nextstepaction"]
-> [Alterar o estilo do mapa](set-android-map-styles.md)
-
-> [!div class="nextstepaction"]
-> [Adicione um mapa de calor](map-add-heat-map-layer-android.md)
+> [Camada de imagem](map-add-image-layer-android.md)

@@ -1,17 +1,16 @@
 ---
 title: () expressão na consulta de registo do Monitor Azure | Microsoft Docs
 description: A expressão de recursos é usada numa consulta de registo do Monitor Azure centrado em recursos para obter dados de vários recursos.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/10/2018
-ms.openlocfilehash: 2a729caefe698b13833098ba48df9d4bfbd97356
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 9a5e5c7959a243d6c9d243b706524f624ffa3cdb
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100619521"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102047218"
 ---
 # <a name="resource-expression-in-azure-monitor-log-query"></a>() expressão na consulta de registo do Monitor de Azure
 

@@ -6,13 +6,13 @@ author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 02/25/2021
-ms.openlocfilehash: c3c874b2e6362ceb5b4746f67614b5d85991efbc
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/03/2021
+ms.openlocfilehash: 63509262b8a75eebaffc34eca9861fe6748ff969
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101712985"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102048459"
 ---
 # <a name="copy-data-from-an-sap-table-by-using-azure-data-factory"></a>Copiar dados de uma tabela SAP utilizando a Azure Data Factory
 
@@ -66,7 +66,7 @@ Para utilizar este conector de mesa SAP, tem de:
 - O utilizador SAP que está a ser utilizado no conector de tabela DATA Factory SAP deve ter as seguintes permissões:
 
   - Autorização para a utilização de destinos de Chamada de Função Remota (RFC).
-  - Permissões à atividade executante do S_SDSAUTH objeto de autorização, ou permissões à atividade executar do S_RFC: FUGR - RFC1, SYST, SYSU FUNC - RFCPING, RFC_FUNCTION_SEARCH actvt – 16 objeto de autorização. 
+  - Permissões para a atividade executar do S_SDSAUTH objeto de autorização. Pode consultar o SAP Note 40089 sobre os objetos de autorização maioritário. Certos RFCs são exigidos pelo conector NCo subjacente, por exemplo, RFC_FUNCTION_SEARCH. 
 
 ## <a name="get-started"></a>Introdução
 

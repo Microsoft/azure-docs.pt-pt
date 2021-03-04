@@ -1,17 +1,16 @@
 ---
 title: Âmbito de consulta de registo no Azure Monitor Log Analytics
 description: Descreve o alcance e o intervalo de tempo para uma consulta de registo no Azure Monitor Log Analytics.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/09/2020
-ms.openlocfilehash: 892c79d7908903b95a3bbbae2857933d877c7fba
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 43e4e861905352c2818dfb08b8cb442bd70481c1
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100619482"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102047184"
 ---
 # <a name="log-query-scope-and-time-range-in-azure-monitor-log-analytics"></a>Log consulta e intervalo de tempo em Azure Monitor Log Analytics
 Quando executa uma [consulta de registo](../logs/log-query-overview.md) no Log Analytics no portal [Azure,](../logs/log-analytics-tutorial.md)o conjunto de dados avaliados pela consulta depende do âmbito e do intervalo de tempo que seleciona. Este artigo descreve o âmbito e o intervalo de tempo e como pode definir cada um dependendo dos seus requisitos. Também descreve o comportamento de diferentes tipos de âmbitos.
@@ -48,7 +47,7 @@ Quando o âmbito de consulta é um espaço de trabalho log analytics ou uma apli
 Não é possível utilizar os seguintes comandos numa consulta quando se aplica a um recurso, uma vez que o âmbito de consulta já incluirá quaisquer espaços de trabalho com dados para esse recurso ou conjunto de recursos:
 
 - [app](../logs/app-expression.md)
-- [espaço de trabalho](../logs/workspace-expression.md)
+- [área de trabalho](../logs/workspace-expression.md)
  
 
 ## <a name="query-scope-limits"></a>Limites de âmbito de consulta

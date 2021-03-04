@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 03/02/2021
-ms.openlocfilehash: fda9026adf46a26927912b9e1983a537470c37ee
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 6e81b3d62fb5b208c88257d7660f74ac25f099b8
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101746578"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102048017"
 ---
 # <a name="scale-agentless-migration-of-vmware-virtual-machines-to-azure"></a>Migração sem agentes de máquinas virtuais VMware para Azure
 
@@ -153,7 +153,7 @@ Neste ponto, deverá revalidar que o aparelho de escala é capaz de se ligar ao 
 :::image type="content" source="./media/how-to-scale-out-for-migration/view-sources.png" alt-text="Importação bem sucedida":::
 
 > [!IMPORTANT]
-> Se editar as credenciais do vCenter Server no aparelho primário, certifique-se de que importa novamente os ficheiros de configuração para o aparelho de escala para obter a configuração mais recente e continuar quaisquer replicações em curso.<br/> Se não precisar mais do aparelho de encadação, certifique-se de que desativa o aparelho de encai escama. [**Saiba mais**](./common-questions-appliance) sobre como desativar o aparelho de encai escama quando não for necessário.
+> Se editar as credenciais do vCenter Server no aparelho primário, certifique-se de que importa novamente os ficheiros de configuração para o aparelho de escala para obter a configuração mais recente e continuar quaisquer replicações em curso.<br/> Se não precisar mais do aparelho de encadação, certifique-se de que desativa o aparelho de encai escama. [**Saiba mais**](./common-questions-appliance.md) sobre como desativar o aparelho de encai escama quando não for necessário.
 
 ## <a name="replicate"></a>Replicar
 

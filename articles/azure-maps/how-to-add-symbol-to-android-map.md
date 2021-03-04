@@ -1,5 +1,5 @@
 ---
-title: Adicione uma camada de símbolo aos mapas Android Microsoft Azure Maps
+title: Adicione uma camada de símbolo aos mapas Android | Microsoft Azure Maps
 description: Aprenda a adicionar um marcador a um mapa. Veja um exemplo que usa o Azure Maps Android SDK para adicionar uma camada de símbolo que contém dados baseados em pontos a partir de uma fonte de dados.
 author: rbrundritt
 ms.author: richbrun
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 040fcde35707074ffaf102ed6c224b2f47a084bb
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: 1706b60a61bd3b507d9fbcf555e478b388f51168
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97679356"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102047575"
 ---
 # <a name="add-a-symbol-layer-android-sdk"></a>Adicione uma camada de símbolo (Android SDK)
 
@@ -132,6 +132,52 @@ A imagem que se segue mostra o código acima a rending uma característica de po
 
 > [!TIP]
 > Quando pretender renderizar apenas texto com uma camada de símbolo, pode ocultar o ícone definindo a `iconImage` propriedade das opções do ícone para `"none"` .
+
+## <a name="modify-symbol-colors"></a>Modificar as cores dos símbolos
+
+O Azure Maps Android SDK vem com um conjunto de variações de cores predefinidas do ícone do marcador padrão. Por exemplo, `marker-red` pode ser passado para a `iconImage` opção de uma camada de símbolo para renderizar uma versão vermelha do ícone do marcador nessa camada. 
+
+```java
+SymbolLayer layer = new SymbolLayer(source,
+    iconImage("marker-red")
+);
+```
+
+A tabela abaixo lista todos os nomes de imagem de ícone incorporados disponíveis. Todos estes marcadores retiram as suas cores dos recursos coloridos que podes sobrepor-te. Além de sobressarir a cor de preenchimento principal deste marcador. No entanto, note que sobrevair a cor de um destes marcadores seria aplicável a todas as camadas que usam essa imagem de ícone.
+
+| Nome de imagem de ícone | Nome de recurso de cor |
+|-----------------|---------------------|
+| `marker-default` | `mapcontrol_marker_default` |
+| `marker-black` | `mapcontrol_marker_black` |
+| `marker-blue` | `mapcontrol_marker_blue` |
+| `marker-darkblue` | `mapcontrol_marker_darkblue` |
+| `marker-red` | `mapcontrol_marker_red` |
+| `marker-yellow` | `mapcontrol_marker_yellow` |
+
+Também pode sobrepor a cor da borda de todos os marcadores usando o `mapcontrol_marker_border` nome de recurso de cor. As cores destes marcadores podem ser ultrapassadas adicionando uma cor com o mesmo nome no `colors.xml` ficheiro da sua aplicação. Por exemplo, o ficheiro a seguir `colors.xml` tornaria a cor do marcador padrão verde brilhante.
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="mapcontrol_marker_default">#00FF00</color>
+</resources>
+```
+
+Segue-se uma versão modificada do vetor de marcador padrão XML que pode modificar para criar versões personalizadas adicionais do marcador predefinido. A versão modificada pode ser adicionada à `drawable` pasta da sua aplicação e adicionada à imagem do mapa que o sprite `map.images.add` usa, depois usada com uma camada de símbolo.
+
+```xml
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24.5dp"
+    android:height="36.5dp"
+    android:viewportWidth="24.5"
+    android:viewportHeight="36.5">
+    <path
+        android:pathData="M12.25,0.25a12.2543,12.2543 0,0 0,-12 12.4937c0,6.4436 6.4879,12.1093 11.059,22.5641 0.5493,1.2563 1.3327,1.2563 1.882,0C17.7621,24.8529 24.25,19.1857 24.25,12.7437A12.2543,12.2543 0,0 0,12.25 0.25Z"
+        android:strokeWidth="0.5"
+        android:fillColor="@color/mapcontrol_marker_default"
+        android:strokeColor="@color/mapcontrol_marker_border"/>
+</vector>
+```
 
 ## <a name="next-steps"></a>Passos seguintes
 

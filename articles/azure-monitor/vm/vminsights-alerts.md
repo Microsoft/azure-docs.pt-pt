@@ -1,17 +1,16 @@
 ---
 title: Alertas de insights VM
 description: Descreve como criar regras de alerta a partir de dados de desempenho recolhidos por insights VM.
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/10/2020
-ms.openlocfilehash: e3b5f49d9a4ed7af40afba5b267ba0c7bb9cd73a
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 06c58b7081ed68724a3c907f8fe76dcf5f7b8057
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101704060"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102046810"
 ---
 # <a name="how-to-create-alerts-from-vm-insights"></a>Como criar alertas a partir de insights VM
 [Os alertas no Azure Monitor](../alerts/alerts-overview.md) notificam-no proativamente de dados e padrões interessantes nos seus dados de monitorização. Os insights de VM não incluem regras de alerta pré-configuradas, mas pode criar as suas próprias com base em dados que recolhe. Este artigo fornece orientações sobre a criação de regras de alerta, incluindo um conjunto de consultas de amostra.

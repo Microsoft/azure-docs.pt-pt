@@ -1,17 +1,16 @@
 ---
 title: Ativar o Azure Monitor para um ambiente híbrido
 description: Este artigo descreve como permite insights VM para um ambiente híbrido em nuvem que contém uma ou mais máquinas virtuais.
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: 6518906f264077ac88a90513a237840f7f814247
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: c3c8495b7355ee5d9ee8c28b4e0097a0080964d4
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101731277"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102046644"
 ---
 # <a name="enable-vm-insights-for-a-hybrid-virtual-machine"></a>Ativar insights em VM para uma máquina virtual híbrida
 Este artigo descreve como permitir insights de VM para uma máquina virtual fora de Azure, incluindo no local e outros ambientes em nuvem.

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 03/02/2021
 ms.author: anithaa
-ms.openlocfilehash: 9b07af72983931e0e1cab9e7d5093fd845b363bc
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 2f15b397fbceb9e097d94080ba03fba50a96ed06
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101692203"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102048510"
 ---
 # <a name="configure-private-endpoints-for-azure-cosmos-db-analytical-store"></a>Configurar pontos finais privados para a loja analítica Azure Cosmos DB
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -118,7 +118,8 @@ Para configurar o isolamento da rede para esta conta a partir de um espaço de t
    az cosmosdb update --name MyCosmosDBDatabaseAccount --resource-group MyResourceGroup --network-acl-bypass AzureServices --network-acl-bypass-resource-ids "/subscriptions/subId/resourceGroups/rgName/providers/Microsoft.Synapse/workspaces/wsName"
    ```
 
-   > [NOTA] A conta DB da Azure Cosmos e o espaço de trabalho Azure Synapse Analytics devem estar sob o mesmo inquilino do Azure Ative Directory (AD).
+   > [!NOTE]
+   > A conta DB da Azure Cosmos e o espaço de trabalho Azure Synapse Analytics devem estar sob o mesmo inquilino do Azure Ative Directory (AD).
 
 2. Agora pode aceder à conta a partir de piscinas SQL sem servidor, utilizando consultas T-SQL sobre Azure Synapse Link. No entanto, para garantir o isolamento da rede para os dados na loja analítica, deve adicionar um ponto final privado gerido **analítico** para esta conta. Caso contrário, os dados na loja analítica não serão bloqueados do acesso público.
 

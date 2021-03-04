@@ -1,23 +1,22 @@
 ---
 title: O que são os conhecimentos em VM?
 description: Visão geral dos conhecimentos de VM, que monitoriza a saúde e desempenho dos VMs Azure e descobre automaticamente e mapeia componentes de aplicação e suas dependências.
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/22/2020
-ms.openlocfilehash: 967ff9672f55af3e9c5d2e7c3c3dbc7d2ff6cb3c
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 18e1fdcdee347a057c452f6170f36ec7f1f43244
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101707375"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102046419"
 ---
 # <a name="overview-of-vm-insights"></a>Visão geral dos insights de VM
 
 Os conhecimentos VM monitorizam o desempenho e a saúde das suas máquinas virtuais e conjuntos de escala de máquinas virtuais, incluindo os seus processos de execução e dependências de outros recursos. Pode ajudar a fornecer desempenho previsível e disponibilidade de aplicações vitais, identificando estrangulamentos de desempenho e problemas de rede e também pode ajudá-lo a entender se um problema está relacionado com outras dependências.
 
-Os conhecimentos VM suportam sistemas operativos Windows e Linux no seguinte:
+Os conhecimentos VM suportam sistemas operativos Windows e Linux nas seguintes máquinas:
 
 - Máquinas virtuais do Azure
 - Conjuntos de dimensionamento de máquinas virtuais do Azure
@@ -39,7 +38,7 @@ Não há custos diretos para insights de VM, mas você é cobrado pela sua ativi
 - Regras de alerta baseadas em dados de registo e saúde.
 - Notificações enviadas de regras de alerta.
 
-O tamanho do tronco varia em função dos comprimentos de cadeia dos contadores de desempenho, e pode aumentar com o número de discos lógicos e adaptadores de rede atribuídos ao VM. Se já estiver a utilizar o Mapa de Serviços, a única alteração que verá são os dados de desempenho adicionais enviados para o tipo de dados do Azure `InsightsMetrics` Monitor.
+O tamanho do tronco varia em função dos comprimentos de cadeia dos contadores de desempenho, e pode aumentar com o número de discos lógicos e adaptadores de rede atribuídos ao VM. Se já estiver a utilizar o Mapa de Serviços, a única alteração que verá é os dados de desempenho extra enviados para o tipo de dados do Azure `InsightsMetrics` Monitor.
 
 
 ## <a name="configuring-vm-insights"></a>Ideias vm configurantes

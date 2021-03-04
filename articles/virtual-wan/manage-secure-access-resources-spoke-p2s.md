@@ -6,14 +6,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 12/11/2020
+ms.date: 03/03/2021
 ms.author: cherylmc
-ms.openlocfilehash: c2efd9ac137c226c1d3a77e2cb6ebe17d75cb496
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 751d11fcd4b5d4c33145ee7f2b7b49971b8927ae
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98051535"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102048268"
 ---
 # <a name="manage-secure-access-to-resources-in-spoke-vnets-for-user-vpn-clients"></a>Gerir o acesso seguro aos recursos em VNets falados para clientes VPN de utilizador
 
@@ -50,8 +50,6 @@ Ao selecionar o método de autenticação, tem três opções. Cada método tem 
 * **Autenticação baseada em raio:** Obtenha o IP do servidor Radius, o segredo do servidor Radius e as informações do certificado.
 
 * **Certificados Azure:** Para esta configuração, são necessários certificados. É necessário gerar ou obter certificados. É necessário um certificado de cliente para cada cliente. Além disso, a informação do certificado de raiz (chave pública) precisa de ser carregada. Para obter mais informações sobre os certificados necessários, consulte [certificados de geração e exportação.](../vpn-gateway/vpn-gateway-certificates-point-to-site.md)
-
-O exemplo a seguir mostra a autenticação do certificado Azure.
 
 [!INCLUDE [Define parameters](../../includes/virtual-wan-p2s-configuration-include.md)]
 
