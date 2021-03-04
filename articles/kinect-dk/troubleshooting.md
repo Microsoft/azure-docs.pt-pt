@@ -7,12 +7,12 @@ ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: resolução de problemas, atualização, bug, kinect, feedback, recuperação, registo, dicas
-ms.openlocfilehash: a6e00b6c5e9e4f82bb668769aade8311896bef32
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 5f13815b8f8b26f6a08da28181a4a6164b7b89a3
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97587286"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102038825"
 ---
 # <a name="azure-kinect-known-issues-and-troubleshooting"></a>Azure Kinect conhecidos problemas e resolução de problemas
 
@@ -151,7 +151,7 @@ O tópico dos controladores de anfitriões USB torna-se ainda mais complicado qu
 **Janelas:** Para saber que controlador anfitrião tem gestor de dispositivos aberto
 
 1. Ver dispositivos de > por tipo 
-2. Com azure Kinect conectada câmaras->Azure Kinect 4K Camera
+2. Com a a azure Kinect conectada câmaras->Azure Kinect 4K Camera
 3. Ver dispositivos de > por conexão
 
 ![Resolução de problemas da porta USB](./media/resources/usb-troubleshooting.png)
@@ -174,6 +174,10 @@ O motor de profundidade Azure Kinect em Linux utiliza o OpenGL. O OpenGL requer 
 2. Desligue o sistema, desligue o monitor e ligue o sistema. O login automático força a criação de uma sessão de x-servidor.
 2. Conecte-se via ssh e desloque a variável DISPLAY env `export DISPLAY=:0`
 3. Inicie a sua aplicação Azure Kinect.
+
+O utilitário [xtrlock](http://manpages.ubuntu.com/manpages/xenial/man1/xtrlock.1x.html) pode ser utilizado para bloquear imediatamente o ecrã após o início automático. Adicione o seguinte comando à aplicação de arranque ou ao serviço sistema:
+
+`bash -c “xtrlock -b”` 
 
 ## <a name="missing-c-documentation"></a>Documentação C# desaparecida
 

@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: quickstart
 ms.date: 02/17/2021
 ms.author: jushiman
-ms.openlocfilehash: d00a9c6012da7ad8d1566ef82bce628c7d47e7a7
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 5f5f1e70d9ae309c90291ccac1e6dd61e7a9d056
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101687001"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102038428"
 ---
 # <a name="quickstart-enable-azure-automanage-for-virtual-machines-in-the-azure-portal"></a>Quickstart: Ativar a auto-produção do Azure para máquinas virtuais no portal Azure
 
@@ -88,7 +88,7 @@ Inscreva-se [aqui](https://aka.ms/AzureAutomanagePreview) no portal Azure para c
 1. Preencha o separador Básicos com os seus **dados** VM.
 
 > [!NOTE]
-> Verifique as [regiões apoiadas por](automanage-virtual-machines#supported-regions) auto-gestão e as [versões de distros](automanage-linux.md#supported-linux-distributions-and-versions) e servidor do Windows suportadas por [auto-gestão](automanage-windows-server.md#supported-windows-server-versions).
+> Verifique as [regiões apoiadas por](automanage-virtual-machines.md#supported-regions) auto-gestão e as [versões de distros](automanage-linux.md#supported-linux-distributions-and-versions) e servidor do Windows suportadas por [auto-gestão](automanage-windows-server.md#supported-windows-server-versions).
 
 2. Navegue no separador **Gestão** e escolha o seu **Ambiente de Auto-gestão.**
 

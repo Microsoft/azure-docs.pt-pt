@@ -7,12 +7,12 @@ ms.service: route-server
 ms.topic: quickstart
 ms.date: 03/02/2021
 ms.author: duau
-ms.openlocfilehash: c56e7318e24b802ae9ad605a0c9ae5f88397ec8b
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 5b40cfcde7aa1771c8a4b9025d35b2dc0c728676
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101680637"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102039789"
 ---
 # <a name="quickstart-create-and-configure-route-server-using-azure-powershell"></a>Quickstart: Criar e configurar o Servidor de Rota usando a Azure PowerShell
 
@@ -70,7 +70,7 @@ O ID RouteServerSubnet parece o seguinte:
 Crie o Servidor de Rota com este comando:
 
 ```azurepowershell-interactive 
-New-AzRouteServer -Name myRouteServer -ResourceGroupName RouteServerRG -Location "West US” -HostedSubnet “RouteServerSubnet_ID”
+New-AzRouteServer -RouteServerName myRouteServer -ResourceGroupName RouteServerRG -Location "West US” -HostedSubnet “RouteServerSubnet_ID”
 ```
 
 A localização precisa de corresponder à localização da sua rede virtual. O HostedSubnet é o ID RouteServerSubnet que obteve na secção anterior.
@@ -80,7 +80,7 @@ A localização precisa de corresponder à localização da sua rede virtual. O 
 Utilize o seguinte comando para estabelecer o perspível BGP do Servidor de Rota para o NVA:
 
 ```azurepowershell-interactive 
-Add-AzRouteServerPeer -PeerName "myNVA” -PeerIp “nva_ip” -PeerAsn “nva_asn” -RouteServerName "myRouteServer -ResourceGroupName ”RouteServerRG”
+Add-AzRouteServerPeer -PeerName "myNVA" -PeerIp "nva_ip" -PeerAsn "nva_asn" -RouteServerName myRouteServer -ResourceGroupName RouteServerRG
 ```
 
 "nva_ip" é o IP de rede virtual atribuído à NVA. "nva_asn" é o Número do Sistema Autónomo (ASN) configurado na NVA. A ASN pode ser qualquer número de 16 bits que não os do intervalo de 65515-65520. Esta gama de ASNs é reservada pela Microsoft.
@@ -88,7 +88,7 @@ Add-AzRouteServerPeer -PeerName "myNVA” -PeerIp “nva_ip” -PeerAsn “nva_a
 Para configurar o seu espreitamento com diferentes NVA ou outro caso da mesma NVA para redundância, utilize este comando:
 
 ```azurepowershell-interactive 
-Add-AzRouteServerPeer -PeerName “NVA2_name” -PeerIp “nva2_ip” -PeerAsn “nva2_asn” -RouteServerName “myRouteServer” -ResourceGroupName “RouteServerRG” 
+Add-AzRouteServerPeer -PeerName "NVA2_name" -PeerIp "nva2_ip" -PeerAsn "nva2_asn" -RouteServerName myRouteServer -ResourceGroupName RouteServerRG 
 ```
 
 ## <a name="complete-the-configuration-on-the-nva"></a>Complete a configuração no NVA
@@ -96,7 +96,7 @@ Add-AzRouteServerPeer -PeerName “NVA2_name” -PeerIp “nva2_ip” -PeerAsn �
 Para completar a configuração no NVA e ativar as sessões de BGP, precisa do IP e do ASN do Azure Route Server. Pode obter esta informação usando este comando:
 
 ```azurepowershell-interactive 
-Get-AzRouteServer -RouterName “myRouteServer” -ResourceGroupName “RouteServerRG”
+Get-AzRouteServer -RouterServerName myRouteServer -ResourceGroupName RouteServerRG
 ```
 
 A saída tem as seguintes informações:
@@ -113,13 +113,13 @@ Se tiver um gateway ExpressRoute e uma porta de entrada Azure VPN no mesmo VNet 
 1. Para ativar a troca de rotas entre o Azure Route Server e o gateway(s) utilize este comando:
 
 ```azurepowershell-interactive 
-Update-AzRouteServer -RouteServerName “myRouteServer” -ResourceGroupName “RouteServerRG” -AllowBranchToBranchTraffic 
+Update-AzRouteServer -RouteServerName myRouteServer -ResourceGroupName RouteServerRG -AllowBranchToBranchTraffic 
 ```
 
 2. Para desativar a troca de rotas entre o Azure Route Server e o gateway(s) utilize este comando:
 
 ```azurepowershell-interactive 
-Update-AzRouteServer -RouteServerName “myRouteServer” -ResourceGroupName “RouteServerRG” 
+Update-AzRouteServer -RouteServerName myRouteServer -ResourceGroupName RouteServerRG
 ```
 
 ## <a name="troubleshooting"></a>Resolução de problemas
@@ -137,13 +137,13 @@ Se já não necessitar do Servidor de Rota Azure, utilize estes comandos para re
 1. Remova o espreitamento BGP entre o Azure Route Server e um NVA com este comando:
 
 ```azurepowershell-interactive 
-Remove-AzRouteServerPeer -PeerName “nva_name” -RouteServerName “myRouteServer” -ResourceGroupName “RouteServerRG” 
+Remove-AzRouteServerPeer -PeerName “nva_name” -RouteServerName myRouteServer -ResourceGroupName RouteServerRG 
 ```
 
 2. Remova o Servidor de Rota azul com este comando:
 
 ```azurepowershell-interactive 
-Remove-AzRouteServer -RouteServerName “myRouteServer” -ResourceGroupName “RouteServerRG” 
+Remove-AzRouteServer -RouteServerName myRouteServer -ResourceGroupName RouteServerRG
 ```
 
 ## <a name="next-steps"></a>Passos seguintes

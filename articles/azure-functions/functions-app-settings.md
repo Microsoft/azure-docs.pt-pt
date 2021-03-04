@@ -3,12 +3,12 @@ title: Referência das definições de aplicação para as Funções do Azure
 description: Documentação de referência para as definições da aplicação Azure Functions ou variáveis ambientais.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: 8cb3e12c48adf1273c58f4914e34590e21b9d3cc
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 6f77efc877f210455be6716f8159ee000241c62f
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100378303"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102040350"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referência das definições de aplicação para as Funções do Azure
 
@@ -80,7 +80,7 @@ Quando `AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES` estiver programado para
 
 ## <a name="azure_functions_environment"></a>AZURE_FUNCTIONS_ENVIRONMENT
 
-Na versão 2.x e versões posteriores do tempo de execução das Funções, configura o comportamento da aplicação com base no ambiente de tempo de execução. Este valor é [lido durante a inicialização.](https://github.com/Azure/azure-functions-host/blob/dev/src/WebJobs.Script.WebHost/Program.cs#L43) Pode definir `AZURE_FUNCTIONS_ENVIRONMENT` qualquer valor, mas três valores são [suportados:](/dotnet/api/microsoft.aspnetcore.hosting.environmentname) [Desenvolvimento,](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.development) [Encenação](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.staging)e [Produção.](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.production) Quando `AZURE_FUNCTIONS_ENVIRONMENT` não está definido, é padrão para `Development` um ambiente local e em `Production` Azure. Esta definição deve ser utilizada em vez de `ASPNETCORE_ENVIRONMENT` definir o ambiente de tempo de execução. 
+Na versão 2.x e versões posteriores do tempo de execução das Funções, configura o comportamento da aplicação com base no ambiente de tempo de execução. Este valor é lido durante a inicialização, e pode ser definido para qualquer valor. Apenas os valores `Development` `Staging` de, e `Production` são honrados pelo tempo de execução. Quando esta configuração da aplicação não está presente quando está em execução em Azure, o ambiente é assumido como `Production` . Utilize esta definição em vez de se precisar de alterar o ambiente de tempo de `ASPNETCORE_ENVIRONMENT` execução em Azure para algo diferente de `Production` . As ferramentas principais do Azure Functions definidas `AZURE_FUNCTIONS_ENVIRONMENT` para quando funcionam num computador `Development` local, e isto não pode ser ultrapassado no local.settings.jsno ficheiro. Para saber mais, consulte [a classe e métodos de Startup baseados em Ambiente.](/aspnet/core/fundamentals/environments#environment-based-startup-class-and-methods)
 
 ## <a name="azurefunctionsjobhost__"></a>AzureFunctionsJobHost__\*
 

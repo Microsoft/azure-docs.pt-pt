@@ -8,12 +8,13 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/18/2020
-ms.openlocfilehash: 09e7a39a2d97626dd01a00fdaef9bc4d711d557b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: references_regions
+ms.openlocfilehash: 22d7c1bbe03d8b3c0e3b6026c9bac039f0651548
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91828098"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102037256"
 ---
 # <a name="ai-enrichment-in-azure-cognitive-search"></a>Enriquecimento de IA em Pesquisa Cognitiva Azure
 
@@ -32,6 +33,17 @@ As competências incorporadas enquadram-se nestas categorias:
 As competências incorporadas na Pesquisa Cognitiva Azure baseiam-se em modelos pré-treinados de aprendizagem automática em APIs de Serviços Cognitivos: [Visão computacional](../cognitive-services/computer-vision/index.yml) e [Análise de Texto.](../cognitive-services/text-analytics/overview.md) Pode anexar um recurso de Serviços Cognitivos se quiser aproveitar estes recursos durante o processamento de conteúdos.
 
 O processamento de linguagem natural e de imagem é aplicado durante a fase de ingestão de dados, com os resultados a tornarem-se parte da composição de um documento num índice pesquisável na Pesquisa Cognitiva do Azure. Os dados são obtidos como um conjunto de dados Azure e, em seguida, empurrados através de um pipeline de indexação usando [as habilidades incorporadas](cognitive-search-predefined-skills.md) que você precisa.  
+
+## <a name="feature-availability"></a>Disponibilidade de funcionalidades
+
+O enriquecimento de IA está disponível em regiões onde os Serviços Cognitivos Azure também estão disponíveis.  Pode verificar a disponibilidade atual de enriquecimento de IA nos [produtos Azure disponíveis por página da região.](https://azure.microsoft.com/global-infrastructure/services/?products=search)  O enriquecimento de IA está disponível em todas as regiões apoiadas, exceto:
+
++ Austrália Sudeste
++ China Norte 2
++ Leste da Noruega
++ Alemanha Centro-Oeste
+
+Se o seu serviço de pesquisa estiver localizado numa destas regiões, não será capaz de criar e utilizar habilidades, mas todas as outras funcionalidades do serviço de pesquisa estão disponíveis e totalmente suportadas.
 
 ## <a name="when-to-use-ai-enrichment"></a>Quando usar o enriquecimento de IA
 

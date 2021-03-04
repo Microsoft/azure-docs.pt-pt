@@ -6,13 +6,12 @@ ms.author: harelbr
 services: azure-monitor
 ms.topic: conceptual
 ms.date: 10/7/2020
-ms.subservice: alerts
-ms.openlocfilehash: 5589697771227c8105adcce61e4daeebdb315391
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 031246efa35eee5e2e4470b94d56e47cba0ad8ad
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101714345"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102038327"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Criar um alerta de métrica com um modelo do Resource Manager
 

@@ -5,14 +5,14 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 2/9/2021
+ms.date: 03/02/2021
 ms.author: duau
-ms.openlocfilehash: 402714b55d7513e41458503b12c68768d0c6ad5e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 20b8e354d0c8e2e04cf22d1b8014f5b8e33a860c
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101747018"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102038871"
 ---
 # <a name="add-ipv6-support-for-private-peering-using-azure-powershell-preview"></a>Adicione suporte IPv6 para espreitar privado usando Azure PowerShell (Preview)
 
@@ -60,8 +60,8 @@ O seu pedido será então aprovado pela equipa ExpressRoute dentro de 2-3 dias �
 
 3. Adicione um IPv6 Private Peering à sua configuração de peering privado IPv4 existente. Forneça um par de sub-redes IPv6 de /126 que possui para o seu link primário e ligações secundárias. A partir de cada uma destas sub-redes, irá atribuir o primeiro endereço IP utilizável ao seu router, uma vez que a Microsoft utiliza o segundo IP utilizável para o seu router.
 
-> [!Note]
-> O peer ASN e o VlanId devem coincidir com os da sua configuração de Peering Privado IPv4.
+    > [!Note]
+    > O peer ASN e o VlanId devem coincidir com os da sua configuração de Peering Privado IPv4.
 
     ```azurepowershell-interactive
     Set-AzExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "3FFE:FFFF:0:CD30::/126" -SecondaryPeerAddressPrefix "3FFE:FFFF:0:CD30::4/126" -VlanId 200 -PeerAddressType IPv6
@@ -175,6 +175,7 @@ Embora o suporte IPv6 esteja disponível para ligações a implementações em r
 * Ligações a implantações em Azure através de um gateway não-AZ ExpressRoute SKU
 * Ligações a implantações em regiões não-AZ
 * Ligações Global Reach entre circuitos ExpressRoute
+* Utilização do ExpressRoute com vWAN
 
 ## <a name="next-steps"></a>Passos seguintes
 

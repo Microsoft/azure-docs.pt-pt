@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 04/30/2020
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: be5000b6f9153839b926932c82c9f8fa3ab93f5f
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a713d869a754f17f4030c531999c822a2cbb76ee
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101704842"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102039806"
 ---
 # <a name="secure-a-custom-dns-name-with-a-tlsssl-binding-in-azure-app-service"></a>Proteja um nome DNS personalizado com uma ligação TLS/SSL no Azure App Service
 
@@ -42,7 +42,7 @@ Para acompanhar este guia:
 - [Adicione um certificado privado à sua aplicação](configure-ssl-certificate.md)
 
 > [!NOTE]
-> A forma mais fácil de adicionar um certificado privado é [criar um Certificado Gerido de Serviço de Aplicações gratuita](configure-ssl-certificate.md#create-a-free-certificate-preview) (Pré-visualização).
+> A forma mais fácil de adicionar um certificado privado é [criar um Certificado Gerido de Serviço de Aplicações gratuita](configure-ssl-certificate.md#create-a-free-managed-certificate-preview) (Pré-visualização).
 
 [!INCLUDE [Prepare your web app](../../includes/app-service-ssl-prepare-app.md)]
 
@@ -73,7 +73,7 @@ Se a sua aplicação não tiver certificado para o domínio personalizado seleci
 - **Certificado de Serviço de Aplicações de Importação** - Siga o fluxo de trabalho no [Certificado de Serviço de Aplicações de Importação](configure-ssl-certificate.md#import-an-app-service-certificate)e, em seguida, selecione esta opção aqui.
 
 > [!NOTE]
-> Também pode [Criar um certificado gratuito](configure-ssl-certificate.md#create-a-free-certificate-preview) (Pré-visualização) ou importar um certificado de Cofre de [Chaves,](configure-ssl-certificate.md#import-a-certificate-from-key-vault)mas deve fazê-lo separadamente e, em seguida, voltar ao diálogo **de ligação TLS/SSL.**
+> Também pode [Criar um certificado gratuito](configure-ssl-certificate.md#create-a-free-managed-certificate-preview) (Pré-visualização) ou importar um certificado de Cofre de [Chaves,](configure-ssl-certificate.md#import-a-certificate-from-key-vault)mas deve fazê-lo separadamente e, em seguida, voltar ao diálogo **de ligação TLS/SSL.**
 
 ### <a name="create-binding"></a>Criar ligação
 

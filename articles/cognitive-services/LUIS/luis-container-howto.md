@@ -9,15 +9,15 @@ ms.custom: seodec18, cog-serv-seo-aug-2020
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/28/2020
+ms.date: 03/02/2021
 ms.author: aahi
 keywords: no local, Docker, contentor
-ms.openlocfilehash: 2bef6aa4e624386750a4c989d7e56cc1b22aaa5e
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: e157e976186f03aa984877435c42b996ce476740
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97862006"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102040197"
 ---
 # <a name="install-and-run-docker-containers-for-luis"></a>Instale e execute os recipientes Docker para o LUIS
 
@@ -281,7 +281,7 @@ Os parâmetros de consulta configuram como e o que é devolvido na resposta de c
 |`staging`|boolean|Devolve a consulta dos resultados do ambiente de encenação se definido como verdadeiro. |
 |`log`|boolean|Regista consultas, que podem ser usadas mais tarde para [a aprendizagem ativa.](luis-how-to-review-endpoint-utterances.md) A predefinição é verdadeiro.|
 
-**_
+***
 
 ### <a name="query-the-luis-app"></a>Consulta da app LUIS
 
@@ -299,7 +299,7 @@ curl -G \
 "http://localhost:5000/luis/v3.0/apps/{APP_ID}/slots/production/predict"
 ```
 
-Para fazer consultas ao ambiente _ *Staging** `production` substitua-se na rota `staging` com:
+Para fazer consultas ao ambiente **de encenação,** substitua-se `production` no percurso `staging` com:
 
 `http://localhost:5000/luis/v3.0/apps/{APP_ID}/slots/staging/predict`
 
@@ -335,7 +335,7 @@ curl -X GET \
 ```
 O nome da versão tem um máximo de 10 caracteres e contém apenas caracteres permitidos num URL.
 
-**_
+***
 
 ## <a name="import-the-endpoint-logs-for-active-learning"></a>Importar os registos de ponto final para a aprendizagem ativa
 
@@ -346,7 +346,7 @@ A localização seguinte mostra a estrutura aninhada do diretório para os fiche
 /output/luis/{INSTANCE_ID}/
 ```
 
-A partir do portal LUIS, selecione a sua aplicação e, em seguida, selecione _ *Import endpoint logs** para carregar estes registos.
+A partir do portal LUIS, selecione a sua aplicação e, em seguida, selecione **registos de ponto final de Importação** para carregar estes registos.
 
 ![Arquivos de registo de contentores de importação para aprendizagem ativa](./media/luis-container-how-to/upload-endpoint-log-files.png)
 

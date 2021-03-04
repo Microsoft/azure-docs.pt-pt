@@ -7,17 +7,17 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 03/02/2021
 ms.author: dech
-ms.openlocfilehash: c7c910c7162bde2209b07eb4f1d533328bae08c3
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 58ae61bc9e1736b13bb1802e2f39d5ada045cb6a
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101693323"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102039330"
 ---
 # <a name="publish-notebooks-to-the-azure-cosmos-db-notebook-gallery"></a>Publique cadernos na galeria de cadernos Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-Os Cadernos Jupyter embutidos em Azure Cosmos estão diretamente integrados nas suas contas DB Azure Cosmos no portal Azure. Utilizando estes cadernos, pode analisar e visualizar os seus dados a partir do portal Azure. Os cadernos incorporados para a Azure Cosmos DB estão atualmente disponíveis em [29 regiões.](#supported-regions) Para utilizar cadernos, [crie uma nova conta Cosmos](#create-a-new-cosmos-account) ou permita [cadernos numa conta existente](#enable-notebooks-in-an-existing-cosmos-account) numa dessas regiões.
+Os Cadernos Jupyter embutidos em Azure Cosmos estão diretamente integrados nas suas contas DB Azure Cosmos no portal Azure. Utilizando estes cadernos, pode analisar e visualizar os seus dados a partir do portal Azure. Os cadernos incorporados para a Azure Cosmos DB estão atualmente disponíveis em [muitas regiões.](https://azure.microsoft.com/global-infrastructure/services/?products=cosmos-db&regions=all) Para utilizar cadernos, [crie uma nova conta Cosmos](create-cosmosdb-resources-portal.md) ou permita [cadernos numa conta existente](enable-notebooks.md) numa dessas regiões.
 
 O ambiente de cadernos no portal Azure tem algumas amostras publicadas pela equipa DB do Azure Cosmos. Dispõe ainda de uma galeria pública onde pode publicar e partilhar os seus próprios cadernos. Depois de um caderno ser publicado na galeria, está disponível para todos os utilizadores do Azure Cosmos DB para visualizar e usar. Neste artigo, você vai aprender a usar cadernos da galeria pública e publicar o seu caderno na galeria.
 
@@ -53,7 +53,7 @@ Utilize os seguintes passos para publicar um caderno:
 
    Também pode encontrar a opção **Publicar para galeria** selecionando o **...** botão ao lado do nome do caderno:
 
-   :::image type="content" source="./media/publish-notebook-gallery/choose-notebook-publish.png" alt-text="Escolha um caderno para publicar na galeria.":::
+   :::image type="content" source="./media/publish-notebook-gallery/choose-notebook-publish.png" alt-text="Outra abordagem para escolher um caderno para publicar na galeria.":::
 
 1. Preencha o **formulário de publicação para a galeria** com os seguintes detalhes:
 
@@ -61,11 +61,10 @@ Utilize os seguintes passos para publicar um caderno:
    * **Descrição:**  Uma breve descrição do que o seu caderno faz.
    * **Etiquetas:** As etiquetas são opcionais e são usadas para filtrar resultados quando pesquisadas por uma palavra-chave.
    * **Imagem de capa:** Uma imagem que é usada na página de capa quando o caderno é publicado. Pode escolher uma das seguintes opções:
-
-     * **Imagem personalizada** - Pode fazer o upload de uma imagem a partir do seu computador. Escolha um ficheiro de imagem com a relação de aspeto 256x144.
-     * **URL** - Forneça um URL acessível ao público onde a imagem está localizada.
-     * **Tirar a imagem** - Uma imagem do seu caderno aberto é automaticamente tirada e carregada para a pré-visualização.
-     * **Utilize a primeira saída do visor** - Saída da primeira célula que tenha uma saída de exibição. As células que apenas mostram a marcação/texto não contam como saída de exibição.
+   * **Imagem personalizada** - Pode fazer o upload de uma imagem a partir do seu computador. Escolha um ficheiro de imagem com a relação de aspeto 256x144.
+   * **URL** - Forneça um URL acessível ao público onde a imagem está localizada.
+   * **Tirar a imagem** - Uma imagem do seu caderno aberto é automaticamente tirada e carregada para a pré-visualização.
+   * **Utilize a primeira saída do visor** - Saída da primeira célula que tenha uma saída de exibição. As células que apenas mostram a marcação/texto não contam como saída de exibição.
 
    :::image type="content" source="./media/publish-notebook-gallery/publish-notebook.png" alt-text="Preencha a publicação para o formulário de galeria.":::
 

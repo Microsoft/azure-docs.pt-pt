@@ -3,13 +3,13 @@ title: Ativar a encriptação baseada no anfitrião no Serviço Azure Kubernetes
 description: Saiba como configurar uma encriptação baseada no anfitrião num cluster Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 01/27/2021
-ms.openlocfilehash: ac28c698a766f1f3febaff582038906f658d58dd
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.date: 03/03/2021
+ms.openlocfilehash: 66e71dfd6a76fb4e6b464eb5c44dcc809fb9be38
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99071855"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102039738"
 ---
 # <a name="host-based-encryption-on-azure-kubernetes-service-aks-preview"></a>Encriptação baseada no anfitrião no Serviço Azure Kubernetes (AKS) (pré-visualização)
 
@@ -26,6 +26,13 @@ Esta funcionalidade só pode ser definida no tempo de criação de cluster ou de
 ### <a name="prerequisites"></a>Pré-requisitos
 
 - Certifique-se de que tem a `aks-preview` extensão CLI v0.4.73 ou versão superior.
+- Certifique-se de que tem a `EnableEncryptionAtHostPreview` bandeira de recurso `Microsoft.ContainerService` ativada.
+
+Para poder utilizar a encriptação no anfitrião para os seus VMs ou conjuntos de escala de máquinas virtuais, tem de obter a funcionalidade ativada na sua subscrição. Envie um e-mail **encryptionAtHost@microsoft.com** com os iDs de subscrição para obter a funcionalidade ativada para as suas subscrições. 
+
+> [!IMPORTANT]
+> Tem de enviar um e-mail **encryptionAtHost@microsoft.com** com os iDs de subscrição para obter a funcionalidade ativada para recursos de computação. Não pode permitir por si mesmo recursos de computação.
+
 
 ### <a name="install-aks-preview-cli-extension"></a>Instalar a extensão da CLI aks-preview
 

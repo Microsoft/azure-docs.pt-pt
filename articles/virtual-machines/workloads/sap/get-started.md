@@ -13,15 +13,15 @@ ms.assetid: ad8e5c75-0cf6-4564-ae62-ea1246b4e5f2
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 02/03/2021
+ms.date: 03/03/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0d759ad0ebb1aa4f1b6a5f404812ab8149ed69e2
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: a212975817eefe75443bad98ccb72e0a8c3bf58c
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101671853"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102038633"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Use o Azure para hospedar e executar cenários de carga de trabalho SAP
 
@@ -83,6 +83,7 @@ Nesta secção, encontra documentos sobre a integração do Microsoft Power BI e
 
 ## <a name="change-log"></a>Alterar Registo
 
+- 03/03/2021: Alteração no [guia HA para SAP ASCS/SCS com ficheiros WSFC e Azure NetApp (SMB)](./high-availability-guide-windows-netapp-files-smb.md) para adicionar uma declaração cautelosa de que são necessários privilégios elevados para o utilizador que executa o SWPM, durante a instalação do sistema SAP
 - 02/11/2021: Alterações na [alta disponibilidade da IBM Db2 LUW em VMs Azure enterprise linux](./high-availability-guide-rhel-ibm-db2-luw.md) server para alterar comandos de cluster pacemaker para RHEL 8.x
 - 02/03/2021: Alteração na configuração do [Pacemaker na RHEL em Azure](./high-availability-guide-rhel-pacemaker.md) para atualizar pcmk_host_map no comando de criação de apedrejamento
 - 02/03/2021: Alteração na configuração do [Pacemaker no SLES em Azure](./high-availability-guide-suse-pacemaker.md) para adicionar pcmk_host_map no comando de criação de apedrejamento 

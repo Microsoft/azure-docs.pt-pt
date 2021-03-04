@@ -1,17 +1,16 @@
 ---
 title: Azure Monitor para clientes gestores de operações existentes
 description: Orientação para os utilizadores existentes do Gestor de Operações para a monitorização de transição de determinadas cargas de trabalho para o Azure Monitor como parte de uma transição para a nuvem.
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/11/2021
-ms.openlocfilehash: e9f0a285df6013334970b971e46079b9e78b19cb
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 6d92b7c2f01a7e9ef12bc2bb422cfb6ed0076f73
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101728965"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102039381"
 ---
 # <a name="azure-monitor-for-existing-operations-manager-customers"></a>Azure Monitor para clientes gestores de operações existentes
 Este artigo fornece orientações para os clientes que atualmente utilizam [o Gestor de Operações do System Center](/system-center/scom/welcome) e estão a planear uma transição para o [Azure Monitor](overview.md) à medida que migram aplicações de negócios e outros recursos para o Azure. Assume que o seu objetivo final é uma transição completa para a nuvem, substituindo o máximo de funcionalidades do Gestor de Operações possível pelo Azure Monitor, sem comprometer os requisitos operacionais do seu negócio e de TI. 

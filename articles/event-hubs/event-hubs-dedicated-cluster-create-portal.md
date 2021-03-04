@@ -3,12 +3,12 @@ title: Criar um cluster dedicado ao Event Hubs utilizando o portal Azure
 description: Neste arranque rápido, você aprende a criar um cluster Azure Event Hubs usando o portal Azure.
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: 2759d1e25519b69311c369f3f58239cc0889a9a7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6ff4ee1f098407ba8b3cd2727410bdfc842db89a
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88927770"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102040095"
 ---
 # <a name="quickstart-create-a-dedicated-event-hubs-cluster-using-azure-portal"></a>Quickstart: Criar um cluster dedicado de Centros de Eventos usando o portal Azure 
 Os clusters de eventos Hubs oferecem implantações de inquilinos únicos para clientes com as necessidades de streaming mais exigentes. Esta oferta tem um SLA garantido de 99,99% e está disponível apenas no nosso nível de preços dedicado. Um [cluster Event Hubs](event-hubs-dedicated-overview.md) pode entrar em milhões de eventos por segundo com capacidade garantida e latência do subsegundo. Os espaços de nome e os centros de eventos criados dentro de um cluster incluem todas as características da oferta padrão e muito mais, mas sem limites de entrada. A oferta dedicada também inclui a popular funcionalidade [de captura de Centros de Eventos](event-hubs-capture-overview.md) sem custos adicionais, permitindo-lhe abastruto e registar fluxos de dados para [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md) ou [Azure Data Lake Storage Gen 1](../data-lake-store/data-lake-store-overview.md).
@@ -30,10 +30,13 @@ Para concluir este início rápido, certifique-se de que tem:
 ## <a name="create-an-event-hubs-dedicated-cluster"></a>Criar um cluster dedicado a centros de eventos
 Um cluster Event Hubs fornece um recipiente de scoping único no qual você pode criar um ou mais espaços de nome. Nesta fase de pré-visualização da experiência de autosserviço do portal, pode criar 1 aglomerados cu em regiões selecionadas. Se precisar de um cluster maior do que 1 CU, pode submeter um pedido de apoio ao Azure para escalar o seu cluster após a sua criação.
 
-Para criar um cluster no seu grupo de recursos utilizando o portal Azure, preencha os seguintes passos:
+> [!IMPORTANT]
+> Não poderá apagar o cluster durante pelo menos 4 horas após a sua criação. Portanto, você será cobrado por um mínimo de 4 horas de utilização do cluster. Para obter mais informações sobre preços, consulte [Os Centros de Eventos - Preços](https://azure.microsoft.com/pricing/details/event-hubs/). 
+
+Para criar um cluster no seu grupo de recursos utilizando o portal Azure, complete os seguintes passos:
 
 1. Siga [este link](https://aka.ms/eventhubsclusterquickstart) para criar um cluster no portal Azure. Em sentido inverso, selecione **Todos os serviços** do painel de navegação à esquerda e, em seguida, digite em "Clusters de Centros de Eventos" na barra de pesquisa e selecione "Clusters de Centros de Eventos" da lista de resultados.
-2. Na página **'Criar Cluster',** configurar o seguinte:
+2. Na página **'Criar Cluster',** configurar as seguintes definições:
     1. Insira um **nome para o cluster**. O sistema verifica imediatamente a disponibilidade do nome.
     2. Selecione a **subscrição** na qual pretende criar o cluster.
     3. Selecione o **grupo de recursos** no qual pretende criar o cluster.
@@ -55,7 +58,7 @@ Para criar um cluster no seu grupo de recursos utilizando o portal Azure, preenc
 1. Para criar um espaço de nome dentro de um cluster, na página cluster **de Centros de Eventos** para o seu cluster, selecione **+Namespace** a partir do menu superior.
 
     ![Página de gestão de cluster - adicione botão de espaço de nome](./media/event-hubs-dedicated-cluster-create-portal/cluster-management-page-add-namespace-button.png)
-2. Na página de espaço de nomes, faça os seguintes passos:
+2. Na página **Criar um espaço de nome,** faça os seguintes passos:
     1. Insira um **nome para o espaço de nomes**.  O sistema verifica se o nome está disponível.
     2. O espaço de nome herda as seguintes propriedades:
         1. ID da subscrição
@@ -70,14 +73,14 @@ Para criar um cluster no seu grupo de recursos utilizando o portal Azure, preenc
 
 ## <a name="submit-a-support-request"></a>Submeter um pedido de apoio
 
-Se desejar alterar o tamanho do seu cluster após a criação ou se a sua região preferida não estiver disponível, por favor envie um pedido de apoio seguindo estes passos:
+Se desejar alterar o tamanho do seu cluster após a criação ou se a sua região preferida não estiver disponível, envie um pedido de apoio seguindo estes passos:
 
 1. No [portal Azure,](https://portal.azure.com)selecione **Help + support** from the left menu.
 2. Selecione **+ Novo pedido** de suporte do menu De apoio.
 3. Na página de suporte, siga estes passos:
     1. Para **o Tipo de Emissão**, selecione **Técnico** da lista de espera.
     2. Em **Subscrição**, selecione a sua subscrição.
-    3. Para **o Serviço**, selecione os meus **serviços**e, em seguida, selecione Centros de **Eventos**.
+    3. Para **o Serviço**, selecione os meus **serviços** e, em seguida, selecione Centros de **Eventos**.
     4. Para **recursos**, selecione o seu cluster se já existir, caso contrário selecione **Pergunta Geral/Recurso Não Disponível**.
     5. Para **o tipo de problema**, selecione **Quota**.
     6. Para **o subtipo de problemas,** selecione um dos seguintes valores da lista de down-down:
@@ -89,9 +92,12 @@ Se desejar alterar o tamanho do seu cluster após a criação ou se a sua regiã
 
  ## <a name="delete-a-dedicated-cluster"></a>Excluir um cluster dedicado
  
-1. Para eliminar o cluster, **selecione Eliminar** do menu superior. Por favor, note que o seu cluster será cobrado por um mínimo de 4 horas de uso após a criação. 
-2. Aparecerá uma mensagem confirmando o seu desejo de eliminar o cluster.
-3. Digite o **nome do cluster** e selecione **Eliminar** para eliminar o cluster.
+1. Para eliminar o cluster, **selecione Eliminar** do menu superior. 
+
+    > [!IMPORTANT]
+    > Não poderá apagar o cluster durante pelo menos 4 horas após a sua criação. Portanto, você será cobrado por um mínimo de 4 horas de utilização do cluster. Para obter mais informações sobre preços, consulte [Os Centros de Eventos - Preços](https://azure.microsoft.com/pricing/details/event-hubs/).     
+1. Aparecerá uma mensagem confirmando o seu desejo de eliminar o cluster.
+1. Digite o **nome do cluster** e selecione **Eliminar** para eliminar o cluster.
 
     ![Eliminar página de cluster](./media/event-hubs-dedicated-cluster-create-portal/delete-cluster-page.png)
 

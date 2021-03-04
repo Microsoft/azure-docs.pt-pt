@@ -6,13 +6,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: johnkem
-ms.subservice: ''
-ms.openlocfilehash: 5cd1f5442526b0eb08dffc5430cf1598cc8d14c3
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d0877059dca01bf01df7a4f2aeaa5114278ecc97
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100613171"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102040282"
 ---
 # <a name="roles-permissions-and-security-in-azure-monitor"></a>Funções, permissões e segurança no Azure Monitor
 
@@ -70,7 +69,7 @@ As pessoas atribuídas à função de Colaborador de Monitorização podem visua
 ## <a name="monitoring-permissions-and-azure-custom-roles"></a>Permissões de monitorização e funções personalizadas Azure
 Se as funções incorporadas acima não corresponderem às necessidades exatas da sua equipa, pode [criar um papel personalizado Azure](../role-based-access-control/custom-roles.md) com mais permissões granulares. Abaixo estão as operações comuns do Azure RBAC para o Azure Monitor com as suas descrições.
 
-| Operação | Description |
+| Operação | Descrição |
 | --- | --- |
 | Microsoft.Insights/ActionGroups/[Ler, Escrever, Eliminar] |Ler/escrever/apagar grupos de ação. |
 | Microsoft.Insights/ActivityLogAlerts/[Ler, Escrever, Eliminar] |Leia/escreva/elimine os alertas de registo de atividade. |

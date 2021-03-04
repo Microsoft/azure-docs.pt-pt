@@ -7,12 +7,12 @@ ms.prod: kinect-dk
 ms.date: 02/20/2020
 ms.topic: article
 keywords: azul, cinect, especificações, hardware, DK, capacidades, profundidade, cor, RGB, IMU, array, profundidade, multi, sincronização
-ms.openlocfilehash: 30961152b31a659cb27e91a99d6806490998d18d
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: eabf77896777f39efcfd61adb3040bca8642716e
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97592284"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102039959"
 ---
 # <a name="synchronize-multiple-azure-kinect-dk-devices"></a>Sincronizar vários dispositivos DK Azure Kinect
 
@@ -36,6 +36,9 @@ Existem muitas razões para usar vários dispositivos Azure Kinect DK, incluindo
 ## <a name="plan-your-multi-device-configuration"></a>Planeie a sua configuração multi-dispositivo
 
 Antes de começar, certifique-se de que revê [as especificações de hardware DK da Azure Kinect](hardware-specification.md) e [da câmara de profundidade Azure Kinect DK](depth-camera.md).
+
+> [!NOTE]  
+> Retire a tampa de plástico exterior para expor as tomadas Sync In e Sync out.
 
 ### <a name="select-a-device-configuration"></a>Selecione uma configuração do dispositivo
 
@@ -63,6 +66,9 @@ A fonte do gatilho deve entregar o sinal ao dispositivo principal **Sync na** po
 ![Configurações do cabo para um sinal de gatilho externo](./media/resources/camera-trigger-signal.jpg)
 
 Para obter mais informações sobre como trabalhar com equipamentos [externos, consulte o gravador Azure Kinect com dispositivos sincronizados externos](record-external-synchronized-units.md)
+
+> [!NOTE]  
+> Sync out é o VSync para a câmara RGB. Os tempos de fixação de todos os dispositivos estão definidos para zero e contam. A Microsoft não caracterizou a largura min e máxima do pulso de sincronização e recomenda a imitação do pulso gerado por Sync out de um Azure Kinect DK.
 
 ### <a name="plan-your-camera-settings-and-software-configuration"></a>Planeie as definições da câmara e a configuração do software
 

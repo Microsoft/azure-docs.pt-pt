@@ -8,15 +8,15 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
-ms.date: 10/06/2020
+ms.date: 03/02/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, references_regions, contperf-fy21q1
-ms.openlocfilehash: 1a73988b66ba7b47f18ecaaa07df59e9047a933b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: e3705be10cb540538464e6b1299d848bc9057c7c
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101691829"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102039925"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>Isolamento de rede virtual e visão geral da privacidade
 
@@ -106,10 +106,7 @@ Nesta secção, você aprende como a Azure Machine Learning comunica de forma se
 
 1. Os serviços Azure Batch recebem o trabalho do espaço de trabalho e submetem o trabalho de formação ao ambiente de computação através do equilibrador de carga pública que é aprovisionado com o recurso compute. 
 
-1. O recurso computacional recebe o trabalho e começa a formação. Os recursos compute acedem a contas de armazenamento seguras para descarregar ficheiros de treino e carregar a saída. 
-
-![Diagrama de arquitetura mostrando como um trabalho de formação de Azure Machine Learning é submetido ao usar um VNet](./media/how-to-network-security-overview/secure-training-job-submission.png)
-
+1. O recurso computacional recebe o trabalho e começa a formação. Os recursos compute acedem a contas de armazenamento seguras para descarregar ficheiros de treino e carregar a saída.
 
 ### <a name="limitations"></a>Limitações
 

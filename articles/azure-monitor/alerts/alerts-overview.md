@@ -1,15 +1,14 @@
 ---
 title: Visão geral do alerta e monitorização da notificação em Azure
 description: Visão geral do alerta no Azure Monitor
-ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 02/14/2021
-ms.openlocfilehash: e2d447b7407ed874d9c183c5cd2009882f1d6b3b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 6785cfdf673e4c2da03ff26649c9336d57b699c8
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101723593"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102038055"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Descrição geral dos alertas no Microsoft Azure 
 

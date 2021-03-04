@@ -13,12 +13,12 @@ ms.date: 03/31/2020
 ms.author: marsma
 ms.reviewer: hahamil
 ms.custom: aaddev, identitypla | Azuretformtop40
-ms.openlocfilehash: 85f8b340635354d4bb0f28f2b3d79b617bd897f8
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: ea902b8b609d226f6bb9e61ec0bfd60f75a3825d
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98754880"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102038582"
 ---
 # <a name="shared-device-mode-for-android-devices"></a>Modo de dispositivo partilhado para dispositivos Android
 
@@ -34,7 +34,7 @@ O modo de dispositivo partilhado também fornece a gestão de identidade da Micr
 Para criar uma aplicação de modo de dispositivo compartilhado, os desenvolvedores e os administradores de dispositivos em nuvem trabalham em conjunto:
 
 - Os desenvolvedores escrevem uma aplicação de uma única conta (as aplicações de múltiplas contas não são suportadas no modo de dispositivo partilhado), adicionam `"shared_device_mode_supported": true` à configuração da aplicação e escrevem código para lidar com coisas como a assinatura do dispositivo partilhado.
-- Os administradores do dispositivo preparam o dispositivo para ser partilhado instalando a aplicação autenticadora e definindo o dispositivo para o modo partilhado utilizando a aplicação autenticadora. Apenas os utilizadores que estejam na função [de Administrador de Dispositivos cloud](../roles/permissions-reference.md#cloud-device-administrator-permissions) podem colocar um dispositivo em modo partilhado utilizando a [aplicação Authenticator](../user-help/user-help-auth-app-overview.md). Pode configurar a adesão aos seus papéis organizacionais no portal Azure via: **Azure Ative Directory**  >  **Roles and Administrators**  >  **Cloud Device Administrators**.
+- Os administradores do dispositivo preparam o dispositivo para ser partilhado instalando a aplicação autenticadora e definindo o dispositivo para o modo partilhado utilizando a aplicação autenticadora. Apenas os utilizadores que estejam na função [de Administrador de Dispositivos cloud](../roles/permissions-reference.md#cloud-device-administrator) podem colocar um dispositivo em modo partilhado utilizando a [aplicação Authenticator](../user-help/user-help-auth-app-overview.md). Pode configurar a adesão aos seus papéis organizacionais no portal Azure via: **Azure Ative Directory**  >  **Roles and Administrators**  >  **Cloud Device Administrators**.
 
  Este artigo centra-se principalmente no que os desenvolvedores devem pensar.
 
@@ -104,6 +104,6 @@ O diagrama seguinte mostra o ciclo de vida geral da aplicação e eventos comuns
 
 ![Ciclo de vida da aplicação do dispositivo compartilhado](media/v2-shared-device-mode/lifecycle.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Experimente o modo Utilizar o [dispositivo partilhado no tutorial da aplicação Android](tutorial-v2-shared-device-mode.md) que mostra como executar uma aplicação de trabalhador de primeira linha num dispositivo Android em modo partilhado.

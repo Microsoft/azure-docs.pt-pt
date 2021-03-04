@@ -6,12 +6,12 @@ ms.date: 11/25/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: e9208e617eb73786bcb003dc1b55d0d77ca6650f
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 6e1c7e15ff77fd75ff2fb70a6741ea2dd9a4cab8
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101704434"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102040248"
 ---
 # <a name="upgrading-from-application-insights-java-2x-sdk"></a>Upgrade a partir de Application Insights Java 2.x SDK
 
@@ -219,11 +219,24 @@ Mais uma vez, para algumas aplicações, pode ainda preferir a vista agregada no
 
 Anteriormente no 2.x SDK, o nome de operação da telemetria de pedido também foi definido na telemetria de dependência.
 Application Insights Java 3.0 já não povoa o nome da operação na telemetria de dependência.
-Se quiser ver o nome da operação para o pedido que é o pai da telemetria de dependência, pode escrever uma consulta de Logs (Kusto) para se juntar da tabela de dependência à tabela de pedidos.
+Se quiser ver o nome da operação para o pedido que é o pai da telemetria de dependência, pode escrever uma consulta de Logs (Kusto) para se juntar da tabela de dependência à tabela de pedidos, por exemplo.
+
+```
+let start = datetime('...');
+let end = datetime('...');
+dependencies
+| where timestamp between (start .. end)
+| project timestamp, type, name, operation_Id
+| join (requests
+    | where timestamp between (start .. end)
+    | project operation_Name, operation_Id)
+    on $left.operation_Id == $right.operation_Id
+| summarize count() by operation_Name, type, name
+```
 
 ## <a name="2x-sdk-logging-appenders"></a>2.x Aplicativos de registo SDK
 
-O agente 3.0 recolhe automaticamente o [registo registado sem](./java-standalone-config#auto-collected-logging) a necessidade de configurar quaisquer appenders de registo.
+O agente 3.0 recolhe automaticamente o [registo registado sem](./java-standalone-config.md#auto-collected-logging) a necessidade de configurar quaisquer appenders de registo.
 Se estiver a utilizar 2.x appenders de registo SDK, estes podem ser removidos, uma vez que serão suprimidos pelo agente 3.0 de qualquer forma.
 
 ## <a name="2x-sdk-spring-boot-starter"></a>Arranque de arranque de mola SDK de 2.x

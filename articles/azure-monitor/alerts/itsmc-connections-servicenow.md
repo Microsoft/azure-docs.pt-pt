@@ -1,17 +1,16 @@
 ---
 title: Conecte o ServiceNow com o conector de gestão de serviços de TI
 description: Saiba como ligar o ServiceNow ao It Service Management Connector (ITSMC) no Azure Monitor para monitorizar e gerir centralmente os itens de trabalho DO ITSM.
-ms.subservice: logs
 ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 12/21/2020
-ms.openlocfilehash: daaaf25bc1739b57d4696dc8978a330b00b08f70
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 51d16ae53e34dacfc41e3d31b01115f9c55ca9f7
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100617951"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102039551"
 ---
 # <a name="connect-servicenow-with-it-service-management-connector"></a>Conecte o ServiceNow com o conector de gestão de serviços de TI
 

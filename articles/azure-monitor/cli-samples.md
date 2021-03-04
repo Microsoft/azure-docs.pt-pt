@@ -1,18 +1,17 @@
 ---
 title: Amostras de CLI monitor Azure
 description: Amostra de comandos CLI para funcionalidades do Monitor Azure. O Azure Monitor é um serviço Microsoft Azure, que permite enviar notificações de alerta, chamar URLs web com base em valores de dados de telemetria configurados e serviços de cloud de escala automática, máquinas virtuais e Web Apps.
-ms.subservice: ''
 ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 05/16/2018
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 196a1d580bd5888a6604c3f98b108e39c08a3412
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 8eaf8c2e140f0b323db0c20a2e9946884c51df04
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100628481"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102039177"
 ---
 # <a name="azure-monitor-cli-samples"></a>Amostras de CLI monitor Azure
 Este artigo mostra que você experimenta comandos de interface de linha de comando (CLI) para ajudá-lo a aceder às funcionalidades do Azure Monitor. O Azure Monitor permite-lhe serviços de nuvem de escala automática, máquinas virtuais e aplicações web e enviar notificações de alerta ou chamar URLs web com base em valores de dados de telemetria configurados.

@@ -5,15 +5,15 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: tutorial
-ms.date: 10/05/2020
+ms.date: 03/03/2021
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 56e35c23eacdf98db283ba5d8c2e32687cbe0ea8
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 6c6969fdf413c4eb5e7bbcf046fc397834d6c0a2
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101740907"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102038922"
 ---
 # <a name="tutorial-configure-a-virtual-network-gateway-for-expressroute-using-the-azure-portal"></a>Tutorial: Configurar uma porta de rede virtual para ExpressRoute usando o portal Azure
 > [!div class="op_single_selector"]
@@ -67,9 +67,9 @@ Pode ver um [vídeo](https://azure.microsoft.com/documentation/videos/azure-expr
 
     Se estiver a utilizar uma rede virtual de pilha dupla e planeie utilizar o peering privado baseado no IPv6 sobre o ExpressRoute, clique em **Adicionar espaço de endereço IP6** e inserir valores de intervalo de **endereços IPv6.**
 
-Em seguida, selecione **OK** para guardar os valores e criar a sub-rede gateway.
+    Em seguida, selecione **OK** para guardar os valores e criar a sub-rede gateway.
 
-    :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/add-subnet-gateway.png" alt-text="Adding the subnet":::
+    :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/add-subnet-gateway.png" alt-text="Adicionar a sub-rede":::
 
 ## <a name="create-the-virtual-network-gateway"></a>Criar o gateway de rede virtual
 

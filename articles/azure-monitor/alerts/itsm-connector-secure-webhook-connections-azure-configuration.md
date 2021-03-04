@@ -1,24 +1,23 @@
 ---
 title: Conector de gestão de serviços de TI - Exportação Segura em Monitor Azure - Configurações Azure
 description: Este artigo mostra-lhe como configurar o Azure de forma a ligar os seus produtos/serviços ITSM com a Secure Export in Azure Monitor para monitorizar e gerir centralmente os artigos de trabalho da ITSM.
-ms.subservice: logs
 ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 01/03/2021
-ms.openlocfilehash: 62167b8fd72c660e50378a9492528aa5b70bbee7
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 8eb9430e3d280c52cf84c61f0a44cb12152ac054
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100620841"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102037545"
 ---
 # <a name="configure-azure-to-connect-itsm-tools-using-secure-export"></a>Configure Azure para ligar ferramentas ITSM usando a Exportação Segura
 
 Este artigo fornece informações sobre como configurar o Azure para utilizar a "Exportação Segura".
 Para utilizar a "Exportação Segura", siga estes passos:
 
-1. [Registar a aplicação com o Azure AD.](./itsm-connector-secure-webhook-connections-azure-configuration.md#register-with-azure-active-directory)
+1. [Registe a sua aplicação com Azure AD.](./itsm-connector-secure-webhook-connections-azure-configuration.md#register-with-azure-active-directory)
 1. [Defina o diretor de serviço.](./itsm-connector-secure-webhook-connections-azure-configuration.md#define-service-principal)
 1. [Crie um grupo de ação Secure Webhook.](./itsm-connector-secure-webhook-connections-azure-configuration.md#create-a-secure-webhook-action-group)
 1. Configure o ambiente do seu parceiro.
@@ -30,7 +29,7 @@ Para utilizar a "Exportação Segura", siga estes passos:
 
 Siga estes passos para registar a candidatura com a Azure AD:
 
-1. Siga os passos no [Registo de uma aplicação com a plataforma de identidade da Microsoft.](../../active-directory/develop/quickstart-register-app.md)
+1. Siga os passos em [Registar uma aplicação na plataforma de identidade da Microsoft](../../active-directory/develop/quickstart-register-app.md).
 2. Em Azure AD, selecione **a aplicação Expor**.
 3. Selecione **Conjunto** para **ID URI de aplicação.**
 
@@ -44,7 +43,7 @@ Como um passo opcional pode definir o papel da aplicação no manifesto da aplic
 
 Este passo pode ser feito através dos [mesmos comandos PowerShell](../alerts/action-groups.md#secure-webhook-powershell-script).
 
-## <a name="create-a-secure-webhook-action-group"></a>Criar um grupo de ação Secure Webhook
+## <a name="create-a-secure-webhook-action-group"></a>Crie um grupo de ação do Webhook Seguro
 
 Depois da sua aplicação estar registada no Azure AD, pode criar itens de trabalho na sua ferramenta ITSM com base em alertas Azure, utilizando a ação Secure Webhook em grupos de ação.
 

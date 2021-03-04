@@ -1,17 +1,16 @@
 ---
 title: Parse os dados de texto nos registos do Monitor Azure | Microsoft Docs
 description: Descreve diferentes opções para analisar dados de registo nos registos do Azure Monitor quando os dados são ingeridos e quando são recuperados numa consulta, comparando as vantagens relativas para cada um.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/04/2018
-ms.openlocfilehash: 8f6c35fd1bb6b46f512f9245d8e3d41df428692b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 2e2babd39dc9dadf06c9a3ca3292e021e0c1deaa
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101733946"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102037188"
 ---
 # <a name="parse-text-data-in-azure-monitor-logs"></a>Parse os dados de texto nos registos do Azure Monitor
 Alguns dados de registo recolhidos pelo Azure Monitor incluirão várias informações numa única propriedade. Analisar estes dados em múltiplas propriedades facilita a sua utilização em consultas. Um exemplo comum é um [log personalizado](../agents/data-sources-custom-logs.md) que recolhe uma entrada de registo inteira com vários valores numa única propriedade. Ao criar propriedades separadas para os diferentes valores, pode pesquisar e agregar em cada um.
