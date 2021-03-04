@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 9abf389eb7f8862440f860c53a0dbd8b10315c67
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: d33634c08b85ad633fdad3f709b2b2182571d7de
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100558146"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102034766"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Noções básicas de modelos de um duplo digital do Azure Digital Twins
 
@@ -65,7 +65,7 @@ A diferença entre propriedades e telemetria para os modelos Azure Digital Twins
 
 Como resultado, ao desenhar um modelo em Azure Digital Twins, provavelmente usará **propriedades** na maioria dos casos para modelar os seus gémeos. Isto permite-lhe ter o armazenamento de suporte e a capacidade de ler e consultar os campos de dados.
 
-A telemetria e as propriedades muitas vezes trabalham em conjunto para lidar com a entrada de dados dos dispositivos. Como todas as entradas para Azure Digital Twins são via [APIs,](how-to-use-apis-sdks.md)você normalmente usará a sua função de entrada para ler eventos de telemetria ou propriedade de dispositivos, e definir uma propriedade em ADT em resposta. 
+A telemetria e as propriedades muitas vezes trabalham em conjunto para lidar com a entrada de dados dos dispositivos. Como todas as entradas para Azure Digital Twins são via [APIs,](how-to-use-apis-sdks.md)você normalmente usará a sua função de entrada para ler eventos de telemetria ou propriedade de dispositivos, e definir uma propriedade em Azure Digital Twins em resposta. 
 
 Também pode publicar um evento de telemetria da Azure Digital Twins API. Tal como acontece com outras telemetrias, este é um evento de curta duração que requer um ouvinte a manusear.
 
@@ -154,7 +154,7 @@ No entanto, se tiver muitos modelos para carregar — ou se tiverem muitas inter
 
 _**Para visualizar modelos**_
 
-Depois de ter enviado modelos para a sua instância Azure Digital Twins, pode ver os modelos na sua instância Azure Digital Twins, incluindo qualquer herança e relacionamentos de modelo, utilizando o [**Visualizer Modelo ADT.**](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/AdtModelVisualizer) Esta amostra está atualmente num estado de projeto. Encorajamos a comunidade de desenvolvimento de gémeos digitais a estender e contribuir para a amostra. 
+Depois de ter carregado os modelos na sua instância Azure Digital Twins, pode ver os modelos na sua instância Azure Digital Twins, incluindo qualquer herança e relacionamentos de modelos, utilizando o [**Visualizer Modelo Azure Digital Twins.**](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/AdtModelVisualizer) Esta amostra está atualmente num estado de projeto. Encorajamos a comunidade de desenvolvimento de gémeos digitais a estender e contribuir para a amostra. 
 
 ## <a name="next-steps"></a>Passos seguintes
 

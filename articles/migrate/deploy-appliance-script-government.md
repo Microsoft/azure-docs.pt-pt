@@ -6,12 +6,12 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 04/16/2020
-ms.openlocfilehash: f31211c4448ad5bbe8d839b2ec86b0b61970f568
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 6778c8e5e1e4fa83d34141fd13ba21d483ab76e9
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96752197"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102041353"
 ---
 # <a name="set-up-an-appliance-in-azure-government"></a>Montar um aparelho no Governo de Azure 
 
@@ -37,7 +37,7 @@ Para configurar o aparelho para VMware, descarregue um ficheiro com fecho do por
 ### <a name="download-the-script"></a>Descarregue o script
 
 1.  In **Migration Goals**  >  **Servers**  >  **Azure Migrate: Server Assessment**, click **.click**.
-2.  In **Discover machines**  >  **Are your machines virtualized?** **Yes, with VMware vSphere hypervisor**
+2.  In **Discover machines**  >  **Are your machines virtualized?** 
 3.  Clique **em Baixar**, para descarregar o ficheiro com fecho de correr. 
 
 
@@ -91,7 +91,7 @@ Para configurar o aparelho para Hiper-V, descarregue um ficheiro com fecho do po
 ### <a name="download-the-script"></a>Descarregue o script
 
 1.  In **Migration Goals**  >  **Servers**  >  **Azure Migrate: Server Assessment**, click **.click**.
-2.  In **Discover machines**  >  **Are your machines virtualized?** **Yes, with Hyper-V**
+2.  In **Discover machines**  >  **Are your machines virtualized?** 
 3.  Clique **em Baixar**, para descarregar o ficheiro com fecho de correr. 
 
 
@@ -146,7 +146,7 @@ Para configurar o aparelho para VMware, descarregue um ficheiro com fecho do por
 ### <a name="download-the-script"></a>Descarregue o script
 
 1.  In **Migration Goals**  >  **Servers**  >  **Azure Migrate: Server Assessment**, click **.click**.
-2.  In **Discover machines**  >  **Are your machines virtualized?** **Not virtualized/Other**
+2.  In **Discover machines**  >  **Are your machines virtualized?** 
 3.  Clique **em Baixar**, para descarregar o ficheiro com fecho de correr. 
 
 
@@ -196,6 +196,6 @@ Certifique-se de que o aparelho pode ligar-se aos URLs Azure para [nuvens govern
 
 Depois de colocar o aparelho, é necessário configurá-lo pela primeira vez e registá-lo com o projeto Azure Migrate.
 
-- Configurar o aparelho para [VMware](how-to-set-up-appliance-vmware.md#configure-the-appliance).
+- Configurar o aparelho para [VMware](how-to-set-up-appliance-vmware.md#4-configure-the-appliance).
 - Ativar o aparelho para [Hiper-V](how-to-set-up-appliance-hyper-v.md#configure-the-appliance).
 - Configurar o aparelho para [servidores físicos.](how-to-set-up-appliance-physical.md)

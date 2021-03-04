@@ -12,12 +12,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: d7bc92af31eb179155fd473356c741f365a07a35
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: b7b7f1c5fb0a7991707a26b4a7f54fb3ffaf7bab
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99525149"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102033525"
 ---
 # <a name="enable-multi-factor-authentication-in-azure-active-directory-b2c"></a>Ativar a autenticação multifator no Azure Active Directory B2C
 
@@ -43,7 +43,7 @@ Esta funcionalidade ajuda as aplicações a lidar com cenários como:
 1. Na secção de **autenticação multifactor,** selecione o **método MFA** pretendido e, em seguida, sob **a aplicação do MFA** selecione **Sempre em**, ou **Condicional (Recomendado)**.
    > [!NOTE]
    >
-   > - Se selecionar **Conditional (Recomendado)**, também terá de [adicionar uma política de Acesso Condicional](conditional-access-identity-protection-setup.md#add-a-conditional-access-policy) e especificar as aplicações a que pretende aplicar a política.
+   > - Se selecionar **Conditional (Recomendado)**, também terá de [adicionar Acesso Condicional aos fluxos do utilizador](conditional-access-user-flow.md), e especificar as aplicações a que pretende aplicar a política.
    > - A autenticação de vários fatores (MFA) é desativada por padrão para fluxos de utilizador de inscrição. Pode ativar o MFA nos fluxos de utilizador com inscrição no telefone, mas como um número de telefone é usado como identificador principal, a senha de e-mail é a única opção disponível para o segundo fator de autenticação.
 
 1. Selecione **Guardar**. O MFA está agora ativado para este fluxo de utilizador.

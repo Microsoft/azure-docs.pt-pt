@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 061b190af6e66cf0c7e8095251a3ef77d9aaf247
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 3a8429d9dc6820b1f79c49d325872b61833f988d
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341690"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102095549"
 ---
 # <a name="faq---general-questions-about-azure-security-center"></a>FAQ - Perguntas gerais sobre o Azure Security Center
 
@@ -29,7 +29,7 @@ O Security Center utiliza o agente Log Analytics para recolher e armazenar dados
 
 
 ## <a name="how-do-i-get-azure-security-center"></a>Como consigo o Centro de Segurança Azure?
-O Azure Security Center está ativado com a subscrição do Microsoft Azure e acedido a partir do [portal Azure](https://azure.microsoft.com/features/azure-portal/). Para aceder ao mesmo, [inscreva-se no portal,](https://portal.azure.com)selecione **Procurar**e percorra para **o Centro de Segurança.**
+O Azure Security Center está ativado com a subscrição do Microsoft Azure e acedido a partir do [portal Azure](https://azure.microsoft.com/features/azure-portal/). Para aceder ao mesmo, [inscreva-se no portal,](https://portal.azure.com)selecione **Procurar** e percorra para **o Centro de Segurança.**
 
 
 ## <a name="which-azure-resources-are-monitored-by-azure-security-center"></a>Que recursos da Azure são monitorizados pelo Centro de Segurança Azure?
@@ -46,10 +46,10 @@ A página **de visão geral do Centro** de Segurança mostra a postura de segura
 
 
 
-## <a name="what-is-a-security-policy"></a>O que é uma política de segurança?
-Uma política de segurança define o conjunto de controlos recomendados para os recursos dentro da subscrição especificada. No Azure Security Center, define políticas para as suas subscrições Azure de acordo com os requisitos de segurança da sua empresa e o tipo de aplicações ou sensibilidade dos dados em cada subscrição.
+## <a name="what-is-a-security-initiative"></a>O que é uma iniciativa de segurança?
+Uma iniciativa de segurança define o conjunto de controlos (políticas) que são recomendados para os recursos dentro da subscrição especificada. No Azure Security Center, atribui iniciativas para as suas subscrições Azure de acordo com os requisitos de segurança da sua empresa e o tipo de aplicações ou sensibilidade dos dados em cada subscrição.
 
-As políticas de segurança ativadas no Azure Security Center impulsionam recomendações de segurança e monitorização. Para saber mais sobre as políticas de segurança, consulte [a monitorização de segurança no Centro de Segurança Azure.](security-center-monitoring.md)
+As políticas de segurança ativadas no Azure Security Center impulsionam recomendações de segurança e monitorização. Saiba mais em [Quais são as políticas de segurança, iniciativas e recomendações?](security-policy-concept.md)
 
 
 ## <a name="who-can-modify-a-security-policy"></a>Quem pode modificar uma política de segurança?

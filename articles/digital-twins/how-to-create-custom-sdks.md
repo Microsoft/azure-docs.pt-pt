@@ -8,12 +8,12 @@ ms.date: 4/24/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: devx-track-js
-ms.openlocfilehash: e0c0d18dbb3596733d02430554fd40ec16180c64
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: e7239bfdca1dc464048c0db08488029b0868deb5
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99980665"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102049802"
 ---
 # <a name="create-custom-sdks-for-azure-digital-twins-using-autorest"></a>Crie SDKs personalizados para gémeos digitais Azure usando o AutoRest
 
@@ -44,10 +44,10 @@ Para executar o AutoRest contra o ficheiro Azure Digital Twins Swagger, siga est
 3. Corra autorest com o seguinte comando. Substitua o `<language>` espaço reservado pelo seu idioma de eleição: , , e assim por `python` `java` `go` diante. (Pode encontrar a lista completa de opções no [AutoRest README](https://github.com/Azure/autorest).)
 
 ```cmd/sh
-autorest --input-file=digitaltwins.json --<language> --output-folder=ADTApi --add-credentials --azure-arm --namespace=ADTApi
+autorest --input-file=digitaltwins.json --<language> --output-folder=DigitalTwinsApi --add-credentials --azure-arm --namespace=DigitalTwinsApi
 ```
 
-Como resultado, verá uma nova pasta chamada *ADTApi* no seu diretório de trabalho. Os ficheiros SDK gerados terão o espaço de nome *ADTApi*. Você continuará a usar esse espaço de nome através do resto dos exemplos de uso neste artigo.
+Como resultado, verá uma nova pasta chamada *DigitalTwinsApi* no seu diretório de trabalho. Os ficheiros SDK gerados terão o espaço de nome *DigitalTwinsApi*. Você continuará a usar esse espaço de nome através do resto dos exemplos de uso neste artigo.
 
 O AutoRest suporta uma vasta gama de geradores de códigos linguísticos.
 
@@ -60,8 +60,8 @@ Esta secção dá instruções sobre como construir o SDK como uma biblioteca de
 Eis os passos:
 
 1. Crie uma nova solução visual Studio para uma biblioteca de classes
-2. Use *a ADTApi* como nome do projeto
-3. No Solutions Explorer, selecione à direita o projeto *ADTApi* da solução gerada e escolha *Adicionar > Item Existente...*
+2. Use *o DigitalTwinsApi* como nome do projeto
+3. No Solutions Explorer, selecione à direita o projeto *DigitalTwinsApi* da solução gerada e escolha *Adicionar > Item Existente...*
 4. Encontre a pasta onde gerou o SDK e selecione os ficheiros ao nível da raiz
 5. Prima "Ok"
 6. Adicione uma pasta ao projeto (selecione à direita o projeto no Solution Explorer e escolha *Adicionar > Nova Pasta)*

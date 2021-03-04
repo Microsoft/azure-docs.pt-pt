@@ -5,15 +5,15 @@ author: craigktreasure
 manager: vriveras
 services: azure-object-anchors
 ms.author: crtreasu
-ms.date: 02/19/2021
+ms.date: 03/02/2021
 ms.topic: conceptual
 ms.service: azure-object-anchors
-ms.openlocfilehash: 020f727674449523a57a608e8930d67e0f239cf6
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 74663f05c5ff995a090c7cd35e4edf46a754da17
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101747119"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102034613"
 ---
 # <a name="runtime-sdk-overview"></a>Visão geral do Runtime SDK
 
@@ -25,7 +25,7 @@ Todos os tipos descritos abaixo podem ser encontrados no espaço de **nomes Micr
 
 ### <a name="objectmodel"></a>Modelo de Objeto
 
-Um [ObjectModel](https://docs.microsoft.com/dotnet/api/microsoft.azure.objectanchors.objectmodel) representa a geometria de um objeto físico e codifica os parâmetros necessários para a deteção e posição de estimativa. Deve ser criado utilizando o [serviço 'Âncoras de Objectos'.](../quickstarts/get-started-model-ingestion.md) Em seguida, uma aplicação pode carregar o ficheiro de modelo gerado utilizando a API de Âncoras de Objetos e consultar a malha incorporada nesse modelo para visualização.
+Um [ObjectModel](https://docs.microsoft.com/dotnet/api/microsoft.azure.objectanchors.objectmodel) representa a geometria de um objeto físico e codifica os parâmetros necessários para a deteção e posição de estimativa. Deve ser criado utilizando o [serviço 'Âncoras de Objectos'.](../quickstarts/get-started-model-conversion.md) Em seguida, uma aplicação pode carregar o ficheiro de modelo gerado utilizando a API de Âncoras de Objetos e consultar a malha incorporada nesse modelo para visualização.
 
 ### <a name="objectsearcharea"></a>Área de ObjetoSearch
 
@@ -103,7 +103,7 @@ if(status != ObjectObserverStatus.Allowed)
 }
 ```
 
-Em seguida, a aplicação cria um observador de objetos e carrega os modelos necessários gerados pelo [Serviço de Ingestão de Âncoras de Objetos](../quickstarts/get-started-model-ingestion.md).
+Em seguida, a aplicação cria um observador de objetos e carrega os modelos necessários gerados pelo serviço de conversão do [modelo Object Anchors](../quickstarts/get-started-model-conversion.md).
 
 ```cs
 var observer = new ObjectObserver();

@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: quickstart
 ms.date: 02/15/2021
 ms.custom: template-quickstart
-ms.openlocfilehash: 3540204d66bb589c567514f92a9a8acb2159e343
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 77ccf09903b6cff83b52d60d43d0c52533c9c1ad
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101665644"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102041693"
 ---
 # <a name="set-up-your-azure-percept-dk-and-deploy-your-first-ai-model"></a>Configure o seu Azure Percept DK e implemente o seu primeiro modelo de IA
 
@@ -173,7 +173,7 @@ Se desejar criar uma nova subscrição, siga [estes passos](https://docs.microso
 
     :::image type="content" source="./media/quickstart-percept-dk-setup/main-19-0-warning.png" alt-text="Experimente a instalação, desconectar o aviso."::: 
 
-1. Continue até ao Portal Azure – Volte à janela de experiência de configuração e clique no botão **Continuar para o portal Azure** para começar a criar os seus modelos de IA personalizados no Azure Percept Studio.
+1. Continue até ao portal Azure – Volte à janela de experiência de configuração e clique no botão **Continuar para o portal Azure** para começar a criar os seus modelos de IA personalizados no Azure Percept Studio.
 
     > [!NOTE]
     > Verifique se o seu computador anfitrião já não está ligado ao ponto de acesso do dev kit nas definições wifi e está agora novamente ligado ao wifi local.
@@ -205,8 +205,6 @@ Se desejar criar uma nova subscrição, siga [estes passos](https://docs.microso
     
 1. Coloque uma nova amostra pré-construída no seu dispositivo conectado. Selecione uma amostra da biblioteca e clique em "Implementar para dispositivo"
 
-    :::image type="content" source="./media/quickstart-percept-dk-setup/portal-05-1-select-prebuilt.png" alt-text="Selecione um pré-construído.":::
-    
     :::image type="content" source="./media/quickstart-percept-dk-setup/portal-05-2-select-journey.png" alt-text="Ver deteção de objetos em ação.":::
 
 ## <a name="next-steps"></a>Passos seguintes

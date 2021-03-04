@@ -1,16 +1,15 @@
 ---
 title: Gerir estados de alertas e de grupos inteligentes
 description: Gerir os estados das instâncias de alerta e grupo inteligente
-ms.subservice: alerts
 ms.topic: conceptual
 author: anantr
 ms.date: 09/24/2018
-ms.openlocfilehash: fa1701c59f099f5222ab6454cc67b9dc20d1e7e7
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: cac926c3c56c7f58e5237b820e0328999ffe2c52
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101701115"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102033576"
 ---
 # <a name="manage-alert-and-smart-group-states"></a>Gerir estados de alertas e de grupos inteligentes
 

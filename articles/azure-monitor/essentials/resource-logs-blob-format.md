@@ -6,13 +6,12 @@ services: monitoring
 ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: johnkem
-ms.subservice: logs
-ms.openlocfilehash: e6704eeab853c8d56c6e9cde5b8539b690d9b5c7
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d4be3983d70a1ca78d849e231b8cc55e2b5895d4
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100616492"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102033202"
 ---
 # <a name="prepare-for-format-change-to-azure-monitor-platform-logs-archived-to-a-storage-account"></a>Prepare-se para a mudança de formato para registos de plataforma do Azure Monitor arquivados numa conta de armazenamento
 

@@ -7,12 +7,12 @@ ms.author: crtreasu
 ms.date: 02/02/2021
 ms.topic: quickstart
 ms.service: azure-object-anchors
-ms.openlocfilehash: 7e71719d83426a3444435ed78d0d63a2599a9157
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 8a02bb7c70df4fed55c354638fe6662b85e6c164
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101749054"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102049669"
 ---
 # <a name="quickstart-create-a-hololens-app-with-azure-object-anchors-in-cwinrt-and-directx"></a>Quickstart: Criar uma aplicação HoloLens com âncoras de objetos Azure, em C++/WinRT e DirectX
 
@@ -23,7 +23,6 @@ Vai aprender a:
 > [!div class="checklist"]
 > * Criar e carregar lateralmente uma aplicação HoloLens
 > * Detetar um objeto e visualizar o seu modelo
-> * Capturar diagnósticos de tempo de execução
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -64,7 +63,7 @@ Para lançar e depurar a aplicação, selecione **Debug > Comece a depurar**. Pa
 
 ## <a name="ingest-object-model-and-detect-its-instance"></a>Ingerir o modelo de objeto e detetar a sua instância
 
-Terá de criar um modelo de objeto para executar a aplicação da amostra. Assuma que já tem um CAD ou um modelo de malha 3D digitalizado de um objeto no seu espaço. Consulte o [Quickstart: Ingerir um Modelo 3D](./get-started-model-ingestion.md) sobre como criar um modelo.
+Terá de criar um modelo de objeto para executar a aplicação da amostra. Assuma que já tem um CAD ou um modelo de malha 3D digitalizado de um objeto no seu espaço. Consulte o [Quickstart: Ingerir um Modelo 3D](./get-started-model-conversion.md) sobre como criar um modelo.
 
 Baixe esse modelo, **cadeira.ou** no nosso caso, para o seu computador. Em seguida, a partir do portal do dispositivo HoloLens, selecione **System > File explorer > LocalAppData > AoaSampleApp > LocalState** e selecione **Browse...**. Em seguida, selecione o seu ficheiro modelo, **chair.ou,** por exemplo, e selecione **Upload**. Em seguida, deve ver o ficheiro modelo na cache local.
 
@@ -86,7 +85,7 @@ A aplicação alinha de perto um modelo 3D à sua contraparte física. Um utiliz
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Quickstart: Ingerir um Modelo 3D](./get-started-model-ingestion.md)
+> [Quickstart: Ingerir um Modelo 3D](./get-started-model-conversion.md)
 
 > [!div class="nextstepaction"]
 > [Conceitos: Visão geral do SDK](../concepts/sdk-overview.md)

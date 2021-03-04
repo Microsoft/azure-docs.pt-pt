@@ -2,17 +2,16 @@
 title: Depreciação das métricas do disco no portal Azure | Microsoft Docs
 description: Saiba quais as métricas do disco que foram depreciadas e como atualizar os seus alertas métricos para usar novas métricas.
 services: azure-monitor
-ms.subservice: metrics
 ms.topic: conceptual
 author: albecker1
 ms.author: albecker
 ms.date: 03/12/2020
-ms.openlocfilehash: 623d9385b9ae6b13c8964f655fb973fe67a0918a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 607ccacbfff86decaecaad0a869c8c0fe7500680
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100616522"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102033406"
 ---
 # <a name="disk-metrics-deprecation-in-the-azure-portal"></a>Depreciação das métricas do disco no portal Azure
 

@@ -1,18 +1,17 @@
 ---
 title: Visão geral do conector de gestão de serviços de TI
 description: Este artigo fornece uma visão geral do Conector de Gestão de Serviços de TI (ITSMC).
-ms.subservice: logs
 ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 12/16/2020
 ms.custom: references_regions
-ms.openlocfilehash: d22bb05ad6db3630e9b0242e098fd81f65e34b05
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 3f6131bc585b91676f29ed34dfedd49a5ca92201
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100617191"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102041795"
 ---
 # <a name="it-service-management-connector-overview"></a>Visão geral do conector de gestão de serviços de TI
 

@@ -7,12 +7,12 @@ ms.author: aymarqui
 ms.date: 02/12/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 8828b2dc48a8865e43a176757dc973a5cf85b784
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a39b91304c4123b216a0b508dcea0547cae5ab43
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101703006"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102041506"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-signalr-service"></a>Integre as Gémeas Digitais Azure com o Serviço Azure SignalR
 
@@ -51,7 +51,7 @@ Primeiro, descarregue as aplicações de amostras necessárias. Vai precisar de 
 
     Isto irá transferir uma cópia da amostra repo para a sua máquina, como **digital-twins-samples-master.zip**. Deszipe a pasta.
 * Amostra de [**aplicações web de integração SignalR**](/samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/): Esta é uma amostra React web app que irá consumir dados de telemetria Azure Digital Twins de um Serviço Azure SignalR.
-    -  Navegue no link de amostra e apere no botão *Download ZIP* para transferir uma cópia da amostra para a sua máquina, como _**Azure_Digital_Twins_SignalR_integration_web_app_sample.zip**_. Deszipe a pasta.
+    -  Navegue para o link de amostra e use o mesmo processo de descarregamento para transferir uma cópia da amostra para a sua máquina, como _**digitaltwins-signalr-webapp-sample-main.zip**_. Deszipe a pasta.
 
 [!INCLUDE [Create instance](../azure-signalr/includes/signalr-quickstart-create-instance.md)]
 
@@ -139,7 +139,7 @@ Em seguida, configurará a aplicação web do cliente da amostra. Comece por rec
 
     :::image type="content" source="media/how-to-integrate-azure-signalr/get-function-url.png" alt-text="Vista do portal Azure da função &quot;negociar&quot;. O botão 'Obter URL de função' é realçado, e a parte do URL desde o início até '/api'":::
 
-1. Utilizando o Visual Studio ou qualquer editor de código à sua escolha, abra a pasta _**de Azure_Digital_Twins_SignalR_integration_web_app_sample**_ desapertado que descarregou na secção [*Descodiá-la.*](#download-the-sample-applications)
+1. Utilizando o Visual Studio ou qualquer editor de código à sua escolha, abra a pasta _**digital-signalr-webapp-main-sample-main**_ que descarregou na secção [*Descodiscar as aplicações da amostra.*](#download-the-sample-applications)
 
 1. Abra o ficheiro *src/App.js* e substitua o URL de função `HubConnectionBuilder` pelo URL do ponto final HTTP da função de **negociação** que guardou no passo anterior:
 
@@ -148,7 +148,7 @@ Em seguida, configurará a aplicação web do cliente da amostra. Comece por rec
             .withUrl('<Function URL>')
             .build();
     ```
-1. No pedido de *comando do Programador* visual ou em qualquer janela de comando da sua máquina, navegue para a pasta *Azure_Digital_Twins_SignalR_integration_web_app_sample\src.* Executar o seguinte comando para instalar as embalagens de nó dependentes:
+1. No pedido de comando do *Programador* visual ou em qualquer janela de comando da sua máquina, navegue para a pasta *digitaltwins-signalr-webapp-main\src.* Executar o seguinte comando para instalar as embalagens de nó dependentes:
 
     ```cmd
     npm install
@@ -175,7 +175,7 @@ Não precisas de fazer mais nada nesta consola, mas deixa-a a funcionar enquanto
 
 ### <a name="see-the-results"></a>Veja os resultados
 
-Para ver os resultados em ação, inicie a amostra de **aplicações web de integração signalR.** Pode fazê-lo a partir de qualquer janela da consola na localização *Azure_Digital_Twins_SignalR_integration_web_app_sample\src,* executando este comando:
+Para ver os resultados em ação, inicie a amostra de **aplicações web de integração signalR.** Pode fazê-lo a partir de qualquer janela de consola na localização *digitaltwins-signalr-webapp-main\src,* executando este comando:
 
 ```cmd
 npm start
@@ -203,7 +203,7 @@ Utilizando o Azure Cloud Shell ou o Azure CLI local, pode eliminar todos os recu
 az group delete --name <your-resource-group>
 ```
 
-Por fim, elimine as pastas de amostra de projeto que descarregou para a sua máquina local *(digital-twins-samples-master.zip* e *Azure_Digital_Twins_SignalR_integration_web_app_sample.zip).*
+Por fim, elimine as pastas de amostra de projeto que descarregou para a sua máquina local *(digital-twins-samples-master.zip*, *digitaltwins-signalr-webapp-sample-main.zip*, e para as suas congéneres desapertadas).
 
 ## <a name="next-steps"></a>Passos seguintes
 

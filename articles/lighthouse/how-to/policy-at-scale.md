@@ -1,14 +1,14 @@
 ---
 title: Implementar a Política Azure para delegar subscrições em escala
 description: Saiba como o Azure Lighthouse permite implementar uma definição de política e atribuição de políticas em vários inquilinos.
-ms.date: 11/09/2020
+ms.date: 03/02/2021
 ms.topic: how-to
-ms.openlocfilehash: 5af938c61ad3e42e36360a15c6011b54fa1e823d
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 48354c3cca7574b1d5acf71865218564591bc23e
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412073"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102049785"
 ---
 # <a name="deploy-azure-policy-to-delegated-subscriptions-at-scale"></a>Implementar a Política Azure para delegar subscrições em escala
 
@@ -51,6 +51,9 @@ foreach ($ManagedSub in $ManagedSubscriptions)
 }
 ```
 
+> [!NOTE]
+> Enquanto você pode implementar políticas em vários inquilinos, atualmente você não pode [ver detalhes](../../governance/policy/how-to/determine-non-compliance.md#compliance-details) de conformidade para recursos não conformes nestes inquilinos.
+
 ## <a name="validate-the-policy-deployment"></a>Validar a implementação da política
 
 Depois de ter implementado o modelo Azure Resource Manager, pode confirmar que a definição de política foi aplicada com sucesso ao tentar criar uma conta de armazenamento com **EnableHttpsTrafficOnly** definida como **falsa** numa das suas subscrições delegadas. Por causa da atribuição de políticas, não poderá criar esta conta de armazenamento.  
@@ -64,7 +67,7 @@ New-AzStorageAccount -ResourceGroupName (New-AzResourceGroup -name policy-test -
                      -Verbose                  
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando terminar, remova a definição de política e a atribuição criada pela implementação.
 
@@ -90,9 +93,6 @@ foreach ($ManagedSub in $ManagedSubscriptions)
     }
 }
 ```
-
-> [!NOTE]
-> Enquanto você pode implementar políticas em vários inquilinos, atualmente você não pode [ver detalhes](../../governance/policy/how-to/determine-non-compliance.md#compliance-details) de conformidade para recursos não conformes nestes inquilinos.
 
 ## <a name="next-steps"></a>Passos seguintes
 

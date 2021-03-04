@@ -4,15 +4,15 @@ description: Aprenda a configurar rotas, impor regras de segurança e configura�
 services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
-ms.topic: quickstart
-ms.date: 12/08/2020
+ms.topic: conceptual
+ms.date: 02/18/2021
 ms.author: cshoe
-ms.openlocfilehash: 534cb8a597640b230e7aa8f8d036d2d4ac43dde6
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 324a8e75488d74fc6aa52e499b8dde616cd9beb5
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101703607"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102034052"
 ---
 # <a name="configure-azure-static-web-apps"></a>Configurar aplicativos web estáticos Azure
 

@@ -1,18 +1,17 @@
 ---
 title: Envie o registo de atividade do Azure para log analytics espaço de trabalho usando o modelo de Gestor de Recursos Azure
 description: Utilize modelos ARM para criar um espaço de trabalho log analytics e uma definição de diagnóstico para enviar o registo de atividade para registos do Monitor Azure.
-ms.subservice: logs
 ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurecli
 author: bwren
 ms.author: bwren
 ms.date: 06/25/2020
-ms.openlocfilehash: 0a740b4c6c6e89c9a4990651779ea4f0b376c971
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 56810cffcb9665810c452276be34e6924fd992b2
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101734354"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102033287"
 ---
 # <a name="quickstart-send-azure-activity-log-to-log-analytics-workspace-using-an-arm-template"></a>Quickstart: Enviar log de atividade azure para log analytics espaço de trabalho usando um modelo ARM
 

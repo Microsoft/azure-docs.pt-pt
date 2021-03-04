@@ -5,15 +5,15 @@ author: craigktreasure
 manager: virivera
 services: azure-object-anchors
 ms.author: crtreasu
-ms.date: 02/02/2021
+ms.date: 03/02/2021
 ms.topic: quickstart
 ms.service: azure-object-anchors
-ms.openlocfilehash: 78a8136c3f66d0c790f6fd7508ca37b55a1541fd
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 1fd42f7b2da82da17dc19f2a57ea9b64f78f3fe0
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101748913"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102049750"
 ---
 # <a name="quickstart-create-a-hololens-app-with-azure-object-anchors-in-unity-with-mrtk"></a>Quickstart: Criar uma app HoloLens com âncoras de objetos Azure, em Unidade com MRTK
 
@@ -39,8 +39,6 @@ Vai aprender a:
 In Unitity, abra o `quickstarts/apps/unity/mrtk` projeto.
 
 [!INCLUDE [Import Unity Package](../../../includes/object-anchors-quickstart-unity-import-package.md)]
-
-[!INCLUDE [Unity build and run](../../../includes/object-anchors-quickstart-unity-build-run.md)]
 
 [!INCLUDE [Unity build sample scene 1](../../../includes/object-anchors-quickstart-unity-build-sample-scene-1.md)]
 

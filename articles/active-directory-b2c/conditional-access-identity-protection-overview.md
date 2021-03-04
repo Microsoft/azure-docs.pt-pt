@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: overview
-ms.date: 09/01/2020
+ms.date: 03/03/2021
 ms.author: mimart
 author: msmimart
 manager: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b17706f908613336714bb7daf08fdf3bfd5eaf64
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: e2ec8af824d573493d1da743923956e587ded62e
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96928397"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102033831"
 ---
 # <a name="identity-protection-and-conditional-access-for-azure-ad-b2c"></a>Proteção de Identidade e Acesso Condicional para Azure AD B2C
 
@@ -49,21 +49,21 @@ Proteção de Identidade e Acesso Condicional em Azure AD B2C geralmente funcion
 
 - Nos inquilinos Azure AD B2C, as deteções de risco de Proteção de Identidade estão disponíveis apenas para contas B2C locais, e não para identidades sociais como google ou Facebook.
 
-- Nos inquilinos Azure AD B2C, está disponível um subconjunto de deteções de risco de Proteção de Identidade. Consulte [a Configuração da Proteção de Identidade](conditional-access-identity-protection-setup.md#set-up-identity-protection).
+- Nos inquilinos Azure AD B2C, está disponível um subconjunto de deteções de risco de Proteção de Identidade. Consulte [o risco de investigação com proteção de](identity-protection-investigate-risk.md)identidade e adicione acesso condicional aos [fluxos do utilizador.](conditional-access-user-flow.md)
 
 - A funcionalidade de conformidade do dispositivo de acesso condicional não está disponível nos inquilinos Azure AD B2C.
 
 
 ## <a name="integrate-conditional-access-with-user-flows-and-custom-policies"></a>Integrar acesso condicional com fluxos de utilizador e políticas personalizadas
 
-No Azure AD B2C, pode desencadear condições de acesso condicional a partir de fluxos de utilizador incorporados. Também pode incorporar o Acesso Condicional em políticas personalizadas. Tal como acontece com outros aspetos do fluxo de utilizador B2C, as mensagens de experiência de utilizador final podem ser personalizadas de acordo com as alternativas de voz, marca e mitigação da sua organização. Ver [Definir um perfil técnico de acesso condicional.](conditional-access-technical-profile.md)
+No Azure AD B2C, pode acionar condições de Acesso Condicional a partir de fluxos de utilizador incorporados. Também pode incorporar o Acesso Condicional em políticas personalizadas. Tal como acontece com outros aspetos do fluxo de utilizador B2C, as mensagens de experiência de utilizador final podem ser personalizadas de acordo com as alternativas de voz, marca e mitigação da sua organização. Ver [Adicionar Acesso Condicional aos fluxos do utilizador.](conditional-access-user-flow.md)
 
 ## <a name="microsoft-graph-api"></a>Microsoft Graph API
 
-Também pode gerir as políticas de Acesso Condicional em Azure AD B2C com a Microsoft Graph API. Para mais informações, consulte a [documentação de Acesso Condicional](../active-directory/conditional-access/overview.md) e a [referência do Microsoft Graph](/graph/api/resources/conditionalaccesspolicy?view=graph-rest-beta).
+Também pode gerir as políticas de Acesso Condicional em Azure AD B2C com a Microsoft Graph API. Para mais informações, consulte a [documentação de Acesso Condicional](../active-directory/conditional-access/overview.md) e as operações do [Microsoft Graph](microsoft-graph-operations.md#conditional-access).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Configurar proteção de identidade e acesso condicional para Azure AD B2C](conditional-access-identity-protection-setup.md)
+- [Adicionar Acesso Condicional aos fluxos do utilizador](conditional-access-user-flow.md)
 - [Saiba mais sobre proteção de identidade em Azure AD](../active-directory/identity-protection/overview-identity-protection.md)
 - [Saiba mais sobre acesso condicional](../active-directory/conditional-access/overview.md)

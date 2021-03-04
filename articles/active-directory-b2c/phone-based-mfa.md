@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 02/01/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 3ca73e020009817001f309ddf29c2984a8541026
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: cc9e0be90c138ba33e1b4dfe11ea6f9c8b7da297
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99527735"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102033559"
 ---
 # <a name="securing-phone-based-multi-factor-authentication-mfa"></a>Assegurar a autenticação de vários fatores por telefone (MFA)
 
@@ -89,7 +89,7 @@ Tome as seguintes ações para ajudar a mitigar inscrições fraudulentas.
 - Utilize as versões **recomendadas** dos fluxos do utilizador para fazer o seguinte:
      
    - [Ativar a função de código de acesso de uma vez por e-mail (OTP)](phone-authentication-user-flows.md) para MFA (aplica-se tanto aos fluxos de inscrição como de entrada).
-   - [Configure uma política de acesso condicional](conditional-access-identity-protection-setup.md) para bloquear as inscrições com base na localização (aplica-se apenas aos fluxos de entrada e não aos fluxos de inscrição).
+   - [Configure uma política de acesso condicional](conditional-access-user-flow.md) para bloquear as inscrições com base na localização (aplica-se apenas aos fluxos de entrada e não aos fluxos de inscrição).
    - Utilize conectores API para [integrar-se com uma solução anti-bot como o reCAPTCHA](https://github.com/Azure-Samples/active-directory-b2c-node-sign-up-user-flow-captcha) (aplica-se aos fluxos de inscrição).
 
 - Remova os códigos de país que não são relevantes para a sua organização a partir do menu suspenso onde o utilizador verifica o seu número de telefone (esta alteração será aplicável a futuras inscrições):

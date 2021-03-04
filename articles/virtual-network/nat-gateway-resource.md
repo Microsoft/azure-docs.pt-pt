@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/28/2021
 ms.author: allensu
-ms.openlocfilehash: 5c1f52fda2edfa0a03caa72fcd7fa8dc02d0a607
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 5c70c575464d82f714022291406418cdd1ca0f8d
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954669"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102094971"
 ---
 # <a name="designing-virtual-networks-with-nat-gateway-resources"></a>Projetar redes virtuais com recursos de gateway NAT
 
@@ -224,7 +224,7 @@ Embora o cenário pareça funcionar, o seu modelo de saúde e modo de falha é i
 >As zonas propriedade de um recurso de gateway NAT não são mutáveis.  Reimplantar recurso de gateway NAT com a preferência regional ou de zona pretendida.
 
 >[!NOTE] 
->Os endereços IP por si só não são redundantes em zona se nenhuma zona for especificada.  O frontend de um [Balancer de Carga Padrão é redundante](../load-balancer/load-balancer-standard-availability-zones.md#frontend) de zona se um endereço IP não for criado numa zona específica.  Isto não se aplica à NAT.  Apenas o isolamento regional ou de zona é apoiado.
+>Os endereços IP por si só não são redundantes em zona se nenhuma zona for especificada.  O frontend de um [Balancer de Carga Padrão é redundante](../load-balancer/load-balancer-standard-availability-zones.md) de zona se um endereço IP não for criado numa zona específica.  Isto não se aplica à NAT.  Apenas o isolamento regional ou de zona é apoiado.
 
 ## <a name="performance"></a>Desempenho
 
@@ -350,20 +350,3 @@ Queremos saber como podemos melhorar o serviço. Falta-lhe uma capacidade? Faça
 * Saiba mais sobre [a rede virtual NAT.](nat-overview.md)
 * Saiba mais [sobre métricas e alertas para os recursos de gateway DA NAT.](nat-metrics.md)
 * Saiba mais sobre [a resolução de problemas dos recursos de gateway DA NAT.](troubleshoot-nat.md)
-* Tutorial para validação do NAT Gateway
-  - [CLI do Azure](tutorial-create-validate-nat-gateway-cli.md)
-  - [PowerShell](tutorial-create-validate-nat-gateway-powershell.md)
-  - [Portal](tutorial-create-validate-nat-gateway-portal.md)
-* Quickstart para implantar um recurso de gateway NAT
-  - [CLI do Azure](./quickstart-create-nat-gateway-cli.md)
-  - [PowerShell](./quickstart-create-nat-gateway-powershell.md)
-  - [Portal](./quickstart-create-nat-gateway-portal.md)
-  - [Modelo](./quickstart-create-nat-gateway-template.md)
-* Saiba mais sobre o recurso nat gateway API
-  - [API REST](/rest/api/virtualnetwork/natgateways)
-  - [CLI do Azure](/cli/azure/network/nat/gateway)
-  - [PowerShell](/powershell/module/az.network/new-aznatgateway)
-* Saiba mais [sobre as zonas de disponibilidade.](../availability-zones/az-overview.md)
-* Saiba mais sobre o [balanceador de carga padrão](../load-balancer/load-balancer-overview.md).
-* Saiba mais sobre [as zonas de disponibilidade e o balanceador de carga padrão.](../load-balancer/load-balancer-standard-availability-zones.md)
-* [Diga-nos o que construir a seguir para o NAT de Rede Virtual no UserVoice](https://aka.ms/natuservoice).

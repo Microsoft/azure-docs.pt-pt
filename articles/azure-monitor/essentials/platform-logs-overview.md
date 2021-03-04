@@ -6,13 +6,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 12/19/2019
 ms.author: bwren
-ms.subservice: logs
-ms.openlocfilehash: 7a57a39dd72e2330c2adde2b471bca2f9f2e00a7
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 3300b0587cbb6c2193b56c9152af0cb11ea51936
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101725854"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102033304"
 ---
 # <a name="overview-of-azure-platform-logs"></a>Descrição geral dos registos de plataforma Azure
 Os registos da plataforma fornecem informações detalhadas de diagnóstico e auditoria para os recursos da Azure e para a plataforma Azure em que dependem. São geradas automaticamente, embora seja necessário configurar certos registos da plataforma para serem reencaminhados para um ou mais destinos para serem retidos. Este artigo fornece uma visão geral dos registos da plataforma, incluindo as informações que fornecem e como pode configurá-los para recolha e análise.

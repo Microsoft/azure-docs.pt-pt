@@ -3,12 +3,12 @@ title: Clusters geridos por tecido de serviço (pré-visualização)
 description: Os clusters geridos pela Service Fabric são uma evolução do modelo de recursos de cluster Azure Service Fabric que dinamiza a implementação e gestão de clusters.
 ms.topic: overview
 ms.date: 02/15/2021
-ms.openlocfilehash: 8b90b73ef5f3202788ac7857875427673ebb562b
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: 271852214097ee96ba6b10de7a94904981cd8ef8
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100635150"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102041234"
 ---
 # <a name="service-fabric-managed-clusters-preview"></a>Clusters geridos por tecido de serviço (pré-visualização)
 
@@ -59,8 +59,8 @@ Os clusters geridos do Service Fabric estão disponíveis tanto em SKUs Básicos
 | Contagem de nó min (exemplo VM) | 3 | 5 |
 | Contagem de nó máximo por tipo de nó | 100 | 100 |
 | Contagem de tipo de nó máximo | 1 | 20 |
-| Adicionar/remover tipos de nó | No | Yes |
-| Redundância entre zonas | No | Yes |
+| Adicionar/remover tipos de nó | Não | Sim |
+| Redundância entre zonas | Não | Sim |
 
 ## <a name="whats-new-for-service-fabric-managed-clusters"></a>Quais as novidades para clusters geridos de Tecido de Serviço
 
@@ -69,7 +69,7 @@ As funcionalidades mais recentes para a pré-visualização de clusters geridos 
 * [Implementação de aplicações utilizando modelos ARM](how-to-managed-cluster-app-deployment-template.md)
 * [Atualizações automáticas do SO](how-to-managed-cluster-configuration.md#enable-automatic-os-image-upgrades)
 * [Encriptação do disco](how-to-enable-managed-cluster-disk-encryption.md)
-* [Aplicação das regras NSG](how-to-managed-cluster-configuration.md#apply-nsg-rules)
+* [Aplicação das regras NSG](how-to-managed-cluster-networking.md)
 
 As funcionalidades a adicionar nas próximas versões incluem:
 

@@ -6,12 +6,12 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 810ea58c5d88dec53463b9a2b04750169c70e137
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: f3331504540e8c23c3a83fe245bae27ca6c49385
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97704032"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102041285"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Resolução de problemas do aparelho Esmigósia Azure Migrar e descoberta
 
@@ -109,7 +109,7 @@ Erro 60025: "Uma operação AD Azure falhou. O erro ocorreu ao criar ou atualiza
 
 ## <a name="error-50004-cant-connect-to-host-or-cluster"></a>Erro 50004: Não se pode ligar ao hospedeiro ou ao cluster
 
-Erro 50004: "Não é possível ligar-se a um hospedeiro ou cluster porque o nome do servidor não pode ser resolvido. O código de erro winRM: 0x803381B9" pode ocorrer se o serviço Azure DNS para o aparelho não conseguir resolver o cluster ou o nome de anfitrião que forneceu.
+Erro 50004: "Não é possível ligar-se a um hospedeiro ou cluster porque o nome do servidor não pode ser resolvido. Código de erro WinRM: 0x803381B9" pode ocorrer se o serviço Azure DNS para o aparelho não conseguir resolver o cluster ou o nome de anfitrião que forneceu.
 
 - Se vir este erro no cluster, cluster FQDN.
 - Você também pode ver este erro para os anfitriões em um cluster. Isto indica que o aparelho pode ligar-se ao cluster, mas o cluster devolve nomes de anfitriões que não são FQDNs. Para resolver este erro, atualize o ficheiro dos anfitriões no aparelho adicionando um mapeamento do endereço IP e dos nomes dos anfitriões:
@@ -167,6 +167,19 @@ Se os VM descobertos não aparecerem no portal ou se os dados de VM estiverem de
 
 Se apagar VMs e ainda aparecerem no portal, aguarde 30 minutos. Se ainda aparecerem, refresque-se como descrito acima.
 
+## <a name="discovered-applications-and-sql-server-instances-and-databases-not-in-portal"></a>Aplicações descobertas e instâncias e bases de dados do SQL Server não no portal
+
+Depois de ter iniciado a descoberta no aparelho, pode demorar até 24 horas para começar a mostrar os dados do inventário no portal.
+
+Se não tiver fornecido credenciais de autenticação do Windows ou SQL Server no gestor de configuração do aparelho, adicione as credenciais para que o aparelho possa utilizá-las para ligar às respetivas instâncias do SQL Server.
+
+Uma vez ligado, o aparelho recolhe dados de configuração e desempenho de instâncias e bases de dados do SQL Server. Os dados de configuração do SQL Server são atualizados uma vez a cada 24 horas e os dados de desempenho são capturados a cada 30 segundos. Assim, qualquer alteração às propriedades da instância do SQL Server e bases de dados, tais como estado da base de dados, nível de compatibilidade, etc. pode demorar até 24 horas para atualizar no portal.
+
+## <a name="sql-server-instance-is-showing-up-in-not-connected-state-on-portal"></a>A instância do SQL Server está a aparecer no estado "Não conectado" no portal
+Para visualizar os problemas encontrados durante a descoberta de instâncias e bases de dados do SQL Server clique no estado "Não conectado" na coluna de estado de ligação na página 'Servidores Descobertos' no seu projeto.
+
+A criação de avaliação em cima de servidores que contenham casos SQL que não foram descobertos completamente ou que não estão em estado ligado, pode levar a que a prontidão seja marcada como "desconhecida".
+
 ## <a name="i-do-not-see-performance-data-for-some-network-adapters-on-my-physical-servers"></a>Não vejo dados de desempenho para alguns adaptadores de rede nos meus servidores físicos
 
 Isto pode acontecer se o servidor físico tiver virtualização Hiper-V ativada. Devido a uma lacuna no produto, a produção da rede é capturada nos adaptadores de rede virtuais descobertos.
@@ -199,9 +212,9 @@ Erros típicos de descoberta de aplicações são resumidos na tabela.
 
 | **Erro** | **Motivo** | **Ação** |
 |--|--|--|
-| 9000: O estado da ferramenta VMware não pode ser detetado. | As ferramentas VMWare podem não ser instaladas ou corrompidas. | Certifique-se de que as ferramentas VMware são instaladas e em funcionamento no VM. |
-| 9001: As ferramentas VMware não estão instaladas. | As ferramentas VMWare podem não ser instaladas ou corrompidas. | Certifique-se de que as ferramentas VMware são instaladas e em funcionamento no VM. |
-| 9002: As ferramentas VMware não estão a funcionar. | As ferramentas VMWare podem não ser instaladas ou corrompidas. | Certifique-se de que as ferramentas VMware são instaladas e em funcionamento no VM. |
+| 9000: O estado da ferramenta VMware não pode ser detetado. | As ferramentas VMware podem não ser instaladas ou corrompidas. | Certifique-se de que as ferramentas VMware são instaladas e em funcionamento no VM. |
+| 9001: As ferramentas VMware não estão instaladas. | As ferramentas VMware podem não ser instaladas ou corrompidas. | Certifique-se de que as ferramentas VMware são instaladas e em funcionamento no VM. |
+| 9002: As ferramentas VMware não estão a funcionar. | As ferramentas VMware podem não ser instaladas ou corrompidas. | Certifique-se de que as ferramentas VMware são instaladas e em funcionamento no VM. |
 | 9003: Tipo de sistema operativo não suportado para a descoberta de VM convidado. | O sistema operativo que funciona no servidor não é nem Windows nem Linux. | Os tipos de sistema operativo suportado são apenas Windows e Linux. Se o servidor for, de facto, Windows ou Linux, verifique o tipo de sistema operativo especificado no vCenter Server. |
 | 9004: A VM não está a funcionar. | O VM está desligado. | Certifique-se de que o VM está ligado. |
 | 9005: Tipo de sistema operativo não suportado para a descoberta de VM convidado. | Tipo de sistema operativo não suportado para a descoberta de VM do hóspede. | Os tipos de sistema operativo suportado são apenas Windows e Linux. |
@@ -215,12 +228,12 @@ Erros típicos de descoberta de aplicações são resumidos na tabela.
 | 9013: É criado um novo perfil temporário para cada login. | É criado um novo perfil temporário para cada login no VMware VM. | Contacte o Microsoft Support para obter uma resolução. |
 | 9014: Não é possível recuperar metadados do sistema de ficheiros VM do hóspede. | Sem conectividade com o anfitrião ESXi | Certifique-se de que o aparelho pode ligar-se à porta 443 no hospedeiro ESXi que executa o VM |
 | 9015: A função de Operações de Hóspedes não está ativada na conta de utilizador do vCenter | A função de Operações de Hóspedes não está ativada na conta de utilizador do vCenter. | Certifique-se de que a função de Operações de Hóspedes está ativada na conta de utilizador do vCenter. |
-| 9016: Incapaz de descobrir como agente de operações de hóspedes está desatualizado. | As ferramentas Vmware não estão corretamente instaladas ou não estão atualizadas. | Certifique-se de que as ferramentas VMware estão corretamente instaladas e atualizadas. |
+| 9016: Incapaz de descobrir como agente de operações de hóspedes está desatualizado. | As ferramentas VMware não estão corretamente instaladas ou não estão atualizadas. | Certifique-se de que as ferramentas VMware estão corretamente instaladas e atualizadas. |
 | 9017: O ficheiro com metadados descobertos não é encontrado no VM. | O problema pode ocorrer devido a um erro interno. | Contacte o Microsoft Support para obter uma resolução. |
 | 9018: O PowerShell não está instalado nos VMs do Hóspede. | O PowerShell não está disponível no VM convidado. | Instale o PowerShell no VM convidado. |
 | 9019: Incapaz de descobrir devido a falhas de operação VM convidadas. | A operação VMware Guest falhou no VM. | Certifique-se de que as credenciais VM são válidas e o nome de utilizador fornecido nas credenciais VM do hóspede está em formato UPN. |
 | 9020: A permissão de criação de ficheiros é negada. | A função associada ao utilizador ou à política de grupo está a restringir o utilizador de criar o ficheiro em pasta | Verifique se o utilizador convidado fornecido criou permissão para o ficheiro na pasta. Consulte **notificações** na Avaliação do Servidor para o nome da pasta. |
-| 9021: Incapaz de criar ficheiro no caminho temp do sistema. | A ferramenta VMware reporta o caminho temp do sistema em vez do Caminho Temporário dos Utilizadores. | Atualize a versão da ferramenta vmware acima de 10287 (formato NGC/VI Cliente). |
+| 9021: Incapaz de criar ficheiro no caminho temp do sistema. | A ferramenta VMware reporta o caminho temp do sistema em vez do Caminho Temporário dos Utilizadores. | Atualize a sua versão da ferramenta VMware acima de 10287 (formato NGC/VI Cliente). |
 | 9022: O acesso ao objeto WMI é negado. | A função associada ao utilizador ou à política de grupo está a restringir o utilizador a aceder ao objeto WMI. | Entre em contato com o Microsoft Support. |
 | 9023: Incapaz de executar PowerShell como o valor variável ambiente SystemRoot está vazio. | O valor da variável ambiente SystemRoot está vazio para o VM convidado. | Contacte o Microsoft Support para obter uma resolução. |
 | 9024: O valor variável do ambiente TEMP está vazio. | O valor da variável ambiente TEMP está vazio para o VM convidado. | Entre em contato com o Microsoft Support. |
@@ -228,13 +241,13 @@ Erros típicos de descoberta de aplicações são resumidos na tabela.
 | 9026: Incapaz de executar operações de hóspedes na VM. | O estado VM não permite que as operações dos hóspedes sejam executadas no VM. | Contacte o Microsoft Support para obter uma resolução. |
 | 9027: O agente de operações de hóspedes não está a funcionar na VM. | Não contactou o agente de operações do hóspede que funciona dentro da máquina virtual. | Contacte o Microsoft Support para obter uma resolução. |
 | 9028: O ficheiro não pode ser criado devido a um armazenamento insuficiente de discos em VM. | Não há espaço suficiente no disco. | Certifique-se de que existe espaço suficiente no armazenamento do disco do VM. |
-| 9029: Sem acesso a powershell na credencial VM fornecida. | O acesso a Powershell não está disponível para o utilizador. | Certifique-se de que o utilizador adicionado no aparelho pode aceder ao PowerShell no VM do hóspede. |
+| 9029: Sem acesso ao PowerShell na credencial VM fornecida. | O acesso ao PowerShell não está disponível para o utilizador. | Certifique-se de que o utilizador adicionado no aparelho pode aceder ao PowerShell no VM do hóspede. |
 | 9030: Não é possível recolher metadados descobertos à medida que o hospedeiro ESXi está desligado. | O hospedeiro ESXi está num estado desligado. | Certifique-se de que o anfitrião ESXi que executa o VM está ligado. |
 | 9031: Não é possível recolher metadados descobertos, uma vez que o hospedeiro ESXi não está a responder. | O hospedeiro remoto está em estado inválido. | Certifique-se de que o anfitrião ESXi que executa o VM está a funcionar e ligado. |
 | 9032: Incapaz de descobrir devido a um erro interno. | O problema pode ocorrer devido a um erro interno. | Contacte o Microsoft Support para obter uma resolução. |
 | 9033: Não é possível descobrir como o nome de utilizador VM contém caracteres inválidos. | Os caracteres inválidos foram detetados no nome de utilizador. | Forneça novamente a credencial VM, garantindo que não existem caracteres inválidos. |
 | 9034: O nome de utilizador fornecido não está no formato UPN. | O nome de utilizador não está no formato UPN. | Certifique-se de que o nome de utilizador está no formato Nome Principal do Utilizador (UPN). |
-| 9035: Não é possível descobrir como o modo linguagem Powershell não está definido como "Linguagem Completa". | O modo linguístico para Powershell no VM convidado não está definido para linguagem completa. | Certifique-se de que o modo de linguagem PowerShell está definido para "Linguagem Completa". |
+| 9035: Não é possível descobrir como o modo linguístico PowerShell não está definido como "Linguagem Completa". | O modo idioma para PowerShell em VM convidado não está definido para linguagem completa. | Certifique-se de que o modo de linguagem PowerShell está definido para "Linguagem Completa". |
 | 9037: A recolha de dados parou temporariamente, uma vez que o tempo de resposta em VM é demasiado elevado. | O VM descoberto está a demorar muito tempo a responder | Nenhuma ação necessária. Uma nova tentativa será tentada em 24 horas para a descoberta da aplicação e 3 horas para análise de dependência (sem agente). |
 | 1000: O tipo de sistema operativo não é suportado. | O sistema operativo que funciona no servidor não é nem Windows nem Linux. | Os tipos de sistema operativo suportado são apenas Windows e Linux. |
 | 10001: O script para a descoberta do servidor não é encontrado no aparelho. | A descoberta não está a funcionar como esperado. | Contacte o Microsoft Support para obter uma resolução. |

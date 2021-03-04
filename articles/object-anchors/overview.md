@@ -4,15 +4,15 @@ description: Saiba como as âncoras de objetos Azure ajudam a detetar objetos no
 author: craigktreasure
 manager: vriveras
 ms.author: crtreasu
-ms.date: 02/18/2021
+ms.date: 03/02/2021
 ms.topic: overview
 ms.service: azure-object-anchors
-ms.openlocfilehash: 099307ba1085ff6d24bc6bb4000a592aabc8f8f6
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: cbe52004dddbe74aa02347c026028a8ffd4cf8d7
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101749061"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102034208"
 ---
 # <a name="azure-object-anchors-overview"></a>Visão geral das âncoras de objetos Azure
 
@@ -37,7 +37,7 @@ Alguns casos de utilização de exemplos ativados por Âncoras de Objetos Azure 
 As secções seguintes fornecem informações sobre como começar a usar e construir aplicativos com âncoras de objetos Azure.
 
 > [!div class="nextstepaction"]
-> [Ingestão de Modelos](quickstarts/get-started-model-ingestion.md)
+> [Ingestão de Modelos](quickstarts/get-started-model-conversion.md)
 
 > [!div class="nextstepaction"]
 > [Unity HoloLens](quickstarts/get-started-unity-hololens.md)

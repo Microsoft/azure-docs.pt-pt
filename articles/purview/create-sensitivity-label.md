@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 01/19/2021
-ms.openlocfilehash: b86414758c3b644725e5aa29ca3b314f489508aa
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: bcfe26bc6f637dd140776df98f8267c4c43684ba
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101693531"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102049555"
 ---
 # <a name="automatically-label-your-data-in-azure-purview"></a>Rotular automaticamente os seus dados em Azure Purview
 
@@ -120,7 +120,10 @@ Uma vez que estenda a rotulagem aos ativos em Azure Purview, pode selecionar as 
 
     :::image type="content" source="media/create-sensitivity-label/create-sensitivity-label-full-small.png" alt-text="Criar etiquetas de sensibilidade no Microsoft 365 Security and Compliance Center" lightbox="media/create-sensitivity-label/create-sensitivity-label-full.png":::
 
-1. Diga o rótulo. Em seguida, sob **definir o âmbito para esta etiqueta,** selecione **Ficheiros e e-mails** e **ativos Azure Purview**.
+1. Diga o rótulo. Em seguida, ao **definir o âmbito para este rótulo:**
+
+    - Em todos os casos, selecione **os ativos da Azure Purview**.
+    - Para rotular ficheiros, selecione também **ficheiros & e-mails**. Esta opção não é exigida apenas para rotular os ativos da base de dados. 
     
     :::image type="content" source="media/create-sensitivity-label/create-label-scope-small.png" alt-text="Crie a sua etiqueta no Microsoft 365 Security and Compliance Center" lightbox="media/create-sensitivity-label/create-label-scope.png":::
 

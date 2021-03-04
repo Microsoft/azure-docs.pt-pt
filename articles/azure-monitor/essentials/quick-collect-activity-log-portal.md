@@ -1,17 +1,16 @@
 ---
 title: Enviar log de atividade azure para log analytics espaço de trabalho usando o portal Azure
 description: Utilize o portal Azure para criar um espaço de trabalho log Analytics e uma definição de diagnóstico para enviar o registo de Atividade para Registos monitores Azure.
-ms.subservice: logs
 ms.topic: quickstart
 author: bwren
 ms.author: bwren
 ms.date: 06/25/2020
-ms.openlocfilehash: 1316512badd69b545e39a47ea5da3ca6a0902482
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: fec1f4f3ae13f6c9ed5fdd7ffbcd143e5c5e5f52
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101734286"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102033253"
 ---
 # <a name="send-azure-activity-log-to-log-analytics-workspace-using-azure-portal"></a>Enviar log de atividade azure para log analytics espaço de trabalho usando o portal Azure
 O Registo de atividades é um registo de plataformas no Azure que proporciona informações sobre eventos ao nível da subscrição. Tal inclui informações como quando um recurso é modificado ou quando uma máquina virtual é iniciada. Pode visualizar o registo de Atividade no portal Azure ou recuperar entradas com PowerShell e CLI. Este quickstart mostra como usar o portal Azure para criar um espaço de trabalho log Analytics e uma definição de diagnóstico para enviar o registo de Atividade para Registos do Monitor Azure, onde pode analisá-lo usando [consultas de registo](../logs/log-query-overview.md) e ativar [outras funcionalidades,](../alerts/alerts-log-query.md) tais como alertas de registo e livros de [trabalho.](../visualize/workbooks-overview.md) 

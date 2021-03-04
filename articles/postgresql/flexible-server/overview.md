@@ -6,13 +6,13 @@ ms.author: sunila
 ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
-ms.date: 09/22/2020
-ms.openlocfilehash: b4df91f4654f39780f81e0a27139677431926238
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.date: 03/03/2021
+ms.openlocfilehash: d36dcfccb6843947991b2548af6dd98b81adb40e
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92532667"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102049513"
 ---
 # <a name="azure-database-for-postgresql---flexible-server"></a>Base de Dados Azure para PostgreSQL - Servidor Flexível
 
@@ -27,7 +27,7 @@ Neste artigo, forneceremos uma visão geral e introdução aos conceitos fundame
 > [!IMPORTANT]
 > Azure Database for PostgreSQL - Flexible Server está em pré-visualização
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 A Azure Database for PostgreSQL - Flexible Server é um serviço de base de dados totalmente gerido projetado para fornecer mais controlo granular e flexibilidade sobre funções de gestão de bases de dados e configurações de configuração. Em geral, o serviço proporciona mais flexibilidade e personalizações de configuração do servidor com base nos requisitos do utilizador. A arquitetura flexível do servidor permite que os utilizadores collocam o motor de base de dados com o nível do cliente para uma latência mais baixa, escolha alta disponibilidade dentro de uma única zona de disponibilidade e em várias zonas de disponibilidade. Os servidores flexíveis também fornecem controlos de otimização de custos melhores com a capacidade de parar/iniciar o seu servidor e nível de computação retável que é ideal para cargas de trabalho que não necessitam de capacidade de computação completa continuamente. O serviço suporta atualmente a versão comunitária do PostgreSQL 11 e 12. O serviço está atualmente em pré-visualização, disponível hoje em grande variedade de regiões de [Azure.](https://azure.microsoft.com/global-infrastructure/services/)
 
@@ -56,7 +56,7 @@ A imagem abaixo mostra a transição para VM e falha de armazenamento.
 
 Se a zona redundante de alta disponibilidade for configurada, as disposições de serviço e mantém um servidor de espera quente em toda a zona de disponibilidade dentro da mesma região de Azure. As alterações de dados no servidor de origem são sincronizadas replicadas no servidor de espera para garantir a perda de dados zero. Com a zona redundante alta disponibilidade, uma vez que o evento de failover planeado ou não planeado é desencadeado, o servidor de espera entra imediatamente em linha e está disponível para processar transações recebidas. Isto permite a resiliência do serviço da falha da zona de disponibilidade dentro de uma região do Azure que suporta múltiplas zonas de disponibilidade, como mostrado na imagem abaixo.
 
- :::image type="content" source="./media/business-continuity/concepts-zone-redundant-high-availability-architecture.png" alt-text="Servidor flexível - VM e falhas de armazenamento":::
+ :::image type="content" source="./media/business-continuity/concepts-zone-redundant-high-availability-architecture.png" alt-text="Zona redundante alta disponibilidade":::
 
  Consulte [o documento de alta disponibilidade](./concepts-high-availability.md) para mais detalhes.
 
@@ -76,7 +76,7 @@ O serviço de servidor flexível está disponível em três níveis de cálculo:
 
 O serviço de servidor flexível permite-lhe parar e iniciar o servidor a pedido para baixar o seu TCO. A faturação do nível do cálculo é interrompida imediatamente quando o servidor é parado. Isto pode permitir-lhe ter poupanças significativas de custos durante o desenvolvimento, teste e para cargas de trabalho previsíveis de produção limitadas ao tempo. O servidor permanece no estado de paragem por sete dias, a menos que seja reiniciado mais cedo.
 
-## <a name="enterprise-grade-security"></a>Segurança de grau empresarial
+## <a name="enterprise-grade-security"></a>Segurança de nível empresarial
 
 O serviço de servidor flexível utiliza o módulo criptográfico validado FIPS 140-2 para encriptação de armazenamento de dados em repouso. Os dados, incluindo cópias de segurança e ficheiros temporários criados durante a execução de consultas são encriptados. O serviço utiliza a cifra AES de 256 bits incluída na encriptação de armazenamento Azure, e as teclas podem ser geridas pelo sistema (padrão). O serviço encripta dados em movimento com segurança da camada de transporte (SSL/TLS) aplicada por padrão. O serviço aplica e suporta apenas as versões TLS 1.2.
 
@@ -85,6 +85,24 @@ Servidores flexíveis permitem o acesso privado completo aos servidores utilizan
 ## <a name="monitoring-and-alerting"></a>Monitorização e alertas
 
 O serviço de servidor flexível está equipado com funcionalidades de monitorização e alerta de desempenho incorporadas. Todas as métricas Azure têm uma frequência de um minuto, e cada métrica fornece 30 dias de história. Pode configurar alertas sobre as métricas. O serviço expõe as métricas do servidor do anfitrião para monitorizar a utilização dos recursos e permite configurar registos de consulta lenta. Utilizando estas ferramentas, pode otimizar rapidamente as suas cargas de trabalho e configurar o seu servidor para um melhor desempenho.
+
+## <a name="azure-regions"></a>Regiões do Azure
+
+Uma das vantagens de executar a sua carga de trabalho em Azure é o seu alcance global. O servidor flexível está disponível hoje nas regiões de Azure seguintes:
+
+| Region | Disponibilidade | Zona redundante HA | 
+| --- | --- | --- |
+| Europa Ocidental | :heavy_check_mark: | :heavy_check_mark: |
+| Europa do Norte | :heavy_check_mark: | :heavy_check_mark: |
+| Sul do Reino Unido | :heavy_check_mark: | :heavy_check_mark: | 
+| E.U.A. Leste 2 | :heavy_check_mark: | :heavy_check_mark: |
+| E.U.A. Oeste 2 | :heavy_check_mark: | :heavy_check_mark: |
+| E.U.A. Central | :heavy_check_mark: | :heavy_check_mark: | 
+| E.U.A. Leste | :heavy_check_mark: | :heavy_check_mark: | 
+| Sudeste Asiático | :heavy_check_mark: | :heavy_check_mark: |
+| Leste do Japão | :heavy_check_mark: | :heavy_check_mark: | 
+
+Continuamos a adicionar novas regiões. 
 
 ## <a name="migration"></a>Migração
 
