@@ -9,12 +9,12 @@ ms.subservice: security
 ms.topic: how-to
 ms.date: 03/02/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 4c4ad2a1350632d381cc258049ee85c87766f9b5
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: f8a6758cdf0a6da709a564c1e17c56a2fe5625b0
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101694126"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102124657"
 ---
 # <a name="deploy-a-vm-with-trusted-launch-enabled-preview"></a>Implementar um VM com lançamento fidedigno ativado (pré-visualização)
 
@@ -140,7 +140,7 @@ Para obter vTPM e recomendar recomendações de arranque seguras para VMs de lan
 
 Em alguns casos, poderá ter de assinar coisas para o UEFI Secure Boot.  Por exemplo, pode precisar de ver [como assinar coisas para Secure Boot](https://ubuntu.com/blog/how-to-sign-things-for-secure-boot) para Ubuntu. Nestes casos, tem de introduzir as chaves de inscrição de utilitário MOK para o seu VM. Para isso, é necessário utilizar a Consola em Série Azure para aceder ao utilitário MOK.
 
-1. Ativar a consola em série Azure para o Linux. Para mais informações, consulte [a Consola em Série para Linux](serial-console-linux.md).
+1. Ativar a consola em série Azure para o Linux.
 1. Faça login no [portal Azure](https://portal.azure.com).
 1. Procure **por máquinas Virtuais** e selecione o seu VM da lista.
 1. No menu esquerdo, em **Suporte + resolução de problemas,** selecione **Consola série**. Uma página abrir-se-á à direita, com a consola em série.
