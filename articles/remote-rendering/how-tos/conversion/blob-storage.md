@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/04/2020
 ms.topic: how-to
-ms.openlocfilehash: cfc10658463888e43ea1a24dfefd3f8939ec8ef7
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 889c25fd1402c4438ff648afce64905de112c8db
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98762774"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102215549"
 ---
 # <a name="use-azure-blob-storage-for-model-conversion"></a>Utilizar o Armazenamento de Blobs do Azure para conversão de modelos
 
@@ -28,7 +28,7 @@ O serviço [de conversão de modelos](model-conversion.md) requer acesso ao Azur
 A criação da conta de armazenamento e dos recipientes blob pode ser feita com uma das seguintes ferramentas:
 
 - [Portal do Azure](https://portal.azure.com)
-- [linha de comando az](/cli/azure/install-azure-cli?view=azure-cli-latest)
+- [linha de comando az](/cli/azure/install-azure-cli)
 - [Explorador do Storage do Azure](https://azure.microsoft.com/features/storage-explorer/)
 - SDKs (C#, Python ... )
 
@@ -52,7 +52,7 @@ Um SAS URI pode ser gerado usando um dos seguintes:
 
 - módulo PowerShell az
   - ver o [exemplo Scripts PowerShell](../../samples/powershell-example-scripts.md)
-- [linha de comando az](/cli/azure/install-azure-cli?view=azure-cli-latest)
+- [linha de comando az](/cli/azure/install-azure-cli)
 - [Explorador do Storage do Azure](https://azure.microsoft.com/features/storage-explorer/)
   - clique no recipiente "Obter Assinatura de Acesso Partilhado" (ler, listar o acesso ao recipiente de entrada, escrever acesso para recipiente de saída)
 - SDKs (C#, Python ... )
@@ -80,7 +80,7 @@ Por exemplo, para recuperar um SAS URI através do [Azure Storage Explorer,](htt
 
 É necessária uma Assinatura de Acesso Partilhado (SAS) para carregar modelos se não tiver ligado a sua conta de armazenamento à sua conta de renderização remota Azure. Pode aprender a ligar a sua conta na [Criar uma Conta.](../create-an-account.md#link-storage-accounts)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Configurar a conversão do modelo](configure-model-conversion.md)
 - [A conversão do modelo REST API](conversion-rest-api.md)

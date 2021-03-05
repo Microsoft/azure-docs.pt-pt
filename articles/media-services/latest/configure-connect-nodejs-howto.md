@@ -14,12 +14,12 @@ ms.topic: how-to
 ms.date: 02/17/2021
 ms.author: inhenkel
 ms.custom: devx-track-js
-ms.openlocfilehash: ab0113823bb5751828a71a9afd8c474091272e16
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 33d84ca86ac3cd4696dce3797b015b861884182a
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101724630"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102216433"
 ---
 # <a name="connect-to-media-services-v3-api---nodejs"></a>Ligue-se aos Serviços de Mídia v3 API - Node.js
 
@@ -224,13 +224,13 @@ As seguintes amostras estão disponíveis no [repositório](https://github.com/A
 
 ## <a name="see-also"></a>Ver também
 
-- [Documentação de referência para módulos Azure Media Services para Node.js](https://docs.microsoft.com/javascript/api/overview/azure/media-services?view=azure-node-latest)
-- [Azure para desenvolvedores de & Node.js JavaScript](https://docs.microsoft.com/azure/developer/javascript/?view=azure-node-latest)
+- [Documentação de referência para módulos Azure Media Services para Node.js](/javascript/api/overview/azure/media-services)
+- [Azure para desenvolvedores de & Node.js JavaScript](/azure/developer/javascript/)
 - [Código fonte dos Serviços de Mídia no @azure/azure-sdk-for-js Git Hub repo](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/mediaservices/arm-mediaservices)
-- [Documentação do pacote Azure para desenvolvedores de Node.js](https://docs.microsoft.com/javascript/api/overview/azure/?view=azure-node-latest)
+- [Documentação do pacote Azure para desenvolvedores de Node.js](/javascript/api/overview/azure/)
 - [Conceitos de Serviços de Mídia](concepts-overview.md)
 - [instalação npm @azure/arm-mediaservices](https://www.npmjs.com/package/@azure/arm-mediaservices)
-- [Azure para desenvolvedores de & Node.js JavaScript](https://docs.microsoft.com/azure/developer/javascript/?view=azure-node-latest)
+- [Azure para desenvolvedores de & Node.js JavaScript](/azure/developer/javascript/)
 - [Código fonte dos Serviços de Mídia no @azure/azure-sdk-for-js repo](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/mediaservices/arm-mediaservices)
 
 ## <a name="next-steps"></a>Passos seguintes

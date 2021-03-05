@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/10/2020
+ms.date: 03/05/2021
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 4b25458cc934097b5477c174ae7ecc47762e2929
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2097c1743e07b5563bc75d3d1cce48aa11b98e5f
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91280305"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102216348"
 ---
 # <a name="enable-and-manage-soft-delete-for-containers-preview"></a>Ative e gere a eliminação suave para recipientes (pré-visualização)
 
@@ -23,6 +23,10 @@ O recipiente de exclusão suave (pré-visualização) protege os seus dados de s
 Se houver a possibilidade de os seus dados poderem ser acidentalmente modificados ou eliminados por uma aplicação ou outro utilizador de uma conta de armazenamento, a Microsoft recomenda que se interlige com a eliminação suave do contentor. Este artigo mostra como permitir a eliminação suave para recipientes. Para obter mais detalhes sobre a eliminação suave do recipiente, incluindo como se registar para a pré-visualização, consulte [Soft delete para recipientes (pré-visualização)](soft-delete-container-overview.md).
 
 Para a proteção de dados de ponta a ponta, a Microsoft recomenda que também ative a eliminação suave para bolhas e versões Blob. Para aprender a permitir também a eliminação suave para bolhas, consulte [Ativar e gerir a eliminação suave para bolhas](soft-delete-blob-enable.md). Para aprender a permitir a versão blob, consulte [a versão Blob](versioning-overview.md).
+
+> [!IMPORTANT]
+>
+> A eliminação suave do recipiente encontra-se atualmente em **PREVIEW**. Consulte os [Termos Complementares de Utilização para o Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para termos legais aplicáveis às funcionalidades do Azure que estejam em versão beta, pré-visualização ou ainda não lançadas em disponibilidade geral.
 
 ## <a name="enable-container-soft-delete"></a>Permitir a eliminação suave do recipiente
 
@@ -42,12 +46,12 @@ Para permitir a eliminação suave do recipiente para a sua conta de armazenamen
 
 # <a name="template"></a>[Modelo](#tab/template)
 
-Para permitir a eliminação suave do recipiente com um modelo de Gestor de Recursos Azure, crie um modelo que define a propriedade **containerDeleteRetentionPolicy.** Os passos seguintes descrevem como criar um modelo no portal Azure.
+Para permitir a eliminação suave do recipiente com um modelo de Gestor de Recursos Azure, crie um modelo que define a propriedade **containerDeleteRetentionPolicy.** Os passos seguintes descrevem como criar um modelo no portal Azure.
 
-1. No portal Azure, escolha **Criar um recurso.**
-1. Em **Search the Marketplace**, **digitar a implementação do modelo**e, em seguida, premir **ENTER**.
-1. Escolha a **implementação do modelo,** escolha **Criar**e, em seguida, escolha **Construir o seu próprio modelo no editor**.
-1. No editor de modelo, cole no seguinte JSON. Substitua o  `<account-name>`   espaço reservado pelo nome da sua conta de armazenamento.
+1. No portal Azure, escolha **Criar um recurso.**
+1. Em **Search the Marketplace**, **digitar a implementação do modelo** e, em seguida, premir **ENTER**.
+1. Escolha a **implementação do modelo,** escolha **Criar** e, em seguida, escolha **Construir o seu próprio modelo no editor**.
+1. No editor de modelo, cole no seguinte JSON. Substitua o `<account-name>` espaço reservado pelo nome da sua conta de armazenamento.
 
     ```json
     {
@@ -75,7 +79,7 @@ Para permitir a eliminação suave do recipiente com um modelo de Gestor de Recu
 
 1. Especifique o período de retenção. O valor predefinido é 7.
 1. Guarde o modelo.
-1. Especifique o grupo de recursos da conta e, em seguida, escolha o botão **Review + create**para   implantar o modelo e permitir a eliminação suave do recipiente.
+1. Especifique o grupo de recursos da conta e, em seguida, escolha o botão **Review + create** para implantar o modelo e permitir a eliminação suave do recipiente.
 
 ## <a name="view-soft-deleted-containers"></a>Ver recipientes comvidade
 
@@ -86,7 +90,7 @@ Para ver recipientes comvidade no portal Azure, siga estes passos:
 1. Navegue na sua conta de armazenamento no portal Azure e veja a lista dos seus contentores.
 1. Alternar o interruptor de recipientes eliminados para incluir recipientes eliminados na lista.
 
-    :::image type="content" source="media/soft-delete-container-enable/soft-delete-container-portal-list.png" alt-text="Screenshot mostrando como permitir a eliminação suave do recipiente no portal Azure":::
+    :::image type="content" source="media/soft-delete-container-enable/soft-delete-container-portal-list.png" alt-text="Screenshot mostrando como ver recipientes suaves eliminados no portal Azure":::
 
 ## <a name="restore-a-soft-deleted-container"></a>Restaurar um recipiente de apagamento suave
 
@@ -95,7 +99,7 @@ Pode restaurar um recipiente desausação e o seu conteúdo dentro do período d
 1. Navegue na sua conta de armazenamento no portal Azure e veja a lista dos seus contentores.
 1. Exiba o menu de contexto para o recipiente que deseja restaurar e escolha **Undelete** no menu.
 
-    :::image type="content" source="media/soft-delete-container-enable/soft-delete-container-portal-restore.png" alt-text="Screenshot mostrando como permitir a eliminação suave do recipiente no portal Azure":::
+    :::image type="content" source="media/soft-delete-container-enable/soft-delete-container-portal-restore.png" alt-text="Screenshot mostrando como restaurar um recipiente de apagamento suave no portal Azure":::
 
 ## <a name="next-steps"></a>Passos seguintes
 

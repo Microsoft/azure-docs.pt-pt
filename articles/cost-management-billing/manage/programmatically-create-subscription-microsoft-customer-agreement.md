@@ -9,12 +9,12 @@ ms.date: 11/17/2020
 ms.reviewer: andalmia
 ms.author: banders
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 2b0eaef7940b84dbd1e1325b5ae3bfb7b65dcef6
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 61a658cc9654a93b4c92fda6cc1f38cd2e77dafa
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/05/2021
-ms.locfileid: "102200568"
+ms.locfileid: "102216093"
 ---
 # <a name="programmatically-create-azure-subscriptions-for-a-microsoft-customer-agreement-with-the-latest-apis"></a>Criar programaticamente subscrições do Azure para um Contrato de Contrato de Cliente Microsoft com as APIs mais recentes
 
@@ -70,17 +70,54 @@ A resposta da API lista as contas de faturação às quais tem acesso.
 
 Use a propriedade `displayName` para identificar a conta de faturação para a qual pretende criar subscrições. Certifique-se de que o agreementType da conta é *MicrosoftCustomerAgreement*. Copie o `name` da conta.  Por exemplo, para criar uma subscrição para a conta de faturação `Contoso`, copie `5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx`. Cole o valor algures para que possa utilizá-lo no passo seguinte.
 
-<!--
-### [PowerShell](#tab/azure-powershell-getBillingAccounts)
+### <a name="powershell"></a>[PowerShell](#tab/azure-powershell-getBillingAccounts)
 
-we're still working on enabling PowerShell SDK for billing APIs. Check back soon.
--->
+```azurepowershell-interactive
+PS C:\WINDOWS\system32> Get-AzBillingAccount
+```
+Receberá de volta uma lista de todas as contas de faturação a que tem acesso 
 
-<!--
-### [Azure CLI](#tab/azure-cli-getBillingAccounts)
+```json
+Name          : 5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx
+DisplayName   : Contoso
+AccountStatus : Active
+AccountType   : Enterprise
+AgreementType : MicrosoftCustomerAgreement
+HasReadAccess : True
+```
+Use a propriedade `displayName` para identificar a conta de faturação para a qual pretende criar subscrições. Certifique-se de que o agreementType da conta é *MicrosoftCustomerAgreement*. Copie o `name` da conta.  Por exemplo, para criar uma subscrição para a conta de faturação `Contoso`, copie `5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx`. Cole o valor algures para que possa utilizá-lo no passo seguinte.
 
-we're still working on enabling CLI SDK for billing APIs. Check back soon.
--->
+
+### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli-getBillingAccounts)
+```azurecli
+> az billing account list
+```
+Receberá de volta uma lista de todas as contas de faturação a que tem acesso 
+
+```json
+[
+  {
+    "accountStatus": "Active",
+    "accountType": "Enterprise",
+    "agreementType": "MicrosoftCustomerAgreement",
+    "billingProfiles": {
+      "hasMoreResults": false,
+      "value": null
+    },
+    "departments": null,
+    "displayName": "Contoso",
+    "enrollmentAccounts": null,
+    "enrollmentDetails": null,
+    "hasReadAccess": true,
+    "id": "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx",
+    "name": "5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx",
+    "soldTo": null,
+    "type": "Microsoft.Billing/billingAccounts"
+  }
+]
+```
+
+Use a propriedade `displayName` para identificar a conta de faturação para a qual pretende criar subscrições. Certifique-se de que o agreementType da conta é *MicrosoftCustomerAgreement*. Copie o `name` da conta.  Por exemplo, para criar uma subscrição para a conta de faturação `Contoso`, copie `5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx`. Cole o valor algures para que possa utilizá-lo no passo seguinte.
 
 ---
 
@@ -88,7 +125,7 @@ we're still working on enabling CLI SDK for billing APIs. Check back soon.
 
 Os custos da subscrição aparecem numa secção da fatura de um perfil de faturação. Utilize a API seguinte para obter a lista de secções dos perfis de faturação e da fatura nos quais tem permissão para criar subscrições do Azure.
 
-Primeiro, obtém a lista de perfis de faturação na conta de faturação à qual tem acesso.
+Primeiro obtém a lista de perfis de faturação na conta de faturação a que tem acesso (Use o `name` que obteve do passo anterior)
 
 ### <a name="rest"></a>[REST](#tab/rest-getBillingProfiles)
 ```json
@@ -171,17 +208,119 @@ GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts/5e9
 
 Use a propriedade `id` para identificar a secção da fatura para a qual pretende criar subscrições. Copie toda a cadeia de carateres. Por exemplo, `/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx`. 
 
-<!--
-### [PowerShell](#tab/azure-powershell-getBillingProfiles)
+### <a name="powershell"></a>[PowerShell](#tab/azure-powershell-getBillingProfiles)
 
-we're still working on enabling PowerShell SDK for billing APIs. Check back soon.
--->
+```powershell-interactive
+PS C:\WINDOWS\system32> Get-AzBillingProfile -BillingAccountName 5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx
+```
 
-<!--
-### [Azure CLI](#tab/azure-cli-getBillingProfiles)
+Você receberá a lista de perfis de faturação nesta conta como parte da resposta.
 
-we're still working on enabling CLI SDK for billing APIs. Check back soon.
--->
+```json
+Name              : AW4F-xxxx-xxx-xxx
+DisplayName       : Contoso Billing Profile
+Currency          : USD
+InvoiceDay        : 5
+InvoiceEmailOptIn : True
+SpendingLimit     : Off
+Status            : Active
+EnabledAzurePlans : {0002, 0001}
+HasReadAccess     : True
+BillTo            :
+CompanyName       : Contoso
+AddressLine1      : One Microsoft Way
+AddressLine2      : 
+City              : Redmond
+Region            : WA
+Country           : US
+PostalCode        : 98052
+```
+
+Note `name` o perfil de faturação da resposta acima. Os próximos passos são obter a secção de fatura a que tem acesso por baixo deste perfil de faturação. Você vai precisar `name` da conta de faturação e perfil de faturação
+
+```powershell-interactive
+PS C:\WINDOWS\system32> Get-AzInvoiceSection -BillingAccountName 5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx -BillingProfileName AW4F-xxxx-xxx-xxx
+```
+
+Receberá a secção de fatura devolvida
+
+```json
+Name        : SH3V-xxxx-xxx-xxx
+DisplayName : Development
+```
+
+O `name` acima é o nome da secção Fatura que precisa para criar uma subscrição sob. Construa o seu âmbito de faturação utilizando o formato "/fornecedores/Microsoft.Billing/billingAs/ <BillingAccountName> /faturaçãoProfiles/ <BillingProfileName> /faturaSecções/ <InvoiceSectionName> ". Neste exemplo, isto equivalerá a `"/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx"` .
+
+### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli-getBillingProfiles)
+
+```azurecli-interactive
+> az billing profile list --account-name "5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx" --expand "InvoiceSections"
+```
+Esta API devolverá a lista de perfis de faturação e secções de fatura na conta de faturação fornecida.
+
+```json
+[
+  {
+    "billTo": {
+      "addressLine1": "One Microsoft Way",
+      "addressLine2": "",
+      "addressLine3": null,
+      "city": "Redmond",
+      "companyName": "Contoso",
+      "country": "US",
+      "district": null,
+      "email": null,
+      "firstName": null,
+      "lastName": null,
+      "phoneNumber": null,
+      "postalCode": "98052",
+      "region": "WA"
+    },
+    "billingRelationshipType": "Direct",
+    "currency": "USD",
+    "displayName": "Contoso Billing Profile",
+    "enabledAzurePlans": [
+      {
+        "skuDescription": "Microsoft Azure Plan for DevTest",
+        "skuId": "0002"
+      },
+      {
+        "skuDescription": "Microsoft Azure Plan",
+        "skuId": "0001"
+      }
+    ],
+    "hasReadAccess": true,
+    "id": "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx",
+    "indirectRelationshipInfo": null,
+    "invoiceDay": 5,
+    "invoiceEmailOptIn": true,
+    "invoiceSections": {
+      "hasMoreResults": false,
+      "value": [
+        {
+          "displayName": "Field_Led_Test_Ace",
+          "id": "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx",
+          "labels": null,
+          "name": "SH3V-xxxx-xxx-xxx",
+          "state": "Active",
+          "systemId": "SH3V-xxxx-xxx-xxx",
+          "targetCloud": null,
+          "type": "Microsoft.Billing/billingAccounts/billingProfiles/invoiceSections"
+        }
+      ]
+    },
+    "name": "AW4F-xxxx-xxx-xxx",
+    "poNumber": null,
+    "spendingLimit": "Off",
+    "status": "Warned",
+    "statusReasonCode": "PastDue",
+    "systemId": "AW4F-xxxx-xxx-xxx",
+    "targetClouds": [],
+    "type": "Microsoft.Billing/billingAccounts/billingProfiles"
+  }
+]
+```
+Utilize a propriedade de id sob o objeto da secção de fatura para identificar a secção de fatura para a qual pretende criar subscrições. Copie toda a cadeia de carateres. Por exemplo, /providers/Microsoft.Billing/billingAcounts/5e98e158-xxxx-xxxx-xxxxxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx/faturaSecções/SH3V-xxxx-xxx-xxx-xxx.
 
 ---
 

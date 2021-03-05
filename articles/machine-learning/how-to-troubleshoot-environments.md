@@ -10,12 +10,12 @@ ms.author: sagopal
 ms.date: 12/3/2020
 ms.topic: troubleshooting
 ms.custom: devx-track-python
-ms.openlocfilehash: 5b2f62e8e04bddadc7068eb75405bcf1568f5713
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: da3e5bd9efcdd7d82dd3d3937918c4a64f69edbd
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101657303"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102215651"
 ---
 # <a name="troubleshoot-environment-image-builds"></a>A imagem do ambiente de resolução de problemas constrói
 
@@ -25,7 +25,7 @@ Saiba como resolver problemas com a imagem do ambiente Docker e as instalações
 
 * Uma subscrição do Azure. Experimente a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree).
 * [O Azure Machine Learning SDK.](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py)
-* O [Azure CLI.](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest)
+* O [Azure CLI.](/cli/azure/install-azure-cli)
 * A [extensão CLI para Azure Machine Learning](reference-azure-machine-learning-cli.md).
 * Para depurar localmente, você deve ter uma instalação Docker funcionando no seu sistema local.
 

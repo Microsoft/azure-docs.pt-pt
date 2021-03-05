@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.date: 11/16/2020
-ms.openlocfilehash: 7c10d3066dc7b9ee0994de8c327b286bf8c917e7
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 53459ad766ffcf156d2906a38666a14c4883b5e8
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100099477"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102215940"
 ---
 # <a name="git-integration-for-azure-machine-learning"></a>Integração de Git para Azure Machine Learning
 
@@ -123,7 +123,7 @@ O SSH exibe esta impressão digital quando se conecta a um hospedeiro desconheci
 
 Quando submete uma corrida de treino a partir do Python SDK ou do Machine Learning CLI, os ficheiros necessários para treinar o modelo são enviados para o seu espaço de trabalho. Se o `git` comando estiver disponível no seu ambiente de desenvolvimento, o processo de upload utiliza-o para verificar se os ficheiros estão armazenados num repositório de git. Em caso afirmativo, então a informação do seu repositório de git também é carregada como parte da formação. Esta informação é armazenada nas seguintes propriedades para a execução de formação:
 
-| Propriedade | Comando Git usado para obter o valor | Description |
+| Propriedade | Comando Git usado para obter o valor | Descrição |
 | ----- | ----- | ----- |
 | `azureml.git.repository_uri` | `git ls-remote --get-url` | O URI de onde o seu repositório foi clonado. |
 | `mlflow.source.git.repoURL` | `git ls-remote --get-url` | O URI de onde o seu repositório foi clonado. |
@@ -192,7 +192,7 @@ O `az ml run` comando CLI pode ser usado para recuperar as propriedades de uma c
 az ml run list -e train-on-amlcompute --last 1 -w myworkspace -g myresourcegroup --query '[].properties'
 ```
 
-Para mais informações, consulte a documentação de referência [az ml run.](/cli/azure/ext/azure-cli-ml/ml/run?preserve-view=true&view=azure-cli-latest)
+Para mais informações, consulte a documentação de referência [az ml run.](/cli/azure/ext/azure-cli-ml/ml/run)
 
 ## <a name="next-steps"></a>Passos seguintes
 

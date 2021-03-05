@@ -8,12 +8,12 @@ author: sakthi-vetrivel
 ms.author: suvetriv
 keywords: aro, openshift, az aro, chapéu vermelho, cli
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 633b8e6b0d9694119b5371f921af90c524936926
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: 5a6eafa6b2380ee61c0de2e329a1751ec7d59c1f
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100633619"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102216076"
 ---
 # <a name="create-an-azure-red-hat-openshift-4-private-cluster"></a>Crie um aglomerado privado Azure Red Hat OpenShift 4
 
@@ -23,7 +23,7 @@ Neste artigo, você vai preparar o seu ambiente para criar clusters privados Azu
 > * Configurar os pré-requisitos e criar a rede virtual e sub-redes necessárias
 > * Implementar um cluster com um ponto final privado do servidor API e um controlador de entrada privada
 
-Se optar por instalar e utilizar o CLI localmente, este tutorial requer que esteja a executar a versão Azure CLI 2.6.0 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
+Se optar por instalar e utilizar o CLI localmente, este tutorial requer que esteja a executar a versão Azure CLI 2.6.0 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)](/cli/azure/install-azure-cli).
 
 ## <a name="before-you-begin"></a>Antes de começar
 

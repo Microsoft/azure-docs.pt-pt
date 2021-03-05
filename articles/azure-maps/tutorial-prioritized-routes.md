@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-js
-ms.openlocfilehash: dbf2331dc6bcd3187175554b61d347e8bb2c04a4
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 5e7f38e4bbc95e04bf54f8f7a2dd80e21891e8df
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98625003"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102215498"
 ---
 # <a name="tutorial-find-and-display-routes-for-different-modes-of-travel-using-azure-maps"></a>Tutorial: Encontrar e exibir rotas para diferentes modos de viagem usando mapas Azure
 
-Este tutorial mostra-lhe como utilizar o serviço Azure Maps [Route](/rest/api/maps/route) e [o controlo do mapa](./how-to-use-map-control.md) para exibir direções de rota tanto para veículos particulares como para veículos comerciais (camiões) com tipo de `USHazmatClass2` carga. Além disso, vamos contar-lhe como visualizar dados de tráfego em tempo real num mapa. Neste tutorial, vai aprender a:
+Este tutorial mostra-lhe como utilizar o serviço Azure Maps [Route](/rest/api/maps/route) e [o controlo do mapa](./how-to-use-map-control.md) para exibir direções de rota tanto para veículos particulares como para veículos comerciais (camiões) com tipo de `USHazmatClass2` carga. Além disso, vamos contar-lhe como visualizar dados de tráfego em tempo real num mapa. Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Criar e exibir o controlo do Mapa numa página web
@@ -117,7 +117,7 @@ Os passos a seguir mostram-lhe como criar e exibir o controlo do Mapa numa pági
     });
     ```
 
-    No manipulador de eventos do `ready` mapa, a definição do fluxo de tráfego no mapa está definida para `relative` , que é a velocidade da estrada em relação ao fluxo livre. Para mais opções de tráfego, consulte [a interface TrafficOptions](/javascript/api/azure-maps-control/atlas.trafficoptions?preserve-view=false&view=azure-maps-typescript-latest).
+    No manipulador de eventos do `ready` mapa, a definição do fluxo de tráfego no mapa está definida para `relative` , que é a velocidade da estrada em relação ao fluxo livre. Para mais opções de tráfego, consulte [a interface TrafficOptions](/javascript/api/azure-maps-control/atlas.trafficoptions).
 
 2. Guarde o ficheiro **MapTruckRoute.html** e atualize a página no browser. Se você aproximar em qualquer cidade, como Los Angeles, você verá que as ruas exibem com os dados atuais do fluxo de tráfego.
 
@@ -193,7 +193,7 @@ Neste tutorial, dois trajetos serão calculados e processados no mapa. A primeir
 
     Este código cria dois [objetos GeoJSON Point](https://en.wikipedia.org/wiki/GeoJSON) para representar pontos de partida e de fim, que são adicionados à fonte de dados.
 
-    O último bloco de código define a vista da câmara utilizando a latitude e longitude dos pontos de partida e de fim. Os pontos de início e de fim são adicionados à origem de dados. A caixa delimitadora para os pontos de início e de fim é calculada com a função `atlas.data.BoundingBox.fromData`. Esta caixa de delimitação é usada para definir a visualização das câmaras de mapa em toda a rota utilizando a `map.setCamera` função. O estofamento é adicionado para compensar as dimensões dos pixels dos ícones do símbolo. Para obter mais informações sobre a propriedade do setCamera do controlo do mapa, consulte [setCamera (CameraOptions | CameraBoundsOptions & AnimationOptions)](/javascript/api/azure-maps-control/atlas.map?view=azure-maps-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-&preserve-view=false) propriedade.
+    O último bloco de código define a vista da câmara utilizando a latitude e longitude dos pontos de partida e de fim. Os pontos de início e de fim são adicionados à origem de dados. A caixa delimitadora para os pontos de início e de fim é calculada com a função `atlas.data.BoundingBox.fromData`. Esta caixa de delimitação é usada para definir a visualização das câmaras de mapa em toda a rota utilizando a `map.setCamera` função. O estofamento é adicionado para compensar as dimensões dos pixels dos ícones do símbolo. Para obter mais informações sobre a propriedade do setCamera do controlo do mapa, consulte [setCamera (CameraOptions | CameraBoundsOptions & AnimationOptions)](/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) propriedade.
 
 3. Guarde **TruckRoute.htmi** e refresque o seu navegador. O mapa está agora centrado em Seattle. O pino azul lágrima marca o ponto de partida. O pino azul redondo marca o ponto final.
 

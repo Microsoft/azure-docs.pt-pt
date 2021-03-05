@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 402c22052325349231090eb4cf4826159231fefe
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: f5865646200a783e7139bb5e22576ea404f58203
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101680157"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102216654"
 ---
 # <a name="enable-on-demand-bursting"></a>Permitir a explosão a pedido
 
@@ -61,7 +61,7 @@ New-AzDiskUpdateConfig -BurstingEnabled $true | Update-AzDisk -ResourceGroupName
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Os cmdlets de rebentamento a pedido estão disponíveis na versão 2.19.0 e mais recentes do [módulo Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Em alternativa, pode utilizar a [Concha da Nuvem Azure.](https://shell.azure.com/)
+Os cmdlets de rebentamento a pedido estão disponíveis na versão 2.19.0 e mais recentes do [módulo Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). Em alternativa, pode utilizar a [Concha da Nuvem Azure.](https://shell.azure.com/)
 
 ### <a name="create-and-attach-a-on-demand-bursting-data-disk"></a>Criar e anexar um disco de dados de rebentamento a pedido
 

@@ -7,12 +7,12 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/25/2020
-ms.openlocfilehash: fd40ad41bda50d93943a514cd9cc3aeeab4ac948
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: b130fd3f85b676f0a394ad95730181ff499dac96
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/05/2021
-ms.locfileid: "102198885"
+ms.locfileid: "102216501"
 ---
 # <a name="tutorial-configure-and-run-the-azure-key-vault-provider-for-the-secrets-store-csi-driver-on-kubernetes"></a>Tutorial: Configurar e executar o fornecedor Azure Key Vault para o motorista CSI Secrets Store em Kubernetes
 
@@ -37,7 +37,7 @@ Neste tutorial, ficará a saber como:
 
 * Antes de iniciar este tutorial, instale o [Azure CLI](/cli/azure/install-azure-cli-windows).
 
-Este tutorial pressupõe que você dirige o Serviço Azure Kubernetes em nós Linux.
+Este tutorial pressupõe que está a gerir o Serviço Azure Kubernetes em nós Linux.
 
 ## <a name="use-managed-identities"></a>Utilizar identidades geridas
 
@@ -107,7 +107,7 @@ Para criar o seu próprio cofre-chave e definir os seus segredos, siga as instru
 
 ## <a name="create-your-own-secretproviderclass-object"></a>Crie o seu próprio objeto SecretProviderClass
 
-Para criar o seu próprio objeto SecretProviderClass personalizado com parâmetros específicos do fornecedor para o controlador CSI Secrets Store, [utilize este modelo](https://raw.githubusercontent.com/Azure/secrets-store-csi-driver-provider-azure/master/examples/pod-identity/v1alpha1_secretproviderclass_pod_identity.yaml). Este objeto fornecerá acesso de identidade ao seu cofre de chaves.
+Para criar o seu próprio objeto SecretProviderClass personalizado com parâmetros específicos do fornecedor para o controlador CSI Secrets Store, [utilize este modelo](https://github.com/Azure/secrets-store-csi-driver-provider-azure/blob/master/examples/service-principal/v1alpha1_secretproviderclass_service_principal.yaml). Este objeto fornecerá acesso de identidade ao seu cofre de chaves.
 
 Na amostra, o ficheiro IML da SecretProviderClass preenche os parâmetros em falta. São necessários os seguintes parâmetros:
 

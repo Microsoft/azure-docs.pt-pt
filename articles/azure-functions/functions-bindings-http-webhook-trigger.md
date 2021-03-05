@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: a9bb87206ccb0dca56c1744d5578eac7a17418c7
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: e8641cada03577cf22e6627bdf53b2a8a0e836ef
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101726398"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102216388"
 ---
 # <a name="azure-functions-http-trigger"></a>Azure Funções HTTP Trigger
 
@@ -596,7 +596,7 @@ Utilizando esta configuração, a função é agora endereçada com a seguinte r
 http://<APP_NAME>.azurewebsites.net/api/products/electronics/357
 ```
 
-Esta configuração permite que o código de função suporte dois parâmetros no endereço, _categoria_ e _id_.
+Esta configuração permite que o código de função suporte dois parâmetros no endereço, _categoria_ e _id_. Para obter mais informações sobre como os parâmetros de rota são tokenizados num URL, consulte [o Encaminhamento em ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/routing#route-constraint-reference).
 
 # <a name="c"></a>[C#](#tab/csharp)
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 08/25/2020
 ms.custom: mvc, seodec18
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 476a88e41382842d91859d319a571784bd6e9b49
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: ca1308c969227336bfb4970f7c5c77b9f2e0cc22
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101748199"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102216535"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Tutorial: Mapeie um nome DNS personalizado existente para o Azure App Service
 
@@ -27,6 +27,8 @@ Neste tutorial, irá aprender a:
 > * Mapear um domínio wildcard usando um registo CNAME.
 > * Redirecione o URL padrão para um diretório personalizado.
 
+<hr/> 
+
 ## <a name="1-prepare-your-environment"></a>1. Prepare o seu ambiente
 
 * [Crie uma aplicação do Serviço de Aplicações](./index.yml) ou utilize uma aplicação que tenha criado para outro tutorial.
@@ -34,18 +36,20 @@ Neste tutorial, irá aprender a:
 
     <details>
         <summary>O que preciso para editar registos DNS?</summary>
-        Requer acesso ao registo DNS para o seu fornecedor de domínio, como o GoDaddy. Por exemplo, para adicionar entradas de DNS para contoso.com e www.contoso.com, deve ser capaz de configurar as definições de DNS para o domínio raiz contoso.com.
+        Requer acesso ao registo DNS para o seu fornecedor de domínio, como o GoDaddy. Por exemplo, para adicionar entradas DNS para <code>contoso.com</code> e <code>www.contoso.com</code>, tem de ter poder configurar as definições de DNS para o domínio de raiz <code>contoso.com</code>.
     </details>
+
+<hr/> 
 
 ## <a name="2-prepare-the-app"></a>2. Preparar a aplicação
 
 Para mapear um nome DNS personalizado para uma aplicação, a aplicação <abbr title="Especifica a localização, o tamanho e as funcionalidades da fazenda do servidor web que hospeda a sua aplicação.">Plano do Serviço de Aplicações</abbr> deve ser um nível pago (não <abbr title="Um nível de Serviço de Aplicações Azure em que a sua aplicação funciona nos mesmos VMs que outras aplicações, incluindo aplicações de outros clientes. Este nível destina-se ao desenvolvimento e ao teste.">**Grátis (F1)**</abbr>). Para mais informações, consulte [a visão geral do plano do Azure App Service](overview-hosting-plans.md).
 
-### <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
+#### <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
 Abra o [portal Azure](https://portal.azure.com)e inscreva-se na sua conta Azure.
 
-### <a name="select-the-app-in-the-azure-portal"></a>Selecione a aplicação no portal Azure
+#### <a name="select-the-app-in-the-azure-portal"></a>Selecione a aplicação no portal Azure
 
 1. Procure e selecione **Serviços de Aplicações.**
 
@@ -59,7 +63,7 @@ Abra o [portal Azure](https://portal.azure.com)e inscreva-se na sua conta Azure.
 
 <a name="checkpricing" aria-hidden="true"></a>
 
-### <a name="check-the-pricing-tier"></a>Verificar o escalão de preço
+#### <a name="check-the-pricing-tier"></a>Verificar o escalão de preço
 
 1. No painel esquerdo da página da aplicação, percorra a secção **Definições** e selecione **Scale up (Plano de Serviço de Aplicações)**.
 
@@ -73,7 +77,7 @@ Abra o [portal Azure](https://portal.azure.com)e inscreva-se na sua conta Azure.
 
 <a name="scaleup" aria-hidden="true"></a>
 
-### <a name="scale-up-the-app-service-plan"></a>Aumentar verticalmente o plano do Serviço de Aplicações
+#### <a name="scale-up-the-app-service-plan"></a>Aumentar verticalmente o plano do Serviço de Aplicações
 
 1. Selecione qualquer uma das camadas não gratuitas (**D1**, **B1**, **B2**, **B3** ou qualquer camada na categoria **Produção**). Para opções adicionais, **selecione Ver opções adicionais**.
 
@@ -84,6 +88,8 @@ Abra o [portal Azure](https://portal.azure.com)e inscreva-se na sua conta Azure.
    Quando vir a notificação seguinte, significa que a operação de dimensionamento está completa.
 
    ![Screenshot que mostra a confirmação da operação de escala.](./media/app-service-web-tutorial-custom-domain/scale-notification.png)
+
+<hr/> 
 
 <a name="cname" aria-hidden="true"></a>
 
@@ -98,14 +104,16 @@ Para adicionar um domínio personalizado à sua aplicação, tem de verificar a 
 
     <details>
         <summary>Por que preciso disto?</summary>
-        Adicionar IDs de verificação de domínio ao seu domínio personalizado pode impedir entradas de DNS pendentes e ajudar a evitar aquisições de subdomínios. Para domínios personalizados que previamente configurado sem este ID de verificação, deverá protegê-los do mesmo risco adicionando o ID de verificação ao seu registo DNS. Para obter mais informações sobre esta ameaça comum de alta gravidade, consulte [a aquisição de Subdomínio.](../security/fundamentals/subdomain-takeover.md)
+        Adicionar IDs de verificação de domínio ao seu domínio personalizado pode impedir entradas de DNS pendentes e ajudar a evitar aquisições de subdomínios. Para domínios personalizados que previamente configurado sem este ID de verificação, deverá protegê-los do mesmo risco adicionando o ID de verificação ao seu registo DNS. Para obter mais informações sobre esta ameaça comum de alta gravidade, consulte <a href="/azure/security/fundamentals/subdomain-takeover">a aquisição de Subdomínio.</a>
     </details>
     
 <a name="info"></a>
 
-3. **(Apenas um recorde) ** Para mapear um <abbr title="Um registo de endereço no DNS mapeia um nome de anfitrião para um endereço IP.">Um registo</abbr>, você precisa do endereço IP externo da aplicação. Na página **de domínios personalizados,** copie o valor do **endereço IP**.
+3. **(Apenas um registo)** Para mapear um <abbr title="Um registo de endereço no DNS mapeia um nome de anfitrião para um endereço IP.">Um registo</abbr>, você precisa do endereço IP externo da aplicação. Na página **de domínios personalizados,** copie o valor do **endereço IP**.
 
    ![Screenshot que mostra a navegação do portal para uma aplicação Azure.](./media/app-service-web-tutorial-custom-domain/mapping-information.png)
+
+<hr/> 
 
 ## <a name="4-create-the-dns-records"></a>4. Criar os registos DNS
 
@@ -148,52 +156,71 @@ Para adicionar um domínio personalizado à sua aplicação, tem de verificar a 
 
 Para um subdomínio como `www` em , crie dois `www.contoso.com` registos de acordo com a tabela seguinte:
 
-    | Tipo de registo | Anfitrião | Valor | Comentários |
-    | - | - | - |
-    | CNAME | `<subdomain>` (por exemplo, `www` ) | `<app-name>.azurewebsites.net` | O próprio mapeamento de domínio. |
-    | TXT | `asuid.<subdomain>` (por exemplo, `asuid.www` ) | [A verificação que recebeu mais cedo](#3-get-a-domain-verification-id) | O Serviço de Aplicações acede ao `asuid.<subdomain>` registo TXT para verificar a sua propriedade do domínio personalizado. |
-    
-    ![Screenshot that shows the portal navigation to an Azure app.](./media/app-service-web-tutorial-custom-domain/cname-record.png)
+| Tipo de registo | Anfitrião | Valor | Comentários |
+| - | - | - |
+| CNAME | `<subdomain>` (por exemplo, `www` ) | `<app-name>.azurewebsites.net` | O próprio mapeamento de domínio. |
+| TXT | `asuid.<subdomain>` (por exemplo, `asuid.www` ) | [A verificação que recebeu mais cedo](#3-get-a-domain-verification-id) | O Serviço de Aplicações acede ao `asuid.<subdomain>` registo TXT para verificar a sua propriedade do domínio personalizado. |
+
+![Screenshot que mostra a navegação do portal para uma aplicação Azure.](./media/app-service-web-tutorial-custom-domain/cname-record.png)
     
 # <a name="a"></a>[A](#tab/a)
 
 Para um domínio de raiz como `contoso.com` , crie dois registos de acordo com a tabela seguinte:
 
-    | Tipo de registo | Anfitrião | Valor | Comentários |
-    | - | - | - |
-    | A | `@` | Endereço IP de [Copiar o endereço IP da aplicação](#3-get-a-domain-verification-id) | O próprio mapeamento de domínio `@` (normalmente representa o domínio raiz). |
-    | TXT | `asuid` | [A verificação que recebeu mais cedo](#3-get-a-domain-verification-id) | O Serviço de Aplicações acede ao `asuid.<subdomain>` registo TXT para verificar a sua propriedade do domínio personalizado. Para o domínio raiz, utilize `asuid` . |
-    
-    ![Screenshot that shows a DNS records page.](./media/app-service-web-tutorial-custom-domain/a-record.png)
+| Tipo de registo | Anfitrião | Valor | Comentários |
+| - | - | - |
+| A | `@` | Endereço IP de [Copiar o endereço IP da aplicação](#3-get-a-domain-verification-id) | O próprio mapeamento de domínio `@` (normalmente representa o domínio raiz). |
+| TXT | `asuid` | [A verificação que recebeu mais cedo](#3-get-a-domain-verification-id) | O Serviço de Aplicações acede ao `asuid.<subdomain>` registo TXT para verificar a sua propriedade do domínio personalizado. Para o domínio raiz, utilize `asuid` . |
 
-    <details>
-    <summary>What if I want to map a subdomain with an A record?</summary>
-    To map a subdomain like `www.contoso.com` with an A record instead of a recommended CNAME record, your A record and TXT record should look like the following table instead:
+![Screenshot que mostra uma página de registos DNS.](./media/app-service-web-tutorial-custom-domain/a-record.png)
 
-    | Tipo de registo | Anfitrião | Valor |
-    | - | - | - |
-    | A | `<subdomain>` (por exemplo, `www` ) | Endereço IP de [Copiar o endereço IP da aplicação](#info) |
-    | TXT | `asuid.<subdomain>` (por exemplo, `asuid.www` ) | [A verificação que recebeu mais cedo](#3-get-a-domain-verification-id) |
-    </details>
-    
+<details>
+<summary>E se eu quiser mapear um subdomínio com um disco A?</summary>
+Para mapear um subdomínio como `www.contoso.com` com um registo A em vez de um registo CNAME recomendado, o seu disco A e o seu registo TXT devem parecer-se com a seguinte tabela:
+
+<div class="table-scroll-wrapper"><table class="table"><caption class="visually-hidden">Tabela 3</caption>
+<thead>
+<tr>
+<th>Tipo de registo</th>
+<th>Anfitrião</th>
+<th>Valor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td><code>&lt;subdomain&gt;</code> (por exemplo, <code>www</code> )</td>
+<td>Endereço IP de <a href="#info" data-linktype="self-bookmark">Copiar o endereço IP da aplicação</a></td>
+</tr>
+<tr>
+<td>TXT</td>
+<td><code>asuid.&lt;subdomain&gt;</code> (por exemplo, <code>asuid.www</code> )</td>
+<td><a href="#3-get-a-domain-verification-id" data-linktype="self-bookmark">A verificação que recebeu mais cedo</a></td>
+</tr>
+</tbody>
+</table></div>
+</details>
+
 # <a name="wildcard-cname"></a>[Wildcard (CNAME)](#tab/wildcard)
 
 Para um nome wildcard como `*` em , crie dois `*.contoso.com` registos de acordo com a tabela seguinte:
 
-    | Tipo de registo | Anfitrião | Valor | Comentários |
-    | - | - | - |
-    | CNAME | `*` | `<app-name>.azurewebsites.net` | O próprio mapeamento de domínio. |
-    | TXT | `asuid` | [A verificação que recebeu mais cedo](#3-get-a-domain-verification-id) | O Serviço de Aplicações acede ao `asuid` registo TXT para verificar a sua propriedade do domínio personalizado. |
-    
-    ![Screenshot that shows the navigation to an Azure app.](./media/app-service-web-tutorial-custom-domain/cname-record-wildcard.png)
-    
----
+| Tipo de registo | Anfitrião | Valor | Comentários |
+| - | - | - |
+| CNAME | `*` | `<app-name>.azurewebsites.net` | O próprio mapeamento de domínio. |
+| TXT | `asuid` | [A verificação que recebeu mais cedo](#3-get-a-domain-verification-id) | O Serviço de Aplicações acede ao `asuid` registo TXT para verificar a sua propriedade do domínio personalizado. |
 
-    <details>
-        <summary>My changes are erased after I leave the page.</summary>
-        For certain providers, such as GoDaddy, changes to DNS records don't become effective until you select a separate **Save Changes** link.
-    </details>
+![Screenshot que mostra a navegação para uma aplicação Azure.](./media/app-service-web-tutorial-custom-domain/cname-record-wildcard.png)
     
+-----
+
+<details>
+<summary>As minhas mudanças são apagadas depois de sair da página.</summary>
+<p>Para alguns fornecedores, como a GoDaddy, as alterações aos registos DNS só entram em vigor quando selecionar uma ligação <strong>Guardar Alterações</strong> separada.</p>
+</details>
+
+<hr/>
+
 ## <a name="5-enable-the-mapping-in-your-app"></a>5. Ativar o mapeamento na sua aplicação
 
 1. No painel esquerdo da página da aplicação no portal Azure, selecione **domínios personalizados**.
@@ -273,8 +300,10 @@ Para um nome wildcard como `*` em , crie dois `*.contoso.com` registos de acordo
         Um rótulo de aviso para o seu domínio personalizado significa que ainda não está ligado a um certificado TLS/SSL. Qualquer pedido HTTPS de um navegador para o seu domínio personalizado receberá um erro ou aviso, dependendo do navegador. Para adicionar uma ligação TLS, consulte <a href="https://docs.microsoft.com/azure/app-service/configure-ssl-bindings">Secure um nome DNS personalizado com uma ligação TLS/SSL no Azure App Service</a>.
     </details>
 
----
-    
+-----
+
+<hr/> 
+
 ## <a name="6-test-in-a-browser"></a>6. Teste num browser
 
 Navegue pelos nomes DNS que configuraste anteriormente.
@@ -290,9 +319,13 @@ Navegue pelos nomes DNS que configuraste anteriormente.
 </ul>
 </details>
 
+<hr/> 
+
 ## <a name="migrate-an-active-domain"></a>Migrar um domínio ativo
 
 Para migrar um site em direto e o respetivo nome de domínio DNS para o Serviço de Aplicações, consulte [Migrar um nome DNS ativo para o Serviço de Aplicações do Azure](manage-custom-dns-migrate-domain.md).
+
+<hr/> 
 
 <a name="virtualdir" aria-hidden="true"></a>
 
@@ -313,11 +346,13 @@ Embora este seja um cenário comum, não envolve mapeamento de domínio personal
 
 1. Após o fim da operação, verifique navegando no caminho raiz da sua aplicação no navegador (por exemplo, `http://contoso.com` ou `http://<app-name>.azurewebsites.net` ).
 
+<hr/> 
+
 ## <a name="automate-with-scripts"></a>Automatizar com scripts
 
 Pode automatizar a gestão de domínios personalizados com scripts utilizando o [Azure CLI](/cli/azure/install-azure-cli) ou [o Azure PowerShell](/powershell/azure/).
 
-### <a name="azure-cli"></a>CLI do Azure
+#### <a name="azure-cli"></a>CLI do Azure
 
 O comando seguinte adiciona um nome DNS personalizado configurado a uma aplicação do Serviço de Aplicações.
 
@@ -330,7 +365,7 @@ az webapp config hostname add \
 
 Para obter mais informações, veja [Map a custom domain to a web app](scripts/cli-configure-custom-domain.md) (Mapear um domínio personalizado a uma aplicação Web).
 
-### <a name="azure-powershell"></a>Azure PowerShell
+#### <a name="azure-powershell"></a>Azure PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -344,6 +379,8 @@ Set-AzWebApp `
 ```
 
 Para obter mais informações, veja [Assign a custom domain to a web app](scripts/powershell-configure-custom-domain.md) (Atribuir um domínio personalizado a uma aplicação Web).
+
+<hr/> 
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -9,12 +9,12 @@ ms.subservice: disks
 ms.date: 10/15/2019
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: 6edfa1beb568bb05bd0f3f1ef9e7792ac3c3cbe2
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: 302f53bd218a2e01a039be4780a0e2ff5974e7b4
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94515749"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102215957"
 ---
 # <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-the-azure-cli"></a>Criptografe os discos de dados e os discos de dados anexados num conjunto de escala de máquina virtual com o Azure CLI
 
@@ -32,7 +32,7 @@ Para poder criar um conjunto de dimensionamento, crie primeiro um grupo de recur
 az group create --name myResourceGroup --location eastus
 ```
 
-Agora, crie um conjunto de dimensionamento de máquinas virtuais com [az vmss create](/cli/azure/vmss). O exemplo seguinte cria um conjunto de dimensionamento com o nome *myScaleSet* , que está definido para atualizar automaticamente à medida que as alterações são aplicadas, e gera chaves SSH, caso não existam em *~/.ssh/id_rsa*. Um disco de dados de 32Gb é anexado a cada instância VM, e a [extensão de script personalizada](../virtual-machines/extensions/custom-script-linux.md) Azure é usada para preparar os discos de dados com [conjunto de extensão az vmss](/cli/azure/vmss/extension):
+Agora, crie um conjunto de dimensionamento de máquinas virtuais com [az vmss create](/cli/azure/vmss). O exemplo seguinte cria um conjunto de dimensionamento com o nome *myScaleSet*, que está definido para atualizar automaticamente à medida que as alterações são aplicadas, e gera chaves SSH, caso não existam em *~/.ssh/id_rsa*. Um disco de dados de 32Gb é anexado a cada instância VM, e a [extensão de script personalizada](../virtual-machines/extensions/custom-script-linux.md) Azure é usada para preparar os discos de dados com [conjunto de extensão az vmss](/cli/azure/vmss/extension):
 
 ```azurecli-interactive
 # Create a scale set with attached data disk
@@ -103,7 +103,7 @@ az vmss encryption enable \
 
 Pode levar um minuto ou dois para o processo de encriptação começar.
 
-Como o conjunto de escala é a política de upgrade no conjunto de escala criado num passo anterior é definido para *automático* , as instâncias VM iniciam automaticamente o processo de encriptação. Em conjuntos de escala onde a política de atualização é manual, inicie a política de encriptação nos casos VM com [instâncias de atualização az vmss](/cli/azure/vmss#az-vmss-update-instances).
+Como o conjunto de escala é a política de upgrade no conjunto de escala criado num passo anterior é definido para *automático*, as instâncias VM iniciam automaticamente o processo de encriptação. Em conjuntos de escala onde a política de atualização é manual, inicie a política de encriptação nos casos VM com [instâncias de atualização az vmss](/cli/azure/vmss#az-vmss-update-instances).
 
 ### <a name="enable-encryption-using-kek-to-wrap-the-key"></a>Ative a encriptação usando KEK para embrulhar a chave
 
@@ -166,7 +166,7 @@ Quando as instâncias VM são encriptadas, o código de estado *reporta Encrypti
 
 ## <a name="disable-encryption"></a>Desativar a encriptação
 
-Se já não pretender utilizar discos de instâncias VM encriptados, pode desativar a encriptação com [encriptação az vmss desativada](/cli/azure/vmss/encryption?view=azure-cli-latest#az-vmss-encryption-disable) da seguinte forma:
+Se já não pretender utilizar discos de instâncias VM encriptados, pode desativar a encriptação com [encriptação az vmss desativada](/cli/azure/vmss/encryption#az-vmss-encryption-disable) da seguinte forma:
 
 ```azurecli-interactive
 az vmss encryption disable --resource-group myResourceGroup --name myScaleSet

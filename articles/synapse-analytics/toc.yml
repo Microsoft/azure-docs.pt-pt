@@ -1151,7 +1151,7 @@
 - name: Referência
   items:
     - name: CLI do Azure
-      href: /cli/azure/ext/synapse/?view=azure-cli-latest
+      href: /cli/azure/ext/synapse/
     - name: Tipo de agrupamento de base de dados
       href: sql/reference-collation-types.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: Ir

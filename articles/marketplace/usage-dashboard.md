@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/09/2020
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: 9f798751065d4889569f4b798ac864342f3e54ef
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: d898efb44bb92151a5d044a6699a4efb70fa9390
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98934392"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102215736"
 ---
 # <a name="usage-dashboard-in-commercial-marketplace-analytics"></a>Dashboard de utilização na análise do mercado comercial
 
@@ -154,9 +154,9 @@ _**Quadro 1: Dicionário de termos de dados**_
 | NormalizadoUsage | Utilização normalizada | As unidades de utilização total normalizadas consumidas pelo ativo que é implantado pelo cliente.<br>As horas de utilização normalizadas são definidas como as horas de utilização normalizadas para explicar o número de núcleos VM ([número de núcleos VM] x [horas de utilização bruta]). Os VMs designados como "SHAREDCORE" utilizam 1/6 (ou 0,1666) como multiplicador [número de núcleos VM]. |
 | Medidusage | Utilização medido | As unidades de utilização totais consumidas pelos contadores configurados com a oferta que é implementada pelo cliente. |
 | RawUsage | Utilização bruta | As unidades de utilização bruta totais consumidas pelo ativo que é implantado pelo cliente.<br>As horas de utilização brutas são definidas como a quantidade de tempo que os VMs têm vindo a ser em execução em termos de unidades de utilização. |
-| Encargo alargado estimado (CC) | Encargo alargado estimado na moeda do cliente | Significa as acusações associadas à utilização. A coluna é o produto da Quantidade de Preço (CC) e de Utilização. |
-| Carga Estendida Estimada (PC) | Encargo estimado alargado na moeda de pagamento | Significa as acusações associadas à utilização. A coluna é o produto do Preço Estimado (PC) e da Quantidade de Utilização. |
-||||
+| Encargo alargado estimado (CC) | Encargo alargado estimado na moeda do cliente | Significa as acusações associadas à utilização. A coluna é o produto do uso de Price (CC) e Raw. |
+| Carga Estendida Estimada (PC) | Encargo estimado alargado na moeda de pagamento | Significa as acusações associadas à utilização. A coluna é o produto do Preço Estimado (PC) e da utilização bruta. |
+|
 
 ### <a name="usage-page-filters"></a>Filtros de página de uso
 
@@ -186,7 +186,7 @@ Se tiver várias ofertas que usam medidores personalizados, o relatório de util
 > [!TIP]
 > Pode utilizar o ícone de descarregamento no canto superior direito de qualquer widget para descarregar os dados. Pode fornecer feedback sobre cada um dos widgets clicando no ícone "polegares para cima" ou "polegares para baixo".
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter uma visão geral dos relatórios de análise disponíveis no mercado comercial, consulte os [relatórios analíticos do Access para o mercado comercial no Partner Center.](./partner-center-portal/analytics.md)
 - Para gráficos, tendências e valores de dados agregados que resumem a atividade do mercado para a sua oferta, consulte [o Painel De Resumo em análise de mercado comercial.](./summary-dashboard.md)

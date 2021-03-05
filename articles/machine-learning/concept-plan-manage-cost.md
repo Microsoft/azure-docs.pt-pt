@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: 9ee5c8dcfb23b758a92e7b50f33a905852948e5a
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: be8b11b6ddf715e5d6226372e8d03b42dec5fc7d
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98877480"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102215991"
 ---
 # <a name="plan-and-manage-costs-for-azure-machine-learning"></a>Planear e gerir os custos para a Azure Machine Learning
 
@@ -121,7 +121,7 @@ Também pode configurar a quantidade de tempo que o nó está inativo antes de r
 + Se realizar menos experimentação iterativa, reduza este tempo para economizar custos.
 + Se realizar uma experimentação altamente iterativa dev/teste, poderá ter de aumentar o tempo para não pagar por uma escalada constante após cada alteração ao seu script de treino ou ambiente.
 
-Os clusters AmlCompute podem ser configurados para os seus requisitos de carga de trabalho em mudança no portal Azure, utilizando a [classe AmlCompute SDK](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?preserve-view=true&view=azure-ml-py), [AmlCompute CLI,](/cli/azure/ext/azure-cli-ml/ml/computetarget/create?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute)com as [APIs REST](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable).
+Os clusters AmlCompute podem ser configurados para os seus requisitos de carga de trabalho em mudança no portal Azure, utilizando a [classe AmlCompute SDK](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?preserve-view=true&view=azure-ml-py), [AmlCompute CLI,](/cli/azure/ext/azure-cli-ml/ml/computetarget/create#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute)com as [APIs REST](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable).
 
 ```azurecli
 az ml computetarget create amlcompute --name testcluster --vm-size Standard_NC6 --min-nodes 0 --max-nodes 5 --idle-seconds-before-scaledown 300
@@ -159,7 +159,7 @@ Outra forma de economizar em recursos computacional é a Azure Reserved VM Insta
 A azure Machine Learning Compute suporta casos reservados inerentemente. Se comprar uma instância reservada de um ano ou três anos, aplicaremos automaticamente desconto contra o seu computo gerido Azure Machine Learning.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba [como otimizar o seu investimento em nuvem com a Azure Cost Management.](../cost-management-billing/costs/cost-mgt-best-practices.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
 - Saiba mais sobre gestão de custos com [a análise de custos.](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/21/2021
+ms.date: 03/05/2021
 ms.author: tamram
 ms.reviewer: fryu
-ms.openlocfilehash: 944e233fafc4cf5c8c90041e18f94d0e53b7bb46
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 2ed6c0c20869e31c0ef664d15305c5aa85ca4c6c
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100591531"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102215583"
 ---
 # <a name="prevent-shared-key-authorization-for-an-azure-storage-account-preview"></a>Impedir a autorização da Chave Partilhada para uma conta de Armazenamento Azure (pré-visualização)
 
@@ -22,12 +22,8 @@ Todos os pedidos seguros a uma conta de Armazenamento Azure devem ser autorizado
 
 Quando não autoriza a Chave Partilhada para uma conta de armazenamento, o Azure Storage rejeita todos os pedidos subsequentes a essa conta que são autorizadas com as chaves de acesso à conta. Apenas os pedidos seguros autorizados com a Azure AD serão bem sucedidos. Para obter mais informações sobre a utilização do Azure AD, consulte [o Acesso autorizado a bolhas e filas utilizando o Azure Ative Directory](storage-auth-aad.md).
 
-> [!WARNING]
-> O Azure Storage suporta a autorização Azure AD para pedidos apenas para o armazenamento de Blob e Fila. Se não permitir a autorização com a Chave Partilhada para uma conta de armazenamento, os pedidos para ficheiros Azure ou armazenamento de mesa que utilizem a autorização da Chave Partilhada falharão. Como o portal Azure usa sempre a autorização da Chave Partilhada para aceder aos dados de ficheiros e tabelas, se não autorizar a autorização com a Chave Partilhada para a conta de armazenamento, não poderá aceder a ficheiros ou dados de tabelas no portal Azure.
->
-> A Microsoft recomenda que emigre quaisquer dados de armazenamento de Azure Files ou Table para uma conta de armazenamento separada antes de não permitir o acesso à conta através da Chave Partilhada, ou que não aplique esta definição em contas de armazenamento que suportem ficheiros Azure ou cargas de trabalho de armazenamento de mesa.
->
-> A desativação do acesso da Chave Partilhada a uma conta de armazenamento não afeta as ligações SMB aos Ficheiros Azure.
+> [!IMPORTANT]
+> A autorização da Chave Partilhada está atualmente em **PREVIEW**. Consulte os [Termos Complementares de Utilização para o Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para termos legais aplicáveis às funcionalidades do Azure que estejam em versão beta, pré-visualização ou ainda não lançadas em disponibilidade geral.
 
 Este artigo descreve como detetar pedidos enviados com autorização da Chave Partilhada e como remediar a autorização da Chave Partilhada para a sua conta de armazenamento. Para saber como se registar para a pré-visualização, consulte [Sobre a pré-visualização](#about-the-preview).
 
@@ -133,11 +129,23 @@ Para não permitir a autorização da Chave Partilhada para uma conta de armazen
 
     :::image type="content" source="media/shared-key-authorization-prevent/shared-key-access-portal.png" alt-text="Screenshot mostrando como desativar o acesso da Chave Partilhada para conta":::
 
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+Para não permitir a autorização da Chave Partilhada para uma conta de armazenamento com o PowerShell, instale o [módulo Az.Storage PowerShell](https://www.powershellgallery.com/packages/Az.Storage), versão 3.4.0 ou posterior. Em seguida, configurar a propriedade **AllowSharedKeyAccess** para uma conta de armazenamento nova ou existente.
+
+O exemplo a seguir mostra como não permitir o acesso com a Chave Partilhada para uma conta de armazenamento existente com a PowerShell. Lembre-se de substituir os valores de espaço reservado nos parênteses pelos seus próprios valores:
+
+```powershell
+Set-AzStorageAccount -ResourceGroupName <resource-group> `
+    -AccountName <storage-account> `
+    -AllowSharedKeyAccess $false
+```
+
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 Para não permitir a autorização da Chave Partilhada para uma conta de armazenamento com o Azure CLI, instale a versão 2.9.1 do Azure CLI ou posteriormente. Para mais informações, consulte [instalar o Azure CLI](/cli/azure/install-azure-cli). Em seguida, configurar a propriedade **allowSharedKeyAccess** para uma conta de armazenamento nova ou existente.
 
-O exemplo a seguir mostra como definir a propriedade **allowSharedKeyAccess** com Azure CLI. Lembre-se de substituir os valores de espaço reservado nos parênteses pelos seus próprios valores:
+O exemplo a seguir mostra como não permitir o acesso com a Chave Partilhada para uma conta de armazenamento existente com o Azure CLI. Lembre-se de substituir os valores de espaço reservado nos parênteses pelos seus próprios valores:
 
 ```azurecli-interactive
 $storage_account_id=$(az resource show \
@@ -236,12 +244,17 @@ Algumas ferramentas Azure oferecem a opção de usar a autorização Azure AD pa
 | Azure IoT Hub | Suportado. Para obter mais informações, consulte [o suporte do IoT Hub para redes virtuais.](../../iot-hub/virtual-network-support.md) |
 | Azure Cloud Shell | Azure Cloud Shell é uma concha integrada no portal Azure. A Azure Cloud Shell acolhe ficheiros para persistência numa partilha de ficheiros Azure numa conta de armazenamento. Estes ficheiros tornar-se-ão inacessíveis se a autorização da Chave Partilhada for proibida para essa conta de armazenamento. Para obter mais informações, consulte [o armazenamento do Microsoft Azure Files](../../cloud-shell/overview.md#connect-your-microsoft-azure-files-storage). <br /><br /> Para executar comandos em Azure Cloud Shell para gerir contas de armazenamento para as quais o acesso de Chave Partilhada é proibido, certifique-se primeiro de que lhe foram concedidas as permissões necessárias a estas contas através do Azure RBAC. Para obter mais informações, veja [o que é o controlo de acesso baseado em funções Azure (Azure RBAC)?](../../role-based-access-control/overview.md) |
 
+## <a name="transition-azure-files-and-table-storage-workloads"></a>Ficheiros Azure de Transição e cargas de trabalho de armazenamento de mesa
+
+O Azure Storage suporta a autorização Azure AD para pedidos apenas para o armazenamento de Blob e Fila. Se não permitir a autorização com a Chave Partilhada para uma conta de armazenamento, os pedidos para ficheiros Azure ou armazenamento de mesa que utilizem a autorização da Chave Partilhada falharão. Como o portal Azure usa sempre a autorização da Chave Partilhada para aceder aos dados de ficheiros e tabelas, se não autorizar a autorização com a Chave Partilhada para a conta de armazenamento, não poderá aceder a ficheiros ou dados de tabelas no portal Azure.
+
+A Microsoft recomenda que emigre quaisquer dados de armazenamento de Azure Files ou Table para uma conta de armazenamento separada antes de não permitir o acesso à conta através da Chave Partilhada, ou que não aplique esta definição em contas de armazenamento que suportem ficheiros Azure ou cargas de trabalho de armazenamento de mesa.
+
+A desativação do acesso da Chave Partilhada a uma conta de armazenamento não afeta as ligações SMB aos Ficheiros Azure.
+
 ## <a name="about-the-preview"></a>Sobre a pré-visualização
 
 A pré-visualização para desativar a autorização da Chave Partilhada está disponível na nuvem pública do Azure. É suportado para contas de armazenamento que usam apenas o modelo de implementação do Gestor de Recursos Azure. Para obter informações sobre quais as contas de armazenamento que utilizam o modelo de implementação do Gestor de Recursos Azure, consulte [tipos de contas de armazenamento](storage-account-overview.md#types-of-storage-accounts).
-
-> [!IMPORTANT]
-> Esta pré-visualização destina-se apenas à utilização não-produção.
 
 A pré-visualização inclui as limitações descritas nas seguintes secções.
 
