@@ -9,12 +9,12 @@ ms.date: 03/01/2020
 ms.author: midesa
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: 38826451bbb8ec9303f61db53544cfe8ca2fcd41
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: c6d720c3feec29eb32b1cfa9c31ea45839c98ec7
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102123093"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102176421"
 ---
 # <a name="manage-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Gerir bibliotecas para Apache Spark em Azure Synapse Analytics
 As bibliotecas fornecem código reutilizável que poderá querer incluir nos seus programas ou projetos. 
@@ -61,10 +61,14 @@ Muitas vezes, ao fazer análises interativas de dados ou machine learning, poder
 
 Os pacotes com âmbito de sessão permitem aos utilizadores definir as dependências dos pacotes no início da sessão. Quando instala um pacote com âmbito de sessão, apenas a sessão atual tem acesso às embalagens especificadas. Como resultado, estes pacotes de sessão não terão impacto em outras sessões ou empregos utilizando a mesma piscina Apache Spark. Além disso, estas bibliotecas são instaladas em cima dos pacotes de tempo de funcionaamento e de nível de piscina. 
 
+Estes pacotes são adicionados automaticamente ao seu ambiente Python. Os pacotes não devem ser mencionados no seu *ficheirorequirements.txt.*
+
+Note que este método atualmente suporta apenas `*.whl` ficheiros. Não adicione `*.tar.gz` quaisquer ficheiros ao recipiente.
+
 Para saber mais sobre como gerir pacotes com âmbito de sessão, visite os seguintes guias de como fazer:
 
 - [Pacotes de sessão python (pré-visualização):](./apache-spark-manage-python-packages.md) No início de uma sessão, forneça um *ambiente Conda.yml* para instalar pacotes Python adicionais de repositórios populares. 
-- [Pacotes de sessão Scala/Java: ](./apache-spark-manage-scala-packages.md) No início da sessão, forneça uma lista de ficheiros de frascos para instalar ```%%configure``` utilizando .
+- [Pacotes de sessão Scala/Java: ](./apache-spark-manage-scala-packages.md) No início da sessão, forneça uma lista de ficheiros de frascos para instalar `%%configure` utilizando .
 
 ## <a name="next-steps"></a>Passos seguintes
 - Ver as bibliotecas padrão: [Suporte à versão Apache Spark](apache-spark-version-support.md)

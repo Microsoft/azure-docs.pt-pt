@@ -8,12 +8,12 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 10/16/2020
-ms.openlocfilehash: 3f1e3fd360197310a89a67d43053649d904aeb18
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: d125bca5ed67476897eec7cd32a586776d8b1ea8
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101677615"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102176625"
 ---
 # <a name="tutorial-create-apache-spark-job-definition-in-synapse-studio"></a>Tutorial: Criar definição de emprego apache spark no Estúdio Synapse
 
@@ -34,7 +34,7 @@ Antes de começar este tutorial, certifique-se de que cumpre os seguintes requis
 
 * Um espaço de trabalho Azure Synapse Analytics. Para obter instruções, consulte [Criar um espaço de trabalho Azure Synapse Analytics](../../machine-learning/how-to-manage-workspace.md).
 * Uma piscina Apache Spark sem servidor.
-* Uma conta de armazenamento da ADLS Gen2. Tem de ser o Proprietário de **Dados blob** de armazenamento do sistema de ficheiros ADLS Gen2 com o que pretende trabalhar. Se não estiver, tem de adicionar a permissão manualmente.
+* Uma conta de armazenamento da ADLS Gen2. Tem de ser o colaborador de dados da **Blob** de Armazenamento do sistema de ficheiros ADLS Gen2 com o que pretende trabalhar. Se não estiver, tem de adicionar a permissão manualmente.
 * Se não quiser utilizar o armazenamento padrão do espaço de trabalho, ligue a conta de armazenamento ADLS Gen2 necessária no Synapse Studio. 
 
 ## <a name="create-an-apache-spark-job-definition-for-pyspark-python"></a>Crie uma definição de trabalho apache spark para PySpark (Python)
@@ -162,7 +162,7 @@ Nesta secção, você cria uma definição de trabalho Apache Spark para .NET Sp
 
 ## <a name="submit-an-apache-spark-job-definition-as-a-batch-job"></a>Submeta uma definição de trabalho apache spark como um trabalho de lote
 
-Depois de criar uma definição de emprego Apache Spark, você pode submetê-lo a uma piscina Apache Spark. Certifique-se de que é o Proprietário de **Dados blob** de armazenamento do sistema de ficheiros ADLS Gen2 com o qual pretende trabalhar. Se não estiver, tem de adicionar a permissão manualmente.
+Depois de criar uma definição de emprego Apache Spark, você pode submetê-lo a uma piscina Apache Spark. Certifique-se de que é o Colaborador de **Dados blob** de armazenamento do sistema de ficheiros ADLS Gen2 com o qual pretende trabalhar. Se não estiver, tem de adicionar a permissão manualmente.
 
 ### <a name="scenario-1-submit-apache-spark-job-definition"></a>Cenário 1: Submeter a definição de emprego da Apache Spark
  1. Abra uma janela de definição de trabalho de faísca Apache selecionando-a.

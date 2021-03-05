@@ -6,12 +6,12 @@ author: TomGeske
 ms.topic: article
 ms.date: 07/20/2020
 ms.author: thomasge
-ms.openlocfilehash: 4aa63493bb14db69821ac04db1d2c5a846de7dbe
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 055afe24cb72b331e64e1a2b3d786503ef31a105
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94682473"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102176404"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service-using-the-azure-cli-legacy"></a>Integre o Azure Ative Directy com o Serviço Azure Kubernetes utilizando o Azure CLI (legado)
 
@@ -29,7 +29,7 @@ Para obter o roteiro completo da amostra utilizado neste artigo, consulte [as am
 - O Azure AD só pode ser ativado no cluster ativado por NCC de Kubernetes.
 - A integração do legado AD AD só pode ser ativada durante a criação de clusters.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Precisa da versão 2.0.61 do Azure CLI ou posteriormente instalada e configurada. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][install-azure-cli].
 
@@ -247,7 +247,7 @@ error: You must be logged in to the server (Unauthorized)
 * O utilizador não é membro de mais de 200 grupos.
 * Segredo definido no registo de candidatura para servidor corresponde ao valor configurado usando `--aad-server-app-secret`
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter o roteiro completo que contém os comandos mostrados neste artigo, consulte o script de [integração AD AD AZure nas amostras AKS repo][complete-script].
 
@@ -264,8 +264,8 @@ Para obter as melhores práticas em matéria de identidade e controlo de recurso
 [complete-script]: https://github.com/Azure-Samples/azure-cli-samples/tree/master/aks/azure-ad-integration/azure-ad-integration.sh
 
 <!-- LINKS - internal -->
-[az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
-[az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
+[az-aks-create]: /cli/azure/aks#az-aks-create
+[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [az-group-create]: /cli/azure/group#az-group-create
 [open-id-connect]: ../active-directory/develop/v2-protocols-oidc.md
 [az-ad-user-show]: /cli/azure/ad/user#az-ad-user-show

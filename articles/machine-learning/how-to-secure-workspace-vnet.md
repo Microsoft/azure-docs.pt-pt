@@ -11,17 +11,16 @@ author: peterclu
 ms.date: 10/06/2020
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy20q4, tracking-python, contperf-fy21q1
-ms.openlocfilehash: 07b8c130a2a22554e4cd5b33996d5a5ee967d47f
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 083d750db0db050265c93cc658d4f3b6556b850d
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97029537"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102176217"
 ---
 # <a name="secure-an-azure-machine-learning-workspace-with-virtual-networks"></a>Garantir um espaço de trabalho de aprendizagem automática Azure com redes virtuais
 
 Neste artigo, aprende-se a garantir um espaço de trabalho Azure Machine Learning e os seus recursos associados numa rede virtual.
-
 
 Este artigo é parte dois de uma série de cinco partes que o acompanha através da garantia de um fluxo de trabalho de Aprendizagem automática Azure. Recomendamos vivamente que leia a [primeira parte: visão geral do VNet](how-to-network-security-overview.md) para entender primeiro a arquitetura geral. 
 
@@ -296,9 +295,9 @@ Uma vez cumpridos os requisitos, utilize os seguintes passos para permitir o reg
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Este artigo é parte de uma série de rede virtual de quatro partes. Veja o resto dos artigos para aprender a proteger uma rede virtual:
+Este artigo é parte dois de uma série de rede virtual de cinco partes. Veja o resto dos artigos para aprender a proteger uma rede virtual:
 
 * [Parte 1: Visão geral da rede virtual](how-to-network-security-overview.md)
 * [Parte 3: Assegurar o ambiente de treino](how-to-secure-training-vnet.md)
 * [Parte 4: Assegurar o ambiente de inferencção](how-to-secure-inferencing-vnet.md)
-* [Parte 5:Ativar a funcionalidade do estúdio](how-to-enable-studio-virtual-network.md)
+* [Parte 5: Ativar a funcionalidade do estúdio](how-to-enable-studio-virtual-network.md)

@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 12/17/2018
-ms.openlocfilehash: d5a067272caf9b072117ba57b7b16f8d78a8b456
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: b16a2fc9f107a8420fb7d05667807a869fa3e00a
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791652"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102172762"
 ---
 # <a name="multi-model-capabilities-of-azure-sql-database--sql-managed-instance"></a>Capacidades multi-modelo da Base de Dados Azure SQL & SQL Gestd Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -33,7 +33,7 @@ Deve considerar a utilização de capacidades multi-modelo da família de produt
 - Pretende aproveitar a rica linguagem Transact-SQL para consultar e analisar os dados relacionais e noSQL, e integrá-los com uma variedade de ferramentas e aplicações que podem usar a linguagem SQL.
 - Pretende aplicar funcionalidades de base de dados, tais como [tecnologias de memória,](in-memory-oltp-overview.md) para melhorar o desempenho da sua analítica ou processamento das suas estruturas de dados NoSQL, utilizar [replicações transacionais](managed-instance/replication-transactional-overview.md) ou [réplicas legíveis](database/read-scale-out.md) para criar cópia dos seus dados no outro local e descarregar algumas cargas de trabalho analíticas da base de dados primária.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 A família de produtos Azure SQL fornece as seguintes características multi-modelo:
 
@@ -87,7 +87,7 @@ Para mais informações, consulte [Como trabalhar com os dados da JSON.](databas
 
 Os modelos documentais podem ser utilizados em vez dos modelos relacionais em alguns cenários específicos:
 
-- A alta normalização do esquema não traz benefícios significativos porque acede a todos os campos de objetos de uma só vez, ou nunca atualiza partes normalizadas dos objetos. No entanto, o modelo normalizado aumenta a complexidade das suas consultas devido ao grande número de tabelas que precisa de aderir para obter os dados.
+- A alta normalização do esquema não traz benefícios significativos porque acede a todos os campos dos objetos ao mesmo tempo, ou nunca atualiza partes normalizadas dos objetos. No entanto, o modelo normalizado aumenta a complexidade das suas consultas devido ao grande número de tabelas que precisa de aderir para obter os dados.
 - Está a trabalhar com as aplicações que utilizam documentos JSON de forma nativa são modelos de comunicação ou de dados, e não quer introduzir camadas adicionais que transformem dados relacionais para JSON e vice-versa.
 - É necessário simplificar o seu modelo de dados des normalizando as tabelas de crianças ou os padrões de Valor-Objecto de Entidade.
 - É necessário carregar ou exportar dados armazenados em formato JSON sem uma ferramenta adicional que analise os dados.
@@ -124,7 +124,7 @@ O motor de base de dados SQL Server fornece uma plataforma poderosa para o desen
 
 Os modelos documentais podem ser utilizados em vez dos modelos relacionais em alguns cenários específicos:
 
-- A alta normalização do esquema não traz benefícios significativos porque acede a todos os campos de objetos de uma só vez, ou nunca atualiza partes normalizadas dos objetos. No entanto, o modelo normalizado aumenta a complexidade das suas consultas devido ao grande número de tabelas que precisa de aderir para obter os dados.
+- A alta normalização do esquema não traz benefícios significativos porque acede a todos os campos dos objetos ao mesmo tempo, ou nunca atualiza partes normalizadas dos objetos. No entanto, o modelo normalizado aumenta a complexidade das suas consultas devido ao grande número de tabelas que precisa de aderir para obter os dados.
 - Está a trabalhar com as aplicações que utilizam documentos XML de forma nativa são modelos de comunicação ou de dados, e não quer introduzir camadas adicionais que transformem dados relacionais para XML e vice-versa.
 - É necessário simplificar o seu modelo de dados des normalizando as tabelas de crianças ou os padrões de Valor-Objecto de Entidade.
 - É necessário carregar ou exportar dados armazenados em formato XML sem uma ferramenta adicional que analise os dados.

@@ -1,5 +1,5 @@
 ---
-title: Desenvolver para Azure NetApp Files com REST API / Microsoft Docs
+title: Desenvolver para Azure NetApp Files com REST API | Microsoft Docs
 description: A API REST para o serviço Azure NetApp Files define operações HTTP para recursos como a conta NetApp, o pool de capacidade, os volumes e instantâneos.
 services: azure-netapp-files
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 06/02/2020
 ms.author: b-juche
-ms.openlocfilehash: 4599f4e3ca291c312c99e938b237d1eb9cd9d407
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: c5993dc1dc645319e272ab310a97bc3ff8ac495d
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91929285"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102174245"
 ---
 # <a name="develop-for-azure-netapp-files-with-rest-api"></a>Desenvolver para o Azure NetApp Files com a API REST 
 
@@ -34,7 +34,7 @@ A especificação REST API para ficheiros Azure NetApp é publicada através do 
 
 ## <a name="access-the-azure-netapp-files-rest-api"></a>Aceda aos ficheiros Azure NetApp REST API  
 
-1. [Instale o Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) se ainda não o fez.
+1. [Instale o Azure CLI](/cli/azure/install-azure-cli) se ainda não o fez.
 2. Crie um principal de serviço no seu Diretório Ativo Azure (Azure AD):
    1. Verifique se tem [permissões suficientes.](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app)
 

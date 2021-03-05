@@ -3,12 +3,12 @@ title: Funções Duradouras publicadas na Grelha de Eventos Azure (pré-visualiz
 description: Saiba como configurar a publicação automática da Azure Event Grid para funções duradouras.
 ms.topic: conceptual
 ms.date: 04/25/2020
-ms.openlocfilehash: e4651dd7548ba76380bfc2d1b314e67d7abe63d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 44df100a5c794abf918a09dea0f94d30ddf916d3
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87081751"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175962"
 ---
 # <a name="durable-functions-publishing-to-azure-event-grid-preview"></a>Funções Duradouras publicadas na Grelha de Eventos Azure (pré-visualização)
 
@@ -26,7 +26,7 @@ Seguem-se alguns cenários em que esta funcionalidade é útil:
 
 * Instale [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) no seu projeto Funções Duradouras.
 * Instale [o Emulador de Armazenamento Azure](../../storage/common/storage-use-emulator.md) (apenas para Windows) ou utilize uma conta de Armazenamento Azure existente.
-* Instale [o Azure CLI](/cli/azure/?view=azure-cli-latest) ou use [a Azure Cloud Shell](../../cloud-shell/overview.md)
+* Instale [o Azure CLI](/cli/azure/) ou use [a Azure Cloud Shell](../../cloud-shell/overview.md)
 
 ## <a name="create-a-custom-event-grid-topic"></a>Crie um tópico personalizado da Grelha de Eventos
 
@@ -126,17 +126,17 @@ Utilizando o portal Azure, crie outra aplicação de função para ouvir os even
 
 ### <a name="create-an-event-grid-trigger-function"></a>Criar uma função de gatilho de grade de evento
 
-1. Na sua aplicação de funções, selecione **Funções**e, em seguida, selecione **+ Adicionar** 
+1. Na sua aplicação de funções, selecione **Funções** e, em seguida, selecione **+ Adicionar** 
 
    :::image type="content" source="./media/durable-functions-event-publishing/function-add-function.png" alt-text="Adicione uma função no portal Azure." border="true":::
 
-1. Procure por **Grade de Eventos**e, em seguida, selecione o modelo **de gatilho da grelha de eventos Azure.** 
+1. Procure por **Grade de Eventos** e, em seguida, selecione o modelo **de gatilho da grelha de eventos Azure.** 
 
-    :::image type="content" source="./media/durable-functions-event-publishing/function-select-event-grid-trigger.png" alt-text="Adicione uma função no portal Azure." border="true":::
+    :::image type="content" source="./media/durable-functions-event-publishing/function-select-event-grid-trigger.png" alt-text="Selecione o modelo de gatilho da grelha de evento no portal Azure." border="true":::
 
 1. Nomeie o novo gatilho e, em seguida, **selecione Criar Função**.
 
-    :::image type="content" source="./media/durable-functions-event-publishing/function-name-event-grid-trigger.png" alt-text="Adicione uma função no portal Azure." border="true":::
+    :::image type="content" source="./media/durable-functions-event-publishing/function-name-event-grid-trigger.png" alt-text="Nomeie o gatilho da grelha de eventos no portal Azure." border="true":::
 
 
     É criada uma função com o seguinte código:
@@ -172,11 +172,11 @@ Agora pode adicionar uma subscrição de Grade de Eventos para o tópico 'Grade 
 
 1. Na sua nova função, selecione **Integração** e, em seguida, selecione **Event Grid Trigger (eventGridEvent)**. 
 
-    :::image type="content" source="./media/durable-functions-event-publishing/eventgrid-trigger-link.png" alt-text="Adicione uma função no portal Azure." border="true":::
+    :::image type="content" source="./media/durable-functions-event-publishing/eventgrid-trigger-link.png" alt-text="Selecione a ligação de gatilho da grelha de evento." border="true":::
 
 1. Selecione **Criar Descrição da grelha de eventos**.
 
-    :::image type="content" source="./media/durable-functions-event-publishing/create-event-grid-subscription.png" alt-text="Adicione uma função no portal Azure." border="true":::
+    :::image type="content" source="./media/durable-functions-event-publishing/create-event-grid-subscription.png" alt-text="Crie a subscrição da Grade de Eventos." border="true":::
 
 1. Nomeie a subscrição do seu evento e selecione o tipo de tópico **de tópicos de grelha de evento.** 
 
@@ -184,7 +184,7 @@ Agora pode adicionar uma subscrição de Grade de Eventos para o tópico 'Grade 
 
 1. Selecione **Criar**.
 
-    :::image type="content" source="./media/durable-functions-event-publishing/event-grid-subscription-details.png" alt-text="Adicione uma função no portal Azure." border="true":::
+    :::image type="content" source="./media/durable-functions-event-publishing/event-grid-subscription-details.png" alt-text="Crie uma subscrição de Grade de Eventos." border="true":::
 
 Agora estás pronto para receber eventos de ciclo de vida.
 

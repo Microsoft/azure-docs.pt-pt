@@ -3,7 +3,7 @@ title: Use a Azure AD Identity Governance para rever e remover utilizadores exte
 description: Use comentários de acesso para estender o acesso de membros de organizações parceiras
 services: active-directory
 documentationcenter: ''
-author: barclayn
+author: ajburnle
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
 ms.date: 09/06/2020
-ms.author: barclayn
-ms.openlocfilehash: 19f88da6a678221cde66bf61668d16ba9ab998a4
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.author: ajburnle
+ms.openlocfilehash: fe68ec498d17ec20778c8f34fc6ffa1f0964c44e
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677317"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102176965"
 ---
 # <a name="use-azure-active-directory-azure-ad-identity-governance-to-review-and-remove-external-users-who-no-longer-have-resource-access"></a>Utilize o Azure Ative Directory (Azure AD) Identity Governance para rever e remover utilizadores externos que já não têm acesso a recursos
 
@@ -65,14 +65,15 @@ Os utilizadores que já não tenham acesso a quaisquer recursos no seu inquilino
 
 Quando a revisão termina, a página **Resultados** mostra uma visão geral da resposta dada por cada identidade externa. Pode optar por aplicar os resultados automaticamente e deixar os Comentários de Acesso desativar e eliminá-los. Em alternativa, pode consultar as respostas dadas e decidir se pretende remover o acesso ou acompanhamento de um utilizador com eles e obter informações adicionais antes de tomar uma decisão. Se alguns utilizadores ainda tiverem acesso a recursos que ainda não reviu, pode utilizar a revisão como parte da sua descoberta e enriquecer o seu próximo ciclo de revisão e atestação.
 
-## <a name="disable-and-delete-external-identities-with-azure-ad-access-reviews-preview"></a>Desativar e eliminar identidades externas com avaliações de acesso AD Azure (Pré-visualização)
+## <a name="disable-and-delete-external-identities-with-azure-ad-access-reviews"></a>Desativar e eliminar identidades externas com avaliações de acesso AD Azure
 
 Além da opção de remover identidades externas indesejadas de recursos como grupos ou aplicações, as Análises de Acesso AD da Azure podem bloquear as identidades externas da inscrição no seu inquilino e eliminar as identidades externas do seu inquilino após 30 dias. Uma vez que selecione **o utilizador do Bloco para iniciar sessão durante 30 dias e, em seguida, remova o utilizador do arrendatário,** a revisão permanecerá no estado de "aplicação" durante 30 dias. Durante este período, as definições, resultados, revisores ou registos de auditoria ao abrigo da revisão atual não serão visualizados ou configuráveis. 
 
 ![após definições de conclusão](media/access-reviews-external-users/upon-completion-settings.png)
 
-Ao criar uma nova Revisão de Acesso, na secção "Após as definições de conclusão", para **que a ação se aplique aos utilizadores negados,** pode definir os **utilizadores do Bloco a partir da entrada de entrada durante 30 dias e, em seguida, remover o utilizador do arrendatário** .
-Esta definição, atualmente em pré-visualização, permite identificar, bloquear e apagar identidades externas do seu inquilino AZure AD. As identidades externas que forem revistas e negadas ao acesso continuado pelo revisor serão bloqueadas e eliminadas, independentemente do acesso ao recurso ou da adesão ao grupo que possuam. Esta definição é melhor utilizada como último passo depois de ter validado que os utilizadores externos em revisão já não têm acesso a recursos e podem ser removidos com segurança do seu inquilino ou se quiser certificar-se de que são removidos, independentemente do seu acesso permanente. A função "Desativar e excluir" bloqueia primeiro o utilizador externo, tirando-lhe a capacidade de se inscrever no seu inquilino e aceder aos recursos. O acesso a recursos não é revogado nesta fase, e no caso de querer ressarciar o utilizador externo, a sua capacidade de iniciar sessão pode ser reconfigurada. Sem mais medidas, uma identidade externa bloqueada será eliminada do diretório após 30 dias, removendo a conta e o seu acesso.
+Ao criar uma nova Revisão de Acesso, na secção "Após as definições de conclusão", para **que a ação se aplique aos utilizadores negados,** pode definir os **utilizadores do Bloco a partir da entrada de entrada durante 30 dias e, em seguida, remover o utilizador do arrendatário**.
+
+Esta definição permite identificar, bloquear e eliminar identidades externas do seu inquilino AZure AD. As identidades externas que forem revistas e negadas ao acesso continuado pelo revisor serão bloqueadas e eliminadas, independentemente do acesso ao recurso ou da adesão ao grupo que possuam. Esta definição é melhor utilizada como último passo depois de ter validado que os utilizadores externos em revisão já não têm acesso a recursos e podem ser removidos com segurança do seu inquilino ou se quiser certificar-se de que são removidos, independentemente do seu acesso permanente. A função "Desativar e excluir" bloqueia primeiro o utilizador externo, tirando-lhe a capacidade de se inscrever no seu inquilino e aceder aos recursos. O acesso a recursos não é revogado nesta fase, e no caso de querer ressarciar o utilizador externo, a sua capacidade de iniciar sessão pode ser reconfigurada. Sem mais medidas, uma identidade externa bloqueada será eliminada do diretório após 30 dias, removendo a conta e o seu acesso.
 
 ## <a name="next-steps"></a>Passos seguintes
 

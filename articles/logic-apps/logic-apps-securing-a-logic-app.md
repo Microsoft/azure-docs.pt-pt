@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla, rarayudu
 ms.topic: conceptual
-ms.date: 02/18/2021
-ms.openlocfilehash: 642fa044b3272e311769ddbcc5462cb396563652
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 02/22/2021
+ms.openlocfilehash: 21edde3eba76b565332acb9c67225f3bbb0fe803
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101702560"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102177288"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Acesso seguro e dados em Azure Logic Apps
 
@@ -203,20 +203,24 @@ No [portal Azure,](https://portal.azure.com)adicione uma ou mais políticas de a
    | Propriedade | Necessário | Descrição |
    |----------|----------|-------------|
    | **Nome da política** | Sim | O nome que quer usar para a política de autorização |
-   | **Pedidos** | Sim | Os tipos e valores de reclamação que a sua aplicação lógica aceita a partir de chamadas de entrada. O valor de reclamação é limitado a um [número máximo de caracteres](logic-apps-limits-and-config.md#authentication-limits). Aqui estão os tipos de reclamação disponíveis: <p><p>- **Emitente** <br>- **Público** <br>- **Assunto** <br>- **JWT ID** (JSON Web ToKen ID) <p><p>No mínimo, a lista **de Reclamações** deve incluir a **reclamação do Emitente,** que tem um valor que começa com `https://sts.windows.net/` ou como `https://login.microsoftonline.com/` iD do emitente Azure AD. Para obter mais informações sobre estes tipos de reclamações, consulte [as fichas de segurança Azure AD](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens). Também pode especificar o seu próprio tipo de reclamação e valor. |
+   | **Pedidos** | Sim | Os tipos e valores de reclamação que a sua aplicação lógica aceita a partir de chamadas de entrada. O valor de reclamação é limitado a um [número máximo de caracteres](logic-apps-limits-and-config.md#authentication-limits). Aqui estão os tipos de reclamação disponíveis: <p><p>- **Emitente** <br>- **Público** <br>- **Assunto** <br>- **JWT ID** (identificador JSON Web Token) <p><p>No mínimo, a lista **de Reclamações** deve incluir a **reclamação do Emitente,** que tem um valor que começa com `https://sts.windows.net/` ou como `https://login.microsoftonline.com/` iD do emitente Azure AD. Para obter mais informações sobre estes tipos de reclamações, consulte [as fichas de segurança Azure AD](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens). Também pode especificar o seu próprio tipo de reclamação e valor. |
    |||
 
 1. Para adicionar outra reclamação, selecione a partir destas opções:
 
    * Para adicionar outro tipo de reclamação, **selecione Adicionar a reclamação padrão,** selecione o tipo de reclamação e especifique o valor de reclamação.
 
-   * Para adicionar a sua própria reclamação, **selecione Adicionar reclamação personalizada** e especificar o valor de reclamação personalizado.
+   * Para adicionar a sua própria reclamação, **selecione Adicionar reclamação personalizada**. Para mais informações, consulte [como fornecer reclamações opcionais à sua aplicação.](../active-directory/develop/active-directory-optional-claims.md) A sua reclamação personalizada é então armazenada como parte do seu ID JWT; por exemplo, `"tid": "72f988bf-86f1-41af-91ab-2d7cd011db47"` . . 
 
 1. Para adicionar outra política de autorização, **selecione Adicionar a política**. Repita os passos anteriores para definir a política.
 
 1. Quando tiver terminado, selecione **Guardar**.
 
 1. Para incluir o `Authorization` cabeçalho a partir do token de acesso nas saídas do gatilho baseadas no pedido, consulte incluir o [cabeçalho "Autorização" no pedido de saídas de gatilho](#include-auth-header).
+
+
+Propriedades de fluxo de trabalho, tais como políticas, não aparecem na visão de código da sua aplicação lógica no portal Azure. Para aceder programaticamente às suas políticas, ligue para a seguinte API através do Azure Resource Manager (ARM): `https://management.azure.com/subscriptions/{Azure-subscription-ID}/resourceGroups/{Azure-resource-group-name}/providers/Microsoft.Logic/workflows/{your-workflow-name}?api-version=2016-10-01&_=1612212851820` . Certifique-se de que substitui os valores de espaço reservado para o seu ID de subscrição Azure, nome do grupo de recursos e nome do fluxo de trabalho.
+
 
 <a name="define-authorization-policy-template"></a>
 

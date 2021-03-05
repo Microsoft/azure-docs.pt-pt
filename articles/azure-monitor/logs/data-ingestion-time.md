@@ -5,24 +5,24 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/18/2019
-ms.openlocfilehash: 6037ef9c539c3c57f2ba5a19f371237159d1bf69
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 3bba9dbf40fe6893a06c21d7f6b5475cfa8552cb
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102030890"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102176659"
 ---
 # <a name="log-data-ingestion-time-in-azure-monitor"></a>Log data ingestion time in Azure Monitor (Tempo de ingestão de dados de registo no Azure Monitor)
 O Azure Monitor é um serviço de dados de alta escala que serve milhares de clientes que enviam terabytes de dados todos os meses a um ritmo crescente. Muitas vezes existem dúvidas sobre o tempo que os dados de registo demoram a ficar disponíveis após a sua recolha. Este artigo explica os diferentes fatores que afetam esta latência.
 
 ## <a name="typical-latency"></a>Latência típica
-Latência refere-se ao tempo em que os dados são criados no sistema monitorizado e no momento em que ele vem disponível para análise no Azure Monitor. A latência típica para ingerir dados de registo é entre 2 e 5 minutos. A latência específica para dados específicos variará dependendo de uma variedade de fatores explicados abaixo.
+Latência refere-se ao tempo em que os dados são criados no sistema monitorizado e no momento em que ele vem disponível para análise no Azure Monitor. A latência típica para ingerir dados de registo é entre 20 seg e 3 minutos. No entanto, a latência específica para dados específicos variará consoante uma variedade de fatores explicados abaixo.
 
 
 ## <a name="factors-affecting-latency"></a>Fatores que afetam a latência
 O tempo total de ingestão de um determinado conjunto de dados pode ser dividido nas seguintes áreas de alto nível. 
 
-- Tempo do agente - A hora de descobrir um evento, recolhê-lo e, em seguida, enviá-lo para o ponto de ingestão do Monitor Azure como registo de registo. Na maioria dos casos, este processo é tratado por um agente.
+- Tempo do agente - A hora de descobrir um evento, recolhê-lo e, em seguida, enviá-lo para o ponto de ingestão de registos do Monitor Azure como registo de registo. Na maioria dos casos, este processo é tratado por um agente. A latência adicional pode ser introduzida por rede.
 - Tempo do pipeline – o tempo que o pipeline de ingestão demora a processar o registo. Isto inclui analisar as propriedades do evento e potencialmente adicionar informações calculadas.
 - Tempo de indexação – O tempo gasto para ingerir um registo registado na loja de big data do Azure Monitor.
 
@@ -36,16 +36,17 @@ Os agentes e as soluções de gestão utilizam diferentes estratégias para reco
 - A solução de replicação do Diretório Ativo realiza a sua avaliação de cinco em cinco dias, enquanto a solução de Avaliação do Diretório Ativo realiza uma avaliação semanal da sua infraestrutura de Diretório Ativo. O agente recolherá estes registos apenas quando a avaliação estiver completa.
 
 ### <a name="agent-upload-frequency"></a>Agent upload frequency (Frequência de carregamento do agente)
-Para garantir que o agente Log Analytics é leve, o agente faz o buffers e envia-os periodicamente para o Azure Monitor. A frequência de upload varia entre 30 segundos e 2 minutos, dependendo do tipo de dados. A maioria dos dados é enviado em menos de 1 minuto. As condições da rede podem afetar negativamente a latência destes dados para chegar ao ponto de ingestão do Monitor Azure.
+Para garantir que o agente Log Analytics é leve, o agente faz o buffers e envia-os periodicamente para o Azure Monitor. A frequência de upload varia entre 30 segundos e 2 minutos, dependendo do tipo de dados. A maioria dos dados é enviado em menos de 1 minuto. 
+
+### <a name="network"></a>Rede
+As condições da rede podem afetar negativamente a latência destes dados para chegar ao ponto de ingestão de registos do Monitor Azure.
 
 ### <a name="azure-activity-logs-resource-logs-and-metrics"></a>Registos de atividades azure, registos de recursos e métricas
-Os dados do Azure acrescentam tempo adicional para se disponibilizarem no ponto de ingestão do Log Analytics para o processamento:
+Os dados do Azure acrescentam tempo adicional para se disponibilizarem no ponto de ingestão de Registos do Monitor Azure para o processamento:
 
-- Os dados dos registos de recursos demoram 2 a 15 minutos, dependendo do serviço Azure. Consulte a [consulta abaixo](#checking-ingestion-time) para examinar esta latência no seu ambiente
-- As métricas da plataforma Azure demoram 3 minutos a serem enviadas para o ponto de ingestão log Analytics.
-- Os dados do registo de atividade levarão cerca de 10 a 15 minutos para serem enviados para o ponto de ingestão de Log Analytics.
-
-Uma vez disponíveis no ponto de ingestão, os dados demoram 2 a 5 minutos adicionais para estarem disponíveis para consulta.
+- Os registos de recursos normalmente adicionam 30-90 segundos, dependendo do serviço Azure. Alguns serviços Azure (especificamente, Azure SQL Database e Azure Virtual Network) reportam atualmente os seus registos com intervalos de 5 min. Estão em curso trabalhos para melhorar ainda mais este assunto. Consulte a [consulta abaixo](#checking-ingestion-time) para examinar esta latência no seu ambiente
+- As métricas da plataforma Azure demoram mais 3 minutos a serem exportadas para o ponto de ingestão de registos do Monitor Azure.
+- Os dados do registo de atividade podem demorar 10 a 15 minutos adicionais, se for utilizada a integração do legado. Recomendamos a utilização de definições de diagnóstico ao nível da subscrição para ingerir Registos de Atividade em Registos monitores Azure, que incorrem numa latência adicional de cerca de 30 segundos.
 
 ### <a name="management-solutions-collection"></a>Recolha de soluções de gestão
 Algumas soluções não recolhem os seus dados de um agente e podem utilizar um método de recolha que introduz latência adicional. Algumas soluções recolhem dados a intervalos regulares sem tentar a recolha em tempo real. Exemplos específicos incluem:
@@ -56,6 +57,9 @@ Algumas soluções não recolhem os seus dados de um agente e podem utilizar um 
 Consulte a documentação de cada solução para determinar a sua frequência de recolha.
 
 ### <a name="pipeline-process-time"></a>Tempo de processo do gasoduto
+
+Uma vez disponíveis no ponto de ingestão, os dados demoram 30-60 segundos adicionais a estar disponíveis para consulta.
+
 Uma vez que os registos de registos são ingeridos no oleoduto Azure Monitor (conforme identificado na propriedade [_TimeReceived),](./log-standard-columns.md#_timereceived) são escritos para armazenamento temporário para garantir o isolamento do inquilino e para garantir que os dados não são perdidos. Este processo normalmente adiciona 5-15 segundos. Algumas soluções de gestão implementam algoritmos mais pesados para agregar dados e obter insights à medida que os dados estão a ser transmitidos. Por exemplo, a Monitorização do Desempenho da Rede agrega dados de entrada em intervalos de 3 minutos, adicionando efetivamente latência de 3 minutos. Outro processo que adiciona latência é o processo que lida com registos personalizados. Em alguns casos, este processo pode adicionar poucos minutos de latência aos registos que são recolhidos a partir de ficheiros pelo agente.
 
 ### <a name="new-custom-data-types-provisioning"></a>Novos tipos de dados personalizados

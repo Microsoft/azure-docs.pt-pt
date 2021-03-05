@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 09/29/2020
-ms.openlocfilehash: 1ff20ab19390dcdadb9a4aa79822f7ace3d31989
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: bd83ccc4f834d6b52e1c2db15000eb695be85f30
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98791177"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102177203"
 ---
 # <a name="what-are-compute-targets-in-azure-machine-learning"></a>Quais são os destinos de computação no Azure Machine Learning?
 
@@ -101,15 +101,21 @@ Consulte a tabela seguinte para saber mais sobre séries e restrições apoiadas
 | **SérieS VM suportadas**  | **Restrições** |
 |------------|------------|
 | D | Nenhum. |
+| DDSv4 | Nenhum. |
 | Dv2 | Nenhum. |  
 | Dv3 | Nenhum.|
 | DSv2 | Nenhum. | 
 | DSv3 | Nenhum.|
+| EAv4 | Nenhum. |
+| Ev3 | Nenhum. |
 | FSv2 | Nenhum. | 
+| H | Nenhum. |
+| HB | Requer aprovação. |
 | HBv2 | Requer aprovação. |  
 | HCS | Requer aprovação. |  
 | M | Requer aprovação. |
-| NC | Nenhum. |    
+| NC | Nenhum. |  
+| NC Promo | Nenhum. |
 | NCsv2 | Requer aprovação. |
 | NCsv3 | Requer aprovação. |  
 | NDs | Requer aprovação. |
@@ -145,7 +151,7 @@ Para saber mais sobre o isolamento, veja [o Isolamento na nuvem pública azul.](
 
 Um alvo computacional não gerido *não* é gerido pela Azure Machine Learning. Cria este tipo de meta de computação fora do Azure Machine Learning e, em seguida, anexá-lo ao seu espaço de trabalho. Os recursos computacional não geridos podem exigir medidas adicionais para manter ou melhorar o desempenho das cargas de trabalho de aprendizagem automática.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Aprenda a:
 * [Use um alvo computacional para treinar o seu modelo](how-to-set-up-training-targets.md)

@@ -6,13 +6,13 @@ ms.author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 02/28/2021
-ms.openlocfilehash: a5aae4013067ba37334e3e85a9e7ef882efd1dd2
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.date: 03/04/2021
+ms.openlocfilehash: 4dc29c8b52a3d0953445666672a716af013ee408
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102107936"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102176438"
 ---
 # <a name="what-are-security-policies-initiatives-and-recommendations"></a>O que são políticas de segurança, iniciativas e recomendações?
 
@@ -25,6 +25,7 @@ Uma definição de política Azure, criada na Política Azure, é uma regra sobr
 
 Para implementar estas definições de política (seja incorporada ou personalizada), terá de as atribuir. Pode atribuir qualquer uma destas políticas através do portal do Azure, do PowerShell ou da CLI do Azure.
 
+Existem diferentes tipos de políticas na Política Azure. O Centro de Segurança utiliza principalmente políticas de "Auditoria" que verificam condições e configurações específicas e depois reportam sobre o cumprimento. Existem também políticas de "Impor" que podem ser usadas para aplicar configurações seguras.
 
 ## <a name="what-is-a-security-initiative"></a>O que é uma iniciativa de segurança?
 
@@ -38,7 +39,7 @@ A iniciativa padrão atribuída automaticamente a cada subscrição no Azure Sec
 
 O Centro de Segurança oferece as seguintes opções para trabalhar com iniciativas e políticas de segurança:
 
-- **Ver e editar a iniciativa por defeito incorporada** - Quando ativar o Centro de Segurança, a iniciativa denominada 'Azure Security Benchmark' é automaticamente atribuída a todas as subscrições registadas do Security Center. Para personalizar esta iniciativa, pode ativar ou desativar políticas individuais dentro dela. Consulte a lista de [políticas de segurança incorporadas](./policy-reference.md) para entender as opções disponíveis fora da caixa.
+- **Ver e editar a iniciativa por defeito incorporada** - Quando ativar o Centro de Segurança, a iniciativa denominada 'Azure Security Benchmark' é automaticamente atribuída a todas as subscrições registadas do Security Center. Para personalizar esta iniciativa, pode ativar ou desativar políticas individuais dentro dela, editando os parâmetros de uma apólice. Consulte a lista de [políticas de segurança incorporadas](./policy-reference.md) para entender as opções disponíveis fora da caixa.
 
 - **Adicione as suas próprias iniciativas personalizadas** - Se quiser personalizar as iniciativas de segurança aplicadas à sua subscrição, pode fazê-lo dentro do Security Center. Em seguida, receberá recomendações se as suas máquinas não seguirem as políticas que cria. Para obter instruções sobre a construção e atribuição de políticas [personalizadas, consulte utilizando iniciativas e políticas de segurança personalizadas.](custom-security-policies.md)
 
@@ -46,9 +47,9 @@ O Centro de Segurança oferece as seguintes opções para trabalhar com iniciati
 
 ## <a name="what-is-a-security-recommendation"></a>O que é uma recomendação de segurança?
 
-O Azure Security Center analisa periodicamente o estado de segurança dos seus recursos Azure para identificar potenciais vulnerabilidades de segurança. Em seguida, fornece-lhe recomendações sobre como remediar essas vulnerabilidades. Uma recomendação é o resultado da avaliação dos seus recursos contra as políticas relevantes e da identificação de recursos que não estão a cumprir os seus requisitos definidos.
+Utilizando as políticas, o Security Center analisa periodicamente o estado de conformidade dos seus recursos para identificar potenciais erros de segurança e fraquezas. Em seguida, fornece-lhe recomendações sobre como remediar essas questões. As recomendações são o resultado da avaliação dos seus recursos contra as políticas relevantes e da identificação de recursos que não estão a cumprir os seus requisitos definidos.
 
-O Azure Security Center faz as suas recomendações de segurança com base nas suas iniciativas escolhidas. 
+O Centro de Segurança faz as suas recomendações de segurança com base nas suas iniciativas escolhidas. Quando uma política da sua iniciativa é comparada com os seus recursos e encontra uma ou mais que não estão em conformidade, é apresentada como uma recomendação no Centro de Segurança.
 
 Recomendações são ações a tomar para garantir e endurecer os seus recursos. Cada recomendação fornece-lhe as seguintes informações:
 

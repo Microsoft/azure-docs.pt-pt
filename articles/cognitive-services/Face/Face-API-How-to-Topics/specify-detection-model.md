@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/16/2019
 ms.author: yluiu
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5a70b10f7d22c9cc04427bdfbb44243fad457ba0
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 04699890af2cfe835ecca6ee983808d7d8d002c8
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913488"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102174194"
 ---
 # <a name="specify-a-face-detection-model"></a>Especifique um modelo de deteção facial
 
@@ -43,6 +43,7 @@ Quando utilizar o [Face - Detetar] API, pode atribuir a versão do modelo com o 
 
 * `detection_01`
 * `detection_02`
+* `detection_03`
 
 Um URL de pedido para o [Rosto - Detect] REST API será assim:
 
@@ -52,7 +53,7 @@ Se estiver a utilizar a biblioteca do cliente, pode atribuir o valor `detectionM
 
 ```csharp
 string imageUrl = "https://news.microsoft.com/ceo/assets/photos/06_web.jpg";
-var faces = await faceClient.Face.DetectWithUrlAsync(imageUrl, false, false, recognitionModel: "recognition_03", detectionModel: "detection_02");
+var faces = await faceClient.Face.DetectWithUrlAsync(imageUrl, false, false, recognitionModel: "recognition_04", detectionModel: "detection_03");
 ```
 
 ## <a name="add-face-to-person-with-specified-model"></a>Adicionar rosto a Pessoa com modelo especificado
@@ -62,17 +63,17 @@ O serviço Face pode extrair dados faciais de uma imagem e associá-lo a um obje
 Consulte o seguinte exemplo de código para a biblioteca de clientes .NET.
 
 ```csharp
-// Create a PersonGroup and add a person with face detected by "detection_02" model
+// Create a PersonGroup and add a person with face detected by "detection_03" model
 string personGroupId = "mypersongroupid";
-await faceClient.PersonGroup.CreateAsync(personGroupId, "My Person Group Name", recognitionModel: "recognition_03");
+await faceClient.PersonGroup.CreateAsync(personGroupId, "My Person Group Name", recognitionModel: "recognition_04");
 
 string personId = (await faceClient.PersonGroupPerson.CreateAsync(personGroupId, "My Person Name")).PersonId;
 
 string imageUrl = "https://news.microsoft.com/ceo/assets/photos/06_web.jpg";
-await client.PersonGroupPerson.AddFaceFromUrlAsync(personGroupId, personId, imageUrl, detectionModel: "detection_02");
+await client.PersonGroupPerson.AddFaceFromUrlAsync(personGroupId, personId, imageUrl, detectionModel: "detection_03");
 ```
 
-Este código cria um **PersonGroup** com ID `mypersongroupid` e adiciona-lhe uma **Pessoa.** Em seguida, adiciona um Rosto a esta **Pessoa** usando o `detection_02` modelo. Se não especificar o parâmetro *de detecçãoModel,* a API utilizará o modelo predefinido, `detection_01` .
+Este código cria um **PersonGroup** com ID `mypersongroupid` e adiciona-lhe uma **Pessoa.** Em seguida, adiciona um Rosto a esta **Pessoa** usando o `detection_03` modelo. Se não especificar o parâmetro *de detecçãoModel,* a API utilizará o modelo predefinido, `detection_01` .
 
 > [!NOTE]
 > Não precisa de utilizar o mesmo modelo de deteção para todas as faces num objeto **Da Pessoa,** e não precisa de utilizar o mesmo modelo de deteção ao detetar novos rostos para comparar com um objeto **pessoa** (no Rosto [- Identificar] a API, por exemplo).
@@ -82,13 +83,13 @@ Este código cria um **PersonGroup** com ID `mypersongroupid` e adiciona-lhe uma
 Também pode especificar um modelo de deteção quando adicionar um rosto a um objeto **FaceList** existente. Consulte o seguinte exemplo de código para a biblioteca de clientes .NET.
 
 ```csharp
-await faceClient.FaceList.CreateAsync(faceListId, "My face collection", recognitionModel: "recognition_03");
+await faceClient.FaceList.CreateAsync(faceListId, "My face collection", recognitionModel: "recognition_04");
 
 string imageUrl = "https://news.microsoft.com/ceo/assets/photos/06_web.jpg";
-await client.FaceList.AddFaceFromUrlAsync(faceListId, imageUrl, detectionModel: "detection_02");
+await client.FaceList.AddFaceFromUrlAsync(faceListId, imageUrl, detectionModel: "detection_03");
 ```
 
-Este código cria uma **FaceList** chamada `My face collection` e adiciona-lhe um Face com o `detection_02` modelo. Se não especificar o parâmetro *de detecçãoModel,* a API utilizará o modelo predefinido, `detection_01` .
+Este código cria uma **FaceList** chamada `My face collection` e adiciona-lhe um Face com o `detection_03` modelo. Se não especificar o parâmetro *de detecçãoModel,* a API utilizará o modelo predefinido, `detection_01` .
 
 > [!NOTE]
 > Não precisa de utilizar o mesmo modelo de deteção para todas as faces num objeto **FaceList,** e não precisa de utilizar o mesmo modelo de deteção ao detetar novas faces para comparar com um objeto **FaceList.**
@@ -97,14 +98,14 @@ Este código cria uma **FaceList** chamada `My face collection` e adiciona-lhe u
 
 Os diferentes modelos de deteção facial são otimizados para diferentes tarefas. Consulte a tabela seguinte para uma visão geral das diferenças.
 
-|**detection_01**  |**detection_02**  |
-|---------|---------|
-|Escolha padrão para todas as operações de deteção facial. | Lançado em maio de 2019 e disponível opcionalmente em todas as operações de deteção facial.
-|Não otimizado para rostos pequenos, laterais ou borrados.  | Precisão melhorada em faces pequenas, laterais e desfocadas. |
-|Devolve os atributos faciais (pose da cabeça, idade, emoção, e assim por diante) se forem especificados na chamada de deteção. |  Não devolve atributos faciais.     |
-|Retorna marcos faciais se forem especificados na chamada de deteção.   | Não devolve marcos faciais.  |
+|**detection_01**  |**detection_02**  |**detection_03** 
+|---------|---------|---|
+|Escolha padrão para todas as operações de deteção facial. | Lançado em maio de 2019 e disponível opcionalmente em todas as operações de deteção facial. |  Lançado em fevereiro de 2021 e disponível opcionalmente em todas as operações de deteção facial.
+|Não otimizado para rostos pequenos, laterais ou borrados.  | Precisão melhorada em faces pequenas, laterais e desfocadas. | Melhorou ainda a precisão, incluindo em faces mais pequenas (64x64 pixels) e orientações faciais rotativas.
+|Devolve os principais atributos faciais (pose da cabeça, idade, emoção, e assim por diante) se forem especificados na chamada de deteção. |  Não devolve atributos faciais.     | Devolve atributos "faceMask" e "noseAndMouthCovered" se forem especificados na chamada de deteção.
+|Retorna marcos faciais se forem especificados na chamada de deteção.   | Não devolve marcos faciais.  | Não devolve marcos faciais.
 
-A melhor forma de comparar as performances dos `detection_01` modelos e `detection_02` modelos é usá-las num conjunto de dados de amostra. Recomendamos chamar o [Face - Detetar] a API numa variedade de imagens, especialmente imagens de muitas faces ou de rostos difíceis de ver, utilizando cada modelo de deteção. Preste atenção ao número de rostos que cada modelo devolve.
+A melhor forma de comparar os desempenhos dos modelos de deteção é usá-los num conjunto de dados de amostra. Recomendamos chamar o [Face - Detetar] a API numa variedade de imagens, especialmente imagens de muitas faces ou de rostos difíceis de ver, utilizando cada modelo de deteção. Preste atenção ao número de rostos que cada modelo devolve.
 
 ## <a name="next-steps"></a>Passos seguintes
 

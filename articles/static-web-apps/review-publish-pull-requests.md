@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: yolasors
-ms.openlocfilehash: 78d2f3b399e26ca0c6036fd74fa1fba49d1f21f4
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 1cb5f2f9ac941001efb18301f4a54bd0092920ba
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102042781"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102172745"
 ---
 # <a name="review-pull-requests-in-pre-production-environments-in-azure-static-web-apps-preview"></a>Rever pedidos Pull em ambientes de pré-produção na Pré-visualização das Aplicações Web Estáticas do Azure
 
@@ -109,7 +109,7 @@ As versões encenadas da sua aplicação são atualmente acessíveis publicament
 > [!WARNING]
 > Tenha cuidado ao publicar conteúdo sensível em versões encenadas, uma vez que o acesso a ambientes de pré-produção não é restrito.
 
-O número de ambientes de pré-produção disponíveis para cada aplicação implementada com Aplicações Web Estáticas depende do nível SKU que está a utilizar. Por exemplo, com o nível Livre pode ter 1 ambiente de pré-produção para além do ambiente de produção.
+O número de ambientes de pré-produção disponíveis para cada aplicação implementada com Aplicações Web Estáticas depende do nível SKU que está a utilizar. Por exemplo, com o nível Livre pode ter 3 ambientes de pré-produção para além do ambiente de produção.
 
 ## <a name="next-steps"></a>Passos seguintes
 

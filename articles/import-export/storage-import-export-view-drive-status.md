@@ -5,25 +5,36 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/14/2021
+ms.date: 03/04/2021
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 8333745b802f41b5a1b3dc07663870299800e3f6
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.custom: contperf-fy21q3
+ms.openlocfilehash: 8ef18ea663f3a77589d61ed89c50df38f5cf0d0e
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98706679"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102176152"
 ---
 # <a name="view-the-status-of-azure-importexport-jobs"></a>Ver o estado das tarefas de Importação/Exportação do Azure
 
 Este artigo fornece informações sobre como ver o impulso e o estatuto laboral dos postos de trabalho da Azure Import/Export. O serviço Azure Import/Export é utilizado para transferir de forma segura grandes quantidades de dados para Azure Blobs e Azure Files. O serviço também é utilizado para exportar dados do armazenamento da Azure Blob.  
 
 ## <a name="view-job-and-drive-status"></a>Ver situação de trabalho e condução
-Pode acompanhar o estado das suas empresas de importação ou exportação a partir do portal Azure selecionando o **separador Importação/Exportação.** Uma lista dos seus trabalhos aparece na página.
+Pode acompanhar o estado das suas empresas de importação ou exportação no **separador Importação/Exportação** no portal Azure.
+1. Faça login em https://portal.azure.com/ .
+2. Procura de **postos de trabalho de importação/exportação.**
 
-![Ver Estado de Trabalho](./media/storage-import-export-service/jobstate.png)
+    ![Pesquisa de postos de trabalho de importação/exportação](./media/storage-import-export-view-drive-status/open-import-export-tab.png)
 
+ 3. Uma lista dos seus trabalhos de Importação/Exportação aparece na página.
+
+    ![Ver Estado de Trabalho](./media/storage-import-export-view-drive-status/job-state.png)
+
+4. Selecione e clique em um trabalho para ver detalhes do trabalho.
+
+   ![Ver estado de trabalho detalhado](./media/storage-import-export-view-drive-status/job-detail.png)
+  
 ## <a name="view-job-status"></a>Ver o estado de tarefa
 
 Você vê um dos seguintes estatutos de trabalho dependendo de onde a sua unidade está no processo.
@@ -56,13 +67,13 @@ A tabela a seguir descreve cada estado que cada unidade de um trabalho pode pass
 
 Esta imagem do portal Azure mostra o estado de unidade de um trabalho de exemplo:
 
-![Ver Estado de Unidade](./media/storage-import-export-service/drivestate.png)
+![Ver Estado de Unidade](./media/storage-import-export-view-drive-status/drive-state.png)
 
 A tabela seguinte descreve os estados de falha de unidade e as ações tomadas para cada estado.
 
 | Estado de condução | Evento | Resolução / Próximo passo |
 |:--- |:--- |:--- |
-| Nunca percebido | Uma unidade marcada como **NeverReceived** (porque não foi recebida como parte do carregamento do trabalho) chega em outro carregamento. | A equipa de operações move a unidade para **Receber.** |
+| Nunca recebido | Uma unidade marcada como **NeverReceived** (porque não foi recebida como parte do carregamento do trabalho) chega em outro carregamento. | A equipa de operações move a unidade para **Receber.** |
 | N/D | Uma unidade que não faz parte de nenhum trabalho chega ao datacenter como parte de outro trabalho. | A unidade está marcada como uma unidade extra. É devolvido quando o trabalho associado ao pacote original estiver concluído. |
 
 ## <a name="time-to-process-job"></a>Hora de processar o trabalho
@@ -76,7 +87,7 @@ O tempo necessário para processar um trabalho de importação/exportação vari
 O serviço de importação/exportação não tem um SLA, mas o serviço esforça-se para completar a cópia em 7 a 10 dias após a recebido dos discos. Além do estado publicado no portal Azure, pode utilizar ASP de REST para acompanhar o progresso do trabalho. Utilize o parâmetro por cento completo na chamada API da operação [Empregos listar](/previous-versions/azure/dn529083(v=azure.100)) para visualizar o progresso da cópia percentual.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Dados de transferência com utilitário de linha de comando AzCopy](../storage/common/storage-use-azcopy-v10.md)
 * [Amostra Azure Import Export REST API](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/)

@@ -10,12 +10,12 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9e0a645bc580ab3a0794ca6ded1e60159df7d92
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 2038587aebe8fe98bd1adcccef6b895ec7370656
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100090603"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102176863"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>Migrar para a autenticação em nuvem usando o lançamento encenado (pré-visualização)
 
@@ -184,7 +184,7 @@ Faça o seguinte:
 
    >[!NOTE]
    >Os membros de um grupo estão automaticamente habilitados para o lançamento encenado. Grupos aninhados e dinâmicos não são apoiados para o lançamento encenado.
-   >Ao adicionar um novo grupo, os utilizadores do grupo (até 200 utilizadores para um novo grupo) serão atualizados para utilizar em imidiamente gerido. Editar um grupo (adicionar ou remover utilizadores), pode levar até 24 horas para que as alterações entrem em vigor.
+   >Ao adicionar um novo grupo, os utilizadores do grupo (até 200 utilizadores para um novo grupo) serão atualizados para utilizar imediatamente o auth gerido. Editar um grupo (adicionar ou remover utilizadores), pode levar até 24 horas para que as alterações entrem em vigor.
    >O SSO sem emenda só se aplicará se os utilizadores estiverem no grupo SSO sem emenda e também num grupo de PTA ou PHS.
 
 ## <a name="auditing"></a>Auditoria

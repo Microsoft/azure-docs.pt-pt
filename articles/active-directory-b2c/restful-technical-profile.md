@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/11/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 891991fa938ad3dcfacae6d02e40efd6d6e9689e
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.openlocfilehash: eb6d82019cccd1da327461cb0a0635aea4f3647f
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97386855"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102174976"
 ---
 # <a name="define-a-restful-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico RESTful numa política personalizada do Azure Ative Directory B2C
 
@@ -115,7 +115,7 @@ O perfil técnico também devolve reclamações, que não são devolvidas pelo f
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
 | ServiceUrl | Sim | O URL do ponto final da API REST. |
-| AutenticaçãoType | Sim | O tipo de autenticação que está a ser realizada pelo provedor de reclamações RESTful. Valores possíveis: `None` `Basic` , ou `Bearer`  `ClientCertificate` `ApiKeyHeader` . <br /><ul><li>O `None` valor indica que a API REST é anónima. </li><li>O `Basic` valor indica que a API REST está protegida com autenticação básica HTTP. Apenas os utilizadores verificados, incluindo o Azure AD B2C, podem aceder à sua API. </li><li>O `ClientCertificate` valor (recomendado) indica que a API REST restringe o acesso através da autenticação do certificado do cliente. Apenas os serviços que possuam os certificados adequados, por exemplo Azure AD B2C, podem aceder à sua API. </li><li>O `Bearer` valor indica que a API REST restringe o acesso utilizando o token do cliente OAuth2 Bearer. </li><li>O `ApiKeyHeader` valor indica que a API REST está protegida com o cabeçalho HTTP da tecla API, tal como a *tecla x-funções*. </li></ul> |
+| AutenticaçãoType | Sim | O tipo de autenticação que está a ser realizada pelo provedor de reclamações RESTful. Valores possíveis: `None` , , , ou `Basic` `Bearer`  `ClientCertificate` `ApiKeyHeader` . <br /><ul><li>O `None` valor indica que a API REST é anónima. </li><li>O `Basic` valor indica que a API REST está protegida com autenticação básica HTTP. Apenas os utilizadores verificados, incluindo o Azure AD B2C, podem aceder à sua API. </li><li>O `ClientCertificate` valor (recomendado) indica que a API REST restringe o acesso através da autenticação do certificado do cliente. Apenas os serviços que possuam os certificados adequados, por exemplo Azure AD B2C, podem aceder à sua API. </li><li>O `Bearer` valor indica que a API REST restringe o acesso utilizando o token do cliente OAuth2 Bearer. </li><li>O `ApiKeyHeader` valor indica que a API REST está protegida com o cabeçalho HTTP da tecla API, tal como a *tecla x-funções*. </li></ul> |
 | AllowInsecureAuthInProduction| Não| Indica se o `AuthenticationType` pode ser definido em ambiente de `none` produção ( da `DeploymentMode` [TrustFrameworkPolicy](trustframeworkpolicy.md) está definido para `Production` , ou não especificado). Valores possíveis: verdadeiros ou falsos (padrão). |
 | SendClaimsIn | Não | Especifica como os pedidos de entrada são enviados ao provedor de reclamações RESTful. Valores possíveis: `Body` (padrão), `Form` `Header` ou `Url` `QueryString` . O `Body` valor é a reclamação de entrada que é enviada no organismo de pedido em formato JSON. O `Form` valor é a alegação de entrada que é enviada no organismo de pedido num formato de valor chave separado "&". O `Header` valor é a reclamação de entrada que é enviada no cabeçalho do pedido. O `Url` valor é a alegação de entrada que é enviada no URL, por exemplo, https://{claim1}.exemplo.com/{claim2}/{claim3}?{ claim4}={claim5}. O `QueryString` valor é a reclamação de entrada que é enviada na cadeia de consulta de pedido. Os verbos HTTP invocados por cada um são os seguintes:<br /><ul><li>`Body`: POST</li><li>`Form`: POST</li><li>`Header`: GET</li><li>`Url`: GET</li><li>`QueryString`: GET</li></ul> |
 | SinistrosFormat | Não | Não atualmente usado, pode ser ignorado. |
@@ -225,6 +225,9 @@ Se o tipo de autenticação for definido `ApiKeyHeader` para, o elemento **Crypt
 | --------- | -------- | ----------- |
 | O nome do cabeçalho HTTP, como `x-functions-key` , ou `x-api-key` . | Sim | A chave que é usada para autenticar. |
 
+> [!NOTE]
+> Neste momento, o Azure AD B2C suporta apenas um cabeçalho HTTP para autenticação. Se a sua chamada RESTful necessitar de vários cabeçalhos, como um ID de cliente e segredo de cliente, terá de recorrer ao pedido de alguma forma.
+
 ```xml
 <TechnicalProfile Id="REST-API-SignUp">
   <DisplayName>Validate user's input data and return loyaltyNumber claim</DisplayName>
@@ -282,7 +285,7 @@ public class ResponseContent
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte os seguintes artigos para exemplos de utilização de um perfil técnico RESTful:
 
@@ -290,4 +293,3 @@ Consulte os seguintes artigos para exemplos de utilização de um perfil técnic
 - [Walkthrough: Integrar as trocas de reclamações da API REST na sua viagem de utilizador Azure AD B2C como validação da entrada do utilizador](custom-policy-rest-api-claims-validation.md)
 - [Walkthrough: Add REST API reclama trocas de trocas para políticas personalizadas no Azure Ative Directory B2C](custom-policy-rest-api-claims-validation.md)
 - [Proteja os seus serviços REST API](secure-rest-api.md)
-

@@ -5,16 +5,16 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/16/2021
+ms.date: 03/03/2021
 ms.author: alkohli
 ms.subservice: common
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 8ccc7b641e2bfcb4ea8733b9d4f793229c430bc0
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3
+ms.openlocfilehash: e878be5351362923e163c0a6f617b96ab72a36d8
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100652878"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102177548"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Utilizar o serviço Importar/Exportar do Microsoft Azure para exportar dados do Armazenamento de blobs do Azure
 
@@ -53,38 +53,56 @@ Execute os seguintes passos para criar uma função de exportação no portal Az
 
 4. No **Básico:**
 
-    - Selecione **Exportação de Azure**.
-    - Insira um nome descritivo para o trabalho de exportação. Use o nome que escolher para acompanhar o progresso dos seus trabalhos.
-        - O nome pode conter apenas letras minúsculas, números, hífens e sublinhados.
-        - O nome deve começar com uma letra, e pode não conter espaços.
-    - Selecione uma subscrição.
-    - Insira ou selecione um grupo de recursos.
+   1. Selecione uma subscrição.
+   1. Selecione um grupo de recursos ou selecione **Criar novo** e criar um novo.
+   1. Introduza um nome descritivo para o trabalho de importação. Use o nome para acompanhar o progresso dos seus trabalhos.
+       * O nome pode conter apenas letras minúsculas, números e hífenes.
+       * O nome deve começar com uma letra, e pode não conter espaços.
 
-        ![Informações básicas](./media/storage-import-export-data-from-blobs/export-from-blob-3.png)
+   1. Selecione **Exportação de Azure**.
+
+    ![Opções básicas para uma encomenda de exportação](./media/storage-import-export-data-from-blobs/export-from-blob-3.png)
+
+    Selecione **Seguinte: Detalhes do trabalho >** prosseguir.
 
 5. Em **detalhes de trabalho:**
 
-    - Selecione a conta de armazenamento onde residem os dados a exportar. Utilize uma conta de armazenamento perto do local onde está localizado.
-    - A localização de entrega é automaticamente povoada com base na região da conta de armazenamento selecionada.
-    - Especifique os dados blob que deseja exportar da sua conta de armazenamento para a sua unidade ou unidades em branco.
-    - Opte por **exportar todos os** dados blob na conta de armazenamento.
+   1. Selecione a região Azure onde os seus dados estão atualmente.
+   1. Selecione a conta de armazenamento de onde pretende exportar dados. Utilize uma conta de armazenamento perto da sua localização.
 
-         ![Exportar tudo](./media/storage-import-export-data-from-blobs/export-from-blob-4.png)
+      O local de entrega é automaticamente povoado com base na região da conta de armazenamento selecionada.
 
-    - Pode especificar quais recipientes e bolhas para exportar.
-        - **Para especificar uma bolha para exportar:** Utilize o seletor **Igual A.** Especifique o caminho relativo para a bolha, começando pelo nome do recipiente. Utilize *$root* para especificar o recipiente de raiz.
-        - **Para especificar todas as bolhas que começam com um prefixo:** Utilize o seletor **'Iniciar'.** Especifique o prefixo, começando com um corte para a frente '/'. O prefixo pode ser o prefixo do nome do recipiente, o nome completo do recipiente ou o nome completo do recipiente seguido do prefixo do nome blob. Tem de fornecer os caminhos blob em formato válido para evitar erros durante o processamento, como mostra esta imagem. Para mais informações, consulte [exemplos de caminhos de bolhas válidos.](#examples-of-valid-blob-paths)
+   1. Especifique os dados do blob para exportar da sua conta de armazenamento para a sua unidade ou unidades em branco. Escolha um dos três métodos seguintes.
 
-           ![Exportar recipientes e bolhas selecionados](./media/storage-import-export-data-from-blobs/export-from-blob-5.png)
+      - Opte por **exportar todos os** dados blob na conta de armazenamento.
 
-    - Pode exportar a partir do ficheiro da lista de bolhas.
+        ![Exportar tudo](./media/storage-import-export-data-from-blobs/export-from-blob-4.png)
 
-        ![Exportação a partir de ficheiro de lista de bolhas](./media/storage-import-export-data-from-blobs/export-from-blob-6.png)
+      - Escolha **recipientes e bolhas selecionados** e especifique recipientes e bolhas para exportar. Pode utilizar mais do que um dos métodos de seleção. Selecionar uma opção **Adicionar** abre um painel à direita onde pode adicionar as suas cordas de seleção.
+
+        |Opção|Descrição|
+        |------|-----------|      
+        |**Adicionar recipientes**|Exporte todas as bolhas num recipiente.<br>Selecione Adicione recipientes e **insira** o nome de cada recipiente.|
+        |**Adicionar bolhas**|Especifique as bolhas individuais para exportar.<br>**Selecione Adicionar bolhas**. Em seguida, especifique o caminho relativo para a bolha, começando com o nome do recipiente. Utilize *$root* para especificar o recipiente de raiz.<br>Tem de fornecer os caminhos blob em formato válido para evitar erros durante o processamento, como mostra esta imagem. Para mais informações, consulte [exemplos de caminhos de bolhas válidos.](#examples-of-valid-blob-paths)|
+        |**Adicionar prefixos**|Utilize um prefixo para selecionar um conjunto de recipientes com nome semelhante ou bolhas com nome semelhante num recipiente. O prefixo pode ser o prefixo do nome do recipiente, o nome completo do recipiente ou um nome completo do recipiente seguido do prefixo do nome blob. |
+
+        ![Exportar recipientes e bolhas selecionados](./media/storage-import-export-data-from-blobs/export-from-blob-5.png)
+
+    - Escolha **Exportar do ficheiro da lista blob (formato XML)** e selecione um ficheiro XML que contenha uma lista de caminhos e prefixos para que as bolhas sejam exportadas da conta de armazenamento. Deve construir o ficheiro XML e guardá-lo num recipiente para a conta de armazenamento. O ficheiro não pode estar vazio.
+
+      > [!IMPORTANT]
+      > Se utilizar um ficheiro XML para selecionar as bolhas para exportar, certifique-se de que o XML contém caminhos e/ou prefixos válidos. Se o ficheiro for inválido ou nenhum dado corresponder aos caminhos especificados, a encomenda termina com dados parciais ou sem dados exportados.
+
+       Para ver como adicionar um ficheiro XML a um recipiente, consulte [a ordem de exportação utilizando o ficheiro XML](../databox/data-box-deploy-export-ordered.md#export-order-using-xml-file).
+
+      ![Exportação a partir de ficheiro de lista de bolhas](./media/storage-import-export-data-from-blobs/export-from-blob-6.png)
 
    > [!NOTE]
-   > Se a bolha a exportar estiver a ser utilizada durante a cópia de dados, o serviço Azure Import/Export tira uma foto da bolha e copia o instantâneo.
+   > Se uma bolha a exportar estiver a ser utilizada durante a cópia de dados, o serviço Azure Import/Export tira uma foto da bolha e copia o instantâneo.
 
-6. Informações **de envio em troca:**
+   Selecione **Seguinte: Envio >** para prosseguir.
+
+6. No **transporte** marítimo:
 
     - Selecione o transportador da lista de retirada. Se quiser utilizar uma transportadora diferente da FedEx/DHL, escolha uma opção existente a partir do dropdown. Contacte a equipa de Operações da Caixa de Dados da Azure `adbops@microsoft.com`  com as informações relativas à transportadora que pretende utilizar.
     - Introduza um número de conta transportadora válido que criou com essa transportadora. A Microsoft utiliza esta conta para enviar as unidades de volta para si assim que o seu trabalho de exportação estiver concluído.
@@ -93,15 +111,76 @@ Execute os seguintes passos para criar uma função de exportação no portal Az
         > [!TIP]
         > Em vez de especificar um endereço de e-mail para um único utilizador, forneça um e-mail de grupo. Isto garante que recebe notificações mesmo que um administrador saia.
 
-7. Em **Resumo:**
+    Selecione **Review + criar** para prosseguir.
 
-    - Reveja os detalhes do trabalho.
-    - Tome nota do nome do trabalho e disponibilize o endereço de envio do datacenter Azure para envio de discos para Azure.
+7. Em **Review + criar**:
+
+   1. Reveja os detalhes do trabalho.
+   1. Tome nota do nome do trabalho e disponibilize o endereço de envio do datacenter Azure para envio de discos para Azure.
+
+      > [!NOTE]
+      > Envie sempre os discos para o datacenter indicado no portal Azure. Se os discos forem enviados para o centro de dados errado, o trabalho não será processado.
+
+   1. Reveja os **Termos** da sua encomenda para a eliminação de dados de privacidade e origem. Se concordar com os termos, selecione a caixa de verificação abaixo dos termos. A validação da ordem começa.
+
+   ![Reveja e crie a sua encomenda de exportação](./media/storage-import-export-data-from-blobs/export-from-blob-6-a.png)
+
+ 1. Após os passes de validação, **selecione Criar**.
+
+<!--Replaced text: Steps 4 - end of "Create an export job." Wizard design changes required both screen and text updates.
+
+4. In **Basics**:
+
+    - Select **Export from Azure**.
+    - Enter a descriptive name for the export job. Use the name you choose to track the progress of your jobs.
+        - The name may contain only lowercase letters, numbers, hyphens, and underscores.
+        - The name must start with a letter, and may not contain spaces.
+    - Select a subscription.
+    - Enter or select a resource group.
+
+        ![Basics](./media/storage-import-export-data-from-blobs/export-from-blob-3.png)
+
+5. In **Job details**:
+
+    - Select the storage account where the data to be exported resides. Use a storage account close to where you are located.
+    - The dropoff location is automatically populated based on the region of the storage account selected.
+    - Specify the blob data you wish to export from your storage account to your blank drive or drives.
+    - Choose to **Export all** blob data in the storage account.
+
+         ![Export all](./media/storage-import-export-data-from-blobs/export-from-blob-4.png)
+
+    - You can specify which containers and blobs to export.
+        - **To specify a blob to export**: Use the **Equal To** selector. Specify the relative path to the blob, beginning with the container name. Use *$root* to specify the root container.
+        - **To specify all blobs starting with a prefix**: Use the **Starts With** selector. Specify the prefix, beginning with a forward slash '/'. The prefix may be the prefix of the container name, the complete container name, or the complete container name followed by the prefix of the blob name. You must provide the blob paths in valid format to avoid errors during processing, as shown in this screenshot. For more information, see [Examples of valid blob paths](#examples-of-valid-blob-paths).
+
+           ![Export selected containers and blobs](./media/storage-import-export-data-from-blobs/export-from-blob-5.png)
+
+    - You can export from  the blob list file.
+
+        ![Export from blob list file](./media/storage-import-export-data-from-blobs/export-from-blob-6.png)
+
+   > [!NOTE]
+   > If the blob to be exported is in use during data copy, Azure Import/Export service takes a snapshot of the blob and copies the snapshot.
+
+6. In **Return shipping info**:
+
+    - Select the carrier from the dropdown list. If you want to use a carrier other than FedEx/DHL, choose an existing option from the dropdown. Contact Azure Data Box Operations team at `adbops@microsoft.com`  with the information regarding the carrier you plan to use.
+    - Enter a valid carrier account number that you have created with that carrier. Microsoft uses this account to ship the drives back to you once your export job is complete.
+    - Provide a complete and valid contact name, phone, email, street address, city, zip, state/province, and country/region.
+
+        > [!TIP]
+        > Instead of specifying an email address for a single user, provide a group email. This ensures that you receive notifications even if an admin leaves.
+
+7. In **Summary**:
+
+    - Review the details of the job.
+    - Make a note of the job name and provided Azure datacenter shipping address for shipping disks to Azure.
 
         > [!NOTE]
-        > Envie sempre os discos para o datacenter indicado no portal Azure. Se os discos forem enviados para o centro de dados errado, o trabalho não será processado.
+        > Always send the disks to the datacenter noted in the Azure portal. If the disks are shipped to the wrong datacenter, the job will not be processed.
 
-    - Clique **em OK** para concluir a criação de emprego de exportação.
+    - Click **OK** to complete export job creation.
+-->
 
 ### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
@@ -310,7 +389,7 @@ Este passo *opcional* ajuda-o a determinar o número de unidades necessárias pa
 
 1. [Descarregue a versão 1 do WAImportExport](https://www.microsoft.com/download/details.aspx?id=42659) no sistema Windows.
 2. Desaperte a pasta predefinido `waimportexportv1` . Por exemplo, `C:\WaImportExportV1`.
-3. Abra uma janela de linha PowerShell ou de linha de comando com privilégios administrativos. Para alterar o diretório para a pasta desapertado, execute o seguinte comando:
+3. Abra uma janela powerShell ou linha de comando com privilégios administrativos. Para alterar o diretório para a pasta desapertado, execute o seguinte comando:
 
    `cd C:\WaImportExportV1`
 
@@ -320,7 +399,7 @@ Este passo *opcional* ajuda-o a determinar o número de unidades necessárias pa
 
     Os parâmetros são descritos no quadro seguinte:
 
-    |Parâmetro de linha de comando|Description|
+    |Parâmetro de linha de comando|Descrição|
     |--------------------------|-----------------|
     |**/logdir:**|Opcional. O diretório de registos. Os ficheiros de registo verboso são escritos neste diretório. Se não for especificado, o diretório atual é utilizado como diretório de registo.|
     |**/sn:**|Obrigatório. O nome do armazém é responsável pelo trabalho de exportação.|
@@ -374,7 +453,7 @@ Number of drives needed:        3
 
 A tabela a seguir mostra exemplos de caminhos de bolhas válidos:
 
-   | Seletor | Caminho da Bolha | Description |
+   | Seletor | Caminho da Bolha | Descrição |
    | --- | --- | --- |
    | Começa com |/ |Exporta todas as bolhas na conta de armazenamento |
    | Começa com |/$root/ |Exporta todas as bolhas no recipiente raiz |

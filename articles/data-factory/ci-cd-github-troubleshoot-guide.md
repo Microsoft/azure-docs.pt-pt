@@ -7,12 +7,12 @@ ms.reviewer: susabat
 ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 12/03/2020
-ms.openlocfilehash: 5c33ef9559d9ce67eea62ee7f78425d18010c1cb
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: d96c467807af868c07be12f52d913f881b82f732
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101727962"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175877"
 ---
 # <a name="troubleshoot-ci-cd-azure-devops-and-github-issues-in-adf"></a>Problemas de CI-CD, Azure DevOps e GitHub em ADF 
 
@@ -91,7 +91,7 @@ Isto deve-se a um tempo de integração com o mesmo nome na fábrica-alvo, mas c
 
 #### <a name="issue"></a>Problema
 
-Ao tentar publicar alterações numa Fábrica de Dados, obtém a seguinte mensagem de erro:
+Ao tentar publicar alterações numa Fábrica de Dados, obtém-se a seguinte mensagem de erro:
 
 `
 "error": {
@@ -168,7 +168,7 @@ O processo CI/CD foi melhorado. A funcionalidade **de publicação automatizada*
 
 #### <a name="issue"></a>Problema
 
-Não pode ser implantado porque atingiu o limite do Gestor de Recursos Azure de 4mb de tamanho total do modelo. Precisa de uma solução para implementar depois de ultrapassar o limite. 
+Não é possível implementar porque atingiu o limite do Gestor de Recursos Azure de 4mb de tamanho total do modelo. Precisa de uma solução para implementar depois de ultrapassar o limite. 
 
 #### <a name="cause"></a>Causa
 
@@ -182,7 +182,7 @@ Para obter soluções pequenas a médias, um único modelo é mais fácil de com
 
 ##### <a name="issue"></a>Problema
 
-Não pode ligar-se à GIT Enterprise por questões de permissão. Pode ver erro como **422 - Entidade Inprocessável.**
+Não é possível ligar-se à GIT Enterprise por questões de permissão. Pode ver erro como **422 - Entidade Inprocessável.**
 
 #### <a name="cause"></a>Causa
 
@@ -190,7 +190,7 @@ Não configuraste o Oauth para a ADF. A sua URL está mal configurada.
 
 ##### <a name="resolution"></a>Resolução
 
-Concedes acesso à ADF no início. Em seguida, tem de usar o URL correto para ligar à GIT Enterprise. A configuração deve ser definida para a organização(s) do cliente(s) porque o serviço ADF tentará primeiro https://hostname/api/v3/search/repositories?q=user%3 <customer credential> .... e falhar. Então, tentará https://hostname/api/v3/orgs/ <vaorg> / <repo> ter sucesso. 
+Concedes acesso à ADF no início. Em seguida, tem de usar o URL correto para ligar à GIT Enterprise. A configuração deve ser definida para a(s) organização(s) do cliente. Por exemplo, a ADF tentará primeiro *https://hostname/api/v3/search/repositories?q=user%3 <customer credential> ....* e falhará. Então, *https://hostname/api/v3/orgs/ <org> / <repo> tentará...* e terá sucesso. 
  
 ### <a name="recover-from-a-deleted-data-factory"></a>Recuperar de uma fábrica de dados eliminada
 
@@ -203,7 +203,8 @@ Só é possível recuperar a Data Factory se o cliente tiver o controlo de Orige
 
 Se não houver controlo de Origem, a recuperação de uma Fábrica de Dados Eliminada do backend não é possível porque uma vez que o serviço recebe o comando eliminado, a instância é eliminada e não foi armazenada nenhuma cópia de segurança.
 
-#### <a name="resoloution"></a>Resoloução
+#### <a name="resolution"></a>Resolução
+
 Para recuperar a Fábrica de Dados Eliminada que tem Controlo de Origem consulte os passos abaixo:
 
  * Criar uma nova Fábrica de Dados Azure.
@@ -212,7 +213,7 @@ Para recuperar a Fábrica de Dados Eliminada que tem Controlo de Origem consulte
 
  * Crie um pedido de puxar para fundir as alterações ao ramo de colaboração e publicar.
 
- * Se o cliente tiver um Tempo de Integração Auto-hospedado em ADF eliminado, eles terão de criar uma nova instância em novo ADF, também desinstalar e reinstalar o caso na sua máquina On-Prem/VM com a nova chave obtida. Após a instalação do IR estar concluída, o cliente terá de alterar o Serviço Linked para apontar para o novo IR e testar a ligação ou falhará com **a referência inválida** por erro.
+ * Se o cliente tiver um Tempo de Integração Auto-hospedado em ADF eliminado, eles terão de criar uma nova instância em novo ADF, também desinstalar e reinstalar o caso na sua máquina on-prem/VM com a nova chave obtida. Após a instalação do IR estar concluída, o cliente terá de alterar o Serviço Linked para apontar para o novo IR e testar a ligação ou falhará com **a referência inválida** por erro.
 
 
 

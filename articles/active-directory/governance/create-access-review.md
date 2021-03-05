@@ -2,7 +2,7 @@
 title: Criar uma revisão de acesso de grupos & aplicações - Azure AD
 description: Saiba como criar uma revisão de acesso aos membros do grupo ou acesso a aplicações em avaliações de acesso ao Azure Ative.
 services: active-directory
-author: barclayn
+author: ajburnle
 manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 12/07/2020
-ms.author: barclayn
+ms.date: 3/3/2021
+ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b12eb95a7840bdbb902701fc644eee30ffe9900f
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 7143c3f9786d41c32ae954ab219197a9cfaa1050
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96778594"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102176880"
 ---
 # <a name="create-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Criar uma revisão de acesso de grupos e aplicações em avaliações de acesso Azure AD
 
@@ -80,7 +80,7 @@ Para mais informações, consulte [os requisitos da Licença.](access-reviews-ov
     - **Proprietários do grupo (Apenas** disponíveis para a realização de uma revisão em uma equipa ou grupo)
     - **Selecionados(s) ou grupos**
     - **Os utilizadores analisam o acesso próprio**
-    - **(Pré-visualização) Gestores de utilizadores.**
+    - **Gestores de utilizadores.**
     Se escolher **os Gestores de utilizadores** ou **os proprietários do Grupo,**  também tem a opção de especificar um revisor de recuo. Os revisores de retorno são convidados a fazer uma revisão quando o utilizador não tem nenhum gestor especificado no diretório ou o grupo não tem um proprietário.
 
     ![nova revisão de acessos](./media/create-access-review/new-access-review.png)

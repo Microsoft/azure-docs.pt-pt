@@ -1,5 +1,5 @@
 ---
-title: Scripts Azure CLI usando módulo de pesquisa az
+title: Scripts Azure CLI usando o módulo de pesquisa az
 titleSuffix: Azure Cognitive Search
 description: Criar e configurar um serviço de Pesquisa Cognitiva Azure com o Azure CLI. Pode escalar um serviço para cima ou para baixo, gerir a administração e consultar as teclas api e consultar informações do sistema.
 manager: luisca
@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 02/17/2021
-ms.openlocfilehash: 6287215233ae9baa220df37c6b820c1d1bec7720
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: ee6b0e1b745e86c72843af88c0f6d17f91512e15
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102032522"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102176761"
 ---
 # <a name="manage-your-azure-cognitive-search-service-with-the-azure-cli"></a>Gerencie o seu serviço de Pesquisa Cognitiva Azure com o Azure CLI
 > [!div class="op_single_selector"]
@@ -41,48 +41,7 @@ Ocasionalmente, fazem-se perguntas sobre tarefas *que não* constam da lista aci
 
 Dentro de um serviço, a criação e gestão de conteúdos são através [do Serviço de Busca REST API](/rest/api/searchservice/) ou [.NET SDK](/dotnet/api/overview/azure/search.documents-readme). Embora não existam comandos dedicados do PowerShell para conteúdos, pode escrever scripts que liguem para REST ou .NET APIs para criar e carregar índices.
 
-<a name="check-versions-and-load"></a>
-
-## <a name="check-versions-and-upgrade"></a>Verifique versões e upgrade
-
-Os exemplos deste artigo são interativos e requerem permissões elevadas. O Azure CLI deve ser instalado. Para mais informações, consulte [instalar o Azure CLI](/cli/azure/install-azure-cli).
-
-Agora pode executar o CLI Azure com o `az` comando de Orte de Comando do Windows, PowerShell ou [Azure Cloud Shell](../cloud-shell/overview.md). O PowerShell fornece algumas funcionalidades de conclusão de tabulação que não estão disponíveis a partir da Linha de Comandos do Windows. 
-
-### <a name="check-the-azure-cli-version"></a>Consulte a versão Azure CLI
-
-Se não tiver a certeza se o Azure CLI está instalado, executar o seguinte comando como passo de verificação. 
-
-```azurecli-interactive
-az --version
-```
-Se este comando não funcionar, consulte [instalar o Azure CLI](/cli/azure/install-azure-cli) para instalar o Azure CLI.
-
-Se tiver a versão 2.11.0 ou mais recente, pode executar o `az upgrade` comando para atualizar o CLI para a versão mais recente.
-
-```azurecli-interactive
-az upgrade
-```
-
-### <a name="connect-to-azure-with-a-browser-sign-in-token"></a>Conecte-se ao Azure com um token de inscrição no navegador
-
-Pode utilizar as suas credenciais de inscrição no portal para se ligar a uma subscrição no CLI Azure. Em alternativa, pode [autenticar não interativamente com um diretor de serviço.](/cli/azure/authenticate-azure-cli#sign-in-with-a-service-principal)
-
-```azurecli-interactive
-az login
-```
-
-Se tiver várias subscrições do Azure, detenha a sua subscrição Azure. Para ver uma lista das suas subscrições atuais, execute este comando.
-
-```azurecli-interactive
-az account list --output table
-```
-
-Para especificar a subscrição, executar o seguinte comando. No exemplo seguinte, o nome de subscrição é `ContosoSubscription` .
-
-```azurecli-interactive
-az account set --subscription "ContosoSubscription"
-```
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 <a name="list-search-services"></a>
 
@@ -262,7 +221,7 @@ az network vnet subnet update \
 id=$(az search service show \
     --resource-group <resource-group-name> \
     --name <service-name> \
-    --query [id]' \
+    --query [id] \
     --output tsv)
 
 # Create the private endpoint

@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 3f358bebc1cc4eb17b8c50b1e3a13366717ae98c
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: ab2ad15da9b1676924197d28e734f6baf59a02ef
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102100717"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102176642"
 ---
 # <a name="introduction-to-azure-defender-for-container-registries"></a>Introdução ao Azure Defender dos registos de contentores
 
@@ -68,9 +68,9 @@ Abaixo está um diagrama de alto nível dos componentes e benefícios de protege
 ## <a name="faq-for-azure-container-registry-image-scanning"></a>FAQ para digitalização da imagem do registo do contentor de Azure
 
 ### <a name="how-does-security-center-scan-an-image"></a>Como é que o Centro de Segurança verifica uma imagem?
-A imagem é retirada do registo. É então executado numa caixa de areia isolada com o scanner Qualys que extrai uma lista de vulnerabilidades conhecidas.
+O Centro de Segurança retira a imagem do registo e executa-a numa caixa de areia isolada com o scanner Qualys. O scanner extrai uma lista de vulnerabilidades conhecidas.
 
-O Centro de Segurança filtra e classifica as descobertas do scanner. Quando uma imagem é saudável, o Centro de Segurança marca-a como tal. O Centro de Segurança gera recomendações de segurança apenas para imagens que têm problemas a resolver. Ao notificar apenas quando há problemas, o Centro de Segurança reduz o potencial de alertas informativos indesejados.
+O Centro de Segurança filtra e classifica as descobertas do scanner. Quando uma imagem é saudável, o Centro de Segurança marca-a como tal. O Centro de Segurança gera recomendações de segurança apenas para imagens que têm problemas a resolver. Ao notificá-lo apenas quando há problemas, o Centro de Segurança reduz o potencial de alertas informativos indesejados.
 
 ### <a name="can-i-get-the-scan-results-via-rest-api"></a>Posso obter os resultados da digitalização através da REST API?
 Sim. Os resultados encontram-se em [API REST das Subavaliações](/rest/api/securitycenter/subassessments/list/). Além disso, pode utilizar o Azure Resource Graph (ARG), a API semelhante a Kusto para todos os seus recursos: uma consulta pode obter uma digitalização específica.
@@ -78,7 +78,7 @@ Sim. Os resultados encontram-se em [API REST das Subavaliações](/rest/api/sec
 ### <a name="what-registry-types-are-scanned-what-types-are-billed"></a>Que tipos de registo são digitalizados? Que tipos são cobrados?
 Para obter uma lista dos tipos de registos de contentores suportados pelo Azure Defender para registos de contentores, consulte [Disponibilidade](#availability).
 
-Se ligar registos não suportados à sua assinatura Azure, eles não serão digitalizados e não será cobrado por eles.
+Se ligar registos não apoiados à sua assinatura Azure, o Azure Defender não os digitalizará e não cobrará por eles.
 
 ### <a name="can-i-customize-the-findings-from-the-vulnerability-scanner"></a>Posso personalizar as descobertas do scanner de vulnerabilidade?
 Sim. Se tiver uma necessidade organizacional de ignorar uma descoberta, em vez de remediar, pode desativá-la opcionalmente. As descobertas desativadas não afetam a sua pontuação segura ou geram ruídos indesejados.

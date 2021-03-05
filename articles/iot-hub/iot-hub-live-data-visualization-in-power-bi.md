@@ -1,5 +1,5 @@
 ---
-title: Visualização de dados em tempo real de dados frm Azure IoT Hub – Power BI
+title: Visualização de dados em tempo real de dados do Azure IoT Hub – Power BI
 description: Utilize o Power BI para visualizar os dados de temperatura e humidade que são recolhidos do sensor e enviados para o seu hub Azure IoT.
 author: robinsh
 keywords: visualização de dados em tempo real, visualização de dados ao vivo, visualização de dados de sensores
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 6/08/2020
 ms.author: robinsh
-ms.openlocfilehash: 6d10d0202e9e4c813cffe6373acfb5200ebb3266
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 82caf13618fe8483ab8d3a622c6c0d51ab05a206
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92146783"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102177339"
 ---
 # <a name="visualize-real-time-sensor-data-from-azure-iot-hub-using-power-bi"></a>Visualizar dados de sensores em tempo real do Azure IoT Hub utilizando o Power BI
 
@@ -52,7 +52,7 @@ Vamos começar por criar um trabalho de Stream Analytics. Depois de criar o trab
 
 ### <a name="create-a-stream-analytics-job"></a>Criar uma tarefa do Stream Analytics
 
-1. No [portal Azure,](https://portal.azure.com) **selecione Criar um recurso**de internet de  >  **coisas**stream  >  **analytics .**
+1. No [portal Azure,](https://portal.azure.com) **selecione Criar um recurso** de internet de  >  **coisas** stream  >  **analytics .**
 
 2. Introduza as seguintes informações para a tarefa.
 
@@ -72,7 +72,7 @@ Vamos começar por criar um trabalho de Stream Analytics. Depois de criar o trab
 
 2. Em **Topologia da tarefa**, selecione **Entradas**.
 
-3. No painel **de entradas,** selecione **Adicione a entrada de fluxo**e, em seguida, selecione **IoT Hub** da lista de drop-down. No novo painel de entrada, insira as seguintes informações:
+3. No painel **de entradas,** selecione **Adicione a entrada de fluxo** e, em seguida, selecione **IoT Hub** da lista de drop-down. No novo painel de entrada, insira as seguintes informações:
 
    **Inserir pseudónimo :** Introduza um pseudónimo único para a entrada.
 
@@ -86,7 +86,7 @@ Vamos começar por criar um trabalho de Stream Analytics. Depois de criar o trab
 
    **Nome da política de acesso partilhado**: Selecione o nome da política de acesso partilhado que pretende que o trabalho stream Analytics seja utilizado para o seu hub IoT. Para este tutorial, pode selecionar *o serviço.* A política de *serviços* é criada por padrão em novos hubs IoT e concede permissão para enviar e receber em pontos finais do lado da nuvem expostos pelo hub IoT. Para saber mais, consulte [o controlo de acesso e permissões.](iot-hub-devguide-security.md#access-control-and-permissions)
 
-   **Chave da política**de acesso partilhado : Este campo é preenchido automaticamente com base na sua seleção para o nome da política de acesso partilhado.
+   **Chave da política** de acesso partilhado : Este campo é preenchido automaticamente com base na sua seleção para o nome da política de acesso partilhado.
 
    **Grupo de consumidores**: Selecione o grupo de consumidores que criou anteriormente.
 
@@ -134,7 +134,7 @@ Vamos começar por criar um trabalho de Stream Analytics. Depois de criar o trab
 
 ### <a name="run-the-stream-analytics-job"></a>Executar a tarefa do Stream Analytics
 
-No trabalho Stream Analytics, selecione **Overview**e, em seguida, **selecione Start**  >  **Now**  >  **Start**. Assim que a tarefa for iniciada com êxito, o estado da tarefa é alterado de **Parado** para **Em execução**.
+No trabalho Stream Analytics, selecione **Overview** e, em seguida, **selecione Start**  >  **Now**  >  **Start**. Assim que a tarefa for iniciada com êxito, o estado da tarefa é alterado de **Parado** para **Em execução**.
 
 ![Executar um trabalho stream analytics em Azure](./media/iot-hub-live-data-visualization-in-power-bi/run-stream-analytics-job.png)
 
@@ -187,7 +187,7 @@ Os passos a seguir mostram-lhe como criar e publicar um relatório utilizando o 
     >
     > ![Contacte a notificação do seu administrador](./media/iot-hub-live-data-visualization-in-power-bi/contact-admin.png)
 
-11. Selecione **Criar código incorporado**e, em seguida, selecione **Publicar**.
+11. Selecione **Criar código incorporado** e, em seguida, selecione **Publicar**.
 
 É-lhe fornecido o link de relatório que pode partilhar com qualquer pessoa para reportar acesso e um código que pode usar para integrar o relatório no seu blog ou website.
 
