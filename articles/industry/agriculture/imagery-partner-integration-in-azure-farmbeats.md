@@ -4,14 +4,14 @@ description: Este artigo descreve a integração de parceiros de imagens.
 author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
-ms.author: v-umha
+ms.author: v-ummehabiba
 ms.custom: has-adal-ref
-ms.openlocfilehash: 40e17a9f73d98f24c6c7fbb55ef38cc2bc088861
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 1bc723892e29ccc24a7612cfbe50d4b274cdacdf
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675931"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183799"
 ---
 # <a name="imagery-partner-integration"></a>Integração de parceiros de imagens
 
@@ -138,8 +138,8 @@ Depois de o parceiro ter credenciais para ligar ao FarmBeats Datahub, o parceiro
 
 1.  Criar um novo tipo estendido para os seguintes campos, de acordo com o tipo de imagens a carregar:
 
-    - **Fonte de cena** : Por exemplo, drone_partner_name
-    - **Tipo de cena** : Por exemplo, drone
+    - **Fonte de cena**: Por exemplo, drone_partner_name
+    - **Tipo de cena**: Por exemplo, drone
     - **Tipo de arquivo de** cena : Por exemplo, índice de clorofila
     - **Tipo de conteúdo de ficheiro de** cena : Por exemplo, imagem/tiff
 
@@ -363,7 +363,7 @@ O campo verde é a nova adição aos valores de origem de cena definidos pelo si
 
 ### <a name="step-2-get-farm-details"></a>Passo 2: Obter detalhes da fazenda
 
-As cenas (.tiff ou .csv files) estão no contexto de uma fazenda. Você precisa obter os detalhes da fazenda fazendo um GET on the /Farm API. A API devolve a lista de quintas que estão disponíveis na FarmBeats. Pode selecionar a quinta para a quais pretende ingerir os dados.
+As cenas (.tiff ou .csv ficheiros) estão no contexto de uma quinta. Você precisa obter os detalhes da fazenda fazendo um GET on the /Farm API. A API devolve a lista de quintas que estão disponíveis na FarmBeats. Pode selecionar a quinta para a quais pretende ingerir os dados.
 
 RESPOSTA GET /Farm:
 
@@ -413,7 +413,7 @@ RESPOSTA GET /Farm:
 
 ### <a name="step-3-create-a-scene-id-post-call"></a>Passo 3: Criar um ID de cena (CHAMADA POST)
 
-Crie uma nova cena (.tiff ou .csv file) com a informação dada, que fornece a data, sequência e iD da fazenda com que a cena está associada. Os metadados associados à cena podem ser definidos em propriedades, que incluem a duração e o tipo de medida.
+Crie uma nova cena (.tiff ou .csv arquivo) com a informação dada, que fornece a data, sequência e iD da fazenda com que a cena está associada. Os metadados associados à cena podem ser definidos em propriedades, que incluem a duração e o tipo de medida.
 
 Criar uma nova cena cria uma nova identificação de cena, que está associada à quinta. Após a criação do ID da cena, o utilizador pode usar o mesmo para criar um novo ficheiro (.tiff ou .csv) e armazenar o conteúdo do ficheiro.
 

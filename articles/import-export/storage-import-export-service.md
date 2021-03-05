@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/14/2021
+ms.date: 03/04/2021
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 6dd2c7fcef6860cb5a2eaf88d141f8567955ed25
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: b1f1560fc1a00577e1e4b30d922fc7d4cae0ab92
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98706732"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102181859"
 ---
 # <a name="what-is-azure-importexport-service"></a>O que é o serviço Azure Import/Export?
 
@@ -79,7 +79,7 @@ A um nível elevado, um trabalho de importação envolve as seguintes etapas:
 >
 > Para envios no estrangeiro (fora do data center country/região), por favor partilhe uma conta de transportadora internacional.
 
- ![Figura 1:Fluxo de trabalho de importação](./media/storage-import-export-service/importjob.png)
+ ![Figura 1:Fluxo de trabalho de importação](./media/storage-import-export-service/import-job.png)
 
 Para instruções passo a passo sobre a importação de dados, aceda a:
 
@@ -108,7 +108,7 @@ A um nível elevado, um trabalho de exportação envolve as seguintes etapas:
 >
 > Para envios no estrangeiro (fora do data center country/região), por favor partilhe uma conta de transportadora internacional.
   
- ![Figura 2:Fluxo de emprego de exportação](./media/storage-import-export-service/exportjob.png)
+ ![Figura 2:Fluxo de emprego de exportação](./media/storage-import-export-service/export-job.png)
 
 Para instruções passo a passo sobre a exportação de dados, aceda aos [dados de exportação da Azure Blobs](storage-import-export-data-from-blobs.md).
 
@@ -158,7 +158,7 @@ Quando envia para Azure, paga o custo de envio para a transportadora. Quando a M
 
 [A taxa normal de transação de armazenamento](https://azure.microsoft.com/pricing/details/storage/) aplica-se durante a importação, bem como a exportação de dados. Os encargos de saída padrão também são aplicáveis, juntamente com os encargos de transação de armazenamento quando os dados são exportados do Azure Storage. Para obter mais informações sobre os custos de saída, consulte [os preços de transferência de dados.](https://azure.microsoft.com/pricing/details/data-transfers/)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como utilizar o serviço de importação/exportação para:
 

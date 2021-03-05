@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 1/25/2021
 ms.author: allensu
-ms.openlocfilehash: 14e6990579f61b28c091f18b45a06d1ddcc00e89
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 51ceb72d53f78264edcadd2255e20c8fbdac2cae
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102097538"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102181215"
 ---
 # <a name="what-is-azure-load-balancer"></a>O que é o Balanceador de Carga do Azure?
 
@@ -42,8 +42,8 @@ Para obter mais informações sobre os componentes do balançador de carga indiv
 >[!NOTE]
 > O Azure oferece um conjunto de soluções de balanceamento de carga totalmente geridas para os seus cenários. 
 > * Se estiver a procurar fazer o encaminhamento global baseado em DNS e **não** tiver requisitos para a rescisão do protocolo de Segurança da Camada de Transporte (TLS) ("descarga SSL"), por pedido HTTP/HTTPS ou processamento de camadas de aplicação, reveja [o Gestor de Tráfego.](../traffic-manager/traffic-manager-overview.md) 
-> * Se pretender carregar o equilíbrio entre os seus servidores numa região na camada de aplicação, reveja o [Gateway de Aplicações](../application-gateway/overview.md)
-> * Se precisar de otimizar o encaminhamento global do seu tráfego web e otimizar o desempenho e fiabilidade do utilizador final de topo através de uma rápida falha global, consulte [a Porta frontal](../frontdoor/front-door-overview.md)
+> * Se pretender carregar o equilíbrio entre os seus servidores numa região na camada de aplicação, reveja o [Gateway de Aplicações](../application-gateway/overview.md).
+> * Se precisar de otimizar o encaminhamento global do seu tráfego web e otimizar o desempenho e fiabilidade do utilizador final de topo através de uma rápida falha global, consulte [a Porta da Frente](../frontdoor/front-door-overview.md).
 > 
 > Os seus cenários de ponta a ponta podem beneficiar de combinar estas soluções conforme necessário.
 > Para uma comparação de opções de equilíbrio de carga Azure, consulte [a visão geral das opções de equilíbrio de carga em Azure](/azure/architecture/guide/technology-choices/load-balancing-overview).

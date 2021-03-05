@@ -3,12 +3,12 @@ title: Nódoas e piscinas em Azure Batch
 description: Saiba mais sobre os nós e piscinas computacional e como são usados num fluxo de trabalho do Azure Batch do ponto de vista do desenvolvimento.
 ms.topic: conceptual
 ms.date: 11/20/2020
-ms.openlocfilehash: e55be57968eae2a371a21b214dbd15921641e31f
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: be38d4f91afcaa1ac31e9b9bbc6d2547da2ee99e
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98741779"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183663"
 ---
 # <a name="nodes-and-pools-in-azure-batch"></a>Nódoas e piscinas em Azure Batch
 
@@ -74,6 +74,9 @@ A **Configuração da Máquina Virtual** especifica que a piscina é composta po
 O [agente de nó batch](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md) é um programa que funciona em cada nó na piscina e fornece a interface de comando e controlo entre o nó e o serviço Batch. Existem diferentes implementações do agente de nó, conhecido como SKUs, para diferentes sistemas operativos. Quando cria um agrupamento com base na Configuração de Máquina Virtual, tem de especificar não só o tamanho dos nós e a origem das imagens utilizadas para criá-los, como também a **referência da imagem da máquina virtual** e o **SKU do agente de nó** do Batch a instalar nos nós. Para obter mais informações sobre como especificar estas propriedades dos conjuntos, veja [Provision Linux compute nodes in Azure Batch pools (Aprovisionar nós de computação do Linux em conjuntos do Azure Batch)](batch-linux-nodes.md). Opcionalmente, pode anexar um ou mais discos de dados vazio às VMs do agrupamento criadas a partir de imagens do Marketplace ou incluir os discos de dados em imagens personalizadas utilizadas para criar as VMs. Ao incluir discos de dados, é necessário montar e formatar os discos a partir de um VM para os utilizar.
 
 ### <a name="cloud-services-configuration"></a>Configuração de serviços na nuvem
+
+> [!WARNING]
+> As piscinas de configuração do serviço de nuvem são depreciadas. Utilize, em vez disso, piscinas de configuração de máquinas virtuais.
 
 A **Configuração de Serviços cloud** especifica que a piscina é composta por nós Azure Cloud Services. Os Serviços Cloud fornecem apenas nós de computação windows.
 
@@ -202,6 +205,6 @@ Quando um certificado é associado a um conjunto, o serviço Batch instala o cer
 
 Se adicionar um certificado a uma piscina existente, deve reiniciar os seus nós de cálculo para que o certificado seja aplicado aos nós.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Conheça [os empregos e tarefas.](jobs-and-tasks.md)

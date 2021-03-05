@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, mathoma
 ms.date: 08/25/2019
-ms.openlocfilehash: d3414cb31192211c1663a84e1541f56b63674660
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 0a56cfc147d4fb5cbdccf13363ad28bc602d8216
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99525403"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102182762"
 ---
 # <a name="restore-a-database-in-azure-sql-managed-instance-to-a-previous-point-in-time"></a>Restaurar uma base de dados em Azure SQL Gestd Instance para um ponto anterior no tempo
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -46,9 +46,9 @@ A tabela a seguir mostra cenários de restauro pontual para a ocorrência gerida
 
 |           |Restaurar a DB existente no mesmo caso de SQL Managed Instance| Restaurar o DB existente para outra sql gestditua instância|Restauro caiu DB para a mesma SQL Managed Instance|Restauro deixou cair DB para outra SqL Managed Instance|
 |:----------|:----------|:----------|:----------|:----------|
-|**Portal do Azure**| Yes|No |Yes|No|
-|**CLI do Azure**|Yes |Yes |No|No|
-|**PowerShell**| Yes|Yes |Yes|Yes|
+|**Portal do Azure**| Sim|Não |Sim|Não|
+|**CLI do Azure**|Sim |Sim |Não|Não|
+|**PowerShell**| Sim|Sim |Sim|Sim|
 
 ## <a name="restore-an-existing-database"></a>Restaurar uma base de dados existente
 
@@ -110,7 +110,7 @@ Para mais informações, consulte [a Base de Dados Restore-AzSqlInstance](/power
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Se ainda não tiver o Azure CLI instalado, consulte [instalar o Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
+Se ainda não tiver o Azure CLI instalado, consulte [instalar o Azure CLI](/cli/azure/install-azure-cli).
 
 Para restaurar a base de dados utilizando o CLI Azure, especifique os seus valores para os parâmetros no comando seguinte. Então, executar o comando:
 
@@ -128,7 +128,7 @@ az sql midb restore -g mygroupname --mi myinstancename -n mymanageddbname |
        --dest-mi mytargetinstancename
 ```
 
-Para obter uma explicação detalhada dos parâmetros disponíveis, consulte a documentação do [CLI para restaurar uma base de dados numa 22.ºC.](/cli/azure/sql/midb?view=azure-cli-latest#az-sql-midb-restore)
+Para obter uma explicação detalhada dos parâmetros disponíveis, consulte a documentação do [CLI para restaurar uma base de dados numa 22.ºC.](/cli/azure/sql/midb#az-sql-midb-restore)
 
 ---
 

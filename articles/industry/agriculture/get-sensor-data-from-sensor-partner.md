@@ -4,13 +4,13 @@ description: Este artigo descreve como obter dados de sensores dos parceiros.
 author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
-ms.author: v-umha
-ms.openlocfilehash: 57baa00f7f9b64212d0aee8b0a2efeca814abeb3
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.author: v-ummehabiba
+ms.openlocfilehash: 474b6f8356724546105d902a15427f483f656317
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168533"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102182779"
 ---
 # <a name="get-sensor-data-from-sensor-partners"></a>Obtenha dados de sensores de parceiros de sensores
 
@@ -80,7 +80,7 @@ Siga os passos abaixo para gerar as informações acima:
 
     ```
 
-8. Execute o seguinte script. O script pede o ID do inquilino, que pode ser obtido a partir da página de Visão Geral do **Diretório Ativo Azure.**  >  **Overview**
+8. Execute o seguinte script. O script pede o ID do inquilino, que pode ser obtido a partir da página de Visão Geral do **Diretório Ativo Azure.**  >  
 
     ```azurepowershell-interactive
 
@@ -92,7 +92,7 @@ Siga os passos abaixo para gerar as informações acima:
 > 1. O nome de Endpoint da API datahub deve estar em minúsculas.
 > 2. Se estiver a copiar o url de nome do site farmbeats para Datahub API Endpoint, certifique-se de que não existe um corte de fuga (/).
 
-9. Siga as instruções no ecrã para capturar os valores para **API Endpoint,** **ID do Inquilino,** **Identificação de Clientes,** **Segredo do Cliente**e Cadeia de **Conexão EventHub**.
+9. Siga as instruções no ecrã para capturar os valores para **API Endpoint,** **ID do Inquilino,** **Identificação de Clientes,** **Segredo do Cliente** e Cadeia de **Conexão EventHub**.
 
 ### <a name="integrate-device-data-by-using-the-generated-credentials"></a>Integrar dados do dispositivo utilizando as credenciais geradas
 

@@ -8,12 +8,12 @@ ms.service: web-application-firewall
 ms.date: 12/04/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 48d4fe254f51dde932f04ef791e1109a0ced07ff
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: fb7d49459b4eae8c3c7b3b1e6ad5bc5d44a089d3
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101701625"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183357"
 ---
 # <a name="what-is-azure-web-application-firewall-on-azure-application-gateway"></a>O que é Azure Web Application Firewall no Gateway de aplicações Azure?
 
@@ -173,7 +173,7 @@ Com o livro de eventos de firewall Azure WAF incorporado, você pode obter uma v
 
 #### <a name="azure-monitor-workbook-for-waf"></a>Livro de trabalho do Monitor Azure para WAF
 
-Este livro permite visualizar personalizados eventos WAF relevantes para a segurança em vários painéis filtrantes. Funciona com todos os tipos de WAF, incluindo Porta de Aplicação, Porta Frontal e CDN, e pode ser filtrado com base no tipo WAF ou numa instância waf específica. Importar através do modelo ARM ou modelo de galeria. Para implementar este livro, consulte [o Livro de Trabalho da WAF](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20Firewall/Workbook%20-%20Azure%20Firewall%20Monitor%20Workbook).
+Este livro permite visualizar personalizados eventos WAF relevantes para a segurança em vários painéis filtrantes. Funciona com todos os tipos de WAF, incluindo Porta de Aplicação, Porta Frontal e CDN, e pode ser filtrado com base no tipo WAF ou numa instância waf específica. Importar através do modelo ARM ou modelo de galeria. Para implementar este livro, consulte [o Livro de Trabalho da WAF](https://aka.ms/AzWAFworkbook).
 
 #### <a name="logging"></a>Registo
 

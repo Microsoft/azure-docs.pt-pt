@@ -1,5 +1,5 @@
 ---
-title: Porta frontal Azure ! Microsoft Docs
+title: Azure Porta da Frente | Microsoft Docs
 description: Este artigo apresenta uma descrição geral do Azure Front Door.
 services: frontdoor
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/27/2020
 ms.author: duau
-ms.openlocfilehash: ef7870363940a0db4ff09ae9ebd82eedb0e60495
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: e9d719a29bc9a4b3e0428913e5bc1a91bec16623
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282275"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183170"
 ---
 # <a name="what-is-azure-front-door"></a>O que é o Azure Front Door?
 
@@ -32,7 +32,7 @@ A Porta Frontal funciona na camada 7 (camada HTTP/HTTPS) utilizando qualquer pro
 >[!NOTE]
 > O Azure oferece um conjunto de soluções de balanceamento de carga totalmente geridas para os seus cenários. 
 > * Se estiver a procurar fazer o encaminhamento global baseado em DNS e **não** tiver requisitos para a rescisão do protocolo de Segurança da Camada de Transporte (TLS) ("descarga SSL"), por pedido HTTP/HTTPS ou processamento de camadas de aplicação, reveja [o Gestor de Tráfego.](../traffic-manager/traffic-manager-overview.md) 
-> * Se pretender carregar o equilíbrio entre os seus servidores numa região na camada de aplicação, reveja o [Gateway de Aplicações](../application-gateway/overview.md)
+> * Se pretender carregar o equilíbrio entre os seus servidores numa região na camada de aplicação, reveja o [Gateway de Aplicações](../application-gateway/overview.md).
 > * Para equilibrar a carga da camada de rede, reveja [o Balanceador de Carga](../load-balancer/load-balancer-overview.md). 
 > 
 > Os seus cenários de ponta a ponta podem beneficiar de combinar estas soluções conforme necessário.
@@ -70,7 +70,7 @@ Principais funcionalidades incluídas com porta da frente:
 
 Para obter informações sobre preços, veja [Preços do Front Door](https://azure.microsoft.com/pricing/details/frontdoor/). Ver [SLA para Azure Front Door](https://azure.microsoft.com/en-us/support/legal/sla/frontdoor/v1_0/).
 
-## <a name="whats-new"></a>Novidades
+## <a name="whats-new"></a>Novidades?
 
 Subscreva o feed RSS e veja as últimas atualizações da funcionalidade Azure Front Door na página [Azure Updates.](https://azure.microsoft.com/updates/?category=networking&query=Azure%20Front%20Door)
 

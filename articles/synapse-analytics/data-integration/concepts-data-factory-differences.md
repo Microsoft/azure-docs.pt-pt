@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/10/2020
 ms.author: makromer
 ms.reviewer: jrasnick
-ms.openlocfilehash: 8818d4db489cef8203ae515c18c61e215d577033
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.openlocfilehash: 9cd3fc9353c684ec6617761616b958477ca83ee3
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97387620"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183646"
 ---
 # <a name="data-integration-in-azure-synapse-analytics-versus-azure-data-factory"></a>Integração de dados no Azure Synapse Analytics contra Azure Data Factory
 
@@ -36,12 +36,13 @@ Consulte a tabela abaixo para obter disponibilidade de funcionalidades:
 | **Integração repositória do GIT** | Integração GIT | ✓ | ✓ |
 | **Monitorização**           | Monitorização de empregos de faíscas para fluxo de dados | ✗ | ✓<br><small>*Aproveite as piscinas Synapse Spark* |
 |                          | Integração com o Azure Monitor | ✓ | ✗ |
+| **Linhagem** | Suporta a publicação de dados de linhagem pipeline para a Purview  | ✓ | ✗ |  
 
 > [!Note]
 > **Time to Live** é uma definição de tempo de execução de integração Azure que permite ao cluster Spark *manter-se quente* por um período de tempo após uma execução do fluxo de dados.
 >
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Inicie-se com a integração de dados no seu espaço de trabalho da Sinaapse aprendendo a [ingerir dados numa conta gen2 do Azure Data Lake Storage](data-integration-data-lake.md).

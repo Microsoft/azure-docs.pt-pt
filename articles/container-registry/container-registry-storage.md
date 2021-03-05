@@ -2,34 +2,34 @@
 title: Armazenamento de imagem de recipiente
 description: Detalhes sobre como as imagens do seu contentor e outros artefactos são armazenados no Registo de Contentores Azure, incluindo segurança, redundância e capacidade.
 ms.topic: article
-ms.date: 03/02/2021
+ms.date: 03/03/2021
 ms.custom: references_regions
-ms.openlocfilehash: 4bdffd111273e00b796e45f4e09bfac9ba6713e4
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: ec4328b44d5493b8d765fa30c548adc3d747d446
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102036015"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183272"
 ---
 # <a name="container-image-storage-in-azure-container-registry"></a>Armazenamento de imagem de contentor no registo do contentor de Azure
 
-Todos os registos [básicos, standard e premium](container-registry-skus.md) azure beneficiam de funcionalidades avançadas de armazenamento Azure, como encriptação em repouso para segurança de dados de imagem e geo-redundância para proteção de dados de imagem. As secções seguintes descrevem tanto as características como os limites do armazenamento de imagem no Registo do Contentor de Azure (ACR).
+Todos os registos [básicos, standard e premium](container-registry-skus.md) azure beneficiam de funcionalidades avançadas de armazenamento Azure, incluindo encriptação em repouso. As secções seguintes descrevem as características e limites de armazenamento de imagem no Registo do Contentor de Azure (ACR).
 
 ## <a name="encryption-at-rest"></a>Encriptação em repouso
 
 Todas as imagens de contentores e outros artefactos do seu registo estão encriptadas em repouso. O Azure encripta automaticamente uma imagem antes de a armazenar e desencripta-a no voo quando você ou as suas aplicações e serviços retiram a imagem. Aplicar opcionalmente uma camada de encriptação extra com uma [chave gerida pelo cliente](container-registry-customer-managed-keys.md).
 
-## <a name="geo-redundant-storage"></a>Armazenamento georredundante
+## <a name="regional-storage"></a>Armazenamento regional
 
-Para os registos de contentores implantados na maioria das regiões, a Azure utiliza um sistema de armazenamento geodussuquente para ajudar a prevenir a perda das imagens dos seus contentores e outros artefactos. O Registo de Contentores Azure replica automaticamente as imagens do seu contentor em vários centros de dados geograficamente distantes, evitando a sua perda se ocorrer uma falha de armazenamento regional.
+O Registo de Contentores Azure armazena dados na região onde o registo é criado, para ajudar os clientes a cumprir os requisitos de residência e conformidade de dados.
 
-> [!IMPORTANT]
-> * Se ocorrer uma falha de armazenamento regional, os dados do registo só podem ser recuperados contactando o Suporte Azure. 
-> * Devido aos requisitos de residência de dados no Brasil Sul e Sudeste Asiático, os dados do Registo de Contentores Azure nessas regiões são armazenados apenas em [geo local.](https://azure.microsoft.com/global-infrastructure/geographies/) Para o Sudeste Asiático, todos os dados são armazenados em Singapura. Para o Brasil Sul, todos os dados são armazenados no Brasil. Quando a região se perder devido a um desastre significativo, a Microsoft não poderá recuperar os seus dados do Registo de Contentores Azure.
+Para ajudar a prevenir falhas no datacenter, algumas regiões oferecem [redundância de zona,](zone-redundancy.md)onde os dados são replicados em vários centros de dados numa determinada região.
+
+Os clientes que desejem ter os seus dados armazenados em várias regiões para um melhor desempenho em diferentes geografias ou que desejem ter resiliência em caso de paralisação regional devem permitir [a geo-replicação.](container-registry-geo-replication.md)
 
 ## <a name="geo-replication"></a>Georreplicação
 
-Para cenários que exijam uma garantia de disponibilidade ainda mais elevada, considere a utilização da funcionalidade [de geo-replicação](container-registry-geo-replication.md) dos registos Premium. A geo-replicação ajuda a prevenir a perda de acesso ao seu registo em caso de falha regional *total,* e não apenas uma falha de armazenamento. A geo-replicação também proporciona outros benefícios, como o armazenamento de imagem de proximidade de rede para impulsos e puxas mais rápidos em cenários de desenvolvimento ou implementação distribuídos.
+Para cenários que exijam garantias de alta disponibilidade, considere a utilização da funcionalidade [de geo-replicação](container-registry-geo-replication.md) dos registos Premium. A geo-replicação ajuda a prevenir a perda de acesso ao seu registo em caso de falha regional. A geo-replicação também proporciona outros benefícios, como o armazenamento de imagem de proximidade de rede para impulsos e puxas mais rápidos em cenários de desenvolvimento ou implementação distribuídos.
 
 ## <a name="zone-redundancy"></a>Redundância entre zonas
 

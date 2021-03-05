@@ -57,8 +57,12 @@
       href: how-to-cache-purge.md
     - name: Compressão
       href: how-to-compression.md
-    - name: Ativar o Link Privado para a Web App
-      href: how-to-enable-private-link-web-app.md
+    - name: Ativar Ligação Privada
+      items:
+        - name: Ligar a uma conta de armazenamento
+          href: how-to-enable-private-link-storage-account.md
+        - name: Ligar a uma aplicação Web
+          href: how-to-enable-private-link-web-app.md
     - name: Registo
       href: how-to-logs.md
     - name: Monitorização e alertas

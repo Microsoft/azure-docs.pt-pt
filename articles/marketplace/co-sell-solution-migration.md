@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 12/07/2020
-ms.openlocfilehash: 445810d5873bb935ded180a969e4612542bde5ed
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.date: 3/04/2021
+ms.openlocfilehash: 92702f38b6143c5dac2111c57fadeba7d9142992
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102120186"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102181062"
 ---
 # <a name="migration-of-co-sell-solutions-from-ocp-gtm-to-the-commercial-marketplace"></a>Migração de soluções de co-venda da OCP GTM para o mercado comercial
 
@@ -136,7 +136,7 @@ Para obter instruções detalhadas sobre as informações que necessita de forne
 
     :::image type="content" source="media/co-sell-migrate/offer-setup.png" alt-text="Os separadores de configuração da oferta no Partner Center.":::
 
-3. Alguns dos detalhes voltados para o vendedor da Microsoft foram copiados da solução OCP GTM. Preencha as restantes informações necessárias no separador **Co-venda com** o separador Microsoft para tornar a sua oferta co-venda pronta. Quando estiver concluído, **selecione 'Rever' e publicar**. Para obter mais informações, consulte [Como submeter materiais de co-venda no centro parceiro.](marketplace-co-sell.md)
+3. Alguns dos detalhes voltados para o vendedor da Microsoft foram copiados da solução OCP GTM. Preencha as restantes informações necessárias no separador **Co-venda com** o separador Microsoft para tornar a sua oferta co-venda pronta. Quando estiver concluído, **selecione 'Rever' e publicar**. Para mais informações, consulte [a Configure co-sell para uma oferta de mercado comercial.](commercial-marketplace-co-sell.md)
 
     :::image type="content" source="media/co-sell-migrate/co-sell-page.png" alt-text="A oferta co-vende o separador no Partner Center.":::
 
@@ -154,5 +154,5 @@ Para obter instruções detalhadas sobre as informações que necessita de forne
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Revenda através de Parceiros CSP](cloud-solution-providers.md)
-- [Como submeter materiais de co-venda no centro parceiro](marketplace-co-sell.md)
+- [Configure co-venda para uma oferta de mercado comercial](commercial-marketplace-co-sell.md)
 - Ver estas [PERGUNTAS Frequentes](https://partner.microsoft.com/resources/detail/co-sell-requirements-publish-commercial-marketplace-faq-pdf) (PDF)

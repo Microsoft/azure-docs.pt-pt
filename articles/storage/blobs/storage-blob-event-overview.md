@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: dineshm
-ms.openlocfilehash: 31b2d562d4d0c53b23e8e3f454057b4e26e41ba9
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: f07c249e3b7cb54283959df410d51ca18998f2cf
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98875251"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102181521"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Reagir aos eventos de armazenamento de Blobs
 
@@ -98,14 +98,14 @@ As aplicações que lidam com eventos de armazenamento Blob devem seguir algumas
 > * Da mesma forma, verifique se o eventType é aquele que está preparado para processar, e não assuma que todos os eventos que receber serão os tipos que espera.
 > * Como as mensagens podem chegar após algum atraso, use os campos etag para entender se as suas informações sobre objetos ainda estão atualizadas. Para aprender a utilizar o campo etag, consulte [a Gestão da concordância no armazenamento blob](./concurrency-manage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#managing-concurrency-in-blob-storage).
 > * Como as mensagens podem chegar fora de ordem, use os campos de sequenciador para entender a ordem dos eventos em qualquer objeto em particular. O campo do sequenciador é um valor de corda que representa a sequência lógica de eventos para qualquer nome blob em particular. Pode utilizar a comparação de cordas padrão para entender a sequência relativa de dois eventos no mesmo nome blob.
-> * Os eventos de armazenamento garantem pelo menos uma vez a entrega aos assinantes, o que garante que todas as mensagens são outputadas. No entanto, devido a retrações ou disponibilidade de subscrições, podem ocorrer mensagens duplicadas ocasionalmente. Para saber mais sobre a entrega de mensagens e retentou, consulte [a entrega de mensagens de Event Grid e retentou.](../../event-grid/delivery-and-retry.md)
+> * Os eventos de armazenamento garantem pelo menos uma vez a entrega aos assinantes, o que garante que todas as mensagens são outputadas. No entanto, devido a retréis entre nós de backend e serviços ou disponibilidade de subscrições, podem ocorrer mensagens duplicadas. Para saber mais sobre a entrega de mensagens e retentou, consulte [a entrega de mensagens de Event Grid e retentou.](../../event-grid/delivery-and-retry.md)
 > * Utilize o campo blobType para entender que tipo de operações são permitidas na bolha e quais os tipos de biblioteca de clientes que deve usar para aceder à bolha. Valores válidos são `BlockBlob` `PageBlob` ou. 
 > * Utilize o campo url com os `CloudBlockBlob` `CloudAppendBlob` construtores e para aceder à bolha.
 > * Ignore campos que não entende. Esta prática irá ajudá-lo a manter-se resiliente a novas funcionalidades que poderão ser adicionadas no futuro.
 > * Se pretender garantir que o evento **Microsoft.Storage.BlobCreated** só é acionado quando um Block Blob estiver completamente comprometido, filtre o evento para chamadas `CopyBlob` , ou REST `PutBlob` `PutBlockList` `FlushWithClose` API. Estas chamadas API desencadeiam o evento **Microsoft.Storage.BlobCreated** apenas depois de os dados estiverem totalmente comprometidos com uma Blob de Bloco. Para aprender a criar um filtro, consulte [eventos de filtro para grelha de eventos.](../../event-grid/how-to-filter-events.md)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre a Grade de Eventos e dê uma oportunidade aos eventos de armazenamento blob:
 

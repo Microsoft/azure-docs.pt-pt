@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/20/2020
 ms.author: duau
-ms.openlocfilehash: 06ad8bf169e2b4b44f4f6a8ec5155aa6722a038c
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: ba859a0ad8edacfa2e51486b150f94b3dea37a16
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102124062"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102182898"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door"></a>Perguntas frequentes para Azure Front Door
 
@@ -86,6 +86,8 @@ Sim. Na verdade, a Porta Frontal Azure suporta a reorientação de cordas de hos
 As rotas para a sua Porta frontal não são encomendadas e uma rota específica é selecionada com base na melhor correspondência. Saiba mais sobre [como a Porta frontal corresponde aos pedidos para uma regra de encaminhamento](front-door-route-matching.md).
 
 ### <a name="how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door"></a>Como posso bloquear o acesso ao meu backend para apenas Azure Front Door?
+
+> [! AVISO] O Novo SKU Front Door Premium fornece uma forma mais recomendada de bloquear a sua aplicação através do Private Endpoint. [Saiba mais sobre o Private Endpoint](./standard-premium/concept-private-link.md)
 
 Para bloquear a sua aplicação para aceitar o tráfego apenas a partir da sua porta frontal específica, terá de configurar ACLs IP para o seu backend e, em seguida, restringir o tráfego no seu backend ao valor específico do cabeçalho 'X-Azure-FDID' enviado pela Porta frontal. Estes passos são detalhados como abaixo:
 

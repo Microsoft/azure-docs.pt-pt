@@ -2,14 +2,14 @@
 title: Visão geral do processamento de transações no Azure Service Bus
 description: Este artigo dá-lhe uma visão geral do processamento de transações e o envio através de recurso no Azure Service Bus.
 ms.topic: article
-ms.date: 10/28/2020
+ms.date: 03/03/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9a95a200b57d348109884a319b5433f0ffd5dde1
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: e2848f41d5557584b0f1a197b548a00a4aef1564
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98684796"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183748"
 ---
 # <a name="overview-of-service-bus-transaction-processing"></a>Visão geral do processamento de transações de autocarros de serviço
 
@@ -31,7 +31,7 @@ O Service Bus suporta operações de agrupamento em relação a uma entidade de 
 As operações que podem ser realizadas dentro de um âmbito de transação são as seguintes:
 
 * **[QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient), [MessageSender,](/dotnet/api/microsoft.azure.servicebus.core.messagesender) [TopicClient](/dotnet/api/microsoft.azure.servicebus.topicclient)**: `Send` , `SendAsync` `SendBatch` ,`SendBatchAsync`
-* **[IntermediárioS:](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)** `Complete` , `CompleteAsync` `Abandon` `AbandonAsync` `Deadletter` `DeadletterAsync` `Defer` `DeferAsync` `RenewLock``RenewLockAsync` 
+* **[IntermediárioS:](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)** `Complete` , , `CompleteAsync` , , , `Abandon` , , , , , `AbandonAsync` `Deadletter` `DeadletterAsync` `Defer` `DeferAsync` `RenewLock` , `RenewLockAsync` 
 
 As operações de receção não estão incluídas, pois presume-se que a aplicação adquire mensagens utilizando o modo [ReceberMode.PeekLock,](/dotnet/api/microsoft.azure.servicebus.receivemode) dentro de alguns loops de receção ou com uma chamada [OnMessage,](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage) e só então abre uma margem de transação para o processamento da mensagem.
 
@@ -42,6 +42,8 @@ A disposição da mensagem (completa, abandono, letra morta, adiamento) ocorre e
 Para permitir a transferência transacional de dados de uma fila ou tópico para um processador e, em seguida, para outra fila ou tópico, o Service Bus suporta *transferências.* Numa operação de transferência, um remetente envia primeiro uma mensagem para uma *fila de transferência ou tópico*, e a fila de transferência ou tópico move imediatamente a mensagem para a fila de destino pretendida ou tópico usando a mesma implementação de transferência robusta em que a capacidade de autoforward depende. A mensagem nunca é comprometida com a fila de transferência ou o login do tópico de forma a tornar-se visível para a fila de transferências ou para os consumidores do tópico.
 
 A potência desta capacidade transacional torna-se evidente quando a fila de transferência ou o tópico em si é a fonte das mensagens de entrada do remetente. Por outras palavras, o Service Bus pode transferir a mensagem para a fila de destino ou tópico "via" a fila ou tópico de transferência, enquanto realiza uma operação completa (ou adiar, ou letra morta) na mensagem de entrada, tudo numa operação atómica. 
+
+Se precisar de receber de uma subscrição de tópicos e depois enviar para uma fila ou tópico na mesma transação, a entidade de transferência deve ser um tópico. Neste cenário, inicie o âmbito de transação sobre o tema, receba a partir da subscrição com o âmbito de transação, e envie através do tópico de transferência para uma fila ou destino tópico. 
 
 ### <a name="see-it-in-code"></a>Vê-lo em código
 

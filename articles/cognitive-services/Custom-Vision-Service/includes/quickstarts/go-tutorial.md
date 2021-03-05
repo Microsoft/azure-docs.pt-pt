@@ -2,25 +2,41 @@
 author: areddish
 ms.author: areddish
 ms.service: cognitive-services
-ms.date: 09/15/2020
-ms.openlocfilehash: 49b920ede2b0af306af00875a3368cffd853f89b
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.date: 02/25/2021
+ms.openlocfilehash: c2333b019d716b70ed995846f58b021e49371ae0
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98947938"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102184286"
 ---
 Este guia fornece instruções e código de amostra para ajudá-lo a começar a usar a biblioteca de clientes Custom Vision para Ir para construir um modelo de classificação de imagem. Você vai criar um projeto, adicionar tags, treinar o projeto, e usar o URL de previsão do projeto para testá-lo programáticamente. Use este exemplo como um modelo para construir a sua própria app de reconhecimento de imagem.
 
 > [!NOTE]
 > Se quiser construir e treinar um modelo de classificação _sem_ escrever código, consulte a [orientação baseada no navegador.](../../getting-started-build-a-classifier.md)
 
+Utilize a biblioteca de clientes Custom Vision para ir a:
+
+* Criar um novo projeto de Visão Personalizada
+* Adicione tags ao projeto
+* Enviar e marcar imagens
+* Treine o projeto
+* Publique a iteração atual
+* Teste o ponto final de previsão
+
+Documentação de referência [(formação)](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/customvision/training) [(previsão)](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.1/customvision/prediction)| Código fonte da [biblioteca (formação)](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.1/customvision/training) [(previsão)](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v1.1/customvision/prediction) 
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- [Ir 1.8+](https://golang.org/doc/install)
-- [!INCLUDE [create-resources](../../includes/create-resources.md)]
+* Subscrição Azure - [Crie uma gratuitamente](https://azure.microsoft.com/free/cognitive-services/)
+* [Ir 1.8+](https://golang.org/doc/install)
+* Assim que tiver a subscrição do Azure, <a href="https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision"  title=" Crie um recurso De Visão Personalizada crie um recurso De "  target="_blank"> Visão Personalizada no portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a> Azure para criar um recurso de formação e previsão e obter as suas chaves e ponto final. Aguarde que seja implantado e clique no botão Go para o botão **de recursos.**
+    * Necessitará da chave e ponto final dos recursos que cria para ligar a sua aplicação à Visão Personalizada. Colará a chave e o ponto final no código abaixo mais tarde no arranque rápido.
+    * Pode utilizar o nível de preços gratuitos `F0` para experimentar o serviço e fazer upgrade mais tarde para um nível pago para produção.
 
-## <a name="install-the-custom-vision-client-library"></a>Instale a biblioteca de clientes Custom Vision
+## <a name="setting-up"></a>Configuração
+
+### <a name="install-the-custom-vision-client-library"></a>Instale a biblioteca de clientes Custom Vision
 
 Para escrever uma aplicação de análise de imagem com visão personalizada para ir, você precisará da biblioteca de clientes de serviço de Visão Personalizada. Execute o seguinte comando no PowerShell:
 
@@ -33,15 +49,13 @@ ou se `dep` utilizar, dentro da sua corrida de repo:
 dep ensure -add github.com/Azure/azure-sdk-for-go
 ```
 
-[!INCLUDE [get-keys](../../includes/get-keys.md)]
 
 [!INCLUDE [python-get-images](../../includes/python-get-images.md)]
 
-## <a name="add-the-code"></a>Adicionar o código
-
-Crie um novo ficheiro chamado *sample.go* no seu diretório de projeto preferido.
 
 ## <a name="create-the-custom-vision-project"></a>Criar o projeto Visão Personalizada
+
+Crie um novo ficheiro chamado *sample.go* no seu diretório de projeto preferido e abra-o no seu editor de código preferido.
 
 Adicione o código seguinte ao seu script para criar um novo projeto do serviço de Visão Personalizada. Insira as chaves de subscrição nas definições apropriadas. Além disso, obtenha o url do Ponto Final na página de Definições do website Da Visão Personalizada.
 
@@ -193,7 +207,7 @@ Depois, pode confirmar que a imagem de teste (disponível em **<base_image_url>/
 
 [!INCLUDE [clean-ic-project](../../includes/clean-ic-project.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora já viste como cada passo do processo de deteção de objetos pode ser feito em código. Esta amostra executa uma única iteração de treino, mas muitas vezes você precisa treinar e testar o seu modelo várias vezes para torná-lo mais preciso.
 

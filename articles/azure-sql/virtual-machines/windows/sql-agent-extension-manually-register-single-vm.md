@@ -15,12 +15,12 @@ ms.date: 11/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, contperf-fy21q2
-ms.openlocfilehash: 393d0c69201f87ad7c96bd2f9a1f9f57df512e31
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: 983cdab0c5f5b856537c661c7427a83099f30ed4
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97964529"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102181436"
 ---
 # <a name="register-sql-server-vm-with-sql-iaas-agent-extension"></a>Registar SQL Server VM com extensão do agente SQL IaaS
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -282,7 +282,7 @@ Não registar a máquina virtual SQL com a extensão SQL IaaS Agent é necessár
 
 Para desregralar o seu SQL Server VM a partir da extensão utilizando o portal Azure, siga estes passos:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 1. Navegue para o recurso SQL VM. 
   
    ![Recurso de máquinas virtuais SQL](./media/sql-agent-extension-manually-register-single-vm/sql-vm-manage.png)
@@ -304,7 +304,7 @@ Para desregralar o seu SQL Server VM a partir da extensão utilizando o portal A
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Para desregralar o seu SQL Server VM a partir da extensão com O Azure CLI, utilize o comando [de exclusão de az sql vm.](/cli/azure/sql/vm?view=azure-cli-latest&preserve-view=true#az-sql-vm-delete) Isto removerá o *recurso* VM do Servidor SQL, mas não eliminará a máquina virtual. 
+Para desregralar o seu SQL Server VM a partir da extensão com O Azure CLI, utilize o comando [de exclusão de az sql vm.](/cli/azure/sql/vm#az-sql-vm-delete) Isto removerá o *recurso* VM do Servidor SQL, mas não eliminará a máquina virtual. 
 
 
 ```azurecli-interactive

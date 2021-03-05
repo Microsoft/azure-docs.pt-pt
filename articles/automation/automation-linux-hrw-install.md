@@ -3,14 +3,14 @@ title: Implementar um Trabalhador de Runbook Híbrido Linux na Azure Automation
 description: Este artigo diz como instalar um Azure Automation Hybrid Runbook Worker para executar livros em máquinas baseadas em Linux no seu datacenter local ou ambiente em nuvem.
 services: automation
 ms.subservice: process-automation
-ms.date: 02/18/2021
+ms.date: 02/26/2021
 ms.topic: conceptual
-ms.openlocfilehash: 543ae640871699c7e1fffda46463752483ff6a4e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: d4d9bcd16e36e76808f19f7fbd43dd0d3e7550c3
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101708922"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102182337"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Implementar um Trabalhador de Runbook Híbrido Linux
 
@@ -48,7 +48,7 @@ A funcionalidade Hybrid Runbook Worker suporta as seguintes distribuições. Tod
 * Red Hat Enterprise Linux Server 5, 6, 7 e 8
 * Debian GNU/Linux 6, 7 e 8
 * Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS e 18.04 LTS
-* SUSE Linux Enterprise Server 12 e 15
+* SUSE Linux Enterprise Server 12 e 15 (SUSE não desbloqueou versões numeradas 13 ou 14)
 
 > [!IMPORTANT]
 > Antes de ativar a funcionalidade de Gestão de Atualização, que depende da função de Trabalhador de Runbook Híbrido do sistema, confirme as distribuições que suporta [aqui.](update-management/overview.md#supported-operating-systems)
@@ -66,7 +66,7 @@ Os requisitos mínimos para um sistema Linux e para o utilizador Hybrid Runbook 
 |Glibc |Biblioteca GNU C| 2.5-12 |
 |Openssl| Bibliotecas OpenSSL | 1.0 (TLS 1.1 e TLS 1.2 são suportados)|
 |Curl | cURL cliente web | 7.15.5|
-|Pitão-ctypes | Python 2.x é necessário |
+|Pitão-ctypes | Python 2.x ou Python 3.x são necessários |
 |PAM | Módulos de Autenticação Incorporável|
 | **Pacote opcional** | **Descrição** | **Versão mínima**|
 | PowerShell Core | Para executar os livros powerShell, o PowerShell Core precisa de ser instalado. Consulte [a instalação do PowerShell Core no Linux](/powershell/scripting/install/installing-powershell-core-on-linux) para aprender a instalá-lo. | 6.0.0 |
@@ -90,13 +90,16 @@ Os Trabalhadores de Runbook Híbridos Linux suportam um conjunto limitado de tip
 
 |Tipo de livro de execução | Suportado |
 |-------------|-----------|
-|Python 2 |Sim |
-|PowerShell |Sim<sup>1</sup> |
+|Python 3 (pré-visualização)|Sim, necessário apenas para estes distros: SUSE LES 15, RHEL 8 e CentOS 8|
+|Python 2 |Sim, para qualquer distro que não requer Python<sup>31</sup> |
+|PowerShell |Sim<sup>2</sup> |
 |Fluxo de Trabalho do PowerShell |Não |
 |Gráficos |Não |
 |Fluxo de trabalho gráfico powershell |Não |
 
-<sup>1</sup> Os livros powerShell requerem que o PowerShell Core seja instalado na máquina Linux. Consulte [a instalação do PowerShell Core no Linux](/powershell/scripting/install/installing-powershell-core-on-linux) para aprender a instalá-lo.
+<sup>1</sup> Ver [sistemas operativos Linux suportados](#supported-linux-operating-systems).
+
+<sup>2</sup> Os livros powerShell requerem que o PowerShell Core seja instalado na máquina Linux. Consulte [a instalação do PowerShell Core no Linux](/powershell/scripting/install/installing-powershell-core-on-linux) para aprender a instalá-lo.
 
 ### <a name="network-configuration"></a>Configuração de rede
 

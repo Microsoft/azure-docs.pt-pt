@@ -6,12 +6,12 @@ ms.author: elhorton
 ms.service: iot-develop
 ms.topic: overview
 ms.date: 02/11/2021
-ms.openlocfilehash: 4d9546c8a912176117e42f2a6bbef3058331383b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: e85cc9cdbb14c419e4bddb5ee659aa657b49a8c1
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101702679"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183544"
 ---
 # <a name="overview-of-azure-iot-device-sdks"></a>Visão geral dos SDKs de dispositivoS Azure IoT
 
@@ -60,7 +60,7 @@ As suas opções para começar dependem do tipo de dispositivo que tem:
 Estes SDKs são especializados para funcionar em dispositivos com recursos de computação ou memória limitados. Para saber mais sobre tipos comuns de dispositivos, consulte [a visão geral dos tipos de dispositivos Azure IoT](concepts-iot-device-types.md).
 
 #### <a name="embedded-c-sdk"></a>Incorporado C SDK
-* [Repositório gitHub](https://github.com/Azure/azure-sdk-for-c/tree/1.0.0/sdk/docs/iot)
+* [Repositório gitHub](https://github.com/Azure/azure-sdk-for-c/tree/master/sdk/docs/iot)
 * [Amostras](https://github.com/Azure/azure-sdk-for-c/blob/master/sdk/samples/iot/README.md)
 * [Documentação de Referência](https://azure.github.io/azure-sdk-for-c/)
 * [Como construir o C SDK incorporado](https://github.com/Azure/azure-sdk-for-c/tree/master/sdk/docs/iot#build)
@@ -68,7 +68,7 @@ Estes SDKs são especializados para funcionar em dispositivos com recursos de co
 
 #### <a name="azure-rtos-middleware"></a>Azure RTOS Middleware
 
-* [Repositório gitHub](https://github.com/azure-rtos/threadx)
+* [Repositório gitHub](https://github.com/azure-rtos/netxduo/tree/master/addons/azure_iot)
 * [Guias de Arranque](https://github.com/azure-rtos/getting-started) e [mais amostras](https://github.com/azure-rtos/samples)
 * [Documentação de Referência](/azure/rtos/threadx/)
 

@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: overview
 ms.date: 04/17/2020
 ms.author: mbaldwin
-ms.openlocfilehash: e0a45bde32fed651c4b38d203b3c75a6d928e7c5
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: f2a33b4011b0bb89ca17010fc787aebe8c17fc92
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96327088"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183935"
 ---
 # <a name="azure-key-vault-keys-secrets-and-certificates-overview"></a>Chaves, segredos e certificados do Azure Key Vault
 
@@ -44,7 +44,7 @@ Chaves protegidas por software|/chaves|Suportado|Não suportado
 **Outros tipos de objetos**||
 Segredos|/segredos|Suportado|Não suportado
 Certificados|/certificados|Suportado|Não suportado
-Chaves de contas de armazenamento|/contagem de armazenamento|Suportado|Não suportado
+Chaves de contas de armazenamento|/armazenamento|Suportado|Não suportado
 |||
 - **Teclas criptográficas**: Suporta vários tipos de chaves e algoritmos e permite a utilização de chaves protegidas por software e protegidas por HSM. Para mais informações, consulte [sobre as teclas.](../keys/about-keys.md)
 - **Segredos**: Fornece armazenamento seguro de segredos, tais como palavras-passe e cadeias de conexão de base de dados. Para mais informações, consulte [Sobre os segredos.](../secrets/about-secrets.md)
@@ -89,7 +89,7 @@ Um identificador de objetos tem o seguinte formato geral (dependendo do tipo de 
 > [!NOTE]
 > Consulte [o suporte do tipo de objeto](#object-types) para tipos de objetos suportados por cada tipo de recipiente.
 
-Onde:  
+Em que:  
 
 | Elemento | Descrição |  
 |-|-|  

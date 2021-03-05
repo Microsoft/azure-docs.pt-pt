@@ -6,12 +6,12 @@ author: nabhishek
 ms.author: abnarain
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.openlocfilehash: 486dc2ab3a14917e8c7bdddf8b5b9c6f9da1a1dc
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: fea572c2e75f62b5e7e7b4634e37da348bdcdaf1
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100374002"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183493"
 ---
 # <a name="transform-data-by-running-a-databricks-notebook"></a>Transforme os dados executando um caderno Databricks
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -54,13 +54,13 @@ A tabela a seguir descreve as propriedades JSON utilizadas na definição JSON:
 
 |Propriedade|Descrição|Necessário|
 |---|---|---|
-|name|O nome da atividade no oleoduto.|Yes|
-|descrição|Texto descrevendo o que a atividade faz.|No|
-|tipo|Para a Atividade do Caderno databricks, o tipo de atividade é DatabricksNotebook.|Yes|
-|linkedServiceName|Nome do Serviço Linked Databricks no qual funciona o portátil Databricks. Para saber mais sobre este serviço ligado, consulte o artigo [de serviços ligados a Compute.](compute-linked-services.md)|Yes|
-|notebookPath|O caminho absoluto do caderno a ser executado no Espaço de Trabalho databricks. Este caminho deve começar com um corte.|Yes|
-|basesParametros|Uma variedade de pares Key-Value. Os parâmetros de base podem ser utilizados para cada execução de atividade. Se o caderno tiver um parâmetro que não esteja especificado, o valor predefinido do portátil será utilizado. Saiba mais sobre os parâmetros nos [cadernos databricks.](https://docs.databricks.com/api/latest/jobs.html#jobsparampair)|No|
-|bibliotecas|Uma lista de bibliotecas a instalar no cluster que executará o trabalho. Pode ser uma variedade \<string, object> de.|No|
+|name|O nome da atividade no oleoduto.|Sim|
+|descrição|Texto descrevendo o que a atividade faz.|Não|
+|tipo|Para a Atividade do Caderno databricks, o tipo de atividade é DatabricksNotebook.|Sim|
+|linkedServiceName|Nome do Serviço Linked Databricks no qual funciona o portátil Databricks. Para saber mais sobre este serviço ligado, consulte o artigo [de serviços ligados a Compute.](compute-linked-services.md)|Sim|
+|notebookPath|O caminho absoluto do caderno a ser executado no Espaço de Trabalho databricks. Este caminho deve começar com um corte.|Sim|
+|basesParametros|Uma variedade de pares Key-Value. Os parâmetros de base podem ser utilizados para cada execução de atividade. Se o caderno tiver um parâmetro que não esteja especificado, o valor predefinido do portátil será utilizado. Saiba mais sobre os parâmetros nos [cadernos databricks.](https://docs.databricks.com/api/latest/jobs.html#jobsparampair)|Não|
+|bibliotecas|Uma lista de bibliotecas a instalar no cluster que executará o trabalho. Pode ser uma variedade \<string, object> de.|Não|
 
 ## <a name="supported-libraries-for-databricks-activities"></a>Bibliotecas apoiadas para atividades databricks
 
@@ -114,10 +114,10 @@ Em certos casos, poderá ser necessário repercutir certos valores do caderno de
 
 1. No seu caderno, poderá ligar para [dbutils.notebook.exit ("returnValue")](/azure/databricks/notebooks/notebook-workflows#notebook-workflows-exit) e o correspondente "ReturnValue" será devolvido à fábrica de dados.
 
-2. Pode consumir a produção na fábrica de dados utilizando expressões como `'@activity('databricks notebook activity name').output.runOutput'` .
+2. Pode consumir a produção na fábrica de dados utilizando expressões como `@{activity('databricks notebook activity name').output.runOutput}` . 
 
    > [!IMPORTANT]
-   > Se estiver a passar o objeto JSON, poderá obter valores através da anexação de nomes de propriedade. Exemplo: `'@activity('databricks notebook activity name').output.runOutput.PropertyName'`
+   > Se estiver a passar o objeto JSON, poderá obter valores através da anexação de nomes de propriedade. Exemplo: `@{activity('databricks notebook activity name').output.runOutput.PropertyName}`
 
 ## <a name="how-to-upload-a-library-in-databricks"></a>Como carregar uma biblioteca em Databricks
 

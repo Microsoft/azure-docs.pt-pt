@@ -3,12 +3,12 @@ title: Ligue máquinas híbridas ao Azure a partir do portal Azure
 description: Neste artigo, aprende-se a instalar o agente e a ligar máquinas ao Azure utilizando servidores ativados pelo Azure Arc a partir do portal Azure.
 ms.date: 11/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: 97962f7fd9816e398f017555d7043cf65db00ed8
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d7a89db7b8a42476a312a8f9a96c5ad230b140a2
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100584965"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183153"
 ---
 # <a name="connect-hybrid-machines-to-azure-from-the-azure-portal"></a>Ligue máquinas híbridas ao Azure a partir do portal Azure
 
@@ -22,7 +22,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="generate-the-installation-script-from-the-azure-portal"></a>Gere o script de instalação a partir do portal Azure
 
-O script para automatizar o download e instalação, e para estabelecer a ligação com a Azure Arc, está disponível a partir do portal Azure. Para concluir o processo, faça o seguinte:
+O script para automatizar o download e instalação, e para estabelecer a ligação com a Azure Arc, está disponível a partir do portal Azure. Para concluir o processo, execute os seguintes passos:
 
 1. A partir do seu navegador, aceda ao [portal Azure.](https://portal.azure.com)
 
@@ -164,8 +164,8 @@ Depois de instalar o agente e configurá-lo para ligar aos servidores ativados d
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* As informações relativas à resolução de problemas podem ser encontradas no guia do [agente da máquina conectado de resolução de problemas.](troubleshoot-agent-onboard.md)
+- As informações relativas à resolução de problemas podem ser encontradas no guia do [agente da máquina conectado de resolução de problemas.](troubleshoot-agent-onboard.md)
 
-* Aprenda a gerir a sua máquina utilizando [a Azure Policy](../../governance/policy/overview.md), para coisas como [a configuração do hóspede](../../governance/policy/concepts/guest-configuration.md)VM , verificando se a máquina está a reportar ao espaço de trabalho esperado do Log Analytics, permitir a monitorização com o [Azure Monitor com VMs](../../azure-monitor/vm/vminsights-enable-policy.md), e muito mais.
+- Aprenda a gerir a sua máquina utilizando [a Azure Policy](../../governance/policy/overview.md), para coisas como [a configuração do hóspede](../../governance/policy/concepts/guest-configuration.md)VM , verifique se a máquina está a reportar-se ao espaço de trabalho esperado do Log Analytics, possibilite a monitorização com o [Azure Monitor com VMs](../../azure-monitor/vm/vminsights-enable-policy.md), e muito mais.
 
-* Saiba mais sobre o [agente Log Analytics.](../../azure-monitor/agents/log-analytics-agent.md) O agente Log Analytics para Windows e Linux é necessário quando pretende recolher dados de monitorização do sistema operativo e da carga de trabalho, geri-lo utilizando livros de aplicação da Automação ou funcionalidades como Update Management, ou utilizar outros serviços Azure como [o Azure Security Center](../../security-center/security-center-introduction.md).
+- Saiba mais sobre o [agente Log Analytics.](../../azure-monitor/agents/log-analytics-agent.md) O agente Log Analytics para Windows e Linux é necessário quando pretende recolher dados de monitorização do sistema operativo e da carga de trabalho com o Azure Monitor para VMs, geri-lo utilizando runbooks de Automação ou funcionalidades como Update Management, ou utilizar outros serviços Azure como [o Azure Security Center](../../security-center/security-center-introduction.md).

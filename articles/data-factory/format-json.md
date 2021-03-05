@@ -6,12 +6,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/29/2020
 ms.author: jingwang
-ms.openlocfilehash: f19f8fb3811435e9bbc207d2d130c0655a6dee02
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: ebac108388071ed3dc0eb2b7bfc0494f2f7bb481
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101706086"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102181368"
 ---
 # <a name="json-format-in-azure-data-factory"></a>Formato JSON na Azure Data Factory
 
@@ -249,6 +249,52 @@ File3.json
 {
     "json": "record 3"
 }
+```
+Se **o Documento por linha** for selecionado, os fluxos de dados de mapeamento leiam um documento JSON de cada linha num ficheiro. 
+
+``` json
+File1.json
+{"json": "record 1 }
+
+File2.json
+ {"time":"2015-04-29T07:12:20.9100000Z","callingimsi":"466920403025604","callingnum1":"678948008","callingnum2":"567834760","switch1":"China","switch2":"Germany"}
+ {"time":"2015-04-29T07:13:21.0220000Z","callingimsi":"466922202613463","callingnum1":"123436380","callingnum2":"789037573","switch1":"US","switch2":"UK"}
+
+File3.json
+ {"time":"2015-04-29T07:12:20.9100000Z","callingimsi":"466920403025604","callingnum1":"678948008","callingnum2":"567834760","switch1":"China","switch2":"Germany"}
+ {"time":"2015-04-29T07:13:21.0220000Z","callingimsi":"466922202613463","callingnum1":"123436380","callingnum2":"789037573","switch1":"US","switch2":"UK"}
+ {"time":"2015-04-29T07:13:21.4370000Z","callingimsi":"466923101048691","callingnum1":"678901578","callingnum2":"345626404","switch1":"Germany","switch2":"UK"}
+```
+Se **o Conjunto de documentos** for selecionado, os fluxos de dados de mapeamento leiam um conjunto de documentos a partir de um ficheiro. 
+
+``` json
+File.json
+[
+        {
+            "time": "2015-04-29T07:12:20.9100000Z",
+            "callingimsi": "466920403025604",
+            "callingnum1": "678948008",
+            "callingnum2": "567834760",
+            "switch1": "China",
+            "switch2": "Germany"
+        },
+        {
+            "time": "2015-04-29T07:13:21.0220000Z",
+            "callingimsi": "466922202613463",
+            "callingnum1": "123436380",
+            "callingnum2": "789037573",
+            "switch1": "US",
+            "switch2": "UK"
+        },
+        {
+            "time": "2015-04-29T07:13:21.4370000Z",
+            "callingimsi": "466923101048691",
+            "callingnum1": "678901578",
+            "callingnum2": "345626404",
+            "switch1": "Germany",
+            "switch2": "UK"
+        }
+    ]
 ```
 > [!NOTE]
 > Se os fluxos de dados lançarem um erro indicando "corrupt_record" ao visualizar os seus dados JSON, é provável que os seus dados contenham um único documento no seu ficheiro JSON. A definição de "documento único" deve limpar esse erro.

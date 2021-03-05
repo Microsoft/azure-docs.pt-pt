@@ -1,25 +1,25 @@
 ---
 title: Use o Apache Spark num pipeline de aprendizagem automática (pré-visualização)
 titleSuffix: Azure Machine Learning
-description: Ligue o seu espaço de trabalho synapse ao seu pipeline de aprendizagem de máquinas Azure para usar a Spark para manipulação de dados.
+description: Ligue o seu espaço de trabalho Azure Synapse Analytics ao seu pipeline de aprendizagem de máquinas Azure para usar o Apache Spark para manipulação de dados.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.author: laobri
 author: lobrien
-ms.date: 02/25/2021
+ms.date: 03/04/2021
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: a912bc5abcdadf3f8eca46f805c433d3a1058c68
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: f52686f991e3d14a8cde82c602b182874305f27d
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101663386"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102184105"
 ---
-# <a name="how-to-use-apache-spark-in-your-machine-learning-pipeline-with-azure-synapse-preview"></a>Como utilizar o Apache Spark no seu pipeline de aprendizagem automática com a Azure Synapse (pré-visualização)
+# <a name="how-to-use-apache-spark-powered-by-azure-synapse-analytics-in-your-machine-learning-pipeline-preview"></a>Como utilizar o Apache Spark (alimentado pela Azure Synapse Analytics) no seu pipeline de aprendizagem automática (pré-visualização)
 
-Neste artigo, você aprenderá a usar piscinas Apache Spark apoiadas pela Synapse como o alvo do cálculo para um passo de preparação de dados em um pipeline de Aprendizagem de Máquinas Azure. Você vai aprender como um único oleoduto pode usar recursos computacional adequados para o passo específico, como preparação de dados ou treino. Verá como os dados são preparados para o passo da Faísca e como é passado para o próximo passo. 
+Neste artigo, você aprenderá a usar piscinas Apache Spark alimentadas pela Azure Synapse Analytics como o alvo do cálculo para um passo de preparação de dados em um oleoduto de Aprendizagem automática Azure. Você vai aprender como um único oleoduto pode usar recursos computacional adequados para o passo específico, como preparação de dados ou treino. Verá como os dados são preparados para o passo da Faísca e como é passado para o próximo passo. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -27,27 +27,27 @@ Neste artigo, você aprenderá a usar piscinas Apache Spark apoiadas pela Synaps
 
 * [Configure o seu ambiente de desenvolvimento](how-to-configure-environment.md) para instalar o Azure Machine Learning SDK, ou use uma instância de cálculo [Azure Machine Learning](concept-compute-instance.md) com o SDK já instalado.
 
-* Crie um espaço de trabalho Synapse e piscina Apache Spark (ver [Quickstart: Criar uma piscina Apache Spark sem servidor utilizando o Synapse Studio).](../synapse-analytics/quickstart-create-apache-spark-pool-studio.md) 
+* Crie um espaço de trabalho Azure Synapse Analytics e piscina Apache Spark (ver [Quickstart: Criar uma piscina Apache Spark sem servidor utilizando o Synapse Studio).](../synapse-analytics/quickstart-create-apache-spark-pool-studio.md) 
 
-## <a name="link-your-machine-learning-workspace-and-synapse-workspace"></a>Ligue o seu espaço de trabalho de aprendizagem automática e espaço de trabalho synapse 
+## <a name="link-your-azure-machine-learning-workspace-and-azure-synapse-analytics-workspace"></a>Ligue o seu espaço de trabalho de aprendizagem de máquinas Azure e o espaço de trabalho Azure Synapse Analytics 
 
-Você cria e administra suas piscinas Apache Spark em um espaço de trabalho Synapse. Para integrar uma piscina Spark com um espaço de trabalho Azure Machine Learning, você deve ligar-se ao espaço de trabalho synapse. 
+Você cria e administra as suas piscinas Apache Spark num espaço de trabalho Azure Synapse Analytics. Para integrar uma piscina Apache Spark com um espaço de trabalho Azure Machine Learning, você deve ligar-se ao espaço de trabalho Azure Synapse Analytics. 
 
-Você pode anexar uma piscina Synapse Spark via Azure Machine Learning studio UI usando a página **Linked Services.** Pode também fazê-lo através da página **Compute** com a opção **de computação Attach.**
+Você pode anexar uma piscina Apache Spark via Azure Machine Learning studio UI usando a página **Linked Services.** Pode também fazê-lo através da página **Compute** com a opção **de computação Attach.**
 
-Também pode anexar uma piscina de faíscas synapse através de SDK (conforme elaborado abaixo) ou através de um modelo ARM (ver este [modelo Exemplo ARM](https://github.com/Azure/azure-quickstart-templates/blob/master/101-machine-learning-linkedservice-create/azuredeploy.json)). 
+Também pode anexar uma piscina Apache Spark via SDK (conforme elaborado abaixo) ou através de um modelo ARM (ver [este modelo Exemplo ARM).](https://github.com/Azure/azure-quickstart-templates/blob/master/101-machine-learning-linkedservice-create/azuredeploy.json) 
 
-Pode utilizar a linha de comando para seguir o modelo ARM, adicionar o serviço ligado e anexar a piscina da sinapse com o seguinte código:
+Pode utilizar a linha de comando para seguir o modelo ARM, adicionar o serviço ligado e anexar a piscina Apache Spark com o seguinte código:
 
 ```bash
 az deployment group create --name --resource-group <rg_name> --template-file "azuredeploy.json" --parameters @"azuredeploy.parameters.json"
 ```
 
 > [!Important]
-> Para ligar ao espaço de trabalho synapse com sucesso, você deve ter o papel de Proprietário no recurso espaço de trabalho Synapse. Verifique o seu acesso no portal Azure.
+> Para ligar ao espaço de trabalho Azure Synapse Analytics com sucesso, você deve ter o papel de Proprietário no recurso de espaço de trabalho Azure Synapse Analytics. Verifique o seu acesso no portal Azure.
 > O serviço ligado receberá uma Identidade Atribuída ao Sistema (SAI) quando a criar. Deve atribuir a este serviço de ligação SAI o papel de "Administrador De Faíscas De Sinapse Apache" do Synapse Studio para que possa submeter o trabalho spark (ver Como gerir atribuições de [funções de Synapse RBAC no Synapse Studio).](../synapse-analytics/security/how-to-manage-synapse-rbac-role-assignments.md) Deve também dar ao utilizador do espaço de trabalho Azure Machine Learning a função "Contribuinte" do portal Azure de sarna de recursos.
 
-## <a name="create-or-retrieve-the-link-between-your-synapse-workspace-and-your-azure-machine-learning-workspace"></a>Crie ou recupere a ligação entre o seu espaço de trabalho Synapse e o seu espaço de trabalho de aprendizagem da máquina de azure
+## <a name="create-or-retrieve-the-link-between-your-azure-synapse-analytics-workspace-and-your-azure-machine-learning-workspace"></a>Crie ou recupere a ligação entre o seu espaço de trabalho Azure Synapse Analytics e o seu espaço de trabalho Azure Machine Learning
 
 Pode recuperar serviços ligados no seu espaço de trabalho com códigos como:
 
@@ -65,9 +65,9 @@ linked_service = LinkedService.get(ws, 'synapselink1')
 
 Em primeiro lugar, `Workspace.from_config()` acede ao seu espaço de trabalho Azure Machine Learning utilizando a configuração em `config.json` (ver [Tutorial: Começar com Azure Machine Learning no seu ambiente de desenvolvimento).](tutorial-1st-experiment-sdk-setup-local.md) Em seguida, o código imprime todos os serviços ligados disponíveis no Espaço de Trabalho. Finalmente, `LinkedService.get()` recupera um serviço ligado chamado `'synapselink1'` . 
 
-## <a name="attach-your-synapse-spark-pool-as-a-compute-target-for-azure-machine-learning"></a>Anexe a sua piscina de faíscas synapse como um alvo de computação para a Azure Machine Learning
+## <a name="attach-your-apache-spark-pool-as-a-compute-target-for-azure-machine-learning"></a>Anexe a sua piscina de faíscas Apache como alvo de computação para a Azure Machine Learning
 
-Para utilizar a sua piscina de faíscas Synapse para alimentar um passo no seu oleoduto de aprendizagem automática, deve anexá-lo como um `ComputeTarget` passo de pipeline, como mostra o seguinte código.
+Para utilizar a sua piscina de faíscas Apache para alimentar um passo no seu oleoduto de aprendizagem automática, deve anexá-lo como um `ComputeTarget` passo de pipeline, como mostra o seguinte código.
 
 ```python
 from azureml.core.compute import SynapseCompute, ComputeTarget
@@ -85,13 +85,13 @@ synapse_compute=ComputeTarget.attach(
 synapse_compute.wait_for_completion()
 ```
 
-O primeiro passo é configurar o `SynapseCompute` . O `linked_service` argumento é o objeto que criou ou `LinkedService` recuperou no passo anterior. O `type` argumento deve `SynapseSpark` ser. O `pool_name` argumento deve coincidir com o de uma piscina existente no seu espaço de trabalho `SynapseCompute.attach_configuration()` synapse. Para obter mais informações sobre a criação de uma piscina de faíscas Apache no espaço de trabalho da Synapse, consulte [Quickstart: Criar uma piscina Apache Spark sem servidor utilizando o Synapse Studio](../synapse-analytics/quickstart-create-apache-spark-pool-studio.md). O tipo de `attach_config` `ComputeTargetAttachConfiguration` é.
+O primeiro passo é configurar o `SynapseCompute` . O `linked_service` argumento é o objeto que criou ou `LinkedService` recuperou no passo anterior. O `type` argumento deve `SynapseSpark` ser. O `pool_name` argumento deve coincidir com o de uma piscina existente no seu espaço de trabalho `SynapseCompute.attach_configuration()` Azure Synapse Analytics. Para obter mais informações sobre a criação de uma piscina de faíscas Apache no espaço de trabalho Azure Synapse Analytics, consulte [Quickstart: Criar uma piscina Apache Spark sem servidor utilizando o Synapse Studio](../synapse-analytics/quickstart-create-apache-spark-pool-studio.md). O tipo de `attach_config` `ComputeTargetAttachConfiguration` é.
 
 Uma vez criada a configuração, cria-se uma aprendizagem automática `ComputeTarget` passando no , e o nome pelo qual gostaria de se referir ao cálculo dentro do espaço de trabalho de machine `Workspace` `ComputeTargetAttachConfiguration` learning. A chamada `ComputeTarget.attach()` é assíncronea, por isso a amostra bloqueia até que a chamada termine.
 
-## <a name="create-a-synapsesparkstep-that-uses-the-linked-apache-spark-pool"></a>Crie uma `SynapseSparkStep` que use a piscina de faíscas Apache ligada
+## <a name="create-a-synapsesparkstep-that-uses-the-linked-apache-spark-pool"></a>Criar um `SynapseSparkStep` que use a piscina Apache Spark ligada
 
-O trabalho de faísca de amostra [na piscina de faíscas synapse](https://github.com/azure/machinelearningnotebooks) define um simples oleoduto de aprendizagem automática. Em primeiro lugar, o caderno define um passo de preparação de dados alimentado pelo `synapse_compute` definido no passo anterior. Em seguida, o caderno define um passo de treino alimentado por um alvo de computação mais adequado para o treino. O caderno de amostras utiliza a base de dados de sobrevivência do Titanic para demonstrar a entrada e saída de dados; na verdade, não limpa os dados ou faz um modelo preditivo. Como não há formação real nesta amostra, o passo de treino usa um recurso computacional barato baseado em CPU.
+O trabalho de amostra de [prossódutão Spark na piscina de faíscas Apache](https://github.com/azure/machinelearningnotebooks) define um simples oleoduto de aprendizagem automática. Em primeiro lugar, o caderno define um passo de preparação de dados alimentado pelo `synapse_compute` definido no passo anterior. Em seguida, o caderno define um passo de treino alimentado por um alvo de computação mais adequado para o treino. O caderno de amostras utiliza a base de dados de sobrevivência do Titanic para demonstrar a entrada e saída de dados; na verdade, não limpa os dados ou faz um modelo preditivo. Como não há formação real nesta amostra, o passo de treino usa um recurso computacional barato baseado em CPU.
 
 Os dados fluem para um pipeline de aprendizagem automática através de `DatasetConsumptionConfig` objetos, que podem conter dados tabulares ou conjuntos de ficheiros. Os dados vêm frequentemente de ficheiros no armazenamento de bolhas na loja de dados de um espaço de trabalho. O código que se segue mostra algum código típico para criar entrada para um pipeline de aprendizagem automática:
 
@@ -123,7 +123,7 @@ step1_output = HDFSOutputDatasetConfig(destination=(datastore,"test")).register_
 
 Neste caso, os dados seriam armazenados `datastore` num ficheiro chamado e estariam `test` disponíveis dentro do espaço de trabalho de machine learning como um `Dataset` nome `registered_dataset` .
 
-Além dos dados, um passo de gasoduto pode ter dependências python por passo. Os objetos individuais `SynapseSparkStep` também podem especificar a sua configuração precisa da Sinapse. Isto é indicado no seguinte código, que especifica que a `azureml-core` versão do pacote deve ser pelo menos `1.20.0` . (Como mencionado anteriormente, este requisito `azureml-core` é necessário para usar um como `FileDataset` entrada.)
+Além dos dados, um passo de gasoduto pode ter dependências python por passo. Os objetos individuais `SynapseSparkStep` também podem especificar a sua configuração exata de Azure Synapse Apache Spark. Isto é indicado no seguinte código, que especifica que a `azureml-core` versão do pacote deve ser pelo menos `1.20.0` . (Como mencionado anteriormente, este requisito `azureml-core` é necessário para usar um como `FileDataset` entrada.)
 
 ```python
 from azureml.core.environment import Environment
@@ -153,7 +153,7 @@ O código acima especifica um único passo no gasoduto de aprendizagem da máqui
 
 O `SynapseSparkStep` will zip e upload do computador local o subdirecional `./code` . Esse diretório será recriado no servidor computacional e o passo irá executar o ficheiro a `dataprep.py` partir desse diretório. O `inputs` e desse passo são os , e `outputs` `step1_input1` `step1_input2` `step1_output` objetos previamente discutidos. A forma mais fácil de aceder a esses valores dentro do `dataprep.py` script é associá-los ao nome `arguments` .
 
-O próximo conjunto de argumentos para o `SynapseSparkStep` construtor controlar a faísca Apache. O `compute_target` é o que `'link1-spark01'` anexamos como alvo de computação anteriormente. Os outros parâmetros especificam a memória e os núcleos que gostaríamos de usar.
+O próximo conjunto de argumentos para o `SynapseSparkStep` construtor controla Apache Spark. O `compute_target` é o que `'link1-spark01'` anexamos como alvo de computação anteriormente. Os outros parâmetros especificam a memória e os núcleos que gostaríamos de usar.
 
 O caderno de amostras utiliza o seguinte código `dataprep.py` para:
 
@@ -191,7 +191,7 @@ sdf.coalesce(1).write\
 .csv(args.output_dir)
 ```
 
-Este script de "preparação de dados" não faz nenhuma transformação real de dados, mas ilustra como recuperar dados, convertê-los num dataframe de faíscas e como fazer alguma manipulação básica de faíscas. Pode encontrar a saída no Azure Machine Learning Studio abrindo a corrida para crianças, escolhendo o separador **Saídas + registos** e abrindo o `logs/azureml/driver/stdout` ficheiro, como mostra a seguinte figura.
+Este script de "preparação de dados" não faz nenhuma transformação real de dados, mas ilustra como recuperar dados, convertê-los num dataframe de faísca, e como fazer alguma manipulação básica do Apache Spark. Pode encontrar a saída no Azure Machine Learning Studio abrindo a corrida para crianças, escolhendo o separador **Saídas + registos** e abrindo o `logs/azureml/driver/stdout` ficheiro, como mostra a seguinte figura.
 
 :::image type="content" source="media/how-to-use-synapsesparkstep/synapsesparkstep-stdout.png" alt-text="Screenshot do Estúdio mostrando o separador de stdout da corrida infantil":::
 
@@ -235,7 +235,7 @@ pipeline = Pipeline(workspace=ws, steps=[step_1, step_2])
 pipeline_run = pipeline.submit('synapse-pipeline', regenerate_outputs=True)
 ```
 
-O código acima cria um gasoduto constituído pela etapa de preparação de dados alimentada pela Synapse ( `step_1` ) e pelo passo de treino ( `step_2` ). O Azure calcula o gráfico de execução examinando as dependências de dados entre os passos. Neste caso, há apenas uma dependência simples que `step2_input` necessariamente `step1_output` requer.
+O código acima cria um gasoduto que consiste no passo de preparação de dados nas piscinas Apache Spark alimentadas pela Azure Synapse Analytics ( `step_1` ) e o passo de treino ( `step_2` ). O Azure calcula o gráfico de execução examinando as dependências de dados entre os passos. Neste caso, há apenas uma dependência simples que `step2_input` necessariamente `step1_output` requer.
 
 A chamada para `pipeline.submit` criar, se necessário, uma Experiência chamada `synapse-pipeline` e assíncronea começa uma Corrida dentro dela. Os passos individuais dentro do oleoduto são executados como Child Runs desta corrida principal e podem ser monitorizados e revistos na página experimentos do Estúdio.
 

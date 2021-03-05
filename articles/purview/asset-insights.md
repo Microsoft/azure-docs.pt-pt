@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/20/2020
-ms.openlocfilehash: ac93d835b8dbdd5a12d031825dcb879160df5e95
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: b9a207ffa14a18a5f4421fd21cebed28290b5ea6
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96575351"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183085"
 ---
 # <a name="asset-insights-on-your-data-in-azure-purview"></a>Informações sobre os seus dados em Azure Purview
 
@@ -40,7 +40,7 @@ Para obter mais informações, consulte [Gerir fontes de dados em Azure Purview 
 No Azure Purview, pode registar e digitalizar tipos de origem. Uma vez concluída a digitalização, pode ver a distribuição do ativo em Asset Insights, que lhe indica o estado do seu espólio de dados por classificação e conjuntos de recursos. Também lhe diz se há alguma alteração no tamanho dos dados.
 
 > [!NOTE]
-> Depois de ter digitalizado os seus tipos de origem, dê ao Asset Insights até uma hora para refletir os novos ativos.
+> Depois de digitalizar os seus tipos de origem, dê ao Asset Insights 3-8 horas para refletir os novos ativos. O atraso pode dever-se ao tráfego elevado na região de implantação ou ao tamanho da sua carga de trabalho. Para mais informações, contacte a equipa de apoio de campo.
 
 1. Navegue para o seu recurso Azure Purview no portal Azure.
 
@@ -52,7 +52,7 @@ No Azure Purview, pode registar e digitalizar tipos de origem. Uma vez concluíd
 
    :::image type="content" source="./media/asset-insights/view-insights.png" alt-text="Veja as suas ideias no portal Azure":::
 
-1. Na **Insights** :::image type="icon" source="media/asset-insights/ico-insights.png" border="false"::: área insights, selecione **Ativos** para exibir o relatório de insights de ativos de **purview.**
+1. Na  :::image type="icon" source="media/asset-insights/ico-insights.png" border="false"::: área insights, selecione **Ativos** para exibir o relatório de insights de ativos de **purview.**
 
 ### <a name="view-asset-insights"></a>Ver Insights de Ativos
 
@@ -94,7 +94,7 @@ O próximo par de gráficos em Asset Insights mostra uma distribuição de tipos
 
 1. Selecione o caminho para ver a lista de ativos.
 
-O segundo gráfico nos tipos de origem baseados em ficheiros é **_Ficheiros não associados a um conjunto de recursos_**. Se espera que todos os ficheiros sejam enrolados num conjunto de recursos, este gráfico pode ajudá-lo a entender quais os ativos que não foram arregaçados. Os ativos em falta podem ser uma indicação do padrão de ficheiro errado na pasta. Siga os mesmos passos que em outros gráficos para ver mais detalhes nos ficheiros.
+O segundo gráfico nos tipos de origem baseados em ficheiros é ***Ficheiros não associados a um conjunto de recursos***. Se espera que todos os ficheiros sejam enrolados num conjunto de recursos, este gráfico pode ajudá-lo a entender quais os ativos que não foram arregaçados. Os ativos em falta podem ser uma indicação do padrão de ficheiro errado na pasta. Siga os mesmos passos que em outros gráficos para ver mais detalhes nos ficheiros.
 
    :::image type="content" source="./media/asset-insights/file-based-assets.png" alt-text="Ver ativos baseados em ficheiros":::  
 

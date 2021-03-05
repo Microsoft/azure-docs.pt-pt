@@ -1,18 +1,16 @@
 ---
 title: Azure HDInsight Criar um cluster - dicionário de erro
 description: Saiba como resolver erros que ocorrem ao criar clusters Azure HDInsight
-author: karkrish
-ms.author: v-todmc
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 08/24/2020
-ms.openlocfilehash: 6b8c0069d619d3ebd87e3c54b4f653812199f590
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 469adf1c0e5108f7a8c89a7c3a4bebba5d42b431
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98943336"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183969"
 ---
 # <a name="azure-hdinsight-cluster-creation-errors"></a>Azure HDInsight: Erros de criação de cluster
 
@@ -237,6 +235,6 @@ Elimine ou desative a atribuição da Política Azure baseada em subscrições e
 
 ---
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre erros de resolução de problemas na criação de [clusters, consulte falhas de criação de clusters de resolução de problemas com Azure HDInsight](./hadoop/hdinsight-troubleshoot-cluster-creation-fails.md).

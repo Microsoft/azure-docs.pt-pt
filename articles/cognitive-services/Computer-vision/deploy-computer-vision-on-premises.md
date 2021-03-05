@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/27/2020
 ms.author: aahi
-ms.openlocfilehash: 8f795a7c0d8a2bac09c588924b0fd87e62258da3
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 124145059c825dee1dd52298688a47a807058551
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98946190"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102182099"
 ---
 # <a name="use-computer-vision-container-with-kubernetes-and-helm"></a>Use o recipiente de visão de computador com Kubernetes e Helm
 
@@ -359,7 +359,7 @@ replicaset.apps/read-6cbbb6678   3         3         3       3s
 
 [!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para mais detalhes sobre a instalação de aplicações com Helm in Azure Kubernetes Service (AKS), [visite aqui][installing-helm-apps-in-aks].
 
@@ -369,7 +369,7 @@ Para mais detalhes sobre a instalação de aplicações com Helm in Azure Kubern
 <!-- LINKS - external -->
 [free-azure-account]: https://azure.microsoft.com/free
 [git-download]: https://git-scm.com/downloads
-[azure-cli]: /cli/azure/install-azure-cli?view=azure-cli-latest
+[azure-cli]: /cli/azure/install-azure-cli
 [docker-engine]: https://www.docker.com/products/docker-engine
 [kubernetes-cli]: https://kubernetes.io/docs/tasks/tools/install-kubectl
 [helm-install]: https://helm.sh/docs/using_helm/#installing-helm

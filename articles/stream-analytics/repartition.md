@@ -4,15 +4,15 @@ description: Este artigo descreve como usar a repartição para otimizar os trab
 ms.service: stream-analytics
 author: sidramadoss
 ms.author: sidram
-ms.date: 09/19/2019
+ms.date: 03/04/2021
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 72f81a0eac81acdca71c8ed81695789c417898ca
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 95749f2acea6b605cfdba5a4f3d4f5526e751c5a
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98014200"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102182541"
 ---
 # <a name="use-repartitioning-to-optimize-processing-with-azure-stream-analytics"></a>Use a repartição para otimizar o processamento com a Azure Stream Analytics
 
@@ -23,25 +23,47 @@ Pode não ser capaz de utilizar a [paralelização](stream-analytics-paralleliza
 * Não se controla a chave de partição para o fluxo de entrada.
 * A sua fonte "pulveriza" a entrada em várias divisórias que mais tarde precisam de ser fundidas.
 
-A repartição, ou remodelação, é necessária quando processa dados num fluxo que não é cacitado de acordo com um esquema de entrada natural, como **o PartitionId** para Os Centros de Eventos. Ao repartir, cada fragmento pode ser processado de forma independente, o que lhe permite escalar linearmente o seu gasoduto de streaming.
+A repartição, ou remodelação, é necessária quando processa dados num fluxo que não é cacitado de acordo com um esquema de entrada natural, como **o PartitionId** para Os Centros de Eventos. Ao repartir, cada fragmento pode ser processado de forma independente, o que lhe permite escalar linearmente o seu gasoduto de streaming. 
 
 ## <a name="how-to-repartition"></a>Como repartir
+Pode repartir a sua entrada de 2 maneiras:
+1. Use um trabalho separado de Stream Analytics que faça a repartição
+2. Use um único trabalho, mas faça a repartição primeiro antes da sua lógica de análise personalizada
 
-Para repartir, utilize a palavra-chave **INTO** depois de uma declaração **PARTITION BY** na sua consulta. O exemplo seguinte partilha os dados pelo **DeviceID** numa contagem de partição de 10. O hashing do **DeviceID** é utilizado para determinar qual a divisória que deve aceitar qual substream. Os dados são lavados de forma independente para cada fluxo dividido, assumindo que a saída suporta escritas divididas, e tem 10 divisórias.
-
+### <a name="creating-a-separate-stream-analytics-job-to-repartition-input"></a>Criando um trabalho separado de Stream Analytics para repartição de entrada
+Pode criar um trabalho que leia entradas e escreva para uma saída do Event Hub utilizando uma chave de partição. Este Centro de Eventos pode então servir de entrada para outro trabalho de Stream Analytics onde implementa a sua lógica de análise. Ao configurar esta saída do Event Hub no seu trabalho, tem de especificar a chave de partição através da qual o Stream Analytics repartirá os seus dados. 
 ```sql
+-- For compat level 1.2 or higher
 SELECT * 
 INTO output
 FROM input
-PARTITION BY DeviceID 
-INTO 10
+
+--For compat level 1.1 or lower
+SELECT *
+INTO output
+FROM input PARTITION BY PartitionId
+```
+
+### <a name="repartition-input-within-a-single-stream-analytics-job"></a>Entrada de repartição dentro de um único trabalho stream analytics
+Também pode introduzir um passo na sua consulta que primeiro repartis a entrada e que pode ser usada por outros passos na sua consulta. Por exemplo, se pretender repartir a entrada com base no **DeviceId,** a sua consulta será:
+```sql
+WITH RepartitionedInput AS 
+( 
+SELECT * 
+FROM input PARTITION BY DeviceID
+)
+
+SELECT DeviceID, AVG(Reading) as AvgNormalReading  
+INTO output
+FROM RepartitionedInput  
+GROUP BY DeviceId, TumblingWindow(minute, 1)  
 ```
 
 A seguinte consulta de exemplo junta dois fluxos de dados repartidos. Ao unir dois fluxos de dados repartidos, os fluxos devem ter a mesma chave de partição e contar. O resultado é um riacho que tem o mesmo esquema de partição.
 
 ```sql
-WITH step1 AS (SELECT * FROM input1 PARTITION BY DeviceID INTO 10),
-step2 AS (SELECT * FROM input2 PARTITION BY DeviceID INTO 10)
+WITH step1 AS (SELECT * FROM input1 PARTITION BY DeviceID),
+step2 AS (SELECT * FROM input2 PARTITION BY DeviceID)
 
 SELECT * INTO output FROM step1 PARTITION BY DeviceID UNION step2 PARTITION BY DeviceID
 ```
@@ -67,7 +89,7 @@ SELECT * INTO [output] FROM [input] PARTITION BY DeviceID INTO 10
 Para obter mais informações, consulte [a saída Azure Stream Analytics para a Base de Dados Azure SQL](stream-analytics-sql-output-perf.md).
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Começa com o Azure Stream Analytics](stream-analytics-introduction.md)
 * [Paralelização de consulta de alavancagem em Azure Stream Analytics](stream-analytics-parallelization.md)

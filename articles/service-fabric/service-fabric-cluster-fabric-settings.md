@@ -3,12 +3,12 @@ title: Alterar configurações de cluster de tecido de serviço Azure
 description: Este artigo descreve as definições de tecido e as políticas de upgrade de tecido que pode personalizar.
 ms.topic: reference
 ms.date: 08/30/2019
-ms.openlocfilehash: 34a63a86bc10a787ef077b9067c3fba5a9e4da25
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: fed66c1a1908977fbe9769c1aec77945bc38c3dc
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98919787"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183408"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personalizar as definições do cluster do Service Fabric
 Este artigo descreve as várias definições de tecido para o seu cluster de Tecido de Serviço que pode personalizar. Para os clusters alojados no Azure, pode personalizar as definições através do [portal Azure](https://portal.azure.com) ou utilizando um modelo de Gestor de Recursos Azure. Para obter mais informações, consulte [atualizar a configuração de um cluster Azure](service-fabric-cluster-config-upgrade-azure.md). Para clusters autónomos, personaliza as definições atualizando o *ClusterConfig.jsno* ficheiro e executando uma atualização de configuração no seu cluster. Para obter mais informações, consulte [atualizar a configuração de um cluster autónomo](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -27,7 +27,7 @@ Segue-se uma lista de configurações de Tecido que pode personalizar, organizad
 | --- | --- | --- | --- |
 |AplicaçãoCertificateValidationPolicy|cadeia, padrão é "Nenhum"|Estático| Isto não valida o certificado do servidor; suceder ao pedido. Consulte as impressões config ServiceCertificateThumb para a lista separada por vírgula de impressões digitais dos certificados remotos em que o representante invertido pode confiar. Consulte o config ServiceCommonNameAndIssuer para o nome do assunto e impressão digital do emitente dos certificados remotos em que o representante inverso pode confiar. Para saber mais, consulte [a ligação de procuração inversa](service-fabric-reverseproxy-configure-secure-communication.md#secure-connection-establishment-between-the-reverse-proxy-and-services). |
 |BodyChunksize |Uint, o padrão é 16384 |Dinâmica| Dá o tamanho do pedaço em bytes usados para ler o corpo. |
-|CrlCheckingFlag|uint, o padrão é 0x40000000 |Dinâmica| Bandeiras para validação da cadeia de certificados de aplicação/serviço; por exemplo, verificação de CRL 0x100000000 CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x200000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x400000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x800000000000000000000000000000000000000000000000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY Configuração para 0 desativa CRL verificando a lista completa de valores suportados é documentada por dwFlags of CertGetCertificateChain: https://msdn.microsoft.com/library/windows/desktop/aa376078(v=vs.85).aspx  |
+|CrlCheckingFlag|uint, o padrão é 0x40000000 |Dinâmica| Bandeiras para validação da cadeia de certificados de aplicação/serviço; por exemplo, verificação de CRL 0x10000000 CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x20000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x40000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x80000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY Configuração para 0 desativa a verificação de CRL Lista completa de valores suportados é documentada por dwFlags de CertGetCertificateChain: https://msdn.microsoft.com/library/windows/desktop/aa376078(v=vs.85).aspx  |
 |DefaultHttpRequestTimeout |Tempo em segundos. padrão é 120 |Dinâmica|Especifique a timepan em segundos.  Dá o tempo limite de pedido padrão para os pedidos de http que estão sendo processados no gateway da aplicação http. |
 |AvançadoClientCertificato|bool, o padrão é FALSO|Dinâmica|Quando definido como falso, o representante inverso não solicitará a certidão do cliente. Quando definido como verdadeiro, o representante inverso solicitará o certificado do cliente durante o aperto de mão TLS e encaminhará a cadeia de formato PEM codificada de base64 para o serviço num cabeçalho denominado X-Client-Certificate.O serviço pode falhar o pedido com o código de estado apropriado após a inspeção dos dados do certificado. Se isso for verdade e o cliente não apresentar um certificado, o representante inverso irá encaminhar um cabeçalho vazio e deixar o serviço tratar do caso. O representante inverso funcionará como uma camada transparente. Para saber mais, consulte [Configurar a autenticação do certificado do cliente.](service-fabric-reverseproxy-configure-secure-communication.md#setting-up-client-certificate-authentication-through-the-reverse-proxy) |
 |GatewayAuthCredentialType |cadeia, padrão é "Nenhum" |Estático| Indica o tipo de credenciais de segurança a utilizar no ponto final do gateway de aplicações http Os valores válidos são Nenhum/X509. |
@@ -130,7 +130,7 @@ Segue-se uma lista de configurações de Tecido que pode personalizar, organizad
 |EnableTelemetry |Bool, o padrão é verdadeiro | Dinâmica |Isto vai ativar ou desativar a telemetria. |
 |FalhasOnlyHttpTelemetry | Bool, o padrão é falso. | Dinâmica | Se a captura de telemetria HTTP estiver ativada; capturar apenas pedidos falhados. Isto é para ajudar a reduzir o número de eventos gerados para a telemetria. |
 |HttpTelemetryCapturePercentage | int, o padrão é 50 | Dinâmica | Se a captura de telemetria HTTP estiver ativada; capturar apenas uma percentagem aleatória de pedidos. Isto é para ajudar a reduzir o número de eventos gerados para a telemetria. |
-|MaxDiskQuotaInMB |Int, o padrão é 65536 | Dinâmica |Quota de disco em MB para ficheiros de registo de tecido do Windows. |
+|MaxDiskQuotaInMB |Int, o padrão é 65536 | Dinâmica |Quota de disco em MB para ficheiros de registo de windows e linux Fabric. |
 |ProdutoresInstances |String | Dinâmica |A lista de casos de produtores da DCA. |
 
 ## <a name="dnsservice"></a>DnsService
@@ -321,7 +321,7 @@ Segue-se uma lista de configurações de Tecido que pode personalizar, organizad
 |MaxPercentDeltaUnhealthyNodes|int, o padrão é 10|Estático|Política de avaliação de saúde de upgrade do cluster: percentagem máxima de nóns não saudáveis delta permitiu que o cluster fosse saudável |
 |MaxPercentUpgradeDomainDeltaUnhealthyNodes|int, o padrão é 15|Estático|Política de avaliação de saúde de upgrade do cluster: percentagem máxima de delta de nódoas não saudáveis num domínio de upgrade permitiu que o cluster fosse saudável |
 
-## <a name="hosting"></a>Hosting
+## <a name="hosting"></a>Alojamento
 
 | **Parâmetro** | **Valores Permitidos** | **Política de Upgrade** | **Orientação ou Breve Descrição** |
 | --- | --- | --- | --- |
@@ -671,7 +671,7 @@ Segue-se uma lista de configurações de Tecido que pode personalizar, organizad
 |ClusterCredentialType|cadeia, padrão é "Nenhum"|Não é permitido|Indica o tipo de credenciais de segurança a utilizar para proteger o cluster. Valores válidos são "Nenhum/X509/Windows" |
 |Clusteridentidades|cadeia, padrão é ""|Dinâmica|Identidades do Windows dos nós de cluster; usado para a autorização de adesão ao cluster. É uma lista separada por vírgula; cada entrada é um nome de conta de domínio ou nome de grupo |
 |ClusterSpn|cadeia, padrão é ""|Não é permitido|Nome principal do serviço do cluster; quando o tecido funciona como um único utilizador de domínio (gMSA/conta de utilizador de domínio). É a SPN de ouvintes e ouvintes do arrendamento em fabric.exe: ouvintes da federação; ouvintes de replicação interna; ouvinte de serviço de tempo de execução e ouvinte de gateway de nomeação. Isto deve ser deixado vazio quando o tecido funciona como contas da máquina; nesse caso, ligar o ouvinte do computação lateral SPN do endereço de transporte do ouvinte. |
-|CrlCheckingFlag|uint, o padrão é 0x40000000|Dinâmica|Bandeira de validação da cadeia de certificados padrão; Pode ser ultrapassado por pavilhão específico dos componentes; por exemplo, Federação/X509CertChainFlags 0x1000000000 CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x2000000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x400000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x800000000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY Configuração para 0 desativar CRL lista completa de valores suportados é documentada por dwFlags of GetCertificCha: https://msdn.microsoft.com/library/windows/desktop/aa376078(v=vs.85).aspx |
+|CrlCheckingFlag|uint, o padrão é 0x40000000|Dinâmica|Bandeira de validação da cadeia de certificados padrão; Pode ser ultrapassado por pavilhão específico dos componentes; por exemplo, Federação/X509CertChainFlags 0x10000000 CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x20000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x40000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x80000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY A definição para 0 desativa a verificação da crl a lista completa dos valores suportados é documentada por dwFlags of CertGetCertificateChain: https://msdn.microsoft.com/library/windows/desktop/aa376078(v=vs.85).aspx |
 |CrlDisablePeriod|TimeSpan, o padrão é Comum::TimeSpan::FromMinutes (15)|Dinâmica|Especifique a timepan em segundos. Durante quanto tempo a verificação de CRL é desativada para um determinado certificado depois de ter encontrado um erro offline; se o erro offline do CRL puder ser ignorado. |
 |CrlOfflineHealthReportTtl|TimeSpan, o padrão é Comum::TimeSpan::FromMinutes (1440)|Dinâmica|Especifique a timepan em segundos. |
 |DisableFirewallRuleForDomainProfile| bool, o padrão é VERDADEIRO |Estático| Indica se a regra de firewall não deve ser ativada para o perfil de domínio |
@@ -920,5 +920,5 @@ Segue-se uma lista de configurações de Tecido que pode personalizar, organizad
 | --- | --- | --- | --- |
 |Grupo de Propriedades| UserServiceMetricCapacitiesMap, predefinição é nenhum | Estático | Uma recolha de limites de governação de recursos de serviços de utilizador precisa de ser estática, uma vez que afeta a lógica de AutoDetecção |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações, consulte [atualizar a configuração de um cluster Azure](service-fabric-cluster-config-upgrade-azure.md) e [atualizar a configuração de um cluster autónomo](service-fabric-cluster-config-upgrade-windows-server.md).

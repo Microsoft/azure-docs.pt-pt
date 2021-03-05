@@ -5,12 +5,12 @@ services: container-service
 ms.service: container-service
 ms.topic: article
 ms.date: 10/19/2020
-ms.openlocfilehash: 5fd97560c3a6e41b49beb957c7b8d79369799c21
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 7f838b2a78f1c6993aa247f2944d4f2a9b1e9556
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93078956"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102181130"
 ---
 # <a name="add-a-spot-node-pool-to-an-azure-kubernetes-service-aks-cluster"></a>Adicionar um conjunto de nós spot a um cluster do Azure Kubernetes Service (AKS)
 
@@ -42,7 +42,7 @@ Aplicam-se as seguintes limitações quando cria e gere clusters AKS com uma pis
 * Uma piscina de nó de pontos deve utilizar conjuntos de balança de máquina virtual.
 * Não é possível alterar scaleSetPriority ou SpotMaxPrice após a criação.
 * Ao configurar o SpotMaxPrice, o valor deve ser de -1 ou um valor positivo com até cinco casas decimais.
-* Uma piscina de nó de pontos terá a etiqueta *kubernetes.azure.com/scalesetpriority:spot,* a mancha *kubernetes.azure.com/scalesetpriority=spot:NoSchedule* , e as cápsulas do sistema terão anti-afinidade.
+* Uma piscina de nó de pontos terá a etiqueta *kubernetes.azure.com/scalesetpriority:spot,* a mancha *kubernetes.azure.com/scalesetpriority=spot:NoSchedule*, e as cápsulas do sistema terão anti-afinidade.
 * Deve adicionar uma [tolerância correspondente][spot-toleration] para agendar cargas de trabalho numa piscina de nó no local.
 
 ## <a name="add-a-spot-node-pool-to-an-aks-cluster"></a>Adicionar um conjunto de nós spot a um cluster do AKS
@@ -64,7 +64,7 @@ az aks nodepool add \
     --no-wait
 ```
 
-Por padrão, cria uma piscina de nó com *prioridade* de *Regular* no seu cluster AKS quando cria um cluster com várias piscinas de nós. O comando acima adiciona uma piscina de nó auxiliar a um cluster AKS existente com *uma prioridade* do *Spot* . A *prioridade* do *Spot* faz da piscina de nós uma piscina de nó de ponto. O parâmetro *da política de despejo* é definido para *Eliminar* no exemplo acima, que é o valor padrão. Quando define a [política de despejo][eviction-policy] para *Eliminar,* os nós no conjunto de escala subjacente do conjunto de nós são apagados quando são despejados. Também pode definir a política de despejo para *Deallocate.* Quando se define a política de despejo para *Deallocate,* os nós na escala subjacente são definidos para o estado de paragem após o despejo. Os nós na contagem de estado de negociação parada contra a sua quota de computação e podem causar problemas com a escala de cluster ou a atualização. Os valores *prioritários* e *de política de despejo* só podem ser definidos durante a criação de agrupamentos de nó. Estes valores não podem ser atualizados mais tarde.
+Por padrão, cria uma piscina de nó com *prioridade* de *Regular* no seu cluster AKS quando cria um cluster com várias piscinas de nós. O comando acima adiciona uma piscina de nó auxiliar a um cluster AKS existente com *uma prioridade* do *Spot*. A *prioridade* do *Spot* faz da piscina de nós uma piscina de nó de ponto. O parâmetro *da política de despejo* é definido para *Eliminar* no exemplo acima, que é o valor padrão. Quando define a [política de despejo][eviction-policy] para *Eliminar,* os nós no conjunto de escala subjacente do conjunto de nós são apagados quando são despejados. Também pode definir a política de despejo para *Deallocate.* Quando se define a política de despejo para *Deallocate,* os nós na escala subjacente são definidos para o estado de paragem após o despejo. Os nós na contagem de estado de negociação parada contra a sua quota de computação e podem causar problemas com a escala de cluster ou a atualização. Os valores *prioritários* e *de política de despejo* só podem ser definidos durante a criação de agrupamentos de nó. Estes valores não podem ser atualizados mais tarde.
 
 O comando também permite o [autoescalador][cluster-autoscaler]do cluster, que é recomendado para ser utilizado com piscinas de nó no local. Com base nas cargas de trabalho que estão a funcionar no seu cluster, o cluster autoscaler escala e escala o número de nós na piscina de nós. Para piscinas de nó pontuais, o autoscaler do cluster aumentará o número de nós após um despejo se ainda forem necessários nós adicionais. Se alterar o número máximo de nós que um conjunto de nós pode ter, também precisa de ajustar o `maxCount` valor associado ao autoescalador do cluster. Se não utilizar um autoescalador de cluster, após o despejo, o pool de spot irá eventualmente diminuir para zero e exigirá uma operação manual para receber quaisquer nós de spot adicionais.
 
@@ -79,7 +79,7 @@ Para verificar se a piscina do nó foi adicionada como uma piscina de nó de pon
 az aks nodepool show --resource-group myResourceGroup --cluster-name myAKSCluster --name spotnodepool
 ```
 
-Confirmar *escalaSetPrioridade* é *Spot* .
+Confirmar *escalaSetPrioridade* é *Spot*.
 
 Para agendar uma vagem para correr num nó de ponto, adicione uma tolerância que corresponda à mancha aplicada ao nó de ponto. O exemplo a seguir mostra uma parte de um ficheiro yaml que define uma tolerância que corresponde a uma *mancha kubernetes.azure.com/scalesetpriority=spot:NoSchedule* usada no passo anterior.
 
@@ -113,7 +113,7 @@ Neste artigo, você aprendeu a adicionar uma piscina de nó de ponto a um cluste
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
 [azure-cli-install]: /cli/azure/install-azure-cli
-[az-aks-nodepool-add]: /cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-add
+[az-aks-nodepool-add]: /cli/azure/aks/nodepool#az-aks-nodepool-add
 [cluster-autoscaler]: cluster-autoscaler.md
 [eviction-policy]: ../virtual-machine-scale-sets/use-spot.md#eviction-policy
 [kubernetes-concepts]: concepts-clusters-workloads.md

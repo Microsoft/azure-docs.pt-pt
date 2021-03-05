@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/18/2021
 ms.author: duau
-ms.openlocfilehash: a42601b696f292e9d2a9da90070fea3662acae87
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 6f6d71dec9726f009ab9a56e0a49ba21f5d218fd
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101099905"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102181028"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door-standardpremium-preview"></a>Perguntas frequentes para Azure Front Door Standard/Premium (Preview)
 
@@ -85,7 +85,11 @@ Sim. Na verdade, a Porta Frontal Azure suporta o hospedeiro, o caminho, a reorie
 
 ### <a name="how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door"></a>Como posso bloquear o acesso ao meu backend para apenas Azure Front Door?
 
-Para bloquear a sua aplicação para apenas aceitar o tráfego a partir da sua porta frontal específica, terá de configurar ACLs IP para o seu backend. Em seguida, restringir o tráfego do seu backend ao valor específico do cabeçalho 'X-Azure-FDID' enviado pela Porta da Frente. Estes passos são detalhados como abaixo:
+A melhor maneira de bloquear a sua aplicação para aceitar o tráfego apenas a partir da sua instância específica da Porta da Frente é publicar a sua aplicação através do Private Endpoint. O tráfego de rede entre a Porta Frontal e a aplicação atravessa o VNet e uma Ligação Privada na rede de espinha dorsal da Microsoft, eliminando a exposição da internet pública.
+
+Saiba mais sobre [a origem de segurança para porta frontal com ligação privada.](concept-private-link.md)  
+
+Forma alternativa de bloquear a sua aplicação para aceitar o tráfego apenas a partir da sua porta frontal específica, terá de configurar ACLs IP para o seu backend. Em seguida, restringir o tráfego do seu backend ao valor específico do cabeçalho 'X-Azure-FDID' enviado pela Porta da Frente. Estes passos são detalhados como abaixo:
 
 * Configure o IP ACLing para que os seus backends aceitem o tráfego do espaço ip de backend da Azure Front Door e apenas os serviços de infraestrutura do Azure. Consulte os detalhes ip abaixo para ACLing o seu backend:
  

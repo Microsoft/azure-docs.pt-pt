@@ -4,12 +4,12 @@ description: Este quickstart mostra como usar o portal Azure para criar uma cont
 ms.topic: quickstart
 ms.date: 08/17/2020
 ms.custom: mvc
-ms.openlocfilehash: d8584ecea8ddd5934771dbe5945a6172a28c801c
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 1234a932a732cdb6fda1c412a423ae0b1ea089e9
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97106482"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102184020"
 ---
 # <a name="quickstart-run-your-first-batch-job-in-the-azure-portal"></a>Início Rápido: executar o seu primeiro trabalho do Batch com o portal do Azure
 
@@ -67,9 +67,9 @@ O Batch cria o conjunto de imediato, mas demora alguns minutos a alocar e a inic
 
 Após alguns minutos, o estado de atribuição muda para **Steady**, e os nós começam. Para verificar o estado dos nós, selecione a piscina e, em seguida, selecione **Nós**. Quando o estado de um nó for **Inativo**, o mesmo estará pronto para executar tarefas.
 
-## <a name="create-a-job"></a>Criar um trabalho
+## <a name="create-a-job"></a>Criar uma tarefa
 
-Agora que tem um conjunto, crie um trabalho para ser executado no mesmo. Os trabalhos do Batch são grupos lógicos de uma ou mais tarefas. Os trabalhos incluem definições comuns às tarefas, como a prioridade e o conjunto no qual as tarefas vão ser executadas. Inicialmente, o trabalho não tem tarefas.
+Agora que tem um conjunto, crie um trabalho para ser executado no mesmo. Um trabalho em Lote é um grupo lógico de uma ou mais tarefas. Os trabalhos incluem definições comuns às tarefas, como a prioridade e o conjunto no qual as tarefas vão ser executadas. Inicialmente, o trabalho não tem tarefas.
 
 1. Na vista da conta Lote, selecione **Jobs**  >  **Add**.
 
