@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 01/13/2021
 ms.author: alkohli
-ms.openlocfilehash: 26e8f08d4b901a9ea57da826d9441d23508c4a4c
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: f2bad214045710fe861040514beb3c536664d684
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98797623"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102201894"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Tutorial: Encomendar o Azure Data Box
 
@@ -437,7 +437,7 @@ Faça os seguintes passos utilizando o Azure CLI para encomendar um dispositivo:
    |consulta| A cadeia de consulta JMESPath. Para mais informações, consulte [o JMESPath.](http://jmespath.org/) | -consulta <string>|
    |verbose| Inclua a registo verboso. | -verbose |
 
-2. No seu pedido de comando de escolha ou terminal, executar [a az data box job criar](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-create&preserve-view=true) para criar a sua encomenda Azure Data Box.
+2. No seu pedido de comando de escolha ou terminal, executar [a az data box job criar](/cli/azure/ext/databox/databox/job#ext-databox-az-databox-job-create) para criar a sua encomenda Azure Data Box.
 
    ```azurecli
    az databox job create --resource-group <resource-group> --name <order-name> --location <azure-location> --sku <databox-device-type> --contact-name <contact-name> --phone <phone-number> --email-list <email-list> --street-address1 <street-address-1> --street-address2 <street-address-2> --city "contact-city" --state-or-province <state-province> --country <country> --postal-code <postal-code> --company-name <company-name> --storage-account "storage-account"
@@ -605,7 +605,7 @@ Em seguida, a Microsoft prepara e expede os seus dispositivos através de uma tr
 
 ### <a name="track-a-single-order"></a>Acompanhe uma única encomenda
 
-Para obter informações de rastreio sobre uma única encomenda existente da Caixa de Dados Azure, corra [`az databox job show`](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-show&preserve-view=true) . O comando apresenta informações sobre a ordem, como, mas não se limitando a: nome, grupo de recursos, informações de rastreio, ID de subscrição, informações de contacto, tipo de envio e sku do dispositivo.
+Para obter informações de rastreio sobre uma única encomenda existente da Caixa de Dados Azure, corra [`az databox job show`](/cli/azure/ext/databox/databox/job#ext-databox-az-databox-job-show) . O comando apresenta informações sobre a ordem, como, mas não se limitando a: nome, grupo de recursos, informações de rastreio, ID de subscrição, informações de contacto, tipo de envio e sku do dispositivo.
 
    ```azurecli
    az databox job show --resource-group <resource-group> --name <order-name>
@@ -646,7 +646,7 @@ Para obter informações de rastreio sobre uma única encomenda existente da Cai
 
 ### <a name="list-all-orders"></a>Listar todas as encomendas
 
-Se tiver encomendado vários dispositivos, pode correr [`az databox job list`](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-list&preserve-view=true) para ver todas as suas encomendas da Caixa de Dados Azure. O comando lista todas as ordens que pertencem a um grupo de recursos específicos. Também apresentado na saída: nome da encomenda, estado do envio, região Azure, tipo de entrega, estado da encomenda. As encomendas canceladas também estão incluídas na lista.
+Se tiver encomendado vários dispositivos, pode correr [`az databox job list`](/cli/azure/ext/databox/databox/job#ext-databox-az-databox-job-list) para ver todas as suas encomendas da Caixa de Dados Azure. O comando lista todas as ordens que pertencem a um grupo de recursos específicos. Também apresentado na saída: nome da encomenda, estado do envio, região Azure, tipo de entrega, estado da encomenda. As encomendas canceladas também estão incluídas na lista.
 O comando também apresenta selos temporais de cada ordem.
 
 ```azurecli
@@ -765,7 +765,7 @@ Para eliminar uma encomenda cancelada, vá ao **Overview** e selecione **Delete*
 
 ### <a name="cancel-an-order"></a>Cancelar uma encomenda
 
-Para cancelar uma encomenda da Caixa de Dados Azure, corra [`az databox job cancel`](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-cancel&preserve-view=true) . É-lhe exigido que especifique a sua razão para cancelar a encomenda.
+Para cancelar uma encomenda da Caixa de Dados Azure, corra [`az databox job cancel`](/cli/azure/ext/databox/databox/job#ext-databox-az-databox-job-cancel) . É-lhe exigido que especifique a sua razão para cancelar a encomenda.
 
    ```azurecli
    az databox job cancel --resource-group <resource-group> --name <order-name> --reason <cancel-description>
@@ -802,7 +802,7 @@ Para cancelar uma encomenda da Caixa de Dados Azure, corra [`az databox job canc
 
 ### <a name="delete-an-order"></a>Apagar uma encomenda
 
-Se tiver cancelado uma encomenda da Caixa de Dados Azure, pode correr [`az databox job delete`](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-delete&preserve-view=true) para apagar a encomenda.
+Se tiver cancelado uma encomenda da Caixa de Dados Azure, pode correr [`az databox job delete`](/cli/azure/ext/databox/databox/job#ext-databox-az-databox-job-delete) para apagar a encomenda.
 
    ```azurecli
    az databox job delete --name [-n] <order-name> --resource-group <resource-group> [--yes] [--verbose]
@@ -814,7 +814,7 @@ Se tiver cancelado uma encomenda da Caixa de Dados Azure, pode correr [`az datab
    |---|---|---|
    |grupo de recursos [Obrigatório]| O nome do grupo de recursos associado à ordem a eliminar. Um grupo de recursos é um contentor lógico para os recursos que podem ser geridos ou implementados em conjunto. | "grupo myresource"|
    |nome [Obrigatório]| O nome da ordem a ser apagada. | "mydataboxorder"|
-   |subscrição| O nome ou ID (GUID) da sua assinatura Azure. | "xxxx-xxxx-xxxx-xxxx-xxxx-xxx" |
+   |subscrição| O nome ou ID (GUID) da sua assinatura Azure. | "xxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxx" |
    |sim| Não pedir confirmação. | --sim (-y)| --sim-y |
    |depurar| Incluir depurar informações para verbose logging | --depurar |
    |Ajuda| Mostrar informações de ajuda para este comando. | --ajuda -h |
@@ -907,7 +907,7 @@ PS C:\Windows>
 
 ---
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, você aprendeu sobre artigos da Azure Data Box tais como:
 

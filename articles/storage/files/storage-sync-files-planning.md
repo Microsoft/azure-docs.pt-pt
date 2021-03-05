@@ -8,12 +8,12 @@ ms.date: 01/29/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 65293df5fae523bff36240273afb93c4dd8485df
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 197bd1ab63093a18bd7838349acb3aed11a98e16
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99219481"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102202387"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planear uma implementação da Sincronização de Ficheiros do Azure
 
@@ -52,16 +52,19 @@ Antes de criar um grupo de sincronização num Serviço de Sincronização de Ar
 Um grupo de sincronização contém um ponto final em nuvem, ou partilha de ficheiros Azure, e pelo menos um ponto final do servidor. O ponto final do servidor contém as definições que configuram a capacidade **de tiering** da nuvem, que fornece a capacidade de caching do Azure File Sync. Para sincronizar com uma partilha de ficheiros Azure, a conta de armazenamento que contém a partilha de ficheiros Azure deve estar na mesma região Azure que o Serviço de Sincronização de Armazenamento.
 
 > [!Important]  
-> Pode escoar alterações em qualquer ponto final da nuvem ou ponto final do servidor no grupo de sincronização e ter os seus ficheiros sincronizados com os outros pontos finais do grupo de sincronização. Se fizer uma alteração direta no ponto final da nuvem (partilha de ficheiros Azure), as alterações têm primeiro de ser descobertas por um trabalho de deteção de alteração de ficheiros Azure. Um trabalho de deteção de alterações é iniciado para um ponto final de nuvem apenas uma vez a cada 24 horas. Para obter mais informações, consulte [a Azure Files com frequência a fazer perguntas.](storage-files-faq.md#afs-change-detection)
+> Pode escoar alterações no espaço de nome de qualquer ponto final da nuvem ou ponto final do servidor no grupo de sincronização e ter os seus ficheiros sincronizados com os outros pontos finais do grupo de sincronização. Se fizer uma alteração direta no ponto final da nuvem (partilha de ficheiros Azure), as alterações têm primeiro de ser descobertas por um trabalho de deteção de alteração de ficheiros Azure. Um trabalho de deteção de alterações é iniciado para um ponto final de nuvem apenas uma vez a cada 24 horas. Para obter mais informações, consulte [a Azure Files com frequência a fazer perguntas.](storage-files-faq.md#afs-change-detection)
 
-### <a name="management-guidance"></a>Orientação de gestão
-Ao implementar o Azure File Sync, recomendamos:
+### <a name="consider-the-count-of-storage-sync-services-needed"></a>Considere a contagem de Serviços de Sincronização de Armazenamento necessários
+Uma secção anterior discute o recurso principal para configurar para Azure File Sync: a *Storage Sync Service*. Um Servidor Windows só pode ser registado num serviço de sincronização de armazenamento. Assim, muitas vezes é melhor implementar apenas um serviço de sincronização de armazenamento e registar todos os servidores que ele. 
 
-- A implementação de ficheiros Azure partilha 1:1 com ações de ficheiros Do Windows. O objeto de ponta final do servidor dá-lhe um grande grau de flexibilidade na forma como configura a topologia de sincronização no lado do servidor da relação de sincronização. Para simplificar a gestão, faça com que o caminho do ponto final do servidor corresponda ao caminho da partilha de ficheiros do Windows. 
+Crie vários Serviços de Sincronização de Armazenamento apenas se tiver:
+* conjuntos distintos de servidores que nunca devem trocar dados uns com os outros. Neste caso, pretende desenhar o sistema para excluir certos conjuntos de servidores para sincronizar com uma partilha de ficheiros Azure que já está a ser utilizada como ponto final em nuvem num grupo de sincronização num serviço de sincronização de armazenamento diferente. Outra forma de ver isto é que os Servidores do Windows registados em diferentes serviços de sincronização de armazenamento não podem sincronizar-se com a mesma partilha de ficheiros Azure.
+* uma necessidade de ter mais servidores registados ou grupos de sincronização do que um único Serviço de Sincronização de Armazenamento pode suportar. Reveja os alvos da [escala de Sincronização de Ficheiros Azure](storage-files-scale-targets.md#azure-file-sync-scale-targets) para obter mais detalhes.
 
-- Utilize o máximo de serviços de sincronização de armazenamento possível. Isto simplificará a gestão quando tiver grupos de sincronização que contenham vários pontos finais do servidor, uma vez que um Servidor Windows só pode ser registado num Serviço de Sincronização de Armazenamento de cada vez. 
+## <a name="plan-for-balanced-sync-topologies"></a>Plano para topologias de sincronização equilibradas
+Antes de implementar quaisquer recursos, é importante planear o que irá sincronizar num servidor local, com o qual a Azure partilha ficheiros. Fazer um plano irá ajudá-lo a determinar quantas contas de armazenamento, ações de ficheiros Azure e recursos sincronizados que você precisará. Estas considerações ainda são relevantes, mesmo que os seus dados não residam atualmente num Servidor do Windows ou no servidor que pretende utilizar a longo prazo. A [secção de migração](#migration) pode ajudar a determinar os caminhos de migração adequados para a sua situação.
 
-- Prestar atenção às limitações de IOPS de uma conta de armazenamento ao implementar ações de ficheiros Azure. Idealmente, você mapeia ações de arquivo 1:1 com contas de armazenamento, no entanto isso pode nem sempre ser possível devido a vários limites e restrições, tanto da sua organização como da Azure. Quando não for possível ter apenas uma ação de ficheiro implantada numa única conta de armazenamento, considere quais as ações que serão altamente ativas e quais as ações menos ativas para garantir que as ações de ficheiros mais quentes não sejam colocadas na mesma conta de armazenamento em conjunto.
+[!INCLUDE [storage-files-migration-namespace-mapping](../../../includes/storage-files-migration-namespace-mapping.md)]
 
 ## <a name="windows-file-server-considerations"></a>Considerações do servidor de ficheiros do Windows
 Para ativar a capacidade de sincronização no Windows Server, tem de instalar o agente descarregável Azure File Sync. O agente Azure File Sync fornece dois componentes principais: `FileSyncSvc.exe` o serviço Windows de fundo responsável pela monitorização das alterações nos pontos finais do servidor e início das sessões de sincronização `StorageSync.sys` e, um filtro do sistema de ficheiros que permite o tiering da nuvem e a rápida recuperação de desastres.  
@@ -203,7 +206,7 @@ O Azure File Sync não suporta a desduplicação de dados e o tiering de nuvem n
 - Se a desduplicação de dados for ativada num volume após o tiering da nuvem, o trabalho inicial de otimização de deduplica irá otimizar ficheiros no volume que ainda não estão nivelados e terá o seguinte impacto no tiering da nuvem:
     - A política de espaço livre continuará a tierar ficheiros de acordo com o espaço livre do volume utilizando o mapa de calor.
     - A política de datas saltará o tiering de ficheiros que podem ter sido elegíveis para tiering devido ao trabalho de otimização de Deduplica que acede aos ficheiros.
-- Para os trabalhos de otimização de deduplica em curso, o tiering em nuvem com a política de data será adiado pela definição de Data Deduplication [MinimumFileAgeDays,](/powershell/module/deduplication/set-dedupvolume?view=win10-ps) se o ficheiro ainda não estiver nivelado. 
+- Para os trabalhos de otimização de deduplica em curso, o tiering em nuvem com a política de data será adiado pela definição de Data Deduplication [MinimumFileAgeDays,](/powershell/module/deduplication/set-dedupvolume?view=win10-ps&preserve-view=true) se o ficheiro ainda não estiver nivelado. 
     - Exemplo: Se a definição de Preenchimento Mínimo Desembaraçado for de sete dias e a política de data de tiering em nuvem for de 30 dias, a política de datas irá tier-files após 37 dias.
     - Nota: Uma vez que um ficheiro é hierárquico por Azure File Sync, a função de otimização de deduplica saltará o ficheiro.
 - Se um servidor que executa o Windows Server 2012 R2 com o agente Azure File Sync instalado for atualizado para o Windows Server 2016 ou Windows Server 2019, devem ser executados os seguintes passos para suportar a desduplicação de dados e o nível de nuvem no mesmo volume:  
@@ -320,15 +323,9 @@ Para solicitar o acesso a estas regiões, siga o processo [neste documento.](htt
 > O armazenamento redundante geo-redundante e geo-zona tem a capacidade de falhar manualmente o armazenamento para a região secundária. Recomendamos que não o faça fora de um desastre quando estiver a utilizar o Azure File Sync devido à maior probabilidade de perda de dados. Em caso de desastre em que gostaria de iniciar uma falha manual de armazenamento, terá de abrir um caso de suporte com a Microsoft para que o Azure File Sync retome a sincronização com o ponto final secundário.
 
 ## <a name="migration"></a>Migração
-Se tiver um servidor de ficheiros Windows existente, o Azure File Sync pode ser instalado diretamente no local, sem a necessidade de transferir dados para um novo servidor. Se estiver a planear migrar para um novo servidor de ficheiros Windows como parte da adoção do Azure File Sync, existem várias abordagens possíveis para transferir dados:
+Se tiver um servidor de ficheiros Windows 2012R2 ou mais recente, o Azure File Sync pode ser instalado diretamente no local, sem a necessidade de transferir dados para um novo servidor. Se estiver a planear migrar para um novo servidor de ficheiros Windows como parte da adoção do Azure File Sync, ou se os seus dados estão atualmente localizados no Armazenamento Anexado à Rede (NAS) existem várias possíveis abordagens de migração para utilizar o Azure File Sync com estes dados. Qual a abordagem de migração que deve escolher, depende de onde os seus dados residem atualmente. 
 
-- Crie pontos finais do servidor para a sua antiga partilha de ficheiros e a sua nova partilha de ficheiros e deixe o Azure File Sync sincronizar os dados entre os pontos finais do servidor. A vantagem desta abordagem é que torna muito fácil subscrever o armazenamento no seu novo servidor de ficheiros, uma vez que o Azure File Sync está ciente do tiering de nuvem. Quando estiver pronto, pode cortar os utilizadores finais para a partilha de ficheiros no novo servidor e remover o ponto final do servidor da antiga partilha de ficheiros.
-
-- Crie um ponto final do servidor apenas no novo servidor de ficheiros e copie dados da antiga partilha de ficheiros utilizando `robocopy` . Dependendo da topologia das ações de ficheiros no seu novo servidor (quantas ações tem em cada volume, quão livre é cada volume, etc.), poderá ter de providenciar temporariamente armazenamento adicional, uma vez que se espera que `robocopy` do seu antigo servidor para o seu novo servidor dentro do seu datacenter no local se complete mais rapidamente do que o Azure File Sync irá mover dados para o Azure.
-
-Também é possível utilizar a Caixa de Dados para migrar dados para uma implementação de Azure File Sync. Na maior parte das vezes, quando os clientes querem usar a Data Box para ingerir dados, fazem-no porque acham que vai aumentar a velocidade da sua implantação ou porque vai ajudar com cenários de largura de banda restritas. Embora seja verdade que usar uma Caixa de Dados para ingerir dados na sua implementação de Azure File Sync diminuirá a utilização da largura de banda, provavelmente será mais rápido para a maioria dos cenários perseguir um upload de dados online através de um dos métodos acima descritos. Para saber mais sobre como utilizar a Caixa de Dados para ingerir dados na sua implementação de Azure File Sync, consulte [os dados da Migração no Azure File Sync com a Azure Data Box](storage-sync-offline-data-transfer.md).
-
-Um erro comum que os clientes cometem ao migrar dados para a sua nova implementação do Azure File Sync é copiar dados diretamente para a partilha de ficheiros Azure, em vez de nos seus servidores de ficheiros Windows. Embora o Azure File Sync identifique todos os novos ficheiros da partilha de ficheiros Azure e os sincronize de volta às partilhas de ficheiros do Windows, este é geralmente consideravelmente mais lento do que carregar dados através do servidor de ficheiros Windows. Ao utilizar ferramentas de cópia Azure, como a AzCopy, é importante utilizar a versão mais recente. Consulte a tabela de ferramentas de cópia de [ficheiros](storage-files-migration-overview.md#file-copy-tools) para obter uma visão geral das ferramentas de cópia do Azure para garantir que pode copiar todos os metadados importantes de um ficheiro, tais como timetamps e ACLs.
+Confira o [arquivo Azure File Sync e o artigo de visão geral da migração do ficheiro Azure,](storage-files-migration-overview.md) onde pode encontrar orientações detalhadas para o seu cenário.
 
 ## <a name="antivirus"></a>Antivírus
 Como o antivírus funciona através da verificação de ficheiros para código malicioso conhecido, um produto antivírus pode causar a recolha de ficheiros hierárquicos, resultando em elevadas cargas de saída. Nas versões 4.0 e acima do agente Azure File Sync, os ficheiros hierárquicos têm o atributo Windows seguro FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS conjunto. Recomendamos consultar o seu fornecedor de software para aprender a configurar a sua solução para saltar ficheiros de leitura com este conjunto de atributos (muitos o fazem automaticamente). 
@@ -342,6 +339,9 @@ As soluções antivírus internas da Microsoft, o Windows Defender e o System Ce
 Se o tiering da nuvem estiver ativado, não devem ser utilizadas soluções que recuem diretamente no ponto final do servidor ou num VM no qual se encontra o ponto final do servidor. O tiering em nuvem faz com que apenas um subconjunto dos seus dados seja armazenado no ponto final do servidor, com o conjunto de dados completo a residir na sua partilha de ficheiros Azure. Dependendo da solução de backup utilizada, os ficheiros hierárquicos serão ignorados e não apoiados (porque têm o FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS conjunto de atributos), ou serão chamados ao disco, resultando em elevadas cargas de saída. Recomendamos a utilização de uma solução de backup em nuvem para fazer backup diretamente na partilha de ficheiros Azure. Para obter mais informações, consulte [a cópia de segurança da partilha de ficheiros Azure](../../backup/azure-file-share-backup-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) ou contacte o seu fornecedor de backup para ver se suportam o backup das ações de ficheiros Azure.
 
 Se preferir utilizar uma solução de backup no local, as cópias de segurança devem ser realizadas num servidor do grupo de sincronização que tenha o tiering da nuvem desativado. Ao efetuar uma restauração, utilize as opções de restauro de nível de volume ou de nível de ficheiro. Os ficheiros restaurados utilizando a opção de restauro do nível de ficheiro serão sincronizados em todos os pontos finais do grupo de sincronização e os ficheiros existentes serão substituídos pela versão restaurada a partir da cópia de segurança.  As restaurações ao nível do volume não substituirão as versões de ficheiros mais recentes na partilha de ficheiros Azure ou noutros pontos finais do servidor.
+
+> [!WARNING]
+> O interruptor Robocopy /B não é suportado com Azure File Sync. Utilizando o interruptor Robocopy /B com um ponto de terminação do servidor Azure File Sync, uma vez que a fonte pode levar à corrupção de ficheiros.
 
 > [!Note]  
 > A restauração de metal nu (BMR) pode causar resultados inesperados e não está atualmente suportada.

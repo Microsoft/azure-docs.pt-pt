@@ -3,19 +3,19 @@ title: Use ferramentas de linha de comando para iniciar e parar VMs Azure DevTes
 description: Aprenda a usar ferramentas de linha de comando para iniciar e parar máquinas virtuais em Azure DevTest Labs.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: e5a42658f2b83f101271f158c9af70833601b56d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b9be3d09c488fdae211d81daf88e8807bc7b4dc
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85476421"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102201197"
 ---
 # <a name="use-command-line-tools-to-start-and-stop-azure-devtest-labs-virtual-machines"></a>Use ferramentas de linha de comando para iniciar e parar máquinas virtuais Azure DevTest Labs
 Este artigo mostra-lhe como usar a Azure PowerShell ou Azure CLI para iniciar ou parar máquinas virtuais num laboratório em Azure DevTest Labs. Pode criar scripts PowerShell/CLI para automatizar estas operações. 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 A azure DevTest Labs é uma forma de criar ambientes rápidos, fáceis e magros dev/teste. Permite-lhe gerir custos, a provisionar rapidamente VMs e minimizar o desperdício.  Existem funcionalidades incorporadas no portal Azure que permitem configurar VMs num laboratório para iniciar e parar automaticamente em momentos específicos. 
 
 No entanto, em alguns cenários, poderá querer automatizar o arranque e paragem de VMs a partir de scripts PowerShell/CLI. Dá-lhe alguma flexibilidade para iniciar e parar máquinas individuais a qualquer momento em vez de em momentos específicos. Estas são algumas das situações em que executar estas tarefas usando scripts seria útil.
@@ -66,7 +66,7 @@ else {
 
 
 ## <a name="azure-cli"></a>CLI do Azure
-O [Azure CLI](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest) é outra forma de automatizar o arranque e paragem dos VMs da DevTest Labs. O Azure CLI pode ser [instalado](/cli/azure/install-azure-cli?view=azure-cli-latest) em diferentes sistemas operativos. O seguinte guião dá-lhe ordens para iniciar e parar um VM num laboratório. 
+O [Azure CLI](/cli/azure/get-started-with-azure-cli) é outra forma de automatizar o arranque e paragem dos VMs da DevTest Labs. O Azure CLI pode ser [instalado](/cli/azure/install-azure-cli) em diferentes sistemas operativos. O seguinte guião dá-lhe ordens para iniciar e parar um VM num laboratório. 
 
 ```azurecli
 # Sign in to Azure

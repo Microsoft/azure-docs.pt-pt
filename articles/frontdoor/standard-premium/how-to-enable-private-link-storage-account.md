@@ -8,12 +8,12 @@ ms.service: frontdoor
 ms.topic: how-to
 ms.date: 03/04/2021
 ms.author: tyao
-ms.openlocfilehash: 885582481e3783bdd4fbad40a24499f42a40ce24
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 885b4d132208ab6f8b470d147438e26a5fd4bab7
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/05/2021
-ms.locfileid: "102193512"
+ms.locfileid: "102201673"
 ---
 # <a name="connect-azure-front-door-premium-to-a-storage-account-origin-with-private-link"></a>Ligue o Azure Front Door Premium a uma conta de armazenamento de origem com Link Privado
 
@@ -23,7 +23,7 @@ Este artigo irá guiá-lo através da configuração do Azure Front Door Premium
 
 Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-## <a name="enable-private-link-to-a-storage-account-in-azure-front-door-premium"></a>Ativar o Link Privado para uma conta de armazenamento no Azure Front Door Premium
+## <a name="enable-private-link-to-a-storage-account"></a>Ativar o Link Privado para uma conta de armazenamento
  
 Nesta secção, você irá mapear o serviço Private Link para um ponto final privado criado na rede privada da Azure Front Door. 
 
@@ -47,7 +47,7 @@ Nesta secção, você irá mapear o serviço Private Link para um ponto final pr
 
 1. Em seguida, **selecione Adicionar** para guardar a sua configuração.
 
-## <a name="approve-azure-front-door-premium-private-endpoint-connection-from-the-storage-account"></a>Aprovar Azure Front Door Ligação de ponto final privado Premium a partir da conta de armazenamento
+## <a name="approve-private-endpoint-connection-from-the-storage-account"></a>Aprovar a ligação privada do ponto final a partir da conta de armazenamento
 
 1. Vá à conta de armazenamento que configura o Private Link na última secção. Selecione **rede em** **Definições**.
 

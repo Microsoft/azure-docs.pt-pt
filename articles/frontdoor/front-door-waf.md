@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/01/2020
 ms.author: duau
-ms.openlocfilehash: a5d51a77b1da0ae44c76d0187113105c4e53c9b4
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: f894fd5ca7bb98c48b106c13b8fe6130b2c76c6e
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279213"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102201061"
 ---
 # <a name="tutorial-quickly-scale-and-protect-a-web-application-by-using-azure-front-door-and-azure-web-application-firewall-waf"></a>Tutorial: Dimensione rapidamente e proteja uma aplicação web utilizando a Porta Frontal Azure e a Firewall de Aplicação Web Azure (WAF)
 
@@ -36,7 +36,7 @@ Neste tutorial, irá aprender a:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- As instruções deste tutorial utilizam o Azure CLI. [Veja este guia](/cli/azure/get-started-with-azure-cli?preserve-view=true&view=azure-cli-latest) para começar com o Azure CLI.
+- As instruções deste tutorial utilizam o Azure CLI. [Veja este guia](/cli/azure/get-started-with-azure-cli) para começar com o Azure CLI.
 
   > [!TIP] 
   > Uma maneira fácil e rápida de começar no Azure CLI é com [Bash in Azure Cloud Shell](../cloud-shell/quickstart.md).
@@ -48,7 +48,7 @@ Neste tutorial, irá aprender a:
    ```
 
 > [!NOTE] 
-> Para obter mais informações sobre os comandos utilizados neste tutorial, consulte [a referência Azure CLI para porta frontal.](/cli/azure/ext/front-door/?preserve-view=true&view=azure-cli-latest)
+> Para obter mais informações sobre os comandos utilizados neste tutorial, consulte [a referência Azure CLI para porta frontal.](/cli/azure/ext/front-door)
 
 ## <a name="create-an-azure-front-door-resource"></a>Criar um recurso Azure Front Door
 
@@ -85,7 +85,7 @@ Na resposta que obtém quando dirige este comando, procure a `ID` chave. Vai pre
 
 O `ID` campo deve estar neste formato:
 
-/subscrições/**subscrição id**/grupos de recursos/**nome do grupo de recursos**/fornecedores/Microsoft.Network/frontdoorwebapplicationfirewallpolicies/ WAF policy**name**
+/subscrições/**subscrição id**/grupos de recursos/**nome do grupo de recursos**/fornecedores/Microsoft.Network/frontdoorwebapplicationfirewallpolicies/ WAF policy **name**
 
 ## <a name="add-managed-rule-sets-to-the-waf-policy"></a>Adicione conjuntos de regras geridos à política da WAF
 
@@ -144,7 +144,7 @@ Recomendamos que garanta que apenas as bordas da porta dianteira Azure podem com
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Quando já não necessitar dos recursos utilizados neste tutorial, utilize o comando de eliminação do [grupo az](/cli/azure/group?view=azure-cli-latest#az-group-delete&preserve-view=true) para remover o grupo de recursos, porta frontal e política da WAF:
+Quando já não necessitar dos recursos utilizados neste tutorial, utilize o comando de eliminação do [grupo az](/cli/azure/group#az-group-delete) para remover o grupo de recursos, porta frontal e política da WAF:
 
 ```azurecli-interactive
   az group delete \

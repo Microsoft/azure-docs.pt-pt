@@ -8,12 +8,12 @@ ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy21q3
-ms.openlocfilehash: 5ac41ecc068238cbb20c05b253dc071dfc4a8138
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 13f5db52917cd9659438c551ac2f01c477cc1c7b
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100560777"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102201299"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-scripted"></a>Configurar uma instância e autenticação de Gémeos Digitais Azure (scripted)
 
@@ -123,7 +123,7 @@ Se a verificação não tiver sido bem sucedida, também pode refazer a sua pró
 ## <a name="next-steps"></a>Passos seguintes
 
 Teste as chamadas individuais da API REST no seu caso utilizando os comandos CLI dos Gémeos Digitais Azure: 
-* [az dt referência](/cli/azure/ext/azure-iot/dt?preserve-view=true&view=azure-cli-latest)
+* [az dt referência](/cli/azure/ext/azure-iot/dt)
 * [*Como fazer: Use o CLI das Gémeas Digitais Azure*](how-to-use-cli.md)
 
 Ou, veja como ligar uma aplicação do cliente ao seu caso com código de autenticação:

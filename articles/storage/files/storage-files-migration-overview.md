@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 3/18/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 995ae176a8eec58f8dc9522e6fac6fd78170014d
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 4a874e6f1e026a1888b9039799be71c95f040ac6
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94628922"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102202353"
 ---
 # <a name="migrate-to-azure-file-shares"></a>Migrar para partilhas de ficheiros do Azure
 
@@ -34,8 +34,8 @@ A chave em qualquer migração é capturar toda a fidelidade de ficheiro aplicá
 
 Aqui estão os dois componentes básicos de um ficheiro:
 
-- **Fluxo de dados** : O fluxo de dados de um ficheiro armazena o conteúdo do ficheiro.
-- **Metadados de ficheiro** : Os metadados de ficheiro têm estes subcomponentes:
+- **Fluxo de dados**: O fluxo de dados de um ficheiro armazena o conteúdo do ficheiro.
+- **Metadados de ficheiro**: Os metadados de ficheiro têm estes subcomponentes:
    * Atributos de arquivo como apenas leitura
    * Permissões de ficheiros, que podem ser referidas como *permissões NTFS* ou *ACLs de ficheiros e pastas*
    * Timetamps, mais notavelmente a criação, e últimos testes de tempo modificados
@@ -153,4 +153,4 @@ Aqui está mais informações sobre as tecnologias Azure Files mencionadas neste
 
 * [Visão geral da partilha de ficheiros Azure](storage-files-introduction.md)
 * [Planear uma implementação do Azure File Sync](storage-sync-files-planning.md)
-* [Azure File Sync: Cloud Tiering](storage-sync-cloud-tiering.md)
+* [Azure File Sync: Cloud Tiering](storage-sync-cloud-tiering-overview.md)

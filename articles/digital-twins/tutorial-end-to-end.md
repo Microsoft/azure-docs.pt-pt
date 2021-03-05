@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: d46a20079919f052ed343c9702ba02ce7f109b5c
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 3395dc3010f7ae3aabadda8105c1765a9c300988
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "102036180"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102201265"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>Tutorial: Construir uma solução de ponta a ponta
 
@@ -408,9 +408,9 @@ Depois de completar este tutorial, pode escolher quais os recursos que gostaria 
 
 [!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
-* **Se quiser continuar a usar a instância Azure Digital Twins que configura neste artigo, mas desmarcar alguns ou todos os seus modelos, gémeos e relacionamentos,** pode utilizar os comandos [Az dt](/cli/azure/ext/azure-iot/dt?view=azure-cli-latest&preserve-view=true) CLI numa janela [Azure Cloud Shell](https://shell.azure.com) para eliminar os elementos que gostaria de remover.
+* **Se quiser continuar a usar a instância Azure Digital Twins que configura neste artigo, mas desmarcar alguns ou todos os seus modelos, gémeos e relacionamentos,** pode utilizar os comandos [Az dt](/cli/azure/ext/azure-iot/dt) CLI numa janela [Azure Cloud Shell](https://shell.azure.com) para eliminar os elementos que gostaria de remover.
 
-    Esta opção não removerá nenhum dos outros recursos Azure criados neste tutorial (IoT Hub, app Azure Functions, etc.). Pode eliminá-los individualmente utilizando os [comandos dt apropriados](/cli/azure/reference-index?view=azure-cli-latest&preserve-view=true) para cada tipo de recurso.
+    Esta opção não removerá nenhum dos outros recursos Azure criados neste tutorial (IoT Hub, app Azure Functions, etc.). Pode eliminá-los individualmente utilizando os [comandos dt apropriados](/cli/azure/reference-index) para cada tipo de recurso.
 
 Também pode querer eliminar a pasta do projeto da sua máquina local.
 

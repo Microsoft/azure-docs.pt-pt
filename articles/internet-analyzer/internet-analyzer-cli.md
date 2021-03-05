@@ -1,5 +1,5 @@
 ---
-title: Criar um teste de Analisador de Internet utilizando o CLI Microsoft Docs
+title: Crie um teste de Analisador de Internet utilizando | CLI Microsoft Docs
 description: Neste artigo, aprenda a criar o seu primeiro teste de Analisador de Internet utilizando o Azure CLI.
 services: internet-analyzer
 author: diego-perez-botero
@@ -7,12 +7,12 @@ ms.service: internet-analyzer
 ms.topic: tutorial
 ms.date: 10/16/2019
 ms.author: mebeatty
-ms.openlocfilehash: 23a76e4007965c263671554bbcd937dbf3b4b0a6
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: a9a9fe93ebe302a76d69249dc56933e1bcc924d1
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676204"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102200092"
 ---
 # <a name="create-an-internet-analyzer-test-using-cli-preview"></a>Criar um teste de Analisador de Internet utilizando CLI (Pré-visualização)
 
@@ -36,8 +36,8 @@ O Internet Analyzer CLI expõe os seguintes tipos de recursos:
 * **Séries tempor** everything - Uma série de tempo mostra como uma métrica muda ao longo do tempo.
 
 ## <a name="profile-and-test-creation"></a>Criação de Perfis e Testes
-1. Obtenha acesso de pré-visualização do Analisador de Internet seguindo [Azure Internet Analyzer FAQ](internet-analyzer-faq.md)as instruções **de pré-visualização?**
-2. [Instale o Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
+1. Obtenha acesso de pré-visualização do Analisador de Internet seguindo [](internet-analyzer-faq.md)as instruções **de pré-visualização?**
+2. [Instale o Azure CLI](/cli/azure/install-azure-cli).
 3. Executar o `login` comando para iniciar uma sessão de CLI:
     ```azurecli-interactive
     az login
@@ -50,9 +50,9 @@ O Internet Analyzer CLI expõe os seguintes tipos de recursos:
 
 5. Selecione o seu ID de subscrição que tenha tido acesso à pré-visualização pública do Internet Analyzer.
 
-    Depois de iniciar sessão, vê uma lista de subscrições associadas à sua conta Azure. A informação de subscrição com `isDefault: true` é a subscrição ativada atualmente após o início de sessão. Para selecionar outra subscrição, utilize o comando [conjunto de conta az](/cli/azure/account#az-account-set) com o ID de subscrição para mudar. Para obter mais informações sobre a seleção de subscrição, consulte [utilizar várias subscrições do Azure](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest).
+    Depois de iniciar sessão, vê uma lista de subscrições associadas à sua conta Azure. A informação de subscrição com `isDefault: true` é a subscrição ativada atualmente após o início de sessão. Para selecionar outra subscrição, utilize o comando [conjunto de conta az](/cli/azure/account#az-account-set) com o ID de subscrição para mudar. Para obter mais informações sobre a seleção de subscrição, consulte [utilizar várias subscrições do Azure](/cli/azure/manage-azure-subscriptions-azure-cli).
 
-    Existem formas de iniciar sessão de forma não interativa, que são abordadas em detalhe em [Iniciar sessão com a CLI do Azure](/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
+    Existem formas de iniciar sessão de forma não interativa, que são abordadas em detalhe em [Iniciar sessão com a CLI do Azure](/cli/azure/authenticate-azure-cli).
 
 6. **[Opcional]** Criar um novo Grupo de Recursos Azure:
     ```azurecli-interactive
@@ -132,6 +132,6 @@ O Internet Analyzer CLI expõe os seguintes tipos de recursos:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Navegue na [referência CLI do Analisador de Internet](/cli/azure/ext/internet-analyzer/internet-analyzer?view=azure-cli-latest) para a lista completa de comandos e exemplos de utilização suportados.
+* Navegue na [referência CLI do Analisador de Internet](/cli/azure/ext/internet-analyzer/internet-analyzer) para a lista completa de comandos e exemplos de utilização suportados.
 * Leia o [Analisador de Internet FAQ.](internet-analyzer-faq.md)
 * Saiba mais sobre a incorporação do [Cliente Analisador de Internet](internet-analyzer-embed-client.md) e a criação de um ponto final [personalizado.](internet-analyzer-custom-endpoint.md)

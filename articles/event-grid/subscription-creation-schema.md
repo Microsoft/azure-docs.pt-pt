@@ -3,12 +3,12 @@ title: Esquema de subscrição da Azure Event Grid
 description: Este artigo descreve as propriedades para subscrever um evento com a Azure Event Grid. Esquema de subscrição de Grelha de Evento.
 ms.topic: reference
 ms.date: 07/07/2020
-ms.openlocfilehash: 21016627e545cc4935b4ac213df675e894c12d95
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f6e33171cbba65cfeaca49ab6a8954be8bb89acb
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86119077"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102199956"
 ---
 # <a name="event-grid-subscription-schema"></a>Esquema de subscrição de Grade de Eventos
 
@@ -25,7 +25,7 @@ PUT /subscriptions/{subscription-id}/resourceGroups/examplegroup/providers/Micro
 ``` 
 
 O nome de Subscrição do Evento deve ter 3-64 caracteres de comprimento e só pode conter a-z, A-Z, 0-9 e "-". O artigo descreve as propriedades e esquemas para o corpo do pedido.
- 
+ 
 ## <a name="event-subscription-properties"></a>Propriedades de subscrição de eventos
 
 | Propriedade | Tipo | Descrição |
@@ -48,6 +48,7 @@ O nome de Subscrição do Evento deve ter 3-64 caracteres de comprimento e só p
 | assuntoScom | string | Um filtro de pré-jogo para o campo de assunto na mensagem do evento. A corda padrão ou vazia combina com todas. | 
 | AssuntoEndsWith | string | Um filtro de sufixo para o campo de assunto na mensagem do evento. A corda padrão ou vazia combina com todas. |
 | isSubjectCaseSensitive | string | Controla a correspondência sensível à caixa para os filtros. |
+| enableAdvancedFilteringOnArrays | boolean | Ativa a utilização de matrizes para chaves na filtragem avançada. Para obter mais informações, consulte [a filtragem Avançada.](event-filtering.md#advanced-filtering) |
 
 
 ## <a name="example-subscription-schema"></a>Exemplo esquema de subscrição

@@ -1078,7 +1078,7 @@
           href: insights/container-insights-reports.md
         - name: Ver dados em direto
           items:
-            - name: Descrição geral dos dados em direto (pré-visualização)
+            - name: Visão geral dos dados ao vivo
               href: containers/container-insights-livedata-overview.md
             - name: Configuração
               href: containers/container-insights-livedata-setup.md

@@ -8,12 +8,12 @@ ms.date: 1/19/2021
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: 6a654f74ff6a32ad37646021d504359c84942c12
-ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
+ms.openlocfilehash: 990a0ee73bd91ccb748c948b5fcf0e6124d84a03
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98573042"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102201435"
 ---
 # <a name="use-azure-digital-twins-to-update-an-azure-maps-indoor-map"></a>Use gémeos digitais Azure para atualizar um mapa interior do Azure Maps
 
@@ -64,7 +64,7 @@ Este padrão lê-se diretamente do twin da sala, em vez do dispositivo IoT, o qu
     >[!NOTE]
     >Atualmente, existe um **problema conhecido** no Cloud Shell que está a afetar os seguintes grupos de comando: `az dt route`, `az dt model`, `az dt twin`.
     >
-    >Para resolver, execute `az login` no Cloud Shell antes de executar o comando ou utilize a [CLI local](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) em vez do Cloud Shell. Para mais detalhes sobre este assunto, consulte [*Troubleshooting: Questões conhecidas em Azure Digital Twins*](troubleshoot-known-issues.md#400-client-error-bad-request-in-cloud-shell).
+    >Para resolver, execute `az login` no Cloud Shell antes de executar o comando ou utilize a [CLI local](/cli/azure/install-azure-cli) em vez do Cloud Shell. Para mais detalhes sobre este assunto, consulte [*Troubleshooting: Questões conhecidas em Azure Digital Twins*](troubleshoot-known-issues.md#400-client-error-bad-request-in-cloud-shell).
 
     ```azurecli-interactive
     az dt route create -n <your-Azure-Digital-Twins-instance-name> --endpoint-name <Event-Grid-endpoint-name> --route-name <my_route> --filter "type = 'Microsoft.DigitalTwins.Twin.Update'"

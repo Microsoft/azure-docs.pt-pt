@@ -6,12 +6,12 @@ ms.date: 11/04/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 3806578f5d1af61329e2e32fa3e8eceb9afa4d42
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 32b1558bf4af2ee151fef33a8c0cbe7df82f1e84
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101713971"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102201758"
 ---
 # <a name="configuration-options---azure-monitor-application-insights-for-java"></a>Opções de configuração - Azure Monitor Application Insights for Java
 
@@ -219,7 +219,7 @@ Estes são os `level` valores válidos que pode especificar no `applicationinsig
 | ALL               | ALL    | ALL     | ALL     |
 
 > [!NOTE]
-> Se uma exceção for passada para o madeirão, então a mensagem de registo (e exceção) aparecerá no portal Azure debaixo da `exceptions` mesa em vez da `traces` tabela.
+> Se um objeto de exceção for passado para o madeirão, então a mensagem de registo (e detalhes do objeto de exceção) aparecerá no portal Azure debaixo da `exceptions` tabela em vez da `traces` tabela.
 
 ## <a name="auto-collected-micrometer-metrics-including-spring-boot-actuator-metrics"></a>Métricas de micrometros auto-recolhidas (incluindo métricas do actuador de bota de mola)
 

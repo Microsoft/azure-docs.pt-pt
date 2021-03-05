@@ -3,21 +3,25 @@ title: Configure permissões do Serviço de Construtores de Imagem Azure usando 
 description: Configure requisitos para O Serviço de Construtor de Imagem Azure VM, incluindo permissões e privilégios usando O Azure CLI
 author: cynthn
 ms.author: danis
-ms.date: 03/02/2021
+ms.date: 04/02/2021
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: image-builder
 ms.collection: linux
-ms.openlocfilehash: f9b60af2c9fe16f834ce3098266c03afe2b99667
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 4b6154a18cf4e08bf59dad91350160a1f83c49ed
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101695435"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102201486"
 ---
 # <a name="configure-azure-image-builder-service-permissions-using-azure-cli"></a>Configure permissões do Serviço de Construtores de Imagem Azure usando O Azure CLI
 
-O Azure Image Builder Service requer a configuração de permissões e privilégios antes de construir uma imagem. As secções seguintes detalham como configurar possíveis cenários utilizando o Azure CLI.
+Quando se regista para o (AIB), este concede ao Serviço AIB permissão para criar, gerir e eliminar um grupo de recursos de encenação (IT_*), e tem direitos de adicionar recursos a ele, que são necessários para a construção de imagem. Isto é feito por um Nome Principal de Serviço AIB (SPN) sendo disponibilizado na sua subscrição durante uma inscrição bem sucedida.
+
+Para permitir que o Azure VM Image Builder distribua imagens para as imagens geridas ou para uma Galeria de Imagens Partilhadas, terá de criar uma identidade atribuída ao utilizador Azure que tenha permissões para ler e escrever imagens. Se estiver a aceder ao armazenamento do Azure, então isto necessitará de permissões para ler recipientes privados ou públicos.
+
+Deve configurar permissões e privilégios antes de construir uma imagem. As secções seguintes detalham como configurar possíveis cenários utilizando o Azure CLI.
 
 > [!IMPORTANT]
 > O Azure Image Builder está atualmente em pré-visualização pública.

@@ -11,12 +11,12 @@ author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 03/02/2021
 ms.custom: how-to, devx-track-python, data4ml
-ms.openlocfilehash: 7eeb7b82d9c3bfe21019d5d68f82c2e6d7a2bf68
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 22945cdaff2696a15d5b119bd0f32fd0a179ebf7
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/05/2021
-ms.locfileid: "102171518"
+ms.locfileid: "102202098"
 ---
 # <a name="attach-apache-spark-pools-powered-by-azure-synapse-analytics-for-data-preparation-preview"></a>Anexar piscinas Apache Spark (alimentadas por Azure Synapse Analytics) para preparação de dados (pré-visualização)
 
@@ -357,10 +357,6 @@ train_ds = Dataset.File.from_files(path=datastore_paths, validate=True)
 input1 = train_ds.as_mount()
 
 ```
-
-## <a name="example-notebook"></a>Bloco de notas de exemplo
-
-Consulte este [caderno final para](../synapse-analytics/overview-what-is.md) um exemplo de código detalhado de como realizar a preparação de dados e a formação de modelos a partir de um único caderno com Azure Synapse Analytics e Azure Machine Learning.
 
 ## <a name="next-steps"></a>Passos seguintes
 

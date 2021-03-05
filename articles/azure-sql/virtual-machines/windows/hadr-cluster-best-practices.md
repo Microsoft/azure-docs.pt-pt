@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 5a2540aeb36cfcb2048ec994bbb486badc8a68d1
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 4ab4e40e1dd4bbaf9ae73ab545285f5ae6261e27
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97358814"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102201775"
 ---
 # <a name="cluster-configuration-best-practices-sql-server-on-azure-vms"></a>Melhores práticas de configuração do cluster (SQL Server em VMs do Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -28,7 +28,7 @@ Um cluster é utilizado para alta disponibilidade e recuperação de desastres (
 Este artigo fornece as melhores práticas de configuração do cluster para ambos os [casos de cluster failover (FCIs)](failover-cluster-instance-overview.md) e [grupos de disponibilidade](availability-group-overview.md) quando os utiliza com SQL Server em VMs Azure. 
 
 
-## <a name="networking"></a>Redes
+## <a name="networking"></a>Rede
 
 Utilize um único NIC por servidor (nó de cluster) e uma única sub-rede. O networking Azure tem redundância física, o que torna niCs adicionais e sub-redes desnecessários num cluster de hóspedes virtuais Azure. O relatório de validação do cluster irá avisá-lo de que os nós são alcançáveis apenas numa única rede. Pode ignorar este aviso em aglomerados de failover de hóspedes virtuais da Azure.
 
@@ -47,9 +47,9 @@ Configurar um recurso de quórum permitirá que o cluster continue on-line com a
 A tabela a seguir enumera as opções de quórum disponíveis na ordem recomendada para a utilização com um Azure VM, sendo a testemunha de disco a escolha preferida: 
 
 
-||[Testemunho de disco](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)  |[Testemunha de cloud](/windows-server/failover-clustering/deploy-cloud-witness)  |[Testemunho de partilha de ficheiros](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)  |
+||[Testemunha de disco](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)  |[Testemunha de nuvem](/windows-server/failover-clustering/deploy-cloud-witness)  |[Testemunha de partilha de arquivos](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)  |
 |---------|---------|---------|---------|
-|**SoA apoiado**| Todos |Windows Server 2016+| Todos|
+|**SOs Suportados**| Todos |Windows Server 2016+| Todos|
 
 
 ### <a name="disk-witness"></a>Testemunho de disco
@@ -76,9 +76,7 @@ Para começar, consulte [Configure uma testemunha em nuvem.](/windows-server/fai
 
 ### <a name="file-share-witness"></a>Testemunho de partilha de ficheiros
 
-Uma testemunha de partilha de ficheiros é uma partilha de ficheiros SMB que é tipicamente configurada num servidor de ficheiros que executa o Windows Server. Mantém informações de agrupamento num ficheiro .log testemunhas, mas não guarda uma cópia da base de dados do cluster. Em Azure, pode configurar uma [partilha de ficheiros Azure](../../../storage/files/storage-how-to-create-file-share.md) para usar como testemunha de partilha de ficheiros, ou pode usar uma partilha de ficheiros numa máquina virtual separada.
-
-Se vai utilizar uma partilha de ficheiros Azure, pode montá-la com o mesmo processo usado para [montar a partilha de ficheiros Premium.](failover-cluster-instance-premium-file-share-manually-configure.md#mount-premium-file-share) 
+Uma testemunha de partilha de ficheiros é uma partilha de ficheiros SMB que é tipicamente configurada num servidor de ficheiros que executa o Windows Server. Mantém informações de agrupamento num ficheiro .log testemunhas, mas não guarda uma cópia da base de dados do cluster. Em Azure, pode configurar uma partilha de ficheiros numa máquina virtual separada.
 
 Para começar, consulte [a Configure uma testemunha de partilha de ficheiros.](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)
 

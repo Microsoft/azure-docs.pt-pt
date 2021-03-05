@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/20/2020
 ms.author: mbaldwin
 ms.custom: mvc, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: e69e5d9b94a47bf7db21ef3732a4ddcba7c2cf5c
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 5d78299c4583251180b3fb9a902561406b849b4a
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/05/2021
-ms.locfileid: "102181555"
+ms.locfileid: "102201180"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-virtual-machine-in-net"></a>Tutorial: Use a Azure Key Vault com uma máquina virtual em .NET
 
@@ -42,7 +42,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 Para Windows, Mac e Linux:
   * [Git](https://git-scm.com/downloads)
   * O [Núcleo .NET 3.1 SDK ou mais tarde](https://dotnet.microsoft.com/download/dotnet-core/3.1).
-  * [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
+  * [Azure CLI](/cli/azure/install-azure-cli).
 
 ## <a name="create-resources-and-assign-permissions"></a>Criar recursos e atribuir permissões
 
@@ -74,7 +74,7 @@ Crie uma máquina virtual Windows ou Linux utilizando um dos seguintes métodos:
 | [Portal do Azure](../../virtual-machines/windows/quick-create-portal.md) | [Portal do Azure](../../virtual-machines/linux/quick-create-portal.md) |
 
 ## <a name="assign-an-identity-to-the-vm"></a>Atribuir uma identidade ao VM
-Criar uma identidade atribuída ao sistema para a máquina virtual com o comando [de atribuição de identidade az vm:](/cli/azure/vm/identity?view=azure-cli-latest#az-vm-identity-assign)
+Criar uma identidade atribuída ao sistema para a máquina virtual com o comando [de atribuição de identidade az vm:](/cli/azure/vm/identity#az-vm-identity-assign)
 
 ```azurecli
 az vm identity assign --name <NameOfYourVirtualMachine> --resource-group <YourResourceGroupName>
@@ -90,7 +90,7 @@ Note a identidade atribuída ao sistema que é apresentada no seguinte código. 
 ```
 
 ## <a name="assign-permissions-to-the-vm-identity"></a>Atribuir permissões à identidade VM
-Atribua as permissões de identidade previamente criadas para o seu cofre de chaves com o comando [de definição de chave-chave az:](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy)
+Atribua as permissões de identidade previamente criadas para o seu cofre de chaves com o comando [de definição de chave-chave az:](/cli/azure/keyvault#az-keyvault-set-policy)
 
 ```azurecli
 az keyvault set-policy --name '<your-unique-key-vault-name>' --object-id <VMSystemAssignedIdentity> --secret-permissions get list

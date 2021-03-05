@@ -3,12 +3,12 @@ title: Criar e gerir máquinas virtuais em Laboratórios DevTest com Azure CLI
 description: Saiba como usar a Azure DevTest Labs para criar e gerir máquinas virtuais com o Azure CLI
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 57510a722ab6a34b9d498e74a140d6f350c8fc02
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 22ee6bf607fe1b66cece0e7ddb25a2da2830258b
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85482841"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102201469"
 ---
 # <a name="create-and-manage-virtual-machines-with-devtest-labs-using-the-azure-cli"></a>Criar e gerir máquinas virtuais com DevTest Labs usando o Azure CLI
 Este quickstart irá guiá-lo através da criação, partida, ligação, atualização e limpeza de uma máquina de desenvolvimento no seu laboratório. 
@@ -147,10 +147,10 @@ O seguinte comando de amostra para um VM.
 az lab vm stop --lab-name sampleLabName --name sampleVMName --resource-group sampleResourceGroup
 ```
 
-Apague um VM.
+Eliminar uma VM.
 ```azurecli
 az lab vm delete --lab-name sampleLabName --name sampleVMName --resource-group sampleResourceGroup
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
-Consulte o seguinte conteúdo: [Documentação Azure CLI para Azure DevTest Labs](/cli/azure/lab?view=azure-cli-latest). 
+Consulte o seguinte conteúdo: [Documentação Azure CLI para Azure DevTest Labs](/cli/azure/lab). 

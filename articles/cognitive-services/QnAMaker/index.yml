@@ -11,12 +11,12 @@ metadata:
   services: cognitive-services
   title: Documentação do Criador de FAQ
   description: O Criador de FAQ é um serviço de API com base na cloud, que cria uma camada de conversação, perguntas e respostas com os seus dados. O Criador de FAQ permite-lhe incorporar um serviço de perguntas e respostas a partir do seu conteúdo semiestruturado, como documentos de FAQ, URLs e manuais de produtos. O serviço Criador de FAQ responde às perguntas em linguagem natural dos seus utilizadores, correspondendo-as à melhor resposta possível de FAQ da sua Base de Dados de Conhecimento.
-  ms.openlocfilehash: 6bc5587612a953f2e0bb43765f579adb56fab336
-  ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+  ms.openlocfilehash: cf541ec285741b9050744c1c47fa36569f9a97b1
+  ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 01/22/2021
-  ms.locfileid: "98707971"
+  ms.lasthandoff: 03/05/2021
+  ms.locfileid: "102201979"
 landingContent:
 - title: Acerca do Criador de FAQ
   linkLists:
@@ -109,7 +109,7 @@ landingContent:
     - text: Azure PowerShell
       url: /powershell/module/az.cognitiveservices/?view=azps-2.6.0#cognitive_services
     - text: Interface de Linha de Comandos do Azure (CLI)
-      url: /cli/azure/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list
+      url: /cli/azure/cognitiveservices#az-cognitiveservices-list
 - title: Ajuda e comentários
   linkLists:
   - linkListType: reference

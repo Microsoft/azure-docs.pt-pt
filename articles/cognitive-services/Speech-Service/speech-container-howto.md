@@ -12,12 +12,12 @@ ms.date: 03/02/2021
 ms.author: aahi
 ms.custom: cog-serv-seo-aug-2020
 keywords: no local, Docker, contentor
-ms.openlocfilehash: 4970b33d51ed7ef54727c1c15e2482ff10d70506
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 1eb8e6d990b0b3e6212736036466be9f11d05b01
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102032950"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102201129"
 ---
 # <a name="install-and-run-docker-containers-for-the-speech-service-apis"></a>Instale e execute os recipientes Docker para as APIs do serviço de fala 
 
@@ -41,12 +41,12 @@ Os contentores de Voz permitem que os clientes criem uma arquitetura de aplicaç
 
 | Contentor | Funcionalidades | Mais Recente |
 |--|--|--|
-| Conversão de voz em texto | Analisa o sentimento e transcreve gravações contínuas de voz em tempo real ou de lotes com resultados intermédios.  | 2.9.0 |
-| Discurso-a-texto personalizado | Utilizando um modelo personalizado do [portal Discurso Personalizado,](https://speech.microsoft.com/customspeech)transcreve gravações contínuas de discursos em tempo real ou de lotes em texto com resultados intermédios. | 2.9.0 |
-| Conversão de texto em voz | Converte o texto para discurso sonoro natural com entrada de texto simples ou linguagem de marcação de síntese de fala (SSML). | 1.11.0 |
-| Texto-a-discurso personalizado | Utilizando um modelo personalizado do [portal Voz Personalizada,](https://aka.ms/custom-voice-portal)converte o texto em discurso sonoro natural com entrada de texto simples ou linguagem de marcação de síntese de fala (SSML). | 1.11.0 |
+| Conversão de voz em texto | Analisa o sentimento e transcreve gravações contínuas de voz em tempo real ou de lotes com resultados intermédios.  | 2.10.0 |
+| Discurso-a-texto personalizado | Utilizando um modelo personalizado do [portal Discurso Personalizado,](https://speech.microsoft.com/customspeech)transcreve gravações contínuas de discursos em tempo real ou de lotes em texto com resultados intermédios. | 2.10.0 |
+| Conversão de texto em voz | Converte o texto para discurso sonoro natural com entrada de texto simples ou linguagem de marcação de síntese de fala (SSML). | 1.12.0 |
+| Texto-a-discurso personalizado | Utilizando um modelo personalizado do [portal Voz Personalizada,](https://aka.ms/custom-voice-portal)converte o texto em discurso sonoro natural com entrada de texto simples ou linguagem de marcação de síntese de fala (SSML). | 1.12.0 |
 | Deteção de linguagem da fala | Detetar a linguagem falada em ficheiros áudio. | 1.0 |
-| Texto-a-discurso neural | Converte o texto em discurso sonoro natural usando a tecnologia de rede neural profunda, permitindo um discurso mais natural sintetizado. | 1.3.0 |
+| Texto-a-discurso neural | Converte o texto em discurso sonoro natural usando a tecnologia de rede neural profunda, permitindo um discurso mais natural sintetizado. | 1.4.0 |
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de começar.
 
@@ -386,7 +386,12 @@ Para configurar uma lista de frases, é necessário adicionar as suas próprias 
         audio_config=audio_config)
     phrase_list_grammer = speechsdk.PhraseListGrammar.from_recognizer(recognizer)
     phrase_list_grammer.addPhrase(phrase)
-
+    
+    dict_speech_config.set_service_property(
+        name='setflight',
+        value='xonlineinterp',
+        channel=speechsdk.ServicePropertyChannel.UriQueryParameter
+    )
 ```
 
 Se tiver várias frases a adicionar, chame `.addPhrase()` cada frase para adicioná-la à lista de frases. 

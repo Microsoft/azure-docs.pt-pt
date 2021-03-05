@@ -1,5 +1,5 @@
 ---
-title: Tutorial implantado numa rede virtual existente utilizando o Azure CLI - Azure Dedicado HSM ; Microsoft Docs
+title: Tutorial implantado numa rede virtual existente utilizando o Azure CLI - Azure Dedicado HSM | Microsoft Docs
 description: Tutorial mostrando como implementar um HSM dedicado usando o CLI em uma rede virtual existente
 services: dedicated-hsm
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: b6f4610887092b1dac5cdc85622739318d5921d7
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 1ca8bc5c82540b0dc02959d26b452554ef294368
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96852239"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102200534"
 ---
 # <a name="tutorial-deploying-hsms-into-an-existing-virtual-network-using-the-azure-cli"></a>Tutorial: Implantação de HSMs numa rede virtual existente utilizando o Azure CLI
 
@@ -38,7 +38,7 @@ Este tutorial centra-se num par de HSMs e o ExpressRoute Gateway necessário (ve
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-A Azure Dedicated HSM não está atualmente disponível no portal Azure. Toda a interação com o serviço será através de uma linha de comando ou utilizando o PowerShell. Este tutorial utilizará a interface de linha de comando (CLI) na Azure Cloud Shell. Se é novo no Azure CLI, siga as instruções de início aqui: [Azure CLI 2.0 Get Start](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest&preserve-view=true).
+A Azure Dedicated HSM não está atualmente disponível no portal Azure. Toda a interação com o serviço será através de uma linha de comando ou utilizando o PowerShell. Este tutorial utilizará a interface de linha de comando (CLI) na Azure Cloud Shell. Se é novo no Azure CLI, siga as instruções de início aqui: [Azure CLI 2.0 Get Start](/cli/azure/get-started-with-azure-cli).
 
 Pressupostos:
 
@@ -256,7 +256,7 @@ az group delete \
 Após completar os passos no tutorial, são fornecidos recursos dedicados ao HSM e tem uma rede virtual com HSMs necessários e componentes de rede adicionais para permitir a comunicação com o HSM.  Está agora em posição de felicitar esta implantação com mais recursos, conforme exigido pela sua arquitetura de implantação preferida. Para obter mais informações sobre como ajudar a planear a sua implantação, consulte os documentos do Concepts.
 Recomenda-se um desenho com dois HSMs numa região primária que aborde a disponibilidade ao nível da cremalheira, e dois HSMs numa região secundária que aborde a disponibilidade regional. 
 
-* [Elevada Disponibilidade](high-availability.md)
+* [Alta Disponibilidade](high-availability.md)
 * [Segurança Física](physical-security.md)
 * [Rede](networking.md)
 * [Suportabilidade](supportability.md)

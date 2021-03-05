@@ -7,14 +7,15 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 06/12/2018
-ms.openlocfilehash: 3da450ce1130b693fa346b4a6f4b42f6a0fd60a3
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 119ecb3ec9c208340f09f513bf10b3ad24312cb5
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/05/2021
-ms.locfileid: "102174211"
+ms.locfileid: "102201231"
 ---
 # <a name="system-variables-supported-by-azure-data-factory"></a>Variáveis do sistema suportadas pela Azure Data Factory
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Este artigo descreve variáveis do sistema suportadas pela Azure Data Factory. Pode utilizar estas variáveis em expressões ao definir entidades da Data Factory.
@@ -68,4 +69,5 @@ Estas variáveis do sistema podem ser referenciadas em qualquer lugar do gatilho
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter informações sobre como estas variáveis são usadas em expressões, consulte [as funções de linguagem de expressão &](control-flow-expression-language-functions.md).
+* Para obter informações sobre como estas variáveis são usadas em expressões, consulte [as funções de linguagem de expressão &](control-flow-expression-language-functions.md).
+* Para utilizar variáveis do sistema de âmbito do gatilho no pipeline, consulte [metadados de gatilho de referência no pipeline](how-to-use-trigger-parameterization.md)

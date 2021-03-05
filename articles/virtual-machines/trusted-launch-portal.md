@@ -7,14 +7,14 @@ ms.reviewer: cynthn
 ms.service: virtual-machines
 ms.subservice: security
 ms.topic: how-to
-ms.date: 03/02/2021
+ms.date: 03/03/2021
 ms.custom: template-how-to
-ms.openlocfilehash: f8a6758cdf0a6da709a564c1e17c56a2fe5625b0
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: fca11ce1cfa09fb680c2b288e40fa5f51337bdb8
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102124657"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102200789"
 ---
 # <a name="deploy-a-vm-with-trusted-launch-enabled-preview"></a>Implementar um VM com lançamento fidedigno ativado (pré-visualização)
 
@@ -37,7 +37,7 @@ Crie uma máquina virtual com lançamento fidedigno ativado.
 1. Na página **de máquinas Virtuais,** selecione **Adicionar** e, em seguida, selecione **máquina Virtual**.
 1. Nos **detalhes do Projeto,** certifique-se de que a subscrição correta está selecionada.
 1. No **grupo de Recursos,** selecione Criar um **nome novo** e digitar um nome para o seu grupo de recursos ou selecione um grupo de recursos existente a partir do dropdown.
-1. Em **Detalhes de Exemplo,** escreva um nome para o nome da máquina virtual e escolha uma região que suporte o lançamento fidedigno.
+1. Em **Detalhes de Exemplo,** escreva um nome para o nome da máquina virtual e escolha uma região que suporte [o lançamento fidedigno](trusted-launch.md#public-preview-limitations).
 1. Em **Imagem,** selecione uma [imagem que suporte o lançamento fidedigno](trusted-launch.md#public-preview-limitations). Só podes ver a versão da Gen 1 da imagem, tudo bem, passa para o próximo passo.
 1. Mude para o separador **Advanced** selecionando-o no topo da página.
 1. Percorra a secção de **geração VM** e, em seguida, selecione **Gen 2**.
@@ -140,7 +140,7 @@ Para obter vTPM e recomendar recomendações de arranque seguras para VMs de lan
 
 Em alguns casos, poderá ter de assinar coisas para o UEFI Secure Boot.  Por exemplo, pode precisar de ver [como assinar coisas para Secure Boot](https://ubuntu.com/blog/how-to-sign-things-for-secure-boot) para Ubuntu. Nestes casos, tem de introduzir as chaves de inscrição de utilitário MOK para o seu VM. Para isso, é necessário utilizar a Consola em Série Azure para aceder ao utilitário MOK.
 
-1. Ativar a consola em série Azure para o Linux.
+1. Ativar a consola em série Azure para o Linux. Para mais informações, consulte [a Consola em Série para Linux](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/serial-console-linux).
 1. Faça login no [portal Azure](https://portal.azure.com).
 1. Procure **por máquinas Virtuais** e selecione o seu VM da lista.
 1. No menu esquerdo, em **Suporte + resolução de problemas,** selecione **Consola série**. Uma página abrir-se-á à direita, com a consola em série.

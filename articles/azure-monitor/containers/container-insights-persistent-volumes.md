@@ -2,32 +2,53 @@
 title: Configure a monitorização do PV com insights do contentor | Microsoft Docs
 description: Este artigo descreve como pode configurar agrupamentos de Kubernetes com volumes persistentes com insights de contentores.
 ms.topic: conceptual
-ms.date: 10/20/2020
-ms.openlocfilehash: 0afbeab49a6909a0011cd75a0419f7325ca68132
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/03/2021
+ms.openlocfilehash: 578cfe128b7445f8b09771999d1e653e92c4befa
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101713733"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102200704"
 ---
 # <a name="configure-pv-monitoring-with-container-insights"></a>Configure a monitorização do PV com insights do contentor
 
-Começando pela versão do agente *ciprod10052020,* o agente integrado de insights de contentores suporta agora a monitorização do uso de PV (volume persistente).
-
+A partir da versão do agente *ciprod10052020,* o Azure Monitor para contentores integrados agora suporta a monitorização do uso de PV (volume persistente). Com a versão do agente *ciprod01112021,* o agente suporta a monitorização do inventário de PV, incluindo informações sobre o estado, classe de armazenamento, tipo, modos de acesso e outros detalhes.
 ## <a name="pv-metrics"></a>Métricas de PV
 
-Os insights do recipiente iniciam automaticamente a monitorização do PV, recolhendo as seguintes métricas em intervalos de 60sec e armazenando-as na tabela **InsightMetrics.**
+Os insights do recipiente iniciam automaticamente a monitorização da utilização do PV, recolhendo as seguintes métricas em intervalos de 60 -seg e armazenando-as na tabela **InsightMetrics.**
 
-|Nome da métrica |Dimensão métrica (etiquetas) |Descrição |
-|------------|------------------------|------------|
-| `pvUsedBytes`|`container.azm.ms/pv`|Espaço usado em bytes para um volume persistente específico com uma reivindicação usada por uma vagem específica. `pvCapacityBytes` é dobrado como uma dimensão no campo Tags para reduzir o custo de ingestão de dados e simplificar as consultas.|
+| | de nome métrico Dimensão métrica (tags) | Descrição métrica | | `pvUsedBytes`|podUID, podName, pvcName, pvcNamespace, capacityBytes, clusterId, clusterName| Espaço usado em bytes para um volume persistente específico com uma reivindicação usada por uma vagem específica. `capacityBytes` é dobrado como uma dimensão no campo Tags para reduzir o custo de ingestão de dados e simplificar as consultas.|
+
+Saiba mais sobre a configuração das métricas de PV recolhidas [aqui.](https://aka.ms/ci/pvconfig)
+
+## <a name="pv-inventory"></a>Inventário de PV
+
+O Azure Monitor para contentores inicia automaticamente a monitorização dos PVs, recolhendo as seguintes informações em intervalos de 60 segundos e armazenando-os na tabela **KubePVInventory.**
+
+|Dados |Origem de dados| Tipo de Dados| Campos|
+|-----|-----------|----------|-------|
+|Inventário de volumes persistentes num cluster Kubernetes |Kube API |`KubePVInventory` | PVName, PVCapacityBytes, PVCName, PVCNamespace, PVStatus, PVAccessModes, PVType, PVTypeInfo, PVStorageClassName, PVCreationTimestamp, TimeGenerated, ClusterId, ClusterName, _ResourceId |
 
 ## <a name="monitor-persistent-volumes"></a>Monitorize volumes persistentes
 
-Os insights do recipiente incluem gráficos pré-configurados para esta métrica num livro para cada cluster. Pode encontrar as tabelas no separador Volume Persistente do livro de **dados de Workload Details** diretamente de um cluster AKS, selecionando Livros de Trabalho a partir do painel de leitura à esquerda e da lista de drop-down do **View Workbooks** no Insight. Também pode ativar um alerta recomendado para a utilização de PV, bem como consultar estas métricas em Log Analytics.  
+O Azure Monitor para contentores inclui gráficos pré-configurados para esta métrica de utilização e informações de inventário em modelos de livros para cada cluster. Também pode ativar um alerta recomendado para a utilização de PV e consultar estas métricas no Log Analytics.  
 
-![Exemplo de livro de trabalho do Azure Monitor PV](./media/container-insights-persistent-volumes/pv-workload-example.PNG)
+### <a name="workload-details-workbook"></a>Livro de trabalho de detalhes de carga de trabalho
 
+Pode encontrar gráficos de utilização para cargas de trabalho específicas no separador Volume Persistente do livro **de dados de Dados** de Carga de Trabalho diretamente de um cluster AKS, selecionando livros de trabalho a partir do painel de trabalhos à esquerda, a partir da lista de drop-down dos Livros de **Visualização** no painel Insights ou do **separador Relatórios (pré-visualização)** no painel insights.
+
+
+:::image type="content" source="./media/container-insights-persistent-volumes/pv-workload-example.PNG" alt-text="Exemplo de livro de trabalho do Azure Monitor PV":::
+
+### <a name="persistent-volume-details-workbook"></a>Livro de detalhes de volume persistente
+
+Pode encontrar uma visão geral do inventário de volume persistente no livro de detalhes de **volume persistente** diretamente de um cluster AKS selecionando Livros de Trabalho a partir do painel de leitura à esquerda, a partir da lista de drop-down dos livros de visualização no painel insights, ou do **separador Relatórios (pré-visualização)** no painel Insights. 
+
+
+:::image type="content" source="./media/container-insights-persistent-volumes/pv-details-workbook-example.PNG" alt-text="Azure Monitor PV detalha exemplo de livro":::
+
+### <a name="persistent-volume-usage-recommended-alert"></a>Alerta recomendado de utilização do volume persistente
+Pode ativar um alerta recomendado para alertá-lo quando o uso médio de PV para uma cápsula é superior a 80%. Saiba mais sobre o alerta [aqui](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-metric-alerts) e como anular o limiar padrão [aqui](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-metric-alerts#configure-alertable-metrics-in-configmaps).
 ## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre as métricas de PV recolhidas [aqui.](./container-insights-agent-config.md)

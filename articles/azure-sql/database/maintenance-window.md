@@ -10,53 +10,54 @@ ms.author: wiassaf
 ms.reviewer: sstein
 ms.custom: references_regions
 ms.date: 03/04/2021
-ms.openlocfilehash: 0a9a4b2de03c62640bb1c643d3ff3da4139d42a4
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: cf3404f364a7beee67cfa7dc523b9fd4b7b9985a
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102101210"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102201316"
 ---
 # <a name="maintenance-window-preview"></a>Janela de manutenção (Pré-visualização)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-A função de janela de manutenção permite a configuração de horários previsíveis das janelas de manutenção para [a Azure SQL Database](sql-database-paas-overview.md) e [a sql gerida instância](../managed-instance/sql-managed-instance-paas-overview.md). 
+A função de janela de manutenção permite configurar o horário de manutenção para [a Base de Dados Azure SQL](sql-database-paas-overview.md) e recursos de [instância geridos Azure SQL](../managed-instance/sql-managed-instance-paas-overview.md) tornando os eventos de manutenção impactantes previsíveis e menos disruptivos para a sua carga de trabalho. 
 
-Para obter mais informações sobre eventos de manutenção, consulte [o Plano para eventos de manutenção Azure SQL e Azure SQL Managed Instance](planned-maintenance.md).
+> [!Note]
+> A função de janela de manutenção não protege de eventos não planeados, como falhas de hardware, que podem causar interrupções de ligação curtas.
 
 ## <a name="overview"></a>Descrição Geral
 
-O Azure executa atualizações de manutenção planeadas na Base de Dados Azure SQL e nos recursos de Instância Gerida SQL periodicamente que incluem atualizações para hardware subjacente, software incluindo sistema operativo subjacente (OS) e o motor SQL. Durante uma atualização de manutenção, os recursos estão totalmente disponíveis e acessíveis, mas algumas das atualizações de manutenção requerem uma falha, uma vez que o Azure retira instâncias offline por um curto período de tempo para aplicar as atualizações de manutenção (oito segundos de duração, em média).  As atualizações de manutenção planeadas ocorrem uma vez a cada 35 dias, em média, o que significa que o cliente pode esperar aproximadamente um evento de manutenção planeado por mês por base de dados Azure SQL ou sql de gestão, e apenas durante as ranhuras da janela de manutenção selecionadas pelo cliente.   
+O Azure realiza periodicamente [a manutenção planeada](planned-maintenance.md) dos recursos sql Database e SQL Managed Instance. Durante o evento de manutenção do Azure SQL, as bases de dados estão totalmente disponíveis, mas podem estar sujeitas a curtos failovers dentro das respetivas disponibilidades SLAs para [SQL Database](https://azure.microsoft.com/support/legal/sla/sql-database) e [SQL Managed Instance,](https://azure.microsoft.com/support/legal/sla/azure-sql-sql-managed-instance)uma vez que a reconfiguração de recursos é necessária em alguns casos.
 
-A janela de manutenção destina-se a cargas de trabalho empresariais que não sejam resilientes a problemas de conectividade intermitentes que possam resultar de eventos de manutenção planeados.
+A janela de manutenção destina-se a cargas de trabalho de produção que não sejam resilientes a falhas na base de dados ou em casos de falha e que não possam absorver interrupções de ligação curtas causadas por eventos de manutenção planeados. Ao escolher a janela de manutenção preferida, pode minimizar o impacto da manutenção planeada, uma vez que ocorrerá fora do seu horário de trabalho. Cargas de trabalho resistentes e cargas de trabalho não produtivos podem depender da política de manutenção padrão da Azure SQL.
 
-A janela de manutenção pode ser configurada utilizando o portal Azure, PowerShell, CLI ou AZure API. Pode ser configurado na criação ou para bases de dados SQL existentes e instâncias geridas pela SQL.
+A janela de manutenção pode ser configurada na criação ou para os recursos Azure SQL existentes. Pode ser configurado usando o portal Azure, PowerShell, CLI ou AZure API.
 
 > [!Important]
 > A janela de manutenção configurante é uma operação assíncrona de longa duração, semelhante à alteração do nível de serviço do recurso Azure SQL. O recurso está disponível durante a operação, exceto uma pequena falha que ocorre no final da operação e que normalmente dura até 8 segundos, mesmo em caso de transações interrompidas de longa duração. Para minimizar o impacto do failover, deve efetuar a operação fora das horas de ponta.
 
 ### <a name="gain-more-predictability-with-maintenance-window"></a>Ganhar mais previsibilidade com janela de manutenção
 
-Por padrão, todas as bases de dados Azure SQL e bases de dados de casos geridos são atualizadas apenas durante as 17:00 às 8:00 horas locais diariamente para evitar interrupções de horas de trabalho de pico. A hora local é determinada pela [região de Azure](https://azure.microsoft.com/global-infrastructure/geographies/) que acolhe o recurso. Pode ajustar ainda mais as atualizações de manutenção para um tempo adequado à sua base de dados, escolhendo entre duas ranhuras adicionais de janela de manutenção:
+Por padrão, a política de manutenção do Azure SQL bloqueia atualizações impactantes durante o período das 8h às 17h locais todos os dias para evitar quaisquer perturbações durante as horas de pico típicas. A hora local é determinada pela [região de Azure](https://azure.microsoft.com/global-infrastructure/geographies/) que acolhe o recurso. Por outras palavras, _a janela de manutenção predefinida_ permite a manutenção entre as 17h e as 8h do dia seguinte, todos os dias. Pode ajustar ainda mais as atualizações de manutenção para um tempo adequado aos seus recursos Azure SQL, escolhendo entre duas ranhuras adicionais de janela de manutenção:
  
 * Janela do dia da semana, das 22h às 6h locais de segunda a quinta-feira
 * Janela de fim de semana, 22:00 às 6:00 horas locais sexta-feira - domingo
 
-Uma vez feita a seleção da janela de manutenção e a configuração do serviço concluída, todas as atualizações de manutenção planeadas só ocorrerão durante a janela à sua escolha.   
+Uma vez feita a seleção da janela de manutenção e a configuração de serviço concluída, a manutenção planeada só ocorrerá durante a janela à sua escolha.   
 
-> [!Note]
-> Além das atualizações de manutenção planeadas, em raras circunstâncias eventos de manutenção não planeados podem causar indisponibilidade. 
+> [!Important]
+> Em circunstâncias muito raras, em que qualquer adiamento de ação pode causar um impacto sério, como a aplicação de um patch de segurança crítico, a janela de manutenção configurada pode ser temporariamente sobrevalada. 
 
 ### <a name="cost-and-eligibility"></a>Custo e elegibilidade
 
-Configurar e utilizar a janela de manutenção é gratuito para todos os tipos de [ofertas](https://azure.microsoft.com/support/legal/offer-details/)elegíveis : Pay-As-You-Go, Cloud Solution Provider (CSP), Microsoft Enterprise ou Microsoft Customer Agreement.
+Configurar e utilizar a janela de manutenção é gratuito para todos os tipos de [ofertas](https://azure.microsoft.com/support/legal/offer-details/)elegíveis : Pay-As-You-Go, Cloud Solution Provider (CSP), Microsoft Enterprise Agreement ou Microsoft Customer Agreement.
 
 > [!Note]
 > Uma oferta do Azure é o tipo da subscrição do Azure que possui. Por exemplo, uma subscrição com [taxas pay-as-you-go](https://azure.microsoft.com/offers/ms-azr-0003p/), [Azure em Open](https://azure.microsoft.com/en-us/offers/ms-azr-0111p/), e Visual Studio [Enterprise](https://azure.microsoft.com/en-us/offers/ms-azr-0063p/) são todas as ofertas da Azure. Cada oferta ou plano tem diferentes termos e benefícios. A sua oferta ou plano é mostrado no resumo da subscrição. Para obter mais informações sobre a mudança da sua subscrição para uma oferta diferente, consulte [alterar a subscrição do Azure para uma oferta diferente.](/azure/cost-management-billing/manage/switch-azure-offer)
 
 ## <a name="advance-notifications"></a>Notificações antecipadas
 
-As notificações de manutenção podem ser configuradas para alertá-lo sobre os próximos eventos de manutenção planeados para si Azure SQL Database 24 horas antes, no momento da manutenção, e quando a janela de manutenção estiver completa. Para mais informações, consulte [notificações antecipadas.](advance-notifications.md)
+As notificações de manutenção podem ser configuradas para alertá-lo sobre os próximos eventos de manutenção planeados para a sua Base de Dados Azure SQL com 24 horas de antecedência, no momento da manutenção, e quando a manutenção estiver concluída. Para mais informações, consulte [notificações antecipadas.](advance-notifications.md)
 
 ## <a name="availability"></a>Disponibilidade
 
@@ -102,6 +103,25 @@ Para mais informações sobre a política de ligação ao cliente na Base de Dad
 
 Para mais informações sobre a política de ligação ao cliente em Azure SQL caso gerido consulte [os tipos de conexão Azure SQL Managed Instance](../../azure-sql/managed-instance/connection-types-overview.md).
 
+## <a name="considering-specifics-of-azure-sql-managed-instance"></a>Considerando as especificidades da Azure SQL Managed Instance
+
+A Azure SQL Managed Instance consiste em componentes de serviço hospedados num conjunto dedicado de máquinas virtuais isoladas que funcionam dentro da sub-rede de rede virtual do cliente. Estas máquinas virtuais formam [clusters virtuais](https://docs.microsoft.com/azure/azure-sql/managed-instance/connectivity-architecture-overview#high-level-connectivity-architecture) que podem acolher várias instâncias geridas. A janela de manutenção configurada em casos de uma sub-rede pode influenciar o número de aglomerados virtuais dentro da sub-rede e a distribuição de instâncias entre clusters virtuais. Isto pode exigir uma consideração de poucos efeitos.
+
+### <a name="maintenance-window-configuration-is-long-running-operation"></a>A configuração da janela de manutenção é uma operação de longa duração 
+Todas as instâncias hospedadas num cluster virtual partilham a janela de manutenção. Por predefinição, todas as instâncias geridas são hospedadas no cluster virtual com a janela de manutenção predefinida. Especificar outra janela de manutenção para a sua criação ou depois significa que deve ser colocada em aglomerado virtual com a respetiva janela de manutenção. Se não houver tal cluster virtual na sub-rede, um novo deve ser criado primeiro para acomodar o caso. Acomodar instâncias adicionais no cluster virtual existente pode requerer o redimensionamento do cluster. Ambas as operações contribuem para a duração da janela de manutenção configurada para uma instância gerida.
+A duração prevista da janela de manutenção configurada em instância gerida pode ser calculada com base na [duração estimada das operações de gestão de instâncias](https://docs.microsoft.com/azure/azure-sql/managed-instance/management-operations-overview#duration).
+
+> [!Important]
+> Uma pequena falha ocorre no final da operação e normalmente dura até 8 segundos, mesmo em caso de transações interrompidas de longa duração. Para minimizar o impacto do failover, deve efetuar a operação fora das horas de ponta.
+
+### <a name="ip-address-space-requirements"></a>Requisitos de espaço de endereço IP
+Cada novo cluster virtual na sub-rede requer endereços IP adicionais de acordo com a [atribuição de endereços IP de cluster virtual](https://docs.microsoft.com/azure/azure-sql/managed-instance/vnet-subnet-determine-size#determine-subnet-size). A alteração da janela de manutenção para a instância gerida existente também requer [capacidade de IP adicional temporária](https://docs.microsoft.com/azure/azure-sql/managed-instance/vnet-subnet-determine-size#address-requirements-for-update-scenarios) como no cenário de escala vCores para o nível de serviço correspondente.
+
+### <a name="ip-address-change"></a>Alteração de endereço IP
+Configurar e alterar a janela de manutenção provoca a alteração do endereço IP do caso, dentro do intervalo de endereço IP da sub-rede.
+
+> [!Important]
+>  Certifique-se de que as regras de NSG e firewall não bloqueiam o tráfego de dados após a alteração do endereço IP. 
 
 ## <a name="next-steps"></a>Passos seguintes
 

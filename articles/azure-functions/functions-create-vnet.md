@@ -1,161 +1,387 @@
 ---
-title: Integre as Funções Azure com uma rede virtual Azure
-description: Um tutorial passo a passo que mostra como ligar uma função a uma rede virtual Azure
+title: Utilize pontos finais privados para integrar funções do Azure com uma rede virtual
+description: Um tutorial passo a passo que mostra como ligar uma função a uma rede virtual Azure e bloqueá-la com pontos finais privados
 ms.topic: article
-ms.date: 4/23/2020
-ms.openlocfilehash: efc936111d162d73b1cc5465ae6b677c9006ab32
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.date: 2/22/2021
+ms.openlocfilehash: a7bad58167009b4089724165813eb061996f1e6b
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97937033"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102200211"
 ---
-# <a name="tutorial-integrate-functions-with-an-azure-virtual-network"></a>Tutorial: integrar Funções com uma rede virtual do Azure
+# <a name="tutorial-integrate-azure-functions-with-an-azure-virtual-network-using-private-endpoints"></a>Tutorial: Integrar funções do Azure com uma rede virtual Azure utilizando pontos finais privados
 
-Este tutorial mostra-lhe como usar as Funções Azure para se conectar a recursos numa rede virtual Azure. irá criar uma função que tenha acesso tanto à internet como a um WordPress em execução VM na rede virtual.
+Este tutorial mostra-lhe como usar as Funções Azure para se conectar a recursos numa rede virtual Azure com pontos finais privados. Você vai criar uma função com uma conta de armazenamento bloqueada atrás de uma rede virtual que usa um gatilho de fila de ônibus de serviço.
 
 > [!div class="checklist"]
 > * Criar uma aplicação de função no plano Premium
-> * Implementar um site WordPress para VM numa rede virtual
-> * Ligue a aplicação de função à rede virtual
-> * Criar um proxy de função para aceder aos recursos do WordPress
-> * Solicite um ficheiro WordPress a partir de dentro da rede virtual
-
-## <a name="topology"></a>Topologia
-
-O seguinte diagrama mostra a arquitetura da solução que cria:
-
- ![UI para integração de rede virtual](./media/functions-create-vnet/topology.png)
-
-As funções em execução no plano Premium têm as mesmas capacidades de hospedagem que as aplicações web no Azure App Service, que inclui a funcionalidade de Integração VNet. Para saber mais sobre a Integração VNet, incluindo resolução de problemas e configuração avançada, consulte [Integrar a sua aplicação com uma rede virtual Azure.](../app-service/web-sites-integrate-with-vnet.md)
-
-## <a name="prerequisites"></a>Pré-requisitos
-
-Para este tutorial, é importante que compreenda a endereçamento e sub-rede ip. Pode começar por [este artigo que cobre o básico de endereçar e sub-rede](https://support.microsoft.com/help/164015/understanding-tcp-ip-addressing-and-subnetting-basics). Muitos mais artigos e vídeos estão disponíveis online.
-
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+> * Criar recursos Azure (Service Bus, Conta de Armazenamento, Rede Virtual)
+> * Bloqueie a sua conta de Armazenamento atrás de um ponto final privado
+> * Bloqueie o seu ônibus de serviço atrás de um ponto final privado
+> * Implemente uma aplicação de função com os gatilhos Service Bus e HTTP.
+> * Bloqueie a sua aplicação de função por trás de um ponto final privado
+> * Teste para ver se a sua aplicação de função está segura por trás da rede virtual
+> * Limpar os recursos
 
 ## <a name="create-a-function-app-in-a-premium-plan"></a>Criar uma aplicação de função num plano Premium
 
-Em primeiro lugar, cria-se uma aplicação de função no [plano Premium.] Este plano fornece escala sem servidor enquanto suporta a integração de rede virtual.
+Em primeiro lugar, cria-se uma aplicação de função .NET no [plano Premium,] uma vez que este tutorial utilizará C#. Outros idiomas também são suportados no Windows. Este plano fornece escala sem servidor enquanto suporta a integração de rede virtual.
 
-[!INCLUDE [functions-premium-create](../../includes/functions-premium-create.md)]  
+1. A partir do menu do portal do Azure ou a partir da **Home page**, selecione **Criar um recurso**.
 
-Pode fixar a aplicação de função no painel de instrumentos selecionando o ícone pino no canto superior direito. A fixação facilita o regresso a esta aplicação de função depois de criar o seu VM.
+1. Na **nova** página, selecione App de Função **computacional**  >  .
 
-## <a name="create-a-vm-inside-a-virtual-network"></a>Criar um VM dentro de uma rede virtual
+1. Na página **Basics,** utilize as definições da aplicação de função conforme especificado no quadro seguinte:
 
-Em seguida, crie um VM pré-configurado que executa o WordPress dentro de uma rede virtual[(WordPress LEMP7 Max Performance](https://jetware.io/appliances/jetware/wordpress4_lemp7-170526/profile?us=azure) by Jetware). Um WordPress VM é usado devido ao seu baixo custo e conveniência. Este mesmo cenário funciona com qualquer recurso numa rede virtual, como ASPis REST, Ambientes de Serviço de Aplicações e outros serviços Azure. 
+    | Definição      | Valor sugerido  | Descrição |
+    | ------------ | ---------------- | ----------- |
+    | **Subscrição** | A sua subscrição | A subscrição no âmbito da qual esta nova aplicação de funções é criada. |
+    | **[Grupo de Recursos](../azure-resource-manager/management/overview.md)** |  *myResourceGroup* | Nome do grupo de recursos novo no qual a aplicação Function App vai ser criada. |
+    | **Nome da Aplicação de Funções** | Nome globalmente exclusivo | Nome que identifica a sua aplicação Function App nova. Os carateres válidos são `a-z` (não sensível a maiúsculas e minúsculas), `0-9` e `-`.  |
+    |**Publicar**| Código | Opção para publicar ficheiros de código ou um contentor de Docker. |
+    | **Pilha de runtime** | .NET | Este tutorial usa .NET |
+    |**Região**| Região preferida | Escolha uma [região](https://azure.microsoft.com/regions/) perto de si ou perto de outros serviços a que as suas funções acedam. |
 
-1. No portal, escolha **+ Crie um recurso** no painel de navegação esquerdo, no tipo de campo de `WordPress LEMP7 Max Performance` pesquisa, e prima Enter.
+1. Selecione **Seguinte: Hospedagem**. Na página **'Hospedagem',** insira as seguintes definições:
 
-1. Escolha **o Wordpress LEMP Max Performance** nos resultados da pesquisa. Selecione um plano de software do **Wordpress LEMP Max Performance para CentOS** como **Plano de Software** e selecione **Criar**.
+    | Definição      | Valor sugerido  | Descrição |
+    | ------------ | ---------------- | ----------- |
+    | **[Conta de armazenamento](../storage/common/storage-account-create.md)** |  Nome globalmente exclusivo |  Crie uma conta de armazenamento para ser utilizada pela sua aplicação de funções. Os nomes das contas de armazenamento têm de ter entre 3 e 24 carateres de comprimento e apenas podem conter números e letras minúsculas. Também pode utilizar uma conta existente, que deve satisfazer os requisitos da [conta de armazenamento.](./storage-considerations.md#storage-account-requirements) |
+    |**Sistema operativo**| Windows | Este tutorial usa o Windows |
+    | **[Planear](./functions-scale.md)** | Premium | O plano de alojamento que define a forma como os recursos são alocados à sua aplicação Function App. Selecione **Premium**. Por padrão, é criado um novo plano de Serviço de Aplicações. O **Sku padrão e o tamanho** é **EP1,** onde EP significa _prémio elástico_. Para saber mais, consulte a [lista de SKUs Premium.](./functions-premium-plan.md#available-instance-skus)<br/>Ao executar funções JavaScript num plano Premium, deve escolher um caso que tenha menos vCPUs. Para obter mais informações, consulte [Escolha os planos Premium de núcleo único.](./functions-reference-node.md#considerations-for-javascript-functions)  |
 
-1. No **separador Básicos,** utilize as definições de VM conforme especificado na tabela abaixo da imagem:
+1. Selecione **Seguinte: Monitorização**. Na página **de Monitorização,** insira as seguintes definições:
 
-    ![Separador básico para criar um VM](./media/functions-create-vnet/create-vm-1.png)
+    | Definição      | Valor sugerido  | Descrição |
+    | ------------ | ---------------- | ----------- |
+    | **[Application Insights](./functions-monitoring.md)** | Predefinição | Cria um recurso Application Insights com o mesmo *nome app* na região suportada mais próxima. Ao expandir esta definição, pode alterar o nome de **novo recurso** ou escolher uma **Localização** diferente numa [geografia Azure](https://azure.microsoft.com/global-infrastructure/geographies/) para armazenar os seus dados. |
+
+1. Selecione **Review + crie** para rever as seleções de configuração da aplicação.
+
+1. Na página **'Rever + criar',** rever as definições e, em seguida, selecionar **Criar** para provisão e implementar a aplicação de função.
+
+1. Selecione o ícone **notificações** no canto superior direito do portal e observe a mensagem **de implementação conseguida.**
+
+1. Selecione **Ir para o recurso** para ver a sua nova aplicação de funções. Também pode selecionar **Pin para painel de instrumentos.** A fixação facilita o regresso a esta função de recurso de aplicação a partir do seu dashboard.
+
+1. Parabéns! Criou com sucesso a sua aplicação de função premium!
+
+## <a name="create-azure-resources"></a>Criar recursos do Azure
+
+### <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
+
+Uma conta de armazenamento separada da criada na criação inicial da sua aplicação de função é necessária para redes virtuais.
+
+1. A partir do menu do portal do Azure ou a partir da **Home page**, selecione **Criar um recurso**.
+
+1. Na página Nova, procure por **Conta de Armazenamento** e selecione **Criar**
+
+1. No **separador Básicos,** defina as definições conforme especificado na tabela abaixo. O resto pode ser deixado como padrão:
 
     | Definição      | Valor sugerido  | Descrição      |
     | ------------ | ---------------- | ---------------- |
     | **Subscrição** | A sua subscrição | A subscrição sob a qual os seus recursos são criados. | 
-    | **[Grupo de recursos](../azure-resource-manager/management/overview.md)**  | myResourceGroup | Escolha `myResourceGroup` , ou o grupo de recursos que criou com a sua aplicação de função. A utilização do mesmo grupo de recursos para a aplicação de função, o WordPress VM e o plano de hospedagem facilitam a limpeza dos recursos quando termina este tutorial. |
-    | **Nome da máquina virtual** | VNET-Wordpress | O nome VM tem de ser único no grupo de recursos |
-    | **[Region](https://azure.microsoft.com/regions/)** | (Europa) Europa Ocidental | Escolha uma região perto de si ou perto das funções que acedam ao VM. |
-    | **Tamanho** | B1s | Escolha **o tamanho de Alterar** e, em seguida, selecione a imagem padrão B1s, que tem 1 vCPU e 1 GB de memória. |
-    | **Tipo de autenticação** | Palavra-passe | Para utilizar a autenticação de palavra-passe, também deve especificar um **nome de utilizador**, uma **palavra-passe** segura e, em seguida, **confirmar a palavra-passe**. Para este tutorial, não precisará de se inscrever no VM a menos que precise de resolver problemas. |
+    | **[Grupo de recursos](../azure-resource-manager/management/overview.md)**  | myResourceGroup | Escolha o grupo de recursos que criou com a sua aplicação de função. |
+    | **Nome** | mysecurestorage| O nome da sua conta de armazenamento a que será aplicado o ponto final privado. |
+    | **[Region](https://azure.microsoft.com/regions/)** | myFunctionRegion | Escolha a região em que criou a sua aplicação de função. |
 
-1. Escolha o **separador de Rede** e em configurar redes virtuais selecione **Criar novo**.
+1. Selecione **Rever + criar**. Após a validação concluída, **selecione Criar**.
 
-1. Na **configuração da rede virtual,** utilize as definições na tabela abaixo da imagem:
+### <a name="create-a-service-bus"></a>Criar um ônibus de serviço
 
-    ![Separador de rede de criar VM](./media/functions-create-vnet/create-vm-2.png)
+1. A partir do menu do portal do Azure ou a partir da **Home page**, selecione **Criar um recurso**.
 
-    | Definição      | Valor sugerido  | Descrição      |
-    | ------------ | ---------------- | ---------------- |
-    | **Nome** | myResourceGroup-vnet | Pode utilizar o nome padrão gerado para a sua rede virtual. |
-    | **Intervalo de endereços** | 10.10.0.0/16 | Utilize um único intervalo de endereços para a rede virtual. |
-    | **Nome da sub-rede** | Tutorial-Net | Nome da sub-rede. |
-    | **Intervalo de endereços** (sub-rede) | 10.10.1.0/24   | O tamanho da sub-rede define quantas interfaces podem ser adicionadas à sub-rede. Esta sub-rede é utilizada pelo site WordPress.  Uma `/24` sub-rede fornece 254 endereços de anfitrião. |
+1. Na página Nova, procure **por Service Bus** e selecione **Create**.
 
-1. Selecione **OK** para criar a rede virtual.
-
-1. De volta ao **separador Networking,** escolha **Nenhum** para **IP público.**
-
-1. Escolha o separador **Gestão** e, em seguida, na **conta de armazenamento de Diagnósticos,** escolha a conta de Armazenamento que criou com a sua aplicação de função.
-
-1. Selecione **Rever + criar**. Após a validação concluída, **selecione Criar**. O processo de criação de VM demora alguns minutos. O VM criado só pode aceder à rede virtual.
-
-1. Depois de o VM ser criado, escolha **Ir para o recurso** para visualizar a página para o seu novo VM e, em seguida, escolher **Networking** em **Definições**.
-
-1. Verifique se não existe **UM IP público.** Tome nota do **IP Privado,** que utiliza para ligar ao VM a partir da sua aplicação de função.
-
-    ![Definições de rede no VM](./media/functions-create-vnet/vm-networking.png)
-
-Tem agora um site WordPress totalmente implantado na sua rede virtual. Este site não é acessível a partir da internet pública.
-
-## <a name="connect-your-function-app-to-the-virtual-network"></a>Ligue a sua aplicação de função à rede virtual
-
-Com um site WordPress a funcionar num VM numa rede virtual, pode agora ligar a sua aplicação de função a essa rede virtual.
-
-1. Na sua nova aplicação de funções, selecione **Networking** no menu esquerdo.
-
-1. Em **Integração VNet,** selecione **Clique aqui para configurar**.
-
-    :::image type="content" source="./media/functions-create-vnet/networking-0.png" alt-text="Escolha o networking na aplicação de função":::
-
-1. Na página **de Integração VNET,** selecione **Add VNet**.
-
-    :::image type="content" source="./media/functions-create-vnet/networking-2.png" alt-text="Adicione a pré-visualização da Integração VNet":::
-
-1. No **Estado da Funcionalidade de Rede,** utilize as definições na tabela abaixo da imagem:
-
-    ![Defina a rede virtual da aplicação de função](./media/functions-create-vnet/networking-3.png)
+1. No **separador Básicos,** defina as definições conforme especificado na tabela abaixo. O resto pode ser deixado como padrão:
 
     | Definição      | Valor sugerido  | Descrição      |
     | ------------ | ---------------- | ---------------- |
-    | **Rede Virtual** | MyResourceGroup-vnet | Esta rede virtual foi a que criou anteriormente. |
-    | **Sub-rede** | Criar nova sub-rede | Crie uma sub-rede na rede virtual para a sua aplicação de função utilizar. A integração VNet deve ser configurada para utilizar uma sub-rede vazia. Não importa que as suas funções utilizem uma sub-rede diferente da sua VM. A rede virtual liga automaticamente o tráfego entre as duas sub-redes. |
-    | **Nome da sub-rede** | Function-Net | Nome da nova sub-rede. |
-    | **Bloco de endereço de rede virtual** | 10.10.0.0/16 | Escolha o mesmo bloco de endereços utilizado pelo site WordPress. Deve ter apenas um bloco de endereços definido. |
-    | **Intervalo de endereços** | 10.10.2.0/24   | O tamanho da sub-rede restringe o número total de casos que a sua aplicação de função de plano Premium pode escalar para. Este exemplo utiliza uma `/24` sub-rede com 254 endereços de anfitrião disponíveis. Esta sub-rede é excessivamente a provisionada, mas fácil de calcular. |
+    | **Subscrição** | A sua subscrição | A subscrição sob a qual os seus recursos são criados. |
+    | **[Grupo de recursos](../azure-resource-manager/management/overview.md)**  | myResourceGroup | Escolha o grupo de recursos que criou com a sua aplicação de função. |
+    | **Nome** | myServiceBus| O nome do seu ônibus de serviço ao qual será aplicado o ponto final privado. |
+    | **[Region](https://azure.microsoft.com/regions/)** | myFunctionRegion | Escolha a região em que criou a sua aplicação de função. |
+    | **Escalão de preço** | Premium | Escolha este nível para utilizar pontos finais privados com o Service Bus. |
 
-1. Selecione **OK** para adicionar a sub-rede. Feche as páginas de Estado de Integração e **Funcionalidade de Rede** **VNet** para voltar à página da aplicação da função.
+1. Selecione **Rever + criar**. Após a validação concluída, **selecione Criar**.
 
-A aplicação de função pode agora aceder à rede virtual onde o site WordPress está em execução. Em seguida, utiliza [Proxies de Funções Azure](functions-proxies.md) para devolver um ficheiro do site WordPress.
+### <a name="create-a-virtual-network"></a>Criar uma rede virtual
 
-## <a name="create-a-proxy-to-access-vm-resources"></a>Criar um proxy para aceder aos recursos VM
+Os recursos azure neste tutorial integram-se ou são colocados dentro de uma rede virtual. Você usará pontos finais privados para manter o tráfego de rede contido com a rede virtual.
 
-Com a Integração VNet ativada, pode criar um proxy na sua app de função para encaminhar pedidos para o VM em execução na rede virtual.
+O tutorial cria duas sub-redes:
+- **padrão**: Sub-rede para pontos finais privados. Os endereços IP privados são dados a partir desta sub-rede.
+- **funções**: Sub-rede para integração de rede virtual Azure Functions. Esta sub-rede é delegada na aplicação de função.
 
-1. Na sua aplicação de função, selecione  **Proxies** a partir do menu esquerdo e, em seguida, **selecione Adicionar**. Utilize as definições de procuração na tabela abaixo da imagem:
+Agora, crie a rede virtual à qual a aplicação de função se integra.
 
-    :::image type="content" source="./media/functions-create-vnet/create-proxy.png" alt-text="Definir as definições de procuração":::
+1. A partir do menu do portal do Azure ou a partir da Home page, selecione **Criar um recurso**.
 
-    | Definição  | Valor sugerido  | Descrição      |
-    | -------- | ---------------- | ---------------- |
-    | **Nome** | Fábrica | O nome pode ser qualquer valor. É usado para identificar o representante. |
-    | **Modelo de rota** | /planta | Rota que mapeia para um recurso VM. |
-    | **URL de back-end** | http://<YOUR_VM_IP>/wp-content/temas/twentyseventeen/assets/images/header.jpg | `<YOUR_VM_IP>`Substitua-o pelo endereço IP do seu WordPress VM que criou anteriormente. Este mapeamento devolve um único ficheiro do site. |
+1. Na página Nova, procure por **Rede Virtual** e selecione **Criar**.
 
-1. Selecione **Criar** para adicionar o proxy à sua aplicação de função.
+1. No **separador Básicos,** utilize as definições de rede virtual conforme especificado abaixo:
 
-## <a name="try-it-out"></a>Experimente
+    | Definição      | Valor sugerido  | Descrição      |
+    | ------------ | ---------------- | ---------------- |
+    | **Subscrição** | A sua subscrição | A subscrição sob a qual os seus recursos são criados. | 
+    | **[Grupo de recursos](../azure-resource-manager/management/overview.md)**  | myResourceGroup | Escolha o grupo de recursos que criou com a sua aplicação de função. |
+    | **Nome** | myVirtualNet| O nome da sua rede virtual à qual a sua aplicação de função se irá ligar. |
+    | **[Region](https://azure.microsoft.com/regions/)** | myFunctionRegion | Escolha a região em que criou a sua aplicação de função. |
 
-1. No seu navegador, tente aceder ao URL que usou como **URL backend**. Como esperado, o pedido está esgotado. Ocorre um intervalo porque o seu site WordPress está ligado apenas à sua rede virtual e não à internet.
+1. No separador **endereços IP,** selecione **Adicionar sub-rede**. Utilize as definições conforme especificado abaixo ao adicionar uma sub-rede:
 
-1. Copie o valor **de URL proxy** do seu novo proxy e cole-o na barra de endereço do seu navegador. A imagem devolvida é do site WordPress que está a decorrer dentro da sua rede virtual.
+    :::image type="content" source="./media/functions-create-vnet/1-create-vnet-ip-address.png" alt-text="Screenshot da visão de configuração de rede virtual criar.":::
 
-    ![Ficheiro de imagem de planta devolvido do site WordPress](./media/functions-create-vnet/plant.png)
+    | Definição      | Valor sugerido  | Descrição      |
+    | ------------ | ---------------- | ---------------- |
+    | **Nome da sub-rede** | funções | O nome da sub-rede a que a sua aplicação de função se ligará. | 
+    | **Intervalo de endereços da sub-rede** | 10.0.1.0/24 | Note que o nosso espaço de endereço IPv4 na imagem acima é de 10.0.0.0/16. Se o acima foi de 10.1.0.0/16, o intervalo de *endereços recomendado sub-rede* seria de 10.1.1.0/24. |
 
-A sua aplicação de função está ligada tanto à internet como à sua rede virtual. O representante está a receber um pedido através da internet pública e, em seguida, atua como um simples representante http para encaminhar esse pedido para a rede virtual conectada. Em seguida, o representante transmite-lhe a resposta publicamente através da internet.
+1. Selecione **Rever + criar**. Após a validação concluída, **selecione Criar**.
+
+## <a name="lock-down-your-storage-account-with-private-endpoints"></a>Bloqueie a sua conta de armazenamento com pontos finais privados
+
+Os Azure Private Endpoints são utilizados para se conectarem a recursos específicos do Azure utilizando um endereço IP privado. Esta ligação garante que o tráfego de rede permanece dentro da rede virtual escolhida, e o acesso está disponível apenas para recursos específicos. Agora, crie os pontos finais privados para o armazenamento de ficheiros Azure e o armazenamento Azure Blob com a sua conta de armazenamento.
+
+1. Na sua nova conta de armazenamento, selecione **Networking** no menu esquerdo.
+
+1. Selecione o **separador de ligações de ponto final privado** e selecione O ponto de **terminação privado**.
+
+    :::image type="content" source="./media/functions-create-vnet/2-navigate-private-endpoint-store.png" alt-text="Screenshot de como navegar para criar pontos finais privados para a conta de armazenamento.":::
+
+1. No **separador Básicos,** utilize as definições de ponto final privado, conforme especificado abaixo:
+
+    | Definição      | Valor sugerido  | Descrição      |
+    | ------------ | ---------------- | ---------------- |
+    | **Subscrição** | A sua subscrição | A subscrição sob a qual os seus recursos são criados. | 
+    | **[Grupo de recursos](../azure-resource-manager/management/overview.md)**  | myResourceGroup | Escolha o grupo de recursos que criou com a sua aplicação de função. | |
+    | **Nome** | ponto final de ficheiro | O nome do ponto final privado para ficheiros da sua conta de armazenamento. |
+    | **[Region](https://azure.microsoft.com/regions/)** | myFunctionRegion | Escolha a região onde criou a sua conta de armazenamento. |
+
+1. No separador **Recursos,** utilize as definições de ponto final privado, conforme especificado abaixo:
+
+    | Definição      | Valor sugerido  | Descrição      |
+    | ------------ | ---------------- | ---------------- |
+    | **Subscrição** | A sua subscrição | A subscrição sob a qual os seus recursos são criados. | 
+    | **Tipo de recurso**  | Microsoft.Storage/storageAcontas | Este é o tipo de recurso para contas de armazenamento. |
+    | **Recurso** | mysecurestorage | A conta de armazenamento que acabou de criar |
+    | **Recurso secundário de destino** | file | Este ponto final privado será utilizado para ficheiros a partir da conta de armazenamento. |
+
+1. No **separador Configuração,** escolha o **predefinição** para a definição de Sub-rede.
+
+1. Selecione **Rever + criar**. Após a validação concluída, **selecione Criar**. Os recursos na rede virtual podem agora falar com ficheiros de armazenamento.
+
+1. Crie outro ponto final privado para bolhas. Para o separador **Recursos,** utilize as definições abaixo. Para todas as outras definições, utilize as mesmas definições dos passos de criação de ponto final privado de ficheiro que acabou de seguir.
+
+    | Definição      | Valor sugerido  | Descrição      |
+    | ------------ | ---------------- | ---------------- |
+    | **Subscrição** | A sua subscrição | A subscrição sob a qual os seus recursos são criados. | 
+    | **Tipo de recurso**  | Microsoft.Storage/storageAcontas | Este é o tipo de recurso para contas de armazenamento. |
+    | **Recurso** | mysecurestorage | A conta de armazenamento que acabou de criar |
+    | **Recurso secundário de destino** | blob | Este ponto final privado será utilizado para bolhas da conta de armazenamento. |
+
+## <a name="lock-down-your-service-bus-with-a-private-endpoint"></a>Bloqueie o seu ônibus de serviço com um ponto final privado
+
+Agora, crie o ponto final privado para o seu Azure Service Bus.
+
+1. No seu novo autocarro de serviço, selecione **Networking** no menu esquerdo.
+
+1. Selecione o **separador de ligações de ponto final privado** e selecione O ponto de **terminação privado**.
+
+    :::image type="content" source="./media/functions-create-vnet/3-navigate-private-endpoint-service-bus.png" alt-text="Screenshot de como navegar para pontos finais privados para ônibus de serviço.":::
+
+1. No **separador Básicos,** utilize as definições de ponto final privado, conforme especificado abaixo:
+
+    | Definição      | Valor sugerido  | Descrição      |
+    | ------------ | ---------------- | ---------------- |
+    | **Subscrição** | A sua subscrição | A subscrição sob a qual os seus recursos são criados. | 
+    | **[Grupo de recursos](../azure-resource-manager/management/overview.md)**  | myResourceGroup | Escolha o grupo de recursos que criou com a sua aplicação de função. |
+    | **Nome** | sb-endpoint | O nome do ponto final privado para ficheiros da sua conta de armazenamento. |
+    | **[Region](https://azure.microsoft.com/regions/)** | myFunctionRegion | Escolha a região onde criou a sua conta de armazenamento. |
+
+1. No separador **Recursos,** utilize as definições de ponto final privado, conforme especificado abaixo:
+
+    | Definição      | Valor sugerido  | Descrição      |
+    | ------------ | ---------------- | ---------------- |
+    | **Subscrição** | A sua subscrição | A subscrição sob a qual os seus recursos são criados. | 
+    | **Tipo de recurso**  | Microsoft.ServiceBus/namespaces | Este é o tipo de recurso para o Service Bus. |
+    | **Recurso** | myServiceBus | O Service Bus que criou anteriormente no tutorial. |
+    | **Subresource-alvo** | espaço de nomes | Este ponto final privado será utilizado para o espaço de nome do autocarro de serviço. |
+
+1. No **separador Configuração,** escolha o **predefinição** para a definição de Sub-rede.
+
+1. Selecione **Rever + criar**. Após a validação concluída, **selecione Criar**. Os recursos na rede virtual podem agora falar com o autocarro de serviço.
+
+## <a name="create-a-file-share"></a>Criar uma partilha de ficheiros
+
+1. Na conta de armazenamento que criou, selecione **ações de ficheiro** no menu esquerdo.
+
+1. Selecione **+ Partilhas de ficheiros**. Forneça **os ficheiros** como o nome da partilha de ficheiros para efeitos deste tutorial.
+
+    :::image type="content" source="./media/functions-create-vnet/4-create-file-share.png" alt-text="Screenshot de como criar uma partilha de ficheiros na conta de armazenamento.":::
+
+## <a name="get-storage-account-connection-string"></a>Obtenha o fio de conexão de conta de armazenamento
+
+1. Na conta de armazenamento que criou, selecione **as teclas de acesso** no menu esquerdo.
+
+1. Selecione **as teclas Show**. Copie a cadeia de ligação da chave1 e guarde-a. Vamos precisar desta cadeia de ligação mais tarde ao configurar as definições da aplicação.
+
+    :::image type="content" source="./media/functions-create-vnet/5-get-store-connection-string.png" alt-text="Screenshot de como obter uma cadeia de ligação de conta de armazenamento.":::
+
+## <a name="create-a-queue"></a>Criar uma fila
+
+Esta será a fila para a qual o seu Azure Functions Service Bus Trigger receberá eventos.
+
+1. No seu autocarro de serviço, selecione **Queues** no menu esquerdo.
+
+1. Selecione **políticas de acesso compartilhado**. Forneça **a fila** como o nome da fila para efeitos deste tutorial.
+
+    :::image type="content" source="./media/functions-create-vnet/6-create-queue.png" alt-text="Screenshot de como criar uma fila de ônibus de serviço.":::
+
+## <a name="get-service-bus-connection-string"></a>Obter cadeia de conexão de ônibus de serviço
+
+1. No seu autocarro de serviço, selecione **Políticas de acesso partilhado** no menu esquerdo.
+
+1. **Selecione RootManageSharedAccessKey**. Copie a **cadeia de ligação primária** e guarde-a. Vamos precisar desta cadeia de ligação mais tarde ao configurar as definições da aplicação.
+
+    :::image type="content" source="./media/functions-create-vnet/7-get-service-bus-connection-string.png" alt-text="Screenshot de como obter uma cadeia de ligação de autocarro de serviço.":::
+
+## <a name="integrate-function-app-with-your-virtual-network"></a>Integrar app de função com a sua rede virtual
+
+Para utilizar a sua aplicação de função com redes virtuais, terá de se juntar a ela a uma sub-rede. Utilizamos uma sub-rede específica para a integração da rede virtual Azure Functions e a sub-rede padrão para todos os outros pontos finais privados criados neste tutorial.
+
+1. Na sua aplicação de função, selecione **Networking** no menu esquerdo.
+
+1. Selecione **Clique aqui para configurar** em Integração VNet.
+
+    :::image type="content" source="./media/functions-create-vnet/8-connect-app-vnet.png" alt-text="Screenshot de como navegar para a integração de rede virtual.":::
+
+1. Selecione **Add VNet**
+
+1. Na lâmina que se abre em **Rede Virtual,** selecione a rede virtual que criou anteriormente.
+
+1. Selecione a **Sub-rede** que criamos anteriormente chamadas **funções**. A sua aplicação de função está agora integrada na sua rede virtual!
+
+    :::image type="content" source="./media/functions-create-vnet/9-connect-app-subnet.png" alt-text="Screenshot de como ligar uma aplicação de função a uma sub-rede.":::
+
+## <a name="configure-your-function-app-settings-for-private-endpoints"></a>Configure as definições da sua aplicação de função para pontos finais privados
+
+1. Na sua aplicação de função, **selecione Configuração** a partir do menu esquerdo.
+
+1. Para utilizar a sua aplicação de função com redes virtuais, as seguintes definições de aplicação terão de ser atualizadas. Selecione **+ Nova definição** de aplicação ou o lápis por **Editar** na coluna mais à direita da tabela de definições da aplicação, conforme apropriado. Quando terminar, selecione **Guardar**.
+
+    :::image type="content" source="./media/functions-create-vnet/10-configure-app-settings.png" alt-text="Screenshot de como configurar as definições de aplicações de função para pontos finais privados.":::
+
+    | Definição      | Valor sugerido  | Descrição      |
+    | ------------ | ---------------- | ---------------- |
+    | **AzureWebJobsStorage** | mysecurestorageConnectionString | A cadeia de ligação da conta de armazenamento que criou. Esta é a cadeia de ligação de armazenamento da cadeia de [ligação da conta de armazenamento](#get-storage-account-connection-string). Ao alterar esta definição, a sua aplicação de função irá agora utilizar a conta de armazenamento segura para operações normais em tempo de execução. | 
+    | **WEBSITE_CONTENTAZUREFILECONNECTIONSTRING**  | mysecurestorageConnectionString | A cadeia de ligação da conta de armazenamento que criou. Ao alterar esta definição, a sua aplicação de função irá agora utilizar a conta de armazenamento segura para ficheiros Azure, que são utilizados durante a implementação. |
+    | **WEBSITE_CONTENTSHARE** | ficheiros | O nome da partilha de ficheiros que criou na conta de armazenamento. Esta configuração da aplicação é usada em conjunto com WEBSITE_CONTENTAZUREFILECONNECTIONSTRING. |
+    | **SERVICEBUS_CONNECTION** | myServiceBusConnectionString | Crie uma definição de aplicação para a cadeia de ligação do seu autocarro de serviço. Esta é a cadeia de ligação de armazenamento da cadeia de [ligação do autocarro](#get-service-bus-connection-string)de serviço .|
+    | **WEBSITE_CONTENTOVERVNET** | 1 | Crie esta configuração de aplicação. Um valor de 1 permite que a sua aplicação de função se dimensione quando tem a sua conta de armazenamento restrita a uma rede virtual. Deve ativar esta definição ao restringir a sua conta de armazenamento a uma rede virtual. |
+    | **WEBSITE_DNS_SERVER** | 168.63.129.16 | Crie esta configuração de aplicação. Uma vez que a sua aplicação se integre com uma rede virtual, utilizará o mesmo servidor DNS que a rede virtual. Esta é uma das duas configurações necessárias para que a sua aplicação de função funcione com zonas privadas Azure DNS e seja necessária quando se utiliza pontos finais privados. Estas definições enviarão todas as chamadas de saída da sua app para a sua rede virtual. |
+    | **WEBSITE_VNET_ROUTE_ALL** | 1 | Crie esta configuração de aplicação. Uma vez que a sua aplicação se integre com uma rede virtual, utilizará o mesmo servidor DNS que a rede virtual. Esta é uma das duas configurações necessárias para que a sua aplicação de função funcione com zonas privadas Azure DNS e seja necessária quando se utiliza pontos finais privados. Estas definições enviarão todas as chamadas de saída da sua app para a sua rede virtual. |
+
+1. Mantendo-se na vista **de Configuração,** selecione o separador **definições de tempo de execução da função.**
+
+1. Desemisso de **escala de execução** para **on**, e selecione **Guardar**. O dimensionamento conduzido pelo tempo de execução permite-lhe ligar funções de gatilho não-HTTP a serviços que funcionam dentro da sua rede virtual.
+
+    :::image type="content" source="./media/functions-create-vnet/11-enable-runtime-scaling.png" alt-text="Screenshot de como ativar o escalonamento conduzido pelo tempo de execução para funções Azure.":::
+
+## <a name="deploy-a-service-bus-trigger-and-http-trigger-to-your-function-app"></a>Implementar um gatilho de autocarro de serviço e enviar o gatilho para a sua aplicação de função
+
+1. No GitHub, navegue pelo repositório de amostras a seguir, que contém uma aplicação de função com duas funções, um HTTP Trigger e um Service Bus Queue Trigger.
+
+    <https://github.com/Azure-Samples/functions-vnet-tutorial>
+
+1. No topo da página, selecione o botão **Fork** para criar um garfo deste repositório na sua própria conta ou organização GitHub.
+
+1. Na sua aplicação de função, selecione O Centro de **Implementação** a partir do menu esquerdo. Em seguida, selecione **Definições**.
+
+1. No **separador Definições,** utilize as definições de implementação conforme especificado abaixo:
+
+    | Definição      | Valor sugerido  | Descrição      |
+    | ------------ | ---------------- | ---------------- |
+    | **Origem** | GitHub | Devias ter criado um repo GitHub com o código de amostra no passo 2. | 
+    | **Organização**  | myOrganização | Esta é a organização em que o seu repo é registrado, normalmente a sua conta. |
+    | **Repositório** | myRepo | A repo que criaste com o código de amostra. |
+    | **Ramo** | main | Este é o repo que acabaste de criar, por isso usa o ramo principal. |
+    | **Pilha de runtime** | .NET | O código de amostra está em C#. |
+
+1. Selecione **Guardar**. 
+
+    :::image type="content" source="./media/functions-create-vnet/12-deploy-portal.png" alt-text="Screenshot de como implementar código Azure Functions através do portal.":::
+
+1. A sua implantação inicial pode demorar alguns minutos. Verá uma mensagem de Estado **de Sucesso (Ative)** no **separador Registares** quando a sua aplicação for implementada com sucesso. Se necessário, refresque a página. 
+
+1. Parabéns! Implementou com sucesso a sua aplicação de função de amostra.
+
+## <a name="lock-down-your-function-app-with-a-private-endpoint"></a>Bloqueie a sua aplicação de função com um ponto final privado
+
+Agora, crie o ponto final privado para a sua aplicação de função. Este ponto final privado ligará a sua aplicação de função de forma privada e segura à sua rede virtual utilizando um endereço IP privado. Para obter mais informações sobre os pontos finais privados, aceda à [documentação dos pontos finais privados.](https://docs.microsoft.com/azure/private-link/private-endpoint-overview)
+
+1. Na sua aplicação de função, selecione **Networking** no menu esquerdo.
+
+1. Selecione **Clique aqui para configurar** em Ligações de Ponto Final Privado.
+
+    :::image type="content" source="./media/functions-create-vnet/14-navigate-app-private-endpoint.png" alt-text="Screenshot de como navegar para um Ponto De Final Privado de Aplicação de Função.":::
+
+1. Selecione **Adicionar**.
+
+1. No menu que se abre, utilize as definições de ponto final privado, conforme especificado abaixo:
+
+    :::image type="content" source="./media/functions-create-vnet/15-create-app-private-endpoint.png" alt-text="Screenshot de como criar um ponto de terminamento privado da App de Função.":::
+
+1. Selecione **Ok** para adicionar o ponto final privado. Parabéns! Conseguiu garantir com sucesso a sua aplicação de função, autocarro de serviço e conta de armazenamento com pontos finais privados!
+
+### <a name="test-your-locked-down-function-app"></a>Teste o seu aplicativo de função bloqueado
+
+1. Na sua aplicação de funções, selecione **Funções** a partir do menu esquerdo.
+
+1. Selecione o **ServiceBusQueueTrigger**.
+
+1. A partir do menu esquerdo, selecione **Monitor**. verá que não consegue monitorizar a sua aplicação. Isto porque o seu navegador não tem acesso à rede virtual, pelo que não pode aceder diretamente aos recursos dentro da rede virtual. Vamos agora demonstrar outro método através do qual ainda pode monitorizar a sua função, Application Insights.
+
+1. Na sua aplicação de função, selecione **'Insights de Aplicação'** do menu esquerdo e selecione **os dados 'Insights de aplicação' de visualização.**
+
+    :::image type="content" source="./media/functions-create-vnet/16-app-insights.png" alt-text="Screenshot de como visualizar insights de aplicações para uma App de funções.":::
+
+1. Selecione **métricas** ao vivo a partir do menu esquerdo.
+
+1. Abra uma nova conta. No seu Service Bus, selecione **Filas** do menu esquerdo.
+
+1. Selecione a sua fila.
+
+1. Selecione **Service Bus Explorer** a partir do menu esquerdo. Em **Enviar**, escolha **Texto/Planície** como **o Tipo de Conteúdo** e introduza uma mensagem. 
+
+1. **Selecione Enviar** para enviar a mensagem.
+
+    :::image type="content" source="./media/functions-create-vnet/17-send-service-bus-message.png" alt-text="Screenshot de como enviar mensagens de Service Bus usando o portal.":::
+
+1. No separador com as **métricas live abertas,** deve ver se o gatilho da fila do Service Bus disparou. Se não tiver, reencaia a mensagem do **Service Bus Explorer**
+
+    :::image type="content" source="./media/functions-create-vnet/18-hello-world.png" alt-text="Screenshot de como visualizar mensagens usando métricas ao vivo para aplicações de função.":::
+
+1. Parabéns! Testou com sucesso a sua aplicação de função configurada com pontos finais privados!
+
+### <a name="private-dns-zones"></a>Zonas privadas de DNS
+Utilizar um ponto final privado para ligar aos recursos Azure significa ligar-se a um endereço IP privado em vez do ponto final público. Os serviços Azure existentes estão configurados para utilizar o DNS existente para ligar ao ponto final público. A configuração do DNS terá de ser ultrapassada para ligar ao ponto final privado.
+
+Foi criada uma zona privada de DNS para cada recurso Azure configurado com um ponto final privado. É criado um registo DNS A para cada endereço IP privado associado ao ponto final privado.
+
+As seguintes zonas DNS foram criadas neste tutorial:
+
+- privatelink.file.core.windows.net
+- privatelink.blob.core.windows.net
+- privatelink.servicebus.windows.net
+- privatelink.azurewebsites.net
 
 [!INCLUDE [clean-up-section-portal](../../includes/clean-up-section-portal.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, o site WordPress serve como uma API que é chamada através da utilização de um proxy na aplicação de função. Este cenário faz um bom tutorial porque é fácil de configurar e visualizar. Pode utilizar qualquer outra API implantada numa rede virtual. Também poderia ter criado uma função com código que chama APIs implantados dentro da rede virtual. Um cenário mais realista é uma função que utiliza APIs do cliente de dados para chamar uma instância do SQL Server implementada na rede virtual.
-
-As funções em execução num plano Premium partilham a mesma infraestrutura subjacente do Serviço de Aplicações que as aplicações web nos planos PremiumV2. Toda a documentação para [aplicações web no Azure App Service](../app-service/overview.md) aplica-se às funções do seu plano Premium.
+Neste tutorial, criou uma aplicação de função Premium, uma conta de armazenamento e um Service Bus, e garantiu-os a todos atrás de pontos finais privados! Saiba mais sobre as várias funcionalidades de networking disponíveis abaixo:
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre as opções de networking em Funções](./functions-networking-options.md)

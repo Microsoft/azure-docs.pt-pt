@@ -1,5 +1,5 @@
 ---
-title: Configurar ambiente de desenvolvimento para scripts de implantação em modelos Microsoft Docs
+title: Configurar ambiente de desenvolvimento para scripts de implantação em modelos | Microsoft Docs
 description: Configure o ambiente de desenvolvimento para scripts de implementação em modelos de Gestor de Recursos Azure (modelos ARM).
 services: azure-resource-manager
 author: mumian
@@ -7,12 +7,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 12/14/2020
 ms.author: jgao
-ms.openlocfilehash: f731236b235883f019c74ef0b32f5066ca5b7514
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: b2e1ffb3cbd513766945864e33589c46284bf942
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98179372"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102200942"
 ---
 # <a name="configure-development-environment-for-deployment-scripts-in-arm-templates"></a>Configurar ambiente de desenvolvimento para scripts de implantação em modelos ARM
 
@@ -357,7 +357,7 @@ O valor predefinido para o caminho de montagem é `/mnt/azscripts/azscriptinput`
 A imagem do recipiente predefinido especificada no modelo é **mcr.microsoft.com/azure-cli:2.9.1**. Consulte uma lista de [versões Azure CLI suportadas](https://mcr.microsoft.com/v2/azure-cli/tags/list).
 
 > [!IMPORTANT]
-> O script de implementação utiliza as imagens CLI disponíveis do Microsoft Container Registry (MCR). Leva cerca de um mês para certificar uma imagem CLI para um script de implementação. Não utilize as versões CLI que foram lançadas dentro de 30 dias. Para encontrar as datas de lançamento das imagens, consulte [as notas de lançamento do Azure CLI](/cli/azure/release-notes-azure-cli?view=azure-cli-latest&preserve-view=true). Se utilizar uma versão não suportada, a mensagem de erro lista as versões suportadas.
+> O script de implementação utiliza as imagens CLI disponíveis do Microsoft Container Registry (MCR). Leva cerca de um mês para certificar uma imagem CLI para um script de implementação. Não utilize as versões CLI que foram lançadas dentro de 30 dias. Para encontrar as datas de lançamento das imagens, consulte [as notas de lançamento do Azure CLI](/cli/azure/release-notes-azure-cli). Se utilizar uma versão não suportada, a mensagem de erro lista as versões suportadas.
 
 O gabarito suspende a instância do recipiente após 1.800 segundos. Tem 30 minutos antes que a instância do contentor entre em estado terminal e a sessão termine.
 

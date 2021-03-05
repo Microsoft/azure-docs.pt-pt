@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/21/2020
 ms.author: duau
-ms.openlocfilehash: e01b56f88270348167ef1eef9d913e65074d9247
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 0b82c11dcd615dfbdcfd70f5f90edd7ba41b4562
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96327258"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102201622"
 ---
 # <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application-using-azure-cli"></a>Quickstart: Criar uma porta frontal para uma aplicação web global altamente disponível usando O Azure CLI
 
@@ -46,7 +46,7 @@ Em Azure, aloca recursos relacionados a um grupo de recursos. Pode utilizar um g
 
 Para este arranque rápido, precisa de dois grupos de recursos. Um nos *EUA centrais* e o segundo no *Centro-Sul dos EUA.*
 
-Criar um grupo de recursos com [a criação de grupo az:](/cli/azure/group?view=azure-cli-latest#az-group-create&preserve-view=true)
+Criar um grupo de recursos com [a criação de grupo az:](/cli/azure/group#az-group-create)
 
 ```azurecli-interactive
 az group create \
@@ -68,7 +68,7 @@ Se ainda não tiver uma aplicação web, use o seguinte script para configurar d
 
 Antes de poder criar as aplicações web, necessitará de dois planos de serviço de aplicações, um no *Centro-Americano* e o segundo no *Centro-Americano.*
 
-Crie planos de serviço de aplicações com [plano de appservice az criar:](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create&preserve-view=true)
+Crie planos de serviço de aplicações com [plano de appservice az criar:](/cli/azure/appservice/plan#az_appservice_plan_create&preserve-view=true)
 
 ```azurecli-interactive
 az appservice plan create \
@@ -84,7 +84,7 @@ az appservice plan create \
 
 Executar os seguintes comandos criará uma aplicação web em cada um dos planos de serviço de aplicações no passo anterior. Os nomes das aplicações web têm de ser globalmente únicos.
 
-Crie aplicativo web com [a criação de webapp az:](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create&preserve-view=true)
+Crie aplicativo web com [a criação de webapp az:](/cli/azure/webapp#az_webapp_create&preserve-view=true)
 
 ```azurecli-interactive
 az webapp create \
@@ -104,7 +104,7 @@ Tome nota do nome de anfitrião predefinido de cada aplicação web para que pos
 
 Crie uma porta frontal básica com definições de equilíbrio de carga predefinidos, sonda de saúde e regras de encaminhamento, correndo para seguir:
 
-Criar porta frontal com [ação de rede porta frontal criar:](/cli/azure/ext/front-door/network/front-door?view=azure-cli-latest#ext_front_door_az_network_front_door_create&preserve-view=true)
+Criar porta frontal com [ação de rede porta frontal criar:](/cli/azure/ext/front-door/network/front-door#ext_front_door_az_network_front_door_create&preserve-view=true)
 
 ```azurecli-interactive
 az network front-door create \
@@ -134,7 +134,7 @@ Abra um navegador web e introduza o nome anfitrião obtido a partir dos comandos
 
 Quando já não precisar dos recursos que criou com a Porta da Frente, elimine ambos os grupos de recursos. Quando elimina o grupo de recursos, também elimina a Porta frontal e todos os seus recursos relacionados. 
 
-Para eliminar o grupo de recursos utilize [o grupo Az eliminar:](/cli/azure/group?view=azure-cli-latest#az_group_delete&preserve-view=true)
+Para eliminar o grupo de recursos utilize [o grupo Az eliminar:](/cli/azure/group#az_group_delete&preserve-view=true)
 
 ```azurecli-interactive
 az group delete \

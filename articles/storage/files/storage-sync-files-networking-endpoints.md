@@ -8,12 +8,12 @@ ms.date: 5/11/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 64d66e1b9eab225b38ee21306fea6f9534a708f3
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: f307380114acd4f98d68b580333c4dccc2a7340b
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98673858"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102201605"
 ---
 # <a name="configuring-azure-file-sync-network-endpoints"></a>Configurar pontos finais de rede do Azure File Sync
 A Azure Files e Azure File Sync fornecem dois tipos principais de pontos finais para aceder a ações de ficheiros Azure: 
@@ -125,7 +125,7 @@ Address: 192.168.0.5
 
 ---
 
-### <a name="create-the-storage-sync-private-endpoint"></a>Criar o ponto final privado de sincronização de armazenamento
+### <a name="create-the-storage-sync-service-private-endpoint"></a>Criar o ponto final privado do Serviço de Sincronização de Armazenamento
 > [!Important]  
 > Para utilizar pontos finais privados no recurso Storage Sync Service, tem de utilizar a versão 10.1 ou superior do agente Azure File Sync. As versões do agente antes do 10.1 não suportam pontos finais privados no Serviço de Sincronização de Armazenamento. Todas as versões anteriores do agente suportam pontos finais privados no recurso da conta de armazenamento.
 
@@ -597,19 +597,44 @@ Para desativar o acesso ao ponto final público do Serviço de Sincronização d
 $storageSyncServiceResourceGroupName = "<storage-sync-service-resource-group>"
 $storageSyncServiceName = "<storage-sync-service>"
 
-$storageSyncService = Get-AzResource `
-        -ResourceGroupName $storageSyncServiceResourceGroupName `
-        -ResourceName $storageSyncServiceName `
-        -ResourceType "Microsoft.StorageSync/storageSyncServices"
-
-$storageSyncService.Properties.incomingTrafficPolicy = "AllowVirtualNetworksOnly"
-$storageSyncService = $storageSyncService | Set-AzResource -Confirm:$false -Force -UsePatchSemantics
+Set-AzStorageSyncService `
+    -ResourceGroupName $storageSyncServiceResourceGroupName `
+    -Name $storageSyncServiceName `
+    -IncomingTrafficPolicy AllowVirtualNetworksOnly
 ```
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 O Azure CLI não suporta a definição da `incomingTrafficPolicy` propriedade no Serviço de Sincronização de Armazenamento. Selecione o separador Azure PowerShell para obter instruções sobre como desativar o ponto de terminamento público do Serviço de Sincronização de Armazenamento.
 
 ---
+
+## <a name="azure-policy"></a>Azure Policy
+A Azure Policy ajuda a impor as normas da organização e a avaliar o cumprimento dessas normas em escala. A Azure Files e Azure File Sync expõem várias políticas úteis de rede de auditoria e remediação que o ajudam a monitorizar e automatizar a sua implementação.
+
+As políticas auditam o seu ambiente e alertam-no se as suas contas de armazenamento ou Serviços de Sincronização de Armazenamento divergirem do comportamento definido. Por exemplo, se um ponto final público estiver ativado quando a sua política foi definida para desativar os pontos finais públicos. As políticas de modificação/implementação levam as coisas mais longe e modificam proativamente um recurso (como o Serviço de Sincronização de Armazenamento) ou implementam recursos (como pontos finais privados), para alinhar com as políticas.
+
+As seguintes políticas pré-definidas estão disponíveis para ficheiros Azure e Azure File Sync:
+
+| Ação | Serviço | Condição | Nome da política |
+|-|-|-|-|
+| Auditoria | Ficheiros do Azure | O ponto final público da conta de armazenamento está ativado. Consulte [o acesso ao ponto final da conta de armazenamento para](#disable-access-to-the-storage-account-public-endpoint) obter mais informações. | As contas de armazenamento devem restringir o acesso à rede |
+| Auditoria | Azure File Sync | O ponto final público do Serviço de Sincronização de Armazenamento está ativado. Consulte [o acesso ao ponto de terminação do Serviço de Sincronização de Armazenamento](#disable-access-to-the-storage-sync-service-public-endpoint) para obter mais informações. | O acesso à rede pública deve ser desativado para O Azure File Sync |
+| Auditoria | Ficheiros do Azure | A conta de armazenamento precisa de pelo menos um ponto final privado. Consulte [Criar o ponto final privado da conta de armazenamento](#create-the-storage-account-private-endpoint) para obter mais informações. | A conta de armazenamento deve usar uma ligação de ligação privada |
+| Auditoria | Azure File Sync | O Serviço de Sincronização de Armazenamento necessita de pelo menos um ponto final privado. Consulte [o ponto de terminação privado do Serviço de Sincronização de Armazenamento](#create-the-storage-sync-service-private-endpoint) para obter mais informações. | Azure File Sync deve usar link privado |
+| Modificar | Azure File Sync | Desative o ponto final público do Serviço de Sincronização de Armazenamento. | Modificar - Configurar o Azure File Sync para desativar o acesso à rede pública |
+| Implementar | Azure File Sync | Implementar um ponto final privado para o Serviço de Sincronização de Armazenamento. | Configure Azure File Sync com pontos finais privados |
+| Implementar | Azure File Sync | Implemente um registo A para privatelink.afs.azure.net zona de DNS. | Configure Azure File Sync para utilizar zonas privadas de DNS |
+
+### <a name="set-up-a-private-endpoint-deployment-policy"></a>Criar uma política privada de implementação de pontos finais
+Para criar uma política privada de implementação de pontos finais, vá ao [portal Azure](https://portal.azure.com/)e procure a **Política.** O Centro de Política Azure deve ser um resultado de topo. Navegue para **Definições de**  >  **Autoria** na tabela de conteúdos do Centro De Política. O painel **de Definições** resultante contém as políticas pré-definidas em todos os serviços da Azure. Para encontrar a política específica, selecione a categoria **de Armazenamento** no filtro de categoria ou procure o **Configure Azure File Sync com pontos finais privados**. Selecione **...** e **Atribua** para criar uma nova política a partir da definição.
+
+A lâmina **Basics** do assistente de **política 'Atribuir'** permite-lhe definir uma lista de exclusão de grupo de âmbito, recursos ou recursos e dar à sua política um nome amigável para o ajudar a distingui-la. Não precisa modificá-las para que a apólice funcione, mas pode, se quiser fazer modificações. Selecione **Seguinte** para avançar para a página **parâmetros.** 
+
+Na lâmina **parâmetros,** selecione a **...** ao lado da lista de down down **doEndpointSubnetId privado** para selecionar a rede virtual e a sub-rede onde devem ser implantados os pontos finais privados para os seus recursos de Serviço de Sincronização de Armazenamento. O assistente resultante pode demorar vários segundos a carregar as redes virtuais disponíveis na sua subscrição. Selecione a rede/sub-rede virtual adequada para o seu ambiente e clique em **Select**. Selecione **Seguinte** para avançar para a lâmina **de remediação.**
+
+Para que o ponto final privado seja implantado quando um Serviço de Sincronização de Armazenamento sem um ponto final privado for identificado, deve selecionar a **tarefa de remediação** criar na página **de Remediação.** Finalmente, selecione **Review + create** para rever a atribuição de política e **criar** para criá-la.
+
+A atribuição da política resultante será executada periodicamente e não pode ser executada imediatamente após a sua criação.
 
 ## <a name="see-also"></a>Ver também
 - [Planear uma implementação do Azure File Sync](storage-sync-files-planning.md)

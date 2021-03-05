@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: how-to
 ms.date: 2/20/2020
 ms.author: allensu
-ms.openlocfilehash: 8163fcb3b349e298bc89f06523e3e784bdc4ed49
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 2280d6243f468708269569cd24cb8c7a3e2a8191
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965679"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102202302"
 ---
 # <a name="how-to-protect-dns-zones-and-records"></a>Como proteger os registos e as zonas DNS
 
@@ -30,7 +30,7 @@ O controlo de acesso baseado em funções Azure (Azure RBAC) permite uma gestão
 
 O papel de Contribuinte da Zona DNS é um papel integrado na gestão dos recursos privados de DNS. Esta função aplicada a um utilizador ou grupo permite-lhes gerir os recursos DNS.
 
-O grupo de recursos *myResourceGroup* contém cinco zonas para a Contoso Corporation. A concessão de permissões de contribuinte dnsssss zone ao grupo de recursos, permite o controlo total sobre essas zonas dns. Evita conceder permissões desnecessárias. O administrador do DNS não pode criar ou parar máquinas virtuais.
+O grupo de recursos *myResourceGroup* contém cinco zonas para a Contoso Corporation. A concessão de permissões de contribuinte dnss zone ao grupo de recursos, permite o controlo total sobre essas zonas dns. Evita conceder permissões desnecessárias. O administrador do DNS não pode criar ou parar máquinas virtuais.
 
 A forma mais simples de atribuir permissões Azure RBAC é [através do portal Azure](../role-based-access-control/role-assignments-portal.md).  
 
@@ -216,7 +216,7 @@ $rsg = "<resource group name>"
 New-AzResourceLock -LockLevel $lvl -LockName $lnm -ResourceName $rsc -ResourceType $rty -ResourceGroupName $rsg
 ```
 
-O comando equivalente também está [disponível através do Azure CLI:](/cli/azure/lock?view=azure-cli-latest#az-lock-create)
+O comando equivalente também está [disponível através do Azure CLI:](/cli/azure/lock#az-lock-create)
 
 ```azurecli
 # Lock a DNS zone

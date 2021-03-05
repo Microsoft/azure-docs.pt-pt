@@ -5,14 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/22/2019
-author: iqshahmicrosoft
-ms.author: iqshah
-ms.openlocfilehash: 814a4012ace95e84e75bcb4071c549822b2b0633
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+author: kriti-ms
+ms.author: krsh
+ms.openlocfilehash: e3d20b5e9206cf05d749f75982a07937a8caf078
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89182433"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102201095"
 ---
 # <a name="were-moving-virtual-machine-vm-images-on-azure-marketplace-to-managed-disk-storage"></a>Estamos a mover imagens de máquinas virtuais (VM) no Azure Marketplace para o armazenamento de discos geridos
 
@@ -29,8 +29,6 @@ Se tiver alguma dúvida, [contacte-nos.](https://support.microsoft.com/supportfo
 ### <a name="would-the-users-of-my-vm-images-experience-an-outage"></a>Os utilizadores das minhas imagens VM sentiriam uma paragem?
 
 Os utilizadores das imagens VM não sofrerão uma paragem. 
-
-Na primeira fase, só moveremos imagens VM que não tenham VMs em execução. Como não há utilizadores para estas imagens, não haverá qualquer impacto. Também para as fases seguintes, não haverá impacto nos utilizadores.
 
 ### <a name="how-long-does-it-take-for-the-process-to-complete"></a>Quanto tempo demora o processo a ser concluído?
 
