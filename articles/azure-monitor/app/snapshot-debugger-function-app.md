@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: cweining
 ms.author: cweining
 ms.date: 12/18/2020
-ms.openlocfilehash: d86455eae0834f29099c7d5c96f8326408daf519
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: ac25962cac36a149807b67a44b3b88a4f40c954a
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98675534"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102211945"
 ---
 # <a name="enable-snapshot-debugger-for-net-and-net-core-apps-in-azure-functions"></a>Ativar o Snapshot Debugger para aplicações .NET e .NET Core em Funções Azure
 
@@ -123,6 +123,35 @@ Arquivo de anfitrião
   }
 }
 ```
+
+## <a name="enable-snapshot-debugger-for-other-clouds"></a>Ativar snapshot Debugger para outras nuvens
+
+Atualmente, as únicas regiões que necessitam de modificações no ponto final são [o Governo de Azure](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure#application-insights) e [a Azure China.](https://docs.microsoft.com/azure/china/resources-developer-guide)
+
+Abaixo está um exemplo da `host.json` atualização com o ponto final do agente da Cloud do governo dos EUA:
+```json
+{
+  "version": "2.0",
+  "logging": {
+    "applicationInsights": {
+      "samplingExcludedTypes": "Request",
+      "samplingSettings": {
+        "isEnabled": true
+      },
+      "snapshotConfiguration": {
+        "isEnabled": true,
+        "agentEndpoint": "https://snapshot.monitor.azure.us"
+      }
+    }
+  }
+}
+```
+
+Abaixo estão as sobreposições suportadas do ponto final do agente Snapshot Debugger:
+
+|Propriedade    | Nuvem do Governo dos EUA | Nuvem da China |   
+|---------------|---------------------|-------------|
+|AgenteEndpoint         | `https://snapshot.monitor.azure.us`    | `https://snapshot.monitor.azure.cn` |
 
 ## <a name="disable-snapshot-debugger"></a>Depurar Snapshot Debugger
 

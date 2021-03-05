@@ -12,12 +12,12 @@ metadata:
   ms.author: mbaldwin
   manager: rkarlin
   ms.date: 09/19/2019
-  ms.openlocfilehash: d1b3d48f89fc979775c0ee71df29e3af0ff5f5fa
-  ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
-  ms.translationtype: HT
+  ms.openlocfilehash: ee533978763ff22a345acbd33d89f370fa20388d
+  ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+  ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 01/12/2021
-  ms.locfileid: "98133434"
+  ms.lasthandoff: 03/05/2021
+  ms.locfileid: "102212434"
 landingContent:
 - title: Acerca do Azure Key Vault
   linkLists:
@@ -82,7 +82,7 @@ landingContent:
     - text: Biblioteca de Cliente Java
       url: https://azure.github.io/azure-sdk-for-java/keyvault.html
     - text: Biblioteca de Cliente Node.js
-      url: /javascript/api/overview/azure/key-vault-index?view=azure-node-latest
+      url: /javascript/api/overview/azure/key-vault-index
 - title: Microsoft Learn
   linkLists:
   - linkListType: learn

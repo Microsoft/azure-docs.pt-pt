@@ -10,12 +10,12 @@ author: lobrien
 ms.date: 11/20/2020
 ms.topic: conceptual
 ms.custom: how-to, deploy
-ms.openlocfilehash: 71f393897dff266f1b0922a19eefd70cffea133d
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 8f22f1af04d59b4c1fb7f19a3d6815b61cac5fbd
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96600358"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102211232"
 ---
 # <a name="deploy-models-trained-with-azure-machine-learning-on-your-local-machines"></a>Implementar modelos treinados com Azure Machine Learning nas suas máquinas locais 
 
@@ -185,8 +185,8 @@ Usar o Docker para implementar o seu modelo como um serviço web é a opção ma
 Pode baixar o modelo:  
 
 - A partir do portal, selecionando o separador **Modelos,** selecionando o modelo pretendido e na página **Detalhes,** selecionando **Download**.
-- A partir da linha de comando, utilizando `az ml model download` . (Ver [download de modelo.](/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext_azure_cli_ml_az_ml_model_download&preserve-view=false))
-- Utilizando o método Python `Model.download()` SDK. (Ver [classe modelo.](/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#download-target-dir------exist-ok-false--exists-ok-none-&preserve-view=false))
+- A partir da linha de comando, utilizando `az ml model download` . (Ver [download de modelo.](/cli/azure/ext/azure-cli-ml/ml/model#ext_azure_cli_ml_az_ml_model_download))
+- Utilizando o método Python `Model.download()` SDK. (Ver [classe modelo.](/python/api/azureml-core/azureml.core.model.model#download-target-dir------exist-ok-false--exists-ok-none-))
 
 Um modelo Azure é um ou mais objetos Python serializados, embalados como um ficheiro picles Python (extensão.pkl). O conteúdo do ficheiro pickles depende da biblioteca de machine learning ou da técnica utilizada para treinar o modelo. Por exemplo, se estiver a utilizar o modelo a partir do tutorial, pode carregar o modelo com:
 
@@ -248,7 +248,7 @@ Pode então encontrar o seu modelo recentemente registado no separador Azure Mac
 
 Para obter mais informações sobre o upload e atualização de modelos e ambientes, consulte [o modelo de Registo e implemente localmente com utilizações avançadas.](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/deploy-to-local/register-model-deploy-local-advanced.ipynb)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter mais informações sobre a gestão de ambientes, consulte [Criar & utilizar ambientes de software em Azure Machine Learning](how-to-use-environments.md).
 - Para saber mais sobre o acesso aos dados da sua loja de dados, consulte [o Connect to storage services on Azure.](how-to-access-data.md)

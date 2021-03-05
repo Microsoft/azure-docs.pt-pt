@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 02/04/2021
 ms.author: ambapat
-ms.openlocfilehash: 71cc36541b8809d93c84225edf771400d2878b4f
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: dd5b38a858ceba12f5d48f1782da5b85228c4b06
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100376059"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102212115"
 ---
 # <a name="import-hsm-protected-keys-to-managed-hsm-byok"></a>Importa chaves protegidas pelo HSM para o HSM gerido (BYOK)
 
@@ -56,7 +56,7 @@ Para iniciar seduca em Azure usando o CLI pode escrever:
 az login
 ```
 
-Para obter mais informações sobre as opções de login através do CLI, dê uma olhada [no login com o Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest&preserve-view=true)
+Para obter mais informações sobre as opções de login através do CLI, dê uma olhada [no login com o Azure CLI](/cli/azure/authenticate-azure-cli)
 
 ## <a name="supported-hsms"></a>HSMs apoiados
 
@@ -76,7 +76,7 @@ Para obter mais informações sobre as opções de login através do CLI, dê um
 
 ## <a name="supported-key-types"></a>Supported key types (Tipos de chaves suportados)
 
-|Nome da chave|Tipo de chave|Tamanho/curva da chave|Origem|Description|
+|Nome da chave|Tipo de chave|Tamanho/curva da chave|Origem|Descrição|
 |---|---|---|---|---|
 |Chave de troca (KEK)|RSA| 2.048-bit<br />3,072 bit<br />4.096-bit|HSM Gerido|Um par de chaves RSA apoiado pelo HSM gerado em HSM gerido|
 |Chave-alvo|
@@ -105,7 +105,7 @@ O KEK deve ser:
 > [!NOTE]
 > O KEK deve ter a "importação" como única operação-chave permitida. A «importação» é mutuamente exclusiva com todas as outras operações-chave.
 
-Utilize a [chave az keyvault criar](/cli/azure/keyvault/key?view=azure-cli-latest&preserve-view=true#az-keyvault-key-create) comando para criar um KEK que tenha as principais operações definidas para `import` . Grave o identificador da chave `kid` que é devolvido do seguinte comando. (Utilizará o `kid` valor no passo [3](#step-3-generate-and-prepare-your-key-for-transfer).)
+Utilize a [chave az keyvault criar](/cli/azure/keyvault/key#az-keyvault-key-create) comando para criar um KEK que tenha as principais operações definidas para `import` . Grave o identificador da chave `kid` que é devolvido do seguinte comando. (Utilizará o `kid` valor no passo [3](#step-3-generate-and-prepare-your-key-for-transfer).)
 
 ```azurecli-interactive
 az keyvault key create --kty RSA-HSM --size 4096 --name KEKforBYOK --ops import --hsm-name ContosoKeyVaultHSM
@@ -115,7 +115,7 @@ az keyvault key create --kty RSA-HSM --size 4096 --name KEKforBYOK --ops import 
 
 ### <a name="step-2-download-the-kek-public-key"></a>Passo 2: Descarregue a chave pública KEK
 
-Utilize [o download da chave az keyvault](/cli/azure/keyvault/key?view=azure-cli-latest&preserve-view=true#az-keyvault-key-download) para baixar a chave pública KEK para um ficheiro .pem. A chave-alvo que importa é encriptada usando a chave pública KEK.
+Utilize [o download da chave az keyvault](/cli/azure/keyvault/key#az-keyvault-key-download) para baixar a chave pública KEK para um ficheiro .pem. A chave-alvo que importa é encriptada usando a chave pública KEK.
 
 ```azurecli-interactive
 az keyvault key download --name KEKforBYOK --hsm-name ContosoKeyVaultHSM --file KEKforBYOK.publickey.pem
@@ -137,7 +137,7 @@ Transfira o ficheiro BYOK para o seu computador conectado.
 
 ### <a name="step-4-transfer-your-key-to-managed-hsm"></a>Passo 4: Transfira a chave para O HSM Gerido
 
-Para completar a importação de chave, transfira o pacote de transferência de chaves (um ficheiro BYOK) do seu computador desligado para o computador ligado à Internet. Utilize o comando de importação da [chave az keyvault](/cli/azure/keyvault/key?view=azure-cli-latest&preserve-view=true#az-keyvault-key-import) para carregar o ficheiro BYOK para o HSM Gerido.
+Para completar a importação de chave, transfira o pacote de transferência de chaves (um ficheiro BYOK) do seu computador desligado para o computador ligado à Internet. Utilize o comando de importação da [chave az keyvault](/cli/azure/keyvault/key#az-keyvault-key-import) para carregar o ficheiro BYOK para o HSM Gerido.
 
 ```azurecli-interactive
 az keyvault key import --hsm-name ContosoKeyVaultHSM --name ContosoFirstHSMkey --byok-file KeyTransferPackage-ContosoFirstHSMkey.byok

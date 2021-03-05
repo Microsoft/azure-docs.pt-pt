@@ -1,5 +1,5 @@
 ---
-title: Amostra de Script Azure CLI - Tráfego de rota para alta disponibilidade de aplicações Microsoft Docs
+title: Amostra de script Azure CLI - Tráfego de rota para alta disponibilidade de aplicações | Microsoft Docs
 description: Amostra de script Azure CLI - Tráfego de rota para alta disponibilidade de aplicações
 services: traffic-manager
 documentationcenter: traffic-manager
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: traffic-manager
 ms.date: 06/26/2018
 ms.author: allensu
-ms.openlocfilehash: 7103b11b7ee268acbddd8b402e1be1d44074f54d
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 90fcba21ad6f44b5a420cb15b95ef278f9b5b9b0
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98234074"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102211083"
 ---
 # <a name="route-traffic-for-high-availability-of-applications---azure-cli"></a>Tráfego de rotas para elevada disponibilidade de aplicações - Azure CLI
 
@@ -49,7 +49,7 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, uma a
 |---|---|
 | [az group create](/cli/azure/group) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [az appservice plan create](/cli/azure/appservice/plan) | Cria um plano do Serviço de Aplicações. Isto é como uma fazenda de servidores para a sua aplicação web Azure. |
-| [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Cria uma aplicação web Azure dentro do plano de Serviço de Aplicações. |
+| [az webapp create](/cli/azure/webapp#az-webapp-create) | Cria uma aplicação web Azure dentro do plano de Serviço de Aplicações. |
 | [az perfil de gestor de tráfego de rede criar](/cli/azure/network/traffic-manager/profile) | Cria um perfil do Gestor de Tráfego do Azure. |
 | [az rede gestor de tráfego-manager criar](/cli/azure/network/traffic-manager/endpoint) | Adiciona um ponto final a um Perfil do Gestor de Tráfego do Azure. |
 

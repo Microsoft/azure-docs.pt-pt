@@ -16,12 +16,12 @@ ms.date: 09/16/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7b70e8a408c22be0331bfd0dcbe01830b072ab8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c4a1aa737b1f671c08d51d780fa98db50f2869a1
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91449970"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102211656"
 ---
 # <a name="change-request-settings-for-an-access-package-in-azure-ad-entitlement-management"></a>Alterar as definições de pedido para um pacote de acesso na gestão de direitos Azure AD
 
@@ -39,7 +39,7 @@ Por exemplo, não se pode utilizar uma única política para atribuir utilizador
 
 ### <a name="how-many-policies-will-i-need"></a>De quantas políticas vou precisar?
 
-| Cenário | Número de políticas |
+| Scenario | Número de políticas |
 | --- | --- |
 | Quero que todos os utilizadores do meu diretório tenham as mesmas definições de pedido e aprovação para um pacote de acesso | Um |
 | Quero que todos os utilizadores de certas organizações conectadas possam solicitar um pacote de acesso | Um |
@@ -197,8 +197,6 @@ Para alterar as definições de pedido e aprovação de um pacote de acesso, é 
     ![Pacote de acesso - Política- Permitir a definição de políticas](./media/entitlement-management-access-package-approval-policy/enable-requests.png)
 
 1. Clique em **Seguinte**.
-
-1. Se pretender que os solicitadores forneçam informações adicionais ao solicitar o acesso a um pacote de acesso, utilize as etapas []() para configurar as informações dos solicitadores (pré-visualização).
 
 1. Configure as definições do ciclo de vida.
 

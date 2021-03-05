@@ -7,12 +7,12 @@ ms.date: 02/20/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: f5a7693eeced1028d84598a6db3728776f845f7e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 543c3f1c72857098540cc2a77e8a0093b907b799
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101741621"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102210840"
 ---
 # <a name="how-to-transfer-a-device-to-azure-iot-central-from-iot-hub"></a>Como transferir um dispositivo para a Azure IoT Central do IoT Hub
 
@@ -26,7 +26,7 @@ Um dispositivo pode ser ligado a um hub IoT diretamente utilizando uma cadeia de
 
 ## <a name="to-move-the-device-to-azure-iot-central"></a>Para mover o dispositivo para a Azure IoT Central
 
-Para ligar um dispositivo à IoT Central a partir do IOT Hub, um dispositivo tem de ser atualizado com:
+Para ligar um dispositivo à IoT Central a partir do IoT Hub, um dispositivo tem de ser atualizado com:
 
 * O [ID de âmbito](../../iot-dps/concepts-service.md) da aplicação IoT Central.
 * Uma chave derivada da chave [DO grupo SAS](concepts-get-connected.md) ou [do cert X.509](../../iot-hub/iot-hub-x509ca-overview.md)

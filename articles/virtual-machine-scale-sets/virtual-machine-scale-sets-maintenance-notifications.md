@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 11/12/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: 85e4b6a4d0ff1c3bd7e634311a36396a74408419
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: b4c705e65b5b8c4f9e34dc5ff1474e87da5bee02
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100594445"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102209796"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>Planned maintenance notifications for virtual machine scale sets (Notificações de manutenção planeada para conjuntos de dimensionamento de máquinas virtuais)
 
@@ -84,7 +84,7 @@ A coluna **de manutenção de autosserviço** aparece agora na lista de conjunto
 | Valor | Descrição |
 |-------|-------------|
 | Sim | Pelo menos um VM no seu conjunto de escala de máquina virtual está numa janela de autosserviço. Pode iniciar a manutenção a qualquer momento durante esta janela de autosserviço. | 
-| No | Não há VMs numa janela de autosserviço no conjunto de escala de máquina virtual afetado. | 
+| Não | Não há VMs numa janela de autosserviço no conjunto de escala de máquina virtual afetado. | 
 | - | Os conjuntos de escala de máquinas virtuais não fazem parte de uma onda de manutenção planeada.| 
 
 ## <a name="notification-and-alerts-in-the-portal"></a>Notificação e alertas no portal
@@ -143,7 +143,7 @@ Set-AzVmss -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -Pe
 
 ## <a name="check-maintenance-status-by-using-the-cli"></a>Verifique o estado de manutenção utilizando o CLI
 
-Pode visualizar as informações de manutenção planeadas utilizando [as listas az vmss](/cli/azure/vmss?view=azure-cli-latest#az-vmss-list-instances).
+Pode visualizar as informações de manutenção planeadas utilizando [as listas az vmss](/cli/azure/vmss#az-vmss-list-instances).
  
 As informações de manutenção só são devolvidas se a manutenção for planeada. Se não for agendada qualquer manutenção que afete a instância VM, o comando não devolve nenhuma informação de manutenção. 
 

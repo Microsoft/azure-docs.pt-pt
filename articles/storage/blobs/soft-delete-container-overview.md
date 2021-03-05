@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/08/2021
+ms.date: 03/05/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: 674a336e79f118d543590fb7514b6bebef72cf47
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: f157b44e92289d0e9c5b88108550c144344c5206
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100390186"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102211146"
 ---
 # <a name="soft-delete-for-containers-preview"></a>Excluir suave para recipientes (pré-visualização)
 
@@ -27,8 +27,8 @@ Para uma proteção final para os seus dados blob, a Microsoft recomenda que se 
 - Versão blob, para manter automaticamente as versões anteriores de uma bolha. Quando a versão blob estiver ativada, pode restaurar uma versão anterior de uma bolha para recuperar os seus dados se for erroneamente modificada ou eliminada. Para aprender a permitir a versão blob, consulte [Ativar e gerir a versão blob](versioning-enable.md).
 - Blob soft delete, para restaurar uma bolha ou versão que foi eliminada. Para aprender a permitir a eliminação suave do blob, consulte [Ativar e gerir a eliminação suave para bolhas](soft-delete-blob-enable.md).
 
-> [!WARNING]
-> A eliminação de uma conta de armazenamento não pode ser desfeita. A eliminação suave do contentor não protege contra a supressão de uma conta de armazenamento, mas apenas contra a supressão de contentores nessa conta. Para proteger uma conta de armazenamento da supressão, configuure um bloqueio no recurso da conta de armazenamento. Para obter mais informações sobre o bloqueio dos recursos do Azure Resource Manager, consulte [os recursos do Lock para evitar alterações inesperadas.](../../azure-resource-manager/management/lock-resources.md)
+> [!IMPORTANT]
+> A eliminação suave do recipiente encontra-se atualmente em **PREVIEW**. Consulte os [Termos Complementares de Utilização para o Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para termos legais aplicáveis às funcionalidades do Azure que estejam em versão beta, pré-visualização ou ainda não lançadas em disponibilidade geral.
 
 ## <a name="how-container-soft-delete-works"></a>Como o recipiente suave apagar funciona
 
@@ -46,14 +46,14 @@ Após o período de retenção ter expirado, o recipiente é permanentemente eli
 
 A desativação do recipiente de eliminação suave não resulta na supressão permanente dos recipientes que foram previamente eliminados. Os recipientes apagados serão permanentemente eliminados no termo do período de retenção que estava em vigor no momento da sua perda do contentor.
 
+> [!IMPORTANT]
+> A eliminação suave do contentor não protege contra a supressão de uma conta de armazenamento, mas apenas contra a supressão de contentores nessa conta. Para proteger uma conta de armazenamento da supressão, configuure um bloqueio no recurso da conta de armazenamento. Para obter mais informações sobre o bloqueio dos recursos do Azure Resource Manager, consulte [os recursos do Lock para evitar alterações inesperadas.](../../azure-resource-manager/management/lock-resources.md)
+
 ## <a name="about-the-preview"></a>Sobre a pré-visualização
 
 O contentor soft delete está disponível em pré-visualização em todas as regiões do Azure.
 
-> [!IMPORTANT]
-> A pré-visualização de eliminação suave do recipiente destina-se apenas à não utilização da produção. Os contratos de serviços de produção (SLAs) não estão atualmente disponíveis.
-
-Versão 2019-12-12 e superior do Azure Storage REST API suporta a eliminação suave do contentor.
+Versão 2019-12-12 ou superior ao Azure Storage REST API suporta a eliminação suave do contentor.
 
 ### <a name="storage-account-support"></a>Suporte à conta de armazenamento
 

@@ -8,19 +8,19 @@ ms.topic: how-to
 ms.date: 09/08/2020
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 95a97d3f5104891ef5e23a03ffe1477f9b6ad036
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 8400fcacbfa4c76aceb079b788255e3d3b83ce33
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97561618"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102210415"
 ---
 # <a name="azure-spring-cloud-cicd-with-github-actions"></a>Azure Spring Cloud CI/CD com ações do GitHub
 
 GitHub Actions suporta um fluxo de trabalho automatizado de ciclo de vida de desenvolvimento de software. Com o GitHub Actions for Azure Spring Cloud pode criar fluxos de trabalho no seu repositório para construir, testar, embalar, lançar e implementar para a Azure. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Este exemplo requer o [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
+Este exemplo requer o [Azure CLI](/cli/azure/install-azure-cli).
 
 ::: zone pivot="programming-language-csharp"
 ## <a name="set-up-github-repository-and-authenticate"></a>Configurar o repositório GitHub e autenticar
@@ -333,12 +333,12 @@ Para verificar se a ação foi ativada, clique no **separador Ações** na pági
 
 ![Verificar a ação ativada](./media/github-actions/actions3.png)
 
-Se a sua ação correr por engano, por exemplo, se não tiver definido a credencial Azure, pode repetir as verificações após a correção do erro. Na página de repositório do GitHub, clique em **Ações,** selecione a tarefa específica de fluxo de trabalho e, em seguida, clique no botão de verificação de **re-re-rerun:**
+Se a sua ação correr por engano, por exemplo, se não tiver definido a credencial Azure, pode repetir as verificações após a correção do erro. Na página de repositório do GitHub, clique em **Ações,** selecione a tarefa específica de fluxo de trabalho e, em seguida, clique no botão de verificação de **re-re-re-rerun:**
 
 ![Verificações de repetição](./media/github-actions/actions4.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Cofre chave para ações do GitHub da nuvem de primavera](./spring-cloud-github-actions-key-vault.md)
-* [Diretores de serviço azure ative](/cli/azure/ad/sp?preserve-view=true&view=azure-cli-latest#az-ad-sp-create-for-rbac)
+* [Diretores de serviço azure ative](/cli/azure/ad/sp#az-ad-sp-create-for-rbac)
 * [GitHub Actions para o Azure](https://github.com/Azure/actions/)

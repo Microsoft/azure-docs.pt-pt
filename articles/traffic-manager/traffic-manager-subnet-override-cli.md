@@ -1,5 +1,5 @@
 ---
-title: Sub-rede Azure Traffic Manager sobrepõe-se usando Azure CLI / Microsoft Docs
+title: Sub-rede Azure Traffic Manager sobrepõe-se usando Azure CLI | Microsoft Docs
 description: Este artigo irá ajudá-lo a entender como a sub-rede do Gestor de Tráfego pode ser usada para substituir o método de encaminhamento de um perfil de Gestor de Tráfego para direcionar o tráfego para um ponto final baseado no endereço IP do utilizador final através da gama IP predefinida para mapeamentos de ponto final.
 services: traffic-manager
 documentationcenter: ''
@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: traffic-manager
 ms.date: 09/18/2019
 ms.author: duau
-ms.openlocfilehash: 7a448afb85a35674921ce74a25eaf2a97430dc61
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 2e289728c7fde9b98256d079d45067aba1d4d805
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201421"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102211333"
 ---
 # <a name="traffic-manager-subnet-override-using-azure-cli"></a>Sub-rede do Gestor de Tráfego sobrepõe-se usando Azure CLI
 
@@ -39,7 +39,7 @@ Para criar uma sub-rede do Traffic Manager, pode utilizar o CLI do Azure para ad
 - Este artigo requer a versão 2.0.28 ou posterior do Azure CLI. Se utilizar o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="update-the-traffic-manager-endpoint-with-subnet-override"></a>Atualize o ponto final do Gestor de Tráfego com a sobreposição da sub-rede.
-Utilize o Azure CLI para atualizar o seu ponto final com [a atualização do ponto final do gestor de tráfego da rede Az](/cli/azure/network/traffic-manager/endpoint?view=azure-cli-latest#az-network-traffic-manager-endpoint-update).
+Utilize o Azure CLI para atualizar o seu ponto final com [a atualização do ponto final do gestor de tráfego da rede Az](/cli/azure/network/traffic-manager/endpoint#az-network-traffic-manager-endpoint-update).
 
 ```azurecli-interactive
 ### Add a range of IPs ###
@@ -59,7 +59,7 @@ az network traffic-manager endpoint update \
     --type AzureEndpoints
 ```
 
-Pode remover as gamas de endereços IP executando a atualização do [ponto final do gestor de tráfego da rede Az](/cli/azure/network/traffic-manager/endpoint?view=azure-cli-latest#az-network-traffic-manager-endpoint-update) com a opção de **remoção.**
+Pode remover as gamas de endereços IP executando a atualização do [ponto final do gestor de tráfego da rede Az](/cli/azure/network/traffic-manager/endpoint#az-network-traffic-manager-endpoint-update) com a opção de **remoção.**
 
 ```azurecli-interactive
 az network traffic-manager endpoint update \

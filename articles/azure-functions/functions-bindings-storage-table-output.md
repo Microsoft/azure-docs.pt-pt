@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 4af29df27a109a9e1e26a720c190ab9d119fc4d1
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: 825a336b5ad07f50d96b19036d70c759b907bd07
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98033800"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102209684"
 ---
 # <a name="azure-table-storage-output-bindings-for-azure-functions"></a>Encadernações de saída de armazenamento de mesa Azure para funções Azure
 
@@ -395,7 +395,7 @@ A tabela seguinte explica as propriedades de configuração de encadernação qu
 |**tipo** | n/a | Deve ser definido para `table` . Esta propriedade é definida automaticamente quando cria a ligação no portal Azure.|
 |**direção** | n/a | Deve ser definido para `out` . Esta propriedade é definida automaticamente quando cria a ligação no portal Azure. |
 |**nome** | n/a | O nome variável usado no código de função que representa a tabela ou entidade. Definir `$return` para referenciar o valor de retorno da função.| 
-|**tableName** |**Nome de mesa** | O nome da mesa.| 
+|**nome de mesa** |**TableName** | O nome da mesa.| 
 |**partitionKey** |**PartitionKey** | A chave de partição da entidade de mesa para escrever. Consulte a [secção de utilização](#usage) para obter orientações sobre como utilizar esta propriedade.| 
 |**rowKey** |**RowKey** | A chave de linha da entidade de mesa para escrever. Consulte a [secção de utilização](#usage) para obter orientações sobre como utilizar esta propriedade.| 
 |**conexão** |**Ligação** | O nome de uma definição de aplicação que contém o fio de ligação de armazenamento para usar para esta ligação. Se o nome de definição da aplicação começar com "AzureWebJobs", pode especificar apenas o restante do nome aqui. Por exemplo, se definir `connection` "MyStorage", o tempo de execução de Funções procura uma configuração de aplicação que se chama "MyStorage". Se deixar `connection` vazio, o tempo de execução das funções utiliza a cadeia de ligação de armazenamento predefinido na definição da aplicação que está denominada `AzureWebJobsStorage` .|
@@ -418,7 +418,7 @@ Em alternativa, pode utilizar um `CloudTable` parâmetro de método para escreve
 
 # <a name="java"></a>[Java](#tab/java)
 
-Existem duas opções para a saída de uma linha de armazenamento de mesa a partir de uma função, utilizando a anotação [TableStorageOutput:](/java/api/com.microsoft.azure.functions.annotation.tableoutput?view=azure-java-stablet&preserve-view=true)
+Existem duas opções para a saída de uma linha de armazenamento de mesa a partir de uma função, utilizando a anotação [TableStorageOutput:](/java/api/com.microsoft.azure.functions.annotation.tableoutput)
 
 - **Valor de retorno**: Aplicando a anotação à função em si, o valor de retorno da função é persistido como uma linha de armazenamento de mesa.
 

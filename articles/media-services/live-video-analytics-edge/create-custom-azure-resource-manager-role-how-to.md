@@ -3,12 +3,12 @@ title: Crie uma função personalizada de Gestor de Recursos Azure e atribua ao 
 description: Este artigo fornece orientações sobre como criar uma função personalizada de Gestor de Recursos Azure e atribuir ao principal de serviço para Live Video Analytics em IoT Edge usando Azure CLI.
 ms.topic: how-to
 ms.date: 05/27/2020
-ms.openlocfilehash: 40bf0f60a718d512e02481d977b8208112ed1a55
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 80974c111dd451314635d06334766322bc68e437
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425736"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102210449"
 ---
 # <a name="create-custom-azure-resource-manager-role-and-assign-to-service-principal"></a>Crie uma função personalizada de Gestor de Recursos Azure e atribua ao diretor de serviços
 
@@ -25,7 +25,7 @@ Os pré-requisitos para este artigo são os seguintes:
 
 A forma mais fácil de verificar se a sua conta tem permissões adequadas é utilizar o portal. Veja [Permissões obrigatórias](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
-## <a name="overview"></a>Descrição geral  
+## <a name="overview"></a>Descrição Geral  
 
 Iremos reem pouco tempo para criar um papel personalizado e ligá-lo a um diretor de serviço na seguinte ordem:
 
@@ -49,7 +49,7 @@ Se não tiver uma conta de Media Service, use os seguintes passos para criar uma
     ```
     az account set --subscription " <yourSubscriptionName or yourSubscriptionId>"
     ```
-1. Criar um [grupo de recursos](/cli/azure/group?view=azure-cli-latest#az-group-create) e uma conta de [armazenamento.](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create)
+1. Criar um [grupo de recursos](/cli/azure/group#az-group-create) e uma conta de [armazenamento.](/cli/azure/storage/account#az-storage-account-create)
 1. Agora, crie uma conta Azure Media Service utilizando o seguinte modelo de comando em Cloud Shell:
 
     ```
@@ -85,8 +85,8 @@ Este comando produz uma resposta como esta:
 ```
 1. A saída para um principal de serviço com autenticação de senha inclui a chave de senha que neste caso é o parâmetro "AadSecret". 
 
-    Certifique-se de copiar este valor- não pode ser recuperado. Se esquecer a palavra-passe, [reponha as credenciais principais do serviço](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#reset-credentials).
-1. A chave appId e inquilino aparecem na saída como "AadClientId" e "AadTenantId" respectivamente. São utilizados na autenticação principal do serviço. Registem os seus valores, mas podem ser recuperados a qualquer momento com [a lista de anúncios da AZ Sp](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-list).
+    Certifique-se de copiar este valor- não pode ser recuperado. Se esquecer a palavra-passe, [reponha as credenciais principais do serviço](/cli/azure/create-an-azure-service-principal-azure-cli#reset-credentials).
+1. A chave appId e inquilino aparecem na saída como "AadClientId" e "AadTenantId" respectivamente. São utilizados na autenticação principal do serviço. Registem os seus valores, mas podem ser recuperados a qualquer momento com [a lista de anúncios da AZ Sp](/cli/azure/ad/sp#az-ad-sp-list).
 
 ### <a name="create-a-custom-role-definition"></a>Criar uma definição de função personalizada  
 
@@ -171,7 +171,7 @@ O comando acima imprimirá o objectId do principal de serviço.
 “objectId” : “<yourObjectId>”,
 ```
 
-Use [a tarefa de função az criar](/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create) modelo de comando para o link o papel personalizado com o principal de serviço:
+Use [a tarefa de função az criar](/cli/azure/role/assignment#az-role-assignment-create) modelo de comando para o link o papel personalizado com o principal de serviço:
 
 ```
 az role assignment create --role “LVAEdge User” --assignee-object-id < objectId>    

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 05/06/2020
-ms.openlocfilehash: 40f4845ecc21d05ca5e8394dccba080f8a1f8936
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: e88c4bf05d88007a6e19b568f1bc1085e24b0325
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98049716"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102211061"
 ---
 # <a name="set-up-a-single-ip-address-for-one-or-more-integration-service-environments-in-azure-logic-apps"></a>Crie um único endereço IP para um ou mais ambientes de serviço de integração em Azure Logic Apps
 
@@ -53,7 +53,7 @@ Este tópico mostra como encaminhar o tráfego de saída através de um Azure Fi
    |----------|-------|-------------|
    | **Nome da rota** | <*unique route-name*> | Um nome único para o percurso na mesa de rotas |
    | **Prefixo de endereço** | <*endereço de destino*> | O prefixo de endereço para o seu sistema de destino para onde deseja que o tráfego de saída vá. Certifique-se de que utiliza a [notação de encaminhamento de Inter-Domain (CIDR)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) sem classe para este endereço. Neste exemplo, este prefixo de endereço destina-se a um servidor SFTP, que é descrito na secção, [Configurar a regra da rede](#set-up-network-rule). |
-   | **Próximo tipo de lúpulo** | **Aparelho virtual** | O [tipo de lúpulo](../virtual-network/virtual-networks-udr-overview.md#next-hop-types-across-azure-tools) que é usado pelo tráfego de saída |
+   | **Tipo de salto seguinte** | **Aparelho virtual** | O [tipo de lúpulo](../virtual-network/virtual-networks-udr-overview.md#next-hop-types-across-azure-tools) que é usado pelo tráfego de saída |
    | **Endereço do próximo salto** | <*firewall-private-IP-address*> | O endereço IP privado para a sua firewall |
    |||
 
@@ -97,7 +97,7 @@ Este tópico mostra como encaminhar o tráfego de saída através de um Azure Fi
    * [Lógica de processamento de regras do Azure Firewall](../firewall/rule-processing.md#network-rules-and-applications-rules)
    * [FAQ do Azure Firewall](../firewall/firewall-faq.yml)
    * [Azure PowerShell: New-AzFirewallNetworkRule](/powershell/module/az.network/new-azfirewallnetworkrule)
-   * [Azure CLI: regra da rede de firewall da rede az](/cli/azure/ext/azure-firewall/network/firewall/network-rule?view=azure-cli-latest#ext-azure-firewall-az-network-firewall-network-rule-create)
+   * [Azure CLI: regra da rede de firewall da rede az](/cli/azure/ext/azure-firewall/network/firewall/network-rule#ext-azure-firewall-az-network-firewall-network-rule-create)
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -126,7 +126,7 @@
     - name: Azure PowerShell
       href: /powershell/module/az.resources
     - name: CLI do Azure
-      href: /cli/azure/role?view=azure-cli-latest
+      href: /cli/azure/role
     - name: API REST
       href: /rest/api/authorization/
     - name: Modelos de ARM

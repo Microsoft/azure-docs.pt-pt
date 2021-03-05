@@ -6,18 +6,19 @@ author: cweining
 ms.author: cweining
 ms.date: 03/26/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 291f06bea0744c991c71640272ee341b7273472b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 5a637a6f355be32f82878a52a30c77d020190651
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101728999"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102211622"
 ---
 # <a name="enable-snapshot-debugger-for-net-apps-in-azure-app-service"></a>Ativar o Snapshot Debugger para aplicações .NET no Azure App Service
 
 A Snapshot Debugger suporta atualmente aplicações ASP.NET e ASP.NET Core que estão a ser executadas no Azure App Service em planos de serviço do Windows.
 
-Recomendamos que execute a sua aplicação no nível de serviço Basic ou superior ao utilizar o depurar instantâneo.
+Recomendamos que execute a sua aplicação no nível de serviço Basic, ou superior, ao utilizar o depurar instantâneo.
+
 Para a maioria das aplicações, os níveis de serviço Gratuito e Partilhado não têm memória ou espaço de disco suficiente para guardar instantâneos.
 
 ## <a name="enable-snapshot-debugger"></a><a id="installation"></a> Ativar Snapshot Debugger
@@ -52,6 +53,16 @@ Uma vez implementada uma aplicação, siga os passos abaixo para ativar o depura
 4. O Snapshot Debugger está agora ativado através de uma Definição de Aplicações de Serviços de Aplicação.
 
     ![Definição de aplicativo para Snapshot Debugger][snapshot-debugger-app-setting]
+
+## <a name="enable-snapshot-debugger-for-other-clouds"></a>Ativar snapshot Debugger para outras nuvens
+
+Atualmente, as únicas regiões que requerem modificações no ponto final são [o Governo Azure](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure#application-insights) e [a Azure China](https://docs.microsoft.com/azure/china/resources-developer-guide) através da Cadeia de Conexão de Insights de Aplicação.
+
+|Propriedade de cadeia de conexão    | Nuvem do Governo dos EUA | Nuvem da China |   
+|---------------|---------------------|-------------|
+|Ponto SnapshotEndpoint         | `https://snapshot.monitor.azure.us`    | `https://snapshot.monitor.azure.cn` |
+
+Para obter mais informações sobre outras ligações, consulte a [documentação do Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net#connection-string-with-explicit-endpoint-overrides).
 
 ## <a name="disable-snapshot-debugger"></a>Depurar Snapshot Debugger
 

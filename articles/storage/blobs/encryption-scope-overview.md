@@ -4,17 +4,17 @@ description: Os âmbitos de encriptação fornecem a capacidade de gerir a encri
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 09/22/2020
+ms.date: 03/05/2021
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 881a7fc915ab986577599b85f8412fa8107f7902
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 35395a30f7d58b9edb3aa7622a35e8c4a62dc76f
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96017394"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102211367"
 ---
 # <a name="encryption-scopes-for-blob-storage-preview"></a>Âmbitos de encriptação para armazenamento blob (pré-visualização)
 
@@ -26,15 +26,14 @@ Pode optar por utilizar as teclas geridas pela Microsoft ou as teclas geridas pe
 
 Depois de ter criado um âmbito de encriptação, pode especificar esse âmbito de encriptação num pedido de criação de um recipiente ou de uma bolha. Para obter mais informações sobre como criar um âmbito de encriptação, consulte [Criar e gerir os âmbitos de encriptação (pré-visualização)](encryption-scope-manage.md).
 
-> [!NOTE]
+> [!IMPORTANT]
+> Os âmbitos de encriptação estão atualmente em **PREVIEW**. Consulte os [Termos Complementares de Utilização para o Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para termos legais aplicáveis às funcionalidades do Azure que estejam em versão beta, pré-visualização ou ainda não lançadas em disponibilidade geral.
+>
+> Para evitar custos inesperados, certifique-se de desativar quaisquer âmbitos de encriptação que não necessita atualmente.
+>
 > Os âmbitos de encriptação não são suportados com armazenamento geo-redundante de acesso à leitura (RA-GRS) ou contas de armazenamento redundante de zona de acesso à leitura (RA-GZRS) durante a pré-visualização.
 
 [!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
-
-> [!IMPORTANT]
-> A pré-visualização dos âmbitos de encriptação destina-se apenas à utilização não-produção. Os contratos de serviços de produção (SLAs) não estão atualmente disponíveis.
->
-> Para evitar custos inesperados, certifique-se de desativar quaisquer âmbitos de encriptação que não necessita atualmente.
 
 ## <a name="create-a-container-or-blob-with-an-encryption-scope"></a>Criar um recipiente ou bolha com um âmbito de encriptação
 

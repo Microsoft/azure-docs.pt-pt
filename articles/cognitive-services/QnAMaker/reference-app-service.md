@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 11/9/2020
-ms.openlocfilehash: c35306d3e0d874218b9ea03fbfeaaff722eacf76
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: da46084c8c2616284c31ef155927e8dbcbd19e0e
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896465"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102209364"
 ---
 # <a name="service-configuration"></a>Configuração do serviço
 
@@ -52,7 +52,7 @@ Saiba [como adicionar colaboradores](./reference-role-based-access-control.md) a
 
 ## <a name="change-azure-cognitive-search"></a>Alterar a pesquisa cognitiva do Azure
 
-Saiba [como alterar o serviço de Pesquisa Cognitiva](./how-to/set-up-qnamaker-service-azure.md#configure-qna-maker-to-use-different-cognitive-search-resource) ligado ao seu serviço QnA Maker.
+Saiba [como alterar o serviço de Pesquisa Cognitiva](./how-to/configure-QnA-Maker-resources.md#configure-qna-maker-to-use-different-cognitive-search-resource) ligado ao seu serviço QnA Maker.
 
 ## <a name="change-default-answer"></a>Alterar resposta predefinida
 
@@ -82,6 +82,6 @@ O Plano de Serviço de Aplicações não é utilizado com o QnA Maker gerido (pr
 
 ---
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre formatos para [documentos](reference-document-format-guidelines.md) e URLs que pretende importar para uma base de conhecimento.

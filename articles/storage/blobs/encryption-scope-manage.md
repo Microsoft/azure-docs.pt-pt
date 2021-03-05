@@ -4,23 +4,28 @@ description: Aprenda a criar um âmbito de encriptação para isolar dados de bo
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 09/17/2020
+ms.date: 03/05/2021
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: e77b58f7741af42f00b2a1831157405b12fa24ff
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: d5590ff275ce821c81f5751f4d92972c49adaafc
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96017411"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102209596"
 ---
 # <a name="create-and-manage-encryption-scopes-preview"></a>Criar e gerir os âmbitos de encriptação (pré-visualização)
 
 Os âmbitos de encriptação (pré-visualização) permitem-lhe gerir a encriptação ao nível de uma bolha ou recipiente individual. Um âmbito de encriptação isola os dados do blob num enclave seguro numa conta de armazenamento. Pode utilizar âmbitos de encriptação para criar limites seguros entre dados que residem na mesma conta de armazenamento, mas que pertencem a diferentes clientes. Para obter mais informações sobre os âmbitos de [encriptação, consulte os âmbitos de encriptação para armazenamento blob (pré-visualização)](encryption-scope-overview.md).
 
 Este artigo mostra como criar um âmbito de encriptação. Também mostra como especificar um âmbito de encriptação quando cria uma bolha ou recipiente.
+
+> [!IMPORTANT]
+> Os âmbitos de encriptação estão atualmente em **PREVIEW**. Consulte os [Termos Complementares de Utilização para o Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para termos legais aplicáveis às funcionalidades do Azure que estejam em versão beta, pré-visualização ou ainda não lançadas em disponibilidade geral.
+>
+> Para evitar custos inesperados, certifique-se de desativar quaisquer âmbitos de encriptação que não necessita atualmente.
 
 [!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
@@ -347,7 +352,7 @@ Update-AzStorageEncryptionScope -ResourceGroupName $rgName `
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/cli)
 
-Para alterar a chave que protege um âmbito de encriptação de uma chave gerida pelo cliente para uma chave gerida pela Microsoft com O Azure CLI, ligue para o comando [de atualização de encriptação de encriptação de encriptação do az](/cli/azure/storage/account/encryption-scope#az-storage-account-encryption-scope-update) e passe no `--key-source` parâmetro com o valor `Microsoft.Storage` :
+Para alterar a chave que protege um âmbito de encriptação de uma chave gerida pelo cliente para uma chave gerida pela Microsoft com O Azure CLI, ligue para o comando [de atualização de encriptação do az](/cli/azure/storage/account/encryption-scope#az-storage-account-encryption-scope-update) e passe no `--key-source` parâmetro com o valor `Microsoft.Storage` :
 
 ```azurecli-interactive
 az storage account encryption-scope update \

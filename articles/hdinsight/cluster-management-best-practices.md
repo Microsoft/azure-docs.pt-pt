@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: 27f390c3634887dd616c62dbbd4ad85209efde46
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: d326dfe3a44e5d9e9b55a888762f3878cd418850
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98933703"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102210959"
 ---
 # <a name="hdinsight-cluster-management-best-practices"></a>Boas práticas de gestão de clusters HDInsight
 
@@ -28,7 +28,7 @@ Aprenda as melhores práticas para gerir clusters HDInsight.
 | CLI do Azure | [Criar clusters HDInsight utilizando o Azure CLI](./hdinsight-hadoop-create-linux-clusters-azure-cli.md) |
 | Azure PowerShell | [Criar clusters baseados em Linux em HDInsight usando Azure PowerShell](./hdinsight-hadoop-create-linux-clusters-azure-powershell.md) |
 | cURL | [Criar clusters Apache Hadoop usando a API Azure REST](./hdinsight-hadoop-create-linux-clusters-curl-rest.md) |
-| SDKs (.NET, Python, Java) | [.NET](/dotnet/api/overview/azure/hdinsight?view=azure-dotnet&preserve-view=true), [Python,](/python/api/overview/azure/hdinsight?preserve-view=true&view=azure-python) [Java,](/java/api/overview/azure/hdinsight?preserve-view=true&view=azure-java-stable) [Go](./hdinsight-go-sdk-overview.md) |
+| SDKs (.NET, Python, Java) | [.NET](/dotnet/api/overview/azure/hdinsight?view=azure-dotnet&preserve-view=true), [Python,](/python/api/overview/azure/hdinsight?preserve-view=true&view=azure-python) [Java,](/java/api/overview/azure/hdinsight) [Go](./hdinsight-go-sdk-overview.md) |
 
 > [!Note]
 > Se estiver a criar um cluster e a reutilizar o nome do cluster a partir de um cluster previamente criado, aguarde até que a eliminação do cluster anterior esteja concluída antes de criar o seu cluster.
@@ -73,7 +73,7 @@ AzureActivity
 | where ResourceProvider == "Microsoft.HDInsight" and (OperationName == "Create or Update Cluster" or OperationName == "Delete Cluster") and ActivityStatus == "Succeeded"
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Planeamento da capacidade para clusters do HDInsight](./hdinsight-capacity-planning.md)
 * [Quais são as configurações de nó padrão e recomendadas para Azure HDInsight?](./hdinsight-supported-node-configuration.md)

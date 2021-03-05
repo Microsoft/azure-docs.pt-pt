@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 11/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: c6b3bd61386cbde0e8de63055eee9218e372dfcd
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: dbcd6d55ee921c7fabd8e746e0fdcd6f1427733c
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100547847"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102210711"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Gatilho temporizador para funções Azure
 
@@ -342,7 +342,7 @@ Expresso como uma corda, o `TimeSpan` formato é quando é inferior a `hh:mm:ss`
 |--------------|----------------|
 | "01:00:00"   | a cada hora     |
 | "00:01:00"   | a cada minuto   |
-| "24:00:00"   | a cada 24 dias  |
+| "25:00:00"   | a cada 25 dias  |
 | "1.00:00:00" | Todos os dias      |
 
 ## <a name="scale-out"></a>Aumentar

@@ -13,12 +13,12 @@ metadata:
   author: msmbaldwin
   ms.author: mbaldwin
   ms.date: 04/07/2020
-  ms.openlocfilehash: cf53b3165863c6f22ce4c9a74d002eafd2dcc329
-  ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
-  ms.translationtype: HT
+  ms.openlocfilehash: 74d1a1b45cdfbb773aadda9e035009114d685b15
+  ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+  ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/28/2020
-  ms.locfileid: "92792349"
+  ms.lasthandoff: 03/05/2021
+  ms.locfileid: "102212098"
 highlightedContent:
   items:
   - title: Introdução ao Azure Key Vault
@@ -117,7 +117,7 @@ conceptualContent:
     - url: https://azure.github.io/azure-sdk-for-java/keyvault.html
       itemType: reference
       text: Biblioteca de Cliente Java
-    - url: /javascript/api/overview/azure/key-vault-index?view=azure-node-latest
+    - url: /javascript/api/overview/azure/key-vault-index
       itemType: reference
       text: Biblioteca de Cliente Node.js
   - title: Key Vault com Armazenamento

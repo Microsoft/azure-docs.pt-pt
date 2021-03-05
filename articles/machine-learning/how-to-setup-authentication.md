@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 11/05/2020
 ms.topic: conceptual
 ms.custom: how-to, has-adal-ref, devx-track-js, devx-track-azurecli, contperf-fy21q2
-ms.openlocfilehash: 27c8a0b80068124613af15565f387f15ac6b8e57
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 30e4fede72df8eaf922745e7781c9e0d11f7ddb4
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97027259"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102210823"
 ---
 # <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Configurar a autenticação dos recursos e dos fluxos de trabalho do Azure Machine Learning
 
@@ -54,7 +54,7 @@ Para utilizar um principal serviço (SP), tem primeiro de criar o SP e conceder-
 >
 > A razão para conceder o menor acesso é que um diretor de serviço usa uma senha para autenticar, e a palavra-passe pode ser armazenada como parte de um script de automação. Se a palavra-passe for vazada, ter o acesso mínimo necessário para uma tarefa específica minimiza a utilização maliciosa do SP.
 
-A forma mais fácil de criar um SP e conceder acesso ao seu espaço de trabalho é utilizando o [CLI Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest). Para criar um principal serviço e conceder-lhe acesso ao seu espaço de trabalho, utilize os seguintes passos:
+A forma mais fácil de criar um SP e conceder acesso ao seu espaço de trabalho é utilizando o [CLI Azure](/cli/azure/install-azure-cli). Para criar um principal serviço e conceder-lhe acesso ao seu espaço de trabalho, utilize os seguintes passos:
 
 > [!NOTE]
 > Você deve ser um administrador na subscrição para executar todos estes passos.
@@ -67,9 +67,9 @@ A forma mais fácil de criar um SP e conceder acesso ao seu espaço de trabalho 
 
     Se a CLI conseguir abrir o seu browser predefinido, executa essa ação e carrega uma página de início de sessão. Caso contrário, é necessário abrir um browser e seguir as instruções na linha de comando. As instruções envolvem navegar [https://aka.ms/devicelogin](https://aka.ms/devicelogin) e introduzir um código de autorização.
 
-    Se tiver várias subscrições do Azure, pode utilizar o `az account set -s <subscription name or ID>` comando para definir a subscrição. Para obter mais informações, consulte [utilizar várias subscrições do Azure](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest).
+    Se tiver várias subscrições do Azure, pode utilizar o `az account set -s <subscription name or ID>` comando para definir a subscrição. Para obter mais informações, consulte [utilizar várias subscrições do Azure](/cli/azure/manage-azure-subscriptions-azure-cli).
 
-    Para outros métodos de autenticação, consulte [iniciar sing com Azure CLI](/cli/azure/authenticate-azure-cli?preserve-view=true&view=azure-cli-latest).
+    Para outros métodos de autenticação, consulte [iniciar sing com Azure CLI](/cli/azure/authenticate-azure-cli).
 
 1. Instale a extensão Azure Machine Learning:
 
@@ -236,7 +236,7 @@ ws.get_details()
 
 ### <a name="use-a-service-principal-from-the-azure-cli"></a>Utilize um diretor de serviço do Azure CLI
 
-Pode utilizar um rente-chefe de serviço para comandos Azure CLI. Para obter mais informações, consulte [Iniciar sina com um principal de serviço.](/cli/azure/create-an-azure-service-principal-azure-cli?preserve-view=true&view=azure-cli-latest#sign-in-using-a-service-principal)
+Pode utilizar um rente-chefe de serviço para comandos Azure CLI. Para obter mais informações, consulte [Iniciar sina com um principal de serviço.](/cli/azure/create-an-azure-service-principal-azure-cli#sign-in-using-a-service-principal)
 
 ### <a name="use-a-service-principal-with-the-rest-api-preview"></a>Utilize um principal de serviço com a API REST (pré-visualização)
 

@@ -9,12 +9,12 @@ ms.date: 1/20/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli, references_regions
-ms.openlocfilehash: 5a27f38e92955c0aa240f6be394aacd187c3a8b8
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 24bee926d84c7a5be3f19c39d39285c2cd486824
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100370908"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102211027"
 ---
 # <a name="create-an-azure-file-share"></a>Criar uma partilha de ficheiros do Azure
 Para criar uma partilha de ficheiros Azure, precisa responder a três perguntas sobre como irá usá-lo:
@@ -35,7 +35,7 @@ Para obter mais informações sobre estas três opções, consulte [Planeamento 
 ## <a name="prerequisites"></a>Pré-requisitos
 - Este artigo pressupõe que já criou uma subscrição do Azure. Se ainda não tem uma subscrição, então crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 - Se pretender utilizar o Azure PowerShell, [instale a versão mais recente](/powershell/azure/install-az-ps).
-- Se pretender utilizar o Azure CLI, [instale a versão mais recente](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
+- Se pretender utilizar o Azure CLI, [instale a versão mais recente](/cli/azure/install-azure-cli).
 
 ## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 As ações de ficheiros Azure são implantadas em contas de armazenamento, que são *objetos* de alto nível que representam um conjunto partilhado de armazenamento. Este conjunto de armazenamento pode ser usado para implantar várias partilhas de ficheiros. 
@@ -51,7 +51,7 @@ Para criar uma conta de armazenamento através do portal Azure, selecione **+ Cr
 
 ![Uma imagem da conta de armazenamento cria opção rápida num browser](media/storage-how-to-create-file-share/create-storage-account-0.png)
 
-#### <a name="basics"></a>Informações básicas
+#### <a name="basics"></a>Noções básicas
 A primeira secção a completar para criar uma conta de armazenamento é rotulada **Basics**. Isto contém todos os campos necessários para criar uma conta de armazenamento. Para criar uma conta de armazenamento GPv2, certifique-se de que o botão de rádio **Performance** está definido para *Standard* e a lista de drop-down **tipo conta** é selecionada para *StorageV2 (finalidade geral v2)*.
 
 ![Uma imagem do botão de rádio Performance com o tipo Standard selecionado e conta com StorageV2 selecionado](media/storage-how-to-create-file-share/create-storage-account-1.png)
@@ -213,7 +213,7 @@ New-AzRmStorageShare `
 ```
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
-Pode criar uma partilha de ficheiros Azure com o [`az storage share-rm create`](/cli/azure/storage/share-rm?preserve-view=true&view=azure-cli-latest#az_storage_share_rm_create) comando. Os seguintes comandos Azure CLI assumem que definiu as variáveis `$resourceGroupName` e como definido acima na `$storageAccountName` criação de uma conta de armazenamento com a secção Azure CLI.
+Pode criar uma partilha de ficheiros Azure com o [`az storage share-rm create`](/cli/azure/storage/share-rm#az_storage_share_rm_create) comando. Os seguintes comandos Azure CLI assumem que definiu as variáveis `$resourceGroupName` e como definido acima na `$storageAccountName` criação de uma conta de armazenamento com a secção Azure CLI.
 
 > [!Important]  
 > Para ações de ficheiros premium, o `--quota` parâmetro refere-se ao tamanho previsto da parte do ficheiro. O tamanho previsto da parte do ficheiro é o valor pelo qual será cobrado, independentemente da sua utilização. As ações de ficheiros padrão são faturadas com base no uso e não no tamanho previsto.

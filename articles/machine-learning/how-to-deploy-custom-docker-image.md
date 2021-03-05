@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 11/16/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli
-ms.openlocfilehash: 1ff4d7693a7e493ccb736ab9363fd26c93017c79
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 4a9e374923f6317f7a325979dca1810fad91aeb6
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94695355"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102209479"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-base-image"></a>Implemente um modelo usando uma imagem base personalizada do Docker
 
@@ -43,7 +43,7 @@ Este documento é dividido em duas secções:
 
 * Uma área de trabalho do Azure Machine Learning. Para mais informações, consulte o [Artigo Criar um espaço de trabalho.](how-to-manage-workspace.md)
 * [O Azure Machine Learning SDK.](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py) 
-* O [Azure CLI.](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest)
+* O [Azure CLI.](/cli/azure/install-azure-cli)
 * A [extensão CLI para Azure Machine Learning](reference-azure-machine-learning-cli.md).
 * Um [registo de contentores Azure](../container-registry/index.yml) ou outro registo Docker que esteja acessível na internet.
 * Os passos neste documento assumem que está familiarizado com a criação e utilização de um objeto de configuração de __inferência__ como parte da implementação do modelo. Para mais informações, consulte [onde implementar e como.](how-to-deploy-and-where.md)
@@ -86,7 +86,7 @@ Para imagens de GPU, a Azure ML atualmente oferece imagens de base cuda9 e cuda1
 | mpi | intelmpi==2018.3.222 |openmpi==3.1.2 |intelmpi==2018.3.222| openmpi==3.1.2 |
 | cuda | - | - | 9.0/10.0 | 9.0/10.0/10.1 |
 | Cudnn | - | - | 7.4/7.5 | 7.4/7.5 |
-| nccl | - | - | 2.4 | 2.4 |
+| nccl | - | - | 2,4 | 2,4 |
 | git | 2.7.4 | 2.7.4 | 2.7.4 | 2.7.4 |
 
 As imagens do CPU são construídas a partir de ubuntu16.04. As imagens da GPU para cuda9 são construídas a partir de nvidia/cuda:9.0-cudnn7-devel-ubuntu16.04. As imagens da GPU para cuda10 são construídas a partir de nvidia/cuda:10.0-cudnn7-devel-ubuntu16.04.
@@ -216,7 +216,7 @@ Para utilizar uma imagem personalizada, precisa das seguintes informações:
 
 A Microsoft fornece várias imagens de estivadores num repositório acessível ao público, que pode ser usado com os passos nesta secção:
 
-| Imagem | Description |
+| Imagem | Descrição |
 | ----- | ----- |
 | `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda` | Imagem central para Azure Machine Learning |
 | `mcr.microsoft.com/azureml/onnxruntime:latest` | Contém tempo de execução ONNX para inferencing CPU |

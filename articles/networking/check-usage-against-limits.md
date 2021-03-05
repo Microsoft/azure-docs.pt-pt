@@ -1,5 +1,5 @@
 ---
-title: Verifique o uso de recursos Azure contra limites Microsoft Docs
+title: Verifique a utilização do recurso Azure contra os limites | Microsoft Docs
 description: Saiba como verificar o uso do seu recurso Azure contra os limites de subscrição do Azure.
 services: networking
 documentationcenter: na
@@ -12,12 +12,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/05/2018
-ms.openlocfilehash: 5c53eb65f31e32d3edebcbf31d48d166f5464a92
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 31eeb31fb78a4e9552e64121e0e85b5fd8d9b773
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98233360"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102210653"
 ---
 # <a name="check-resource-usage-against-limits"></a>Verificar a utilização de recursos em relação aos limites
 
@@ -73,7 +73,7 @@ Network Watchers                   1     1
 
 Se utilizar os comandos da interface da linha de comando do Azure (CLI) para completar as tarefas neste artigo, ou executar os comandos na [Azure Cloud Shell](https://shell.azure.com/bash), ou executando o CLI a partir do seu computador. Este artigo requer a versão Azure CLI 2.0.32 ou posterior. Execute `az --version` para localizar a versão instalada. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli). Se estiver a executar o Azure CLI localmente, também precisa correr `az login` para entrar em Azure.
 
-Ver a sua utilização contra limites com [as listas de az.](/cli/azure/network?view=azure-cli-latest#az-network-list-usages) O exemplo a seguir obtém a utilização de recursos na localização dos EUA Orientais:
+Ver a sua utilização contra limites com [as listas de az.](/cli/azure/network#az-network-list-usages) O exemplo a seguir obtém a utilização de recursos na localização dos EUA Orientais:
 
 ```azurecli-interactive
 az network list-usages \

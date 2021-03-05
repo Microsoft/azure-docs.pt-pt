@@ -1230,6 +1230,8 @@
               href: virtual-machines/linux/rhel-high-availability-stonith-tutorial.md
             - name: Configurar o serviço de escuta do grupo de disponibilidade para o SQL Server em máquinas virtuais do RHEL no Azure
               href: virtual-machines/linux/rhel-high-availability-listener-tutorial.md
+            - name: Configurar sempre no grupo de disponibilidade com DH2i DxEnterprise
+              href: virtual-machines/linux/dh2i-high-availability-tutorial.md
         - name: Recursos
           items:
             - name: FAQ

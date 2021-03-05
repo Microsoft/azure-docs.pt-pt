@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/18/2019
-ms.openlocfilehash: 7cfa7257e64421c30c359bb34044988bbb5af1dd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc7c70fa2e7131f09f621e992d537e0b120061ef
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87093090"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102210738"
 ---
 # <a name="failover-and-patching-for-azure-cache-for-redis"></a>Failover e patching para Azure Cache para Redis
 
@@ -72,6 +72,10 @@ A maioria das bibliotecas de clientes tentam reconectar-se com a cache se estive
 Como não pode evitar falhas completamente, escreva os pedidos do seu cliente para resiliência a quebras de ligação e pedidos falhados. Embora a maioria das bibliotecas de clientes se reconecte automaticamente ao ponto final da cache, poucas delas tentam reeferição de pedidos falhados. Dependendo do cenário de aplicação, pode fazer sentido usar a lógica de re-tentar com o backoff.
 
 Para testar a resiliência de uma aplicação do cliente, utilize um [reboot](cache-administration.md#reboot) como gatilho manual para quebras de ligação. Além disso, recomendamos que [marque atualizações](cache-administration.md#schedule-updates) numa cache. Informe o serviço de gestão para aplicar patches de tempo de execução Redis durante as janelas semanais especificadas. Estas janelas são normalmente períodos em que o tráfego de aplicações do cliente é baixo, para evitar potenciais incidentes.
+
+### <a name="can-i-be-notified-in-advance-of-a-planned-maintenance"></a>Posso ser notificado antes de uma manutenção planeada?
+
+A Azure Cache para Redis publica agora notificações num canal de publicação/subscrição chamado [AzureRedisEvents](https://github.com/Azure/AzureCacheForRedis/blob/main/AzureRedisEvents.md) cerca de 30 segundos antes das atualizações planeadas. Estas são notificações de tempo de execução, e são construídas especialmente para aplicações que podem usar disjuntores para contornar os comandos de cache ou tampão, por exemplo, durante as atualizações planeadas. Não é um mecanismo que possa notificá-lo com dias ou horas de antecedência.
 
 ### <a name="client-network-configuration-changes"></a>Alterações na configuração da rede do cliente
 

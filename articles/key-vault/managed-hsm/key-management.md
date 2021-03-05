@@ -1,5 +1,5 @@
 ---
-title: Gerir chaves num HSM gerido - Cofre de Chaves Azure / Microsoft Docs
+title: Gerir chaves num HSM gerido - Azure Key Vault | Microsoft Docs
 description: Utilize este artigo para gerir as chaves num HSM gerido
 services: key-vault
 author: amitbapat
@@ -8,12 +8,12 @@ ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 3f054638e09061c652946c9c2db1a32db73c23d9
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 8d0cbd35b53bc8460ac8a19e5197d1f560657263
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92521038"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102212047"
 ---
 # <a name="manage-a-managed-hsm-using-the-azure-cli"></a>Gerir um HSM gerido utilizando o Azure CLI
 
@@ -42,7 +42,7 @@ Para iniciar seduca em Azure usando o CLI pode escrever:
 az login
 ```
 
-Para obter mais informações sobre as opções de login através do CLI, consulte [o login com o Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest&preserve-view=true)
+Para obter mais informações sobre as opções de login através do CLI, consulte [o login com o Azure CLI](/cli/azure/authenticate-azure-cli)
 
 > [!NOTE]
 > Todos os comandos abaixo mostram dois métodos de utilização. Um usando **parâmetros de nome hsm** e **--nome** (para nome-chave) e outro usando **parâmetros de identificação --id** onde você pode especificar url inteiro, incluindo incluindo o nome-chave, se apropriado. Este último método é útil quando o chamador (um utilizador ou uma aplicação) não tem acesso lido no plano de controlo e apenas acesso restrito no plano de dados.

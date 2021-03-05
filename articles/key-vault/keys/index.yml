@@ -11,12 +11,12 @@ metadata:
   author: msmbaldwin
   ms.author: mbaldwin
   ms.date: 04/07/2020
-  ms.openlocfilehash: d3be7d18f55400cf5f9bf85c6fcb767bee05044f
-  ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
-  ms.translationtype: HT
+  ms.openlocfilehash: 0113f34335b6d90b8a463c4291189b414a25c04e
+  ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+  ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 01/08/2021
-  ms.locfileid: "98028442"
+  ms.lasthandoff: 03/05/2021
+  ms.locfileid: "102212013"
 landingContent:
 - title: Chaves
   linkLists:
@@ -63,7 +63,7 @@ landingContent:
     - text: Biblioteca de cliente Java
       url: https://azuresdkdocs.blob.core.windows.net/$web/java/azure-security-keyvault-keys/4.2.0/index.html
     - text: Biblioteca de cliente Node.js
-      url: /javascript/api/@azure/keyvault-keys/?view=azure-node-latest
+      url: /javascript/api/@azure/keyvault-keys/
 - title: Mais sobre o Key Vault
   linkLists:
   - linkListType: overview

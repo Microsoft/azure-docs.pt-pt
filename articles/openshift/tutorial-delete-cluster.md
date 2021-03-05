@@ -7,12 +7,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: azure-redhat-openshift
 ms.date: 04/24/2020
-ms.openlocfilehash: 61347d052aeb5d563f49275d8f072d1079b94f26
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: 3830942d63c3db9646b84d43d65f7c68cb5fcf9e
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100634809"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102209802"
 ---
 # <a name="tutorial-delete-an-azure-red-hat-openshift-4-cluster"></a>Tutorial: Apagar um aglomerado de chapéu vermelho Azure OpenShift 4
 
@@ -26,7 +26,7 @@ Neste tutorial, parte três de três, é eliminado um cluster Azure Red Hat Open
 
 Em tutoriais anteriores, um cluster Azure Red Hat OpenShift foi criado e ligado à utilização da consola web OpenShift. Se não tiver feito estes passos, e gostaria de seguir em frente, comece com [Tutorial 1 - Crie um Azure Red Hat Openshift 4 Cluster.](tutorial-create-cluster.md)
 
-Se optar por instalar e utilizar o CLI localmente, este tutorial requer que esteja a executar a versão Azure CLI 2.6.0 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)](/cli/azure/install-azure-cli?view=azure-cli-latest).
+Se optar por instalar e utilizar o CLI localmente, este tutorial requer que esteja a executar a versão Azure CLI 2.6.0 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)](/cli/azure/install-azure-cli).
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 

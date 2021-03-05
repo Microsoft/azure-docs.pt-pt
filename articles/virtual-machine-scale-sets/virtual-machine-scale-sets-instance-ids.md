@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: management
 ms.date: 02/22/2018
 ms.reviewer: jushiman
-ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: a32a5a04c5c71cc06d60f3d2f21946f5361a2afd
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.custom: mimckitt
+ms.openlocfilehash: a62c9bbde0726c8dec8fba1f69e221bd4e4b63bc
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843252"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102209854"
 ---
 # <a name="understand-instance-ids-for-azure-vm-scale-set-vms"></a>Compreenda os IDs de exemplo para VMs de escala Azure
 Este artigo descreve os IDs de exemplo para conjuntos de escala e as várias formas de superfície.
@@ -27,7 +27,7 @@ REST API: `POST https://management.azure.com/subscriptions/{subscriptionId}/reso
 
 Powershell: `Set-AzVmssVM -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName} -InstanceId {instanceId} -Reimage` (para mais informações, consulte a [documentação powershell)](/powershell/module/az.compute/set-azvmssvm)
 
-CLI: `az vmss reimage -g {resourceGroupName} -n {vmScaleSetName} --instance-id {instanceId}` (para mais informações, consulte a documentação do [CLI).](/cli/azure/vmss?view=azure-cli-latest)
+CLI: `az vmss reimage -g {resourceGroupName} -n {vmScaleSetName} --instance-id {instanceId}` (para mais informações, consulte a documentação do [CLI).](/cli/azure/vmss)
 
 Pode obter a lista de IDs de instância listando todas as instâncias num conjunto de escala:
 
@@ -35,7 +35,7 @@ REST API: `GET https://management.azure.com/subscriptions/{subscriptionId}/resou
 
 Powershell: `Get-AzVmssVM -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName}` (para mais informações, consulte a [documentação powershell)](/powershell/module/az.compute/get-azvmssvm)
 
-CLI: `az vmss list-instances -g {resourceGroupName} -n {vmScaleSetName}` (para mais informações, consulte a documentação do [CLI).](/cli/azure/vmss?view=azure-cli-latest)
+CLI: `az vmss list-instances -g {resourceGroupName} -n {vmScaleSetName}` (para mais informações, consulte a documentação do [CLI).](/cli/azure/vmss)
 
 Também pode utilizar [resources.azure.com](https://resources.azure.com) ou os [Azure SDKs](https://azure.microsoft.com/downloads/) para listar os VMs num conjunto de escala.
 

@@ -7,12 +7,12 @@ ms.author: sumuth
 ms.topic: tutorial
 ms.date: 12/10/2020
 ms.custom: mvc
-ms.openlocfilehash: b4aa23079661150f40b39ff65117b7f4229a67e2
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 6e8effee91eed73193319238c2ad2f6eaf6d0473
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880899"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102211282"
 ---
 # <a name="tutorial-deploy-django-app-on-aks-with-azure-database-for-postgresql---flexible-server"></a>Tutorial: Implementar aplicativo Django em AKS com Base de Dados Azure para PostgreSQL - Servidor Flexível
 
@@ -67,7 +67,7 @@ A saída de exemplo a seguir mostra o grupo de recursos criado com sucesso:
 
 ## <a name="create-aks-cluster"></a>Criar um cluster do AKS
 
-Utilize o comando [az aks create](/cli/azure/aks?view=azure-cli-latest&preserve-view=true#az-aks-create) para criar um cluster AKS. O exemplo seguinte cria um cluster com o nome *myAKSCluster* com um nó. Isto levará vários minutos para ser concluído.
+Utilize o comando [az aks create](/cli/azure/aks#az-aks-create) para criar um cluster AKS. O exemplo seguinte cria um cluster com o nome *myAKSCluster* com um nó. Isto levará vários minutos para ser concluído.
 
 ```azurecli-interactive
 az aks create --resource-group django-project --name djangoappcluster --node-count 1 --generate-ssh-keys
@@ -80,13 +80,13 @@ Após alguns minutos, o comando completa e devolve informações formatadas com 
 
 ## <a name="connect-to-the-cluster"></a>Ligar ao cluster
 
-Para gerir um cluster Kubernetes, você usa [kubectl,](https://kubernetes.io/docs/reference/kubectl/overview/)o cliente da linha de comando Kubernetes. Se utilizar a Azure Cloud Shell, `kubectl` já está instalada. Para instalar `kubectl` localmente, utilize o comando [az aks instalar-cli:](/cli/azure/aks?view=azure-cli-latest&preserve-view=true#az-aks-install-cli)
+Para gerir um cluster Kubernetes, você usa [kubectl,](https://kubernetes.io/docs/reference/kubectl/overview/)o cliente da linha de comando Kubernetes. Se utilizar a Azure Cloud Shell, `kubectl` já está instalada. Para instalar `kubectl` localmente, utilize o comando [az aks instalar-cli:](/cli/azure/aks#az-aks-install-cli)
 
 ```azurecli-interactive
 az aks install-cli
 ```
 
-Para configurar `kubectl` para se ligar ao cluster do Kubernetes, utilize o comando [az aks get-credentials](/cli/azure/aks?view=azure-cli-latest&preserve-view=true#az-aks-get-credentials). Este comando descarrega credenciais e configura o CLI de Kubernetes para usá-las.
+Para configurar `kubectl` para se ligar ao cluster do Kubernetes, utilize o comando [az aks get-credentials](/cli/azure/aks#az-aks-get-credentials). Este comando descarrega credenciais e configura o CLI de Kubernetes para usá-las.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group django-project --name djangoappcluster
@@ -109,7 +109,7 @@ aks-nodepool1-31718369-0   Ready    agent   6m44s   v1.12.8
 ```
 
 ## <a name="create-an-azure-database-for-postgresql---flexible-server"></a>Criar uma base de dados Azure para PostgreSQL - Servidor Flexível
-Crie um servidor flexível com o [comando de criação de servidor flexível az postgreSQL.](./index.yml?preserve-view=true&view=azure-cli-latest) O seguinte comando cria um servidor utilizando predefinições e valores de serviço a partir do contexto local do seu Azure CLI:
+Crie um servidor flexível com o [comando de criação de servidor flexível az postgreSQL.](/cli/azure/postgres/flexible-server#az_postgres_flexible_server_create) O seguinte comando cria um servidor utilizando predefinições e valores de serviço a partir do contexto local do seu Azure CLI:
 
 ```azurecli-interactive
 az postgres flexible-server create --public-access <YOUR-IP-ADDRESS>
@@ -378,7 +378,7 @@ Quit the server with CONTROL-C.
 
 ## <a name="clean-up-the-resources"></a>Limpar os recursos
 
-Para evitar as acusações do Azure, devias limpar recursos não necessários.  Quando o cluster já não for necessário, utilize o comando [az group delete](/cli/azure/group?view=azure-cli-latest&preserve-view=true#az_group_delete) para remover o grupo de recursos, o serviço de contentores e todos os recursos relacionados.
+Para evitar as acusações do Azure, devias limpar recursos não necessários.  Quando o cluster já não for necessário, utilize o comando [az group delete](/cli/azure/group&preserve-view=true#az_group_delete) para remover o grupo de recursos, o serviço de contentores e todos os recursos relacionados.
 
 ```azurecli-interactive
 az group delete --name django-project --yes --no-wait
@@ -387,7 +387,7 @@ az group delete --name django-project --yes --no-wait
 > [!NOTE]
 > Quando elimina o cluster, o principal de serviço do Azure Active Directory utilizado pelo cluster do AKS não é removido. Para obter passos sobre como remover o principal de serviço, consulte [Considerações sobre e eliminação do principal de serviço AKS](../../aks/kubernetes-service-principal.md#additional-considerations). Se usou uma identidade gerida, a identidade é gerida pela plataforma e não necessita de remoção.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como [aceder ao painel web kubernetes](../../aks/kubernetes-dashboard.md) para o seu cluster AKS
 - Saiba como ativar a [implementação contínua](../../aks/deployment-center-launcher.md)

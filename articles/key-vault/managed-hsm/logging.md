@@ -9,21 +9,21 @@ ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 22abd38ead1257b49eeae98acfcd74349f563811
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7420ffbe5b365c635c1eac2620cfd54ceb649ebf
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91000789"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102211809"
 ---
 # <a name="managed-hsm-logging"></a>Registo de HSM gerido 
 
 Depois de criar um ou mais HSMs geridos, provavelmente irá querer monitorizar como e quando os seus HSMs são acedidos, e por quem. Pode fazê-lo ativando o registo, que guarda informações numa conta de armazenamento Azure que fornece. Um novo recipiente denominado **insights-logs-auditevent** é automaticamente criado para a sua conta de armazenamento especificada. Pode utilizar esta mesma conta de armazenamento para recolher registos para vários HSMs geridos.
 
-Pode aceder à sua informação de registo 10 minutos (no máximo) após a operação gerida do HSM. Na maioria dos casos, o processo será ainda mais rápido.  Cabe-lhe gerir os seus registos na sua conta de armazenamento:
+Pode aceder à sua informação de registo 10 minutos (no máximo) após a operação gerida do HSM. Na maioria dos casos, o processo será ainda mais rápido.  Cabe-lhe gerir os registos na sua conta de armazenamento:
 
-* Utilize métodos padrão de controlo de acesso do Azure para proteger os seus registos, restringindo o seu acesso.
-* Elimine os registos que já não pretende manter na sua conta de armazenamento.
+* Utilize métodos de controlo de acesso do Azure standard para proteger os registos ao restringir quem pode aceder a eles.
+* Elimine registos que já não pretende manter na conta de armazenamento.
 
 Utilize este tutorial para ajudá-lo a começar com o registo gerido do HSM. Irá criar uma conta de armazenamento, ativar o registo e interpretar as informações de registo recolhidas.  
 
@@ -48,7 +48,7 @@ O primeiro passo para a configuração do registo de chaves é apontar o Azure C
 az login
 ```
 
-Para obter mais informações sobre as opções de login através do CLI, dê uma olhada [no login com o Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest&preserve-view=true)
+Para obter mais informações sobre as opções de login através do CLI, dê uma olhada [no login com o Azure CLI](/cli/azure/authenticate-azure-cli)
 
 Poderá ter de especificar a subscrição que utilizou para criar o seu HSM Gerido. Introduza o seguinte comando para ver as subscrições da sua conta:
 
@@ -128,7 +128,7 @@ A tabela que se segue lista os nomes e descrições do campo:
 | **TenantId** | ID do inquilino do Azure Ative Directory de subscrição onde o HSM gerido é criado |
 | **Hora** |Data e hora na UTC. |
 | **recursosId** |Identificação de recursos do Azure Resource Manager. Para registos geridos de HSM, este é sempre o ID de recurso gerido do HSM. |
-| **operaçãoName** |Nome da operação, conforme documentada na tabela seguinte. |
+| **operationName** |Nome da operação, conforme documentada na tabela seguinte. |
 | **operaçãoVer** |Versão REST API solicitada pelo cliente. |
 | **categoria** |Tipo de resultado. Para registos geridos de HSM, **o AuditEvent** é o valor único disponível. |
 | **resultadoType** |Resultado do pedido da API REST. |
