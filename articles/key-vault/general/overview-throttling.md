@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 5b60f290f6d3ca184e25edd2984ad5b2d1ff2bdf
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 7bdc3ac517df6b73fba7231cfe0fdc9855803782
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289683"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175758"
 ---
 # <a name="azure-key-vault-throttling-guidance"></a>Diretrizes de limitação do Azure Key Vault
 
@@ -24,7 +24,7 @@ Os limites de estrangulamento variam em função do cenário. Por exemplo, se es
 
 ## <a name="how-does-key-vault-handle-its-limits"></a>Como é que o Key Vault lida com os seus limites?
 
-Os limites de serviço no Key Vault impedem o uso indevido de recursos e garantem a qualidade do serviço a todos os clientes da Key Vault. Quando um limiar de serviço é ultrapassado, o Key Vault limita quaisquer outros pedidos desse cliente por um período de tempo, devolve o código de estado HTTP 429 (Demasiados pedidos) e o pedido falha. Pedidos falhados que devolvem uma contagem de 429 para os limites do acelerador seguidos por Key Vault. 
+Os limites de serviço no Key Vault impedem o uso indevido de recursos e garantem a qualidade do serviço a todos os clientes da Key Vault. Quando um limiar de serviço é ultrapassado, o Key Vault limita quaisquer outros pedidos desse cliente por um período de tempo, devolve o código de estado HTTP 429 (Demasiados pedidos) e o pedido falha. Os pedidos falhados que devolvem um 429 não contam para os limites de aceleração seguidos pelo Cofre de Chaves. 
 
 Key Vault foi originalmente projetado para ser usado para armazenar e recuperar os seus segredos na hora de implantação.  O mundo evoluiu, e o Key Vault está a ser usado em tempo de execução para armazenar e recuperar segredos, e muitas vezes aplicações e serviços querem usar o Key Vault como uma base de dados.  Os limites atuais não suportam taxas de produção elevadas.
 
@@ -41,14 +41,14 @@ Se descobrir que o acima ainda não satisfaz as suas necessidades, preencha a ta
 
 | Nome do Vault | Região do Cofre | Tipo de objeto (Segredo, Chave ou Cert) | Operação(s)* | Tipo chave | Comprimento ou curva da chave | Chave HSM?| RPS de estado estável necessário | Pico RPS necessário |
 |--|--|--|--|--|--|--|--|--|
-| https://mykeyvault.vault.azure.net/ | | Chave | Assinar | EC | P-256 | No | 200 | 1000 |
+| https://mykeyvault.vault.azure.net/ | | Chave | Assinar | EC | P-256 | Não | 200 | 1000 |
 
 \* Para obter uma lista completa de valores possíveis, consulte as [operações do Azure Key Vault](/rest/api/keyvault/key-operations).
 
 Se for aprovada a capacidade adicional, por favor, note o seguinte como resultado do aumento da capacidade:
 1. Alterações no modelo de consistência de dados. Uma vez que um cofre é permitido listado com capacidade adicional de produção, o serviço Key Vault de consistência de dados altera alterações (necessária para atender RPS de volume mais elevado uma vez que o serviço de armazenamento Azure subjacente não consegue acompanhar).  Em poucas palavras:
-  1. **Sem permitir a listagem** : O serviço Key Vault refletirá os resultados de uma operação de escrita (por exemplo. SecretSet, CreateKey) imediatamente em chamadas subsequentes (por exemplo. SecretGet, KeySign).
-  1. **Com a listagem de permitis** : O serviço Key Vault refletirá os resultados de uma operação de escrita (por exemplo. SecretSet, CreateKey) dentro de 60 segundos em chamadas subsequentes (por exemplo. SecretGet, KeySign).
+  1. **Sem permitir a listagem**: O serviço Key Vault refletirá os resultados de uma operação de escrita (por exemplo. SecretSet, CreateKey) imediatamente em chamadas subsequentes (por exemplo. SecretGet, KeySign).
+  1. **Com a listagem de permitis**: O serviço Key Vault refletirá os resultados de uma operação de escrita (por exemplo. SecretSet, CreateKey) dentro de 60 segundos em chamadas subsequentes (por exemplo. SecretGet, KeySign).
 1. O código do cliente deve honrar a política de back-off para 429 retróscos. O código do cliente que chama o serviço Key Vault não deve re-tentar imediatamente os pedidos do Key Vault quando recebe um código de resposta 429.  A orientação de estrangulamento do Azure Key Vault publicada aqui recomenda a aplicação de backoff exponencial ao receber um código de resposta 429 Http.
 
 Se tiver um caso de negócio válido para limites de aceleração mais elevados, entre em contato conosco.

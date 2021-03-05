@@ -12,12 +12,12 @@ ms.date: 02/01/2021
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 78f844295c16d15be65f345881ec92fa15a9734a
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: b82d3963ed12e0d5dc6acd75555a3a7e8f20eeb0
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101649228"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175350"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Códigos de erro da Autenticação e autorização do Azure AD
 
@@ -187,6 +187,7 @@ Por exemplo, se recebeu o código de erro "AADSTS50058" então faça uma pesquis
 | AADSTS53002 | AplicaçãoUsedIsNotAnApprovedAppedAppedApp - A aplicação utilizada não é uma aplicação aprovada para acesso condicional. O utilizador precisa de utilizar uma das aplicações da lista de aplicações aprovadas para ter acesso. |
 | AADSTS53003 | BlockedByConditionalAccess - O acesso foi bloqueado por políticas de Acesso Condicional. A política de acesso não permite a emissão de fichas. |
 | AADSTS53004 | ProofUpBlockedDueToRisk - O utilizador precisa de completar o processo de registo de autenticação multi-factor antes de aceder a este conteúdo. O utilizador deve registar-se na autenticação multifator. |
+| AADSTS53011 | Utilizador bloqueado devido ao risco no inquilino da casa. |
 | AADSTS54000 | MinorUserBlockedLegalAgeGroupRule |
 | AADSTS65001 | DelegaçãoDoesNotExist - O utilizador ou administrador não consentiu em utilizar o pedido com o ID X. Envie um pedido de autorização interativa para este utilizador e recurso. |
 | AADSTS65004 | UserDeclinedConsent - O utilizador recusou-se a consentir no acesso à aplicação. Pedir ao utilizador que repita o início de sessão e que autorize o acesso à aplicação|

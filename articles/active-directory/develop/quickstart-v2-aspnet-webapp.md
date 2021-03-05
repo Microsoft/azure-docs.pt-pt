@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, contperf-fy21q1
-ms.openlocfilehash: 4a0f43d93e848ee98560811d921e6b1168f35828
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 0177db44acfa491940428947d1e3369e00d733d0
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100103809"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175417"
 ---
 # <a name="quickstart-add-microsoft-identity-platform-sign-in-to-an-aspnet-web-app"></a>Quickstart: Adicione o início da plataforma de identidade da Microsoft a uma aplicação web ASP.NET
 
@@ -147,8 +147,8 @@ public void Configuration(IAppBuilder app)
             // PostLogoutRedirectUri is the page that users will be redirected to after sign-out. In this case, it is using the home page
             PostLogoutRedirectUri = redirectUri,
             Scope = OpenIdConnectScope.OpenIdProfile,
-            // ResponseType is set to request the id_token - which contains basic information about the signed-in user
-            ResponseType = OpenIdConnectResponseType.IdToken,
+            // ResponseType is set to request the code id_token - which contains basic information about the signed-in user
+            ResponseType = OpenIdConnectResponseType.CodeIdToken,
             // ValidateIssuer set to false to allow personal and work accounts from any organization to sign in to your application
             // To only allow users from a single organizations, set ValidateIssuer to true and 'tenant' setting in web.config to the tenant name
             // To allow users from only a list of specific organizations, set ValidateIssuer to true and use ValidIssuers parameter
@@ -166,14 +166,14 @@ public void Configuration(IAppBuilder app)
 }
 ```
 
-> |Onde  | Description |
+> |Onde  | Descrição |
 > |---------|---------|
 > | `ClientId`     | O ID de Aplicação da aplicação registada no portal do Azure |
 > | `Authority`    | O ponto final STS para o utilizador autenticar. Normalmente `https://login.microsoftonline.com/{tenant}/v2.0` para a cloud pública, em que {tenant} é o nome do seu inquilino, o Id do seu inquilino, ou *common* para uma referência ao ponto final comum (utilizado para aplicações multi-inquilino) |
 > | `RedirectUri`  | URL onde os utilizadores são enviados após autenticação contra a plataforma de identidade da Microsoft |
 > | `PostLogoutRedirectUri`     | URL para onde os utilizadores são enviados depois de terminarem sessão |
 > | `Scope`     | A lista dos âmbitos que estão a ser solicitados, separados por espaços |
-> | `ResponseType`     | Pedido de que a resposta da autenticação contenha um token de ID |
+> | `ResponseType`     | Solicitação de que a resposta da autenticação contenha um Código de Autorização e um token de ID |
 > | `TokenValidationParameters`     | Uma lista de parâmetros para a validação do token. Neste caso, `ValidateIssuer` está definido como `false` para indicar que pode aceitar inícios de sessão de todos os tipos de conta: pessoal, escolar ou profissional |
 > | `Notifications`     | Uma lista de delegados que podem ser executados em diferentes mensagens *OpenIdConnect* |
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 1/29/2021
 ms.author: nichola
 ms.custom: aaddev
-ms.openlocfilehash: e7193ee5d076538689078ce634b8170926df20b6
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: f63d7aed75b14f5f008a639d667d8806b233b9fa
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101653257"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102174603"
 ---
 # <a name="support-passwordless-authentication-with-fido2-keys-in-apps-you-develop"></a>Suporte autenticação sem palavras-passe com teclas FIDO2 em apps que desenvolve
 
@@ -52,7 +52,7 @@ As opções recomendadas para a implementação da autenticação são, por orde
 
 ### <a name="mobile"></a>Móvel
 
-A partir de fevereiro de 2020, o FIDO2 não é atualmente suportado para aplicações nativas do iOS ou Android, mas está em desenvolvimento.
+A partir de fevereiro de 2021, o FIDO2 não é atualmente suportado para aplicações nativas do iOS ou Android, mas está em desenvolvimento.
 
 Para preparar aplicações para a sua disponibilidade, e como uma das melhores práticas gerais, as aplicações iOS e Android devem utilizar o MSAL com a sua configuração padrão de utilização do navegador web do sistema.
 

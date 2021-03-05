@@ -8,12 +8,12 @@ ms.author: nmurav
 ms.date: 12/11/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: d2df7255980ca00d405cf80a9fff69ff0511bd17
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 5ffc655cebb19b755b990171ab662576ac541793
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101659312"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102174296"
 ---
 # <a name="call-flow-topologies"></a>Topologias de fluxo de chamadas
 Este artigo descreve as topologias de fluxo de fluxo de chamadas Azure Communication Services. Este é um ótimo artigo para rever se você é um cliente empresarial que integra serviços de comunicação dentro de uma rede que você gere. Para uma introdução aos fluxos de chamada dos Serviços de Comunicação, visite a documentação conceptual dos [fluxos de chamada.](./call-flows.md)
@@ -152,7 +152,7 @@ A sinalização entre a VPN para a rede de clientes utiliza o Flow 2*. A sinaliz
 
 ### <a name="vpn-user-to-internal-user-direct-media"></a>Utilizador VPN para utilizador interno (meios diretos)
 
-:::image type="content" source="./media/call-flows/vpn-to-internal-direct-media.png" alt-text="Um a um fluxo de chamada com uma VPN com meios diretos":::
+:::image type="content" source="./media/call-flows/vpn-to-internal-direct-media.png" alt-text="Um a um fluxo de chamada (utilizador interno) com uma VPN com Meios Diretos":::
 
 *Figura 6 - Utilizador VPN ao utilizador interno (meios diretos)*
 
@@ -162,7 +162,7 @@ Esta transmissão mediática é bidirecional. A direção do Flow 2 para o utili
 
 ### <a name="vpn-user-to-external-user-direct-media"></a>Utilizador VPN para utilizador externo (suporte direto)
 
-:::image type="content" source="./media/call-flows/vpn-user-to-external-user.png" alt-text="Um a um fluxo de chamada com uma VPN com meios diretos":::
+:::image type="content" source="./media/call-flows/vpn-user-to-external-user.png" alt-text="Um a um fluxo de chamada (utilizador externo) com uma VPN com Meios Diretos":::
 
 *Figura 7 - Utilizador VPN para utilizador externo (meios diretos)*
 

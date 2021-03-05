@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 10/21/2020
 ms.custom: contperf-fy20q4, tracking-python
-ms.openlocfilehash: 3f128b7ee7fa8f690c2097a5d27e274ec1eb2a8a
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: ca3957563f7c7a7021ad994cc323823763c2936e
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97559544"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102171553"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Use o estúdio Azure Machine Learning numa rede virtual Azure
 
@@ -38,7 +38,6 @@ Veja os outros artigos desta série:
 
 > [!IMPORTANT]
 > Se o seu espaço de trabalho estiver numa __nuvem soberana__, como o Governo Azure ou o Azure China 21Vianet, os cadernos integrados _não suportam_ o armazenamento que se encontra numa rede virtual. Em alternativa, pode utilizar os blocos de notas do Jupyter Notebook de uma instância de computação. Para mais informações, consulte os dados do Access numa secção [de cadernos De cálculo.](how-to-secure-training-vnet.md#access-data-in-a-compute-instance-notebook)
-
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -107,7 +106,6 @@ A tabela a seguir descreve por que razão deve ativar a autenticação de identi
 >
 > Para resolver este problema, remova a conta de loja de ficheiros da rede virtual e, em seguida, adicione-a de volta à rede virtual.
 
-
 ### <a name="grant-workspace-managed-identity-__reader__-access-to-storage-private-link"></a>Grant workspace gerido identidade O acesso __do leitor__ ao link privado de armazenamento
 
 Se a sua conta de armazenamento Azure utilizar um ponto final privado, deve conceder ao **leitor** de identidade gerido pelo espaço de trabalho acesso ao link privado. Para mais informações, consulte o papel incorporado do [Leitor.](../role-based-access-control/built-in-roles.md#reader) 
@@ -162,7 +160,7 @@ Também deve [permitir a autenticação de identidade gerida](#configure-datasto
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Este artigo é uma parte opcional de uma série de rede virtual de quatro partes. Veja o resto dos artigos para aprender a proteger uma rede virtual:
+Este artigo é parte cinco de uma série de rede virtual de cinco partes. Veja o resto dos artigos para aprender a proteger uma rede virtual:
 
 * [Parte 1: Visão geral da rede virtual](how-to-network-security-overview.md)
 * [Parte 2: Garantir os recursos do espaço de trabalho](how-to-secure-workspace-vnet.md)

@@ -4,18 +4,18 @@ description: Este artigo fornece uma caminhada para criar uma aplicação Java q
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: f543fae8087a7dd3a18da7b44bc2896d7607f3d2
-ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
+ms.openlocfilehash: 640f6c4dcb223e55e10f7cb5d7daaa44dbd41578
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91728969"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102172028"
 ---
 # <a name="use-java-to-send-events-to-or-receive-events-from-azure-event-hubs-azure-messaging-eventhubs"></a>Use Java para enviar eventos ou receber eventos de Azure Event Hubs (azure-messaging-eventhubs)
 Este quickstart mostra como enviar eventos e receber eventos de um centro de eventos usando o pacote java **de mensagens azure-eventhubs.**
 
 > [!IMPORTANT]
-> Este quickstart usa o novo pacote **azure-messaging-eventhubs.** Para um arranque rápido que utiliza os **antigos pacotes azure-eventhubs-eph,** consulte [Enviar e receber eventos usando azure-eventhubs e azure-eventhubs-eph](event-hubs-java-get-started-send-legacy.md). **azure-eventhubs-eph** 
+> Este quickstart usa o novo pacote **azure-messaging-eventhubs.** Para um arranque rápido que utiliza os **antigos pacotes azure-eventhubs-eph,** consulte [Enviar e receber eventos usando azure-eventhubs e azure-eventhubs-eph](event-hubs-java-get-started-send-legacy.md).  
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -169,7 +169,7 @@ Adicione as seguintes dependências no ficheiro pom.xml.
     <dependency>
         <groupId>com.azure</groupId>
         <artifactId>azure-messaging-eventhubs-checkpointstore-blob</artifactId>
-        <version>1.1.1</version>
+        <version>1.5.0</version>
     </dependency>
 </dependencies>
 ```

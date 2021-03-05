@@ -7,12 +7,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 12/28/2020
 ms.author: jgao
-ms.openlocfilehash: 574dcf50111c14f4924f009a74ed6f2ac2bb31e9
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 9d045fb75838ac016f3e9b04cd2519d8a8530a4b
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98733845"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175656"
 ---
 # <a name="use-deployment-scripts-in-arm-templates"></a>Use scripts de implementação em modelos ARM
 
@@ -141,7 +141,7 @@ Detalhes do valor da propriedade:
 - `azPowerShellVersion`/`azCliVersion`: Especifique a versão do módulo a utilizar. Consulte uma lista de [versões Azure PowerShell suportadas](https://mcr.microsoft.com/v2/azuredeploymentscripts-powershell/tags/list). Consulte uma lista de [versões Azure CLI suportadas](https://mcr.microsoft.com/v2/azure-cli/tags/list).
 
   >[!IMPORTANT]
-  > O script de implementação utiliza as imagens CLI disponíveis do Microsoft Container Registry (MCR). Leva cerca de um mês para certificar uma imagem CLI para o script de implementação. Não utilize as versões CLI que foram lançadas dentro de 30 dias. Para encontrar as datas de lançamento das imagens, consulte [as notas de lançamento do Azure CLI](/cli/azure/release-notes-azure-cli?view=azure-cli-latest&preserve-view=true). Se for utilizada uma versão não suportada, a mensagem de erro lista as versões suportadas.
+  > O script de implementação utiliza as imagens CLI disponíveis do Microsoft Container Registry (MCR). Leva cerca de um mês para certificar uma imagem CLI para o script de implementação. Não utilize as versões CLI que foram lançadas dentro de 30 dias. Para encontrar as datas de lançamento das imagens, consulte [as notas de lançamento do Azure CLI](/cli/azure/release-notes-azure-cli). Se for utilizada uma versão não suportada, a mensagem de erro lista as versões suportadas.
 
 - `arguments`: Especificar os valores dos parâmetros. Os valores são separados por espaços.
 
@@ -321,7 +321,7 @@ O tamanho máximo permitido para variáveis ambientais é de 64 KB.
 
 O serviço de scripts cria uma [conta de armazenamento](../../storage/common/storage-account-overview.md) (a menos que especifique uma conta de armazenamento existente) e uma instância de [contentor](../../container-instances/container-instances-overview.md) para execução de scripts. Se estes recursos forem automaticamente criados pelo serviço de scripts, ambos os recursos têm o `azscripts` sufixo nos nomes dos recursos.
 
-![Nomes de recursos de design de gestão de modelo de gestor de recursos de recursos de gest](./media/deployment-script-template/resource-manager-template-deployment-script-resources.png)
+![Nomes de recursos de design de design de design de gestão de modelo de gestor de recursos de recursos de gest](./media/deployment-script-template/resource-manager-template-deployment-script-resources.png)
 
 O script do utilizador, os resultados da execução e o ficheiro stdout são armazenados nas partilhas de ficheiros da conta de armazenamento. Há uma pasta chamada `azscripts` . Na pasta, há mais duas pastas para a entrada e os ficheiros de saída: `azscriptinput` e `azscriptoutput` .
 
@@ -377,10 +377,10 @@ Timeout             : PT1H
 
 Utilizando o CLI Azure, pode gerir scripts de implementação no âmbito de subscrição ou grupo de recursos:
 
-- [az implementações-scripts eliminar](/cli/azure/deployment-scripts?view=azure-cli-latest&preserve-view=true#az-deployment-scripts-delete): Eliminar um script de implementação.
-- [lista de scripts de implementação az](/cli/azure/deployment-scripts?view=azure-cli-latest&preserve-view=true#az-deployment-scripts-list): Listar todos os scripts de implantação.
-- [az deployment-scripts show](/cli/azure/deployment-scripts?view=azure-cli-latest&preserve-view=true#az-deployment-scripts-show): Recuperar um script de implementação.
-- [az implementação-scripts show-log](/cli/azure/deployment-scripts?view=azure-cli-lates&preserve-view=truet#az-deployment-scripts-show-log): Mostrar registos de scripts de implementação.
+- [az implementações-scripts eliminar](/cli/azure/deployment-scripts#az-deployment-scripts-delete): Eliminar um script de implementação.
+- [lista de scripts de implementação az](/cli/azure/deployment-scripts#az-deployment-scripts-list): Listar todos os scripts de implantação.
+- [az deployment-scripts show](/cli/azure/deployment-scripts#az-deployment-scripts-show): Recuperar um script de implementação.
+- [az implementação-scripts show-log](/cli/azure/deployment-scripts#az-deployment-scripts-show-log): Mostrar registos de scripts de implementação.
 
 A saída do comando da lista é semelhante a:
 
@@ -592,7 +592,7 @@ Depois de o script ser testado com sucesso, pode usá-lo como um script de imple
 | ImplementaçãoScriptContainerGroupInNonterminalState | Ao criar a instância do recipiente Azure (ACI), outro script de implantação está a utilizar o mesmo nome ACI no mesmo âmbito (mesma subscrição, nome de grupo de recursos e nome de recurso). |
 | ImplementaçãoScriptContainerGroupNameInvalid | O nome de instância do contentor Azure (ACI) especificado não satisfaz os requisitos de ACI. Consulte [questões comuns de resolução de problemas em instâncias de contentores Azure](../../container-instances/container-instances-troubleshooting.md#issues-during-container-group-deployment).|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu a usar scripts de implantação. Para percorrer um tutorial de script de implementação:
 

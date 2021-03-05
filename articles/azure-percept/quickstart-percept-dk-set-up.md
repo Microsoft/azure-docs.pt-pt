@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: quickstart
 ms.date: 02/15/2021
 ms.custom: template-quickstart
-ms.openlocfilehash: 78c5d2d03ebca45bcf1602b35453914d033db5c8
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 49bf89d38edef6a9186cbdb5bb89a763339385b4
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102098252"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175826"
 ---
 # <a name="set-up-your-azure-percept-dk-and-deploy-your-first-ai-model"></a>Configure o seu Azure Percept DK e implemente o seu primeiro modelo de IA
 
@@ -182,7 +182,7 @@ Se desejar criar uma nova subscrição, siga [estes passos](https://docs.microso
 
 ## <a name="view-your-device-in-the-azure-percept-studio-and-deploy-common-prebuilt-sample-apps"></a>Veja o seu Dispositivo no Azure Percept Studio e implemente aplicações de amostras pré-construídas comuns
 
-1. Consulte a sua lista de dispositivos a partir da página de visão geral do Azure Percept. A página Azure Percept Overview é o seu ponto de lançamento para aceder a muitos fluxos de trabalho diferentes tanto para o início como para o avançado AI Edge Model e Desenvolvimento de Soluções
+1. Veja a sua lista de dispositivos a partir da página de visão geral do [estúdio Azure Percept.](https://go.microsoft.com/fwlink/?linkid=2135819) A página Azure Percept Overview é o seu ponto de lançamento para aceder a muitos fluxos de trabalho diferentes tanto para o início como para o avançado AI Edge Model e Desenvolvimento de Soluções
 
     :::image type="content" source="./media/quickstart-percept-dk-setup/portal-01-get-device-list.png" alt-text="Veja a sua lista de dispositivos.":::
     

@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: overview
-ms.date: 12/02/2020
+ms.date: 02/18/2021
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ca000e105f70f1a4940e7fc9a0292061e94b5ea
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: c25504e3313234ac6b6f80a6e00c77fce28b1400
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101648650"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102174534"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regras dinâmicas de adesão para grupos no Azure Ative Directory
 
@@ -386,8 +386,8 @@ Podem ser utilizados os seguintes atributos do dispositivo.
  ----- | ----- | ----------------
  accountEnabled | verdadeiro falso | (device.accountEnabled -eq true)
  displayName | qualquer valor de cadeia |(dispositivo.displayName -eq "Rob iPhone")
- tipoDeSODoDispositivo | qualquer valor de cadeia | (dispositivo.deviceOSType -eq "iPad") - ou (dispositivo.deviceOSType -eq "iPhone")<br>(dispositivo.deviceOSType -contém "AndroidEnterprise")<br>(dispositivo.deviceOSType -eq "AndroidForWork")
- versãoDeSODoDispositivo | qualquer valor de cadeia | (dispositivo.deviceOSVersion -eq "9.1")
+ tipoDeSODoDispositivo | qualquer valor de cadeia | (dispositivo.deviceOSType -eq "iPad") - ou (dispositivo.deviceOSType -eq "iPhone")<br>(dispositivo.deviceOSType -contém "AndroidEnterprise")<br>(dispositivo.deviceOSType -eq "AndroidForWork")<br>(dispositivo.deviceOSType -eq "Windows")
+ versãoDeSODoDispositivo | qualquer valor de cadeia | (dispositivo.deviceOSVersion -eq "9.1")<br>(dispositivo.deviceOSVersion -eq "10.0.17763.0")
  dispositivoCategoria | um nome válido da categoria de dispositivo | (dispositivo.deviceCategoria -eq "BYOD")
  dispositivo Manfacturer | qualquer valor de cadeia | (dispositivo.deviceManufacturer -eq "Samsung")
  modelo de dispositivo | qualquer valor de cadeia | (dispositivo.deviceModel -eq "iPad Air")

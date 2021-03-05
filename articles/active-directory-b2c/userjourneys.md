@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 03/04/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: aac75e7876ce59b90e27f9e87c96240755d26235
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: 05307fe2ad9e0a59fa11c30f2dc7154ba5076603
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102120747"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102174670"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
@@ -119,18 +119,23 @@ O elemento **pré-condições** contém o seguinte elemento:
 
 #### <a name="precondition"></a>Pré-condição
 
+Os passos de orquestração podem ser executados condicionalmente com base em condições prévias definidas no passo de orquestração. Existem dois tipos de pré-condições:
+ 
+- **Reclamações existem** - Especifica que as ações devem ser executadas se as alegações especificadas existirem no saco de reclamação atual do utilizador.
+- **Reivindicação é igual** - Especifica que as ações devem ser realizadas se a reclamação especificada existir, e o seu valor é igual ao valor especificado. O cheque executa uma comparação ordinal sensível a casos. Ao verificar o tipo de reclamação booleana, use `True` ou `False` .
+
 O **elemento pré-condição** contém os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
 | `Type` | Sim | O tipo de verificação ou consulta a realizar para esta condição prévia. O valor pode ser **ClaimsExist,** que especifica que as ações devem ser executadas se as reclamações especificadas existirem no conjunto de reclamações corrente do utilizador, ou **ClaimEquals,** que especifica que as ações devem ser executadas se a reclamação especificada existir e o seu valor for igual ao valor especificado. |
-| `ExecuteActionsIf` | Sim | Utilize um teste verdadeiro ou falso para decidir se as ações na condição prévia devem ser realizadas. |
+| `ExecuteActionsIf` | Sim | Utilize um `true` ou teste para decidir se as `false` ações na condição prévia devem ser realizadas. |
 
 Os **elementos de pré-condição** contêm os seguintes elementos:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| Valor | 1:n | Um ClaimTypeReferenceId a ser questionado. Outro elemento de valor contém o valor a verificar.</li></ul>|
+| Valor | 1:2 | O identificador de um tipo de reclamação. A reclamação já está definida na secção de esquema de reclamações no ficheiro de política ou no ficheiro de política dos pais. Quando a condição prévia é tipo de `ClaimEquals` , um segundo elemento contém o valor a ser `Value` verificado. |
 | Ação | 1:1 | A ação que deve ser executada se o controlo de pré-condição dentro de um passo de orquestração for verdadeiro. Se o valor do valor do `Action` for `SkipThisOrchestrationStep` definido, o associado `OrchestrationStep` não deve ser executado. |
 
 #### <a name="preconditions-examples"></a>Pré-condições exemplos
@@ -189,7 +194,7 @@ As condições prévias podem verificar várias condições prévias. O exemplo 
 </OrchestrationStep>
 ```
 
-## <a name="identity-provider-selection"></a>Seleção de fornecedores de identidade
+## <a name="claims-provider-selection"></a>Seleção do fornecedor de sinistros
 
 A seleção do fornecedor de identidade permite que os utilizadores selecionem uma ação a partir de uma lista de opções. A seleção do fornecedor de identidade consiste num par de duas etapas de orquestração: 
 
@@ -215,7 +220,7 @@ O elemento **ClaimsProviderSelection** contém os seguintes atributos:
 | TargetClaimsExchangeId | Não | O identificador da troca de sinistros, que é executado na próxima etapa de orquestração da seleção do prestador de sinistros. Este atributo ou o atributo ValidationClaimsExchangeId devem ser especificados, mas não ambos. |
 | ValidaçãoClaimsExchangeId | Não | O identificador da troca de sinistros, que é executado na atual etapa de orquestração para validar a seleção do prestador de sinistros. Este atributo ou o atributo TargetClaimsExchangeId devem ser especificados, mas não ambos. |
 
-### <a name="claimsproviderselection-example"></a>Sinistros Exemplo de Seleção
+### <a name="claims-provider-selection-example"></a>Exemplo de seleção do fornecedor de sinistros
 
 No seguinte passo de orquestração, o utilizador pode optar por iniciar scontabilidade com facebook, LinkedIn, Twitter, Google ou uma conta local. Se o utilizador selecionar um dos fornecedores de identidade social, o segundo passo de orquestração executa com a troca de reclamações selecionada especificada no `TargetClaimsExchangeId` atributo. A segunda etapa de orquestração redireciona o utilizador para o fornecedor de identidade social para completar o processo de inscrição. Se o utilizador optar por iniciar seditação com a conta local, o Azure AD B2C permanece no mesmo passo de orquestração (a mesma página de inscrição ou página de inscrição) e salta o segundo passo de orquestração.
 

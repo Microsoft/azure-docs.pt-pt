@@ -6,17 +6,17 @@ ms.author: alkemper
 ms.date: 05/26/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: 4768dbe292b7c71770ded1e8ad27025bc9944608
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: f29be1807dfcc314c89d30301107670a970263ce
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96930267"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102172880"
 ---
 # <a name="authorize-access-to-azure-app-configuration-using-azure-active-directory"></a>Autorizar o acesso à Configuração de Aplicações Azure utilizando o Azure Ative Directory
 Além de utilizar o Código de Autenticação de Mensagens (HMAC) baseado em Hash, a Azure App Configuration suporta a utilização do Azure Ative Directory (Azure AD) para autorizar pedidos para instâncias de Configuração de Aplicações.  A Azure AD permite-lhe usar o controlo de acesso baseado em funções Azure (Azure RBAC) para conceder permissões a um diretor de segurança.  Um responsável de segurança pode ser um utilizador, uma [identidade gerida](../active-directory/managed-identities-azure-resources/overview.md) ou um diretor de serviço [de aplicação.](../active-directory/develop/app-objects-and-service-principals.md)  Para saber mais sobre papéis e atribuições de papéis, consulte [compreender diferentes funções.](../role-based-access-control/overview.md)
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Os pedidos feitos por um responsável de segurança para aceder a um recurso de Configuração de Aplicações devem ser autorizados. Com a Azure AD, o acesso a um recurso é um processo em duas etapas:
 1. A identidade do diretor de segurança é autenticada e um token OAuth 2.0 é devolvido.  O nome do recurso para solicitar um token é `https://login.microsoftonline.com/{tenantID}` onde `{tenantID}` corresponde ao ID do inquilino do Azure Ative Directory ao qual o principal de serviço pertence.
 2. O token é passado como parte de um pedido ao serviço de Configuração de Aplicações para autorizar o acesso ao recurso especificado.
@@ -37,9 +37,6 @@ O Azure fornece as seguintes funções incorporadas do Azure para autorizar o ac
 - **Leitor de Dados de Configuração de Aplicativos**: Utilize esta função para dar acesso à leitura dos dados de Configuração da Aplicação. Isto não permite o acesso ao recurso de Configuração de Aplicações.
 - **Contribuinte**: Utilize esta função para gerir o recurso de Configuração de Aplicações. Embora os dados de Configuração da Aplicação possam ser acedidos através de teclas de acesso, esta função não concede acesso direto aos dados utilizando o Azure AD.
 - **Leitor**: Utilize esta função para dar acesso à leitura do recurso De configuração da aplicação. Isto não permite o acesso às teclas de acesso do recurso, nem aos dados armazenados na Configuração da Aplicação.
-
-> [!NOTE]
-> Atualmente, o portal Azure suporta apenas a autenticação HMAC para aceder aos dados de Configuração de Aplicações. A autenticação AD AZure não é suportada. Por isso, os utilizadores do portal Azure exigem que a função *do Contribuinte* recupere as teclas de acesso do recurso de Configuração da Aplicação. A concessão de funções *de Leitor de Dados de Configuração de Aplicações* ou *de Data Owner de Configuração de Aplicações* não tem qualquer impacto no acesso através do portal.
 
 ## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre a utilização [de identidades geridas](howto-integrate-azure-managed-service-identity.md) para administrar o seu serviço de Configuração de Aplicações.

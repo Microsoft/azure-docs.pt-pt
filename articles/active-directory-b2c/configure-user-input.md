@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/10/2020
+ms.date: 03/04/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: eb7cba1de280793a1ca98687c71355c1ea702d4c
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: e76fe1c26f428403a79a3605b7a41f761fe2a4bb
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97585229"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102171625"
 ---
 #  <a name="add-user-attributes-and-customize-user-input-in-azure-active-directory-b2c"></a>Adicione atributos do utilizador e personalize a entrada do utilizador no Azure Ative Directory B2C
 
@@ -198,7 +198,7 @@ Para recolher a reclamação da cidade durante a inscrição, deve ser adicionad
 </ClaimsProvider>
 ```
 
-Para recolher a reclamação da cidade após a iniciação inicial com uma conta federada, deve ser adicionado como um pedido de saída ao `SelfAsserted-Social` perfil técnico. Para que os utilizadores de contas locais e federados possam editar os seus dados de perfil mais tarde, adicione a reivindicação de saída ao `SelfAsserted-ProfileUpdate` perfil técnico. Substitua estes perfis técnicos no ficheiro de extensão. Especifique toda a lista dos pedidos de saída para controlar a ordem que as reclamações são apresentadas no ecrã. Encontre o elemento **ClaimsProviders.** Adicione um novo ClaimsProviders da seguinte forma:
+Para recolher a reclamação da cidade após a iniciação inicial com uma conta federada, deve ser adicionado como um pedido de saída ao `SelfAsserted-Social` perfil técnico. Para que os utilizadores de contas locais e federados possam editar os seus dados de perfil mais tarde, adicione as reclamações de entrada e saída ao `SelfAsserted-ProfileUpdate` perfil técnico. Substitua estes perfis técnicos no ficheiro de extensão. Especifique toda a lista dos pedidos de saída para controlar a ordem que as reclamações são apresentadas no ecrã. Encontre o elemento **ClaimsProviders.** Adicione um novo ClaimsProviders da seguinte forma:
 
 ```xml
 <ClaimsProvider>
@@ -206,6 +206,9 @@ Para recolher a reclamação da cidade após a iniciação inicial com uma conta
   <TechnicalProfiles>
     <!--Federated account first-time sign-in page-->
     <TechnicalProfile Id="SelfAsserted-Social">
+      <InputClaims>
+        <InputClaim ClaimTypeReferenceId="city" />
+      </InputClaims>
       <OutputClaims>
         <OutputClaim ClaimTypeReferenceId="displayName"/>
         <OutputClaim ClaimTypeReferenceId="givenName"/>
@@ -215,6 +218,9 @@ Para recolher a reclamação da cidade após a iniciação inicial com uma conta
     </TechnicalProfile>
     <!--Edit profile page-->
     <TechnicalProfile Id="SelfAsserted-ProfileUpdate">
+      <InputClaims>
+        <InputClaim ClaimTypeReferenceId="city" />
+      </InputClaims>
       <OutputClaims>
         <OutputClaim ClaimTypeReferenceId="displayName"/>
         <OutputClaim ClaimTypeReferenceId="givenName" />

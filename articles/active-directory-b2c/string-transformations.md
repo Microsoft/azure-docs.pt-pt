@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 11/03/2020
+ms.date: 03/04/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4e74c33a18baff3e1cb39328ce265f16975ef1b5
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 9cd5a62cd85687767497b142a30d31aa6dd00b77
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95994847"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175095"
 ---
 # <a name="string-claims-transformations"></a>Cadeia reivindica transformações
 
@@ -149,6 +149,42 @@ Utilize esta transformação de sinistros para definir um valor de claimType de 
     - **valor**: Contoso termos de serviço...
 - Reclamações de saída:
     - **createdClaim**: O TOS ClaimType contém os "termos de serviço contoso..." valor.
+
+## <a name="copyclaimifpredicatematch"></a>CopyClaimIfPredicateMatch
+
+Copiar o valor de uma reclamação a outra se o valor da reclamação de entrada corresponder ao predicado pedido de saída. 
+
+| Item | TransformaçãoClaimType | Tipo de Dados | Notas |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim | inputClaim | string | O tipo de reclamação, que deve ser copiado. |
+| OutputClaim | outputClaim | string | O tipo de reclamação que é produzido após esta transformação de alegações foi invocado. O valor da reclamação de entrada é verificado contra este predicado pedido. |
+
+O exemplo a seguir copia o valor de reclamação signInName para a reclamação do telefoneNumber, apenas se o signInName for um número de telefone. Para obter a amostra completa, consulte o número de telefone ou a política do pacote de arranque [de entrada de e-mail.](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/blob/master/scenarios/phone-number-passwordless/Phone_Email_Base.xml)
+
+```xml
+<ClaimsTransformation Id="SetPhoneNumberIfPredicateMatch" TransformationMethod="CopyClaimIfPredicateMatch">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="signInName" TransformationClaimType="inputClaim" />
+  </InputClaims>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="phoneNumber" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+### <a name="example-1"></a>Exemplo 1
+
+- Reclamações de entrada:
+    - **inputClaim:**bob@contoso.com
+- Reclamações de saída:
+    - **outputClaim**: A reclamação de saída não será alterada do seu valor original.
+
+### <a name="example-2"></a>Exemplo 2
+
+- Reclamações de entrada:
+    - **inputClaim**: +11234567890
+- Reclamações de saída:
+    - **outputClaim**: +11234567890
 
 ## <a name="compareclaims"></a>CompareClaims
 

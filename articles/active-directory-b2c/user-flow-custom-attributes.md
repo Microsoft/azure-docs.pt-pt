@@ -7,17 +7,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/14/2020
+ms.date: 03/04/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 5552c93c1c65f08f70ed8929d81126035aa2a357
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: c9453f2fc5803fb6ce09d8749cbf7fa1c7c2ec46
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98661209"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102174840"
 ---
 # <a name="define-custom-attributes-in-azure-active-directory-b2c"></a>Defina atributos personalizados no Azure Ative Directory B2C
 
@@ -25,7 +25,7 @@ ms.locfileid: "98661209"
 
 Nas reclamações do Add e personalize a entrada do utilizador utilizando o artigo [de políticas personalizadas,](configure-user-input.md) aprende-se a utilizar atributos de perfil de [utilizador incorporados](user-profile-attributes.md). Neste artigo, você ativa um atributo personalizado no seu diretório Azure Ative Diretório B2C (Azure AD B2C). Mais tarde, pode utilizar o novo atributo como uma reivindicação personalizada nos [fluxos do utilizador](user-flow-overview.md) ou políticas [personalizadas](custom-policy-get-started.md) simultaneamente.
 
-O seu diretório Azure AD B2C vem com um [conjunto de atributos incorporados](user-profile-attributes.md). No entanto, muitas vezes é necessário criar os seus próprios atributos para gerir o seu cenário específico, por exemplo, quando:
+O diretório do Azure AD B2C inclui um [conjunto de atributos interno](user-profile-attributes.md). No entanto, muitas vezes é necessário criar os seus próprios atributos para gerir o seu cenário específico, por exemplo, quando:
 
 * Uma aplicação voltada para o cliente precisa de persistir num atributo **LoyaltyId.**
 * Um fornecedor de identidade tem um identificador de utilizador único, **uniqueUserGUID,** que deve ser persistido.
@@ -97,22 +97,27 @@ Para ativar atributos personalizados na sua política, forneça **ID de Aplicaç
 
 1. Abra o ficheiro de extensões da sua apólice. Por exemplo, <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em> .
 1. Encontre o elemento ClaimsProviders. Adicione um novo Provider de Reclamações ao elemento ClaimsProviders.
-1. `ApplicationObjectId`Substitua-o pelo ID do objeto que gravou anteriormente. Em seguida, `ClientId` substitua-o pelo ID de aplicação que já gravou no corte abaixo.
+1. Insira o **ID de aplicação** que registou anteriormente, entre os elementos de abertura `<Item Key="ClientId">` e `</Item>` fecho.
+1. Insira o **ObjectID de aplicação** que registou anteriormente, entre os elementos de abertura `<Item Key="ApplicationObjectId">` e `</Item>` fecho.
 
     ```xml
-    <ClaimsProvider>
-      <DisplayName>Azure Active Directory</DisplayName>
-      <TechnicalProfiles>
-        <TechnicalProfile Id="AAD-Common">
-          <Metadata>
-            <!--Insert b2c-extensions-app application ID here, for example: 11111111-1111-1111-1111-111111111111-->  
-            <Item Key="ClientId"></Item>
-            <!--Insert b2c-extensions-app application ObjectId here, for example: 22222222-2222-2222-2222-222222222222-->
-            <Item Key="ApplicationObjectId"></Item>
-          </Metadata>
-        </TechnicalProfile>
-      </TechnicalProfiles> 
-    </ClaimsProvider>
+    <!-- 
+    <ClaimsProviders> -->
+      <ClaimsProvider>
+        <DisplayName>Azure Active Directory</DisplayName>
+        <TechnicalProfiles>
+          <TechnicalProfile Id="AAD-Common">
+            <Metadata>
+              <!--Insert b2c-extensions-app application ID here, for example: 11111111-1111-1111-1111-111111111111-->  
+              <Item Key="ClientId"></Item>
+              <!--Insert b2c-extensions-app application ObjectId here, for example: 22222222-2222-2222-2222-222222222222-->
+              <Item Key="ApplicationObjectId"></Item>
+            </Metadata>
+          </TechnicalProfile>
+        </TechnicalProfiles> 
+      </ClaimsProvider>
+    <!-- 
+    </ClaimsProviders> -->
     ```
 
 ## <a name="upload-your-custom-policy"></a>Faça upload da sua política personalizada

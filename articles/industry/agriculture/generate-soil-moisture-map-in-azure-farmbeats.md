@@ -4,13 +4,13 @@ description: Descreve como gerar mapa de calor de humidade do solo em Azure Farm
 author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
-ms.author: v-umha
-ms.openlocfilehash: 2887e7c5fd875942c3d19391267ddbb9b73ccfec
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.author: v-ummehabiba
+ms.openlocfilehash: dd8d688355e0f71ce77cdbc6012d788c7b16d825
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92165558"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102173788"
 ---
 # <a name="generate-soil-moisture-heatmap"></a>Gerar mapa de calor de humidade do solo
 
@@ -67,7 +67,7 @@ Este passo é criar um emprego ou uma operação de longa duração que gere o m
 3.  Na página Detalhes da **Fazenda,** **selecione 'Gerar Mapa de Precisão'.**
 4.  A partir do menu suspenso, selecione **Humidade do Solo**.
 5.  Na janela de humidade do **solo,** selecione **This Week**.
-6.  Na Medida de **Sensor**de Humidade do **Solo Select,** insira a medida que pretende utilizar para o mapa.
+6.  Na Medida de **Sensor** de Humidade do **Solo Select,** insira a medida que pretende utilizar para o mapa.
     Para encontrar a medida do sensor, nos **Sensores,** selecione qualquer sensor de humidade do solo. Nas **propriedades sensoriais,** utilize o valor **do Nome da Medida.**
 
     ![Screenshot que mostra o ecrã de humidade do solo.](./media/get-sensor-data-from-sensor-partner/soil-moisture-1.png)
@@ -93,4 +93,4 @@ Utilize os passos seguintes:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que gerou com sucesso um heatmap de humidade do solo, aprenda a [gerar colocação de sensores](generate-maps-in-azure-farmbeats.md#sensor-placement-map) e [ingere dados históricos de telemetria.](ingest-historical-telemetry-data-in-azure-farmbeats.md) 
+Agora que gerou com sucesso um heatmap de humidade do solo, aprenda a [gerar colocação de sensores](generate-maps-in-azure-farmbeats.md#sensor-placement-map) e [ingere dados históricos de telemetria.](ingest-historical-telemetry-data-in-azure-farmbeats.md) 

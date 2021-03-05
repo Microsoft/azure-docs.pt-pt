@@ -8,15 +8,13 @@ ms.date: 01/04/2021
 ms.author: chhenk
 ms.reviewer: azmetadatadev
 ms.custom: references_regions
-ms.openlocfilehash: b720e98fc83fd12744c289cb99814748b469b15d
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: e18c09130fcbcdbb470abc19d76bdf2ccfef0775
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102123688"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175720"
 ---
-# <a name="azure-instance-metadata-service"></a>Azure Instance Metadata Service
-
 O Azure Instance Metadata Service (IMDS) fornece informações sobre casos de máquinas virtuais atualmente em execução. Pode usá-lo para gerir e configurar as suas máquinas virtuais.
 Esta informação inclui o SKU, armazenamento, configurações de rede e eventos de manutenção futuros. Para obter uma lista completa dos dados disponíveis, consulte o Resumo das [Categorias endpoint](#endpoint-categories).
 

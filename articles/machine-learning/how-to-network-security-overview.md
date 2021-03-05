@@ -11,12 +11,12 @@ author: peterclu
 ms.date: 03/02/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, references_regions, contperf-fy21q1
-ms.openlocfilehash: e3705be10cb540538464e6b1299d848bc9057c7c
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 1309ad1b3e3f6bd6f9b543959220bf71c569f083
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102039925"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175010"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>Isolamento de rede virtual e visão geral da privacidade
 
@@ -175,9 +175,9 @@ Para obter mais informações sobre os nomes de domínio e endereços IP necess�
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Este artigo é parte de uma série de rede virtual de quatro partes. Veja o resto dos artigos para aprender a proteger uma rede virtual:
+Este artigo é parte de uma série de rede virtual de cinco partes. Veja o resto dos artigos para aprender a proteger uma rede virtual:
 
 * [Parte 2: Visão geral da rede virtual](how-to-secure-workspace-vnet.md)
 * [Parte 3: Assegurar o ambiente de treino](how-to-secure-training-vnet.md)
 * [Parte 4: Assegurar o ambiente de inferencção](how-to-secure-inferencing-vnet.md)
-* [Parte 5:Ativar a funcionalidade do estúdio](how-to-enable-studio-virtual-network.md)
+* [Parte 5: Ativar a funcionalidade do estúdio](how-to-enable-studio-virtual-network.md)

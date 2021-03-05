@@ -34,7 +34,13 @@
       href: application-proxy-add-on-premises-application.md
 - name: Amostras
   items:
-    - name: Exemplos do Azure PowerShell para o Proxy da Aplicação
+    - name: Amostras powerShell de gestão de aplicativos
+      items:
+        - name: Visão geral das amostras de Gestão de Aplicações
+          href: app-management-powershell-samples.md
+        - name: 'Exportar todos os registos, segredos e certificados de aplicações'
+          href: ./scripts/powershell-export-all-app-registrations-secrets-and-certs.md
+    - name: Amostras de Proxy PowerShell de aplicativo
       href: application-proxy-powershell-samples.md
 - name: Conceitos
   expanded: true

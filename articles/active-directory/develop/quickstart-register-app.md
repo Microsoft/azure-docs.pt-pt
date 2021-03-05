@@ -12,12 +12,12 @@ ms.date: 09/03/2020
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, contperf-fy21q1, contperf-fy21q2
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: 027d1bf005ac052bf48e2c0aa3a4a71fc29f36f2
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: c72ae2a2e6dbd2278bdd78f26c145386be22764e
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101647443"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175435"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Quickstart: Registar uma aplicação com a plataforma de identidade microsoft
 
@@ -40,7 +40,8 @@ Siga estes passos para criar o registo da aplicação:
 1. Se tiver acesso a vários inquilinos, no menu superior, utilize o filtro **de subscrição Diretório +** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: para selecionar o inquilino no qual pretende registar uma candidatura.
 1. Procure e selecione **Azure Active Directory**.
 1. Em **Gestão**, selecione **registos de aplicações**  >  **Novo registo**.
-1. Insira um **Nome** para a sua inscrição. Os utilizadores da sua aplicação podem ver este nome. Pode mudá-lo mais tarde.
+1. Introduza um **nome** de exibição para a sua aplicação. Os utilizadores da sua aplicação podem ver o nome do ecrã quando utilizarem a aplicação, por exemplo durante a sposição.
+    Pode alterar o nome do visor a qualquer momento e vários registos de aplicações podem partilhar o mesmo nome. O ID de Aplicação (cliente) gerado automaticamente pelo registo da aplicação, não o seu nome de exibição, identifica exclusivamente a sua aplicação dentro da plataforma de identidade.
 1. Especificar quem pode usar a aplicação, por vezes chamada *de público de inscrição*.
 
     | Tipos de conta suportados | Descrição |

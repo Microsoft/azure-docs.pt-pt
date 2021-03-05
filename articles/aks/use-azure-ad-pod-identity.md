@@ -4,12 +4,12 @@ description: Saiba como utilizar identidades geridas por cápsulas AAD no Servi�
 services: container-service
 ms.topic: article
 ms.date: 12/01/2020
-ms.openlocfilehash: f5b5095e95115ce5a28d81d83b725349d43ecc8f
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: e7c8a96ad012afdcd724a4a242c27018563f3a10
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100635545"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102176319"
 ---
 # <a name="use-azure-active-directory-pod-managed-identities-in-azure-kubernetes-service-preview"></a>Use identidades geridas por cápsulas Azure Ative pod no Serviço Azure Kubernetes (Pré-visualização)
 
@@ -186,11 +186,11 @@ az identity delete -g ${IDENTITY_RESOURCE_GROUP} -n ${IDENTITY_NAME}
 Para obter mais informações sobre identidades geridas, consulte [identidades geridas para recursos Azure][az-managed-identities].
 
 <!-- LINKS - external -->
-[az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
-[az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
-[az-extension-add]: /cli/azure/extension?view=azure-cli-latest#az-extension-add&preserve-view=true
-[az-extension-update]: /cli/azure/extension?view=azure-cli-latest#az-extension-update&preserve-view=true
+[az-aks-create]: /cli/azure/aks#az-aks-create
+[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
+[az-extension-add]: /cli/azure/extension#az-extension-add
+[az-extension-update]: /cli/azure/extension#az-extension-update
 [az-group-create]: /cli/azure/group#az-group-create
-[az-identity-create]: /cli/azure/identity?view=azure-cli-latest#az_identity_create
+[az-identity-create]: /cli/azure/identity#az_identity_create
 [az-managed-identities]: ../active-directory/managed-identities-azure-resources/overview.md
-[az-role-assignment-create]: /cli/azure/role/assignment?view=azure-cli-latest#az_role_assignment_create
+[az-role-assignment-create]: /cli/azure/role/assignment#az_role_assignment_create

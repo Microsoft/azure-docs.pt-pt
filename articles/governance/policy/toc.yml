@@ -138,9 +138,9 @@
         - name: Azure Policy para o Kubernetes
           displayName: 'aks, engine, k8s, rego, opa, open policy agent, gatekeeper, v3, crd, constraints, arc'
           href: ./concepts/policy-for-kubernetes.md
-        - name: Proteger pods com o Azure Policy
+        - name: AKS seguro com política de Azure
           displayName: 'aks, psp, rego, opa'
-          href: ../../aks/use-pod-security-on-azure-policy.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
+          href: ../../aks/use-azure-policy.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
     - name: Auditar VMs com a Configuração de Convidado
       displayName: 'provider, tools, definition'
       href: ./concepts/guest-configuration.md

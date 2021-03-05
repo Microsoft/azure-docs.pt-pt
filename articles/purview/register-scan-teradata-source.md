@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 2/25/2021
-ms.openlocfilehash: 0885870497ef3488d78fe899c96ee2a82a5b84fc
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 2008e014e9f160b643ed5f591fff81c0b215e24a
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101696189"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175077"
 ---
 # <a name="register-and-scan-teradata-source-preview"></a>Registar e digitalizar fonte teradata (pré-visualização)
 
@@ -94,13 +94,13 @@ Para criar e executar uma nova digitalização, faça o seguinte:
 
 6.  **Esquema**: Lista subconjunto de esquemas a importar expressos em lista separada de pontos de e vírgula. por exemplo, esquema1; schema2. Todos os esquemas de utilizador são importados se a lista estiver vazia. Todos os esquemas do sistema (por exemplo, SysAdmin) e objetos são ignorados por padrão. Quando a lista está vazia, todos os esquemas disponíveis são importados.
 
-        Acceptable schema name patterns using SQL LIKE expressions syntax include using %, e.g. A%; %B; %C%; D
-        - start with A or    
-        - end with B or    
-        - contain C or    
-        - equal D
+    Padrões aceitáveis de nomes de esquemas usando sintaxe de expressões SQL LIKE incluem a utilização , por exemplo, A%; %B; %C%; D
+    - começar com A ou    
+    - terminar com B ou    
+    - conter C ou    
+    - igual D
 
-        Usage of NOT and special characters are not acceptable
+    O uso de NÃO e caracteres especiais não são aceitáveis
 
 7.  **Localização do condutor**: Especifique o caminho para a localização do controlador JDBC no seu VM onde o tempo de funcionamento da integração do auto-anfitrião está a decorrer. Este deve ser o caminho para a localização válida da pasta JAR.
 

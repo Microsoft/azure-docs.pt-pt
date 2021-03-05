@@ -12,12 +12,12 @@ ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: 5dd960dde72b879515bd948c4731ead135bef4b0
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 6adc3a8af90f6f05f640de97b8fa74c8d40e0329
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102035055"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175551"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>How to: Utilizar o portal para criar uma aplicação e um principal de serviço do Azure AD que possam aceder aos recursos
 
@@ -84,6 +84,9 @@ Vamos saltar diretamente para criar a identidade. Se tiver algum problema, verif
    ![Digite um nome para a sua aplicação](./media/howto-create-service-principal-portal/create-app.png)
 
 Criou o seu azure AD e o seu diretor de serviço.
+
+> [!NOTE]
+> Pode registar várias aplicações com o mesmo nome em Azure AD, mas as aplicações devem ter diferentes IDs de Aplicação (cliente).
 
 ## <a name="assign-a-role-to-the-application"></a>Atribuir uma função à aplicação
 

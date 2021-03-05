@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 12/04/2020
 ms.author: gistefan
 ms.reviewer: mikben
-ms.openlocfilehash: 7e8d9b56077819fc404d6c2bdc39f9f697224136
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: ee691d4809a68a0ba60f60a2240b76a1e53104bc
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101692186"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102171578"
 ---
 # <a name="use-managed-identities-net"></a>Utilizar identidades geridas (.NET)
 
@@ -83,7 +83,7 @@ Os exemplos abaixo estão a utilizar o [DefaultAzureCredential](/dotnet/api/azur
 O exemplo de código que se segue mostra como criar um objeto de cliente de serviço com fichas do Azure Ative Directory e, em seguida, usar o cliente para emitir um símbolo para um novo utilizador:
 
 ```csharp
-     public async Task<Response<CommunicationUserToken>> CreateIdentityAndIssueTokenAsync(Uri resourceEdnpoint) 
+     public async Task<Response<CommunicationUserToken>> CreateIdentityAndIssueTokenAsync(Uri resourceEndpoint) 
      {
           TokenCredential credential = new DefaultAzureCredential();
      

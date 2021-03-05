@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: ecf0f54913f980d879b562eb4aa8063acf6c4772
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 6f42f712ecca77c00020304b63f5a1b0dbd77ad0
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92320259"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102172325"
 ---
 # <a name="install-client-tools-for-deploying-and-managing-azure-arc-enabled-data-services"></a>Instalar as ferramentas de cliente para implementar e gerir serviços de dados preparados para o Azure Arc
 
@@ -36,7 +36,7 @@ A tabela que se segue lista as ferramentas comuns necessárias para criar e geri
 | [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] extensão para Azure Data Studio | Sim | Extensão para Azure Data Studio que será instalada [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] se ainda não o tiver.| Instale a partir da galeria de extensões no Azure Data Studio.|
 | Extensão Azure Arc para Azure Data Studio | Sim | Extensão para Azure Data Studio que proporciona uma experiência de gestão para serviços de dados ativados a Azure Arc. Existe uma dependência da extensão para o [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] Azure Data Studio. | Instale a partir da galeria de extensões no Azure Data Studio.|
 | Extensão Pós-SQL no Azure Data Studio | Não | Extensão PostgreSQL para Azure Data Studio que fornece capacidades de gestão para PostgreSQL. | <!--{need link} [Install](../azure-data-studio/data-virtualization-extension.md) --> Instale a partir da galeria de extensões no Azure Data Studio.|
-| Azure CLI (az)<sup>1</sup> | Sim | Interface moderna de linha de comando para gerir serviços Azure. Usado com implementações AKS e para carregar Azure Arc permitiu o inventário de serviços de dados e dados de faturação para a Azure. (Mais[informações).](/cli/azure/?view=azure-cli-latest&preserve-view=true) | [Instalar](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) |
+| Azure CLI (az)<sup>1</sup> | Sim | Interface moderna de linha de comando para gerir serviços Azure. Usado com implementações AKS e para carregar Azure Arc permitiu o inventário de serviços de dados e dados de faturação para a Azure. (Mais[informações).](/cli/azure/) | [Instalar](/cli/azure/install-azure-cli) |
 | Kubernetes CLI (kubectl)<sup>2</sup> | Sim | Ferramenta de linha de comando para gerir o cluster Kubernetes[(Mais informações).](https://kubernetes.io/docs/tasks/tools/install-kubectl/) | [Janelas](https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-with-powershell-from-psgallery) \| [Linux](https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-using-native-package-management) |
 | caracóis <sup>3</sup> | Necessário para alguns scripts de amostra. | Ferramenta de linha de comando para transferência de dados com URLs. | [Janelas](https://curl.haxx.se/windows/) \| Linux: instalar pacote de caracóis |
 | oc | Obrigatório para as implementações OpenShift e Azure Redhat OpenShift. |`oc` é a interface da linha de comando Open Shift (CLI). | [Instalação do CLI](https://docs.openshift.com/container-platform/4.4/cli_reference/openshift_cli/getting-started-cli.html#installing-the-cli)

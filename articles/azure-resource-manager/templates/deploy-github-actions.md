@@ -4,12 +4,12 @@ description: Descreve como implementar modelos de Gestor de Recursos Azure (mode
 ms.topic: conceptual
 ms.date: 10/13/2020
 ms.custom: github-actions-azure, devx-track-azurecli
-ms.openlocfilehash: 67d4ac51e3e1f84f6a9acd0fc94d5818355d3954
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 243316b32d5b0cf62f03ae77d8a9fb919743ace1
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98762078"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102172835"
 ---
 # <a name="deploy-arm-templates-by-using-github-actions"></a>Implemente modelos ARM utilizando ações do GitHub
 
@@ -38,7 +38,7 @@ O ficheiro tem duas secções:
 ## <a name="generate-deployment-credentials"></a>Gerar credenciais de implantação
 
 
-Pode criar um [principal de serviço](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) com o comando [ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) no [Azure CLI](/cli/azure/). Executar este comando com [Azure Cloud Shell](https://shell.azure.com/) no portal Azure ou selecionando o botão **Try it.**
+Pode criar um [principal de serviço](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) com o comando [ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) no [Azure CLI](/cli/azure/). Executar este comando com [Azure Cloud Shell](https://shell.azure.com/) no portal Azure ou selecionando o botão **Try it.**
 
 Crie um grupo de recursos se ainda não tiver um.
 
@@ -154,7 +154,7 @@ Uma vez que o fluxo de trabalho está configurado para ser acionado pelo ficheir
 ## <a name="clean-up-resources"></a>Limpar os recursos
 Quando o seu grupo de recursos e repositório já não forem necessários, limpe os recursos que implementou eliminando o grupo de recursos e o seu repositório GitHub.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Crie o seu primeiro modelo ARM](./template-tutorial-create-first-template.md)

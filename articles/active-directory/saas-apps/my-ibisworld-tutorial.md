@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Directory integração única (SSO) com o My IBISWorld Microsoft Docs'
+title: 'Tutorial: Azure Ative Directory integração única de sign-on (SSO) com o My IBISWorld | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o My IBISWorld.
 services: active-directory
 author: jeevansd
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: jeedes
-ms.openlocfilehash: c83a1050035fc40912d0242a9c5fe2498b299ebd
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 56aa7c41934506c7de0c8d5cebe84eb5a6bc2164
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92517978"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102174619"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-my-ibisworld"></a>Tutorial: Azure Ative Directory integração única (SSO) com o My IBISWorld
 
@@ -83,26 +83,26 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Na secção **De Configuração Básica SAML,** o utilizador não tem de realizar qualquer passo, uma vez que a aplicação já está pré-integrada com o Azure.
 
-1. Clique **em Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação **no** modo iniciado sp:
-
-    Na caixa de texto **URL de entrada de inscrição,** digite o URL:  `https://my.ibisworld.com/account/login`
+   * Para configurar a aplicação no modo iniciado **sp,** solicite o URL do IBISWorld e, em seguida, introduza o URL na caixa de texto **URL sign-on.**
+   
+   * Para configurar a aplicação no modo iniciado pelo **IdP,** na caixa de texto **do Estado de Retransmissão,** introduza o URL `RPID=http://fedlogin.ibisworld.com` . Deixe a caixa de texto **URL de inscrição** vazia.
 
 1. Clique em **Guardar**.
 
 1. A minha aplicação IBISWorld espera as afirmações DO SAML num formato específico, o que requer que adicione mapeamentos de atributos personalizados à configuração de atributos de token SAML. A imagem que se segue mostra a lista de atributos predefinidos.
 
-    ![image](common/default-attributes.png)
+   ![image](common/default-attributes.png)
 
 1. Além de acima, a aplicação My IBISWorld espera que alguns mais atributos sejam repercutidos na resposta SAML que são mostrados abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com os seus requisitos.
     
-    | Nome | Atributo de origem|
-    | --------------- | --------- |
-    | departamento | user.department |
-    | language | user.preferredlanguage |
-    | telefone | user.telephonenumber |
-    | título | user.jobtitle |
-    | userid | utilizador.employeeid |
-    | país | user.country |
+   | Name | Atributo de origem|
+   | --------------- | --------- |
+   | departamento | user.department |
+   | language | user.preferredlanguage |
+   | telefone | user.telephonenumber |
+   | título | user.jobtitle |
+   | userid | utilizador.employeeid |
+   | país | user.country |
 
 1. Na **configuração de um único sessão de inscrição com** a página SAML, na secção **Certificado de Assinatura SAML,** clique no botão de cópia para copiar o Url de **metadados da Federação de Aplicações** e guarde-o no seu computador.
 
@@ -123,7 +123,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
 
 Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso ao My IBISWorld.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de aplicações, selecione **My IBISWorld**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 

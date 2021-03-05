@@ -139,7 +139,7 @@
     - name: Configuração
       items:
         - name: CLI do Azure
-          href: /cli/azure/appconfig?view=azure-cli-latest
+          href: /cli/azure/appconfig
         - name: Fornecedor de .NET Core
           href: /dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration
         - name: Construtor de .NET Framework

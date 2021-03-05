@@ -14,12 +14,12 @@ ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms:custom: fasttrack-edit
-ms.openlocfilehash: 6a1f4a02ebf42c0f181b595aae0a5fa0bcc9b41d
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 21e0b800e06b7a5ad0351ff53d26a5e2cd2ba71c
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98755917"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175393"
 ---
 # <a name="microsoft-identity-platform-id-tokens"></a>Fichas de ID da plataforma de identidade da Microsoft
 
@@ -55,7 +55,7 @@ Veja esta amostra v2.0 na [jwt.ms](https://jwt.ms/#id_token=eyJ0eXAiOiJKV1QiLCJh
 |-----|--------|-------------|
 |`typ` | String - sempre "JWT" | Indica que o símbolo é um símbolo JWT.|
 |`alg` | String | Indica o algoritmo que foi usado para assinar o símbolo. Exemplo: "RS256" |
-|`kid` | String | Impressão digital para a chave pública usada para assinar este símbolo. Emitidos em v1.0 e v2.0 `id_tokens` . |
+|`kid` | String | Impressão digital para a chave pública usada para verificar este símbolo. Emitidos em v1.0 e v2.0 `id_tokens` . |
 |`x5t` | String | O mesmo (em uso e valor) como `kid` . No entanto, trata-se de uma alegação de legado emitida apenas em v1.0 `id_tokens` para efeitos de compatibilidade. |
 
 ### <a name="payload-claims"></a>Reclamações de carga útil
@@ -135,7 +135,7 @@ Para validar manualmente o token, consulte os detalhes dos passos na [validaçã
 * Público: a `aud` reclamação deve coincidir com o ID da aplicação para a sua aplicação.
 * Nonce: a `nonce` reclamação na carga útil deve corresponder ao parâmetro nonce passado para o ponto final /autorizado durante o pedido inicial.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [fichas de acesso](access-tokens.md)
 * Personalize as reclamações do JWT na sua id_token utilizando [reclamações opcionais.](active-directory-optional-claims.md)

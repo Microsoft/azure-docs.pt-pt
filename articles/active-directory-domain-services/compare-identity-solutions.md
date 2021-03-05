@@ -1,5 +1,5 @@
 ---
-title: Compare os serviços baseados no Diretório Ativo no Azure Microsoft Docs
+title: Compare os serviços baseados no Diretório Ativo em Azure | Microsoft Docs
 description: Nesta visão geral, você compara as diferentes ofertas de identidade para Serviços de Domínio de Diretório Ativo, Diretório Ativo Azure e Serviços de Domínio do Diretório Ativo Azure.
 services: active-directory-ds
 author: justinha
@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: overview
 ms.date: 06/08/2020
 ms.author: justinha
-ms.openlocfilehash: 479cc036ed3231d970d46eef9d89daa39a0b0876
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 48ce982a6d6d7a3ed12d6e3b4711d111dec4d6f8
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96620193"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102174636"
 ---
 # <a name="compare-self-managed-active-directory-domain-services-azure-active-directory-and-managed-azure-active-directory-domain-services"></a>Compare os serviços de domínio do diretório ativo auto-geridos, o Azure Ative Directory e os serviços de domínio do diretório ativo geridos a Azure Ative Directory
 
@@ -78,7 +78,7 @@ A tabela a seguir descreve algumas das funcionalidades que pode necessitar para 
 | **LDAP seguro (LDAPS)**                           | **&#x2713;** | **&#x2713;** |
 | **LDAP ler**                                     | **&#x2713;** | **&#x2713;** |
 | **Escrita LDAP**                                    | **&#x2713;** (dentro do domínio gerido) | **&#x2713;** |
-| **Implantações geo-distribuídas**                   | **&#x2715;** | **&#x2713;** |
+| **Implantações geo-distribuídas**                   | **&#x2713;** | **&#x2713;** |
 
 ## <a name="azure-ad-ds-and-azure-ad"></a>Azure AD DS e Azure AD
 
