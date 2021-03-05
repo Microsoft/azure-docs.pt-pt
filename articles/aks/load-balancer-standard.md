@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/14/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 5da7f2a11be7562313b709a8af72ccd709165cfa
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: e37c5a748a8e99f49e3535946268427139bbbf44
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96000866"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102184428"
 ---
 # <a name="use-a-public-standard-load-balancer-in-azure-kubernetes-service-aks"></a>Utilize um balanceador de carga padrão público no serviço Azure Kubernetes (AKS)
 
@@ -27,7 +27,7 @@ Um equilibrador de carga **interno (ou privado)** é utilizado onde apenas os IP
 
 Este documento abrange a integração com o balanceador de carga pública. Para a integração interna do balanceador de carga, consulte a documentação do [balançador interno de carga AKS](internal-lb.md).
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 O Azure Load Balancer está disponível em dois SKUs - *Básico* e *Standard*. Por padrão, *o Standard* SKU é utilizado quando cria um cluster AKS. Utilize o *SKU Standard* para ter acesso a funcionalidades adicionais, como uma piscina de backend maior, [**várias piscinas de nó,**](use-multiple-node-pools.md)e [**Zonas de Disponibilidade.**](availability-zones.md) É o Balancer de Carga recomendado SKU para AKS.
 
@@ -96,13 +96,13 @@ O Azure Load Balancer fornece conectividade de saída a partir de uma rede virtu
 
 Como todas as regras do Balanceador de Carga, as regras de saída seguem a mesma sintaxe familiar que o equilíbrio de carga e as regras NAT de entrada:
 
-***IPs frontend + parâmetros + backend pool** _
+***IPs frontend + parâmetros + piscina de backend***
 
 Uma regra de saída configura o NAT de saída para todas as máquinas virtuais identificadas pela piscina de backend para serem traduzidas para o frontend. E os parâmetros fornecem um controlo adicional de grãos finos sobre o algoritmo NAT de saída.
 
 Embora uma regra de saída possa ser usada apenas com um único endereço IP público, as regras de saída facilitam o fardo de configuração para a escala de NAT de saída. Você pode usar vários endereços IP para planear cenários de grande escala e você pode usar regras de saída para mitigar padrões propensos à exaustão SNAT. Cada endereço IP adicional fornecido por um frontend fornece portas efémeras de 64k para o Balancer de Carga usar como portas SNAT. 
 
-Ao utilizar um equilibrador de carga SKU _Standard* com IPs públicos de saída geridos, que são criados por padrão, pode escalar o número de IPs públicos geridos de saída utilizando o **`load-balancer-managed-ip-count`** parâmetro.
+Ao utilizar um balanceador de carga *Standard* SKU com IPs públicos de saída geridos, que são criados por padrão, pode escalar o número de IPs públicos geridos de saída usando o **`load-balancer-managed-ip-count`** parâmetro.
 
 Para atualizar um cluster existente, executar o seguinte comando. Este parâmetro também pode ser definido no intervalo para ter múltiplos IPs públicos geridos.
 
@@ -403,17 +403,17 @@ Saiba mais sobre a utilização do Balançador de Carga Interna para o tráfego 
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [aks-sp]: kubernetes-service-principal.md#delegate-access-to-other-azure-resources
 [az-aks-show]: /cli/azure/aks#az-aks-show
-[az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
-[az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
-[az-aks-install-cli]: /cli/azure/aks?view=azure-cli-latest#az-aks-install-cli
+[az-aks-create]: /cli/azure/aks#az-aks-create
+[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
+[az-aks-install-cli]: /cli/azure/aks#az-aks-install-cli
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-feature-list]: /cli/azure/feature#az-feature-list
 [az-feature-register]: /cli/azure/feature#az-feature-register
 [az-group-create]: /cli/azure/group#az-group-create
 [az-provider-register]: /cli/azure/provider#az-provider-register
-[az-network-lb-outbound-rule-list]: /cli/azure/network/lb/outbound-rule?view=azure-cli-latest#az-network-lb-outbound-rule-list
-[az-network-public-ip-show]: /cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-show
-[az-network-public-ip-prefix-show]: /cli/azure/network/public-ip/prefix?view=azure-cli-latest#az-network-public-ip-prefix-show
+[az-network-lb-outbound-rule-list]: /cli/azure/network/lb/outbound-rule#az-network-lb-outbound-rule-list
+[az-network-public-ip-show]: /cli/azure/network/public-ip#az-network-public-ip-show
+[az-network-public-ip-prefix-show]: /cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-show
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
 [azure-lb]: ../load-balancer/load-balancer-overview.md
 [azure-lb-comparison]: ../load-balancer/skus.md

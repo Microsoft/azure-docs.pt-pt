@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: active-directory
 author: barclayn
 ms.service: active-directory
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/07/2020
 ms.author: barclayn
 ms.custom: include file
-ms.openlocfilehash: cbcd4b459faa3bf67f591cc7afab0bf0027062e1
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 0b1606e4506e7a1781426632d1f22221f7028b88
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96842324"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102193954"
 ---
 ## <a name="create-one-or-more-access-reviews"></a>Criar uma ou mais avaliações de acesso
 
@@ -53,7 +53,7 @@ ms.locfileid: "96842324"
 
     - **Utilizadores selecionados** - Utilize esta opção quando não souber quem precisa de acesso. Com esta opção, pode atribuir o comentário a um proprietário de recursos ou gestor de grupo para completar.
     - **Membros (self)** - Utilize esta opção para que os utilizadores revejam as suas próprias atribuições de funções.
-    - **(Preview) Manager** – Utilize esta opção para que o gestor do utilizador reveja a sua atribuição de funções. Ao selecionar (Preview) Manager, também terá a opção de especificar um revisor de recuo. Os revisores de recuo são convidados a rever um utilizador quando o utilizador não tem nenhum gestor especificado no diretório.
+    - **Gestor** – Utilize esta opção para que o gestor do utilizador reveja a sua atribuição de funções. Ao selecionar Manager, também terá a opção de especificar um revisor de recuo. Os revisores de recuo são convidados a rever um utilizador quando o utilizador não tem nenhum gestor especificado no diretório.
 
 ### <a name="upon-completion-settings"></a>Após definições de conclusão
 

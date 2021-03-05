@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/12/2021
+ms.date: 03/04/2021
 ms.author: jeedes
-ms.openlocfilehash: 9a7e02955d7784feb57d7e9ccc7e337b6a939380
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 8409a4d897ea9b20528a5b30273819e6962774cb
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101651557"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102184496"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-kendis---azure-ad-integration"></a>Tutorial: Azure Ative Directory integração única de sign-on (SSO) com Kendis - Azure AD Integration
 
@@ -123,13 +123,21 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 ## <a name="configure-kendis-azure-ad-integration-sso"></a>Configurar Kendis-Azure SSO de Integração AD
 
-1. Numa janela diferente do navegador web, inscreva-se no site da empresa Kendis - Azure AD Integration como administrador.
+1. Para automatizar a configuração dentro da Integração AD Dom - Azure, é necessário instalar a **extensão do navegador 'As aplicações' Secure Sign-in** clicando **em instalar a extensão**.
 
-1. Aceda às **Configurações > SAML**.
+    ![Extensão das minhas aplicações](common/install-myappssecure-extension.png)
+
+2. Depois de adicionar extensão ao navegador, clique em **Configurar Kendis - Azure AD Integration** irá direcioná-lo para a aplicação Kendis - Azure AD Integration. A partir daí, forneça as credenciais de administração para assinar na Kendis - Azure AD Integration. A extensão do navegador configurará automaticamente a aplicação para si e automatizará os passos 3-5.
+
+    ![Configuração de configuração](common/setup-sso.png)
+
+3. Se quiser configurar manualmente a Integração Kendis - AD AD, numa janela diferente do navegador web, inscreva-se no site da empresa Kendis - Ad Integration como administrador.
+
+4. Aceda às **Configurações > SAML**.
 
     ![definições para configurações SAML](./media/kendis-scaling-agile-platform-tutorial/settings.png)
 
-1. Clique no botão **Editar** na parte inferior da página e execute os seguintes passos.
+5. Clique no botão **Editar** na parte inferior da página e execute os seguintes passos.
 
     ![Configurações SAML](./media/kendis-scaling-agile-platform-tutorial/saml-configuration-settings.png)
 

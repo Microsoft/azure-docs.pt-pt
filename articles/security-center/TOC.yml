@@ -112,7 +112,7 @@
           href: exempt-resource.md
         - name: Criar iniciativas e políticas de segurança personalizadas
           href: custom-security-policies.md
-    - name: Proteja as suas máquinas com O Azure Defender para servidores
+    - name: Proteja as suas máquinas com o Defender para servidores
       displayName: 'hybrid, arc, Azure Defender for machines'
       items:
         - name: Visão geral do Azure Defender para servidores
@@ -143,10 +143,10 @@
         - name: Utilizar o Microsoft Defender integrado para a licença de Ponto Final
           displayName: 'ATP, mdatp, wdatp'
           href: security-center-wdatp.md
-        - name: Defina listas de aplicações seguras para as suas máquinas
+        - name: Definir listas de aplicações seguras para máquinas
           displayName: 'aac, whitelist, allowlist, reviewgroup, adaptive application controls'
           href: security-center-adaptive-application.md
-        - name: Rastrear alterações em ficheiros e registos com monitorização da integridade dos ficheiros
+        - name: Rastrear alterações nos ficheiros e registos
           items:
             - name: Descrição geral da monitorização da integridade dos ficheiros
               displayName: 'fim, change'
@@ -154,8 +154,8 @@
             - name: Compare linhas de base usando a monitorização da integridade do ficheiro
               displayName: 'fim, change'
               href: security-center-file-integrity-monitoring-baselines.md
-        - name: Melhore a sua postura de segurança de rede com endurecimento adaptativo da rede
-          displayName: anh
+        - name: Melhore a sua postura de segurança de rede
+          displayName: 'anh, adaptive network hardening'
           href: security-center-adaptive-network-hardening.md
         - name: Proteger os anfitriões do Docker
           displayName: containers
@@ -209,7 +209,7 @@
         - name: Visão geral do Azure Defender para o Cofre de Chaves
           displayName: 'KV, akv'
           href: defender-for-key-vault-introduction.md
-        - name: Responder a alertas do Azure Defender para o Key Vault
+        - name: Handle Defender para alertas de cofre de chaves
           displayName: 'akv, kv'
           href: defender-for-key-vault-usage.md
     - name: Monitorize as suas operações de gestão de recursos
@@ -217,7 +217,7 @@
         - name: Visão geral do Azure Defender para Gestor de Recursos
           displayName: ARM
           href: defender-for-resource-manager-introduction.md
-        - name: Responder a alertas do Azure Defender para Resource Manager
+        - name: Lidar com o Defender para alertas do Gestor de Recursos
           displayName: arm
           href: defender-for-resource-manager-usage.md
     - name: Monitorize as consultas de DNS dos seus recursos Azure
