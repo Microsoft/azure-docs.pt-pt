@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: bf5582016f74e67926c38111a3d8d2f468f3ac79
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.openlocfilehash: e20679c3999f7ece1f6d3ed47a241cfd9dab9236
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99987996"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102214750"
 ---
 # <a name="plan-your-qna-maker-app"></a>Planeie a sua app QnA Maker
 
@@ -177,7 +177,7 @@ Há um [ranking de resposta em duas fases:](query-knowledge-base.md#how-qna-make
 
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (lançamento estável)](#tab/v1)
 
-Aplique as [atualizações de tempo de execução mais recentes](../how-to/set-up-qnamaker-service-azure.md#get-the-latest-runtime-updates) para gerir automaticamente as atualizações de serviço.
+Aplique as [atualizações de tempo de execução mais recentes](../how-to/configure-QnA-Maker-resources.md#get-the-latest-runtime-updates) para gerir automaticamente as atualizações de serviço.
 
 # <a name="qna-maker-managed-preview-release"></a>[QnA Maker gerido (pré-visualização)](#tab/v2)
 
@@ -187,7 +187,7 @@ Na gestão do QnA Maker (Preview), o tempo de execução é gerido pelo próprio
 
 ### <a name="scaling-throughput-and-resiliency"></a>Escala, produção e resiliência
 
-A escala, a produção e a resiliência são determinadas pelos [recursos Azure,](../how-to/set-up-qnamaker-service-azure.md)os seus níveis de preços e qualquer arquitetura circundante, como [o Traffic Manager.](../how-to/set-up-qnamaker-service-azure.md#business-continuity-with-traffic-manager)
+A escala, a produção e a resiliência são determinadas pelos [recursos Azure,](../how-to/set-up-qnamaker-service-azure.md)os seus níveis de preços e qualquer arquitetura circundante, como [o Traffic Manager.](../how-to/configure-QnA-Maker-resources.md#business-continuity-with-traffic-manager)
 
 ### <a name="analytics-with-application-insights"></a>Analytics com Insights de Aplicações
 

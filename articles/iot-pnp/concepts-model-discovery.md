@@ -1,5 +1,5 @@
 ---
-title: Use os modelos IoT Plug e Play numa solução Microsoft Docs
+title: Utilize os modelos IoT Plug e Play numa solução | Microsoft Docs
 description: Como construtor de soluções, saiba como pode utilizar os modelos IoT Plug e Play na sua solução IoT.
 author: arunmannengal
 ms.author: arunmann
@@ -7,12 +7,12 @@ ms.date: 07/23/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 5f82206a7c86c5ae1e6477419faee0dca88ef883
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 7e0d93d3fd179d672b49967c575bbfb9c0fc5de0
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95495292"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102213696"
 ---
 # <a name="use-iot-plug-and-play-models-in-an-iot-solution"></a>Use modelos IoT Plug e Play numa solução IoT
 
@@ -40,10 +40,10 @@ Uma solução pode obter o ID do modelo do dispositivo IoT Plug and Play utiliza
 
 ### <a name="get-device-twin-api"></a>Obter Dispositivo Twin API
 
-A solução pode utilizar o [Get Device Twin](/java/api/com.microsoft.azure.sdk.iot.device.deviceclient.getdevicetwin?preserve-view=true&view=azure-java-stable) API para recuperar o ID do modelo do dispositivo IoT Plug and Play.
+A solução pode utilizar o [Get Device Twin](/java/api/com.microsoft.azure.sdk.iot.device.deviceclient.getdevicetwin) API para recuperar o ID do modelo do dispositivo IoT Plug and Play.
 
 > [!TIP]
-> Para módulos e módulos IoT Edge, utilize [MóduloClient.getTwin](/java/api/com.microsoft.azure.sdk.iot.device.moduleclient.gettwin?preserve-view=true&view=azure-java-stable).
+> Para módulos e módulos IoT Edge, utilize [MóduloClient.getTwin](/java/api/com.microsoft.azure.sdk.iot.device.moduleclient.gettwin).
 
 No seguinte corte de resposta dupla do dispositivo, `modelId` contém o ID do modelo de um dispositivo IoT Plug and Play:
 

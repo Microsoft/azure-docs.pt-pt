@@ -6,16 +6,25 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 2ab719b47245f3adc2fba610f9c0473868889a7e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 622a83c6d91bf2a30c2844e3279d6fd4b89d429f
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101711455"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102213798"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Problemas de resolução de problemas que permitem ou visualizam o perfil de insights de aplicações
 
 ## <a name="general-troubleshooting"></a><a id="troubleshooting"></a>Resolução geral de problemas
+
+### <a name="make-sure-youre-using-the-appropriate-profiler-endpoint"></a>Certifique-se de que está a utilizar o ponto final do profiler apropriado
+
+Atualmente, as únicas regiões que necessitam de modificações no ponto final são [o Governo de Azure](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure#application-insights) e [a Azure China.](https://docs.microsoft.com/azure/china/resources-developer-guide)
+
+|Definição da Aplicação    | Nuvem do Governo dos EUA | Nuvem da China |   
+|---------------|---------------------|-------------|
+|ApplicationInsightsProfilerEndpoint         | `https://profiler.monitor.azure.us`    | `https://profiler.monitor.azure.cn` |
+|ApplicationInsightsEndpoint | `https://dc.applicationinsights.us` | `https://dc.applicationinsights.azure.cn` |
 
 ### <a name="profiles-are-uploaded-only-if-there-are-requests-to-your-application-while-profiler-is-running"></a>Os perfis são carregados apenas se houver pedidos para a sua aplicação enquanto o Profiler está em execução
 

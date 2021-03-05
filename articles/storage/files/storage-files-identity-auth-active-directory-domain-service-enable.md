@@ -8,12 +8,12 @@ ms.date: 01/03/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: contperf-fy21q1, devx-track-azurecli
-ms.openlocfilehash: d75b60c715a758684e6f3a4b331c0b12d17eaf21
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 6d8402f5e8a1a9af1f84ff6beff7324d1675e441
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101705114"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102214410"
 ---
 # <a name="enable-azure-active-directory-domain-services-authentication-on-azure-files"></a>Ativar a autenticação dos Serviços de Domínio do Diretório Ativo do Azure em Ficheiros Azure
 
@@ -123,9 +123,9 @@ Set-AzStorageAccount -ResourceGroupName "<resource-group-name>" `
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Para ativar a autenticação Azure AD sobre O SMB com O Azure CLI, instale a versão CLI mais recente (versão 2.0.70 ou mais recente). Para obter mais informações sobre a instalação do Azure CLI, consulte [instalar o Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
+Para ativar a autenticação Azure AD sobre O SMB com O Azure CLI, instale a versão CLI mais recente (versão 2.0.70 ou mais recente). Para obter mais informações sobre a instalação do Azure CLI, consulte [instalar o Azure CLI](/cli/azure/install-azure-cli).
 
-Para criar uma nova conta de armazenamento, ligue para [a conta de armazenamento AZ criar,](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create)e definir a propriedade como `--enable-files-aadds` **verdadeira**. No exemplo seguinte, lembre-se de substituir os valores do espaço reservado pelos seus próprios valores. (Se estava a utilizar o módulo de pré-visualização anterior, o parâmetro para ativação de funcionalidades é **ficheiro-aad**.)
+Para criar uma nova conta de armazenamento, ligue para [a conta de armazenamento AZ criar,](/cli/azure/storage/account#az-storage-account-create)e definir a propriedade como `--enable-files-aadds` **verdadeira**. No exemplo seguinte, lembre-se de substituir os valores do espaço reservado pelos seus próprios valores. (Se estava a utilizar o módulo de pré-visualização anterior, o parâmetro para ativação de funcionalidades é **ficheiro-aad**.)
 
 ```azurecli-interactive
 # Create a new storage account

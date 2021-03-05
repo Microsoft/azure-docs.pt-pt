@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 09/01/2020
-ms.openlocfilehash: 7ba01139e365b2f0023ef0784b6ed83e7bde609a
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.openlocfilehash: 342ae2f590f4bf4ce88f64d6d545defff358ad72
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97831737"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102215226"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Implementar um modelo para um cluster de serviço Azure Kubernetes
 
@@ -92,7 +92,7 @@ Azureml-fe escala tanto (verticalmente) para usar mais núcleos, como para fora 
 
 Ao escalonar e entrar, é utilizada a utilização do CPU. Se o limiar de utilização do CPU for atingido, a extremidade frontal será primeiro reduzida. Se a utilização do CPU descer para o limiar de escala, uma operação de escala-in acontece. A escalada e a saída só ocorrerão se houver recursos de cluster suficientes disponíveis.
 
-## <a name="understand-connectivity-requirements-for-aks-inferencing-cluster"></a>Compreender os requisitos de conectividade para o cluster de inferenculação AKS
+## <a name="understand-connectivity-requirements-for-aks-inferencing-cluster"></a>Entender os requisitos de conectividade para o cluster de inferência do AKS
 
 Quando o Azure Machine Learning cria ou anexa um cluster AKS, o cluster AKS é implantado com um dos dois modelos de rede seguintes:
 * Rede Kubenet - Os recursos de rede são tipicamente criados e configurados à medida que o cluster AKS é implantado.
@@ -184,7 +184,7 @@ az ml model deploy -ct myaks -m mymodel:1 -n myservice -ic inferenceconfig.json 
 
 [!INCLUDE [deploymentconfig](../../includes/machine-learning-service-aks-deploy-config.md)]
 
-Para obter mais informações, consulte a referência de implantação do [modelo az ml.](/cli/azure/ext/azure-cli-ml/ml/model?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy)
+Para obter mais informações, consulte a referência de implantação do [modelo az ml.](/cli/azure/ext/azure-cli-ml/ml/model#ext-azure-cli-ml-az-ml-model-deploy)
 
 # <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
@@ -372,7 +372,7 @@ print(token)
 >
 > A Microsoft recomenda vivamente que crie o seu espaço de trabalho Azure Machine Learning na mesma região que o seu cluster de Serviço Azure Kubernetes. Para autenticar com um token, o serviço web fará uma chamada para a região em que o seu espaço de trabalho Azure Machine Learning é criado. Se a região do seu espaço de trabalho não estiver disponível, então não poderá obter um símbolo para o seu serviço web, mesmo, se o seu cluster estiver numa região diferente do seu espaço de trabalho. Isto resulta efetivamente na indisponibilidade da autenticação baseada em Token até que a região do seu espaço de trabalho esteja novamente disponível. Além disso, quanto maior for a distância entre a região do seu aglomerado e a região do seu espaço de trabalho, mais tempo demorará a obter um símbolo.
 >
-> Para obter um token, você deve usar o Azure Machine Learning SDK ou o [comando az ml get-token de acesso.](/cli/azure/ext/azure-cli-ml/ml/service?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-service-get-access-token)
+> Para obter um token, você deve usar o Azure Machine Learning SDK ou o [comando az ml get-token de acesso.](/cli/azure/ext/azure-cli-ml/ml/service#ext-azure-cli-ml-az-ml-service-get-access-token)
 
 
 ### <a name="vulnerability-scanning"></a>Análise de vulnerabilidades

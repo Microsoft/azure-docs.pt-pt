@@ -1,5 +1,5 @@
 ---
-title: O que é um Azure Private Endpoint?
+title: O que é um Ponto Final Privado do Azure?
 description: Saiba mais sobre o Azure Private Endpoint
 services: private-link
 author: malopMSFT
@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: 88d44f4f8cedbad604eb59cde91f4eed79918c0f
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 62a5a5307e704b22a2c9ead197dae3360d5d03b1
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98806654"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102214801"
 ---
 # <a name="what-is-azure-private-endpoint"></a>O que é o Ponto Final Privado do Azure?
 
@@ -110,7 +110,7 @@ O proprietário de recursos de ligação privada pode executar as seguintes aç�
 > Apenas um ponto final privado num estado aprovado pode enviar tráfego para um determinado recurso de ligação privada. 
 
 ### <a name="connecting-using-alias"></a>Ligação usando Alias
-O Alias é um nome único que é gerado quando o proprietário do serviço cria o serviço de ligação privada por trás de um balanceador de carga padrão. O proprietário do serviço pode partilhar este Alias com os seus consumidores offline. Os consumidores podem solicitar uma ligação ao serviço de ligação privada utilizando o recurso URI ou o Alias. Se pretender ligar-se utilizando o Alias, tem de criar um ponto final privado utilizando o método de aprovação de ligação manual. Para utilizar o método de aprovação de ligação manual, desaponte o parâmetro de pedido manual para ser verdadeiro durante o ponto final privado, crie fluxo. Veja o [New-AzPrivateEndpoint](/powershell/module/az.network/new-azprivateendpoint?view=azps-2.6.0) e [o ponto de terminação privado da rede Az para obter](/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-create) detalhes. 
+O Alias é um nome único que é gerado quando o proprietário do serviço cria o serviço de ligação privada por trás de um balanceador de carga padrão. O proprietário do serviço pode partilhar este Alias com os seus consumidores offline. Os consumidores podem solicitar uma ligação ao serviço de ligação privada utilizando o recurso URI ou o Alias. Se pretender ligar-se utilizando o Alias, tem de criar um ponto final privado utilizando o método de aprovação de ligação manual. Para utilizar o método de aprovação de ligação manual, desaponte o parâmetro de pedido manual para ser verdadeiro durante o ponto final privado, crie fluxo. Veja o [New-AzPrivateEndpoint](/powershell/module/az.network/new-azprivateendpoint?view=azps-2.6.0) e [o ponto de terminação privado da rede Az para obter](/cli/azure/network/private-endpoint#az-network-private-endpoint-create) detalhes. 
 
 ## <a name="dns-configuration"></a>Configuração do DNS 
 Ao ligar-se a um recurso de ligação privada utilizando um nome de domínio totalmente qualificado (FQDN) como parte da cadeia de ligação, é importante configurar corretamente as definições de DNS para resolver o endereço IP privado atribuído. Os serviços Azure existentes podem já ter uma configuração DNS para utilizar ao ligar em cima de um ponto final público. Isto precisa de ser ultrapassado para se ligar utilizando o seu ponto final privado. 
@@ -132,7 +132,7 @@ A tabela a seguir inclui uma lista de limitações conhecidas ao utilizar pontos
 |As regras do Grupo de Segurança de Rede (NSG) e as rotas definidas pelo utilizador não se aplicam ao Ponto Final Privado    |O NSG não é suportado em pontos finais privados. Embora as sub-redes que contenham o ponto final privado possam ter NSG associada, as regras não serão eficazes no tráfego processado pelo ponto final privado. Deve ter [políticas de rede desativadas](disable-private-endpoint-network-policy.md) para implantar pontos finais privados numa sub-rede. O NSG ainda é aplicado em outras cargas de trabalho alojoadas na mesma sub-rede. As rotas em qualquer sub-rede de clientes usarão um prefixo /32, alterando o comportamento de encaminhamento padrão requer um UDR semelhante  | Controle o tráfego utilizando as regras NSG para tráfego de saída em clientes de origem. Implementar rotas individuais com prefixo /32 para substituir rotas privadas de ponto final. Os registos do NSG Flow e as informações de monitorização das ligações de saída ainda são suportados e podem ser utilizados        |
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - [Criar um ponto final privado para base de dados SQL utilizando o portal](create-private-endpoint-portal.md)
 - [Criar um ponto final privado para base de dados SQL utilizando PowerShell](create-private-endpoint-powershell.md)
 - [Criar um ponto final privado para base de dados SQL utilizando CLI](create-private-endpoint-cli.md)

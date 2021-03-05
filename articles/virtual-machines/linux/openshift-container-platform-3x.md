@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 04/05/2020
 ms.author: haroldw
-ms.openlocfilehash: 054fb2ffc65b44d5436282eab5327f0facf39c06
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: ce3f56530a7bad6eecd4c2edd3b21debe8c75a24
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101671183"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102214155"
 ---
 # <a name="deploy-openshift-container-platform-311-in-azure"></a>Implementar plataforma de contentores openshift 3.11 em Azure
 
@@ -308,7 +308,7 @@ Diferentes versões podem ter diferentes parâmetros, por isso verifique os par�
 ### <a name="deploy-using-azure-cli"></a>Implementar com a CLI do Azure
 
 > [!NOTE] 
-> O seguinte comando requer Azure CLI 2.0.8 ou mais tarde. Pode verificar a versão CLI com o `az --version` comando. Para atualizar a versão CLI, consulte [instalar o Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latesti).
+> O seguinte comando requer Azure CLI 2.0.8 ou mais tarde. Pode verificar a versão CLI com o `az --version` comando. Para atualizar a versão CLI, consulte [instalar o Azure CLI](/cli/azure/install-azure-cli).
 
 O exemplo seguinte implementa o cluster OpenShift e todos os recursos relacionados num grupo de recursos chamado openshiftrg, com um nome de implantação do myOpenShiftCluster. O modelo é referenciado diretamente a partir do repo GitHub, e um ficheiro de parâmetros locais nomeado azuredeploy.parameters.jsno ficheiro é usado.
 

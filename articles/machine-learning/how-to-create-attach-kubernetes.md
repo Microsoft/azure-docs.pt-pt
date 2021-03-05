@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 10/02/2020
-ms.openlocfilehash: 97042479419cbc9d634a06e2dcbcccf9c8fde62b
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: a4536f0dd40e1d0ee3a5ca75db9b111dcfa0ad6f
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99560471"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102214903"
 ---
 # <a name="create-and-attach-an-azure-kubernetes-service-cluster"></a>Criar e anexar um cluster de serviço Azure Kubernetes
 
@@ -93,7 +93,7 @@ Ao **anexar** um cluster AKS existente, apoiamos todas as versões AKS suportada
 
 ### <a name="available-and-default-versions"></a>Versões disponíveis e padrão
 
-Para encontrar as versões AKS disponíveis e predefinidas, utilize as [versões get-vers do](/cli/azure/aks?view=azure-cli-latest&preserve-view=true#az_aks_get_versions)comando [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) . Por exemplo, o seguinte comando devolve as versões disponíveis na região oeste dos EUA:
+Para encontrar as versões AKS disponíveis e predefinidas, utilize as [versões get-vers do](/cli/azure/aks#az_aks_get_versions)comando [Azure CLI](/cli/azure/install-azure-cli) . Por exemplo, o seguinte comando devolve as versões disponíveis na região oeste dos EUA:
 
 ```azurecli-interactive
 az aks get-versions -l westus -o table
@@ -198,7 +198,7 @@ Para obter mais informações sobre as classes, métodos e parâmetros utilizado
 az ml computetarget create aks -n myaks
 ```
 
-Para obter mais informações, consulte o [computação az ml para criar referência aks.](/cli/azure/ext/azure-cli-ml/ml/computetarget/create?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-aks)
+Para obter mais informações, consulte o [computação az ml para criar referência aks.](/cli/azure/ext/azure-cli-ml/ml/computetarget/create#ext-azure-cli-ml-az-ml-computetarget-create-aks)
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -223,8 +223,8 @@ Se já tem cluster AKS na sua subscrição Azure, pode usá-lo com o seu espaço
 
 Para obter mais informações sobre a criação de um cluster AKS utilizando o Azure CLI ou portal, consulte os seguintes artigos:
 
-* [Criar um cluster do AKS (CLI)](/cli/azure/aks?bc=%2fazure%2fbread%2ftoc.json&preserve-view=true&toc=%2fazure%2faks%2fTOC.json&view=azure-cli-latest#az-aks-create)
-* [Criar um cluster AKS (portal)](../aks/kubernetes-walkthrough-portal.md?preserve-view=true&view=azure-cli-latest)
+* [Criar um cluster do AKS (CLI)](/cli/azure/aks?bc=%2fazure%2fbread%2ftoc.json&toc=%2fazure%2faks%2fTOC.json#az-aks-create)
+* [Criar um cluster AKS (portal)](../aks/kubernetes-walkthrough-portal.md)
 * [Crie um cluster AKS (modelo ARM em modelos de arranque rápido azure)](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aks-azml-targetcompute)
 
 O exemplo a seguir demonstra como anexar um cluster AKS existente ao seu espaço de trabalho:
@@ -275,7 +275,7 @@ Para fixar o cluster existente ao seu espaço de trabalho, utilize o seguinte co
 az ml computetarget attach aks -n myaks -i aksresourceid -g myresourcegroup -w myworkspace
 ```
 
-Para obter mais informações, consulte a referência [aks attach aks.](/cli/azure/ext/azure-cli-ml/ml/computetarget/attach?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-attach-aks)
+Para obter mais informações, consulte a referência [aks attach aks.](/cli/azure/ext/azure-cli-ml/ml/computetarget/attach#ext-azure-cli-ml-az-ml-computetarget-attach-aks)
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 

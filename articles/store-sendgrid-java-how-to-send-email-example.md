@@ -16,12 +16,12 @@ ms.date: 10/30/2014
 ms.author: erikre
 ms.reviewer: vibhork;dominic.may@sendgrid.com;elmer.thomas@sendgrid.com
 ms.custom: devx-track-java
-ms.openlocfilehash: 57daf9170a7f97c6c141532dafe759cde9d1c77b
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 7a857b887b53ccb2288507742ca52d72d90ff548
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95519069"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102214359"
 ---
 # <a name="how-to-send-email-using-sendgrid-from-java-in-an-azure-deployment"></a>Como enviar e-mail usando SendGrid de Java em uma implementação de Azure
 O exemplo que se segue mostra como pode usar o SendGrid para enviar e-mails a partir de uma página web hospedada no Azure. A aplicação resultante irá solicitar ao utilizador valores de e-mail, como mostrado na imagem seguinte.
@@ -40,7 +40,7 @@ Terá de fazer o seguinte para utilizar o código neste tópico:
 
 Também deve ter o seu próprio nome de utilizador e senha sendGrid, para poder enviar o e-mail. Para começar com a SendGrid, consulte [Como enviar e-mail usando SendGrid de Java.](store-sendgrid-java-how-to-send-email.md)
 
-Além disso, a familiaridade com a informação na [Criação de uma Aplicação Hello World para Azure em Eclipse,](/java/azure/eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app?view=azure-java-stable)ou com outras técnicas para hospedar aplicações Java em Azure se não estiver a usar o Eclipse, é altamente recomendada.
+Além disso, a familiaridade com a informação na [Criação de uma Aplicação Hello World para Azure em Eclipse,](/azure/developer/java/toolkit-for-eclipse/create-hello-world-web-app)ou com outras técnicas para hospedar aplicações Java em Azure se não estiver a usar o Eclipse, é altamente recomendada.
 
 ## <a name="create-a-web-form-for-sending-email"></a>Criar um formulário web para o envio de e-mail
 O código que se segue mostra como criar um formulário web para recuperar dados do utilizador para o envio de e-mails. Para efeitos deste conteúdo, o ficheiro JSP é nomeado **emailform.jsp**.

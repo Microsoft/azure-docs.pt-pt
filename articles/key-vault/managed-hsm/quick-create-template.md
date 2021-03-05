@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc, devx-track-azurecli
 ms.date: 09/15/2020
 ms.author: mbaldwin
-ms.openlocfilehash: d47935f76347b2d5272b386942a85643a732e643
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: d9fb9e0221ad6a5749899c89bbd9dc5631e7a91c
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94831757"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102213271"
 ---
 # <a name="quickstart-create-an-key-vault-managed-hsm-using-an-azure-resource-manager-template"></a>Quickstart: Criar um Cofre chave gerido HSM usando um modelo de Gestor de Recursos Azure
 
@@ -43,7 +43,7 @@ Para iniciar seduca em Azure usando o CLI pode escrever:
 az login
 ```
 
-Para obter mais informações sobre as opções de login através do CLI, consulte [o login com o Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest&preserve-view=true)
+Para obter mais informações sobre as opções de login através do CLI, consulte [o login com o Azure CLI](/cli/azure/authenticate-azure-cli)
 
 ## <a name="create-a-manage-hsm"></a>Criar um HSM de gestão
 
@@ -55,13 +55,13 @@ O recurso Azure definido no modelo:
 
 Mais amostras de modelo de azure key vault podem ser encontradas [aqui.](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Keyvault)
 
-O modelo requer o ID do objeto associado à sua conta. Para encontrá-lo, utilize o comando de [exibição de anúncios](/cli/azure/ad/user?view=azure-cli-latest&preserve-view=true#az_ad_user_show) Azure CLI az, passando o seu endereço de e-mail para o `--id` parâmetro. Pode limitar a saída ao ID do objeto apenas com o `--query` parâmetro.
+O modelo requer o ID do objeto associado à sua conta. Para encontrá-lo, utilize o comando de [exibição de anúncios](/cli/azure/ad/user#az_ad_user_show) Azure CLI az, passando o seu endereço de e-mail para o `--id` parâmetro. Pode limitar a saída ao ID do objeto apenas com o `--query` parâmetro.
 
 ```azurecli-interactive
 az ad user show --id <your-email-address> --query "objectId"
 ```
 
-Você também pode precisar da identificação do seu inquilino. Para encontrá-lo, utilize o comando de [exibição de anúncios](/cli/azure/account?view=azure-cli-latest&preserve-view=true#az_account_show) Azure CLI az. Pode limitar a saída à identificação do inquilino apenas com o `--query` parâmetro.
+Você também pode precisar da identificação do seu inquilino. Para encontrá-lo, utilize o comando de [exibição de anúncios](/cli/azure/account#az_account_show) Azure CLI az. Pode limitar a saída à identificação do inquilino apenas com o `--query` parâmetro.
 
  ```azurecli-interactive
  az account show --query "tenantId"

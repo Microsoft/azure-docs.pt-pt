@@ -11,12 +11,12 @@ author: jpe316
 ms.date: 09/24/2020
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy21q2, devx-track-python, deploy
-ms.openlocfilehash: 9e43291325510f92f2e5fd6c07cdb9257fdede9d
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 39c7d980bf9a90e5f72dfc9366d0ec44204b1ed2
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033073"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102212795"
 ---
 # <a name="deploy-ml-models-to-field-programmable-gate-arrays-fpgas-with-azure-machine-learning"></a>Implementar modelos ML para arrays de portão programáveis em campo (FPGAs) com Azure Machine Learning 
 
@@ -68,7 +68,7 @@ Neste exemplo, cria-se um gráfico TensorFlow para pré-processar a imagem de en
  
 - O pacote de modelos acelerados por hardware:  `pip install --upgrade azureml-accel-models[cpu]`    
     
-- O [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest)
+- O [Azure CLI](/cli/azure/install-azure-cli)
 
 - Quota da FPGA. Apresentar um [pedido de quota,](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2nac9-PZhBDnNSV2ITz0LNUN0U5S0hXRkNITk85QURTWk9ZUUFUWkkyTC4u)ou executar este comando CLI para verificar a quota: 
 

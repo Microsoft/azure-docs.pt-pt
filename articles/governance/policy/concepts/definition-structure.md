@@ -3,12 +3,12 @@ title: Detalhes da estrutura de definição de políticas
 description: Descreve como as definições de política são usadas para estabelecer convenções para recursos Azure na sua organização.
 ms.date: 02/17/2021
 ms.topic: conceptual
-ms.openlocfilehash: 741cfce56554e05d0c5f5a9242a33502b8a6fbe6
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: cebba214671cfab75a3f44720578b51febacdfcd
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101699424"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102215073"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição do Azure Policy
 
@@ -150,7 +150,7 @@ Um parâmetro tem as seguintes propriedades que são usadas na definição de po
   - `assignPermissions`: (Opcional) Definir como _verdadeiro_ para que o portal Azure crie atribuições de funções durante a atribuição de políticas. Esta propriedade é útil no caso de pretender atribuir permissões fora do âmbito de atribuição. Há uma atribuição de papel por definição de papel na política (ou por definição de papel em todas as políticas da iniciativa). O valor do parâmetro deve ser um recurso ou âmbito válido.
 - `defaultValue`: (Opcional) Define o valor do parâmetro numa atribuição se não for dado qualquer valor.
   Necessário para atualizar uma definição de política existente que é atribuída.
-- `allowedValues`: (Opcional) Fornece uma matriz de valores que o parâmetro aceita durante a atribuição.
+- `allowedValues`: (Opcional) Fornece uma matriz de valores que o parâmetro aceita durante a atribuição. As comparações de valor permitidas são sensíveis a casos. 
 
 Como exemplo, pode definir uma definição de política para limitar os locais onde os recursos podem ser implantados. Um parâmetro para essa definição de política poderia ser **permitido.** Este parâmetro seria utilizado por cada atribuição da definição de política para limitar os valores aceites. A utilização de **StrongType** proporciona uma experiência melhorada ao completar a atribuição através do portal:
 

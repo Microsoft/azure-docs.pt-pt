@@ -11,14 +11,14 @@ ms.reviewer: larryfr
 ms.date: 10/12/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, devx-track-csharp
-ms.openlocfilehash: dddecb3dba6d707e16241731a25df3b3749be103
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.openlocfilehash: d23d6cb5a43de4ccf0d10287b8cf8f597797b893
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97825423"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102214988"
 ---
-# <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Consumir um modelo de Aprendizagem automática Azure implementado como um serviço web
+# <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Consumir um modelo do Azure Machine Learning implementado como serviço Web
 
 
 A implementação de um modelo do Azure Machine Learning como serviço Web cria um ponto final da API REST. Pode enviar dados para este ponto final e receber a predição devolvida pelo modelo. Neste documento, aprenda a criar clientes para o serviço web utilizando C#, Go, Java e Python.
@@ -77,7 +77,7 @@ Existem várias formas de recuperar esta informação para serviços web implant
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Se souber o nome do serviço implantado, utilize o comando [de espetáculo de serviço az ml:](/cli/azure/ext/azure-cli-ml/ml/service?view=azure-cli-latest#ext_azure_cli_ml_az_ml_service_show)
+Se souber o nome do serviço implantado, utilize o comando [de espetáculo de serviço az ml:](/cli/azure/ext/azure-cli-ml/ml/service#ext_azure_cli_ml_az_ml_service_show)
 
 ```azurecli
 az ml service show -n <service-name>
@@ -677,7 +677,7 @@ O Power BI suporta o consumo de serviços web Azure Machine Learning para enriqu
 
 Para gerar um serviço web suportado para consumo em Power BI, o esquema deve suportar o formato que é exigido pelo Power BI. [Saiba como criar um esquema suportado por Power BI](./how-to-deploy-advanced-entry-script.md#power-bi-compatible-endpoint).
 
-Assim que o serviço Web for implementado, poderá ser consumido nos fluxos de dados do Power BI. [Saiba como consumir um serviço web Azure Machine Learning da Power BI](/power-bi/service-machine-learning-integration).
+Assim que o serviço Web for implementado, poderá ser consumido nos fluxos de dados do Power BI. [Saiba como consumir um serviço Web do Azure Machine Learning no Power BI](/power-bi/service-machine-learning-integration).
 
 ## <a name="next-steps"></a>Passos seguintes
 

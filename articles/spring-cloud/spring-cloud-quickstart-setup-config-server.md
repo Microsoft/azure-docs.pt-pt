@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 09/08/2020
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 56644ab6cacfd811a23fb89b9bf6a10c87542db3
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: b82c9b21b9ccde7f7d5ee3e2b1c8c845a82bf459
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98876788"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102213424"
 ---
 # <a name="quickstart-set-up-azure-spring-cloud-configuration-server"></a>Quickstart: Configurar o servidor de configuração Azure Spring Cloud
 
@@ -42,9 +42,9 @@ O servidor Azure Spring Cloud Config é um serviço de configuração centraliza
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [Instalar JDK 8](/java/azure/jdk/?preserve-view=true&view=azure-java-stable)
+* [Instalar JDK 8](/java/azure/jdk/)
 * [Inscreva-se para uma subscrição do Azure](https://azure.microsoft.com/free/)
-* (Opcional) [Instale a versão Azure CLI 2.0.67 ou superior](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest) e instale a extensão Azure Spring Cloud com comando: `az extension add --name spring-cloud`
+* (Opcional) [Instale a versão Azure CLI 2.0.67 ou superior](/cli/azure/install-azure-cli) e instale a extensão Azure Spring Cloud com comando: `az extension add --name spring-cloud`
 * (Opcional) [Instale o Azure Toolkit para IntelliJ](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij/) e [inscreva-se](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in)
 
 ## <a name="azure-spring-cloud-config-server-procedures"></a>Procedimentos de configuração de config da Cloud Azure Spring
@@ -111,7 +111,7 @@ O procedimento a seguir explica como resolver problemas as definições do servi
 
     [Estado de ![ saúde ](media/spring-cloud-quickstart-setup-config-server/setup-config-server-health-status.png) do portal ASC ](media/spring-cloud-quickstart-setup-config-server/setup-config-server-health-status.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste quickstart, criou recursos Azure que continuarão a acumular encargos se permanecerem na sua subscrição. Se não pretende continuar para o próximo quickstart, consulte [clean up resources](spring-cloud-quickstart-logs-metrics-tracing.md#clean-up-resources). Caso contrário, avance para o próximo arranque rápido:
 

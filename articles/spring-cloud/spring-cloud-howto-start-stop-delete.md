@@ -1,5 +1,5 @@
 ---
-title: Iniciar, parar e apagar a sua aplicação Azure Spring Cloud / Microsoft Docs
+title: Iniciar, parar e eliminar a sua aplicação Azure Spring Cloud | Microsoft Docs
 description: Como começar, parar e eliminar a sua aplicação Azure Spring Cloud
 author: bmitchell287
 ms.service: spring-cloud
@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 479daa9a94247ada30c54a9c5df3471035765087
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 46d79de612a17c7b21e7cc51dcf4904209e1625d
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90908283"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102212948"
 ---
 # <a name="start-stop-and-delete-your-azure-spring-cloud-application"></a>Iniciar, parar e eliminar a sua aplicação Azure Spring Cloud
 
@@ -27,12 +27,12 @@ Depois de implementar uma aplicação, pode iniciar, parar e eliminá-la utiliza
 1. Aceda ao seu serviço Azure Spring Cloud no portal Azure.
 1. Selecione o **separador 'Dashboard' de aplicação.**
 1. Selecione a aplicação cujo estado pretende alterar.
-1. Na página **'Visão Geral'** para essa aplicação, selecione **Iniciar/Parar,** **Reiniciar**ou **Eliminar**.
+1. Na página **'Visão Geral'** para essa aplicação, selecione **Iniciar/Parar,** **Reiniciar** ou **Eliminar**.
 
 ## <a name="using-the-azure-cli"></a>Com a CLI do Azure
 
 > [!NOTE]
-> Pode utilizar parâmetros opcionais e configurar predefinições com o Azure CLI. Saiba mais sobre o Azure CLI lendo a [nossa documentação de referência.](/cli/azure/ext/spring-cloud/spring-cloud?view=azure-cli-latest&preserve-view=true)  
+> Pode utilizar parâmetros opcionais e configurar predefinições com o Azure CLI. Saiba mais sobre o Azure CLI lendo a [nossa documentação de referência.](/cli/azure/ext/spring-cloud/spring-cloud)  
 
 Primeiro, instale a extensão Azure Spring Cloud para o Azure CLI da seguinte forma:
 

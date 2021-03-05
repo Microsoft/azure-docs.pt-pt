@@ -11,12 +11,12 @@ ms.workload: media
 ms.topic: tutorial
 ms.date: 02/17/2021
 ms.author: inhenkel
-ms.openlocfilehash: 566a7a978a08bf7e37b6c4ab8b0609222b34e549
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: b7efa37747e6d116b4cf26b4cf54377037f22cdd
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101724528"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102212761"
 ---
 # <a name="how-to-encode-and-stream-video-files-with-nodejs"></a>Como codificar e transmitir ficheiros de vídeo com Node.JS
 
@@ -128,15 +128,15 @@ az group delete --name amsResourceGroup
 
 ## <a name="more-developer-documentation-for-nodejs-on-azure"></a>Mais documentação do programador para Node.js em Azure
 
-- [Azure para desenvolvedores de & Node.js JavaScript](https://docs.microsoft.com/azure/developer/javascript/?view=azure-node-latest)
+- [Azure para desenvolvedores de & Node.js JavaScript](/azure/developer/javascript/)
 - [Código fonte dos Serviços de Mídia no @azure/azure-sdk-for-js Git Hub repo](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/mediaservices/arm-mediaservices)
-- [Documentação do pacote Azure para desenvolvedores de Node.js](https://docs.microsoft.com/javascript/api/overview/azure/?view=azure-node-latest)
+- [Documentação do pacote Azure para desenvolvedores de Node.js](/javascript/api/overview/azure/)
 
 ## <a name="see-also"></a>Ver também
 
 - [Códigos de erro de trabalho](/rest/api/media/jobs/get#joberrorcode).
 - [instalação npm @azure/arm-mediaservices](https://www.npmjs.com/package/@azure/arm-mediaservices)
-- [Azure para desenvolvedores de & Node.js JavaScript](https://docs.microsoft.com/azure/developer/javascript/?view=azure-node-latest)
+- [Azure para desenvolvedores de & Node.js JavaScript](/azure/developer/javascript/)
 - [Código fonte dos Serviços de Mídia no @azure/azure-sdk-for-js repo](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/mediaservices/arm-mediaservices)
 
 ## <a name="next-steps"></a>Passos seguintes

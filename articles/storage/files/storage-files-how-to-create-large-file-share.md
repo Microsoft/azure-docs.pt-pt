@@ -8,12 +8,12 @@ ms.date: 05/29/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 5acb8e347046780c84f0aa324b997abb5e2aa840
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 118c08c8ede369eecd86fe8e6db24473b67ff306
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629228"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102214444"
 ---
 # <a name="enable-and-create-large-file-shares"></a>Ativar e criar grandes ações de ficheiros
 
@@ -22,7 +22,7 @@ Quando ativa grandes ações de ficheiros na sua conta de armazenamento, as suas
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
-- Se pretender utilizar o Azure CLI, [instale a versão mais recente](/cli/azure/install-azure-cli?view=azure-cli-latest).
+- Se pretender utilizar o Azure CLI, [instale a versão mais recente](/cli/azure/install-azure-cli).
 - Se pretender utilizar o módulo Azure PowerShell, [instale a versão mais recente](/powershell/azure/install-az-ps?view=azps-4.6.0).
 
 ## <a name="restrictions"></a>Restrições
@@ -40,7 +40,7 @@ Permitir grandes ações de ficheiros numa conta é um processo irreversível. D
 1. Na lista de recursos, **insira contas de armazenamento.** À medida que escreve, a lista filtra-se com base na sua entrada. Selecione **Contas de Armazenamento**.
 1. Na janela **'Contas de Armazenamento'** que aparece, selecione **Adicionar**.
 1. Selecione a subscrição que utilizará para criar a conta de armazenamento.
-1. No campo **Grupo de recursos** , selecione **Criar novo**. Insira um nome para o seu novo grupo de recursos.
+1. No campo **Grupo de recursos**, selecione **Criar novo**. Insira um nome para o seu novo grupo de recursos.
 
     ![Captura de ecrã que mostra como criar um grupo de recursos no portal](media/storage-files-how-to-create-large-file-share/create-large-file-share.png)
 
@@ -65,7 +65,7 @@ Permitir grandes ações de ficheiros numa conta é um processo irreversível. D
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Em primeiro lugar, [instale a versão mais recente do Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) para que possa ativar grandes partilhas de ficheiros.
+Em primeiro lugar, [instale a versão mais recente do Azure CLI](/cli/azure/install-azure-cli) para que possa ativar grandes partilhas de ficheiros.
 
 Para criar uma conta de armazenamento com grandes ações de ficheiro ativadas, utilize o seguinte comando. `<yourStorageAccountName>`Substitua, e pela sua `<yourResourceGroup>` `<yourDesiredRegion>` informação.
 

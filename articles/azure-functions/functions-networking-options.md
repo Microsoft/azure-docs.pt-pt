@@ -5,12 +5,12 @@ author: cachai2
 ms.topic: conceptual
 ms.date: 1/21/2021
 ms.author: cachai
-ms.openlocfilehash: ceef827f7406f8915d205349372a43626c917e4b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: f826c947b1e47c1c996a8e9102492e85adafa326
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101729237"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102215158"
 ---
 # <a name="azure-functions-networking-options"></a>Opções de rede das Funções do Azure
 
@@ -87,7 +87,7 @@ Para saber mais, consulte [os pontos finais do serviço de rede Virtual.](../vir
 
 ## <a name="restrict-your-storage-account-to-a-virtual-network"></a>Restringir a sua conta de armazenamento a uma rede virtual 
 
-Quando criar uma aplicação de função, deve criar ou ligar para uma conta de Armazenamento Azure de uso geral que suporte o armazenamento de Blob, Queue e Table.  Pode substituir esta conta de armazenamento por uma que esteja segura com pontos finais de serviço ou ponto final privado.  Atualmente, esta funcionalidade funciona apenas para todos os skus suportados pela Vnet, que inclui Standard e Premium, com exceção dos selos flex onde a Vnet está disponível apenas para sku Premium. Para criar uma função com uma conta de armazenamento restrita a uma rede privada:
+Quando criar uma aplicação de função, deve criar ou ligar para uma conta de Armazenamento Azure de uso geral que suporte o armazenamento de Blob, Queue e Table. Pode substituir esta conta de armazenamento por uma que esteja segura com pontos finais de serviço ou ponto final privado. Atualmente, esta funcionalidade funciona para todos os skus suportados pela rede virtual, que inclui Standard e Premium, com exceção dos selos flex onde as redes virtuais estão disponíveis apenas para sku Premium. Para criar uma função com uma conta de armazenamento restrita a uma rede privada:
 
 1. Crie uma função com uma conta de armazenamento que não tenha pontos finais de serviço ativados.
 1. Configure a função para ligar à sua rede virtual.
@@ -96,7 +96,7 @@ Quando criar uma aplicação de função, deve criar ou ligar para uma conta de 
 1. Ativar os pontos finais do serviço ou o ponto final privado para a conta de armazenamento.  
     * Se utilizar ligações privadas de ponto final, a conta de armazenamento necessitará de um ponto final privado para as `file` `blob` subreufontes e subreufontes.  Se utilizar certas capacidades como Funções Duradouras, também necessitará e será acessível através de `queue` uma `table` ligação de ponto final privado.
     * Se utilizar pontos finais de serviço, ative a sub-rede dedicada às suas aplicações de função para contas de armazenamento.
-1. (Opcional) Copie o conteúdo do ficheiro e do blob da conta de armazenamento de aplicações de função para a conta de armazenamento e partilha de ficheiros seguras.
+1. Copie o conteúdo do ficheiro e do blob da conta de armazenamento de aplicações de função para a conta de armazenamento e partilha de ficheiros seguras.
 1. Copie o fio de ligação para esta conta de armazenamento.
 1. Atualizar as Definições de **Aplicação** em **Configuração** para a aplicação de função para o seguinte:
     - `AzureWebJobsStorage` ao fio de ligação para a conta de armazenamento segura.

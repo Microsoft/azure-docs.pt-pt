@@ -10,18 +10,18 @@ ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7fafeae02bce001d473b0ed916624046a559a795
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 8e33c87d53580d96363ba15bccbc889370f2479d
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101648803"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102212914"
 ---
 # <a name="authentication-methods-in-azure-active-directory---microsoft-authenticator-app"></a>Métodos de autenticação no Azure Ative Directory - Microsoft Authenticator app
 
 A aplicação Microsoft Authenticator fornece um nível adicional de segurança ao seu trabalho de AD ou conta escolar do Azure ou à sua conta Microsoft e está disponível para [Android](https://go.microsoft.com/fwlink/?linkid=866594) e [iOS.](https://go.microsoft.com/fwlink/?linkid=866594) Com a aplicação Microsoft Authenticator, os utilizadores podem autenticar de forma sem palavras-passe durante o sent-in ou como uma opção de verificação adicional durante o reset da palavra-passe de autosserviço (SSPR) ou a autenticação multi-factor Ad Azure.
 
-Os utilizadores podem receber uma notificação através da aplicação móvel para que possam aprovar ou negar, ou utilizar a aplicação Authenticator para gerar um código de verificação do OATH que pode ser introduzido numa interface de entrada. Se ativar um código de notificação e verificação, os utilizadores que registem a aplicação Authenticator podem utilizar qualquer método para verificar a sua identidade.
+Os utilizadores podem receber uma notificação através da aplicação móvel para que possam aprovar ou negar, ou utilizar a aplicação Authenticator para gerar um código de verificação da OAUTH que possa ser introduzido numa interface de entrada. Se ativar um código de notificação e verificação, os utilizadores que registem a aplicação Authenticator podem utilizar qualquer método para verificar a sua identidade.
 
 Para utilizar a aplicação Authenticator num pedido de entrada em vez de um nome de utilizador e uma combinação de palavra-passe, consulte [Ativar o início de sção sem palavras-passe com a aplicação Microsoft Authenticator](howto-authentication-passwordless-phone.md).
 

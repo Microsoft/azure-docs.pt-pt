@@ -9,12 +9,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 01/27/2020
 ms.custom: seodec18
-ms.openlocfilehash: 489592fcbc779685728b120f18e5e923ee34d655
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: fcfc70f7bfb9e2bb1b1a0edbffdc1282056e5fa7
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96346380"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102214053"
 ---
 # <a name="the-confidence-score-of-an-answer"></a>A pontuação de confiança de uma resposta
 Quando uma consulta do utilizador é compatível com uma base de conhecimento, o QnA Maker devolve respostas relevantes, juntamente com uma pontuação de confiança. Esta pontuação indica a confiança de que a resposta é a correspondência certa para a consulta do utilizador dada.
@@ -53,7 +53,7 @@ Ao escolher o seu limiar, tenha em mente o equilíbrio entre precisão e cobertu
 - Se **a cobertura** (ou recordação) for mais importante e pretender responder ao maior número possível de perguntas, mesmo que haja apenas uma relação parcial com a pergunta do utilizador, então baixe o limiar. Isto significa que pode haver mais casos em que a resposta não responde à consulta real do utilizador, mas dá outra resposta um pouco relacionada. *Por exemplo:* se fizer o limiar **30,** pode dar respostas para perguntas como "Onde posso editar o meu KB?"
 
 > [!NOTE]
-> As versões mais recentes do QnA Maker incluem melhorias na lógica de pontuação, e podem afetar o seu limiar. Sempre que atualizar o serviço, certifique-se de testar e ajustar o limiar, se necessário. Pode consultar a sua versão do Serviço QnA [aqui,](https://www.qnamaker.ai/UserSettings)e ver como obter as últimas atualizações [aqui.](../How-To/set-up-qnamaker-service-azure.md#get-the-latest-runtime-updates)
+> As versões mais recentes do QnA Maker incluem melhorias na lógica de pontuação, e podem afetar o seu limiar. Sempre que atualizar o serviço, certifique-se de testar e ajustar o limiar, se necessário. Pode consultar a sua versão do Serviço QnA [aqui,](https://www.qnamaker.ai/UserSettings)e ver como obter as últimas atualizações [aqui.](../How-To/configure-QnA-Maker-resources.md#get-the-latest-runtime-updates)
 
 ## <a name="set-threshold"></a>Definir limiar
 

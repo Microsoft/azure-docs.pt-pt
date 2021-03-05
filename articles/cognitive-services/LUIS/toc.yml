@@ -304,7 +304,7 @@
                 - name: Maven - tempo de execução
                   href: 'https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-luis-runtime'
                 - name: Referência
-                  href: /java/api/overview/azure/cognitiveservices/client/languageunderstanding?view=azure-java-stable
+                  href: /java/api/overview/azure/cognitiveservices/client/languageunderstanding
                 - name: Amostras
                   href: 'https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Language/LanguageUnderstanding'
             - name: Node.js
