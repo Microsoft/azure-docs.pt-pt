@@ -1,14 +1,14 @@
 ---
-title: Estender Azure DevTest Labs usando funções Azure Microsoft Docs
+title: Estenda os laboratórios Azure DevTest usando funções Azure | Microsoft Docs
 description: Aprenda a estender a Azure DevTest Labs usando funções Azure.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: bcd12d77065d231198e992fa5c459f0fc210855a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7a51f0935540df18cfb8805902bbe2c4ec365291
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85476313"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102203679"
 ---
 # <a name="use-azure-functions-to-extend-devtest-labs"></a>Utilizar as Funções do Azure para expandir o DevTest Labs
 Pode utilizar as Funções Azure para suportar cenários adicionais para além dos que já são suportados pela DevTest Labs. As Funções Azure podem ser usadas para alargar a funcionalidade incorporada do serviço para atender às necessidades específicas do seu negócio. A lista que se segue fornece alguns dos cenários possíveis. Este artigo mostra-lhe como implementar um destes cenários de amostragem.
@@ -19,7 +19,7 @@ Pode utilizar as Funções Azure para suportar cenários adicionais para além d
 - Permitir que os utilizadores completem operações que exijam permissões acrescidas na subscrição
 - [Início de fluxos de trabalho com base em eventos da DevTest Labs](https://github.com/RogerBestMsft/DTL-SecureArtifactData)
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 [Azure Functions](../azure-functions/functions-overview.md) é uma plataforma de computação sem servidor no Azure. A utilização de Funções Azure numa solução com a DevTest Labs permite-nos aumentar as funcionalidades existentes com o nosso próprio código personalizado. Para obter mais informações sobre as Funções Azure, consulte [a documentação do Azure Functions](../azure-functions/functions-overview.md). Para ilustrar como as Funções Azure podem ajudar a cumprir os seus requisitos ou cenários completos na DevTest Labs, este artigo usa um exemplo de fornecer um resumo de alto nível de VMs no Laboratório da seguinte forma:
 
 **Exemplo de requisito/cenário**: Os utilizadores podem ver detalhes sobre todos os VMs em um laboratório, incluindo o sistema operativo, proprietário, e quaisquer artefactos aplicados.  Além disso, se o artefacto **de Aplicação de Atualizações** do Windows não foi aplicado recentemente, existe uma maneira fácil de aplicá-lo.
@@ -38,13 +38,13 @@ Quando os utilizadores selecionam a página **de suporte interno** em DevTest La
 
 Quando seleciona o **botão Select aqui para atualizar,** a página chama a primeira função Azure: **UpdateInternalSupportPage**. A função consulta a DevTest Labs para obter informações e, em seguida, reescreve a página **de suporte interno** com as novas informações.
 
-Há uma ação adicional que pode ser tomada, para quaisquer VMs em que os artefactos do Windows Update não foram aplicados recentemente, haverá um botão para aplicar atualizações do Windows para o VM. Quando seleciona o botão**de atualização** * Executar o Windows para um VM, a página chama a segunda Função Azure: **ApplyWindowsUpdateArtifact**. Esta função verifica se a máquina virtual está em funcionamento e, em caso afirmativo, aplica diretamente o artefacto [do Windows Update.](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts/windows-install-windows-updates)
+Há uma ação adicional que pode ser tomada, para quaisquer VMs em que os artefactos do Windows Update não foram aplicados recentemente, haverá um botão para aplicar atualizações do Windows para o VM. Quando seleciona o botão **de atualização** * Executar o Windows para um VM, a página chama a segunda Função Azure: **ApplyWindowsUpdateArtifact**. Esta função verifica se a máquina virtual está em funcionamento e, em caso afirmativo, aplica diretamente o artefacto [do Windows Update.](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts/windows-install-windows-updates)
 
 ## <a name="step-by-step-walkthrough"></a>Passo a passo passo
 Esta secção fornece instruções passo a passo para a criação dos Recursos Azure necessários para atualizar a página **de suporte interno.** Este walkthrough fornece um exemplo de extensão de Laboratórios DevTest. Pode usar este padrão para outros cenários.
 
 ### <a name="step-1-create-a-service-principal"></a>Passo 1: Criar um diretor de serviço 
-O primeiro passo é conseguir um diretor de serviço com permissão para a subscrição que contém o laboratório. O diretor de serviço deve utilizar a autenticação baseada em palavra-passe. Pode ser feito com [Azure CLI,](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest) [Azure PowerShell,](/powershell/azure/create-azure-service-principal-azureps?view=azps-2.5.0)ou com o [portal Azure](../active-directory/develop/howto-create-service-principal-portal.md). Se já tem um diretor de serviço para usar, pode saltar este passo.
+O primeiro passo é conseguir um diretor de serviço com permissão para a subscrição que contém o laboratório. O diretor de serviço deve utilizar a autenticação baseada em palavra-passe. Pode ser feito com [Azure CLI,](/cli/azure/create-an-azure-service-principal-azure-cli) [Azure PowerShell,](/powershell/azure/create-azure-service-principal-azureps?view=azps-2.5.0)ou com o [portal Azure](../active-directory/develop/howto-create-service-principal-portal.md). Se já tem um diretor de serviço para usar, pode saltar este passo.
 
 Note a identificação do **pedido,** **chave,** e **identificação do inquilino** para o diretor de serviço. Vai precisar deles mais tarde nesta passagem. 
 

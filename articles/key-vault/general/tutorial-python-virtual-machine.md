@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Use Azure Key Vault com uma máquina virtual em Python Microsoft Docs
+title: Tutorial - Use a adóia de chave Azure com uma máquina virtual em Python | Microsoft Docs
 description: Neste tutorial, você configura uma máquina virtual uma aplicação Python para ler um segredo do seu cofre chave.
 services: key-vault
 author: msmbaldwin
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/20/2020
 ms.author: mbaldwin
 ms.custom: mvc, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: ae62bf353f8a92c4408d4a38a91771ad60a13107
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 2fc77d0cdfb6bd8a62555951c0b6dc7e9b732f93
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93285310"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102203543"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-virtual-machine-in-python"></a>Tutorial: Use a adóia da chave Azure com uma máquina virtual em Python
 
@@ -37,7 +37,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para Windows, Mac e Linux:
-  * [Rio Git](https://git-scm.com/downloads)
+  * [Git](https://git-scm.com/downloads)
   * Este tutorial requer que você gere o Azure CLI localmente. Deve ter a versão Azure CLI 2.0.4 ou posteriormente instalada. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar a CLI, veja [Instalar a CLI 2.0 do Azure](/cli/azure/install-azure-cli).
 
 ## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
@@ -81,7 +81,7 @@ Note o valor da `publicIpAddress` saída.
 
 ## <a name="assign-an-identity-to-the-vm"></a>Atribuir uma identidade ao VM
 
-Criar uma identidade atribuída ao sistema para a máquina virtual utilizando o comando de atribuição de identidade Azure CLI [vm:](/cli/azure/vm/identity?view=azure-cli-latest#az-vm-identity-assign)
+Criar uma identidade atribuída ao sistema para a máquina virtual utilizando o comando de atribuição de identidade Azure CLI [vm:](/cli/azure/vm/identity#az-vm-identity-assign)
 
 ```azurecli
 az vm identity assign --name "myVM" --resource-group "myResourceGroup"

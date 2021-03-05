@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/24/2020
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: cb501dd8e548ea2f6ce8b63fbffb1c4b2403c9a6
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 8c6e584a4bdb1953d7ceac4e3d612b329738f646
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102035964"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102203985"
 ---
 # <a name="quickstart---explore-a-sample-azure-digital-twins-scenario-using-azure-digital-twins-explorer"></a>Quickstart - Explore uma amostra do cenário Azure Digital Twins usando o Azure Digital Twins Explorer
 
@@ -57,13 +57,13 @@ O resto desta secção leva-o por estes degraus.
 
 A aplicação Azure Digital Twins Explorer utiliza [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?preserve-view=true&view=azure-dotnet) (parte da `Azure.Identity` biblioteca) para autenticar os utilizadores com a instância Azure Digital Twins quando a executam na sua máquina local. Para obter mais informações sobre diferentes formas de uma aplicação do cliente poder autenticar-se com a Azure Digital Twins, consulte [o código de autenticação da aplicação Write](how-to-authenticate-client.md).
 
-Com este tipo de autenticação, o Azure Digital Twins Explorer procurará credenciais dentro do seu ambiente local, como um azure in em um [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) local ou em Visual Studio ou Visual Studio Code. Por esta razão, deverá *iniciar seduca no Azure localmente* através de um destes mecanismos para configurar credenciais para a aplicação Azure Digital Twins Explorer.
+Com este tipo de autenticação, o Azure Digital Twins Explorer procurará credenciais dentro do seu ambiente local, como um azure in em um [Azure CLI](/cli/azure/install-azure-cli) local ou em Visual Studio ou Visual Studio Code. Por esta razão, deverá *iniciar seduca no Azure localmente* através de um destes mecanismos para configurar credenciais para a aplicação Azure Digital Twins Explorer.
 
 Se já se inscreveu no Azure através de uma destas formas, pode saltar para a [secção seguinte.](#run-and-configure-azure-digital-twins-explorer)
 
 Caso contrário, pode instalar o Azure CLI local com estes passos:
 
-1. Acompanhe o processo [neste link de instalação](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) para concluir a instalação que corresponde ao seu SO.
+1. Acompanhe o processo [neste link de instalação](/cli/azure/install-azure-cli) para concluir a instalação que corresponde ao seu SO.
 1. Abra uma janela de consola na sua máquina.
 1. Executar `az login` , e siga as instruções de autenticação para iniciar súm na sua conta Azure.
 1. Possível último passo: Se utilizar várias subscrições Azure nesta conta, deslo aproveite o contexto de autenticação para a subscrição Azure que contém a sua instância Azure Digital Twins executando `az account set --subscription "<your-subscription-name-or-ID>"` (o nome ou o valor de ID da subscrição funcionarão).

@@ -4,12 +4,12 @@ description: Saiba como permitir a redundância da zona no Registo de Contentore
 ms.topic: article
 ms.date: 02/23/2021
 ms.custom: references_regions
-ms.openlocfilehash: 931adcf8258c48d7df42bd5927e8789d7cc871db
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a190ea68f41196fb11c20259b9953f516d6f5370
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101738111"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102203866"
 ---
 # <a name="enable-zone-redundancy-in-azure-container-registry-for-resiliency-and-high-availability"></a>Permitir redundância de zona no Registo de Contentores de Azure para resiliência e elevada disponibilidade
 
@@ -48,7 +48,7 @@ az group create --name <resource-group-name> --location <location>
 
 ### <a name="create-zone-enabled-registry"></a>Criar registos via zonas
 
-Executar o [az acr criar](/cli/azure/acr?view=azure-cli-latest#az_acr_create) comando para criar um registo redundante de zona no nível de serviço Premium. Escolha uma região que [suporte zonas de disponibilidade](../availability-zones/az-region.md) para registo de contentores Azure. No exemplo seguinte, o despedimento por zona é permitido na região *leste.* Consulte a ajuda de `az acr create` comando para obter mais opções de registo.
+Executar o [az acr criar](/cli/azure/acr#az_acr_create) comando para criar um registo redundante de zona no nível de serviço Premium. Escolha uma região que [suporte zonas de disponibilidade](../availability-zones/az-region.md) para registo de contentores Azure. No exemplo seguinte, o despedimento por zona é permitido na região *leste.* Consulte a ajuda de `az acr create` comando para obter mais opções de registo.
 
 ```azurecli
 az acr create \
@@ -70,7 +70,7 @@ Na saída do comando, note a `zoneRedundancy` propriedade para o registo. Quando
 
 ### <a name="create-zone-redundant-replication"></a>Criar replicação redundante de zona
 
-Executar a [replicação az acr criar](/cli/azure/acr/replication?view=azure-cli-latest#az_acr_replication_create) comando para criar uma réplica de registo redundante numa região que [suporte zonas de disponibilidade](../availability-zones/az-region.md) para registo de contentores Azure, como *westus2*. 
+Executar a [replicação az acr criar](/cli/azure/acr/replication#az_acr_replication_create) comando para criar uma réplica de registo redundante numa região que [suporte zonas de disponibilidade](../availability-zones/az-region.md) para registo de contentores Azure, como *westus2*. 
 
 ```azurecli
 az acr replication create \
@@ -220,7 +220,7 @@ Copie o seguinte conteúdo para um novo ficheiro e guarde-o utilizando um nome d
   }
 ```
 
-Executar o [grupo de implementação az](/cli/azure/group/deployment?view=azure-cli-latest#az_group_deployment_create) seguinte criar comando para criar o registo usando o ficheiro de modelo anterior. Quando indicado, fornecer:
+Executar o [grupo de implementação az](/cli/azure/group/deployment#az_group_deployment_create) seguinte criar comando para criar o registo usando o ficheiro de modelo anterior. Quando indicado, fornecer:
 
 * um nome de registo único, ou implementar o modelo sem parâmetros e criará um nome único para si
 * uma localização para a réplica que suporta zonas de disponibilidade, como *westus2*

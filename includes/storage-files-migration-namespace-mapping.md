@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 2/20/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 441632ea33195ff8bcb6da5f4fb2298c337a6c97
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 265d14d7cca05ff510e747c8d3a3b071e44a0a68
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043136"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102202404"
 ---
 Neste passo, está a avaliar quantas ações de ficheiros Azure precisa. Uma única instância do Windows Server (ou cluster) pode sincronizar até 30 ações de ficheiros Azure.
 
-Poderá ter mais pastas nos seus volumes que partilha localmente como partilha sMB para os seus utilizadores e apps. A maneira mais fácil de imaginar este cenário é visualizar uma partilha no local que mapeia 1:1 para uma partilha de ficheiros Azure. Se tiver um número pequeno o suficiente, abaixo de 30 para uma única instância do Windows Server, recomendamos um mapeamento de 1:1.
+Poderá ter mais pastas nos seus volumes que partilha localmente como partilha sMB para os seus utilizadores e apps. A maneira mais fácil de imaginar este cenário é visualizar uma partilha no local que mapeia 1:1 para uma partilha de ficheiros Azure. Se tiver um número pequeno o suficiente, abaixo de 30 para uma única instância do Windows Server, recomenda-se um mapeamento de 1:1.
 
 Se tiver mais ações do que 30, muitas vezes é desnecessário mapear uma partilha no local 1:1 para uma partilha de ficheiros Azure. Considere as seguintes opções.
 
@@ -26,11 +26,11 @@ Por exemplo, se o seu departamento de recursos humanos (RH) tiver um total de 15
 
 #### <a name="volume-sync"></a>Sincronização de volume
 
-O Azure File Sync suporta sincronizar a raiz de um volume para uma partilha de ficheiros Azure. Se sincronizar a pasta raiz, todas as sub-dobradeiras e ficheiros irão para a mesma partilha de ficheiros Azure.
+O Azure File Sync suporta sincronizar a raiz de um volume para uma partilha de ficheiros Azure. Se sincronizar a raiz do volume, todas as sub-dobradeiras e ficheiros irão para a mesma partilha de ficheiros Azure.
 
 Sincronizar a raiz do volume nem sempre é a melhor resposta. Existem benefícios em sincronizar vários locais. Por exemplo, fazê-lo ajuda a manter o número de itens mais baixo por âmbito de sincronização. Enquanto testamos ações de ficheiros Azure e Azure File Sync com 100 milhões de itens (ficheiros e pastas) por ação, uma boa prática é tentar manter o número abaixo de 20 milhões ou 30 milhões numa única ação. Configurar o Azure File Sync com um número mais baixo de itens não é apenas benéfico para a sincronização de ficheiros. Um menor número de itens também beneficia cenários como estes:
 
-* A verificação inicial do conteúdo da nuvem antes que o espaço de nome possa começar a aparecer num servidor ativado por Azure File Sync pode completar-se mais rapidamente.
+* A verificação inicial do conteúdo da nuvem pode ser concluída mais rapidamente, o que por sua vez diminui a espera para que o espaço de nome apareça num servidor ativado por Azure File Sync.
 * A restauração do lado da nuvem a partir de uma imagem de partilha de ficheiros Azure será mais rápida.
 * A recuperação de desastres de um servidor no local pode acelerar significativamente.
 * As alterações efetuadas diretamente numa partilha de ficheiros Azure (sincronização externa) podem ser detetadas e sincronizadas mais rapidamente.
@@ -47,24 +47,22 @@ Para tomar a decisão sobre quantas ações de arquivo Azure precisa, reveja os 
 * Um servidor com o agente Azure File Sync instalado pode sincronizar até 30 ações de ficheiros Azure.
 * Uma partilha de ficheiros Azure é implantada dentro de uma conta de armazenamento. Isso faz da conta de armazenamento um alvo de escala para números de desempenho como IOPS e produção.
 
-  Duas ações de ficheiro padrão (não premium) Azure podem teoricamente saturar o desempenho máximo que uma conta de armazenamento pode fornecer. Se pretender anexar apenas o Azure File Sync a estas ações de ficheiros, agrupar várias ações de ficheiros Azure na mesma conta de armazenamento não criará problemas. Reveja os alvos de desempenho da partilha de ficheiros Azure para obter uma visão mais profunda das métricas relevantes a ter em conta.
+  Uma partilha de ficheiros Azure padrão pode teoricamente saturar o desempenho máximo que uma conta de armazenamento pode fornecer. Colocar várias ações numa única conta de armazenamento significa que está a criar um pool partilhado de IOPS e produção para estas ações. Se pretender anexar apenas o Azure File Sync a estas ações de ficheiros, agrupar várias ações de ficheiros Azure na mesma conta de armazenamento não criará problemas. Reveja os alvos de desempenho da partilha de ficheiros Azure para obter uma visão mais profunda das métricas relevantes a ter em conta. Estas limitações não se aplicam ao armazenamento premium, quando o desempenho é explicitamente previsto e garantido para cada ação.
 
-  Se planeia levantar uma aplicação para o Azure que utilizará a partilha de ficheiros Azure de forma nativa, poderá precisar de mais desempenho da sua partilha de ficheiros Azure. Se este tipo de utilização for uma possibilidade, mesmo no futuro, então mapear uma parte de ficheiro Azure para a sua própria conta de armazenamento é o melhor.
-* Há um limite de 250 contas de armazenamento por subscrição numa única região de Azure.
+  Se planeia levantar uma aplicação para o Azure que utilizará a partilha de ficheiros Azure de forma nativa, poderá precisar de mais desempenho da sua partilha de ficheiros Azure. Se este tipo de utilização for uma possibilidade, mesmo no futuro, então criar uma única quota de ficheiro azure padrão na sua própria conta de armazenamento é o melhor.
+* Há um limite de 250 contas de armazenamento por subscrição por região de Azure.
 
 > [!TIP]
 > Com esta informação em mente, muitas vezes torna-se necessário agrupar várias pastas de alto nível nos seus volumes num novo diretório de raiz comum. Em seguida, sincroniza este novo diretório de raiz, e todas as pastas que agrupou nele, para uma única partilha de ficheiros Azure. Esta técnica permite-lhe permanecer dentro do limite de 30 sincronizações de partilha de ficheiros Azure por servidor.
 >
-> Este agrupamento sob uma raiz comum não tem impacto no acesso aos seus dados. Os teus ACLs ficam como estão. Só precisa de ajustar quaisquer caminhos de partilha (como ações SMB ou NFS) que possa ter nas pastas do servidor que agora se transformou numa raiz comum. Nada mais muda.
+> Este agrupamento sob uma raiz comum não tem impacto no acesso aos seus dados. Os teus ACLs ficam como estão. Só precisa de ajustar quaisquer caminhos de partilha (como ações SMB ou NFS) que possa ter nas pastas do servidor local que agora se transformou numa raiz comum. Nada mais muda.
 
 > [!IMPORTANT]
-> O vetor de escala mais importante para O Azure File Sync é o número de itens (ficheiros e pastas) que precisam de ser sincronizados.
+> O vetor de escala mais importante para O Azure File Sync é o número de itens (ficheiros e pastas) que precisam de ser sincronizados. Reveja os alvos da [escala de Sincronização de Ficheiros Azure](../articles/storage/files/storage-files-scale-targets.md#azure-file-sync-scale-targets) para obter mais detalhes.
 
-O Azure File Sync suporta sincronizar até 100 milhões de itens para uma única partilha de ficheiros Azure. Este limite pode ser ultrapassado e só mostra o que a equipa Azure File Sync testa regularmente.
+É uma boa prática manter o número de itens por sincronização baixo. É um fator importante a ter em conta no seu mapeamento de pastas para ações de ficheiros Azure. O Azure File Sync é testado com 100 milhões de itens (ficheiros e pastas) por ação. No entanto, muitas vezes é melhor manter o número de itens abaixo de 20 milhões ou 30 milhões numa única parte. Divida o seu espaço de nome em várias ações se começar a exceder estes números. Pode continuar a agrupar várias ações no local na mesma partilha de ficheiros Azure se ficar aproximadamente abaixo destes números. Esta prática vai dar-lhe espaço para crescer.
 
-É uma boa prática manter o número de itens por sincronização baixo. É um fator importante a ter em conta no seu mapeamento de pastas para ações de ficheiros Azure. Enquanto testamos ações de ficheiros Azure e Azure File Sync com 100 milhões de itens (ficheiros e pastas) por ação, uma boa prática é tentar manter o número abaixo de 20 milhões ou 30 milhões numa única ação. Divida o seu espaço de nome em várias ações se começar a exceder estes números. Pode continuar a agrupar várias ações no local na mesma partilha de ficheiros Azure se ficar aproximadamente abaixo destes números. Esta prática vai dar-lhe espaço para crescer.
-
-Na sua situação, é possível que um conjunto de pastas possa logicamente sincronizar-se com a mesma partilha de ficheiros Azure (utilizando a nova abordagem comum da pasta raiz mencionada anteriormente). Mas ainda pode ser melhor reagrupar pastas de modo a sincronizar em duas em vez de uma partilha de ficheiros Azure. Pode utilizar esta abordagem para manter o número de ficheiros e pastas por partilha de ficheiros equilibrado em todo o servidor.
+Na sua situação, é possível que um conjunto de pastas possa logicamente sincronizar-se com a mesma partilha de ficheiros Azure (utilizando a nova abordagem comum da pasta raiz mencionada anteriormente). Mas ainda pode ser melhor reagrupar pastas de modo a sincronizar em duas em vez de uma partilha de ficheiros Azure. Pode utilizar esta abordagem para manter o número de ficheiros e pastas por partilha de ficheiros equilibrado em todo o servidor. Também pode dividir as suas ações no local e sincronizar-se com mais servidores no local, adicionando a capacidade de sincronizar com mais 30 partilhas de ficheiros Azure por servidor extra.
 
 #### <a name="create-a-mapping-table"></a>Criar uma mesa de mapeamento
 

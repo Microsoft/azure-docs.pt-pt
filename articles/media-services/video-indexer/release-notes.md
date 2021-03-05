@@ -12,12 +12,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 02/16/2021
 ms.author: juliako
-ms.openlocfilehash: 3a64bb261db39efb63b35004f1daa0452b4f0672
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 618617d3602e45ebb15314c7cc5f6898a73bb71f
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101715161"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102203730"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Notas de lançamento do Azure Media Services Video Indexer
 
@@ -29,6 +29,12 @@ Para se manter atualizado com os desenvolvimentos mais recentes, este artigo for
 * Problemas conhecidos
 * Correções de erros
 * Funcionalidade preterida
+
+## <a name="march-2021"></a>março de 2021
+
+A análise de áudio está agora disponível em novos pacotes adicionais de funcionalidades de áudio em diferentes pontos de preço. A nova pré-sintonia de análise **de Áudio Básico** oferece uma opção de baixo custo apenas para extrair a transcrição da fala, tradução e legendas de saída de formato. A predefinição **basic Audio** produzirá dois metros separados na sua conta, incluindo uma linha para transcrição e uma linha separada para legendas e formatação de legendas. Mais informações sobre os preços, consulte a página [de preços dos Serviços de Comunicação Social.](https://azure.microsoft.com/pricing/details/media-services/)
+
+O pacote recém-adicionado está disponível ao indexar ou re-indexar o seu ficheiro, escolhendo a predefinição de Áudio Básico de **opção Avançada**  ->   (sob a caixa de indexação de vídeo **+ áudio).**
 
 ## <a name="february-2021"></a>Fevereiro de 2021
 

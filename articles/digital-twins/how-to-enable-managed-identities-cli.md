@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 02/09/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 035d782321feb5d467638159fc191f65573b1042
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: c9ce87584373bd87a8f89ecb4ea692b44d3fab4d
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101716130"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102202965"
 ---
 # <a name="enable-a-managed-identity-for-routing-azure-digital-twins-events-preview-azure-cli"></a>Ativar uma identidade gerida para encaminhamento de eventos Azure Digital Twins (pré-visualização): Azure CLI
 
@@ -40,7 +40,7 @@ Qualquer um destes métodos de criação dará as mesmas opções de configuraç
 
 Nesta secção, você vai aprender como ativar uma identidade gerida pelo sistema em um caso Azure Digital Twins que está atualmente a ser criado. 
 
-Isto é feito adicionando um `--assign-identity` parâmetro ao comando que é usado para criar o `az dt create` caso. (Para obter mais informações sobre este comando, consulte a sua [documentação de referência](/cli/azure/ext/azure-iot/dt?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_dt_create) ou as [instruções gerais para a criação de um exemplo de Gémeos Digitais Azure).](how-to-set-up-instance-cli.md#create-the-azure-digital-twins-instance)
+Isto é feito adicionando um `--assign-identity` parâmetro ao comando que é usado para criar o `az dt create` caso. (Para obter mais informações sobre este comando, consulte a sua [documentação de referência](/cli/azure/ext/azure-iot/dt#ext_azure_iot_az_dt_create) ou as [instruções gerais para a criação de um exemplo de Gémeos Digitais Azure).](how-to-set-up-instance-cli.md#create-the-azure-digital-twins-instance)
 
 Para criar um caso com uma identidade gerida pelo sistema, adicione o  `--assign-identity` parâmetro como este:
 
@@ -97,9 +97,9 @@ Aqui está um exemplo que cria um caso com uma identidade gerida pelo sistema, e
 az dt create -n {instance_name} -g {resource_group} --assign-identity --scopes "/subscriptions/<subscription ID>/resourceGroups/<resource_group>/providers/Microsoft.EventHub/namespaces/<Event_Hubs_namespace>/eventhubs/<event_hub_name>" --role MyCustomRole
 ```
 
-Para mais exemplos de atribuições de funções com este comando, consulte o [ **az dt criar** documentação de referência](/cli/azure/ext/azure-iot/dt?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_dt_create).
+Para mais exemplos de atribuições de funções com este comando, consulte o [ **az dt criar** documentação de referência](/cli/azure/ext/azure-iot/dt#ext_azure_iot_az_dt_create).
 
-Em alternativa, também pode utilizar o grupo de comando [**de atribuição de funções az**](/cli/azure/role/assignment?view=azure-cli-latest&preserve-view=true) para criar e gerir funções. Isto pode ser usado para suportar cenários adicionais onde você não quer agrupar a atribuição de funções com o comando criar.
+Em alternativa, também pode utilizar o grupo de comando [**de atribuição de funções az**](/cli/azure/role/assignment) para criar e gerir funções. Isto pode ser usado para suportar cenários adicionais onde você não quer agrupar a atribuição de funções com o comando criar.
 
 ## <a name="create-an-endpoint-with-identity-based-authentication"></a>Criar um ponto final com autenticação baseada na identidade
 
@@ -108,7 +108,7 @@ Depois de configurar uma identidade gerida pelo sistema para a sua instância Az
 >[!NOTE]
 > Não é possível editar um ponto final que já tenha sido criado com identidade baseada em chaves para mudar para a autenticação baseada na identidade. Deve escolher o tipo de autenticação quando o ponto final for criado pela primeira vez.
 
-Isto é feito adicionando um `--auth-type` parâmetro ao comando que é usado para criar o ponto `az dt endpoint create` final. (Para obter mais informações sobre este comando, consulte a [documentação de referência](/cli/azure/ext/azure-iot/dt/endpoint/create?view=azure-cli-latest&preserve-view=true) ou as [instruções gerais para a criação de um ponto final Azure Digital Twins](how-to-manage-routes-apis-cli.md#create-the-endpoint)).
+Isto é feito adicionando um `--auth-type` parâmetro ao comando que é usado para criar o ponto `az dt endpoint create` final. (Para obter mais informações sobre este comando, consulte a [documentação de referência](/cli/azure/ext/azure-iot/dt/endpoint/create) ou as [instruções gerais para a criação de um ponto final Azure Digital Twins](how-to-manage-routes-apis-cli.md#create-the-endpoint)).
 
 Para criar um ponto final que utilize a autenticação baseada na identidade, especifique o `IdentityBased` tipo de autenticação com o  `--auth-type` parâmetro. O exemplo abaixo ilustra isto para um ponto final do Event Hubs.
 

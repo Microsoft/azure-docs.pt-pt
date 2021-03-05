@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 0ef4faf14ec01a25419fd22ba8c73a8a033b4172
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: f95585237bbee743083b855dd78cc850c4daffe8
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879987"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102202693"
 ---
 # <a name="migrate-from-linux-to-a-hybrid-cloud-deployment-with-azure-file-sync"></a>Migrar do Linux para uma implementação de nuvem híbrida com Azure File Sync
 
@@ -39,7 +39,7 @@ Se não estiver a executar Samba no seu servidor Linux e preferir migrar pastas 
 * Crie um exemplo do Windows Server 2019 como uma máquina virtual ou servidor físico. O Windows Server 2012 R2 é o requisito mínimo. Um cluster de falha do Windows Server também é suportado.
 * Provisão ou adicionar armazenamento direto anexado (DAS). O armazenamento ligado à rede (NAS) não é suportado.
 
-  A quantidade de armazenamento que disponibiliza pode ser menor do que a que está a utilizar atualmente no seu servidor Linux Samba, se utilizar a funcionalidade [de nivelamento de nuvem](storage-sync-cloud-tiering.md) Azure File Sync. No entanto, quando copiar os seus ficheiros do maior espaço do servidor Linux Samba para o menor volume do Windows Server numa fase posterior, terá de trabalhar em lotes:
+  A quantidade de armazenamento que disponibiliza pode ser menor do que a que está a utilizar atualmente no seu servidor Linux Samba, se utilizar a funcionalidade [de nivelamento de nuvem](storage-sync-cloud-tiering-overview.md) Azure File Sync. No entanto, quando copiar os seus ficheiros do maior espaço do servidor Linux Samba para o menor volume do Windows Server numa fase posterior, terá de trabalhar em lotes:
 
   1. Mova um conjunto de ficheiros que se encaixem no disco.
   2. Deixe a sincronização de ficheiros e o nível de nivelamento da nuvem.
@@ -98,7 +98,7 @@ Execute a primeira cópia local para a pasta alvo do Windows Server:
 
 O seguinte comando Robocopy copiará ficheiros do armazenamento do seu servidor Linux Samba para a pasta alvo do Windows Server. O Windows Server sincroniza-o com as ações de ficheiros Azure. 
 
-Se fornequir menos armazenamento na sua instância do Windows Server do que os seus ficheiros ocuparem o servidor Linux Samba, então tem um nível de nuvem configurado. À medida que o volume do Servidor do Windows local fica cheio, [o tiering da nuvem](storage-sync-cloud-tiering.md) iniciará e os ficheiros de nível já sincronizados com sucesso. O tiering em nuvem gerará espaço suficiente para continuar a cópia do servidor Linux Samba. O nível da nuvem verifica uma vez por hora para ver o que sincronizou e para libertar espaço em disco para alcançar a política de 99% de espaço livre para um volume.
+Se fornequir menos armazenamento na sua instância do Windows Server do que os seus ficheiros ocuparem o servidor Linux Samba, então tem um nível de nuvem configurado. À medida que o volume do Servidor do Windows local fica cheio, [o tiering da nuvem](storage-sync-cloud-tiering-overview.md) iniciará e os ficheiros de nível já sincronizados com sucesso. O tiering em nuvem gerará espaço suficiente para continuar a cópia do servidor Linux Samba. O nível da nuvem verifica uma vez por hora para ver o que sincronizou e para libertar espaço em disco para alcançar a política de 99% de espaço livre para um volume.
 
 É possível que a Robocopy mova ficheiros mais rapidamente do que pode sincronizar com a nuvem e o nível localmente, fazendo com que fique sem espaço em disco local. A robocopia falhará. Recomendamos que trabalhe através das ações numa sequência que previna o problema. Por exemplo, considere não iniciar empregos robocopia para todas as ações ao mesmo tempo. Ou considere ações móveis que se encaixem na quantidade atual de espaço livre na instância do Windows Server. Se o seu trabalho de Robocopia falhar, pode sempre re-executar o comando desde que utilize a seguinte opção de espelho/purga:
 
@@ -215,7 +215,7 @@ Quando a sua instância do Windows Server tiver capacidade disponível suficient
 
 Verifique o link na secção seguinte para verificar problemas de resolução de problemas do Azure File Sync.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Há mais a descobrir sobre as ações de ficheiros Azure e a Azure File Sync. Os seguintes artigos contêm opções avançadas, boas práticas e ajuda na resolução de problemas. Estes artigos ligam-se à [documentação de partilha de ficheiros Azure](storage-files-introduction.md) conforme apropriado.
 

@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Atualização da frequência de rotação automática do certificado no Cofre-Chave Microsoft Docs
+title: Tutorial - Atualizar a frequência de rotação automática do certificado em Key Vault | Microsoft Docs
 description: Tutorial mostrando como atualizar a frequência de rotação automática de um certificado no Cofre de Chaves Azure usando o portal Azure
 services: key-vault
 author: msmbaldwin
@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/16/2020
 ms.author: sebansal
-ms.openlocfilehash: 591d71e8cd6af2801540f5a1a41ad88b1f538e81
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 78cdc0b59fd178049e755cca5e1e909ac24483f2
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844493"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102204053"
 ---
 # <a name="tutorial-configure-certificate-auto-rotation-in-key-vault"></a>Tutorial: Configurar o certificado autorrotação no Cofre de Chaves
 
@@ -134,7 +134,7 @@ Set-AzureKeyVaultCertificatePolicy -VaultName $vaultName
 > }
 >  ```
 > 
-Para saber mais sobre os parâmetros, consulte [o certificado az keyvault](/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-set-attributes).
+Para saber mais sobre os parâmetros, consulte [o certificado az keyvault](/cli/azure/keyvault/certificate#az-keyvault-certificate-set-attributes).
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

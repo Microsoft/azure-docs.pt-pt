@@ -1,5 +1,5 @@
 ---
-title: Gerir zonas de DNS em Azure DNS - Azure CLI Microsoft Docs
+title: Gerir zonas DNS em Azure DNS - Azure CLI | Microsoft Docs
 description: Pode gerir zonas DNS utilizando O Azure CLI. Este artigo mostra como atualizar, excluir e criar zonas DNS no Azure DNS.
 services: dns
 documentationcenter: na
@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2017
 ms.author: rohink
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 469fdbced4601c6ffb4b6aa35e8f943bcb5dde1b
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 5d902e0172a048527ce8f2fa9e22c5fc9bf22e0b
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965787"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102203628"
 ---
 # <a name="how-to-manage-dns-zones-in-azure-dns-using-the-azure-cli"></a>Como gerir as Zonas DNS em Azure DNS usando o Azure CLI
 
@@ -37,7 +37,7 @@ Este guia trata especificamente das zonas públicas de DNS. Para obter informaç
 
 ## <a name="set-up-azure-cli-for-azure-dns"></a>Configurar CLI do Azure para o Azure DNS
 
-### <a name="before-you-begin"></a>Before you begin
+### <a name="before-you-begin"></a>Antes de começar
 
 Antes de iniciar a configuração, verifique se tem os seguintes itens.
 
@@ -47,7 +47,7 @@ Antes de iniciar a configuração, verifique se tem os seguintes itens.
 
 ### <a name="sign-in-to-your-azure-account"></a>Inicie sessão na sua conta do Azure
 
-Abra uma janela de consola e autentique com as suas credenciais. Para mais informações, consulte [Iniciar sessão no Azure a partir do Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest)
+Abra uma janela de consola e autentique com as suas credenciais. Para mais informações, consulte [Iniciar sessão no Azure a partir do Azure CLI](/cli/azure/authenticate-azure-cli)
 
 ```
 az login

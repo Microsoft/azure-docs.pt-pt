@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 739e1dea23f87403a4aded50d5c9f254a55c64cc
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 2d4286cc8bc08eaf7d0b376a8b7789c8c8db183d
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101737618"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102202642"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Perguntas mais frequentes (FAQ) sobre os Ficheiros do Azure
 [O Azure Files](storage-files-introduction.md) oferece ações de ficheiros totalmente geridas na nuvem que são acessíveis através do protocolo do Bloco de [Mensagens do Servidor (SMB)](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) padrão da indústria e do [protocolo do Sistema de Ficheiros de Rede (NFS)](https://en.wikipedia.org/wiki/Network_File_System) (pré-visualização). Pode montar ações de ficheiros Azure simultaneamente em implementações em nuvem ou no local de Windows, Linux e macOS. Também pode cache ações de ficheiros Azure em máquinas do Windows Server utilizando o Azure File Sync para um acesso rápido perto do local onde os dados são utilizados.
@@ -119,26 +119,38 @@ Este artigo responde a perguntas comuns sobre funcionalidades e funcionalidades 
 
 * <a id="sizeondisk-versus-size"></a>
   **Por que o tamanho na propriedade *do disco* para um ficheiro corresponde à propriedade *Size* depois de usar Azure File Sync?**  
-  Consulte [a compreensão do nível da nuvem](storage-sync-cloud-tiering.md#sizeondisk-versus-size).
+  Consulte [o nível da nuvem de sincronização de ficheiros Azure.](storage-sync-cloud-tiering-overview.md#tiered-vs-locally-cached-file-behavior)
 
 * <a id="is-my-file-tiered"></a>
   **Como posso saber se um ficheiro foi divulgado?**  
-  Consulte [a compreensão do nível da nuvem](storage-sync-cloud-tiering.md#is-my-file-tiered).
+  Ver [como gerir ficheiros tiered Azure File Sync](storage-sync-how-to-manage-tiered-files.md#how-to-check-if-your-files-are-being-tiered).
 
 * <a id="afs-recall-file"></a>**Um ficheiro que quero usar foi hierarquizado. Como posso lembrar-me do ficheiro para o disco para o usar localmente?**  
-  Consulte [a compreensão do nível da nuvem](storage-sync-cloud-tiering.md#afs-recall-file).
+  Ver [como gerir ficheiros tiered Azure File Sync](storage-sync-how-to-manage-tiered-files.md#how-to-recall-a-tiered-file-to-disk).
 
 * <a id="afs-force-tiering"></a>
   **Como posso forçar um ficheiro ou diretório a ser hierárquico?**  
-  Consulte [a compreensão do nível da nuvem](storage-sync-cloud-tiering.md#afs-force-tiering).
+  Ver [como gerir ficheiros tiered Azure File Sync](storage-sync-how-to-manage-tiered-files.md#how-to-force-a-file-or-directory-to-be-tiered).
 
 * <a id="afs-effective-vfs"></a>
   **Como é interpretado *o espaço livre de volume* quando tenho vários pontos finais do servidor num volume?**  
-  Consulte [a compreensão do nível da nuvem](storage-sync-cloud-tiering.md#afs-effective-vfs).
+  Consulte as políticas de tiering de nuvem de [sincronização de ficheiros Azure.](storage-sync-cloud-tiering-policy.md#multiple-server-endpoints-on-a-local-volume)
   
 * <a id="afs-tiered-files-tiering-disabled"></a>
   **Tenho camadas de nuvem desativadas, por que há ficheiros hierárquicos na localização do ponto final do servidor?**  
-  Consulte [a compreensão do nível da nuvem](storage-sync-cloud-tiering.md#afs-tiering-disabled).
+    Existem duas razões pelas quais os ficheiros hierárquicos podem existir na localização do ponto final do servidor:
+
+    - Ao adicionar um novo ponto final do servidor a um grupo de sincronização existente, se escolher a primeira opção do espaço de identificação de recolha ou a opção de espaço de nome de chamada para o modo de descarregamento inicial, os ficheiros aparecerão como hierárquicos até serem descarregados localmente. Para evitar isto, selecione a opção de ficheiros hierárquicos para o modo de descarregamento inicial. Para relembr os ficheiros manualmente, utilize o cmdlet [Invoke-StorageSyncFileRecall.](storage-sync-how-to-manage-tiered-files.md#how-to-recall-a-tiered-file-to-disk)
+
+    - Se o tiering da nuvem foi ativado no ponto final do servidor e depois desativado, os ficheiros permanecerão nivelados até serem acedidos.
+
+* <a id="afs-tiered-files-not-showing-thumbnails"></a>
+  **Porque é que os meus ficheiros hierárquicos não mostram miniaturas ou pré-visualizações no Windows Explorer?**  
+    Para ficheiros hierárquicos, as miniaturas e as pré-visualizações não serão visíveis no ponto final do servidor. Este comportamento é esperado uma vez que a funcionalidade cache de miniatura no Windows ignora intencionalmente ficheiros de leitura com o atributo offline. Com o Cloud Tiering ativado, a leitura através de ficheiros hierárquicos faria com que fossem descarregados (recordados).
+
+    Este comportamento não é específico do Azure File Sync, o Windows Explorer apresenta um "X cinzento" para quaisquer ficheiros que tenham o conjunto de atributos offline. Verá o ícone X ao aceder a ficheiros sobre SMB. Para uma explicação detalhada deste comportamento, consulte [https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105](https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105)
+
+    Para obter perguntas sobre como gerir ficheiros hierárquicos, consulte [como gerir ficheiros hierárquicos](storage-sync-how-to-manage-tiered-files.md).
 
 * <a id="afs-files-excluded"></a>
   **Quais ficheiros ou pastas são automaticamente excluídos pelo Azure File Sync?**  
@@ -274,7 +286,7 @@ Este artigo responde a perguntas comuns sobre funcionalidades e funcionalidades 
     2.  Abra a consola "Domínios e Fidedignos ativos"
     3.  Clique com o botão direito no domínio que pretende aceder à partilha de ficheiros, em seguida, clique no separador "Trusts" e selecione o domínio da floresta B a partir de fundos de saída. Se não tem confiança entre as duas florestas, precisa de criar a confiança primeiro.
     4.  Clique em "Propriedades..." em seguida, "Nome Sfixix Encaminhamento"
-    5.  Verifique se o "*.file.core.windows.net" aparece. Caso contrário, clique em 'Refresh'
+    5.  Verifique se o sufixo "*.file.core.windows.net" aparece. Caso contrário, clique em 'Refresh'
     6.  Selecione "*.file.core.windows.net", em seguida, clique em "Ative" e "Apply"
 
 * <a id=""></a>

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/05/2021
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: d275f2f4cad83c8f378c471e5a3fa1313d6c0e7d
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: a66eff14490add8269082e4e54f077d1d9db7e02
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99624879"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102205983"
 ---
 ### <a name="is-azure-virtual-wan-in-ga"></a>Azure Virtual WAN está na AG?
 
@@ -302,3 +302,8 @@ N.º A WAN virtual não armazena quaisquer dados do cliente.
 ### <a name="are-there-any-managed-service-providers-that-can-manage-virtual-wan-for-users-as-a-service"></a>Existem fornecedores de serviços geridos que possam gerir o WAN virtual para os utilizadores como um serviço?
 
 Sim. Para obter uma lista de soluções do Managed Service Provider (MSP) habilitados através do Azure Marketplace, consulte as ofertas do [Azure Marketplace pelos parceiros MSP da Azure Networking Networking](../articles/networking/networking-partners-msp.md#msp).
+
+### <a name="how-does-virtual-wan-hub-routing-differ-from-azure-route-server-in-a-vnet"></a>Como é que o encaminhamento virtual do hub WAN difere do Servidor de Rota Azure num VNet?
+
+O Azure Route Server fornece um serviço de observação do Border Gateway Protocol (BGP) que pode ser utilizado pela NVA (Network Virtual Appliance) para aprender rotas a partir do servidor de rotas num VNet hub DIY. O Encaminhamento VIRTUAL WAN fornece múltiplas capacidades, incluindo encaminhamento de trânsito VNET para VNET, encaminhamento personalizado, Associação de Rotas Personalizadas e Propagação e um serviço de hub totalmente malhado de toque zero, juntamente com serviços de conectividade de expressRoute, Site VPN, Remote User/Large Scale P2S VPN e Secure hub (Azure Firewall). Quando estabelecer um Protocolo de Gateway de Fronteira (BGP) entre o seu NVA e o Azure Router Server, pode anunciar endereços IP da sua NVA para a sua rede virtual. Para todas as capacidades avançadas de encaminhamento, tais como encaminhamento de trânsito, encaminhamento personalizado, etc., pode utilizar o encaminhamento VIRTUAL WAN.
+

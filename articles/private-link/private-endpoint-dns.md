@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 01/14/2021
 ms.author: allensu
-ms.openlocfilehash: edb6748009ef9660c020c77e411ce55f60b45791
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: 3cb5dd88572fda7a939aa529a5372d72575ffdbb
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102124606"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102203288"
 ---
 # <a name="azure-private-endpoint-dns-configuration"></a>Configuração de DNS do Ponto Final Privado do Azure
 
@@ -43,8 +43,8 @@ Para os serviços Azure, utilize os nomes de zona recomendados como descritos no
 | Tipo de recurso de ligação privada / Subresource |Nome da zona privada do DNS | Transeuntes da zona pública de DNS |
 |---|---|---|
 | Azure Automation / (Microsoft.Automation/automationAccounts) / Webhook, DSCAndHybridWorker | privatelink.azure-automation.net | azure-automation.net |
-| Base de Dados Azure SQL (Microsoft.Sql/servidores) / SQL Server | privatelink.database.windows.net | database.windows.net |
-| Azure Synapse Analytics (Microsoft.Sql/servers) / SQL Server  | privatelink.database.windows.net | database.windows.net |
+| Base de Dados Azure SQL (Microsoft.Sql/servidores) / SqlServer | privatelink.database.windows.net | database.windows.net |
+| Azure Synapse Analytics (Microsoft.Sql/servers) / sqlServer  | privatelink.database.windows.net | database.windows.net |
 | Conta de armazenamento (Microsoft.Storage/storageAccounts) / Blob (blob, blob_secondary) | privatelink.blob.core.windows.net | blob.core.windows.net |
 | Conta de armazenamento (Microsoft.Storage/storageAccounts) / Tabela (tabela, table_secondary) | privatelink.table.core.windows.net | table.core.windows.net |
 | Conta de armazenamento (Microsoft.Storage/storageAccounts) / Fila (fila, queue_secondary) | privatelink.queue.core.windows.net | queue.core.windows.net |

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/28/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: d1e51552acdd869a3f304a6d48e18e9d2aa6c782
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 272a642f70849b85be00d2507109eb97935c0dde
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100576784"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102202506"
 ---
 # <a name="monitor-azure-file-sync"></a>Monitorizar o Azure File Sync
 
@@ -42,7 +42,7 @@ As métricas do Azure File Sync são ativadas por predefinição e são enviadas
 
 As seguintes métricas para Azure File Sync estão disponíveis no Azure File Sync:
 
-| Nome da métrica | Description |
+| Nome da métrica | Descrição |
 |-|-|
 | Bytes sincronizados | Tamanho dos dados transferidos (carregar e transferir).<br><br>Unidade: Bytes<br>Tipo de agregação: Soma<br>Dimensões aplicáveis: Nome do ponto final do servidor, direção de sincronização, nome do grupo de sincronização |
 | Recuperação de camadas de nuvem | Tamanho dos dados recordados.<br><br>**Nota:** Esta métrica será removida no futuro. Utilize a métrica do tamanho da recolha de camadas cloud para monitorizar o tamanho dos dados recolhidos.<br><br>Unidade: Bytes<br>Tipo de agregação: Soma<br>Dimensão aplicável: Nome do servidor |
@@ -111,14 +111,14 @@ Para visualizar a saúde de um **ponto final** do servidor no portal, navegue pa
 
 - A atividade **de saúde** e **sincronização** do servidor no portal baseia-se nos eventos de sincronização que são registados no registo de eventos de Telemetria no servidor (ID 9102 e 9302). Se uma sessão de sincronização falhar devido a um erro transitório, como erro cancelado, o ponto final do servidor continuará a mostrar-se **tão saudável** no portal enquanto a sessão de sincronização atual estiver a progredir (os ficheiros são aplicados). O ID 9302 do evento é o evento de progresso sincronizado e o Event ID 9102 é registado assim que uma sessão de sincronização estiver concluída.  Para obter mais informações, consulte [a saúde sincronizada](./storage-sync-files-troubleshoot.md?tabs=server%252cazure-portal#broken-sync) e [sincronizar o progresso.](./storage-sync-files-troubleshoot.md?tabs=server%252cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session) Se a saúde do ponto final do servidor mostrar um **Erro** ou **Nenhuma Atividade,** consulte a [documentação de resolução de problemas](./storage-sync-files-troubleshoot.md?tabs=portal1%252cazure-portal#common-sync-errors) para obter orientação.
 - A contagem **de ficheiros não sincronizados** no portal baseia-se no ID 9121 do evento que está registado no registo de eventos de Telemetria no servidor. Este evento é registado para cada erro por item uma vez que a sessão de sincronização esteja concluída. Para resolver erros por artigo, veja [como vejo se existem ficheiros ou pastas específicas que não estão a sincronizar?](./storage-sync-files-troubleshoot.md?tabs=server%252cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing)
-- Para visualizar a **eficiência de tiering** da nuvem no portal, aceda às Propriedades do **Ponto Final** do Servidor e navegue para a secção **Cloud Tiering.** Os dados fornecidos para a eficiência do tiering em nuvem baseiam-se no ID 9071 do evento que é registado no registo de eventos de Telemetria no servidor. Para saber mais, consulte [cloud Tiering Overview](./storage-sync-cloud-tiering.md).
+- Para visualizar a **eficiência de tiering** da nuvem no portal, aceda às Propriedades do **Ponto Final** do Servidor e navegue para a secção **Cloud Tiering.** Os dados fornecidos para a eficiência do tiering em nuvem baseiam-se no ID 9071 do evento que é registado no registo de eventos de Telemetria no servidor. Para saber mais, consulte [o nível da nuvem monitor.](./storage-sync-monitor-cloud-tiering.md)
 - Para ver **ficheiros que não estão a nivelar** e **a recordar erros** no portal, aceda às Propriedades do **Ponto Final** do Servidor e navegue para a secção **Cloud Tiering.** **O tiering de ficheiros não** é baseado no ID 9003 do evento que está registado no registo de eventos de Telemetria no servidor e os **erros de recuperação** são baseados no ID do evento 9006. Para investigar ficheiros que não estão a hierarquizador ou a recordar, consulte [Como resolver ficheiros que não estão em nível](./storage-sync-files-troubleshoot.md?tabs=portal1%252cazure-portal#how-to-troubleshoot-files-that-fail-to-tier) e [como resolver ficheiros que não são recolhidos](./storage-sync-files-troubleshoot.md?tabs=portal1%252cazure-portal#how-to-troubleshoot-files-that-fail-to-be-recalled).
 
 ### <a name="metric-charts"></a>Gráficos métricos
 
 - As seguintes tabelas métricas são visualizadas no portal do Serviço de Sincronização de Armazenamento:
 
-  | Nome da métrica | Description | Nome da lâmina |
+  | Nome da métrica | Descrição | Nome da lâmina |
   |-|-|-|
   | Bytes sincronizados | Tamanho dos dados transferidos (upload e download) | Grupo sincronizado, ponto final do servidor |
   | Recuperação de camadas de nuvem | Tamanho dos dados recordados | Servidores registados |
@@ -178,7 +178,7 @@ Para ver os contadores de desempenho do Azure File Sync no servidor, abra o Moni
 
 Os seguintes contadores de desempenho para Azure File Sync estão disponíveis no Monitor de Desempenho:
 
-| Objeto de desempenho\Nome do contador | Description |
+| Objeto de desempenho\Nome do contador | Descrição |
 |-|-|
 | AFS Bytes Transferido\Downloaded Bytes/sec | Número de bytes descarregados por segundo. |
 | AFS Bytes transferido\Uploaded Bytes/sec | Número de bytes carregados por segundo. |

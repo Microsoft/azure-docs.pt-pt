@@ -39,6 +39,8 @@
           href: tutorial-cross-region-portal.md
         - name: Criar balanceador de carga cross-region - PowerShell
           href: tutorial-cross-region-powershell.md
+        - name: Criar balanceador de carga cross-region - Azure CLI
+          href: tutorial-cross-region-cli.md
 - name: Amostras
   items:
     - name: CLI do Azure

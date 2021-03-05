@@ -63,8 +63,16 @@
           href: storage-sync-files-planning.md
         - name: Considerações de rede para acesso híbrido
           href: storage-sync-files-networking-overview.md
-        - name: Acerca do arrumo na cloud
-          href: storage-sync-cloud-tiering.md
+        - name: Disposição em camadas na cloud
+          items:
+            - name: Visão geral do tiering da nuvem
+              href: storage-sync-cloud-tiering-overview.md
+            - name: Visão geral das políticas de nivelamento da nuvem
+              href: storage-sync-cloud-tiering-policy.md
+            - name: Escolha as suas políticas de nivelamento em nuvem
+              href: storage-sync-choose-cloud-tiering-policies.md
+            - name: Monitorizar o nível da nuvem
+              href: storage-sync-monitor-cloud-tiering.md
     - name: Desempenho e dimensionamento
       items:
         - name: Desempenho SMB Multicanal
@@ -155,6 +163,8 @@
           href: ../common/storage-powershell-independent-clouds.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Iniciar a ativação pós-falha de uma conta
           href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Como gerir ficheiros hierárquicos
+          href: storage-sync-how-to-manage-tiered-files.md
     - name: Proteção de dados
       items:
         - name: Ativar a eliminação recuperável

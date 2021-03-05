@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc, devx-track-azurecli
 ms.date: 08/20/2019
 ms.author: robinsh
-ms.openlocfilehash: 403fe82c46c90c5f8efb48ce0a394a2f63488fed
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: fd179bf17f481ae84f768d619c6ddc0b9afab280
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98624630"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102202557"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-c-via-iot-hub-device-streams-preview"></a>Quickstart: Comunicar a uma aplicação do dispositivo em C via fluxos de dispositivo ioT Hub (pré-visualização)
 
@@ -114,7 +114,7 @@ Para este arranque rápido, utilize o [dispositivo Azure IoT SDK para C](iot-hub
 
 ## <a name="register-a-device"></a>Registar um dispositivo
 
-Tem de registar um dispositivo com o seu hub IoT antes de poder ligar. Nesta secção, utilize a Azure Cloud Shell com a [Extensão IoT](/cli/azure/ext/azure-iot/iot?view=azure-cli-latest&preserve-view=true) para registar um dispositivo simulado.
+Tem de registar um dispositivo com o seu hub IoT antes de poder ligar. Nesta secção, utilize a Azure Cloud Shell com a [Extensão IoT](/cli/azure/ext/azure-iot/iot) para registar um dispositivo simulado.
 
 1. Para criar a identidade do dispositivo, executar o seguinte comando em Cloud Shell:
 

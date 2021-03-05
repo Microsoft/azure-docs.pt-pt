@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.service: digital-twins
 ms.date: 07/14/2020
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 49c790ae92537ab72fb9848ed4e57e222ef11d79
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: d7d97ca1eb590fb96789d439243dd04d6143a960
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100545688"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102203152"
 ---
 # <a name="known-issues-in-azure-digital-twins"></a>Temas conhecidos em Azure Digital Twins
 
@@ -24,7 +24,7 @@ Este artigo fornece informações sobre questões conhecidas associadas à Azure
 
 | Isto afeta-me? | Causa | Resolução |
 | --- | --- | --- |
-| Em &nbsp; Azure &nbsp; Digital &nbsp; Twins, isto afeta os seguintes grupos de comando:<br><br>`az dt route`<br><br>`az dt model`<br><br>`az dt twin` | Este é o resultado de um problema conhecido na Cloud Shell: [*Obter ficha da Cloud Shell falha intermitentemente com 400 Erro do Cliente: Mau Pedido*](https://github.com/Azure/azure-cli/issues/11749).<br><br>Isto apresenta um problema com os tokens auth auth instance da Azure Digital Twins e a autenticação baseada em [identidade gerida](../active-directory/managed-identities-azure-resources/overview.md) pela Cloud Shell. <br><br>Isto não afeta os comandos Azure Digital Twins dos `az dt` grupos ou grupos de `az dt endpoint` comando, porque utilizam um tipo diferente de token de autenticação (baseado no Azure Resource Manager), que não tem qualquer problema com a autenticação de identidade gerida da Cloud Shell. | Uma maneira de resolver isto é refazer o `az login` comando em Cloud Shell e completar os passos de login subsequentes. Isto irá mudar a sua sessão para fora da autenticação de identidade gerida, o que evita o problema da raiz. Depois disto, deve ser capaz de refazer o comando.<br><br>Em alternativa, pode abrir o painel Cloud Shell no portal Azure e completar o seu trabalho cloud Shell a partir daí.<br>:::image type="content" source="media/troubleshoot-known-issues/portal-launch-icon.png" alt-text="Imagem do ícone Cloud Shell na barra de ícone do portal Azure" lightbox="media/troubleshoot-known-issues/portal-launch-icon.png":::<br><br>Finalmente, outra solução é [instalar o CLI Azure](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) na sua máquina para que possa executar os comandos Azure CLI localmente. O CLI local não vive esta questão. |
+| Em &nbsp; Azure &nbsp; Digital &nbsp; Twins, isto afeta os seguintes grupos de comando:<br><br>`az dt route`<br><br>`az dt model`<br><br>`az dt twin` | Este é o resultado de um problema conhecido na Cloud Shell: [*Obter ficha da Cloud Shell falha intermitentemente com 400 Erro do Cliente: Mau Pedido*](https://github.com/Azure/azure-cli/issues/11749).<br><br>Isto apresenta um problema com os tokens auth auth instance da Azure Digital Twins e a autenticação baseada em [identidade gerida](../active-directory/managed-identities-azure-resources/overview.md) pela Cloud Shell. <br><br>Isto não afeta os comandos Azure Digital Twins dos `az dt` grupos ou grupos de `az dt endpoint` comando, porque utilizam um tipo diferente de token de autenticação (baseado no Azure Resource Manager), que não tem qualquer problema com a autenticação de identidade gerida da Cloud Shell. | Uma maneira de resolver isto é refazer o `az login` comando em Cloud Shell e completar os passos de login subsequentes. Isto irá mudar a sua sessão para fora da autenticação de identidade gerida, o que evita o problema da raiz. Depois disto, deve ser capaz de refazer o comando.<br><br>Em alternativa, pode abrir o painel Cloud Shell no portal Azure e completar o seu trabalho cloud Shell a partir daí.<br>:::image type="content" source="media/troubleshoot-known-issues/portal-launch-icon.png" alt-text="Imagem do ícone Cloud Shell na barra de ícone do portal Azure" lightbox="media/troubleshoot-known-issues/portal-launch-icon.png":::<br><br>Finalmente, outra solução é [instalar o CLI Azure](/cli/azure/install-azure-cli) na sua máquina para que possa executar os comandos Azure CLI localmente. O CLI local não vive esta questão. |
 
 
 ## <a name="missing-role-assignment-after-scripted-setup"></a>Atribuição de função em falta após configuração escrita

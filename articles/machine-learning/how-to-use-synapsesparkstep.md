@@ -10,12 +10,12 @@ author: lobrien
 ms.date: 03/04/2021
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: f52686f991e3d14a8cde82c602b182874305f27d
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: ea7dc30d0aed1350a8c9275d786ea22fa52c77bf
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/05/2021
-ms.locfileid: "102184105"
+ms.locfileid: "102203696"
 ---
 # <a name="how-to-use-apache-spark-powered-by-azure-synapse-analytics-in-your-machine-learning-pipeline-preview"></a>Como utilizar o Apache Spark (alimentado pela Azure Synapse Analytics) no seu pipeline de aprendizagem automática (pré-visualização)
 
@@ -90,8 +90,6 @@ O primeiro passo é configurar o `SynapseCompute` . O `linked_service` argumento
 Uma vez criada a configuração, cria-se uma aprendizagem automática `ComputeTarget` passando no , e o nome pelo qual gostaria de se referir ao cálculo dentro do espaço de trabalho de machine `Workspace` `ComputeTargetAttachConfiguration` learning. A chamada `ComputeTarget.attach()` é assíncronea, por isso a amostra bloqueia até que a chamada termine.
 
 ## <a name="create-a-synapsesparkstep-that-uses-the-linked-apache-spark-pool"></a>Criar um `SynapseSparkStep` que use a piscina Apache Spark ligada
-
-O trabalho de amostra de [prossódutão Spark na piscina de faíscas Apache](https://github.com/azure/machinelearningnotebooks) define um simples oleoduto de aprendizagem automática. Em primeiro lugar, o caderno define um passo de preparação de dados alimentado pelo `synapse_compute` definido no passo anterior. Em seguida, o caderno define um passo de treino alimentado por um alvo de computação mais adequado para o treino. O caderno de amostras utiliza a base de dados de sobrevivência do Titanic para demonstrar a entrada e saída de dados; na verdade, não limpa os dados ou faz um modelo preditivo. Como não há formação real nesta amostra, o passo de treino usa um recurso computacional barato baseado em CPU.
 
 Os dados fluem para um pipeline de aprendizagem automática através de `DatasetConsumptionConfig` objetos, que podem conter dados tabulares ou conjuntos de ficheiros. Os dados vêm frequentemente de ficheiros no armazenamento de bolhas na loja de dados de um espaço de trabalho. O código que se segue mostra algum código típico para criar entrada para um pipeline de aprendizagem automática:
 
@@ -228,7 +226,7 @@ O código acima cria o novo recurso de computação, se necessário. Em seguida,
 
 Uma vez definidos todos os seus passos, pode criar e executar o seu oleoduto. 
 
-```
+```python
 from azureml.pipeline.core import Pipeline
 
 pipeline = Pipeline(workspace=ws, steps=[step_1, step_2])

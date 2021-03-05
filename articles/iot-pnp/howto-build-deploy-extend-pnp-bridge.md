@@ -7,12 +7,12 @@ ms.date: 1/20/2021
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 4612e1236af5fbe47db9a3569e2f4da2378017e2
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: c89427f83600d3b8091d5293b1757fa6f1a15ef1
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98784902"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102202489"
 ---
 # <a name="build-and-deploy-the-iot-plug-and-play-bridge"></a>Construa e implemente a ponte IoT Plug and Play
 
@@ -227,7 +227,7 @@ Os passos nesta secção pressupõem que tem o seguinte ambiente de desenvolvime
   sudo apt-get install -y git cmake build-essential curl libcurl4-openssl-dev libssl-dev uuid-dev
   ```
 
-- O [CLI Azure](/cli/azure/install-azure-cli-apt?view=azure-cli-latest&preserve-view=true) instalado no seu ambiente WSL 2 para gerir os seus recursos Azure.
+- O [CLI Azure](/cli/azure/install-azure-cli-apt) instalado no seu ambiente WSL 2 para gerir os seus recursos Azure.
 
   > [!TIP]
   > Se preferir, pode executar os `az` comandos na [Azure Cloud Shell](https://shell.azure.com/) onde o CLI está pré-instalado.
@@ -448,6 +448,6 @@ az group delete -n bridge-edge-resources
 
 *pnpbridge\src\adaptadores*: Código fonte para vários adaptadores de ponte IoT Plug e Play.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre a ponte IoT Plug and Play, visite o repositório [IoT Plug e Play Bridge](https://github.com/Azure/iot-plug-and-play-bridge) GitHub.

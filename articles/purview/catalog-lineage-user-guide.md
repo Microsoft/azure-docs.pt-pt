@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/29/2020
-ms.openlocfilehash: cd4bba1bacbdb21a6bff4fcc5d3c1f3b2166ec35
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 47c5ad18f50bd25dd3bf351090ffc9ef5d54f0b2
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102039989"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102202914"
 ---
 # <a name="azure-purview-data-catalog-lineage-user-guide"></a>Guia de utilizadores do catálogo de dados Azure Purview
 
@@ -49,6 +49,8 @@ Sistemas de dados como Azure ML e Power BI reportam linhagem em Azure Purview. E
 | Power BI | [Conjuntos de dados, fluxos de dados, relatórios & dashboards](register-scan-power-bi-tenant.md)
 
 ## <a name="get-started-with-lineage"></a>Começar com linhagem
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE1XVQS]
 
 A linhagem em Purview inclui conjuntos de dados e processos. Os conjuntos de dados também são referidos como nódos enquanto os processos também podem ser chamados de bordas:
 

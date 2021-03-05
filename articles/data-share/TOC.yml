@@ -77,7 +77,7 @@
     - name: API REST
       href: /rest/api/datashare
     - name: CLI do Azure
-      href: /cli/azure/azure-cli-reference-for-data-share?view=azure-cli-latest
+      href: /cli/azure/azure-cli-reference-for-data-share
 - name: Recursos
   items:
     - name: Página de perguntas das Perguntas e Respostas da Microsoft

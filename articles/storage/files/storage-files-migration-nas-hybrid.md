@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 2d531edeeae9e0dd7e392cae66d9e4d41c68dfa2
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 73dc2520fbe970123a52133cb00909fea190610a
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98882268"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102202676"
 ---
 # <a name="migrate-from-network-attached-storage-nas-to-a-hybrid-cloud-deployment-with-azure-file-sync"></a>Migrar do Armazenamento Ligado à Rede (NAS) para uma implementação em nuvem híbrida com Azure File Sync
 
@@ -45,7 +45,7 @@ Como mencionado no artigo geral de [migração](storage-files-migration-overview
 * Crie um Windows Server 2019 - no mínimo 2012R2 - como uma máquina virtual ou servidor físico. Um cluster de falha do Windows Server também é suportado.
 * Provisão ou adicionar Armazenamento Direto Anexado (DAS em comparação com o NAS, que não é suportado).
 
-    A quantidade de armazenamento que fornece pode ser menor do que a que está a utilizar atualmente no seu aparelho NAS, se utilizar [a função de nivelamento de nuvem](storage-sync-cloud-tiering.md) Azure File Syncs.
+    A quantidade de armazenamento que fornece pode ser menor do que a que está a utilizar atualmente no seu aparelho NAS, se utilizar [a função de nivelamento de nuvem](storage-sync-cloud-tiering-overview.md) Azure File Syncs.
     No entanto, quando copiar os seus ficheiros do espaço NAS maior para o menor volume do Windows Server numa fase posterior, terá de trabalhar em lotes:
 
     1. Mova um conjunto de ficheiros que se encaixe no disco
@@ -105,7 +105,7 @@ Execute a primeira cópia local para a pasta alvo do Windows Server:
 
 O seguinte comando RoboCopy copiará ficheiros do seu armazenamento NAS para a pasta alvo do Windows Server. O Servidor do Windows sincroniza-o com a partilha de ficheiros Azure. 
 
-Se fornequir menos armazenamento no seu Windows Server do que os seus ficheiros ocuparem o aparelho NAS, então tem um nível de nuvem configurado. À medida que o volume do Servidor do Windows local fica cheio, [o tiering](storage-sync-cloud-tiering.md) da nuvem entrará em edição de ficheiros que já tenham sincronizado com sucesso. O tiering da nuvem gerará espaço suficiente para continuar a cópia do aparelho NAS. O tiering da nuvem verifica uma vez por hora para ver o que sincronizou e para libertar o espaço do disco para alcançar o espaço livre de volume de 99%.
+Se fornequir menos armazenamento no seu Windows Server do que os seus ficheiros ocuparem o aparelho NAS, então tem um nível de nuvem configurado. À medida que o volume do Servidor do Windows local fica cheio, [o tiering](storage-sync-cloud-tiering-overview.md) da nuvem entrará em edição de ficheiros que já tenham sincronizado com sucesso. O tiering da nuvem gerará espaço suficiente para continuar a cópia do aparelho NAS. O tiering da nuvem verifica uma vez por hora para ver o que sincronizou e para libertar o espaço do disco para alcançar o espaço livre de volume de 99%.
 É possível que o RoboCopy mova os ficheiros mais rapidamente do que pode sincronizar com a nuvem e o nível localmente, ficando assim sem espaço de disco local. RoboCopy vai falhar. Recomenda-se que trabalhe através das ações numa sequência que o impeça. Por exemplo, não iniciar trabalhos roboCopy para todas as ações ao mesmo tempo, ou apenas mover ações que se encaixam na quantidade atual de espaço livre no Windows Server, para mencionar algumas.
 
 ```console
@@ -208,13 +208,13 @@ Terminou de migrar uma parte/grupo de ações numa raiz ou volume comum. (Depend
 Podes tentar executar algumas destas cópias em paralelo. Recomendamos o processamento do âmbito de uma partilha de ficheiros Azure de cada vez.
 
 > [!WARNING]
-> Depois de ter transferido todos os dados do SEU NAS para o Windows Server, e a sua migração está completa: Volte a ***todos os** grupos de sincronização no portal Azure e ajuste o valor de espaço livre de nível de cloud tiering para algo mais adequado para a utilização da cache, digamos 20%. 
+> Depois de ter transferido todos os dados do SEU NAS para o Windows Server, e a sua migração está completa: Volte a ***todos os***  grupos de sincronização no portal Azure e ajuste o valor de espaço livre de nível de cloud para algo mais adequado para a utilização da cache, digamos 20%. 
 
 A política de espaço livre de nível de nivelamento da nuvem atua a nível de volume com pontos finais potencialmente múltiplos do servidor sincronizados a partir dele. Se se esquecer de ajustar o espaço livre num ponto final de um servidor, a sincronização continuará a aplicar a regra mais restritiva e tentará manter 99% de espaço livre em disco, fazendo com que a cache local não esteja a funcionar como seria de esperar. A menos que seja seu objetivo ter apenas o espaço de nome para um volume que apenas contém dados de arquivo raramente acedidos e você está reservando o resto do espaço de armazenamento para outro cenário.
 
 ## <a name="troubleshoot"></a>Resolução de problemas
 
-O problema mais provável é que o comando RoboCopy falhe com _"Volume cheio"* no lado do Windows Server. O nível da nuvem atua uma vez a cada hora para evacuar o conteúdo do disco local do Windows Server, que foi sincronizado. O seu objetivo é alcançar o seu espaço livre de 99% no volume.
+O problema mais provável é que o comando RoboCopy falhe com *o "Volume cheio"* no lado do Windows Server. O nível da nuvem atua uma vez a cada hora para evacuar o conteúdo do disco local do Windows Server, que foi sincronizado. O seu objetivo é alcançar o seu espaço livre de 99% no volume.
 
 Deixe sincronizar o progresso e o tiering da nuvem libertar o espaço do disco. Pode observar isso no Explorador de Ficheiros no seu Servidor windows.
 
@@ -222,7 +222,7 @@ Quando o seu Servidor do Windows tiver capacidade disponível suficiente, a reex
 
 Verifique o link na secção seguinte para verificar problemas de resolução de problemas problemas com o Azure File Sync.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Há mais a descobrir sobre as ações de ficheiros Azure e a Azure File Sync. Os seguintes artigos ajudam a compreender opções avançadas, boas práticas e também contêm ajuda para resolver problemas. Estes artigos ligam-se à [documentação de partilha de ficheiros Azure](storage-files-introduction.md) conforme apropriado.
 

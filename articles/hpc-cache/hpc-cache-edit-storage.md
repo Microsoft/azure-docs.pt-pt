@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: v-erkel
-ms.openlocfilehash: 7b7bc87f83925baed15bc6a411f5b4e4f78df6cc
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: f97ff1c20b7edbf24e5a2c58e22097f88883ae4f
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94654512"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102204036"
 ---
 # <a name="edit-storage-targets"></a>Adicionar destinos de armazenamento
 
@@ -161,7 +161,7 @@ Utilize o seletor drop-down para escolher um novo modelo de utilização. Clique
 
 [Configurar o Azure CLI para a cache Azure HPC](./az-cli-prerequisites.md).
 
-Utilize o comando [de atualização az hpc-cache nfs-target-target.](/cli/azure/ext/hpc-cache/hpc-cache/nfs-storage-target?view=azure-cli-latest#ext-hpc-cache-az-hpc-cache-nfs-storage-target-update)
+Utilize o comando [de atualização az hpc-cache nfs-target-target.](/cli/azure/ext/hpc-cache/hpc-cache/nfs-storage-target#ext-hpc-cache-az-hpc-cache-nfs-storage-target-update)
 
 O comando de atualização é quase idêntico ao comando que utiliza para adicionar um alvo de armazenamento NFS. Consulte para [Criar um alvo de armazenamento NFS](hpc-cache-add-storage.md#create-an-nfs-storage-target) para obter detalhes e exemplos.
 
@@ -175,7 +175,7 @@ Se a cache for parada ou não em estado saudável, a atualização aplicar-se-á
 
 ---
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Leia [Os alvos de armazenamento](hpc-cache-add-storage.md) para saber mais sobre estas opções.
 * Leia [Plano do espaço de nome agregado](hpc-cache-namespace.md) para mais dicas sobre a utilização de caminhos virtuais.

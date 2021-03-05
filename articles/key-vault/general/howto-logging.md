@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/01/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 0e1ce841f6da8f15bd977437bca6b835a7b0d745
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.openlocfilehash: 9ec1e59a5599ca2e95578eacc1484932956ebf16
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98108743"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102204019"
 ---
 # <a name="how-to-enable-key-vault-logging"></a>Como permitir a exploração do Cofre de Chaves
 
@@ -34,7 +34,7 @@ Estes comandos guia são formatados para [Cloud Shell](https://shell.azure.com) 
 
 O primeiro passo para a configuração do registo de chaves é ligar-se à subscrição que contém o seu cofre de chaves. Isto é especialmente importante se tiver várias subscrições associadas à sua conta.
 
-Com o CLI Azure, pode visualizar todas as suas subscrições utilizando o comando da [lista de conta az](/cli/azure/account?view=azure-cli-latest#az_account_list) e, em seguida, ligar-se a uma usando [o conjunto de conta az](/cli/azure/account?view=azure-cli-latest#az_account_set):
+Com o CLI Azure, pode visualizar todas as suas subscrições utilizando o comando da [lista de conta az](/cli/azure/account#az_account_list) e, em seguida, ligar-se a uma usando [o conjunto de conta az](/cli/azure/account#az_account_set):
 
 ```azurecli-interactive
 az account list
@@ -58,7 +58,7 @@ Para facilitar a gestão adicional, também usaremos o mesmo grupo de recursos q
 
 Também precisamos fornecer um nome de conta de armazenamento. Os nomes das contas de armazenamento devem ser únicos, entre 3 e 24 caracteres de comprimento, e usar apenas números e letras minúsculas.  Por último, vamos criar uma conta de armazenamento do SKU "Standard_LRS".
 
-Com o Azure CLI, utilize a [conta de armazenamento az criar](/cli/azure/storage/account?view=azure-cli-latest#az_storage_account_create) comando.
+Com o Azure CLI, utilize a [conta de armazenamento az criar](/cli/azure/storage/account#az_storage_account_create) comando.
 
 ```azurecli-interactive
 az storage account create --name "<your-unique-storage-account-name>" -g "myResourceGroup" --sku "Standard_LRS"
@@ -84,9 +84,9 @@ O "id" da conta de armazenamento estará no formato "/subscrições/<o seu ID de
 
 ## <a name="obtain-your-key-vault-resource-id"></a>Obtenha o seu ID de recurso de cofre chave
 
-No [quickstart do CLI](quick-create-cli.md) e [no arranque rápido do PowerShell,](quick-create-powershell.md)criou uma chave com um nome único.  Use este nome novamente nos degraus abaixo.  Se não se lembrar do nome do seu cofre chave, pode utilizar o comando da lista de chave Azure CLI [az](/cli/azure/keyvault?view=azure-cli-latest#az_keyvault_list) ou o cmdlet Azure PowerShell [Get-AzKeyVault](/powershell/module/az.keyvault/get-azkeyvault?view=azps-4.7.0) para listá-los.
+No [quickstart do CLI](quick-create-cli.md) e [no arranque rápido do PowerShell,](quick-create-powershell.md)criou uma chave com um nome único.  Use este nome novamente nos degraus abaixo.  Se não se lembrar do nome do seu cofre chave, pode utilizar o comando da lista de chave Azure CLI [az](/cli/azure/keyvault#az_keyvault_list) ou o cmdlet Azure PowerShell [Get-AzKeyVault](/powershell/module/az.keyvault/get-azkeyvault?view=azps-4.7.0) para listá-los.
 
-Use o nome do seu cofre chave para encontrar o seu ID de recursos.  Com a Azure CLI, use o comando [de show az keyvault.](/cli/azure/keyvault?view=azure-cli-latest#az_keyvault_show)
+Use o nome do seu cofre chave para encontrar o seu ID de recursos.  Com a Azure CLI, use o comando [de show az keyvault.](/cli/azure/keyvault#az_keyvault_show)
 
 ```azurecli-interactive
 az keyvault show --name "<your-unique-keyvault-name>"
@@ -102,7 +102,7 @@ O ID de recursos do seu cofre chave estará no formato "/subscrições/<o seu ID
 
 ## <a name="enable-logging-using-azure-powershell"></a>Ativar o registo utilizando o Azure PowerShell
 
-Para ativar o registo do Key Vault, utilizaremos as [definições de diagnóstico](/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest) do monitor Azure CLI az criar um comando, ou o cmdlet [Set-AzDiagnosticSetting,](/powershell/module/az.monitor/set-azdiagnosticsetting?view=azps-4.7.0) juntamente com o ID da conta de armazenamento e o ID do cofre chave.
+Para ativar o registo do Key Vault, utilizaremos as [definições de diagnóstico](/cli/azure/monitor/diagnostic-settings) do monitor Azure CLI az criar um comando, ou o cmdlet [Set-AzDiagnosticSetting,](/powershell/module/az.monitor/set-azdiagnosticsetting?view=azps-4.7.0) juntamente com o ID da conta de armazenamento e o ID do cofre chave.
 
 ```azurecli-interactive
 az monitor diagnostic-settings create --storage-account "<storage-account-id>" --resource "<key-vault-resource-id>" --name "Key vault logs" --logs '[{"category": "AuditEvent","enabled": true}]' --metrics '[{"category": "AllMetrics","enabled": true}]'
@@ -116,7 +116,7 @@ Set-AzDiagnosticSetting -ResourceId "<key-vault-resource-id>" -StorageAccountId 
 
 Opcionalmente, pode definir uma política de retenção para os seus registos, de modo a que os registos mais antigos sejam automaticamente eliminados após um período de tempo especificado. Por exemplo, pode definir a política de retenção que elimina automaticamente os registos com mais de 90 dias.
 
-<!-- With the Azure CLI, use the [az monitor diagnostic-settings update](/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az_monitor_diagnostic_settings_update) command. 
+<!-- With the Azure CLI, use the [az monitor diagnostic-settings update](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_update) command. 
 
 ```azurecli-interactive
 az monitor diagnostic-settings update 
@@ -143,7 +143,7 @@ O que está registado:
 
 Os registos do Cofre chave são armazenados no recipiente "insights-logs-auditevent" na conta de armazenamento que forneceu. Para ver os registos, tem de descarregar bolhas.
 
-Primeiro, lista todas as bolhas no contentor.  Com o Azure CLI, utilize o comando [da lista de bolhas de armazenamento az.](/cli/azure/storage/blob?view=azure-cli-latest#az_storage_blob_list)
+Primeiro, lista todas as bolhas no contentor.  Com o Azure CLI, utilize o comando [da lista de bolhas de armazenamento az.](/cli/azure/storage/blob#az_storage_blob_list)
 
 ```azurecli-interactive
 az storage blob list --account-name "<your-unique-storage-account-name>" --container-name "insights-logs-auditevent"
@@ -159,7 +159,7 @@ Como verá pela saída do comando Azure CLI ou do cmdlet Azure PowerShell, o nom
 
 Como pode utilizar a mesma conta de armazenamento para recolher registos para vários recursos, o ID completo do recurso no nome blob é útil para aceder ou descarregar apenas as bolhas de que necessita. Mas antes de podermos fazer isso, teremos primeiro de saber como transferir todos os blobs.
 
-Com o Azure CLI, use o comando [de descarregamento de blob de armazenamento az,](/cli/azure/storage/blob?view=azure-cli-latest#az_storage_blob_download) passe-lhe os nomes das bolhas, e o caminho para o arquivo onde deseja guardar os resultados.
+Com o Azure CLI, use o comando [de descarregamento de blob de armazenamento az,](/cli/azure/storage/blob#az_storage_blob_download) passe-lhe os nomes das bolhas, e o caminho para o arquivo onde deseja guardar os resultados.
 
 ```azurecli-interactive
 az storage blob download --container-name "insights-logs-auditevent" --file <path-to-file> --name "<blob-name>" --account-name "<your-unique-storage-account-name>"

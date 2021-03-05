@@ -8,12 +8,12 @@ ms.service: dns
 ms.topic: how-to
 ms.date: 06/18/2019
 ms.author: rohink
-ms.openlocfilehash: 63bd1d01adf66f33a8ee5349f35063473429b007
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: bfc7a851442d6dd70d55c9f00e6d2f18d37e56bf
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94964784"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102203407"
 ---
 # <a name="migrating-legacy-azure-dns-private-zones-to-new-resource-model"></a>Azure DNS zonas privadas do legado migratório para novo modelo de recursos
 
@@ -108,7 +108,7 @@ Este passo irá apagar as zonas de DNS antigas e só deverá ser executado depoi
 
 Se estiver a utilizar a automatização, incluindo modelos, scripts PowerShell ou código personalizado desenvolvido através do SDK, tem de atualizar a sua automatização para utilizar o novo modelo de recursos para as zonas privadas de DNS. Abaixo estão os links para a nova documentação privada do DNS CLI/PS/SDK.
 * [Zonas privadas Azure DNS REST API](/rest/api/dns/privatedns/privatezones)
-* [Zonas privadas Azure DNS CLI](/cli/azure/ext/privatedns/network/private-dns?view=azure-cli-latest)
+* [Zonas privadas Azure DNS CLI](/cli/azure/ext/privatedns/network/private-dns)
 * [Zonas privadas Azure DNS PowerShell](/powershell/module/az.privatedns/?view=azps-2.3.2)
 * [Zonas privadas Azure DNS SDK](/dotnet/api/overview/azure/privatedns/management?view=azure-dotnet-preview)
 

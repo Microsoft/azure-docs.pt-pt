@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 2/5/2021
-ms.openlocfilehash: 3cc29e0bd806ab76c4980128df5a89761e465fe7
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.openlocfilehash: d1a0873552ac9043d8f584f38ecd41c5e8543489
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99988385"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102202762"
 ---
 # <a name="custom-classifications-in-azure-purview"></a>Classificações personalizadas em Azure Purview 
 
@@ -91,24 +91,50 @@ Para criar uma regra de classificação personalizada:
 
     :::image type="content" source="media/create-a-custom-classification-and-classification-rule/newclassificationrule.png" alt-text="Adicionar nova regra de classificação" border="true":::
 
-5. Abre-se a nova caixa de diálogo **de regras de classificação.** Preencha as informações de configuração para a sua nova regra.
+5. Abre-se a nova caixa de diálogo **de regras de classificação.** Preencha os campos e decida se cria uma **regra de expressão regular** ou uma regra do **dicionário**.
 
-    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/createclassificationrule.png" alt-text="Criar nova regra de classificação" border="true":::
+    |Campo     |Descrição  |
+    |---------|---------|
+    |Nome   |    Obrigatório. O máximo é de 100 caracteres.    |
+    |Descrição      |Opcional. O máximo é de 256 caracteres.    |
+    |Nome de classificação    | Obrigatório. Selecione o nome da classificação da lista de drop-down para dizer ao scanner para aplicá-lo se for encontrada uma correspondência.        |
+    |Estado   |  Obrigatório. As opções estão ativadas ou desativadas. Ativado é o padrão.    |
 
-|Campo     |Descrição  |
-|---------|---------|
-|Nome   |    Obrigatório. O máximo é de 100 caracteres.    |
-|Description      |Opcional. O máximo é de 256 caracteres.    |
-|Nome de classificação    | Obrigatório. Selecione o nome da classificação da lista de drop-down para dizer ao scanner para aplicá-lo se for encontrada uma correspondência.        |
-|Estado   |  Obrigatório. As opções estão ativadas ou desativadas. Ativado é o padrão.    |
-|Padrão de dados    |Opcional. Uma expressão regular que representa os dados armazenados no campo de dados. O limite é muito grande. No exemplo anterior, os padrões de dados testam para um ID de funcionário que é literalmente a palavra `Employee{GUID}` .  |
-|Padrão da coluna    |Opcional. Uma expressão regular que representa os nomes das colunas que pretende igualar. O limite é muito grande.          |
+    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/create-new-classification-rule.png" alt-text="Criar nova regra de classificação" border="true":::
 
-Sob **o Padrão de Dados,** existem duas opções:
+### <a name="creating-a-regular-expression-rule"></a>Criação de uma regra de expressão regular
 
-- **Limiar de correspondência distinto**: O número total de valores de dados distintos que precisam de ser encontrados numa coluna antes que o scanner executa o padrão de dados nele. O valor sugerido é 8. Este valor pode ser ajustado manualmente num intervalo de 2 a 32. O sistema requer este valor para se certificar de que a coluna contém dados suficientes para que o scanner o classifique com precisão. Por exemplo, uma coluna que contenha várias linhas que contenham o valor 1 não será classificada. Colunas que contêm uma linha com um valor e o resto das linhas têm valores nulos também não serão classificados. Se especificar vários padrões, este valor aplica-se a cada um deles.
+1. Se criar uma regra de expressão regular, verá o seguinte ecrã. Pode enviar opcionalmente um ficheiro que será utilizado para **gerar padrões de regundo sugeridos** para a sua regra.
 
-- **Limiar mínimo de correspondência**: Pode utilizar esta definição para definir a percentagem mínima de correspondências de valor de dados numa coluna que deve ser encontrada pelo scanner para a classificação a aplicar. O valor sugerido é de 60%. Tens de ter cuidado com esta definição. Se reduzir o nível abaixo dos 60%, poderá introduzir classificações falsamente positivas no seu catálogo. Se especificar vários padrões de dados, esta definição é desativada e o valor é fixado em 60%.
+    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/create-new-regex-rule.png" alt-text="Criar nova regra regex" border="true":::
+
+1. Se decidir gerar um padrão regex sugerido, depois de carregar um ficheiro, selecione um dos padrões sugeridos e clique em **Adicionar a Padrões para** usar os padrões de dados e colunas sugeridos. Pode ajustar os padrões sugeridos ou também escrever os seus próprios padrões sem carregar um ficheiro.
+
+    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/suggested-regex.png" alt-text="Gerar regex sugerido" border="true":::
+
+    |Campo     |Descrição  |
+    |---------|---------|
+    |Padrão de dados    |Opcional. Uma expressão regular que representa os dados armazenados no campo de dados. O limite é muito grande. No exemplo anterior, os padrões de dados testam para um ID de funcionário que é literalmente a palavra `Employee{GUID}` .  |
+    |Padrão da coluna    |Opcional. Uma expressão regular que representa os nomes das colunas que pretende igualar. O limite é muito grande.          |
+
+1. De acordo com **o Padrão de Dados,** existem dois limiares que pode definir:
+
+    - **Limiar de correspondência distinto**: O número total de valores de dados distintos que precisam de ser encontrados numa coluna antes que o scanner executa o padrão de dados nele. O valor sugerido é 8. Este valor pode ser ajustado manualmente num intervalo de 2 a 32. O sistema requer este valor para se certificar de que a coluna contém dados suficientes para que o scanner o classifique com precisão. Por exemplo, uma coluna que contenha várias linhas que contenham o valor 1 não será classificada. Colunas que contêm uma linha com um valor e o resto das linhas têm valores nulos também não serão classificados. Se especificar vários padrões, este valor aplica-se a cada um deles.
+
+    - **Limiar mínimo de correspondência**: Pode utilizar esta definição para definir a percentagem mínima das correspondências de valor de dados distintos numa coluna que deve ser encontrada pelo scanner para a classificação a aplicar. O valor sugerido é de 60%. Tens de ter cuidado com esta definição. Se reduzir o nível abaixo dos 60%, poderá introduzir classificações falsamente positivas no seu catálogo. Se especificar vários padrões de dados, esta definição é desativada e o valor é fixado em 60%.
+
+1. Pode agora verificar a  sua regra e criá-la.
+    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/verify-rule.png" alt-text="Verifique a regra antes de criar" border="true":::
+
+### <a name="creating-a-dictionary-rule"></a>Criar uma regra do dicionário
+
+1.  Se criar uma regra do dicionário, verá o seguinte ecrã. Faça upload de um ficheiro que contenha todos os valores possíveis para a classificação que está a criar numa única coluna.
+
+    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/dictionary-rule.png" alt-text="Criar regra do dicionário" border="true":::
+
+1.  Após a geração do dicionário, pode ajustar os limiares de correspondência e de correspondência mínimos e submeter a regra.
+
+    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/dictionary-generated.png" alt-text="Criar regra do dicionário" border="true":::
 
 ## <a name="next-steps"></a>Passos seguintes
 
