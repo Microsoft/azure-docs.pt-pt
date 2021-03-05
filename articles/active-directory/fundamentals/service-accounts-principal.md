@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eaad4995abcf54e9ca7040d570c7a9abbdbc9cf5
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: fff9f9e809c61761ae22bc64cb0810b6e8b98f07
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "102032420"
+ms.locfileid: "102122702"
 ---
 # <a name="securing-service-principals"></a>Assegurar os principais de serviços
 
@@ -115,7 +115,7 @@ When using Microsoft Graph, check the documentation of the specific API, [like i
 
 [Criar um principal de serviço](../develop/howto-create-service-principal-portal.md)
 
- [Iniciar inscrições principais do serviço](../reports-monitoring/concept-all-sign-ins.md#sign-ins-report)
+ [Iniciar inscrições principais do serviço](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins#sign-ins-report)
 
 **Para saber mais sobre a segurança de contas de serviço:**
 

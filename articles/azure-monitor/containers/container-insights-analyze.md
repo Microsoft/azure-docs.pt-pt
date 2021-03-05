@@ -3,12 +3,12 @@ title: Monitorização de Kubernetes com insights de contentores | Microsoft Doc
 description: Este artigo descreve como pode ver e analisar o desempenho de um cluster Kubernetes com insights de contentores.
 ms.topic: conceptual
 ms.date: 03/26/2020
-ms.openlocfilehash: 432de02d22a418e92a7487001ae8c128323f3685
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 865a21e8c54d2cf569e04534fab6ec14f5519f34
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101711353"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102124317"
 ---
 # <a name="monitor-your-kubernetes-cluster-performance-with-container-insights"></a>Monitorize o desempenho do cluster Kubernetes com insights de contentores
 
@@ -20,7 +20,7 @@ Para obter informações sobre como permitir informações sobre o recipiente, c
 
 O Azure Monitor fornece uma visão multi-cluster que mostra o estado de saúde de todos os clusters kubernetes monitorizados que executam o Linux e o Windows Server 2019 implantados em grupos de recursos nas suas subscrições. Mostra aglomerados descobertos em todos os ambientes que não são monitorizados pela solução. Você pode entender imediatamente a saúde do cluster, e a partir daqui, você pode perfurar até a página de desempenho do nó e do controlador ou navegar para ver gráficos de desempenho para o cluster. Para os aglomerados AKS que foram descobertos e identificados como não monitorizados, pode permitir a monitorização a qualquer momento.
 
-As principais diferenças na monitorização de um cluster do Windows Server com insights de contentores em comparação com um cluster Linux são descritas [aqui](container-insights-overview.md#what-does-azure-monitor-for-containers-provide) no artigo de visão geral.
+As principais diferenças na monitorização de um cluster do Windows Server com insights de contentores em comparação com um cluster Linux são descritas [aqui](container-insights-overview.md#what-does-container-insights-provide) no artigo de visão geral.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 

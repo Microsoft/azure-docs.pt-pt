@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 90d526a58f4223fc70be5414ce5722238ce2c735
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: b09c36f1dce3c394ff24e3e601d773279a6ac510
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101733436"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102123314"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Boas práticas de uma base de conhecimento da QnA Maker
 
@@ -43,7 +43,7 @@ O seu utilizador pode introduzir perguntas com um estilo de texto de conversaç�
 
 As melhores respostas são respostas simples, mas não muito simples. Não utilize respostas como `yes` e `no` . . Se a sua resposta deve ligar-se a outras fontes ou fornecer uma experiência rica com meios e links, use [a marcação de metadados](../how-to/edit-knowledge-base.md#add-metadata) para distinguir entre respostas e, em seguida, [submeta a consulta](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration) com etiquetas de metadados na propriedade para obter a versão de resposta `strictFilters` correta.
 
-|Resposta|Pedidos de loucura|
+|Resposta|Instruções de acompanhamento|
 |--|--|
 |Desligue o portátil Surface com o botão de alimentação no teclado.|* Combinações de chaves para dormir, desligar e reiniciar.<br>* Como arrancar um portátil surface<br>* Como alterar o BIOS para um portátil Surface<br>* Diferenças entre dormir, desligar e reiniciar|
 |O atendimento ao cliente está disponível via telefone, Skype e mensagem de texto 24 horas por dia.|* Informações de contacto para vendas.<br> * Locais de escritório e loja e horas para uma visita presencial.<br> * Acessórios para um portátil Surface.|

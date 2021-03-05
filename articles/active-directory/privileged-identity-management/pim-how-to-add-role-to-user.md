@@ -1,5 +1,5 @@
 ---
-title: Atribuir funções de Azure AD em PIM - Azure Ative Directory / Microsoft Docs
+title: Atribuir funções de Azure AD em PIM - Azure Ative Directory | Microsoft Docs
 description: Saiba como atribuir funções de Azure AD na Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -10,15 +10,15 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 09/16/2020
+ms.date: 02/16/2021
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0e230a975748fe2f737c4b8fe8491887351d387
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: fd4374067fe0070c379a76ef5f59bb6aef5b29fc
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96004675"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102123110"
 ---
 # <a name="assign-azure-ad-roles-in-privileged-identity-management"></a>Atribuir funções de Azure AD em Gestão de Identidade Privilegiada
 
@@ -101,7 +101,7 @@ Para obter mais informações sobre a criação de unidades administrativas, con
 
 ## <a name="update-or-remove-an-existing-role-assignment"></a>Atualizar ou remover uma atribuição de função existente
 
-Siga estes passos para atualizar ou remover uma atribuição de função existente.
+Siga estes passos para atualizar ou remover uma atribuição de função existente. **Clientes licenciados Azure AD P2 apenas**: Não atribua um grupo como Ative a um papel através da Azure AD e da Gestão de Identidade Privilegiada (PIM). Para obter uma explicação detalhada, consulte [questões conhecidas.](../roles/groups-concept.md#known-issues)
 
 1. Open **Azure AD Gestão de Identidade Privilegiada.**
 
@@ -173,7 +173,7 @@ Por padrão, os novos utilizadores só são *elegíveis* para uma função de ad
 
 ## <a name="remove-a-user-from-a-role"></a>Remover um utilizador de uma função
 
-Pode remover os utilizadores das atribuições de funções, mas certifique-se de que há sempre pelo menos um utilizador que é um administrador global permanente. Se não tiver a certeza de quais os utilizadores que ainda precisam das suas atribuições de funções, pode [iniciar uma revisão de acesso para o papel](pim-how-to-start-security-review.md).
+Pode remover os utilizadores das atribuições de funções, mas certifique-se de que há sempre pelo menos um utilizador que é um Administrador Global permanente. Se não tiver a certeza de quais os utilizadores que ainda precisam das suas atribuições de funções, pode [iniciar uma revisão de acesso para o papel](pim-how-to-start-security-review.md).
 
 Siga estes passos para remover um utilizador específico de uma função de administração Azure AD.
 
@@ -219,7 +219,7 @@ Siga estes passos para atribuir a função de Administrador de Acesso ao Utiliza
 
 1. Caso contrário, escolha **Adicionar atribuição de função** para abrir o painel de atribuição de **funções Add.**
 
-1. Na **Role** lista de drop-down role, selecione a função de Administrador de Acesso ao **Utilizador.**
+1. Na  lista de drop-down role, selecione a função de Administrador de Acesso ao **Utilizador.**
 
 1. Na lista **Select,** encontre e selecione o principal de serviço **MS-PIM.**
 

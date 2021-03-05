@@ -6,12 +6,12 @@ ms.date: 02/04/2021
 ms.service: media-services
 ms.author: faneerde
 author: fvneerden
-ms.openlocfilehash: 62787bfb586f2847d984499cf966708749184ee1
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 282ab76c34405f19e7f81b2a8069c178b17ee0c1
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "102096348"
+ms.locfileid: "102124419"
 ---
 # <a name="tutorial-analyze-live-video-by-using-intel-openvino-dl-streamer--edge-ai-extension"></a>Tutorial: Analise o vídeo ao vivo utilizando Intel OpenVINO™ DL Streamer – Extensão Edge AI 
 
@@ -327,7 +327,8 @@ Para utilizar um modelo diferente, terá de alterar o modelo de implementação.
 "PIPELINE_VERSION=vehicle_attributes_recognition"
 ],
 ```
-> [!TIP] Copie o modelo e guarde-o com um novo nome para cada possível pipeline. Desta forma pode alternar entre modelos criando uma nova implementação com base num destes modelos.
+> [!TIP]
+> Copie o modelo e guarde-o com um novo nome para cada possível pipeline. Desta forma pode alternar entre modelos criando uma nova implementação com base num destes modelos.
 
 Uma vez alteradas as variáveis, pode voltar a colocar o modelo no dispositivo. Pode agora repetir os passos acima para executar novamente o programa de amostragem, com o novo oleoduto. Os resultados da inferência serão semelhantes (em esquema) mas mostrarão mais ou menos informações dependendo do modelo de pipeline que escolheu.
 

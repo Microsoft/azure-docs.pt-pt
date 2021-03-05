@@ -6,12 +6,12 @@ author: mlearned
 ms.topic: conceptual
 ms.date: 07/01/2020
 ms.author: mlearned
-ms.openlocfilehash: 1adf8370f55a0f6131eb4140c58fa4618e08127b
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 6c69e46ea3510476089cd932b1cd1bdf14254021
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686026"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102122379"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Conceitos de segurança para aplicações e clusters no Azure Kubernetes Service (AKS)
 
@@ -40,7 +40,10 @@ Pode controlar o acesso ao servidor API utilizando o controlo de acesso baseado 
 
 ## <a name="node-security"></a>Segurança do nó
 
-Os nós AKS são máquinas virtuais Azure que gere e mantém. Os nós Linux executam uma distribuição Ubuntu otimizada usando o tempo de funcionação do contentor Moby. Os nós do Windows Server executam uma versão otimizada do Windows Server 2019 e também utilizam o tempo de funcionação do contentor Moby. Quando um cluster AKS é criado ou ampliado, os nós são automaticamente implantados com as mais recentes atualizações e configurações de segurança do SO.
+Os nós AKS são máquinas virtuais Azure que gere e mantém. Os nós Linux executam uma distribuição Ubuntu otimizada usando o `containerd` tempo de execução do contentor Moby ou Moby. Os nós do Windows Server executam uma versão otimizada do Windows Server 2019 e também utilizam o `containerd` tempo de funcionação do contentor ou moby. Quando um cluster AKS é criado ou ampliado, os nós são automaticamente implantados com as mais recentes atualizações e configurações de segurança do SO.
+
+> [!NOTE]
+> Aglomerados AKS usando piscinas de nó de kubernetes versão 1.19 e maior utilização `containerd` como tempo de funcionação do contentor. Os agrupamentos AKS que usam Kubernetes antes do v1.19 para piscinas de nó usam [o Moby](https://mobyproject.org/) (estivador a montante) como tempo de execução do contentor.
 
 A plataforma Azure aplica automaticamente patches de segurança OS aos nós Linux todas as noites. Se uma atualização de segurança Linux OS necessitar de um reboot do anfitrião, esse reboot não é executado automaticamente. Você pode reiniciar manualmente os nós Linux, ou uma abordagem comum é usar [Kured][kured], um daemon reboot de código aberto para Kubernetes. Kured funciona como Um [DaemonSet][aks-daemonsets] e monitoriza cada nó para a presença de um ficheiro indicando que é necessário um reboot. Os reboots são geridos através do cluster usando o mesmo [processo de cordão e drenagem](#cordon-and-drain) como um upgrade de cluster.
 
@@ -96,7 +99,7 @@ O uso de Segredos reduz a informação sensível que é definida no manifesto YA
 
 Os segredos de Kubernetes estão armazenados em etcd, uma loja de valor-chave distribuída. A loja Etcd é totalmente gerida pela AKS e [os dados são encriptados em repouso dentro da plataforma Azure][encryption-atrest]. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para começar a assegurar os seus clusters AKS, consulte [upgrade de um cluster AKS][aks-upgrade-cluster].
 

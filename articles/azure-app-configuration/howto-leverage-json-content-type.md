@@ -10,23 +10,23 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 08/03/2020
 ms.author: avgupta
-ms.openlocfilehash: ee262c0eb2431085e71d8ee0035bcdab9833d1cf
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 19de46bc87b72ada221c63e36e87d0545304d344
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94565777"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102122158"
 ---
 # <a name="leverage-content-type-to-store-json-key-values-in-app-configuration"></a>Alavancar o tipo de conteúdo para armazenar valores-chave JSON na Configuração de Aplicações
 
 Os dados são armazenados na Configuração da Aplicação como valores-chave, onde os valores são tratados como o tipo de corda por padrão. No entanto, pode especificar um tipo personalizado aproveitando a propriedade do tipo de conteúdo associada a cada valor-chave, para que possa preservar o tipo original dos seus dados ou ter a sua aplicação a comportar-se de forma diferente com base no tipo de conteúdo.
 
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Na Configuração de Aplicações, pode utilizar o tipo de mídia JSON como o tipo de conteúdo dos seus valores-chave para obter benefícios como:
-- **Gestão de dados mais simples** : Gerir valores-chave, como matrizes, tornar-se-á muito mais fácil no portal Azure.
-- **Exportação de dados melhorados** : Tipos primitivos, matrizes e objetos JSON serão preservados durante a exportação de dados.
+- **Gestão de dados mais simples**: Gerir valores-chave, como matrizes, tornar-se-á muito mais fácil no portal Azure.
+- **Exportação de dados melhorados**: Tipos primitivos, matrizes e objetos JSON serão preservados durante a exportação de dados.
 - **Suporte nativo com o fornecedor de Configuração** de Aplicações : Os valores-chave com o tipo de conteúdo JSON funcionarão bem quando consumidos pelas bibliotecas do fornecedor de Configuração de Aplicações nas suas aplicações.
 
 #### <a name="valid-json-content-type"></a>Tipo de conteúdo válido JSON
@@ -175,15 +175,31 @@ az appconfig kv export -d file --format json --path "~/Export.json" --separator 
 
 ## <a name="consuming-json-key-values-in-applications"></a>Consumir valores-chave JSON nas aplicações
 
-A forma mais fácil de consumir os valores-chave JSON na sua aplicação é através das bibliotecas do fornecedor de Configuração de Aplicações. Com as bibliotecas do fornecedor, não precisa de implementar um manuseamento especial dos valores-chave JSON na sua aplicação. São sempre desseserizados para a sua aplicação da mesma forma que outras bibliotecas de fornecedores de configuração JSON fazem. 
+A forma mais fácil de consumir os valores-chave JSON na sua aplicação é através das bibliotecas do fornecedor de Configuração de Aplicações. Com as bibliotecas do fornecedor, não precisa de implementar um manuseamento especial dos valores-chave JSON na sua aplicação. Serão analisados e convertidos para corresponder à configuração nativa da sua aplicação.
+
+Por exemplo, se tiver o seguinte valor-chave na Configuração da Aplicação:
+
+| Chave | Valor | Tipo de Conteúdo |
+|---|---|---|
+| Definições | {"FontSize":24,"UseDefaultRouting":falso} | application/json |
+
+A sua configuração de aplicação .NET terá os seguintes valores-chave:
+
+| Chave | Valor |
+|---|---|
+| Definições:FontSize | 24 |
+| Definições:UseDefaultRouting | false |
+
+Pode aceder diretamente às novas teclas ou pode optar por [vincular os valores de configuração a instâncias de objetos .NET](/aspnet/core/fundamentals/configuration/#bind-hierarchical-configuration-data-using-the-options-pattern).
+
 
 > [!Important]
 > O suporte nativo para valores-chave JSON está disponível na versão 4.0.0 (ou posterior). Consulte a secção [*de passos seguintes*](#next-steps) para mais detalhes.
 
-Se estiver a utilizar a API SDK ou REST para ler valores-chave da Configuração da Aplicação, com base no tipo de conteúdo, a sua aplicação é responsável por desseeciar o valor de um valor-chave JSON utilizando qualquer deserializador JSON padrão.
+Se estiver a utilizar a API SDK ou REST para ler valores-chave da Configuração da Aplicação, com base no tipo de conteúdo, a sua aplicação é responsável por analisar o valor de um valor-chave JSON.
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 

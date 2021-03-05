@@ -3,12 +3,12 @@ title: Parâmetros em modelos
 description: Descreve como definir parâmetros num modelo de Gestor de Recursos Azure (modelo ARM) e ficheiro Bicep.
 ms.topic: conceptual
 ms.date: 03/03/2021
-ms.openlocfilehash: b23417766524204e490450568bb80b8c49e2d328
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: a8608e4733960d7f5ba7e5f548c47f16a2b244bb
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "102043937"
+ms.locfileid: "102123399"
 ---
 # <a name="parameters-in-arm-templates"></a>Parâmetros em modelos ARM
 
@@ -16,7 +16,7 @@ Este artigo descreve como definir e usar parâmetros no seu modelo de Gestor de 
 
 O Gestor de Recursos resolve os valores dos parâmetros antes de iniciar as operações de implantação. Onde quer que o parâmetro seja utilizado no modelo, o Gestor de Recursos substitui-o pelo valor resolvido.
 
-Cada parâmetro deve ser definido para um dos tipos de [dados](template-syntax.md#data-types).
+Cada parâmetro deve ser definido para um dos tipos de [dados](data-types.md).
 
 [!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
 

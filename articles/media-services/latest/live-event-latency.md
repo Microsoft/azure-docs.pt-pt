@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 490b9d54aa3b661124699a472b453f80d9c39963
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: f9f4476e932df9a5f4c093968b2e7c4840e7ff39
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101705369"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102122906"
 ---
 # <a name="live-event-low-latency-settings"></a>Configurações de baixa latência do Evento Ao Vivo
 
@@ -34,9 +34,7 @@ Para utilizar a nova função **LowLatency,** define o **StreamOptionsFlag** par
 
 O exemplo .NET a seguir mostra como definir **a LowLatency** no **LiveEvent**:
 
-[!code-csharp[Main](../../../media-services-v3-dotnet/blob/main/Live/LiveEventWithDVR/Program.cs#NewLiveEvent)]
-
-        
+[!code-csharp[Main](../../../media-services-v3-dotnet/Live/LiveEventWithDVR/Program.cs#NewLiveEvent)]
 
 Veja o exemplo completo: [Live Event com DVR](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/main/Live/LiveEventWithDVR/Program.cs).
 
@@ -49,13 +47,13 @@ As tabelas que se seguem mostram resultados típicos de latência (quando a band
 ||2s GOP baixa latência habilitada|1s GOP baixa latência habilitada|
 |---|---|---|
 |**DASH em AMP**|10|8s|
-|**HLS no jogador nativo do iOS**|341|10|
+|**HLS no jogador nativo do iOS**|14s|10|
 
 ### <a name="live-encoding"></a>Live Encoding
 
 ||2s GOP baixa latência habilitada|1s GOP baixa latência habilitada|
 |---|---|---|
-|**DASH em AMP**|341|10|
+|**DASH em AMP**|14s|10|
 |**HLS no jogador nativo do iOS**|18s|13s|
 
 > [!NOTE]

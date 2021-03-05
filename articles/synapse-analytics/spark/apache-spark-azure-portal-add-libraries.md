@@ -9,12 +9,12 @@ ms.date: 03/01/2020
 ms.author: midesa
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: 76d3bdc8a6eb133daa2d241bdf4c3b73271f0173
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 38826451bbb8ec9303f61db53544cfe8ca2fcd41
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "102100207"
+ms.locfileid: "102123093"
 ---
 # <a name="manage-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Gerir bibliotecas para Apache Spark em Azure Synapse Analytics
 As bibliotecas fornecem código reutilizável que poderá querer incluir nos seus programas ou projetos. 
@@ -38,6 +38,7 @@ Ao desenvolver aplicações ou modelos personalizados, a sua equipa pode desenvo
 No Synapse, os pacotes de espaço de trabalho podem ser personalizados ou ficheiros de rodas ou frascos privados. Você pode enviar estes pacotes para o seu espaço de trabalho e mais tarde atribuí-los para uma piscina de faíscas específica. Uma vez atribuídos, estes pacotes de espaço de trabalho são automaticamente instalados em todas as sessões de piscina Spark.
 
 Para saber mais sobre como gerir bibliotecas de espaço de trabalho, visite os seguintes guias:
+
 - [Pacotes de espaço de trabalho python (pré-visualização): ](./apache-spark-manage-python-packages.md#install-wheel-files) Faça upload dos ficheiros da roda Python como um pacote de espaço de trabalho e, mais tarde, adicione estes pacotes a piscinas apache spark sem servidor específicos.
 - [Pacotes de espaço de trabalho Scala/Java (pré-visualização): ](./apache-spark-manage-scala-packages.md#workspace-packages) Carreque os ficheiros de frascos de Scala e Java como um pacote de espaço de trabalho e, mais tarde, adicione estes pacotes a piscinas apache spark sem servidor específicos.
 
@@ -61,6 +62,7 @@ Muitas vezes, ao fazer análises interativas de dados ou machine learning, poder
 Os pacotes com âmbito de sessão permitem aos utilizadores definir as dependências dos pacotes no início da sessão. Quando instala um pacote com âmbito de sessão, apenas a sessão atual tem acesso às embalagens especificadas. Como resultado, estes pacotes de sessão não terão impacto em outras sessões ou empregos utilizando a mesma piscina Apache Spark. Além disso, estas bibliotecas são instaladas em cima dos pacotes de tempo de funcionaamento e de nível de piscina. 
 
 Para saber mais sobre como gerir pacotes com âmbito de sessão, visite os seguintes guias de como fazer:
+
 - [Pacotes de sessão python (pré-visualização):](./apache-spark-manage-python-packages.md) No início de uma sessão, forneça um *ambiente Conda.yml* para instalar pacotes Python adicionais de repositórios populares. 
 - [Pacotes de sessão Scala/Java: ](./apache-spark-manage-scala-packages.md) No início da sessão, forneça uma lista de ficheiros de frascos para instalar ```%%configure``` utilizando .
 

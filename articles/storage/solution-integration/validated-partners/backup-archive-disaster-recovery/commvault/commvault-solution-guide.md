@@ -7,14 +7,14 @@ author: karauten
 ms.author: karauten
 ms.date: 11/11/2020
 ms.topic: article
-ms.service: Storage
-ms.subservice: Blob Storage
-ms.openlocfilehash: 381775b8cdba173cc1752a45b83670c7251e50ec
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.service: storage
+ms.subservice: blobs
+ms.openlocfilehash: f340a06f3b6b7c8fc0d78051fb0496dcab11fb5d
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "102101567"
+ms.locfileid: "102122753"
 ---
 # <a name="back-up-to-azure-with-commvault"></a>De volta a Azure com Commvault
 

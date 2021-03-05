@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/20/2021
 ms.author: v-tcassi
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: ba1401696092f5a16ffa21859a9b485e94c5d792
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: c12dbeb81fd2b3d67863b5b84fa30cf77e165549
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101736513"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102123195"
 ---
 # <a name="install-and-provision-azure-iot-edge-for-linux-on-a-windows-device-preview"></a>Instalar e aprovisionar o Azure IoT Edge para Linux num dispositivo Windows (Pré-visualização)
 
@@ -174,7 +174,7 @@ Instale o IoT Edge para o Linux no Windows no seu dispositivo-alvo se ainda não
    ```
 
    > [!NOTE]
-   > Pode executar este comando sem parâmetros ou personalizar opcionalmente a implementação com parâmetros. Pode consultar [o IoT Edge para Linux na referência de scripts Windows PowerShell](reference-iot-edge-for-linux-on-windows-scripts.md#Deploy-Eflow) para ver os seus significados.
+   > Pode executar este comando sem parâmetros ou personalizar opcionalmente a implementação com parâmetros. Pode consultar [o IoT Edge para Linux na referência de scripts Windows PowerShell](reference-iot-edge-for-linux-on-windows-scripts.md#deploy-eflow) para ver os seus significados.
 
 1. Insira 'Y' para aceitar os termos da licença.
 
@@ -340,8 +340,6 @@ Verifique se o IoT Edge para Linux no Windows foi instalado com sucesso e config
        ```bash
        sudo iotedge check
        ```
-
----
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 

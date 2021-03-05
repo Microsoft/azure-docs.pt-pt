@@ -4,12 +4,12 @@ description: Aprenda os componentes básicos de cluster e carga de trabalho de K
 services: container-service
 ms.topic: conceptual
 ms.date: 12/07/2020
-ms.openlocfilehash: 7485631660395e03c558167c321e6091c6fac755
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 2a1718d906ab5f51ea71be9b304028576c9fffa0
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100373237"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102122447"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Kubernetes conceitos fundamentais para O Serviço Azure Kubernetes (AKS)
 
@@ -61,7 +61,7 @@ Para executar as suas aplicações e serviços de apoio, precisa de um *nó* Kub
 
 - É `kubelet` o agente Kubernetes que processa os pedidos de orquestração do avião de controlo e o agendamento de executar os contentores solicitados.
 - A rede virtual é tratada pelo *kube-proxy* em cada nó. A procuração liga o tráfego da rede e gere o endereço IP para serviços e cápsulas.
-- O *tempo de funcionamento* do contentor é o componente que permite que as aplicações contentorizadas corram e interajam com recursos adicionais, como a rede virtual e o armazenamento. Em AKS, Moby é usado como tempo de funcionação do recipiente.
+- O *tempo de funcionamento* do contentor é o componente que permite que as aplicações contentorizadas corram e interajam com recursos adicionais, como a rede virtual e o armazenamento. Aglomerados AKS usando piscinas de nó de kubernetes versão 1.19 e maior utilização `containerd` como tempo de funcionação do contentor. Os agrupamentos AKS que usam Kubernetes antes do v1.19 para piscinas de nó usam [o Moby](https://mobyproject.org/) (estivador a montante) como tempo de execução do contentor.
 
 ![Máquina virtual Azure e recursos de apoio para um nó Kubernetes](media/concepts-clusters-workloads/aks-node-resource-interactions.png)
 
@@ -69,7 +69,7 @@ O tamanho Azure VM para os seus nóns define quantos CPUs, quanta memória, e o 
 
 Em AKS, a imagem VM para os nós no seu cluster é atualmente baseada em Ubuntu Linux ou Windows Server 2019. Quando cria um cluster AKS ou escala o número de nós, a plataforma Azure cria o número solicitado de VMs e configura-os. Não há nenhuma configuração manual para si. Os nós de agente são faturados como máquinas virtuais padrão, por isso quaisquer descontos que tenha no tamanho VM que está a usar (incluindo [reservas Azure)][reservation-discounts]são automaticamente aplicados.
 
-Se precisar de utilizar um sistema operativo de hospedeiro diferente, tempo de execução do contentor ou incluir pacotes personalizados, pode implantar o seu próprio cluster Kubernetes utilizando [o motor aks][aks-engine]. O upstream `aks-engine` lança funcionalidades e fornece opções de configuração antes de serem oficialmente suportados em clusters AKS. Por exemplo, se desejar utilizar um tempo de funcionamento de um contentor diferente do Moby, pode usar `aks-engine` para configurar e implantar um cluster Kubernetes que satisfaça as suas necessidades atuais.
+Se precisar de utilizar um sistema operativo de hospedeiro diferente, tempo de execução do contentor ou incluir pacotes personalizados, pode implantar o seu próprio cluster Kubernetes utilizando [o motor aks][aks-engine]. O upstream `aks-engine` lança funcionalidades e fornece opções de configuração antes de serem oficialmente suportados em clusters AKS. Por exemplo, se desejar utilizar um tempo de funcionamento de um contentor diferente `containerd` ou Moby, pode usar `aks-engine` para configurar e implantar um cluster Kubernetes que satisfaça as suas necessidades atuais.
 
 ### <a name="resource-reservations"></a>Reservas de recursos
 

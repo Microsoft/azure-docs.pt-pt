@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 2/26/2021
-ms.openlocfilehash: c57ac9ddbebcf02cb0118705b63f97fd1880b0f2
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 098f62365971fd634001706ab99fd414a6b25056
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101696020"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102123569"
 ---
 # <a name="register-and-scan-azure-multiple-sources"></a>Registar e digitalizar várias fontes do Azure
 
@@ -95,12 +95,12 @@ Para criar e executar uma nova digitalização, faça o seguinte:
     1. Pode selecionar uma **credencial ao nível dos pais** como MSI ou uma credencial de tipo principal de serviço, que pode optar por utilizar para todos os tipos de recursos sob a subscrição ou grupo de recursos
     1. Também pode **selecionar** especificamente o tipo de recurso e aplicar uma credencial diferente para esse tipo de recurso
     1. Cada credencial será considerada como o método de autenticação para todos os recursos sob um determinado tipo
-    1. Deve definir a credencial escolhida sobre os recursos, a fim de analisá-los com sucesso, como descrito nesta [secção](#Setting-up-authentication-to-scan-resources-under-a-subscription-or-resource-group) acima
+    1. Deve definir a credencial escolhida sobre os recursos, a fim de analisá-los com sucesso, como descrito nesta [secção](#setting-up-authentication-to-scan-resources-under-a-subscription-or-resource-group) acima
 1. Dentro de cada tipo pode selecionar para digitalizar todos os recursos ou um subconjunto deles pelo nome.
     1. Se deixar a opção como **todos,** então os recursos futuros desse tipo também serão digitalizados em futuras pesquisas
     1. Se selecionar contas de armazenamento específicas ou bases de dados SQL, então os recursos futuros criados desse tipo dentro deste grupo de subscrição ou recursos não serão incluídos para digitalizações, a menos que a digitalização seja explicitamente editada no futuro
  
-1.  Clique em **continuar** para continuar. Testaremos o acesso para verificar se aplicou o MSI do Purview como leitor no grupo de subscrição ou recursos. Se uma mensagem de erro for lançada, siga as instruções [aqui](#Setting-up-authentication-for-enumerating-resources-under-a-subscription-or-resource-group)
+1.  Clique em **continuar** para continuar. Testaremos o acesso para verificar se aplicou o MSI do Purview como leitor no grupo de subscrição ou recursos. Se uma mensagem de erro for lançada, siga as instruções [aqui](#setting-up-authentication-for-enumerating-resources-under-a-subscription-or-resource-group)
 
 1.  Selecione **os conjuntos de regras** de digitalização para cada tipo de recurso escolhido no passo anterior. Também pode criar conjuntos de regras de digitalização em linha.
   :::image type="content" source="media/register-scan-azure-multiple-sources/multiple-scan-rule-set.png" alt-text="Seleção de conjunto de regras de digitalização múltipla Azure":::

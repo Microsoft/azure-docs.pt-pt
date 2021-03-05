@@ -11,12 +11,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviwer: vanto
 ms.date: 01/15/2021
-ms.openlocfilehash: 664733f3d4c4e4bf17440db0323580c5d2c8c2ce
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: fb42a0428f0439053375027481d38977b068e356
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100555667"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102122583"
 ---
 # <a name="configure-azure-attestation-for-your-azure-sql-logical-server"></a>Configure Azure Attestation para o seu servidor lógico Azure SQL
 
@@ -66,10 +66,14 @@ authorizationrules
 
 A política acima verificada verifica:
 
-- O enclave dentro da Base de Dados Azure SQL não suporta a depuração (o que reduziria o nível de proteção que o enclave proporciona).
-- O ID do produto da biblioteca dentro do enclave é o ID do produto atribuído a Always Encrypted com enclaves seguros (4639).
-- A versão ID (svn) da biblioteca é maior que 0.
+- O enclave dentro da Base de Dados Azure SQL não suporta a depuração. 
+  > Os enclaves podem ser carregados com depuração desativada ou ativada. O suporte de depuração foi concebido para permitir que os desenvolvedores resolvam problemas com o código que está a ser em execução num enclave. Num sistema de produção, a depuração poderia permitir que um administrador examinasse o conteúdo do enclave, o que reduziria o nível de proteção que o enclave proporciona. A política recomendada desativa a depuração para garantir que, se um administrador malicioso tentar ligar o suporte de depuração assumindo a máquina do enclave, o atestado falhará. 
+- A identificação do produto do enclave corresponde ao ID do produto atribuído a Sempre Encriptado com enclaves seguros.
+  > Cada enclave tem um iD de produto único que diferencia o enclave de outros enclaves. O ID do produto atribuído ao enclave sempre encriptado é 4639. 
+- O número da versão de segurança (SVN) da biblioteca é superior a 0.
+  > O SVN permite que a Microsoft responda a potenciais bugs de segurança identificados no código enclave. Caso um problema de segurança seja ditado e corrigido, a Microsoft implementará uma nova versão do enclave com um novo SVN (incrementado). A política acima recomendada será atualizada para refletir o novo SVN. Ao atualizar a sua política para corresponder à política recomendada, pode garantir que se um administrador malicioso tentar carregar um enclave mais antigo e inseguro, o atestado falhará.
 - A biblioteca do enclave foi assinada com a chave de assinatura da Microsoft (o valor da alegação x-ms-sgx-mrsigner é o haxixe da chave de assinatura).
+  > Um dos principais objetivos do atestado é convencer os clientes de que o binário que corre no enclave é o binário que é suposto funcionar. As políticas de atestação fornecem dois mecanismos para este fim. Uma delas é a alegação **de mrenclave** que é o haxixe do binário que supostamente funciona num enclave. O problema com o **mrenclave** é que o haxixe binário muda mesmo com alterações triviais ao código, o que dificulta a reveir o código que está a decorrer no enclave. Por isso, recomendamos a utilização do **mrsigner**, que é um haxixe de uma chave que é usada para assinar o binário enclave. Quando a Microsoft revê o enclave, o **mrsigner** permanece o mesmo desde que a chave de assinatura não mude. Desta forma, torna-se viável implementar binários atualizados sem quebrar as aplicações dos clientes. 
 
 > [!IMPORTANT]
 > Um fornecedor de atestado é criado com a política padrão para os enclaves da Intel SGX, que não valida o código que corre dentro do enclave. A Microsoft aconselha-o a definir a política acima recomendada e a não utilizar a política padrão, para Sempre Encriptado com enclaves seguros.

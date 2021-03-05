@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - device-developer
 - iot-edge
-ms.openlocfilehash: 91869614aef03b819a5f7fbb355004f6e802d673
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 1a464b9e039f256fae52c32d828b1ec39a20a228
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101733022"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102123280"
 ---
 # <a name="connect-azure-iot-edge-devices-to-an-azure-iot-central-application"></a>Ligar dispositivos Azure IoT Edge a uma aplicação do Azure IoT Central
 
@@ -87,6 +87,20 @@ A IoT Central utiliza [modelos de dispositivos](concepts-device-templates.md) pa
 * O comando de um dispositivo responde para que o IoT Central possa exibir um UI para um operador usar para ligar para os comandos.
 
 Um dispositivo IoT Edge pode enviar telemetria, sincronizar os valores de propriedade e responder aos comandos da mesma forma que um dispositivo padrão. Assim, um dispositivo IoT Edge precisa de um modelo de dispositivo na IoT Central.
+
+### <a name="iot-edge-device-templates"></a>Modelos de dispositivo IoT Edge
+
+Os modelos de dispositivos IoT Central utilizam modelos para descrever as capacidades dos dispositivos. O diagrama a seguir mostra a estrutura do modelo para um dispositivo IoT Edge:
+
+:::image type="content" source="media/concepts-iot-edge/iot-edge-model.png" alt-text="Estrutura do modelo para dispositivo IoT Edge ligado à IoT Central" border="false":::
+
+IoT Central modela um dispositivo IoT Edge da seguinte forma:
+
+* Cada modelo de dispositivo IoT Edge tem um modelo de capacidade.
+* Para cada módulo personalizado listado no manifesto de implementação, é gerado um modelo de capacidade do módulo.
+* Estabelece-se uma relação entre cada modelo de capacidade do módulo e um modelo de dispositivo.
+* Um modelo de capacidade de módulo implementa uma ou mais interfaces de módulos.
+* Cada interface de módulo contém telemetria, propriedades e comandos.
 
 ### <a name="iot-edge-deployment-manifests-and-iot-central-device-templates"></a>Manifestos de implantação IoT Edge e modelos de dispositivos IoT Central
 

@@ -2,14 +2,14 @@
 title: Utilize a Galeria de Imagens Partilhadas para criar uma piscina de imagens personalizada
 description: As piscinas de imagem personalizadas são uma forma eficiente de configurar os nós computacional para executar as cargas de trabalho do Lote.
 ms.topic: conceptual
-ms.date: 11/18/2020
+ms.date: 03/04/2021
 ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 98dbb965d77da43d937dccbc0f99abf12c195929
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 8623c47952540717ae50538fd7b0282c9c8629bb
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98731366"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102124249"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-image-pool"></a>Utilize a Galeria de Imagens Partilhadas para criar uma piscina de imagens personalizada
 
@@ -69,12 +69,15 @@ Se estiver a criar um novo VM para a imagem, utilize uma primeira imagem do Azur
 > [!NOTE]
 > Não pode usar uma imagem de terceiros que tenha licença e termos de compra adicionais como a sua imagem base. Para obter informações sobre estas imagens do Marketplace, consulte as orientações para [Linux](../virtual-machines/linux/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms) ou [Windows](../virtual-machines/windows/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms) VMs.
 
+Siga estas orientações ao criar VMs:
+
 - Certifique-se de que o VM é criado com um disco gerido. Esta é a definição de armazenamento predefinido quando cria um VM.
 - Não instale extensões Azure, como a extensão de Script Personalizado, no VM. Se a imagem contiver uma extensão pré-instalada, o Azure pode encontrar problemas ao implantar o pool do Lote.
 - Ao utilizar discos de dados anexados, é necessário montar e formatar os discos a partir de um VM para os utilizar.
 - Certifique-se de que a imagem de SO base que fornece utiliza a unidade temporária predefinido. O agente de nó de lote espera atualmente a unidade temporária predefinido.
 - Certifique-se de que o disco SO não está encriptado.
-- Uma vez em funcionamento o VM, ligue-o através de RDP (para Windows) ou SSH (para Linux). Instale qualquer software necessário ou copie os dados pretendidos.  
+- Uma vez em funcionamento o VM, ligue-o através de RDP (para Windows) ou SSH (para Linux). Instale qualquer software necessário ou copie os dados pretendidos.
+- Para um provisionamento mais rápido da piscina, utilize a [definição de cache de disco ReadWrite](../virtual-machines/premium-storage-performance.md#disk-caching) para o disco oss do VM.
 
 ### <a name="create-a-vm-snapshot"></a>Criar um instantâneo VM
 
@@ -223,7 +226,7 @@ Se planeia criar uma piscina com centenas ou milhares de VMs ou mais usando uma 
 
 - **Redimensionar o tempo limite.** Se a sua piscina contiver um número fixo de nós (se não for auto-escalado), aumente a `resizeTimeout` propriedade da piscina dependendo do tamanho da piscina. Para cada 1000 VMs, o tempo limite recomendado de redimensionar é de pelo menos 15 minutos. Por exemplo, o tempo limite recomendado para uma piscina com 2000 VMs é de pelo menos 30 minutos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter uma visão geral aprofundada do Lote, consulte o fluxo de trabalho e os recursos do [serviço Batch.](batch-service-workflow-features.md)
 - Conheça a [Galeria de Imagens Partilhadas.](../virtual-machines/shared-image-galleries.md)

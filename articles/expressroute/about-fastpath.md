@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 03/25/2020
 ms.author: duau
-ms.openlocfilehash: ba23319c35aed1d09da652e6f84b60e5f8e9495e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: eefc42fb8e66e66c6388599df65c59ff642a6b59
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101740890"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102124113"
 ---
 # <a name="about-expressroute-fastpath"></a>Acerca do ExpressRoute FastPath
 
@@ -34,7 +34,7 @@ Para configurar o FastPath, o gateway de rede virtual deve ser:
 * ErGw3AZ
 
 > [!IMPORTANT]
-> Se planeia utilizar o FastPath com o IPv6 com base em espreitamento privado sobre o ExpressRoute, certifique-se de selecionar ErGw3AZ para **SKU**.
+> Se planeia utilizar o FastPath com o IPv6 com base em espreitamento privado sobre o ExpressRoute, certifique-se de selecionar ErGw3AZ para **SKU**. Note que este só está disponível para circuitos que utilizem ExpressRoute Direct.
 > 
 >
 

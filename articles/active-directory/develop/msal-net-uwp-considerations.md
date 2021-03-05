@@ -1,5 +1,5 @@
 ---
-title: Considerações UWP (MSAL.NET) Rio Azure
+title: Considerações UWP (MSAL.NET) | Rio Azure
 titleSuffix: Microsoft identity platform
 description: Saiba mais sobre considerações para utilizar a Universal Windows Platform (UWP) com a Microsoft Authentication Library for .NET (MSAL.NET).
 services: active-directory
@@ -9,22 +9,22 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/16/2019
+ms.date: 03/03/2021
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 6451368baf9c047f0318eb74d53ffac075d4a184
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 8a8aab447007eb574a7a4bc532d8177bd0d8b345
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063455"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102122481"
 ---
 # <a name="considerations-for-using-universal-windows-platform-with-msalnet"></a>Considerações para a utilização da Plataforma Universal do Windows com MSAL.NET
 Os desenvolvedores de aplicações que utilizam a Universal Windows Platform (UWP) com MSAL.NET devem considerar os conceitos que este artigo apresenta.
 
 ## <a name="the-usecorporatenetwork-property"></a>A propriedade UseCorporateNetwork
-Na plataforma Windows Runtime (WinRT), `PublicClientApplication` tem a propriedade `UseCorporateNetwork` Boolean. Esta propriedade permite que aplicações do Windows 8.1 e aplicações UWP beneficiem da autenticação Integrada do Windows (IWA) se o utilizador estiver inscrito numa conta que tenha um inquilino federado do Azure Ative Directory (Azure AD). Os utilizadores que se inscrevam no sistema operativo também podem utilizar um único sinal de sso(SSO). Ao definir a `UseCorporateNetwork` propriedade, MSAL.NET utiliza um corretor de autenticação web (WAB).
+Na plataforma Windows Runtime (WinRT), `PublicClientApplication` tem a propriedade `UseCorporateNetwork` Boolean. Esta propriedade permite que aplicações do Windows 10 e aplicações UWP beneficiem da autenticação integrada do Windows (IWA) se o utilizador estiver inscrito numa conta que tenha um inquilino federado do Azure Ative Directory (Azure AD). Os utilizadores que se inscrevam no sistema operativo também podem utilizar um único sinal de sso(SSO). Ao definir a `UseCorporateNetwork` propriedade, MSAL.NET utiliza um corretor de autenticação web (WAB).
 
 > [!IMPORTANT]
 > Definir o `UseCorporateNetwork` imóvel para verdadeiro supõe que o desenvolvedor de aplicações permitiu a IWA na aplicação. Para ativar o IWA:
@@ -58,7 +58,7 @@ HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execu
 
 Para obter mais informações, consulte [o corretor de autenticação Web - Violinista](/windows/uwp/security/web-authentication-broker#fiddler).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 As seguintes amostras fornecem mais informações.
 
 Sample | Plataforma | Descrição 

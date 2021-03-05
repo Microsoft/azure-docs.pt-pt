@@ -8,12 +8,12 @@ ms.date: 01/04/2021
 ms.author: chhenk
 ms.reviewer: azmetadatadev
 ms.custom: references_regions
-ms.openlocfilehash: fcdccf6701afe73ab0f11a7a907072b01a9d5aa4
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: b720e98fc83fd12744c289cb99814748b469b15d
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100373317"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102123688"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure Instance Metadata Service
 
@@ -42,13 +42,13 @@ Aqui está o código de amostra para recuperar todos os metadados, por exemplo. 
 #### <a name="windows"></a>[Windows](#tab/windows/)
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance?api-version=2020-09-01" | ConvertTo-Json -Depth 64
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri "http://169.254.169.254/metadata/instance?api-version=2020-09-01" | ConvertTo-Json -Depth 64
 ```
 
 #### <a name="linux"></a>[Linux](#tab/linux/)
 
 ```bash
-curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance?api-version=2020-09-01"
+curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance?api-version=2020-09-01" | jq
 ```
 
 ---
@@ -88,7 +88,7 @@ Em geral, os pedidos ao IMDS limitam-se a 5 pedidos por segundo. Os pedidos que 
 
 Os seguintes verbos HTTP são atualmente suportados:
 
-| Verbo | Description |
+| Verbo | Descrição |
 |------|-------------|
 | `GET` | Recuperar o recurso solicitado
 
@@ -196,7 +196,7 @@ Para aceder a um formato de resposta não padrão, especifique o formato solicit
 #### <a name="windows"></a>[Windows](#tab/windows/)
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text" | ConvertTo-Json
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text"
 ```
 
 #### <a name="linux"></a>[Linux](#tab/linux/)
@@ -248,9 +248,7 @@ Quando não especifica uma versão, obtém-se um erro com uma lista das versões
 - 2020-07-15
 - 2020-09-01
 - 2020-10-01
-
-> [!NOTE]
-> A versão 2020-10-01 está neste momento a ser lançada e pode ainda não estar disponível em todas as regiões.
+- 2020-12-01
 
 ### <a name="swagger"></a>Swagger
 
@@ -268,11 +266,12 @@ O ponto final da raiz é `http://169.254.169.254/metadata` .
 
 A API IMDS contém várias categorias de pontos finais que representam diferentes fontes de dados, cada uma das quais contém um ou mais pontos finais. Consulte cada categoria para mais detalhes.
 
-| Raiz de categoria | Description | Versão introduzida |
+| Raiz de categoria | Descrição | Versão introduzida |
 |---------------|-------------|--------------------|
 | `/metadata/attested` | Ver [Dados Attestados](#attested-data) | 2018-10-01
 | `/metadata/identity` | Ver [Identidade Gerida via IMDS](#managed-identity) | 2018-02-01
 | `/metadata/instance` | Ver [Metadados de Exemplo](#instance-metadata) | 2017-04-02
+| `/metadata/loadbalancer` | Consulte [metadados do balanceador de carga de recuperação através de IMDS](#load-balancer-metadata) | 2020-10-01
 | `/metadata/scheduledevents` | Ver [Eventos Agendados via IMDS](#scheduled-events) | 2017-08-01
 | `/metadata/versions` | [Versões](#versions) | N/D
 
@@ -332,10 +331,11 @@ Desagregação do esquema:
 
 **Computação**
 
-| Dados | Description | Versão introduzida |
+| Dados | Descrição | Versão introduzida |
 |------|-------------|--------------------|
 | `azEnvironment` | Ambiente azul onde o VM está em execução | 2018-10-01
 | `customData` | Esta funcionalidade encontra-se atualmente desativada. Atualizaremos esta documentação quando estiver disponível | 2019-02-01
+| `evictionPolicy` | Define como um [Spot VM](../articles/virtual-machines/spot-vms.md) será despejado. | 2020-12-01
 | `isHostCompatibilityLayerVm` | Identifica se o VM funciona na Camada de Compatibilidade do Anfitrião | 2020-06-01
 | `licenseType` | Tipo de licença para [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit). Isto só está presente para VMs ativados por AHB | 2020-09-01
 | `location` | Região de Azure o VM está em execução | 2017-04-02
@@ -349,6 +349,7 @@ Desagregação do esquema:
 | `plan` | [Plano](/rest/api/compute/virtualmachines/createorupdate#plan) contendo nome, produto e editor para um VM se for uma Imagem de Mercado Azure | 2018-04-02
 | `platformUpdateDomain` |  [Atualização](../articles/virtual-machines/manage-availability.md) do domínio em que o VM está a funcionar | 2017-04-02
 | `platformFaultDomain` | [Domínio de avaria](../articles/virtual-machines/manage-availability.md) em que o VM está a funcionar | 2017-04-02
+| `priority` | Prioridade do VM. Consulte [os VMs spot](../articles/virtual-machines/spot-vms.md) para obter mais informações | 2020-12-01
 | `provider` | Provedor do VM | 2018-10-01
 | `publicKeys` | [Coleção de Chaves Públicas](/rest/api/compute/virtualmachines/createorupdate#sshpublickey) atribuídas ao VM e caminhos | 2018-04-02
 | `publisher` | Editor da imagem VM | 2017-04-02
@@ -373,7 +374,7 @@ O perfil de armazenamento de um VM é dividido em três categorias: referência 
 
 O objeto de referência de imagem contém as seguintes informações sobre a imagem do SO:
 
-| Dados | Description |
+| Dados | Descrição |
 |------|-------------|
 | `id` | ID do Recurso
 | `offer` | Oferta da plataforma ou imagem de mercado
@@ -383,7 +384,7 @@ O objeto de referência de imagem contém as seguintes informações sobre a ima
 
 O objeto do disco OS contém as seguintes informações sobre o disco de oss utilizado pelo VM:
 
-| Dados | Description |
+| Dados | Descrição |
 |------|-------------|
 | `caching` | Requisitos de caching
 | `createOption` | Informação sobre como o VM foi criado
@@ -398,7 +399,7 @@ O objeto do disco OS contém as seguintes informações sobre o disco de oss uti
 
 A matriz de discos de dados contém uma lista de discos de dados anexados ao VM. Cada objeto de disco de dados contém as seguintes informações:
 
-Dados | Description |
+Dados | Descrição |
 -----|-------------|
 | `caching` | Requisitos de caching
 | `createOption` | Informação sobre como o VM foi criado
@@ -414,7 +415,7 @@ Dados | Description |
 
 **Rede**
 
-| Dados | Description | Versão introduzida |
+| Dados | Descrição | Versão introduzida |
 |------|-------------|--------------------|
 | `ipv4.privateIpAddress` | Endereço IPv4 local do VM | 2017-04-02
 | `ipv4.publicIpAddress` | Endereço IPv4 público do VM | 2017-04-02
@@ -422,13 +423,6 @@ Dados | Description |
 | `subnet.prefix` | Prefixo de sub-rede, exemplo 24 | 2017-04-02
 | `ipv6.ipAddress` | Endereço IPv6 local do VM | 2017-04-02
 | `macAddress` | Endereço de mac VM | 2017-04-02
-
-**Etiquetas VM**
-
-As tags VM estão incluídas no ponto final da API de instância/compute/tags.
-As etiquetas podem ter sido aplicadas ao seu Azure VM para organizar logicamente uma taxonomia. As etiquetas atribuídas a um VM podem ser recuperadas utilizando o pedido abaixo.
-
-O `tags` campo é uma corda com as etiquetas delimitadas por pontos-e-vírguis. Esta saída pode ser um problema se os e-tím9is forem utilizados nas próprias etiquetas. Se um analisador for escrito para extrair programáticamente as etiquetas, deve confiar no `tagsList` campo. O `tagsList` campo é uma matriz JSON sem delimiters, e consequentemente, mais fácil de analisar.
 
 
 #### <a name="sample-1-tracking-vm-running-on-azure"></a>Amostra 1: VM de rastreio em execução em Azure
@@ -440,7 +434,7 @@ Como prestador de serviços, poderá ser necessário rastrear o número de VMs q
 #### <a name="windows"></a>[Windows](#tab/windows/)
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/compute/vmId?api-version=2017-08-01&format=text"| ConvertTo-Json
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri "http://169.254.169.254/metadata/instance/compute/vmId?api-version=2017-08-01&format=text"
 ```
 
 #### <a name="linux"></a>[Linux](#tab/linux/)
@@ -468,7 +462,7 @@ Pode consultar estes dados diretamente através do IMDS.
 #### <a name="windows"></a>[Windows](#tab/windows/)
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/compute/platformFaultDomain?api-version=2017-08-01&format=text" | ConvertTo-Json
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri "http://169.254.169.254/metadata/instance/compute/platformFaultDomain?api-version=2017-08-01&format=text"
 ```
 
 #### <a name="linux"></a>[Linux](#tab/linux/)
@@ -485,7 +479,98 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
 0
 ```
 
-#### <a name="sample-3-get-more-information-about-the-vm-during-support-case"></a>Amostra 3: Obter mais informações sobre o VM durante o caso de apoio
+#### <a name="sample-3-get-vm-tags"></a>Amostra 3: Obter tags VM
+
+As tags VM estão incluídas no ponto final da API de instância/compute/tags.
+As etiquetas podem ter sido aplicadas ao seu Azure VM para organizar logicamente uma taxonomia. As etiquetas atribuídas a um VM podem ser recuperadas utilizando o pedido abaixo.
+
+**Pedir**
+
+#### <a name="windows"></a>[Windows](#tab/windows/)
+
+```powershell
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri "http://169.254.169.254/metadata/instance/compute/tags?api-version=2017-08-01&format=text"
+```
+
+#### <a name="linux"></a>[Linux](#tab/linux/)
+
+```bash
+curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/compute/platformFaultDomain?api-version=2017-08-01&format=text"
+```
+
+---
+
+**Response**
+
+```
+Department:IT;ReferenceNumber:123456;TestStatus:Pending
+```
+
+O `tags` campo é uma corda com as etiquetas delimitadas por pontos-e-vírguis. Esta saída pode ser um problema se os e-tím9is forem utilizados nas próprias etiquetas. Se um analisador for escrito para extrair programáticamente as etiquetas, deve confiar no `tagsList` campo. O `tagsList` campo é uma matriz JSON sem delimiters, e consequentemente, mais fácil de analisar. As tagsList atribuídas a um VM podem ser recuperadas utilizando o pedido abaixo.
+
+**Pedir**
+
+#### <a name="windows"></a>[Windows](#tab/windows/)
+
+```powershell
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri "http://169.254.169.254/metadata/instance/compute/tagsList?api-version=2019-06-04" | ConvertTo-Json -Depth 64
+```
+
+#### <a name="linux"></a>[Linux](#tab/linux/)
+
+```bash
+curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/compute/tagsList?api-version=2019-06-04" | jq
+```
+
+---
+
+**Response**
+
+#### <a name="windows"></a>[Windows](#tab/windows/)
+
+```json
+{
+    "value":  [
+                  {
+                      "name":  "Department",
+                      "value":  "IT"
+                  },
+                  {
+                      "name":  "ReferenceNumber",
+                      "value":  "123456"
+                  },
+                  {
+                      "name":  "TestStatus",
+                      "value":  "Pending"
+                  }
+              ],
+    "Count":  3
+}
+```
+
+#### <a name="linux"></a>[Linux](#tab/linux/)
+
+```json
+[
+  {
+    "name": "Department",
+    "value": "IT"
+  },
+  {
+    "name": "ReferenceNumber",
+    "value": "123456"
+  },
+  {
+    "name": "TestStatus",
+    "value": "Pending"
+  }
+]
+```
+
+---
+
+
+#### <a name="sample-4-get-more-information-about-the-vm-during-support-case"></a>Amostra 4: Obter mais informações sobre o VM durante o caso de apoio
 
 Como prestador de serviços, poderá receber uma chamada de apoio onde gostaria de saber mais informações sobre o VM. Pedir ao cliente que partilhe os metadados do cálculo pode fornecer informações básicas para que o profissional de suporte saiba sobre o tipo de VM no Azure.
 
@@ -494,7 +579,7 @@ Como prestador de serviços, poderá receber uma chamada de apoio onde gostaria 
 #### <a name="windows"></a>[Windows](#tab/windows/)
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/compute?api-version=2020-09-01" | ConvertTo-Json -Depth 64
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri "http://169.254.169.254/metadata/instance/compute?api-version=2020-09-01" | ConvertTo-Json -Depth 64
 ```
 
 #### <a name="linux"></a>[Linux](#tab/linux/)
@@ -510,6 +595,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
 > [!NOTE]
 > A resposta é uma corda JSON. A resposta de exemplo a seguir é bastante impressa para a legibilidade.
 
+#### <a name="windows"></a>[Windows](#tab/windows/)
 ```json
 {
     "azEnvironment": "AZUREPUBLICCLOUD",
@@ -517,13 +603,13 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
     "licenseType":  "Windows_Client",
     "location": "westus",
     "name": "examplevmname",
-    "offer": "Windows",
+    "offer": "WindowsServer",
     "osProfile": {
         "adminUsername": "admin",
         "computerName": "examplevmname",
         "disablePasswordAuthentication": "true"
     },
-    "osType": "linux",
+    "osType": "Windows",
     "placementGroupId": "f67c14ab-e92c-408c-ae2d-da15866ec79a",
     "plan": {
         "name": "planName",
@@ -548,7 +634,108 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
         "secureBootEnabled": "true",
         "virtualTpmEnabled": "false"
     },
-    "sku": "Windows-Server-2012-R2-Datacenter",
+    "sku": "2019-Datacenter",
+    "storageProfile": {
+        "dataDisks": [{
+            "caching": "None",
+            "createOption": "Empty",
+            "diskSizeGB": "1024",
+            "image": {
+                "uri": ""
+            },
+            "lun": "0",
+            "managedDisk": {
+                "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
+                "storageAccountType": "Standard_LRS"
+            },
+            "name": "exampledatadiskname",
+            "vhd": {
+                "uri": ""
+            },
+            "writeAcceleratorEnabled": "false"
+        }],
+        "imageReference": {
+            "id": "",
+            "offer": "WindowsServer",
+            "publisher": "MicrosoftWindowsServer",
+            "sku": "2019-Datacenter",
+            "version": "latest"
+        },
+        "osDisk": {
+            "caching": "ReadWrite",
+            "createOption": "FromImage",
+            "diskSizeGB": "30",
+            "diffDiskSettings": {
+                "option": "Local"
+            },
+            "encryptionSettings": {
+                "enabled": "false"
+            },
+            "image": {
+                "uri": ""
+            },
+            "managedDisk": {
+                "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampleosdiskname",
+                "storageAccountType": "Standard_LRS"
+            },
+            "name": "exampleosdiskname",
+            "osType": "Windows",
+            "vhd": {
+                "uri": ""
+            },
+            "writeAcceleratorEnabled": "false"
+        }
+    },
+    "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
+    "tags": "baz:bash;foo:bar",
+    "version": "15.05.22",
+    "vmId": "02aab8a4-74ef-476e-8182-f6d2ba4166a6",
+    "vmScaleSetName": "crpteste9vflji9",
+    "vmSize": "Standard_A3",
+    "zone": ""
+}
+```
+
+#### <a name="linux"></a>[Linux](#tab/linux/)
+```json
+{
+    "azEnvironment": "AZUREPUBLICCLOUD",
+    "isHostCompatibilityLayerVm": "true",
+    "licenseType":  "Windows_Client",
+    "location": "westus",
+    "name": "examplevmname",
+    "offer": "UbuntuServer",
+    "osProfile": {
+        "adminUsername": "admin",
+        "computerName": "examplevmname",
+        "disablePasswordAuthentication": "true"
+    },
+    "osType": "Linux",
+    "placementGroupId": "f67c14ab-e92c-408c-ae2d-da15866ec79a",
+    "plan": {
+        "name": "planName",
+        "product": "planProduct",
+        "publisher": "planPublisher"
+    },
+    "platformFaultDomain": "36",
+    "platformUpdateDomain": "42",
+    "publicKeys": [{
+            "keyData": "ssh-rsa 0",
+            "path": "/home/user/.ssh/authorized_keys0"
+        },
+        {
+            "keyData": "ssh-rsa 1",
+            "path": "/home/user/.ssh/authorized_keys1"
+        }
+    ],
+    "publisher": "Canonical",
+    "resourceGroupName": "macikgo-test-may-23",
+    "resourceId": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/virtualMachines/examplevmname",
+    "securityProfile": {
+        "secureBootEnabled": "true",
+        "virtualTpmEnabled": "false"
+    },
+    "sku": "18.04-LTS",
     "storageProfile": {
         "dataDisks": [{
             "caching": "None",
@@ -593,7 +780,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
                 "storageAccountType": "Standard_LRS"
             },
             "name": "exampleosdiskname",
-            "osType": "Linux",
+            "osType": "linux",
             "vhd": {
                 "uri": ""
             },
@@ -610,7 +797,9 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
 }
 ```
 
-#### <a name="sample-4-get-the-azure-environment-where-the-vm-is-running"></a>Amostra 4: Obtenha o Ambiente Azure onde o VM está em execução
+---
+
+#### <a name="sample-5-get-the-azure-environment-where-the-vm-is-running"></a>Amostra 5: Obtenha o Ambiente Azure onde o VM está em execução
 
 Azure tem várias nuvens soberanas como [o Governo de Azure.](https://azure.microsoft.com/overview/clouds/government/) Às vezes é preciso o Ambiente Azure para tomar algumas decisões de tempo de execução. A amostra que se segue mostra como pode alcançar este comportamento.
 
@@ -619,7 +808,7 @@ Azure tem várias nuvens soberanas como [o Governo de Azure.](https://azure.micr
 #### <a name="windows"></a>[Windows](#tab/windows/)
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/compute/azEnvironment?api-version=2018-10-01&format=text" | ConvertTo-Json
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri "http://169.254.169.254/metadata/instance/compute/azEnvironment?api-version=2018-10-01&format=text"
 ```
 
 #### <a name="linux"></a>[Linux](#tab/linux/)
@@ -646,14 +835,14 @@ A nuvem e os valores do ambiente Azure estão listados aqui.
 | [Azure Alemanha](https://azure.microsoft.com/overview/clouds/germany/) | AzureGermanCloud
 
 
-#### <a name="sample-5-retrieve-network-information"></a>Amostra 5: Recuperar informações sobre a rede
+#### <a name="sample-6-retrieve-network-information"></a>Amostra 6: Recuperar informações sobre a rede
 
 **Pedir**
 
 #### <a name="windows"></a>[Windows](#tab/windows/)
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/network?api-version=2017-08-01" | ConvertTo-Json  -Depth 64
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri "http://169.254.169.254/metadata/instance/network?api-version=2017-08-01" | ConvertTo-Json  -Depth 64
 ```
 
 #### <a name="linux"></a>[Linux](#tab/linux/)
@@ -693,12 +882,12 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/ne
 }
 ```
 
-#### <a name="sample-6-retrieve-public-ip-address"></a>Amostra 6: Recuperar endereço IP público
+#### <a name="sample-7-retrieve-public-ip-address"></a>Amostra 7: Recuperar endereço IP público
 
 #### <a name="windows"></a>[Windows](#tab/windows/)
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/network/interface/0/ipv4/ipAddress/0/publicIpAddress?api-version=2017-08-01&format=text" | ConvertTo-Json
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri "http://169.254.169.254/metadata/instance/network/interface/0/ipv4/ipAddress/0/publicIpAddress?api-version=2017-08-01&format=text"
 ```
 
 #### <a name="linux"></a>[Linux](#tab/linux/)
@@ -746,7 +935,7 @@ Para os VMs criados utilizando o modelo de implementação clássico, apenas o `
 
 O documento descodificado contém os seguintes campos:
 
-| Dados | Description | Versão introduzida |
+| Dados | Descrição | Versão introduzida |
 |------|-------------|--------------------|
 | `licenseType` | Tipo de licença para [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit). Isto só está presente para VMs ativados por AHB. | 2020-09-01
 | `nonce` | Uma corda que pode ser opcionalmente fornecida com o pedido. Se não `nonce` for fornecida, utiliza-se a atual estação de tempo universal coordenada. | 2018-10-01
@@ -792,7 +981,7 @@ Os fornecedores no Azure Marketplace querem garantir que o seu software está li
 
 ```powershell
 # Get the signature
-$attestedDoc = Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http://169.254.169.254/metadata/attested/document?api-version=2020-09-01
+$attestedDoc = Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri http://169.254.169.254/metadata/attested/document?api-version=2020-09-01
 # Decode the signature
 $signature = [System.Convert]::FromBase64String($attestedDoc.signature)
 ```
@@ -913,8 +1102,12 @@ Em seguida, pode solicitar fichas para identidades geridas do IMDS. Utilize este
 
 Para obter passos detalhados para ativar esta funcionalidade, consulte [Adquirir um token de acesso](../articles/active-directory/managed-identities-azure-resources/how-to-use-vm-token.md).
 
+## <a name="load-balancer-metadata"></a>Metadados do balançador de carga
+Quando coloca a máquina virtual ou a máquina virtual atrás de um Balancer de Carga Padrão Azure, pode utilizar o IMDS para recuperar metadados relacionados com o equilibrador de carga e as instâncias. Para obter mais informações, consulte [as informações do balanceador de carga de recuperar.](../articles/load-balancer/instance-metadata-service-load-balancer.md)
+
 ## <a name="scheduled-events"></a>Eventos agendados
 Pode obter o estado dos eventos agendados utilizando o IMDS. Em seguida, o utilizador pode especificar um conjunto de ações para executar sobre estes eventos. Para mais informações, consulte [eventos agendados para linux](../articles/virtual-machines/linux/scheduled-events.md) ou [eventos agendados para Windows.](../articles/virtual-machines/windows/scheduled-events.md)
+
 
 ## <a name="sample-code-in-different-languages"></a>Código de amostra em diferentes línguas
 

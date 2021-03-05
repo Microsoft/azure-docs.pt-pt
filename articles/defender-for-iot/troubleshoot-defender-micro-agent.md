@@ -1,5 +1,5 @@
 ---
-title: Resolução de problemas do micro agente do Defender IoT (Pré-visualização)
+title: Resolução de problemas do micro agente defender IoT
 titleSuffix: Azure Defender for IoT
 description: Aprenda a lidar com erros inesperados ou inexplicáveis.
 author: shhazam-ms
@@ -8,14 +8,14 @@ ms.author: shhazam
 ms.date: 1/24/2021
 ms.topic: reference
 ms.service: azure
-ms.openlocfilehash: 07198a5d0ef5d0a6c9eed97523c61826e451b7f5
-ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
+ms.openlocfilehash: dade0d0d5dc4d690ea94f20deaf956b1e079bad7
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99809814"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102124181"
 ---
-# <a name="defender-iot-micro-agent-troubleshooting-preview"></a>Resolução de problemas do micro agente do Defender IoT (Pré-visualização)
+# <a name="defender-iot-micro-agent-troubleshooting"></a>Resolução de problemas do micro agente defender IoT 
 
 No caso de ter erros inesperados ou inexplicáveis, utilize os seguintes métodos de resolução de problemas para tentar resolver os seus problemas. Você também pode contactar o Azure Defender para a equipe de produtos IoT para assistência, se necessário.   
 

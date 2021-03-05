@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/27/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: b37277c660562721273ff9ae86dd677ee7ac7d55
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 2419761c195258c60561e284abf0227b915ed4f6
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "102050006"
+ms.locfileid: "102123637"
 ---
 # <a name="connect-function-apps-in-azure-for-processing-data"></a>Conecte aplicações de função em Azure para processamento de dados
 
@@ -86,7 +86,7 @@ Em seguida, no seu Visual Studio Solution Explorer, abra o ficheiro _Function1.c
 
 Irá agora declarar variáveis de nível de classe e adicionar código de autenticação que permitirá a função aceder a Azure Digital Twins. Irá adicionar o seguinte à sua função no ficheiro _Function1.cs._
 
-* Código para ler o URL de serviço Azure Digital Twins como uma variável ambiental. É uma boa prática ler o URL de serviço a partir de uma variável ambiental, em vez de codificar duramente na função.
+* Código para ler o URL de serviço Azure Digital Twins como uma **variável ambiental**. É uma boa prática ler o URL de serviço a partir de uma variável ambiental, em vez de codificar duramente na função. Você vai definir o valor desta variável ambiental [mais tarde neste artigo](#set-up-security-access-for-the-function-app). Para obter mais informações sobre variáveis ambientais, consulte [*Gerir a sua aplicação de função.*](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal)
 
     :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs" id="ADT_service_URL":::
 
@@ -134,7 +134,7 @@ Utilize o valor _principalId_ no seguinte comando para atribuir a identidade da 
 ```azurecli-interactive 
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Data Owner"
 ```
-Por último, pode tornar o URL da sua instância Azure Digital Twins acessível à sua função, definindo uma variável ambiental. Para obter mais informações sobre a definição de variáveis ambientais, consulte [*variáveis ambientais*](/sandbox/functions-recipes/environment-variables). 
+Por último, torne o URL da sua instância Azure Digital Twins acessível à sua função, definindo uma **variável ambiental** para o mesmo. Para obter mais informações sobre variáveis ambientais, consulte [*Gerir a sua aplicação de função.*](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal) 
 
 > [!TIP]
 > O URL da instância Azure Digital Twins é feito adicionando *https://* ao início do *nome de anfitrião* da sua instância Azure Digital Twins . Para ver o nome do anfitrião, juntamente com todas as propriedades do seu caso, pode `az dt show --dt-name <your-Azure-Digital-Twins-instance>` correr.
@@ -183,7 +183,7 @@ Em seguida, guarde os seus dados premindo o botão _Guardar._
 
 ### <a name="configure-application-settings-using-azure-portal"></a>Configurar configurações de aplicações usando o portal Azure
 
-Pode tornar o URL da sua instância Azure Digital Twins acessível à sua função definindo uma variável ambiental. Para obter mais informações sobre este ponto, consulte [*as variáveis Ambiente.*](/sandbox/functions-recipes/environment-variables) As configurações da aplicação são expostas como variáveis ambientais para aceder à instância de gémeos digitais. 
+Para tornar o URL da sua instância Azure Digital Twins acessível à sua função, pode definir uma **variável ambiental** para ele. Para obter mais informações sobre variáveis ambientais, consulte [*Gerir a sua aplicação de função.*](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal) As definições de aplicações são expostas como variáveis ambientais para aceder à instância Azure Digital Twins. 
 
 Para definir uma variável ambiental com o URL da sua instância, primeiro obtenha o URL encontrando o nome de anfitrião da sua instância Azure Digital Twins. Procure o seu exemplo na barra de pesquisa do [portal Azure.](https://portal.azure.com) Em seguida, _selecione visão geral_ na barra de navegação esquerda para ver o _nome anfitrião_. Copie este valor.
 

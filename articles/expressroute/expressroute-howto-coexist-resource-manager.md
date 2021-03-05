@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 12/11/2019
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: edbd36ad3444795ade4b3f8d29d8473b21a2fda8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b20bb4df7524c179766a2b2f7f090fccbddd7f37
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91651518"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102122617"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-using-powershell"></a>Configurar conexões de coexistição ExpressRoute e Site-to-Site utilizando PowerShell
 > [!div class="op_single_selector"]
@@ -42,6 +42,7 @@ São abrangidos neste artigo os passos para configurar ambos os cenários. Este 
 * **A rota estática deve ser configurada para o seu Gateway de VPN.** Se a sua rede local estiver ligada ao ExpressRoute e a uma Rede de VPNs, terá de ter uma rota estática configurada na rede local para encaminhar a ligação de Rede de VPNs para a Internet pública.
 * **VPN Gateway por defeito para ASN 65515 se não for especificado.** A Azure VPN Gateway suporta o protocolo de encaminhamento BGP. Pode especificar ASN (Número AS) para uma rede virtual adicionando o interruptor -Asn. Se não especificar este parâmetro, o número AS predefinido é 65515. Pode utilizar qualquer ASN para a configuração, mas se selecionar algo diferente de 65515, tem de redefinir o gateway para que a definição entre em vigor.
 * **A sub-rede gateway deve ser /27 ou um prefixo mais curto**( como /26, /25), ou receberá uma mensagem de erro quando adicionar o gateway de rede virtual ExpressRoute.
+* **A coexistência num vnet de dupla pilha não é suportada.** Se estiver a utilizar o suporte ExpressRoute IPv6 e um gateway ExpressRoute de dupla pilha, a coexistência com o Gateway VPN não será possível.
 
 ## <a name="configuration-designs"></a>Estruturas de configuração
 ### <a name="configure-a-site-to-site-vpn-as-a-failover-path-for-expressroute"></a>Configurar uma Rede de VPNs como um caminho de ativação pós-falha para o ExpressRoute

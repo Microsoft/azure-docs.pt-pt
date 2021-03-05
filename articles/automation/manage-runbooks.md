@@ -3,14 +3,14 @@ title: Gerir livros de execução na Azure Automation
 description: Este artigo diz como gerir os livros de execução na Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 10/23/2020
+ms.date: 02/24/2021
 ms.topic: conceptual
-ms.openlocfilehash: ed5eda668f6bd52ba144aa664119ab613fdb7742
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: af767ab37e8e77195b7d13b24ea78f4fb88485fb
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183588"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102122141"
 ---
 # <a name="manage-runbooks-in-azure-automation"></a>Gerir livros de execução na Azure Automation
 
@@ -23,6 +23,7 @@ Crie um novo runbook na Azure Automation utilizando o portal Azure ou Windows Po
 * [Editar o livro de texto na Azure Automation](automation-edit-textual-runbook.md)
 * [Aprenda os principais conceitos de fluxo de trabalho do Windows PowerShell para os runbooks de automação](automation-powershell-workflow.md)
 * [Gerir pacotes Python 2 em Azure Automation](python-packages.md)
+* [Gerir pacotes Python 3 (pré-visualização) em Azure Automation](python-3-packages.md)
 
 ### <a name="create-a-runbook-in-the-azure-portal"></a>Criar um livro de corridas no portal Azure
 
@@ -45,7 +46,7 @@ New-AzAutomationRunbook -AutomationAccountName MyAccount `
 
 ## <a name="import-a-runbook"></a>Importar um livro de corridas
 
-Pode importar um powerShell ou powerShell Workflow **(.ps1),** um livro de execução gráfico **(.graphrunbook)** ou um script Python 2 **(.py**) para fazer o seu próprio livro de execução. Deve especificar o tipo de livro de [execução](automation-runbook-types.md) que é criado durante a importação, tendo em conta as seguintes considerações.
+Você pode importar um powerShell ou powerShell Workflow (**.ps1**), um runbook gráfico **(.graphrunbook),** ou um script Python 2 ou Python 3 **(.py**) para fazer o seu próprio livro de execução. Deve especificar o tipo de livro de [execução](automation-runbook-types.md) que é criado durante a importação, tendo em conta as seguintes considerações.
 
 * Pode importar um ficheiro **.ps1** que não contenha um fluxo de trabalho num [livro de execução PowerShell](automation-runbook-types.md#powershell-runbooks) ou num [manual de fluxo de trabalho PowerShell](automation-runbook-types.md#powershell-workflow-runbooks). Se o importar num livro de trabalho powerShell, é convertido para um fluxo de trabalho. Neste caso, os comentários estão incluídos no livro de bordo para descrever as alterações feitas.
 

@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 06/12/2019
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: aed23bf5008f850b19a1e5a8c7b0ff21f329eb3a
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: f783245b17a880a67b62aa24a3feabb9b113053b
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100560497"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102122260"
 ---
 ## <a name="prepare-your-repository"></a>Prepare o seu repositório
 
-Para obter construções automáticas a partir do servidor de construção do Azure App Service, certifique-se de que a raiz do repositório tem os ficheiros corretos no seu projeto.
+Para obter construções automatizadas a partir do servidor de construção do Azure App Service, certifique-se de que a raiz do repositório tem os ficheiros corretos no seu projeto.
 
 | Runtime | Ficheiros de diretório de raiz |
 |-|-|
