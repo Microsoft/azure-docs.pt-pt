@@ -5,12 +5,12 @@ ms.date: 09/25/2019
 ms.topic: troubleshooting
 description: Aprenda a resolver problemas e resolva problemas comuns ao ativar e utilizar espaços Azure Dev
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores, Helm, malha de serviço, encaminhamento de malha de serviço, kubectl, k8s '
-ms.openlocfilehash: bf8c4d2040445fa3417fce02fb4b66216b21f3b5
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 14ced0c66b42b6f18c946d0c75091be1af5598f5
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96548873"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102197797"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Azure Dev Spaces resolução de problemas
 
@@ -20,13 +20,13 @@ Este guia contém informações sobre problemas comuns que poderá ter ao utiliz
 
 Se tiver algum problema ao utilizar o Azure Dev Spaces, crie um [problema no repositório Azure Dev Spaces GitHub](https://github.com/Azure/dev-spaces/issues).
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Para resolver os problemas de forma mais eficaz, pode ajudar a criar registos mais detalhados para revisão.
 
 Para o Visual Studio, deite a `MS_VS_AZUREDEVSPACES_TOOLS_LOGGING_ENABLED` variável ambiental para 1. Certifique-se de reiniciar o Visual Studio para que a variável ambiental entre em vigor. Uma vez ativados, os registos detalhados são escritos para o seu `%TEMP%\Microsoft.VisualStudio.Azure.DevSpaces.Tools` diretório.
 
-No CLI, pode obter mais informações durante a execução do comando utilizando o `--verbose` interruptor. Também pode navegar em registos mais detalhados `%TEMP%\Azure Dev Spaces` . Num Mac, o *diretório TEMP* pode ser encontrado correndo `echo $TMPDIR` a partir de uma janela do terminal. Num computador Linux, o *diretório TEMP* é normalmente `/tmp` . Além disso, verifique se a sessão de registo está ativada no seu [ficheiro de configuração Azure CLI](/cli/azure/azure-cli-configuration?view=azure-cli-latest#cli-configuration-values-and-environment-variables).
+No CLI, pode obter mais informações durante a execução do comando utilizando o `--verbose` interruptor. Também pode navegar em registos mais detalhados `%TEMP%\Azure Dev Spaces` . Num Mac, o *diretório TEMP* pode ser encontrado correndo `echo $TMPDIR` a partir de uma janela do terminal. Num computador Linux, o *diretório TEMP* é normalmente `/tmp` . Além disso, verifique se a sessão de registo está ativada no seu [ficheiro de configuração Azure CLI](/cli/azure/azure-cli-configuration#cli-configuration-values-and-environment-variables).
 
 Azure Dev Spaces também funciona melhor ao depurar uma única instância, ou pod. O `azds.yaml` ficheiro contém uma definição, *replicaCount,* que indica o número de cápsulas que kubernetes executa para o seu serviço. Se alterar a *réplicaCount* para configurar a sua aplicação para executar várias cápsulas para um determinado serviço, o depurador liga-se à primeira cápsula, quando listado alfabeticamente. O depurar liga-se a uma cápsula diferente quando a cápsula original recicla, possivelmente resultando em comportamento inesperado.
 
@@ -91,7 +91,7 @@ azure-cli                         2.0.60 *
 
 Apesar da mensagem de erro ao executar `az aks use-dev-spaces` com uma versão do Azure CLI antes de 2.0.63, a instalação tem sucesso. Pode continuar a usar `azds` sem problemas.
 
-Para corrigir este problema, atualize a sua instalação do [CLI Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) para 2.0.63 ou mais tarde. Esta atualização resolverá a mensagem de erro que recebe ao executar `az aks use-dev-spaces` . Em alternativa, pode continuar a utilizar a sua versão atual do Azure CLI e do Azure Dev Spaces CLI.
+Para corrigir este problema, atualize a sua instalação do [CLI Azure](/cli/azure/install-azure-cli) para 2.0.63 ou mais tarde. Esta atualização resolverá a mensagem de erro que recebe ao executar `az aks use-dev-spaces` . Em alternativa, pode continuar a utilizar a sua versão atual do Azure CLI e do Azure Dev Spaces CLI.
 
 ### <a name="error-unable-to-reach-kube-apiserver"></a>Erro "Incapaz de alcançar kube-apiserver"
 

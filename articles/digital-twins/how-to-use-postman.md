@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: how-to
 ms.date: 11/10/2020
-ms.openlocfilehash: d99ec80308152ce9e4870da809acaa25c663d98d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: c6b9cfab4256c72118a65f7fb0c8e672e2082ffe
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101715705"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102199667"
 ---
 # <a name="how-to-use-postman-to-send-requests-to-the-azure-digital-twins-apis"></a>Como usar o Carteiro para enviar pedidos para as APIs das Gémeas Digitais do Azure
 
@@ -21,7 +21,7 @@ ms.locfileid: "101715705"
 
 Este artigo descreve como configurar o [cliente Postman REST](https://www.getpostman.com/) para interagir com as APIs das Gémeas Digitais Azure, através dos seguintes passos:
 
-1. Use o [CLI Azure](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) para obter um sinal de portador que você usará para fazer pedidos de API no Carteiro.
+1. Use o [CLI Azure](/cli/azure/install-azure-cli) para obter um sinal de portador que você usará para fazer pedidos de API no Carteiro.
 1. Crie uma coleção de Carteiro e configuure o cliente Postman REST para usar o seu símbolo ao portador para autenticar.
 1. Utilize o Carteiro configurado para criar e enviar um pedido às APIs das Gémeas Digitais Azure.
 
@@ -41,9 +41,9 @@ Em seguida, descarregue a versão para desktop do cliente do Carteiro. Navegue p
 
 Agora que configuraste o Carteiro e a tua instância Azure Digital Twins, terás de obter um sinal ao portador que os pedidos do Carteiro podem usar para autorizar contra as APIs das Gémeas Digitais Azure.
 
-Há várias maneiras possíveis de obter este símbolo. Este artigo utiliza o [CLI Azure](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) para assinar na sua conta Azure e obter um token dessa forma.
+Há várias maneiras possíveis de obter este símbolo. Este artigo utiliza o [CLI Azure](/cli/azure/install-azure-cli) para assinar na sua conta Azure e obter um token dessa forma.
 
-Se tiver um Azure CLI [instalado localmente,](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)pode iniciar um pedido de comando na sua máquina para executar os seguintes comandos.
+Se tiver um Azure CLI [instalado localmente,](/cli/azure/install-azure-cli)pode iniciar um pedido de comando na sua máquina para executar os seguintes comandos.
 Caso contrário, pode abrir uma janela [Azure Cloud Shell](https://shell.azure.com) no seu navegador e executar os comandos lá.
 
 1. Primeiro, certifique-se de que está registado em Azure com as credenciais apropriadas, executando este comando:
@@ -52,7 +52,7 @@ Caso contrário, pode abrir uma janela [Azure Cloud Shell](https://shell.azure.c
     az login
     ```
 
-1. Em seguida, use o comando [get-token da conta az](/cli/azure/account?preserve-view=true&view=azure-cli-latest#az_account_get_access_token) para obter um token portador com acesso ao serviço Azure Digital Twins.
+1. Em seguida, use o comando [get-token da conta az](/cli/azure/account#az_account_get_access_token) para obter um token portador com acesso ao serviço Azure Digital Twins.
 
     ```azurecli-interactive
     az account get-access-token --resource 0b07f429-9f4b-4714-9392-cc5e8e80c8b0

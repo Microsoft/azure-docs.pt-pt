@@ -1,5 +1,5 @@
 ---
-title: Solução de fábrica conectada FAQ - Azure / Microsoft Docs
+title: Solução de fábrica conectada FAQ - Azure | Microsoft Docs
 description: Este artigo responde às perguntas frequentes para o acelerador de solução Connected Factory. Inclui ligações ao repositório GitHub.
 author: dominicbetts
 manager: timlt
@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: e6acea560c3a02420b15aff84475ab58e642116c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c6a695030d399cb1609c63ef5652419a9bef1bbf
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95995969"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102198987"
 ---
 # <a name="frequently-asked-questions-for-connected-factory-solution-accelerator"></a>Perguntas frequentes para acelerador de solução de fábrica conectada
 
@@ -82,7 +82,7 @@ Se implementou a solução a partir de www.azureiotsolutions.com, não pode entr
         export IOTHUB_CONNECTIONSTRING="HostName={yourdeployment}.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey={your key}"
         ```
 
-    * Execute `./startsimulation`.
+    * Execute o `./startsimulation`.
 
 ### <a name="how-do-i-update-the-simulation-in-the-vm"></a>Como actualo a simulação no VM?
 
@@ -125,7 +125,7 @@ Alternativamente, inicie sessão no VM via SSH e inspecione os ficheiros de regi
 
 ### <a name="how-can-i-check-if-the-simulation-is-sending-data-to-the-cloud"></a>Como posso verificar se a simulação está a enviar dados para a nuvem?
 
-Com o [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer) ou o comando [de monitorização de extensão Azure IoT CLI,](/cli/azure/ext/azure-iot/iot/hub?view=azure-cli-latest#ext-azure-iot-az-iot-hub-monitor-events) pode inspecionar os dados enviados para o IoT Hub a partir de determinados dispositivos. Para utilizar estas ferramentas, precisa de saber a cadeia de ligação do hub IoT na sua implantação. Veja [como descuito a cadeia de ligação do hub IoT usado pela minha solução?](#how-do-i-find-out-the-connection-string-of-the-iot-hub-used-by-my-solution)
+Com o [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer) ou o comando [de monitorização de extensão Azure IoT CLI,](/cli/azure/ext/azure-iot/iot/hub#ext-azure-iot-az-iot-hub-monitor-events) pode inspecionar os dados enviados para o IoT Hub a partir de determinados dispositivos. Para utilizar estas ferramentas, precisa de saber a cadeia de ligação do hub IoT na sua implantação. Veja [como descuito a cadeia de ligação do hub IoT usado pela minha solução?](#how-do-i-find-out-the-connection-string-of-the-iot-hub-used-by-my-solution)
 
 Inspecione os dados enviados por um dos dispositivos editoriais:
 
@@ -194,6 +194,5 @@ Para enviar dados de telemetria de dispositivos UA não OPC para a Fábrica Cone
 
 Também pode explorar algumas das outras funcionalidades e capacidades dos aceleradores de soluções do IoT:
 
-* [Descrição geral do acelerador de soluções de Manutenção Preditiva](./iot-accelerators-predictive-walkthrough.md)
 * [Implementar acelerador de solução de fábrica conectado](quickstart-connected-factory-deploy.md)
 * [Segurança de IoT desde o início](../iot-fundamentals/iot-security-ground-up.md)

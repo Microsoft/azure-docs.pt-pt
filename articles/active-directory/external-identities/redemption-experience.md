@@ -5,18 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 03/02/2021
+ms.date: 03/04/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
-ms.reviewer: elisol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95c7ca826eaf7d72cb35985b154458f149ef4a0e
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: df867059a7d4020952f71ca8d663a644ee2428fd
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101649323"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102199633"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Resgate de convite para colaboração B2B do Azure Active Directory
 
@@ -35,6 +34,7 @@ Os utilizadores convidados podem agora iniciar sposição nas suas aplicações 
 ![Sinal de ponto final comum](media/redemption-experience/common-endpoint-flow-small.png)
 
 O utilizador é então redirecionado para o seu ponto final, onde pode iniciar sôms com o seu endereço de e-mail ou selecionar um fornecedor de identidade que configuraste.
+
 ## <a name="redemption-through-a-direct-link"></a>Redenção através de um link direto
 
 Como alternativa ao e-mail de convite ou url comum de uma aplicação, pode dar a um hóspede um link direto para a sua app ou portal. Primeiro tem de adicionar o utilizador convidado ao seu diretório através do [portal Azure](./b2b-quickstart-add-guest-users-portal.md) ou [PowerShell](./b2b-quickstart-invite-powershell.md). Em seguida, pode utilizar qualquer uma das [formas personalizáveis de implementar aplicações para os utilizadores](../manage-apps/end-user-experiences.md), incluindo links de acesso direto. Quando um hóspede usa um link direto em vez do e-mail de convite, eles ainda serão guiados através da experiência de consentimento pela primeira vez.
@@ -73,7 +73,7 @@ Quando um utilizador clica no link de **convite Accept** num [e-mail de convite,
 
 3. Se um administrador tiver ativado a [federação](./google-federation.md)da Google , o Azure AD verifica se o sufixo de domínio do utilizador é gmail.com ou googlemail.com e redireciona o utilizador para o Google.
 
-4. O processo de resgate verifica se o utilizador tem uma conta pessoal da [Microsoft (MSA)](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create)existente.
+4. O processo de resgate verifica se o utilizador tem uma conta pessoal da [Microsoft (MSA)](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create) existente para reembolsos just-in-time (JIT), mas não para o resgate de link de e-mail de convite. Se o utilizador já tiver um MSA existente, eles vão iniciar súm em assal com a MSA existente.
 
 5. Uma vez identificado o **diretório domiciliário** do utilizador, o utilizador é enviado ao fornecedor de identidade correspondente para iniciar seduque.  
 

@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/03/2021
+ms.date: 03/04/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: b9a491b639cd1b960ffe3b7164a0940770792148
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: adfe5318949ffa624ebe3548944b558bd0dda9e1
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102107777"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102198477"
 ---
 # <a name="options-for-registering-a-saml-application-in-azure-ad-b2c"></a>Opções para registo de uma aplicação SAML em Azure AD B2C
 
@@ -36,7 +36,7 @@ Este artigo descreve as opções de configuração que estão disponíveis ao li
 
 ## <a name="encrypted-saml-assertions"></a>Afirmações SAML encriptadas
 
-Quando a sua aplicação espera que as afirmações da SAML estejam num formato encriptado, precisa de se certificar de que a encriptação está ativada na política AZure AD B2C.
+Quando a sua aplicação espera que as afirmações da SAML estejam num formato encriptado, tem de se certificar de que a encriptação está ativada na política Azure AD B2C.
 
 O Azure AD B2C utiliza o certificado de chave pública do prestador de serviços para encriptar a afirmação do SAML. A chave pública deve existir no ponto final de metadados da aplicação SAML com o conjunto 'Utilização' do KeyDescriptor para 'Encriptação', como mostra o seguinte exemplo:
 
@@ -60,6 +60,54 @@ Para permitir que o Azure AD B2C envie afirmações encriptadas, desafie o item 
     <Protocol Name="SAML2"/>
     <Metadata>
       <Item Key="WantsEncryptedAssertions">true</Item>
+    </Metadata>
+   ..
+  </TechnicalProfile>
+</RelyingParty>
+```
+
+### <a name="encryption-method"></a>Método de encriptação
+
+Para configurar o método de encriptação utilizado para encriptar os dados de afirmação SAML, desconte `DataEncryptionMethod` a chave de metadados dentro da parte de confiança. Os valores possíveis são `Aes256` (padrão), `Aes192` `Sha512` , ou `Aes128` . Os metadados controlam o valor do `<EncryptedData>` elemento na resposta SAML.
+
+Para configurar o método de encriptação utilizado para encriptar a cópia da chave, que foi usada para encriptar os dados de afirmação SAML, definir a `KeyEncryptionMethod` chave de metadados dentro da parte de confiança. Os valores possíveis são `Rsa15` (padrão) - RSA Public Key Cryptography Standard (PKCS) Versão 1.5 algoritmo de encriptação e `RsaOaep` - RSA Optimal Encryption Estofamento de encriptação assimétrica (OAEP).  Os metadados controlam o valor do  `<EncryptedKey>` elemento na resposta SAML.
+
+O exemplo a seguir mostra a `EncryptedAssertion` secção de uma afirmação SAML. O método de dados encriptados é `Aes128` , e o método chave encriptado é `Rsa15` .
+
+```xml
+<saml:EncryptedAssertion>
+  <xenc:EncryptedData xmlns:xenc="http://www.w3.org/2001/04/xmlenc#"
+    xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" Type="http://www.w3.org/2001/04/xmlenc#Element">
+    <xenc:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes128-cbc" />
+    <dsig:KeyInfo>
+      <xenc:EncryptedKey>
+        <xenc:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#rsa-1_5" />
+        <xenc:CipherData>
+          <xenc:CipherValue>...</xenc:CipherValue>
+        </xenc:CipherData>
+      </xenc:EncryptedKey>
+    </dsig:KeyInfo>
+    <xenc:CipherData>
+      <xenc:CipherValue>...</xenc:CipherValue>
+    </xenc:CipherData>
+  </xenc:EncryptedData>
+</saml:EncryptedAssertion>
+```
+
+Pode alterar o formato das afirmações encriptadas. Para configurar o formato de encriptação, desafie a `UseDetachedKeys` chave de metadados dentro da parte de confiança. Valores possíveis: `true` , ou `false` (predefinição). Quando o valor é definido para `true` , as teclas separadas adicionam a afirmação encriptada como uma criança do `EncrytedAssertion` em oposição ao `EncryptedData` .
+
+Configure o método e o formato de encriptação, utilize as teclas de metadados dentro do perfil técnico do [partido:](relyingparty.md#technicalprofile)
+
+```xml
+<RelyingParty>
+  <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
+  <TechnicalProfile Id="PolicyProfile">
+    <DisplayName>PolicyProfile</DisplayName>
+    <Protocol Name="SAML2"/>
+    <Metadata>
+      <Item Key="DataEncryptionMethod">Aes128</Item>
+      <Item Key="KeyEncryptionMethod">Rsa15</Item>
+      <Item Key="UseDetachedKeys">false</Item>
     </Metadata>
    ..
   </TechnicalProfile>
@@ -114,7 +162,7 @@ Fornecemos uma política completa de amostra que pode usar para testar com a apl
 
 Pode configurar o algoritmo de assinatura usado para assinar a afirmação SAML. Os valores possíveis `Sha256` `Sha384` `Sha512` são, , ou `Sha1` . Certifique-se de que o perfil técnico e a aplicação utilizam o mesmo algoritmo de assinatura. Use apenas o algoritmo que o seu certificado suporta.
 
-Configure o algoritmo de assinatura utilizando a `XmlSignatureAlgorithm` chave de metadados dentro do nó de metadados DaPartid.
+Configure o algoritmo de assinatura utilizando a `XmlSignatureAlgorithm` chave de metadados dentro do elemento metadados do partido.
 
 ```xml
 <RelyingParty>
@@ -132,7 +180,7 @@ Configure o algoritmo de assinatura utilizando a `XmlSignatureAlgorithm` chave d
 
 ## <a name="saml-response-lifetime"></a>Vida útil da resposta SAML
 
-Pode configurar o tempo de duração da resposta SAML. Desacorda a vida útil utilizando o `TokenLifeTimeInSeconds` item metadados dentro do perfil técnico do emitente do token SAML. Este valor é o número de segundos que pode decorrer a partir do `NotBefore` relógio calculado no tempo de emissão de ficha. Automaticamente, o tempo escolhido para isto é a sua hora atual. O tempo de vida predefinido é de 300 segundos (5 minutos).
+Pode configurar o tempo de duração da resposta SAML. Desacorda a vida útil utilizando o `TokenLifeTimeInSeconds` item metadados dentro do perfil técnico do emitente do token SAML. Este valor é o número de segundos que pode decorrer a partir do `NotBefore` relógio calculado no tempo de emissão de ficha. O tempo de vida predefinido é de 300 segundos (5 minutos).
 
 ```xml
 <ClaimsProvider>
@@ -170,6 +218,26 @@ Por exemplo, quando o `TokenNotBeforeSkewInSeconds` é definido para `120` segun
       <OutputTokenFormat>SAML2</OutputTokenFormat>
       <Metadata>
         <Item Key="TokenNotBeforeSkewInSeconds">120</Item>
+      </Metadata>
+      ...
+    </TechnicalProfile>
+```
+
+## <a name="remove-milliseconds-from-date-and-time"></a>Remover milissegundos da data e hora
+
+Pode especificar se os milissegundos serão removidos dos valores da data dentro da resposta SAML (estes incluem IssueInstant, NotBefore, NotOnOrAfter e AuthnInstant). Para remover os milissegundos, desa estale a `RemoveMillisecondsFromDateTime
+` chave de metadados dentro da parte de confiação. Valores possíveis: `false` (padrão) ou `true` . .
+
+```xml
+<ClaimsProvider>
+  <DisplayName>Token Issuer</DisplayName>
+  <TechnicalProfiles>
+    <TechnicalProfile Id="Saml2AssertionIssuer">
+      <DisplayName>Token Issuer</DisplayName>
+      <Protocol Name="SAML2"/>
+      <OutputTokenFormat>SAML2</OutputTokenFormat>
+      <Metadata>
+        <Item Key="RemoveMillisecondsFromDateTime">true</Item>
       </Metadata>
       ...
     </TechnicalProfile>

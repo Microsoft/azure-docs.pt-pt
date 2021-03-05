@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/20/2019
 ms.author: robinsh
 ms.custom: mqtt, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: ddc212e99c0e55156f56df6bf77e122408a727f9
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 7ae85fa2559b8313bd35a761945bff946563e935
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98624060"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102199786"
 ---
 # <a name="tutorial-use-azure-iot-hub-message-enrichments"></a>Tutorial: Use enriquecimentos de mensagens Azure IoT Hub
 
@@ -77,7 +77,7 @@ Se ainda não o fez, abra uma janela Azure [Cloud Shell](https://shell.azure.com
 
 Aqui estão os recursos criados pelo guião. *Enriquecido* significa que o recurso é para mensagens com enriquecimentos. *Original* significa que o recurso é para mensagens que não são enriquecidas.
 
-| Nome | Valor |
+| Name | Valor |
 |-----|-----|
 | resourceGroup | ContosoResourcesMsgEn |
 | nome do recipiente | Original  |
@@ -297,7 +297,7 @@ Pode utilizar um modelo de Gestor de Recursos para criar e configurar os recurso
 
    Aqui estão os recursos criados carregando o modelo. **Enriquecido** significa que o recurso é para mensagens com enriquecimentos. **Original** significa que o recurso é para mensagens que não são enriquecidas. Estes são os mesmos valores utilizados no script Azure CLI.
 
-   | Nome | Valor |
+   | Name | Valor |
    |-----|-----|
    | resourceGroup | ContosoResourcesMsgEn |
    | nome do recipiente | Original  |
@@ -386,7 +386,7 @@ Para remover todos os recursos que criou neste tutorial, elimine o grupo de recu
 
 ### <a name="use-the-azure-cli-to-clean-up-resources"></a>Use o CLI Azure para limpar recursos
 
-Para remover o grupo de recursos, utilize o comando [az group delete](/cli/azure/group?view=azure-cli-latest#az-group-delete&preserve-view=true). Lembre-se que `$resourceGroup` foi definido para **ContosoResourcesMsgEn** no início deste tutorial.
+Para remover o grupo de recursos, utilize o comando [az group delete](/cli/azure/group#az-group-delete). Lembre-se que `$resourceGroup` foi definido para **ContosoResourcesMsgEn** no início deste tutorial.
 
 ```azurecli-interactive
 az group delete --name $resourceGroup

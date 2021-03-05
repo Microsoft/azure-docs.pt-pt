@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc, subject-armqs, devx-track-azurecli
-ms.openlocfilehash: cc55d1569c85dd0873d0132833acc99bd5d06136
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 505859075ce58c5db6873544123710a11135651a
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98928945"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102198630"
 ---
 # <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-dps-with-an-arm-template"></a>Quickstart: Configurar o Serviço de Provisionamento de Dispositivos IoT Hub (DPS) com um modelo ARM
 
@@ -136,13 +136,13 @@ Inicie sessão na sua conta do Azure e selecione a sua subscrição.
 
 ## <a name="review-deployed-resources"></a>Revisão dos recursos implantados
 
-1. Para verificar a implantação, executar o seguinte [comando para listar recursos](/cli/azure/resource?view=azure-cli-latest#az-resource-list&preserve-view=true) e procurar o novo serviço de fornecimento e hub IoT na saída:
+1. Para verificar a implantação, executar o seguinte [comando para listar recursos](/cli/azure/resource#az-resource-list) e procurar o novo serviço de fornecimento e hub IoT na saída:
 
     ```azurecli
      az resource list -g "${projectName}rg"
     ```
 
-2. Para verificar se o hub já está ligado ao recurso DPS, execute o seguinte [comando de programa de extensão DPS](/cli/azure/iot/dps?view=azure-cli-latest#az_iot_dps_show&preserve-view=true).
+2. Para verificar se o hub já está ligado ao recurso DPS, execute o seguinte [comando de programa de extensão DPS](/cli/azure/iot/dps#az_iot_dps_show).
 
     ```azurecli
      az iot dps show --name <Your provisioningServiceName>
@@ -165,7 +165,7 @@ az group delete --name "${projectName}rg"
 
 Também pode eliminar grupos de recursos e recursos individuais utilizando o portal Azure, PowerShell ou REST APIs, bem como com SDKs de plataforma suportada publicados para O Azure Resource Manager ou IoT Hub Device Provisioning Service.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste quickstart, você implantou um hub IoT e uma instância de Serviço de Provisionamento de Dispositivos, e ligou os dois recursos. Para aprender a usar esta configuração para forrá um dispositivo, continue a iniciar o quickstart para criar um dispositivo.
 

@@ -5,13 +5,13 @@ ms.service: data-factory
 ms.topic: conceptual
 author: dcstwh
 ms.author: weetok
-ms.date: 08/31/2020
-ms.openlocfilehash: fb9439bc37fcecf1cb5299a09916ebe21c5bc1cb
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 03/04/2021
+ms.openlocfilehash: 06d04eb8679b4484f330b69a8cffb263d353bdcd
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100393824"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102197870"
 ---
 # <a name="global-parameters-in-azure-data-factory"></a>Parâmetros globais na Azure Data Factory
 
@@ -21,7 +21,7 @@ Os parâmetros globais são constantes em toda uma fábrica de dados que pode se
 
 ## <a name="creating-global-parameters"></a>Criação de parâmetros globais
 
-Para criar um parâmetro global, aceda ao separador *parâmetros Global* na secção *Gerir.* Selecione **Novo** para abrir a criação side-nav.
+Para criar um parâmetro global, aceda ao separador *parâmetros Global* na secção **Gerir.** Selecione **Novo** para abrir a criação side-nav.
 
 ![Screenshot que realça o novo botão que seleciona para criar parâmetros globais.](media/author-global-parameters/create-global-parameter-1.png)
 
@@ -46,7 +46,10 @@ Existem duas formas de integrar parâmetros globais na sua solução contínua d
 * Incluir parâmetros globais no modelo ARM
 * Implementar parâmetros globais através de um script PowerShell
 
-Para a maioria dos casos de utilização, recomenda-se incluir parâmetros globais no modelo ARM. Isto integrar-se-á de forma nativa com a solução delineada [no doc CI/CD](continuous-integration-deployment.md). Os parâmetros globais serão adicionados como um parâmetro do modelo ARM por padrão, uma vez que muitas vezes mudam de ambiente para ambiente. Pode ativar a inclusão de parâmetros globais no modelo ARM a partir do centro de gestão.
+Para a maioria dos casos de utilização, recomenda-se incluir parâmetros globais no modelo ARM. Isto integrar-se-á de forma nativa com a solução delineada [no doc CI/CD](continuous-integration-deployment.md). Os parâmetros globais serão adicionados como um parâmetro do modelo ARM por padrão, uma vez que muitas vezes mudam de ambiente para ambiente. Pode ativar a inclusão de parâmetros globais no modelo ARM a partir do hub **Manage.**
+
+> [!NOTE]
+> A configuração **do modelo Incluir no ARM** só está disponível em "Modo Git". Atualmente está desativado no modo "modo vivo" ou no modo "Data Factory".
 
 ![Incluir no modelo ARM](media/author-global-parameters/include-arm-template.png)
 

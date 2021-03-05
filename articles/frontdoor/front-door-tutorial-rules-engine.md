@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/09/2020
 ms.author: duau
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: c15b6115c2b07503320cd7b5f3c790be03aeea94
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 5d26d36c9f4ecb4aa0c7114b1ebef066e104f175
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92278121"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102198868"
 ---
 # <a name="tutorial-configure-your-rules-engine"></a>Tutorial: Configurar o seu motor de regras
 
@@ -51,14 +51,14 @@ Neste tutorial, ficará a saber como:
 
 1. Depois de criar uma ou mais regras, prima **Save**. Esta ação cria a configuração do Motor de Regras.
 
-1. Uma vez criada uma ou mais configurações, associe uma configuração do Motor de Regras com uma Regra de Rota. Embora uma única configuração possa ser aplicada a muitas regras de rota, uma regra de rota pode conter apenas uma configuração do Motor de Regras. Para fazer a associação, vá às regras da Rota **do Designer da Porta da Frente.**  >  **Route rules** Selecione a regra rota a que pretende adicionar a configuração do motor Rules para, ir para **os detalhes da Rota**  >  **Configuração**do motor e selecione a configuração que gostaria de associar.
+1. Uma vez criada uma ou mais configurações, associe uma configuração do Motor de Regras com uma Regra de Rota. Embora uma única configuração possa ser aplicada a muitas regras de rota, uma regra de rota pode conter apenas uma configuração do Motor de Regras. Para fazer a associação, vá às regras da Rota **do Designer da Porta da Frente.**  >   Selecione a regra rota a que pretende adicionar a configuração do motor Rules para, ir para **os detalhes da Rota**  >  **Configuração** do motor e selecione a configuração que gostaria de associar.
 
     ![Configurar uma regra de encaminhamento](./media/front-door-rules-engine/rules-engine-tutorial-5.png)
 
 
 ## <a name="configure-rules-engine-in-azure-cli"></a>Configure o motor das regras em Azure CLI
 
-1. Se ainda não o fez, instale [o Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest). Adicione a extensão "porta da frente":- extensão az adicionar --nome porta-frente. Em seguida, faça login e mude para a sua conta az de subscrição -- subscrição <name_or_Id>.
+1. Se ainda não o fez, instale [o Azure CLI](/cli/azure/install-azure-cli). Adicione a extensão "porta da frente":- extensão az adicionar --nome porta-frente. Em seguida, faça login e mude para a sua conta az de subscrição -- subscrição <name_or_Id>.
 
 1. Comece por criar um Motor de Regras - este exemplo mostra uma regra com uma ação baseada no cabeçalho e uma condição de correspondência. 
 
@@ -96,7 +96,7 @@ Neste tutorial, ficará a saber como:
     az network front-door routing-rule update -g {rg} -f {front_door} -n {routing_rule_name} --remove rulesEngine # case sensitive word ‘rulesEngine’
     ```
 
-Para mais informações, uma lista completa dos comandos do MOTOR de Regras AFD pode ser consultada [aqui.](/cli/azure/ext/front-door/network/front-door/rules-engine?preserve-view=true&view=azure-cli-latest)   
+Para mais informações, uma lista completa dos comandos do MOTOR de Regras AFD pode ser consultada [aqui.](/cli/azure/ext/front-door/network/front-door/rules-engine)   
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
@@ -108,11 +108,11 @@ Nos passos anteriores, configura a configuração do motor de regras e associou 
 
 1. Desmarque todas as regras de encaminhamento esta configuração do Motor de Regra está associada e clique em guardar.
 
-    :::image type="content" source="./media/front-door-rules-engine/front-door-routing-rule-association.png" alt-text="Regras de encaminhamento associado":::
+    :::image type="content" source="./media/front-door-rules-engine/front-door-routing-rule-association.png" alt-text="Associação de regras de encaminhamento":::
 
 1. Agora pode eliminar a configuração do Motor de Regra da porta da frente.
 
-    :::image type="content" source="./media/front-door-rules-engine/front-door-delete-rule-engine-configuration.png" alt-text="Regras de encaminhamento associado":::
+    :::image type="content" source="./media/front-door-rules-engine/front-door-delete-rule-engine-configuration.png" alt-text="Eliminar configuração do motor de regra":::
 
 ## <a name="next-steps"></a>Passos seguintes
 

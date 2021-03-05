@@ -38,6 +38,8 @@
       items:
         - name: Adicionar chamadas de voz à sua aplicação
           href: quickstarts/voice-video-calling/getting-started-with-calling.md
+        - name: Adicione chamada de vídeo à sua aplicação (JavaScript)
+          href: quickstarts/voice-video-calling/get-started-with-video-calling.md
         - name: Utilizar a biblioteca de cliente de chamadas
           href: quickstarts/voice-video-calling/calling-client-samples.md
         - name: Associe a sua aplicação de chamadas a uma reunião do Teams

@@ -10,12 +10,12 @@ ms.subservice: keys
 ms.topic: tutorial
 ms.date: 02/04/2021
 ms.author: ambapat
-ms.openlocfilehash: 1e7ea0dc929fdbb4ca306405e6ed8993ed2e4afe
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 4a3eaddd160acb8d4d2ae9f0da43ce6cb0236055
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "100386106"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102198154"
 ---
 # <a name="import-hsm-protected-keys-to-key-vault-byok"></a>Chaves protegidas pelo HSM para o Cofre-Chave (BYOK)
 
@@ -52,7 +52,7 @@ As seguintes listas de tabelas pré-requisitos para a utilização do BYOK no Co
 | Uma subscrição do Azure |Para criar um cofre chave no Cofre da Chave Azure, precisa de uma subscrição do Azure. [Inscreva-se para um teste gratuito.](https://azure.microsoft.com/pricing/free-trial/) |
 | Um SKU-Key Vault Premium para importar chaves protegidas pelo HSM |Para obter mais informações sobre os níveis de serviço e as capacidades no Cofre da Chave Azure, consulte [o Key Vault Pricing](https://azure.microsoft.com/pricing/details/key-vault/). |
 | Um HSM da lista de HSMs suportado e uma ferramenta BYOK e instruções fornecidas pelo seu fornecedor HSM | Você deve ter permissões para um HSM e conhecimento básico de como usar o seu HSM. Ver [HSMs suportados](#supported-hsms). |
-| Versão Azure CLI 2.1.0 ou mais tarde | Consulte [a Instalação do Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).|
+| Versão Azure CLI 2.1.0 ou mais tarde | Consulte [a Instalação do Azure CLI](/cli/azure/install-azure-cli).|
 
 ## <a name="supported-hsms"></a>HSMs apoiados
 
@@ -101,7 +101,7 @@ O KEK deve ser:
 > [!NOTE]
 > O KEK deve ter a "importação" como única operação-chave permitida. A «importação» é mutuamente exclusiva com todas as outras operações-chave.
 
-Utilize a [chave az keyvault criar](/cli/azure/keyvault/key?view=azure-cli-latest&preserve-view=true#az-keyvault-key-create) comando para criar um KEK que tenha as principais operações definidas para `import` . Grave o identificador da chave `kid` que é devolvido do seguinte comando. (Utilizará o `kid` valor no passo [3](#step-3-generate-and-prepare-your-key-for-transfer).)
+Utilize a [chave az keyvault criar](/cli/azure/keyvault/key#az-keyvault-key-create) comando para criar um KEK que tenha as principais operações definidas para `import` . Grave o identificador da chave `kid` que é devolvido do seguinte comando. (Utilizará o `kid` valor no passo [3](#step-3-generate-and-prepare-your-key-for-transfer).)
 
 ```azurecli
 az keyvault key create --kty RSA-HSM --size 4096 --name KEKforBYOK --ops import --vault-name ContosoKeyVaultHSM
@@ -109,7 +109,7 @@ az keyvault key create --kty RSA-HSM --size 4096 --name KEKforBYOK --ops import 
 
 ### <a name="step-2-download-the-kek-public-key"></a>Passo 2: Descarregue a chave pública KEK
 
-Utilize [o download da chave az keyvault](/cli/azure/keyvault/key?view=azure-cli-latest&preserve-view=true#az-keyvault-key-download) para baixar a chave pública KEK para um ficheiro .pem. A chave-alvo que importa é encriptada usando a chave pública KEK.
+Utilize [o download da chave az keyvault](/cli/azure/keyvault/key#az-keyvault-key-download) para baixar a chave pública KEK para um ficheiro .pem. A chave-alvo que importa é encriptada usando a chave pública KEK.
 
 ```azurecli
 az keyvault key download --name KEKforBYOK --vault-name ContosoKeyVaultHSM --file KEKforBYOK.publickey.pem
@@ -130,7 +130,7 @@ Transfira o ficheiro BYOK para o seu computador conectado.
 
 ### <a name="step-4-transfer-your-key-to-azure-key-vault"></a>Passo 4: Transfira a chave para o Cofre da Chave Azure
 
-Para completar a importação de chave, transfira o pacote de transferência de chaves (um ficheiro BYOK) do seu computador desligado para o computador ligado à Internet. Utilize o comando de importação da [chave az keyvault](/cli/azure/keyvault/key?view=azure-cli-latest&preserve-view=true#az-keyvault-key-import) para carregar o ficheiro BYOK para o Cofre de Chaves HSM.
+Para completar a importação de chave, transfira o pacote de transferência de chaves (um ficheiro BYOK) do seu computador desligado para o computador ligado à Internet. Utilize o comando de importação da [chave az keyvault](/cli/azure/keyvault/key#az-keyvault-key-import) para carregar o ficheiro BYOK para o Cofre de Chaves HSM.
 
 Para importar uma chave RSA utilizar o seguinte comando. O parâmetro --kty é opcional e predefinido para 'RSA-HSM'.
 ```azurecli

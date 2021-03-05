@@ -3,12 +3,12 @@ title: Domínios do evento na grelha de eventos Azure
 description: Este artigo descreve como usar os domínios de eventos para gerir o fluxo de eventos personalizados para as suas várias organizações empresariais, clientes ou aplicações.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 9b313784cd006087f3c2f1354053540cc9224782
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 46a50a8ecc50bd1b80efcba41228564df1c36c9f
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92328832"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102198681"
 ---
 # <a name="understand-event-domains-for-managing-event-grid-topics"></a>Compreender os domínios do evento para gerir tópicos da Grelha de Eventos
 
@@ -25,15 +25,8 @@ Um domínio de evento é uma ferramenta de gestão para um grande número de tó
 
 Os domínios do evento disponibilizam-lhe a mesma arquitetura utilizada pelos serviços Azure (como Storage e IoT Hub) para publicar os seus eventos. Permitem-lhe publicar eventos para milhares de tópicos. Os domínios também lhe dão autorização e controlo de autenticação sobre cada tópico para que possa dividir os seus inquilinos.
 
-### <a name="example-use-case"></a>Caso de uso de exemplo
-
-Os domínios do evento são mais facilmente explicados usando um exemplo. Digamos que você dirige a Máquina de Construção Contoso, onde fabrica tratores, equipamentos de escavação, e outras máquinas pesadas. Como parte da gestão do negócio, você empurra informações em tempo real para os clientes sobre manutenção de equipamentos, saúde de sistemas e atualizações de contratos. Toda esta informação vai para vários pontos finais, incluindo a sua app, pontos finais do cliente e outras infraestruturas que os clientes criaram.
-
-Os domínios do evento permitem-lhe modelar a Maquinaria de Construção Contoso como uma única entidade de eventos. Cada um dos seus clientes é representado como um tópico dentro do domínio. A autenticação e a autorização são tratadas utilizando o Diretório Ativo Azure. Cada um dos seus clientes pode subscrever o seu tópico e entregar-lhes os seus eventos. O acesso gerido através do domínio do evento garante que só podem aceder ao seu tópico.
-
-Também lhe dá um único ponto final, ao qual pode publicar todos os eventos do seu cliente. A Event Grid cuidará de garantir que cada tópico só está ciente dos eventos que se assemcam ao seu inquilino.
-
-![Exemplo de construção de Contoso](./media/event-domains/contoso-construction-example.png)
+## <a name="example-use-case"></a>Caso de uso de exemplo
+[!INCLUDE [event-grid-domain-example-use-case.md](../../includes/event-grid-domain-example-use-case.md)]
 
 ## <a name="access-management"></a>Gestão de acesso
 
@@ -107,6 +100,8 @@ Se estes limites não lhe convêm, contacte a equipa do produto abrindo um bilhe
 Os domínios do evento utilizam os [mesmos preços de operações](https://azure.microsoft.com/pricing/details/event-grid/) que todas as outras funcionalidades na utilização da Grade de Eventos.
 
 As operações funcionam da mesma forma em domínios de eventos como em tópicos personalizados. Cada entrada de um evento para um domínio de evento é uma operação, e cada tentativa de entrega de um evento é uma operação.
+
+
 
 ## <a name="next-steps"></a>Passos seguintes
 

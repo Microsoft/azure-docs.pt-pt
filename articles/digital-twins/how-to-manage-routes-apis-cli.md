@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 11/18/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: d25a429873ccf8b546c0919456c97e64445f184c
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: 40cf83b0ca9e4c794979f2b20ddb73360758abc5
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99071703"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102198545"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Gerir pontos finais e rotas em Azure Digital Twins (APIs e CLI)
 
@@ -48,7 +48,7 @@ Esta secção explica como criar estes pontos finais utilizando o Azure CLI. Tam
 
 ### <a name="create-the-endpoint"></a>Criar o ponto final
 
-Uma vez criados os recursos do ponto final, podes usá-los para um ponto final da Azure Digital Twins. Os exemplos a seguir mostram como criar pontos finais utilizando o [ponto final az dt criar](/cli/azure/ext/azure-iot/dt/endpoint/create?view=azure-cli-latest&preserve-view=true) comando para o [CLI das Gémeas Digitais Azure](how-to-use-cli.md). Substitua os espaços reservados nos comandos com os detalhes dos seus próprios recursos.
+Uma vez criados os recursos do ponto final, podes usá-los para um ponto final da Azure Digital Twins. Os exemplos a seguir mostram como criar pontos finais utilizando o [ponto final az dt criar](/cli/azure/ext/azure-iot/dt/endpoint/create) comando para o [CLI das Gémeas Digitais Azure](how-to-use-cli.md). Substitua os espaços reservados nos comandos com os detalhes dos seus próprios recursos.
 
 Para criar um ponto final de Grade de Eventos:
 
@@ -119,7 +119,7 @@ Siga os passos abaixo para configurar estes recursos de armazenamento na sua con
     
 #### <a name="create-the-dead-letter-endpoint"></a>Criar o ponto final da letra morta
 
-Para criar um ponto final que tenha a letra ativada, adicione o seguinte parâmetro de letra morta ao [ponto final az dt criar](/cli/azure/ext/azure-iot/dt/endpoint/create?view=azure-cli-latest&preserve-view=true) comando para o [CLI das Gémeas Digitais Azure](how-to-use-cli.md).
+Para criar um ponto final que tenha a letra ativada, adicione o seguinte parâmetro de letra morta ao [ponto final az dt criar](/cli/azure/ext/azure-iot/dt/endpoint/create) comando para o [CLI das Gémeas Digitais Azure](how-to-use-cli.md).
 
 O valor para o parâmetro é a **letra morta SAS URI** composta pelo nome da conta de armazenamento, nome do recipiente e sinal SAS que recolheu na [secção anterior.](#set-up-storage-resources) Este parâmetro cria o ponto final com a autenticação baseada em teclas.
 
@@ -204,7 +204,7 @@ Se não houver nome de rota, nenhuma mensagem é encaminhada para fora da Azure 
 
 Uma rota deve permitir a seleção de várias notificações e tipos de eventos. 
 
-As rotas de eventos podem ser criadas com os comandos apis do plano de dados Azure Digital Twins [ **EventRoutes**](/rest/api/digital-twins/dataplane/eventroutes) ou [com os comandos CLI **da rota az dt**](/cli/azure/ext/azure-iot/dt/route?view=azure-cli-latest&preserve-view=true). O resto desta secção percorre o processo de criação.
+As rotas de eventos podem ser criadas com os comandos apis do plano de dados Azure Digital Twins [ **EventRoutes**](/rest/api/digital-twins/dataplane/eventroutes) ou [com os comandos CLI **da rota az dt**](/cli/azure/ext/azure-iot/dt/route). O resto desta secção percorre o processo de criação.
 
 ### <a name="create-routes-with-the-apis-and-c-sdk"></a>Criar rotas com as APIs e C# SDK
 
@@ -225,7 +225,7 @@ O seguinte método de amostra mostra como criar, listar e eliminar uma rota de e
 
 ### <a name="create-routes-with-the-cli"></a>Criar rotas com o CLI
 
-As rotas também podem ser geridas usando os comandos [de rota az dt](/cli/azure/ext/azure-iot/dt/route?view=azure-cli-latest&preserve-view=true) para o CLI das Gémeas Digitais Azure. 
+As rotas também podem ser geridas usando os comandos [de rota az dt](/cli/azure/ext/azure-iot/dt/route) para o CLI das Gémeas Digitais Azure. 
 
 Para obter mais informações sobre a utilização do CLI e quais os comandos disponíveis, consulte [*Como-a-fazer: Use o CLI das Gémeas Digitais Azure*](how-to-use-cli.md).
 

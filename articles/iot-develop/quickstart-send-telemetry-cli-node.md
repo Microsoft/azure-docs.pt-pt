@@ -7,12 +7,12 @@ ms.service: iot-develop
 ms.devlang: node
 ms.topic: quickstart
 ms.date: 01/11/2021
-ms.openlocfilehash: 6e0264bc0d1bea91a6094f90c4cb41f071e17dfc
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 97fcff4706d6da968c93426f85569fed9af95aac
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101712588"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102197814"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-nodejs"></a>Quickstart: Enviar telemetria de um dispositivo para um hub IoT (Node.js)
 
@@ -73,7 +73,7 @@ Nesta secção, utilizará o Node.js SDK para enviar mensagens do seu dispositiv
     export DEVICE_CONNECTION_STRING="<your connection string here>"
     ```
 
-1. Na sua concha CLI aberta, corram o comando [de monitor-eventos do hub az iot](/cli/azure/ext/azure-iot/iot/hub?preserve-view=true&view=azure-cli-latest#ext-azure-iot-az-iot-hub-monitor-events) para começar a monitorizar eventos no seu dispositivo IoT simulado.  As mensagens de evento serão impressas no terminal à medida que chegam.
+1. Na sua concha CLI aberta, corram o comando [de monitor-eventos do hub az iot](/cli/azure/ext/azure-iot/iot/hub#ext-azure-iot-az-iot-hub-monitor-events) para começar a monitorizar eventos no seu dispositivo IoT simulado.  As mensagens de evento serão impressas no terminal à medida que chegam.
 
     ```azurecli
     az iot hub monitor-events --output table --hub-name {YourIoTHubName}
@@ -191,12 +191,12 @@ Se já não precisar dos recursos Azure criados neste arranque rápido, pode uti
 > A eliminação de um grupo de recursos é irreversível. O grupo de recursos e todos os recursos nele contidos são eliminados permanentemente. Confirme que não elimina acidentalmente o grupo de recursos ou recursos errados. 
 
 Para eliminar um grupo de recursos por nome:
-1. Executar o [comando de eliminação do grupo az.](/cli/azure/group?preserve-view=true&view=azure-cli-latest#az-group-delete) Este comando remove o grupo de recursos, o Hub IoT e o registo do dispositivo que criou.
+1. Executar o [comando de eliminação do grupo az.](/cli/azure/group#az-group-delete) Este comando remove o grupo de recursos, o Hub IoT e o registo do dispositivo que criou.
 
     ```azurecli
     az group delete --name MyResourceGroup
     ```
-1. Executar o comando [da lista de grupos az](/cli/azure/group?preserve-view=true&view=azure-cli-latest#az-group-list) para confirmar que o grupo de recursos é eliminado.  
+1. Executar o comando [da lista de grupos az](/cli/azure/group#az-group-list) para confirmar que o grupo de recursos é eliminado.  
 
     ```azurecli
     az group list

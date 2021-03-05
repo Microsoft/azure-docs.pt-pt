@@ -2,38 +2,32 @@
 title: Criar uma rede virtual - quickstart - Azure PowerShell
 titlesuffix: Azure Virtual Network
 description: Neste arranque rápido, cria-se uma rede virtual utilizando o portal Azure. Uma rede virtual permite que os recursos do Azure comuniquem uns com os outros e com a internet.
-services: virtual-network
-documentationcenter: virtual-network
 author: KumudD
-tags: azure-resource-manager
 Customer intent: I want to create a virtual network so that virtual machines can communicate with privately with each other and with the internet.
 ms.service: virtual-network
-ms.devlang: ''
 ms.topic: quickstart
-ms.tgt_pltfrm: virtual-network
-ms.workload: infrastructure
-ms.date: 12/04/2018
+ms.date: 03/06/2021
 ms.author: kumud
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 93e459df96d444e71f4b6a15668f80e9d77db5fd
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b27f050d3d37daab05e8c5125d6b75a6bb4dea50
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89077896"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102199038"
 ---
 # <a name="quickstart-create-a-virtual-network-using-powershell"></a>Início Rápido :criar uma rede virtual com o PowerShell
 
-Uma rede virtual permite que os recursos do Azure, como máquinas virtuais (VMs), comuniquem-se em privado entre si e com a internet. Neste início rápido, vai aprender a criar uma rede virtual. Depois de criar uma rede virtual, vai implementar duas VMs na rede virtual. Em seguida, conecta-se aos VMs a partir da internet e comunica-se em privado através da rede virtual.
+Uma rede virtual permite que os recursos do Azure, como máquinas virtuais (VMs), comuniquem-se em privado entre si e com a internet. 
+
+Neste início rápido, vai aprender a criar uma rede virtual. Depois de criar uma rede virtual, vai implementar duas VMs na rede virtual. Em seguida, conecta-se aos VMs a partir da internet e comunica-se em privado através da rede virtual.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) agora.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+- Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuita.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+- Azure PowerShell instalado localmente ou Azure Cloud Shell
 
-Se decidir instalar e utilizar o PowerShell localmente, este arranque rápido requer que utilize a versão 1.0 ou mais tarde do módulo Azure PowerShell. Para localizar a versão instalada, execute `Get-Module -ListAvailable Az`. Consulte [o módulo Azure PowerShell](/powershell/azure/install-az-ps) para obter informações de instalação e atualização.
-
-Finalmente, se estiver a executar o PowerShell localmente, também terá de `Connect-AzAccount` correr. Este comando cria uma ligação com O Azure.
+Se optar por instalar e utilizar o PowerShell localmente, este artigo requer a versão 5.4.1 ou posterior do módulo Azure PowerShell. Execute `Get-Module -ListAvailable Az` para localizar a versão instalada. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-Az-ps). Se estiver a executar o PowerShell localmente, também precisa de correr `Connect-AzAccount` para criar uma ligação com o Azure.
 
 ## <a name="create-a-resource-group-and-a-virtual-network"></a>Criar um grupo de recursos e uma rede virtual
 
@@ -41,33 +35,41 @@ Há um punhado de passos que você tem que percorrer para obter o seu grupo de r
 
 ### <a name="create-the-resource-group"></a>Criar o grupo de recursos
 
-Antes de criar uma rede virtual, tem de criar um grupo de recursos para acolher a rede virtual. Criar um grupo de recursos com [o New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup). Este exemplo cria um grupo de recursos chamado *myResourceGroup* na localização *leste:*
+Antes de criar uma rede virtual, tem de criar um grupo de recursos para acolher a rede virtual. Criar um grupo de recursos com [o New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup). Este exemplo cria um grupo de recursos chamado **CreateVNetQS-rg** na localização **Eastus:**
 
 ```azurepowershell-interactive
-New-AzResourceGroup -Name myResourceGroup -Location EastUS
+$rg = @{
+    Name = 'CreateVNetQS-rg'
+    Location = 'EastUS'
+}
+New-AzResourceGroup @rg
 ```
 
 ### <a name="create-the-virtual-network"></a>Criar a rede virtual
 
-Criar uma rede virtual com [a New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). Este exemplo cria uma rede virtual padrão chamada *myVirtualNetwork* na localização *EastUS:*
+Criar uma rede virtual com [a New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). Este exemplo cria uma rede virtual padrão chamada **myVNet** na localização **EastUS:**
 
 ```azurepowershell-interactive
-$virtualNetwork = New-AzVirtualNetwork `
-  -ResourceGroupName myResourceGroup `
-  -Location EastUS `
-  -Name myVirtualNetwork `
-  -AddressPrefix 10.0.0.0/16
+$vnet = @{
+    Name = 'myVNet'
+    ResourceGroupName = 'CreateVNetQS-rg'
+    Location = 'EastUS'
+    AddressPrefix = '10.0.0.0/16'    
+}
+$virtualNetwork = New-AzVirtualNetwork @vnet
 ```
 
 ### <a name="add-a-subnet"></a>Adicionar uma sub-rede
 
-O Azure implementa recursos para uma sub-rede dentro de uma rede virtual, por isso é necessário criar uma sub-rede. Criar uma configuração de sub-rede nomeada *predefinição* com [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig):
+O Azure implementa recursos para uma sub-rede dentro de uma rede virtual, por isso é necessário criar uma sub-rede. Criar uma configuração de sub-rede nomeada **predefinição** com [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig):
 
 ```azurepowershell-interactive
-$subnetConfig = Add-AzVirtualNetworkSubnetConfig `
-  -Name default `
-  -AddressPrefix 10.0.0.0/24 `
-  -VirtualNetwork $virtualNetwork
+$subnet = @{
+    Name = 'default'
+    VirtualNetwork = $virtualNetwork
+    AddressPrefix = '10.0.0.0/24'
+}
+$subnetConfig = Add-AzVirtualNetworkSubnetConfig @subnet
 ```
 
 ### <a name="associate-the-subnet-to-the-virtual-network"></a>Associar a sub-rede à rede virtual
@@ -87,13 +89,14 @@ Crie duas VMs na rede virtual.
 Crie o primeiro VM com [New-AzVM](/powershell/module/az.compute/new-azvm). Quando se dirige o próximo comando, é-nos solicitado credenciais. Introduza um nome de utilizador e senha para o VM:
 
 ```azurepowershell-interactive
-New-AzVm `
-    -ResourceGroupName "myResourceGroup" `
-    -Location "East US" `
-    -VirtualNetworkName "myVirtualNetwork" `
-    -SubnetName "default" `
-    -Name "myVm1" `
-    -AsJob
+$vm1 = @{
+    ResourceGroupName = 'CreateVNetQS-rg'
+    Location = 'EastUS'
+    Name = 'myVM1'
+    VirtualNetworkName = 'myVNet'
+    SubnetName = 'default'
+}
+New-AzVM @vm1 -AsJob
 ```
 
 A `-AsJob` opção cria o VM em segundo plano. Pode continuar até ao próximo passo.
@@ -111,11 +114,14 @@ Id     Name            PSJobTypeName   State         HasMoreData     Location   
 Crie o segundo VM com este comando:
 
 ```azurepowershell-interactive
-New-AzVm `
-  -ResourceGroupName "myResourceGroup" `
-  -VirtualNetworkName "myVirtualNetwork" `
-  -SubnetName "default" `
-  -Name "myVm2"
+$vm2 = @{
+    ResourceGroupName = 'CreateVNetQS-rg'
+    Location = 'EastUS'
+    Name = 'myVM2'
+    VirtualNetworkName = 'myVNet'
+    SubnetName = 'default'
+}
+New-AzVM @vm2
 ```
 
 Terá de criar outro utilizador e senha. Azure leva alguns minutos para criar o VM.
@@ -125,13 +131,16 @@ Terá de criar outro utilizador e senha. Azure leva alguns minutos para criar o 
 
 ## <a name="connect-to-a-vm-from-the-internet"></a>Ligar a uma VM a partir da Internet
 
-Utilize [o Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) para devolver o endereço IP público de um VM. Este exemplo devolve o endereço IP público do *myVm1* VM:
+Para obter o endereço IP público do VM, utilize [o Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress).
+
+Este exemplo devolve o endereço IP público do **myVm1** VM:
 
 ```azurepowershell-interactive
-Get-AzPublicIpAddress `
-  -Name myVm1 `
-  -ResourceGroupName myResourceGroup `
-  | Select IpAddress
+$ip = @{
+    Name = 'myVM1'
+    ResourceGroupName = 'CreateVNetQS-rg'
+}
+Get-AzPublicIpAddress @ip | select IpAddress
 ```
 
 Abra um pedido de comando no seu computador local. Execute o comando `mstsc`. `<publicIpAddress>`Substitua-o pelo endereço IP público devolvido do último passo:
@@ -155,7 +164,7 @@ mstsc /v:<publicIpAddress>
 
 ## <a name="communicate-between-vms"></a>Comunicar entre VMs
 
-1. No Ambiente de Trabalho Remoto do *myVm1,* abra o PowerShell.
+1. No Ambiente de Trabalho Remoto do **myVm1,** abra o PowerShell.
 
 1. Introduza `ping myVm2`.
 
@@ -176,7 +185,7 @@ mstsc /v:<publicIpAddress>
 
     O ping falha, porque utiliza o Protocolo de Mensagem de Controlo de Internet (ICMP). Por predefinição, o ICMP não é permitido através da sua firewall do Windows.
 
-1. Para permitir que *o myVm2* ping *myVm1* em um passo posterior, insira este comando:
+1. Para permitir que **o myVm2** ping **myVm1** em um passo posterior, insira este comando:
 
     ```powershell
     New-NetFirewallRule –DisplayName "Allow ICMPv4-In" –Protocol ICMPv4
@@ -184,11 +193,11 @@ mstsc /v:<publicIpAddress>
 
     Este comando permite que o ICMP entre na firewall do Windows.
 
-1. Feche a ligação de ambiente de trabalho remoto à *myVm1*.
+1. Feche a ligação de ambiente de trabalho remoto à **myVm1**.
 
-1. Repita os passos em [Ligar a um VM da internet](#connect-to-a-vm-from-the-internet). Desta vez, ligue-se ao *myVm2*.
+1. Repita os passos em [Ligar a um VM da internet](#connect-to-a-vm-from-the-internet). Desta vez, ligue-se ao **myVm2**.
 
-1. Numa linha de comandos na VM *myVm2*, introduza `ping myvm1`.
+1. Numa linha de comandos na VM **myVm2**, introduza `ping myvm1`.
 
     Vai ter algo assim de volta.
 
@@ -207,21 +216,27 @@ mstsc /v:<publicIpAddress>
         Minimum = 0ms, Maximum = 2ms, Average = 0ms
     ```
 
-    Vai receber respostas da *myVm1*porque permitiu o ICMP através da firewall do Windows na VM *myVm1* num passo anterior.
+    Vai receber respostas da **myVm1** porque permitiu o ICMP através da firewall do Windows na VM **myVm1** num passo anterior.
 
-1. Feche a ligação de ambiente de trabalho remoto à *myVm2*.
+1. Feche a ligação de ambiente de trabalho remoto à **myVm2**.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando terminar com a rede virtual e os VMs, utilize o [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos e todos os recursos que tem:
 
 ```azurepowershell-interactive
-Remove-AzResourceGroup -Name myResourceGroup -Force
+Remove-AzResourceGroup -Name 'CreateVNetQS-rg' -Force
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste início rápido, criou uma rede virtual predefinida e duas VMs. Ligou-se a um VM da internet e comunicou-se em privado entre os dois VMs.
-O Azure permite uma comunicação privada sem restrições entre os VMs. Por predefinição, o Azure só permite ligações remotas de ambiente de trabalho ao Windows VMs a partir da internet. Avance para o próximo artigo para saber mais sobre a configuração de diferentes tipos de comunicações de rede VM:
+Neste início rápido: 
+
+* Criou uma rede virtual padrão e dois VMs. 
+* Ligou-se a um VM da internet e comunicou-se em privado entre os dois VMs.
+
+A comunicação privada entre VMs é ilimitada numa rede virtual. 
+
+Avance para o próximo artigo para saber mais sobre a configuração de diferentes tipos de comunicações de rede VM:
 > [!div class="nextstepaction"]
-> [Filtrar o tráfego de rede](tutorial-filter-network-traffic.md)
+> [Filtre o tráfego de rede](tutorial-filter-network-traffic.md)

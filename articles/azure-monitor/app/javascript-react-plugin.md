@@ -6,12 +6,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/28/2020
-ms.openlocfilehash: 4970cacb0995678bdad87f14ba971b8fb88ffa09
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 44554434eee51c11e7f89007c532f1a142fc998c
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100593648"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102199344"
 ---
 # <a name="react-plugin-for-application-insights-javascript-sdk"></a>Reagir plugin para Informações JavaScript SDK
 
@@ -77,7 +77,7 @@ export default withAITracking(reactPlugin, MyComponent);
 
 ## <a name="configuration"></a>Configuração
 
-| Name    | Predefinição | Description                                                                                                    |
+| Name    | Predefinição | Descrição                                                                                                    |
 |---------|---------|----------------------------------------------------------------------------------------------------------------|
 | histórico | nulo    | Reagir na história do router. Para obter mais informações, consulte a documentação do [pacote do revesidor de reagem](https://reactrouter.com/web/api/history). Para aprender a aceder ao objeto histórico fora dos componentes, consulte o [Re-router FAQ](https://github.com/ReactTraining/react-router/blob/master/FAQ.md#how-do-i-access-the-history-object-outside-of-components)    |
 
@@ -161,7 +161,11 @@ Funcionará como o componente de ordem superior, mas responderá a eventos do ci
 
 ### `useTrackEvent`
 
-O `useTrackEvent` Gancho é utilizado para rastrear qualquer evento personalizado que uma aplicação possa precisar de rastrear, como um clique de botão ou outra chamada API. Leva dois argumentos, o primeiro é a instância Application Insights (que pode ser obtida a partir do `useAppInsightsContext` Gancho), e um nome para o evento.
+O `useTrackEvent` Gancho é utilizado para rastrear qualquer evento personalizado que uma aplicação possa precisar de rastrear, como um clique de botão ou outra chamada API. São precisos quatro argumentos:
+-   Instância de Insights de Aplicação (que pode ser obtida a partir do `useAppInsightsContext` Gancho).
+-   Nome para o evento.
+-   Objeto de dados de evento que encapsula as alterações que têm de ser rastreadas.
+-   bandeira skipFirstRun (opcional) para saltar chamando a `trackEvent` chamada na inicialização. O valor predefinido é definido como `true`.
 
 ```javascript
 import React, { useState, useEffect } from "react";

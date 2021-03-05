@@ -4,12 +4,12 @@ description: Saiba como resolver problemas com o agente Java para Azure Monitor 
 ms.topic: conceptual
 ms.date: 11/30/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 286354ecf508dec7b9ba7633bf3b5c7ddc6bfd91
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 45f45e71546909b71c71c66303c1459edd74548f
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101737062"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102199616"
 ---
 # <a name="troubleshooting-guide-azure-monitor-application-insights-for-java"></a>Guia de resolução de problemas: Azure Monitor Application Insights for Java
 
@@ -45,7 +45,7 @@ A exploração madeireira só é capturada se cumprir primeiro o limiar configur
 
 A melhor maneira de saber se uma determinada declaração de registo satisfaz o limiar configurado dos quadros de registo é confirmar que está a aparecer no seu registo normal de aplicações (por exemplo, ficheiro ou consola).
 
-Note também que se uma exceção for passada para o madeirão, então a mensagem de registo (e exceção) aparecerá no portal Azure debaixo da `exceptions` tabela em vez da `traces` tabela.
+Note também que se um objeto de exceção for passado para o madeirão, então a mensagem de registo (e detalhes do objeto de exceção) aparecerá no portal Azure debaixo da `exceptions` tabela em vez da `traces` tabela.
 
 Consulte a [configuração de registo de registos recolhidos automaticamente](./java-standalone-config.md#auto-collected-logging) para obter mais detalhes.
 
