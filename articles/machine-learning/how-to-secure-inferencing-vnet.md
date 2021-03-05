@@ -11,12 +11,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 10/23/2020
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, devx-track-azurecli
-ms.openlocfilehash: 80abe036ef4a08f7ed6f0f19cffc2abde70a6ea9
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 190f44e95c96a2aee60e1b28f8817a74d3e06e3f
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99981311"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102178665"
 ---
 # <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>Garantir um ambiente de aprendizagem automática Azure com redes virtuais
 
@@ -34,7 +34,6 @@ Neste artigo aprende-se a assegurar os seguintes recursos de inferenculação nu
 > - Aglomerado privado de AKS
 > - Cluster AKS com ligação privada
 > - Azure Container Instances (ACI)
-
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -58,7 +57,6 @@ Para utilizar um cluster AKS numa rede virtual, devem ser cumpridos os seguintes
 > [!div class="checklist"]
 > * Siga os pré-requisitos em [rede avançada Configure no Serviço Azure Kubernetes (AKS)](../aks/configure-azure-cni.md#prerequisites).
 > * A instância AKS e a rede virtual devem estar na mesma região. Se proteger a Conta de Armazenamento Azure utilizada pelo espaço de trabalho numa rede virtual, deve estar também na mesma rede virtual que a aks.
-
 
 Para adicionar AKS numa rede virtual ao seu espaço de trabalho, utilize os seguintes passos:
 
@@ -274,9 +272,9 @@ Se não quiser utilizar as regras de saída predefinidas e pretender limitar o a
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Este artigo é parte três de uma série de rede virtual em quatro partes. Veja o resto dos artigos para aprender a proteger uma rede virtual:
+Este artigo é parte quatro de uma série de rede virtual de cinco partes. Veja o resto dos artigos para aprender a proteger uma rede virtual:
 
 * [Parte 1: Visão geral da rede virtual](how-to-network-security-overview.md)
 * [Parte 2: Garantir os recursos do espaço de trabalho](how-to-secure-workspace-vnet.md)
 * [Parte 3: Assegurar o ambiente de treino](how-to-secure-training-vnet.md)
-* [Parte 5:Ativar a funcionalidade do estúdio](how-to-enable-studio-virtual-network.md)
+* [Parte 5: Ativar a funcionalidade do estúdio](how-to-enable-studio-virtual-network.md)

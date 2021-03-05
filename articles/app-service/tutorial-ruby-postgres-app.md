@@ -5,12 +5,12 @@ ms.devlang: ruby
 ms.topic: tutorial
 ms.date: 06/18/2020
 ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli
-ms.openlocfilehash: f501fb6b5bca5b19e15eb03d9639d08b848ad02f
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: de8f0e64189014b303463dd8bd6c827990b88f9a
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97968607"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102178478"
 ---
 # <a name="build-a-ruby-and-postgres-app-in-azure-app-service-on-linux"></a>Construa uma app Ruby e Postgres no Azure App Service em Linux
 
@@ -255,7 +255,7 @@ Neste passo, vai implementar a aplicação Rails ligada ao Postgres no Serviço 
 
 ### <a name="configure-database-settings"></a>Configurar as definições da base de dados
 
-No Serviço de Aplicações, as variáveis de ambiente são definidas como _definições da aplicação_ com o comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest&preserve-view=true#az-webapp-config-appsettings-set) no Cloud Shell.
+No Serviço de Aplicações, as variáveis de ambiente são definidas como _definições da aplicação_ com o comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) no Cloud Shell.
 
 O comando do Cloud Shell seguinte configura as definições da aplicação `DB_HOST`, `DB_DATABASE`, `DB_USERNAME` e `DB_PASSWORD`. Substitua o _&lt; nome_ de>e _&lt; o nome do servidor pós-venda>_.
 

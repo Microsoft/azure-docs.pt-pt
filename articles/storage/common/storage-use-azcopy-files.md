@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 12/08/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 7bca683ea075710aa6fc677fcf457ceb2e0e5098
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 2cca8a93330e5ddd965d27532895ed1d6702c123
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881016"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102179651"
 ---
 # <a name="transfer-data-with-azcopy-and-file-storage"></a>Transferir dados com o AzCopy e armazenamento de ficheiros 
 
@@ -125,7 +125,7 @@ Utilize o comando [de cópia azcopia](storage-ref-azcopy-copy.md) com a `--inclu
 
 Também pode excluir ficheiros utilizando a `--exclude-pattern` opção. Para saber mais, consulte os docs de referência [de cópias de azcopia.](storage-ref-azcopy-copy.md)
 
-As `--include-pattern` `--exclude-pattern` opções aplicam-se apenas aos dados de filenames e não ao caminho.  Se quiser copiar todos os ficheiros de texto que existem numa árvore de diretório, use `–recursive` a opção para obter todo o diretório e, em seguida, use o `–include-pattern` e especificar para obter todos os `*.txt` ficheiros de texto.
+As `--include-pattern` `--exclude-pattern` opções aplicam-se apenas aos dados de filenames e não ao caminho.  Se quiser copiar todos os ficheiros de texto que existem numa árvore de diretório, use `--recursive` a opção para obter todo o diretório e, em seguida, use o `--include-pattern` e especificar para obter todos os `*.txt` ficheiros de texto.
 
 #### <a name="upload-files-that-were-modified-after-a-date-and-time"></a>Carregar ficheiros que foram modificados após uma data e hora 
 
@@ -220,7 +220,7 @@ Utilize o comando [de cópia azcopia](storage-ref-azcopy-copy.md) com a `--inclu
 
 Também pode excluir ficheiros utilizando a `--exclude-pattern` opção. Para saber mais, consulte os docs de referência [de cópias de azcopia.](storage-ref-azcopy-copy.md)
 
-As `--include-pattern` `--exclude-pattern` opções aplicam-se apenas aos dados de filenames e não ao caminho.  Se quiser copiar todos os ficheiros de texto que existem numa árvore de diretório, use `–recursive` a opção para obter todo o diretório e, em seguida, use o `–include-pattern` e especificar para obter todos os `*.txt` ficheiros de texto.
+As `--include-pattern` `--exclude-pattern` opções aplicam-se apenas aos dados de filenames e não ao caminho.  Se quiser copiar todos os ficheiros de texto que existem numa árvore de diretório, use `--recursive` a opção para obter todo o diretório e, em seguida, use o `--include-pattern` e especificar para obter todos os `*.txt` ficheiros de texto.
 
 #### <a name="download-files-that-were-modified-after-a-date-and-time"></a>Descarregue ficheiros que foram modificados após uma data e hora 
 
@@ -358,7 +358,7 @@ A primeira partilha de ficheiros que aparece neste comando é a fonte. No final 
 
 Para saber mais sobre fotos partilhadas, consulte [a visão geral das fotos de partilha para Azure Files](../files/storage-snapshots-files.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Encontre mais exemplos em qualquer um destes artigos:
 

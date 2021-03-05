@@ -5,15 +5,15 @@ services: virtual-machines
 author: albecker1
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 02/12/2021
+ms.date: 03/04/2021
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: 54c29d76757916a8eea54af16babdae21b809a19
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a2f6a3fd8d36bb54773db21e3d36dab0060bae57
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101750285"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102178365"
 ---
 ## <a name="disk-level-bursting"></a>Rebentamento do nível do disco
 
@@ -63,15 +63,14 @@ Pode consultar a página de preços dos [Discos Geridos](https://azure.microsoft
 
 A explosão baseada em crédito está disponível para tamanhos de disco P20 e menores em todas as regiões em Azure Public, Government e China Clouds. Por predefinição, a rutura do disco é ativada em todas as implementações novas e existentes de tamanhos de disco suportados. A explosão ao nível de VM só usa rebentamento baseado em crédito.
 
-### <a name="virtual-machine-level-bursting"></a>Rebentamento de nível de máquina virtual
-O suporte de rebentamento ao nível vM é ativado em todas as regiões da Nuvem Pública sobre estes tamanhos suportados: 
-- [Série Lsv2](../articles/virtual-machines/lsv2-series.md)
+## <a name="virtual-machine-level-bursting"></a>Rebentamento de nível de máquina virtual
 
-A explosão ao nível de VM também está disponível nos EUA da Central Ocidental para os seguintes tamanhos suportados:
+A explosão ao nível de VM utiliza apenas o modelo baseado no crédito para rebentar, é ativado por padrão para todos os VMs que o suportam.
+
+A explosão ao nível de VM é ativada em todas as regiões da Nuvem Pública de Azure nestes tamanhos suportados: 
+- [Série Lsv2](../articles/virtual-machines/lsv2-series.md)
 - [Séries Dv3 e Dsv3](../articles/virtual-machines/dv3-dsv3-series.md)
 - [Séries Ev3 e Esv3](../articles/virtual-machines/ev3-esv3-series.md)
-
-Por predefinição, a explosão é ativada para máquinas virtuais que a suportam.
 
 ## <a name="bursting-flow"></a>Fluxo de rebentamento
 

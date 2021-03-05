@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 11/19/2020
 ms.author: cshoe
 zone_pivot_groups: programming-languages-set-functions-lang-workers
-ms.openlocfilehash: e969cc4bee9f09f4279d137abb33b75ca0672ffc
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 77d370b895c777278d3136c7d2c511e7f9e23b36
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100364720"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102179260"
 ---
 # <a name="getting-started-with-azure-functions"></a>Introdução às Funções do Azure
 
@@ -46,7 +46,7 @@ Use os seguintes recursos para começar.
 ::: zone pivot="programming-language-javascript"
 | Ação | Recursos |
 | --- | --- |
-| **Criar a sua primeira função** | Utilizando uma das seguintes ferramentas:<br><br><li>[Visual Studio Code](./create-first-function-vs-code-node.md)<li>[Node.js terminal/comando](./create-first-function-cli-java.md) |
+| **Criar a sua primeira função** | Utilizando uma das seguintes ferramentas:<br><br><li>[Visual Studio Code](./create-first-function-vs-code-node.md)<li>[Node.js terminal/comando](./create-first-function-cli-node.md) |
 | **Ver uma função a funcionar** | <li>[Navegador Azure Samples](/samples/browse/?expanded=azure&languages=javascript%2ctypescript&products=azure-functions)<li>[Biblioteca Comunitária de Azure](https://www.serverlesslibrary.net/?technology=Functions%202.x&language=JavaScript%2CTypeScript) |
 | **Explore um tutorial interativo** | <li>[Escolher a melhor tecnologia sem servidor do Azure para o seu cenário empresarial](/learn/modules/serverless-fundamentals/)<li>[Quadro Bem Architected - Eficiência de desempenho](/learn/modules/azure-well-architected-performance-efficiency/)<li>[Criar APIs Sem Servidor com Funções do Azure](/learn/modules/build-api-azure-functions/)<li>[Criar a lógica sem servidor com as Funções do Azure](/learn/modules/create-serverless-logic-with-azure-functions/)<li>[Refatorizar APIs Node.js e Express para APIs sem servidor com as Funções do Azure](/learn/modules/shift-nodejs-express-apis-serverless/) <br><br>Consulte o Microsoft Learn para obter uma [lista completa de tutoriais interativos.](/learn/browse/?expanded=azure&products=azure-functions)|
 | **Consultar as melhores práticas** |<li>[Desempenho e fiabilidade](./functions-best-practices.md)<li>[Gerir ligações](./manage-connections.md)<li>[Manipulação de erros e recaímentos de funções](./functions-bindings-error-pages.md?tabs=javascript)<li>[Segurança](./security-concepts.md)|

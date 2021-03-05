@@ -6,12 +6,12 @@ ms.topic: include
 ms.date: 03/10/2020
 ms.author: sstein
 ms.reviewer: vanto
-ms.openlocfilehash: 57f504b15c0a9c72a2cb0f17b486846f44171a25
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: c7bd942b427bdbd2d8184f712f97dd2a0a57fa90
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101682398"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102178082"
 ---
 Neste passo, você cria um [servidor SQL lógico](../database/logical-servers.md) e uma [única base de dados](../database/single-database-overview.md) que utiliza dados de amostras AdventureWorksLT. Pode criar a base de dados utilizando menus e ecrãs do portal Azure, ou utilizando um script Azure CLI ou PowerShell na Azure Cloud Shell.
 
@@ -151,11 +151,11 @@ O código anterior utiliza estes comandos Azure CLI:
 
 | Comando | Descrição |
 |---|---|
-| [conjunto de conta az](/cli/azure/account?view=azure-cli-latest#az-account-set&preserve-view=true) | Define uma subscrição para ser a subscrição ativa atual. |
+| [conjunto de conta az](/cli/azure/account#az-account-set) | Define uma subscrição para ser a subscrição ativa atual. |
 | [az group create](/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [az sql server create](/cli/azure/sql/server#az-sql-server-create) | Cria um servidor que acolhe bases de dados e piscinas elásticas. |
 | [az sql servidor firewall-rule criar](/cli/azure/sql/server/firewall-rule##az-sql-server-firewall-rule-create) | Cria uma regra de firewall ao nível do servidor. |
-| [az sql db create](/cli/azure/sql/db#az-sql-db-create?view=azure-cli-latest&preserve-view=true) | Cria uma base de dados. |
+| [az sql db create](/cli/azure/sql/db#az-sql-db-create) | Cria uma base de dados. |
 
 Para obter mais amostras do Azure SQL Database Azure CLI, consulte [as amostras do Azure CLI](../database/az-cli-script-samples-content-guide.md).
 

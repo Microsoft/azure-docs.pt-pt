@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 01/05/2021
 author: lgayhardt
 ms.author: lagayhar
-ms.openlocfilehash: 6276527230cf889b471887fdb3da70e06a2fc8d6
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: dcfe12b30e336863c8e112d9ad675a2f57fe48f4
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100582355"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102179141"
 ---
 # <a name="azure-monitor-for-azure-data-explorer-preview"></a>Monitor Azure para Azure Data Explorer (pré-visualização)
 
@@ -103,10 +103,10 @@ O separador **Métricas-Chave** mostra uma visão unificada de algumas das métr
 
 O separador **Utilização** permite que os utilizadores mergulhem profundamente no desempenho dos comandos e consultas do cluster. Nesta página, pode:
  
- - Veja quais os utilizadores e aplicações que estão a enviar mais consultas ou a consumir mais CPU e memória (para que possa entender quais os utilizadores que estão a enviar as consultas mais pesadas para o cluster processar).
- - Identifique os principais utilizadores e aplicações por consultas falhadas.
- - Identificar alterações recentes no número de consultas, em comparação com a média diária histórica (nos últimos 16 dias), por utilizador e aplicação.
- - Identificar tendências e picos no número de consultas, memória e consumo de CPU por utilizador, aplicação e tipo de comando.
+ - Veja quais grupos de carga de trabalho, utilizadores e aplicações estão enviando mais consultas ou consumindo mais CPU e memória (para que você possa entender quais as cargas de trabalho que estão a enviar as consultas mais pesadas para o cluster processar).
+ - Identifique grupos de carga de trabalho de topo, utilizadores e aplicações por consultas falhadas.
+ - Identificar alterações recentes no número de consultas, em comparação com a média diária histórica (nos últimos 16 dias), por grupo de carga de trabalho, utilizador e aplicação.
+ - Identificar tendências e picos no número de consultas, memória e consumo de CPU por grupo de carga de trabalho, utilizador, aplicação e tipo de comando.
 
 [![Screenshot da visualização de operações com gráficos de donuts de aplicação superior por contagem de comando e consulta, principais de topo por contagem de comandos e consultas, e comandos de topo por tipos de comando](./media/data-explorer/usage.png)](./media/data-explorer/usage.png#lightbox)
 

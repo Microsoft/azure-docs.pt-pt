@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 12/17/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 1bcd0ea253db01d626ef1887ef0983d30ca794b9
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: 93fd682f252ac3f85c642633484a9c4eb6c2fb4b
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98209980"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102180858"
 ---
 # <a name="set-up-azure-app-service-access-restrictions"></a>Configurar restrições de acesso ao Serviço de Aplicações Azure
 
@@ -166,7 +166,7 @@ O tráfego da Porta Frontal Azure para a sua aplicação tem origem num conhecid
 
 Pode adicionar restrições de acesso programáticamente fazendo qualquer uma das seguintes: 
 
-* Utilize [o Azure CLI](/cli/azure/webapp/config/access-restriction?view=azure-cli-latest&preserve-view=true). Por exemplo:
+* Utilize [o Azure CLI](/cli/azure/webapp/config/access-restriction). Por exemplo:
    
   ```azurecli-interactive
   az webapp config access-restriction add --resource-group ResourceGroup --name AppName \

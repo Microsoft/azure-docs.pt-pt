@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Migrar o SQL Server offline para uma base de dados única SQL'
+title: 'Tutorial: Migrar o SqL Server offline para Azure SQL Database'
 titleSuffix: Azure Database Migration Service
 description: Aprenda a migrar do SQL Server para o Azure SQL Database offline utilizando o Azure Database Migration Service.
 services: dms
@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 01/03/2021
-ms.openlocfilehash: b02572f8f6f6531afba9e24af1d2eab53f5cb6ad
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 9c3fa0d8ac4540495e8580fd208507a2c1aaa7ce
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101742114"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102180692"
 ---
-# <a name="tutorial-migrate-sql-server-to-azure-sql-database-offline-using-dms"></a>Tutorial: Migrar o SQL Server para a Base de Dados SQL do Azure offline com o DMS
+# <a name="tutorial-migrate-sql-server-to-azure-sql-database-using-dms"></a>Tutorial: Migrar o SqL Server para a Base de Dados Azure SQL utilizando DMS
 
-Pode utilizar o Azure Database Migration Service para migrar as bases de dados de uma instância do SQL Server para a Base de [Dados Azure SQL](/azure/sql-database/). Neste tutorial, migra a base de dados [Adventureworks2016](/sql/samples/adventureworks-install-configure?tabs=ssms&view=sql-server-ver15#download-backup-files) restaurada para uma instância no local do SQL Server 2016 (ou mais tarde) para uma única base de dados ou base de dados em Azure SQL Database, utilizando o Azure Database Migration Service.
+Pode utilizar o Azure Database Migration Service para migrar as bases de dados de uma instância do SQL Server para a Base de [Dados Azure SQL](/azure/sql-database/). Neste tutorial, migra a base de dados [Adventureworks2016](/sql/samples/adventureworks-install-configure#download-backup-files) restaurada para uma instância no local do SQL Server 2016 (ou mais tarde) para uma única base de dados ou base de dados em Azure SQL Database, utilizando o Azure Database Migration Service.
 
 Vai aprender a:
 > [!div class="checklist"]
@@ -33,6 +33,7 @@ Vai aprender a:
 > - Crie um projeto de migração utilizando o Serviço de Migração da Base de Dados Azure.
 > - Executar a migração.
 > - Monitorizar a migração.
+
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -147,7 +148,7 @@ Para migrar o esquema **Adventureworks2016** para uma única base de dados ou ba
 
 1. Inicie sessão no Portal do Azure. Procure e **selecione Subscrições.**
 
-   ![Mostrar subscrições no portal](media/tutorial-sql-server-to-azure-sql/portal-select-subscription1.png)
+   ![Mostrar subscrições no portal](media/tutorial-sql-server-to-azure-sql/portal-select-subscription-1.png)
 
 2. Selecione a subscrição na qual pretende criar a instância do Serviço de Migração da Base de Dados Azure e, em seguida, selecione **fornecedores de Recursos**.
 
@@ -165,7 +166,7 @@ Para migrar o esquema **Adventureworks2016** para uma única base de dados ou ba
 
 2. No ecrã **Azure Database Migration Service**, selecione **Criar**.
 
-    ![Criar instância do Azure Database Migration Service](media/tutorial-sql-server-to-azure-sql/dms-create1.png)
+    ![Criar instância do Azure Database Migration Service](media/tutorial-sql-server-to-azure-sql/dms-create-1.png)
   
 3. No ecrã básico do **Serviço de Migração Create:**
 
@@ -176,7 +177,7 @@ Para migrar o esquema **Adventureworks2016** para uma única base de dados ou ba
      - Escolha **Azure** como o modo de serviço.
      - Selecione um escalão de preço. Para obter mais informações sobre os custos e os escalões de preços, veja a [página de preços](https://aka.ms/dms-pricing).
 
-    ![Configurar a azure Database Migration Service definições básicas](media/tutorial-sql-server-to-azure-sql/dms-settings2.png)
+    ![Configurar a azure Database Migration Service definições básicas](media/tutorial-sql-server-to-azure-sql/dms-settings-2.png)
 
      - Selecione **Seguinte: Rede**.
 
@@ -184,7 +185,7 @@ Para migrar o esquema **Adventureworks2016** para uma única base de dados ou ba
 
     - Selecione uma rede virtual existente ou crie uma nova. A rede virtual fornece ao Azure Database Migration Service acesso ao servidor SQL de origem e à instância de base de dados Azure SQL. Para obter mais informações sobre como criar uma rede virtual no portal Azure, consulte o artigo [Criar uma rede virtual utilizando o portal Azure](../virtual-network/quick-create-portal.md).
 
-    ![Configurar configurações de rede do Serviço de Migração de Bases de Dados Azure](media/tutorial-sql-server-to-azure-sql/dms-settings3.png)
+    ![Configurar configurações de rede do Serviço de Migração de Bases de Dados Azure](media/tutorial-sql-server-to-azure-sql/dms-settings-3.png)
 
     - Selecione **Review + Criar** para criar o serviço.
 
@@ -202,9 +203,9 @@ Após a criação do serviço, localize-o no portal do Azure, abra-o e crie um p
 
      ![Localize o seu caso de Serviço de Migração de Bases de Dados de Azure](media/tutorial-sql-server-to-azure-sql/dms-instance-search.png)
 
-4. No ecrã **Novo projeto de migração**, indique um nome para o projeto, na caixa de texto **Tipo de servidor de origem**, selecione **SQL Server**, na caixa de texto **Tipo de servidor de destino**, selecione **Base de Dados SQL do Azure** e, em **Escolher tipo de atividade**, selecione **Migração de dados offline**.
+4. No novo ecrã do **projeto de migração,** especifique um nome para o projeto, na caixa de texto **do tipo do servidor Fonte,** selecione **SQL Server**, na caixa de texto do tipo do servidor **Target,** selecione **Azure SQL Database** e, em seguida, para **Escolha o tipo de atividade de migração **, selecione **migração de dados**.
 
-    ![Criar Projeto do Azure Database Migration Service](media/tutorial-sql-server-to-azure-sql/dms-create-project2.png)
+    ![Criar Projeto do Azure Database Migration Service](media/tutorial-sql-server-to-azure-sql/dms-create-project-2.png)
 
 5. Selecione **Criar e executar atividade** para criar o projeto e executar a atividade de migração.
 
@@ -224,34 +225,42 @@ Após a criação do serviço, localize-o no portal do Azure, abra-o e crie um p
     > [!IMPORTANT]
     > Se utilizar o SSIS, o DMS não suporta atualmente a migração da fonte SSISDB, mas pode recolocar os seus projetos/pacotes SSIS para o destino SSISDB hospedado pela Base de Dados Azure SQL. Para obter mais informações sobre os pacotes SSIS migratórios, consulte o artigo [Pacotes de Serviços de Integração de Servidores SQL migratórios para o Azure](./how-to-migrate-ssis-packages.md).
 
-   ![Detalhes da origem](media/tutorial-sql-server-to-azure-sql/dms-source-details2.png)
+   ![Detalhes da origem](media/tutorial-sql-server-to-azure-sql/dms-source-details-2.png)
+   
+3. Selecione **Seguinte: Selecione bases de dados**.
 
-3. Selecione **Seguinte: Selecione o alvo**.
+## <a name="select-databases-for-migration"></a>Selecione bases de dados para migração
+
+Selecione todas as bases de dados ou bases de dados específicas que pretende migrar para a Base de Dados Azure SQL. O DMS fornece-lhe o tempo de migração esperado para bases de dados selecionadas. Se os tempos de paragem da migração forem aceitáveis, continuem com a migração. Se o tempo de paragem da migração não for aceitável, considere migrar para [a SQL Managed Instance com tempo de inatividade quase nulo](tutorial-sql-server-managed-instance-online.md) ou contactar a [equipa DMS](mailto:DMSFeedback@microsoft.com) para outras opções. 
+
+1. Escolha a(s) base de dados(s) que pretende migrar da lista de bases de dados disponíveis. 
+1. Reveja o tempo de inatividade esperado. Se for aceitável, selecione **Seguinte: Selecione o alvo >>**
+
+   ![Bases de dados de origem](media/tutorial-sql-server-to-azure-sql/select-database.png)
+
+
 
 ## <a name="specify-target-details"></a>Especificar os detalhes do destino
 
-1. No ecrã **alvo Select,** especifique os detalhes de ligação para a Base de Dados Azure SQL alvo, que é a Base de Dados Azure SQL pré-a provisionada para a qual o esquema **Adventureworks2016** foi implementado utilizando o Assistente de Migração de Dados.
+1. No **ecrã-alvo Select,** forneça definições de autenticação na sua Base de Dados Azure SQL. 
 
-    ![Selecionar o Destino](media/tutorial-sql-server-to-azure-sql/dms-select-target2.png)
-    
-    > [!NOTE]
-    > As ligações privadas de ponto final à base de dados Azure SQL são suportadas pelo Serviço de Migração de Bases de Dados Azure, exceto quando se utiliza um nome DNS personalizado. 
+   ![Selecionar o destino](media/tutorial-sql-server-to-azure-sql/select-target.png)
 
-2. Selecione **Seguinte: Mapear para o ecrã das bases de dados alvo,** mapear a fonte e a base de dados-alvo para a migração.
+1. Selecione **Seguinte: Mapear para o ecrã das bases de dados alvo,** mapear a fonte e a base de dados-alvo para a migração.
 
     Se a base de dados-alvo contiver o mesmo nome de base de dados que a base de dados de origem, o Azure Database Migration Service seleciona a base de dados-alvo por predefinição.
 
-    ![Mapear para as bases de dados de destino](media/tutorial-sql-server-to-azure-sql/dms-map-targets-activity2.png)
+    ![Mapear para as bases de dados de destino](media/tutorial-sql-server-to-azure-sql/dms-map-targets-activity-2.png)
 
-3. Selecione **Seguinte: Configurar as definições de migração,** expandir a listagem de tabelas e, em seguida, rever a lista de campos afetados.
+1. Selecione **Seguinte: Configurar as definições de migração,** expandir a listagem de tabelas e, em seguida, rever a lista de campos afetados.
 
     O Azure Database Migration Service seleciona todas as tabelas de origem vazias existentes na instância target Azure SQL Database. Se quiser voltar a emigrar tabelas que já incluem dados, tem de selecionar explicitamente as tabelas neste painel.
 
-    ![Selecionar tabelas](media/tutorial-sql-server-to-azure-sql/dms-configure-setting-activity2.png)
+    ![Selecionar tabelas](media/tutorial-sql-server-to-azure-sql/dms-configure-setting-activity-2.png)
 
-4. Selecione **Seguinte: Resumo,** reveja a configuração de migração e na caixa de texto **do nome de Atividade,** especifique um nome para a atividade de migração.
+1. Selecione **Seguinte: Resumo,** reveja a configuração de migração e na caixa de texto **do nome de Atividade,** especifique um nome para a atividade de migração.
 
-    ![Escolher a opção de validação](media/tutorial-sql-server-to-azure-sql/dms-configuration2.png)
+    ![Escolher a opção de validação](media/tutorial-sql-server-to-azure-sql/dms-configuration-2.png)
 
 ## <a name="run-the-migration"></a>Executar a migração
 
@@ -259,13 +268,13 @@ Após a criação do serviço, localize-o no portal do Azure, abra-o e crie um p
 
     É apresentada a janela de atividade da migração e o **Estado** da atividade é **Pendente**.
 
-    ![Estado da Atividade](media/tutorial-sql-server-to-azure-sql/dms-activity-status1.png)
+    ![Estado da Atividade](media/tutorial-sql-server-to-azure-sql/dms-activity-status-1.png)
 
 ## <a name="monitor-the-migration"></a>Monitorizar a migração
 
 1. No ecrã de atividade da migração, selecione **Atualizar** para atualizar a vista até que o **Estado** da migração apareça como **Concluída**.
 
-    ![Estado da Atividade Concluída](media/tutorial-sql-server-to-azure-sql/dms-completed-activity1.png)
+    ![Estado da Atividade Concluída](media/tutorial-sql-server-to-azure-sql/dms-completed-activity-1.png)
 
 2. Verifique a base de dados-alvo na base de **dados Azure SQL target**.
 

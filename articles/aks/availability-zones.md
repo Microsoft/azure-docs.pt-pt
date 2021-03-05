@@ -5,12 +5,12 @@ services: container-service
 ms.custom: fasttrack-edit, references_regions, devx-track-azurecli
 ms.topic: article
 ms.date: 09/04/2020
-ms.openlocfilehash: 481dc112b36e1f9fba3739f5b88e34d15d538e47
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 3eec8a6c331227d9d6298c46b272a5784080d342
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100558967"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102180331"
 ---
 # <a name="create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>Criar um cluster Azure Kubernetes Service (AKS) que utiliza zonas de disponibilidade
 
@@ -202,7 +202,7 @@ Este artigo detalhou como criar um cluster AKS que utiliza zonas de disponibilid
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [az-aks-nodepool-add]: /cli/azure/ext/aks-preview/aks/nodepool#ext-aks-preview-az-aks-nodepool-add
-[az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
+[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [vmss-zone-balancing]: ../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md#zone-balancing
 
 <!-- LINKS - external -->

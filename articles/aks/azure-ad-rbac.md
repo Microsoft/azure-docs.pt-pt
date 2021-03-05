@@ -5,12 +5,12 @@ description: Saiba como utilizar a adesão do grupo Azure Ative Directory para r
 services: container-service
 ms.topic: article
 ms.date: 07/21/2020
-ms.openlocfilehash: 89bf785a082ff479dcd824a773123fcd061dc22d
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 585e51f5131bf20d39cf43ab2e843774d61a708f
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576116"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102178240"
 ---
 # <a name="control-access-to-cluster-resources-using-kubernetes-role-based-access-control-and-azure-active-directory-identities-in-azure-kubernetes-service"></a>Controlar o acesso aos recursos de cluster utilizando o controlo de acesso baseado em funções da Kubernetes e as identidades do Azure Ative Directory no Serviço Azure Kubernetes
 
@@ -18,7 +18,7 @@ O Serviço Azure Kubernetes (AKS) pode ser configurado para utilizar o Azure Ati
 
 Este artigo mostra-lhe como usar a filiação do grupo AD Azure para controlar o acesso a espaços de nome e recursos de cluster usando o RBAC de Kubernetes num cluster AKS. Grupos de exemplo e utilizadores são criados em Azure AD, em seguida, Roles e RoleBindings são criados no cluster AKS para conceder as permissões apropriadas para criar e visualizar recursos.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Este artigo pressupõe que você tem um cluster AKS existente habilitado com a integração AD AZure. Se precisar de um cluster AKS, consulte [o Diretório Ativo Integrado Azure com AKS][azure-ad-aks-cli].
 
@@ -367,7 +367,7 @@ $ kubectl run nginx-sre --image=nginx --namespace dev
 Error from server (Forbidden): pods is forbidden: User "akssre@contoso.com" cannot create pods in the namespace "dev"
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Neste artigo, criou recursos no cluster AKS e utilizadores e grupos em Azure AD. Para limpar todos estes recursos, executar os seguintes comandos:
 
@@ -401,7 +401,7 @@ Para obter as melhores práticas em matéria de identidade e controlo de recurso
 [kubectl-run]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#run
 
 <!-- LINKS - internal -->
-[az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
+[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [install-azure-cli]: /cli/azure/install-azure-cli
 [azure-ad-aks-cli]: azure-ad-integration-cli.md
 [az-aks-show]: /cli/azure/aks#az-aks-show

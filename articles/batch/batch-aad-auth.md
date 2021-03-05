@@ -4,12 +4,12 @@ description: O lote suporta o Azure AD para autenticação a partir do serviço 
 ms.topic: how-to
 ms.date: 10/20/2020
 ms.custom: has-adal-ref
-ms.openlocfilehash: 784e92eaa2cd672d511177066befcfd7effc7ca4
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 2ceefa538c44208750da8986fcf3d161f0c0865f
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95252645"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102180025"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Autenticar soluções de serviço batch com Diretório Ativo
 
@@ -41,7 +41,7 @@ Para autenticar com Azure AD, você usa este ponto final juntamente com o ID do 
 >
 > O ponto final específico do arrendatário é opcional quando autentica usando a autenticação integrada, mas recomendado. No entanto, também pode utilizar o ponto final comum Azure AD. O ponto final comum fornece uma interface de recolha de credenciais genéricas quando um inquilino específico não é fornecido. O ponto final comum `https://login.microsoftonline.com/common` é.
 
-Para obter mais informações sobre os pontos finais da Azure AD, consulte [autenticação vs. autorização]().. /active-directório/desenvolvimento/autenticação-vs-autorização.md).
+Para obter mais informações sobre os pontos finais da Azure AD, consulte [a autenticação vs. autorização](../active-directory/develop/authentication-vs-authorization.md).
 
 ### <a name="batch-resource-endpoint"></a>Ponto final de recursos de lote
 
@@ -406,7 +406,7 @@ Utilize as credenciais principais de serviço para abrir um objeto **BatchServic
 )
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Reveja a [Documentação do Diretório Ativo Azure](../active-directory/index.yml). Exemplos aprofundados que mostram como utilizar o ADAL estão disponíveis na biblioteca [Azure Code Samples.](https://azure.microsoft.com/resources/samples/?service=active-directory)
 - Conheça os [objetos principais de aplicação e serviço no Azure Ative Directory](../active-directory/develop/app-objects-and-service-principals.md) e [como criar uma aplicação AD AD Azure que possa aceder a recursos.](../active-directory/develop/howto-create-service-principal-portal.md)

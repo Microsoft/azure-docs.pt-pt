@@ -5,18 +5,18 @@ author: neilpeterson
 ms.date: 08/09/2020
 ms.topic: quickstart
 ms.author: nepeters
-ms.openlocfilehash: d8fd44a1e4c1ddfd78b2afa3280bb05c8fde91e3
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 97f956c1b1c1ea18242dc656c533451eda29dc6d
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350148"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102179056"
 ---
 # <a name="quickstart-create-arm-templates-with-visual-studio-code"></a>Quickstart: Criar modelos ARM com Código de Estúdio Visual
 
 As Ferramentas de Gestor de Recursos Azure para Código do Estúdio Visual fornecem suporte linguístico, snippets de recursos e auto-preconização de recursos. Estas ferramentas ajudam a criar e validar modelos de Gestor de Recursos Azure (modelos ARM). Neste arranque rápido, utiliza-se a extensão para criar um modelo ARM de raiz. Ao fazê-lo, experimenta as capacidades de extensões tais como snippets de modelo ARM, validação, conclusão e suporte de ficheiros de parâmetros.
 
-Para completar este arranque rápido, precisa do [Código do Estúdio Visual,](https://code.visualstudio.com/)com a extensão de [ferramentas Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) instalada. Também precisa do [Azure CLI](/cli/azure/?view=azure-cli-latest) ou do [módulo Azure PowerShell](/powershell/azure/new-azureps-module-az?view=azps-3.7.0) instalado e autenticado.
+Para completar este arranque rápido, precisa do [Código do Estúdio Visual,](https://code.visualstudio.com/)com a extensão de [ferramentas Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) instalada. Também precisa do [Azure CLI](/cli/azure/) ou do [módulo Azure PowerShell](/powershell/azure/new-azureps-module-az?view=azps-3.7.0) instalado e autenticado.
 
 Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 

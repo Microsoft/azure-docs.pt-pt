@@ -6,23 +6,24 @@ services: container-service
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: a655c8c145b4f3812dae9f1a4ec1e5eebbe44809
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: af8403f80f7282207ee1bc6b2f81da0d83d264e0
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348479"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102180943"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Criar e configurar um cluster Azure Kubernetes Services (AKS) para usar nós virtuais usando o Azure CLI
 
 Este artigo mostra-lhe como usar o CLI Azure para criar e configurar os recursos de rede virtuais e o cluster AKS, em seguida, ativar nós virtuais.
 
-> [!NOTE]
-> [Este artigo](virtual-nodes.md) dá-lhe uma visão geral da disponibilidade e limitações da região usando nós virtuais.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
 Os nós virtuais permitem a comunicação de rede entre as cápsulas que funcionam em Instâncias de Contentores Azure (ACI) e o cluster AKS. Para fornecer esta comunicação, é criada uma sub-rede de rede virtual e são atribuídas permissões delegadas. Os nódigos virtuais só funcionam com clusters AKS criados com rede *avançada* (Azure CNI). Por padrão, os clusters AKS são criados com rede *básica* (kubenet). Este artigo mostra-lhe como criar uma rede virtual e sub-redes, em seguida, implementar um cluster AKS que utiliza networking avançado.
+
+> [!IMPORTANT]
+> Antes de utilizar nós virtuais com AKS, reveja tanto as [limitações dos nós virtuais AKS][virtual-nodes-aks] como as [limitações de rede virtual do ACI][virtual-nodes-networking-aci]. Estas limitações afetam a localização, a configuração da rede e outros detalhes de configuração tanto do seu cluster AKS como dos nós virtuais.
 
 Se não tiver utilizado o ACI anteriormente, registe o prestador de serviços com a sua assinatura. Pode verificar o estado do registo do fornecedor ACI utilizando o comando da [lista de fornecedores az,][az-provider-list] como mostra o seguinte exemplo:
 
@@ -62,7 +63,7 @@ az group create --name myResourceGroup --location westus
 
 ## <a name="create-a-virtual-network"></a>Criar uma rede virtual
 
-Criar uma rede virtual utilizando o [vnet de rede az criar][az-network-vnet-create] comando. O exemplo a seguir cria um *myVnet* de nome de rede virtual com um prefixo de endereço de *10.0.0.0/8* , e uma sub-rede chamada *myAKSSubnet*. O prefixo de endereço desta sub-rede é de *10.240.0.0/16* :
+Criar uma rede virtual utilizando o [vnet de rede az criar][az-network-vnet-create] comando. O exemplo a seguir cria um *myVnet* de nome de rede virtual com um prefixo de endereço de *10.0.0.0/8*, e uma sub-rede chamada *myAKSSubnet*. O prefixo de endereço desta sub-rede é de *10.240.0.0/16*:
 
 ```azurecli-interactive
 az network vnet create \
@@ -175,7 +176,7 @@ Para verificar a ligação ao cluster, utilize o comando [kubectl get][kubectl-g
 kubectl get nodes
 ```
 
-A saída de exemplo a seguir mostra o único nó VM criado e, em seguida, o nó virtual para Linux, *virtual-nó-aci-linux* :
+A saída de exemplo a seguir mostra o único nó VM criado e, em seguida, o nó virtual para Linux, *virtual-nó-aci-linux*:
 
 ```output
 NAME                          STATUS    ROLES     AGE       VERSION
@@ -312,7 +313,7 @@ az network profile delete --id $NETWORK_PROFILE_ID -y
 az network vnet subnet update --resource-group $RES_GROUP --vnet-name $AKS_VNET --name $AKS_SUBNET --remove delegations 0
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, foi agendada uma cápsula no nó virtual e atribuída um endereço IP interno e privado. Em vez disso, pode criar uma implementação de serviço e encaminhar o tráfego para a sua cápsula através de um equilibrador de carga ou controlador de entrada. Para obter mais informações, consulte Criar um controlador básico de entrada [em AKS][aks-basic-ingress].
 
@@ -352,3 +353,5 @@ Os nós virtuais são frequentemente um componente de uma solução de escala em
 [aks-basic-ingress]: ingress-basic.md
 [az-provider-list]: /cli/azure/provider#az-provider-list
 [az-provider-register]: /cli/azure/provider#az-provider-register
+[virtual-nodes-aks]: virtual-nodes.md
+[virtual-nodes-networking-aci]: ../container-instances/container-instances-virtual-network-concepts.md

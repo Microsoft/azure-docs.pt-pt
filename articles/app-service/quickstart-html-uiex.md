@@ -8,12 +8,12 @@ ms.date: 08/23/2019
 ms.author: msangapu
 ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: e7beae6c1398525faa267e2cec6d9fb7134b6297
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 538d414ce606b944fcea7adbb1c817386e13090e
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101703594"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102178580"
 ---
 # <a name="create-a-static-html-web-app-in-azure"></a>Criar uma aplicação Web HTML estática no Azure
 
@@ -67,7 +67,7 @@ O comando pode demorar alguns minutos a ser concluído.
 <ul>
 <li>Cria um grupo de recursos predefinido.</li>
 <li>Crie um plano de Serviço de Aplicações predefinido.</li>
-<li><a href="/cli/azure/webapp?view=azure-cli-latest#az-webapp-create">Crie uma aplicação de Serviço de Aplicações</a> com o nome especificado.</li>
+<li><a href="/cli/azure/webapp#az-webapp-create">Crie uma aplicação de Serviço de Aplicações</a> com o nome especificado.</li>
 <li><a href="/azure/app-service/deploy-zip">Zip implementa</a> ficheiros do diretório de trabalho atual para a aplicação.</li>
 <li>Durante a execução, fornece mensagens sobre criação de recursos, registo e implementação zip.</li>
 </ul>

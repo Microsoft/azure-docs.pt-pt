@@ -10,12 +10,12 @@ author: cartacioS
 ms.author: sacartac
 ms.date: 10/27/2020
 ms.custom: automl
-ms.openlocfilehash: ee9267637c5e3250bfcd543ca46c39d513725819
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: 6ed9b316fceeb30a775e2e0d90e7bbb0a07278cd
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98072229"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102180502"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>O que é o machine learning automatizado (AutoML)?
 
@@ -116,7 +116,7 @@ Para experiências automatizadas de machine learning, a caracterização é apli
 
 Em todas as experiências automatizadas de aprendizagem automática de máquinas, os seus dados são automaticamente dimensionados ou normalizados para ajudar os algoritmos a funcionarem bem. Durante o treino de modelo, uma das seguintes técnicas de escala ou normalização será aplicada a cada modelo. Saiba como o AutoML ajuda a [prevenir dados sobreajustes e desequilibrados](concept-manage-ml-pitfalls.md) nos seus modelos.
 
-|Normalização &nbsp; & de escala &nbsp;| Descrição |
+|Processamento &nbsp; de escala & &nbsp;| Descrição |
 | ------------- | ------------- |
 | [StandardScaleWrapper](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html)  | Padronizar as características removendo a média e a escala para a variação da unidade  |
 | [MinMaxScalar](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html)  | Transforma as características escalando cada recurso pelo mínimo e máximo da coluna  |

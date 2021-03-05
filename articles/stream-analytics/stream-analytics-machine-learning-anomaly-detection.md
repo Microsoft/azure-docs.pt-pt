@@ -1,17 +1,17 @@
 ---
 title: Deteção de anomalias em Azure Stream Analytics
 description: Este artigo descreve como usar a Azure Stream Analytics e Azure Machine Learning juntos para detetar anomalias.
-author: krishna0815
-ms.author: krishmam
 ms.service: stream-analytics
+author: jasonwhowell
+ms.author: jasonh
 ms.topic: how-to
 ms.date: 06/21/2019
-ms.openlocfilehash: c7cb8e40bc9a8f6664d8286ad368e2613495878b
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 78730b011e508f98779b9e00624882466d6a03a0
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98020303"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102178508"
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Deteção de anomalias em Azure Stream Analytics
 
@@ -153,7 +153,7 @@ O código de amostra para executar as configurações não partitioned acima est
 ### <a name="identifying-bottlenecks"></a>Identificar estrangulamentos
 Utilize o painel métrica no seu trabalho Azure Stream Analytics para identificar estrangulamentos no seu oleoduto. **Reveja os eventos de entrada/saída** para produção e ["Atraso de marca de água"](https://azure.microsoft.com/blog/new-metric-in-azure-stream-analytics-tracks-latency-of-your-streaming-pipeline/) ou **eventos retrospados** para ver se o trabalho está a acompanhar a taxa de entrada. Para as métricas do Event Hub, procure **pedidos de aceleração** e ajuste as Unidades limiares em conformidade. Para as métricas da Cosmos DB, reveja **max consumiu RU/s por intervalo de chaves de partição** sob a produção para garantir que as suas gamas de chaves de partição são consumidas uniformemente. Para Azure SQL DB, monitorize **Log IO** e **CPU**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)
 * [Começar a utilizar o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)

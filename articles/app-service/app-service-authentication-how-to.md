@@ -4,12 +4,12 @@ description: Aprenda a personalizar a funcionalidade de autenticação e autoriz
 ms.topic: article
 ms.date: 07/08/2020
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 4f2f43b142b290d29a4a90e504422b6c9ba2739c
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 50587feff29e1c02a639d63d0c99156dcec4f68e
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98630332"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102180875"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Uso avançado da autenticação e autorização no Serviço de Aplicações Azure
 
@@ -447,7 +447,7 @@ As definições de auth podem ser configuradas opcionalmente através de um fich
 > [!NOTE]
 > O formato para `authFilePath` varia entre plataformas. No Windows, os caminhos relativos e absolutos são suportados. O parente é recomendado. Para o Linux, apenas os caminhos absolutos são suportados atualmente, pelo que o valor da definição deve ser "/home/site/wwwroot/auth.json" ou similar.
 
-Uma vez então a atualização de configuração, o conteúdo do ficheiro será utilizado para definir o comportamento da Autenticação/Autorização do Serviço de Aplicações para esse site. Se alguma vez desejar voltar à configuração do Gestor de Recursos Azure, pode fazê-lo `isAuthFromFile` definindo de volta para "falso".
+Uma vez então então então a atualização de configuração, o conteúdo do ficheiro será utilizado para definir o comportamento da Autenticação/Autorização do Serviço de Aplicações para esse site. Se alguma vez desejar voltar à configuração do Gestor de Recursos Azure, pode fazê-lo `isAuthFromFile` definindo de volta para "falso".
 
 ### <a name="configuration-file-reference"></a>Referência de ficheiro de configuração
 
@@ -648,7 +648,7 @@ Pode ver a versão atual do middleware de autenticação da plataforma, utilizan
 
 ##### <a name="from-the-azure-cli"></a>Do Azure CLI
 
-Utilizando o Azure CLI, veja a versão atual do middleware com o comando [az webapp auth show.](/cli/azure/webapp/auth?view=azure-cli-latest&preserve-view=true#az-webapp-auth-show)
+Utilizando o Azure CLI, veja a versão atual do middleware com o comando [az webapp auth show.](/cli/azure/webapp/auth#az-webapp-auth-show)
 
 ```azurecli-interactive
 az webapp auth show --name <my_app_name> \
@@ -679,7 +679,7 @@ Também pode acertar no ponto final /.auth/versão numa aplicação também para
 
 #### <a name="update-the-current-runtime-version"></a>Atualizar a versão atual do tempo de execução
 
-Utilizando o Azure CLI, pode atualizar a `runtimeVersion` definição na aplicação com o comando [de atualização auth auth da webapp.](/cli/azure/webapp/auth?view=azure-cli-latest&preserve-view=true#az-webapp-auth-update)
+Utilizando o Azure CLI, pode atualizar a `runtimeVersion` definição na aplicação com o comando [de atualização auth auth da webapp.](/cli/azure/webapp/auth#az-webapp-auth-update)
 
 ```azurecli-interactive
 az webapp auth update --name <my_app_name> \

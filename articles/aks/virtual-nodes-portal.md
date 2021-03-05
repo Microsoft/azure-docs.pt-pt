@@ -5,12 +5,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 7d49499b39c562aeff20d163fc86401d8c1f4a06
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 4c67d3608d2128385c273425ea495a02fa5a8c45
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94579169"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102180909"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Criar e configurar um cluster Azure Kubernetes Services (AKS) para usar nós virtuais no portal Azure
 
@@ -51,11 +51,11 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
 
 No canto superior esquerdo do portal Azure, selecione **Criar um**  >  **serviço kubernetes de** recurso .
 
-Na página **Informações Básicas** , configure as opções seguintes:
+Na página **Informações Básicas**, configure as opções seguintes:
 
-- *DETALHES DO PROJETO* : selecione uma subscrição do Azure e selecione ou crie um grupo de recursos do Azure, como *myResourceGroup*. Introduza um **nome para o cluster do Kubernetes** , como *myAKSCluster*.
-- *DETALHES DO CLUSTER* : selecione uma região, a versão do Kubernetes e o prefixo do nome DNS do cluster do AKS.
-- *PISCINA DE NODE PRIMÁRIO* : Selecione um tamanho VM para os nós AKS. O tamanho da VM **não pode** ser alterado após a implementação de um cluster de AKS.
+- *DETALHES DO PROJETO*: selecione uma subscrição do Azure e selecione ou crie um grupo de recursos do Azure, como *myResourceGroup*. Introduza um **nome para o cluster do Kubernetes**, como *myAKSCluster*.
+- *DETALHES DO CLUSTER*: selecione uma região, a versão do Kubernetes e o prefixo do nome DNS do cluster do AKS.
+- *PISCINA DE NODE PRIMÁRIO*: Selecione um tamanho VM para os nós AKS. O tamanho da VM **não pode** ser alterado após a implementação de um cluster de AKS.
      - Selecione o número de nós a implementar no cluster. Para este artigo, decrete a **contagem de nó para** *1*. O número de nós **pode** ser ajustado após a implementação do cluster.
 
 Clique **em seguida: Escala**.
@@ -78,7 +78,7 @@ O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para execu
 
 Para abrir a Cloud Shell, selecione **Experimente-a** a partir do canto superior direito de um bloco de código. Também pode lançar cloud Shell num separador de navegador indo para [https://shell.azure.com/bash](https://shell.azure.com/bash) . Selecione **Copiar** para copiar os blocos de código, cole-o no Cloud Shell e prima Enter para executá-lo.
 
-Utilize o comando [az aks get-credentials][az-aks-get-credentials] para configurar `kubectl` para se ligar ao seu cluster do Kubernetes. O exemplo seguinte obtém credenciais para o nome do cluster *myAKSCluster* no grupo de recursos denominado *myResourceGroup* :
+Utilize o comando [az aks get-credentials][az-aks-get-credentials] para configurar `kubectl` para se ligar ao seu cluster do Kubernetes. O exemplo seguinte obtém credenciais para o nome do cluster *myAKSCluster* no grupo de recursos denominado *myResourceGroup*:
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
@@ -90,7 +90,7 @@ Para verificar a ligação ao cluster, utilize o comando [kubectl get][kubectl-g
 kubectl get nodes
 ```
 
-A saída de exemplo a seguir mostra o único nó VM criado e, em seguida, o nó virtual para Linux, *virtual-nó-aci-linux* :
+A saída de exemplo a seguir mostra o único nó VM criado e, em seguida, o nó virtual para Linux, *virtual-nó-aci-linux*:
 
 ```output
 NAME                           STATUS    ROLES     AGE       VERSION
@@ -210,9 +210,9 @@ Os nós virtuais são um componente de uma solução de escala em AKS. Para obte
 
 <!-- LINKS - internal -->
 [aks-network]: ./configure-azure-cni.md
-[az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
+[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [aks-hpa]: tutorial-kubernetes-scale.md
 [aks-cluster-autoscaler]: cluster-autoscaler.md
 [aks-basic-ingress]: ingress-basic.md
-[az-provider-list]: /cli/azure/provider?view=azure-cli-latest#az-provider-list
-[az-provider-register]: /cli/azure/provider?view=azure-cli-latest&preserve-view=true#az-provider-register
+[az-provider-list]: /cli/azure/provider#az-provider-list
+[az-provider-register]: /cli/azure/provider#az-provider-register

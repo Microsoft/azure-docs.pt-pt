@@ -5,12 +5,12 @@ description: Saiba como proteger o tráfego que flui dentro e fora das cápsulas
 services: container-service
 ms.topic: article
 ms.date: 05/06/2019
-ms.openlocfilehash: 1d3aa49a749890783fdae589edab3d1910b2ac73
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 4b72c5551d6ed33deb4df40a60215aed8071141d
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101729424"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102178903"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Tráfego seguro entre cápsulas utilizando políticas de rede no Serviço Azure Kubernetes (AKS)
 
@@ -558,12 +558,12 @@ Para saber mais sobre políticas, consulte as [políticas de rede de Kubernetes.
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli
 [use-advanced-networking]: configure-azure-cni.md
-[az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
+[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [concepts-network]: concepts-network.md
 [az-feature-register]: /cli/azure/feature#az-feature-register
 [az-feature-list]: /cli/azure/feature#az-feature-list
 [az-provider-register]: /cli/azure/provider#az-provider-register
 [windows-server-password]: /windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#reference
-[az-extension-add]: /cli/azure/extension?view=azure-cli-latest#az-extension-add
-[az-extension-update]: /cli/azure/extension?view=azure-cli-latest#az-extension-update
+[az-extension-add]: /cli/azure/extension#az-extension-add
+[az-extension-update]: /cli/azure/extension#az-extension-update
 [dsr]: ../load-balancer/load-balancer-multivip-overview.md#rule-type-2-backend-port-reuse-by-using-floating-ip

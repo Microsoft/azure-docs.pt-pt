@@ -7,16 +7,16 @@ ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 02/18/2021
 ms.custom: template-concept
-ms.openlocfilehash: d850b47078f504b8ccb23d8c0a43811e99dc71d8
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 7650e80273567a693c3566fede068678b3cc5b17
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102098354"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102179413"
 ---
 # <a name="azure-percept-studio-overview"></a>Visão geral do estúdio Azure Percept
 
-O Azure Percept Studio é o único ponto de lançamento para criar modelos e soluções de IA de ponta. O Azure Percept Studio permite-lhe descobrir e completar fluxos de trabalho guiados que facilitam a integração de hardware capaz de IA de borda e poderosos serviços de nuvem Azure AI e IoT.
+[O Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819) é o único ponto de lançamento para criar modelos e soluções de IA de ponta. O Azure Percept Studio permite-lhe descobrir e completar fluxos de trabalho guiados que facilitam a integração de hardware capaz de IA de borda e poderosos serviços de nuvem Azure AI e IoT.
 
 No Studio, pode ver os dispositivos capazes de AI de edge como pontos finais para recolher dados de treino iniciais e em curso, bem como alvos de implementação para iterações de modelos. Ter acesso a dispositivos e dados de formação permite um rápido desenvolvimento de modelos de AI edge e iterativos para cenários de [visão](./tutorial-nocode-vision.md) e [fala.](./tutorial-no-code-speech.md)
 
@@ -32,8 +32,7 @@ Independentemente de ser um principiante ou um programador de soluções e model
 
 ## <a name="next-steps"></a>Passos seguintes
 
-<!-- [here](https://go.microsoft.com/fwlink/?linkid=2135819). -->
-
+- Confira [aqui](https://go.microsoft.com/fwlink/?linkid=2135819) o Azure Percept Studio
 - Obtenha o acessório Azure Percept DK e Azure Percept Audio na [loja online](https://go.microsoft.com/fwlink/p/?LinkId=2155270) da Microsoft
 - Complete o guia de arranque [rápido](./quickstart-percept-dk-set-up.md) de configuração Azure Percept DK
 - Experimente os tutoriais para construir soluções de [visão](./tutorial-nocode-vision.md) sem código e [de fala](./tutorial-no-code-speech.md)

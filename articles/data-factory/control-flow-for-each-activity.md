@@ -7,12 +7,12 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/23/2019
-ms.openlocfilehash: c59108752677fc33e28578c3c679be24108806d5
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: aeabd74117f99c7cac9bde0eda02b9627caf0804
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100385613"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102177794"
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>Atividade forEach na Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -68,12 +68,12 @@ As propriedades são descritas mais tarde neste artigo. A propriedade dos itens 
 
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-name | Nome da atividade para cada atividade. | String | Yes
-tipo | Deve ser definido para **ForEach** | String | Yes
+name | Nome da atividade para cada atividade. | String | Sim
+tipo | Deve ser definido para **ForEach** | String | Sim
 isSequential | Especifica se o laço deve ser executado sequencialmente ou em paralelo.  No máximo 20 iterações em loop podem ser executadas ao mesmo tempo em paralelo). Por exemplo, se tiver uma atividade ForEach a iterar sobre uma atividade de cópia com 10 conjuntos de dados de origem e pia diferentes com conjuntos de dados **isSequential** para Falso, todas as cópias são executadas de uma só vez. O padrão é falso. <br/><br/> Se "isSequential" estiver definido para Falso, certifique-se de que existe uma configuração correta para executar vários executáveis. Caso contrário, esta propriedade deve ser usada com cuidado para evitar conflitos de escrita incorrendo. Para mais informações, consulte a secção [execução paralela.](#parallel-execution) | Booleano | N.º O padrão é falso.
 lotCount | Contagem de lotes a utilizar para controlar o número de execuções paralelas (quando o isequential é definido como falso). Este é o limite superior de concência, mas a atividade para cada atividade nem sempre será executada neste número | Inteiro (máximo 50) | N.º O padrão é 20.
-Itens | Uma expressão que devolve um JSON Array para ser iterado. | Expressão (que devolve uma Matriz JSON) | Yes
-Atividades | As atividades a executar. | Lista de Actividades | Yes
+Itens | Uma expressão que devolve um JSON Array para ser iterado. | Expressão (que devolve uma Matriz JSON) | Sim
+Atividades | As atividades a executar. | Lista de Actividades | Sim
 
 ## <a name="parallel-execution"></a>Execução paralela
 Se **o isequential** for definido como falso, a atividade itera em paralelo com um máximo de 20 iterações simultâneas. Esta regulação deve ser utilizada com cuidado. Se as iterações simultâneas estiverem a escrever para a mesma pasta, mas para diferentes ficheiros, esta abordagem está bem. Se as iterações simultâneas estiverem a escrever simultaneamente para o mesmo ficheiro, esta abordagem provavelmente causa um erro. 
@@ -483,12 +483,13 @@ Aqui estão algumas limitações da atividade forEach e soluções alternativas 
 |---|---|
 | Não é possível aninhar um laço ForEach dentro de outro laço ForEach (ou um loop Until). | Desenhe um gasoduto de dois níveis onde o gasoduto exterior com o laço forEach exterior itera sobre um gasoduto interior com o laço aninhado. |
 | A atividade ForEach tem um máximo `batchCount` de 50 para processamento paralelo, e um máximo de 100.000 itens. | Desenhe um oleoduto de dois níveis onde o gasoduto exterior com a atividade ForEach itera sobre um gasoduto interior. |
+| O SetVariable não pode ser usado dentro de uma atividade ForEach que funciona em paralelo, uma vez que as variáveis são globais a todo o oleoduto, não são telescópios para um ForEach ou qualquer outra atividade. | Considere utilizar o ForEach sequencial ou utilizar o Pipeline executar dentro do ForEach (Variável/Parâmetro manuseado no pipeline infantil).|
 | | |
 
 ## <a name="next-steps"></a>Passos seguintes
 Consulte outras atividades de fluxo de controlo suportadas pela Data Factory: 
 
-- [Executar a Atividade do Pipeline](control-flow-execute-pipeline-activity.md)
+- [Executar atividade de gasoduto](control-flow-execute-pipeline-activity.md)
 - [Obter Atividade de Metadados](control-flow-get-metadata-activity.md)
 - [Atividade de Pesquisa](control-flow-lookup-activity.md)
 - [Atividade Web](control-flow-web-activity.md)

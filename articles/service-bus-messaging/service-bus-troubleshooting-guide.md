@@ -2,13 +2,13 @@
 title: Guia de resolução de problemas para a | de autocarros da Azure Service Microsoft Docs
 description: Saiba mais sobre dicas e recomendações de resolução de problemas para alguns problemas que poderá ver ao utilizar o Azure Service Bus.
 ms.topic: article
-ms.date: 09/16/2020
-ms.openlocfilehash: c5813f901f31f96633e11c2ed8162338bdd9bbf7
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.date: 03/03/2021
+ms.openlocfilehash: 7de39e5a3a7b6cbb8e5fa504f073023853e18366
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881219"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102179702"
 ---
 # <a name="troubleshooting-guide-for-azure-service-bus"></a>Guia de resolução de problemas para o ônibus de serviço Azure
 Este artigo fornece dicas e recomendações de resolução de problemas para alguns problemas que você pode ver ao usar o Azure Service Bus. 
@@ -52,6 +52,8 @@ Os seguintes passos podem ajudá-lo com problemas de conectividade/certificado/t
     ```
     Pode utilizar comandos equivalentes se estiver a utilizar outras ferramentas `tnc` `ping` como, e assim por diante. 
 - Obtenha um rastreio de rede se os passos anteriores não ajudarem e analisá-lo usando ferramentas como [o Wireshark](https://www.wireshark.org/). Contacte [o Microsoft Support](https://support.microsoft.com/) se necessário. 
+- Para encontrar os endereços IP certos para adicionar para permitir a lista para as suas ligações, consulte [os endereços IP que preciso adicionar para permitir a lista](service-bus-faq.md#what-ip-addresses-do-i-need-to-add-to-allow-list). 
+
 
 ## <a name="issues-that-may-occur-with-service-upgradesrestarts"></a>Problemas que podem ocorrer com atualizações de serviço/reinícios
 
@@ -97,7 +99,7 @@ Há um limite no número de fichas que são usadas para enviar e receber mensage
 ### <a name="resolution"></a>Resolução
 Abra uma nova ligação ao espaço de nomes do Service Bus para enviar mais mensagens.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Consulte os seguintes artigos: 
 
 - [Exceções do Gestor de Recursos Azure](service-bus-resource-manager-exceptions.md). Lista exceções geradas ao interagir com o Azure Service Bus utilizando o Azure Resource Manager (através de modelos ou chamadas diretas).

@@ -4,13 +4,13 @@ description: Este artigo descreve como gerir os utilizadores em Azure FarmBeats.
 author: uhabiba04
 ms.topic: article
 ms.date: 12/02/2019
-ms.author: v-umha
-ms.openlocfilehash: e2769e97dde7f0b99bd29da9c6eb65954bc84dd2
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.author: v-ummehabiba
+ms.openlocfilehash: de9a11cac9856417422bd72579cbca44233ab422
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677548"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102179906"
 ---
 # <a name="manage-users"></a>Gerir utilizadores
 
@@ -30,7 +30,7 @@ A Azure FarmBeats utiliza Azure AD para autenticação, controlo de acesso e fun
 
 A Azure FarmBeats suporta dois tipos de funções de utilizador:
 
- - **Admin** : Acesso completo às APIs do Azure FarmBeats Datahub. Os utilizadores desta função podem consultar todos os objetos Azure FarmBeats Datahub e realizar todas as operações a partir do Acelerador FarmBeats.
+ - **Admin**: Acesso completo às APIs do Azure FarmBeats Datahub. Os utilizadores desta função podem consultar todos os objetos Azure FarmBeats Datahub e realizar todas as operações a partir do Acelerador FarmBeats.
  - **Leia Apenas:** Acesso apenas de leitura a ApIs do FarmBeats Datahub. Os utilizadores podem ver as APIs do Datahub, os Dashboards do Acelerador e os mapas. Os utilizadores com acesso apenas de leitura não podem realizar operações como gerar mapas, associar dispositivos ou criar quintas.
 
 ## <a name="add-users-to-azure-farmbeats"></a>Adicionar utilizadores ao Azure FarmBeats
@@ -38,13 +38,13 @@ A Azure FarmBeats suporta dois tipos de funções de utilizador:
 Para adicionar utilizadores ao Azure FarmBeats:
 
 1. Iniciar sposição no Acelerador e, em seguida, selecionar o ícone **Definições.**
-2. Selecione **Controlo de Acesso** .
+2. Selecione **Controlo de Acesso**.
 
     ![O painel de definições de fazendas](./media/create-farms-in-azure-farmbeats/settings-users-1.png)
 
 3. Introduza o ID de e-mail do utilizador a que pretende conceder acesso.
-4. Selecione a função desejada, **Administrador** ou **Read-Only** .
-5. Selecione **Adicionar Função** .
+4. Selecione a função desejada, **Administrador** ou **Read-Only**.
+5. Selecione **Adicionar Função**.
 
 O utilizador adicionado pode agora aceder ao Azure FarmBeats (tanto o Datahub como o Accelerator).
 
@@ -53,8 +53,8 @@ O utilizador adicionado pode agora aceder ao Azure FarmBeats (tanto o Datahub co
 Para remover os utilizadores do sistema Azure FarmBeats:
 
 1. Iniciar sposição no Acelerador e, em seguida, selecionar o ícone **Definições.**
-2. Selecione **Controlo de Acesso** .
-3. Selecione **Eliminar** .
+2. Selecione **Controlo de Acesso**.
+3. Selecione **Eliminar**.
 
    O utilizador é eliminado do sistema. Receberá a seguinte mensagem de confirmação:
 
@@ -67,18 +67,18 @@ Para remover os utilizadores do sistema Azure FarmBeats:
 
 Siga os passos para adicionar os utilizadores ao Azure AD:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. No topo direito, selecione a sua conta e, em seguida, mude para o inquilino AZure AD que está associado com FarmBeats.
-3. Selecione **Utilizadores de Diretório Ativo Azure**  >  **Users** .
+3. Selecione **Utilizadores de Diretório Ativo Azure**  >  .
 
     É apresentada uma lista de utilizadores AD Azure.
 
-4. Para adicionar um utilizador ao diretório, selecione **Novo utilizador** . Para adicionar um utilizador externo, selecione **Novo utilizador de convidados** .
+4. Para adicionar um utilizador ao diretório, selecione **Novo utilizador**. Para adicionar um utilizador externo, selecione **Novo utilizador de convidados**.
 
     ![O painel "Todos os utilizadores"](./media/create-farms-in-azure-farmbeats/manage-users-3.png)
 
 5. Selecione o nome do novo utilizador e, em seguida, preencha os campos necessários para esse utilizador.
-6. Selecione **Criar** .
+6. Selecione **Criar**.
 
 Para obter informações sobre a gestão dos utilizadores de AD Azure, consulte [Adicionar ou eliminar utilizadores em Azure AD](../../active-directory/fundamentals/add-users-azure-active-directory.md).
 

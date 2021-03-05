@@ -6,18 +6,18 @@ ms.author: spelluru
 ms.date: 10/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f2c8d107c6de4965472c3fb04ff626841fb1f6ea
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: d0a94f346f9d3cf7a05a1ca6e1b37d4d008f3e75
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95810728"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102179668"
 ---
 # <a name="tutorial-update-inventory-using-azure-portal-and-topicssubscriptions"></a>Tutorial: atualizar inventário utilizando o portal do Azure e tópicos/subscrições
 
 O Microsoft Azure Service Bus é um serviço de mensagens na cloud multi-inquilino que envia informações entre aplicações e serviços. As operações assíncronas permitem o envio flexível de mensagens, juntamente com mensagens FIFO (first in, first out) e funcionalidades de publicação/subscrição. Este tutorial mostra como utilizar tópicos e subscrições do Service Bus num cenário de inventário de comércio a retalho, com canais de publicação/subscrição utilizando o portal do Azure e .NET.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
 > * Criar um tópico e uma ou mais subscrições do Service Bus para esse tópico com o portal do Azure
 > * Adicionar filtros de tópico com o código .NET
@@ -97,7 +97,7 @@ Para executar o código, faça o seguinte:
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Quando já não for necessário, elimine o espaço de nomes e a fila. Para tal, selecione estes recursos no portal e clique em **Eliminar**.
+Quando já não for necessário, elimine o espaço de nome e o tópico. Para tal, selecione estes recursos no portal e clique em **Eliminar**.
 
 ## <a name="understand-the-sample-code"></a>Compreender o código de exemplo
 

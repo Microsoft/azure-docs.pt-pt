@@ -1,14 +1,14 @@
 ---
 title: Experiências de gestão entre inquilinos
 description: A gestão de recursos delegados Azure permite uma experiência de gestão de inquilinos cruzados.
-ms.date: 03/02/2021
+ms.date: 03/04/2021
 ms.topic: conceptual
-ms.openlocfilehash: 844ac637f9fcaed5d78520923e5f7184fcde0d25
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 4a20f6efde9c3b01b4a2d7a1f111de23aec87647
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102050397"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102177924"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiências de gestão entre inquilinos
 
@@ -67,6 +67,7 @@ A maioria das tarefas e serviços podem ser realizados em recursos delegados ent
 [Azure Backup:](../../backup/index.yml)
 
 - Faça o back up e restaure os [dados dos clientes a partir de cargas de trabalho no local, VMs Azure, ações de ficheiros Azure, e muito mais](../..//backup/backup-overview.md#what-can-i-back-up)
+- Ver dados para todos os recursos de clientes delegados no [Backup Center](../../backup/backup-center-overview.md)
 - Utilize o [Backup Explorer](../../backup/monitor-azure-backup-with-backup-explorer.md) para ajudar a visualizar informações operacionais de itens de backup (incluindo recursos Azure ainda não configurados para backup) e informações de monitorização (empregos e alertas) para subscrições delegadas. O Backup Explorer está atualmente disponível apenas para dados Azure VM.
 - Use [Relatórios de Backup](../../backup/configure-reports.md) em subscrições delegadas para acompanhar tendências históricas, analisar o consumo de armazenamento de backup e auditar backups e restauros.
 

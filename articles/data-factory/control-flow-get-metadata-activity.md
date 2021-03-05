@@ -6,12 +6,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/25/2021
 ms.author: jingwang
-ms.openlocfilehash: 151f4352ce7c845050c899792fd7285c97f844bc
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: bd8fc3383d6d9a0afb7733cb94643623e6879d23
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102049989"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102178546"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Obtenha atividade de metadados na Azure Data Factory
 
@@ -83,8 +83,14 @@ Pode especificar os seguintes tipos de metadados na lista de atividades do Get M
 | colunaCount | Número de colunas no ficheiro ou tabela relacional. |
 | existe| Se existe um ficheiro, pasta ou tabela. Se `exists` for especificado na lista de campos De Metadados, a atividade não falhará mesmo que o ficheiro, a pasta ou a tabela não existam. Em vez disso, `exists: false` é devolvido na saída. |
 
->[!TIP]
->Quando pretende validar a existência de um ficheiro, pasta ou tabela, especifique `exists` na lista de casos de atividade de Metadados. Em seguida, pode verificar o `exists: true/false` resultado na saída da atividade. Se `exists` não for especificado na lista de campo, a atividade Get Metadadata falhará se o objeto não for encontrado.
+> [!TIP]
+> Quando pretende validar a existência de um ficheiro, pasta ou tabela, especifique `exists` na lista de casos de atividade de Metadados. Em seguida, pode verificar o `exists: true/false` resultado na saída da atividade. Se `exists` não for especificado na lista de campo, a atividade Get Metadadata falhará se o objeto não for encontrado.
+
+> [!NOTE]
+> Quando obtém metadados nas lojas de ficheiros e `modifiedDatetimeStart` configurar `modifiedDatetimeEnd` ou, a `childItems` saída inclui apenas ficheiros na trajetória especificada que têm um último tempo modificado dentro do intervalo especificado. Os artigos nas sub-dobradeiras não estão incluídos.
+
+> [!NOTE]
+> Para que a lista de campos **Estruturar** forneça a estrutura real de dados para textos delimitados e conjuntos de dados de formato Excel, deve ativar a `First Row as Header` propriedade, que é suportada apenas para estas fontes de dados.
 
 ## <a name="syntax"></a>Syntax
 

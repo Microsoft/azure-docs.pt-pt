@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 02/18/2021
 ms.custom: template-concept
-ms.openlocfilehash: 4c2ace609d67cc48d1b73bdb044e7048ebda21e7
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: c93ecdc138e757f84e995a69a6c3d7f1b5460abe
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102098337"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102179379"
 ---
 # <a name="azure-percept-dk-overview"></a>Visão geral de Azure Percept DK
 
@@ -24,7 +24,7 @@ Azure Percept DK é um kit de desenvolvimento de IA e IoT de borda projetado par
 
 - **A capacidade de executar IA no limite.** Com a aceleração de hardware incorporada, pode executar modelos de IA de visão sem ligação à nuvem.
 - **Raiz de hardware da segurança de confiança incorporada em**. Consulte esta visão geral da [Azure Percept Security](./overview-percept-security.md) para mais detalhes.
-- **Integração perfeita com [o Azure Percept Studio](./overview-azure-percept-studio.md)** e outros serviços Azure. Tais como, Azure IoT Hub, Azure Cognitive Services e [Live Video Analytics](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/overview)
+- **Integração perfeita com [o Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819)** e outros serviços Azure. Tais como, Azure IoT Hub, Azure Cognitive Services e [Live Video Analytics](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/overview)
 - **Integração perfeita com [opcional Azure Percept Audio](./overview-azure-percept-audio.md)**
 - **Suporte para as principais plataformas de IA.** Como ONNX e TensorFlow.
 - **Integração com o sistema de gradeamento 80/20**. Facilitando a construção de protótipos em ambientes de produção. Saiba mais sobre a [integração 80/20](./overview-8020-integration.md).

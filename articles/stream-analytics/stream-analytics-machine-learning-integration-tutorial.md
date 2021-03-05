@@ -1,18 +1,18 @@
 ---
 title: Integração Azure Stream Analytics com Azure Machine Learning Studio (clássico)
 description: Este artigo descreve como configurar rapidamente um simples trabalho Azure Stream Analytics que integra o Azure Machine Learning Studio (clássico), utilizando uma função definida pelo utilizador.
-author: krishna0815
-ms.author: krishmam
 ms.service: stream-analytics
+author: jasonwhowell
+ms.author: jasonh
 ms.topic: how-to
 ms.date: 08/12/2020
 ms.custom: seodec18
-ms.openlocfilehash: d7d74887b4b4e205645a45fa7e07768a1af73940
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 89b1b91270d1fe30ffcb5ae0caa5f319aa616683
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98015305"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102178529"
 ---
 # <a name="do-sentiment-analysis-with-azure-stream-analytics-and-azure-machine-learning-studio-classic"></a>Faça análise de sentimento com Azure Stream Analytics e Azure Machine Learning Studio (clássico)
 
@@ -126,7 +126,7 @@ O trabalho obtém a entrada do ficheiro CSV que carregou anteriormente para o ar
    |Contentor|Selecione o recipiente que criou no passo anterior.|
    |Formato de serialização de eventos|CSV|
 
-3. Selecione **Save** (Guardar).
+3. Selecione **Guardar**.
 
 ### <a name="configure-the-job-output"></a>Configure a produção de trabalho
 
@@ -144,7 +144,7 @@ O trabalho envia resultados para o mesmo armazenamento de bolhas onde obtém ent
    |Contentor|Selecione o recipiente que criou no passo anterior.|
    |Formato de serialização de eventos|CSV|
 
-3. Selecione **Save** (Guardar).
+3. Selecione **Guardar**.
 
 ### <a name="add-the-studio-classic-function"></a>Adicione a função Studio (clássico)
 
@@ -223,7 +223,7 @@ Também pode ver métricas relacionadas com a função studio (clássica). As se
 * **Pedidos de função** indicam o número de pedidos enviados para um serviço web Studio (clássico).  
 * **Eventos de função** indicam o número de eventos no pedido. Por padrão, cada pedido a um serviço web studio (clássico) contém até 1.000 eventos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)
 * [Referência do idioma de consulta do Azure Stream Analytics](/stream-analytics-query/stream-analytics-query-language-reference)

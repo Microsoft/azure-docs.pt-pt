@@ -2,13 +2,13 @@
 title: Azure Service Bus - Atualizar automaticamente as unidades de mensagens
 description: Este artigo mostra-lhe como pode utilizar automaticamente a atualização automática de unidades de mensagens de um espaço de nomes de Service Bus.
 ms.topic: how-to
-ms.date: 09/15/2020
-ms.openlocfilehash: 594f9987bfa5a7a439fb862a0345d0004785b189
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/03/2021
+ms.openlocfilehash: 7fc3aca82b8f01d70dec4fc2dac7842895417ec9
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101720601"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102177960"
 ---
 # <a name="automatically-update-messaging-units-of-an-azure-service-bus-namespace"></a>Atualizar automaticamente as unidades de mensagens de um espaço de nomes do Azure Service Bus 
 A autoescala permite-lhe ter a quantidade certa de recursos a correr para lidar com a carga na sua aplicação. Permite-lhe adicionar recursos para lidar com aumentos de carga e também economizar dinheiro removendo recursos que estão parados. Consulte [a visão geral da autoescala no Microsoft Azure](../azure-monitor/autoscale/autoscale-overview.md) para saber mais sobre a funcionalidade autoescala do Azure Monitor. 
@@ -136,8 +136,14 @@ A secção anterior mostra-lhe como adicionar uma condição predefinida para a 
     
     :::image type="content" source="./media/automate-update-messaging-units/repeat-specific-days-2.png" alt-text="escala para unidades de mensagens específicas - repita dias específicos":::
 
-> [!IMPORTANT]
-> Para saber mais sobre como funcionam as definições de autoescala, especialmente como escolhe um perfil ou condição e avalia várias regras, consulte [as definições de Definições de Autoescala](../azure-monitor/autoscale/autoscale-understanding-settings.md).          
+    
+    Para saber mais sobre como funcionam as definições de autoescala, especialmente como escolhe um perfil ou condição e avalia várias regras, consulte [as definições de Definições de Autoescala](../azure-monitor/autoscale/autoscale-understanding-settings.md).          
+
+    > [!NOTE]
+    > - As métricas que revês para tomar decisões sobre autoscalagem podem ter entre 5 a 10 minutos. Quando estiver a lidar com cargas de trabalho espinhosas, recomendamos que tenha durações mais curtas para aumentar e durações mais longas para reduzir (> 10 minutos) para garantir que existem unidades de mensagens suficientes para processar cargas de trabalho espinhosas. 
+    > 
+    > - Se vir falhas por falta de capacidade (sem unidades de mensagens disponíveis), levante connosco um bilhete de apoio.  
+
 
 ## <a name="next-steps"></a>Passos seguintes
 Para conhecer as unidades de mensagens, consulte as [mensagens Premium](service-bus-premium-messaging.md)

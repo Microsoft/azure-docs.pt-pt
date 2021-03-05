@@ -7,12 +7,12 @@ ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: azure, kinect,sdk, download update, mais recente, disponível, instalar
-ms.openlocfilehash: 2fd14781c42192c713d826729f8fab6c698d6321
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 591fcba4c887e298cf667c5d95c19184bc213ffe
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505482"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102179634"
 ---
 # <a name="azure-kinect-sensor-sdk-download"></a>Download SDK do sensor Azure Kinect
 
@@ -41,18 +41,23 @@ Atualmente, a única distribuição suportada é ubuntu 18.04. Para solicitar ap
 
 Em primeiro lugar, terá de configurar o [Repositório de Pacotes da Microsoft,](https://packages.microsoft.com/)seguindo as instruções [aqui](/windows-server/administration/linux-package-repository-for-microsoft-software).
 
-Agora, pode instalar os pacotes necessários. O `k4a-tools` pacote inclui o [Azure Kinect Viewer,](azure-kinect-viewer.md)o [Azure Kinect Recorder](record-sensor-streams-file.md)e a [Azure Kinect Firmware Tool](azure-kinect-firmware-tool.md). Para instalá-lo, executar
+Agora, pode instalar os pacotes necessários. O `k4a-tools` pacote inclui o [Azure Kinect Viewer,](azure-kinect-viewer.md)o [Azure Kinect Recorder](record-sensor-streams-file.md)e a [Azure Kinect Firmware Tool](azure-kinect-firmware-tool.md). Para instalar a embalagem, corra:
 
- `sudo apt install k4a-tools`
+`sudo apt install k4a-tools`
+ 
+Este comando instala os pacotes de dependência necessários para que as ferramentas funcionem corretamente, incluindo a versão mais recente de `libk4a<major>.<minor>` . Terá de adicionar regras udev para aceder ao Azure Kinect DK sem ser o utilizador principal. Para obter instruções, consulte [a configuração do dispositivo Linux](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/blob/develop/docs/usage.md#linux-device-setup). Como alternativa, pode lançar aplicações que utilizem o dispositivo como raiz.
 
- O `libk4a<major>.<minor>-dev` pacote contém os cabeçalhos e os ficheiros CMake para construir contra `libk4a` .
-O `libk4a<major>.<minor>` pacote contém os objetos partilhados necessários para executar executáveis que dependem de `libk4a` .
+O `libk4a<major>.<minor>-dev` pacote contém os cabeçalhos e ficheiros CMake para construir as suas aplicações/execuções contra `libk4a` .
 
- Os tutoriais básicos requerem o `libk4a<major>.<minor>-dev` pacote. Para instalá-lo, executar
+O `libk4a<major>.<minor>` pacote contém os objetos partilhados necessários para executar aplicações/execuções que dependem de `libk4a` .
 
- `sudo apt install libk4a1.1-dev`
+Os tutoriais básicos requerem o `libk4a<major>.<minor>-dev` pacote. Para instalar a embalagem, corra:
+
+`sudo apt install libk4a<major>.<minor>-dev` 
 
 Se o comando for bem sucedido, o SDK está pronto a ser utilizado.
+
+Certifique-se de que instala a versão correspondente com `libk4a<major>.<minor>` `libk4a<major>.<minor>-dev` . Por exemplo, se instalar o `libk4a4.1-dev` pacote, instale o pacote correspondente `libk4a4.1` que contenha a versão correspondente de ficheiros de objetos partilhados. Para obter a versão mais recente de `libk4a` , consulte os links na secção seguinte.
 
 ## <a name="change-log-and-older-versions"></a>Alterar log e versões mais antigas
 

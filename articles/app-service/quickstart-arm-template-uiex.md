@@ -9,12 +9,12 @@ ms.date: 10/16/2020
 ms.custom: subject-armqs, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 6e0368abcca5f0c38a7b143386d666e7908f30b2
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 7437a5208f94b435576b8a38dc65a6e798303a72
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101749077"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102179090"
 ---
 # <a name="quickstart-create-app-service-app-using-an-arm-template"></a>Quickstart: Criar app de Serviço de Aplicações usando um modelo ARM
 
@@ -133,7 +133,7 @@ az deployment group create --resource-group myResourceGroup --parameters webAppN
 <ul>
 <li>Criar um padrão <abbr title="Um recipiente lógico para recursos Azure relacionados que você pode gerir como uma unidade.">grupo de recursos</abbr>.</li>
 <li>Criar um padrão <abbr title="O plano que especifica a localização, tamanho e funcionalidades da fazenda de servidores web que hospeda a sua aplicação.">Plano do Serviço de Aplicações</abbr>.</li>
-<li><a href="/cli/azure/webapp?view=azure-cli-latest#az-webapp-create">Criar uma <abbr title="A representação da sua aplicação web, que contém o seu código de aplicação, nomes de anfitriões DNS, certificados e recursos relacionados. "> App Service</abbr></a> com o nome especificado.</li>
+<li><a href="/cli/azure/webapp#az-webapp-create">Criar uma <abbr title="A representação da sua aplicação web, que contém o seu código de aplicação, nomes de anfitriões DNS, certificados e recursos relacionados. "> App Service</abbr></a> com o nome especificado.</li>
 </ul>
 </details>
 
