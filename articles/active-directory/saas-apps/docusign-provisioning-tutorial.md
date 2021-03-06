@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configurar DocuSign para fornecimento automático de utilizadores com Diretório Ativo Azure Microsoft Docs'
+title: 'Tutorial: Configurar DocuSign para fornecimento automático de utilizadores com Diretório Ativo Azure| Microsoft Docs'
 description: Saiba como configurar um único sinal entre o Azure Ative Directory e o DocuSign.
 services: active-directory
 author: jeevansd
@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/21/2020
 ms.author: jeedes
-ms.openlocfilehash: dc3f307a21b746981a84b1c0747c4b22c448541f
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 71f95b08584a46fccb0975cd9285150573ac02d4
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96349910"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102218524"
 ---
 # <a name="tutorial-configure-docusign-for-automatic-user-provisioning"></a>Tutorial: Configurar docuSign para o fornecimento automático de utilizadores
 
@@ -97,7 +97,7 @@ Para obter mais informações sobre como ler os registos de provisionamento da A
 ## <a name="troubleshooting-tips"></a>Sugestões de Resolução de Problemas
 * A disponibilização de um perfil de papel ou permissão para um utilizador em Docusign pode ser realizada utilizando uma expressão nos mapeamentos do seu atributo utilizando as funções [de comutador](../app-provisioning/functions-for-customizing-application-data.md#switch) e [singleAppRoleAssignment.](../app-provisioning/functions-for-customizing-application-data.md#singleapproleassignment) Por exemplo, a expressão abaixo irá prever o ID "8032066" quando um utilizador tem a função "DS Admin" atribuída em Azure AD. Não providenciará nenhum perfil de permissão se o utilizador não for atribuído a uma função do lado AD do Azure. O ID pode ser recuperado a partir do [portal](https://support.docusign.com/articles/Default-settings-for-out-of-the-box-DocuSign-Permission-Profiles)DocuSign .
 
-Switch (SingleAppRoleAssignment ([appRoleAssignments])," "8032066", "DS Admin")
+Switch (SingleAppRoleAssignment ([appRoleAssignments])," "DS Admin", "8032066")
 
 
 ## <a name="additional-resources"></a>Recursos adicionais

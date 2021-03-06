@@ -1,5 +1,5 @@
 ---
-title: Compreenda a linguagem de consulta do Azure IoT Hub ! Microsoft Docs
+title: Compreenda a linguagem de consulta Azure IoT Hub | Microsoft Docs
 description: Developer guide - descrição da linguagem de consulta IoT Hub semelhante ao SQL usada para obter informações sobre gémeos de dispositivo/módulo e empregos do seu hub IoT.
 author: robinsh
 ms.service: iot-hub
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: robinsh
 ms.custom: devx-track-csharp
-ms.openlocfilehash: dbdc1c079f7ef2a06ece553e9fec542cbc05ea54
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: cae2bcb1a3302814a426fa0cb2dfb36ba1b013fa
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147669"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102218371"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>Linguagem de consulta do Hub IoT do dispositivo e módulos duplos, tarefas e encaminhamento de mensagens
 
@@ -234,7 +234,7 @@ O objeto de consulta expõe vários valores **Seguintes,** dependendo da opção
 ### <a name="limitations"></a>Limitações
 
 > [!IMPORTANT]
-> Os resultados da consulta podem ter alguns minutos de atraso no que diz respeito aos valores mais recentes em gémeos do dispositivo. Se consultar os gémeos individuais do dispositivo por ID, utilize a [API REST twin get twin](/java/api/com.microsoft.azure.sdk.iot.device.devicetwin?view=azure-java-stable). Esta API devolve sempre os valores mais recentes e tem limites de estrangulamento mais elevados. Pode emitir diretamente a API REST ou utilizar a funcionalidade equivalente num dos [SDKs de serviço Azure IoT Hub](iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks).
+> Os resultados da consulta podem ter alguns minutos de atraso no que diz respeito aos valores mais recentes em gémeos do dispositivo. Se consultar os gémeos individuais do dispositivo por ID, utilize a [API REST twin get twin](/java/api/com.microsoft.azure.sdk.iot.device.devicetwin). Esta API devolve sempre os valores mais recentes e tem limites de estrangulamento mais elevados. Pode emitir diretamente a API REST ou utilizar a funcionalidade equivalente num dos [SDKs de serviço Azure IoT Hub](iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks).
 
 Atualmente, as comparações são suportadas apenas entre tipos primitivos (sem objetos), por `... WHERE properties.desired.config = properties.reported.config` exemplo, só são suportadas se essas propriedades tiverem valores primitivos.
 
@@ -403,7 +403,7 @@ A um nível elevado, uma *expressão:*
 * Avalia uma instância do tipo JSON (como Boolean, número, corda, matriz ou objeto).
 * É definido através da manipulação de dados provenientes do documento JSON do dispositivo e das constantes utilizando operadores e funções incorporados.
 
-*As condições* são expressões que avaliam a um Boolean. Qualquer constante diferente da **realidade** booleana é considerada **falsa.** Esta regra inclui **nulo,** **indefinido,** qualquer objeto ou instância de matriz, qualquer cadeia e o **falso**Boolean .
+*As condições* são expressões que avaliam a um Boolean. Qualquer constante diferente da **realidade** booleana é considerada **falsa.** Esta regra inclui **nulo,** **indefinido,** qualquer objeto ou instância de matriz, qualquer cadeia e o **falso** Boolean .
 
 A sintaxe para expressões é:
 

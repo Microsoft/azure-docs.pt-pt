@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 52413f36a9ba5c7b7a3c68567a65a20bc3ce4090
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: c354435f689f5182dd368fd53fdab28f1ab63d48
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100585200"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102218796"
 ---
 # <a name="analyze-logs-and-metrics-with-diagnostics-settings"></a>Analisar registos e métricas com definições de diagnóstico
 
@@ -27,11 +27,11 @@ Utilizando a funcionalidade de diagnóstico da Azure Spring Cloud, pode analisar
 Escolha a categoria de registo e a categoria métrica que pretende monitorizar.
 
 > [!TIP]
-> Só querem transmitir os vossos registos? Confira este [comando Azure CLI!](/cli/azure/ext/spring-cloud/spring-cloud/app?preserve-view=true&view=azure-cli-latest#ext-spring-cloud-az-spring-cloud-app-logs)
+> Só querem transmitir os vossos registos? Confira este [comando Azure CLI!](/cli/azure/ext/spring-cloud/spring-cloud/app#ext-spring-cloud-az-spring-cloud-app-logs)
 
 ## <a name="logs"></a>Registos
 
-|Registo | Description |
+|Registo | Descrição |
 |----|----|
 | **AplicaçãoConsola** | Registo de consola de todas as aplicações do cliente. |
 | **SystemLogs** | Atualmente, apenas os registos [do Servidor Config da Nuvem de primavera](https://cloud.spring.io/spring-cloud-config/reference/html/#_spring_cloud_config_server) nesta categoria. |

@@ -4,12 +4,12 @@ description: Saiba como criar e gerir várias piscinas de nó para um cluster no
 services: container-service
 ms.topic: article
 ms.date: 04/08/2020
-ms.openlocfilehash: 07c4628a17d2c76e8e4608c9c6d059a81a9c378f
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 3e029695e9dce79473ada0bae3e7f0bbfd30db89
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/05/2021
-ms.locfileid: "102182864"
+ms.locfileid: "102218490"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Criar e gerir múltiplos conjuntos de nós para um cluster no Azure Kubernetes Service (AKS)
 
@@ -130,9 +130,11 @@ Uma carga de trabalho pode exigir dividir os nós de um cluster em piscinas sepa
 #### <a name="limitations"></a>Limitações
 
 * Todas as sub-redes atribuídas a nodepools devem pertencer à mesma rede virtual.
-* As cápsulas do sistema devem ter acesso a todos os nós do cluster para fornecer funcionalidades críticas, como a resolução de DNS através do coreDNS.
-* A atribuição de uma sub-rede única por piscina de nó é limitada a Azure CNI durante a pré-visualização.
-* A utilização de políticas de rede com uma sub-rede única por piscina de nó não é suportada durante a pré-visualização.
+* As cápsulas do sistema devem ter acesso a todos os nós/cápsulas do cluster para fornecer funcionalidades críticas, tais como resolução de DNS e túneis de kubectl logs/exec/port-forward proxy.
+* Se expandir o seu VNET depois de criar o cluster, tem de atualizar o seu cluster (efetue qualquer operação de clster gerida, mas as operações de piscina de nó não contam) antes de adicionar uma sub-rede fora do cidr original. AKS vai errar no pool do agente adicionar agora, embora nós originalmente permitimos. Se não sabe como conciliar o seu cluster, apresente um bilhete de apoio. 
+* A Política de Rede Calico não é apoiada. 
+* A política de rede Azure não é apoiada.
+* Kube-proxy espera um único cidr contíguo e usa-o para três optmizações. Veja este [K.E.P.](https://github.com/kubernetes/enhancements/blob/master/keps/sig-network/20191104-iptables-no-cluster-cidr.md ) e --cluster-cidr [aqui](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/) para detalhes. Em azure cni a sub-rede da piscina de nó primeiro será dada ao kube-proxy. 
 
 Para criar uma piscina de nó com uma sub-rede dedicada, passe o ID do recurso sub-rede como um parâmetro adicional ao criar um conjunto de nós.
 

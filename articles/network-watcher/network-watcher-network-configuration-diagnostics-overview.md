@@ -1,5 +1,5 @@
 ---
-title: Introdução aos Diagnósticos de Configuração de Rede no Observador da Rede Azure Microsoft Docs
+title: Introdução aos diagnósticos de configuração de rede no Azure Network Watcher | Microsoft Docs
 description: Esta página fornece uma visão geral do Observador de Rede - Diagnóstico de Configuração de Rede
 services: network-watcher
 documentationcenter: na
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2020
 ms.author: damendo
-ms.openlocfilehash: ad60b0be8a9a5341c71d760f98c0db84a72763c2
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: d500420893fc92e75c4d6f32f42e9f1d92c87b68
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94951524"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102218711"
 ---
 # <a name="introduction-to-network-configuration-diagnostics-in-azure-network-watcher"></a>Introdução aos Diagnósticos de Configuração de Rede no Observador de Redes Azure
 
@@ -41,4 +41,4 @@ Para um determinado fluxo, a ferramenta NCD executa uma simulação do fluxo e d
 Utilizar diagnóstico de configuração de rede através de outras interfaces
  - [API REST](/rest/api/network-watcher/networkwatchers/getnetworkconfigurationdiagnostic)
  - [PowerShell](/powershell/module/az.network/invoke-aznetworkwatchernetworkconfigurationdiagnostic?view=azps-4.6.1)
- - [CLI do Azure](/cli/azure/network/watcher?view=azure-cli-latest#az_network_watcher_run_configuration_diagnostic)
+ - [CLI do Azure](/cli/azure/network/watcher#az_network_watcher_run_configuration_diagnostic)

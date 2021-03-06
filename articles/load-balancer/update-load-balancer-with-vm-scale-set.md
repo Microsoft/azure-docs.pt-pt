@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/29/2020
 ms.author: irenehua
-ms.openlocfilehash: 952889777e4236d7fa03fad5b1bdbf98499f7066
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 52f2a2ed301bf734ad605a2ee68a0ab672a97014
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101721315"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102218728"
 ---
 # <a name="update-or-delete-a-load-balancer-used-by-virtual-machine-scale-sets"></a>Atualizar ou eliminar um equilibrador de carga utilizado por conjuntos de escala de máquina virtual
 
@@ -30,7 +30,7 @@ Quando trabalha com conjuntos de balança de máquinas virtuais e uma instância
 
 ## <a name="set-up-a-load-balancer-for-scaling-out-virtual-machine-scale-sets"></a>Configurar um equilibrador de carga para escalonar conjuntos de escala de máquina virtual
 
-Certifique-se de que a instância do Azure Load Balancer tem uma [piscina NAT de entrada](/cli/azure/network/lb/inbound-nat-pool?view=azure-cli-latest) configurada e que o conjunto de balanças de máquina virtual é colocado no pool de backend do equilibrador de carga. O Load Balancer criará automaticamente novas regras NAT de entrada na piscina NAT de entrada quando forem adicionadas novas instâncias de máquina virtual ao conjunto de escala de máquina virtual.
+Certifique-se de que a instância do Azure Load Balancer tem uma [piscina NAT de entrada](/cli/azure/network/lb/inbound-nat-pool) configurada e que o conjunto de balanças de máquina virtual é colocado no pool de backend do equilibrador de carga. O Load Balancer criará automaticamente novas regras NAT de entrada na piscina NAT de entrada quando forem adicionadas novas instâncias de máquina virtual ao conjunto de escala de máquina virtual.
 
 Para verificar se a piscina NAT de entrada está devidamente configurada:
 
@@ -44,7 +44,7 @@ As regras individuais de entrada não podem ser adicionadas. Mas pode adicionar 
 
 Para adicionar um conjunto inteiro de regras NAT de entrada para os conjuntos de escala de máquina virtual, primeiro crie uma piscina NAT de entrada no equilibrador de carga. Em seguida, faça referência à piscina NAT de entrada a partir do perfil de rede do conjunto de balanças de máquinas virtuais. É mostrado um exemplo completo utilizando o CLI.
 
-A nova piscina NAT de entrada não deve ter uma gama de portas frontal sobreposta com piscinas NAT existentes. Para visualizar as piscinas NAT existentes que são configurados, utilize este [comando CLI](/cli/azure/network/lb/inbound-nat-pool?view=azure-cli-latest#az_network_lb_inbound_nat_pool_list):
+A nova piscina NAT de entrada não deve ter uma gama de portas frontal sobreposta com piscinas NAT existentes. Para visualizar as piscinas NAT existentes que são configurados, utilize este [comando CLI](/cli/azure/network/lb/inbound-nat-pool#az_network_lb_inbound_nat_pool_list):
   
 ```azurecli-interactive
   az network lb inbound-nat-pool create 

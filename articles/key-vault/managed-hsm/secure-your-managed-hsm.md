@@ -9,12 +9,12 @@ ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 99918d039052c9913400b85ac3caa4a1a5481155
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 5a3fcc10f318f2a8065550a48eb2bfb4bbdd4915
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445324"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102218405"
 ---
 # <a name="secure-access-to-your-managed-hsms"></a>Acesso seguro aos seus HSMs geridos
 
@@ -40,7 +40,7 @@ Para iniciar seduca em Azure usando o CLI pode escrever:
 az login
 ```
 
-Para obter mais informações sobre as opções de login através do CLI, consulte [o login com o Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest&preserve-view=true)
+Para obter mais informações sobre as opções de login através do CLI, consulte [o login com o Azure CLI](/cli/azure/authenticate-azure-cli)
 
 ## <a name="example"></a>Exemplo
 
@@ -48,9 +48,9 @@ Neste exemplo, estamos a desenvolver uma aplicação que usa uma chave RSA de 2.
 
 Identificámos as seguintes funções que gerem, implementam e auditam a nossa aplicação:
 
-- **Equipa de segurança** : Pessoal de TI do gabinete do CSO (Chief Security Officer) ou colaboradores semelhantes. A equipa de segurança é responsável pela proteção adequada das chaves. As teclas RSA ou CE para a assinatura e as teclas RSA ou AES para encriptação de dados.
-- **Desenvolvedores e operadores** : O pessoal que desenvolve a aplicação e a implementa em Azure. Os membros desta equipa não fazem parte da equipa de segurança. Não deviam ter acesso a dados sensíveis como as chaves RSA. Apenas a aplicação que implementam deve ter acesso a estes dados sensíveis.
-- **Auditores** : Este papel é para os contribuintes que não são membros do pessoal de desenvolvimento ou de TI geral. Revejam o uso e manutenção de certificados, chaves e segredos para garantir o cumprimento das normas de segurança.
+- **Equipa de segurança**: Pessoal de TI do gabinete do CSO (Chief Security Officer) ou colaboradores semelhantes. A equipa de segurança é responsável pela proteção adequada das chaves. As teclas RSA ou CE para a assinatura e as teclas RSA ou AES para encriptação de dados.
+- **Desenvolvedores e operadores**: O pessoal que desenvolve a aplicação e a implementa em Azure. Os membros desta equipa não fazem parte da equipa de segurança. Não deviam ter acesso a dados sensíveis como as chaves RSA. Apenas a aplicação que implementam deve ter acesso a estes dados sensíveis.
+- **Auditores**: Este papel é para os contribuintes que não são membros do pessoal de desenvolvimento ou de TI geral. Revejam o uso e manutenção de certificados, chaves e segredos para garantir o cumprimento das normas de segurança.
 
 Há outro papel que está fora do âmbito da nossa aplicação: o administrador de subscrição (ou grupo de recursos). O administrador de subscrição estabelece permissões de acesso iniciais para a equipa de segurança. Concedem acesso à equipa de segurança utilizando um grupo de recursos que tem os recursos exigidos pela aplicação.
 

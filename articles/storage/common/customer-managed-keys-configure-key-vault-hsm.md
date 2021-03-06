@@ -6,17 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/21/2020
+ms.date: 03/05/2021
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 2f57e801720c6b546a58b216422629d192e8d2e6
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: f9be9272a898ad48f3553d4c5e48952e1fcdde81
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843320"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102218643"
 ---
 # <a name="configure-encryption-with-customer-managed-keys-stored-in-azure-key-vault-managed-hsm-preview"></a>Configure a encriptação com chaves geridas pelo cliente armazenadas no Azure Key Vault Managed HSM (pré-visualização)
 
@@ -24,7 +24,10 @@ O Azure Storage encripta todos os dados numa conta de armazenamento em repouso. 
 
 Este artigo mostra como configurar a encriptação com chaves geridas pelo cliente armazenadas num HSM gerido através da utilização do Azure CLI. Para aprender a configurar a encriptação com chaves geridas pelo cliente armazenadas num cofre de chaves, consulte [a encriptação Configure com as teclas geridas pelo cliente armazenadas no Cofre da Chave Azure](customer-managed-keys-configure-key-vault.md).
 
-> [!NOTE]
+> [!IMPORTANT]
+>
+> A encriptação com teclas geridas pelo cliente armazenadas no Azure Key Vault Managed HSM está atualmente em **PREVIEW**. Consulte os [Termos Complementares de Utilização para o Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para termos legais aplicáveis às funcionalidades do Azure que estejam em versão beta, pré-visualização ou ainda não lançadas em disponibilidade geral.
+>
 > Azure Key Vault e Azure Key Vault Gerido HSM suportam as mesmas APIs e interfaces de gestão para configuração.
 
 ## <a name="assign-an-identity-to-the-storage-account"></a>Atribuir uma identidade à conta de armazenamento

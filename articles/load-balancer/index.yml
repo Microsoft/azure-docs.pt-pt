@@ -11,12 +11,12 @@ metadata:
   author: asudbring
   ms.author: allensu
   ms.date: 05/07/2020
-  ms.openlocfilehash: b5660f58368bd866035b4cf772f8bd8564ed3b9c
-  ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+  ms.openlocfilehash: 8b1d0117c478ba1b927a4818ad8a4eefce13e04b
+  ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 02/17/2021
-  ms.locfileid: "100596835"
+  ms.lasthandoff: 03/05/2021
+  ms.locfileid: "102218745"
 landingContent:
 - title: Acerca do Balanceador de Carga
   linkLists:
@@ -109,7 +109,7 @@ landingContent:
     - text: Azure PowerShell
       url: /powershell/module/az.network/?view=azps-2.5.0#load_balancer
     - text: CLI do Azure
-      url: /cli/azure/network/lb?view=azure-cli-latest
+      url: /cli/azure/network/lb
     - text: Modelos de ARM
       url: /azure/templates/microsoft.network/loadbalancers#quickstart-templates
     - text: Perguntas mais frequentes do Balanceador de Carga

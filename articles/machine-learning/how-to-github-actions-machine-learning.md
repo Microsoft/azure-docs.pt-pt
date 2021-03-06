@@ -10,12 +10,12 @@ ms.author: jukullam
 ms.date: 10/19/2020
 ms.topic: conceptual
 ms.custom: github-actions-azure
-ms.openlocfilehash: f5abeee3b1e1e44f5ce0423fc7f8170644d74508
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: b21f53f8ec76257fc19e0e30cd025ecc46ad2188
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880479"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102218286"
 ---
 # <a name="use-github-actions-with-azure-machine-learning"></a>Use ações do GitHub com aprendizagem de máquinas Azure
 
@@ -55,7 +55,7 @@ Crie um novo repositório fora das [Operações ML com as ações do GitHub e o 
 
 ## <a name="generate-deployment-credentials"></a>Gerar credenciais de implantação
 
-Pode criar um [principal de serviço](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) com o comando [ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) no [Azure CLI](/cli/azure/). Executar este comando com [Azure Cloud Shell](https://shell.azure.com/) no portal Azure ou selecionando o botão **Try it.**
+Pode criar um [principal de serviço](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) com o comando [ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) no [Azure CLI](/cli/azure/). Executar este comando com [Azure Cloud Shell](https://shell.azure.com/) no portal Azure ou selecionando o botão **Try it.**
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name "myML" --role contributor \
@@ -225,7 +225,7 @@ jobs:
 
 Quando o seu grupo de recursos e repositório já não forem necessários, limpe os recursos que implementou eliminando o grupo de recursos e o seu repositório GitHub. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Criar e executar gasodutos de aprendizagem automática com Azure Machine Learning SDK](./how-to-create-machine-learning-pipelines.md)

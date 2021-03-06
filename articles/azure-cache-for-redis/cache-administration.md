@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/05/2017
 ms.author: yegu
-ms.openlocfilehash: 156dfd1d9553e369357eb68225e722222a59d847
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0a79b0b5b5f21d1c75fec6b062f1ca91cfe9dd1f
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91838675"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102219204"
 ---
 # <a name="how-to-administer-azure-cache-for-redis"></a>Como administrar Azure Cache para Redis
 Este tópico descreve como executar tarefas de administração como [reiniciar](#reboot) e [agendar atualizações](#schedule-updates) para o seu Azure Cache para instâncias Redis.
@@ -57,6 +57,8 @@ Sim, se reiniciar a cache, todas as ligações do cliente estão limpas. O reboo
 > 
 > 
 
+
+
 ### <a name="will-i-lose-data-from-my-cache-if-i-do-a-reboot"></a>Vou perder dados da minha cache se eu fizer um reboot?
 Se reiniciar os nós **Master** e **Replica,** todos os dados na cache (ou nesse fragmento se estiver a utilizar uma cache premium com clustering ativado) podem ser perdidos, mas isso também não está garantido. Se tiver [uma persistência](cache-how-to-premium-persistence.md)de dados configurada, a cópia de segurança mais recente será restaurada quando a cache voltar a funcionar, mas quaisquer gravações que tenham ocorrido após a cópia de segurança são perdidas.
 
@@ -69,8 +71,9 @@ Sim, para obter instruções powerShell consulte [reiniciar uma cache Azure para
 A lâmina **de atualização da Agenda** permite-lhe designar uma janela de manutenção para a sua instância de cache. Uma janela de manutenção permite-lhe controlar os dias e os tempos de uma semana durante o qual o(s) VM(s) que hospeda o seu cache pode ser atualizado. O Azure Cache para Redis fará um melhor esforço para iniciar e terminar a atualização do software do servidor Redis dentro da janela de tempo especificada que define.
 
 > [!NOTE] 
-> A janela de manutenção aplica-se apenas às atualizações do servidor Redis e não a quaisquer atualizações ou atualizações do Azure ao sistema operativo dos VMs que acolhem a cache.
+> A janela de manutenção aplica-se às atualizações e atualizações do servidor Redis ao Sistema Operativo dos VMs que hospedam a cache. A janela de manutenção não se aplica às atualizações do Host OS aos Anfitriões que hospedam os VMs de cache ou outros componentes de rede Azure. Em casos raros, em que as caches são hospedadas em modelos mais antigos (pode dizer se a sua cache está num modelo mais antigo se o nome DNS da cache se resolver a um sufixo de "cloudapp.net", "chinacloudapp.cn", "usgovcloudapi.net" ou "cloudapi.de"), a janela de manutenção também não se aplica às atualizações do Guest OS.
 >
+
 
 ![Agendar atualizações](./media/cache-administration/redis-schedule-updates.png)
 

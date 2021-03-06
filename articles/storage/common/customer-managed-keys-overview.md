@@ -5,17 +5,17 @@ description: Pode utilizar a sua própria chave de encriptação para proteger o
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 09/15/2020
+ms.date: 03/05/2021
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 9afce964652d2bedbe105a8a750a93d2f37eef85
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: 92a83e03d486d0bf9344fbdcf705703ea788528c
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98179036"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102218575"
 ---
 # <a name="customer-managed-keys-for-azure-storage-encryption"></a>Chaves geridas pelo cliente para encriptação de armazenamento Azure
 
@@ -25,7 +25,10 @@ Tem de utilizar o Azure Key Vault ou o Azure Key Vault Managed Hardware Security
 
 Para mais informações sobre o Azure Key Vault, veja [o que é Azure Key Vault?](../../key-vault/general/overview.md)
 
-> [!NOTE]
+> [!IMPORTANT]
+>
+> A encriptação com teclas geridas pelo cliente armazenadas no Azure Key Vault Managed HSM está atualmente em **PREVIEW**. Consulte os [Termos Complementares de Utilização para o Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para termos legais aplicáveis às funcionalidades do Azure que estejam em versão beta, pré-visualização ou ainda não lançadas em disponibilidade geral.
+>
 > Azure Key Vault e Azure Key Vault Gerido HSM suportam as mesmas APIs e interfaces de gestão para configuração.
 
 ## <a name="about-customer-managed-keys"></a>Sobre chaves geridas pelo cliente
@@ -93,14 +96,14 @@ Pode revogar o acesso da conta de armazenamento à chave gerida pelo cliente a q
 - [Obtenha metadados blob](/rest/api/storageservices/get-blob-metadata)
 - [Definir metadados blob](/rest/api/storageservices/set-blob-metadata)
 - [Snapshot Blob](/rest/api/storageservices/snapshot-blob), quando chamado com o cabeçalho do `x-ms-meta-name` pedido
-- [Bolha de cópia](/rest/api/storageservices/copy-blob)
+- [Copiar Blob](/rest/api/storageservices/copy-blob)
 - [Bolha de cópia da URL](/rest/api/storageservices/copy-blob-from-url)
 - [Set Blob Tier](/rest/api/storageservices/set-blob-tier) (Definir Camada de Blob)
 - [Colocar Bloco](/rest/api/storageservices/put-block)
 - [Coloque o bloco de URL](/rest/api/storageservices/put-block-from-url)
 - [Bloco de Apêndice](/rest/api/storageservices/append-block)
 - [Bloco de apêndice de URL](/rest/api/storageservices/append-block-from-url)
-- [Coloque Blob](/rest/api/storageservices/put-blob)
+- [Colocar o Blob](/rest/api/storageservices/put-blob)
 - [Colocar página](/rest/api/storageservices/put-page)
 - [Colocar página a partir de URL](/rest/api/storageservices/put-page-from-url)
 - [Bolha de cópia incremental](/rest/api/storageservices/incremental-copy-blob)

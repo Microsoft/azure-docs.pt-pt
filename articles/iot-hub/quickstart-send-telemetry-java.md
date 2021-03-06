@@ -16,12 +16,12 @@ ms.custom:
 - devx-track-java
 - devx-track-azurecli
 ms.date: 01/27/2021
-ms.openlocfilehash: c0f1272bf195c6d5ef2dfe88cc6541f731fa51c8
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: df6673f6e8e448b0208ee53c17cf86f55d6d9f8f
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98928558"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102219170"
 ---
 # <a name="quickstart-send-telemetry-to-an-azure-iot-hub-and-read-it-with-a-java-application"></a>Quickstart: Envie telemetria para um hub Azure IoT e leia-o com uma aplicação Java
 
@@ -33,7 +33,7 @@ Neste arranque rápido, você envia telemetria para Azure IoT Hub e lê-lo com u
 
 * Uma conta Azure com uma subscrição ativa. [Crie um de graça.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 
-* Kit de Desenvolvimento Java SE 8. Em [Java, suporte a longo prazo para Azure e Azure Stack,](/java/azure/jdk/?view=azure-java-stable&preserve-view=true)sob **suporte a longo prazo,** selecione Java **8**.
+* Kit de Desenvolvimento Java SE 8. Em [Java, suporte a longo prazo para Azure e Azure Stack,](/java/azure/jdk/)sob **suporte a longo prazo,** selecione Java **8**.
 
     Pode verificar qual a versão atual do Java no seu computador de desenvolvimento através do seguinte comando:
 
@@ -192,7 +192,7 @@ A aplicação back-end liga-se ao ponto final de **eventos** do lado do serviço
 
 [!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste quickstart, você montou um hub IoT, registou um dispositivo, enviou telemetria simulada para o hub usando uma aplicação Java, e leu a telemetria do hub usando uma simples aplicação de back-end.
 
