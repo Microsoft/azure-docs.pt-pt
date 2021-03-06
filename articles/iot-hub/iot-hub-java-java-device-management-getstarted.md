@@ -1,5 +1,5 @@
 ---
-title: Começa com a gestão de dispositivos Azure IoT Hub (Java) Microsoft Docs
+title: Começa com a gestão de dispositivos Azure IoT Hub (Java) | Microsoft Docs
 description: Como utilizar a gestão do dispositivo Azure IoT Hub para iniciar um reboot remoto do dispositivo. Utiliza o dispositivo Azure IoT SDK para a Java para implementar uma aplicação de dispositivo simulado que inclui um método direto e o serviço Azure IoT SDK para a Java implementar uma aplicação de serviço que invoca o método direto.
 author: wesmc7777
 manager: philmea
@@ -10,12 +10,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.custom: mqtt, devx-track-java
-ms.openlocfilehash: 28b82c87442257124f286a5e7c949afe7f001019
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: f05e1a458bc83fe4042c4b6cf35d9aa2095868ef
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92146930"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102217963"
 ---
 # <a name="get-started-with-device-management-java"></a>Começar com a gestão do dispositivo (Java)
 
@@ -54,7 +54,7 @@ No final deste tutorial, você tem duas aplicações de consola Java:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [Kit de Desenvolvimento Java SE 8](/java/azure/jdk/?view=azure-java-stable). Certifique-se de que seleciona **Java 8** sob **suporte a longo prazo** para obter downloads para JDK 8.
+* [Kit de Desenvolvimento Java SE 8](/java/azure/jdk/). Certifique-se de que seleciona **Java 8** sob **suporte a longo prazo** para obter downloads para JDK 8.
 
 * [Maven 3](https://maven.apache.org/download.cgi)
 
@@ -132,7 +132,7 @@ Esta aplicação de consola conecta-se ao seu IoT Hub para invocar o método dir
 
 6. Guarde e feche o ficheiro **pom.xml**.
 
-7. Utilizando um editor de texto, abra o **ficheiro de fonte de trigger-reboot\src\main\java\com\mycompany\app\App.java** source.
+7. Utilizando um editor de texto, abra o **ficheiro de origem do trigger-reboot\src\main\java\com\mycompany\app\App.java** ficheiro de origem.
 
 8. Adicione as seguintes declarações de **importação** ao ficheiro:
 
@@ -229,7 +229,7 @@ Esta aplicação de consola conecta-se ao seu IoT Hub para invocar o método dir
     System.out.println("Shutting down sample...");
     ```
 
-15. Guarde e feche o **gatilho-reboot\src\main\java\com\mycompany\app\App.java.**
+15. Guarde e feche o **ficheiro de trigger-reboot\src\main\java\com\mycompany\app\App.java** ficheiro.
 
 16. Construa a aplicação de **back-end reboot do gatilho** e corrija quaisquer erros. No seu comando, navegue na pasta **de reinicialização** do gatilho e execute o seguinte comando:
 
@@ -292,7 +292,7 @@ Nesta secção, cria-se uma aplicação de consola Java que simula um dispositiv
 
 6. Guarde e feche o ficheiro **pom.xml**.
 
-7. Utilizando um editor de texto, abra o **ficheiro de origem simulado\src\main\java\com\mycompany\app\App.java** source.
+7. Utilizando um editor de texto, abra o **dispositivo simulado\src\main\java\com\mycompany\app\App.java** ficheiro de origem.
 
 8. Adicione as seguintes declarações de **importação** ao ficheiro:
 
@@ -451,7 +451,7 @@ Nesta secção, cria-se uma aplicação de consola Java que simula um dispositiv
     System.out.println("Shutting down...");
     ```
 
-19. Guarde e feche o ficheiro simulado\src\main\java\com\mycompany\app\App.java.
+19. Guarde e feche o ficheiro simulado\src\main\java\com\mycompany\app\App.java ficheiro.
 
 20. Construa a aplicação **de dispositivo simulado** e corrija quaisquer erros. No seu comando, navegue para a pasta do **dispositivo simulado** e execute o seguinte comando:
 

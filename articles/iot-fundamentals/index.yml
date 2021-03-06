@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 09/04/2019
-  ms.openlocfilehash: e7f3d47e17b090d04db6a52260c3a4c70db91fba
-  ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+  ms.openlocfilehash: 496cf2e940f1d9f76fab631bc419819cd32e8c15
+  ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
   ms.translationtype: MT
   ms.contentlocale: pt-PT
   ms.lasthandoff: 03/05/2021
-  ms.locfileid: "102199106"
+  ms.locfileid: "102216892"
 highlightedContent:
   items:
   - title: O que é o IoT do Azure?
@@ -184,10 +184,10 @@ tools:
     url: https://github.com/Azure/azure-iot-sdk-python
   - title: Referência de SDK do Azure IoT para Node.js
     imageSrc: https://docs.microsoft.com/media/logos/logo_nodejs.svg
-    url: /javascript/api/overview/azure/iot-hub?view=azure-node-latest
+    url: /javascript/api/overview/azure/iot-hub
   - title: Referência de SDK do Azure IoT para Java
     imageSrc: https://docs.microsoft.com/media/logos/logo_java.svg
-    url: /java/api/com.microsoft.azure.sdk.iot.service?view=azure-java-stable
+    url: /java/api/com.microsoft.azure.sdk.iot.service
   - title: Referência de SDK do Azure IoT para .NET
     imageSrc: https://docs.microsoft.com/media/logos/logo_NET.svg
     url: /dotnet/api/overview/azure/iot?view=azure-dotnet

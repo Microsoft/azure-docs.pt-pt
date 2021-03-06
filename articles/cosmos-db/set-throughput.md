@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/25/2021
-ms.openlocfilehash: 74addd691e3a6c42f48100292542cfd3563b5c3a
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: d39ade2536b96bf5e665ecfc01e81232f2fec075
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98797593"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102217946"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Introdução à produção prevista na Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -43,7 +43,7 @@ A imagem a seguir mostra como uma partição física acolhe uma ou mais divisór
 
 :::image type="content" source="./media/set-throughput/resource-partition.png" alt-text="Partição física que acolhe uma ou mais divisórias lógicas de um recipiente" border="false":::
 
-## <a name="set-throughput-on-a-database"></a>Definir saída numa base de dados
+## <a name="set-throughput-on-a-database"></a>Definir o débito numa base de dados
 
 Quando fornece o rendimento numa base de dados Azure Cosmos, o resultado é partilhado em todos os contentores (chamados contentores de base de dados partilhados) na base de dados. A única exceção ocorre se tiver especificado um débito aprovisionado em contentores específicos na base de dados. A partilha da produção de nível de base de dados entre os seus contentores é análoga à hospedagem de uma base de dados num conjunto de máquinas. Como todos os contentores dentro de uma base de dados partilham os recursos disponíveis numa máquina, naturalmente não obtém um desempenho previsível em nenhum recipiente específico. Para aprender a configurar a produção prevista numa base de dados, consulte a [produção de Configure prevista numa base de dados do Azure Cosmos.](how-to-provision-database-throughput.md) Para aprender a configurar a produção de autoescalação numa base de dados, consulte [a produção de escala automática da Provision](how-to-provision-autoscale-throughput.md).
 
@@ -69,7 +69,7 @@ Os contentores numa base de dados de débito partilhado partilham o débito (RU/
 
 > [!NOTE]
 > Em fevereiro de 2020, introduzimos uma alteração que permite ter um máximo de 25 contentores numa base de dados de produção partilhada, o que permite melhor a partilha de produção através dos contentores. Após os primeiros 25 contentores, só pode adicionar mais contentores à base de dados se forem [a provisionados com produção dedicada](#set-throughput-on-a-database-and-a-container), que é separada da produção partilhada da base de dados.<br>
-Se a sua conta DB Azure Cosmos já tiver uma base de dados de produção partilhada com >=25 contentores, a conta e todas as outras contas na mesma subscrição do Azure estão isentas desta alteração. Contacte [o suporte do produto](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) se tiver feedback ou dúvidas. 
+Se a conta do Azure Cosmos DB já tiver uma base de dados de débito partilhado com >=25 contentores, a conta e todas as outras contas na mesma subscrição do Azure estarão isentas desta alteração. Contacte [o suporte do produto](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) se tiver feedback ou dúvidas. 
 
 Se as suas cargas de trabalho envolverem a eliminação e recriação de todas as coleções numa base de dados, recomenda-se que deixe cair a base de dados vazia e recrie uma nova base de dados antes da criação da recolha. A imagem a seguir mostra como uma partição física pode acolher uma ou mais divisórias lógicas que pertencem a diferentes recipientes dentro de uma base de dados:
 
@@ -99,12 +99,12 @@ Depois de criar um recipiente Azure Cosmos ou uma base de dados, pode atualizar 
 Pode recuperar o rendimento previsto de um contentor ou de uma base de dados no portal Azure ou utilizando os SDKs:
 
 * [Container.ReadThroughputAsync](/dotnet/api/microsoft.azure.cosmos.container.readthroughputasync?view=azure-dotnet&preserve-view=true) no .NET SDK.
-* [CosmosContainer.readThroughput](/java/api/com.azure.cosmos.cosmosasynccontainer.readthroughput?view=azure-java-stable&preserve-view=true) on the Java SDK.
+* [CosmosContainer.readThroughput](/java/api/com.azure.cosmos.cosmosasynccontainer.readthroughput) on the Java SDK.
 
 A resposta desses métodos contém também o [rendimento mínimo previsto](concepts-limits.md#storage-and-database-operations) para o contentor ou base de dados:
 
 * [ReproduçãoResponse.MinThroughput](/dotnet/api/microsoft.azure.cosmos.throughputresponse.minthroughput?view=azure-dotnet&preserve-view=true) no .NET SDK.
-* [Repute DeputeResponse.getMinThroughput()](/java/api/com.azure.cosmos.models.throughputresponse.getminthroughput?view=azure-java-stable&preserve-view=true) no SDK de Java.
+* [Repute DeputeResponse.getMinThroughput()](/java/api/com.azure.cosmos.models.throughputresponse.getminthroughput) no SDK de Java.
 
 O ru/s mínimo real pode variar dependendo da configuração da sua conta. Mas geralmente é o máximo de:
 
@@ -117,7 +117,7 @@ O ru/s mínimo real pode variar dependendo da configuração da sua conta. Mas g
 Pode escalar a produção de um contentor ou de uma base de dados através do portal Azure ou utilizando os SDKs:
 
 * [Container.ReplaceThroughputAsync](/dotnet/api/microsoft.azure.cosmos.container.replacethroughputasync?view=azure-dotnet&preserve-view=true) no .NET SDK.
-* [CosmosContainer.replaceThroughput](/java/api/com.azure.cosmos.cosmosasynccontainer.replacethroughput?view=azure-java-stable&preserve-view=true) no Java SDK.
+* [CosmosContainer.replaceThroughput](/java/api/com.azure.cosmos.cosmosasynccontainer.replacethroughput) no Java SDK.
 
 Se estiver **a reduzir a produção a provisionada,** poderá fazê-lo até ao [mínimo.](#current-provisioned-throughput)
 
@@ -129,7 +129,7 @@ Se estiver **a aumentar a produção prevista,** a maior parte do tempo, a opera
 Pode verificar programáticamente o progresso da escala, lendo a [produção atual prevista](#current-provisioned-throughput) e utilizando:
 
 * [Reputações DePutada.IsReplacePending](/dotnet/api/microsoft.azure.cosmos.throughputresponse.isreplacepending?view=azure-dotnet&preserve-view=true) no .NET SDK.
-* [Reponse de Reponse.isReplacePending()](/java/api/com.azure.cosmos.models.throughputresponse.isreplacepending?view=azure-java-stable&preserve-view=true) no Java SDK.
+* [Reponse de Reponse.isReplacePending()](/java/api/com.azure.cosmos.models.throughputresponse.isreplacepending) no Java SDK.
 
 Pode utilizar [as métricas do Azure Monitor](monitor-cosmos-db.md#view-operation-level-metrics-for-azure-cosmos-db) para visualizar o histórico de produção provisitada (RU/s) e armazenamento num recurso.
 
@@ -154,7 +154,7 @@ Este quadro mostra uma comparação entre a produção padrão de provisionament
 |Produção máxima por partição lógica de um recipiente|10K RU/s|10K RU/s|10K RU/s|10K RU/s|
 |Armazenamento máximo (dados + índice) por partição lógica de um recipiente|20 GB|20 GB|20 GB|20 GB|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [divisórias lógicas.](partitioning-overview.md)
 * Saiba como providenciar o [padrão (manual) num recipiente Azure Cosmos](how-to-provision-container-throughput.md).

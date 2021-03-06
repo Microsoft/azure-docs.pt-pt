@@ -1,5 +1,5 @@
 ---
-title: Agendar empregos com a Azure IoT Hub (Java) Microsoft Docs
+title: Agendar empregos com a Azure IoT Hub (Java) | Microsoft Docs
 description: Como agendar um trabalho do Azure IoT Hub para invocar um método direto e definir uma propriedade desejada em vários dispositivos. Utiliza o dispositivo Azure IoT SDK para a Java para implementar as aplicações simuladas do dispositivo e o serviço Azure IoT SDK para a Java implementar uma aplicação de serviço para executar o trabalho.
 author: wesmc7777
 manager: philmea
@@ -10,12 +10,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/16/2019
 ms.custom: mqtt, devx-track-java
-ms.openlocfilehash: 36092e0bb7d0249837d2eaa7898e9231ecb5f5a9
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 3e98cfc2d8c7fb8d40c8565a1c620f123ce171ff
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92146994"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102217844"
 ---
 # <a name="schedule-and-broadcast-jobs-java"></a>Horários e trabalhos de transmissão (Java)
 
@@ -54,7 +54,7 @@ No final deste tutorial, tem uma aplicação para dispositivos java consola e um
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [Kit de Desenvolvimento Java SE 8](/java/azure/jdk/?view=azure-java-stable). Certifique-se de que seleciona **Java 8** sob **suporte a longo prazo** para obter downloads para JDK 8.
+* [Kit de Desenvolvimento Java SE 8](/java/azure/jdk/). Certifique-se de que seleciona **Java 8** sob **suporte a longo prazo** para obter downloads para JDK 8.
 
 * [Maven 3](https://maven.apache.org/download.cgi)
 
@@ -132,7 +132,7 @@ Para criar a aplicação:
 
 6. Guarde e feche o ficheiro **pom.xml**.
 
-7. Utilizando um editor de texto, abra o **ficheiro schedule-jobs\src\main\java\com\mycompany\app\App.java.**
+7. Utilizando um editor de texto, abra o **ficheiro de horários\src\main\java\com\mycompany\app\App.java** ficheiro.
 
 8. Adicione as seguintes declarações de **importação** ao ficheiro:
 
@@ -294,7 +294,7 @@ Para criar a aplicação:
     System.out.println("Shutting down schedule-jobs app");
     ```
 
-16. Guarde e feche o **horário-jobs\src\main\java\com\mycompany\app\App.java**
+16. Guardar e fechar o **programa-trabalhos\src\main\java\com\mycompany\app\App.java** ficheiro
 
 17. Construa a aplicação **de trabalhos de agendamento** e corrija quaisquer erros. No seu comando, navegue para a pasta **de trabalhos de agendamento** e execute o seguinte comando:
 
@@ -357,7 +357,7 @@ Nesta secção, cria-se uma aplicação de consola Java que trata das propriedad
 
 6. Guarde e feche o ficheiro **pom.xml**.
 
-7. Utilizando um editor de texto, abra o **ficheiro simulado\src\main\java\com\mycompany\app\App.java.**
+7. Utilizando um editor de texto, abra o **ficheiro simulado\src\main\java\com\mycompany\app\App\App.java** ficheiro.
 
 8. Adicione as seguintes declarações de **importação** ao ficheiro:
 
@@ -482,7 +482,7 @@ Nesta secção, cria-se uma aplicação de consola Java que trata das propriedad
     scanner.close();
     ```
 
-17. Guarde e feche o **ficheiro simulado\src\main\java\com\mycompany\app\App.java.**
+17. Guarde e feche o **ficheiro simulado\src\main\java\com\mycompany\app\App.java** ficheiro.
 
 18. Construa a aplicação **de dispositivo simulado** e corrija quaisquer erros. No seu comando, navegue para a pasta do **dispositivo simulado** e execute o seguinte comando:
 

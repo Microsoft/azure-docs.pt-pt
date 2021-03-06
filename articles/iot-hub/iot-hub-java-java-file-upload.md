@@ -1,5 +1,5 @@
 ---
-title: Faça upload de ficheiros de dispositivos para Azure IoT Hub com Java Microsoft Docs
+title: Faça upload de ficheiros de dispositivos para Azure IoT Hub com Java | Microsoft Docs
 description: Como carregar ficheiros de um dispositivo para a nuvem usando o dispositivo Azure IoT SDK para Java. Os ficheiros carregados são armazenados num recipiente de bolhas de armazenamento Azure.
 author: wesmc7777
 manager: philmea
@@ -13,12 +13,12 @@ ms.custom:
 - amqp
 - mqtt
 - devx-track-java
-ms.openlocfilehash: 2a02dc94c0dc0939e6c1eef624fc6fe65fb98ac6
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 3529361cacf0890b7c4752bbd745a9240020b4f3
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147012"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102217827"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-java"></a>Faça upload de ficheiros do seu dispositivo para a nuvem com IoT Hub (Java)
 
@@ -52,7 +52,7 @@ No final deste tutorial, executam duas aplicações para consolas Java:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [Kit de Desenvolvimento Java SE 8](/java/azure/jdk/?view=azure-java-stable). Certifique-se de que seleciona **Java 8** sob **suporte a longo prazo** para obter downloads para JDK 8.
+* [Kit de Desenvolvimento Java SE 8](/java/azure/jdk/). Certifique-se de que seleciona **Java 8** sob **suporte a longo prazo** para obter downloads para JDK 8.
 
 * [Maven 3](https://maven.apache.org/download.cgi)
 

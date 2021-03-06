@@ -9,12 +9,12 @@ ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: subject-monitoring, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 5337372b5e996798a5000e1c32ea8e372aa63ed4
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 3f96549c73c231db63360891dd0705b649097c80
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100591781"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102218103"
 ---
 # <a name="monitoring-azure-blob-storage"></a>Monitorização do armazenamento do blob Azure
 
@@ -128,7 +128,7 @@ Se optar por transmitir os seus registos para um centro de eventos, pagará o vo
 
 #### <a name="send-logs-to-azure-log-analytics"></a>Enviar registos para Azure Log Analytics
 
-1. Selecione a caixa de verificação **Enviar para registar analytics,** selecione um espaço de trabalho de análise de registo e, em seguida, clique no botão Guardar e, em seguida, clique no botão **Guardar.**
+1. Selecione a caixa de verificação **Enviar para registar a verificação Analytics,** selecione um espaço de trabalho de análise de registo e, em seguida, clique no botão **Guardar.**
 
    > [!div class="mx-imgBorder"]   
    > ![Análise de registo de página de definições de diagnóstico](media/monitor-blob-storage/diagnostic-logs-settings-pane-log-analytics.png)

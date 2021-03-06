@@ -7,12 +7,12 @@ ms.date: 10/23/2019
 author: cweining
 ms.author: cweining
 ms.reviewer: cweining
-ms.openlocfilehash: 5913f5fa8d45e6bf92d6132468e0e3bf7a121c65
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: bd196e60fed8a18064bfa59e343e51a878a11237
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97673523"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102217402"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Instantâneos de depuração com exceções em aplicações .NET
 Quando ocorre uma exceção, pode recolher automaticamente uma imagem de depurar da sua aplicação web ao vivo. O instantâneo mostra o estado do código fonte e as variáveis no momento em que a exceção foi lançada. O Snapshot Debugger in [Azure Application Insights](./app-insights-overview.md) monitoriza a telemetria de exceção da sua aplicação web. Recolhe instantâneos nas suas exceções de arremesso de topo para que tenha a informação necessária para diagnosticar problemas na produção. Inclua o [pacote NuGet do colecionador Snapshot](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) na sua aplicação e configurar opcionalmente os parâmetros de recolha em [ApplicationInsights.config](./configuration-with-applicationinsights-config.md). As imagens aparecem em [exceções](./asp-net-exceptions.md) no portal Application Insights.
@@ -29,6 +29,7 @@ A coleção Snapshot está disponível para:
 São apoiados os seguintes ambientes:
 
 * [Serviço de Aplicações do Azure](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json)
+* [Função do Azure](snapshot-debugger-function-app.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Cloud Services](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) com a família OS 4 ou mais tarde
 * [Serviços de tecido de serviço Azure](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) em execução no Windows Server 2012 R2 ou mais tarde
 * [Máquinas virtuais Azure e conjuntos de escala de máquinas virtuais](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) em execução Windows Server 2012 R2 ou mais tarde
@@ -134,6 +135,7 @@ No entanto, nos Serviços de Aplicações Azure, o Snapshot Collector pode desop
 Ativar o Debugger Snapshot Debugger do Application Insights para a sua aplicação:
 
 * [Serviço de Aplicações do Azure](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json)
+* [Função do Azure](snapshot-debugger-function-app.md?toc=/azure/azure-monitor/toc.json)
 * [Cloud Services do Azure](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
 * [Serviços de Tecido de Serviço Azure](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
 * [Máquinas virtuais Azure e conjuntos de escala de máquinas virtuais](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)

@@ -6,15 +6,15 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 08/27/2020
+ms.date: 03/05/2021
 ms.author: victorh
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 36ba593a1d8cd2e50293eaf77dc9ec864245df4c
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: aa247d868e19831b3e6f1c3f68e605fb209a0664
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566593"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102218320"
 ---
 # <a name="tutorial-create-an-application-gateway-with-url-path-based-redirection-using-the-azure-cli"></a>Tutorial:Criar um gateway de aplicação com o redirecionamento com base no caminho do URL, com a CLI do Azure
 
@@ -158,7 +158,7 @@ az network application-gateway http-listener create \
 
 ### <a name="add-the-default-url-path-map"></a>Adicionar o mapa de caminho de URL predefinido
 
-Os mapas do caminho url certifiquem-se de que urls específicos são encaminhados para piscinas de backend específicas. Pode criar o URL de mapas de caminho denominados *imagePathRule* e *videoPathRule* , com [az network application-gateway url-path-mau create](/cli/azure/network/application-gateway/url-path-map) e [az network application-gateway url-path-map rule create](/cli/azure/network/application-gateway/url-path-map/rule)
+Os mapas do caminho url certifiquem-se de que urls específicos são encaminhados para piscinas de backend específicas. Pode criar o URL de mapas de caminho denominados *imagePathRule* e *videoPathRule*, com [az network application-gateway url-path-mau create](/cli/azure/network/application-gateway/url-path-map) e [az network application-gateway url-path-map rule create](/cli/azure/network/application-gateway/url-path-map/rule)
 
 ```azurecli-interactive
 az network application-gateway url-path-map create \
@@ -234,9 +234,11 @@ az network application-gateway rule create \
 
 ## <a name="create-virtual-machine-scale-sets"></a>Criar conjuntos de dimensionamento de máquinas virtuais
 
-Neste exemplo, vai criar três conjuntos de dimensionamento de máquinas virtuais que suportam os três conjuntos de back-end que criou. Os conjuntos de dimensionamento que criar são denominados *myvmss1* , *myvmss2* e *myvmss3*. Cada conjunto de dimensionamento contém duas instâncias de máquina virtual onde vai instalar o NGINX.
+Neste exemplo, vai criar três conjuntos de dimensionamento de máquinas virtuais que suportam os três conjuntos de back-end que criou. Os conjuntos de dimensionamento que criar são denominados *myvmss1*, *myvmss2* e *myvmss3*. Cada conjunto de dimensionamento contém duas instâncias de máquina virtual onde vai instalar o NGINX.
 
-```azurecli-interactive
+Substitua \<azure-user> e por um nome de utilizador e senha à sua \<password> escolha.
+
+```azurecli
 for i in `seq 1 3`; do
   if [ $i -eq 1 ]
   then
@@ -255,8 +257,8 @@ for i in `seq 1 3`; do
     --name myvmss$i \
     --resource-group myResourceGroupAG \
     --image UbuntuLTS \
-    --admin-username azureuser \
-    --admin-password Azure123456! \
+    --admin-username <azure-user> \
+    --admin-password <password> \
     --instance-count 2 \
     --vnet-name myVNet \
     --subnet myBackendSubnet \
@@ -306,7 +308,7 @@ Altere o URL para http:// &lt; endereço ip &gt; :8080/video/test.html, substitu
 
 Agora, altere o URL para http:// &lt; endereço IP &gt; :8081/images/test.htm, substituindo o seu endereço IP por &lt; ip-address &gt; , e deverá ver o tráfego redirecionado de volta para o pool de backend de imagens http:// &lt; endereço &gt; ip-endereço :8080/imagens.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não forem necessários, remova o grupo de recursos, o gateway de aplicação e todos os recursos relacionados.
 

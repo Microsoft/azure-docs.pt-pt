@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 5d11f343a55d30e5d14d6f4ae0ddb1a74d9c61fa
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: ab678c650c0d2d93614191a1eb1ff18ea48ecfee
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97631980"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102217289"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Melhorar a síntese com a linguagem de marcação da síntese de fala (SSML)
 
@@ -153,7 +153,7 @@ speech_config.set_property_by_name(
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Para obter mais informações, veja <a href="https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest&preserve-view=true#setproperty-string--string-" target="_blank"> `setProperty` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+Para obter mais informações, veja <a href="https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig#setproperty-string--string-" target="_blank"> `setProperty` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 ```javascript
 speechConfig.setProperty(
@@ -250,7 +250,7 @@ Acima as alterações são aplicadas ao nível da frase, e os estilos e role-pla
 
 Utilize esta tabela para determinar quais os estilos de fala suportados por cada voz neural.
 
-| Voz                   | Estilo                     | Description                                                 |
+| Voz                   | Estilo                     | Descrição                                                 |
 |-------------------------|---------------------------|-------------------------------------------------------------|
 | `en-US-AriaNeural`      | `style="newscast-formal"` | Expressa um tom formal, confiante e autoritário para a entrega de notícias |
 |                         | `style="newscast-casual"` | Expressa um tom versátil e casual para a entrega de notícias gerais        |
@@ -323,7 +323,7 @@ Utilize esta tabela para determinar quais os estilos de fala suportados por cada
 
 Utilize esta tabela para determinar quais as funções suportadas por cada voz neural.
 
-| Voz                   | Função                       | Description                                                 |
+| Voz                   | Função                       | Descrição                                                 |
 |-------------------------|----------------------------|-------------------------------------------------------------|
 | `zh-CN-XiaomoNeural`    | `role="YoungAdultFemale"`  | A voz imita uma jovem mulher adulta.                 |
 |                         | `role="OlderAdultMale"`    | A voz imita a um homem adulto mais velho.                   |
@@ -398,7 +398,7 @@ Utilize o `break` elemento para inserir pausas (ou quebras) entre palavras ou ev
 | `strength` | Especifica a duração relativa de uma pausa utilizando um dos seguintes valores:<ul><li>nenhum</li><li>x-fraco</li><li>fraco</li><li>meio (padrão)</li><li>forte</li><li>x-forte</li></ul> | Opcional |
 | `time` | Especifica a duração absoluta de uma pausa em segundos ou milissegundos, este valor deve ser definido a menos de 5000ms. Exemplos de valores válidos são `2s` e `500ms` | Opcional |
 
-| Força                      | Description |
+| Força                      | Descrição |
 |-------------------------------|-------------|
 | Nenhum, ou se nenhum valor fornecido | 0 ms        |
 | x-fraco                        | 250 ms      |
@@ -452,9 +452,9 @@ A good place to start is by trying out the slew of educational apps that are hel
 
 `p` e `s` os elementos são usados para denotar parágrafos e frases, respectivamente. Na ausência destes elementos, o serviço de texto-a-fala determina automaticamente a estrutura do documento SSML.
 
-O `p` elemento pode conter texto e os seguintes elementos: , `audio` e `break` `phoneme` `prosody` `say-as` `sub` `mstts:express-as` `s` .
+O `p` elemento pode conter texto e os seguintes elementos: , , , `audio` , , , , , , e `break` `phoneme` `prosody` `say-as` `sub` `mstts:express-as` `s` .
 
-O `s` elemento pode conter texto e os seguintes elementos: , `audio` e `break` `phoneme` `prosody` `say-as` `mstts:express-as` `sub` .
+O `s` elemento pode conter texto e os seguintes elementos: , , `audio` , , , , , e `break` `phoneme` `prosody` `say-as` `mstts:express-as` `sub` .
 
 **Syntax**
 
@@ -631,7 +631,7 @@ Ao utilizar este léxico personalizado, "BTW" será lido como "By the way". "Ben
 
 Na amostra acima, estamos a usar o Alfabeto Fonético Internacional, também conhecido como o conjunto de telefones IPA. Sugerimos que os desenvolvedores utilizem o IPA, porque é o padrão internacional. Para alguns caracteres IPA, eles têm a versão 'pré-comcomposta' e 'decomposta' quando estão representados com o Unicode. O léxico personalizado só suporta os unicódigos decompostos.
 
-Tendo em conta que o IPA não é fácil de lembrar, o serviço de Discurso define um conjunto fonético para sete línguas ( `en-US` `fr-FR` , e `de-DE` `es-ES` `ja-JP` `zh-CN` `zh-TW` .
+Tendo em conta que o IPA não é fácil de lembrar, o serviço de Discurso define um conjunto fonético para sete línguas ( `en-US` , , , , , , e `fr-FR` `de-DE` `es-ES` `ja-JP` `zh-CN` `zh-TW` .
 
 Pode utilizar o `sapi` vale como vale para o atributo com `alphabet` léxicos personalizados, como demonstrado abaixo:
 
@@ -658,7 +658,7 @@ Para obter mais informações sobre o alfabeto fonético detalhado do serviço d
 
 ## <a name="adjust-prosody"></a>Ajustar a prosódia
 
-O `prosody` elemento é utilizado para especificar alterações ao tom, contorno, intervalo, duração e volume para a saída texto-a-voz. O `prosody` elemento pode conter texto e os seguintes elementos: , `audio` e `break` `p` `phoneme` `prosody` `say-as` `sub` `s` .
+O `prosody` elemento é utilizado para especificar alterações ao tom, contorno, intervalo, duração e volume para a saída texto-a-voz. O `prosody` elemento pode conter texto e os seguintes elementos: , , , `audio` , , , , , , e `break` `p` `phoneme` `prosody` `say-as` `sub` `s` .
 
 Como os valores prosódicos de atributos podem variar em relação a uma ampla gama, o reconhecimento da fala interpreta os valores atribuídos como uma sugestão do que devem ser os valores prosódicos reais da voz selecionada. O serviço de texto-a-fala limita ou substitui valores que não são suportados. Exemplos de valores não suportados são um pitch de 1 MHz ou um volume de 120.
 
@@ -796,7 +796,7 @@ O motor da síntese do discurso fala o seguinte exemplo: "O seu primeiro pedido 
 
 ## <a name="add-recorded-audio"></a>Adicionar áudio gravado
 
-`audio` é um elemento opcional que permite inserir áudio MP3 num documento SSML. O corpo do elemento áudio pode conter texto simples ou marcação SSML que é falada se o ficheiro de áudio não estiver disponível ou não for retocável. Além disso, o `audio` elemento pode conter texto e os seguintes elementos: , `audio` e `break` `p` `s` `phoneme` `prosody` `say-as` `sub` .
+`audio` é um elemento opcional que permite inserir áudio MP3 num documento SSML. O corpo do elemento áudio pode conter texto simples ou marcação SSML que é falada se o ficheiro de áudio não estiver disponível ou não for retocável. Além disso, o `audio` elemento pode conter texto e os seguintes elementos: , , , `audio` , , , , e `break` `p` `s` `phoneme` `prosody` `say-as` `sub` .
 
 Qualquer áudio incluído no documento SSML deve satisfazer estes requisitos:
 

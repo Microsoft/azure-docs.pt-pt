@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 09/05/2019
-  ms.openlocfilehash: 0e054fdab0e20285f017075cfaf4d3c05570af88
-  ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+  ms.openlocfilehash: c6da60a23c743abb19c02b55d44e9433b67fe676
+  ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
   ms.translationtype: MT
   ms.contentlocale: pt-PT
   ms.lasthandoff: 03/05/2021
-  ms.locfileid: "102178036"
+  ms.locfileid: "102218131"
 landingContent:
 - title: Sobre a Visão Personalizada
   linkLists:
@@ -105,7 +105,7 @@ landingContent:
     - text: SDK Python
       url: /python/api/azure-cognitiveservices-vision-customvision/?view=azure-python
     - text: SDK Java
-      url: /java/api/overview/azure/cognitiveservices/client/customvision?view=azure-java-stable
+      url: /java/api/overview/azure/cognitiveservices/client/customvision
     - text: SDK Go (preparação)
       url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/customvision/training
     - text: SDK Go (predição)

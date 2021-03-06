@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 02/16/2021
 ms.custom: template-concept
-ms.openlocfilehash: 8a9ed564012e8b530436152d931f5a5f6470ff98
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: d0cdabb3b22d642a7903810181106b09c549e1a2
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102098371"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102218167"
 ---
 # <a name="azure-percept-ai-models"></a>Modelos Azure Percept AI
 
@@ -29,9 +29,9 @@ O Azure Percept Studio contém modelos de amostra para as seguintes aplicações
 
 Com modelos pré-treinados, não é necessária codificação ou recolha de dados de formação. Basta implementar o modelo pretendido para o seu Azure Percept DK a partir do portal e abrir o fluxo de vídeo do seu devkit para ver o modelo inferencing em ação. A telemetria de inferenculação do modelo também pode ser acedida através da ferramenta [Azure IoT Explorer.](https://github.com/Azure/azure-iot-explorer/releases)
 
-## <a name="pre-built-solutions"></a>Soluções pré-construídas
+## <a name="reference-solutions"></a>Soluções de referência
 
-Está também disponível [uma solução pré-construída de análise espacial para deteção de pessoas.](https://github.com/george-moore/Santa-Cruz-AI-App) A solução pré-construída é uma aplicação de IA de código aberto que fornece pessoas baseadas em bordas contando com eventos de entrada/saída de zona definidos pelo utilizador. A saída de vídeo e IA do dispositivo de borda no local é saídada para [O Lago de Dados Azure,](https://azure.microsoft.com/solutions/data-lake/)com a interface do utilizador a funcionar como um Website Azure. A inferencing da IA é fornecida por um modelo de IA de código aberto para deteção de pessoas.
+Uma [solução de referência de contagem de pessoas](https://github.com/microsoft/Azure-Percept-Reference-Solutions/tree/main/people-detection-app) também está disponível. Esta solução de referência é uma aplicação de IA de código aberto que fornece pessoas baseadas em bordas contando com eventos de entrada/saída de zona definidos pelo utilizador. A saída de vídeo e IA do dispositivo de borda no local é saídada para [OZure Data Lake,](https://azure.microsoft.com/solutions/data-lake/)com a interface do utilizador a funcionar como um website Azure. A inferencing da IA é fornecida por um modelo de IA de código aberto para deteção de pessoas.
 
 :::image type="content" source="./media/overview-ai-models/people-detector.gif" alt-text="Analítica espacial solução pré-construída gif.":::
 

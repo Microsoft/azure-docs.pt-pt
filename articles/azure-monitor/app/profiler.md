@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: b743b5be195f44c03adbee75c3108f4908d8d4e8
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 2a5ba6cb0778e0c013f150d787d694b23f0497bd
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101717762"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102218014"
 ---
 # <a name="profile-live-azure-app-service-apps-with-application-insights"></a>Perfil ao vivo Aplicativos Azure App Service com Insights de Aplicações
 
@@ -56,11 +56,11 @@ Aqui estão as definições necessárias para ativar o perfil:
 
 Pode definir estes valores utilizando [modelos de gestores de recursos Azure,](./azure-web-apps.md#app-service-application-settings-with-azure-resource-manager) [Azure PowerShell,](/powershell/module/az.websites/set-azwebapp)  [Azure CLI](/cli/azure/webapp/config/appsettings).
 
-### <a name="enabling-profiler-for-other-clouds-manually"></a>Habilitação do Profiler para outras nuvens manualmente
+## <a name="enable-profiler-for-other-clouds"></a>Ativar o Profiler para outras nuvens
 
-Se pretender ativar o perfil para outras nuvens, pode utilizar as definições de aplicação abaixo.
+Atualmente, as únicas regiões que necessitam de modificações no ponto final são [o Governo de Azure](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure#application-insights) e [a Azure China.](https://docs.microsoft.com/azure/china/resources-developer-guide)
 
-|Definição da Aplicação    | Valores do Governo dos EUA| Nuvem da China |   
+|Definição da Aplicação    | Nuvem do Governo dos EUA | Nuvem da China |   
 |---------------|---------------------|-------------|
 |ApplicationInsightsProfilerEndpoint         | `https://profiler.monitor.azure.us`    | `https://profiler.monitor.azure.cn` |
 |ApplicationInsightsEndpoint | `https://dc.applicationinsights.us` | `https://dc.applicationinsights.azure.cn` |

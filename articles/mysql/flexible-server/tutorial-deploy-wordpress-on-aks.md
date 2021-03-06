@@ -7,12 +7,12 @@ ms.author: sumuth
 ms.topic: tutorial
 ms.date: 11/25/2020
 ms.custom: mvc
-ms.openlocfilehash: b82bb9b7684d1119b6b62216b52210845d8f4c67
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: 6f2b3d9f38fc04428678a71c9942fc7aa2182dc8
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "98199636"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102217198"
 ---
 # <a name="tutorial-deploy-wordpress-app-on-aks-with-azure-database-for-mysql---flexible-server"></a>Tutorial: Implementar a aplicação WordPress em AKS com Base de Dados Azure para MySQL - Servidor Flexível
 
@@ -60,7 +60,7 @@ A saída de exemplo a seguir mostra o grupo de recursos criado com sucesso:
 
 ## <a name="create-aks-cluster"></a>Criar um cluster do AKS
 
-Utilize o comando [az aks create](/cli/azure/aks?view=azure-cli-latest&preserve-view=true#az-aks-create) para criar um cluster AKS. O exemplo seguinte cria um cluster com o nome *myAKSCluster* com um nó. Isto levará vários minutos para ser concluído.
+Utilize o comando [az aks create](/cli/azure/aks#az-aks-create) para criar um cluster AKS. O exemplo seguinte cria um cluster com o nome *myAKSCluster* com um nó. Isto levará vários minutos para ser concluído.
 
 ```azurecli-interactive
 az aks create --resource-group wordpress-project --name myAKSCluster --node-count 1 --generate-ssh-keys
@@ -73,13 +73,13 @@ Após alguns minutos, o comando completa e devolve informações formatadas com 
 
 ## <a name="connect-to-the-cluster"></a>Ligar ao cluster
 
-Para gerir um cluster Kubernetes, você usa [kubectl,](https://kubernetes.io/docs/reference/kubectl/overview/)o cliente da linha de comando Kubernetes. Se utilizar a Azure Cloud Shell, `kubectl` já está instalada. Para instalar `kubectl` localmente, utilize o comando [az aks instalar-cli:](/cli/azure/aks?view=azure-cli-latest&preserve-view=true#az-aks-install-cli)
+Para gerir um cluster Kubernetes, você usa [kubectl,](https://kubernetes.io/docs/reference/kubectl/overview/)o cliente da linha de comando Kubernetes. Se utilizar a Azure Cloud Shell, `kubectl` já está instalada. Para instalar `kubectl` localmente, utilize o comando [az aks instalar-cli:](/cli/azure/aks#az-aks-install-cli)
 
 ```azurecli-interactive
 az aks install-cli
 ```
 
-Para configurar `kubectl` para se ligar ao cluster do Kubernetes, utilize o comando [az aks get-credentials](/cli/azure/aks?view=azure-cli-latest&preserve-view=true#az-aks-get-credentials). Este comando descarrega credenciais e configura o CLI de Kubernetes para usá-las.
+Para configurar `kubectl` para se ligar ao cluster do Kubernetes, utilize o comando [az aks get-credentials](/cli/azure/aks#az-aks-get-credentials). Este comando descarrega credenciais e configura o CLI de Kubernetes para usá-las.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group wordpress-project --name myAKSCluster
@@ -102,7 +102,7 @@ aks-nodepool1-31718369-0   Ready    agent   6m44s   v1.12.8
 ```
 
 ## <a name="create-an-azure-database-for-mysql---flexible-server"></a>Criar uma base de dados Azure para MySQL - Servidor Flexível
-Crie um servidor flexível com o [comando de criação de servidor flexível az mysql.](/cli/azure/mysql/flexible-server?view=azure-cli-latest&preserve-view=true) O seguinte comando cria um servidor utilizando predefinições e valores de serviço a partir do contexto local do seu Azure CLI:
+Crie um servidor flexível com o [comando de criação de servidor flexível az mysql.](/cli/azure/mysql/flexible-server) O seguinte comando cria um servidor utilizando predefinições e valores de serviço a partir do contexto local do seu Azure CLI:
 
 ```azurecli-interactive
 az mysql flexible-server create --public-access <YOUR-IP-ADDRESS>
@@ -312,7 +312,7 @@ Abra um navegador web para o endereço IP externo do seu serviço para ver a sua
 
 ## <a name="clean-up-the-resources"></a>Limpar os recursos
 
-Para evitar as acusações do Azure, devias limpar recursos não necessários.  Quando o cluster já não for necessário, utilize o comando [az group delete](/cli/azure/group?view=azure-cli-latest&preserve-view=true#az_group_delete) para remover o grupo de recursos, o serviço de contentores e todos os recursos relacionados.
+Para evitar as acusações do Azure, devias limpar recursos não necessários.  Quando o cluster já não for necessário, utilize o comando [az group delete](/cli/azure/group#az_group_delete) para remover o grupo de recursos, o serviço de contentores e todos os recursos relacionados.
 
 ```azurecli-interactive
 az group delete --name wordpress-project --yes --no-wait

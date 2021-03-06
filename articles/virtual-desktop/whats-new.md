@@ -8,12 +8,12 @@ ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: lizross
 ms.custom: references_regions
-ms.openlocfilehash: a2afd47db01725c56f4fe571f1b464818653081d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 2396973170762bf98be63b998a87c8a47ce3226d
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101737499"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102217657"
 ---
 # <a name="whats-new-in-windows-virtual-desktop"></a>Quais as novidades no Windows Virtual Desktop?
 
@@ -248,7 +248,7 @@ Eis o que mudou em agosto de 2020:
 
 - O Azure Advisor faz agora parte do Windows Virtual Desktop. Ao aceder ao Windows Virtual Desktop através do portal Azure, pode ver recomendações para otimizar o ambiente de trabalho virtual do Windows. Saiba mais na [Azure Advisor](azure-advisor.md).
 
-- O Azure CLI suporta agora o Windows Virtual Desktop ( `az desktopvirtualization` ) para o ajudar a automatizar as suas implementações de Ambiente de Trabalho Virtual do Windows. Consulte a [verificação de desktop](/cli/azure/ext/desktopvirtualization/?view=azure-cli-latest&preserve-view=true) para obter uma lista de comandos de extensão.
+- O Azure CLI suporta agora o Windows Virtual Desktop ( `az desktopvirtualization` ) para o ajudar a automatizar as suas implementações de Ambiente de Trabalho Virtual do Windows. Consulte a [verificação de desktop](/cli/azure/ext/desktopvirtualization/) para obter uma lista de comandos de extensão.
 
 - Atualizámos os nossos modelos de implementação para os tornar totalmente compatíveis com as interfaces do Windows Virtual Desktop Azure Resource Manager. Pode encontrar os modelos no [GitHub.](https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates)
 

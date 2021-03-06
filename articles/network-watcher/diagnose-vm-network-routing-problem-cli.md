@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 01/07/2021
 ms.author: damendo
 ms.custom: ''
-ms.openlocfilehash: 42174ce094242a6e7412deea0bf1f0eed0f3b6ea
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 5dac16e5cc1e88d833bf6d3c2660570fcf8b8e9e
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98013180"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102216960"
 ---
 # <a name="diagnose-a-virtual-machine-network-routing-problem---azure-cli"></a>Diagnosticar um problema de encaminhamento de rede de máquinas virtuais - Azure CLI
 
@@ -73,7 +73,7 @@ az network watcher configure \
 
 ### <a name="use-next-hop"></a>Utilizar o próximo salto
 
-O Azure cria automaticamente rotas para destinos predefinidos. Pode criar rotas personalizadas que substituem as rotas predefinidas. Por vezes, as rotas personalizadas podem causar falhas na comunicação. Para testar o encaminhamento a partir de um VM, utilize [o show-next-hop do observador de rede Az](/cli/azure/network/watcher?view=azure-cli-latest#az-network-watcher-show-next-hop) para determinar o próximo salto de encaminhamento quando o tráfego está destinado a um endereço específico.
+O Azure cria automaticamente rotas para destinos predefinidos. Pode criar rotas personalizadas que substituem as rotas predefinidas. Por vezes, as rotas personalizadas podem causar falhas na comunicação. Para testar o encaminhamento a partir de um VM, utilize [o show-next-hop do observador de rede Az](/cli/azure/network/watcher#az-network-watcher-show-next-hop) para determinar o próximo salto de encaminhamento quando o tráfego está destinado a um endereço específico.
 
 Teste a comunicação de saída a partir da VM para um dos endereços IP para www.bing.com:
 
@@ -161,7 +161,7 @@ Quando já não for necessário, pode utilizar [az group delete](/cli/azure/grou
 az group delete --name myResourceGroup --yes
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, criou um VM e diagnosticou o encaminhamento de rede a partir do VM. Aprendeu que o Azure cria várias rotas predefinidas e testa o encaminhamento para dois destinos diferentes. Saiba mais sobre o [encaminhamento no Azure](../virtual-network/virtual-networks-udr-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) e como [criar rotas personalizadas](../virtual-network/manage-route-table.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#create-a-route).
 

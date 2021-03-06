@@ -1,5 +1,5 @@
 ---
-title: Introdução a Regras de Segurança Eficazes no Observador da Rede Azure Microsoft Docs
+title: Introdução à visão eficaz das regras de segurança na | do Observador da Rede Azure Microsoft Docs
 description: Esta página fornece uma visão geral do Observador de Rede - Capacidade de visualização de regras de segurança eficazes
 services: network-watcher
 documentationcenter: na
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: damendo
-ms.openlocfilehash: d172ba7353b7ac4c490584cd7c84871c6244f214
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: ac1550e34c09429eb9778a5256972fcb60861950
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94961826"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102217708"
 ---
 # <a name="introduction-to-effective-security-rules-view-in-azure-network-watcher"></a>Introdução à visão eficaz das regras de segurança no Observador da Rede Azure
 
@@ -37,7 +37,7 @@ As regras podem ser selecionadas e uma nova lâmina abre-se para mostrar o Grupo
 Também pode utilizar a funcionalidade *Grupos de Segurança Eficaz* através de outros métodos listados abaixo:
 * [API REST](/rest/api/virtualnetwork/NetworkInterfaces/ListEffectiveNetworkSecurityGroups)
 * [PowerShell](/powershell/module/az.network/get-azeffectivenetworksecuritygroup?view=azps-4.4.0)
-* [CLI do Azure](/cli/azure/network/nic?view=azure-cli-latest#az-network-nic-list-effective-nsg)
+* [CLI do Azure](/cli/azure/network/nic#az-network-nic-list-effective-nsg)
 
 Saiba como auditar as definições do Grupo de Segurança de Rede visitando [as definições do Grupo de Segurança da Rede de Auditoria com o PowerShell](network-watcher-nsg-auditing-powershell.md)
 

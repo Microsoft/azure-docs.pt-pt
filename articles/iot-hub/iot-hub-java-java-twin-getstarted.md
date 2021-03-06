@@ -1,5 +1,5 @@
 ---
-title: Começa com os gémeos Azure IoT Hub (Java) Microsoft Docs
+title: Começa com os gémeos Azure IoT Hub (Java) | Microsoft Docs
 description: Como usar gémeos de dispositivo Azure IoT Hub para adicionar tags e, em seguida, usar uma consulta IoT Hub. Utiliza o dispositivo Azure IoT SDK para a Java implementar a aplicação do dispositivo e o serviço Azure IoT SDK para a Java implementar uma aplicação de serviço que adiciona as etiquetas e executa a consulta IoT Hub.
 author: wesmc7777
 manager: philmea
@@ -10,12 +10,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.custom: mqtt, devx-track-java
-ms.openlocfilehash: 68908b7d62b8211c202262112831d5d2b523f594
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 53a82ba545fa1709d1b79f3ff6b18f1817736bb7
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92146971"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102217861"
 ---
 # <a name="get-started-with-device-twins-java"></a>Começar com os gémeos do dispositivo (Java)
 
@@ -31,7 +31,7 @@ Neste tutorial, cria-se duas aplicações para consolas Java:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [Kit de Desenvolvimento Java SE 8](/java/azure/jdk/?view=azure-java-stable). Certifique-se de que seleciona **Java 8** sob **suporte a longo prazo** para obter downloads para JDK 8.
+* [Kit de Desenvolvimento Java SE 8](/java/azure/jdk/). Certifique-se de que seleciona **Java 8** sob **suporte a longo prazo** para obter downloads para JDK 8.
 
 * [Maven 3](https://maven.apache.org/download.cgi)
 
@@ -101,7 +101,7 @@ Nesta secção, cria-se uma aplicação Java que adiciona metadados de localiza�
 
 6. Guarde e feche o ficheiro **pom.xml**.
 
-7. Utilizando um editor de texto, abra o **ficheiro add-tags\src\main\java\com\mycompany\app\App.java.**
+7. Utilizando um editor de texto, abra o **ficheiro add-tags\src\main\java\com\mycompany\app\App.java** ficheiro.
 
 8. Adicione as seguintes declarações de **importação** ao ficheiro:
 
@@ -208,7 +208,7 @@ Nesta secção, cria-se uma aplicação Java que adiciona metadados de localiza�
     }
     ```
 
-15. Guarde e feche o **ficheiro add-tags-consulta\src\main\java\com\mycompany\app\App.java**
+15. Guarde e feche o **ficheiro add-tags-consulta\src\main\java\com\mycompany\app\App\App.java**
 
 16. Construa a aplicação **de consulta de add-tags** e corrija quaisquer erros. No seu comando, navegue na pasta **de consulta de adição** e execute o seguinte comando:
 
@@ -271,7 +271,7 @@ Nesta secção, você cria uma aplicação de consola Java que define um valor d
 
 6. Guarde e feche o ficheiro **pom.xml**.
 
-7. Utilizando um editor de texto, abra o **ficheiro simulado\src\main\java\com\mycompany\app\App.java.**
+7. Utilizando um editor de texto, abra o **ficheiro simulado\src\main\java\com\mycompany\app\App\App.java** ficheiro.
 
 8. Adicione as seguintes declarações de **importação** ao ficheiro:
 
@@ -362,7 +362,7 @@ Nesta secção, você cria uma aplicação de consola Java que define um valor d
      public static void main(String[] args) throws URISyntaxException, IOException
      ```
 
-15. Guarde e feche o **ficheiro simulado\src\main\java\com\mycompany\app\App.java.**
+15. Guarde e feche o **ficheiro simulado\src\main\java\com\mycompany\app\App.java** ficheiro.
 
 16. Construa a aplicação **de dispositivo simulado** e corrija quaisquer erros. No seu comando, navegue para a pasta do **dispositivo simulado** e execute o seguinte comando:
 

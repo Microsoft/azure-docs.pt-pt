@@ -1,5 +1,5 @@
 ---
-title: Mensagens em nuvem-para-dispositivo com Azure IoT Hub (Java) Microsoft Docs
+title: Mensagens em nuvem para dispositivo com Azure IoT Hub (Java) | Microsoft Docs
 description: Como enviar mensagens nuvem-para-dispositivo para um dispositivo a partir de um hub Azure IoT usando os SDKs Azure IoT para Java. Modifica uma aplicação de dispositivo simulada para receber mensagens nuvem-a-dispositivo e modifica uma aplicação de back-end para enviar as mensagens cloud-to-device.
 author: wesmc7777
 manager: philmea
@@ -13,12 +13,12 @@ ms.custom:
 - amqp
 - mqtt
 - devx-track-java
-ms.openlocfilehash: 763b9e05adc07c02265dbb511c073b42df44ea95
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 5ae1850add94d83278b0fe1905dfa6e53c71fc8e
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92146865"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102217895"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-java"></a>Envie mensagens cloud-to-device com IoT Hub (Java)
 
@@ -51,7 +51,7 @@ No final deste tutorial, executam duas aplicações de consola Java:
 
 * Uma versão completa de funcionamento da [telemetria Enviar telemetria de um dispositivo para um quickstart do hub IoT](quickstart-send-telemetry-java.md) ou o encaminhamento de [mensagens Configure com tutorial IoT Hub.](tutorial-routing.md)
 
-* [Kit de Desenvolvimento Java SE 8](/java/azure/jdk/?view=azure-java-stable). Certifique-se de que seleciona **Java 8** sob **suporte a longo prazo** para obter downloads para JDK 8.
+* [Kit de Desenvolvimento Java SE 8](/java/azure/jdk/). Certifique-se de que seleciona **Java 8** sob **suporte a longo prazo** para obter downloads para JDK 8.
 
 * [Maven 3](https://maven.apache.org/download.cgi)
 
@@ -141,7 +141,7 @@ Nesta secção, cria-se uma aplicação java para consola que envia mensagens nu
 
 4. Guarde e feche o ficheiro pom.xml.
 
-5. Utilizando um editor de texto, abra o ficheiro send-c2d-messages\src\main\java\com\mycompany\app\App.java.
+5. Utilizando um editor de texto, abra o ficheiro de envio-c2d\src\main\java\com\mycompany\app\App.java ficheiro.
 
 6. Adicione as seguintes declarações de **importação** ao ficheiro:
 

@@ -6,17 +6,54 @@ author: cweining
 ms.author: cweining
 ms.date: 03/07/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: c9813108c05cabbd071a9d919452682bd6ad69e7
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a285f26a406caa88d91da5647b3b79cffc9b614f
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101731957"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102217419"
 ---
 # <a name="troubleshoot-problems-enabling-application-insights-snapshot-debugger-or-viewing-snapshots"></a><a id="troubleshooting"></a> Problemas de resolução de problemas que permitem insights de aplicação Debugger ou visualização de instantâneos
 Se ativou o Application Insights Snapshot Debugger para a sua aplicação, mas não estiver a ver instantâneos para exceções, pode utilizar estas instruções para resolver problemas.
 
 Pode haver muitas razões diferentes para que os instantâneos não sejam gerados. Pode começar por fazer o exame de saúde instantâneo para identificar algumas das possíveis causas comuns.
+
+## <a name="make-sure-youre-using-the-appropriate-snapshot-debugger-endpoint"></a>Certifique-se de que está a utilizar o ponto final apropriado do Snapshot Debugger
+
+Atualmente, as únicas regiões que necessitam de modificações no ponto final são [o Governo de Azure](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure#application-insights) e [a Azure China.](https://docs.microsoft.com/azure/china/resources-developer-guide)
+
+Para o Serviço de Aplicações e aplicações que utilizam o SDK De Insights de Aplicação, tem de atualizar a cadeia de ligação utilizando as substituições suportadas para Snapshot Debugger, conforme definido abaixo:
+
+|Propriedade de cadeia de conexão    | Nuvem do Governo dos EUA | Nuvem da China |   
+|---------------|---------------------|-------------|
+|Ponto SnapshotEndpoint         | `https://snapshot.monitor.azure.us`    | `https://snapshot.monitor.azure.cn` |
+
+Para obter mais informações sobre outras ligações, consulte a [documentação do Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net#connection-string-with-explicit-endpoint-overrides).
+
+Para a Aplicação de Função, tem de atualizar a `host.json` utilização das sobreposições suportadas abaixo:
+
+|Propriedade    | Nuvem do Governo dos EUA | Nuvem da China |   
+|---------------|---------------------|-------------|
+|AgenteEndpoint         | `https://snapshot.monitor.azure.us`    | `https://snapshot.monitor.azure.cn` |
+
+Abaixo está um exemplo da `host.json` atualização com o ponto final do agente da Cloud do governo dos EUA:
+```json
+{
+  "version": "2.0",
+  "logging": {
+    "applicationInsights": {
+      "samplingExcludedTypes": "Request",
+      "samplingSettings": {
+        "isEnabled": true
+      },
+      "snapshotConfiguration": {
+        "isEnabled": true,
+        "agentEndpoint": "https://snapshot.monitor.azure.us"
+      }
+    }
+  }
+}
+```
 
 ## <a name="use-the-snapshot-health-check"></a>Use o cheque de saúde instantâneo
 Vários problemas comuns resultam em que o Open Debug Snapshot não aparecesse. Utilizando um Coletor Instantâneo desatualizado, por exemplo; atingindo o limite de carregamento diário; ou talvez a foto esteja apenas a demorar muito tempo a carregar. Utilize o Snapshot Health Check para resolver problemas comuns.

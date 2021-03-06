@@ -154,11 +154,11 @@
     - name: CLI do Azure
       items:
         - name: Front Door
-          href: /cli/azure/ext/front-door/network?view=azure-cli-latest
+          href: /cli/azure/ext/front-door/network
         - name: Gateway de Aplicação
-          href: /cli/azure/network/application-gateway?view=azure-cli-latest
+          href: /cli/azure/network/application-gateway
         - name: CDN
-          href: /cli/azure/cdn/waf?view=azure-cli-latest
+          href: /cli/azure/cdn/waf
     - name: Azure PowerShell
       items:
         - name: Front Door
