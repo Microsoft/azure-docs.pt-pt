@@ -4,16 +4,16 @@ ms.author: dobett
 ms.service: iot-pnp
 ms.topic: include
 ms.date: 10/20/2020
-ms.openlocfilehash: 70df45877a310d74e7c5c82292d18b1c0eb32da8
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 33752c1ebb83c5d63e8e1cb396c52f01f07046cd
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92521414"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102244629"
 ---
 Estão também disponíveis os seguintes recursos:
 
-- [Documentação de referência java SDK](/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicetwindevice?preserve-view=true&view=azure-java-stable)
+- [Documentação de referência do SDK Java](/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicetwindevice)
 - [Amostras de clientes de serviço](https://github.com/Azure/azure-iot-sdk-java/blob/master/service/iot-service-samples/pnp-service-sample)
 - [Amostras de Gémeos Digitais](https://github.com/Azure/azure-iot-sdk-java/tree/master/service/iot-service-samples/digitaltwin-service-samples)
 

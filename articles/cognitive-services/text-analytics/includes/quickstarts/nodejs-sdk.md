@@ -10,12 +10,12 @@ ms.date: 02/09/2021
 ms.author: aahi
 ms.reviewer: sumeh, assafi
 ms.custom: devx-track-js
-ms.openlocfilehash: e95c25121d0e8a7e7fb469c0473c35797e4519b9
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 06720cb542cf92a0ec7ac81119c539a0a7409d1b
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101750821"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102244802"
 ---
 <a name="HOLTop"></a>
 
@@ -26,7 +26,7 @@ ms.locfileid: "101750821"
 
 # <a name="version-30"></a>[Versão 3.0](#tab/version-3)
 
-[v3 Documentação](/javascript/api/overview/azure/ai-text-analytics-readme?preserve-view=true&view=azure-node-latest)  |  de referência [v3 Código](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics)  |  fonte da biblioteca [v3 Pacote (NPM)](https://www.npmjs.com/package/@azure/ai-text-analytics)  |  [v3 Amostras](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics/samples)
+[v3 Documentação](/javascript/api/overview/azure/ai-text-analytics-readme)  |  de referência [v3 Código](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics)  |  fonte da biblioteca [v3 Pacote (NPM)](https://www.npmjs.com/package/@azure/ai-text-analytics)  |  [v3 Amostras](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics/samples)
 
 
 ---

@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 02/02/2018
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: 551be1ace130c91d3b2a916cbf0c14c147ba08e6
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c2bc9d5507bbdd45238b97d9684d3dc64b2ee1b9
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96012211"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102244767"
 ---
 Crie uma [aplicação web](../articles/app-service/overview.md#app-service-on-linux) no `myAppServicePlan` plano de Serviço de Aplicações. 
 
-Na Cloud Shell, podes usar o [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest) comando. No exemplo a seguir, substitua `<app-name>` com um nome de aplicação globalmente exclusivo (os carateres válidos são `a-z`, `0-9` e `-`). O runtime está definido como `NODE|6.9`. Para ver todos os tempos de execução suportados, [`az webapp list-runtimes --linux`](/cli/azure/webapp?view=azure-cli-latest) corra. 
+Na Cloud Shell, podes usar o [`az webapp create`](/cli/azure/webapp) comando. No exemplo a seguir, substitua `<app-name>` com um nome de aplicação globalmente exclusivo (os carateres válidos são `a-z`, `0-9` e `-`). O runtime está definido como `NODE|6.9`. Para ver todos os tempos de execução suportados, [`az webapp list-runtimes --linux`](/cli/azure/webapp) corra. 
 
 ```azurecli-interactive
 # Bash

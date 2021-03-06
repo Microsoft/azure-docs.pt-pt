@@ -4,16 +4,16 @@ ms.author: dobett
 ms.service: iot-pnp
 ms.topic: include
 ms.date: 10/20/2020
-ms.openlocfilehash: 7bf32de017a5f8ad19eb044ae7dbcdc2eaa96ca5
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: dfeeb451912dd32770a6ae92d73de83851d9d8f6
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92521428"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102244851"
 ---
 Estão também disponíveis os seguintes recursos:
 
-- [Node.js documentação de referência da SDK](/javascript/api/azure-iothub?preserve-view=true&view=azure-node-latest)
+- [Node.js documentação de referência da SDK](/javascript/api/azure-iothub)
 - [Amostras de clientes de serviço](https://github.com/Azure/azure-iot-sdk-node/blob/master/service/samples/javascript/twin.js)
 - [Amostras de Gémeos Digitais](https://github.com/Azure/azure-iot-sdk-node/blob/master/service/samples/javascript/get_digital_twin.js)
 

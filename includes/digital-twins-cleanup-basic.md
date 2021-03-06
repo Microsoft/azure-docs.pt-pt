@@ -5,14 +5,14 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 2/4/2021
 ms.author: baanders
-ms.openlocfilehash: c3c1b814b357a2e4b724590261657e485852f99c
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 9a02c4f5c5699b4a6308bfaa519fa9eb776414d6
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99575704"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102244731"
 ---
-* **Se não necessitar de nenhum dos recursos que criou neste tutorial,** pode eliminar a instância Azure Digital Twins e todos os outros recursos deste artigo com o comando de exclusão do [grupo AZ.](/cli/azure/group?preserve-view=true&view=azure-cli-latest#az-group-delete) Isto elimina todos os recursos da Azure num grupo de recursos, bem como o próprio grupo de recursos.
+* **Se não necessitar de nenhum dos recursos que criou neste tutorial,** pode eliminar a instância Azure Digital Twins e todos os outros recursos deste artigo com o comando de exclusão do [grupo AZ.](/cli/azure/group#az-group-delete) Isto elimina todos os recursos da Azure num grupo de recursos, bem como o próprio grupo de recursos.
     
     > [!IMPORTANT]
     > A eliminação de um grupo de recursos é irreversível. O grupo de recursos e todos os recursos nele contidos são eliminados permanentemente. Confirme que não elimina acidentalmente o grupo de recursos ou recursos errados.

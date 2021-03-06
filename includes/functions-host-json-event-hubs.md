@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
-ms.openlocfilehash: dbb32aa0cb61024c3d59879775fe73801d2b9668
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: 51a683c6121af088e0b5f2d34ae9d4b41d53e706
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99214522"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102245033"
 ---
 ### <a name="functions-2x-and-higher"></a>Funções 2.x e superior
 
@@ -32,13 +32,16 @@ ms.locfileid: "99214522"
 }  
 ```
 
-|Propriedade  |Predefinição | Description |
+|Propriedade  |Predefinição | Descrição |
 |---------|---------|---------|
 |batchCheckpointFrequency|1|O número de lotes de eventos a processar antes de criar um ponto de verificação do cursor EventHub.|
 |EventProcessorOptions/maxBatchSize|10|A contagem máxima de evento recebida por ciclo de receção.|
 |EventProcessorOptions/prefetchCount|300|A contagem de pré-irbuso predefinido utilizada pelo subjacente `EventProcessorHost` . O valor mínimo permitido é de 10.|
-|IniciaisOffsetOptions/tipo|fromStart|A localização no fluxo de eventos a partir do qual começar a processar quando um ponto de verificação não existe no armazenamento. As opções `fromStart` são, `fromEnd` ou `fromEnqueuedTime` . `fromEnd` processa novos eventos que foram encadeados após o início da aplicação de função. Aplica-se a todas as divisórias.  Para obter mais informações, consulte a [documentação eventProcessorOptions](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.initialoffsetprovider?view=azure-dotnet).|
-|iniciaisOffsetOptions/enqueuedTimeUtc|N/D| Especifica o tempo encadeado do evento no fluxo a partir do qual começar a processar. Quando `initialOffsetOptions/type` estiver configurado como `fromEnqueuedTime` , esta definição é obrigatória. Suporta o tempo em qualquer formato suportado por [DateTime.Parse()](/dotnet/standard/base-types/parsing-datetime)( tais como  `2020-10-26T20:31Z` . Para maior clareza, deve especificar um timezone. Quando o timezone não é especificado, as funções assumem o tempomozono local da máquina que executa a aplicação de função, que é UTC quando funciona no Azure. Para obter mais informações, consulte a [documentação eventProcessorOptions](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.initialoffsetprovider?view=azure-dotnet).|
+|Pré-partidas Pré-eliminatóriasOptions/tipo<sup>1</sup>|fromStart|A localização no fluxo de eventos a partir do qual começar a processar quando um ponto de verificação não existe no armazenamento. As opções `fromStart` são, `fromEnd` ou `fromEnqueuedTime` . `fromEnd` processa novos eventos que foram encadeados após o início da aplicação de função. Aplica-se a todas as divisórias.  Para obter mais informações, consulte a [documentação eventProcessorOptions](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.initialoffsetprovider?view=azure-dotnet).|
+|iniciaisOffsetOptions/enqueuedTimeUtc<sup>1</sup>|N/D| Especifica o tempo encadeado do evento no fluxo a partir do qual começar a processar. Quando `initialOffsetOptions/type` estiver configurado como `fromEnqueuedTime` , esta definição é obrigatória. Suporta o tempo em qualquer formato suportado por [DateTime.Parse()](/dotnet/standard/base-types/parsing-datetime)( tais como  `2020-10-26T20:31Z` . Para maior clareza, deve especificar um timezone. Quando o timezone não é especificado, as funções assumem o tempomozono local da máquina que executa a aplicação de função, que é UTC quando funciona no Azure. Para obter mais informações, consulte a [documentação eventProcessorOptions](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.initialoffsetprovider?view=azure-dotnet).|
+
+<sup>1</sup> Suporte para `intitialOffsetOptions` início com [EventHubs v4.2.0](https://github.com/Azure/azure-functions-eventhubs-extension/releases/tag/v4.2.0).
+
 > [!NOTE]
 > Para obter uma referência de host.jsem Funções Azure 2.x e não só, consulte [host.jsem referência para Funções Azure](../articles/azure-functions/functions-host-json.md).
 
@@ -54,7 +57,7 @@ ms.locfileid: "99214522"
 }
 ```
 
-|Propriedade  |Predefinição | Description |
+|Propriedade  |Predefinição | Descrição |
 |---------|---------|---------| 
 |maxBatchSize|64|A contagem máxima de evento recebida por ciclo de receção.|
 |prefetchCount|n/a|A pré-busca predefinida que será usada pelo subjacente `EventProcessorHost` .| 
