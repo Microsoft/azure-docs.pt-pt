@@ -8,12 +8,12 @@ ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/01/2021
-ms.openlocfilehash: 558df115043d76acf865f19611e8c4cd322e00a7
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 22adccfc4adbb7f8b1c72d8b5705ec8fcdb9a375
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101680214"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102441096"
 ---
 # <a name="how-to-configure-sharepoint-online-indexing-in-cognitive-search-preview"></a>Como configurar a indexação online do SharePoint em Pesquisa Cognitiva (pré-visualização)
 
@@ -23,6 +23,9 @@ ms.locfileid: "101680214"
 > A funcionalidade de pré-visualização é fornecida sem um contrato de nível de serviço, e não é recomendada para cargas de trabalho de produção. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 > 
 > A [versão REST API 2020-06-30-Preview](search-api-preview.md) fornece esta funcionalidade. Não existe atualmente nenhum portal ou suporte SDK.
+
+> [!NOTE]
+> O SharePoint Online suporta um modelo de autorização granular que determina o acesso por utilizador ao nível do documento. O indexante SharePoint Online não puxa estas permissões para o índice de pesquisa, e a Pesquisa Cognitiva não suporta a autorização de nível de documento. Quando um documento é indexado do SharePoint Online a um serviço de pesquisa, o conteúdo está disponível para qualquer pessoa que tenha lido o acesso ao índice. Se necessitar de permissões ao nível do documento, deverá investigar filtros de segurança para aparar os resultados de conteúdo não autorizado. Para obter mais informações, consulte [aparar segurança utilizando identidades do Ative Directory](search-security-trimming-for-azure-search-with-aad.md).
 
 Este artigo descreve como usar a Azure Cognitive Search para indexar documentos (tais como PDFs, documentos do Microsoft Office e vários outros formatos comuns) armazenados em bibliotecas de documentos SharePoint Online num índice de Pesquisa Cognitiva Azure. Primeiro, explica o básico da configuração e configuração do indexante. Depois, oferece uma exploração mais profunda de comportamentos e cenários que é provável que encontre.
 

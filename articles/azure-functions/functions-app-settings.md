@@ -3,12 +3,12 @@ title: Referência das definições de aplicação para as Funções do Azure
 description: Documentação de referência para as definições da aplicação Azure Functions ou variáveis ambientais.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: 6f77efc877f210455be6716f8159ee000241c62f
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 6fa8e2d9fb2270d53d8c0419ac7b4d88d79f30fd
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102040350"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102425707"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referência das definições de aplicação para as Funções do Azure
 
@@ -159,11 +159,11 @@ Dita se a edição no portal Azure está ativada. Valores válidos são "readwri
 
 ## <a name="functions_extension_version"></a>VERSÃO \_ DE EXTENSÃO DE FUNÇÕES \_
 
-A versão do tempo de execução das Funções a utilizar nesta aplicação de função. Um azulejo com versão principal significa usar a versão mais recente dessa versão principal (por exemplo, "~2"). Quando estão disponíveis novas versões para a mesma versão principal, são automaticamente instaladas na aplicação de função. Para fixar a aplicação numa versão específica, utilize o número de versão completa (por exemplo, "2.0.12345"). O padrão é "~2". Um valor de `~1` pins a sua app para a versão 1.x do tempo de execução.
+A versão do tempo de execução de Funções que acolhe a sua aplicação de função. Um azulejo `~` com versão principal significa usar a versão mais recente dessa versão principal (por exemplo, "~3"). Quando estão disponíveis novas versões para a mesma versão principal, são automaticamente instaladas na aplicação de função. Para fixar a aplicação numa versão específica, utilize o número de versão completa (por exemplo, "3.0.12345"). O padrão é "~3". Um valor de `~1` pins a sua app para a versão 1.x do tempo de execução. Para obter mais informações, consulte [as versões de tempo de execução do Azure Functions](functions-versions.md).
 
 |Chave|Valor da amostra|
 |---|------------|
-|VERSÃO \_ DE EXTENSÃO DE FUNÇÕES \_|~2|
+|VERSÃO \_ DE EXTENSÃO DE FUNÇÕES \_|~3|
 
 ## <a name="functions_v2_compatibility_mode"></a>FUNÇÕES \_ V2 MODO DE \_ COMPATIBILIDADE \_
 

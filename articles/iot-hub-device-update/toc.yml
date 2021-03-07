@@ -32,7 +32,7 @@
       href: device-update-agent-overview.md
     - name: Ficheiro de configuração de atualização do dispositivo
       href: device-update-configuration-file.md
-    - name: Manifesto de atualização do dispositivo
+    - name: Manifesto de atualização
       href: update-manifest.md
     - name: Como a atualização do dispositivo é segura
       href: device-update-security.md

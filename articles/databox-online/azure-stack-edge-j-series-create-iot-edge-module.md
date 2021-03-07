@@ -1,23 +1,23 @@
 ---
-title: C# IoT Edge module para Azure Stack Edge Pro com GPU Microsoft Docs
+title: Módulo IoT Edge C# para Azure Stack Edge Pro com GPU | Microsoft Docs
 description: Saiba como desenvolver um módulo C# IoT Edge que pode ser implantado no seu dispositivo GPU Azure Stack Edge Pro.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 03/05/2021
 ms.author: alkohli
-ms.openlocfilehash: 2b29f6b400ba7b500e215caec4a2115a12b369fe
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 7836e791f8515c2df89228c81419738adf27e47f
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91952204"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102438920"
 ---
 # <a name="develop-a-c-iot-edge-module-to-move-files-on-azure-stack-edge-pro"></a>Desenvolver um módulo C# IoT Edge para mover ficheiros no Azure Stack Edge Pro
 
-<!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 Este artigo percorre a forma de criar um módulo IoT Edge para implantação com o seu dispositivo Azure Stack Edge Pro. Azure Stack Edge Pro é uma solução de armazenamento que lhe permite processar dados e enviá-lo para o Azure.
 
@@ -70,7 +70,7 @@ Um registo de contentor do Azure é um registo do Docker privado no Azure, onde 
 
    1. Um **nome único de registo** dentro de Azure que contém 5 a 50 caracteres alfanuméricos.
    2. Escolha uma **subscrição.**
-   3. Criar novo ou escolher um grupo de **Recursos**existente.
+   3. Criar novo ou escolher um grupo de **Recursos** existente.
    4. Selecione uma **localização**. Recomendamos que esta localização seja a mesma que está associada ao recurso Azure Stack Edge.
    5. Mude **Utilizador administrador** para **Ativar**.
    6. Desa estação o SKU para **Basic**.
@@ -257,7 +257,7 @@ Na secção anterior, criou uma solução IoT Edge e adicionou código ao FileCo
 
 2. Quando solicitado para obter a senha, forneça a senha. Também pode recuperar os valores do servidor de login, nome de utilizador e palavra-passe a partir das Chaves de **Acesso** no registo do seu contentor no portal Azure.
  
-3. Uma vez fornecidas as credenciais, pode empurrar a imagem do módulo para o registo do seu contentor Azure. No VS Code Explorer, clique commodule.jsà direita ** no** ficheiro e selecione **a solução Build and Push IoT Edge**.
+3. Uma vez fornecidas as credenciais, pode empurrar a imagem do módulo para o registo do seu contentor Azure. No VS Code Explorer, clique commodule.jsà direita **no** ficheiro e selecione **a solução Build and Push IoT Edge**.
 
     ![Construir e empurrar a solução IoT Edge 2](./media/azure-stack-edge-j-series-create-iot-edge-module/build-iot-edge-solution-2.png)
  

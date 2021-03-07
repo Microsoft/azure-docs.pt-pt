@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 02/09/2021
+ms.date: 03/05/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 279dbd13eb41121e63fee96542474d0f6f820ec7
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 337089a317abfb7d5135f493c3491bdbcab4acee
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100094202"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102441686"
 ---
 ## <a name="azure-security-benchmark"></a>Referência de Segurança do Azure
 
@@ -69,10 +69,10 @@ Para obter mais informações sobre esta norma de conformidade, consulte [a ISO 
 |Criptografia |10.1.1 |Política sobre a utilização de controlos criptográficos |[Apenas devem ser ativadas ligações seguras à sua Cache Azure para Redis](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F22bee202-a82f-4305-9a2a-6d7f44d4dedb) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cache/RedisCache_AuditSSLPort_Audit.json) |
 |Segurança das comunicações |13.2.1 |Políticas e procedimentos de transferência de informação |[Apenas devem ser ativadas ligações seguras à sua Cache Azure para Redis](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F22bee202-a82f-4305-9a2a-6d7f44d4dedb) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cache/RedisCache_AuditSSLPort_Audit.json) |
 
-## <a name="new-zealand-ism"></a>ISM da Nova Zelândia
+## <a name="new-zealand-ism-restricted"></a>Ism da Nova Zelândia restrito
 
-Para rever como a Política Azure disponível incorporada para todos os serviços Azure mapear para este padrão de conformidade, consulte [O Azure Policy Regulatory Compliance - Manual de Segurança da Informação da Nova Zelândia](../../../../articles/governance/policy/samples/new-zealand-ism.md).
-Para obter mais informações sobre esta norma de conformidade, consulte o [Manual de Segurança da Informação da Nova Zelândia.](https://www.nzism.gcsb.govt.nz/)
+Para rever como a Política Azure disponível incorporada para todos os serviços Azure mapear para este padrão de conformidade, consulte [Azure Policy Regulatory Compliance - New Zealand ISM Restricted](../../../../articles/governance/policy/samples/new-zealand-ism.md).
+Para obter mais informações sobre esta norma de conformidade, consulte [o Ism Restrito da Nova Zelândia.](https://www.nzism.gcsb.govt.nz/)
 
 |Domínio |ID de controlo |Título de controlo |Política<br /><sub>(Portal Azure)</sub> |Versão política<br /><sub>(GitHub)</sub>  |
 |---|---|---|---|---|

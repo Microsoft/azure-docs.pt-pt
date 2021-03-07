@@ -6,18 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 01/22/2021
+ms.date: 03/04/2021
 ms.author: alkohli
-ms.openlocfilehash: daf44afbb322cb30ab3a663dce4e935aefa7be13
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 8917758b4d7644cab3281e7d69698768d316f026
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98808060"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102436142"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-using-azure-cli-and-python"></a>Implemente VMs no seu dispositivo GPU Azure Stack Edge Pro usando Azure CLI e Python
 
-<!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 [!INCLUDE [azure-stack-edge-gateway-deploy-virtual-machine-overview](../../includes/azure-stack-edge-gateway-deploy-virtual-machine-overview.md)]
 
@@ -427,6 +427,6 @@ Um script Python é-lhe fornecido para criar um VM. Dependendo se está inscrito
     ``` 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Comandos Comuns de CLI Az para máquinas virtuais Linux](../virtual-machines/linux/cli-manage.md)

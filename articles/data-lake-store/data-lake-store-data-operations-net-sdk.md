@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 01/03/2020
 ms.author: twooley
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: cb6d5fafa8d956c296124c5a20f8a087160961da
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: faa539119bbb8d73e66788b8ba472cf0db26a2e4
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92109243"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102431742"
 ---
 # <a name="filesystem-operations-on-data-lake-storage-gen1-using-the-net-sdk"></a>Operações de sistema de ficheiros na Data Lake Storage Gen1 utilizando o .NET SDK
 
@@ -40,7 +40,7 @@ Para obter instruções sobre como fazer operações de gestão de conta na Data
 
 O exemplo de código disponível no [GitHub](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted) explica-lhe o processo de criação de ficheiros no arquivo, de concatenação de ficheiros, de transferência de um ficheiro e de eliminação de alguns ficheiros do arquivo. Esta secção do artigo explica-lhe as partes principais do código.
 
-1. No Estúdio Visual, selecione o menu **'Ficheiro',** **Novo**e, em seguida, **Project**.
+1. No Estúdio Visual, selecione o menu **'Ficheiro',** **Novo** e, em seguida, **Project**.
 1. Escolha **a App consola (.NET Framework)** e, em seguida, selecione **Seguinte**.
 1. No **nome do Projeto,** insira `CreateADLApplication` e, em seguida, selecione **Criar**.
 1. Adicione os pacotes NuGet ao seu projeto.
@@ -202,7 +202,7 @@ Aqui estão algumas amostras que mostram como usar o Sistema de Ficheiros Gen1 d
 ## <a name="see-also"></a>Ver também
 
 * [Operações de gestão de conta na Data Lake Storage Gen1 utilizando .NET SDK](data-lake-store-get-started-net-sdk.md)
-* [Data Lake Storage Gen1 .NET SDK Referência](/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
+* [Data Lake Storage Gen1 .NET SDK Referência](/dotnet/api/overview/azure/data-lake-store)
 
 ## <a name="next-steps"></a>Passos seguintes
 

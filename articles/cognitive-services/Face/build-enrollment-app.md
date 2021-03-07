@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: pafarley
-ms.openlocfilehash: 085dd18214f795566669fb862bba63b67eb9115d
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 218579176b807bbdae85646f27eaa7f301d4b9a6
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350369"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102428274"
 ---
 # <a name="build-an-enrollment-app-for-android-with-react"></a>Construa um aplicativo de inscrição para Android com React
 
@@ -37,9 +37,9 @@ A aplicação de inscrição da amostra é escrita usando o JavaScript e o quadr
 ## <a name="set-up-the-development-environment"></a>Configurar o ambiente de desenvolvimento
 
 1. Clone o repositório de git para a [aplicação de inscrição](https://github.com/azure-samples/cognitive-services-FaceAPIEnrollmentSample)da amostra .
-1. Para configurar o seu ambiente de desenvolvimento, siga a <a href="https://reactnative.dev/docs/environment-setup"  title=" documentação react Native "  target="_blank"> documentação <span class="docon docon-navigate-external x-hidden-focus"></span> </a> Nativa. Selecione **React Native CLI Quickstart** como o seu sistema operativo de desenvolvimento e selecione **o Android** como o sistema operativo alvo. Complete as secções **Instalando dependências** e **ambiente de desenvolvimento Android.**
+1. Para configurar o seu ambiente de desenvolvimento, siga a <a href="https://reactnative.dev/docs/environment-setup"  title=" documentação react Native "  target="_blank"> documentação </a> Nativa. Selecione **React Native CLI Quickstart** como o seu sistema operativo de desenvolvimento e selecione **o Android** como o sistema operativo alvo. Complete as secções **Instalando dependências** e **ambiente de desenvolvimento Android.**
 1. Abra a env.jsno ficheiro no seu editor de texto preferido, como [o Visual Studio Code,](https://code.visualstudio.com/)e adicione o seu ponto final e chave. Pode obter o seu ponto final e a sua chave no portal Azure no **separador Visão Geral** do seu recurso. Este passo é apenas para fins de teste local &mdash; não verifique a chave da API facial no seu repositório remoto.
-1. Execute a aplicação utilizando o emulador de dispositivos virtuais Android do Android Studio ou o seu próprio dispositivo Android. Para testar a sua aplicação num dispositivo físico, siga a documentação nativa de <a href="https://reactnative.dev/docs/running-on-device"  title=" reagir "  target="_blank"> <span class="docon docon-navigate-external x-hidden-focus"></span> </a> relevante.  
+1. Execute a aplicação utilizando o emulador de dispositivos virtuais Android do Android Studio ou o seu próprio dispositivo Android. Para testar a sua aplicação num dispositivo físico, siga a documentação nativa de <a href="https://reactnative.dev/docs/running-on-device"  title=" reagir "  target="_blank"> </a> relevante.  
 
 
 ## <a name="create-an-enrollment-experience"></a>Criar uma experiência de inscrição  
@@ -78,9 +78,9 @@ Em primeiro lugar, certifique-se de que a sua aplicação está pronta para a im
 
 Quando estiver pronto para lançar a sua app para produção, irá gerar um ficheiro APK pronto para lançamento, que é o formato de ficheiros pacote para aplicações Android. Este ficheiro APK deve ser assinado com uma chave privada. Com esta construção de lançamento, pode começar a distribuir a aplicação diretamente para os seus dispositivos. 
 
-Siga o <a href="https://developer.android.com/studio/publish/preparing#publishing-build"  title=" Prepare-se para lançar "  target="_blank"> Prepare a documentação de lançamento <span class="docon docon-navigate-external x-hidden-focus"></span> </a> para aprender a gerar uma chave privada, assine a sua aplicação e gere uma versão APK de lançamento.  
+Siga o <a href="https://developer.android.com/studio/publish/preparing#publishing-build"  title=" Prepare-se para lançar "  target="_blank"> Prepare a documentação de lançamento </a> para aprender a gerar uma chave privada, assine a sua aplicação e gere uma versão APK de lançamento.  
 
-Assim que tiver criado um APK assinado, consulte a Publicação da <a href="https://developer.android.com/studio/publish"  title=" sua app Publicar a "  target="_blank"> documentação da sua aplicação <span class="docon docon-navigate-external x-hidden-focus"></span> </a> para saber mais sobre como lançar a sua aplicação.
+Assim que tiver criado um APK assinado, consulte a Publicação da <a href="https://developer.android.com/studio/publish"  title=" sua app Publicar a "  target="_blank"> documentação da sua aplicação </a> para saber mais sobre como lançar a sua aplicação.
 
 ## <a name="next-steps"></a>Passos seguintes  
 

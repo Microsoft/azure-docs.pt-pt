@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: erhopf
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: f14ac72443dedc8e33e607a82b2145c7ebf95ad2
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 66de81387fe27bd2a81ebcfeab7d86aac7031ff1
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94368785"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102425299"
 ---
 # <a name="azure-cognitive-services-security"></a>Segurança dos Serviços Cognitivos Azure
 
@@ -29,13 +29,13 @@ Todos os pontos finais dos Serviços Cognitivos expostos em HTTP aplicam TLS 1.2
 * O idioma (e plataforma) utilizado para fazer a chamada HTTP precisa de especificar TLS 1.2 como parte do pedido
   * Dependendo do idioma e da plataforma, especificar tLS é feito implicitamente ou explicitamente
 
-Para utilizadores .NET, considere as <a href="https://docs.microsoft.com/dotnet/framework/network-programming/tls" target="_blank">melhores práticas <span class="docon docon-navigate-external x-hidden-focus"></span> de Segurança da Camada de Transporte. </a>
+Para utilizadores .NET, considere as <a href="https://docs.microsoft.com/dotnet/framework/network-programming/tls" target="_blank">melhores práticas de Segurança da Camada de Transporte. </a>
 
 ## <a name="authentication"></a>Autenticação
 
-Quando se discute a autenticação, existem vários equívocos comuns. A autenticação e a autorização são muitas vezes confundidas umas com as outras. A identidade é também um componente importante na segurança. Uma identidade é uma recolha de informação sobre um <a href="https://en.wikipedia.org/wiki/Principal_(computer_security)" target="_blank">principal. <span class="docon docon-navigate-external x-hidden-focus"></span> </a> Os fornecedores de identidade (IdP) fornecem identidades aos serviços de autenticação. A autenticação é o ato de verificar a identidade de um utilizador. A autorização é a especificação dos direitos de acesso e dos privilégios aos recursos para uma determinada identidade. Várias das ofertas de Serviços Cognitivos incluem o controlo de acesso baseado em funções Azure (Azure RBAC). O Azure RBAC poderia ser usado para simplificar parte da cerimónia envolvida com os diretores de gestão manual. Para mais detalhes, consulte o [controlo de acesso baseado em funções da Azure para os recursos da Azure.](../role-based-access-control/overview.md)
+Quando se discute a autenticação, existem vários equívocos comuns. A autenticação e a autorização são muitas vezes confundidas umas com as outras. A identidade é também um componente importante na segurança. Uma identidade é uma recolha de informação sobre um <a href="https://en.wikipedia.org/wiki/Principal_(computer_security)" target="_blank">principal. </a> Os fornecedores de identidade (IdP) fornecem identidades aos serviços de autenticação. A autenticação é o ato de verificar a identidade de um utilizador. A autorização é a especificação dos direitos de acesso e dos privilégios aos recursos para uma determinada identidade. Várias das ofertas de Serviços Cognitivos incluem o controlo de acesso baseado em funções Azure (Azure RBAC). O Azure RBAC poderia ser usado para simplificar parte da cerimónia envolvida com os diretores de gestão manual. Para mais detalhes, consulte o [controlo de acesso baseado em funções da Azure para os recursos da Azure.](../role-based-access-control/overview.md)
 
-Para obter mais informações sobre a autenticação com chaves de subscrição, tokens de acesso e Diretório Ativo Azure (AAD), consulte <a href="https://docs.microsoft.com/azure/cognitive-services/authentication" target="_blank">pedidos autenticados <span class="docon docon-navigate-external x-hidden-focus"></span> aos Serviços Cognitivos da Azure.</a>
+Para obter mais informações sobre a autenticação com chaves de subscrição, tokens de acesso e Diretório Ativo Azure (AAD), consulte <a href="https://docs.microsoft.com/azure/cognitive-services/authentication" target="_blank">pedidos autenticados aos Serviços Cognitivos da Azure.</a>
 
 ## <a name="environment-variables-and-application-configuration"></a>Variáveis ambientais e configuração de aplicações
 
@@ -113,7 +113,7 @@ Para obter uma variável ambiental, deve ser lido na memória. Dependendo do idi
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-Para obter mais informações, veja <a href="https://docs.microsoft.com/dotnet/api/system.environment.getenvironmentvariable" target="_blank">`Environment.GetEnvironmentVariable` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+Para mais informações, consulte. <a href="https://docs.microsoft.com/dotnet/api/system.environment.getenvironmentvariable" target="_blank"> `Environment.GetEnvironmentVariable` </a>
 
 ```csharp
 using static System.Environment;
@@ -132,7 +132,7 @@ class Program
 
 # <a name="c"></a>[C++](#tab/cpp)
 
-Para obter mais informações, veja <a href="https://docs.microsoft.com/cpp/c-runtime-library/reference/getenv-wgetenv" target="_blank">`getenv` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+Para mais informações, consulte. <a href="https://docs.microsoft.com/cpp/c-runtime-library/reference/getenv-wgetenv" target="_blank"> `getenv` </a>
 
 ```cpp
 #include <stdlib.h>
@@ -147,7 +147,7 @@ int main()
 
 # <a name="java"></a>[Java](#tab/java)
 
-Para obter mais informações, veja <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/System.html#getenv(java.lang.String)" target="_blank">`System.getenv` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+Para mais informações, consulte. <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/System.html#getenv(java.lang.String)" target="_blank"> `System.getenv` </a>
 
 ```java
 import java.lang.*;
@@ -164,7 +164,7 @@ public class Program {
 
 # <a name="nodejs"></a>[Node.js](#tab/node-js)
 
-Para obter mais informações, veja <a href="https://nodejs.org/api/process.html#process_process_env" target="_blank">`process.env` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+Para mais informações, consulte. <a href="https://nodejs.org/api/process.html#process_process_env" target="_blank"> `process.env` </a>
 
 ```javascript
 // Get the named env var, and assign it to the value variable
@@ -174,7 +174,7 @@ const value =
 
 # <a name="python"></a>[Python](#tab/python)
 
-Para obter mais informações, veja <a href="https://docs.python.org/2/library/os.html#os.environ" target="_blank">`os.environ` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+Para mais informações, consulte. <a href="https://docs.python.org/2/library/os.html#os.environ" target="_blank"> `os.environ` </a>
 
 ```python
 import os
@@ -185,7 +185,7 @@ value = os.environ['ENVIRONMENT_VARIABLE_KEY']
 
 # <a name="objective-c"></a>[Objective-C](#tab/objective-c)
 
-Para obter mais informações, veja <a href="https://developer.apple.com/documentation/foundation/nsprocessinfo/1417911-environment?language=objc" target="_blank">`environment` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+Para mais informações, consulte. <a href="https://developer.apple.com/documentation/foundation/nsprocessinfo/1417911-environment?language=objc" target="_blank"> `environment` </a>
 
 ```objectivec
 // Get the named env var, and assign it to the value variable

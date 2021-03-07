@@ -6,15 +6,15 @@ ms.author: andbrown
 ms.date: 2/11/2021
 ms.topic: how-to
 ms.service: iot-hub-device-update
-ms.openlocfilehash: c83221743e0566d783c38c40aaf92111a0cd80f7
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 7f2353d9e87c35f01a9fd514df7cfb090a98bf27
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102030737"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102442949"
 ---
 # <a name="import-new-update"></a>Importação Nova Atualização
-Saiba como importar uma nova atualização para a Atualização de Dispositivos para IoT Hub.
+Saiba como importar uma nova atualização para a Atualização de Dispositivos para IoT Hub. Se ainda não o fez, não se esqueça de se familiarizar com os [conceitos básicos de importação.](import-concepts.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -59,9 +59,9 @@ Saiba como importar uma nova atualização para a Atualização de Dispositivos 
     | --------- | ----------- |
     | dispositivo Manfacturer | Fabricante do dispositivo a atualização é compatível com, por exemplo, Contoso
     | modelo de dispositivo | Modelo do dispositivo a atualização é compatível com, por exemplo, torradeira
-    | atualizarProvider | Fornecedor parte da identidade de atualização, por exemplo, Fabrikam
-    | atualizarName | Nomeie parte da identidade de atualização, por exemplo, ImageUpdate
-    | actualizaçãoVersão | Versão de atualização, por exemplo, 2.0
+    | atualizarProvider | Entidade que está a criar ou diretamente responsável pela atualização. Muitas vezes será um nome de empresa.
+    | atualizarName | Identificador para uma classe de atualizações. A aula pode ser o que quiser. Muitas vezes será um dispositivo ou nome de modelo.
+    | actualizaçãoVersão | Número de versão que distingue esta atualização de outras que têm o mesmo Fornecedor e Nome. Pode ou não coincidir com uma versão de um componente de software individual no dispositivo.
     | atualizaçãoType | <ul><li>Especificar `microsoft/swupdate:1` para atualização de imagem</li><li>Especificar `microsoft/apt:1` para atualização de pacotes</li></ul>
     | instaladoCriteria | <ul><li>Especificar o valor da SWVersion para `microsoft/swupdate:1` o tipo de atualização</li><li>Especifique o valor recomendado para `microsoft/apt:1` o tipo de atualização.
     | actualizarFilePath(s) | Caminho para o(s) ficheiros de atualização no seu computador

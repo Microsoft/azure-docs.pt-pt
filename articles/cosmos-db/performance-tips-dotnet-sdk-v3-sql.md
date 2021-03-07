@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: jawilley
 ms.custom: devx-track-dotnet, contperf-fy21q2
-ms.openlocfilehash: f503f132794f6d04b587a78b8f838acba26f9ac3
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 06fb087744ff4ecd96bee7a26e4a796e87866322
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97032019"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102433680"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Sugestões de desempenho para o Azure Cosmos DB e .NET
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -172,7 +172,7 @@ Consultas paralelas fornecem dois parâmetros que pode sintonizar para se adapta
 
 Durante os testes de desempenho, deverá aumentar a carga até que uma pequena taxa de pedidos seja acelerada. Se os pedidos forem acelerados, a aplicação do cliente deve recuar para o intervalo de repetição especificado pelo servidor. Respeitar o recuo ajuda a garantir que passará o mínimo de tempo à espera entre as retrações. 
 
-Para obter mais informações, consulte [RetryAfter](/dotnet/api/microsoft.azure.cosmos.cosmosexception.retryafter?preserve-view=true&view=azure-dotnet#Microsoft_Azure_Cosmos_CosmosException_RetryAfter).
+Para obter mais informações, consulte [RetryAfter](/dotnet/api/microsoft.azure.cosmos.cosmosexception.retryafter#Microsoft_Azure_Cosmos_CosmosException_RetryAfter).
     
 Há um mecanismo para registar informações adicionais de diagnóstico e problemas de latência, como mostra a amostra seguinte. Pode registar a cadeia de diagnósticos para pedidos com uma latência mais lida. A cadeia de diagnósticos capturada irá ajudá-lo a entender quantas vezes recebeu um erro *de 429* para um determinado pedido.
 
@@ -213,7 +213,7 @@ Os custos associados a cada uma destas operações variam consoante o CPU, IO e 
 
 A produção é proscedida com base no número de Unidades de [Pedido definidas](request-units.md) para cada contentor. Pedido O consumo unitário é avaliado como uma taxa de unidades por segundo. Os pedidos que excedam a taxa de unidade de pedido prevista para o seu contentor são limitados até que a taxa baixe abaixo do nível previsto para o contentor. Se a sua aplicação necessitar de um nível de produção mais elevado, pode aumentar a sua produção fornecendo Unidades de Pedido adicionais.
 
-A complexidade de uma consulta afeta quantas Unidades de Pedido são consumidas para uma operação. O número de predicados, a natureza dos predicados, o número de ficheiros UDF e o tamanho do conjunto de dados de origem influenciam o custo das operações de consulta.
+A complexidade de uma consulta afeta a quantidade de Unidades de Pedido consumidas numa operação. O número de predicados, a natureza dos predicados, o número de ficheiros UDF e o tamanho do conjunto de dados de origem influenciam o custo das operações de consulta.
 
 Para medir a sobrecarga de qualquer operação (criar, atualizar ou apagar), inspecione o cabeçalho [x-ms-request-charge](/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) (ou a propriedade equivalente `RequestCharge` dentro ou no `ResourceResponse\<T>` `FeedResponse\<T>` .NET SDK) para medir o número de Unidades de Pedido consumidas pelas operações:
 

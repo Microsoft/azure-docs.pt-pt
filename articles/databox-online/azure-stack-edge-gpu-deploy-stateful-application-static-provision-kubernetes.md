@@ -6,16 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 01/25/2021
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 5704f88d8099966eedcb7143085130ad1376d742
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 895632e4a65f942b61389ffd6ebc8a49d79b5244
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98804889"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102440025"
 ---
 # <a name="use-kubectl-to-run-a-kubernetes-stateful-application-with-a-persistentvolume-on-your-azure-stack-edge-pro-device"></a>Use kubectl para executar uma aplicação stateful Kubernetes com um PersistenteVolume no seu dispositivo Azure Stack Edge Pro
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 Este artigo mostra-lhe como implementar uma aplicação stateful de instância única em Kubernetes usando um PersistentVolume (PV) e uma implementação. A implementação utiliza `kubectl` comandos num cluster Kubernetes existente e implementa a aplicação MySQL. 
 
@@ -343,7 +345,7 @@ persistentvolumeclaim "mysql-pv-claim" deleted
 C:\Users\user>
 ```
 
-O PV já não está ligado ao PVC, uma vez que o PVC foi eliminado. Como o PV foi a provisionado quando a ação foi criada, terá de apagar a parte. Siga estes passos.
+O PV já não está ligado ao PVC, uma vez que o PVC foi eliminado. Como o PV foi a provisionado quando a ação foi criada, terá de apagar a parte. Siga estes passos:
 
 1. Desmontar a parte. No portal Azure, aceda ao seu **recurso Azure Stack Edge > Shares** e selecione e clique na partilha que pretende desmontar. Selecione **Desmonte** e confirme a operação. Espera até que a parte seja desmontada. A desmontagem liberta a parte (e, portanto, a persistentevolume associada) do cluster Kubernetes. 
 
@@ -354,6 +356,6 @@ O PV já não está ligado ao PVC, uma vez que o PVC foi eliminado. Como o PV fo
     ![Eliminar ações locais para PV](./media/azure-stack-edge-gpu-deploy-stateful-application-static-provision-kubernetes/delete-edge-local-share-1.png)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para entender como obter armazenamento de fornecimento dinâmico, consulte [Implementar uma aplicação imponente através de um provisionamento dinâmico num dispositivo Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-stateful-application-dynamic-provision-kubernetes.md)

@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/25/2021
-ms.openlocfilehash: d39ade2536b96bf5e665ecfc01e81232f2fec075
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 1d5fba12ce9b1ce8d30c59a08aa36e1222abe3c7
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102217946"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102433935"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Introdução à produção prevista na Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -98,12 +98,12 @@ Depois de criar um recipiente Azure Cosmos ou uma base de dados, pode atualizar 
 
 Pode recuperar o rendimento previsto de um contentor ou de uma base de dados no portal Azure ou utilizando os SDKs:
 
-* [Container.ReadThroughputAsync](/dotnet/api/microsoft.azure.cosmos.container.readthroughputasync?view=azure-dotnet&preserve-view=true) no .NET SDK.
+* [Container.ReadThroughputAsync](/dotnet/api/microsoft.azure.cosmos.container.readthroughputasync) no .NET SDK.
 * [CosmosContainer.readThroughput](/java/api/com.azure.cosmos.cosmosasynccontainer.readthroughput) on the Java SDK.
 
 A resposta desses métodos contém também o [rendimento mínimo previsto](concepts-limits.md#storage-and-database-operations) para o contentor ou base de dados:
 
-* [ReproduçãoResponse.MinThroughput](/dotnet/api/microsoft.azure.cosmos.throughputresponse.minthroughput?view=azure-dotnet&preserve-view=true) no .NET SDK.
+* [ReproduçãoResponse.MinThroughput](/dotnet/api/microsoft.azure.cosmos.throughputresponse.minthroughput) no .NET SDK.
 * [Repute DeputeResponse.getMinThroughput()](/java/api/com.azure.cosmos.models.throughputresponse.getminthroughput) no SDK de Java.
 
 O ru/s mínimo real pode variar dependendo da configuração da sua conta. Mas geralmente é o máximo de:
@@ -116,7 +116,7 @@ O ru/s mínimo real pode variar dependendo da configuração da sua conta. Mas g
 
 Pode escalar a produção de um contentor ou de uma base de dados através do portal Azure ou utilizando os SDKs:
 
-* [Container.ReplaceThroughputAsync](/dotnet/api/microsoft.azure.cosmos.container.replacethroughputasync?view=azure-dotnet&preserve-view=true) no .NET SDK.
+* [Container.ReplaceThroughputAsync](/dotnet/api/microsoft.azure.cosmos.container.replacethroughputasync) no .NET SDK.
 * [CosmosContainer.replaceThroughput](/java/api/com.azure.cosmos.cosmosasynccontainer.replacethroughput) no Java SDK.
 
 Se estiver **a reduzir a produção a provisionada,** poderá fazê-lo até ao [mínimo.](#current-provisioned-throughput)
@@ -128,7 +128,7 @@ Se estiver **a aumentar a produção prevista,** a maior parte do tempo, a opera
 
 Pode verificar programáticamente o progresso da escala, lendo a [produção atual prevista](#current-provisioned-throughput) e utilizando:
 
-* [Reputações DePutada.IsReplacePending](/dotnet/api/microsoft.azure.cosmos.throughputresponse.isreplacepending?view=azure-dotnet&preserve-view=true) no .NET SDK.
+* [Reputações DePutada.IsReplacePending](/dotnet/api/microsoft.azure.cosmos.throughputresponse.isreplacepending) no .NET SDK.
 * [Reponse de Reponse.isReplacePending()](/java/api/com.azure.cosmos.models.throughputresponse.isreplacepending) no Java SDK.
 
 Pode utilizar [as métricas do Azure Monitor](monitor-cosmos-db.md#view-operation-level-metrics-for-azure-cosmos-db) para visualizar o histórico de produção provisitada (RU/s) e armazenamento num recurso.

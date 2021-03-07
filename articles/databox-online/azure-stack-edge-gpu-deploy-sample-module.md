@@ -1,21 +1,23 @@
 ---
-title: Implementar módulo GPU no seu dispositivo GPU Azure Stack Edge Pro/ Microsoft Docs
+title: Coloque o módulo GPU no seu dispositivo GPU Azure Stack Edge Pro| Microsoft Docs
 description: Descreve como ativar a computação e tornar o seu dispositivo Azure Stack Edge Pro pronto através da UI local.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/31/2020
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 1f16ef0ede25f17acb915a7812ae5b15b45f78a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4142542c9f17ae464a996df310c50d73d8711d8e
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90899732"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102438204"
 ---
 # <a name="deploy-a-gpu-enabled-iot-module-on-azure-stack-edge-pro-gpu-device"></a>Implementar um módulo IoT ativado por GPO em dispositivo GPU Azure Stack Edge Pro
+
+[!INCLUDE [applies-to-GPU-and-pro-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-sku.md)]
 
 Este artigo descreve como implementar um módulo IoT Edge ativado por GPU no seu dispositivo GPU Azure Stack Edge Pro. 
 
@@ -35,7 +37,7 @@ O módulo de amostra gpu neste artigo inclui pyTorch e tensorFlow código de amo
 
 Antes de começar, certifique-se de que tem:
 
-- Tem acesso a um dispositivo GPU ativado por 1 nó Azure Stack Edge Pro. Este dispositivo é ativado com um recurso em Azure. Ver [Ativar o dispositivo](azure-stack-edge-gpu-deploy-activate.md).
+- Tem acesso a um dispositivo GPU ativado por 1 nó Azure Stack Edge Pro. Este dispositivo está ativado com um recurso no Azure. Ver [Ativar o dispositivo](azure-stack-edge-gpu-deploy-activate.md).
 - Configuraste o cálculo deste dispositivo. Siga os passos em [Tutorial: Conigure compute no seu dispositivo Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-configure-compute.md).
 - Registo de Contentores Azure (ACR). Vá à lâmina das **teclas Access** e tome nota do servidor de login ACR, nome de utilizador e senha. Para mais informações, aceda ao [Quickstart: Crie um registo de contentores privados utilizando o portal Azure](../container-registry/container-registry-get-started-portal.md#create-a-container-registry).
 - Os seguintes recursos de desenvolvimento num cliente Windows:
@@ -44,7 +46,7 @@ Antes de começar, certifique-se de que tem:
     - [Visual Studio Code](https://code.visualstudio.com/)  
     - [Extensão Azure IoT Edge para Código de Estúdio Visual](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge).    
     - [Extensão python para código de estúdio visual](https://marketplace.visualstudio.com/items?itemName=ms-python.python)    
-    - [Python 3](https://www.python.org/)    
+    - [Python 3](https://www.python.org/)    
     - Pip para instalar pacotes Python (tipicamente incluídos com a sua instalação Python)
 
 ## <a name="get-the-sample-code"></a>Obter o código de exemplo
@@ -115,7 +117,7 @@ Antes de começar, certifique-se de que tem:
 
     ![Sinal de sucesso](media/azure-stack-edge-gpu-deploy-sample-module/successful-sign-in-1.png)
 
-6. Empurre a sua imagem para o registo do seu contentor Azure. No VS Code Explorer, selecione e clique com odeployment.template.jsno ficheiro e, ** em** seguida, selecione **a solução Build and Push IoT Edge**. 
+6. Empurre a sua imagem para o registo do seu contentor Azure. No VS Code Explorer, selecione e clique com odeployment.template.jsno ficheiro e, **em** seguida, selecione **a solução Build and Push IoT Edge**. 
 
     ![Construa e empurre a solução IoT Edge](media/azure-stack-edge-gpu-deploy-sample-module/build-push-iot-edge-solution-1.png)   
 
@@ -126,7 +128,7 @@ Antes de começar, certifique-se de que tem:
     ![Módulo no registo de contentores](media/azure-stack-edge-gpu-deploy-sample-module/module-container-registry-1.png)    
 
 
-7. Para criar um manifesto de implantação, clique com odeployment.template.jse, ** em** seguida, selecione **Generate IoT Edge Deployment Manifest**. 
+7. Para criar um manifesto de implantação, clique com odeployment.template.jse, **em** seguida, selecione **Generate IoT Edge Deployment Manifest**. 
 
     ![Gerar manifesto de implantação IoT Edge](media/azure-stack-edge-gpu-deploy-sample-module/generate-iot-edge-deployment-manifest-1.png)  
 

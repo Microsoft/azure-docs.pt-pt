@@ -8,12 +8,12 @@ ms.date: 11/19/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 3a5c98b3fad76d2206d1fcba79663063e22ecdbc
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a38af4c942de280e7b1c094885a1ede6774ead56
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101737975"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102433221"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Consulta o gráfico gémeo Azure Digital Twins
 
@@ -220,11 +220,11 @@ Uma vez decidido uma cadeia de consulta, executa-a fazendo uma chamada para a [*
 
 Pode ligar diretamente para a API ou utilizar um dos [SDKs](how-to-use-apis-sdks.md#overview-data-plane-apis) disponíveis para a Azure Digital Twins.
 
-O seguinte código snippet ilustra a chamada [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) de uma aplicação do cliente:
+O seguinte código snippet ilustra a chamada [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client) de uma aplicação do cliente:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/queries.cs" id="RunQuery":::
 
-A consulta utilizada nesta chamada devolve uma lista de gémeos digitais, que o exemplo acima representa com objetos [BasicDigitalTwin.](/dotnet/api/azure.digitaltwins.core.basicdigitaltwin?view=azure-dotnet&preserve-view=true) O tipo de devolução dos seus dados para cada consulta dependerá dos termos especificados com a `SELECT` declaração:
+A consulta utilizada nesta chamada devolve uma lista de gémeos digitais, que o exemplo acima representa com objetos [BasicDigitalTwin.](/dotnet/api/azure.digitaltwins.core.basicdigitaltwin) O tipo de devolução dos seus dados para cada consulta dependerá dos termos especificados com a `SELECT` declaração:
 * As consultas que começam com `SELECT * FROM ...` uma lista de gémeos digitais (que podem ser serializados como `BasicDigitalTwin` objetos, ou outros tipos de gémeos digitais personalizados que possa ter criado).
 * As consultas que começam no formato `SELECT <A>, <B>, <C> FROM ...` devolverão um dicionário com teclas, `<A>` e `<B>` `<C>` .
 * Outros formatos de `SELECT` declarações podem ser concebidos para devolver dados personalizados. Pode considerar criar as suas próprias aulas para lidar com conjuntos de resultados muito personalizados. 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 3/3/2021
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 38754e0f43ceaf40411cd89b97d1c0bf5fe7eb99
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 5549fc3b63b76c6158ae7399e6d94a43d2d4f28f
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102049258"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102435193"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Notas de versão do agente do Azure File Sync
 O Azure File Sync permite-lhe centralizar as partilhas de ficheiros da sua organização nos Ficheiros do Azure sem abdicar da flexibilidade, do desempenho e da compatibilidade de um servidor de ficheiros no local. As suas instalações do Windows Server são transformadas numa cache rápida da sua partilha de ficheiros do Azure. Pode utilizar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente (incluindo SMB, NFS e FTPS). Pode ter o número de caches que precisar em todo o mundo.
@@ -150,6 +150,8 @@ Os itens seguintes não são sincronizados, mas o restante sistema continua a fu
 ### <a name="cloud-tiering"></a>Disposição em camadas na cloud
 - Se um ficheiro disposto em camadas for copiado para outra localização com o Robocopy, o ficheiro resultante não é disposto em camadas. O atributo offline pode estar definido porque o Robocopy inclui incorretamente esse atributo nas operações de cópia.
 - Ao copiar ficheiros utilizando robocopia, utilize a opção /MIR para preservar os tempos de ficheiro. Isto irá garantir que os ficheiros mais antigos são tiered mais cedo do que os ficheiros recentemente acedidos.
+    > [!Warning]  
+    > O interruptor Robocopy /B não é suportado com Azure File Sync. Utilizando o interruptor Robocopy /B com um ponto de terminação do servidor Azure File Sync, uma vez que a fonte pode levar à corrupção de ficheiros.
 
 ## <a name="agent-version-10100"></a>Versão agente 10.1.0.0
 As seguintes notas de lançamento são para a versão 10.1.0.0 do agente Azure File Sync lançado a 5 de junho de 2020. Estas notas juntam-se às notas de lançamento listadas para as versões 10.0.0.0 e 10.0.2.0.

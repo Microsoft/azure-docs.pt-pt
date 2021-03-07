@@ -10,12 +10,12 @@ ms.date: 03/23/2020
 ms.author: ramkris
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6f6994717ff4c730fb27bd26c40d199fb198e528
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 34aef5bd880e3ef080676fb9e90e62796d499e7b
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96019961"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102429821"
 ---
 # <a name="use-the-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Utilize o executor a granel .NET library para realizar operações a granel em Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -27,7 +27,7 @@ ms.locfileid: "96019961"
 
 Este tutorial apresenta instruções sobre a utilização da biblioteca .NET do executor em massa para importar e atualizar documentos para um contentor do Azure Cosmos. Para saber mais sobre a biblioteca do executor a granel e como o ajuda a alavancar a produção e armazenamento maciços, consulte o artigo da biblioteca de [executor a granel.](bulk-executor-overview.md) Neste tutorial, você verá uma aplicação de amostra .NET que importa documentos gerados aleatoriamente em um recipiente Azure Cosmos. Depois de importar, mostra como pode atualizar em massa os dados importados especificando patches como operações para executar em campos de documento específicos.
 
-Atualmente, a biblioteca de executores a granel é suportada apenas pelas contas API API EPI API da AZure Cosmos E a API. Este artigo descreve como utilizar a biblioteca do executor a granel .NET com contas API SQL. Para saber mais sobre a utilização da biblioteca a granel .NET com contas da Gremlin API, consulte [realizar operações a granel na API API API API da Azure Cosmos DB Gremlin](bulk-executor-graph-dotnet.md).
+Atualmente, a biblioteca de executores a granel é suportada apenas pelas contas API API EPI API da AZure Cosmos E a API. Este artigo descreve como utilizar a biblioteca do executor a granel .NET com contas API SQL. Para saber mais sobre a utilização da biblioteca a granel .NET com contas da Gremlin API, consulte [realizar operações a granel na API da Azure Cosmos DB Gremlin](bulk-executor-graph-dotnet.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -94,7 +94,7 @@ A aplicação "BulkImportSample" gera documentos aleatórios e importa-os a gran
    client.ConnectionPolicy.RetryOptions.MaxRetryAttemptsOnThrottledRequests = 0;
    ```
 
-5. O pedido invoca a API BulkImportAsync. A biblioteca .NET fornece duas sobrecargas da API importadora a granel - uma que aceita uma lista de documentos JSON serializados e a outra que aceita uma lista de documentos POCO deserizados. Para saber mais sobre as definições de cada um destes métodos sobrecarregados, consulte a documentação da [API](/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkexecutor.bulkimportasync?view=azure-dotnet&preserve-view=true).
+5. O pedido invoca a API BulkImportAsync. A biblioteca .NET fornece duas sobrecargas da API importadora a granel - uma que aceita uma lista de documentos JSON serializados e a outra que aceita uma lista de documentos POCO deserizados. Para saber mais sobre as definições de cada um destes métodos sobrecarregados, consulte a documentação da [API](/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkexecutor.bulkimportasync).
 
    ```csharp
    BulkImportResponse bulkImportResponse = await bulkExecutor.BulkImportAsync(
@@ -126,11 +126,11 @@ A aplicação "BulkImportSample" gera documentos aleatórios e importa-os a gran
 
 ## <a name="bulk-update-data-in-your-azure-cosmos-account"></a>Dados de atualização em massa na sua conta Azure Cosmos
 
-Pode atualizar os documentos existentes utilizando a API BulkUpdateAsync. Neste exemplo, irá definir o `Name` campo para um novo valor e remover o campo dos `Description` documentos existentes. Para o conjunto completo de operações de atualização apoiadas, consulte a documentação da [API](/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkupdate?view=azure-dotnet&preserve-view=true).
+Pode atualizar os documentos existentes utilizando a API BulkUpdateAsync. Neste exemplo, irá definir o `Name` campo para um novo valor e remover o campo dos `Description` documentos existentes. Para o conjunto completo de operações de atualização apoiadas, consulte a documentação da [API](/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkupdate).
 
 1. Navegue na pasta "BulkUpdateSample" e abra o ficheiro "BulkUpdateSample.sln".  
 
-2. Defina os itens de atualização juntamente com as operações de atualização de campo correspondentes. Neste exemplo, utilizará `SetUpdateOperation` para atualizar o campo e remover o campo de todos os `Name` `UnsetUpdateOperation` `Description` documentos. Também pode realizar outras operações como incrementar um campo de documentos por um valor específico, empurrar valores específicos para um campo de matriz ou remover um valor específico de um campo de matriz. Para saber mais sobre os diferentes métodos fornecidos pela API de atualização a granel, consulte a documentação da [API](/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkupdate?view=azure-dotnet&preserve-view=true).
+2. Defina os itens de atualização juntamente com as operações de atualização de campo correspondentes. Neste exemplo, utilizará `SetUpdateOperation` para atualizar o campo e remover o campo de todos os `Name` `UnsetUpdateOperation` `Description` documentos. Também pode realizar outras operações como incrementar um campo de documentos por um valor específico, empurrar valores específicos para um campo de matriz ou remover um valor específico de um campo de matriz. Para saber mais sobre os diferentes métodos fornecidos pela API de atualização a granel, consulte a documentação da [API](/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkupdate).
 
    ```csharp
    SetUpdateOperation<string> nameUpdate = new SetUpdateOperation<string>("Name", "UpdatedDoc");
@@ -147,7 +147,7 @@ Pode atualizar os documentos existentes utilizando a API BulkUpdateAsync. Neste 
    }
    ```
 
-3. O pedido invoca a API BulkUpdateAsync. Para saber mais sobre a definição do método BulkUpdateAsync, consulte a documentação da [API](/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.ibulkexecutor.bulkupdateasync?view=azure-dotnet&preserve-view=true).  
+3. O pedido invoca a API BulkUpdateAsync. Para saber mais sobre a definição do método BulkUpdateAsync, consulte a documentação da [API](/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.ibulkexecutor.bulkupdateasync).  
 
    ```csharp
    BulkUpdateResponse bulkUpdateResponse = await bulkExecutor.BulkUpdateAsync(

@@ -6,12 +6,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
-ms.openlocfilehash: eb01f2fabb89c6928dc4919987efa27df36a8a7a
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 519dc53f6373ae1a9c8853d3fa90d137e9fa934b
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98946436"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102435414"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---architecture-best-practices"></a>Migrar nos locais apaches aglomerados de Hadoop para Azure HDInsight - melhores práticas de arquitetura
 
@@ -41,7 +41,7 @@ A tabela a seguir mostra os diferentes métodos que podem ser usados para criar 
 |[Azure CLI (ver 1.0)](../hdinsight-hadoop-create-linux-clusters-azure-cli.md)||X|||
 |[Azure PowerShell](../hdinsight-hadoop-create-linux-clusters-azure-powershell.md)||X|||
 |[cURL](../hdinsight-hadoop-create-linux-clusters-curl-rest.md)||X|X||
-|[SDK do .NET](/dotnet/api/overview/azure/hdinsight?view=azure-dotnet&preserve-view=true)||||X|
+|[SDK do .NET](/dotnet/api/overview/azure/hdinsight)||||X|
 |[Python SDK](/python/api/overview/azure/hdinsight)||||X|
 |[SDK Java](/java/api/overview/azure/hdinsight)||||X|
 |[Modelos do Azure Resource Manager](../hdinsight-hadoop-create-linux-clusters-arm-templates.md)||X|||
@@ -116,7 +116,7 @@ Algumas boas práticas de metástasias hdInsight hive são as seguintes:
 - Considere usar ranger RBAC em mesas de colmeia e auditoria.
 - Considere usar o CosmosDB no lugar de MongoDB ou Cassandra.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Leia o próximo artigo desta série:
 

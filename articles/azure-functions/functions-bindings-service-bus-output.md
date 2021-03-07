@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 12e57361b9e275fc441df27a3a1381989d48751c
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: ae2be8dbcb4839c7d16b864c484c3360fdcfe324
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98788575"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102425588"
 ---
 # <a name="azure-service-bus-output-binding-for-azure-functions"></a>Ligação de saída de ônibus Azure Service para funções Azure
 
@@ -429,10 +429,10 @@ Se `isSessionsEnabled` tiver pronto `true` para, o será `sessionHandlerOptions`
 |---------|---------|---------|
 |prefetchCount|0|Recebe ou define o número de mensagens que o recetor de mensagens pode simultaneamente solicitar.|
 |maxAutoRenewDuration|00:05:00|A duração máxima dentro da qual o bloqueio de mensagem será renovado automaticamente.|
-|autoComplete|true|Se o gatilho deve ligar automaticamente completamente após o processamento, ou se o código de função ligar manualmente completo.<br><br>A definição `false` para é suportada apenas em C#.<br><br>Se for `true` programado, o gatilho completa a mensagem automaticamente se a execução da função terminar com sucesso e abandonar a mensagem de outra forma.<br><br>Quando definido `false` para , você é responsável por ligar para os métodos [MessageReceiver](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver?view=azure-dotnet&preserve-view=true) para completar, abandonar ou matar a mensagem. Se for lançada uma exceção (e nenhum dos `MessageReceiver` métodos for chamado), então o bloqueio permanece. Uma vez expirado o bloqueio, a mensagem é novamente em fila com o `DeliveryCount` incremento e o bloqueio é automaticamente renovado.<br><br>Em funções não-C#, as exceções na função resultam nas chamadas de tempo de `abandonAsync` execução em segundo plano. Se não ocorrer exceção, `completeAsync` então é chamado em segundo plano. |
+|autoComplete|true|Se o gatilho deve ligar automaticamente completamente após o processamento, ou se o código de função ligar manualmente completo.<br><br>A definição `false` para é suportada apenas em C#.<br><br>Se for `true` programado, o gatilho completa a mensagem automaticamente se a execução da função terminar com sucesso e abandonar a mensagem de outra forma.<br><br>Quando definido `false` para , você é responsável por ligar para os métodos [MessageReceiver](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver) para completar, abandonar ou matar a mensagem. Se for lançada uma exceção (e nenhum dos `MessageReceiver` métodos for chamado), então o bloqueio permanece. Uma vez expirado o bloqueio, a mensagem é novamente em fila com o `DeliveryCount` incremento e o bloqueio é automaticamente renovado.<br><br>Em funções não-C#, as exceções na função resultam nas chamadas de tempo de `abandonAsync` execução em segundo plano. Se não ocorrer exceção, `completeAsync` então é chamado em segundo plano. |
 |maxConcurrentCalls|16|O número máximo de chamadas simultâneas para a chamada que a bomba de mensagem deve iniciar por instância em escala. Por predefinição, o tempo de execução de Funções processa várias mensagens simultaneamente.|
 |maxConcurrentSessions|2000|O número máximo de sessões que podem ser manuseadas simultaneamente por instância em escala.|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Executar uma função quando uma fila de autocarro de serviço ou mensagem de tópico é criada (Trigger)](./functions-bindings-service-bus-trigger.md)

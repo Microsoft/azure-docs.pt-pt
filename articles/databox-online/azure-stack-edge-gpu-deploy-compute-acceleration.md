@@ -1,21 +1,23 @@
 ---
-title: Utilize GPU de aceleração computacional ou VPU em dispositivos Azure Stack Edge para implementações de Kubernetes Microsoft Docs
+title: Utilize GPU de aceleração computacional ou VPU em dispositivos Azure Stack Edge para implementações de Kubernetes| Microsoft Docs
 description: Descreve como utilizar GPU ou VPU de aceleração computacional no gpu Azure Stack Edge Pro, Azure Stack Edge Pro R ou Azure Stack Edge Mini Ri para implantações de Kubernetes.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 11/05/2020
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: cf70b24dae70ad2e64f3443e4c4d959d46fb4ea4
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 3eb648af60a7be62d08f6b172347778d2358643c
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97095037"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102440127"
 ---
 # <a name="use-compute-acceleration-on-azure-stack-edge-pro-gpu-for-kubernetes-deployment"></a>Use a aceleração do cálculo no GPU Azure Stack Edge Pro para implantação de Kubernetes
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 Este artigo descreve como utilizar a aceleração do cálculo nos dispositivos Azure Stack Edge quando se utilizam implementações de Kubernetes. O artigo aplica-se aos dispositivos Azure Stack Edge Pro GPU, Azure Stack Edge Pro R e Azure Stack Edge Mini R.
 

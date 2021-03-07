@@ -152,7 +152,7 @@
           items:
             - name: Migrar dados do PostgreSQL para um grupo de servidores do Postgres Hyperscale
               href: migrate-postgresql-data-into-postgresql-hyperscale-server-group.md
-            - name: Restaurar a base de dados de exemplos AdventureWorks
+            - name: Importar a base de dados de amostras AdventureWorks
               href: restore-adventureworks-sample-db-into-postgresql-hyperscale-server-group.md
         - name: Resolução de problemas
           href: troubleshoot-postgresql-hyperscale-server-group.md
