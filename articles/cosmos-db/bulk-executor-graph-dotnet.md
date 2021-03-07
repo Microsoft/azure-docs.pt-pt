@@ -9,12 +9,12 @@ ms.date: 05/28/2019
 ms.author: chrande
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b31cb33e09158de5912132d0fb7bd31a62131181
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 15e94dac02770bf28aae4cbfc4e337cb68b8be40
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360518"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102425329"
 ---
 # <a name="using-the-graph-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db-gremlin-api"></a>Utilização do executor a granel de gráficos .NET library para realizar operações a granel em Azure Cosmos DB Gremlin API
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
@@ -25,12 +25,12 @@ Em oposição ao envio de consultas gremlin para uma base de dados, onde o coman
 
 ## <a name="bulk-operations-with-graph-data"></a>Operações em massa com dados de grafos
 
-A [biblioteca de executores a granel](/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.graph?preserve-view=true&view=azure-dotnet) contém um espaço de nome para fornecer `Microsoft.Azure.CosmosDB.BulkExecutor.Graph` funcionalidades para criar e importar objetos gráficos. 
+A [biblioteca de executores a granel](/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.graph) contém um espaço de nome para fornecer `Microsoft.Azure.CosmosDB.BulkExecutor.Graph` funcionalidades para criar e importar objetos gráficos. 
 
 O seguinte processo descreve de que forma é que a migração de dados pode ser utilizada para um contentor de API Gremlin:
 1. Obtenha registos da origem de dados.
 2. Construa os objetos `GremlinVertex` e `GremlinEdge` a partir dos registos obtidos e adicione-os a uma estrutura de dados `IEnumerable`. Nesta parte da aplicação, deve ser implementada a lógica para detetar e adicionar relações, caso a origem de dados não seja uma base de dados de grafo.
-3. Utilize o [método Graph BulkImportAsync](/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.graph.graphbulkexecutor.bulkimportasync?preserve-view=true&view=azure-dotnet) para inserir os objetos de grafo na coleção.
+3. Utilize o [método Graph BulkImportAsync](/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.graph.graphbulkexecutor.bulkimportasync) para inserir os objetos de grafo na coleção.
 
 Este mecanismo melhora a eficácia da migração de dados quando comparado com a utilização de um cliente do Gremlin. Esta melhoria acontece porque a inserção de dados com o Gremlin requer que a aplicação envie consultas uma de cada vez, as quais têm de ser validadas, avaliadas e executadas para criar os dados. A biblioteca de executores a granel tratará da validação na aplicação e enviará vários objetos gráficos de cada vez para cada pedido de rede.
 
@@ -79,7 +79,7 @@ Para obter mais informações sobre os parâmetros da biblioteca do executor a g
 
 O payload tem de ser instanciado em objetos `GremlinVertex` e `GremlinEdge`. Eis como estes objetos podem ser criados:
 
-**Vértices** :
+**Vértices**:
 ```csharp
 // Creating a vertex
 GremlinVertex v = new GremlinVertex(
@@ -93,7 +93,7 @@ v.AddProperty("customProperty", "value");
 v.AddProperty("partitioningKey", "value");
 ```
 
-**Arestas** :
+**Arestas**:
 ```csharp
 // Creating an edge
 GremlinEdge e = new GremlinEdge(
@@ -156,8 +156,8 @@ Definições|Descrição
 2. Execute a aplicação. `BulkImportAsync` vai ser chamado duas vezes, uma para importar Vértices e outra para importar Arestas. Se algum dos objetos gerar um erro quando for inserido, será adicionado a `.\BadVertices.txt` ou a `.\BadEdges.txt`.
 3. Consulte a base de dados de grafo para avaliar os resultados. Se a opção `ShouldCleanupOnFinish` estiver definida como verdadeira, a base de dados será eliminada de forma automática.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para saber mais sobre os detalhes do pacote NuGet e lançar notas do executor a granel .NET library, consulte [detalhes do executor a granel SDK](sql-api-sdk-bulk-executor-dot-net.md). 
 * Consulte as [Dicas de Desempenho](./bulk-executor-dot-net.md#performance-tips) para otimizar ainda mais a utilização do executor a granel.
-* Reveja o artigo [BulkExecutor.Graph Reference](/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.graph?preserve-view=true&view=azure-dotnet) (Referência de BulkExecutor.Graph) para obter mais detalhes sobre as classes e os métodos definidos neste espaço de nomes.
+* Reveja o artigo [BulkExecutor.Graph Reference](/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.graph) (Referência de BulkExecutor.Graph) para obter mais detalhes sobre as classes e os métodos definidos neste espaço de nomes.

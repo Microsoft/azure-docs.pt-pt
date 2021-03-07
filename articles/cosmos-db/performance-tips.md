@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: sngun
 ms.custom: devx-track-dotnet, contperf-fy21q2
-ms.openlocfilehash: 47e20e89c8eaef59b9acd6cf7e31244afd4bcf60
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 57b3d5853f83fc7ee75538d7966f5e20b1a64cd6
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97359052"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102428954"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net-sdk-v2"></a>Sugestões de desempenho para o Azure Cosmos DB e SDK de .NET v2
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -137,19 +137,19 @@ SQL .NET SDK 1.9.0 e posterior suporte consultas paralelas, que permitem consult
 - `MaxDegreeOfParallelism` controla o número máximo de divisórias que podem ser consultadas em paralelo. 
 - `MaxBufferedItemCount` controla o número de resultados pré-recáveis.
 
-**_Grau de sintonização do paralelismo_* _
+***Grau de sintonização do paralelismo***
 
 A consulta paralela funciona consultando várias divisórias em paralelo. Mas os dados de uma partição individual são recolhidos em série no que diz respeito à consulta. A fixação `MaxDegreeOfParallelism` em [SDK V2](sql-api-sdk-dotnet.md) para o número de divisórias tem a melhor hipótese de alcançar a consulta mais performante, desde que todas as outras condições do sistema permaneçam as mesmas. Se não souber o número de divisórias, pode definir o grau de paralelismo para um número elevado. O sistema escolherá o mínimo (número de divisórias, entrada fornecida pelo utilizador) como o grau de paralelismo.
 
 Consultas paralelas são as que mais beneficiam se os dados forem distribuídos uniformemente em todas as divisórias no que diz respeito à consulta. Se a recolha dividida for dividida de modo a que todos ou a maioria dos dados devolvidos por uma consulta se concentrem em algumas divisórias (uma partição é o pior caso), essas divisórias irão engarrafar o desempenho da consulta.
 
-_*_Afinação MaxBufferedItemCount_*_
+***Afinação MaxBufferedItemCount***
     
 A consulta paralela é projetada para pré-obter resultados enquanto o lote atual de resultados está sendo processado pelo cliente. Esta pré-busca ajuda a melhorar a latência geral de uma consulta. O `MaxBufferedItemCount` parâmetro limita o número de resultados pré-recedidos. `MaxBufferedItemCount`Desagreda ao número esperado de resultados devolvidos (ou um número mais elevado) para permitir que a consulta receba o máximo benefício da pré-obtenção.
 
 A pré-busca funciona da mesma forma, independentemente do grau de paralelismo, e há um único tampão para os dados de todas as divisórias.  
 
-_ *Implementar recuos em intervalos De novo**
+**Implementar backoff em Intervalos RetryAfter**
 
 Durante os testes de desempenho, deverá aumentar a carga até que uma pequena taxa de pedidos seja acelerada. Se os pedidos forem acelerados, a aplicação do cliente deve recuar no acelerador para o intervalo de retagem especificado pelo servidor. Respeitar o recuo garante que passa o mínimo de tempo à espera entre as retrações. 
 
@@ -180,7 +180,7 @@ Para reduzir o número de viagens redondas de rede necessárias para obter todos
 > [!NOTE] 
 > A `maxItemCount` propriedade não deve ser usada apenas para paginação. O seu principal uso é melhorar o desempenho das consultas reduzindo o número máximo de itens devolvidos numa única página.  
 
-Também pode definir o tamanho da página usando os SDKs DB DB do Azure Cosmos disponíveis. A propriedade [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet&preserve-view=true) `FeedOptions` permite definir o número máximo de itens a serem devolvidos na operação de enumeração. Quando `maxItemCount` está definido para -1, o SDK encontra automaticamente o valor ideal, dependendo do tamanho do documento. Por exemplo:
+Também pode definir o tamanho da página usando os SDKs DB DB do Azure Cosmos disponíveis. A propriedade [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount) `FeedOptions` permite definir o número máximo de itens a serem devolvidos na operação de enumeração. Quando `maxItemCount` está definido para -1, o SDK encontra automaticamente o valor ideal, dependendo do tamanho do documento. Por exemplo:
     
 ```csharp
 IQueryable<dynamic> authorResults = client.CreateDocumentQuery(documentCollection.SelfLink, "SELECT p.Author FROM Pages p WHERE p.Title = 'About Seattle'", new FeedOptions { MaxItemCount = 1000 });
@@ -215,7 +215,7 @@ A Azure Cosmos DB oferece um rico conjunto de operações de base de dados. Esta
 
 A produção é proscedida com base no número de Unidades de [Pedido definidas](request-units.md) para cada contentor. Pedido O consumo unitário é avaliado como uma taxa por segundo. Os pedidos que excedam a taxa de unidade de pedido prevista para o seu contentor são limitados até que a taxa baixe abaixo do nível previsto para o contentor. Se a sua aplicação necessitar de um nível de produção mais elevado, pode aumentar a sua produção fornecendo Unidades de Pedido adicionais.
 
-A complexidade de uma consulta afeta quantas Unidades de Pedido são consumidas para uma operação. O número de predicados, a natureza dos predicados, o número de UDFs e o tamanho do conjunto de dados de origem influenciam o custo das operações de consulta.
+A complexidade de uma consulta afeta a quantidade de Unidades de Pedido consumidas numa operação. O número de predicados, a natureza dos predicados, o número de UDFs e o tamanho do conjunto de dados de origem influenciam o custo das operações de consulta.
 
 Para medir a sobrecarga de qualquer operação (criar, atualizar ou apagar), inspecione o cabeçalho [x-ms-request-charge](/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) (ou a propriedade equivalente `RequestCharge` dentro ou no `ResourceResponse\<T>` `FeedResponse\<T>` .NET SDK) para medir o número de Unidades de Pedido consumidas pelas operações:
 

@@ -9,12 +9,12 @@ ms.date: 02/01/2021
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: ad660ee69bb568e1a76d59344cf31fbf044aaae9
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 8d04d1bd758480ec33a7480e4045d28ed750f22e
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100581428"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102430943"
 ---
 # <a name="store-business-critical-blob-data-with-immutable-storage"></a>Armazenar dados de blobs críticos para a empresa com o armazenamento imutável
 
@@ -44,13 +44,13 @@ O armazenamento imutável suporta as seguintes características:
 
 - **Suporte para todos os escalões de blobs**: as políticas WORM são independentes da camada de armazenamento de Blobs do Azure e aplicam-se a todas as camadas: frequentes, esporádicas e de arquivo. Os utilizadores podem migrar os dados para a camada com o custo mais otimizado para as cargas de trabalho e manter em simultâneo a imutabilidade dos dados.
 
-- **Configuração ao nível do contentor**: Os utilizadores podem configurar políticas de retenção baseadas no tempo e etiquetas legais de detenção ao nível do contentor. Com definições de nível de contentor simples, os utilizadores podem criar e bloquear as políticas de retenção baseadas no tempo, expandir intervalos de retenção, definir e desmarcar retenções legais e mais. Estas políticas aplicam-se a todos os blobs no contentor, tanto novos como existentes.
+- **Configuração ao nível do contentor**: Os utilizadores podem configurar políticas de retenção baseadas no tempo e etiquetas legais de detenção ao nível do contentor. Com definições de nível de contentor simples, os utilizadores podem criar e bloquear as políticas de retenção baseadas no tempo, expandir intervalos de retenção, definir e desmarcar retenções legais e mais. Estas políticas aplicam-se a todos os blobs no contentor, tanto novos como existentes. Para uma conta ativada pelo HNS, estas políticas aplicam-se também a todos os diretórios num contentor.
 
 - **Suporte de registo de auditoria**: Cada recipiente inclui um registo de auditoria de política. Apresenta até sete comandos de retenção baseados no tempo para políticas de retenção baseadas no tempo bloqueado e contém o ID do utilizador, o tipo de comando, os selos de tempo e o intervalo de retenção. Para retenções legais, o registo contém o ID de utilizador, o tipo de comando, os carimbos de data/hora e as etiquetas de retenção legal. Este registo é mantido durante o tempo de vida da apólice, de acordo com as diretrizes regulamentares SEC 17a-4 f. O [Registo de Atividades Azure](../../azure-monitor/essentials/platform-logs-overview.md) mostra um registo mais abrangente de todas as atividades do plano de controlo; ao permitir que os [Registos de Recursos Azure](../../azure-monitor/essentials/platform-logs-overview.md) retenha e mostre operações de plano de dados. É da responsabilidade do utilizador armazenar esses registos de forma persistente, consoante seja preciso por motivos de regulamentação ou outros fins.
 
 ## <a name="how-it-works"></a>Como funciona
 
-O armazenamento imutável do Armazenamento de blobs do Azure suporta dois tipos de políticas WORM ou imutáveis: retenção baseada no tempo e retenções legais. Quando uma política de retenção baseada no tempo ou um porão legal é aplicado num recipiente, todas as bolhas existentes movem-se para um estado WORM imutável em menos de 30 segundos. Todas as novas bolhas que são enviadas para esse contentor protegido pela política também irão para um estado imutável. Uma vez que todas as bolhas estejam em estado imutável, a política imutável é confirmada e não são permitidas quaisquer operações de substituição ou eliminação no recipiente imutável.
+O armazenamento imutável do Armazenamento de blobs do Azure suporta dois tipos de políticas WORM ou imutáveis: retenção baseada no tempo e retenções legais. Quando uma política de retenção baseada no tempo ou um porão legal é aplicado num recipiente, todas as bolhas existentes movem-se para um estado WORM imutável em menos de 30 segundos. Todas as novas bolhas que são enviadas para esse contentor protegido pela política também irão para um estado imutável. Uma vez que todas as bolhas estejam em estado imutável, a política imutável é confirmada e não são permitidas quaisquer operações de substituição ou eliminação no recipiente imutável. No caso de uma conta ativada pelo HNS, as bolhas não podem ser renomeadas ou transferidas para um diretório diferente.
 
 A supressão da conta de contentores e armazenamento também não é permitida se houver bolhas num recipiente que estejam protegidas por um porão legal ou por uma política baseada no tempo bloqueado. Uma política legal de detenção protegerá contra a eliminação de blob, contentor e armazenamento de contas. Tanto as políticas desbloqueadas como bloqueadas no tempo protegerão contra a eliminação de bolhas durante o tempo especificado. As políticas desbloqueadas e bloqueadas baseadas no tempo só protegerão contra a eliminação do contentor se existir pelo menos uma bolha dentro do recipiente. Apenas um contentor com uma política baseada no tempo *bloqueado* protegerá contra supressões de conta de armazenamento; os contentores com políticas de tempo desbloqueadas não oferecem proteção nem conformidade com a conta de armazenamento.
 
@@ -175,6 +175,9 @@ Sim. Quando uma política de retenção baseada no tempo é criada pela primeira
 **Posso utilizar a eliminação suave ao lado das políticas de bolhas imutáveis?**
 
 Sim, se os seus requisitos de conformidade permitirem a sua eliminação suave. [A eliminação suave para o armazenamento Azure Blob](./soft-delete-blob-overview.md) aplica-se a todos os contentores dentro de uma conta de armazenamento, independentemente de uma política de retenção por precaução legal ou baseada no tempo. Recomendamos que se promova a eliminação suave para proteção adicional antes de serem aplicadas e confirmadas quaisquer políticas imutáveis do WORM.
+
+**Para uma conta ativada pelo HNS, posso mudar o nome ou mover uma bolha quando a bolha estiver no estado imutável?**
+Não, tanto o nome como a estrutura do diretório são considerados dados importantes ao nível do contentor que não podem ser modificados uma vez que a política imutável está em vigor. O renome e o movimento só estão disponíveis para contas ativadas pelo HNS em geral.
 
 ## <a name="next-steps"></a>Passos seguintes
 

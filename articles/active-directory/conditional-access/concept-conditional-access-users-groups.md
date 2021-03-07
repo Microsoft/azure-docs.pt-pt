@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c4c654f70af2188264465d97abded9cae95e9275
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 9d5671626e05145f79c3ad5fc0ecdb5628ac9421
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100364584"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102427135"
 ---
 # <a name="conditional-access-users-and-groups"></a>Acesso Condicional: Utilizadores e grupos
 
-Uma política de Acesso Condicional deve incluir uma atribuição do utilizador como um dos sinais no processo de decisão. Os utilizadores podem ser incluídos ou excluídos das políticas de Acesso Condicional. O Azure Ative Directory avalia todas as políticas e garante que todos os requisitos são cumpridos antes de conceder acesso ao utilizador.
+Uma política de Acesso Condicional deve incluir uma atribuição do utilizador como um dos sinais no processo de decisão. Os utilizadores podem ser incluídos ou excluídos das políticas de Acesso Condicional. O Azure Ative Directory avalia todas as políticas e garante que todos os requisitos são cumpridos antes de conceder acesso ao utilizador. Além deste artigo, temos um vídeo sobre [como incluir ou excluir os utilizadores de políticas de acesso condicional](https://www.youtube.com/watch?v=5DsW1hB3Jqs) que o acompanham através do processo descrito abaixo. 
 
 ![Utilizador como sinal nas decisões tomadas pelo Acesso Condicional](./media/concept-conditional-access-users-groups/conditional-access-users-and-groups.png)
 

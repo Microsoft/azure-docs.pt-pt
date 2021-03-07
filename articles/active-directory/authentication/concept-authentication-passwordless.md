@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97517ad3ff260806108dc22686d49b43b0fc6609
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 43a0ef208a1a56416f748c69f552ec9169d21479
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102096025"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102424236"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Opções de autenticação sem palavras-passe para Azure Ative Directory
 
@@ -125,7 +125,7 @@ Os seguintes fornecedores oferecem chaves de segurança FIDO2 de diferentes fato
 
 | Fornecedor | Contacto |
 | --- | --- |
-| Rio Yubico | [https://www.yubico.com/support/contact/](https://www.yubico.com/support/contact/) |
+| Rio Yubico | [https://www.yubico.com/solutions/passwordless/](https://www.yubico.com/solutions/passwordless/) |
 | Feitiano | [https://ftsafe.us/pages/microsoft](https://ftsafe.us/pages/microsoft) |
 | HID | [https://www.hidglobal.com/contact-us](https://www.hidglobal.com/contact-us) |
 | Garantia | [https://www.ensurity.com/contact](https://www.ensurity.com/contact) |

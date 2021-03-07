@@ -88,7 +88,7 @@
         - name: .NET
           items:
             - name: Referência
-              href: /dotnet/api/overview/azure/cognitiveservices/client/personalizer?view=azure-dotnet
+              href: /dotnet/api/overview/azure/cognitiveservices/client/personalizer
             - name: Pacote NuGet
               href: 'https://go.microsoft.com/fwlink/?linkid=2092272'
         - name: Ir

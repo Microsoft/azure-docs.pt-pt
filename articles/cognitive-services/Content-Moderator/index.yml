@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 10/24/2019
-  ms.openlocfilehash: 5f50412a03edc3f6d6c1f4441c91031bbffde468
-  ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+  ms.openlocfilehash: 6b49c748d134ac76e07dac258953e2c4d2553dd2
+  ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/05/2021
-  ms.locfileid: "102210976"
+  ms.lasthandoff: 03/07/2021
+  ms.locfileid: "102431725"
 landingContent:
 - title: Acerca do Content Moderator
   linkLists:
@@ -135,7 +135,7 @@ landingContent:
     - text: API do Content Moderator
       url: ./api-reference.md
     - text: SDK .NET
-      url: /dotnet/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-dotnet
+      url: /dotnet/api/overview/azure/cognitiveservices/client/contentmoderator
     - text: SDK Python
       url: /python/api/azure-cognitiveservices-vision-contentmoderator/?view=azure-python
     - text: SDK Java

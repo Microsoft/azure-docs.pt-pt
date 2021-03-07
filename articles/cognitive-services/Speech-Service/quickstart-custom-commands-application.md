@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
 ms.custom: references_regions
-ms.openlocfilehash: ea32358aa86a6093cd72adf959d5fe731cf1e125
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: e046f8cbf6fa0418244f20e9a0c6f75f6da34136
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98786881"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102434632"
 ---
 # <a name="create-a-voice-assistant-using-custom-commands"></a>Criar um assistente de voz com os Comandos Personalizados
 
@@ -38,7 +38,7 @@ Neste momento, os Comandos Personalizados suportam subscrições de discurso cri
 ## <a name="prerequisites"></a>Pré-requisitos
 
 > [!div class="checklist"]
-> * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Crie um recurso de Discurso Azul numa região que suporte comandos personalizados.<span class="docon docon-navigate-external x-hidden-focus"></span></a> Consulte a secção **disponibilidade da região** acima para obter a lista de regiões apoiadas.
+> * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Crie um recurso de Discurso Azul numa região que suporte comandos personalizados.</a> Consulte a secção **disponibilidade da região** acima para obter a lista de regiões apoiadas.
 > * Descarregue a amostra [smart room Lite](https://aka.ms/speech/cc-quickstart) json file.
 > * Descarregue a versão mais recente do [Cliente Assistente de Voz](https://aka.ms/speech/va-samples-wvac)do Windows .
 
@@ -134,6 +134,6 @@ No âmbito deste artigo, utilizaremos o cliente Assistente de Voz do Windows que
 > [!TIP]
 > Pode clicar em entradas no **Registo de Atividades** para inspecionar as respostas brutas enviadas a partir do serviço Comandos Personalizados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, usou uma aplicação existente. Em seguida, nas [secções de como desenhar,](./how-to-develop-custom-commands-application.md)desenvolver, depurar, testar e integrar uma aplicação de Comandos Personalizados do zero.

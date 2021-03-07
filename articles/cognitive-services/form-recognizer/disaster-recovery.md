@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 05/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 747ceb0106f437f9e2442c2b8c68c0b73a9107a6
-ms.sourcegitcommit: 02ed9acd4390b86c8432cad29075e2204f6b1bc3
+ms.openlocfilehash: 0343402d92498bff56250027086cbf2ceb258f0f
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97808264"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102427169"
 ---
 # <a name="back-up-and-recover-your-form-recognizer-models"></a>Recue e recupere os seus modelos de Reconhecimento de Formulários
 
@@ -28,7 +28,7 @@ Se a sua aplicação ou negócio depender da utilização de um modelo personali
 
 ##  <a name="prerequisites"></a>Pré-requisitos
 
-1. Dois recursos de Reconhecimento de Forma Azure em diferentes regiões de Azure. Se não os tiver, vá ao portal Azure e <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer" title=" crie um novo recurso de Reconhecimento de " target="_blank"> Formulários crie um novo recurso de Reconhecimento de <span class="docon docon-navigate-external x-hidden-focus"></span> </a> Formulários .
+1. Dois recursos de Reconhecimento de Forma Azure em diferentes regiões de Azure. Se não os tiver, vá ao portal Azure e <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer" title=" crie um novo recurso de Reconhecimento de " target="_blank"> Formulários crie um novo recurso de Reconhecimento de </a> Formulários .
 1. A chave de subscrição, URL de ponto final e ID de subscrição do seu recurso Desemboador de Formulários. Pode encontrar estes valores no **separador Visão Geral** do recurso no portal Azure.
 
 

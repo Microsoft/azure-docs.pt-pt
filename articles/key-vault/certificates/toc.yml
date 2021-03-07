@@ -60,7 +60,7 @@
     - name: CLI do Azure
       href: /cli/azure/keyvault
     - name: .NET
-      href: /dotnet/api/overview/azure/security.keyvault.certificates-readme?view=azure-dotnet
+      href: /dotnet/api/overview/azure/security.keyvault.certificates-readme
     - name: Java
       href: /java/api/overview/azure/keyvault
     - name: Node.js

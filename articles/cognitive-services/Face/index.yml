@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 9/01/2020
-  ms.openlocfilehash: b489278cebb117031709dd28cc8231df6679e5be
-  ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+  ms.openlocfilehash: cbaa9c1b499dc2374037af69cd1aa1f0847e6589
+  ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/05/2021
-  ms.locfileid: "102213543"
+  ms.lasthandoff: 03/07/2021
+  ms.locfileid: "102426285"
 landingContent:
 - title: Acerca do serviço Face
   linkLists:
@@ -95,7 +95,7 @@ landingContent:
     - text: API REST
       url: /rest/api/face/
     - text: SDK .NET
-      url: /dotnet/api/overview/azure/cognitiveservices/client/faceapi?view=azure-dotnet
+      url: /dotnet/api/overview/azure/cognitiveservices/client/faceapi
     - text: SDK Python
       url: /python/api/azure-cognitiveservices-vision-face/?view=azure-python
     - text: SDK Java

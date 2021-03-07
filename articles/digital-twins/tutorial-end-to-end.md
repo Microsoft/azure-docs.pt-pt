@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 3395dc3010f7ae3aabadda8105c1765a9c300988
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 30b30697750a0b9068cfcde19ea4bf9c474f9ad9
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102201265"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102424585"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>Tutorial: Construir uma solução de ponta a ponta
 
@@ -48,7 +48,7 @@ Para trabalhar através do cenário, irá interagir com componentes da aplicaç�
 
 Aqui estão os componentes implementados pela aplicação de amostra do cenário de construção *AdtSampleApp:*
 * Autenticação do dispositivo 
-* [.NET (C#) Exemplos](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) de utilização da SDK (encontrados em *CommandLoop.cs*)
+* [.NET (C#) Exemplos](/dotnet/api/overview/azure/digitaltwins/client) de utilização da SDK (encontrados em *CommandLoop.cs*)
 * Interface de consola para chamar a AZure Digital Twins API
 * *SampleClientApp* - Uma solução de amostra Azure Digital Twins
 * *SampleFunctionsApp* - Uma app Azure Functions que atualiza o seu gráfico Azure Digital Twins como resultado da telemetria dos eventos IoT Hub e Azure Digital Twins

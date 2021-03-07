@@ -6,18 +6,32 @@ ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 11/30/2020
-ms.openlocfilehash: 7d624f2dd2c0c9b4c7e99d5628a1d47e4303da7f
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: 4246ad48624eb0ca53fbe6bb747f02daa32119bf
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98555598"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102432456"
 ---
 # <a name="use-managed-identities-to-access-azure-sql-database-or-azure-synapse-analytics-from-an-azure-stream-analytics-job-preview"></a>Utilize identidades geridas para aceder à Base de Dados Azure SQL ou Azure Synapse Analytics a partir de um trabalho de Azure Stream Analytics (Preview)
 
 O Azure Stream Analytics suporta [a autenticação de identidade gerida](../active-directory/managed-identities-azure-resources/overview.md) para a Base de Dados Azure SQL e pias de saída Azure Synapse Analytics. Identidades geridas eliminam as limitações dos métodos de autenticação baseados no utilizador, como a necessidade de reautenenciar devido a alterações de senha ou expirações simbólicas do utilizador que ocorrem a cada 90 dias. Quando remove a necessidade de autenticação manual, as suas implementações stream Analytics podem ser totalmente automatizadas.
 
 Uma identidade gerida é uma aplicação gerida registada no Azure Ative Directory que representa um determinado trabalho de Stream Analytics. A aplicação gerida é utilizada para autenticar um recurso direcionado. Este artigo mostra-lhe como ativar a Identidade Gerida para uma Base de Dados Azure SQL ou uma saída Azure Synapse Analytics de um trabalho stream Analytics através do portal Azure.
+
+## <a name="overview"></a>Descrição Geral
+
+Este artigo mostra-lhe os passos necessários para ligar o seu trabalho stream Analytics à sua Base de Dados Azure SQL ou à piscina Azure Synapse Analytics SQL utilizando o modo de autenticação de identidade gerida. 
+
+- Primeiro cria uma identidade gerida pelo sistema para o seu trabalho stream Analytics. Esta é a identidade do seu trabalho no Diretório Ativo Azure.  
+
+- Adicione um administrador ative directory ao seu servidor SQL ou espaço de trabalho Synapse, que permite a autenticação Azure AD (Identidade Gerida) para esse recurso.
+
+- Em seguida, crie um utilizador contido que represente a identidade do stream Analytics na base de dados. Sempre que o trabalho stream Analytics interage com o seu recurso DB SQL ou Synapse SQL DB, esta é a identidade a que se refere para verificar as permissões que o seu trabalho stream Analytics tem.
+
+- Conceda permissões ao seu trabalho stream Analytics para aceder às suas piscinas SQL Database ou Synapse SQL.
+
+- Por fim, adicione a sua Base de Dados Azure SQL/Azure Synapse Analytics como saída no trabalho stream Analytics.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -63,25 +77,25 @@ Primeiro, cria-se uma identidade gerida para o seu trabalho Azure Stream Analyti
 
 Depois de criar uma identidade gerida, selecione um administrador do Ative Directory.
 
-1. Navegue para o seu recurso Azure SQL Database ou Azure Synapse Analytics e selecione o SQL Server em que a base de dados está. Pode encontrar o nome do Servidor SQL ao lado *do nome do Servidor* na página de visão geral do recurso.
+1. Navegue para a sua Base de Dados Azure SQL ou para o recurso Azure Synapse Analytics SQL Pool e selecione o SQL Server ou o Espaço de Trabalho Sinapse em que o recurso está, respectivamente. Pode encontrar o link para estes na página geral do recurso ao lado do *nome do Servidor* ou do nome *workspace*.
 
-1. Selecione **Ative Directory Admin** em **Definições**. Em seguida, selecione **Definir administração**.
+1. Selecione **Ative Directory Admin** ou **SQL Ative Directory Admin** em **Definições**, para SQL Server e Synapse Workspace respectivamente. Em seguida, selecione **Definir administração**.
 
    ![Página de administração de diretório ativo](./media/sql-db-output-managed-identity/active-directory-admin-page.png)
 
-1. Na página de administração do Ative Directory, procure um utilizador ou grupo para ser administrador do SqL Server e clique em **Select**.
+1. Na página de administração do Ative Directory, procure um utilizador ou grupo para ser administrador do SqL Server e clique em **Select**. Este será o utilizador que poderá criar o **Utilizador de Bases de Dados Contido** na secção seguinte.
 
    ![Adicionar administrador de diretório ativo](./media/sql-db-output-managed-identity/add-admin.png)
 
-   A página de administração do Ative Directory mostra todos os membros e grupos do seu Diretório Ativo. Os utilizadores ou grupos que estão acinzentados não podem ser selecionados porque não são suportados como administradores do Azure Ative Directory. Consulte a lista de administradores suportados na secção **Azure Ative Directory Features and Limitations**   of Use [Azure Ative Directory Authentication for authentication with SQL Database ou Azure Synapse](../azure-sql/database/authentication-aad-overview.md#azure-ad-features-and-limitations). O controlo de acesso baseado em funções (Azure RBAC) aplica-se apenas ao portal e não é propagado ao SQL Server. Além disso, o utilizador ou grupo selecionado é o utilizador que poderá criar o **Utilizador de Base de Dados Contido** na secção seguinte.
+   A página de administração do Ative Directory mostra todos os membros e grupos do seu Diretório Ativo. Os utilizadores ou grupos acinzentados não podem ser selecionados, uma vez que não são suportados como administradores do Azure Ative Directory. Consulte a lista de administradores suportados na secção **Azure Ative Directory Features and Limitations**   of Use [Azure Ative Directory Authentication for authentication with SQL Database ou Azure Synapse](../azure-sql/database/authentication-aad-overview.md#azure-ad-features-and-limitations).
 
 1. **Selecione Guardar** na página de administração do **Diretório Ativo.** O processo de mudança de administração demora alguns minutos.
-
-   Quando configurar o administrador do Azure Ative Directory, o novo nome de administração (utilizador ou grupo) não pode estar presente na base de dados primária virtual como utilizador de autenticação do SQL Server. Se estiver presente, a configuração de administração do Azure Ative Directory falhará e reverterá a sua criação, indicando que já existe um administrador (nome). Uma vez que o utilizador de autenticação do SQL Server não faz parte do Azure Ative Directory, qualquer esforço para se ligar ao servidor utilizando a autenticação do Azure Ative Directory uma vez que o utilizador falha. 
 
 ## <a name="create-a-contained-database-user"></a>Criar um utilizador de base de dados contido
 
 Em seguida, cria um utilizador de base de dados contido na sua base de dados Azure SQL ou Azure Synapse que está mapeada para a identidade do Diretório Ativo Azure. O utilizador da base de dados contido não tem um login para a base de dados primária, mas mapeia para uma identidade no diretório que está associado à base de dados. A identidade do Diretório Ativo Azure pode ser uma conta de utilizador individual ou um grupo. Neste caso, pretende criar um utilizador de base de dados contido para o seu trabalho stream Analytics. 
+
+Para mais informações, reveja o seguinte artigo para o fundo sobre integração Azure AD: [Autenticação Universal com Base de Dados SQL e Azure Synapse Analytics (suporte SSMS para MFA)](../azure-sql/database/authentication-mfa-ssms-overview.md)
 
 1. Ligue-se à sua base de dados Azure SQL ou Azure Synapse utilizando o SQL Server Management Studio. **O nome de Utilizador** é um utilizador do Azure Ative Directory com a permissão ALTER ANY **USER.** O administrador que definiu no SQL Server é um exemplo. Utilize **o Diretório Ativo Azure – Universal com** autenticação MFA. 
 
@@ -97,7 +111,7 @@ Em seguida, cria um utilizador de base de dados contido na sua base de dados Azu
 
    ![Nova janela de regra de firewall](./media/sql-db-output-managed-identity/new-firewall-rule.png)
 
-   1. Em caso afirmativo, aceda ao seu recurso SQL Server no portal Azure. Sob a secção **de Segurança,** abra as Firewalls e a página **de rede virtual.** 
+   1. Em caso afirmativo, aceda ao seu recurso SQL Server/Synapse Workspace no portal Azure. Sob a secção **de Segurança,** abra as firewalls e a página **rede virtual/Firewalls.** 
    1. Adicione uma nova regra com qualquer nome de regra.
    1. Utilize o endereço *IP a* partir da janela New **Firewall Rule** para o IP *inicial*.
    1. Utilize o endereço *Para* IP a partir da janela **New Firewall Rule** para O IP *final*. 
@@ -108,8 +122,15 @@ Em seguida, cria um utilizador de base de dados contido na sua base de dados Azu
    ```sql
    CREATE USER [ASA_JOB_NAME] FROM EXTERNAL PROVIDER; 
    ```
+   
+    Para verificar se adicionou corretamente o utilizador da base de dados contido, execute o seguinte comando em SSMS na base de dados relativa e verifique se o seu *ASA_JOB_NAME* está na coluna "nome".
 
-1. Para que o Azure Ative Directory da Microsoft verifique se o trabalho do Stream Analytics tem acesso à Base de Dados SQL, precisamos de dar permissão ao Azure Ative Directory para comunicar com a base de dados. Para isso, vá novamente à página "Firewalls e rede virtual" no portal Azure e permita "Permitir que os serviços e recursos do Azure acedam a este servidor". 
+   ```sql
+   SELECT * FROM <SQL_DB_NAME>.sys.database_principals 
+   WHERE type_desc = 'EXTERNAL_USER' 
+   ```
+
+1. Para que o Azure Ative Directory da Microsoft verifique se o trabalho do Stream Analytics tem acesso à Base de Dados SQL, precisamos de dar permissão ao Azure Ative Directory para comunicar com a base de dados. Para isso, vá novamente à página "Firewalls and virtual network"/"Firewalls" no portal Azure e permita "Permitir que os serviços e recursos do Azure acedam a este servidor/espaço de trabalho".
 
    ![Firewall e rede virtual](./media/sql-db-output-managed-identity/allow-access.png)
 
@@ -117,13 +138,13 @@ Em seguida, cria um utilizador de base de dados contido na sua base de dados Azu
 
 #### <a name="azure-sql-database"></a>[Base de Dados SQL do Azure](#tab/azure-sql)
 
-Depois de ter criado um utilizador de base de dados contido e de ter acesso aos serviços Azure no portal, conforme descrito na secção anterior, o seu trabalho stream Analytics tem permissão da Managed Identity para **ligar** ao seu recurso de base de dados Azure SQL através de identidade gerida. Recomendamos que conceda as permissões SELECT e INSERT para o trabalho stream Analytics, uma vez que estas serão necessárias mais tarde no fluxo de trabalho Stream Analytics. A permissão **SELECT** permite que a função teste a sua ligação à tabela na base de dados Azure SQL. A permissão **INSERT** permite testar consultas de stream analytics de ponta a ponta uma vez configurada uma entrada e a saída da base de dados Azure SQL.
+Depois de ter criado um utilizador de base de dados contido e de ter acesso aos serviços Azure no portal, conforme descrito na secção anterior, o seu trabalho stream Analytics tem permissão da Managed Identity para **ligar** ao seu recurso de base de dados Azure SQL através de identidade gerida. Recomendamos que conceda as permissões **SELECT** e **INSERT** para o trabalho stream Analytics, uma vez que estas serão necessárias mais tarde no fluxo de trabalho Stream Analytics. A permissão **SELECT** permite que a função teste a sua ligação à tabela na base de dados Azure SQL. A permissão **INSERT** permite testar consultas de stream analytics de ponta a ponta uma vez configurada uma entrada e a saída da base de dados Azure SQL.
 
 #### <a name="azure-synapse-analytics"></a>[Azure Synapse Analytics](#tab/azure-synapse)
 
-Depois de ter criado um utilizador de base de dados contido e de ter acesso aos serviços Azure no portal, conforme descrito na secção anterior, o seu trabalho stream Analytics tem permissão da Identidade Gerida para **ligar** ao seu recurso de base de dados Azure Synapse através de identidade gerida. Recomendamos que conceda ainda as permissões de OPERAÇÕES DE SELECT, INSERT e GESTÃO DE BASE DE DADOS para o trabalho stream Analytics, uma vez que estas serão necessárias mais tarde no fluxo de trabalho Stream Analytics. A permissão **SELECT** permite que a função teste a sua ligação à tabela na base de dados Azure Synapse. As permissões **de OPERAÇÕES** A GRANEL DE **INSERT** e GESTÃO DE DADOS permitem testar consultas de stream analytics de ponta a ponta uma vez configuradas uma entrada e a saída da base de dados Azure Synapse.
+Depois de ter criado um utilizador de base de dados contido e de ter acesso aos serviços Azure no portal, conforme descrito na secção anterior, o seu trabalho stream Analytics tem permissão da Identidade Gerida para **ligar** ao seu recurso de base de dados Azure Synapse através de identidade gerida. Recomendamos que conceda ainda as permissões de OPERAÇÕES **SELECT,** **INSERT** e **GESTÃO DE BASE DE DADOS** para o trabalho stream Analytics, uma vez que estas serão necessárias mais tarde no fluxo de trabalho Stream Analytics. A permissão **SELECT** permite que a função teste a sua ligação à tabela na base de dados Azure Synapse. As permissões **de OPERAÇÕES** A GRANEL DE **INSERT** e GESTÃO DE DADOS permitem testar consultas de stream analytics de ponta a ponta uma vez configuradas uma entrada e a saída da base de dados Azure Synapse.
 
-Para conceder a permissão de OPERAÇÕES A GRANEL da BASE DE DADOS, terá de conceder todas as permissões que estejam rotuladas como **CONTROL** [sob a permissão implícita por base de dados](/sql/t-sql/statements/grant-database-permissions-transact-sql?view=azure-sqldw-latest&preserve-view=true#remarks) para o trabalho de Stream Analytics. Necessita desta permissão porque o trabalho stream Analytics executa a declaração COPY, que requer [administrar operações a granel de base de dados e inserir](/sql/t-sql/statements/copy-into-transact-sql).
+Para conceder a permissão de OPERAÇÕES A GRANEL da **BASE DE DADOS,** terá de conceder todas as permissões que estejam rotuladas como **CONTROL** sob [a permissão implícita por base de dados](/sql/t-sql/statements/grant-database-permissions-transact-sql?view=azure-sqldw-latest&preserve-view=true#remarks) para o trabalho de Stream Analytics. Necessita desta permissão porque o trabalho stream Analytics executa a declaração **COPY,** que requer [administrar operações a granel de base de dados e inserir](/sql/t-sql/statements/copy-into-transact-sql).
 
 ---
 
@@ -134,18 +155,28 @@ Para conceder apenas permissão a uma determinada tabela ou objeto na base de da
 #### <a name="azure-sql-database"></a>[Base de Dados SQL do Azure](#tab/azure-sql)
 
 ```sql
-GRANT SELECT, INSERT ON OBJECT::TABLE_NAME TO ASA_JOB_NAME;
+GRANT CONNECT, SELECT, INSERT ON OBJECT::TABLE_NAME TO ASA_JOB_NAME;
 ```
 
 #### <a name="azure-synapse-analytics"></a>[Azure Synapse Analytics](#tab/azure-synapse)
 
 ```sql
-GRANT [PERMISSION NAME] OBJECT::TABLE_NAME TO ASA_JOB_NAME;
+GRANT CONNECT, SELECT, INSERT, CONTROL, ADMINISTER DATABASE BULK OPERATIONS OBJECT::TABLE_NAME TO ASA_JOB_NAME;
 ```
 
 ---
 
 Em alternativa, pode clicar com o botão direito na base de dados Azure SQL ou Azure Synapse no SQL Server Management Studio e selecionar **Permissões de > propriedades**. A partir do menu de permissões, pode ver o trabalho stream Analytics que adicionou anteriormente, e pode conceder ou negar permissões manualmente como entender.
+
+Para ver todas as permissões adicionadas ao seu utilizador *ASA_JOB_NAME,* execute o seguinte comando em SSMS sob o DB relativo: 
+
+```sql
+SELECT dprin.name, dbprin.type_desc, dbperm.permission_name, dbperm.state_desc, dbperm.class_desc, object_name(dbperm.major_id) 
+FROM sys.database_principals dbprin 
+LEFT JOIN sys.database_permissions dbperm 
+ON dbperm.grantee_principal_id = dbprin.principal_id 
+WHERE dbprin.name = '<ASA_JOB_NAME>' 
+```
 
 ## <a name="create-an-azure-sql-database-or-azure-synapse-output"></a>Criar uma base de dados Azure SQL ou saída Azure Synapse
 
@@ -161,6 +192,8 @@ Certifique-se de que criou uma tabela na sua Base de Dados SQL com o esquema de 
 
 1. Preencha o resto das propriedades. Para saber mais sobre a criação de uma saída de Base de Dados SQL, consulte [Criar uma saída de Base de Dados SQL com Stream Analytics](sql-database-output.md). Quando terminar, **selecione Save**.
 
+1. Depois de clicar em **Guardar,** um teste de ligação ao seu recurso deve ser ativado automaticamente. Uma vez concluído com sucesso, configura com sucesso o seu trabalho stream Analytics para ligar-lhe a Base de Dados Azure SQL ou Base de Dados Sinapse SQL utilizando o modo de autenticação de identidade gerido. 
+
 #### <a name="azure-synapse-analytics"></a>[Azure Synapse Analytics](#tab/azure-synapse)
 
 Agora que a sua conta de identidade e armazenamento gerida está configurada, está pronto para adicionar uma base de dados Azure SQL ou saída Azure Synapse ao seu trabalho stream Analytics.
@@ -172,6 +205,8 @@ Certifique-se de que criou uma tabela na sua base de dados Azure Synapse com o e
 1. **Selecione Adicionar > Azure Synapse Analytics**. Na janela de propriedades de saída do lavatório de saída SQL Database, selecione **Identidade Gerida** a partir do modo de autenticação.
 
 1. Preencha o resto das propriedades. Para saber mais sobre a criação de uma saída Azure Synapse, consulte [a saída Azure Synapse Analytics da Azure Stream Analytics](azure-synapse-analytics-output.md). Quando terminar, **selecione Save**.
+
+1. Depois de clicar em **Guardar,** um teste de ligação ao seu recurso deve ser ativado automaticamente. Uma vez concluído com sucesso, está agora pronto a continuar a utilizar a Identidade Gerida para o seu recurso Azure Synapse Analytics com Stream Analytics. 
 
 ---
 

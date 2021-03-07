@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 11/18/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 40cf83b0ca9e4c794979f2b20ddb73360758abc5
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: b0e440f9fe0b7ce1591318362ac0419b9aa01baf
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102198545"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102433306"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Gerir pontos finais e rotas em Azure Digital Twins (APIs e CLI)
 
@@ -20,7 +20,7 @@ ms.locfileid: "102198545"
 
 Em Azure Digital Twins, você pode encaminhar notificações de eventos para serviços a [jusante](how-to-interpret-event-data.md) ou recursos de computação conectados. Isto é feito ao, em primeiro lugar, configurar **pontos finais** que podem receber os eventos. Em seguida, pode criar  [**rotas de eventos**](concepts-route-events.md) que especifiquem quais os eventos gerados pela Azure Digital Twins que são entregues a que pontos finais.
 
-Este artigo acompanha-o através do processo de criação de pontos finais e rotas com as [APIs REST,](/rest/api/azure-digitaltwins/)a [.NET (C#) SDK,](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true)e o [Azure Digital Twins CLI](how-to-use-cli.md).
+Este artigo acompanha-o através do processo de criação de pontos finais e rotas com as [APIs REST,](/rest/api/azure-digitaltwins/)a [.NET (C#) SDK,](/dotnet/api/overview/azure/digitaltwins/client)e o [Azure Digital Twins CLI](how-to-use-cli.md).
 
 Em alternativa, também pode gerir pontos finais e rotas com o [portal Azure.](https://portal.azure.com) Para uma versão deste artigo que utiliza o portal, consulte [*Como fazer: Gerir pontos finais e rotas (portal)*](how-to-manage-routes-portal.md).
 
@@ -208,7 +208,7 @@ As rotas de eventos podem ser criadas com os comandos apis do plano de dados Azu
 
 ### <a name="create-routes-with-the-apis-and-c-sdk"></a>Criar rotas com as APIs e C# SDK
 
-Uma forma de definir rotas de eventos é com as APIs do [plano de dados.](how-to-use-apis-sdks.md#overview-data-plane-apis) As amostras desta secção utilizam o [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true).
+Uma forma de definir rotas de eventos é com as APIs do [plano de dados.](how-to-use-apis-sdks.md#overview-data-plane-apis) As amostras desta secção utilizam o [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client).
 
 `CreateOrReplaceEventRouteAsync` é a chamada SDK que é usada para adicionar uma rota de evento. Aqui está um exemplo da sua utilização:
 

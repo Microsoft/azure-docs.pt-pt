@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 03/27/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 33cc9b52c4b687ca8147867b99dc70e8d71a9223
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fc4cc5063f72ff3f0db62cde79f7908add86166e
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88944422"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102434587"
 ---
 :::row:::
     :::column span="3":::
@@ -26,11 +26,11 @@ ms.locfileid: "88944422"
 
 ### <a name="system-requirements"></a>Requisitos de sistema
 
-O Speech SDK no Windows requer o <a href="https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads" target="_blank">Microsoft Visual C++ Redistribuable for Visual Studio 2019 <span class="docon docon-navigate-external x-hidden-focus"></span> </a> no sistema.
+O Speech SDK no Windows requer o <a href="https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads" target="_blank">Microsoft Visual C++ Redistribuable for Visual Studio 2019 </a> no sistema.
 
-- <a href="https://aka.ms/vs/16/release/vc_redist.x86.exe" target="_blank">Instalação para x86 <span class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="https://aka.ms/vs/16/release/vc_redist.x64.exe" target="_blank">Instalação para x64 <span class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="https://aka.ms/vs/16/release/vc_redist.arm64.exe" target="_blank">Instalação para ARMx64 <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://aka.ms/vs/16/release/vc_redist.x86.exe" target="_blank">Instalação para x86 </a>
+- <a href="https://aka.ms/vs/16/release/vc_redist.x64.exe" target="_blank">Instalação para x64 </a>
+- <a href="https://aka.ms/vs/16/release/vc_redist.arm64.exe" target="_blank">Instalação para ARMx64 </a>
 
 ### <a name="c"></a>C#
 
@@ -40,7 +40,7 @@ Para a entrada do microfone, as bibliotecas da Media Foundation devem ser instal
 
 Os ficheiros SDK de discurso necessários podem ser implantados no mesmo diretório que a sua aplicação. Desta forma, a sua aplicação pode aceder diretamente às bibliotecas. Certifique-se de que seleciona a versão correta (x86/x64) que corresponde à sua aplicação.
 
-| Nome                                            | Função                                             |
+| Name                                            | Função                                             |
 |-------------------------------------------------|------------------------------------------------------|
 | `Microsoft.CognitiveServices.Speech.core.dll`   | Core SDK, necessário para implantação nativa e gerida |
 | `Microsoft.CognitiveServices.Speech.csharp.dll` | Necessário para implantação gerida                      |

@@ -12,12 +12,12 @@ ms.date: 03/02/2021
 ms.author: aahi
 ms.custom: seodec18, cog-serv-seo-aug-2020
 keywords: no local, OCR, Docker, contentor
-ms.openlocfilehash: 93d59e78241dcc94785ca139818d72908c7184a4
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 1c9e681e3c02cb65b2a54070cc778051a0e7ac53
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102043920"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102432558"
 ---
 # <a name="install-read-ocr-docker-containers-preview"></a>Instalar Ler recipientes OCR Docker (Pré-visualização) 
 
@@ -418,7 +418,7 @@ Quando a imagem é lida na sua totalidade, então e só então a API devolve uma
 
 O objeto de resposta JSON tem o mesmo gráfico de objeto que a versão assíncrona. Se é um utilizador JavaScript e deseja segurança do tipo, considere utilizar o TypeScript para lançar a resposta JSON.
 
-Para uma caixa de utilização por exemplo, consulte a caixa de <a href="https://aka.ms/ts-read-api-types" target="_blank" rel="noopener noreferrer">areia TypeScript aqui <span class="docon docon-navigate-external x-hidden-focus"></span></a> e selecione **Executar** para visualizar a sua facilidade de utilização.
+Para uma caixa de utilização por exemplo, consulte a caixa de <a href="https://aka.ms/ts-read-api-types" target="_blank" rel="noopener noreferrer">areia TypeScript aqui</a> e selecione **Executar** para visualizar a sua facilidade de utilização.
 
 ## <a name="stop-the-container"></a>Parar o contentor
 

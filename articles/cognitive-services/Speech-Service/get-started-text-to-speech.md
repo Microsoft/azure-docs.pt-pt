@@ -13,12 +13,12 @@ ms.author: trbye
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
 zone_pivot_groups: programming-languages-set-twenty-four
 keywords: texto para a fala
-ms.openlocfilehash: c3f1db836ce028b6881efe0b2fa90e9ac19caac8
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 7a41c4d9c1074b376da3de556caf63ced0bc84ec
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92058238"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102428193"
 ---
 # <a name="get-started-with-text-to-speech"></a>Introdução à conversão de texto em voz
 
@@ -53,6 +53,20 @@ ms.locfileid: "92058238"
 ::: zone pivot="programmer-tool-spx"
 [!INCLUDE [CLI Basics include](includes/how-to/text-to-speech-basics/text-to-speech-basics-cli.md)]
 ::: zone-end
+
+## <a name="get-position-information"></a>Obtenha informações sobre posição
+
+O seu projeto pode precisar de saber quando uma palavra é falada por discurso a texto para que possa tomar medidas específicas com base nesse timing. Como exemplo, se quisesse destacar as palavras à medida que foram ditas, precisaria de saber o que destacar, quando realçá-la e por quanto tempo a destacar.
+
+Pode fazê-lo utilizando o `WordBoundary` evento disponível dentro `SpeechSynthesizer` de . Este evento é levantado no início de cada nova palavra falada e fornecerá uma compensação de tempo dentro do fluxo falado, bem como um desvio de texto dentro do pedido de entrada.
+
+* `AudioOffset` relata o tempo decorrido do áudio de saída entre o início da síntese e o início da próxima palavra. Isto é medido em unidades de cem nanossegundos (HNS) com 10.000 HNS equivalentes a 1 milissegundo.
+* `WordOffset` relata a posição do carácter na cadeia de entrada (texto original ou [SSML)](speech-synthesis-markup.md)imediatamente antes da palavra que está prestes a ser falada.
+
+> [!NOTE]
+> `WordBoundary` os eventos são levantados à medida que os dados de áudio de saída ficam disponíveis, o que será mais rápido do que a reprodução de um dispositivo de saída. A sincronização adequada do tempo de streaming para "tempo real" deve ser realizada pelo chamador.
+
+Pode encontrar exemplos de `WordBoundary` utilização nas [amostras de texto-a-discurso](https://aka.ms/csspeech/samples) no GitHub.
 
 ## <a name="next-steps"></a>Passos seguintes
 

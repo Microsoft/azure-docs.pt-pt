@@ -3,18 +3,18 @@ title: Faturas de inscrição do Azure Enterprise
 description: Este artigo explica como gerir e interpretar a fatura Azure Enterprise.
 author: bandersmsft
 ms.author: banders
-ms.date: 01/19/2021
+ms.date: 03/05/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
-ms.reviewer: boalcsva
+ms.reviewer: ruturajd
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 90ae9bdcee5f5f4c4281f2c3f931389b2ebf9486
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
-ms.translationtype: HT
+ms.openlocfilehash: 71ba1d6e1e45c5c2e72e2be620158b1aa4b71582
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98598074"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102430819"
 ---
 # <a name="azure-enterprise-enrollment-invoices"></a>Faturas de inscrição do Azure Enterprise
 
@@ -98,29 +98,41 @@ O portal Azure Enterprise filtra as inscrições inativas de forma a não serem 
 
 ## <a name="change-a-po-number-for-an-upcoming-overage-invoice"></a>Alterar um número de nota de encomenda de uma fatura de utilização excedida futura
 
-O portal Azure Enterprise gera automaticamente um número de nota de encomenda predefinido, a não ser que o administrador do Enterprise defina um antes da data da fatura. Um administrador do Enterprise pode atualizar o número da nota de encomenda num prazo de sete dias após a receção do e-mail de notificação da fatura.
+O portal Azure Enterprise gera automaticamente um número de nota de encomenda predefinido, a não ser que o administrador do Enterprise defina um antes da data da fatura. Um administrador do Enterprise pode atualizar o número da nota de encomenda num prazo de sete dias após a receção do e-mail de notificação da fatura. 
 
-### <a name="to-update-the-azure-services-purchase-order-number"></a>Para atualizar o número da nota de encomenda dos serviços do Azure:
+Para evitar a geração automática de números de PO todos os meses, pode bloquear o número de PO. Consulte [o número de PO do bloqueio](#lock-po-number-to-prevent-automatic-update-in-upcoming-billing-cycles).
+
+### <a name="update-the-azure-services-purchase-order-number"></a>Atualizar o número de encomenda de compra de serviços Azure
 
 1. No portal Azure Enterprise, selecione **Relatório** > **Resumo da Utilização**.
 1. Selecione **Editar Números de Nota de Encomenda** no canto superior direito.
 1. Selecione o botão de opção **Serviços do Azure**.
 1. Selecione um **Período de Fatura** no menu pendente de intervalos de datas.
-
    Pode editar um número de nota de encomenda durante um período de sete dias depois de receber uma notificação de fatura, mas antes de pagar a fatura.
 1. Introduza um novo número da nota de encomenda no campo **Número da Nota de Encomenda**.
 1. Selecione **Guardar** para submeter a alteração.
 
-### <a name="to-update-the-azure-marketplace-purchase-order-number"></a>Para atualizar o número da nota de encomenda do Azure Marketplace:
+### <a name="update-the-azure-marketplace-purchase-order-number"></a>Atualizar o número de pedido de compra do Azure Marketplace
 
 1. No portal Azure Enterprise, selecione **Relatório** > **Resumo da Utilização**.
 1. Selecione **Editar Números de Nota de Encomenda** no canto superior direito.
 1. Selecione o botão de opção **Marketplace**.
-1. Selecione um **Período de Fatura** no menu pendente de intervalos de datas.
-
-   Pode editar um número de nota de encomenda durante um período de sete dias depois de receber uma notificação de fatura, mas antes de pagar a fatura.
+1. Selecione um **Período de Fatura** no menu pendente de intervalos de datas.  
+    Pode editar um número de nota de encomenda durante um período de sete dias depois de receber uma notificação de fatura, mas antes de pagar a fatura.
 1. Introduza um novo número da nota de encomenda no campo **Número da Nota de Encomenda**.
 1. Selecione **Guardar** para submeter a alteração.
+
+### <a name="lock-po-number-to-prevent-automatic-update-in-upcoming-billing-cycles"></a>Bloqueie o número de PO para evitar a atualização automática nos próximos ciclos de faturação
+
+Depois de bloquear o número de PO, permanece bloqueado para todas as faturas novas e não precisa de atualizar o número de PO.
+
+1.  No portal Azure Enterprise, selecione **Report**  >  **Usage Summary**.
+2.  Selecione **Editar Números de Nota de Encomenda** no canto superior direito.
+3.  Digite um novo número de PO no campo **po number.**
+4.  Selecione a caixa **de números lock PO.**
+5.  Selecione **Guardar** para submeter a alteração.  
+    :::image type="content" source="./media/ea-portal-enrollment-invoices/lock-po.png" alt-text="Screenshot mostrando a caixa de números de PO visualização/edição." lightbox="./media/ea-portal-enrollment-invoices/lock-po.png" :::
+
 
 ## <a name="azure-enterprise-billing-frequency"></a>Frequência de faturação do Azure Enterprise
 

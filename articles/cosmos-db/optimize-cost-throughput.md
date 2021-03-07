@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/07/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 86de3e1199b00dff4e03f3b4292f86e6c19ea491
-ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
+ms.openlocfilehash: 0c95fc9e416399b5c8fe032e0d3af0c3b7f9cf6e
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96296544"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102433578"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Otimizar o débito aprovisionado no Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -65,7 +65,7 @@ Como mostrado na tabela seguinte, dependendo da escolha da API, você pode provi
 
 Ao auspor produção a diferentes níveis, pode otimizar os seus custos com base nas características da sua carga de trabalho. Como mencionado anteriormente, pode aumentar programática e a qualquer momento o seu rendimento proviscionado para cada um dos contentores ou coletivamente através de um conjunto de contentores. Ao escalonar elasticamente a produção à medida que a sua carga de trabalho muda, só paga pela produção que configura. Se o seu recipiente ou um conjunto de contentores forem distribuídos por várias regiões, então a produção que configura no contentor ou um conjunto de contentores é garantidamente disponibilizada em todas as regiões.
 
-## <a name="optimize-with-rate-limiting-your-requests"></a>Otimize com a limitação de tarifas dos seus pedidos
+## <a name="optimize-with-rate-limiting-your-requests"></a>Otimizar os pedidos com a limitação da taxa
 
 Para cargas de trabalho que não sejam sensíveis à latência, pode prever menos produção e deixar a aplicação limitar a taxa quando a produção real exceder a produção prevista. O servidor terminará preventivamente o pedido com `RequestRateTooLarge` (código de estado HTTP 429) e devolverá o `x-ms-retry-after-ms` cabeçalho indicando o tempo, em milissegundos, de que o utilizador deve esperar antes de voltar a tentar o pedido. 
 
@@ -81,7 +81,7 @@ Os SDKs nativos (.NET/.NET Core, Java, Node.js e Python) capturam implicitamente
 
 Se tiver mais de um cliente a operar cumulativamente acima da taxa de pedido, a contagem de retíria por defeito, que está atualmente definida para 9, pode não ser suficiente. Nesses casos, o cliente lança um `RequestRateTooLargeException` código de estado 429 para a aplicação. A contagem de repetições por defeito pode ser alterada definindo `RetryOptions` a instância "ConnectionPolicy". Por predefinição, o `RequestRateTooLargeException` código de estado 429 é devolvido após um tempo de espera acumulado de 30 segundos se o pedido continuar a funcionar acima da taxa de pedido. Isto ocorre mesmo quando a contagem de repetição atual é inferior à contagem máxima de repetição, seja o padrão de 9 ou um valor definido pelo utilizador. 
 
-[MaxRetryAttemptsOnThrottledRequests](/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretryattemptsonthrottledrequests?preserve-view=true&view=azure-dotnet) está definido para 3, por isso, neste caso, se uma operação de pedido for limitada por exceder a produção reservada para o contentor, a operação de pedido retrifique três vezes antes de lançar a exceção ao pedido. [MaxRetryWaitTimeInSegundos](/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretrywaittimeinseconds?preserve-view=true&view=azure-dotnet#Microsoft_Azure_Documents_Client_RetryOptions_MaxRetryWaitTimeInSeconds) está definido para 60, por isso, neste caso, se o tempo de espera acumulado em segundos, uma vez que o primeiro pedido excede 60 segundos, a exceção é lançada.
+[MaxRetryAttemptsOnThrottledRequests](/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretryattemptsonthrottledrequests) está definido para 3, por isso, neste caso, se uma operação de pedido for limitada por exceder a produção reservada para o contentor, a operação de pedido retrifique três vezes antes de lançar a exceção ao pedido. [MaxRetryWaitTimeInSegundos](/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretrywaittimeinseconds#Microsoft_Azure_Documents_Client_RetryOptions_MaxRetryWaitTimeInSeconds) está definido para 60, por isso, neste caso, se o tempo de espera acumulado em segundos, uma vez que o primeiro pedido excede 60 segundos, a exceção é lançada.
 
 ```csharp
 ConnectionPolicy connectionPolicy = new ConnectionPolicy(); 
@@ -99,7 +99,7 @@ Uma boa estratégia de partição é importante para otimizar os custos na Azure
 
 * Escolha uma chave de partição que tenha uma vasta gama de valores. 
 
-A ideia básica é espalhar os dados e a atividade no seu contentor através do conjunto de divisórias lógicas, para que os recursos para armazenamento e produção de dados possam ser distribuídos pelas divisórias lógicas. Os candidatos às chaves de partição podem incluir as propriedades que aparecem frequentemente como um filtro nas suas consultas. As consultas podem ser encaminhadas de forma eficiente, incluindo a chave de partição no predicado do filtro. Com esta estratégia de partição, a otimização da produção a provisionada será muito mais fácil. 
+A ideia básica é espalhar os dados e a atividade no seu contentor através do conjunto de divisórias lógicas, para que os recursos para armazenamento e produção de dados possam ser distribuídos pelas divisórias lógicas. Os candidatos às chaves de partição podem incluir as propriedades que aparecem frequentemente como um filtro nas suas consultas. As consultas podem ser encaminhadas com eficiência ao incluir a chave de partição no predicado de filtro. Com esta estratégia de partição, a otimização da produção a provisionada será muito mais fácil. 
 
 ### <a name="design-smaller-items-for-higher-throughput"></a>Desenhe itens menores para maior produção 
 

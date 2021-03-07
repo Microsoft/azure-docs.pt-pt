@@ -8,58 +8,58 @@ ms.author: nmurav
 ms.date: 01/03/2012
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: cd535227b421f4fb56dac3afb37033e3d77f75f7
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 08fe9e56298218936e700518cdd150f54d7f01de
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101691540"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102425737"
 ---
 # <a name="tutorial-prepare-a-web-app-for-azure-communication-services-nodejs"></a>Tutorial: Preparar uma aplicação web para serviços de comunicação Azure (Node.js)
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
-Os Serviços de Comunicação Azure permitem-lhe adicionar comunicações em tempo real às suas aplicações. Neste tutorial, você vai aprender a configurar uma aplicação web que suporta os Serviços de Comunicação Azure. Este é um tutorial introdutório destinado a novos desenvolvedores que querem começar com comunicações em tempo real.
+Pode utilizar os Serviços de Comunicação Azure para adicionar comunicações em tempo real às suas aplicações. Neste tutorial, você vai aprender a configurar uma aplicação web que suporta os Serviços de Comunicação Azure. Este é um tutorial introdutório para novos desenvolvedores que querem começar com comunicações em tempo real.
 
-No final deste tutorial, terá uma aplicação web de base configurada com bibliotecas de clientes Azure Communication Services que pode usar para começar a construir a sua solução de comunicações em tempo real.
+No final deste tutorial, terá uma aplicação web de base que está configurada com bibliotecas de clientes do Azure Communication Services. Em seguida, pode utilizar essa aplicação para começar a construir a sua solução de comunicações em tempo real.
 
-Sinta-se livre para visitar a página [gitHub dos Serviços de Comunicação Azure](https://github.com/Azure/communication) para fornecer feedback.
+Sinta-se livre para visitar a [página gitHub dos Serviços de Comunicação Azure](https://github.com/Azure/communication) para fornecer feedback.
 
 Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
-> * Configure o seu ambiente de desenvolvimento
-> * Criar um webserver local
-> * Adicione os pacotes Azure Communication Services ao seu website
-> * Publique o seu website em Websites Estáticos Azure
+> * Configure o seu ambiente de desenvolvimento.
+> * Crie um servidor web local.
+> * Adicione os pacotes Azure Communication Services ao seu website.
+> * Publique o seu website em websites estáticos Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Uma conta Azure com uma subscrição ativa. Para mais detalhes, consulte [Criar uma conta gratuitamente.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) Note que a conta gratuita lhe dá $200 em créditos Azure para experimentar qualquer combinação de serviços.
-- [Código do Estúdio Visual](https://code.visualstudio.com/): Vamos usar isto para editar código no seu ambiente de desenvolvimento local.
-- [webpack](https://webpack.js.org/): Isto será usado para embalar e hospedar localmente o seu código.
-- [Node.js](https://nodejs.org/en/): Isto será usado para instalar e gerir dependências como bibliotecas de clientes Azure Communication Services e webpack.
+- Uma conta Azure com uma subscrição ativa. Para mais detalhes, consulte [Criar uma conta gratuitamente.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) A conta gratuita dá-lhe 200 dólares em créditos Azure para experimentar qualquer combinação de serviços.
+- [Código de estúdio visual](https://code.visualstudio.com/) para edição de código no seu ambiente de desenvolvimento local.
+- [webpack](https://webpack.js.org/) para embalar e localmente hospedar o seu código.
+- [Node.js](https://nodejs.org/en/) instalar e gerir dependências como bibliotecas de clientes da Azure Communication Services e webpack.
 - [nvm e npm](/windows/nodejs/setup-on-windows) para lidar com o controlo da versão.
-- A [extensão de armazenamento Azure](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage) para Código de Estúdio Visual. Esta extensão é necessária para publicar a sua aplicação no Azure Storage. [Leia mais sobre hospedar sites estáticos no Azure Storage](../../storage/blobs/storage-blob-static-website.md)
-- [A extensão do Serviço de Aplicações Azure](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice). A extensão permite a implementação de websites (semelhantes aos anteriores), mas com a opção de configurar a integração contínua e a entrega contínua totalmente geridas (CI/CD).
-- A [extensão Azure Function](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) para construir as suas próprias aplicações sem servidor. Por exemplo, pode hospedar a sua aplicação de autenticação em funções Azure.
-- Um recurso ativo dos Serviços de Comunicação e cadeia de ligação. [Criar um recurso de Serviços de Comunicação.](../quickstarts/create-communication-resource.md)
-- Um sinal de acesso ao utilizador. Consulte o [acesso rápido ou](../quickstarts/access-tokens.md?pivots=programming-language-javascript) o tutorial de serviço [fidedigno](./trusted-service-tutorial.md) para obter instruções.
+- A [extensão de armazenamento Azure](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage) para Código de Estúdio Visual. Precisa desta extensão para publicar a sua aplicação no Azure Storage. [Leia mais sobre hospedagem de websites estáticos no Azure Storage](../../storage/blobs/storage-blob-static-website.md).
+- [A extensão do Serviço de Aplicações Azure](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice). A extensão permite implantar websites com a opção de configurar integração contínua totalmente gerida e entrega contínua (CI/CD).
+- [A extensão Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) para construir as suas próprias aplicações sem servidor. Por exemplo, pode hospedar a sua aplicação de autenticação em Funções Azure.
+- Um recurso ativo dos Serviços de Comunicação e cadeia de ligação. [Saiba como criar um recurso de Serviços de Comunicação.](../quickstarts/create-communication-resource.md)
+- Um sinal de acesso ao utilizador. Para obter instruções, consulte o [quickstart para criar e gerir fichas de acesso](../quickstarts/access-tokens.md?pivots=programming-language-javascript) ou o [tutorial para a construção de um serviço de autenticação de confiança.](./trusted-service-tutorial.md)
 
 
 ## <a name="configure-your-development-environment"></a>Configure o seu ambiente de desenvolvimento
 
 O seu ambiente de desenvolvimento local será configurado assim:
 
-:::image type="content" source="./media/step-one-pic-one.png" alt-text="Arquitetura ambiental de desenvolvimento":::
+:::image type="content" source="./media/step-one-pic-one.png" alt-text="Diagrama que ilustra a arquitetura do ambiente de desenvolvimento.":::
 
 
 ### <a name="install-nodejs-nvm-and-npm"></a>Instale Node.js, nvm e npm
 
 Usaremos Node.js para descarregar e instalar várias dependências que precisamos para a nossa aplicação do lado do cliente. Vamos usá-lo para gerar ficheiros estáticos que vamos hospedar no Azure, para que não tenhas de te preocupar em configurar o mesmo no teu servidor.
 
-Os desenvolvedores windows podem seguir [este tutorial NodeJS](/windows/nodejs/setup-on-windows) para configurar o Nó, nvm e npm. 
+Os desenvolvedores windows podem seguir [este tutorial Node.js](/windows/nodejs/setup-on-windows) para configurar o Nó, nvm e npm. 
 
-Testámos este tutorial usando a versão LTS 12.20.0. Depois de instalar o nvm, utilize o seguinte comando PowerShell para implementar a versão que pretende utilizar:
+Este tutorial baseia-se na versão LTS 12.20.0. Depois de instalar o nvm, utilize o seguinte comando PowerShell para implementar a versão que pretende utilizar:
 
 ```PowerShell
 nvm list available
@@ -67,7 +67,7 @@ nvm install 12.20.0
 nvm use 12.20.0
 ```
 
-:::image type="content" source="./media/step-one-pic-two.png" alt-text="Trabalhar com a NVM para implantar Node.js":::
+:::image type="content" source="./media/step-one-pic-two.png" alt-text="Screenshot que mostra os comandos para a implementação de uma versão Nó.":::
 
 ### <a name="configure-visual-studio-code"></a>Configurar o Visual Studio Code
 
@@ -75,40 +75,40 @@ Você pode baixar [Visual Studio Code](https://code.visualstudio.com/) em uma da
 
 ### <a name="create-a-workspace-for-your-azure-communication-services-projects"></a>Crie um espaço de trabalho para os seus projetos de Serviços de Comunicação Azure
 
-Crie uma nova pasta para armazenar os seus ficheiros de projeto, como este: `C:\Users\Documents\ACS\CallingApp` . No Código do Estúdio Visual, clique em "File", "Add Folder to Workspace" e adicione a pasta ao seu espaço de trabalho.
+Crie uma pasta para armazenar os seus ficheiros de projeto, como este: `C:\Users\Documents\ACS\CallingApp` . No Código do Estúdio Visual, selecione  >  **File Add Folder para Workspace** e adicione a pasta ao seu espaço de trabalho.
 
-:::image type="content" source="./media/step-one-pic-three.png" alt-text="Criação de um novo local de trabalho":::
+:::image type="content" source="./media/step-one-pic-three.png" alt-text="Screenshot que mostra seleções para adicionar um ficheiro a um espaço de trabalho.":::
 
-Vá ao "Explorer" no Código do Estúdio Visual no painel esquerdo e verá a sua pasta "CallingApp" no espaço de trabalho "Sem título".
+Vá ao **EXPLORER** no painel esquerdo e verá a sua `CallingApp` pasta no espaço de trabalho SEM **TÍTULO.**
 
-:::image type="content" source="./media/step-one-pic-four.png" alt-text="Explorador":::
+:::image type="content" source="./media/step-one-pic-four.png" alt-text="Screenshot que mostra Explorer e o espaço de trabalho sem título.":::
 
-Sinta-se livre para atualizar o nome do seu espaço de trabalho. Pode validar a sua versão Node.js clicando à direita na sua pasta "CallingApp" e selecionando "Abrir em Terminal Integrado".
+Sinta-se livre para atualizar o nome do seu espaço de trabalho. Pode validar a sua versão Node.js clicando à direita na sua `CallingApp` pasta e selecionando **Abrir no Terminal Integrado**.
 
-:::image type="content" source="./media/step-one-pic-five.png" alt-text="Abrir um terminal":::
+:::image type="content" source="./media/step-one-pic-five.png" alt-text="Screenshot que mostra a seleção para abrir uma pasta num terminal integrado.":::
 
-No terminal, escreva o seguinte comando para validar a versão node.js instalada no passo anterior:
+No terminal, introduza o seguinte comando para validar a versão Node.js instalada no passo anterior:
 
 ```JavaScript
 node --version
 ```
 
-:::image type="content" source="./media/step-one-pic-six.png" alt-text="Validação da versão Node.js":::
+:::image type="content" source="./media/step-one-pic-six.png" alt-text="Screenshot que mostra validar a versão Nó.":::
 
-### <a name="install-azure-extensions-for-visual-studio-code"></a>Instalar extensões Azure para código de estúdio visual
+### <a name="install-azure-extensions-for-visual-studio-code"></a>Instale extensões Azure para Código do Estúdio Visual
 
-Instale a [extensão de armazenamento Azure](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage) através do mercado do Estúdio Visual ou com o Código do Estúdio Visual (Ver extensões > > Azure Storage).
+Instale a [extensão de armazenamento Azure](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage) através do mercado do Estúdio Visual ou através do Código do Estúdio Visual **(Ver**  >  **Extensões**  >  **Azure Storage**).
 
-:::image type="content" source="./media/step-one-pic-seven.png" alt-text="Instalação da extensão de armazenamento Azure 1":::
+:::image type="content" source="./media/step-one-pic-seven.png" alt-text="Screenshot que mostra o botão para instalar a extensão de Armazenamento Azure.":::
 
 Siga os mesmos passos para as extensões do [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) e [do Azure App Service.](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice)
 
 
-## <a name="set-up-a-local-webserver"></a>Criar um webserver local
+## <a name="set-up-a-local-web-server"></a>Configurar um servidor web local
 
-### <a name="create-a-new-npm-package"></a>Criar um novo pacote npm
+### <a name="create-an-npm-package"></a>Criar um pacote npm
 
-No seu terminal, a partir do caminho da sua pasta de espaço de trabalho, escreva:
+No seu terminal, a partir do caminho da sua pasta de espaço de trabalho, insira:
 
 ``` console
 npm init -y
@@ -116,43 +116,43 @@ npm init -y
 
 Este comando inicializa um novo pacote npm e adiciona `package.json` na pasta raiz do seu projeto.
 
-:::image type="content" source="./media/step-one-pic-eight.png" alt-text="Pacote JSON":::
+:::image type="content" source="./media/step-one-pic-eight.png" alt-text="Screenshot que mostra o pacote J S O N.":::
 
-Documentação adicional sobre o comando npm init pode ser encontrada [aqui](https://docs.npmjs.com/cli/v6/commands/npm-init)
+Para obter mais documentação sobre a `npm init` página , consulte a página [npm Docs para este comando](https://docs.npmjs.com/cli/v6/commands/npm-init).
 
 ### <a name="install-webpack"></a>Instalar webpack
 
-[webpack](https://webpack.js.org/) permite-lhe embalar código em ficheiros estáticos que pode implementar para Azure. Também tem um servidor de desenvolvimento, que vamos configurar para usar com a amostra de chamada.
+Pode utilizar [o webpack](https://webpack.js.org/) para agregar código em ficheiros estáticos que pode implementar no Azure. Também tem um servidor de desenvolvimento, que irá configurar para usar com a amostra de chamada.
 
-No seu tipo de terminal, o seguinte para instalar webpack:
+No seu terminal, insira o seguinte comando para instalar webpack:
 
 ``` Console
 npm install webpack@4.42.0 webpack-cli@3.3.11 webpack-dev-server@3.10.3 --save-dev
 ```
 
-Este tutorial foi testado utilizando as versões acima especificadas. Especificar `-dev` diz ao gestor do pacote que esta dependência é para fins de desenvolvimento e não deve ser incluída no código que implementamos para a Azure.
+Este tutorial foi testado com as versões especificadas no comando anterior. Especificar `-dev` indica ao gestor do pacote que esta dependência é para fins de desenvolvimento e não deve ser incluída no código que implementa para o Azure.
 
-Verá dois novos pacotes adicionados ao seu `package.json` ficheiro como "devDependencies". Os pacotes serão instalados no `./CallingApp/node_modules/` diretório.
+Verá dois novos pacotes adicionados ao seu `package.json` ficheiro como `devDependencies` . Os pacotes serão instalados no `./CallingApp/node_modules/` diretório.
 
-:::image type="content" source="./media/step-one-pic-ten.png" alt-text="configuração de webpack":::
+:::image type="content" source="./media/step-one-pic-ten.png" alt-text="Screenshot que mostra a configuração da webpack.":::
 
 ### <a name="configure-the-development-server"></a>Configurar o servidor de desenvolvimento
 
-Executar uma aplicação estática (como o seu `index.html` ficheiro) a partir do seu navegador utiliza o `file://` protocolo. Para que os seus módulos npm funcionem corretamente, precisaremos do protocolo HTTP usando webpack como um servidor de desenvolvimento local.
+Executar uma aplicação estática (como o seu `index.html` ficheiro) a partir do seu navegador utiliza o `file://` protocolo. Para que os seus módulos npm funcionem corretamente, necessitará do protocolo HTTP utilizando o webpack como servidor de desenvolvimento local.
 
-Vamos criar duas configurações: uma para desenvolvimento e outra para produção. Os ficheiros preparados para a produção serão minificados, o que significa que removeremos o espaço e os caracteres não reutilizados. Isto é adequado para cenários de produção em que a latência deve ser minimizada ou onde o código deve ser obfuscado.
+Criará duas configurações: uma para desenvolvimento e outra para produção. Os ficheiros preparados para a produção serão minificados, o que significa que removerás o espaço e os caracteres não reutilizados. Esta configuração é adequada para cenários de produção em que a latência deve ser minimizada ou onde o código deve ser obfuscado.
 
-Vamos usar a `webpack-merge` ferramenta para trabalhar com [diferentes ficheiros de configuração para webpack](https://webpack.js.org/guides/production/)
+Utilizará a `webpack-merge` ferramenta para trabalhar com [diferentes ficheiros de configuração para webpack](https://webpack.js.org/guides/production/).
 
-Vamos começar com o ambiente de desenvolvimento. Primeiro, temos de `webpack merge` instalar. No seu terminal, execute o seguinte:
+Vamos começar com o ambiente de desenvolvimento. Primeiro, tem de `webpack merge` instalar. No seu terminal, executar o seguinte comando:
 
 ```Console
 npm install --save-dev webpack-merge
 ```
 
-No seu `package.json` ficheiro, pode ver mais uma dependência adicionada às "devDependencies".
+No seu `package.json` ficheiro, pode ver mais uma dependência adicionada a `devDependencies` .
 
-No próximo passo, precisamos de criar um novo ficheiro `webpack.common.js` e adicionar o seguinte código:
+Em seguida, crie um ficheiro chamado `webpack.common.js` e adicione o seguinte código:
 
 ```JavaScript
 const path = require('path');
@@ -165,12 +165,12 @@ module.exports ={
 }
 ```
 
-Em seguida, adicionaremos mais dois ficheiros, um para cada configuração:
+Em seguida, adicione mais dois ficheiros, um para cada configuração:
 
-* webpack.dev.js
-* webpack.prod.js
+* `webpack.dev.js`
+* `webpack.prod.js`
 
-No próximo passo, precisamos modificar o `webpack.dev.js` ficheiro. Adicione o seguinte código a este ficheiro:
+Agora modificar o `webpack.dev.js` ficheiro adicionando-lhe o seguinte código:
 
 ```JavaScript
 const { merge } = require('webpack-merge');
@@ -181,15 +181,15 @@ module.exports = merge(common, {
     devtool: 'inline-source-map',
 });
 ```
-Nesta configuração, importamos parâmetros comuns de `webpack.common.js` , fundir os dois ficheiros, definir o modo para "desenvolvimento", e configurar o SourceMap como "mapa de fontes inline".
+Nesta configuração, importa parâmetros comuns `webpack.common.js` de, fundir os dois ficheiros, definir o modo para `development` , e configurar o mapa de origem como `inline-source-map` .
 
-O modo de desenvolvimento diz à webpack para não minificar os ficheiros e não produzir ficheiros de produção otimizados. Documentação detalhada sobre os modos de webpack pode ser encontrada [aqui.](https://webpack.js.org/configuration/mode/)
+O modo de desenvolvimento diz à webpack para não minificar os ficheiros e não produzir ficheiros de produção otimizados. Pode encontrar documentação detalhada nos modos de webpack na [página webpack Mode](https://webpack.js.org/configuration/mode/).
 
-As opções de mapa de origem estão listadas [aqui.](https://webpack.js.org/configuration/devtool/#root) A definição do mapa de origem facilita a depurar através do seu navegador.
+As opções de mapa de origem estão listadas na [página webpack Devtool](https://webpack.js.org/configuration/devtool/#root). A definição do mapa de origem facilita a depurar através do seu navegador.
 
-:::image type="content" source="./media/step-one-pic-11.png" alt-text="Mochila web configurar":::
+:::image type="content" source="./media/step-one-pic-11.png" alt-text="Screenshot que mostra o código para configurar a webpack.":::
 
-Para executar o servidor de desenvolvimento, vá `package.json` e adicione o seguinte código nos scripts:
+Para executar o servidor de desenvolvimento, vá `package.json` e adicione o seguinte código em `scripts` :
 
 ```JavaScript
     "build:dev": "webpack-dev-server --config webpack.dev.js"
@@ -220,17 +220,17 @@ O seu ficheiro agora deve ser assim:
 
 Acrescentou o comando que pode ser usado a partir das npm. 
 
-:::image type="content" source="./media/step-one-pic-12.png" alt-text="Modificação package.jsem":::
+:::image type="content" source="./media/step-one-pic-12.png" alt-text="Screenshot que mostra a modificação de package.jsligado.":::
 
-### <a name="testing-the-development-server"></a>Testar o servidor de desenvolvimento
+### <a name="test-the-development-server"></a>Teste o servidor de desenvolvimento
 
  No Código do Estúdio Visual, crie três ficheiros no âmbito do seu projeto:
 
 * `index.html`
 * `app.js`
-* `app.css` (opcional, isto permite-lhe modelar a sua app)
+* `app.css` (opcional, para estilizar a sua app)
 
-Cole isto `index.html` em:
+Cole este código `index.html` em:
 
 ```html
 <!DOCTYPE html>
@@ -247,7 +247,7 @@ Cole isto `index.html` em:
 </body>
 </html>
 ```
-:::image type="content" source="./media/step-one-pic-13.png" alt-text="Arquivo HTML":::
+:::image type="content" source="./media/step-one-pic-13.png" alt-text="Screenshot que mostra o ficheiro H T M L.":::
 
 Adicione o seguinte código a `app.js`:
 
@@ -262,13 +262,13 @@ html {
     font-family: sans-serif;
   }
 ```
-Não se esqueça de guardar! O ficheiro não-salvo é indicado por pontos brancos ao lado de nomes de ficheiros no ficheiro Explorer.
+Não se esqueça de guardar! O ficheiro não-salvo é indicado por pontos brancos ao lado de nomes de ficheiros no Explorer.
 
- :::image type="content" source="./media/step-one-pic-14.png" alt-text="App.js ficheiro com código JS":::
+:::image type="content" source="./media/step-one-pic-14.png" alt-text="Screenshot que mostra o ficheiro App.js com o código JavaScript.":::
 
-Quando abrir esta página, deverá ver a sua mensagem exibida com um alerta e dentro da consola do seu navegador.
+Quando abrir esta página, deverá ver a sua mensagem exibida com um alerta na consola do seu navegador.
 
-:::image type="content" source="./media/step-one-pic-15.png" alt-text="App.css arquivo":::
+:::image type="content" source="./media/step-one-pic-15.png" alt-text="Screenshot que mostra o ficheiro .css App.":::
 
 Utilize o seguinte comando terminal para testar a sua configuração de desenvolvimento:
 
@@ -276,53 +276,53 @@ Utilize o seguinte comando terminal para testar a sua configuração de desenvol
 npm run build:dev
 ```
 
-A consola irá mostrar-lhe onde o servidor está a funcionar. Por defeito, `http://localhost:8080` é. O comando build:dev é o comando que adicionámos ao nosso `package.json` anterior.
+A consola mostra-lhe onde o servidor está a funcionar. Por defeito, `http://localhost:8080` é. O `build:dev` comando é o comando a que acrescentou `package.json` anteriormente.
 
- :::image type="content" source="./media/step-one-pic-16.png" alt-text="Iniciar um servidor de desenvolvimento":::
+:::image type="content" source="./media/step-one-pic-16.png" alt-text="Screenshot que mostra iniciar um servidor de desenvolvimento.":::
  
- Navegue para o endereço no seu navegador e deverá ver a página e o alerta, configurados em passos anteriores.
+Vá ao endereço no seu browser e deverá ver a página e o alerta configurado em etapas anteriores.
  
-  :::image type="content" source="./media/step-one-pic-17.png" alt-text="Página html":::
+:::image type="content" source="./media/step-one-pic-17.png" alt-text="Screenshot da página H T M L.":::
   
  
-Enquanto o servidor estiver em funcionamento, pode alterar o código e o servidor e a página HTML recarregam automaticamente. 
+Enquanto o servidor está em funcionamento, pode alterar o código e o servidor. A página HTML recarregará automaticamente. 
 
 Em seguida, vá ao `app.js` ficheiro no Código do Estúdio Visual e apague `alert('Hello world alert!');` . Guarde o seu ficheiro e verifique se o alerta desaparece do seu navegador.
 
-Para parar o seu servidor, pode funcionar `Ctrl+C` no seu terminal. Para iniciar o seu servidor, escreva `npm run build:dev` a qualquer momento.
+Para parar o seu servidor, pode funcionar `Ctrl+C` no seu terminal. Para iniciar o seu servidor, `npm run build:dev` insira a qualquer momento.
 
 ## <a name="add-the-azure-communication-services-packages"></a>Adicione os pacotes Azure Communication Services
 
-Utilize o `npm install` comando para instalar a biblioteca de clientes Azure Communication Services Call para JavaScript.
+Utilize o `npm install` comando para instalar os Serviços de Comunicação Azure chamando a biblioteca do cliente para o JavaScript.
 
 ```Console
 npm install @azure/communication-common --save
 npm install @azure/communication-calling --save
 ```
 
-Esta ação irá adicionar os serviços de comunicação Azure comuns e os pacotes de chamadas como dependências do seu pacote. Verá dois novos pacotes adicionados ao `package.json` ficheiro. Mais informações sobre o `npm install` comando podem ser [encontradas aqui.](https://docs.npmjs.com/cli/v6/commands/npm-install)
+Esta ação adiciona os serviços de comunicação Azure comuns e os pacotes de chamadas como dependências do seu pacote. Verá dois novos pacotes adicionados ao `package.json` ficheiro. Pode encontrar mais informações `npm install` sobre a [página npm Docs para esse comando](https://docs.npmjs.com/cli/v6/commands/npm-install).
 
-:::image type="content" source="./media/step-one-pic-nine.png" alt-text="Instalação de pacotes de Serviços de Comunicação Azure":::
+:::image type="content" source="./media/step-one-pic-nine.png" alt-text="Screenshot que mostra código para instalar pacotes de Serviços de Comunicação Azure.":::
 
-Estes pacotes são fornecidos pela equipa dos Serviços de Comunicação Azure e incluem as bibliotecas de autenticação e chamada. O comando "-save" indica que a nossa aplicação depende destes pacotes para uso de produção e será incluído no `dependencies` nosso `package.json` ficheiro. Quando construirmos a aplicação para produção, os pacotes serão incluídos no nosso código de produção.
+Estes pacotes são fornecidos pela equipa dos Serviços de Comunicação Azure e incluem as bibliotecas de autenticação e chamada. O `--save` comando indica que a aplicação depende destas embalagens para uso de produção e será incluída no `devDependencies` `package.json` ficheiro. Quando construir o pedido de produção, os pacotes serão incluídos no seu código de produção.
 
 
-## <a name="publish-your-website-to-azure-static-websites"></a>Publique o seu website em Websites Estáticos Azure
+## <a name="publish-your-website-to-azure-static-websites"></a>Publique o seu website em websites estáticos Azure
 
 ### <a name="create-a-configuration-for-production-deployment"></a>Criar uma configuração para implantação de produção
 
-Adicione o seguinte código `webpack.prod.js` ao:
+Adicione o seguinte código a `webpack.prod.js`:
 
 ```JavaScript
 const { merge } = require('webpack-merge');
- const common = require('./webpack.common.js');
+const common = require('./webpack.common.js');
 
- module.exports = merge(common, {
-   mode: 'production',
- });
- ```
+module.exports = merge(common, {
+  mode: 'production',
+});
+```
 
-Note que esta configuração será fundida com o webpack.common.js (onde especificamos o ficheiro de entrada e onde armazenar os resultados) e definirá o modo de "produção".
+Esta configuração será fundida `webpack.common.js` (onde especificou o ficheiro de entrada e onde armazenar os resultados). A configuração também definirá o modo para `production` .
  
 In `package.json` , adicione o seguinte código:
 
@@ -359,25 +359,25 @@ O seu ficheiro deverá ter o seguinte aspeto:
 }
 ```
 
- :::image type="content" source="./media/step-one-pic-20.png" alt-text="Ficheiros configurados":::
+:::image type="content" source="./media/step-one-pic-20.png" alt-text="Screenshot que mostra ficheiros configurados.":::
 
 
-Na execução do terminal:
+No terminal, corra:
 
 ```Console
 npm run build:prod
 ```
 
-O comando criará uma `dist` pasta e um ficheiro estático pronto para a produção. `app.js` 
+O comando cria uma `dist` pasta e um ficheiro estático pronto para a produção. `app.js` 
 
- :::image type="content" source="./media/step-one-pic-21.png" alt-text="Construção de produção":::
+:::image type="content" source="./media/step-one-pic-21.png" alt-text="Screenshot que mostra a construção da produção.":::
  
  
 ### <a name="deploy-your-app-to-azure-storage"></a>Implemente a sua app para o Azure Storage
  
 Copiar `index.html` e para a `app.css` `dist` pasta.
 
-Na `dist` pasta, crie um novo ficheiro e nomeie-o `404.html` . Copie a seguinte marcação nesse ficheiro:
+Na `dist` pasta, crie um ficheiro e dê-lhe `404.html` nomes . Copie a seguinte marcação nesse ficheiro:
 
 ```html
 <!DOCTYPE html>
@@ -394,63 +394,63 @@ Na `dist` pasta, crie um novo ficheiro e nomeie-o `404.html` . Copie a seguinte 
 </html>
 ```
 
-Guarde o ficheiro (Ctrl + S).
+Guarde o ficheiro (Ctrl+S).
 
-Clique com o botão direito e selecione implementar para o Site Estático via Azure Storage.
+Clique com o botão direito na `dist` pasta e selecione **Implementar para o Website Estático através do Armazenamento Azure**.
 
-:::image type="content" source="./media/step-one-pic-22.png" alt-text="Comece a implantar para Azure":::
+:::image type="content" source="./media/step-one-pic-22.png" alt-text="Screenshot das seleções para começar a implantar para Azure.":::
  
-No `Select subscription` campo, selecione "Iniciar sessão no Azure "ou "Criar uma Conta Azure Gratuita" se ainda não tiver criado uma subscrição antes)
+Na **subscrição Select**, selecione **Iniciar sessão no Azure** (ou **Crie uma Conta Azure Gratuita** se ainda não tiver criado uma subscrição antes).
  
-:::image type="content" source="./media/step-one-pic-23.png" alt-text="Iniciar sessão no Azure":::
+:::image type="content" source="./media/step-one-pic-23.png" alt-text="Screenshot que mostra seleções para iniciar sessão no Azure.":::
  
-`Create new Storage Account`  >  `Advanced` Selecione:
+Selecione **Criar nova conta de armazenamento**  >  **Avançada.**
 
- :::image type="content" source="./media/step-one-pic-24.png" alt-text="Criação do Grupo de Conta de Armazenamento":::
+:::image type="content" source="./media/step-one-pic-24.png" alt-text="Screenshot que mostra seleções para criar o grupo de conta de armazenamento.":::
  
- Fornecer o nome do grupo de armazenamento:
+Forneça o nome do grupo de armazenamento.
  
- :::image type="content" source="./media/step-one-pic-25.png" alt-text="Adicionar um nome para a conta":::
+:::image type="content" source="./media/step-one-pic-25.png" alt-text="Screenshot que mostra adicionar um nome para a conta.":::
  
-Criar um novo grupo de recursos, se necessário:
+Criar um novo grupo de recursos, se necessário.
  
-  :::image type="content" source="./media/step-one-pic-26.png" alt-text="Criação de um novo grupo":::
+:::image type="content" source="./media/step-one-pic-26.png" alt-text="Screenshot que mostra a seleção para criar um novo grupo de recursos.":::
   
-  Responda "Sim" a gostaria de ativar o alojamento estático do site?"
-  
-  :::image type="content" source="./media/step-one-pic-27.png" alt-text="Selecionando opção para permitir hospedagem estática do site":::
-  
-Aceite o nome de ficheiro predefinido em "Insira o nome do documento de índice", tal como criamos o ficheiro `index.html` .
+Pois **pretende ativar o alojamento estático do site?** 
 
-Digite o `404.html` "Insira o caminho do documento de erro 404".  
+:::image type="content" source="./media/step-one-pic-27.png" alt-text="Screenshot que mostra selecionar a opção para permitir hospedagem estática no site.":::
   
-Selecione a localização da aplicação. A localização selecionada definirá qual processador de mídia será utilizado na sua futura aplicação de chamada em chamadas de grupo. 
+Para **Introduzir o nome do documento de índice,** aceite o nome do ficheiro predefinido. Já criou o `index.html` ficheiro.
 
-A Azure Communication Services seleciona o Processador de Mídia com base na localização da aplicação.
+Para **introduzir o caminho do documento de erro 404**, **introduza404.html**.  
+  
+Selecione a localização da aplicação. A localização que selecionar definirá qual processador de mídia será utilizado na sua futura aplicação de chamada em chamadas de grupo. 
 
-:::image type="content" source="./media/step-one-pic-28.png" alt-text="Selecione localização":::
+A Azure Communication Services seleciona o processador de mídia com base na localização da aplicação.
+
+:::image type="content" source="./media/step-one-pic-28.png" alt-text="Screenshot que mostra uma lista de locais.":::
   
 Aguarde até que o recurso e o seu website sejam criados. 
  
-Clique em "Procurar no site":
+**Selecione Procurar no site.**
 
-:::image type="content" source="./media/step-one-pic-29.png" alt-text="Implantação concluída":::
+:::image type="content" source="./media/step-one-pic-29.png" alt-text="Screenshot que mostra uma mensagem de que a implementação está completa, com o botão para navegar para um site.":::
  
-A partir das ferramentas de desenvolvimento do seu navegador, pode inspecionar a fonte e ver o nosso ficheiro, preparado para a produção.
+A partir das ferramentas de desenvolvimento do seu navegador, pode inspecionar a fonte e ver o ficheiro que está preparado para a produção.
  
-:::image type="content" source="./media/step-one-pic-30.png" alt-text="Site":::
+:::image type="content" source="./media/step-one-pic-30.png" alt-text="Screenshot da fonte do site com arquivo.":::
 
-Vá ao [portal Azure,](https://portal.azure.com/#home)selecione o seu grupo de recursos, selecione a aplicação que criou e navegue para `Settings`  >  `Static website` . Pode ver que os websites estáticos estão ativados e anotar os ficheiros de documentos de fim primário, documento de índice e de trajetória de erro.
+Vá ao [portal Azure,](https://portal.azure.com/#home)selecione o seu grupo de recursos e selecione a aplicação que criou. Em seguida, selecione **Settings**  >  **Static website**. Pode ver que os sites estáticos estão ativados. Note o ponto final primário, o nome do documento do índice e o caminho do documento de erro.
 
-:::image type="content" source="./media/step-one-pic-31.png" alt-text="Seleção estática do site":::
+:::image type="content" source="./media/step-one-pic-31.png" alt-text="Screenshot que mostra seleção estática do site.":::
 
-Em "Serviço Blob" selecione os "Contentores" e verá dois contentores criados, um para registos ($logs) e conteúdo do seu website ($web)
+Em **Serviço Blob**, selecione **Contentores**. A lista mostra dois contentores criados, um para registos `$logs` e outro para o conteúdo do seu website `$web` .
 
-:::image type="content" source="./media/step-one-pic-32.png" alt-text="Configuração do recipiente":::
+:::image type="content" source="./media/step-one-pic-32.png" alt-text="Screenshot que mostra a configuração do recipiente.":::
 
-Se for a `$web` casa verá os seus ficheiros que criou no Visual Studio e foi implantado para a Azure. 
+Se abrir o `$web` contentor, verá os ficheiros que criou no Visual Studio e foi implantado para a Azure. 
 
-:::image type="content" source="./media/step-one-pic-33.png" alt-text="Implementação":::
+:::image type="content" source="./media/step-one-pic-33.png" alt-text="Screenshot que mostra ficheiros implantados no Azure.":::
 
 Pode recolocar a aplicação a partir do Código do Estúdio Visual a qualquer momento.
 
@@ -464,6 +464,6 @@ Está agora pronto para construir a sua primeira aplicação web Azure Communica
 Também pode querer:
 
 - [Adicionar o chat à aplicação](../quickstarts/chat/get-started.md)
-- [Criação de fichas de acesso ao utilizador](../quickstarts/access-tokens.md)
+- [Criar fichas de acesso ao utilizador](../quickstarts/access-tokens.md)
 - [Conheça a arquitetura do cliente e do servidor](../concepts/client-and-server-architecture.md)
 - [Saiba mais sobre a autenticação](../concepts/authentication.md)
