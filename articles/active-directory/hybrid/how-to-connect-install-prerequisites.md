@@ -16,12 +16,12 @@ ms.date: 02/16/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 000b91529b3b02f2c7d03b50ddc841c68625dada
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: e758933b80efbf36dc263b7bd7d2d3c45a59a9f8
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101644808"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102426795"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Pré-requisitos do Azure AD Connect
 Este artigo descreve os pré-requisitos e os requisitos de hardware para a Azure Ative Directory (Azure AD) Connect.
@@ -102,6 +102,7 @@ Recomendamos que endureça o servidor Azure AD Connect para diminuir a superfíc
 
 ### <a name="connectivity"></a>Conectividade
 * O servidor Azure AD Connect necessita de resolução DNS tanto para intranet como para internet. O servidor DNS deve ser capaz de resolver nomes tanto para o seu Diretório Ativo no local como para os pontos finais Azure AD.
+* A azure AD Connect requer conectividade de rede a todos os domínios configurados
 * Se tiver firewalls na sua intranet e precisar de abrir portas entre os servidores AZure AD Connect e os seus controladores de domínio, consulte [as portas AZure AD Connect](reference-connect-ports.md) para obter mais informações.
 * Se o seu limite de procuração ou firewall a que os URLs podem ser acedidos, os URLs documentados nos [intervalos de URLs e endereço IP do Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) devem ser abertos. Consulte também [o Safelist the Azure portal URLs na sua firewall ou servidor proxy](../../azure-portal/azure-portal-safelist-urls.md?tabs=public-cloud).
   * Se estiver a utilizar a nuvem da Microsoft na Alemanha ou a nuvem do Governo do Microsoft Azure, consulte as considerações do [serviço de sincronização Azure AD Connect](reference-connect-instances.md) para URLs.

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: trbye
-ms.openlocfilehash: 597a7c3954912a3a86b5db9f92ba75e8aaee63f6
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 4c8ee3a65c26d1eb3acb7b9f4c18f11e870e4b82
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98601815"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102434521"
 ---
 # <a name="about-the-speech-sdk"></a>Acerca do SDK de Voz
 
@@ -58,13 +58,14 @@ O Speech SDK expõe muitas características do serviço de Discurso, mas nem tod
 
 ### <a name="voice-assistants"></a>Assistentes de voz
 
-[Os assistentes de](voice-assistants.md) voz que utilizam o SDK do Discurso permitem aos desenvolvedores criar interfaces de conversação naturais e humanas para as suas aplicações e experiências. O serviço de assistente de voz proporciona uma interação rápida e fiável entre um dispositivo e um assistente. A implementação utiliza o canal de fala de linha direta do Quadro Bot ou o serviço integrado de Comandos Personalizados para a conclusão da tarefa. Além disso, os assistentes de voz podem usar vozes personalizadas criadas no Portal de [Voz Personalizada](https://aka.ms/customvoice) para adicionar uma experiência única de saída de voz.
+[Os assistentes de](voice-assistants.md) voz que utilizam o SDK do Discurso permitem-lhe criar interfaces de conversação naturais e humanas para as suas aplicações e experiências. O Speech SDK proporciona uma interação rápida e fiável que inclui dados de fala a texto, texto-a-fala e dados de conversação numa única ligação. A sua implementação pode utilizar o canal de Fala de Linha Direta do Quadro Bot ou o serviço integrado de Comandos Personalizados para a conclusão da tarefa. Além disso, os assistentes de voz podem usar vozes personalizadas criadas no Portal de [Voz Personalizada](https://aka.ms/customvoice) para adicionar uma experiência única de saída de voz.
 
-**Os assistentes de voz** estão disponíveis nas seguintes plataformas:
+**O** suporte do assistente de voz está disponível nas seguintes plataformas:
 
   - C++/Windows & Linux & macOS
   - C#/Windows
   - Java/Windows & Linux & macOS & Android (Dispositivos de Fala SDK)
+  - Go
 
 #### <a name="keyword-spotting"></a>Observação de palavras-chave
 
@@ -113,7 +114,7 @@ O SDK de discurso pode ser usado para transcrever cenários de call center, onde
 
 ### <a name="codec-compressed-audio-input"></a>Entrada de áudio comprimido codec
 
-Várias das linguagens de programação do SDK do Discurso suportam fluxos de entrada de áudio comprimido codec. Para obter mais informações, consulte <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams" target="_blank">os formatos de entrada de áudio comprimido . <span class="docon docon-navigate-external x-hidden-focus"></span> </a>
+Várias das linguagens de programação do SDK do Discurso suportam fluxos de entrada de áudio comprimido codec. Para obter mais informações, consulte <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams" target="_blank">os formatos de entrada de áudio comprimido . </a>
 
 **A entrada de áudio comprimido codec** está disponível nas seguintes plataformas:
 

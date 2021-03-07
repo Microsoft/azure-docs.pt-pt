@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: tutorial
 ms.date: 12/31/2020
-ms.openlocfilehash: 7410fcbc890780281763a91f33525562e9de1853
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 6b3c1ac2ea3625a768e16a3465230a5386c98ddc
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102182490"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102423718"
 ---
 # <a name="analyze-with-apache-spark"></a>Analise com Faísca Apache
 
@@ -38,7 +38,7 @@ Neste tutorial, você vai aprender os passos básicos para carregar e analisar d
     display(df.limit(10))
     ```
 1. No caderno, no **menu Attach,** escolha a piscina **Spark1** sem servidor que criamos anteriormente.
-1. Selecione **Executar** na célula
+1. **Selecione Executar** na célula. A Sinapse iniciará uma nova sessão de Faíscas para executar esta célula, se necessário. Se for necessária uma nova sessão de Faísca, initicamente levará cerca de dois segundos a ser criada. 
 1. Se quiser apenas ver o esquema do dataframe executar uma célula com o seguinte código:
     ```
 

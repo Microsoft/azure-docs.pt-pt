@@ -7,18 +7,18 @@ ms.author: baanders
 ms.date: 11/03/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: a2732c3979998ea3429833f96056b88bc2dccf75
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: fde473453aa79e0078765df394acdeb54b3c7fe9
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102050941"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102433323"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>Gerir um gráfico de gémeos digitais usando relacionamentos
 
 O coração de Azure Digital Twins é o [gráfico gémeo](concepts-twins-graph.md) que representa todo o seu ambiente. O gráfico gémeo é feito de gémeos digitais individuais ligados através de **relacionamentos.** 
 
-Uma vez que tenha uma [instância Azure Digital Twins](how-to-set-up-instance-portal.md) em funcionamento e tenha configurado código de [autenticação](how-to-authenticate-client.md) na sua aplicação de cliente, pode utilizar as [**APIs digitalTwins**](/rest/api/digital-twins/dataplane/twins) para criar, modificar e eliminar gémeos digitais e as suas relações num caso Azure Digital Twins. Também pode utilizar o [.NET (C#) SDK,](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true)ou o [CLI das Gémeas Digitais Azure](how-to-use-cli.md).
+Uma vez que tenha uma [instância Azure Digital Twins](how-to-set-up-instance-portal.md) em funcionamento e tenha configurado código de [autenticação](how-to-authenticate-client.md) na sua aplicação de cliente, pode utilizar as [**APIs digitalTwins**](/rest/api/digital-twins/dataplane/twins) para criar, modificar e eliminar gémeos digitais e as suas relações num caso Azure Digital Twins. Também pode utilizar o [.NET (C#) SDK,](/dotnet/api/overview/azure/digitaltwins/client)ou o [CLI das Gémeas Digitais Azure](how-to-use-cli.md).
 
 Este artigo centra-se na gestão das relações e do gráfico como um todo; para trabalhar com gémeos digitais individuais, ver [*Como-a- Gerir gémeos digitais.*](how-to-manage-twin.md)
 
@@ -97,7 +97,7 @@ Pode usar as relações recuperadas para navegar para outros gémeos no seu grá
 A Azure Digital Twins também tem uma API para encontrar todas as relações **recebidas** com um dado gémeo. Isto é frequentemente útil para a navegação inversa, ou quando elimina um gémeo.
 
 >[!NOTE]
-> `IncomingRelationship` as chamadas não devolvem todo o corpo da relação. Para obter mais informações sobre a `IncomingRelationship` classe, consulte a sua [documentação de referência.](/dotnet/api/azure.digitaltwins.core.incomingrelationship?view=azure-dotnet&preserve-view=true)
+> `IncomingRelationship` as chamadas não devolvem todo o corpo da relação. Para obter mais informações sobre a `IncomingRelationship` classe, consulte a sua [documentação de referência.](/dotnet/api/azure.digitaltwins.core.incomingrelationship)
 
 A amostra de código na secção anterior focou-se em encontrar relações de saída de um gémeo. O exemplo a seguir é estruturado da mesma forma, mas encontra relações *de entrada* com o gémeo. Este exemplo também usa a chamada SDK (realçada) dentro de um método personalizado que pode aparecer no contexto de um programa maior.
 
@@ -157,7 +157,7 @@ O snippet usa o [*Room.jse*](https://github.com/Azure-Samples/digital-twins-samp
 Antes de executar a amostra, faça o seguinte:
 1. Descarregue os ficheiros de modelos, coloque-os no seu projeto e substitua os `<path-to>` espaços reservados no código abaixo para dizer ao seu programa onde os encontrar.
 2. Substitua o espaço reservado `<your-instance-hostname>` pelo nome de anfitrião da sua instância Azure Digital Twins.
-3. Adicione duas dependências ao seu projeto que serão necessárias para trabalhar com a Azure Digital Twins. O primeiro é o pacote para o [Azure Digital Twins SDK para .NET](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true), o segundo fornece ferramentas para ajudar na autenticação contra o Azure.
+3. Adicione duas dependências ao seu projeto que serão necessárias para trabalhar com a Azure Digital Twins. O primeiro é o pacote para o [Azure Digital Twins SDK para .NET](/dotnet/api/overview/azure/digitaltwins/client), o segundo fornece ferramentas para ajudar na autenticação contra o Azure.
 
       ```cmd/sh
       dotnet add package Azure.DigitalTwins.Core

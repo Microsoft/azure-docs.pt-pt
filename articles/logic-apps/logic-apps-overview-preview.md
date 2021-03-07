@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 03/02/2021
-ms.openlocfilehash: 9d8d3cb4bf68f7da2bddabd21272d1011ce92f66
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/05/2021
+ms.openlocfilehash: ad059931d87603c957e446e82b894731dca984dd
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101715212"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102442745"
 ---
 # <a name="overview-azure-logic-apps-preview"></a>Visão geral: Pré-visualização de apps da Azure Logic Apps
 
@@ -118,9 +118,13 @@ Esta tabela especifica o comportamento do fluxo de trabalho da criança com base
 
 A Azure Logic Apps Preview inclui muitas capacidades atuais e adicionais, por exemplo:
 
-* Crie aplicações lógicas e seus fluxos de trabalho a partir de mais de [390 conectores](/connectors/connector-reference/connector-reference-logicapps-connectors) para aplicações e serviços de Software-as-a-Service (SaaS) e Platform-as-a-Service (PaaS) além de conectores para sistemas no local.
+* Crie aplicações lógicas e seus fluxos de trabalho a partir de mais de [400 conectores](/connectors/connector-reference/connector-reference-logicapps-connectors) para aplicações e serviços de Software-as-a-Service (SaaS) e Platform-as-a-Service (PaaS) além de conectores para sistemas no local.
 
-  * Alguns conectores geridos, como o Azure Service Bus, a Azure Event Hubs e o SQL Server funcionam de forma semelhante aos gatilhos e ações incorporados que são nativos do tempo de pré-visualização de apps Azure Logic, por exemplo, o gatilho do Pedido e a ação HTTP. Para obter mais informações, consulte [Azure Logic Apps Running Anywhere - Extensibilidade do conector incorporado](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272).
+  * Alguns conectores geridos, tais como Azure Service Bus, Azure Event Hubs, SQL Server e MQ, funcionam de forma semelhante aos gatilhos e ações incorporados que são nativos do tempo de pré-visualização de apps Azure Logic, por exemplo, o gatilho do Pedido e ação HTTP.
+
+  * Crie os seus próprios conectores incorporados para qualquer serviço que necessite utilizando a [estrutura de extensibilidade do lançamento de pré-visualização](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272). Semelhantes aos conectores incorporados, como o Azure Service Bus e o SQL Server, mas ao contrário dos [conectores personalizados](../connectors/apis-list.md#custom-apis-and-connectors) que não são suportados atualmente para pré-visualização, estes conectores fornecem maior potência, baixa latência, conectividade local, e funcionam de forma nativa no mesmo processo que o tempo de pré-visualização.
+
+    A capacidade de autoria está atualmente disponível apenas no Código do Estúdio Visual, mas não é ativada por padrão. Para criar estes conectores, [mude o seu projeto de extensão baseada em pacotes (Node.js) para nuGet baseado em pacotes (.NET)](create-stateful-stateless-workflows-visual-studio-code.md#enable-built-in-connector-authoring). Para obter mais informações, consulte [Azure Logic Apps Running Anywhere - Extensibilidade do conector incorporado](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272).
 
   * Pode utilizar as ações B2B para Operações Líquidas e Operações XML sem uma conta de integração. Para utilizar estas ações, precisa de ter mapas líquidos, mapas XML ou esquemas XML que pode fazer o upload através das respetivas ações no portal Azure ou adicionar à pasta de Artefactos do seu código de estúdio visual utilizando as **respetivas pastas** **Maps** e **Schemas.**
 
@@ -148,7 +152,7 @@ A Azure Logic Apps Preview inclui muitas capacidades atuais e adicionais, por ex
 * Regenerar chaves de acesso para ligações geridas utilizadas por fluxos de trabalho individuais num recurso **de Aplicação Lógica (Preview).** Para esta tarefa, [siga os mesmos passos para o recurso **Logic Apps** mas ao nível do fluxo de trabalho individual](logic-apps-securing-a-logic-app.md#regenerate-access-keys), não ao nível de recursos de aplicações lógicas.
 
 * Adicione ramos paralelos no novo designer seguindo os mesmos passos que o designer de não-pré-visualização.
- 
+
 Para obter mais informações, consulte [capacidades alteradas, limitadas, indisponíveis e não suportadas](#limited-unavailable-unsupported) e a [página de Visualização Pública de Aplicações Lógicas Conhecidas em GitHub](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md).
 
 <a name="pricing-model"></a>
@@ -193,8 +197,6 @@ Na pré-visualização de apps Azure Logic, estas capacidades mudaram, ou estão
 
     * [Os gatilhos de gateway de *dados* no local](../connectors/apis-list.md#on-premises-connectors) não estão disponíveis, mas as ações de gateway *estão* disponíveis.
 
-    * [Os conectores personalizados](../connectors/apis-list.md#custom-apis-and-connectors) não estão disponíveis.
-
     * A ação incorporada, [Funções Azure - Escolha uma função Azure](logic-apps-azure-functions.md) é agora **Operações de Função Azure - Chame uma função Azure**. Esta ação funciona atualmente apenas para funções que são criadas a partir do modelo **de gatilho HTTP.**
 
       No portal Azure, pode selecionar uma função de gatilho HTTP onde tem acesso, criando uma ligação através da experiência do utilizador. Se inspecionar a definição JSON da ação de função na visão de código ou a **workflow.jsem** ficheiro, a ação refere-se à função utilizando uma `connectionName` referência. Esta versão abstra a informação da função como uma ligação, que pode encontrar noconnections.jsdo seu projeto **no** ficheiro, que está disponível depois de criar uma ligação.
@@ -217,6 +219,8 @@ Na pré-visualização de apps Azure Logic, estas capacidades mudaram, ou estão
     * Alguns [gatilhos B2B incorporados e ações para contas de integração não](../connectors/apis-list.md#integration-account-connectors) estão disponíveis, por exemplo, as ações de codificação e descodamento do **Ficheiro Plano.**
 
     * A ação incorporada, [Azure Logic Apps - Escolha um fluxo](logic-apps-http-endpoint.md) de trabalho de aplicação lógica é agora **Workflow Operations - Invoque um fluxo de trabalho nesta aplicação de fluxo de trabalho**.
+
+* [Os conectores personalizados](../connectors/apis-list.md#custom-apis-and-connectors) não são suportados atualmente para pré-visualização.
 
 * **Disponibilidade do plano de hospedagem**: Quer crie um novo tipo de recurso **Logic App (Preview)** no portal Azure ou implantado a partir do Código do Estúdio Visual, só pode utilizar o plano de hospedagem Premium ou App Service em Azure. Os planos de hospedagem de consumo não estão disponíveis e não são suportados para a implementação deste tipo de recurso. Pode implantar do Código do Estúdio Visual para um recipiente Docker, mas não para um [ambiente de serviço de integração (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
 

@@ -1,5 +1,5 @@
 ---
-title: Visão geral do controlo de acessos na Data Lake Storage Gen1 Microsoft Docs
+title: Visão geral do controlo de acessos no data lake storage Gen1 | Microsoft Docs
 description: Conheça os fundamentos do modelo de controlo de acessos da Azure Data Lake Storage Gen1, que deriva do HDFS.
 services: data-lake-store
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
-ms.openlocfilehash: 48ff32655b107958a3e8e42dbd7de0f405a6fffa
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: aa0da5721c577957b101ac8a2d9346c0536f0a88
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97094867"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102424143"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Controlo de acesso no Azure Data Lake Storage Gen1
 
@@ -248,7 +248,7 @@ def set_default_acls_for_new_child(parent, child):
 
 ### <a name="do-i-have-to-enable-support-for-acls"></a>É necessário ativar o suporte para as ACLs?
 
-Não. O controlo de acesso via ACLs está sempre ligado para uma conta Gen1 de armazenamento de data lake.
+N.º O controlo de acesso via ACLs está sempre ligado para uma conta Gen1 de armazenamento de data lake.
 
 ### <a name="which-permissions-are-required-to-recursively-delete-a-folder-and-its-contents"></a>Que permissões são necessárias para eliminar recursivamente uma pasta e o respetivo conteúdo?
 
@@ -286,7 +286,11 @@ No Portal Azure, aceda às **aplicações Azure Ative Directory -> Enterprise** 
 
 ### <a name="does-data-lake-storage-gen1-support-inheritance-of-acls"></a>O Data Lake Storage Gen1 suporta a herança dos ACLs?
 
-Não, mas as ACLs Predefinidas podem ser utilizadas para definir ACLs para ficheiros e pastas subordinados criados recentemente na pasta principal.  
+Não, mas as ACLs Predefinidas podem ser utilizadas para definir ACLs para ficheiros e pastas subordinados criados recentemente na pasta principal.
+
+### <a name="what-are-the-limits-for-acl-entries-on-files-and-folders"></a>Quais são os limites para entradas ACL em ficheiros e pastas?
+
+32 ACLs podem ser definidos por ficheiro e por diretório. Os ACLs de acesso e padrão têm cada um o seu próprio limite de entrada de 32 ACL. Utilize grupos de segurança para missões ACL, se possível. Ao utilizar grupos, é menos provável que exceda o número máximo de entradas ACL por ficheiro ou diretório.
 
 ### <a name="where-can-i-learn-more-about-posix-access-control-model"></a>Onde posso obter mais informações sobre o modelo de controlo de acesso POSIX?
 

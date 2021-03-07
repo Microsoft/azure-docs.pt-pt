@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: media
 ms.date: 1/14/2020
 ms.author: inhenkel
-ms.openlocfilehash: ab819239572fd99fdf5ff3bf23f81eb3cdff3b9a
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: dc75ada87db6fdbb3861c2e4e495f93147513421
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98940099"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102440569"
 ---
 # <a name="encoding-scenario-based-migration-guidance"></a>Orientação de migração baseada em cenários de codificação
 
@@ -58,10 +58,12 @@ Clique na imagem abaixo para ver uma versão maior.
 
 ### <a name="v3-encoding-workflow"></a>V3 codificando fluxo de trabalho
 
-[![Fluxo de trabalho de codificação para V3 ](./media/migration-guide/V3-pretty.svg)](./media/migration-guide/V3-pretty.svg#lightbox)
+<Token>
+<object data="./media/migration-guide/v3-pretty2.svg" width="80%"></object>
+</Token>
 
 1. Configurar
-    1. Criar um ativo ou uso e um ativo existente. Se utilizar um novo ativo, faça o upload do conteúdo para esse ativo. Se utilizar um ativo existente, deverá codificar ficheiros que já existem no ativo. *Não devias enviar mais conteúdo para esse ativo.*
+    1. Criar um ativo ou utilizar um ativo existente. Se utilizar um novo ativo, faça o upload do conteúdo para esse ativo. Se utilizar um ativo existente, deverá codificar ficheiros que já existem no ativo. *Não devias enviar mais conteúdo para esse ativo.*
     1. Criar um ativo de saída.  O ativo de saída é onde os ficheiros codificados e os metadados de entrada e saída serão armazenados.
     1. Obtenha valores para a transformação:
         - Predefinição padrão do codificação do codificação
@@ -84,17 +86,6 @@ Clique na imagem abaixo para ver uma versão maior.
 Se o seu código V2 chamado Standard Encoder com uma predefinição personalizada, primeiro precisa criar uma nova transformação com a predefinição standard standard encoder antes de submeter um trabalho.
 
 As predefinições personalizadas são agora JSON e já não são baseadas em XML. Recrie a sua predefinição em JSON seguindo o esquema predefinido personalizado, tal como definido na documentação [Transform Open API (Swagger).](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2020-05-01/examples/transforms-create.json)
-
-
-<!-- removed because this is covered in the tutorials
-Common custom [encoding](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2020-05-01/Encoding.json) scenarios:
-        1. Create a custom Single Bitrate MP4 encode
-        1. Create a custom [Adaptive Bitrate Encoding Ladder](autogen-bitrate-ladder.md)
-        1. Creating Sprite Thumbnails
-        1. Creating Thumbnails (see below for your preferred method)
-        1. [Sub Clipping](subclip-video-rest-howto.md)
-        1. Cropping
--->
 
 ## <a name="input-and-output-metadata-files-from-an-encoding-job"></a>Ficheiros de metadados de entrada e saída de um trabalho de codificação
 
@@ -155,6 +146,6 @@ Para os clientes que utilizam o processador Indexer v1 na API v2, é necessário
 
 Também pode [comparar o código V2 e V3 nas amostras de código](migrate-v-2-v-3-migration-samples.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [!INCLUDE [migration guide next steps](./includes/migration-guide-next-steps.md)]

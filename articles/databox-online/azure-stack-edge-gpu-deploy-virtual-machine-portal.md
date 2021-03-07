@@ -6,17 +6,19 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 11/02/2020
+ms.date: 02/22/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro device so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: a48abb34a201928185130fbe8fdf9592e77492d9
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 6054e7e79acaa6abf304508221c63143b9d14a45
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98944957"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102436537"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-the-azure-portal"></a>Implemente VMs no seu dispositivo GPU Azure Stack Edge Pro através do portal Azure
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 Pode criar e gerir máquinas virtuais (VMs) num dispositivo Azure Stack Edge utilizando o portal Azure, modelos, cmdlets Azure PowerShell e através de scripts Azure CLI/Python. Este artigo descreve como criar e gerir um VM no seu dispositivo Azure Stack Edge utilizando o portal Azure. 
 
@@ -203,6 +205,6 @@ Siga estes passos para ligar a um VM do Windows.
 
 [!INCLUDE [azure-stack-edge-gateway-connect-vm](../../includes/azure-stack-edge-gateway-connect-virtual-machine-windows.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para aprender a administrar o seu dispositivo Azure Stack Edge Pro, consulte[utilizar o UI web local para administrar um Azure Stack Edge Pro](azure-stack-edge-manage-access-power-connectivity-mode.md).

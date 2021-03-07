@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: da21359b56b9e5b9d6e971032d06f8bae94efce0
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 13460fad0ed106f5c0590df961ceca54cb04cd7b
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98682143"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102427186"
 ---
 # <a name="plan-a-conditional-access-deployment"></a>Planear a implementação do Acesso Condicional
 
@@ -72,6 +72,7 @@ Os seguintes recursos podem ser úteis à medida que aprende sobre o Acesso Cond
 * [O que é o Acesso Condicional?](https://youtu.be/ffMAw2IVO7A)
 * [Como implementar acesso condicional?](https://youtu.be/c_izIRNJNuk)
 * [Como lançar políticas de Acesso Condicional aos utilizadores finais?](https://youtu.be/0_Fze7Zpyvc)
+* [Como incluir ou excluir utilizadores das políticas de acesso condicional](https://youtu.be/5DsW1hB3Jqs)
 * [Acesso Condicional com controlos do dispositivo](https://youtu.be/NcONUf-jeS4)
 * [Acesso Condicional com Azure AD MFA](https://youtu.be/Tbc-SU97G-w)
 * [Acesso Condicional na Mobilidade Empresarial + Segurança](https://youtu.be/A7IrxAH87wc)
@@ -368,7 +369,7 @@ Algumas organizações têm inquilinos de teste para este fim. No entanto, pode 
 
 O plano de ensaio é importante para ter uma comparação entre os resultados esperados e os resultados reais. Deve sempre ter uma expectativa antes de testar algo. A tabela a seguir descreve casos de teste de exemplo. Ajuste os cenários e os resultados esperados com base na configuração das suas políticas de Acesso Condicional.
 
-| Política| Cenário| Resultado Esperado |
+| Política| Scenario| Resultado Esperado |
 | - | - | - |
 | [Exigir MFA quando não estiver no trabalho](untrusted-networks.md)| O utilizador autorizado assina na App enquanto está numa localização/trabalho de confiança| O utilizador não é solicitado ao MFA |
 | [Exigir MFA quando não estiver no trabalho](untrusted-networks.md)| O utilizador autorizado assina na App enquanto não está numa localização/trabalho fidedigna| O utilizador é solicitado ao MFA e pode assinar com sucesso |

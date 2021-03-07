@@ -1,21 +1,23 @@
 ---
-title: Use o portal Azure para resolver problemas Azure Stack Edge Pro que encomenda problemas Microsoft Docs
+title: Utilize o portal Azure para resolver problemas com o Azure Stack Edge Pro, ordenando problemas | Microsoft Docs
 description: Descreve como resolver problemas a Azure Stack Edge Pro a encomendar problemas.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 08/11/2020
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: be7d477d08b025fd450bfa859e8eb677ba680143
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: e074043cb685f60027d3c09ae7ad8dc17dded0df
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96446377"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102443408"
 ---
 # <a name="troubleshoot-your-azure-stack-edge-pro-ordering-issues"></a>Resolução de problemas do seu Azure Stack Edge Pro questões
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 Este artigo descreve como resolver problemas com problemas a Azure Stack Edge Pro a encomendar problemas.
 
@@ -45,7 +47,7 @@ Existe a possibilidade de a Microsoft permitir uma atualização do tipo de subs
 
 **Solução sugerida:** Siga estes passos para registar o seu fornecedor de recursos Azure Stack Edge:
 
-1. No portal Azure, **Home** aceda a  >  **Assinaturas Domésticas.**
+1. No portal Azure, aceda a  >  **Assinaturas Domésticas.**
 
 2. Selecione a subscrição que utilizará para encomendar o seu dispositivo.
 

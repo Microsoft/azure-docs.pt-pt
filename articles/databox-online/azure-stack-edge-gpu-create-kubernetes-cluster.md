@@ -6,16 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 01/27/2021
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: bf73640c1a4014b61809f407e1873686c229273f
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 5289f9b558a200bf3dbefdf584eab59d1792439b
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954636"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102437745"
 ---
 # <a name="connect-to-and-manage-a-kubernetes-cluster-via-kubectl-on-your-azure-stack-edge-pro-gpu-device"></a>Ligue e gere um cluster Kubernetes através de kubectl no seu dispositivo GPU Azure Stack Edge Pro
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 No seu dispositivo Azure Stack Edge Pro, é criado um cluster Kubernetes quando configura o papel de computação. Uma vez criado o cluster Kubernetes, então pode ligar e gerir o cluster localmente a partir de uma máquina de clientes através de uma ferramenta nativa como *kubectl*.
 

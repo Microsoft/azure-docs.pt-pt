@@ -5,12 +5,12 @@ ms.topic: reference
 author: bwren
 ms.author: bwren
 ms.date: 01/20/2020
-ms.openlocfilehash: 4b4b893b222a62619a36d59c2cf042f1aa5590bc
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 70b27fec07d074dadb413d1debb098e23b4d33b3
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101708633"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102428733"
 ---
 # <a name="windows-diagnostics-extension-schema"></a>Esquema de extensão de diagnóstico do Windows
 A extensão Azure Diagnostics é um agente no Azure Monitor que recolhe dados de monitorização do sistema operativo convidado e cargas de trabalho dos recursos de computação Azure. Este artigo detalha o esquema utilizado para a configuração da extensão de diagnóstico em máquinas virtuais do Windows e outros recursos computacional.
@@ -556,7 +556,7 @@ O *PublicConfig* e *o PrivateConfig* são separados porque na maioria dos casos 
     <WadCfg>  
       <DiagnosticMonitorConfiguration overallQuotaInMB="10000">  
 
-        <PerformanceCounters scheduledTransferPeriod="PT1M", sinks="AzureMonitorSink">  
+        <PerformanceCounters scheduledTransferPeriod="PT1M" sinks="AzureMonitorSink">  
           <PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)\% Processor Time" sampleRate="PT1M" unit="percent" />  
         </PerformanceCounters>  
 

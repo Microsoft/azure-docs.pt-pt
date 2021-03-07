@@ -6,20 +6,22 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 12/11/2020
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: e5734591bfc48469eacc1ad39cbb89f3850bfc8c
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: b32757dddf745e7aaa0ea8276a3527fa464cc0d4
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97367071"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102442167"
 ---
 # <a name="recover-from-a-failed-azure-stack-edge-pro-gpu-device"></a>Recuperar de um dispositivo GPU Azure Stack Edge Pro falhado 
 
+[!INCLUDE [applies-to-GPU-and-pro-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-sku.md)]
+
 Este artigo descreve como recuperar de uma falha não tolerável no seu dispositivo GPU Azure Stack Edge Pro. Uma falha não tolerável no dispositivo GPU Azure Stack Edge Pro requer uma substituição do dispositivo.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Certifique-se de que tem:
 
@@ -80,7 +82,7 @@ Para se preparar para uma possível falha do dispositivo, pode ter implementado 
 
 
 
-| Soluções de backup        | SoA apoiado   | Referência                                                                |
+| Soluções de backup        | SOs Suportados   | Referência                                                                |
 |-------------------------|----------------|--------------------------------------------------------------------------|
 | Agente dos Serviços de Recuperação do Microsoft Azure (MARS) para backup do Azure | Windows        | [Acerca do agente MARS](../backup/backup-azure-about-mars.md)    |
 | Coesidade                | Windows, Linux | [Microsoft Azure Integration, Backup & Recovery solution brief](https://www.cohesity.com/solution/cloud/azure) <br>Para mais detalhes, contacte a Coesity.                          |

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configurar o Workplace pelo Facebook para o fornecimento automático de utilizadores com o Azure Ative Directory Microsoft Docs'
+title: 'Tutorial: Configurar o Local de Trabalho pelo Facebook para o fornecimento automático de utilizadores com o Azure Ative Directory | Microsoft Docs'
 description: Conheça os passos necessários para realizar tanto no Workplace by Facebook como no Azure Ative Directory (Azure AD) para configurar o fornecimento automático de utilizadores.
 services: active-directory
 author: jeevansd
@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/28/2020
 ms.author: jeedes
-ms.openlocfilehash: e690a761efcd16428f9da8fe53e5dd8d26e9ff79
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 98a151c9f740c3ab2f1471f98c7fab83cc848a28
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96181293"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102438409"
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>Tutorial: Configurar o Local de Trabalho pelo Facebook para o fornecimento automático de utilizadores
 
@@ -40,6 +40,9 @@ O cenário delineado neste tutorial pressupõe que já tem os seguintes pré-req
 
 > [!NOTE]
 > Para testar os passos neste tutorial, não recomendamos a utilização de um ambiente de produção.
+
+> [!NOTE]
+> Esta integração também está disponível para usar a partir do ambiente cloud do governo dos EUA Azure AD. Você pode encontrar esta aplicação na Azure AD US Government Cloud Application Gallery e configurá-la da mesma forma que você faz a partir de nuvem pública.
 
 Para testar os passos neste tutorial, deve seguir estas recomendações:
 

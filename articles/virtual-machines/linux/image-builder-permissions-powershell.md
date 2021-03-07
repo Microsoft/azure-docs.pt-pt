@@ -3,21 +3,25 @@ title: Configure permissões do Serviço de Construtor de Imagem Azure usando Po
 description: Configure requisitos para o Azure VM Image Builder Service, incluindo permissões e privilégios usando o PowerShell
 author: danielsollondon
 ms.author: danis
-ms.date: 03/02/2021
+ms.date: 03/05/2021
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: image-builder
 ms.collection: linux
-ms.openlocfilehash: 4b9cf3ffdb1fc6db9604098e8e5782317a8eb431
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 9f8793b6ea0ba454b66c525c2d53c1de2197d539
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101695401"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102440212"
 ---
 # <a name="configure-azure-image-builder-service-permissions-using-powershell"></a>Configure permissões do Serviço de Construtor de Imagem Azure usando PowerShell
 
-O Azure Image Builder Service requer a configuração de permissões e privilégios antes de construir uma imagem. As secções seguintes detalham como configurar possíveis cenários utilizando o PowerShell.
+Quando se regista para o (AIB), este concede ao Serviço AIB permissão para criar, gerir e eliminar um grupo de recursos de encenação (IT_*), e tem direitos de adicionar recursos a ele, que são necessários para a construção de imagem. Isto é feito por um Nome Principal de Serviço AIB (SPN) sendo disponibilizado na sua subscrição durante uma inscrição bem sucedida.
+
+Para permitir que o Azure VM Image Builder distribua imagens para as imagens geridas ou para uma Galeria de Imagens Partilhadas, terá de criar uma identidade atribuída ao utilizador Azure que tenha permissões para ler e escrever imagens. Se estiver a aceder ao armazenamento do Azure, então isto necessitará de permissões para ler recipientes privados ou públicos.
+
+Deve configurar permissões e privilégios antes de construir uma imagem. As secções seguintes detalham como configurar possíveis cenários utilizando o PowerShell.
 
 > [!IMPORTANT]
 > O Azure Image Builder está atualmente em pré-visualização pública.

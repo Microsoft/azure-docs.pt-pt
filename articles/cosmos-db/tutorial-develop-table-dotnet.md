@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/03/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f43a890185fcd69967fd2a035c27e1cf92798f04
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: c641e24a498a6263d6a7c2325eed099b75a82caa
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96548159"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102426438"
 ---
 # <a name="get-started-with-azure-cosmos-db-table-api-and-azure-table-storage-using-the-net-sdk"></a>Introdução ao armazenamento de API de Tabela do Azure Cosmos DB e Tabelas do Azure com o SDK .NET
 [!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
@@ -121,7 +121,7 @@ Este código define uma classe de entidade que usa o primeiro nome do cliente co
 
 ## <a name="insert-or-merge-an-entity"></a>Inserir ou fundir uma entidade
 
-O exemplo de código a seguir cria um objeto de entidade e adiciona-o à tabela. O método InsertOrMerge dentro da classe [TableOperation](/dotnet/api/microsoft.azure.cosmos.table.tableoperation) é utilizado para inserir ou fundir uma entidade. O [ métodoCloudTable.Exebonito Async](/dotnet/api/microsoft.azure.cosmos.table.cloudtable.executeasync?preserve-view=true&view=azure-dotnet) é chamado para executar a operação. 
+O exemplo de código a seguir cria um objeto de entidade e adiciona-o à tabela. O método InsertOrMerge dentro da classe [TableOperation](/dotnet/api/microsoft.azure.cosmos.table.tableoperation) é utilizado para inserir ou fundir uma entidade. O [ métodoCloudTable.Exebonito Async](/dotnet/api/microsoft.azure.cosmos.table.cloudtable.executeasync) é chamado para executar a operação. 
 
 Clique à direita no seu projeto **CosmosTableSamples**. Selecione **Adicionar**, **Novo Item** e adicione uma classe chamada **SamplesUtils.cs**. Esta classe armazena todo o código necessário para a realização de operações CRUD nas entidades. 
 
@@ -149,7 +149,7 @@ Se não quiser eliminar a entidade e a mesa no final do projeto, comente os `awa
 
 O código anterior cria uma tabela que começa com "demo" e o GUID gerado é anexado ao nome da mesa. Em seguida, adiciona uma entidade cliente com o primeiro e último nome como "Harp Walter" e posteriormente atualiza o número de telefone deste utilizador. 
 
-Neste tutorial, criou um código para realizar operações básicas da CRUD nos dados armazenados na conta API da tabela. Também pode efetuar operações avançadas, tais como – dados de inserção de lotes, consulta de todos os dados dentro de uma partição, consultar uma série de dados dentro de uma partição, Listar tabelas na conta cujos nomes começam com o prefixo especificado. Você pode baixar o formulário de amostra completo [azure-cosmos-table-dotnet-core-start-start-start-start-tory](https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started) GitHub. A [classe AdvancedSamples.cs](https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started/blob/main/CosmosTableSamples/AdvancedSamples.cs) tem mais operações que pode realizar nos dados.  
+Neste tutorial, criou um código para realizar operações básicas da CRUD nos dados armazenados na conta API da tabela. Também pode efetuar operações avançadas, tais como – dados de inserção de lotes, consulta de todos os dados dentro de uma partição, consultar uma série de dados dentro de uma partição, Listar tabelas na conta cujos nomes começam com o prefixo especificado. Você pode baixar o formulário de amostra completo [azure-cosmos-table-dotnet-core-start-start-tory](https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started) GitHub. A [classe AdvancedSamples.cs](https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started/blob/main/CosmosTableSamples/AdvancedSamples.cs) tem mais operações que pode realizar nos dados.  
 
 ## <a name="run-the-project"></a>Executar o projeto
 

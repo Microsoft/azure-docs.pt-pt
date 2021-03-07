@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: overview
 ms.date: 02/18/2021
 ms.custom: template-overview
-ms.openlocfilehash: 3b09253d779679e5a0c4ccd11b4cbd98ee386adc
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: fd332ffbbca4987b52ce380c6fd893571e65fb1c
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102179294"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102435465"
 ---
 # <a name="introduction-to-azure-percept"></a>Introdução a Azure Percept
 
@@ -45,4 +45,4 @@ Os principais componentes do Azure Percept são:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Começa com [o Azure Percept DK.](./overview-azure-percept-dk.md)
+Começa com [o Azure Percept DK.](./overview-azure-percept-dk.md) 

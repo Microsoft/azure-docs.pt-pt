@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2020
 ms.author: Zhchia
-ms.openlocfilehash: c3384effc961c6c588bc2d7f4f75bc386d63076b
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 0a9615e6bcb350732ccd7b2cf27dad3b46a7e4b3
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101651587"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102427016"
 ---
 # <a name="tutorial-configure-github-ae-for-automatic-user-provisioning"></a>Tutorial: Configurar GitHub AE para fornecimento automático de utilizadores
 
@@ -32,6 +32,7 @@ Este tutorial descreve os passos que precisa de executar tanto no GitHub AE como
 > * Criar utilizadores no GitHub AE
 > * Remova os utilizadores no GitHub AE quando já não necessitam de acesso
 > * Mantenha os atributos do utilizador sincronizados entre Azure AD e GitHub AE
+> * Grupos de provisão e membros do grupo no GitHub AE
 > * Único sinal de [Github AE](./github-ae-tutorial.md) (recomendado)
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -59,7 +60,7 @@ Adicione GitHub AE da galeria de aplicações AZure AD para começar a gerir o f
 
 O serviço de prestação de Azure AD permite-lhe atear o âmbito de aplicação a quem será a provisionado com base na atribuição à aplicação e ou com base em atributos do utilizador e/ou grupo. Se optar por escolher o âmbito de aplicação de quem será aprovisionado na sua aplicação com base na atribuição, pode utilizar os [seguintes passos](../manage-apps/assign-user-or-group-access-portal.md) para atribuir utilizadores e/ou grupos à aplicação. Se optar por escolher o âmbito de aplicação de quem será a provisionado apenas com base em atributos do utilizador e/ou grupo, pode utilizar um filtro de escoamento como descrito [aqui](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
-* Ao atribuir utilizadores ao GitHub AE, tem de selecionar outra função que não o **Acesso Predefinido**. Os utilizadores com a função Acesso Predefinido são excluídos do aprovisionamento e marcados como não autorizados de forma efetiva nos registos de aprovisionamento. Se a única função disponível na aplicação for a função de acesso predefinido, pode [atualizar o manifesto de aplicação](../develop/howto-add-app-roles-in-azure-ad-apps.md) para adicionar funções adicionais. 
+* Ao atribuir utilizadores e grupos ao GitHub AE, tem de selecionar outra função que não o **Acesso Predefinido**. Os utilizadores com a função Acesso Predefinido são excluídos do aprovisionamento e marcados como não autorizados de forma efetiva nos registos de aprovisionamento. Se a única função disponível na aplicação for a função de acesso predefinido, pode [atualizar o manifesto de aplicação](../develop/howto-add-app-roles-in-azure-ad-apps.md) para adicionar funções adicionais. 
 
 * Comece pequeno. Teste com um pequeno conjunto de utilizadores e/ou grupos antes de rolar para todos. Quando o âmbito de provisão é definido para utilizadores e/ou grupos atribuídos, pode controlá-lo atribuindo um ou dois utilizadores e/ou grupos à aplicação. Quando o âmbito está definido para todos os utilizadores e grupos, pode especificar um [filtro de âmbito baseado em atributos](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 

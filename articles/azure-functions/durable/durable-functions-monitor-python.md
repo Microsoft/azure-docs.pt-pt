@@ -5,18 +5,22 @@ author: davidmrdavid
 ms.topic: conceptual
 ms.date: 12/02/2020
 ms.author: azfuncdf
-ms.openlocfilehash: 9083821fa03c09949daaf3166367489248a4d7d2
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.openlocfilehash: 62b3c9bb1c6fd53d9f11227a9d7e774d56859d04
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98029191"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102434768"
 ---
 # <a name="monitor-scenario-in-durable-functions---github-issue-monitoring-sample"></a>Monitor cenário em Funções Duradouras - Amostra de monitorização do Problema GitHub
 
 O padrão do monitor refere-se a um processo recorrente flexível num fluxo de trabalho - por exemplo, a votação até que determinadas condições sejam satisfeitas. Este artigo explica uma amostra que utiliza funções duradouras para implementar a monitorização.
 
-[! INCLUIR pré-requisitos de funções duráveis]
+## <a name="prerequisites"></a>Pré-requisitos
+
+* [Complete o artigo de arranque rápido](quickstart-python-vscode.md)
+* [Clone ou descarregue o projeto de amostras do GitHub](https://github.com/Azure/azure-functions-durable-python/tree/main/samples/)
+
 
 ## <a name="scenario-overview"></a>Scenario overview (Descrição geral do cenário)
 
@@ -45,7 +49,6 @@ Este artigo explica as seguintes funções na aplicação da amostra:
 
 ### <a name="e3_monitor-orchestrator-function"></a>função orquestrador E3_Monitor
 
-# <a name="python"></a>[Python](#tab/python)
 
 A função **E3_Monitor** utiliza o *function.js* padrão para funções orquestradoras.
 
@@ -55,7 +58,6 @@ Aqui está o código que implementa a função:
 
 [!code-python[Main](~/samples-durable-functions-python/samples/monitor/E3_Monitor/\_\_init\_\_.py)]
 
----
 
 Esta função orquestradora executa as seguintes ações:
 
@@ -73,7 +75,6 @@ Vários casos de orquestradores podem ser executados simultaneamente, chamando a
 
 Tal como acontece com outras amostras, as funções de atividade do ajudante são funções regulares que utilizam a ligação do `activityTrigger` gatilho. A função **E3_TooManyOpenIssues** recebe uma lista de questões atualmente em aberto no repo e determina se existem "demasiados" deles: mais de 3 de acordo com a nossa amostra.
 
-# <a name="python"></a>[Python](#tab/python)
 
 O *function.jsem diante* é definido da seguinte forma:
 
@@ -83,13 +84,11 @@ E aqui está a implementação.
 
 [!code-python[Main](~/samples-durable-functions-python/samples/monitor/E3_TooManyOpenIssues/\_\_init\_\_.py)]
 
----
 
 ### <a name="e3_sendalert-activity-function"></a>E3_SendAlert função de atividade
 
 A função **E3_SendAlert** utiliza a ligação Twilio para enviar uma mensagem SMS notificando o utilizador final de que existem pelo menos 3 questões em aberto à espera de uma resolução.
 
-# <a name="python"></a>[Python](#tab/python)
 
 A sua *function.jsé* simples:
 
@@ -99,7 +98,6 @@ E aqui está o código que envia a mensagem SMS:
 
 [!code-python[Main](~/samples-durable-functions-python/samples/monitor/E3_SendAlert/\_\_init\_\_.py)]
 
----
 
 ## <a name="run-the-sample"></a>Executar o exemplo
 

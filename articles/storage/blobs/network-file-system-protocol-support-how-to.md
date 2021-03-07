@@ -9,16 +9,16 @@ ms.date: 08/04/2020
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: db946dcc0fc8571f7b6aa191909155baccf7d1a2
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 8ed63a508447104f9073c986debfae73ba7de89f
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878583"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102428648"
 ---
 # <a name="mount-blob-storage-by-using-the-network-file-system-nfs-30-protocol-preview"></a>Armazenamento do Monte Blob utilizando o protocolo Sistema de Ficheiros de Rede (NFS) 3.0 (pré-visualização)
 
-Pode montar um recipiente no armazenamento Blob a partir de uma Máquina Virtual Azure (VM) baseada no Windows ou linux ou num sistema Windows ou Linux que funciona no local utilizando o protocolo NFS 3.0. Este artigo fornece orientação passo a passo. Para saber mais sobre o suporte ao protocolo NFS 3.0 no armazenamento blob, consulte [o suporte ao sistema de ficheiros de rede (NFS) 3.0 no armazenamento do Blob Azure Blob (pré-visualização)](network-file-system-protocol-support.md).
+Pode montar um recipiente no armazenamento Blob a partir de uma Máquina Virtual (VM) baseada em Linux ou um sistema Linux que funciona no local utilizando o protocolo NFS 3.0. Este artigo fornece orientação passo a passo. Para saber mais sobre o suporte ao protocolo NFS 3.0 no armazenamento blob, consulte [o suporte ao sistema de ficheiros de rede (NFS) 3.0 no armazenamento do Blob Azure Blob (pré-visualização)](network-file-system-protocol-support.md).
 
 ## <a name="step-1-register-the-nfs-30-protocol-feature-with-your-subscription"></a>Passo 1: Registe a função de protocolo NFS 3.0 com a sua assinatura
 
@@ -107,9 +107,7 @@ Crie um recipiente na sua conta de armazenamento utilizando qualquer uma destas 
 
 ## <a name="step-7-mount-the-container"></a>Passo 7: Montar o recipiente
 
-Crie um diretório no seu sistema Windows ou Linux e, em seguida, monte um recipiente na conta de armazenamento.
-
-### <a name="linux"></a>[Linux](#tab/linux)
+Crie um diretório no seu sistema Linux e, em seguida, monte um recipiente na conta de armazenamento.
 
 1. Num sistema Linux, crie um diretório.
 
@@ -127,32 +125,6 @@ Crie um diretório no seu sistema Windows ou Linux e, em seguida, monte um recip
 
    - Substitua o `<container-name>` espaço reservado pelo nome do seu recipiente.
 
-
-### <a name="windows"></a>[Windows](#tab/windows)
-
-1. Abra a caixa de diálogo **'Windows Features'** e, em seguida, ligue o Cliente para a função **NFS.** 
-
-   ![Recurso do Sistema de Ficheiros de Rede do Cliente](media/network-file-system-protocol-how-to/client-for-network-files-system-feature.png)
-
-2. Abra uma janela **de solicitação de comando** (cmd.exe). Em seguida, monte um recipiente utilizando o comando [de montagem.](/windows-server/administration/windows-commands/mount)
-
-   ```
-   mount -o nolock <storage-account-name>.blob.core.windows.net:/<storage-account-name>/<container-name> *
-   ```
-
-   - Substitua o `<storage-account-name>` espaço reservado que aparece neste comando pelo nome da sua conta de armazenamento.  
-
-   - Substitua o `<container-name>` espaço reservado pelo nome do seu recipiente.
-
-3. Se precisar de permissões de escrita, poderá ter de alterar o UID e o GID predefinidos que o Windows utiliza para se ligar à partilha. Para tal, executar os seguintes comandos PowerShell como administrador:
-
-   ```
-   New-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\ClientForNFS\CurrentVersion\Default -Name AnonymousUid -PropertyType DWord -Value 0
-   New-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\ClientForNFS\CurrentVersion\Default -Name AnonymousGid -PropertyType DWord -Value 0
-   ```
-   
-   - Reinicie o serviço de cliente NFS ou reinicie o servidor depois de escoar esta alteração.
-
 ---
 
 ## <a name="resolve-common-issues"></a>Resolver questões comuns
@@ -162,6 +134,6 @@ Crie um diretório no seu sistema Windows ou Linux e, em seguida, monte um recip
 |`Access denied by server while mounting`|Confirme que o cliente está a ser executado numa sub-rede suportada. Consulte as localizações da [rede suportada.](network-file-system-protocol-support.md#supported-network-connections)|
 |`No such file or directory`| Confirme que o contentor que está a montar foi criado depois de verificar que a funcionalidade estava registada. Ver [Passo 2: Verifique se a função está registada](#step-2-verify-that-the-feature-is-registered). Além disso, certifique-se de digitar o comando de montagem e os seus parâmetros diretamente para o terminal. Se copiar e colar qualquer parte deste comando no terminal a partir de outra aplicação, os carateres ocultos nas informações coladas poderão ser a causa deste erro.|
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 [Suporte ao protocolo do Sistema de Ficheiros de Rede (NFS) 3.0 no armazenamento do Azure Blob (pré-visualização)](network-file-system-protocol-support.md)

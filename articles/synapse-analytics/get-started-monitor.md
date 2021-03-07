@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: monitoring
 ms.topic: tutorial
 ms.date: 12/31/2020
-ms.openlocfilehash: 8c0cdcad9a7803e0d8063362ca62887990045c86
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: 7e8525dbebb42e1f387ee8f0c192efd5e64c9453
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98209819"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102426045"
 ---
 # <a name="monitor-your-synapse-workspace"></a>Monitorize o seu espaço de trabalho de sinapse
 
@@ -30,7 +30,7 @@ Abra o Estúdio Synapse e navegue até ao centro **monitor.** Aqui, você pode v
 
 ## <a name="integration"></a>Integração
 
-1. Navegue para o **Pipeline > integração.** Nesta vista, pode ver sempre que um oleoduto corre no seu espaço de trabalho. 
+1. Navegar para a **integração > pipeline funciona**. Nesta vista, pode ver sempre que um oleoduto corre no seu espaço de trabalho. 
 1. Encontre o oleoduto que correu no passo anterior e clique no **seu nome Pipeline** para ver os detalhes.
 1. Clique **na barra Breadcrumb** perto do topo do Synapse Studio, clique em **Todas as corridas de pipeline** para voltar à vista anterior.
 
@@ -45,8 +45,7 @@ Abra o Estúdio Synapse e navegue até ao centro **monitor.** Aqui, você pode v
 1. Navegue para **atividades > pedidos SQL.**
 1. Nesta vista pode ver os pedidos do SQL.
 1. Selecione uma **Piscina** para monitorar a partir do filtro **Pool.** Agora você pode ver todos os pedidos SQL que estão executando ou executado no seu espaço de trabalho nessa piscina.
-1. Encontre um pedido SQL específico e sobressaa o rato sobre esse item. Assim que pairar, verá um ícone de script SQL aparecer.
-1. Clique no ícone de script SQL para ver o texto completo do pedido SQL.
+1. Encontre um pedido SQL específico e clique no link **Mais** para ver o texto completo do pedido SQL.
 
     > [!NOTE] 
     > Os pedidos SQL submetidos através do Synapse Studio num espaço de trabalho habilitado a piscina SQL (anteriormente SQL DW) podem ser vistos no centro do Monitor. Para todas as outras atividades de monitorização, você pode ir ao portal Azure dedicada à monitorização da piscina SQL (anteriormente SQL DW).

@@ -1,23 +1,23 @@
 ---
-title: Gestão de conta de armazenamento Azure Stack Edge Pro GPU Microsoft Docs
+title: Azure Stack Edge Pro GPU gestão de conta de armazenamento | Microsoft Docs
 description: Descreve como usar o portal Azure para gerir a conta de armazenamento no Azure Stack Edge Pro.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: d3378b08ace73b2bc9a10286abf5a48f3063ba7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 58ea8709af33510b1848d0c031d513e4af7a352d
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743510"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102436554"
 ---
-# <a name="use-the-azure-portal-to-manage-edge-storage-accounts-on-your-azure-stack-edge-pro"></a>Utilize o portal Azure para gerir contas de armazenamento Edge no seu Azure Stack Edge Pro
+# <a name="use-the-azure-portal-to-manage-edge-storage-accounts-on-your-azure-stack-edge-pro"></a>Utilizar o portal do Azure para gerir contas de armazenamento do Edge no Azure Stack Edge Pro
 
-<!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 Este artigo descreve como gerir as contas de armazenamento Edge no seu Azure Stack Edge Pro. Pode gerir o Azure Stack Edge Pro através do portal Azure ou através da UI web local. Utilize o portal Azure para adicionar ou eliminar contas de armazenamento Edge no seu dispositivo.
 
