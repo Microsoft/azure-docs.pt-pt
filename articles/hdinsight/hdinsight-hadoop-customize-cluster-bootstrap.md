@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 04/01/2020
-ms.openlocfilehash: 306ebcf7db3c11f783af8cf4c1779bd3d1a013a4
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: c73cb99d62295312980fe5f1b248d23efa2eb0c5
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98945753"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102432388"
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>Personalize os clusters HDInsight usando Bootstrap
 
@@ -105,7 +105,7 @@ $OozieConfigValues = @{ "oozie.service.coord.normal.default.timeout"="150" }  # 
 
 ## <a name="use-net-sdk"></a>Utilizar o .NET SDK
 
-Ver [Azure HDInsight SDK para .NET](/dotnet/api/overview/azure/hdinsight?view=azure-dotnet&preserve-view=true).
+Ver [Azure HDInsight SDK para .NET](/dotnet/api/overview/azure/hdinsight).
 
 ## <a name="use-resource-manager-template"></a>Utilizar o modelo do Resource Manager
 
@@ -135,7 +135,7 @@ Corte do modelo do Gestor de Recursos da Amostra para mudar a configuração em 
 }
 ```
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 * [Criar clusters Apache Hadoop em HDInsight](hdinsight-hadoop-provision-linux-clusters.md) fornece instruções sobre como criar um cluster HDInsight utilizando outras opções personalizadas.
 * [Desenvolver scripts de ação de script para HDInsight](hdinsight-hadoop-script-actions-linux.md)

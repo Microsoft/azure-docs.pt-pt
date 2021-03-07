@@ -6,16 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 12/11/2020
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: b437ce7b6894ebefe38b32f27d370d9f8c4bfe80
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: 60469dc834c28bd8dbc73a1883ea01b06797c01f
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97369026"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102442983"
 ---
 # <a name="prepare-for-an-azure-stack-edge-pro-gpu-device-failure"></a>Prepare-se para uma falha do dispositivo GPU Azure Stack Edge Pro
+
+[!INCLUDE [applies-to-GPU-and-pro-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-sku.md)]
 
 Este artigo ajuda-o a preparar-se para uma falha no dispositivo, detalhando como guardar e fazer o back up da configuração do dispositivo e os dados do seu dispositivo GPU Azure Stack Edge Pro. 
 
@@ -76,7 +78,7 @@ As seguintes soluções de proteção de dados de terceiros podem fornecer uma s
 O Azure Stack Edge trabalha com a Azure Backup e outras soluções de proteção de dados de terceiros para fornecer uma solução de backup para proteger os dados contidos nos VMs que são implantados no dispositivo. A tabela que se segue lista referências às soluções disponíveis que pode escolher.
 
 
-| Soluções de backup        | SoA apoiado   | Referência                                                                |
+| Soluções de backup        | SOs Suportados   | Referência                                                                |
 |-------------------------|----------------|--------------------------------------------------------------------------|
 | Agente dos Serviços de Recuperação do Microsoft Azure (MARS) para backup do Azure | Windows        | [Acerca do agente MARS](../backup/backup-azure-about-mars.md)    |
 | Coesidade                | Windows, Linux | [Microsoft Azure Integration, Backup & Recovery solution brief](https://www.cohesity.com/solution/cloud/azure) <br>Para mais detalhes, contacte a Coesity.                          |

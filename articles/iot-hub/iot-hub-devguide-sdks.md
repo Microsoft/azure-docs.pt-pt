@@ -12,12 +12,12 @@ ms.custom:
 - mqtt
 - 'Role: IoT Device'
 - 'Role: Cloud Development'
-ms.openlocfilehash: 13598925702aeca4a06135a910e3be540083a2b6
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 8a65619d65e1a3655d3ef8a295749a705e6a79e1
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102211758"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102431283"
 ---
 # <a name="understand-and-use-azure-iot-hub-sdks"></a>Compreender e utilizar os SDKs do Hub IoT do Azure
 
@@ -51,8 +51,8 @@ Dispositivo Azure IoT Hub SDK para .NET:
 
 * Download a partir de [NuGet](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/).  O espaço de nomes é Microsoft.Azure.Devices.Clients, que contém clientes de dispositivos IoT Hub (DeviceClient, ModuleClient).
 * [Código de origem](https://github.com/Azure/azure-iot-sdk-csharp)
-* [Referência da API](/dotnet/api/microsoft.azure.devices?view=azure-dotnet&preserve-view=true)
-* [Referência do módulo](/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet&preserve-view=true)
+* [Referência da API](/dotnet/api/microsoft.azure.devices)
+* [Referência do módulo](/dotnet/api/microsoft.azure.devices.client.moduleclient)
 
 
 Dispositivo Azure IoT Hub SDK para Incorporado C (ANSI C - C99):
@@ -153,7 +153,7 @@ Dispositivo de provisão Azure e SDKs de serviço para C#:
 
 * Descarregue a partir de [Device SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Client/) e [Service SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/) da NuGet.
 * [Código de origem](https://github.com/Azure/azure-iot-sdk-csharp/)
-* [Referência da API](/dotnet/api/microsoft.azure.devices.provisioning.client?view=azure-dotnet&preserve-view=true)
+* [Referência da API](/dotnet/api/microsoft.azure.devices.provisioning.client)
 
 Dispositivo de fornecimento de Azure e SDKs de serviço para C:
 

@@ -4,17 +4,17 @@ description: Saiba como diagnosticar e corrigir .NET SDK solicitar exceções de
 author: j82w
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.date: 08/06/2020
+ms.date: 03/05/2021
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: c8d448cf335f328b5ae55579fd30127ef0e37e9d
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: c8d35f7c666562022f503b2777f30f84193d0231
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340503"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102440008"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-net-sdk-request-timeout-exceptions"></a>Diagnosticar e resolver problemas Azure Cosmos DB .NET SDK solicitar exceções de tempo limite
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -39,8 +39,24 @@ Todas as operações de async no SDK têm um parâmetro de CancelamentoToken opc
 ## <a name="troubleshooting-steps"></a>Passos de resolução de problemas
 A lista que se segue contém causas e soluções conhecidas para solicitar exceções no prazo de tempo.
 
-### <a name="high-cpu-utilization"></a>Alta utilização do CPU
+### <a name="high-cpu-utilization"></a>Utilização elevada da CPU
 Alta utilização do CPU é o caso mais comum. Para uma latência ótima, o uso do CPU deve ser de aproximadamente 40%. Utilize 10 segundos como intervalo para monitorizar a utilização máxima (não média) do CPU. Os picos de CPU são mais comuns com consultas de divisórias cruzadas onde pode fazer múltiplas ligações para uma única consulta.
+
+Se o erro `TransportException` contiver informações, pode conter `CPU History` também:
+
+```
+CPU history: 
+(2020-08-28T00:40:09.1769900Z 0.114), 
+(2020-08-28T00:40:19.1763818Z 1.732), 
+(2020-08-28T00:40:29.1759235Z 0.000), 
+(2020-08-28T00:40:39.1763208Z 0.063), 
+(2020-08-28T00:40:49.1767057Z 0.648), 
+(2020-08-28T00:40:59.1689401Z 0.137), 
+CPU count: 8)
+```
+
+* Se as medições do CPU forem superiores a 70%, é provável que o tempo limite seja causado pela exaustão da CPU. Neste caso, a solução consiste em investigar a origem da utilização elevada da CPU e reduzi-la ou dimensionar o computador para um tamanho de recurso maior.
+* Se as medições da CPU não estiverem a ocorrer a cada 10 segundos (por exemplo, intervalos ou tempos de medição indicam tempos maiores entre as medições), a causa é a privação de threads. Neste caso, a solução consiste em investigar as origens da privação de threads (threads potencialmente bloqueados) ou dimensionar os computadores para um tamanho de recurso maior.
 
 #### <a name="solution"></a>Solução:
 A aplicação do cliente que utiliza o SDK deve ser dimensionada ou para fora.
