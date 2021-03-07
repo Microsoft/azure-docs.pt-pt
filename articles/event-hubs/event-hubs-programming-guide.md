@@ -4,12 +4,12 @@ description: Este artigo fornece informações sobre como escrever código para 
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a299813620ee90591d8c9491991237f75f2e9382
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 32c3c05b61d2ee8fc79d7c863ddbe84de5fe7e2b
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98623053"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102432745"
 ---
 # <a name="net-programming-guide-for-azure-event-hubs-legacy-microsoftazureeventhubs-package"></a>.NET Guia de programação para Azure Event Hubs (pacote legado Microsoft.Azure.EventHubs)
 Este artigo discute alguns cenários comuns em código de escrita usando Azure Event Hubs. Parte do princípio de que possui compreensão preliminar dos Event Hubs. Para obter uma descrição geral conceptual dos Event Hubs, consulte [Descrição geral dos Event Hubs](./event-hubs-about.md).
@@ -73,21 +73,7 @@ for (var i = 0; i < numMessagesToSend; i++)
 > [!NOTE]
 > Se não está familiarizado com as divisórias, consulte [este artigo.](event-hubs-features.md#partitions) 
 
-Ao enviar dados do evento, pode especificar um valor que é hashed para produzir uma atribuição de partição. Especifica a partição utilizando a propriedade [PartitionSender.PartitionID.](/dotnet/api/microsoft.azure.eventhubs.partitionsender.partitionid) No entanto, a decisão de utilizar divisórias implica uma escolha entre disponibilidade e consistência. 
-
-### <a name="availability-considerations"></a>Considerações de disponibilidade
-
-A utilização de uma chave de partição é opcional, e deve considerar cuidadosamente se deve ou não utilizar uma. Se não especificar uma chave de partição ao publicar um evento, o Event Hubs equilibra a carga entre divisórias. Em muitos casos, usar uma chave de partição é uma boa escolha se a encomenda de eventos for importante. Quando se utiliza uma chave de partição, estas divisórias requerem disponibilidade num único nó, e podem ocorrer interrupções ao longo do tempo; por exemplo, quando os nós de computação reiniciam e remendam. Como tal, se definir um ID de partição e essa partição ficar indisponível por alguma razão, uma tentativa de aceder aos dados dessa partição falhará. Se a alta disponibilidade for mais importante, não especifique uma chave de partição. Nesse caso, os eventos são enviados para divisórias usando um algoritmo interno de equilíbrio de carga. Neste cenário, está a fazer uma escolha explícita entre disponibilidade (sem ID de partição) e consistência (fixando eventos a um ID de partição).
-
-Outra consideração é lidar com atrasos no processamento de eventos. Em alguns casos, seria melhor deixar cair dados e tentar novamente do que tentar acompanhar o processamento, o que pode potencialmente causar mais atrasos no processamento a jusante. Por exemplo, com um ticker de stock é melhor esperar por dados atualizados completos, mas num cenário de chat ao vivo ou VOIP você prefere ter os dados rapidamente, mesmo que não esteja completo.
-
-Tendo em conta estas considerações de disponibilidade, nestes cenários poderá escolher uma das seguintes estratégias de tratamento de erros:
-
-- Parar (parar de ler nos Centros de Eventos até que as coisas sejam corrigidas)
-- Drop (as mensagens não são importantes, largue-as)
-- Reda o redando (relemisse as mensagens como entender)
-
-Para obter mais informações e uma discussão sobre as compensações entre disponibilidade e consistência, consulte [Disponibilidade e consistência nos Centros de Eventos.](event-hubs-availability-and-consistency.md) 
+Ao enviar dados do evento, pode especificar um valor que é hashed para produzir uma atribuição de partição. Especifica a partição utilizando a propriedade [PartitionSender.PartitionID.](/dotnet/api/microsoft.azure.eventhubs.partitionsender.partitionid) No entanto, a decisão de utilizar divisórias implica uma escolha entre disponibilidade e consistência. Para mais informações, consulte [Disponibilidade e Consistência.](event-hubs-availability-and-consistency.md)
 
 ## <a name="batch-event-send-operations"></a>Operações de envio de eventos em lote
 

@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: af028499d84a767ccb2a888ec7e7f92c80dbdd36
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 0316850788a4f762680be91c8ecd86b3aa8bf6bc
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101710571"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102433612"
 ---
 # <a name="install-and-run-the-spatial-analysis-container-preview"></a>Instale e execute o recipiente de análise espacial (Pré-visualização)
 
@@ -24,7 +24,7 @@ O recipiente de análise espacial permite-lhe analisar vídeos de streaming em t
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Subscrição Azure - [Crie uma gratuitamente](https://azure.microsoft.com/free/cognitive-services)
-* Assim que tiver a subscrição do Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title=" crie um recurso de Visão De Computador crie um recurso de "  target="_blank"> Visão De Computador para o <span class="docon docon-navigate-external x-hidden-focus"></span> </a> nível S1 padrão no portal Azure para obter a sua chave e ponto final. Depois de implementar, clique em **Ir para o recurso**.
+* Assim que tiver a subscrição do Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title=" crie um recurso de Visão De Computador crie um recurso de "  target="_blank"> Visão De Computador para o </a> nível S1 padrão no portal Azure para obter a sua chave e ponto final. Depois de implementar, clique em **Ir para o recurso**.
     * Necessitará da chave e ponto final do recurso que criar para executar o recipiente de análise espacial. Usará a sua chave e o ponto final mais tarde.
 
 

@@ -6,16 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 01/07/2021
+ms.date: 03/05/2021
 ms.author: alkohli
-ms.openlocfilehash: 411757f4ef4e33ccbc8a69ca2b40598b51c6d13b
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: f76652600f42d7e82914836537935ac9a74decb4
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98790838"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102436804"
 ---
 # <a name="open-a-support-ticket-for-azure-stack-edge-pro-and-azure-data-box-gateway"></a>Abra um bilhete de apoio para Azure Stack Edge Pro e Azure Data Box Gateway
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-databox-gateway-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-databox-gateway-sku.md)]
 
 Este artigo aplica-se ao Azure Stack Edge Pro e ao Azure Data Box Gateway ambos geridos pelo serviço Azure Stack Edge Pro / Azure Data Box Gateway. Se encontrar algum problema com o seu serviço, pode criar um pedido de assistência técnica. Este artigo acompanha-o:
 
@@ -39,7 +41,7 @@ Faça as seguintes etapas para criar um pedido de apoio:
     7. Com base no tipo de problema selecionado, escolha um **subtipo de problema** correspondente .
     8. Selecione **Seguinte: Soluções >>**.
 
-        ![Informações básicas](./media/azure-stack-edge-contact-microsoft-support/data-box-edge-support-request-1.png)
+        ![Noções básicas](./media/azure-stack-edge-contact-microsoft-support/data-box-edge-support-request-1.png)
 
 3. No separador **Detalhes,** tome os seguintes passos:
 
@@ -96,7 +98,7 @@ Depois de criar um pedido de suporte, pode gerir o ciclo de vida do mesmo no por
 
 3. Selecione e clique num pedido de suporte. Pode ver o estado e os detalhes deste pedido. Clique **em + Nova mensagem** se quiser acompanhar este pedido.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como [resolver problemas relacionados com o Azure Stack Edge Pro](azure-stack-edge-troubleshoot.md).
 Saiba como [resolver problemas relacionados com o Data Box Gateway](../databox-gateway/data-box-gateway-troubleshoot.md).

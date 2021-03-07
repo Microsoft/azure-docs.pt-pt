@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure Enviado para o fornecimento automático de utilizadores com diretório ativo Azure / Microsoft Docs'
+title: 'Tutorial: Configure Envoy para o fornecimento automático de utilizadores com Azure Ative Directory | Microsoft Docs'
 description: Saiba como providenciar e desa provisionar automaticamente as contas de utilizadores do Azure AD ao Enviado.
 services: active-directory
 author: zchia
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/3/2019
 ms.author: Zhchia
-ms.openlocfilehash: 7e63b0af2c5b9bd39f755c39adc296b3a8c4a049
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: b18ec2531b26574357f56c11558f2afd84467495
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96180970"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102437694"
 ---
 # <a name="tutorial-configure-envoy-for-automatic-user-provisioning"></a>Tutorial: Enviado de configuração para o fornecimento automático de utilizadores
 
@@ -39,6 +39,9 @@ O cenário delineado neste tutorial pressupõe que já tem os seguintes pré-req
 * Uma conta de utilizador no Azure AD com [permissão](../roles/permissions-reference.md) para configurar o aprovisionamento (por ex., Administrador de Aplicações, Administrador de Aplicações de Cloud, Proprietário da Aplicação ou Administrador Global). 
 * [Um inquilino enviado.](https://envoy.com/pricing/)
 * Uma conta de utilizador em Enviado com permissões de Administração.
+
+> [!NOTE]
+> Esta integração também está disponível para usar a partir do ambiente cloud do governo dos EUA Azure AD. Você pode encontrar esta aplicação na Azure AD US Government Cloud Application Gallery e configurá-la da mesma forma que você faz a partir de nuvem pública.
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Passo 1. Planear a sua implementação de aprovisionamento
 1. Saiba [como funciona o serviço de aprovisionamento](../app-provisioning/user-provisioning.md).

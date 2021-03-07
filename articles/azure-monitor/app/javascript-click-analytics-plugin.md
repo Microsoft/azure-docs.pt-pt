@@ -8,12 +8,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/14/2021
 ms.author: lagayhar
-ms.openlocfilehash: 5ad3e1a5a4ff47fe3d5fee8b8bc79235838995b8
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: e48d669321ad8c58681e8a92e68f2089962bdc17
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100593636"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102429855"
 ---
 # <a name="click-analytics-auto-collection-plugin-for-application-insights-javascript-sdk"></a>Clique no plugin de recolha automática de analíticos para insights de aplicação JavaScript SDK
 
@@ -79,7 +79,7 @@ appInsights.loadAppInsights();
 
 ## <a name="configuration"></a>Configuração
 
-| Nome                  | Tipo                               | Predefinição | Description                                                                                                                              |
+| Nome                  | Tipo                               | Predefinição | Descrição                                                                                                                              |
 | --------------------- | -----------------------------------| --------| ---------------------------------------------------------------------------------------------------------------------------------------- |
 | autoCapture           | boolean                            | true    | Configuração de captura automática.                                                                                                         |
 | callback              | [IValueCallback](#ivaluecallback)  | nulo    | Configuração de chamadas.                                                                                                                 |
@@ -101,7 +101,7 @@ appInsights.loadAppInsights();
 
 ### <a name="icustomdatatags"></a>ICustomDataTags
 
-| Nome                      | Tipo    | Predefinição   | Etiqueta padrão a utilizar em HTML |   Description                                                                                |
+| Nome                      | Tipo    | Predefinição   | Etiqueta padrão a utilizar em HTML |   Descrição                                                                                |
 |---------------------------|---------|-----------|-------------|----------------------------------------------------------------------------------------------|
 | useDefaultContentNameOrId | boolean | false     | N/D         |Recolhe atributo HTML padrão para o nome de conteúdo quando um determinado elemento não está marcado com o Costume DefaultDataPrefix ou quando oDataPrefix personalizado não é fornecido pelo utilizador. |
 | CustomDataPrefixo          | string  | `data-`   | `data-*`| Denominação de conteúdo de captura automática e valor dos elementos que estão marcados com prefixo fornecido. Por `data-*-id` exemplo, `data-<yourcustomattribute>` pode ser utilizado nas tags HTML.   |
@@ -315,4 +315,4 @@ appInsights.loadAppInsights();
 - Consulte o [Pacote De Repositório GitHub](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-clickanalytics-js) e [NPM](https://www.npmjs.com/package/@microsoft/applicationinsights-clickanalytics-js) para o Plugin de Recolha Automática Click Analytics.
 - Use [análise de eventos na experiência de utilização](usage-segmentation.md) para analisar cliques de topo e corte pelas dimensões disponíveis.
 - Encontre os dados de clique no campo de conteúdo dentro do atributo CustomEvents na [Tabela De Registos.](../logs/log-analytics-tutorial.md#write-a-query) Consulte [a App sample para](https://go.microsoft.com/fwlink/?linkid=2152871) obter orientações adicionais.
-- Construa um [Livro de Trabalho](../visualize/workbooks-overview.md) para criar visualizações personalizadas de dados de clique.
+- Construa um [Livro de Trabalho](../visualize/workbooks-overview.md) ou [exporte para Power BI](../logs/log-powerbi.md#integrating-queries) para criar visualizações personalizadas de dados de clique.

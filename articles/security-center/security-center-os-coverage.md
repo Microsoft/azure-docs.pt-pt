@@ -1,24 +1,18 @@
 ---
 title: Plataformas apoiadas pelo Azure Security Center | Microsoft Docs
 description: Este documento fornece uma lista de plataformas apoiadas pelo Azure Security Center.
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetid: 70c076ef-3ad4-4000-a0c1-0ac0c9796ff1
 ms.service: security-center
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 03/31/2020
 ms.author: memildin
-ms.openlocfilehash: 83007a3c80b9604bbb10fb702cfd87e374128e7c
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 65f383b37b6fb5c89fb987f179d7900eb667d76e
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102099238"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102438289"
 ---
 # <a name="supported-platforms"></a>Plataformas suportadas 
 

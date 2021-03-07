@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 02/09/2021
+ms.date: 03/05/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 3d79c7454dedbc5aad38d15360d68aa152fd2d2a
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 6f0caaa83ff15bce606bad69ac5fa20a75f4f04a
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100099404"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102440700"
 ---
 ## <a name="azure-security-benchmark"></a>Referência de Segurança do Azure
 
@@ -54,10 +54,10 @@ Para obter mais informações sobre esta norma de conformidade, consulte [a ISO 
 |Controlo de acesso |9.2.3 |Gestão de direitos de acesso privilegiados |[Os clusters de tecido de serviço só devem utilizar o Azure Ative Directy para a autenticação do cliente](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb54ed75b-3e1a-44ac-a333-05ba39b99ff0) |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Service%20Fabric/ServiceFabric_AuditADAuth_Audit.json) |
 |Criptografia |10.1.1 |Política sobre a utilização de controlos criptográficos |[Os clusters de tecido de serviço devem ter a propriedade ClusterProtectionLevel definida para EncryptAndSign](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F617c02be-7f02-4efd-8836-3180d47b6c68) |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Service%20Fabric/ServiceFabric_AuditClusterProtectionLevel_Audit.json) |
 
-## <a name="new-zealand-ism"></a>ISM da Nova Zelândia
+## <a name="new-zealand-ism-restricted"></a>Ism da Nova Zelândia restrito
 
-Para rever como a Política Azure disponível incorporada para todos os serviços Azure mapear para este padrão de conformidade, consulte [O Azure Policy Regulatory Compliance - Manual de Segurança da Informação da Nova Zelândia](../../../../articles/governance/policy/samples/new-zealand-ism.md).
-Para obter mais informações sobre esta norma de conformidade, consulte o [Manual de Segurança da Informação da Nova Zelândia.](https://www.nzism.gcsb.govt.nz/)
+Para rever como a Política Azure disponível incorporada para todos os serviços Azure mapear para este padrão de conformidade, consulte [Azure Policy Regulatory Compliance - New Zealand ISM Restricted](../../../../articles/governance/policy/samples/new-zealand-ism.md).
+Para obter mais informações sobre esta norma de conformidade, consulte [o Ism Restrito da Nova Zelândia.](https://www.nzism.gcsb.govt.nz/)
 
 |Domínio |ID de controlo |Título de controlo |Política<br /><sub>(Portal Azure)</sub> |Versão política<br /><sub>(GitHub)</sub>  |
 |---|---|---|---|---|

@@ -12,17 +12,17 @@ ms.date: 09/01/2020
 ms.author: trbye
 ms.custom: cog-serv-seo-aug-2020
 keywords: discurso ao texto, discurso ao software de texto
-ms.openlocfilehash: 102289fd233a744952f37568abf77a753953637e
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 5e593202a8cd68dfc4a92f991d573b4b06051b36
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499650"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102434330"
 ---
 # <a name="what-is-speech-to-text"></a>O que é a conversão de voz em texto?
 
 Nesta visão geral, você aprende sobre os benefícios e capacidades do serviço de voz a texto.
-O discurso-a-texto, também conhecido como reconhecimento de voz, permite a transcrição em tempo real de streams de áudio em texto. As suas aplicações, ferramentas ou dispositivos podem consumir, exibir e tomar medidas neste texto como entrada de comando. Este serviço é alimentado pela mesma tecnologia de reconhecimento que a Microsoft utiliza para produtos Cortana e Office. Funciona perfeitamente com as ofertas de serviços de <a href="./speech-translation.md" target="_blank">tradução <span class="docon docon-navigate-external x-hidden-focus"></span> </a> e <a href="./text-to-speech.md" target="_blank"> <span class="docon docon-navigate-external x-hidden-focus"></span> texto-a-fala.</a> Para obter uma lista completa das línguas disponíveis de voz para texto, consulte [as línguas apoiadas.](language-support.md#speech-to-text)
+O discurso-a-texto, também conhecido como reconhecimento de voz, permite a transcrição em tempo real de streams de áudio em texto. As suas aplicações, ferramentas ou dispositivos podem consumir, exibir e tomar medidas neste texto como entrada de comando. Este serviço é alimentado pela mesma tecnologia de reconhecimento que a Microsoft utiliza para produtos Cortana e Office. Funciona perfeitamente com as ofertas de serviços de <a href="./speech-translation.md" target="_blank">tradução</a> e <a href="./text-to-speech.md" target="_blank">texto-a-fala.</a> Para obter uma lista completa das línguas disponíveis de voz para texto, consulte [as línguas apoiadas.](language-support.md#speech-to-text)
 
 O serviço de voz para texto não utiliza o modelo de linguagem Universal. Este modelo foi treinado com dados da Microsoft e é implementado na nuvem. É ideal para cenários de conversação e ditado. Ao utilizar modelos de voz para texto para reconhecimento e transcrição num ambiente único, pode criar e treinar modelos acústicos, linguísticos e de pronúncia personalizados. A personalização é útil para abordar o ruído ambiente ou o vocabulário específico da indústria.
 

@@ -4,12 +4,12 @@ description: Este artigo descreve como configurar pontos finais privados para t�
 ms.topic: how-to
 ms.date: 11/18/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: f8e0cfc0a850ae15ea6d03ff6ca8b90003adbfc9
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: f8a9ac46596b1c2611ce9df387ac995e8149e7b9
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94916989"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102425350"
 ---
 # <a name="configure-private-endpoints-for-azure-event-grid-topics-or-domains"></a>Configurar pontos finais privados para tópicos ou domínios da Grelha de Eventos Azure
 Você pode usar [pontos finais privados](../private-link/private-endpoint-overview.md) para permitir ingresss de eventos diretamente da sua rede virtual para seus tópicos e domínios de forma segura através de um [link privado](../private-link/private-link-overview.md) sem passar pela internet pública. O ponto final privado utiliza um endereço IP a partir do espaço de endereço VNet para o seu tópico ou domínio. Para obter mais informações conceptuais, consulte [a segurança da rede.](network-security.md)
@@ -26,7 +26,7 @@ Esta secção mostra-lhe como usar o portal Azure para criar um ponto final priv
 2. Mude para o **separador 'Rede'** da página do tópico. Selecione **+ Ponto final privado** na barra de ferramentas.
 
     ![Adicionar ponto final privado](./media/configure-private-endpoints/add-button.png)
-2. Uma página do **Básico,** siga estes passos: 
+2. Na página **Basics,** siga estes passos: 
     1. Selecione uma **subscrição Azure** na qual pretende criar o ponto final privado. 
     2. Selecione um **grupo de recursos Azure** para o ponto final privado. 
     3. Insira um **nome** para o ponto final. 

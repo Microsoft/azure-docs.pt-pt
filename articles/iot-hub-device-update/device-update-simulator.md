@@ -1,17 +1,17 @@
 ---
 title: Atualização do dispositivo para tutorial Azure IoT Hub utilizando o Agente de Referência do Simulador Ubuntu (18,04 x64) | Microsoft Docs
 description: Inicie com a Atualização do Dispositivo para O Hub IoT Azure utilizando o Agente de Referência do Simulador Ubuntu (18,04 x64).
-author: vimeht
-ms.author: vimeht
+author: valls
+ms.author: valls
 ms.date: 2/11/2021
 ms.topic: tutorial
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 8ca9d03fbeadfaaca06dac49acc7a08f0dd0566d
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 4740bf02c33314dd7c887356f2ef1ed12bea44cf
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101665334"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102443816"
 ---
 # <a name="device-update-for-azure-iot-hub-tutorial-using-the-ubuntu-1804-x64-simulator-reference-agent"></a>Atualização do dispositivo para tutorial Azure IoT Hub utilizando o Agente de Referência do Simulador Ubuntu (18,04 x64)
 
@@ -163,29 +163,30 @@ Agent running. [main]
 
 ## <a name="import-update"></a>Atualização de importação
 
-1. Selecione a opção Atualizações de Dispositivos sob Gestão Automática de Dispositivos a partir da barra de navegação à esquerda.
+1. Crie um Manifesto de Importação seguindo estas [instruções.](import-update.md)
+2. Selecione a opção Atualizações de Dispositivos sob Gestão Automática de Dispositivos a partir da barra de navegação à esquerda.
 
-2. Selecione o separador Atualizações.
+3. Selecione o separador Atualizações.
 
-3. Selecione "+ Import New Update".
+4. Selecione "+ Import New Update".
 
-4. Selecione o ícone de pasta ou caixa de texto em "Selecione um Ficheiro Manifesto de Importação". Verá um diálogo de selecionador de ficheiros. Selecione o Manifesto de Importação que descarregou anteriormente. Em seguida, selecione o ícone de pasta ou caixa de texto em "Selecione um ou mais ficheiros de atualização". Verá um diálogo de selecionador de ficheiros. Selecione o ficheiro de atualização manifesto apt que descarregou anteriormente.
-   
+5. Selecione o ícone de pasta ou caixa de texto em "Selecione um Ficheiro Manifesto de Importação". Verá um diálogo de selecionador de ficheiros. Selecione o Manifesto de Importação que criou acima.  Em seguida, selecione o ícone de pasta ou caixa de texto em "Selecione um ou mais ficheiros de atualização". Verá um diálogo de selecionador de ficheiros. Selecione a imagem de atualização Ubuntu que descarregou anteriormente. 
+
    :::image type="content" source="media/import-update/select-update-files.png" alt-text="Screenshot mostrando a seleção de ficheiros de atualização." lightbox="media/import-update/select-update-files.png":::
 
-5. Selecione o ícone de pasta ou caixa de texto em "Selecione um recipiente de armazenamento". Em seguida, selecione a conta de armazenamento apropriada.
+6. Selecione o ícone de pasta ou caixa de texto em "Selecione um recipiente de armazenamento". Em seguida, selecione a conta de armazenamento apropriada.
 
-6. Se já criou um contentor, pode reutilizá-lo. (Caso contrário, selecione "+ Container" para criar um novo recipiente de armazenamento para atualizações.).  Selecione o recipiente que pretende utilizar e clique em "Selecione".
+7. Se já criou um contentor, pode reutilizá-lo. (Caso contrário, selecione "+ Container" para criar um novo recipiente de armazenamento para atualizações.).  Selecione o recipiente que pretende utilizar e clique em "Selecione".
   
   :::image type="content" source="media/import-update/container.png" alt-text="Screenshot mostrando a seleção do recipiente." lightbox="media/import-update/container.png":::
 
-7. Selecione "Submeter" para iniciar o processo de importação.
+8. Selecione "Submeter" para iniciar o processo de importação.
 
-8. O processo de importação começa e o ecrã muda para a secção "Import History". Selecione "Refresh" para ver o progresso até que o processo de importação esteja concluído. Dependendo do tamanho da atualização, isto pode completar em poucos minutos, mas pode demorar mais tempo.
+9. O processo de importação começa e o ecrã muda para a secção "Import History". Selecione "Refresh" para ver o progresso até que o processo de importação esteja concluído. Dependendo do tamanho da atualização, isto pode completar em poucos minutos, mas pode demorar mais tempo.
    
    :::image type="content" source="media/import-update/update-publishing-sequence-2.png" alt-text="Screenshot mostrando a sequência de importação de atualização." lightbox="media/import-update/update-publishing-sequence-2.png":::
 
-9. Quando a coluna Status indicar que a importação foi bem sucedida, selecione o cabeçalho "Pronto a Implantar". Devia ver a sua atualização importada na lista agora.
+10. Quando a coluna Status indicar que a importação foi bem sucedida, selecione o cabeçalho "Pronto a Implantar". Devia ver a sua atualização importada na lista agora.
 
 [Saiba mais](import-update.md) sobre a importação de atualizações.
 

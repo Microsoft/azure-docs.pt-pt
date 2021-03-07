@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: travisw
-ms.openlocfilehash: 40736764cf9cec6f652e0147eb25d83f15c5bee2
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: e4ae8a09a554afe232091b68888af17dfa096771
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024947"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102426474"
 ---
 # <a name="what-is-custom-commands"></a>O que são Comandos Personalizados?
 
@@ -36,7 +36,7 @@ Os bons candidatos a Comandos Personalizados têm um vocabulário fixo com conju
 
 ## <a name="getting-started-with-custom-commands"></a>Começar com comandos personalizados
 
-O nosso objetivo com comandos personalizados é reduzir a sua carga cognitiva para aprender todas as diferentes tecnologias e focar a construção da sua app de comando de voz. Primeiro passo para a utilização de Comandos Personalizados para <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">criar um recurso <span class="docon docon-navigate-external x-hidden-focus"></span> Azure Speech </a>. Pode ser autor da sua aplicação Comandos Personalizados no Estúdio de Discurso e publicá-la, após a qual uma aplicação no dispositivo pode comunicar com ela utilizando o Speech SDK.
+O nosso objetivo com comandos personalizados é reduzir a sua carga cognitiva para aprender todas as diferentes tecnologias e focar a construção da sua app de comando de voz. Primeiro passo para a utilização de Comandos Personalizados para <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">criar um recurso Azure Speech </a>. Pode ser autor da sua aplicação Comandos Personalizados no Estúdio de Discurso e publicá-la, após a qual uma aplicação no dispositivo pode comunicar com ela utilizando o Speech SDK.
 
 #### <a name="authoring-flow-for-custom-commands"></a>Fluxo de autoria para comandos personalizados
    ![Fluxo de autoria para comandos personalizados](media/voice-assistants/custom-commands-flow.png "O fluxo de autoria de Comandos Personalizados")
@@ -50,7 +50,7 @@ Assim que terminar o quickstart, explore os nossos guias de como fazer para obte
 ## <a name="building-voice-assistants-with-custom-commands"></a>Construindo assistentes de voz com comandos personalizados
 > [!VIDEO https://www.youtube.com/embed/1zr0umHGFyc]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Obtenha gratuitamente uma chave de subscrição de serviço de discurso](overview.md#try-the-speech-service-for-free)
 * [Veja os nossos Assistentes de Voz repo no GitHub para amostras](https://aka.ms/speech/cc-samples)

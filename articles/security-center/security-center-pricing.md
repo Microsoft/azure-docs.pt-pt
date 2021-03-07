@@ -7,15 +7,17 @@ manager: rkarlin
 ms.service: security-center
 ms.topic: overview
 ms.date: 02/14/2021
-ms.openlocfilehash: 7ca8a89cc93cc36d790eca7b19665e5bfed9695c
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: e72e312e932e71d4dac8532983c2c96ba105ba3b
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102099108"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102439481"
 ---
 # <a name="azure-security-center-free-vs-azure-defender-enabled"></a>Azure Security Center free vs Azure Defender habilitado
 O Azure Defender está livre nos primeiros 30 dias. Ao fim de 30 dias, caso opte por continuar a utilizar o serviço, começaremos automaticamente a cobrar para uso.
+
+Pode atualizar a partir da página de **definições & de preços,** conforme descrito no [Quickstart: Enable Azure Defender](enable-azure-defender.md). Para obter detalhes sobre preços na sua moeda de eleição e de acordo com a sua região, consulte [os preços do Security Center](https://azure.microsoft.com/pricing/details/security-center/).
 
 ## <a name="what-are-the-benefits-of-enabling-azure-defender"></a>Quais são os benefícios de permitir o Azure Defender?
 
@@ -70,14 +72,14 @@ O Centro de Segurança tem duas ofertas:
 ### <a name="how-do-i-enable-azure-defender-for-my-subscription"></a>Como devo proceder para ativar o Azure Defender para a minha subscrição? 
 Pode utilizar qualquer uma das seguintes formas de ativar o Azure Defender para a sua subscrição: 
 
-|Método  |Instruções  |
-|---------|---------|
-|Páginas do Centro de Segurança Azure do portal Azure|[Ativar o Azure Defender](enable-azure-defender.md)|
-|API REST|[Preços API](/rest/api/securitycenter/pricings)|
-|CLI do Azure|[preços de segurança az](/cli/azure/security/pricing)|
-|PowerShell|[Set-AzSecurityPricing](/powershell/module/az.security/set-azsecuritypricing)|
-|Azure Policy|[Preços do pacote](https://github.com/Azure/Azure-Security-Center/blob/master/Pricing%20%26%20Settings/ARM%20Templates/Set-ASC-Bundle-Pricing.json)|
-|||
+| Método                                          | Instruções                                                                                                                                       |
+|-------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
+| Páginas do Centro de Segurança Azure do portal Azure | [Ativar o Azure Defender](enable-azure-defender.md)                                                                                                  |
+| API REST                                        | [Preços API](/rest/api/securitycenter/pricings)                                                                                                  |
+| CLI do Azure                                       | [preços de segurança az](/cli/azure/security/pricing)                                                                                                 |
+| PowerShell                                      | [Set-AzSecurityPricing](/powershell/module/az.security/set-azsecuritypricing)                                                                      |
+| Azure Policy                                    | [Preços do pacote](https://github.com/Azure/Azure-Security-Center/blob/master/Pricing%20%26%20Settings/ARM%20Templates/Set-ASC-Bundle-Pricing.json) |
+|                                                 |                                                                                                                                                    |
 
 ### <a name="can-i-enable-azure-defender-for-servers-on-a-subset-of-servers-in-my-subscription"></a>Posso ativar o Azure Defender para os servidores num subconjunto de servidores na minha subscrição?
 N.º Quando ativar [o Azure Defender para servidores](defender-for-servers-introduction.md) numa subscrição, todos os servidores da subscrição serão protegidos pelo Azure Defender. 

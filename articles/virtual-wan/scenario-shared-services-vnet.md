@@ -1,22 +1,22 @@
 ---
-title: 'Cenário: Rota para Serviços Partilhados VNets'
+title: 'Cenário: Rota para serviços partilhados VNets'
 titleSuffix: Azure Virtual WAN
-description: Cenários para encaminhamento - crie rotas para aceder a um VNet de Serviço Partilhado com uma carga de trabalho que pretende que cada VNet e Branch acedam.
+description: Cenários para encaminhamento - crie rotas para aceder a um VNet de serviço partilhado com uma carga de trabalho que pretende que cada VNet e sucursal acedam.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 03/02/2021
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 03c71664769f1518ba80d36867c71ef35b2ca026
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 8e0d05d2cb960e760809ab35a8f9e4ca04acf250
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461469"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102442966"
 ---
-# <a name="scenario-route-to-shared-services-vnets"></a>Cenário: Rota para Serviços Partilhados VNets
+# <a name="scenario-route-to-shared-services-vnets"></a>Cenário: Rota para serviços partilhados VNets
 
 Ao trabalhar com o encaminhamento virtual do hub virtual WAN, existem alguns cenários disponíveis. Neste cenário, o objetivo é criar rotas para aceder a um VNet **de Serviço Partilhado** com cargas de trabalho que pretende que cada VNet e Branch (VPN/ER/P2S) acedam. Exemplos destas cargas de trabalho partilhadas podem incluir Máquinas Virtuais com serviços como Controladores de Domínio ou Partilhas de Ficheiros, ou serviços Azure expostos internamente através de [Azure Private Endpoints](../private-link/private-endpoint-overview.md).
 
@@ -30,9 +30,9 @@ Podemos usar uma matriz de conectividade para resumir os requisitos deste cenár
 
 | De             | Para:   |*VNets isolados*|*VNet compartilhado*|*Ramos*|
 |---|---|---|---|---|
-|**VNets isolados**|&#8594;|        | Direct | Direct |
-|**VNets compartilhados**  |&#8594;| Direct | Direct | Direct |
-|**Ramos**      |&#8594;| Direct | Direct | Direct |
+|**VNets isolados**| ->|        | Direct | Direct |
+|**VNets compartilhados**  |->| Direct | Direct | Direct |
+|**Ramos**      |->| Direct | Direct | Direct |
 
 Cada uma das células da tabela anterior descreve se uma ligação WAN virtual (o lado "From" do fluxo, os cabeçalhos de linha) comunica com um destino (o lado "To" do fluxo, os cabeçalhos da coluna em itálico). Neste cenário não existem firewalls ou Aparelhos Virtuais de Rede, pelo que a comunicação flui diretamente sobre o WAN Virtual (daí a palavra "Direto" na tabela).
 
@@ -45,7 +45,7 @@ Como resultado, este é o design final:
 * Redes virtuais isoladas:
   * Tabela de rotas associada: **RT_SHARED**
   * Propagação para tabelas de rotas: **Predefinido**
-* Redes virtuais de Serviços Partilhados:
+* Redes virtuais de serviços partilhados:
   * Tabela de rotas associada: **Padrão**
   * Propagação para tabelas de rotas: **RT_SHARED** e **Padrão**
 * Ramos:
@@ -61,21 +61,21 @@ Para obter mais informações sobre o encaminhamento de hubs virtuais, consulte 
 
 Para configurar o cenário, considere os seguintes passos:
 
-1. Identifique os **Serviços Partilhados** VNet.
+1. Identifique os **serviços partilhados** VNet.
 2. Crie uma tabela de rotas personalizada. No exemplo, referimo-nos à tabela de rotas como **RT_SHARED**. Para obter passos para criar uma tabela de rotas, consulte [Como configurar o encaminhamento do hub virtual](how-to-virtual-hub-routing.md). Utilize os seguintes valores como orientação:
 
    * **Associação**
-     * Para **VNets, *exceto* o VNet dos Serviços Partilhados,** selecione os VNets para isolar. Isto implicará que todos estes VNets (exceto os serviços partilhados VNet) poderão chegar ao destino com base nas rotas de RT_SHARED tabela de rotas.
+     * Para **VNets, *exceto* os serviços partilhados VNet,** selecione os VNets para isolar. Isto implicará que todos estes VNets (exceto os serviços partilhados VNet) poderão chegar ao destino com base nas rotas de RT_SHARED tabela de rotas.
 
    * **Propagação**
       * Para **o Branches,** propagar rotas para esta tabela de rotas, para além de quaisquer outras tabelas de rotas que já tenha selecionado. Por causa deste passo, a tabela de rotas RT_SHARED aprenderá rotas de todas as ligações de ramificações (VPN/ER/User VPN).
-      * Para **VNets**, selecione o **VNet dos Serviços Partilhados**. Por causa deste passo, RT_SHARED tabela de rotas aprenderá rotas a partir da ligação VNet dos Serviços Partilhados.
+      * Para **VNets,** selecione os **serviços partilhados VNet**. Por causa deste passo, RT_SHARED tabela de rotas aprenderá rotas a partir da ligação VNet de serviços partilhados.
 
 Isto resultará na configuração de encaminhamento mostrada na seguinte figura:
 
-   :::image type="content" source="./media/routing-scenarios/shared-service-vnet/shared-services.png" alt-text="Serviços partilhados VNet" lightbox="./media/routing-scenarios/shared-service-vnet/shared-services.png":::
+   :::image type="content" source="./media/routing-scenarios/shared-service-vnet/shared-services.png" alt-text="Diagrama para serviços partilhados VNet." lightbox="./media/routing-scenarios/shared-service-vnet/shared-services.png":::
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para obter mais informações sobre o VIRTUAL WAN, consulte as [FAQ.](virtual-wan-faq.md)
+* Para configurar utilizando um modelo ARM, consulte [Quickstart: Rota para serviços partilhados VNets usando um modelo ARM](quickstart-route-shared-services-vnet-template.md).
 * Para obter mais informações sobre o encaminhamento de hubs virtuais, consulte [sobre o encaminhamento do hub virtual](about-virtual-hub-routing.md).

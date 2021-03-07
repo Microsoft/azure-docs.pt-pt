@@ -1,18 +1,18 @@
 ---
 title: Definições políticas incorporadas para base de dados Azure para PostgreSQL
 description: Lista definições de políticas incorporadas para Azure Database for PostgreSQL. Estas definições políticas incorporadas fornecem abordagens comuns para gerir os seus recursos Azure.
-ms.date: 02/09/2021
+ms.date: 03/05/2021
 ms.topic: reference
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 6428fb10f3f7c563f1db1b5a7c973e7571bdd8c8
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 68adbc167fc01190372b837c7a5e5517bdb02b51
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100096481"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102432681"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-database-for-postgresql"></a>Definições incorporadas da Política Azure para a Base de Dados Azure para PostgreSQL
 

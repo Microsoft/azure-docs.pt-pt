@@ -1,17 +1,17 @@
 ---
 title: Atualização do dispositivo para tutorial Azure IoT Hub utilizando a imagem yocto de referência de Framboesa Pi 3 B+ | Microsoft Docs
 description: Começa com a Atualização do Dispositivo para O Hub IoT Azure utilizando a Raspberry Pi 3 B+ Reference Yocto Image.
-author: vimeht
-ms.author: vimeht
+author: valls
+ms.author: valls
 ms.date: 2/11/2021
 ms.topic: tutorial
 ms.service: iot-hub-device-update
-ms.openlocfilehash: bb992e4f33cc833411e7cce560f71adf1dc72076
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: ca689df97e7268a5c0f7c0479e6514b98ffda9f2
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101665149"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102443459"
 ---
 # <a name="device-update-for-azure-iot-hub-tutorial-using-the-raspberry-pi-3-b-reference-image"></a>Atualização do dispositivo para tutorial Azure IoT Hub usando a imagem de referência Raspberry Pi 3 B+
 
@@ -143,13 +143,11 @@ Utilize este número de versão no passo abaixo da Atualização de Importação
 
 ## <a name="import-update"></a>Atualização de importação
 
-1. Selecione a opção Atualizações de Dispositivos sob Gestão Automática de Dispositivos a partir da barra de navegação à esquerda.
-
-2. Selecione o separador Atualizações.
-
-3. Selecione "+ Import New Update".
-
-4. Selecione o ícone de pasta ou caixa de texto em "Selecione um Ficheiro Manifesto de Importação". Verá um diálogo de selecionador de ficheiros. Selecione o Manifesto de Importação que descarregou anteriormente. Em seguida, selecione o ícone de pasta ou caixa de texto em "Selecione um ou mais ficheiros de atualização". Verá um diálogo de selecionador de ficheiros. Selecione o ficheiro de atualização manifesto apt que descarregou anteriormente.
+1. Crie um Manifesto de Importação seguindo estas [instruções.](import-update.md)
+2. Selecione a opção Atualizações de Dispositivos sob Gestão Automática de Dispositivos a partir da barra de navegação à esquerda.
+3. Selecione o separador Atualizações.
+4. Selecione "+ Import New Update".
+5. Selecione o ícone de pasta ou caixa de texto em "Selecione um Ficheiro Manifesto de Importação". Verá um diálogo de selecionador de ficheiros. Selecione o Manifesto de Importação que criou acima.  Em seguida, selecione o ícone de pasta ou caixa de texto em "Selecione um ou mais ficheiros de atualização". Verá um diálogo de selecionador de ficheiros. Selecione o ficheiro de atualização que deseja implementar nos seus dispositivos IoT.
    
    :::image type="content" source="media/import-update/select-update-files.png" alt-text="Screenshot mostrando a seleção de ficheiros de atualização." lightbox="media/import-update/select-update-files.png":::
 

@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: b985399eb89ae7bbf73d280775157207498f0080
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: dcfc19700d24ca51d6e28aa511197c1c9e79e521
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100645559"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102428192"
 ---
 ## <a name="download-and-install"></a>Transferir e instalar
 
@@ -67,7 +67,7 @@ Escreva `spx` para ver ajuda para o CLI do discurso.
 
 Siga estes passos para instalar o CLI da fala num recipiente Docker:
 
-1. <a href="https://www.docker.com/get-started" target="_blank">Instalar o <span class="docon docon-navigate-external x-hidden-focus"></span> Docker Desktop</a> para a sua plataforma se ainda não estiver instalada.
+1. <a href="https://www.docker.com/get-started" target="_blank">Instale o Docker Desktop</a> para a sua plataforma se ainda não estiver instalado.
 2. Num novo comando ou terminal, digite este comando:
    ```console   
    docker pull msftspeech/spx

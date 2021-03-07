@@ -6,16 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 12/21/2020
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: cb6b8e310f46cd98c4d3343d44fd83a3cc714a32
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: ff805b758dce05a66764ab1ff08e53378c946362
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101730716"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102438187"
 ---
 # <a name="gpu-vms-for-your-azure-stack-edge-pro-device"></a>VMs GPU para o seu dispositivo Azure Stack Edge Pro
+
+[!INCLUDE [applies-to-GPU-and-pro-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-sku.md)]
 
 Este artigo fornece uma visão geral das máquinas virtuais GPU (VMs) no seu dispositivo Azure Stack Edge Pro. O artigo descreve como criar um VM GPU e, em seguida, instalar extensão do controlador GPU para instalar controladores Nvidia apropriados. Utilize os modelos Azure Resource Manager para criar o VM GPU e instalar a extensão do controlador GPU. 
 

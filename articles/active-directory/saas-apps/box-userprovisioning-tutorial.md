@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Caixa de Configuração para fornecimento automático de utilizadores com Diretório Ativo Azure / Microsoft Docs'
+title: 'Tutorial: Caixa de Configuração para fornecimento automático de utilizadores com diretório ativo Azure | Microsoft Docs'
 description: Saiba como configurar um único sinal entre o Azure Ative Directory e o Box .
 services: active-directory
 author: jeevansd
@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/20/2020
 ms.author: jeedes
-ms.openlocfilehash: e22738f1fff813e5a928b76f8049e810847fe548
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: df4031a590eb4547d4327cebe96ccbe63d21785a
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358155"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102437813"
 ---
 # <a name="tutorial-configure-box-for-automatic-user-provisioning"></a>Tutorial: Caixa de configuração para o provisionamento automático do utilizador
 
@@ -36,6 +36,9 @@ Para configurar a integração AD da Azure com a Box, precisa dos seguintes iten
 
 > [!NOTE]
 > As aplicações precisam de ser ativadas na aplicação Box primeiro.
+
+> [!NOTE]
+> Esta integração também está disponível para usar a partir do ambiente cloud do governo dos EUA Azure AD. Você pode encontrar esta aplicação na Azure AD US Government Cloud Application Gallery e configurá-la da mesma forma que você faz a partir de nuvem pública.
 
 Para testar os passos neste tutorial, siga estas recomendações:
 

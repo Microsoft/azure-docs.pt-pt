@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
 ms.date: 03/03/2021
-ms.openlocfilehash: d36dcfccb6843947991b2548af6dd98b81adb40e
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: a080a3b536cb6e11a254f15d745334fbf17531e8
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102049513"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102439566"
 ---
 # <a name="azure-database-for-postgresql---flexible-server"></a>Base de Dados Azure para PostgreSQL - Servidor Flexível
 
@@ -90,7 +90,7 @@ O serviço de servidor flexível está equipado com funcionalidades de monitoriz
 
 Uma das vantagens de executar a sua carga de trabalho em Azure é o seu alcance global. O servidor flexível está disponível hoje nas regiões de Azure seguintes:
 
-| Region | Disponibilidade | Zona redundante HA | 
+| Region | Disponibilidade | HA redundante zona | 
 | --- | --- | --- |
 | Europa Ocidental | :heavy_check_mark: | :heavy_check_mark: |
 | Europa do Norte | :heavy_check_mark: | :heavy_check_mark: |
@@ -102,7 +102,7 @@ Uma das vantagens de executar a sua carga de trabalho em Azure é o seu alcance 
 | Sudeste Asiático | :heavy_check_mark: | :heavy_check_mark: |
 | Leste do Japão | :heavy_check_mark: | :heavy_check_mark: | 
 
-Continuamos a adicionar novas regiões. 
+Continuamos a adicionar mais regiões para servidor flexível.
 
 ## <a name="migration"></a>Migração
 
@@ -110,6 +110,16 @@ O serviço executa a versão comunitária do PostgreSQL. Isto permite a compatib
 
 - **Despejo e Restauro** – Para migrações offline, onde os utilizadores podem pagar algum tempo de inatividade, despejar e restaurar usando ferramentas comunitárias como pg_dump e pg_restore podem fornecer uma forma mais rápida de migrar. Consulte [a Migração utilizando o despejo e restaure-o](../howto-migrate-using-dump-and-restore.md) para obter mais detalhes.
 - **Serviço de Migração de Bases de Dados Azure** – Para migrações perfeitas e simplificadas para servidor flexível com tempo mínimo de inatividade, o Serviço de Migração da Base de Dados Azure pode ser alavancado. Ver [DMS via portal](../../dms/tutorial-postgresql-azure-postgresql-online-portal.md) e [DMS via CLI](../../dms/tutorial-postgresql-azure-postgresql-online.md). Pode migrar da sua Base de Dados Azure para PostgreSQL - Servidor Único para Servidor Flexível. Consulte este [artigo do DMS](../../dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal.md) para mais detalhes.
+
+## <a name="contacts"></a>Contactos
+Para quaisquer perguntas ou sugestões que possa ter na Base de Dados Azure para servidor flexível PostgreSQL, envie um e-mail para a Base de Dados Azure para a Equipa PostgreSQL ([ @Ask Azure DB para PostgreSQL).](mailto:AskAzureDBforPostgreSQL@service.microsoft.com) Por favor, note que este endereço de e-mail não é um pseudónimo de suporte técnico.
+
+Além disso, considere os seguintes pontos de contacto, conforme adequado:
+
+- Para contactar o Suporte do Azure, [crie um pedido no portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+- Para corrigir um problema na sua conta, crie um [pedido de suporte](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) no portal do Azure.
+- Para enviar comentários ou pedir novas funcionalidades, crie uma entrada através do [UserVoice](https://feedback.azure.com/forums/597976-azure-database-for-postgresql).
+  
 
 ## <a name="next-steps"></a>Passos seguintes
 

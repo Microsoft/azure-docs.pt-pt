@@ -1,24 +1,18 @@
 ---
 title: Permissões no Centro de Segurança Azure | Microsoft Docs
 description: Este artigo explica como o Azure Security Center usa o controlo de acesso baseado em funções para atribuir permissões aos utilizadores e identifica as ações permitidas para cada função.
-services: security-center
-cloud: na
-documentationcenter: na
 author: memildin
 manager: rkarlin
 ms.service: security-center
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
-ms.date: 12/01/2020
+ms.date: 01/03/2021
 ms.author: memildin
-ms.openlocfilehash: 14ee9f23379a26c1756c622efb7d739f49dd0537
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: dcbb4977e1bfd17f0cbed61abf9ba335615b7799
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102099187"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102443765"
 ---
 # <a name="permissions-in-azure-security-center"></a>Permissions in Azure Security Center (Permissões no Centro de Segurança do Azure)
 
@@ -39,15 +33,15 @@ Além destas funções, há duas funções específicas do Centro de Segurança:
 
 A tabela que se segue exibe funções e permitiu ações no Centro de Segurança.
 
-|Ação|Leitor de Segurança / <br> Leitor |Administrador de Segurança  |Contribuinte do Grupo de Recursos / <br> Proprietário do Grupo de Recursos  |Colaborador de Assinatura  |Proprietário de Assinatura  |
-|:--- |:---:|:---:|:---:|:---:|:---:|
-|Editar a política de segurança|-|✔|-|-|✔|
-|Aduse/atribuir iniciativas (incluindo) normas de conformidade regulamentar)|-|-|-|-|✔|
-|Ativar / desativar o Azure Defender|-|✔|-|-|✔|
-|Ativar /desativar o fornecimento automático|-|✔|-|✔|✔|
-|Aplicar recomendações de segurança para um recurso</br> (e use [Quick Fix!](security-center-remediate-recommendations.md#quick-fix-remediation))|-|-|✔|✔|✔|
-|Alertas de dispensa|-|✔|-|✔|✔|
-|Ver alertas e recomendações|✔|✔|✔|✔|✔|
+| Ação                                                                                                                                        | Leitor de Segurança / <br> Leitor | Administrador de Segurança | Contribuinte do Grupo de Recursos / <br> Proprietário do Grupo de Recursos | Colaborador de Assinatura | Proprietário de Assinatura |
+|:----------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------:|:--------------:|:------------------------------------------------------:|:------------------------:|:------------------:|
+| Editar a política de segurança                                                                                                                          | -                             | ✔             | -                                                      | -                        | ✔                 |
+| Aduse/atribuir iniciativas (incluindo) normas de conformidade regulamentar)                                                                           | -                             | -              | -                                                      | -                        | ✔                 |
+| Ativar / desativar o Azure Defender                                                                                                               | -                             | ✔             | -                                                      | -                        | ✔                 |
+| Ativar /desativar o fornecimento automático                                                                                                            | -                             | ✔             | -                                                      | ✔                       | ✔                  |
+| Aplicar recomendações de segurança para um recurso</br> (e use [Quick Fix!](security-center-remediate-recommendations.md#quick-fix-remediation)) | -                             | -              | ✔                                                     | ✔                        | ✔                 |
+| Alertas de dispensa                                                                                                                                | -                             | ✔             | -                                                      | ✔                       | ✔                  |
+| Ver alertas e recomendações                                                                                                               | ✔                            | ✔              | ✔                                                     | ✔                        | ✔                 |
 
 > [!NOTE]
 > Recomendamos que atribua a função menos permissiva necessária para que os utilizadores concluam as respetivas tarefas. Por exemplo, atribua o papel de Leitor a utilizadores que apenas precisam de visualizar informações sobre a saúde de segurança de um recurso, mas não tomem medidas, tais como a aplicação de recomendações ou políticas de edição.

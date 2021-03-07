@@ -1,23 +1,23 @@
 ---
-title: Azure Stack Edge Pro GPU gere horários de largura de banda Microsoft Docs
+title: Azure Stack Edge Pro GPU gere horários de largura de banda | Microsoft Docs
 description: Descreve como usar o portal Azure para gerir os horários de largura de banda no gpu do Azure Stack Edge Pro.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 01/05/2021
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 3182258245701903e7b3d6d6163cf3e2bd55c1fc
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: b3ae2986b49cf6854e0d9a6b99aabdfc2dd6b713
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97915475"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102436656"
 ---
 # <a name="use-the-azure-portal-to-manage-bandwidth-schedules-on-your-azure-stack-edge-pro-gpu"></a>Utilize o portal Azure para gerir os horários de largura de banda no seu GPU Azure Stack Edge Pro 
 
-<!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 Este artigo descreve como gerir os horários de largura de banda no seu Azure Stack Edge Pro. As agendas de largura de banda permitem configurar a utilização de largura de banda de rede em várias agendas a horas diferentes. Estas agendas podem ser aplicadas a operações de carregamento e transferência do seu dispositivo para a cloud.
 
@@ -46,7 +46,7 @@ Faça os seguintes passos no portal Azure para adicionar um horário.
    2. Verifique a opção **Todos os dias** se este horário deve funcionar durante todo o dia.
    3. **A taxa de largura de** banda é a largura de banda em Megabits por segundo (Mbps) usada pelo seu dispositivo em operações que envolvam a nuvem (tanto uploads como downloads). Forneça um número entre 20 e 2.147.483.647 para este campo.
    4. Selecione **largura de banda ilimitada** se não quiser acelerar o upload da data e baixar.
-   5. Selecione **Add** (Adicionar).
+   5. Selecione **Adicionar**.
 
       ![Adicionar horário](media/azure-stack-edge-j-series-manage-bandwidth-schedules/add-schedule-2.png)
 

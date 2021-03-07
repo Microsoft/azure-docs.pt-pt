@@ -6,16 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 01/25/2021
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: e009369f6223e171984d1142419101fdd82879b0
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: ea316205e7dfb4069c41987e785881512735a4d6
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98804920"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102438035"
 ---
 # <a name="use-kubectl-to-run-a-kubernetes-stateful-application-with-storageclass-on-your-azure-stack-edge-pro-gpu-device"></a>Use kubectl para executar uma aplicação stateful Kubernetes com StorageClass no seu dispositivo GPU Azure Stack Edge Pro
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 Este artigo mostra-lhe como implementar uma aplicação stateful de instância única em Kubernetes usando uma StorageClass para armazenamento de provisões dinâmicas e uma implementação. A implementação utiliza `kubectl` comandos num cluster Kubernetes existente e implementa a aplicação MySQL. 
 
@@ -324,6 +326,6 @@ C:\Users\user>
 ```                                                                                         
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para entender como configurar a rede através do kubectl, consulte [implementar uma aplicação apátrida num dispositivo Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module.md)

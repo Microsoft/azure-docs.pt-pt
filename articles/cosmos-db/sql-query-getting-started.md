@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 02/02/2021
 ms.author: tisande
-ms.openlocfilehash: dfa6b8eaa5f4ce8b2ebfb24a280e048ed3b19dda
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 21b26bae5fe04d48214a0c62cbb530ea89ad1448
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102211520"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102426030"
 ---
 # <a name="getting-started-with-sql-queries"></a>Introdução às consultas SQL
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -23,7 +23,7 @@ Nas contas Azure Cosmos DB SQL API, existem duas formas de ler dados:
 
 Aqui estão alguns exemplos de como fazer **Leituras de pontos** com cada SDK:
 
-- [SDK do .NET](/dotnet/api/microsoft.azure.cosmos.container.readitemasync?preserve-view=true&view=azure-dotnet)
+- [SDK do .NET](/dotnet/api/microsoft.azure.cosmos.container.readitemasync)
 - [SDK Java](/java/api/com.azure.cosmos.cosmoscontainer.readitem#com_azure_cosmos_CosmosContainer__T_readItem_java_lang_String_com_azure_cosmos_models_PartitionKey_com_azure_cosmos_models_CosmosItemRequestOptions_java_lang_Class_T__)
 - [Node.js SDK](/javascript/api/@azure/cosmos/item#read-requestoptions-)
 - [Python SDK](/python/api/azure-cosmos/azure.cosmos.containerproxy?preserve-view=true&view=azure-python#read-item-item--partition-key--populate-query-metrics-none--post-trigger-include-none----kwargs-)

@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: tutorial
 ms.date: 01/04/2021
 ms.author: pafarley
-ms.openlocfilehash: d0c95312e1794e2f78bbbef217ef5530a993146d
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 5b220652009f54482c757f01232517569596c562
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102040911"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102423901"
 ---
 # <a name="tutorial-extract-form-data-in-bulk-by-using-azure-data-factory"></a>Tutorial: Extrair dados de formulário a granel utilizando a Azure Data Factory
 
@@ -43,10 +43,11 @@ Neste tutorial, ficará a saber como:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma subscrição do Azure. [Crie um de graça.](https://azure.microsoft.com/free/cognitive-services/)
-* Depois de ter a sua subscrição Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title=" Crie um recurso De Reconhecimento de "  target="_blank"> Formulários crie um recurso De Reconhecimento de <span class="docon docon-navigate-external x-hidden-focus"></span> </a> Formulários no portal Azure para obter a sua chave e ponto final. Após o recurso ser implementado, selecione **Ir para recurso**.
+* Depois de ter a sua subscrição Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title=" Crie um recurso De Reconhecimento de "  target="_blank"> Formulários crie um recurso De Reconhecimento de </a> Formulários no portal Azure para obter a sua chave e ponto final. Após o recurso ser implementado, selecione **Ir para recurso**.
     * Necessitará da chave e ponto final do recurso que cria para ligar a sua aplicação à API do Reconhecimento de Formulários. Vai colar a chave e o ponto final no seu código mais tarde neste arranque rápido.
     * Pode utilizar o nível de preços gratuitos (F0) para experimentar o serviço. Em seguida, pode atualizar mais tarde para um nível pago para produção.
 * Um conjunto de pelo menos cinco formas do mesmo tipo. Idealmente, este fluxo de trabalho destina-se a suportar grandes conjuntos de documentos. Consulte [construir um conjunto de dados de treino](./build-training-data-set.md) para obter dicas e opções para reunir o conjunto de dados de treino. Para este tutorial, pode utilizar os ficheiros na pasta Train do conjunto de [dados](https://go.microsoft.com/fwlink/?linkid=2128080)da amostra .
+
 
 ## <a name="project-architecture"></a>Arquitetura do projeto 
 

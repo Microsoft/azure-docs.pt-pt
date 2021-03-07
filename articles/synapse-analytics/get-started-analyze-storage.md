@@ -10,18 +10,18 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 12/31/2020
-ms.openlocfilehash: ad16b63360364acd88ab12fb4715d1fd3115c0fb
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: 71ba3d99ceee89464dafdf5bf4c16e70df146bef
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98209377"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102426081"
 ---
 # <a name="analyze-data-in-a-storage-account"></a>Analisar dados numa conta de armazenamento
 
 Neste tutorial, você vai aprender a analisar dados localizados numa conta de armazenamento.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Até agora, cobrimos cenários onde os dados residem em bases de dados no espaço de trabalho. Agora vamos mostrar-lhe como trabalhar com ficheiros em contas de armazenamento. Neste cenário, vamos usar a conta de armazenamento primário do espaço de trabalho e do contentor que especificamos ao criar o espaço de trabalho.
 
@@ -45,7 +45,7 @@ df.write.mode("overwrite").parquet("/NYCTaxi/PassengerCountStats_parquetformat")
 Pode analisar os dados na sua conta ADLS Gen2 padrão do seu espaço de trabalho ou pode ligar uma conta de armazenamento ADLS Gen2 ou Blob ao seu espaço de trabalho através de "**Gerir**" > "**Serviços Ligados**" > "**Novo**" (Os passos abaixo referem-se à conta primária da ADLS Gen2).
 
 1. No Synapse Studio, vá ao centro **de dados** e, em seguida, selecione **Linked**.
-1. Vá às **contas de armazenamento**  >  **myworkspace (Primário - contosolake)**.
+1. Vá ao **Azure data Storage Gen2**  >  **myworkspace (Primary - contosolake)**.
 1. Selecione **utilizadores (Primário)**. Devia ver a pasta **NYCTaxi.** No interior deverá ver duas pastas chamadas **PassengerCountStats_csvformat** e **PassengerCountStats_parquetformat**.
 1. Abra a pasta **PassengerCountStats_parquetformat.** Lá dentro, verá um arquivo de parquet com um nome como `part-00000-2638e00c-0790-496b-a523-578da9a15019-c000.snappy.parquet` .
 1. Clique com o botão **direito .parquet,** em seguida, selecione **Novo caderno** e, em seguida, selecione Carregar **para DataFrame**. Um novo caderno é criado com uma célula como esta:
