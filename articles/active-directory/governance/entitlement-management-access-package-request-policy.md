@@ -16,12 +16,12 @@ ms.date: 09/16/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c4a1aa737b1f671c08d51d780fa98db50f2869a1
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 7b6bc00af8d54c8748dd82b934974282e0e8da0e
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102211656"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102426965"
 ---
 # <a name="change-request-settings-for-an-access-package-in-azure-ad-entitlement-management"></a>Alterar as definições de pedido para um pacote de acesso na gestão de direitos Azure AD
 
@@ -197,6 +197,8 @@ Para alterar as definições de pedido e aprovação de um pacote de acesso, é 
     ![Pacote de acesso - Política- Permitir a definição de políticas](./media/entitlement-management-access-package-approval-policy/enable-requests.png)
 
 1. Clique em **Seguinte**.
+
+1. Se pretender que os solicitadores forneçam informações adicionais ao solicitar o acesso a um pacote de acesso, utilize as definições de [aprovação e informações do solicitador (pré-visualização) para um pacote de acesso na gestão de direitos AD da Azure](entitlement-management-access-package-approval-policy.md#collect-additional-requestor-information-for-approval-preview) para configurar informações do solicitador (pré-visualização).
 
 1. Configure as definições do ciclo de vida.
 

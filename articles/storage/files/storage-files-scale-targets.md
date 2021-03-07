@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 6ef255d78d3dd3ff6fcc5eba7aad522018185299
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: ffc5f49e357591b41a18ae15c5551c1f447095fb
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100518900"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102440314"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Metas de escalabilidade e desempenho de Ficheiros do Azure
 [O Azure Files](storage-files-introduction.md) oferece ações de ficheiros totalmente geridas na nuvem que são acessíveis através dos protocolos do sistema de ficheiros SMB e NFS. Este artigo discute os objetivos de escalabilidade e desempenho para Azure Files e Azure File Sync.
@@ -83,17 +83,17 @@ O quadro seguinte indica os limites dos testes da Microsoft e indica também qua
 
 | Recurso | Destino | Limite rígido |
 |----------|--------------|------------|
-| Serviços de Sincronização de Armazenamento por região | 100 Serviços de Sincronização de Armazenamento | Yes |
-| Grupos sincronizados por serviço de sincronização de armazenamento | 200 grupos de sincronização | Yes |
-| Servidores registados por Serviço de Sincronização de Armazenamento | 99 servidores | Yes |
-| Pontos finais da nuvem por grupo de sincronização | 1 ponto final de nuvem | Yes |
-| Pontos finais do servidor por grupo de sincronização | 100 pontos finais do servidor | Yes |
-| Pontos finais do servidor por servidor | 30 pontos finais do servidor | Yes |
-| Objetos do sistema de ficheiros (diretórios e ficheiros) por grupo de sincronização | 100 milhões de objetos | No |
-| Número máximo de objetos do sistema de ficheiros (diretórios e ficheiros) num diretório | 5 milhões de objetos | Yes |
-| Tamanho máximo do descritor de segurança de objetos (diretórios e ficheiros) | 64 KiB | Yes |
-| Tamanho dos ficheiros | 100 GiB | No |
-| Tamanho mínimo do ficheiro para um ficheiro a ser nivelado | V9 e mais recente: Baseado no tamanho do cluster do sistema de ficheiros (tamanho do cluster do sistema de ficheiros duplos). Por exemplo, se o tamanho do cluster do sistema de ficheiros for de 4 KiB, o tamanho mínimo do ficheiro será de 8 KiB.<br> V8 e mais velho: 64 KiB  | Yes |
+| Serviços de Sincronização de Armazenamento por região | 100 Serviços de Sincronização de Armazenamento | Sim |
+| Grupos sincronizados por serviço de sincronização de armazenamento | 200 grupos de sincronização | Sim |
+| Servidores registados por Serviço de Sincronização de Armazenamento | 99 servidores | Sim |
+| Pontos finais da nuvem por grupo de sincronização | 1 ponto final de nuvem | Sim |
+| Pontos finais do servidor por grupo de sincronização | 100 pontos finais do servidor | Sim |
+| Pontos finais do servidor por servidor | 30 pontos finais do servidor | Sim |
+| Objetos do sistema de ficheiros (diretórios e ficheiros) por grupo de sincronização | 100 milhões de objetos | Não |
+| Número máximo de objetos do sistema de ficheiros (diretórios e ficheiros) num diretório | 5 milhões de objetos | Sim |
+| Tamanho máximo do descritor de segurança de objetos (diretórios e ficheiros) | 64 KiB | Sim |
+| Tamanho dos ficheiros | 100 GiB | Não |
+| Tamanho mínimo do ficheiro para um ficheiro a ser nivelado | V9 e mais recente: Baseado no tamanho do cluster do sistema de ficheiros (tamanho do cluster do sistema de ficheiros duplos). Por exemplo, se o tamanho do cluster do sistema de ficheiros for de 4 KiB, o tamanho mínimo do ficheiro será de 8 KiB.<br> V8 e mais velho: 64 KiB  | Sim |
 
 > [!Note]  
 > Um ponto final Azure File Sync pode escalar até ao tamanho de uma partilha de ficheiros Azure. Se o limite de tamanho da ação do ficheiro Azure for atingido, a sincronização não poderá funcionar.
@@ -126,10 +126,21 @@ Para ajudá-lo a planear a sua implantação para cada uma das fases, abaixo est
 | Transfer para o Espaço Nome | 400 objetos por segundo |
 
 ### <a name="initial-one-time-provisioning"></a>Provisão única inicial
+
 **Enumeração inicial da mudança de nuvem**: Quando um novo grupo de sincronização é criado, a enumeração inicial da mudança de nuvem é o primeiro passo que irá executar. Neste processo, o sistema irá enumerar todos os itens na Azure File Share. Durante este processo, não haverá atividade sincronizada, ou seja, nenhum itens será descarregado do ponto final da nuvem para o ponto final do servidor e nenhum itens será carregado do ponto final do servidor para o ponto final da nuvem. A atividade de sincronização será retomada assim que a enumeração inicial da alteração da nuvem estiver concluída.
 A taxa de desempenho é de 20 objetos por segundo. Os clientes podem estimar o tempo que levará para completar a enumeração inicial da alteração da nuvem, determinando o número de itens na partilha de nuvem e usando as seguintes fórmulas para obter o tempo em dias. 
 
    **Tempo (em dias) para a enumeração inicial da nuvem = (Número de objetos no ponto final da nuvem)/((20 * 60 * 60 * 24)**
+
+**A sincronização inicial de dados do Windows Server para a Azure File share**:Muitas implementações de Azure File Sync começam com uma partilha de ficheiros Azure vazia porque todos os dados estão no Servidor do Windows. Nestes casos, a enumeração inicial da mudança de nuvem é rápida e a maior parte do tempo será gasto sincronizando alterações do Servidor do Windows para a partilha de ficheiros Azure. 
+
+Embora o sync carrequiva os dados para a partilha de ficheiros Azure, não há tempo de inatividade no servidor de ficheiros local, e os administradores podem [configurar limites](https://docs.microsoft.com/azure/storage/files/storage-sync-files-server-registration#set-azure-file-sync-network-limits) de rede para restringir a quantidade de largura de banda utilizada para o upload de dados de fundo.
+
+A sincronização inicial é tipicamente limitada pela taxa inicial de upload de 20 ficheiros por segundo por grupo de sincronização. Os clientes podem estimar o momento de enviar todos os seus dados para azure usando as seguintes fórmulas para obter tempo em dias:  
+
+   **Tempo (em dias) para o upload de ficheiros para um grupo de sincronização = (Número de objetos no ponto final da nuvem)/((20 * 60 * 60 * 24)**
+
+Dividir os seus dados em vários pontos finais do servidor e grupos de sincronização pode acelerar este upload inicial de dados, porque o upload pode ser feito em paralelo para vários grupos de sincronização a uma taxa de 20 itens por segundo cada. Assim, dois grupos de sincronização estariam a funcionar a uma taxa combinada de 40 itens por segundo. O tempo total para completar seria a estimativa de tempo para o grupo de sincronização com mais ficheiros para sincronizar
 
 **Produção de download de namespace** Quando um novo ponto final do servidor é adicionado a um grupo de sincronização existente, o agente Azure File Sync não descarrega nenhum dos conteúdos do ficheiro a partir do ponto final da nuvem. Primeiro sincroniza o espaço de nome completo e, em seguida, desencadeia a chamada de fundo para descarregar os ficheiros, quer na sua totalidade, quer, se o tiering da nuvem estiver ativado, para a política de tiering de nuvem definida no ponto final do servidor.
 

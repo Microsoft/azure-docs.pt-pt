@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: chez
 ms.reviewer: mariozi
-ms.openlocfilehash: 4e30ac2e6836b40ab0c0c2915eae48266cb4845c
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: c6c376e44c6135a800e6f7e281f8ea85b828329a
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102199220"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102443891"
 ---
 # <a name="encrypt-azure-data-factory-with-customer-managed-keys"></a>Encrypt Azure Data Factory com chaves geridas pelo cliente
 
@@ -102,9 +102,9 @@ Para saber mais sobre a identidade gerida atribuída pelo utilizador, consulte o
 1. Certifique-se de que a identidade gerida atribuída pelo utilizador (UA-MI) tem permissões _de chave_ de _desembrulhamento_ e _de embrulho_ para o Cofre de Chaves
 
 1. Em __separador Advanced,__ verifique a caixa para ativar a _encriptação utilizando uma chave gerida pelo cliente_ Screenshot do 
-   :::image type="content" source="media/enable-customer-managed-key/06-uami-cmk.png" alt-text="separador Advanced para a experiência de criação de fábrica de dados no portal Azure.":::
+   :::image type="content" source="media/enable-customer-managed-key/06-user-assigned-managed-identity.png" alt-text="separador Advanced para a experiência de criação de fábrica de dados no portal Azure.":::
 
-1. Forneça o url para o Cofre de Chaves
+1. Forneça o url para a chave gerida pelo cliente armazenada no Cofre de Chaves
 
 1. Selecione um utilizador apropriado de identidade gerida atribuída para autenticar com Cofre de Chaves
 

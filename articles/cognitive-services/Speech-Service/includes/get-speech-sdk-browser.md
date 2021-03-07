@@ -5,16 +5,16 @@ ms.topic: include
 ms.date: 03/27/2020
 ms.author: trbye
 ms.custom: devx-track-js
-ms.openlocfilehash: f8c7b9ee90e947534d6f938b1eb22f58b57270e6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 252f2e6275b01522b83e846201d190b39d2bbf21
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91376915"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102434514"
 ---
 :::row:::
     :::column span="3":::
-        O Speech SDK para JavaScript está disponível como um pacote npm, ver <a href="https://www.npmjs.com/package/microsoft-cognitiveservices-speech-sdk" target="_blank">microsoft-cognitiveservices-speech-sdk <span class="docon docon-navigate-external x-hidden-focus"></span> </a> e seu companheiro GitHub repositório <a href="https://github.com/Microsoft/cognitive-services-speech-sdk-js" target="_blank">cognitivo-serviços-discurso-sdk-js <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
+        O Speech SDK para JavaScript está disponível como um pacote npm, ver <a href="https://www.npmjs.com/package/microsoft-cognitiveservices-speech-sdk" target="_blank">microsoft-cognitiveservices-speech-sdk </a> e seu companheiro GitHub repositório <a href="https://github.com/Microsoft/cognitive-services-speech-sdk-js" target="_blank">cognitivo-serviços-discurso-sdk-js </a>.
     :::column-end:::
     :::column:::
         <br>
@@ -25,7 +25,7 @@ ms.locfileid: "91376915"
 :::row-end:::
 
 > [!TIP]
-> Embora o SDK de Discurso para JavaScript esteja disponível como um pacote npm, assim tanto os navegadores web do cliente como Node.js podem consumi-lo - considere as várias implicações arquitetónicas de cada ambiente. Por exemplo, o <a href="https://en.wikipedia.org/wiki/Document_Object_Model" target="_blank">modelo de <span class="docon docon-navigate-external x-hidden-focus"></span> objeto de documento (DOM)</a> não está disponível para aplicações do lado do servidor, tal como o sistema <a href="https://nodejs.org/api/fs.html" target="_blank"> <span class="docon docon-navigate-external x-hidden-focus"></span> </a> de ficheiros não está disponível para aplicações do lado do cliente.
+> Embora o SDK de Discurso para JavaScript esteja disponível como um pacote npm, assim tanto os navegadores web do cliente como Node.js podem consumi-lo - considere as várias implicações arquitetónicas de cada ambiente. Por exemplo, o <a href="https://en.wikipedia.org/wiki/Document_Object_Model" target="_blank">modelo de objeto de documento (DOM) </a> não está disponível para aplicações do lado do servidor, tal como o sistema de <a href="https://nodejs.org/api/fs.html" target="_blank">ficheiros </a> não está disponível para aplicações do lado do cliente.
 
 ### <a name="nodejs-package-manager-npm"></a>Node.js Package Manager (NPM)
 
@@ -37,11 +37,11 @@ npm install microsoft-cognitiveservices-speech-sdk
 
 ### <a name="html-script-tag"></a>Etiqueta de script HTML
 
-Em alternativa, pode incluir diretamente uma `<script>` etiqueta no elemento HTMLs, `<head>` contando com o <a href="https://www.jsdelivr.com/package/npm/microsoft-cognitiveservices-speech-sdk" target="_blank">sindicato <span class="docon docon-navigate-external x-hidden-focus"></span> **JSDelivr** NPM </a>.
+Em alternativa, pode incluir diretamente uma `<script>` etiqueta no elemento HTMLs, `<head>` contando com o sindicato <a href="https://www.jsdelivr.com/package/npm/microsoft-cognitiveservices-speech-sdk" target="_blank"> **JSDelivr** NPM</a>.
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/microsoft-cognitiveservices-speech-sdk@latest/distrib/browser/microsoft.cognitiveservices.speech.sdk.bundle-min.js">
 </script>
 ```
 
-Para obter mais informações, consulte o <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/browser" target="_blank">quickstart <span class="docon docon-navigate-external x-hidden-focus"></span> SDK do Discurso do Navegador Web </a>.
+Para obter mais informações, consulte o <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/browser" target="_blank">quickstart SDK do Discurso do Navegador Web </a>.

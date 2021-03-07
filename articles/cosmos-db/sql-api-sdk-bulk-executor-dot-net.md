@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
-ms.openlocfilehash: 21b3a5024b7b38f3f284b7213853c7089838930f
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 91fcfc614fed95c40aa3fed4368d17399255e8b5
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097214"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102423912"
 ---
 # <a name="net-bulk-executor-library-download-information"></a>Biblioteca de executor a granel .NET: Descarregar informações 
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -42,7 +42,7 @@ ms.locfileid: "93097214"
 | **Descrição**| A biblioteca de executor a granel .NET permite que as aplicações do cliente realizem operações a granel nas contas DB da Azure Cosmos. Esta biblioteca fornece espaços de nome BulkImport, BulkUpdate e BulkDelete. O módulo BulkImport pode ingerir documentos em massa de forma otimizada, de modo a que a produção prevista para uma recolha seja consumida na sua máxima extensão. O módulo BulkUpdate pode atualizar em massa os dados existentes em recipientes Azure Cosmos como patches. O módulo BulkDelete pode eliminar em massa documentos de forma otimizada de modo a que a produção prevista para uma recolha seja consumida na sua máxima extensão.|
 |**Transferência de SDK**| [NuGet](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.BulkExecutor/) |
 | **Biblioteca de executor a granel em GitHub**| [GitHub](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started)|
-|**Documentação da API**|[.NET Documentação de referência da API](/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor?preserve-view=true&view=azure-dotnet)|
+|**Documentação da API**|[.NET Documentação de referência da API](/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor)|
 |**Introdução**|[Começa com a biblioteca de executor a granel .NET SDK](bulk-executor-dot-net.md)|
 | **Framework suportado atualmente**| Microsoft .NET Framework 4.5.2, 4.6.1 e .NET Standard 2.0 |
 

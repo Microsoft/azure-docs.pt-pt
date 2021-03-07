@@ -1,24 +1,18 @@
 ---
 title: Proteger os recursos da sua rede no Azure Security Center
 description: Este documento aborda recomendações no Azure Security Center que o ajudam a proteger os recursos da rede Azure e a manter-se em conformidade com as políticas de segurança.
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetid: 96c55a02-afd6-478b-9c1f-039528f3dea0
 ms.service: security-center
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 04/05/2019
 ms.author: memildin
-ms.openlocfilehash: 366a9a63e4577a9b8470faec68f8d4a25114dd48
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: c24e3473c07759aa256a077d11edb20c616629f6
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98133706"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102439515"
 ---
 # <a name="protect-your-network-resources"></a>Proteja os seus recursos de rede
 O Azure Security Center analisa continuamente o estado de segurança dos seus recursos Azure para as melhores práticas de segurança da rede. Quando o Security Center identifica potenciais vulnerabilidades de segurança, cria recomendações que o orientam através do processo de configuração dos controlos necessários para endurecer e proteger os seus recursos.

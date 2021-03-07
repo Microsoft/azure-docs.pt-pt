@@ -1,18 +1,18 @@
 ---
 title: Definições políticas incorporadas para conjuntos de escala de máquina virtual Azure
 description: Lista definições de políticas incorporadas da Azure Policy para conjuntos de escalas de máquinas virtuais Azure. Estas definições políticas incorporadas fornecem abordagens comuns para gerir os seus recursos Azure.
-ms.date: 02/09/2021
+ms.date: 03/05/2021
 ms.topic: reference
 author: ju-shim
 ms.author: jushiman
 ms.service: virtual-machine-scale-sets
 ms.custom: subject-policy-reference
-ms.openlocfilehash: f493d1b7556f5f53c25b89953e40a641de99a9bf
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 1cb3a066e386f67848829c4ff84ea1256c773d21
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100093612"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102424924"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-virtual-machine-scale-sets"></a>Definições de tecnologia incorporadas para conjuntos de escala de máquina virtual Azure
 

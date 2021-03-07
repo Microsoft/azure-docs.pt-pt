@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: normesta
-ms.openlocfilehash: e5f62456b85791bad5bb66f3abf67e523558d76e
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 9fa7f586db5a32640c16db5802b56d6481e8889d
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100650393"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102439294"
 ---
 # <a name="access-control-model-in-azure-data-lake-storage-gen2"></a>Modelo de controlo de acesso em Azure Data Lake Storage Gen2
 
@@ -37,7 +37,7 @@ A Azure RBAC utiliza atribuições de funções para aplicar conjuntos de permis
 
 As seguintes funções permitem a um diretor de segurança aceder aos dados numa conta de armazenamento.
 
-|Função|Description|
+|Função|Descrição|
 |--|--|
 | [Proprietário dos Dados do Armazenamento de Blobs](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) | Acesso total a recipientes e dados de armazenamento Blob. Este acesso permite ao titular de segurança definir um item ao proprietário e modificar os ACLs de todos os itens. |
 | [Contribuinte de Dados do Armazenamento de Blobs](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) | Leia, escreva e elimine o acesso a recipientes de armazenamento Blob e bolhas. Este acesso não permite ao diretor de segurança definir a propriedade de um item, mas pode modificar a ACL de itens que são propriedade do responsável pela segurança. |
@@ -106,7 +106,7 @@ A tabela que se segue mostra-lhe como combinar funções Azure e entradas ACL pa
 
 
 > [!NOTE] 
-> Para visualizar o conteúdo de um contentor no Azure Storage Explorer, os princípios de segurança devem [inscrever-se no Storage Explorer utilizando a Azure AD](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#add-a-resource-via-azure-ad), e (no mínimo) ler o acesso (R--) à pasta raiz ( `\` ) de um recipiente. Este nível de permissão dá-lhes a capacidade de listar o conteúdo da pasta raiz. Se não quiser que o conteúdo da pasta raiz seja visível, pode atribuir-lhes o papel [de Leitor.](../../role-based-access-control/built-in-roles.md#reader) Com esse papel, poderão listar os contentores na conta, mas não o conteúdo do contentor. Em seguida, pode conceder acesso a diretórios e ficheiros específicos utilizando ACLs.   
+> Para visualizar o conteúdo de um contentor no Azure Storage Explorer, os princípios de segurança devem [inscrever-se no Storage Explorer utilizando a Azure AD](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#attach-to-an-individual-resource), e (no mínimo) ler o acesso (R--) à pasta raiz ( `\` ) de um recipiente. Este nível de permissão dá-lhes a capacidade de listar o conteúdo da pasta raiz. Se não quiser que o conteúdo da pasta raiz seja visível, pode atribuir-lhes o papel [de Leitor.](../../role-based-access-control/built-in-roles.md#reader) Com esse papel, poderão listar os contentores na conta, mas não o conteúdo do contentor. Em seguida, pode conceder acesso a diretórios e ficheiros específicos utilizando ACLs.   
 
 ## <a name="security-groups"></a>Grupos de segurança
 

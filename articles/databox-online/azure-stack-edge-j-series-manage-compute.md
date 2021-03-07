@@ -6,18 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 01/27/2021
+ms.date: 03/04/2021
 ms.author: alkohli
-ms.openlocfilehash: bd49edcfaca781ac3d36fbf871ec146b32c64ae3
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 99068a68c5d35bc6a501c5860d0bbc9ea3e3f368
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101733419"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102436988"
 ---
 # <a name="manage-compute-on-your-azure-stack-edge-pro-gpu"></a>Gerir o cálculo no seu GPU Azure Stack Edge Pro
 
-<!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 Este artigo descreve como gerir o computação através do serviço IoT Edge no seu dispositivo GPU Azure Stack Edge Pro. Pode gerir o cálculo através do portal Azure ou através da UI web local. Utilize o portal Azure para gerir módulos, gatilhos e configuração IoT Edge e a UI web local para gerir as definições da rede de computação.
 
@@ -37,7 +37,7 @@ Dê os seguintes passos no portal Azure para criar um gatilho.
 
 1. No portal Azure, vá ao seu recurso Azure Stack Edge e, em seguida, vá para **IoT Edge**. Vá a **Triggers** e selecione **+ Adicione o gatilho** na barra de comando.
 
-    ![Selecione adicionar gatilho](media/azure-stack-edge-j-series-manage-compute/add-trigger-1m.png)
+    ![Selecione adicionar gatilho](media/azure-stack-edge-j-series-manage-compute/add-trigger-1-m.png)
 
 2. Em Adicionar a lâmina **do gatilho,** forneça um nome único para o seu gatilho.
     

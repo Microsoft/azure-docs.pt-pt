@@ -5,16 +5,16 @@ services: storage
 author: santoshc
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/27/2021
+ms.date: 03/05/2021
 ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 4aa4e0566093f01e5f14691158f37c630c753b00
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 9e395ce996bf7e6889a27fcb04b0e643cf63c58b
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101714753"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102430892"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurar as firewalls e as redes virtuais do Armazenamento do Microsoft Azure
 
@@ -136,7 +136,7 @@ Ao planear a recuperação de desastres durante uma paragem regional, deve criar
 
 ### <a name="required-permissions"></a>Permissões obrigatórias
 
-Para aplicar uma regra de rede virtual a uma conta de armazenamento, o utilizador deve ter as permissões adequadas para a adição das sub-redes. A permissão necessária é *o Serviço de Acesso a uma Sub-rede* e está incluído na função de Colaborador de Conta de *Armazenamento* incorporada. Também pode ser adicionado às definições de funções personalizadas.
+Para aplicar uma regra de rede virtual a uma conta de armazenamento, o utilizador deve ter as permissões adequadas para a adição das sub-redes. A aplicação de uma regra pode ser executada por um [Contribuinte de Conta de Armazenamento](../../role-based-access-control/built-in-roles.md#storage-account-contributor) ou por um utilizador que tenha sido autorizado a operar o fornecedor de recursos `Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action` [Azure](../../role-based-access-control/resource-provider-operations.md#microsoftnetwork) através de uma função Azure personalizada.
 
 A conta de armazenamento e as redes virtuais de acesso podem estar em diferentes subscrições, incluindo subscrições que fazem parte de um inquilino AD Azure diferente.
 

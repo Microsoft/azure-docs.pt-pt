@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: reference
 ms.date: 03/04/2021
 ms.author: memildin
-ms.openlocfilehash: 6c69e5923e2b65bab0feca04d10fa67f49df3616
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: da2201931c92939029724b1086589803845109a7
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102174488"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102439634"
 ---
 # <a name="whats-new-in-azure-security-center"></a>O que há de novo no Centro de Segurança Azure?
 
@@ -53,7 +53,7 @@ Saiba mais sobre este dashboard na [página geral do Azure Security Center](over
 
 ### <a name="sql-vulnerability-assessment-now-includes-the-disable-rule-experience-preview"></a>A avaliação da vulnerabilidade SQL inclui agora a experiência "Desativar regra" (pré-visualização)
 
-O Security Center inclui um scanner de vulnerabilidade incorporado para ajudá-lo a descobrir, rastrear e remediar potenciais vulnerabilidades de base de dados. As conclusões das suas análises fornecem uma visão geral do estado de segurança das suas máquinas SQL e detalhes de quaisquer conclusões de segurança.
+O Security Center inclui um scanner de vulnerabilidade incorporado para ajudá-lo a descobrir, rastrear e remediar potenciais vulnerabilidades de base de dados. Os resultados das suas análises fornecem uma visão geral do estado de segurança das suas máquinas SQL e detalhes de quaisquer resultados de segurança.
 
 Se tiver uma necessidade organizacional de ignorar uma descoberta, em vez de remediar, pode desativá-la opcionalmente. As descobertas desativadas não afetam a sua pontuação segura ou geram ruídos indesejados.
 

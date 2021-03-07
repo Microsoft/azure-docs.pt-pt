@@ -3,18 +3,18 @@ title: Gerir e encontrar dados do Azure Blob com etiquetas de índice blob (pré
 description: Aprenda a usar tags de índice blob para categorizar, gerir e consultar objetos blob.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 10/19/2020
+ms.date: 03/05/2021
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: klaasl
 ms.custom: references_regions
-ms.openlocfilehash: 4f84c3c2f6fc671a8cb6ac70313361540e3dd815
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: bfaee493c25f882b8beeed565a155db93efd0083
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95523285"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102431759"
 ---
 # <a name="manage-and-find-azure-blob-data-with-blob-index-tags-preview"></a>Gerir e encontrar dados do Azure Blob com etiquetas de índice blob (pré-visualização)
 
@@ -29,6 +29,9 @@ As etiquetas de índice blob permitem::
 
 Considere um cenário em que tenha milhões de bolhas na sua conta de armazenamento, acedidas por várias aplicações diferentes. Você quer encontrar todos os dados relacionados de um único projeto. Não tem a certeza do que está no âmbito, pois os dados podem ser espalhados por vários contentores com diferentes convenções de nomeação. No entanto, as suas aplicações carregam todos os dados com tags com base no seu projeto. Em vez de pesquisar por milhões de bolhas e comparar nomes e propriedades, pode usar `Project = Contoso` como critérios de descoberta. O índice Blob filtrará todos os recipientes em toda a sua conta de armazenamento para encontrar e devolver rapidamente apenas o conjunto de 50 bolhas de `Project = Contoso` .
 
+> [!IMPORTANT]
+> As etiquetas de índice blob estão atualmente em **PREVIEW**. Consulte os [Termos Complementares de Utilização para o Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para termos legais aplicáveis às funcionalidades do Azure que estejam em versão beta, pré-visualização ou ainda não lançadas em disponibilidade geral.
+
 Para começar com exemplos sobre como usar o índice blob, consulte [use tags de índice blob para gerir e encontrar dados](storage-blob-index-how-to.md).
 
 ## <a name="blob-index-tags-and-data-management"></a>Etiquetas de índice blob e gestão de dados
@@ -42,7 +45,6 @@ Considere as seguintes cinco bolhas na sua conta de armazenamento:
 - *fotos/bannerphoto.png*
 - *arquivos/concluídos/2019review.pdf*
 - *registos/2020/01/01/logfile.txt*
-
 
 Estas bolhas são separadas utilizando um prefixo de *recipiente/pasta virtual/nome de bolha*. Pode definir um atributo de etiqueta de índice `Project = Contoso` nestas cinco bolhas para categorizá-los juntos, mantendo a sua organização atual de prefixo. A adição de tags de índice elimina a necessidade de mover dados expondo a capacidade de filtrar e encontrar dados usando o índice.
 
@@ -117,7 +119,7 @@ A tabela abaixo mostra todos os operadores válidos `Find Blobs by Tags` para:
 
 |  Operador  |  Descrição  | Exemplo |
 |------------|---------------|---------|
-|     =      |     Equal     | `"Status" = 'In Progress'` |
+|     =      |     Igual     | `"Status" = 'In Progress'` |
 |     >      |  Maior que | `"Date" > '2018-06-18'` |
 |     >=     |  Maior ou igual a | `"Priority" >= '5'` |
 |     <      |  Menor que   | `"Age" < '32'` |

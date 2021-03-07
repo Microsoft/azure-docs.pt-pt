@@ -11,12 +11,12 @@ metadata:
   author: msmbaldwin
   ms.author: mbaldwin
   ms.date: 04/07/2020
-  ms.openlocfilehash: 980ed1961c346bed6dd35088b6f3202f4d5eda1d
-  ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+  ms.openlocfilehash: a4a4b5bd5b7a511db1f07f4b9f97c1c6c4087928
+  ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/05/2021
-  ms.locfileid: "102213459"
+  ms.lasthandoff: 03/07/2021
+  ms.locfileid: "102433629"
 landingContent:
 - title: Certificados
   linkLists:
@@ -57,7 +57,7 @@ landingContent:
   - linkListType: reference
     links:
     - text: Biblioteca de cliente .NET
-      url: /dotnet/api/azure.security.keyvault.certificates?view=azure-dotnet
+      url: /dotnet/api/azure.security.keyvault.certificates
     - text: Biblioteca de cliente Python
       url: /python/api/overview/azure/keyvault-certificates-readme?view=azure-python
     - text: Biblioteca de cliente Java

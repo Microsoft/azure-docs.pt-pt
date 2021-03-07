@@ -1,21 +1,23 @@
 ---
-title: Monitorize o seu dispositivo Azure Stack Edge Pro através do painel Kubernetes Microsoft Docs
+title: Monitorize o seu dispositivo Azure Stack Edge Pro através do painel de instrumentos Kubernetes | Microsoft Docs
 description: Descreve como aceder e utilizar o dashboard Kubernetes para monitorizar o seu dispositivo Azure Stack Edge Pro.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 137cff47d49be1405f60bc47cd16f7f027ab63a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 19b3595228c29814e42af88696972fd81b156190
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91320834"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102443051"
 ---
 # <a name="use-kubernetes-dashboard-to-monitor-your-azure-stack-edge-pro-gpu-device"></a>Utilize o painel Kubernetes para monitorizar o seu dispositivo GPU Azure Stack Edge Pro
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 Este artigo descreve como aceder e usar o dashboard Kubernetes para monitorizar o seu dispositivo GPU Azure Stack Edge Pro. Para monitorizar o seu dispositivo, pode utilizar gráficos no portal Azure, ver o dashboard de Kubernetes ou executar `kubectl` comandos através da interface PowerShell do dispositivo. 
 
@@ -33,7 +35,7 @@ Neste artigo, vai aprender a:
 
 ## <a name="about-kubernetes-dashboard"></a>Sobre o Painel de Kubernetes
 
-O Kubernetes Dashboard é uma interface de utilizador baseada na Web que pode utilizar para resolver problemas nas suas aplicações contentorizadas. Kubernetes Dashboard é uma alternativa baseada na UI para a linha de comando Kubernetes. `kubectl` Para mais informações, consulte [o Painel de Instrumentos de Kubernetes.](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/) 
+O Dashboard do Kubernetes é uma interface de utilizador baseada na Web que pode utilizar para resolver problemas das aplicações em contentores. Kubernetes Dashboard é uma alternativa baseada na UI para a linha de comando Kubernetes. `kubectl` Para obter mais informações, veja [Dashboard do Kubernetes](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/). 
 
 No seu dispositivo Azure Stack Edge Pro, pode utilizar o Painel Kubernetes no modo *apenas de leitura* para obter uma visão geral das aplicações em execução no seu dispositivo Azure Stack Edge Pro, ver o estado dos recursos do cluster Kubernetes e ver quaisquer erros que tenham ocorrido no dispositivo.
 
@@ -51,7 +53,7 @@ O Painel kubernetes é *apenas de leitura* e funciona no nó mestre Kubernetes n
     
     1. **Selecione kubeconfig**. 
         ![Selecione a opção kubeconfig](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/kubernetes-dashboard-sign-in-1.png) 
-    1. Selecione a **...** elipse... . Procure e aponte para o `kubeconfig` que descarregou anteriormente no seu sistema local. Selecione **Iniciar sessão**.
+    1. Selecione a elipse... . Procure e aponte para o `kubeconfig` que descarregou anteriormente no seu sistema local. Selecione **Iniciar sessão**.
         ![Navegue para o ficheiro kubeconfig](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/kubernetes-dashboard-sign-in-2.png)    
 
 6. Agora pode ver o Painel Kubernetes para o seu dispositivo Azure Stack Edge Pro no modo apenas de leitura.

@@ -1,23 +1,25 @@
 ---
-title: Executar um módulo GPU no dispositivo GPU do Microsoft Azure Stack Edge Pro/ Microsoft Docs
+title: Executar um módulo GPU no dispositivo GPU do Microsoft Azure Stack Edge Pro| Microsoft Docs
 description: Descreve como configurar e executar um módulo na GPU num dispositivo Azure Stack Edge Pro através do portal Azure.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 01/04/2021
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: d172ce98ba93360c621a91fb0e2a55d022470943
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: dfae1a9b02db7e7b9577acdb47a1ba089f1609e8
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97935565"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102439056"
 ---
 # <a name="configure-and-run-a-module-on-gpu-on-azure-stack-edge-pro-device"></a>Configure e execute um módulo em GPU no dispositivo Azure Stack Edge Pro
 
-O seu dispositivo Azure Stack Edge Pro contém uma ou mais Unidade de Processamento de Gráficos (GPU). As GPUs são uma escolha popular para computações de IA, uma vez que oferecem capacidades de processamento paralelos e são mais rápidas na renderização de imagem do que as Unidades Centrais de Processamento (CPUs). Para obter mais informações sobre a GPU contida no seu dispositivo Azure Stack Edge Pro, aceda às especificações técnicas do [dispositivo Azure Stack Edge Pro](azure-stack-edge-gpu-technical-specifications-compliance.md).
+[!INCLUDE [applies-to-GPU-and-pro-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-sku.md)]
+
+O seu dispositivo Azure Stack Edge Pro contém uma ou mais Unidade de Processamento de Gráficos (GPU). As GPUs são uma opção popular para cálculos de IA, pois oferecem capacidades de processamento paralelo e são mais rápidas na composição de imagens do que nas Unidades de Processamento Central (CPUs). Para obter mais informações sobre a GPU contida no seu dispositivo Azure Stack Edge Pro, aceda às especificações técnicas do [dispositivo Azure Stack Edge Pro](azure-stack-edge-gpu-technical-specifications-compliance.md).
 
 Este artigo descreve como configurar e executar um módulo na GPU no seu dispositivo Azure Stack Edge Pro. Neste artigo, utilizará um módulo de contentores publicamente disponível **Digits** escrito para GPUs Nvidia T4. Este procedimento pode ser usado para configurar quaisquer outros módulos publicados pela Nvidia para estas GPUs.
 

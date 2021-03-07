@@ -1,5 +1,5 @@
 ---
-title: Adicionar ou eliminar utilizadores - Azure Ative Directory / Microsoft Docs
+title: Adicionar ou eliminar utilizadores - Azure Ative Directory | Microsoft Docs
 description: Instruções sobre como adicionar novos utilizadores ou eliminar utilizadores existentes utilizando o Azure Ative Directory.
 services: active-directory
 author: ajburnle
@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 11/12/2019
+ms.date: 03/05/2021
 ms.author: ajburnle
-ms.reviewer: jeffsta
+ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de529a8ffb0c72854904717c71dbc322c919f1a8
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 51f1b122cb005f47e9816db3b403a35f4f502248
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95996700"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102426829"
 ---
 # <a name="add-or-delete-users-using-azure-active-directory"></a>Adicionar ou eliminar utilizadores usando o Azure Ative Directory
 
@@ -74,6 +74,9 @@ Se tiver um ambiente com o Azure Ative Directory (cloud) e o Windows Server Ativ
 
 Pode eliminar um utilizador existente utilizando o portal Azure Ative Directory.
 
+>[!Note]
+>Tem de ter uma atribuição de função de administrador global ou administrador de utilizador para eliminar os utilizadores na sua organização. Os administradores globais podem eliminar qualquer utilizadores, incluindo outros administradores. Os administradores do utilizador podem eliminar quaisquer utilizadores não administrativos, administradores da Helpdesk e outros administradores do Utilizador. Para obter mais informações, consulte [permissões de função do Administrador em Azure AD](https://docs.microsoft.com/azure/active-directory/roles/permissions-reference).
+
 Para eliminar um utilizador, siga estes passos:
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com/) utilizando uma conta de administrador do Utilizador para a organização.
@@ -91,7 +94,7 @@ O utilizador é eliminado e já não aparece na página **dos Utilizadores - Tod
 Quando um utilizador é eliminado, quaisquer licenças consumidas pelo utilizador são disponibilizadas para outros utilizadores.
 
 >[!Note]
->Tem de utilizar o Windows Server Ative Directory para atualizar a identidade, informações de contacto ou informações de trabalho para utilizadores cuja fonte de autoridade é o Windows Server Ative Directory. Depois de completar a atualização, tem de esperar que o próximo ciclo de sincronização esteja concluído antes de ver as alterações.
+>Para atualizar a identidade, informações de contacto ou informações de trabalho para utilizadores cuja fonte de autoridade é o Windows Server Ative Directory, tem de utilizar o Windows Server Ative Directory. Depois de concluir a atualização, tem de esperar que o próximo ciclo de sincronização esteja concluído antes de ver as alterações.
 
 ## <a name="next-steps"></a>Passos seguintes
 

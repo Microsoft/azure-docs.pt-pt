@@ -1,7 +1,6 @@
 ---
 title: Crie políticas de segurança personalizadas no Azure Security Center | Microsoft Docs
 description: Definições de política personalizadas Azure monitorizadas pelo Azure Security Center.
-services: security-center
 author: memildin
 manager: rkarlin
 ms.service: security-center
@@ -9,12 +8,12 @@ ms.topic: how-to
 ms.date: 02/25/2021
 ms.author: memildin
 zone_pivot_groups: manage-asc-initiatives
-ms.openlocfilehash: a39b79c6c209c0fc66edac846d5458475ec75810
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: a901e71da640f8413e5714ad59073324f582c1b9
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102100870"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102441062"
 ---
 # <a name="create-custom-security-initiatives-and-policies"></a>Criar iniciativas e políticas de segurança personalizadas
 
@@ -23,6 +22,9 @@ Para ajudar a proteger os seus sistemas e ambiente, o Azure Security Center gera
 Com esta funcionalidade, pode adicionar as suas próprias iniciativas *personalizadas.* Em seguida, receberá recomendações se o seu ambiente não seguir as políticas que cria. Quaisquer iniciativas personalizadas que crie aparecerão ao lado das iniciativas integradas no painel de conformidade regulamentar, conforme descrito no tutorial Melhorar a [sua conformidade regulamentar.](security-center-compliance-dashboard.md)
 
 Como discutido na [documentação da Política Azure,](../governance/policy/concepts/definition-structure.md#definition-location)quando especificar um local para a sua iniciativa personalizada, deve ser um grupo de gestão ou uma subscrição. 
+
+> [!TIP]
+> Para uma visão geral dos conceitos-chave nesta página, veja [o que são políticas de segurança, iniciativas e recomendações?](security-policy-concept.md)
 
 ::: zone pivot="azure-portal"
 

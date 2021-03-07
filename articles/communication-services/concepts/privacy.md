@@ -8,16 +8,18 @@ ms.author: chpalm
 ms.date: 10/03/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 8e08c531cd46d5112138a3feedf97b27307e3dca
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: f6e4218290de6ef41ef6eedc78b3b0b55ee322e8
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101656198"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102438562"
 ---
 # <a name="region-availability-and-data-residency"></a>Disponibilidade de região e residência dos dados
 
-A Azure Communication Services está empenhada em ajudar os nossos clientes a cumprir os seus requisitos de privacidade e dados pessoais. Como desenvolvedor que usa serviços de comunicação com uma relação direta com os seres humanos usando a aplicação, você é potencialmente um controlador dos seus dados. Uma vez que a Azure Communication Services está a armazenar estes dados em seu nome, provavelmente somos um processador destes dados. Esta página resume como o serviço retém dados e como pode identificar, exportar e eliminar estes dados.
+[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
+
+A Azure Communication Services está empenhada em ajudar os nossos clientes a cumprir os seus requisitos de privacidade e dados pessoais. Como desenvolvedor que usa serviços de comunicação com uma relação direta com os seres humanos usando a aplicação, você é potencialmente um controlador dos seus dados. Uma vez que os Serviços de Comunicação da Azure estão a armazenar e a encriptar estes dados em seu nome, provavelmente somos um processador destes dados. Esta página resume como o serviço retém dados e como pode identificar, exportar e eliminar estes dados.
 
 ## <a name="data-residency"></a>Residência dos dados
 
@@ -63,7 +65,7 @@ As linhas de chat e as mensagens são mantidas até serem explicitamente elimina
 
 ### <a name="sms"></a>SMS
 
-As mensagens SMS enviadas e recebidas são processadas efemérides pelo serviço e não retidas.
+As mensagens SMS enviadas e recebidas são processadas efemérides pelo serviço e não retidas. 
 
 ### <a name="pstn-voice-calling"></a>Chamada de voz PSTN
 

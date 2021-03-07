@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: trbye
-ms.openlocfilehash: f7e29fab542db79b22a9ace7371bc22d3526ac33
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 15f0b01304f3333b8650ab2079cd56271d0095db
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101710503"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102424500"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Preparar dados para Voz Personalizada
 
@@ -55,7 +55,7 @@ Quando treinar um novo modelo, comece com [textos relacionados.](#related-text-d
 Os ficheiros devem ser agrupados por tipo num conjunto de dados e carregados como um ficheiro .zip. Cada conjunto de dados só pode conter um único tipo de dados.
 
 > [!TIP]
-> Para começar rapidamente, considere usar dados da amostra. Consulte este repositório GitHub para <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/sampledata/customspeech" target="_target">amostra de dados de discurso personalizado <span class="docon docon-navigate-external x-hidden-focus"></span> </a>
+> Para começar rapidamente, considere usar dados da amostra. Consulte este repositório GitHub para <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/sampledata/customspeech" target="_target">amostra de dados de discurso personalizado </a>
 
 > [!NOTE]
 > Nem todos os modelos base suportam o treino com áudio. Se um modelo base não o suportar, o serviço Desemaguiso utilizará apenas o texto das transcrições e ignorará o áudio. Consulte [o suporte linguístico](language-support.md#speech-to-text) para uma lista de modelos base que suportam a formação com dados áudio. Mesmo que um modelo base suporte a formação com dados áudio, o serviço pode usar apenas uma parte do áudio. Ainda assim, vai usar todas as transcrições.
@@ -69,7 +69,7 @@ Os ficheiros devem ser agrupados por tipo num conjunto de dados e carregados com
 
 ## <a name="upload-data"></a>Carregar dados
 
-Para fazer o upload dos seus dados, navegue para o <a href="https://speech.microsoft.com/customspeech" target="_blank">Estúdio <span class="docon docon-navigate-external x-hidden-focus"></span> da Fala. </a> A partir do portal, clique em **Carregar dados** para lançar o assistente e criar o seu primeiro conjunto de dados. Será solicitado que selecione um tipo de dados de voz para o seu conjunto de dados, antes de lhe permitir fazer o upload dos seus dados.
+Para fazer o upload dos seus dados, navegue para o <a href="https://speech.microsoft.com/customspeech" target="_blank">Estúdio da Fala. </a> A partir do portal, clique em **Carregar dados** para lançar o assistente e criar o seu primeiro conjunto de dados. Será solicitado que selecione um tipo de dados de voz para o seu conjunto de dados, antes de lhe permitir fazer o upload dos seus dados.
 
 ![Screenshot que realça a opção de upload áudio a partir do Portal do Discurso.](./media/custom-speech/custom-speech-select-audio.png)
 
@@ -101,7 +101,7 @@ Utilize esta tabela para garantir que os seus ficheiros áudio são formatados c
 > [!TIP]
 > Ao carregar dados de treino e teste, o tamanho do ficheiro .zip não pode exceder 2 GB. Se necessitar de mais dados para a formação, divida-os em vários ficheiros .zip e faça o upload separadamente. Mais tarde, pode optar por treinar a partir de *vários* conjuntos de dados. No entanto, só é possível testar a partir de um *único* conjunto de dados.
 
-Utilize <a href="http://sox.sourceforge.net" target="_blank" rel="noopener">o <span class="docon docon-navigate-external x-hidden-focus"></span> SoX</a> para verificar as propriedades áudio ou converter o áudio existente nos formatos apropriados. Abaixo estão alguns exemplos de como cada uma destas atividades pode ser feita através da linha de comando SoX:
+Utilize <a href="http://sox.sourceforge.net" target="_blank" rel="noopener">o SoX </a> para verificar as propriedades áudio ou converter o áudio existente nos formatos apropriados. Abaixo estão alguns exemplos de como cada uma destas atividades pode ser feita através da linha de comando SoX:
 
 | Atividade | Descrição | Comando SoX |
 |----------|-------------|-------------|
@@ -146,7 +146,7 @@ speech03.wav    the lazy dog was not amused
 
 As transcrições são normalizadas para texto, de modo a que o sistema as possa processar. No entanto, existem algumas normalizações importantes que devem ser feitas antes de enviar os dados para o Estúdio da Fala. Para que a língua apropriada utilize quando prepara as suas transcrições, consulte [Como criar uma transcrição com rótulo humano](how-to-custom-speech-human-labeled-transcriptions.md)
 
-Depois de ter recolhido os seus ficheiros áudio e transcrições correspondentes, embale-os como um único ficheiro .zip antes de enviar para o <a href="https://speech.microsoft.com/customspeech" target="_blank">Estúdio <span class="docon docon-navigate-external x-hidden-focus"></span> </a>da Fala . Abaixo está um conjunto de dados de exemplo com três ficheiros áudio e um ficheiro de transcrição com rótulo humano:
+Depois de ter recolhido os seus ficheiros áudio e transcrições correspondentes, embale-os como um único ficheiro .zip antes de enviar para o Estúdio da <a href="https://speech.microsoft.com/customspeech" target="_blank">Fala </a>. Abaixo está um conjunto de dados de exemplo com três ficheiros áudio e um ficheiro de transcrição com rótulo humano:
 
 > [!div class="mx-imgBorder"]
 > ![Selecione áudio do Portal do Discurso](./media/custom-speech/custom-speech-audio-transcript-pairs.png)
@@ -164,7 +164,7 @@ Os nomes ou funcionalidades do produto que são únicos, devem incluir dados de 
 | Frases (expressões) | Melhore a precisão ao reconhecer os nomes dos produtos ou o vocabulário específico da indústria no contexto de uma frase. |
 | Pronúncias | Melhorar a pronúncia de termos incomuns, siglas ou outras palavras com pronúncias indefinidas. |
 
-As frases podem ser fornecidas como um único ficheiro de texto ou vários ficheiros de texto. Para melhorar a precisão, utilize dados de texto mais próximos das declarações faladas esperadas. As pronúncias devem ser fornecidas como um único ficheiro de texto. Tudo pode ser embalado como um único ficheiro zip e enviado para o <a href="https://speech.microsoft.com/customspeech" target="_blank">Estúdio <span class="docon docon-navigate-external x-hidden-focus"></span> de Fala </a>.
+As frases podem ser fornecidas como um único ficheiro de texto ou vários ficheiros de texto. Para melhorar a precisão, utilize dados de texto mais próximos das declarações faladas esperadas. As pronúncias devem ser fornecidas como um único ficheiro de texto. Tudo pode ser embalado como um único ficheiro zip e enviado para o <a href="https://speech.microsoft.com/customspeech" target="_blank">Estúdio de Fala </a>.
 
 O treino com texto relacionado geralmente completa em poucos minutos.
 

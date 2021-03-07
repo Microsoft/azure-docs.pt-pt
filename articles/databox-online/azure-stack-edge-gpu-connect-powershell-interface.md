@@ -6,16 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 10/06/2020
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 27af230f8fa157f76865bd38a48c17640491d7db
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 1404dfd25f4e80e0e05c0071da649cacfa45dac0
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896194"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102437762"
 ---
 # <a name="manage-an-azure-stack-edge-pro-gpu-device-via-windows-powershell"></a>Gerir um dispositivo GPU Azure Stack Edge Pro via Windows PowerShell
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 A solução Azure Stack Edge Pro permite-lhe processar dados e enviá-lo pela rede para a Azure. Este artigo descreve algumas das tarefas de configuração e gestão do seu dispositivo Azure Stack Edge Pro. Pode utilizar o portal Azure, a web UI local ou a interface Windows PowerShell para gerir o seu dispositivo.
 
@@ -121,7 +123,7 @@ Se a função de cálculo estiver configurada no seu dispositivo, também pode o
     - `FullLogCollection`: Este parâmetro garante que o pacote de registos conterá todos os registos computatórios. Por predefinição, o pacote de registo contém apenas um subconjunto de registos.
 
 
-## <a name="change-kubernetes-pod-and-service-subnets"></a>Alterar cápsulas e sub-redes de serviço kubernetes
+## <a name="change-kubernetes-pod-and-service-subnets"></a>Alterar sub-redes de serviço e pod do Kubernetes
 
 Por predefinição, os Kubernetes no seu dispositivo Azure Stack Edge utilizam sub-redes 172.27.0.0/16 e 172.28.0.0/16 para pod e serviço, respectivamente. Se estas sub-redes já estiverem a ser utilizadas na sua rede, então pode executar o `Set-HcsKubeClusterNetworkInfo` cmdlet para alterar estas sub-redes.
 
@@ -599,6 +601,6 @@ O controlador de gestão do rodapé (BMC) é utilizado para monitorizar e gerir 
 
 Para sair da sessão remota powerShell, feche a janela PowerShell.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Implementar [Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-prep.md) no portal Azure.
