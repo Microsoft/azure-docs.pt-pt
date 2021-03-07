@@ -1,22 +1,23 @@
 ---
-title: Compreenda o controlo de acesso baseado em funções da Kubernetes no dispositivo Azure Stack Edge Pro Microsoft Docs
+title: Compreenda o controlo de acesso baseado em funções da Kubernetes no dispositivo Azure Stack Edge Pro| Microsoft Docs
 description: Descreve como o controlo de acesso baseado em funções da Kubernetes ocorre num dispositivo Azure Stack Edge Pro.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 9a9625dcf40ae7d11e1154fc89b7f04652c8ca16
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 1b38a9807e05385a378fa6103710fb6b393c7b1f
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94635845"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102443153"
 ---
 # <a name="kubernetes-role-based-access-control-on-your-azure-stack-edge-pro-gpu-device"></a>Kubernetes controlo de acesso baseado em funções no seu dispositivo GPU Azure Stack Edge Pro
 
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 No seu dispositivo Azure Stack Edge Pro, quando configurar o papel de computação, é criado um cluster Kubernetes. Pode utilizar o controlo de acesso baseado em funções da Kubernetes (Kubernetes RBAC) para limitar o acesso aos recursos de cluster no seu dispositivo.
 
@@ -39,13 +40,13 @@ O seu dispositivo Azure Stack Edge Pro tem os seguintes espaços de nome:
 - **Espaço de nome do sistema** - Este espaço de nome é onde existem recursos fundamentais, tais como funcionalidades de rede como DNS e proxy, ou o dashboard Kubernetes. Normalmente, não se implanta as suas próprias aplicações neste espaço de nome. Use este espaço de nome para depurar quaisquer problemas de cluster Kubernetes. 
 
     Existem vários espaços de nome do sistema no seu dispositivo e os nomes correspondentes a estes espaços de nome do sistema são reservados. Aqui está uma lista dos espaços reservados para o sistema: 
-    - kube-sistema
+    - kube-system
     - metallb-sistema
     - espaço dbe-nome
     - predefinição
     - kubernetes-dashboard
     - kube-node-arrendamento
-    - kube-público
+    - kube-public
 
 
     Certifique-se de que não utiliza nomes reservados para espaços com nomes de utilizador que criar. 
@@ -61,15 +62,15 @@ O seu dispositivo Azure Stack Edge Pro tem os seguintes espaços de nome:
 
 No mundo real, é importante dividir o cluster em múltiplos espaços de nome. 
 
-- **Vários utilizadores** : Se tiver vários utilizadores, vários espaços de nome permitirão que esses utilizadores implementem as suas aplicações e serviços nos seus espaços específicos de nomes, isoladamente. 
-- **Utilizador único** : Mesmo que exista um único utilizador, vários espaços de nome permitiriam que o utilizador executasse várias versões das aplicações no mesmo cluster Kubernetes.
+- **Vários utilizadores**: Se tiver vários utilizadores, vários espaços de nome permitirão que esses utilizadores implementem as suas aplicações e serviços nos seus espaços específicos de nomes, isoladamente. 
+- **Utilizador único**: Mesmo que exista um único utilizador, vários espaços de nome permitiriam que o utilizador executasse várias versões das aplicações no mesmo cluster Kubernetes.
 
 ### <a name="roles-and-rolebindings"></a>Papéis e RoleBindings
 
 Kubernetes tem o conceito de função e de encadernação de papéis que permite dar permissões ao utilizador ou recursos a nível de espaço de nome e a um nível de cluster. 
 
-- **Funções** : Pode definir permissões para os utilizadores como uma **Função** e, em seguida, usar **Roles** para conceder permissões dentro de um espaço de nome. 
-- **RoleBindings** : Uma vez definidos os papéis, pode utilizar **RoleBindings** para atribuir funções para um determinado espaço de nome. 
+- **Funções**: Pode definir permissões para os utilizadores como uma **Função** e, em seguida, usar **Roles** para conceder permissões dentro de um espaço de nome. 
+- **RoleBindings**: Uma vez definidos os papéis, pode utilizar **RoleBindings** para atribuir funções para um determinado espaço de nome. 
 
 Esta abordagem permite-lhe, logicamente, segregar um único cluster Kubernetes, com os utilizadores apenas capazes de aceder aos recursos da aplicação no seu espaço de nome atribuído. 
 

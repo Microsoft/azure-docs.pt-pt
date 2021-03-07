@@ -13,12 +13,12 @@ ms.date: 07/09/2020
 ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: identityplatformtop40, contperf-fy21q2
-ms.openlocfilehash: 662523b1544fe3ca9e8bda993efa7b578b9f69cc
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: a4ce8242bd3110fee038ac826973e6a134413344
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98752575"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102426846"
 ---
 # <a name="what-is-the-microsoft-identity-platform"></a>O que é a plataforma de identidades da Microsoft?
 
@@ -38,6 +38,8 @@ Existem vários componentes que compõem a plataforma de identidade da Microsoft
 Para os desenvolvedores, a plataforma de identidade da Microsoft oferece a integração de inovações modernas no espaço de identidade e segurança, como autenticação sem palavras-passe, autenticação intensificada e Acesso Condicional. Não precisa de implementar essa funcionalidade por si mesmo: as aplicações integradas na plataforma de identidade da Microsoft aproveitam-se de forma nativa dessas inovações.
 
 Com a plataforma de identidade da Microsoft, pode escrever código uma vez e chegar a qualquer utilizador. Pode construir uma aplicação uma vez e fazê-la funcionar em muitas plataformas, ou construir uma app que funcione como cliente, bem como uma aplicação de recursos (API).
+
+Para uma visão geral de vídeo da plataforma e uma demonstração da experiência de autenticação, veja [qual é a plataforma de identidade da Microsoft para programadores?](https://youtu.be/uDU1QTSw7Ps)
 
 ## <a name="getting-started"></a>Introdução
 
@@ -76,7 +78,7 @@ Saiba como a autenticação central e os conceitos AD do Azure se aplicam à pla
 
 [Azure Ative Directory para desenvolvedores (v1.0)](../azuread-dev/v1-overview.md) - Mostrado aqui para programadores com aplicações existentes que usam o ponto final v1.0 mais antigo. **Não** utilize v1.0 para novos projetos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se você tem uma conta Azure você já tem acesso a um inquilino do Azure Ative Directory, mas a maioria dos desenvolvedores da plataforma de identidade Microsoft precisam do seu próprio inquilino AZure AD para uso enquanto desenvolve aplicações, um "dev inquilino".
 

@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 07/28/2020
 ms.author: delhan
-ms.openlocfilehash: 9a20db58846ca48afb4fb256adae58e1fccdff3a
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 15df9b38abe35fe3eefad2fa160e1c1f16fe7aa7
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98875741"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102439464"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guia de resolução de problemas do Explorador de Armazenamento do Azure
 
@@ -58,14 +58,22 @@ Se não tiver um papel que conceda permissões de camada de gestão, o Storage E
 
 ### <a name="what-if-i-cant-get-the-management-layer-permissions-i-need-from-my-administrator"></a>E se eu não conseguir as permissões de gestão que preciso do meu administrador?
 
-Se quiser aceder a recipientes ou filas de bolhas, pode anexar esses recursos utilizando as suas credenciais Azure.
+Se quiser aceder a recipientes blob, contentores ou diretórios da ADLS Gen2 ou filas, pode anexar esses recursos utilizando as suas credenciais Azure.
 
 1. Abra o diálogo 'Ligar'.
-2. Selecione "Adicionar um recurso via Azure Ative Directory (Azure AD)". Selecione Seguinte.
-3. Selecione a conta de utilizador e o inquilino associado ao recurso a que está a anexar. Selecione Seguinte.
-4. Selecione o tipo de recurso, introduza o URL no recurso e introduza um nome de exibição único para a ligação. Selecione Seguinte e, em seguida, Conecte-se.
+1. Selecione o tipo de recurso a que pretende ligar.
+1. Selecione **Iniciar sação utilizando o Diretório Ativo Azure (Azure AD)**. Selecione **Seguinte**.
+1. Selecione a conta de utilizador e o inquilino associado ao recurso a que está a anexar. Selecione **Seguinte**.
+1. Introduza o URL no recurso e introduza um nome de exibição único para a ligação. Selecione **Seguinte** e, em **seguida, Conecte-se**.
 
-Para outros tipos de recursos, não temos atualmente uma solução relacionada com o Azure RBAC. Como solução alternativa, pode solicitar a um SAS URI que [se anexe ao seu recurso.](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=linux#use-a-shared-access-signature-uri)
+Para outros tipos de recursos, não temos atualmente uma solução relacionada com o Azure RBAC. Como solução alternativa, pode solicitar um URL SAS e, em seguida, anexar ao seu recurso seguindo estes passos:
+
+1. Abra o diálogo 'Ligar'.
+1. Selecione o tipo de recurso a que pretende ligar.
+1. Selecione **assinatura de acesso partilhado (SAS)**. Selecione **Seguinte**.
+1. Introduza o URL SAS que recebeu e introduza um nome de exibição único para a ligação. Selecione **Seguinte** e, em **seguida, Conecte-se**.
+ 
+Para obter mais informações sobre a fixação aos recursos, consulte [Anexar a um Recurso Individual](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=linux#attach-to-an-individual-resource).
 
 ### <a name="recommended-azure-built-in-roles"></a>Funções recomendadas do Azure
 
@@ -424,7 +432,7 @@ Se o botão **Open In Explorer** no portal Azure não funcionar, certifique-se d
 * Google Chrome
 * Microsoft Internet Explorer
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se nenhuma destas soluções funcionar para si, [abra um problema no GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues). Também pode fazê-lo selecionando a **emissão 'Relatório' para** o botão GitHub no canto inferior esquerdo.
 

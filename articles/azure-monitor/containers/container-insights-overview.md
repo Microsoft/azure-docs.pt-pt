@@ -3,12 +3,12 @@ title: Visão geral dos insights do contentor | Microsoft Docs
 description: Este artigo descreve insights de contentores que monitorizam a solução AKS Container Insights e o valor que fornece através da monitorização da saúde dos seus clusters AKS e Instâncias de Contentores em Azure.
 ms.topic: conceptual
 ms.date: 09/08/2020
-ms.openlocfilehash: 1055e2228c6625ae24e6bf388cf297e3e3363666
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a29890f569c47c48aae7d5d61badee7edeef58a0
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101723389"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102441521"
 ---
 # <a name="container-insights-overview"></a>Visão geral do contentor
 
@@ -58,7 +58,7 @@ As principais diferenças na monitorização de um cluster do Windows Server em 
 
 Confira o seguinte vídeo que proporciona um mergulho profundo de nível intermédio para ajudá-lo a aprender sobre a monitorização do seu cluster AKS com insights de Contentores.
 
-> [!VIDEO https://youtu.be/XEdwGvS2AwA]
+> [!VIDEO https://www.youtube.com/embed/XEdwGvS2AwA]
 
 ## <a name="how-do-i-access-this-feature"></a>Como acesso a esta funcionalidade?
 

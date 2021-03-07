@@ -7,12 +7,12 @@ ms.service: route-server
 ms.topic: overview
 ms.date: 03/02/2021
 ms.author: duau
-ms.openlocfilehash: 099f9b3769179076491c7c2098ec56faff9847dd
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: d868c064b96f58ab3febc1fd3b7f20b74d507cb0
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102039840"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102437166"
 ---
 # <a name="what-is-azure-route-server-preview"></a>O que é O Azure Route Server (Pré-visualização)? 
 
@@ -37,7 +37,7 @@ O Azure Route Server simplifica a configuração, gestão e implementação do s
 
 * Já não precisa de atualizar manualmente [as Rotas Definidas](../virtual-network/virtual-networks-udr-overview.md) pelo Utilizador sempre que o seu NVA anuncia novas rotas ou retira as antigas. 
 
-* Já não é necessário configurar um equilibrador de carga em frente ao seu NVA para fins de resiliência ou desempenho. Quando espreitar várias instâncias do seu NVA com O Azure Route Server, pode configurar os atributos BGP no seu NVA. Estes atributos BGP permitirão ao Azure Route Server que a instância NVA deve ser ativa ou passiva. 
+* Pode consultar várias instâncias do seu NVA com o Azure Route Server. Pode configurar os atributos BGP no seu NVA e, dependendo do seu design (por exemplo, ativo para desempenho ou active-passivo para a resiliência), deixe o Azure Route Server saber qual é o caso NVA ativo ou qual é passivo. 
 
 * A interface entre o NVA e o Azure Route Server baseia-se num protocolo padrão comum. Desde que o seu NVA suporte o BGP, pode espreitá-lo com o Azure Route Server. Para obter mais informações, consulte [os protocolos de encaminhamento suportados pelo Route Server](route-server-faq.md#protocol).
 

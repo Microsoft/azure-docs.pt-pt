@@ -6,16 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 02/02/2021
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 199ec8e2f1e8eb74d971286a4fc6180eb8b72f2a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: c2f66895fccd14dcffd8c5570f1d5f46933090aa
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100595970"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102439192"
 ---
 # <a name="enable-azure-monitor-on-your-azure-stack-edge-pro-gpu-device"></a>Ativar o Monitor Azure no seu dispositivo GPU Azure Stack Edge Pro
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 A monitorização de recipientes no seu dispositivo GPU Azure Stack Edge Pro é fundamental, especialmente quando está a executar várias aplicações de computação. O Azure Monitor permite-lhe recolher registos de contentores e métricas de memória e processador do cluster Kubernetes em execução no seu dispositivo.
 

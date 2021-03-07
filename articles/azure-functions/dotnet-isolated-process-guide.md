@@ -5,12 +5,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 03/01/2021
 ms.custom: template-concept
-ms.openlocfilehash: b13c19aea3c3d36bd1cb4237278e5f0edbb8ed54
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: d6db6c366ae51dbdc5bf062e79358f752e4a05f5
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102181725"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102425911"
 ---
 # <a name="guide-for-running-functions-on-net-50-in-azure"></a>Guia para executar funções em .NET 5.0 em Azure
 
@@ -174,7 +174,7 @@ Esta secção descreve o estado atual das diferenças funcionais e comportamenta
 | Registo | [`ILogger`](/dotnet/api/microsoft.extensions.logging.ilogger?view=dotnet-plat-ext-5.0&preserve-view=true) passou para a função | [`ILogger`](/dotnet/api/microsoft.extensions.logging.ilogger?view=dotnet-plat-ext-5.0&preserve-view=true) obtido a partir de `FunctionContext` |
 | Fichas de cancelamento | [Suportado](functions-dotnet-class-library.md#cancellation-tokens) | Não suportado |
 | Enlaces de saída | Parâmetros fora | Valores de retorno |
-| Tipos de enlace de saída |  `IAsyncCollector`, [DocumentoClient,](/dotnet/api/microsoft.azure.documents.client.documentclient?view=azure-dotnet&preserve-view=true) [BrokeredMessage,](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet&preserve-view=true)e outros tipos específicos do cliente | Tipos simples, tipos serializáveis JSON e matrizes. |
+| Tipos de enlace de saída |  `IAsyncCollector`, [DocumentoClient,](/dotnet/api/microsoft.azure.documents.client.documentclient) [BrokeredMessage,](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)e outros tipos específicos do cliente | Tipos simples, tipos serializáveis JSON e matrizes. |
 | Encadernações múltiplas de saída | Suportado | [Suportado](#multiple-output-bindings) |
 | Acionador HTTP | [`HttpRequest`](/dotnet/api/microsoft.aspnetcore.http.httprequest?view=aspnetcore-5.0&preserve-view=true)/[`ObjectResult`](/dotnet/api/microsoft.aspnetcore.mvc.objectresult?view=aspnetcore-5.0&preserve-view=true) | `HttpRequestData`/`HttpResponseData` |
 | Funções Duráveis | [Suportado](durable/durable-functions-overview.md) | Não suportado | 

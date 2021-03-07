@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9ee7116efe931d101a1505bc2d9d866d8ea5b92a
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: d91bfee228b946ff564f6d080976f9ce5c12caa4
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98943440"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102426268"
 ---
 # <a name="tutorial-voice-enable-your-bot-using-the-speech-sdk"></a>Tutorial: Ativar a voz do seu bot utilizando o SDK de discurso
 
@@ -69,7 +69,7 @@ Eis o que precisa para completar este tutorial:
 
 A aplicação de cliente que você vai criar neste tutorial usa um punhado de serviços Azure. Para reduzir o tempo de ida e volta para respostas do seu bot, você vai querer ter certeza de que estes serviços estão localizados na mesma região de Azure. Nesta secção, você vai criar um grupo de recursos na região **oeste dos EUA.** Este grupo de recursos será utilizado na criação de recursos individuais para o Quadro bot, o canal de fala da linha direta e o serviço Speech.
 
-1. <a href="https://ms.portal.azure.com/#create/Microsoft.ResourceGroup" target="_blank">Criar um grupo de recursos <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+1. <a href="https://ms.portal.azure.com/#create/Microsoft.ResourceGroup" target="_blank">Criar um grupo de recursos </a>
 1. Ser-lhe-á solicitado que forneça algumas informações:
    * Desa couuser a **Assinatura** **gratuita (também** pode utilizar uma subscrição existente).
    * Insira um nome para o seu **grupo de Recursos.** Recomendamos **o SpeechEchoBotTutorial-ResourceGroup**.
@@ -95,7 +95,7 @@ Agora que tem um grupo de recursos numa região apoiada, o próximo passo é cri
 
 Siga estas instruções para criar um recurso de discurso:
 
-1. <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Criar um recurso de serviço de fala <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+1. <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Criar um recurso de serviço de fala </a>
 4. Ser-lhe-á solicitado que forneça algumas informações:
    * Dê um **nome** ao seu recurso. Recomendamos **DiscursoEchoBotTutorial-Discurso**
    * Para **subscrição,** certifique-se de que **o Teste Gratuito** está selecionado.
@@ -115,7 +115,7 @@ Neste ponto, verifique se o seu grupo de recursos **(SpeechEchoBotTutorial-Resou
 
 O próximo passo é criar um Plano de Serviço de Aplicações. Um plano do Serviço de Aplicações define um conjunto de recursos de computação para a execução da aplicação Web.
 
-1. <a href="https://ms.portal.azure.com/#create/Microsoft.AppServicePlanCreate" target="_blank">Criar um plano de Serviço de Aplicações Azure <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+1. <a href="https://ms.portal.azure.com/#create/Microsoft.AppServicePlanCreate" target="_blank">Criar um plano de Serviço de Aplicações Azure </a>
 4. Ser-lhe-á solicitado que forneça algumas informações:
    * Desa couuser a **Assinatura** **gratuita (também** pode utilizar uma subscrição existente).
    * Para **o grupo de recursos**, selecione **SpeechEchoBotTutorial-ResourceGroup**.
@@ -236,7 +236,7 @@ Terá de fazer uma pequena alteração de configuração para que o seu bot poss
 
 Agora que criou um Serviço de Aplicações Azure para hospedar o seu bot, o próximo passo é criar um **Registo de Canais Bot**. A criação de um registo de canais é um pré-requisito para registar o seu bot com canais Bot Framework, incluindo o canal Direct Line Speech. Se quiser saber mais sobre como os bots usam canais, consulte [o Connect a bot para os canais.](/azure/bot-service/bot-service-manage-channels)
 
-1. <a href="https://ms.portal.azure.com/#create/Microsoft.BotServiceConnectivityGalleryPackage" target="_blank">Criar um registo de canais bot Azure <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+1. <a href="https://ms.portal.azure.com/#create/Microsoft.BotServiceConnectivityGalleryPackage" target="_blank">Criar um registo de canais bot Azure </a>
 2. Ser-lhe-á solicitado que forneça algumas informações:
    * Para **o manípulo Bot**, insira **SpeechEchoBotTutorial-BotRegistration-###** e **####** substitua por você é um número de escolha. Note que o cabo Bot deve ser globalmente único. Se introduzir uma pega Bot mas receber a mensagem de erro _O ID do bot solicitado não está disponível,_ em seguida, escolha um número diferente. Nos exemplos abaixo usamos 8726
    * Para **subscrição**, selecione **Free Trial**.
@@ -467,12 +467,12 @@ Se não continuar a utilizar o eco-bot implantado neste tutorial, pode removê-l
 2. Encontre o grupo de recursos nomeado: **SpeechEchoBotTutorial-ResourceGroup**. Clique nos três pontos (...).
 3. Selecione **Eliminar grupo de recursos**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Construa a sua própria app de clientes com o Speech SDK](./quickstarts/voice-assistants.md?pivots=programming-language-csharp)
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 * Implantação numa [região de Azure perto de si](https://azure.microsoft.com/global-infrastructure/locations/) para ver a melhoria do tempo de resposta do bot
 * Implantação numa [região do Azure que suporta vozes neurais de alta qualidade](./regions.md#standard-and-neural-voices)

@@ -8,18 +8,18 @@ ms.topic: tutorial
 ms.date: 10/07/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my corporate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
-ms.openlocfilehash: 07053c096ce001b322e5f05556bd041519ca9d2e
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 080136b8fc25b08a6b96464f0a61115a4bb2f3f8
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102481"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102426629"
 ---
 # <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan"></a>Tutorial: Criar uma associação ExpressRoute usando Azure Virtual WAN
 
 Este tutorial mostra-lhe como usar o WAN Virtual para se conectar aos seus recursos em Azure sobre um circuito ExpressRoute. Para obter mais informações sobre os recursos VIRTUAIS WAN e Virtual WAN, consulte a [Visão Geral do WAN Virtual.](virtual-wan-about.md)
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Criar uma WAN Virtual
@@ -86,7 +86,7 @@ Também pode criar uma porta de entrada num hub existente editando-o.
 
 ### <a name="to-view-a-gateway"></a>Para ver uma porta de entrada
 
-Uma vez criado um gateway ExpressRoute, pode ver os detalhes do gateway. Navegue até ao centro, selecione **ExpressRoute**e veja o gateway.
+Uma vez criado um gateway ExpressRoute, pode ver os detalhes do gateway. Navegue até ao centro, selecione **ExpressRoute** e veja o gateway.
 
 ![Ver porta de entrada](./media/virtual-wan-expressroute-portal/viewgw.png "ver porta de entrada")
 
@@ -153,13 +153,11 @@ Se quiser que o hub virtual Azure anuncie a rota padrão 0.0.0.0/0 para os seus 
 
    ![Propagar a rota padrão](./media/virtual-wan-expressroute-portal/defaultroute2.png "Propagar a rota padrão")
 
-## <a name="clean-up-resources"></a><a name="cleanup"></a>Limpar recursos
+## <a name="clean-up-resources"></a><a name="cleanup"></a>Limpar os recursos
 
-Quando já não precisar desses recursos, pode utilizar [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) para remover o grupo de recursos e todos os recursos que o mesmo contém. Substitua "myResourceGroup" pelo nome do grupo de recursos e execute o seguinte comando do PowerShell:
+Quando já não precisar dos recursos que criou, elimine-os. Alguns dos recursos DE WAN virtuais devem ser eliminados numa determinada ordem devido a dependências. Apagar pode levar cerca de 30 minutos para ser concluído.
 
-```azurepowershell-interactive
-Remove-AzResourceGroup -Name myResourceGroup -Force
-```
+[!INCLUDE [Delete resources](../../includes/virtual-wan-resource-cleanup.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 

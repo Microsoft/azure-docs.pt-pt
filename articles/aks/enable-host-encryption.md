@@ -4,12 +4,12 @@ description: Saiba como configurar uma encriptação baseada no anfitrião num c
 services: container-service
 ms.topic: article
 ms.date: 03/03/2021
-ms.openlocfilehash: 66e71dfd6a76fb4e6b464eb5c44dcc809fb9be38
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: f4e599ae7aa81c15f86d0e8b1c934824010ea45b
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102039738"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102430161"
 ---
 # <a name="host-based-encryption-on-azure-kubernetes-service-aks-preview"></a>Encriptação baseada no anfitrião no Serviço Azure Kubernetes (AKS) (pré-visualização)
 
@@ -48,7 +48,7 @@ az extension update --name aks-preview
 
 ### <a name="limitations"></a>Limitações
 
-- Só pode ser ativado em novas piscinas de nós ou novos aglomerados.
+- Só pode ser ativado em novas piscinas de nó.
 - Só pode ser ativado nas [regiões do Azure][supported-regions] que suportam a encriptação do lado do servidor dos discos geridos pelo Azure e apenas com [tamanhos VM suportados específicos][supported-sizes].
 - Requer um cluster AKS e uma piscina de nó com base em conjuntos de balança de máquina virtual (VMSS) como *tipo de conjunto VM*.
 

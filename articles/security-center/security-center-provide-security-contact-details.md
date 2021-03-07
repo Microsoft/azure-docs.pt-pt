@@ -1,24 +1,18 @@
 ---
 title: Configure notificações de e-mail para alertas do Centro de Segurança Azure
 description: Saiba como afinar os tipos de e-mails enviados pelo Azure Security Center para alertas de segurança.
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetid: 26b5dcb4-ce3f-4f22-8d56-d2bf743cfc90
 ms.service: security-center
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 02/09/2021
 ms.author: memildin
-ms.openlocfilehash: d5c8ad0c4d9995a36b95ad2e67878f678887bfd2
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 342904a3ae996fe8c2eeddf2edfbc4283a3d03eb
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101701982"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102439447"
 ---
 # <a name="configure-email-notifications-for-security-alerts"></a>Configure notificações de email para alertas de segurança 
 

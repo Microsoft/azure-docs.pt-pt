@@ -1,21 +1,23 @@
 ---
-title: Implementar app apátrida kubernetes no Azure Stack Edge Pro GPU via módulo IoT Edge Microsoft Docs
+title: Implementar a aplicação apátrida da Kubernetes no GPU Azure Stack Edge Pro através do módulo IoT Edge| Microsoft Docs
 description: Descreve como implementar uma aplicação apátrida Kubernetes no seu dispositivo GPU Azure Stack Edge Pro utilizando um módulo IoT Edge que é acedido através de um IP externo.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/26/2020
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 4bc598080b96886e6734ac3709761465a1a28d49
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4eda6eaf69fad6f8600651660ae4ac6223fe8f8c
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90899528"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102438068"
 ---
 # <a name="use-iot-edge-module-to-run-a-kubernetes-stateless-application-on-your-azure-stack-edge-pro-gpu-device"></a>Utilize o módulo IoT Edge para executar uma aplicação apátrida kubernetes no seu dispositivo GPU Azure Stack Edge Pro
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 Este artigo descreve como pode utilizar um módulo IoT Edge para implementar uma aplicação apátrida no seu dispositivo Azure Stack Edge Pro.
 
@@ -82,7 +84,7 @@ Tome os seguintes passos para adicionar um módulo de aplicação webserver no s
 
 ## <a name="verify-module-access"></a>Verificar acesso ao módulo
 
-1. Verifique se o módulo está implantado com sucesso e está a funcionar. No **separador Módulos,** o estado de **funcionamento**do módulo deve estar em funcionamento .  
+1. Verifique se o módulo está implantado com sucesso e está a funcionar. No **separador Módulos,** o estado de **funcionamento** do módulo deve estar em funcionamento .  
 
     ![Verifique o estado do módulo em execução](media/azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module/verify-module-status-1.png)
 

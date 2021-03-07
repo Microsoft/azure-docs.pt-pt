@@ -454,6 +454,8 @@
           href: how-to-understand-automated-ml.md
         - name: Utilizar modelo ONNX na aplicação .NET
           href: how-to-use-automl-onnx-model-dotnet.md
+        - name: Resolução de problemas automatizado ML
+          href: how-to-troubleshoot-auto-ml.md
     - name: Implementar e fornecer modelos
       items:
         - name: Onde e como implementar

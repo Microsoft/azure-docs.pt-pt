@@ -3,13 +3,13 @@ title: Criar um cluster privado de serviçoS Azure Kubernetes
 description: Saiba como criar um cluster privado do Serviço Azure Kubernetes (AKS)
 services: container-service
 ms.topic: article
-ms.date: 7/17/2020
-ms.openlocfilehash: f0c74c1b3715fd3f5c83c3a9231009e622b87927
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.date: 3/5/2021
+ms.openlocfilehash: d5f39460ad821265aed2c21d7426aa894f7cc933
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102181232"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102425112"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>Criar um cluster privado de serviçoS Azure Kubernetes
 
@@ -70,19 +70,26 @@ Onde `--enable-private-cluster` está uma bandeira obrigatória para um aglomera
 
 Os seguintes parâmetros podem ser alavancados para configurar a Zona Privada de DNS.
 
-1. "Sistema" é o valor predefinido. Se o argumento da zona de dns-private for omitido, a AKS criará uma Zona Privada de DNS no Grupo de Recursos de Nó.
-2. "Nenhum" significa que a AKS não criará uma Zona Privada de DNS.  Isto requer que você traga o seu próprio servidor DNS e configurar a resolução DNS para o FQDN privado.  Se não configurar a resolução DNS, o DNS só é resolúvel dentro dos nós do agente e causará problemas de cluster após a implementação.
-3. "Nome de zona de dns privado personalizado" deve estar neste formato para a nuvem global azul: `privatelink.<region>.azmk8s.io` . Você vai precisar do ID de recursos daquela Zona Privada de DNS.  Além disso, você precisará de um utilizador atribuído identidade ou principal de serviço com pelo menos a `private dns zone contributor` função para a zona de DNS privado personalizado.
+- "Sistema" é o valor predefinido. Se o argumento da zona de dns-private for omitido, a AKS criará uma Zona Privada de DNS no Grupo de Recursos de Nó.
+- "Nenhum" significa que a AKS não criará uma Zona Privada de DNS.  Isto requer que você traga o seu próprio servidor DNS e configurar a resolução DNS para o FQDN privado.  Se não configurar a resolução DNS, o DNS só é resolúvel dentro dos nós do agente e causará problemas de cluster após a implementação. 
+- "CUSTOM_PRIVATE_DNS_ZONE_RESOURCE_ID" requer que crie uma Zona Privada de DNS neste formato para uma nuvem global azul: `privatelink.<region>.azmk8s.io` . Vai precisar da identificação de recursos daquela Zona Privada de DNS.  Além disso, você precisará de um utilizador atribuído identidade ou principal de serviço com pelo menos a `private dns zone contributor` função.
+- "fqdn-subdomínio" só pode ser utilizado com "CUSTOM_PRIVATE_DNS_ZONE_RESOURCE_ID" apenas para fornecer capacidades de subdomínio para `privatelink.<region>.azmk8s.io`
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-* A versão de pré-visualização AKS 0.4.71 ou posterior
+* A versão de pré-visualização AKS 0.5.3 ou posterior
 * A versão api 2020-11-01 ou mais tarde
 
 ### <a name="create-a-private-aks-cluster-with-private-dns-zone-preview"></a>Criar um cluster AKS privado com Zona Privada de DNS (Pré-visualização)
 
 ```azurecli-interactive
-az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --enable-managed-identity --assign-identity <ResourceId> --private-dns-zone [none|system|custom private dns zone ResourceId]
+az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --enable-managed-identity --assign-identity <ResourceId> --private-dns-zone [system|none]
+```
+
+### <a name="create-a-private-aks-cluster-with-a-custom-private-dns-zone-preview"></a>Crie um cluster AKS privado com uma Zona DE DNS Privada Personalizada (Pré-visualização)
+
+```azurecli-interactive
+az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --enable-managed-identity --assign-identity <ResourceId> --private-dns-zone <custom private dns zone ResourceId> --fqdn-subdomain <subdomain-name>
 ```
 ## <a name="options-for-connecting-to-the-private-cluster"></a>Opções de ligação ao cluster privado
 

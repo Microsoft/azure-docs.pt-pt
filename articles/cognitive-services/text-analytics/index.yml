@@ -13,12 +13,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 02/09/2019
   ms.author: aahi
-  ms.openlocfilehash: 0a9e106142858d776f9e7ffa5048b46055f69d8f
-  ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+  ms.openlocfilehash: 3b0f11be959debb4c594f192d1e5fb89f54906a2
+  ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/05/2021
-  ms.locfileid: "102214648"
+  ms.lasthandoff: 03/07/2021
+  ms.locfileid: "102431929"
 landingContent:
 - title: Acerca da API de Análise de Texto
   linkLists:
@@ -153,7 +153,7 @@ landingContent:
     - text: REST API (v3.0)
       url: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0
     - text: Biblioteca de cliente .NET
-      url: /dotnet/api/overview/azure/ai.textanalytics-readme?view=azure-dotnet
+      url: /dotnet/api/overview/azure/ai.textanalytics-readme
     - text: Biblioteca de cliente Python
       url: /python/api/overview/azure/ai-textanalytics-readme?view=azure-python
     - text: Biblioteca de cliente do JavaScript

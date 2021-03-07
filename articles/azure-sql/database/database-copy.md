@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sashan
 ms.reviewer: ''
 ms.date: 10/30/2020
-ms.openlocfilehash: 7f053b1984a2d838deb14bacd10cdc071e19d8a1
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: b112506acead01e8dc2bbe72b0d52f47ada326a7
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98035143"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102440416"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-a-database-in-azure-sql-database"></a>Copie uma cópia transaccionalmente consistente de uma base de dados na Base de Dados Azure SQL
 
@@ -24,7 +24,7 @@ ms.locfileid: "98035143"
 
 A Azure SQL Database fornece vários métodos para criar uma cópia de uma base de [dados](single-database-overview.md) existente no mesmo servidor ou num servidor diferente. Pode copiar uma base de dados utilizando o portal Azure, PowerShell, Azure CLI ou T-SQL.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Uma cópia de base de dados é uma imagem transaccionalmente consistente da base de dados de origem a partir de um ponto no tempo após o pedido de cópia ser iniciado. Pode selecionar o mesmo servidor ou um servidor diferente para a cópia. Também pode optar por manter o tamanho de redundância de backup, nível de serviço e tamanho de cálculo da base de dados de origem, ou utilizar um tamanho de armazenamento de backup diferente e/ou tamanho de cálculo dentro do mesmo ou de um nível de serviço diferente. Após a cópia estar completa, torna-se uma base de dados totalmente funcional e independente. Os logins, utilizadores e permissões na base de dados copiada são geridos independentemente da base de dados de origem. A cópia é criada utilizando a tecnologia de geo-replicação. Após a conclusão da propagação da réplica, a ligação da georreplicação será encerrada automaticamente. Todos os requisitos para utilizar a georreplicação se aplicam à operação da cópia da base de dados. Consulte [a visão geral da replicação de geo-replicação ativa](active-geo-replication-overview.md) para obter mais detalhes.
 
@@ -194,7 +194,7 @@ Monitorize o processo de cópia consultando as [vistas sys.databases](/sql/relat
 > [!IMPORTANT]
 > Se precisar de criar uma cópia com um objetivo de serviço substancialmente menor do que a fonte, a base de dados-alvo pode não ter recursos suficientes para completar o processo de sementeira e pode fazer com que a cópia operaion falhe. Neste cenário, utilize um pedido de geo-restauro para criar uma cópia num servidor diferente e/ou numa região diferente. Consulte [a Recuperação de uma Base de Dados Azure SQL utilizando cópias de dados](recovery-using-backups.md#geo-restore) para obter mais informações.
 
-## <a name="azure-roles-to-manage-database-copy"></a>Funções Azure para gerir cópia de base de dados
+## <a name="azure-rbac-roles-and-permissions-to-manage-database-copy"></a>Funções e permissões do Azure RBAC para gerir a cópia da base de dados
 
 Para criar uma cópia de base de dados, terá de estar nas seguintes funções
 

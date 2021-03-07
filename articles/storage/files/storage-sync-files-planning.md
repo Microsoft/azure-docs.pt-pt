@@ -8,12 +8,12 @@ ms.date: 01/29/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 197bd1ab63093a18bd7838349acb3aed11a98e16
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 171e858ef06228f2bf5ef5dea662de00143a0567
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102202387"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102441946"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planear uma implementação da Sincronização de Ficheiros do Azure
 
@@ -242,6 +242,16 @@ Se o tiering da nuvem estiver ativado num ponto final do servidor, os ficheiros 
 
 ### <a name="other-hierarchical-storage-management-hsm-solutions"></a>Outras soluções hierárquicas de gestão de armazenamento (HSM)
 Nenhuma outra solução HSM deve ser utilizada com a Azure File Sync.
+
+## <a name="performance-and-scalability"></a>Desempenho e escalabilidade
+
+Uma vez que o agente Azure File Sync funciona numa máquina do Windows Server que se conecta às partilhas de ficheiros Azure, o desempenho sincronizado eficaz depende de uma série de fatores na sua infraestrutura: Windows Server e a configuração subjacente do disco, largura de banda de rede entre o servidor e o armazenamento do Azure, tamanho do ficheiro, tamanho total do conjunto de dados e a atividade no conjunto de dados. Uma vez que o Azure File Sync funciona ao nível do ficheiro, as características de desempenho de uma solução baseada em Azure File Sync são melhor medidas no número de objetos (ficheiros e diretórios) processados por segundo.
+
+As alterações efetuadas na partilha de ficheiros Azure utilizando o portal Azure ou SMB não são imediatamente detetadas e replicadas como alterações no ponto final do servidor. O Azure Files ainda não tem notificações ou diários alterados, pelo que não há forma de iniciar automaticamente uma sessão de sincronização quando os ficheiros são alterados. No Windows Server, o Azure File Sync utiliza [o diário USN do Windows](https://docs.microsoft.com/windows/win32/fileio/change-journals) para iniciar automaticamente uma sessão de sincronização quando os ficheiros mudam
+
+Para detetar alterações na partilha de ficheiros Azure, o Azure File Sync tem um trabalho programado chamado de trabalho de deteção de alterações. Um trabalho de deteção de alterações enumera todos os ficheiros da partilha de ficheiros e, em seguida, compara-o com a versão sincronizada desse ficheiro. Quando o trabalho de deteção de alterações determina que os ficheiros foram alterados, o Azure File Sync inicia uma sessão de sincronização. O trabalho de deteção de alterações é iniciado a cada 24 horas. Como o trabalho de deteção de alterações funciona enumerando todos os ficheiros na partilha de ficheiros Azure, a deteção de alterações demora mais tempo em espaços de nome maiores do que em espaços de nome mais pequenos. Para grandes espaços de nome, pode levar mais do que uma vez a cada 24 horas para determinar quais os ficheiros que mudaram.
+
+Para obter mais informações, consulte [as métricas de desempenho do Azure File Sync](storage-files-scale-targets.md#azure-file-sync-performance-metrics) e os [alvos da escala de sincronização de ficheiros Azure](storage-files-scale-targets.md#azure-file-sync-scale-targets)
 
 ## <a name="identity"></a>Identidade
 O Azure File Sync funciona com a sua identidade padrão baseada em AD sem qualquer configuração especial para além de configurar sincronização. Quando está a utilizar o Azure File Sync, a expectativa geral é que a maioria dos acessos passe pelos servidores de caching de ficheiros Azure, em vez de através da partilha de ficheiros Azure. Uma vez que os pontos finais do servidor estão localizados no Windows Server, e o Windows Server tem suportado ACLs de estilo AD e Windows durante muito tempo, nada é necessário para além de garantir que os servidores de ficheiros do Windows registados no Serviço de Sincronização de Armazenamento estão ligados ao domínio. O Azure File Sync irá armazenar ACLs nos ficheiros na partilha de ficheiros Azure e irá replicá-los em todos os pontos finais do servidor.

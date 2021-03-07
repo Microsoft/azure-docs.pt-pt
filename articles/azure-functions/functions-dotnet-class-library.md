@@ -4,12 +4,12 @@ description: Entenda como usar O C# para desenvolver e publicar código que exec
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 07/24/2020
-ms.openlocfilehash: e29b250b25bdafb2b3af26f5669f2ae5ed485457
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 748b4a2a6af1c0183e28af8da732bc90531bee29
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102041200"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102428418"
 ---
 # <a name="develop-c-functions-using-azure-functions"></a>Desenvolver funções C# utilizando funções Azure
 
@@ -23,24 +23,40 @@ Este artigo é uma introdução ao desenvolvimento de Funções Azure utilizando
 Como desenvolvedor C#, também poderá estar interessado num dos seguintes artigos:
 
 | Introdução | Conceitos| Aprendizagem/amostras guiadas |
-| -- | -- | -- | 
+|--| -- |--| 
 | <ul><li>[Com o Visual Studio](functions-create-your-first-function-visual-studio.md)</li><li>[Utilizar o Visual Studio Code](create-first-function-vs-code-csharp.md)</li><li>[Usando ferramentas de linha de comando](create-first-function-cli-csharp.md)</li></ul> | <ul><li>[Opções de alojamento](functions-scale.md)</li><li>[&nbsp;Considerações de desempenho](functions-best-practices.md)</li><li>[Desenvolvimento do Visual Studio](functions-develop-vs.md)</li><li>[Injeção de dependência](functions-dotnet-dependency-injection.md)</li></ul> | <ul><li>[Criar aplicações sem servidor](/learn/paths/create-serverless-applications/)</li><li>[Amostras em C#](/samples/browse/?products=azure-functions&languages=csharp)</li></ul> |
 
 A Azure Functions suporta linguagens de programação de scripts C# e C#. Se estiver à procura de orientação sobre [a utilização de C# no portal Azure,](functions-create-function-app-portal.md)consulte a [referência do programador do script C# (.csx).](functions-reference-csharp.md)
 
 ## <a name="supported-versions"></a>Versões suportadas
 
-As versões do tempo de execução das Funções funcionam com versões específicas de .NET. A tabela a seguir mostra o nível mais alto de .NET Core e .NET Framework e .NET Core que podem ser utilizados com uma versão específica de Funções no seu projeto. 
+As versões do tempo de execução das Funções funcionam com versões específicas de .NET. Para saber mais sobre as versões de Funções, consulte [as versões de tempo de execução do Azure Functions](functions-versions.md)
+
+A tabela a seguir mostra o nível mais alto de .NET Core ou .NET Framework que pode ser usado com uma versão específica de Funções. 
 
 | Versão de tempo de execução de funções | Versão Max .NET |
 | ---- | ---- |
-| Funções 3.x | .NET Core 3.1<br/>.NET 5.0<sup>*</sup> |
-| Funções 2.x | .NET Core 2.2 |
+| Funções 3.x | .NET Core 3.1<br/>.NET 5.0<sup>1</sup> |
+| Funções 2.x | .NET Core 2.2<sup>2</sup> |
 | Funções 1.x | .Net Quadro 4.7 |
 
-<sup>*</sup>Deve [ficar fora de processo.](dotnet-isolated-process-guide.md)
+<sup>1</sup> Deve [ficar sem processo.](dotnet-isolated-process-guide.md)  
+<sup>2</sup> Para mais detalhes, consulte [as considerações de Funções v2.x](#functions-v2x-considerations).   
 
-Para saber mais, consulte [as versões de tempo de execução do Azure Functions](functions-versions.md)
+Para as últimas notícias sobre os lançamentos do Azure Functions, incluindo a remoção de versões menores específicas, monitorize [os anúncios do Azure App Service](https://github.com/Azure/app-service-announcements/issues).
+
+### <a name="functions-v2x-considerations"></a>Funções v2.x considerações
+
+As aplicações de função que visam a versão mais recente 2.x ( `~2` ) são automaticamente atualizadas para serem executadas em .NET Core 3.1. Devido à quebra de alterações entre as versões .NET Core, nem todas as aplicações desenvolvidas e compiladas contra .NET Core 2.2 podem ser atualizadas com segurança para .NET Core 3.1. Pode optar por não fazer esta atualização fixando a sua aplicação de função a `~2.0` . As funções também detetam APIs incompatíveis e podem fixar a sua aplicação `~2.0` para evitar uma execução incorreta em .NET Core 3.1. 
+
+>[!NOTE]
+>Se a sua aplicação de função estiver presa `~2.0` e alterar este alvo de versão `~2` para, a sua aplicação de função poderá quebrar. Se implementar usando modelos ARM, verifique a versão nos seus modelos. Se isto ocorrer, altere a sua versão de volta para target `~2.0` e corrija problemas de compatibilidade. 
+
+As aplicações de função que visam `~2.0` continuam a funcionar em .NET Core 2.2. Esta versão de .NET Core já não recebe atualizações de segurança e outras atualizações de manutenção. Para saber mais, consulte [esta página de anúncios.](https://github.com/Azure/app-service-announcements/issues/266) 
+
+Deve trabalhar para tornar as suas funções compatíveis com .NET Core 3.1 o mais rapidamente possível. Depois de resolver estes problemas, altere a sua versão de volta `~2` para `~3` . Para saber mais sobre versões de segmentação do tempo de execução das Funções, consulte [como direcionar as versões de tempo de execução do Azure Functions](set-runtime-version.md).
+
+Ao executar o Linux num plano Premium ou dedicado (Serviço de Aplicações), fixa a sua versão, ao invés de direcionar uma imagem específica, definindo a `linuxFxVersion` definição de configuração do site `DOCKER|mcr.microsoft.com/azure-functions/dotnet:2.0.14786-appservice` para aprender a definir , consulte `linuxFxVersion` [atualizações de versão manual no Linux](set-runtime-version.md#manual-version-updates-on-linux).
 
 ## <a name="functions-class-library-project"></a>Projeto de biblioteca de classes de funções
 
@@ -90,7 +106,7 @@ O atributo gatilho especifica o tipo de gatilho e liga os dados de entrada a um 
 
 ## <a name="method-signature-parameters"></a>Parâmetros de assinatura do método
 
-A assinatura do método pode conter parâmetros diferentes dos utilizados com o atributo do gatilho. Aqui estão alguns dos parâmetros adicionais que pode incluir:
+A assinatura do método pode conter parâmetros diferentes dos utilizados com o atributo do gatilho. Aqui estão alguns dos outros parâmetros que pode incluir:
 
 * [Entradas e encadernações de saída marcadas](functions-triggers-bindings.md) como tal, decorando-as com atributos.  
 * Um `ILogger` `TraceWriter` parâmetro ou[(versão 1.x-only)](functions-versions.md#creating-1x-apps)para [o registo.](#logging)
@@ -147,7 +163,7 @@ public static class BindingExpressionsExample
 
 O processo de construção cria uma *function.jsno* ficheiro numa pasta de função na pasta de construção. Como já foi notado anteriormente, este ficheiro não deve ser editado diretamente. Não é possível alterar a configuração de encadernação ou desativar a função editando este ficheiro. 
 
-O objetivo deste ficheiro é fornecer informações ao controlador de escala para utilizar para [as decisões de escalonamento do plano de consumo.](event-driven-scaling.md) Por esta razão, o ficheiro tem apenas informações de gatilho, não entradas ou encadernações de saída.
+O objetivo deste ficheiro é fornecer informações ao controlador de escala para utilizar para [as decisões de escalonamento do plano de consumo.](event-driven-scaling.md) Por esta razão, o ficheiro tem apenas informações de gatilho, não encadernações de entrada/saída.
 
 O *function.js* gerado no ficheiro inclui uma `configurationSource` propriedade que diz ao tempo de execução para usar atributos .NET para encadernações, em vez *defunction.jsna* configuração. Eis um exemplo:
 
@@ -172,7 +188,7 @@ O *function.js* gerado no ficheiro inclui uma `configurationSource` propriedade 
 
 A *function.jsna* geração de ficheiros é executada pelo pacote NuGet Microsoft NET [ \. \. Sdk \. Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions). 
 
-O mesmo pacote é utilizado tanto para as versões 1.x como para 2.x do tempo de execução das Funções. O quadro-alvo é o que diferencia um projeto de 1.x de um projeto 2.x. Aqui estão as partes relevantes dos *ficheiros .csproj,* mostrando diferentes quadros-alvo e o mesmo `Sdk` pacote:
+O mesmo pacote é utilizado tanto para as versões 1.x como para 2.x do tempo de execução das Funções. O quadro-alvo é o que diferencia um projeto de 1.x de um projeto 2.x. Aqui estão as partes relevantes dos *ficheiros .csproj,* mostrando diferentes quadros-alvo com o mesmo `Sdk` pacote:
 
 # <a name="v2x"></a>[v2.x+](#tab/v2)
 
@@ -625,7 +641,7 @@ public static class IBinderExample
 
 [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.Storage/Blobs/BlobAttribute.cs) define a entrada [blob de armazenamento](functions-bindings-storage-blob.md) ou a ligação de saída, e [o TextWriter](/dotnet/api/system.io.textwriter) é um tipo de ligação de saída suportado.
 
-### <a name="multiple-attribute-example"></a>Exemplo de atributo múltiplo
+### <a name="multiple-attributes-example"></a>Exemplo de vários atributos
 
 O exemplo anterior obtém a definição da aplicação para a principal cadeia de ligação da conta de armazenamento da aplicação de função (que `AzureWebJobsStorage` é). Pode especificar uma definição de aplicação personalizada para utilizar para a conta de Armazenamento adicionando o [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) e passando o conjunto de atributos em `BindAsync<T>()` . Use um `Binder` parâmetro, `IBinder` não.  Por exemplo:
 
