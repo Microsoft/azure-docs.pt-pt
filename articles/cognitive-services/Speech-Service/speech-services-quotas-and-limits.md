@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/07/2020
+ms.date: 02/24/2021
 ms.author: alexeyo
-ms.openlocfilehash: f5566276f4555e2480434e385bf2129f5b8cdd24
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: f6c7ec3f66d0ab9186645654adf3c062c241e5d0
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101699985"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102449854"
 ---
 # <a name="speech-services-quotas-and-limits"></a>Limites e Quotas dos Serviços de Voz
 
@@ -30,7 +30,9 @@ Nas tabelas abaixo Os parâmetros sem linha "ajustável" **não** são ajustáve
 
 | Quota | Grátis (F0)<sup>1</sup> | Padrão (S0) |
 |--|--|--|
-| **Limite de pedido simultâneo (modelos base e personalizado)** | 1 | 20 (valor predefinido) |
+| **Limite de pedido simultâneo - Modelo base** | 1 | 100 (valor predefinido) |
+| Ajustável | Nº<sup>2</sup> | Sim<sup>2</sup> |
+| **Limite de pedido simultâneo - modelo personalizado** | 1 | 20 (valor predefinido) |
 | Ajustável | Nº<sup>2</sup> | Sim<sup>2</sup> |
 
 #### <a name="batch-transcription"></a>Transcrição do lote

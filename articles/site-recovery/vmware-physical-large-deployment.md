@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: 101e42263e46c5a21f26b0fa9cdeed798525fee9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc87429f269fba5083b87e2c328f0e21de9707ff
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89047091"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102454352"
 ---
 # <a name="set-up-disaster-recovery-at-scale-for-vmware-vmsphysical-servers"></a>Configurar a recuperação de desastres à escala para VMware VMs/servidores físicos
 
@@ -100,8 +100,8 @@ O que obedece significa? Para iniciar um Azure VM, a Azure exige que alguns cond
 
 **A máquina está de acordo com o Azure?** | **Limites Azure VM (falha de disco gerido)**
 --- | --- 
-Sim | 2000
-Não | 1000
+Yes | 2000
+No | 1000
 
 - Os limites pressupõem que estão em curso outros postos de trabalho mínimos na região-alvo para a subscrição.
 - Algumas regiões de Azure são menores e podem ter limites ligeiramente mais baixos.
@@ -214,7 +214,7 @@ Para executar uma falha em larga escala, recomendamos o seguinte:
     - [Saiba mais](recovery-plan-overview.md) sobre planos de recuperação.
 2. Adicione scripts de runbook da Azure Automation aos planos de recuperação, para automatizar quaisquer tarefas manuais no Azure. As tarefas típicas incluem configurar os equilibradores de carga, atualizar o DNS, etc. [Saiba mais](site-recovery-runbook-automation.md)
 2. Antes de falhar, prepare as máquinas Windows de modo a que cumpram o ambiente Azure. [Os limites de incumprimento](#plan-azure-subscriptions-and-quotas) são mais elevados para as máquinas que cumprem. [Saiba mais](site-recovery-failover-to-azure-troubleshoot.md#failover-failed-with-error-id-170010) sobre os livros de corridas.
-4.  Falha no gatilho com o [start-AzRecoveryServicesAsrPlannedFailoverJob](/powershell/module/az.recoveryservices/start-azrecoveryservicesasrplannedfailoverjob?view=azps-2.0.0&viewFallbackFrom=azps-1.1.0) PowerShell cmdlet, juntamente com um plano de recuperação.
+4.  Falha no gatilho com o [start-AzRecoveryServicesAsrPlannedFailoverJob](/powershell/module/az.recoveryservices/start-azrecoveryservicesasrplannedfailoverjob) PowerShell cmdlet, juntamente com um plano de recuperação.
 
 
 

@@ -7,14 +7,14 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
-ms.date: 03/05/2021
+ms.date: 03/08/2021
 tags: connectors
-ms.openlocfilehash: 2820fe9d885187071924386ef71eb12fd42bbf01
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 3e98dc36b3d58ce5289fccde7b5f5a49973c9de6
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102426455"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102454231"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Ligar-se a sistemas SAP a partir de Azure Logic Apps
 
@@ -30,7 +30,7 @@ Este artigo explica como pode aceder aos seus recursos SAP a partir de Aplicaç�
 
     * Se você está executando seu aplicativo de lógica em multi-inquilino Azure, consulte os [pré-requisitos de vários inquilinos](#multi-tenant-azure-prerequisites).
 
-    * Se estiver a executar a sua aplicação lógica num ambiente de serviço de integração de nível Premium[ (ISE),](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)consulte os [pré-requisitos ise](#ise-prerequisites).
+    * Se estiver a executar a sua aplicação lógica num ambiente de serviço de integração de nível Premium [(ISE),](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)consulte os [pré-requisitos ise](#ise-prerequisites).
 
 * Um [servidor de aplicações SAP](https://wiki.scn.sap.com/wiki/display/ABAP/ABAP+Application+Server) ou servidor de [mensagens SAP](https://help.sap.com/saphelp_nw70/helpdata/en/40/c235c15ab7468bb31599cc759179ef/frameset.htm) que pretende aceder a partir de Aplicações Lógicas. Para obter informações sobre os servidores SAP e as ações SAP que pode utilizar com o conector, consulte [a compatibilidade do SAP](#sap-compatibility).
 
@@ -633,6 +633,14 @@ Para enviar IDocs do SAP para a sua aplicação lógica, precisa da seguinte con
     * Para o seu **Destino RFC,** insira um nome.
     
     * No separador **Definições Técnicas,** para **Tipo de Ativação,** selecione **Programa de Servidor Registado**. Para o seu **ID do programa,** insira um valor. No SAP, o gatilho da sua aplicação lógica será registado utilizando este identificador.
+
+    > [!IMPORTANT]
+    > O **ID do Programa** SAP é sensível a casos. Certifique-se de que utiliza sistematicamente o mesmo formato de caso para o seu **ID do programa** quando configurar a sua aplicação lógica e servidor SAP. Caso contrário, poderá receber os seguintes erros no monitor tRFC (T-Code SM58) quando tentar enviar um IDoc para SAP:
+    >
+    > * **Função não IDOC_INBOUND_ASYNCHRONOUS encontrada**
+    > * **Cliente RFC não-ABAP (tipo parceiro) não suportado**
+    >
+    > Para obter mais informações da SAP, consulte as seguintes notas (início de sessão obrigatório) <https://launchpad.support.sap.com/#/notes/2399329> e <https://launchpad.support.sap.com/#/notes/353597> .
     
     * No **separador Unicode,** para **Tipo de Comunicação com Sistema Alvo,** selecione **Unicode**.
 
@@ -745,6 +753,14 @@ Pode configurar o SAP para [enviar IDocs em pacotes,](https://help.sap.com/viewe
 Aqui está um exemplo que mostra como extrair IDocs individuais de um pacote usando a [ `xpath()` função:](./workflow-definition-language-functions-reference.md#xpath)
 
 1. Antes de começar, precisa de uma aplicação lógica com um gatilho SAP. Se ainda não tem esta aplicação lógica, siga os passos anteriores neste tópico para [configurar uma aplicação lógica com um gatilho SAP](#receive-message-from-sap).
+
+    > [!IMPORTANT]
+    > O **ID do Programa** SAP é sensível a casos. Certifique-se de que utiliza sistematicamente o mesmo formato de caso para o seu **ID do programa** quando configurar a sua aplicação lógica e servidor SAP. Caso contrário, poderá receber os seguintes erros no monitor tRFC (T-Code SM58) quando tentar enviar um IDoc para SAP:
+    >
+    > * **Função não IDOC_INBOUND_ASYNCHRONOUS encontrada**
+    > * **Cliente RFC não-ABAP (tipo parceiro) não suportado**
+    >
+    > Para obter mais informações da SAP, consulte as seguintes notas (início de sessão obrigatório) <https://launchpad.support.sap.com/#/notes/2399329> e <https://launchpad.support.sap.com/#/notes/353597> .
 
    Por exemplo:
 
@@ -1313,11 +1329,18 @@ Se sentir um problema com iDocs duplicados sendo enviados para o SAP a partir da
 
 ## <a name="known-issues-and-limitations"></a>Limitações e problemas conhecidos
 
-Aqui estão as questões e limitações atualmente conhecidas para o conector SAP gerido (não-ISE):
+Aqui estão as questões e limitações atualmente conhecidas para o conector SAP gerido (não-ISE): 
 
-* O gatilho SAP não suporta agrupamentos de gateways de dados. Em alguns casos de falha, o nó de gateway de dados que comunica com o sistema SAP pode diferir do nó ativo, o que resulta em comportamento inesperado. Para os cenários de envio, os agrupamentos de gateways de dados são suportados.
+* Em geral, o gatilho SAP não suporta aglomerados de gateway de dados. Em alguns casos de falha, o nó de gateway de dados que comunica com o sistema SAP pode diferir do nó ativo, o que resulta em comportamento inesperado.
+
+  * Para os cenários de envio, os agrupamentos de gateway de dados no modo de failover são suportados. 
+
+  * Os aglomerados de gateway de dados no modo de equilíbrio de carga não são suportados por ações de SAP imponentes. Estas ações incluem **Criar sessão stateful**, **comprometer a transação BAPI,** **transação de Rcor rollback BAPI,** **sessão de encerramento,** e todas as ações que especificam um valor **de ID de sessão.** As comunicações imponentes devem permanecer no mesmo nó de agrupamento de gateway de dados. 
+
+  * Para ações de SAP imponentes, utilize o gateway de dados em modo não-cluster ou num cluster que é configurado apenas para falha.
 
 * O conector SAP não suporta atualmente as cordas do router SAP. O portal de dados no local deve existir na mesma LAN que o sistema SAP que pretende ligar.
+
 
 ## <a name="connector-reference"></a>Referência do conector
 

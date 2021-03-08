@@ -1,7 +1,7 @@
 ---
 title: Novidades no provisionamento de aplicações do Azure Ative Directory
 description: Documentação nova e atualizada para o provisionamento do Azure Ative Directory.
-ms.date: 02/01/2021
+ms.date: 03/08/2021
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
@@ -9,16 +9,27 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: daveba
-ms.openlocfilehash: a127552c47b9e1ee86d2164926971c8628367dc0
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: abee58607a5492548e4d64f44c15fd365876f3f5
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99256006"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102453687"
 ---
 # <a name="azure-active-directory-application-provisioning-whats-new"></a>Provisionamento de aplicações do Azure Ative Directory: Quais as novidades
 
 Bem-vindos às novidades da aplicação Azure Ative Directory que prevê documentação. Este artigo lista novos docs que foram adicionados e aqueles que tiveram atualizações significativas nos últimos três meses. Para saber quais as novidades com o serviço de fornecimento, veja [as novidades do Azure Ative Directory](../fundamentals/whats-new.md).
+
+## <a name="february-2021"></a>Fevereiro de 2021
+
+### <a name="updated-articles"></a>Artigos atualizados
+
+- [Como o provisionamento do Diretório Ativo Azure se integra com o Workday](workday-integration-reference.md)
+- [Tutorial - Personalize o fornecimento de produtos de fornecimento de utilizadores para aplicações SaaS no Azure Ative Directory](customize-application-attributes.md)
+- [O que é o fornecimento automatizado de utilizadores de aplicações SaaS em Azure AD?](user-provisioning.md)
+- [Tutorial: Desenvolver uma amostra scim ponto final](use-scim-to-build-users-and-groups-endpoints.md)
+- [Tutorial: Desenvolver e planear o provisionamento para um ponto final do SCIM](use-scim-to-provision-users-and-groups.md)
+- [Como funciona o aprovisionamento](how-provisioning-works.md)
 
 ## <a name="january-2021"></a>Janeiro de 2021
 

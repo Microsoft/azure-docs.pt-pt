@@ -16,12 +16,12 @@ ms.date: 12/23/2020
 ms.author: barclayn
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a7f0d937d41ee42bf0fe678eb2f49e78882f881
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: b635a83c5ea1378a525ff607e5c6f2725337ad1a
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100577857"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102453041"
 ---
 # <a name="archive-logs-and-reporting-on-azure-ad-entitlement-management-in-azure-monitor"></a>Registos de arquivo e reportagens sobre a gestão de direitos da AD Azure no Azure Monitor
 
@@ -158,8 +158,7 @@ $subs = Get-AzSubscription
 $subs | ft
 ```
  
-Pode reautorá-la e associar a sua sessão PowerShell a essa subscrição utilizando um comando como `Connect-AzAccount –Subscription $subs[0].id` . Para saber mais sobre como autenticar a Azure da PowerShell, incluindo não-interactivamente, consulte [Iniciar súm em Azure PowerShell](/powershell/azure/authenticate-azureps?view=azps-3.3.0&viewFallbackFrom=azps-2.5.0
-).
+Pode reautorá-la e associar a sua sessão PowerShell a essa subscrição utilizando um comando como `Connect-AzAccount –Subscription $subs[0].id` . Para saber mais sobre como autenticar a Azure da PowerShell, incluindo não-interactivamente, consulte [Iniciar súm em Azure PowerShell](/powershell/azure/authenticate-azureps).
 
 Se tiver vários espaços de trabalho do Log Analytics nessa subscrição, então o cmdlet [Get-AzOperationalInsightsWorkspace](/powershell/module/Az.OperationalInsights/Get-AzOperationalInsightsWorkspace) devolve a lista de espaços de trabalho. Então pode encontrar o que tem os registos AD Azure. O `CustomerId` campo devolvido por este cmdlet é o mesmo que o valor do "Workspace Id" exibido no portal Azure na visão geral do espaço de trabalho log Analytics.
  

@@ -6,12 +6,12 @@ ms.author: deseelam
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 02/22/2021
-ms.openlocfilehash: b52d61c2828ddf5c04ab943d73964d236c9017c1
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 5dd27e4502ac70ef10f2623ed6dfb2f62de37f06
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102098847"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102448833"
 ---
 # <a name="replicate-data-over-expressroute-with-azure-migrate-server-migration"></a>Replicar dados sobre ExpressRoute com Azure Migrate: Migração de servidores
 
@@ -72,6 +72,7 @@ Para criar e localizar a conta de armazenamento:
 ![Vista de grupo de recursos](./media/replicate-using-expressroute/storage-account-name.png)
 
 > [!Tip]
+>  
 > Se tiver mais do que uma conta de armazenamento com o prefixo **"lsa"** no seu grupo de recursos, pode verificar a conta de armazenamento navegando para as definições de replicação e menu de configuração alvo para qualquer um dos VMs replicantes do projeto. <br/> 
 > ![Visão geral das definições de replicação](./media/replicate-using-expressroute/storage-account.png)
 
@@ -125,8 +126,9 @@ Se não selecionou a opção de integração com uma zona privada de DNS no mome
 
     ![criarprivatedns](./media/replicate-using-expressroute/create-private-dns.png)
 
-    a.  Na página **zonas privadas de DNS,** selecione o botão **+Adicionar** para começar a criar uma nova zona.  
-    b.  Na página privada da **zona DO DNS,** preencha os detalhes necessários. Insira o nome da zona privada do DNS como _privatelink_.blob.core.windows.net. c. Continue a **rever + criar** separador para rever e criar a zona DNS.
+    a. Na página **zonas privadas de DNS,** selecione o botão **+Adicionar** para começar a criar uma nova zona.  
+    b. Na página privada da **zona DO DNS,** preencha os detalhes necessários. Insira o nome da zona privada do DNS como _privatelink_.blob.core.windows.net.  
+    c. Continue a **rever + criar** separador para rever e criar a zona DNS.   
 
 2. Ligue a zona privada do DNS à sua rede virtual.  
 

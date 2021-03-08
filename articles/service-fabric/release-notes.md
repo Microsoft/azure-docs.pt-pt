@@ -5,12 +5,12 @@ ms.date: 06/10/2019
 ms.topic: conceptual
 hide_comments: true
 hideEdit: true
-ms.openlocfilehash: aec26c0109b4aa8e0819e7f5e9b3c69db7f74648
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 28abe5dbd9064fb0a6bc1b3f167830672deacdcc
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101726908"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102452701"
 ---
 # <a name="service-fabric-releases"></a>Lançamentos de tecido de serviço
 
@@ -71,7 +71,7 @@ Também publicámos atualizações até ao fim da data de suporte para grandes l
       -  Reduzir os custos globais (os discos são gratuitos e não incorrem em custos adicionais de armazenamento)
 - Apoio à declaração de [**certificados de Endpoint de Serviço de aplicações de Tecido de Serviço por nome comum**](./service-fabric-service-manifest-resources.md)sujeito .
 - [**Suporte a sondas de saúde para serviços contentorizados**](./probes-codepackage.md): Mecanismo de apoio à sonda liveness para aplicações contentorizadas. A Liveness Probe ajuda a anunciar a vivacidade da aplicação contentorizada e quando não respondem em tempo útil, resultará num recomeço. 
-- [**Suporte para Pacotes de Código Inicializador**](./initializer-codepackages.md) para [contentores](https://review.docs.microsoft.com/azure/service-fabric/service-fabric-containers-overview) e aplicações [executáveis de hóspedes.](https://review.docs.microsoft.com/azure/service-fabric/service-fabric-guest-executables-introduction) Isto permite executar pacotes de código (por exemplo, contentores), numa ordem especificada, para executar a inicialização do Pacote de Serviço.
+- [**Suporte para Pacotes de Código Inicializador**](./initializer-codepackages.md) para [contentores](/azure/service-fabric/service-fabric-containers-overview) e aplicações [executáveis de hóspedes.](/azure/service-fabric/service-fabric-guest-executables-introduction) Isto permite executar pacotes de código (por exemplo, contentores), numa ordem especificada, para executar a inicialização do Pacote de Serviço.
 - **FabricObserver e ClusterObserver** são aplicações apátridas que capturam Telemetria de Tecido de Serviço relacionada com diferentes aspetos de um cluster SF. Ambas as aplicações estão prontas para serem implementadas em clusters de produção do Windows para capturar telemetria rica com suporte implementado para ApplicationInsights, EventSource e LogAnalytics.
     - [**FabricObserver (FO) 2.0**](https://github.com/microsoft/service-fabric-observer)- funciona em todos os nós, gera eventos de saúde, emite telemetria quando os limiares de utilização de recursos configurados pelo utilizador são atingidos. Esta versão contém várias melhorias através da monitorização, gestão de dados, detalhes do evento de saúde, telemetria estruturada.
      - [**ClusterObserver (CO) 1.1**](https://github.com/microsoft/service-fabric-observer/tree/master/ClusterObserver) - funciona num nó, captura telemetria sanitária de nível de cluster. Nesta versão, o ClusterObserver também monitoriza o estado do nó e emite telemetria quando o nó está para baixo/desativado/desativado por um período de tempo mais longo do que o previsto pelo utilizador.

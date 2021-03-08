@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: conceptual
-ms.date: 02/25/2021
+ms.date: 03/08/2021
 ms.author: victorh
-ms.openlocfilehash: ff5c6961e64deddc8e52dc92a7c34b5b369a44ed
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a3f72d235d6c52ce91ae351c2606ee6cf4285159
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101715569"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102453432"
 ---
 # <a name="azure-firewall-premium-preview-features"></a>Funcionalidades de pré-visualização Azure Firewall Premium
 
@@ -39,9 +39,8 @@ A pré-visualização Azure Firewall Premium inclui as seguintes funcionalidades
 - **Filtragem de URL** - estende a capacidade de filtragem FQDN da Azure Firewall para considerar um URL inteiro. Por exemplo, `www.contoso.com/a/c` em vez `www.contoso.com` de. .
 - **Categorias web** - os administradores podem permitir ou negar o acesso do utilizador a categorias de websites, tais como sites de jogos, sites de redes sociais, entre outros.
 
-## <a name="features"></a>Funcionalidades
 
-### <a name="tls-inspection"></a>Inspeção TLS
+## <a name="tls-inspection"></a>Inspeção TLS
 
 O Azure Firewall Premium termina as ligações TLS de saída e leste-oeste. A inspeção de entrada TLS é suportada com o Gateway de [aplicação Azure](../web-application-firewall/ag/ag-overview.md) permitindo encriptação de ponta a ponta. O Azure Firewall faz as funções de segurança de valor acrescentado necessárias e reencriptizou o tráfego que é enviado para o destino original.
 
@@ -50,23 +49,30 @@ O Azure Firewall Premium termina as ligações TLS de saída e leste-oeste. A in
 
 Para saber mais sobre os requisitos do certificado de pré-visualização intermédia de pré-visualização Azure Firewall Premium, consulte [os certificados de pré-visualização Azure Firewall Premium](premium-certificates.md).
 
-### <a name="idps"></a>IDPS
+## <a name="idps"></a>IDPS
 
 Um sistema de deteção e prevenção de intrusões de rede (IDPS) permite-lhe monitorizar a sua rede para atividades maliciosas, registar informações sobre esta atividade, denunciá-la e tentar bloqueá-la opcionalmente. 
 
 A Azure Firewall Premium Preview fornece IDPS baseado em assinaturas para permitir a deteção rápida de ataques procurando padrões específicos, tais como sequências de byte no tráfego de rede, ou sequências de instruções maliciosas conhecidas usadas por malware. As assinaturas IDPS são totalmente geridas e continuamente atualizadas.
 
+As assinaturas/regras do Azure Firewall incluem:
+- Uma ênfase na recolha de impressões digitais de malware real, Comando e Controlo, explorar kits e na atividade maliciosa selvagem perdida pelos métodos tradicionais de prevenção.
+- Mais de 35.000 regras em mais de 50 categorias.
+    - As categorias incluem comando e controlo de malware, ataques DoS, botnets, eventos informativos, explorações, vulnerabilidades, protocolos de rede SCADA, atividade de kit de exploração, e muito mais.
+- Todas as manhãs são lançadas mais de 20 a 40 novas regras.
+- Baixa classificação positiva falsa usando a caixa de areia de malware de última geração e o ciclo de feedback da rede de sensores global.
+
 O IDPS permite-lhe detetar ataques em todas as portas e protocolos para tráfego não encriptado. No entanto, quando o tráfego HTTPS precisa de ser inspecionado, o Azure Firewall pode usar a sua capacidade de inspeção TLS para desencriptar o tráfego e detetar melhor as atividades maliciosas.  
 
-A Lista de Bypass IDPS permite-lhe não filtrar o tráfego para nenhum dos endereços, gamas e sub-redes IP especificados na lista de bypass.  
+A Lista de Bypass IDPS permite-lhe não filtrar o tráfego para nenhum dos endereços, gamas e sub-redes IP especificados na lista de bypass. 
 
-### <a name="url-filtering"></a>Filtragem de URL
+## <a name="url-filtering"></a>Filtragem de URL
 
 A filtragem de URL estende a capacidade de filtragem FQDN da Azure Firewall para considerar um URL inteiro. Por exemplo, `www.contoso.com/a/c` em vez `www.contoso.com` de. .  
 
 A filtragem de URL pode ser aplicada tanto no tráfego HTTP como HTTPS. Quando o tráfego HTTPS é inspecionado, a Pré-visualização Azure Firewall Premium pode utilizar a sua capacidade de inspeção TLS para desencriptar o tráfego e extrair o URL-alvo para validar se o acesso é permitido. A inspeção TLS requer opt-in ao nível da regra de aplicação. Uma vez ativados, pode utilizar URLs para filtrar com HTTPS. 
 
-### <a name="web-categories"></a>Categorias web
+## <a name="web-categories"></a>Categorias web
 
 As categorias web permitem que os administradores permitam ou neguem o acesso dos utilizadores a categorias de sites de jogos, sites de jogos de azar, sites de redes sociais e outros. As categorias web também serão incluídas no Azure Firewall Standard, mas serão mais afinadas na Pré-visualização Azure Firewall Premium. Ao contrário da capacidade das categorias Web no SKU Standard que corresponde à categoria baseada numa FQDN, o Premium SKU corresponde à categoria de acordo com todo o URL para o tráfego HTTP e HTTPS. 
 
@@ -78,11 +84,11 @@ Por exemplo, se o Azure Firewall intercetar um pedido HTTPS `www.google.com/news
 
 As categorias são organizadas com base na gravidade em **Responsabilidade,** **Largura de Banda Alta,** **Uso de Negócios,** Perda **de Produtividade,** **Surf Geral** e **Uncategorized.**
 
-#### <a name="category-exceptions"></a>Exceções de categorias
+### <a name="category-exceptions"></a>Exceções de categorias
 
 Pode criar exceções às regras da sua categoria web. Crie uma recolha de regras de permitir ou negar regras separadamente com uma prioridade maior dentro do grupo de recolha de regras. Por exemplo, pode configurar uma coleção de regras que permite `www.linkedin.com` com prioridade 100, com uma coleção de regras que nega **a rede social** com prioridade 200. Isto cria a exceção para a categoria web de **redes sociais** pré-definida.
 
-#### <a name="categorization-change"></a>Alteração da categorização
+### <a name="categorization-change"></a>Alteração da categorização
 
 Pode solicitar uma alteração de categorização se:
 

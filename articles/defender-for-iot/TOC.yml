@@ -4,13 +4,13 @@
   displayName: 'IoT, OT, getting started'
   href: overview.md
   items:
-    - name: Novidades
-      href: release-notes.md
     - name: Arquitetura de solução sem agente
       displayName: 'deployment, where to deploy'
       href: architecture.md
     - name: Arquitetura de solução baseada em agente
       href: architecture-agent-based.md
+- name: Novidades
+  href: release-notes.md
 - name: Guias de Início Rápido
   expanded: true
   items:

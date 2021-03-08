@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/03/2021
+ms.date: 03/08/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: dc6801de858c72a703317805d00f8e50cae69bbe
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 072bb7841db10351bd1a98f4bc7a1d57e67f6c24
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102054715"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102448545"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-an-apple-id--using-azure-active-directory-b2c-preview"></a>Configurar o pré-serviço e iniciar seduca com um Apple ID utilizando o Azure Ative Directory B2C (Pré-visualização)
 
@@ -104,7 +104,10 @@ Para permitir que os utilizadores entrem a trabalhar com um Apple ID, é necess�
 1. Selecione **Guardar**.
 1. Para testar a sua política, selecione **Executar o fluxo do utilizador**.
 1. Para **Aplicação**, selecione a aplicação web chamada *testapp1* que registou anteriormente. A **URL de resposta** deve mostrar `https://jwt.ms` .
-1. Selecione **Executar o fluxo do utilizador**.
+1. Selecione o botão **de fluxo do utilizador Executar.**
+1. A partir da página de inscrição ou de inscrição, selecione **Apple** para iniciar sedições com o Apple ID.
+
+Se o processo de inscrição for bem sucedido, o seu navegador é redirecionado para `https://jwt.ms` , que exibe o conteúdo do token devolvido pelo Azure AD B2C.
 
 ::: zone-end
 
@@ -244,6 +247,13 @@ Pode definir um Apple ID como fornecedor de sinistros adicionando-o ao elemento 
 
 [!INCLUDE [active-directory-b2c-configure-relying-party-policy](../../includes/active-directory-b2c-configure-relying-party-policy-user-journey.md)]
 
-[!INCLUDE [active-directory-b2c-test-relying-party-policy](../../includes/active-directory-b2c-test-relying-party-policy-user-journey.md)]
+## <a name="test-your-custom-policy"></a>Teste a sua política personalizada
+
+1. Selecione a sua política partidária de dependência, por exemplo `B2C_1A_signup_signin` .
+1. Para **Aplicação**, selecione uma aplicação web que já [se registou anteriormente.](troubleshoot-custom-policies.md#troubleshoot-the-runtime) A **URL de resposta** deve mostrar `https://jwt.ms` .
+1. Selecione o botão **Executar agora.**
+1. A partir da página de inscrição ou de inscrição, selecione **Apple** para iniciar sedições com o Apple ID.
+
+Se o processo de inscrição for bem sucedido, o seu navegador é redirecionado para `https://jwt.ms` , que exibe o conteúdo do token devolvido pelo Azure AD B2C.
 
 ::: zone-end

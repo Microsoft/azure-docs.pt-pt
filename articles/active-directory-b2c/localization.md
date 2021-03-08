@@ -7,16 +7,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/15/2020
+ms.date: 03/08/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: b2c-support
-ms.openlocfilehash: c12a171faaf069cc81aa5f467642dba6616a866f
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 3a5afcd8c0ef0c31353cd2369ead332675c9877f
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102033729"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102453126"
 ---
 # <a name="localization-element"></a>Elemento de localização
 
@@ -42,7 +42,7 @@ O elemento **de localização** contém os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Ativado | Não | Valores possíveis: `true` ou `false` . |
+| Ativado | No | Valores possíveis: `true` ou `false` . |
 
 O elemento **de localização** contém elementos XML
 
@@ -57,8 +57,8 @@ O elemento **SuportadoLanguages** contém os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| DefaultLanguage | Sim | A linguagem a ser usada como padrão para recursos localizados. |
-| FusõesBehavior | Não | Uma enumeração de valores que são fundidos juntamente com qualquer ClaimType presente numa política-mãe com o mesmo identificador. Utilize este atributo quando substituir uma reclamação especificada na política base. Valores possíveis: `Append` `Prepend` , ou . `ReplaceAll` . O `Append` valor especifica que a recolha de dados presentes deve ser anexada ao fim da recolha especificada na política-mãe. O `Prepend` valor especifica que a recolha de dados presentes deve ser adicionada antes da recolha especificada na política-mãe. O `ReplaceAll` valor especifica que a recolha de dados definidos na política-mãe deve ser ignorada, utilizando em vez dos dados definidos na política atual. |
+| DefaultLanguage | Yes | A linguagem a ser usada como padrão para recursos localizados. |
+| FusõesBehavior | No | Uma enumeração de valores que são fundidos juntamente com qualquer ClaimType presente numa política-mãe com o mesmo identificador. Utilize este atributo quando substituir uma reclamação especificada na política base. Valores possíveis: `Append` `Prepend` , ou . `ReplaceAll` . O `Append` valor especifica que a recolha de dados presentes deve ser anexada ao fim da recolha especificada na política-mãe. O `Prepend` valor especifica que a recolha de dados presentes deve ser adicionada antes da recolha especificada na política-mãe. O `ReplaceAll` valor especifica que a recolha de dados definidos na política-mãe deve ser ignorada, utilizando em vez dos dados definidos na política atual. |
 
 ### <a name="supportedlanguages"></a>Apoio deGuages
 
@@ -74,7 +74,7 @@ O elemento **Imagens Locais** contém os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Id | Sim | Um identificador que é usado para identificar recursos localizados de forma única. |
+| Id | Yes | Um identificador que é usado para identificar recursos localizados de forma única. |
 
 O elemento **LocaledResources** contém os seguintes elementos:
 
@@ -97,9 +97,9 @@ O elemento **Decolecção Localizada** contém os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| ElementoType | Sim | Refere um elemento ClaimType ou um elemento de interface do utilizador no ficheiro de política. |
-| ElementId | Sim | Uma cadeia que contém uma referência a um tipo de reclamação já definido na secção ClaimsSchema que é usada se **o ElementType** estiver definido para um ClaimType. |
-| TargetCollection | Sim | A coleção de alvos. |
+| ElementoType | Yes | Refere um elemento ClaimType ou um elemento de interface do utilizador no ficheiro de política. |
+| ElementId | Yes | Uma cadeia que contém uma referência a um tipo de reclamação já definido na secção ClaimsSchema que é usada se **o ElementType** estiver definido para um ClaimType. |
+| TargetCollection | Yes | A coleção de alvos. |
 
 O elemento **Decolecção Localizada** contém os seguintes elementos:
 
@@ -111,9 +111,9 @@ O elemento **Item** contém os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Texto | Sim | A cadeia de visualização fácil de utilizar que deve ser mostrada ao utilizador na interface do utilizador para esta opção. |
-| Valor | Sim | O valor de reivindicação de cadeia associado à seleção desta opção. |
-| SelecioneByDefault | Não | Indica se esta opção deve ou não ser selecionada por padrão na UI. Valores possíveis: Verdadeiros ou Falsos. |
+| Texto | Yes | A cadeia de visualização fácil de utilizar que deve ser mostrada ao utilizador na interface do utilizador para esta opção. |
+| Valor | Yes | O valor de reivindicação de cadeia associado à seleção desta opção. |
+| SelecioneByDefault | No | Indica se esta opção deve ou não ser selecionada por padrão na UI. Valores possíveis: Verdadeiros ou Falsos. |
 
 O exemplo a seguir mostra a utilização do elemento **Decollections Localizado.** Contém dois elementos **decolecção localizada,** um para inglês e outro para espanhol. Ambos definiram a coleção **de restrição** da reclamação `Gender` com uma lista de itens para inglês e espanhol.
 
@@ -147,9 +147,9 @@ O elemento **LocalizadoString** contém os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| ElementoType | Sim | Valores possíveis: [ClaimsProvider](#claimsprovider), [ClaimType](#claimtype), [ErrorMessage](#errormessage), [GetLocalizedStringsTransformationClaimType](#getlocalizedstringstransformationclaimtype), [Predicate,](#predicate) [InputValidation](#inputvalidation), ou [UxElement](#uxelement).   | 
-| ElementId | Sim | Se **o ElementType** estiver definido para `ClaimType` , ou , este elemento contém uma referência a um tipo de `Predicate` `InputValidation` reclamação já definido na secção ClaimsSchema. |
-| StringId | Sim | Se **o ElementType** estiver definido `ClaimType` para, este elemento contém uma referência a um atributo de um tipo de reclamação. Valores possíveis: `DisplayName` `AdminHelpText` , ou . `PatternHelpText` . O `DisplayName` valor é utilizado para definir o nome de exibição de reclamação. O `AdminHelpText` valor é utilizado para definir o nome de texto de ajuda do utilizador de reclamação. O `PatternHelpText` valor é usado para definir o texto de ajuda do padrão de reclamação. Se **o ElementType** estiver definido `UxElement` para, este elemento contém uma referência a um atributo de um elemento de interface do utilizador. Se **o ElementType** estiver definido para `ErrorMessage` , este elemento especifica o identificador de uma mensagem de erro. Consulte [os IDs de cadeia de localização](localization-string-ids.md) para obter uma lista completa dos `UxElement` identificadores.|
+| ElementoType | Yes | Valores possíveis: [ClaimsProvider](#claimsprovider), [ClaimType](#claimtype), [ErrorMessage](#errormessage), [GetLocalizedStringsTransformationClaimType](#getlocalizedstringstransformationclaimtype), [FormatLocalizedStringTransformationClaimType](#formatlocalizedstringtransformationclaimtype), [Predicate,](#predicate) [InputValidation](#inputvalidation)ou [UxElement](#uxelement).   | 
+| ElementId | Yes | Se **o ElementType** estiver definido para `ClaimType` , ou , este elemento contém uma referência a um tipo de `Predicate` `InputValidation` reclamação já definido na secção ClaimsSchema. |
+| StringId | Yes | Se **o ElementType** estiver definido `ClaimType` para, este elemento contém uma referência a um atributo de um tipo de reclamação. Valores possíveis: `DisplayName` `AdminHelpText` , ou . `PatternHelpText` . O `DisplayName` valor é utilizado para definir o nome de exibição de reclamação. O `AdminHelpText` valor é utilizado para definir o nome de texto de ajuda do utilizador de reclamação. O `PatternHelpText` valor é usado para definir o texto de ajuda do padrão de reclamação. Se **o ElementType** estiver definido `UxElement` para, este elemento contém uma referência a um atributo de um elemento de interface do utilizador. Se **o ElementType** estiver definido para `ErrorMessage` , este elemento especifica o identificador de uma mensagem de erro. Consulte [os IDs de cadeia de localização](localization-string-ids.md) para obter uma lista completa dos `UxElement` identificadores.|
 
 ## <a name="elementtype"></a>ElementoType
 
@@ -232,6 +232,31 @@ O exemplo a seguir mostra como rastrear a mensagem de erro do UserMessageIfClaim
 
 ```xml
 <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalAlreadyExists">The account you are trying to create already exists, please sign-in.</LocalizedString>
+```
+
+### <a name="formatlocalizedstringtransformationclaimtype"></a>FormatoLocalizedStringTransformationClaimType
+
+O valor FormatLocalizedStringTransformationClaimType é utilizado para formatar reclamações numa cadeia localizada. Para mais informações, consulte [FormatLocalizedString transformação de reclamações](string-transformations.md#formatlocalizedstring)
+
+
+```xml
+<ClaimsTransformation Id="SetResponseMessageForEmailAlreadyExists" TransformationMethod="FormatLocalizedString">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="email" />
+  </InputClaims>
+  <InputParameters>
+    <InputParameter Id="stringFormatId" DataType="string" Value="ResponseMessge_EmailExists" />
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="responseMsg" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+O exemplo a seguir mostra como localização do formato de cadeia do FormatLocalizedStringTransformationClaimType alega transformação.
+
+```xml
+<LocalizedString ElementType="FormatLocalizedStringTransformationClaimType" StringId="ResponseMessge_EmailExists">The email '{0}' is already an account in this organization. Click Next to sign in with that account.</LocalizedString>
 ```
 
 ### <a name="getlocalizedstringstransformationclaimtype"></a>GetLocalizedStringsTransformationClaimType

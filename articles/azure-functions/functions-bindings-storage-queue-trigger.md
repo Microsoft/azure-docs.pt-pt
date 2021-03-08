@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, cc996988-fb4f-47, devx-track-python
-ms.openlocfilehash: 8c2ea69d38f354455b7957ddc7b6ff41da30100b
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: f4477a09f151695b826d0becf28e92ceaf3f9e85
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102210772"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102453211"
 ---
 # <a name="azure-queue-storage-trigger-for-azure-functions"></a>Gatilho de armazenamento da fila Azure para funções Azure
 
@@ -419,7 +419,7 @@ Aceda à mensagem de fila através do parâmetro de cadeia que corresponda ao no
 
 # <a name="python"></a>[Python](#tab/python)
 
-Aceda à mensagem de fila através do parâmetro dactilografado como [QueueMessage](/python/api/azure-functions/azure.functions.queuemessage?view=azure-python&preserve-view=true).
+Aceda à mensagem de fila através do parâmetro dactilografado como [QueueMessage](/python/api/azure-functions/azure.functions.queuemessage).
 
 ---
 

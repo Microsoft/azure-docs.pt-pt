@@ -1,5 +1,5 @@
 ---
-title: ClaimsProviders - Azure Ative Directory B2C / Microsoft Docs
+title: ClaimsProviders - Azure Ative Directory B2C | Microsoft Docs
 description: Especificar o elemento ClaimsProvider de uma política personalizada no Azure Ative Directory B2C.
 services: active-directory-b2c
 author: msmimart
@@ -7,21 +7,23 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 01/29/2020
+ms.date: 03/08/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1d1928de8c9731b54966e566d4dddf9c01073d41
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 846394266b981c14788148be465912b14bc1fb3e
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85201264"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102447916"
 ---
 # <a name="claimsproviders"></a>ClaimsProviders
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Um fornecedor de sinistros contém um conjunto de [perfis técnicos.](technicalprofiles.md) Todos os prestadores de sinistros devem ter um ou mais perfis técnicos que determinem os pontos finais e os protocolos necessários para comunicar com o fornecedor de sinistros. Um fornecedor de sinistros pode ter vários perfis técnicos. Por exemplo, vários perfis técnicos podem ser definidos porque o fornecedor de sinistros suporta vários protocolos, vários pontos finais com diferentes capacidades, ou lança diferentes reivindicações em diferentes níveis de garantia. Pode ser aceitável lançar reclamações sensíveis numa viagem de utilizador, mas não noutra.
+Uma reclamação fornece uma interface para comunicar com diferentes tipos de partes através dos seus [perfis técnicos.](technicalprofiles.md) Todos os prestadores de sinistros devem ter um ou mais perfis técnicos que determinem os pontos finais e os protocolos necessários para comunicar com o fornecedor de sinistros. Um fornecedor de sinistros pode ter vários perfis técnicos. Por exemplo, vários perfis técnicos podem ser definidos porque o fornecedor de sinistros suporta vários protocolos, vários pontos finais com diferentes capacidades, ou lança diferentes reivindicações em diferentes níveis de garantia. Pode ser aceitável lançar reclamações sensíveis numa viagem de utilizador, mas não noutra.
+
+Uma viagem de utilizador combina chamar perfis técnicos através de passos de orquestração para definir a sua lógica de negócio. 
 
 ```xml
 <ClaimsProviders>

@@ -10,7 +10,7 @@ ms.service: media-services ms.workload: ms.topic: conceptual ms.date: 08/19/2019
 
 Este tópico dá detalhes sobre [Transforms](/rest/api/media/transforms) e [Jobs](/rest/api/media/jobs) e explica a relação entre estas entidades.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 ### <a name="transformsjobs-workflow"></a>Fluxo de trabalho transformado/emprego
 
@@ -45,7 +45,7 @@ Utilizar **Transformações** para configurar tarefas comuns para codificar ou a
 
 ### <a name="viewing-schema"></a>Esquema de visualização
 
-Nos Serviços de Comunicação Social v3, as predefinições são entidades fortemente dactilografada na própria API. Pode encontrar a definição de "esquema" para estes objetos em [Especificação API Aberta (ou Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01). Também pode ver as definições predefinidas (como **o StandardEncoderPreset)** na [API REST](/rest/api/media/transforms/createorupdate#standardencoderpreset), [.NET SDK,](/dotnet/api/microsoft.azure.management.media.models.standardencoderpreset?view=azure-dotnet)ou outros Serviços de Mídia v3 SDK documentação de referência.
+Nos Serviços de Comunicação Social v3, as predefinições são entidades fortemente dactilografada na própria API. Pode encontrar a definição de "esquema" para estes objetos em [Especificação API Aberta (ou Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01). Também pode ver as definições predefinidas (como **o StandardEncoderPreset)** na [API REST](/rest/api/media/transforms/createorupdate#standardencoderpreset), [.NET SDK,](/dotnet/api/microsoft.azure.management.media.models.standardencoderpreset)ou outros Serviços de Mídia v3 SDK documentação de referência.
 
 ### <a name="creating-transforms"></a>Criar Transformações
 
@@ -101,12 +101,12 @@ Para mais informações, consulte [o processamento de mídia scale com CLI](medi
 
 Consulte o artigo da [comunidade Azure Media Services](media-services-community.md) para ver diferentes formas de fazer perguntas, dar feedback e obter atualizações sobre os Media Services.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 * [Códigos de erro](/rest/api/media/jobs/get#joberrorcode)
 * [Filtragem, encomenda, paging de entidades de Serviços de Comunicação Social](entities-overview.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Antes de começar a desenvolver, [reveja o Desenvolvimento com os Serviços de Comunicação Social v3 APIs](media-services-apis-overview.md) (inclui informações sobre o acesso a APIs, convenções de nomeação, etc.)
 - Confira estes tutoriais:

@@ -1,5 +1,5 @@
 ---
-title: Exportação e importação Registos de Centros de Notificação Azure a granel Microsoft Docs
+title: Exportação e importação Registos de Centros de Notificação Azure em | Microsoft Docs
 description: Saiba como utilizar o suporte a granel do Notification Hubs para realizar um grande número de operações num centro de notificação ou para exportar todos os registos.
 services: notification-hubs
 author: sethmanheim
@@ -14,12 +14,12 @@ ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 03/18/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c0771864229c8a3918da076de48fb6e033d2cf5a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 73c19b72c75d9638213f3c813a708a272cbe2a1b
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89018183"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102452344"
 ---
 # <a name="export-and-import-azure-notification-hubs-registrations-in-bulk"></a>Exportação e importação Registos de Centros de Notificação Azure a granel
 
@@ -127,7 +127,7 @@ Além dos URLs de entrada e saída, este exemplo cria um `NotificationHubJob` ob
 - `ImportUpdateRegistrations`
 - `ImportDeleteRegistrations`
 
-Uma vez concluída a chamada, o trabalho é continuado pelo centro de notificação, e pode verificar o seu estado com a chamada para [GetNotificationHubJobAsync](/dotnet/api/microsoft.azure.notificationhubs.notificationhubclient.getnotificationhubjobasync?view=azure-dotnet).
+Uma vez concluída a chamada, o trabalho é continuado pelo centro de notificação, e pode verificar o seu estado com a chamada para [GetNotificationHubJobAsync](/dotnet/api/microsoft.azure.notificationhubs.notificationhubclient.getnotificationhubjobasync).
 
 No final do trabalho, pode verificar os resultados analisando os seguintes ficheiros no seu diretório de saída:
 

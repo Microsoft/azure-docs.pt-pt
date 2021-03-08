@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to create a Network Virtual Appliance (NVA) in my Virtual WAN hub.
-ms.openlocfilehash: 1f80da4014d4b6b27155db17d32800e54b51f40d
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: f02edf8e192f4d32f8bd2583d46bbb17c86d2049
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99258070"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102454809"
 ---
 # <a name="how-to-create-a-network-virtual-appliance-in-an-azure-virtual-wan-hub-preview"></a>Como criar um aparelho virtual de rede num hub Azure Virtual WAN (Pré-visualização)
 
@@ -22,6 +22,8 @@ Este artigo mostra-lhe como utilizar o WAN Virtual para ligar aos seus recursos 
 Os passos deste artigo ajudam-no a criar um aparelho virtual **Barracuda CloudGen WAN** Network no centro virtual WAN. Para completar este exercício, tem de ter um Dispositivo barracuda cloud premise (CPE) e uma licença para o aparelho Barracuda CloudGen WAN que você implanta no centro antes de começar.
 
 Para documentação de implementação da **Cisco SD-WAN** dentro do Azure Virtual WAN - Consulte [Cisco Cloud OnRamp para Multi-Cloud](https://www.cisco.com/c/en/us/td/docs/routers/sdwan/configuration/cloudonramp/ios-xe-17/cloud-onramp-book-xe/cloud-onramp-multi-cloud.html#Cisco_Concept.dita_c61e0e7a-fff8-4080-afee-47b81e8df701). 
+
+Para documentação de implementação de **VMware SD-WAN** dentro de Azure Virtual WAN - Consulte [guia de implementação de VMware SD-WAN em Virtual WAN Hub](https://kb.vmware.com/s/article/82746)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -48,7 +50,7 @@ Um hub é uma rede virtual que pode conter gateways para o site-para-site, Expre
 1. Localize o WAN virtual que criou. Na página **VIRTUAL WAN,** na secção **Conectividade,** selecione **Hubs**.
 1. Na página **Hubs,** selecione +New Hub para abrir a página **do hub virtual Create.**
 
-   :::image type="content" source="./media/how-to-nva-hub/vwan-hub.png" alt-text="Informações básicas":::
+   :::image type="content" source="./media/how-to-nva-hub/vwan-hub.png" alt-text="Noções básicas":::
 1. No **separador 'Criar** página de centro virtual **Basics',** complete os seguintes campos:
 
    **Detalhes do projeto**

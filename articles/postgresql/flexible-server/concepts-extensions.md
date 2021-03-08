@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 03/05/2021
-ms.openlocfilehash: 70f54fc111bfd9443f988619cb2b86303fd3f07b
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: d223d2c6a83b1389cd70344efdb48c357dda4ac4
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102443391"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102454595"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---flexible-server"></a>Extensões PostgreSQL na Base de Dados Azure para PostgreSQL - Servidor Flexível
 
@@ -53,7 +53,7 @@ As seguintes extensões estão disponíveis na Base de Dados Azure para PostgreS
 > |[Rio Itree](https://www.postgresql.org/docs/12/ltree.html)                        | 1.1             | tipo de dados para estruturas hierárquicas semelhantes a árvores|
 > |[pageinspect](https://www.postgresql.org/docs/12/pageinspect.html)                        | 1.7             | inspecionar o conteúdo das páginas de base de dados a um nível baixo|
 > |[pg_buffercache](https://www.postgresql.org/docs/12/pgbuffercache.html)               | 1.3             | examinar a cache tampão compartilhado|
-> |[pg_cron](https://github.com/citusdata/pg_cron)                        | 1.2             | Programador de emprego para PostgreSQL|
+> |[pg_cron](https://github.com/citusdata/pg_cron/tree/b6e7dc9627515bf00e2086f168b3faa660e5fd36)                        | 1.2             | Programador de emprego para PostgreSQL|
 > |[pg_freespacemap](https://www.postgresql.org/docs/12/pgfreespacemap.html)               | 1.2             | examinar o mapa de espaço livre (FSM)|
 > |[pg_prewarm](https://www.postgresql.org/docs/12/pgprewarm.html)                   | 1.2             | dados de relação pré-guerra|
 > |[pg_stat_statements](https://www.postgresql.org/docs/12/pgstatstatements.html)           | 1.7             | rastrear estatísticas de execução de todas as declarações SQL executadas|
@@ -61,7 +61,6 @@ As seguintes extensões estão disponíveis na Base de Dados Azure para PostgreS
 > |[pg_visibility](https://www.postgresql.org/docs/12/pgvisibility.html)                      | 1.2             | examinar o mapa de visibilidade (VM) e informações de visibilidade ao nível da página|
 > |[pgaudit](https://www.pgaudit.org/)                     | 1.4             | fornece funcionalidade de auditoria|
 > |[pgcrypto](https://www.postgresql.org/docs/12/pgcrypto.html)                     | 1.3             | funções criptográficas|
-> |[pglogico](https://github.com/2ndQuadrant/pglogical)                        | 2.3.2             | Replicação lógica de PostgreSQL|
 > |[pgrowlocks](https://www.postgresql.org/docs/12/pgrowlocks.html)                   | 1.2             | mostrar informações de bloqueio de nível de linha|
 > |[pgstattuple](https://www.postgresql.org/docs/12/pgstattuple.html)                  | 1.5             | mostrar estatísticas de nível tuple|
 > |[plpgsql](https://www.postgresql.org/docs/12/plpgsql.html)                      | 1.0             | Linguagens processuais PL/pgSQL|
@@ -104,7 +103,7 @@ As seguintes extensões estão disponíveis na Base de Dados Azure para PostgreS
 > |[Rio Itree](https://www.postgresql.org/docs/11/ltree.html)                        | 1.1             | tipo de dados para estruturas hierárquicas semelhantes a árvores|
 > |[pageinspect](https://www.postgresql.org/docs/11/pageinspect.html)                        | 1.7             | inspecionar o conteúdo das páginas de base de dados a um nível baixo|
 > |[pg_buffercache](https://www.postgresql.org/docs/11/pgbuffercache.html)               | 1.3             | examinar a cache tampão compartilhado|
-> |[pg_cron](https://github.com/citusdata/pg_cron)                        | 1.2             | Programador de emprego para PostgreSQL|
+> |[pg_cron](https://github.com/citusdata/pg_cron/tree/b6e7dc9627515bf00e2086f168b3faa660e5fd36)                        | 1.2             | Programador de emprego para PostgreSQL|
 > |[pg_freespacemap](https://www.postgresql.org/docs/11/pgfreespacemap.html)               | 1.2             | examinar o mapa de espaço livre (FSM)|
 > |[pg_prewarm](https://www.postgresql.org/docs/11/pgprewarm.html)                   | 1.2             | dados de relação pré-guerra|
 > |[pg_stat_statements](https://www.postgresql.org/docs/11/pgstatstatements.html)           | 1.6             | rastrear estatísticas de execução de todas as declarações SQL executadas|
@@ -112,7 +111,6 @@ As seguintes extensões estão disponíveis na Base de Dados Azure para PostgreS
 > |[pg_visibility](https://www.postgresql.org/docs/11/pgvisibility.html)                      | 1.2             | examinar o mapa de visibilidade (VM) e informações de visibilidade ao nível da página|
 > |[pgaudit](https://www.pgaudit.org/)                     | 1.3.1             | fornece funcionalidade de auditoria|
 > |[pgcrypto](https://www.postgresql.org/docs/11/pgcrypto.html)                     | 1.3             | funções criptográficas|
-> |[pglogico](https://github.com/2ndQuadrant/pglogical)                        | 2.3.2             | Replicação lógica de PostgreSQL|
 > |[pgrowlocks](https://www.postgresql.org/docs/11/pgrowlocks.html)                   | 1.2             | mostrar informações de bloqueio de nível de linha|
 > |[pgstattuple](https://www.postgresql.org/docs/11/pgstattuple.html)                  | 1.5             | mostrar estatísticas de nível tuple|
 > |[plpgsql](https://www.postgresql.org/docs/11/plpgsql.html)                      | 1.0             | Linguagens processuais PL/pgSQL|
@@ -134,6 +132,27 @@ As seguintes extensões estão disponíveis na Base de Dados Azure para PostgreS
 
 Recomendamos a implementação dos seus servidores com [integração VNet](concepts-networking.md) se pretender utilizar estas duas extensões. Por defeito, a integração VNet permite ligações entre servidores no VNET. Também pode optar por utilizar [grupos de segurança de rede VNet](../../virtual-network/manage-network-security-group.md) para personalizar o acesso.
 
+## <a name="pg_cron"></a>pg_cron
+
+[pg_cron](https://github.com/citusdata/pg_cron/tree/b6e7dc9627515bf00e2086f168b3faa660e5fd36) é um simples cron-based agendador de trabalho para PostgreSQL que corre dentro da base de dados como uma extensão. A extensão pg_cron pode ser usada para executar tarefas de manutenção programadas dentro de uma base de dados PostgreSQL. Por exemplo, pode executar o vácuo periódico de uma tabela ou remover antigos trabalhos de dados.
+
+`pg_cron` pode executar vários trabalhos em paralelo, mas funciona no máximo um caso de trabalho de cada vez. Se uma segunda corrida deve começar antes do primeiro terminar, então a segunda corrida é a fila e começa assim que a primeira corrida termina. Isto garante que os empregos funcionam exatamente tantas vezes como o previsto e não funcionam em simultâneo consigo próprios.
+
+Alguns exemplos:
+
+Para apagar dados antigos no sábado às 3:30 da manhã (GMT)
+```
+SELECT cron.schedule('30 3 * * 6', $$DELETE FROM events WHERE event_time < now() - interval '1 week'$$);
+```
+Para executar o vácuo todos os dias às 10:00 (GMT)
+```
+SELECT cron.schedule('0 10 * * *', 'VACUUM');
+```
+
+Para deschedutar todas as tarefas de pg_cron
+```
+SELECT cron.unschedule(jobid) FROM cron.job;
+```
 
 ## <a name="pg_prewarm"></a>pg_prewarm
 

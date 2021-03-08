@@ -1,6 +1,6 @@
 ---
-title: Defender a bordo para IoT para uma solução baseada em agente
-description: Aprenda a bordo e ative o serviço de segurança IoT no seu Azure IoT Hub.
+title: 'Quickstart: A bordo defender para IoT para uma solução baseada em agente'
+description: Neste arranque rápido, você aprenderá a bordo e ativará o serviço de segurança Defender para IoT no seu Azure IoT Hub.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/20/2021
 ms.author: shhazam
-ms.openlocfilehash: 62ea7b95609f9e1f896852da5c10244d1bd16ce1
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: d30a03aa7b7715a8792e7b70a0571270c6ad7b37
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102049946"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102449684"
 ---
-# <a name="onboard-defender-for-iot-to-an-agent-based-solution"></a>Defender a bordo para IoT para uma solução baseada em agente
+# <a name="quickstart-onboard-defender-for-iot-to-an-agent-based-solution"></a>Quickstart: A bordo defender para IoT para uma solução baseada em agente
 
 Este artigo explica como ativar o serviço Defender para IoT no seu IoT Hub existente. Se não tiver atualmente um Hub IoT, consulte [Criar um Hub IoT utilizando o portal Azure](../iot-hub/iot-hub-create-through-portal.md) para começar.
 
@@ -34,6 +34,10 @@ Você pode gerir a sua segurança IoT através do IoT Hub in Defender para IoT. 
 
 > [!NOTE]
 > Atualmente, o Defender for IoT apenas suporta os hubs IoT de nível padrão.
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+Nenhum
 
 ## <a name="onboard-defender-for-iot-to-an-iot-hub"></a>Defender a bordo para IoT para um hub IoT
 

@@ -3,12 +3,12 @@ title: Use serviços de laboratório Azure para hackathon
 description: Este artigo descreve como usar os Serviços Azure Lab para criar laboratórios que pode usar para executar hackathons.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: a0917ede4502dcbb59d1a30b7985b06c06975599
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: d4648def48557d70547ef7d41d6c3e516671849e
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602585"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102452735"
 ---
 # <a name="use-azure-lab-services-for-your-next-hackathon"></a>Use os serviços de laboratório da Azure para o seu próximo hackathon
 O Azure Lab Services foi concebido para ser leve e fácil de usar para que possa rapidamente girar um novo laboratório de máquinas virtuais (VMs) para o seu hackathon.  Utilize a seguinte lista de verificação para garantir que o seu hackathon corra o mais suavemente possível. Esta lista de verificação deve ser completada pelo seu departamento de TI ou pelo seu corpo docente responsável pela criação e gestão do seu laboratório de hackathon. 
@@ -83,7 +83,7 @@ Esta secção descreve os passos para completar o dia do seu hackathon.
     - Credenciais que devem ser utilizadas para ligar à máquina. Este passo só se aplica se o seu laboratório utilizar uma imagem baseada no Windows e configurar todos os VMs para usar a mesma palavra-passe.
     - Instruções sobre como os participantes SSH e\ou RDP para as suas máquinas.
 
-        Para mais informações, consulte [o guia sobre o envio de convites aos utilizadores](how-to-configure-student-usage.md?branch=master#send-invitations-to-users) e a [ligação aos VMs do Linux.](how-to-use-remote-desktop-linux-student.md?branch=master) 
+        Para mais informações, consulte [o guia sobre o envio de convites aos utilizadores](how-to-configure-student-usage.md#send-invitations-to-users) e a [ligação aos VMs do Linux.](how-to-use-remote-desktop-linux-student.md) 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Comece por criar uma conta de laboratório em laboratório seguindo as instruções do artigo: [Tutorial: Configurar uma conta de laboratório com os Serviços Azure Lab](tutorial-setup-lab-account.md).

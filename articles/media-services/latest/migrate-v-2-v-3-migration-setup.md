@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 1/14/2021
 ms.author: inhenkel
-ms.openlocfilehash: 1f3be34c6488b977a0b03237025ba0f0ab1af7ec
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 3b40ad6c8ef7cc9446f0b60e4cda2efd70b8ed32
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102214461"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102451579"
 ---
 # <a name="step-3---set-up-to-migrate-to-the-v3-rest-api-or-client-sdk"></a>Passo 3 - Configurar para migrar para a V3 REST API ou cliente SDK
 
@@ -50,7 +50,7 @@ Siga os passos de arranque rápido para [configurar o seu ambiente](how-to-set-a
 
 ## <a name="download-client-sdk-of-your-choice-and-set-up-your-environment"></a>Baixe o cliente SDK à sua escolha e crie o seu ambiente
 
-- SDKs disponíveis para [.NET](/dotnet/api/overview/azure/mediaservices/management?preserve-view=true&view=azure-dotnet), .NET Core, [Node.js](/javascript/api/overview/azure/mediaservices/management), [Python,](/python/api/overview/azure/mediaservices/management?preserve-view=true&view=azure-python) [Java,](/java/api/overview/azure/mediaservices/management) [Go](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/mediaservices/mgmt/2018-07-01/media)e [Ruby.](https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md)
+- SDKs disponíveis para [.NET](/dotnet/api/overview/azure/mediaservices/management), .NET Core, [Node.js](/javascript/api/overview/azure/mediaservices/management), [Python,](/python/api/overview/azure/mediaservices/management?preserve-view=true&view=azure-python) [Java,](/java/api/overview/azure/mediaservices/management) [Go](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/mediaservices/mgmt/2018-07-01/media)e [Ruby.](https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md)
 - [Azure CLI](/cli/azure/ams)   integração para suporte simples scripting.
 
 > [!NOTE]

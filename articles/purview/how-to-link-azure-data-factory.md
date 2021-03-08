@@ -6,13 +6,13 @@ ms.author: csugunan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 03/03/2021
-ms.openlocfilehash: 6a71999f0896a5d056b7d0b38be4d494c347e9f9
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.date: 03/08/2021
+ms.openlocfilehash: 8812806e535e8e34ca07fdb13e6223bfa0c91d6b
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102049377"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102449616"
 ---
 # <a name="how-to-connect-azure-data-factory-and-azure-purview"></a>Como ligar a Azure Data Factory e a Azure Purview
 
@@ -123,12 +123,12 @@ A integração entre a Data Factory e a Purview suporta apenas um subconjunto do
 | Base de Dados Azure SQL \* | Sim | 
 | Azure SQL Caso Gerido \* | Sim | 
 | Azure Synapse Analytics \* | Sim | 
-| Armazenamento de mesa Azure \* | Sim |
-| Servidor SQL \* | Sim | 
+| Armazenamento de Tabelas do Azure | Sim |
 | Amazon S3 | Sim | 
 | Colmeia \* | Sim | 
 | SAP ECC \* | Sim |
-| Tabela SAP \* | Sim |
+| Tabela SAP | Sim |
+| Servidor SQL \* | Sim | 
 | Rio Teradata \* | Sim |
 
 *\* A Azure Purview atualmente não suporta consulta ou procedimento armazenado para linhagem ou digitalização. A linhagem é limitada apenas a fontes de mesa e visualização.*
@@ -144,6 +144,7 @@ Atualmente, se utilizar as seguintes funcionalidades de atividade de cópia, a l
 - Copie os dados para a Azure Synapse Analytics utilizando a declaração PolyBase ou COPY.
 - Definição de compressão para texto binário, delimitado, excel, JSON e ficheiros XML.
 - Opções de partição de origem para Azure SQL Database, Azure SQL Managed Instance, Azure Synapse Analytics, SQL Server e SAP Table.
+- Opção de descoberta de partição de origem para lojas baseadas em ficheiros.
 - Copie os dados para a pia baseada em ficheiros com a definição de linhas máximas por ficheiro.
 - Adicione colunas adicionais durante a cópia.
 

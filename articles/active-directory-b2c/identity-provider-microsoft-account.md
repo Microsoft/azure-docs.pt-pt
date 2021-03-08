@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/27/2021
+ms.date: 03/08/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 1f4aea472988555047a736e6a248fa5690e42a23
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 0d8ba3fc578580e6eee02f435272f4ea53523586
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101645861"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102448222"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-microsoft-account-using-azure-active-directory-b2c"></a>Configurar o sº de inscrição e o inseúbmento com uma conta microsoft utilizando o Azure Ative Directory B2C
 
@@ -75,7 +75,10 @@ Para permitir o acesso aos utilizadores com uma conta Microsoft no Azure Ative D
 1. Selecione **Guardar**.
 1. Para testar a sua política, selecione **Executar o fluxo do utilizador**.
 1. Para **Aplicação**, selecione a aplicação web chamada *testapp1* que registou anteriormente. A **URL de resposta** deve mostrar `https://jwt.ms` .
-1. Clique **no fluxo do utilizador executar**
+1. Selecione o botão **de fluxo do utilizador Executar.**
+1. A partir da página de inscrição ou de sômis, selecione **Microsoft** para iniciar sôms com a conta Microsoft.
+
+Se o processo de inscrição for bem sucedido, o seu navegador é redirecionado para `https://jwt.ms` , que exibe o conteúdo do token devolvido pelo Azure AD B2C.
 
 ::: zone-end
 
@@ -188,6 +191,13 @@ Agora configuraste a tua política para que o Azure AD B2C saiba comunicar com a
 
 [!INCLUDE [active-directory-b2c-configure-relying-party-policy](../../includes/active-directory-b2c-configure-relying-party-policy-user-journey.md)]
 
-[!INCLUDE [active-directory-b2c-test-relying-party-policy](../../includes/active-directory-b2c-test-relying-party-policy-user-journey.md)]
+## <a name="test-your-custom-policy"></a>Teste a sua política personalizada
+
+1. Selecione a sua política partidária de dependência, por exemplo `B2C_1A_signup_signin` .
+1. Para **Aplicação**, selecione uma aplicação web que já [se registou anteriormente.](troubleshoot-custom-policies.md#troubleshoot-the-runtime) A **URL de resposta** deve mostrar `https://jwt.ms` .
+1. Selecione o botão **Executar agora.**
+1. A partir da página de inscrição ou de sômis, selecione **Microsoft** para iniciar sôms com a conta Microsoft.
+
+Se o processo de inscrição for bem sucedido, o seu navegador é redirecionado para `https://jwt.ms` , que exibe o conteúdo do token devolvido pelo Azure AD B2C.
 
 ::: zone-end

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/17/2021
 ms.author: memildin
-ms.openlocfilehash: aeabfb42d378f22ff660214517fea031d678b208
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: 41f96202bffc0169be9705cd7e67c1eedbecbc05
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100635579"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102453449"
 ---
 # <a name="tutorial-triage-investigate-and-respond-to-security-alerts"></a>Tutorial: Efetuar a triagem, investigar e responder a alertas de segurança
 O Security Center analisa continuamente as suas cargas de trabalho em nuvem híbrida usando análises avançadas e inteligência de ameaça para alertá-lo sobre atividades potencialmente maliciosas nos seus recursos na nuvem. Também pode integrar alertas de outros produtos e serviços de segurança no Centro de Segurança. Uma vez levantado um alerta, são necessárias medidas rápidas para investigar e remediar a questão potencial de segurança. 
@@ -112,7 +112,7 @@ Se não pretende continuar, ou se pretende desativar qualquer uma destas funcion
 1. Selecione a subscrição relevante.
 1. Para reduzir, selecione **Azure Defender off**.
 1. Para desativar o fornecimento automático, abra a página **de Recolha de Dados** e desemalte **o provisionamento automático** para **desligar**.
-4. Selecione **Guardar**.
+1. Selecione **Guardar**.
 
 >[!NOTE]
 > A desativação do fornecimento automático não remove o agente Log Analytics dos VMs Azure que já têm o agente. Desativar o aprovisionamento automático limita a monitorização da segurança dos seus recursos.
