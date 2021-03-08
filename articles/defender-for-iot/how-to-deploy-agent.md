@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: 2634ed819b8818632c58b9e471b0f26190e5f16b
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 89ecf26778433a3f075f76905183f3fe866cb5db
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96339970"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102447270"
 ---
 # <a name="select-and-deploy-a-security-agent-on-your-iot-device"></a>Selecione e coloque um agente de segurança no seu dispositivo IoT
 
@@ -28,11 +28,9 @@ Para saber mais, consulte [a arquitetura de referência do agente de segurança.
 Os agentes são desenvolvidos como projetos de código aberto, e estão disponíveis em dois sabores: <br> [C](https://aka.ms/iot-security-github-c), e [C#](https://aka.ms/iot-security-github-cs).
 
 Neste artigo, vai aprender a:
-
-> [!div class="checklist"]
-> * Compare sabores de agente de segurança
-> * Descubra plataformas de agentes apoiados
-> * Escolha o sabor do agente certo para a sua solução
+- Compare sabores de agente de segurança
+- Descubra plataformas de agentes apoiados
+- Escolha o sabor do agente certo para a sua solução
 
 ## <a name="understand-security-agent-options"></a>Compreender as opções do agente de segurança
 

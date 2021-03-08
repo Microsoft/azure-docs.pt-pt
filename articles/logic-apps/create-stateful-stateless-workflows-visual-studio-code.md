@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
 ms.date: 03/05/2021
-ms.openlocfilehash: 941d866fbdea0efc5775bccd08e0235b1629fae0
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: ab2d7c23e69c73c78c852de722733e8f0d09fcec
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102440994"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102449735"
 ---
 # <a name="create-stateful-and-stateless-workflows-in-visual-studio-code-with-the-azure-logic-apps-preview-extension"></a>Criar fluxos de trabalho apátridas e apátridas no Código do Estúdio Visual com a extensão Azure Logic Apps (Preview)
 
@@ -312,6 +312,9 @@ Antes de poder criar a sua aplicação lógica, crie um projeto local para que p
 Pode criar os seus próprios conectores incorporados para qualquer serviço que necessite utilizando a [estrutura de extensibilidade do lançamento de pré-visualização](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272). Semelhantes aos conectores incorporados, tais como O Azure Service Bus e SQL Server, estes conectores fornecem maior produção, baixa latência, conectividade local, e funcionam de forma nativa no mesmo processo que o tempo de pré-visualização.
 
 A capacidade de autoria está atualmente disponível apenas no Código do Estúdio Visual, mas não é ativada por padrão. Para criar estes conectores, é necessário converter primeiro o seu projeto de extensão baseada em pacotes (Node.js) para nuGet em pacotes (.NET).
+
+> [!IMPORTANT]
+> Esta ação é uma operação unidirecciona que não se pode desfazer.
 
 1. No painel Explorer, na raiz do seu projeto, mova o ponteiro do rato sobre qualquer área em branco abaixo de todos os outros ficheiros e pastas, abra o menu de atalho e selecione **Converta para o projeto de Aplicação Lógica baseada em Nugets**.
 

@@ -1,17 +1,18 @@
 ---
 title: Log Analytics exportação de dados do espaço de trabalho em Azure Monitor (pré-visualização)
 description: A exportação de dados do Log Analytics permite-lhe exportar continuamente dados de tabelas selecionadas do seu espaço de trabalho Log Analytics para uma conta de armazenamento Azure ou Azure Event Hubs à medida que são recolhidos.
+ms.subservice: logs
 ms.topic: conceptual
 ms.custom: references_regions, devx-track-azurecli
 author: bwren
 ms.author: bwren
 ms.date: 02/07/2021
-ms.openlocfilehash: f0bbe02576323342376ad155878d575c6403cf70
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 556570b02664a0afd01137f939bea67a1014b680
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102048816"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102449497"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Log Analytics exportação de dados do espaço de trabalho em Azure Monitor (pré-visualização)
 A exportação de dados do espaço de trabalho do Log Analytics no Azure Monitor permite-lhe exportar continuamente dados de tabelas selecionadas no seu espaço de trabalho Log Analytics para uma conta de armazenamento Azure ou Azure Event Hubs à medida que são recolhidos. Este artigo fornece detalhes sobre esta funcionalidade e passos para configurar a exportação de dados nos seus espaços de trabalho.
@@ -75,7 +76,7 @@ A exportação de dados do Log Analytics pode escrever blobs de apêndice para c
 Os dados são enviados para o seu centro de eventos em tempo quase real, à medida que chegam ao Azure Monitor. É criado um hub de eventos para cada tipo de dados que exporta com o nome *am-* seguido pelo nome da tabela. Por exemplo, a tabela *SecurityEvent* enviaria para um centro de eventos chamado *am-SecurityEvent*. Se quiser que os dados exportados cheguem a um centro de eventos específico, ou se tiver uma tabela com um nome que exceda o limite de 47 caracteres, pode fornecer o nome do seu próprio centro de eventos e exportar todos os dados para tabelas definidas para ele.
 
 > [!IMPORTANT]
-> O [número de centros de eventos suportados por espaço de nome é de 10](../../event-hubs/event-hubs-quotas.md#common-limits-for-all-tiers). Se exportar mais de 10 mesas, forneça o seu próprio nome de hub de eventos para exportar todas as suas mesas para o centro de eventos. 
+> O [número de centros de eventos suportados por espaço de nome é de 10](../../event-hubs/event-hubs-quotas.md#common-limits-for-all-tiers). Se exportar mais de 10 mesas, forneça o seu próprio nome de hub de eventos para exportar todas as suas mesas para o centro de eventos.
 
 Considerações:
 1. O sku 'Basic' event hub suporta [um limite](../../event-hubs/event-hubs-quotas.md#basic-vs-standard-tiers) de tamanho de evento mais baixo e alguns registos no seu espaço de trabalho podem ultrapassá-lo e ser largados. Recomendamos a utilização do centro de eventos 'Standard' ou 'Dedicado' como destino de exportação.
@@ -113,10 +114,14 @@ Se configurar a sua Conta de Armazenamento para permitir o acesso a partir de re
 
 [![Firewalls de conta de armazenamento e redes virtuais](media/logs-data-export/storage-account-vnet.png)](media/logs-data-export/storage-account-vnet.png#lightbox)
 
-
 ### <a name="create-or-update-data-export-rule"></a>Criar ou atualizar regra de exportação de dados
-Uma regra de exportação de dados define os dados a exportar para um conjunto de tabelas para um único destino. Pode criar uma única regra para cada destino.
+Uma regra de exportação de dados define os quadros para os quais os dados são exportados e o destino. Pode criar uma única regra para cada destino atualmente.
 
+Se precisar de uma lista de tabelas no seu trabalho para configuração de regras de exportação, faça esta consulta no seu espaço de trabalho.
+
+```kusto
+find where TimeGenerated > ago(24h) | distinct Type
+```
 
 # <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
 
@@ -127,12 +132,6 @@ N/D
 N/D
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
-
-Utilize o seguinte comando CLI para visualizar as tabelas no seu espaço de trabalho. Pode ajudar a copiar as tabelas que deseja e incluir na regra de exportação de dados.
-
-```azurecli
-az monitor log-analytics workspace table list --resource-group resourceGroupName --workspace-name workspaceName --query [].name --output table
-```
 
 Utilize o seguinte comando para criar uma regra de exportação de dados para uma conta de armazenamento utilizando o CLI.
 

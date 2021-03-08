@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Directy integração única (SSO) com Boomi Microsoft Docs'
+title: 'Tutorial: Azure Ative Directory integração única de sign-on (SSO) com a Boomi | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Boomi.
 services: active-directory
 author: jeevansd
@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/07/2020
+ms.date: 02/25/2021
 ms.author: jeedes
-ms.openlocfilehash: e14ef0c039fdf07d50c09fe57dc3cac222be524d
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 15db3e5182c39f756d4e9cd63378c3b86ab1eb32
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92456879"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102449554"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-boomi"></a>Tutorial: Azure Ative Directory integração única (SSO) com boomi
 
@@ -25,8 +25,6 @@ Neste tutorial, você vai aprender a integrar Boomi com Azure Ative Directory (A
 * Controlo em Azure AD que tem acesso a Boomi.
 * Ative os seus utilizadores a serem automaticamente inscritos no Boomi com as suas contas AD Azure.
 * Gerencie as suas contas numa localização central - o portal Azure.
-
-Para saber mais sobre a integração da aplicação SaaS com a Azure AD, consulte o que é o acesso à [aplicação e o único sign-on com o Azure Ative Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -39,14 +37,13 @@ Para começar, precisa dos seguintes itens:
 
 Neste tutorial, você configura e testa Azure AD SSO em um ambiente de teste.
 
-* Boomi apoia **IDP** iniciado SSO
-* Assim que configurar o Boomi, pode impor controlos de sessão, que protegem a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. Os controlos de sessão estendem-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+* Boomi apoia **O IDP** iniciado SSO.
 
-## <a name="adding-boomi-from-the-gallery"></a>Adicionando Boomi da galeria
+## <a name="add-boomi-from-the-gallery"></a>Adicione Boomi da galeria
 
 Para configurar a integração do Boomi no Azure AD, precisa adicionar Boomi da galeria à sua lista de aplicações geridas pelo SaaS.
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
+1. Inscreva-se no portal Azure usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
 1. No painel de navegação à esquerda, selecione o serviço **Azure Ative Directory.**
 1. Navegue para **aplicações empresariais** e, em seguida, selecione **Todas as Aplicações**.
 1. Para adicionar nova aplicação, selecione **Nova aplicação**.
@@ -54,11 +51,11 @@ Para configurar a integração do Boomi no Azure AD, precisa adicionar Boomi da 
 1. Selecione **Boomi** do painel de resultados e adicione a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-boomi"></a>Configurar e testar Azure AD único sinal para Boomi
+## <a name="configure-and-test-azure-ad-sso-for-boomi"></a>Configurar e testar Azure AD SSO para Boomi
 
 Configure e teste Azure AD SSO com Boomi usando um utilizador de teste chamado **B.Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador Azure AD e o utilizador relacionado em Boomi.
 
-Para configurar e testar a Azure AD SSO com a Boomi, complete os seguintes blocos de construção:
+Para configurar e testar a Azure AD SSO com a Boomi, execute os seguintes passos:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
     * Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com B.Simon.
@@ -71,9 +68,9 @@ Para configurar e testar a Azure AD SSO com a Boomi, complete os seguintes bloco
 
 Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
-1. No [portal Azure](https://portal.azure.com/), na página de integração de aplicações **Boomi,** encontre a secção **Gerir** e selecione **um único sinal de sação**.
+1. No portal Azure, na página de integração da aplicação **Boomi,** encontre a secção **Gerir** e selecione **um único sinal de sação**.
 1. Na página de método **de inscrição** única, selecione **SAML**.
-1. No **set-on único com** a página SAML, clique no ícone edit/pen para **Configuração SAML Básica** para editar as definições.
+1. No **set-on único com** a página SAML, clique no ícone de lápis para **configuração SAML Básica** para editar as definições.
 
    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -89,12 +86,10 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
     c. Após o carregamento com sucesso do ficheiro de metadados, os valores de URL **de identificação** e **resposta** são preenchidos automaticamente na secção de Configuração BÁSICA SAML.
 
-    ![A screenshot mostra a Configuração BÁSICA SAML, onde aparecem os valores do Identifier e da Resposta U R L.](common/idp-intiated.png)
-
     d. Introduza o **URL de inscrição,** tal como `https://platform.boomi.com/AtomSphere.html#build;accountId={your-accountId}` .
 
     > [!Note]
-    > Você receberá o **ficheiro de metadados do Fornecedor** de Serviços na secção **Configure Boomi SSO,** que é explicado mais tarde no tutorial. Se os valores de URL **de identificação** e **resposta** não forem automaticamente poluídos, preencha os valores manualmente de acordo com o seu requisito.
+    > Você receberá o **ficheiro de metadados do Fornecedor** de Serviços na secção **Configure Boomi SSO,** que é explicado mais tarde no tutorial. Se os valores de URL **de identificação** e **resposta** não forem preenchidos automaticamente, preencha os valores manualmente de acordo com o seu requisito.
 
 1. A aplicação Boomi espera as afirmações DO SAML num formato específico, o que requer que adicione mapeamentos de atributos personalizados à configuração de atributos de token SAML. A imagem que se segue mostra a lista de atributos predefinidos.
 
@@ -130,18 +125,12 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
 
 Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso a Boomi.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de candidaturas, **selecione Boomi**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
-
-   ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
-
 1. **Selecione Adicionar utilizador,** em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
-
-    ![O link do utilizador adicionar](common/add-assign-user.png)
-
 1. No diálogo **de Utilizadores e grupos,** selecione **B.Simon** da lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
-1. Se estiver à espera de qualquer valor de função na afirmação SAML, no diálogo **'Fun's Select,** selecione a função adequada para o utilizador da lista e, em seguida, clique no botão **Selecione** na parte inferior do ecrã.
+1. Se estiver à espera que uma função seja atribuída aos utilizadores, pode selecioná-la a partir do Dropdown de **função** Select. Se não tiver sido configurada qualquer função para esta aplicação, vê a função "Acesso Predefinido" selecionada.
 1. No diálogo **'Adicionar Atribuição',** clique no botão **'Atribuir'.**
 
 ## <a name="configure-boomi-sso"></a>Configure Boomi SSO
@@ -152,7 +141,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. Clique no separador **Opções SSO** e execute abaixo dos passos.
 
-    ![Configurar Sign-On única no lado da aplicação](./media/boomi-tutorial/tutorial_boomi_11.png)
+    ![Configurar Sign-On única no lado da aplicação](./media/boomi-tutorial/import.png)
 
     a. Verifique ativar a caixa de verificação **DE Inscrição Única SAML.**
 
@@ -176,13 +165,13 @@ Para permitir que os utilizadores da Azure AD inscrevam-se no Boomi, devem ser a
 
 1. Depois de iniciar sessão, navegue para a **Gestão do Utilizador** e vá aos **Utilizadores**.
 
-    ![A screenshot mostra a página de Gestão do Utilizador com os Utilizadores selecionados.](./media/boomi-tutorial/tutorial_boomi_001.png "Utilizadores")
+    ![A screenshot mostra a página de Gestão do Utilizador com os Utilizadores selecionados.](./media/boomi-tutorial/user.png "Utilizadores")
 
 1. Clique **+**  no ícone e o diálogo **'Adicionar/Manter os papéis do utilizador'** abre.'
 
-    ![A screenshot mostra o ícone + selecionado.](./media/boomi-tutorial/tutorial_boomi_002.png "Utilizadores")
+    ![A screenshot mostra o ícone + selecionado.](./media/boomi-tutorial/add.png "Utilizadores")
 
-    ![A screenshot mostra as funções de utilizador add / keep onde configura um utilizador.](./media/boomi-tutorial/tutorial_boomi_003.png "Utilizadores")
+    ![A screenshot mostra as funções de utilizador add / keep onde configura um utilizador.](./media/boomi-tutorial/roles.png "Utilizadores")
 
     a. Na caixa de texto **do endereço de e-mail** do Utilizador, digite o e-mail do utilizador como B.Simon@contoso.com .
 
@@ -190,7 +179,7 @@ Para permitir que os utilizadores da Azure AD inscrevam-se no Boomi, devem ser a
 
     c. Na caixa de texto **do último nome,** digite o último nome de utilizador como Simon.
 
-    d. Introduza o **ID**da Federação do Utilizador . Cada utilizador deve ter um ID da Federação que identifique exclusivamente o utilizador dentro da conta.
+    d. Introduza o **ID** da Federação do Utilizador . Cada utilizador deve ter um ID da Federação que identifique exclusivamente o utilizador dentro da conta.
 
     e. Atribua a função **utilizador padrão** ao utilizador. Não atribua a função de Administrador porque isso lhes daria acesso normal à Atmosfera, bem como um único acesso de sessão de acesso.
 
@@ -201,18 +190,13 @@ Para permitir que os utilizadores da Azure AD inscrevam-se no Boomi, devem ser a
 
 ## <a name="test-sso"></a>Teste SSO
 
-Nesta secção, testa a configuração de inscrição única AZure AD utilizando o Painel de Acesso.
+Nesta secção, testa a configuração de um único sinal de inscrição Azure AD com as seguintes opções.
 
-Quando clicar no azulejo Boomi no Painel de Acesso, deverá ser automaticamente inscrito no Boomi para o qual configura sSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/my-apps-portal-end-user-access.md)
+* Clique em Testar esta aplicação no portal Azure e deverá ser automaticamente inscrito no Boomi para o qual configura o SSO.
 
-## <a name="additional-resources"></a>Recursos adicionais
+* Pode utilizar as minhas apps do Microsoft. Quando clicar no azulejo Boomi nas Minhas Apps, deverá ser automaticamente inscrito no Boomi para o qual configura o SSO. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
-- [ Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure ](./tutorial-list.md)
 
-- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory? ](../manage-apps/what-is-single-sign-on.md)
+## <a name="next-steps"></a>Passos seguintes
 
-- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)
-
-- [O que é o controlo de sessão no Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
-
-- [Experimente Boomi com Azure AD](https://aad.portal.azure.com/)
+Uma vez configurado Boomi, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

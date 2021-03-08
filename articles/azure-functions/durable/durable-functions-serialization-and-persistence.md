@@ -5,12 +5,12 @@ author: ConnorMcMahon
 ms.topic: conceptual
 ms.date: 02/11/2021
 ms.author: azfuncdf
-ms.openlocfilehash: 34845afe0efd0131e0c568eac1169ddc10be5d47
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: ea4aaa1cdbe10e2db9cf619452558d104a2293ab
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100521164"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102449378"
 ---
 # <a name="data-persistence-and-serialization-in-durable-functions-azure-functions"></a>Persistência de dados e serialização em Funções Duradouras (Funções Azure)
 
@@ -111,7 +111,7 @@ namespace MyApplication
     {
         public override void Configure(IFunctionsHostBuilder builder)
         {
-            builder.Services.AddSingleton<IMessageSerializerSettingsFactory, CustomMessageSerializerSettingFactory>();
+            builder.Services.AddSingleton<IMessageSerializerSettingsFactory, CustomMessageSerializerSettingsFactory>();
             builder.Services.AddSingleton<IErrorSerializerSettingsFactory, CustomErrorSerializerSettingsFactory>();
         }
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
-ms.openlocfilehash: 4d99cdbb2f50d04eff790cdfe675d0f8031c48a9
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: a4223dbc913b7b46cf73c0ed99f607fff67b7e67
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100517183"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102448069"
 ---
 # <a name="deploy-a-defender-for-iot-c-based-security-agent-for-windows"></a>Implementar um Defensor para ioT C#agente de segurança para windows
 
@@ -27,11 +27,10 @@ Este guia explica como instalar o Defender para o agente de segurança baseado e
 
 Neste guia, ficará a saber como:
 
-> [!div class="checklist"]
-> * Instalar
-> * Verificar a implementação
-> * Desinstalar o agente
-> * Resolução de problemas
+- Instalar
+- Verificar a implementação
+- Desinstalar o agente
+- Resolução de problemas
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

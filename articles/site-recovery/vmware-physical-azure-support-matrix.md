@@ -3,12 +3,12 @@ title: Matriz de suporte para vMware/recuperação de desastres físicos na recu
 description: Resume o suporte para a recuperação de desastres de VMware VMs e servidor físico para Azure usando a Recuperação do Site Azure.
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: 3b658a0dd2522b1ca1ad2d46b5f778351b271a27
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: e025b1681306a3bb837a338655dc561e897226c2
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102212433"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102449259"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matriz de suporte para recuperação de desastres de VMware VMs e servidores físicos para Azure
 
@@ -295,10 +295,10 @@ Os VMs no local replicados ao Azure devem satisfazer os requisitos Azure VM resu
 --- | --- | ---
 Sistema operativo convidado | Verifique os [sistemas operativos suportados](#replicated-machines) para máquinas replicadas. | A verificação falha se não for apoiada.
 Arquitetura do sistema operativo convidado | 64-bit. | A verificação falha se não for apoiada.
-Tamanho do disco do sistema operativo | Até 2.048 GB. | A verificação falha se não for apoiada.
+Tamanho do disco do sistema operativo | Até 2.048 GB para máquinas de geração 1. <br> Até 4.095 GB para máquinas de geração 2. | A verificação falha se não for apoiada.
 Contagem de discos do sistema operativo | 1 </br> arranque e divisão do sistema em diferentes discos não é suportado | A verificação falha se não for apoiada.
 Contagem de discos de dados | 64 ou menos. | A verificação falha se não for apoiada.
-Tamanho do disco de dados | Até 8.192 GB ao replicar o disco gerido (versão 9.26 em diante)<br> Até 4.095 GB ao replicar-se na conta de armazenamento </br> Requisito mínimo de tamanho do disco - pelo menos 1024 MB| A verificação falha se não for apoiada.
+Tamanho do disco de dados | Até 32.767 GB ao replicar o disco gerido (versão 9.41 em diante)<br> Até 4.095 GB ao replicar-se na conta de armazenamento </br> Requisito mínimo de tamanho do disco - pelo menos 1024 MB| A verificação falha se não for apoiada.
 Placas de rede | Vários adaptadores são suportados. |
 VHD partilhado | Não suportado. | A verificação falha se não for apoiada.
 Disco FC | Não suportado. | A verificação falha se não for apoiada.

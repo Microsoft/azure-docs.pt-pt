@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/19/2021
+ms.date: 03/08/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: e0e71bc0e3a81b5ab2f455224ed2ed4281532d55
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: a43551adf8dbe1a03ac7f7b22d58d63aa8c2c503
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98952679"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102448426"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-facebook-account-using-azure-active-directory-b2c"></a>Configurar inscrição e inscrição com uma conta no Facebook utilizando o Azure Ative Directory B2C
 
@@ -79,7 +79,11 @@ Para ativar o sessão para utilizadores com uma conta no Facebook no Azure Ative
 1. Selecione **Guardar**.
 1. Para testar a sua política, selecione **Executar o fluxo do utilizador**.
 1. Para **Aplicação**, selecione a aplicação web chamada *testapp1* que registou anteriormente. A **URL de resposta** deve mostrar `https://jwt.ms` .
-1. Clique **no fluxo do utilizador executar**
+1. Selecione o botão **de fluxo do utilizador Executar.**
+1. A partir da página de inscrição ou de inscrição, selecione **Facebook** para iniciar scontabilidade do Facebook.
+
+Se o processo de inscrição for bem sucedido, o seu navegador é redirecionado para `https://jwt.ms` , que exibe o conteúdo do token devolvido pelo Azure AD B2C.
+
 
 ::: zone-end
 
@@ -118,7 +122,10 @@ Atualize o ficheiro do partido de funções (RP) que inicia a jornada do utiliza
 1. Faça o upload do ficheiro *TrustFrameworkExtensions.xml* para o seu inquilino.
 1. De acordo com **as políticas personalizadas,** selecione **B2C_1A_signup_signin**.
 1. Para **Select Application**, selecione a aplicação web chamada *testapp1* que registou anteriormente. A **URL de resposta** deve mostrar `https://jwt.ms` .
-1. Selecione **Executar agora** e selecione Facebook para iniciar sinsução com o Facebook e testar a política personalizada.
+1. Selecione o botão **Executar agora.**
+1. A partir da página de inscrição ou de inscrição, selecione **Facebook** para iniciar scontabilidade do Facebook.
+
+Se o processo de inscrição for bem sucedido, o seu navegador é redirecionado para `https://jwt.ms` , que exibe o conteúdo do token devolvido pelo Azure AD B2C.
 
 ::: zone-end
 

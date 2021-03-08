@@ -1,6 +1,6 @@
 ---
-title: Visão geral dos agentes de segurança
-description: Compreenda a arquitetura do agente de segurança para os agentes usados no Azure Defender para o serviço IoT.
+title: 'Quickstart: Visão geral dos agentes de segurança'
+description: Neste quickstart você vai aprender a entender a arquitetura do agente de segurança para os agentes usados no Azure Defender para o serviço IoT.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
@@ -8,19 +8,19 @@ author: shhazam-ms
 manager: rkarlin
 editor: ''
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2021
 ms.author: shhazam
-ms.openlocfilehash: ff837fe88f878c522366b2b6bc19a1ef3954b667
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.openlocfilehash: aceeaec63eb637002352f5c503f57890033b0381
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99820658"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102449242"
 ---
-# <a name="security-agent-reference-architecture"></a>Arquitetura de referência de agente de segurança
+# <a name="quickstart-security-agent-reference-architecture"></a>Quickstart: Arquitetura de referência de agente de segurança
 
 O Azure Defender for IoT fornece arquitetura de referência para agentes de segurança que registam, processam, agregam e enviam dados de segurança através do IoT Hub.
 
@@ -41,6 +41,10 @@ O Defender for IoT Security agents é desenvolvido como projetos de código aber
 - [Defensor do agente baseado em IoT C](https://github.com/Azure/Azure-IoT-Security-Agent-C)
 - [Defender para agente baseado em IoT C#](https://github.com/Azure/Azure-IoT-Security-Agent-CS)
 
+## <a name="prerequisites"></a>Pré-requisitos
+
+Nenhum
+
 ## <a name="agent-supported-platforms"></a>Plataformas apoiadas por agente
 
 O Defender for IoT oferece diferentes agentes instaladores para Windows de 32 bits e 64 bits, e o mesmo para o Linux de 32 bits e 64 bits. Certifique-se de que tem o instalador de agente correto para cada um dos seus dispositivos de acordo com a seguinte tabela:
@@ -57,8 +61,5 @@ Neste artigo, você tem uma visão geral de alto nível sobre o Defender para ar
 
 Para continuar a trabalhar com o Defender para a implementação de IoT, utilize os seguintes artigos:
 
-- Compreender [os métodos de autenticação do agente de segurança](concept-security-agent-authentication-methods.md)
-- Selecione e implemente um [agente de segurança](how-to-deploy-agent.md)
-- Reveja os [pré-requisitos](quickstart-system-prerequisites.md) do sistema Defender for IoT
-- Saiba como [ativar o serviço Defender para IoT no seu IoT Hub](quickstart-onboard-iot-hub.md)
-- Saiba mais sobre o serviço do [Defender para IoT FAQ](resources-frequently-asked-questions.md)
+> [!div class="nextstepaction"]
+> [métodos de autenticação de agente de segurança](concept-security-agent-authentication-methods.md)

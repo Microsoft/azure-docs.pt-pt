@@ -8,16 +8,16 @@ author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/09/2020
-ms.openlocfilehash: de8638cbb4e39ccf6013e5a8d596417401700c8d
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 4590396b0e867a3e545577767581dd1a951bfc50
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100521599"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102447389"
 ---
 # <a name="welcome-to-azure-defender-for-iot"></a>Bem-vindo ao Azure Defender para ioT
 
@@ -81,6 +81,6 @@ Detetar ameaças como botnets, tentativas de força bruta, mineradores de cripto
 
 O micro-agente Azure Defender para ioT inclui código fonte, para que possa incorporar o micro-agente no firmware ou personalizá-lo para incluir apenas o que precisa. Também está disponível como um pacote binário, ou integrado diretamente em outras soluções Azure IoT. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="see-also"></a>Ver também
 
 [Azure Defender para arquitetura IoT](architecture.md)

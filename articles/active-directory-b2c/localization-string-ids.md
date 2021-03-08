@@ -1,5 +1,5 @@
 ---
-title: IDs de cadeia de localização - Azure Ative Directory B2C / Microsoft Docs
+title: IDs de cadeia de localização - Azure Ative Directory B2C | Microsoft Docs
 description: Especifique os IDs para uma definição de conteúdo com um ID de api.signuporsignin em uma política personalizada em Azure Ative Directory B2C.
 services: active-directory-b2c
 author: msmimart
@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 11/09/2020
+ms.date: 03/08/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 81a1263d0eacbffa77e2e35e4594e23235394183
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: e867fee753fb9db530db2b2015c3aea9280bc16f
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97108676"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102448649"
 ---
 # <a name="localization-string-ids"></a>IDs de cadeia de localização
 
@@ -40,7 +40,7 @@ Os iDs seguintes são usados para uma definição de conteúdo com um ID `api.si
 | **logonIdentifier_email** | Endereço de E-mail | `< 2.0.0` |
 | **requiredField_email** | Por favor, insira o seu e-mail | `< 2.0.0` |
 | **invalid_email** | Por favor, insira um endereço de e-mail válido | `< 2.0.0` |
-| **email_pattern** | ^[a-zA-Z0-9.! #$%&'' \* +/=?^ \_ \` \| {}~-]+@[a-zA-Z0-9-]+(?: \\ . a-zA-Z0-9-]+ \* $`< 2.0.0` |
+| **email_pattern** | ^[a-zA-Z0-9.! #$%&'' \* +/=?^ \_ \` \| {}~-]+@[a-zA-Z0-9-]+(?: \\ . a-zA-Z0-9-]+) \* $ |`< 2.0.0` |
 | **local_intro_username** | Inscreva-se com o seu nome de utilizador | `< 2.0.0` |
 | **logonIdentifier_username** | Nome de utilizador | `< 2.0.0` |
 | **requiredField_username** | Por favor, insira o seu nome de utilizador | `< 2.0.0` |
@@ -154,7 +154,7 @@ Seguem-se os IDs para uma definição de conteúdo com identificação ou qualqu
 | **ver_but_send** | Enviar código de verificação |
 | **alert_yes** | Sim |
 | **error_fieldIncorrect** | Um ou mais campos são preenchidos incorretamente. Por favor, verifiquem as suas entradas e tentem novamente. |
-| **ano** | Ano |
+| **ano** | Anual |
 | **verifying_blurb** | Por favor, aguarde enquanto processamos a sua informação. |
 | **button_cancel** | Cancelar |
 | **ver_fail_no_retry** | Fizeste muitas tentativas incorretas. Tente novamente mais tarde. |
@@ -357,7 +357,7 @@ Seguem-se os IDs para um [controlo de visualização de verificação](display-c
 | ID | Valor predefinido |
 | -- | ------------- |
 |intro_msg| A verificação é necessária. Clique no botão Enviar por favor.|
-|success_send_code_msg | O código de verificação foi enviado para a sua caixa de entrada. Por favor, copie-o para a caixa de entrada abaixo.|
+|success_send_code_msg | O código de verificação foi enviado. Por favor, copie-o para a caixa de entrada abaixo.|
 |failure_send_code_msg | Estamos com dificuldades em verificar o seu endereço de e-mail. Por favor, insira um endereço de e-mail válido e tente novamente.|
 |success_verify_code_msg | Endereço de e-mail verificado. Agora pode continuar.|
 |failure_verify_code_msg | Estamos com dificuldades em verificar o seu endereço de e-mail. Tente novamente.|

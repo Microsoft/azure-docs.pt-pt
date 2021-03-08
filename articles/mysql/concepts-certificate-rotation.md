@@ -6,18 +6,20 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/18/2021
-ms.openlocfilehash: 9ad2566188256dd23b0f479c2576636750e33b02
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 23fa3e93565066ce4b897bffe63164486efc179e
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101715110"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102449888"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-mysql-single-server"></a>Compreender as alterações na alteração Root CA para Azure Database para MySQL Single Server
 
 A Azure Database for MySQL Single Server concluiu com sucesso a alteração do certificado de raiz em **15 de fevereiro de 2021 (02/15/2021)** como parte das melhores práticas padrão de manutenção e segurança. Este artigo dá-lhe mais detalhes sobre as alterações, os recursos afetados e os passos necessários para garantir que a sua aplicação mantém a conectividade com o servidor da sua base de dados.
 
 > [!NOTE]
+> Este artigo aplica-se à [Base de Dados Azure para MySQL - Single Server](single-server-overview.md) ONLY. Para [a base de dados Azure para MySQL - Servidor Flexível,](flexible-server/overview.md)o certificado necessário para comunicar sobre o SSL é [DigiCert Global Root CA](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem)
+> 
 > Este artigo contém referências ao termo _escravo_, um termo que a Microsoft já não utiliza. Quando o termo for removido do software, vamos removê-lo deste artigo.
 >
 

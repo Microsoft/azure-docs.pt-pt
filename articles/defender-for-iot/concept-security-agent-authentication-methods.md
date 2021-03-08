@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2021
 ms.author: shhazam
-ms.openlocfilehash: c72fa87201fb0d7fdd526f0e6f4eeb2c35192fc2
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 85a5edc1485cb5a1eeb4428b201380ad9ca89422
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100521650"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102449174"
 ---
 # <a name="security-agent-authentication-methods"></a>Métodos de autenticação de agentes de segurança
 
@@ -26,9 +26,8 @@ Este artigo explica os diferentes métodos de autenticação que pode utilizar c
 
 Para cada dispositivo a bordo do Defender para IoT no IoT Hub, é necessário um módulo de segurança. Para autenticar o dispositivo, o Defender para IoT pode utilizar um de dois métodos. Escolha o método que funciona melhor para a sua solução IoT existente.
 
-> [!div class="checklist"]
-> * Opção SecurityModule
-> * Opção dispositivo
+- Opção SecurityModule
+- Opção dispositivo
 
 ## <a name="authentication-methods"></a>Métodos de autenticação
 
@@ -55,7 +54,7 @@ Consulte os parâmetros de [instalação do agente](#security-agent-installation
 Ao [utilizar um agente de segurança,](how-to-deploy-agent.md)os dados de autenticação devem ser fornecidos como argumentos.
 Estes argumentos estão documentados na tabela seguinte.
 
-|Nome do parâmetro linux | Nome do parâmetro do Windows | Parâmetro de abreviatura |Description|Opções|
+|Nome do parâmetro linux | Nome do parâmetro do Windows | Parâmetro de abreviatura |Descrição|Opções|
 |---------------------|---------------|---------|---------------|---------------|
 |autenticação-identidade|AutenticaçãoDídeo|aui|Identidade de autenticação| **SegurançaModule** ou **Dispositivo**|
 |método de autenticação|AutenticaçãoMethod|aum|Método de autenticação|**SimétricaKey** ou **SelfSignedCertificate**|
@@ -101,7 +100,8 @@ Editar _LocalConfiguration.js_ com os seguintes parâmetros:
     "HostName" : ""
 }
 ```
-## <a name="next-steps"></a>Passos seguintes
+
+## <a name="see-also"></a>Ver também
 
 - [Visão geral dos agentes de segurança](security-agent-architecture.md)
 - [Implementar agente de segurança](how-to-deploy-agent.md)

@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/02/2021
+ms.date: 03/08/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: b82d573b7d8a65447d75aa8f017c87795bbef6cd
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: fa34e8ea71c307b75a3f345861f8ed99d131b3fd
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102171659"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102447933"
 ---
 # <a name="set-up-a-password-reset-flow-in-azure-active-directory-b2c"></a>Configurar um fluxo de reset de palavra-passe no Azure Ative Directory B2C
 
@@ -203,6 +203,24 @@ Na sua jornada de utilizador, pode representar a sub-viagem esquecida da Palavra
     ```xml
     <ClaimsExchange Id="ForgotPasswordExchange" TechnicalProfileReferenceId="ForgotPassword" />
     ```
+    
+1. Adicione o seguinte passo de orquestração entre o passo atual e o passo seguinte. O novo passo de orquestração que acrescenta, verifica se a `isForgotPassword` alegação existe. Se a reclamação existir, invoca a [sub-viagem de reset da palavra-passe](#add-the-password-reset-sub-journey). 
+
+    ```xml
+    <OrchestrationStep Order="3" Type="InvokeSubJourney">
+      <Preconditions>
+        <Precondition Type="ClaimsExist" ExecuteActionsIf="false">
+          <Value>isForgotPassword</Value>
+          <Action>SkipThisOrchestrationStep</Action>
+        </Precondition>
+      </Preconditions>
+      <JourneyList>
+        <Candidate SubJourneyReferenceId="PasswordReset" />
+      </JourneyList>
+    </OrchestrationStep>
+    ```
+    
+1. Depois de adicionar o novo passo de orquestração, renumerar os passos sequencialmente sem saltar nenhum número inteiro de 1 a N.
 
 ### <a name="set-the-user-journey-to-be-executed"></a>Desemote a jornada do utilizador para ser executado
 
@@ -262,7 +280,7 @@ No seguinte diagrama:
 1. O utilizador seleciona o link **Esqueceu-se da sua palavra-passe?** Azure AD B2C devolve o código de erro AADB2C90118 à aplicação.
 1. A aplicação trata do código de erro e inicia um novo pedido de autorização. O pedido de autorização especifica o nome da política de reset da palavra-passe, como **B2C_1_pwd_reset**.
 
-![Fluxo de reset de palavra-passe](./media/add-password-reset-policy/password-reset-flow-legacy.png)
+![Fluxo de utilizador de redefinição de palavra-passe legacy](./media/add-password-reset-policy/password-reset-flow-legacy.png)
 
 Para ver um exemplo, veja uma [simples amostra de ASP.NET](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-DotNet-SUSI), que demonstra a ligação dos fluxos dos utilizadores.
 

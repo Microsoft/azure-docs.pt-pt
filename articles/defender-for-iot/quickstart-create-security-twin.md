@@ -1,5 +1,5 @@
 ---
-title: Criar um módulo de segurança twin
+title: 'Quickstart: Criar um módulo de segurança twin'
 description: Neste arranque rápido, aprenda a criar um Duplo Desíduo para IoT para utilização com Azure Defender para IoT.
 services: defender-for-iot
 ms.service: defender-for-iot
@@ -13,16 +13,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/21/2021
 ms.author: shhazam
-ms.openlocfilehash: 68d137caeed91e9dea2dbf3883929d85c25382aa
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 832c8e426b57e6b447ef805f2868a6d42abe3d9d
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100523265"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102449701"
 ---
-# <a name="create-an-azureiotsecurity-module-twin"></a>Criar um módulo de azureiotsecurity twin
+# <a name="quickstart-create-an-azureiotsecurity-module-twin"></a>Quickstart: Criar um módulo de azureiotsecurity twin
 
 Este quickstart explica como criar gémeos individuais de módulos _de azureiotsecurity_ para novos dispositivos, ou criar módulos gémeos para todos os dispositivos num Hub IoT.
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+Nenhum
 
 ## <a name="understanding-azureiotsecurity-module-twins"></a>Compreender gémeos módulos de azureiotsegurança
 

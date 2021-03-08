@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/18/2020
+ms.date: 02/25/2021
 ms.author: jeedes
-ms.openlocfilehash: 8af8d92ca66cfbd3d6223bc9a73125c457164d82
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 70afa0a02f4e303105aec1884b966796854c6f49
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735549"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102449328"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-internet-access-administrator"></a>Tutorial: Integração do Azure Ative Directory com o Administrador de Acesso à Internet Zscaler
 
@@ -28,10 +28,10 @@ Neste tutorial, você vai aprender a integrar o Administrador de Acesso à Inter
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração AZure AD com o Administrador de Acesso à Internet Zscaler, precisa dos seguintes itens:
+Para começar, precisa dos seguintes itens:
 
-* Uma assinatura AD Azure. Se não tiver um ambiente AD Azure, pode ter um mês de julgamento [aqui.](https://azure.microsoft.com/pricing/free-trial/)
-* Assinatura do Administrador de Acesso à Internet Zscaler
+* Uma assinatura AD Azure. Se não tiver uma subscrição, pode obter uma [conta gratuita.](https://azure.microsoft.com/free/)
+* A assinatura ativada pelo Administrador de Acesso à Internet Zscaler (SSO).
 
 > [!NOTE]
 > Esta integração também está disponível para usar a partir do ambiente cloud do governo dos EUA Azure AD. Você pode encontrar esta aplicação na Azure AD US Government Cloud Application Gallery e configurá-la da mesma forma que você faz a partir de nuvem pública.
@@ -40,9 +40,9 @@ Para configurar a integração AZure AD com o Administrador de Acesso à Interne
 
 Neste tutorial, você configura e testa Azure AD um único sinal de acesso em um ambiente de teste.
 
-* Administrador de acesso à Internet Zscaler suporta **IDP** iniciado SSO
+* O Administrador de Acesso à Internet Zscaler suporta **o IDP** iniciado SSO.
 
-## <a name="adding-zscaler-internet-access-administrator-from-the-gallery"></a>Adicionar administrador de acesso à Internet Zscaler da galeria
+## <a name="add-zscaler-internet-access-administrator-from-the-gallery"></a>Adicione o administrador de acesso à Internet Zscaler da galeria
 
 Para configurar a integração do Administrador de Acesso à Internet Zscaler em Azure AD, é necessário adicionar o Administrador de Acesso à Internet Zscaler da galeria à sua lista de aplicações geridas para o SaaS.
 
@@ -64,7 +64,7 @@ Para configurar e testar o Azure AD SSO com o Administrador de Acesso à Interne
     1. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
 2. **[Configure o Zscaler Internet Access Administrator SSO](#configure-zscaler-internet-access-administrator-sso)** - para configurar as definições de Sign-On únicas no lado da aplicação.
     1. **[Create Zscaler Internet Access Administrator test user](#create-zscaler-internet-access-administrator-test-user)** - para ter uma contraparte de Britta Simon em Zscaler Internet Access Administrator que está ligada à representação AD Ad do utilizador.
-6. **[Teste SSO](#test-sso)** - para verificar se a configuração funciona.
+3. **[Teste SSO](#test-sso)** - para verificar se a configuração funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
@@ -78,7 +78,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Na secção **Configuração Básica SAML,** insira os valores para os seguintes campos:
 
-    a. Na caixa de texto **identifier,** digite um URL de acordo com o seu requisito:
+    a. Na caixa de texto **identifier,** digite um dos seguintes URLs de acordo com o seu requisito:
 
     | Identificador |
     |------------|
@@ -89,7 +89,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     | `https://admin.zscloud.net` |
     | `https://admin.zscalerbeta.net` |
 
-    b. Na caixa de texto **URL de resposta,** digite um URL de acordo com o seu requisito:
+    b. Na caixa de texto **URL de resposta,** digite um dos seguintes URLs de acordo com o seu requisito:
 
     | URL de Resposta |
     |-----------|
@@ -102,7 +102,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 5. A aplicação Zscaler Internet Access Administrator espera as afirmações SAML num formato específico. Configure os seguintes pedidos para este pedido. Pode gerir os valores destes atributos a partir da secção **Atributos & Reclamações** do Utilizador na página de integração de aplicações. Na **configuração de Sign-On única com a página SAML,** clique no botão **Editar** para abrir **os atributos do utilizador & o** diálogo Claims.
 
-    ![O link Atributo](./media/zscaler-internet-access-administrator-tutorial/tutorial_zscaler-internet_attribute.png)
+    ![O link Atributo](./media/zscaler-internet-access-administrator-tutorial/attributes.png)
 
 6. Na secção **'Reclamações** de Utilizador' no diálogo **'Atributos do Utilizador',** configurar o atributo de ficha SAML como mostrado na imagem acima e executar os seguintes passos:
 
@@ -153,14 +153,13 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 1. Se tiver configurado as funções como explicado no acima, pode selecioná-lo a partir do Dropdown de **função Select.**
 1. No diálogo **'Adicionar Atribuição',** clique no botão **'Atribuir'.**
 
-
 ## <a name="configure-zscaler-internet-access-administrator-sso"></a>Configure Zscaler Administrador de Acesso à Internet SSO
 
 1. Numa janela diferente do navegador web, inicie sessão no seu Zscaler Internet Access Admin UI.
 
 2. Vá à **Administração > Gestão de Administradores** e execute os seguintes passos e clique em Guardar:
 
-    ![O Screenshot mostra a Gestão do Administrador com opções para Ativar a Autenticação SAML, carregar o Certificado S L e especificar um Emitente.](./media/zscaler-internet-access-administrator-tutorial/AdminSSO.png "Administração")
+    ![O Screenshot mostra a Gestão do Administrador com opções para Ativar a Autenticação SAML, carregar o Certificado S L e especificar um Emitente.](./media/zscaler-internet-access-administrator-tutorial/management.png "Administração")
 
     a. Verifique **a autenticação SAML**.
 
@@ -170,7 +169,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 3. Na UI administrador, execute os seguintes passos:
 
-    ![A screenshot mostra o Administrador U I onde podes executar os passos.](./media/zscaler-internet-access-administrator-tutorial/ic800207.png)
+    ![A screenshot mostra o Administrador U I onde podes executar os passos.](./media/zscaler-internet-access-administrator-tutorial/activation.png)
 
     a. Passe por cima do menu **de ativação** perto do canto inferior esquerdo.
 
@@ -183,7 +182,7 @@ Para obter etapas sobre como criar uma conta de administrador, consulte a docume
 
 https://help.zscaler.com/zia/adding-admins
 
-### <a name="test-sso"></a>Teste SSO
+## <a name="test-sso"></a>Teste SSO
 
 Nesta secção, testa a configuração de um único sinal de inscrição Azure AD com as seguintes opções.
 
@@ -191,6 +190,6 @@ Nesta secção, testa a configuração de um único sinal de inscrição Azure A
 
 * Pode utilizar as minhas apps do Microsoft. Quando clicar no azulejo do Administrador de Acesso à Internet Zscaler nas Minhas Aplicações, deverá ser automaticamente inscrito no Administrador de Acesso à Internet Zscaler para o qual configura o SSO. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](../user-help/my-apps-portal-end-user-access.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Uma vez configurado o Administrador de Acesso à Internet Zscaler, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
