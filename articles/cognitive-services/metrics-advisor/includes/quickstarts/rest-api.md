@@ -9,17 +9,17 @@ ms.subservice: metrics-advisor
 ms.topic: include
 ms.date: 09/23/2020
 ms.author: mbullwin
-ms.openlocfilehash: 42ea166119d3cc405b3d73e184c44dbfd6708a97
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: c3269d771c43e6233459b9c194c1bab4f3602728
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96231485"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102445051"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Subscrição Azure - [Crie uma gratuitamente](https://azure.microsoft.com/free/cognitive-services)
-* Assim que tiver a sua subscrição Azure, <a href="https://go.microsoft.com/fwlink/?linkid=2142156"  title=" Crie um recurso Metrics Advisor crie um "  target="_blank"> recurso Metrics Advisor no portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a> Azure para implementar a sua instância Metrics Advisor.  
+* Assim que tiver a sua subscrição Azure, <a href="https://go.microsoft.com/fwlink/?linkid=2142156"  title=" Crie um recurso Metrics Advisor crie um recurso "  target="_blank"> Metrics Advisor no portal </a> Azure para implementar a sua instância Metrics Advisor.  
 * A versão atual do [cURL.](https://curl.haxx.se/) Neste artigo são utilizados vários comutadores de linha de comando, que são indicados na [documentação cURL](https://curl.haxx.se/docs/manpage.html).
     * Os seguintes exemplos BASH usam o `\` carácter de continuação da linha. Se utilizar uma consola ou terminal diferente, utilize este personagem.
 

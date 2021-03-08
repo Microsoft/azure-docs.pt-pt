@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 09/15/2020
 ms.author: pafarley
 ms.custom: devx-track-dotnet, cog-serv-seo-aug-2020
-ms.openlocfilehash: ed9d7aee5f677a5c278a985c3f8102364e94ab7e
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: d6f27ca3635ff1efb80e5261b7a5a07269304dfd
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98947898"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102444604"
 ---
 Começa com a biblioteca de clientes Azure Content Moderador para .NET. Siga estes passos para instalar o pacote NuGet e experimente o código de exemplo para tarefas básicas. 
 
@@ -34,7 +34,7 @@ Utilize a biblioteca de clientes Content Moderador para .NET para:
 
 * Subscrição Azure - [Crie uma gratuitamente](https://azure.microsoft.com/free/cognitive-services/)
 * O [Visual Studio IDE](https://visualstudio.microsoft.com/vs/) ou a versão atual de [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
-* Assim que tiver a subscrição do Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator"  title=" crie um recurso De Moderador de Conteúdo crie um recurso De Moderador de Conteúdo no portal "  target="_blank"> <span class="docon docon-navigate-external x-hidden-focus"></span> </a> Azure para obter a sua chave e ponto final. Aguarde que seja implantado e clique no botão Go para o botão **de recursos.**
+* Assim que tiver a subscrição do Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator"  title=" crie um recurso De Moderador de Conteúdo crie um recurso De Moderador de Conteúdo no portal "  target="_blank"> </a> Azure para obter a sua chave e ponto final. Aguarde que seja implantado e clique no botão Go para o botão **de recursos.**
     * Necessitará da chave e ponto final do recurso que criar para ligar a sua aplicação ao Moderador de Conteúdo. Colará a chave e o ponto final no código abaixo mais tarde no arranque rápido.
     * Pode utilizar o nível de preços gratuitos `F0` para experimentar o serviço e fazer upgrade mais tarde para um nível pago para produção.
 
@@ -291,7 +291,7 @@ Se pretender limpar e remover uma subscrição dos Serviços Cognitivos, pode el
 * [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [CLI do Azure](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste arranque rápido, aprendeu a usar a biblioteca Content Moderator .NET para fazer tarefas de moderação. Em seguida, saiba mais sobre a moderação de imagens ou outros meios de comunicação, lendo um guia conceptual.
 

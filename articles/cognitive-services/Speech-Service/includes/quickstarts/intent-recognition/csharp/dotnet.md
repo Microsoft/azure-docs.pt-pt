@@ -7,18 +7,18 @@ ms.topic: include
 ms.author: trbye
 ms.custom: devx-track-csharp
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 0cbe7e1aa5657de45f304dcec6df2a957ce47b5a
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 2dbf9e269474b3e71a665957f1765f726718e6cc
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98948101"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102444474"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar:
 
-* <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md?tabs=dotnet&pivots=programming-language-csharp" target="_blank">Instale o Speech SDK para o seu <span class="docon docon-navigate-external x-hidden-focus"></span> ambiente de desenvolvimento e crie um projeto de amostra vazia.</a>
+* <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md?tabs=dotnet&pivots=programming-language-csharp" target="_blank">Instale o Speech SDK para o seu ambiente de desenvolvimento e crie um projeto de amostra vazia.</a>
 
 ## <a name="create-a-luis-app-for-intent-recognition"></a>Criar uma app LUIS para reconhecimento de intenções
 
@@ -114,6 +114,6 @@ Agora está pronto para construir a sua app e testar o nosso reconhecimento de v
 2. **Inicie a sua aplicação** - A partir da barra de menus, escolha **Debug**  >  **Start Debugging** ou prima <kbd>F5</kbd>.
 3. **Comece a reconhecer** - Vai levá-lo a falar uma frase em inglês. O seu discurso é enviado para o serviço de discurso, transcrito como texto, e renderizado na consola.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [!INCLUDE [footer](./footer.md)]

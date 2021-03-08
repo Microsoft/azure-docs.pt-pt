@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 02/12/2021
 ms.author: lajanuar
-ms.openlocfilehash: 1054bec0daee55bac8892869a5f928b600e84d1e
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: c3d81e0de1c20e77278cb718fdcbc21eb6df455d
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101102891"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102444413"
 ---
 <!-- markdownlint-disable MD024 -->
 > [!IMPORTANT]
@@ -27,7 +27,7 @@ ms.locfileid: "101102891"
 * Subscrição Azure - [Crie uma gratuitamente](https://azure.microsoft.com/free/cognitive-services/)
 * O [Visual Studio IDE](https://visualstudio.microsoft.com/vs/) ou a versão atual de [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
 * Uma bolha de armazenamento Azure que contém um conjunto de dados de treino. Consulte [Construir um conjunto de dados de treino para um modelo personalizado](../../build-training-data-set.md) para dicas e opções para reunir o seu conjunto de dados de treino. Para este arranque rápido, pode utilizar os ficheiros sob a pasta **Train** do conjunto de [dados](https://go.microsoft.com/fwlink/?linkid=2090451) da amostra (descarregar e extrair *sample_data.zip*).
-* Assim que tiver a sua subscrição Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title=" Crie um recurso De Reconhecimento de "  target="_blank"> Formulários crie um recurso De Reconhecimento de <span class="docon docon-navigate-external x-hidden-focus"></span> </a> Formulários no portal Azure para obter a sua chave e ponto final. Depois de implementar, clique em **Ir para o recurso**.
+* Assim que tiver a sua subscrição Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title=" Crie um recurso De Reconhecimento de "  target="_blank"> Formulários crie um recurso De Reconhecimento de </a> Formulários no portal Azure para obter a sua chave e ponto final. Depois de implementar, clique em **Ir para o recurso**.
   * Necessitará da chave e ponto final do recurso que criar para ligar a sua aplicação à API do Reconhecimento de Formulários. Colará a chave e o ponto final no código abaixo mais tarde no arranque rápido.
   * Pode utilizar o nível de preços gratuitos `F0` para experimentar o serviço e fazer upgrade mais tarde para um nível pago para produção.
 
@@ -258,7 +258,7 @@ Para analisar faturas de um URL, utilize o `StartRecognizeInvoicesFromUriAsync` 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_invoice_call)]
 
 > [!TIP]
-> Também pode analisar imagens de fatura local. Consulte os métodos [FormRecognizerClient,](/dotnet/api/azure.ai.formrecognizer.formrecognizerclient?view=azure-dotnet&preserve-view=true) tais como **StartRecognizeInvoices**. Ou, consulte o código de amostra no [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md) para cenários que envolvam imagens locais.
+> Também pode analisar imagens de fatura local. Consulte os métodos [FormRecognizerClient,](/dotnet/api/azure.ai.formrecognizer.formrecognizerclient) tais como **StartRecognizeInvoices**. Ou, consulte o código de amostra no [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md) para cenários que envolvam imagens locais.
 
 O valor devolvido é uma coleção de `RecognizedForm` objetos: um para cada fatura no documento submetido. O código seguinte processa a fatura no URI dado e imprime os principais campos e valores para a consola.
 
@@ -491,7 +491,7 @@ Para analisar os recibos de um URL, utilize o `StartRecognizeReceiptsFromUri` m�
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_receipt_call)]
 
 > [!TIP]
-> Também pode analisar imagens de recibo local. Consulte os métodos [FormRecognizerClient,](/dotnet/api/azure.ai.formrecognizer.formrecognizerclient?view=azure-dotnet&preserve-view=true) tais como **StartRecognizeReceipts**. Ou, consulte o código de amostra no [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md) para cenários que envolvam imagens locais.
+> Também pode analisar imagens de recibo local. Consulte os métodos [FormRecognizerClient,](/dotnet/api/azure.ai.formrecognizer.formrecognizerclient) tais como **StartRecognizeReceipts**. Ou, consulte o código de amostra no [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md) para cenários que envolvam imagens locais.
 
 O valor devolvido é uma coleção de `RecognizedReceipt` objetos: um para cada página no documento submetido. O código seguinte processa o recibo no URI dado e imprime os principais campos e valores para a consola.
 
@@ -557,7 +557,7 @@ Para analisar cartões de visita a partir de um URL, utilize o `StartRecognizeBu
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_bc_call)]
 
 > [!TIP]
-> Também pode analisar imagens de recibo local. Consulte os métodos [FormRecognizerClient,](/dotnet/api/azure.ai.formrecognizer.formrecognizerclient?view=azure-dotnet&preserve-view=true) tais como **StartRecognizeBusinessCards**. Ou, consulte o código de amostra no [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md) para cenários que envolvam imagens locais.
+> Também pode analisar imagens de recibo local. Consulte os métodos [FormRecognizerClient,](/dotnet/api/azure.ai.formrecognizer.formrecognizerclient) tais como **StartRecognizeBusinessCards**. Ou, consulte o código de amostra no [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md) para cenários que envolvam imagens locais.
 
 O valor devolvido é uma coleção de `RecognizedForm` objetos: um para cada cartão no documento. O código seguinte processa o cartão de visita no dado URI e imprime os principais campos e valores para a consola.
 

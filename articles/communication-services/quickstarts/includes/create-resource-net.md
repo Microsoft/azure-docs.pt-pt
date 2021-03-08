@@ -4,18 +4,18 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: 9a9f8fdda1bc853057f3eb858e85b938357397cd
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 778255dc7259bd66a7c7059ede855464c1e39569
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94886129"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102444773"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuita.](https://azure.microsoft.com/free/dotnet/)
 - A versão mais recente [.NET Core biblioteca de clientes](https://dotnet.microsoft.com/download/dotnet-core) para o seu sistema operativo.
-- Obtenha a versão mais recente da biblioteca de [clientes .NET Identity](/dotnet/api/azure.identity?view=azure-dotnet).
+- Obtenha a versão mais recente da biblioteca de [clientes .NET Identity](/dotnet/api/azure.identity).
 - Obtenha a versão mais recente da biblioteca de [clientes .NET Management](../../concepts/sdk-options.md).
 
 ## <a name="installing-the-client-library"></a>Instalação da biblioteca do cliente
@@ -83,7 +83,7 @@ Em vez de utilizar uma identidade gerida, pode querer autenticar a Azure usando 
 
 Depois de criar o seu principal serviço, terá de recolher as seguintes informações sobre o mesmo no portal Azure:
 
-- **ID do cliente**
+- **ID de Cliente**
 - **Segredo do Cliente**
 - **ID do inquilino**
 

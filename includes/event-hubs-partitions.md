@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/05/2021
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 780da47e6f071d854a16ca1d1c5cd02dbdd6bef0
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: f6bd0c13d5cbad802613e2bdea8fd6002f4deea2
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97955654"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102444245"
 ---
 Event Hub organiza sequências de eventos em uma ou mais divisórias. À medida que os eventos mais recentes chegam, são adicionados ao fim desta sequência. Uma partição pode ser considerada como um "registo de consolidação".
 
@@ -57,4 +57,3 @@ Definir o número de divisórias ao valor máximo permitido é tentador, mas ten
 
 Embora as divisórias possam ser enviadas diretamente, não é recomendado. Em vez disso, pode utilizar construções de nível superior introduzidas na secção [de editores](../articles/event-hubs/event-hubs-features.md#event-publishers) do Evento. 
 
-Para obter mais informações sobre as partições e o compromisso entre disponibilidade e fiabilidade, veja o [Guia de programação de Hubs de Eventos](../articles/event-hubs/event-hubs-programming-guide.md#partition-key) e o artigo [Disponibilidade e consistência em Hubs de Eventos](../articles/event-hubs/event-hubs-availability-and-consistency.md).

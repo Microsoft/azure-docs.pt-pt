@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: include
 ms.date: 12/06/2020
 ms.author: pafarley
-ms.openlocfilehash: 1d5a596efca2b1818a6d4ed4995904707a03dba0
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 9bdc153d88dceec37ae62bdcc6b38b32b4bc7787
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102193681"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102444186"
 ---
 Começa com o reconhecimento facial utilizando a API Face REST. O serviço Face fornece-lhe acesso a algoritmos avançados para detetar e reconhecer rostos humanos em imagens.
 
@@ -29,7 +29,7 @@ Utilize a API Face REST para:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Subscrição Azure - [Crie uma gratuitamente](https://azure.microsoft.com/free/cognitive-services/)
-* Assim que tiver a subscrição do Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title=" crie um recurso Face crie um recurso Face no portal "  target="_blank"> <span class="docon docon-navigate-external x-hidden-focus"></span> </a> Azure para obter a sua chave e ponto final. Depois de implementar, clique em **Ir para o recurso**.
+* Assim que tiver a subscrição do Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title=" crie um recurso Face crie um recurso Face no portal "  target="_blank"> </a> Azure para obter a sua chave e ponto final. Depois de implementar, clique em **Ir para o recurso**.
     * Você precisará da chave e ponto final do recurso que cria para ligar a sua aplicação à API Face. Colará a chave e o ponto final no código abaixo mais tarde no arranque rápido.
     * Pode utilizar o nível de preços gratuitos `F0` para experimentar o serviço e fazer upgrade mais tarde para um nível pago para produção.
 * [Versão PowerShell 6.0+](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-7.1)ou uma aplicação de linha de comando semelhante.

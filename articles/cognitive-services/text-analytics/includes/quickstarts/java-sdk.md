@@ -10,12 +10,12 @@ ms.date: 02/09/2021
 ms.custom: devx-track-java
 ms.author: aahi
 ms.reviewer: tasharm, assafi, sumeh
-ms.openlocfilehash: 4c87dc9f11a6a9780d77b39597e0479ccb6863d8
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: c90dc8fdee0e7b44386c5e97a0cc31665ee0e238
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101750372"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102445681"
 ---
 <a name="HOLTop"></a>
 
@@ -33,7 +33,7 @@ ms.locfileid: "101750372"
 
 * Subscrição Azure - [Crie uma gratuitamente](https://azure.microsoft.com/free/cognitive-services)
 * [Kit de Desenvolvimento java](https://www.oracle.com/technetwork/java/javase/downloads/index.html) (JDK) com versão 8 ou superior
-* Assim que tiver a subscrição do Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title=" Crie um recurso Text Analytics crie um recurso Text Analytics no portal "  target="_blank"> <span class="docon docon-navigate-external x-hidden-focus"></span> </a> Azure para obter a sua chave e ponto final.  Depois de implementar, clique em **Ir para o recurso**.
+* Assim que tiver a subscrição do Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title=" Crie um recurso Text Analytics crie um recurso Text Analytics no portal "  target="_blank"> </a> Azure para obter a sua chave e ponto final.  Depois de implementar, clique em **Ir para o recurso**.
     * Necessitará da chave e ponto final do recurso que criar para ligar a sua aplicação à API de Análise de Texto. Colará a chave e o ponto final no código abaixo mais tarde no arranque rápido.
     * Pode utilizar o nível de preços gratuitos `F0` para experimentar o serviço e fazer upgrade mais tarde para um nível pago para produção.
 * Para utilizar a função Analisar, necessitará de um recurso Text Analytics com o nível de preços padrão (S).

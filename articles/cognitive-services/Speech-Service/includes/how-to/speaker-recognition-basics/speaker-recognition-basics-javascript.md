@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 10/07/2020
 ms.author: v-jawe
 ms.custom: references_regions
-ms.openlocfilehash: 08e4dbb4d16317efe33b308474ce5c32a7c47862
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 81186e6cf49e5f7e76a938881441cafa99d178eb
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98947902"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102445222"
 ---
 Neste arranque rápido, você aprende padrões básicos de design para reconhecimento de alto-falante usando o SDK do discurso, incluindo:
 
@@ -33,17 +33,17 @@ Este artigo pressupõe que tem uma conta Azure e subscrição do serviço de fal
 
 ## <a name="install-the-speech-sdk"></a>Instale o SDK de discurso
 
-Antes de poder fazer qualquer coisa, terá de instalar o <a href="https://www.npmjs.com/package/microsoft-cognitiveservices-speech-sdk" target="_blank">SDK <span class="docon docon-navigate-external x-hidden-focus"></span> </a>de voz para JavaScript . Dependendo da sua plataforma, utilize as seguintes instruções:
+Antes de poder fazer qualquer coisa, terá de instalar o <a href="https://www.npmjs.com/package/microsoft-cognitiveservices-speech-sdk" target="_blank">SDK </a>de voz para JavaScript . Dependendo da sua plataforma, utilize as seguintes instruções:
 
 - <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk?tabs=nodejs#get-the-speech-sdk" target="_blank">Node.js <span 
 class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk?tabs=browser#get-the-speech-sdk" target="_blank">Navegador Web <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk?tabs=browser#get-the-speech-sdk" target="_blank">Navegador Web </a>
 
 Além disso, dependendo do ambiente-alvo, utilize um dos seguintes:
 
 # <a name="script"></a>[script](#tab/script)
 
-Faça o download e extrai o <a href="https://aka.ms/csspeech/jsbrowserpackage" target="_blank">Ficheiro SDK de discurso para <span class="docon docon-navigate-external x-hidden-focus"></span> JavaScript</a> *microsoft.cognitiveservices.speech.sdk.bundle.js* e coloque-o numa pasta acessível ao seu ficheiro HTML.
+Faça o download e extrai o <a href="https://aka.ms/csspeech/jsbrowserpackage" target="_blank">Ficheiro SDK de discurso para JavaScript</a> *microsoft.cognitiveservices.speech.sdk.bundle.js* e coloque-o numa pasta acessível ao seu ficheiro HTML.
 
 ```html
 <script src="microsoft.cognitiveservices.speech.sdk.bundle.js"></script>;
@@ -58,7 +58,7 @@ Faça o download e extrai o <a href="https://aka.ms/csspeech/jsbrowserpackage" t
 import * from "microsoft-cognitiveservices-speech-sdk";
 ```
 
-Para obter mais informações `import` sobre, consulte <a href="https://javascript.info/import-export" target="_blank">a exportação e <span class="docon docon-navigate-external x-hidden-focus"></span> a importação. </a>
+Para obter mais informações `import` sobre, consulte <a href="https://javascript.info/import-export" target="_blank">a exportação e a importação. </a>
 
 # <a name="require"></a>[requerer](#tab/require)
 
@@ -66,7 +66,7 @@ Para obter mais informações `import` sobre, consulte <a href="https://javascri
 const sdk = require("microsoft-cognitiveservices-speech-sdk");
 ```
 
-Para mais informações `require` sobre, veja <a href="https://nodejs.org/en/knowledge/getting-started/what-is-require/" target="_blank">o que é necessário? <span class="docon docon-navigate-external x-hidden-focus"></span> </a>
+Para mais informações `require` sobre, veja <a href="https://nodejs.org/en/knowledge/getting-started/what-is-require/" target="_blank">o que é necessário? </a>
 
 ---
 

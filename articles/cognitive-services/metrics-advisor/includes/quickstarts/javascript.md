@@ -9,12 +9,12 @@ ms.subservice: metrics-advisor
 ms.topic: include
 ms.date: 11/09/2020
 ms.author: mbullwin
-ms.openlocfilehash: 668255486b1c53c062907aba9a679cf7a84bc3ca
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: f34720697e545a4d8a5119605db2db70dff6c233
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98947440"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102445788"
 ---
 [Documentação de referência](/java/api/overview/azure/ai-metricsadvisor-readme)  |  [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/metricsadvisor/ai-metrics-advisor/README.md)  |  [Pacote (npm)](https://www.npmjs.com/package/@azure/ai-metrics-advisor)  |  [Amostras](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/metricsadvisor/ai-metrics-advisor/samples)
 
@@ -22,7 +22,7 @@ ms.locfileid: "98947440"
 
 * Subscrição Azure - [Crie uma gratuitamente](https://azure.microsoft.com/free/cognitive-services/)
 * A versão atual de [Node.js](https://nodejs.org/)
-* Assim que tiver a sua subscrição Azure, <a href="https://go.microsoft.com/fwlink/?linkid=2142156"  title=" Crie um recurso Metrics Advisor crie um "  target="_blank"> recurso Metrics Advisor no portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a> Azure para implementar a sua instância Metrics Advisor.  
+* Assim que tiver a sua subscrição Azure, <a href="https://go.microsoft.com/fwlink/?linkid=2142156"  title=" Crie um recurso Metrics Advisor crie um recurso "  target="_blank"> Metrics Advisor no portal </a> Azure para implementar a sua instância Metrics Advisor.  
 * A sua própria base de dados SQL com dados de séries de tempo.
   
 > [!TIP]

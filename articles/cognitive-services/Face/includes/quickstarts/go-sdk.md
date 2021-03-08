@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: include
 ms.date: 10/26/2020
 ms.author: pafarley
-ms.openlocfilehash: 65f7af56e7f0042b8d4c312d17641a537f5fd908
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 2c693c9e972cdfc66cce0d52323c113b6006bd97
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95999356"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102445215"
 ---
 Começa com o reconhecimento facial usando a biblioteca do cliente Face para Go. Siga estes passos para instalar a embalagem e experimente o código de exemplo para tarefas básicas. O serviço Face fornece-lhe acesso a algoritmos avançados para detetar e reconhecer rostos humanos em imagens.
 
@@ -31,7 +31,7 @@ Utilize a biblioteca do cliente de serviço Face para ir a:
 
 * A última versão de [Go](https://golang.org/dl/)
 * Subscrição Azure - [Crie uma gratuitamente](https://azure.microsoft.com/free/cognitive-services/)
-* Assim que tiver a subscrição do Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title=" crie um recurso Face crie um recurso Face no portal "  target="_blank"> <span class="docon docon-navigate-external x-hidden-focus"></span> </a> Azure para obter a sua chave e ponto final. Depois de implementar, clique em **Ir para o recurso**.
+* Assim que tiver a subscrição do Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title=" crie um recurso Face crie um recurso Face no portal "  target="_blank"> </a> Azure para obter a sua chave e ponto final. Depois de implementar, clique em **Ir para o recurso**.
     * Necessitará da chave e ponto final do recurso que criar para ligar a sua aplicação à API face. Colará a chave e o ponto final no código abaixo mais tarde no arranque rápido.
     * Pode utilizar o nível de preços gratuitos `F0` para experimentar o serviço e fazer upgrade mais tarde para um nível pago para produção.
 * Depois de obter uma chave e ponto final, [crie variáveis ambientais](../../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) para a chave e ponto final, nomeado `FACE_SUBSCRIPTION_KEY` `FACE_ENDPOINT` e, respectivamente.
@@ -165,7 +165,7 @@ O código seguinte imprime os detalhes da correspondência para a consola.
 
 Para passar por este cenário, é necessário guardar as seguintes imagens para o diretório de raiz do seu projeto: https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/Face/images .
 
-Este grupo de imagens contém três conjuntos de imagens de um só rosto que correspondem a três pessoas diferentes. O código definirá três objetos **persongroup person person person person** person person person e associá-los-á a ficheiros de imagem que começam com , e `woman` `man` `child` .
+Este grupo de imagens contém três conjuntos de imagens de um só rosto que correspondem a três pessoas diferentes. O código definirá três objetos **persongroup person person** e associá-los-á a ficheiros de imagem que começam com `woman` , e `man` `child` .
 
 ### <a name="create-persongroup"></a>Criar Grupo de Pessoas
 
@@ -175,7 +175,7 @@ Depois de descarregar as suas imagens, adicione o seguinte código ao fundo do s
 
 ### <a name="create-persongroup-persons"></a>Criar pessoas do Grupo de Pessoas
 
-O próximo bloco de código autentica um **[PersonGroupPersonClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#PersonGroupPersonClient)** e usa-o para definir três novos objetos **persongroup person person person person person person person** person person persongroup. Estes objetos representam cada uma pessoa no conjunto de imagens.
+O próximo bloco de código autentica um **[PersonGroupPersonClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#PersonGroupPersonClient)** e usa-o para definir três novos objetos **persongroup person person** group. Estes objetos representam cada uma pessoa no conjunto de imagens.
 
 [!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_pgp_setup)]
 
