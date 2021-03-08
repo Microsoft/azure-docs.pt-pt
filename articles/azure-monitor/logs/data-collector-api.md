@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/14/2020
-ms.openlocfilehash: 8c5b4eac17b4c7ae9b4081d0eb9118285dc74bd5
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: e32bf95ef52fdd081eeaa476f44bf5dab99657d6
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102030958"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102452123"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>Envie dados de registo para O Monitor de Azure com a API do Colecionador de Dados HTTP (pré-visualização pública)
 Este artigo mostra-lhe como utilizar a API de Retorno de Dados HTTP para enviar dados de registo para o Azure Monitor a partir de um cliente REST API.  Descreve como formatar dados recolhidos pelo seu script ou aplicação, incluí-lo num pedido, e ter esse pedido autorizado pelo Azure Monitor.  Exemplos são fornecidos para PowerShell, C#e Python.
@@ -650,7 +650,7 @@ Embora a API do Colecionador de Dados deva cobrir a maioria das suas necessidade
 |---|---|---|
 | [Eventos personalizados](../app/api-custom-events-metrics.md?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#properties): Ingestão baseada em SDK nativo em Insights de Aplicação | O Application Insights, tipicamente instrumentado através de um SDK dentro da sua aplicação, oferece a capacidade de enviar dados personalizados através de Eventos Personalizados. | <ul><li> Dados que são gerados dentro da sua aplicação, mas não recolhidos pela SDK através de um dos tipos de dados predefinidos (pedidos, dependências, exceções, e assim por diante).</li><li> Dados que são mais frequentemente correlacionados com outros dados de aplicações em Insights de Aplicação </li></ul> |
 | API do Colecionador de Dados em Registos monitores Azure | A API do Colecionador de Dados em Registos monitores Azure é uma forma completamente aberta de ingerir dados. Qualquer dado formatado num objeto JSON pode ser enviado aqui. Uma vez enviado, será processado e disponível em Logs para ser correlacionado com outros dados em Logs ou contra outros dados de Insights de Aplicação. <br/><br/> É bastante fácil fazer o upload dos dados como ficheiros para uma bolha Azure Blob, de onde estes ficheiros serão processados e enviados para o Log Analytics. Consulte [este](./create-pipeline-datacollector-api.md) artigo para obter uma amostra de tal oleoduto. | <ul><li> Dados que não são necessariamente gerados dentro de uma aplicação instrumentada no Application Insights.</li><li> Exemplos incluem tabelas de procura e de factos, dados de referência, estatísticas pré-agregadas, e assim por diante. </li><li> Destina-se a dados que serão cruzados com outros dados do Azure Monitor (Insights de Aplicação, outros tipos de dados de Registos, Centro de Segurança, Insights de Contentores/VMs, e assim por diante). </li></ul> |
-| [Azure Data Explorer](/azure/data-explorer/ingest-data-overview) | Azure Data Explorer (ADX) é a plataforma de dados que alimenta o Application Insights Analytics e o Azure Monitor Logs. Agora geralmente disponível ("GA"), utilizando a plataforma de dados na sua forma bruta, proporciona-lhe total flexibilidade (mas requerendo a sobrecarga de gestão) sobre o cluster (Kubernetes RBAC, taxa de retenção, esquema, e assim por diante). O ADX fornece muitas [opções de ingestão,](/azure/data-explorer/ingest-data-overview#ingestion-methods) incluindo [ficheiros CSV, TSV e JSON.](/azure/kusto/management/mappings?branch=master) | <ul><li> Dados que não serão correlacionados com quaisquer outros dados no âmbito de Insights de Aplicação ou Registos. </li><li> Dados que requerem capacidades avançadas de ingestão ou processamento não disponíveis hoje em dia nos Registos do Monitor Azure. </li></ul> |
+| [Azure Data Explorer](/azure/data-explorer/ingest-data-overview) | Azure Data Explorer (ADX) é a plataforma de dados que alimenta o Application Insights Analytics e o Azure Monitor Logs. Agora geralmente disponível ("GA"), utilizando a plataforma de dados na sua forma bruta, proporciona-lhe total flexibilidade (mas requerendo a sobrecarga de gestão) sobre o cluster (Kubernetes RBAC, taxa de retenção, esquema, e assim por diante). O ADX fornece muitas [opções de ingestão,](/azure/data-explorer/ingest-data-overview#ingestion-methods) incluindo [ficheiros CSV, TSV e JSON.](/azure/kusto/management/mappings) | <ul><li> Dados que não serão correlacionados com quaisquer outros dados no âmbito de Insights de Aplicação ou Registos. </li><li> Dados que requerem capacidades avançadas de ingestão ou processamento não disponíveis hoje em dia nos Registos do Monitor Azure. </li></ul> |
 
 
 ## <a name="next-steps"></a>Passos seguintes

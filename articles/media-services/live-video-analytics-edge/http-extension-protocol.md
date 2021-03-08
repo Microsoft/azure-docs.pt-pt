@@ -3,16 +3,16 @@ title: Protocolo de extensão HTTP - Azure
 description: Neste artigo, você aprenderá sobre a utilização do protocolo de extensão HTTP para enviar mensagens entre o módulo Live Video Analytics e o seu módulo de IA ou CV.
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: 52c98231780a2776f4ff67992f29b247eccb8bc2
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: c3a9b5b70467479fdb9b1473a1f6738eaa8a7e1b
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97399150"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102455895"
 ---
 # <a name="http-extension-protocol"></a>Protocolo de extensão HTTP
 
-O Live Video Analytics on IoT Edge permite-lhe alargar as capacidades de processamento de gráficos de mídia através de um [nó de extensão de gráfico](https://review.docs.microsoft.com/en-us/azure/media-services/live-video-analytics-edge/media-graph-extension-concept?branch=release-lva-dec-update). Se utilizar o processador de extensão HTTP como nó de extensão, então a comunicação entre o módulo Live Video Analytics e o seu módulo de IA ou CV é mais http HTTP
+O Live Video Analytics on IoT Edge permite-lhe alargar as capacidades de processamento de gráficos de mídia através de um [nó de extensão de gráfico](/azure/media-services/live-video-analytics-edge/media-graph-extension-concept). Se utilizar o processador de extensão HTTP como nó de extensão, então a comunicação entre o módulo Live Video Analytics e o seu módulo de IA ou CV é mais http HTTP
 
 Neste artigo, você aprenderá sobre a utilização do protocolo de extensão HTTP para enviar mensagens entre o módulo Live Video Analytics e o seu módulo de IA ou CV. 
 
@@ -87,11 +87,11 @@ Date: Fri, 17 Apr 2020 04:44:01 GMT
 }
 ```
 
-Recomenda-se vivamente que as respostas sejam devolvidas utilizando documentos JSON válidos seguindo o esquema pré-estabelecido definido de acordo com o modelo de [objeto de esquema de metadados de inferência](https://review.docs.microsoft.com/en-us/azure/media-services/live-video-analytics-edge/inference-metadata-schema?branch=release-lva-dec-update). Isto garantirá melhor a interoperabilidade com outros componentes e possíveis capacidades futuras adicionadas ao módulo Live Video Analytics.
+Recomenda-se vivamente que as respostas sejam devolvidas utilizando documentos JSON válidos seguindo o esquema pré-estabelecido definido de acordo com o modelo de [objeto de esquema de metadados de inferência](/azure/media-services/live-video-analytics-edge/inference-metadata-schema). Isto garantirá melhor a interoperabilidade com outros componentes e possíveis capacidades futuras adicionadas ao módulo Live Video Analytics.
 
 Se o seu módulo devolver uma resposta em que o tipo de conteúdo não é "aplicação/json", o Live Video Analytics codificará a mensagem como um conteúdo base 64 e serializará-a como uma carga útil opaca do JSON.
 
-Se o seu módulo devolver uma resposta com o tipo de conteúdo como "aplicação/json" mas o esquema JSON não seguir o esquema de metadados de inferência descrito abaixo, a carga útil da mensagem será reencaminhada através do pipeline, mas a interoperabilidade será reduzida. Consulte [aqui](https://review.docs.microsoft.com/en-us/azure/media-services/live-video-analytics-edge/inference-metadata-schema?branch=release-lva-dec-update) para obter informações detalhadas e atualizadas sobre o esquema de metadados de inferência.
+Se o seu módulo devolver uma resposta com o tipo de conteúdo como "aplicação/json" mas o esquema JSON não seguir o esquema de metadados de inferência descrito abaixo, a carga útil da mensagem será reencaminhada através do pipeline, mas a interoperabilidade será reduzida. Consulte [aqui](/azure/media-services/live-video-analytics-edge/inference-metadata-schema) para obter informações detalhadas e atualizadas sobre o esquema de metadados de inferência.
 
 > [!NOTE]
 > Se o seu módulo não produzir qualquer resultado, deverá devolver HTTP 204 Status Code (Sem Conteúdo) com um corpo de resposta vazio. O Live Video Analytics compreenderá isto como um resultado vazio e não irá encaminhar o evento para todo o oleoduto.
