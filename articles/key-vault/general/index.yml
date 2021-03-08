@@ -12,12 +12,12 @@ metadata:
   ms.author: mbaldwin
   manager: rkarlin
   ms.date: 09/19/2019
-  ms.openlocfilehash: ee533978763ff22a345acbd33d89f370fa20388d
-  ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+  ms.openlocfilehash: 3e3ed4d906bd3eb0320b1e3a3dbaeedc1d267e20
+  ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/05/2021
-  ms.locfileid: "102212434"
+  ms.lasthandoff: 03/08/2021
+  ms.locfileid: "102451715"
 landingContent:
 - title: Acerca do Azure Key Vault
   linkLists:
@@ -76,7 +76,7 @@ landingContent:
     - text: Bibliotecas de cliente do Azure Key Vault
       url: client-libraries.md
     - text: Biblioteca de Cliente .NET
-      url: /dotnet/api/overview/azure/key-vault?view=azure-dotnet
+      url: /dotnet/api/overview/azure/key-vault
     - text: Biblioteca de Cliente Python
       url: /python/api/overview/azure/key-vault-index?view=azure-python
     - text: Biblioteca de Cliente Java

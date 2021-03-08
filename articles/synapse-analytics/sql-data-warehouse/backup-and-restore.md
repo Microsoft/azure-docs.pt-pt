@@ -11,12 +11,12 @@ ms.date: 11/13/2020
 ms.author: joanpo
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019"
-ms.openlocfilehash: 842f2f92133664f58ca60d6d30181d48d63271eb
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 8fd64023b9c07e8dd426b2b51916db4515a5405a
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736310"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102451511"
 ---
 # <a name="backup-and-restore-in-azure-synapse-dedicated-sql-pool"></a>Backup e restauro na piscina SQL dedicada Azure Synapse
 
@@ -45,7 +45,7 @@ order by run_id desc
 
 ## <a name="user-defined-restore-points"></a>Pontos de Restauro Definidos pelo Utilizador
 
-Esta funcionalidade permite-lhe ativar manualmente instantâneos para criar pontos de restauro do seu armazém de dados antes e depois de grandes modificações. Esta capacidade garante que os pontos de restauro são logicamente consistentes, o que fornece proteção adicional de dados em caso de interrupções de carga de trabalho ou erros do utilizador para um tempo de recuperação rápida. Os pontos de restauro definidos pelo utilizador estão disponíveis durante sete dias e são automaticamente eliminados em seu nome. Não é possível alterar o período de retenção dos pontos de restauro definidos pelo utilizador. **42 pontos de restauro definidos** pelo utilizador são garantidos a qualquer momento, pelo que devem ser [eliminados](/powershell/module/azurerm.sql/remove-azurermsqldatabaserestorepoint?viewFallbackFrom=azurermps-6.2.0) antes de criar outro ponto de restauro. Pode ativar instantâneos para criar pontos de restauro definidos pelo utilizador através do [PowerShell](/powershell/module/az.sql/new-azsqldatabaserestorepoint?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.jsont#examples) ou do portal Azure.
+Esta funcionalidade permite-lhe ativar manualmente instantâneos para criar pontos de restauro do seu armazém de dados antes e depois de grandes modificações. Esta capacidade garante que os pontos de restauro são logicamente consistentes, o que fornece proteção adicional de dados em caso de interrupções de carga de trabalho ou erros do utilizador para um tempo de recuperação rápida. Os pontos de restauro definidos pelo utilizador estão disponíveis durante sete dias e são automaticamente eliminados em seu nome. Não é possível alterar o período de retenção dos pontos de restauro definidos pelo utilizador. **42 pontos de restauro definidos** pelo utilizador são garantidos a qualquer momento, pelo que devem ser [eliminados](/powershell/module/azurerm.sql/remove-azurermsqldatabaserestorepoint) antes de criar outro ponto de restauro. Pode ativar instantâneos para criar pontos de restauro definidos pelo utilizador através do [PowerShell](/powershell/module/az.sql/new-azsqldatabaserestorepoint?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.jsont#examples) ou do portal Azure.
 
 > [!NOTE]
 > Se necessitar de pontos de restauro superiores a 7 dias, por favor vote nesta capacidade [aqui](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/35114410-user-defined-retention-periods-for-restore-points). Também pode criar um ponto de restauro definido pelo utilizador e restaurar do ponto de restauro recém-criado para um novo armazém de dados. Uma vez restaurado, você tem a piscina SQL dedicada on-line e pode fazê-lo indefinidamente para economizar custos de cálculo. A base de dados pausada incorre em encargos de armazenamento à taxa de armazenamento Azure Premium. Se precisar de uma cópia ativa do armazém de dados restaurado, pode retomar o que deve demorar apenas alguns minutos.
@@ -113,6 +113,6 @@ Você pode [restaurar a sua piscina SQL dedicada](sql-data-warehouse-restore-fro
 > [!NOTE]
 > Para realizar uma restauração geo-redundante não deve ter optado por sair desta funcionalidade.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre pontos de restauro, consulte [pontos de restauro definidos pelo utilizador](sql-data-warehouse-restore-points.md)

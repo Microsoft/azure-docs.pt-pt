@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/04/2021
 ms.topic: conceptual
-ms.openlocfilehash: afa782df8666413356fa334bf4e9dcb989b87c2f
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: c38a6236fe3ad9164d11d94e5563a7dddf5b4b32
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102441358"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102452786"
 ---
 # <a name="use-runbooks-and-modules-in-powershell-gallery"></a>Utilizar runbooks e módulos na Galeria do PowerShell
 
@@ -51,11 +51,11 @@ A lista abaixo contém alguns livros que suportam cenários comuns. Para obter u
 1. **Selecione Fonte: PowerShell Gallery**. Isto mostra uma lista de livros disponíveis que pode navegar.
 1. Pode utilizar a caixa de pesquisa acima da lista para estreitar a lista, ou pode utilizar os filtros para estreitar o ecrã por editor, tipo e classificação. Localize o item da galeria que deseja e selecione-o para ver os seus detalhes.
 
-   :::image type="content" source="media/automation-runbook-gallery/browse-gallery-sm.png" alt-text="Navegando na galeria de runbook" lightbox="media/automation-runbook-gallery/browse-gallery-lg.png":::
+   :::image type="content" source="media/automation-runbook-gallery/browse-gallery-sm.png" alt-text="Navegando na galeria de runbook." lightbox="media/automation-runbook-gallery/browse-gallery-lg.png":::
 
 1. Para importar um item, clique em **Importar** na lâmina de detalhes.
 
-   :::image type="content" source="media/automation-runbook-gallery/gallery-item-detail-sm.png" alt-text="Mostrar um detalhe de item de galeria de runbook" lightbox="media/automation-runbook-gallery/gallery-item-detail-lg.png":::
+   :::image type="content" source="media/automation-runbook-gallery/gallery-item-detail-sm.png" alt-text="Mostre um detalhe de item de galeria de runbook." lightbox="media/automation-runbook-gallery/gallery-item-detail-lg.png":::
 
 1. Opcionalmente, mude o nome do livro de bordo e, em seguida, clique **em OK** para importar o runbook.
 1. O livro de execuções aparece no **separador Runbooks** para a conta Automação.
@@ -67,11 +67,11 @@ A lista abaixo contém alguns livros que suportam cenários comuns. Para obter u
 1. **Selecione Fonte: GitHub**.
 1. Pode utilizar os filtros acima da lista para reduzir o ecrã por editor, tipo e classificação. Localize o item da galeria que deseja e selecione-o para ver os seus detalhes.
 
-   :::image type="content" source="media/automation-runbook-gallery/browse-gallery-github-sm.png" alt-text="Navegando na galeria GitHub" lightbox="media/automation-runbook-gallery/browse-gallery-github-lg.png":::
+   :::image type="content" source="media/automation-runbook-gallery/browse-gallery-github-sm.png" alt-text="Navegando na galeria GitHub." lightbox="media/automation-runbook-gallery/browse-gallery-github-lg.png":::
 
 1. Para importar um item, clique em **Importar** na lâmina de detalhes.
 
-   :::image type="content" source="media/automation-runbook-gallery/gallery-item-details-blade-github-sm.png" alt-text="Vista detalhada de um livro de corridas da galeria GitHub" lightbox="media/automation-runbook-gallery/gallery-item-details-blade-github-lg.png":::
+   :::image type="content" source="media/automation-runbook-gallery/gallery-item-details-blade-github-sm.png" alt-text="Vista detalhada de um livro de bordo da galeria GitHub." lightbox="media/automation-runbook-gallery/gallery-item-details-blade-github-lg.png":::
 
 1. Opcionalmente, mude o nome do livro de bordo e, em seguida, clique **em OK** para importar o runbook.
 1. O livro de execuções aparece no **separador Runbooks** para a conta Automação.
@@ -86,7 +86,7 @@ A Microsoft encoraja-o a adicionar livros de execução à PowerShell Gallery qu
 1. Selecione **Módulos** em **Recursos Partilhados** para abrir a lista de módulos.
 1. Clique **na galeria Browse** a partir do topo da página.
 
-      :::image type="content" source="media/automation-runbook-gallery/modules-blade-sm.png" alt-text="Vista da galeria do módulo" lightbox="media/automation-runbook-gallery/modules-blade-lg.png":::
+      :::image type="content" source="media/automation-runbook-gallery/modules-blade-sm.png" alt-text="Vista para a galeria do módulo." lightbox="media/automation-runbook-gallery/modules-blade-lg.png":::
 
 1. Na página da galeria Browse, pode utilizar a caixa de pesquisa para encontrar fósforos em qualquer um dos seguintes campos:
 
@@ -99,7 +99,7 @@ A Microsoft encoraja-o a adicionar livros de execução à PowerShell Gallery qu
 
    Quando perfurar um módulo específico, pode visualizar mais informações. Esta informação inclui uma ligação de volta à PowerShell Gallery, quaisquer dependências necessárias, e todos os cmdlets ou recursos DSC que o módulo contém.
 
-   :::image type="content" source="media/automation-runbook-gallery/gallery-item-details-blade-sm.png" alt-text="Vista detalhada de um módulo da galeria" lightbox="media/automation-runbook-gallery/gallery-item-details-blade-lg.png":::
+   :::image type="content" source="media/automation-runbook-gallery/gallery-item-details-blade-sm.png" alt-text="Vista detalhada de um módulo da galeria." lightbox="media/automation-runbook-gallery/gallery-item-details-blade-lg.png":::
 
 1. Para instalar o módulo diretamente na Azure Automation, clique em **Importar**.
 1. No painel de importação, pode ver o nome do módulo para importar. Se todas as dependências estiverem instaladas, o botão **OK** é ativado. Se está a perder dependências, tem de importar essas dependências antes de poder importar este módulo.

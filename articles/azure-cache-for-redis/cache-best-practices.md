@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: joncole
-ms.openlocfilehash: 9754a043c90c01f889be9639d2d045fb1929de17
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 4e209bfe5e3856f3847b0c24852c487a92c8f182
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102178121"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102454741"
 ---
 # <a name="best-practices-for-azure-cache-for-redis"></a>Melhores práticas da Cache do Azure para Redis 
 Ao seguir estas boas práticas, pode ajudar a maximizar o desempenho e a utilização rentável da sua Cache Azure para a instância Redis.
@@ -74,7 +74,7 @@ Se quiser testar como o seu código funciona em condições de erro, considere u
  * **Recomendamos a utilização de Série VM Dv2** para o seu cliente, uma vez que têm melhor hardware e darão os melhores resultados.
  * Certifique-se de que o VM do cliente que utiliza tem pelo *menos tanto cálculo e largura de banda* como a cache que está a ser testada. 
  * **Teste em condições de failover** na sua cache. É importante garantir que não testa o seu cache apenas em condições de estado constantes. Teste também em condições de failover e meça a carga CPU/Servidor na sua cache durante esse tempo. Pode iniciar uma falha [reiniciando o nó primário](cache-administration.md#reboot). Isto permitir-lhe-á ver como a sua aplicação se comporta em termos de produção e latência durante as condições de failover (acontece durante as atualizações e pode acontecer durante um evento não planeado). Idealmente, não quer ver o pico de carga do CPU / Servidor a mais de 80% mesmo durante uma falha, pois isso pode afetar o desempenho.
- * **Premium P2 e acima são** hospedados em VMs com 4 ou mais núcleos. Isto é útil para distribuir a carga de carga de encriptação/desencriptação TLS através de vários núcleos para reduzir o uso geral do CPU.  [Consulte aqui para mais detalhes sobre tamanhos e núcleos VM](cache-planning-faq.md#azure-cache-for-redis-performance)
+ * **Alguns tamanhos de cache** são hospedados em VMs com 4 ou mais núcleos. Isto é útil para distribuir a encriptação/desencriptação TLS, bem como cargas de trabalho de ligação /desconexão TLS em vários núcleos para reduzir o uso geral do CPU nos VMs de cache.  [Consulte aqui para mais detalhes sobre tamanhos e núcleos VM](cache-planning-faq.md#azure-cache-for-redis-performance)
  * **Ativar o VRSS** na máquina do cliente se estiver no Windows.  [Consulte aqui para mais detalhes.](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn383582(v=ws.11))  Exemplo de script do PowerShell:
      >PowerShell -ExecutionPolicy Unrestricted Enable-NetAdapterRSS -Name (Get-NetAdapter). Nome 
 

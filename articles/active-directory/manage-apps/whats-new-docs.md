@@ -1,7 +1,7 @@
 ---
 title: Novidades na gestão de aplicações do Azure Ative Directory
 description: Documentação nova e atualizada para a gestão de aplicações do Azure Ative Directory.
-ms.date: 02/01/2021
+ms.date: 03/08/2021
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: reference
@@ -9,16 +9,32 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: daveba
-ms.openlocfilehash: 9de518f53a6054a47a72e40ebe546a32dd48aabe
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: ebd8839fd17f79bc53b5093af83d457bb23712d9
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101647277"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102452055"
 ---
 # <a name="azure-active-directory-application-management-whats-new"></a>Gestão de aplicações do Azure Ative Directory: Quais as novidades
 
 Bem-vindos às novidades da documentação de gestão de aplicações do Azure Ative Directory. Este artigo lista novos docs que foram adicionados e aqueles que tiveram atualizações significativas nos últimos três meses. Para saber quais as novidades com o serviço de gestão de aplicações, veja [as novidades do Azure Ative Directory](../fundamentals/whats-new.md).
+
+## <a name="february-2021"></a>Fevereiro de 2021
+
+### <a name="new-articles"></a>Artigos novos
+
+- [Integre com SharePoint (SAML)](application-proxy-integrate-with-sharepoint-server-saml.md)
+- [Migrar a autenticação de aplicações para o Azure Ative Directory](migrate-application-authentication-to-azure-active-directory.md)
+
+### <a name="updated-articles"></a>Artigos atualizados
+
+- [Integre com SharePoint (SAML)](application-proxy-integrate-with-sharepoint-server-saml.md)
+- [Conceder consentimento de administrador ao nível do inquilino a uma aplicação](grant-admin-consent.md)
+- [Mover a autenticação da aplicação do AD FS para o AAD](migrate-adfs-apps-to-azure.md)
+- [Tutorial: Adicionar uma aplicação no local para acesso remoto através de Aplicação Proxy em Diretório Ativo Azure](application-proxy-add-on-premises-application.md)
+- [Problemas ao iniciar sessão em aplicações configuradas com o início de sessão único com base no SAML](application-sign-in-problem-federated-sso-gallery.md)
+- [Use restrições de inquilinos para gerir o acesso a aplicações em nuvem SaaS](tenant-restrictions.md)
 
 ## <a name="january-2021"></a>Janeiro de 2021
 

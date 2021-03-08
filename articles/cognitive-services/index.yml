@@ -12,12 +12,12 @@ metadata:
   manager: nitinme
   ms.custom: custom-portals-hub
   ms.date: 08/28/2020
-  ms.openlocfilehash: 4f3776308184d8311eeda74e7c3e30c8dbe5d50a
-  ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+  ms.openlocfilehash: 99906e6fcc8ca33872cba50b56b75529b367afe7
+  ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/07/2021
-  ms.locfileid: "102431402"
+  ms.lasthandoff: 03/08/2021
+  ms.locfileid: "102454945"
 highlightedContent:
   items:
   - title: O que são os Serviços Cognitivos?
@@ -175,7 +175,7 @@ additionalContent:
       - text: JavaScript
         url: /javascript/api/overview/azure/cognitive-services
       - text: Python
-        url: /python/api/overview/azure/cognitive-services?view=azure-python
+        url: /python/api/overview/azure/cognitive-services
       - text: R
         url: https://github.com/Azure/AzureCognitive
       - text: Apache Spark e Bases de Dados

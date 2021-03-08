@@ -2,13 +2,13 @@
 title: Descrição geral de modelos
 description: Descreve os benefícios usando modelos de Gestor de Recursos Azure (modelos ARM) para a implementação de recursos.
 ms.topic: conceptual
-ms.date: 03/03/2021
-ms.openlocfilehash: 7f850d06066a6892db9f17ae86a6bba9496bad58
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.date: 03/08/2021
+ms.openlocfilehash: 3a144b69f69c90b997b17d9526c9c3e0f259c554
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102046385"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102455740"
 ---
 # <a name="what-are-arm-templates"></a>O que são modelos do ARM?
 
@@ -111,6 +111,15 @@ REQUEST BODY
 ```
 
 Note que a **apiversão** definida no modelo para o recurso é usada como a versão API para a operação REST. Pode implementar repetidamente o modelo e ter confiança de que continuará a funcionar. Ao utilizar a mesma versão API, não tem de se preocupar em quebrar alterações que possam ser introduzidas em versões posteriores.
+
+Para implementar um modelo, utilize qualquer uma das seguintes opções:
+
+* [Portal do Azure](deploy-portal.md)
+* [CLI do Azure](deploy-cli.md)
+* [PowerShell](deploy-powershell.md)
+* [API REST](deploy-rest.md)
+* [Botão no repositório gitHub](deploy-to-azure-button.md)
+* [Azure Cloud Shell](deploy-cloud-shell.md)
 
 ## <a name="template-design"></a>Design de modelo
 

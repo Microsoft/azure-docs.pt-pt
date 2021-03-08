@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 825a336b5ad07f50d96b19036d70c759b907bd07
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: f793f96f55a258b2d7cb11f214984416557618df
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102209684"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102453007"
 ---
 # <a name="azure-table-storage-output-bindings-for-azure-functions"></a>Encadernações de saída de armazenamento de mesa Azure para funções Azure
 
@@ -438,7 +438,7 @@ Existem duas opções para a saída de uma mensagem de linha de armazenamento de
 
 - **Valor de retorno**: Desa estafunction.js`name` o *imóvel.* `$return` Com esta configuração, o valor de retorno da função é persistido como uma linha de armazenamento de mesa.
 
-- **Imperativo**: Passe um valor ao método [definido](/python/api/azure-functions/azure.functions.out?view=azure-python&preserve-view=true#set-val--t-----none) do parâmetro declarado como um tipo [out.](/python/api/azure-functions/azure.functions.out?view=azure-python&preserve-view=true) O valor passado `set` é persistido como uma mensagem do Event Hub.
+- **Imperativo**: Passe um valor ao método [definido](/python/api/azure-functions/azure.functions.out#set-val--t-----none) do parâmetro declarado como um tipo [out.](/python/api/azure-functions/azure.functions.out) O valor passado `set` é persistido como uma mensagem do Event Hub.
 
 ---
 

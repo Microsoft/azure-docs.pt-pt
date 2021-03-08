@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2019
 ms.author: kaushika
-ms.openlocfilehash: 9975e40f7d4f3b69c9281efd0288389740bf92ec
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 9a0d06a8f8fa8f68f063404f2b483b817eb0563f
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98943648"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102452106"
 ---
 # <a name="configure-and-validate-virtual-network-or-vpn-connections"></a>Configurar e validar ligações de rede virtual ou VPN
 
@@ -248,7 +248,7 @@ O BGP também pode permitir o encaminhamento de trânsito entre várias redes at
 
 Para configurar uma ligação VPN que utiliza BGP, consulte [Como configurar o BGP nos gateways Azure VPN utilizando o PowerShell](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md).
 
-Ativar o BGP no gateway de rede virtual criando um número de sistema autónomo (AS) para o mesmo. Gateways básicos não suportam BGP. Para verificar o SKU do gateway, aceda à secção **de visão geral** da lâmina **VPN Gateway** no portal Azure. Se o seu SKU é **Básico,** tem de alterar o SKU (ver [Redimensionamento do gateway)](/powershell/module/azurerm.network/resize-azurermvirtualnetworkgateway?viewFallbackFrom=azurermps-4.0.0)para **VpnGw1**. 
+Ativar o BGP no gateway de rede virtual criando um número de sistema autónomo (AS) para o mesmo. Gateways básicos não suportam BGP. Para verificar o SKU do gateway, aceda à secção **de visão geral** da lâmina **VPN Gateway** no portal Azure. Se o seu SKU é **Básico,** tem de alterar o SKU (ver [Redimensionamento do gateway)](/powershell/module/azurerm.network/resize-azurermvirtualnetworkgateway)para **VpnGw1**. 
 
 Verificar o SKU causará 20 a 30 minutos de tempo de paragem. Assim que o gateway tiver o SKU correto, pode adicionar o número AS utilizando o comando [Set-AzureRmVirtualNetworkGateway](/powershell/module/azurerm.network/set-azurermvirtualnetworkgateway) PowerShell. Depois de configurar o número AS, será fornecido automaticamente um IP de pares BGP para o gateway.
 
@@ -304,6 +304,6 @@ Para eliminar e criar uma porta de entrada, siga estes passos:
 > [!Note]
 > Este processo levará cerca de 60 minutos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Troubleshooting connectivity problems between Azure VMs](./virtual-network-troubleshoot-connectivity-problem-between-vms.md) (Resolver problemas de conectividade entre VMs do Azure)

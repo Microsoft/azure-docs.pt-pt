@@ -10,7 +10,7 @@ ms.service: media-services ms.workload: media ms.tgt_pltfrm: na ms.devlang: na m
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 > [!NOTE]
-> Mesmo que o tutorial utilize os exemplos [.NET SDK,](/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet) os passos gerais são os mesmos para [REST API,](/rest/api/media/liveevents) [CLI,](/cli/azure/ams/live-event)ou [outros SDKs suportados.](media-services-apis-overview.md#sdks)
+> Mesmo que o tutorial utilize os exemplos [.NET SDK,](/dotnet/api/microsoft.azure.management.media.models.liveevent) os passos gerais são os mesmos para [REST API,](/rest/api/media/liveevents) [CLI,](/cli/azure/ams/live-event)ou [outros SDKs suportados.](media-services-apis-overview.md#sdks)
 
 Pode utilizar os Serviços de Comunicação social para fornecer HTTP Live Streaming (HLS), MPEG-DASH e Smooth Streaming encriptados com o AES utilizando chaves de encriptação de 128 bits. Os Serviços de Comunicação Social também fornecem o serviço de entrega chave que fornece chaves de encriptação aos utilizadores autorizados. Se pretender que os Serviços de Media criptografem dinamicamente o seu vídeo, associa a chave de encriptação a um Localizador de Streaming e também configura a política de chave de conteúdo. Quando um stream é solicitado por um jogador, os Media Services utilizam a chave especificada para encriptar dinamicamente o seu conteúdo com a AES-128. Para desencriptar a transmissão em fluxo, o leitor solicita a chave ao serviço de entrega de chaves. Para determinar se o utilizador está autorizado a obter a chave, o serviço avalia a política de chave de conteúdo que especificou para a chave.
 

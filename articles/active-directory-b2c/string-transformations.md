@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/04/2021
+ms.date: 03/08/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9cd5a62cd85687767497b142a30d31aa6dd00b77
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 85574b7d33af6d9abfe25f5af4d811255f08ce4b
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102175095"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102452242"
 ---
 # <a name="string-claims-transformations"></a>Cadeia reivindica transformações
 
@@ -326,6 +326,77 @@ O exemplo seguinte gera um valor inteiro aleatório entre 0 e 1000. O valor é f
     - **outputClaim**: OTP_853
 
 
+## <a name="formatlocalizedstring"></a>FormatLocalizedString
+
+Formato múltiplas reclamações de acordo com uma cadeia de formato localizada fornecida. Esta transformação utiliza o `String.Format` método C#.
+
+
+| Item | TransformaçãoClaimType | Tipo de Dados | Notas |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaims |  |string | A coleção de alegações de entrada que funciona como formato de {0} corda, {1} {2} parâmetros. |
+| InputParameter | stringFormatId | string |  O `StringId` de uma corda [localizada.](localization.md)   |
+| OutputClaim | outputClaim | string | O ClaimType que é produzido após esta transformação de alegações foi invocado. |
+
+> [!NOTE]
+> O tamanho máximo permitido em formato de corda é de 4000.
+
+Para utilizar a transformação de reclamações FormatLocalizedString:
+
+1. Defina uma [corda de localização](localization.md)e associe-a a um [perfil auto-afirmado-técnico.](self-asserted-technical-profile.md)
+1. O `ElementType` elemento deve ser definido para `LocalizedString` `FormatLocalizedStringTransformationClaimType` .
+1. É `StringId` um identificador único que define, e usá-lo mais tarde na sua transformação de reivindicações. `stringFormatId`
+1. Na transformação de sinistros, especifique a lista de reclamações a definir com a cadeia localizada. Em seguida, coloque `stringFormatId` o elemento de corda `StringId` localizado. 
+1. Num [perfil técnico autoafirmado,](self-asserted-technical-profile.md)ou numa entrada de [controlo de ecrã](display-controls.md) ou transformação de reivindicações de resultados, faça uma referência à transformação das suas reclamações.
+
+
+O exemplo a seguir gera uma mensagem de erro quando uma conta já está no diretório. O exemplo define as cordas localizadas para inglês (padrão) e espanhol.
+
+```xml
+<Localization Enabled="true">
+  <SupportedLanguages DefaultLanguage="en" MergeBehavior="Append">
+    <SupportedLanguage>en</SupportedLanguage>
+    <SupportedLanguage>es</SupportedLanguage>
+   </SupportedLanguages>
+
+  <LocalizedResources Id="api.localaccountsignup.en">
+    <LocalizedStrings>
+      <LocalizedString ElementType="FormatLocalizedStringTransformationClaimType" StringId="ResponseMessge_EmailExists">The email '{0}' is already an account in this organization. Click Next to sign in with that account.</LocalizedString>
+      </LocalizedStrings>
+    </LocalizedResources>
+  <LocalizedResources Id="api.localaccountsignup.es">
+    <LocalizedStrings>
+      <LocalizedString ElementType="FormatLocalizedStringTransformationClaimType" StringId="ResponseMessge_EmailExists">Este correo electrónico "{0}" ya es una cuenta de esta organización. Haga clic en Siguiente para iniciar sesión con esa cuenta.</LocalizedString>
+    </LocalizedStrings>
+  </LocalizedResources>
+</Localization>
+```
+
+A transformação de alegações cria uma mensagem de resposta baseada na cadeia localizada. A mensagem contém o endereço de e-mail do utilizador incorporado na picada localizada *ResponseMessge_EmailExists*.
+
+```xml
+<ClaimsTransformation Id="SetResponseMessageForEmailAlreadyExists" TransformationMethod="FormatLocalizedString">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="email" />
+  </InputClaims>
+  <InputParameters>
+    <InputParameter Id="stringFormatId" DataType="string" Value="ResponseMessge_EmailExists" />
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="responseMsg" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+### <a name="example"></a>Exemplo
+
+- Reclamações de entrada:
+    - **inputClaim:**sarah@contoso.com
+- Parâmetros de entrada:
+    - **stringFormat**: ResponseMessge_EmailExists
+- Reclamações de saída:
+  - **outputClaim**: O e-mail sarah@contoso.com ' ' já é uma conta nesta organização. Clique ao lado para iniciar scontabilidade com a conta.
+
+
 ## <a name="formatstringclaim"></a>FormatStringClaim
 
 Formatar uma reclamação de acordo com a cadeia de formato fornecida. Esta transformação utiliza o `String.Format` método C#.
@@ -335,6 +406,9 @@ Formatar uma reclamação de acordo com a cadeia de formato fornecida. Esta tran
 | InputClaim | inputClaim |string |O ClaimType que funciona como parâmetro de formato de {0} corda. |
 | InputParameter | stringFormat | string | O formato de corda, incluindo o {0}  parâmetro. Este parâmetro de entrada suporta [expressões de transformação de alegações de cordas.](string-transformations.md#string-claim-transformations-expressions)  |
 | OutputClaim | outputClaim | string | O ClaimType que é produzido após esta transformação de alegações foi invocado. |
+
+> [!NOTE]
+> O tamanho máximo permitido em formato de corda é de 4000.
 
 Utilize esta transformação de sinistros para formatar qualquer cadeia com um parâmetro {0} . O exemplo a seguir cria um **nome de utilizadorPrincipalName**. Todos os perfis técnicos do fornecedor de identidade social, tais como `Facebook-OAUTH` chamadas **de Nome CreateUserPrincipal** para gerar um **nome de utilizadorPrincipalName**.
 
@@ -371,6 +445,9 @@ Formato duas reclamações de acordo com a cadeia de formato fornecida. Esta tra
 | InputClaim | inputClaim | string | O ClaimType que funciona como parâmetro de formato de {1} corda. |
 | InputParameter | stringFormat | string | O formato de corda, incluindo os {0} {1} parâmetros e parâmetros. Este parâmetro de entrada suporta [expressões de transformação de alegações de cordas.](string-transformations.md#string-claim-transformations-expressions)   |
 | OutputClaim | outputClaim | string | O ClaimType que é produzido após esta transformação de alegações foi invocado. |
+
+> [!NOTE]
+> O tamanho máximo permitido em formato de corda é de 4000.
 
 Utilize esta transformação de alegações para formatar qualquer cadeia com dois parâmetros, {0} e {1} . O exemplo a seguir cria um **nome de exibição** com o formato especificado:
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: ShaneBala-keyvault
 ms.author: sudbalas
 ms.date: 12/15/2020
-ms.openlocfilehash: 331a7b1bef3621a080fe2fa891cf83565a1e55ac
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 7aeca89ed09182b7947b10f24c65b0cb58ed67ea
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101702577"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102452140"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Descrição geral da eliminação recuperável do Azure Key Vault
 
@@ -30,7 +30,7 @@ A funcionalidade de eliminação suave do Key Vault permite a recuperação dos 
 
 ## <a name="supporting-interfaces"></a>Interfaces de apoio
 
-A função soft-delete está disponível através da [API REST,](/rest/api/keyvault/)do [Azure CLI,](./key-vault-recovery.md) [do Azure PowerShell](./key-vault-recovery.md)e das interfaces [.NET/C#,](/dotnet/api/microsoft.azure.keyvault?view=azure-dotnet&preserve-view=true) bem como [dos modelos ARM](/azure/templates/microsoft.keyvault/2019-09-01/vaults).
+A função soft-delete está disponível através da [API REST,](/rest/api/keyvault/)do [Azure CLI,](./key-vault-recovery.md) [do Azure PowerShell](./key-vault-recovery.md)e das interfaces [.NET/C#,](/dotnet/api/microsoft.azure.keyvault) bem como [dos modelos ARM](/azure/templates/microsoft.keyvault/2019-09-01/vaults).
 
 ## <a name="scenarios"></a>Cenários
 

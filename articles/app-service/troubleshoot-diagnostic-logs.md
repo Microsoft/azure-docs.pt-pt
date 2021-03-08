@@ -5,12 +5,12 @@ ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 09/17/2019
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 6008304ea7c1d17363587a4fa5bf6017cb0903f9
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 44e18be9d66131ad5f4a3ebcc039621ec9e9dbe6
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102049241"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102452259"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Permitir o início de sessão de diagnóstico de apps no Azure App Service
 ## <a name="overview"></a>Descrição Geral
@@ -134,19 +134,17 @@ Para transmitir registos no [portal Azure,](https://portal.azure.com)navegue par
 
 Para transmitir registos em direto na [Cloud Shell,](../cloud-shell/overview.md)utilize o seguinte comando:
 
+> [!IMPORTANT]
+> Este comando pode não funcionar com aplicações web hospedadas num plano de serviço de aplicações Linux.
+
 ```azurecli-interactive
 az webapp log tail --name appname --resource-group myResourceGroup
 ```
 
-Para filtrar eventos específicos, tais como erros, utilize o parâmetro **--Filtro.** Por exemplo:
+Para filtrar tipos específicos de registo, tais como HTTP, utilize o parâmetro **--Fornecedor.** Por exemplo:
 
 ```azurecli-interactive
-az webapp log tail --name appname --resource-group myResourceGroup --filter Error
-```
-Para filtrar tipos específicos de registo, tais como HTTP, utilize o parâmetro **--Caminho.** Por exemplo:
-
-```azurecli-interactive
-az webapp log tail --name appname --resource-group myResourceGroup --path http
+az webapp log tail --name appname --resource-group myResourceGroup --provider http
 ```
 
 ### <a name="in-local-terminal"></a>No terminal local
@@ -187,15 +185,15 @@ A tabela a seguir mostra os tipos e descrições de registos suportados:
 
 | Tipo de registo | Windows | Recipiente windows | Linux | Recipiente Linux | Descrição |
 |-|-|-|-|-|-|
-| AppServiceConsoleLogs | Java SE & Tomcat | Sim | Sim | Sim | Saída padrão e erro padrão |
-| AppServiceHTTPLogs | Sim | Sim | Sim | Sim | Registos de servidores web |
-| AppServiceEnvironmentPlatformLogs | Sim | N/D | Sim | Sim | Ambiente de Serviço de Aplicações: escala, alterações de configuração e registos de estado|
-| AppServiceAuditLogs | Sim | Sim | Sim | Sim | Atividade de login via FTP e Kudu |
-| AppServiceFileAuditLogs | Sim | Sim | TBA | TBA | Alterações de ficheiros es feitas no conteúdo do site; **apenas disponível para nível Premium e acima** |
+| AppServiceConsoleLogs | Java SE & Tomcat | Yes | Yes | Yes | Saída padrão e erro padrão |
+| AppServiceHTTPLogs | Yes | Yes | Yes | Yes | Registos de servidores web |
+| AppServiceEnvironmentPlatformLogs | Yes | N/D | Sim | Yes | Ambiente de Serviço de Aplicações: escala, alterações de configuração e registos de estado|
+| AppServiceAuditLogs | Yes | Yes | Yes | Yes | Atividade de login via FTP e Kudu |
+| AppServiceFileAuditLogs | Yes | Yes | TBA | TBA | Alterações de ficheiros es feitas no conteúdo do site; **apenas disponível para nível Premium e acima** |
 | AppServiceAppLogs | ASP .NET | ASP .NET | Java SE & Tomcat Imagens Abençoadas <sup>1</sup> | Java SE & Tomcat Imagens Abençoadas <sup>1</sup> | Registos de aplicações |
-| AppServiceIPSecAuditLogs  | Sim | Sim | Sim | Sim | Pedidos de Regras de IP |
-| AppServicePlatformLogs  | TBA | Sim | Sim | Sim | Troncos de operação de contentores |
-| AppServiceAntivirusScanAuditLogs | Sim | Sim | Sim | Sim | [Registos de verificação antivírus](https://azure.github.io/AppService/2020/12/09/AzMon-AppServiceAntivirusScanAuditLogs.html) utilizando o Microsoft Defender; **apenas disponível para nível Premium** | 
+| AppServiceIPSecAuditLogs  | Yes | Yes | Yes | Yes | Pedidos de Regras de IP |
+| AppServicePlatformLogs  | TBA | Yes | Yes | Yes | Troncos de operação de contentores |
+| AppServiceAntivirusScanAuditLogs | Yes | Yes | Yes | Yes | [Registos de verificação antivírus](https://azure.github.io/AppService/2020/12/09/AzMon-AppServiceAntivirusScanAuditLogs.html) utilizando o Microsoft Defender; **apenas disponível para nível Premium** | 
 
 <sup>1</sup> Para aplicações Java SE, adicione "$WEBSITE_AZMON_PREVIEW_ENABLED" às definições da aplicação e defina-a para 1 ou para verdadeiro.
 

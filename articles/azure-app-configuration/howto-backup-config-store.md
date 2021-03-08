@@ -10,12 +10,12 @@ ms.custom: devx-track-dotnet, devx-track-azurecli
 ms.topic: how-to
 ms.date: 04/27/2020
 ms.author: avgupta
-ms.openlocfilehash: 39c50f539c04a6c49316f4541c759859be861f9d
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: b3e0bcad7beccc31e1772fbb24ffad7f502b8140
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101095506"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102454248"
 ---
 # <a name="back-up-app-configuration-stores-automatically"></a>Fazer o back up Lojas de Configuração de Aplicativos automaticamente
 
@@ -137,7 +137,7 @@ Para facilitar o seu início ao backup dos seus dados, [testámos e publicámos 
 
 Se o código de amostra fornecido anteriormente não cumprir os seus requisitos, também pode criar a sua própria função. A sua função deve ser capaz de executar as seguintes tarefas para completar a cópia de segurança:
 - Leia periodicamente o conteúdo da sua fila para ver se contém notificações da Grade de Eventos. Consulte o [SDK da fila de armazenamento](../storage/queues/storage-quickstart-queues-dotnet.md) para obter detalhes de implementação.
-- Se a sua fila contiver [notificações de eventos da Grade de Eventos,](./concept-app-configuration-event.md?branch=pr-en-us-112982#event-schema)extraia todas as `<key, label>` informações únicas das mensagens do evento. A combinação de chave e etiqueta é o identificador único para alterações de valor-chave na loja primária.
+- Se a sua fila contiver [notificações de eventos da Grade de Eventos,](./concept-app-configuration-event.md#event-schema)extraia todas as `<key, label>` informações únicas das mensagens do evento. A combinação de chave e etiqueta é o identificador único para alterações de valor-chave na loja primária.
 - Leia todas as definições da loja primária. Atualize apenas as definições na loja secundária que tenham um evento correspondente na fila. Elimine todas as definições da loja secundária que estavam presentes na fila, mas não na loja primária. Pode utilizar o [SDK de Configuração](https://github.com/Azure/AppConfiguration#sdks) de Aplicações para aceder às suas lojas de configuração programáticamente.
 - Elimine as mensagens da fila se não houver exceções durante o processamento.
 - Implemente o tratamento de erros de acordo com as suas necessidades. Consulte a amostra de código anterior para ver algumas exceções comuns que possa querer manusear.

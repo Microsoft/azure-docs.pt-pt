@@ -258,6 +258,8 @@
         - name: Utilizar o modelo do Resource Manager
           displayName: arm
           href: how-to-create-workspace-template.md
+        - name: Link para Azure Synapse Analytics espaço de trabalho
+          href: how-to-link-synapse-ml-workspaces.md
     - name: Criar e gerir recursos de computação
       items:
         - name: Instância de computação

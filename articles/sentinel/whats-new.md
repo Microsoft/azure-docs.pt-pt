@@ -7,13 +7,13 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.date: 03/03/2021
-ms.openlocfilehash: c466d7717dd1dad0ea9ee3f44088d1400cee083f
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.date: 03/08/2021
+ms.openlocfilehash: c24512ad38f9397c9a40a85489c45fcb0de906b3
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102048187"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102453806"
 ---
 # <a name="whats-new-in-azure-sentinel"></a>Novidades em Azure Sentinel
 
@@ -32,9 +32,26 @@ As funcionalidades notadas estão atualmente em PREVIEW. Os [Termos Complementar
 
 ## <a name="february-2021"></a>Fevereiro de 2021
 
+- [Livro de certificação do modelo de maturidade da cibersegurança (CMMC)](#cybersecurity-maturity-model-certification-cmmc-workbook)
 - [Conectores de dados de terceiros](#third-party-data-connectors)
 - [Insights da UEBA na página da entidade](#ueba-insights-in-the-entity-page)
 - [Pesquisa melhorada de incidentes](#improved-incident-search)
+
+### <a name="cybersecurity-maturity-model-certification-cmmc-workbook"></a>Livro de certificação do modelo de maturidade da cibersegurança (CMMC)
+
+O Azure Sentinel CMMC Workbook fornece um mecanismo para visualizar consultas de registo alinhadas com os controlos cmmc em todo o portfólio da Microsoft, incluindo ofertas de segurança da Microsoft, Office 365, Teams, Intune, Windows Virtual Desktop e muito mais.
+
+O livro da CMMC permite que arquitetos de segurança, engenheiros, analistas de operações de segurança, gestores e profissionais de TI ganhem visibilidade de consciência da situação para a postura de segurança das cargas de trabalho em nuvem. Existem também recomendações para selecionar, projetar, implementar e configurar ofertas da Microsoft para o alinhamento com os respetivos requisitos e práticas da CMMC.
+
+Mesmo que não seja obrigado a cumprir com a CMMC, o manual da CMMC é útil na construção de Centros de Operações de Segurança, no desenvolvimento de alertas, na visualização de ameaças e na sensibilização para a situação das cargas de trabalho.
+
+Aceda ao livro de trabalhos da CMMC na área dos **livros de trabalho** Azure Sentinel. Selecione **o modelo** e, em seguida, procure **cmMC**.
+
+Para obter mais informações, consulte:
+
+- [Azure Sentinel Cybersecurity Maturity Model Certification (CMMC) Workbook](https://techcommunity.microsoft.com/t5/public-sector-blog/azure-sentinel-cybersecurity-maturity-model-certification-cmmc/ba-p/2110524)
+- [Tutorial: Visualizar e monitorizar os seus dados](tutorial-monitor-your-data.md)
+
 
 ### <a name="third-party-data-connectors"></a>Conectores de dados de terceiros
 

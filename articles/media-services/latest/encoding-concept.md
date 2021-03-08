@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 159336d3e8949739cb00dbe66ed82fa90256dcfd
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 84caa287803fa64b12d9da4c2afb1f8dd1418e13
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897905"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102455285"
 ---
 # <a name="encoding-video-and-audio-with-media-services"></a>Codificação de vídeo e áudio com Serviços de Media
 
@@ -137,7 +137,7 @@ Os Serviços de Comunicação Social suportam totalmente a personalização de t
 
 ## <a name="preset-schema"></a>Esquema predefinido
 
-Nos Serviços de Comunicação Social v3, as predefinições são entidades fortemente dactilografada na própria API. Pode encontrar a definição de "esquema" para estes objetos em [Especificação API Aberta (ou Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01). Também pode ver as definições predefinidas (como **StandardEncoderPreset)** na [API REST](/rest/api/media/transforms/createorupdate#standardencoderpreset), [.NET SDK](/dotnet/api/microsoft.azure.management.media.models.standardencoderpreset?view=azure-dotnet) (ou outros Serviços de Mídia v3 SDK documentação de referência).
+Nos Serviços de Comunicação Social v3, as predefinições são entidades fortemente dactilografada na própria API. Pode encontrar a definição de "esquema" para estes objetos em [Especificação API Aberta (ou Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01). Também pode ver as definições predefinidas (como **StandardEncoderPreset)** na [API REST](/rest/api/media/transforms/createorupdate#standardencoderpreset), [.NET SDK](/dotnet/api/microsoft.azure.management.media.models.standardencoderpreset) (ou outros Serviços de Mídia v3 SDK documentação de referência).
 
 ## <a name="scaling-encoding-in-v3"></a>Codificação de escalonamento em v3
 
@@ -153,7 +153,7 @@ Para obter mais informações, veja os [preços](https://azure.microsoft.com/pri
 
 Consulte o artigo da [comunidade Azure Media Services](media-services-community.md) para ver diferentes formas de fazer perguntas, dar feedback e obter atualizações sobre os Media Services.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Faça upload, codificação e transmissão utilizando os Serviços de Mídia](stream-files-tutorial-with-api.md).
 * [Codificar a partir de um URL HTTPS utilizando predefinições incorporadas](job-input-from-http-how-to.md).

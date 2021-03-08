@@ -14,12 +14,12 @@ ms.topic: how-to
 ms.date: 11/17/2020
 ms.author: inhenkel
 ms.custom: has-adal-ref, devx-track-csharp
-ms.openlocfilehash: 3d4f232d87209a3a5676cac22e67a38b17af6917
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 8946f6e94dd26db45622bc7609fb2375d59bb57e
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844323"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102455387"
 ---
 # <a name="connect-to-media-services-v3-api---net"></a>Ligar aos Serviços de Mídia v3 API - .NET
 
@@ -38,7 +38,7 @@ Este artigo mostra-lhe como ligar-se ao Azure Media Services v3 .NET SDK utiliza
 ## <a name="create-a-console-application"></a>Criar uma aplicação de consola
 
 1. Inicie o Visual Studio. 
-1. A partir do menu **'Ficheiro',** clique em **New**  >  **'Novo Projeto'.** 
+1. A partir do menu **'Ficheiro',** clique em   >  **'Novo Projeto'.** 
 1. Crie uma aplicação de consola **.NET Core.**
 
 A aplicação de amostra neste tópico, `netcoreapp2.0` alvos. O código utiliza o 'async main', que está disponível a partir de C# 7.1. Consulte este [blog](/archive/blogs/benwilli/async-main-is-available-but-hidden) para mais detalhes.
@@ -249,5 +249,5 @@ namespace ConsoleApp1
 
 ## <a name="see-also"></a>Ver também
 
-* [.NET reference](/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet&preserve-view=true) (Referência de .NET)
+* [.NET reference](/dotnet/api/overview/azure/mediaservices/management) (Referência de .NET)
 * Para obter mais exemplos de código, consulte as [amostras .NET SDK.](https://github.com/Azure-Samples/media-services-v3-dotnet)

@@ -6,12 +6,12 @@ ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 9f71a0f9c6d3fdca4b81be3a69479c78236fcc31
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: ad5bb90a0df68cc6c1c230c234c1f695312da3d8
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98014217"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102451784"
 ---
 # <a name="service-bus-queues-output-from-azure-stream-analytics"></a>Saída de filas de autocarros de serviço a partir de Azure Stream Analytics
 
@@ -69,9 +69,9 @@ A imagem a seguir é das propriedades de mensagens de saída esperadas inspecion
 
 ## <a name="system-properties"></a>Propriedades do sistema
 
-Pode anexar colunas de consulta como [propriedades do sistema](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet&preserve-view=true#properties) à fila do autocarro de serviço de saída ou mensagens tópicos.
+Pode anexar colunas de consulta como [propriedades do sistema](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#properties) à fila do autocarro de serviço de saída ou mensagens tópicos.
 
-Estas colunas não entram na carga útil, em vez disso, a propriedade correspondente do [sistema](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet&preserve-view=true#properties) BrokeredMessage é povoada com os valores da coluna de consulta.
+Estas colunas não entram na carga útil, em vez disso, a propriedade correspondente do [sistema](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#properties) BrokeredMessage é povoada com os valores da coluna de consulta.
 Estas propriedades do sistema são suportadas - `MessageId, ContentType, Label, PartitionKey, ReplyTo, SessionId, CorrelationId, To, ForcePersistence, TimeToLive, ScheduledEnqueueTimeUtc` .
 
 Os valores de cadeia destas colunas são analisados como o tipo de valor contabilístico correspondente do sistema e quaisquer falhas de análise são tratadas como erros de dados.
@@ -91,7 +91,7 @@ Isto mostra como usar esta propriedade –
 
 Isto define as mensagens de fila de `MessageId` autocarros de serviço com `column1` os valores e partitionKey é definido com `column2` os valores de 's'
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Início Rápido: Criar uma tarefa do Stream Analytics com o portal do Azure](stream-analytics-quick-create-portal.md)
 * [Quickstart: Criar um trabalho Azure Stream Analytics utilizando o Azure CLI](quick-create-azure-cli.md)

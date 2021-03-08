@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 11/23/2020
-ms.openlocfilehash: 3dc9b178b9aa22991230f4cc6a9d54b44cf09b4e
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: ca0052eebd8d3c8e80943ca8c0e0346216436800
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102098813"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102452769"
 ---
 # <a name="discover-sql-server-instances-in-an-existing-project"></a>Descubra as instâncias do SQL Server num projeto existente 
 
@@ -20,7 +20,7 @@ Este artigo descreve como descobrir instâncias e bases de dados do SQL Server n
 Descobrir instâncias e bases de dados do SQL Server em funcionamento em máquinas no local ajuda a identificar e adaptar um caminho de migração para Azure SQL. O aparelho Azure Migrate executa esta descoberta utilizando as credenciais de autenticação do Domínio ou as credenciais de autenticação do SQL Server que têm acesso às instâncias e bases de dados do SQL Server em execução nos servidores direcionados. Este processo de descoberta é sem agente, ou seja, nada está instalado nos servidores-alvo.
 
 > [!Note]
-> A descoberta e avaliação de instâncias e bases de dados do SQL Server em execução no seu ambiente VMware está agora em pré-visualização. Para experimentar esta funcionalidade, utilize [**este link**](https://aka.ms/AzureMigrate/SQL) para criar um projeto na região **leste da Austrália.** Se já tem um projeto na Austrália East e quer experimentar esta funcionalidade, certifique-se de que completou os [**pré-requisitos**](how-to-discover-sql-existing-project.md) deste artigo.
+> A descoberta e avaliação de instâncias e bases de dados do SQL Server em execução no seu ambiente VMware está agora em pré-visualização. Para experimentar esta funcionalidade, utilize [**este link**](https://aka.ms/AzureMigrate/SQL) para criar um projeto na região **Leste da Austrália**. Se já tem um projeto na Austrália East e quer experimentar esta funcionalidade, certifique-se de que completou os [**pré-requisitos**](how-to-discover-sql-existing-project.md) deste artigo.
 
 ## <a name="before-you-start"></a>Antes de começar
 
@@ -44,7 +44,7 @@ Descobrir instâncias e bases de dados do SQL Server em funcionamento em máquin
     - Valide que os serviços em funcionamento no aparelho são atualizados para as versões mais recentes. Para tal, lance o gestor de configuração do aparelho a partir do seu servidor de aparelhos e selecione os serviços de visualização do aparelho a partir do painel de pré-requisitos set.
         - Aparelho e seus componentes são automaticamente atualizados :::image type="content" source="./media/how-to-discover-sql-existing-project/appliance-services-version.png" alt-text="Verifique a versão do aparelho":::
     - No painel de credenciais e fontes de descoberta do gestor de configuração do aparelho, adicione credenciais de autenticação de servidor de domínio ou SQL que tenham acesso Sysadmin na instância e bases de dados do SQL Server a serem descobertas. 
-    Pode aproveitar a função de mapeamento de credencial automática do aparelho ou mapear manualmente as credenciais para o respetivo servidor, conforme [aqui](https://review.docs.microsoft.com/azure/migrate/tutorial-discover-vmware?branch=release-migrate-sql-scenario#start-continuous-discovery)destacado.
+    Pode aproveitar a função de mapeamento de credencial automática do aparelho ou mapear manualmente as credenciais para o respetivo servidor, conforme [aqui](/azure/migrate/tutorial-discover-vmware#start-continuous-discovery)destacado.
         
     Alguns pontos a notar:
     - Certifique-se de que o inventário de software já está ativado ou forneça credenciais de domínio ou não domínio para ativar o mesmo. O inventário de software deve ser realizado para descobrir as instâncias do SQL Server.

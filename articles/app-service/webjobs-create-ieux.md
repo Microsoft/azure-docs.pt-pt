@@ -10,16 +10,16 @@ ms.reviewer: msangapu;suwatch;pbatum;naren.soni
 ms.custom: seodec18
 zone_pivot_groups: app-service-webjob
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 4737f0f19acf199190df02386ecb2ece65fa571e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 0d49323e2bc3c0522b1fb9ad49ffcc14f476e2dc
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101746679"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102452803"
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Executar tarefas de fundo com WebJobs no Azure App Service
 
-O conceito de tarefas de fundo runn em Azure é fornecido com [trabalhos](./webjobs-create-ieux-conceptual.md) web de serviço azure App. Saiba como implementar <abbr title="Um programa ou script no mesmo caso de uma aplicação web, app API ou aplicativo móvel.">WebJobs</abbr> utilizando o [portal Azure](https://portal.azure.com) para carregar um executável ou script. 
+O conceito de executar tarefas de fundo no Azure é fornecido com [trabalhos](./webjobs-create-ieux-conceptual.md) web de serviço da Azure App. Saiba como implementar <abbr title="Um programa ou script no mesmo caso de uma aplicação web, app API ou aplicativo móvel.">WebJobs</abbr> utilizando o [portal Azure](https://portal.azure.com) para carregar um executável ou script. 
 
 Três WebJobs suportados incluem:
 

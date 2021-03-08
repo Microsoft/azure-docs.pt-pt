@@ -9,19 +9,19 @@ ms.custom: seodec18
 ms.author: memildin
 author: memildin
 manager: rkarlin
-ms.openlocfilehash: ea7524b32b7637aa7c36308f8b869aa5207c08a2
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: b73e7f8c13f621bc359a2ae79a725829420a3ecc
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93334417"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102455600"
 ---
 # <a name="advanced-threat-protection-for-azure-cosmos-db-preview"></a>Proteção avançada de ameaças para Azure Cosmos DB (Pré-visualização)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 A Advanced Threat Protection for Azure Cosmos DB fornece uma camada adicional de inteligência de segurança que deteta tentativas incomuns e potencialmente nocivas de aceder ou explorar contas DB do Azure Cosmos. Esta camada de proteção permite-lhe abordar ameaças, mesmo sem ser um perito em segurança, e integrá-las com sistemas centrais de monitorização de segurança.
 
-Os alertas de segurança são desencadeados quando ocorrem anomalias na atividade. Estes alertas de segurança estão integrados no  [Azure Security Center,](https://azure.microsoft.com/services/security-center/)e são também enviados por e-mail aos administradores de subscrição, com detalhes da atividade suspeita e recomendações sobre como investigar e remediar as ameaças.
+Os alertas de segurança são acionados quando ocorrem anomalias de atividade. Estes alertas de segurança estão integrados no  [Azure Security Center,](https://azure.microsoft.com/services/security-center/)e são também enviados por e-mail aos administradores de subscrição, com detalhes da atividade suspeita e recomendações sobre como investigar e remediar as ameaças.
 
 > [!NOTE]
 >
@@ -34,9 +34,9 @@ Para uma experiência de investigação completa dos alertas de segurança, reco
 
 A Advanced Threat Protection for Azure Cosmos DB deteta atividades anómalas que indiquem tentativas incomuns e potencialmente nocivas de aceder ou explorar bases de dados. Atualmente pode desencadear os seguintes alertas:
 
-- **Acesso a partir de locais incomuns** : Este alerta é desencadeado quando há uma alteração no padrão de acesso a uma conta Azure Cosmos, onde alguém se ligou ao ponto final do Azure Cosmos DB a partir de uma localização geográfica incomum. Em alguns casos, o alerta deteta uma ação legítima, o que significa uma nova aplicação ou operação de manutenção do desenvolvedor. Noutros casos, o alerta deteta uma ação maliciosa de um ex-funcionário, agressor externo, etc.
+- **Acesso a partir de locais incomuns**: Este alerta é desencadeado quando há uma alteração no padrão de acesso a uma conta Azure Cosmos, onde alguém se ligou ao ponto final do Azure Cosmos DB a partir de uma localização geográfica incomum. Em alguns casos, o alerta deteta uma ação legítima, o que significa uma nova aplicação ou operação de manutenção do desenvolvedor. Noutros casos, o alerta deteta uma ação maliciosa de um ex-funcionário, agressor externo, etc.
 
-- **Extração de dados incomum** : Este alerta é desencadeado quando um cliente está a extrair uma quantidade incomum de dados de uma conta DB da Azure Cosmos. Este pode ser o sintoma de alguma exfiltração de dados realizada para transferir todos os dados armazenados na conta para uma loja de dados externo.
+- **Extração de dados incomum**: Este alerta é desencadeado quando um cliente está a extrair uma quantidade incomum de dados de uma conta DB da Azure Cosmos. Este pode ser o sintoma de alguma exfiltração de dados realizada para transferir todos os dados armazenados na conta para uma loja de dados externo.
 
 
 
@@ -68,9 +68,9 @@ Utilize comandos de API de repouso para criar, atualizar ou obter a definição 
 
 Utilize os seguintes cmdlets PowerShell:
 
-* [Ativar o Advanced Threat Protection](/powershell/module/az.security/enable-azsecurityadvancedthreatprotection?viewFallbackFrom=azps-2.4.0)
-* [Obter proteção de ameaças avançadas](/powershell/module/az.security/get-azsecurityadvancedthreatprotection?viewFallbackFrom=azps-2.4.0)
-* [Desativar a proteção de ameaças avançadas](/powershell/module/az.security/disable-azsecurityadvancedthreatprotection?viewFallbackFrom=azps-2.4.0)
+* [Ativar o Advanced Threat Protection](/powershell/module/az.security/enable-azsecurityadvancedthreatprotection)
+* [Obter proteção de ameaças avançadas](/powershell/module/az.security/get-azsecurityadvancedthreatprotection)
+* [Desativar a proteção de ameaças avançadas](/powershell/module/az.security/disable-azsecurityadvancedthreatprotection)
 
 ### <a name="arm-template"></a>[Modelo ARM](#tab/arm-template)
 

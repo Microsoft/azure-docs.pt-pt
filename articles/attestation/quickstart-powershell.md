@@ -7,16 +7,16 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 3c908fffe93d657662310d4e91ed25ae28ca6908
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: ebc12982bcc05c2d07f91fbc4d85afc170adf075
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99429097"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102453398"
 ---
 # <a name="quickstart-set-up-azure-attestation-with-azure-powershell"></a>Quickstart: Configurar a Azure Attestation com a Azure PowerShell
 
-Siga os passos abaixo para criar e configurar um provedor de atestado usando a Azure PowerShell. Consulte [a visão geral do Azure PowerShell](/powershell/azure/?view=azps-2.8.0&viewFallbackFrom=azps-2.4.0) para obter informações sobre como instalar e executar a Azure PowerShell.
+Siga os passos abaixo para criar e configurar um provedor de atestado usando a Azure PowerShell. Consulte [a visão geral do Azure PowerShell](/powershell/azure/) para obter informações sobre como instalar e executar a Azure PowerShell.
 
 Por favor, note que a PowerShell Gallery depreendeu as versões 1.0 e 1.1 de Segurança da Camada de Transporte (TLS). Recomenda-se tLS 1.2 ou uma versão posterior. Assim, pode receber os seguintes erros:
 

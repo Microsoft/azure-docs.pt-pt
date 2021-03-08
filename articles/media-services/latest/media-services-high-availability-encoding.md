@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.custom: ''
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: be3fd9b3d910e64245a1b52056499bbfba2e6379
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 81feb5b95578cedea7bf368aa1e0d6c2e9117077
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98955856"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102456016"
 ---
 # <a name="high-availability-with-media-services-and-video-on-demand-vod"></a>Alta Disponibilidade com Serviços de Mídia e Vídeo a Pedido (VOD)
 
@@ -59,23 +59,23 @@ Este diagrama de alto nível mostra a arquitetura da amostra fornecida para come
 
 ### <a name="regions"></a>Regiões
 
-* [Criar](https://review.docs.microsoft.com/azure/media-services/latest/create-account-cli-how-to) duas (ou mais) contas Azure Media Services. As duas contas têm de ser em diferentes regiões. Para mais informações, consulte [regiões em que o serviço Azure Media Services está implantado.](https://azure.microsoft.com/global-infrastructure/services/?products=media-services)
-* Faça o upload dos seus meios de comunicação para a mesma região a partir da qual planeia submeter o trabalho. Para obter mais informações sobre como começar a codificar, consulte [Criar uma entrada de trabalho a partir de um URL HTTPS](https://review.docs.microsoft.com/azure/media-services/latest/job-input-from-http-how-to) ou [criar uma entrada de trabalho a partir de um ficheiro local](https://review.docs.microsoft.com/azure/media-services/latest/job-input-from-local-file-how-to).
-* Se então precisar de reenviar o [trabalho](https://review.docs.microsoft.com/azure/media-services/latest/transforms-jobs-concept) para outra região, pode utilizar `JobInputHttp` ou utilizar para copiar os `Copy-Blob` dados do recipiente de origem Para um contentor de Ativos na região alternativa.
+* [Criar](/azure/media-services/latest/create-account-cli-how-to) duas (ou mais) contas Azure Media Services. As duas contas têm de ser em diferentes regiões. Para mais informações, consulte [regiões em que o serviço Azure Media Services está implantado.](https://azure.microsoft.com/global-infrastructure/services/?products=media-services)
+* Faça o upload dos seus meios de comunicação para a mesma região a partir da qual planeia submeter o trabalho. Para obter mais informações sobre como começar a codificar, consulte [Criar uma entrada de trabalho a partir de um URL HTTPS](/azure/media-services/latest/job-input-from-http-how-to) ou [criar uma entrada de trabalho a partir de um ficheiro local](/azure/media-services/latest/job-input-from-local-file-how-to).
+* Se então precisar de reenviar o [trabalho](/azure/media-services/latest/transforms-jobs-concept) para outra região, pode utilizar `JobInputHttp` ou utilizar para copiar os `Copy-Blob` dados do recipiente de origem Para um contentor de Ativos na região alternativa.
 
 ### <a name="monitoring"></a>Monitorização
 
 * Inscreva-se `JobStateChange` para mensagens em cada conta através da Azure Event Grid.
-    * [Registe-se para eventos](https://review.docs.microsoft.com/azure/media-services/latest/reacting-to-media-services-events) através do portal Azure ou do CLI (também pode fazê-lo com o SDK de Gestão de Grelhas de Eventos)
+    * [Registe-se para eventos](/azure/media-services/latest/reacting-to-media-services-events) através do portal Azure ou do CLI (também pode fazê-lo com o SDK de Gestão de Grelhas de Eventos)
     * Utilize o [Microsoft.Azure.EventGrid SDK](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/) (que suporta eventos de Media Services de forma nativa).
     * Também pode consumir eventos de Grade de Eventos através de Funções Azure.
 
     Para obter mais informações:
 
-    * Consulte a [amostra Audio Analytics](https://review.docs.microsoft.com/azure/media-services/latest/transforms-jobs-concept) que mostra como monitorizar um trabalho com a Azure Event Grid, incluindo a adição de um recuo no caso de as mensagens Azure Event Grid se atrasarem por alguma razão.
-    * Veja os esquemas da [Grelha de Eventos Azure para eventos de Serviços de Mídia](https://review.docs.microsoft.com/azure/media-services/latest/media-services-event-schemas).
+    * Consulte a [amostra Audio Analytics](/azure/media-services/latest/transforms-jobs-concept) que mostra como monitorizar um trabalho com a Azure Event Grid, incluindo a adição de um recuo no caso de as mensagens Azure Event Grid se atrasarem por alguma razão.
+    * Veja os esquemas da [Grelha de Eventos Azure para eventos de Serviços de Mídia](/azure/media-services/latest/media-services-event-schemas).
 
-* Quando se cria um [emprego:](https://review.docs.microsoft.com/azure/media-services/latest/transforms-jobs-concept)
+* Quando se cria um [emprego:](/azure/media-services/latest/transforms-jobs-concept)
     * Selecione aleatoriamente uma conta da lista de contas atualmente utilizadas (esta lista normalmente conterá ambas as contas, mas se forem detetadas questões pode conter apenas uma conta). Se a lista estiver vazia, levante um alerta para que um operador possa investigar.
     * Crie um registo para acompanhar cada trabalho de voo e a região/conta utilizada.
 * Quando o seu `JobStateChange` encarregado receber a notificação de que um trabalho atingiu o estado programado, registe o tempo que entra no estado programado e na região/conta utilizada.

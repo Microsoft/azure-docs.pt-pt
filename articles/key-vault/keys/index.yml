@@ -11,12 +11,12 @@ metadata:
   author: msmbaldwin
   ms.author: mbaldwin
   ms.date: 04/07/2020
-  ms.openlocfilehash: 0113f34335b6d90b8a463c4291189b414a25c04e
-  ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+  ms.openlocfilehash: 500e2fe881bf3973afea1e2978ec030768d43f05
+  ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/05/2021
-  ms.locfileid: "102212013"
+  ms.lasthandoff: 03/08/2021
+  ms.locfileid: "102454639"
 landingContent:
 - title: Chaves
   linkLists:
@@ -57,7 +57,7 @@ landingContent:
   - linkListType: reference
     links:
     - text: Biblioteca de cliente .NET
-      url: /dotnet/api/azure.security.keyvault.keys?view=azure-dotnet
+      url: /dotnet/api/azure.security.keyvault.keys
     - text: Biblioteca de cliente Python
       url: /python/api/overview/azure/keyvault-keys-readme?view=azure-python
     - text: Biblioteca de cliente Java

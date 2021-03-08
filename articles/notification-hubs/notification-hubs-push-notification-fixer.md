@@ -17,12 +17,12 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 04/04/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b5139f75084eb0646db2fc8b05b04aaf3ddb2a12
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 787cf922fcee0ee613fc0874a490830da9adf38a
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89010788"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102455030"
 ---
 # <a name="diagnose-dropped-notifications-in-azure-notification-hubs"></a>Diagnóstico deixou cair notificações em Azure Notification Hubs
 
@@ -147,7 +147,7 @@ No Visual Studio, pode ligar-se ao Azure através do Server Explorer para visual
 
 Pode ver e gerir todos os registos no seu hub. As inscrições podem ser categorizadas por plataforma, registo de modelos, etiqueta, identificador de serviço de notificação push, ID de registo e data de validade. Também pode editar uma inscrição nesta página. É especialmente útil para editar tags.
 
-Clique com o botão de notificação para o **Server Explorer**e selecione **Diagnosticar**. 
+Clique com o botão de notificação para o **Server Explorer** e selecione **Diagnosticar**. 
 
 ![Visual Studio Server Explorer: Menu de diagnóstico](./media/notification-hubs-push-notification-fixer/diagnose-menu.png)
 
@@ -261,7 +261,7 @@ No portal, pode obter uma visão geral rápida de toda a atividade no seu centro
 
    ![Log de atividade do portal Azure][6]
 
-3. Comece por rever **mensagens recebidas,** **operações de registo**e **notificações bem sucedidas.** Em seguida, vá ao separador por plataforma para rever erros específicos do serviço de notificação push.
+3. Comece por rever **mensagens recebidas,** **operações de registo** e **notificações bem sucedidas.** Em seguida, vá ao separador por plataforma para rever erros específicos do serviço de notificação push.
 
 4. Se as definições de autenticação do seu centro de notificação estiverem incorretas, aparece o **Erro de Autenticação PNS** da mensagem. É uma boa indicação para verificar as credenciais do serviço de notificação push.
 
@@ -297,5 +297,5 @@ Para obter mais informações sobre o acesso programático, consulte [o acesso p
 [View device registrations for notification hubs]: /previous-versions/windows/apps/dn792122(v=win.10)
 [Mergulho profundo: Visual Studio 2013 Update 2 RC e Azure SDK 2.3]: https://azure.microsoft.com/blog/2014/04/09/deep-dive-visual-studio-2013-update-2-rc-and-azure-sdk-2-3/#NotificationHubs
 [Anunciando lançamento do Visual Studio 2013 Update 3 e Azure SDK 2.4]: https://azure.microsoft.com/blog/2014/08/04/announcing-release-of-visual-studio-2013-update-3-and-azure-sdk-2-4/
-[EnableTestSend]: /dotnet/api/microsoft.azure.notificationhubs.notificationhubclient.enabletestsend?view=azure-dotnet
+[EnableTestSend]: /dotnet/api/microsoft.azure.notificationhubs.notificationhubclient.enabletestsend
 [Programmatic telemetry access]: /previous-versions/azure/azure-services/dn458823(v=azure.100)

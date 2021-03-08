@@ -3,12 +3,12 @@ title: Gravação contínua de vídeo - Azure
 description: Gravação contínua de vídeo (CVR) refere-se ao processo de gravação contínua do vídeo a partir de uma fonte de vídeo. Este tópico discute o que é CVR.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 04f09f1968e647c57ba0913a9e7f9e601d045771
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f8b25d74db279f8cfff68f08efeab2975484a0c5
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89566704"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102453755"
 ---
 # <a name="continuous-video-recording"></a>Gravação de vídeo contínua  
 
@@ -17,9 +17,9 @@ ms.locfileid: "89566704"
 * [Conceito de gráfico de mídia](media-graph-concept.md)
 * [Conceito de gravação de vídeo](video-recording-concept.md)
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
-Gravação contínua de vídeo (CVR) refere-se ao processo de gravação contínua do vídeo a partir de uma fonte de vídeo. Live Video Analytics on IoT Edge suporta a gravação de vídeo continuamente, numa base de 24x7, a partir de uma câmara CCTV através de um [gráfico de mídia](media-graph-concept.md) composto por um nó de origem RTSP e um nó de lavatório de ativos. O diagrama abaixo mostra uma representação gráfica de tal gráfico mediático. A representação JSON da [topologia de gráficos](media-graph-concept.md?branch=release-preview-media-services-lva#media-graph-topologies-and-instances) de tal gráfico mediático pode ser encontrada [aqui](https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/cvr-asset).
+Gravação contínua de vídeo (CVR) refere-se ao processo de gravação contínua do vídeo a partir de uma fonte de vídeo. Live Video Analytics on IoT Edge suporta a gravação de vídeo continuamente, numa base de 24x7, a partir de uma câmara CCTV através de um [gráfico de mídia](media-graph-concept.md) composto por um nó de origem RTSP e um nó de lavatório de ativos. O diagrama abaixo mostra uma representação gráfica de tal gráfico mediático. A representação JSON da [topologia de gráficos](media-graph-concept.md#media-graph-topologies-and-instances) de tal gráfico mediático pode ser encontrada [aqui](https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/cvr-asset).
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/continuous-video-recording/continuous-video-recording-overview.svg" alt-text="Gravação de vídeo contínua":::
@@ -53,7 +53,7 @@ A propriedade segmentLength garante que o módulo de borda irá carregar o víde
 > [!NOTE]
 > Consulte o artigo [de gravação de reprodução](playback-recordings-how-to.md) para obter o efeito que o segmentoLength tem na reprodução.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 * [Gravação de vídeo baseada em eventos](event-based-video-recording-concept.md)
 * [Reprodução de conteúdo gravado](video-playback-concept.md)

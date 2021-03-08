@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 02/15/2021
+ms.date: 03/08/2021
 ms.author: memildin
-ms.openlocfilehash: 475c7671636d3aac036e3da1392fc2da9b0a001f
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 17e54dfc5c369a8cbb35db50ff2cbab131d34c2d
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102176472"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102453772"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Proteja os seus pontos finais com a solução EDR integrada do Security Center: Microsoft Defender for Endpoint
 
@@ -38,10 +38,10 @@ O Microsoft Defender for Endpoint é uma solução holística de segurança de p
 | Estado de libertação:                  | Geralmente disponível (GA)                                                                                                                                                                                                                                                                                      |
 | Preços:                        | Requer [Azure Defender para servidores](defender-for-servers-introduction.md)                                                                                                                                                                                                                                             |
 | Plataformas suportadas:            |  • Máquinas Azure que executam o Windows<br> • Máquinas Azure Arc que executam janelas|
-| Versões suportadas do Windows:  |  • **Disponibilidade Geral (GA) -** Deteção no Windows Server 2016, 2012 R2 e 2008 R2 SP1<br> • **Pré-visualização -** Deteção no Windows Server 2019, [Windows Virtual Desktop (WVD)](../virtual-desktop/overview.md)e [várias sessões empresariais do Windows 10](../virtual-desktop/windows-10-multisession-faq.md) (anteriormente Enterprise for Virtual Desktops (EVD)<br>A monitorização do ponto final do servidor utilizando estas integrações foi desativada para os clientes do Office 365 GCC|
+| Versões suportadas do Windows:  |  • **Disponibilidade Geral (GA) -** Deteção no Windows Server 2016, 2012 R2 e 2008 R2 SP1<br> • **Pré-visualização -** Deteção no Windows Server 2019, [Windows Virtual Desktop (WVD)](../virtual-desktop/overview.md)e [várias sessões empresariais do Windows 10](../virtual-desktop/windows-10-multisession-faq.md) (anteriormente Enterprise for Virtual Desktops (EVD)|
 | Sistemas operativos não suportados:  |  • Windows 10 (com além de EVD ou WVD)<br> • Linux|
 | Funções e permissões necessárias: | Para ativar/desativar a integração: **Administrador de segurança** ou **Proprietário**<br>Para ver alertas de MDATP no Centro de Segurança: **Leitor de segurança,** **leitor,** **contribuinte do grupo de recursos,** **proprietário do grupo de recursos,** **administrador de segurança,** **proprietário de assinatura,** ou **colaborador de subscrição**|
-| Nuvens:                         | ![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) US Gov<br>![Não](./media/icons/no-icon.png) China Gov, Outro Gov                                                        |
+| Nuvens:                         | ![Yes](./media/icons/yes-icon.png) Nuvens comerciais<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) China Gov, Outro Gov                                                        |
 |                                 |                                                                                                                                                                                                                                                                                                               |
 
 ## <a name="microsoft-defender-for-endpoint-features-in-security-center"></a>Microsoft Defender para funcionalidades de Endpoint no Security Center

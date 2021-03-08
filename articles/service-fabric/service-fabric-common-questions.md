@@ -4,12 +4,12 @@ description: Perguntas frequentes sobre o Service Fabric, incluindo capacidades,
 ms.topic: troubleshooting
 ms.date: 08/18/2017
 ms.author: pepogors
-ms.openlocfilehash: 1655a8ed03b1f678cc5dba0a165e0bcca1d2517a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e03ccf432852a5fc9ee700ba0e39dfe2e64fcc9
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87292856"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102456101"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Perguntas comuns acerca do Service Fabric
 
@@ -22,7 +22,7 @@ Há muitas perguntas comumente sobre o que o Service Fabric pode fazer e como de
 
 ### <a name="how-do-i-roll-back-my-service-fabric-cluster-certificate"></a>Como posso reverter o meu certificado de cluster de tecido de serviço?
 
-Reverter qualquer atualização para a sua aplicação requer uma deteção de falhas de saúde antes do quórum do cluster de tecido de serviço que comete a alteração; alterações comprometidas só podem ser lançadas para a frente. O engenheiro de escalada através dos Serviços de Apoio ao Cliente, pode ser necessário para recuperar o seu cluster, se tiver sido introduzida uma alteração não monitorizada do certificado de quebra.  [A atualização de aplicações da Service Fabric](./service-fabric-application-upgrade.md?branch=master) aplica [parâmetros de atualização de aplicações](./service-fabric-application-upgrade-parameters.md?branch=master)e oferece zero promessa de upgrade de tempo de inatividade.  Seguindo o modo monitorizado pela atualização da aplicação recomendada, o progresso automático através de domínios de atualização baseia-se na passagem de verificações de saúde, recuando automaticamente se a atualização de um serviço predefinido falhar.
+Reverter qualquer atualização para a sua aplicação requer uma deteção de falhas de saúde antes do quórum do cluster de tecido de serviço que comete a alteração; alterações comprometidas só podem ser lançadas para a frente. O engenheiro de escalada através dos Serviços de Apoio ao Cliente, pode ser necessário para recuperar o seu cluster, se tiver sido introduzida uma alteração não monitorizada do certificado de quebra.  [A atualização de aplicações da Service Fabric](./service-fabric-application-upgrade.md) aplica [parâmetros de atualização de aplicações](./service-fabric-application-upgrade-parameters.md)e oferece zero promessa de upgrade de tempo de inatividade.  Seguindo o modo monitorizado pela atualização da aplicação recomendada, o progresso automático através de domínios de atualização baseia-se na passagem de verificações de saúde, recuando automaticamente se a atualização de um serviço predefinido falhar.
  
 Se o seu cluster ainda estiver aproveitando a propriedade clássica de impressão digital de certificado no seu modelo de Gestor de Recursos, recomenda-lhe alterar [o cluster da impressão digital do certificado para o nome comum,](./service-fabric-cluster-change-cert-thumbprint-to-cn.md)para alavancar as funcionalidades de gestão de segredos modernos.
 
