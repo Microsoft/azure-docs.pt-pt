@@ -2,20 +2,36 @@
 author: alkohli
 ms.service: databox
 ms.topic: include
-ms.date: 12/12/2019
+ms.date: 03/08/2021
 ms.author: alkohli
-ms.openlocfilehash: 1f93f4d4e3295a0f08ac2e9f3e5826d3c8e6f6e4
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 5c1ac3f79ab5db2622dafd3229b39bbe19bce41e
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95554078"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102473884"
 ---
 Dependendo do sistema operativo do cliente, os procedimentos para ligar remotamente ao dispositivo são diferentes.
 
 ### <a name="remotely-connect-from-a-windows-client"></a>Ligação remota de um cliente Windows
 
-Antes de começar, certifique-se de que o seu cliente Windows está a executar o Windows PowerShell 5.0 ou mais tarde.
+
+#### <a name="prerequisites"></a>Pré-requisitos
+
+Antes de começar, certifique-se de que:
+
+- O seu cliente Windows está a executar o Windows PowerShell 5.0 ou mais tarde.
+- O seu cliente Windows tem a corrente de assinatura (certificado raiz) correspondente ao certificado de nó instalado no dispositivo. Para obter instruções detalhadas, consulte [o certificado de instalação no seu cliente Windows](../articles/databox-online/azure-stack-edge-j-series-manage-certificates.md#import-certificates-on-the-client-accessing-the-device).
+- O `hosts` ficheiro localizado para o seu cliente Windows tem uma entrada correspondente ao certificado de nó no seguinte `C:\Windows\System32\drivers\etc` formato:
+
+    `<Device IP>    <Node serial number>.<DNS domain of the device>`
+
+    Aqui está uma entrada de exemplo para o `hosts` ficheiro:
+ 
+    `10.100.10.10    1HXQG13.wdshcsso.com`
+  
+
+#### <a name="detailed-steps"></a>Passos detalhados
 
 Siga estes passos para ligar remotamente a partir de um cliente Windows.
 
@@ -23,6 +39,8 @@ Siga estes passos para ligar remotamente a partir de um cliente Windows.
 2. Certifique-se de que o serviço de Gestão Remota do Windows está a funcionar no seu cliente. Na linha de comandos, escreva:
 
     `winrm quickconfig`
+
+    Para obter mais informações, consulte [instalação e configuração para gestão remota do Windows](/windows/win32/winrm/installation-and-configuration-for-windows-remote-management#quick-default-configuration).
 
 3. Atribua uma variável ao endereço IP do dispositivo.
 
@@ -36,7 +54,12 @@ Siga estes passos para ligar remotamente a partir de um cliente Windows.
 
 5. Inicie uma sessão Do Windows PowerShell no dispositivo:
 
-    `Enter-PSSession -ComputerName $ip -Credential $ip\EdgeUser -ConfigurationName Minishell`
+    `Enter-PSSession -ComputerName $ip -Credential $ip\EdgeUser -ConfigurationName Minishell -UseSSL`
+
+    Se vir um erro relacionado com a relação de confiança, verifique se a cadeia de assinatura do certificado de nó enviado para o seu dispositivo também está instalada no cliente que acede ao seu dispositivo.
+
+    > [!NOTE] 
+    > Quando utiliza a `-UseSSL` opção, está a remoe através do PowerShell *em https*. Recomendamos que utilize sempre *https* para ligar remotamente através do PowerShell. Embora uma sessão *em http* não seja o método de ligação mais seguro, é aceitável em redes fidedignas.
 
 6. Forneça a palavra-passe quando solicitado. Use a mesma palavra-passe que é usada para iniciar súm na UI web local. A senha de acesso web local padrão é *Password1*. Quando se liga com sucesso ao dispositivo utilizando o PowerShell remoto, vê a seguinte saída da amostra:  
 
@@ -48,7 +71,7 @@ Siga estes passos para ligar remotamente a partir de um cliente Windows.
     WinRM service is already running on this machine.
     PS C:\WINDOWS\system32> $ip = "10.100.10.10"
     PS C:\WINDOWS\system32> Set-Item WSMan:\localhost\Client\TrustedHosts $ip -Concatenate -Force
-    PS C:\WINDOWS\system32> Enter-PSSession -ComputerName $ip -Credential $ip\EdgeUser -ConfigurationName Minishell
+    PS C:\WINDOWS\system32> Enter-PSSession -ComputerName $ip -Credential $ip\EdgeUser -ConfigurationName Minishell -UseSSL
 
     WARNING: The Windows PowerShell interface of your device is intended to be used only for the initial network configuration. Please engage Microsoft Support if you need to access this interface to troubleshoot any potential issues you may be experiencing. Changes made through this interface without involving Microsoft Support could result in an unsupported configuration.
     [10.100.10.10]: PS>
@@ -58,11 +81,11 @@ Siga estes passos para ligar remotamente a partir de um cliente Windows.
 
 No cliente Linux que utilizará para ligar:
 
-- [Instale o mais recente PowerShell Core para Linux](/powershell/scripting/install/installing-powershell-core-on-linux?view=powershell-6) do GitHub para obter a função de remoting SSH. 
+- [Instale o mais recente PowerShell Core para Linux](/powershell/scripting/install/installing-powershell-core-on-linux?view=powershell-6&preserve-view=true) do GitHub para obter a função de remoting SSH. 
 - [Instale apenas a `gss-ntlmssp` embalagem a partir do módulo NTLM](https://github.com/Microsoft/omi/blob/master/Unix/doc/setup-ntlm-omi.md). Para clientes Ubuntu, utilize o seguinte comando:
     - `sudo apt-get install gss-ntlmssp`
 
-Para obter mais informações, aceda ao [PowerShell remoing sobre SSH](/powershell/scripting/learn/remoting/ssh-remoting-in-powershell-core?view=powershell-6).
+Para obter mais informações, aceda ao [PowerShell remoing sobre SSH](/powershell/scripting/learn/remoting/ssh-remoting-in-powershell-core?view=powershell-6&preserve-view=true).
 
 Siga estes passos para ligar remotamente a um cliente NFS.
 
@@ -72,7 +95,7 @@ Siga estes passos para ligar remotamente a um cliente NFS.
  
 2. Para ligar utilizando o cliente remoto, escreva:
 
-    `Enter-PSSession -ComputerName $ip -Authentication Negotiate -ConfigurationName Minishell -Credential ~\EdgeUser`
+    `Enter-PSSession -ComputerName $ip -Authentication Negotiate -ConfigurationName Minishell -Credential ~\EdgeUser -UseSSL`
 
     Quando solicitado, forneça a palavra-passe utilizada para iniciar sedutar no seu dispositivo.
  

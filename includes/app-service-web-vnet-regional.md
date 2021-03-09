@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 10/21/2020
 ms.author: ccompy
-ms.openlocfilehash: 3f9dd35959980eef4e1bec550bf7e9f583cf30d2
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: a4eb22320a15cc76a7543c25583003d57ea4e538
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98225588"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102473852"
 ---
 A utilização da Integração VNet regional permite que a sua aplicação aceda:
 
@@ -38,6 +38,8 @@ Por padrão, a sua aplicação apenas encaminha o tráfego RFC1918 para o seu VN
 
 > [!NOTE]
 > Se encaminhar todo o tráfego de saída para o seu VNet, está sujeito aos NSGs e UDRs que são aplicados na sua sub-rede de integração. Quando encaminha todo o tráfego de saída para o seu VNet, os seus endereços de saída ainda são os endereços de saída que estão listados nas propriedades da sua aplicação, a menos que forneça rotas para enviar o tráfego para outro lugar.
+> 
+> A integração regional do VNet não é capaz de utilizar a porta 25.
 
 Existem algumas limitações com a utilização da Integração VNet com VNets na mesma região:
 

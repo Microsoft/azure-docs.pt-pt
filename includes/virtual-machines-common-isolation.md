@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/05/2020
 ms.author: sttsinar
 ms.custom: include file
-ms.openlocfilehash: e22c2b7cb561e30e84ea5ede5481fbdc35be8cdf
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 3d78441e56e23cf49b09073fdf88bef4b3434da9
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100514983"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102473888"
 ---
 O Azure Compute oferece tamanhos de máquinas virtuais que são isolados a um tipo de hardware específico e dedicados a um único cliente. Os tamanhos isolados vivem e operam na geração específica de hardware e serão depreciados quando a geração de hardware for reformada.
 
@@ -42,24 +42,26 @@ Os tamanhos de VM isolados têm uma duração de vida limitada de hardware. O Az
 
 | Tamanho | Data de aposentadoria de isolamento | 
 | --- | --- |
-| Standard_DS15_v2<sup>1</sup> | 15 de maio de 2020 |
-| Standard_D15_v2<sup>1</sup>  | 15 de maio de 2020 |
-
-<sup>1</sup>  Para mais detalhes sobre Standard_DS15_v2 e Standard_D15_v2 programa de aposentadoria de isolamento ver FAQs
+| Standard_DS15_v2 | 15 de maio de 2020 |
+| Standard_D15_v2  | 15 de maio de 2020 |
+| Standard_G5  | 15 de fevereiro de 2021 |
+| Standard_GS5  | 15 de fevereiro de 2021 |
+| Standard_E64i_v3  | 15 de fevereiro de 2021 |
+| Standard_E64is_v3  | 15 de fevereiro de 2021 |
 
 
 ## <a name="faq"></a>FAQ
 ### <a name="q-is-the-size-going-to-get-retired-or-only-its-isolation-feature"></a>P: O tamanho vai ser reformado ou apenas a sua característica de "isolamento"?
-**R**: Se o tamanho da máquina virtual não tiver o subscrito "i", apenas a função "isolamento" será retirada. Se não for necessário um isolamento, não haverá qualquer ação a tomar e o VM continuará a funcionar como esperado. Exemplos incluem Standard_DS15_v2, Standard_D15_v2, Standard_M128ms etc. Se o tamanho da máquina virtual incluir o subscrito "i", então o tamanho vai ser retirado.
+**R**: Atualmente, apenas a característica de isolamento dos tamanhos VM está a ser retirada. Os tamanhos isolados precotados continuarão a existir em estado não isolado. Se não for necessário um isolamento, não haverá qualquer ação a tomar e o VM continuará a funcionar como esperado.
 
 ### <a name="q-is-there-a-downtime-when-my-vm-lands-on-a-non-isolated-hardware"></a>P: Há algum tempo de paragem quando o meu vm aterra num hardware não isolado?
-**R**: Se não houver necessidade de isolamento, não são necessárias medidas e não haverá tempo de inatividade.
+**R**: Se não houver necessidade de isolamento, não são necessárias medidas e não haverá tempo de inatividade. Pelo contrário, se for necessário um isolamento, o nosso anúncio incluirá o tamanho de substituição recomendado. A seleção do tamanho de substituição exigirá que os nossos clientes redimensionem os seus VMs.  
 
 ### <a name="q-is-there-any-cost-delta-for-moving-to-a-non-isolated-virtual-machine"></a>P: Existe algum custo delta para se mudar para uma máquina virtual não isolada?
 **A:** Não
 
 ### <a name="q-when-are-the-other-isolated-sizes-going-to-retire"></a>P: Quando é que os outros tamanhos isolados se vão reformar?
-**R**: Forneceremos lembretes com 12 meses de antecedência da depreciação oficial do tamanho isolado.
+**R**: Forneceremos lembretes com 12 meses de antecedência da depreciação oficial do tamanho isolado. O nosso último anúncio inclui a retirada de Standard_G5, Standard_GS5, Standard_E64i_v3 e Standard_E64i_v3.  
 
 ### <a name="q-im-an-azure-service-fabric-customer-relying-on-the-silver-or-gold-durability-tiers-does-this-change-impact-me"></a>P: Sou um cliente de tecido de serviço Azure que conta com os níveis de durabilidade prateada ou dourada. Esta mudança tem impacto em mim?
 **A:** Não. As garantias fornecidas pelos Tiers de [Durabilidade](../articles/service-fabric/service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) da Service Fabric continuarão a funcionar mesmo após esta alteração. Se necessitar de isolamento físico de hardware por outras razões, poderá ainda ter de tomar uma das ações descritas acima. 
@@ -69,11 +71,20 @@ Os tamanhos de VM isolados têm uma duração de vida limitada de hardware. O Az
  
 | Data | Ação |
 |---|---| 
-| 18 de novembro de 2019 | Disponibilidade de D/DS15i_v2 (PAYG, 1 ano RI) | 
-| 14 de maio de 2020 | Último dia para comprar D/DS15i_v2 1 ano RI | 
-| 15 de maio de 2020 | Garantia de isolamento D/DS15_v2 removida | 
-| 15 de maio de 2021 | Aposentar-se D/DS15i_v2 (todos os clientes exceto quem comprou RI de 3 anos de D/DS15_v2 antes de 18 de novembro de 2019)| 
-| 17 de novembro de 2022 | Aposentar-se D/DS15i_v2 quando 3 anos de RIs feito (para clientes que compraram RI de 3 anos de D/DS15_v2 antes de 18 de novembro de 2019) |
+| 15 de maio de 2019<sup>1</sup> | Anúncio de aposentadoria de isolamento D/DS15_v2| 
+| 15 de maio de 2020 | Garantia de isolamento D/DS15_v2 removida| 
+
+<sup>1</sup> O cliente existente que utilize estes tamanhos receberá um e-mail de anúncio com instruções detalhadas sobre os próximos passos.  
+
+### <a name="q-what-are-the-milestones-for-g5-gs5-e64i_v3-and-e64is_v3-isolation-retirement"></a>P: Quais são os marcos para a reforma do G5, Gs5, E64i_v3 e E64is_v3? 
+**A:** 
+ 
+| Data | Ação |
+|---|---|
+| Fev 15, 2020<sup>1</sup> | G5/GS5/E64i_v3/E64is_v3 anúncio de reforma de isolamento |
+| 15 de fevereiro de 2021 | Garantia de isolamento G5/GS5/E64i_v3/E64is_v3 removida |
+
+<sup>1</sup> O cliente existente que utilize estes tamanhos receberá um e-mail de anúncio com instruções detalhadas sobre os próximos passos.  
 
 ## <a name="next-steps"></a>Passos seguintes
 
