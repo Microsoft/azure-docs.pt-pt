@@ -9,22 +9,22 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 03/08/2021
 ms.author: duau
-ms.openlocfilehash: 348f1d779f8ea67860726b8f8b7739921e7ad54a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 9b916f9942b0459b41d98b952fad072ae48318b3
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96003808"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102505443"
 ---
 # <a name="tutorial-direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>Tutorial: Tráfego direto para pontos finais específicos baseados na sub-rede do utilizador utilizando o Gestor de Tráfego
 
-Este artigo descreve como configurar o método de encaminhamento do tráfego da sub-rede. O método de encaminhamento do tráfego da **Sub-rede** permite-lhe mapear um conjunto de intervalos de endereços IP para pontos finais específicos e quando um pedido é recebido pelo Gestor de Tráfego, este inspeciona o IP de origem do pedido e devolve o ponto final associado ao mesmo.
+Este artigo descreve como configurar o método de encaminhamento do tráfego da sub-rede. O método de encaminhamento de tráfego **sub-rede** permite-lhe mapear um conjunto de intervalos de endereços IP para pontos finais específicos. Quando um pedido é recebido pelo Gestor de Tráfego, inspeciona a origem IP do pedido e devolve o ponto final associado ao mesmo.
 
-Neste tutorial, através do encaminhamento da sub-rede, conforme o endereço IP da consulta do utilizador, o tráfego é encaminhado para um site interno ou para um site de produção.
+Neste tutorial, utilizando o encaminhamento de sub-redes, dependendo do endereço IP da consulta do utilizador, o tráfego é encaminhado quer para um website interno quer para um website de produção.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Criar duas VMs que executam um site básico no IIS
@@ -38,7 +38,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para ver o Gestor de Tráfego em ação, este tutorial requer que implemente o seguinte:
+Para ver o Gestor de Tráfego em ação, este tutorial requer que você implemente o seguinte:
 
 - dois sites básicos em execução em diferentes regiões do Azure – **E.U.A. Leste** (funciona como site interno) e **Europa Ocidental** (funciona como site de produção).
 - duas VMs de teste para testar o Gestor de Tráfego – uma VM nos **E.U.A. Leste** e a outra VM na **Europa Ocidental**.
@@ -69,24 +69,24 @@ Nesta secção, você cria dois VMs *myIISVMEastUS* e *myIISVMWestEurope* nas re
    - Conta de **Administrador**  >  **Nome de utilizador**: Introduza o nome de utilizador à sua escolha.
    - Conta de **Administrador**  >  **Senha**: Introduza uma palavra-passe à sua escolha. A palavra-passe deve ter pelo menos 12 caracteres de comprimento e satisfazer os [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).
    - **Regras portuárias**  >  de entrada **Portas de entrada pública**: Selecione **Deixe as portas selecionadas.**
-   - **Regras portuárias**  >  de entrada **Selecione portas de entrada**: Selecione **RDP** e **HTTP** na caixa pull down.
+   - **Regras portuárias**  >  de entrada **Selecione portas de entrada**: Selecione **RDP** e **HTTP** na caixa de puxar para baixo.
 
 3. Selecione o separador **Gestão** ou selecione **Seguinte: Discos,** em **seguida, seguinte: Networking**, em **seguida, Seguinte: Gestão**. Em **Monitorização**, desemisse os **diagnósticos** **da** Bota .
 4. Selecione **Rever + criar**.
-5. Reveja as definições e, em seguida, clique em **Criar**.  
+5. Reveja as definições e, em seguida, **selecione Criar**.  
 6. Siga os passos para criar um segundo VM chamado *myIISVMWestEurope,* com um nome de grupo de **recursos** do *myResourceGroupTM2*, uma **localização** da *Europa Ocidental*, e todas as outras configurações iguais às *myIISVMEastUS*.
-7. A criação das VMs demora alguns minutos. Não prossiga com os restantes passos até que ambas as VMs tenham sido criadas.
+7. A criação das VMs demora alguns minutos. Não continue com os passos restantes até que ambos os VMs sejam criados.
 
 #### <a name="install-iis-and-customize-the-default-web-page"></a>Instalar o IIS e personalizar a página Web predefinida
 
-Nesta secção, instale o servidor IIS nos dois VMs - *myIISVMEastUS*  &  *myIISVMWestEurope*- e, em seguida, atualize a página do site predefinido. Quando visitar o site de um browser, a página personalizada do site mostra o nome da VM à qual se está a ligar.
+Nesta secção, instale o servidor IIS nos dois VMs - *myIISVMEastUS*  &  *myIISVMWestEurope*- e, em seguida, atualize a página do site predefinido. A página do site personalizada mostra o nome do VM a que está a ligar quando visita o site a partir de um navegador web.
 
-1. Selecione **Todos os recursos** no menu do lado esquerdo e, na lista de recursos, clique na *myIISVMEastUS* que se encontra localizada no grupo de recursos *myResourceGroupTM1*.
-2. Na página **Descrição geral**, clique em **Ligar** e, em seguida, em **Ligar à máquina virtual**, selecione **Transferir ficheiro RDP**.
+1. Selecione **todos os recursos** no menu à esquerda e, em seguida, na lista de recursos selecione *myIISVMEastUS* que está localizado no grupo de recursos *myResourceGroupTM1.*
+2. Na página **'Vista Geral',** selecione **Connect** e, em seguida, em **Ligar à máquina virtual**, selecione Download **RDP file**.
 3. Abra o ficheiro rdp transferido. Se lhe for pedido, selecione **Ligar**. Introduza o nome de utilizador e a palavra-passe que especificou ao criar a VM. Poderá ter de selecionar **Mais opções** e **Utilizar uma conta diferente** para especificar as credenciais que introduziu quando criou a VM.
 4. Selecione **OK**.
-5. Poderá receber um aviso de certificado durante o processo de início de sessão. Se receber o aviso, selecione **Sim** ou **Continuar** para prosseguir com a ligação.
-6. No ambiente de trabalho do servidor, navegue para o Gestor do Servidor **de Ferramentas Administrativas** do Windows > **Server Manager**.
+5. Poderá receber um aviso de certificado durante o processo de início de sessão. Se receber o aviso, selecione **Sim** ou **Continue,** para continuar com a ligação.
+6. No ambiente de trabalho do servidor, navegue para o Gestor do Servidor **de Ferramentas Administrativas** do Windows > .
 7. Lançar o Windows PowerShell no VM *myIISVMEastUS*, e utilizar os seguintes comandos para instalar o servidor IIS e atualizar o ficheiro htm predefinido.
 
     ```powershell-interactive
@@ -119,7 +119,7 @@ Nesta secção, instale o servidor IIS nos dois VMs - *myIISVMEastUS*  &  *myIIS
 
 O Gestor de Tráfego encaminha o tráfego do utilizador, baseando-se no nome DNS dos pontos finais do serviço. Nesta secção, configura os nomes DNS para os servidores IIS - *myIISVMEastUS* e *myIISVMWestEurope*.
 
-1. Clique em **Todos os recursos** no menu do lado esquerdo e, na lista de recursos, selecione *myIISVMEastUS* que se encontra localizado no grupo de recursos *myResourceGroupTM1*.
+1. Selecione **Todos os recursos** no menu à esquerda e, em seguida, na lista de recursos, selecione *myIISVMEastUS* que está localizado no grupo de recursos *myResourceGroupTM1.*
 2. Na página **Descrição geral**, em **Nome DNS**, selecione **Configurar**.
 3. Na página **Configuração**, na etiqueta do nome DNS, adicione um nome exclusivo e, em seguida, selecione **Guardar**.
 4. Repita os passos 1-3, para o VM nomeado *myIISVMWestEurope* que está localizado no grupo de recursos *myResourceGroupTM2.*
@@ -137,11 +137,11 @@ Nesta secção, você cria um VM (*myVMEastUS* e *myVMWestEurope*) em cada regi�
    - Conta de **Administrador**  >  **Nome de utilizador**: Introduza o nome de utilizador à sua escolha.
    - Conta de **Administrador**  >  **Senha**: Introduza uma palavra-passe à sua escolha. A palavra-passe deve ter pelo menos 12 caracteres de comprimento e satisfazer os [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).
    - **Regras portuárias**  >  de entrada **Portas de entrada pública**: Selecione **Deixe as portas selecionadas.**
-   - **Regras portuárias**  >  de entrada **Selecione portas de entrada**: Selecione **RDP** na caixa pull down.
+   - **Regras portuárias**  >  de entrada **Selecione portas de entrada**: Selecione **RDP** na caixa de puxar para baixo.
 
 3. Selecione o separador **Gestão** ou selecione **Seguinte: Discos,** em **seguida, seguinte: Networking**, em **seguida, Seguinte: Gestão**. Em **Monitorização**, desemisse os **diagnósticos** **da** Bota .
 4. Selecione **Rever + criar**.
-5. Reveja as definições e, em seguida, clique em **Criar**.  
+5. Reveja as definições e, em seguida, **selecione Criar**.  
 6. Siga os passos para criar um segundo VM chamado *myVMWestEurope,* com um nome de grupo de **recursos** do *myResourceGroupTM2*, uma **localização** da *Europa Ocidental*, e todas as outras configurações iguais às *myVMEastUS*.
 7. A criação das VMs demora alguns minutos. Não prossiga com os restantes passos até que ambas as VMs tenham sido criadas.
 
@@ -149,8 +149,10 @@ Nesta secção, você cria um VM (*myVMEastUS* e *myVMWestEurope*) em cada regi�
 
 Crie um perfil para o Gestor de Tráfego que lhe permita devolver determinados pontos finais com base no IP de origem do pedido.
 
-1. No lado superior esquerdo do ecrã, selecione Criar um perfil de Gestor de Tráfego de Rede de **Recursos**  >  **Networking**  >  **Traffic Manager profile**  >  **Criar**.
-2. Em **Criar perfil do Gestor de Tráfego**, introduza ou selecione as informações seguintes, aceite as predefinições das definições restantes e selecione **Criar**:
+1. No lado superior esquerdo do ecrã, selecione **Criar um recurso**. Procure o *perfil de Gestor de Tráfego* e selecione **Criar**.
+2. No **perfil 'Criar Gestor de Tráfego',** insira ou selecione as seguintes informações. Aceite as predefinições para as definições restantes e, em seguida, **selecione Criar**.
+
+    ![Criar um perfil do Gestor de Tráfego](./media/tutorial-traffic-manager-subnet-routing/create-traffic-manager-profile.png)
 
     | Definição                 | Valor                                              |
     | ---                     | ---                                                |
@@ -158,29 +160,25 @@ Crie um perfil para o Gestor de Tráfego que lhe permita devolver determinados p
     | Método de encaminhamento          | Selecione o método de encaminhamento da **Sub-rede**.                                       |
     | Subscrição            | Selecione a sua subscrição.                          |
     | Grupo de recursos          | Selecione **Existente** e introduza *myResourceGroupTM1*. |
-    | |                              |
-    |
-
-    ![Criar um perfil do Gestor de Tráfego](./media/tutorial-traffic-manager-subnet-routing/create-traffic-manager-profile.png)
 
 ## <a name="add-traffic-manager-endpoints"></a>Adicionar pontos finais do Gestor de Tráfego
 
 Adicione os dois VMs que executam os servidores IIS - *myIISVMEastUS*  &  *myIISVMWestEurope* para encaminhar o tráfego do utilizador com base na sub-rede da consulta do utilizador.
 
 1. Na barra de pesquisa do portal, procure o nome do perfil do Gestor de Tráfego que criou na secção anterior e selecione-o nos resultados apresentados.
-2. Em **Perfil do Gestor de Tráfego**, na secção **Definições**, clique em **Pontos Finais** e em **Adicionar**.
-3. Introduza ou selecione as seguintes informações, aceite as predefinições para as definições restantes e, em seguida, selecione **OK**:
+2. No **perfil de Gestor de Tráfego**, na secção **Definições,** selecione **Pontos de Final** e, em seguida, selecione **Adicionar**.
+3. Insira ou selecione as seguintes informações. Aceite as predefinições para as definições restantes e, em seguida, selecione **OK**:
 
     | Definição                 | Valor                                              |
     | ---                     | ---                                                |
     | Tipo                    | Ponto final do Azure                                   |
-    | Nome           | myInternalWebSiteEndpoint                                        |
+    | Name           | myInternalWebSiteEndpoint                                        |
     | Tipo de recurso de destino           | Endereço IP Público                          |
     | Recurso de destino          | **Escolha um endereço IP público** para mostrar a lista de recursos com endereços IP públicos na mesma subscrição. Em **Recurso**, selecione o endereço IP público com o nome *myIISVMEastUS-ip*. Este é o endereço IP público da VM do servidor do IIS na região E.U.A. Leste.|
     |  Definições de encaminhamento de sub-rede    |   Adicione o endereço IP do VM de teste *myVMEastUS.* Qualquer consulta do utilizador originária deste VM será direcionada para o *myInternalWebSiteEndpoint*.    |
 
 4. Repita os passos 2 e 3 para adicionar outro ponto final chamado *myProdWebsiteEndpoint* para o endereço IP público *myIISVMWestEurope-ip* que está associado ao servidor IIS VM chamado *myIISVMWestEurope*. Para **as definições de encaminhamento da sub-rede**, adicione o endereço IP do VM de teste - *myVMWestEurope*. Qualquer consulta de utilizador desta VM de teste será encaminhada para o ponto final - *myProdWebsiteEndpoint*.
-5. Quando a adição de ambos os pontos finais estiver concluída, estes são apresentados em **Perfil do Gestor de Tráfego**, juntamente com o respetivo estado de monitorização como **Online**.
+5. Quando a adição de ambos os pontos finais está completa, são exibidas no **perfil de Gestor de Tráfego,** juntamente com o seu estado de monitorização como **Online**.
 
 ## <a name="test-traffic-manager-profile"></a>Testar o perfil do Gestor de Tráfego
 
@@ -197,19 +195,19 @@ Para simplificar, utilize neste tutorial o nome DNS do perfil do Gestor de Tráf
 
 Pode determinar o nome DNS do perfil do Gestor de Tráfego da seguinte forma:
 
-1. Na barra de pesquisa do portal, procure o nome do **perfil do Gestor de Tráfego** que criou na secção anterior. Nos resultados que são apresentados, clique no perfil do Gestor de Tráfego.
-2. Clique em **Descrição geral**.
+1. Na barra de pesquisa do portal, procure o nome do **perfil do Gestor de Tráfego** que criou na secção anterior. Nos resultados apresentados, selecione o perfil do gestor de tráfego.
+2. Selecione **Descrição geral**.
 3. O **Perfil do Gestor de Tráfego** mostra o nome DNS do perfil que acabou de criar. Nas implementações de produção, configure um nome de domínio personalizado associado ao nome de domínio do Gestor de Tráfego, utilizando um registo CNAME do DNS.
 
 ### <a name="view-traffic-manager-in-action"></a>Ver o Gestor de Tráfego em ação
 
 Nesta seção, pode ver o Gestor de Tráfego em ação.
 
-1. Selecione **Todos os recursos** no menu do lado esquerdo e, na lista de recursos, clique na *myVMEastUS* que se encontra localizada no grupo de recursos *myResourceGroupTM1*.
-2. Na página **Descrição geral**, clique em **Ligar** e, em seguida, em **Ligar à máquina virtual**, selecione **Transferir ficheiro RDP**.
+1. Selecione **todos os recursos** no menu à esquerda e, em seguida, na lista de recursos selecione *myVMEastUS* que está localizado no grupo de recursos *myResourceGroupTM1.*
+2. Na página **'Vista Geral',** selecione **Connect** e, em seguida, em **Ligar à máquina virtual**, selecione Download **RDP file**.
 3. Abra o ficheiro rdp transferido. Se lhe for pedido, selecione **Ligar**. Introduza o nome de utilizador e a palavra-passe que especificou ao criar a VM. Poderá ter de selecionar **Mais opções** e **Utilizar uma conta diferente** para especificar as credenciais que introduziu quando criou a VM.
 4. Selecione **OK**.
-5. Poderá receber um aviso de certificado durante o processo de início de sessão. Se receber o aviso, selecione **Sim** ou **Continuar** para prosseguir com a ligação.
+5. Poderá receber um aviso de certificado durante o processo de início de sessão. Se receber o aviso, selecione **Sim** ou **Continue,** para continuar com a ligação.
 6. Num browser, na VM *myVMEastUS*, introduza o nome DNS do perfil do Gestor de Tráfego para ver o seu site. Uma vez que o endereço IP *do myVMEastUS* VM está associado ao ponto final *myInternalWebsiteEndpoint,* o navegador web lança o servidor do site test - *myIISVMEastUS*.
 
 7. Em seguida, ligue-se ao *myVMWestEurope* VM localizado na **Europa Ocidental** utilizando os passos 1-5 e navegue pelo nome de domínio do gestor de tráfego a partir deste VM. Uma vez que o endereço IP *do myVMWestEurope* VM está associado ao ponto final *myProductionWebsiteEndpoint,* o navegador web lança o servidor do site test - *myIISVMWestEurope*.

@@ -5,35 +5,31 @@ ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
 ms.date: 04/14/2020
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: 3d1e0eb90005abf69d90b46acc59e0258c9914c6
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 377b7fd44b4f5afa2fd3892d9cb920484bc11c0b
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98630035"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102509443"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-azure-ad-login"></a>Configure o seu Serviço de Aplicações ou app Azure Functions para usar o login AZure AD
 
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
-Este artigo mostra-lhe como configurar o Azure App Service ou Azure Functions para utilizar o Azure Ative Directory (Azure AD) como fornecedor de autenticação.
+Este artigo mostra-lhe como configurar a autenticação para o Azure App Service ou para as Funções Azure para que a sua aplicação assine nos utilizadores com o Azure Ative Directory (Azure AD) como fornecedor de autenticação.
 
-> [!NOTE]
-> O fluxo de configurações expressas configura um registo de pedidoS AAD V1. Se desejar utilizar o [Azure Ative Directory v2.0](../active-directory/develop/v2-overview.md) (incluindo [o MSAL),](../active-directory/develop/msal-overview.md)siga as [instruções de configuração avançadas](#advanced).
-
-Siga estas boas práticas ao configurar a sua app e autenticação:
-
-- Dê a cada app de Serviço de Aplicações as suas próprias permissões e consentimento.
-- Configure cada app do Serviço de Aplicações com o seu próprio registo.
-- Evite a partilha de permissão entre ambientes utilizando registos de aplicações separados para slots de implantação separados. Ao testar um novo código, esta prática pode ajudar a evitar que os problemas afetem a aplicação de produção.
-
-> [!NOTE]
-> Esta funcionalidade não está atualmente disponível no plano de consumo linux para funções Azure
+Esta funcionalidade não se encontra disponível no plano de Consumo linux para funções Azure.
 
 ## <a name="configure-with-express-settings"></a><a name="express"> </a>Configure com configurações expressas
 
+A opção **Express** foi concebida para tornar a autenticação ativada simples e requer apenas alguns cliques.
+
+As definições expressas criarão automaticamente um registo de aplicação que utiliza o ponto final do Azure Ative Directory V1. Para utilizar [o Azure Ative Directory v2.0](../active-directory/develop/v2-overview.md) (incluindo [o MSAL),](../active-directory/develop/msal-overview.md)siga as [instruções avançadas de configuração](#advanced).
+
 > [!NOTE]
 > A opção **Express** não está disponível para nuvens governamentais.
+
+Para ativar a autenticação utilizando a opção **Express,** siga estes passos:
 
 1. No [portal Azure,]procure e selecione **Serviços de Aplicações** e, em seguida, selecione a sua aplicação.
 2. A partir da navegação à esquerda, selecione **Autenticação / Autorização**  >  **Em**.
@@ -58,27 +54,24 @@ Para um exemplo de configurar o login Azure AD para uma aplicação web que aced
 
 ## <a name="configure-with-advanced-settings"></a><a name="advanced"> </a>Configure com configurações avançadas
 
-Pode configurar as definições de aplicações manualmente se quiser utilizar um registo de aplicações de um inquilino AD Azure diferente. Para completar esta configuração personalizada:
-
-1. Crie uma inscrição no Azure AD.
-2. Forneça alguns dos dados de inscrição ao Serviço de Aplicações.
+Para que a Azure AD atue como o fornecedor de autenticação da sua aplicação, tem de registar a sua aplicação com ela. A opção Express faz isto automaticamente. A opção Advanced permite-lhe registar manualmente a sua aplicação, personalizando o registo e introduzindo manualmente os dados de registo no Serviço de Aplicações. Isto é útil, por exemplo, se você quiser usar um registo de aplicação de um inquilino AD Azure diferente daquele em que o seu Serviço de Aplicações está.
 
 ### <a name="create-an-app-registration-in-azure-ad-for-your-app-service-app"></a><a name="register"> </a>Crie um registo de aplicações em Azure AD para a sua app App Service
 
-Vai precisar das seguintes informações quando configurar a sua aplicação De Serviço de Aplicações:
+Primeiro, irá criar o seu registo de aplicações. Ao fazê-lo, recolha as seguintes informações de que necessitará mais tarde quando configurar a autenticação na aplicação Serviço de Aplicações:
 
 - ID de Cliente
 - ID do inquilino
 - Segredo do cliente (opcional)
 - ID uri de aplicação
 
-Efetue os seguintes passos:
+Para registar a aplicação, execute os seguintes passos:
 
 1. Inscreva-se no [portal Azure,]procure e selecione **Serviços de Aplicações** e, em seguida, selecione a sua aplicação. Note o **URL** da sua aplicação. Você vai usá-lo para configurar o seu registo de aplicativo Azure Ative Directory.
-1. Selecione **Azure Ative Directory**  >  **App registra**  >  **novo registo**.
+1. A partir do menu do portal, selecione **Azure Ative Directory,** em seguida, vá ao separador **registos** da App e selecione **Novo registo**.
 1. Na página **registar uma candidatura,** insira um **Nome** para o registo da sua aplicação.
 1. In **Redirect URI**, selecione **Web** e type `<app-url>/.auth/login/aad/callback` . Por exemplo, `https://contoso.azurewebsites.net/.auth/login/aad/callback`.
-1. **Selecione REGISTAR- SEC**.
+1. Selecione **Registar**.
 1. Após a criação do registo da aplicação, copie o **ID da Aplicação (cliente)** e o ID do **Diretório (inquilino)** para mais tarde.
 1. Selecione **Autenticação**. Ao abrigo **da concessão implícita**, permita **que os tokens de ID** permitam iniciar ins ins de utilizador OpenID Connect a partir do Serviço de Aplicações.
 1. (Opcional) **Selecione Branding**. No **URL da página inicial,** insira o URL da sua aplicação de Serviço de Aplicações e selecione **Save**.
@@ -113,9 +106,13 @@ Efetue os seguintes passos:
 
 Está agora pronto para usar o Azure Ative Directory para autenticação na sua aplicação de Serviço de Aplicações.
 
-## <a name="configure-a-native-client-application"></a>Configure uma aplicação de cliente nativo
+## <a name="configure-client-apps-to-access-your-app-service"></a>Configure as aplicações do cliente para aceder ao seu Serviço de Aplicações
 
-Pode registar clientes nativos para permitir a autenticação da Web API's hospedada na sua app utilizando uma biblioteca de clientes, como a Biblioteca de **Autenticação de Diretório Ativo.**
+Na secção anterior, registou o seu Serviço de Aplicações ou Função Azure para autenticar os utilizadores. Esta secção explica como registar aplicações de clientes nativos ou daemon para que possam solicitar o acesso às APIs expostas pelo seu Serviço de Aplicações em nome dos utilizadores ou de si próprios. Não é necessário completar os passos nesta secção se pretender apenas autenticar os utilizadores.
+
+### <a name="native-client-application"></a>Aplicação de cliente nativo
+
+Pode registar-se clientes nativos para solicitar acesso às APIs da sua app app em nome de um utilizador assinado.
 
 1. No [portal Azure,]selecione **Ative Directory**  >  **App registrs**  >  **Novo registo**.
 1. Na página **registar uma candidatura,** insira um **Nome** para o registo da sua aplicação.
@@ -129,9 +126,9 @@ Pode registar clientes nativos para permitir a autenticação da Web API's hospe
 1. Selecione o registo de aplicações que criou anteriormente para a sua aplicação App Service. Se não vir o registo da aplicação, certifique-se de que adicionou o âmbito **user_impersonation** na [Criação de um registo de aplicações em Azure AD para a sua aplicação de Serviço de Aplicações.](#register)
 1. Sob **permissões delegadas**, selecione **user_impersonation** e, em seguida, selecione **Permissões de adicionar**.
 
-Agora configura uma aplicação de cliente nativo que pode aceder à sua aplicação de Serviço de Aplicações em nome de um utilizador.
+Agora configura uma aplicação de cliente nativo que pode solicitar o acesso à sua aplicação de Serviço de Aplicações em nome de um utilizador.
 
-## <a name="configure-a-daemon-client-application-for-service-to-service-calls"></a>Configure um pedido de cliente daemon para chamadas de serviço-a-serviço
+### <a name="daemon-client-application-service-to-service-calls"></a>Aplicação do cliente Daemon (chamadas de serviço para serviço)
 
 A sua aplicação pode adquirir um token para chamar uma API web hospedada na sua app De serviço de aplicação ou função em nome de si mesma (não em nome de um utilizador). Este cenário é útil para aplicações daemon não interativas que executam tarefas sem uma sessão registada no utilizador. Utiliza a concessão padrão de [credenciais](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md) de cliente 2.0 da OAuth.
 
@@ -155,6 +152,14 @@ Neste momento, isto permite que _qualquer_ aplicação do cliente no seu inquili
 1. Dentro do código de aplicação target App Service ou Function, pode agora validar que as funções esperadas estão presentes no token (isto não é realizado por Autenticação/Autorização do Serviço de Aplicações). Para obter mais informações, consulte [as reclamações do utilizador do Access.](app-service-authentication-how-to.md#access-user-claims)
 
 Agora configuraste uma aplicação para clientes daemon que pode aceder à tua aplicação de Serviço de Aplicações usando a sua própria identidade.
+
+## <a name="best-practices"></a>Melhores práticas
+
+Independentemente da configuração que utiliza para configurar a autenticação, as seguintes boas práticas manterão o seu inquilino e aplicações mais seguras:
+
+- Dê a cada app de Serviço de Aplicações as suas próprias permissões e consentimento.
+- Configure cada app do Serviço de Aplicações com o seu próprio registo.
+- Evite a partilha de permissão entre ambientes utilizando registos de aplicações separados para slots de implantação separados. Ao testar um novo código, esta prática pode ajudar a evitar que os problemas afetem a aplicação de produção.
 
 ## <a name="next-steps"></a><a name="related-content"> </a>Passos seguintes
 

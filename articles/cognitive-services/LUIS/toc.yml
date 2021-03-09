@@ -320,7 +320,7 @@
                 - name: SDK de Pip
                   href: 'https://pypi.org/project/azure-cognitiveservices-language-luis/'
                 - name: Referência
-                  href: /python/api/azure-cognitiveservices-language-luis/index?view=azure-python
+                  href: /python/api/azure-cognitiveservices-language-luis/index
                 - name: Amostras
                   href: 'https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/tree/master/samples/language/luis'
     - name: Privacidade do utilizador

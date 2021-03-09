@@ -5,12 +5,12 @@ services: container-service
 ms.topic: quickstart
 ms.date: 01/13/2021
 ms.custom: mvc,subject-armqs, devx-track-azurecli
-ms.openlocfilehash: 56bacf1ae68081d5822fdb0e80762926d4eb581c
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: f17e42915968f52aee8bd106b5cadd26457998ff
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102173737"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102501328"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-an-arm-template"></a>Quickstart: Implementar um cluster de serviço Azure Kubernetes (AKS) usando um modelo ARM
 
@@ -32,7 +32,7 @@ Se o seu ambiente cumpre os pré-requisitos e se está familiarizado com a utili
 
 - Este artigo requer a versão 2.0.61 ou posterior do Azure CLI. Se utilizar o Azure Cloud Shell, a versão mais recente já está instalada.
 
-- Para criar um cluster AKS utilizando um modelo de Gestor de Recursos, fornece uma chave pública SSH e um diretor de serviço do Azure Ative Directory. Em alternativa, pode utilizar uma [identidade gerida](use-managed-identity.md) em vez de um principal de serviço para permissões. Se precisar de algum destes recursos, consulte a secção seguinte; de outra forma, saltar para a [secção de revisão do modelo.](#review-the-template)
+- Para criar um cluster AKS utilizando um modelo de Gestor de Recursos, fornece uma chave pública SSH. Se necessitar deste recurso, consulte a seguinte secção; de outra forma, saltar para a [secção de revisão do modelo.](#review-the-template)
 
 ### <a name="create-an-ssh-key-pair"></a>Criar um par de chaves SSH
 
@@ -47,28 +47,6 @@ ssh-keygen -t rsa -b 2048
 ```
 
 Para obter mais informações sobre a criação de teclas SSH, consulte [criar e gerir as teclas SSH para autenticação em Azure][ssh-keys].
-
-### <a name="create-a-service-principal"></a>Criar um principal de serviço
-
-Para permitir que um cluster do AKS interaja com outros recursos do Azure, é utilizado um principal de serviço do Azure Active Directory. Crie um principal de serviço com o comando [az ad sp create-for-rbac][az-ad-sp-create-for-rbac]. O parâmetro `--skip-assignment` limita a atribuição de permissões adicionais. Por padrão, este principal de serviço é válido por um ano. Note que pode usar uma identidade gerida em vez de um diretor de serviço. Para obter mais informações, consulte [utilização de identidades geridas.](use-managed-identity.md)
-
-```azurecli-interactive
-az ad sp create-for-rbac --skip-assignment
-```
-
-O resultado é semelhante ao seguinte exemplo:
-
-```json
-{
-  "appId": "8b1ede42-d407-46c2-a1bc-6b213b04295f",
-  "displayName": "azure-cli-2019-04-19-21-42-11",
-  "name": "http://azure-cli-2019-04-19-21-42-11",
-  "password": "27e5ac58-81b0-46c1-bd87-85b4ef622682",
-  "tenant": "73f978cf-87f2-41bf-92ab-2e7ce012db57"
-}
-```
-
-Anote o *appId* e a *palavra-passe*. São utilizados os seguintes valores nos passos seguintes.
 
 ## <a name="review-the-template"></a>Rever o modelo
 
@@ -95,13 +73,10 @@ Para obter mais amostras de AKS, consulte o site [de modelos de arranque rápido
     * **Prefixo DNS**: Introduza um prefixo DNS único para o seu cluster, como *o myakscluster*.
     * **Nome de utilizador Linux Admin**: Introduza um nome de utilizador para ligar utilizando sSH, como *azureuser*.
     * **Tecla pública SSH RSA**: Copiar e colar a parte *pública* do seu par de chaves SSH (por padrão, o conteúdo de *~/.ssh/id_rsa.pub).*
-    * **Id do Cliente Principal de Serviço:** Copiar e colar o *appId* do seu principal de serviço a partir do `az ad sp create-for-rbac` comando.
-    * **Serviço Principal Cliente Secreto**: Copiar e colar a *palavra-passe* do seu diretor de serviço a partir do `az ad sp create-for-rbac` comando.
-    * **Concordo com os termos e condições acima:** Verifique esta caixa para concordar.
 
     ![Modelo de Gestor de Recursos para criar um cluster de serviço Azure Kubernetes no portal](./media/kubernetes-walkthrough-rm-template/create-aks-cluster-using-template-portal.png)
 
-3. Selecione **Comprar**.
+3. Selecione **Rever + Criar**.
 
 A criação do cluster do AKS demora alguns minutos. Aguarde que o cluster seja implantado com sucesso antes de passar ao passo seguinte.
 

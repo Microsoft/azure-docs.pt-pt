@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/15/2017
 ms.author: luywang
 ms.subservice: disks
-ms.openlocfilehash: 58d4459e1869a9d1f7ccb8234c0356ac486a950c
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: e2bc42f8222c1c713b995a6184ac8a2d1d304d7e
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91975557"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102502727"
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migrar para armazenamento premium usando a recuperação do site Azure
 
@@ -74,7 +74,7 @@ Pode utilizar a Recuperação do Sítio para migrar VMs Azure IaaS entre regiõe
 ### <a name="step-1-create-a-recovery-services-vault"></a>Passo 1: Criar um cofre dos Serviços de Recuperação
 
 1. Abra o [portal do Azure](https://portal.azure.com).
-2. Selecione **Criar uma**cópia de segurança de  >  **gestão**de recursos  >  **e recuperação do site (OMS)**. Em alternativa, pode selecionar **Browse**  >  **Recovery Services Vault**  >  **Add**.
+2. Selecione **Criar uma** cópia de segurança de  >  **gestão** de recursos  >  **e recuperação do site (OMS)**. Em alternativa, pode selecionar **Browse**  >  **Recovery Services Vault**  >  **Add**.
    >[!NOTE]
    >Backup e Recuperação de Locais faziam anteriormente parte da [suite OMS.](../../azure-monitor/terminology.md#april-2018---retirement-of-operations-management-suite-brand)
 1. Especifique uma região para a qual os VMs serão replicados. Para efeitos de migração na mesma região, selecione a região onde estão os VMs de origem e as contas de armazenamento de fontes. 
@@ -82,7 +82,7 @@ Pode utilizar a Recuperação do Sítio para migrar VMs Azure IaaS entre regiõe
 ### <a name="step-2-choose-your-protection-goals"></a>Passo 2: Escolha os seus objetivos de proteção 
 
 1. No VM onde pretende instalar o servidor de configuração, abra o [portal Azure](https://portal.azure.com).
-2. Ir para os **cofres dos Serviços de**  >  **Recuperação Configurações**Passo de  >  **Recuperação do Local**  >  **1: Preparar a**meta de  >  **proteção da**infraestrutura .
+2. Ir para os **cofres dos Serviços de**  >  **Recuperação Configurações** Passo de  >  **Recuperação do Local**  >  **1: Preparar a** meta de  >  **proteção da** infraestrutura .
 
    ![Navegar para o painel de objetivos de Proteção][2]
 
@@ -92,7 +92,7 @@ Pode utilizar a Recuperação do Sítio para migrar VMs Azure IaaS entre regiõe
 
 ### <a name="step-3-set-up-the-source-environment-configuration-server"></a>Passo 3: Configurar o ambiente de origem (servidor de configuração)
 
-1. Descarregue **a configuração unificada de recuperação do local de Azure** e a chave de registo do cofre indo para a **infraestrutura Preparar**  >  **os**  >  painéis de adicionar**servidor.** 
+1. Descarregue **a configuração unificada de recuperação do local de Azure** e a chave de registo do cofre indo para a **infraestrutura Preparar**  >  **os**  >  painéis de adicionar **servidor.** 
  
    Vai precisar da chave de registo do cofre para executar a configuração unificada. A chave é válida durante cinco dias depois de gerá-la.
 
@@ -125,7 +125,7 @@ Pode utilizar a Recuperação do Sítio para migrar VMs Azure IaaS entre regiõe
 
 ### <a name="step-4-set-up-the-target-environment"></a>Passo 4: Configurar o ambiente-alvo
 
-Selecione **preparar a infraestrutura**  >  **Target**e especifique o modelo de implementação que pretende utilizar para VMs após a falha. Pode escolher **Classic** ou **Resource Manager,** dependendo do seu cenário.
+Selecione **preparar a infraestrutura**  >  **Target** e especifique o modelo de implementação que pretende utilizar para VMs após a falha. Pode escolher **Classic** ou **Resource Manager,** dependendo do seu cenário.
 
 ![Painel de alvo][10]
 
@@ -167,7 +167,7 @@ Para verificar se o seu servidor de configuração está associado com sucesso �
 
    ![Ativar o painel de replicação com a Fonte selecionada][13]
 
-Ao conceber o seu ambiente de Armazenamento Azure, recomendamos que utilize contas de armazenamento separadas para cada VM num conjunto de disponibilidade. Recomendamos que siga as melhores práticas na camada de armazenamento para [utilizar várias contas de armazenamento para cada conjunto de disponibilidade](../manage-availability.md). Distribuir discos VM para várias contas de armazenamento ajuda a melhorar a disponibilidade de armazenamento e distribui o E/S através da infraestrutura de armazenamento Azure.
+Ao conceber o seu ambiente de Armazenamento Azure, recomendamos que utilize contas de armazenamento separadas para cada VM num conjunto de disponibilidade. Recomendamos que siga as melhores práticas na camada de armazenamento para [utilizar várias contas de armazenamento para cada conjunto de disponibilidade](../availability.md). Distribuir discos VM para várias contas de armazenamento ajuda a melhorar a disponibilidade de armazenamento e distribui o E/S através da infraestrutura de armazenamento Azure.
 
 Se os seus VMs estiverem num conjunto de disponibilidade, em vez de replicar discos de todos os VMs numa única conta de armazenamento, recomendamos vivamente a migração de vários VMs várias vezes. Desta forma, os VMs no mesmo conjunto de disponibilidade não partilham uma única conta de armazenamento. Utilize o painel **de replicação ativa** para configurar uma conta de armazenamento de destino para cada VM, um de cada vez.
  

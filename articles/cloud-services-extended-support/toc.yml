@@ -1,6 +1,6 @@
 - name: Documentação dos Serviços de Nuvem (suporte alargado)
   href: index.yml
-- name: Descrição Geral
+- name: Descrição geral
   items:
     - name: Sobre os Serviços cloud (suporte alargado)
       href: overview.md
@@ -82,7 +82,7 @@
     - name: Módulo Az.CloudService
       href: 'https://www.powershellgallery.com/packages/Az.CloudService/0.1.0'
     - name: Cmdlets do PowerShell
-      href: /powershell/module/az.cloudservice/?view=azps-5.4.0#cloudservice
+      href: /powershell/module/az.cloudservice/#cloudservice
     - name: Referência do modelo de braço
       href: /azure/templates/microsoft.compute/cloudservices
     - name: REST

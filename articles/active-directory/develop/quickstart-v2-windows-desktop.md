@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 81a5f28f0bf2f7f7ea005a4d9fe8d42337f6d0b9
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 02dc2b4e86c9d0bad0c8274967aa4da77440ec01
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100103401"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102498766"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-windows-desktop-app"></a>Início rápido: Adquirir um token e chamar a Microsoft Graph API a partir de uma aplicação de ambiente de trabalho do Windows
 
@@ -54,12 +54,12 @@ Veja [como funciona a amostra](#how-the-sample-works) para uma ilustração.
 > 1. Selecione **Registar** para criar a aplicação.
 > 1. Em **Gestão**, **selecione Autenticação**.
 > 1. **Selecione Adicionar uma plataforma** de  >  **aplicações móveis e desktop**.
-> 1. Na secção **Redirecionar URIs,** selecione `https://login.microsoftonline.com/common/oauth2/nativeclient` .
+> 1. Na secção **Redirecionar URIs,** selecione `https://login.microsoftonline.com/common/oauth2/nativeclient` e em **URIs de redirecionamento personalizado** adicione onde está o `ms-appx-web://microsoft.aad.brokerplugin/{client_id}` `{client_id}` ID de aplicação (cliente) da sua aplicação (o mesmo GUID que aparece na `msal{client_id}://auth` caixa de verificação).
 > 1. Selecione **Configurar**.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-azure-portal"></a>Passo 1: Configurar a aplicação no portal do Azure
-> Para que a amostra de código neste arranque rápido funcione, adicione um **URI de redirecionamento** de `https://login.microsoftonline.com/common/oauth2/nativeclient` .
+> Para que a amostra de código neste arranque rápido funcione, adicione um **URI de redirecionamento** `https://login.microsoftonline.com/common/oauth2/nativeclient` de e `ms-appx-web://microsoft.aad.brokerplugin/{client_id}` .
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Fazer esta alteração por mim]()
 >
@@ -135,7 +135,7 @@ PublicClientApplicationBuilder.Create(ClientId)
                 .Build();
 ```
 
-> |Em que: | Description |
+> |Em que: | Descrição |
 > |---------|---------|
 > | `ClientId` | É o **ID de Aplicação (cliente)** da aplicação registada no portal do Azure. Pode encontrar este valor na página **Descrição geral** da aplicação no portal do Azure. |
 
@@ -157,7 +157,7 @@ authResult = await App.PublicClientApp.AcquireTokenInteractive(_scopes)
                                       .ExecuteAsync();
 ```
 
-> |Em que:| Description |
+> |Em que:| Descrição |
 > |---------|---------|
 > | `_scopes` | Contém os âmbitos que estão a ser solicitados, tais como `{ "user.read" }` para o Microsoft Graph ou para `{ "api://<Application ID>/access_as_user" }` APIs web personalizados. |
 
@@ -172,7 +172,7 @@ authResult = await App.PublicClientApp.AcquireTokenSilent(scopes, firstAccount)
                                       .ExecuteAsync();
 ```
 
-> |Em que: | Description |
+> |Em que: | Descrição |
 > |---------|---------|
 > | `scopes` | Contém os âmbitos que estão a ser solicitados, tais como `{ "user.read" }` para o Microsoft Graph ou para `{ "api://<Application ID>/access_as_user" }` APIs web personalizados. |
 > | `firstAccount` | Especifica o primeiro utilizador na cache (a MSAL suporta vários utilizadores numa única aplicação). |

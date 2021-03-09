@@ -5,12 +5,12 @@ description: Saiba como criar e utilizar um equilibrador de carga interno para e
 services: container-service
 ms.topic: article
 ms.date: 03/04/2019
-ms.openlocfilehash: ec8fd1f1b32d5bba6dc4dc756e1f95f4a74f9a96
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4c2c0866aa9a721a73e1eb8fa230f0022cf6b8ca
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87285888"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102505635"
 ---
 # <a name="use-an-internal-load-balancer-with-azure-kubernetes-service-aks"></a>Utilize um equilibrador interno de carga com o Serviço Azure Kubernetes (AKS)
 
@@ -23,11 +23,11 @@ Para restringir o acesso às suas aplicações no Serviço Azure Kubernetes (AKS
 
 Este artigo pressupõe que você tem um cluster AKS existente. Se precisar de um cluster AKS, consulte o quickstart AKS [utilizando o Azure CLI][aks-quickstart-cli] ou [utilizando o portal Azure][aks-quickstart-portal].
 
-Também precisa da versão Azure CLI 2.0.59 ou posteriormente instalada e configurada. Corre  `az --version` para encontrar a versão. Se necessitar de instalar ou atualizar, consulte [instalar o Azure CLI][install-azure-cli].
+Também precisa da versão Azure CLI 2.0.59 ou posteriormente instalada e configurada. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][install-azure-cli].
 
-O principal do serviço de cluster AKS precisa de permissão para gerir os recursos da rede se utilizar uma sub-rede ou grupo de recursos existentes. Para obter [informações, utilize a rede kubenet com as suas próprias gamas de endereços IP no Serviço Azure Kubernetes (AKS)][use-kubenet] ou [Configure CNI em Azure Kubernetes Service (AKS)][advanced-networking]. Se estiver a configurar o seu equilibrador de carga para utilizar um [endereço IP numa sub-rede diferente,][different-subnet]certifique-se de que o principal do serviço de cluster AKS também leu o acesso a essa sub-rede.
+A identidade do cluster AKS necessita de permissão para gerir os recursos da rede se utilizar uma sub-rede ou grupo de recursos existentes. Para obter [informações, utilize a rede kubenet com as suas próprias gamas de endereços IP no Serviço Azure Kubernetes (AKS)][use-kubenet] ou [Configure CNI em Azure Kubernetes Service (AKS)][advanced-networking]. Se estiver a configurar o seu equilibrador de carga para utilizar um [endereço IP numa sub-rede diferente,][different-subnet]certifique-se de que a identidade do cluster AKS também leu o acesso a essa sub-rede.
 
-Em vez de um principal de serviço, também pode utilizar o sistema atribuído à identidade gerida para permissões. Para obter mais informações, consulte [utilização de identidades geridas.](use-managed-identity.md) Para obter mais informações sobre permissões, consulte [o delegado AKS acesso a outros recursos Azure][aks-sp].
+Para obter mais informações sobre permissões, consulte [o delegado AKS acesso a outros recursos Azure][aks-sp].
 
 ## <a name="create-an-internal-load-balancer"></a>Criar um balanceador de carga interno
 
@@ -110,7 +110,7 @@ internal-app   LoadBalancer   10.1.15.188   10.0.0.35     80:31669/TCP   1m
 ```
 
 > [!NOTE]
-> Poderá ter de conceder ao diretor de serviço para o seu cluster AKS a função *de Contribuinte de Rede* para o grupo de recursos onde os seus recursos de rede virtual Azure são implantados. Ver o principal de serviço com [az aks show][az-aks-show], tais como `az aks show --resource-group myResourceGroup --name myAKSCluster --query "servicePrincipalProfile.clientId"` . Para criar uma atribuição de funções, use a [atribuição de funções az criar][az-role-assignment-create] comando.
+> Poderá ser necessário conceder a identidade do cluster para o seu cluster AKS, a função *de Contribuinte de Rede* para o grupo de recursos onde os seus recursos de rede virtual Azure são implantados. Veja a identidade do cluster com [az aks show][az-aks-show], tais como `az aks show --resource-group myResourceGroup --name myAKSCluster --query "identity"` . Para criar uma atribuição de funções, use a [atribuição de funções az criar][az-role-assignment-create] comando.
 
 ## <a name="specify-a-different-subnet"></a>Especificar uma sub-rede diferente
 

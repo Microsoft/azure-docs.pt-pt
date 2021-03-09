@@ -9,12 +9,12 @@ ms.author: nibaccam
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/27/2020
-ms.openlocfilehash: 4e1972e0530656bf6cc0e6319191ab4ebbfbfddb
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: f87175500fcf5bdbcf9a5c2f499f6bab96b37b63
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93358580"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102498970"
 ---
 # <a name="distributed-training-with-azure-machine-learning"></a>Treino distribuído com Azure Machine Learning
 
@@ -24,7 +24,7 @@ Na formação distribuída, a carga de trabalho para formar um modelo é dividid
 
 ## <a name="deep-learning-and-distributed-training"></a>Aprendizagem profunda e formação distribuída 
 
-Existem dois tipos principais de formação distribuída: [paralelismo de dados](#data-parallelism) e [paralelismo de modelo.](#model-parallelism) Para formação distribuída em modelos de deep learning, o [Azure Machine Learning SDK em Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) suporta integrações com quadros populares, PyTorch e TensorFlow. Ambos os quadros empregam paralelismo de dados para formação distribuída, e podem aproveitar [horovod](https://horovod.readthedocs.io/en/latest/summary_include.html) para otimizar velocidades de computação. 
+Existem dois tipos principais de formação distribuída: [paralelismo de dados](#data-parallelism) e [paralelismo de modelo.](#model-parallelism) Para formação distribuída em modelos de deep learning, o [Azure Machine Learning SDK em Python](/python/api/overview/azure/ml/intro) suporta integrações com quadros populares, PyTorch e TensorFlow. Ambos os quadros empregam paralelismo de dados para formação distribuída, e podem aproveitar [horovod](https://horovod.readthedocs.io/en/latest/summary_include.html) para otimizar velocidades de computação. 
 
 * [Preparação distribuída com o PyTorch](how-to-train-pytorch.md#distributed-training)
 
@@ -48,7 +48,7 @@ No paralelismo modelo, também conhecido como paralelismo de rede, o modelo é s
 
 No paralelismo modelo, os nós dos trabalhadores só precisam de sincronizar os parâmetros partilhados, geralmente uma vez para cada passo de propagação para a frente ou para trás. Além disso, modelos maiores não são uma preocupação, uma vez que cada nó opera numa subsecção do modelo nos mesmos dados de treino.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Aprenda a [usar alvos de computação para o treino de modelo](how-to-set-up-training-targets.md) com o Python SDK.
 * Para um exemplo técnico, consulte o [cenário de arquitetura de referência.](/azure/architecture/reference-architectures/ai/training-deep-learning)

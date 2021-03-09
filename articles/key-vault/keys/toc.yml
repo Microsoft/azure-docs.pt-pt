@@ -43,7 +43,7 @@
 - name: Referência
   items:
     - name: Azure PowerShell
-      href: /powershell/module/az.keyvault/?view=azps-1.2.0#key_vault
+      href: /powershell/module/az.keyvault/#key_vault
     - name: CLI do Azure
       href: /cli/azure/keyvault
     - name: .NET
@@ -53,7 +53,7 @@
     - name: Node.js
       href: /javascript/api/overview/azure/key-vault-index
     - name: Python
-      href: /python/api/overview/azure/keyvault-keys-readme?view=azure-python
+      href: /python/api/overview/azure/keyvault-keys-readme
     - name: REST
       href: /rest/api/keyvault
     - name: Modelo do Resource Manager

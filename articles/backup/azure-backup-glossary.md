@@ -3,12 +3,12 @@ title: Glossário de backup Azure
 description: Este artigo define termos úteis para uso com Azure Backup.
 ms.topic: conceptual
 ms.date: 12/21/2020
-ms.openlocfilehash: 5b575e0f56c9cf39987e9e77850ab1d9b2e80d93
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: fb46415c8bdb463556d57004e37d741c1b9a9b57
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98723919"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102502030"
 ---
 # <a name="azure-backup-glossary"></a>Glossário de backup Azure
 
@@ -300,6 +300,18 @@ Confirma os ficheiros do sistema operativo. Esta cópia de segurança permite-lh
 
 Um inquilino é uma representação de uma organização. É uma instância dedicada do Azure AD que uma organização ou programador de aplicações recebe ao criar uma relação com a Microsoft, tal como inscrever-se no Azure, no Microsoft Intune ou no Microsoft 365.
 
+## <a name="tier"></a>Escalão de serviço
+
+Atualmente, a Azure Backup suporta os seguintes níveis de armazenamento de backup:
+
+### <a name="snapshot-tier"></a>Nível instantâneo
+
+(Termo específico da carga de trabalho) Na primeira fase da cópia de segurança VM, a imagem tirada é armazenada juntamente com o disco. Esta forma de armazenamento é referida como camada instantânea. As restaurações de nível snapshot são mais rápidas (do que restaurar a partir de um cofre) porque eliminam o tempo de espera para as imagens serem copiadas do cofre antes de desencadear a operação de restauro.
+
+### <a name="vault-standard-tier"></a>Vault-Standard nível
+
+Os dados de backup de todas as cargas de trabalho suportadas pelo Azure Backup são armazenados em cofres que possuem armazenamento de backup, um conjunto de contas de armazenamento de escala automática gerido pela Azure Backup. O nível Vault-Standard é um nível de armazenamento on-line que permite armazenar uma cópia isolada de dados de backup num inquilino gerido pela Microsoft, criando assim uma camada adicional de proteção. Para cargas de trabalho onde o nível instantâneo é suportado, há uma cópia dos dados de backup tanto no nível de instantâneo como no nível padrão do cofre. O nível padrão do cofre garante que os dados de backup estão disponíveis mesmo que a fonte de dados que está a ser apoiada seja eliminada ou comprometida.
+
 ## <a name="unmanaged-disk"></a>Disco não gerido
 
 Consulte a documentação dos [discos não geridos.](../storage/common/storage-disaster-recovery-guidance.md#azure-unmanaged-disks)
@@ -320,7 +332,7 @@ Consulte a [documentação VNET.](../virtual-network/virtual-networks-overview.m
 
 Consulte a [documentação VSS](/windows-server/storage/file-server/volume-shadow-copy-service).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Visão geral do Backup Azure](backup-overview.md)
 - [Arquitetura e componentes Azure Backup](backup-architecture.md)

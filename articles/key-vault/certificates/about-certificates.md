@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 66f077028b9f9f7a7644a318d4447eeaaab19e98
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: b410dc89b286ef830f0d5b6a9c33fe77d380f5d1
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94919935"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102507216"
 ---
 # <a name="about-azure-key-vault-certificates"></a>Acerca dos certificados do Azure Key Vault
 
@@ -91,7 +91,7 @@ Uma política de certificado contém informações sobre como criar e gerir o ci
 
 Quando um certificado Key Vault é criado de raiz, uma política precisa de ser fornecida. A política especifica como criar esta versão do certificado Key Vault ou a próxima versão do certificado Key Vault. Uma vez estabelecida uma política, não é necessária com operações de criação sucessivas para futuras versões. Há apenas um exemplo de uma apólice para todas as versões de um certificado key vault.  
 
-A um nível elevado, uma política de certificados contém as seguintes informações (as suas definições podem ser encontradas [aqui):](/powershell/module/az.keyvault/set-azkeyvaultcertificatepolicy?view=azps-4.4.0)  
+A um nível elevado, uma política de certificados contém as seguintes informações (as suas definições podem ser encontradas [aqui):](/powershell/module/az.keyvault/set-azkeyvaultcertificatepolicy)  
 
 -   Propriedades do certificado X509: Contém nome de sujeito, nomes alternativos sujeitos e outras propriedades usadas para criar um pedido de certificado x509.  
 -   Principais propriedades: contém o tipo de chave, comprimento da chave, exportável e reuseKeyOnRenewal. Estes campos instruem o cofre de chaves sobre como gerar uma chave. 
@@ -127,7 +127,7 @@ Um objeto de certificado Key Vault contém uma configuração usada para comunic
 
 -   Parceiros-chave da Vault com os seguintes fornecedores de emitentes de certificados para certificados TLS/SSL
 
-|**Nome do provedor**|**Localizações**|
+|**Nome do Fornecedor**|**Localizações**|
 |----------|--------|
 |DigiCert|Apoiado em todos os principais locais de serviço de cofres em nuvem pública e Governo de Azure|
 |GlobalSign|Apoiado em todos os principais locais de serviço de cofres em nuvem pública e Governo de Azure|

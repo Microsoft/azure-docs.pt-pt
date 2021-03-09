@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: 62a5a5307e704b22a2c9ead197dae3360d5d03b1
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 79d21549e7234e4ee342776466f8d3d8ced5f08c
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102214801"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102508814"
 ---
 # <a name="what-is-azure-private-endpoint"></a>O que é o Ponto Final Privado do Azure?
 
@@ -110,7 +110,7 @@ O proprietário de recursos de ligação privada pode executar as seguintes aç�
 > Apenas um ponto final privado num estado aprovado pode enviar tráfego para um determinado recurso de ligação privada. 
 
 ### <a name="connecting-using-alias"></a>Ligação usando Alias
-O Alias é um nome único que é gerado quando o proprietário do serviço cria o serviço de ligação privada por trás de um balanceador de carga padrão. O proprietário do serviço pode partilhar este Alias com os seus consumidores offline. Os consumidores podem solicitar uma ligação ao serviço de ligação privada utilizando o recurso URI ou o Alias. Se pretender ligar-se utilizando o Alias, tem de criar um ponto final privado utilizando o método de aprovação de ligação manual. Para utilizar o método de aprovação de ligação manual, desaponte o parâmetro de pedido manual para ser verdadeiro durante o ponto final privado, crie fluxo. Veja o [New-AzPrivateEndpoint](/powershell/module/az.network/new-azprivateendpoint?view=azps-2.6.0) e [o ponto de terminação privado da rede Az para obter](/cli/azure/network/private-endpoint#az-network-private-endpoint-create) detalhes. 
+O Alias é um nome único que é gerado quando o proprietário do serviço cria o serviço de ligação privada por trás de um balanceador de carga padrão. O proprietário do serviço pode partilhar este Alias com os seus consumidores offline. Os consumidores podem solicitar uma ligação ao serviço de ligação privada utilizando o recurso URI ou o Alias. Se pretender ligar-se utilizando o Alias, tem de criar um ponto final privado utilizando o método de aprovação de ligação manual. Para utilizar o método de aprovação de ligação manual, desaponte o parâmetro de pedido manual para ser verdadeiro durante o ponto final privado, crie fluxo. Veja o [New-AzPrivateEndpoint](/powershell/module/az.network/new-azprivateendpoint) e [o ponto de terminação privado da rede Az para obter](/cli/azure/network/private-endpoint#az-network-private-endpoint-create) detalhes. 
 
 ## <a name="dns-configuration"></a>Configuração do DNS 
 Ao ligar-se a um recurso de ligação privada utilizando um nome de domínio totalmente qualificado (FQDN) como parte da cadeia de ligação, é importante configurar corretamente as definições de DNS para resolver o endereço IP privado atribuído. Os serviços Azure existentes podem já ter uma configuração DNS para utilizar ao ligar em cima de um ponto final público. Isto precisa de ser ultrapassado para se ligar utilizando o seu ponto final privado. 

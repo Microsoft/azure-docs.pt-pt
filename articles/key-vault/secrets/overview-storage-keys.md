@@ -10,12 +10,12 @@ ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/18/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 8473d3a19a86027b5b01af59d24833dc40cd1fe9
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: e89716d0560cbf7960cb7bde67156c8df0045a31
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95242360"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102499225"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-the-azure-cli"></a>Gerir chaves de conta de armazenamento com o Key Vault e o Azure CLI
 > [!IMPORTANT]
@@ -32,7 +32,7 @@ Quando utilizar a função chave da conta de armazenamento gerida, considere os 
 - Apenas um único objeto do Key Vault deve gerir as chaves da conta de armazenamento. Não permita a gestão de chaves a partir de vários objetos.
 - Regenerar as chaves usando apenas o Cofre de Chaves. Não regenerar manualmente as chaves da conta de armazenamento.
 
-## <a name="service-principal-application-id"></a>ID de aplicação principal de serviço
+## <a name="service-principal-application-id"></a>ID de aplicação do principal de serviço
 
 Um inquilino da AD Azure fornece a cada pedido registado um [principal de serviço.](../../active-directory/develop/developer-glossary.md#service-principal-object) O diretor de serviço serve como iD de aplicação, que é usado durante a instalação de autorização para acesso a outros recursos Azure via Azure RBAC.
 
@@ -49,14 +49,14 @@ Key Vault é uma aplicação da Microsoft pré-registada em todos os inquilinos 
 Para completar este guia, deve primeiro fazer o seguinte:
 
 - [Instale o Azure CLI](/cli/azure/install-azure-cli).
-- [Criar um cofre chave](quick-create-cli.md)
+- [Criar um cofre de chaves](quick-create-cli.md)
 - [Criar uma conta de armazenamento Azure](../../storage/common/storage-account-create.md?tabs=azure-cli). O nome da conta de armazenamento deve utilizar apenas letras e números minúsculos. O comprimento do nome deve ter entre 3 e 24 caracteres.
       
 ## <a name="manage-storage-account-keys"></a>Gerir chaves de conta de armazenamento
 
 ### <a name="connect-to-your-azure-account"></a>Ligar à sua conta do Azure
 
-Autenticar a sua sessão Azure CLI utilizando os comandos [de login az.](/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0)
+Autenticar a sua sessão Azure CLI utilizando os comandos [de login az.](/powershell/module/az.accounts/connect-azaccount)
 
 ```azurecli-interactive
 az login
@@ -141,7 +141,7 @@ Você pode agora usar o [az keyvault armazenamento sas-definição de comando](/
 az keyvault storage sas-definition show --id https://<YourKeyVaultName>.vault.azure.net/storage/<YourStorageAccountName>/sas/<YourSASDefinitionName>
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [chaves, segredos e certificados.](/rest/api/keyvault/)
 - Reveja artigos no blog da [equipa do Azure Key Vault](/archive/blogs/kv/).

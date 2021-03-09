@@ -11,12 +11,12 @@ ms.date: 06/01/2020
 ms.author: ericrad
 ms.reviwer: mimckitt
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0dcfdfbd480cdc708fced38d421b7588c5224a52
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 3a388ade2b44260bfa21e22866d85a46e482bc97
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101673319"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102499956"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Serviço de Metadados Azure: Eventos agendados para VMs windows
 
@@ -137,7 +137,7 @@ No caso de existirem eventos agendados, a resposta contém uma série de eventos
 | EventId | Identificador globalmente único para este evento. <br><br> Exemplo: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
 | EventType | Impacto que este evento causa. <br><br> Valores: <br><ul><li> `Freeze`: A Máquina Virtual está programada para fazer uma pausa durante alguns segundos. A CPU e a conectividade da rede podem ser suspensas, mas não há impacto na memória ou nos ficheiros abertos.<li>`Reboot`: A Máquina Virtual está programada para reiniciar (perde-se a memória não persistente). <li>`Redeploy`: A Máquina Virtual está programada para se mover para outro nó (os discos efémeros estão perdidos). <li>`Preempt`: A Máquina Virtual Spot está a ser eliminada (os discos efémeros perdem-se). <li> `Terminate`: A máquina virtual está programada para ser eliminada. |
 | ResourceType | Tipo de recurso que este evento afeta. <br><br> Valores: <ul><li>`VirtualMachine`|
-| Recursos| Lista de recursos que este evento afeta. A lista é garantida para conter máquinas de um domínio de [atualização](../manage-availability.md)no máximo , mas pode não conter todas as máquinas na UD. <br><br> Exemplo: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
+| Recursos| Lista de recursos que este evento afeta. A lista é garantida para conter máquinas de um domínio de [atualização](../availability.md)no máximo , mas pode não conter todas as máquinas na UD. <br><br> Exemplo: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | EventStatus | Estado deste evento. <br><br> Valores: <ul><li>`Scheduled`: Este evento está agendado para começar após o tempo especificado na `NotBefore` propriedade.<li>`Started`: Este evento já começou.</ul> Nenhum `Completed` estatuto ou estatuto semelhante é fornecido. O evento já não é devolvido quando o evento estiver terminado.
 | NotBefore| Tempo após o qual este evento pode começar. <br><br> Exemplo: <br><ul><li> Seg, 19 set 2016 18:29:47 GMT  |
 | Descrição | Descrição deste evento. <br><br> Exemplo: <br><ul><li> O servidor anfitrião está a ser submetido a manutenção. |

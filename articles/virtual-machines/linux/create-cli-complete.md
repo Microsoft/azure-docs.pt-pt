@@ -6,12 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: how-to
 ms.date: 12/14/2017
 ms.author: cynthn
-ms.openlocfilehash: 5992fb20fc8b86d4a0094a8fe5ed6cb6eb03754d
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: e8c21df3b783241a3a4bfdbe28b28b2bceb89b4d
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97704474"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102509120"
 ---
 # <a name="create-a-complete-linux-virtual-machine-with-the-azure-cli"></a>Crie uma máquina virtual Linux completa com o Azure CLI
 Para criar rapidamente uma máquina virtual (VM) em Azure, pode utilizar um único comando Azure CLI que utiliza valores predefinidos para criar os recursos de suporte necessários. Recursos como uma rede virtual, endereço IP público e regras do grupo de segurança de rede são automaticamente criados. Para um maior controlo do seu ambiente em uso de produção, pode criar estes recursos com antecedência e, em seguida, adicionar-lhes os seus VMs. Este artigo guia-o através da forma de criar um VM e cada um dos recursos de apoio, um a um.
@@ -434,7 +434,7 @@ Os domínios de avaria definem um agrupamento de máquinas virtuais que partilha
 
 Os domínios de atualização indicam grupos de máquinas virtuais e hardware físico subjacente que podem ser reiniciados ao mesmo tempo. Durante a manutenção planeada, a ordem em que os domínios de atualização são reiniciados pode não ser sequencial, mas apenas um domínio de atualização é reiniciado de cada vez.
 
-O Azure distribui automaticamente VMs pelos domínios de falha e atualização ao colocá-los num conjunto de disponibilidade. Para mais informações, consulte [a gestão da disponibilidade de VMs.](../manage-availability.md)
+O Azure distribui automaticamente VMs pelos domínios de falha e atualização ao colocá-los num conjunto de disponibilidade. Para mais informações, consulte [a gestão da disponibilidade de VMs.](../availability.md)
 
 Crie um conjunto de disponibilidade para o seu VM com [a criação de disponibilidade de vm az.](/cli/azure/vm/availability-set) O exemplo seguinte cria um conjunto de disponibilidade com o nome *myAvailabilitySet*:
 

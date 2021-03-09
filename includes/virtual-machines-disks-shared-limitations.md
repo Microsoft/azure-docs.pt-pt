@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/30/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 4a61399bbb75639fdf4f03da7b77f22a2136adbe
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: 22a1a4b99717df32a40ea69ebb65a3a8e14ee2b4
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99628935"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102510710"
 ---
 Permitir discos partilhados só está disponível para um subconjunto de tipos de discos. Atualmente apenas discos ultra e SSDs premium podem ativar discos partilhados. Cada disco gerido que tenha discos partilhados ativados estão sujeitos às seguintes limitações, organizadas por tipo de disco:
 
@@ -34,7 +34,7 @@ Os discos ultra partilhados estão disponíveis em todas as regiões que suporta
 - Só pode ser ativado em discos de dados, não em discos de SO.
 - O caching do anfitrião **ReadOnly** não está disponível para SSDs premium com `maxShares>1` .
 - A explosão do disco não está disponível para SSDs premium com `maxShares>1` .
-- Ao utilizar conjuntos de disponibilidade e conjuntos de escala de máquina virtual com discos partilhados Azure, o [alinhamento do domínio de falha de armazenamento](../articles/virtual-machines/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) com o domínio de falha da máquina virtual não é aplicado para o disco de dados partilhado.
+- Ao utilizar conjuntos de disponibilidade e conjuntos de escala de máquina virtual com discos partilhados Azure, o [alinhamento do domínio de falha de armazenamento](../articles/virtual-machines/availability.md) com o domínio de falha da máquina virtual não é aplicado para o disco de dados partilhado.
 - Ao utilizar [grupos de colocação de proximidade (PPG),](../articles/virtual-machines/windows/proximity-placement-groups.md)todas as máquinas virtuais que partilham um disco devem fazer parte do mesmo PPG.
 - Apenas discos básicos podem ser utilizados com algumas versões do Windows Server Failover Cluster, para mais detalhes ver [os requisitos de hardware e opções de armazenamento de clustering failover.](/windows-server/failover-clustering/clustering-requirements)
 - O suporte de recuperação do local do Azure ainda não está disponível.

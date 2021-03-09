@@ -1,14 +1,14 @@
 ---
-title: Automatizar a adição de um utilizador de laboratório na Azure DevTest Labs Microsoft Docs
+title: Automatizar a adição de um utilizador de laboratório na Azure DevTest Labs | Microsoft Docs
 description: Este artigo mostra-lhe como automatizar a adição de um utilizador a um laboratório em Azure DevTest Labs utilizando modelos de Gestor de Recursos Azure, PowerShell e CLI.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 61853efacc5974b81d46b2b8cca0f2796672d72d
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 6dddf06289da79e16cbd7e64869fa77f0a40dd22
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92327965"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102508831"
 ---
 # <a name="automate-adding-a-lab-user-to-a-lab-in-azure-devtest-labs"></a>Automatizar a adição de um utilizador de laboratório a um laboratório em Azure DevTest Labs
 A Azure DevTest Labs permite-lhe criar rapidamente ambientes de teste de autosserviço utilizando o portal Azure. No entanto, se tiver várias equipas e várias instâncias da DevTest Labs, automatizar o processo de criação pode economizar tempo. [Os modelos Azure Resource Manager](https://github.com/Azure/azure-devtestlab/tree/master/Environments) permitem-lhe criar laboratórios, VMs de laboratório, imagens personalizadas, fórmulas e adicionar utilizadores de forma automatizada. Este artigo centra-se especificamente em adicionar utilizadores a uma instância de DevTest Labs.
@@ -100,7 +100,7 @@ O ID de definição de função é o identificador de cordas para a definição 
 
 O ID de subscrição é obtido utilizando a `subscription().subscriptionId` função de modelo.  
 
-Tens de ter a definição de papel para o `DevTest Labs User` papel incorporado. Para obter o GUID para a função [de Utilizador DevTest Labs,](../role-based-access-control/built-in-roles.md#devtest-labs-user) pode utilizar a [API de Atribuições de Função](/rest/api/authorization/roleassignments) ou o cmdlet [Get-AzRoleDefinition.](/powershell/module/az.resources/get-azroledefinition?view=azps-1.8.0)
+Tens de ter a definição de papel para o `DevTest Labs User` papel incorporado. Para obter o GUID para a função [de Utilizador DevTest Labs,](../role-based-access-control/built-in-roles.md#devtest-labs-user) pode utilizar a [API de Atribuições de Função](/rest/api/authorization/roleassignments) ou o cmdlet [Get-AzRoleDefinition.](/powershell/module/az.resources/get-azroledefinition)
 
 ```powershell
 $dtlUserRoleDefId = (Get-AzRoleDefinition -Name "DevTest Labs User").Id

@@ -10,13 +10,15 @@ ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: eb420a8d5242cb6a122e7f7062e457b64f1fb5db
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: d3586e03a3c6214390f4a8b72b1db5871d2d1900
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101682439"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102511115"
 ---
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
+
 O Grupo de Serviços de Comunicação Azure **Call Hero Sample** demonstra como a biblioteca de clientes web dos Serviços de Comunicação pode ser usada para construir uma experiência de chamada de grupo.
 
 Neste quickstart da amostra, vamos aprender como a amostra funciona antes de passarmos a amostra na sua máquina local. Em seguida, enviaremos a amostra para Azure usando os seus próprios recursos dos Serviços de Comunicação Azure.
@@ -25,7 +27,7 @@ Neste quickstart da amostra, vamos aprender como a amostra funciona antes de pas
 
 Encontre o código finalizado para este arranque rápido no [GitHub](https://github.com/Azure-Samples/communication-services-web-calling-hero).
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 A amostra tem uma aplicação do lado do cliente e uma aplicação do lado do servidor. A **aplicação do lado do cliente** é uma aplicação web React/Redux que utiliza a estrutura fluente da Microsoft. Esta aplicação envia pedidos para uma **aplicação do ASP.NET** Core que ajuda a aplicação do lado do cliente a ligar-se ao Azure.
 

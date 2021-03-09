@@ -8,12 +8,12 @@ ms.collection: linux
 ms.topic: article
 ms.date: 12/13/2019
 ms.author: kegorman
-ms.openlocfilehash: 8257c58c4185172218b833c3d4988b4db661a97a
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 6bce6f011086d9855c4da2739addbb34e661e2d6
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101669892"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102507488"
 ---
 # <a name="reference-architectures-for-oracle-database-enterprise-edition-on-azure"></a>Arquiteturas de referência para Oracle Database Enterprise Edition em Azure
 
@@ -29,7 +29,7 @@ Se está interessado em saber mais sobre maximizar o desempenho da sua base de d
 
 ## <a name="high-availability-for-oracle-databases"></a>Alta disponibilidade para bases de dados da Oracle
 
-Alcançar uma elevada disponibilidade na nuvem é uma parte importante do planeamento e design de cada organização. O Microsoft Azure oferece [zonas de disponibilidade](../../../availability-zones/az-overview.md) e conjuntos de disponibilidade (a serem utilizados em regiões onde as zonas de disponibilidade não estão disponíveis). Leia mais sobre [a gestão da disponibilidade das suas máquinas virtuais](../../manage-availability.md) para projetar para a nuvem.
+Alcançar uma elevada disponibilidade na nuvem é uma parte importante do planeamento e design de cada organização. O Microsoft Azure oferece [zonas de disponibilidade](../../../availability-zones/az-overview.md) e conjuntos de disponibilidade (a serem utilizados em regiões onde as zonas de disponibilidade não estão disponíveis). Leia mais sobre [a gestão da disponibilidade das suas máquinas virtuais](../../availability.md) para projetar para a nuvem.
 
 Além de ferramentas e ofertas nativas em nuvem, a Oracle fornece soluções para uma alta disponibilidade, como [Oracle Data Guard,](https://docs.oracle.com/en/database/oracle/oracle-database/18/sbydb/introduction-to-oracle-data-guard-concepts.html#GUID-5E73667D-4A56-445E-911F-1E99092DD8D7) [Data Guard com FSFO,](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/dgbkr/index.html) [Sharding](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/admin/sharding-overview.html)e [GoldenGate](https://www.oracle.com/middleware/technologies/goldengate.html) que podem ser configurados no Azure. Este guia abrange arquiteturas de referência para cada uma destas soluções.
 
@@ -39,7 +39,7 @@ Finalmente, ao migrar ou criar aplicações para a nuvem, é importante ajustar 
 
 O Oracle Real Application Cluster (RAC) é uma solução da Oracle para ajudar os clientes a alcançar altos resultados, tendo muitas instâncias a aceder a um armazenamento de base de dados (padrão de arquitetura partilhado). Embora o Oracle RAC também possa ser usado para alta disponibilidade no local, o Oracle RAC por si só não pode ser usado para alta disponibilidade na nuvem, uma vez que apenas protege contra falhas de nível de instância e não contra falhas de nível de rack ou de nível de dados. Por esta razão, a Oracle recomenda a utilização da Oracle Data Guard com a sua base de dados (seja uma instância única ou RAC) para uma elevada disponibilidade. Os clientes geralmente exigem um SLA elevado para executar as suas aplicações críticas de missão. A Oracle RAC não é atualmente certificada ou apoiada pela Oracle em Azure. No entanto, o Azure oferece funcionalidades como a Azure oferece Zonas de Disponibilidade e janelas de manutenção planeadas para ajudar a proteger contra falhas de nível de exemplo. Além disso, os clientes podem usar tecnologias como Oracle Data Guard, Oracle GoldenGate e Oracle Sharding para alto desempenho e resiliência, protegendo as suas bases de dados de falhas ao nível do rack, bem como falhas de nível de datacenter e geopolítica.
 
-Ao executar as Bases de Dados da Oracle em [várias zonas de disponibilidade](../../../availability-zones/az-overview.md) em conjunto com a Oracle Data Guard ou GoldenGate, os clientes são capazes de obter um SLA de 99,99%. Nas regiões de Azure onde as zonas de disponibilidade ainda não estão presentes, os clientes podem utilizar [Conjuntos de Disponibilidade](../../manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) e alcançar um SLA de 99,95%.
+Ao executar as Bases de Dados da Oracle em [várias zonas de disponibilidade](../../../availability-zones/az-overview.md) em conjunto com a Oracle Data Guard ou GoldenGate, os clientes são capazes de obter um SLA de 99,99%. Nas regiões de Azure onde as zonas de disponibilidade ainda não estão presentes, os clientes podem utilizar [Conjuntos de Disponibilidade](../../availability-set-overview.md) e alcançar um SLA de 99,95%.
 
 >NOTA: Pode ter um alvo de uptime muito superior ao SLA de uptime fornecido pela Microsoft.
 
@@ -205,7 +205,7 @@ Durante o pedido inicial, o servidor de aplicações conecta-se ao diretor de fr
 
 ## <a name="patching-and-maintenance"></a>Remendação e manutenção
 
-Ao implementar as suas cargas de trabalho da Oracle para o Azure, a Microsoft cuida de todos os patchings de nível OS do hospedeiro. Qualquer manutenção planeada ao nível do SO é comunicada antecipadamente aos clientes para permitir ao cliente esta manutenção planeada. Dois servidores de duas zonas de disponibilidade diferentes nunca são remendados simultaneamente. Consulte [Gerir a disponibilidade de máquinas virtuais](../../manage-availability.md) para obter mais detalhes sobre manutenção e remendos em VM. 
+Ao implementar as suas cargas de trabalho da Oracle para o Azure, a Microsoft cuida de todos os patchings de nível OS do hospedeiro. Qualquer manutenção planeada ao nível do SO é comunicada antecipadamente aos clientes para permitir ao cliente esta manutenção planeada. Dois servidores de duas zonas de disponibilidade diferentes nunca são remendados simultaneamente. Consulte [Gerir a disponibilidade de máquinas virtuais](../../availability.md) para obter mais detalhes sobre manutenção e remendos em VM. 
 
 Remendar o sistema operativo da máquina virtual pode ser automatizado utilizando [a Azure Automation Update Management](../../../automation/update-management/overview.md). Remendar e manter a base de dados oracle pode ser automatizado e programado usando [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) ou [Azure Automation Update Management](../../../automation/update-management/overview.md) para minimizar o tempo de inatividade. Consulte [a Entrega Contínua e As Implementações Azuis/Verdes](/azure/devops/learn/what-is-continuous-delivery) para entender como pode ser usada no contexto das suas bases de dados Oráculos.
 

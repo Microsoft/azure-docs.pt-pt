@@ -8,12 +8,12 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.date: 03/08/2021
-ms.openlocfilehash: 66294e3c59c2252042e30864dd220683106cd574
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: 88ac8bb1bc804604b96d5c90025b8325a6ce4962
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/09/2021
-ms.locfileid: "102485389"
+ms.locfileid: "102503130"
 ---
 # <a name="whats-new-in-azure-sentinel"></a>Novidades em Azure Sentinel
 
@@ -72,6 +72,9 @@ O livro da CMMC permite que arquitetos de segurança, engenheiros, analistas de 
 Mesmo que não seja obrigado a cumprir com a CMMC, o manual da CMMC é útil na construção de Centros de Operações de Segurança, no desenvolvimento de alertas, na visualização de ameaças e na sensibilização para a situação das cargas de trabalho.
 
 Aceda ao livro de trabalhos da CMMC na área dos **livros de trabalho** Azure Sentinel. Selecione **o modelo** e, em seguida, procure **cmMC**.
+
+:::image type="content" source="media/whats-new/cmmc-guide-toggle.gif" alt-text="Alternar o guia de livros da CMMC de vez em quando" lightbox="media/whats-new/cmmc-guide-toggle.gif":::
+
 
 Para obter mais informações, consulte:
 

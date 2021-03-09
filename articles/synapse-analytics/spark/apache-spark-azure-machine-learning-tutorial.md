@@ -9,12 +9,12 @@ ms.subservice: machine-learning
 ms.date: 06/30/2020
 ms.author: midesa
 ms.reviewer: jrasnick
-ms.openlocfilehash: fc9909614a9d557c19a22e215b7513a038f88c33
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 89309cfe427183d594a5cc2f76332ae150d4f803
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98942333"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102498681"
 ---
 # <a name="tutorial-train-a-model-in-python-with-automated-machine-learning"></a>Tutorial: Treine um modelo em Python com aprendizagem automática de máquinas
 
@@ -144,7 +144,7 @@ ws = Workspace(workspace_name = workspace_name,
 ```
 
 ## <a name="convert-a-dataframe-to-an-azure-machine-learning-dataset"></a>Converter um DataFrame num conjunto de dados de aprendizagem de máquinas Azure
-Para submeter uma experiência remota, converta o seu conjunto de dados num caso de Aprendizagem automática ```TabularDatset``` Azure. [O TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py) representa dados num formato tabular através da análise dos ficheiros fornecidos.
+Para submeter uma experiência remota, converta o seu conjunto de dados num caso de Aprendizagem automática ```TabularDatset``` Azure. [O TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset) representa dados num formato tabular através da análise dos ficheiros fornecidos.
 
 O código seguinte obtém o espaço de trabalho existente e a loja de dados Azure Machine Learning padrão. Em seguida, passa a datastore e arquiva localizações para o parâmetro do caminho para criar uma nova ```TabularDataset``` instância. 
 
@@ -337,6 +337,6 @@ Você também pode aceder aos resultados das iterações indo para a experiênci
 
 ![Screenshot de um espaço de trabalho de aprendizagem de máquinas Azure.](./media/azure-machine-learning-spark-notebook/azure-machine-learning-workspace.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - [Azure Synapse Analytics](../index.yml)
 - [Tutorial: Construa uma app de machine learning com Apache Spark MLlib e Azure Synapse Analytics](./apache-spark-machine-learning-mllib-notebook.md)

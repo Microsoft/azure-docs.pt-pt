@@ -10,12 +10,12 @@ ms.custom: how-to, devx-track-azurecli, devx-track-azurepowershell
 ms.author: larryfr
 author: Blackmist
 ms.date: 09/30/2020
-ms.openlocfilehash: d64dfdad0c51950228288b704b3fdb7579496abb
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: 98ea51957014a4e9d83f27adefd86d8d0708b500
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/09/2021
-ms.locfileid: "102488074"
+ms.locfileid: "102503186"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Use um modelo de Gestor de Recursos Azure para criar um espaço de trabalho para a aprendizagem de máquinas Azure
 
@@ -30,7 +30,7 @@ Para obter mais informações, consulte [Implementar uma aplicação com o model
 
 * Uma **subscrição do Azure**. Se não tiver uma, experimente a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree).
 
-* Para utilizar um modelo a partir de um CLI, você precisa de [Azure PowerShell](/powershell/azure/?view=azps-1.2.0) ou do [Azure CLI](/cli/azure/install-azure-cli).
+* Para utilizar um modelo a partir de um CLI, você precisa de [Azure PowerShell](/powershell/azure/) ou do [Azure CLI](/cli/azure/install-azure-cli).
 
 * Alguns cenários exigem que abra um bilhete de apoio. Estes cenários são:
 

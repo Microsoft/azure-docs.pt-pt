@@ -1,18 +1,19 @@
 ---
 title: Regiões do Azure
 description: Conheça as regiões para executar máquinas virtuais em Azure.
-author: cynthn
-ms.author: cynthn
+author: mimckitt
+ms.author: mimckitt
+ms.reviewer: cynthnn
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 05/28/2019
-ms.openlocfilehash: 094b78fa35da451101f4f5664cca46292d78d146
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 3/8/2021
+ms.openlocfilehash: e874a76cc447158127da8482f23bf03d56961818
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88650558"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102504614"
 ---
 # <a name="regions-for-virtual-machines-in-azure"></a>Regiões das máquinas virtuais no Azure
 
@@ -75,8 +76,8 @@ A tabela seguinte fornece uma descrição geral rápida das diferenças entre os
 
 | Estratégia de replicação | LRS | ZRS | GRS | RA-GRS |
 |:--- |:--- |:--- |:--- |:--- |
-| Os dados são replicados em vários locais. |Não |Sim |Sim |Sim |
-| Os dados podem ser lidos a partir da localização secundária e da localização principal. |Não |Não |Não |Sim |
+| Os dados são replicados em vários locais. |No |Yes |Yes |Yes |
+| Os dados podem ser lidos a partir da localização secundária e da localização principal. |No |No |No |Yes |
 | Número de cópias dos dados mantidas em nós separados. |3 |3 |6 |6 |
 
 Pode ler mais sobre as [opções de replicação de Armazenamento do Azure aqui](../storage/common/storage-redundancy.md). Para mais informações sobre discos geridos, veja [Managed Disks Overview (Descrição geral dos Managed Disks)](./managed-disks-overview.md).
