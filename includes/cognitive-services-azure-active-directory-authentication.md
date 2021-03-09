@@ -4,12 +4,12 @@ ms.author: erhopf
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/11/2020
-ms.openlocfilehash: fcb4113a4dab1e3de17eb022b1ad386cbc6a9583
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 2d186463f340be14113228baa583fdcf6ff55401
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102109426"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102510964"
 ---
 ## <a name="authenticate-with-azure-active-directory"></a>Autenticar com o Azure Active Directory
 
@@ -25,13 +25,13 @@ Nas secções seguintes, você usará o ambiente Azure Cloud Shell ou o CLI Azur
 
 O primeiro passo é criar um subdomínio personalizado. Se pretender utilizar um recurso existente em Serviços Cognitivos que não tenha nome de subdomínio personalizado, siga as instruções em [Serviços Cognitivos Subdomínios Personalizados](../articles/cognitive-services/cognitive-services-custom-subdomains.md#how-does-this-impact-existing-resources) para permitir subdomínio personalizado para o seu recurso.
 
-1. Comece por abrir a Azure Cloud Shell. Em seguida, [selecione uma subscrição:](/powershell/module/az.accounts/set-azcontext?view=azps-3.3.0)
+1. Comece por abrir a Azure Cloud Shell. Em seguida, [selecione uma subscrição:](/powershell/module/az.accounts/set-azcontext)
 
    ```powershell-interactive
    Set-AzContext -SubscriptionName <SubscriptionName>
    ```
 
-2. Em seguida, [crie um recurso de Serviços Cognitivos](/powershell/module/az.cognitiveservices/new-azcognitiveservicesaccount?view=azps-1.8.0) com um subdomínio personalizado. O nome do subdomínio tem de ser globalmente único e não pode incluir personagens especiais, como: ".", "!", "!".
+2. Em seguida, [crie um recurso de Serviços Cognitivos](/powershell/module/az.cognitiveservices/new-azcognitiveservicesaccount) com um subdomínio personalizado. O nome do subdomínio tem de ser globalmente único e não pode incluir personagens especiais, como: ".", "!", "!".
 
    ```powershell-interactive
    $account = New-AzCognitiveServicesAccount -ResourceGroupName <RESOURCE_GROUP_NAME> -name <ACCOUNT_NAME> -Type <ACCOUNT_TYPE> -SkuName <SUBSCRIPTION_TYPE> -Location <REGION> -CustomSubdomainName <UNIQUE_SUBDOMAIN>
@@ -47,7 +47,7 @@ Agora que tem um subdomínio personalizado associado ao seu recurso, terá de at
 > [!NOTE]
 > Tenha em mente que as atribuições de funções do Azure podem demorar até cinco minutos a propagar-se.
 
-1. Primeiro, vamos registar uma [aplicação AAD.](/powershell/module/Az.Resources/New-AzADApplication?view=azps-1.8.0)
+1. Primeiro, vamos registar uma [aplicação AAD.](/powershell/module/Az.Resources/New-AzADApplication)
 
    ```powershell-interactive
    $SecureStringPassword = ConvertTo-SecureString -String <YOUR_PASSWORD> -AsPlainText -Force
@@ -57,7 +57,7 @@ Agora que tem um subdomínio personalizado associado ao seu recurso, terá de at
 
    Vais precisar do **ApplicationId** no próximo passo.
 
-2. Em seguida, você precisa [criar um principal de serviço](/powershell/module/az.resources/new-azadserviceprincipal?view=azps-1.8.0) para a aplicação AAD.
+2. Em seguida, você precisa [criar um principal de serviço](/powershell/module/az.resources/new-azadserviceprincipal) para a aplicação AAD.
 
    ```powershell-interactive
    New-AzADServicePrincipal -ApplicationId <APPLICATION_ID>
@@ -66,7 +66,7 @@ Agora que tem um subdomínio personalizado associado ao seu recurso, terá de at
    >[!NOTE]
    > Se registar uma inscrição no portal Azure, este passo está concluído para si.
 
-3. O último passo é [atribuir o papel de "Utilizador de Serviços Cognitivos"](/powershell/module/az.Resources/New-azRoleAssignment?view=azps-1.8.0) ao principal de serviço (abrangido pelo recurso). Ao atribuir um papel, está a conceder acesso principal a este recurso. Pode conceder ao mesmo serviço o acesso principal a múltiplos recursos na sua subscrição.
+3. O último passo é [atribuir o papel de "Utilizador de Serviços Cognitivos"](/powershell/module/az.Resources/New-azRoleAssignment) ao principal de serviço (abrangido pelo recurso). Ao atribuir um papel, está a conceder acesso principal a este recurso. Pode conceder ao mesmo serviço o acesso principal a múltiplos recursos na sua subscrição.
    >[!NOTE]
    > O ObjectId do principal de serviço é utilizado, não o ObjectId para a aplicação.
    > O ACCOUNT_ID será o ID de recursos Azure da conta dos Serviços Cognitivos que criou. Pode encontrar o Id de recursos Azure a partir de "propriedades" do recurso no portal Azure.

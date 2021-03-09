@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/14/2020
+ms.date: 03/08/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e181b90219f340a29e818801ee2b53f1ccbd9c23
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: cef2636aeecf78a12c48b31b384af2cf76903879
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98660289"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102498834"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Perguntas frequentes (FAQ)
 
@@ -82,7 +82,10 @@ A assinatura do e-mail contém o nome do inquilino Azure AD B2C que forneceu qua
 1. Mude o campo **Nome.**
 1. Clique em **Guardar** no início da página.
 
-Atualmente não há como alterar o campo "A partir:" no e-mail.
+Atualmente não é possível alterar o campo "A partir:" no e-mail.
+
+> [!TIP]
+> Com [a política personalizada](custom-policy-overview.md)AZURE AD B2C, pode personalizar o e-mail que o Azure AD B2C envia aos utilizadores, incluindo o campo "A partir:" no e-mail. A verificação personalizada de e-mails requer a utilização de um fornecedor de e-mail de terceiros como [Mailjet,](custom-email-mailjet.md) [SendGrid](custom-email-sendgrid.md)ou [SparkPost](https://sparkpost.com).
 
 ### <a name="how-can-i-migrate-my-existing-user-names-passwords-and-profiles-from-my-database-to-azure-ad-b2c"></a>Como posso migrar os meus nomes de utilizador, senhas e perfis existentes da minha base de dados para Azure AD B2C?
 

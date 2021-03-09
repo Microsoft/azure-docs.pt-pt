@@ -3,14 +3,18 @@ title: Modelo de dados para eventos de diagnóstico de backup Azure
 description: Este modelo de dados faz referência ao Modo Específico de Recurso de envio de eventos de diagnóstico para Log Analytics (LA).
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: 52c5c0694ed59aea20453ae7a2bd3209d76df433
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 0d75af6d2b41aad0b5f821dd1f6409b30f7ca531
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173966"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102499599"
 ---
 # <a name="data-model-for-azure-backup-diagnostics-events"></a>Modelo de dados para eventos de diagnóstico de backup Azure
+
+> [!NOTE]
+>
+> Para criar visualizações de [relatórios personalizados,](backup-reports-system-functions.md) recomenda-se a utilização de funções do sistema nos registos do Azure Monitor em vez de trabalhar com as tabelas em bruto listadas abaixo.
 
 ## <a name="coreazurebackup"></a>CoreAzureBackup
 
@@ -220,7 +224,7 @@ Esta tabela fornece detalhes sobre campos relacionados com armazenamento.
 
 ## <a name="valid-operation-names-for-each-table"></a>Nomes de operação válidos para cada tabela
 
-Cada registo nas tabelas acima tem um **Nome de Operação**associado . Um Nome de Operação descreve o tipo de registo (e também indica quais os campos na tabela que estão povoados para esse registo). Cada tabela (categoria) suporta um ou mais nomes de operação distintos. Abaixo está um resumo dos nomes de operação suportados para cada uma das tabelas acima.
+Cada registo nas tabelas acima tem um **Nome de Operação** associado . Um Nome de Operação descreve o tipo de registo (e também indica quais os campos na tabela que estão povoados para esse registo). Cada tabela (categoria) suporta um ou mais nomes de operação distintos. Abaixo está um resumo dos nomes de operação suportados para cada uma das tabelas acima.
 
 | **Nome de mesa / Categoria**                   | **Nomes de operação apoiados** | **Descrição**              |
 | ------------------------------------------- | ------------------------------|----------------------------- |

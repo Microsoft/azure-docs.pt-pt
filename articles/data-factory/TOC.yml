@@ -586,6 +586,8 @@
           href: control-flow-system-variables.md
         - name: Parametrizar os fluxos de dados de mapeamento
           href: parameters-data-flow.md
+        - name: Como parametrizar
+          href: how-to-expression-language-functions.md
     - name: Segurança
       items:
         - name: Considerações de segurança sobre movimento de dados

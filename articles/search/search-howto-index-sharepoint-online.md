@@ -8,12 +8,12 @@ ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/01/2021
-ms.openlocfilehash: 22adccfc4adbb7f8b1c72d8b5705ec8fcdb9a375
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: 5a44c40838b7f7fa9ca499ade49317ff9ce828fe
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102441096"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102498902"
 ---
 # <a name="how-to-configure-sharepoint-online-indexing-in-cognitive-search-preview"></a>Como configurar a indexação online do SharePoint em Pesquisa Cognitiva (pré-visualização)
 
@@ -166,7 +166,16 @@ Existem alguns passos para criar o indexante:
         {
           "name" : "sharepoint-indexer",
           "dataSourceName" : "sharepoint-datasource",
-          "targetIndexName" : "sharepoint-index"
+          "targetIndexName" : "sharepoint-index",
+          "fieldMappings" : [
+            { 
+              "sourceFieldName" : "metadata_spo_site_library_item_id", 
+              "targetFieldName" : "id", 
+              "mappingFunction" : { 
+                "name" : "base64Encode" 
+              } 
+            }
+          ]
         }
     
     ```

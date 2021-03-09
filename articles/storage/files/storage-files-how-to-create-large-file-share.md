@@ -8,12 +8,12 @@ ms.date: 05/29/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 118c08c8ede369eecd86fe8e6db24473b67ff306
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: c22b3f3164cbb7c1a7ed150d093f77777c7b1023
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102214444"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102501299"
 ---
 # <a name="enable-and-create-large-file-shares"></a>Ativar e criar grandes ações de ficheiros
 
@@ -23,7 +23,7 @@ Quando ativa grandes ações de ficheiros na sua conta de armazenamento, as suas
 
 - Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 - Se pretender utilizar o Azure CLI, [instale a versão mais recente](/cli/azure/install-azure-cli).
-- Se pretender utilizar o módulo Azure PowerShell, [instale a versão mais recente](/powershell/azure/install-az-ps?view=azps-4.6.0).
+- Se pretender utilizar o módulo Azure PowerShell, [instale a versão mais recente](/powershell/azure/install-az-ps).
 
 ## <a name="restrictions"></a>Restrições
 
@@ -76,7 +76,7 @@ az storage account create --name <yourStorageAccountName> -g <yourResourceGroup>
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Em primeiro lugar, [instale a versão mais recente do PowerShell](/powershell/azure/install-az-ps?view=azps-3.0.0) para que possa ativar grandes partilhas de ficheiros.
+Em primeiro lugar, [instale a versão mais recente do PowerShell](/powershell/azure/install-az-ps) para que possa ativar grandes partilhas de ficheiros.
 
 Para criar uma conta de armazenamento com grandes ações de ficheiro ativadas, utilize o seguinte comando. `<yourStorageAccountName>`Substitua, e pela sua `<yourResourceGroup>` `<yourDesiredRegion>` informação.
 

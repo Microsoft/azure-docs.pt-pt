@@ -3,12 +3,12 @@ title: Criar uma máquina virtual em DevTest Labs com Azure PowerShell
 description: Aprenda a usar a Azure DevTest Labs para criar e gerir máquinas virtuais com a Azure PowerShell.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 6bcc1b8cfe1da7e5eafbee0af008a1defbe6f49d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f79b6ff92d633cf63477cddaabec918df352bec8
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85484116"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102499259"
 ---
 # <a name="create-a-virtual-machine-with-devtest-labs-using-azure-powershell"></a>Crie uma máquina virtual com DevTest Labs usando Azure PowerShell
 Este artigo mostra-lhe como criar uma máquina virtual em Azure DevTest Labs usando a Azure PowerShell. Pode utilizar scripts PowerShell para automatizar a criação de máquinas virtuais num laboratório em Azure DevTest Labs. 
@@ -17,10 +17,10 @@ Este artigo mostra-lhe como criar uma máquina virtual em Azure DevTest Labs usa
 Antes de começar:
 
 - [Crie um laboratório](devtest-lab-create-lab.md) se não quiser usar um laboratório existente para testar o script ou comandos neste artigo. 
-- [Instale a Azure PowerShell](/powershell/azure/install-az-ps?view=azps-1.7.0) ou utilize a Azure Cloud Shell que está integrada no portal Azure. 
+- [Instale a Azure PowerShell](/powershell/azure/install-az-ps) ou utilize a Azure Cloud Shell que está integrada no portal Azure. 
 
 ## <a name="powershell-script"></a>Script do PowerShell
-O script da amostra nesta secção utiliza o [cmdlet Invoke-AzResourceAction.](/powershell/module/az.resources/invoke-azresourceaction?view=azps-1.7.0)  Este cmdlet requer o ID de recursos do laboratório, o nome da ação a executar ( `createEnvironment` ) e os parâmetros necessários para executar essa ação. Os parâmetros estão numa tabela de haxixe que contém todas as propriedades de descrição da máquina virtual. 
+O script da amostra nesta secção utiliza o [cmdlet Invoke-AzResourceAction.](/powershell/module/az.resources/invoke-azresourceaction)  Este cmdlet requer o ID de recursos do laboratório, o nome da ação a executar ( `createEnvironment` ) e os parâmetros necessários para executar essa ação. Os parâmetros estão numa tabela de haxixe que contém todas as propriedades de descrição da máquina virtual. 
 
 ```powershell
 [CmdletBinding()]

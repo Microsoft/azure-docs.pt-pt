@@ -223,7 +223,7 @@
 - name: Recursos
   items:
     - name: PowerShell
-      href: /powershell/module/az.desktopvirtualization/?view=azps-4.2.0#desktopvirtualization
+      href: /powershell/module/az.desktopvirtualization/#desktopvirtualization
     - name: Referência da API REST
       href: /rest/api/desktopvirtualization/
     - name: Avaliador de experiência

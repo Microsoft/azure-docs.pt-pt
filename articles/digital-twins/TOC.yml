@@ -166,7 +166,7 @@
             - name: SDK JavaScript
               href: /javascript/api/@azure/digital-twins-core/
             - name: SDK Python
-              href: /python/api/azure-digitaltwins-core/azure.digitaltwins.core?view=azure-python
+              href: /python/api/azure-digitaltwins-core/azure.digitaltwins.core
     - name: CLI do Digital Twins
       href: /cli/azure/ext/azure-iot/dt
 - name: Recursos

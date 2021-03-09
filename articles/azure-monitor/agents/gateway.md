@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/24/2019
-ms.openlocfilehash: 2c8b77e480f3a4f9ba342c6793a708ca6723ec34
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: bae48dc78eb6973e5bce4d535091bc330c4c897f
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102036576"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102509035"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Conecte computadores sem acesso à Internet utilizando o gateway Log Analytics no Azure Monitor
 
@@ -205,7 +205,7 @@ Para aprender a desenhar e implementar um cluster de equilíbrio de carga de red
 Para aprender a desenhar e implementar um Equilibrador de Carga Azure, veja [o que é o Equilibr de Carga Azure?](../../load-balancer/load-balancer-overview.md) Para implantar um equilibrador de carga básico, siga os passos descritos neste [quickstart](../../load-balancer/quickstart-load-balancer-standard-public-portal.md) excluindo os passos descritos na secção **Criar servidores de back-end**.   
 
 > [!NOTE]
-> Configurar o Balançador de Carga Azure utilizando o **SKU Básico,** requer que as máquinas virtuais Azure pertençam a um Conjunto de Disponibilidade. Para saber mais sobre os conjuntos de disponibilidade, consulte [Gerir a disponibilidade de máquinas virtuais do Windows em Azure.](../../virtual-machines/manage-availability.md) Para adicionar máquinas virtuais existentes a um conjunto de disponibilidade, consulte o Conjunto de [Disponibilidade VM do Gestor de Recursos do Azure.](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4)
+> Configurar o Balançador de Carga Azure utilizando o **SKU Básico,** requer que as máquinas virtuais Azure pertençam a um Conjunto de Disponibilidade. Para saber mais sobre os conjuntos de disponibilidade, consulte [Gerir a disponibilidade de máquinas virtuais do Windows em Azure.](../../virtual-machines/availability.md) Para adicionar máquinas virtuais existentes a um conjunto de disponibilidade, consulte o Conjunto de [Disponibilidade VM do Gestor de Recursos do Azure.](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4)
 > 
 
 Após a criação do equilibrador de carga, é necessário criar um pool de backend, que distribui o tráfego por um ou mais servidores de gateway. Siga os passos descritos na secção de artigos de arranque rápido [Crie recursos para o equilibrador de carga](../../load-balancer/quickstart-load-balancer-standard-public-portal.md).  

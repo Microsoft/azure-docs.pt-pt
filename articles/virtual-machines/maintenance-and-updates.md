@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 05/22/2020
 ms.author: shants
-ms.openlocfilehash: 3cf126caaaa0c518574418aca194ebd82cc4d6b9
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 51df72e31acaadc83f4c094b99fa938377e5f023
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91972072"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102500007"
 ---
 # <a name="maintenance-for-virtual-machines-in-azure"></a>Manutenção de máquinas virtuais no Azure
 
@@ -23,7 +23,7 @@ As atualizações raramente afetam os VMs hospedados. Quando as atualizações t
 - Se a atualização não necessitar de um reboot, o VM é interrompido enquanto o hospedeiro é atualizado, ou o VM é migrado ao vivo para um hospedeiro já atualizado. 
 - Se a manutenção necessitar de um reboot, é notificado da manutenção planeada. O Azure também fornece uma janela de tempo na qual você pode iniciar a manutenção por si mesmo, numa altura que funciona para si. A janela de auto-manutenção é normalmente de 35 dias, a menos que a manutenção seja urgente. O Azure está a investir em tecnologias para reduzir o número de casos em que a manutenção planeada da plataforma exige que os VM sejam reiniciados. Para obter instruções sobre a gestão da manutenção planeada, consulte as notificações de manutenção planeadas utilizando o Azure [CLI,](maintenance-notifications-cli.md) [PowerShell](maintenance-notifications-powershell.md) ou [portal](maintenance-notifications-portal.md).
 
-Esta página descreve como a Azure executa ambos os tipos de manutenção. Para obter mais informações sobre eventos não planeados (interrupções), consulte [Gerir a disponibilidade de VMs para Windows](./manage-availability.md) ou o artigo correspondente para o [Linux.](./manage-availability.md)
+Esta página descreve como a Azure executa ambos os tipos de manutenção. Para obter mais informações sobre eventos não planeados (interrupções), consulte [Gerir a disponibilidade de VMs para Windows](./availability.md) ou o artigo correspondente para o [Linux.](./availability.md)
 
 Dentro de um VM, você pode obter notificações sobre a próxima manutenção [usando Eventos Agendados para Windows](./windows/scheduled-events.md) ou para [Linux](./linux/scheduled-events.md).
 
@@ -87,7 +87,7 @@ Dentro de um conjunto de disponibilidade, os VM individuais são distribuídos p
 
 Os *conjuntos* de escala de máquina virtual são um recurso de computação Azure que pode usar para implementar e gerir um conjunto de VMs idênticos como um único recurso. O conjunto de escala é automaticamente implantado em UDs, como VMs em um conjunto de disponibilidade. Tal como acontece com os conjuntos de disponibilidade, quando utiliza conjuntos de escala, apenas um UD é atualizado a qualquer momento durante a manutenção programada.
 
-Para obter mais informações sobre a configuração dos seus VMs para uma elevada disponibilidade, consulte [Gerir a disponibilidade dos seus VMs para Windows](./manage-availability.md) ou o artigo correspondente para o [Linux.](./manage-availability.md)
+Para obter mais informações sobre a configuração dos seus VMs para uma elevada disponibilidade, consulte [Gerir a disponibilidade dos seus VMs para Windows](./availability.md) ou o artigo correspondente para o [Linux.](./availability.md)
 
 #### <a name="availability-zones"></a>Zonas de disponibilidade
 

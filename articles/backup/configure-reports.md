@@ -3,12 +3,12 @@ title: Configurar relatórios do Azure Backup
 description: Configure e veja relatórios para Azure Backup usando diários de log analytics e Azure
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 62bb59a8a77d11e30e54298317a35e1f883a9622
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: e9f3d9dfa33e71d827a338258001f2b52af62b06
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101710622"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102509374"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurar relatórios do Azure Backup
 
@@ -22,8 +22,8 @@ Hoje, a Azure Backup fornece uma solução de reporte que utiliza [registos do A
 
 ## <a name="supported-scenarios"></a>Cenários suportados
 
-- Os relatórios de backup são suportados para VMs Azure, SQL em VMs Azure, SAP HANA em VMs Azure, Microsoft Azure Recovery Services (MARS) agent, Microsoft Azure Backup Server (MABS) e System Center Data Protection Manager (DPM). Para a cópia de segurança da partilha do Ficheiro Azure, os dados são apresentados para todos os registos criados em ou depois de 1 de junho de 2020.
-- Para a cópia de segurança da partilha do Ficheiro Azure, os dados relativos a casos protegidos não são atualmente apresentados nos relatórios (padrão a zero para todos os itens de backup).
+- Os relatórios de backup são suportados para VMs Azure, SQL em VMs Azure, SAP HANA em VMs Azure, Microsoft Azure Recovery Services (MARS) agent, Microsoft Azure Backup Server (MABS) e System Center Data Protection Manager (DPM). Para a cópia de segurança da partilha do Ficheiro Azure, os dados são apresentados para registos criados em ou depois de 1 de junho de 2020.
+- Para a cópia de segurança da partilha do Ficheiro Azure, os dados relativos a casos protegidos são apresentados para registos criados após 1 de fevereiro de 2021 (padrão a zero para registos mais antigos).
 - Para as cargas de trabalho de DPM, os relatórios de backup são suportados para a versão DPM 5.1.363.0 ou acima e a versão 2.0.9127.0 ou superior.
 - Para as cargas de trabalho do MABS, os relatórios de backup são suportados para a versão MABS 13.0.415.0 e acima do agente Versão 2.0.9170.0 ou superior.
 - Os relatórios de backup podem ser vistos em todos os itens de backup, cofres, subscrições e regiões, desde que os seus dados sejam enviados para um espaço de trabalho do Log Analytics a que o utilizador tenha acesso. Para visualizar relatórios de um conjunto de cofres, basta ter acesso ao espaço de trabalho do Log Analytics para onde os cofres estão a enviar os seus dados. Não precisas de ter acesso aos cofres individuais.
@@ -142,17 +142,31 @@ O filtro **Do Tipo de Gestão de Cópias** de Segurança na parte superior do se
 
 ###### <a name="policy-adherence"></a>Adesão política
 
-Utilizando este separador, pode identificar se todas as suas instâncias de backup tiveram pelo menos uma cópia de segurança bem sucedida todos os dias. Pode ver a adesão da política por período de tempo ou por exemplo de backup.
+Utilizando este separador, pode identificar se todas as suas instâncias de backup tiveram pelo menos uma cópia de segurança bem sucedida todos os dias. Para itens com política de backup semanal, pode utilizar este separador para determinar se todas as instâncias de backup tiveram pelo menos uma cópia de segurança bem sucedida por semana.
+
+Existem dois tipos de pontos de vista de adesão à política disponíveis:
+
+* **Adesão de Política por Período de Tempo**: Utilizando esta vista, pode identificar quantos itens tiveram pelo menos uma cópia de segurança bem sucedida num determinado dia e quantos não tiveram uma cópia de segurança bem sucedida nesse dia. Pode clicar em uma linha para ver detalhes de todos os trabalhos de backup que foram desencadeados no dia selecionado. Note que se aumentar o intervalo de tempo para um valor maior, como nos últimos 60 dias, a grelha é renderizada semanalmente e exibe a contagem de todos os itens que tiveram pelo menos uma cópia de segurança bem sucedida em todos os dias da semana dada. Da mesma forma, existe uma visão mensal para maiores intervalos de tempo.
+
+No caso de itens apoiados semanalmente, esta grelha ajuda-o a identificar todos os itens que tiveram pelo menos uma cópia de segurança bem sucedida na semana dada. Para um intervalo de tempo maior, como os últimos 120 dias, a grelha é renderizada em vista mensal, e exibe a contagem de todos os itens que tiveram pelo menos uma cópia de segurança bem sucedida em cada semana no mês dado. Consulte [as Convenções utilizadas nos Relatórios de Backup](https://docs.microsoft.com/azure/backup/configure-reports#conventions-used-in-backup-reports) para obter mais detalhes sobre as vistas diárias, semanais e mensais.
+
+![Adesão política por período de tempo](./media/backup-azure-configure-backup-reports/policy-adherence-by-time-period.png)
+
+* **Adesão de política por instância de backup**: Utilizando este ponto de vista, pode fornecer detalhes de adesão à política a um nível de instância de backup. Uma célula que é verde denota que a instância de reserva tinha pelo menos uma cópia de segurança bem sucedida no dia dado. Uma célula vermelha denota que a instância de backup não tinha sequer uma cópia de segurança bem sucedida no dia dado. As agregações diárias, semanais e mensais seguem o mesmo comportamento que a visão de Adesão Política por Período de Tempo. Pode clicar em qualquer linha para visualizar todos os trabalhos de backup na instância de backup dada no intervalo de tempo selecionado.
+
+![Adesão política por instância de backup](./media/backup-azure-configure-backup-reports/policy-adherence-by-backup-instance.png)
 
 ###### <a name="email-azure-backup-reports"></a>Relatórios de backup do E-mail Azure
 
 Utilizando a funcionalidade **Relatório de E-mail** disponível em Relatórios de Cópia de Segurança, pode criar tarefas automatizadas para receber relatórios periódicos via e-mail. Esta funcionalidade funciona através da implementação de uma aplicação lógica no seu ambiente Azure que consulta dados dos seus espaços de trabalho selecionados log Analytics (LA), com base nas entradas que fornece.
 
-Uma vez criada a aplicação lógica, terá de autorizar ligações aos Registos do Monitor Azure e ao Office 365. Para isso, navegue para **Aplicações Lógicas** no portal Azure e procure o nome da tarefa que criou. A seleção do item do menu **de ligações API** abre a lista de ligações API que precisa de autorizar.
+Uma vez criada a aplicação lógica, terá de autorizar ligações aos Registos do Monitor Azure e ao Office 365. Para isso, navegue para **Aplicações Lógicas** no portal Azure e procure o nome da tarefa que criou. A seleção do item do menu **de ligações API** abre a lista de ligações API que precisa de autorizar. [Saiba mais sobre como configurar e-mails e problemas de resolução de problemas.](backup-reports-email.md)
 
 ###### <a name="customize-azure-backup-reports"></a>Personalizar relatórios de backup da Azure
 
-Os Relatórios de Cópia de Segurança utilizam funções nos registos do Monitor Azure. Estas funções funcionam com dados nas tabelas de backup Azure em LA e devolvem dados formatados que o ajudam a recuperar facilmente informações de todas as suas entidades relacionadas com backup, utilizando consultas simples.
+Os Relatórios de Cópia de Segurança utilizam [funções do sistema nos registos do Monitor Azure](backup-reports-system-functions.md). Estas funções funcionam com dados nas tabelas de backup Azure em LA e devolvem dados formatados que o ajudam a recuperar facilmente informações de todas as suas entidades relacionadas com backup, utilizando consultas simples. 
+
+Para criar os seus próprios livros de relatórios utilizando relatórios de backup como base, pode navegar para Relatórios de Backup, clicar em **Editar** no topo do relatório e visualizar/editar as consultas que estão a ser utilizadas nos relatórios. Consulte a [documentação dos livros de Azure](https://docs.microsoft.com/azure/azure-monitor/visualize/workbooks-overview) para saber mais sobre como criar relatórios personalizados. 
 
 ## <a name="export-to-excel"></a>Exportar para o Excel
 
@@ -175,6 +189,8 @@ Se utilizar [o Farol Azure](../lighthouse/index.yml) com acesso delegado a subsc
 - O relatório mostra pormenores sobre os postos de trabalho (para além dos postos de trabalho) que foram *desencadeados* no intervalo de tempo selecionado.
 - Os valores apresentados para **o armazenamento em nuvem** e **instâncias protegidas** estão no *final* do intervalo de tempo selecionado.
 - Os itens de cópia de segurança apresentados nos relatórios são os itens que existem no *final* do intervalo de tempo selecionado. Os itens de cópia de segurança que foram eliminados no meio do intervalo de tempo selecionado não são apresentados. A mesma convenção aplica-se também às políticas de backup.
+- Se o intervalo de tempo selecionado se estende por um período de 30 dias a menos, os gráficos são renderizados na vista diária, onde existe um ponto de dados para cada dia. Se o intervalo de tempo se estende por um período superior a 30 dias e inferior (ou igual a) 90 dias, os gráficos são renderizados à vista semanal. Para maiores intervalos de tempo, os gráficos são renderizados na vista mensal. A agregação de dados semanais ou mensais ajuda a um melhor desempenho das consultas e à fácil legibilidade dos dados em gráficos.
+- As grelhas de adesão de políticas também seguem uma lógica de agregação semelhante à descrita acima. No entanto, há algumas pequenas diferenças. A primeira diferença é que para itens com política de backup semanal, não há vista diária (apenas estão disponíveis vistas semanais e mensais). Além disso, nas grelhas para itens com política de backup semanal, um 'mês' é considerado como um período de 4 semanas (28 dias) e não 30 dias, para eliminar semanas parciais de consideração.
 
 ## <a name="query-load-times"></a>Tempos de carga de consulta
 

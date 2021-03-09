@@ -8,12 +8,12 @@ author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: ab85067184ebe5b34097a3c81aa521d509ae4b9a
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: d9bf1b54f1bfeebacbb406a50c8496817857204c
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98744863"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102507573"
 ---
 # <a name="azure-cloud-services-extended-support-definition-schema-csdef-file"></a>Esquema de definição Azure Cloud Services (suporte alargado) (ficheiro csdef)
 
@@ -68,8 +68,8 @@ A tabela seguinte descreve os atributos do `ServiceDefinition` elemento.
 | name                    |Obrigatório. O nome do serviço. O nome deve ser único na conta de serviço.|
 | topologiaChangeDiscovery | Opcional. Especifica o tipo de notificação de alteração de topologia. Os valores possíveis são:<br /><br /> -   `Blast` - Envia a atualização o mais rapidamente possível para todas as instâncias de função. Se escolher a opção, a função deve ser capaz de lidar com a atualização de topologia sem ser reiniciada.<br />-   `UpgradeDomainWalk` – Envia a atualização para cada instância de função de forma sequencial depois de a instância anterior ter aceitado com sucesso a atualização.|
 | schemaVersão           | Opcional. Especifica a versão do esquema de definição de serviço. A versão de esquema permite ao Visual Studio selecionar as ferramentas SDK corretas para usar para validação de esquemas se mais de uma versão do SDK for instalada lado a lado.|
-| upgradeDomainCount      | Opcional. Especifica o número de domínios de atualização em que as funções neste serviço são atribuídas. As instâncias de função são atribuídas a um domínio de atualização quando o serviço é implantado. Para obter mais informações, consulte [Atualizar uma função ou implementação do Serviço cloud](sample-update-cloud-service.md) e Gerir a disponibilidade de [máquinas virtuais](../virtual-machines/manage-availability.md) Pode especificar até 20 domínios de atualização. Se não for especificado, o número predefinido dos domínios de atualização é 5.|
+| upgradeDomainCount      | Opcional. Especifica o número de domínios de atualização em que as funções neste serviço são atribuídas. As instâncias de função são atribuídas a um domínio de atualização quando o serviço é implantado. Para obter mais informações, consulte [Atualizar uma função ou implementação do Serviço cloud](sample-update-cloud-service.md) e Gerir a disponibilidade de [máquinas virtuais](../virtual-machines/availability.md) Pode especificar até 20 domínios de atualização. Se não for especificado, o número predefinido dos domínios de atualização é 5.|
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 [Azure Cloud Services (suporte alargado) config schema (cscfg File)](schema-cscfg-file.md).

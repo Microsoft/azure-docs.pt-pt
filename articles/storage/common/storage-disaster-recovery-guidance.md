@@ -10,12 +10,12 @@ ms.date: 05/05/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: e00e22862121f2f974f9531a9892e32e115d6041
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: f556c7acd903c108193f9c12a2849500645b119b
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101737652"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102506706"
 ---
 # <a name="disaster-recovery-and-storage-account-failover"></a>Recuperação após desastre e ativação pós-falha de contas de armazenamento
 
@@ -132,7 +132,7 @@ Como o fornecedor de recursos de armazenamento Azure não falha, a propriedade [
 
 ### <a name="azure-virtual-machines"></a>Máquinas virtuais do Azure
 
-As máquinas virtuais Azure (VMs) não falham como parte de uma falha de conta. Se a região primária ficar indisponível, e você falhar na região secundária, então você precisará recriar quaisquer VMs após o failover. Além disso, existe uma potencial perda de dados associada à falha da conta. A Microsoft recomenda a seguinte [orientação de alta disponibilidade](../../virtual-machines/manage-availability.md) e [recuperação de desastres](../../virtual-machines/backup-recovery.md) específica para máquinas virtuais em Azure.
+As máquinas virtuais Azure (VMs) não falham como parte de uma falha de conta. Se a região primária ficar indisponível, e você falhar na região secundária, então você precisará recriar quaisquer VMs após o failover. Além disso, existe uma potencial perda de dados associada à falha da conta. A Microsoft recomenda a seguinte [orientação de alta disponibilidade](../../virtual-machines/availability.md) e [recuperação de desastres](../../virtual-machines/backup-recovery.md) específica para máquinas virtuais em Azure.
 
 ### <a name="azure-unmanaged-disks"></a>Discos não geridos de Azure
 

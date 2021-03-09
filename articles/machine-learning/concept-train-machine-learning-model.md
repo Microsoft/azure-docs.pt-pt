@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: a84e4e767092a1507ef0608c21ff1896cb1dde0d
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: de3d9aa60322cc3e6e189f6f16c35d6f42c0cf61
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880949"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102500415"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Modelos de trem com Azure Machine Learning
 
@@ -41,13 +41,13 @@ Cada um destes métodos de treino pode utilizar diferentes tipos de recursos com
 
 O Azure Machine Learning SDK para Python permite-lhe construir e executar fluxos de trabalho de aprendizagem automática com Azure Machine Learning. Você pode interagir com o serviço a partir de uma sessão interativa python, Cadernos Jupyter, Código de Estúdio Visual, ou outro IDE.
 
-* [O que é o Azure Machine Learning SDK para Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)
-* [Instalar/atualizar o SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py)
+* [O que é o Azure Machine Learning SDK para Python](/python/api/overview/azure/ml/intro)
+* [Instalar/atualizar o SDK](/python/api/overview/azure/ml/install)
 * [Configure um ambiente de desenvolvimento para a aprendizagem automática Azure](how-to-configure-environment.md)
 
 ### <a name="run-configuration"></a>Configuração de execução
 
-Um trabalho de formação genérico com Azure Machine Learning pode ser definido usando o [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py). A configuração de execução do script é então usada, juntamente com o seu(s script(s) de treino para treinar um modelo num alvo de computação.
+Um trabalho de formação genérico com Azure Machine Learning pode ser definido usando o [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig). A configuração de execução do script é então usada, juntamente com o seu(s script(s) de treino para treinar um modelo num alvo de computação.
 
 Pode começar com uma configuração de execução para o seu computador local e, em seguida, mudar para um para um alvo de computação baseado na nuvem, conforme necessário. Ao alterar o alvo do cálculo, só altera a configuração de execução que utiliza. Uma corrida também regista informações sobre o trabalho de formação, como as entradas, saídas e registos.
 
@@ -141,6 +141,6 @@ O CLI de aprendizagem automática é uma extensão para o CLI Azure. Fornece com
 
 Pode utilizar a extensão do Código VS para executar e gerir os seus trabalhos de formação. Consulte o [guia de gestão de recursos do Código VS para](how-to-manage-resources-vscode.md#experiments) saber mais.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Aprenda a [configurar uma corrida de treino.](how-to-set-up-training-targets.md)

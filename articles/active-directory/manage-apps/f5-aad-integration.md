@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 11/12/2020
 ms.author: gasinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f8210e00824d7680f4eecde2f0b299dfcdc93b90
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 38b484bd67f3354132675f343dcc06bd7f9d48a0
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98730576"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102499819"
 ---
 # <a name="f5-big-ip-access-policy-manager-and-azure-active-directory-integration-for-secure-hybrid-access"></a>F5 BIG-IP Access Policy Manager e integração do Azure Ative Directory para acesso híbrido seguro
 
@@ -68,7 +68,7 @@ Os passos 1-4 do diagrama ilustram a troca de pré-autenticação frontal entre 
 
 ![A imagem mostra a arquitetura de alto nível](./media/f5-aad-integration/integration-flow-diagram.png)
 
-| Passo | Descrição |
+| Passo | Description |
 |:------|:-----------|
 | 1. | O utilizador seleciona um ícone de aplicação no portal, resolvendo o URL para o SAML SP (BIG-IP) |
 | 2. | O BIG-IP redireciona o utilizador para o IDP SAML (Azure AD) para pré-autenticação|
@@ -155,7 +155,7 @@ Os seguintes tutoriais fornecem orientações detalhadas sobre a implementação
 
 - [Começando com Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/?&OCID=AID2100131_SEM_XfknpgAAAHoVMTvh:20200922160358:s&msclkid=5e0e022409fc1c94dab85d4e6f4710e3&ef_id=XfknpgAAAHoVMTvh:20200922160358:s&dclid=CJnX6vHU_esCFUq-ZAod1iQF6A)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Considere executar uma prova de conceito SHA (POC) utilizando a sua infraestrutura BIG-IP existente, ou implantando uma instância experimental. [A implementação de um VM virtual BIG-IP (VE) em Azure](f5-bigip-deployment-guide.md) demora aproximadamente 30 minutos, altura em que terá:
 

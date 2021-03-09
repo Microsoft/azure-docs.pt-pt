@@ -1,6 +1,6 @@
 - name: Documentação de Máquinas Virtuais
   href: index.yml
-- name: Descrição Geral
+- name: Descrição geral
   items:
     - name: Sobre máquinas virtuais Linux
       href: ./linux/overview.md
@@ -111,7 +111,7 @@
   items:
     - name: Tamanhos
       items:
-        - name: Descrição Geral
+        - name: Descrição geral
           href: sizes.md
         - name: Alterar o tamanho VM
           items:
@@ -214,7 +214,7 @@
               href: ./windows/n-series-amd-driver-setup.md
         - name: FPGA - cálculo acelerado
           items:
-            - name: Descrição Geral
+            - name: Descrição geral
               href: sizes-field-programmable-gate-arrays.md?context=/azure/virtual-machines/context/context
             - name: Série NP
               href: np-series.md
@@ -280,28 +280,26 @@
           href: ./linux/spot-template.md
         - name: Códigos de erro
           href: error-codes-spot.md
-    - name: Opções de compra
+    - name: Benefício Híbrido do Azure
       items:
-        - name: Benefício Híbrido do Azure
+        - name: Linux
+          href: ./linux/azure-hybrid-benefit-linux.md
+        - name: Windows
           items:
-            - name: Linux
-              href: ./linux/azure-hybrid-benefit-linux.md
-            - name: Windows
-              items:
-                - name: Utilize a licença do Benefício Híbrido do Azure
-                  href: ./windows/hybrid-use-benefit-licensing.md
-                - name: Utilizar os Direitos de Alojamento Multi-inquilino para o Windows 10
-                  href: ./windows/windows-desktop-multitenant-hosting-deployment.md
-        - name: Instâncias reservadas
-          items:
-            - name: Pré-pagamento de VMs
-              href: ./prepay-reserved-vm-instances.md
-            - name: Pré-pagamento de Dedicated Hosts
-              href: prepay-dedicated-hosts-reserved-instances.md
-            - name: O que são as reservas do Azure?
-              href: ../cost-management-billing/reservations/save-compute-costs-reservations.md?context=/azure/virtual-machines/context/context
-            - name: Flexibilidade do tamanho da instância de VM
-              href: reserved-vm-instance-size-flexibility.md
+            - name: Utilize a licença do Benefício Híbrido do Azure
+              href: ./windows/hybrid-use-benefit-licensing.md
+            - name: Utilizar os Direitos de Alojamento Multi-inquilino para o Windows 10
+              href: ./windows/windows-desktop-multitenant-hosting-deployment.md
+    - name: Instâncias reservadas
+      items:
+        - name: Pré-pagamento de VMs
+          href: ./prepay-reserved-vm-instances.md
+        - name: Pré-pagamento de Dedicated Hosts
+          href: prepay-dedicated-hosts-reserved-instances.md
+        - name: O que são as reservas do Azure?
+          href: ../cost-management-billing/reservations/save-compute-costs-reservations.md?context=/azure/virtual-machines/context/context
+        - name: Flexibilidade do tamanho da instância de VM
+          href: reserved-vm-instance-size-flexibility.md
     - name: Criar VMs Linux
       items:
         - name: Distribuições aprovadas
@@ -376,7 +374,7 @@
           href: ./windows/winrm.md
     - name: Extensões
       items:
-        - name: Descrição Geral
+        - name: Descrição geral
           href: ./extensions/overview.md
         - name: Linux
           items:
@@ -577,7 +575,7 @@
           href: ./windows/client-images.md
     - name: Imagens personalizadas de Linux
       items:
-        - name: Descrição Geral
+        - name: Descrição geral
           href: ./linux/imaging.md
         - name: Provisão de Linux
           href: ./linux/provisioning.md
@@ -783,41 +781,52 @@
           href: ./windows/build-image-with-packer.md
 - name: Disponibilidade e dimensionamento
   items:
-    - name: Conjuntos de dimensionamento
-      href: ../virtual-machine-scale-sets/overview.md?context=/azure/virtual-machines/context/context
-    - name: Disponibilidade
+    - name: Descrição geral
       href: availability.md
-    - name: Colocalização
-      href: co-location.md
-    - name: Desempenho da rede
-      href: ../virtual-network/virtual-network-optimize-network-bandwidth.md?context=/azure/virtual-machines/context/context
-    - name: Estados e ciclo de vida
-      href: states-lifecycle.md
-    - name: Dimensionamento Automático
-      href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md?context=/azure/virtual-machines/context/context
-    - name: Elevada disponibilidade
-      href: manage-availability.md
     - name: Conjuntos de disponibilidade
       items:
-        - name: Linux
+        - name: Descrição geral
+          href: availability-set-overview.md
+        - name: CLI
           href: ./linux/tutorial-availability-sets.md
-        - name: Windows
-          items:
-            - name: Criar um conjunto de disponibilidade
-              href: ./windows/tutorial-availability-sets.md
-            - name: Alterar o conjunto de disponibilidade
-              href: ./windows/change-availability-set.md
-    - name: Criar um grupo de colocação em proximidade
-      displayName: PPG aligned colocation co-location
+        - name: PowerShell
+          href: ./windows/tutorial-availability-sets.md
+        - name: Alterar um conjunto de disponibilidade
+          href: ./windows/change-availability-set.md
+    - name: Zonas de disponibilidade
       items:
+        - name: Descrição geral
+          href: ../availability-zones/az-overview.md?context=/azure/virtual-machines/context/context
+        - name: CLI
+          href: ./linux/create-cli-availability-zone.md
+        - name: PowerShell
+          href: ./windows/create-powershell-availability-zone.md
+        - name: Portal
+          href: ./windows/create-portal-availability-zone.md
+    - name: Grupos de colocação de proximidade
+      items:
+        - name: Descrição geral
+          href: co-location.md
         - name: CLI
           href: ./linux/proximity-placement-groups.md
-        - name: Portal
-          href: ./windows/proximity-placement-groups-portal.md
         - name: PowerShell
           href: ./windows/proximity-placement-groups.md
-    - name: Criar uma VM na zona de disponibilidade
-      href: ./linux/create-cli-availability-zone.md
+        - name: Portal
+          href: ./windows/proximity-placement-groups-portal.md
+    - name: Conjuntos de Dimensionamento de Máquinas Virtuais
+      items:
+        - name: Descrição geral
+          href: ../virtual-machine-scale-sets/overview.md?context=/azure/virtual-machines/context/context
+        - name: Dimensionamento Automático
+          href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md?context=/azure/virtual-machines/context/context
+        - name: Modos de orquestração
+          href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md?context=/azure/virtual-machines/context/context
+    - name: Compreenda as reinicializações de VM
+      href: understand-vm-reboots.md
+    - name: Estados e ciclo de vida
+      href: states-lifecycle.md
+    - name: Regiões do Azure
+      href: regions.md
 - name: Discos
   items:
     - name: Introdução aos discos geridos
@@ -964,7 +973,7 @@
           href: disks-incremental-snapshots.md
         - name: Cópia de Segurança de Discos do Azure
           items:
-            - name: Descrição Geral
+            - name: Descrição geral
               href: ../backup/disk-backup-overview.md?context=/azure/virtual-machines/context/context
             - name: Configurar backup de disco Azure
               href: ../backup/backup-managed-disks.md?context=/azure/virtual-machines/context/context
@@ -1101,9 +1110,9 @@
               href: 'https://github.com/microsoft/azure-docs/blob/master/articles/virtual-machines/scripts/virtual-machines-linux-powershell-sample-copy-managed-disks-vhd.md'
             - name: Criar um instantâneo a partir de um VHD
               href: 'https://github.com/microsoft/azure-docs/blob/master/articles/virtual-machines/scripts/virtual-machines-linux-powershell-sample-create-snapshot-from-vhd.md'
-- name: Rede
+- name: Redes
   items:
-    - name: Descrição Geral
+    - name: Descrição geral
       href: network-overview.md
     - name: Criar a rede virtual
       href: ../virtual-network/quick-create-cli.md?context=/azure/virtual-machines/context/context
@@ -1149,7 +1158,7 @@
       href: security-recommendations.md
     - name: Lançamento confiável
       items:
-        - name: Descrição Geral
+        - name: Descrição geral
           href: trusted-launch.md
         - name: Implementar usando o portal
           href: trusted-launch-portal.md
@@ -1157,7 +1166,7 @@
       href: ../security-center/security-center-just-in-time.md
     - name: Política
       items:
-        - name: Descrição Geral
+        - name: Descrição geral
           href: security-policy.md
         - name: Controlos por política
           displayName: 'regulatory, compliance, standards, domains'
@@ -1172,7 +1181,7 @@
               href: ./windows/policy.md
     - name: Bastion
       items:
-        - name: Descrição Geral
+        - name: Descrição geral
           href: ../bastion/bastion-overview.md
         - name: Criar um anfitrião do Bastion
           items:
@@ -1224,7 +1233,7 @@
       href: ./linux/login-using-aad.md
 - name: Manutenção e atualizações
   items:
-    - name: Descrição Geral
+    - name: Descrição geral
       href: maintenance-and-updates.md
     - name: Aplicação de patches automática de convidado da VM (pré-visualização)
       href: automatic-vm-guest-patching.md
@@ -1397,7 +1406,7 @@
       href: boot-diagnostics.md
 - name: Cópia de segurança e recuperação
   items:
-    - name: Descrição Geral
+    - name: Descrição geral
       href: backup-recovery.md
     - name: Interrupções de serviço
       href: virtual-machines-disaster-recovery-guidance.md
@@ -1427,7 +1436,7 @@
           href: ../backup/backup-azure-vm-backup-faq.yml
     - name: Recuperação após desastre
       items:
-        - name: Descrição Geral
+        - name: Descrição geral
           href: ../site-recovery/site-recovery-overview.md
         - name: Permitir a recuperação de desastres
           items:
@@ -1470,7 +1479,7 @@
               href: ../site-recovery/migrate-overview.md?context=/azure/virtual-machines/context/context
 - name: Automatização de infraestruturas
   items:
-    - name: Descrição Geral
+    - name: Descrição geral
       href: infrastructure-automation.md
     - name: Dados personalizados
       href: custom-data.md

@@ -11,17 +11,17 @@ ms.subservice: core
 ms.date: 09/29/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python,contperf-fy21q1, automl
-ms.openlocfilehash: 98260b909514febf80ea6a1a33b0f9e3d2d1446b
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: e8e904511178f494890b25764a84df8ca64a6b6c
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102431895"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102498868"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurar experimentações do ML automatizado no Python
 
 
-Neste guia, aprenda a definir várias configurações das suas experiências automatizadas de aprendizagem automática de máquinas com o [Azure Machine Learning SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py). A aprendizagem automática de máquinas escolhe um algoritmo e hiperparímetros para si e gera um modelo pronto para ser implantado. Existem várias opções que pode usar para configurar experiências automatizadas de aprendizagem automática de máquinas.
+Neste guia, aprenda a definir várias configurações das suas experiências automatizadas de aprendizagem automática de máquinas com o [Azure Machine Learning SDK](/python/api/overview/azure/ml/intro). A aprendizagem automática de máquinas escolhe um algoritmo e hiperparímetros para si e gera um modelo pronto para ser implantado. Existem várias opções que pode usar para configurar experiências automatizadas de aprendizagem automática de máquinas.
 
 Para ver exemplos de experiências automatizadas de aprendizagem automática de máquinas, consulte [Tutorial: Treine um modelo de classificação com machine learning automatizado](tutorial-auto-train-models.md) ou [modelos de comboio com aprendizagem automática de máquinas na nuvem.](how-to-auto-train-remote.md)
 
@@ -46,7 +46,7 @@ Para este artigo que precisa,
     Para instalar o SDK pode, 
     * Crie uma instância computacional, que instala automaticamente o SDK e está pré-configurada para fluxos de trabalho ML. Consulte [Criar e gerir uma instância de cálculo de Aprendizagem automática Azure](how-to-create-manage-compute-instance.md) para obter mais informações. 
 
-    * [Instale `automl` o pacote por si mesmo,](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/README.md#setup-using-a-local-conda-environment)que inclui a [instalação predefinição](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py#default-install) do SDK.
+    * [Instale `automl` o pacote por si mesmo,](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/README.md#setup-using-a-local-conda-environment)que inclui a [instalação predefinição](/python/api/overview/azure/ml/install#default-install) do SDK.
 
 ## <a name="select-your-experiment-type"></a>Selecionar o tipo de experimentação
 
@@ -69,7 +69,7 @@ Requisitos para a formação de dados em machine learning:
 - Os dados devem estar em forma tabular.
 - O valor a prever, coluna-alvo, deve estar nos dados.
 
-**Para experiências remotas,** os dados de treino devem estar acessíveis a partir do cálculo remoto. O AutoML só aceita [TabularDatasets do Azure Machine Learning](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py) ao trabalhar em computação remota. 
+**Para experiências remotas,** os dados de treino devem estar acessíveis a partir do cálculo remoto. O AutoML só aceita [TabularDatasets do Azure Machine Learning](/python/api/azureml-core/azureml.data.tabulardataset) ao trabalhar em computação remota. 
 
 Os conjuntos de dados do Azure Machine Learning expõem a funcionalidade para:
 

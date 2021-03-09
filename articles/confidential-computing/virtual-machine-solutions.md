@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: JenCook
-ms.openlocfilehash: de7eaf40271965d48dc0507e0335e6924bdfb73f
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 3e55ae476becca23e6ea23fdc9c5fc7ec72b68ef
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102204189"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102509154"
 ---
 # <a name="solutions-on-azure-virtual-machines"></a>Soluções em máquinas virtuais Azure
 
@@ -76,7 +76,7 @@ Siga um tutorial de arranque rápido para implementar uma máquina virtual DCsv2
 
 Ao utilizar máquinas virtuais em Azure, é responsável pela implementação de uma solução de alta disponibilidade e recuperação de desastres para evitar qualquer tempo de inatividade. 
 
-A azure computação confidencial não suporta redundância de zona através de Zonas de Disponibilidade neste momento. Para obter a maior disponibilidade e redundância para computação confidencial, utilize [Conjuntos de Disponibilidade](../virtual-machines/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy). Devido às restrições de hardware, os Conjuntos de Disponibilidade para instâncias confidenciais de computação só podem ter um máximo de 10 domínios de atualização. 
+A azure computação confidencial não suporta redundância de zona através de Zonas de Disponibilidade neste momento. Para obter a maior disponibilidade e redundância para computação confidencial, utilize [Conjuntos de Disponibilidade](../virtual-machines/availability-set-overview.md). Devido às restrições de hardware, os Conjuntos de Disponibilidade para instâncias confidenciais de computação só podem ter um máximo de 10 domínios de atualização. 
 
 ## <a name="deployment-with-azure-resource-manager-arm-template"></a>Implementação com o modelo de gestor de recursos Azure (ARM)
 

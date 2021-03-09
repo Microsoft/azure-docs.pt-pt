@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: a452a056ff2bdbad5d2e461716ee1a56d36c8523
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 3ebff5a40528e9e3ea0e75c4b51529638de34b5d
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897565"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102505771"
 ---
 # <a name="media-services-v3-frequently-asked-questions"></a>Serviços de Mídia v3 frequentemente perguntas
 
@@ -25,6 +25,14 @@ ms.locfileid: "98897565"
 Este artigo dá respostas a perguntas frequentes sobre a Azure Media Services v3.
 
 ## <a name="general"></a>Geral
+
+### <a name="does-media-services-store-any-customer-data-outside-of-the-service-region"></a>Os Serviços de Comunicação Social armazenam quaisquer dados de clientes fora da região de serviço?
+
+- Os clientes anexam as suas próprias contas de armazenamento à sua conta Azure Media Services.  Todos os dados do ativo são armazenados nestas contas de armazenamento associadas e o cliente controla o tipo de localização e replicação deste armazenamento.
+- Os dados adicionais associados à conta de Serviços de Comunicação (incluindo Chaves de Encriptação de Conteúdo, chaves de verificação de fichas, urls JobInputHttp e outros metadados de entidade) são armazenados no armazenamento da Microsoft na região selecionada para a conta de Media Services.
+    - Devido aos [requisitos de residência](https://azure.microsoft.com/global-infrastructure/data-residency/#more-information) de dados no Brasil Sul e Sudeste Asiático, os dados adicionais da conta são armazenados de forma redundante e estão contidos numa única região. Para o Sudeste Asiático, todos os dados adicionais da conta são armazenados em Singapura e para o Brasil Sul, os dados são armazenados no Brasil.
+    - Em regiões que não o Brasil Sul e Sudeste Asiático, os dados adicionais da conta também podem ser armazenados em armazenamento da Microsoft na [região emparelhada.](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)
+- O Azure Media Services é um serviço regional e não fornece [elevada disponibilidade](media-services-high-availability-encoding.md) ou replicação de dados. Os clientes que precisam destas funcionalidades são altamente encorajados a construir uma solução usando contas de Media Services em várias regiões.  Uma amostra que mostra como construir uma solução para alta disponibilidade com media services video on demand está disponível como um guia.
 
 ### <a name="what-are-the-azure-portal-limitations-for-media-services-v3"></a>Quais são as limitações do portal Azure para os Serviços de Comunicação Social v3?
 
@@ -191,7 +199,7 @@ Dependendo do design da chave de cache para a rede de entrega de conteúdos, o c
 
 #### <a name="is-fps-offline-mode-supported-on-ios-11-in-addition-to-ios-10"></a>O modo offline FPS é suportado no iOS 11 para além do iOS 10?
 
-Yes. O modo offline FPS é suportado para iOS 10 e iOS 11.
+Sim. O modo offline FPS é suportado para iOS 10 e iOS 11.
 
 #### <a name="why-cant-i-find-the-document-offline-playback-with-fairplay-streaming-and-http-live-streaming-in-the-fps-server-sdk"></a>Por que não posso encontrar o documento "Offline Playback with FairPlay Streaming e HTTP Live Streaming" no FPS Server SDK?
 
@@ -269,6 +277,6 @@ Existem duas formas de melhorar a velocidade de descarregamento:
   * Controlado pelo cliente: A aplicação do jogador seleciona automaticamente, ou o utilizador seleciona, a camada de qualidade de vídeo e as faixas de áudio para descarregar.
   * Controlado por serviço: Pode utilizar a função Dynamic Manifest nos Serviços Azure Media para criar um filtro (global), que limita a lista de reprodução HLS ou o MPD do DASH a uma única camada de qualidade de vídeo e faixas de áudio selecionadas. Em seguida, o URL de descarregamento apresentado aos utilizadores incluirá este filtro.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Visão geral dos Serviços de Comunicação Social v3](media-services-overview.md)

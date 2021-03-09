@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/13/2020
 ms.author: kumud
-ms.openlocfilehash: 2b45bd2e2b9ad971891cbcb944286f40b4f66883
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 43d3da49688a7daeb3ea4e0c1c3dba505dcd3b59
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98216976"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102508338"
 ---
 # <a name="add-network-interfaces-to-or-remove-network-interfaces-from-virtual-machines"></a>Add network interfaces to or remove network interfaces from virtual machines (Adicionar interfaces de rede ou remover interfaces de rede de máquinas virtuais)
 
@@ -28,7 +28,7 @@ Saiba como adicionar uma interface de rede existente quando criar uma máquina v
 
 Se precisar de adicionar, alterar ou remover endereços IP para uma interface de rede, consulte [gerir endereços IP de interface de rede](virtual-network-network-interface-addresses.md). Para criar, alterar ou eliminar interfaces de rede, consulte [Gerir interfaces de rede](virtual-network-network-interface.md).
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -143,7 +143,7 @@ Para conhecer as definições de interface de rede e como alterá-las, consulte 
 
 - Pode controlar a interface de rede para a qual envia tráfego de saída. No entanto, um VM por padrão envia todo o tráfego de saída para o endereço IP que é atribuído à configuração IP primária da interface de rede primária.
 
-- No passado, todos os VMs dentro do mesmo conjunto de disponibilidade eram necessários para ter uma única, ou múltipla, interfaces de rede. VMs com qualquer número de interfaces de rede podem agora existir no mesmo conjunto de disponibilidade, até ao número suportado pelo tamanho VM. Só é possível adicionar um VM a um conjunto de disponibilidade quando este for criado. Para saber mais sobre os conjuntos de disponibilidade, consulte [Gerir a disponibilidade de VMs em Azure.](../virtual-machines/manage-availability.md?toc=%2fazure%2fvirtual-network%2ftoc.json#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy)
+- No passado, todos os VMs dentro do mesmo conjunto de disponibilidade eram necessários para ter uma única, ou múltipla, interfaces de rede. VMs com qualquer número de interfaces de rede podem agora existir no mesmo conjunto de disponibilidade, até ao número suportado pelo tamanho VM. Só é possível adicionar um VM a um conjunto de disponibilidade quando este for criado. Para saber mais sobre os conjuntos de disponibilidade, consulte [Gerir a disponibilidade de VMs em Azure.](../virtual-machines/availability.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 
 - Pode ligar interfaces de rede no mesmo VM a diferentes sub-redes dentro de uma rede virtual. No entanto, as interfaces de rede devem estar todas ligadas à mesma rede virtual.
 

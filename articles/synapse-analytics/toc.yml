@@ -340,15 +340,12 @@
                 - name: Procedimentos armazenados
                   href: sql/develop-stored-procedures.md
                 - name: Transações
-                  href: sql/develop-transactions.md
-                - name: Transações
                   items:
-                    - name: Conjunto de SQL sem servidor
+                    - name: Transações dedicadas de piscinas SQL
+                      href: sql/develop-transactions.md
+                    - name: Transações de boas práticas dedicadas ao pool SQL
                       displayname: 'Transaction, best, practices'
                       href: sql/develop-transaction-best-practices.md
-                    - name: Conjunto de SQL dedicado
-                      displayname: 'Transactions, best, practices'
-                      href: ./sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
                 - name: Esquemas definidos pelo utilizador
                   href: sql/develop-user-defined-schemas.md
                 - name: Atribuição de variáveis

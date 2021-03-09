@@ -1,22 +1,22 @@
 ---
-title: Criar um Windows VM zonado com o portal Azure
+title: Criar um VM zonado com o portal Azure
 description: Criar um VM windows em zona de disponibilidade com o portal Azure
 documentationcenter: virtual-machines
-author: cynthn
-ms.service: virtual-machines-windows
+author: mimckitt
+ms.service: virtual-machines
 ms.topic: conceptual
-ms.workload: infrastructure
-ms.date: 03/27/2018
-ms.author: cynthn
+ms.date: 3/8/2021
+ms.author: mimckitt
+ms.reviewer: cynthn
 ms.custom: ''
-ms.openlocfilehash: 339c093e5444839f9b106cd08980438a864c0474
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7c7f135d4033a31f855342c172d73f51478931ab
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87828919"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102501690"
 ---
-# <a name="create-a-windows-virtual-machine-in-an-availability-zone-with-the-azure-portal"></a>Criar uma máquina virtual Windows numa zona de disponibilidade com o portal Azure
+# <a name="create-a-virtual-machine-in-an-availability-zone-using-the-azure-portal"></a>Criar uma máquina virtual numa zona de disponibilidade utilizando o portal Azure
 
 Este artigo passa pela utilização do portal Azure para criar uma máquina virtual numa zona de disponibilidade Azure. Uma [zona de disponibilidade](../../availability-zones/az-overview.md) é uma zona separada fisicamente numa região do Azure. Utilize as zonas de disponibilidade para proteger as aplicações e os dados de uma falha pouco provável ou da perda de um datacenter completo.
 

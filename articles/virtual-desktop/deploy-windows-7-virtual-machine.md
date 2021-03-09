@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 07/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 0dcf21190b52f966dafb9caa9ae28fdf9b99ba86
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d245b780acee59afbc6cb8bde6c916bfd1046e3c
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88007578"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102508559"
 ---
 # <a name="deploy-a-windows-7-virtual-machine-on-windows-virtual-desktop"></a>Implementar uma máquina virtual do Windows 7 no Windows Virtual Desktop
 
@@ -37,7 +37,7 @@ Para configurar um VM Windows 7 no Windows Virtual Desktop:
 5. Aceda ao Windows Update no seu VM.
 6. Instale todas as atualizações do Windows na categoria Importante.
 7. Instale todas as Atualizações do Windows na categoria Opcional (excluindo pacotes de idiomas). Este processo instala a atualização 8.0 do Protocolo de Ambiente de Trabalho Remoto[(KB2592687)](https://www.microsoft.com/download/details.aspx?id=35387)que necessita para completar estas instruções.
-8. Abra o Editor de Política de Grupo Local e navegue para modelos administrativos **de configuração de**  >  **Administrative Templates**  >  **computador, windows components**  >  **Remote Desktop Services**Remote Desktop Session  >  **Host**Remote  >  **Session Environment**.
+8. Abra o Editor de Política de Grupo Local e navegue para modelos administrativos **de configuração de**  >    >  **computador, windows components**  >  **Remote Desktop Services** Remote Desktop Session  >  **Host** Remote  >  **Session Environment**.
 9. Ativar a política do Protocolo de Ambiente de Trabalho Remoto 8.0.
 10. Junte este VM ao seu domínio Ative Directory.
 11. Reinicie a máquina virtual executando o seguinte comando:
@@ -46,7 +46,7 @@ Para configurar um VM Windows 7 no Windows Virtual Desktop:
      shutdown /r /t 0
      ```
 
-12. Siga as instruções [aqui](/powershell/module/az.desktopvirtualization/new-azwvdregistrationinfo?view=azps-4.3.0) para obter um sinal de inscrição.
+12. Siga as instruções [aqui](/powershell/module/az.desktopvirtualization/new-azwvdregistrationinfo) para obter um sinal de inscrição.
 
       - Se preferir usar o portal Azure, também pode ir à página geral da piscina de anfitrião a que pretende adicionar o VM e criar um símbolo lá.
 
