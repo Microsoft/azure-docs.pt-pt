@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 10/02/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperf-fy21q1
-ms.openlocfilehash: 850b590ae8aeab822367714fb9a56661306c2387
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 318afced85f3cca0a450d77f8be7b2a1d6c388ed
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100518696"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102504938"
 ---
 # <a name="set-up-compute-targets-for-model-training-and-deployment"></a>Configurar metas de computação para formação e implantação de modelos
 
@@ -43,7 +43,7 @@ Para utilizar alvos de cálculo geridos pela Azure Machine Learning, consulte:
 
 * Uma área de trabalho do Azure Machine Learning. Para obter mais informações, consulte [Criar um espaço de trabalho para aprendizagem de máquinas Azure.](how-to-manage-workspace.md)
 
-* A [extensão Azure CLI para o serviço de aprendizagem automática](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK,](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)ou a extensão do [Código do Estúdio Visual Azure Machine Learning.](tutorial-setup-vscode-extension.md)
+* A [extensão Azure CLI para o serviço de aprendizagem automática](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK,](/python/api/overview/azure/ml/intro)ou a extensão do [Código do Estúdio Visual Azure Machine Learning.](tutorial-setup-vscode-extension.md)
 
 ## <a name="limitations"></a>Limitações
 
@@ -60,7 +60,7 @@ Com a Azure Machine Learning, pode treinar o seu modelo numa variedade de recurs
 
 Quando utiliza o computador local para **treinar,** não há necessidade de criar um alvo de computação.  Basta [submeter o treino](how-to-set-up-training-targets.md) da sua máquina local.
 
-Quando utilizar o computador local para **inferência,** deve instalar o Docker. Para efetuar a implementação, utilize [LocalWebservice.deploy_configuration para](/python/api/azureml-core/azureml.core.webservice.local.localwebservice?preserve-view=true&view=azure-ml-py#deploy-configuration-port-none-) definir a porta que o serviço web utilizará. Em seguida, utilize o processo de implantação normal, conforme descrito nos [modelos Deploy com Azure Machine Learning](how-to-deploy-and-where.md).
+Quando utilizar o computador local para **inferência,** deve instalar o Docker. Para efetuar a implementação, utilize [LocalWebservice.deploy_configuration para](/python/api/azureml-core/azureml.core.webservice.local.localwebservice#deploy-configuration-port-none-) definir a porta que o serviço web utilizará. Em seguida, utilize o processo de implantação normal, conforme descrito nos [modelos Deploy com Azure Machine Learning](how-to-deploy-and-where.md).
 
 ## <a name="remote-virtual-machines"></a><a id="vm"></a>Máquinas virtuais remotas
 
@@ -325,7 +325,7 @@ Para um exemplo mais detalhado, consulte um [caderno de exemplo](https://aka.ms/
 > Não crie múltiplos anexos simultâneos ao mesmo ADLA do seu espaço de trabalho. Cada novo acessório quebrará os acessórios existentes anteriores.
 
 > [!TIP]
-> Os oleodutos Azure Machine Learning só podem funcionar com dados armazenados na loja de dados predefinida da conta Data Lake Analytics. Se os dados com os qual precisa trabalhar estiverem numa loja não padrão, pode utilizar um [`DataTransferStep`](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?preserve-view=true&view=azure-ml-py) para copiar os dados antes do treino.
+> Os oleodutos Azure Machine Learning só podem funcionar com dados armazenados na loja de dados predefinida da conta Data Lake Analytics. Se os dados com os qual precisa trabalhar estiverem numa loja não padrão, pode utilizar um [`DataTransferStep`](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep) para copiar os dados antes do treino.
 
 ## <a name="azure-container-instance"></a><a id="aci"></a>Caso do contentor de Azure
 

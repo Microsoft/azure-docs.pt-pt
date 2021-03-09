@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 09/28/2020
 ms.custom: seodec18, devx-track-python
-ms.openlocfilehash: 6aa39709a82b01367463f0128af4223446710a1c
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 3191987ea2d110487321beb0b11428f446f2b7a6
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98183647"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102503883"
 ---
 # <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn"></a>Tutorial: Modelos de classificação de imagem de comboio com dados do MNIST e scikit-learn 
 
@@ -37,7 +37,7 @@ Aprende-se a selecionar um modelo e a implantá-lo na [segunda parte deste tutor
 Se não tiver uma subscrição do Azure, crie uma conta gratuita antes de começar. Experimente hoje a [versão gratuita ou paga do Azure Machine Learning.](https://aka.ms/AMLFree)
 
 >[!NOTE]
-> O código deste artigo foi testado com a versão 1.13.0 [da Azure Machine Learning SDK.](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)
+> O código deste artigo foi testado com a versão 1.13.0 [da Azure Machine Learning SDK.](/python/api/overview/azure/ml/intro)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -309,7 +309,7 @@ Repare que o script obtém dados e guarda modelos:
 
 ### <a name="configure-the-training-job"></a>Configure o trabalho de formação
 
-Crie um objeto [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py) para especificar os detalhes de configuração do seu trabalho de treino, incluindo o seu script de treino, ambiente a utilizar e o alvo de computação para executar. Configure o ScriptRunConfig especificando:
+Crie um objeto [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig) para especificar os detalhes de configuração do seu trabalho de treino, incluindo o seu script de treino, ambiente a utilizar e o alvo de computação para executar. Configure o ScriptRunConfig especificando:
 
 * O diretório que contém os seus scripts. Todos os ficheiros neste diretório são carregados para os nós do cluster, para execução.
 * O destino de computação. Neste caso, irá utilizar o cluster de computação do Azure Machine Learning que criou.
@@ -382,7 +382,7 @@ Pode verificar o progresso de um trabalho em execução de várias maneiras. Est
 
 ### <a name="jupyter-widget"></a>Widget Jupyter
 
-Assista ao progresso da corrida com um [widget Jupyter.](/python/api/azureml-widgets/azureml.widgets?preserve-view=true&view=azure-ml-py) Tal como a submissão de corrida, o widget é assíncronos e fornece atualizações ao vivo a cada 10 a 15 segundos até que o trabalho termine:
+Assista ao progresso da corrida com um [widget Jupyter.](/python/api/azureml-widgets/azureml.widgets) Tal como a submissão de corrida, o widget é assíncronos e fornece atualizações ao vivo a cada 10 a 15 segundos até que o trabalho termine:
 
 ```python
 from azureml.widgets import RunDetails

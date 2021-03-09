@@ -8,12 +8,12 @@ ms.author: nibaccam
 author: nibaccam
 ms.date: 08/05/2020
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: 6b9357c0fcf414c2575ca6966e8e5a3716015058
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: dd1440cd7bda8d40a81290cd9f633264b9641dc5
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94654920"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102502557"
 ---
 # <a name="create-azure-machine-learning-datasets-from-azure-open-datasets"></a>Criar conjuntos de dados de aprendizagem automática Azure a partir de conjuntos de dados abertos do Azure
 
@@ -45,20 +45,20 @@ Para este artigo, você precisa:
 
 * Um [espaço de trabalho de aprendizagem automática Azure.](../machine-learning/how-to-manage-workspace.md)
 
-* O [Azure Machine Learning SDK para Python instalado,](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py)que inclui o `azureml-datasets` pacote.
+* O [Azure Machine Learning SDK para Python instalado,](/python/api/overview/azure/ml/install)que inclui o `azureml-datasets` pacote.
 
     * Crie um [exemplo de computação Azure Machine Learning,](../machine-learning/how-to-create-manage-compute-instance.md)que é um ambiente de desenvolvimento totalmente configurado e gerido que inclui cadernos integrados e o SDK já instalado.
 
     **OR**
 
-    * Trabalhe no seu próprio ambiente Python e instale o SDK com [estas instruções.](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py)
+    * Trabalhe no seu próprio ambiente Python e instale o SDK com [estas instruções.](/python/api/overview/azure/ml/install)
 
 > [!NOTE]
 > Algumas classes de conjuntos de dados têm dependências do pacote [azureml-dataprep,](/python/api/azureml-dataprep/) que só é compatível com Python de 64 bits. Para os utilizadores do Linux, estas classes são suportadas apenas nas seguintes distribuições: Red Hat Enterprise Linux (7, 8), Ubuntu (14.04, 16.04, 18.04), Fedora (27, 28), Debian (8, 9) e CentOS (7).
 
 ## <a name="create-datasets-with-the-sdk"></a>Criar conjuntos de dados com o SDK
 
-Para criar conjuntos de dados de aprendizagem automática Azure através das aulas de Datasets Azure Open no Python SDK, certifique-se de que instalou o pacote com `pip install azureml-opendatasets` . Cada conjunto de dados discreto é representado pela sua própria classe no SDK, e certas classes estão disponíveis como um Azure Machine Learning [ `TabularDataset` , `FileDataset` ](../machine-learning/how-to-create-register-datasets.md#dataset-types)ou ambos. Consulte a [documentação](/python/api/azureml-opendatasets/azureml.opendatasets?preserve-view=true&view=azure-ml-py) de referência para obter uma lista completa de `opendatasets` aulas.
+Para criar conjuntos de dados de aprendizagem automática Azure através das aulas de Datasets Azure Open no Python SDK, certifique-se de que instalou o pacote com `pip install azureml-opendatasets` . Cada conjunto de dados discreto é representado pela sua própria classe no SDK, e certas classes estão disponíveis como um Azure Machine Learning [ `TabularDataset` , `FileDataset` ](../machine-learning/how-to-create-register-datasets.md#dataset-types)ou ambos. Consulte a [documentação](/python/api/azureml-opendatasets/azureml.opendatasets) de referência para obter uma lista completa de `opendatasets` aulas.
 
 Pode recuperar `opendatasets` certas classes como a `TabularDataset` ou , o que lhe permite manipular `FileDataset` e/ou descarregar os ficheiros diretamente. Outras classes só podem obter um **conjunto** de dados utilizando as `get_tabular_dataset()` funções ou `get_file_dataset()` funções da `Dataset` classe no Python SDK.
 
@@ -88,7 +88,8 @@ diabetes_tabular = Diabetes.get_tabular_dataset()
 
 Registe um conjunto de dados de Aprendizagem automática Azure com o seu espaço de trabalho, para que possa partilhá-los com outros e reutilizá-los através de experiências no seu espaço de trabalho. Quando regista um conjunto de dados Azure Machine Learning criado a partir de Conjuntos de Dados Abertos, nenhum dado será imediatamente descarregado, mas os dados serão acedidos mais tarde quando solicitados (durante o treino, por exemplo) a partir de um local de armazenamento central.
 
-Para registar os seus conjuntos de dados com um espaço de trabalho, utilize o [`register()`](/python/api/azureml-core/azureml.data.abstract_dataset.abstractdataset?view=azure-ml-py#register-workspace--name--description-none--tags-none--create-new-version-false-&preserve-view=true ) método. 
+Para registar os seus conjuntos de dados com um espaço de trabalho, utilize o [`register()`](/python/api/azureml-core/azureml.data.abstract_dataset.abstractdataset#register-workspace--name--description-none--tags-none--create-new-version-false-) método. 
+
 ```Python
 titanic_ds = titanic_ds.register(workspace=workspace,
                                  name='titanic_ds',
@@ -125,7 +126,7 @@ Utilize os seus conjuntos de dados nas suas experiências de aprendizagem autom�
 
 Por exemplo, e demonstrações da funcionalidade Open Datasets, consulte estes [cadernos de amostras](samples.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Treine o seu primeiro modelo ML.](../machine-learning/tutorial-1st-experiment-sdk-train.md)
 

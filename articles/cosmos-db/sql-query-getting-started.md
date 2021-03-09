@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 02/02/2021
 ms.author: tisande
-ms.openlocfilehash: 21b26bae5fe04d48214a0c62cbb530ea89ad1448
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: d5d5bc0a108cd08283ea29ce3bdc2de49310c5aa
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102426030"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102499565"
 ---
 # <a name="getting-started-with-sql-queries"></a>Introdução às consultas SQL
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -26,7 +26,7 @@ Aqui estão alguns exemplos de como fazer **Leituras de pontos** com cada SDK:
 - [SDK do .NET](/dotnet/api/microsoft.azure.cosmos.container.readitemasync)
 - [SDK Java](/java/api/com.azure.cosmos.cosmoscontainer.readitem#com_azure_cosmos_CosmosContainer__T_readItem_java_lang_String_com_azure_cosmos_models_PartitionKey_com_azure_cosmos_models_CosmosItemRequestOptions_java_lang_Class_T__)
 - [Node.js SDK](/javascript/api/@azure/cosmos/item#read-requestoptions-)
-- [Python SDK](/python/api/azure-cosmos/azure.cosmos.containerproxy?preserve-view=true&view=azure-python#read-item-item--partition-key--populate-query-metrics-none--post-trigger-include-none----kwargs-)
+- [Python SDK](/python/api/azure-cosmos/azure.cosmos.containerproxy#read-item-item--partition-key--populate-query-metrics-none--post-trigger-include-none----kwargs-)
 
 **Consultas SQL** - Pode consultar dados escrevendo consultas usando a Linguagem de Consulta Estruturada (SQL) como uma linguagem de consulta JSON. As consultas custam sempre pelo menos 2,3 unidades de pedido e, em geral, terão uma latência mais alta e mais variável do que as leituras pontuais. As consultas podem devolver muitos itens.
 

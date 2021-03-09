@@ -12,12 +12,12 @@ metadata:
   ms.author: kumud
   manager: mtillman
   ms.date: 09/28/2020
-  ms.openlocfilehash: afa5f2425b521ef0a83d44be03f5e99fb066504b
-  ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+  ms.openlocfilehash: c701f1f54955257fd60fe8d58fb703a1d26d1169
+  ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/05/2021
-  ms.locfileid: "102217147"
+  ms.lasthandoff: 03/09/2021
+  ms.locfileid: "102503402"
 highlightedContent:
   items:
   - title: O que é a Rede do Azure?
@@ -333,7 +333,7 @@ additionalContent:
   - items:
     - title: Comandos do Azure PowerShell para a rede do Azure
       summary: Saiba mais sobre os Cmdlets de rede do Azure.
-      url: /powershell/module/az.network/?view=azps-3.5.0#networking
+      url: /powershell/module/az.network/#networking
     - title: Comandos da CLI do Azure para a rede do Azure
       summary: Os comandos da rede do Azure estão disponíveis na referência da CLI.
       url: /cli/azure/network

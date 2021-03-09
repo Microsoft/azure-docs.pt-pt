@@ -152,7 +152,7 @@
         - name: Python
           items:
             - name: Documentação de Referência
-              href: /python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker?view=azure-python
+              href: /python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker
             - name: Pip
               href: 'https://pypi.org/project/azure-cognitiveservices-knowledge-qnamaker/'
             - name: Amostras

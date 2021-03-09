@@ -5,12 +5,12 @@ services: container-service
 ms.topic: tutorial
 ms.date: 01/12/2021
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: a8e0ddcd77c26a00cf784fb8c2372734314dc0bb
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: c39169c0531a73bd00db7de5fe393ef8c51c8c96
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98250643"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102509426"
 ---
 # <a name="tutorial-deploy-an-azure-kubernetes-service-aks-cluster"></a>Tutorial: Implementar um cluster do Serviço Kubernetes do Azure (AKS)
 
@@ -23,7 +23,7 @@ O Kubernetes dispõe de uma plataforma distribuída para aplicações em content
 
 Em tutoriais posteriores, a aplicação Azure Vote é implantada no cluster, dimensionada e atualizada.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Nos tutoriais anteriores, foi criada e carregada uma imagem de contentor para uma instância do Azure Container Registry. Se não fez estes passos e gostaria de seguir em frente, comece no [Tutorial 1 – Crie imagens de contentores.][aks-tutorial-prepare-app]
 
@@ -35,7 +35,7 @@ Os clusters AKS podem usar o controlo de acesso baseado em funções de Kubernet
 
 Crie um cluster do AKS com [az aks create][]. O exemplo seguinte cria um cluster com o nome *myAKSCluster* no grupo de recursos com o nome *myResourceGroup*. Este grupo de recursos foi criado no [tutorial anterior][aks-tutorial-prepare-acr] na região *leste.* O exemplo a seguir não especifica uma região, pelo que o cluster AKS também é criado na região *leste.* Para obter mais informações, consulte [Quotas, restrições de tamanho de máquina virtual e disponibilidade de região no Serviço Azure Kubernetes (AKS)][quotas-skus-regions] para obter mais informações sobre os limites de recursos e disponibilidade da região para AKS.
 
-Para permitir que um cluster AKS interaja com outros recursos Azure, é criado automaticamente um diretor de serviço azure Ative, uma vez que não especificou um. Aqui, este diretor de serviço tem o direito de [extrair imagens][container-registry-integration] do caso Azure Container Registry (ACR) que criou no tutorial anterior. Para executar o comando com sucesso, é-lhe exigido que tenha uma função de administrador de conta **Proprietário** ou **Azure** na subscrição do Azure.
+Para permitir que um cluster AKS interaja com outros recursos Azure, uma identidade de cluster é criada automaticamente, uma vez que não especificou um. Aqui, esta identidade de cluster tem o direito de [extrair imagens][container-registry-integration] do caso Azure Container Registry (ACR) que criou no tutorial anterior. Para executar o comando com sucesso, é-lhe exigido que tenha uma função de administrador de conta **Proprietário** ou **Azure** na subscrição do Azure.
 
 ```azurecli
 az aks create \

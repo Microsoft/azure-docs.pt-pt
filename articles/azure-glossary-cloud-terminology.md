@@ -1,5 +1,5 @@
 ---
-title: Glossário Azure - Dicionário Azure / Microsoft Docs
+title: Glossário Azure - Dicionário Azure | Microsoft Docs
 description: Use o glossário Azure para entender a terminologia em nuvem na plataforma Azure. Este dicionário Azure curto fornece definições para termos comuns em nuvem para Azure.
 keywords: Dicionário azul, terminologia em nuvem, glossário azul, definições de terminologia, termos de nuvem
 services: na
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: 33672e90406b94a1b5788803911c072cdc2577f7
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 785c87e8136430557af819cd8c7ab1db8f54c060
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186393"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102507726"
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Microsoft Azure glossário: Um dicionário de terminologia em nuvem na plataforma Azure
 
@@ -41,7 +41,7 @@ Os recursos computacional que [o Azure App Service](app-service/overview.md) for
 
 ## <a name="availability-set"></a>conjunto de disponibilidade
 Uma coleção de máquinas virtuais que são geridas em conjunto para fornecer redundância e fiabilidade de aplicações. A utilização de um conjunto de disponibilidade garante que durante um evento de manutenção planeado ou não planeado esteja disponível pelo menos uma máquina virtual.  
-Ver [Gerir a disponibilidade de máquinas virtuais do Windows](./virtual-machines/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) e Gerir a disponibilidade de [máquinas virtuais Linux](./virtual-machines/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+Ver [Gerir a disponibilidade de máquinas virtuais do Windows](./virtual-machines/availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) e Gerir a disponibilidade de [máquinas virtuais Linux](./virtual-machines/availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="azure-classic-deployment-model"></a><a name="classic-model"></a>Modelo de implementação clássico Azure
 Um dos dois modelos de [implantação usados](./azure-resource-manager/management/deployment-models.md) para implantar recursos no Azure (o novo modelo é Azure Resource Manager). Alguns serviços Azure suportam apenas o modelo de implementação do Gestor de Recursos, alguns suportam apenas o modelo clássico de implementação, e alguns suportes ambos. A documentação de cada serviço Azure especifica quais os modelos que suportam.
@@ -58,7 +58,7 @@ Um dos dois modelos de [implementação usados](./azure-resource-manager/managem
 
 ## <a name="fault-domain"></a>domínio de falhas
 A recolha de máquinas virtuais num conjunto de disponibilidade que pode falhar ao mesmo tempo. Um exemplo é um grupo de máquinas num rack que partilham uma fonte de energia comum e um interruptor de rede. Em Azure, as máquinas virtuais num conjunto de disponibilidade são automaticamente separadas em vários domínios de avaria.  
-Ver [Gerir a disponibilidade de máquinas virtuais do Windows](./virtual-machines/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) ou Gerir a disponibilidade de [máquinas virtuais Linux](./virtual-machines/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)  
+Ver [Gerir a disponibilidade de máquinas virtuais do Windows](./virtual-machines/availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) ou Gerir a disponibilidade de [máquinas virtuais Linux](./virtual-machines/availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)  
 
 ## <a name="geo"></a>geo
 Um limite definido para a residência de dados que normalmente contém duas ou mais regiões. As fronteiras podem estar dentro ou fora das fronteiras nacionais e são influenciadas pela regulamentação fiscal. Cada geo tem pelo menos uma região. Exemplos de geos são a Ásia-Pacífico e o Japão. Também chamada *geografia.*  
@@ -135,7 +135,7 @@ Consulte [a utilização de tags para organizar os seus recursos Azure](./azure-
 
 ## <a name="update-domain"></a>atualização do domínio
 A recolha de máquinas virtuais num conjunto de disponibilidade que são atualizados ao mesmo tempo. As máquinas virtuais no mesmo domínio de atualização são reiniciadas em conjunto durante a manutenção planeada. O Azure nunca reinicia mais do que um domínio de atualização de cada vez. Também referido como um domínio de upgrade.  
-Ver [Gerir a disponibilidade de máquinas virtuais do Windows](./virtual-machines/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) e Gerir a disponibilidade de [máquinas virtuais Linux](./virtual-machines/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+Ver [Gerir a disponibilidade de máquinas virtuais do Windows](./virtual-machines/availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) e Gerir a disponibilidade de [máquinas virtuais Linux](./virtual-machines/availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="virtual-machine"></a><a name="vm"></a>máquina virtual
 A implementação do software de um computador físico que executa um sistema operativo. Várias máquinas virtuais podem funcionar simultaneamente no mesmo hardware. Em Azure, as máquinas virtuais estão disponíveis em vários tamanhos.  

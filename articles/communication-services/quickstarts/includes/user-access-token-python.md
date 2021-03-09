@@ -10,12 +10,12 @@ ms.date: 08/20/2020
 ms.topic: include
 ms.custom: include file
 ms.author: tchladek
-ms.openlocfilehash: aefad6670e937fcb7994688c8c6e846c3cab94e6
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 42fbd1c89418bfe944d416f47a0a885c76f1f22a
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101751106"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102510696"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -70,6 +70,12 @@ connection_string = os.environ['COMMUNICATION_SERVICES_CONNECTION_STRING']
 client = CommunicationIdentityClient.from_connection_string(connection_string)
 ```
 
+Em alternativa, se tiver gerido a configuração da identidade, consulte [identidades geridas de utilização,](../managed-identity.md)pode também autenticar com identidade gerida.
+```python
+const endpoint = os.environ["COMMUNICATION_SERVICES_ENDPOINT"];
+var client = new CommunicationIdentityClient(endpoint, DefaultAzureCredential());
+```
+
 ## <a name="create-an-identity"></a>Criar uma identidade
 
 A Azure Communication Services mantém um diretório de identidade leve. Utilize o `create_user` método para criar uma nova entrada no diretório com um único `Id` . A loja recebeu identidade com mapeamento para os utilizadores da sua aplicação. Por exemplo, armazenando-os na base de dados do seu servidor de aplicações. A identidade é necessária mais tarde para emitir fichas de acesso.
@@ -81,11 +87,11 @@ print("\nCreated an identity with ID: " + identity.identifier)
 
 ## <a name="issue-access-tokens"></a>Emitir fichas de acesso
 
-Utilize o `issue_token` método para emitir um token de acesso para a identidade dos Serviços de Comunicação já existentes. O parâmetro `scopes` define um conjunto de primitivos que autorizarão este token de acesso. Consulte a [lista de ações apoiadas.](../../concepts/authentication.md) Nova instância de parâmetro `communicationUser` pode ser construída com base na representação de cordas da identidade do Serviço de Comunicação Azure.
+Utilize o `get_token` método para emitir um token de acesso para a identidade dos Serviços de Comunicação já existentes. O parâmetro `scopes` define um conjunto de primitivos que autorizarão este token de acesso. Consulte a [lista de ações apoiadas.](../../concepts/authentication.md) Nova instância de parâmetro `CommunicationUserIdentifier` pode ser construída com base na representação de cordas da identidade do Serviço de Comunicação Azure.
 
 ```python
 # Issue an access token with the "voip" scope for an identity
-token_result = client.issue_token(identity, ["voip"])
+token_result = client.get_token(identity, ["voip"])
 expires_on = token_result.expires_on.strftime('%d/%m/%y %I:%M %S %p')
 print("\nIssued an access token with 'voip' scope that expires at " + expires_on + ":")
 print(token_result.token)
@@ -110,19 +116,19 @@ print(token)
 
 ## <a name="refresh-access-tokens"></a>Atualizar tokens de acesso
 
-Para refrescar um token de acesso, use o `CommunicationUser` objeto para reeditar:
+Para refrescar um token de acesso, use o `CommunicationUserIdentifier` objeto para reeditar:
 
-```python  
+```python
 # Value existingIdentity represents identity of Azure Communication Services stored during identity creation
-identity = CommunicationUser(existingIdentity)
-token_result = client.issue_token( identity, ["voip"])
+identity = CommunicationUserIdentifier(existingIdentity)
+token_result = client.get_token( identity, ["voip"])
 ```
 
 ## <a name="revoke-access-tokens"></a>Revogar fichas de acesso
 
 Em alguns casos, pode revogar explicitamente os tokens de acesso. Por exemplo, quando o utilizador de uma aplicação altera a palavra-passe que utiliza para autenticar o seu serviço. O método `revoke_tokens` invalida todos os tokens de acesso ativo, que foram emitidos para a identidade.
 
-```python  
+```python
 client.revoke_tokens(identity)
 print("\nSuccessfully revoked all access tokens for identity with ID: " + identity.identifier)
 ```

@@ -7,12 +7,12 @@ ms.date: 07/14/2020
 ms.service: storage
 ms.topic: conceptual
 ms.reviewer: ripohane
-ms.openlocfilehash: 4fe6befbfc3c6f12cf804841052795647cd1f76a
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 828bb909aeb5d34f087a3173f792b325dc7cfd55
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629840"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102504819"
 ---
 # <a name="azure-files-reference"></a>Referência dos Ficheiros do Azure
 
@@ -82,7 +82,7 @@ A tabela que se segue lista a referência e a documentação da amostra para api
 
 A tabela que se segue lista a referência e a documentação da amostra para as APIs do Azure Files REST.
 
-| Documentação de referência | Descrição Geral |
+| Documentação de referência | Descrição geral |
 | ----------------------- | -------- |
 | [Serviço de arquivo REST API](/rest/api/storageservices/file-service-rest-api) | [Conceitos de serviço de ficheiros](/rest/api/storageservices/file-service-concepts) |
 
@@ -106,7 +106,7 @@ A tabela a seguir contém links para a versão mais recente do conteúdo de refe
 
 | Versão | Plataforma |
 | ------- | -------- |
-|  4.x  | [PowerShell](/powershell/module/az.storage/?view=azps-4.6.1&preserve-view=true) |
+|  4.x  | [PowerShell](/powershell/module/az.storage/?view=azps-4.8.0&preserve-view=true) |
 |  3.x  | [PowerShell](/powershell/module/az.storage/?view=azps-3.8.0&preserve-view=true) |
 |  2.x  | [PowerShell](/powershell/module/az.storage/?view=azps-2.8.0&preserve-view=true) |
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/05/2020
 ms.author: depadia
-ms.openlocfilehash: e753d810bbc2ed1079b58d20a0659bf5e2219d11
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 3b3c313df5704e49481c66ad682faccd48d180ea
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101671910"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102505907"
 ---
 # <a name="sap-businessobjects-bi-platform-planning-and-implementation-guide-on-azure"></a>Guia de planeamento e implementação da plataforma de BI SAP BusinessObjects no Azure
 
@@ -222,7 +222,7 @@ A Plataforma SAP BI contém muitos componentes diferentes e ao desenhar a arquit
 
 Também o número de domínios de atualização e avaria que podem ser utilizados por um Conjunto de Disponibilidade de Azure dentro de uma unidade de Escala Azure é finito. Assim, se continuar a adicionar VMs a um único conjunto de disponibilidade, dois ou mais VMs acabarão eventualmente no mesmo domínio de falha ou atualização. Para obter mais informações, consulte a secção [Azure Availability Sets](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/virtual-machines/workloads/sap/planning-guide.md#azure-availability-sets) do planeamento e implementação de máquinas virtuais Azure para o documento SAP.
 
-Para compreender o conceito de conjuntos de disponibilidade de Azure e a forma como os conjuntos de disponibilidade se relacionam com Os Domínios de Falha e Atualização, leia gerir o artigo [de disponibilidade.](../../manage-availability.md)
+Para compreender o conceito de conjuntos de disponibilidade de Azure e a forma como os conjuntos de disponibilidade se relacionam com Os Domínios de Falha e Atualização, leia gerir o artigo [de disponibilidade.](../../availability.md)
 
 > [!Important]
 > Os conceitos de Zonas de Disponibilidade Azure e conjuntos de disponibilidade azure são mutuamente exclusivos. Isto significa que pode colocar um par ou vários VMs numa zona de disponibilidade específica ou um conjunto de disponibilidades Azure. Mas não os dois.

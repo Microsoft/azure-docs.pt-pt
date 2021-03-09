@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 08/20/2020
 ms.custom: seoapril2019, seodec18
-ms.openlocfilehash: 987b56eb1b258e1c5f2fd7d5bcfdd0e95f6c0730
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: dc1954c97da0d7f40deaf0f4efa7ca99793107bb
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100091674"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102503696"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Como funciona a Azure Machine Learning: Arquitetura e conceitos
 
@@ -102,7 +102,7 @@ Produz-se uma corrida quando se envia um guião para treinar um modelo. Uma corr
 
 [Espaço de](#workspace)  >  trabalho [Experiências](#experiments)  >  [Correr](#runs)  >  **Configuração de execução**
 
-Uma configuração de execução define como um script deve ser executado em um alvo de computação especificado. Utiliza a configuração para especificar o script, o alvo do cálculo e o ambiente Azure ML para executar, quaisquer configurações específicas do trabalho distribuídas e algumas propriedades adicionais. Para obter mais informações sobre o conjunto completo de opções configuráveis para execuções, consulte [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py).
+Uma configuração de execução define como um script deve ser executado em um alvo de computação especificado. Utiliza a configuração para especificar o script, o alvo do cálculo e o ambiente Azure ML para executar, quaisquer configurações específicas do trabalho distribuídas e algumas propriedades adicionais. Para obter mais informações sobre o conjunto completo de opções configuráveis para execuções, consulte [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig).
 
 Uma configuração de execução pode ser persistido num ficheiro dentro do diretório que contém o seu script de treino.   Ou pode ser construído como um objeto na memória e usado para submeter uma corrida.
 
@@ -282,7 +282,7 @@ O estúdio é também onde você acede às ferramentas interativas que fazem par
 > As ferramentas marcadas (pré-visualização) abaixo estão atualmente em visualização pública.
 > A versão de pré-visualização é fornecida sem um acordo de nível de serviço, e não é recomendado para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-+  Interaja com o serviço em qualquer ambiente Python com o [Azure Machine Learning SDK para Python.](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)
++  Interaja com o serviço em qualquer ambiente Python com o [Azure Machine Learning SDK para Python.](/python/api/overview/azure/ml/intro)
 + Interaja com o serviço em qualquer ambiente R com o [Azure Machine Learning SDK para R](https://azure.github.io/azureml-sdk-for-r/reference/index.html) (pré-visualização).
 + Utilize [o designer de aprendizagem automática Azure](concept-designer.md) para executar os passos de fluxo de trabalho sem escrever código. 
 + Utilize [o CLI de aprendizagem automática Azure](./reference-azure-machine-learning-cli.md) para automatização.

@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 10/16/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 206ac53088897a95983215b10e8e9affac7c6a56
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 92d881a85f5719e15db6fe24b80deed3b3d3fe35
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101669809"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102504444"
 ---
 # <a name="sap-ascsscs-instance-multi-sid-high-availability-with-windows-server-failover-clustering-and-shared-disk-on-azure"></a>SAP ASCS/SCS exemplo multi-SID alta disponibilidade com Cluster de Failover do Servidor do Windows e disco partilhado em Azure
 
@@ -437,4 +437,4 @@ O procedimento de alto nível é o seguinte:
 
 [virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/management/overview.md#the-benefits-of-using-resource-manager
 
-[virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
+[virtual-machines-manage-availability]:../../availability.md

@@ -11,12 +11,12 @@ ms.author: anumamah
 ms.reviewer: nibaccam
 ms.date: 08/14/2020
 ms.custom: devx-track-python, automl
-ms.openlocfilehash: f4d26ba6bec8f3e63ba89ed9abae789704a0828b
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 04e50f5a990624aa01c845c82658639b8450f57d
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98184106"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102503866"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-predict-taxi-fares"></a>Tutorial: Utilizar machine learning automatizado para prever tarifas de táxi
 
@@ -175,7 +175,7 @@ final_df.describe()
 
 ## <a name="configure-workspace"></a>Configurar a área de trabalho
 
-Crie um objeto de área de trabalho a partir da área de trabalho existente. Um [Espaço de Trabalho](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py) é uma classe que aceita a sua subscrição Azure e informações de recursos. Também cria um recurso em nuvem para monitorizar e rastrear as suas execuções de modelos. `Workspace.from_config()` lê o ficheiro **config.js** e carrega os dados de autenticação num objeto chamado `ws` . `ws` é utilizado em todo o restante código neste tutorial.
+Crie um objeto de área de trabalho a partir da área de trabalho existente. Um [Espaço de Trabalho](/python/api/azureml-core/azureml.core.workspace.workspace) é uma classe que aceita a sua subscrição Azure e informações de recursos. Também cria um recurso em nuvem para monitorizar e rastrear as suas execuções de modelos. `Workspace.from_config()` lê o ficheiro **config.js** e carrega os dados de autenticação num objeto chamado `ws` . `ws` é utilizado em todo o restante código neste tutorial.
 
 ```python
 from azureml.core.workspace import Workspace
@@ -208,7 +208,7 @@ Para treinar automaticamente um modelo, tome os seguintes passos:
 
 Defina o parâmetro de experiência e as definições do modelo para o treino. Ver a lista completa de [definições](how-to-configure-auto-train.md). Submeter a experiência com estas definições predefinidos levará aproximadamente 5-20 min, mas se quiser um tempo de funcionamento mais curto, reduza o `experiment_timeout_hours` parâmetro.
 
-|Propriedade| Valor neste tutorial |Descrição|
+|Propriedade| Valor neste tutorial |Description|
 |----|----|---|
 |**iteration_timeout_minutes**|10|Limite de tempo em minutos para cada iteração. Aumente este valor para conjuntos de dados maiores que precisam de mais tempo para cada iteração.|
 |**experiment_timeout_hours**|0.3|O tempo máximo em horas que todas as iterações combinadas podem demorar antes do fim da experiência.|
@@ -302,7 +302,7 @@ BEST: The best observed score thus far.
 
 ## <a name="explore-the-results"></a>Explorar os resultados
 
-Explore os resultados do treino automático com um [widget Jupyter.](/python/api/azureml-widgets/azureml.widgets?preserve-view=true&view=azure-ml-py) O widget permite-lhe ver um gráfico e tabela de todas as iterações individuais de execução, juntamente com métricas de precisão de treino e metadados. Além disso, pode filtrar em diferentes métricas de precisão do que a sua métrica primária com o seletor de dropdown.
+Explore os resultados do treino automático com um [widget Jupyter.](/python/api/azureml-widgets/azureml.widgets) O widget permite-lhe ver um gráfico e tabela de todas as iterações individuais de execução, juntamente com métricas de precisão de treino e metadados. Além disso, pode filtrar em diferentes métricas de precisão do que a sua métrica primária com o seletor de dropdown.
 
 ```python
 from azureml.widgets import RunDetails

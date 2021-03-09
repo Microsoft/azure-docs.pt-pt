@@ -10,12 +10,12 @@ ms.author: laobri
 author: lobrien
 ms.date: 02/26/2021
 ms.custom: devx-track-python
-ms.openlocfilehash: 8b5e74d12af92b5d300e638bee27020a5af5383c
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 584e421b6beac0e4ecfab5b3e3cb735b8465e1b4
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101690384"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102503526"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>O que são os oleodutos Azure Machine Learning?
 
@@ -79,7 +79,7 @@ Quando cria e executa um `Pipeline` objeto, ocorrem os seguintes passos de alto 
 
 ## <a name="building-pipelines-with-the-python-sdk"></a>Oleodutos de construção com o Python SDK
 
-No [Azure Machine Learning Python SDK,](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py)um oleoduto é um objeto Python definido no `azureml.pipeline.core` módulo. Um objeto [pipeline](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline%28class%29?preserve-view=true&view=azure-ml-py) contém uma sequência ordenada de um ou mais objetos [PipelineStep.](/python/api/azureml-pipeline-core/azureml.pipeline.core.builder.pipelinestep?preserve-view=true&view=azure-ml-py) A `PipelineStep` classe é abstrata e os passos reais serão de subclasses como [EstimatorStep,](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.estimatorstep?preserve-view=true&view=azure-ml-py) [PythonScriptStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.pythonscriptstep?preserve-view=true&view=azure-ml-py)ou [DataTransferStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?preserve-view=true&view=azure-ml-py). A classe [ModuleStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.modulestep?preserve-view=true&view=azure-ml-py) contém uma sequência reutilizável de passos que podem ser partilhados entre os oleodutos. Uma `Pipeline` corrida como parte de um `Experiment` .
+No [Azure Machine Learning Python SDK,](/python/api/overview/azure/ml/install)um oleoduto é um objeto Python definido no `azureml.pipeline.core` módulo. Um objeto [pipeline](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline%28class%29) contém uma sequência ordenada de um ou mais objetos [PipelineStep.](/python/api/azureml-pipeline-core/azureml.pipeline.core.builder.pipelinestep) A `PipelineStep` classe é abstrata e os passos reais serão de subclasses como [EstimatorStep,](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.estimatorstep) [PythonScriptStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.pythonscriptstep)ou [DataTransferStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep). A classe [ModuleStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.modulestep) contém uma sequência reutilizável de passos que podem ser partilhados entre os oleodutos. Uma `Pipeline` corrida como parte de um `Experiment` .
 
 Um oleoduto de aprendizagem automática Azure está associado a um espaço de trabalho Azure Machine Learning e um passo de pipeline está associado a um alvo de computação disponível dentro desse espaço de trabalho. Para obter mais informações, consulte [Criar e gerir espaços de trabalho de Aprendizagem automática Azure no portal Azure](./how-to-manage-workspace.md) ou Quais são os [alvos de computação em Azure Machine Learning?](./concept-compute-target.md)
 
@@ -123,7 +123,7 @@ pipeline_run = experiment.submit(pipeline)
 pipeline_run.wait_for_completion()
 ```
 
-O snippet começa com objetos comuns de Aprendizagem automática Azure, `Workspace` um `Datastore` , um [ComputeTarget](/python/api/azureml-core/azureml.core.computetarget?preserve-view=true&view=azure-ml-py), e um `Experiment` . Em seguida, o código cria os objetos para segurar `input_data` e `prepped_data_path` . `input_data`Trata-se de uma instância do [FileDataset](/python/api/azureml-core/azureml.data.filedataset?preserve-view=true&view=azure-ml-py) e `prepped_data_path` é um exemplo de [OutputFileDatasetConfig](/python/api/azureml-core/azureml.data.output_dataset_config.outputfiledatasetconfig?preserve-view=true&view=azure-ml-py). Para `OutputFileDatasetConfig` o comportamento predefinido é copiar a saída para a `workspaceblobstore` datastore sob o caminho `/dataset/{run-id}/{output-name}` , onde está o `run-id` ID da Run e é um valor `output-name` autogerado se não for especificado pelo desenvolvedor.
+O snippet começa com objetos comuns de Aprendizagem automática Azure, `Workspace` um `Datastore` , um [ComputeTarget](/python/api/azureml-core/azureml.core.computetarget), e um `Experiment` . Em seguida, o código cria os objetos para segurar `input_data` e `prepped_data_path` . `input_data`Trata-se de uma instância do [FileDataset](/python/api/azureml-core/azureml.data.filedataset) e `prepped_data_path` é um exemplo de [OutputFileDatasetConfig](/python/api/azureml-core/azureml.data.output_dataset_config.outputfiledatasetconfig). Para `OutputFileDatasetConfig` o comportamento predefinido é copiar a saída para a `workspaceblobstore` datastore sob o caminho `/dataset/{run-id}/{output-name}` , onde está o `run-id` ID da Run e é um valor `output-name` autogerado se não for especificado pelo desenvolvedor.
 
 O código de preparação de dados (não apresentado), escreve ficheiros delimitados para `prepped_data_path` . Estas saídas do passo de preparação de dados são passadas `prepped_data` quanto ao passo de formação. 
 
@@ -162,6 +162,6 @@ Os oleodutos Azure Machine Learning são uma instalação poderosa que começa a
 
 + Saiba como [executar previsões de lotes em dados grandes.](tutorial-pipeline-batch-scoring-classification.md )
 
-+ Consulte os documentos de referência SDK para os [passos do núcleo do gasoduto](/python/api/azureml-pipeline-core/?preserve-view=true&view=azure-ml-py) e do [gasoduto](/python/api/azureml-pipeline-steps/?preserve-view=true&view=azure-ml-py).
++ Consulte os documentos de referência SDK para os [passos do núcleo do gasoduto](/python/api/azureml-pipeline-core/) e do [gasoduto](/python/api/azureml-pipeline-steps/).
 
 + Experimente o exemplo de cadernos Jupyter que mostram [os oleodutos Azure Machine Learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines). Saiba como [executar cadernos para explorar este serviço.](samples-notebooks.md)

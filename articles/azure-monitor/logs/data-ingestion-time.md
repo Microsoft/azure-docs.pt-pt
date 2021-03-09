@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/18/2019
-ms.openlocfilehash: 3bba9dbf40fe6893a06c21d7f6b5475cfa8552cb
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 56ef6563982c315d34cfeb87070b9ebfa3d27a30
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102176659"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102500432"
 ---
 # <a name="log-data-ingestion-time-in-azure-monitor"></a>Log data ingestion time in Azure Monitor (Tempo de ingestão de dados de registo no Azure Monitor)
 O Azure Monitor é um serviço de dados de alta escala que serve milhares de clientes que enviam terabytes de dados todos os meses a um ritmo crescente. Muitas vezes existem dúvidas sobre o tempo que os dados de registo demoram a ficar disponíveis após a sua recolha. Este artigo explica os diferentes fatores que afetam esta latência.
@@ -145,4 +145,4 @@ Heartbeat
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
-* Leia o [Acordo de Nível de Serviço (SLA)](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_1/) para O Monitor Azure.
+* Leia o [Acordo de Nível de Serviço (SLA)](https://azure.microsoft.com/en-us/support/legal/sla/monitor/v1_3/) para O Monitor Azure.

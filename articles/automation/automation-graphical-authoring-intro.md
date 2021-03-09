@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: ec74ca19978a4164289276d44b34eb14b694687f
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: bbac794263fec176e03c7148d860c479a2ed9d39
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99051586"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102501233"
 ---
 # <a name="author-graphical-runbooks-in-azure-automation"></a>Livros gráficos do autor na Azure Automation
 
@@ -34,7 +34,7 @@ O controlo de tela permite-lhe conceber o seu runbook. Pode adicionar atividades
 
 O controlo da Biblioteca permite-lhe selecionar [atividades](#use-activities) para adicionar ao seu runbook. Adicione-os à tela, onde pode ligá-los a outras atividades. O controlo da Biblioteca inclui as secções definidas na tabela seguinte.
 
-| Section | Description |
+| Section | Descrição |
 |:--- |:--- |
 | Cmdlets |Todos os cmdlets que podem ser usados no seu runbook. Os cmdlets são organizados por módulo. Todos os módulos que instalou na sua conta Demôm automação estão disponíveis. |
 | Runbooks |Os livros na sua conta de Automação. Pode adicionar estes livros à tela para serem usados como livros infantis. Apenas são apresentados livros de bordo do mesmo tipo de núcleo que o livro de bordo que está a ser editado. Para livros gráficos, apenas são apresentados livros de execução baseados em PowerShell. Para os livros gráficos de fluxo de trabalho powerShell, apenas são apresentados livros de execução baseados em fluxos de trabalho powerShell. |
@@ -61,7 +61,7 @@ Selecione uma atividade na tela para configurar as suas propriedades e parâmetr
 
 Um conjunto de parâmetros define os parâmetros obrigatórios e opcionais que aceitam valores para um cmdlet particular. Todos os cmdlets têm pelo menos um parâmetro definido, e alguns têm vários conjuntos. Se um cmdlet tiver vários parâmetros, deve selecionar o que usar antes de configurar parâmetros. Pode alterar o parâmetro definido por uma atividade selecionando Conjunto de **Parâmetros** e escolhendo outro conjunto. Neste caso, perdem-se os valores de parâmetro que já configuraram.
 
-No exemplo seguinte, o [cmdlet Get-AzVM](/powershell/module/az.compute/get-azvm?view=azps-3.5.0&preserve-view=true) tem três parâmetros. O exemplo utiliza um conjunto chamado **ListVirtualMachineInResourceGroupGroup,** com um único parâmetro opcional, para devolver todas as máquinas virtuais num grupo de recursos. O exemplo também utiliza o parâmetro **GetVirtualMachineInResourceGroupGroup** para especificar a máquina virtual para devolver. Este conjunto tem dois parâmetros obrigatórios e um parâmetro opcional.
+No exemplo seguinte, o [cmdlet Get-AzVM](/powershell/module/az.compute/get-azvm) tem três parâmetros. O exemplo utiliza um conjunto chamado **ListVirtualMachineInResourceGroupGroup,** com um único parâmetro opcional, para devolver todas as máquinas virtuais num grupo de recursos. O exemplo também utiliza o parâmetro **GetVirtualMachineInResourceGroupGroup** para especificar a máquina virtual para devolver. Este conjunto tem dois parâmetros obrigatórios e um parâmetro opcional.
 
 ![Conjunto de parâmetros](media/automation-graphical-authoring-intro/get-azvm-parameter-sets.png)
 
@@ -69,7 +69,7 @@ No exemplo seguinte, o [cmdlet Get-AzVM](/powershell/module/az.compute/get-azvm?
 
 Quando especificar um valor para um parâmetro, selecione uma fonte de dados para determinar como o valor é especificado. As fontes de dados disponíveis para um determinado parâmetro dependem dos valores válidos para esse parâmetro. Por exemplo, Null não é uma opção disponível para um parâmetro que não permite valores nulos.
 
-| Origem de dados | Description |
+| Origem de dados | Descrição |
 |:--- |:--- |
 | Valor Constante |Digite um valor para o parâmetro. Esta fonte de dados só está disponível para os seguintes tipos de dados: Int32, Int64, String, Boolean, DateTime, Switch. |
 | Saída de Atividade |Utilize a produção de uma atividade que precede a atividade atual no fluxo de trabalho. Todas as atividades válidas estão listadas. Para o valor do parâmetro, utilize apenas a atividade que produz a saída. Se a atividade der um objeto com múltiplas propriedades, pode digitar o nome de uma propriedade específica após a seleção da atividade. |
@@ -151,7 +151,7 @@ Pode criar uma ligação entre duas atividades selecionando a atividade de orige
 
 Selecione o link para configurar as suas propriedades na lâmina de configuração. As propriedades incluem o tipo de ligação, que é descrito na tabela seguinte.
 
-| Tipo de ligação | Description |
+| Tipo de ligação | Descrição |
 |:--- |:--- |
 | Pipeline |A atividade de destino é executado uma vez para cada saída de objeto da atividade de origem. A atividade de destino não funciona se a atividade de origem não resultar em saída. A saída da atividade de origem está disponível como um objeto. |
 | Sequence |A atividade de destino funciona apenas uma vez quando recebe a produção da atividade de origem. A saída da atividade da fonte está disponível como uma variedade de objetos. |
@@ -257,7 +257,7 @@ Cada parâmetro de entrada é definido pelas propriedades no quadro seguinte:
 | Propriedade | Descrição |
 |:--- |:--- |
 | Nome | Obrigatório. O nome do parâmetro. O nome deve ser único dentro do livro de bordo. Deve começar com uma letra e conter apenas letras, números e sublinhados. O nome não pode conter um espaço. |
-| Description |Opcional. Descrição da finalidade para o parâmetro de entrada. |
+| Descrição |Opcional. Descrição da finalidade para o parâmetro de entrada. |
 | Tipo | Opcional. Tipo de dados esperado para o valor do parâmetro. O portal Azure fornece um controlo adequado para o tipo de dados para cada parâmetro quando solicita a entrada. Os parâmetros suportados são String, Int32, Int64, Decimal, Boolean, DateTime e Object. Se um tipo de dado não for selecionado, predefinitivo ao String.|
 | Obrigatório | Opcional. Definição que especifica se deve ser fornecido um valor para o parâmetro. Se `yes` escolher, deve ser fornecido um valor quando o livro de recortes for iniciado. Se `no` escolher, não é necessário um valor quando o livro de execução é iniciado e pode ser utilizado um valor predefinido. O livro de execuções não pode arrancar se não fornecer um valor para cada parâmetro obrigatório que não tenha um valor padrão definido. |
 | Valor Predefinido | Opcional. O valor utilizado para um parâmetro se não for passado quando o livro de bordo for iniciado. Para definir um valor predefinido, escolha `Custom` . Selecione `None` se não quiser fornecer qualquer valor predefinido. |
@@ -435,4 +435,4 @@ Tem a opção de reverter para a versão publicada de um livro de execução. Es
 * Para começar com os runbooks gráficos, consulte [Tutorial: Crie um runbook gráfico](learn/automation-tutorial-runbook-graphical.md).
 * Para saber mais sobre os tipos de runbook e as suas vantagens e limitações, consulte [os tipos de runbook da Azure Automation](automation-runbook-types.md).
 * Para compreender como autenticar utilizando a conta Automation Run As, consulte [a conta Executar Como.](automation-security-overview.md#run-as-account)
-* Para obter uma referência de cmdlet PowerShell, consulte [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0&preserve-view=true#automation).
+* Para obter uma referência de cmdlet PowerShell, consulte [Az.Automation](/powershell/module/az.automation/#automation).

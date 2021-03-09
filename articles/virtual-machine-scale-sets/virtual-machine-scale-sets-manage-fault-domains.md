@@ -9,17 +9,17 @@ ms.subservice: availability
 ms.date: 12/18/2018
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: 5a71a6bce6d0e1a41201e0d7395110a6ac64db8c
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 8c114d6260cf81bcc4fb256fc8a09947ab9ce1d8
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102209752"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102502489"
 ---
 # <a name="choosing-the-right-number-of-fault-domains-for-virtual-machine-scale-set"></a>Escolher o número certo de domínios de falha para conjuntos de dimensionamento de máquinas virtuais
 Os conjuntos de escala de máquina virtual são criados com cinco domínios de falha por padrão nas regiões de Azure sem zonas. Para as regiões que suportam a implantação zonal de conjuntos de escala de máquinas virtuais e esta opção é selecionada, o valor padrão da contagem de domínio de avaria é 1 para cada uma das zonas. FD=1 neste caso implica que os casos de VM pertencentes ao conjunto de escala serão espalhados por muitos racks numa melhor base de esforço.
 
-Também pode considerar alinhar o número de domínios de falha definidos de escala com o número de domínios de falha de Discos Geridos. Este alinhamento pode ajudar a prevenir a perda de quórum se todo o domínio de falha dos Discos Geridos se avariar. A contagem de FD pode ser definida para menos ou igual ao número de domínios de falha de Discos Geridos disponíveis em cada uma das regiões. Consulte este [documento](../virtual-machines/manage-availability.md) para saber sobre o número de domínios de falha de Discos Geridos por região.
+Também pode considerar alinhar o número de domínios de falha definidos de escala com o número de domínios de falha de Discos Geridos. Este alinhamento pode ajudar a prevenir a perda de quórum se todo o domínio de falha dos Discos Geridos se avariar. A contagem de FD pode ser definida para menos ou igual ao número de domínios de falha de Discos Geridos disponíveis em cada uma das regiões. Consulte este [documento](../virtual-machines/availability.md) para saber sobre o número de domínios de falha de Discos Geridos por região.
 
 ## <a name="rest-api"></a>API REST
 Pode definir a propriedade `properties.platformFaultDomainCount` para 1, 2 ou 3 (padrão de 3 se não for especificado). Consulte [aqui](/rest/api/compute/virtualmachinescalesets/createorupdate)a documentação para REST API .

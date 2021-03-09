@@ -6,12 +6,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: af8403f80f7282207ee1bc6b2f81da0d83d264e0
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: d1021352f3555f49b165eed60214e11b1a8d07d9
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102180943"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102508185"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Criar e configurar um cluster Azure Kubernetes Services (AKS) para usar nós virtuais usando o Azure CLI
 
@@ -86,7 +86,7 @@ az network vnet subnet create \
 
 ## <a name="create-a-service-principal-or-use-a-managed-identity"></a>Criar um principal de serviço ou usar uma identidade gerida
 
-Para permitir que um cluster do AKS interaja com outros recursos do Azure, é utilizado um principal de serviço do Azure Active Directory. Este principal de serviço pode ser criado automaticamente com a CLI do Azure ou o portal, ou pode criar previamente um e atribuir permissões adicionais. Em alternativa, pode utilizar uma identidade gerida para permissões em vez de um principal de serviço. Para obter mais informações, consulte [utilização de identidades geridas.](use-managed-identity.md)
+Para permitir que um cluster AKS interaja com outros recursos Azure, é utilizada uma identidade de cluster. Esta identidade de cluster pode ser criada automaticamente pelo Azure CLI ou portal, ou pode pré-criar uma e atribuir permissões adicionais. Por padrão, esta identidade de cluster é uma identidade gerida. Para obter mais informações, consulte [utilização de identidades geridas.](use-managed-identity.md) Também pode usar um principal de serviço como identidade de cluster. Os passos seguintes mostram-lhe como criar e atribuir manualmente o principal de serviço ao seu cluster.
 
 Crie um principal de serviço com o comando [az ad sp create-for-rbac][az-ad-sp-create-for-rbac]. O parâmetro `--skip-assignment` limita a atribuição de permissões adicionais.
 

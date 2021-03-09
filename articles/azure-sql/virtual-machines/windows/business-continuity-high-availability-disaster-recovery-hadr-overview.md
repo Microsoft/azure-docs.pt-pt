@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2020
 ms.author: mathoma
-ms.openlocfilehash: 4443ccfe8d570e50352cbb70c83d6094132038cc
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: f4d870f458607ceb0f05812b5c0c066ce810448e
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736902"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102508321"
 ---
 # <a name="business-continuity-and-hadr-for-sql-server-on-azure-virtual-machines"></a>Continuidade de negócios e HADR para SQL Server em Máquinas Virtuais Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -30,7 +30,7 @@ A maioria das soluções HADR do Servidor SQL são suportadas em máquinas virtu
 
 Este artigo compara e contrasta as soluções de continuidade de negócio disponíveis para o SQL Server em VMs Azure. 
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Cabe-lhe a si assegurar que o seu sistema de base de dados tem as capacidades HADR que o acordo de nível de serviço (SLA) requer. O facto de o Azure fornecer mecanismos de elevada disponibilidade, como a cura de serviços para serviços na nuvem e a deteção de recuperação de falhas para máquinas virtuais, não garante, por si só, que possa cumprir o SLA. Embora estes mecanismos ajudem a proteger a alta disponibilidade da máquina virtual, eles não protegem a disponibilidade do SQL Server que funciona dentro do VM. 
 
@@ -106,7 +106,7 @@ Os VMs, armazenamento e networking azure têm características operacionais dife
 ### <a name="high-availability-nodes-in-an-availability-set"></a>Nódes de alta disponibilidade num conjunto de disponibilidade
 Os conjuntos de disponibilidade em Azure permitem-lhe colocar os nós de alta disponibilidade em domínios de avaria separados e a atualizar domínios. A plataforma Azure atribui um domínio de atualização e um domínio de avaria a cada máquina virtual no seu conjunto de disponibilidade. Esta configuração dentro de um datacenter garante que durante um evento de manutenção planeada ou não planeada, pelo menos uma máquina virtual está disponível e cumpre o Azure SLA de 99,95 por cento. 
 
-Para configurar uma configuração de alta disponibilidade, coloque todas as máquinas virtuais do SQL Server participantes no mesmo conjunto de disponibilidade para evitar a aplicação ou perda de dados durante um evento de manutenção. Apenas os nós no mesmo serviço de nuvem podem participar no mesmo conjunto de disponibilidade. Para obter mais informações, veja [Gerir a disponibilidade das máquinas virtuais](../../../virtual-machines/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Para configurar uma configuração de alta disponibilidade, coloque todas as máquinas virtuais do SQL Server participantes no mesmo conjunto de disponibilidade para evitar a aplicação ou perda de dados durante um evento de manutenção. Apenas os nós no mesmo serviço de nuvem podem participar no mesmo conjunto de disponibilidade. Para obter mais informações, veja [Gerir a disponibilidade das máquinas virtuais](../../../virtual-machines/availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ### <a name="high-availability-nodes-in-an-availability-zone"></a>Nódes de alta disponibilidade numa zona de disponibilidade
 As zonas de disponibilidade são localizações físicas únicas dentro de uma região de Azure. Cada zona é constituída por um ou mais datacenters equipados com potência, arrefecimento e networking independentes. A separação física das zonas de disponibilidade dentro de uma região ajuda a proteger aplicações e dados de falhas do datacenter, garantindo que pelo menos uma máquina virtual está disponível e cumpre o Azure SLA de 99,99 por cento. 
@@ -165,6 +165,6 @@ A geo-replicação nos discos Azure não suporta o ficheiro de dados e o ficheir
 
 Se não tiver a opção de desativar a geo-replicação na conta de armazenamento, guarde todos os dados e registos de uma base de dados no mesmo disco. Se tiver de utilizar mais do que um disco devido ao tamanho da base de dados, utilize uma das soluções de recuperação de desastres listadas anteriormente para garantir a redundância de dados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Decida se um [grupo de disponibilidade](availability-group-overview.md) ou uma instância de cluster de [failover](failover-cluster-instance-overview.md) é a melhor solução de continuidade de negócio para o seu negócio. Em seguida, reveja as [melhores práticas](hadr-cluster-best-practices.md) para configurar o seu ambiente para uma elevada disponibilidade e recuperação de desastres.

@@ -10,12 +10,12 @@ author: cartacioS
 ms.author: sacartac
 ms.date: 10/27/2020
 ms.custom: automl
-ms.openlocfilehash: 6ed9b316fceeb30a775e2e0d90e7bbb0a07278cd
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: e7038a4e06a96ac2df1a7f0918877db9c97cb71d
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102180502"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102502540"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>O que é o machine learning automatizado (AutoML)?
 
@@ -116,7 +116,7 @@ Para experiências automatizadas de machine learning, a caracterização é apli
 
 Em todas as experiências automatizadas de aprendizagem automática de máquinas, os seus dados são automaticamente dimensionados ou normalizados para ajudar os algoritmos a funcionarem bem. Durante o treino de modelo, uma das seguintes técnicas de escala ou normalização será aplicada a cada modelo. Saiba como o AutoML ajuda a [prevenir dados sobreajustes e desequilibrados](concept-manage-ml-pitfalls.md) nos seus modelos.
 
-|Processamento &nbsp; de escala & &nbsp;| Descrição |
+|Processamento &nbsp; de escala & &nbsp;| Description |
 | ------------- | ------------- |
 | [StandardScaleWrapper](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html)  | Padronizar as características removendo a média e a escala para a variação da unidade  |
 | [MinMaxScalar](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html)  | Transforma as características escalando cada recurso pelo mínimo e máximo da coluna  |
@@ -204,7 +204,7 @@ Por exemplo, a construção de um modelo __para cada instância ou indivíduo__ 
 
 A Azure Machine Learning oferece duas experiências para trabalhar com ML automatizado:
 
-* Para clientes experientes em código, [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) 
+* Para clientes experientes em código, [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro) 
 
 * Para clientes de experiência de código limitada/sem código, estúdio Azure Machine Learning em [https://ml.azure.com](https://ml.azure.com/)  
 
@@ -289,7 +289,7 @@ Reveja exemplos de código detalhados e use casos no [repositório de cadernos G
 
 ### <a name="python-sdk-reference"></a>Referência Python SDK
 
-Aprofundar a sua experiência em padrões de design SDK e especificações de classe com a [documentação de referência da classe AutoML.](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?preserve-view=true&view=azure-ml-py) 
+Aprofundar a sua experiência em padrões de design SDK e especificações de classe com a [documentação de referência da classe AutoML.](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) 
 
 > [!Note]
 > As capacidades automatizadas de aprendizagem automática também estão disponíveis noutras soluções da Microsoft, tais [como, ML.NET,](/dotnet/machine-learning/automl-overview) [HDInsight,](../hdinsight/spark/apache-spark-run-machine-learning-automl.md) [Power BI](/power-bi/service-machine-learning-automated) e [SQL Server](https://cloudblogs.microsoft.com/sqlserver/2019/01/09/how-to-automate-machine-learning-on-sql-server-2019-big-data-clusters/)

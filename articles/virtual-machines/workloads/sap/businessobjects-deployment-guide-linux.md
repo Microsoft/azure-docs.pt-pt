@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/05/2020
 ms.author: depadia
-ms.openlocfilehash: 7a40acf7dea11781a0381e93ea180c5185b7818b
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: b94e1f82409da3329eb6d978fa2ae0222928cd97
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101671924"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102505941"
 ---
 # <a name="sap-businessobjects-bi-platform-deployment-guide-for-linux-on-azure"></a>Guia de implementação da plataforma de BI SAP BusinessObjects para Linux no Azure
 
@@ -36,7 +36,7 @@ Neste exemplo, abaixo a versão do produto e o layout do sistema de ficheiros é
 - Base de Dados Azure para MySQL (Versão: 8.0.15)
 - Conector MySQL C API - libmysqlclient (versão: 6.1.11)
 
-| Sistema de Ficheiros        | Descrição                                                                                                               | Tamanho (GB)             | Proprietário  | Group  | Armazenamento                    |
+| Sistema de Ficheiros        | Description                                                                                                               | Tamanho (GB)             | Proprietário  | Group  | Armazenamento                    |
 |--------------------|---------------------------------------------------------------------------------------------------------------------------|-----------------------|--------|--------|----------------------------|
 | /usr/seiva           | O sistema de ficheiros para instalação de caso SAP BOBI, aplicação web tomcat predefinido e controladores de base de dados (se necessário) | Diretrizes de Dimensionamento SAP | bl1adm | sapsys | Disco Premium Gerido - SSD |
 | /usr/seiva/frsinput  | O diretório de montagem é para os ficheiros partilhados em todos os anfitriões BOBI que serão usados como Diretório de Repositório de Ficheiros de Entrada  | Necessidade de Negócios         | bl1adm | sapsys | Azure NetApp Files         |
@@ -603,7 +603,7 @@ Para reduzir o impacto do tempo de inatividade devido a um ou mais eventos, é a
 - Utilize discos geridos para VMs num conjunto de disponibilidade.
 - Configure cada nível de aplicação em conjuntos de disponibilidade separados.
 
-Para mais informações, consulte [Gerir a disponibilidade de máquinas virtuais Linux](../../manage-availability.md)
+Para mais informações, consulte [Gerir a disponibilidade de máquinas virtuais Linux](../../availability.md)
 
 #### <a name="high-availability-for-cms-database"></a>Alta disponibilidade para base de dados CMS
 

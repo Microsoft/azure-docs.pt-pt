@@ -5,12 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 02/01/2021
 ms.topic: conceptual
-ms.openlocfilehash: 3f8e23fdeb0a05d2c19f131cf79a079426a9b494
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: ae3329401a138bc0566ea93a8fbf2071fd44f02c
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101726500"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102503424"
 ---
 # <a name="manage-modules-in-azure-automation"></a>Utilizar módulos na Automatização do Azure
 
@@ -142,7 +142,7 @@ Importar um módulo Az na sua conta Automation não importa automaticamente o m�
 
 * Quando um livro invoca um cmdlet de um módulo.
 * Quando um livro de bordo importa o módulo explicitamente com o cmdlet [do Módulo de Importação.](/powershell/module/microsoft.powershell.core/import-module)
-* Quando um livro de bordo importa o módulo explicitamente com a declaração [do módulo usando.](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_using?view=powershell-7.1#module-syntax) A declaração de utilização é suportada a partir do Windows PowerShell 5.0 e suporta classes e importação de tipo enum.
+* Quando um livro de bordo importa o módulo explicitamente com a declaração [do módulo usando.](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_using#module-syntax) A declaração de utilização é suportada a partir do Windows PowerShell 5.0 e suporta classes e importação de tipo enum.
 * Quando um livro importa outro módulo dependente.
 
 Pode importar os módulos Az no portal Azure. Lembre-se de importar apenas os módulos Az de que necessita, não todo o módulo Az.Automation. Como [a Az.Accounts](https://www.powershellgallery.com/packages/Az.Accounts/1.1.0) é uma dependência para os outros módulos Az, certifique-se de importar este módulo antes de qualquer outro.

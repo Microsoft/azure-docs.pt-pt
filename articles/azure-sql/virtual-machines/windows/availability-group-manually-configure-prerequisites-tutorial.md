@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 869c4ac5cde7d1e50be0f2f738d8a0ce6de5e625
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: f5739604537ccc67e2cf57310269369909038d67
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98951722"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102508763"
 ---
 # <a name="tutorial-prerequisites-for-creating-availability-groups-on-sql-server-on-azure-virtual-machines"></a>Tutorial: Pré-requisitos para criar grupos de disponibilidade no SQL Server em Azure Virtual Machines
 
@@ -145,7 +145,7 @@ A tabela a seguir resume as definições de configuração da rede:
 
 ## <a name="create-availability-sets"></a>Criar conjuntos de disponibilidade
 
-Antes de criar máquinas virtuais, tem de criar conjuntos de disponibilidade. Os conjuntos de disponibilidade reduzem o tempo de inatividade para eventos de manutenção planeados ou não planeados. Um conjunto de disponibilidade de Azure é um grupo lógico de recursos que o Azure coloca em domínios de falhas físicas e domínios de atualização. Um domínio de falha garante que os membros do conjunto de disponibilidade tenham recursos de potência e rede separados. Um domínio de atualização garante que os membros do conjunto de disponibilidade não são reduzidos para manutenção ao mesmo tempo. Para obter mais informações, veja [Gerir a disponibilidade das máquinas virtuais](../../../virtual-machines/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Antes de criar máquinas virtuais, tem de criar conjuntos de disponibilidade. Os conjuntos de disponibilidade reduzem o tempo de inatividade para eventos de manutenção planeados ou não planeados. Um conjunto de disponibilidade de Azure é um grupo lógico de recursos que o Azure coloca em domínios de falhas físicas e domínios de atualização. Um domínio de falha garante que os membros do conjunto de disponibilidade tenham recursos de potência e rede separados. Um domínio de atualização garante que os membros do conjunto de disponibilidade não são reduzidos para manutenção ao mesmo tempo. Para obter mais informações, veja [Gerir a disponibilidade das máquinas virtuais](../../../virtual-machines/availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 Precisa de dois conjuntos de disponibilidade. Um é para os controladores de domínio. A segunda é para os VMs do SqL Server.
 
@@ -205,7 +205,7 @@ A tabela a seguir mostra as definições para estas duas máquinas:
 | **Conta de armazenamento de diagnóstico** |*Criado automaticamente* |
 
    >[!IMPORTANT]
-   >Só é possível colocar um VM num conjunto de disponibilidade quando o criar. Não é possível alterar o conjunto de disponibilidade após a criação de um VM. Ver [Gerir a disponibilidade de máquinas virtuais.](../../../virtual-machines/manage-availability.md)
+   >Só é possível colocar um VM num conjunto de disponibilidade quando o criar. Não é possível alterar o conjunto de disponibilidade após a criação de um VM. Ver [Gerir a disponibilidade de máquinas virtuais.](../../../virtual-machines/availability.md)
 
 Azure cria as máquinas virtuais.
 
@@ -383,7 +383,7 @@ Antes de prosseguir, considere as seguintes decisões de design.
 
 * **Armazenamento - Discos Geridos Azure**
 
-   Para o armazenamento de máquinas virtuais, utilize discos geridos Azure. A Microsoft recomenda discos geridos para máquinas virtuais SQL Server. O Managed Disks processa o armazenamento em segundo plano. Além disso, se houver máquinas virtuais com Managed Disks no mesmo conjunto de disponibilidade, o Azure distribui os recursos de armazenamento para fornecer a redundância adequada. Para obter informações adicionais, veja [Azure Managed Disks Overview](../../../virtual-machines/managed-disks-overview.md) (Descrição Geral do Managed Disks). Para obter detalhes sobre discos geridos num conjunto de disponibilidade, consulte [Use Managed Disks para VMs num conjunto de disponibilidade](../../../virtual-machines/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
+   Para o armazenamento de máquinas virtuais, utilize discos geridos Azure. A Microsoft recomenda discos geridos para máquinas virtuais SQL Server. O Managed Disks processa o armazenamento em segundo plano. Além disso, se houver máquinas virtuais com Managed Disks no mesmo conjunto de disponibilidade, o Azure distribui os recursos de armazenamento para fornecer a redundância adequada. Para obter informações adicionais, veja [Azure Managed Disks Overview](../../../virtual-machines/managed-disks-overview.md) (Descrição Geral do Managed Disks). Para obter detalhes sobre discos geridos num conjunto de disponibilidade, consulte [Use Managed Disks para VMs num conjunto de disponibilidade](../../../virtual-machines/availability.md).
 
 * **Rede - Endereços IP privados na produção**
 
@@ -539,7 +539,7 @@ Repita os passos no outro SQL Server VM.
 
 ### <a name="tuning-failover-cluster-network-thresholds"></a>Afinação dos limiares da rede de cluster de falhas
 
-Ao executar os nós do Cluster Failover do Windows em Azure Vms com grupos de disponibilidade do SQL Server, altere a definição do cluster para um estado de monitorização mais descontraído.  Isto tornará o cluster muito mais estável e fiável.  Para obter mais informações sobre este assunto, consulte [IaaS com SQL Server - Afinação dos limiares da rede de cluster](/windows-server/troubleshoot/iaas-sql-failover-cluster)de falhas .
+Ao executar os nós do Cluster Failover do Windows em VMs Azure com grupos de disponibilidade do SQL Server, altere a definição do cluster para um estado de monitorização mais descontraído.  Isto tornará o cluster muito mais estável e fiável.  Para obter mais informações sobre este assunto, consulte [IaaS com SQL Server - Afinação dos limiares da rede de cluster](/windows-server/troubleshoot/iaas-sql-failover-cluster)de falhas .
 
 
 ## <a name="configure-the-firewall-on-each-sql-server-vm"></a><a name="endpoint-firewall"></a> Configure a firewall em cada SQL Server VM

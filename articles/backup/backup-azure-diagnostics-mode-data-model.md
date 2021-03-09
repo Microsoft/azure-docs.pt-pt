@@ -3,12 +3,12 @@ title: Azure Monitor regista modelo de dados
 description: Neste artigo, conheça os dados do modelo de dados do Azure Monitor Log Analytics para os dados do Azure Backup.
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.openlocfilehash: 2d2146612763bac39eb636bb7da522586a0daee2
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 004c5a6c0c2c4dcfcf13134bd5a5143ba647048f
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100586779"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102500993"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Registar modelo de dados do Analytics para dados de backup do Azure
 
@@ -18,7 +18,8 @@ Utilize o modelo de dados Log Analytics para criar alertas personalizados a part
 
 > [!NOTE]
 >
-> Este modelo de dados faz referência ao Modo Azure Diagnostics de enviar eventos de diagnóstico para Log Analytics (LA). Para conhecer o modelo de dados para o novo Modo Específico de Recurso, pode consultar o seguinte artigo: [Data Model for Azure Backup Diagnostic Events](./backup-azure-reports-data-model.md)
+> * Este modelo de dados faz referência ao Modo Azure Diagnostics de enviar eventos de diagnóstico para Log Analytics (LA). Para conhecer o modelo de dados para o novo Modo Específico de Recurso, pode consultar o seguinte artigo: [Data Model for Azure Backup Diagnostic Events](./backup-azure-reports-data-model.md)
+> * Para criar visualizações de [relatórios personalizados,](backup-reports-system-functions.md) recomenda-se a utilização de funções do sistema nos registos do Azure Monitor em vez de trabalhar com as tabelas em bruto listadas abaixo.
 
 ## <a name="using-azure-backup-data-model"></a>Usando o modelo de dados de backup Azure
 
@@ -172,7 +173,7 @@ Esta tabela fornece detalhes sobre campos relacionados com o emprego.
 
 Esta tabela fornece detalhes sobre campos relacionados com políticas.
 
-| Campo | Tipo de Dados | Versões Aplicáveis | Description |
+| Campo | Tipo de Dados | Versões Aplicáveis | Descrição |
 | --- | --- | --- | --- |
 | EventName_s |Texto ||Este campo representa o nome deste evento. É sempre AzureBackupCentralReport |
 | SchemaVersion_s |Texto ||Este campo denota a versão atual do esquema. É **V2.** |
@@ -220,7 +221,7 @@ Esta tabela fornece detalhes sobre campos relacionados com políticas.
 
 Esta tabela fornece detalhes sobre associações políticas com várias entidades.
 
-| Campo | Tipo de Dados | Versões Aplicáveis | Description |
+| Campo | Tipo de Dados | Versões Aplicáveis | Descrição |
 | --- | --- | --- | --- |
 | EventName_s |Texto ||Este campo representa o nome deste evento. É sempre AzureBackupCentralReport |
 | SchemaVersion_s |Texto ||Este campo denota a versão atual do esquema. É **V2.** |
@@ -349,7 +350,7 @@ Esta tabela especifica a carga de trabalho(s) a volume a que está associada.
 
 Esta tabela fornece campos básicos protegidos relacionados com casos.
 
-| Campo | Tipo de Dados |Versões Aplicáveis | Description |
+| Campo | Tipo de Dados |Versões Aplicáveis | Descrição |
 | --- | --- | --- | --- |
 | BackupItemUniqueId_s |Texto |v2|ID único usado para identificar o item de backup para VMs apoiado usando DPM, MABS|
 | ProtectedContainerUniqueId_s |Texto |v2|ID único usado para identificar o recipiente protegido para tudo, exceto VMs apoiados usando DPM, MABS|

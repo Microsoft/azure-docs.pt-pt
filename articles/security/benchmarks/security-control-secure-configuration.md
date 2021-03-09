@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: f945699256b4de9bd87ee4ab7500268302e93089
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 44604f910b3ee6e6ce1b21c736c6ad1f0443e996
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880174"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102500041"
 ---
 # <a name="security-control-secure-configuration"></a>Controlo de Segurança: Configuração Segura
 
@@ -30,7 +30,7 @@ Além disso, o Azure Resource Manager tem a capacidade de exportar o modelo na N
 
 Também pode utilizar recomendações do Azure Security Center como uma base de configuração segura para os seus recursos Azure.
 
-- [Como ver pseudónimos disponíveis da Política Azure](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [Como ver pseudónimos disponíveis da Política Azure](/powershell/module/az.resources/get-azpolicyalias)
 
 - [Tutorial: Criar e gerir políticas para impor o cumprimento](../../governance/policy/tutorials/create-and-manage.md)
 
@@ -199,6 +199,6 @@ Implementar o Scanner credencial para identificar credenciais dentro do código.
 - [Como configurar o Scanner Credencial](https://secdevtools.azurewebsites.net/helpcredscan.html)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Veja o próximo Controlo de Segurança:  [Defesa de Malware](security-control-malware-defense.md)

@@ -5,12 +5,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 4c67d3608d2128385c273425ea495a02fa5a8c45
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 06a3e7263b2e03cfc37f7ba3c733e07536b5d473
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102180909"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102501809"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Criar e configurar um cluster Azure Kubernetes Services (AKS) para usar nós virtuais no portal Azure
 
@@ -64,7 +64,7 @@ Na página **Escala,** selecione *Ativado* sob **nós virtuais**.
 
 ![Crie o cluster AKS e ative os nóns virtuais](media/virtual-nodes-portal/enable-virtual-nodes.png)
 
-Por padrão, é criado um diretor de serviço Azure Ative Directory. Este diretor de serviço é utilizado para comunicação de cluster e integração com outros serviços Azure. Em alternativa, pode utilizar uma identidade gerida para permissões em vez de um principal de serviço. Para obter mais informações, consulte [utilização de identidades geridas.](use-managed-identity.md)
+Por padrão, uma identidade de cluster é criada. Esta identidade de cluster é usada para comunicação de cluster e integração com outros serviços Azure. Por padrão, esta identidade de cluster é uma identidade gerida. Para obter mais informações, consulte [utilização de identidades geridas.](use-managed-identity.md) Também pode usar um principal de serviço como identidade de cluster.
 
 O cluster também está configurado para networking avançado. Os nós virtuais são configurados para usar a sua própria sub-rede de rede virtual Azure. Esta sub-rede delegou permissões para ligar os recursos Azure entre o cluster AKS. Se ainda não tiver uma sub-rede delegada, o portal Azure cria e configura a rede virtual Azure e a sub-rede para utilização com os nós virtuais.
 

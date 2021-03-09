@@ -17,12 +17,12 @@ ms.date: 1/29/2021
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 284b554581534a8493225fba0b70b074fb7dd982
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 7d8c4876faf9ebc2619309aa0095a8ffe1e9e93d
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101651942"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102500551"
 ---
 # <a name="overview-of-provisioning-logs-in-the-azure-portal-preview"></a>Visão geral dos registos de provisionamento no portal Azure (pré-visualização)
 
@@ -207,7 +207,7 @@ O ficheiro JSON é descarregado em formato minificado para reduzir o tamanho do 
 
 Aqui estão alguns comandos de amostra para trabalhar com o ficheiro JSON utilizando o PowerShell. Pode usar qualquer linguagem de programação com a qual se sinta confortável.  
 
-Primeiro, [leia o ficheiro JSON](/powershell/module/microsoft.powershell.utility/convertfrom-json?view=powershell-7.1) executando este comando:
+Primeiro, [leia o ficheiro JSON](/powershell/module/microsoft.powershell.utility/convertfrom-json) executando este comando:
 
 ` $JSONContent = Get-Content -Path "<PATH TO THE PROVISIONING LOGS FILE>" | ConvertFrom-JSON`
 
@@ -243,7 +243,7 @@ Aqui ficam algumas dicas e considerações para os relatórios de provisionament
 
 Utilize a tabela seguinte para entender melhor como resolver os erros que encontra nos registos de provisionamento. Para quaisquer códigos de erro que faltem, forneça feedback utilizando o link na parte inferior desta página. 
 
-|Código de erro|Descrição|
+|Código de erro|Description|
 |---|---|
 |Conflito, Conflito de Entrada|Corrija os valores de atributos contraditórios em AZure AD ou na aplicação. Ou, reveja a configuração do seu atributo correspondente se a conta de utilizador conflituosa deveria ser correspondida e assumida. Reveja a [documentação](../app-provisioning/customize-application-attributes.md) para obter mais informações sobre a configuração de atributos correspondentes.|
 |TooManyRequests|A aplicação-alvo rejeitou esta tentativa de atualizar o utilizador por estar sobrecarregado e receber demasiados pedidos. Não há nada para fazer. Esta tentativa será automaticamente retirada. A Microsoft também foi notificada deste problema.|

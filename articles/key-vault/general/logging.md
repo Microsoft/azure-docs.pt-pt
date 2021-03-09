@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 12/18/2020
 ms.author: mbaldwin
-ms.openlocfilehash: bc9601dbea5c73c6909bd658f322c345143a526c
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 99313cf1248ef5e90d7cd60d528a58c7925298d0
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98790279"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102499531"
 ---
 # <a name="azure-key-vault-logging"></a>Registo do Azure Key Vault
 
@@ -191,10 +191,10 @@ Pode utilizar a solução Key Vault nos registos do Azure Monitor para rever os 
 
 Para obter mais informações, incluindo como configurar isto, consulte [o Azure Key Vault no Azure Monitor](../../azure-monitor/insights/key-vault-insights-overview.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Como permitir a exploração do Cofre de Chaves](howto-logging.md)
 - [Monitor azul](../../azure-monitor/index.yml)
 - Para um tutorial que utilize o Azure Key Vault numa aplicação web .NET, consulte [Use Azure Key Vault a partir de uma aplicação web](tutorial-net-create-vault-azure-web-app.md).
 - Para as referências de programação, consulte o [Guia para programadores do Cofre de Chaves do Azure](developers-guide.md).
-- Para obter uma lista de Azure PowerShell 1.0 cmdlets para Azure Key Vault, consulte [as cmdlets do Cofre da Chave Azure](/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault).
+- Para obter uma lista de Azure PowerShell 1.0 cmdlets para Azure Key Vault, consulte [as cmdlets do Cofre da Chave Azure](/powershell/module/az.keyvault/#key_vault).

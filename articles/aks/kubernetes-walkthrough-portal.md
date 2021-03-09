@@ -6,12 +6,12 @@ services: container-service
 ms.topic: quickstart
 ms.date: 01/13/2021
 ms.custom: mvc, seo-javascript-october2019, contperfq3
-ms.openlocfilehash: 63d23b01eddc70dedd849560248dd053c80e0037
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 5f758c0bc50b2d4f22b3dbf0efaa4ecbc3f334cb
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102181419"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102507811"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>Quickstart: Implementar um cluster Azure Kubernetes Service (AKS) utilizando o portal Azure
 
@@ -47,13 +47,11 @@ Para criar um cluster do AKS, execute os seguintes passos:
 
 4. Na página de **piscinas de nó,** mantenha as opções predefinidos. Na parte inferior do ecrã, clique em **Seguinte: Autenticação**.
     > [!CAUTION]
-    > A criação de novos diretores de serviços AAD pode demorar vários minutos a propagar-se e a tornar-se disponível, não tendo sido encontrados erros e falhas de validação no portal Azure. Se você acertar nisto, visite [problemas comuns de serviço Azure Kubernetes](troubleshooting.md#received-an-error-saying-my-service-principal-wasnt-found-or-is-invalid-when-i-try-to-create-a-new-cluster) para mitigação.
+    > A criação de uma nova identidade de cluster pode demorar vários minutos a propagar-se e a tornar-se disponível, fazendo com que o Diretor de Serviço não tenha encontrado erros e falhas de validação no portal Azure. Se você acertar nisto, visite [problemas comuns de serviço Azure Kubernetes](troubleshooting.md#received-an-error-saying-my-service-principal-wasnt-found-or-is-invalid-when-i-try-to-create-a-new-cluster) para mitigação.
 
 5. Na página **Autenticação**, configure as opções seguintes:
-    - Criar um novo principal de serviço ao deixar o campo **Principal de Serviço** com **(novo) principal de serviço predefinido**. Em alternativa, pode selecionar *Configurar o principal de serviço* para utilizar um que já exista. Se utilizar um existente, terá de fornecer o ID do cliente SPN e o segredo.
+    - Crie uma nova identidade de cluster deixando o campo **de Autenticação** com **identidade gerida do Sistema.** Em alternativa, pode escolher **o Diretor de Serviço** para utilizar um diretor de serviço. Selecione *(novo) principal de serviço por defeito* para criar um principal de serviço predefinido ou principal de serviço *Configure* para usar um existente. Se utilizar um existente, terá de fornecer o ID do cliente SPN e o segredo.
     - Ative a opção para o controlo de acesso baseado em funções de Kubernetes (Kubernetes RBAC). Deste modo, obtém um controlo mais detalhado sobre o acesso aos recursos do Kubernetes implementados no cluster do AKS.
-
-    Em alternativa, pode utilizar uma identidade gerida em vez de um principal de serviço. Consulte [as identidades geridas para](use-managed-identity.md) obter mais informações.
 
 Por predefinição, é utilizada a rede *básica* e o Monitor Azure para contentores está ativado. Clique em **Rever + criar** e, em seguida, em **Criar** quando a validação for concluída.
 

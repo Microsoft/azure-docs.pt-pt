@@ -10,12 +10,12 @@ ms.date: 3/02/2021
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 620afb0ca5de7c6a89db107fb4616748473f0809
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 0612984afe71c3ae497d16968d2470668cc60ca7
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101701659"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102504836"
 ---
 # <a name="monitoring-azure-files"></a>Monitorar ficheiros Azure
 
@@ -105,6 +105,8 @@ Se optar por arquivar os seus registos numa conta de armazenamento, pagará o vo
 
 2. Na lista de down-down da **conta De armazenamento,** selecione a conta de armazenamento para a que pretende arquivar os seus registos, clique no botão **OK** e, em seguida, clique no botão **Guardar.**
 
+   [!INCLUDE [no retention policy](../../../includes/azure-storage-logs-retention-policy.md)]
+
    > [!NOTE]
    > Antes de escolher uma conta de armazenamento como destino de exportação, consulte [os registos de recursos do Archive Azure](../../azure-monitor/essentials/resource-logs.md#send-to-azure-storage) para entender os pré-requisitos na conta de armazenamento.
 
@@ -149,12 +151,14 @@ Se optar por arquivar os seus registos numa conta de armazenamento, pagará o vo
 Ativar os registos utilizando o [cmdlet de definição de](/powershell/module/az.monitor/set-azdiagnosticsetting) diagnósticose de definição de energia, juntamente com o `StorageAccountId` parâmetro.
 
 ```powershell
-Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -StorageAccountId <storage-account-resource-id> -Enabled $true -Category <operations-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
+Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -StorageAccountId <storage-account-resource-id> -Enabled $true -Category <operations-to-log> 
 ```
 
 Substitua o `<storage-service-resource--id>` espaço reservado neste corte pelo ID de recursos do serviço Azure File. Pode encontrar o ID de recursos no portal Azure abrindo a página **Propriedades** da sua conta de armazenamento.
 
 Pode `StorageRead` `StorageWrite` utilizar, e `StorageDelete` pelo valor do parâmetro **Categoria.**
+
+[!INCLUDE [no retention policy](../../../includes/azure-storage-logs-retention-policy.md)]
 
 Eis um exemplo:
 
@@ -211,16 +215,18 @@ Se optar por arquivar os seus registos numa conta de armazenamento, pagará o vo
 Ativar os registos utilizando as [definições de diagnóstico do monitor az criar](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) comando.
 
 ```azurecli-interactive
-az monitor diagnostic-settings create --name <setting-name> --storage-account <storage-account-name> --resource <storage-service-resource-id> --resource-group <resource-group> --logs '[{"category": <operations>, "enabled": true "retentionPolicy": {"days": <number-days>, "enabled": <retention-bool}}]'
+az monitor diagnostic-settings create --name <setting-name> --storage-account <storage-account-name> --resource <storage-service-resource-id> --resource-group <resource-group> --logs '[{"category": <operations>, "enabled": true}]'
 ```
 
 Substitua o `<storage-service-resource--id>` espaço reservado neste corte pelo serviço de armazenamento ID Blob de recurso. Pode encontrar o ID de recursos no portal Azure abrindo a página **Propriedades** da sua conta de armazenamento.
 
 Pode `StorageRead` utilizar, `StorageWrite` e pelo valor do parâmetro da `StorageDelete` **categoria.**
 
+[!INCLUDE [no retention policy](../../../includes/azure-storage-logs-retention-policy.md)]
+
 Eis um exemplo:
 
-`az monitor diagnostic-settings create --name setting1 --storage-account mystorageaccount --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/fileServices/default --resource-group myresourcegroup --logs '[{"category": StorageWrite, "enabled": true, "retentionPolicy": {"days": 90, "enabled": true}}]'`
+`az monitor diagnostic-settings create --name setting1 --storage-account mystorageaccount --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/fileServices/default --resource-group myresourcegroup --logs '[{"category": StorageWrite, "enabled": true}]'`
 
 Para obter uma descrição de cada parâmetro, consulte os [registos de Recursos de Arquivo através do CLI Azure](../../azure-monitor/essentials/resource-logs.md#send-to-azure-storage).
 

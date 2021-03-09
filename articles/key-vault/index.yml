@@ -13,12 +13,12 @@ metadata:
   author: msmbaldwin
   ms.author: mbaldwin
   ms.date: 04/07/2020
-  ms.openlocfilehash: 96d77daaaa88172c2952e641ba0bfd8babaaf7ea
-  ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+  ms.openlocfilehash: a049c1516c4888330b5f0eeb21b1d1823eb73f18
+  ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/07/2021
-  ms.locfileid: "102428478"
+  ms.lasthandoff: 03/09/2021
+  ms.locfileid: "102500228"
 highlightedContent:
   items:
   - title: Introdução ao Azure Key Vault
@@ -111,7 +111,7 @@ conceptualContent:
     - url: /dotnet/api/overview/azure/key-vault
       itemType: reference
       text: Biblioteca de Cliente .NET
-    - url: /python/api/overview/azure/key-vault-index?view=azure-python
+    - url: /python/api/overview/azure/key-vault-index
       itemType: reference
       text: Biblioteca de Cliente Python
     - url: https://azure.github.io/azure-sdk-for-java/keyvault.html

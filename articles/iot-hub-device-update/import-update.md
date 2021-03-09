@@ -6,12 +6,12 @@ ms.author: andbrown
 ms.date: 2/11/2021
 ms.topic: how-to
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 7f2353d9e87c35f01a9fd514df7cfb090a98bf27
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: 6502728a14ea825fadfde107e61f235db5619ae0
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102442949"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102507284"
 ---
 # <a name="import-new-update"></a>Importação Nova Atualização
 Saiba como importar uma nova atualização para a Atualização de Dispositivos para IoT Hub. Se ainda não o fez, não se esqueça de se familiarizar com os [conceitos básicos de importação.](import-concepts.md)
@@ -57,8 +57,8 @@ Saiba como importar uma nova atualização para a Atualização de Dispositivos 
 
     | Parâmetro | Descrição |
     | --------- | ----------- |
-    | dispositivo Manfacturer | Fabricante do dispositivo a atualização é compatível com, por exemplo, Contoso
-    | modelo de dispositivo | Modelo do dispositivo a atualização é compatível com, por exemplo, torradeira
+    | dispositivo Manfacturer | Fabricante do dispositivo a atualização é compatível com, por exemplo, Contoso. Deve combinar a propriedade do [dispositivo](https://docs.microsoft.com/azure/iot-hub-device-update/device-update-plug-and-play#device-properties) _do fabricante_
+    | modelo de dispositivo | Modelo do dispositivo a atualização é compatível, por exemplo, com torradeira. Deve combinar com [a propriedade](https://docs.microsoft.com/azure/iot-hub-device-update/device-update-plug-and-play#device-properties) do dispositivo _modelo_
     | atualizarProvider | Entidade que está a criar ou diretamente responsável pela atualização. Muitas vezes será um nome de empresa.
     | atualizarName | Identificador para uma classe de atualizações. A aula pode ser o que quiser. Muitas vezes será um dispositivo ou nome de modelo.
     | actualizaçãoVersão | Número de versão que distingue esta atualização de outras que têm o mesmo Fornecedor e Nome. Pode ou não coincidir com uma versão de um componente de software individual no dispositivo.

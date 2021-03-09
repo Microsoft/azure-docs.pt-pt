@@ -11,12 +11,12 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce8aa5108b6998424b35e3f4ecac6b51e78f276b
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 94187f2f94581b4ff48ddb0cd014dc26268fcf15
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102424126"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102500517"
 ---
 # <a name="plan-an-azure-active-directory-self-service-password-reset-deployment"></a>Planeie uma implementação de autosserviço do Azure Ative Directory
 
@@ -25,7 +25,7 @@ ms.locfileid: "102424126"
 >
 > **Se é um utilizador final e precisa de voltar [https://aka.ms/sspr](https://aka.ms/sspr) à sua conta, vá para**.
 
-[Self-Service Password Reset (SSPR)](https://www.youtube.com/watch?v=tnb2Qf4hTP8) é uma funcionalidade do Azure Ative Directory (AD) que permite aos utilizadores redefinirem as suas palavras-passe sem contactarem o pessoal de TI para obterem ajuda. Os utilizadores podem desbloquear-se rapidamente e continuar a trabalhar independentemente de onde estejam ou a hora do dia. Ao permitir que os colaboradores se desbloqueiem, a sua organização pode reduzir o tempo não produtivo e os elevados custos de suporte para as questões mais comuns relacionadas com a palavra-passe.
+[Self-Service Password Reset (SSPR)](https://www.youtube.com/watch?v=pS3XwfxJrMo) é uma funcionalidade do Azure Ative Directory (AD) que permite aos utilizadores redefinirem as suas palavras-passe sem contactarem o pessoal de TI para obterem ajuda. Os utilizadores podem desbloquear-se rapidamente e continuar a trabalhar independentemente de onde estejam ou a hora do dia. Ao permitir que os colaboradores se desbloqueiem, a sua organização pode reduzir o tempo não produtivo e os elevados custos de suporte para as questões mais comuns relacionadas com a palavra-passe.
 
 A SSPR tem as seguintes capacidades-chave:
 
@@ -155,14 +155,14 @@ São necessárias as seguintes definições para ativar o SSPR juntamente com os
 | **Propriedades SSPR** | Redefinição da palavra-passe de autosserviço ativada | **Grupo selecionado** para piloto / **Todos** para produção |
 | **Métodos de autenticação** | Métodos de autenticação necessários para registar | Sempre 1 mais do que o necessário para reset |
 |   | Métodos de autenticação necessários para repor | Um ou dois |
-| **Inscrição** | Exigir que os utilizadores se registem ao iniciar sessão | Sim |
+| **Inscrição** | Exigir que os utilizadores se registem ao iniciar sessão | Yes |
 |   | Número de dias antes de ser pedido aos utilizadores que voltem a confirmar as informações de autenticação | 90 - 180 dias |
-| **Notificações** | Notificar os utilizadores sobre reposições de palavras-passe | Sim |
-|   | Notificar todos os administradores quando outros administradores repõem as palavras-passe deles | Sim |
-| **Personalização** | Personalizar link helpdesk | Sim |
+| **Notificações** | Notificar os utilizadores sobre reposições de palavras-passe | Yes |
+|   | Notificar todos os administradores quando outros administradores repõem as palavras-passe deles | Yes |
+| **Personalização** | Personalizar link helpdesk | Yes |
 |   | E-mail de ajuda personalizada ou URL | Site de suporte ou endereço de e-mail |
-| **Integração no local** | Descreva palavras-passe para a AD no local | Sim |
-|   | Permitir que os utilizadores desbloqueiem a conta sem redefinir a palavra-passe | Sim |
+| **Integração no local** | Descreva palavras-passe para a AD no local | Yes |
+|   | Permitir que os utilizadores desbloqueiem a conta sem redefinir a palavra-passe | Yes |
 
 ### <a name="sspr-properties"></a>Propriedades SSPR
 
@@ -255,7 +255,7 @@ Embora a SSPR não crie normalmente problemas de utilização, é importante pre
 
 Para ativar o sucesso da sua equipa de suporte, pode criar um FAQ baseado em questões que recebe dos seus utilizadores. Eis alguns exemplos:
 
-| Cenários| Descrição |
+| Cenários| Description |
 | - | - |
 | O utilizador não dispõe de quaisquer métodos de autenticação registados| Um utilizador está a tentar redefinir a sua palavra-passe mas não dispõe de nenhum dos métodos de autenticação que registou disponíveis (Exemplo: deixaram o telemóvel em casa e não conseguem aceder ao e-mail) |
 | O utilizador não está a receber uma mensagem ou uma chamada no seu escritório ou telemóvel| Um utilizador está a tentar verificar a sua identidade por texto ou chamada, mas não está a receber um texto/chamada. |

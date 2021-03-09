@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/15/2017
 ms.author: luywang
 ms.subservice: disks
-ms.openlocfilehash: e00496ad623d534e1fbdcb60f22a1e36f77c4212
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 5f8f72ec296be3127a2f8c1ddc87d883d7e2deed
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99806177"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102504580"
 ---
 # <a name="use-site-recovery-to-migrate-to-premium-storage"></a>Use a recuperação do site para migrar para o armazenamento premium
 
@@ -165,7 +165,7 @@ Para verificar se o seu servidor de configuração está associado com sucesso �
 
    ![Ativar o painel de replicação com a Fonte selecionada][13]
 
-Ao conceber o seu ambiente de Armazenamento Azure, recomendamos que utilize contas de armazenamento separadas para cada VM num conjunto de disponibilidade. Recomendamos que siga as melhores práticas na camada de armazenamento para [utilizar várias contas de armazenamento para cada conjunto de disponibilidade](../manage-availability.md). Distribuir discos VM para várias contas de armazenamento ajuda a melhorar a disponibilidade de armazenamento e distribui o E/S através da infraestrutura de armazenamento Azure.
+Ao conceber o seu ambiente de Armazenamento Azure, recomendamos que utilize contas de armazenamento separadas para cada VM num conjunto de disponibilidade. Recomendamos que siga as melhores práticas na camada de armazenamento para [utilizar várias contas de armazenamento para cada conjunto de disponibilidade](../availability.md). Distribuir discos VM para várias contas de armazenamento ajuda a melhorar a disponibilidade de armazenamento e distribui o E/S através da infraestrutura de armazenamento Azure.
 
 Se os seus VMs estiverem num conjunto de disponibilidade, em vez de replicar discos de todos os VMs numa única conta de armazenamento, recomendamos vivamente a migração de vários VMs várias vezes. Desta forma, os VMs no mesmo conjunto de disponibilidade não partilham uma única conta de armazenamento. Utilize o painel **de replicação ativa** para configurar uma conta de armazenamento de destino para cada VM, um de cada vez.
  

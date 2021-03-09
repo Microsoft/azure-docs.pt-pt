@@ -15,19 +15,19 @@ ms.workload: iaas-sql-server
 ms.date: 10/07/2020
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: d879039e6d3ad94e55ed7f7bd283f8b99a5b2161
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 8bbd56499c9b62248662fc5e8df0d5b3e1b672d4
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102042458"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102504172"
 ---
 # <a name="always-on-availability-group-on-sql-server-on-azure-vms"></a>Sempre no grupo de disponibilidade no SQL Server em VMs Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 Este artigo introduz grupos de disponibilidade always on para SQL Server em Azure Virtual Machines (VMs). 
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 Sempre Em grupos de disponibilidade em Azure Virtual Machines são semelhantes a [Always On availability groups no local](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server). No entanto, uma vez que as máquinas virtuais estão hospedadas em Azure, existem também algumas considerações adicionais, como a redundância de VM e o tráfego de encaminhamento na rede Azure. 
 
@@ -38,7 +38,7 @@ O diagrama a seguir ilustra um grupo de disponibilidade para o SQL Server em VMs
 
 ## <a name="vm-redundancy"></a>Redundância VM 
 
-Para aumentar a redundância e a elevada disponibilidade, os VMs do SQL Server devem estar no mesmo [conjunto de disponibilidade,](../../../virtual-machines/windows/tutorial-availability-sets.md#availability-set-overview)ou em [diferentes zonas de disponibilidade.](../../../availability-zones/az-overview.md)
+Para aumentar a redundância e a elevada disponibilidade, os VMs do SQL Server devem estar no mesmo [conjunto de disponibilidade,](../../../virtual-machines/availability-set-overview.md)ou em [diferentes zonas de disponibilidade.](../../../availability-zones/az-overview.md)
 
 A colocação de um conjunto de VMs no mesmo conjunto de disponibilidade protege contra falhas dentro de um datacenter causado por falha de equipamento (VMs dentro de um Conjunto de Disponibilidade não partilham recursos) ou de atualizações (VMs dentro de um Conjunto de Disponibilidade não são atualizados ao mesmo tempo). Zonas de disponibilidade protegem contra a falha de todo um datacenter, com cada Zona representando um conjunto de datacenters dentro de uma região.  Ao garantir que os recursos são colocados em diferentes Zonas de Disponibilidade, nenhuma paragem ao nível do datacenter pode tirar todos os seus VMs offline.
 
@@ -83,17 +83,17 @@ O quadro a seguir fornece uma comparação das opções disponíveis:
 |**Versão do SQL Server** |2016 + |2016 +|2016 +|2012 +|
 |**Edição do SQL Server** |Grandes Empresas |Grandes Empresas |Grandes Empresas |Enterprise, Standard|
 |**Versão do Windows Server**| 2016 + | 2016 + | 2016 + | Todos|
-|**Cria o cluster para si**|Sim|Sim | Sim |Não|
-|**Cria o grupo de disponibilidade para si** |Sim |Não|Não|Não|
-|**Cria ouvinte e equilibrador de carga de forma independente** |Não|Não|Não|Sim|
-|**Possível criar ouvinte dNN utilizando este método?**|Não|Não|Não|Sim|
+|**Cria o cluster para si**|Yes|Yes | Yes |No|
+|**Cria o grupo de disponibilidade para si** |Yes |No|No|No|
+|**Cria ouvinte e equilibrador de carga de forma independente** |No|No|No|Yes|
+|**Possível criar ouvinte dNN utilizando este método?**|No|No|No|Yes|
 |**Configuração do quórum WSFC**|Testemunha de cloud|Testemunha de cloud|Testemunha de cloud|Todos|
-|**DR com várias regiões** |Não|Não|Não|Sim|
-|**Suporte multi-subscrição** |Sim|Sim|Sim|Sim|
-|**Apoio a um AD existente**|Sim|Sim|Sim|Sim|
-|**DR com multizona na mesma região**|Sim|Sim|Sim|Sim|
-|**AG distribuído sem AD**|Não|Não|Não|Sim|
-|**AG distribuído sem cluster** |Não|Não|Não|Sim|
+|**DR com várias regiões** |No|No|No|Yes|
+|**Suporte multi-subscrição** |Yes|Yes|Yes|Yes|
+|**Apoio a um AD existente**|Yes|Yes|Yes|Yes|
+|**DR com multizona na mesma região**|Yes|Yes|Yes|Yes|
+|**AG distribuído sem AD**|No|No|No|Yes|
+|**AG distribuído sem cluster** |No|No|No|Yes|
 
 Para mais informações, consulte [o portal Azure,](availability-group-azure-portal-configure.md) [Azure CLI / PowerShell,](./availability-group-az-commandline-configure.md) [Quickstart Templates](availability-group-quickstart-template-configure.md)e [Manual](availability-group-manually-configure-prerequisites-tutorial.md).
 

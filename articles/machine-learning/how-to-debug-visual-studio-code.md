@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: luisquintanilla
 ms.author: luquinta
 ms.date: 09/30/2020
-ms.openlocfilehash: e572f1f6a9452ccab9deddb62a5e219a81df5d47
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 783b5afdaef369582614cde3525f7968fdb5e567
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97739999"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102508644"
 ---
 # <a name="interactive-debugging-with-visual-studio-code"></a>Depuragem interativa com código de estúdio visual
 
@@ -339,7 +339,7 @@ Poupe o `ip_address` valor. É usado na secção seguinte.
 Em alguns casos, poderá ser necessário depurar interativamente o código Python contido na sua implementação de modelo. Por exemplo, se o script de entrada estiver a falhar e a razão não puder ser determinada por registo adicional. Utilizando o Código VS e o depuratório, pode anexar-se ao código que está a funcionar dentro do contentor Docker.
 
 > [!IMPORTANT]
-> Este método de depuração não funciona quando se utiliza `Model.deploy()` e implanta um modelo `LocalWebservice.deploy_configuration` localmente. Em vez disso, deve criar uma imagem utilizando o método [Modelo.pacote().](/python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py#&preserve-view=truepackage-workspace--models--inference-config-none--generate-dockerfile-false-)
+> Este método de depuração não funciona quando se utiliza `Model.deploy()` e implanta um modelo `LocalWebservice.deploy_configuration` localmente. Em vez disso, deve criar uma imagem utilizando o método [Modelo.pacote().](/python/api/azureml-core/azureml.core.model.model#package-workspace--models--inference-config-none--generate-dockerfile-false-)
 
 As implementações de serviços web locais requerem uma instalação de Docker funcionando no seu sistema local. Para obter mais informações sobre a utilização do Docker, consulte a Documentação do [Docker.](https://docs.docker.com/) Note que ao trabalhar com casos de computação, Docker já está instalado.
 

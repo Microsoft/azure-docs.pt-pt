@@ -9,12 +9,12 @@ ms.subservice: extensions
 ms.date: 02/12/2021
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 3350ff7aa05232173e5fd3b21451a76a0a40683d
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 71ddb1217be7fe3e1254e0d49e1f40c43a55a3f0
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102043716"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102502421"
 ---
 # <a name="preview-orchestration-modes-for-virtual-machine-scale-sets-in-azure"></a>Pré-visualização: Modos de orquestração para conjuntos de escala de máquina virtual em Azure 
 
@@ -102,34 +102,34 @@ A tabela a seguir compara o modo de orquestração flexível, o modo de orquestr
 |         Tipo de máquina virtual  | Standard Azure IaaS VM (Microsoft.compute /virtualmachines)  | Conjunto de escala VMs específicos (Microsoft.compute /virtualmachinescalesets/virtualmachines)  | Standard Azure IaaS VM (Microsoft.compute /virtualmachines)  |
 |         SKUs apoiado  |            Série D, sérieS E, Série F, Série A, Série B, Intel, AMD  |            Todos os SKUs  |            Todos os SKUs  |
 |         Zonas de Disponibilidade  |            Especificar opcionalmente todas as instâncias aterram numa única zona de disponibilidade |            Especificar casos de terra em 1, 2 ou 3 zonas de disponibilidade  |            Não suportado  |
-|         Controlo total sobre VM, NICs, Discos  |            Sim  |            Controlo limitado com conjuntos de escala de máquina virtual VM API  |            Sim  |
-|         Escala automática  |            Não  |            Sim  |            Não  |
-|         Atribuir VM a um domínio de falha específico  |            Sim  |             Não   |            Não  |
-|         Remover NICs e Discos ao eliminar instâncias de VM  |            Não  |            Sim  |            Não  |
-|         Política de atualização (conjuntos de escala VM) |            Não  |            Automático, Rolante, Manual  |            N/D  |
-|         Atualizações automáticas do SO (conjuntos de escala VM) |            Não  |            Sim  |            N/D  |
-|         Em Patching de Segurança de Hóspedes  |            Sim  |            Não  |            Sim  |
-|         Notificações terminais (conjuntos de escala VM) |            Não  |            Sim  |            N/D  |
-|         Reparação de instâncias (conjuntos de escala VM) |            Não  |            Sim   |            N/D  |
-|         Redes aceleradas  |            Sim  |            Sim  |            Sim  |
+|         Controlo total sobre VM, NICs, Discos  |            Yes  |            Controlo limitado com conjuntos de escala de máquina virtual VM API  |            Yes  |
+|         Escala automática  |            No  |            Yes  |            No  |
+|         Atribuir VM a um domínio de falha específico  |            Yes  |             No   |            No  |
+|         Remover NICs e Discos ao eliminar instâncias de VM  |            No  |            Yes  |            No  |
+|         Política de atualização (conjuntos de escala VM) |            No  |            Automático, Rolante, Manual  |            N/D  |
+|         Atualizações automáticas do SO (conjuntos de escala VM) |            No  |            Yes  |            N/D  |
+|         Em Patching de Segurança de Hóspedes  |            Yes  |            No  |            Yes  |
+|         Notificações terminais (conjuntos de escala VM) |            No  |            Yes  |            N/D  |
+|         Reparação de instâncias (conjuntos de escala VM) |            No  |            Yes   |            N/D  |
+|         Redes aceleradas  |            Yes  |            Yes  |            Yes  |
 |         Instâncias à vista e preços   |            Sim, pode ter instâncias prioritárias do Spot e do Regular  |            Sim, as instâncias devem ser todas spot ou todos regulares  |            Não, instâncias prioritárias regulares apenas  |
 |         Misturar sistemas operativos  |            Sim, Linux e Windows podem residir no mesmo conjunto de escala flexível |            Não, os casos são o mesmo sistema operativo.  |               Sim, Linux e Windows podem residir no mesmo conjunto de escala flexível |
 |         Monitorizar a saúde da aplicação  |            Extensão de saúde da aplicação  |            Extensão de saúde da aplicação ou sonda equilibrador Azure Load  |            Extensão de saúde da aplicação  |
-|         Discos UltraSSD   |            Sim  |            Sim, apenas para implantações zonais  |            Não  |
-|         Infiniband   |            Não  |            Sim, apenas um grupo de colocação única  |            Sim  |
-|         Escrever Acelerador   |            Não  |            Sim  |            Sim  |
-|         Grupos de colocação de proximidade   |            Sim  |            Sim  |            Sim  |
-|         Anfitriões Dedicados Azure   |            Não  |            Sim  |            Sim  |
-|         SLB básico   |            Não  |            Sim  |            Sim  |
-|         Azure Load Balancer Standard SKU |            Sim  |            Sim  |            Sim  |
-|         Gateway de Aplicação  |            Não  |            Sim  |            Sim  |
-|         Controlo de Manutenção   |            Não  |            Sim  |            Sim  |
-|         VMs da lista em conjunto  |            Sim  |            Sim  |            Sim, lista VMs em AvSet  |
-|         Alertas Azure  |            Não  |            Sim  |            Sim  |
-|         VM Insights  |            Não  |            Sim  |            Sim  |
-|         Azure Backup  |            Sim  |            Sim  |            Sim  |
-|         Azure Site Recovery  |            Sim, apenas PowerShell  |            Sim  |            Sim  |
-|         Adicionar/remover vm existente ao grupo  |            Não  |            Não  |            Não  | 
+|         Discos UltraSSD   |            Yes  |            Sim, apenas para implantações zonais  |            No  |
+|         Infiniband   |            No  |            Sim, apenas um grupo de colocação única  |            Yes  |
+|         Escrever Acelerador   |            No  |            Yes  |            Yes  |
+|         Grupos de colocação de proximidade   |            Yes  |            Yes  |            Yes  |
+|         Anfitriões Dedicados Azure   |            No  |            Yes  |            Yes  |
+|         SLB básico   |            No  |            Yes  |            Yes  |
+|         Azure Load Balancer Standard SKU |            Yes  |            Yes  |            Yes  |
+|         Gateway de Aplicação  |            No  |            Yes  |            Yes  |
+|         Controlo de Manutenção   |            No  |            Yes  |            Yes  |
+|         VMs da lista em conjunto  |            Yes  |            Yes  |            Sim, lista VMs em AvSet  |
+|         Alertas Azure  |            No  |            Yes  |            Yes  |
+|         VM Insights  |            No  |            Yes  |            Yes  |
+|         Azure Backup  |            Yes  |            Yes  |            Yes  |
+|         Azure Site Recovery  |            Sim, apenas PowerShell  |            Yes  |            Yes  |
+|         Adicionar/remover vm existente ao grupo  |            No  |            No  |            No  | 
 
 
 ## <a name="register-for-flexible-orchestration-mode"></a>Registe-se no modo de orquestração flexível
@@ -299,7 +299,7 @@ Pode adicionar até 1000 VMs a uma escala definida no modo de orquestração fle
 
 |   | Orquestração flexível  | Orquestração uniforme  | Conjuntos de Disponibilidade  |
 |-|-|-|-|
-| Implementar em todas as zonas de disponibilidade  | Não  | Sim  | Não  |
+| Implementar em todas as zonas de disponibilidade  | No  | Yes  | No  |
 | Garantias de disponibilidade de domínio de avaria dentro de uma região  | Sim, até 1000 casos podem ser espalhados por até 3 domínios de falhas na região. A contagem máxima de domínio de avaria varia por região  | Sim, até 100 casos  | Sim, até 200 casos  |
 | Grupos de colocação  | O modo flexível usa sempre vários grupos de colocação (singlePlacementGroup = falso)  | Pode escolher grupo de colocação única ou grupos de colocação múltipla | N/D  |
 | Domínios de atualização  | Nenhuma, as atualizações de manutenção ou anfitrião são feitas por domínio de avarias  | Até 5 domínios de atualização  | Até 20 domínios de atualização  |
@@ -322,7 +322,7 @@ InvalidParameter. The specified fault domain count 2 must fall in the range 1 to
 
 **Causa:** O `platformFaultDomainCount` parâmetro é inválido para a região ou zona selecionada. 
 
-**Solução:** Tem de selecionar um `platformFaultDomainCount` valor válido. Para implementações zonais, o valor máximo `platformFaultDomainCount` é 1. Para as deslocações regionais em que não é especificada nenhuma zona, o máximo `platformFaultDomainCount` varia consoante a região. Ver [Gerir a disponibilidade de VMs para scripts para](../virtual-machines/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) determinar a contagem máxima de domínio de avaria por região. 
+**Solução:** Tem de selecionar um `platformFaultDomainCount` valor válido. Para implementações zonais, o valor máximo `platformFaultDomainCount` é 1. Para as deslocações regionais em que não é especificada nenhuma zona, o máximo `platformFaultDomainCount` varia consoante a região. Ver [Gerir a disponibilidade de VMs para scripts para](../virtual-machines/availability.md) determinar a contagem máxima de domínio de avaria por região. 
 
 ```
 OperationNotAllowed. Deletion of Virtual Machine Scale Set is not allowed as it contains one or more VMs. Please delete or detach the VM(s) before deleting the Virtual Machine Scale Set.

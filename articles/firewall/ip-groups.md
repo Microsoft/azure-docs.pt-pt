@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: conceptual
 ms.date: 01/22/2021
 ms.author: victorh
-ms.openlocfilehash: 6910fda855402d2f99994da1e835560be84ca2dd
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 907ed0774db0e07a61a3ad568e6c451ea5d37b44
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98703382"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102501741"
 ---
 # <a name="ip-groups-in-azure-firewall"></a>Grupos IP em Firewall Azure
 
@@ -79,14 +79,14 @@ Pode ter um máximo de 100 Grupos IP por firewall com um máximo de 5000 endere�
 
 Os seguintes cmdlets Azure PowerShell podem ser usados para criar e gerir grupos IP:
 
-- [New-AzIpGroup](/powershell/module/az.network/new-azipgroup?view=azps-3.4.0)
-- [Remove-AzIPGroup](/powershell/module/az.network/remove-azipgroup?view=azps-3.4.0)
-- [Get-AzIpGroup](/powershell/module/az.network/get-azipgroup?view=azps-3.4.0)
-- [Set-AzIpGroup](/powershell/module/az.network/set-azipgroup?view=azps-3.4.0)
-- [Nova-AzFirewallNetworkrule](/powershell/module/az.network/new-azfirewallnetworkrule?view=azps-3.4.0)
-- [Nova-AzFirewallApplicationRule](/powershell/module/az.network/new-azfirewallapplicationrule?view=azps-3.4.0)
-- [New-AzFirewallNatrule](/powershell/module/az.network/new-azfirewallnatrule?view=azps-3.4.0)
+- [New-AzIpGroup](/powershell/module/az.network/new-azipgroup)
+- [Remove-AzIPGroup](/powershell/module/az.network/remove-azipgroup)
+- [Get-AzIpGroup](/powershell/module/az.network/get-azipgroup)
+- [Set-AzIpGroup](/powershell/module/az.network/set-azipgroup)
+- [Nova-AzFirewallNetworkrule](/powershell/module/az.network/new-azfirewallnetworkrule)
+- [Nova-AzFirewallApplicationRule](/powershell/module/az.network/new-azfirewallapplicationrule)
+- [New-AzFirewallNatrule](/powershell/module/az.network/new-azfirewallnatrule)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como [implantar e configurar um Azure Firewall](tutorial-firewall-deploy-portal.md).
