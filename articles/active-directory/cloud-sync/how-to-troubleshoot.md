@@ -8,16 +8,16 @@ ms.date: 01/19/2021
 ms.topic: how-to
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: fad065795345314c58e83c8d2614ed01c9e78e49
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 174ec8c42ea17ccae04769d7c0baaa91b8e7025b
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99805534"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102517876"
 ---
 # <a name="cloud-sync-troubleshooting"></a>Resolução de problemas de sincronização de nuvem
 
-A sincronização da nuvem toca muitas coisas diferentes e tem muitas dependências diferentes. Este amplo âmbito pode dar origem a vários problemas. Este artigo ajuda-o a resolver estes problemas. Introduz as áreas típicas para se concentrar, como recolher informações adicionais, e as várias técnicas que pode usar para rastrear problemas.
+A sincronização da cloud abrange muitos aspetos diferentes e tem muitas dependências diferentes. Este âmbito amplo pode dar azo a vários problemas. Este artigo ajuda-o a resolver estes problemas. Apresenta as áreas típicas nas quais se deve focar, como reunir informações adicionais e as várias técnicas que pode utilizar para monitorizar problemas.
 
 
 ## <a name="common-troubleshooting-areas"></a>Áreas comuns de resolução de problemas
@@ -120,7 +120,7 @@ Pode receber uma mensagem de erro quando instalar o agente de provisionamento em
 
 Este problema é normalmente causado pelo facto de o agente não conseguir executar os scripts de registo PowerShell devido às políticas locais de execução do PowerShell.
 
-Para resolver este problema, altere as políticas de execução powerShell no servidor. É necessário que as políticas da Máquina e do Utilizador tenham as políticas *indefinidas* ou *remotas.* Se estiverem definidos como *"Sem Restrições",* verás este erro. Para obter mais informações, consulte [as políticas de execução powerShell](/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6). 
+Para resolver este problema, altere as políticas de execução powerShell no servidor. É necessário que as políticas da Máquina e do Utilizador tenham as políticas *indefinidas* ou *remotas.* Se estiverem definidos como *"Sem Restrições",* verás este erro. Para obter mais informações, consulte [as políticas de execução powerShell](/powershell/module/microsoft.powershell.core/about/about_execution_policies). 
 
 ### <a name="log-files"></a>Ficheiros de registo
 

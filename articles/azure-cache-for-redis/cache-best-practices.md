@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: joncole
-ms.openlocfilehash: 4e209bfe5e3856f3847b0c24852c487a92c8f182
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.openlocfilehash: 84a6bba390b0f6b101bd8243cf47b79af9618999
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102454741"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102521650"
 ---
 # <a name="best-practices-for-azure-cache-for-redis"></a>Melhores práticas da Cache do Azure para Redis 
 Ao seguir estas boas práticas, pode ajudar a maximizar o desempenho e a utilização rentável da sua Cache Azure para a instância Redis.
@@ -30,6 +30,8 @@ Ao seguir estas boas práticas, pode ajudar a maximizar o desempenho e a utiliza
  * **Localize o seu cache e a sua aplicação na mesma região.**  Estabelecer ligação a uma cache numa região diferente pode aumentar significativamente a latência e reduzir a fiabilidade.  Embora possa ligar-se do exterior do Azure, não é recomendado *especialmente quando se utiliza o Redis como cache*.  Se estiver a usar o Redis como apenas uma loja chave/valor, a latência pode não ser a principal preocupação. 
 
  * **Reutilizar as ligações.**  Criar novas ligações é dispendioso e aumenta a latência, por isso reutilizar as ligações o máximo possível. Se optar por criar novas ligações, certifique-se de fechar as ligações antigas antes de as libertar (mesmo em idiomas de memória geridos como .NET ou Java).
+
+* **Use pipelining.**  Tente escolher um cliente Redis que suporte [a pipelining Redis](https://redis.io/topics/pipelining) de forma a fazer o uso mais eficiente da rede para obter o melhor rendimento possível.
 
  * **Configure a biblioteca do seu cliente para utilizar um tempo de *ligação* de pelo menos 15 segundos,** dando ao sistema tempo para se ligar mesmo em condições mais elevadas de CPU.  Um pequeno valor de tempo de ligação não garante que a ligação seja estabelecida nesse período de tempo.  Se algo correr mal (CPU de cliente alto, CPU de servidor alto, e assim por diante), então um curto valor de tempo de ligação causará a tentativa de falha da ligação. Este comportamento muitas vezes piora uma situação má.  Em vez de ajudar, os intervalos mais curtos agravam o problema forçando o sistema a reiniciar o processo de tentar reconectar-se, o que pode levar a um ciclo *de reluto -> de ligação - >.* Recomendamos geralmente que deixe a sua ligação Timeout a 15 segundos ou mais. É melhor deixar a sua tentativa de ligação ter sucesso após 15 ou 20 segundos do que fazê-la falhar rapidamente apenas para tentar novamente. Este ciclo de retíria pode fazer com que a sua paragem dure mais tempo do que se deixar o sistema demorar mais tempo inicialmente.  
      > [!NOTE]

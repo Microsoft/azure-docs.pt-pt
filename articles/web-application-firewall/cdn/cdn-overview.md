@@ -7,14 +7,14 @@ ms.service: web-application-firewall
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: victorh
-ms.openlocfilehash: 6949c1e8f83ebf47878a3d449796ccc03920756a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cd1f21f150094094a6bf856b04a64a02963f35a8
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89225157"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102521718"
 ---
-# <a name="azure-web-application-firewall-on-azure-content-delivery-network"></a>Firewall de aplicação web Azure na rede de entrega de conteúdos Azure
+# <a name="azure-web-application-firewall-on-azure-content-delivery-network-from-microsoft"></a>Firewall de aplicação web Azure na rede de entrega de conteúdos Azure da Microsoft
 
 A azure Web Application Firewall (WAF) na Azure Content Delivery Network (CDN) da Microsoft fornece proteção centralizada para o seu conteúdo web. A WAF defende os seus serviços web contra explorações e vulnerabilidades comuns. Mantém o seu serviço altamente disponível para os seus utilizadores e ajuda-o a cumprir os requisitos de conformidade.
 
@@ -35,7 +35,7 @@ Pode configurar uma política da WAF e associar essa política a um ou mais pont
 
 - conjuntos de regras geridos que são uma coleção de regras pré-configuradas geridas Azure.
 
-Quando ambas estão presentes, as regras personalizadas são processadas antes de processar as regras num conjunto de regras gerido. Uma regra é feita de uma condição de jogo, uma prioridade, e uma ação. Os tipos de ação suportados são: *PERMITIR,* *BLOQUEAR,* *LOG*e *REDIRECIONamento*. Pode criar uma política totalmente personalizada que satisfaça os seus requisitos específicos de proteção de aplicações, combinando regras geridas e personalizadas.
+Quando ambas estão presentes, as regras personalizadas são processadas antes de processar as regras num conjunto de regras gerido. Uma regra é feita de uma condição de jogo, uma prioridade, e uma ação. Os tipos de ação suportados são: *PERMITIR,* *BLOQUEAR,* *LOG* e *REDIRECIONamento*. Pode criar uma política totalmente personalizada que satisfaça os seus requisitos específicos de proteção de aplicações, combinando regras geridas e personalizadas.
 
 As regras dentro de uma política são processadas por ordem prioritária. Prioridade é um número único que define a ordem das regras para processar. Os números mais pequenos são uma prioridade maior e essas regras são avaliadas antes de regras com um valor maior. Uma vez que uma regra é correspondida, a ação correspondente que foi definida na regra é aplicada ao pedido. Uma vez que tal jogo é processado, regras com prioridades mais baixas não são processadas mais longe.
 
@@ -73,7 +73,7 @@ Pode configurar as seguintes regras de jogo personalizadas:
 
 - *Lista de autorizações IP e lista de blocos*: Pode controlar o acesso às suas aplicações web com base numa lista de endereços IP do cliente ou intervalos de endereços IP. Os tipos de endereços IPv4 e IPv6 são suportados. Esta lista pode ser configurada para bloquear ou permitir os pedidos em que o IP de origem corresponde a um IP na lista.
 
-- *Controlo de acesso baseado em*geografia : Pode controlar o acesso às suas aplicações web com base no código de país que está associado ao endereço IP de um cliente.
+- *Controlo de acesso baseado em* geografia : Pode controlar o acesso às suas aplicações web com base no código de país que está associado ao endereço IP de um cliente.
 
 - *Controlo de acesso baseado em parâmetros HTTP*: Pode basear as regras em combinações de cordas em parâmetros de pedido HTTP/HTTPS.  Por exemplo, cadeias de consulta, args POST, Request URI, Cabeçalho de Pedido e Corpo de Pedido.
 

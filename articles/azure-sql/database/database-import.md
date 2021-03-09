@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/29/2020
-ms.openlocfilehash: 30a511caec82ead406f0a80f107e4261a707bfdb
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 8d246f06db9fc9f4e6916ea69ec49ddaf8cf0667
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93040162"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102519780"
 ---
 # <a name="quickstart-import-a-bacpac-file-to-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>Quickstart: Importe um ficheiro BACPAC para uma base de dados na Base de Dados Azure SQL ou na Azure SQL Gerenciada Instância
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -42,7 +42,7 @@ Para migrar uma base de dados para uma [Instância Gerida Azure SQL](../managed-
 > [!NOTE]
 > As máquinas que processam pedidos de importação/exportação apresentados através do portal Azure ou da PowerShell precisam de armazenar o ficheiro BACPAC, bem como ficheiros temporários gerados pelo Data-Tier Application Framework (DacFX). O espaço em disco necessário varia significativamente entre bases de dados com o mesmo tamanho e pode exigir espaço em disco até 3 vezes o tamanho da base de dados. As máquinas que executam o pedido de importação/exportação têm apenas 450GB de espaço em disco local. Como resultado, alguns pedidos podem falhar com o erro `There is not enough space on the disk` . Neste caso, a solução é para executar sqlpackage.exe numa máquina com espaço suficiente em disco local. Encorajamos a utilização da SqlPackage para importar/exportar bases de dados superiores a 150GB para evitar este problema.
 
-1. Para importar de um ficheiro BACPAC para uma nova base de dados única utilizando o portal Azure, abra a página do servidor apropriada e, em seguida, na barra de ferramentas, selecione **Import database** .  
+1. Para importar de um ficheiro BACPAC para uma nova base de dados única utilizando o portal Azure, abra a página do servidor apropriada e, em seguida, na barra de ferramentas, selecione **Import database**.  
 
    ![Importação de base de dados1](./media/database-import/sql-server-import-database.png)
 
@@ -52,13 +52,13 @@ Para migrar uma base de dados para uma [Instância Gerida Azure SQL](../managed-
 
    ![Importação de base de dados2](./media/database-import/sql-server-import-database-settings.png)
 
-1. Clique em **OK** .
+1. Clique em **OK**.
 
-1. Para monitorizar o progresso de uma importação, abra a página do servidor da base de dados e, em **Definições,** selecione **o histórico de Importação/Exportação** . Quando bem sucedida, a importação tem um estado **preenchido.**
+1. Para monitorizar o progresso de uma importação, abra a página do servidor da base de dados e, em **Definições,** selecione **o histórico de Importação/Exportação**. Quando bem sucedida, a importação tem um estado **preenchido.**
 
    ![Estado de importação de base de dados](./media/database-import/sql-server-import-database-history.png)
 
-1. Para verificar se a base de dados está ao vivo no servidor, selecione **bases de dados SQL** e verifique se a nova base de dados está **Online** .
+1. Para verificar se a base de dados está ao vivo no servidor, selecione **bases de dados SQL** e verifique se a nova base de dados está **Online**.
 
 ## <a name="using-sqlpackage"></a>Usando SqlPackage
 
@@ -68,7 +68,7 @@ Para escala e desempenho, recomendamos a utilização do SqlPackage na maioria d
 
 O modelo de provisionamento baseado em DTU suporta valores de tamanho máximo de base de dados selecionados para cada nível. Ao importar uma base de dados [utilize um destes valores suportados.](/sql/t-sql/statements/create-database-transact-sql) 
 
-O seguinte comando SqlPackage importa a base de dados **AdventureWorks2008R2** do armazenamento local para um servidor lógico SQL nomeado **mynewserver20170403** . Cria uma nova base de dados chamada **myMigratedDatabase** com um nível de serviço **Premium** e um Objetivo de Serviço **P6.** Altere estes valores conforme apropriado para o seu ambiente.
+O seguinte comando SqlPackage importa a base de dados **AdventureWorks2008R2** do armazenamento local para um servidor lógico SQL nomeado **mynewserver20170403**. Cria uma nova base de dados chamada **myMigratedDatabase** com um nível de serviço **Premium** e um Objetivo de Serviço **P6.** Altere estes valores conforme apropriado para o seu ambiente.
 
 ```cmd
 sqlpackage.exe /a:import /tcs:"Data Source=<serverName>.database.windows.net;Initial Catalog=<migratedDatabase>;User Id=<userId>;Password=<password>" /sf:AdventureWorks2008R2.bacpac /p:DatabaseEdition=Premium /p:DatabaseServiceObjective=P6
@@ -83,7 +83,7 @@ Este exemplo mostra como importar uma base de dados usando SqlPackage com Autent
 sqlpackage.exe /a:Import /sf:testExport.bacpac /tdn:NewDacFX /tsn:apptestserver.database.windows.net /ua:True /tid:"apptest.onmicrosoft.com"
 ```
 
-## <a name="using-powershell"></a>Utilizar o PowerShell
+## <a name="using-powershell"></a>Com o PowerShell
 
 > [!NOTE]
 > [Uma SqL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md) não suporta atualmente a migração de uma base de dados para uma base de dados de casos a partir de um ficheiro BACPAC utilizando a Azure PowerShell. Para importar para uma SQL Managed Instance, use o SQL Server Management Studio ou o SQLPackage.
@@ -144,6 +144,15 @@ az sql db import --resource-group "<resourceGroup>" --server "<server>" --name "
 
 > [!TIP]
 > Para outro exemplo de script, consulte [Importar uma base de dados a partir de um ficheiro BACPAC](scripts/import-from-bacpac-powershell.md).
+
+## <a name="cancel-the-import-request"></a>Cancelar o pedido de importação
+
+Utilizar as [Operações de Base de Dados - Cancelar a API](https://docs.microsoft.com/rest/api/sql/databaseoperations/cancel) ou o comando Powershell [Stop-AzSqlDatabaseActivity](https://docs.microsoft.com/powershell/module/az.sql/Stop-AzSqlDatabaseActivity?view=azps-5.5.0), aqui um exemplo de comando powershell.
+
+```cmd
+Stop-AzSqlDatabaseActivity -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName -OperationId $Operation.OperationId
+```
+
 
 ## <a name="limitations"></a>Limitações
 

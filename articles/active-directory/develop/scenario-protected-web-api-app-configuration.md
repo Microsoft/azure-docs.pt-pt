@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 7c2a1f6de4e006cbb1b8566504fd16280c129f23
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 5206c2295ee7c01b4a2908e59da1cfdd8782bccd
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102210806"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102517723"
 ---
 # <a name="protected-web-api-code-configuration"></a>API web protegida: configuração de código
 
@@ -195,7 +195,7 @@ Os passos de validação são capturados em validadores, que são fornecidos pel
 
 Esta tabela descreve os validadores:
 
-| Validador | Descrição |
+| Validador | Description |
 |---------|---------|
 | **ValidarAudiência** | Garante que o token é para a aplicação que valida o token para si. |
 | **ValidarIssuer** | Garante que o símbolo foi emitido por uma STS de confiança, o que significa que é de alguém em quem confias. |
@@ -224,7 +224,7 @@ services.Configure<JwtBearerOptions>(JwtBearerDefaults.AuthenticationScheme, opt
       // Your code to add extra configuration that will be executed after the current event implementation.
       options.TokenValidationParameters.ValidIssuers = new[] { /* list of valid issuers */ };
       options.TokenValidationParameters.ValidAudiences = new[] { /* list of valid audiences */};
-  }
+  };
 });
 ```
 

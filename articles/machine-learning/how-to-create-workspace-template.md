@@ -10,12 +10,12 @@ ms.custom: how-to, devx-track-azurecli, devx-track-azurepowershell
 ms.author: larryfr
 author: Blackmist
 ms.date: 09/30/2020
-ms.openlocfilehash: 98ea51957014a4e9d83f27adefd86d8d0708b500
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 9df8a67fd3dfbf23986f1cc5ed18392463fc7ecb
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/09/2021
-ms.locfileid: "102503186"
+ms.locfileid: "102522211"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Use um modelo de Gestor de Recursos Azure para criar um espaço de trabalho para a aprendizagem de máquinas Azure
 
@@ -32,12 +32,7 @@ Para obter mais informações, consulte [Implementar uma aplicação com o model
 
 * Para utilizar um modelo a partir de um CLI, você precisa de [Azure PowerShell](/powershell/azure/) ou do [Azure CLI](/cli/azure/install-azure-cli).
 
-* Alguns cenários exigem que abra um bilhete de apoio. Estes cenários são:
-
-    * __Área de trabalho preparada para o Private Link com uma chave gerida pelo cliente__
-    * __Azure Container Registry para a área de trabalho por detrás da rede virtual__
-
-    Para obter mais informações, consulte [Gerir e aumentar as quotas.](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases)
+* Alguns cenários exigem que abra um bilhete de apoio. Por exemplo, a utilização de um espaço de trabalho ativado por Private Link com uma chave gerida pelo cliente. Para obter mais informações, consulte [Gerir e aumentar as quotas.](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases)
 
 ## <a name="limitations"></a>Limitações
 

@@ -5,23 +5,23 @@ description: Pode utilizar a sua própria chave de encriptação para proteger o
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 03/05/2021
+ms.date: 03/09/2021
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 92a83e03d486d0bf9344fbdcf705703ea788528c
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 358be21a1f7f13c0c0ce1bf0e57dda53174216b2
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102218575"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102517536"
 ---
 # <a name="customer-managed-keys-for-azure-storage-encryption"></a>Chaves geridas pelo cliente para encriptação de armazenamento Azure
 
 Pode utilizar a sua própria chave de encriptação para proteger os dados na sua conta de armazenamento. Quando especifica uma chave gerida pelo cliente, essa chave é utilizada para proteger e controlar o acesso à chave que encripta os seus dados. As chaves geridas pelo cliente oferecem uma maior flexibilidade para gerir os controlos de acesso.
 
-Tem de utilizar o Azure Key Vault ou o Azure Key Vault Managed Hardware Security Model (HSM) (pré-visualização) para armazenar as chaves geridas pelo cliente. Pode criar as suas próprias chaves e armazená-las no cofre de chaves ou na gestão do HSM, ou pode utilizar as APIs do Cofre de Chaves Azure para gerar chaves. A conta de armazenamento e o cofre-chave ou o HSM gerido devem estar na mesma região e no mesmo inquilino do Azure Ative Directory (Azure AD), mas podem estar em diferentes subscrições.
+Tem de utilizar o Cofre da Chave Azure ou o Módulo de Segurança gerido por hardware gerido (HSM) (pré-visualização) para armazenar as chaves geridas pelo cliente. Pode criar as suas próprias chaves e armazená-las no cofre de chaves ou na gestão do HSM, ou pode utilizar as APIs do Cofre de Chaves Azure para gerar chaves. A conta de armazenamento e o cofre-chave ou o HSM gerido devem estar na mesma região e no mesmo inquilino do Azure Ative Directory (Azure AD), mas podem estar em diferentes subscrições.
 
 Para mais informações sobre o Azure Key Vault, veja [o que é Azure Key Vault?](../../key-vault/general/overview.md)
 

@@ -8,12 +8,12 @@ ms.date: 01/22/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 778d82cd36e1f7389a443630f0982dd8774fe3ee
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: b085b9991175d8cd43e2dac0db80c5af4e703c34
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/09/2021
-ms.locfileid: "102509205"
+ms.locfileid: "102521242"
 ---
 # <a name="how-to-create-an-nfs-share"></a>Como criar uma quota NFS
 As ações de ficheiros Azure são totalmente geridas por ações de ficheiros que vivem na nuvem. Este artigo abrange a criação de uma partilha de ficheiros que utiliza o protocolo NFS. Para obter mais informações sobre ambos os protocolos, consulte os [protocolos de partilha de ficheiros Azure](storage-files-compare-protocols.md).
@@ -192,7 +192,7 @@ Agora que criou uma conta FileStorage e configurar a rede, pode criar uma partil
    echo $PSVersionTable.PSVersion.ToString() 
    ```
     
-   Para atualizar a sua versão do PowerShell, consulte [a atualização do Windows PowerShell existente](/powershell/scripting/install/installing-windows-powershell?view=powershell-6&preserve-view=true#upgrading-existing-windows-powershell)
+   Para atualizar a sua versão do PowerShell, consulte [a atualização do Windows PowerShell existente](/powershell/scripting/install/installing-windows-powershell#upgrading-existing-windows-powershell)
     
 1. Instale a versão mais recente do módulo PowershellGet.
 

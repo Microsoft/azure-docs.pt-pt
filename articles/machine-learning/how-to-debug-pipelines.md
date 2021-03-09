@@ -10,16 +10,16 @@ ms.author: laobri
 ms.date: 10/22/2020
 ms.topic: troubleshooting
 ms.custom: troubleshooting, devx-track-python, contperf-fy21q2
-ms.openlocfilehash: 0f27688e31f772cc8d784371aa570d55c41f5695
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 195942d1787cdef51ee480fa5c5595db99bc7c78
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131819"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102522092"
 ---
 # <a name="troubleshooting-machine-learning-pipelines"></a>Gasodutos de aprendizagem de máquinas de resolução de problemas
 
-Neste artigo, aprende-se a resolver problemas quando obtém erros ao executar um [oleoduto de aprendizagem automática](concept-ml-pipelines.md) no [SDK de Machine Learning Azure](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) e [no Azure Machine Learning designer.](./concept-designer.md) 
+Neste artigo, aprende-se a resolver problemas quando obtém erros ao executar um [oleoduto de aprendizagem automática](concept-ml-pipelines.md) no [SDK de Machine Learning Azure](/python/api/overview/azure/ml/intro) e [no Azure Machine Learning designer.](./concept-designer.md) 
 
 ## <a name="troubleshooting-tips"></a>Sugestões de resolução de problemas
 
@@ -192,7 +192,7 @@ O quadro abaixo fornece informações para diferentes opções de depuragem para
 
 | Biblioteca                    | Tipo   | Exemplo                                                          | Destino                                  | Recursos                                                                                                                                                                                                                                                                                                                    |
 |----------------------------|--------|------------------------------------------------------------------|----------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Azure Machine Learning SDK | Metric | `run.log(name, val)`                                             | Azure Machine Learning Portal UI             | [Como acompanhar experiências](how-to-track-experiments.md)<br>[azureml.core.Run classe](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py)                                                                                                                                                 |
+| Azure Machine Learning SDK | Metric | `run.log(name, val)`                                             | Azure Machine Learning Portal UI             | [Como acompanhar experiências](how-to-track-experiments.md)<br>[azureml.core.Run classe](/python/api/azureml-core/azureml.core.run%28class%29)                                                                                                                                                 |
 | Impressão/registo de pítons    | Registo    | `print(val)`<br>`logging.info(message)`                          | Troncos de motorista, Azure Machine Learning designer | [Como acompanhar experiências](how-to-track-experiments.md)<br><br>[Abate de python](https://docs.python.org/2/library/logging.html)                                                                                                                                                                       |
 | OpenCensus Python          | Registo    | `logger.addHandler(AzureLogHandler())`<br>`logging.log(message)` | Insights de Aplicação - vestígios                | [Depurar pipelines no Application Insights](./how-to-log-pipelines-application-insights.md)<br><br>[OpenCensus Azure Monitor Exporters](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure) (Exportadores do Azure Monitor do OpenCensus)<br>[Livro de receitas de madeira python](https://docs.python.org/3/howto/logging-cookbook.html) |
 
@@ -244,7 +244,7 @@ Quando submeter uma corrida de pipeline e permanecer na página de autoria, pode
 1. No painel direito do módulo, aceda ao **separador Saídas + registos.**
 1. Expanda o painel direito e selecione o **70_driver_log.txt** para ver o ficheiro no navegador. Também pode baixar registos localmente.
 
-    ![Painel de saída expandido no designer](./media/how-to-debug-pipelines/designer-logs.png)?view=azure-ml-py&preserve-view=true)?view=azure-ml-py&preserve-view=true)
+    ![Painel de saída expandido no designer](./media/how-to-debug-pipelines/designer-logs.png)
 
 ### <a name="get-logs-from-pipeline-runs"></a>Obtenha registos de corridas de gasodutos
 
@@ -274,6 +274,6 @@ Em alguns casos, poderá ser necessário depurar interativamente o código Pytho
 
 * Para obter um exemplo completo que mostre aprendizagem automática de máquinas em gasodutos ML, consulte [utilizar ML automatizado num gasoduto de aprendizagem automática Azure em Python](how-to-use-automlstep-in-pipelines.md).
 
-* Consulte a referência SDK para obter ajuda com o pacote [de núcleo de gasodutos azureml](/python/api/azureml-pipeline-core/?preserve-view=true&view=azure-ml-py) e o pacote [de passos de gasodutos azureml.](/python/api/azureml-pipeline-steps/?preserve-view=true&view=azure-ml-py)
+* Consulte a referência SDK para obter ajuda com o pacote [de núcleo de gasodutos azureml](/python/api/azureml-pipeline-core/) e o pacote [de passos de gasodutos azureml.](/python/api/azureml-pipeline-steps/)
 
 * Consulte a lista de [exceções e códigos de erro](algorithm-module-reference/designer-error-codes.md)do designer.

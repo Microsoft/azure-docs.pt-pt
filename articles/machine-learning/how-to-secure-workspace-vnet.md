@@ -11,12 +11,12 @@ author: peterclu
 ms.date: 10/06/2020
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy20q4, tracking-python, contperf-fy21q1
-ms.openlocfilehash: 083d750db0db050265c93cc658d4f3b6556b850d
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 6d23b0204cc597898eb2202a329d93ff349f8c13
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102176217"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102518539"
 ---
 # <a name="secure-an-azure-machine-learning-workspace-with-virtual-networks"></a>Garantir um espaço de trabalho de aprendizagem automática Azure com redes virtuais
 
@@ -65,7 +65,7 @@ A Azure Machine Learning suporta contas de armazenamento configuradas para utili
 >
 > A conta de armazenamento predefinida é automaticamente a provisionada quando cria um espaço de trabalho.
 >
-> Para contas de armazenamento não padrão, o `storage_account` parâmetro na [ `Workspace.create()` função](/python/api/azureml-core/azureml.core.workspace%28class%29?preserve-view=true&view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-&preserve-view=true) permite especificar uma conta de armazenamento personalizada por ID de recurso Azure.
+> Para contas de armazenamento não padrão, o `storage_account` parâmetro na [ `Workspace.create()` função](/python/api/azureml-core/azureml.core.workspace%28class%29#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) permite especificar uma conta de armazenamento personalizada por ID de recurso Azure.
 
 Para utilizar uma conta de armazenamento Azure para o espaço de trabalho numa rede virtual, utilize os seguintes passos:
 
@@ -195,8 +195,6 @@ Para utilizar o Registo de Contentores Azure dentro de uma rede virtual, deve cu
 
     Quando o ACR está por detrás de uma rede virtual, o Azure Machine Learning não pode usá-lo para construir diretamente imagens do Docker. Em vez disso, o cluster computacional é usado para construir as imagens.
 
-* Antes de utilizar o ACR com Azure Machine Learning numa rede virtual, tem de abrir um incidente de suporte para ativar esta funcionalidade. Para obter mais informações, consulte [Gerir e aumentar as quotas.](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases)
-
 Uma vez cumpridos os requisitos, utilize os seguintes passos para permitir o registo do contentor Azure.
 
 1. Encontre o nome do Registo do Contentor Azure para o seu espaço de trabalho, utilizando um dos seguintes métodos:
@@ -232,66 +230,7 @@ Uma vez cumpridos os requisitos, utilize os seguintes passos para permitir o reg
     > [!IMPORTANT]
     > A sua conta de armazenamento, cluster compute e registo de contentores Azure devem estar todos na mesma sub-rede da rede virtual.
     
-    Para obter mais informações, consulte a referência do método [de atualização.).](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py#update-friendly-name-none--description-none--tags-none--image-build-compute-none--enable-data-actions-none-&preserve-view=true)
-
-1. Aplique o seguinte modelo de Gestor de Recursos Azure. Este modelo permite que o seu espaço de trabalho comunique com a ACR.
-
-    ```json
-    {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "keyVaultArmId": {
-        "type": "string"
-        },
-        "workspaceName": {
-        "type": "string"
-        },
-        "containerRegistryArmId": {
-        "type": "string"
-        },
-        "applicationInsightsArmId": {
-        "type": "string"
-        },
-        "storageAccountArmId": {
-        "type": "string"
-        },
-        "location": {
-        "type": "string"
-        }
-    },
-    "resources": [
-        {
-        "type": "Microsoft.MachineLearningServices/workspaces",
-        "apiVersion": "2019-11-01",
-        "name": "[parameters('workspaceName')]",
-        "location": "[parameters('location')]",
-        "identity": {
-            "type": "SystemAssigned"
-        },
-        "sku": {
-            "tier": "basic",
-            "name": "basic"
-        },
-        "properties": {
-            "sharedPrivateLinkResources":
-    [{"Name":"Acr","Properties":{"PrivateLinkResourceId":"[concat(parameters('containerRegistryArmId'), '/privateLinkResources/registry')]","GroupId":"registry","RequestMessage":"Approve","Status":"Pending"}}],
-            "keyVault": "[parameters('keyVaultArmId')]",
-            "containerRegistry": "[parameters('containerRegistryArmId')]",
-            "applicationInsights": "[parameters('applicationInsightsArmId')]",
-            "storageAccount": "[parameters('storageAccountArmId')]"
-        }
-        }
-    ]
-    }
-    ```
-
-    Este modelo cria um _ponto final privado_ para o acesso à rede desde o espaço de trabalho até ao seu ACR. A imagem abaixo mostra um exemplo deste ponto final privado.
-
-    :::image type="content" source="media/how-to-secure-workspace-vnet/acr-private-endpoint.png" alt-text="Definições de ponto final privado ACR":::
-
-    > [!IMPORTANT]
-    > Não apague este ponto final! Se o eliminar acidentalmente, pode voltar a aplicar o modelo neste passo para criar um novo.
+    Para obter mais informações, consulte a referência do método [de atualização.).](/python/api/azureml-core/azureml.core.workspace.workspace#update-friendly-name-none--description-none--tags-none--image-build-compute-none--enable-data-actions-none-)
 
 ## <a name="next-steps"></a>Passos seguintes
 

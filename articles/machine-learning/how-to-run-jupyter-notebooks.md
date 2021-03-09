@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 01/19/2021
-ms.openlocfilehash: fe3f2328bb1ec9e7bb2ef79c09a821412ce7f7e1
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 5748bf3d428102e296067dc5d1927ba487d575bc
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102423990"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102518726"
 ---
 # <a name="run-jupyter-notebooks-in-your-workspace"></a>Executar cadernos Jupyter no seu espaço de trabalho
 
@@ -115,7 +115,7 @@ Só você pode ver e usar as instâncias de cálculo que cria.  Os **ficheiros d
 
 ### <a name="view-logs-and-output"></a>Ver registos e saída
 
-Utilize [widgets de portátil](/python/api/azureml-widgets/azureml.widgets?preserve-view=true&view=azure-ml-py) para ver o progresso da execução e dos registos. Um widget é assíncronoso e fornece atualizações até que o treino termine. Os widgets Azure Machine Learning também são suportados no Jupyter e no JupterLab.
+Utilize [widgets de portátil](/python/api/azureml-widgets/azureml.widgets) para ver o progresso da execução e dos registos. Um widget é assíncronoso e fornece atualizações até que o treino termine. Os widgets Azure Machine Learning também são suportados no Jupyter e no JupterLab.
 
 :::image type="content" source="media/how-to-run-jupyter-notebooks/jupyter-widget.png" alt-text="Screenshot: Widget de caderno Jupyter ":::
 
@@ -195,7 +195,7 @@ Uma célula está no modo de comando quando não há cursor de texto que lhe ord
 
    :::image type="content" source="media/how-to-run-jupyter-notebooks/command-mode.png" alt-text="Célula de portátil no modo de comando ":::
 
-| Atalho                      | Descrição                          |
+| Atalho                      | Description                          |
 | ----------------------------- | ------------------------------------|
 | ENTER                         | Entrar no modo de edição             |        
 | Shift + Enter                 | Executar célula, selecione abaixo         |     
@@ -239,7 +239,7 @@ O modo de edição é indicado por um cursor de texto que o leva a escrever na �
 
 Utilizando os seguintes atalhos de teclas, pode navegar e executar código mais facilmente em cadernos Azure Machine Learning quando estiver no modo Editar.
 
-| Atalho                      | Descrição|                                     
+| Atalho                      | Description|                                     
 | ----------------------------- | ----------------------------------------------- |
 | Esc                        | Insira o modo de comando|  
 | Controlo/Comando + Espaço       | Ativar o IntelliSense |

@@ -11,12 +11,12 @@ ms.reviewer: peterlu
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: d9bad49b7c3d71304a33691cf5004c853228f8e8
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.openlocfilehash: 2b4af9dec2bf397ad2766c68d547eeac85a9a9a3
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97797235"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102518369"
 ---
 # <a name="train-keras-models-at-scale-with-azure-machine-learning"></a>Treinar modelos Keras em escala com Azure Machine Learning
 
@@ -42,7 +42,7 @@ Executar este código em qualquer um destes ambientes:
 
  - O seu próprio servidor de cadernos Jupyter
 
-    - [Instale o Azure Machine Learning SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py) (>= 1.15.0).
+    - [Instale o Azure Machine Learning SDK](/python/api/overview/azure/ml/install) (>= 1.15.0).
     - [Crie um ficheiro de configuração do espaço de trabalho.](how-to-configure-environment.md#workspace)
     - [Descarregue os ficheiros de script de](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/keras/train-hyperparameter-tune-deploy-with-keras) `keras_mnist.py` amostra e `utils.py`
 
@@ -68,7 +68,7 @@ from azureml.core.compute_target import ComputeTargetException
 
 ### <a name="initialize-a-workspace"></a>Inicializar um espaço de trabalho
 
-O espaço de [trabalho Azure Machine Learning](concept-workspace.md) é o recurso de alto nível para o serviço. Proporciona-lhe um lugar centralizado para trabalhar com todos os artefactos que cria. No Python SDK, você pode aceder aos artefactos do espaço de trabalho criando um [`workspace`](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py) objeto.
+O espaço de [trabalho Azure Machine Learning](concept-workspace.md) é o recurso de alto nível para o serviço. Proporciona-lhe um lugar centralizado para trabalhar com todos os artefactos que cria. No Python SDK, você pode aceder aos artefactos do espaço de trabalho criando um [`workspace`](/python/api/azureml-core/azureml.core.workspace.workspace) objeto.
 
 Crie um objeto de espaço de trabalho a partir do `config.json` ficheiro criado na secção [pré-requisitos](#prerequisites).
 
@@ -196,7 +196,7 @@ Para obter mais informações sobre a configuração de empregos com scriptRunCo
 
 ### <a name="submit-your-run"></a>Submeta a sua corrida
 
-O [objeto Run](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py) fornece a interface para o histórico de execução enquanto o trabalho está em execução e depois de concluído.
+O [objeto Run](/python/api/azureml-core/azureml.core.run%28class%29) fornece a interface para o histórico de execução enquanto o trabalho está em execução e depois de concluído.
 
 ```Python
 run = Experiment(workspace=ws, name='Tutorial-Keras-Minst').submit(src)

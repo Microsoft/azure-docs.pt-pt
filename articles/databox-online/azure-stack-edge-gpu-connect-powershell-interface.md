@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 02/22/2021
+ms.date: 03/08/2021
 ms.author: alkohli
-ms.openlocfilehash: 1404dfd25f4e80e0e05c0071da649cacfa45dac0
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: 1319f806dd2f32233dcfe7383f5283b67827f16f
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102437762"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102517578"
 ---
 # <a name="manage-an-azure-stack-edge-pro-gpu-device-via-windows-powershell"></a>Gerir um dispositivo GPU Azure Stack Edge Pro via Windows PowerShell
 
@@ -26,30 +26,12 @@ Este artigo foca-se na forma como pode ligar-se à interface PowerShell do dispo
 
 ## <a name="connect-to-the-powershell-interface"></a>Ligue-se à interface do PowerShell
 
-[!INCLUDE [Connect to admin runspace](../../includes/data-box-edge-gateway-connect-minishell.md)]
+[!INCLUDE [Connect to admin runspace](../../includes/azure-stack-edge-gateway-connect-minishell.md)]
 
 ## <a name="create-a-support-package"></a>Criar um pacote de suporte
 
 [!INCLUDE [Create a support package](../../includes/data-box-edge-gateway-create-support-package.md)]
 
-<!--## Upload certificate
-
-[!INCLUDE [Upload certificate](../../includes/data-box-edge-gateway-upload-certificate.md)]
-
-You can also upload IoT Edge certificates to enable a secure connection between your IoT Edge device and the downstream devices that may connect to it. There are three IoT Edge certificates (*.pem* format) that you need to install:
-
-- Root CA certificate or the owner CA
-- Device CA certificate
-- Device key certificate
-
-The following example shows the usage of this cmdlet to install IoT Edge certificates:
-
-```
-Set-HcsCertificate -Scope IotEdge -RootCACertificateFilePath "\\hcfs\root-ca-cert.pem" -DeviceCertificateFilePath "\\hcfs\device-ca-cert.pem\" -DeviceKeyFilePath "\\hcfs\device-key-cert.pem" -Credential "username"
-```
-When you run this cmdlet, you will be prompted to provide the password for the network share.
-
-For more information on certificates, go to [Azure IoT Edge certificates](../iot-edge/iot-edge-certs.md) or [Install certificates on a gateway](../iot-edge/how-to-create-transparent-gateway.md).-->
 
 ## <a name="view-device-information"></a>Ver informações do dispositivo
  
@@ -88,17 +70,8 @@ Se a função de cálculo estiver configurada no seu dispositivo, também pode o
 
 Um Serviço Multi-Processo (MPS) em GPUs da Nvidia fornece um mecanismo onde as GPUs podem ser partilhadas por múltiplos empregos, onde cada trabalho é atribuído em alguma percentagem dos recursos da GPU. MPS é uma funcionalidade de pré-visualização no seu dispositivo GPU Azure Stack Edge Pro. Para ativar o MPS no seu dispositivo, siga estes passos:
 
-1. Antes de começar, certifique-se: 
+[!INCLUDE [Enable MPS](../../includes/azure-stack-edge-gateway-enable-mps.md)]
 
-    1. Configuraste e [Ativaste o teu dispositivo Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-activate.md) com um recurso Azure Stack Edge Pro/Data Box Gateway em Azure.
-    1. [Configurou o cálculo deste dispositivo no portal Azure.](azure-stack-edge-deploy-configure-compute.md#configure-compute)
-    
-1. [Ligue-se à interface PowerShell](#connect-to-the-powershell-interface).
-1. Utilize o seguinte comando para ativar MPS no seu dispositivo.
-
-    ```powershell
-    Start-HcsGpuMPS
-    ```
 
 ## <a name="reset-your-device"></a>Repor o dispositivo
 
@@ -150,45 +123,13 @@ Id                                   PodSubnet    ServiceSubnet
 [10.100.10.10]: PS>
 ```
 
-
 ## <a name="debug-kubernetes-issues-related-to-iot-edge"></a>Questões de Debug Kubernetes relacionadas com ioT Edge
 
-<!--When the Kubernetes cluster is created, there are two system namespaces created: `iotedge` and `azure-arc`. --> 
+Antes de começar, deve ter:
 
-<!--### Create config file for system namespace
-
-To troubleshoot, first create the `config` file corresponding to the `iotedge` namespace with `aseuser`.
-
-Run the `Get-HcsKubernetesUserConfig -AseUser` command and save the output as `config` file (no file extension). Save the file in the `.kube` folder of your user profile on the local machine.
-
-Following is the sample output of the `Get-HcsKubernetesUserConfig` command.
-
-```PowerShell
-[10.100.10.10]: PS>Get-HcsKubernetesUserConfig -AseUser
-apiVersion: v1
-clusters:
-- cluster:
-    certificate-authority-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUN5RENDQWJDZ0F3SUJBZ0lCQURBTkJna3Foa2lHOXcwQkFRc0ZBREFWTVJNd0VRWURWUVFERXdwcmRXSmwKY201bGRHVnpNQjRYRFRJd01EVXhNekl4TkRRME5sb1hEVE13TURVeE1USXhORFEwTmxvd0ZURVRNQkVHQTFVRQpBeE1LYTNWaVpYSnVaWFJsY3pDQ0FTSXdEUVlKS29aSWh2Y05BUUVCQlFBRGdnRVBBRENDQVFvQ2dnRUJBS0M1CjlJbzRSU2hudG90QUdxdjNTYmRjOVd4UmJDYlRzWXU5S0RQeU9xanVoZE1UUE9PcmROOGNoa0x4NEFyZkZaU1AKZithUmhpdWZqSE56bWhucnkvZlprRGdqQzQzRmV5UHZzcTZXeVVDV0FEK2JBdi9wSkJDbkg2MldoWGNLZ1BVMApqU1k0ZkpXenNFbzBaREhoeUszSGN3MkxkbmdmaEpEanBQRFJBNkRWb2pIaktPb29OT1J1dURvUHpiOTg2dGhUCkZaQXJMZjRvZXRzTEk1ZzFYRTNzZzM1YVhyU0g3N2JPYVVsTGpYTzFYSnpFZlZWZ3BMWE5xR1ZqTXhBMVU2b1MKMXVJL0d1K1ArY
-===========CUT=========================================CUT===================
-    server: https://compute.myasegpu1.wdshcsso.com:6443
-    name: kubernetes
-contexts:
-- context:
-    cluster: kubernetes
-    user: aseuser
-    name: aseuser@kubernetes
-current-context: aseuser@kubernetes
-kind: Config
-preferences: {}
-users:
-- name: aseuser
-    user:
-    client-certificate-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUMwRENDQWJpZ0F3SUJBZ0lJY1hOTXRPU2VwbG93RFFZSktvWklodmNOQVFFTEJRQXdGVEVUTUJFR0ExVUUKQXhNS2EzVmlaWEp1WlhSbGN6QWVGdzB5TURBMU1UTXlNVFEwTkRaYUZ3MHlNVEExTVRNeU1UVXhNVEphTUJJeApFREFPQmdOVkJBTVRCMkZ6WlhWelpYSXdnZ0VpTUEwR0NTcUdTSWIzRFFFQkFRVUFBNElCRHdBd2dnRUtBb0lCCkFRRHVjQ1pKdm9qNFIrc0U3a1EyYmVjNEJkTXdpUEhmU2R2WnNDVVY0aTRRZGY1Yzd0dkE3OVRSZkRLQTY1d08Kd0h0QWdlK3lLK0hIQ1Qyd09RbWtNek1RNjZwVFEzUlE0eVdtRDZHR1cWZWMExBR1hFUUxWWHRuTUdGCi0tLS0tRU5EIFJTQSBQUklWQVRFIEtFWS0tLS0tCg==
-
-[10.100.10.10]: PS>
-```
--->
-
+- Rede de cálculo configurada. Ver [Tutorial: Configurar rede para Azure Stack Edge Pro com GPU](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md).
+- Papel de cálculo configurado no seu dispositivo.
+    
 Num dispositivo Azure Stack Edge Pro que tenha a função de computação configurada, pode resolver problemas ou monitorizar o dispositivo utilizando dois conjuntos diferentes de comandos.
 
 - Usando `iotedge` comandos. Estes comandos estão disponíveis para operações básicas para o seu dispositivo.
@@ -214,7 +155,7 @@ Commands:
 
 A tabela a seguir tem uma breve descrição dos comandos disponíveis `iotedge` para:
 
-|command  |Descrição |
+|command  |Description |
 |---------|---------|
 |`list`     | Listar módulos         |
 |`logs`     | Pegue os troncos de um módulo        |
@@ -403,7 +344,7 @@ Para obter os registos de um módulo, executar o seguinte comando a partir da in
 
 `kubectl logs <pod_name> -n <namespace> --all-containers` 
 
-Como `all-containers` a bandeira vai despejar todos os troncos para todos os contentores, uma boa maneira de ver os erros recentes é usar a opção. `--tail 10`
+Como `all-containers` a bandeira despeja todos os troncos para todos os contentores, uma boa maneira de ver os erros recentes é usar a opção. `--tail 10`
 
 Segue-se uma saída de amostra. 
 
@@ -534,8 +475,8 @@ Ao alterar a utilização da memória e do processador, siga estas diretrizes.
 
 - A memória predefinida é de 25% da especificação do dispositivo.
 - A contagem de processadores predefinidos é de 30% da especificação do dispositivo.
-- Ao alterar os valores da contagem de memória e processador, recomendamos que varie os valores entre 15% e 65% da memória do dispositivo e a contagem do processador. 
-- Recomendamos que um limite superior de 65% seja para que haja recursos suficientes para os componentes do sistema. 
+- Ao alterar os valores da contagem de memória e processador, recomendamos que varie os valores entre 15% e 60% da memória do dispositivo e a contagem do processador. 
+- Recomendamos que um limite superior de 60% seja para que haja recursos suficientes para os componentes do sistema. 
 
 ## <a name="connect-to-bmc"></a>Ligar ao BMC
 

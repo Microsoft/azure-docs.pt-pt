@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 12/09/2020
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy21q2, automl
-ms.openlocfilehash: 2a07b2fc70a21dd192f74eb5260f3444e09cdca0
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 6d8c56bc306a7ab0bf118d04f64d6523fc385cdd
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101092913"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102520783"
 ---
 # <a name="evaluate-automated-machine-learning-experiment-results"></a>Avaliar resultados automatizados de experiências de aprendizagem automática
 
@@ -45,7 +45,7 @@ Por exemplo, ml automatizado gera os seguintes gráficos com base no tipo de exp
 
 Após a conclusão da sua experiência automatizada de ML, uma história das corridas pode ser encontrada através de:
   - Um navegador com [estúdio Azure Machine Learning](overview-what-is-machine-learning-studio.md)
-  - Um caderno Jupyter usando o [widget RunDetails Jupyter](/python/api/azureml-widgets/azureml.widgets.rundetails?view=azure-ml-py&preserve-view=true)
+  - Um caderno Jupyter usando o [widget RunDetails Jupyter](/python/api/azureml-widgets/azureml.widgets.rundetails)
 
 Os seguintes passos e vídeo, mostrar-lhe como ver a história da execução e as métricas e gráficos de avaliação de modelos no estúdio:
 

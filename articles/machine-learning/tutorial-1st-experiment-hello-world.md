@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 02/11/2021
 ms.custom: devx-track-python
-ms.openlocfilehash: 18f76480d1327d6ab41c475395a689f8024d7b25
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 4f2b01b7a04958c4bd1f97332b54a1ff4fc32356
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100369034"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102522330"
 ---
 # <a name="tutorial-run-a-hello-world-python-script-part-2-of-4"></a>Tutorial: Executar um "Olá mundo!" Escrita python (parte 2 de 4)
 
@@ -92,7 +92,7 @@ Aqui está uma descrição de como o script de controlo funciona:
       `ws = Workspace.from_config()`
    :::column-end:::
    :::column span="2":::
-      [O espaço de trabalho](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py) conecta-se ao seu espaço de trabalho de aprendizagem de máquinas Azure, para que possa comunicar com os seus recursos de Aprendizagem automática Azure.
+      [O espaço de trabalho](/python/api/azureml-core/azureml.core.workspace.workspace) conecta-se ao seu espaço de trabalho de aprendizagem de máquinas Azure, para que possa comunicar com os seus recursos de Aprendizagem automática Azure.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -100,7 +100,7 @@ Aqui está uma descrição de como o script de controlo funciona:
       `experiment =  Experiment( ... )`
    :::column-end:::
    :::column span="2":::
-      [A experiência](/python/api/azureml-core/azureml.core.experiment.experiment?preserve-view=true&view=azure-ml-py) fornece uma forma simples de organizar várias corridas com um único nome. Mais tarde, pode ver como as experiências facilitam a comparação de métricas entre dezenas de corridas.
+      [A experiência](/python/api/azureml-core/azureml.core.experiment.experiment) fornece uma forma simples de organizar várias corridas com um único nome. Mais tarde, pode ver como as experiências facilitam a comparação de métricas entre dezenas de corridas.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -108,7 +108,7 @@ Aqui está uma descrição de como o script de controlo funciona:
       `config = ScriptRunConfig( ... )` 
    :::column-end:::
    :::column span="2":::
-      [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py) embrulha o seu `hello.py` código e passa-o para o seu espaço de trabalho. Como o nome sugere, pode usar esta aula para _configurar_ como pretende que o seu _script_ _seja executado_ em Azure Machine Learning. Também especifica qual o alvo do cálculo em que o script será executado. Neste código, o alvo é o cluster de cálculo que criou no tutorial de [configuração.](tutorial-1st-experiment-sdk-setup-local.md)
+      [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig) embrulha o seu `hello.py` código e passa-o para o seu espaço de trabalho. Como o nome sugere, pode usar esta aula para _configurar_ como pretende que o seu _script_ _seja executado_ em Azure Machine Learning. Também especifica qual o alvo do cálculo em que o script será executado. Neste código, o alvo é o cluster de cálculo que criou no tutorial de [configuração.](tutorial-1st-experiment-sdk-setup-local.md)
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -116,7 +116,7 @@ Aqui está uma descrição de como o script de controlo funciona:
       `run = experiment.submit(config)`
    :::column-end:::
    :::column span="2":::
-       Submete o teu guião. Esta submissão chama-se [corrida.](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py) Uma corrida encapsula uma única execução do seu código. Use uma corrida para monitorizar o progresso do script, capturar a saída, analisar os resultados, visualizar métricas e muito mais.
+       Submete o teu guião. Esta submissão chama-se [corrida.](/python/api/azureml-core/azureml.core.run%28class%29) Uma corrida encapsula uma única execução do seu código. Use uma corrida para monitorizar o progresso do script, capturar a saída, analisar os resultados, visualizar métricas e muito mais.
    :::column-end:::
 :::row-end:::
 :::row:::

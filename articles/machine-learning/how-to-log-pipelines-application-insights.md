@@ -10,12 +10,12 @@ ms.subservice: core
 ms.date: 08/11/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 58e604eccaca4630a235f4ae83724df20d6b1e26
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 7ed27eba66b3d18bed8017934fce85928b961392
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100592526"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102520052"
 ---
 # <a name="collect-machine-learning-pipeline-log-files-in-application-insights-for-alerts-and-debugging"></a>Recolha ficheiros de registo de gasodutos de aprendizagem automática em Application Insights para alertas e depurações
 
@@ -38,7 +38,7 @@ Ter os seus logins uma vez no local irá fornecer um histórico de exceções e 
 
 Esta secção é uma introdução específica para a utilização do OpenCensus a partir de um oleoduto de aprendizagem automática Azure. Para um tutorial detalhado, consulte os [Exportadores do Monitor OpenCensus Azure](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure)
 
-Adicione um PythonScriptStep ao seu Pipeline Azure ML. Configure a sua [Configuração run](/python/api/azureml-core/azureml.core.runconfiguration?preserve-view=true&view=azure-ml-py) com a dependência do opencensus-ext-azure. Configure a `APPLICATIONINSIGHTS_CONNECTION_STRING` variável ambiental.
+Adicione um PythonScriptStep ao seu Pipeline Azure ML. Configure a sua [Configuração run](/python/api/azureml-core/azureml.core.runconfiguration) com a dependência do opencensus-ext-azure. Configure a `APPLICATIONINSIGHTS_CONNECTION_STRING` variável ambiental.
 
 ```python
 from azureml.core.conda_dependencies import CondaDependencies

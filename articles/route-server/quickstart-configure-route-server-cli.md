@@ -7,12 +7,12 @@ ms.service: route-server
 ms.topic: quickstart
 ms.date: 03/02/2021
 ms.author: duau
-ms.openlocfilehash: c24d88e47569da430153dedfd1ff68a584083775
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: ef41c52fa1b63094d952dc34f81db36f7aeaac95
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101695248"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102521293"
 ---
 # <a name="quickstart-create-and-configure-route-server-using-azure-cli"></a>Quickstart: Criar e configurar o Servidor de Rota usando o Azure CLI 
 
@@ -56,8 +56,8 @@ az account set --subscription "<subscription ID>"
 Antes de criar um Azure Route Server, precisará de uma rede virtual para hospedar a implementação. Utilize o comando seguinte para criar um grupo de recursos e uma rede virtual. Se já tiver uma rede virtual, pode saltar para a secção seguinte.
 
 ```azurecli-interactive
-az group create -n “RouteServerRG” -l “westus” 
-az network vnet create -g “RouteServerRG” -n “myVirtualNetwork” --address-prefix “10.0.0.0/16” 
+az group create -n "RouteServerRG" -l "westus" 
+az network vnet create -g "RouteServerRG" -n "myVirtualNetwork" --address-prefix "10.0.0.0/16" 
 ``` 
 
 ### <a name="add-a-subnet"></a>Adicionar uma sub-rede 
@@ -65,13 +65,13 @@ az network vnet create -g “RouteServerRG” -n “myVirtualNetwork” --addres
 1. Adicione uma sub-rede chamada *RouteServerSubnet* para implementar o Azure Route Server. Esta sub-rede é uma sub-rede dedicada apenas para O Servidor de Rota Azure. O RouteServerSubnet deve ser /27 ou um prefixo mais curto (como /26, /25), ou receberá uma mensagem de erro quando adicionar o Azure Route Server.
 
     ```azurecli-interactive 
-    az network vnet subnet create -g “RouteServerRG” --vnet-name “myVirtualNetwork” --name “RouteServerSubnet” --address-prefix “10.0.0.0/24”  
+    az network vnet subnet create -g "RouteServerRG" --vnet-name "myVirtualNetwork" --name "RouteServerSubnet" --address-prefix "10.0.0.0/24"  
     ``` 
 
 1. Obtenha o ID RouteServerSubnet. Para visualizar o ID de todos os subredes da rede virtual, utilize este comando: 
 
     ```azurecli-interactive 
-    subnet_id = $(az network vnet subnet show -n “RouteServerSubnet” --vnet-name “myVirtualNetwork” -g “RouteServerRG” --query id -o tsv) 
+    subnet_id = $(az network vnet subnet show -n "RouteServerSubnet" --vnet-name "myVirtualNetwork" -g "RouteServerRG" --query id -o tsv) 
     ``` 
 
 O ID RouteServerSubnet parece o seguinte: 
@@ -83,7 +83,7 @@ O ID RouteServerSubnet parece o seguinte:
 Crie o Servidor de Rota com este comando: 
 
 ```azurecli-interactive
-az network routeserver create -n “myRouteServer” -g “RouteServerRG” --hosted-subnet $subnet_id  
+az network routeserver create -n "myRouteServer" -g "RouteServerRG" --hosted-subnet $subnet_id  
 ``` 
 
 A localização precisa de corresponder à localização da sua rede virtual. O HostedSubnet é o ID RouteServerSubnet que obteve na secção anterior. 
@@ -94,7 +94,7 @@ Utilize o seguinte comando para estabelecer o espreguitamento do Servidor de Rot
 
 ```azurecli-interactive 
 
-az network routeserver peering create --routeserver-name “myRouteServer” -g “RouteServerRG” --peer-ip “nva_ip” --peer-asn “nva_asn” -n “NVA1_name” 
+az network routeserver peering create --routeserver-name "myRouteServer" -g "RouteServerRG" --peer-ip "nva_ip" --peer-asn "nva_asn" -n "NVA1_name" 
 
 ``` 
 
@@ -104,7 +104,7 @@ Para configurar o seu espreitamento com diferentes NVA ou outro caso da mesma NV
 
 ```azurecli-interactive 
 
-az network routeserver peering create --routeserver-name “myRouteServer” -g “RouteServerRG” --peer-ip “nva_ip” --peer-asn “nva_asn” -n “NVA2_name” 
+az network routeserver peering create --routeserver-name "myRouteServer" -g "RouteServerRG" --peer-ip "nva_ip" --peer-asn "nva_asn" -n "NVA2_name" 
 ``` 
 
 ## <a name="complete-the-configuration-on-the-nva"></a>Complete a configuração no NVA 
@@ -112,7 +112,7 @@ az network routeserver peering create --routeserver-name “myRouteServer” -g 
 Para completar a configuração no NVA e ativar as sessões de BGP, precisa do IP e do ASN do Azure Route Server. Pode obter esta informação usando este comando: 
 
 ```azurecli-interactive 
-az network routeserver show -g “RouteServerRG” -n “myRouteServer” 
+az network routeserver show -g "RouteServerRG" -n "myRouteServer" 
 ``` 
 
 A saída tem as seguintes informações. 
@@ -143,14 +143,14 @@ Se tiver um gateway ExpressRoute e uma porta de entrada Azure VPN no mesmo VNet 
 1. Para ativar a troca de rotas entre o Azure Route Server e o gateway(s), utilize este comando:
 
 ```azurecli-interactive 
-az network routeserver update -g “RouteServerRG” -n “myRouteServer” --allow-b2b-traffic true 
+az network routeserver update -g "RouteServerRG" -n "myRouteServer" --allow-b2b-traffic true 
 
 ``` 
 
 2. Para desativar a troca de rotas entre o Azure Route Server e o gateway(s), utilize este comando:
 
 ```azurecli-interactive
-az network routeserver update -g “RouteServerRG” -n “myRouteServer” --allow-b2b-traffic false 
+az network routeserver update -g "RouteServerRG" -n "myRouteServer" --allow-b2b-traffic false 
 ``` 
 
 ## <a name="troubleshooting"></a>Resolução de problemas 
@@ -169,13 +169,13 @@ Se já não necessitar do Servidor de Rota Azure, utilize estes comandos para re
 1. Remova o espreitamento BGP entre o Azure Route Server e um NVA com este comando:
 
 ```azurecli-interactive
-az network routeserver peering delete --routeserver-name “myRouteServer” -g “RouteServerRG” -n “NVA2_name” 
+az network routeserver peering delete --routeserver-name "myRouteServer" -g "RouteServerRG" -n "NVA2_name" 
 ``` 
 
 2. Remova o Servidor de Rota azul com este comando: 
 
 ```azurecli-interactive 
-az network routeserver delete -n “myRouteServer” -g “RouteServerRG” 
+az network routeserver delete -n "myRouteServer" -g "RouteServerRG" 
 ``` 
 
 ## <a name="next-steps"></a>Passos seguintes

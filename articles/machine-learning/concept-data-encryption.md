@@ -10,12 +10,12 @@ ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
 ms.date: 11/09/2020
-ms.openlocfilehash: 211ef9571b5a126686b4583330dc0f80863fd47e
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 13d5c02fbb4ae06c7a5279ab7c5d3af90c263f71
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94992051"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102521072"
 ---
 # <a name="data-encryption-with-azure-machine-learning"></a>Encriptação de dados com Azure Machine Learning
 
@@ -26,10 +26,10 @@ A Azure Machine Learning utiliza uma variedade de serviços de armazenamento de 
 >
 > A exemplo de computação de aprendizagem automática Azure é um ambiente dev/teste. Ao usá-lo, recomendamos que guarde os seus ficheiros, como cadernos e scripts, numa partilha de ficheiros. Os seus dados devem ser armazenados numa data-loja.
 
-## <a name="encryption-at-rest"></a>Encriptação inativa
+## <a name="encryption-at-rest"></a>Encriptação de dados inativos
 
 > [!IMPORTANT]
-> Se o seu espaço de trabalho contiver dados sensíveis, recomendamos que se estabeleça a [bandeira hbi_workspace](/python/api/azureml-core/azureml.core.workspace%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truecreate-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) enquanto cria o seu espaço de trabalho. A `hbi_workspace` bandeira só pode ser colocada quando um espaço de trabalho é criado. Não pode ser alterado para um espaço de trabalho existente.
+> Se o seu espaço de trabalho contiver dados sensíveis, recomendamos que se estabeleça a [bandeira hbi_workspace](/python/api/azureml-core/azureml.core.workspace%28class%29#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) enquanto cria o seu espaço de trabalho. A `hbi_workspace` bandeira só pode ser colocada quando um espaço de trabalho é criado. Não pode ser alterado para um espaço de trabalho existente.
 
 A `hbi_workspace` bandeira controla a quantidade de [dados que](#microsoft-collected-data) a Microsoft recolhe para fins de diagnóstico e permite [encriptação adicional em ambientes geridos pela Microsoft](../security/fundamentals/encryption-atrest.md). Além disso, permite as seguintes ações:
 
@@ -68,7 +68,7 @@ Para permitir o provisionamento de uma instância de DB cosmos na sua subscriç�
     * `cmk_keyvault`: Este parâmetro é o ID de recurso do cofre chave na sua subscrição. Este cofre-chave precisa de estar na mesma região e subscrição que você usará para o espaço de trabalho Azure Machine Learning. 
     
         > [!NOTE]
-        > Esta instância do cofre chave pode ser diferente do cofre chave que é criado pela Azure Machine Learning quando você forja o espaço de trabalho. Se pretender utilizar a mesma instância de cofre para o espaço de trabalho, passe o mesmo cofre-chave enquanto abaste o espaço de trabalho utilizando o [parâmetro key_vault](/python/api/azureml-core/azureml.core.workspace%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truecreate-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-). 
+        > Esta instância do cofre chave pode ser diferente do cofre chave que é criado pela Azure Machine Learning quando você forja o espaço de trabalho. Se pretender utilizar a mesma instância de cofre para o espaço de trabalho, passe o mesmo cofre-chave enquanto abaste o espaço de trabalho utilizando o [parâmetro key_vault](/python/api/azureml-core/azureml.core.workspace%28class%29#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-). 
 
 [!INCLUDE [machine-learning-customer-managed-keys.md](../../includes/machine-learning-customer-managed-keys.md)]
 
@@ -105,7 +105,7 @@ Para utilizar a chave ao implementar um modelo para Azure Container Instance, cr
 
 Para obter mais informações sobre a criação e utilização de uma configuração de implantação, consulte os seguintes artigos:
 
-* [AciWebservice.deploy_configuration()](/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?preserve-view=true&view=azure-ml-py#&preserve-view=truedeploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none-) referência
+* [AciWebservice.deploy_configuration()](/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none-) referência
 * [Onde e como implementar](how-to-deploy-and-where.md)
 * [Implementar um modelo no Azure Container Instances](how-to-deploy-azure-container-instance.md)
 
@@ -148,7 +148,7 @@ Para garantir chamadas externas feitas para o ponto final de pontuação, o Azur
 
 A Microsoft pode recolher informações de identificação não-utilizadoras como nomes de recursos (por exemplo, o nome do conjunto de dados ou o nome da experiência de aprendizagem automática), ou variáveis de ambiente de trabalho para fins de diagnóstico. Todos estes dados são armazenados utilizando chaves geridas pela Microsoft no armazenamento alojado em subscrições próprias da Microsoft e seguem as [normas padrão de política de privacidade e tratamento de dados da Microsoft.](https://privacy.microsoft.com/privacystatement)
 
-A Microsoft também recomenda não armazenar informações sensíveis (como segredos-chave de contas) em variáveis ambientais. As variáveis ambientais são registadas, encriptadas e armazenadas por nós. Da mesma forma, ao nomear [run_id](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py), evite incluir informações sensíveis, tais como nomes de utilizadores ou nomes de projetos secretos. Estas informações podem aparecer em registos de telemetria acessíveis aos engenheiros do Microsoft Support.
+A Microsoft também recomenda não armazenar informações sensíveis (como segredos-chave de contas) em variáveis ambientais. As variáveis ambientais são registadas, encriptadas e armazenadas por nós. Da mesma forma, ao nomear [run_id](/python/api/azureml-core/azureml.core.run%28class%29), evite incluir informações sensíveis, tais como nomes de utilizadores ou nomes de projetos secretos. Estas informações podem aparecer em registos de telemetria acessíveis aos engenheiros do Microsoft Support.
 
 Pode optar por não recolher dados de diagnóstico, definindo o `hbi_workspace` parâmetro para o fornecimento do espaço de `TRUE` trabalho. Esta funcionalidade é suportada ao utilizar os modelos AzureML Python SDK, CLI, REST APIs ou Azure Resource Manager.
 
@@ -164,9 +164,9 @@ As palavras-passe e as chaves do SSH para calcular alvos como Azure HDInsight e 
 
 Cada espaço de trabalho tem uma identidade gerida associada ao sistema que tem o mesmo nome que o espaço de trabalho. Esta identidade gerida tem acesso a todas as chaves, segredos e certificados no cofre das chaves.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-* [Ligue-se ao armazenamento Azure](how-to-access-data.md)
+* [Ligar ao armazenamento do Azure](how-to-access-data.md)
 * [Obter dados a partir de um arquivo de dados](how-to-create-register-datasets.md)
 * [Ligar-se a dados](how-to-connect-data-ui.md)
 * [Preparar com conjuntos de dados](how-to-train-with-datasets.md)

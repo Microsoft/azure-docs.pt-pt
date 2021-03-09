@@ -11,12 +11,12 @@ author: lobrien
 ms.date: 8/25/2020
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy21q1
-ms.openlocfilehash: 5dc14873f8863332d37a6ced6ce4013e76640dea
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: efedb21a1ec1ed53a8c6bfadf337d23a89c04383
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879398"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102520181"
 ---
 # <a name="publish-and-track-machine-learning-pipelines"></a>Publicar e rastrear gasodutos de aprendizagem de máquinas
 
@@ -38,7 +38,7 @@ Os gasodutos de aprendizagem automática são fluxos de trabalho reutilizáveis 
 
 Uma vez que tenha um oleoduto em funcionamento, pode publicar um oleoduto para que este corra com diferentes entradas. Para que o ponto final do ME de um oleoduto já publicado aceite parâmetros, deve configurar o seu oleoduto para utilizar `PipelineParameter` objetos para os argumentos que variarão.
 
-1. Para criar um parâmetro de pipeline, utilize um objeto [PipelineParameter](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.pipelineparameter?preserve-view=true&view=azure-ml-py) com um valor predefinido.
+1. Para criar um parâmetro de pipeline, utilize um objeto [PipelineParameter](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.pipelineparameter) com um valor predefinido.
 
    ```python
    from azureml.pipeline.core.graph import PipelineParameter
@@ -76,7 +76,7 @@ Todos os oleodutos publicados têm um ponto final REST. Com o ponto final do gas
 > [!IMPORTANT]
 > Se estiver a utilizar o controlo de acesso baseado em funções (Azure RBAC) para gerir o acesso ao seu pipeline, [desajeitar as permissões para o seu cenário de pipeline (treino ou pontuação)](how-to-assign-roles.md#common-scenarios).
 
-Para invocar o funcionamento do oleoduto anterior, precisa de um sinal de cabeçalho de autenticação Azure Ative. Obter tal token é descrito na referência da [classe AzureCliAuthentication](/python/api/azureml-core/azureml.core.authentication.azurecliauthentication?preserve-view=true&view=azure-ml-py) e na autenticação no caderno [Azure Machine Learning.](https://aka.ms/pl-restep-auth)
+Para invocar o funcionamento do oleoduto anterior, precisa de um sinal de cabeçalho de autenticação Azure Ative. Obter tal token é descrito na referência da [classe AzureCliAuthentication](/python/api/azureml-core/azureml.core.authentication.azurecliauthentication) e na autenticação no caderno [Azure Machine Learning.](https://aka.ms/pl-restep-auth)
 
 ```python
 from azureml.pipeline.core import PublishedPipeline
@@ -360,10 +360,10 @@ p = PublishedPipeline.get(ws, id="068f4885-7088-424b-8ce2-eeb9ba5381a6")
 p.disable()
 ```
 
-Pode voltar a ative-lo com `p.enable()` . Para mais informações, consulte a referência [da classe PublishedPipeline.](/python/api/azureml-pipeline-core/azureml.pipeline.core.publishedpipeline?preserve-view=true&view=azure-ml-py)
+Pode voltar a ative-lo com `p.enable()` . Para mais informações, consulte a referência [da classe PublishedPipeline.](/python/api/azureml-pipeline-core/azureml.pipeline.core.publishedpipeline)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Use [estes cadernos Jupyter no GitHub](https://aka.ms/aml-pipeline-readme) para explorar ainda mais os oleodutos de aprendizagem automática.
-- Consulte a ajuda de referência SDK para o pacote [de núcleo de gasodutos azureml](/python/api/azureml-pipeline-core/?preserve-view=true&view=azure-ml-py) e o pacote [de passos de gasodutos azureml.](/python/api/azureml-pipeline-steps/?preserve-view=true&view=azure-ml-py)
+- Consulte a ajuda de referência SDK para o pacote [de núcleo de gasodutos azureml](/python/api/azureml-pipeline-core/) e o pacote [de passos de gasodutos azureml.](/python/api/azureml-pipeline-steps/)
 - Consulte o ["how-to"](how-to-debug-pipelines.md) para obter dicas sobre depuração e resolução de problemas.

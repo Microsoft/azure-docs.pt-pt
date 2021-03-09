@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 03/09/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 072bb7841db10351bd1a98f4bc7a1d57e67f6c24
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: cc385c3a7ceb0245e3a4acbedb037b1b28bde7b3
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102448545"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102518114"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-an-apple-id--using-azure-active-directory-b2c-preview"></a>Configurar o pré-serviço e iniciar seduca com um Apple ID utilizando o Azure Ative Directory B2C (Pré-visualização)
 
@@ -195,7 +195,7 @@ Pode definir um Apple ID como fornecedor de sinistros adicionando-o ao elemento 
             <Item Key="response_types">code</Item>
             <Item Key="external_user_identity_claim_id">sub</Item>
             <Item Key="response_mode">form_post</Item>
-            <Item Key="ReadBodyClaimsOnIdpRedirect">user.name.firstName user.name.lastName user.email</Item>
+            <Item Key="ReadBodyClaimsOnIdpRedirect">user.firstName user.lastName user.email</Item>
             <Item Key="client_id">You Apple ID</Item>
             <Item Key="UsePolicyInRedirectUri">false</Item>
           </Metadata>
@@ -206,8 +206,8 @@ Pode definir um Apple ID como fornecedor de sinistros adicionando-o ao elemento 
             <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="sub" />
             <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="https://appleid.apple.com" AlwaysUseDefaultValue="true" />
             <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" AlwaysUseDefaultValue="true" />
-            <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="user.name.firstName"/>
-            <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="user.name.lastName"/>
+            <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="user.firstName"/>
+            <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="user.lastName"/>
             <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="user.email"/>
           </OutputClaims>
           <OutputClaimsTransformations>

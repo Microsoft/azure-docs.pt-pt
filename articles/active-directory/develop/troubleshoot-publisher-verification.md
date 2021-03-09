@@ -13,12 +13,12 @@ ms.date: 01/28/2021
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 9ae5d2279baab69d762a71b2f6400009747c16fe
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: acce282dcaac971716a97d7722543d78e28b7a34
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99584218"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102517672"
 ---
 # <a name="troubleshoot-publisher-verification"></a>Resolver problemas da verificação do publicador
 Se não conseguir completar o processo ou estiver a experimentar comportamentos inesperados com [a verificação do editor,](publisher-verification-overview.md)deve começar por fazer o seguinte se estiver a receber erros ou a ver comportamentos inesperados: 
@@ -241,7 +241,7 @@ Quando um pedido de adição de um editor verificado é feito, um número de sin
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Se tiver revisto todas as informações anteriores e ainda estiver a receber um erro do Microsoft Graph, recolha o máximo de informações possíveis relacionadas com o pedido de falha e contacte o suporte da [Microsoft.](developer-support-help-options.md#open-a-support-request)
+Se tiver revisto todas as informações anteriores e ainda estiver a receber um erro do Microsoft Graph, recolha o máximo de informações possíveis relacionadas com o pedido de falha e contacte o suporte da [Microsoft.](developer-support-help-options.md#create-an-azure-support-request)
 
 - CarimboDeDataEHora 
 - CorrelationId 

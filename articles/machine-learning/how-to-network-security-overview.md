@@ -11,12 +11,12 @@ author: peterclu
 ms.date: 03/02/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, references_regions, contperf-fy21q1
-ms.openlocfilehash: 1309ad1b3e3f6bd6f9b543959220bf71c569f083
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: fcb678efe29178784c9233e79b307f705c40e3f7
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102175010"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102518687"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>Isolamento de rede virtual e visão geral da privacidade
 
@@ -69,9 +69,14 @@ As próximas cinco secções mostram-lhe como proteger o cenário de rede acima 
 Use os seguintes passos para garantir o seu espaço de trabalho e recursos associados. Estes passos permitem que os seus serviços se comuniquem na rede virtual.
 
 1. Crie um [espaço de trabalho com ligações privadas](how-to-secure-workspace-vnet.md#secure-the-workspace-with-private-endpoint) para permitir a comunicação entre o seu VNet e o espaço de trabalho.
-1. Adicione o Cofre da Chave Azure à rede virtual com um [ponto final](../key-vault/general/overview-vnet-service-endpoints.md) de serviço ou um ponto [final privado](../key-vault/general/private-link-service.md). Definir o Cofre da Chave para ["Permitir que serviços confiáveis da Microsoft contornem esta firewall".](how-to-secure-workspace-vnet.md#secure-azure-key-vault)
-1. Adicione-lhe conta de armazenamento Azure à rede virtual com um [ponto final](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints) de serviço ou um ponto [final privado.](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints)
-1. [Configure o registo do contentor Azure para utilizar um ponto final privado](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr).
+1. Adicione os seguintes serviços à rede virtual _utilizando_ um ponto final de __serviço__ ou um ponto __final privado.__ Também deve permitir que serviços confiáveis da Microsoft acedam a estes serviços:
+    
+    | Serviço | Informações sobre ponto final | Permitir informações fidedignas |
+    | ----- | ----- | ----- |
+    | __Azure Key Vault__| [Ponto final de serviço](../key-vault/general/overview-vnet-service-endpoints.md)</br>[Ponto final privado](../key-vault/general/private-link-service.md) | [Permitir serviços confiáveis da Microsoft para contornar esta firewall](how-to-secure-workspace-vnet.md#secure-azure-key-vault) |
+    | __Conta de Armazenamento Azure__ | [Ponto final de serviço](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints)</br>[Ponto final privado](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints) | [Conceder acesso a serviços de confiança da Azure](../storage/common/storage-network-security.md#grant-access-to-trusted-azure-services) |
+    | __Azure Container Registry__ | [Ponto final de serviço](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr)</br>[Ponto final privado](../container-registry/container-registry-private-link.md) | [Permitir serviços fidedignos](../container-registry/allow-access-trusted-services.md) |
+
 
 ![Diagrama de arquitetura mostrando como o espaço de trabalho e os recursos associados comunicam uns aos outros sobre pontos finais de serviço ou pontos finais privados dentro de um VNet](./media/how-to-network-security-overview/secure-workspace-resources.png)
 

@@ -12,12 +12,12 @@ ms.date: 02/28/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9612a26d7ac2e7a059655636fc1a2a7a43e3b8d7
-ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
+ms.openlocfilehash: 2d6c76a15ee62c26e0d0261c6b0d2d1e27443a40
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100526243"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102518051"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Começar com políticas personalizadas no Azure Ative Directory B2C
 
@@ -30,6 +30,10 @@ ms.locfileid: "100526243"
 - Se ainda não tiver um, [crie um inquilino Azure AD B2C](tutorial-create-tenant.md) que esteja ligado à sua assinatura Azure.
 - [Registe a sua candidatura](tutorial-register-applications.md) no arrendatário que criou para que possa comunicar com o Azure AD B2C.
 - Complete os passos em [Configurar inscrição e iniciar sôm-se com uma conta do Facebook](identity-provider-facebook.md) para configurar uma aplicação do Facebook. Embora uma aplicação do Facebook não seja necessária para usar políticas personalizadas, é usada neste walkthrough para demonstrar que permite o login social numa política personalizada.
+
+> [!TIP]
+> Este artigo explica como configurar o seu inquilino manualmente. Pode automatizar todo o processo a partir deste artigo. A automatização irá implementar o pacote de arranque Azure AD B2C [SocialAndLocalAccountsWithMFA](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack), que fornecerá viagens de inscrição e de início, reset de palavra-passe e edição de perfil. Para automatizar a passagem abaixo, visite a [App de Configuração do IEF](https://aka.ms/iefsetup) e siga as instruções.
+
 
 ## <a name="add-signing-and-encryption-keys"></a>Adicione chaves de assinatura e encriptação
 

@@ -11,12 +11,12 @@ author: lostmygithubaccount
 ms.date: 06/25/2020
 ms.topic: conceptual
 ms.custom: how-to, data4ml, contperf-fy21q2
-ms.openlocfilehash: b62ed4c0b661ebc725bd4cd3737249d91e48c43e
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 5a3d16445c5a4276f07f4ed502b9830a10c4ff72
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101656844"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102518913"
 ---
 # <a name="detect-data-drift-preview-on-datasets"></a>Detetar deriva de dados (pré-visualização) em conjuntos de dados
 
@@ -43,7 +43,7 @@ Pode ver métricas de deriva de dados com o Python SDK ou no estúdio Azure Mach
 Para criar e trabalhar com monitores de conjunto de dados, precisa de:
 * Uma subscrição do Azure. Se não tiver uma subscrição do Azure, crie uma conta gratuita antes de começar. Experimente hoje a [versão gratuita ou paga do Azure Machine Learning.](https://aka.ms/AMLFree)
 * Um [espaço de trabalho de aprendizagem automática Azure.](how-to-manage-workspace.md)
-* O [Azure Machine Learning SDK para Python instalado,](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py)que inclui o pacote de conjuntos de dados azureml.
+* O [Azure Machine Learning SDK para Python instalado,](/python/api/overview/azure/ml/install)que inclui o pacote de conjuntos de dados azureml.
 * Dados estruturados (tabulares) com um timetamp especificado na trajetória do ficheiro, nome do ficheiro ou coluna nos dados.
 
 ## <a name="what-is-data-drift"></a>O que é a deriva de dados?
@@ -85,7 +85,7 @@ Realizar análises em dados passados. | Este cenário pode ser usado para compre
 
 Os monitores do Dataset dependem dos seguintes serviços Azure.
 
-|Serviço do Azure  |Descrição  |
+|Serviço do Azure  |Description  |
 |---------|---------|
 | *Conjunto de dados* | Drift usa conjuntos de dados de Machine Learning para recuperar dados de treino e comparar dados para a formação de modelos.  Gerar perfil de dados é usado para gerar algumas das métricas relatadas, tais como min, máx, valores distintos, valores distintos contam. |
 | *Gasoduto e computação Azureml* | O trabalho de cálculo à deriva está alojado no gasoduto azureml.  O trabalho é desencadeado a pedido ou por horário para funcionar num cálculo configurado no tempo de criação do monitor de drift.
@@ -107,7 +107,7 @@ O conjunto de dados-alvo necessita do `timeseries` traço definido, especificand
 # <a name="python"></a>[Python](#tab/python)
 <a name="sdk-dataset"></a>
 
-O [`Dataset`](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py#&preserve-view=truewith-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-) método de classe define a coluna de carimbo de tempo para o conjunto de [`with_timestamp_columns()`](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py#&preserve-view=truewith-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-)  dados.
+O [`Dataset`](/python/api/azureml-core/azureml.data.tabulardataset#with-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-) método de classe define a coluna de carimbo de tempo para o conjunto de [`with_timestamp_columns()`](/python/api/azureml-core/azureml.data.tabulardataset#with-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-)  dados.
 
 ```python 
 from azureml.core import Workspace, Dataset, Datastore
@@ -135,7 +135,7 @@ dset = dset.register(ws, 'target')
 ```
 
 > [!TIP]
-> Para obter um exemplo completo da utilização `timeseries` do traço de conjuntos de dados, consulte o caderno de [exemplo](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/timeseries-datasets/tabular-timeseries-dataset-filtering.ipynb) ou a [documentação SDK dos conjuntos de dados](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py#&preserve-view=truewith-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-).
+> Para obter um exemplo completo da utilização `timeseries` do traço de conjuntos de dados, consulte o caderno de [exemplo](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/timeseries-datasets/tabular-timeseries-dataset-filtering.ipynb) ou a [documentação SDK dos conjuntos de dados](/python/api/azureml-core/azureml.data.tabulardataset#with-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-).
 
 # <a name="studio"></a>[Studio](#tab/azure-studio)
 
@@ -234,14 +234,14 @@ monitor = monitor.enable_schedule()
 
     | Definições | Descrição | Sugestões | Mutável | 
     | ------- | ----------- | ---- | ------- |
-    | Name | Nome do monitor do conjunto de dados. | | Não |
-    | Funcionalidades | Lista de funcionalidades que serão analisadas para deriva de dados ao longo do tempo. | Definir para a(s) características de saída de um modelo para medir a deriva do conceito. Não inclua características que naturalmente se desviem ao longo do tempo (mês, ano, índice, etc.). Pode preencher de costas e monitorizar a deriva de dados existente depois de ajustar a lista de funcionalidades. | Sim | 
-    | Destino de computação | Azure Machine Learning computação alvo para executar os trabalhos de monitor de conjunto de dados. | | Sim | 
-    | Ativar | Ativar ou desativar o horário no pipeline do monitor do conjunto de dados | Desative o calendário para analisar dados históricos com a definição de enchimento. Pode ser ativado após a criação do monitor do conjunto de dados. | Sim | 
-    | Frequência | A frequência que será usada para agendar o trabalho do oleoduto e analisar dados históricos se executar um enchimento traseiro. As opções incluem diariamente, semanalmente ou mensalmente. | Cada execução compara dados no conjunto de dados-alvo de acordo com a frequência: <li>Diariamente: Compare o dia completo mais recente no conjunto de dados-alvo com a linha de base <li>Semanal: Compare a semana completa mais recente (segunda-feira a domingo) em conjunto de dados-alvo com linha de base <li>Mensalmente: Compare o mês completo mais recente no conjunto de dados-alvo com a linha de base | Não | 
-    | Latência | O tempo, em horas, leva para os dados chegarem ao conjunto de dados. Por exemplo, se os dados demorarem três dias a chegar ao SQL DB, o conjunto de dados encapsula, definir a latência para 72. | Não pode ser alterado após a criação do monitor do conjunto de dados | Não | 
-    | Endereços de e-mail | Endereços de e-mail para alerta com base na violação do limiar percentual de deriva de dados. | Os e-mails são enviados através do Azure Monitor. | Sim | 
-    | Limite | Limite percentual de deriva de dados para alerta de e-mail. | Outros alertas e eventos podem ser definidos em muitas outras métricas no recurso de Insights de Aplicação associado do espaço de trabalho. | Sim |
+    | Name | Nome do monitor do conjunto de dados. | | No |
+    | Funcionalidades | Lista de funcionalidades que serão analisadas para deriva de dados ao longo do tempo. | Definir para a(s) características de saída de um modelo para medir a deriva do conceito. Não inclua características que naturalmente se desviem ao longo do tempo (mês, ano, índice, etc.). Pode preencher de costas e monitorizar a deriva de dados existente depois de ajustar a lista de funcionalidades. | Yes | 
+    | Destino de computação | Azure Machine Learning computação alvo para executar os trabalhos de monitor de conjunto de dados. | | Yes | 
+    | Ativar | Ativar ou desativar o horário no pipeline do monitor do conjunto de dados | Desative o calendário para analisar dados históricos com a definição de enchimento. Pode ser ativado após a criação do monitor do conjunto de dados. | Yes | 
+    | Frequência | A frequência que será usada para agendar o trabalho do oleoduto e analisar dados históricos se executar um enchimento traseiro. As opções incluem diariamente, semanalmente ou mensalmente. | Cada execução compara dados no conjunto de dados-alvo de acordo com a frequência: <li>Diariamente: Compare o dia completo mais recente no conjunto de dados-alvo com a linha de base <li>Semanal: Compare a semana completa mais recente (segunda-feira a domingo) em conjunto de dados-alvo com linha de base <li>Mensalmente: Compare o mês completo mais recente no conjunto de dados-alvo com a linha de base | No | 
+    | Latência | O tempo, em horas, leva para os dados chegarem ao conjunto de dados. Por exemplo, se os dados demorarem três dias a chegar ao SQL DB, o conjunto de dados encapsula, definir a latência para 72. | Não pode ser alterado após a criação do monitor do conjunto de dados | No | 
+    | Endereços de e-mail | Endereços de e-mail para alerta com base na violação do limiar percentual de deriva de dados. | Os e-mails são enviados através do Azure Monitor. | Yes | 
+    | Limite | Limite percentual de deriva de dados para alerta de e-mail. | Outros alertas e eventos podem ser definidos em muitas outras métricas no recurso de Insights de Aplicação associado do espaço de trabalho. | Yes |
 
 Após terminar o assistente, aparecerá na lista o monitor de conjuntos de dados resultante. Selecione-o para ir à página de detalhes do monitor.
 
@@ -355,7 +355,7 @@ Limitações e questões conhecidas para monitores de deriva de dados:
     1. No **separador Dataset Monitors,** selecione o link de experiência para verificar o estado da execução.  Esta ligação está na extrema direita da mesa.
     1. Se o funcionado for concluído com sucesso, verifique os registos do controlador para ver quantas métricas foram geradas ou se há alguma mensagem de aviso.  Encontre registos de controlador no **separador Saída + registos** depois de clicar numa experiência.
 
-* Se a função SDK `backfill()` não gerar a saída esperada, poderá ser devido a um problema de autenticação.  Quando criar o cálculo para passar para esta função, não utilize `Run.get_context().experiment.workspace.compute_targets` .  Em vez disso, utilize [a Concessão de ServiçoPrincipal,](/python/api/azureml-core/azureml.core.authentication.serviceprincipalauthentication?preserve-view=true&view=azure-ml-py) como a seguinte, para criar o cálculo que passa para essa `backfill()` função: 
+* Se a função SDK `backfill()` não gerar a saída esperada, poderá ser devido a um problema de autenticação.  Quando criar o cálculo para passar para esta função, não utilize `Run.get_context().experiment.workspace.compute_targets` .  Em vez disso, utilize [a Concessão de ServiçoPrincipal,](/python/api/azureml-core/azureml.core.authentication.serviceprincipalauthentication) como a seguinte, para criar o cálculo que passa para essa `backfill()` função: 
 
   ```python
    auth = ServicePrincipalAuthentication(

@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 01/07/2021
 ms.author: damendo
 ms.custom: subject-armqs
-ms.openlocfilehash: ded7b24461fdcdbc3d020a487cafc20620633097
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: bc075e5074fe39ad38e45235af932b40fef78fce
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98019725"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102521871"
 ---
 # <a name="quickstart-configure-network-security-group-flow-logs-by-using-an-arm-template"></a>Quickstart: Configurar registos de fluxo de grupo de segurança de rede usando um modelo ARM
 
@@ -82,7 +82,7 @@ Para obter uma visão geral completa das propriedades dos objetos de fluxo NSG, 
 
 Se estiver a usar modelos ARM pela primeira vez, consulte os seguintes artigos para saber mais sobre os modelos ARM:
 
-- [Implementar recursos com modelos ARM e Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md#deploy-local-template)
+- [Implementar recursos com modelos ARM e Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md#deploy-local-template-or-bicep-file)
 - [Tutorial: Crie e implemente o seu primeiro modelo ARM](../azure-resource-manager/templates/template-tutorial-create-first-template.md)
 
 O exemplo a seguir é um modelo completo. É também a versão mais simples do modelo. O exemplo contém os parâmetros mínimos que são passados para configurar os registos de fluxo NSG. Para mais exemplos, consulte o artigo visão geral [Configurar registos de fluxo NSG a partir de um modelo de Gestor de Recursos Azure](network-watcher-nsg-flow-logging-azure-resource-manager.md).
@@ -145,7 +145,7 @@ New-AzResourceGroupDeployment -Name EnableFlowLog -ResourceGroupName NetworkWatc
 Tem duas opções para ver se a sua implantação foi bem sucedida:
 
 - A sua consola PowerShell mostra `ProvisioningState` como `Succeeded` .
-- Aceda à página do [portal de registos de fluxos NSG](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/flowLogs) para confirmar as suas alterações. 
+- Aceda à página do [portal de registos de fluxos NSG](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/flowLogs) para confirmar as suas alterações.
 
 Se houver problemas com a implementação, consulte [os erros comuns de implementação do Azure com o Azure Resource Manager](../azure-resource-manager/templates/common-deployment-errors.md).
 
@@ -160,9 +160,9 @@ Também pode desativar um registo de fluxo NSG no portal Azure:
 1. Em **Registos**, selecione **registos de fluxo NSG**.
 1. Na lista de NSGs, selecione o NSG para o qual pretende desativar os registos de fluxo.
 1. Nas **definições de registos de fluxo**, selecione **Off**.
-1. Selecione **Save** (Guardar).
+1. Selecione **Guardar**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste arranque rápido, aprendeu a ativar os registos de fluxo NSG utilizando um modelo ARM. Em seguida, aprenda a visualizar os seus dados de fluxo NSG utilizando uma destas opções:
 

@@ -1,6 +1,6 @@
 - name: Documentação de Máquinas Virtuais
   href: index.yml
-- name: Descrição geral
+- name: Descrição Geral
   items:
     - name: Sobre máquinas virtuais Linux
       href: ./linux/overview.md
@@ -111,7 +111,7 @@
   items:
     - name: Tamanhos
       items:
-        - name: Descrição geral
+        - name: Descrição Geral
           href: sizes.md
         - name: Alterar o tamanho VM
           items:
@@ -214,7 +214,7 @@
               href: ./windows/n-series-amd-driver-setup.md
         - name: FPGA - cálculo acelerado
           items:
-            - name: Descrição geral
+            - name: Descrição Geral
               href: sizes-field-programmable-gate-arrays.md?context=/azure/virtual-machines/context/context
             - name: Série NP
               href: np-series.md
@@ -374,7 +374,7 @@
           href: ./windows/winrm.md
     - name: Extensões
       items:
-        - name: Descrição geral
+        - name: Descrição Geral
           href: ./extensions/overview.md
         - name: Linux
           items:
@@ -575,7 +575,7 @@
           href: ./windows/client-images.md
     - name: Imagens personalizadas de Linux
       items:
-        - name: Descrição geral
+        - name: Descrição Geral
           href: ./linux/imaging.md
         - name: Provisão de Linux
           href: ./linux/provisioning.md
@@ -781,7 +781,7 @@
           href: ./windows/build-image-with-packer.md
 - name: Disponibilidade e dimensionamento
   items:
-    - name: Descrição geral
+    - name: Descrição Geral
       href: availability.md
     - name: Conjuntos de disponibilidade
       items:
@@ -815,7 +815,7 @@
           href: ./windows/proximity-placement-groups-portal.md
     - name: Conjuntos de Dimensionamento de Máquinas Virtuais
       items:
-        - name: Descrição geral
+        - name: Descrição Geral
           href: ../virtual-machine-scale-sets/overview.md?context=/azure/virtual-machines/context/context
         - name: Dimensionamento Automático
           href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md?context=/azure/virtual-machines/context/context
@@ -823,8 +823,8 @@
           href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md?context=/azure/virtual-machines/context/context
     - name: Compreenda as reinicializações de VM
       href: understand-vm-reboots.md
-    - name: Estados e ciclo de vida
-      href: states-lifecycle.md
+    - name: Estados e faturação
+      href: states-billing.md
     - name: Regiões do Azure
       href: regions.md
 - name: Discos
@@ -973,7 +973,7 @@
           href: disks-incremental-snapshots.md
         - name: Cópia de Segurança de Discos do Azure
           items:
-            - name: Descrição geral
+            - name: Descrição Geral
               href: ../backup/disk-backup-overview.md?context=/azure/virtual-machines/context/context
             - name: Configurar backup de disco Azure
               href: ../backup/backup-managed-disks.md?context=/azure/virtual-machines/context/context
@@ -1110,9 +1110,9 @@
               href: 'https://github.com/microsoft/azure-docs/blob/master/articles/virtual-machines/scripts/virtual-machines-linux-powershell-sample-copy-managed-disks-vhd.md'
             - name: Criar um instantâneo a partir de um VHD
               href: 'https://github.com/microsoft/azure-docs/blob/master/articles/virtual-machines/scripts/virtual-machines-linux-powershell-sample-create-snapshot-from-vhd.md'
-- name: Redes
+- name: Rede
   items:
-    - name: Descrição geral
+    - name: Descrição Geral
       href: network-overview.md
     - name: Criar a rede virtual
       href: ../virtual-network/quick-create-cli.md?context=/azure/virtual-machines/context/context
@@ -1158,7 +1158,7 @@
       href: security-recommendations.md
     - name: Lançamento confiável
       items:
-        - name: Descrição geral
+        - name: Descrição Geral
           href: trusted-launch.md
         - name: Implementar usando o portal
           href: trusted-launch-portal.md
@@ -1166,7 +1166,7 @@
       href: ../security-center/security-center-just-in-time.md
     - name: Política
       items:
-        - name: Descrição geral
+        - name: Descrição Geral
           href: security-policy.md
         - name: Controlos por política
           displayName: 'regulatory, compliance, standards, domains'
@@ -1181,7 +1181,7 @@
               href: ./windows/policy.md
     - name: Bastion
       items:
-        - name: Descrição geral
+        - name: Descrição Geral
           href: ../bastion/bastion-overview.md
         - name: Criar um anfitrião do Bastion
           items:
@@ -1233,7 +1233,7 @@
       href: ./linux/login-using-aad.md
 - name: Manutenção e atualizações
   items:
-    - name: Descrição geral
+    - name: Descrição Geral
       href: maintenance-and-updates.md
     - name: Aplicação de patches automática de convidado da VM (pré-visualização)
       href: automatic-vm-guest-patching.md
@@ -1355,7 +1355,7 @@
             - name: FAQ sobre Disponibilidade Geral
               href: ../azure-monitor/vm/vminsights-ga-release-faq.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
             - name: FAQ
-              href: ../azure-monitor/faq.md
+              href: ../azure-monitor/faq.md?context=/azure/virtual-machines/context/context
             - name: Ativar monitorização
               items:
                 - name: Ativar descrição geral da monitorização
@@ -1406,7 +1406,7 @@
       href: boot-diagnostics.md
 - name: Cópia de segurança e recuperação
   items:
-    - name: Descrição geral
+    - name: Descrição Geral
       href: backup-recovery.md
     - name: Interrupções de serviço
       href: virtual-machines-disaster-recovery-guidance.md
@@ -1436,7 +1436,7 @@
           href: ../backup/backup-azure-vm-backup-faq.yml
     - name: Recuperação após desastre
       items:
-        - name: Descrição geral
+        - name: Descrição Geral
           href: ../site-recovery/site-recovery-overview.md
         - name: Permitir a recuperação de desastres
           items:
@@ -1479,7 +1479,7 @@
               href: ../site-recovery/migrate-overview.md?context=/azure/virtual-machines/context/context
 - name: Automatização de infraestruturas
   items:
-    - name: Descrição geral
+    - name: Descrição Geral
       href: infrastructure-automation.md
     - name: Dados personalizados
       href: custom-data.md

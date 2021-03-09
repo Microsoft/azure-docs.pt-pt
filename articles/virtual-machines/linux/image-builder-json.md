@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: image-builder
 ms.collection: linux
 ms.reviewer: cynthn
-ms.openlocfilehash: eb02bff77ffedc0a1f2fee0a186d544c39374dbf
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a3138da0ecbcabaeb7ef910975afc3b7005e5b50
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101693871"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102519712"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Pré-visualização: Criar um modelo de construtor de imagens Azure 
 
@@ -391,7 +391,7 @@ Personalize propriedades:
 - **válidoExitCodes** – Códigos opcionais e válidos que podem ser devolvidos do comando script/inline, evitará a falha reportada do comando script/inline.
 - **runElevated** – Opcional, boolean, suporte para executar comandos e scripts com permissões elevadas.
 - **sha256Checksum** - Valor da obra de verificação sha256 do ficheiro, gere-o localmente e, em seguida, o Image Builder verificará e validará.
-    * Para gerar o sha256Checksum, utilizando um PowerShell no Windows [Get-Hash](/powershell/module/microsoft.powershell.utility/get-filehash?view=powershell-6)
+    * Para gerar o sha256Checksum, utilizando um PowerShell no Windows [Get-Hash](/powershell/module/microsoft.powershell.utility/get-filehash)
 
 
 ### <a name="file-customizer"></a>Personalizador de ficheiros
@@ -456,7 +456,7 @@ Personalize propriedades:
 - **updateLimit** – Opcional, define quantas atualizações podem ser instaladas, padrão 1000.
  
 > [!NOTE]
-> O personalizador do Windows Update pode falhar se houver algum reinício pendente do Windows, ou instalações de aplicações ainda em execução, normalmente pode ver este erro na personalização.log, `System.Runtime.InteropServices.COMException (0x80240016): Exception from HRESULT: 0x80240016` . Aconselhamos vivamente que considere adicionar um Windows Restart e/ou permitir às aplicações tempo suficiente para completar as suas instalações utilizando comandos [de sono] ou de espera( https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/start-sleep?view=powershell-7) nos comandos ou scripts inline antes de executar o Windows Update.
+> O personalizador do Windows Update pode falhar se houver algum reinício pendente do Windows, ou instalações de aplicações ainda em execução, normalmente pode ver este erro na personalização.log, `System.Runtime.InteropServices.COMException (0x80240016): Exception from HRESULT: 0x80240016` . Aconselhamos vivamente que considere adicionar um Windows Restart e/ou permitir às aplicações tempo suficiente para completar as suas instalações utilizando comandos [de sono](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/start-sleep) ou de espera nos comandos ou scripts inline antes de executar o Windows Update.
 
 ### <a name="generalize"></a>Generalizar 
 Por predefinição, o Azure Image Builder também executará o código 'deprovisionamento' no final de cada fase de personalização de imagem, para 'generalizar' a imagem. Generalizar é um processo em que a imagem é configurada para que possa ser reutilizada para criar vários VMs. Para o Windows VMs, o Azure Image Builder utiliza o Sysprep. Para o Linux, o Azure Image Builder corre 'waagent -deprovision". 

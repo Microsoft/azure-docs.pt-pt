@@ -1,5 +1,5 @@
 ---
-title: Versões de fluxo de utilizador em Azure Ative Directory B2C / Microsoft Docs
+title: Versões de fluxo de utilizador em Azure Ative Directory B2C | Microsoft Docs
 description: Conheça as versões dos fluxos de utilizador disponíveis no Azure Ative Directory B2C.
 services: active-directory-b2c
 author: msmimart
@@ -10,19 +10,19 @@ ms.topic: reference
 ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 75ad3743a90f5773163a8f115e1924b8c5bbe097
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 1c05ff1bf1956943230bf523584025787495d57f
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97108098"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102517859"
 ---
 # <a name="user-flow-versions-in-azure-active-directory-b2c"></a>Versões de fluxo de utilizador em Azure Ative Directory B2C
 
 Os fluxos de utilizador no Azure Ative Directory B2C (Azure AD B2C) ajudam-no a definir [políticas](user-flow-overview.md) comuns que descrevem plenamente as experiências de identidade do cliente. Estas experiências incluem inscrição, inscrição, reset de palavra-passe ou edição de perfis. As tabelas abaixo descrevem os fluxos de utilizador que estão disponíveis no Azure AD B2C.
 
 > [!IMPORTANT]
-> Mudamos a forma como referenciamos as versões de fluxo de utilizadores. Anteriormente, oferecemos versões V1 (prontas para produção) e versões V1.1 e V2 (pré-visualização). Agora, consolidamos fluxos de utilizadores em duas versões:
+> Mudámos a forma como fazemos referência às versões de fluxos de utilizador. Anteriormente, disponibilizávamos versões V1 (prontas para produção) e versões V1.1 e V2 (pré-visualização). Agora, consolidamos fluxos de utilizadores em duas versões:
 >
 >- Os fluxos **recomendados** para o utilizador são as novas versões de pré-visualização dos fluxos dos utilizadores. São completamente testados e combinam todas as características das versões **legados V2** e **V1.1.** Daqui para a frente, os novos fluxos recomendados de utilizador serão mantidos e atualizados. Assim que se deslocar para estes novos fluxos recomendados de utilizador, terá acesso a novas funcionalidades à medida que forem lançadas.
 >- Os fluxos **padrão** do utilizador, anteriormente conhecidos como **V1,** estão geralmente disponíveis, fluxos de utilizador prontos para a produção. Se os fluxos dos seus utilizadores forem críticos da missão e dependerem de versões altamente estáveis, pode continuar a utilizar fluxos padrão de utilizador, percebendo que estas versões não serão mantidas e atualizadas.
@@ -33,19 +33,19 @@ Os fluxos de utilizador no Azure Ative Directory B2C (Azure AD B2C) ajudam-no a 
 
 Os fluxos recomendados para o utilizador são versões de pré-visualização que combinam novas funcionalidades com as capacidades de V2 e V1.1. Daqui para a frente, os fluxos recomendados do utilizador serão mantidos e atualizados.
 
-| Fluxo de utilizador | Descrição |
+| Fluxo de utilizador | Description |
 | --------- | ----------- |
-| Reset da palavra-passe (pré-visualização) | Permite que um utilizador escolha uma nova palavra-passe depois de verificar o seu e-mail. Utilizando este fluxo de utilizador, pode configurar: <ul><li>[Autenticação multifator](multi-factor-authentication.md)</li><li>Definições de compatibilidade token</li><li>[Controlo de idade](basic-age-gating.md)</li><li>[requisitos de complexidade de palavras-passe](password-complexity.md)</li></ul> |
+| Reset da palavra-passe (pré-visualização) | Permite que um utilizador escolha uma nova palavra-passe depois de verificar o seu e-mail. Utilizando este fluxo de utilizador, pode configurar: <ul><li>[Autenticação multifator](multi-factor-authentication.md)</li><li>Definições de compatibilidade token</li><li>[Controlo de idade](age-gating.md)</li><li>[requisitos de complexidade de palavras-passe](password-complexity.md)</li></ul> |
 | Edição de perfis (pré-visualização) | Permite que um utilizador configuure os seus atributos de utilizador. Utilizando este fluxo de utilizador, pode configurar: <ul><li>[Vida útil simbólica](tokens-overview.md)</li><li>Definições de compatibilidade token</li><li>Comportamento da sessão</li></ul> |
-| Iniciar sção (pré-visualização) | Permite que um utilizador entre na sua conta. Utilizando este fluxo de utilizador, pode configurar: <ul><li>[Autenticação multifator](multi-factor-authentication.md)</li><li>[Vida útil simbólica](tokens-overview.md)</li><li>Definições de compatibilidade token</li><li>Comportamento da sessão</li><li>[Controlo de idade](basic-age-gating.md)</li><li>Personalização de página de inscrição</li></ul> |
-| Inscreva-se (pré-visualização) | Permite que um utilizador crie uma conta. Utilizando este fluxo de utilizador, pode configurar: <ul><li>[Autenticação multifator](multi-factor-authentication.md)</li><li>[Vida útil simbólica](tokens-overview.md)</li><li>Definições de compatibilidade token</li><li>Comportamento da sessão</li><li>[Controlo de idade](basic-age-gating.md)</li><li>[Requisitos de complexidade de palavras-passe](password-complexity.md)</li></ul> |
-| Inscreva-se e inscreva-se (pré-visualização) | Permite que um utilizador crie uma conta ou assine na sua conta. Utilizando este fluxo de utilizador, pode configurar: <ul><li>[Autenticação multifator](multi-factor-authentication.md)</li><li>[Controlo de idade](basic-age-gating.md)</li><li>[Requisitos de complexidade de palavras-passe](password-complexity.md)</li></ul> |
+| Iniciar sção (pré-visualização) | Permite que um utilizador entre na sua conta. Utilizando este fluxo de utilizador, pode configurar: <ul><li>[Autenticação multifator](multi-factor-authentication.md)</li><li>[Vida útil simbólica](tokens-overview.md)</li><li>Definições de compatibilidade token</li><li>Comportamento da sessão</li><li>[Controlo de idade](age-gating.md)</li><li>Personalização de página de inscrição</li></ul> |
+| Inscreva-se (pré-visualização) | Permite que um utilizador crie uma conta. Utilizando este fluxo de utilizador, pode configurar: <ul><li>[Autenticação multifator](multi-factor-authentication.md)</li><li>[Vida útil simbólica](tokens-overview.md)</li><li>Definições de compatibilidade token</li><li>Comportamento da sessão</li><li>[Controlo de idade](age-gating.md)</li><li>[Requisitos de complexidade de palavras-passe](password-complexity.md)</li></ul> |
+| Inscreva-se e inscreva-se (pré-visualização) | Permite que um utilizador crie uma conta ou assine na sua conta. Utilizando este fluxo de utilizador, pode configurar: <ul><li>[Autenticação multifator](multi-factor-authentication.md)</li><li>[Controlo de idade](age-gating.md)</li><li>[Requisitos de complexidade de palavras-passe](password-complexity.md)</li></ul> |
 
 ## <a name="standard-user-flows"></a>Fluxos padrão do utilizador
 
 Os fluxos padrão do utilizador (anteriormente referidos como V1) estão geralmente disponíveis, fluxos de utilizador prontos para a produção. Os fluxos padrão dos utilizadores não serão atualizados daqui para a frente.
 
-| Fluxo de utilizador | Descrição |
+| Fluxo de utilizador | Description |
 | --------- | ----------- | ----------- |
 | Reposição de palavras-passe | Permite que um utilizador escolha uma nova palavra-passe depois de verificar o seu e-mail. Utilizando este fluxo de utilizador, pode configurar: <ul><li>[Autenticação multifator](multi-factor-authentication.md)</li><li>Definições de compatibilidade token</li><li>[Requisitos de complexidade de palavras-passe](password-complexity.md)</li></ul> |
 | Edição de perfis | Permite que um utilizador configuure os seus atributos de utilizador. Utilizando este fluxo de utilizador, pode configurar: <ul><li>[Vida útil simbólica](tokens-overview.md)</li><li>Definições de compatibilidade token</li><li>Comportamento da sessão</li></ul> |

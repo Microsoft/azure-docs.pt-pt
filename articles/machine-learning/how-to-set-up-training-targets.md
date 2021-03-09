@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperf-fy21q1
-ms.openlocfilehash: 55e618a7e4e0d21f6d4afab270e257c26fa15634
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: f38fe7d847754247f8c1510527b3ffe026c20be5
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98251119"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102518505"
 ---
 # <a name="configure-and-submit-training-runs"></a>Configurar e enviar execuções de preparação
 
@@ -29,12 +29,12 @@ Tudo o que precisa de fazer é definir o ambiente para cada alvo de cálculo den
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Se não tiver uma subscrição do Azure, crie uma conta gratuita antes de começar. Experimente hoje a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree)
-* [O Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py) (>= 1.13.0)
+* [O Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/install) (>= 1.13.0)
 * [Um espaço de trabalho de aprendizagem automática Azure,](how-to-manage-workspace.md)`ws`
 * Um alvo computacional, `my_compute_target` .  [Criar um alvo de computação](how-to-create-attach-compute-studio.md) 
 
 ## <a name="whats-a-script-run-configuration"></a><a name="whats-a-run-configuration"></a>O que é uma configuração de execução de script?
-Um [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py) é usado para configurar as informações necessárias para submeter uma corrida de treino como parte de uma experiência.
+Um [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig) é usado para configurar as informações necessárias para submeter uma corrida de treino como parte de uma experiência.
 
 Submetes a tua experiência de treino com um objeto ScriptRunConfig.  Este objeto inclui:
 
@@ -42,7 +42,7 @@ Submetes a tua experiência de treino com um objeto ScriptRunConfig.  Este objet
 * **script**: O roteiro de treino para executar
 * **compute_target**: O alvo do cálculo a executar
 * **ambiente**: O ambiente a utilizar ao executar o script
-* e algumas opções configuráveis adicionais (ver [documentação de referência](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py) para mais informações)
+* e algumas opções configuráveis adicionais (ver [documentação de referência](/python/api/azureml-core/azureml.core.scriptrunconfig) para mais informações)
 
 ## <a name="train-your-model"></a><a id="submit"></a>Preparar o seu modelo
 
@@ -133,7 +133,7 @@ Se tiver argumentos de linha de comando que pretende passar para o seu script de
 Se pretender anular o tempo máximo de execução por defeito, pode fazê-lo através do **`max_run_duration_seconds`** parâmetro. O sistema tentará cancelar automaticamente a execução se demorar mais tempo do que este valor.
 
 ### <a name="specify-a-distributed-job-configuration"></a>Especificar uma configuração de trabalho distribuída
-Se quiser executar um trabalho de formação distribuído, forneça o config específico do trabalho distribuído ao **`distributed_job_config`** parâmetro. Os tipos de config suportados incluem [MpiConfiguration,](/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?preserve-view=true&view=azure-ml-py) [TensorflowConfiguration](/python/api/azureml-core/azureml.core.runconfig.tensorflowconfiguration?preserve-view=true&view=azure-ml-py)e [PyTorchConfiguration](/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration?preserve-view=true&view=azure-ml-py). 
+Se quiser executar um trabalho de formação distribuído, forneça o config específico do trabalho distribuído ao **`distributed_job_config`** parâmetro. Os tipos de config suportados incluem [MpiConfiguration,](/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration) [TensorflowConfiguration](/python/api/azureml-core/azureml.core.runconfig.tensorflowconfiguration)e [PyTorchConfiguration](/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration). 
 
 Para obter mais informações e exemplos sobre a execução de trabalhos de Horovod, TensorFlow e PyTorch, consulte:
 
@@ -197,10 +197,10 @@ Consulte estes cadernos como exemplos de configurações para vários cenários 
     
     A Azure ML manteve imagens de estivadores e o seu conteúdo pode ser visto em [Recipientes AzureML](https://github.com/Azure/AzureML-Containers).
     As dependências específicas do quadro constam da respetiva documentação-quadro:
-    *  [Chainer](/python/api/azureml-train-core/azureml.train.dnn.chainer?preserve-view=true&view=azure-ml-py#&preserve-view=trueremarks)
-    * [PyTorch](/python/api/azureml-train-core/azureml.train.dnn.pytorch?preserve-view=true&view=azure-ml-py#&preserve-view=trueremarks)
-    * [TensorFlow](/python/api/azureml-train-core/azureml.train.dnn.tensorflow?preserve-view=true&view=azure-ml-py#&preserve-view=trueremarks)
-    *  [SKLearn](/python/api/azureml-train-core/azureml.train.sklearn.sklearn?preserve-view=true&view=azure-ml-py#&preserve-view=trueremarks)
+    *  [Chainer](/python/api/azureml-train-core/azureml.train.dnn.chainer#remarks)
+    * [PyTorch](/python/api/azureml-train-core/azureml.train.dnn.pytorch#remarks)
+    * [TensorFlow](/python/api/azureml-train-core/azureml.train.dnn.tensorflow#remarks)
+    *  [SKLearn](/python/api/azureml-train-core/azureml.train.sklearn.sklearn#remarks)
     
     > [!Note]
     > Se você acha que um determinado pacote é comum o suficiente para ser adicionado em imagens e ambientes mantidos Azure ML por favor levante um problema gitHub em [recipientes AzureML](https://github.com/Azure/AzureML-Containers). 
@@ -208,7 +208,7 @@ Consulte estes cadernos como exemplos de configurações para vários cenários 
 * **NomeError (Nome não definido), AttributeError (Objeto não tem atributo)**: Esta exceção deve vir dos seus scripts de treino. Pode ver os ficheiros de registo do portal Azure para obter mais informações sobre o nome específico não definido ou o erro de atributo. A partir do SDK, pode usar `run.get_details()` para ver a mensagem de erro. Isto também listará todos os ficheiros de registo gerados para a sua execução. Por favor, certifique-se de dar uma olhada no seu script de treino e corrigir o erro antes de voltar a enviar a sua execução. 
 
 
-* **Execução ou eliminação de experiências**: As experiências podem ser arquivadas utilizando o método [Experiment.archive](/python/api/azureml-core/azureml.core.experiment%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truearchive--) ou a partir da vista do separador Experiment em Azure Machine Learning cliente através do botão "Archive experiment". Esta ação esconde a experiência de consultas e pontos de vista de listas, mas não a apaga.
+* **Execução ou eliminação de experiências**: As experiências podem ser arquivadas utilizando o método [Experiment.archive](/python/api/azureml-core/azureml.core.experiment%28class%29#archive--) ou a partir da vista do separador Experiment em Azure Machine Learning cliente através do botão "Archive experiment". Esta ação esconde a experiência de consultas e pontos de vista de listas, mas não a apaga.
 
     Atualmente, a eliminação permanente de experimentações ou execuções individuais não é suportada. Para obter mais informações sobre a eliminação dos ativos do Espaço de Trabalho, consulte [exportação ou elimine os dados do seu espaço de trabalho do serviço Machine Learning](how-to-export-delete-data.md).
 
@@ -229,5 +229,5 @@ Consulte estes cadernos como exemplos de configurações para vários cenários 
 * Veja como formar modelos com estruturas ML específicas, tais como [Scikit-learn,](how-to-train-scikit-learn.md) [TensorFlow](how-to-train-tensorflow.md)e [PyTorch](how-to-train-pytorch.md).
 * Aprenda a [sintonizar eficientemente os hiperparmetros](how-to-tune-hyperparameters.md) para construir modelos melhores.
 * Uma vez treinado, aprenda [como e onde implementar modelos.](how-to-deploy-and-where.md)
-* Veja a referência SDK [da classe ScriptRunConfig.](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py)
+* Veja a referência SDK [da classe ScriptRunConfig.](/python/api/azureml-core/azureml.core.scriptrunconfig)
 * [Use a azure machine learning com redes virtuais Azure](./how-to-network-security-overview.md)

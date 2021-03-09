@@ -1,18 +1,18 @@
 ---
 title: Como utilizar parâmetros e expressões na Azure Data Factory
 description: Este artigo Como Artigo fornece informações sobre expressões e funções que pode usar na criação de entidades de fábrica de dados.
-author: dcstwh
-ms.author: weetok
+author: ssabat
+ms.author: susabat
 ms.reviewer: maghan
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 11/25/2019
-ms.openlocfilehash: 9cf37d554081ddd300a3ea4c16e2f167c5b98895
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.date: 03/08/2020
+ms.openlocfilehash: 4aa8a0790e7f5812e8c6a70eab1718f92a5e00d0
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/09/2021
-ms.locfileid: "102510499"
+ms.locfileid: "102520307"
 ---
 # <a name="how-to-use-parameters-expressions-and-functions-in-azure-data-factory"></a>Como utilizar parâmetros, expressões e funções na Azure Data Factory
 
@@ -21,7 +21,11 @@ ms.locfileid: "102510499"
 > * [Versão atual](how-to-expression-language-functions.md)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Neste artigo, vamos focar-nos principalmente em conceitos de aprendizagem com exemplos e tutoriais na exploração da capacidade de criar oleodutos de dados parametrizados dentro da Azure Data Factory. A parametrização e as expressões dinâmicas são adições tão notáveis à ADF porque pode poupar uma quantidade tremenda de tempo e permitir uma solução muito mais flexível de Extrato, Transformação, Carga (ETL) ou Extrato, Carga, Transformação (ELT), que reduzirá drasticamente o custo de manutenção da solução e acelerará a implementação de novas funcionalidades em oleodutos existentes. Estes ganhos são porque a parametrização minimiza a quantidade de codificação dura e aumenta o número de objetos e processos reutilizáveis numa solução.
+Neste documento, vamos focar-nos principalmente na aprendizagem de conceitos fundamentais com vários exemplos para explorar a capacidade de criar oleodutos de dados parametrizados dentro da Azure Data Factory. A parametrização e as expressões dinâmicas são adições tão notáveis à ADF porque podem poupar uma quantidade tremenda de tempo e permitir uma solução muito mais flexível de Extrato, Transformação, Carga (ETL) ou Extrato, Carga, Transformação (ELT), que reduzirá drasticamente o custo de manutenção da solução e acelerará a implementação de novas funcionalidades em oleodutos existentes. Estes ganhos são porque a parametrização minimiza a quantidade de codificação dura e aumenta o número de objetos e processos reutilizáveis numa solução.
+
+## <a name="azure-data-factory-ui-and-parameters"></a>UI da fábrica de dados Azure e parâmetros
+
+Se é novo na utilização de parâmetros de fábrica de dados Azure na interface de utilizador ADF, por favor reveja [a UI da fábrica de dados para serviços ligados com parâmetros](https://docs.microsoft.comazure/data-factory/parameterize-linked-services#data-factory-ui)  e [UI de fábrica de dados para pipeline conduzido por metadados com parâmetros](https://docs.microsoft.com/azure/data-factory/how-to-use-trigger-parameterization#data-factory-ui) para explicação visual.
 
 ## <a name="parameter-and-expression-concepts"></a>Conceitos de parâmetro e expressão 
 
@@ -39,7 +43,7 @@ Por exemplo:
 "name": "@pipeline().parameters.password"
 ```
 
-As expressões podem aparecer em qualquer lugar num valor de corda JSON e resultam sempre em outro valor JSON. Se um valor JSON for uma expressão, o corpo da expressão é extraído removendo o sinal de \@ at(). Se for necessária uma corda literal que comece \@ por, deve ser escapado utilizando \@ \@ . Os exemplos a seguir mostram como as expressões são avaliadas.  
+As expressões podem aparecer em qualquer lugar num valor de corda JSON e resultam sempre em outro valor JSON. Aqui, *a palavra-passe* é um parâmetro de pipeline na expressão. Se um valor JSON for uma expressão, o corpo da expressão é extraído removendo o sinal de \@ at(). Se for necessária uma corda literal que comece \@ por, deve ser escapado utilizando \@ \@ . Os exemplos a seguir mostram como as expressões são avaliadas.  
   
 |Valor JSON|Resultado|  
 |----------------|------------|  
@@ -301,13 +305,20 @@ Estas funções são úteis dentro de condições, podem ser usadas para avaliar
 | [carrapatos](control-flow-expression-language-functions.md#ticks) | Devolva o `ticks` valor da propriedade para um tempotando especificado. |
 | [utcNow](control-flow-expression-language-functions.md#utcNow) | Devolva a atual estação de tempo como uma corda. |
 
-## <a name="detailed-azure-data-factory-copy-pipeline-with-parameters"></a>Pipeline de cópia de fábrica de dados Azure detalhado com parâmetros 
+## <a name="detailed-examples-for-practice"></a>Exemplos detalhados para a prática
+
+### <a name="detailed-azure-data-factory-copy-pipeline-with-parameters"></a>Pipeline de cópia de fábrica de dados Azure detalhado com parâmetros 
 
 Este parâmetro de [cópia da fábrica de dados Azure passando tutorial](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-data-factory-passing-parameters/Azure%20data%20Factory-Whitepaper-PassingParameters.pdf) acompanha-o através de como passar parâmetros entre um oleoduto e atividade, bem como entre as atividades.
 
-## <a name="detailed--mapping-data-flow-pipeline-with-parameters"></a>Pipeline de fluxo de dados de mapeamento detalhado com parâmetros 
+### <a name="detailed--mapping-data-flow-pipeline-with-parameters"></a>Pipeline de fluxo de dados de mapeamento detalhado com parâmetros 
 
 Por favor, siga [o fluxo de dados de mapeamento com parâmetros](https://docs.microsoft.com/azure/data-factory/parameters-data-flow) para um exemplo abrangente sobre como usar parâmetros no fluxo de dados.
+
+### <a name="detailed-metadata-driven-pipeline-with-parameters"></a>Pipeline detalhado com metadados com parâmetros
+
+Siga o [pipeline conduzido por metadados com parâmetros](https://docs.microsoft.com/azure/data-factory/how-to-use-trigger-parameterization) para saber mais sobre como usar parâmetros para desenhar pipelines guiados por metadados. Este é um caso de uso popular para parâmetros.
+
 
 ## <a name="next-steps"></a>Passos seguintes
 Para obter uma lista de variáveis do sistema que pode utilizar em expressões, consulte [variáveis do Sistema.](control-flow-system-variables.md)

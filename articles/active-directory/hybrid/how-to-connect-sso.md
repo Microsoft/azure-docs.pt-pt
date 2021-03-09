@@ -16,12 +16,12 @@ ms.date: 08/13/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 88eae702782e2f1af9c20797676214db458c2adc
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: eeede88bfbe024a66e40270240d32488e581dd77
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98937625"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102517706"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Início de Sessão Único Totalmente Integrado do Azure Active Directory
 
@@ -37,7 +37,7 @@ O SSO sem emenda pode ser combinado com os métodos de [sincronização de hash 
 
 ## <a name="sso-via-primary-refresh-token-vs-seamless-sso"></a>SSO via token de atualização primária vs. SSO sem emenda
 
-Para o Windows 10, recomenda-se a utilização de SSO através de token de atualização primária (PRT). Para os windows 7 e 8.1 é recomendado utilizar SSO sem emenda.
+Para o Windows 10, Windows Server 2016 e versões posteriores, é recomendado utilizar o SSO através de token de atualização primária (PRT). Para os windows 7 e 8.1 é recomendado utilizar SSO sem emenda.
 O Seamless SSO precisa que o dispositivo do utilizador seja ligado ao domínio, mas não é utilizado em dispositivos ligados ao Windows 10 [Azure AD](../devices/concept-azure-ad-join.md) ou [dispositivos híbridos Azure AD.](../devices/concept-azure-ad-join-hybrid.md) SSO on Azure AD juntou-se, Hybrid Azure AD juntou-se, e Azure AD registrou dispositivos com base no [Token De Atualização Primária (PRT)](../devices/concept-primary-refresh-token.md)
 
 SSO via PRT funciona uma vez que os dispositivos são registados no Azure AD para a ad híbrido Azure AD, Azure AD juntou-se ou dispositivos autos de registo pessoais via Add Work ou Conta Escolar. Para obter mais informações sobre como o SSO funciona com o Windows 10 utilizando o PRT, consulte: [Primary Refresh Token (PRT) e Azure AD](../devices/concept-primary-refresh-token.md)
@@ -84,7 +84,7 @@ SSO via PRT funciona uma vez que os dispositivos são registados no Azure AD par
 
 \*\*\*\*Requer a versão 77 ou posterior do Microsoft Edge.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [**Quick Start**](how-to-connect-sso-quick-start.md) - Levante-se e execute Azure AD Seamless SSO.
 - Plano de [**Implantação**](../manage-apps/plan-sso-deployment.md) - Plano de implantação passo a passo.

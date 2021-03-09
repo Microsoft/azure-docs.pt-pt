@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: damendo
-ms.openlocfilehash: 06e70bd31e2045925c1fe7b4088e1a0b1d560b2f
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: a7244aebef6adcfbf96884d377592b575e2c3acb
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98011072"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102519882"
 ---
 # <a name="configure-nsg-flow-logs-from-an-azure-resource-manager-template"></a>Configurar registos de fluxo NSG de um modelo de gestor de recursos Azure
 
@@ -76,7 +76,7 @@ Para criar um recurso Microsoft.Network/networkWatchers/flowLogs, adicione o JSO
 
 Se estiver a utilizar os modelos do Azure Resource Manager pela primeira vez, pode saber mais sobre eles utilizando os links abaixo.
 
-* [Implementar recursos com modelos do Resource Manager e o Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md#deploy-local-template)
+* [Implementar recursos com modelos do Resource Manager e o Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md#deploy-local-template-or-bicep-file)
 * [Tutorial: Criar e implementar o seu primeiro modelo de Gestor de Recursos Azure](../azure-resource-manager/templates/template-tutorial-create-first-template.md?tabs=azure-powershell)
 
 
@@ -144,7 +144,7 @@ Abaixo estão dois exemplos de modelos completos para configurar registos de flu
         },
         "format": {
           "type": "JSON",
-          "version": 2          
+          "version": 2
         }
       }
     }
@@ -176,7 +176,7 @@ Há algumas maneiras de verificar se a sua implantação foi bem sucedida. A sua
 ## <a name="deleting-your-resource"></a>Apagar o seu recurso
 O Azure permite a eliminação de recursos através do modo de implementação "Completo". Para eliminar um recurso Flow Logs, especifique uma implementação no modo Completo sem incluir o recurso que pretende eliminar. Leia mais sobre o [modo de implementação completo](../azure-resource-manager/templates/deployment-modes.md#complete-mode)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como visualizar os seus dados NSG Flow utilizando:
 * [Microsoft Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)

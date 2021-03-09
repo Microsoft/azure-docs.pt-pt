@@ -11,16 +11,16 @@ ms.subservice: core
 ms.date: 02/26/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperf-fy21q1
-ms.openlocfilehash: 768d2011ae3f2826b42befa8f0d40f0e56b993fd
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 34adcf2218e29572ec9a86583addc7c021313085
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102032692"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102519644"
 ---
 # <a name="hyperparameter-tuning-a-model-with-azure-machine-learning"></a>Hiperparametro afinando um modelo com Azure Machine Learning
 
-Automatizar uma afinação eficiente do hiperparametro utilizando o pacote Azure Machine Learning [HyperDrive](/python/api/azureml-train-core/azureml.train.hyperdrive?preserve-view=true&view=azure-ml-py). Saiba como completar os passos necessários para sintonizar hiperparímetros com o [Azure Machine Learning SDK:](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py)
+Automatizar uma afinação eficiente do hiperparametro utilizando o pacote Azure Machine Learning [HyperDrive](/python/api/azureml-train-core/azureml.train.hyperdrive). Saiba como completar os passos necessários para sintonizar hiperparímetros com o [Azure Machine Learning SDK:](/python/api/overview/azure/ml/)
 
 1. Definir o espaço de pesquisa de parâmetros
 1. Especifique uma métrica primária para otimizar  
@@ -43,7 +43,7 @@ O Azure Machine Learning permite automatizar a afinação de hiperparímetros e 
 
 Sintonize os hiperparmetros explorando a gama de valores definidos para cada hiperparímetro.
 
-Os hiperparmetros podem ser discretos ou contínuos, e tem uma distribuição de valores descritos por uma [expressão de parâmetro](/python/api/azureml-train-core/azureml.train.hyperdrive.parameter_expressions?preserve-view=true&view=azure-ml-py).
+Os hiperparmetros podem ser discretos ou contínuos, e tem uma distribuição de valores descritos por uma [expressão de parâmetro](/python/api/azureml-train-core/azureml.train.hyperdrive.parameter_expressions).
 
 ### <a name="discrete-hyperparameters"></a>Hiperparímetros discretos
 
@@ -100,7 +100,7 @@ Especifique o método de amostragem de parâmetros para utilizar sobre o espaço
 
 #### <a name="random-sampling"></a>Amostragem aleatória
 
-[A amostragem aleatória](/python/api/azureml-train-core/azureml.train.hyperdrive.randomparametersampling?preserve-view=true&view=azure-ml-py) suporta hiperparímetros discretos e contínuos. Apoia a rescisão precoce de execuções de baixo desempenho. Alguns utilizadores fazem uma pesquisa inicial com amostragem aleatória e depois refinam o espaço de pesquisa para melhorar os resultados.
+[A amostragem aleatória](/python/api/azureml-train-core/azureml.train.hyperdrive.randomparametersampling) suporta hiperparímetros discretos e contínuos. Apoia a rescisão precoce de execuções de baixo desempenho. Alguns utilizadores fazem uma pesquisa inicial com amostragem aleatória e depois refinam o espaço de pesquisa para melhorar os resultados.
 
 Na amostragem aleatória, os valores do hiperparímetro são selecionados aleatoriamente a partir do espaço de pesquisa definido. 
 
@@ -117,7 +117,7 @@ param_sampling = RandomParameterSampling( {
 
 #### <a name="grid-sampling"></a>Amostragem de grelha
 
-[A amostragem da](/python/api/azureml-train-core/azureml.train.hyperdrive.gridparametersampling?preserve-view=true&view=azure-ml-py) grelha suporta hiperparímetros discretos. Use amostras de grelha se puder orçamentar para pesquisar exaustivamente o espaço de pesquisa. Suporta a rescisão precoce de execuções de baixo desempenho.
+[A amostragem da](/python/api/azureml-train-core/azureml.train.hyperdrive.gridparametersampling) grelha suporta hiperparímetros discretos. Use amostras de grelha se puder orçamentar para pesquisar exaustivamente o espaço de pesquisa. Suporta a rescisão precoce de execuções de baixo desempenho.
 
 A amostragem da grelha faz uma pesquisa simples da grelha sobre todos os valores possíveis. A amostragem da grelha só pode ser utilizada com `choice` hiperparímetros. Por exemplo, o seguinte espaço tem seis amostras:
 
@@ -133,7 +133,7 @@ param_sampling = GridParameterSampling( {
 
 #### <a name="bayesian-sampling"></a>Amostragem bayesiana
 
-[A amostragem bayesiana](/python/api/azureml-train-core/azureml.train.hyperdrive.bayesianparametersampling?preserve-view=true&view=azure-ml-py) baseia-se no algoritmo de otimização bayesiano. Recolhe amostras com base em como as amostras anteriores fizeram, de modo que novas amostras melhoram a métrica primária.
+[A amostragem bayesiana](/python/api/azureml-train-core/azureml.train.hyperdrive.bayesianparametersampling) baseia-se no algoritmo de otimização bayesiano. Recolhe amostras com base em como as amostras anteriores fizeram, de modo que novas amostras melhoram a métrica primária.
 
 Recomenda-se a amostragem bayesiana se tiver orçamento suficiente para explorar o espaço do hiperparímetro. Para obter melhores resultados, recomendamos um número máximo de corridas superiores ou iguais a 20 vezes o número de hiperparímetros a ser afinado. 
 
@@ -155,7 +155,7 @@ param_sampling = BayesianParameterSampling( {
 
 ## <a name="specify-primary-metric"></a><a name="specify-primary-metric-to-optimize"></a> Especificar a métrica primária
 
-Especifique a [métrica primária](/python/api/azureml-train-core/azureml.train.hyperdrive.primarymetricgoal?preserve-view=true&view=azure-ml-py) que pretende que a sintonização do hiperparímetro otimize. Cada treino é avaliado para a métrica primária. A política de rescisão antecipada utiliza a métrica primária para identificar as execuções de baixo desempenho.
+Especifique a [métrica primária](/python/api/azureml-train-core/azureml.train.hyperdrive.primarymetricgoal) que pretende que a sintonização do hiperparímetro otimize. Cada treino é avaliado para a métrica primária. A política de rescisão antecipada utiliza a métrica primária para identificar as execuções de baixo desempenho.
 
 Especifique os seguintes atributos para a sua métrica primária:
 
@@ -203,7 +203,7 @@ A Azure Machine Learning apoia as seguintes políticas de rescisão antecipada:
 
 ### <a name="bandit-policy"></a>Política de bandidos
 
-[A política de bandidos](/python/api/azureml-train-core/azureml.train.hyperdrive.banditpolicy?preserve-view=true&view=azure-ml-py#&preserve-view=truedefinition) baseia-se no fator de folga/tempo de avaliação. O bandit termina quando a métrica primária não está dentro da quantidade de slack/slack especificado da corrida mais bem sucedida.
+[A política de bandidos](/python/api/azureml-train-core/azureml.train.hyperdrive.banditpolicy#definition) baseia-se no fator de folga/tempo de avaliação. O bandit termina quando a métrica primária não está dentro da quantidade de slack/slack especificado da corrida mais bem sucedida.
 
 > [!NOTE]
 > A amostragem bayesiana não suporta a rescisão antecipada. Quando utilizar a amostragem bayesiana, coloque em conjunto `early_termination_policy = None` .
@@ -226,7 +226,7 @@ Neste exemplo, a política de rescisão antecipada é aplicada em todos os inter
 
 ### <a name="median-stopping-policy"></a>Política de paragem mediana
 
-[A paragem mediana](/python/api/azureml-train-core/azureml.train.hyperdrive.medianstoppingpolicy?preserve-view=true&view=azure-ml-py) é uma política de rescisão antecipada baseada nas médias de execução das métricas primárias reportadas pelas corridas. Esta política calcula as médias de execução em todas as pistas de treino e para as corridas cujo valor métrico primário é pior do que a mediana das médias.
+[A paragem mediana](/python/api/azureml-train-core/azureml.train.hyperdrive.medianstoppingpolicy) é uma política de rescisão antecipada baseada nas médias de execução das métricas primárias reportadas pelas corridas. Esta política calcula as médias de execução em todas as pistas de treino e para as corridas cujo valor métrico primário é pior do que a mediana das médias.
 
 Esta política requer os seguintes parâmetros de configuração:
 * `evaluation_interval`: a frequência de aplicação da política (parâmetro opcional).
@@ -242,7 +242,7 @@ Neste exemplo, a política de rescisão antecipada é aplicada em todos os inter
 
 ### <a name="truncation-selection-policy"></a>Política de seleção de truncação
 
-[A seleção de trunca](/python/api/azureml-train-core/azureml.train.hyperdrive.truncationselectionpolicy?preserve-view=true&view=azure-ml-py) cancela uma percentagem das execuções mais baixas em cada intervalo de avaliação. As execuções são comparadas usando a métrica primária. 
+[A seleção de trunca](/python/api/azureml-train-core/azureml.train.hyperdrive.truncationselectionpolicy) cancela uma percentagem das execuções mais baixas em cada intervalo de avaliação. As execuções são comparadas usando a métrica primária. 
 
 Esta política requer os seguintes parâmetros de configuração:
 
@@ -297,7 +297,7 @@ Este código configura a experiência de sintonização do hiperparímetro para 
 
 ## <a name="configure-hyperparameter-tuning-experiment"></a>Configure experiência de afinação de hiperparímetro
 
-Para configurar a sua experiência [de afinação de hiperparímetros,](/python/api/azureml-train-core/azureml.train.hyperdrive.hyperdriverunconfig?preserve-view=true&view=azure-ml-py) forneça o seguinte:
+Para configurar a sua experiência [de afinação de hiperparímetros,](/python/api/azureml-train-core/azureml.train.hyperdrive.hyperdriverunconfig) forneça o seguinte:
 * O espaço de pesquisa de hiperparímetro definido
 * A sua política de rescisão antecipada
 * A métrica primária
@@ -364,7 +364,7 @@ def main():
 
 ## <a name="submit-hyperparameter-tuning-experiment"></a>Submeter experiência de afinação de hiperparímetros
 
-Depois de definir a configuração de sintonização do hiperparímetro, [submeta a experiência:](/python/api/azureml-core/azureml.core.experiment%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truesubmit-config--tags-none----kwargs-)
+Depois de definir a configuração de sintonização do hiperparímetro, [submeta a experiência:](/python/api/azureml-core/azureml.core.experiment%28class%29#submit-config--tags-none----kwargs-)
 
 ```Python
 from azureml.core.experiment import Experiment
@@ -444,7 +444,7 @@ Pode visualizar todas as suas afinações de hiperparímetros no [estúdio Azure
 
 ### <a name="notebook-widget"></a>Widget de portátil
 
-Utilize o [widget Notebook](/python/api/azureml-widgets/azureml.widgets.rundetails?preserve-view=true&view=azure-ml-py) para visualizar o progresso das suas corridas de treino. O seguinte corte visualiza toda a sua afinação hiperparítnica corre em um lugar em um lugar em um caderno Jupyter:
+Utilize o [widget Notebook](/python/api/azureml-widgets/azureml.widgets.rundetails) para visualizar o progresso das suas corridas de treino. O seguinte corte visualiza toda a sua afinação hiperparítnica corre em um lugar em um lugar em um caderno Jupyter:
 
 ```Python
 from azureml.widgets import RunDetails

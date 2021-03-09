@@ -2,19 +2,19 @@
 title: Implementar recursos com CLI E modelo Azure
 description: Utilize o Azure Resource Manager e o Azure CLI para mobilizar recursos para a Azure. Os recursos são definidos num modelo de Gestor de Recursos ou num ficheiro Bicep.
 ms.topic: conceptual
-ms.date: 03/02/2021
-ms.openlocfilehash: 547b860869738f3cfe12d6a22262829ef132a671
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/04/2021
+ms.openlocfilehash: d0c48a5cf05d6cec495a7a96e181910a0849a1ac
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101741128"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102521701"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-cli"></a>Implementar recursos com modelos ARM e Azure CLI
 
-Este artigo explica como usar o CLI Azure com modelos de Gestor de Recursos Azure (modelos ARM) ou ficheiro Bicep para implantar os seus recursos no Azure. Se não estiver familiarizado com os conceitos de implantação e gestão das suas soluções Azure, consulte a [visão geral da implementação do modelo](overview.md) ou [a visão geral do Bicep](bicep-overview.md).
+Este artigo explica como usar o Azure CLI com modelos de Gestor de Recursos Azure (modelos ARM) ou ficheiros Bicep para implantar os seus recursos no Azure. Se não estiver familiarizado com os conceitos de implantação e gestão das suas soluções Azure, consulte a [visão geral da implementação do modelo](overview.md) ou [a visão geral do Bicep](bicep-overview.md).
 
-Os comandos de implantação foram alterados na versão 2.2.0 do Azure CLI. Os exemplos deste artigo requerem a versão 2.2.0 ou posterior do Azure CLI.
+Os comandos de implantação foram alterados na versão 2.2.0 do Azure CLI. Os exemplos deste artigo requerem a versão 2.2.0 ou posterior do Azure CLI. Para implementar ficheiros Bicep, precisa da [versão 2.20.0 ou posterior do Azure CLI](/cli/azure/install-azure-cli).
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
@@ -85,7 +85,7 @@ A implementação pode demorar alguns minutos a concluir. Quando terminar, vê-s
 ## <a name="deploy-remote-template"></a>Implementar o modelo remoto
 
 > [!NOTE]
-> Atualmente, o Azure CLI não suporta a implementação de ficheiros Bicep.
+> Atualmente, o Azure CLI não suporta a implementação de ficheiros Bicep remotos. Para implementar um ficheiro Bicep remoto, utilize o CLI Bicep para compilar o ficheiro Bicep num modelo JSON primeiro.
 
 Em vez de armazenar modelos ARM na sua máquina local, pode preferir guardá-los num local externo. Pode armazenar modelos num repositório de controlo de código fonte (como o GitHub). Em alternativa, pode armazená-los numa conta de armazenamento do Azure para acesso partilhado na sua organização.
 
@@ -148,7 +148,7 @@ Para evitar conflitos com implementações simultâneas e para garantir entradas
 ## <a name="deploy-template-spec"></a>Implementar especificação de modelo
 
 > [!NOTE]
-> Atualmente, o Azure CLI não suporta a criação de especificações de modelos fornecendo ficheiros Bicep. No entanto, pode criar um modelo ARM ou um ficheiro Bicep com o recurso [Microsoft.Resources/templateSpecs](/azure/templates/microsoft.resources/templatespecs) para implementar uma especificação de modelo. Aqui está um [exemplo.](https://github.com/Azure/azure-docs-json-samples/blob/master/create-template-spec-using-template/azuredeploy.bicep)
+> Atualmente, o Azure CLI não suporta a criação de especificações de modelos fornecendo ficheiros Bicep. No entanto, pode criar um ficheiro Bicep com o recurso [Microsoft.Resources/templateSpecs](/azure/templates/microsoft.resources/templatespecs) para implementar uma especificação de modelo. Aqui está um [exemplo.](https://github.com/Azure/azure-docs-json-samples/blob/master/create-template-spec-using-template/azuredeploy.bicep)
 
 Em vez de implementar um modelo local ou remoto, pode criar uma [especificação de modelo](template-specs.md). A especificação do modelo é um recurso na sua subscrição Azure que contém um modelo ARM. Torna-se fácil partilhar o modelo de forma segura com os utilizadores da sua organização. Você usa o controlo de acesso baseado em funções Azure (Azure RBAC) para conceder acesso à especificação do modelo. Esta funcionalidade encontra-se atualmente em pré-visualização.
 

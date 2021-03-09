@@ -6,14 +6,14 @@ author: v-dalc
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/13/2021
+ms.date: 03/08/2021
 ms.author: alkohli
-ms.openlocfilehash: f2bad214045710fe861040514beb3c536664d684
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 281b22db692087f2876b4011563fee8c56bd476e
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102201894"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102522398"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Tutorial: Encomendar o Azure Data Box
 
@@ -164,7 +164,7 @@ Verá a saída seguinte:
     WSManStackVersion              3.0
 ```
 
-Se a sua versão for inferior a 6.2.4, tem de atualizar a sua versão do Windows PowerShell. Para instalar a versão mais recente do Windows PowerShell, consulte [instalar a Azure PowerShell](/powershell/scripting/install/installing-powershell?view=powershell-7&preserve-view=true).
+Se a sua versão for inferior a 6.2.4, tem de atualizar a sua versão do Windows PowerShell. Para instalar a versão mais recente do Windows PowerShell, consulte [instalar a Azure PowerShell](/powershell/scripting/install/installing-powershell).
 
 **Instalar módulos Azure PowerShell e Data Box**
 
@@ -355,22 +355,34 @@ Faça os seguintes passos no portal Azure para encomendar um dispositivo.
     ![Expandido Traga as suas próprias opções de senha para uma encomenda de importação de Caixa de Dados](media/data-box-deploy-ordered/select-data-box-import-security-02.png) 
 
    - Para utilizar a sua própria palavra-passe para o seu novo dispositivo, por **definição de preferência para a palavra-passe do dispositivo**, selecione **Use a sua própria palavra-passe** e escreva uma palavra-passe que satisfaça os requisitos de segurança.
+     
+     A palavra-passe deve ser alfanumérica e conter de 12 a 15 caracteres, com pelo menos uma letra maiúscula, uma letra minúscula, um carácter especial e um número. 
+
+     - Personagens especiais permitidos: @ - $ % ^ ! + = ; : _ ( )
+     - Caracteres não são permitidos: I L o O 0
    
      ![Opções para usar a palavra-passe do seu próprio dispositivo no ecrã de Segurança para uma ordem de importação de Caixa de Dados](media/data-box-deploy-ordered/select-data-box-import-security-03.png)
 
  - Para utilizar as suas próprias palavras-passe para ações:
 
-   - Por **Definir a preferência por palavras-passe de partilha**, selecione Use as suas **próprias palavras-passe** e, em seguida, **selecione palavras-passe para as ações**.
+   1. Por **Definir a preferência por palavras-passe de partilha**, selecione Use as suas **próprias palavras-passe** e, em seguida, **selecione palavras-passe para as ações**.
      
-        ![Opções para usar as suas próprias palavras-passe no ecrã de Segurança para uma encomenda de importação de Caixa de Dados](media/data-box-deploy-ordered/select-data-box-import-security-04.png)
+       ![Opções para usar as suas próprias palavras-passe no ecrã de Segurança para uma encomenda de importação de Caixa de Dados](media/data-box-deploy-ordered/select-data-box-import-security-04.png)
 
-    - Digite uma palavra-passe para cada conta de armazenamento na encomenda. A palavra-passe será usada em todas as ações para a conta de armazenamento.
-     
-        Para utilizar a mesma palavra-passe para todas as contas de armazenamento, selecione **Copy to all**. Quando terminar, **selecione Save**.
-     
-        ![Tela para introduzir palavras-passe de partilha para uma encomenda de importação de Caixa de Dados](media/data-box-deploy-ordered/select-data-box-import-security-05.png)
+    1. Digite uma palavra-passe para cada conta de armazenamento na encomenda. A palavra-passe será usada em todas as ações para a conta de armazenamento.
+    
+       A palavra-passe deve ser alfanumérica e conter de 12 a 64 caracteres, com pelo menos uma letra maiúscula, uma letra minúscula, um carácter especial e um número.
 
-       No ecrã **'Segurança',** pode utilizar **ver ou alterar palavras-passe** para alterar as palavras-passe.
+       - Personagens especiais permitidos: @ - $ % ^ ! + = ; : _ ( )
+       - Caracteres não são permitidos: I L o O 0
+     
+    1. Para utilizar a mesma palavra-passe para todas as contas de armazenamento, selecione **Copy to all**. 
+
+    1. Quando terminar, **selecione Save**.
+     
+       ![Tela para introduzir palavras-passe de partilha para uma encomenda de importação de Caixa de Dados](media/data-box-deploy-ordered/select-data-box-import-security-05.png)
+
+    No ecrã **'Segurança',** pode utilizar **ver ou alterar palavras-passe** para alterar as palavras-passe.
 
 16. Em **Segurança**, se pretender ativar a dupla encriptação baseada em software, expanda a **encriptação dupla (para ambientes altamente seguros)** e selecione **Ative a dupla encriptação para a encomenda**.
 
@@ -413,7 +425,7 @@ Faça os seguintes passos utilizando o Azure CLI para encomendar um dispositivo:
 
 1. Anote as suas definições para a sua encomenda de Caixa de Dados. Estas definições incluem as suas informações pessoais/empresariais, nome de subscrição, informações do dispositivo e informações de envio. Terá de utilizar estas definições como parâmetros ao executar o comando CLI para criar a ordem Caixa de Dados. A tabela a seguir mostra as definições de parâmetros utilizadas `az databox job create` para:
 
-   | Definição (parâmetro) | Descrição |  Valor da amostra |
+   | Definição (parâmetro) | Description |  Valor da amostra |
    |---|---|---|
    |resource-group| Utilize um grupo de recursos existente ou crie um novo. Um grupo de recursos é um contentor lógico para os recursos que podem ser geridos ou implementados em conjunto. | "grupo myresource"|
    |name| O nome da ordem que está a criar. | "mydataboxorder"|
@@ -532,7 +544,7 @@ Faça os seguintes passos utilizando a Azure PowerShell para encomendar um dispo
 
 2. Anote as suas definições para a sua encomenda de Caixa de Dados. Estas definições incluem as suas informações pessoais/empresariais, nome de subscrição, informações do dispositivo e informações de envio. Terá de utilizar estas definições como parâmetros ao executar o comando PowerShell para criar a ordem Caixa de Dados. A tabela seguinte mostra as definições de parâmetros utilizadas para [o New-AzDataBoxJob](/powershell/module/az.databox/New-AzDataBoxJob).
 
-    | Definição (parâmetro) | Descrição |  Valor da amostra |
+    | Definição (parâmetro) | Description |  Valor da amostra |
     |---|---|---|
     |Nome do Grupo de Recursos [Obrigatório]| Utilize um grupo de recursos existente. Um grupo de recursos é um contentor lógico para os recursos que podem ser geridos ou implementados em conjunto. | "grupo myresource"|
     |Nome [Obrigatório]| O nome da ordem que está a criar. | "mydataboxorder"|

@@ -1,18 +1,20 @@
 ---
 title: Implementar recursos com PowerShell e modelo
-description: Utilize o Azure Resource Manager e a Azure PowerShell para mobilizar recursos para a Azure. Os recursos são definidos num modelo do Resource Manager.
+description: Utilize o Azure Resource Manager e a Azure PowerShell para mobilizar recursos para a Azure. Os recursos são definidos num modelo de Gestor de Recursos ou num ficheiro Bicep.
 ms.topic: conceptual
-ms.date: 01/26/2021
-ms.openlocfilehash: efefb6706794bc2488aa4d4fef6c4ecc082b41a7
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.date: 03/04/2021
+ms.openlocfilehash: 784f17566ce4fb19a7ec5e3fd4a504d7c25f90fe
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881270"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102521633"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-powershell"></a>Implementar recursos com modelos ARM e Azure PowerShell
 
-Este artigo explica como usar a Azure PowerShell com modelos de Gestor de Recursos Azure (modelos ARM) para implantar os seus recursos no Azure. Se não está familiarizado com os conceitos de implantação e gestão das suas soluções Azure, consulte a [visão geral da implementação do modelo](overview.md).
+Este artigo explica como usar a Azure PowerShell com modelos de Gestor de Recursos Azure (modelos ARM) ou ficheiros Bicep para implantar os seus recursos no Azure. Se não estiver familiarizado com os conceitos de implantação e gestão das suas soluções Azure, consulte a [visão geral da implementação do modelo](overview.md) ou [a visão geral do Bicep](bicep-overview.md).
+
+Para implementar ficheiros Bicep, precisa da [versão 5.6.0 ou posterior do Azure PowerShell](/powershell/azure/install-az-ps).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -32,13 +34,13 @@ Pode direcionar a sua implementação para um grupo de recursos, subscrição, g
 - Para implementar num grupo de **recursos,** utilize [o New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment):
 
   ```azurepowershell
-  New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateFile <path-to-template>
+  New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateFile <path-to-template-or-bicep>
   ```
 
 - Para implementar uma **subscrição,** utilize [o New-AzSubscriptionDeployment](/powershell/module/az.resources/new-azdeployment) que é um pseudónimo do `New-AzDeployment` cmdlet:
 
   ```azurepowershell
-  New-AzSubscriptionDeployment -Location <location> -TemplateFile <path-to-template>
+  New-AzSubscriptionDeployment -Location <location> -TemplateFile <path-to-template-or-bicep>
   ```
 
   Para obter mais informações sobre as implementações do nível de subscrição, consulte [Criar grupos de recursos e recursos ao nível da subscrição.](deploy-to-subscription.md)
@@ -46,7 +48,7 @@ Pode direcionar a sua implementação para um grupo de recursos, subscrição, g
 - Para implantar num grupo de **gestão,** utilize [o New-AzManagementGroupDeployment](/powershell/module/az.resources/New-AzManagementGroupDeployment).
 
   ```azurepowershell
-  New-AzManagementGroupDeployment -Location <location> -TemplateFile <path-to-template>
+  New-AzManagementGroupDeployment -Location <location> -TemplateFile <path-to-template-or-bicep>
   ```
 
   Para obter mais informações sobre as implementações de nível de grupo de gestão, consulte [Criar recursos ao nível do grupo de gestão.](deploy-to-management-group.md)
@@ -54,7 +56,7 @@ Pode direcionar a sua implementação para um grupo de recursos, subscrição, g
 - Para implantar num **inquilino,** utilize [o New-AzTenantDeployment](/powershell/module/az.resources/new-aztenantdeployment).
 
   ```azurepowershell
-  New-AzTenantDeployment -Location <location> -TemplateFile <path-to-template>
+  New-AzTenantDeployment -Location <location> -TemplateFile <path-to-template-or-bicep>
   ```
 
   Para obter mais informações sobre as implementações de nível de inquilino, consulte [Criar recursos ao nível do arrendatário.](deploy-to-tenant.md)
@@ -89,7 +91,7 @@ Quando especificar um nome único para cada implantação, pode executá-los sim
 
 Para evitar conflitos com implementações simultâneas e para garantir entradas únicas no histórico de implantação, dê a cada implementação um nome único.
 
-## <a name="deploy-local-template"></a>Implementar um modelo local
+## <a name="deploy-local-template-or-bicep-file"></a>Implementar modelo local ou arquivo Bicep
 
 Pode implementar um modelo a partir da sua máquina local ou um que seja armazenado externamente. Esta secção descreve a implementação de um modelo local.
 
@@ -99,18 +101,21 @@ Se estiver a implantar para um grupo de recursos que não existe, crie o grupo d
 New-AzResourceGroup -Name ExampleGroup -Location "Central US"
 ```
 
-Para implementar um modelo local, utilize o `-TemplateFile` parâmetro no comando de implantação. O exemplo a seguir também mostra como definir um valor de parâmetro que vem do modelo.
+Para implementar um modelo local ou um ficheiro Bicep, utilize o `-TemplateFile` parâmetro no comando de implantação. O exemplo a seguir também mostra como definir um valor de parâmetro que vem do modelo.
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
   -Name ExampleDeployment `
   -ResourceGroupName ExampleGroup `
-  -TemplateFile c:\MyTemplates\azuredeploy.json
+  -TemplateFile <path-to-template-or-bicep>
 ```
 
 A implantação pode demorar vários minutos a ser concluída.
 
 ## <a name="deploy-remote-template"></a>Implementar o modelo remoto
+
+> [!NOTE]
+> Atualmente, o Azure PowerShell não suporta a implementação de ficheiros Bicep remotos. Para implementar um ficheiro Bicep remoto, utilize o CLI Bicep para compilar o ficheiro Bicep num modelo JSON primeiro.
 
 Em vez de armazenar modelos ARM na sua máquina local, pode preferir guardá-los num local externo. Pode armazenar modelos num repositório de controlo de código fonte (como o GitHub). Em alternativa, pode armazená-los numa conta de armazenamento do Azure para acesso partilhado na sua organização.
 
@@ -145,6 +150,8 @@ Para obter mais informações, consulte [utilizar o caminho relativo para modelo
 
 ## <a name="deploy-template-spec"></a>Implementar especificação de modelo
 
+> [!NOTE]
+> Atualmente, a Azure PowerShell não suporta a criação de especificações de modelos fornecendo ficheiros Bicep. No entanto, pode criar um ficheiro Bicep com o recurso [Microsoft.Resources/templateSpecs](/azure/templates/microsoft.resources/templatespecs) para implementar uma especificação de modelo. Aqui está um [exemplo.](https://github.com/Azure/azure-docs-json-samples/blob/master/create-template-spec-using-template/azuredeploy.bicep)
 Em vez de implementar um modelo local ou remoto, pode criar uma [especificação de modelo](template-specs.md). A especificação do modelo é um recurso na sua subscrição Azure que contém um modelo ARM. Torna-se fácil partilhar o modelo de forma segura com os utilizadores da sua organização. Você usa o controlo de acesso baseado em funções Azure (Azure RBAC) para conceder acesso à especificação do modelo. Esta funcionalidade encontra-se atualmente em pré-visualização.
 
 Os exemplos a seguir mostram como criar e implementar uma especificação de modelo.
@@ -187,7 +194,7 @@ Para passar parâmetros inline, forneça os nomes do parâmetro com o `New-AzRes
 ```powershell
 $arrayParam = "value1", "value2"
 New-AzResourceGroupDeployment -ResourceGroupName testgroup `
-  -TemplateFile c:\MyTemplates\demotemplate.json `
+  -TemplateFile <path-to-template-or-bicep> `
   -exampleString "inline string" `
   -exampleArray $arrayParam
 ```
@@ -197,7 +204,7 @@ Também pode obter o conteúdo do ficheiro e fornecer esse conteúdo como um par
 ```powershell
 $arrayParam = "value1", "value2"
 New-AzResourceGroupDeployment -ResourceGroupName testgroup `
-  -TemplateFile c:\MyTemplates\demotemplate.json `
+  -TemplateFile <path-to-template-or-bicep> `
   -exampleString $(Get-Content -Path c:\MyTemplates\stringcontent.txt -Raw) `
   -exampleArray $arrayParam
 ```
@@ -211,13 +218,13 @@ $hash1 = @{ Name = "firstSubnet"; AddressPrefix = "10.0.0.0/24"}
 $hash2 = @{ Name = "secondSubnet"; AddressPrefix = "10.0.1.0/24"}
 $subnetArray = $hash1, $hash2
 New-AzResourceGroupDeployment -ResourceGroupName testgroup `
-  -TemplateFile c:\MyTemplates\demotemplate.json `
+  -TemplateFile <path-to-template-or-bicep> `
   -exampleArray $subnetArray
 ```
 
 ### <a name="parameter-files"></a>Ficheiros de parâmetros
 
-Em vez de transmitir parâmetros como valores inline no seu script, poderá considerar mais fácil utilizar um ficheiro JSON que contenha os valores dos parâmetros. O ficheiro de parâmetros pode ser um ficheiro local ou um ficheiro externo com um URI acessível.
+Em vez de transmitir parâmetros como valores inline no seu script, poderá considerar mais fácil utilizar um ficheiro JSON que contenha os valores dos parâmetros. O ficheiro de parâmetros pode ser um ficheiro local ou um ficheiro externo com um URI acessível. Tanto o modelo ARM como o ficheiro Bicep utilizam ficheiros de parâmetros JSON.
 
 Para obter mais informações sobre o ficheiro de parâmetros, veja [Criar ficheiro de parâmetros do Resource Manager](parameter-files.md).
 
@@ -225,7 +232,7 @@ Para passar um ficheiro de parâmetro local, utilize o `TemplateParameterFile` p
 
 ```powershell
 New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
-  -TemplateFile c:\MyTemplates\azuredeploy.json `
+  -TemplateFile <path-to-template-or-bicep> `
   -TemplateParameterFile c:\MyTemplates\storage.parameters.json
 ```
 
@@ -237,7 +244,7 @@ New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName Example
   -TemplateParameterUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.parameters.json
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para voltar a uma implementação bem sucedida quando tiver um erro, consulte [o Reversão do erro para uma implementação bem sucedida](rollback-on-error.md).
 - Para especificar como lidar com os recursos que existem no grupo de recursos mas não estão definidos no modelo, consulte os [modos de implementação do Gestor de Recursos Azure](deployment-modes.md).

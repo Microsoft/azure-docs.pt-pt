@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.custom: subject-monitoring
 ms.date: 10/02/2020
-ms.openlocfilehash: f9f25ec2dd8fb8b859f7863c1e695e22cb9a9cec
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: f130fc0c65c49c33c838812fc2758619e0d1bca0
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100575082"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102521344"
 ---
 # <a name="monitoring-azure-machine-learning-data-reference"></a>Monitorização da referência de dados de aprendizagem de máquinas Azure
 
@@ -88,7 +88,7 @@ A Azure Machine Learning tem as seguintes dimensões associadas às suas métric
 | NodeId | Identificação do nó criado onde o trabalho está a funcionar. Disponível apenas para CpuUtilization e GpuUtilization. |
 | RunId | Identificação da corrida/trabalho. Disponível apenas para CpuUtilization e GpuUtilization. |
 | ComputeType | O tipo de cálculo que a corrida usou. Apenas disponível para execuções concluídas, corridas falhadas e execuções iniciadas. |
-| PipelineStepType | O tipo de [PipelineStep](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinestep?preserve-view=true&view=azure-ml-py) usado na corrida. Apenas disponível para execuções concluídas, corridas falhadas e execuções iniciadas. |
+| PipelineStepType | O tipo de [PipelineStep](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinestep) usado na corrida. Apenas disponível para execuções concluídas, corridas falhadas e execuções iniciadas. |
 | PublishedPipelineId | A identificação do oleoduto publicado usado na corrida. Apenas disponível para execuções concluídas, corridas falhadas e execuções iniciadas. |
 | RunType | O tipo de corrida. Apenas disponível para execuções concluídas, corridas falhadas e execuções iniciadas. |
 

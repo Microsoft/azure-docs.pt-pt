@@ -1,5 +1,5 @@
 ---
-title: Gerir o acesso dos utilizadores no Azure Ative Directory B2C ; Microsoft Docs
+title: Gerir o acesso do utilizador em Azure Ative Directory B2C | Microsoft Docs
 description: Saiba como identificar menores, recolher data de nascimento e dados de país/região, e obter a aceitação dos termos de uso na sua aplicação utilizando o Azure AD B2C.
 services: active-directory-b2c
 author: msmimart
@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/15/2020
+ms.date: 03/09/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: fadc739f16ce9690a735be22758f58857ff8b9ff
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 0ee26e7fe74d87f7b20f9a28b049b8043b376273
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94951626"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102518062"
 ---
 # <a name="manage-user-access-in-azure-active-directory-b2c"></a>Gerir o acesso do utilizador em Azure Ative Directory B2C
 
@@ -83,7 +83,53 @@ Se uma aplicação tiver recolhido de forma fiável dados do DOB ou país/regiã
 - Se um utilizador for conhecido por ser adulto, atualize o ageGroup de atributos de **diretório** com um valor de **Adulto**.
 - Se um utilizador for conhecido por ser menor, atualize o ageGroup de atributos de **diretório** com um valor de **Minor** e desempate **o ConsentimentoProvidedForMinor,** conforme apropriado.
 
-Para obter mais informações sobre a recolha de dados DOB, consulte [use age gating em Azure AD B2C](basic-age-gating.md).
+## <a name="minor-calculation-rules"></a>Pequenas regras de cálculo
+
+A idade envolve dois valores de idade: a idade em que alguém já não é considerado menor, e a idade em que um menor deve ter o consentimento dos pais. A tabela a seguir enumera as regras de idade utilizadas para a definição de um menor e um menor que exigem consentimento.
+
+| País/Região | Nome país/região | Idade de consentimento menor | Idade menor |
+| -------------- | ------------------- | ----------------- | --------- |
+| Predefinição | Nenhum | Nenhum | 18 |
+| AE | Emirados Árabes Unidos | Nenhum | 21 |
+| AT | Áustria | 14 | 18 |
+| BE | Bélgica | 14 | 18 |
+| BG | Bulgária | 16 | 18 |
+| BH | Barém | Nenhum | 21 |
+| CM | Camarões | Nenhum | 21 |
+| CY | Chipre | 16 | 18 |
+| CZ | República Checa | 16 | 18 |
+| DE | Alemanha | 16 | 18 |
+| DK | Dinamarca | 16 | 18 |
+| EE | Estónia | 16 | 18 |
+| EG | Egito | Nenhum | 21 |
+| ES | Espanha | 13 | 18 |
+| FR | França | 16 | 18 |
+| GB | Reino Unido | 13 | 18 |
+| GR | Grécia | 16 | 18 |
+| HR | Croácia | 16 | 18 |
+| HU | Hungria | 16 | 18 |
+| IE | Irlanda | 13 | 18 |
+| TI | Itália | 16 | 18 |
+| KR | Coreia, República da | 14 | 18 |
+| LT | Lituânia | 16 | 18 |
+| LU | Luxemburgo | 16 | 18 |
+| LV | Letónia | 16 | 18 |
+| MT | Malta | 16 | 18 |
+| ND | Namíbia | Nenhum | 21 |
+| NL | Países Baixos | 16 | 18 |
+| PL | Polónia | 13 | 18 |
+| PT | Portugal | 16 | 18 |
+| RO | Roménia | 16 | 18 |
+| SE | Suécia | 13 | 18 |
+| SG | Singapura | Nenhum | 21 |
+| SI | Eslovénia | 16 | 18 |
+| SK | Eslováquia | 16 | 18 |
+| DT | Chade | Nenhum | 21 |
+| TH | Tailândia | Nenhum | 20 |
+| TW | Taiwan | Nenhum | 20 |
+| EUA | Estados Unidos da América | 13 | 18 |
+
+
 
 ## <a name="capture-terms-of-use-agreement"></a>Acordo de captura de termos de utilização
 
@@ -175,5 +221,6 @@ Segue-se um exemplo de um consentimento de utilização baseado em versão numa 
 
 ## <a name="next-steps"></a>Passos seguintes
 
+- [Ativar a Idade Gating em Azure AD B2C](age-gating.md).
 - Para saber como eliminar e exportar dados do utilizador, consulte [Gerir os dados do utilizador.](manage-user-data.md)
 - Para uma política personalizada por exemplo que implementa um pedido de utilização, consulte [Uma Política Personalizada B2C IEF - Inscreva-se e inscreva-se com o pedido de "Termos de Utilização".](https://github.com/azure-ad-b2c/samples/tree/master/policies/sign-in-sign-up-versioned-tou)

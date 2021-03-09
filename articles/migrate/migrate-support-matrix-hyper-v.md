@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 06/14/2020
-ms.openlocfilehash: 4407f9544a7d3a19e3ff7d404669fdb27b881d30
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: fc7be5c6c5dda8c5065330f819f646f4abd08994
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100590629"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102521361"
 ---
 # <a name="support-matrix-for-hyper-v-assessment"></a>Matriz de suporte para avaliação de Hiper-V
 
@@ -39,7 +39,7 @@ Para configurar a avaliação do Hiper-V VM, cria um projeto Azure Migrate e adi
 | :-------------------       | :------------------- |
 | **Anfitrião Hyper-V**       | O hospedeiro Hyper-V pode ser autónomo ou implantado num cluster.<br/><br/> O anfitrião Hyper-V pode executar o Windows Server 2019, o Windows Server 2016 ou o Windows Server 2012 R2. A instalação do núcleo do servidor destes sistemas operativos também é suportada. <br/>Não pode avaliar as VMs localizadas em sistemas anfitriões Hyper-V com o Windows Server 2012.
 | **Permissões**           | Precisa de permissões de administrador no anfitrião Do Hiper-V. <br/> Se não quiser atribuir permissões de Administrador, crie uma conta de utilizador local ou de domínio e adicione a conta de utilizador a estes grupos- Utilizadores de Gestão Remota, Administradores de Hiper-V e Utilizadores do Monitor de Desempenho. |
-| **Comunicação remota do PowerShell**   | [A remoing PowerShell](/powershell/module/microsoft.powershell.core/enable-psremoting?view=powershell-7) deve ser ativada em cada hospedeiro Hiper-V. |
+| **Comunicação remota do PowerShell**   | [A remoing PowerShell](/powershell/module/microsoft.powershell.core/enable-psremoting) deve ser ativada em cada hospedeiro Hiper-V. |
 | **Réplica do Hyper-V**       | Se utilizar réplicas Hyper-V (ou tiver vários VMs com os mesmos identificadores VM) e descobrir tanto os VMs originais como replicados usando Azure Migrate, a avaliação gerada por Azure Migrate pode não ser exata. |
 
 
