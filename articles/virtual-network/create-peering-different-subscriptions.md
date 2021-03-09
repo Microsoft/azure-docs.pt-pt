@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/09/2019
 ms.author: kumud
-ms.openlocfilehash: 9f3ea595c3cfacc479deea7b7db7689785e3b520
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 1f8b7162787e870337918794f353ab8dc94c1965
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101694959"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102518250"
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions-and-azure-active-directory-tenants"></a>Criar um espreitamento de rede virtual - Gestor de Recursos, diferentes subscrições e inquilinos do Azure Ative Directory
 
@@ -276,7 +276,7 @@ Este tutorial utiliza contas diferentes para cada subscrição. Se estiver a uti
    }
    ```
 
-3. Faça login no Azure como UserA e implemente o modelo utilizando o [portal](../azure-resource-manager/templates/deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-resources-from-custom-template), [PowerShell](../azure-resource-manager/templates/deploy-powershell.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-local-template), ou o [Azure CLI](../azure-resource-manager/templates/deploy-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-local-template-or-bicep-file). Especifique o nome do ficheiro que guardou o texto de exemplo json no passo 2 para.
+3. Faça login no Azure como UserA e implemente o modelo utilizando o [portal](../azure-resource-manager/templates/deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-resources-from-custom-template), [PowerShell](../azure-resource-manager/templates/deploy-powershell.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-local-template-or-bicep-file), ou o [Azure CLI](../azure-resource-manager/templates/deploy-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-local-template-or-bicep-file). Especifique o nome do ficheiro que guardou o texto de exemplo json no passo 2 para.
 4. Copie o exemplo json do passo 2 para um ficheiro no seu computador e faça alterações nas linhas que começam com:
    - **nome**: Altere *myVnetA/myVnetAToMyVnetB* para *myVnetB/myVnetBToMyVnetA*.
    - **id**: `<subscription ID>` Substitua-se pelo ID de subscrição do UtilizadorB e altere *o myVnetB* para *myVnetA*.

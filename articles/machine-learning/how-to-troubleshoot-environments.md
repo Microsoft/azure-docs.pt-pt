@@ -10,12 +10,12 @@ ms.author: sagopal
 ms.date: 12/3/2020
 ms.topic: troubleshooting
 ms.custom: devx-track-python
-ms.openlocfilehash: da3e5bd9efcdd7d82dd3d3937918c4a64f69edbd
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: ec0c7d64f2145cdaf594cb903c072984f4d376a9
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102215651"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102519134"
 ---
 # <a name="troubleshoot-environment-image-builds"></a>A imagem do ambiente de resolução de problemas constrói
 
@@ -24,7 +24,7 @@ Saiba como resolver problemas com a imagem do ambiente Docker e as instalações
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma subscrição do Azure. Experimente a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree).
-* [O Azure Machine Learning SDK.](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py)
+* [O Azure Machine Learning SDK.](/python/api/overview/azure/ml/install)
 * O [Azure CLI.](/cli/azure/install-azure-cli)
 * A [extensão CLI para Azure Machine Learning](reference-azure-machine-learning-cli.md).
 * Para depurar localmente, você deve ter uma instalação Docker funcionando no seu sistema local.
@@ -158,7 +158,7 @@ Possíveis questões:
 
 ### <a name="you-get-a-401-error-from-a-workspace-container-registry"></a>Obtém-se um erro de 401 de um registo de contentores de espaço de trabalho
 
-Resincronizar as chaves de armazenamento utilizando [ws.sync_keys()](/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#sync-keys--).
+Resincronizar as chaves de armazenamento utilizando [ws.sync_keys()](/python/api/azureml-core/azureml.core.workspace.workspace#sync-keys--).
 
 ### <a name="the-environment-keeps-throwing-a-waiting-for-other-conda-operations-to-finish-error"></a>O ambiente continua a lançar um "À espera que outras operações da ConDA terminem..." erro
 

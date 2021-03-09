@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 03/07/2021
 ms.author: duau
-ms.openlocfilehash: 59194f8d7b1783867ab1422597b361aa3a4a2a60
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: 7819aaa1af588b0a74bb960cf47ea1feeeff8b3b
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102449871"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102522296"
 ---
 # <a name="expressroute-faq"></a>FAQ do ExpressRoute
 
@@ -60,7 +60,7 @@ O gateway ExpressRoute irá anunciar o *Address Space(s)* do Azure VNet, não po
 
 ### <a name="how-many-prefixes-can-be-advertised-from-a-vnet-to-on-premises-on-expressroute-private-peering"></a>Quantos prefixos podem ser anunciados de um VNet para as instalações do ExpressRoute Private Peering?
 
-Há um máximo de 200 prefixos anunciados numa única ligação ExpressRoute, ou através do VNet espreitando através do trânsito de gateway. Por exemplo, se tiver 199 espaços de endereço num único VNet ligado a um circuito ExpressRoute, todos os 199 prefixos serão anunciados no local. Em alternativa, se tiver um VNet habilitado a permitir o trânsito de gateway com 1 espaço de endereço e 150 VNets de fala ativados utilizando a opção "Permitir gateway remoto", o VNet implantado com o gateway irá anunciar 151 prefixos para o local.
+Existe um máximo de 1000 prefixos anunciados numa única ligação ExpressRoute, ou através do vNet espreitando através do trânsito de gateway. Por exemplo, se tiver 199 espaços de endereço num único VNet ligado a um circuito ExpressRoute, todos os 199 prefixos serão anunciados no local. Em alternativa, se tiver um VNet habilitado a permitir o trânsito de gateway com 1 espaço de endereço e 150 VNets de fala ativados utilizando a opção "Permitir gateway remoto", o VNet implantado com o gateway irá anunciar 151 prefixos para o local.
 
 ### <a name="what-happens-if-i-exceed-the-prefix-limit-on-an-expressroute-connection"></a>O que acontece se eu exceder o limite de prefixo numa ligação ExpressRoute?
 

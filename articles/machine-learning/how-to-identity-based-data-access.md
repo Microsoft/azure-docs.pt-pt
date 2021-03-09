@@ -11,19 +11,19 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 02/22/2021
 ms.custom: how-to, contperf-fy21q1, devx-track-python, data4ml
-ms.openlocfilehash: dbfb4ea729b8360c7065d75cb3efbaf42b82c0da
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 68d07481e228b1d1b2f4571a783f925add261cff
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101663140"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102520018"
 ---
 # <a name="connect-to-storage-with-identity-based-data-access-preview"></a>Conecte-se ao armazenamento com acesso de dados baseado em identidade (pré-visualização)
 
 >[!IMPORTANT]
-> As funcionalidades apresentadas neste artigo encontram-se em pré-visualização, devendo ser consideradas funcionalidades [experimentais](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py#stable-vs-experimental) de pré-visualização que podem ser alteradas a qualquer momento.
+> As funcionalidades apresentadas neste artigo encontram-se em pré-visualização, devendo ser consideradas funcionalidades [experimentais](/python/api/overview/azure/ml/#stable-vs-experimental) de pré-visualização que podem ser alteradas a qualquer momento.
 
-Neste artigo, você aprende a conectar-se aos serviços de armazenamento em Azure com acesso de dados baseado em identidade e lojas de dados Azure Machine Learning através do [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py).  
+Neste artigo, você aprende a conectar-se aos serviços de armazenamento em Azure com acesso de dados baseado em identidade e lojas de dados Azure Machine Learning através do [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro).  
 
 Normalmente, as lojas de dados utilizam o acesso de dados baseado em credenciais para confirmar que tem permissão para aceder ao serviço de armazenamento. Eles mantêm informações de ligação, como o seu ID de subscrição e autorização simbólica, no seu [Cofre chave](https://azure.microsoft.com/services/key-vault/) que está associado ao espaço de trabalho. Quando cria uma loja de dados que utiliza acesso a dados baseados na identidade, o seu login Azure[(Azure Ative Directory token)](../active-directory/fundamentals/active-directory-whatis.md)é utilizado para confirmar que tem permissão para aceder ao serviço de armazenamento. Neste cenário, não são guardadas credenciais de autenticação e apenas a informação da conta de armazenamento é armazenada na dataria. 
 
@@ -67,7 +67,7 @@ Certos cenários de aprendizagem automática envolvem modelos de formação com 
     - [Azure Data Lake Gen 2](../storage/blobs/data-lake-storage-introduction.md)
     - [Base de dados SQL do Azure](../azure-sql/database/sql-database-paas-overview.md)
 
-- [O Azure Machine Learning SDK para Python.](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py)
+- [O Azure Machine Learning SDK para Python.](/python/api/overview/azure/ml/install)
 
 - Uma área de trabalho do Azure Machine Learning.
   
@@ -105,7 +105,7 @@ No código seguinte, note-se a ausência de parâmetros de autenticação, `sas_
 
 ### <a name="azure-blob-container"></a>Recipiente de bolhas Azure
 
-Para registar um recipiente de bolhas Azure como uma loja de dados, utilize [`register_azure_blob_container()`](/python/api/azureml-core/azureml.core.datastore%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=trueregister-azure-blob-container-workspace--datastore-name--container-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false--blob-cache-timeout-none--grant-workspace-access-false--subscription-id-none--resource-group-none-) .
+Para registar um recipiente de bolhas Azure como uma loja de dados, utilize [`register_azure_blob_container()`](/python/api/azureml-core/azureml.core.datastore%28class%29#register-azure-blob-container-workspace--datastore-name--container-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false--blob-cache-timeout-none--grant-workspace-access-false--subscription-id-none--resource-group-none-) .
 
 O código que se segue cria e regista a `credentialless_blob` datastore para o `ws` espaço de trabalho e atribui-o à variável, `blob_datastore` . Esta loja de dados acede ao `my_container_name` recipiente blob na `my-account-name` conta de armazenamento.
 
@@ -119,7 +119,7 @@ blob_datastore = Datastore.register_azure_blob_container(workspace=ws,
 
 ### <a name="azure-data-lake-storage-generation-1"></a>Azure Data Lake Storage Generation 1
 
-Para uma data-loja de dados Azure Data Lake Storage Generation 1 (ADLS Gen 1), utilize [register_azure_data_lake](/python/api/azureml-core/azureml.core.datastore.datastore?preserve-view=true&view=azure-ml-py#&preserve-view=trueregister-azure-data-lake-workspace--datastore-name--store-name--tenant-id-none--client-id-none--client-secret-none--resource-url-none--authority-url-none--subscription-id-none--resource-group-none--overwrite-false--grant-workspace-access-false-) para registar uma loja de dados que se conecta a um armazenamento Azure DataLake Generation 1.
+Para uma data-loja de dados Azure Data Lake Storage Generation 1 (ADLS Gen 1), utilize [register_azure_data_lake](/python/api/azureml-core/azureml.core.datastore.datastore#register-azure-data-lake-workspace--datastore-name--store-name--tenant-id-none--client-id-none--client-secret-none--resource-url-none--authority-url-none--subscription-id-none--resource-group-none--overwrite-false--grant-workspace-access-false-) para registar uma loja de dados que se conecta a um armazenamento Azure DataLake Generation 1.
 
 O código que se segue cria e regista a `credentialless_adls1` datastore para o `workspace` espaço de trabalho e atribui-o à variável, `adls_dstore` . Esta loja de dados acede à `adls_storage` conta de armazenamento Azure Data Lake Store.
 
@@ -133,7 +133,7 @@ adls_dstore = Datastore.register_azure_data_lake(workspace = workspace,
 
 ### <a name="azure-data-lake-storage-generation-2"></a>Azure Data Lake Storage Generation 2
 
-Para uma data-loja de dados Azure Data Lake Storage Generation 2 (ADLS Gen 2), utilize [register_azure_data_lake_gen2](/python/api/azureml-core/azureml.core.datastore.datastore?preserve-view=true&view=azure-ml-py#&preserve-view=trueregister-azure-data-lake-gen2-workspace--datastore-name--filesystem--account-name--tenant-id--client-id--client-secret--resource-url-none--authority-url-none--protocol-none--endpoint-none--overwrite-false-) para registar uma loja de dados que se conecta a um armazenamento Azure DataLake Gen 2.
+Para uma data-loja de dados Azure Data Lake Storage Generation 2 (ADLS Gen 2), utilize [register_azure_data_lake_gen2](/python/api/azureml-core/azureml.core.datastore.datastore#register-azure-data-lake-gen2-workspace--datastore-name--filesystem--account-name--tenant-id--client-id--client-secret--resource-url-none--authority-url-none--protocol-none--endpoint-none--overwrite-false-) para registar uma loja de dados que se conecta a um armazenamento Azure DataLake Gen 2.
 
 O código que se segue cria e regista a `credentialless_adls2` datastore para o `ws` espaço de trabalho e atribui-o à variável, `adls2_dstore` . Esta loja de dados acede ao sistema de ficheiros `tabular` na `myadls2` conta de armazenamento.  
 

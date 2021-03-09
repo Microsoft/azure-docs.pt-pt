@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: e86ea0d90ea267b1c9ceecc8fed6c3d7e5102eaf
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: 47531da9c1e508281a57074df7aa10ffffe78810
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102443578"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102518743"
 ---
 # <a name="monitor-and-view-ml-run-logs-and-metrics"></a>Monitorar e visualizar ML executar registos e métricas
 
@@ -39,7 +39,7 @@ Para obter informações gerais sobre como gerir as suas experiências, consulte
 
 ## <a name="monitor-runs-using-the-jupyter-notebook-widget"></a>Monitor executa usando o widget de caderno Jupyter
 
-Quando utilizar o método **ScriptRunConfig** para submeter execuções, pode observar o progresso da execução utilizando o [widget Jupyter](/python/api/azureml-widgets/azureml.widgets?preserve-view=true&view=azure-ml-py). Tal como a submissão da execução, o widget é assíncrono e disponibiliza atualizações dinâmicas a cada 10 a 15 segundos até à conclusão do trabalho.
+Quando utilizar o método **ScriptRunConfig** para submeter execuções, pode observar o progresso da execução utilizando o [widget Jupyter](/python/api/azureml-widgets/azureml.widgets). Tal como a submissão da execução, o widget é assíncrono e disponibiliza atualizações dinâmicas a cada 10 a 15 segundos até à conclusão do trabalho.
 
 Veja o widget Jupyter enquanto espera que a corrida esteja completa.
     
@@ -127,7 +127,7 @@ As tabelas abaixo mostram o conteúdo dos ficheiros de registo nas pastas que ve
 
 #### <a name="azureml-logs-folder"></a>`azureml-logs` pasta
 
-|Ficheiro  |Descrição  |
+|Ficheiro  |Description  |
 |---------|---------|
 |20_image_build_log.txt     | Registo de construção de imagem estivador para o ambiente de treino, opcional, um por corrida. Só é aplicável na atualização do seu Ambiente. Caso contrário, a AML reutilizará a imagem em cache. Se for bem sucedido, contém detalhes do registo de imagem para a imagem correspondente.         |
 |55_azureml execução-<node_id>.txt     | stdout/stderr log da ferramenta hospedeira, um por nó. Puxa a imagem para calcular o alvo. Note que este registo só aparece depois de ter garantido recursos de computação.         |
@@ -140,7 +140,7 @@ As tabelas abaixo mostram o conteúdo dos ficheiros de registo nas pastas que ve
 
 #### <a name="logs--azureml-folder"></a>`logs > azureml` pasta
 
-|Ficheiro  |Descrição  |
+|Ficheiro  |Description  |
 |---------|---------|
 |110_azureml.log      |         |
 |job_prep_azureml.log     |   registo do sistema para a preparação do trabalho        |
@@ -150,7 +150,7 @@ As tabelas abaixo mostram o conteúdo dos ficheiros de registo nas pastas que ve
 
 Quando o sidecar estiver ativado, os scripts de preparação de emprego e de lançamento de emprego serão executados dentro do contentor sidecar.  Há uma pasta para cada nó. 
 
-|Ficheiro  |Descrição  |
+|Ficheiro  |Description  |
 |---------|---------|
 |start_cms.txt     |  Registo de processo que começa quando o Contentor Sidecar começa       |
 |prep_cmd.txt      |   Log for ContextManagers introduzidos quando `job_prep.py` é executado (alguns destes serão transmitidos `azureml-logs/65-job_prep` para)       |

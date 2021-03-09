@@ -1,5 +1,5 @@
 ---
-title: Utilizar identidades geridas na Azure API Management Microsoft Docs
+title: Utilize identidades geridas na Azure API Management | Microsoft Docs
 description: Saiba como criar identidades atribuídas ao sistema e atribuídas ao utilizador na Gestão API utilizando o portal Azure, o PowerShell e um modelo de Gestor de Recursos.
 services: api-management
 documentationcenter: ''
@@ -9,14 +9,14 @@ editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
-ms.date: 11/14/2020
+ms.date: 03/09/2021
 ms.author: apimpm
-ms.openlocfilehash: 8ec0f8cf090b3ae85a8602fb39cb07f03a417133
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 98237efae89e7d88dd23cb7e8fc9f7e9f05bca70
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97605603"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102521548"
 ---
 # <a name="use-managed-identities-in-azure-api-management"></a>Utilizar identidades geridas na Azure API Management
 
@@ -264,6 +264,19 @@ O exemplo a seguir mostra um modelo do Gestor de Recursos Azure que contém os s
 
 Pode utilizar a identidade atribuída ao sistema para autenticar até ao final através da política [de identidade gerida pela autenticação.](api-management-authentication-policies.md#ManagedIdentity)
 
+### <a name="connect-to-azure-resources-behind-ip-firewall-using-system-assigned-managed-identity"></a><a name="apim-as-trusted-service"></a>Conecte-se aos recursos do Azure por trás do IP Firewall utilizando a identidade gerida atribuída pelo sistema
+
+
+A API Management é um serviço de confiança da Microsoft para os seguintes recursos. Isto permite que o serviço se conecte aos seguintes recursos por trás de uma firewall. Após atribuir explicitamente o papel azure adequado à [identidade gerida atribuída pelo sistema](../active-directory/managed-identities-azure-resources/overview.md) para esse caso de recurso, o âmbito de acesso, por exemplo, corresponde à função Azure atribuída à identidade gerida.
+
+
+|Serviço Azure | Ligação|
+|---|---|
+|Storage do Azure | [Armazenamento fidedigno de acesso a azul](../storage/common/storage-network-security.md?tabs=azure-portal#trusted-access-based-on-system-assigned-managed-identity)|
+|Service Bus do Azure | [Ônibus de serviço de acesso fidedigno a azul-azure](../service-bus-messaging/service-bus-ip-filtering.md#trusted-microsoft-services)|
+|Hub de Eventos do Azure | [Trused-access-to-azure-event-hub](../event-hubs/event-hubs-ip-filtering.md#trusted-microsoft-services)|
+
+
 ## <a name="create-a-user-assigned-managed-identity"></a>Criar uma identidade gerida atribuída pelo utilizador
 
 > [!NOTE]
@@ -401,7 +414,7 @@ Para o modelo completo, consulte [a Gestão da API com O SSL baseado em KeyVault
 
 Neste modelo, irá implementar:
 
-* Gestão de API do Azure
+* API Management do Azure
 * Identidade atribuída ao utilizador gerido Azure
 * Azure KeyVault para armazenar o certificado SSL/TLS
 

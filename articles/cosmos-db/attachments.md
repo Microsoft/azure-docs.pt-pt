@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 08/07/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 455fdc7615e0909189f311755571d02a9acca24e
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: a8e968d05a1f844a79d2e42d10c323ed4c392424
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/09/2021
-ms.locfileid: "102501996"
+ms.locfileid: "102521225"
 ---
 # <a name="azure-cosmos-db-attachments"></a>Anexos DB Azure Cosmos
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-mongodb-api.md)]
@@ -42,9 +42,9 @@ Os anexos geridos da Azure Cosmos DB são distintos do seu suporte para itens pa
 - Os anexos geridos não são compatíveis com a distribuição global da Azure Cosmos DB, e não são replicados em regiões.
 
 > [!NOTE]
-> A Azure Cosmos DB API para a versão 3.2 da MongoDB utiliza anexos geridos para GridFS, que estão assim sujeitos às mesmas limitações que os anexos geridos da Azure Cosmos DB.
+> A Azure Cosmos DB API para a versão 3.2 da MongoDB utiliza anexos geridos para GridFS e estão sujeitos às mesmas limitações.
 >
-> Recomendamos que os desenvolvedores utilizem o conjunto de funcionalidades MongoDB GridFS para atualizar para Azure Cosmos DB API para a versão 3.6 ou superior do MongoDB, que é dissociada dos anexos e proporciona uma experiência mais forte e robusta. Em alternativa, os desenvolvedores que usam o conjunto de funcionalidades MongoDB GridFS também devem considerar a utilização do Azure Blob Storage - que é construído de propósito para armazenar conteúdo blob e oferece uma funcionalidade expandida a um custo mais baixo em comparação com o GridFS.
+> Recomendamos que os desenvolvedores utilizem o conjunto de funcionalidades MongoDB GridFS para atualizar para Azure Cosmos DB API para a versão 3.6 ou superior do MongoDB, que é dissociada dos anexos e proporciona uma melhor experiência. Em alternativa, os desenvolvedores que usam o conjunto de funcionalidades MongoDB GridFS também devem considerar a utilização do Azure Blob Storage - que é construído de propósito para armazenar conteúdo blob e oferece uma funcionalidade expandida a um custo mais baixo em comparação com o GridFS.
 
 ## <a name="migrating-attachments-to-azure-blob-storage"></a>Anexos migratórios para armazenamento de blob Azure
 

@@ -11,12 +11,12 @@ ms.author: nilsp
 author: NilsPohlmann
 ms.date: 07/31/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: bfeab990c841f6b65e665b4a8aabdfd8b251da60
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: e2b5a3322f633ca8301357c2186d78d3ac437ae2
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323905"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102521973"
 ---
 # <a name="define-machine-learning-pipelines-in-yaml"></a>Definir oleodutos de aprendizagem automática em YAML
 
@@ -40,7 +40,7 @@ A tabela que se segue lista o que é e não é atualmente suportado na definiç�
 
 ## <a name="pipeline-definition"></a>Definição de gasoduto
 
-Uma definição de gasoduto utiliza as seguintes teclas, que correspondem à classe [Pipelines:](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline.pipeline?preserve-view=true&view=azure-ml-py)
+Uma definição de gasoduto utiliza as seguintes teclas, que correspondem à classe [Pipelines:](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline.pipeline)
 
 | Chave YAML | Description |
 | ----- | ----- |
@@ -52,7 +52,7 @@ Uma definição de gasoduto utiliza as seguintes teclas, que correspondem à cla
 
 ## <a name="parameters"></a>Parâmetros
 
-A `parameters` secção utiliza as seguintes teclas, que correspondem à classe [PipelineParameter:](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelineparameter?preserve-view=true&view=azure-ml-py)
+A `parameters` secção utiliza as seguintes teclas, que correspondem à classe [PipelineParameter:](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelineparameter)
 
 | Chave YAML | Description |
 | ---- | ---- |
@@ -80,7 +80,7 @@ pipeline:
 
 ## <a name="data-reference"></a>Referência de dados
 
-A `data_references` secção utiliza as seguintes teclas, que correspondem à Referência de [Dados:](/python/api/azureml-core/azureml.data.data_reference.datareference?preserve-view=true&view=azure-ml-py)
+A `data_references` secção utiliza as seguintes teclas, que correspondem à Referência de [Dados:](/python/api/azureml-core/azureml.data.data_reference.datareference)
 
 | Chave YAML | Description |
 | ----- | ----- |
@@ -108,12 +108,12 @@ Os passos definem um ambiente computacional, juntamente com os ficheiros a execu
 
 | Tipo de passo | Description |
 | ----- | ----- |
-| `AdlaStep` | Executa um script U-SQL com Azure Data Lake Analytics. Corresponde à classe [AdlaStep.](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.adlastep?preserve-view=true&view=azure-ml-py) |
-| `AzureBatchStep` | Executa trabalhos usando Azure Batch. Corresponde à classe [AzureBatchStep.](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.azurebatchstep?preserve-view=true&view=azure-ml-py) |
-| `DatabricsStep` | Adiciona um caderno Databricks, script Python ou JAR. Corresponde à aula [databricksStep.](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricksstep?preserve-view=true&view=azure-ml-py) |
-| `DataTransferStep` | Transfere dados entre opções de armazenamento. Corresponde à classe [DataTransferStep.](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?preserve-view=true&view=azure-ml-py) |
-| `PythonScriptStep` | Tem um guião python. Corresponde à classe [PythonScriptStep.](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?preserve-view=true&view=azure-ml-py) |
-| `ParallelRunStep` | Executa um script Python para processar grandes quantidades de dados assíncronosamente e em paralelo. Corresponde à classe [ParallelRunStep.](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallel_run_step.parallelrunstep?preserve-view=true&view=azure-ml-py) |
+| `AdlaStep` | Executa um script U-SQL com Azure Data Lake Analytics. Corresponde à classe [AdlaStep.](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.adlastep) |
+| `AzureBatchStep` | Executa trabalhos usando Azure Batch. Corresponde à classe [AzureBatchStep.](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.azurebatchstep) |
+| `DatabricsStep` | Adiciona um caderno Databricks, script Python ou JAR. Corresponde à aula [databricksStep.](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricksstep) |
+| `DataTransferStep` | Transfere dados entre opções de armazenamento. Corresponde à classe [DataTransferStep.](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep) |
+| `PythonScriptStep` | Tem um guião python. Corresponde à classe [PythonScriptStep.](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep) |
+| `ParallelRunStep` | Executa um script Python para processar grandes quantidades de dados assíncronosamente e em paralelo. Corresponde à classe [ParallelRunStep.](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallel_run_step.parallelrunstep) |
 
 ### <a name="adla-step"></a>Passo ADLA
 
@@ -122,8 +122,8 @@ Os passos definem um ambiente computacional, juntamente com os ficheiros a execu
 | `script_name` | O nome do script U-SQL (relativamente ao `source_directory` ). |
 | `compute_target` | O alvo de computação Azure Data Lake para usar para este passo. |
 | `parameters` | [Parâmetros](#parameters) para o oleoduto. |
-| `inputs` | As entradas podem ser [InputPortBinding](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.inputportbinding?preserve-view=true&view=azure-ml-py), [DataReference](#data-reference), [PortDataReference](/python/api/azureml-pipeline-core/azureml.pipeline.core.portdatareference?preserve-view=true&view=azure-ml-py), [PipelineData,](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?preserve-view=true&view=azure-ml-py) [Dataset,](/python/api/azureml-core/azureml.core.dataset%28class%29?preserve-view=true&view=azure-ml-py) [DatasetDefinition](/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition?preserve-view=true&view=azure-ml-py)ou [PipelineDataset](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset?preserve-view=true&view=azure-ml-py). |
-| `outputs` | As saídas podem ser [PipelineData](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?preserve-view=true&view=azure-ml-py) ou [OutputPortBinding](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.outputportbinding?preserve-view=true&view=azure-ml-py). |
+| `inputs` | As entradas podem ser [InputPortBinding](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.inputportbinding), [DataReference](#data-reference), [PortDataReference](/python/api/azureml-pipeline-core/azureml.pipeline.core.portdatareference), [PipelineData,](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata) [Dataset,](/python/api/azureml-core/azureml.core.dataset%28class%29) [DatasetDefinition](/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition)ou [PipelineDataset](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset). |
+| `outputs` | As saídas podem ser [PipelineData](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata) ou [OutputPortBinding](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.outputportbinding). |
 | `source_directory` | Diretório que contém o guião, conjuntos, etc. |
 | `priority` | O valor prioritário a ser usado para o trabalho atual. |
 | `params` | Dicionário de pares de valor-nome. |
@@ -171,8 +171,8 @@ pipeline:
 | Chave YAML | Description |
 | ----- | ----- |
 | `compute_target` | O alvo de computação Azure Batch a ser utilizado para este passo. |
-| `inputs` | As entradas podem ser [InputPortBinding](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.inputportbinding?preserve-view=true&view=azure-ml-py), [DataReference](#data-reference), [PortDataReference](/python/api/azureml-pipeline-core/azureml.pipeline.core.portdatareference?preserve-view=true&view=azure-ml-py), [PipelineData,](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?preserve-view=true&view=azure-ml-py) [Dataset,](/python/api/azureml-core/azureml.core.dataset%28class%29?preserve-view=true&view=azure-ml-py) [DatasetDefinition](/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition?preserve-view=true&view=azure-ml-py)ou [PipelineDataset](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset?preserve-view=true&view=azure-ml-py). |
-| `outputs` | As saídas podem ser [PipelineData](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?preserve-view=true&view=azure-ml-py) ou [OutputPortBinding](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.outputportbinding?preserve-view=true&view=azure-ml-py). |
+| `inputs` | As entradas podem ser [InputPortBinding](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.inputportbinding), [DataReference](#data-reference), [PortDataReference](/python/api/azureml-pipeline-core/azureml.pipeline.core.portdatareference), [PipelineData,](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata) [Dataset,](/python/api/azureml-core/azureml.core.dataset%28class%29) [DatasetDefinition](/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition)ou [PipelineDataset](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset). |
+| `outputs` | As saídas podem ser [PipelineData](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata) ou [OutputPortBinding](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.outputportbinding). |
 | `source_directory` | Diretório que contém os binários do módulo, executáveis, conjuntos, etc. |
 | `executable` | Nome do comando/executável que será executado como parte deste trabalho. |
 | `create_pool` | Bandeira booleana para indicar se deve criar a piscina antes de executar o trabalho. |
@@ -225,12 +225,12 @@ pipeline:
 | Chave YAML | Description |
 | ----- | ----- |
 | `compute_target` | O alvo de computação Azure Databricks para usar para este passo. |
-| `inputs` | As entradas podem ser [InputPortBinding](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.inputportbinding?preserve-view=true&view=azure-ml-py), [DataReference](#data-reference), [PortDataReference](/python/api/azureml-pipeline-core/azureml.pipeline.core.portdatareference?preserve-view=true&view=azure-ml-py), [PipelineData,](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?preserve-view=true&view=azure-ml-py) [Dataset,](/python/api/azureml-core/azureml.core.dataset%28class%29?preserve-view=true&view=azure-ml-py) [DatasetDefinition](/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition?preserve-view=true&view=azure-ml-py)ou [PipelineDataset](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset?preserve-view=true&view=azure-ml-py). |
-| `outputs` | As saídas podem ser [PipelineData](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?preserve-view=true&view=azure-ml-py) ou [OutputPortBinding](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.outputportbinding?preserve-view=true&view=azure-ml-py). |
+| `inputs` | As entradas podem ser [InputPortBinding](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.inputportbinding), [DataReference](#data-reference), [PortDataReference](/python/api/azureml-pipeline-core/azureml.pipeline.core.portdatareference), [PipelineData,](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata) [Dataset,](/python/api/azureml-core/azureml.core.dataset%28class%29) [DatasetDefinition](/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition)ou [PipelineDataset](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset). |
+| `outputs` | As saídas podem ser [PipelineData](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata) ou [OutputPortBinding](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.outputportbinding). |
 | `run_name` | O nome em Databricks para esta corrida. |
 | `source_directory` | Diretório que contém o script e outros ficheiros. |
 | `num_workers` | O número estático de trabalhadores para o agrupamento de databricks. |
-| `runconfig` | O caminho para um `.runconfig` arquivo. Este ficheiro é uma representação YAML da classe [RunConfiguration.](/python/api/azureml-core/azureml.core.runconfiguration?preserve-view=true&view=azure-ml-py) Para obter mais informações sobre a estrutura deste ficheiro, consulte [runconfigschema.jsem](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json). |
+| `runconfig` | O caminho para um `.runconfig` arquivo. Este ficheiro é uma representação YAML da classe [RunConfiguration.](/python/api/azureml-core/azureml.core.runconfiguration) Para obter mais informações sobre a estrutura deste ficheiro, consulte [runconfigschema.jsem](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json). |
 | `allow_reuse` | Determina se o passo deve reutilizar os resultados anteriores quando for executado novamente com as mesmas definições. |
 
 O exemplo a seguir contém um passo databricks:
@@ -279,8 +279,8 @@ pipeline:
 | Chave YAML | Description |
 | ----- | ----- |
 | `compute_target` | O alvo de computação Azure Data Factory a ser utilizado para este passo. |
-| `source_data_reference` | Ligação de entrada que serve de fonte de operações de transferência de dados. Os valores suportados são [InputPortBinding](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.inputportbinding?preserve-view=true&view=azure-ml-py), [DataReference](#data-reference), [PortDataReference](/python/api/azureml-pipeline-core/azureml.pipeline.core.portdatareference?preserve-view=true&view=azure-ml-py), [PipelineData,](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?preserve-view=true&view=azure-ml-py) [Dataset](/python/api/azureml-core/azureml.core.dataset%28class%29?preserve-view=true&view=azure-ml-py), [DatasetDefinition](/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition?preserve-view=true&view=azure-ml-py)ou [PipelineDataset](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset?preserve-view=true&view=azure-ml-py). |
-| `destination_data_reference` | Ligação de entrada que serve como destino das operações de transferência de dados. Os valores suportados são [PipelineData](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?preserve-view=true&view=azure-ml-py) e [OutputPortBinding](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.outputportbinding?preserve-view=true&view=azure-ml-py). |
+| `source_data_reference` | Ligação de entrada que serve de fonte de operações de transferência de dados. Os valores suportados são [InputPortBinding](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.inputportbinding), [DataReference](#data-reference), [PortDataReference](/python/api/azureml-pipeline-core/azureml.pipeline.core.portdatareference), [PipelineData,](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata) [Dataset](/python/api/azureml-core/azureml.core.dataset%28class%29), [DatasetDefinition](/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition)ou [PipelineDataset](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset). |
+| `destination_data_reference` | Ligação de entrada que serve como destino das operações de transferência de dados. Os valores suportados são [PipelineData](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata) e [OutputPortBinding](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.outputportbinding). |
 | `allow_reuse` | Determina se o passo deve reutilizar os resultados anteriores quando for executado novamente com as mesmas definições. |
 
 O exemplo a seguir contém uma etapa de transferência de dados:
@@ -322,11 +322,11 @@ pipeline:
 
 | Chave YAML | Description |
 | ----- | ----- |
-| `inputs` | As entradas podem ser [InputPortBinding](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.inputportbinding?preserve-view=true&view=azure-ml-py), [DataReference](#data-reference), [PortDataReference](/python/api/azureml-pipeline-core/azureml.pipeline.core.portdatareference?preserve-view=true&view=azure-ml-py), [PipelineData,](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?preserve-view=true&view=azure-ml-py) [Dataset,](/python/api/azureml-core/azureml.core.dataset%28class%29?preserve-view=true&view=azure-ml-py) [DatasetDefinition](/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition?preserve-view=true&view=azure-ml-py)ou [PipelineDataset](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset?preserve-view=true&view=azure-ml-py). |
-| `outputs` | As saídas podem ser [PipelineData](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?preserve-view=true&view=azure-ml-py) ou [OutputPortBinding](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.outputportbinding?preserve-view=true&view=azure-ml-py). |
+| `inputs` | As entradas podem ser [InputPortBinding](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.inputportbinding), [DataReference](#data-reference), [PortDataReference](/python/api/azureml-pipeline-core/azureml.pipeline.core.portdatareference), [PipelineData,](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata) [Dataset,](/python/api/azureml-core/azureml.core.dataset%28class%29) [DatasetDefinition](/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition)ou [PipelineDataset](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset). |
+| `outputs` | As saídas podem ser [PipelineData](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata) ou [OutputPortBinding](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.outputportbinding). |
 | `script_name` | O nome da escrita Python (relativa a `source_directory` ). |
 | `source_directory` | Diretório que contém o guião, ambiente Conda, etc. |
-| `runconfig` | O caminho para um `.runconfig` arquivo. Este ficheiro é uma representação YAML da classe [RunConfiguration.](/python/api/azureml-core/azureml.core.runconfiguration?preserve-view=true&view=azure-ml-py) Para obter mais informações sobre a estrutura deste ficheiro, consulte [runconfig.jsem](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json). |
+| `runconfig` | O caminho para um `.runconfig` arquivo. Este ficheiro é uma representação YAML da classe [RunConfiguration.](/python/api/azureml-core/azureml.core.runconfiguration) Para obter mais informações sobre a estrutura deste ficheiro, consulte [runconfig.jsem](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json). |
 | `allow_reuse` | Determina se o passo deve reutilizar os resultados anteriores quando for executado novamente com as mesmas definições. |
 
 O exemplo a seguir contém um passo de script Python:
@@ -369,11 +369,11 @@ pipeline:
 
 | Chave YAML | Description |
 | ----- | ----- |
-| `inputs` | As entradas podem ser [dataset](/python/api/azureml-core/azureml.core.dataset%28class%29?preserve-view=true&view=azure-ml-py), [DatasetDefinition,](/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition?preserve-view=true&view=azure-ml-py)ou [PipelineDataset](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset?preserve-view=true&view=azure-ml-py). |
-| `outputs` | As saídas podem ser [PipelineData](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?preserve-view=true&view=azure-ml-py) ou [OutputPortBinding](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.outputportbinding?preserve-view=true&view=azure-ml-py). |
+| `inputs` | As entradas podem ser [dataset](/python/api/azureml-core/azureml.core.dataset%28class%29), [DatasetDefinition,](/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition)ou [PipelineDataset](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset). |
+| `outputs` | As saídas podem ser [PipelineData](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata) ou [OutputPortBinding](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.outputportbinding). |
 | `script_name` | O nome da escrita Python (relativa a `source_directory` ). |
 | `source_directory` | Diretório que contém o guião, ambiente Conda, etc. |
-| `parallel_run_config` | O caminho para um `parallel_run_config.yml` arquivo. Este ficheiro é uma representação YAML da classe [ParallelRunConfig.](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunconfig?preserve-view=true&view=azure-ml-py) |
+| `parallel_run_config` | O caminho para um `parallel_run_config.yml` arquivo. Este ficheiro é uma representação YAML da classe [ParallelRunConfig.](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunconfig) |
 | `allow_reuse` | Determina se o passo deve reutilizar os resultados anteriores quando for executado novamente com as mesmas definições. |
 
 O exemplo a seguir contém um passo de execução paralelo:

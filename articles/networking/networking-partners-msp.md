@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.author: sukishen
-ms.openlocfilehash: 6522c6f0a64c5f6f126592b858845f674bb62767
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 9f3043c20dc4ba83da99abeee67f0ee8a3f867ad
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102425537"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102520375"
 ---
 # <a name="about-azure-networking-msp-partners"></a>Sobre os parceiros MSP da Azure Networking
 
@@ -34,6 +34,7 @@ Utilize os links nesta secção para obter mais informações sobre serviços de
 |[Redes Aryaka](https://www.aryaka.com/azure-msp-vwan-managed-service-provider-launch-partner-aryaka/)||[Aryaka Azure Connect](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/aryaka.cloudconnect_azure_19?tab=Overview)|[Aryaka Managed SD-WAN para Azure Networking Virtual](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/aryaka.aryaka_azure_virtual_wan?tab=Overview) | | |
 |[Machado](https://www.axesdn.com/en/azure-msp.html)||[AxeSDN Gerido Azure ExpressRoute](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/1584591601184.axesdn_managed_azure_expressroute?tab=Overview)|[AXESDN Gerido Azure Virtual WAN](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/1584591601184.axesdn_managed_azure_virtualwan?tab=Overview) | | |
 |[BT](https://www.globalservices.bt.com/en/solutions/products/cloud-connect-azure)|[Consultoria de Transformação de Rede: Avaliação 1-Hora;](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/bt-americas-inc.network-transformation-consulting) [BT Cloud Connect Azure](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bt-americas-inc.bt-cca-lh-001?tab=Overview)|[BT Cloud Connect Azure ExpressRoute](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bt-americas-inc.bt-cca-lh-003?tab=Overview)|[BT Cloud Connect Azure VWAN](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bt-americas-inc.bt-cca-lh-002?tab=Overview)|||
+|[RIO BUI](https://www.bui.co.za/)|[a2z Gestão de NuvemGerida](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bui.a2zmanagement?tab=Overview)||[BUI Gerido SD-WAN com VeloCloud](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bui.buimanaged_sd-wan?tab=Overview)||[BUI CyberSoC](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bui.buicybersoc_msp?tab=Overview)|
 |[Coevolve](https://www.coevolve.com/services/azure-networking-services/)|||[Gerido Azure Virtual WAN;](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/coevolveptylimited1581027739259.coevolve-managed-azure-vwan?tab=Overview) [Borda Virtual Gerida VMware SD-WAN](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/coevolveptylimited1581027739259.managed-vmware-sdwan-edge?tab=Overview)|||
 |[Colt](https://www.colt.net/why-colt/strategic-alliances/microsoft-partnership/msp/)|[Otimização da rede em Azure: Avaliação de 2 horas](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/colttechnologyservices.azure_networking)|||||
 |[Equinix](https://www.equinix.com/)|[Workshop WAN otimizado em nuvem](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/equinix.cloudoptimizedwan?tab=Overview)|[Workshop de Estratégia de Conectividade ExpressRoute;](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/equinix.expressroutestrategy?tab=Overview) [Tecido de troca de nuvens Equinix](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/equinix.equinix_ecx_fabric?tab=Overview)||||

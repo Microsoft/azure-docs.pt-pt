@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: rogarana
-ms.openlocfilehash: 0493b66928d944e251e6fe4abda4f1d3d8fb7e23
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 8887243f953a7bb000033a2e56b4655b93cd7ca8
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94695899"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102519797"
 ---
 # <a name="overview-of-azure-files-identity-based-authentication-options-for-smb-access"></a>Visão geral das opções de autenticação baseadas na identidade do Azure Files para acesso AMB
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -128,7 +128,7 @@ Uma vez ativada a autenticação AZure AD DS ou no local, a autenticação AD DS
 
 ### <a name="configure-directory-or-file-level-permissions-for-azure-files"></a>Configure o diretório ou as permissões de nível de ficheiros para ficheiros Azure
 
-As ações de ficheiros Azure impõem permissões padrão de ficheiros Windows tanto ao nível do diretório como ao nível dos ficheiros, incluindo o diretório de raiz. A configuração de permissões de diretório ou de nível de ficheiro é suportada tanto em SMB como EM REST. Monte a partilha de ficheiros-alvo a partir do seu VM e configuure permissões utilizando o Windows File Explorer, Windows [ICACLs](/windows-server/administration/windows-commands/icacls)ou o comando [Set-ACL.](/powershell/module/microsoft.powershell.security/get-acl?view=powershell-6)
+As ações de ficheiros Azure impõem permissões padrão de ficheiros Windows tanto ao nível do diretório como ao nível dos ficheiros, incluindo o diretório de raiz. A configuração de permissões de diretório ou de nível de ficheiro é suportada tanto em SMB como EM REST. Monte a partilha de ficheiros-alvo a partir do seu VM e configuure permissões utilizando o Windows File Explorer, Windows [ICACLs](/windows-server/administration/windows-commands/icacls)ou o comando [Set-ACL.](/powershell/module/microsoft.powershell.security/get-acl)
 
 ### <a name="use-the-storage-account-key-for-superuser-permissions"></a>Use a chave de conta de armazenamento para permissões de super-mento
 

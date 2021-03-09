@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/08/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: cef2636aeecf78a12c48b31b384af2cf76903879
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 722f3158c8eca4cec4dbf23658f9d8d4cb68c3ed
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/09/2021
-ms.locfileid: "102498834"
+ms.locfileid: "102517995"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Perguntas frequentes (FAQ)
 
@@ -145,13 +145,13 @@ Você pode usar a nossa nova experiência de registos de **Aplicações unificad
 1. Selecione o filtro **de subscrição Diretório +** no menu superior e, em seguida, selecione o diretório que contém o seu inquilino Azure AD B2C.
 1. No menu esquerdo, selecione **Azure AD B2C**. Ou, selecione **Todos os serviços** e procure e selecione **Azure AD B2C**.
 1. Elimine todos os **fluxos de utilizador (políticas)** no seu inquilino Azure AD B2C.
+1. Elimine todos os **Fornecedores de Identidade** do seu inquilino Azure AD B2C.
 1. Selecione **as inscrições da App** e, em seguida, selecione o separador Todas as **aplicações.**
 1. Elimine todas as aplicações que registou.
 1. Eliminar a **aplicação de extensões b2c**.
 1. Em **Gerir**, selecione **Utilizadores**.
 1. Selecione cada utilizador por sua vez (exclua o utilizador *do Administrador de Subscrição* em que está atualmente inscrito como). Selecione **Eliminar** na parte inferior da página e selecione **Sim** quando solicitado.
 1. Selecione **Azure Ative Directory** no menu da esquerda.
-1. Em **Gestão**, selecione **as definições do Utilizador**.
 1. Em **Gestão**, selecione **Propriedades**
 1. Em **Gestão de acesso dos recursos do Azure**, selecione **Sim** e, em seguida, **Guardar**.
 1. Assine fora do portal Azure e, em seguida, inscreva-se de volta para refrescar o seu acesso.

@@ -9,12 +9,12 @@ ms.subservice: disks
 ms.date: 10/15/2019
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurepowershell
-ms.openlocfilehash: cac2f57ccb5fd5d0aa251533bd4a5dd1179ec058
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 59b015232fcfe2fd98e1b9f28c2eb4fa86606049
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89069770"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102519576"
 ---
 # <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-azure-powershell"></a>Criptografe os discos de dados e os discos de dados anexados num conjunto de escala de máquina virtual com a Azure PowerShell
 
@@ -51,7 +51,7 @@ Set-AzKeyVaultAccessPolicy -VaultName $vaultName -EnabledForDiskEncryption
 
 ## <a name="create-a-scale-set"></a>Criar um conjunto de dimensionamento
 
-Primeiro, defina um nome de utilizador e uma palavra-passe para as instâncias da VM com [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-5.1):
+Primeiro, defina um nome de utilizador e uma palavra-passe para as instâncias da VM com [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential):
 
 ```azurepowershell-interactive
 $cred = Get-Credential

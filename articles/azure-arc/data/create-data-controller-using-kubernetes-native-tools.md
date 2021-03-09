@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 03/02/2021
 ms.topic: how-to
-ms.openlocfilehash: 45ba08193d4907126bd51412805f04b7aec4fce0
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 500587dc6564aa55eb430365eb67bb958bbd2482
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101686398"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102519984"
 ---
 # <a name="create-azure-arc-data-controller-using-kubernetes-tools"></a>Criar controlador de dados Azure Arc utilizando ferramentas Kubernetes
 
@@ -142,10 +142,10 @@ PowerShell
 Linux/macOS
 
 ```console
-echo '<your string to encode here>' | base64
+echo -n '<your string to encode here>' | base64
 
 #Example
-# echo 'example' | base64
+# echo -n 'example' | base64
 ```
 
 Uma vez codificado o nome de utilizador e a palavra-passe, pode criar um ficheiro baseado no [ficheiro do modelo](https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/yaml/controller-login-secret.yaml) e substituir o nome de utilizador e os valores da palavra-passe pelos seus próprios valores.

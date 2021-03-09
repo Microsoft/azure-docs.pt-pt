@@ -7,12 +7,12 @@ author: vhorne
 ms.service: web-application-firewall
 ms.date: 04/14/2020
 ms.author: victorh
-ms.openlocfilehash: c0f802f5113e38e811c110ee913099e76fa7be0b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dd917bcf54022564640d22a5968738c27f75ff38
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81383821"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102519049"
 ---
 # <a name="custom-rules-for-web-application-firewall-v2-on-azure-application-gateway"></a>Regras personalizadas para Firewall de Aplicação Web v2 no Gateway de aplicações Azure
 
@@ -26,7 +26,7 @@ As regras personalizadas suportam o uso de lógica de compostagem para fazer reg
 
 As diferentes condições de correspondência dentro da mesma regra são sempre agravadas usando **e**. Por exemplo, bloqueie o tráfego a partir de um endereço IP específico, e apenas se estiver a usar um determinado navegador.
 
-Se quiser **ou** duas condições diferentes, as duas condições devem estar em regras diferentes. Por exemplo, bloqueie o tráfego a partir de um endereço IP específico ou bloqueie o tráfego se estiver a usar um navegador específico.
+Se quiser usar **ou** entre duas condições diferentes, então as duas condições devem estar em regras diferentes. Por exemplo, bloqueie o tráfego a partir de um endereço IP específico ou bloqueie o tráfego se estiver a usar um navegador específico.
 
 > [!NOTE]
 > O número máximo de regras personalizadas da WAF é de 100. Para obter mais informações sobre os limites do Gateway de aplicações, consulte [os limites de subscrição e serviços, quotas e restrições de subscrição do Azure.](../../azure-resource-manager/management/azure-subscription-service-limits.md#application-gateway-limits)

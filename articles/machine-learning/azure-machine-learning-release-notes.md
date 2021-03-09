@@ -9,18 +9,49 @@ ms.topic: reference
 ms.author: larryfr
 author: BlackMist
 ms.date: 02/18/2021
-ms.openlocfilehash: ebd4aed284869eb74760de8612a76139d26d47f5
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: b61337f29eac11ca3fb45056b9348fbc70956b53
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/09/2021
-ms.locfileid: "102502353"
+ms.locfileid: "102521208"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de lançamento do Azure Machine Learning
 
 Neste artigo, saiba mais sobre os lançamentos da Azure Machine Learning.  Para obter o conteúdo completo de referência SDK, visite a página de referência principal do Azure Machine Learning para a página de referência [**python.**](/python/api/overview/azure/ml/intro)
 
 __Feed RSS__: Seja notificado quando esta página for atualizada copiando e colando o seguinte URL no seu leitor de feed: `https://docs.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes%22&locale=en-us`
+
+
+## <a name="2021-03-08"></a>2021-03-08
+
+### <a name="azure-machine-learning-sdk-for-python-v1240"></a>Azure Machine Learning SDK para Python v1.24.0
++ **Novas funcionalidades**
+  + **azureml-automl-core**
+    + Removido para trás importações compatíveis de `azureml.automl.core.shared` . O módulo não encontrado no espaço de `azureml.automl.core.shared` nomes pode ser resolvido importando a partir de `azureml.automl.runtime.shared` .
+  + **azureml-contrib-automl-dnn-vision**
+    + Modelo de deteção de objetos expostos yolo.
+  + **azureml-contrib-dataset**
+    + A funcionalidade adicionada para filtrar conjuntos de dados tabulares por valores de coluna e conjuntos de dados de ficheiros por metadados.
+  + **azureml-contrib-fairness**
+    + Inclua o esquema JSON na roda para `azureml-contrib-fairness`
+  + **azureml-contrib-k8s**
+    + Deve agora fornecer resource_id para anexar em vez de grupo de recursos e nome de cluster.
+  + **azureml-contrib-mir**
+    + Com a definição show_output a True quando implementar modelos, a configuração de inferência e a configuração de implementação serão reproduzidas antes de enviar o pedido para o servidor.
+  + **azureml-core**
+    + A funcionalidade adicionada para filtrar conjuntos de dados tabulares por valores de coluna e conjuntos de dados de ficheiros por metadados.
+    + Anteriormente, era possível que os utilizadores criassem configurações de provisionamento para o ComputeTarget's que não satisfaziam os requisitos de força de senha para o `admin_user_password` campo (ou seja, que devem conter pelo menos 3 das seguintes: 1 letra minúscula, 1 letra maiúscula, 1 dígito e 1 caracteres especiais do seguinte conjunto: ``\`~!@#$%^&*()=+_[]{}|;:./'",<>?`` ). Se o utilizador criasse uma configuração com uma palavra-passe fraca e executasse um trabalho utilizando essa configuração, o trabalho falharia no tempo de execução. Agora, a chamada `AmlCompute.provisioning_configuration` para lançar uma `ComputeTargetException` mensagem de erro acompanhante explicando os requisitos de força de senha. 
+    + Além disso, também foi possível em alguns casos especificar uma configuração com um número negativo de nós máximos. Já não é possível fazê-lo. Agora, `AmlCompute.provisioning_configuration` vai lançar um se o argumento é um número inteiro `ComputeTargetException` `max_nodes` negativo.
+    + Com a definição show_output a True quando implementar os modelos, será apresentada a configuração de inferência e a configuração de implementação.
+    + Com a definição show_output à True quando aguardamos a conclusão da implementação do modelo, será apresentado o progresso da operação de implantação.
+    + Permitir ao cliente especificado AzureML auth config directy através da variável ambiental: AZUREML_AUTH_CONFIG_DIR
+    + Anteriormente, foi possível criar uma configuração de provisionamento com a contagem mínima de nól inferior à contagem máxima de nós. O trabalho funcionaria, mas falharia no tempo de execução. Este inseto foi agora reparado. Se tentar agora criar uma configuração de provisionamento com `min_nodes < max_nodes` o SDK levantará um `ComputeTargetException` .
+  + **azureml-interpret**
+    + corrigir painel de explicação não mostrando importâncias agregadas característica para explicações escassas projetado
+    + utilização otimizada da memória do ExplanationClient em pacote de interpretação azureml
+  + **azureml-train-automl-client**
+    +  Fixo show_output=Falso para devolver o controlo ao utilizador quando estiver a correr com faísca.
 
 ## <a name="2021-02-28"></a>2021-02-28
 ### <a name="azure-machine-learning-studio-notebooks-experience-february-update"></a>Experiência de cadernos do estúdio de aprendizagem de máquinas Azure (Atualização de fevereiro)
@@ -39,6 +70,7 @@ __Feed RSS__: Seja notificado quando esta página for atualizada copiando e cola
   + Melhoria da velocidade e da fiabilidade do núcleo
   + Auss adicionando roda giratória para mostrar progresso para todas as operações em curso [da Instância computacional](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#status-indicators).
   + Clique à direita no Explorador de Ficheiros. Clicar à direita em qualquer ficheiro abrirá agora as operações de ficheiro. 
+
 
 ## <a name="2021-02-16"></a>2021-02-16
 
@@ -1020,7 +1052,7 @@ Agora pode criar, editar e partilhar cadernos e ficheiros de machine learning di
 
 Aceda às seguintes ferramentas de autoria baseadas na web do estúdio:
     
-| Ferramenta baseada na web  |     Descrição  |
+| Ferramenta baseada na web  |     Description  |
 |---|---|
 | Cadernos do estúdio Azure ML   |     Primeira autoria em classe para ficheiros de portátil e suporte a toda a operação disponível no Azure ML Python SDK. | 
 
@@ -1532,7 +1564,7 @@ A partir do estúdio, você pode treinar, testar, implementar e gerir ativos de 
 
 Aceda às seguintes ferramentas de autoria baseadas na web do estúdio:
 
-| Ferramenta baseada na web | Descrição | 
+| Ferramenta baseada na web | Description | 
 |-|-|-|
 | VM do portátil (pré-visualização) | Estação de trabalho totalmente gerida em nuvem | 
 | [Aprendizagem automática de máquinas](tutorial-first-experiment-automated-ml.md) (pré-visualização) | Nenhuma experiência de código para automatizar o desenvolvimento de modelos de aprendizagem automática | 

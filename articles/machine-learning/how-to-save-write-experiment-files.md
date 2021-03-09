@@ -12,12 +12,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 03/10/2020
-ms.openlocfilehash: 49e1e9efbd6f59bd037a8033f83836bf7fc71c43
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: ad641c2270f94b9d902a25e8d061fb1137a0cdb7
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94630333"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102518607"
 ---
 # <a name="where-to-save-and-write-files-for-azure-machine-learning-experiments"></a>Onde guardar e escrever ficheiros para experiências de Aprendizagem automática Azure
 
@@ -30,13 +30,13 @@ Ao lançar treinos com um [alvo de computação,](concept-compute-target.md)são
 
 Antes de iniciar uma experiência num alvo de computação ou na sua máquina local, tem de garantir que os ficheiros necessários estão disponíveis para esse alvo de computação, como ficheiros de dependência e ficheiros de dados que o seu código necessita de executar.
 
-A Azure Machine Learning executa scripts de formação copiando todo o diretório de origem. Se tiver dados sensíveis que não pretende fazer o upload, utilize um [ficheiro .ignore](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) ou não o inclua no diretório de origem . Em vez disso, aceda aos seus dados através de uma [datastore](/python/api/azureml-core/azureml.data?preserve-view=true&view=azure-ml-py).
+A Azure Machine Learning executa scripts de formação copiando todo o diretório de origem. Se tiver dados sensíveis que não pretende fazer o upload, utilize um [ficheiro .ignore](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) ou não o inclua no diretório de origem . Em vez disso, aceda aos seus dados através de uma [datastore](/python/api/azureml-core/azureml.data).
 
 O limite de armazenamento para instantâneos de experimentação é 300 MB e/ou 2000 ficheiros.
 
 Por esta razão, recomendamos:
 
-* **Armazenar os seus ficheiros numa loja [de dados](/python/api/azureml-core/azureml.data?preserve-view=true&view=azure-ml-py)Azure Machine Learning .** Isto previne problemas de latência experimentais, e tem as vantagens de aceder a dados a partir de um alvo de computação remota, o que significa que a autenticação e montagem são geridas pela Azure Machine Learning. Saiba mais sobre especificar uma datastore como diretório de origem e fazer o upload de ficheiros para a sua loja de dados nos dados do Access a partir do artigo [das suas datastores.](how-to-access-data.md)
+* **Armazenar os seus ficheiros numa loja [de dados](/python/api/azureml-core/azureml.data)Azure Machine Learning .** Isto previne problemas de latência experimentais, e tem as vantagens de aceder a dados a partir de um alvo de computação remota, o que significa que a autenticação e montagem são geridas pela Azure Machine Learning. Saiba mais sobre especificar uma datastore como diretório de origem e fazer o upload de ficheiros para a sua loja de dados nos dados do Access a partir do artigo [das suas datastores.](how-to-access-data.md)
 
 * **Se necessitar apenas de alguns ficheiros de dados e scripts de dependência e não puder utilizar uma loja de dados,** coloque os ficheiros no mesmo diretório de pastas que o seu script de treino. Especifique esta pasta como a sua `source_directory` diretamente no seu script de treino ou no código que chama o seu script de treino.
 

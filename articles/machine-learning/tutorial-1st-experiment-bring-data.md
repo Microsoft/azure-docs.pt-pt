@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 02/11/2021
 ms.custom: tracking-python
-ms.openlocfilehash: 5e1af60cccb48195db38e420dfe3df01f404669c
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: bbe28f4fda32ce7d55a437e4ac944dc206f436ee
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100378009"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102522364"
 ---
 # <a name="tutorial-use-your-own-data-part-4-of-4"></a>Tutorial: Use os seus próprios dados (parte 4 de 4)
 
@@ -200,7 +200,7 @@ O script de controlo é semelhante ao da [parte 3 desta série,](tutorial-1st-ex
       `dataset = Dataset.File.from_files( ... )`
    :::column-end:::
    :::column span="2":::
-      Um [conjunto de dados](/python/api/azureml-core/azureml.core.dataset.dataset?preserve-view=true&view=azure-ml-py) é utilizado para fazer referência aos dados enviados para o Azure Blob Storage. Os conjuntos de dados são uma camada de abstração em cima dos seus dados que são projetados para melhorar a fiabilidade e fiabilidade.
+      Um [conjunto de dados](/python/api/azureml-core/azureml.core.dataset.dataset) é utilizado para fazer referência aos dados enviados para o Azure Blob Storage. Os conjuntos de dados são uma camada de abstração em cima dos seus dados que são projetados para melhorar a fiabilidade e fiabilidade.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -208,7 +208,7 @@ O script de controlo é semelhante ao da [parte 3 desta série,](tutorial-1st-ex
       `config = ScriptRunConfig(...)`
    :::column-end:::
    :::column span="2":::
-      [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py) é modificado para incluir uma lista de argumentos que serão transmitidos em `train.py` . O `dataset.as_named_input('input').as_mount()` argumento significa que o diretório especificado será _montado_ no alvo do cálculo.
+      [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig) é modificado para incluir uma lista de argumentos que serão transmitidos em `train.py` . O `dataset.as_named_input('input').as_mount()` argumento significa que o diretório especificado será _montado_ no alvo do cálculo.
    :::column-end:::
 :::row-end:::
 
