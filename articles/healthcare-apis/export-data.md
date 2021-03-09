@@ -7,12 +7,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 2/19/2021
 ms.author: cavoeg
-ms.openlocfilehash: 675030ac47cb26e817a9ef7ee51999f25020f292
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 9ed78baed35312b9a33c71a3e49b7e9dca22eb9f
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101712707"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487224"
 ---
 # <a name="how-to-export-fhir-data"></a>Como exportar dados do FHIR
 
@@ -38,6 +38,13 @@ Quando os dados são exportados, é criado um ficheiro separado para cada tipo d
 
 Além disso, é apoiado o controlo do estado de exportação através do URL devolvido pelo cabeçalho de localização durante a fila, bem como o cancelamento do emprego de exportação efetivo.
 
+### <a name="exporting-fhir-data-to-adls-gen2"></a>Exportação de dados fHIR para a ADLS Gen2
+
+Atualmente apoiamos $export para contas de armazenamento ativadas pela ADLS Gen2, com a seguinte limitação:
+
+- O utilizador ainda não pode tirar partido de [espaços hierárquicos;](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace) não há uma maneira de direcionar a exportação para um sub-directório específico dentro do contentor. Só fornecemos a capacidade de direcionar um recipiente específico (onde criamos uma nova pasta para cada exportação).
+
+- Uma vez concluída a exportação, nunca mais exportamos nada para essa pasta, uma vez que as exportações subsequentes para o mesmo contentor estarão dentro de uma pasta recém-criada.
 
 
 ## <a name="settings-and-parameters"></a>Definições e parâmetros
@@ -52,11 +59,11 @@ A Azure API para FHIR suporta os seguintes parâmetros de consulta. Todos estes 
 
 |Parâmetro de consulta        | Definido pela Especificação FHIR?    |  Descrição|
 |------------------------|---|------------|
-| \_outputFormat | Sim | Atualmente suporta três valores para alinhar com a FHIR Spec: application/fhir+ndjson, application/ndjson, ou just ndjson. Todos os postos de trabalho de exportação regressarão `ndjson` e o valor passado não tem qualquer efeito sobre o comportamento do código. |
-| \_desde | Sim | Permite-lhe apenas exportar recursos que foram modificados desde o tempo fornecido |
-| \_tipo | Sim | Permite especificar quais tipos de recursos serão incluídos. Por exemplo, \_ type=Paciente devolveria apenas recursos do paciente|
-| \_typefilter | Sim | Para solicitar uma filtragem de grãos mais finos, pode utilizar \_ o typefilter juntamente com o parâmetro do \_ tipo. O valor do parâmetro _typeFilter é uma lista separada por vírgula de consultas de FHIR que restringem ainda mais os resultados |
-| \_recipiente | Não |  Especifica o contentor dentro da conta de armazenamento configurada onde os dados devem ser exportados. Se um recipiente for especificado, os dados serão exportados para esse recipiente numa nova pasta com o nome. Se o recipiente não for especificado, será exportado para um novo recipiente utilizando o tempotando e a identificação do trabalho. |
+| \_outputFormat | Yes | Atualmente suporta três valores para alinhar com a FHIR Spec: application/fhir+ndjson, application/ndjson, ou just ndjson. Todos os postos de trabalho de exportação regressarão `ndjson` e o valor passado não tem qualquer efeito sobre o comportamento do código. |
+| \_desde | Yes | Permite-lhe apenas exportar recursos que foram modificados desde o tempo fornecido |
+| \_tipo | Yes | Permite especificar quais tipos de recursos serão incluídos. Por exemplo, \_ type=Paciente devolveria apenas recursos do paciente|
+| \_typefilter | Yes | Para solicitar uma filtragem de grãos mais finos, pode utilizar \_ o typefilter juntamente com o parâmetro do \_ tipo. O valor do parâmetro _typeFilter é uma lista separada por vírgula de consultas de FHIR que restringem ainda mais os resultados |
+| \_recipiente | No |  Especifica o contentor dentro da conta de armazenamento configurada onde os dados devem ser exportados. Se um recipiente for especificado, os dados serão exportados para esse recipiente numa nova pasta com o nome. Se o recipiente não for especificado, será exportado para um novo recipiente utilizando o tempotando e a identificação do trabalho. |
 
 ## <a name="secure-export-to-azure-storage"></a>Exportação Segura para armazenamento Azure
 

@@ -10,12 +10,12 @@ ms.date: 10/05/2020
 ms.topic: overview
 ms.custom: references_regions
 ms.service: azure-communication-services
-ms.openlocfilehash: 8a811a033a2d6e2229c83899e237f996ccddd7b3
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 380792db21932ed2c6cffb4227df09b27f0cdf5e
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102430416"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487500"
 ---
 # <a name="phone-number-types-in-azure-communication-services"></a>Tipos de números de telefone nos Serviços de Comunicação Azure
 
@@ -37,10 +37,10 @@ A disponibilidade de números de telefone está atualmente restrita a subscriç�
 
 
 ## <a name="number-types-and-features"></a>Tipos e funcionalidades de números
-Os Serviços de Comunicação oferecem dois tipos de números de telefone: **locais** e **gratuitos.** 
+Os Serviços de Comunicação oferecem dois tipos de números de telefone: **locais** e **gratuitos.**
 
 ### <a name="local-numbers"></a>Números locais
-Os números locais (geográficos) são números de telefone de 10 dígitos que consistem nos códigos de área locais nos Estados Unidos. Por exemplo, `+1 (206) XXX-XXXX` é um número local com um código de área de `206` . Este código de área é atribuído à cidade de Seattle. Estes números de telefone são geralmente usados por indivíduos e empresas locais. A Azure Communication Services oferece números locais nos Estados Unidos. Estes números podem ser usados para fazer chamadas telefónicas, mas não para enviar mensagens SMS. 
+Os números locais (geográficos) são números de telefone de 10 dígitos que consistem nos códigos de área locais nos Estados Unidos. Por exemplo, `+1 (206) XXX-XXXX` é um número local com um código de área de `206` . Este código de área é atribuído à cidade de Seattle. Estes números de telefone são geralmente usados por indivíduos e empresas locais. A Azure Communication Services oferece números locais nos Estados Unidos. Estes números podem ser usados para fazer chamadas telefónicas, mas não para enviar mensagens SMS.
 
 ### <a name="toll-free-numbers"></a>Números gratuitos
 Os números gratuitos são números de telefone de 10 dígitos com códigos de área distintos que podem ser chamados de qualquer número de telefone gratuitamente. Por exemplo, `+1 (800) XXX-XXXX` é um número gratuito na região da América do Norte. Estes números de telefone são geralmente utilizados para fins de atendimento ao cliente. A Azure Communication Services oferece números gratuitos nos Estados Unidos. Estes números podem ser usados para fazer chamadas telefónicas e para enviar mensagens SMS. Os números gratuitos não podem ser utilizados por pessoas e só podem ser atribuídos a aplicações.
@@ -49,9 +49,9 @@ Os números gratuitos são números de telefone de 10 dígitos com códigos de �
 
 Se o seu número de telefone for utilizado por uma aplicação (por exemplo, para fazer chamadas ou enviar mensagens em nome do seu serviço), pode selecionar um número gratuito ou local (geográfico). Pode selecionar um número gratuito se a sua aplicação estiver a enviar mensagens SMS e/ou a fazer chamadas.
 
-Se o seu número de telefone estiver a ser utilizado por uma pessoa (por exemplo, um utilizador da sua aplicação de chamada), o número de telefone local (geográfico) deve ser utilizado. 
+Se o seu número de telefone estiver a ser utilizado por uma pessoa (por exemplo, um utilizador da sua aplicação de chamada), o número de telefone local (geográfico) deve ser utilizado.
 
-A tabela abaixo resume estes tipos de números de telefone: 
+A tabela abaixo resume estes tipos de números de telefone:
 
 | Tipo de número de telefone | Exemplo                              | Disponibilidade do país    | Capacidade de número de telefone |Caso de uso comum                                                                                                     |
 | ----------------- | ------------------------------------ | ----------------------- | ------------------------|------------------------------------------------------------------------------------------------------------------- |
@@ -59,7 +59,7 @@ A tabela abaixo resume estes tipos de números de telefone:
 | Toll-Free         | +1 *(código* de área sem portagem) XXX XX XX | EUA                      | Chamada (Saída), SMS (Entrada/Saída)| Atribuir números de telefone a sistemas/Bots de resposta vocal interativa (IVR), aplicações SMS                                        |
 
 
-### <a name="phone-number-features-in-azure-communication-services"></a>Características de número de telefone nos Serviços de Comunicação Azure 
+### <a name="phone-number-features-in-azure-communication-services"></a>Características de número de telefone nos Serviços de Comunicação Azure
 
 [!INCLUDE [Emergency Calling Notice](../../includes/emergency-calling-notice-include.md)]
 
@@ -67,7 +67,7 @@ Para a maioria dos números de telefone, permitimos configurar um conjunto de fu
 
 As funcionalidades que lhe estão disponíveis dependem do país em que está a operar, da sua caixa de utilização e do tipo de número de telefone que selecionou. Estas características variam de país para país devido aos requisitos regulamentares. A Azure Communication Services oferece os seguintes recursos de número de telefone:
 
-- **SMS de ida e saída** Esta opção permite-lhe enviar mensagens SMS aos seus utilizadores. Isto pode ser útil em cenários de notificação e autenticação de dois fatores. 
+- **SMS de ida e saída** Esta opção permite-lhe enviar mensagens SMS aos seus utilizadores. Isto pode ser útil em cenários de notificação e autenticação de dois fatores.
 - **SMS de entrada e saída bidirecciona** Esta opção permite-lhe enviar e receber mensagens dos seus utilizadores utilizando números de telefone. Isto pode ser útil em cenários de atendimento ao cliente.
 - **Telefone de ida e saída** Esta opção permite-lhe esboçar chamadas para os seus utilizadores e configurar o ID do autor da chamada para chamadas de saída feitas pelo seu serviço. Isto pode ser útil em cenários de atendimento ao cliente e notificação de voz.
 

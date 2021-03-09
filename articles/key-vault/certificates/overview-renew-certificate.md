@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: overview
 ms.date: 07/20/2020
 ms.author: sebansal
-ms.openlocfilehash: 0720e6b55cec8150eea9d41ca89b2c9b21a0bc94
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: c7948230164258aa785f3dd6c1f487c51ece9333
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93287695"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487190"
 ---
 # <a name="renew-your-azure-key-vault-certificates"></a>Renove os seus certificados Azure Key Vault
 
@@ -73,7 +73,10 @@ Para obter mais informações sobre a criação de uma nova RSE, consulte [Criar
 Azure Key Vault também lida com a autoestima de certificados auto-assinados. Para saber mais sobre a alteração da política de emissão e a atualização dos atributos do ciclo de vida de um certificado, consulte a autoração do [certificado de configuração no Key Vault](./tutorial-rotate-certificates.md#update-lifecycle-attributes-of-a-stored-certificate).
 
 ## <a name="troubleshoot"></a>Resolução de problemas
-Se o certificado emitido estiver em estado *de desativação* no portal Azure, vá à **Operação Certificado** para ver a mensagem de erro do certificado.
+* Se o certificado emitido estiver em estado *de desativação* no portal Azure, vá à **Operação Certificado** para ver a mensagem de erro do certificado.
+* Error type "A RSE utilizada para obter o seu certificado já foi utilizada. Por favor, tente gerar um novo certificado com uma nova RSE."
+  Aceda à secção "Política Avançada" do certificado e verifique se a opção **"reutilizar a chave sobre a renovação"** está desligada.
+
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 

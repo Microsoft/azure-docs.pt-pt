@@ -8,23 +8,24 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: tutorial
-ms.date: 05/29/2020
+ms.date: 02/24/2021
 ms.author: ambapat
-ms.openlocfilehash: 8a1f3b5e80152fb0fb9458aef0d3524dd2d6f5eb
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 511544f81f6de887014545e3f4bbc7a4172fc91e
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97092334"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102488754"
 ---
 # <a name="import-hsm-protected-keys-for-key-vault-ncipher"></a>Chaves protegidas pelo HSM para o Cofre-Chave (nCipher)
+
+> [!WARNING]
+> O método de importação da chave HSM descrito neste documento é **depreciado** e não será apoiado no futuro. Funciona apenas com a família nCipher nShield de HSMs com firmware 12.40.2 ou 12.50 com um hotfix. Recomenda-se vivamente a utilização de [novos métodos para importar chaves HSM.](hsm-protected-keys-byok.md)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 Para obter uma garantia adicional, quando utilizar o Azure Key Vault, pode importar ou gerar chaves em módulos de segurança de hardware (HSMs) que nunca saem do limite HSM. Este cenário costuma chamar-se *Bring Your Own Key* ou BYOK. O Azure Key Vault utiliza nCipher nShield family of HSMs (FIPS 140-2 Nível 2 validado) para proteger as suas chaves.
 
-> [!NOTE]
-> O método de importação da chave HSM descrito neste documento funciona apenas com a família nCipher nShield de HSMs. Para importar chaves HSM de outros HSMs [consulte aqui.](hsm-protected-keys-byok.md)
 
 Use as informações neste tópico para ajudá-lo a planear, gerar e, em seguida, transferir as suas próprias chaves protegidas pelo HSM para usar com o Cofre da Chave Azure. 
 

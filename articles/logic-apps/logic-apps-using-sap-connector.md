@@ -9,12 +9,12 @@ ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
 ms.date: 03/08/2021
 tags: connectors
-ms.openlocfilehash: 3e98dc36b3d58ce5289fccde7b5f5a49973c9de6
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.openlocfilehash: b9238d099c7b33e904c2fc8de3c4fc08369f1f36
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102454231"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102489842"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Ligar-se a sistemas SAP a partir de Azure Logic Apps
 
@@ -752,7 +752,7 @@ Pode configurar o SAP para [enviar IDocs em pacotes,](https://help.sap.com/viewe
 
 Aqui está um exemplo que mostra como extrair IDocs individuais de um pacote usando a [ `xpath()` função:](./workflow-definition-language-functions-reference.md#xpath)
 
-1. Antes de começar, precisa de uma aplicação lógica com um gatilho SAP. Se ainda não tem esta aplicação lógica, siga os passos anteriores neste tópico para [configurar uma aplicação lógica com um gatilho SAP](#receive-message-from-sap).
+1. Antes de começar, precisa de uma aplicação lógica com um gatilho SAP. Se ainda não o tem na sua aplicação lógica, siga os passos anteriores neste tópico para [configurar uma aplicação lógica com um gatilho SAP](#receive-message-from-sap).
 
     > [!IMPORTANT]
     > O **ID do Programa** SAP é sensível a casos. Certifique-se de que utiliza sistematicamente o mesmo formato de caso para o seu **ID do programa** quando configurar a sua aplicação lógica e servidor SAP. Caso contrário, poderá receber os seguintes erros no monitor tRFC (T-Code SM58) quando tentar enviar um IDoc para SAP:
@@ -765,6 +765,14 @@ Aqui está um exemplo que mostra como extrair IDocs individuais de um pacote usa
    Por exemplo:
 
    ![Adicione o gatilho SAP à aplicação lógica](./media/logic-apps-using-sap-connector/first-step-trigger.png)
+
+1. [Adicione uma ação de resposta à sua aplicação lógica](/azure/connectors/connectors-native-reqres#add-a-response-action) para responder imediatamente com o estado do seu pedido SAP. É uma boa prática adicionar esta ação imediatamente após o seu gatilho, para libertar o canal de comunicação com o seu servidor SAP. Escolha um dos seguintes códigos de estado `statusCode` () para utilizar na sua ação de resposta:
+
+    * **202 Aceito,** o que significa que o pedido foi aceite para processamento, mas o processamento ainda não está completo.
+
+    * **204 No Content**, o que significa que o servidor cumpriu com sucesso o pedido e não existe nenhum conteúdo adicional para enviar no corpo de carga útil de resposta. 
+
+    * **200 OK.** Este código de estado contém sempre uma carga útil, mesmo que o servidor gere um corpo de carga útil de comprimento zero. 
 
 1. Obtenha o espaço de nome raiz do XML IDoc que a sua aplicação lógica recebe do SAP. Para extrair este espaço de nome do documento XML, adicione um passo que cria uma variável de cordas local e armazena esse espaço de nome usando uma `xpath()` expressão:
 

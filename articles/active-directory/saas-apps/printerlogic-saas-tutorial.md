@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/18/2020
+ms.date: 02/25/2021
 ms.author: jeedes
-ms.openlocfilehash: b471e113a7e5ae2277e275d53ff8ac8ca9187d1d
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 23b534f1ccbd51b028beeee173e5c3e0accd47a3
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98731239"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102486187"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-printerlogic-saas"></a>Tutorial: Azure Ative Directory integração única (SSO) com PrinterLogic SaaS
 
@@ -37,10 +37,10 @@ Para começar, precisa dos seguintes itens:
 
 Neste tutorial, você configura e testa Azure AD SSO em um ambiente de teste.
 
-* PrinterLogic SaaS suporta SSO iniciado **SP e IDP**
-* PrinterLogic SaaS suporta **provisão de** utilizadores just in time
+* PrinterLogic SaaS suporta SSO iniciado **sp e IDP.**
+* PrinterLogic SaaS suporta o fornecimento do utilizador **Just In Time.**
 
-## <a name="adding-printerlogic-saas-from-the-gallery"></a>Adicionar PrinterLogic SaaS da galeria
+## <a name="add-printerlogic-saas-from-the-gallery"></a>Adicionar PrinterLogic SaaS da galeria
 
 Para configurar a integração do PrinterLogic SaaS no AD Azure, é necessário adicionar o PrinterLogic SaaS da galeria à sua lista de aplicações geridas pelo SaaS.
 
@@ -146,17 +146,16 @@ Nesta secção, testa a configuração de um único sinal de inscrição Azure A
 
 #### <a name="sp-initiated"></a>SP iniciado:
 
-* Clique em **Testar esta aplicação** no portal Azure. Isto irá redirecionar para o Sinal askYourTeam no URL onde pode iniciar o fluxo de login.  
+* Clique em **Testar esta aplicação** no portal Azure. Isto irá redirecionar para PrinterLogic SaaS Sign no URL onde pode iniciar o fluxo de login.  
 
-* Vá diretamente ao URL de inscrição askYourTeam e inicie o fluxo de login a partir daí.
+* Vá diretamente ao URL de entrada de assinatura da PrinterLogic SaaS e inicie o fluxo de login a partir daí.
 
 #### <a name="idp-initiated"></a>IDP iniciado:
 
-* Clique em **Testar esta aplicação** no portal Azure e deverá ser automaticamente inscrito na AskYourTeam para a qual configura o SSO 
+* Clique em **Testar esta aplicação** no portal Azure e deverá ser automaticamente inscrito no SaaS PrinterLogic para o qual configura o SSO. 
 
-Também pode utilizar o Microsoft My Apps para testar a aplicação em qualquer modo. Quando clicar no azulejo AskYourTeam nas Minhas Apps, se configurado no modo SP, será redirecionado para o sinal de aplicação na página para iniciar o fluxo de login e se configurado no modo IDP, deverá ser automaticamente inscrito no AskYourTeam para o qual configura o SSO. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](../user-help/my-apps-portal-end-user-access.md)
+Também pode utilizar o Microsoft My Apps para testar a aplicação em qualquer modo. Quando clicar no azulejo Da ImpressoraLogic SaaS nas Minhas Apps, se configurado no modo SP, será redirecionado para o sinal de aplicação na página para iniciar o fluxo de login e se configurado no modo IDP, deverá ser automaticamente inscrito no SaaS PrinterLogic para o qual configura o SSO. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
+## <a name="next-steps"></a>Passos seguintes
 
-## <a name="next-steps"></a>Próximos passos
-
-Uma vez configurado o PrinterLogic SaaS, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Uma vez configurado o PrinterLogic SaaS, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

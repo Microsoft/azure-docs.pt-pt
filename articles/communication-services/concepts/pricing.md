@@ -9,14 +9,17 @@ ms.author: mikben
 ms.date: 09/29/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: bf255837a08a4810321f2f03cb97838e31a7cddc
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 5c8c4808e735a872b31deb6855646dae90c407c9
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101657762"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487683"
 ---
 # <a name="pricing-scenarios"></a>Cenários de preços
+
+[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
+
 
 Os preços dos Serviços de Comunicação Azure baseiam-se geralmente num modelo de pagamento. Os preços dos seguintes exemplos são para fins ilustrativos e podem não refletir os preços mais recentes do Azure.
 

@@ -10,16 +10,25 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 01/13/2021
 ms.author: pafarley
-ms.openlocfilehash: 4f5ea68102e98a9abc3e5a0a31d3153bc1bd1663
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 78746e7623f58af5ae9df829b48245295dc39f01
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101738230"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487105"
 ---
 # <a name="whats-new-in-computer-vision"></a>Novidades na Visão Computacional
 
 Saiba o que há de novo no serviço. Estes itens podem ser notas de lançamento, vídeos, posts de blog e outros tipos de informação. Marque esta página para ficar a par do serviço.
+
+## <a name="march-2021"></a>março de 2021
+
+### <a name="computer-vision-32-public-preview-update"></a>Visão Computacional 3.2 Atualização de Pré-visualização Pública
+
+A pré-visualização pública da API v3.2 da Visão Computacional foi atualizada. O lançamento de pré-visualização tem todas as funcionalidades de Visão de Computador, juntamente com APIs de leitura e análise atualizadas.
+
+> [!div class="nextstepaction"]
+> [Ver Visualização computorizada v3.2 visualização pública 3](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/5d986960601faab4bf452005)
 
 ## <a name="february-2021"></a>Fevereiro de 2021
 
@@ -34,7 +43,7 @@ A pré-visualização pública da API v3.2 da Computer Vision, disponível como 
 [Saiba mais](concept-recognizing-text.md) sobre a API de Leitura.
 
 > [!div class="nextstepaction"]
-> [Utilize a API de Leitura v3.2 Visualização pública](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005)
+> [Utilize a API de Leitura v3.2 Visualização pública](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/5d986960601faab4bf452005)
 
 
 ## <a name="january-2021"></a>Janeiro de 2021

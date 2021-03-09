@@ -5,14 +5,14 @@ author: sidramadoss
 ms.author: sidram
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 06/21/2018
+ms.date: 03/08/2021
 ms.custom: seodec18
-ms.openlocfilehash: 3356e0bdd45b6a213ef5ef4a814e64585d8e8924
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 6d3558511721a91c3a195cb510a1a00d5d8a9a51
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101726772"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487883"
 ---
 # <a name="understand-stream-analytics-job-monitoring-and-how-to-monitor-queries"></a>Compreender a monitorização do trabalho do Stream Analytics e como monitorizar consultas
 
@@ -30,7 +30,7 @@ A janela aparecerá como mostrado:
 | ---------------------- | ---------------------------------------- |
 | Eventos de entrada recuados       | Número de eventos de entrada que são retrospados. Um valor não-zero para esta métrica implica que o seu trabalho não é capaz de acompanhar o número de eventos que chegam. Se este valor estiver a aumentar lentamente ou consistentemente não zero, deverá escalonar o seu trabalho. Pode aprender mais visitando [Compreender e ajustar Unidades de Streaming.](stream-analytics-streaming-unit-consumption.md) |
 | Erros de Conversão de Dados | Número de eventos de saída que não puderam ser convertidos para o esquema de saída esperado. A política de erros pode ser alterada para 'Drop' para deixar cair eventos que encontrem este cenário. |
-| UTILIZAÇÃO DE % CPU (pré-visualização)       | A percentagem de CPU utilizada pelo seu trabalho. Se esta métrica for consistentemente superior a 80%, pode significar que o seu trabalho está engarrafado no uso do CPU e provavelmente fará com que os eventos de entrada sejam bloqueados. Pode aumentar o número de SUs alocadas ao seu trabalho para mitigar tais problemas. |
+| UTILIZAÇÃO DE % CPU (pré-visualização)       | A percentagem de CPU utilizada pelo seu trabalho. Mesmo que este valor seja muito elevado (90% ou mais), não deverá aumentar o número de SUs apenas com base nesta métrica. Se o número de eventos de entrada suspensa ou de atraso da marca de água aumentar, pode então utilizar esta métrica de utilização do CPU% para determinar se o CPU é o estrangulamento. É possível que esta métrica tenha picos intermitentemente. Recomenda-se fazer testes de escala para determinar o limite superior do seu trabalho após o qual as entradas são retroceder ou o atraso da marca de água aumenta devido ao estrangulamento da CPU. |
 | Eventos de entrada antecipada       | Eventos cuja hora de inscrição é mais cedo do que a hora de chegada em mais de 5 minutos. |
 | Pedidos de função falhadas | Número de chamadas falhadas da função de aprendizagem automática Azure (se presente). |
 | Eventos de Função        | Número de eventos enviados para a função Azure Machine Learning (se presente). |

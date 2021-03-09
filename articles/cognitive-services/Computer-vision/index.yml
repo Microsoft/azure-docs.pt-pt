@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 09/22/2020
-  ms.openlocfilehash: 46b82f85b8aea9534bc7e3e526b769fc4fa2fd2f
-  ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+  ms.openlocfilehash: 050290bd893e561b4e8c80f5764981c57c96597c
+  ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/07/2021
-  ms.locfileid: "102432813"
+  ms.lasthandoff: 03/09/2021
+  ms.locfileid: "102488890"
 landingContent:
 - title: Sobre a Imagem Digitalizada
   linkLists:
@@ -165,7 +165,7 @@ landingContent:
   - linkListType: reference
     links:
     - text: Pré-visualização da API de Imagem Digitalizada v3.2
-      url: https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005
+      url: https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/56f91f2e778daf14a499f21b
     - text: API de Imagem Digitalizada v3.1
       url: https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005
     - text: API de Imagem Digitalizada v2.1

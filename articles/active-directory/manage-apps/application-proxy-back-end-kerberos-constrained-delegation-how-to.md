@@ -11,12 +11,12 @@ ms.topic: troubleshooting
 ms.date: 04/23/2019
 ms.author: kenwith
 ms.reviewer: asteen, japere
-ms.openlocfilehash: 65d68924fbc3a777ef7ef59d2532a1ae20e23c48
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: b8562f3bdd82b5b0c2c1340f511f87ad90dfbe3b
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99258223"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487955"
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>Resolver problemas de configurações de delegação restrita do Kerberos para o Proxy de Aplicações
 
@@ -161,7 +161,7 @@ Se ainda não conseguir fazer progressos, o suporte da Microsoft pode ajudá-lo.
 ## <a name="other-scenarios"></a>Outros cenários
 
 - A Azure Application Proxy solicita um bilhete Kerberos antes de enviar o seu pedido para um pedido. Algumas aplicações de terceiros não gostam deste método de autenticação. Estas aplicações esperam que as negociações mais convencionais se realizem. O primeiro pedido é anónimo, o que permite que a aplicação responda com os tipos de autenticação que suporta através de um 401. Este tipo de negociação kerberos pode ser habilitado utilizando as etapas descritas neste documento: [Kerberos Delegação Restrita para uma única assinatura](application-proxy-configure-single-sign-on-with-kcd.md).
-- A autenticação multi-hop é comumente usada em cenários onde uma aplicação é hierárquica, com uma extremidade traseira e extremidade frontal, onde ambos requerem autenticação, como os SqL Server Reporting Services. Para configurar o cenário multi-hop, consulte o artigo [Dedesema restrita de Kerberos pode exigir transição de protocolo em cenários multi-hop](https://support.microsoft.com/help/2005838/kerberos-constrained-delegation-may-require-protocol-transition-in-mul).
+- A autenticação multi-hop é comumente usada em cenários onde uma aplicação é hierárquica, com uma extremidade traseira e extremidade frontal, onde ambos requerem autenticação, como os SqL Server Reporting Services. Para mais detalhes, consulte [Como configurar a delegação restrita de Kerberos para as páginas de procuração de inscrição na Web](/troubleshoot/windows-server/identity/configure-kerberos-constrained-delegation).
 
 ## <a name="next-steps"></a>Passos seguintes
 

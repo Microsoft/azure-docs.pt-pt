@@ -5,17 +5,17 @@ author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 05/23/2019
+ms.date: 01/06/2021
 ms.author: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: fedcdd55a465f5c09c331a0fa917811c349b15b1
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 019ca26143a4879efafa973299703f0abcb21162
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097231"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102488091"
 ---
-# <a name="tuning-query-performance-with-azure-cosmos-db"></a>Otimização do desempenho de consulta com o Azure Cosmos DB
+# <a name="tuning-query-performance-with-azure-cosmos-db"></a>Desempenho de consulta de afinação com Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 A Azure Cosmos DB fornece um [API SQL para consulta de dados,](./sql-query-getting-started.md)sem necessidade de esquema ou índices secundários. Este artigo fornece as seguintes informações para os desenvolvedores:
@@ -143,7 +143,6 @@ Seguem-se os fatores mais comuns que impactam o desempenho da consulta Azure Cos
 | Débito aprovisionado | Meça RU por consulta e certifique-se de que tem a produção prevista para as suas consultas. | 
 | Chaves de partição e partição | Favoreça as consultas com o valor da chave de partição na cláusula do filtro para baixa latência. |
 | Opções de SDK e consulta | Siga as melhores práticas da SDK como conectividade direta e afina as opções de execução de consultas do lado do cliente. |
-| Latência de rede | Responsável pela sobrecarga da rede na medição e utilize APIs multi-homing para ler na região mais próxima. |
 | Política de Indexação | Certifique-se de que tem os percursos/políticas de indexação necessários para a consulta. |
 | Métricas de execução de consultas | Analise as métricas de execução de consulta para identificar potenciais reescritas de consulta e formas de dados.  |
 
@@ -239,7 +238,7 @@ IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
 
 ```
 
-| Métrica | Unidade | Description | 
+| Metric | Unidade | Descrição | 
 | ------ | -----| ----------- |
 | `totalExecutionTimeInMs` | milissegundos | Tempo de execução de consulta | 
 | `queryCompileTimeInMs` | milissegundos | Tempo de compilação de consultas  | 
@@ -261,7 +260,7 @@ Os SDKs do cliente podem internamente fazer múltiplas operações de consulta p
 
 Aqui estão algumas consultas de amostra, e como interpretar algumas das métricas devolvidas da execução de consultas: 
 
-| Consulta | Métrica da amostra | Description | 
+| Consulta | Métrica da amostra | Descrição | 
 | ------ | -----| ----------- |
 | `SELECT TOP 100 * FROM c` | `"RetrievedDocumentCount": 101` | O número de documentos recuperados é 100+1 para corresponder à cláusula TOP. O tempo de consulta é maioritariamente gasto `WriteOutputTime` e uma vez que é um `DocumentLoadTime` scan. | 
 | `SELECT TOP 500 * FROM c` | `"RetrievedDocumentCount": 501` | RecuperadoDoConmentCount é agora mais alto (500+1 para corresponder à cláusula TOP). | 

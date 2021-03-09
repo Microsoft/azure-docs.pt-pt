@@ -5,19 +5,19 @@ ms.topic: how-to
 manager: nitinme
 ms.author: lajanuar
 author: laujan
-ms.date: 02/11/2021
-ms.openlocfilehash: 104329928c507c288537704fbbef4e35b65cb445
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/05/2021
+ms.openlocfilehash: e40fc569ad1c8ec5894f06915422bea37cfc40ee
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101739441"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102489638"
 ---
-# <a name="create-sas-tokens-for-document-translation"></a>Criar fichas SAS para tradução de documentos
+# <a name="create-sas-tokens-for-document-translation-processing"></a>Criar fichas SAS para processamento de tradução de documentos
 
 Neste artigo, você vai aprender como criar fichas de acesso compartilhado (SAS) usando o Azure Storage Explorer ou o portal Azure. Um token SAS fornece acesso seguro e delegado aos recursos na sua conta de armazenamento Azure.
 
-## <a name="create-sas-tokens-with-azure-storage-explorer"></a>Criar fichas SAS com Azure Storage Explorer
+## <a name="create-your-sas-tokens-with-azure-storage-explorer"></a>Crie os seus tokens SAS com O Explorador de Armazenamento Azure
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
@@ -65,7 +65,7 @@ Neste artigo, você vai aprender como criar fichas de acesso compartilhado (SAS)
 ## <a name="create-sas-tokens-for-blobs-in-the-azure-portal"></a>Criar fichas SAS para bolhas no portal Azure
 
 > [!NOTE]
-> A criação de fichas SAS para contentores diretamente no portal Azure não é suportada. No entanto, pode criar um token SAS com [**o Azure Storage Explorer**](#create-sas-tokens-with-azure-storage-explorer) ou completar a tarefa [programáticamente](../../../storage/blobs/sas-service-create.md).
+> A criação de fichas SAS para contentores diretamente no portal Azure não é suportada. No entanto, pode criar um token SAS com [**o Azure Storage Explorer**](#create-your-sas-tokens-with-azure-storage-explorer) ou completar a tarefa [programáticamente](../../../storage/blobs/sas-service-create.md).
 
 <!-- markdownlint-disable MD024 -->
 ### <a name="prerequisites"></a>Pré-requisitos
@@ -74,7 +74,7 @@ Para começar, vai precisar de:
 
 * Uma [**conta Azure**](https://azure.microsoft.com/free/cognitive-services/)ativa.  Se não tiver uma, pode [**criar uma conta gratuita.**](https://azure.microsoft.com/free/)
 * Um recurso de serviço [**tradutor**](https://ms.portal.azure.com/#create/Microsoft) **(não** um recurso multi-serviço dos Serviços Cognitivos.  *Ver* [Criar um novo recurso Azure](../../cognitive-services-apis-create-account.md#create-a-new-azure-cognitive-services-resource).  
-* Uma [**conta de armazenamento de bolhas Azure.**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) Todo o acesso ao Azure Storage ocorre através de uma conta de armazenamento.
+* Uma [**conta de armazenamento de bolhas Azure.**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) Irá criar recipientes para armazenar e organizar os seus dados blob dentro da sua conta de armazenamento.
 
 ### <a name="create-your-tokens"></a>Crie os seus tokens
 

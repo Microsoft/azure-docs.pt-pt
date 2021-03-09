@@ -5,13 +5,13 @@ ms.topic: how-to
 manager: nitinme
 ms.author: lajanuar
 author: laujan
-ms.date: 02/11/2021
-ms.openlocfilehash: 886889ef9a42e358fca22a9d86955a23c5419dfa
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/05/2021
+ms.openlocfilehash: cb6b3af8d8fb6c2d3fe63964e59f8e3e32f0f0fd
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101738162"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102486663"
 ---
 # <a name="get-started-with-document-translation-preview"></a>Começar com tradução de documentos (pré-visualização)
 
@@ -19,27 +19,27 @@ ms.locfileid: "101738162"
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
+> [!NOTE]
+> Geralmente, quando cria um recurso de Serviço Cognitivo no portal Azure, tem a opção de criar uma chave de subscrição multi-serviço ou uma chave de subscrição de um único serviço. No entanto, a Tradução documental é atualmente suportada apenas no recurso Tradutor (serviço único) e **não** está incluída no recurso Serviços Cognitivos (multi-serviço).
+
 Para começar, vai precisar de:
 
 * Uma [**conta Azure**](https://azure.microsoft.com/free/cognitive-services/)ativa.  Se não tiver uma, pode [**criar uma conta gratuita.**](https://azure.microsoft.com/free/)
 
-* Um recurso de serviço [**tradutor**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) **(não** um recurso de Serviços Cognitivos). 
+* Um recurso de serviço [**tradutor**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) **(não** um recurso de Serviços Cognitivos).
 
-* Uma [**conta de armazenamento de bolhas Azure.**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) Todo o acesso ao Azure Storage ocorre através de uma conta de armazenamento.
+* Uma [**conta de armazenamento de bolhas Azure.**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) Irá criar recipientes para armazenar e organizar os seus dados blob dentro da sua conta de armazenamento.
 
 * Um formulário de [**tradução de documentos preenchido (Pré-visualização)**](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR-riVR3Xj0tOnIRdZOALbM9UOEE4UVdFQVBRQVBWWDBRQUM3WjYxUEpUTC4u) para permitir a subscrição do Azure utilizar a nova funcionalidade de Tradução documental.
-
-> [!NOTE]
-> Atualmente, a tradução documental só é suportada no recurso Tradutor (serviço único) **e não** no recurso Serviços Cognitivos (multi-serviço).
 
 ## <a name="get-your-custom-domain-name-and-subscription-key"></a>Obtenha o seu nome de domínio personalizado e chave de subscrição
 
 > [!IMPORTANT]
 >
-> * Não é possível utilizar o ponto final encontrado na página de recursos do portal Azure _Keys e Endpoint,_ nem o ponto final do tradutor `api.cognitive.microsofttranslator.com` global, para fazer pedidos HTTP para Tradução documental.
+> * Não utilizará o ponto final encontrado na página de recursos do portal Azure _Keys e Endpoint,_ nem o ponto final do tradutor `api.cognitive.microsofttranslator.com` global, para fazer pedidos HTTP para Tradução documental.
 > * **Todos os pedidos da API ao serviço de Tradução documental requerem um ponto final de domínio personalizado.**
 
-### <a name="what-is-the-custom-domain-endpoint"></a>Qual é o ponto final de domínio personalizado? 
+### <a name="what-is-the-custom-domain-endpoint"></a>Qual é o ponto final de domínio personalizado?
 
 O ponto final de domínio personalizado é um URL formatado com o seu nome de recurso, nome de anfitrião e subdiretórios de Tradutor:
 
@@ -72,9 +72,9 @@ Terá de criar recipientes na sua [**conta de armazenamento de bolhas Azure**](h
 * **Recipiente-alvo**. Este recipiente é onde os seus ficheiros traduzidos serão armazenados (obrigatório).  
 * **Recipiente glossário.** Este recipiente é onde faz o upload dos seus ficheiros glossários (opcional).  
 
-*Consulte* **fichas de acesso SAS para tradução de documentos**
+### <a name="create-sas-access-tokens-for-document-translation"></a>**Criar fichas de acesso SAS para tradução de documentos**
 
-O `sourceUrl` símbolo , e opcional deve incluir um `targetUrl` `glossaryUrl`  token De Assinatura de Acesso Partilhado (SAS), anexado como uma cadeia de consulta. O token pode ser atribuído ao seu recipiente ou bolhas específicas.
+O `sourceUrl` símbolo , e opcional deve incluir um `targetUrl` `glossaryUrl`  token De Assinatura de Acesso Partilhado (SAS), anexado como uma cadeia de consulta. O token pode ser atribuído ao seu recipiente ou bolhas específicas. *Consulte* [**os tokens SAS para o processo de tradução de documentos.**](create-sas-tokens.md)
 
 * O seu recipiente **de origem** ou bolha deve ter designado o acesso **à leitura** e **à lista.**
 * O seu **recipiente-alvo** ou bolha deve ter designado o acesso à **escrita** e **à lista.**
@@ -271,7 +271,9 @@ Os seguintes cabeçalhos são incluídos com cada pedido de API do Tradutor de D
 
 > [!IMPORTANT]
 >
-> Para as amostras de código, abaixo, poderá ser necessário atualizar os seguintes campos, dependendo da operação:
+> Para as amostras de código abaixo, você irá codificar a sua chave e ponto final onde indicado; lembre-se de remover a chave do seu código quando terminar, e nunca postá-la publicamente.  Consulte [a segurança dos Serviços Cognitivos Azure](/azure/cognitive-services/cognitive-services-security?tabs=command-line%2Ccsharp) para obter formas de armazenar e aceder às suas credenciais de forma segura.
+>
+> Poderá ser necessário atualizar os seguintes campos, dependendo da operação:
 >>>
 >> * `endpoint`
 >> * `subscriptionKey`
@@ -280,13 +282,18 @@ Os seguintes cabeçalhos são incluídos com cada pedido de API do Tradutor de D
 >> * `glossaryURL`
 >> * `id`  (ID do trabalho)
 >>
-> Onde encontrar o `id` valor:
-> * Pode encontrar o trabalho `id`  no valor URL do cabeçalho de resposta do método `Operation-Location`  POST. O último parâmetro do URL é o trabalho da **`id`** operação.  
-> * Também pode utilizar um pedido GET Jobs para recuperar o trabalho `id`  para uma operação de tradução de documentos.
+
+#### <a name="locating--the-id-value"></a>Localizar o `id` valor
+
+* Encontrará o trabalho `id`  no valor URL do método `Operation-Location`  POST. O último parâmetro do URL é o trabalho da **`id`** operação:
+
+|**Cabeçalho de resposta**|**URL de resultados**|
+|-----------------------|----------------|
+Operation-Location   | https://<<span>NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/tradutor/text/batch/v1.0-preview.1/batches/9dce0aa9-78dc-41ba-8cae-2e2f3c2ff8ec</span>
+
+* Também pode utilizar um pedido **GET Jobs** para recuperar um trabalho de Tradução `id` documental.
+
 >
-> Para as amostras de código abaixo, você irá codificar a sua chave e ponto final onde indicado; lembre-se de remover a chave do seu código quando terminar, e nunca postá-la publicamente.  
->
-> Consulte [a segurança dos Serviços Cognitivos Azure](/azure/cognitive-services/cognitive-services-security?tabs=command-line%2Ccsharp) para obter formas de armazenar e aceder às suas credenciais de forma segura.
 
 ## <a name="_post-document-translation_-request"></a>_Pedido de tradução de documentos_ postes
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/23/2020
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 9c13a914a002f63f3c0d5bd988b0d76b951586dd
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: 814824fb6708abaf549bb3de19b4aced4774a244
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102124691"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102485763"
 ---
 # <a name="ephemeral-os-disks-for-azure-vms"></a>Discos EFÉMEROS para VMs Azure
 
@@ -40,7 +40,7 @@ Principais diferenças entre discos de OS persistentes e efémeros:
 | **Suporte de região**              | Todas as regiões                                                                                  | Todas as regiões                              |
 | **Persistência de dados**            | Os dados do disco de SO escritos no disco OS são armazenados no Azure Storage                                  | Os dados escritos no disco OS são armazenados no armazenamento local de VM e não são persistidos ao Azure Storage. |
 | **Estado stop-deallocated**      | VMs e instâncias definidas em escala podem ser stop-dealloced e reiniciado a partir do estado stop-deallocated | VMs e instâncias definidas em escala não podem ser stop-deallocated                                  |
-| **Suporte especializado em disco de SO** | Sim                                                                                          | Não                                                                                 |
+| **Suporte especializado em disco de SO** | Yes                                                                                          | No                                                                                 |
 | **Redimensionar o disco de OS**              | Suportado durante a criação de VM e depois de VM é stop-deallocated                                | Suportado apenas durante a criação de VM                                                  |
 | **Redimensionamento para um novo tamanho VM**   | Os dados do disco de SO são preservados                                                                    | Os dados do disco de so são eliminados, o SO é re-provisionado       
 | **Colocação de ficheiro de página**   | Para o Windows, o ficheiro de página é armazenado no disco de recursos                                              | Para o Windows, o ficheiro de página é armazenado no disco OS   |
@@ -247,7 +247,7 @@ R: Os discos efémeros não suportam:
 
 > [!NOTE]
 > 
-> O disco efémero não será acessível através do portal. Pode receber um erro de "Recurso não encontrado" ou "404" ao aceder ao disco efémero.
+> O disco efémero não será acessível através do portal. Receberá o erro de "Recurso não Encontrado" ou "404" ao aceder ao disco efémero que é esperado.
 > 
  
 ## <a name="next-steps"></a>Passos seguintes

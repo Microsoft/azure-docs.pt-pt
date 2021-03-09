@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 2d97d02aec84fec92e29e971cd5c667c847b2541
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 733b2375a26b0157f88bc148b52932e2f3e3f2e2
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100368052"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102488278"
 ---
 # <a name="migration-overview-sql-server-to-sql-database"></a>Visão geral da migração: SQL Server para SQL Database
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
@@ -104,6 +104,7 @@ O quadro que se segue lista as ferramentas de migração recomendadas:
 
 |Tecnologia | Descrição|
 |---------|---------|
+| [Azure Migrate](/azure/migrate/how-to-create-azure-sql-assessment) | O Azure Migrate for Azure SQL permite-lhe descobrir e avaliar a sua propriedade de dados SQL em escala quando em VMware, fornecendo recomendações de implantação do Azure SQL, tamanho alvo e estimativas mensais. | 
 |[Assistente de Migração de Dados (DMA)](/sql/dma/dma-migrateonpremsqltosqldb)|O Data Migration Assistant é uma ferramenta de ambiente de trabalho que fornece avaliações perfeitas do SQL Server e migrações para a Base de Dados Azure SQL (ambos esquemas e dados). A ferramenta pode ser instalada num servidor no local ou na sua máquina local que tenha conectividade com as suas bases de dados de origem. O processo de migração é um movimento lógico de dados entre objetos na base de dados de origem e alvo. </br> - Migrar bases de dados únicas (esquema e dados)|
 |[Azure Database Migration Service (DMS)](../../../dms/tutorial-sql-server-to-azure-sql.md)|Um serviço Azure de primeira parte que pode migrar as suas bases de dados SQL Server para Azure SQL Database utilizando o portal Azure ou automatizado com o PowerShell. O Azure DMS requer que selecione uma Rede Virtual Azure (VNet) preferida durante o fornecimento para garantir que existe conectividade com as bases de dados do seu Servidor SQL de origem. </br> - Migrar bases de dados únicas ou em escala. |
 | | |
@@ -194,7 +195,7 @@ Além de funcionalidades avançadas de gestão e segurança, a SQL Database forn
 
 Para assistência adicional, consulte os seguintes recursos que foram desenvolvidos para projetos de migração no mundo real.
 
-|Recurso  |Description  |
+|Recurso  |Descrição  |
 |---------|---------|
 |[Modelo e ferramenta de avaliação da carga de trabalho de dados](https://github.com/Microsoft/DataMigrationTeam/tree/master/Data%20Workload%20Assessment%20Model%20and%20Tool)| Esta ferramenta fornece plataformas-alvo sugeridas "melhor ajuste", prontidão na nuvem e nível de remediação de aplicações/bases de dados para uma determinada carga de trabalho. Oferece um cálculo simples e de um clique e uma geração de relatórios que ajuda a acelerar as grandes avaliações imobiliárias, fornecendo um processo de decisão de plataforma-alvo automatizado e uniforme.|
 |[Utilidade DBLoader](https://github.com/microsoft/DataMigrationTeam/tree/master/DBLoader%20Utility)|O DBLoader pode ser usado para carregar dados de ficheiros de texto delimitados para o SQL Server. Este utilitário de consola Windows utiliza a interface de volume de pessoal do cliente nativo do SQL Server, que funciona em todas as versões do SQL Server, incluindo a Base de Dados Azure SQL.|

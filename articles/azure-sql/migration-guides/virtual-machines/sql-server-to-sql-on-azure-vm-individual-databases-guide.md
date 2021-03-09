@@ -10,12 +10,12 @@ author: markjones-msft
 ms.author: markjon
 ms.reviewer: mathoma
 ms.date: 11/06/2020
-ms.openlocfilehash: cc2a641cb017edace24db5df69bc4adf3a607524
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: d95da29b732e2d520b3413628c9b4a1c403abed6
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98797881"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102488265"
 ---
 # <a name="migration-guide-sql-server-to-sql-server-on-azure-vms"></a>Guia de migração: SQL Server para SQL Server em VMs Azure 
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlvm.md)]
@@ -58,6 +58,8 @@ Para obter ferramentas adicionais de descoberta, consulte [serviços e ferrament
 
 
 ### <a name="assess"></a>Avaliação
+
+[!INCLUDE [assess-estate-with-azure-migrate](../../../../includes/azure-migrate-to-assess-sql-data-estate.md)]
 
 Depois de ter descoberto todas as fontes de dados, utilize o [Data Migration Assistant (DMA)](/sql/dma/dma-overview) para avaliar as instâncias do SQL Server no local, migrando para um caso de SQL Server em Azure VM para entender as lacunas entre a origem e os casos-alvo. 
 
@@ -123,7 +125,7 @@ Para realizar uma migração padrão usando backup e restaurar, siga estes passo
 1. Faça uma pausa/pare quaisquer aplicações que utilizem bases de dados destinadas à migração. 
 1. Certifique-se de que a base de dados do utilizador está inativa utilizando [o modo de utilizador único](/sql/relational-databases/databases/set-a-database-to-single-user-mode). 
 1. Execute uma cópia de segurança completa da base de dados para um local no local.
-1. Copie os ficheiros de reserva no local para o seu VM utilizando o desktop remoto, [o Azure Data Explorer](/azure/data-explorer/data-explorer-overview)ou o utilitário da linha de comando [AZCopy](../../../storage/common/storage-use-azcopy-v10.md) (> 2 cópias de segurança de TB recomendadas).
+1. Copie os ficheiros de backup no local para o seu VM utilizando o desktop remoto, [o Azure Data Explorer](/azure/data-explorer/data-explorer-overview)ou o utilitário da linha de comando [AZCopy](../../../storage/common/storage-use-azcopy-v10.md) (> cópias de segurança recomendadas por 2-TB).
 1. Restaurar a cópia de segurança completa da base de dados para o SQL Server em Azure VM.
 
 ### <a name="log-shipping--minimize-downtime"></a>Envio de registo (minimizar tempo de inatividade)
@@ -133,7 +135,7 @@ Para realizar uma migração mínima de tempo de inatividade utilizando backup, 
 1. Confiússe a conectividade para direcionar o SQL Server no Azure VM, com base nos seus requisitos. Consulte [a Ligação a uma máquina virtual do servidor SQL em Azure (Gestor de Recursos)](../../virtual-machines/windows/ways-to-connect-to-sql.md).
 1. Certifique-se de que a base de dados do utilizador no local a migrar está em modelo de recuperação completo ou a granel.
 1. Execute uma cópia de segurança completa da base de dados para um local no local e modifique quaisquer trabalhos de backups de bases de dados existentes para usar [COPY_ONLY](/sql/relational-databases/backup-restore/copy-only-backups-sql-server) palavra-chave para preservar a cadeia de registos.
-1. Copie os ficheiros de reserva no local para o seu VM utilizando o desktop remoto, [o Azure Data Explorer](/azure/data-explorer/data-explorer-overview)ou o utilitário da linha de comando [AZCopy](../../../storage/common/storage-use-azcopy-v10.md) (>1 cópias de segurança recomendadas).
+1. Copie os ficheiros de backup no local para o seu VM utilizando o desktop remoto, [o Azure Data Explorer](/azure/data-explorer/data-explorer-overview)ou o utilitário da linha de comando [AZCopy](../../../storage/common/storage-use-azcopy-v10.md) (>cópias de segurança recomendadas por 1-TB).
 1. Restaurar a cópia de segurança completa da base de dados no SqL Server em Azure VM.
 1. Confiúva [de envio](/sql/database-engine/log-shipping/configure-log-shipping-sql-server) de registo entre a base de dados no local e o servidor SQL alvo no Azure VM. Certifique-se de que não reinicia a base de dados, uma vez que esta já foi concluída nos passos anteriores.
 1. **Corte** para o servidor alvo. 
@@ -205,7 +207,7 @@ Para obter mais informações sobre estas questões e medidas específicas para 
 - [Desempenho de sintonização em Máquinas Virtuais Azure SQL](../../virtual-machines/windows/performance-guidelines-best-practices.md).
 - [Centro de otimização de custos Azure](https://azure.microsoft.com/overview/cost-optimization/).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para verificar a disponibilidade de serviços aplicáveis ao SQL Server consulte o centro de [infraestruturas Azure Global](https://azure.microsoft.com/global-infrastructure/services/?regions=all&amp;products=synapse-analytics,virtual-machines,sql-database)
 

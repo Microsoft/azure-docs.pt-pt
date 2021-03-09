@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 10/14/2020
 ms.author: akjosh
 ms.reviewer: cynthn
-ms.openlocfilehash: baba35bd29ec6708aca77bd9c6d74401a365014a
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 9a5bc0620468980da68e1b92f758d5f3862ac7d3
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101091897"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487258"
 ---
 # <a name="shared-image-galleries-overview"></a>Visão geral das Galerias de Imagem Partilhadas
 
@@ -104,7 +104,7 @@ Os VM especializados não passaram por um processo para remover informações e 
 
 ## <a name="regional-support"></a>Apoio Regional
 
-Todas as regiões públicas podem ser regiões-alvo, mas para replicar para a Austrália Central e Austrália Central 2 você precisa ter a sua subscrição adicionada à lista de permitis. Para solicitar que uma subscrição seja adicionada à lista de autorizações, aceda a: https://azure.microsoft.com/global-infrastructure/australia/contact/
+Todas as regiões públicas podem ser regiões-alvo, mas para replicar para a Austrália Central e Austrália Central 2 você precisa ter a sua subscrição adicionada à lista de permitis. Para solicitar que uma subscrição seja adicionada à lista de autorizações, aceda a: https://docs.microsoft.com/azure/virtual-machines/shared-image-galleries#regional-support
 
 ## <a name="limits"></a>Limites 
 
@@ -170,12 +170,12 @@ Por exemplo, digamos que tem uma imagem de um disco oss de 127 GB, que ocupa ape
 Uma vez criado, pode fazer algumas alterações nos recursos da galeria de imagens. Estes limitam-se a:
  
 Galeria de imagens partilhada:
-- Description
+- Descrição
 
 Definição de imagem:
 - VCPUs recomendados
 - Memória recomendada
-- Description
+- Descrição
 - Data de fim de vida
 
 Versão de imagem:
@@ -325,4 +325,3 @@ Além disso, pode publicar e marcar a sua pergunta `azure-virtual-machines-image
 ## <a name="next-steps"></a>Passos seguintes
 
 Saiba como implementar imagens partilhadas utilizando o [Azure CLI](shared-images-cli.md) ou [o PowerShell](shared-images-powershell.md).
-

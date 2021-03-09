@@ -9,14 +9,17 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 88948f757c41550124acf20ac1cf0e33cdb3e5ba
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 88a5ad66cb401715790bcff8c773e6d7881b103d
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101660162"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487700"
 ---
 # <a name="communication-services-notifications"></a>Notificações dos Serviços de Comunicação
+
+[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
+
 
 O chat dos Serviços de Comunicação Azure e as bibliotecas de clientes criam um canal de mensagens em tempo real que permite que as mensagens de sinalização sejam empurradas para clientes conectados de forma eficiente e fiável. Isto permite-lhe construir uma funcionalidade de comunicação rica e em tempo real nas suas aplicações sem a necessidade de implementar uma lógica de sondagens HTTP complicada. No entanto, em aplicações móveis, este canal de sinalização apenas permanece ligado quando a sua aplicação está ativa em primeiro plano. Se pretender que os seus utilizadores recebam chamadas recebidas ou mensagens de chat enquanto a sua aplicação estiver em segundo plano, deverá utilizar notificações push.
 

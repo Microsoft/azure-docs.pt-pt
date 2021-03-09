@@ -9,12 +9,12 @@ author: rolyon
 ms.author: rolyon
 ms.date: 02/25/2021
 ms.custom: generated
-ms.openlocfilehash: 1ee422d4c040e8546135981e0640484acc997b0a
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: c91172ff110b950335c66f2c0ea9ac59c37e0a76
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101718731"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487856"
 ---
 # <a name="azure-resource-provider-operations"></a>Operações de fornecedor de recursos Azure
 
@@ -50,6 +50,7 @@ Clique no nome do fornecedor de recursos na tabela seguinte para ver a lista de 
 | [microsoft.storagesync](#microsoftstoragesync) |
 | [Microsoft.StorSimple](#microsoftstorsimple) |
 | **Web** |
+| [Microsoft.AppPlatform](#microsoftappplatform) |
 | [Microsoft.CertificateRegistration](#microsoftcertificateregistration) |
 | [Microsoft.DomainRegistration](#microsoftdomainregistration) |
 | [Microsoft.Maps](#microsoftmaps) |
@@ -2047,6 +2048,62 @@ Serviço Azure: [StorSimple](../storsimple/index.yml)
 > | Microsoft.StorSimple/operations/read | Listas ou obtém as Operações |
 
 ## <a name="web"></a>Web
+
+### <a name="microsoftappplatform"></a>Microsoft.AppPlatform
+
+Serviço Azure: [Azure Spring Cloud](../spring-cloud/index.yml)
+
+> [!div class="mx-tableFixed"]
+> | Ação | Descrição |
+> | --- | --- |
+> | Microsoft.AppPlatform/register/action | Registe a subscrição do fornecedor de recursos Microsoft.AppPlatform |
+> | Microsoft.AppPlatform/unregister/action | Desregralar a subscrição do fornecedor de recursos Microsoft.AppPlatform |
+> | Microsoft.AppPlatform/locations/checkNameAvailability/action | Verifique a disponibilidade do nome do recurso |
+> | Microsoft.AppPlatform/locations/operationResults/Spring/read | Leia o resultado da operação de recursos |
+> | Microsoft.AppPlatform/locations/operationStatus/operationId/read | Ler o estado de funcionamento dos recursos |
+> | Microsoft.AppPlatform/operations/read | Lista de operações disponíveis do Microsoft Azure Spring Cloud |
+> | Microsoft.AppPlatform/skus/read | Lista de skus disponíveis da Microsoft Azure Spring Cloud |
+> | Microsoft.AppPlatform/primavera/escrita | Criar ou atualizar uma instância específica do serviço Azure Spring Cloud |
+> | Microsoft.AppPlatform/primavera/Delete | Excluir uma instância específica do serviço Azure Spring Cloud |
+> | Microsoft.AppPlatform/primavera/leitura | Obtenha a exemplo de serviço Azure Spring Cloud |
+> | Microsoft.AppPlatform/Spring/enableTestEndpoint/action | Ativar a funcionalidade do ponto final de teste para uma instância específica do serviço Azure Spring Cloud |
+> | Microsoft.AppPlatform/Spring/disableTestEndpoint/action | Desative a funcionalidade do ponto final de teste para uma instância específica do serviço Azure Spring Cloud |
+> | Microsoft.AppPlatform/Spring/listTestKeys/action | Listar chaves de teste para uma instância específica do serviço Azure Spring Cloud |
+> | Microsoft.AppPlatform/Spring/regenerateTestKey/action | Regenerar a chave de teste para uma instância específica do serviço Azure Spring Cloud |
+> | Microsoft.AppPlatform/Spring/apps/write | Criar ou atualizar a aplicação para uma instância específica do serviço Azure Spring Cloud |
+> | Microsoft.AppPlatform/Spring/apps/delete | Elimine o pedido de uma instância específica do serviço Azure Spring Cloud |
+> | Microsoft.AppPlatform/Spring/apps/read | Obtenha as aplicações para uma instância específica do serviço Azure Spring Cloud |
+> | Microsoft.AppPlatform/Spring/apps/getResourceUploadUrl/action | Obtenha o URL de upload de recursos de uma aplicação específica da Microsoft Azure Spring Cloud |
+> | Microsoft.AppPlatform/Spring/apps/validateDomain/action | Validar o domínio personalizado para uma aplicação específica |
+> | Microsoft.AppPlatform/Spring/apps/bindings/write | Criar ou atualizar a ligação para uma aplicação específica |
+> | Microsoft.AppPlatform/Spring/apps/bindings/delete | Eliminar a ligação para uma aplicação específica |
+> | Microsoft.AppPlatform/Spring/apps/bindings/read | Obtenha as ligações para uma aplicação específica |
+> | Microsoft.AppPlatform/Spring/apps/deployments/write | Criar ou atualizar a implementação para uma aplicação específica |
+> | Microsoft.AppPlatform/Spring/apps/deployments/delete | Eliminar a implementação para uma aplicação específica |
+> | Microsoft.AppPlatform/Spring/apps/implementações/read | Obtenha as implementações para uma aplicação específica |
+> | Microsoft.AppPlatform/Spring/apps/deployments/start/action | Inicie a implementação para uma aplicação específica |
+> | Microsoft.AppPlatform/Spring/apps/deployments/stop/action | Parar a implementação para uma aplicação específica |
+> | Microsoft.AppPlatform/Spring/apps/deployments/restart/action | Reiniciar a implementação para uma aplicação específica |
+> | Microsoft.AppPlatform/Spring/apps/deployments/getLogFileUrl/action | Obtenha o URL de ficheiro de registo de uma implementação específica da aplicação Microsoft Azure Spring Cloud |
+> | Microsoft.AppPlatform/Spring/apps/deployments/skus/read | Lista skus disponíveis de uma implementação de aplicação |
+> | Microsoft.AppPlatform/Spring/apps/domínios/write | Criar ou atualizar o domínio personalizado para uma aplicação específica |
+> | Microsoft.AppPlatform/Spring/apps/domínios/delete | Elimine o domínio personalizado para uma aplicação específica |
+> | Microsoft.AppPlatform/Spring/apps/domínios/read | Obtenha os domínios personalizados para uma aplicação específica |
+> | Microsoft.AppPlatform/Spring/certificates/write | Criar ou atualizar o certificado para uma instância específica do serviço Azure Spring Cloud |
+> | Microsoft.AppPlatform/Spring/certificates/delete | Elimine o certificado para uma instância específica do serviço Azure Spring Cloud |
+> | Microsoft.AppPlatform/Spring/certificates/read | Obtenha os certificados para uma instância específica do serviço Azure Spring Cloud |
+> | Microsoft.AppPlatform/Spring/configServers/read | Obtenha o servidor config para uma instância específica do serviço Azure Spring Cloud |
+> | Microsoft.AppPlatform/Spring/configServers/write | Criar ou atualizar o servidor config para uma instância específica do serviço Azure Spring Cloud |
+> | Microsoft.AppPlatform/Spring/deployments/read | Obtenha as implementações para uma instância específica do serviço Azure Spring Cloud |
+> | Microsoft.AppPlatform/Spring/detetores/read | Obtenha os detetores para uma instância específica do serviço Azure Spring Cloud |
+> | Microsoft.AppPlatform/Spring/monitoringSettings/read | Obtenha a definição de monitorização para uma instância específica do serviço Azure Spring Cloud |
+> | Microsoft.AppPlatform/Spring/monitoringSettings/write | Criar ou atualizar a definição de monitorização para uma instância específica do serviço Azure Spring Cloud |
+> | **DataAction** | **Descrição** |
+> | Microsoft.AppPlatform/Spring/configService/read | Leia o conteúdo de configuração (por exemplo, application.yaml) para uma instância específica do serviço Azure Spring Cloud |
+> | Microsoft.AppPlatform/Spring/eurekaService/read | Leia as informações de registo da(s) aplicação do utilizador para uma instância específica do serviço Azure Spring Cloud |
+> | Microsoft.AppPlatform/Spring/eurekaService/write | Escreva as informações de registo da(s) aplicação do utilizador para uma instância específica do serviço Azure Spring Cloud |
+> | Microsoft.AppPlatform/Spring/eurekaService/delete | Elimine as informações de registo de aplicativos do utilizador para uma instância específica do serviço Azure Spring Cloud |
+> | Microsoft.AppPlatform/Spring/logstreamService/read | Leia o registo de streaming da aplicação do utilizador para uma instância específica do serviço Azure Spring Cloud |
 
 ### <a name="microsoftcertificateregistration"></a>Microsoft.CertificateRegistration
 
@@ -10443,7 +10500,7 @@ Serviço Azure: Microsoft Monitoring Insights
 > | Microsoft.Intune/diagnosticsettings/delete | Apagar uma definição de diagnóstico |
 > | Microsoft.Intune/diagnosticsettingscategories/read | Ler uma categoria de definição de diagnóstico |
 
-## <a name="other"></a>Outro
+## <a name="other"></a>Outros
 
 ### <a name="microsoftdesktopvirtualization"></a>Microsoft.DesktopVirtualization
 

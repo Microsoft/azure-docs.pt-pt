@@ -5,14 +5,14 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 09/18/2020
+ms.date: 01/06/2021
 ms.author: mjbrown
-ms.openlocfilehash: d8763a794d2fb96d0c464fb1249b9eb400fd23e7
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: d542e2b4e5db86fd3354514790e718f0694a09a5
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93339874"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102489757"
 ---
 # <a name="manage-an-azure-cosmos-account"></a>Gerir uma conta do Azure Cosmos
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -25,7 +25,7 @@ Este artigo descreve como gerir várias tarefas numa conta do Azure Cosmos com o
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-### <a name="azure-cli"></a><a id="create-database-account-via-cli"></a>CLI do Azure
+### <a name="azure-cli"></a><a id="create-database-account-via-cli"></a>Azure CLI
 
 Consulte [a Create a Azure Cosmos DB account with Azure CLI](manage-with-cli.md#create-an-azure-cosmos-db-account)
 
@@ -57,7 +57,7 @@ No modo de escrita de região única, não pode remover a região de escrita. De
 
 No modo de escrita de várias regiões, pode adicionar ou remover qualquer região desde que tenha, pelo menos, uma região.
 
-### <a name="azure-cli"></a><a id="add-remove-regions-via-cli"></a>CLI do Azure
+### <a name="azure-cli"></a><a id="add-remove-regions-via-cli"></a>Azure CLI
 
 Por favor, consulte [Adicionar ou remover regiões com CLI Azure](manage-with-cli.md#add-or-remove-regions)
 
@@ -73,7 +73,7 @@ Abra o **separador De Dados Replicar Globalmente** e selecione **Ativar** para p
 
 :::image type="content" source="./media/how-to-manage-database-account/single-to-multi-master.png" alt-text="Conta Azure Cosmos configura multi-região escreve screenshot":::
 
-### <a name="azure-cli"></a><a id="configure-multiple-write-regions-cli"></a>CLI do Azure
+### <a name="azure-cli"></a><a id="configure-multiple-write-regions-cli"></a>Azure CLI
 
 Consulte [Ativar regiões de escrita múltipla com Azure CLI](manage-with-cli.md#enable-multiple-write-regions)
 
@@ -155,11 +155,11 @@ A opção de failover automática permite que a Azure Cosmos DB falhe na região
 
 3. No painel **de falha automática,** certifique-se de que **a ativação automática de falha** está definida para **ON**. 
 
-4. Selecione **Save** (Guardar).
+4. Selecione **Guardar**.
 
    :::image type="content" source="./media/how-to-manage-database-account/automatic-failover.png" alt-text="Menu do portal de ativação pós-falha automática":::
 
-### <a name="azure-cli"></a><a id="enable-automatic-failover-via-cli"></a>CLI do Azure
+### <a name="azure-cli"></a><a id="enable-automatic-failover-via-cli"></a>Azure CLI
 
 Consulte [Ativar a falha automática com o Azure CLI](manage-with-cli.md#enable-automatic-failover)
 
@@ -186,11 +186,11 @@ Depois de uma conta Cosmos ser configurada para o failover automático, a priori
 
 4. Para modificar a prioridade de failover, arraste as regiões de leitura através dos três pontos do lado esquerdo da linha que aparecem quando paira sobre elas.
 
-5. Selecione **Save** (Guardar).
+5. Selecione **Guardar**.
 
    :::image type="content" source="./media/how-to-manage-database-account/automatic-failover.png" alt-text="Menu do portal de ativação pós-falha automática":::
 
-### <a name="azure-cli"></a><a id="set-failover-priorities-via-cli"></a>CLI do Azure
+### <a name="azure-cli"></a><a id="set-failover-priorities-via-cli"></a>Azure CLI
 
 Consulte [a prioridade de failover do set com o Azure CLI](manage-with-cli.md#set-failover-priority)
 
@@ -206,7 +206,7 @@ Consulte [a prioridade de failover de Definição com PowerShell](manage-with-po
 O processo de realização de um failover manual implica a alteração da região de escrita da conta (prioridade de failover = 0) para outra região configurada para a conta.
 
 > [!NOTE]
-> As contas com várias regiões de escrita não podem ser falhadas manualmente. Para aplicações que usam o Azure Cosmos SDK, o SDK detetará quando uma região fica indisponível e, em seguida, redireciona automaticamente para a região mais próxima se utilizar API multi-homing no SDK.
+> As contas com várias regiões de escrita não podem ser falhadas manualmente. Para aplicações que usam o Azure Cosmos SDK, o SDK detetará quando uma região fica indisponível e, em seguida, redireciona automaticamente para a região mais próxima.
 
 ### <a name="azure-portal"></a><a id="enable-manual-failover-via-portal"></a>Portal Azure
 
@@ -222,7 +222,7 @@ O processo de realização de um failover manual implica a alteração da regiã
 
    :::image type="content" source="./media/how-to-manage-database-account/manual-failover.png" alt-text="Menu do portal de ativação pós-falha manual":::
 
-### <a name="azure-cli"></a><a id="enable-manual-failover-via-cli"></a>CLI do Azure
+### <a name="azure-cli"></a><a id="enable-manual-failover-via-cli"></a>Azure CLI
 
 Consulte [o trigger manual failover com Azure CLI](manage-with-cli.md#trigger-manual-failover)
 

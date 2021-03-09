@@ -8,12 +8,12 @@ ms.author: bobazile
 ms.date: 02/09/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 432a9dab851bda65ecf8736d725b08c5e726ac16
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: a94aa0a0deea14cca2b558c602ff7e35ca0ba81f
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101659261"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487398"
 ---
 # <a name="sip-interface-infrastructure-requirements"></a>Requisitos de infraestrutura sip Interface 
 
@@ -47,8 +47,8 @@ A tabela a seguir mostra exemplos de nomes DNS registados para o inquilino, se o
 
 |Nome DNS|Pode ser usado para SBC FQDN|Exemplos de nomes FQDN|
 |:--- |:--- |:--- |
-contoso.com|Sim|**Nomes válidos:**<br/>sbc1.contoso.com<br/>ssbcs15.contoso.com<br/>europe.contoso.com|
-|contoso.onmicrosoft.com|Não|A utilização de domínios *.onmicrosoft.com não é suportada para nomes SBC
+contoso.com|Yes|**Nomes válidos:**<br/>sbc1.contoso.com<br/>ssbcs15.contoso.com<br/>europe.contoso.com|
+|contoso.onmicrosoft.com|No|A utilização de domínios *.onmicrosoft.com não é suportada para nomes SBC
 
 Se você é um cliente do Office 365, então o nome de domínio SBC não deve corresponder registado em Domínios do Inquilino Office 365. Segue-se o exemplo da coexistência do Office 365 e do Serviço de Comunicação Azure:
 
@@ -158,12 +158,12 @@ A gama de portas dos processadores de mídia é mostrada no quadro seguinte:
 
 ## <a name="media-traffic-media-processors-geography"></a>Tráfego de mídia: Geografia de processadores de mídia
 
-O tráfego dos meios de comunicação flui através de componentes chamados processadores de mídia. Os processadores de mídia são colocados nos mesmos centros de dados que os proxies SIP. Além disso, existem processadores de mídia adicionais para otimizar o fluxo de mídia. Por exemplo, não temos um componente de proxy SIP agora na Austrália (SIP flui via Singapura ou Hong Kong), mas temos o processador de mídia localmente na Austrália. A necessidade dos processadores de meios de comunicação social localmente é ditada pela latência que experimentamos enviando tráfego de longa distância, por exemplo, da Austrália para Singapura ou Hong Kong. Embora a latência no exemplo do tráfego que flui da Austrália para Hong Kong ou Singapura seja aceitável para preservar uma boa qualidade de chamada para o tráfego sip, para o tráfego mediático em tempo real não é.
+O tráfego dos meios de comunicação flui através de componentes chamados processadores de mídia. Os processadores de mídia são colocados nos mesmos centros de dados que os proxies SIP. Além disso, existem processadores de mídia adicionais para otimizar o fluxo de mídia. Por exemplo, não temos um componente de proxy SIP agora na Austrália (SIP flui via Singapura ou HONG Kong SAR) mas temos o processador de mídia localmente na Austrália. A necessidade dos processadores de meios de comunicação social localmente é ditada pela latência que experimentamos enviando tráfego de longa distância, por exemplo, da Austrália para Singapura ou PARA Hong Kong. Embora a latência no exemplo do tráfego que flui da Austrália para Hong Kong SAR ou Singapura seja aceitável para preservar uma boa qualidade de chamada para o tráfego SIP, para o tráfego mediático em tempo real não é.
 
 Locais onde tanto os componentes do proxy sip como os componentes do processador de mídia foram implantados:
 - EUA (dois nos centros de dados do Oeste e do Leste dos EUA)
 - Europa (Centros de dados de Amesterdão e Dublin)
-- Ásia (Centros de Dados de Singapura e Hong Kong)
+- Ásia (Centros de Dados SAR de Singapura e Hong Kong)
 - Austrália (centros de dados da AU Leste e Sudeste)
 
 Locais onde apenas são implantados processadores de mídia (fluxos SIP através do centro de dados mais próximo listado acima):

@@ -11,12 +11,12 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: vanto, sstein
 ms.date: 02/11/2019
-ms.openlocfilehash: d62d568b4924a2bfa67740b3e5f0cc1377519d47
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: bef1e9bdafd91a51290fe84af074c8cece7cc371
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91335046"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102486731"
 ---
 # <a name="quickstart-create-a-server-level-firewall-rule-using-the-azure-portal"></a>Quickstart: Criar uma regra de firewall ao nível do servidor utilizando o portal Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -33,7 +33,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-a-server-level-ip-firewall-rule"></a>Criar uma regra de firewall IP de nível de servidor
 
- A SQL Database cria uma firewall ao nível do servidor para bases de dados individuais e agrizadas. Esta firewall impede que as aplicações do cliente se conectem ao servidor ou a qualquer uma das suas bases de dados, a menos que crie uma regra de firewall IP para abrir a firewall. Para uma ligação a partir de um endereço IP fora de Azure, crie uma regra de firewall para um endereço IP específico ou intervalo de endereços que pretende ser capaz de ligar. Para obter mais informações sobre as regras de firewall IP de nível de servidor e de nível de base de [dados, consulte as regras de firewall IP ao nível do servidor e nível de base de dados](firewall-configure.md).
+ A SQL Database cria uma firewall ao nível do servidor para bases de dados individuais e agrizadas. Esta firewall impede que as aplicações do cliente se conectem ao servidor ou a qualquer uma das suas bases de dados, a menos que crie uma regra de firewall IP para abrir a firewall. Para uma ligação a partir de um endereço IP fora de Azure, crie uma regra de firewall para um endereço IP específico ou intervalo de endereços a que pretende ser capaz de se conectar. Para obter mais informações sobre as regras de firewall IP de nível de servidor e de nível de base de [dados, consulte as regras de firewall IP ao nível do servidor e nível de base de dados](firewall-configure.md).
 
 > [!NOTE]
 > A Base de Dados SQL do Azure comunica através da porta 1433. Se estiver a tentar ligar a partir de uma rede empresarial, o tráfego de saída através da porta 1433 poderá não ser permitido pela firewall da rede. Em caso afirmativo, não pode ligar-se ao seu servidor a menos que o seu departamento de TI abra a porta 1433.
@@ -64,7 +64,7 @@ Siga estes passos para criar uma regra de firewall IP de nível de servidor para
 
 Utilizando o SQL Server Management Studio ou outra ferramenta à sua escolha, pode agora ligar-se ao servidor e às suas bases de dados a partir deste endereço IP utilizando a conta de administração do servidor criada anteriormente.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Guarde estes recursos se pretender aceder aos [Próximos passos](#next-steps) e saiba como ligar e consultar a base de dados utilizando um número de métodos diferentes. Se, no entanto, pretender eliminar os recursos que criou neste arranque rápido, utilize os seguintes passos.
 

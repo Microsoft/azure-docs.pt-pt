@@ -11,12 +11,12 @@ author: jhirono
 ms.date: 11/20/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 2215c47fcd250a9ac1d6621f7e4b434bd33b3832
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 66a709f15191a8142f10f15d825276ea2ba4b83f
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98871100"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487989"
 ---
 # <a name="how-to-use-your-workspace-with-a-custom-dns-server"></a>Como utilizar a área de trabalho com um servidor DNS personalizado
 
@@ -52,7 +52,7 @@ A lista que se segue contém os nomes de domínio totalmente qualificados (FQDN)
     > [!NOTE]
     > As instâncias computacional só podem ser acedidas a partir da rede virtual.
     
-### <a name="these-fqdns-are-in-use-in-all-other-regions"></a>Estes FQDNs estão em uso em todas as outras regiões
+### <a name="these-fqdns-are-in-use-in-all-other-public-regions"></a>Estes FQDNs estão em uso em todas as outras regiões públicas
 A lista que se segue contém os nomes de domínio totalmente qualificados (FQDN) utilizados pelo seu espaço de trabalho:
 
 * `<workspace-GUID>.workspace.<region>.cert.api.azureml.ms`
@@ -63,6 +63,17 @@ A lista que se segue contém os nomes de domínio totalmente qualificados (FQDN)
     > [!NOTE]
     > As instâncias computacional só podem ser acedidas a partir da rede virtual.
 
+### <a name="azure-china-21vianet-regions"></a>Regiões Azure China 21Vianet
+
+As seguintes FQDNs são para as regiões Azure China 21Vianet:
+
+* `<workspace-GUID>.workspace.<region>.cert.api.ml.azure.cn`
+* `<workspace-GUID>.workspace.<region>.api.ml.azure.cn`
+* `ml-<workspace-name, truncated>-<region>-<workspace-guid>.notebooks.chinacloudapi.cn`
+
+    > [!NOTE]
+    > O nome do espaço de trabalho para este FQDN pode ser truncado. A truncação é feita para manter o FQDN inferior ou igual a 63 caracteres.
+* `<instance-name>.<region>.instances.ml.azure.cn`
 ## <a name="find-the-ip-addresses"></a>Encontre os endereços IP
 
 Para encontrar os endereços IP internos para as FQDNs no VNet, utilize um dos seguintes métodos:
@@ -94,7 +105,7 @@ $workspaceDns.CustomDnsConfigs | format-table
 
 ---
 
-A informação devolvida de todos os métodos é a mesma; uma lista do FQDN e endereço IP privado para os recursos.
+A informação devolvida de todos os métodos é a mesma; uma lista do FQDN e endereço IP privado para os recursos. Segue-se o seguinte exemplo de uma região global de Azure:
 
 | FQDN | Endereço IP |
 | ----- | ----- |
@@ -112,7 +123,13 @@ A informação devolvida de todos os métodos é a mesma; uma lista do FQDN e en
 >
 > Para todos estes endereços IP, utilize o mesmo endereço que as `*.api.azureml.ms` entradas devolvidas das etapas anteriores.
 
-## <a name="next-steps"></a>Próximos passos
+O quadro que se segue mostra o exemplo dos IPs das regiões Azure China 21Vianet:
+
+| FQDN | Endereço IP |
+| ----- | ----- |
+| `52882c08-ead2-44aa-af65-08a75cf094bd.workspace.chinaeast2.api.ml.azure.cn` | `10.1.0.5` |
+| `ml-mype-pltest-chinaeast2-52882c08-ead2-44aa-af65-08a75cf094bd.notebooks.chinacloudapi.cn` | `10.1.0.6` |
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a utilização do Azure Machine Learning com uma rede virtual, consulte a visão geral da [rede virtual.](how-to-network-security-overview.md)
 

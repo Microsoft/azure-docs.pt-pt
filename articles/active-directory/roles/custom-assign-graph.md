@@ -13,12 +13,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0bec789d8ef79e221007b172550100b80b76197a
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 67e77c2dd08386279beeb06ff9081fa2669afa73
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98740283"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487839"
 ---
 # <a name="assign-custom-admin-roles-using-the-microsoft-graph-api-in-azure-active-directory"></a>Atribuir funções de administração personalizadas utilizando a API do Gráfico microsoft em Azure Ative Directory 
 
@@ -60,7 +60,7 @@ HTTP/1.1 201 Created
 POST
 
 ``` HTTP
-https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
+POST https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
 ```
 
 Corpo
@@ -83,7 +83,7 @@ HTTP/1.1 404 Not Found
 POST
 
 ``` HTTP
-https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
+POST https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
 ```
 
 Corpo
@@ -107,7 +107,7 @@ HTTP/1.1 201 Created
 POST
 
 ``` HTTP
-https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
+POST https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
 ```
 
 Corpo
@@ -145,7 +145,7 @@ Apenas um subconjunto de funções incorporadas está habilitado para a deteçã
 GET
 
 ``` HTTP
-https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments&$filter=principalId eq ‘<object-id-of-principal>’
+GET https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments?$filter=principalId+eq+'<object-id-of-principal>'
 ```
 
 Resposta
@@ -175,7 +175,7 @@ HTTP/1.1 200 OK
 GET
 
 ``` HTTP
-https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments&$filter=roleDefinitionId eq ‘<object-id-or-template-id-of-role-definition>’
+GET https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments?$filter=roleDefinitionId+eq+'<object-id-or-template-id-of-role-definition>'
 ```
 
 Resposta
@@ -220,7 +220,7 @@ HTTP/1.1 200 OK
 GET
 
 ``` HTTP
-GET https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments?$filter=directoryScopeId eq '/d23998b1-8853-4c87-b95f-be97d6c6b610'
+GET https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments?$filter=directoryScopeId+eq+'/d23998b1-8853-4c87-b95f-be97d6c6b610'
 ```
 
 Resposta
@@ -252,7 +252,7 @@ HTTP/1.1 200 OK
 DELETE
 
 ``` HTTP
-GET https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments/lAPpYvVpN0KRkAEhdxReEJC2sEqbR_9Hr48lds9SGHI-1
+DELETE https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments/lAPpYvVpN0KRkAEhdxReEJC2sEqbR_9Hr48lds9SGHI-1
 ```
 
 Resposta
@@ -265,7 +265,7 @@ HTTP/1.1 204 No Content
 DELETE
 
 ``` HTTP
-GET https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments/lAPpYvVpN0KRkAEhdxReEJC2sEqbR_9Hr48lds9SGHI-1
+DELETE https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments/lAPpYvVpN0KRkAEhdxReEJC2sEqbR_9Hr48lds9SGHI-1
 ```
 
 Resposta
@@ -279,7 +279,7 @@ HTTP/1.1 404 Not Found
 DELETE
 
 ``` HTTP
-GET https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments/lAPpYvVpN0KRkAEhdxReEJC2sEqbR_9Hr48lds9SGHI-1
+DELETE https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments/lAPpYvVpN0KRkAEhdxReEJC2sEqbR_9Hr48lds9SGHI-1
 ```
 
 Resposta
@@ -302,7 +302,7 @@ HTTP/1.1 400 Bad Request
 
 Evitamos que os utilizadores apaguem o seu próprio papel de Administrador Global para evitar um cenário em que um inquilino tenha zero Administradores Globais. É permitido remover outras funções atribuídas a si mesmo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Sinta-se livre para compartilhar conosco no fórum de [funções administrativas Azure AD](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032)
 * Para obter mais informações sobre funções e atribuição de funções de administrador, consulte [atribuições de funções de administrador](permissions-reference.md)

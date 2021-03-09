@@ -1,25 +1,25 @@
 ---
 title: 'Tutorial: Proteger novos recursos com fechaduras'
 description: Neste tutorial, utiliza as opções de bloqueio de recursos Azure Blueprints Leia Apenas e Não Elimine para proteger os recursos recém-implantados.
-ms.date: 01/27/2021
+ms.date: 03/08/2021
 ms.topic: tutorial
-ms.openlocfilehash: c671d641982ba833b54586c1b33979a97747396b
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 87da0f5a1fff2feb103b32533c8d314fb7690f80
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98915411"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102485746"
 ---
 # <a name="tutorial-protect-new-resources-with-azure-blueprints-resource-locks"></a>Tutorial: Proteja novos recursos com bloqueios de recursos da Azure Blueprints
 
-Com [as fechaduras de recursos](../concepts/resource-locking.md)da Azure Blueprints, pode proteger os recursos recém-implantados de serem adulterados, mesmo através de uma conta com a função _Proprietário._ Pode adicionar esta proteção nas definições de recursos criados por um artefacto do Azure Resource Manager (modelo ARM).
+Com [as fechaduras de recursos](../concepts/resource-locking.md)da Azure Blueprints, pode proteger os recursos recém-implantados de serem adulterados, mesmo através de uma conta com a função _Proprietário._ Pode adicionar esta proteção nas definições de recursos criados por um artefacto do Azure Resource Manager (modelo ARM). A fechadura de recursos Blueprint é definida durante a atribuição da planta.
 
 Neste tutorial, você completará estes passos:
 
 > [!div class="checklist"]
 > - Criar uma definição de planta
 > - Marque a definição do seu projeto como **Publicado**
-> - Atribua a sua definição de planta a uma subscrição existente
+> - Atribua a sua definição de planta a uma subscrição existente **(conjunto de bloqueios de recursos)**
 > - Inspecione o novo grupo de recursos
 > - Desatribua a planta para remover as fechaduras
 
@@ -56,6 +56,9 @@ Primeiro, criar a definição de planta.
    1. Selecione a linha **de artefacto adicionar** sob a entrada **RGtoLock.**
    1. Selecione **o modelo do Gestor de Recursos Azure** sob o tipo De **artefacto,** desenhe **o nome do visor do artefacto** para o **StorageAccount** e deixe **a Descrição** em branco.
    1. No **separador Modelo,** cole o modelo ARM a seguir na caixa do editor. Depois de colar no modelo, **selecione Adicione** para adicionar o artefacto à planta.
+
+      > [!NOTE]
+      > Este passo define os recursos a serem implantados que ficam bloqueados pelo bloqueio de recursos Blueprint, mas não inclui as fechaduras de recursos Blueprint. As fechaduras de recursos da planta são definidas como um parâmetro da atribuição da planta.
 
    ```json
    {
@@ -143,6 +146,9 @@ Após a publicação da definição de planta, pode atribuí-la a uma subscriç�
 
      Selecione o modo de bloqueio de planta **Apenas de leitura.** Para obter mais informações, veja [bloqueio de recurso em esquemas](../concepts/resource-locking.md).
 
+     > [!NOTE]
+     > Este passo configura o bloqueio de recursos blueprint nos recursos recém-implantados.
+
    - **Identidade Gerida**
 
      Utilize a opção **predefinida: Sistema atribuído**. Para mais informações, consulte [identidades geridas.](../../../active-directory/managed-identities-azure-resources/overview.md)
@@ -222,7 +228,7 @@ Quando terminar este tutorial, elimine estes recursos:
 - Grupo de recursos _TestingBPLocks_
 - Definição de planta _contagem de armazenamento bloqueado_
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, aprendeu a proteger novos recursos implantados com a Azure Blueprints. Para saber mais sobre a Azure Blueprints, continue para o artigo do ciclo de vida do projeto.
 

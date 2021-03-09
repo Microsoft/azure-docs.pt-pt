@@ -10,15 +10,15 @@ metadata:
   ms.topic: hub-page
   author: rolyon
   ms.author: rolyon
-  ms.date: 01/29/2021
+  ms.date: 03/03/2021
   featureFlags:
   - clicktale
-  ms.openlocfilehash: dbc16f849dd8e0f97c700905fac046edbd0f0c70
-  ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+  ms.openlocfilehash: 77c953664459419ca4f3069eb727c6d0cc29892f
+  ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/05/2021
-  ms.locfileid: "102179124"
+  ms.lasthandoff: 03/09/2021
+  ms.locfileid: "102488918"
 highlightedContent:
   items:
   - title: Guia de introdução para programadores do Azure
@@ -1103,6 +1103,12 @@ productDirectory:
     - migration
     - storage
     url: databox/index.yml
+  - title: Âncoras de Objetos (Pré-visualização)
+    summary: Alinhe e ancore automaticamente o conteúdo 3D a objetos no mundo físico
+    imageSrc: ./media/index/object-anchors.svg
+    azureCategories:
+    - mixed-reality
+    url: object-anchors/index.yml
   - title: Spatial Anchors
     summary: Crie experiências de realidade mista com perceção espacial e para vários utilizadores
     imageSrc: https://static.docs.com/ui/media/product/azure/spatial-anchor-accounts.svg
@@ -1110,7 +1116,7 @@ productDirectory:
     - mixed-reality
     - mobile
     url: spatial-anchors/index.yml
-  - title: Remote Rendering (Pré-visualização)
+  - title: Azure Remote Rendering
     summary: Componha conteúdo 3D interativo de elevada qualidade e transmita-o em fluxo para os dispositivos em tempo real
     imageSrc: https://static.docs.com/ui/media/product/azure/remote-rendering.svg
     azureCategories:

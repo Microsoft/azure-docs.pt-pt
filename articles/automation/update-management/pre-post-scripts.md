@@ -3,14 +3,14 @@ title: Gerir pré-scripts e pós-scripts na sua implementação de Gestão de At
 description: Este artigo diz como configurar e gerir pré-scripts e pós-scripts para atualizações de implementações.
 services: automation
 ms.subservice: update-management
-ms.date: 12/17/2020
+ms.date: 03/08/2021
 ms.topic: conceptual
-ms.openlocfilehash: 3ca1dec1b6139f3192edb09f8748c8f23a9d399e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: ce60c773626d951062de3cc830b898e3b875f3cb
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101701506"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102485542"
 ---
 # <a name="manage-pre-scripts-and-post-scripts"></a>Gerir pré-scripts e pós-scripts
 
@@ -19,6 +19,8 @@ Os pré-scripts e pós-scripts são livros para executar na sua conta Azure Auto
 ## <a name="pre-script-and-post-script-requirements"></a>Requisitos de pré-script e pós-script
 
 Para que um livro de bordo seja utilizado como pré-script ou pós-script, deve importá-lo na sua conta de Automação e [publicar o livro de bordo](../manage-runbooks.md#publish-a-runbook).
+
+Atualmente, apenas os livros powershell e Python 2 são suportados como scripts Pré/Post. Outros tipos de runbook como Python 3, Graphical, PowerShell Workflow, Graphical PowerShell Workflow não são atualmente suportados como scripts Pré/Post.
 
 ## <a name="pre-script-and-post-script-parameters"></a>Parâmetros pré-script e pós-script
 
@@ -91,9 +93,6 @@ Um exemplo completo com todas as propriedades pode ser encontrado em: [Obtenha c
 > [!NOTE]
 > O `SoftwareUpdateConfigurationRunContext` objeto pode conter entradas duplicadas para máquinas. Isto pode fazer com que os pré-scripts e os post-scripts corram várias vezes na mesma máquina. Para contornar este comportamento, utilize `Sort-Object -Unique` para selecionar apenas nomes VM únicos.
 
-> [!NOTE]
-> Atualmente, apenas os livros de execução PowerShell são suportados como scripts Pré/Post. Outros tipos de runbook como Python, Graphical, PowerShell Workflow, Graphical PowerShell Workflow não são atualmente suportados como scripts Pré/Post.
-
 ## <a name="use-a-pre-script-or-post-script-in-a-deployment"></a>Use um pré-script ou pós-script numa implementação
 
 Para utilizar um pré-script ou pós-script numa implementação de atualização, comece por criar uma implementação de atualização. Selecione **Pré-scripts + Post-Scripts**. Esta ação abre a página **Select Pre-scripts + Post-scripts.**
@@ -120,7 +119,7 @@ Ao selecionar a execução da atualização, é-lhe mostrado detalhes adicionais
 
 ## <a name="stop-a-deployment"></a>Parar uma implantação
 
-Se quiser parar uma implantação com base num pré-script, tem de [lançar](../automation-runbook-execution.md#throw) uma exceção. Se não o fizeres, a implantação e o pós-script continuarão a funcionar. O seguinte código corta-códigos mostra como lançar uma exceção.
+Se quiser parar uma implantação com base num pré-script, tem de [lançar](../automation-runbook-execution.md#throw) uma exceção. Se não o fizeres, a implantação e o pós-script continuarão a funcionar. O seguinte corte de código mostra como lançar uma exceção usando o PowerShell.
 
 ```powershell
 #In this case, we want to terminate the patch job if any run fails.
@@ -134,6 +133,8 @@ foreach($summary in $finalStatus)
     }
 }
 ```
+
+Em Python 2, o manuseamento de exceções é gerido num bloco [de tentativa.](https://www.python-course.eu/exception_handling.php)
 
 ## <a name="interact-with-machines"></a>Interagir com máquinas
 
@@ -169,6 +170,13 @@ if (<My custom error logic>)
     #Throw an error to fail the patch deployment.
     throw "There was an error, abort deployment"
 }
+```
+
+Em Python 2, se quiser lançar um erro quando ocorre uma determinada condição, use uma [declaração de elevação.](https://docs.python.org/2.7/reference/simple_stmts.html#the-raise-statement)
+
+```python
+If (<My custom error logic>)
+   raise Exception('Something happened.')
 ```
 
 ## <a name="samples"></a>Amostras

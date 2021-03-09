@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/02/2020
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: f19e009341ac0e9556cef36f8da6ef19cde0447f
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 1b47ad27abbe59eceabd15d091f88f4659d8dad6
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93087524"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102486391"
 ---
 # <a name="global-data-distribution-with-azure-cosmos-db---under-the-hood"></a>Distribuição global de dados com Azure Cosmos DB - sob o capot
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -31,15 +31,15 @@ Quando uma aplicação que utiliza o Cosmos DB escala elasticamente a produção
 
 Como mostra a seguinte imagem, os dados dentro de um contentor são distribuídos ao longo de duas dimensões - dentro de uma região e de regiões, em todo o mundo:  
 
-:::image type="content" source="./media/global-dist-under-the-hood/distribution-of-resource-partitions.png" alt-text="Topologia do Sistema" border="false":::
+:::image type="content" source="./media/global-dist-under-the-hood/distribution-of-resource-partitions.png" alt-text="divisórias físicas" border="false":::
 
-Uma partição física é implementada por um grupo de réplicas, chamada *réplica-set* . Cada máquina acolhe centenas de réplicas que correspondem a várias divisórias físicas dentro de um conjunto fixo de processos, como mostrado na imagem acima. As réplicas correspondentes às divisórias físicas são colocadas dinamicamente e a carga equilibrada através das máquinas dentro de um cluster e centros de dados dentro de uma região.  
+Uma partição física é implementada por um grupo de réplicas, chamada *réplica-set*. Cada máquina acolhe centenas de réplicas que correspondem a várias divisórias físicas dentro de um conjunto fixo de processos, como mostrado na imagem acima. As réplicas correspondentes às divisórias físicas são colocadas dinamicamente e a carga equilibrada através das máquinas dentro de um cluster e centros de dados dentro de uma região.  
 
 Uma réplica pertence exclusivamente a um inquilino da Azure Cosmos DB. Cada réplica acolhe uma instância do motor de base de [dados](https://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)da Cosmos DB, que gere os recursos, bem como os índices associados. O motor de base de dados Cosmos opera num sistema de tipo de sequência de registo de átomos (ARS). O motor é agnóstico ao conceito de esquema, desfocando a fronteira entre a estrutura e os valores de instância dos registos. Cosmos DB alcança o agnosticismo de esquema completo indexando automaticamente tudo após a ingestão de uma forma eficiente, o que permite aos utilizadores consultar os seus dados distribuídos globalmente sem ter que lidar com schema ou gestão de índices.
 
 O motor da base de dados Cosmos é composto por componentes, incluindo a implementação de vários primitivos de coordenação, tempos de execução da linguagem, processador de consulta, e subsistemas de armazenamento e indexação responsáveis pelo armazenamento e indexação transacional de dados, respectivamente. Para proporcionar durabilidade e elevada disponibilidade, o motor de base de dados persiste nos seus dados e índice em SSDs e replica-os entre as instâncias do motor de base de dados dentro do(s) conjuntos de réplicas, respectivamente. Os inquilinos maiores correspondem a uma maior escala de produção e armazenamento e têm réplicas maiores ou mais ou ambas. Todos os componentes do sistema são totalmente assíncronos – nenhum fio bloqueia, e cada fio faz trabalho de curta duração sem incorrer em interruptores de rosca desnecessários. A limitação das taxas e a pressão de trás são canalizadas por toda a pilha desde o controlo de admissão a todos os caminhos de E/S. O motor da base de dados cosmos é projetado para explorar a concurrency de grãos finos e para fornecer alta produção enquanto opera dentro de quantidades frugal de recursos do sistema.
 
-A distribuição global da Cosmos DB baseia-se em duas abstrações fundamentais - *conjuntos de réplicas* e *conjuntos de divisórias* . Um conjunto de réplicas é um bloco de Lego modular para coordenação, e um conjunto de divisórias é uma sobreposição dinâmica de uma ou mais divisórias físicas distribuídas geograficamente. Para entender como funciona a distribuição global, precisamos de compreender estas duas principais abstrações. 
+A distribuição global da Cosmos DB baseia-se em duas abstrações fundamentais - *conjuntos de réplicas* e *conjuntos de divisórias*. Um conjunto de réplicas é um bloco de Lego modular para coordenação, e um conjunto de divisórias é uma sobreposição dinâmica de uma ou mais divisórias físicas distribuídas geograficamente. Para entender como funciona a distribuição global, precisamos de compreender estas duas principais abstrações. 
 
 ## <a name="replica-sets"></a>Conjuntos de réplicas
 
@@ -53,7 +53,7 @@ Uma partição física é materializada como um grupo de réplicas auto-gerido e
 
 Um grupo de divisórias físicas, uma de cada uma das configuradas com as regiões de base de dados cosmos, é composta para gerir o mesmo conjunto de chaves replicadas em todas as regiões configuradas. Esta coordenação superior primitiva é chamada *de conjunto de partição* - uma sobreposição dinâmica geograficamente distribuída de divisórias físicas gerindo um determinado conjunto de chaves. Enquanto uma determinada partição física (um conjunto de réplicas) é definida dentro de um cluster, um conjunto de divisões pode abranger aglomerados, centros de dados e regiões geográficas, como mostrado na imagem abaixo:  
 
-:::image type="content" source="./media/global-dist-under-the-hood/dynamic-overlay-of-resource-partitions.png" alt-text="Topologia do Sistema" border="false":::
+:::image type="content" source="./media/global-dist-under-the-hood/dynamic-overlay-of-resource-partitions.png" alt-text="Conjuntos de partição" border="false":::
 
 Pode pensar num conjunto de partição como um "super conjunto de réplicas" geograficamente disperso, que é composto por múltiplos conjuntos de réplicas que possuem o mesmo conjunto de teclas. Semelhante a um conjunto de réplicas, a adesão de um conjunto de divisórias também é dinâmica – flutua com base em operações implícitas de gestão de partição física para adicionar/remover novas divisórias de/para um determinado conjunto de partição (por exemplo, quando escala a produção num recipiente, adiciona/remove uma região à sua base de dados Cosmos, ou quando ocorrem falhas). Em virtude de cada uma das divisórias (de um conjunto de partição) gerir a filiação do conjunto de partição dentro do seu próprio conjunto de réplicas, a adesão é totalmente descentralizada e altamente disponível. Durante a reconfiguração de um conjunto de partição, a topologia da sobreposição entre divisórias físicas também é estabelecida. A topologia é selecionada dinamicamente com base no nível de consistência, distância geográfica e largura de banda disponível entre a fonte e as divisórias físicas-alvo.  
 
@@ -69,7 +69,7 @@ Empregamos relógios vetoriais codificados (contendo ID de região e relógios l
 
 Para as bases de dados cosmos configuradas com várias regiões de escrita, o sistema oferece uma série de políticas flexíveis de resolução automática de conflitos para os desenvolvedores escolherem, incluindo: 
 
-- **Last-Write-Wins (LWW)** , que, por padrão, utiliza uma propriedade de relógios definidos pelo sistema (que se baseia no protocolo do relógio de sincronização de tempo). Cosmos DB também permite especificar qualquer outra propriedade numérica personalizada para ser usada para resolução de conflitos.  
+- **Last-Write-Wins (LWW)**, que, por padrão, utiliza uma propriedade de relógios definidos pelo sistema (que se baseia no protocolo do relógio de sincronização de tempo). Cosmos DB também permite especificar qualquer outra propriedade numérica personalizada para ser usada para resolução de conflitos.  
 - **Política de resolução de conflitos definida pela aplicação (personalizada)** (expressa através de procedimentos de fusão), concebida para a reconciliação semântica definida pela aplicação de conflitos. Estes procedimentos são invocados após a deteção dos conflitos de escrita sob os auspícios de uma transação de base de dados no lado do servidor. O sistema fornece exatamente uma garantia única para a execução de um procedimento de fusão como parte do protocolo de compromisso. Existem [várias amostras](how-to-manage-conflicts.md) de resolução de conflitos disponíveis para você brincar.  
 
 ## <a name="consistency-models"></a>Modelos de consistência
@@ -85,5 +85,4 @@ A semântica dos cinco modelos de consistência em Cosmos DB são descritas [aqu
 Em seguida, aprenda a configurar a distribuição global utilizando os seguintes artigos:
 
 * [Adicionar/remover regiões da conta de base de dados](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
-* [Como configurar clientes para multi-homing](how-to-manage-database-account.md#configure-multiple-write-regions)
 * [Como criar uma política de resolução de conflitos personalizada](how-to-manage-conflicts.md#create-a-custom-conflict-resolution-policy)

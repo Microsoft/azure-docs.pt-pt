@@ -10,18 +10,21 @@ ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-azp-net
-ms.openlocfilehash: f40da8b2c9f64da424d43a6679977cda5bf111df
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 9324ca3b347550c2514a506c5a143b6e963e116f
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101691778"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487326"
 ---
 # <a name="quickstart-create-and-manage-communication-services-resources"></a>Quickstart: Criar e gerir recursos dos Serviços de Comunicação
- 
+
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
 Inicie-se com os Serviços de Comunicação Azure, disponibilizando o seu primeiro recurso de Serviços de Comunicação. Os recursos dos serviços de comunicação podem ser adcedidos através do [portal Azure](https://portal.azure.com) ou com a biblioteca de clientes de gestão .NET. A biblioteca de clientes de gestão e o portal Azure permitem-lhe criar, configurar, atualizar e apagar os seus recursos e interface com [o Azure Resource Manager,](../../azure-resource-manager/management/overview.md)o serviço de implementação e gestão da Azure. Todas as funcionalidades disponíveis nas bibliotecas dos clientes estão disponíveis no portal Azure. 
+
+
+Inicie-se com os Serviços de Comunicação Azure, disponibilizando o seu primeiro recurso de Serviços de Comunicação. Os recursos dos serviços de comunicação podem ser adcedidos através do [portal Azure](https://portal.azure.com) ou com a biblioteca de clientes de gestão .NET. A biblioteca de clientes de gestão e o portal Azure permitem-lhe criar, configurar, atualizar e apagar os seus recursos e interface com [o Azure Resource Manager,](../../azure-resource-manager/management/overview.md)o serviço de implementação e gestão da Azure. Todas as funcionalidades disponíveis nas bibliotecas dos clientes estão disponíveis no portal Azure.
 
 > [!WARNING]
 > Note que, embora os Serviços de Comunicação esteja disponível em várias geografias, para obter um número de telefone, o recurso deve ter uma localização de dados definida para 'EUA'. Note também que os recursos de comunicação não podem ser transferidos para uma subscrição diferente durante a pré-visualização pública.
@@ -40,7 +43,7 @@ Inicie-se com os Serviços de Comunicação Azure, disponibilizando o seu primei
 
 ## <a name="access-your-connection-strings-and-service-endpoints"></a>Aceda às cordas de ligação e pontos finais de serviço
 
-As cadeias de ligação permitem que as bibliotecas de clientes dos Serviços de Comunicação se conectem e autentem ao Azure. Pode aceder às cadeias de ligação dos serviços de comunicação e pontos finais de serviço a partir do portal Azure ou programáticamente com APIs do Gestor de Recursos Azure. 
+As cadeias de ligação permitem que as bibliotecas de clientes dos Serviços de Comunicação se conectem e autentem ao Azure. Pode aceder às cadeias de ligação dos serviços de comunicação e pontos finais de serviço a partir do portal Azure ou programáticamente com APIs do Gestor de Recursos Azure.
 
 Depois de navegar para o seu recurso de Serviços de Comunicação, selecione **Chaves** do menu de navegação e copie os valores de **ligação** ou **ponto final** para utilização pelas bibliotecas de clientes dos Serviços de Comunicação. Note que tem acesso a chaves primárias e secundárias. Isto pode ser útil em cenários em que gostaria de fornecer acesso temporário aos seus recursos de Serviços de Comunicação a terceiros ou ambiente de encenação.
 
@@ -49,7 +52,7 @@ Depois de navegar para o seu recurso de Serviços de Comunicação, selecione **
 Também pode aceder a informações chave usando Azure CLI:
 
 ```azurecli
-az communication list --resource-group "<resourceGroup>"    
+az communication list --resource-group "<resourceGroup>"
 
 az communication list-key --name "<communicationName>" --resource-group "<resourceGroup>"
 ```
@@ -103,7 +106,7 @@ Depois de adicionar a variável de ambiente, execute `source ~/.bash_profile` a 
 
 Se pretender limpar e remover uma assinatura de Serviços de Comunicação, pode eliminar o grupo de recursos ou recursos. A eliminação do grupo de recursos também elimina quaisquer outros recursos que lhe sejam associados.
 
-Se tiver algum número de telefone atribuído ao seu recurso após a eliminação de recursos, os números de telefone serão libertados automaticamente do seu recurso ao mesmo tempo. 
+Se tiver algum número de telefone atribuído ao seu recurso após a eliminação de recursos, os números de telefone serão libertados automaticamente do seu recurso ao mesmo tempo.
 
 ## <a name="next-steps"></a>Passos seguintes
 

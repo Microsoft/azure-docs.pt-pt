@@ -7,12 +7,12 @@ ms.topic: guide
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/15/2020
-ms.openlocfilehash: 88ec58ca9bcfa5c64036d3b65e77f3248e26357d
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: d045af3b170d585b4bf1f8c57b7ba924c6b30695
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93124956"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102489791"
 ---
 # <a name="common-questions-about-vm-in-azure-marketplace"></a>Perguntas comuns sobre VM no Azure Marketplace
 
@@ -49,6 +49,19 @@ Para obter mais informações, veja estes artigos:
 Sempre que tento criar uma imagem dos meus VHDs, recebo o erro "VHD já está registado com repositório de imagem como recurso" em Azure PowerShell. Não criei nenhuma imagem antes nem encontrei nenhuma imagem com este nome em Azure. Como posso resolver isto?
 
 Este problema geralmente aparece se você criou um VM a partir de um VHD que tem um bloqueio nele. Confirme que não há VM atribuído a partir deste VHD e, em seguida, re-tentar a operação. Se esta questão continuar, abra um bilhete de apoio. Consulte [o Suporte para o Centro de Parceiros.](support.md)
+
+## <a name="how-do-i-test-a-hidden-preview-image"></a>Como posso testar uma imagem de pré-visualização escondida?
+
+Pode implementar imagens de pré-visualização ocultas utilizando modelos de arranque rápido.
+Para implementar uma imagem de pré-visualização do Linux, 
+1. Goto este [modelo de arranque rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux), selecione "Deploy to Azure". Isto deve levá-lo ao portal Azure
+2. No portal Azure, selecione "Editar modelo".
+3. No modelo JSON, procure por imagemReference e atualize o publisherid, offerid, skuid e versão da imagem. Para testar a imagem de pré-visualização, apêndice "-PREVIEW" ao ofendedo.
+ ![imagem](https://user-images.githubusercontent.com/79274470/110191995-71c7d500-7de0-11eb-9f3c-6a42f55d8f03.png)
+4. Clicar em Guardar
+5. Preencha o resto dos detalhes. Rever e Criar
+
+
 
 ## <a name="next-steps"></a>Passos seguintes
 
