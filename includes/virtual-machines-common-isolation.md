@@ -2,18 +2,18 @@
 title: incluir ficheiro
 description: incluir ficheiro
 services: virtual-machines
-author: styli365
+author: rishabv90
 ms.service: virtual-machines
 ms.topic: include
 ms.date: 11/05/2020
-ms.author: sttsinar
+ms.author: risverma
 ms.custom: include file
-ms.openlocfilehash: 3d78441e56e23cf49b09073fdf88bef4b3434da9
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.openlocfilehash: fc61c111291f9862f71f9a81828fa0fa828ab2ad
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102473888"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102511004"
 ---
 O Azure Compute oferece tamanhos de máquinas virtuais que são isolados a um tipo de hardware específico e dedicados a um único cliente. Os tamanhos isolados vivem e operam na geração específica de hardware e serão depreciados quando a geração de hardware for reformada.
 
@@ -42,12 +42,12 @@ Os tamanhos de VM isolados têm uma duração de vida limitada de hardware. O Az
 
 | Tamanho | Data de aposentadoria de isolamento | 
 | --- | --- |
-| Standard_DS15_v2 | 15 de maio de 2020 |
-| Standard_D15_v2  | 15 de maio de 2020 |
-| Standard_G5  | 15 de fevereiro de 2021 |
-| Standard_GS5  | 15 de fevereiro de 2021 |
-| Standard_E64i_v3  | 15 de fevereiro de 2021 |
-| Standard_E64is_v3  | 15 de fevereiro de 2021 |
+| Standard_DS15_v2 | 15 de maio de 2021 |
+| Standard_D15_v2  | 15 de maio de 2021 |
+| Standard_G5  | 15 de fevereiro de 2022 |
+| Standard_GS5  | 15 de fevereiro de 2022 |
+| Standard_E64i_v3  | 15 de fevereiro de 2022 |
+| Standard_E64is_v3  | 15 de fevereiro de 2022 |
 
 
 ## <a name="faq"></a>FAQ
@@ -71,8 +71,8 @@ Os tamanhos de VM isolados têm uma duração de vida limitada de hardware. O Az
  
 | Data | Ação |
 |---|---| 
-| 15 de maio de 2019<sup>1</sup> | Anúncio de aposentadoria de isolamento D/DS15_v2| 
-| 15 de maio de 2020 | Garantia de isolamento D/DS15_v2 removida| 
+| 15 de maio de 2020<sup>1</sup> | Anúncio de aposentadoria de isolamento D/DS15_v2| 
+| 15 de maio de 2021 | Garantia de isolamento D/DS15_v2 removida| 
 
 <sup>1</sup> O cliente existente que utilize estes tamanhos receberá um e-mail de anúncio com instruções detalhadas sobre os próximos passos.  
 
@@ -81,8 +81,8 @@ Os tamanhos de VM isolados têm uma duração de vida limitada de hardware. O Az
  
 | Data | Ação |
 |---|---|
-| Fev 15, 2020<sup>1</sup> | G5/GS5/E64i_v3/E64is_v3 anúncio de reforma de isolamento |
-| 15 de fevereiro de 2021 | Garantia de isolamento G5/GS5/E64i_v3/E64is_v3 removida |
+| Fev 15, 2021<sup>1</sup> | G5/GS5/E64i_v3/E64is_v3 anúncio de reforma de isolamento |
+| 15 de fevereiro de 2022 | Garantia de isolamento G5/GS5/E64i_v3/E64is_v3 removida |
 
 <sup>1</sup> O cliente existente que utilize estes tamanhos receberá um e-mail de anúncio com instruções detalhadas sobre os próximos passos.  
 

@@ -12,12 +12,12 @@ metadata:
   manager: nitinme
   ms.custom: custom-portals-hub
   ms.date: 08/28/2020
-  ms.openlocfilehash: 99906e6fcc8ca33872cba50b56b75529b367afe7
-  ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+  ms.openlocfilehash: 70e2e77e008738ff7c2ed0981de5ee915614ab8d
+  ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/08/2021
-  ms.locfileid: "102454945"
+  ms.lasthandoff: 03/09/2021
+  ms.locfileid: "102504121"
 highlightedContent:
   items:
   - title: O que são os Serviços Cognitivos?
@@ -187,4 +187,4 @@ additionalContent:
       - text: CLI do Azure
         url: /cli/azure/cognitiveservices
       - text: PowerShell
-        url: /powershell/module/az.cognitiveservices/?view=azps-2.5.0#cognitive_services
+        url: /powershell/module/az.cognitiveservices/#cognitive_services

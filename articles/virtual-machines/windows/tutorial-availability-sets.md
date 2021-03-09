@@ -1,22 +1,22 @@
 ---
-title: Tutorial - Alta disponibilidade para VMs windows em Azure
-description: Neste tutorial, vai aprender a utilizar o Azure PowerShell para implementar máquinas virtuais de elevada disponibilidade em Conjuntos de Disponibilidade
+title: Implementar VMs num conjunto de disponibilidade usando Azure PowerShell
+description: Saiba como utilizar o Azure PowerShell para implementar máquinas virtuais altamente disponíveis em Conjuntos de Disponibilidade
 services: virtual-machines-windows
-author: cynthn
-ms.service: virtual-machines-windows
-ms.workload: infrastructure-services
-ms.topic: tutorial
-ms.date: 11/30/2018
-ms.author: cynthn
+author: mimckitt
+ms.service: virtual-machines
+ms.topic: how-to
+ms.date: 3/8/2021
+ms.author: mimckitt
+ms.reviewer: cynthn
 ms.custom: mvc
-ms.openlocfilehash: e1c9cf0a60446fba6fae5c850231b0805e7ea135
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 90f57e48ef8cd2f71eea7a5c2b98fda83f282203
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736656"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102509103"
 ---
-# <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-azure-powershell"></a>Tutorial: Criar e implementar máquinas virtuais de elevada disponibilidade com o Azure PowerShell
+# <a name="create-and-deploy-virtual-machines-in-an-availability-set-using-azure-powershell"></a>Criar e implementar máquinas virtuais num conjunto de disponibilidade usando a Azure PowerShell
 
 Neste tutorial, aprende-se a aumentar a disponibilidade e fiabilidade das suas Máquinas Virtuais (VMs) utilizando conjuntos de disponibilidade. Disponibilidade Os conjuntos certificam-se de que os VMs que implementa no Azure são distribuídos por múltiplos nós de hardware isolados, num cluster. 
 
@@ -28,14 +28,6 @@ Neste tutorial, ficará a saber como:
 > * Verificar os tamanhos de VM disponíveis
 > * Verificar o Assistente do Azure
 
-
-## <a name="availability-set-overview"></a>Descrição geral do conjunto de disponibilidade
-
-Um Conjunto de Disponibilidade é uma capacidade lógica de agrupamento para isolar os recursos VM uns dos outros quando são implantados. O Azure certifica-se de que os VMs que coloca dentro de um Conjunto de Disponibilidade funcionam através de vários servidores físicos, racks de computação, unidades de armazenamento e comutadores de rede. Se uma falha de hardware ou software acontecer, apenas um subconjunto dos seus VMs são impactados e a sua solução global permanece operacional. Conjuntos de disponibilidade são essenciais para a construção de soluções de nuvem fiáveis.
-
-Consideremos uma solução típica baseada em VM em que poderá ter quatro servidores Web de front-end e duas VMs de back-end. Com o Azure, pretende definir dois conjuntos de disponibilidade antes de implementar os seus VMs: um para o nível web e outro para o nível traseiro. Quando cria um novo VM, especifica o conjunto de disponibilidade como parâmetro. O Azure garante que os VMs estão isolados em vários recursos de hardware físico. Se o hardware físico em que um dos seus servidores está a funcionar tiver um problema, sabe que as outras instâncias dos seus servidores continuarão a funcionar porque estão em hardware diferente.
-
-Utilize Conjuntos de Disponibilidade quando pretender implementar soluções fiáveis baseadas em VM no Azure.
 
 ## <a name="launch-azure-cloud-shell"></a>Iniciar o Azure Cloud Shell
 

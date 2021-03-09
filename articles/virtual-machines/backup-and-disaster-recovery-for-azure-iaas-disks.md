@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/19/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 01133ab5582e63c0e87d8a5cf8de12f5445394c5
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: e5ae08c23748e55a8c3b75eb8fb9c112684f022e
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91969709"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102507911"
 ---
 # <a name="backup-and-disaster-recovery-for-azure-iaas-disks"></a>Backup e recuperação de desastres para discos Azure IaaS
 
@@ -48,7 +48,7 @@ Devido a esta arquitetura, a Azure tem consistentemente proporcionado durabilida
 
 Falhas de hardware localizadas no hospedeiro computacional ou na plataforma de armazenamento podem, por vezes, resultar na indisponibilidade temporária do VM que é coberto pelo [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) para disponibilidade de VM. O Azure também fornece um SLA líder na indústria para instâncias VM únicas que usam SSDs premium Azure.
 
-Para salvaguardar as cargas de trabalho da aplicação devido à indisponibilidade temporária de um disco ou VM, os clientes podem utilizar [conjuntos de disponibilidade](./manage-availability.md). Duas ou mais máquinas virtuais num conjunto de disponibilidade fornecem redundância para a aplicação. Azure cria então estes VMs e discos em domínios de avaria separados com diferentes componentes de potência, rede e servidor.
+Para salvaguardar as cargas de trabalho da aplicação devido à indisponibilidade temporária de um disco ou VM, os clientes podem utilizar [conjuntos de disponibilidade](./availability.md). Duas ou mais máquinas virtuais num conjunto de disponibilidade fornecem redundância para a aplicação. Azure cria então estes VMs e discos em domínios de avaria separados com diferentes componentes de potência, rede e servidor.
 
 Devido a estes domínios de avaria separados, falhas de hardware localizadas normalmente não afetam vários VMs no conjunto ao mesmo tempo. Ter domínios de avaria separados proporciona alta disponibilidade para a sua aplicação. É considerado uma boa prática usar conjuntos de disponibilidade quando é necessária alta disponibilidade. A secção seguinte abrange o aspeto da recuperação de desastres.
 
@@ -108,7 +108,7 @@ Para discos não geridos, pode utilizar o tipo de armazenamento localmente redun
 
  O quadro a seguir é um resumo das soluções disponíveis para DR.
 
-| Cenário | Replicação automática | Solução DR |
+| Scenario | Replicação automática | Solução DR |
 | --- | --- | --- |
 | Discos SSD Premium | Local[(armazenamento localmente redundante)](../storage/common/storage-redundancy.md#locally-redundant-storage) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
 | Managed disks | Local[(armazenamento localmente redundante)](../storage/common/storage-redundancy.md#locally-redundant-storage) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
@@ -120,7 +120,7 @@ A alta disponibilidade é melhor satisfeita utilizando discos geridos num conjun
 
 As suas escolhas para alta disponibilidade, backup e DR nos níveis de aplicação ou infraestrutura podem ser representadas da seguinte forma:
 
-| Nível |   Elevada disponibilidade   | Backup ou DR |
+| Level |   Elevada disponibilidade   | Backup ou DR |
 | --- | --- | --- |
 | Aplicação | SQL Server AlwaysOn | Azure Backup |
 | Infraestrutura    | Conjunto de disponibilidade  | Armazenamento geo-redundante com instantâneos consistentes |
@@ -147,7 +147,7 @@ Utilize os seguintes passos para permitir cópias de segurança dos seus VMs uti
 
     b. No menu de **cofres dos Serviços de Recuperação,** clique em **Adicionar** e siga os passos para criar um novo cofre na mesma região que o VM. Por exemplo, se o seu VM estiver na região oeste dos EUA, escolha os EUA ocidentais para o cofre.
 
-1.  Verifique a replicação de armazenamento para o cofre recém-criado. Aceda ao cofre sob **cofres dos Serviços de Recuperação** e vá para **a**  >  **Atualização de Configuração de Backup**de Propriedades  >  **Update**. Certifique-se de que a opção **de armazenamento geo-redundante** é selecionada por padrão. Esta opção garante que o seu cofre é automaticamente replicado para um centro de dados secundário. Por exemplo, o seu cofre no Oeste dos EUA é automaticamente replicado para os EUA.
+1.  Verifique a replicação de armazenamento para o cofre recém-criado. Aceda ao cofre sob **cofres dos Serviços de Recuperação** e vá para **a**  >  **Atualização de Configuração de Backup** de Propriedades  >  . Certifique-se de que a opção **de armazenamento geo-redundante** é selecionada por padrão. Esta opção garante que o seu cofre é automaticamente replicado para um centro de dados secundário. Por exemplo, o seu cofre no Oeste dos EUA é automaticamente replicado para os EUA.
 
 1.  Configure a política de backup e selecione o VM da mesma UI.
 

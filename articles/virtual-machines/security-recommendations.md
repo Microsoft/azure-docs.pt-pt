@@ -10,12 +10,12 @@ ms.date: 11/13/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
 ms.reviewer: cynthn
-ms.openlocfilehash: afb985ecbe91835369738966e39e751f06f8d796
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 622ebfed8294dbcb441aa509fc4f6ba75114f28d
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100571337"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102499361"
 ---
 # <a name="security-recommendations-for-virtual-machines-in-azure"></a>Recomendações de segurança para máquinas virtuais em Azure
 
@@ -33,7 +33,7 @@ Para obter informações gerais sobre o Azure Security Center, veja [o que é o 
 | Quando construir imagens VM personalizadas, aplique as últimas atualizações. | Antes de criar imagens, instale as mais recentes atualizações para o sistema operativo e para todas as aplicações que farão parte da sua imagem.  | - |
 | Mantenha os seus VMs atuais. | Pode utilizar a solução [de Gestão](../automation/update-management/overview.md) de Atualização na Azure Automation para gerir as atualizações do sistema operativo para os seus computadores Windows e Linux em Azure. | [Sim](../security-center/asset-inventory.md) |
 | Apoiem os vossos VMs. | [O Azure Backup](../backup/backup-overview.md) ajuda a proteger os dados da sua aplicação e tem custos de funcionamento mínimos. Os erros de aplicação podem corromper os seus dados, e os erros humanos podem introduzir erros nas suas aplicações. O Azure Backup protege os seus VMs que executam Windows e Linux. | - |
-| Utilize vários VMs para uma maior resiliência e disponibilidade. | Se o seu VM executa aplicações que devem estar altamente disponíveis, utilize vários VMs ou [conjuntos de disponibilidade](./manage-availability.md). | - |
+| Utilize vários VMs para uma maior resiliência e disponibilidade. | Se o seu VM executa aplicações que devem estar altamente disponíveis, utilize vários VMs ou [conjuntos de disponibilidade](./availability.md). | - |
 | Adotar uma estratégia de continuidade de negócios e recuperação de desastres (BCDR). | A Azure Site Recovery permite-lhe escolher entre diferentes opções desenhadas para apoiar a continuidade do negócio. Suporta diferentes cenários de replicação e falha. Para mais informações, consulte [Sobre a Recuperação do Local.](../site-recovery/site-recovery-overview.md) | - |
 
 ## <a name="data-security"></a>Segurança de dados
@@ -58,7 +58,7 @@ Para obter informações gerais sobre o Azure Security Center, veja [o que é o 
 |-|----|--|
 | Monitorize os seus VMs. | Pode utilizar [o Azure Monitor para VMs](../azure-monitor/vm/vminsights-overview.md) para monitorizar o estado dos seus VMs Azure e conjuntos de balanças de máquinas virtuais. Problemas de desempenho com um VM podem levar a uma interrupção do serviço, o que viola o princípio de segurança da disponibilidade. | - |
 
-## <a name="networking"></a>Rede
+## <a name="networking"></a>Redes
 
 | Recomendação | Comentários | Centro de Segurança |
 |-|----|--|

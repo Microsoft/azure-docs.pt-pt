@@ -1,6 +1,6 @@
 - name: Documentação do Servidor de Rotas
   href: index.yml
-- name: Descrição Geral
+- name: Descrição geral
   items:
     - name: O que é O Azure Route Server (Pré-visualização)?
       href: overview.md
@@ -26,7 +26,7 @@
 - name: Referência
   items:
     - name: Azure PowerShell
-      href: /powershell/module/az.network/?view=azps-5.5.0#route
+      href: /powershell/module/az.network/#route
     - name: CLI do Azure
       href: /cli/azure/network/routeserver
     - name: REST

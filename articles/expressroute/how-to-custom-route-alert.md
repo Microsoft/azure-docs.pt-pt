@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: duau
-ms.openlocfilehash: a960150d68cf2f939e206321a20d98b0e4080313
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: fed7663e2342a708aee70b9a54e6e0a6b6f97e8c
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371499"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102504406"
 ---
 # <a name="configure-custom-alerts-to-monitor-advertised-routes"></a>Configurar alertas personalizados para monitorizar rotas anunciadas
 
@@ -42,7 +42,7 @@ Antes de iniciar a configuração, verifique se cumpre os seguintes critérios:
 
 * Está familiarizado com [as Aplicações Lógicas Azure.](../logic-apps/logic-apps-overview.md)
 
-* Está familiarizado com a utilização do Azure PowerShell. A Azure PowerShell é necessária para recolher os prefixos da rede no gateway ExpressRoute. Para obter mais informações sobre a Azure PowerShell em geral, consulte a [documentação Azure PowerShell](/powershell/azure/?view=azps-4.1.0).
+* Está familiarizado com a utilização do Azure PowerShell. A Azure PowerShell é necessária para recolher os prefixos da rede no gateway ExpressRoute. Para obter mais informações sobre a Azure PowerShell em geral, consulte a [documentação Azure PowerShell](/powershell/azure/).
 
 ### <a name="notes-and-limitations"></a><a name="limitations"></a>Notas e limitações
 
@@ -74,11 +74,11 @@ Por predefinição, a **função Contribuinte** é atribuída ao titular de serv
 
  Utilize os seguintes passos para determinar a função atribuída ao titular de serviço que é utilizado pela sua conta Run As:
 
-1. Navegue para a sua conta Automation. Navegar para **definições de conta**e, em seguida, selecionar **Executar como contas**.
+1. Navegue para a sua conta Automation. Navegar para **definições de conta** e, em seguida, selecionar **Executar como contas**.
 
 2. Selecione **Funções** para ver a definição de função que está a ser usada.
 
-   :::image type="content" source="./media/custom-route-alert-portal/run-as-account-permissions.png" alt-text="Adicionar conta de automação":::
+   :::image type="content" source="./media/custom-route-alert-portal/run-as-account-permissions.png" alt-text="Atribuir função":::
 
 ## <a name="create-and-configure-runbooks"></a><a name="runbooks"></a>Criar e configurar livros de execução
 
@@ -88,25 +88,25 @@ Para executar os cmdlets PowerShell nos runbooks da Azure Automation, é necess�
 
 1. Abra a sua Conta de Automação Azure e navegue para **Módulos.**
 
-   :::image type="content" source="./media/custom-route-alert-portal/navigate-modules.png" alt-text="Adicionar conta de automação":::
+   :::image type="content" source="./media/custom-route-alert-portal/navigate-modules.png" alt-text="Navegar para módulos":::
 
-2. Pes faça uma pesquisa na Galeria e importe os seguintes **módulos: Az.Accounts**, **Az.Network,** **Az.Automation**e **Az.Profile**.
+2. Pes faça uma pesquisa na Galeria e importe os seguintes **módulos: Az.Accounts**, **Az.Network,** **Az.Automation** e **Az.Profile**.
 
-   :::image type="content" source="./media/custom-route-alert-portal/import-modules.png" alt-text="Adicionar conta de automação" lightbox="./media/custom-route-alert-portal/import-modules-expand.png":::
+   :::image type="content" source="./media/custom-route-alert-portal/import-modules.png" alt-text="Módulos de pesquisa e importação" lightbox="./media/custom-route-alert-portal/import-modules-expand.png":::
   
 ### <a name="2-create-a-runbook"></a><a name="create"></a>2. Criar um livro de recortes
 
 1. Para criar o seu livro de bordo PowerShell, navegue para a sua Conta de Automação. Em **Automatização de Processos,** selecione o **azulejo runbooks** e, em seguida, selecione **Criar um livro de execução**.
 
-   :::image type="content" source="./media/custom-route-alert-portal/create-runbook.png" alt-text="Adicionar conta de automação":::
+   :::image type="content" source="./media/custom-route-alert-portal/create-runbook.png" alt-text="Criar livro de execução.":::
 
 2. Selecione **Criar** para criar o livro de execução.
 
-   :::image type="content" source="./media/custom-route-alert-portal/create-runbook-2.png" alt-text="Adicionar conta de automação":::
+   :::image type="content" source="./media/custom-route-alert-portal/create-runbook-2.png" alt-text="Selecione Criar.":::
 
 3. Selecione o livro de execução recém-criado e, em seguida, **selecione Editar**.
 
-   :::image type="content" source="./media/custom-route-alert-portal/edit-runbook.png" alt-text="Adicionar conta de automação":::
+   :::image type="content" source="./media/custom-route-alert-portal/edit-runbook.png" alt-text="Editar o runbook":::
 
 4. Em **Editar,** cole o script PowerShell. O [script Exemplo](#script) pode ser modificado e utilizado para monitorizar os gateways ExpressRoute em um ou mais grupos de recursos.
 
@@ -231,7 +231,7 @@ Write-Output  $jsonResults
 1. **Selecione Guardar** para guardar uma cópia do rascunho do livro de recortes.
 2. Selecione **Publicar** para publicar o livro de recortes como a versão oficial do runbook na conta de automação.
 
-   :::image type="content" source="./media/custom-route-alert-portal/save-publish-runbook.png" alt-text="Adicionar conta de automação":::
+   :::image type="content" source="./media/custom-route-alert-portal/save-publish-runbook.png" alt-text="Guarde e publique o livro de recortes.":::
 
 Quando executam o script PowerShell, é recolhida uma lista de valores:
  
@@ -247,7 +247,7 @@ Quando executam o script PowerShell, é recolhida uma lista de valores:
 
 * Número de prefixos de rede anunciados a partir da porta de entrada ExpressRoute para o segundo par BGP (peer2)
 
-* Timestamp
+* CarimboDeDataEHora
 
 * Estado, classificado como:
 
@@ -263,7 +263,7 @@ O script PowerShell converte a informação recolhida numa saída JSON. O livro 
 
 Uma vez criado o livro de bordo, este deve ser validado. Selecione **Iniciar** e verificar a saída e os erros para os diferentes fluxos de trabalho.
 
-:::image type="content" source="./media/custom-route-alert-portal/validate-runbook.png" alt-text="Adicionar conta de automação" lightbox="./media/custom-route-alert-portal/validate-runbook-expand.png":::
+:::image type="content" source="./media/custom-route-alert-portal/validate-runbook.png" alt-text="Validar o livro de recortes" lightbox="./media/custom-route-alert-portal/validate-runbook-expand.png":::
 
 ## <a name="create-and-configure-a-logic-app"></a><a name="logic"></a>Criar e configurar uma aplicação lógica
 
@@ -273,13 +273,13 @@ A Azure Logic Apps é a orquestradora de todo o processo de recolha e ações. N
 
 Neste fluxo de trabalho, você constrói uma aplicação lógica que monitoriza regularmente os gateways ExpressRoute. Se existirem novos itens, a aplicação lógica envia uma mensagem de e-mail para cada item. Quando terminar, a aplicação lógica é semelhante a este fluxo de trabalho a alto nível:
 
-:::image type="content" source="./media/custom-route-alert-portal/logic-apps-workflow.png" alt-text="Adicionar conta de automação":::
+:::image type="content" source="./media/custom-route-alert-portal/logic-apps-workflow.png" alt-text="Fluxo de trabalho de Apps Lógicas":::
 
 ### <a name="1-create-a-logic-app"></a>1. Criar uma aplicação lógica
 
 No **designer de aplicativos Logic,** crie uma aplicação lógica utilizando o modelo **de App Blank Logic.** Para etapas, consulte [Create Logic Apps](../logic-apps/quickstart-create-first-logic-app-workflow.md#create-your-logic-app).
 
-:::image type="content" source="./media/custom-route-alert-portal/blank-template.png" alt-text="Adicionar conta de automação":::
+:::image type="content" source="./media/custom-route-alert-portal/blank-template.png" alt-text="Modelo em branco":::
 
 ### <a name="2-add-a-trigger"></a>2. Adicione um gatilho
 
@@ -287,7 +287,7 @@ Todas as aplicações lógicas são iniciadas por um gatilho. Um gatilho dispara
 
 Para executar regularmente uma aplicação lógica que se baseia num horário pré-fino, adicione o **incorporado Recorrence: Agendar** ao seu fluxo de trabalho. Na caixa de pesquisa, **escreva o horário.** Selecione **Triggers**. Na lista 'Triggers', selecione **Recorrence Schedule**.
 
-:::image type="content" source="./media/custom-route-alert-portal/schedule.png" alt-text="Adicionar conta de automação":::
+:::image type="content" source="./media/custom-route-alert-portal/schedule.png" alt-text="Recorrência: Horário":::
 
 No gatilho da Agenda de Recorrência, pode definir o fuso horário e uma recorrência para repetir o fluxo de trabalho. Em conjunto, o intervalo e a frequência definem o agendamento para o acionador da aplicação lógica. Para estabelecer uma frequência mínima de recorrência razoável, considere os seguintes fatores:
 
@@ -299,7 +299,7 @@ No gatilho da Agenda de Recorrência, pode definir o fuso horário e uma recorr�
 
 No final da configuração do fluxo de trabalho, pode verificar a consistência da frequência de recorrência executando o fluxo de trabalho algumas vezes e, em seguida, verificar o resultado na história do **Runs**.
 
-:::image type="content" source="./media/custom-route-alert-portal/recurrence.png" alt-text="Adicionar conta de automação" lightbox="./media/custom-route-alert-portal/recurrence-expand.png":::
+:::image type="content" source="./media/custom-route-alert-portal/recurrence.png" alt-text="A screenshot mostra os valores de intervalo de recorrência e frequência." lightbox="./media/custom-route-alert-portal/recurrence-expand.png":::
 
 ### <a name="3-create-a-job"></a><a name="job"></a>3. Criar um emprego
 
@@ -308,27 +308,29 @@ Uma aplicação lógica acede a outras aplicações, serviços e à plataforma a
 1. In **Logic Apps Designer**, abaixo da **Recorrência,** selecione **Novo passo**. Em **Escolha uma ação** e a caixa de pesquisa, selecione **All**.
 2. Na caixa de pesquisa, **digite Azure Automation** e procure. Selecione **Criar trabalho**. **Criar trabalho** será usado para disparar o runbook de automação que foi criado anteriormente.
 
-   :::image type="content" source="./media/custom-route-alert-portal/create-job.png" alt-text="Adicionar conta de automação":::
+   :::image type="content" source="./media/custom-route-alert-portal/create-job.png" alt-text="Criar a tarefa":::
 
 3. Inscreva-se usando um diretor de serviço. Pode usar um principal de serviço existente, ou pode criar um novo. Para criar um novo diretor de serviço, consulte [Como usar o portal para criar um diretor de serviço AD Azure que possa aceder aos recursos.](../active-directory/develop/howto-create-service-principal-portal.md) Selecione **Connect com o principal de serviço.**
 
-   :::image type="content" source="./media/custom-route-alert-portal/sign-in.png" alt-text="Adicionar conta de automação":::
+   :::image type="content" source="./media/custom-route-alert-portal/sign-in.png" alt-text="Screenshot que mostra a secção 'Recorrence' com a ação &quot;Connect with Service Principal&quot; realçada.":::
 
 4. Digite um **Nome de Ligação,** adicione o seu **ID do Cliente** (ID de aplicação), Segredo de **Cliente,** e o seu **ID do Inquilino.** Em seguida, selecione **Criar**.
 
-   :::image type="content" source="./media/custom-route-alert-portal/connect-service-principal.png" alt-text="Adicionar conta de automação" na Conta **Demôm automação.** Além disso, verifique se adicionou o **Nome runbook** como um novo parâmetro.
+   :::image type="content" source="./media/custom-route-alert-portal/connect-service-principal.png" alt-text="Conecte-se com o principal de serviço":::
 
-   :::image type="content" source="./media/custom-route-alert-portal/roles.png" alt-text="Adicionar conta de automação" lightbox="./media/custom-route-alert-portal/roles-expand.png":::
+5. Na página **de trabalho Create,** o titular do serviço deverá ter a função "Leitor" no **Grupo de Recursos** que acolhe a conta de automação e "Automação Demômes" na Conta **Demôm automação.** Além disso, verifique se adicionou o **Nome runbook** como um novo parâmetro.
+
+   :::image type="content" source="./media/custom-route-alert-portal/roles.png" alt-text="Screenshot mostra Criar valores de trabalho em Recorrência, onde pode verificar o Nome do Livro De Execução." lightbox="./media/custom-route-alert-portal/roles-expand.png":::
 
 ### <a name="4-get-the-job-output"></a><a name="output"></a>4. Obter a saída de emprego
 
 1. Selecione **Novo passo**. Procure "Azure Automation". Na lista **de Ações,** selecione **Obter saída de emprego**.
 
-   :::image type="content" source="./media/custom-route-alert-portal/get-output.png" alt-text="Adicionar conta de automação":::
+   :::image type="content" source="./media/custom-route-alert-portal/get-output.png" alt-text="Obter a saída da tarefa":::
 
-2. Na página de saída de **trabalho Get,** especifique as informações necessárias para aceder à conta de automação. Selecione a **Conta de Subscrição, Recursos**e **Automação** que pretende utilizar. Clique dentro da caixa **de identificação de trabalho.** Quando aparecer a lista **de conteúdos Dynamic,** selecione **Job ID**.
+2. Na página de saída de **trabalho Get,** especifique as informações necessárias para aceder à conta de automação. Selecione a **Conta de Subscrição, Recursos** e **Automação** que pretende utilizar. Clique dentro da caixa **de identificação de trabalho.** Quando aparecer a lista **de conteúdos Dynamic,** selecione **Job ID**.
 
-   :::image type="content" source="./media/custom-route-alert-portal/job-id.png" alt-text="Adicionar conta de automação" lightbox="./media/custom-route-alert-portal/job-id-expand.png":::
+   :::image type="content" source="./media/custom-route-alert-portal/job-id.png" alt-text="ID da tarefa" lightbox="./media/custom-route-alert-portal/job-id-expand.png":::
 
 ### <a name="5-parse-the-json"></a><a name="parse"></a>5. Parse o JSON
 
@@ -337,39 +339,39 @@ A informação contida na saída da "Azure Automation Create job action" (etapas
 1. Adicione uma ação. No âmbito da **ação Get job output ->**, selecione Novo **passo**.
 2. Na caixa de pesquisa de ação Escolha uma caixa de pesquisa de **ação,** escreva "parse json" para procurar conectores que ofereçam esta ação. Na lista **de Ações,** selecione a ação **Parse JSON** para as operações de dados que pretende utilizar.
 
-   :::image type="content" source="./media/custom-route-alert-portal/parse-json.png" alt-text="Adicionar conta de automação":::
+   :::image type="content" source="./media/custom-route-alert-portal/parse-json.png" alt-text="Analisar JSON":::
 
 3. Clique dentro da caixa **de conteúdo.** Quando aparecer a lista de conteúdos Dynamic, selecione **Conteúdo**.
 
-   :::image type="content" source="./media/custom-route-alert-portal/content.png" alt-text="Adicionar conta de automação" lightbox="./media/custom-route-alert-portal/content-expand.png":::
+   :::image type="content" source="./media/custom-route-alert-portal/content.png" alt-text="A screenshot mostra a caixa de diálogo Parse JSON com conteúdo selecionado." lightbox="./media/custom-route-alert-portal/content-expand.png":::
 
 4. Analisar um JSON requer um esquema. O esquema pode ser gerado utilizando a saída do livro de bordo da Automação. Abra uma nova sessão de navegador web, execute o runbook Automation e agarre a saída. Voltar à ação **de Operações de Dados da Logic Apps Parse JSON.** Na parte inferior da página, **selecione Utilize a carga útil da amostra para gerar esquema**.
 
-   :::image type="content" source="./media/custom-route-alert-portal/sample-payload.png" alt-text="Adicionar conta de automação":::
+   :::image type="content" source="./media/custom-route-alert-portal/sample-payload.png" alt-text="Use a carga útil da amostra para gerar esquema":::
 
 5. Para **introduzir ou colar uma amostra de carga JSON,** cole a saída do livro de saída da Automatização e selecione **Feito**.
 
-   :::image type="content" source="./media/custom-route-alert-portal/paste-payload.png" alt-text="Adicionar conta de automação" lightbox="./media/custom-route-alert-portal/paste-payload-expand.png":::
+   :::image type="content" source="./media/custom-route-alert-portal/paste-payload.png" alt-text="Carga útil da amostra de pasta" lightbox="./media/custom-route-alert-portal/paste-payload-expand.png":::
 
 6. Um esquema é gerado automaticamente através da análise da carga útil de entrada JSON.
 
-   :::image type="content" source="./media/custom-route-alert-portal/generate-schema.png" alt-text="Adicionar conta de automação" lightbox="./media/custom-route-alert-portal/generate-schema-expand.png":::
+   :::image type="content" source="./media/custom-route-alert-portal/generate-schema.png" alt-text="Gerar esquema" lightbox="./media/custom-route-alert-portal/generate-schema-expand.png":::
 
 ### <a name="6-define-and-initialize-a-variable"></a><a name="define-variable"></a>6. Definir e inicializar uma variável
 
 Neste passo do fluxo de trabalho, criamos uma condição para enviar um alarme por e-mail. Para uma formatação flexível e personalizada de uma mensagem corporal de e-mail, uma variável auxiliar é introduzida no fluxo de trabalho.
 
-1. No âmbito da ação **de saída de emprego**Get , selecione Novo **passo**. Na caixa de pesquisa, encontre e selecione **Variáveis.**
+1. No âmbito da ação **de saída de emprego** Get , selecione Novo **passo**. Na caixa de pesquisa, encontre e selecione **Variáveis.**
 
-   :::image type="content" source="./media/custom-route-alert-portal/variables.png" alt-text="Adicionar conta de automação":::
+   :::image type="content" source="./media/custom-route-alert-portal/variables.png" alt-text="A screenshot mostra a caixa de diálogo de ação Escolha uma caixa de diálogo de ação com variável na caixa de pesquisa e variáveis selecionadas.":::
 
 2. Na lista **de Ações,** selecione a ação **variável Initialize.**
 
-   :::image type="content" source="./media/custom-route-alert-portal/initialize-variables.png" alt-text="Adicionar conta de automação":::
+   :::image type="content" source="./media/custom-route-alert-portal/initialize-variables.png" alt-text="Inicializar variáveis":::
 
 3. Especificar o nome da variável. Para **tipo**, selecione **String**. O **Valor** da variável será atribuído mais tarde no fluxo de trabalho.
 
-   :::image type="content" source="./media/custom-route-alert-portal/string.png" alt-text="Adicionar conta de automação" lightbox="./media/custom-route-alert-portal/string-expand.png":::
+   :::image type="content" source="./media/custom-route-alert-portal/string.png" alt-text="O Screenshot mostra Parse JSON associada à variável Initialize, onde pode introduzir um Nome, Tipo e Valor." lightbox="./media/custom-route-alert-portal/string-expand.png":::
 
 ### <a name="7-create-a-for-each-action"></a><a name="cycles-json"></a>7. Criar uma ação "Para cada"
 
@@ -377,51 +379,51 @@ Uma vez analisado o JSON, a ação **Parse JSON Data Operations** armazena o con
 
 1. Sob **a variável Initialize,** selecione **Adicione uma ação**. Na caixa de pesquisa, escreva "para cada um" como filtro.
 
-   :::image type="content" source="./media/custom-route-alert-portal/control.png" alt-text="Adicionar conta de automação":::
+   :::image type="content" source="./media/custom-route-alert-portal/control.png" alt-text="A screenshot mostra a caixa de diálogo de ação escolha uma caixa de diálogo de ação com cada uma na caixa de pesquisa e Controlo selecionado.":::
 
 2. Na lista **de Ações,** selecione a ação **Para cada um - Controlo**.
 
-   :::image type="content" source="./media/custom-route-alert-portal/for-each.png" alt-text="Adicionar conta de automação":::
+   :::image type="content" source="./media/custom-route-alert-portal/for-each.png" alt-text="Para cada um- Controlo":::
 
 3. Clique na versão Selecionar uma saída da caixa de texto **dos passos anteriores.** Quando aparecer a lista **de conteúdo dinâmico,** selecione o **Corpo**, que é a saída do JSON analisado.
 
-   :::image type="content" source="./media/custom-route-alert-portal/body.png" alt-text="Adicionar conta de automação":::
+   :::image type="content" source="./media/custom-route-alert-portal/body.png" alt-text="A screenshot mostra variável inicial associada a cada um, que contém a saída Selecione uma saída da caixa de texto de passos anteriores.":::
 
 4. Para cada elemento do corpo JSON, queremos definir uma condição. Do grupo de ação, selecione **Control**.
 
-   :::image type="content" source="./media/custom-route-alert-portal/condition-control.png" alt-text="Adicionar conta de automação":::
+   :::image type="content" source="./media/custom-route-alert-portal/condition-control.png" alt-text="Controlo":::
 
 5. Na lista **de Ações,** selecione **Controlo de Condições.** O Condition-Control é uma estrutura de controlo que compara os dados do seu fluxo de trabalho com valores ou campos específicos. Em seguida, pode especificar diferentes ações que são executadas com base em se os dados cumprem ou não a condição.
 
-   :::image type="content" source="./media/custom-route-alert-portal/condition.png" alt-text="Adicionar conta de automação":::
+   :::image type="content" source="./media/custom-route-alert-portal/condition.png" alt-text="Controlo de Condições":::
 
 6. Na raiz da **ação da Condição,** altere a operação lógica para **Ou**.
 
-   :::image type="content" source="./media/custom-route-alert-portal/condition-or.png" alt-text="Adicionar conta de automação" lightbox="./media/custom-route-alert-portal/condition-or-expand.png":::
+   :::image type="content" source="./media/custom-route-alert-portal/condition-or.png" alt-text="Ou" lightbox="./media/custom-route-alert-portal/condition-or-expand.png":::
 
 7. Verifique o valor do número de prefixos de rede que um gateway ExpressRoute anuncia aos dois pares BGP. O número de rotas está disponível em "numRoutePeer1" e "numRoutePeer2" em **conteúdo Dinâmico**. Na caixa de valor, digite o valor **para numRoutePeer1**.
 
-   :::image type="content" source="./media/custom-route-alert-portal/peer-1.png" alt-text="Adicionar conta de automação":::
+   :::image type="content" source="./media/custom-route-alert-portal/peer-1.png" alt-text="numroutesPeer1":::
 
 8. Para adicionar mais uma linha à sua condição, escolha **Adicionar -> Adicionar linha**. Na segunda caixa, a partir de **conteúdo Dinâmico,** selecione **numRoutePeer2**.
 
-   :::image type="content" source="./media/custom-route-alert-portal/peer-2.png" alt-text="Adicionar conta de automação":::
+   :::image type="content" source="./media/custom-route-alert-portal/peer-2.png" alt-text="numroutesPeer2":::
 
 9. A condição lógica é verdadeira quando uma de duas variáveis dinâmicas, numRoute1 ou numRoute2, é maior do que o limiar. Neste exemplo, o limiar é fixado para 160 (80% do valor máximo de 200 rotas). Pode alterar o valor limiar para se adaptar às suas necessidades. Para obter consistência, o valor deve ser o mesmo utilizado no script PowerShell do runbook.
 
-   :::image type="content" source="./media/custom-route-alert-portal/logic-condition.png" alt-text="Adicionar conta de automação":::
+   :::image type="content" source="./media/custom-route-alert-portal/logic-condition.png" alt-text="Condição lógica":::
 
 10. Em **Se for verdade,** formato e criar as ações para enviar o alerta por e-mail. Em **Escolha uma ação, procure e selecione **Variáveis.**
 
-    :::image type="content" source="./media/custom-route-alert-portal/condition-if-true.png" alt-text="Adicionar conta de automação":::
+    :::image type="content" source="./media/custom-route-alert-portal/condition-if-true.png" alt-text="Se for verdade":::
 
 11. Em Variáveis, **selecione Adicionar uma ação**. Na lista **de Ações,** selecione **'Definir variável'.**
 
-    :::image type="content" source="./media/custom-route-alert-portal/condition-set-variable.png" alt-text="Adicionar conta de automação":::
+    :::image type="content" source="./media/custom-route-alert-portal/condition-set-variable.png" alt-text="Screenshot da secção 'Variáveis' com o separador 'Ações' selecionado e 'set variable' realçado.":::
 
 12. Em **Nome**, selecione a variável chamada **EmailBody** que criou anteriormente. Para **Valor**, cole o script HTML necessário para formatar o e-mail de alerta. Utilize o **conteúdo Dinâmico** para incluir os valores do corpo JSON. Depois de configurar estas definições, o resultado é que o **emailbody** variável contém todas as informações relacionadas com o alerta, em formato HTML.
 
-    :::image type="content" source="./media/custom-route-alert-portal/paste-script.png" alt-text="Adicionar conta de automação":::
+    :::image type="content" source="./media/custom-route-alert-portal/paste-script.png" alt-text="Conjunto variável":::
 
 ### <a name="8-add-the-email-connector"></a><a name="email"></a>8. Adicione o conector de e-mail
 
@@ -429,29 +431,29 @@ A Logic Apps fornece muitos conectores de e-mail. Neste exemplo, adicionamos um 
 
 1. Selecione **Office 365 Outlook**.
 
-   :::image type="content" source="./media/custom-route-alert-portal/email.png" alt-text="Adicionar conta de automação":::
+   :::image type="content" source="./media/custom-route-alert-portal/email.png" alt-text="Enviar e-mail":::
 
 2. Na lista **de Ações,** selecione **Enviar por email o artigo V2.**
 
-   :::image type="content" source="./media/custom-route-alert-portal/email-v2.png" alt-text="Adicionar conta de automação":::
+   :::image type="content" source="./media/custom-route-alert-portal/email-v2.png" alt-text="Enviar um e-mail (V2)":::
 
 3. Inscreva-se para criar uma ligação ao Office 365 Outlook.
 
-   :::image type="content" source="./media/custom-route-alert-portal/office-365.png" alt-text="Adicionar conta de automação":::
+   :::image type="content" source="./media/custom-route-alert-portal/office-365.png" alt-text="Iniciar sessão":::
 
-4. No campo **Corpo,** clique em **Adicionar conteúdo dinâmico.** A partir do painel de conteúdo dinâmico, adicione o **emailcorpo**variável . Preencha o **Assunto** e **Os** Campos.
+4. No campo **Corpo,** clique em **Adicionar conteúdo dinâmico.** A partir do painel de conteúdo dinâmico, adicione o **emailcorpo** variável . Preencha o **Assunto** e **Os** Campos.
 
-   :::image type="content" source="./media/custom-route-alert-portal/emailbody.png" alt-text="Adicionar conta de automação":::
+   :::image type="content" source="./media/custom-route-alert-portal/emailbody.png" alt-text="Corpo":::
 
 5. A **ação Enviar um e-mail (v2)** completa a configuração do fluxo de trabalho.
 
-   :::image type="content" source="./media/custom-route-alert-portal/send-email-v2.png" alt-text="Adicionar conta de automação" lightbox="./media/custom-route-alert-portal/send-email-v2-expand.png":::
+   :::image type="content" source="./media/custom-route-alert-portal/send-email-v2.png" alt-text="Enviar e-mail v2" lightbox="./media/custom-route-alert-portal/send-email-v2-expand.png":::
 
 ### <a name="9-workflow-validation"></a><a name="validation"></a>9. Validação do fluxo de trabalho
 
 O passo final é a validação do fluxo de trabalho. No **Visão geral das aplicações lógicas**, selecione **'Executar Trigger'.** Selecione **Recorrência**. O fluxo de trabalho pode ser monitorizado e verificado na história do **Runs**.
 
-:::image type="content" source="./media/custom-route-alert-portal/trigger.png" alt-text="Adicionar conta de automação":::
+:::image type="content" source="./media/custom-route-alert-portal/trigger.png" alt-text="Acionar o gatilho":::
 
 ## <a name="next-steps"></a>Passos seguintes
 

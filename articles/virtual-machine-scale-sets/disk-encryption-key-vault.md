@@ -9,12 +9,12 @@ ms.subservice: disks
 ms.date: 10/10/2019
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: b8697e64eac69af8b8552f01fb6a03da0488a7cc
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 3d30d506ae3b49b2e247ee77ef17d101f94854c7
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102210104"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102501022"
 ---
 # <a name="create-and-configure-a-key-vault-for-azure-disk-encryption"></a>Criar e configurar um cofre chave para encriptação de disco Azure
 
@@ -36,7 +36,7 @@ Os passos deste artigo podem ser preenchidos com o [Azure CLI,](/cli/azure/)o [m
 
 ### <a name="connect-to-your-azure-account"></a>Ligar à sua conta do Azure
 
-Antes de utilizar o Azure CLI ou a Azure PowerShell, tem primeiro de ligar-se à sua subscrição Azure. Fá-lo [assinando com a Azure CLI](/cli/azure/authenticate-azure-cli), [assinando com a Azure PowerShell,](/powershell/azure/authenticate-azureps?view=azps-2.5.0)ou fornecendo as suas credenciais ao portal Azure quando solicitado.
+Antes de utilizar o Azure CLI ou a Azure PowerShell, tem primeiro de ligar-se à sua subscrição Azure. Fá-lo [assinando com a Azure CLI](/cli/azure/authenticate-azure-cli), [assinando com a Azure PowerShell,](/powershell/azure/authenticate-azureps)ou fornecendo as suas credenciais ao portal Azure quando solicitado.
 
 ```azurecli-interactive
 az login

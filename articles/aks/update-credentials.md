@@ -5,16 +5,16 @@ description: Saiba como atualizar ou redefinir as credenciais de serviço princi
 services: container-service
 ms.topic: article
 ms.date: 03/11/2019
-ms.openlocfilehash: ba2c31872ae026cfdfcb7be17d333fb98194dce6
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 84cadc54a11c2e57d73fd1f06e98deb3d599d648
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100389013"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102501180"
 ---
 # <a name="update-or-rotate-the-credentials-for-azure-kubernetes-service-aks"></a>Atualizar ou rodar as credenciais para o Serviço Azure Kubernetes (AKS)
 
-Por padrão, os clusters AKS são criados com um principal de serviço que tem um prazo de validade de um ano. À medida que se aproxima da data de validade, pode redefinir as credenciais para prolongar o principal de serviço por um período adicional de tempo. Também pode querer atualizar, ou rodar, as credenciais como parte de uma política de segurança definida. Este artigo detalha como atualizar estas credenciais para um cluster AKS.
+Os clusters AKS criados com um diretor de serviço têm um prazo de validade de um ano. À medida que se aproxima da data de validade, pode redefinir as credenciais para prolongar o principal de serviço por um período adicional de tempo. Também pode querer atualizar, ou rodar, as credenciais como parte de uma política de segurança definida. Este artigo detalha como atualizar estas credenciais para um cluster AKS.
 
 Pode também ter [integrado o seu cluster AKS com o Azure Ative Directory][aad-integration]e usá-lo como fornecedor de autenticação para o seu cluster. Nesse caso, terá mais duas identidades criadas para o seu cluster, a App AAD Server e a App cliente AAD, podendo também redefinir essas credenciais.
 

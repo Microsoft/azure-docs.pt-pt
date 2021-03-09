@@ -6,12 +6,12 @@ ms.author: crtreasu
 ms.date: 02/17/2021
 ms.topic: best-practice
 ms.service: azure-object-anchors
-ms.openlocfilehash: 5b84bfae4a338a15b75e4f61114869aab1e94f87
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: da3be6e3d97e50b27ded29ba017164fdbd9a0a5b
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101747129"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102503050"
 ---
 # <a name="best-practices"></a>Melhores práticas
 
@@ -28,6 +28,8 @@ Recomendamos experimentar alguns destes passos para obter os melhores resultados
 - O nosso serviço de conversão de modelos pode demorar muito tempo a processar um grande modelo lod alto (nível de detalhe). Para eficácia pode pré-processar o seu modelo 3D para remover as faces interiores.
 
 ## <a name="detection"></a>Deteção
+
+> [!VIDEO https://channel9.msdn.com/Shows/Docs-Mixed-Reality/Azure-Object-Anchors-Detection-and-Alignment-Best-Practices/player]
 
 - O tempo de execução fornecido pela SDK requer uma região de pesquisa fornecida pelo utilizador para procurar e detetar os objetos físicos. A região de busca pode ser uma caixa de delimitação, uma esfera, uma vista frustum, ou qualquer combinação deles. Para evitar uma deteção falsa, é preferível definir uma região de pesquisa suficientemente grande para cobrir o objeto. Ao utilizar as aplicações de amostra fornecidas, pode ficar de um lado do objeto a cerca de 2 metros da superfície mais próxima e iniciar a aplicação.
 - Antes de iniciar a aplicação Object Anchors num dispositivo HoloLens 2, remova os hologramas nas proximidades do seu local de trabalho através das definições principais dos seus dispositivos através ***de Hologramas >do Sistema de Definições >***

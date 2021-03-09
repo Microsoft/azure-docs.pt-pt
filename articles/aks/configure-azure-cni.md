@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 06/03/2019
 ms.custom: references_regions
-ms.openlocfilehash: 6c0cc1c8da6fddfad6d3f70c88860ddcdd35a11a
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: ef9e3689f5846ddfc66c47a15967a18fc6550d35
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102182422"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102504257"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Configurar a rede CNI Azure no Serviço Azure Kubernetes (AKS)
 
@@ -24,10 +24,9 @@ Este artigo mostra-lhe como utilizar a rede *CNI Azure* para criar e utilizar um
 
 * A rede virtual para o cluster AKS deve permitir a conectividade de saída da Internet.
 * Os clusters AKS não podem utilizar `169.254.0.0/16` , , ou para a gama de `172.30.0.0/16` `172.31.0.0/16` `192.0.2.0/24` endereços de serviço Kubernetes, gama de endereços de pod ou intervalo de endereços de rede virtual de cluster.
-* O principal de serviço utilizado pelo cluster AKS deve ter pelo menos permissões [de Contribuinte de Rede](../role-based-access-control/built-in-roles.md#network-contributor) na sub-rede dentro da sua rede virtual. Se desejar definir uma [função personalizada](../role-based-access-control/custom-roles.md) em vez de utilizar a função de contribuinte de rede incorporada, são necessárias as seguintes permissões:
+* A identidade do cluster utilizada pelo cluster AKS deve ter pelo menos permissões [de Contribuinte de Rede](../role-based-access-control/built-in-roles.md#network-contributor) na sub-rede dentro da sua rede virtual. Se desejar definir uma [função personalizada](../role-based-access-control/custom-roles.md) em vez de utilizar a função de contribuinte de rede incorporada, são necessárias as seguintes permissões:
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
   * `Microsoft.Network/virtualNetworks/subnets/read`
-* Em vez de um principal de serviço, pode utilizar o sistema atribuído à identidade gerida para permissões. Para obter mais informações, consulte [utilização de identidades geridas.](use-managed-identity.md)
 * A sub-rede atribuída ao conjunto de nó de nó AKS não pode ser uma [sub-rede delegada](../virtual-network/subnet-delegation-overview.md).
 
 ## <a name="plan-ip-addressing-for-your-cluster"></a>Endereço IP do plano para o seu cluster
@@ -64,7 +63,7 @@ O número máximo de cápsulas por nó num cluster AKS é de 250. O número máx
 | -- | :--: | :--: | -- |
 | CLI do Azure | 110 | 30 | Sim (até 250) |
 | Modelo do Resource Manager | 110 | 30 | Sim (até 250) |
-| Portal | 110 | 110 (configurado no separador Piscinas de Nó) | Não |
+| Portal | 110 | 110 (configurado no separador Piscinas de Nó) | No |
 
 ### <a name="configure-maximum---new-clusters"></a>Configurar máximo - novos clusters
 

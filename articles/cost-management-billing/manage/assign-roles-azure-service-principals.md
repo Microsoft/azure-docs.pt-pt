@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 03/07/2021
 ms.author: banders
-ms.openlocfilehash: 0f30c90bf81a837b1e78ca5f91450cf085cc91bc
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: e7f5370e1e387947d196959fef31043ea8f4d3bd
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/09/2021
-ms.locfileid: "102495145"
+ms.locfileid: "102508525"
 ---
 # <a name="assign-roles-to-azure-enterprise-agreement-service-principal-names"></a>Atribuir funções aos nomes principais do serviço do Azure Enterprise Agreement
 
@@ -23,7 +23,7 @@ Pode gerir a sua inscrição no [portal Azure Enterprise (Enterprise)](https://e
 Antes de começar, certifique-se de que está familiarizado com os seguintes artigos:
 
 - [Funções de acordo de empresa](understand-ea-roles.md)
-- [Iniciar sessão com o Azure PowerShell](/powershell/azure/authenticate-azureps?view=azps-5.5.0&preserve-view=true)
+- [Iniciar sessão com o Azure PowerShell](/powershell/azure/authenticate-azureps)
 - [Como chamar ASPis de REST com Carteiro](/rest/api/azure/#how-to-call-azure-rest-apis-with-postman)
 
 ## <a name="create-and-authenticate-your-service-principal"></a>Crie e aututenda o seu principal de serviço
@@ -89,7 +89,7 @@ O parâmetro é a identificação da conta de faturação. Pode encontrá-lo no 
 
 **billingRoleAssignmentName**
 
-O parâmetro é um GUID único que precisa fornecer. Pode gerar um GUID utilizando o comando [New-Guid](/powershell/module/microsoft.powershell.utility/new-guid?view=powershell-7.1&preserve-view=true) PowerShell.
+O parâmetro é um GUID único que precisa fornecer. Pode gerar um GUID utilizando o comando [New-Guid](/powershell/module/microsoft.powershell.utility/new-guid) PowerShell.
 
 Ou, pode utilizar o website [Online GUID / UUID Generator](https://guidgenerator.com/) para gerar um GUID único.
 
@@ -141,7 +141,7 @@ Fornecer os seguintes parâmetros como parte do pedido da API.
 
 **billingRoleAssignmentName**
 
-O parâmetro é um GUID único que precisa fornecer. Pode gerar um GUID utilizando o comando [New-Guid](/powershell/module/microsoft.powershell.utility/new-guid?view=powershell-7.1&preserve-view=true) PowerShell.
+O parâmetro é um GUID único que precisa fornecer. Pode gerar um GUID utilizando o comando [New-Guid](/powershell/module/microsoft.powershell.utility/new-guid) PowerShell.
 
 Ou, pode utilizar o website [Online GUID / UUID Generator](https://guidgenerator.com/) para gerar um GUID único.
 
@@ -199,7 +199,7 @@ O parâmetro é a identificação da conta de faturação. Pode encontrá-lo no 
 
 **billingRoleAssignmentName**
 
-O parâmetro é um GUID único que precisa fornecer. Pode gerar um GUID utilizando o comando [New-Guid](/powershell/module/microsoft.powershell.utility/new-guid?view=powershell-7.1&preserve-view=true) PowerShell.
+O parâmetro é um GUID único que precisa fornecer. Pode gerar um GUID utilizando o comando [New-Guid](/powershell/module/microsoft.powershell.utility/new-guid) PowerShell.
 
 Ou, pode utilizar o website [Online GUID / UUID Generator](https://guidgenerator.com/) para gerar um GUID único.
 **matrículaName**

@@ -230,7 +230,7 @@
           href: restore-managed-disks.md
     - name: Backup Azure Blobs
       items:
-        - name: Descrição Geral
+        - name: Descrição geral
           href: blob-backup-overview.md
         - name: Configurar e gerir
           href: blob-backup-configure-manage.md
@@ -366,7 +366,7 @@
           href: monitor-azure-backup-with-backup-explorer.md
         - name: Utilizar o portal do Azure
           href: backup-azure-monitoring-built-in-monitor.md
-        - name: Utilizar o Azure Monitor
+        - name: Usando registos de monitores Azure
           href: backup-azure-monitoring-use-azuremonitor.md
     - name: Relatórios
       items:
@@ -374,10 +374,14 @@
           items:
             - name: Configurar relatórios do Azure Backup
               href: configure-reports.md
+            - name: Relatórios de backup do E-mail Azure
+              href: backup-reports-email.md
         - name: Configurar Eventos de Diagnóstico para os Cofres dos Serviços de Recuperação
           items:
             - name: Utilizar Definições de Diagnóstico para os Cofres dos Serviços de Recuperação
               href: backup-azure-diagnostic-events.md
+            - name: Utilização de Funções do Sistema
+              href: backup-reports-system-functions.md
             - name: Modelo de Dados do Log Analytics para Eventos de Diagnóstico Específicos de Recurso
               href: backup-azure-reports-data-model.md
             - name: Modelo de Dados do Log Analytics para o Azure Backup (Modo de Diagnóstico do Azure)

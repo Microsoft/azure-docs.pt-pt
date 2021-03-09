@@ -11,12 +11,12 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 08/31/2020
 ms.custom: devx-track-python, data4ml
-ms.openlocfilehash: 1c2a917712cbde95fda9321e56fe1c033ad444aa
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 601be8409db22162a410d481e6609d378718a7b4
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101659720"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102503594"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Acesso seguro a dados em Azure Machine Learning
 
@@ -67,7 +67,7 @@ Serviços de armazenamento baseados em nuvem suportados em Azure que podem ser r
 + Base de Dados do Azure para MySQL
 
 >[!TIP]
-> A funcionalidade geralmente disponível para a criação de datastores requer autenticação baseada em credenciais para aceder a serviços de armazenamento, como um símbolo principal de serviço ou assinatura de acesso partilhado (SAS). Estas credenciais podem ser acedidas por utilizadores que tenham acesso ao espaço de trabalho do *Leitor.* <br><br>Se isso for uma preocupação,  [crie uma loja de dados que utilize o acesso de dados baseados na identidade aos serviços de armazenamento (pré-visualização)](how-to-identity-based-data-access.md). Esta capacidade é uma funcionalidade de pré-visualização [experimental](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py#stable-vs-experimental) e pode mudar a qualquer momento.
+> A funcionalidade geralmente disponível para a criação de datastores requer autenticação baseada em credenciais para aceder a serviços de armazenamento, como um símbolo principal de serviço ou assinatura de acesso partilhado (SAS). Estas credenciais podem ser acedidas por utilizadores que tenham acesso ao espaço de trabalho do *Leitor.* <br><br>Se isso for uma preocupação,  [crie uma loja de dados que utilize o acesso de dados baseados na identidade aos serviços de armazenamento (pré-visualização)](how-to-identity-based-data-access.md). Esta capacidade é uma funcionalidade de pré-visualização [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) e pode mudar a qualquer momento.
 
 <a name="datasets"></a>
 ## <a name="reference-data-in-storage-with-datasets"></a>Dados de referência no armazenamento com conjuntos de dados
@@ -86,9 +86,9 @@ Os conjuntos de dados podem ser criados a partir de ficheiros locais, urls públ
 
 Existem 2 tipos de conjuntos de dados: 
 
-+ Um [Dataset de ficheiros](/python/api/azureml-core/azureml.data.file_dataset.filedataset?preserve-view=true&view=azure-ml-py) refere ficheiros únicos ou múltiplos nas suas datastores ou URLs públicos. Se os seus dados já estiverem limpos e prontos a serem utilizados em experiências de treino, pode [descarregar ou montar ficheiros](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) referenciados por FileDatasets para o seu alvo de computação.
++ Um [Dataset de ficheiros](/python/api/azureml-core/azureml.data.file_dataset.filedataset) refere ficheiros únicos ou múltiplos nas suas datastores ou URLs públicos. Se os seus dados já estiverem limpos e prontos a serem utilizados em experiências de treino, pode [descarregar ou montar ficheiros](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) referenciados por FileDatasets para o seu alvo de computação.
 
-+ Um [SeparadorDataset](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py) representa dados num formato tabular, analisando o ficheiro ou lista de ficheiros fornecidos. Pode carregar um SeparadorDataset num panda ou No Spark DataFrame para posterior manipulação e limpeza. Para obter uma lista completa de formatos de dados, pode criar Datasets Tabular, consulte a [classe TabularDatasetFactory](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory).
++ Um [SeparadorDataset](/python/api/azureml-core/azureml.data.tabulardataset) representa dados num formato tabular, analisando o ficheiro ou lista de ficheiros fornecidos. Pode carregar um SeparadorDataset num panda ou No Spark DataFrame para posterior manipulação e limpeza. Para obter uma lista completa de formatos de dados, pode criar Datasets Tabular, consulte a [classe TabularDatasetFactory](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory).
 
 As capacidades adicionais de conjuntos de dados podem ser encontradas na seguinte documentação:
 

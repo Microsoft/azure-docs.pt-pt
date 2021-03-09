@@ -8,12 +8,12 @@ ms.date: 01/03/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: contperf-fy21q1, devx-track-azurecli
-ms.openlocfilehash: 6d8402f5e8a1a9af1f84ff6beff7324d1675e441
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 3abca397186572cabb4f7ae99edae8688ea4d9a6
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102214410"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102499514"
 ---
 # <a name="enable-azure-active-directory-domain-services-authentication-on-azure-files"></a>Ativar a autenticação dos Serviços de Domínio do Diretório Ativo do Azure em Ficheiros Azure
 
@@ -99,7 +99,7 @@ A imagem a seguir mostra como ativar a autenticação Azure AD DS em SMB para a 
 
 Para ativar a autenticação Azure AD DS sobre o SMB com a Azure PowerShell, instale o módulo Az mais recente (2.4 ou mais recente) ou o módulo Az.Storage (1.5 ou mais recente). Para obter mais informações sobre a instalação do PowerShell, consulte [instalar o Azure PowerShell no Windows com o PowerShellGet](/powershell/azure/install-Az-ps).
 
-Para criar uma nova conta de armazenamento, ligue para [o New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount?view=azps-2.5.0)e, em seguida, desacema o parâmetro **EnableAzureActiveDirectoryDomainServicesForFile** para **ser verdadeiro**. No exemplo seguinte, lembre-se de substituir os valores do espaço reservado pelos seus próprios valores. (Se estava a utilizar o módulo de pré-visualização anterior, o parâmetro para ativar a funcionalidade é **EnableAzureFilesAadIntegrationForSMB**.)
+Para criar uma nova conta de armazenamento, ligue para [o New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount)e, em seguida, desacema o parâmetro **EnableAzureActiveDirectoryDomainServicesForFile** para **ser verdadeiro**. No exemplo seguinte, lembre-se de substituir os valores do espaço reservado pelos seus próprios valores. (Se estava a utilizar o módulo de pré-visualização anterior, o parâmetro para ativar a funcionalidade é **EnableAzureFilesAadIntegrationForSMB**.)
 
 ```powershell
 # Create a new storage account

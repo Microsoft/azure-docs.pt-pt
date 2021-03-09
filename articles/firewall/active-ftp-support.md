@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: conceptual
 ms.date: 03/05/2021
 ms.author: victorh
-ms.openlocfilehash: aa543b32efcd1897eb0ee7d8b477742705095ad9
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: adbc2a9eb6cd3b054df84911604143ddb711ad20
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102430739"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102499140"
 ---
 # <a name="azure-firewall-active-ftp-support"></a>Suporte FTP ativo Azure Firewall
 
@@ -23,7 +23,7 @@ Por predefinição, o suporte FTP ativo é desativado no Azure Firewall para pro
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
-Para implementar utilizando a Azure PowerShell, utilize o `AllowActiveFTP` parâmetro. Para obter mais informações, consulte [Criar uma firewall com Permitir FTP ativo](/powershell/module/az.network/new-azfirewall?view=azps-5.4.0#16---create-a-firewall-with-allow-active-ftp-).
+Para implementar utilizando a Azure PowerShell, utilize o `AllowActiveFTP` parâmetro. Para obter mais informações, consulte [Criar uma firewall com Permitir FTP ativo](/powershell/module/az.network/new-azfirewall#16---create-a-firewall-with-allow-active-ftp-).
 
 ## <a name="azure-cli"></a>CLI do Azure
 

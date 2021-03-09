@@ -5,12 +5,12 @@ description: Aprenda a instalar e configurar um controlador de entrada NGINX com
 services: container-service
 ms.topic: article
 ms.date: 08/17/2020
-ms.openlocfilehash: 58cda3f2bfc76f00deaa85347c059040e39f9ef5
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: fa6572ddc694cb892f48cb3e618c176f087524f6
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98729018"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102506570"
 ---
 # <a name="create-an-ingress-controller-with-a-static-public-ip-address-in-azure-kubernetes-service-aks"></a>Criar um controlador de entrada com um endereço IP público estático no Serviço Azure Kubernetes (AKS)
 
@@ -50,7 +50,7 @@ az network public-ip create --resource-group MC_myResourceGroup_myAKSCluster_eas
 ```
 
 > [!NOTE]
-> Os comandos acima criam um endereço IP que será eliminado se eliminar o seu cluster AKS. Em alternativa, pode criar um endereço IP num grupo de recursos diferente que pode ser gerido separadamente do seu cluster AKS. Se criar um endereço IP num grupo de recursos diferente, certifique-se de que o principal de serviço utilizado pelo cluster AKS delegou permissões para o outro grupo de recursos, como o *Network Contributor*. Para obter mais informações, consulte [Utilize um endereço IP público estático e etiqueta DNS com o balançador de carga AKS][aks-static-ip].
+> Os comandos acima criam um endereço IP que será eliminado se eliminar o seu cluster AKS. Em alternativa, pode criar um endereço IP num grupo de recursos diferente que pode ser gerido separadamente do seu cluster AKS. Se criar um endereço IP num grupo de recursos diferente, certifique-se de que a identidade de cluster utilizada pelo cluster AKS tem permissões delegadas para o outro grupo de recursos, como o *Network Contributor*. Para obter mais informações, consulte [Utilize um endereço IP público estático e etiqueta DNS com o balançador de carga AKS][aks-static-ip].
 
 Agora, implante a tabela *de entrada de nginx* com Helm. Para uma maior redundância, são implementadas duas réplicas dos controladores de entrada do NGINX com o parâmetro `--set controller.replicaCount`. Para beneficiar totalmente da execução de réplicas do controlador de entrada, certifique-se de que há mais de um nó no seu cluster AKS.
 
@@ -450,7 +450,7 @@ Por fim, remova o endereço IP público estático criado para o controlador de e
 az network public-ip delete --resource-group MC_myResourceGroup_myAKSCluster_eastus --name myAKSPublicIP
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Este artigo incluiu alguns componentes externos para a AKS. Para saber mais sobre estes componentes, consulte as seguintes páginas do projeto:
 

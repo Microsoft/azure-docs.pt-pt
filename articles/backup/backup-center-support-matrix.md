@@ -1,24 +1,24 @@
 ---
-title: Matriz de suporte para backup center
-description: Este artigo resume os cenários que o Backup Center suporta para cada tipo de carga de trabalho
+title: Matriz de suporte para centro de backup
+description: Este artigo resume os cenários que o backup center suporta para cada tipo de carga de trabalho
 ms.topic: conceptual
 ms.date: 09/07/2020
-ms.openlocfilehash: aedf2d071c4f38d2d873383409c11abdf3c0c72d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: d6e5d34e201edda4fd1e9fda85f210fb88211e28
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101700240"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102504512"
 ---
-# <a name="support-matrix-for-backup-center"></a>Matriz de suporte para backup center
+# <a name="support-matrix-for-backup-center"></a>Matriz de suporte para centro de backup
 
-O Backup Center fornece um único painel de vidro para as empresas [governarem, monitorizarem, operarem e analisarem backups à escala.](backup-center-overview.md) Este artigo resume os cenários que o Backup Center suporta para cada tipo de carga de trabalho.
+O Backup Center fornece um único painel de vidro para as empresas [governarem, monitorizarem, operarem e analisarem backups à escala.](backup-center-overview.md) Este artigo resume os cenários que o Backup center suporta para cada tipo de carga de trabalho.
 
 ## <a name="supported-scenarios"></a>Cenários suportados
 
 | **Categoria** | **Cenário**  | **Cargas de trabalho suportadas**  | **Limites** |
 | -------------| ------------- | ----------------------- |------------|
-| Monitorização   | Ver todos os trabalhos | <li> Máquina Virtual do Azure <br><br> <li> Base de Dados Azure para servidor PostgreSQL <br><br> <li> SQL em Azure VM <br><br> <li> SAP HANA em Azure VM <br><br> <li> Ficheiros do Azure<br/><br/> <li>Blobs do Azure<br/><br/> <li>Managed Disks do Azure | <li> 7 dias de empregos disponíveis fora da caixa. <br> <li> Cada filtro/drop-down suporta um máximo de 1000 itens. Assim, o Backup Center pode ser usado para monitorizar um máximo de 1000 assinaturas e 1000 cofres através dos inquilinos. |
+| Monitorização   | Ver todos os trabalhos | <li> Máquina Virtual do Azure <br><br> <li> Base de Dados Azure para servidor PostgreSQL <br><br> <li> SQL em Azure VM <br><br> <li> SAP HANA em Azure VM <br><br> <li> Ficheiros do Azure<br/><br/> <li>Blobs do Azure<br/><br/> <li>Managed Disks do Azure | <li> 7 dias de empregos disponíveis fora da caixa. <br> <li> Cada filtro/drop-down suporta um máximo de 1000 itens. Assim, o backup center pode ser usado para monitorizar um máximo de 1000 assinaturas e 1000 cofres através de inquilinos. |
 | Monitorização | Ver todas as instâncias de backup | <li> Máquina Virtual do Azure <br><br> <li> Base de Dados Azure para servidor PostgreSQL <br><br> <li> SQL em Azure VM <br><br> <li> SAP HANA em Azure VM <br><br> <li> Ficheiros do Azure<br/><br/> <li>Blobs do Azure<br/><br/> <li>Managed Disks do Azure | Mesmo que acima |
 | Monitorização | Ver todas as políticas de backup | <li> Máquina Virtual do Azure <br><br> <li> Base de Dados Azure para servidor PostgreSQL <br><br> <li> SQL em Azure VM <br><br> <li> SAP HANA em Azure VM <br><br> <li> Ficheiros do Azure<br/><br/> <li>Blobs do Azure<br/><br/> <li>Managed Disks do Azure | Mesmo que acima |
 | Monitorização | Ver todos os cofres | <li> Máquina Virtual do Azure <br><br> <li> Base de Dados Azure para servidor PostgreSQL <br><br> <li> SQL em Azure VM <br><br> <li> SAP HANA em Azure VM <br><br> <li> Ficheiros do Azure<br/><br/> <li>Blobs do Azure<br/><br/> <li>Managed Disks do Azure | Mesmo que acima |
@@ -38,7 +38,7 @@ O Backup Center fornece um único painel de vidro para as empresas [governarem, 
 |--------------|---------------|
 | Monitorização | Ver alertas em escala |
 | Ações | Configurar as definições do cofre em escala |
-| Ações | Execute o trabalho de restauro de região cruzada do Backup Center |
+| Ações | Execute o trabalho de restauro de região transversal a partir do centro de backup |
 
 ## <a name="next-steps"></a>Passos seguintes
 

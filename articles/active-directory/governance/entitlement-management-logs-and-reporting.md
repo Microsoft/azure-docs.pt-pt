@@ -16,12 +16,12 @@ ms.date: 12/23/2020
 ms.author: barclayn
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b635a83c5ea1378a525ff607e5c6f2725337ad1a
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.openlocfilehash: 4c5ab92fcc1d70d12e37ae351e768514b4e7522f
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102453041"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102501707"
 ---
 # <a name="archive-logs-and-reporting-on-azure-ad-entitlement-management-in-azure-monitor"></a>Registos de arquivo e reportagens sobre a gestão de direitos da AD Azure no Azure Monitor
 
@@ -130,7 +130,7 @@ Para definir a atribuição de funções e criar uma consulta, faça os seguinte
 
 ### <a name="install-azure-powershell-module"></a>Instalar módulo Azure PowerShell
 
-Assim que tiver a atribuição de funções adequada, lance o PowerShell e [instale o módulo Azure PowerShell](/powershell/azure/install-az-ps?view=azps-3.3.0) (se ainda não tiver), digitando:
+Assim que tiver a atribuição de funções adequada, lance o PowerShell e [instale o módulo Azure PowerShell](/powershell/azure/install-az-ps) (se ainda não tiver), digitando:
 
 ```azurepowershell
 install-module -Name az -allowClobber -Scope CurrentUser
@@ -168,8 +168,7 @@ $wks | ft CustomerId, Name
 ```
 
 ### <a name="send-the-query-to-the-log-analytics-workspace"></a>Envie a consulta para o espaço de trabalho Log Analytics
-Finalmente, uma vez identificado um espaço de trabalho, pode utilizar [Invoke-AzOperationalInsightsQuery](/powershell/module/az.operationalinsights/Invoke-AzOperationalInsightsQuery?view=azps-3.3.0
-) para enviar uma consulta kusto para esse espaço de trabalho. Estas consultas estão [escritas na língua de consulta de Kusto.](/azure/kusto/query/)
+Finalmente, uma vez identificado um espaço de trabalho, pode utilizar [Invoke-AzOperationalInsightsQuery](/powershell/module/az.operationalinsights/Invoke-AzOperationalInsightsQuery) para enviar uma consulta kusto para esse espaço de trabalho. Estas consultas estão [escritas na língua de consulta de Kusto.](/azure/kusto/query/)
  
 Por exemplo, pode recuperar o intervalo de datas dos registos de eventos de auditoria a partir do espaço de trabalho Log Analytics, com cmdlets PowerShell para enviar uma consulta como:
  

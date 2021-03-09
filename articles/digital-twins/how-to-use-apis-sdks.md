@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: d2d3d04bdb8066db263c608bb1d42acca303a656
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: b9804e119f5b5cfbee1a61eabf217dad7dbf5500
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102433833"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102507233"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Utilizar as APIs e SDKs do Azure Digital Twins
 
@@ -68,7 +68,7 @@ Para utilizar as APIs do plano de dados:
    - você pode encontrar a fonte SDK em GitHub: [Azure Azure Digital Twins Core biblioteca de clientes para JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/digitaltwins/digital-twins-core)
 * Pode utilizar o **Python SDK.** Para usar o Python SDK...
    - você pode ver e instalar o pacote a partir de PyPi: [Azure Azure Digital Twins Core biblioteca de clientes para Python](https://pypi.org/project/azure-digitaltwins-core/).
-   - pode ver a [documentação de referência do SDK.](/python/api/azure-digitaltwins-core/azure.digitaltwins.core?view=azure-python&preserve-view=true)
+   - pode ver a [documentação de referência do SDK.](/python/api/azure-digitaltwins-core/azure.digitaltwins.core)
    - você pode encontrar a fonte SDK em GitHub: [Azure Azure Digital Twins Core biblioteca de clientes para Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/digitaltwins/azure-digitaltwins-core)
 * Pode gerar um SDK para outro idioma utilizando o AutoRest. Siga as instruções em [*Como-a-: Crie SDKs personalizados para Gémeos Digitais Azure com AutoRest*](how-to-create-custom-sdks.md).
 

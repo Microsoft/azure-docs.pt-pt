@@ -12,12 +12,12 @@ metadata:
   ms.author: mbaldwin
   manager: rkarlin
   ms.date: 09/19/2019
-  ms.openlocfilehash: 3e3ed4d906bd3eb0320b1e3a3dbaeedc1d267e20
-  ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+  ms.openlocfilehash: 6a8449eaf0e05498cc10ee87701fc246d5919835
+  ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/08/2021
-  ms.locfileid: "102451715"
+  ms.lasthandoff: 03/09/2021
+  ms.locfileid: "102503900"
 landingContent:
 - title: Acerca do Azure Key Vault
   linkLists:
@@ -78,7 +78,7 @@ landingContent:
     - text: Biblioteca de Cliente .NET
       url: /dotnet/api/overview/azure/key-vault
     - text: Biblioteca de Cliente Python
-      url: /python/api/overview/azure/key-vault-index?view=azure-python
+      url: /python/api/overview/azure/key-vault-index
     - text: Biblioteca de Cliente Java
       url: https://azure.github.io/azure-sdk-for-java/keyvault.html
     - text: Biblioteca de Cliente Node.js

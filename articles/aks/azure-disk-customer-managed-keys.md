@@ -4,12 +4,12 @@ description: Traga as suas próprias chaves (BYOK) para encriptar os discos AKS 
 services: container-service
 ms.topic: article
 ms.date: 09/01/2020
-ms.openlocfilehash: 60a7e36039500ccb8a46fd1f5998c23c37174689
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 4b1c311132cc812ccb2bbbc95c4b7414b108008c
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98728140"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102499208"
 ---
 # <a name="bring-your-own-keys-byok-with-azure-disks-in-azure-kubernetes-service-aks"></a>Traga as suas próprias chaves (BYOK) com discos Azure no Serviço Azure Kubernetes (AKS)
 
@@ -93,7 +93,7 @@ Quando novos conjuntos de nós são adicionados ao cluster criado acima, a chave
 A chave de encriptação do disco de OS será usada para encriptar o disco de dados se não for fornecida a chave para o disco de dados a partir de v1.17.2, e também pode encriptar discos de dados AKS com as outras teclas.
 
 > [!IMPORTANT]
-> Certifique-se de que tem as credenciais AKS adequadas. O diretor do Serviço terá de ter acesso ao grupo de recursos onde o diskencrypationset é implantado. Caso contrário, terá um erro sugerindo que o principal do serviço não tem permissões.
+> Certifique-se de que tem as credenciais AKS adequadas. A identidade gerida terá de ter acesso ao grupo de recursos onde o conjunto de encriptação de dissencriptação é implantado. Caso contrário, terá um erro sugerindo que a identidade gerida não tem permissões.
 
 ```azurecli-interactive
 # Retrieve your Azure Subscription Id from id property as shown below
@@ -141,7 +141,7 @@ az aks get-credentials --name myAksCluster --resource-group myResourceGroup --ou
 kubectl apply -f byok-azure-disk.yaml
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Rever [as melhores práticas para a segurança do cluster AKS][best-practices-security]
 

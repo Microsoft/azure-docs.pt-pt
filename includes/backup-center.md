@@ -4,12 +4,12 @@ ms.service: backup
 ms.topic: include
 ms.date: 10/19/2020
 ms.author: dacurwin
-ms.openlocfilehash: 43f69611554b34e8b8848b44a3361cf7fae62ef3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c6590cb783a3f59abf18abae8f53f9f1553123c4
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96002920"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102501838"
 ---
 > [!NOTE]
-> A funcionalidade descrita nas seguintes secções também pode ser acedida através [do Backup Center](../articles/backup/backup-center-overview.md). Backup Center é uma única experiência de gestão unificada em Azure. Permite que as empresas governem, monitorizem, operem e analisem backups em escala. Com esta solução, pode executar a maioria das principais operações de gestão de backup sem se limitar ao âmbito de um cofre individual.
+> A funcionalidade descrita nas seguintes secções também pode ser acedida através [do Backup Center](../articles/backup/backup-center-overview.md). O back center é uma única experiência de gestão unificada em Azure. Permite que as empresas governem, monitorizem, operem e analisem backups em escala. Com esta solução, pode executar a maioria das principais operações de gestão de backup sem se limitar ao âmbito de um cofre individual.

@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/12/2019
-ms.openlocfilehash: b4480f3d28cb89165a6ba3c5b26b10b1aba9765c
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 610f0a9692c18afbd7bb446959b09bac14d6f629
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461844"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102507624"
 ---
 # <a name="powershell-and-the-azure-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell e o Azure CLI: Ativar a encriptação de dados transparente com a chave gerida pelo cliente a partir do Cofre da Chave Azure
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -37,8 +37,8 @@ Este artigo percorre como usar uma chave do Cofre de Chaves Azure para encripta�
     - O cofre-chave deve ter a seguinte propriedade a ser utilizada para tDE:
   - [proteção para eliminar](../../key-vault/general/soft-delete-overview.md) e limpar soft-delete
 - A chave deve ter os seguintes atributos a utilizar para o TDE:
-  - Sem data de validade
-  - Não incapacitado
+  - Não tem uma data de validade
+  - Não está desativada
   - Capaz de executar *obter,* *embrulhar a chave,* *desembrulhar* as operações-chave
 - **(Em Pré-visualização)** Para utilizar uma chave HSM gerida, siga as instruções para [criar e ativar um HSM gerido utilizando o CLI Azure](../../key-vault/managed-hsm/quick-create-cli.md)
 
@@ -79,7 +79,7 @@ Para adicionar permissões ao seu servidor num HSM gerido, adicione ao servidor 
 
 ## <a name="add-the-key-vault-key-to-the-server-and-set-the-tde-protector"></a>Adicione a chave do cofre ao servidor e desaprote o Protetor TDE
 
-- Use o [cmdlet Get-AzKeyVaultKey](/powershell/module/az.keyvault/get-azkeyvaultkey?view=azps-2.4.0) para recuperar o ID da chave do cofre de chaves
+- Use o [cmdlet Get-AzKeyVaultKey](/powershell/module/az.keyvault/get-azkeyvaultkey) para recuperar o ID da chave do cofre de chaves
 - Utilize o [cmdlet Add-AzSqlServerKeyVaultKey](/powershell/module/az.sql/add-azsqlserverkeyvaultkey) para adicionar a chave do Cofre de Chaves ao servidor.
 - Utilize o [cmdlet Set-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) para definir a chave como protetor TDE para todos os recursos do servidor.
 - Utilize o [cmdlet Get-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/get-azsqlservertransparentdataencryptionprotector) para confirmar que o protetor TDE foi configurado como pretendido.

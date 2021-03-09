@@ -6,13 +6,13 @@ ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 01/19/2021
-ms.openlocfilehash: bcfe26bc6f637dd140776df98f8267c4c43684ba
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.date: 03/09/2021
+ms.openlocfilehash: 37ac292acc76c681ea38b2ae881ff8cd2ae5ec3c
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102049555"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102502451"
 ---
 # <a name="automatically-label-your-data-in-azure-purview"></a>Rotular automaticamente os seus dados em Azure Purview
 
@@ -114,6 +114,14 @@ Por exemplo:
 Uma vez que estenda a rotulagem aos ativos em Azure Purview, pode selecionar as etiquetas que pretende disponibilizar em Purview. Para obter mais informações, consulte [a criação de novos rótulos de sensibilidade ou modificar as etiquetas existentes.](#creating-new-sensitivity-labels-or-modifying-existing-labels)
 ### <a name="creating-new-sensitivity-labels-or-modifying-existing-labels"></a>Criar novos rótulos de sensibilidade ou modificar os rótulos existentes
 
+Quando utiliza etiquetas de sensibilidade para aplicações do Office no Windows, macOS, iOS e Android, os utilizadores vêem novas etiquetas dentro de quatro horas e dentro de uma hora para o Office na web. No entanto, permita até 24 horas para que as alterações se reproduzam em todas as aplicações e serviços.
+
+> [!IMPORTANT]
+> Não elimine uma etiqueta a menos que compreenda o impacto para os seus utilizadores. Para obter mais informações, consulte [remover e eliminar etiquetas](/microsoft-365/compliance/create-sensitivity-labels#removing-and-deleting-labels) na documentação da Microsoft 365.
+>
+
+**Criar novos rótulos de sensibilidade ou modificar os rótulos existentes:**
+
 1. Abra o [Microsoft 365 Security and Compliance Center](https://protection.office.com/homepage). 
 
 1. Em **Soluções**, selecione **proteção de informação** e, em seguida, selecione **Criar uma etiqueta**. 
@@ -152,10 +160,6 @@ Uma vez que estenda a rotulagem aos ativos em Azure Purview, pode selecionar as 
 
     Para obter mais informações, consulte [a prioridade do Rótulo (questões de encomenda)](/microsoft-365/compliance/sensitivity-labels#label-priority-order-matters) na documentação microsoft 365.
 
-> [!IMPORTANT]
-> Não elimine uma etiqueta a menos que compreenda o impacto para os seus utilizadores. 
->
-> Para obter mais informações, consulte [remover e eliminar etiquetas](/microsoft-365/compliance/create-sensitivity-labels#removing-and-deleting-labels) na documentação da Microsoft 365.
 
 Continue [digitalizando os seus dados para aplicar as etiquetas automaticamente,](#scan-your-data-to-apply-labels-automatically)e depois:
 

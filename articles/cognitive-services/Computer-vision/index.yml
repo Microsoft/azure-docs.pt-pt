@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 09/22/2020
-  ms.openlocfilehash: 050290bd893e561b4e8c80f5764981c57c96597c
-  ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+  ms.openlocfilehash: 940a34cfbf4281649737f0cf3fed7b490a9938a7
+  ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
   ms.translationtype: MT
   ms.contentlocale: pt-PT
   ms.lasthandoff: 03/09/2021
-  ms.locfileid: "102488890"
+  ms.locfileid: "102508899"
 landingContent:
 - title: Sobre a Imagem Digitalizada
   linkLists:
@@ -173,7 +173,7 @@ landingContent:
     - text: SDK .NET
       url: /dotnet/api/overview/azure/cognitiveservices/client/computervision
     - text: SDK Python
-      url: /python/api/overview/azure/cognitiveservices/computervision?view=azure-python
+      url: /python/api/overview/azure/cognitiveservices/computervision
     - text: SDK Java
       url: /java/api/overview/azure/cognitiveservices/client/computervision
     - text: SDK Node.js

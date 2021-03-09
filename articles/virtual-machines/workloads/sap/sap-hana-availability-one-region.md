@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 07/27/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 83c56c337e2b07175dec28cfefa5da75dab7b4f0
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 845cecfb6b09591b10de30267b31e6e1a80a7482
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101667954"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102504325"
 ---
 # <a name="sap-hana-availability-within-one-azure-region"></a>Disponibilidade de SAP HANA dentro de uma região de Azure
 Este artigo descreve vários cenários de disponibilidade dentro de uma região de Azure. Azure tem muitas regiões, espalhadas por todo o mundo. Para a lista das regiões de Azure, consulte as [regiões de Azure.](https://azure.microsoft.com/regions/) Para a implementação do SAP HANA em VMs dentro de uma região de Azure, a Microsoft oferece a implementação de um único VM com uma instância HANA. Para uma maior disponibilidade, pode implementar dois VMs com duas instâncias HANA dentro de um [conjunto de disponibilidades Azure](../../windows/tutorial-availability-sets.md) que utiliza a replicação do sistema HANA para disponibilidade. 
@@ -29,7 +29,7 @@ Atualmente, o Azure está a oferecer [Zonas de Disponibilidade Azure.](../../../
 
 As regiões de Azure onde as Zonas de Disponibilidade são oferecidas têm vários centros de dados. Os datacenters são independentes no fornecimento de fonte de energia, arrefecimento e rede. A razão para oferecer diferentes zonas dentro de uma única região de Azure é implementar aplicações em duas ou três Zonas de Disponibilidade que são oferecidas. Implantando em zonas, problemas de energia e networking que afetam apenas uma infraestrutura da Zona de Disponibilidade Azure, a sua implementação de aplicações dentro de uma região do Azure ainda está funcional. Pode ocorrer alguma capacidade reduzida. Por exemplo, os VMs numa zona podem perder-se, mas os VM nas outras duas zonas ainda estariam em funcionamento. 
  
-Um Conjunto de Disponibilidade Azure é uma capacidade lógica de agrupamento que ajuda a garantir que os recursos VM que coloca dentro do Conjunto de Disponibilidade são isolados por falhas uns dos outros quando são implantados dentro de um datacenter Azure. O Azure garante que as VMs que colocar num Conjunto de Disponibilidade são executadas em vários servidores físicos, suportes de computação, unidades de armazenamento e comutadores de rede. Em alguma documentação Azure, esta configuração é referida como colocações em diferentes [domínios de atualização e avaria .](../../manage-availability.md) Estas colocações geralmente estão dentro de um datacenter Azure. Assumindo que a fonte de energia e os problemas de rede afetariam o datacenter que está a implementar, toda a sua capacidade numa região de Azure seria afetada.
+Um Conjunto de Disponibilidade Azure é uma capacidade lógica de agrupamento que ajuda a garantir que os recursos VM que coloca dentro do Conjunto de Disponibilidade são isolados por falhas uns dos outros quando são implantados dentro de um datacenter Azure. O Azure garante que as VMs que colocar num Conjunto de Disponibilidade são executadas em vários servidores físicos, suportes de computação, unidades de armazenamento e comutadores de rede. Em alguma documentação Azure, esta configuração é referida como colocações em diferentes [domínios de atualização e avaria .](../../availability.md) Estas colocações geralmente estão dentro de um datacenter Azure. Assumindo que a fonte de energia e os problemas de rede afetariam o datacenter que está a implementar, toda a sua capacidade numa região de Azure seria afetada.
 
 A colocação de datacenters que representam zonas de disponibilidade do Azure é um compromisso entre a prestação de latência de rede aceitável entre serviços implantados em diferentes zonas, e uma distância entre centros de dados. As catástrofes naturais idealmente não afetariam a energia, o fornecimento de rede e as infraestruturas para todas as Zonas de Disponibilidade desta região. No entanto, como as catástrofes naturais monumentais têm demonstrado, as Zonas de Disponibilidade nem sempre podem fornecer a disponibilidade que deseja dentro de uma região. Pense no furacão Maria que atingiu a ilha de Porto Rico em 20 de setembro de 2017. O furacão causou um apagão de quase 100% na ilha de 150 km de largura.
 

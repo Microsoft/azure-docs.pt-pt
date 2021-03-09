@@ -9,14 +9,14 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 09/17/2020
-ms.openlocfilehash: 87b1f4ab7b7091970d7bb76ae1e00b06549fb0b4
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 081eea7842652884363603bc5ba742ba48539f85
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96152605"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102503632"
 ---
-**Os alvos de cálculo podem ser reutilizados de um trabalho de treino para o outro.** Por exemplo, depois de anexar um VM remoto ao seu espaço de trabalho, pode reutilizá-lo para vários trabalhos. Para os gasodutos de aprendizagem automática, utilize o passo de [gasoduto](/python/api/azureml-pipeline-steps/azureml.pipeline.steps?preserve-view=true&view=azure-ml-py) adequado para cada alvo de cálculo.
+**Os alvos de cálculo podem ser reutilizados de um trabalho de treino para o outro.** Por exemplo, depois de anexar um VM remoto ao seu espaço de trabalho, pode reutilizá-lo para vários trabalhos. Para os gasodutos de aprendizagem automática, utilize o passo de [gasoduto](/python/api/azureml-pipeline-steps/azureml.pipeline.steps) adequado para cada alvo de cálculo.
 
 Você pode usar qualquer um dos seguintes recursos para um alvo de computação de formação para a maioria dos empregos. Nem todos os recursos podem ser usados para aprendizagem automática de máquinas, oleodutos de aprendizagem automática ou designer.
 

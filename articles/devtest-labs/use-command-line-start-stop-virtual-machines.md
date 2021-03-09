@@ -3,19 +3,19 @@ title: Use ferramentas de linha de comando para iniciar e parar VMs Azure DevTes
 description: Aprenda a usar ferramentas de linha de comando para iniciar e parar máquinas virtuais em Azure DevTest Labs.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 2b9be3d09c488fdae211d81daf88e8807bc7b4dc
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 2ddc1620cf86fa203b2f0e31359f9fd262df8916
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102201197"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102499548"
 ---
 # <a name="use-command-line-tools-to-start-and-stop-azure-devtest-labs-virtual-machines"></a>Use ferramentas de linha de comando para iniciar e parar máquinas virtuais Azure DevTest Labs
 Este artigo mostra-lhe como usar a Azure PowerShell ou Azure CLI para iniciar ou parar máquinas virtuais num laboratório em Azure DevTest Labs. Pode criar scripts PowerShell/CLI para automatizar estas operações. 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 A azure DevTest Labs é uma forma de criar ambientes rápidos, fáceis e magros dev/teste. Permite-lhe gerir custos, a provisionar rapidamente VMs e minimizar o desperdício.  Existem funcionalidades incorporadas no portal Azure que permitem configurar VMs num laboratório para iniciar e parar automaticamente em momentos específicos. 
 
 No entanto, em alguns cenários, poderá querer automatizar o arranque e paragem de VMs a partir de scripts PowerShell/CLI. Dá-lhe alguma flexibilidade para iniciar e parar máquinas individuais a qualquer momento em vez de em momentos específicos. Estas são algumas das situações em que executar estas tarefas usando scripts seria útil.
@@ -29,7 +29,7 @@ No entanto, em alguns cenários, poderá querer automatizar o arranque e paragem
 > [!NOTE]
 > O seguinte script utiliza o módulo Azure PowerShell Az. 
 
-O seguinte guião PowerShell começa um VM num laboratório. [Invoke-AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction?view=azps-1.7.0) é o principal foco para este script. O parâmetro **ResourceId** é o ID de recursos totalmente qualificado para o VM no laboratório. O parâmetro **Ação** é onde as opções **Iniciar** ou **Parar** são definidas dependendo do necessário.
+O seguinte guião PowerShell começa um VM num laboratório. [Invoke-AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction) é o principal foco para este script. O parâmetro **ResourceId** é o ID de recursos totalmente qualificado para o VM no laboratório. O parâmetro **Ação** é onde as opções **Iniciar** ou **Parar** são definidas dependendo do necessário.
 
 ```powershell
 # The id of the subscription

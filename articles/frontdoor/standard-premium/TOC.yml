@@ -1,6 +1,6 @@
 - name: Documentação Padrão/Premium da Porta Da Frente (Pré-visualização)
   href: index.yml
-- name: Descrição Geral
+- name: Descrição geral
   items:
     - name: O que é Azure Front Door Standard/Premium (Preview)?
       href: overview.md
@@ -11,6 +11,10 @@
   items:
     - name: Criar um Padrão/Premium porta da frente - Portal
       href: create-front-door-portal.md
+- name: Amostras
+  items:
+    - name: Modelos do Resource Manager
+      href: resource-manager-template-samples.md
 - name: Conceitos
   items:
     - name: FAQ do Front Door

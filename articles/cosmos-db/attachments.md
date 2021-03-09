@@ -8,15 +8,15 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 08/07/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 55d110501d5e0273ebf8cbc666920cacb87cf5cf
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 455fdc7615e0909189f311755571d02a9acca24e
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102434989"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102501996"
 ---
 # <a name="azure-cosmos-db-attachments"></a>Anexos DB Azure Cosmos
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-mongodb-api.md)]
 
 Os anexos DB da Azure Cosmos são itens especiais que contêm referências a metadados associados com uma bolha externa ou ficheiro de mídia.
 
@@ -40,6 +40,11 @@ Os anexos geridos da Azure Cosmos DB são distintos do seu suporte para itens pa
 - Os anexos não são suportados em todas as versões dos SDKs da Azure Cosmos.
 - Os anexos geridos estão limitados a 2 GB de armazenamento por conta de base de dados.
 - Os anexos geridos não são compatíveis com a distribuição global da Azure Cosmos DB, e não são replicados em regiões.
+
+> [!NOTE]
+> A Azure Cosmos DB API para a versão 3.2 da MongoDB utiliza anexos geridos para GridFS, que estão assim sujeitos às mesmas limitações que os anexos geridos da Azure Cosmos DB.
+>
+> Recomendamos que os desenvolvedores utilizem o conjunto de funcionalidades MongoDB GridFS para atualizar para Azure Cosmos DB API para a versão 3.6 ou superior do MongoDB, que é dissociada dos anexos e proporciona uma experiência mais forte e robusta. Em alternativa, os desenvolvedores que usam o conjunto de funcionalidades MongoDB GridFS também devem considerar a utilização do Azure Blob Storage - que é construído de propósito para armazenar conteúdo blob e oferece uma funcionalidade expandida a um custo mais baixo em comparação com o GridFS.
 
 ## <a name="migrating-attachments-to-azure-blob-storage"></a>Anexos migratórios para armazenamento de blob Azure
 

@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: 671a8f7c6fa4c20ef4fc88f57d4a946a84614389
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 3ba69a6ddf38083e5665e20081f5f909b7100024
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93420874"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102508491"
 ---
 # <a name="convert-to-dataset"></a>Converter em Conjunto de Dados
 
@@ -35,18 +35,18 @@ Recomendamos que utilize o módulo [editar metadados](edit-metadata.md) para pre
 
 2. Conecte-o a qualquer módulo que produza um conjunto de dados.   
 
-    Enquanto os dados são [tabulares,](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py)pode convertê-lo num conjunto de dados. Isto inclui dados carregados através [de Dados de Importação,](import-data.md)dados criados através de [Introduzir Dados Manualmente,](enter-data-manually.md)ou conjuntos de dados transformados através da [Apply Transformation](apply-transformation.md).
+    Enquanto os dados são [tabulares,](/python/api/azureml-core/azureml.data.tabulardataset)pode convertê-lo num conjunto de dados. Isto inclui dados carregados através [de Dados de Importação,](import-data.md)dados criados através de [Introduzir Dados Manualmente,](enter-data-manually.md)ou conjuntos de dados transformados através da [Apply Transformation](apply-transformation.md).
 
 3.  Na lista de drop-down de **Ação,** indique se pretende fazer qualquer limpeza nos dados antes de guardar o conjunto de dados:  
   
     - **Nenhum:** Use os dados como está.  
   
-    - **SetMissingValue** : Defina um valor específico para um valor em falta no conjunto de dados. O espaço reservado padrão é o personagem de ponto de interrogação (?), mas pode usar a opção  **de valor em falta** personalizada para introduzir um valor diferente. Por exemplo, se introduzir **Taxi** for **Custom missing value** , então todas as instâncias de **Taxi** no conjunto de dados serão alteradas para o valor em falta.
+    - **SetMissingValue**: Defina um valor específico para um valor em falta no conjunto de dados. O espaço reservado padrão é o personagem de ponto de interrogação (?), mas pode usar a opção  **de valor em falta** personalizada para introduzir um valor diferente. Por exemplo, se introduzir **Taxi** for **Custom missing value**, então todas as instâncias de **Taxi** no conjunto de dados serão alteradas para o valor em falta.
   
-    - **Substituir Valores** : Utilize esta opção para especificar um único valor exato a ser substituído por qualquer outro valor exato. Pode substituir valores em falta ou valores personalizados definindo o método **Substituir:**
+    - **Substituir Valores**: Utilize esta opção para especificar um único valor exato a ser substituído por qualquer outro valor exato. Pode substituir valores em falta ou valores personalizados definindo o método **Substituir:**
 
-      - **Em falta** : Escolha esta opção para substituir os valores em falta no conjunto de dados de entrada. Para **Novo Valor,** insira o valor para substituir os valores em falta.
-      - **Costume** : Escolha esta opção para substituir valores personalizados no conjunto de dados de entrada. Para **valor personalizado,** insira o valor que pretende encontrar. Por exemplo, se os seus dados contiverem a cadeia `obs` utilizada como espaço reservado para valores em falta, `obs` introduza . Para **novo valor,** insira o novo valor para substituir a cadeia original.
+      - **Em falta**: Escolha esta opção para substituir os valores em falta no conjunto de dados de entrada. Para **Novo Valor,** insira o valor para substituir os valores em falta.
+      - **Costume**: Escolha esta opção para substituir valores personalizados no conjunto de dados de entrada. Para **valor personalizado,** insira o valor que pretende encontrar. Por exemplo, se os seus dados contiverem a cadeia `obs` utilizada como espaço reservado para valores em falta, `obs` introduza . Para **novo valor,** insira o novo valor para substituir a cadeia original.
   
     Note que a operação **SubstituValues** se aplica apenas a correspondências exatas. Por exemplo, estas cordas não seriam afetadas: `obs.` `obsolete` . . .  
  

@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 10/26/2020
 ms.author: lajanuar
-ms.openlocfilehash: 47082bd6a441bc857022c960abe3169995074dde
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 445fdea4cb92ed8080528a41cf19ad774751b9ce
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102445430"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102511080"
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
@@ -187,7 +187,7 @@ Esta secção demonstra como analisar e extrair campos comuns das faturas de ven
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart-preview.py?name=snippet_invoice)]
 
 > [!TIP]
-> Também pode analisar imagens de fatura local. Consulte os métodos [FormRecognizerClient,](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient?view=azure-python&preserve-view=true) tais como `begin_recognize_invoices` . Ou, consulte o código de amostra no [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples) para cenários que envolvam imagens locais.
+> Também pode analisar imagens de fatura local. Consulte os métodos [FormRecognizerClient,](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient) tais como `begin_recognize_invoices` . Ou, consulte o código de amostra no [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples) para cenários que envolvam imagens locais.
 
 #### <a name="v20"></a>[v2.0](#tab/ga)
 
@@ -335,7 +335,7 @@ Esta secção demonstra como analisar e extrair campos comuns a partir de recibo
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart.py?name=snippet_receipts)]
 
 > [!TIP]
-> Também pode analisar imagens de recibo local. Consulte os métodos [FormRecognizerClient,](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient?view=azure-python&preserve-view=true) tais como `begin_recognize_receipts` . Ou, consulte o código de amostra no [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples) para cenários que envolvam imagens locais.
+> Também pode analisar imagens de recibo local. Consulte os métodos [FormRecognizerClient,](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient) tais como `begin_recognize_receipts` . Ou, consulte o código de amostra no [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples) para cenários que envolvam imagens locais.
 
 ### <a name="output"></a>Saída
 
@@ -368,7 +368,7 @@ Esta secção demonstra como analisar e extrair campos comuns de cartões de vis
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart-preview.py?name=snippet_bc)]
 
 > [!TIP]
-> Também pode analisar imagens de cartões de visita locais. Consulte os métodos [FormRecognizerClient,](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient?view=azure-python&preserve-view=true) tais como `begin_recognize_business_cards` . Ou, consulte o código de amostra no [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples) para cenários que envolvam imagens locais.
+> Também pode analisar imagens de cartões de visita locais. Consulte os métodos [FormRecognizerClient,](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient) tais como `begin_recognize_business_cards` . Ou, consulte o código de amostra no [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples) para cenários que envolvam imagens locais.
 
 #### <a name="v20"></a>[v2.0](#tab/ga)
 
