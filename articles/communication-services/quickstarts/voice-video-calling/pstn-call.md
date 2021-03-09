@@ -8,14 +8,17 @@ ms.date: 09/11/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-web-ios-android
-ms.openlocfilehash: d26c089376f5de1ad669ff95a0bf4e96cc8f4682
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 9b4be542ea8c2d0191b69975e1eaa3d8277e7703
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101660009"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102488533"
 ---
 # <a name="quickstart-call-to-phone"></a>Quickstart: Ligue para o telefone
+
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
+
 
 Inicie-se com os Serviços de Comunicação Azure utilizando os Serviços de Comunicação chamando a biblioteca do cliente para adicionar a chamada PSTN à sua app.
 

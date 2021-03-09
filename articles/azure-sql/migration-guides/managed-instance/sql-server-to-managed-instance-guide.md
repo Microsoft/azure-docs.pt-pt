@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: ac8b0e0c2cdbd46626677f4be0f78800d839ad28
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 67f5665225bc1297d0eb1b1e1da954fb47660dee
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97358899"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102488965"
 ---
 # <a name="migration-guide-sql-server-to-sql-managed-instance"></a>Guia de migração: SQL Server para SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -56,7 +56,9 @@ Em alternativa, utilize o [Microsoft Assessment and Planning Toolkit (o "MAP T
 
 Para obter mais informações sobre as ferramentas disponíveis para a fase Discover, consulte [serviços e ferramentas disponíveis para cenários de migração de dados.](../../../dms/dms-tools-matrix.md) 
 
-### <a name="assess"></a>Avaliar 
+### <a name="assess"></a>Avaliação 
+
+[!INCLUDE [assess-estate-with-azure-migrate](../../../../includes/azure-migrate-to-assess-sql-data-estate.md)]
 
 Após a descoberta de fontes de dados, avalie quaisquer instâncias do SQL Server no local que possam ser migradas para Azure SQL Managed Instance para identificar bloqueadores de migração ou problemas de compatibilidade. 
 
@@ -102,7 +104,7 @@ Se precisar de comparar o desempenho da sua carga de trabalho numa SqL Managed I
 Com base nas informações na fase de descoberta e avaliação, crie um alvo de tamanho adequado SQL Managed Instance. Pode fazê-lo utilizando o [portal Azure,](../../managed-instance/instance-create-quickstart.md) [o PowerShell](../../managed-instance/scripts/create-configure-managed-instance-powershell.md)ou um [Modelo Azure Resource Manager (ARM).](../../managed-instance/create-template-quickstart.md) 
 
 
-## <a name="migrate"></a>Migrar
+## <a name="migrate"></a>Migrate
 
 Depois de ter concluído as tarefas associadas à fase de pré-migração, está pronto para executar o esquema e a migração de dados. 
 

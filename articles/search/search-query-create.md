@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/03/2021
-ms.openlocfilehash: b013c66feefade077c85194ba3b1ff04ff4c4aa5
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 5a89e9ae05b0733c865d537ffeb1714d3b3ebef1
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99536837"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102489366"
 ---
 # <a name="creating-queries-in-azure-cognitive-search"></a>Criação de consultas na Pesquisa Cognitiva Azure
 
@@ -21,18 +21,21 @@ Se estiver a construir uma consulta pela primeira vez, este artigo descreve abor
 
 ## <a name="whats-a-query-request"></a>O que é um pedido de consulta?
 
-Uma consulta é um pedido apenas de leitura contra a recolha de docs de um único índice de pesquisa. Especifica um 'consultaType' e uma expressão de consulta embora o parâmetro 'search'. A expressão de consulta pode ter termos de pesquisa, uma frase em anexo de cotação, e operadores.
+Uma consulta é um pedido apenas de leitura contra a recolha de docs de um único índice de pesquisa. Especifica um parâmetro de 'pesquisa' que contém a expressão de consulta, composta por termos, frases incluídas nas cotações e operadores.
 
-Uma consulta também pode ter 'contagem' para devolver o número de partidas encontradas no índice, 'selecionar' para escolher quais os campos que são devolvidos no resultado da pesquisa e 'orderby' para classificar resultados. O exemplo a seguir dá-lhe uma ideia geral de um pedido de consulta mostrando um subconjunto dos parâmetros disponíveis. Para obter mais informações sobre a composição de consultas, consulte [tipos de consultas e composições](search-query-overview.md) e [documentos de pesquisa (REST)](/rest/api/searchservice/search-documents).
+Os parâmetros adicionais proporcionam mais definição à consulta e à resposta. Por exemplo, os âmbitos de 'searchFields' consultam a execução de campos específicos, 'selecione' especifica quais os campos devolvidos nos resultados e 'contagem' devolve o número de partidas encontradas no índice.
+
+O exemplo a seguir dá-lhe uma ideia geral de um pedido de consulta mostrando um subconjunto dos parâmetros disponíveis. Para obter mais informações sobre a composição de consultas, consulte [tipos de consultas e composições](search-query-overview.md) e [documentos de pesquisa (REST)](/rest/api/searchservice/search-documents).
 
 ```http
 POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2020-06-30
 {
-    "queryType": "simple"
-    "search": "`New York` +restaurant",
-    "select": "HotelId, HotelName, Description, Rating, Address/City, Tags",
-    "count": "true",
-    "orderby": "Rating desc"
+    "search": "NY +view",
+    "queryType": "simple",
+    "searchMode": "all",
+    "searchFields": "HotelName, Description, Address/City, Address/StateProvince, Tags",
+    "select": "HotelName, Description, Address/City, Address/StateProvince, Tags",
+    "count": "true"
 }
 ```
 

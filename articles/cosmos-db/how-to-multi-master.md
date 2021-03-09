@@ -5,20 +5,20 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 09/10/2020
+ms.date: 01/06/2021
 ms.author: mjbrown
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp, "seo-nov-2020"
-ms.openlocfilehash: 6f71f4c0ec353f36614ea6dcabf4d698b31baacb
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 08d50b18605fd833e6b0efca987338d0ca1eef8d
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94336731"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102488516"
 ---
 # <a name="configure-multi-region-writes-in-your-applications-that-use-azure-cosmos-db"></a>Configure várias regiões escreve nas suas aplicações que usam Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-Uma vez criada uma conta com múltiplas regiões de escrita ativadas, deve escoar duas alterações na sua aplicação à ConnectionPolicy para o DocumentClient para permitir as gravações multi-regiões e capacidades multi-homing em Azure Cosmos DB. Dentro da ConnectionPolicy, deite UseMultipleWriteLocations para verdadeiro e passe o nome da região onde a aplicação é implantada para SetCurrentLocation. Isto irá povoar a propriedade PreferredLocations com base na geo-proximidade a partir da localização passada. Se uma nova região for posteriormente adicionada à conta, a aplicação não terá de ser atualizada ou redistribuída, irá automaticamente detetar a região mais próxima e irá alocar-se automaticamente a ela caso ocorra um evento regional.
+Uma vez criada uma conta com múltiplas regiões de escrita ativadas, deve escamar duas alterações na sua aplicação à ConnectionPolicy para o cliente Cosmos para permitir que as gravações multi-regiões em Azure Cosmos DB. Dentro da ConnectionPolicy, deite UseMultipleWriteLocations para verdadeiro e passe o nome da região onde a aplicação é implantada para a Região de Aplicações. Isto irá povoar a propriedade PreferredLocations com base na geo-proximidade a partir da localização passada. Se uma nova região for posteriormente adicionada à conta, a aplicação não terá de ser atualizada ou redistribuída, irá automaticamente detetar a região mais próxima e irá alocar-se automaticamente a ela caso ocorra um evento regional.
 
 > [!Note]
 > As contas cosmos inicialmente configuradas com uma única região de escrita podem ser configuradas para várias regiões de escrita com zero tempo de insuporta. Para saber mais ver, [configuure regiões de escrita múltipla](how-to-manage-database-account.md#configure-multiple-write-regions)
@@ -126,7 +126,7 @@ const client = new CosmosClient({
 });
 ```
 
-## <a name="python-sdk"></a><a id="python"></a>SDK Python
+## <a name="python-sdk"></a><a id="python"></a>Python SDK
 
 Para ativar as escritas multi-regiões na sua aplicação, definido `connection_policy.UseMultipleWriteLocations` para `true` . Além disso, definido `connection_policy.PreferredLocations` para a região em que a aplicação está sendo implementada e onde cosmos DB é replicado.
 

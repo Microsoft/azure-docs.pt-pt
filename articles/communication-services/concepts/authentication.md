@@ -9,12 +9,12 @@ ms.author: jken
 ms.date: 07/24/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 1267fc53bd6dcbae504b01610267059545353dc5
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: b702afe9c4359d9f8711846d93fd79df9fc2f42e
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101655909"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102485966"
 ---
 # <a name="authenticate-to-azure-communication-services"></a>Autenticar para serviços de comunicação Azure
 
@@ -25,7 +25,7 @@ O serviço de SMS dos Serviços de Comunicação Azure também aceita chaves de 
 Cada opção de autorização é brevemente descrita abaixo:
 
 - **Acesso Autenticação chave** para operações de SMS e Identidade. A autenticação da Chave de Acesso é adequada para aplicações de serviço que são executando num ambiente de serviço de confiança. A chave de acesso pode ser encontrada no portal dos Serviços de Comunicação Azure. Para autenticar com uma chave de acesso, uma aplicação de serviço utiliza a chave de acesso como credencial para inicializar as bibliotecas correspondentes de SMS ou clientes de identidade, ver [Criar e gerir fichas de acesso.](../quickstarts/access-tokens.md) Uma vez que a chave de acesso faz parte da cadeia de ligação do seu recurso, consulte [criar e gerir os recursos dos Serviços de Comunicação,](../quickstarts/create-communication-resource.md)a autenticação com fio de ligação é equivalente à autenticação com chave de acesso.
-- **Autenticação de Identidade Gerida** para operações de SMS e Identidade. Identidade Gerida, ver [Identidade Gerida,](../quickstarts/managed-identity.md)é adequado para aplicações de serviço em execução em um ambiente de serviço de confiança. Para autenticar com uma identidade gerida, uma aplicação de serviço cria uma credencial com o id e um segredo da identidade gerida, em seguida, inicializar as bibliotecas correspondentes de SMS ou identidade cliente, ver [Criar e gerir fichas de acesso.](../quickstarts/access-tokens.md)
+- **Autenticação de Identidade Gerida** para operações de SMS e Identidade. Identidade Gerida, ver [Identidade Gerida,](../quickstarts/managed-identity.md)é adequado para aplicações de serviço em execução em um ambiente de serviço de confiança. Para autenticar com uma identidade gerida, uma aplicação de serviço cria uma credencial com o ID e um segredo da identidade gerida, em seguida, inicializar as bibliotecas correspondentes de SMS ou identidade cliente, ver [Criar e gerir fichas de acesso.](../quickstarts/access-tokens.md)
 - **Autenticação do Token de acesso ao utilizador** para chat e chamada. As fichas de acesso ao utilizador permitem que as aplicações do seu cliente autentem contra o Azure Communication Chat e os Serviços de Chamada. Estes tokens são gerados num "serviço de acesso ao utilizador confiável" que cria. São então fornecidos a dispositivos clientes que usam o símbolo para inicializar as bibliotecas de clientes Chat e Call. Para obter mais informações, consulte [Adicionar Chat à sua App,](../quickstarts/chat/get-started.md) por exemplo.
 
 ## <a name="next-steps"></a>Passos seguintes

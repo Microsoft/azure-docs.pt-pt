@@ -9,12 +9,12 @@ ms.date: 03/03/2021
 ms.author: cherylmc
 ms.custom: references_regions
 Customer intent: As someone with a networking background, I want to find a Virtual WAN partner
-ms.openlocfilehash: d1f05e76768ffc8ce930d97573c7729b8e4afafe
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.openlocfilehash: 4a02a02eeb40c1a61df88c49bf967b2ca57befc3
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102452752"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102489332"
 ---
 # <a name="virtual-wan-partners-and-virtual-hub-locations"></a>Parceiros virtuais wan e localizações de hub virtual
 
@@ -62,9 +62,9 @@ Estes parceiros têm ofertas **de Aplicação Gerida** que estão agora disponí
 |---|---|
 |[Barracuda Networks](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/barracudanetworks.barracuda_cloudgenwan_gateway?tab=Overviewus/marketplace/apps/barracudanetworks.barracuda_cloudgenwan_gateway?tab=Overview)| [Guia de implantação de Barracuda CloudGen WAN](https://campus.barracuda.com/product/cloudgenwan/doc/91980640/deployment/)|
 |[Cisco Cloud Service Router (CSR) VWAN](https://aka.ms/ciscoMarketPlaceOffer)| Durante a pré-visualização pública da Cisco Cloud Services (CSR) WAN no hub da VWAN, a Cisco exige que o cliente final se registe como cliente Cisco EFT (Early Field Trial), enviando um vwan_public_preview@external.cisco.com e-mail e solicitando o vManage Deployment Guide. 
-|[VMware SD-WAN no Centro WAN Virtual](https://kb.vmware.com/s/article/82746) | Durante a pré-visualização pública da VMware SD-WAN para o hub DAWAN, a VMware exige que o cliente se registe enviando um e-mail para vhubsupport@vmware.com . [VMware SD-WAN no Guia de Implementação do Hub DE WAN Virtual](https://kb.vmware.com/s/article/82746)|
+|[VMware SD-WAN no Centro WAN Virtual](https://sdwan.vmware.com/partners/microsoft) | Durante a pré-visualização pública da VMware SD-WAN para o hub DAWAN, a VMware exige que o cliente se registe enviando um e-mail para vhubsupport@vmware.com . [VMware SD-WAN no Guia de Implementação do Hub DE WAN Virtual](https://kb.vmware.com/s/article/82746)|
 
-Os seguintes parceiros estão programados para trazer a NVA nas ofertas do Virtual Hub num futuro próximo: Aviatrix, Citrix, VeloCloud e Versa Networks.
+Os seguintes parceiros estão programados para trazer a NVA nas ofertas do Virtual Hub num futuro próximo: Aviatrix, Citrix e Versa Networks.
 
 ## <a name="locations"></a><a name="locations"></a>Locais
 

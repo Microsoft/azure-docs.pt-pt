@@ -8,12 +8,12 @@ ms.author: nmurav
 ms.date: 01/03/2012
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 08fe9e56298218936e700518cdd150f54d7f01de
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: adb9ddee3d1caaac4c7530755b5e49ac50ab3181
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102425737"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102488873"
 ---
 # <a name="tutorial-prepare-a-web-app-for-azure-communication-services-nodejs"></a>Tutorial: Preparar uma aplicação web para serviços de comunicação Azure (Node.js)
 
@@ -161,7 +161,7 @@ module.exports ={
     output: {
         filename:'app.js',
         path: path.resolve(__dirname, 'dist'),
-    }     
+    }
 }
 ```
 
@@ -218,7 +218,7 @@ O seu ficheiro agora deve ser assim:
 }
 ```
 
-Acrescentou o comando que pode ser usado a partir das npm. 
+Acrescentou o comando que pode ser usado a partir das npm.
 
 :::image type="content" source="./media/step-one-pic-12.png" alt-text="Screenshot que mostra a modificação de package.jsligado.":::
 
@@ -327,7 +327,7 @@ Esta configuração será fundida `webpack.common.js` (onde especificou o fichei
 In `package.json` , adicione o seguinte código:
 
 ```JavaScript
-"build:prod": "webpack --config webpack.prod.js" 
+"build:prod": "webpack --config webpack.prod.js"
 ```
 
 O seu ficheiro deverá ter o seguinte aspeto:
@@ -341,14 +341,14 @@ O seu ficheiro deverá ter o seguinte aspeto:
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:dev": "webpack-dev-server --config webpack.dev.js",
-    "build:prod": "webpack --config webpack.prod.js" 
+    "build:prod": "webpack --config webpack.prod.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@azure/communication-calling": "^1.0.0-beta.3",
-    "@azure/communication-common": "^1.0.0-beta.3"
+    "@azure/communication-calling": "^1.0.0-beta.6",
+    "@azure/communication-common": "^1.0.0"
   },
   "devDependencies": {
     "webpack": "^4.42.0",
@@ -374,7 +374,7 @@ O comando cria uma `dist` pasta e um ficheiro estático pronto para a produção
  
  
 ### <a name="deploy-your-app-to-azure-storage"></a>Implemente a sua app para o Azure Storage
- 
+
 Copiar `index.html` e para a `app.css` `dist` pasta.
 
 Na `dist` pasta, crie um ficheiro e dê-lhe `404.html` nomes . Copie a seguinte marcação nesse ficheiro:

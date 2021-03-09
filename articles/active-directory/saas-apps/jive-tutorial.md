@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com a Jive Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com jive | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Jive.
 services: active-directory
 author: jeevansd
@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/16/2020
+ms.date: 03/02/2021
 ms.author: jeedes
-ms.openlocfilehash: 3d15e5e13b2b0defe45fd45450aee7c262052b4f
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: bcfc2996daeb34f357625572d39661638982ae42
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92459432"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102489128"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-jive"></a>Tutorial: Azure Ative Directory integração única (SSO) com Jive
 
@@ -25,8 +25,6 @@ Neste tutorial, você vai aprender a integrar Jive com Azure Ative Directory (Az
 * Controlo em Azure AD que tem acesso a Jive.
 * Ative os seus utilizadores a serem automaticamente inscritos no Jive com as suas contas AD Azure.
 * Gerencie as suas contas numa localização central - o portal Azure.
-
-Para saber mais sobre a integração da aplicação SaaS com a Azure AD, consulte o que é o acesso à [aplicação e o único sign-on com o Azure Ative Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -39,15 +37,14 @@ Para começar, precisa dos seguintes itens:
 
 Neste tutorial, você configura e testa Azure AD SSO em um ambiente de teste.
 
-* Jive suporta **SSO** iniciado SP
-* Jive suporta fornecimento [ **automatizado** de utilizadores](jive-provisioning-tutorial.md)
-* Uma vez configurado o Jive, pode impor controlos de sessão, que protegem a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. Os controlos de sessão estendem-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com a Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)
+* Jive suporta **SP** iniciado SSO.
+* Jive suporta o fornecimento [ **automatizado** de utilizadores.](jive-provisioning-tutorial.md)
 
-## <a name="adding-jive-from-the-gallery"></a>Adicionando Jive da galeria
+## <a name="add-jive-from-the-gallery"></a>Adicione Jive da galeria
 
 Para configurar a integração do Jive no Azure AD, é necessário adicionar o Jive da galeria à sua lista de aplicações geridas pelo SaaS.
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
+1. Inscreva-se no portal Azure usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
 1. No painel de navegação à esquerda, selecione o serviço **Azure Ative Directory.**
 1. Navegue para **aplicações empresariais** e, em seguida, selecione **Todas as Aplicações**.
 1. Para adicionar nova aplicação, selecione **Nova aplicação**.
@@ -55,26 +52,26 @@ Para configurar a integração do Jive no Azure AD, é necessário adicionar o J
 1. Selecione **Jive** do painel de resultados e adicione a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-jive"></a>Configurar e testar Azure AD único sinal para Jive
+## <a name="configure-and-test-azure-ad-sso-for-jive"></a>Configurar e testar Azure AD SSO para Jive
 
 Configure e teste Azure AD SSO com Jive usando um utilizador de teste chamado **B.Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador AZure AD e o utilizador relacionado em Jive.
 
-Para configurar e testar a Azure AD SSO com Jive, complete os seguintes blocos de construção:
+Para configurar e testar a Azure AD SSO com jive, execute os seguintes passos:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-    * Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com B.Simon.
-    * **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que b.Simon utilize um único sinal de Ad AD.
+    1. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com B.Simon.
+    1. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que b.Simon utilize um único sinal de Ad AD.
 1. **[Configure o Jive SSO](#configure-jive-sso)** - para configurar as definições de inscrição única no lado da aplicação.
-    * **[Create Jive test user](#create-jive-test-user)** - para ter uma contraparte de B.Simon em Jive que está ligada à representação AD AD do utilizador.
+    1. **[Create Jive test user](#create-jive-test-user)** - para ter uma contraparte de B.Simon em Jive que está ligada à representação AD AD do utilizador.
 1. **[Teste SSO](#test-sso)** - para verificar se a configuração funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
 Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
-1. No [portal Azure,](https://portal.azure.com/)na página de integração da aplicação **Jive,** encontre a secção **Gerir** e selecione **um único sinal de sação**.
+1. No portal Azure, na página de integração da aplicação **Jive,** encontre a secção **Gerir** e selecione **um único sinal de sação**.
 1. Na página de método **de inscrição** única, selecione **SAML**.
-1. No **set-on único com** a página SAML, clique no ícone edit/pen para **Configuração SAML Básica** para editar as definições.
+1. No **set-on único com** a página SAML, clique no ícone de lápis para **configuração SAML Básica** para editar as definições.
 
    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -98,12 +95,6 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
     ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 
-    a. URL de Inicio de Sessão
-
-    b. Identificador de Azure Ad
-
-    c. Logout URL
-
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD
 
 Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simon.
@@ -120,18 +111,12 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
 
 Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso a Jive.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de candidaturas, selecione **Jive**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
-
-   ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
-
 1. **Selecione Adicionar utilizador,** em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
-
-    ![O link do utilizador adicionar](common/add-assign-user.png)
-
 1. No diálogo **de Utilizadores e grupos,** selecione **B.Simon** da lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
-1. Se estiver à espera de qualquer valor de função na afirmação SAML, no diálogo **'Fun's Select,** selecione a função adequada para o utilizador da lista e, em seguida, clique no botão **Selecione** na parte inferior do ecrã.
+1. Se estiver à espera que uma função seja atribuída aos utilizadores, pode selecioná-la a partir do Dropdown de **função** Select. Se não tiver sido configurada qualquer função para esta aplicação, vê a função "Acesso Predefinido" selecionada.
 1. No diálogo **'Adicionar Atribuição',** clique no botão **'Atribuir'.**
 
 ## <a name="configure-jive-sso"></a>Configurar Jive SsO
@@ -140,7 +125,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. No menu em cima, Clique em **SAML**.
 
-    ![A screenshot mostra o separador SAML com o selecionado.](./media/jive-tutorial/tutorial_jive_002.png)
+    ![A screenshot mostra o separador SAML com o selecionado.](./media/jive-tutorial/jive-2.png)
 
     a. Selecione **Ativado** no separador **Geral.**
 
@@ -148,7 +133,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. Navegue para o separador **METADADOS do IDP.**
 
-    ![A screenshot mostra o separador SAML I D METADADOS selecionados.](./media/jive-tutorial/tutorial_jive_003.png)
+    ![A screenshot mostra o separador SAML I D METADADOS selecionados.](./media/jive-tutorial/jive-3.png)
 
     a. Copie o conteúdo do ficheiro XML de metadados descarregado e, em seguida, cole-o na caixa de texto **de Metadados do Fornecedor de Identidade (IDP).**
 
@@ -156,7 +141,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. Selecione **O SEPARADOR DE MAPEAMENTO DO ATRIBUTO DO UTILIZADOR.**
 
-    ![A screenshot mostra o separador SAML com o USER ATTRIBUTE MAPPING selecionado.](./media/jive-tutorial/tutorial_jive_004.png)
+    ![A screenshot mostra o separador SAML com o USER ATTRIBUTE MAPPING selecionado.](./media/jive-tutorial/jive-4.png)
 
     a. Na caixa de texto **por e-mail,** copie e cole o nome de atributo do valor do **correio.**
 
@@ -172,22 +157,14 @@ Se precisar de criar o utilizador manualmente, trabalhe com a [equipa de suporte
 
 ## <a name="test-sso"></a>Teste SSO 
 
-Nesta secção, testa a configuração de inscrição única AZure AD utilizando o Painel de Acesso.
+Nesta secção, testa a configuração de um único sinal de inscrição Azure AD com as seguintes opções. 
 
-Quando clicar no azulejo Jive no Painel de Acesso, deverá ser automaticamente inscrito no Jive para o qual configura sSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/my-apps-portal-end-user-access.md)
+* Clique em **Testar esta aplicação** no portal Azure. Isto irá redirecionar para URL Jive Login-on onde pode iniciar o fluxo de login. 
 
-## <a name="additional-resources"></a>Recursos adicionais
+* Vá diretamente ao URL de inscrição Jive e inicie o fluxo de login a partir daí.
 
-- [ Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure ](./tutorial-list.md)
+* Pode utilizar as minhas apps do Microsoft. Quando clicar no azulejo Jive nas Minhas Apps, este irá redirecionar para URL Jive Sign-on. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
-- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory? ](../manage-apps/what-is-single-sign-on.md)
+## <a name="next-steps"></a>Passos seguintes
 
-- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)
-
-- [Experimente Jive com Azure AD](https://aad.portal.azure.com/)
-
-- [O que é o controlo de sessão no Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
-
-- [Configurar o Provisionamento do Utilizador](jive-provisioning-tutorial.md)
-
-- [Como proteger a Jive com visibilidade e controlos avançados](/cloud-app-security/proxy-intro-aad)
+Uma vez configurado Jive, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

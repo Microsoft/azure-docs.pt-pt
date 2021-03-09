@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/05/2021
-ms.openlocfilehash: 8fdb6a53ed0fd64953b75238c3ba3df62c4b644e
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 7f7a09b9e20b461a8a1e448bf4a7b0747a35fbb1
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102432949"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487154"
 ---
 # <a name="create-a-semantic-query-in-cognitive-search"></a>Criar uma consulta semântica na Pesquisa Cognitiva
 
@@ -177,7 +177,7 @@ A tabela seguinte resume os parâmetros de consulta utilizados numa consulta sem
 | consultaType | String | Valores válidos incluem simples, completo e semântico. É necessário um valor de "semântica" para consultas semânticas. |
 | queryLanguage | String | Necessário para consultas semânticas. Atualmente, apenas "en-us" é implementado. |
 | searchFields | String | Uma lista delimitada por vírgulas de campos pesjáveis. Opcional, mas recomendado. Especifica os campos sobre os quais ocorre uma classificação semântica. </br></br>Em contraste com os tipos de consulta simples e completa, a ordem em que os campos estão listados determina a precedência.|
-| respostas |String | Campo opcional para especificar se as respostas semânticas estão incluídas no resultado. Atualmente, apenas é implementada a "extração". As respostas podem ser configuradas para devolver um máximo de cinco. Este exemplo "extrativo|contagem3'' mostra uma contagem de três respostas. A predefinição é 1.|
+| respostas |String | Campo opcional para especificar se as respostas semânticas estão incluídas no resultado. Atualmente, apenas é implementada a "extração". As respostas podem ser configuradas para devolver um máximo de cinco. O padrão é um. Este exemplo mostra uma contagem de três respostas: \| "contagem extrativa3". |
 
 ## <a name="query-with-search-explorer"></a>Consultar com o Explorador de procura
 
@@ -186,7 +186,7 @@ A seguinte consulta visa o índice de amostra de Hotéis incorporados, utilizand
 ### <a name="with-querytypesemantic"></a>Com consultaType=semântica
 
 ```json
-search=I want a nice hotel on the water with a great restaurant&$select=HotelId,HotelName,Description,Tags&queryType=semantic&queryLanguage=english&searchFields=Description,Tags
+search=nice hotel on water with a great restaurant&$select=HotelId,HotelName,Description,Tags&queryType=semantic&queryLanguage=english&searchFields=Description,Tags
 ```
 
 Os primeiros resultados são os seguintes.
