@@ -2,15 +2,15 @@
 title: Modelo de implementação - Portal Azure
 description: Saiba como criar o seu primeiro modelo de Gestor de Recursos Azure (modelo ARM) utilizando o portal Azure e como implementá-lo.
 author: mumian
-ms.date: 01/26/2021
+ms.date: 03/09/2021
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: 946156caa7252a89cab006d604eb6b441e09c643
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 20b1bf47ae2fd63e91a11c8cccd1f03cf3464899
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98892508"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102548176"
 ---
 # <a name="quickstart-create-and-deploy-arm-templates-by-using-the-azure-portal"></a>Quickstart: Criar e implementar modelos ARM utilizando o portal Azure
 
@@ -34,7 +34,7 @@ Muitos desenvolvedores de modelos experientes usam este método para gerar model
     ![Selecione Criar um recurso a partir do menu do portal Azure](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-a-resource.png)
 
 1. Na caixa de pesquisa, escreva **a conta de armazenamento** e, em seguida, prima **[ENTER]**.
-1. Selecione **Criar**.
+1. Selecione a seta para baixo ao lado **de Criar** e, em seguida, selecione a conta **de Armazenamento**.
 
     ![Criar uma conta de armazenamento do Azure](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-portal.png)
 
@@ -57,9 +57,9 @@ Muitos desenvolvedores de modelos experientes usam este método para gerar model
 
     ![Gerar um modelo a partir do portal](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-template.png)
 
-    O painel principal mostra o modelo. É um ficheiro JSON com seis elementos de alto nível - `schema` `contentVersion` , e `parameters` `variables` `resources` `output` . Para mais informações, consulte [Compreender a estrutura e sintaxe dos modelos ARM](./template-syntax.md)
+    O painel principal mostra o modelo. É um ficheiro JSON com seis elementos de alto nível - `schema` , , , , , e `contentVersion` `parameters` `variables` `resources` `output` . Para mais informações, consulte [Compreender a estrutura e sintaxe dos modelos ARM](./template-syntax.md)
 
-    Há oito parâmetros definidos. Um desses parâmetros é denominado **storageAccountName**. A segunda parte realçada na imagem anterior mostra como fazer referência a este parâmetro no modelo. Na próxima secção, vai editar o modelo de modo a utilizar um nome gerado para a conta de armazenamento.
+    Há nove parâmetros definidos. Um desses parâmetros é denominado **storageAccountName**. A segunda parte realçada na imagem anterior mostra como fazer referência a este parâmetro no modelo. Na próxima secção, vai editar o modelo de modo a utilizar um nome gerado para a conta de armazenamento.
 
     No modelo, é definido um recurso do Azure. O tipo `Microsoft.Storage/storageAccounts` é. Veja como o recurso é definido e a estrutura de definição.
 1. Selecione **Baixar** a partir da parte superior do ecrã.
@@ -92,72 +92,76 @@ O Azure exige que cada serviço do Azure tenha um nome exclusivo. A implementaç
    - Remover o **parâmetro de armazenamentoAconselho de nome** como mostrado na imagem anterior.
    - Adicione uma variável chamada **storageAccountName** como mostrado na imagem anterior:
 
-       ```json
-       "storageAccountName": "[concat(uniqueString(subscription().subscriptionId), 'storage')]"
-       ```
+      ```json
+      "storageAccountName": "[concat(uniqueString(subscription().subscriptionId), 'storage')]"
+      ```
 
-       Duas funções de modelo são usadas aqui: `concat()` e `uniqueString()` .
+      Duas funções de modelo são usadas aqui: `concat()` e `uniqueString()` .
    - Atualize o elemento name do recurso **Microsoft.Storage/storageAccounts** para utilizar a variável recém-definida em vez do parâmetro:
 
-       ```json
-       "name": "[variables('storageAccountName')]",
-       ```
+      ```json
+      "name": "[variables('storageAccountName')]",
+      ```
 
-     O modelo final deve ter o seguinte aspeto:
+      O modelo final deve ter o seguinte aspeto:
 
-     ```json
-     {
-       "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-       "contentVersion": "1.0.0.0",
-       "parameters": {
-         "location": {
-           "type": "string"
-         },
-         "accountType": {
-           "type": "string"
-         },
-         "kind": {
-           "type": "string"
-         },
-         "accessTier": {
-           "type": "string"
-         },
-         "minimumTlsVersion": {
-           "type": "string"
-         },
-         "supportsHttpsTrafficOnly": {
-          "type": "bool"
-         },
-         "allowBlobPublicAccess": {
-           "type": "bool"
-         }
-       },
-       "variables": {
-         "storageAccountName": "[concat(uniqueString(subscription().subscriptionId), 'storage')]"
-       },
-       "resources": [
-         {
-           "name": "[variables('storageAccountName')]",
-           "type": "Microsoft.Storage/storageAccounts",
-           "apiVersion": "2019-06-01",
-           "location": "[parameters('location')]",
-           "properties": {
-             "accessTier": "[parameters('accessTier')]",
-             "minimumTlsVersion": "[parameters('minimumTlsVersion')]",
-             "supportsHttpsTrafficOnly": "[parameters('supportsHttpsTrafficOnly')]",
-             "allowBlobPublicAccess": "[parameters('allowBlobPublicAccess')]"
-           },
-           "dependsOn": [],
-           "sku": {
-             "name": "[parameters('accountType')]"
-           },
-           "kind": "[parameters('kind')]",
-           "tags": {}
-         }
-       ],
-       "outputs": {}
-     }
-     ```
+      ```json
+      {
+        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+        "parameters": {
+          "location": {
+            "type": "string"
+          },
+          "accountType": {
+            "type": "string"
+          },
+          "kind": {
+            "type": "string"
+          },
+          "accessTier": {
+            "type": "string"
+          },
+          "minimumTlsVersion": {
+            "type": "string"
+          },
+          "supportsHttpsTrafficOnly": {
+            "type": "bool"
+          },
+          "allowBlobPublicAccess": {
+            "type": "bool"
+          },
+          "allowSharedKeyAccess": {
+            "type": "bool"
+          }
+        },
+        "variables": {
+          "storageAccountName": "[concat(uniqueString(subscription().subscriptionId), 'storage')]"
+        },
+        "resources": [
+          {
+            "name": "[variables('storageAccountName')]",
+            "type": "Microsoft.Storage/storageAccounts",
+            "apiVersion": "2019-06-01",
+            "location": "[parameters('location')]",
+            "properties": {
+              "accessTier": "[parameters('accessTier')]",
+              "minimumTlsVersion": "[parameters('minimumTlsVersion')]",
+              "supportsHttpsTrafficOnly": "[parameters('supportsHttpsTrafficOnly')]",
+              "allowBlobPublicAccess": "[parameters('allowBlobPublicAccess')]",
+              "allowSharedKeyAccess": "[parameters('allowSharedKeyAccess')]"
+            },
+            "dependsOn": [],
+            "sku": {
+              "name": "[parameters('accountType')]"
+            },
+            "kind": "[parameters('kind')]",
+            "tags": {}
+          }
+        ],
+        "outputs": {}
+      }
+      ```
 
 1. Selecione **Guardar**.
 1. Introduza os seguintes valores:
@@ -173,6 +177,7 @@ O Azure exige que cada serviço do Azure tenha um nome exclusivo. A implementaç
     |**Versão mínima TLS**|Introduza **TLS1_0.** |
     |**Suporta apenas o tráfego de https**| Selecione **verdadeiro** para este início rápido. |
     |**Permitir o acesso público blob**| Selecione **falso** para este início rápido. |
+    |**Permitir acesso de chave partilhada**| Selecione **verdadeiro** para este início rápido. |
 
 1. Selecione **Rever + criar**.
 1. Selecione **Criar**.
@@ -195,7 +200,7 @@ Quando os recursos do Azure já não forem necessários, limpe os recursos imple
 1. Selecione o nome do grupo de recursos.  Deverá ver a conta de armazenamento no grupo de recursos.
 1. Selecione **Eliminar grupo de recursos** no menu superior.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, aprendeu a gerar um modelo a partir do portal do Azure e a implementar o modelo através do portal. O modelo utilizado neste Início Rápido é um modelo simples com um recurso do Azure. Quando o modelo é complexo, é mais fácil utilizar o Visual Studio Code ou o Visual Studio para desenvolver o modelo. Para saber mais sobre o desenvolvimento do modelo, consulte a nossa nova série tutorial de principiantes:
 

@@ -3,13 +3,13 @@ author: rothja
 ms.service: app-service
 ms.topic: include
 ms.date: 03/04/2020
-ms.author: jroth
-ms.openlocfilehash: 71782661fd960cae3248005a8b90944eff9bef45
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.author: msangapu
+ms.openlocfilehash: bcbbd133c71b2917b73c200c4453ea57385fcaf1
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98024245"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102532716"
 ---
 | Recurso | Gratuito | Partilhado | Básica | Standard | Premium (v1-v3) | Isolado </th> |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -24,7 +24,7 @@ ms.locfileid: "98024245"
 | Largura de banda |165 MB |Taxas [ilimitadas](https://azure.microsoft.com/pricing/details/data-transfers/) de transferência de dados aplicam-se |Taxas [ilimitadas](https://azure.microsoft.com/pricing/details/data-transfers/) de transferência de dados aplicam-se |Taxas [ilimitadas](https://azure.microsoft.com/pricing/details/data-transfers/) de transferência de dados aplicam-se |Taxas [ilimitadas](https://azure.microsoft.com/pricing/details/data-transfers/) de transferência de dados aplicam-se |Taxas [ilimitadas](https://azure.microsoft.com/pricing/details/data-transfers/) de transferência de dados aplicam-se |
 | Arquitetura da aplicação |32 bits |32 bits |32 bit/64-bit |32 bit/64-bit |32 bit/64-bit |32 bit/64-bit |
 | Tomadas web por instância<sup>7</sup> |5 |35 |350 |Ilimitado |Ilimitado |Ilimitado |
-| Conexões IP | 600 | 600 | Depende do tamanho do exemplo<sup>8</sup> | Depende do tamanho do exemplo<sup>8</sup> | Depende do tamanho do exemplo<sup>8</sup> | 16 000 |
+| Conexões IP de saída por exemplo | 600 | 600 | Depende do tamanho do exemplo<sup>8</sup> | Depende do tamanho do exemplo<sup>8</sup> | Depende do tamanho do exemplo<sup>8</sup> | 16 000 |
 | Conexões [de depuração](../articles/app-service/troubleshoot-dotnet-visual-studio.md) simultâneas por aplicação |1 |1 |1 |5 |5 |5 |
 | Certificados de Serviço de Aplicações por subscrição<sup>9</sup>| Não suportado | Não suportado |10 |10 |10 |10 |
 | Domínios personalizados por app</a> |0 (apenas azurewebsites.net subdomínio)|500 |500 |500 |500 |500 |
