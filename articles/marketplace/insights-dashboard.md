@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/09/2020
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: 9089fee7565633b198043efeed929fc7446437d5
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: a8a53a54d30df9a2f7079d705f754e554328c3f7
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96458291"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102553940"
 ---
 # <a name="marketplace-insights-dashboard-in-commercial-marketplace-analytics"></a>Dashboard de Informações do Marketplace na análise de mercados comerciais
 
@@ -28,7 +28,7 @@ O painel Marketplace Insights apresenta uma visão geral do Azure Marketplace e 
 
 - Tendência de visitas de página
 - Tendência de chamada para ações
-- Visitas de página e Chamada a ações contra ofertas, domínios de referência e ids de campanha
+- Visitas de página e chamada a ações contra ofertas, domínios de referência e iDs de campanha
 - Marketplace Insights por geografia
 - Tabela de detalhes do Marketplace Insights
 
@@ -103,6 +103,19 @@ Esta tabela fornece uma visão da lista das visitas de página e as chamadas par
 
 > [!TIP]
 > Pode utilizar o ícone de descarregamento no canto superior direito de qualquer widget para descarregar os dados. Pode fornecer feedback sobre cada um dos widgets clicando no ícone "polegares para cima" ou "polegares para baixo".
+
+| Nome da coluna em<br>interface de utilizador | Nome do atributo | Definição | Nome da coluna em programático<br>relatórios de acesso |
+| ------------ | ------------- | ------------- | ------------- |
+| Data | Data de Visita | A data da visita de página e/ou CTA clique na geração de eventos na página da oferta no Azure Marketplace e/ou AppSource. | Data |
+| Nome da Oferta | Nome da Oferta | O nome da oferta do mercado comercial. | OfferName |
+| Domínio de referência | Domínio de referência | O nome do domínio de referência de onde a visita da página aconteceu. Se não houver domínios de referência capturados para a visita de página, então a entrada correspondente é "O domínio de encaminhamento não está presente". |  ReferênciaDomínio |
+| Nome do País | Nome do País | O nome do país de onde a visita de página aconteceu. | Nome do país |
+| Visitas de Página | Visitas de Página | O número de visitas de página associadas ao Nome da Oferta para uma data específica. | PageVisits |
+| Get It Now | Get It Now | O número de cliques para o CTA "Get It Now" na página da oferta para uma data específica. | GetItNow |
+| Contacte-me | Contacte-me | O número de cliques para a CTA "Contacte-me" na página da oferta para uma data específica. | ContatoMe |
+| Versão de Teste | Versão de Teste | O número de cliques para o CTA "Test Drive" na página da oferta para uma data específica. | TestDrive |
+| Avaliação Gratuita | Avaliação Gratuita | O número de cliques para a CTA "Teste Livre" na página da oferta para uma data específica. | FreeTrial |
+|||||
 
 ## <a name="next-steps"></a>Passos seguintes
 

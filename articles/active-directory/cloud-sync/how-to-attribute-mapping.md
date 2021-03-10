@@ -1,6 +1,6 @@
 ---
-title: Azure AD Connect cloud sync editor
-description: Este artigo descreve como usar o editor de atributos.
+title: Mapeamento de atributos em sincronização de nuvem AD Connect Azure
+description: Este artigo descreve como usar a funcionalidade de sincronização em nuvem do Azure AD Connect para os atributos do mapa.
 services: active-directory
 author: billmath
 manager: daveba
@@ -11,97 +11,97 @@ ms.date: 01/21/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6d2adbd0fe0715cb22ac158d1804f53384f8b94
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: cdb043374cf6252da3929c8f0cda6c0a4be558b7
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98682110"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102555215"
 ---
-# <a name="azure-ad-connect-cloud-sync-attribute-mapping"></a>Azure AD Connect cloud sync mapping
+# <a name="attribute-mapping-in-azure-ad-connect-cloud-sync"></a>Mapeamento de atributos em sincronização de nuvem AD Connect Azure
 
-O Azure AD Connect cloud sync introduziu uma nova funcionalidade, que lhe permitirá mapear facilmente atributos entre os objetos de utilizador/grupo no local e os objetos em Azure AD.  Esta funcionalidade foi adicionada à configuração de sincronização de nuvem.
+Pode utilizar a funcionalidade de sincronização em nuvem do Azure Ative Directory (Azure AD) Connect para mapear atributos entre o utilizador ou objetos de grupo no local e os objetos em Azure AD. Esta capacidade foi adicionada à configuração de sincronização de nuvem.
 
-Pode personalizar os mapeamentos de atributos padrão de acordo com as necessidades do seu negócio. Assim, pode alterar ou eliminar os mapeamentos de atributos existentes ou criar novos mapeamentos de atributos.  Para uma lista de atributos sincronizados veja [atributos sincronizados](../hybrid/reference-connect-sync-attributes-synchronized.md?context=azure%2factive-directory%2fcloud-provisioning%2fcontext%2fcp-context/hybrid/reference-connect-sync-attributes-synchronized.md).
+Pode personalizar (alterar, excluir ou criar) os mapeamentos de atributos padrão de acordo com as necessidades do seu negócio. Para obter uma lista de atributos sincronizados, consulte [Atributos sincronizados ao Azure Ative Directory](../hybrid/reference-connect-sync-attributes-synchronized.md?context=azure%2factive-directory%2fcloud-provisioning%2fcontext%2fcp-context/hybrid/reference-connect-sync-attributes-synchronized.md).
 
-## <a name="understanding-attribute-mapping-types"></a>Compreender tipos de mapeamento de atributos
-Com os mapeamentos de atributos, você controla como os atributos são povoados em Azure AD.
-Existem quatro tipos de mapeamento diferentes suportados:
+## <a name="understand-types-of-attribute-mapping"></a>Compreender tipos de mapeamento de atributos
+Com o mapeamento de atributos, você controla como os atributos são povoados em Azure AD. A Azure AD suporta quatro tipos de mapeamento:
 
-- **Direto** – o atributo alvo é preenchido com o valor de um atributo do objeto ligado em AD.
-- **Constante** – o atributo alvo é preenchido com uma cadeia específica especificada.
-- **Expressão** - o atributo alvo é povoado com base no resultado de uma expressão semelhante ao script.
-  Para obter mais informações, consulte [a escrita de expressões para atribuir mapeamentos.](reference-expressions.md)
-- **Nenhum** - o atributo alvo é deixado sem modificação. No entanto, se o atributo alvo estiver sempre vazio, é preenchido com o valor padrão que especifica.
+- **Direto**: O atributo alvo é povoado com o valor de um atributo do objeto ligado no Ative Directory.
+- **Constante**: O atributo do alvo é preenchido com uma cadeia específica que especifica.
+- **Expressão**: O atributo alvo é povoado com base no resultado de uma expressão semelhante ao script. Para obter mais informações, consulte [expressões de escrita para mapeamentos de atributos no Azure Ative Directory](reference-expressions.md).
+- **Nenhum**: O atributo alvo é deixado sem modificação. No entanto, se o atributo alvo estiver sempre vazio, é preenchido com o valor padrão que especifica.
 
-Juntamente com estes quatro tipos básicos, os mapeamentos de atributos personalizados suportam o conceito de uma atribuição de valor **padrão** opcional. A atribuição de valor predefinido garante que um atributo alvo é povoado com um valor se não houver um valor em Ad Azure ou no objeto alvo. A configuração mais comum é deixar este em branco.
+Juntamente com estes tipos básicos, os mapeamentos de atributos personalizados suportam o conceito de uma atribuição de valor *padrão* opcional. A atribuição de valor predefinido garante que um atributo alvo é povoado com um valor se Azure AD ou o objeto alvo não tiver um valor. A configuração mais comum é deixar este em branco.
 
-## <a name="understanding-attribute-mapping-properties"></a>Compreender propriedades de mapeamento de atributos
+## <a name="understand-properties-of-attribute-mapping"></a>Compreender propriedades do mapeamento de atributos
 
-Na secção anterior, já foi introduzido na propriedade do tipo de mapeamento de atributos.
-Juntamente com esta propriedade, os mapeamentos de atributos também suportam os seguintes atributos:
+Juntamente com a propriedade tipo, os mapeamentos de atributos suportam os seguintes atributos:
 
-- **Atributo de origem** - O atributo do utilizador a partir do sistema de origem (exemplo: Ative Directory).
-- **Atributo-alvo** – O atributo do utilizador no sistema-alvo (exemplo: Azure Ative Directory).
-- **Valor predefinido se nulo (opcional)** - O valor que será passado para o sistema-alvo se o atributo de origem for nulo. Este valor só será a provisionado quando um utilizador for criado. O "valor predefinido quando nulo" não será previsto ao atualizar um utilizador existente.  
-- **Aplique este mapeamento**
-  - **Sempre** – Aplique este mapeamento tanto na criação do utilizador como nas ações de atualização.
-  - **Apenas durante a criação** - Aplique este mapeamento apenas nas ações de criação de utilizadores.
+- **Atributo de origem**: O atributo do utilizador a partir do sistema de origem (exemplo: Ative Directory).
+- **Atributo-alvo**: O atributo do utilizador no sistema-alvo (exemplo: Azure Ative Directory).
+- **Valor predefinido se nulo (opcional)**: O valor que será passado para o sistema-alvo se o atributo de origem for nulo. Este valor só será a provisionado quando um utilizador for criado. Não será a provisionado quando estiver a atualizar um utilizador existente.  
+- **Aplique este mapeamento:**
+  - **Sempre:** Aplique este mapeamento tanto nas ações de criação do utilizador como na atualização.
+  - **Apenas durante a criação**: Aplique este mapeamento apenas em ações de criação de utilizadores.
 
 > [!NOTE]
-> Este documento descreve como usar o portal Azure para mapear atributos.  Para obter informações sobre a utilização do Gráfico consulte [transformações](how-to-transformation.md)
+> Este artigo descreve como usar o portal Azure para mapear atributos.  Para obter informações sobre a utilização do Microsoft Graph, consulte [Transformações](how-to-transformation.md).
 
-## <a name="using-attribute-mapping"></a>Usando o mapeamento de atributos
+## <a name="add-an-attribute-mapping"></a>Adicione um mapeamento de atributos
 
-Para utilizar a nova funcionalidade, siga os passos abaixo.
+Para utilizar a nova capacidade, siga estes passos:
 
 1.  No portal do Azure, selecione **Azure Active Directory**.
 2.  Selecione **Azure Ad Connect**.
 3.  **Selecione Gerir a sincronização de nuvens**.
 
-    ![Gerir o provisionamento](media/how-to-install/install-6.png)
+    ![Screenshot que mostra a ligação para gerir a sincronização da nuvem.](media/how-to-install/install-6.png)
 
 4. Em **Configuração,** selecione a sua configuração.
-5. Selecione **Clique para editar mapeamentos**.  Isto abrirá o ecrã de mapeamento do atributo.
+5. Selecione **Clique para editar mapeamentos**.  Este link abre o ecrã **de mapeamentos do Atributo.**
 
-    ![Adicionar atributos](media/how-to-attribute-mapping/mapping-6.png)
+    ![Screenshot que mostra a ligação para adicionar atributos.](media/how-to-attribute-mapping/mapping-6.png)
 
-6.  Clique **em Adicionar Atributo**.
+6.  **Selecione Adicionar atributo**.
 
-    ![Tipo de mapeamento](media/how-to-attribute-mapping/mapping-1.png)
+    ![Screenshot que mostra o botão para adicionar um atributo, juntamente com listas de atributos e tipos de mapeamento.](media/how-to-attribute-mapping/mapping-1.png)
 
-7. Selecione o **tipo de Mapeamento**.  Neste exemplo usamos a Expressão.
-8.  Introduza a expressão na caixa.  Para este exemplo estamos a usar: `Replace([mail], "@contoso.com", , ,"", ,).`
-9.  Introduza o atributo alvo.  Neste exemplo usamos ExtensionAttribute15.
-10. Selecione quando aplicar isto e, em seguida, clique **em Aplicar**
+7. Selecione o tipo de mapeamento. Para este exemplo, estamos a usar **a Expressão.**
+8. Introduza a expressão na caixa. Para este exemplo, estamos a `Replace([mail], "@contoso.com", , ,"", ,)` usar.
+9. Introduza o atributo alvo. Para este exemplo, estamos a usar **extensionAttribute15**.
+10. Selecione quando aplicar este mapeamento e, em seguida, **selecione Aplicar**.
 
-    ![Editar mapeamentos](media/how-to-attribute-mapping/mapping-2a.png)
+    ![Screenshot que mostra as caixas preenchidas para criar um mapeamento de atributos.](media/how-to-attribute-mapping/mapping-2a.png)
 
-11. De volta ao ecrã de mapeamento do atributo deve ver o seu novo mapeamento de atributos.  
-12. Clique **em Guardar o Esquema.**
+11. De volta ao ecrã de **mapeamentos do Atributo,** deverá ver o seu novo mapeamento de atributos.  
+12. **Selecione Guardar o esquema**.
 
-    ![Salvar o Schema](media/how-to-attribute-mapping/mapping-3.png)
+    ![Screenshot que mostra o botão De guardar o esquema.](media/how-to-attribute-mapping/mapping-3.png)
 
 ## <a name="test-your-attribute-mapping"></a>Teste o mapeamento do seu atributo
 
-Para testar o mapeamento do seu atributo, pode utilizar [o provisionamento a pedido](how-to-on-demand-provision.md).  Do 
+Para testar o seu mapeamento de atributos, pode utilizar [o provisionamento a pedido:](how-to-on-demand-provision.md) 
 
 1. No portal do Azure, selecione **Azure Active Directory**.
 2. Selecione **Azure Ad Connect**.
 3. **Selecione Gerir o provisionamento**.
 4. Em **Configuração,** selecione a sua configuração.
-5. Em **Validação** clique no botão **'Disposição'.** 
-6. No ecrã de provisionamento a pedido.  Introduza o **nome distinto** de um utilizador ou grupo e clique no botão **Provision.**  
-7. Uma vez concluído, deverá ver um ecrã de sucesso e 4 caixas de verificação verdes indicando que foi a provisionada com sucesso.  
+5. Em **Validação**, selecione o botão **Devisão de utilizador.** 
+6. No ecrã **De provisão a pedido,** introduza o nome distinto de um utilizador ou grupo e selecione o botão **Provision.** 
 
-    ![Sucesso do provisionamento](media/how-to-attribute-mapping/mapping-4.png)
+   O ecrã mostra que o provisionamento está em andamento.
 
-8. Em **Perform Action** clique Ver **detalhes**.  À direita, deve ver o novo atributo sincronizado e a expressão aplicada.
+   ![Screenshot que mostra provisão em progresso.](media/how-to-attribute-mapping/mapping-4.png)
 
-  ![Realizar ação](media/how-to-attribute-mapping/mapping-5.png)
+8. Após o provisionamento final, um ecrã de sucesso aparece com quatro marcas de verificação verdes. 
 
-## <a name="next-steps"></a>Passos Seguintes
+   Em **Ação Perform**, selecione **Ver detalhes**. À direita, deve ver o novo atributo sincronizado e a expressão aplicada.
+
+   ![Screenshot que mostra sucesso e detalhes de exportação.](media/how-to-attribute-mapping/mapping-5.png)
+
+## <a name="next-steps"></a>Passos seguintes
 
 - [O que é a sincronização de nuvem AZure AD Connect?](what-is-cloud-sync.md)
-- [Expressãos de escrita para atributos-mapeamentos](reference-expressions.md)
-- [Atributos que são sincronizados](../hybrid/reference-connect-sync-attributes-synchronized.md?context=azure%2factive-directory%2fcloud-provisioning%2fcontext%2fcp-context/hybrid/reference-connect-sync-attributes-synchronized.md)
+- [Expressãos de escrita para mapeamentos de atributos](reference-expressions.md)
+- [Atributos sincronizados com o Azure Active Directory](../hybrid/reference-connect-sync-attributes-synchronized.md?context=azure%2factive-directory%2fcloud-provisioning%2fcontext%2fcp-context/hybrid/reference-connect-sync-attributes-synchronized.md)

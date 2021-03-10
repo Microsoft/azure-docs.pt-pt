@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=weig, previous-ms.author=weig
-ms.openlocfilehash: ce37ee51e549a2bd6f2747f28af8c038c39d8f1f
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 66853b580ba1b619bf4cc995e05bd3cfaff07cfb
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97656840"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102565874"
 ---
 # <a name="data-science-code-testing-on-azure-with-the-team-data-science-process-and-azure-devops-services"></a>Testes de código de ciência de dados no Azure com o Processo de Ciência de Dados da Equipa e Serviços Azure DevOps
 Este artigo fornece orientações preliminares para testar código num fluxo de trabalho de ciência de dados. Estes testes conferem aos cientistas de dados uma forma sistemática e eficiente de verificar a qualidade e o resultado esperado do seu código. Utilizamos um projeto team data science process (TDSP) [que utiliza o conjunto de dados do Rendimento Adulto da UCI](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) que publicámos anteriormente para mostrar como os testes de código podem ser feitos. 
@@ -124,7 +124,7 @@ Utilize os seguintes passos para configurar e executar testes de código e uma c
 
     ![Lista de modelos e botão "Processo vazio"](./media/code-test/start_empty_process_template.PNG)
 
-    d. Nomeie a construção e selecione o agente. Pode escolher o padrão aqui se quiser utilizar um DSVM para concluir o processo de construção. Para obter mais informações sobre a definição de agentes, consulte [build e release agents](/azure/devops/pipelines/agents/agents?view=vsts).
+    d. Nomeie a construção e selecione o agente. Pode escolher o padrão aqui se quiser utilizar um DSVM para concluir o processo de construção. Para obter mais informações sobre a definição de agentes, consulte [build e release agents](/azure/devops/pipelines/agents/agents).
     
     ![Seleções de construção e de agentes](./media/code-test/select_agent.PNG)
 

@@ -4,16 +4,16 @@ description: Saiba como pode pré-pagar planos de software para economizar dinhe
 author: bandersmsft
 manager: yashesvi
 ms.service: virtual-machines
-ms.subservice: sizes
+ms.subservice: reserved-instances
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: banders
-ms.openlocfilehash: 5a4f7de0cacb17087e346123f53dad45ae1de357
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 136207afef3fef9266fadcea1e67bb0aa6a38a32
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98602619"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102549758"
 ---
 # <a name="prepay-for-azure-software-plans"></a>Pré-pagamento dos planos de software do Azure
 
@@ -32,7 +32,7 @@ Pode comprar planos de software SUSE e RedHat no portal Azure. Para comprar um p
 Preencha os campos necessários. Qualquer SUSE Linux VM ou RedHat VM que corresponda aos atributos do que compra recebe o desconto. O número real de implementações que obtêm o desconto dependem do âmbito e quantidade selecionados.
 3. Selecione uma subscrição. É usado para pagar o plano.
 O método de pagamento por subscrição é cobrado os custos iniciais da reserva. O tipo de subscrição deve ser um Acordo de Empresa (números de oferta: MS-AZR-0017P ou MS-AZR-0148P) ou acordo individual com preços pay-as-you-go (números de oferta: MS-AZR-0003P ou MS-AZR-0023P).
-    - Para uma subscrição de empresa, os encargos são deduzidos do saldo do pré-pagamento Azure (anteriormente chamado de compromisso monetário) ou cobrados como excesso de idade.
+    - Para uma subscrição Enterprise, os custos são deduzidos do saldo do Pré-pagamento do Azure (que antes se chamava alocação monetária) da inscrição ou cobrados como utilização excedida.
     - Para uma subscrição individual com preços pay-as-you-go, os encargos são cobrados para o cartão de crédito da subscrição ou método de pagamento da fatura.
 4. Selecione um âmbito. O âmbito pode abranger uma subscrição ou várias subscrições (âmbito partilhado).
     - Subscrição única - O desconto do plano é aplicado à utilização correspondente na subscrição.

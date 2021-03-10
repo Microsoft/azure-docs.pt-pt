@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: media
 ms.date: 1/14/2020
 ms.author: inhenkel
-ms.openlocfilehash: dc75ada87db6fdbb3861c2e4e495f93147513421
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: 671991a936fd0330c31017dd5f64e7b5eca9b3f4
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102440569"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102563664"
 ---
 # <a name="encoding-scenario-based-migration-guidance"></a>Orientação de migração baseada em cenários de codificação
 
@@ -58,9 +58,7 @@ Clique na imagem abaixo para ver uma versão maior.
 
 ### <a name="v3-encoding-workflow"></a>V3 codificando fluxo de trabalho
 
-<Token>
-<object data="./media/migration-guide/v3-pretty2.svg" width="80%"></object>
-</Token>
+[![Fluxo de trabalho de codificação para V3 ](./media/migration-guide/V3-pretty.svg)](./media/migration-guide/V3-pretty.svg#lightbox)
 
 1. Configurar
     1. Criar um ativo ou utilizar um ativo existente. Se utilizar um novo ativo, faça o upload do conteúdo para esse ativo. Se utilizar um ativo existente, deverá codificar ficheiros que já existem no ativo. *Não devias enviar mais conteúdo para esse ativo.*

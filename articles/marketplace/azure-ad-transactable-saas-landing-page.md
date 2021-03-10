@@ -8,18 +8,18 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.openlocfilehash: 04137fef640da46ca8876811e127e109a8c3d445
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 4bfc29472373a53bcebb2ba59134d1f3702d4793
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348309"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102549877"
 ---
 # <a name="build-the-landing-page-for-your-transactable-saas-offer-in-the-commercial-marketplace"></a>Construa a página de aterragem para a sua oferta de SaaS transacionável no mercado comercial
 
 Este artigo guia-o através do processo de construção de uma página de aterragem para uma aplicação saaS transacionável que será vendida no mercado comercial da Microsoft.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Pode pensar na página de aterragem como o "lobby" do seu software como uma oferta de serviço (SaaS). Após o comprador subscrever uma oferta, o mercado comercial direciona-os para a página de aterragem para ativar e configurar a sua subscrição para a sua aplicação SaaS. Pense nisto como um passo de confirmação de encomenda que permite ao comprador ver o que comprou e confirmar os seus dados da conta. Utilizando o Azure Ative Directory (Azure AD) e o Microsoft Graph, irá ativar um único sign-on (SSO) para o comprador e obter detalhes importantes sobre o comprador que pode usar para confirmar e ativar a sua subscrição, incluindo o seu nome, endereço de e-mail e organização.
 
@@ -62,7 +62,7 @@ Se necessitar de permissões elevadas como parte do seu processo de embarque ou 
 
 Fornecemos várias aplicações de amostra que implementam um site simples com login AD Azure ativado. Depois da sua aplicação estar registada no Azure AD, a lâmina **Quickstart** oferece uma lista de tipos de aplicações comuns e pilhas de desenvolvimento como visto na Figura 1. Escolha aquele que corresponda ao seu ambiente e siga as instruções para o download e configuração.
 
-**_Figura 1: Lâmina de arranque rápido no portal Azure_* _
+***Figura 1: Lâmina de arranque rápido no portal Azure***
 
 :::image type="content" source="./media/azure-ad-saas/azure-ad-quickstart-blade.png" alt-text="Ilustra a lâmina de arranque rápido no portal Azure.":::
 
@@ -109,7 +109,7 @@ Como parte do fluxo [OpenID Connect,](../active-directory/develop/v2-protocols-o
 
 ## <a name="use-the-microsoft-graph-api"></a>Utilizar a Microsoft Graph API
 
-O token de ID contém informações básicas para identificar o comprador, mas o seu processo de ativação pode requerer detalhes adicionais - como a empresa do comprador - para completar o processo de embarque. Utilize a API do [Microsoft Graph](/graph/use-the-api) para solicitar estas informações para evitar forçar o utilizador a introduzir novamente estes detalhes. As permissões standard _ *User.Read* * incluem as seguintes informações, por padrão.
+O token de ID contém informações básicas para identificar o comprador, mas o seu processo de ativação pode requerer detalhes adicionais - como a empresa do comprador - para completar o processo de embarque. Utilize a API do [Microsoft Graph](/graph/use-the-api) para solicitar estas informações para evitar forçar o utilizador a introduzir novamente estes detalhes. As permissões padrão **User.Read** incluem as seguintes informações, por padrão.
 
 | Valor | Descrição |
 | ------------ | ------------- |
@@ -122,13 +122,13 @@ O token de ID contém informações básicas para identificar o comprador, mas o
 | surname | Sobrenome do utilizador. |
 |||
 
-Propriedades adicionais , como o nome da empresa do utilizador ou a localização do utilizador (país)- podem ser selecionadas para inclusão no pedido. Consulte [as propriedades para o tipo de recurso do utilizador](/graph/api/resources/user?view=graph-rest-1.0&preserve-view=true#properties) para obter mais detalhes.
+Propriedades adicionais , como o nome da empresa do utilizador ou a localização do utilizador (país)- podem ser selecionadas para inclusão no pedido. Consulte [as propriedades para o tipo de recurso do utilizador](/graph/api/resources/user#properties) para obter mais detalhes.
 
 A maioria das aplicações registadas com Azure AD concedem permissões delegadas para ler a informação do utilizador do inquilino AZure AD da sua empresa. Qualquer pedido ao Microsoft Graph para essa informação deve ser acompanhado por um sinal de acesso para autenticação. Passos específicos para gerar o token de acesso dependerão da pilha de tecnologia que está a usar, mas o código de amostra conterá um exemplo. Para mais informações, consulte [Obter acesso em nome de um utilizador](/graph/auth-v2-user).
 
 > [!NOTE]
 > As contas do inquilino da MSA (com identificação do ``9188040d-6c67-4c5b-b112-36a304b66dad`` inquilino) não devolverão mais informações do que já foram recolhidas com o token de identificação. Para que possa ignorar esta chamada para a API do Gráfico para estas contas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Como criar uma oferta SaaS no mercado comercial](create-new-saas-offer.md)

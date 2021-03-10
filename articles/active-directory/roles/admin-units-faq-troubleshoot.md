@@ -14,18 +14,18 @@ ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0fb61388b13b912166c9c07b9ee28b365c4a63b9
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: c1f41dca3b52ce75ba2342506f621cca0618a3bf
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98740385"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102565891"
 ---
 # <a name="azure-ad-administrative-units-troubleshooting-and-faq"></a>Unidades administrativas AZure AD: Resolução de problemas e FAQ
 
-Para um controlo administrativo mais granular no Azure Ative Directory (Azure AD), pode atribuir os utilizadores a uma função AD Azure com um âmbito limitado a uma ou mais unidades administrativas. Para obter scripts PowerShell para tarefas comuns, consulte [Trabalhar com unidades administrativas](/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0&preserve-view=true).
+Para um controlo administrativo mais granular no Azure Ative Directory (Azure AD), pode atribuir os utilizadores a uma função AD Azure com um âmbito limitado a uma ou mais unidades administrativas. Para obter scripts PowerShell para tarefas comuns, consulte [Trabalhar com unidades administrativas](/powershell/azure/active-directory/working-with-administrative-units).
 
-## <a name="frequently-asked-questions"></a>Perguntas frequentes
+## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
 **P: Por que sou incapaz de criar uma unidade administrativa?**
 
@@ -69,11 +69,11 @@ As unidades administrativas, como as unidades organizacionais no Windows Server 
 
 **P: As unidades administrativas são suportadas na PowerShell e na API do gráfico?**
 
-**R:** Sim. Encontrará suporte para unidades administrativas na [documentação do cmdlet PowerShell](/powershell/module/Azuread/?view=azureadps-2.0&preserve-view=true) e [scripts de amostras.](/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0&preserve-view=true)
+**R:** Sim. Encontrará suporte para unidades administrativas na [documentação do cmdlet PowerShell](/powershell/module/Azuread/) e [scripts de amostras.](/powershell/azure/active-directory/working-with-administrative-units)
 
-Encontre suporte para o [tipo de recurso administrativoU no](/graph/api/resources/administrativeunit?view=graph-rest-1.0&preserve-view=true) Microsoft Graph.
+Encontre suporte para o [tipo de recurso administrativoU no](/graph/api/resources/administrativeunit) Microsoft Graph.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Restringir o âmbito de funções utilizando unidades administrativas](administrative-units.md)
 - [Gerir unidades administrativas](admin-units-manage.md)

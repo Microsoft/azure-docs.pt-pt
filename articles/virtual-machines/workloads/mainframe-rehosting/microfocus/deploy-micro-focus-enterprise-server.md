@@ -1,7 +1,7 @@
 ---
-title: Implementar Micro Focus Enterprise Server 5.0 a AKS / Microsoft Docs
+title: Implementar Micro Focus Enterprise Server 5.0 a AKS | Microsoft Docs
 description: Reenquadiço as suas cargas de trabalho de computador principal IBM z/OS utilizando o ambiente de desenvolvimento e teste do Micro Focus em máquinas virtuais Azure (VMs).
-services: virtual-machines-linux
+services: virtual-machines
 documentationcenter: ''
 author: maggsl
 ms.author: edprice
@@ -12,12 +12,12 @@ ms.date: 06/29/2020
 tags: ''
 keywords: ''
 ms.service: multiple
-ms.openlocfilehash: 6780942d922f885c7afebd8e64f4f28654c3800e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9e5b3857c2252a939080206fb1f92cc422f326fc
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87042544"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102564361"
 ---
 # <a name="deploy-micro-focus-enterprise-server-50-to-aks"></a>Implementar Micro Focus Enterprise Server 5.0 a AKS
 
@@ -39,7 +39,7 @@ Está pronto? Vamos começar!
 
 ## <a name="create-the-azure-container-registry"></a>Criar o Registo de Contentores Azure
 
-A partir do portal Azure, **selecione Criar um recurso** no canto superior esquerdo. A partir do Painel de Mercado, selecione **Contentores e,** em seguida, **Registo de Contentores**. Isto leva-o ao painel de registo de **contentores Create** onde precisa de preencher o **nome de Registo**, Assinatura **Azure,** **Grupo de Recursos**e **Localização.** O **nome do registo** precisa de ser resolvido, por isso deve ser único. Selecione o **grupo de Recursos** que utilizou no post de blog anterior e na mesma **Localização**correspondente. Selecione **Ativar** para **utilizador de administração** e **Básico** para o **SKU**. Assim que tiver tudo preenchido, **selecione Criar**.
+A partir do portal Azure, **selecione Criar um recurso** no canto superior esquerdo. A partir do Painel de Mercado, selecione **Contentores e,** em seguida, **Registo de Contentores**. Isto leva-o ao painel de registo de **contentores Create** onde precisa de preencher o **nome de Registo**, Assinatura **Azure,** **Grupo de Recursos** e **Localização.** O **nome do registo** precisa de ser resolvido, por isso deve ser único. Selecione o **grupo de Recursos** que utilizou no post de blog anterior e na mesma **Localização** correspondente. Selecione **Ativar** para **utilizador de administração** e **Básico** para o **SKU**. Assim que tiver tudo preenchido, **selecione Criar**.
 
 ![Criar interface de registo de contentores](media/deploy-image-1.png)
 
@@ -71,7 +71,7 @@ Uma vez iniciado o login, abra um pedido de comando e inicie os seguintes comand
 
 -   **imagens docker** – isto mostra uma lista de todas as imagens atualmente instaladas no VM. Tome nota do **microfocus/es-acctdemo** porque é com este que vai trabalhar.
 
--   **acrmf50.azurecr.io de login do docker** – O formato correto aqui é o login * \<registry name\> do Docker *. Substitua o nome que usou quando criou o registo.
+-   **acrmf50.azurecr.io de login do docker** – O formato correto aqui é o login *\<registry name\> do Docker*. Substitua o nome que usou quando criou o registo.
 
     -   Necessitará do **nome de utilizador** e **palavra-passe** que copiou do portal Azure. Deverá ver uma imagem semelhante à seguinte.
 

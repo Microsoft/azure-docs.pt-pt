@@ -1,28 +1,29 @@
 ---
 title: Atualizar a extensão do Observador de Rede para a versão mais recente
 description: Saiba como atualizar a extensão do Observador de Rede Azure para a versão mais recente.
-services: virtual-machines-windows
+services: virtual-machines
 documentationcenter: ''
 author: damendo
 manager: balar
 editor: ''
 tags: azure-resource-manager
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.subservice: extensions
+ms.collection: windows
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 09/23/2020
 ms.author: damendo
-ms.openlocfilehash: 144320ea1b2505d8a43e1885091ec14a847e4ab1
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 42efe2927b4d711f7fa66a96ebd25f1a62bf654a
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96853667"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102563613"
 ---
 # <a name="update-the-network-watcher-extension-to-the-latest-version"></a>Atualizar a extensão do Observador de Rede para a versão mais recente
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 [O Azure Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md) é um serviço de monitorização, diagnóstico e análise de desempenho de rede que monitoriza as redes Azure. A extensão da máquina virtual do Network Watcher Agent (VM) é um requisito para capturar o tráfego de rede a pedido e utilizar outra funcionalidade avançada em VMs Azure. A extensão do Observador de Rede é utilizada por funcionalidades como Monitor de Ligação, Monitor de Ligação (pré-visualização), resolução de problemas de ligação e captura de pacotes.
 

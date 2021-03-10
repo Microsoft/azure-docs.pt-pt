@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 218208891cccb4f606a574a9c1c09f30c4ac0b11
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: f373c849cd542769fec7a10f20dad04e742c9591
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98725083"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102565143"
 ---
 # <a name="secure-external-access-to-microsoft-teams-sharepoint-and-onedrive-for-business"></a>Acesso externo seguro a Microsoft Teams, SharePoint e OneDrive para negócios 
 
@@ -90,7 +90,7 @@ Para saber mais sobre a gestão do acesso externo em Equipas, consulte os seguin
 
 * [Gerir o acesso externo em Equipas microsoft](/microsoftteams/manage-external-access)
 
-* [Microsoft 365 modelos de identidade e Azure Ative Directory](/microsoft-365/enterprise/about-microsoft-365-identity?view=o365-worldwide)
+* [Microsoft 365 modelos de identidade e Azure Ative Directory](/microsoft-365/enterprise/about-microsoft-365-identity)
 
 * [Modelos de identidade e autenticação para equipas da Microsoft](/MicrosoftTeams/identify-models-authentication)
 
@@ -175,7 +175,7 @@ Para saber mais sobre a governação do acesso externo ao SharePoint consulte o 
 
 * [Integração sharePoint e OneDrive com Azure AD B2B](/sharepoint/sharepoint-azureb2b-integration-preview)
 
-#### <a name="next-steps"></a>Próximos passos
+#### <a name="next-steps"></a>Passos seguintes
 
 Consulte os seguintes artigos sobre a garantia do acesso externo aos recursos. Recomendamos que tome as ações na ordem listada.
 

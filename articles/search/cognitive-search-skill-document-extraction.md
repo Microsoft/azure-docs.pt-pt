@@ -1,5 +1,5 @@
 ---
-title: Capacidade cognitiva de extração de documentos (pré-visualização)
+title: Habilidade cognitiva de extração de documentos
 titleSuffix: Azure Cognitive Search
 description: Extrai conteúdo de um ficheiro dentro do gasoduto de enriquecimento. Esta habilidade está atualmente em visualização pública.
 manager: nitinme
@@ -8,17 +8,14 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: chalton
-ms.openlocfilehash: d6dd2b891cb3bf9ebb5442f541021c20a34ce1a1
-ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
+ms.openlocfilehash: 144e8058e640f98dc6b0ef60534405525532b00e
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99474851"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102547871"
 ---
 # <a name="document-extraction-cognitive-skill"></a>Habilidade cognitiva de extração de documentos
-
-> [!IMPORTANT] 
-> Esta habilidade está atualmente em visualização pública. A funcionalidade de pré-visualização é fornecida sem um contrato de nível de serviço, e não é recomendada para cargas de trabalho de produção. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Atualmente não existe porta ou suporte .NET SDK.
 
 A habilidade **de extração** de documentos extrai o conteúdo de um ficheiro dentro do gasoduto de enriquecimento. Isto permite-lhe tirar partido do passo de extração de documentos que normalmente acontece antes da execução do skillset com ficheiros que podem ser gerados por outras habilidades.
 
@@ -34,13 +31,13 @@ Microsoft.Skills.Util.DocumentExtractionSkill
 
 Os parâmetros são sensíveis às maiúsculas e minúsculas.
 
-| Entradas | Valores Permitidos | Descrição |
+| Entradas | Valores Permitidos | Description |
 |-----------------|----------------|-------------|
 | `parsingMode`   | `default` <br/> `text` <br/> `json`  | Configurar para `default` extração de documentos a partir de ficheiros que não são texto puro ou json. Definido `text` para melhorar o desempenho em ficheiros de texto simples. Configurar `json` para extrair conteúdo estruturado dos ficheiros json. Se `parsingMode` não for definido explicitamente, será definido para `default` . |
 | `dataToExtract` | `contentAndMetadata` <br/> `allMetadata` | Configurar `contentAndMetadata` para extrair todos os metadados e conteúdo textual de cada ficheiro. Configurado `allMetadata` para extrair apenas as propriedades de [metadados para o tipo de conteúdo](search-blob-metadata-properties.md) (por exemplo, metadados exclusivos de apenas .png ficheiros). Se `dataToExtract` não for definido explicitamente, será definido para `contentAndMetadata` . |
 | `configuration` | Veja abaixo. | Um dicionário de parâmetros opcionais que ajustam a forma como a extração do documento é realizada. Consulte a tabela abaixo para obter descrições das propriedades de configuração suportadas. |
 
-| Parâmetro de configuração   | Valores Permitidos | Descrição |
+| Parâmetro de configuração   | Valores Permitidos | Description |
 |-------------------------|----------------|-------------|
 | `imageAction`           | `none`<br/> `generateNormalizedImages`<br/> `generateNormalizedImagePerPage` | Configurar `none` para ignorar imagens incorporadas ou ficheiros de imagem no conjunto de dados. Esta é a predefinição. <br/>Para [análise de imagem usando habilidades cognitivas,](cognitive-search-concept-image-scenarios.md)definido para ter a habilidade criar uma variedade de `generateNormalizedImages` imagens normalizadas como parte da quebra de documentos. Esta ação requer que `parsingMode` esteja definida e está definida para `default` `dataToExtract` `contentAndMetadata` . Uma imagem normalizada refere-se a um processamento adicional, resultando numa saída uniforme de imagem, dimensionada e rotativa para promover uma renderização consistente quando se incluem imagens em resultados de pesquisa visual (por exemplo, fotografias do mesmo tamanho num controlo de gráfico como visto na [demonstração do JFK).](https://github.com/Microsoft/AzureSearch_JFK_Files) Esta informação é gerada para cada imagem quando utiliza esta opção.  <br/>Se `generateNormalizedImagePerPage` configurar, os ficheiros PDF serão tratados de forma diferente, em vez de extrair imagens incorporadas, cada página será feita como uma imagem e normalizada em conformidade.  Os tipos de ficheiros não PDF serão tratados da mesma forma que se `generateNormalizedImages` estivesse definido.
 | `normalizedImageMaxWidth` | Qualquer inteiro entre 50-10000 | A largura máxima (em pixels) para imagens normalizadas geradas. A predefinição é 2 000. | 
@@ -50,7 +47,7 @@ Os parâmetros são sensíveis às maiúsculas e minúsculas.
 > O padrão de 2000 pixels para as imagens normalizadas a largura e altura máxima baseia-se nos tamanhos máximos suportados pela [habilidade de OCR](cognitive-search-skill-ocr.md) e pela habilidade de análise de [imagem](cognitive-search-skill-image-analysis.md). A [habilidade OCR](cognitive-search-skill-ocr.md) suporta uma largura e altura máximas de 4200 para línguas não inglesas, e 10000 para inglês.  Se aumentar os limites máximos, o processamento pode falhar em imagens maiores, dependendo da definição de skillset e da linguagem dos documentos. 
 ## <a name="skill-inputs"></a>Entradas de habilidades
 
-| Nome de entrada     | Descrição |
+| Nome de entrada     | Description |
 |--------------------|-------------|
 | `file_data` | O ficheiro de que o conteúdo deve ser extraído. |
 
@@ -73,7 +70,7 @@ Este objeto de referência de ficheiro pode ser gerado de uma de 3 maneiras:
 
 ## <a name="skill-outputs"></a>Saídas de competências
 
-| Nome de saída    | Descrição |
+| Nome de saída    | Description |
 |--------------|-------------|
 | `content` | O conteúdo textual do documento. |
 | `normalized_images`   | Quando o `imageAction` valor for definido para outro `none` valor, o novo campo de *normalized_images* conterá uma variedade de imagens. Consulte [a documentação para extração de imagem](cognitive-search-concept-image-scenarios.md) para obter mais detalhes sobre o formato de saída de cada imagem. |

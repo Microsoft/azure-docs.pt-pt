@@ -5,15 +5,15 @@ author: JBCook
 ms.topic: troubleshooting
 ms.workload: infrastructure
 ms.service: virtual-machines
-ms.subservice: workloads
+ms.subservice: confidential-computing
 ms.date: 4/17/2020
 ms.author: jencook
-ms.openlocfilehash: 38bf12b46002e767bba50cf833637e2c8ace078f
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: a5ecd3827bbdc12b098684f1feda2df652f11940
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98872337"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102551917"
 ---
 # <a name="frequently-asked-questions-for-azure-confidential-computing"></a>Perguntas frequentes para Azure Confidential Computing
 
@@ -32,7 +32,7 @@ Aqui estão algumas formas de implementar um DCsv2 VM:
 
 **Todas as imagens de SO funcionarão com a computação confidencial do Azure?**
 
-Não. As máquinas virtuais só podem ser implantadas em máquinas operativas da Geração 2 com o Ubuntu Server 18.04, o Ubuntu Server 16.04, o Windows Server 2019 Datacenter e o Windows Server 2016 Datacenter. Ler mais sobre Gen 2 VMs em [Linux](../virtual-machines/generation-2.md) e [Windows](../virtual-machines/generation-2.md)
+N.º As máquinas virtuais só podem ser implantadas em máquinas operativas da Geração 2 com o Ubuntu Server 18.04, o Ubuntu Server 16.04, o Windows Server 2019 Datacenter e o Windows Server 2016 Datacenter. Ler mais sobre Gen 2 VMs em [Linux](../virtual-machines/generation-2.md) e [Windows](../virtual-machines/generation-2.md)
 
 **As máquinas virtuais DCsv2 estão acinzentadas no portal e não posso selecionar uma**
 
@@ -47,11 +47,11 @@ Certifique-se de ter selecionado uma [região disponível.](https://azure.micros
 
 **Posso permitir networking acelerado com computação confidencial Azure?**
 
- Não. O Networking Acelerado não é suportado em máquinas virtuais DC-Series ou DCsv2-Series. O Networking Acelerado não pode ser ativado para qualquer implementação de máquinas virtuais de computação confidencial ou para a implementação do cluster do Serviço Azure Kubernetes em execução em computação confidencial.
+ N.º O Networking Acelerado não é suportado em máquinas virtuais DC-Series ou DCsv2-Series. O Networking Acelerado não pode ser ativado para qualquer implementação de máquinas virtuais de computação confidencial ou para a implementação do cluster do Serviço Azure Kubernetes em execução em computação confidencial.
 
 **Posso usar o Azure Dedicado Host com estas máquinas?**
 
-Yes. Azure Dedicado Host suporta máquinas virtuais da série DCsv2. O Azure Dedicated Host fornece um servidor físico de um único inquilino para executar as suas máquinas virtuais. Os utilizadores geralmente usam o Azure Dedicated Host para abordar os requisitos de conformidade em torno da segurança física, integridade dos dados e monitorização. 
+Sim. Azure Dedicado Host suporta máquinas virtuais da série DCsv2. O Azure Dedicated Host fornece um servidor físico de um único inquilino para executar as suas máquinas virtuais. Os utilizadores geralmente usam o Azure Dedicated Host para abordar os requisitos de conformidade em torno da segurança física, integridade dos dados e monitorização. 
 
 **Recebo um erro de falha de implementação do modelo do Azure Resource Manager: "A operação não pôde ser concluída porque resulta em exceder a quota de núcleos familiares do DcsV2 aprovado"**
 
@@ -63,7 +63,7 @@ DC-Series VMs funcionam em processadores Intel de 6 núcleos mais antigos com In
 
 **As máquinas virtuais DCsv2 estão disponíveis globalmente?**
 
-Não. Neste momento, estas máquinas virtuais só estão disponíveis em regiões selecionadas. Consulte a página de [produtos por regiões](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines) para as últimas regiões disponíveis. 
+N.º Neste momento, estas máquinas virtuais só estão disponíveis em regiões selecionadas. Consulte a página de [produtos por regiões](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines) para as últimas regiões disponíveis. 
 
 **A hiper-rosca está desligada nestas máquinas?**
 

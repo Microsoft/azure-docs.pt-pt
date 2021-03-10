@@ -1,20 +1,19 @@
 ---
 title: Visão geral do agente Azure Linux VM
 description: Aprenda a instalar e configurar o Agente Linux (waagent) para gerir a interação da sua máquina virtual com o Controlador de TecidoS Azure.
-author: axayjo
-ms.service: virtual-machines-linux
-ms.subservice: extensions
-ms.workload: infrastructure-services
 ms.topic: article
+ms.service: virtual-machines
+ms.subservice: extensions
+ms.author: amjads
+author: amjads1
+ms.collection: linux
 ms.date: 10/17/2016
-ms.author: akjosh
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a4a391e52f80ec171d48718a18764f0f88f34133
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: e8851ddd5211536394614727d990a2b52d32bfcc
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96016493"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102565382"
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Compreensão e utilização do Agente Azure Linux
 
@@ -86,7 +85,7 @@ Outros sistemas suportados:
 O agente Linux depende de alguns pacotes do sistema para funcionar corretamente:
 
 * Python 2.6+
-* AberturaSSL 1.0+
+* OpenSSL 1.0+
 * OpenSSH 5.3+
 * Utilitários de sistema de ficheiros: sfdisk, fdisk, mkfs, partedos
 * Ferramentas de senha: chpasswd, sudo

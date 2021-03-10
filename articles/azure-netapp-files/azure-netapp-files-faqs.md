@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/21/2021
+ms.date: 03/09/2021
 ms.author: b-juche
-ms.openlocfilehash: 2cb0e3829011ca9bd0f2b6f36ebf3e6744a180ec
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 6d9d56a7f6d1e265508081f735e2dbc379f195fb
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101713410"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102552036"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>PERGUNTAS Frequentes Sobre Ficheiros Azure NetApp
 
@@ -147,6 +147,16 @@ Certifique-se de que `CaseSensitiveLookup` está ativado no cliente do Windows p
 2. Monte o volume no servidor Windows.   
     Exemplo:   
     `Mount -o rsize=1024 -o wsize=1024 -o mtype=hard \\10.x.x.x\testvol X:*`
+
+### <a name="how-does-azure-netapp-files-support-nfsv41-file-locking"></a>Como é que os Ficheiros Azure NetApp suportam o bloqueio de ficheiros NFSv4.1? 
+
+Para os clientes NFSv4.1, a Azure NetApp Files suporta o mecanismo de bloqueio de ficheiros NFSv4.1 que mantém o estado de todas as fechaduras de ficheiros sob um modelo baseado em locação. 
+
+Por RFC 3530, a Azure NetApp Files define um período único de locação para todos os estados detidos por um cliente NFS. Se o cliente não renovar o seu contrato de arrendamento dentro do período definido, todos os estados associados ao arrendamento do cliente serão liberados pelo servidor.  
+
+Por exemplo, se um cliente que monta um volume não reagir ou se bater para além dos intervalos, as fechaduras serão libertadas. O cliente pode renovar o seu contrato de arrendamento de forma explícita ou implícita através da realização de operações como a leitura de um ficheiro.   
+
+Um período de carência define um período de processamento especial no qual os clientes podem tentar recuperar o seu estado de bloqueio durante a recuperação do servidor. O tempo limite padrão para os locados é de 30 segundos com um período de carência de 45 segundos. Depois desse tempo, o contrato de arrendamento do cliente será liberado.   
 
 ## <a name="smb-faqs"></a>FAQs sobre o SMB
 

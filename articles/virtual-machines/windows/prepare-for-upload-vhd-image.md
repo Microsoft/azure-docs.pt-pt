@@ -3,17 +3,19 @@ title: Prepare um VHD do Windows para fazer o upload para o Azure
 description: Saiba como preparar um Windows VHD ou VHDX para o fazer o upload para o Azure
 author: glimoli
 manager: dcscontentpm
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.subservice: disks
+ms.collection: windows
 ms.workload: infrastructure-services
 ms.topic: troubleshooting
 ms.date: 09/02/2020
 ms.author: genli
-ms.openlocfilehash: e409211c167f7b29128faf9fdfc02aa5c0a7d0e3
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 12ef839cbbbc69230b314bf7c56a63f57a0d6b20
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736259"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102556269"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Preparar um VHD ou um VHDX do Windows para carregamento para o Azure
 
@@ -517,7 +519,7 @@ As seguintes definições não afetam o upload de VHD. No entanto, recomendamos 
 
   - Recomendamos desativar bloqueadores de scripts que possam ser fornecidos por software antivírus. Podem interferir e bloquear os scripts do Agente de Provisionamento do Windows executados quando implementar um novo VM a partir da sua imagem.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Faça o upload de uma imagem do Windows VM para Azure para implementações do Gestor de Recursos](upload-generalized-managed.md)
 - [Problemas de ativação do Azure Windows VM](../troubleshooting/troubleshoot-activation-problems.md)

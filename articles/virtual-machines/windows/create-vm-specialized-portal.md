@@ -2,17 +2,19 @@
 title: Criar um VM do Windows a partir de um VHD especializado no portal Azure
 description: Crie um novo Windows VM a partir de um VHD no portal Azure.
 author: cynthn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.subservice: imaging
+ms.collection: windows
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 01/18/2019
 ms.author: cynthn
-ms.openlocfilehash: 31677482660a48e2bb4c71b81b04681eba725fcd
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: a93ab207960133ecbf5a68927c5d16a6daf94fd4
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96455131"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102562219"
 ---
 # <a name="create-a-vm-from-a-vhd-by-using-the-azure-portal"></a>Criar um VM a partir de um VHD utilizando o portal Azure
 
@@ -38,7 +40,7 @@ Recomendamos que limite o número de implementações simultâneas a 20 VMs a pa
 Crie uma imagem instantânea e, em seguida, crie um disco a partir do instantâneo. Esta estratégia permite-lhe manter o VHD original como um recuo:
 
 1. A partir do [portal Azure,](https://portal.azure.com)no menu esquerdo, selecione **Todos os serviços**.
-2. Na caixa de pesquisa de todos os **Disks** **serviços,** introduza discos e, em seguida, selecione Discos para exibir a lista de discos disponíveis. **All services**
+2. Na caixa de pesquisa de todos os  **serviços,** introduza discos e, em seguida, selecione Discos para exibir a lista de discos disponíveis. 
 3. Selecione o disco que pretende utilizar. Aparece a página **do disco** para o disco.
 4. A partir do menu no topo, **selecione Criar instantâneo**. 
 5. Insira um **nome** para a foto.
@@ -60,7 +62,7 @@ Crie uma imagem instantânea e, em seguida, crie um disco a partir do instantân
 Depois de ter o VHD de disco gerido que pretende utilizar, pode criar o VM no portal:
 
 1. A partir do [portal Azure,](https://portal.azure.com)no menu esquerdo, selecione **Todos os serviços**.
-2. Na caixa de pesquisa de todos os **Disks** **serviços,** introduza discos e, em seguida, selecione Discos para exibir a lista de discos disponíveis. **All services**
+2. Na caixa de pesquisa de todos os  **serviços,** introduza discos e, em seguida, selecione Discos para exibir a lista de discos disponíveis. 
 3. Selecione o disco que pretende utilizar. A página **do disco** para o disco abre.
 4. Na página **'Visão Geral',** certifique-se de que o **ESTADO DO DISCO** está listado como **Unattached**. Se não for, poderá ter de separar o disco do VM ou eliminar o VM para libertar o disco.
 4. No menu no topo da página, selecione **Create VM**.

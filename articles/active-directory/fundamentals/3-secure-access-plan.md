@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 202f2190e68b89d790c628248ae89f0cb274ff76
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 266142240ba9e892c905ac8aa6521da5a14c4c3d
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98725216"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102554025"
 ---
 # <a name="3-create-a-security-plan-for-external-access"></a>3. Criar um plano de segurança para o acesso externo 
 
@@ -132,7 +132,7 @@ Embora as suas políticas sejam altamente personalizadas às suas necessidades, 
 
    * Se estiver a utilizar [organizações conectadas](../governance/entitlement-management-organization.md) para agrupar todos os utilizadores de um único parceiro, agende avaliações regulares com o proprietário do negócio e o representante do parceiro.
 
-* **Microsoft 365 Grupos**. Desempeca uma [política de expiração do grupo](/microsoft-365/solutions/microsoft-365-groups-expiration-policy?view=o365-worldwide) para os Grupos Microsoft 365 para os quais os utilizadores externos são convidados. 
+* **Microsoft 365 Grupos**. Desempeca uma [política de expiração do grupo](/microsoft-365/solutions/microsoft-365-groups-expiration-policy) para os Grupos Microsoft 365 para os quais os utilizadores externos são convidados. 
 
 * **Outras opções.** Se os utilizadores externos tiverem acesso fora dos pacotes de acesso à Gestão de Direitos ou dos grupos Microsoft 365, criem um processo de negócio para rever quando as contas devem ser feitas inativas ou eliminadas. Por exemplo:
 
@@ -208,7 +208,7 @@ Pode alcançar uma governação robusta com o Azure AD P1 e o Microsoft 365 E3
 | Métodos adicionais| | Restringir o acesso do site sharePoint granularmente com grupos de segurança.<br>Não permitir a partilha direta.| **Restringir convites externos de dentro de equipas**|  |
 
 
-### <a name="next-steps"></a>Próximos passos
+### <a name="next-steps"></a>Passos seguintes
 
 Consulte os seguintes artigos sobre a garantia do acesso externo aos recursos. Recomendamos que tome as ações na ordem listada.
 

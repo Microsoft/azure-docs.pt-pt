@@ -2,18 +2,19 @@
 title: Tutorial - Configurar recuperação de desastres para VMs do Windows com recuperação do site Azure
 description: Saiba como permitir a recuperação de desastres para os VMs do Windows para uma região de Azure diferente, utilizando o serviço de Recuperação do Local Azure.
 author: rayne-wiselman
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.collection: windows
 ms.subservice: recovery
 ms.topic: tutorial
 ms.date: 11/05/2020
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 53cc0b820bd2ffb9fc28b37f44bb71a7b9d3cd30
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: e9f44ea2af832729a47bf4b719b90f9b14e401b9
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93380450"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102555861"
 ---
 # <a name="tutorial-enable-disaster-recovery-for-windows-vms"></a>Tutorial: Permitir a recuperação de desastres para os VMs do Windows
 
@@ -40,7 +41,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 3. Recomendamos que utilize um Windows VM que executa o Windows Server 2012 ou mais tarde. O disco VM não deve ser encriptado para o efeito deste tutorial.
 4. Se as ligações de saída VM utilizarem um representante baseado em URL, certifique-se de que pode aceder a estes URLs. Usar um representante autenticado não é suportado.
 
-    **Name** | **Cloud pública** | **Nuvem do governo** | **Detalhes**
+    **Nome** | **Cloud pública** | **Nuvem do governo** | **Detalhes**
     --- | --- | --- | ---
     Armazenamento | `*.blob.core.windows.net` | `*.blob.core.usgovcloudapi.net`| Escreva dados do VM para a conta de armazenamento de cache na região de origem. 
     Azure AD  | `login.microsoftonline.com` | `login.microsoftonline.us`| Autorizar e autenticar para URLs de serviço de recuperação de sítios. 
@@ -61,7 +62,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 ## <a name="enable-disaster-recovery"></a>Permitir a recuperação de desastres
 
 1. No portal Azure, abra a página de propriedades VM.
-2. Em **Operações** , selecione **Recuperação após desastre**.
+2. Em **Operações**, selecione **Recuperação após desastre**.
 3. Na região **Base**  >  **Alvo,** selecione a região à qual pretende replicar o VM. As regiões-alvo e de origem devem estar no mesmo inquilino do Azure Ative Directory.
 4. Clique **em Revisão + Iniciar a replicação.**
 
@@ -86,13 +87,13 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 Após o fim do trabalho de replicação, pode verificar o estado de replicação VM.
 
 1. Abra a página de propriedades VM.
-2. Em **Operações** , selecione **Recuperação após desastre**.
+2. Em **Operações**, selecione **Recuperação após desastre**.
 3. Expanda a secção **Essentials** para rever os predefinidos sobre o cofre, a política de replicação e as definições de destino.
-4. Na **Saúde e no estado** , obtenha informações sobre o estado de replicação para o VM, a versão do agente, a prontidão de failover e os últimos pontos de recuperação. 
+4. Na **Saúde e no estado**, obtenha informações sobre o estado de replicação para o VM, a versão do agente, a prontidão de failover e os últimos pontos de recuperação. 
 
     :::image type="content" source="./media/tutorial-disaster-recovery/essentials.png" alt-text="Visão essencial para a recuperação de desastres em VM.":::
 
-5. Na **vista de infraestrutura** , obtenha uma visão geral visual de VMs de origem e alvo, discos geridos e a conta de armazenamento de cache.
+5. Na **vista de infraestrutura**, obtenha uma visão geral visual de VMs de origem e alvo, discos geridos e a conta de armazenamento de cache.
 
     :::image type="content" source="./media/tutorial-disaster-recovery/infrastructure.png" alt-text="mapa visual da infraestrutura para recuperação de desastres VM.":::
 
@@ -102,7 +103,7 @@ Após o fim do trabalho de replicação, pode verificar o estado de replicação
 Faça um exercício para garantir que a recuperação de desastres funcione como esperado. Quando se faz um teste de falha, cria uma cópia do VM, sem impacto na replicação contínua, ou no seu ambiente de produção. 
 
 1. Na página de recuperação de desastres em VM, selecione **Test failover**.
-2. No **teste de failover** , deixe a definição processada **mais recente (RPO baixa)** para o ponto de recuperação.
+2. No **teste de failover**, deixe a definição processada **mais recente (RPO baixa)** para o ponto de recuperação.
 
    Esta opção fornece o objetivo de ponto de recuperação mais baixo (RPO), e geralmente a rotação mais rápida do VM alvo. Primeiro processa todos os dados que foram enviados para o serviço de Recuperação de Sítios, para criar um ponto de recuperação para cada VM, antes de falhar. Este ponto de recuperação tem todos os dados replicados para a Recuperação do Local quando a falha foi desencadeada.
 
@@ -126,7 +127,7 @@ O VM é automaticamente limpo pela Recuperação do Local após a broca.
 
     :::image type="content" source="./media/tutorial-disaster-recovery/start-cleanup.png" alt-text="Inicie a limpeza na página Essentials."::: 
 
-2. Na **limpeza de failover test** , escreva em todas as notas que pretende gravar para a falha e, em seguida, selecione **Testes completos. Eliminar a máquina virtual de falha de teste**. Em seguida, selecione **OK**.
+2. Na **limpeza de failover test**, escreva em todas as notas que pretende gravar para a falha e, em seguida, selecione **Testes completos. Eliminar a máquina virtual de falha de teste**. Em seguida, selecione **OK**.
 
     :::image type="content" source="./media/tutorial-disaster-recovery/delete-test.png" alt-text="Página para gravar notas e apagar o VM de teste."::: 
 

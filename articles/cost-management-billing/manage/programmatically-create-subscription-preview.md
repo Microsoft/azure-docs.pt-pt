@@ -9,12 +9,12 @@ ms.date: 11/17/2020
 ms.reviewer: andalmia
 ms.author: banders
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: bc761d0bf4001fb1e3fb757b9be9e1e19689913d
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: b524869998dd2464ed359ec61ce655a807899aaa
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102202999"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102565721"
 ---
 # <a name="programmatically-create-azure-subscriptions-with-preview-apis"></a>Criar subscrições do Azure através de programação com APIs de pré-visualização
 
@@ -190,7 +190,7 @@ New-AzSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -Enroll
 | `EnrollmentAccountObjectId`      | Sim       | String | O ID de Objeto da conta de inscrição na qual a subscrição é criada e faturada. O valor é um GUID que obtém de `Get-AzEnrollmentAccount`. |
 | `OwnerObjectId`      | Não       | String | O ID de Objeto de qualquer utilizador a adicionar como Proprietário de RBAC do Azure na subscrição quando esta é criada.  |
 | `OwnerSignInName`    | Não       | String | O endereço de e-mail de qualquer utilizador a adicionar como Proprietário de RBAC do Azure na subscrição quando esta é criada. Pode utilizar o parâmetro em vez de `OwnerObjectId`.|
-| `OwnerApplicationId` | Não       | String | O ID da aplicação de qualquer principal de serviço a adicionar como Proprietário de RBAC do Azure na subscrição quando esta é criada. Pode utilizar o parâmetro em vez de `OwnerObjectId`. Quando utilizar o parâmetro, o principal de serviço tem de ter [acesso de leitura ao diretório](/powershell/azure/active-directory/signing-in-service-principal?view=azureadps-2.0#give-the-service-principal-reader-access-to-the-current-tenant-get-azureaddirectoryrole&preserve-view=true).|
+| `OwnerApplicationId` | Não       | String | O ID da aplicação de qualquer principal de serviço a adicionar como Proprietário de RBAC do Azure na subscrição quando esta é criada. Pode utilizar o parâmetro em vez de `OwnerObjectId`. Quando utilizar o parâmetro, o principal de serviço tem de ter [acesso de leitura ao diretório](/powershell/azure/active-directory/signing-in-service-principal#give-the-service-principal-reader-access-to-the-current-tenant-get-azureaddirectoryrole).|
 
 Para ver uma lista completa de todos os parâmetros, veja [New-AzSubscription](/powershell/module/az.subscription/New-AzSubscription).
 
@@ -211,7 +211,7 @@ az account create --offer-type "MS-AZR-0017P" --display-name "Dev Team Subscript
 | `enrollment-account-object-id`      | Sim       | String | O ID de Objeto da conta de inscrição na qual a subscrição é criada e faturada. O valor é um GUID que obtém de `az billing enrollment-account list`. |
 | `owner-object-id`      | Não       | String | O ID de Objeto de qualquer utilizador a adicionar como Proprietário de RBAC do Azure na subscrição quando esta é criada.  |
 | `owner-upn`    | Não       | String | O endereço de e-mail de qualquer utilizador a adicionar como Proprietário de RBAC do Azure na subscrição quando esta é criada. Pode utilizar o parâmetro em vez de `owner-object-id`.|
-| `owner-spn` | Não       | String | O ID da aplicação de qualquer principal de serviço a adicionar como Proprietário de RBAC do Azure na subscrição quando esta é criada. Pode utilizar o parâmetro em vez de `owner-object-id`. Quando utilizar o parâmetro, o principal de serviço tem de ter [acesso de leitura ao diretório](/powershell/azure/active-directory/signing-in-service-principal?view=azureadps-2.0#give-the-service-principal-reader-access-to-the-current-tenant-get-azureaddirectoryrole&preserve-view=true).|
+| `owner-spn` | Não       | String | O ID da aplicação de qualquer principal de serviço a adicionar como Proprietário de RBAC do Azure na subscrição quando esta é criada. Pode utilizar o parâmetro em vez de `owner-object-id`. Quando utilizar o parâmetro, o principal de serviço tem de ter [acesso de leitura ao diretório](/powershell/azure/active-directory/signing-in-service-principal#give-the-service-principal-reader-access-to-the-current-tenant-get-azureaddirectoryrole).|
 
 Para ver uma lista completa de todos os parâmetros, veja [az account create](/cli/azure/ext/subscription/account#-ext-subscription-az-account-create).
 

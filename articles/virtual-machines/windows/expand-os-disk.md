@@ -1,26 +1,27 @@
 ---
 title: Expandir a unidade de SO de um Windows VM em um Azure
 description: Expandir o tamanho da unidade de SO de uma máquina virtual utilizando o Azure PowerShell no modelo de implementação do Gestor de Recursos.
-services: virtual-machines-windows
+services: virtual-machines
 documentationcenter: ''
 author: kirpasingh
 manager: roshar
 editor: ''
 tags: azure-resource-manager
 ms.assetid: d9edfd9f-482f-4c0b-956c-0d2c2c30026c
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.collection: windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/02/2020
 ms.author: kirpas
 ms.subservice: disks
-ms.openlocfilehash: df27d7b25010fa68fc86ffe093318b2b0b7f4e96
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 2f991dd93549cf73005127569af496df541eecde
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93393834"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102549605"
 ---
 # <a name="how-to-expand-the-os-drive-of-a-virtual-machine"></a>Como expandir a unidade do SO das máquinas virtuais
 
@@ -39,7 +40,7 @@ Quando cria uma nova máquina virtual (VM) num grupo de recursos, implantando um
 ## <a name="resize-a-managed-disk-in-the-azure-portal"></a>Redimensione um disco gerido no portal Azure
 
 1. No [portal Azure,](https://portal.azure.com)vá à máquina virtual na qual pretende expandir o disco. **Selecione Stop** para negociar o VM.
-2. Quando o VM for parado, no menu esquerdo em **Definições** , selecione **Discos**.
+2. Quando o VM for parado, no menu esquerdo em **Definições**, selecione **Discos**.
 
     :::image type="content" source="./media/expand-os-disk/select-disks.png" alt-text="Screenshot que mostra a opção Discos selecionada na secção Definições do menu.":::
 
@@ -48,11 +49,11 @@ Quando cria uma nova máquina virtual (VM) num grupo de recursos, implantando um
 
     :::image type="content" source="./media/expand-os-disk/disk-name.png" alt-text="Screenshot que mostra o painel de Discos com um nome de disco selecionado.":::
 
-4. No menu esquerdo em **Definições** , selecione **Configuração**.
+4. No menu esquerdo em **Definições**, selecione **Configuração**.
 
     :::image type="content" source="./media/expand-os-disk/configuration.png" alt-text="Screenshot que mostra a opção de Configuração selecionada na secção Definições do menu.":::
 
-5. Em **Tamanho (GiB)** , selecione o tamanho do disco que pretende.
+5. Em **Tamanho (GiB)**, selecione o tamanho do disco que pretende.
    
    > [!WARNING]
    > O novo tamanho deve ser maior que o tamanho do disco existente. O máximo permitido é de 2.048 GB para discos de SO. (É possível expandir a bolha VHD para além desse tamanho, mas o SO funciona apenas com os primeiros 2.048 GB de espaço.)
@@ -60,7 +61,7 @@ Quando cria uma nova máquina virtual (VM) num grupo de recursos, implantando um
 
     :::image type="content" source="./media/expand-os-disk/size.png" alt-text="Screenshot que mostra o painel de configuração com o tamanho do disco selecionado.":::
 
-6. Selecione **Save** (Guardar).
+6. Selecione **Guardar**.
 
     :::image type="content" source="./media/expand-os-disk/save.png" alt-text="Screenshot que mostra o painel de configuração com o botão Guardar selecionado.":::
 

@@ -9,19 +9,19 @@ ms.subservice: blobs
 ms.topic: how-to
 ms.reviewer: klaasl
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 32bb51751430dcd0208849f798d21f2b25e6b82b
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: a820f7efc39af8c6ab66c883d285b507c7bc7368
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102430875"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102563273"
 ---
 # <a name="use-blob-index-tags-preview-to-manage-and-find-data-on-azure-blob-storage"></a>Utilize tags de índice blob (pré-visualização) para gerir e encontrar dados sobre o Armazenamento Azure Blob
 
 As etiquetas de índice blob categorizam dados na sua conta de armazenamento utilizando atributos de etiqueta de valor-chave. Estas tags são automaticamente indexadas e expostas como um índice multidimensional pesmável para encontrar facilmente dados. Este artigo mostra-lhe como definir, obter e encontrar dados usando tags de índice de bolhas.
 
 > [!IMPORTANT]
-> As etiquetas do índice blob estão atualmente em **PREVIEW** e estão disponíveis nas regiões central do **Canadá,** **Canadá Oriental,** **France Central** e **França Sul.** Consulte os [Termos Complementares de Utilização para o Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para termos legais aplicáveis às funcionalidades do Azure que estejam em versão beta, pré-visualização ou ainda não lançadas em disponibilidade geral.
+> As etiquetas de índice blob estão atualmente em **PREVIEW** e estão disponíveis em todas as regiões públicas. Consulte os [Termos Complementares de Utilização para o Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para termos legais aplicáveis às funcionalidades do Azure que estejam em versão beta, pré-visualização ou ainda não lançadas em disponibilidade geral.
 
 Para saber mais sobre esta funcionalidade juntamente com questões e limitações conhecidas, consulte [Gerir e encontrar dados do Azure Blob com etiquetas de índice blob (pré-visualização)](storage-manage-find-blobs.md).
 

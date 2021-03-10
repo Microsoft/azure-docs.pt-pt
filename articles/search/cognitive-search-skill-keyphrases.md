@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 2fdebffbf9643febc08cba997b3a5a5fc4bb5998
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 8aafb08ff0ccc9391071f796450e69f87de279ba
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97652318"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102547837"
 ---
 #   <a name="key-phrase-extraction-cognitive-skill"></a>Habilidade cognitiva de extração de frase-chave
 
@@ -37,21 +37,22 @@ O tamanho máximo de um disco deve ser de 50.000 caracteres medido por [`String.
 
 Os parâmetros são sensíveis às maiúsculas e minúsculas.
 
-| Entradas | Descrição |
+| Entradas | Description |
 |---------------------|-------------|
 | `defaultLanguageCode` | (Opcional) O código linguístico a aplicar a documentos que não especificam explicitamente a língua.  Se o código linguístico predefinido não for especificado, o inglês (en) será utilizado como código idioma predefinido. <br/> Consulte [a lista completa de línguas suportadas.](../cognitive-services/text-analytics/language-support.md) |
 | `maxKeyPhraseCount`   | (Opcional) O número máximo de frases-chave a produzir. |
+| `modelVersion`   | (Opcional) A versão do modelo a utilizar ao ligar para o serviço Text Analytics. Será o mais recente disponível quando não especificado. Recomendamos que não especifique este valor a menos que seja absolutamente necessário. Consulte [a versão modelo na API de Análise de Texto](../cognitive-services/text-analytics/concepts/model-versioning.md) para obter mais detalhes. |
 
 ## <a name="skill-inputs"></a>Entradas de habilidades
 
-| Entrada  | Descrição |
+| Entrada  | Description |
 |--------------------|-------------|
 | `text` | O texto a ser analisado.|
 | `languageCode`    |  Uma corda que indica a linguagem dos registos. Se este parâmetro não for especificado, o código linguístico predefinido será utilizado para analisar os registos. <br/>Ver [lista completa de línguas apoiadas](../cognitive-services/text-analytics/language-support.md)|
 
 ## <a name="skill-outputs"></a>Saídas de competências
 
-| Saída     | Descrição |
+| Saída     | Description |
 |--------------------|-------------|
 | `keyPhrases` | Uma lista de frases-chave extraídas do texto de entrada. As frases-chave são devolvidas por ordem de importância. |
 
@@ -109,8 +110,8 @@ Para o exemplo acima, a saída da sua habilidade será escrita para um novo nó 
 
 Pode utilizar o "document/myKeyPhrases" como entrada noutras habilidades, ou como fonte de um [mapeamento](cognitive-search-output-field-mapping.md)de campo de saída .
 
-## <a name="errors-and-warnings"></a>Erros e avisos
-Se fornecer um código linguístico não suportado, é gerado um erro e não são extraídas frases-chave.
+## <a name="warnings"></a>Avisos
+Se fornecer um código linguístico não suportado, é gerado um aviso e as frases-chave não são extraídas.
 Se o seu texto estiver vazio, será produzido um aviso.
 Se o seu texto for superior a 50.000 caracteres, apenas os primeiros 50.000 caracteres serão analisados e será emitido um aviso.
 
