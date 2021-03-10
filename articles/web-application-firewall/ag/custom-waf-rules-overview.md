@@ -7,12 +7,12 @@ author: vhorne
 ms.service: web-application-firewall
 ms.date: 04/14/2020
 ms.author: victorh
-ms.openlocfilehash: dd917bcf54022564640d22a5968738c27f75ff38
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 9a5f64687937479d65f94010bbe4f0a5f1cf5ca2
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102519049"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102548228"
 ---
 # <a name="custom-rules-for-web-application-firewall-v2-on-azure-application-gateway"></a>Regras personalizadas para Firewall de Aplicação Web v2 no Gateway de aplicações Azure
 
@@ -73,7 +73,7 @@ Os mapas anteriores `$BlockRule` à seguinte regra personalizada no Azure Resour
               }
             ],
             "operator": "Contains",
-            "negationConditon": false,
+            "negationCondition": false,
             "matchValues": [
               "evilbot"
             ],

@@ -2,18 +2,18 @@
 title: Resolução de problemas usando cloud-init
 description: Resolução de problemas que atravesse um VM Azure usando a cloud-init.
 author: danielsollondon
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.subservice: imaging
 ms.topic: troubleshooting
 ms.date: 07/06/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: a18899ffc6b19be6226d9e0a3efd9a9519434601
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 6c5922137b5d3ee14461adb88fba2e8b2cf41e16
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101666225"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102558972"
 ---
 # <a name="troubleshooting-vm-provisioning-with-cloud-init"></a>Resolução de problemas de fornecimento de VM com cloud-init
 

@@ -7,12 +7,12 @@ ms.author: allensu
 ms.service: load-balancer
 ms.topic: tutorial
 ms.date: 02/24/2021
-ms.openlocfilehash: 7fc964abf7e6832341ad8b1ad55711b3a9993506
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 9107ef6100a3c362eae982412d54a981851bcb42
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101712520"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102561403"
 ---
 # <a name="tutorial-create-a-cross-region-azure-load-balancer-using-the-azure-portal"></a>Tutorial: Criar um balanceador de carga azure cross-region usando o portal Azure
 
@@ -200,9 +200,6 @@ Neste tutorial:
 * Criou uma regra de equilíbrio de carga.
 * Testei o equilibrador de carga.
 
-Para obter mais informações sobre o balançador de carga transversal, consulte [o equilibrador de carga cross-region (Preview)](cross-region-overview.md).
-
-
-Avance para o próximo artigo para aprender a:
+Para obter mais informações sobre o equilibrador de carga entre regiões, consulte:
 > [!div class="nextstepaction"]
-> [Balancear carga de VMs por zonas de disponibilidade](tutorial-load-balancer-standard-public-zone-redundant-portal.md)
+> [Balanceador de carga transversal (Pré-visualização)](cross-region-overview.md)

@@ -1,29 +1,23 @@
 ---
 title: Encriptação do disco Azure para Windows
 description: Implementa encriptação de disco Azure para uma máquina virtual do Windows utilizando uma extensão de máquina virtual.
-services: virtual-machines-windows
-documentationcenter: ''
-author: ejarvi
-manager: gwallace
-editor: ''
-ms.assetid: ''
-ms.service: virtual-machines-windows
-ms.subservice: extensions
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure-services
-ms.date: 03/19/2020
+ms.service: virtual-machines
+ms.subservice: disks
+author: ejarvi
 ms.author: ejarvi
-ms.openlocfilehash: e7c7385f6a9b0afb5791299a1244011e6164a0a7
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.collection: windows
+ms.date: 03/19/2020
+ms.openlocfilehash: 10268f8041f21f74e8ebcfaee41d207a53618260
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98805256"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102566248"
 ---
 # <a name="azure-disk-encryption-for-windows-microsoftazuresecurityazurediskencryption"></a>Encriptação do disco Azure para Windows (Microsoft.Azure.Security.AzureDiskEncryption)
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 A Azure Disk Encryption aproveita o BitLocker para fornecer encriptação completa do disco em máquinas virtuais Azure que executam o Windows.  Esta solução está integrada com o Azure Key Vault para gerir chaves e segredos de encriptação de discos na subscrição do cofre principal. 
 
@@ -179,7 +173,7 @@ Se precisar de mais ajuda em qualquer ponto deste artigo, pode contactar os espe
 
 Em alternativa, pode apresentar um incidente de suporte Azure. Vá ao [suporte do Azure](https://azure.microsoft.com/support/options/) e selecione Obter suporte. Para obter informações sobre a utilização do Suporte Azure, leia o [Microsoft Azure Support FAQ](https://azure.microsoft.com/support/faq/).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter mais informações sobre extensões, consulte [extensões e funcionalidades da máquina Virtual para Windows](features-windows.md).
 * Para obter mais informações sobre a encriptação do disco Azure para windows, consulte [as máquinas virtuais do Windows](../../security/fundamentals/azure-disk-encryption-vms-vmss.md#windows-virtual-machines).

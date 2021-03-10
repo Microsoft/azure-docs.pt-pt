@@ -14,15 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/25/2021
 ms.author: alkohli
-ms.openlocfilehash: bed1c8fd77e84c69571cfad7dd6b7eeb6607209f
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: f1bce5c0ecdab4a9c96c3f2cc0e9734247bdfd66
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98808049"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102566350"
 ---
 # <a name="troubleshoot-storsimple-device-deployment-issues"></a>Problemas de resolução de problemas Problemas de implementação de dispositivos StorSimple
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Este artigo fornece orientações úteis para a resolução de problemas para a sua implementação Microsoft Azure StorSimple. Descreve problemas comuns, possíveis causas e medidas recomendadas para o ajudar a resolver problemas que poderá experimentar quando configurar storSimple. 
 
 Esta informação aplica-se tanto ao dispositivo físico da série StorSimple 8000 como ao StorSimple Cloud Appliance.
@@ -69,7 +69,7 @@ As tabelas que se seguem listam erros comuns que poderá encontrar quando:
 * Registe o dispositivo.
 
 ## <a name="errors-during-the-required-network-settings"></a>Erros durante as definições de rede necessárias
-| Não. | Mensagem de erro | Possíveis causas | Ação recomendada |
+| N.º | Mensagem de erro | Possíveis causas | Ação recomendada |
 | --- | --- | --- | --- |
 | 1 |Invocar-HcsSetupWizard: Este comando só pode ser executado no controlador ativo. |A configuração estava a ser realizada no controlador passivo. |Executar este comando a partir do controlador ativo. Para obter mais informações, consulte [Identificar um controlador ativo no seu dispositivo.](storsimple-8000-controller-replacement.md#identify-the-active-controller-on-your-device) |
 | 2 |Invocar-hcsSetupWizard: Dispositivo não está pronto. |Existem problemas com a conectividade da rede no DATA 0. |Verifique a conectividade da rede física no DATA 0. |
@@ -80,12 +80,12 @@ As tabelas que se seguem listam erros comuns que poderá encontrar quando:
 | 7 |Invoke-HcsSetupWizard: Não existem mais pontos finais disponíveis a partir do mapper do ponto final. (Exceção da HRESULT: 0x800706D9) |A funcionalidade do cluster não está a funcionar. |[Contacte o Microsoft Support](storsimple-8000-contact-microsoft-support.md) para os próximos passos. |
 
 ## <a name="errors-during-the-optional-web-proxy-settings"></a>Erros durante as definições opcionais de procuração web
-| Não. | Mensagem de erro | Possíveis causas | Ação recomendada |
+| N.º | Mensagem de erro | Possíveis causas | Ação recomendada |
 | --- | --- | --- | --- |
 | 1 |Invoke-HcsSetupWizard: Parâmetro inválido (Exceção de HRESULT: 0x80070057) |Um dos parâmetros previstos para as definições de procuração não é válido. |O URI não é fornecido no formato correto. Utilize o seguinte formato: *\<IP address or FQDN of the web proxy server>* http://:*\<TCP port number>* |
 | 2 |Invoke-HcsSetupWizard: servidor RPC não disponível (Exceção de HRESULT: 0x800706ba) |A causa principal é uma das seguintes:<ol><li>O aglomerado não está de pé.</li><li>O controlador passivo não pode comunicar com o controlador ativo, e o comando é executado a partir do controlador passivo.</li></ol> |Dependendo da causa raiz:<ol><li>[Contacte o Microsoft Support](storsimple-8000-contact-microsoft-support.md) para se certificar de que o cluster está em cima.</li><li>Executar o comando a partir do controlador ativo. Se pretender executar o comando a partir do controlador passivo, terá de se certificar de que o controlador passivo pode comunicar com o controlador ativo. Terá de [contactar](storsimple-8000-contact-microsoft-support.md) o Microsoft Support se esta conectividade estiver quebrada.</li></ol> |
-| 3 |Invoke-HcsSetupWizard: RPC call failed (Exceção de HRESULT: 0x800706be) |O aglomerado está em baixo. |[Contacte o Microsoft Support](storsimple-8000-contact-microsoft-support.md) para se certificar de que o cluster está em cima. |
-| 4 |Invoke-HcsSetupWizard: Recurso de cluster não encontrado (Exceção de HRESULT: 0x8007138f) |O recurso de cluster não é encontrado. Isto pode acontecer quando a instalação não estava correta. |Pode ser necessário reiniciar o dispositivo para as definições predefinidos da fábrica. [Contacte o Microsoft Support](storsimple-8000-contact-microsoft-support.md) para criar um recurso de cluster. |
+| 3 |Invoke-HcsSetupWizard: RPC call failed (Exceção da HRESULT: 0x800706be) |O aglomerado está em baixo. |[Contacte o Microsoft Support](storsimple-8000-contact-microsoft-support.md) para se certificar de que o cluster está em cima. |
+| 4 |Invoke-HcsSetupWizard: Recurso de cluster não encontrado (Exceção da HRESULT: 0x8007138f) |O recurso de cluster não é encontrado. Isto pode acontecer quando a instalação não estava correta. |Pode ser necessário reiniciar o dispositivo para as definições predefinidos da fábrica. [Contacte o Microsoft Support](storsimple-8000-contact-microsoft-support.md) para criar um recurso de cluster. |
 | 5 |Invoke-HcsSetupWizard: Recurso de cluster não online (Exceção da HRESULT: 0x8007138c) |Os recursos do cluster não estão online. |[Contacte o Microsoft Support](storsimple-8000-contact-microsoft-support.md) para os próximos passos. |
 
 ## <a name="errors-related-to-device-administrator-password"></a>Erros relacionados com a palavra-passe do administrador do dispositivo
@@ -103,7 +103,7 @@ Para obter mais informações sobre a palavra-passe do administrador do disposit
 
 Pode encontrar um ou mais dos seguintes erros ao configurar o administrador do dispositivo e as palavras-passe do StorSimple Snapshot Manager.
 
-| Não. | Mensagem de erro | Ação recomendada |
+| N.º | Mensagem de erro | Ação recomendada |
 | --- | --- | --- |
 | 1 |A palavra-passe excede o comprimento máximo. |A palavra-passe do administrador do dispositivo deve ter entre 8 e 15 caracteres de comprimento. |
 | 2 |A palavra-passe não corresponde ao comprimento exigido. |A palavra-passe do administrador do dispositivo deve ter entre 8 e 15 caracteres de comprimento.|
@@ -126,7 +126,7 @@ Pode redefinir a palavra-passe no portal Azure através do serviço StorSimple D
 ## <a name="errors-during-device-registration"></a>Errors during device registration (Erros durante o registo de dispositivos)
 Utilize o serviço StorSimple Device Manager em execução no Microsoft Azure para registar o dispositivo. Pode encontrar um ou mais dos seguintes problemas durante o registo do dispositivo.
 
-| Não. | Mensagem de erro | Possíveis causas | Ação recomendada |
+| N.º | Mensagem de erro | Possíveis causas | Ação recomendada |
 | --- | --- | --- | --- |
 | 1 |Erro 350027: Não registou o dispositivo com o Gestor de Dispositivos StorSimple. | |Aguarde alguns minutos e tente a operação novamente. Se o problema persistir, contacte o [Microsoft Support](storsimple-8000-contact-microsoft-support.md). |
 | 2 |Erro 350013: Ocorreu um erro no registo do dispositivo. Isto pode dever-se a uma chave de registo de serviço incorreta. | |Registe novamente o aparelho com a chave de registo de serviço correta. Para mais informações, consulte [obter a chave de registo do serviço.](storsimple-8000-manage-service.md#get-the-service-registration-key) |
@@ -189,7 +189,7 @@ Quando configurar interfaces de rede para uma primeira implementação de dispos
    * Se a interface for saudável mas não ativada, o estado **ifIndex** é apresentado como **NotPresent**.
    * Se a interface não existir, não aparece nesta lista. O UI do gestor de dispositivos StorSimple continuará a mostrar esta interface num estado falhado.
 
-Para obter mais informações sobre como utilizar este cmdlet, aceda ao [Get-NetAdapter](/powershell/module/netadapter/get-netadapter?view=win10-ps&preserve-view=true) na referência cmdlet Windows PowerShell.
+Para obter mais informações sobre como utilizar este cmdlet, aceda ao [Get-NetAdapter](/powershell/module/netadapter/get-netadapter) na referência cmdlet Windows PowerShell.
 
 As secções seguintes mostram amostras de saída do `Get-NetAdapter` cmdlet.
 
@@ -549,7 +549,7 @@ O erro pode ser causado por qualquer uma das seguintes questões:
 8. Olhe para os troncos. Vá a [Pacotes de Suporte e registos de dispositivos disponíveis para resolução de problemas](#support-packages-and-device-logs-available-for-troubleshooting).
 9. Se os passos anteriores não resolverem o problema, contacte o [Microsoft Support](storsimple-8000-contact-microsoft-support.md) para obter assistência.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 [Aprenda a utilizar a ferramenta De diagnóstico para resolver problemas com um dispositivo StorSimple](storsimple-8000-diagnostics.md).
 
 <!--Link references-->

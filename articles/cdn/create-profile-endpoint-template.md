@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Criar um perfil e ponto final - Modelo de Gestor de Recursos'
 titleSuffix: Azure Content Delivery Network
-description: Saiba como criar um perfil de Rede de Entrega de Conteúdo Azure e endpoint um modelo de Gestor de Recursos
+description: Neste arranque rápido, aprenda a criar um perfil de Rede de Entrega de Conteúdos Azure e aponte um modelo de Gestor de Recursos
 services: cdn
 author: asudbring
 manager: KumudD
@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurecli
 ms.date: 06/25/2020
 ms.author: allensu
-ms.openlocfilehash: b215dfff3bf62b67b89aa260b0134381de6edeae
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: a36484bea3a2bc9caadc5cf4482aae3bea84eafa
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97695729"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102560468"
 ---
 # <a name="quickstart-create-an-azure-cdn-profile-and-endpoint---arm-template"></a>Quickstart: Criar um perfil de CDN azul e ponto final - modelo ARM
 
@@ -107,7 +107,7 @@ Quando já não é necessário, pode utilizar o comando de eliminação do [grup
 
 ### <a name="powershell"></a>PowerShell
 
-Quando já não é necessário, pode utilizar o comando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup?view=latest) para remover o grupo de recursos e todos os recursos contidos no seu interior.
+Quando já não é necessário, pode utilizar o comando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos e todos os recursos contidos no seu interior.
 
 ```azurepowershell-interactive 
 Remove-AzResourceGroup -Name myResourceGroupCDN
@@ -126,5 +126,5 @@ Neste arranque rápido, criou um:
 
 Para saber mais sobre a Azure CDN e Azure Resource Manager, continue para os artigos abaixo.
 
-* Leia uma [visão geral da Azure CDN](cdn-overview.md)
-* Saiba mais sobre o [Azure Resource Manager](../azure-resource-manager/management/overview.md)
+> [!div class="nextstepaction"]
+> [Tutorial: Use o CDN para servir conteúdo estático a partir de uma aplicação web](cdn-add-to-web-app.md)

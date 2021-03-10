@@ -1,28 +1,28 @@
 ---
 title: Descrição geral da Pré-visualização do Azure Logic Apps
-description: A Azure Logic Apps Preview é uma solução em nuvem para construir fluxos de trabalho automatizados e apátridas que integram apps, dados, serviços e sistemas com código mínimo para cenários de nível empresarial.
+description: A Azure Logic Apps Preview é uma solução em nuvem para construir fluxos de trabalho automatizados, únicos inquilinos, imponentes e apátridas que integram apps, dados, serviços e sistemas com código mínimo para cenários de nível empresarial.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 03/05/2021
-ms.openlocfilehash: ad059931d87603c957e446e82b894731dca984dd
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.date: 03/08/2021
+ms.openlocfilehash: d53a36d99c9a54fdfef7baceb50edb4e8f5ae4c8
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102442745"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102561862"
 ---
 # <a name="overview-azure-logic-apps-preview"></a>Visão geral: Pré-visualização de apps da Azure Logic Apps
 
 > [!IMPORTANT]
 > Esta capacidade está disponível em pré-visualização pública, é disponibilizada sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Com a Azure Logic Apps Preview, pode construir soluções de automação e integração através de apps, dados, serviços na nuvem e sistemas, criando e executando aplicações lógicas que incluem [fluxos de trabalho *apátridas* e *apátridas*](#stateful-stateless) utilizando o novo tipo de recurso **Logic App (Preview).** Com este novo tipo de aplicação lógica, pode construir múltiplos fluxos de trabalho que são alimentados pelo redesenhado Azure Logic Apps Preview tempo de funcionamento, que proporciona portabilidade, melhor desempenho e flexibilidade para implantar e executar em vários ambientes de hospedagem, não só Azure, mas também recipientes Docker.
+Com a Azure Logic Apps Preview, pode construir soluções de automação e integração através de apps, dados, serviços na nuvem e sistemas, criando e executando aplicações lógicas de inquilino único com o novo tipo de recurso **Logic App (Preview).** Utilizando este tipo de aplicação lógica de inquilino único, pode construir múltiplos fluxos de trabalho [ *apátridas* e *apátridas*](#stateful-stateless) que são alimentados pelo redesenhado Azure Logic Apps Preview tempo de visualização, que proporciona portabilidade, melhor desempenho e flexibilidade para implantar e executar em vários ambientes de hospedagem, incluindo não só Azure, mas também recipientes Docker.
 
-Como é que isto é possível? O tempo de execução redesenhado utiliza o [modelo de extensibilidade Azure Functions](../azure-functions/functions-bindings-register.md) e é hospedado como uma extensão no tempo de funcionamento das Funções Azure. Esta arquitetura significa que você pode executar o novo tipo de aplicativo lógica em qualquer lugar que Azure Functions executa. Pode hospedar o tempo de funcionaamento redesenhado em quase qualquer topologia de rede e escolher qualquer tamanho de computação disponível para lidar com a carga de trabalho necessária que é exigida pelos seus fluxos de trabalho. Para obter mais informações, consulte [Introdução às Funções Azure](../azure-functions/functions-overview.md) e [Funções Azure aciona e encaderna .](../azure-functions/functions-triggers-bindings.md)
+Como é que isto é possível? O tempo de execução redesenhado utiliza o [modelo de extensibilidade Azure Functions](../azure-functions/functions-bindings-register.md) e é hospedado como uma extensão no tempo de funcionamento das Funções Azure. Esta arquitetura significa que você pode executar o tipo de aplicativo de lógica de inquilino único em qualquer lugar que Azure Functions executa. Pode hospedar o tempo de funcionaamento redesenhado em quase qualquer topologia de rede e escolher qualquer tamanho de computação disponível para lidar com a carga de trabalho necessária que é exigida pelos seus fluxos de trabalho. Para obter mais informações, consulte [Introdução às Funções Azure](../azure-functions/functions-overview.md) e [Funções Azure aciona e encaderna .](../azure-functions/functions-triggers-bindings.md)
 
-Pode criar o recurso **Logic App (Preview)** quer [a partir do portal Azure,](create-stateful-stateless-workflows-azure-portal.md) quer através da [criação de um projeto no Código do Estúdio Visual com a extensão Azure Logic Apps (Preview).](create-stateful-stateless-workflows-visual-studio-code.md) Além disso, no Código do Estúdio Visual, pode construir *e executar localmente* os seus fluxos de trabalho no seu ambiente de desenvolvimento. Quer utilize o portal ou o Código do Estúdio Visual, pode implementar e executar o novo tipo de aplicação lógica nos mesmos tipos de ambientes de hospedagem.
+Pode criar o recurso **Logic App (Preview)** quer [a partir do portal Azure,](create-stateful-stateless-workflows-azure-portal.md) quer através da [criação de um projeto no Código do Estúdio Visual com a extensão Azure Logic Apps (Preview).](create-stateful-stateless-workflows-visual-studio-code.md) Além disso, no Código do Estúdio Visual, pode construir *e executar localmente* os seus fluxos de trabalho no seu ambiente de desenvolvimento. Quer utilize o portal ou o Código do Estúdio Visual, pode implementar e executar o tipo de aplicação lógica de inquilino único nos mesmos tipos de ambientes de hospedagem.
 
 Esta visão geral abrange as seguintes áreas:
 
@@ -48,7 +48,7 @@ Para mais informações, reveja estes outros tópicos:
 
 ## <a name="how-does-azure-logic-apps-preview-differ"></a>Como é que o Azure Logic Apps Preview difere?
 
-O tempo de pré-visualização de apps Azure Logic usa a extensibilidade [das funções Azure](../azure-functions/functions-overview.md) e é hospedado como uma extensão no tempo de funcionamento das Funções Azure. Esta arquitetura significa que você pode executar o novo tipo de aplicativo lógica em qualquer lugar que Azure Functions executa. Pode hospedar o tempo de pré-visualização de aplicações Azure Logic em quase todas as topologias de rede que desejar e escolher qualquer tamanho de computação disponível para lidar com a carga de trabalho necessária de que o seu fluxo de trabalho necessita. Para obter mais informações sobre a extensibilidade das funções Azure, consulte [WebJobs SDK: Criando entradas personalizadas e encadernações de saída](https://github.com/Azure/azure-webjobs-sdk/wiki/Creating-custom-input-and-output-bindings).
+O tempo de pré-visualização de apps Azure Logic usa a extensibilidade [das funções Azure](../azure-functions/functions-overview.md) e é hospedado como uma extensão no tempo de funcionamento das Funções Azure. Esta arquitetura significa que você pode executar o tipo de aplicativo de lógica de inquilino único em qualquer lugar que Azure Functions executa. Pode hospedar o tempo de pré-visualização de aplicações Azure Logic em quase todas as topologias de rede que desejar e escolher qualquer tamanho de computação disponível para lidar com a carga de trabalho necessária de que o seu fluxo de trabalho necessita. Para obter mais informações sobre a extensibilidade das funções Azure, consulte [WebJobs SDK: Criando entradas personalizadas e encadernações de saída](https://github.com/Azure/azure-webjobs-sdk/wiki/Creating-custom-input-and-output-bindings).
 
 Com esta nova abordagem, o tempo de pré-visualização de apps Azure Logic e os seus fluxos de trabalho fazem parte da sua app que pode embalar em conjunto. Esta capacidade permite-lhe implementar e executar os seus fluxos de trabalho simplesmente copiando artefactos para o ambiente de hospedagem e iniciando a sua aplicação. Esta abordagem também proporciona uma experiência mais padronizada para a construção de oleodutos em torno dos projetos de fluxo de trabalho para executar os testes e validações necessários antes de implementar alterações em ambientes de produção. Para obter mais informações, consulte [Azure Logic Apps Running Anywhere - Runtime Deep Dive](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-runtime-deep-dive/ba-p/1835564).
 
@@ -56,16 +56,18 @@ O quadro seguinte resume brevemente as diferenças na forma como os fluxos de tr
 
 | Ambiente | Partilha e consumo de recursos |
 |-------------|----------------------------------|
-| Azure Logic Apps (Multi-inquilino) | Fluxos de trabalho *de clientes em vários inquilinos* partilham o mesmo processamento (computação), armazenamento, rede, e assim por diante. |
-| Aplicativos Azure Logic (Pré-visualização) | Os fluxos de trabalho *na mesma aplicação lógica* partilham o mesmo processamento (computação), armazenamento, rede, e assim por diante. |
+| Azure Logic Apps (Multi-inquilino) | Fluxos de trabalho *de clientes de vários inquilinos* partilham o mesmo processamento (computação), armazenamento, rede, e assim por diante. |
+| Azure Logic Apps (Preview, inquilino único) | Fluxos de trabalho *na mesma aplicação lógica e um único inquilino* partilham o mesmo processamento (computação), armazenamento, rede, e assim por diante. |
 | Ambiente de serviço de integração (indisponível em Pré-visualização) | Os fluxos de trabalho no *mesmo ambiente* partilham o mesmo processamento (computação), armazenamento, rede, e assim por diante. |
 ||||
 
-Entretanto, ainda é possível criar o tipo de aplicação lógica original no portal Azure e no Código do Estúdio Visual utilizando a extensão original das Apps Azure Logic. Embora as experiências de desenvolvimento diferam entre os tipos de aplicações lógicas originais e novas, a sua subscrição Azure pode incluir ambos os tipos. Pode ver e aceder a todas as aplicações lógicas implementadas na sua subscrição Azure, mas as aplicações estão organizadas nas suas próprias categorias e secções.
+Entretanto, ainda pode criar o tipo de aplicação lógica multi-inquilino no portal Azure e no Código do Estúdio Visual utilizando a extensão de Apps lógicas Azure multi-inquilinos. Embora as experiências de desenvolvimento diferam entre os tipos de aplicativos de lógica multi-inquilino e single-tenant, a sua subscrição Azure pode incluir ambos os tipos. Pode ver e aceder a todas as aplicações lógicas implementadas na sua subscrição Azure, mas as aplicações estão organizadas nas suas próprias categorias e secções.
 
 <a name="stateful-stateless"></a>
 
 ## <a name="stateful-and-stateless-workflows"></a>Fluxos de trabalho apátridas e apátridas
+
+Com o tipo de aplicação lógica de inquilino único, você pode criar estes tipos de fluxo de trabalho dentro da mesma aplicação lógica:
 
 * *Com monitorização de estado*
 
@@ -149,9 +151,9 @@ A Azure Logic Apps Preview inclui muitas capacidades atuais e adicionais, por ex
 
   * [Aplicativos Azure Logic Running Anywhere - Possibilidades de networking com pré-visualização de apps Azure Logic](https://techcommunity.microsoft.com/t5/integrations-on-azure/logic-apps-anywhere-networking-possibilities-with-logic-app/ba-p/2105047)
 
-* Regenerar chaves de acesso para ligações geridas utilizadas por fluxos de trabalho individuais num recurso **de Aplicação Lógica (Preview).** Para esta tarefa, [siga os mesmos passos para o recurso **Logic Apps** mas ao nível do fluxo de trabalho individual](logic-apps-securing-a-logic-app.md#regenerate-access-keys), não ao nível de recursos de aplicações lógicas.
+* Regenerar chaves de acesso para ligações geridas utilizadas por fluxos de trabalho individuais no recurso **Desabris (Preview)** do único inquilino. Para esta tarefa, [siga os mesmos passos para o recurso **Multi-inquilino Logic Apps** mas ao nível do fluxo de trabalho individual](logic-apps-securing-a-logic-app.md#regenerate-access-keys), não o nível de recursos de aplicações lógicas.
 
-* Adicione ramos paralelos no novo designer seguindo os mesmos passos que o designer de não-pré-visualização.
+* Adicione filiais paralelas no designer de inquilinos individuais seguindo os mesmos passos que o designer multi-inquilino.
 
 Para obter mais informações, consulte [capacidades alteradas, limitadas, indisponíveis e não suportadas](#limited-unavailable-unsupported) e a [página de Visualização Pública de Aplicações Lógicas Conhecidas em GitHub](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md).
 
@@ -159,14 +161,14 @@ Para obter mais informações, consulte [capacidades alteradas, limitadas, indis
 
 ## <a name="pricing-model"></a>Modelo preços
 
-Quando criar o novo tipo de aplicação lógica no portal Azure ou implementar a partir do Código do Estúdio Visual, tem de escolher um plano de hospedagem, seja [o App Service ou o Premium,](../azure-functions/functions-scale.md)para que a sua aplicação lógica possa ser utilizada. Este plano determina o modelo de preços que se aplica à execução da sua aplicação lógica. Se selecionar o plano de Serviço de Aplicações, também deve escolher um [nível de preços.](../app-service/overview-hosting-plans.md)
+Quando criar o tipo de aplicação lógica de inquilino único no portal Azure ou implementar a partir do Código do Estúdio Visual, deve escolher um plano de hospedagem, seja [o App Service ou o Premium,](../azure-functions/functions-scale.md)para que a sua aplicação lógica possa utilizar. Este plano determina o modelo de preços que se aplica à execução da sua aplicação lógica. Se selecionar o plano de Serviço de Aplicações, também deve escolher um [nível de preços.](../app-service/overview-hosting-plans.md)
 
 *Fluxos de* trabalho estatais utilizam [armazenamento externo,](../azure-functions/storage-considerations.md#storage-account-requirements)por isso o [preço do Armazenamento Azure](https://azure.microsoft.com/pricing/details/storage/) aplica-se às transações de armazenamento que o tempo de pré-visualização de apps Azure Logic executa. Por exemplo, as filas são usadas para agendamento, enquanto mesas e bolhas são usadas para armazenar estados de fluxo de trabalho.
 
 > [!NOTE]
 > Durante a pré-visualização pública, executar aplicações lógicas no Serviço de Aplicações não incorre em custos *adicionais* em cima do seu plano selecionado.
 
-Para obter mais informações sobre os modelos de preços aplicáveis a este novo tipo de recurso, reveja estes tópicos:
+Para obter mais informações sobre os modelos de preços aplicáveis ao tipo de recurso de um único inquilino, reveja estes tópicos:
 
 * [Dimensionamento e alojamento de Funções do Azure](../azure-functions/functions-scale.md)
 * [Dimensione uma aplicação no Azure App Service](../app-service/manage-scale-up.md)
@@ -202,9 +204,9 @@ Na pré-visualização de apps Azure Logic, estas capacidades mudaram, ou estão
       No portal Azure, pode selecionar uma função de gatilho HTTP onde tem acesso, criando uma ligação através da experiência do utilizador. Se inspecionar a definição JSON da ação de função na visão de código ou a **workflow.jsem** ficheiro, a ação refere-se à função utilizando uma `connectionName` referência. Esta versão abstra a informação da função como uma ligação, que pode encontrar noconnections.jsdo seu projeto **no** ficheiro, que está disponível depois de criar uma ligação.
 
       > [!NOTE]
-      > Na versão Preview, a ação de função suporta apenas a autenticação de cadeias de consulta. A Azure Logic Apps Preview obtém a chave predefinida da função ao fazer a ligação, armazena essa chave nas definições da sua aplicação e utiliza a chave para autenticação ao ligar para a função.
+      > Na versão single-tenant, a ação de função suporta apenas a autenticação de cadeias de consulta. A Azure Logic Apps Preview obtém a chave predefinida da função ao fazer a ligação, armazena essa chave nas definições da sua aplicação e utiliza a chave para autenticação ao ligar para a função.
       >
-      > Tal como na versão original, se renovar esta chave, por exemplo, através da experiência Azure Functions no portal, a ação de função já não funciona devido à chave inválida. Para corrigir este problema, precisa de recriar a ligação à função que pretende ligar ou atualizar as definições da sua aplicação com a nova tecla.
+      > Tal como acontece com a versão multi-arrendatário, se renovar esta chave, por exemplo, através da experiência Azure Functions no portal, a ação de função já não funciona devido à chave inválida. Para corrigir este problema, precisa de recriar a ligação à função que pretende ligar ou atualizar as definições da sua aplicação com a nova tecla.
 
     * A ação incorporada, [Código Inline - Executar Código JavaScript](logic-apps-add-run-inline-code.md) é agora **Inline Code Operations - Executar javaScript em linha**.
 
@@ -222,7 +224,7 @@ Na pré-visualização de apps Azure Logic, estas capacidades mudaram, ou estão
 
 * [Os conectores personalizados](../connectors/apis-list.md#custom-apis-and-connectors) não são suportados atualmente para pré-visualização.
 
-* **Disponibilidade do plano de hospedagem**: Quer crie um novo tipo de recurso **Logic App (Preview)** no portal Azure ou implantado a partir do Código do Estúdio Visual, só pode utilizar o plano de hospedagem Premium ou App Service em Azure. Os planos de hospedagem de consumo não estão disponíveis e não são suportados para a implementação deste tipo de recurso. Pode implantar do Código do Estúdio Visual para um recipiente Docker, mas não para um [ambiente de serviço de integração (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
+* **Disponibilidade do plano** de hospedagem : Quer crie o tipo de recurso de recurso de um único inquilino **Logic App (Preview)** no portal Azure ou implantado a partir do Código do Estúdio Visual, só pode utilizar o plano de hospedagem Premium ou App Service em Azure. Os planos de hospedagem de consumo não estão disponíveis e não são suportados para a implementação deste tipo de recurso. Pode implantar do Código do Estúdio Visual para um recipiente Docker, mas não para um [ambiente de serviço de integração (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
 
 * **Depuração de breakpoint no Código do Estúdio Visual**: Embora possa adicionar e utilizar pontos de rutura dentro doworkflow.js **no** ficheiro para um fluxo de trabalho, os breakpoints são suportados apenas para ações neste momento, e não para gatilhos. Para obter mais informações, consulte [Criar fluxos de trabalho apátridas e apátridas no Código do Estúdio Visual.](create-stateful-stateless-workflows-visual-studio-code.md#manage-breakpoints)
 
@@ -233,6 +235,17 @@ Na pré-visualização de apps Azure Logic, estas capacidades mudaram, ou estão
    * Para ver o histórico de execução, abra o fluxo de trabalho na sua aplicação lógica. No menu de fluxo de trabalho, em **Programador,** selecione **Monitor**.
 
    * Para rever o histórico do gatilho, abra o fluxo de trabalho na sua aplicação lógica. No menu de fluxo de trabalho, em **Programador,** selecione **Trigger Histories**.
+
+<a name="firewall-permissions"></a>
+
+## <a name="permit-traffic-in-strict-network-and-firewall-scenarios"></a>Permitir o tráfego em cenários rigorosos de rede e firewall
+
+Se o seu ambiente tiver requisitos de rede rígidos ou firewalls que limitem o tráfego, tem de permitir o acesso a quaisquer ligações de gatilho ou ação nos fluxos de trabalho das suas aplicações lógicas.
+
+Para encontrar os nomes de domínio totalmente qualificados (FQDNs) para estas ligações, reveja as secções correspondentes nestes tópicos:
+
+* [Permissões de firewall para aplicações lógicas de inquilino único - Código do Estúdio Visual](create-stateful-stateless-workflows-visual-studio-code.md#firewall-setup)
+* [Permissões de firewall para aplicativos de lógica de inquilino único - portal Azure](create-stateful-stateless-workflows-azure-portal.md#firewall-setup)
 
 <a name="limits"></a>
 

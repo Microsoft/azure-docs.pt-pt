@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 03/24/2020
 ms.author: mlearned
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: dec41f1b9de6920338360edeb18b9878a8c86432
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 99ca60f2610d34d194c50e92501c0126a7c80323
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97588935"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102566554"
 ---
 # <a name="create-a-cicd-pipeline-for-python-with-azure-devops-starter"></a>Criar um pipeline CI/CD para Python com Azure DevOps Starter
 
@@ -129,4 +129,4 @@ Pode eliminar o Azure App Service e recursos relacionados quando já não precis
 Quando configuraste o teu processo ci/CD, foram criados automaticamente oleodutos de construção e libertação. Pode modificar estes pipelines de compilação e de lançamento para satisfazer as necessidades da sua equipa. Para saber mais sobre o oleoduto CI/CD, consulte:
 
 > [!div class="nextstepaction"]
-> [Personalizar o processo de CD](/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
+> [Personalizar o processo de CD](/azure/devops/pipelines/release/define-multistage-release-process)

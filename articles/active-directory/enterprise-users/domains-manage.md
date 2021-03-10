@@ -1,5 +1,5 @@
 ---
-title: Adicione e verifique os nomes de domínio personalizado - Azure Ative Directory / Microsoft Docs
+title: Adicione e verifique os nomes de domínio personalizados - Azure Ative Directory | Microsoft Docs
 description: Conceitos de gestão e como-tos para gerir um nome de domínio no Azure Ative Directory
 services: active-directory
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7b8867a137e38e7400da877f4c239e517cbebe05
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 47c991457925664c82baed1a47d89f77a323ff45
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96859985"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102561539"
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Gerir nomes de domínio personalizados no seu Diretório Ativo Azure
 
@@ -111,7 +111,7 @@ Se descobrir que alguma das condições não foi cumprida, limpe manualmente as 
 A maioria das tarefas de gestão para nomes de domínio no Azure Ative Directory também podem ser concluídas usando o Microsoft PowerShell, ou utilizando programáticamente a API do Gráfico microsoft.
 
 * [Utilizar o PowerShell para gerir nomes de domínio em Azure AD](/powershell/module/azuread/#domains&preserve-view=true)
-* [Tipo de recurso de domínio](/graph/api/resources/domain?view=graph-rest-1.0&preserve-view=true)
+* [Tipo de recurso de domínio](/graph/api/resources/domain)
 
 ## <a name="next-steps"></a>Passos seguintes
 

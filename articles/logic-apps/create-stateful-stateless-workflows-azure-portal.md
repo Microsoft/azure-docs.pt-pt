@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 03/02/2021
-ms.openlocfilehash: 3cf5047dbb79f6d8b35b0fe089069a20ab4a50a6
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/08/2021
+ms.openlocfilehash: ff938d29d998b6fcf0b2cfae72a9a9e685a10dc5
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101736376"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102563969"
 ---
 # <a name="create-stateful-and-stateless-workflows-in-the-azure-portal-with-azure-logic-apps-preview"></a>Criar fluxos de trabalho apátridas e apátridas no portal Azure com pré-visualização de apps Azure Logic
 
@@ -76,11 +76,11 @@ Este artigo mostra como construir a sua aplicação lógica e fluxo de trabalho 
 
    | Propriedade | Necessário | Valor | Descrição |
    |----------|----------|-------|-------------|
-   | **Subscrição** | Sim | <*Nome de subscrição Azure*> | A subscrição Azure para usar para a sua aplicação lógica. |
-   | **Grupo de recursos** | Sim | <*Nome de grupo Azure-recursos*> | O grupo de recursos Azure onde cria a sua aplicação lógica e recursos relacionados. Este nome de recurso deve ser único entre regiões e pode conter apenas letras, números, hífens **-** (, sublinha **(_ ,** parênteses (**(()**- e períodos **(. . . .** <p><p>Este exemplo cria um grupo de recursos chamado `Fabrikam-Workflows-RG` . |
-   | **Nome de aplicativo lógico** | Sim | <*lógica-app-nome*> | O nome a usar para a sua aplicação lógica. Este nome de recurso deve ser único entre regiões e pode conter apenas letras, números, hífens **-** (, sublinha **(_ ,** parênteses (**(()**- e períodos **(. . . .** <p><p>Este exemplo cria uma aplicação lógica chamada `Fabrikam-Workflows` . <p><p>**Nota:** O nome da sua aplicação lógica obtém automaticamente o sufixo, `.azurewebsites.net` porque o recurso Logic App **(Preview)** é alimentado por Azure Functions, que utiliza a mesma convenção de nomeação de aplicações. |
-   | **Publicar** | Sim | <*implantação-ambiente*> | O destino de implementação para a sua aplicação lógica. Pode deslocar-se para Azure selecionando **workflow** ou **Docker Container**. <p><p>Este exemplo utiliza **o Workflow,** que implementa o recurso **Logic App (Preview)** para o portal Azure. <p><p>**Nota:** Antes de selecionar **o Docker Container,** certifique-se de que cria a sua imagem do recipiente Docker. Por exemplo, pode criar esta imagem através [do Registo do Contentor Azure,](../container-registry/container-registry-intro.md)do Serviço de [Aplicações](../app-service/overview.md)ou [da Instância do Contentor Azure.](../container-instances/container-instances-overview.md) Desta forma, depois de selecionar o **Docker Container,** pode [especificar o recipiente que pretende utilizar nas definições da sua aplicação lógica](#set-docker-container). |
-   | **Região** | Sim | <*Região de Azure*> | A região de Azure deve utilizar ao criar o seu grupo de recursos e recursos. <p><p>Este exemplo usa **o Oeste dos EUA.** |
+   | **Subscrição** | Yes | <*Nome de subscrição Azure*> | A subscrição Azure para usar para a sua aplicação lógica. |
+   | **Grupo de recursos** | Yes | <*Nome de grupo Azure-recursos*> | O grupo de recursos Azure onde cria a sua aplicação lógica e recursos relacionados. Este nome de recurso deve ser único entre regiões e pode conter apenas letras, números, hífens **-** (, sublinha **(_ ,** parênteses (**(()**- e períodos **(. . . .** <p><p>Este exemplo cria um grupo de recursos chamado `Fabrikam-Workflows-RG` . |
+   | **Nome de aplicativo lógico** | Yes | <*lógica-app-nome*> | O nome a usar para a sua aplicação lógica. Este nome de recurso deve ser único entre regiões e pode conter apenas letras, números, hífens **-** (, sublinha **(_ ,** parênteses (**(()**- e períodos **(. . . .** <p><p>Este exemplo cria uma aplicação lógica chamada `Fabrikam-Workflows` . <p><p>**Nota:** O nome da sua aplicação lógica obtém automaticamente o sufixo, `.azurewebsites.net` porque o recurso Logic App **(Preview)** é alimentado por Azure Functions, que utiliza a mesma convenção de nomeação de aplicações. |
+   | **Publicar** | Yes | <*implantação-ambiente*> | O destino de implementação para a sua aplicação lógica. Pode deslocar-se para Azure selecionando **workflow** ou **Docker Container**. <p><p>Este exemplo utiliza **o Workflow,** que implementa o recurso **Logic App (Preview)** para o portal Azure. <p><p>**Nota:** Antes de selecionar **o Docker Container,** certifique-se de que cria a sua imagem do recipiente Docker. Por exemplo, pode criar esta imagem através [do Registo do Contentor Azure,](../container-registry/container-registry-intro.md)do Serviço de [Aplicações](../app-service/overview.md)ou [da Instância do Contentor Azure.](../container-instances/container-instances-overview.md) Desta forma, depois de selecionar o **Docker Container,** pode [especificar o recipiente que pretende utilizar nas definições da sua aplicação lógica](#set-docker-container). |
+   | **Região** | Yes | <*Região de Azure*> | A região de Azure deve utilizar ao criar o seu grupo de recursos e recursos. <p><p>Este exemplo usa **o Oeste dos EUA.** |
    |||||
 
    Eis um exemplo:
@@ -91,10 +91,10 @@ Este artigo mostra como construir a sua aplicação lógica e fluxo de trabalho 
 
    | Propriedade | Necessário | Valor | Descrição |
    |----------|----------|-------|-------------|
-   | **Conta de armazenamento** | Sim | <*Nome da conta de armazenamento Azure*> | A [conta de armazenamento Azure](../storage/common/storage-account-overview.md) para usar para transações de armazenamento. Este nome de recurso deve ser único em todas as regiões e ter 3-24 caracteres com apenas números e letras minúsculas. Ou selecione uma conta existente ou crie uma nova conta. <p><p>Este exemplo cria uma conta de armazenamento chamada `fabrikamstorageacct` . |
-   | **Tipo de plano** | Sim | <*Plano de acolhimento de Azure*> | O [plano de hospedagem](../app-service/overview-hosting-plans.md) para implementar a sua aplicação lógica, que é ou o plano de serviço [**de funções Premium**](../azure-functions/functions-premium-plan.md) ou [ **App** (Dedicado)](../azure-functions/dedicated-plan.md). A sua escolha afeta as capacidades e os níveis de preços que mais tarde estão disponíveis para si. <p><p>Este exemplo utiliza o **plano de serviço da App.** <p><p>**Nota:** Semelhante às Funções Azure, o tipo de recurso **Logic App (Preview)** requer um plano de hospedagem e um nível de preços. Os planos de consumo não são suportados nem disponíveis para este tipo de recurso. Para mais informações, reveja estes tópicos: <p><p>- [Escala de funções Azure e hospedagem](../azure-functions/functions-scale.md) <br>- [Detalhes dos preços do Serviço de Aplicações](https://azure.microsoft.com/pricing/details/app-service/) <p><p>Por exemplo, o plano Functions Premium fornece acesso a capacidades de networking, tais como conectar e integrar-se privadamente com redes virtuais Azure, semelhantes às Funções Azure quando cria e implementa as suas aplicações lógicas. Para mais informações, reveja estes tópicos: <p><p>- [Opções de networking de funções Azure](../azure-functions/functions-networking-options.md) <br>- [Aplicativos Azure Logic Running Anywhere - Possibilidades de networking com pré-visualização de apps Azure Logic](https://techcommunity.microsoft.com/t5/integrations-on-azure/logic-apps-anywhere-networking-possibilities-with-logic-app/ba-p/2105047) |
-   | **Plano do Windows** | Sim | <*nome do plano*> | O nome do plano para usar. Ou selecione um plano existente ou forneça o nome para um novo plano. <p><p>Este exemplo usa o `Fabrikam-Service-Plan` nome. |
-   | **SKU e tamanho** | Sim | <*nível de preços*> | O [nível de preços](../app-service/overview-hosting-plans.md) a utilizar para hospedar a sua aplicação lógica. As suas escolhas são afetadas pelo tipo de plano que escolheu anteriormente. Para alterar o nível predefinido, selecione **Alterar o tamanho**. Em seguida, pode selecionar outros níveis de preços, com base na carga de trabalho de que necessita. <p><p>Este exemplo utiliza o nível de preços de **F1** gratuito para cargas de trabalho **Dev/Test.** Para mais informações, reveja [os detalhes dos preços do Serviço de Aplicações.](https://azure.microsoft.com/pricing/details/app-service/) |
+   | **Conta de armazenamento** | Yes | <*Nome da conta de armazenamento Azure*> | A [conta de armazenamento Azure](../storage/common/storage-account-overview.md) para usar para transações de armazenamento. Este nome de recurso deve ser único em todas as regiões e ter 3-24 caracteres com apenas números e letras minúsculas. Ou selecione uma conta existente ou crie uma nova conta. <p><p>Este exemplo cria uma conta de armazenamento chamada `fabrikamstorageacct` . |
+   | **Tipo de plano** | Yes | <*Plano de acolhimento de Azure*> | O [plano de hospedagem](../app-service/overview-hosting-plans.md) para implementar a sua aplicação lógica, que é ou o plano de serviço [**de funções Premium**](../azure-functions/functions-premium-plan.md) ou [ **App** (Dedicado)](../azure-functions/dedicated-plan.md). A sua escolha afeta as capacidades e os níveis de preços que mais tarde estão disponíveis para si. <p><p>Este exemplo utiliza o **plano de serviço da App.** <p><p>**Nota:** Semelhante às Funções Azure, o tipo de recurso **Logic App (Preview)** requer um plano de hospedagem e um nível de preços. Os planos de consumo não são suportados nem disponíveis para este tipo de recurso. Para mais informações, reveja estes tópicos: <p><p>- [Escala de funções Azure e hospedagem](../azure-functions/functions-scale.md) <br>- [Detalhes dos preços do Serviço de Aplicações](https://azure.microsoft.com/pricing/details/app-service/) <p><p>Por exemplo, o plano Functions Premium fornece acesso a capacidades de networking, tais como conectar e integrar-se privadamente com redes virtuais Azure, semelhantes às Funções Azure quando cria e implementa as suas aplicações lógicas. Para mais informações, reveja estes tópicos: <p><p>- [Opções de networking de funções Azure](../azure-functions/functions-networking-options.md) <br>- [Aplicativos Azure Logic Running Anywhere - Possibilidades de networking com pré-visualização de apps Azure Logic](https://techcommunity.microsoft.com/t5/integrations-on-azure/logic-apps-anywhere-networking-possibilities-with-logic-app/ba-p/2105047) |
+   | **Plano do Windows** | Yes | <*nome do plano*> | O nome do plano para usar. Ou selecione um plano existente ou forneça o nome para um novo plano. <p><p>Este exemplo usa o `Fabrikam-Service-Plan` nome. |
+   | **SKU e tamanho** | Yes | <*nível de preços*> | O [nível de preços](../app-service/overview-hosting-plans.md) a utilizar para hospedar a sua aplicação lógica. As suas escolhas são afetadas pelo tipo de plano que escolheu anteriormente. Para alterar o nível predefinido, selecione **Alterar o tamanho**. Em seguida, pode selecionar outros níveis de preços, com base na carga de trabalho de que necessita. <p><p>Este exemplo utiliza o nível de preços de **F1** gratuito para cargas de trabalho **Dev/Test.** Para mais informações, reveja [os detalhes dos preços do Serviço de Aplicações.](https://azure.microsoft.com/pricing/details/app-service/) |
    |||||
 
 1. Em seguida, se as definições de criação e implementação suportam usando [o Application Insights,](../azure-monitor/app/app-insights-overview.md)pode opcionalmente ativar o registo de diagnósticos e o rastreio da sua aplicação lógica.
@@ -226,9 +226,9 @@ Antes de poder adicionar um gatilho a um fluxo de trabalho em branco, certifique
 
    | Propriedade | Necessário | Valor | Descrição |
    |----------|----------|-------|-------------|
-   | **Para** | Sim | <*seu endereço de e-mail*> | O destinatário do e-mail, que pode ser o seu endereço de e-mail para efeitos de teste. Este exemplo utiliza o e-mail fictício, `sophiaowen@fabrikam.com` . |
-   | **Assunto** | Sim | `An email from your example workflow` | O assunto do e-mail |
-   | **Corpo** | Sim | `Hello from your example workflow!` | O conteúdo do corpo de e-mail |
+   | **Para** | Yes | <*seu endereço de e-mail*> | O destinatário do e-mail, que pode ser o seu endereço de e-mail para efeitos de teste. Este exemplo utiliza o e-mail fictício, `sophiaowen@fabrikam.com` . |
+   | **Assunto** | Yes | `An email from your example workflow` | O assunto do e-mail |
+   | **Corpo** | Yes | `Hello from your example workflow!` | O conteúdo do corpo de e-mail |
    ||||
 
    > [!NOTE]
@@ -236,7 +236,33 @@ Antes de poder adicionar um gatilho a um fluxo de trabalho em branco, certifique
 
 1. Guarde o seu trabalho. Na barra de ferramentas do designer, **selecione Save**.
 
-Em seguida, para testar o seu fluxo de trabalho, desencadeie manualmente uma corrida.
+1. Se o seu ambiente tiver requisitos de rede rígidos ou firewalls que limitem o tráfego, tem de configurar permissões para quaisquer ligações de gatilho ou ação que existam no seu fluxo de trabalho. Para encontrar o totalmente qualificado 
+
+   Caso contrário, para testar o seu fluxo de trabalho, [desencadeie manualmente uma execução](#trigger-workflow).
+
+<a name="firewall-setup"></a>
+
+##  <a name="find-domain-names-for-firewall-access"></a>Encontre nomes de domínio para acesso a firewall
+
+Antes de implementar a sua aplicação lógica e executar o seu fluxo de trabalho no portal Azure, se o seu ambiente tiver requisitos de rede ou firewalls rigorosos que limitem o tráfego, tem de configurar permissões de rede ou firewall para quaisquer ligações de gatilho ou ação nos fluxos de trabalho que existam na sua aplicação lógica.
+
+Para encontrar os nomes de domínio totalmente qualificados (FQDNs) para estas ligações, siga estes passos:
+
+1. No menu de aplicativos logic, em **Workflows,** selecione **Connections**. No separador **API Connections,** selecione o nome de recursos da ligação, por exemplo:
+
+   ![Screenshot que mostra o portal Azure e menu de aplicativos lógico com o nome de recurso de conexão "Connections" e "offic365" selecionado.](./media/create-stateful-stateless-workflows-azure-portal/logic-app-connections.png)
+
+1. Expanda o seu navegador de largura suficientemente grande para que quando o **JSON View** aparecer no canto superior direito do navegador, selecione **JSON View**.
+
+   ![Screenshot que mostra o portal Azure e o painel de conexão API com "JSON View" selecionado.](./media/create-stateful-stateless-workflows-azure-portal/logic-app-connection-view-json.png)
+
+1. Encontre, copie e guarde o valor da `connectionRuntimeUrl` propriedade em algum lugar seguro para que possa configurar a sua firewall com esta informação.
+
+   ![Screenshot que mostra o valor da propriedade "connectionRuntimeUrl" selecionado.](./media/create-stateful-stateless-workflows-azure-portal/logic-app-connection-runtime-url.png)
+
+1. Para cada ligação, repita os passos relevantes.
+
+<a name="trigger-workflow"></a>
 
 ## <a name="trigger-the-workflow"></a>Desencadear o fluxo de trabalho
 
@@ -304,7 +330,7 @@ Para um fluxo de trabalho imponente, após cada execução de fluxo de trabalho,
    > [!TIP]
    > Se o estado de execução mais recente não aparecer na barra de ferramentas do **painel monitor,** selecione **Refresh**. Nenhuma corrida acontece para um gatilho que é ignorado devido a critérios não atendidos ou não encontrar dados.
 
-   | Estado de execução | Descrição |
+   | Estado de execução | Description |
    |------------|-------------|
    | **Abortada** | A execução parou ou não terminou devido a problemas externos, por exemplo, uma falha do sistema ou subscrição do Azure caducado. |
    | **Cancelado** | A corrida foi desencadeada e começou, mas recebeu um pedido de cancelamento. |
@@ -323,7 +349,7 @@ Para um fluxo de trabalho imponente, após cada execução de fluxo de trabalho,
 
    Aqui estão os possíveis estatutos que cada passo no fluxo de trabalho pode ter:
 
-   | Estado de ação | Ícone | Descrição |
+   | Estado de ação | Ícone | Description |
    |---------------|------|-------------|
    | **Abortada** | ![Ícone para estado de ação "abortado"][aborted-icon] | A ação parou ou não terminou devido a problemas externos, por exemplo, uma falha no sistema ou subscrição do Azure caducado. |
    | **Cancelado** | ![Ícone para estado de ação "cancelado"][cancelled-icon] | A ação estava a decorrer, mas recebeu um pedido de cancelamento. |

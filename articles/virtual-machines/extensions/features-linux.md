@@ -1,26 +1,19 @@
 ---
 title: Extensões e funcionalidades do Azure VM para o Linux
 description: Saiba quais as extensões disponíveis para máquinas virtuais Azure no Linux, agrupadas pelo que fornecem ou melhoram.
-services: virtual-machines-linux
-documentationcenter: ''
-author: axayjo
-manager: gwallace
-editor: ''
-tags: azure-service-management,azure-resource-manager
-ms.assetid: 52f5d0ec-8f75-49e7-9e15-88d46b420e63
-ms.service: virtual-machines-linux
-ms.subservice: extensions
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services
+ms.service: virtual-machines
+ms.subservice: extensions
+author: amjads1
+ms.author: amjads
+ms.collection: linux
 ms.date: 03/30/2018
-ms.author: akjosh
-ms.openlocfilehash: 66687f5954894d962a67767669081de15a30c7c3
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: b6a834ede381ee319d3ff7678f49febd11e34a5d
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101672611"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102559776"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Extensões e funcionalidades de máquina virtual para Linux
 
@@ -404,7 +397,7 @@ Também pode remover uma extensão no portal Azure da seguinte forma:
 
 ## <a name="common-vm-extension-reference"></a>Referência comum de extensão VM
 
-| Nome de extensão | Descrição | Mais informações |
+| Nome de extensão | Description | Mais informações |
 | --- | --- | --- |
 | Extensão de script personalizado para Linux |Executar scripts contra uma máquina virtual Azure |[Extensão de script personalizado para Linux](custom-script-linux.md) |
 | Extensão de acesso da VM |Recuperar o acesso a uma máquina virtual Azure |[Extensão de acesso da VM](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) |

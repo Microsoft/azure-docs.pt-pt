@@ -10,19 +10,19 @@ ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b93addfe659847187dffe61f12f5a2bfac9dca21
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: a8080720480beaeb7bc8692f2dcddddad5da0e3c
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98209632"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102548466"
 ---
 # <a name="azure-synapse-analytics-shared-metadata-tables"></a>Azure Synapse Analytics partilhou tabelas de metadados
 
 
 O Azure Synapse Analytics permite que os diferentes motores computacionais do espaço de trabalho partilhem bases de dados e mesas apoiadas por Parquet entre as suas piscinas Apache Spark e a piscina SQL sem servidor.
 
-Uma vez criada uma base de dados por uma função Spark, pode criar tabelas com a Spark que usam o Parquet como formato de armazenamento. Estas mesas ficarão imediatamente disponíveis para consulta por qualquer uma das piscinas de spark do espaço de trabalho Azure Synapse. Também podem ser usados a partir de qualquer um dos trabalhos de Faísca sujeitos a permissões.
+Uma vez criada uma base de dados por uma função Spark, pode criar tabelas com a Spark que usam o Parquet como formato de armazenamento. Os nomes das tabelas serão convertidos para minúsculas e precisam de ser consultados com o nome inferior. Estas mesas ficarão imediatamente disponíveis para consulta por qualquer uma das piscinas de spark do espaço de trabalho Azure Synapse. Também podem ser usados a partir de qualquer um dos trabalhos de Faísca sujeitos a permissões.
 
 As tabelas Spark criadas, geridas e externas também são disponibilizadas como tabelas externas com o mesmo nome na base de dados sincronizada correspondente na piscina SQL sem servidor. [Expor uma tabela Spark em SQL](#expose-a-spark-table-in-sql) fornece mais detalhes sobre a sincronização da tabela.
 
@@ -101,17 +101,17 @@ Neste cenário, tem uma base de dados Spark chamada `mytestdb` . Consulte [Criar
 Crie uma tabela spark gerida com o SparkSQL executando o seguinte comando:
 
 ```sql
-    CREATE TABLE mytestdb.myParquetTable(id int, name string, birthdate date) USING Parquet
+    CREATE TABLE mytestdb.myparquettable(id int, name string, birthdate date) USING Parquet
 ```
 
-Este comando cria a tabela `myParquetTable` na base de `mytestdb` dados. Após um curto atraso, pode ver a tabela na sua piscina SQL sem servidor. Por exemplo, execute a seguinte declaração a partir da sua piscina SQL sem servidor.
+Este comando cria a tabela `myparquettable` na base de `mytestdb` dados. Os nomes das tabelas serão convertidos em minúsculas. Após um curto atraso, pode ver a tabela na sua piscina SQL sem servidor. Por exemplo, execute a seguinte declaração a partir da sua piscina SQL sem servidor.
 
 ```sql
     USE mytestdb;
     SELECT * FROM sys.tables;
 ```
 
-Verifique se `myParquetTable` está incluído nos resultados.
+Verifique se `myparquettable` está incluído nos resultados.
 
 >[!NOTE]
 >Uma tabela que não esteja a utilizar o Parquet como seu formato de armazenamento não será sincronizada.
@@ -136,13 +136,13 @@ var schema = new StructType
     );
 
 var df = spark.CreateDataFrame(data, schema);
-df.Write().Mode(SaveMode.Append).InsertInto("mytestdb.myParquetTable");
+df.Write().Mode(SaveMode.Append).InsertInto("mytestdb.myparquettable");
 ```
 
 Agora pode ler os dados da sua piscina SQL sem servidor da seguinte forma:
 
 ```sql
-SELECT * FROM mytestdb.dbo.myParquetTable WHERE name = 'Alice';
+SELECT * FROM mytestdb.dbo.myparquettable WHERE name = 'Alice';
 ```
 
 Como resultado, deverá obter a seguinte linha:
@@ -160,26 +160,26 @@ Neste exemplo, crie uma tabela De Spark externa sobre os ficheiros de dados parq
 Por exemplo, com a execução sparkSQL:
 
 ```sql
-CREATE TABLE mytestdb.myExternalParquetTable
+CREATE TABLE mytestdb.myexternalparquettable
     USING Parquet
     LOCATION "abfss://<fs>@arcadialake.dfs.core.windows.net/synapse/workspaces/<synapse_ws>/warehouse/mytestdb.db/myparquettable/"
 ```
 
 Substitua o espaço reservado `<fs>` pelo nome do sistema de ficheiros que é o sistema de ficheiros predefinidos do espaço de trabalho e o espaço reservado com o nome do espaço de trabalho `<synapse_ws>` sinapse que está a usar para executar este exemplo.
 
-O exemplo anterior cria a tabela `myExtneralParquetTable` na base de `mytestdb` dados. Após um curto atraso, pode ver a tabela na sua piscina SQL sem servidor. Por exemplo, execute a seguinte declaração a partir da sua piscina SQL sem servidor.
+O exemplo anterior cria a tabela `myextneralparquettable` na base de `mytestdb` dados. Após um curto atraso, pode ver a tabela na sua piscina SQL sem servidor. Por exemplo, execute a seguinte declaração a partir da sua piscina SQL sem servidor.
 
 ```sql
 USE mytestdb;
 SELECT * FROM sys.tables;
 ```
 
-Verifique se `myExternalParquetTable` está incluído nos resultados.
+Verifique se `myexternalparquettable` está incluído nos resultados.
 
 Agora pode ler os dados da sua piscina SQL sem servidor da seguinte forma:
 
 ```sql
-SELECT * FROM mytestdb.dbo.myExternalParquetTable WHERE name = 'Alice';
+SELECT * FROM mytestdb.dbo.myexternalparquettable WHERE name = 'Alice';
 ```
 
 Como resultado, deverá obter a seguinte linha:

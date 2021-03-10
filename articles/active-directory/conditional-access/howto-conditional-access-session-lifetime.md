@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 205136437fa1a2a33b3b337f5cc9f2dde283faef
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 6116ab543d6dfc886e44206c2a60e4456b39fbc9
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99491945"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102558190"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Configurar gestão de sessão de autenticação com Acesso Condicional
 
@@ -37,7 +37,7 @@ A frequência de inscrição define o período de tempo antes de um utilizador s
 
 A configuração padrão do Azure Ative Directory (Azure AD) para a frequência de inscrição do utilizador é uma janela rolante de 90 dias. Pedir credenciais aos utilizadores muitas vezes parece uma coisa sensata a fazer, mas pode dar a volta por cima: os utilizadores que são treinados para introduzir as suas credenciais sem pensar podem fornecer-lhes involuntariamente uma solicitação de credencial maliciosa.
 
-Pode parecer alarmante não pedir a um utilizador que volte a entrar, na realidade qualquer violação das políticas de TI irá revogar a sessão. Alguns exemplos incluem (mas não se limitam a) uma alteração de senha, um dispositivo incompatível ou desativação de conta. Também pode revogar explicitamente [as sessões dos utilizadores utilizando o PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0&preserve-view=true). A configuração padrão AD AD do Azure resume-se a "não pedir aos utilizadores que forneçam as suas credenciais se a postura de segurança das suas sessões não tiver mudado".
+Pode parecer alarmante não pedir a um utilizador que volte a entrar, na realidade qualquer violação das políticas de TI irá revogar a sessão. Alguns exemplos incluem (mas não se limitam a) uma alteração de senha, um dispositivo incompatível ou desativação de conta. Também pode revogar explicitamente [as sessões dos utilizadores utilizando o PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken). A configuração padrão AD AD do Azure resume-se a "não pedir aos utilizadores que forneçam as suas credenciais se a postura de segurança das suas sessões não tiver mudado".
 
 A definição de frequência de início funciona com aplicações que implementaram protocolos OAUTH2 ou OIDC de acordo com as normas. A maioria das aplicações nativas da Microsoft para Windows, Mac e Mobile, incluindo as seguintes aplicações web, cumprem a definição.
 

@@ -1,19 +1,19 @@
 ---
-title: Criar um ponto final privado em Azure Private Link
+title: Quickstart - Crie um ponto final privado usando um modelo ARM
 description: Neste arranque rápido, utilize um modelo de Gestor de Recursos Azure (modelo ARM) para criar um ponto final privado.
 services: private-link
-author: mblanco77
+author: asudbring
 ms.service: private-link
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 05/26/2020
 ms.author: allensu
-ms.openlocfilehash: 553d36a86671617417b6b9b1ea47966c3ba3fdf6
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e80adc16e08e676ac2daabec01a11c10d537c547
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88705814"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102562950"
 ---
 # <a name="quickstart-create-a-private-endpoint-by-using-an-arm-template"></a>Quickstart: Criar um ponto final privado usando um modelo ARM
 
@@ -118,14 +118,14 @@ Aqui está como ligar ao servidor SQL Database a partir do VM usando o ponto fin
     - **Nome do servidor**: Selecione **sqlserver{uniqueid}.database.windows.net**.
     - **Nome de utilizador**: Introduza um nome de utilizador fornecido durante a criação.
     - **Senha**: Introduza uma palavra-passe fornecida durante a criação.
-    - **Lembre-se da palavra-passe**: Selecione **Sim**.
+    - **Lembre-se da palavra-passe**: Selecione  **Sim**.
 
 5.  Selecione **Ligar**.
 6.  A partir do menu à esquerda, vá às **Bases de Dados.**
 7.  Opcionalmente, pode criar ou consultar informações a partir de _sample-db_.
 8.  Fechar a ligação remote desktop ao _myVm{uniqueid}_.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não precisar dos recursos que criou com o ponto final privado, elimine o grupo de recursos. Isto remove o ponto final privado e todos os recursos conexos.
 
@@ -137,4 +137,6 @@ Remove-AzResourceGroup -Name <your resource group name>
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre [o Azure Private Link](private-link-overview.md).
+Para obter mais informações sobre os serviços que suportam um ponto final privado, consulte:
+> [!div class="nextstepaction"]
+> [Disponibilidade de Ligação Privada](private-link-overview.md#availability)

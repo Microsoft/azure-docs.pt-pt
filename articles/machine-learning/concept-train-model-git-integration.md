@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.date: 11/16/2020
-ms.openlocfilehash: 461c50bca53286cedcbb9ac21fc44467885e3d18
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: cc844cbd2518bb131f6902d1da3e7653951224b5
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102500449"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102547854"
 ---
 # <a name="git-integration-for-azure-machine-learning"></a>Integração de Git para Azure Machine Learning
 
@@ -89,7 +89,7 @@ cat ~/.ssh/id_rsa.pub
 
 + [GitLab](https://docs.gitlab.com/ee/ssh/#adding-an-ssh-key-to-your-gitlab-account)
 
-+ [Azure DevOps](/azure/devops/repos/git/use-ssh-keys-to-authenticate?view=azure-devops#step-2--add-the-public-key-to-azure-devops-servicestfs&preserve-view=true)  Comece no **passo 2.**
++ [Azure DevOps](/azure/devops/repos/git/use-ssh-keys-to-authenticate#step-2--add-the-public-key-to-azure-devops-servicestfs)  Comece no **passo 2.**
 
 + [BitBucket.](https://support.atlassian.com/bitbucket-cloud/docs/set-up-an-ssh-key/#SetupanSSHkey-ssh2) Comece no **passo 4.**
 
@@ -123,7 +123,7 @@ O SSH exibe esta impressão digital quando se conecta a um hospedeiro desconheci
 
 Quando submete uma corrida de treino a partir do Python SDK ou do Machine Learning CLI, os ficheiros necessários para treinar o modelo são enviados para o seu espaço de trabalho. Se o `git` comando estiver disponível no seu ambiente de desenvolvimento, o processo de upload utiliza-o para verificar se os ficheiros estão armazenados num repositório de git. Em caso afirmativo, então a informação do seu repositório de git também é carregada como parte da formação. Esta informação é armazenada nas seguintes propriedades para a execução de formação:
 
-| Propriedade | Comando Git usado para obter o valor | Descrição |
+| Propriedade | Comando Git usado para obter o valor | Description |
 | ----- | ----- | ----- |
 | `azureml.git.repository_uri` | `git ls-remote --get-url` | O URI de onde o seu repositório foi clonado. |
 | `mlflow.source.git.repoURL` | `git ls-remote --get-url` | O URI de onde o seu repositório foi clonado. |

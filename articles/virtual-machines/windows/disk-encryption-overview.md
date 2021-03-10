@@ -2,18 +2,19 @@
 title: Ativar encriptação do disco Azure para VMs windows
 description: Este artigo fornece instruções para permitir a encriptação do disco do Microsoft Azure para VMs windows.
 author: msmbaldwin
-ms.service: virtual-machines-windows
-ms.subservice: security
+ms.service: virtual-machines
+ms.subservice: disks
+ms.collection: windows
 ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 10/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: e9436a9ec7db660fa2d7012df98188b96ea8ee16
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 8e95f770a3335d66eae0a690e148c4d6ddc22d5c
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101694313"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102555334"
 ---
 # <a name="azure-disk-encryption-for-windows-vms"></a>Encriptação do disco Azure para VMs windows
 

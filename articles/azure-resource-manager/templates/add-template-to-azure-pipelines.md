@@ -2,13 +2,13 @@
 title: CI/CD com gasodutos e modelos Azure
 description: Descreve como configurar a integração contínua em Pipelines Azure utilizando modelos de Gestor de Recursos Azure. Mostra como usar um script PowerShell ou copiar ficheiros para um local de paragem e ser implantado a partir daí.
 ms.topic: conceptual
-ms.date: 02/05/2021
-ms.openlocfilehash: ea1ccac00f121bd81fd8b9b1f182b565fc53d214
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.date: 03/09/2021
+ms.openlocfilehash: 4a2f1f15de0abd802f3dce138b2cea33e52e3dfc
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99594202"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102561947"
 ---
 # <a name="integrate-arm-templates-with-azure-pipelines"></a>Integrar modelos do Resource Manager com Pipelines do Azure
 
@@ -234,4 +234,5 @@ Quando selecionar **Save,** o gasoduto de construção é executado automaticame
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para aprender a usar modelos ARM com ações do GitHub, consulte [os modelos de Gestor de Recursos do Azure, utilizando as ações do GitHub](deploy-github-actions.md).
+* Para utilizar o funcionamento do "e se" num oleoduto, consulte [os modelos test ARM com What-If num oleoduto](https://4bes.nl/2021/03/06/test-arm-templates-with-what-if/).
+* Para aprender a usar modelos ARM com ações do GitHub, consulte [os modelos de Gestor de Recursos do Azure, utilizando as ações do GitHub](deploy-github-actions.md).

@@ -2,16 +2,17 @@
 title: Criar um ambiente Linux com o Azure CLI
 description: Criar armazenamento, um Linux VM, uma rede virtual e sub-rede, um equilibrador de carga, um NIC, um IP público, e um grupo de segurança de rede, tudo desde o zero através do Azure CLI.
 author: cynthn
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.topic: how-to
 ms.date: 12/14/2017
 ms.author: cynthn
-ms.openlocfilehash: e8c21df3b783241a3a4bfdbe28b28b2bceb89b4d
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: ff86651d56abe090ca08c508a220362f9a011a3f
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102509120"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102554705"
 ---
 # <a name="create-a-complete-linux-virtual-machine-with-the-azure-cli"></a>Crie uma máquina virtual Linux completa com o Azure CLI
 Para criar rapidamente uma máquina virtual (VM) em Azure, pode utilizar um único comando Azure CLI que utiliza valores predefinidos para criar os recursos de suporte necessários. Recursos como uma rede virtual, endereço IP público e regras do grupo de segurança de rede são automaticamente criados. Para um maior controlo do seu ambiente em uso de produção, pode criar estes recursos com antecedência e, em seguida, adicionar-lhes os seus VMs. Este artigo guia-o através da forma de criar um VM e cada um dos recursos de apoio, um a um.

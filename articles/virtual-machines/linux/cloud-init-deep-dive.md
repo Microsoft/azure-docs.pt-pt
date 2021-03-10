@@ -2,18 +2,18 @@
 title: Compreender a nuvem
 description: Mergulho profundo para entender o fornecimento de um VM Azure usando cloud-init.
 author: danielsollondon
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.subservice: imaging
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: f5028abadbe5600058c83a144d0095aee1278fe6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 94dd57310375febb4bc9a55efa704a5fbf4e80e8
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86042084"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102559448"
 ---
 # <a name="diving-deeper-into-cloud-init"></a>Mergulhar mais profundamente na nuvem
 Para saber mais sobre [o cloud-init](https://cloudinit.readthedocs.io/en/latest/index.html) ou resolver problemas a um nível mais profundo, você precisa entender como funciona. Este documento destaca as partes importantes e explica as especificidades do Azure.
@@ -45,7 +45,7 @@ Ao a provisionar com cloud-init, existem 5 fases de arranque, que configuram o p
 
 2. [Cloud-init Local Stage](https://cloudinit.readthedocs.io/en/latest/topics/boot.html#local): Aqui a cloud-init procurará o dado local "Azure", que permitirá a interface em nuvem com o Azure, e aplicará uma configuração de networking, incluindo o retorno.
 
-3. [Fase init init cloud -init (Rede)](https://cloudinit.readthedocs.io/en/latest/topics/boot.html#network): A rede deve estar on-line e a informação do NIC e do quadro de rotas deve ser gerada. Nesta fase, serão executados os módulos listados `cloud_init_modules` em /etc/cloud/cloud.cfg. O VM em Azure será montado, o disco efémero é formatado, o nome de hospedeiro é definido, juntamente com outras tarefas.
+3. [Fase init init cloud -init (Rede)](https://cloudinit.readthedocs.io/en/latest/topics/boot.html#network): A rede deve estar on-line e a informação do NIC e do quadro de rotas deve ser gerada. Nesta fase, os módulos listados `cloud_init_modules` em /etc/cloud/cloud.cfg serão executados. O VM em Azure será montado, o disco efémero é formatado, o nome de hospedeiro é definido, juntamente com outras tarefas.
 
    Estes são alguns `cloud_init_modules` dos:
    
@@ -65,10 +65,10 @@ Ao a provisionar com cloud-init, existem 5 fases de arranque, que configuram o p
    
    Após esta fase, o cloud-in irá sinalizar para a plataforma Azure que o VM foi a provisionado com sucesso. Alguns módulos podem ter falhado, nem todas as falhas do módulo resultarão numa falha de provisionamento.
 
-4. [Fase Config em nuvem](https://cloudinit.readthedocs.io/en/latest/topics/boot.html#config): Nesta fase, serão executados os módulos `cloud_config_modules` em /etc/cloud/cloud.cfg.
+4. [Fase Config em nuvem](https://cloudinit.readthedocs.io/en/latest/topics/boot.html#config): Nesta fase, serão executados os módulos em `cloud_config_modules` /etc/cloud/cloud.cfg.
 
 
-5. [Fase Final cloud-init](https://cloudinit.readthedocs.io/en/latest/topics/boot.html#final): Nesta fase final, serão executados os módulos em `cloud_final_modules` , listados em /etc/cloud/cloud.cfg. Aqui os módulos que precisam de ser executados tardiamente no processo de arranque, como instalações de pacotes e scripts de execução etc. 
+5. [Fase Final cloud-init](https://cloudinit.readthedocs.io/en/latest/topics/boot.html#final): Nesta fase final, os módulos em `cloud_final_modules` , listados em /etc/cloud/cloud.cfg, serão executados. Aqui os módulos que precisam de ser executados tardiamente no processo de arranque, como instalações de pacotes e scripts de execução etc. 
 
    -   Durante esta fase, você pode executar scripts colocando-os nos diretórios em `/var/lib/cloud/scripts` :
    - `per-boot` - scripts dentro deste diretório, executados em cada reboot

@@ -2,16 +2,17 @@
 title: Criar um Linux VM com a API REST
 description: Saiba como criar uma máquina virtual Linux em Azure que utiliza Discos Geridos e autenticação SSH com API AZure REST.
 author: cynthn
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.topic: how-to
 ms.date: 06/05/2018
 ms.author: cynthn
-ms.openlocfilehash: b3eeaf5f343b6026e02d17e4d3bd90dba4b991c4
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 519939445e67f0f993662e2faf506eb186686156
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737050"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102554569"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>Crie uma máquina virtual Linux que utilize a autenticação SSH com a API REST
 
@@ -54,7 +55,7 @@ Para obter informações gerais sobre o trabalho com pedidos de API REST, consul
 
 As seguintes definições comuns são utilizadas para construir um organismo de pedido:
 
-| Name                       | Necessário | Tipo                                                                                | Descrição  |
+| Name                       | Necessário | Tipo                                                                                | Description  |
 |----------------------------|----------|-------------------------------------------------------------------------------------|--------------|
 | localização                   | Verdadeiro     | string                                                                              | Localização de recursos. |
 | name                       |          | string                                                                              | Nome para a máquina virtual. |
@@ -128,7 +129,7 @@ Poderá utilizar o cliente da sua preferência para o envio deste pedido HTTP. T
 
 Existem duas respostas bem sucedidas para a operação para criar ou atualizar uma máquina virtual:
 
-| Nome        | Tipo                                                                              | Descrição |
+| Nome        | Tipo                                                                              | Description |
 |-------------|-----------------------------------------------------------------------------------|-------------|
 | 200 OK      | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | OK          |
 | 201 Criado | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | Criado     |
@@ -144,7 +145,7 @@ Uma resposta condensada *201 Criada* a partir do organismo de pedido de exemplo 
 
 Para obter mais informações sobre as respostas da API rest, consulte [processar a mensagem de resposta](/rest/api/azure/#process-the-response-message).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre as APIs Azure REST ou outras ferramentas de gestão, tais como Azure CLI ou Azure PowerShell, consulte o seguinte:
 

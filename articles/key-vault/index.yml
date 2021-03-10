@@ -13,12 +13,12 @@ metadata:
   author: msmbaldwin
   ms.author: mbaldwin
   ms.date: 04/07/2020
-  ms.openlocfilehash: a049c1516c4888330b5f0eeb21b1d1823eb73f18
-  ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+  ms.openlocfilehash: 55495d690511c1ebfbd81b80ad9c99d76e708146
+  ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/09/2021
-  ms.locfileid: "102500228"
+  ms.lasthandoff: 03/10/2021
+  ms.locfileid: "102566416"
 highlightedContent:
   items:
   - title: Introdução ao Azure Key Vault
@@ -153,7 +153,7 @@ conceptualContent:
       text: Key Vault com Conjuntos de Dimensionamento de Máquinas Virtuais
   - title: Integração do Key Vault
     links:
-    - url: /azure/devops/pipelines/library/variable-groups?tabs=yaml&view=azure-devops#link-secrets-from-an-azure-key-vault
+    - url: /azure/devops/pipelines/library/variable-groups?tabs=yaml#link-secrets-from-an-azure-key-vault
       itemType: overview
       text: Azure Dev Ops - Referenciar segredos do Key Vault no Azure Pipelines
     - url: ../app-service/app-service-key-vault-references.md

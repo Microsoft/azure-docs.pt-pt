@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 09654ddafba6c60db0290a8c7ce08d4b1b168f6c
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 34b06d2b74c0e13e924ae14e85ccfde0c9847793
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102504887"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102554960"
 ---
 # <a name="azure-security-baseline-for-azure-ddos-protection-standard"></a>Linha de base de segurança Azure para Azure DDoS Protection Standard
 
@@ -98,9 +98,9 @@ Além disso, o Azure Ative Directory (AD) tem funções incorporadas que devem s
 
 - [Compreender permissões na proteção Azure DDoS](../../ddos-protection/manage-permissions.md)
 
-- [Como obter um papel de diretório em Azure AD com PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+- [Como obter um papel de diretório em Azure AD com PowerShell](/powershell/module/azuread/get-azureaddirectoryrole)
 
-- [Como obter membros de um papel de diretório em Azure AD com PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [Como obter membros de um papel de diretório em Azure AD com PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
 **Monitorização do Centro de Segurança do Azure**: Sim
 

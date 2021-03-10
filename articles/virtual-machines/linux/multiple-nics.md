@@ -2,18 +2,18 @@
 title: Criar um Linux VM em Azure com vários NICs
 description: Saiba como criar um Linux VM com vários NICs ligados a ele utilizando os modelos Azure CLI ou Resource Manager.
 author: cynthn
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.subservice: networking
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 06/07/2018
 ms.author: cynthn
-ms.openlocfilehash: 86910ece57d8fb72ade0c67a9e6787023c4283f3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c0eea74890665297a0d450c8afd0a5d60dd1ae00
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87836926"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102551815"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>Como criar uma máquina virtual Linux em Azure com vários cartões de interface de rede
 
@@ -23,7 +23,7 @@ Este artigo detalha como criar um VM com vários NICs com o Azure CLI.
 ## <a name="create-supporting-resources"></a>Criar recursos de apoio
 Instale o mais recente [Azure CLI](/cli/azure/install-az-cli2) e faça login numa conta Azure utilizando [o login az](/cli/azure/reference-index).
 
-Nos exemplos seguintes, substitua os nomes dos parâmetros de exemplo pelos seus próprios valores. Os nomes dos parâmetros incluem *myResourceGroup,* *mystorageaccount*e *myVM*.
+Nos exemplos seguintes, substitua os nomes dos parâmetros de exemplo pelos seus próprios valores. Os nomes dos parâmetros incluem *myResourceGroup,* *mystorageaccount* e *myVM*.
 
 Primeiro, crie um grupo de recursos com [az group create](/cli/azure/group). O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na localização *este:*
 

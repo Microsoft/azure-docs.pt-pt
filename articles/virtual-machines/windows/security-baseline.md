@@ -2,17 +2,19 @@
 title: Linha de segurança Azure para máquinas virtuais Linux Windows Máquinas Virtuais
 description: A linha de base de segurança windows Virtual Machines fornece orientações e recursos processuais para a implementação das recomendações de segurança especificadas no Azure Security Benchmark.
 author: msmbaldwin
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.subservice: security
+ms.collection: linux
 ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 5a9bc576541c5991bb5f9352dc41fb0cce99c601
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 11f0a58f8c6d38d070d4bafe68794bdd9ada7cf3
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100594282"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102556167"
 ---
 # <a name="azure-security-baseline-for-windows-virtual-machines"></a>Linha de segurança Azure para Máquinas Virtuais do Windows
 

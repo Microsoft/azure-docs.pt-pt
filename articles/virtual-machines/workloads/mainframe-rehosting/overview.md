@@ -1,7 +1,7 @@
 ---
 title: Rehosagem de mainframe em máquinas virtuais Azure
 description: Reenquadrar as suas cargas de trabalho de computador principal, como sistemas baseados em IBM Z, utilizando máquinas virtuais (VMs) no Microsoft Azure.
-services: virtual-machines-linux
+services: virtual-machines
 documentationcenter: ''
 author: njray
 manager: edprice
@@ -10,12 +10,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
-ms.openlocfilehash: f62cb6d5277ae202e8ea864aa99a3e19c3beef22
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 7ae20b484b4c22c19b856c237d85efe31dc01407
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99220756"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102553549"
 ---
 # <a name="mainframe-rehosting-on-azure-virtual-machines"></a>Rehosagem de mainframe em máquinas virtuais Azure
 

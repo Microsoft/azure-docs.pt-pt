@@ -2,18 +2,19 @@
 title: Cenários do Azure Disk Encryption em VMs com Linux
 description: Este artigo fornece instruções para permitir a Encriptação do Disco Azure da Microsoft para os VMs Linux para vários cenários
 author: msmbaldwin
-ms.service: virtual-machines-linux
-ms.subservice: security
+ms.service: virtual-machines
+ms.subservice: disks
+ms.collection: linux
 ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: d32e5c55bbaa7357c1f13200213dbaed19986825
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: bf5da120072f49421b6f2194626178048b044f6a
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101694347"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102564701"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Cenários do Azure Disk Encryption em VMs com Linux
 

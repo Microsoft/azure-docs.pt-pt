@@ -8,12 +8,12 @@ ms.technology: devops-cicd
 ms.topic: tutorial
 ms.date: 03/24/2020
 author: mlearned
-ms.openlocfilehash: 723f46652643883dc8e718468a9ca9eead50e1aa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 078331c35c76a3cda97398b1a487933a3f0f5ab8
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91856029"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102559312"
 ---
 # <a name="tutorial-deploy-your-aspnet-core-app-to-azure-service-fabric-by-using-azure-devops-starter"></a>Tutorial: Implemente a sua aplicação Core ASP.NET para o Azure Service Fabric utilizando o Azure DevOps Starter
 
@@ -25,7 +25,7 @@ DevOps Starter também:
 * Cria e configura um gasoduto de libertação em Azure DevOps que configura um gasoduto CI/CD.
 * Cria um recurso Azure Application Insights para monitorização.
 
-Neste tutorial, irá:
+Neste tutorial, vai:
 
 > [!div class="checklist"]
 > * Use o DevOps Starter para criar uma aplicação Core ASP.NET e implementá-la no Tecido de Serviço
@@ -45,15 +45,15 @@ DevOps Starter cria um gasoduto CI/CD em Pipelines Azure. Pode criar uma nova or
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-1. Na caixa de pesquisa, escreva **DevOps Starter**e, em seguida, selecione. Clique em **Adicionar** para criar um novo.
+1. Na caixa de pesquisa, escreva **DevOps Starter** e, em seguida, selecione. Clique em **Adicionar** para criar um novo.
 
     ![O painel de arranque de DevOps](_img/azure-devops-starter-aks/search-devops-starter.png) 
 
-1. Selecione **.NET**e, em seguida, selecione **Seguinte**.
+1. Selecione **.NET** e, em seguida, selecione **Seguinte**.
 
-1. Em **Escolha uma estrutura de aplicação,** selecione ASP.NET **Core**e, em seguida, selecione **Seguinte**.
+1. Em **Escolha uma estrutura de aplicação,** selecione ASP.NET **Core** e, em seguida, selecione **Seguinte**.
 
-1. Selecione **o Cluster de Tecidos de Serviço**e, em seguida, selecione **Seguinte**. 
+1. Selecione **o Cluster de Tecidos de Serviço** e, em seguida, selecione **Seguinte**. 
 
 ## <a name="configure-azure-devops-and-an-azure-subscription"></a>Configurar Azure DevOps e uma subscrição da Azure
 
@@ -98,7 +98,7 @@ O DevOps Starter configura automaticamente um gasoduto CI/CD em Pipelines Azure.
 
 O DevOps Starter cria e configura automaticamente os passos necessários para implementar da sua organização Azure DevOps para a sua subscrição Azure. Estes passos incluem configurar uma ligação de serviço Azure para autenticar Azure DevOps para a sua subscrição Azure. A automatização também cria um gasoduto de libertação, que fornece o CD ao Azure. Para saber mais sobre o oleoduto de lançamento, faça o seguinte:
 
-1. Selecione **Construir e Soltar**e, em seguida, selecione **Versões**. O DevOps Starter cria um oleoduto de libertação para gerir as implementações para o Azure.
+1. Selecione **Construir e Soltar** e, em seguida, selecione **Versões**. O DevOps Starter cria um oleoduto de libertação para gerir as implementações para o Azure.
 
 1. Selecione a elipse (...) ao lado do seu pipeline de lançamento e, em seguida, **selecione Editar**. O pipeline de lançamento contém um *pipeline*, que define o processo de lançamento.
 
@@ -121,13 +121,13 @@ O DevOps Starter cria e configura automaticamente os passos necessários para im
 
 Está agora pronto para colaborar com uma equipa na sua aplicação, utilizando um processo ci/CD que implementa automaticamente o seu último trabalho no seu website. Cada mudança para o git repo inicia uma construção, e um lançamento implementa as suas alterações para Azure. Siga o procedimento nesta secção ou use outra técnica para comprometer alterações no seu repo. Por exemplo, pode clonar o repo Git na sua ferramenta preferida ou IDE e, em seguida, empurrar alterações para este repo.
 
-1. No menu Azure DevOps, selecione **Code**  >  **Code Files**e, em seguida, vá para o seu repo.
+1. No menu Azure DevOps, selecione   >  **Code Files** e, em seguida, vá para o seu repo.
 
 1. Vá ao *diretório Views\Home,* selecione a elipse (...) ao lado do ficheiro *Index.cshtml* e, em seguida, selecione **Editar**.
 
 1. Faça uma alteração no ficheiro, como por exemplo adicionar algum texto dentro de uma das tags de div. 
 
-1. No topo direito, **selecione Commit**e, em seguida, selecione **Comprometa-se** novamente para empurrar a sua mudança.  
+1. No topo direito, **selecione Commit** e, em seguida, selecione **Comprometa-se** novamente para empurrar a sua mudança.  
     Após alguns momentos, uma construção começa e, em seguida, um lançamento executa para implementar as alterações. Pode monitorizar o estado de construção no painel de partidas de DevOps ou no navegador com a Azure DevOps em tempo real.
 
 1. Depois de concluída a versão, refresque a sua aplicação para verificar as suas alterações.
@@ -158,4 +158,4 @@ Opcionalmente, pode modificar os pipelines de CI/CD do Azure para satisfazer as 
 Para saber mais sobre o Service Fabric e microserviços, consulte:
 
 > [!div class="nextstepaction"]
-> [Utilizar a abordagem de microsserviços para criar aplicações](/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
+> [Utilizar a abordagem de microsserviços para criar aplicações](/azure/devops/pipelines/release/define-multistage-release-process)

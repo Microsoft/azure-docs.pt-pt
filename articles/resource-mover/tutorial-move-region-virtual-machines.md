@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 02/04/2021
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: d1ac17c93bdf95e36f68af678d2ee38b896ef1e7
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 5712448c8c5248d3c84ce43f8a41c669355f1d43
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99979747"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102565738"
 ---
 # <a name="tutorial-move-azure-vms-across-regions"></a>Tutorial: Mover VMs Azure em regiões
 
@@ -40,6 +40,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 ## <a name="prerequisites"></a>Pré-requisitos
 **Requisito** | **Descrição**
 --- | ---
+**Suporte de mudança de recursos** | [Reveja](common-questions.md) as regiões apoiadas e outras questões comuns.
 **Permissões de subscrição** | Verifique se tem acesso *ao Proprietário* na subscrição que contém os recursos que pretende mover<br/><br/> **Por que preciso de acesso ao proprietário?** A primeira vez que adiciona um recurso para um par de origem e destino específico numa subscrição do Azure, o Resource Mover cria uma [identidade gerida atribuída ao sistema](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) (anteriormente conhecida como Managed Service Identify (MSI)) que é fidedigna pela subscrição. Para criar a identidade e atribuir-lhe a função necessária (administrador de Acesso ao Utilizador ou Colaborador na subscrição de origem), a conta que utiliza para adicionar recursos necessita de permissões *do Proprietário* na subscrição. [Saiba mais](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) sobre os papéis do Azure.
 **Suporte VM** |  Verifique se os VMs que pretende mover são suportados.<br/><br/> - [Verifique os](support-matrix-move-region-azure-vm.md#windows-vm-support) VMs do Windows suportados.<br/><br/> - [Verifique as](support-matrix-move-region-azure-vm.md#linux-vm-support) versões de Linux VMs e kernel suportadas.<br/><br/> - Verifique as definições [de computação](support-matrix-move-region-azure-vm.md#supported-vm-compute-settings)suportada, [armazenamento](support-matrix-move-region-azure-vm.md#supported-vm-storage-settings)e [rede.](support-matrix-move-region-azure-vm.md#supported-vm-networking-settings)
 **Assinatura de destino** | A subscrição na região de destino precisa de quota suficiente para criar os recursos que está a mover na região alvo. Se não tiver quota, [solicite limites adicionais.](../azure-resource-manager/management/azure-subscription-service-limits.md)

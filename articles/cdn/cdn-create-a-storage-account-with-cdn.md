@@ -1,26 +1,19 @@
 ---
-title: Quickstart - Integre uma conta de Armazenamento Azure com a Azure CDN
-description: Saiba como utilizar a Rede de Entrega de Conteúdos (CDN) do Azure para entregar conteúdo de largura de banda elevada ao colocar blobs do Armazenamento do Microsoft Azure em cache.
+title: 'Quickstart: Integrar uma conta de Armazenamento Azure com a Azure CDN'
+description: Neste arranque rápido, aprenda a utilizar a Rede de Entrega de Conteúdos Azure (CDN) para fornecer conteúdo de largura de banda alta, caching blobs do Azure Storage.
 services: cdn
-documentationcenter: ''
 author: asudbring
-manager: danielgi
-editor: ''
-ms.assetid: cbc2ff98-916d-4339-8959-622823c5b772
 ms.service: azure-cdn
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 04/30/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: b80437fa1ac41bb240565923eb40e562c8cf8c5b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 7cd1c6b0b11ba291a36f49a2a9990a2755cdd74b
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96018618"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102561930"
 ---
 # <a name="quickstart-integrate-an-azure-storage-account-with-azure-cdn"></a>Quickstart: Integrar uma conta de Armazenamento Azure com a Azure CDN
 
@@ -123,9 +116,6 @@ Nos passos anteriores, criou um perfil e um ponto final de CDN num grupo de recu
 3. Para eliminar a conta de armazenamento, selecione-a no dashboard e, em seguida, selecione **Eliminar** no menu superior.
 
 ## <a name="next-steps"></a>Passos seguintes
-
-> [!div class="nextstepaction"]
-> [Criar um perfil e um ponto final da CDN do Azure](cdn-create-new-endpoint.md)
 
 > [!div class="nextstepaction"]
 > [Tutorial: Use CDN para servidor de conteúdo estático a partir de uma aplicação web](cdn-add-to-web-app.md)

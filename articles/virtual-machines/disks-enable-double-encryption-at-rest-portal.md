@@ -5,15 +5,15 @@ author: roygara
 ms.date: 08/24/2020
 ms.topic: how-to
 ms.author: rogarana
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 3882aae0fb1ecf330917f886555208c3937dd9a5
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: b5f58b549fc9d879f6c2e5515c679d82c3ff44e4
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93358223"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102560366"
 ---
 # <a name="use-the-azure-portal-to-enable-double-encryption-at-rest-for-managed-disks"></a>Utilize o portal Azure para permitir a dupla encriptação em repouso para discos geridos
 
@@ -35,7 +35,7 @@ O Azure Disk Storage suporta a dupla encriptação em repouso para discos gerido
     :::image type="content" source="media/virtual-machines-disks-double-encryption-at-rest-portal/double-encryption-add-disk-encryption-set.png" alt-text="A screenshot da lâmina do conjunto de encriptação do disco, + Add é realçada.":::
 
 1. Selecione uma das regiões suportadas.
-1. Para **o tipo de encriptação** , selecione **encriptação dupla com teclas geridas pela plataforma e geridas pelo cliente**.
+1. Para **o tipo de encriptação**, selecione **encriptação dupla com teclas geridas pela plataforma e geridas pelo cliente**.
 
     > [!NOTE]
     > Uma vez criado um conjunto de encriptação de disco com um determinado tipo de encriptação, este não pode ser alterado. Se quiser utilizar um tipo de encriptação diferente, tem de criar um novo conjunto de encriptação de disco.
@@ -62,7 +62,7 @@ O Azure Disk Storage suporta a dupla encriptação em repouso para discos gerido
 
 1. Navegue para o seu disco.
 1. Selecione **encriptação**.
-1. Para **o tipo de encriptação** , selecione **encriptação dupla com teclas geridas pela plataforma e geridas pelo cliente**.
+1. Para **o tipo de encriptação**, selecione **encriptação dupla com teclas geridas pela plataforma e geridas pelo cliente**.
 1. Selecione o seu conjunto de encriptação de disco.
 1. selecionar **Guardar**.
 
@@ -71,7 +71,7 @@ O Azure Disk Storage suporta a dupla encriptação em repouso para discos gerido
 Agora, ativou a dupla encriptação em repouso no seu disco gerido.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Azure PowerShell - Ativar as chaves geridas pelo cliente com encriptação do lado do servidor - discos geridos](./windows/disks-enable-customer-managed-keys-powershell.md)
 - [Amostras de modelo do gestor de recursos Azure](https://github.com/Azure-Samples/managed-disks-powershell-getting-started/tree/master/DoubleEncryption)

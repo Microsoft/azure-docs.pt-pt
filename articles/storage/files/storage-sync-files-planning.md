@@ -8,12 +8,12 @@ ms.date: 01/29/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 171e858ef06228f2bf5ef5dea662de00143a0567
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: 51814ba36eec7b1f7d8b95ce80210d93b4cbec3f
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102441946"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102564225"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planear uma implementação da Sincronização de Ficheiros do Azure
 
@@ -206,7 +206,7 @@ O Azure File Sync não suporta a desduplicação de dados e o tiering de nuvem n
 - Se a desduplicação de dados for ativada num volume após o tiering da nuvem, o trabalho inicial de otimização de deduplica irá otimizar ficheiros no volume que ainda não estão nivelados e terá o seguinte impacto no tiering da nuvem:
     - A política de espaço livre continuará a tierar ficheiros de acordo com o espaço livre do volume utilizando o mapa de calor.
     - A política de datas saltará o tiering de ficheiros que podem ter sido elegíveis para tiering devido ao trabalho de otimização de Deduplica que acede aos ficheiros.
-- Para os trabalhos de otimização de deduplica em curso, o tiering em nuvem com a política de data será adiado pela definição de Data Deduplication [MinimumFileAgeDays,](/powershell/module/deduplication/set-dedupvolume?view=win10-ps&preserve-view=true) se o ficheiro ainda não estiver nivelado. 
+- Para os trabalhos de otimização de deduplica em curso, o tiering em nuvem com a política de data será adiado pela definição de Data Deduplication [MinimumFileAgeDays,](/powershell/module/deduplication/set-dedupvolume) se o ficheiro ainda não estiver nivelado. 
     - Exemplo: Se a definição de Preenchimento Mínimo Desembaraçado for de sete dias e a política de data de tiering em nuvem for de 30 dias, a política de datas irá tier-files após 37 dias.
     - Nota: Uma vez que um ficheiro é hierárquico por Azure File Sync, a função de otimização de deduplica saltará o ficheiro.
 - Se um servidor que executa o Windows Server 2012 R2 com o agente Azure File Sync instalado for atualizado para o Windows Server 2016 ou Windows Server 2019, devem ser executados os seguintes passos para suportar a desduplicação de dados e o nível de nuvem no mesmo volume:  
