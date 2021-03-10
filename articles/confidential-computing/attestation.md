@@ -4,23 +4,23 @@ description: Saiba como pode usar o atestado para verificar se o seu ambiente co
 services: virtual-machines
 author: JBCook
 ms.service: virtual-machines
-ms.subservice: workloads
+ms.subservice: confidential-computing
 ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 9/22/2020
 ms.author: JenCook
-ms.openlocfilehash: 86856d1f66b5b7d723c907c17d7179ffcd2b82ab
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: a7b0ca65329016b0a73f612115d8caba43dfbe2a
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94565675"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102551356"
 ---
 # <a name="attesting-sgx-enclaves"></a>Atestar enclaves SGX
 
 A computação confidencial no Azure oferece máquinas virtuais baseadas em Intel SGX que podem isolar uma parte do seu código ou dados. Ao trabalhar com estes [enclaves,](confidential-computing-enclaves.md)você vai querer obter a verificação e validação de que o seu ambiente de confiança é seguro. Esta verificação é o processo de atestado. 
 
-## <a name="overview"></a>Descrição geral 
+## <a name="overview"></a>Descrição Geral 
 
 O Attestation permite que uma parte dependente tenha uma maior confiança de que o seu software está (1) a funcionar num enclave e (2) que o enclave está atualizado e seguro. Por exemplo, um enclave pede ao hardware subjacente para gerar uma credencial que inclua a prova de que o enclave existe na plataforma. O relatório pode então ser entregue a um segundo enclave que verifica que o relatório foi gerado na mesma plataforma.
 

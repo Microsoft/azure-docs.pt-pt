@@ -4,12 +4,12 @@ ms.service: databox
 ms.topic: include
 ms.date: 10/15/2020
 ms.author: alkohli
-ms.openlocfilehash: c0ba6aee0e23dc0c68348c59c8ca8acdcd606435
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
-ms.translationtype: MT
+ms.openlocfilehash: 03aed175b105ad650407acb4a839c5a5b8004465
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98901124"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102532662"
 ---
 Dependendo do sistema operativo do cliente, os procedimentos para ligar remotamente ao dispositivo são diferentes.
 
@@ -58,11 +58,11 @@ Siga estes passos para ligar remotamente a partir de um cliente Windows.
 
 No cliente Linux que utilizará para ligar:
 
-- [Instale o mais recente PowerShell Core para Linux](/powershell/scripting/install/installing-powershell-core-on-linux?preserve-view=true&view=powershell-6) do GitHub para obter a função de remoting SSH. 
+- [Instale o mais recente PowerShell Core para Linux](/powershell/scripting/install/installing-powershell-core-on-linux) do GitHub para obter a função de remoting SSH. 
 - [Instale apenas a `gss-ntlmssp` embalagem a partir do módulo NTLM](https://github.com/Microsoft/omi/blob/master/Unix/doc/setup-ntlm-omi.md). Para clientes Ubuntu, utilize o seguinte comando:
     - `sudo apt-get install gss-ntlmssp`
 
-Para obter mais informações, aceda ao [PowerShell remoing sobre SSH](/powershell/scripting/learn/remoting/ssh-remoting-in-powershell-core?preserve-view=true&view=powershell-6).
+Para obter mais informações, aceda ao [PowerShell remoing sobre SSH](/powershell/scripting/learn/remoting/ssh-remoting-in-powershell-core).
 
 Siga estes passos para ligar remotamente a um cliente NFS.
 
