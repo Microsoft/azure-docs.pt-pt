@@ -1,5 +1,5 @@
 ---
-title: Partner Center Orders dashboard em analytics marketplace comercial, Microsoft AppSource e Azure Marketplace
+title: Partner Center Orders dashboard em | de análise de marketplace comercial Microsoft AppSource e Azure Marketplace
 description: Saiba como aceder a relatórios analíticos sobre o seu mercado comercial oferece encomendas num formato gráfico e transferível.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/09/2020
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: 31216db98cc02724ac3625eb1a8fa18b0f75c6ee
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: ed12e470f3f3d8c1035c1e4e2e0fa7a3b33e2369
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97955030"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102561386"
 ---
 # <a name="orders-dashboard-in-commercial-marketplace-analytics"></a>Dashboard de encomendas na análise do mercado comercial
 
@@ -109,34 +109,34 @@ A tabela de detalhes da Ordem apresenta uma lista numerada das 1.000 principais 
 - Os dados podem ser extraídos para um . CSV ou . . Ficheiro TSV se a contagem dos registos for inferior a 1.000.
 - Se os registos forem mais de 1.000, os dados exportados serão colocados de forma assíncronea numa página de downloads durante os próximos 30 dias.
 - Aplique filtros na tabela **de detalhes** da Ordem para exibir apenas os dados que lhe interessam. Filtrar por País/Região, Tipo de licença Azure, tipo de licença de mercado comercial, tipo de oferta, estado de encomenda, trilhos gratuitos, ID de assinatura de mercado comercial, ID do cliente e nome da Empresa.
-- Quando uma encomenda é comprada por um cliente protegido, as informações em **Dados Detalhados de Encomendas** são mascaradas (*
+- Quando uma encomenda é comprada por um cliente protegido, as informações em **Dados Detalhados de Encomendas** são mascaradas (******
 
-**_Quadro 1: Dicionário de termos de dados_* _
+***Quadro 1: Dicionário de termos de dados***
 
-| Nome da coluna | Nome do atributo | Definição |
-| ------------ | ------------- | ------------- |
-| Id de assinatura de mercado | ID de assinatura de mercado | O identificador único associado à subscrição Azure que o cliente usou para adquirir a sua oferta de mercado comercial. Para ofertas de infraestruturas, esta é a assinatura Azure do cliente GUID. Para as ofertas da SaaS, isto é mostrado como zeros uma vez que as compras da SaaS não requerem uma subscrição do Azure. |
-| MêsStartDate | Data de Início do Mês | A Data de Início do Mês representa o mês de Compra. |
-| Tipo de Oferta | Tipo de Oferta | O tipo de oferta de mercado comercial. |
-| Tipo de Licença Azure | Tipo de Licença Azure | O tipo de contrato de licenciamento usado pelos clientes para comprar a Azure. Também conhecido como Canal. Os valores possíveis são:<ul><li>Provedor de solução cloud</li><li>Grandes Empresas</li><li>Empresa através de Revendedor</li><li>Pague como você vai</li></ul> |
-| Tipo de Licença de Mercado | Tipo de Licença de Mercado | O método de faturação da oferta de mercado comercial. Os diferentes valores são:<ul><li>Faturado através de Azure</li><li>Traga a sua própria licença</li><li>Gratuito</li><li>Microsoft como Revendedor</li></ul> |
-| SKU | SKU | O plano associado à oferta |
-| País do Cliente | País/Região do Cliente | O nome país/região fornecido pelo cliente. O país/região poderia ser diferente do país/região na subscrição Azure de um cliente. |
-| É pré-visualização SKU | É pré-visualização SKU | O valor irá informá-lo se marcou o SKU como "pré-visualização". O valor será "Sim" se o SKU tiver sido marcado em conformidade, e apenas as subscrições Azure autorizadas por você pode implementar e usar esta imagem. O valor será "Não" se o SKU não tiver sido identificado como "pré-visualização". |
-| Id de encomenda | ID da Encomenda | O identificador único da encomenda do cliente para o seu serviço de marketplace comercial. As ofertas baseadas em máquinas virtuais não estão associadas a uma encomenda. |
-| Quantidade de Encomendas | Quantidade de Encomendas | Número de ativos associados à ID de encomenda para encomendas ativas |
-| Nome da instância da nuvem | Nome da instância da nuvem | A Cloud Microsoft em que ocorreu uma implementação em VM. |
-| É novo cliente | É novo cliente | O valor identifica se um novo cliente adquiriu uma ou mais das suas ofertas pela primeira vez. O valor será "Sim" se no mesmo mês de calendário para "Data Adquirida". O valor será "Não" se o cliente tiver adquirido alguma das suas ofertas antes do mês civil reportado. |
-| Estado da Encomenda | Estado da Encomenda | O estado de uma ordem de mercado comercial no momento em que os dados foram atualizados pela última vez. |
-| Data de Cancelamento de Encomenda | Data de Cancelamento de Encomenda | A data em que a encomenda do mercado comercial foi cancelada. |
-| Nome da empresa do cliente | Nome da empresa do cliente | O nome da empresa fornecido pelo cliente. O nome pode ser diferente da cidade na assinatura Azure de um cliente. |
-| Data de Compra da Encomenda | Data de Compra da Encomenda | A data em que a ordem do mercado comercial foi criada. |
-| Nome da Oferta | Nome da Oferta | O nome da oferta do mercado comercial. |
-| Data de Fim do Julgamento | Data de Fim do Julgamento | A data do período experimental para esta ordem terminará ou terminou. |
-| ID do cliente | ID de Cliente | O identificador único atribuído a um cliente. Um cliente pode ter zero ou mais subscrições do Azure Marketplace. |
-| ID de conta de faturação | ID de conta de faturação | O identificador da conta em que a faturação é gerada. Mapa _ *ID de conta de faturação** ao **clienteID** para ligar o seu Relatório de Transações de Pagamento com os Relatórios de Cliente, Ordem e Utilização. |
-| Conta de Ativos | Contagem de ativos | O número de ativos associados à identificação da encomenda. |
-||||
+| Nome da coluna em<br>interface de utilizador | Nome do atributo | Definição | Nome da coluna em programático<br>relatórios de acesso |
+| ------------ | ------------- | ------------- | ------------- |
+| ID de assinatura de mercado | ID de assinatura de mercado | O identificador único associado à subscrição Azure que o cliente usou para adquirir a sua oferta de mercado comercial. Para ofertas de infraestruturas, esta é a assinatura Azure do cliente GUID. Para as ofertas da SaaS, isto é mostrado como zeros uma vez que as compras da SaaS não requerem uma subscrição do Azure. | ID de assinatura de mercado |
+| MêsStartDate | Data de Início do Mês | A Data de Início do Mês representa o mês de Compra. O formato é yyy-mm-dd. | MêsStartDate |
+| Tipo de Oferta | Tipo de Oferta | O tipo de oferta de mercado comercial. | OfferType |
+| Tipo de Licença Azure | Tipo de Licença Azure | O tipo de contrato de licenciamento usado pelos clientes para comprar a Azure. Também conhecido como Canal. Os valores possíveis são:<ul><li>Provedor de solução cloud</li><li>Grandes Empresas</li><li>Empresa através de Revendedor</li><li>Pague como você vai</li></ul> | AzureLicenseType |
+| Tipo de Licença de Mercado | Tipo de Licença de Mercado | O método de faturação da oferta de mercado comercial. Os diferentes valores são:<ul><li>Faturado através de Azure</li><li>Traga a sua própria licença</li><li>Gratuito</li><li>Microsoft como Revendedor</li></ul> | MarketplaceLicenseType |
+| SKU | SKU | O plano associado à oferta | SKU |
+| País do Cliente | País/Região do Cliente | O nome país/região fornecido pelo cliente. O país/região poderia ser diferente do país/região na subscrição Azure de um cliente. | CustomerCountry |
+| É pré-visualização SKU | É pré-visualização SKU | O valor irá informá-lo se marcou o SKU como "pré-visualização". O valor será "Sim" se o SKU tiver sido marcado em conformidade, e apenas as subscrições Azure autorizadas por você pode implementar e usar esta imagem. O valor será "Não" se o SKU não tiver sido identificado como "pré-visualização". | IsPreviewSKU |
+| ID da Encomenda | ID da Encomenda | O identificador único da encomenda do cliente para o seu serviço de marketplace comercial. As ofertas baseadas em máquinas virtuais não estão associadas a uma encomenda. | OrderId |
+| Quantidade de Encomendas | Quantidade de Encomendas | Número de ativos associados à ID de encomenda para encomendas ativas | OrderQuantity |
+| Nome da instância da nuvem | Nome da instância da nuvem | A Cloud Microsoft em que ocorreu uma implementação em VM. | Nome cloudInstance |
+| É novo cliente | É novo cliente | O valor identifica se um novo cliente adquiriu uma ou mais das suas ofertas pela primeira vez. O valor será "Sim" se no mesmo mês de calendário para "Data Adquirida". O valor será "Não" se o cliente tiver adquirido alguma das suas ofertas antes do mês civil reportado. | IsNewCustomer |
+| Estado da Encomenda | Estado da Encomenda | O estado de uma ordem de mercado comercial no momento em que os dados foram atualizados pela última vez. | Ordem Estatísticas |
+| Data de Cancelamento de Encomenda | Data de Cancelamento de Encomenda | A data em que a encomenda do mercado comercial foi cancelada. | OrderCancelDate |
+| Nome da empresa do cliente | Nome da empresa do cliente | O nome da empresa fornecido pelo cliente. O nome pode ser diferente da cidade na assinatura Azure de um cliente. | Nome da Empresa de Clientes |
+| Data de Compra da Encomenda | Data de Compra da Encomenda | A data em que a ordem do mercado comercial foi criada. O formato é yyy-mm-dd. | EncomendaDeseDate |
+| Nome da Oferta | Nome da Oferta | O nome da oferta do mercado comercial. | OfferName |
+| Data de Fim do Julgamento | Data de Fim do Julgamento | A data do período experimental para esta ordem terminará ou terminou. | Data de Teste |
+| ID de Cliente | ID de Cliente | O identificador único atribuído a um cliente. Um cliente pode ter zero ou mais subscrições do Azure Marketplace. | CustomerId |
+| ID de conta de faturação | ID de conta de faturação | O identificador da conta em que a faturação é gerada. **Mapear iD de conta** de faturação ao **clienteID** para ligar o seu Relatório de Transações de Pagamento com os Relatórios de Cliente, Ordem e Utilização. | BillingAccountId |
+| Conta de Ativos | Contagem de ativos | O número de ativos associados à identificação da encomenda. | Preterido |
+|||||
 
 ### <a name="orders-page-filters"></a>Encomendas filtros de página
 

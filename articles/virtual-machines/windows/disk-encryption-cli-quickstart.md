@@ -3,17 +3,18 @@ title: Criar e encriptar uma VM do Windows com a CLI do Azure
 description: Neste arranque rápido, aprende-se a usar o CLI do Azure para criar e encriptar uma máquina virtual do Windows
 author: msmbaldwin
 ms.author: mbaldwin
-ms.service: virtual-machines-windows
-ms.subservice: security
+ms.service: virtual-machines
+ms.subservice: disks
+ms.collection: windows
 ms.topic: quickstart
 ms.date: 05/17/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 90c2584ef56922fc2cd57f445201b63550c485c1
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: bffa155a51c4897cd1e2cc07a6d4aea9a8e080ba
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98200673"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102562763"
 ---
 # <a name="quickstart-create-and-encrypt-a-windows-vm-with-the-azure-cli"></a>Quickstart: Criar e encriptar um VM do Windows com o Azure CLI
 
@@ -91,7 +92,7 @@ Verá o seguinte na saída devolvida:
 "EncryptionOperation": "EnableEncryption"
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não é necessário, pode utilizar o comando de eliminação do [grupo az](/cli/azure/group) para remover o grupo de recursos, VM e Key Vault.
 

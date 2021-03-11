@@ -7,19 +7,19 @@ ms.service: security-center
 ms.topic: quickstart
 ms.date: 03/04/2021
 ms.author: memildin
-ms.openlocfilehash: d9d0739704a9f5f16bdbde80661192b2f1ca9bb1
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 17f3440df4fa88995f2148680aba926207a0e46b
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102099425"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102561267"
 ---
 # <a name="configure-auto-provisioning-for-agents-and-extensions-from-azure-security-center"></a>Configurar provisão automática para agentes e extensões do Centro de Segurança Azure
 
-O Security Center recolhe dados dos seus recursos utilizando o agente ou extensões relevantes para esse recurso e o tipo de recolha de dados que ativou. Utilize as precedências abaixo para garantir que o seu recurso tem o necessário Este artigo descreve como configurar o fornecimento automático do agente Log Analytics e outros agentes e extensões utilizados pelo Azure Security Center
+O Azure Security Center recolhe dados dos seus recursos utilizando o agente ou extensões relevantes para esse recurso e o tipo de recolha de dados que ativou. Utilize os procedimentos abaixo para garantir que os seus recursos têm os agentes e extensões necessários utilizados pelo Centro de Segurança.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Para começar a utilizar o Centro de Segurança, tem de possuir uma subscrição do Microsoft Azure. Se não tiver uma subscrição, pode inscrever-se numa [conta gratuita](https://azure.microsoft.com/pricing/free-trial/).
+Para começar a utilizar o Centro de Segurança, tem de possuir uma subscrição do Microsoft Azure. Se não tiver uma subscrição, pode inscrever-se numa [conta gratuita.](https://azure.microsoft.com/pricing/free-trial/)
 
 ## <a name="availability"></a>Disponibilidade
 
@@ -27,15 +27,17 @@ Para começar a utilizar o Centro de Segurança, tem de possuir uma subscrição
 |-------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Estado de libertação:          | **Característica**: O provisionamento automático está geralmente disponível (GA)<br>**Agente e extensões**: O agente Log Analytics para VMs Azure é GA, o agente da Microsoft Dependency está em pré-visualização, o Policy Add-on para Kubernetes é GA                |
 | Preços:                | Gratuito                                                                                                                                                                                                                         |
-| Destinos apoiados: | ![Sim](./media/icons/yes-icon.png) Máquinas virtuais do Azure<br>![Não](./media/icons/no-icon.png) Máquinas Azure Arc<br>![Não](./media/icons/no-icon.png) Os acenos de Kubernetes<br>![Não](./media/icons/no-icon.png) Conjuntos de Dimensionamento de Máquinas Virtuais |
-| Nuvens:                 | ![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) EUA Gov, China Gov, Outros Gov                                                                                                      |
+| Destinos apoiados: | ![Yes](./media/icons/yes-icon.png) Máquinas virtuais do Azure<br>![No](./media/icons/no-icon.png) Máquinas Azure Arc<br>![No](./media/icons/no-icon.png) Os acenos de Kubernetes<br>![No](./media/icons/no-icon.png) Conjuntos de Dimensionamento de Máquinas Virtuais |
+| Nuvens:                 | ![Yes](./media/icons/yes-icon.png) Nuvens comerciais<br>![Yes](./media/icons/yes-icon.png) EUA Gov, China Gov, Outros Gov                                                                                                      |
 |                         |                                                                                                                                                                                                                              |
 
 ## <a name="how-does-security-center-collect-data"></a>Como é que o Security Center recolhe dados?
 
 O Security Center recolhe dados das suas máquinas virtuais Azure (VMs), conjuntos de escala de máquinas virtuais, contentores IaaS e máquinas não-Azure (incluindo no local) para monitorizar vulnerabilidades e ameaças de segurança. 
 
-A recolha de dados é necessária para fornecer visibilidade em atualizações em falta, definições de segurança de SO mal configuradas, estado de proteção de ponto final e proteção para a saúde e ameaças. A recolha de dados só é necessária para recursos de computação (VMs, conjuntos de escala de máquinas virtuais, recipientes IaaS e computadores não-Azure). Pode beneficiar do Azure Security Center mesmo que não provisa agentes; no entanto, terá uma segurança limitada e as capacidades acima enumeradas não são suportadas.  
+A recolha de dados é necessária para fornecer visibilidade em atualizações em falta, definições de segurança de SO mal configuradas, estado de proteção de ponto final e proteção para a saúde e ameaças. A recolha de dados só é necessária para obter recursos como VMs, conjuntos de escala de máquinas virtuais, recipientes IaaS e computadores não-Azure. 
+
+Pode beneficiar-se do Centro de Segurança Azure, mesmo que não provisões. No entanto, terás segurança limitada e as capacidades acima referidas não são suportadas.  
 
 Os dados são recolhidos utilizando:
 
@@ -51,7 +53,7 @@ Qualquer um dos agentes e extensões descritos nesta página *pode* ser instalad
 Recomendamos permitir o provisionamento automático, mas é desativado por padrão.
 
 ## <a name="how-does-auto-provisioning-work"></a>Como funciona o fornecimento de automóveis?
-As definições de provisionamento automático do Security Center têm um alternador para cada tipo de extensão suportada. Quando ativa o fornecimento automático de uma extensão, atribui a política adequada **de Implementação, caso não exista,** para garantir que a extensão é prevista em todos os recursos existentes e futuros desse tipo.
+As definições de provisionamento automático do Security Center têm um alternador para cada tipo de extensão suportada. Quando ativa o fornecimento automático de uma extensão, atribui a política de Implementação adequada **se não existir.** Este tipo de política garante que a extensão é prevista em todos os recursos existentes e futuros desse tipo.
 
 > [!TIP]
 > Saiba mais sobre os efeitos da Política Azure, incluindo o implementação, se não existir nos [efeitos da Política de Azure](../governance/policy/concepts/effects.md).
@@ -162,7 +164,7 @@ Para determinar os eventos para as opções **Comuns** e **Mínimas,** trabalhá
 - **Mínimo** - Certifique-se de que este conjunto cobre apenas eventos que possam indicar uma violação bem sucedida e eventos importantes que tenham um volume muito baixo. Por exemplo, este conjunto contém login bem sucedido e falhado do utilizador (IDs de evento 4624, 4625), mas não contém sinalização que é importante para a auditoria, mas não tem significado para deteção e tem um volume relativamente elevado. A maior parte do volume de dados deste conjunto é o evento de login e o evento de criação de processos (iD 4688 do evento).
 - **Common** - Forneça um rasto completo de auditoria ao utilizador neste conjunto. Por exemplo, este conjunto contém logins de utilizador e saídas de registos do utilizador (ID 4634 do evento). Incluímos ações de auditoria como alterações de grupos de segurança, operações de controlador de domínio chave Kerberos, e outros eventos que são recomendados pelas organizações do setor.
 
-Eventos com volume muito baixo foram incluídos no conjunto Comum como a principal motivação para escolhê-lo em todos os eventos é reduzir o volume e não filtrar eventos específicos.
+Eventos com volume muito baixo foram incluídos no conjunto comum como a principal motivação para escolhê-lo em todos os eventos é reduzir o volume e não filtrar eventos específicos.
 
 Aqui está uma desagregação completa dos IDs de eventos de Segurança e App Locker para cada conjunto:
 
@@ -282,4 +284,4 @@ Para desligar o provisionamento automático de um agente:
 
 
 ## <a name="next-steps"></a>Passos seguintes
-Esta página explicou como permitir o provisionamento automático para o agente Log Analytics e outras extensões do Centro de Segurança. Também descreveu como definir um espaço de trabalho Log Analytics no qual armazenar os dados recolhidos. Ambas as operações são necessárias para permitir a recolha de dados. Armazenar dados no Log Analytics, quer utilize um espaço de trabalho novo ou existente, pode incorrer em custos adicionais para armazenamento de dados. Para obter detalhes sobre preços na sua moeda de eleição e de acordo com a sua região, consulte [os preços do Security Center](https://azure.microsoft.com/pricing/details/security-center/).
+Esta página explicou como permitir o provisionamento automático para o agente Log Analytics e outras extensões do Centro de Segurança. Também descreveu como definir um espaço de trabalho Log Analytics no qual armazenar os dados recolhidos. Ambas as operações são necessárias para permitir a recolha de dados. Armazenar dados no Log Analytics, quer utilize um espaço de trabalho novo ou existente, poderá incorrer em mais encargos para o armazenamento de dados. Para obter detalhes sobre preços na sua moeda de eleição e de acordo com a sua região, consulte [os preços do Security Center](https://azure.microsoft.com/pricing/details/security-center/).

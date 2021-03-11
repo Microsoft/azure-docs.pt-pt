@@ -4,12 +4,12 @@ description: Capacidade de restauro instantâneo Azure e FAQs para pilha de back
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 147fadc92429157ed2f9ba3eb68297a3e1d08d24
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 3448b162c17dec2ab5b7637a3527d1c470bd415c
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "96014453"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102618581"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Obtenha uma cópia de segurança melhorada e restaure o desempenho com a capacidade de restauro instantâneo de backup Azure
 
@@ -67,7 +67,7 @@ No portal Azure, pode ver um campo adicionado no painel **de segurança VM** sob
 
 ![Capacidade de Restauro Instantâneo](./media/backup-azure-vms/instant-restore-capability.png)
 
-### <a name="using-powershell"></a>Utilizar o PowerShell
+### <a name="using-powershell"></a>Com o PowerShell
 
 >[!NOTE]
 > A partir da versão 1.6.0 da Az PowerShell, pode atualizar o período de retenção instantânea de retenção instantânea na política utilizando o PowerShell
@@ -112,7 +112,13 @@ O novo modelo não permite apagar o ponto de restauro (Tier2) a menos que o inst
 
 ### <a name="why-does-my-snapshot-still-exist-even-after-the-set-retention-period-in-backup-policy"></a>Porque é que a minha foto ainda existe, mesmo depois do período de retenção definido na política de backup?
 
-Se o ponto de recuperação tiver uma foto e for o último ponto de recuperação disponível, é mantido até ao próximo backup bem sucedido. Isto de acordo com a política designada de "recolha de lixo" (GC). Determina que pelo menos um último ponto de recuperação esteja sempre presente, caso todos os backups subsequentes falhem devido a um problema no VM. Em cenários normais, os pontos de recuperação são limpos no máximo 24 horas após a sua expiração.
+Se o ponto de recuperação tiver uma foto e for o último ponto de recuperação disponível, é mantido até ao próximo backup bem sucedido. Isto de acordo com a política designada de "recolha de lixo" (GC). Determina que pelo menos um último ponto de recuperação esteja sempre presente, caso todos os backups subsequentes falhem devido a um problema no VM. Em cenários normais, os pontos de recuperação são limpos no máximo 24 horas após a sua expiração. Em cenários raros, pode haver um ou dois instantâneos adicionais baseados na carga mais pesada no coletor de lixo (GC).
+
+### <a name="why-do-i-see-more-snapshots-than-my-retention-policy"></a>Por que vejo mais fotos do que a minha política de retenção?
+
+Num cenário em que uma política de retenção é definida como "1", pode encontrar dois instantâneos. Isto determina que pelo menos um último ponto de recuperação esteja sempre presente, caso todos os backups subsequentes falhem devido a um problema no VM. Isto pode causar a presença de dois instantâneos.<br></br>Assim, se a política for para instantâneos "n", pode encontrar instantâneos "n+1" às vezes. Além disso, pode até encontrar instantâneos "n+1+2" se houver um atraso na recolha do lixo. Isto pode acontecer em momentos raros em que:
+- Limpa-se as fotos, que já são retenção.
+- O coletor de lixo (GC) no backend está sob carga pesada.
 
 ### <a name="i-dont-need-instant-restore-functionality-can-it-be-disabled"></a>Não preciso da funcionalidade De Restauro Instantâneo. Pode ser desativado?
 
@@ -120,5 +126,5 @@ A função de restauro instantâneo está ativada para todos e não pode ser des
 
 ### <a name="is-it-safe-to-restart-the-vm-during-the-transfer-process-which-can-take-many-hours-will-restarting-the-vm-interrupt-or-slow-down-the-transfer"></a>É seguro reiniciar o VM durante o processo de transferência (que pode demorar muitas horas)? Reiniciar o VM interromperá ou retardará a transferência?
 
-Sim, o seu cofre, e não há absolutamente nenhum impacto na velocidade de transferência de dados.
+Sim, é seguro, e não há absolutamente nenhum impacto na velocidade de transferência de dados.
 

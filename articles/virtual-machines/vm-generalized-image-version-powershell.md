@@ -3,18 +3,18 @@ title: Criar uma VM a partir de uma imagem generalizada
 description: Crie um VM utilizando uma imagem generalizada numa Galeria de Imagens Partilhadas.
 author: cynthn
 ms.service: virtual-machines
-ms.subservice: imaging
+ms.subservice: shared-image-gallery
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: b198c094ffd5f2113603fc9d8d2fb1c4e5cd6fe1
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: dbe1e31a9b56f2f60edbebd8286bf0bfdeaa327e
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881962"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102560974"
 ---
 # <a name="create-a-vm-using-a-generalized-image"></a>Criar um VM usando uma imagem generalizada 
 
@@ -145,7 +145,7 @@ New-AzVM `
 ```
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 [O Azure Image Builder (pré-visualização)](./image-builder-overview.md) pode ajudar a automatizar a criação de versão de imagem, podendo até usá-la para atualizar e [criar uma nova versão de imagem a partir de uma versão de imagem existente.](./windows/image-builder-gallery-update-image-version.md) 
 
 Também pode criar recursos da Galeria de Imagens Partilhadas utilizando modelos. Existem vários modelos Azure Quickstart disponíveis: 

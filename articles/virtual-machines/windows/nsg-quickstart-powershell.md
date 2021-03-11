@@ -3,17 +3,18 @@ title: Abrir portas a um VM usando Azure PowerShell
 description: Saiba como abrir uma porta / crie um ponto final para o seu VM utilizando a Azure PowerShell
 author: cynthn
 ms.service: virtual-machines
+ms.subservice: networking
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: cynthn
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a432ce978f6fa9e3a472cb15e9ef9241bc41004d
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 8390b5c779e6aa053e1af2754c436dd51e410b06
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92891759"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102550421"
 ---
 # <a name="how-to-open-ports-and-endpoints-to-a-vm-using-powershell"></a>Como abrir portas e pontos finais para um VM usando PowerShell
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
@@ -27,9 +28,9 @@ Inicie sessão na sua conta do Azure:
 Connect-AzAccount
 ```
 
-Nos exemplos seguintes, substitua os nomes dos parâmetros pelos seus próprios valores. Os nomes dos parâmetros incluem *myResourceGroup,* *myNetworkSecurityGroup* e *myVnet* .
+Nos exemplos seguintes, substitua os nomes dos parâmetros pelos seus próprios valores. Os nomes dos parâmetros incluem *myResourceGroup,* *myNetworkSecurityGroup* e *myVnet*.
 
-Crie uma regra com [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig). O exemplo a seguir cria uma regra chamada *myNetworkSecurityGroupRule* para permitir o tráfego *tcp* na porta *80* :
+Crie uma regra com [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig). O exemplo a seguir cria uma regra chamada *myNetworkSecurityGroupRule* para permitir o tráfego *tcp* na porta *80*:
 
 ```powershell
 $httprule = New-AzNetworkSecurityRuleConfig `

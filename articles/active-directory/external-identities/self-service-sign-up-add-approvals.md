@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b447873df882847f052125254ea52b5ae6ab9ec4
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 95274f42da7f6cac9b193504df834232d7c0eb90
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101644872"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102609995"
 ---
 # <a name="add-a-custom-approval-workflow-to-self-service-sign-up"></a>Adicione um fluxo de trabalho de aprovação personalizado à inscrição de self-service
 
@@ -156,7 +156,6 @@ Content-type: application/json
     "version": "1.0.0",
     "action": "ShowBlockPage",
     "userMessage": "Your access request is already processing. You'll be notified when your request has been approved.",
-    "code": "CONTOSO-APPROVAL-PENDING"
 }
 ```
 
@@ -168,7 +167,6 @@ Content-type: application/json
     "version": "1.0.0",
     "action": "ShowBlockPage",
     "userMessage": "Your sign up request has been denied. Please contact an administrator if you believe this is an error",
-    "code": "CONTOSO-APPROVAL-DENIED"
 }
 ```
 
@@ -244,7 +242,6 @@ Content-type: application/json
     "version": "1.0.0",
     "action": "ShowBlockPage",
     "userMessage": "Your account is now waiting for approval. You'll be notified when your request has been approved.",
-    "code": "CONTOSO-APPROVAL-REQUESTED"
 }
 ```
 
@@ -256,7 +253,6 @@ Content-type: application/json
     "version": "1.0.0",
     "action": "ShowBlockPage",
     "userMessage": "Your sign up request has been denied. Please contact an administrator if you believe this is an error",
-    "code": "CONTOSO-APPROVAL-AUTO-DENIED"
 }
 ```
 
@@ -268,12 +264,12 @@ A `userMessage` resposta é apresentada ao utilizador, por exemplo:
 
 Após obter aprovação manual, o sistema de aprovação personalizado cria uma conta [de utilizador](/graph/azuread-users-concept-overview) utilizando o [Microsoft Graph](/graph/use-the-api). A forma como o seu sistema de aprovação prevê a conta de utilizador depende do fornecedor de identidade que foi utilizado pelo utilizador.
 
-### <a name="for-a-federated-google-or-facebook-user"></a>Para um utilizador federado do Google ou facebook
+### <a name="for-a-federated-google-or-facebook-user-and-email-one-time-passcode"></a>Para um utilizador federado do Google ou Facebook e código de acesso de e-mail
 
 > [!IMPORTANT]
-> O sistema de aprovação deve verificar explicitamente que `identities` , e que se encontram `identities[0]` `identities[0].issuer` presentes e que `identities[0].issuer` equivalem a 'facebook' ou 'google' para utilizar este método.
+> O sistema de aprovação deve verificar explicitamente que `identities` , e que estejam `identities[0]` `identities[0].issuer` presentes e que seja igual a `identities[0].issuer` 'facebook', 'google' ou 'mail' para utilizar este método.
 
-Se o seu utilizador se inscreve com uma conta google ou Facebook, pode utilizar a [API de criação de Utilizador.](/graph/api/user-post-users?tabs=http)
+Se o seu utilizador se inscreve com uma conta do Google ou facebook ou código de acesso de e-mail, pode utilizar a [API de criação](/graph/api/user-post-users?tabs=http)do Utilizador.
 
 1. O sistema de aprovação recebe o pedido HTTP do fluxo do utilizador.
 
@@ -323,17 +319,17 @@ Content-type: application/json
 
 | Parâmetro                                           | Obrigatório | Descrição                                                                                                                                                            |
 | --------------------------------------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| userPrincipalName                                   | Sim      | Pode ser gerado tomando a `email` reclamação enviada para a API, substituindo o `@` personagem por `_` , e pré-pendente para `#EXT@<tenant-name>.onmicrosoft.com` . |
-| accountEnabled                                      | Sim      | Deve ser definido para `true` .                                                                                                                                                 |
-| correio                                                | Sim      | Equivalente à `email` reclamação enviada à API.                                                                                                               |
-| userType                                            | Sim      | Deve `Guest` ser. Designa este utilizador como utilizador convidado.                                                                                                                 |
-| identidades                                          | Sim      | A informação de identidade federada.                                                                                                                                    |
-| \<otherBuiltInAttribute>                            | Não       | Outros atributos incorporados `displayName` `city` como, e outros. Os nomes dos parâmetros são os mesmos que os parâmetros enviados pelo conector API.                            |
-| \<extension\_\{extensions-app-id}\_CustomAttribute> | Não       | Atributos personalizados sobre o utilizador. Os nomes dos parâmetros são os mesmos que os parâmetros enviados pelo conector API.                                                            |
+| userPrincipalName                                   | Yes      | Pode ser gerado tomando a `email` reclamação enviada para a API, substituindo o `@` personagem por `_` , e pré-pendente para `#EXT@<tenant-name>.onmicrosoft.com` . |
+| accountEnabled                                      | Yes      | Deve ser definido para `true` .                                                                                                                                                 |
+| correio                                                | Yes      | Equivalente à `email` reclamação enviada à API.                                                                                                               |
+| userType                                            | Yes      | Deve `Guest` ser. Designa este utilizador como utilizador convidado.                                                                                                                 |
+| identidades                                          | Yes      | A informação de identidade federada.                                                                                                                                    |
+| \<otherBuiltInAttribute>                            | No       | Outros atributos incorporados `displayName` `city` como, e outros. Os nomes dos parâmetros são os mesmos que os parâmetros enviados pelo conector API.                            |
+| \<extension\_\{extensions-app-id}\_CustomAttribute> | No       | Atributos personalizados sobre o utilizador. Os nomes dos parâmetros são os mesmos que os parâmetros enviados pelo conector API.                                                            |
 
-### <a name="for-a-federated-azure-active-directory-user"></a>Para um utilizador federado do Azure Ative Directory
+### <a name="for-a-federated-azure-active-directory-user-or-microsoft-account-user"></a>Para um utilizador federado do Azure Ative Directory ou utilizador de conta Microsoft
 
-Se um utilizador entrar com uma conta federada do Azure Ative Directory, deve utilizar o [convite API](/graph/api/invitation-post) para criar o utilizador e, em seguida, opcionalmente, a [API de atualização](/graph/api/user-update) do utilizador para atribuir mais atributos ao utilizador.
+Se um utilizador entrar com uma conta federada do Azure Ative Directory ou uma conta Microsoft, deve utilizar o [convite API](/graph/api/invitation-post) para criar o utilizador e, em seguida, opcionalmente, a [API de atualização](/graph/api/user-update) do utilizador para atribuir mais atributos ao utilizador.
 
 1. O sistema de aprovação recebe o pedido HTTP do fluxo do utilizador.
 

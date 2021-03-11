@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/11/2020
 ms.author: trbye
-ms.openlocfilehash: e28bd5b5caca259201758f0c633b2120a411f422
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.openlocfilehash: 65c0d80394317c2b2bfbf621d3cc2ad0c2e3448a
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100007453"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102618411"
 ---
 # <a name="long-audio-api"></a>API de áudio longo
 
@@ -47,6 +47,13 @@ Ao preparar o seu ficheiro de texto, certifique-se de que:
 * Contém mais de 400 caracteres para texto simples ou 400 [caracteres faturantes](./text-to-speech.md#pricing-note) para texto SSML, e menos de 10.000 parágrafos
   * Para texto simples, cada parágrafo é separado por bater **Enter/Return** - Ver [exemplo de entrada de texto simples](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/en-US.txt)
   * Para o texto SSML, cada peça SSML é considerada um parágrafo. As peças SSML devem ser separadas por parágrafos diferentes - Ver [exemplo de entrada de texto SSML](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/SSMLTextInputSample.txt)
+
+## <a name="sample-code"></a>Código de exemplo
+O restante desta página centrar-se-á em Python, mas o código de amostra para a API de áudio longo está disponível no GitHub para as seguintes linguagens de programação:
+
+* [Código de amostra: Python](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/CustomVoice-API-Samples/Python)
+* [Código de amostra: C #](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/CustomVoice-API-Samples/CSharp)
+* [Código de amostra: Java](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/)
 
 ## <a name="python-example"></a>Exemplo python
 
@@ -456,10 +463,3 @@ Apoiamos formatos flexíveis de saída de áudio. Pode gerar saídas de áudio p
 * áudio-24khz-48kbitrate-mono-mp3
 * audio-24khz-96kbitrate-mono-mp3
 * audio-24khz-160kbitrate-mono-mp3
-
-## <a name="sample-code"></a>Código de exemplo
-O código de amostra para API de áudio longo está disponível no GitHub.
-
-* [Código de amostra: Python](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/CustomVoice-API-Samples/Python)
-* [Código de amostra: C #](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/CustomVoice-API-Samples/CSharp)
-* [Código de amostra: Java](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/)

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 7924b06b9056a53fa9861fcd0df516845662b34b
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 113c8adccc5e8b1c3321569f32ca3fb33423ccd8
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341571"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102562882"
 ---
 # <a name="access-built-in-metrics"></a>Aceder a métricas incorporadas
 
@@ -44,13 +44,15 @@ Métricas de acesso do hospedeiro expondo e mapeando a porta métricas a partir 
 Escolha números de porta de anfitriões diferentes e únicos se estiver a mapear os pontos finais de métricas edgeHub e edgeAgent.
 
 > [!NOTE]
-> Se desejar desativar as métricas, desative `MetricsEnabled` a variável ambiente `false` para **edgeAgent**.
+> A variável ambiental `httpSettings__enabled` não deve ser definida para que as `false` métricas incorporadas estejam disponíveis para recolha.
+>
+> As variáveis ambientais que podem ser usadas para desativar métricas estão listadas no [azure/iotedge repo doc](https://github.com/Azure/iotedge/blob/master/doc/EnvironmentVariables.md).
 
 ## <a name="available-metrics"></a>Métricas disponíveis
 
 As métricas contêm etiquetas para ajudar a identificar a natureza da métrica que está a ser recolhida. Todas as métricas contêm as seguintes etiquetas:
 
-| Etiqueta | Descrição |
+| Etiqueta | Description |
 |-|-|
 | Iothub | O centro com o qual o dispositivo está a falar |
 | edge_device | O ID do dispositivo atual |
@@ -62,7 +64,7 @@ Os quantíiles previstos para o histograma incorporado e as métricas resumidas 
 
 O módulo **edgeHub** produz as seguintes métricas:
 
-| Name | Dimensões | Descrição |
+| Name | Dimensões | Description |
 |-|-|-|
 | `edgehub_gettwin_total` | `source` (fonte de operação)<br> `id` (ID do módulo) | Tipo: balcão<br> Número total de chamadas GetTwin |
 | `edgehub_messages_received_total` | `route_output` (saída que enviou mensagem)<br> `id` | Tipo: balcão<br> Número total de mensagens recebidas de clientes |
@@ -85,7 +87,7 @@ O módulo **edgeHub** produz as seguintes métricas:
 
 O módulo **edgeAgent** produz as seguintes métricas:
 
-| Name | Dimensões | Descrição |
+| Name | Dimensões | Description |
 |-|-|-|
 | `edgeAgent_total_time_running_correctly_seconds` | `module_name` | Tipo: bitola<br> A quantidade de tempo que o módulo foi especificado na implantação e estava no estado de execução |
 | `edgeAgent_total_time_expected_running_seconds` | `module_name` | Tipo: bitola<br> A quantidade de tempo especificado no módulo foi especificado na implementação |

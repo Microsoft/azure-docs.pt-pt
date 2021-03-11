@@ -1,15 +1,15 @@
 ---
 title: Definições políticas incorporadas para Azure Event Grid
 description: Lista definições políticas incorporadas da Azure Policy para Azure Event Grid. Estas definições políticas incorporadas fornecem abordagens comuns para gerir os seus recursos Azure.
-ms.date: 03/05/2021
+ms.date: 03/10/2021
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: f174b176652ba77fff6053f452cc424bc3a22f47
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: d5db1f40643979fe0ddeb52e158906f18fc63af8
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102429927"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102618704"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-event-grid"></a>Definições incorporadas da Política Azure para a grelha de eventos Azure
 

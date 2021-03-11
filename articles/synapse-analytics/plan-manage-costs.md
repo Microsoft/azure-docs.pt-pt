@@ -7,12 +7,12 @@ ms.custom: subject-cost-optimization
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.date: 12/09/2020
-ms.openlocfilehash: c7a0be6f1d402cc994532ab4bc5a5d0ea39bc8b7
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 06586b5bf20619f57b2ad1c3d5de84dd61952261
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98599040"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102561250"
 ---
 # <a name="plan-and-manage-costs-for-azure-synapse-analytics"></a>Planear e gerir os custos da Azure Synapse Analytics
 
@@ -113,7 +113,12 @@ Para saber mais sobre os custos para a piscina SQL sem servidor consulte [gestã
 
 Pode controlar os custos de uma piscina SQL dedicada, pausando o recurso quando não é utilizado. Por exemplo, se não utilizar a base de dados durante a noite e aos fins de semana, pode fazer uma pausa durante esses horários e retomá-la durante o dia. Para mais informações consulte [Pause e retomar o cálculo na piscina SQL dedicada através do portal Azure](./sql-data-warehouse/pause-and-resume-compute-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 
-<!-- ### Serverless Apache Spark pool -->
+### <a name="serverless-apache-spark-pool"></a>Piscina apache spark sem servidor
+
+Para controlar os custos do seu conjunto Apache Spark sem servidor, ative a função de pausa automática Apache Spark sem servidor e desaperte o seu valor de tempo limite em conformidade.  Ao utilizar o Synapse Studio para o seu desenvolvimento, o estúdio envia uma mensagem de manter viva para manter a sessão ativa, que também é configurável, por isso desafie um valor de tempo limite curto para a pausa automática.  Quando terminar, feche a sessão e o conjunto Apache Spark irá parar automaticamente assim que o valor do tempo limite for atingido.
+ 
+Durante o desenvolvimento, crie várias definições de piscina Apache Spark de vários tamanhos.  A criação das definições de piscina Apache Spark é gratuita e só será cobrado para uso.  O uso de Apache Spark em Azure Synapse é carregado por hora vCore e prociado ao minuto.  Por exemplo, use pequenos tamanhos de piscina para desenvolvimento de códigos e validação enquanto utiliza tamanhos de piscina maiores para testes de desempenho.
+
 
 ### <a name="data-integration---pipelines-and-data-flows"></a>Integração de dados - oleodutos e fluxos de dados 
 

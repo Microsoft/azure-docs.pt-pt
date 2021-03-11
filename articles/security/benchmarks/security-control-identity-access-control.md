@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 08ba75b5160acb20cb5e2d172203ae48b546f17d
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: dda3dcd3cd1234b2d0830010297e760201ed6160
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202237"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102549282"
 ---
 # <a name="security-control-identity-and-access-control"></a>Controlo de Segurança: Controlo de Identidade e Acesso
 
@@ -22,19 +22,19 @@ As recomendações de gestão de identidade e acesso focam-se em abordar questõ
 
 | Azure ID | CIS IDs | Responsabilidade |
 |--|--|--|
-| 3,1 | 4.1 | Customer |
+| 3,1 | 4.1 | Cliente |
 
 A Azure AD tem funções incorporadas que devem ser explicitamente atribuídas e são consultadas. Utilize o módulo Azure AD PowerShell para realizar consultas ad hoc para descobrir contas que são membros de grupos administrativos.
 
-- [Como obter um papel de diretório em Azure AD com PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0&preserve-view=true)
+- [Como obter um papel de diretório em Azure AD com PowerShell](/powershell/module/azuread/get-azureaddirectoryrole)
 
-- [Como obter membros de um papel de diretório em Azure AD com PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0&preserve-view=true)
+- [Como obter membros de um papel de diretório em Azure AD com PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
 ## <a name="32-change-default-passwords-where-applicable"></a>3.2: Alterar palavras-passe padrão quando aplicável
 
 | Azure ID | CIS IDs | Responsabilidade |
 |--|--|--|
-| 3.2 | 4.2 | Customer |
+| 3.2 | 4.2 | Cliente |
 
 A Azure AD não tem o conceito de senhas padrão. Outros recursos Azure que requerem uma palavra-passe forçam a criação de uma palavra-passe com requisitos de complexidade e um comprimento mínimo de senha, que difere consoante o serviço. É responsável por aplicações de terceiros e serviços de marketplace que possam utilizar senhas padrão.
 
@@ -42,7 +42,7 @@ A Azure AD não tem o conceito de senhas padrão. Outros recursos Azure que requ
 
 | Azure ID | CIS IDs | Responsabilidade |
 |--|--|--|
-| 3.3 | 4.3 | Customer |
+| 3.3 | 4.3 | Cliente |
 
 Criar procedimentos operacionais padrão em torno da utilização de contas administrativas dedicadas. Utilize a Azure Security Center Identity and Access Management para monitorizar o número de contas administrativas.
 
@@ -54,7 +54,7 @@ Também pode ativar um Just-In-Time / Just-Enough-Access utilizando funções pr
 
 | Azure ID | CIS IDs | Responsabilidade |
 |--|--|--|
-| 3.4 | 4.4 | Customer |
+| 3.4 | 4.4 | Cliente |
 
 Sempre que possível, utilize o Azure Ative Directory SSO em vez de configurar credenciais individuais autónomas por serviço. Utilize recomendações de Gestão de Identidade e Acesso do Centro de Segurança Azure.
 
@@ -64,7 +64,7 @@ Sempre que possível, utilize o Azure Ative Directory SSO em vez de configurar c
 
 | Azure ID | CIS IDs | Responsabilidade |
 |--|--|--|
-| 3.5 | 4.5, 11.5, 12.11, 16.3 | Customer |
+| 3.5 | 4.5, 11.5, 12.11, 16.3 | Cliente |
 
 Ativar O Azure AD MFA e seguir as recomendações do Azure Security Center Identity and Access Management.
 
@@ -76,7 +76,7 @@ Ativar O Azure AD MFA e seguir as recomendações do Azure Security Center Ident
 
 | Azure ID | CIS IDs | Responsabilidade |
 |--|--|--|
-| 3.6 | 4.6, 11.6, 12.12 | Customer |
+| 3.6 | 4.6, 11.6, 12.12 | Cliente |
 
 Utilize PAWs (estações de trabalho privilegiadas de acesso) com MFA configurados para iniciar sessão e configurar recursos Azure.
 
@@ -88,7 +88,7 @@ Utilize PAWs (estações de trabalho privilegiadas de acesso) com MFA configurad
 
 | Azure ID | CIS IDs | Responsabilidade |
 |--|--|--|
-| 3.7 | 4.8, 4.9 | Customer |
+| 3.7 | 4.8, 4.9 | Cliente |
 
 Utilize relatórios de segurança do Azure Ative Directory para a geração de registos e alertas quando ocorrem atividades suspeitas ou inseguras no ambiente. Utilize o Centro de Segurança Azure para monitorizar a atividade de identidade e acesso.
 
@@ -100,7 +100,7 @@ Utilize relatórios de segurança do Azure Ative Directory para a geração de r
 
 | Azure ID | CIS IDs | Responsabilidade |
 |--|--|--|
-| 3,8 | 11,7 | Customer |
+| 3,8 | 11,7 | Cliente |
 
 Utilize locais nomeados de acesso condicional para permitir o acesso a partir de agrupamentos lógicos específicos de intervalos de endereços IP ou países/regiões.
 
@@ -110,7 +110,7 @@ Utilize locais nomeados de acesso condicional para permitir o acesso a partir de
 
 | Azure ID | CIS IDs | Responsabilidade |
 |--|--|--|
-| 3.9 | 16.1, 16.2, 16.4, 16.5, 16.6 | Customer |
+| 3.9 | 16.1, 16.2, 16.4, 16.5, 16.6 | Cliente |
 
 Utilize o Azure Ative Directory como sistema central de autenticação e autorização. A Azure AD protege os dados utilizando uma encriptação forte para dados em repouso e em trânsito. A Azure AD também sai, hashes e armazena seguramente as credenciais dos utilizadores.
 
@@ -120,7 +120,7 @@ Utilize o Azure Ative Directory como sistema central de autenticação e autoriz
 
 | Azure ID | CIS IDs | Responsabilidade |
 |--|--|--|
-| 3.10 | 16.9, 16.10 | Customer |
+| 3.10 | 16.9, 16.10 | Cliente |
 
 A Azure AD fornece registos para ajudar a descobrir contas velhas. Além disso, utilize a Azure Identity Access Reviews para gerir eficientemente os membros do grupo, o acesso a aplicações empresariais e atribuições de funções. O acesso ao utilizador pode ser revisto regularmente para garantir que apenas os Utilizadores certos tenham acesso continuado. 
 
@@ -132,7 +132,7 @@ A Azure AD fornece registos para ajudar a descobrir contas velhas. Além disso, 
 
 | Azure ID | CIS IDs | Responsabilidade |
 |--|--|--|
-| 3.11 | 16.12 | Customer |
+| 3.11 | 16.12 | Cliente |
 
 Tem acesso a fontes de registo de registo de registos de registos, auditoria e eventos de risco Azure, que lhe permitem integrar-se com qualquer ferramenta SIEM/Monitoring.
 
@@ -144,7 +144,7 @@ Pode agilizar este processo criando Definições de Diagnóstico para contas de 
 
 | Azure ID | CIS IDs | Responsabilidade |
 |--|--|--|
-| 3.12 | 16.13 | Customer |
+| 3.12 | 16.13 | Cliente |
 
 Utilize funcionalidades de Risco e Proteção de Identidade Azure AD para configurar respostas automatizadas para detetar ações suspeitas relacionadas com identidades do utilizador. Você também pode ingerir dados em Azure Sentinel para mais investigação.
 
@@ -158,7 +158,7 @@ Utilize funcionalidades de Risco e Proteção de Identidade Azure AD para config
 
 | Azure ID | CIS IDs | Responsabilidade |
 |--|--|--|
-| 3.13 | 16 | Customer |
+| 3.13 | 16 | Cliente |
 
 Em cenários de suporte onde a Microsoft precisa de aceder aos dados dos clientes, o Customer Lockbox fornece uma interface para que possa rever e aprovar ou rejeitar pedidos de acesso aos dados dos clientes.
 

@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 2/24/2021
-ms.openlocfilehash: ef90a21ab8fad0e18542c1c88ee808237ff150c5
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.date: 3/08/2021
+ms.openlocfilehash: d3759590cdd926b5e144cdc11761630a0aba4e29
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102032590"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102563783"
 ---
 # <a name="co-sell-with-microsoft-sales-teams-and-partners-overview"></a>Co-vender com equipas de vendas da Microsoft e visão geral dos parceiros
 
@@ -37,11 +37,16 @@ Uma oportunidade de co-venda é qualquer tipo de colaboração com equipas de ve
 
 ## <a name="co-sell-statuses"></a>Estatutos de co-venda
 
-Existem quatro níveis de estatuto de co-venda que podem ser aplicados a uma oferta:
+Estes são os níveis de co-venda que podem ser aplicados a uma oferta.
+
+Co-venda de estatutos para a Azure:
 
 - Não co-vender pronto
 - Co-vender pronto
 - Azure IP co-vender incentivado
+
+Estatuto de co-venda para aplicações empresariais
+- Biz Apps ISV Connect Standard
 - Biz Apps ISV Connect Premium  
 
 Para obter mais informações sobre os requisitos para alcançar estes estatutos de co-venda, consulte [os requisitos de Co-venda](co-sell-requirements.md).
@@ -54,7 +59,7 @@ Para aprender a conseguir o estatuto de co-venda pronta e a Azure IP co-venda, c
 
 ## <a name="benefits-of-co-sell-incentivized-status"></a>Benefícios do estatuto de co-venda incentivado
 
-_Co-vender_ o status incentivado, inclui _O Azure IP Co-vender incentivos e_ _Biz Apps ISV Connect Premium incentivos_. Estes estatutos incentivam os parceiros a vender a sua oferta. Para alcançar este estatuto, também tem de obter o estatuto de Co-venda. O estatuto de co-venda incentivado ganha todos os benefícios de co-vender soluções prontas e pode ganhar incentivos adicionais para as equipas de vendas da Microsoft, e ser elegível para mais benefícios comerciais do mercado.
+O estado _de co-venda incentivado,_ inclui _o incentivo de Co-venda Azure IP_ e o incentivo biz apps _ISV Connect Standard ou Premium_. Estes status incentivam as equipas de vendas da Microsoft a vender a sua oferta. Para alcançar este estatuto, também tem de obter o estatuto de Co-venda. O estatuto de co-venda incentivado ganha todos os benefícios do estatuto de Co-venda e pode ganhar incentivos adicionais para as equipas de vendas da Microsoft, e ser elegível para mais benefícios comerciais do mercado.
 
 Azure IP Co-venda o status incentivado pode ser aplicado a estes tipos de oferta:
 
@@ -64,18 +69,17 @@ Azure IP Co-venda o status incentivado pode ser aplicado a estes tipos de oferta
 - Módulo IoT Edge
 - Software como serviço (SaaS)
 
-Biz Apps ISV Connect Premium o status de incentivo pode ser aplicado a estes tipos de oferta:
+Biz Apps ISV Connect Standard ou Premium incentive status pode ser aplicado a estes tipos de oferta:
 
-- Dinâmica 365 centro de negócios
 - Dinâmica 365 para Envolvimento de Clientes & PowerApps
 - Dinâmica 365 para operações
 
-Ofertas que alcançam _Azure IP Co-venda_ de estatuto incentivado obtenha estes benefícios do mercado comercial:
+Ofertas que alcançam _Azure IP Co-vender incentivado_ ou _Biz Apps ISV Connect Standard ou_ Premium status de incentivo ganham estes benefícios do mercado comercial:
 
 - A taxa de serviço no mercado é reduzida de 20% para 10%. Este desconto aplica-se à sua infraestrutura como solução de serviço (IaaS) ou software como solução de serviço (SaaS) vendida através do mercado comercial. Para mais informações, consulte [as taxas de serviço de marketplace comercial.](marketplace-commercial-transaction-capabilities-and-considerations.md#commercial-marketplace-service-fees)
 - Os parceiros Cloud Solution Provider (CSP) recebem um incentivo de 10% para vender a sua solução IaaS ou oferta SaaS. Para saber mais sobre o programa CSP, consulte o [programa Cloud Solution Provider](cloud-solution-providers.md).
 - As vendas da sua oferta através do mercado comercial contribuirão para os compromissos de consumo da Azure dos clientes. Os clientes elegíveis verão a oferta marcada como **benefício Azure elegível** no portal Azure. Para mais informações, consulte [o benefício do compromisso de consumo da Azure.](azure-consumption-commitment-benefit.md)
-- Ofertas que atinjam _O Azure IP Co-venda incentivado_ ou _Biz Apps ISV Connect Premium_ status receberá um crachá de **soluções Preferida** na página de listagem de ofertas nas lojas online. O crachá promove a qualidade, desempenho e capacidade de uma oferta para atender às necessidades dos clientes numa determinada área vertical ou de solução da indústria. Para saber mais, consulte [soluções preferidas no Microsoft AppSource e no Azure Marketplace.](preferred-solutions.md)
+- Ofertas que atinjam _o Azure IP Co-venda incentivado_ ou _Biz Apps ISV Connect Standard ou_ Premium status receberá um crachá de **soluções Preferidas** da Microsoft na página de listagem de ofertas nas lojas online. O crachá promove a qualidade, desempenho e capacidade de uma oferta para atender às necessidades dos clientes numa determinada área vertical ou de solução da indústria.
 
 Para aprender a conseguir o estatuto de co-venda pronta e co-venda, consulte [Co-vender requisitos prontos e co-vender requisitos incentivados.](co-sell-requirements.md)
 

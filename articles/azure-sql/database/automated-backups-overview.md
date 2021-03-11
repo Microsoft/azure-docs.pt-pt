@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: shkale-msft
 ms.author: shkale
 ms.reviewer: mathoma, stevestein, danil
-ms.date: 11/18/2020
-ms.openlocfilehash: 862d33e523562511796999d82b67d2b4b11efaf3
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/10/2021
+ms.openlocfilehash: 5879c9107a0ab5a2ef150d119e8b5ac8e16ac01d
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101690630"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102609928"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Backups automatizados - Azure SQL Database & SQL Managed Instance
 
@@ -140,9 +140,12 @@ Tanto para a Base de Dados SQL como para a SQL Managed Instance, pode configurar
 
 Para obter mais informações sobre o LTR, consulte [a retenção de backup a longo prazo.](long-term-retention-overview.md)
 
-## <a name="storage-costs"></a>Custos de armazenamento
+## <a name="backup-storage-costs"></a>Custos de armazenamento de backup
 
 O preço para armazenamento de backup varia e depende do seu modelo de compra (DTU ou vCore), opção de redundância de armazenamento de backup escolhida, e também da sua região. O armazenamento de backup é cobrado por GB/mês consumido, para preços ver página [de preços da Base de Dados Azure SQL](https://azure.microsoft.com/pricing/details/sql-database/single/) e página de preços de Instância Gerida [Azure SQL.](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/)
+
+> [!NOTE]
+> A fatura Azure mostrará apenas o armazenamento de backup em excesso consumido, e não todo o consumo de armazenamento de backup. Por exemplo, num cenário hipotético, se tiver disponibilizado 4TB de armazenamento de dados, obterá 4TB de espaço de armazenamento de backup gratuito. Caso tenha utilizado o total de 5,8TB de espaço de armazenamento de backup, a fatura Azure apresentará apenas 1.8TB, uma vez que apenas é cobrado o excesso de armazenamento de backup utilizado.
 
 ### <a name="dtu-model"></a>Modelo de DTU
 
@@ -446,7 +449,7 @@ Uma lista completa das definições de política incorporada para a Base de Dado
 Para impor os requisitos de residência de dados a nível organizacional, estas políticas podem ser atribuídas a uma subscrição. Depois de atribuídos a um nível de subscrição, os utilizadores na subscrição dada não serão capazes de criar uma base de dados ou uma instância gerida com armazenamento de backup geo-redundante através do portal Azure ou da Azure PowerShell. 
 
 > [!IMPORTANT]
-> As políticas de Azure não são aplicadas ao criar uma base de dados via T-SQL. Para impor a residência de dados ao criar uma base de dados utilizando o T-SQL, [utilize 'LOCAL' ou 'ZONE' como entrada para BACKUP_STORAGE_REDUNDANCY paramater na declaração CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current#create-database-using-zone-redundancy-for-backups).
+> As políticas de Azure não são aplicadas ao criar uma base de dados via T-SQL. Para impor a residência de dados ao criar uma base de dados utilizando o T-SQL, [utilize 'LOCAL' ou 'ZONE' como entrada para BACKUP_STORAGE_REDUNDANCY paramater na declaração CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql#create-database-using-zone-redundancy-for-backups).
 
 Saiba como atribuir políticas utilizando o [portal Azure](../../governance/policy/assign-policy-portal.md) ou [Azure PowerShell](../../governance/policy/assign-policy-powershell.md)
 
@@ -458,4 +461,5 @@ Saiba como atribuir políticas utilizando o [portal Azure](../../governance/poli
 - Obtenha mais informações sobre como [restaurar uma base de dados a um ponto no tempo, utilizando o PowerShell](scripts/restore-database-powershell.md).
 - Para obter informações sobre como configurar, gerir e restaurar a partir da retenção a longo prazo de backups automatizados no armazenamento Azure Blob utilizando o portal Azure, consulte Gerir a [retenção de backup a longo prazo utilizando o portal Azure](long-term-backup-retention-configure.md).
 - Para obter informações sobre como configurar, gerir e restaurar a partir da retenção a longo prazo de cópias de segurança automatizadas no armazenamento de Azure Blob utilizando o PowerShell, consulte [Gerir a retenção de backup a longo prazo utilizando o PowerShell](long-term-backup-retention-configure.md).
+- Para saber tudo sobre o consumo de armazenamento de backup em Azure SQL Managed Instance, consulte [o consumo de armazenamento de backup em Caso Gerido explicado](https://aka.ms/mi-backup-explained).
 - Para aprender a afinar a retenção de armazenamento de backup e os custos para a Azure SQL Managed Instance, consulte [os custos de armazenamento de backup de afinação fina em Casos Geridos](https://aka.ms/mi-backup-tuning).

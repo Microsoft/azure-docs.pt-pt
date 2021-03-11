@@ -7,14 +7,14 @@ ms.service: cache
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 02/08/2021
-ms.openlocfilehash: 8dbde1f74c700e772823d61b3e35a464f9bbc17e
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: 63daa7cda2f10448e9a0f8e250412137dc2af892
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102120968"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102563902"
 ---
-# <a name="quickstart-create-a-redis-enterprise-cache-preview"></a>Quickstart: Criar uma cache Redis Enterprise (Pré-visualização)
+# <a name="quickstart-create-a-redis-enterprise-cache"></a>Quickstart: Criar uma cache Redis Enterprise
 
 Azure Cache para os níveis da Redis Enterprise fornecem a [Redis Enterprise](https://redislabs.com/redis-enterprise/) totalmente integrada e gerida em Azure. Estão disponíveis como pré-visualização. Há dois novos níveis nesta pré-visualização:
 * Enterprise, que usa memória volátil (DRAM) numa máquina virtual para armazenar dados

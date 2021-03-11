@@ -2,17 +2,17 @@
 title: Implemente a sua primeira aplicação para Cloud Foundry no Microsoft Azure
 description: Implementar uma aplicação para Cloud Foundry em Azure
 author: seanmck
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.subservice: workloads
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: seanmck
-ms.openlocfilehash: c8afc4f15f421a7b60b95d09b954e7742c24c66e
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 037ac972dca49484f7b8c0ad8eed6942c901b997
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95519681"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102562933"
 ---
 # <a name="deploy-your-first-app-to-cloud-foundry-on-microsoft-azure"></a>Implemente a sua primeira aplicação para Cloud Foundry no Microsoft Azure
 

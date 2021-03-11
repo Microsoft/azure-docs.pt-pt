@@ -7,26 +7,29 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 01/22/2021
+ms.date: 03/09/2021
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 893bf37a5a4c8a314e5182bf2ac4bc28502b98d9
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: e17d08d09814c135af3e0b4fc299b6e6f42326d4
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98699446"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102549894"
 ---
 # <a name="what-is-azure-cognitive-search"></a>O que é o Azure Cognitive Search?
 
 Azure Cognitive Search[é](whats-new.md#new-service-name)um serviço de pesquisa em nuvem que fornece apis e ferramentas para construir uma rica experiência de pesquisa sobre conteúdo privado, heterogéneo em aplicações web, móveis e empresariais. 
 
+A pesquisa é fundamental para qualquer app que suria conteúdo para os utilizadores, com cenários comuns, incluindo pesquisa de catálogo ou documento, pesquisa de sites de e-commerce ou mineração de conhecimento para a ciência dos dados. As APIs e a arquitetura da Pesquisa Cognitiva simplificam a tarefa de adicionar uma sofisticada recuperação de informação a qualquer solução.
+
 Um serviço de pesquisa tem os seguintes componentes:
 
 + Pesquisar o motor para pesquisa completa de texto
 + Armazenamento persistente de conteúdo indexado de propriedade do utilizador
-+ APIs para indexação e consulta
-+ [Enriquecimentos opcionais baseados em IA,](cognitive-search-concept-intro.md)criando conteúdo pes pescável a partir de imagens, texto em bruto, ficheiros de aplicações
-+ Integração opcional com outros serviços Azure para dados, machine learning/IA e segurança
++ APIs para indexação e consulta de conteúdos
++ [Enriquecimentos opcionais baseados em IA,](cognitive-search-concept-intro.md)criando conteúdo pesmável a partir de imagens, texto cru e não estruturado, ficheiros de aplicações
++ Integração opcional com outros serviços Azure para dados, machine learning/IA, monitorização e segurança
++ Implementação opcional de [pesquisa semântica (pré-visualização)](semantic-search-overview.md) para uma maior relevância
 
 Em termos arquitetónicos, um serviço de pesquisa situa-se entre as lojas de dados externos que contêm os seus dados não indexados, e a sua aplicação de cliente que envia pedidos de consulta para um índice de pesquisa e trata a resposta.
 
@@ -74,8 +77,9 @@ Uma exploração de ponta a ponta das funcionalidades de pesquisa do núcleo pod
 
 1. [**Consultar um índice**](search-query-overview.md) utilizando o [Explorador de Pesquisa](search-explorer.md) no portal, REST [API](search-get-started-rest.md), [.NET SDK,](/dotnet/api/azure.search.documents.searchclient.search)ou outro SDK.
 
-> [!TIP]
-> Minimize os passos começando com o [**assistente de dados de importação**](search-get-started-portal.md) e uma fonte de dados Azure para criar, carregar e consultar um índice em minutos.
+Para a exploração inicial, comece com o [**assistente de dados de Importação**](search-get-started-portal.md) e uma fonte de dados Azure incorporada para criar, carregar e consultar um índice em minutos.
+
+Para obter ajuda com soluções complexas ou personalizadas, [**contacte um parceiro**](resource-partners-knowledge-mining.md) com uma vasta experiência em tecnologia de Pesquisa Cognitiva.
 
 ## <a name="compare-search-options"></a>Comparar opções de pesquisa
 

@@ -7,14 +7,23 @@ ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: f95585237bbee743083b855dd78cc850c4daffe8
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: ff26318cafdf493579961fc718643f831ae9efeb
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102202693"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102564259"
 ---
 # <a name="migrate-from-linux-to-a-hybrid-cloud-deployment-with-azure-file-sync"></a>Migrar do Linux para uma implementação de nuvem híbrida com Azure File Sync
+
+Este artigo de migração é um dos vários que envolvem as palavras-chave NFS e Azure File Sync. Verifique se este artigo se aplica ao seu cenário:
+
+> [!div class="checklist"]
+> * Fonte de dados: Armazenamento Ligado à Rede (NAS)
+> * Rota de migração: Linux Server com SAMBA &rArr; Windows Server 2012R2 ou posterior &rArr; sincronização com a partilha de ficheiros Azure
+> * Caching ficheiros no local: Sim, o objetivo final é uma implementação de Azure File Sync.
+
+Se o seu cenário for diferente, olhe através da [tabela de guias de migração.](storage-files-migration-overview.md#migration-guides)
 
 O Azure File Sync funciona em instâncias do Windows Server com armazenamento direto anexado (DAS). Não suporta sincronização de e para clientes Linux, ou uma partilha remota do Bloco de Mensagens do Servidor (SMB) ou do Sistema de Ficheiros de Rede (NFS).
 
@@ -22,13 +31,13 @@ Como resultado, transformar os seus serviços de ficheiros numa implementação 
 
 ## <a name="migration-goals"></a>Objetivos de migração
 
-O objetivo é mover as ações que tem no seu servidor Linux Samba para uma instância do Windows Server. Em seguida, utilize o Azure File Sync para uma implementação de nuvem híbrida. Esta migração tem de ser feita de forma a garantir a integridade dos dados de produção, bem como a disponibilidade durante a migração. Este último requer manter o tempo de inatividade ao mínimo, de modo a que possa encaixar ou apenas exceder ligeiramente as janelas de manutenção regulares.
+O objetivo é mover as ações que tem no seu servidor Linux Samba para uma instância do Windows Server. Em seguida, utilize o Azure File Sync para uma implementação de nuvem híbrida. Esta migração tem de ser feita de forma a garantir a integridade dos dados de produção e a disponibilidade durante a migração. Este último requer manter o tempo de inatividade ao mínimo, de modo a que possa encaixar ou apenas exceder ligeiramente as janelas de manutenção regulares.
 
 ## <a name="migration-overview"></a>Descrição geral da migração
 
 Como mencionado no artigo geral de [migração](storage-files-migration-overview.md)dos Ficheiros Azure, é importante utilizar a ferramenta e abordagem corretas de cópia. O seu servidor Linux Samba está a expor as ações da SMB diretamente na sua rede local. Robocopia, incorporada no Windows Server, é a melhor forma de mover os seus ficheiros neste cenário de migração.
 
-Se não estiver a executar Samba no seu servidor Linux e preferir migrar pastas para uma implementação híbrida no Windows Server, pode utilizar ferramentas de cópia Linux em vez de Robocopy. Se o fizer, esteja ciente das capacidades de fidelidade na sua ferramenta de cópia de ficheiros. Reveja a secção de bases da [migração](storage-files-migration-overview.md#migration-basics) no artigo de visão geral da migração para saber o que procurar numa ferramenta de cópia.
+Se não estiver a executar Samba no seu servidor Linux e preferir migrar pastas para uma implementação híbrida no Windows Server, pode utilizar ferramentas de cópia Linux em vez de Robocopy. Esteja atento às capacidades de fidelidade da sua ferramenta de cópia. Reveja a secção de bases da [migração](storage-files-migration-overview.md#migration-basics) no artigo de visão geral da migração para saber o que procurar numa ferramenta de cópia.
 
 ## <a name="phase-1-identify-how-many-azure-file-shares-you-need"></a>Fase 1: Identifique quantas ações de ficheiroS Azure precisa
 
@@ -39,11 +48,13 @@ Se não estiver a executar Samba no seu servidor Linux e preferir migrar pastas 
 * Crie um exemplo do Windows Server 2019 como uma máquina virtual ou servidor físico. O Windows Server 2012 R2 é o requisito mínimo. Um cluster de falha do Windows Server também é suportado.
 * Provisão ou adicionar armazenamento direto anexado (DAS). O armazenamento ligado à rede (NAS) não é suportado.
 
-  A quantidade de armazenamento que disponibiliza pode ser menor do que a que está a utilizar atualmente no seu servidor Linux Samba, se utilizar a funcionalidade [de nivelamento de nuvem](storage-sync-cloud-tiering-overview.md) Azure File Sync. No entanto, quando copiar os seus ficheiros do maior espaço do servidor Linux Samba para o menor volume do Windows Server numa fase posterior, terá de trabalhar em lotes:
+  A quantidade de armazenamento que disponibiliza pode ser menor do que a que está a utilizar atualmente no seu servidor Linux Samba, se utilizar a funcionalidade [de nivelamento de nuvem](storage-sync-cloud-tiering-overview.md) Azure File Sync. 
+
+A quantidade de armazenamento que presta pode ser menor do que a que está a utilizar atualmente no seu servidor Linux Samba. Esta escolha de configuração requer que também utilize a funcionalidade de [tiering](storage-sync-cloud-tiering-overview.md) de cloud Syncs Azure File Syncs. No entanto, quando copiar os seus ficheiros do maior espaço do servidor Linux Samba para o menor volume do Windows Server numa fase posterior, terá de trabalhar em lotes:
 
   1. Mova um conjunto de ficheiros que se encaixem no disco.
   2. Deixe a sincronização de ficheiros e o nível de nivelamento da nuvem.
-  3. Quando for criado mais espaço livre no volume, proceda ao próximo lote de ficheiros. 
+  3. Quando for criado mais espaço livre no volume, proceda ao próximo lote de ficheiros. Em alternativa, reveja o comando RoboCopy na próxima [secção RoboCopy](#phase-7-robocopy) para utilização do novo `/LFSM` comutador. A utilização `/LFSM` pode simplificar significativamente os seus trabalhos roboCopy, mas não é compatível com outros interruptores RoboCopy de que possa depender.
     
   Pode evitar esta abordagem de lote, provisionando o espaço equivalente na instância do Windows Server que os seus ficheiros ocupam no servidor Linux Samba. Considere permitir a deduplicação no Windows. Se não quiser comprometer permanentemente esta elevada quantidade de armazenamento na sua instância do Windows Server, pode reduzir o tamanho do volume após a migração e antes de ajustar as políticas de tiering da nuvem. Isso cria uma cache menor no local das suas ações de ficheiros Azure.
 
@@ -100,78 +111,9 @@ O seguinte comando Robocopy copiará ficheiros do armazenamento do seu servidor 
 
 Se fornequir menos armazenamento na sua instância do Windows Server do que os seus ficheiros ocuparem o servidor Linux Samba, então tem um nível de nuvem configurado. À medida que o volume do Servidor do Windows local fica cheio, [o tiering da nuvem](storage-sync-cloud-tiering-overview.md) iniciará e os ficheiros de nível já sincronizados com sucesso. O tiering em nuvem gerará espaço suficiente para continuar a cópia do servidor Linux Samba. O nível da nuvem verifica uma vez por hora para ver o que sincronizou e para libertar espaço em disco para alcançar a política de 99% de espaço livre para um volume.
 
-É possível que a Robocopy mova ficheiros mais rapidamente do que pode sincronizar com a nuvem e o nível localmente, fazendo com que fique sem espaço em disco local. A robocopia falhará. Recomendamos que trabalhe através das ações numa sequência que previna o problema. Por exemplo, considere não iniciar empregos robocopia para todas as ações ao mesmo tempo. Ou considere ações móveis que se encaixem na quantidade atual de espaço livre na instância do Windows Server. Se o seu trabalho de Robocopia falhar, pode sempre re-executar o comando desde que utilize a seguinte opção de espelho/purga:
+É possível que a Robocopy mova ficheiros mais rapidamente do que pode sincronizar com a nuvem e o nível localmente, fazendo com que fique sem espaço em disco local. A robocopia falhará. Recomendamos que trabalhe através das ações numa sequência que previna o problema. Por exemplo, considere não iniciar empregos robocopia para todas as ações ao mesmo tempo. Ou considere ações móveis que se encaixem na quantidade atual de espaço livre na instância do Windows Server. Se o seu trabalho de Robocopia falhar, pode sempre repetir o comando desde que utilize a seguinte opção de espelho/purga:
 
-```console
-Robocopy /MT:32 /UNILOG:<file name> /TEE /B /MIR /COPYALL /DCOPY:DAT <SourcePath> <Dest.Path>
-```
-
-Antecedentes:
-
-:::row:::
-   :::column span="1":::
-      /MT
-   :::column-end:::
-   :::column span="1":::
-      Permite que a Robocopia corra com vários fios. O padrão é 8, máximo é 128.
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /UNILOG:\<file name\>
-   :::column-end:::
-   :::column span="1":::
-      O estado das saídas para um ficheiro de registo como Unicode (substitui o registo existente).
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /TEE
-   :::column-end:::
-   :::column span="1":::
-      Saídas para uma janela de consola. Usado em conjunto com a saída para um ficheiro de registo.
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /B
-   :::column-end:::
-   :::column span="1":::
-      Executa robocopia no mesmo modo que uma aplicação de backup usaria. Permite que a Robocopy mova ficheiros para os quais o utilizador atual não tem permissões.
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /MIR
-   :::column-end:::
-   :::column span="1":::
-      Permite executar este comando Robocopy várias vezes, sequencialmente, no mesmo alvo/destino. Identifica e omite o que já foi copiado antes. Apenas alterações, adições e supressões que ocorreram desde a última execução são processadas. Se o comando não foi dirigido antes, nada é omitido. A bandeira **/MIR** é uma excelente opção para locais de origem que ainda são ativamente utilizados e alterados.
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /COPY:copyflag[s]
-   :::column-end:::
-   :::column span="1":::
-      Fidelidade da cópia do ficheiro (predefinição é /COPY:DAT). As bandeiras de cópia são: D=data, A=atributos, T=timestamps, S=security=NTFS ACLs, O=owner info, U=auditing info.
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /COPYALL
-   :::column-end:::
-   :::column span="1":::
-      COPIAR TODAS as informações de ficheiro (equivalente a /COPY:DATSOU).
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /DCOPY:copyflag[s]
-   :::column-end:::
-   :::column span="1":::
-      Fidelidade para a cópia de diretórios (padrão é /DCOPY:DA). As bandeiras de cópia são: D=data, A=atributos, T=timetamps.
-   :::column-end:::
-:::row-end:::
+[!INCLUDE [storage-files-migration-robocopy](../../../includes/storage-files-migration-robocopy.md)]
 
 ## <a name="phase-8-user-cut-over"></a>Fase 8: Corte do utilizador
 

@@ -2,22 +2,23 @@
 title: Visão geral do provisionamento do Linux
 description: Visão geral de como trazer as suas imagens Linux VM ou criar novas imagens para usar em Azure.
 author: danielsollondon
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.subservice: imaging
+ms.collection: linux
 ms.topic: overview
 ms.workload: infrastructure
 ms.date: 06/22/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: a7d9aa7de8bb75a22acc85c77924765eaa1b6b3b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6dafa400f2ce2421db6775084befc0abeab70a04
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87080153"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102563223"
 ---
 # <a name="azure-linux-vm-provisioning"></a>Provisão de Azure Linux VM
-Quando cria um VM a partir de uma imagem generalizada (Galeria de Imagens Partilhada ou Imagem Gerida), o plano de controlo permitir-lhe-á criar um VM e passar parâmetros e configurações para o VM. Isto chama-se *provisão*VM . Durante o fornecimento, a plataforma disponibiliza os valores de parâmetros VM Create (nome de anfitrião, nome de utilizador, palavra-passe, teclas SSH, customData) disponíveis para o VM à medida que arranca. 
+Quando cria um VM a partir de uma imagem generalizada (Galeria de Imagens Partilhada ou Imagem Gerida), o plano de controlo permitir-lhe-á criar um VM e passar parâmetros e configurações para o VM. Isto chama-se *provisão* VM . Durante o fornecimento, a plataforma disponibiliza os valores de parâmetros VM Create (nome de anfitrião, nome de utilizador, palavra-passe, teclas SSH, customData) disponíveis para o VM à medida que arranca. 
 
 Um agente de provisionamento assado dentro da imagem irá interagir com a plataforma, conectando-se a várias interfaces independentes de provisionamento), definir as propriedades e sinal para a plataforma que completou. 
 
@@ -46,7 +47,7 @@ Se tem um kernel Linux que não suporta executar nenhum dos agentes, mas deseja 
 - Formatação e montagem do disco de recursos
 - Consumir e processar `customData`
  
-**Redes**
+**Rede**
   
 - Gere rotas para melhorar a compatibilidade com os servidores DHCP da plataforma
 - Garante a estabilidade do nome da interface de rede
@@ -71,9 +72,9 @@ O fluxo de informação da plataforma para o agente ocorre através de dois cana
 ## <a name="azure-provisioning-agent-requirements"></a>Requisitos do agente de provisionamento Azure
 O Agente Linux, e o cloud-init, dependem de alguns pacotes do sistema para funcionar corretamente:
 - Python 2.6+
-- AberturaSSL 1.0+
+- OpenSSL 1.0+
 - OpenSSH 5.3+
-- Utilitários de sistema de ficheiros: `sfdisk` `fdisk` , `mkfs` , `parted`
+- Utilitários do sistema de ficheiros: `sfdisk`, `fdisk`, `mkfs`, `parted`
 - Ferramentas de senha: chpasswd, sudo
 - Ferramentas de processamento de texto: sed, grep
 - Ferramentas de rede: via ip
