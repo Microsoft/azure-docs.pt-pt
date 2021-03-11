@@ -1,68 +1,65 @@
 ---
-title: Monitorizar a identidade e o acesso no Centro de Segurança do Azure | Microsoft Docs
-description: Saiba como utilizar a capacidade de identidade e acesso no Centro de Segurança do Azure para monitorizar a atividade de acesso dos seus utilizadores e os problemas relacionados com identidades.
-services: security-center
-documentationcenter: na
+title: Recomendações de segurança do Centro de Segurança Azure para mFA
+description: Saiba como impor a autenticação de vários fatores para as suas subscrições Azure utilizando o Azure Security Center
 author: memildin
 manager: rkarlin
-ms.assetid: 9f04e730-4cfa-4078-8eec-905a443133da
 ms.service: security-center
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 10/08/2020
+ms.date: 03/10/2021
 ms.author: memildin
-ms.openlocfilehash: 3c0dd2b4e7e48eeb76d82c26eb52b89b61e9f668
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 9af4f225b1b9ca5e8023a8d5b4bb7607762e4447
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98134114"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102631902"
 ---
-# <a name="monitor-identity-and-access"></a>Monitorizar a identidade e o acesso
+# <a name="manage-multi-factor-authentication-mfa-enforcement-on-your-subscriptions"></a>Gerir a aplicação da autenticação de vários fatores (MFA) nas suas subscrições
 
-O perímetro de segurança evoluiu de um perímetro de rede para um perímetro de identidade. Com este desenvolvimento, a segurança é menos sobre a defesa da sua rede, e mais sobre a gestão da segurança das suas apps, dados e utilizadores.
+Se estiver apenas a usar senhas para autenticar os seus utilizadores, está a deixar um vetor de ataque aberto. Os utilizadores usam frequentemente palavras-passe fracas ou reutilizam-nas para vários serviços. Com [o MFA](https://www.microsoft.com/security/business/identity/mfa) ativado, as suas contas são mais seguras e os utilizadores ainda podem autenticar para quase todas as aplicações com sso único.s.autônea.
 
-Ao monitorizar as atividades e configurações relacionadas com a identidade, pode tomar ações proativas antes de um incidente ocorrer, ou ações reativas para parar tentativas de ataques.
+Existem várias formas de ativar o MFA para os seus utilizadores do Azure Ative Directory (AD) com base nas licenças que a sua organização possui. Esta página fornece os detalhes para cada um no contexto do Centro de Segurança Azure.
 
-## <a name="what-identity-and-access-safeguards-does-security-center-provide"></a>Que garantias de identidade e acesso o Centro de Segurança fornece? 
 
-O Azure Security Center dispõe de dois controlos de segurança dedicados para garantir que está a cumprir os requisitos de identidade e segurança da sua organização: 
+## <a name="mfa-and-security-center"></a>MFA e Centro de Segurança 
 
- - **Gerir acessos e permissões** - Encorajamo-lo a adotar o [modelo de acesso menos privilegiado](/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) e garantir que concede aos seus utilizadores apenas o acesso necessário para que eles façam o seu trabalho. Este controlo também inclui recomendações para implementar o [controlo de acesso baseado em funções Azure (Azure RBAC)](../role-based-access-control/overview.md) para controlar o acesso aos seus recursos.
- 
- - **Ativar MFA** - Com [O MFA](https://www.microsoft.com/security/business/identity/mfa) ativado, as suas contas são mais seguras, e os utilizadores ainda podem autenticar para quase qualquer aplicação com um único sent-on.
+O Centro de Segurança coloca um valor elevado no MFA. O controlo de segurança que mais contribui para a sua pontuação segura é **Enable MFA**. 
 
-### <a name="example-recommendations-for-identity-and-access"></a>Exemplo de recomendações para identidade e acesso
-
-Exemplos de recomendações que pode ver nestes dois controlos na página de **Recomendações** do Centro de Segurança:
+As recomendações no controlo Enable MFA garantem que está a cumprir as práticas recomendadas para os utilizadores das suas subscrições:
 
 - O MFA deve ser ativado em contas com permissões do proprietário na sua subscrição
-- Um máximo de 3 proprietários deve ser designado para a sua subscrição
-- As contas externas com permissões de leitura devem ser removidas da sua subscrição
-- As contas preprecadas devem ser removidas da sua subscrição (as contas preprecadas são contas que já não são necessárias e impedidas de assinar pelo Azure Ative Directory)
+- O MFA deve ser ativado em contas com permissões de escrita na sua subscrição
 
-> [!TIP]
-> Para mais informações sobre estas recomendações e as outras que poderá ver nestes [controlos, consulte recomendações de Identidade e Acesso.](recommendations-reference.md#recs-identityandaccess)
+Existem três formas de ativar o MFA e estar em conformidade com as duas recomendações no Centro de Segurança: incumprimentos de segurança, atribuição por utilizador, política de acesso condicional (CA). Cada uma destas opções é explicada abaixo.
 
-### <a name="limitations"></a>Limitações
+### <a name="free-option---security-defaults"></a>Opção gratuita - incumprimentos de segurança
+Se estiver a utilizar a edição gratuita do Azure AD, utilize [padrão de segurança](../active-directory/fundamentals/concept-fundamentals-security-defaults.md) para permitir a autenticação de vários fatores no seu inquilino.
 
-Existem algumas limitações às proteções de identidade e acesso do Centro de Segurança:
+### <a name="mfa-for-microsoft-365-business-e3-or-e5-customers"></a>MFA para clientes Microsoft 365 Business, E3 ou E5
+Os clientes com Microsoft 365 podem utilizar **a atribuição Por utilizador.** Neste cenário, o Azure AD MFA está ativado ou desativado para todos os utilizadores, para todos os eventos de inscrição. Não existe capacidade de ativar a autenticação de vários fatores para um subconjunto de utilizadores, ou sob determinados cenários, e a gestão é através do portal do Office 365.
 
-- As recomendações de identidade não estão disponíveis para subscrições com mais de 600 contas. Nestes casos, estas recomendações serão enumeradas em "avaliações indisponíveis".
-- As recomendações de identidade não estão disponíveis para os agentes administrativos do Cloud Solution Provider (CSP).
-- As recomendações de identidade não identificam contas que são geridas com um sistema privilegiado de gestão de identidade (PIM). Se estiver a utilizar uma ferramenta PIM, poderá ver resultados imprecisos no controlo **de acessos e permissões de Gestão.**
+### <a name="mfa-for-azure-ad-premium-customers"></a>MFA para clientes Azure AD Premium
+Para uma melhor experiência do utilizador, atualize para Azure AD Premium P1 ou P2 para opções **de política de acesso condicional (CA).** Para configurar uma política de CA, você precisará de permissões de [inquilinos do Azure Ative Directory (AD).](../active-directory/roles/permissions-reference.md)
 
-## <a name="multi-factor-authentication-mfa-and-azure-active-directory"></a>Autenticação multi-factor (MFA) e Diretório Ativo Azure 
+A sua política de CA deve:
+- impor MFA
+- incluem a aplicação microsoft Azure Management ID (797f4846-ba00-4fd7-ba43-dac1f8f63013) ou todas as aplicações
+- não excluir o ID da aplicação Microsoft Azure Management
 
-Habilitar o MFA requer [permissões de inquilinos do Azure Ative Directory (AD).](../active-directory/roles/permissions-reference.md)
+Os clientes **Azure AD Premium P1** podem utilizar o Azure AD CA para solicitar aos utilizadores a autenticação de vários fatores durante determinados cenários ou eventos que se adaptem aos requisitos do seu negócio. Outras licenças que incluem esta funcionalidade: Enterprise Mobility + Security E3, Microsoft 365 F1 e Microsoft 365 E3.
 
-- Se tiver uma edição premium de AD, ative o MFA utilizando [o Acesso Condicional.](../active-directory/conditional-access/concept-conditional-access-policy-common.md)
-- Se estiver a utilizar a edição gratuita da AD, ative os **incumprimentos de segurança descritos** na [documentação do Azure Ative Directory](../active-directory/fundamentals/concept-fundamentals-security-defaults.md).
+**O Azure AD Premium P2** fornece as funcionalidades de segurança mais fortes e uma experiência melhorada do utilizador. Esta licença adiciona [acesso condicional baseado no risco](../active-directory/conditional-access/howto-conditional-access-policy-risk.md) às funcionalidades Azure AD Premium P1. A AC baseada no risco adapta-se aos padrões dos seus utilizadores e minimiza as indicações de autenticação de vários fatores. Outras licenças que incluem esta funcionalidade: Enterprise Mobility + Security E5 ou Microsoft 365 E5.
+
+Saiba mais na [documentação de Acesso Condicionado Azure.](../active-directory/conditional-access/overview.md)
 
 ## <a name="identify-accounts-without-multi-factor-authentication-mfa-enabled"></a>Identificar contas sem autenticação de vários fatores (MFA) habilitados
 
+Pode ver a lista de contas de utilizador sem MFA ativada a partir da página de detalhes de recomendações do Centro de Segurança ou usando o Gráfico de Recursos Azure.
+
+### <a name="view-the-accounts-without-mfa-enabled-in-the-azure-portal"></a>Ver as contas sem MFA ativadas no portal Azure
+Na página de detalhes da recomendação, selecione uma subscrição da lista de **recursos insalubres** ou selecione **Ação** e a lista será exibida.
+
+### <a name="view-the-accounts-without-mfa-enabled-using-azure-resource-graph"></a>Ver as contas sem MFA ativadas através do Gráfico de Recursos Azure
 Para ver quais as contas que não têm MFA ativada, utilize a seguinte consulta de Gráfico de Recursos Azure. A consulta devolve todos os recursos insalubres - contas - da recomendação "MFA deve ser ativado em contas com permissões do proprietário na sua subscrição". 
 
 1. Abrir **o Explorador de Gráficos de Recurso Azure**.
@@ -85,6 +82,44 @@ Para ver quais as contas que não têm MFA ativada, utilize a seguinte consulta 
 
 > [!TIP]
 > Alternativamente, pode utilizar o método de API REST do Centro de Segurança [Avaliações - Obter](/rest/api/securitycenter/assessments/get).
+
+
+## <a name="faq---mfa-in-security-center"></a>FAQ - MFA no Centro de Segurança
+
+- [Já estamos a usar a política da AC para impor a MFA. Por que ainda recebemos as recomendações do Centro de Segurança?](#were-already-using-ca-policy-to-enforce-mfa-why-do-we-still-get-the-security-center-recommendations)
+- [Estamos a usar uma ferramenta de MFA de terceiros para impor a MFA. Por que ainda recebemos as recomendações do Centro de Segurança?](#were-using-a-third-party-mfa-tool-to-enforce-mfa-why-do-we-still-get-the-security-center-recommendations)
+- [Porque é que o Security Center mostra as contas dos utilizadores sem permissões na subscrição como "requerendo MFA"?](#why-does-security-center-show-user-accounts-without-permissions-on-the-subscription-as-requiring-mfa)
+- [Estamos a impor a MFA com a PIM. Porque é que as contas pim são apresentadas como incompatíveis?](#were-enforcing-mfa-with-pim-why-are-pim-accounts-shown-as-noncompliant)
+- [Posso isentar ou dispensar algumas das contas?](#can-i-exempt-or-dismiss-some-of-the-accounts)
+- [Existem limitações às proteções de identidade e acesso do Centro de Segurança?](#are-there-any-limitations-to-security-centers-identity-and-access-protections)
+
+### <a name="were-already-using-ca-policy-to-enforce-mfa-why-do-we-still-get-the-security-center-recommendations"></a>Já estamos a usar a política da AC para impor a MFA. Por que ainda recebemos as recomendações do Centro de Segurança?
+Para investigar por que as recomendações ainda estão sendo geradas, verifique as seguintes opções de configuração na sua política de MFA CA:
+
+- Incluiu as contas na secção **Utilizadores** da sua política de MFA CA (ou um dos grupos na secção **Grupos)**
+- A aplicação Azure Management ID (797f4846-ba00-4fd7-ba43-dac1f8f63013), ou todas as aplicações, estão incluídas na secção **apps** da sua política de MFA CA
+- O ID da app Azure Management não está excluído na secção **apps** da sua política de MFA CA
+
+### <a name="were-using-a-third-party-mfa-tool-to-enforce-mfa-why-do-we-still-get-the-security-center-recommendations"></a>Estamos a usar uma ferramenta de MFA de terceiros para impor a MFA. Por que ainda recebemos as recomendações do Centro de Segurança?
+As recomendações do MFA do Security Center não suportam ferramentas de MFA de terceiros (por exemplo, DUO).
+
+Se as recomendações forem irrelevantes para a sua organização, considere a sua marcação como "atenuada", conforme descrito na [isenção de recursos e recomendações da sua pontuação segura](exempt-resource.md). Também pode [desativar uma recomendação.](tutorial-security-policy.md#disable-security-policies-and-disable-recommendations)
+
+### <a name="why-does-security-center-show-user-accounts-without-permissions-on-the-subscription-as-requiring-mfa"></a>Porque é que o Security Center mostra as contas dos utilizadores sem permissões na subscrição como "requerendo MFA"?
+As recomendações do MFA do Security Center referem-se às funções [do Azure RBAC](../role-based-access-control/role-definitions-list.md) e ao papel [de administradores de subscrição clássicos do Azure.](../role-based-access-control/classic-administrators.md) Confirme que nenhuma das contas tem estas funções.
+
+### <a name="were-enforcing-mfa-with-pim-why-are-pim-accounts-shown-as-noncompliant"></a>Estamos a impor a MFA com a PIM. Porque é que as contas pim são apresentadas como incompatíveis?
+As recomendações do MFA do Security Center não suportam contas PIM. Pode adicionar estas contas a uma política de AC na secção Utilizadores/Grupo.
+
+### <a name="can-i-exempt-or-dismiss-some-of-the-accounts"></a>Posso isentar ou dispensar algumas das contas?
+A capacidade de isentar algumas contas que não utilizam MFA não é suportada atualmente.  
+
+### <a name="are-there-any-limitations-to-security-centers-identity-and-access-protections"></a>Existem limitações às proteções de identidade e acesso do Centro de Segurança?
+Existem algumas limitações às proteções de identidade e acesso do Centro de Segurança:
+
+- As recomendações de identidade não estão disponíveis para subscrições com mais de 600 contas. Nestes casos, estas recomendações serão enumeradas em "avaliações indisponíveis".
+- As recomendações de identidade não estão disponíveis para os agentes administrativos do Cloud Solution Provider (CSP).
+- As recomendações de identidade não identificam contas que são geridas com um sistema privilegiado de gestão de identidade (PIM). Se estiver a utilizar uma ferramenta PIM, poderá ver resultados imprecisos no controlo **de acessos e permissões de Gestão.**
 
 
 ## <a name="next-steps"></a>Passos seguintes

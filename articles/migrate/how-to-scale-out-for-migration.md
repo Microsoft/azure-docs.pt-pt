@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 03/02/2021
-ms.openlocfilehash: 6e81b3d62fb5b208c88257d7660f74ac25f099b8
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 1c93002a6dd97aadbf407713ab25091436bd85e0
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102048017"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102612070"
 ---
 # <a name="scale-agentless-migration-of-vmware-virtual-machines-to-azure"></a>Migração sem agentes de máquinas virtuais VMware para Azure
 
@@ -147,10 +147,10 @@ Para completar o registo do aparelho de escala, clique em **importação** para 
 1. Na janela pop-up aberta no passo anterior, selecione a localização do ficheiro zip de configuração copiada e clique em **Guardar**.
 
 Uma vez importados com sucesso os ficheiros, o registo do aparelho de escala completa-se e mostrar-lhe-á o tempo de marcação da última importação bem sucedida. Também pode ver os detalhes do registo clicando em **Ver detalhes.**
-:::image type="content" source="./media/how-to-scale-out-for-migration/import-success.png" alt-text="Importação bem sucedida":::
+:::image type="content" source="./media/how-to-scale-out-for-migration/import-success.png" alt-text="A screenshot mostra o registo de aparelhos em escala com o projeto Azure Migrate.":::
 
 Neste ponto, deverá revalidar que o aparelho de escala é capaz de se ligar ao servidor vCenter. Clique **em revalidar** para validar a conectividade do servidor vCenter a partir do aparelho de escala.
-:::image type="content" source="./media/how-to-scale-out-for-migration/view-sources.png" alt-text="Importação bem sucedida":::
+:::image type="content" source="./media/how-to-scale-out-for-migration/view-sources.png" alt-text="A screenshot mostra credenciais de visualização e fontes de descoberta a validar.":::
 
 > [!IMPORTANT]
 > Se editar as credenciais do vCenter Server no aparelho primário, certifique-se de que importa novamente os ficheiros de configuração para o aparelho de escala para obter a configuração mais recente e continuar quaisquer replicações em curso.<br/> Se não precisar mais do aparelho de encadação, certifique-se de que desativa o aparelho de encai escama. [**Saiba mais**](./common-questions-appliance.md) sobre como desativar o aparelho de encai escama quando não for necessário.

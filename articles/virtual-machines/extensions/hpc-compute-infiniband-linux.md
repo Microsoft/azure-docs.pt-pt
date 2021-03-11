@@ -1,24 +1,25 @@
 ---
 title: Extensão do condutor InfiniBand - Azure Linux VMs
 description: Extensão do Microsoft Azure para instalar controladores InfiniBand em VMs de computação da série H e N que executam o Linux.
-services: virtual-machines-linux
+services: virtual-machines
 documentationcenter: ''
 author: vermagit
 editor: ''
 ms.assetid: ''
-ms.service: virtual-machines-linux
-ms.subservice: extensions
+ms.service: virtual-machines
+ms.subservice: hpc
+ms.collection: linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/20/2020
 ms.author: amverma
-ms.openlocfilehash: 2a5aa8983e6cbb0745e05ce275edeadeccb60736
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 1219f5befb4de81850681a53c10f03dc81249d53
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966042"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102559737"
 ---
 # <a name="infiniband-driver-extension-for-linux"></a>Extensão do condutor infiniband para Linux
 
@@ -70,7 +71,7 @@ O JSON seguinte mostra o esquema para a extensão.
 
 ### <a name="properties"></a>Propriedades
 
-| Nome | Valor / Exemplo | Tipo de Dados |
+| Name | Valor / Exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | data |
 | publicador | Microsoft.HpcCompute | string |

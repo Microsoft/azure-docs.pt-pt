@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
 ms.custom: references_regions
-ms.openlocfilehash: 85585b771d9c0ed7c6fcdba9cfef7b589a987c8c
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 020ba74948a062d23d61272ee912eb3364180f1e
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99429267"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102618003"
 ---
 # <a name="microsoft-azure-attestation"></a>Microsoft Azure Attestation 
 
@@ -78,10 +78,10 @@ A azure Attestation é a escolha preferida para atestar tees, uma vez que oferec
 Os aglomerados implantados em duas regiões funcionarão de forma independente em circunstâncias normais. Em caso de avaria ou desatação de uma região, o seguinte se coloca:
 
 - Azure Attestation BCDR fornecerá failover sem emenda em que os clientes não precisam de dar qualquer passo extra para recuperar
-- O [Gestor de Tráfego da Azure](../traffic-manager/index.yml) para a região irá detetar que a sonda de saúde está degradada e mudar o ponto final para a região emparelhada
+- O [Gestor de Tráfego da Azure](../traffic-manager/index.yml) para a região irá detetar que a sonda de saúde está degradada e muda o ponto final para a região emparelhada
 - As ligações existentes não funcionarão e receberão erros internos do servidor ou problemas de tempo limite
-- Todas as operações do avião de controlo serão bloqueadas. Os clientes não serão capazes de criar fornecedores de atestados e atualizar políticas na região primária
-- Todas as operações de avião de dados, incluindo chamadas atestais, continuarão a trabalhar na região primária
+- Todas as operações do avião de controlo serão bloqueadas. Os clientes não poderão criar fornecedores de atestados na região primária
+- Todas as operações de plano de dados, incluindo chamadas atestatórias e configuração de políticas, serão servidas por região secundária. Os clientes podem continuar a trabalhar em operações de plano de dados com o URI original correspondente à região primária
 
 ## <a name="next-steps"></a>Passos seguintes
 - Conheça os [conceitos básicos do Azure Attestation](basic-concepts.md)

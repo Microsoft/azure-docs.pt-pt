@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/29/2019
 ms.author: memildin
-ms.openlocfilehash: 778feda8d72101d4ae2a0f0c27549701dfb53340
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 1ce20deed8b26dc5f5bebf4656dd3f1c370d766f
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341418"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102561233"
 ---
 # <a name="endpoint-protection-assessment-and-recommendations-in-azure-security-center"></a>Avaliação e recomendações de proteção de pontos finais no Centro de Segurança Azure
 
@@ -29,9 +29,9 @@ O Azure Security Center fornece avaliações de saúde de versões [suportadas](
 
 ## <a name="windows-defender"></a>Windows Defender
 
-* O Security Center recomenda que **"Instale soluções de proteção de pontos finais na máquina virtual"** quando o [Get-MpComputerStatus](/powershell/module/defender/get-mpcomputerstatus?preserve-view=true&view=win10-ps) for executado e o resultado é **AMServiceEnabled: Falso**
+* O Security Center recomenda que **"Instale soluções de proteção de pontos finais na máquina virtual"** quando o [Get-MpComputerStatus](/powershell/module/defender/get-mpcomputerstatus) for executado e o resultado é **AMServiceEnabled: Falso**
 
-* O Security Center recomenda que **"Resolva problemas de saúde de proteção de ponto final nas suas máquinas"** quando o [Get-MpComputerStatus](/powershell/module/defender/get-mpcomputerstatus?preserve-view=true&view=win10-ps) for executado e qualquer um dos seguintes ocorre:
+* O Security Center recomenda que **"Resolva problemas de saúde de proteção de ponto final nas suas máquinas"** quando o [Get-MpComputerStatus](/powershell/module/defender/get-mpcomputerstatus) for executado e qualquer um dos seguintes ocorre:
 
   * Qualquer uma das seguintes propriedades são falsas:
 
@@ -133,8 +133,8 @@ O Security Center recomenda que **"Instale soluções de proteção de pontos fi
 - **"/opt/sophos-av/bin/savdstatus --versão"** devolve nome de Sophos = **Versão Sophos Anti-Vírus e Sophos >= 9**
 
 O Security Center recomenda que **"Resolva problemas de saúde de proteção de pontos finais nas suas máquinas"** quando qualquer uma das seguintes verificações não for cumprida:
-- **"/opt/sophos-av/bin/savlog --maxage=7 # grep -i "Scan agendado. \* concluído " cauda -1",** devolve um valor
-- **"/opt/sophos-av/bin/savlog --maxage=7 # grep "scan terminado"** - cauda -1", devolve um valor
+- **"/opt/sophos-av/bin/savlog --maxage=7 | grep -i "Scan agendado. \* concluído " | cauda -1",** devolve um valor
+- **"/opt/sophos-av/bin/savlog --maxage=7 | grep "scan terminado"** | cauda -1", devolve um valor
 - **"/opt/sophos-av/bin/savdstatus --lastupdate"** regressa no passadoupda, que deve ser <= 7 dias 
 - **"/opt/sophos-av/bin/savdstatus -v"** é igual a **"A digitalização no acesso está em execução"** 
 - **Devoluções "/opt/sophos-av/bin/savconfig get LiveProtection"** ativadas
@@ -143,7 +143,7 @@ O Security Center recomenda que **"Resolva problemas de saúde de proteção de 
 
 ### <a name="troubleshoot"></a>Resolução de problemas
 
-Os registos de extensão antimalware da Microsoft estão disponíveis em: **%Systemdrive%\WindowsAzure\Logs\Plugins\Microsoft.Azure.Security.IaaSAntimalware (Ou PaaSAntimalware)\1.5.5.x (versão#)\CommandExecution.log.log**
+Os registos de extensão antimalware da Microsoft estão disponíveis em: **%Systemdrive%\WindowsAzure\Logs\Plugins\Microsoft.Azure.Security.IaaSAntimalware (Ou PaaSAntimalware)\1.5.5.x (versão#)\CommandExecution.log**
 
 ### <a name="support"></a>Suporte
 

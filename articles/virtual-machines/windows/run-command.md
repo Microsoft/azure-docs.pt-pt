@@ -3,22 +3,23 @@ title: Executar scripts PowerShell num Windows VM em Azure
 description: Este tópico descreve como executar scripts PowerShell dentro de uma máquina virtual Azure Windows utilizando a funcionalidade Comando run
 services: automation
 ms.service: virtual-machines
+ms.collection: windows
 author: bobbytreed
 ms.author: robreed
 ms.date: 04/26/2019
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 manager: carmonm
-ms.openlocfilehash: eac6201f45b11cae223e2293644bd9d0144e6e31
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: e2cd8ee4095db235215a2beaa68975e819b474c1
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98203359"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102560689"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-by-using-run-command"></a>Executar scripts PowerShell no seu Windows VM utilizando o Comando Run
 
-A função 'Comando de Execução' utiliza o agente da máquina virtual (VM) para executar scripts PowerShell dentro de um Azure Windows VM. Pode utilizar estes scripts para a gestão geral de máquinas ou aplicações. Eles podem ajudá-lo a diagnosticar e remediar rapidamente o acesso vm e problemas de rede e levar o VM de volta a um bom estado.
+A função 'Comando de Execução' utiliza o agente da máquina virtual (VM) para executar scripts PowerShell dentro de um Azure Windows VM. Pode utilizar estes scripts para a gestão geral de computadores ou aplicações. Eles podem ajudá-lo a diagnosticar e remediar rapidamente o acesso vm e problemas de rede e levar o VM de volta a um bom estado.
 
 
 
@@ -102,7 +103,7 @@ O exemplo a seguir utiliza o [cmdlet Invoke-AzVMRunCommand](/powershell/module/a
 Invoke-AzVMRunCommand -ResourceGroupName '<myResourceGroup>' -Name '<myVMName>' -CommandId 'RunPowerShellScript' -ScriptPath '<pathToScript>' -Parameter @{"arg1" = "var1";"arg2" = "var2"}
 ```
 
-## <a name="limiting-access-to-run-command"></a>Limitação do acesso ao Comando de Execução
+## <a name="limiting-access-to-run-command"></a>Limitar o acesso ao Comando Executar
 
 A listagem dos comandos de execução ou a apresentação dos detalhes de um comando requer a `Microsoft.Compute/locations/runCommands/read` permissão no Nível de Subscrição. O papel de [Leitor](../../role-based-access-control/built-in-roles.md#reader) incorporado e os níveis mais altos têm esta permissão.
 

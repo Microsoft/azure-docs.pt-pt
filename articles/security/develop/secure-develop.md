@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 8e69803f4740a58adb4230bd82cc723221762cb4
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 52c93bef4529f27ad38677f17209e7b48e997368
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576621"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102548449"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Desenvolver aplicações seguras no Azure
 Neste artigo apresentamos atividades de segurança e controlos a ter em conta quando desenvolve aplicações para a nuvem. Questões e conceitos de segurança a ter em conta durante as fases de implementação e verificação do Ciclo de Vida para o Desenvolvimento da Segurança da Microsoft [(SDL)](/previous-versions/windows/desktop/cc307891(v=msdn.10)) são cobertos. O objetivo é ajudá-lo a definir atividades e serviços Azure que você pode usar para desenvolver uma aplicação mais segura.
@@ -34,7 +34,7 @@ Assuma que a sua aplicação será usada de formas que não pretendia que fosse 
 
 ### <a name="perform-code-reviews"></a>Realizar revisões de código
 
-Antes de verificar o código, realize [revisões de código](/azure/devops/learn/devops-at-microsoft/code-reviews-not-primarily-finding-bugs) para aumentar a qualidade global do código e reduzir o risco de criar bugs. Pode utilizar [o Visual Studio](/azure/devops/repos/tfvc/get-code-reviewed-vs?view=vsts) para gerir o processo de revisão de códigos.
+Antes de verificar o código, realize [revisões de código](/azure/devops/learn/devops-at-microsoft/code-reviews-not-primarily-finding-bugs) para aumentar a qualidade global do código e reduzir o risco de criar bugs. Pode utilizar [o Visual Studio](/azure/devops/repos/tfvc/get-code-reviewed-vs) para gerir o processo de revisão de códigos.
 
 ### <a name="perform-static-code-analysis"></a>Efetuar a análise de código estático
 

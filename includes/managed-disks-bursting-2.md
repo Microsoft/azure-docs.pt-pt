@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/04/2021
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: a2f6a3fd8d36bb54773db21e3d36dab0060bae57
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 3035b5d2803ff91e84bc6b47a99963185f9195d3
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102178365"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102623191"
 ---
 ## <a name="disk-level-bursting"></a>Rebentamento do nível do disco
 
@@ -147,7 +147,7 @@ Quando o VM começar, irá rebentar para solicitar o seu limite de explosão de 
 
 Após o arranque, inicia-se uma aplicação com uma carga de trabalho não crítica. Esta aplicação requer 15 MB/s que é distribuído uniformemente por todos os discos.
 
-![A aplicação envia um pedido de 15 MB/s de produção para VM, vM recebe pedido e envia a cada um dos seus discos um pedido de 5 MB/s, cada disco devolve 5 MB/s, VM devolve 15 MB/s à aplicação.](media/managed-disks-bursting/bursting-vm-bursting-disk/burst-vm-burst-disk-idling.jpg)
+![A aplicação envia um pedido de 15 MB/s de produção para VM, vM recebe pedido e envia a cada um dos seus discos um pedido de 5 MB/s, cada disco devolve 5 MB/s respostas, VM devolve 15 MB/s à aplicação.](media/managed-disks-bursting/bursting-vm-bursting-disk/burst-vm-burst-disk-idling.jpg)
 
 Em seguida, a aplicação precisa processar um trabalho em massa que requer 360 MB/s. O Standard_L8s_v2 rebenta para satisfazer esta exigência e depois pede. Apenas 20 MB/s são necessários pelo disco de so. Os restantes 340 MB/s são tratados pelos discos de dados P4 rebentados.
 

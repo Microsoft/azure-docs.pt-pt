@@ -2,18 +2,19 @@
 title: Criar e carregar um SUSE Linux VHD em Azure
 description: Aprenda a criar e carregar um disco rígido virtual Azure (VHD) que contenha um sistema operativo SUSE Linux.
 author: danielsollondon
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.subservice: imaging
+ms.collection: linux
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 12/01/2020
 ms.author: danis
-ms.openlocfilehash: 3d6a981db93cd84f0dbe5ab229ba1e90ee0bd1e7
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 276f5f4542ecea42c665764b8c4e5f66f2531126
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98200741"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102552716"
 ---
 # <a name="prepare-a-sles-or-opensuse-virtual-machine-for-azure"></a>Prepare a SLES or openSUSE virtual machine for Azure (Preparar uma máquina virtual SLES ou openSUSE para o Azure)
 
@@ -161,11 +162,11 @@ Como alternativa à construção do seu próprio VHD, a SUSE também publica ima
 2. Clique **em Ligar** para abrir a janela para a máquina virtual.
 3. Na concha, executar o `zypper lr` comando' Se este comando devolver a saída semelhante à seguinte, então os repositórios são configurados como esperado-- não são necessários ajustamentos (note que os números da versão podem variar):
 
-   | # | Alias                 | Nome                  | Ativado | Atualizar
+   | # | Alias                 | Name                  | Ativado | Atualizar
    | - | :-------------------- | :-------------------- | :------ | :------
-   | 1 | Nuvem:Tools_13.1      | Nuvem:Tools_13.1      | Sim     | Sim
-   | 2 | openSUSE_13.1_OSS     | openSUSE_13.1_OSS     | Sim     | Sim
-   | 3 | openSUSE_13.1_Atualizações | openSUSE_13.1_Atualizações | Sim     | Sim
+   | 1 | Nuvem:Tools_13.1      | Nuvem:Tools_13.1      | Yes     | Yes
+   | 2 | openSUSE_13.1_OSS     | openSUSE_13.1_OSS     | Yes     | Yes
+   | 3 | openSUSE_13.1_Atualizações | openSUSE_13.1_Atualizações | Yes     | Yes
 
     Se o comando retornar "Não há repositórios definidos..." em seguida, utilizar os seguintes comandos para adicionar estes repos:
 

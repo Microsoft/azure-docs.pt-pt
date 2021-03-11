@@ -1,39 +1,44 @@
 ---
-title: Crie SDKs personalizados para Azure Digital Twins com AutoRest
+title: Criar SDKs de linguagem personalizada com AutoRest
 titleSuffix: Azure Digital Twins
-description: Veja como gerar SDKs personalizados, para usar Azure Digital Twins com idiomas que não C#.
+description: Aprenda a usar o AutoRest para gerar SDKs de linguagem personalizada, para escrever código Azure Digital Twins em outras línguas que não tenham publicado SDKs.
 author: baanders
 ms.author: baanders
-ms.date: 4/24/2020
+ms.date: 3/9/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.custom: devx-track-js
-ms.openlocfilehash: e7239bfdca1dc464048c0db08488029b0868deb5
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.custom:
+- devx-track-js
+- contperf-fy21q3
+ms.openlocfilehash: 35cf54199f8f2c187ad397c21fb941111f07c4a3
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102049802"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102561845"
 ---
-# <a name="create-custom-sdks-for-azure-digital-twins-using-autorest"></a>Crie SDKs personalizados para gémeos digitais Azure usando o AutoRest
+# <a name="create-custom-language-sdks-for-azure-digital-twins-using-autorest"></a>Criar SDKs de linguagem personalizada para gémeos digitais Azure usando o AutoRest
 
-Neste momento, os únicos SDKs de plano de dados publicados para interagir com as APIs de Gémeos Digitais Azure são para .NET (C#), JavaScript e Java. Você pode ler sobre estes SDKs, e as APIs em geral, em [*Como-a-: Use as APIs e SDKs de Gémeos Digitais Azure*](how-to-use-apis-sdks.md). Se estiver a trabalhar noutro idioma, este artigo irá mostrar-lhe como gerar o seu próprio plano de dados SDK na linguagem à sua escolha, utilizando o AutoRest.
+Se precisar de trabalhar com a Azure Digital Twins utilizando um idioma que não tenha um [SDK Azure Digital Twins publicado,](how-to-use-apis-sdks.md)este artigo irá mostrar-lhe como usar o AutoRest para gerar o seu próprio SDK no idioma à sua escolha. 
 
->[!NOTE]
-> Também pode utilizar o AutoRes para gerar um plano de controlo SDK, se quiser. Para tal, complete os passos deste artigo utilizando o mais recente ficheiro **do plano** de controlo Swagger (OpenAPI) da pasta Do plano de controlo [Swagger](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/) em vez do plano de dados um.
+Os exemplos deste artigo mostram a criação de um plano de [dados SDK,](how-to-use-apis-sdks.md#overview-data-plane-apis)mas este processo funcionará também para gerar um plano de [controlo SDK.](how-to-use-apis-sdks.md#overview-control-plane-apis)
 
-## <a name="set-up-your-machine"></a>Configurar a sua máquina
+## <a name="prerequisites"></a>Pré-requisitos
 
-Para gerar um SDK, você precisará:
-* [AutoRest](https://github.com/Azure/autorest), versão 2.0.4413 (a versão 3 não está suportada atualmente)
-* [Node.js](https://nodejs.org) como pré-requisito para o AutoRest
-* O mais recente ficheiro do plano de dados da Azure Digital **Twins, Swagger** (OpenAPI) da pasta Do plano de [dados Swagger,](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/data-plane/Microsoft.DigitalTwins)e a sua pasta de exemplos que acompanha.  Descarregue o ficheiro Swagger *digitaltwins.js* e a sua pasta de exemplos para a sua máquina local.
+Para gerar um SDK, primeiro terá de completar a seguinte configuração na sua máquina local:
+* Instalar [**AutoRest**](https://github.com/Azure/autorest), versão 2.0.4413 (a versão 3 não está suportada atualmente)
+* Instale [**Node.js,**](https://nodejs.org)que é um pré-requisito para a utilização do AutoRest
+* Instalar [ **Estúdio Visual**](https://visualstudio.microsoft.com/downloads/)
+* Descarregue o mais recente **ficheiro do plano de dados** Azure Digital Twins Swagger (OpenAPI) a partir da pasta Do plano de [dados Swagger,](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/data-plane/Microsoft.DigitalTwins)juntamente com a sua pasta de exemplos que acompanha. O ficheiro Swagger é o chamado *digitaltwins.js.*
 
-Uma vez que a sua máquina esteja equipada com tudo da lista acima, está pronto a usar o AutoRest para criar o SDK.
+>[!TIP]
+> Para criar um **plano de controlo SDK,** em vez disso, complete os passos deste artigo utilizando o mais recente ficheiro do plano de **controlo Swagger** (OpenAPI) da pasta do plano de [controlo Swagger](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/) em vez do plano de dados um.
 
-## <a name="create-the-sdk-with-autorest"></a>Criar o SDK com AutoRest 
+Uma vez que a sua máquina esteja equipada com tudo da lista acima, está pronto a usar o AutoRest para criar um SDK.
 
-Se tiver Node.js instalado, pode executar este comando para se certificar de que tem a versão certa do AutoRes instalado:
+## <a name="create-the-sdk-using-autorest"></a>Criar o SDK utilizando o AutoRest 
+
+Uma vez instalado Node.js, pode executar este comando para se certificar de que tem a versão necessária do AutoRes instalado:
 ```cmd/sh
 npm install -g autorest@2.0.4413
 ```
@@ -51,11 +56,11 @@ Como resultado, verá uma nova pasta chamada *DigitalTwinsApi* no seu diretório
 
 O AutoRest suporta uma vasta gama de geradores de códigos linguísticos.
 
-## <a name="add-the-sdk-to-a-visual-studio-project"></a>Adicione o SDK a um projeto do Estúdio Visual
+## <a name="make-the-sdk-into-a-class-library"></a>Transforme o SDK numa biblioteca de classes
 
-Pode incluir os ficheiros gerados pelo AutoRest diretamente numa solução .NET. No entanto, é provável que queira incluir o Azure Digital Twins SDK em vários projetos separados (aplicações para clientes, aplicações Azure Functions, e assim por diante). Por esta razão, pode ser útil construir um projeto separado (uma biblioteca de classe .NET) a partir dos ficheiros gerados. Em seguida, você pode incluir este projeto de biblioteca de classes em várias soluções como referência de projeto.
+Pode incluir os ficheiros gerados pelo AutoRest diretamente numa solução .NET. No entanto, é provável que queira incluir o Azure Digital Twins SDK em vários projetos separados (aplicações para clientes, apps Azure Functions, entre outras). Por esta razão, pode ser útil construir um projeto separado (uma biblioteca de classe .NET) a partir dos ficheiros gerados. Em seguida, você pode incluir este projeto de biblioteca de classes em várias soluções como referência de projeto.
 
-Esta secção dá instruções sobre como construir o SDK como uma biblioteca de classes, que é o seu próprio projeto e pode ser incluído em outros projetos. Estes passos dependem do **Visual Studio** (pode instalar a versão mais recente a partir [daqui).](https://visualstudio.microsoft.com/downloads/)
+Esta secção dá instruções sobre como construir o SDK como uma biblioteca de classes, que é o seu próprio projeto e pode ser incluído em outros projetos. Estes passos dependem do **Visual Studio.**
 
 Eis os passos:
 
@@ -81,7 +86,7 @@ Para adicionar estes, abra *ferramentas > Gestor de Pacotes NuGet > gerir pacote
 
 Agora pode construir o projeto e incluí-lo como referência de projeto em qualquer aplicação Azure Digital Twins que escreva.
 
-## <a name="general-guidelines-for-generated-sdks"></a>Orientações gerais para SDKs gerados
+## <a name="tips-for-using-the-sdk"></a>Dicas para a utilização do SDK
 
 Esta secção contém informações gerais e diretrizes para a utilização do SDK gerado.
 

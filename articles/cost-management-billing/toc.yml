@@ -52,8 +52,6 @@
           href: costs/ingest-azure-usage-at-scale.md
         - name: Cost Management para parceiros
           href: costs/get-started-partners.md
-        - name: Migrar de relatórios do EA para as APIs do Azure Resource Manager
-          href: costs/migrate-from-enterprise-reporting-to-azure-resource-manager-apis.md
     - name: Reservas
       items:
         - name: O que é o Azure Reservations?
@@ -296,8 +294,10 @@
           href: manage/mca-check-azure-credits-balance.md
         - name: Migrar do EA para APIs do MCA
           href: costs/migrate-cost-management-api.md
-        - name: Atribuir funções a SPNs
+        - name: Atribuir funções a EA SPNs
           href: manage/assign-roles-azure-service-principals.md
+        - name: Migrar de relatórios do EA para as APIs do Azure Resource Manager
+          href: costs/migrate-from-enterprise-reporting-to-azure-resource-manager-apis.md
     - name: Comprar e administrar reservas
       items:
         - name: Determinar o que comprar

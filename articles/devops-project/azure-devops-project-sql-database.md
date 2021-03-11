@@ -8,12 +8,12 @@ ms.technology: devops-cicd
 ms.topic: tutorial
 ms.date: 03/24/2020
 author: mlearned
-ms.openlocfilehash: 6a1af644bbd88af5c513ed9a43ce154f285c06df
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7e85b698e1b3c3a1c3e8730ab85e8b72b7b0d9f6
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91856012"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102548483"
 ---
 # <a name="tutorial-deploy-your-aspnet-app-and-azure-sql-database-code-by-using-azure-devops-starter"></a>Tutorial: Implemente a sua app de ASP.NET e código de base de dados Azure SQL utilizando o Azure DevOps Starter
 
@@ -25,7 +25,7 @@ DevOps Starter também:
 * Cria um oleoduto de libertação para CD. 
 * Cria um recurso Azure Application Insights para monitorização.
 
-Neste tutorial, irá:
+Neste tutorial, vai:
 
 > [!div class="checklist"]
 > * Utilize o Azure DevOps Starter para implementar a sua app ASP.NET e o código de base de dados Azure SQL
@@ -33,7 +33,7 @@ Neste tutorial, irá:
 > * Examinar o pipeline de CI
 > * Examinar o pipeline de CD
 > * Cometa alterações no Azure Repos e desloque-os automaticamente para a Azure
-> * Ligar à Base de Dados SQL do Azure 
+> * Ligar à Base de Dados SQL do Azure 
 > * Limpar os recursos
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -46,15 +46,15 @@ DevOps Starter cria um gasoduto CI/CD em Pipelines Azure. Pode criar uma nova or
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-1. Na caixa de pesquisa, escreva **DevOps Starter**e, em seguida, selecione. Clique em **Adicionar** para criar um novo.
+1. Na caixa de pesquisa, escreva **DevOps Starter** e, em seguida, selecione. Clique em **Adicionar** para criar um novo.
 
     ![O painel de arranque de DevOps](_img/azure-devops-starter-aks/search-devops-starter.png)
 
-1. Selecione **.NET**e, em seguida, selecione **Seguinte**.
+1. Selecione **.NET** e, em seguida, selecione **Seguinte**.
 
 1. No **Âmbito de Escolha um quadro de aplicação**, selecione **ASP.NET**.
 
-1. **Selecione Adicione uma base de dados**e, em seguida, selecione **Seguinte**. O quadro de aplicação, que escolheu num passo anterior, dita o tipo de alvo de implantação de serviço Azure que está disponível aqui. 
+1. **Selecione Adicione uma base de dados** e, em seguida, selecione **Seguinte**. O quadro de aplicação, que escolheu num passo anterior, dita o tipo de alvo de implantação de serviço Azure que está disponível aqui. 
     
 1. Selecione **Seguinte**.
 
@@ -82,7 +82,7 @@ O DevOps Starter configura automaticamente um gasoduto CI/CD completo em Azure R
 
 1. Na parte superior do pipeline de compilação, selecione o nome do pipeline de compilação.
 
-1. Mude o nome do seu pipeline de construção para algo mais descritivo, **selecione Save & fila**e, em seguida, selecione **Guardar**.
+1. Mude o nome do seu pipeline de construção para algo mais descritivo, **selecione Save & fila** e, em seguida, selecione **Guardar**.
 
 1. No nome do pipeline de compilação, selecione **Histórico**. Este painel apresenta um rasto de auditoria das suas recentes alterações para a construção. A Azure Pipelines regista quaisquer alterações feitas ao oleoduto de construção, e permite comparar versões.
 
@@ -94,7 +94,7 @@ O DevOps Starter configura automaticamente um gasoduto CI/CD completo em Azure R
 
 O DevOps Starter cria e configura automaticamente os passos necessários para implementar da sua organização Azure DevOps para a sua subscrição Azure. Estes passos incluem configurar uma ligação de serviço Azure para autenticar Azure DevOps para a sua subscrição Azure. A automatização também cria um pipeline de CD, que fornece o CD à máquina virtual Azure. Para saber mais sobre o oleoduto Azure DevOps CD, faça o seguinte:
 
-1. Selecione **Construir e Soltar**e, em seguida, selecione **Versões**. O DevOps Starter cria um oleoduto de libertação para gerir as implementações para o Azure.
+1. Selecione **Construir e Soltar** e, em seguida, selecione **Versões**. O DevOps Starter cria um oleoduto de libertação para gerir as implementações para o Azure.
 
 1. Selecione a elipse (...) ao lado do seu pipeline de lançamento e, em seguida, **selecione Editar**. O pipeline de lançamento contém um *pipeline*, que define o processo de lançamento.
 
@@ -111,7 +111,7 @@ O DevOps Starter cria e configura automaticamente os passos necessários para im
   
 1. Ao lado da caixa **Valor,** selecione o ícone do cadeado, introduza a nova palavra-passe e, em seguida, **selecione Guardar**.
 
-1. À esquerda, selecione **Tarefas**e, em seguida, selecione o seu ambiente. As tarefas são as atividades que o seu processo de implantação executa, e são agrupadas por fases. Este oleoduto de lançamento tem uma única fase, que contém uma *tarefa de implementação do serviço de aplicações Azure* e *da implementação da base de dados Azure SQL.*
+1. À esquerda, selecione **Tarefas** e, em seguida, selecione o seu ambiente. As tarefas são as atividades que o seu processo de implantação executa, e são agrupadas por fases. Este oleoduto de lançamento tem uma única fase, que contém uma *tarefa de implementação do serviço de aplicações Azure* e *da implementação da base de dados Azure SQL.*
 
 1. Selecione a tarefa *Executar Azure SQL* e examine as várias propriedades que são utilizadas para a implantação do SQL. No âmbito **do Pacote de Implantação,** a tarefa utiliza um ficheiro *SQL DACPAC.*
 
@@ -130,23 +130,23 @@ O DevOps Starter cria e configura automaticamente os passos necessários para im
 
 Está agora pronto para colaborar com uma equipa na sua aplicação, utilizando um processo ci/CD que implementa automaticamente o seu último trabalho no seu website. Cada mudança para o git repo inicia uma construção em Azure DevOps, e um oleoduto de CD executa uma implantação para Azure. Siga o procedimento nesta secção ou use outra técnica para comprometer alterações no seu repositório. As alterações de código iniciam o processo CI/CD e implementam automaticamente as alterações para o Azure.
 
-1. No painel esquerdo, selecione **Código**e, em seguida, vá ao seu repositório.
+1. No painel esquerdo, selecione **Código** e, em seguida, vá ao seu repositório.
 
 1. Vá ao *sampleWebApplication\Views\Home* directy, selecione a elipse (...) ao lado do ficheiro *Index.cshtml* e, em seguida, selecione **Editar**. 
 
 1. Faça uma alteração no ficheiro, como por exemplo adicionar algum texto dentro de uma das tags de div. 
 
-1. No topo direito, **selecione Commit**e, em seguida, selecione **Comprometa-se** novamente para empurrar a sua mudança. Após alguns momentos, uma construção começa em Azure DevOps e um lançamento executa para implementar as alterações. Monitorize o estado de construção no painel de partidas de DevOps ou no navegador com a sua organização Azure DevOps.
+1. No topo direito, **selecione Commit** e, em seguida, selecione **Comprometa-se** novamente para empurrar a sua mudança. Após alguns momentos, uma construção começa em Azure DevOps e um lançamento executa para implementar as alterações. Monitorize o estado de construção no painel de partidas de DevOps ou no navegador com a sua organização Azure DevOps.
 
 1. Depois de concluída a versão, refresque a sua aplicação para verificar as suas alterações.
 
-## <a name="connect-to-azure-sql-database"></a>Ligar à Base de Dados SQL do Azure
+## <a name="connect-to-azure-sql-database"></a>Ligar à Base de Dados SQL do Azure
 
 Precisa de permissões adequadas para se ligar à Base de Dados Azure SQL.
 
 1. No painel de arranque de DevOps, selecione **A Base de Dados SQL** para ir à página de gestão da Base de Dados SQL.
    
-1. Selecione **Definir firewall do servidor**e, em seguida, selecione Adicionar IP do **cliente**. 
+1. Selecione **Definir firewall do servidor** e, em seguida, selecione Adicionar IP do **cliente**. 
 
 1. Selecione **Guardar**. O IP do seu cliente tem agora acesso ao recurso SQL Server Azure.
 
@@ -158,7 +158,7 @@ Precisa de permissões adequadas para se ligar à Base de Dados Azure SQL.
 
     Pode agora utilizar opcionalmente ferramentas de clientes como o SQL Server Management Studio ou o Visual Studio para ligar ao SQL Server e à Base de Dados Azure SQL. Utilize a propriedade **Nome do servidor** para ligar.
 
-    Se não alterou o nome de utilizador da base de dados quando inicialmente configura o projeto em Projetos DevOps, o seu nome de utilizador é a parte local do seu endereço de e-mail. Por exemplo, se o seu endereço de e-mail for * \@ microsoft.com,* o seu nome de utilizador é *johndoe*.
+    Se não alterou o nome de utilizador da base de dados quando inicialmente configura o projeto em Projetos DevOps, o seu nome de utilizador é a parte local do seu endereço de e-mail. Por exemplo, se o seu endereço de e-mail for *\@ microsoft.com,* o seu nome de utilizador é *johndoe*.
 
    > [!NOTE]
    > Se alterar a sua palavra-passe para o login DO SQL, tem de alterar a palavra-passe na variável do pipeline de desbloqueio, conforme descrito na secção [de pipeline cd.](#examine-the-cd-pipeline)
@@ -184,13 +184,13 @@ Opcionalmente, pode modificar estes pipelines de compilação e versão para sat
 > * Examinar o pipeline de CI
 > * Examinar o pipeline de CD
 > * Cometa alterações no Azure Repos e desloque-os automaticamente para a Azure
-> * Ligar à Base de Dados SQL do Azure 
+> * Ligar à Base de Dados SQL do Azure 
 > * Limpar os recursos
 
 Para saber mais sobre o oleoduto CI/CD, consulte:
 
 > [!div class="nextstepaction"]
-> [Defina o seu pipeline de implantação contínua em várias fases (CD)](/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
+> [Defina o seu pipeline de implantação contínua em várias fases (CD)](/azure/devops/pipelines/release/define-multistage-release-process)
 
 ## <a name="videos"></a>Vídeos
 

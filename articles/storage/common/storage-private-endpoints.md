@@ -10,12 +10,12 @@ ms.date: 03/12/2020
 ms.author: santoshc
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 7af2e6794d0d2f37c342a86b2f36b94c9601cc7e
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 16d3d50d5ade298e2ca22f271466c70e74724381
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97617260"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102613566"
 ---
 # <a name="use-private-endpoints-for-azure-storage"></a>Use pontos finais privados para armazenamento Azure
 
@@ -49,9 +49,15 @@ Pode proteger a sua conta de armazenamento apenas para aceitar ligações a part
 > [!NOTE]
 > Ao copiar bolhas entre contas de armazenamento, o seu cliente deve ter acesso à rede a ambas as contas. Por isso, se optar por utilizar um link privado para apenas uma conta (seja a fonte ou o destino), certifique-se de que o seu cliente tem acesso à rede à outra conta. Para saber mais sobre outras formas de configurar o acesso à rede, consulte [firewalls de armazenamento Configure Azure e redes virtuais.](storage-network-security.md?toc=/azure/storage/blobs/toc.json) 
 
-### <a name="private-endpoints-for-azure-storage"></a>Pontos finais privados para armazenamento Azure
+<a id="private-endpoints-for-azure-storage"></a>
 
-Ao criar o ponto final privado, deve especificar a conta de armazenamento e o serviço de armazenamento ao qual se conecta. Você precisa de um ponto final privado separado para cada serviço de armazenamento em uma conta de armazenamento que você precisa para aceder, nomeadamente [Blobs](../blobs/storage-blobs-overview.md), [Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md), [Arquivos, Filas,](../queues/storage-queues-introduction.md) [Tabelas](../tables/table-storage-overview.md)ou [Websites Estáticos.](../blobs/storage-blob-static-website.md) [](../files/storage-files-introduction.md)
+## <a name="creating-a-private-endpoint"></a>Criação de um ponto final privado
+
+Quando criar um ponto final privado, deve especificar a conta de armazenamento e o serviço de armazenamento a que se conecta. 
+
+Você precisa de um ponto final privado separado para cada recurso de armazenamento que você precisa para aceder, nomeadamente [Blobs](../blobs/storage-blobs-overview.md), [Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md), [Arquivos, Filas,](../queues/storage-queues-introduction.md) [Tabelas](../tables/table-storage-overview.md)ou [Websites Estáticos.](../blobs/storage-blob-static-website.md) [](../files/storage-files-introduction.md) No ponto final privado, estes serviços de armazenamento são definidos como o **sub-recurso-alvo** da conta de armazenamento associada. 
+
+Se criar um ponto final privado para o recurso de armazenamento de Data Lake Gen2, então também deve criar um para o recurso de armazenamento Blob. Isso porque as operações que visam o ponto final da Data Lake Storage Gen2 podem ser redirecionadas para o ponto final blob. Ao criar um ponto final privado para ambos os recursos, você garante que as operações podem ser concluídas com sucesso.
 
 > [!TIP]
 > Crie um ponto final privado separado para a instância secundária do serviço de armazenamento para um melhor desempenho nas contas RA-GRS.
@@ -66,18 +72,20 @@ Para obter informações mais detalhadas sobre a criação de um ponto final pri
 - [Criar um ponto final privado usando O Azure CLI](../../private-link/create-private-endpoint-cli.md)
 - [Criar um ponto final privado usando a Azure PowerShell](../../private-link/create-private-endpoint-powershell.md)
 
-### <a name="connecting-to-private-endpoints"></a>Ligação a pontos finais privados
+<a id="connecting-to-private-endpoints"></a>
+
+## <a name="connecting-to-a-private-endpoint"></a>Ligação a um ponto final privado
 
 Os clientes de um VNet que utilizem o ponto final privado devem utilizar a mesma cadeia de ligação para a conta de armazenamento, uma vez que os clientes que se ligam ao ponto final público. Contamos com a resolução do DNS para encaminhar automaticamente as ligações do VNet para a conta de armazenamento por um link privado.
 
 > [!IMPORTANT]
-> Utilize o mesmo fio de ligação para ligar à conta de armazenamento utilizando pontos finais privados, como utilizaria de outra forma. Por favor, não se conecte à conta de armazenamento usando o seu URL de subdomínio '*privatelink*' .
+> Utilize o mesmo fio de ligação para ligar à conta de armazenamento utilizando pontos finais privados, como utilizaria de outra forma. Por favor, não se conecte à conta de armazenamento usando o seu `privatelink` URL de subdomínio.
 
 Criamos uma [zona de DNS privada](../../dns/private-dns-overview.md) anexada ao VNet com as atualizações necessárias para os pontos finais privados, por padrão. No entanto, se estiver a utilizar o seu próprio servidor DNS, poderá ter de es fazer alterações adicionais na sua configuração DNS. A secção sobre [as alterações do DNS](#dns-changes-for-private-endpoints) abaixo descreve as atualizações necessárias para os pontos finais privados.
 
 ## <a name="dns-changes-for-private-endpoints"></a>DNS alterações para pontos finais privados
 
-Quando cria um ponto final privado, o registo de recursos DNS CNAME para a conta de armazenamento é atualizado para um pseudónimo num subdomínio com o prefixo '*privatelink*'. Por padrão, também criamos uma [zona privada de DNS,](../../dns/private-dns-overview.md)correspondente ao subdomínio '*privatelink*', com os registos de recursos DNS A para os pontos finais privados.
+Quando se cria um ponto final privado, o registo de recursos DNS CNAME para a conta de armazenamento é atualizado para um pseudónimo num subdomínio com o prefixo `privatelink` . Por padrão, também criamos uma [zona privada de DNS,](../../dns/private-dns-overview.md)correspondente ao `privatelink` subdomínio, com os registos de recursos DNS A para os pontos finais privados.
 
 Quando resolve o URL do ponto final de armazenamento de fora do VNet com o ponto final privado, ele resolve-se para o ponto final público do serviço de armazenamento. Quando resolvido a partir do VNet que hospeda o ponto final privado, o URL do ponto final de armazenamento resolve-se para o endereço IP do ponto final privado.
 
@@ -103,18 +111,18 @@ Esta abordagem permite o acesso à conta de armazenamento **utilizando a mesma c
 Se estiver a utilizar um servidor DNS personalizado na sua rede, os clientes devem ser capazes de resolver o FQDN para o ponto final da conta de armazenamento para o endereço IP do ponto final privado. Deverá configurar o seu servidor DNS para delegar o seu subdomínio de ligação privada para a zona privada de DNS para o VNet, ou configurar os registos A para '*StorageAccountA.privatelink.blob.core.windows.net*' com o endereço IP do ponto final privado.
 
 > [!TIP]
-> Ao utilizar um servidor DNS personalizado ou no local, deverá configurar o seu servidor DNS para resolver o nome da conta de armazenamento no subdomínio 'privatelink' para o endereço IP do ponto final privado. Pode fazê-lo delegando o subdomínio 'privatelink' para a zona privada de DNS do VNet, ou configurando a zona DNS no seu servidor DNS e adicionando os registos DNS A.
+> Ao utilizar um servidor DNS personalizado ou no local, deverá configurar o seu servidor DNS para resolver o nome da conta de armazenamento no `privatelink` subdomínio para o endereço IP do ponto final privado. Pode fazê-lo delegando o `privatelink` subdomínio para a zona privada de DNS do VNet, ou configurando a zona DNS no seu servidor DNS e adicionando os registos DNS A.
 
-Os nomes recomendados da zona DNS para pontos finais privados para serviços de armazenamento são:
+Os nomes recomendados da zona DE DNS para pontos finais privados para serviços de armazenamento, bem como os sub-recursos-alvo de ponto final associados, são:
 
-| Serviço de armazenamento        | Nome da zona                            |
-| :--------------------- | :----------------------------------- |
-| Serviço Blob           | `privatelink.blob.core.windows.net`  |
-| Data Lake Storage Gen2 | `privatelink.dfs.core.windows.net`   |
-| Serviço de arquivos           | `privatelink.file.core.windows.net`  |
-| Serviço de fila          | `privatelink.queue.core.windows.net` |
-| Serviço de mesa          | `privatelink.table.core.windows.net` |
-| Websites estáticos        | `privatelink.web.core.windows.net`   |
+| Serviço de armazenamento        | Recurso secundário de destino | Nome da zona                            |
+| :--------------------- | :------------------ | :----------------------------------- |
+| Serviço Blob           | blob                | `privatelink.blob.core.windows.net`  |
+| Data Lake Storage Gen2 | dfs                 | `privatelink.dfs.core.windows.net`   |
+| Serviço de arquivos           | file                | `privatelink.file.core.windows.net`  |
+| Serviço de fila          | fila               | `privatelink.queue.core.windows.net` |
+| Serviço de mesa          | table               | `privatelink.table.core.windows.net` |
+| Websites estáticos        | web                 | `privatelink.web.core.windows.net`   |
 
 Para obter mais informações sobre a configuração do seu próprio servidor DNS para suportar pontos finais privados, consulte os seguintes artigos:
 
@@ -137,7 +145,7 @@ Este constrangimento resulta das alterações ao DNS escamado quando a conta A2 
 
 ### <a name="network-security-group-rules-for-subnets-with-private-endpoints"></a>Network Security Group rules for subnets with private endpoints (Regras do Grupo de Segurança de Rede para sub-redes com pontos de extremidade privados)
 
-Atualmente, não é possível configurar as regras [do Grupo de Segurança da Rede](../../virtual-network/network-security-groups-overview.md) (NSG) e as rotas definidas pelo utilizador para pontos finais privados. As regras NSG aplicadas à sub-rede que acolhe o ponto final privado são aplicadas apenas a outros pontos finais (por exemplo, NICs) do que o ponto final privado. Uma solução limitada para esta questão é implementar as suas regras de acesso a pontos finais privados nas sub-redes de origem, embora esta abordagem possa exigir uma maior sobrecarga de gestão.
+Atualmente, não é possível configurar as regras [do Grupo de Segurança da Rede](../../virtual-network/network-security-groups-overview.md) (NSG) e as rotas definidas pelo utilizador para pontos finais privados. As regras NSG aplicadas à sub-rede que acolhe o ponto final privado não são aplicadas ao ponto final privado. Aplicam-se apenas a outros pontos finais (por exemplo: controladores de interface de rede). Uma solução limitada para esta questão é implementar as suas regras de acesso a pontos finais privados nas sub-redes de origem, embora esta abordagem possa exigir uma maior sobrecarga de gestão.
 
 ## <a name="next-steps"></a>Passos seguintes
 

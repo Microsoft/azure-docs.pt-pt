@@ -2,18 +2,19 @@
 title: Quickstart - Criar um Windows VM com Azure PowerShell
 description: Neste guia de início rápido, irá aprender a utilizar o Azure PowerShell para criar uma máquina virtual do Windows
 author: cynthn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.collection: windows
 ms.topic: quickstart
 ms.workload: infrastructure
 ms.date: 07/02/2019
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: d23bc83d9cfd60585a63df0acbfb2b4076cd83f4
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 78b912dd649ff942e0187f9b3602d9213383b8c9
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89077329"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102560740"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-in-azure-with-powershell"></a>Início Rápido: Criar uma máquina virtual do Windows no Azure com o PowerShell
 
@@ -70,7 +71,7 @@ Utilize o seguinte comando para criar uma sessão de ambiente de trabalho remoto
 mstsc /v:publicIpAddress
 ```
 
-Na janela **Segurança do Windows**, selecione **Mais opções** e, em seguida, selecione **Utilizar uma conta diferente**. Digite o nome de utilizador como nome **de** \\ *utilizador*local, introduza a palavra-passe que criou para a máquina virtual e, em seguida, clique em **OK**.
+Na janela **Segurança do Windows**, selecione **Mais opções** e, em seguida, selecione **Utilizar uma conta diferente**. Digite o nome de utilizador como nome **de** \\ *utilizador* local, introduza a palavra-passe que criou para a máquina virtual e, em seguida, clique em **OK**.
 
 Poderá receber um aviso de certificado durante o processo de início de sessão. Clique **em Sim** ou Continue **a** criar a ligação
 
@@ -90,7 +91,7 @@ Com o IIS instalado e a porta 80 aberta na VM a partir da Internet, utilize um b
 
 ![Site predefinido do IIS](./media/quick-create-powershell/default-iis-website.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não for necessário, pode utilizar o cmdlet [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos, VM e todos os recursos relacionados:
 

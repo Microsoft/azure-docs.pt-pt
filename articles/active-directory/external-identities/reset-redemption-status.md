@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d843755847d074e00aec9ed2830cb873b6bb3382
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: dea13444a6bd18bd67f05d93a38af70b3b7a2368
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100365417"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102556320"
 ---
 # <a name="reset-redemption-status-for-a-guest-user"></a>Redefinir o estado de resgate de um utilizador convidado
 
@@ -43,7 +43,7 @@ New-AzureADMSInvitation -InvitedUserEmailAddress <<external email>> -SendInvitat
 
 ## <a name="use-microsoft-graph-api-to-reset-redemption-status"></a>Utilize a API do Microsoft Graph para redefinir o estado de resgate
 
-Utilizando o convite do [Microsoft Graph API,](/graph/api/resources/invitation?view=graph-rest-1.0)deite a `resetRedemption` propriedade e `true` especifique o novo endereço de e-mail na `invitedUserEmailAddress` propriedade.
+Utilizando o convite do [Microsoft Graph API,](/graph/api/resources/invitation)deite a `resetRedemption` propriedade e `true` especifique o novo endereço de e-mail na `invitedUserEmailAddress` propriedade.
 
 ```json
 POST https://graph.microsoft.com/beta/invitations  

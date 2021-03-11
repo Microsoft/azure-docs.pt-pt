@@ -4,16 +4,16 @@ description: Especificações para os VMs da série NVv3.
 services: virtual-machines
 author: vikancha-MSFT
 ms.service: virtual-machines
-ms.subservice: sizes
+ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: f04847930f078ef506d66784deab4767db0a282d
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: 276afba62a26a53fe32f7aa9d47f42ada251d6b5
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102123977"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102613056"
 ---
 # <a name="nvv3-series"></a>Série NVv3
 
@@ -27,7 +27,7 @@ Cada GPU em instâncias NVv3 vem com uma licença GRID. Esta licença dá-lhe a 
 [Atualizações de preservação da memória](maintenance-and-updates.md): Não suportado<br>
 [Suporte de geração VM](generation-2.md): Geração 1 e 2<br>
 [Rede Acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): Suportado<br>
-[Discos EFÉMEROS :](ephemeral-os-disks.md)Não Suportados <br>
+[Discos EFÉMEROS](ephemeral-os-disks.md): Suportados <br>
 <br>
 
 | Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | GPU | Memória gpu: GiB | Discos de dados máximos | Produção de disco não-abacatado por maxilar: IOPS/MBps | Max NICs / Largura de banda esperada (Mbps) | Estações de trabalho virtuais | Aplicações Virtuais |

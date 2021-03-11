@@ -6,16 +6,16 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 01/25/2021
 ms.author: alkohli
-ms.openlocfilehash: e41d2e531a051738a31325b4ea33961bfb39e7f9
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 3292f337a39e2adb7dc5e78f12785ead8759f5d1
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98808033"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102611951"
 ---
 # <a name="use-windows-powershell-for-storsimple-to-administer-your-device"></a>Utilizar o Windows PowerShell para StorSimple para administrar o seu dispositivo
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 O Windows PowerShell para StorSimple fornece uma interface de linha de comando que pode utilizar para gerir o seu dispositivo Microsoft Azure StorSimple. Como o nome sugere, é uma interface baseada em windows PowerShell, linha de comando que é construída num espaço de execução restrito. Do ponto de vista do utilizador na linha de comando, um espaço de execução limitado aparece como uma versão restrita do Windows PowerShell. Apesar de manter algumas das capacidades básicas do Windows PowerShell, esta interface possui outros cmdlets dedicados que estão vocacionados para a gestão do seu dispositivo Microsoft Azure StorSimple.
 
@@ -29,7 +29,7 @@ Depois de ler este artigo, poderá:
 
 > [!NOTE]
 > * O Windows PowerShell para cmdlets StorSimple permite-lhe gerir o seu dispositivo StorSimple a partir de uma consola em série ou remotamente através do remoting Do Windows PowerShell. Para obter mais informações sobre cada um dos cmdlets individuais que podem ser utilizados nesta interface, consulte [o cmdlet para Windows PowerShell para StorSimple](/powershell/module/hcs/?viewFallbackFrom=winserverr2-ps&preserve-view=true).
-> * Os cmdlets Azure PowerShell StorSimple são uma coleção diferente de cmdlets que permitem automatizar tarefas de nível de serviço e migração StorSimple a partir da linha de comando. Para obter mais informações sobre os cmdlets Azure PowerShell para StorSimple, aceda à [referência cmdlet Azure StorSimple](/powershell/module/servicemanagement/azure.service/?view=azuresmps-4.0.0&viewFallbackFrom=azuresmps-3.7.0&preserve-view=true#azure).
+> * Os cmdlets Azure PowerShell StorSimple são uma coleção diferente de cmdlets que permitem automatizar tarefas de nível de serviço e migração StorSimple a partir da linha de comando. Para obter mais informações sobre os cmdlets Azure PowerShell para StorSimple, aceda à [referência cmdlet Azure StorSimple](/powershell/module/servicemanagement/azure.service/#azure).
 
 
 Pode aceder ao Windows PowerShell para StorSimple utilizando um dos seguintes métodos:
@@ -179,6 +179,6 @@ Pode atualizar facilmente a Ajuda na interface Windows PowerShell. Execute os se
 > Para obter uma lista de todos os cmdlets disponíveis num espaço de execução, inicie sessão na opção de menu correspondente e execute o `Get-Command` cmdlet.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se tiver algum problema com o seu dispositivo StorSimple ao executar um dos fluxos de trabalho acima referidos, consulte [ferramentas para resolver problemas de implementações StorSimple](storsimple-8000-troubleshoot-deployment.md#tools-for-troubleshooting-storsimple-deployments).

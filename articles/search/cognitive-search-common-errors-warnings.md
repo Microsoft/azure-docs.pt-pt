@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 6625cd5ad91826ac5cdf8ec63382e9f94d8a2c08
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: 3ba0abe8510291351c10ba085ba7e42b8197d886
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97895945"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102553243"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Resolução de problemas erros e avisos comuns do indexante na Pesquisa Cognitiva do Azure
 
@@ -143,7 +143,7 @@ O valor máximo que pode definir para o `timeout` parâmetro é de 230 segundos.
 
 <a name="could-not-mergeorupload--delete-document-to-the-search-index"></a>
 
-## <a name="error-could-not-mergeorupload--delete-document-to-the-search-index"></a>Erro: Não podia `MergeOrUpload` ' '' `Delete` documento para o índice de pesquisa
+## <a name="error-could-not-mergeorupload--delete-document-to-the-search-index"></a>Erro: Não podia ' `MergeOrUpload` | '' `Delete` documento para o índice de pesquisa
 
 O documento foi lido e processado, mas o indexante não pôde adicioná-lo ao índice de pesquisa. Isto pode acontecer devido a:
 
@@ -236,6 +236,8 @@ Se pretender fornecer um valor predefinido em caso de falta de entrada, pode uti
 
 ## <a name="warning--skill-input-languagecode-has-the-following-language-codes-xyz-at-least-one-of-which-is-invalid"></a>Aviso: A entrada de habilidades 'languageCode' tem os seguintes códigos linguísticos 'X,Y,Z', pelo menos um dos quais é inválido.
 Um ou mais dos valores passados para a entrada opcional `languageCode` de uma habilidade a jusante não é suportado. Isto pode ocorrer se estiver a passar a saída do [LanguageDetectionSkill](cognitive-search-skill-language-detection.md) para competências subsequentes, e a saída consiste em mais idiomas do que são suportados nessas competências a jusante.
+
+Note que também pode receber um aviso semelhante a este se uma entrada inválida `countryHint` for passada para o LanguageDetectionSkill. Se isso acontecer, por favor valide que o campo que está a utilizar a partir da sua fonte de dados para essa entrada contém códigos de país ISO 3166-1 alfa-2 de letra válidos. Se alguns forem válidos e alguns forem inválidos, continue com as seguintes orientações, mas `languageCode` substitua-os com `countryHint` e com o caso de `defaultLanguageCode` `defaultCountryHint` utilização.
 
 Se sabe que o seu conjunto de dados está todo num só idioma, deve remover o [LanguageDetectionSkill](cognitive-search-skill-language-detection.md) e a `languageCode` entrada de habilidades e utilizar o `defaultLanguageCode` parâmetro de habilidade para essa habilidade, assumindo que a linguagem é suportada para essa habilidade.
 

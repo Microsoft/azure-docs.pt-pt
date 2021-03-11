@@ -3,16 +3,16 @@ title: Série NDv2
 description: Especificações para os VMs da série NDv2.
 author: vikancha-MSFT
 ms.service: virtual-machines
-ms.subservice: hpc
+ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 7a417def30fcb3a2b429151b9d4c9ba4152220a1
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: f4031893ae5d45902f9d0ab2ccb1cf984724a69e
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101669164"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102562253"
 ---
 # <a name="updated-ndv2-series"></a>Série NDv2 atualizada
 

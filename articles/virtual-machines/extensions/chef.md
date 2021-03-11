@@ -1,25 +1,19 @@
 ---
 title: Extensão do chef para Azure VMs
 description: Desdobre o Cliente Chef para uma máquina virtual usando a extensão do Chef VM.
-services: virtual-machines-linux
-documentationcenter: ''
-author: axayjo
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.service: virtual-machines-linux
-ms.subservice: extensions
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
 ms.topic: article
+ms.service: virtual-machines
+ms.subservice: extensions
+ms.author: amjads
+author: amjads1
+ms.collection: linux
 ms.date: 09/21/2018
-ms.author: akjosh
-ms.openlocfilehash: 8977563c6b19754eda53686baf85f840a7583e77
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: e316bf9763dd7c2cbbab21992086eac52d108912
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968371"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102554790"
 ---
 # <a name="chef-vm-extension-for-linux-and-windows"></a>Extensão do Chef VM para Linux e Windows
 
@@ -68,7 +62,7 @@ O JSON seguinte mostra o esquema para a extensão do Chef VM. A extensão requer
 
 ### <a name="core-property-values"></a>Valores fundamentais da propriedade
 
-| Nome | Valor / Exemplo | Tipo de Dados
+| Name | Valor / Exemplo | Tipo de Dados
 | ---- | ---- | ----
 | apiVersion | `2017-12-01` | corda (data) |
 | publicador | `Chef.Bootstrap.WindowsAzure` | string |
@@ -77,7 +71,7 @@ O JSON seguinte mostra o esquema para a extensão do Chef VM. A extensão requer
 
 ### <a name="settings"></a>Definições
 
-| Nome | Valor / Exemplo | Tipo de Dados | Necessário?
+| Name | Valor / Exemplo | Tipo de Dados | Necessário?
 | ---- | ---- | ---- | ----
 | definições/bootstrap_options/chef_server_url | `https://api.chef.io/organizations/myorg` | cadeia (url) | Y |
 | definições/bootstrap_options/validation_client_name | `myorg-validator` | string | Y |
@@ -85,7 +79,7 @@ O JSON seguinte mostra o esquema para a extensão do Chef VM. A extensão requer
 
 ### <a name="protected-settings"></a>Configurações protegidas
 
-| Nome | Exemplo | Tipo de Dados | Necessário?
+| Name | Exemplo | Tipo de Dados | Necessário?
 | ---- | ---- | ---- | ---- |
 | protectedSettings/validation_key | `-----BEGIN RSA PRIVATE KEY-----\nKEYDATA\n-----END RSA PRIVATE KEY-----` | string | Y |
 

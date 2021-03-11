@@ -5,12 +5,12 @@ description: Saiba como criar manualmente um volume com ficheiros Azure para uti
 services: container-service
 ms.topic: article
 ms.date: 03/01/2019
-ms.openlocfilehash: a6e28464df2ff9c9dcc7734a127cc00f887e08dd
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.openlocfilehash: 4e009c5de2e24c1b0bd94fb4c11b0c52a3bc378d
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98246966"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102609078"
 ---
 # <a name="manually-create-and-use-a-volume-with-azure-files-share-in-azure-kubernetes-service-aks"></a>Criar e utilizar manualmente um volume com a partilha de Ficheiros Azure no Serviço Azure Kubernetes (AKS)
 
@@ -18,7 +18,7 @@ As aplicações baseadas em contentores precisam frequentemente de aceder e pers
 
 Para obter mais informações sobre volumes kubernetes, consulte [as opções de Armazenamento para aplicações em AKS][concepts-storage].
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Este artigo pressupõe que você tem um cluster AKS existente. Se precisar de um cluster AKS, consulte o quickstart AKS [utilizando o Azure CLI][aks-quickstart-cli] ou [utilizando o portal Azure][aks-quickstart-portal].
 
@@ -67,7 +67,8 @@ Use o `kubectl create secret` comando para criar o segredo. O exemplo a seguir c
 kubectl create secret generic azure-secret --from-literal=azurestorageaccountname=$AKS_PERS_STORAGE_ACCOUNT_NAME --from-literal=azurestorageaccountkey=$STORAGE_KEY
 ```
 
-## <a name="mount-the-file-share-as-a-volume"></a>Monte a partilha de ficheiros como um volume
+## <a name="mount-file-share-as-an-inline-volume"></a>Monte a partilha de ficheiros como um volume inline
+> Nota: a partir de 1.18.15, 1.19.7, 1.20.2, 1.21.0, o espaço de nomes secretos no volume inline `azureFile` só pode ser definido como espaço de `default` nome, para especificar um espaço de nome secreto diferente, por favor use abaixo o exemplo de volume persistente.
 
 Para montar os Ficheiros Azure partilhem na sua cápsula, configuure o volume na especificação do recipiente. Crie um novo ficheiro com `azure-files-pod.yaml` o seguinte conteúdo. Se alterar o nome da partilha de Ficheiros ou nome secreto, atualize o *nome de partilha* e o nome *secreto*. Se desejar, atualize o `mountPath` , que é o caminho onde a partilha de Ficheiros é montada na cápsula. Para os recipientes do Windows Server, especifique um *mountPath* utilizando a convenção do caminho do Windows, como *'D:'*.
 
@@ -131,9 +132,10 @@ Volumes:
 [...]
 ```
 
-## <a name="mount-options"></a>Opções de montagem
+## <a name="mount-file-share-as-an-persistent-volume"></a>Monte a partilha de ficheiros como um volume persistente
+ - Opções de montagem
 
-O valor predefinido para *ficheirosMode* e *dirMode* é *0755* para a versão 1.9.1 de Kubernetes ou superior. Se utilizar um cluster com a versão 1.8.5 ou superior de Kubernetes e criar estáticamente o objeto de volume persistente, as opções de montagem devem ser especificadas no objeto *PersistenteVolume.* O exemplo a seguir define *0777:*
+O valor predefinido para *ficheirosMode* e *dirMode* é *0777* para a versão 1.15 de Kubernetes ou superior. O exemplo a seguir define *0755* no objeto *PersistenteVolume:*
 
 ```yaml
 apiVersion: v1
@@ -147,18 +149,17 @@ spec:
     - ReadWriteMany
   azureFile:
     secretName: azure-secret
+    secretNamespace: default
     shareName: aksshare
     readOnly: false
   mountOptions:
-  - dir_mode=0777
-  - file_mode=0777
+  - dir_mode=0755
+  - file_mode=0755
   - uid=1000
   - gid=1000
   - mfsymlinks
   - nobrl
 ```
-
-Se utilizar um conjunto da versão 1.8.0 - 1.8.4, pode especificar-se um contexto de segurança com o valor *do runAsUser* definido para *0*. Para obter mais informações sobre o contexto de segurança do Pod, consulte [Configurar um Contexto de Segurança.][kubernetes-security-context]
 
 Para atualizar as suas opções de montagem, crie um ficheiro *azurefile-mount-options-pv.yaml* com um *PersistentVolume*. Por exemplo:
 
