@@ -2,14 +2,14 @@
 title: Bloquear recursos para evitar alterações
 description: Impedir que os utilizadores atualem ou apaguem os recursos do Azure aplicando um bloqueio para todos os utilizadores e funções.
 ms.topic: conceptual
-ms.date: 02/01/2021
+ms.date: 03/09/2021
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6df6aec06fadaacc6b1d08ed9ee33b72c5971359
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 28c31681b8fbe981cd51db294c91276dfd65d71f
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100369480"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102619176"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Bloquear recursos para prevenir alterações inesperadas
 
@@ -33,6 +33,10 @@ Os bloqueios do Resource Manager aplicam-se apenas a operações que ocorrem no 
 A aplicação de bloqueios pode levar a resultados inesperados porque algumas operações que não parecem modificar o recurso requerem realmente ações que são bloqueadas pelo bloqueio. O Bloqueio impedirá qualquer operação que exija um pedido de CORREIO à API gestora de recursos Azure. Alguns exemplos comuns das operações que são bloqueadas por fechaduras são:
 
 * Um bloqueio apenas de leitura numa **conta de armazenamento** impede os utilizadores de listar as chaves da conta. A operação Azure Storage [List Keys](/rest/api/storagerp/storageaccounts/listkeys) é gerida através de um pedido DEM para proteger o acesso às chaves da conta, que fornecem acesso completo aos dados na conta de armazenamento. Quando um bloqueio apenas de leitura é configurado para uma conta de armazenamento, os utilizadores que não possuam as chaves da conta devem usar credenciais AD AD Azure para aceder a dados de bolha ou fila. Um bloqueio só de leitura também impede a atribuição de funções Azure RBAC que são telescópios na conta de armazenamento ou num recipiente de dados (recipiente blob ou fila).
+
+* Um bloqueio não pode eliminar uma **conta de armazenamento** não impede que os dados dentro dessa conta sejam eliminados ou modificados. Este tipo de bloqueio apenas protege a própria conta de armazenamento de ser eliminada, e não protege os dados blob, fila, tabela ou ficheiro dentro dessa conta de armazenamento. 
+
+* Um bloqueio de leitura numa **conta de armazenamento** não impede que os dados dentro dessa conta sejam eliminados ou modificados. Este tipo de bloqueio apenas protege a própria conta de armazenamento de ser eliminada ou modificada, e não protege os dados blob, fila, tabela ou ficheiro dentro dessa conta de armazenamento. 
 
 * Um bloqueio apenas de leitura num recurso do Serviço de **Aplicações** impede o Visual Studio Server Explorer de exibir ficheiros para o recurso porque essa interação requer acesso de escrita.
 

@@ -2,16 +2,17 @@
 title: Crie um Linux VM em Azure a partir de um modelo
 description: Como usar o CLI Azure para criar um Linux VM a partir de um modelo de Gestor de Recursos
 author: cynthn
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.topic: how-to
 ms.date: 03/22/2019
 ms.author: cynthn
-ms.openlocfilehash: 184e856636a74ce5b7ac72b2e8cab3d1f19c4e17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a4e1bf56df52717255d2bae0a38186335d922ff1
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89074394"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102554688"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-with-azure-resource-manager-templates"></a>Como criar uma máquina virtual Linux com modelos de Gestor de Recursos Azure
 

@@ -13,12 +13,12 @@ ms.date: 09/24/2018
 ms.author: kkrishna
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: f3eff6f5660089472ef431bad9a4f05be1fffe24
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: f76469af1d36ae9e9e01357fb72e8f607912a572
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100104150"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102610081"
 ---
 # <a name="how-to-restrict-your-azure-ad-app-to-a-set-of-users-in-an-azure-ad-tenant"></a>Como: Restringir a sua app Azure AD a um conjunto de utilizadores num inquilino AZure AD
 
@@ -87,6 +87,6 @@ Uma vez configurada a sua aplicação para ativar a atribuição do utilizador, 
 
 - [Como: Adicionar funções de aplicação na sua aplicação](./howto-add-app-roles-in-azure-ad-apps.md)
 - [Adicione autorização usando funções de aplicações & as funções reivindicam uma aplicação web core ASP.NET](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/5-WebApp-AuthZ/5-1-Roles)
-- [Utilização de Grupos de Segurança e Funções de Aplicação nas suas apps (Vídeo)](https://www.youtube.com/watch?v=V8VUPixLSiM)
+- [Utilização de Grupos de Segurança e Funções de Aplicação nas suas apps (Vídeo)](https://www.youtube.com/watch?v=LRoc-na27l0)
 - [Diretório Ativo Azure, agora com Reivindicações de Grupo e Funções de Aplicação](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-Active-Directory-now-with-Group-Claims-and-Application/ba-p/243862)
 - [Manifesto da aplicação do Azure Active Directory](./reference-app-manifest.md)

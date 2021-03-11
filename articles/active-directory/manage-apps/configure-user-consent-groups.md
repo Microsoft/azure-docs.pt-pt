@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 24b2b8ee6398ef1306aee59b5d7ca7525284f96b
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 8d8604a1dd54ed819bb9e27c46d61a46466bf3da
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101644552"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102548806"
 ---
 # <a name="configure-group-owner-consent-to-apps-accessing-group-data"></a>Configure o consentimento do proprietário do grupo para apps que acedam aos dados do grupo
 
@@ -44,7 +44,7 @@ Neste exemplo, todos os proprietários do grupo estão autorizados a consentir q
 
 Pode utilizar o módulo de pré-visualização Azure AD PowerShell, [AzureADPreview,](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview)para permitir ou desativar a capacidade dos proprietários do grupo de consentirem com as aplicações que acedem aos dados da sua organização para os grupos que possuem.
 
-1. Certifique-se de que está a utilizar o módulo [AzureADPreview.](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview) Este passo é importante se tiver instalado o módulo [AzureAD](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0) e o módulo [AzureADPreview).](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview)
+1. Certifique-se de que está a utilizar o módulo [AzureADPreview.](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview) Este passo é importante se tiver instalado o módulo [AzureAD](/powershell/module/azuread/) e o módulo [AzureADPreview).](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview)
 
     ```powershell
     Remove-Module AzureAD
@@ -74,7 +74,7 @@ Pode utilizar o módulo de pré-visualização Azure AD PowerShell, [AzureADPrev
 
 1. Compreenda os valores de definição. Existem dois valores de definição que definem quais os utilizadores que seriam capazes de permitir que uma aplicação acedesse aos dados do seu grupo:
 
-    | Definição       | Tipo         | Descrição  |
+    | Definição       | Tipo         | Description  |
     | ------------- | ------------ | ------------ |
     | _Ativar oGroupSpecificConsent_   | Booleano | Bandeira indicando se os proprietários de grupos são autorizados a conceder permissões específicas do grupo. |
     | _RestriçãoGroupSpecificConsentToMemembersOfGroupId_ | GUID | Se _o EnableGroupSpecificConsent_ estiver definido como "Verdadeiro" e este valor definido para o ID de objeto de um grupo, os membros do grupo identificado serão autorizados a conceder permissões específicas do grupo aos grupos que possuem. |

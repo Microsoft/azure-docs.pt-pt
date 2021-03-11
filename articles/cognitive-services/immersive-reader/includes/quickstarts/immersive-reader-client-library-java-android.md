@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 09/14/2020
 ms.custom: devx-track-java, devx-track-js
 ms.author: dylankil
-ms.openlocfilehash: 29bacfff2e7b555143c0483f9b7e4b4f61c9e973
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 7119e1d029bb682f004e65323df5b50087c0634c
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97612721"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102619282"
 ---
 [O Immersive Reader](https://www.onenote.com/learningtools) é uma ferramenta inclusivamente concebida que implementa técnicas comprovadas para melhorar a compreensão da leitura para novos leitores, aprendizes de línguas e pessoas com diferenças de aprendizagem como a dislexia. Pode utilizar o Leitor Imersivo nas suas aplicações para isolar texto para melhorar o foco, exibir imagens para palavras comumente usadas, destacar partes da fala, ler texto selecionado em voz alta, traduzir palavras e frases em tempo real, e muito mais.
 
@@ -1391,4 +1391,5 @@ Utilize o Android Studio para executar a aplicação num emulador de dispositivo
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Explore a [referência Imersiva SDK](https://github.com/microsoft/immersive-reader-sdk) do leitor e a [referência SDK do leitor imersivo](../../reference.md).
+> [!div class="nextstepaction"]
+> [Criar um recurso e configurar a AAD](../../how-to-create-immersive-reader.md)

@@ -1,0 +1,14 @@
+- name: Azure
+  tocHref: /azure
+  topicHref: /azure/index
+  items:
+    - name: Internet das Coisas
+      tocHref: /azure/iot-fundamentals/
+      topicHref: /azure/iot-fundamentals/index
+      items:
+        - name: Atualização do dispositivo para ioT hub
+          tocHref: /azure/iot-hub-device-update/
+          topicHref: /azure/iot-hub-device-update/index/
+        - name: Atualização do dispositivo para ioT hub
+          tocHref: /azure/iot-fundamentals/
+          topicHref: /azure/iot-hub-device-update/index

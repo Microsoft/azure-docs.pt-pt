@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: include
 ms.date: 09/14/2020
 ms.author: nitinme
-ms.openlocfilehash: 967a7d9a78b5edd0c4e5b60545520baef635b340
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 5dc4e38eb0e29cc9fa272f6e740fcc7d1dbfe44a
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91376701"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102619253"
 ---
 [O Immersive Reader](https://www.onenote.com/learningtools) é uma ferramenta inclusivamente concebida que implementa técnicas comprovadas para melhorar a compreensão da leitura para novos leitores, aprendizes de línguas e pessoas com diferenças de aprendizagem como a dislexia. Pode utilizar o Leitor Imersivo nas suas aplicações para isolar texto para melhorar o foco, exibir imagens para palavras comumente usadas, destacar partes da fala, ler texto selecionado em voz alta, traduzir palavras e frases em tempo real, e muito mais.
 
@@ -58,7 +58,7 @@ SUBDOMAIN=<YOUR_SUBDOMAIN>
 
 ## <a name="set-up-the-app-to-run-without-a-storyboard"></a>Crie a app para funcionar sem um storyboard
 
-Abrir *AppDeegate.swift* e substituir o ficheiro pelo seguinte código.
+Abrir *o AppDeegate.swift* e substituir o ficheiro pelo seguinte código.
 
 ```swift
 import UIKit
@@ -109,7 +109,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 ## <a name="create-the-view-controllers-and-add-sample-content"></a>Crie os controladores de visualização e adicione o conteúdo da amostra
 
-Renomear *ViewController.swift* para *LaunchViewController.swift* e substituir o ficheiro pelo seguinte código.
+Renomear *o ViewController.swift* *para LaunchViewController.swift* e substituir o ficheiro pelo seguinte código.
 
 ```swift
 import UIKit
@@ -573,4 +573,5 @@ Ao clicar no botão **Leitor Imersivo,** verá o Leitor Imersivo lançado com o 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Explore o [SDK do leitor imersivo](https://github.com/microsoft/immersive-reader-sdk) e a [referência SDK do leitor imersivo](../../reference.md)
+> [!div class="nextstepaction"]
+> [Criar um recurso e configurar a AAD](../../how-to-create-immersive-reader.md)

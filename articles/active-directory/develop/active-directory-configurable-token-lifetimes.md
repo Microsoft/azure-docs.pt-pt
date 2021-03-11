@@ -13,12 +13,12 @@ ms.date: 02/01/2021
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40, content-perf, FY21Q1, contperf-fy21q1
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: 1bd60a60aa5f6fffcc459f0e14d550740e48496d
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 374e8bb61886a78289fcf44ce9582df325a4e64c
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99428154"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102549044"
 ---
 # <a name="configurable-token-lifetimes-in-the-microsoft-identity-platform-preview"></a>Vidas de token configuráveis na plataforma de identidade da Microsoft (pré-visualização)
 
@@ -240,7 +240,7 @@ Imediatamente depois, o utilizador tenta aceder à Aplicação Web B. O utilizad
 
 ## <a name="cmdlet-reference"></a>Referência de cmdlets
 
-Estes são os cmdlets no [Azure Ative Directory PowerShell para o módulo de pré-visualização de gráficos](/powershell/module/azuread/?view=azureadps-2.0-preview#service-principals&preserve-view=true&preserve-view=true).
+Estes são os cmdlets no [Azure Ative Directory PowerShell para o módulo de pré-visualização de gráficos](/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#service-principals).
 
 ### <a name="manage-policies"></a>Gerir políticas
 

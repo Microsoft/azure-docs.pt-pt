@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/24/2020
 author: mlearned
 ms.custom: devx-track-js
-ms.openlocfilehash: de98d9db515e4ed88759efa7f22dddcca06151c8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d1bdae976d5e5b7d98311d33bb38b5035f2557ca
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91854686"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102548704"
 ---
 # <a name="deploy-nodejs-apps-powered-by-azure-cosmos-db-with-devops-starter"></a>Implementar Node.js aplicações alimentadas pela Azure Cosmos DB com DevOps Starter
 
@@ -26,7 +26,7 @@ DevOps Starter também:
 
 * Cria e configura um oleoduto de libertação de CI/CD em Azure DevOps
 
-Neste tutorial, irá:
+Neste tutorial, vai:
 
 > [!div class="checklist"]
 > * Utilize o DevOps Starter para implementar uma aplicação de Node.js alimentada pela Azure Cosmos DB
@@ -47,17 +47,17 @@ DevOps Starter cria um gasoduto CI/CD em Pipelines Azure. Pode criar uma nova or
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-1. Na caixa de pesquisa, escreva **DevOps Starter**e, em seguida, selecione. Clique em **Adicionar** para criar um novo.
+1. Na caixa de pesquisa, escreva **DevOps Starter** e, em seguida, selecione. Clique em **Adicionar** para criar um novo.
 
     ![O painel de arranque de DevOps](_img/azure-devops-starter-aks/search-devops-starter.png)
 
 1. Selecione **Node.js** como tempo de execução e, em seguida, selecione **Seguinte**. No **Âmbito de Escolha um quadro de aplicação**, selecione **Express.js**.
 
-1. Ativar a secção **Adicione uma base de dados** para **Cosmos DB**e, em seguida, selecione **Seguinte**.
+1. Ativar a secção **Adicione uma base de dados** para **Cosmos DB** e, em seguida, selecione **Seguinte**.
 
     ![Adicionar uma base de dados](_img/azure-devops-project-cosmos-db/add-database.png)
 
-    O Azure DevOps Starter suporta vários quadros de aplicações, tais como **Express.js**, **app sample Node.js**, e **Sail.js**. Neste tutorial, **usamosExpress.js. **
+    O Azure DevOps Starter suporta vários quadros de aplicações, tais como **Express.js**, **app sample Node.js**, e **Sail.js**. Neste tutorial, **usamosExpress.js.**
 
 1. Selecione um serviço Azure para implementar a aplicação e, em seguida, selecione **Seguinte**. As suas opções incluem a Windows Web App, o Azure Kubernetes Service e a Azure Web App para contentores. Neste tutorial, utilizamos a **Aplicação Web do Windows.**
 
@@ -144,9 +144,9 @@ Está agora pronto para colaborar com uma equipa na sua aplicação, utilizando 
 
 1. O repo já contém código baseado na linguagem de aplicação que escolheu no processo de criação. Abra o ficheiro **Aplicação/vistas/index.pug.**
 
-1. **Selecione Editar**e, em seguida, faça uma alteração para a **linha número 15**. Por exemplo, pode alterá-lo para "A minha primeira implementação para o Azure App Service powered by Azure Cosmos DB."
+1. **Selecione Editar** e, em seguida, faça uma alteração para a **linha número 15**. Por exemplo, pode alterá-lo para "A minha primeira implementação para o Azure App Service powered by Azure Cosmos DB."
 
-1. No canto superior direito, **selecione Commit**e, em seguida, selecione **Comprometa-se** novamente para empurrar a sua mudança.
+1. No canto superior direito, **selecione Commit** e, em seguida, selecione **Comprometa-se** novamente para empurrar a sua mudança.
 
      Após alguns segundos, uma construção começa em Azure DevOps e um lançamento executa para implementar as alterações. Monitorize o estado de construção no painel de partidas de DevOps ou no navegador com a sua organização Azure DevOps.
 
@@ -167,4 +167,4 @@ Pode modificar estes pipelines de compilação e de lançamento para satisfazer 
 > * Cometa alterações no Git e desloque-as automaticamente para a Azure
 > * Limpar os recursos
 
-Consulte [o seu pipeline de implantação contínua em várias fases (CD)](/azure/devops/pipelines/release/define-multistage-release-process?view=azure-devops&viewFallbackFrom=vsts) para obter mais informações e próximos passos.
+Consulte [o seu pipeline de implantação contínua em várias fases (CD)](/azure/devops/pipelines/release/define-multistage-release-process) para obter mais informações e próximos passos.

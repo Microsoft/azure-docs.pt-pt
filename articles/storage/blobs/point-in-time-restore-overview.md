@@ -10,12 +10,12 @@ ms.date: 03/03/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 4e6dac1ab7350caeb29e23b21eace433568b38ea
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: da869091fb1f7bf31a29ba1bc6db8c1c42254dc4
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102031638"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102618088"
 ---
 # <a name="point-in-time-restore-for-block-blobs"></a>Restauro pontual para bolhas de bloco
 
@@ -47,7 +47,7 @@ A operação **Restore Blob Ranges** devolve um ID de restauro que identifica ex
 > As operações de leitura a partir do local secundário podem prosseguir durante a operação de restauro se a conta de armazenamento for geo-replicada.
 
 > [!CAUTION]
-> O ponto-a-tempo restaura os suportes de restauração apenas em blobs de blocos. As operações em contentores não podem ser restauradas. Se eliminar um recipiente da conta de armazenamento chamando a operação [do Recipiente delete,](/rest/api/storageservices/delete-container) esse recipiente não pode ser restaurado com uma operação de restauro. Em vez de eliminar um recipiente inteiro, elimine as bolhas individuais se desejar restaurá-las mais tarde.
+> Suportes de restauração pontual restauradores contra operações que atuavam apenas em blocos. As operações que funcionaram em contentores não podem ser restauradas. Por exemplo, se eliminar um recipiente da conta de armazenamento chamando a operação [do Recipiente de Eliminação,](/rest/api/storageservices/delete-container) esse recipiente não pode ser restaurado com uma operação de restauro pontual. Em vez de eliminar um recipiente inteiro, elimine as bolhas individuais se desejar restaurá-las mais tarde.
 
 ### <a name="prerequisites-for-point-in-time-restore"></a>Pré-requisitos para restauro pontual
 

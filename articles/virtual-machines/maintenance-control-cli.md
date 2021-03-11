@@ -3,16 +3,17 @@ title: Controlo de manutenção para máquinas virtuais Azure usando CLI
 description: Saiba como controlar quando a manutenção é aplicada aos seus VMs Azure utilizando o controlo de manutenção e o CLI.
 author: cynthn
 ms.service: virtual-machines
+ms.subservice: maintenance-control
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 11/20/2020
 ms.author: cynthn
-ms.openlocfilehash: d94cd649df9da6b36ac484d4fc1e6acef7a21bb7
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 9425759de1e08bc83cac80cd1b56c602edb59fb1
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95026170"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102562967"
 ---
 # <a name="control-updates-with-maintenance-control-and-the-azure-cli"></a>Atualizações de controlo com o Controlo de Manutenção e o CLI Azure
 
@@ -278,5 +279,5 @@ az maintenance configuration delete \
    --resource-name myConfig
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para saber mais, consulte [Manutenção e atualizações.](maintenance-and-updates.md)

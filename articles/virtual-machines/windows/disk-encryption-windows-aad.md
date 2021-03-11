@@ -3,17 +3,18 @@ title: Encriptação do disco Azure com Azure AD para VMs do Windows (versão an
 description: Este artigo fornece instruções para permitir a encriptação do disco do Microsoft Azure para o Windows IaaS VMs.
 author: msmbaldwin
 ms.service: virtual-machines
-ms.subservice: security
+ms.subservice: disks
+ms.collection: windows
 ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 352c8848b98bfb463c03ceea89ebe3f4b6ad6d5b
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 3b7f6f63953ba09e57e4586c698e16b9abb8aa1c
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92742433"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102555283"
 ---
 # <a name="azure-disk-encryption-with-azure-ad-for-windows-vms-previous-release"></a>Encriptação do disco Azure com Azure AD para VMs do Windows (versão anterior)
 
@@ -31,7 +32,7 @@ Pode ativar muitos cenários de encriptação de discos, e os passos podem varia
 ## <a name="enable-encryption-on-new-iaas-vms-created-from-the-marketplace"></a>Ativar encriptação em novos IaaS VMs criados a partir do Marketplace
 Pode ativar a encriptação do disco em novo IaaS Windows VM a partir do Marketplace in Azure utilizando um modelo de Gestor de Recursos. O modelo cria um novo VM encriptado do Windows utilizando a imagem da galeria Windows Server 2012.
 
-1. No [modelo de Gestor de Recursos,](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-new-vm-gallery-image)clique em **Implementar para Azure** .
+1. No [modelo de Gestor de Recursos,](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-new-vm-gallery-image)clique em **Implementar para Azure**.
 
 2. Selecione a subscrição, grupo de recursos, localização do grupo de recursos, parâmetros, termos legais e acordo. Clique **em Comprar** para implementar um novo IaaS VM onde a encriptação está ativada.
 
@@ -156,7 +157,7 @@ Utilize a [encriptação az vm ativar](/cli/azure/vm/encryption#az-vm-encryption
 Pode ativar a encriptação do disco em VMs do IaaS Windows existente ou em execução, utilizando o [modelo de Gestor de Recursos para encriptar um VM do Windows em execução](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm).
 
 
-1. No modelo de arranque rápido Azure, clique em **Implementar para Azure** .
+1. No modelo de arranque rápido Azure, clique em **Implementar para Azure**.
 
 2. Selecione a subscrição, grupo de recursos, localização do grupo de recursos, parâmetros, termos legais e acordo. Clique em **Comprar** para ativar a encriptação no IaaS VM existente ou em execução.
 
@@ -181,7 +182,7 @@ Utilize as instruções no apêndice para preparar imagens pré-encriptadas que 
 * [Preparar um Windows VHD pré-encriptado](disk-encryption-sample-scripts.md#prepare-a-pre-encrypted-windows-vhd)
 
 
-### <a name="encrypt-vms-with-pre-encrypted-vhds-with-azure-powershell"></a><a name="bkmk_VHDprePSH"> </a> Criptografe VMs com VHDs pré-encriptados com Azure PowerShell
+### <a name="encrypt-vms-with-pre-encrypted-vhds-with-azure-powershell"></a><a name="bkmk_VHDprePSH"></a> Criptografe VMs com VHDs pré-encriptados com Azure PowerShell
 Pode ativar a encriptação do disco no seu VHD encriptado utilizando o [Conjunto de Cmdlet PowerShell Set-AzVMOSDisk](/powershell/module/az.compute/set-azvmosdisk#examples). O exemplo abaixo dá-lhe alguns parâmetros comuns. 
 
 ```powershell

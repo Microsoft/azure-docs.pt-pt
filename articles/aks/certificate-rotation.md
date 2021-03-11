@@ -4,12 +4,12 @@ description: Saiba como rodar os seus certificados num cluster Azure Kubernetes 
 services: container-service
 ms.topic: article
 ms.date: 11/15/2019
-ms.openlocfilehash: 1871a8deed4d189534915a9b46b6ace071c1126c
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: fa26762c54ad54835b174b8d814a2e77cb38b885
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102181776"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102619040"
 ---
 # <a name="rotate-certificates-in-azure-kubernetes-service-aks"></a>Rotate certificados no Serviço Azure Kubernetes (AKS)
 
@@ -28,8 +28,6 @@ A AKS gera e utiliza os seguintes certificados, Autoridades certificados e Conta
 * O servidor AKS API cria uma Autoridade de Certificados (CA) chamada Cluster CA.
 * O servidor API tem um Cluster CA, que assina certificados para comunicação unidirecional do servidor API a kubelets.
 * Cada kubelet também cria um Pedido de Assinatura de Certificado (CSR), que é assinado pelo Cluster CA, para comunicação do kubelet para o servidor API.
-* A loja de valores-chave etcd tem um certificado assinado pelo Cluster CA para comunicação de etcd para o servidor API.
-* A loja de valores-chave etcd cria um CA que assina certificados para autenticar e autorizar a replicação de dados entre réplicas etcd no cluster AKS.
 * O agregador API utiliza o Cluster CA para emitir certificados de comunicação com outras APIs. O agregador API também pode ter o seu próprio CA para a emissão desses certificados, mas atualmente utiliza o Cluster CA.
 * Cada nó utiliza um token de Conta de Serviço (SA), que é assinado pelo Cluster CA.
 * O `kubectl` cliente tem um certificado de comunicação com o cluster AKS.

@@ -2,17 +2,18 @@
 title: Expandir discos rígidos virtuais num Linux VM
 description: Aprenda a expandir discos rígidos virtuais num Linux VM com o Azure CLI.
 author: roygara
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.topic: how-to
 ms.date: 10/15/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: d1d433c7db36a3f4fe5f528b7fbd17549bc08e4a
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 72778c431c561f5345dde3d6803e814d6fdebfba
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98791498"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102549129"
 ---
 # <a name="expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>Expandir discos rígidos virtuais num Linux VM com o Azure CLI
 
@@ -140,6 +141,6 @@ Para utilizar um disco expandido, expanda a partição subjacente e o sistema de
     /dev/sdc1        197G   60M   187G   1% /datadrive
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Se precisar de armazenamento adicional, também pode [adicionar discos de dados a um Linux VM](add-disk.md). 
 * Para obter mais informações sobre encriptação de disco, consulte [Azure Disk Encryption para Linux VMs](disk-encryption-overview.md).

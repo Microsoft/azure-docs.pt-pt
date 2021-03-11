@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 09/14/2020
 ms.author: dylankil
 ms.custom: devx-track-js
-ms.openlocfilehash: e29aff97d510dfed178e32aa319e5cb51ae9786c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: fa28d5779c05af615479e3143713badb7842f6c6
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91376620"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102619263"
 ---
 [O Immersive Reader](https://www.onenote.com/learningtools) é uma ferramenta inclusivamente concebida que implementa técnicas comprovadas para melhorar a compreensão da leitura para novos leitores, aprendizes de línguas e pessoas com diferenças de aprendizagem como a dislexia. Pode utilizar o Leitor Imersivo nas suas aplicações para isolar texto para melhorar o foco, exibir imagens para palavras comumente usadas, destacar partes da fala, ler texto selecionado em voz alta, traduzir palavras e frases em tempo real, e muito mais.
 
@@ -36,13 +36,13 @@ Inicie um novo projeto no Android Studio. O código-fonte para este exemplo est�
 
 ![Novo projeto - Kotlin](../../media/android/kotlin/android-studio-create-project.png)
 
-Na janela Escolha a **janela do projeto,** selecione **Atividade Vazia**e, em seguida, selecione **Seguinte**.
+Na janela Escolha a **janela do projeto,** selecione **Atividade Vazia** e, em seguida, selecione **Seguinte**.
 
 ![Projeto atividade vazia - Kotlin](../../media/android/kotlin/android-studio-empty-activity.png)
 
 ## <a name="configure-the-project"></a>Configurar o projeto
 
-Nomeie o projeto **QuickstartKotlin**e selecione um local para o salvar. Selecione **Kotlin** como a linguagem de programação e, em seguida, **selecione Terminar**.
+Nomeie o projeto **QuickstartKotlin** e selecione um local para o salvar. Selecione **Kotlin** como a linguagem de programação e, em seguida, **selecione Terminar**.
 
 ![Configure o projeto - Kotlin](../../media/android/kotlin/android-studio-configure-project.png)
 
@@ -613,4 +613,5 @@ Utilize o Android Studio para executar a aplicação num emulador de dispositivo
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Explore a [referência Imersiva SDK](https://github.com/microsoft/immersive-reader-sdk) do leitor e a [referência SDK do leitor imersivo](../../reference.md).
+> [!div class="nextstepaction"]
+> [Criar um recurso e configurar a AAD](../../how-to-create-immersive-reader.md)

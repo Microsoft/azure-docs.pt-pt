@@ -2,7 +2,7 @@
 title: Tutorial – Gerir discos do Azure com o Azure PowerShell
 description: Neste tutorial, vai aprender a utilizar o Azure PowerShell para criar e gerir discos do Azure para máquinas virtuais
 author: cynthn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.subservice: disks
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
@@ -10,12 +10,12 @@ ms.workload: infrastructure
 ms.date: 11/29/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 8ddc94301ae8954fb0a35827ebd21e090c9dfe89
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: a61d7425a7a907230008ab1d4f15a836150e1518
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98734702"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102549061"
 ---
 # <a name="tutorial---manage-azure-disks-with-azure-powershell"></a>Tutorial – Gerir discos do Azure com o Azure PowerShell
 
@@ -158,7 +158,7 @@ VirtualHardDisk :
 ```
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, aprendeu sobre os tópicos de discos de VM, como:
 

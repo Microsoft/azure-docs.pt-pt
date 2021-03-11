@@ -3,18 +3,18 @@ title: Criar uma Galeria de Imagens Partilhada com Azure PowerShell
 description: Saiba como usar a Azure PowerShell para criar uma Galeria de Imagens Partilhada em Azure
 author: cynthn
 ms.service: virtual-machines
-ms.subservice: imaging
+ms.subservice: shared-image-gallery
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: f36b1d75dc167faf555d9af4e3aabd5d83db264a
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 877439ddba6ffaf2fd060c29f28c25c18694605d
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98882319"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102555572"
 ---
 # <a name="create-a-shared-image-gallery-with-azure-powershell"></a>Criar uma galeria de imagens partilhada com a Azure PowerShell 
 
@@ -32,7 +32,7 @@ A funcionalidade Image Gallery partilhada tem vários tipos de recursos.
 [!INCLUDE [virtual-machines-common-shared-images-powershell](../../includes/virtual-machines-common-shared-images-powershell.md)]
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Crie uma imagem a partir de um [VM,](image-version-vm-powershell.md)uma [imagem gerida,](image-version-managed-image-powershell.md)ou uma [imagem noutra galeria.](image-version-another-gallery-powershell.md)
 

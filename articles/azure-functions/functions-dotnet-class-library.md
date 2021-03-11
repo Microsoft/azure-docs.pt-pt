@@ -1,17 +1,17 @@
 ---
-title: Desenvolver funções C# utilizando funções Azure
-description: Entenda como usar O C# para desenvolver e publicar código que executa em processo com o tempo de funcionamento das Funções Azure.
+title: Desenvolver funções de biblioteca de classes C# usando Funções Azure
+description: Entenda como usar o C# para desenvolver e publicar código como bibliotecas de classe que funciona em processo com o tempo de funcionamento das Funções Azure.
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 07/24/2020
-ms.openlocfilehash: 748b4a2a6af1c0183e28af8da732bc90531bee29
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: c7d14599ec1ebbcb94e0c0f3985a3b857f9353dc
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102428418"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102563885"
 ---
-# <a name="develop-c-functions-using-azure-functions"></a>Desenvolver funções C# utilizando funções Azure
+# <a name="develop-c-class-library-functions-using-azure-functions"></a>Desenvolver funções de biblioteca de classes C# usando Funções Azure
 
 <!-- When updating this article, make corresponding changes to any duplicate content in functions-reference-csharp.md -->
 

@@ -7,19 +7,19 @@ author: tamram
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.date: 01/13/2021
+ms.date: 03/01/2021
 ms.author: tamram
 ms.custom: security-recommendations
-ms.openlocfilehash: 5653b59ed29495334079e932fb305fd4ba10475c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 40067815ad582191606ad5a53cf06c9584d83350
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100592352"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102618020"
 ---
 # <a name="security-recommendations-for-blob-storage"></a>Recomendações de segurança para armazenamento blob
 
-Este artigo contém recomendações de segurança para armazenamento blob. A implementação destas recomendações irá ajudá-lo a cumprir as suas obrigações de segurança, conforme descrito no nosso modelo de responsabilidade partilhada. Para obter mais informações sobre como a Microsoft cumpre as responsabilidades do prestador de serviços, leia [responsabilidades partilhadas na computação em nuvem.](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91/file/225366/1/Shared%20Responsibility%20for%20Cloud%20Computing-2019-10-25.pdf)
+Este artigo contém recomendações de segurança para armazenamento blob. A implementação destas recomendações irá ajudá-lo a cumprir as suas obrigações de segurança, conforme descrito no nosso modelo de responsabilidade partilhada. Para obter mais informações sobre como a Microsoft cumpre as responsabilidades do prestador de serviços, consulte [responsabilidade partilhada na nuvem.](/azure/security/fundamentals/shared-responsibility)
 
 Algumas das recomendações incluídas neste artigo podem ser monitorizadas automaticamente pelo Azure Security Center. O Centro de Segurança Azure é a primeira linha de defesa na proteção dos seus recursos em Azure. Para obter informações sobre o Centro de Segurança Azure, consulte o [Centro de Segurança Azure?](../../security-center/security-center-introduction.md)
 
@@ -33,7 +33,7 @@ O Azure Security Center analisa periodicamente o estado de segurança dos seus r
 | Ativar o Azure Defender para todas as suas contas de armazenamento | O Azure Defender for Azure Storage fornece uma camada adicional de inteligência de segurança que deteta tentativas incomuns e potencialmente nocivas de aceder ou explorar contas de armazenamento. Os alertas de segurança são desencadeados no Centro de Segurança do Azure quando ocorrem anomalias na atividade e são também enviados por e-mail para administradores de subscrição, com detalhes de atividades suspeitas e recomendações sobre como investigar e remediar ameaças. Para mais informações, consulte [o Configure Azure Defender para armazenamento Azure](../common/azure-defender-storage-configure.md). | [Sim](../../security-center/security-center-remediate-recommendations.md) |
 | Ativar a eliminação recuperável para blobs | A eliminação suave para bolhas permite-lhe recuperar dados de bolhas depois de ter sido eliminado. Para obter mais informações sobre a eliminação suave para bolhas, consulte [Soft delete para blobs de armazenamento Azure](./soft-delete-blob-overview.md). | - |
 | Ligue a eliminação suave para recipientes | A eliminação suave para recipientes permite-lhe recuperar um recipiente depois de ter sido eliminado. Para obter mais informações sobre a eliminação suave dos recipientes, consulte [a eliminação suave para recipientes (pré-visualização)](./soft-delete-container-overview.md). | - |
-| Bloquear conta de armazenamento para evitar a eliminação acidental de conta | Pode bloquear os recursos de Azure Resource Manager, como uma subscrição, grupo de recursos ou conta de armazenamento, para evitar que outros utilizadores da sua organização o apaguem ou modifiquem acidentalmente. O bloqueio de uma conta de armazenamento não impede que os dados dentro dessa conta sejam eliminados. Só impede que a própria conta seja apagada. Para obter mais informações, consulte [os recursos de bloqueio para evitar alterações inesperadas](../../azure-resource-manager/management/lock-resources.md).
+| Bloquear conta de armazenamento para evitar alterações acidentais ou maliciosas ou de configuração | Aplique um bloqueio do Azure Resource Manager na sua conta de armazenamento para proteger a conta de uma alteração acidental ou maliciosa ou de configuração. O bloqueio de uma conta de armazenamento não impede que os dados dentro dessa conta sejam eliminados. Só impede que a própria conta seja apagada. Para obter mais informações, consulte [aplicar um bloqueio do Gestor de Recursos Azure numa conta de armazenamento.](../common/lock-account-resource.md)
 | Armazenar dados críticos do negócio em bolhas imutáveis | Configure as políticas legais de retenção e as políticas de retenção baseadas no tempo para armazenar dados blob num estado WORM (Write Once, Read Many). As bolhas armazenadas imutavelmente podem ser lidas, mas não podem ser modificadas ou eliminadas durante o intervalo de retenção. Para obter mais informações, consulte [os dados de blob críticos de negócio da Loja com armazenamento imutável](storage-blob-immutable-storage.md). | - |
 | Exigir transferência segura (HTTPS) para a conta de armazenamento | Quando necessitar de transferência segura para uma conta de armazenamento, todos os pedidos para a conta de armazenamento devem ser feitos em HTTPS. Quaisquer pedidos feitos sobre HTTP são rejeitados. A Microsoft recomenda que necessite sempre de transferência segura para todas as suas contas de armazenamento. Para obter mais informações, consulte [Exigir uma transferência segura para garantir ligações seguras](../common/storage-require-secure-transfer.md). | - |
 | Limite a assinatura de acesso partilhado (SAS) apenas às ligações HTTPS | Exigir HTTPS quando um cliente usa um token SAS para aceder a dados blob ajuda a minimizar o risco de escutas. Para obter mais informações, consulte [Grant acesso limitado aos recursos de Armazenamento Azure usando assinaturas de acesso partilhado (SAS)](../common/storage-sas-overview.md). | - |

@@ -2,17 +2,17 @@
 title: Faça login num Linux VM com credenciais de Diretório Ativo Azure
 description: Aprenda a criar e configurar um Linux VM para iniciar sessão com a autenticação do Azure Ative Directory.
 author: SanDeo-MSFT
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 11/17/2020
 ms.author: sandeo
-ms.openlocfilehash: 3e50b6209c7790853158a1d2be2f42d625b6753b
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 44dfd07a5b749d88552bb1dcac2ee4b4e5ce65e4
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98882132"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102565245"
 ---
 # <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>Pré-visualização: Inicie sessão numa máquina virtual Linux em Azure utilizando a autenticação do Azure Ative Directory
 
@@ -219,6 +219,6 @@ Os utilizadores que herdam os direitos de acesso através de grupos aninhados ou
 
 Partilhe o seu feedback sobre este recurso de pré-visualização ou reporte problemas que o utilizem no fórum de feedback da [AD Azure](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para mais informações sobre o Diretório Ativo Azure, consulte [o que é o Diretório Ativo Azure](../../active-directory/fundamentals/active-directory-whatis.md)

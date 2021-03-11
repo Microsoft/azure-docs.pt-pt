@@ -8,12 +8,12 @@ ms.author: tagore
 author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: a8f06ce08c0df4cc86afe6fbbe7eb12fd866e61c
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 39fe439e37b1af4e833396ef83205729af8c7ad3
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98743275"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102610421"
 ---
 # <a name="use-an-azure-powershell-command-to-create-an-empty-cloud-service-classic-container"></a>Use um comando Azure PowerShell para criar um recipiente de serviço de nuvem vazio (clássico)
 
@@ -24,7 +24,7 @@ Este artigo explica como criar rapidamente um recipiente cloud Services usando c
 
 1. Instale o cmdlet Microsoft Azure PowerShell a partir da página [de descarregamentos Azure PowerShell.](https://aka.ms/webpi-azps)
 2. Abra o pedido de comando PowerShell.
-3. Utilize o [Add-AzureAccount](/powershell/module/servicemanagement/azure.service/add-azureaccount?view=azuresmps-4.0.0&preserve-view=true) para iniciar sação.
+3. Utilize o [Add-AzureAccount](/powershell/module/servicemanagement/azure.service/add-azureaccount) para iniciar sação.
 
    > [!NOTE]
    > Para obter mais instruções sobre a instalação do cmdlet Azure PowerShell e a ligação à sua subscrição Azure, consulte como [instalar e configurar a Azure PowerShell](/powershell/azure/).
@@ -49,7 +49,7 @@ Para obter mais informações sobre a criação do serviço de nuvem Azure, corr
 Get-help New-AzureService
 ```
 
-### <a name="next-steps"></a>Próximos passos
+### <a name="next-steps"></a>Passos seguintes
 
-* Para gerir a implementação do serviço de nuvem, consulte os comandos [Get-AzureService](/powershell/module/servicemanagement/azure.service/Get-AzureService?view=azuresmps-4.0.0&preserve-view=true), [Remove-AzureService](/powershell/module/servicemanagement/azure.service/Remove-AzureService?view=azuresmps-4.0.0&preserve-view=true)e [Set-AzureService.](/powershell/module/servicemanagement/azure.service/set-azureservice?view=azuresmps-4.0.0&preserve-view=true) Também pode consultar como [configurar serviços na nuvem](cloud-services-how-to-configure-portal.md) para mais informações.
+* Para gerir a implementação do serviço de nuvem, consulte os comandos [Get-AzureService](/powershell/module/servicemanagement/azure.service/Get-AzureService), [Remove-AzureService](/powershell/module/servicemanagement/azure.service/Remove-AzureService)e [Set-AzureService.](/powershell/module/servicemanagement/azure.service/set-azureservice) Também pode consultar como [configurar serviços na nuvem](cloud-services-how-to-configure-portal.md) para mais informações.
 * Para publicar o seu projeto de serviço na nuvem ao Azure, consulte a amostra de código  **PublishCloudService.ps1** do [repositório](https://github.com/MicrosoftDocs/azure-cloud-services-files/tree/master/Scripts/cloud-services-continuous-delivery)de serviços de nuvem arquivado .

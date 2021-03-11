@@ -1,19 +1,19 @@
 ---
-title: Criar um serviço de ligação privada em Azure Private Link
+title: 'Quickstart: Criar um serviço de ligação privada em Azure Private Link'
 description: Neste arranque rápido, você usa um modelo de Gestor de Recursos Azure (modelo ARM) para criar um serviço de ligação privada.
 services: private-link
-author: mblanco77
+author: asudbring
 ms.service: private-link
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 05/29/2020
 ms.author: allensu
-ms.openlocfilehash: dce80d70af7cd711cf852a60b98ad65b6d21117f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 34993ad3d3d0494f89bd264a8b7194f52129ad7c
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88705253"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102555062"
 ---
 # <a name="quickstart-create-a-private-link-service-by-using-an-arm-template"></a>Quickstart: Criar um serviço de ligação privada usando um modelo ARM
 
@@ -100,7 +100,7 @@ Aqui está como ligar ao serviço http a partir do VM usando o ponto final priva
 2.  Abra um browser e insira o endereço de ponto final privado: `http://10.0.0.5/` .
 3.  A página IIS predefinida aparece.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não precisar dos recursos que criou com o serviço de ligação privada, elimine o grupo de recursos. Isto remove o serviço de ligação privada e todos os recursos conexos.
 
@@ -112,4 +112,7 @@ Remove-AzResourceGroup -Name <your resource group name>
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre [o Azure Private Link](private-link-overview.md).
+
+Para obter mais informações sobre os serviços que suportam um ponto final privado, consulte:
+> [!div class="nextstepaction"]
+> [Disponibilidade de Ligação Privada](private-link-overview.md#availability)

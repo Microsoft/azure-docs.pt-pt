@@ -2,17 +2,18 @@
 title: Migrar os seus VMs Linux para Azure Premium Storage com recuperação do local de Azure
 description: Migrar as suas máquinas virtuais existentes para o Azure Premium Storage utilizando a Recuperação do Site. O Premium Storage oferece suporte a discos de alto desempenho e baixa latência para cargas de trabalho intensivas em I/O em funcionamento em Máquinas Virtuais Azure.
 author: luywang
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.topic: how-to
 ms.date: 08/15/2017
 ms.author: luywang
 ms.subservice: disks
-ms.openlocfilehash: 5f8f72ec296be3127a2f8c1ddc87d883d7e2deed
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 8a03637352762646b0f209263769dbdb1ff14b21
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102504580"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102562627"
 ---
 # <a name="use-site-recovery-to-migrate-to-premium-storage"></a>Use a recuperação do site para migrar para o armazenamento premium
 

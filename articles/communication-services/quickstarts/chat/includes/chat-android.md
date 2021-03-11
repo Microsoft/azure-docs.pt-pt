@@ -10,12 +10,12 @@ ms.date: 2/16/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 021abce5c6cd83257ad65f529833848d8f14f534
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 7472e899c0ef6c87b19c7bb94bce5f754247c627
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101750101"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102623210"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar, certifique-se de:
@@ -39,11 +39,11 @@ Antes de começar, certifique-se de:
 Usaremos Gradle para instalar as dependências necessárias dos Serviços de Comunicação. A partir da linha de comando, navegue dentro do diretório de raiz do `ChatQuickstart` projeto. Abra o ficheiro build.gradle da aplicação e adicione as seguintes dependências ao `ChatQuickstart` alvo:
 
 ```
-implementation 'com.azure.android:azure-communication-common:1.0.0-beta.6'
-implementation 'com.azure.android:azure-communication-chat:1.0.0-beta.6'
+implementation 'com.azure.android:azure-communication-common:1.0.0-beta.7'
+implementation 'com.azure.android:azure-communication-chat:1.0.0-beta.7'
 ```
 
-#### <a name="exclude-meta-files-in-packaging-options"></a>Excluir meta-ficheiros nas opções de embalagem
+#### <a name="exclude-meta-files-in-packaging-options-in-root-buildgradle"></a>Excluir os ficheiros de meta nas opções de embalagem em root build.gradle
 ```
 android {
    ...
@@ -61,6 +61,17 @@ android {
 }
 ```
 
+#### <a name="add-a-maven-resource-in-root-buildgradle"></a>Adicione um recurso maven em root build.gradle
+```
+allprojects {
+    repositories {
+        ...
+        maven {
+            url 'https://trouterpublicpackages.z13.web.core.windows.net'
+        }
+    }
+```
+
 Clique em 'sync now' no Android Studio.
 
 #### <a name="alternative-to-install-libraries-through-maven"></a>(Alternativa) Para instalar bibliotecas através de Maven
@@ -70,7 +81,7 @@ Para importar a biblioteca para o seu projeto utilizando o sistema de construç�
 <dependency>
   <groupId>com.azure.android</groupId>
   <artifactId>azure-communication-chat</artifactId>
-  <version>1.0.0-beta.6</version>
+  <version>1.0.0-beta.7</version>
 </dependency>
 ```
 
@@ -90,7 +101,7 @@ Copie o seguinte código no `MainActivity` ficheiro:
     private String second_user_id = "<second_user_id>";
     private String threadId = "<thread_id>";
     private String chatMessageId = "<chat_message_id>";
-    private final String sdkVersion = "1.0.0-beta.6";
+    private final String sdkVersion = "1.0.0-beta.7";
     private static final String SDK_NAME = "azure-communication-com.azure.android.communication.chat";
     private static final String TAG = "--------------Chat Quickstart App-------------";
 
@@ -177,7 +188,7 @@ String id = "<user_id>";
 // The display name for the thread participant.
 String displayName = "initial participant";
 participants.add(new ChatParticipant()
-        .setId(id)
+        .setCommunicationIdentifier(new CommunicationIdentifierModel().setCommunicationUser(new CommunicationUserIdentifierModel().setId(id)))
         .setDisplayName(displayName)
 );
 
@@ -268,7 +279,10 @@ Substitua o comentário `<ADD A USER>` pelo código seguinte:
 participants = new ArrayList<>();
 // The display name for the thread participant.
 displayName = "a new participant";
-participants.add(new ChatParticipant().setId(second_user_id).setDisplayName(secondUserDisplayName));
+participants.add(new ChatParticipant().setCommunicationIdentifier(
+          new CommunicationIdentifierModel().setCommunicationUser(
+              new CommunicationUserIdentifierModel().setId(second_user_id)
+          )).setDisplayName(secondUserDisplayName));
 // The model to pass to the add method.
 AddChatParticipantsRequest addParticipantsRequest = new AddChatParticipantsRequest()
   .setParticipants(participants);
@@ -376,7 +390,8 @@ Certifique-se de que `<second_user_id>` substitui um ID de utilizador válido, r
 Substitua o comentário `<REMOVE A USER>` pelo código seguinte:
 
 ```java
-threadClient.removeChatParticipant(threadId, second_user_id, new Callback<Void>() {
+CommunicationIdentifierModel communicationIdentifierModel = new CommunicationIdentifierModel().setCommunicationUser(new CommunicationUserIdentifierModel().setId(second_user_id));
+threadClient.removeChatParticipant(threadId, communicationIdentifierModel, new Callback<Void>() {
     @Override
     public void onSuccess(Void result, okhttp3.Response response) {
         // Take further action.

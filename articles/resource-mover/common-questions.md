@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: evansma
 ms.service: resource-move
 ms.topic: conceptual
-ms.date: 02/04/2021
+ms.date: 02/21/2021
 ms.author: raynew
-ms.openlocfilehash: a75cd3c5dbf205f49aa606bfe96623a61bce39db
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.openlocfilehash: e900250aea84b4a9c9112fa54632a2be8b9cb49c
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100007061"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102564276"
 ---
 # <a name="common-questions"></a>Perguntas comuns
 
@@ -24,6 +24,15 @@ Este artigo responde a perguntas comuns sobre [a Azure Resource Mover](overview.
 ### <a name="can-i-move-resources-across-any-regions"></a>Posso mover recursos em qualquer região?
 
 Atualmente, pode mover recursos de qualquer região pública de origem para qualquer região pública alvo, dependendo dos [tipos de recursos disponíveis nessa região.](https://azure.microsoft.com/global-infrastructure/services/) A movimentação de recursos nas regiões do Governo de Azure não é atualmente apoiada.
+
+### <a name="what-regions-are-currently-supported"></a>Quais as regiões atualmente apoiadas?
+
+A Azure Resource Mover está atualmente disponível da seguinte forma:
+
+**Suporte** | **Detalhes**
+--- | ---
+Suporte para movimentação | Os recursos azure que são apoiados para a mudança com o Resource Mover podem ser transferidos de qualquer região pública para outra região pública.
+Suporte de metadados |  As regiões apoiadas para armazenar metadados sobre máquinas a mover incluem OSD2 Oriental, Norte da Europa, Sudeste Asiático, Japão Oriental, Reino Unido Sul e Austrália Leste como regiões de metadados. <br/><br/> A movimentação de recursos na região da China Azure também é apoiada na região de metadados China North2.
 
 ### <a name="what-resources-can-i-move-across-regions-using-resource-mover"></a>Que recursos posso deslocar-me através de regiões utilizando o Resource Mover?
 
@@ -42,17 +51,16 @@ Utilizando o Resource Mover, pode atualmente mover os seguintes recursos atravé
 
 Não se pode selecionar discos como recursos para as regiões movidas. No entanto, os discos são movidos como parte de um movimento VM.
 
-### <a name="what-does-it-mean-to-move-a-resource-group"></a>O que significa mover um Grupo de Recursos?
+### <a name="what-does-it-mean-to-move-a-resource-group"></a>O que significa mover um grupo de recursos?
 
-Quando um recurso é selecionado para movimento, o grupo de recursos correspondente é automaticamente adicionado para movimento. Isto é necessário, uma vez que o recurso de destino terá de ser colocado sob um Grupo de Recursos como estava no alvo. Pode optar por personalizar e fornecer um Grupo de Recursos exsitante, uma vez que este seja adicionado para movimento. Note que a deslocação de um Grupo de Recursos **não** significa que todos os recursos do Grupo de Recursos de origem sejam transferidos.
+Quando um recurso é selecionado para movimento, o grupo de recursos correspondente é adicionado automaticamente para se mover. Isto é para que o recurso de destino possa ser colocado num grupo de recursos. Pode optar por personalizar e fornecer um grupo de recursos existente, depois de ser adicionado para movimento. Mover um grupo de recursos não significa que todos os recursos do grupo de recursos de origem serão transferidos.
 
 ### <a name="can-i-move-resources-across-subscriptions-when-i-move-them-across-regions"></a>Posso mover recursos através de assinaturas quando os deslocar através de regiões?
 
 Pode alterar a subscrição depois de transferir recursos para a região de destino. [Saiba mais](../azure-resource-manager/management/move-resource-group-and-subscription.md) sobre a mudança de recursos para uma subscrição diferente. 
 
-### <a name="does-azure-resource-move-service-store-customer-data"></a>O serviço Azure Resource Move armazena os dados do cliente? 
-N.º O serviço Resource Move não armazena dados do cliente, apenas armazena informações de metadados que facilitam o rastreio e o progresso dos recursos selecionados para a mudança, pelo cliente.
-
+### <a name="does-azure-resource-mover-store-customer-data"></a>A Azure Resource Mover armazena os dados dos clientes? 
+N.º O serviço Demendete de Recursos não armazena dados do cliente, apenas armazena informações de metadados que facilitam o rastreio e o progresso dos recursos que movimenta.
 
 ### <a name="where-is-the-metadata-for-moving-across-regions-stored"></a>Onde estão os metadados para se deslocarem através das regiões armazenadas?
 
@@ -85,13 +93,15 @@ Quando adiciona recursos no hub do Resource Mover no portal, as permissões são
 > [!IMPORTANT]
 > Recomendamos vivamente que não modifique ou remova atribuições de funções de identidade. 
 
-### <a name="what-should-i-do-if-i-dont-have-permissions-to-assign-role-identity"></a>O que devo fazer se não tiver permissões para atribuir identidade de papel?
+### <a name="what-if-i-dont-have-permissions-to-assign-role-identity"></a>E se eu não tiver permissões para atribuir identidade de papel?
+
+Há algumas razões para não ter permissões.
 
 **Causa possível** | **Recomendação**
 --- | ---
 Não é administrador *de contribuinte* e de acesso ao *utilizador* (ou *Proprietário)* quando adiciona um recurso pela primeira vez. | Utilize uma conta com *permissões de Contribuinte* e *User Access (ou* *Proprietário)* para a subscrição.
 A identidade gerida pela Resource Mover não tem o papel necessário. | Adicione as funções de "Contribuinte" e "Administrador de Acesso ao Utilizador".
-A identidade gerida pela Resource Mover foi reposta a *Nenhuma*. | Reenable uma identidade atribuída ao sistema na recolha de movimentos > **Identidade**. Em alternativa, adicione novamente o recurso em **Recursos Adicionais,** o que faz a mesma coisa.  
+A identidade gerida pelo Resource Mover foi reposta a *Nenhum*. | Reenable uma identidade atribuída ao sistema nas definições de recolha de movimentos > **Identidade**. Em alternativa, em **Add Resources,** adicione novamente o recurso, que faz a mesma coisa.  
 A assinatura foi transferida para outro inquilino. | Desative e, em seguida, ative a identidade gerida para a recolha do movimento.
 
 ### <a name="how-can-i-do-multiple-moves-together"></a>Como posso fazer vários movimentos juntos?
@@ -100,7 +110,7 @@ Altere as combinações fonte/destino conforme necessário utilizando a opção 
 
 ### <a name="what-happens-when-i-remove-a-resource-from-a-list-of-move-resources"></a>O que acontece quando retiro um recurso de uma lista de recursos de movimento?
 
-Pode remover os recursos que adicionou para mover a lista. O comportamento quando remove um recurso da lista depende do estado do recurso. [Saiba mais](remove-move-resources.md#vm-resource-state-after-removing).
+Pode remover os recursos que adicionou para mover a lista. O comportamento exato da remoção depende do estado de recursos. [Saiba mais](remove-move-resources.md#vm-resource-state-after-removing).
 
 
 

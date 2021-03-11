@@ -1,30 +1,23 @@
 ---
 title: Extensão de máquina virtual do Agente do Observador de Rede do Azure para Windows
 description: Implemente o Agente observador de rede na máquina virtual do Windows utilizando uma extensão de máquina virtual.
-services: virtual-machines-windows
-documentationcenter: ''
-author: mimckitt
-manager: vashan
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 27e46af7-2150-45e8-b084-ba33de8c5e3f
-ms.service: virtual-machines-windows
-ms.subservice: extensions
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure-services
+ms.service: virtual-machines
+ms.subservice: extensions
+author: amjads1
+ms.author: amjads
+ms.collection: windows
 ms.date: 02/14/2017
-ms.author: mimckitt
-ms.openlocfilehash: 813fc7db2a028590797bef1c54fff20b231c3d7d
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: d336a39714712e5436086e22ad24fc942a7d850a
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965906"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102563545"
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-windows"></a>Extensão de máquina virtual do Agente observador de rede para Windows
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 [O Azure Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md) é um serviço de monitorização, diagnóstico e análise de desempenho de rede que permite a monitorização das redes Azure. A extensão da máquina virtual do Network Watcher Agent é um requisito para capturar o tráfego de rede a pedido, e outras funcionalidades avançadas em máquinas virtuais Azure.
 
@@ -65,7 +58,7 @@ O JSON seguinte mostra o esquema para a extensão do Agente observador de rede. 
 
 ### <a name="property-values"></a>Valores patrimoniais
 
-| Nome | Valor / Exemplo |
+| Name | Valor / Exemplo |
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
 | publicador | Microsoft.Azure.NetworkWatcher |
