@@ -2,18 +2,19 @@
 title: 'Quickstart: Use um modelo de Gestor de Recursos para criar um Ubuntu Linux VM'
 description: Neste arranque rápido, você aprende a usar um modelo de Gestor de Recursos para criar uma máquina virtual Linux
 author: cynthn
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.topic: quickstart
 ms.workload: infrastructure
 ms.date: 06/04/2020
 ms.author: cynthn
 ms.custom: subject-armqs
-ms.openlocfilehash: bd22d20703dc72e220f9b479b4a4005033f964ae
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 97a9d3632cb0e78b899844b1aaa84a030c6da23e
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88649776"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102549622"
 ---
 # <a name="quickstart-create-an-ubuntu-linux-virtual-machine-using-an-arm-template"></a>Quickstart: Criar uma máquina virtual Ubuntu Linux usando um modelo ARM
 
@@ -68,7 +69,7 @@ Vários recursos são definidos no modelo:
     - **Tamanho VM**: selecione o [tamanho](../sizes.md) a utilizar para o VM.
     - **Nome da rede virtual**: nome a utilizar para o vNet.
     - **Nome da sub-rede**: nome para a sub-rede que o VM deve utilizar.
-    - **Nome do grupo de segurança da**rede : nome para o NSG.
+    - **Nome do grupo de segurança da** rede : nome para o NSG.
 1. Selecione **Rever + criar**. Após a validação concluída, selecione **Criar** para criar e implementar o VM.
 
 
@@ -79,7 +80,7 @@ O portal do Azure é utilizado para implementar o modelo. Além do portal Azure,
 Pode utilizar o portal Azure para verificar o VM e outros recursos que foram criados. Depois de concluída a implementação, selecione **Ir ao grupo de recursos** para ver o VM e outros recursos.
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não for necessário, elimine o grupo de recursos, que elimina o VM e todos os recursos do grupo de recursos. 
 

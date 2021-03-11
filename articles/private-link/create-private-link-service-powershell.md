@@ -1,20 +1,20 @@
 ---
 title: 'Quickstart: Criar um serviço de ligação privada Azure utilizando a Azure PowerShell'
-description: Saiba como criar um serviço de ligação privada Azure utilizando a Azure PowerShell
+description: Neste quickstart, aprenda a criar um serviço de ligação privada Azure usando a Azure PowerShell
 services: private-link
 author: asudbring
 ms.service: private-link
 ms.topic: quickstart
 ms.date: 01/24/2021
 ms.author: allensu
-ms.openlocfilehash: 4780bc573796581438b8d331b1d1d9421a65414f
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 366be37135808a6d3d5cc1a277e2de3e3d6da8ae
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100653249"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102566407"
 ---
-# <a name="create-a-private-link-service-using-azure-powershell"></a>Criar um serviço de ligação privada utilizando a Azure PowerShell
+# <a name="quickstart-create-a-private-link-service-using-azure-powershell"></a>Quickstart: Criar um serviço de ligação privada utilizando a Azure PowerShell
 
 Começa a criar um serviço de Ligação Privada que se refere ao teu serviço.  Dê acesso ao Link Privado ao seu serviço ou recurso implantado atrás de um Equilibr de Carga Padrão Azure.  Os utilizadores do seu serviço têm acesso privado a partir da sua rede virtual.
 

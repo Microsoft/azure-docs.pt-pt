@@ -12,21 +12,21 @@ ms.date: 12/05/2019
 ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 117b4fec13c22ffb2f3163d50be44734d24ef3fa
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: aeff14e1676389eb2204cad45ea7b00d5aa9796b
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99259105"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102566656"
 ---
 # <a name="azure-ad-powershell-examples-for-azure-ad-application-proxy"></a>Exemplos de Azure AD PowerShell para Proxy de Aplicação AD AZure
 
-A tabela seguinte inclui links para exemplos de scripts PowerShell para Azure AD Application Proxy. Estas amostras requerem o [AzureAD V2 PowerShell para módulo Graph](/powershell/azure/active-directory/install-adv2) ou o [AzureAD V2 PowerShell para a versão de pré-visualização do módulo Graph](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview), salvo indicação em contrário.
+A tabela seguinte inclui links para exemplos de scripts PowerShell para Azure AD Application Proxy. Estas amostras requerem o [AzureAD V2 PowerShell para módulo Graph](/powershell/azure/active-directory/install-adv2) ou o [AzureAD V2 PowerShell para a versão de pré-visualização do módulo Graph](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview&preserve-view=true), salvo indicação em contrário.
 
 
 Para obter mais informações sobre os cmdlets utilizados nestas amostras, consulte [a Gestão de Aplicações Proxy Application e](/powershell/module/azuread/#application_proxy_application_management) a [Gestão do Conector de Aplicação Proxy.](/powershell/module/azuread/#application_proxy_connector_management)
 
-| Ligação | Descrição |
+| Ligação | Description |
 |---|---|
 |**Aplicativos Proxy de aplicação**||
 | [Listar informações básicas para todas as aplicações Proxy de aplicações](scripts/powershell-get-all-app-proxy-apps-basic.md) | Lista informações básicas (AppId, DisplayName, ObjId) sobre todas as aplicações Proxy de aplicação no seu diretório. |

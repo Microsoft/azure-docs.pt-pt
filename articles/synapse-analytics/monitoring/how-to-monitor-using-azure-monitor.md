@@ -9,12 +9,12 @@ ms.subservice: monitoring
 ms.date: 11/30/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: f801d25a0d0f70daaaac1ade3e8966cf5f53affc
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: ac5b1df5ff246623b73dbc41d18216396e6ed7ef
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101672757"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102549860"
 ---
 # <a name="use-azure-monitor-with-your-azure-synapse-analytics-workspace"></a>Use o Azure Monitor com o seu espaço de trabalho Azure Synapse Analytics
 
@@ -103,7 +103,7 @@ Inscreva-se no portal Azure e selecione   >  **Alertas de Monitorização** para
 
 Aqui estão os registos emitidos pela Azure Synapse Analytics espaços de trabalho:
 
-| Log Analytics nome da tabela | Nome da categoria de registo                 | Descrição |
+| Log Analytics nome da tabela | Nome da categoria de registo                 | Description |
 |-------------------------------|-------------------------------------------------|-------------|
 | SynapseGatewayApiReques     | GatewayApiRequests             | Pedidos de Azure Synapse gateway API. |
 | Operações De SinapseRbac         | Operações De SinapseRbac          | Operações de controlo de acesso baseado em funções (SRBAC) da Azure Synapse. |
@@ -112,7 +112,7 @@ Aqui estão os registos emitidos pela Azure Synapse Analytics espaços de trabal
 
 Aqui estão os registos emitidos por piscinas SQL dedicadas:
 
-| Log Analytics nome da tabela        | Nome da categoria de registo             | Descrição |
+| Log Analytics nome da tabela        | Nome da categoria de registo             | Description |
 |----------------------|--------------------------------------|-------------|
 | SinapseSqlPoolExecRequests  | ExecRequests | Informações sobre pedidos/consultas SQL numa piscina SQL dedicada a Azure Synapse.
 | SynapseSqlPoolDmsWorkers    | DmsWorkers   | Informação sobre trabalhadores que completam passos DMS numa piscina SQL dedicada a Azure Synapse.
@@ -131,7 +131,7 @@ Para obter mais informações sobre estes registos, consulte as seguintes inform
 
 Aqui está o registo emitido pelas piscinas Apache Spark:
 
-| Log Analytics nome da tabela               | Nome da categoria de registo              | Descrição                 |
+| Log Analytics nome da tabela               | Nome da categoria de registo              | Description                 |
 |-----------------------------|---------------------------------------|-----------------------------|
 | SinapseBigDataPoolApplicações Acabou | BigDataPoolAppsEnded | Informação sobre aplicações terminadas da Apache Spark |
 
@@ -171,7 +171,7 @@ Crie ou adicione configurações de diagnóstico para o seu espaço de trabalho,
 1. Dê um nome à sua definição, selecione **Enviar para registar análises** e, em seguida, selecione um espaço de trabalho no **log analytics**.
 
     > [!NOTE]
-    > Como uma tabela de registoS Azure não pode ter mais de 500 colunas, **recomendamos vivamente** que selecione _o modo Específico de Recursos_. Para obter mais informações, consulte [Log Analytics As limitações conhecidas.](../../azure-monitor/essentials/resource-logs.md#column-limit-in-azurediagnostics)
+    > Como uma tabela de registoS Azure não pode ter mais de 500 colunas, **recomendamos vivamente** que selecione _o modo Específico de Recursos_. Para mais informações, consulte [a referência AzureDiagnostics Logs](/azure-monitor/reference/tables/azurediagnostics#additionalfields-column).
 
 1. Selecione **Guardar**.
 

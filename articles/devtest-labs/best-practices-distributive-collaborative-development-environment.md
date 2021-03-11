@@ -3,12 +3,12 @@ title: Desenvolvimento colaborativo distribuído dos recursos da Azure DevTest L
 description: Fornece as melhores práticas para a criação de um ambiente de desenvolvimento distribuído e colaborativo para desenvolver recursos da DevTest Labs.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 1ef6d7aa7d3cfd4fcc64eaa45259684dfcb9ccee
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: caf4bd13f2ec9c45db392a027db269b492cbd802
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97592369"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102550081"
 ---
 # <a name="best-practices-for-distributed-and-collaborative-development-of-azure-devtest-labs-resources"></a>Melhores práticas para desenvolvimento distribuído e colaborativo dos recursos da Azure DevTest Labs
 O desenvolvimento colaborativo distribuído permite que diferentes equipas ou pessoas desenvolvam e mantenham uma base de código. Para ser bem sucedido, o processo de desenvolvimento depende da capacidade de criar, partilhar e integrar informação. Este princípio de desenvolvimento chave pode ser usado dentro da Azure DevTest Labs. Existem vários tipos de recursos dentro de um laboratório que são geralmente distribuídos entre diferentes laboratórios dentro de uma empresa. Os diferentes tipos de recursos concentram-se em duas áreas:
@@ -27,7 +27,7 @@ Você pode ter uma fonte comum de imagens personalizadas que são implementadas 
 [As fórmulas](devtest-lab-manage-formulas.md) são específicas do laboratório e não têm um mecanismo de distribuição. Os membros do laboratório fazem todo o desenvolvimento de fórmulas. 
 
 ## <a name="code-repository-based-resources"></a>Recursos baseados em repositórios de código
-Existem duas características diferentes que são baseadas em repositórios de código, artefactos e ambientes. Este artigo analisa as funcionalidades e como configurar de forma mais eficaz repositórios e fluxo de trabalho para permitir a capacidade de personalizar os artefactos e ambientes disponíveis a nível de organização ou de equipa.  Este fluxo de trabalho baseia-se na estratégia padrão [de ramificação do código fonte.](/azure/devops/repos/tfvc/branching-strategies-with-tfvc?view=azure-devops) 
+Existem duas características diferentes que são baseadas em repositórios de código, artefactos e ambientes. Este artigo analisa as funcionalidades e como configurar de forma mais eficaz repositórios e fluxo de trabalho para permitir a capacidade de personalizar os artefactos e ambientes disponíveis a nível de organização ou de equipa.  Este fluxo de trabalho baseia-se na estratégia padrão [de ramificação do código fonte.](/azure/devops/repos/tfvc/branching-strategies-with-tfvc) 
 
 ### <a name="key-concepts"></a>Conceitos-chave
 A informação de origem dos artefactos inclui metadados, scripts. A informação de origem para ambientes inclui metadados e modelos de Gestor de Recursos com quaisquer ficheiros de suporte como scripts PowerShell, scripts DSC, ficheiros Zip, etc.  
@@ -39,7 +39,7 @@ A configuração mais comum para o controlo de código fonte (SCC) é criar uma 
 - Unidade de negócio/Recursos de divisão
 - Recursos específicos da equipa.
 
-Cada um destes níveis liga-se a um repositório diferente, onde o ramo principal é obrigado a ser da qualidade de produção. Os [ramos](/azure/devops/repos/git/git-branching-guidance?view=azure-devops) de cada repositório seriam para o desenvolvimento desses recursos específicos (artefactos ou modelos). Esta estrutura alinha-se bem com a DevTest Labs, uma vez que pode facilmente ligar vários repositórios e vários ramos ao mesmo tempo com os laboratórios da organização. O nome do repositório está incluído na interface do utilizador (UI) para evitar confusão quando existem nomes, descrições e editores idênticos.
+Cada um destes níveis liga-se a um repositório diferente, onde o ramo principal é obrigado a ser da qualidade de produção. Os [ramos](/azure/devops/repos/git/git-branching-guidance) de cada repositório seriam para o desenvolvimento desses recursos específicos (artefactos ou modelos). Esta estrutura alinha-se bem com a DevTest Labs, uma vez que pode facilmente ligar vários repositórios e vários ramos ao mesmo tempo com os laboratórios da organização. O nome do repositório está incluído na interface do utilizador (UI) para evitar confusão quando existem nomes, descrições e editores idênticos.
      
 O diagrama que se segue mostra dois repositórios: um repositório de empresa que é mantido pela Divisão de TI, e um repositório de divisão mantido pela divisão R&D.
 

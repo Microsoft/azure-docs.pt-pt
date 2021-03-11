@@ -1,5 +1,5 @@
 ---
-title: Criar ou editar um grupo dinâmico e obter o estatuto - Azure AD / Microsoft Docs
+title: Criar ou editar um grupo dinâmico e obter o estado - Azure AD | Microsoft Docs
 description: Como criar ou atualizar uma regra de membro do grupo no portal Azure e verificar o seu estado de processamento.
 services: active-directory
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a25caa3b59d242b8dcc8a52e1a5d684815cf7bf
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 8525e9a76fa2439692cdb26b36c0bb761d63177c
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96547785"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102550234"
 ---
 # <a name="create-or-update-a-dynamic-group-in-azure-active-directory"></a>Criar ou atualizar um grupo dinâmico no Azure Ative Directory
 
@@ -80,7 +80,7 @@ Se a regra que inseriu não for válida, uma explicação do porquê da regra n�
 
 ## <a name="turn-on-or-off-welcome-email"></a>Ligue ou desligue o e-mail de boas-vindas
 
-Quando um novo grupo Microsoft 365 é criado, uma notificação de e-mail bem-vinda é enviada para os utilizadores que são adicionados ao grupo. Mais tarde, se quaisquer atributos de um utilizador ou dispositivo mudarem, todas as regras dinâmicas do grupo na organização são processadas para alterações de membros. Os utilizadores que são adicionados também recebem a notificação de boas-vindas. Pode desligar este comportamento em [Exchange PowerShell](/powershell/module/exchange/users-and-groups/Set-UnifiedGroup?view=exchange-ps&preserve-view=true).
+Quando um novo grupo Microsoft 365 é criado, uma notificação de e-mail bem-vinda é enviada para os utilizadores que são adicionados ao grupo. Mais tarde, se quaisquer atributos de um utilizador ou dispositivo mudarem, todas as regras dinâmicas do grupo na organização são processadas para alterações de membros. Os utilizadores que são adicionados também recebem a notificação de boas-vindas. Pode desligar este comportamento em [Exchange PowerShell](/powershell/module/exchange/users-and-groups/Set-UnifiedGroup).
 
 ## <a name="check-processing-status-for-a-rule"></a>Verifique o estado de processamento de uma regra
 

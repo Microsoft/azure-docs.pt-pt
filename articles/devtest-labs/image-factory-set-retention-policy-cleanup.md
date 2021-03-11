@@ -1,14 +1,14 @@
 ---
-title: Estabeleça política de retenção na Azure DevTest Labs Microsoft Docs
+title: Estabeleça política de retenção na Azure DevTest Labs | Microsoft Docs
 description: Aprenda a configurar uma política de retenção, limpe a fábrica e retire imagens antigas da DevTest Labs.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 115fdff215399a9a51171161191ecf5009e8e20e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 85384e88f8d456c7bf67302a57618d7a9703a5ee
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85476058"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102550030"
 ---
 # <a name="set-up-retention-policy-in-azure-devtest-labs"></a>Estabeleça a política de retenção na Azure DevTest Labs
 Este artigo abrange a definição de uma política de retenção, a limpeza da fábrica e a retirada de imagens antigas de todos os outros Laboratórios DevTest da organização. 
@@ -64,7 +64,7 @@ Adicionar uma nova imagem à sua fábrica também é simples. Quando quiser incl
 
 
 ## <a name="next-steps"></a>Passos seguintes
-1. [Agende a sua construção/lançamento](/azure/devops/pipelines/build/triggers?view=azure-devops&tabs=designer) para executar periodicamente a fábrica de imagens. Atualiza regularmente as suas imagens geradas pela fábrica.
+1. [Agende a sua construção/lançamento](/azure/devops/pipelines/build/triggers?tabs=designer) para executar periodicamente a fábrica de imagens. Atualiza regularmente as suas imagens geradas pela fábrica.
 2. Faça mais imagens douradas para a sua fábrica. Também pode considerar [a criação](devtest-lab-artifact-author.md) de artefactos para scripts adicionais das suas tarefas de configuração VM e incluir os artefactos nas suas imagens de fábrica.
 4. Crie uma [construção/versão separada](/azure/devops/pipelines/overview?view=azure-devops-2019) para executar o script **DistributeImages** separadamente. Pode executar este script quando fizer alterações para Labs.jse obter imagens copiadas para laboratórios-alvo sem ter que recriar todas as imagens novamente.
 

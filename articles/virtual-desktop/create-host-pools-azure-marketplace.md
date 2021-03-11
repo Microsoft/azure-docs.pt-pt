@@ -4,15 +4,15 @@ description: Como criar um conjunto de anfitriões virtual do Windows desktop ut
 author: Heidilohr
 ms.topic: tutorial
 ms.custom: references_regions
-ms.date: 02/17/2021
+ms.date: 03/10/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 46a029a3b803428d6250b74059190f66183be452
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 60566b95447c1b69fb257435f45a11524ac5d8b2
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100651464"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102617361"
 ---
 # <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>Tutorial: Criar uma piscina de anfitriões com o portal Azure
 
@@ -101,18 +101,16 @@ Para configurar a sua máquina virtual dentro do processo de configuração da p
 
 1. No **grupo De Recursos,** escolha o grupo de recursos onde pretende criar as máquinas virtuais. Este pode ser um grupo de recursos diferente daquele que você usou para a piscina de anfitrião.
 
-2. Escolha o **local da máquina Virtual** onde pretende criar as máquinas virtuais. Podem ser iguais ou diferentes da região que selecionou para a piscina anfitriã.
+2. Depois disso, forneça um **prefixo nome** para nomear as máquinas virtuais que o processo de configuração cria. O sufixo será `-` com números a partir de 0.
 
-3. Em seguida, escolha o **tamanho da máquina Virtual** que pretende utilizar. Pode manter o tamanho padrão como está ou selecionar alterar o **tamanho** para alterar o tamanho. Se selecionar Alterar o **tamanho,** na janela que aparece, escolha o tamanho da máquina virtual adequada para a sua carga de trabalho.
+3. Escolha o **local da máquina Virtual** onde pretende criar as máquinas virtuais. Podem ser iguais ou diferentes da região que selecionou para a piscina anfitriã.
+   
+4. Em seguida, escolha a opção de disponibilidade que melhor se adequa às suas necessidades. Para saber mais sobre qual a opção certa para si, consulte [opções de Disponibilidade para máquinas virtuais em Azure](../virtual-machines/availability.md) e [nas nossas FAQ.](faq.md#which-availability-option-is-best-for-me)
+   
+   > [!div class="mx-imgBorder"]
+   > [Uma imagem do menu de drop-down da zona de disponibilidade. A opção "zona de disponibilidade" é realçada.](media/availability-zone.png)
 
-4. Em **Número de VMs,** forneça o número de VMs que pretende criar para a sua piscina de anfitriões.
-
-    >[!NOTE]
-    >O processo de configuração pode criar até 400 VMs enquanto configura o seu pool de anfitriões, e cada processo de configuração VM cria quatro objetos no seu grupo de recursos. Uma vez que o processo de criação não verifica a sua quota de subscrição, certifique-se de que o número de VMs que inseri está dentro dos limites Azure VM e API para o seu grupo de recursos e subscrição. Pode adicionar mais VMs depois de terminar de criar a sua piscina de anfitriões.
-
-5. Depois disso, forneça um **prefixo nome** para nomear as máquinas virtuais que o processo de configuração cria. O sufixo será `-` com números a partir de 0.
-
-6. Em seguida, escolha a imagem que precisa ser usada para criar a máquina virtual. Pode escolher a **Galeria** ou **a Mancha de Armazenamento.**
+5. Em seguida, escolha a imagem que precisa ser usada para criar a máquina virtual. Pode escolher a **Galeria** ou **a Mancha de Armazenamento.**
 
     - Se escolher **a Galeria,** selecione uma das imagens recomendadas do menu suspenso:
 
@@ -122,23 +120,30 @@ Para configurar a sua máquina virtual dentro do processo de configuração da p
       - Windows 10 Enterprise multi-sessão, Versão 2004
       - Windows 10 Enterprise multi-sessão, Versão 2004 + Microsoft 365 Apps
 
-     Se não vir a imagem desejada, **selecione Procurar todas as imagens e discos**, o que lhe permite selecionar outra imagem na sua galeria ou uma imagem fornecida pela Microsoft e outras editoras. Certifique-se de que a imagem que escolher é uma das [imagens de SO suportadas](overview.md#supported-virtual-machine-os-images).
+      Se não vir a imagem desejada, selecione **Veja todas as imagens**, que lhe permite selecionar outra imagem na sua galeria ou uma imagem fornecida pela Microsoft e outras editoras. Certifique-se de que a imagem que escolher é uma das [imagens de SO suportadas](overview.md#supported-virtual-machine-os-images).
 
-     > [!div class="mx-imgBorder"]
-     > ![Uma imagem do Marketplace com uma lista de imagens da Microsoft exibidas.](media/marketplace-images.png)
+      > [!div class="mx-imgBorder"]
+      > ![Uma imagem do Marketplace com uma lista de imagens da Microsoft exibidas.](media/marketplace-images.png)
 
-     Também pode ir a **My Items** e escolher uma imagem personalizada que já carregou.
+      Também pode ir a **My Items** e escolher uma imagem personalizada que já carregou.
 
-     > [!div class="mx-imgBorder"]
-     > ![Uma imagem do separador My Items.](media/my-items.png)
+      > [!div class="mx-imgBorder"]
+      > ![Uma imagem do separador My Items.](media/my-items.png)
 
-    - Se escolher **o Storage Blob,** pode aproveitar a sua própria imagem através do Hyper-V ou num VM Azure. Tudo o que tem de fazer é introduzir a imagem na bolha de armazenamento como um URI.
+    - Se escolher **o Storage Blob,** pode utilizar a sua própria imagem através do Hyper-V ou num VM Azure. Tudo o que tem de fazer é introduzir a imagem na bolha de armazenamento como um URI.
+   
+   A localização da imagem é independente da opção de disponibilidade, mas a resiliência da zona da imagem determina se essa imagem pode ser usada com zona de disponibilidade. Se selecionar uma zona de disponibilidade enquanto cria a sua imagem, certifique-se de que está a utilizar uma imagem da galeria com resiliência de zona ativada. Para saber mais sobre qual a opção de resiliência da zona que deve utilizar, consulte [as FAQ.](faq.md#which-availability-option-is-best-for-me)
 
-7. Escolha que tipo de discos de SO pretende que os seus VMs utilizem: SSD Standard, Premium SSD ou HDD Standard.
+6. Depois disso, escolha o **tamanho da máquina Virtual** que pretende utilizar. Pode manter o tamanho padrão como está ou selecionar alterar o **tamanho** para alterar o tamanho. Se selecionar Alterar o **tamanho,** na janela que aparece, escolha o tamanho da máquina virtual adequada para a sua carga de trabalho.
 
-8. Em Rede e segurança, selecione a **rede Virtual** e **a Sub-rede** onde pretende colocar as máquinas virtuais que cria. Certifique-se de que a rede virtual pode ligar-se ao controlador de domínio, uma vez que terá de juntar as máquinas virtuais dentro da rede virtual ao domínio. Os servidores DNS da rede virtual selecionada devem ser configurados para utilizar o IP do controlador de domínio.
+7. Em **Número de VMs,** forneça o número de VMs que pretende criar para a sua piscina de anfitriões.
 
-9. Em seguida, selecione se deseja um IP público para as máquinas virtuais. Recomendamos que selecione **Não** porque um IP privado é mais seguro.
+    >[!NOTE]
+    >O processo de configuração pode criar até 400 VMs enquanto configura o seu pool de anfitriões, e cada processo de configuração VM cria quatro objetos no seu grupo de recursos. Uma vez que o processo de criação não verifica a sua quota de subscrição, certifique-se de que o número de VMs que inseri está dentro dos limites Azure VM e API para o seu grupo de recursos e subscrição. Pode adicionar mais VMs depois de terminar de criar a sua piscina de anfitriões.
+
+8. Escolha que tipo de discos de SO pretende que os seus VMs utilizem: SSD Standard, Premium SSD ou HDD Standard.
+
+9. Em Rede e segurança, selecione a **rede Virtual** e **a Sub-rede** onde pretende colocar as máquinas virtuais que cria. Certifique-se de que a rede virtual pode ligar-se ao controlador de domínio, uma vez que terá de juntar as máquinas virtuais dentro da rede virtual ao domínio. Os servidores DNS da rede virtual selecionada devem ser configurados para utilizar o IP do controlador de domínio.
 
 10. Selecione que tipo de grupo de segurança deseja: **Básico,** **Avançado** ou **Nenhum**.
 
@@ -154,9 +159,9 @@ Para configurar a sua máquina virtual dentro do processo de configuração da p
 
 11. Depois disso, selecione se deseja que as máquinas virtuais sejam unidas a um domínio específico e a uma unidade organizacional. Se escolher **Sim,** especifique o domínio a aderir. Pode opcionalmente adicionar uma unidade organizacional específica onde pretende que as máquinas virtuais estejam. Se escolher **Não,** os VMs serão unidos ao domínio correspondente ao sufixo do **domínio AD unem-se à UPN**.
 
-  - Ao especificar um OU, certifique-se de que utiliza todo o caminho (Nome Distinto) e sem aspas.
+    - Quando especificar um OU, certifique-se de que utiliza todo o caminho (Nome Distinto) e sem aspas.
 
-12. Na conta de Administrador, insira as credenciais para o administrador de domínio do diretório ativo da rede virtual selecionada. Esta conta não pode ter a autenticação multi-factored (MFA) ativada. Ao aderir a um domínio Azure Ative Directory Domain Services (Azure AD DS), a conta deve fazer parte do grupo de administradores AD DC Azure e a palavra-passe da conta deve funcionar em Azure AD DS.
+12. Na conta de Administrador de Domínio, insira as credenciais para o administrador de domínio do diretório ativo da rede virtual selecionada. Esta conta não pode ter a autenticação multi-factored (MFA) ativada. Ao aderir a um domínio Azure Ative Directory Domain Services (Azure AD DS), a conta deve fazer parte do grupo de administradores AD DC Azure e a palavra-passe da conta deve funcionar em Azure AD DS.
 
 13. Selecione **Seguinte: Workspace >**.
 

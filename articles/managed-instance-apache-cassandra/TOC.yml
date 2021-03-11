@@ -4,12 +4,6 @@
   items:
     - name: Qual é a instância gerida por Azure para Apache Cassandra?
       href: introduction.md
-- name: Conceitos
-  items:
-    - name: FAQ
-      href: faq.md
-    - name: Caso gerido Vs Azure Cosmos DB Cassandra API
-      href: compare-cosmosdb-managed-instance.md
 - name: Guias de Início Rápido
   items:
     - name: Criar um cluster - Portal
@@ -20,9 +14,23 @@
       href: configure-hybrid-cluster.md
     - name: Implementar cluster de faíscas com databricks
       href: deploy-cluster-databricks.md
+- name: Conceitos
+  items:
+    - name: Perguntas mais frequentes
+      href: faq.md
+    - name: Caso gerido Vs Azure Cosmos DB Cassandra API
+      href: compare-cosmosdb-managed-instance.md
 - name: Guias de procedimentos
   items:
     - name: Gerir com a CLI do Azure
       href: manage-resources-cli.md
     - name: Visualizar métricas em Prometeu com Grafana
       href: visualize-prometheus-grafana.md
+- name: Referência
+  items:
+    - name: API REST
+      items:
+        - name: Aglomerados de Cassandra
+          href: /rest/api/cosmos-db-resource-provider/2021-03-01-preview/cassandraclusters
+        - name: Centros de dados de Cassandra
+          href: /rest/api/cosmos-db-resource-provider/2021-03-01-preview/cassandradatacenters

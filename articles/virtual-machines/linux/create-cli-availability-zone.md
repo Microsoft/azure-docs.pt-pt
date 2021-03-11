@@ -2,16 +2,16 @@
 title: Criar um VM zonado com o CLI Azure
 description: Criar uma máquina virtual em zona de disponibilidade com o Azure CLI
 author: cynthn
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.topic: how-to
 ms.date: 04/05/2018
 ms.author: cynthn
-ms.openlocfilehash: fbed3e7ac3e809658da532ccc27e78230cc0b581
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 3405468c64a7130bb0d71543403dd4ce5ef9c241
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102509137"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102558377"
 ---
 # <a name="create-a-virtual-machine-in-an-availability-zone-using-azure-cli"></a>Criar uma máquina virtual em uma zona de disponibilidade usando Azure CLI
 

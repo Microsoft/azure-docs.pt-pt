@@ -3,17 +3,17 @@ title: Quickstart - Criar uma máquina virtual de computação confidencial Azur
 description: Começa com as tuas implementações aprendendo a criar rapidamente uma máquina virtual de computação confidencial com o Marketplace.
 author: JBCook
 ms.service: virtual-machines
-ms.subservice: workloads
+ms.subservice: confidential-computing
 ms.workload: infrastructure
 ms.topic: quickstart
 ms.date: 04/06/2020
 ms.author: JenCook
-ms.openlocfilehash: 82d9c143f84dfced639c928bf12693024079c2ba
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: aba23b67574fb74b7cd571dc5d4642bb8b991b93
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91409498"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102566639"
 ---
 # <a name="quickstart-deploy-an-azure-confidential-computing-vm-in-the-marketplace"></a>Quickstart: Implementar um VM de Computação Confidencial Azure no Mercado
 
@@ -52,7 +52,7 @@ Se não tiver uma subscrição do Azure, [crie uma conta](https://azure.microsof
    * **Região**: Selecione a região de Azure que é a certa para si.
 
         > [!NOTE]
-        > Máquinas virtuais de computação confidencial só funcionam em hardware especializado disponível em regiões específicas. Para as últimas regiões disponíveis para VMs da Série DCsv2, consulte [as regiões disponíveis.](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)
+        > Máquinas virtuais de computação confidencial só funcionam em hardware especializado disponível em regiões específicas. Para as últimas regiões disponíveis para DCsv2-Series VMs, consulte [as regiões disponíveis.](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)
     
     * **Escolha imagem**: Selecione qualquer imagem. Se quiser completar este tutorial específico, selecione Ubuntu 18.04 (Gen 2). Caso contrário, será redirecionado nos passos apropriados abaixo. 
 
@@ -72,12 +72,12 @@ Se não tiver uma subscrição do Azure, [crie uma conta](https://azure.microsof
 1. Selecione o **seguinte: Botão de definição de máquina virtual** na parte inferior do ecrã.
 
     > [!IMPORTANT]
-    > Aguarde a atualização da página. *Não deve* ver uma mensagem que diga "Os VMs da série DCsv2 da Computação Confidencial estão disponíveis num número limitado de regiões." Se esta mensagem persistir, volte à página anterior e selecione uma região disponível da Série DCsv2.
+    > Aguarde a atualização da página. *Não deve* ver uma mensagem que diga "Os VMs da série DCsv2 da Computação Confidencial estão disponíveis num número limitado de regiões." Se esta mensagem persistir, volte à página anterior e selecione uma região DCsv2-Series disponível.
 
 1. Para **alterar o tamanho,** escolha um VM com capacidades confidenciais de computação no seletor de tamanhos. 
 
     > [!TIP]
-    > Você deve ver tamanhos **DC1s_v2,** **DC2s_v2,** **DC4s_V2**e **DC8_v2.** Estes são os únicos tamanhos de máquinas virtuais que suportam atualmente a computação confidencial. [Saiba mais](virtual-machine-solutions.md).
+    > Você deve ver tamanhos **DC1s_v2,** **DC2s_v2,** **DC4s_V2** e **DC8_v2.** Estes são os únicos tamanhos de máquinas virtuais que suportam atualmente a computação confidencial. [Saiba mais](virtual-machine-solutions.md).
 
 1. Para **o tipo de disco OS,** selecione um tipo de disco.
 
@@ -126,7 +126,7 @@ Para obter mais informações sobre como ligar a VMs do Linux, veja [Criar uma V
 
 ## <a name="install-the-open-enclave-sdk-oe-sdk"></a>Instale o SDK do Enclave Aberto (OE SDK) <a id="Install"></a>
 
-Siga as instruções passo a passo para instalar o [OE SDK](https://github.com/openenclave/openenclave) na sua máquina virtual série DCsv2 que executa uma imagem Ubuntu 18.04 LTS Gen 2. 
+Siga as instruções passo a passo para instalar o [OE SDK](https://github.com/openenclave/openenclave) na sua DCsv2-Series máquina virtual que executa uma imagem Ubuntu 18.04 LTS Gen 2. 
 
 Se a sua máquina virtual funciona no Ubuntu 16.04 LTS Gen 2, terá de seguir [as instruções de instalação para Ubuntu 16.04](https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/install_oe_sdk-Ubuntu_16.04.md). 
 
@@ -169,7 +169,7 @@ sudo apt -y install clang-7 libssl-dev gdb libsgx-enclave-common libsgx-enclave-
 
 Consulte [a Utilização do SDK do Enclave Aberto](https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/Linux_using_oe_sdk.md) no GitHub para verificar e utilizar o SDK instalado.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não forem necessários, pode eliminar o grupo de recursos, a máquina virtual e todos os recursos relacionados. 
 

@@ -7,12 +7,12 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 07/13/2020
-ms.openlocfilehash: 5e2ecf8dff432f2a0ce6b3356ce3eca7a8127932
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 09456c06f2a171ec32c1b885dc2b4e475fea5371
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100586855"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102550302"
 ---
 # <a name="monitor-and-alert-data-factory-by-using-azure-monitor"></a>Monitorizar e alertar a fábrica de dados utilizando o Monitor Azure
 
@@ -76,7 +76,7 @@ Crie ou adicione definições de diagnóstico para a sua fábrica de dados.
    ![Nomeie as suas definições e selecione um espaço de trabalho de análise de log-analytics](media/data-factory-monitor-oms/monitor-oms-image2.png)
 
     > [!NOTE]
-    > Como uma tabela de registoS Azure não pode ter mais de 500 colunas, **recomendamos vivamente** que selecione _o modo Específico de Recursos_. Para obter mais informações, consulte [Log Analytics As limitações conhecidas.](../azure-monitor/essentials/resource-logs.md#column-limit-in-azurediagnostics)
+    > Como uma tabela de registoS Azure não pode ter mais de 500 colunas, **recomendamos vivamente** que selecione _o modo Específico de Recursos_. Para mais informações, consulte [a referência AzureDiagnostics Logs](/azure-monitor/reference/tables/azurediagnostics#additionalfields-column).
 
 1. Selecione **Guardar**.
 
@@ -574,7 +574,7 @@ Aqui estão os atributos de registo das operações de arranque/paragem/manuten�
 | **integraçãoRuntimeName** | String | O nome do seu SSIS IR                                      | `MySSISIR` |
 | **nível**                  | String | O nível de registos de diagnóstico                                  | `Informational` |
 | **resultadoType**             | String | O resultado da sua operação SSIS IR                          | `Started/InProgress/Succeeded/Failed` |
-| **Mensagem**                | String | A mensagem de saída da sua operação SSIS IR                  | `The stopping of your SSIS integration runtime has succeeded.` |
+| **message**                | String | A mensagem de saída da sua operação SSIS IR                  | `The stopping of your SSIS integration runtime has succeeded.` |
 | **recursosId**             | String | O ID único do seu recurso ADF                            | `/SUBSCRIPTIONS/<subscriptionID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 
 #### <a name="ssis-event-message-context-log-attributes"></a>Atributos de registo de registo de mensagem de evento SSIS
@@ -667,7 +667,7 @@ Aqui estão os atributos de registo de mensagens de evento que são geradas por 
 | **hora da mensagem**            | String | O momento em que a sua mensagem de evento é criada em formato UTC          | `2017-06-28T21:00:27.3534352Z` |
 | **mensagemType**            | String | O tipo da sua mensagem de evento                                     | `70`(ver [mais tipos de mensagens)](/sql/integration-services/system-views/catalog-operation-messages-ssisdb-database#remarks) |
 | **mensagemSourceType**      | String | O tipo de origem da sua mensagem de evento                              | `20`(ver [mais tipos de origem de mensagens)](/sql/integration-services/system-views/catalog-operation-messages-ssisdb-database#remarks) |
-| **Mensagem**                | String | O texto da sua mensagem de evento                                     | `MyPackage:Validation has started.` |
+| **message**                | String | O texto da sua mensagem de evento                                     | `MyPackage:Validation has started.` |
 | **nome de pacote**            | String | O nome do seu ficheiro de pacote executado                             | `MyPackage.dtsx` |
 | **nome de evento**              | String | O nome do evento relacionado em tempo de execução                                 | `OnPreValidate` |
 | **nome de mensagemSourceName**      | String | O nome do componente do pacote como fonte de mensagem do evento         | `Data Flow Task` |
