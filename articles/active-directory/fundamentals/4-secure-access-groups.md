@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7eb168610f10ac336084ac04c19679d26fc913e0
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 2d9d63c7a703987d7b17e6e03d8b5596d5f1dfa5
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98725249"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102560621"
 ---
 # <a name="securing-external-access-with-groups"></a>Garantir o acesso externo com grupos 
 
@@ -54,7 +54,7 @@ Ao desenvolver a sua estratégia de grupo para garantir o acesso externo aos seu
 
    * *Por predefinição, todos os utilizadores podem criar Grupos M365 e os grupos estão abertos para todos os utilizadores (internos e externos) do seu inquilino aderirem.* 
 
-      * [Pode restringir a criação do Grupo Microsoft 365](/microsoft-365/solutions/manage-creation-of-groups?view=o365-worldwide) aos membros de um determinado grupo de segurança. Utilize o Windows PowerShell para configurar esta definição. 
+      * [Pode restringir a criação do Grupo Microsoft 365](/microsoft-365/solutions/manage-creation-of-groups) aos membros de um determinado grupo de segurança. Utilize o Windows PowerShell para configurar esta definição. 
 
 * **Quem deve ser capaz de convidar as pessoas para grupos?** Todos os membros do grupo podem adicionar outros membros, ou só os proprietários do grupo podem adicionar membros?
 
@@ -150,13 +150,13 @@ As organizações híbridas têm uma infraestrutura no local e uma infraestrutur
 
 ## <a name="microsoft-365-groups"></a>Microsoft 365 Grupos
 
-[Os Grupos Microsoft 365](/microsoft-365/admin/create-groups/office-365-groups?view=o365-worldwide) são o serviço de subscrição fundamental que impulsiona todo o acesso através da M365. Podem ser criados a partir do [portal Azure,](https://portal.azure.com/)ou do [portal M365.](https://admin.microsoft.com/) Quando um grupo M365 é criado, você concede acesso a um grupo de recursos usados para colaborar. Consulte [a visão geral dos grupos Microsoft 365 para administradores](/microsoft-365/admin/create-groups/office-365-groups?view=o365-worldwide) para obter uma listagem completa destes recursos.
+[Os Grupos Microsoft 365](/microsoft-365/admin/create-groups/office-365-groups) são o serviço de subscrição fundamental que impulsiona todo o acesso através da M365. Podem ser criados a partir do [portal Azure,](https://portal.azure.com/)ou do [portal M365.](https://admin.microsoft.com/) Quando um grupo M365 é criado, você concede acesso a um grupo de recursos usados para colaborar. Consulte [a visão geral dos grupos Microsoft 365 para administradores](/microsoft-365/admin/create-groups/office-365-groups) para obter uma listagem completa destes recursos.
 
 Os grupos M365 têm as seguintes nuances para as suas funções
 
 * **Proprietários** - Os proprietários do grupo podem adicionar ou remover membros e ter permissões únicas como a capacidade de apagar conversas da caixa de entrada partilhada ou alterar as definições de grupo. Os proprietários do grupo podem renomear o grupo, atualizar a descrição ou imagem e muito mais.
 
-* **Membros** - Os membros podem aceder a tudo no grupo, mas não podem alterar as configurações do grupo. Por predefinição, os membros do grupo podem convidar os hóspedes a juntarem-se ao seu grupo, embora possa [controlar essa definição](/microsoft-365/admin/create-groups/manage-guest-access-in-groups?view=o365-worldwide).
+* **Membros** - Os membros podem aceder a tudo no grupo, mas não podem alterar as configurações do grupo. Por predefinição, os membros do grupo podem convidar os hóspedes a juntarem-se ao seu grupo, embora possa [controlar essa definição](/microsoft-365/admin/create-groups/manage-guest-access-in-groups).
 
 * **Hóspedes** - Os hóspedes do grupo são membros de fora da sua organização. Os hóspedes por defeito têm alguns limites para a funcionalidade em Equipas.
 
@@ -170,7 +170,7 @@ Selecione pseudónimo de e-mail, privacidade e se deve ativar o grupo para equip
 
 Após a configuração, adicione membros e configurar definições para utilização de e-mail, etc.
 
-### <a name="next-steps"></a>Próximos passos
+### <a name="next-steps"></a>Passos seguintes
 
 Consulte os seguintes artigos sobre a garantia do acesso externo aos recursos. Recomendamos que tome as ações na ordem listada.
 

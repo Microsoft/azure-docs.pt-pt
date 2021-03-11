@@ -3,17 +3,18 @@ title: Criar e encriptar uma VM do Linux com a CLI do Azure
 description: Neste arranque rápido, você aprende a usar O CLI Azure para criar e encriptar uma máquina virtual Linux
 author: msmbaldwin
 ms.author: mbaldwin
-ms.service: virtual-machines-linux
-ms.subservice: security
+ms.service: virtual-machines
+ms.collection: linux
+ms.subservice: disks
 ms.topic: quickstart
 ms.date: 05/17/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: addfa90f5ec793600072aaaaf2786cfe3d5dad38
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: b600c895f98c46dbaafce7deef86bbbee8f57c99
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737020"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102561046"
 ---
 # <a name="quickstart-create-and-encrypt-a-linux-vm-with-the-azure-cli"></a>Quickstart: Criar e encriptar um Linux VM com o Azure CLI
 
@@ -98,7 +99,7 @@ Quando já não é necessário, pode utilizar o comando de eliminação do [grup
 az group delete --name "myResourceGroup"
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste quickstart, criou uma máquina virtual, criou um Key Vault que permitia chaves de encriptação e encriptava o VM.  Avance para o próximo artigo para saber mais sobre mais Encriptação de Disco Azure para Os VMs Linux.
 

@@ -2,14 +2,14 @@
 title: Melhores práticas para melhorar o desempenho usando o Azure Service Bus
 description: Descreve como usar o Service Bus para otimizar o desempenho ao trocar mensagens intermediadas.
 ms.topic: article
-ms.date: 01/15/2021
+ms.date: 03/09/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4c775555f82258c532d72917220129e3913ad314
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.openlocfilehash: 10435f74cfb7c87ccb28b64e1b3f136add1dc927
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102456050"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102561879"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Melhores práticas para uma melhoria do desempenho com as Mensagens do Service Bus
 
@@ -44,17 +44,22 @@ Para obter mais informações sobre o suporte mínimo da plataforma .NET Standar
 # <a name="azuremessagingservicebus-sdk"></a>[Azure.Messaging.ServiceBus SDK](#tab/net-standard-sdk-2)
 Os objetos do Service Bus que interagem com o serviço, tais como [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient), [ServiceBusSender,](/dotnet/api/azure.messaging.servicebus.servicebussender) [ServiceBusReceiver](/dotnet/api/azure.messaging.servicebus.servicebusreceiver)e [ServiceBusProcessor,](/dotnet/api/azure.messaging.servicebus.servicebusprocessor)devem ser registados para injeção de dependência como singletons (ou instantâneos uma vez e partilhados). O ServiceBusClient pode ser registado para injeção de dependência com [astensões ServiceBusClientBuilder.](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Azure.Messaging.ServiceBus/src/Compatibility/ServiceBusClientBuilderExtensions.cs) 
 
-Recomendamos que não feche ou deite estes objetos fora do dia de envio ou receção de cada mensagem. Fechar ou eliminar os objetos específicos da entidade (ServiceBusSender/Receiver/Processor) resulta na demolição da ligação ao serviço Service Bus. A eliminação do ServiceBusClient resulta na demolição da ligação ao serviço Service Bus. Estabelecer uma ligação é uma operação dispendiosa que pode evitar reutilizando o mesmo ServiceBusClient e criando os objetos específicos da entidade necessária a partir da mesma instância do ServiceBusClient. Pode utilizar estes objetos clientes com segurança para operações assíncronos simultâneas e a partir de vários fios.
+Recomendamos que não feche ou deite estes objetos fora do dia de envio ou receção de cada mensagem. Fechar ou eliminar os objetos específicos da entidade (ServiceBusSender/Receiver/Processor) resulta na demolição da ligação ao serviço Service Bus. A eliminação do ServiceBusClient resulta na demolição da ligação ao serviço Service Bus. 
 
 # <a name="microsoftazureservicebus-sdk"></a>[Microsoft.Azure.ServiceBus SDK](#tab/net-standard-sdk)
 
-Os objetos clientes do Service Bus, tais como implementações de [`IQueueClient`][QueueClient] [`IMessageSender`][MessageSender] ou, devem ser registados para injeção de dependência como singletons (ou instantâneos uma vez e partilhados). Recomendamos que não feche as fábricas de mensagens, filas, tópicos ou clientes por subscrição depois de enviar uma mensagem e, em seguida, recorá-las quando enviar a próxima mensagem. O encerramento de uma fábrica de mensagens elimina a ligação ao serviço Service Bus. Uma nova ligação é estabelecida na recriação da fábrica. Estabelecer uma ligação é uma operação dispendiosa que pode evitar reutilizando a mesma fábrica e objetos clientes para múltiplas operações. Pode utilizar estes objetos clientes com segurança para operações assíncronos simultâneas e a partir de vários fios.
+Os objetos clientes do Service Bus, tais como implementações de [`IQueueClient`][QueueClient] [`IMessageSender`][MessageSender] ou, devem ser registados para injeção de dependência como singletons (ou instantâneos uma vez e partilhados). Recomendamos que não feche as fábricas de mensagens, filas, tópicos ou clientes por subscrição depois de enviar uma mensagem e, em seguida, recorá-las quando enviar a próxima mensagem. O encerramento de uma fábrica de mensagens elimina a ligação ao serviço Service Bus. Uma nova ligação é estabelecida na recriação da fábrica. 
 
 # <a name="windowsazureservicebus-sdk"></a>[WindowsAzure.ServiceBus SDK](#tab/net-framework-sdk)
 
-Os objetos clientes do Service Bus, tais como `QueueClient` `MessageSender` ou, são criados através de um objeto [MessagingFactory,][MessagingFactory] que também fornece uma gestão interna de ligações. Recomendamos que não feche as fábricas de mensagens, filas, tópicos ou clientes por subscrição depois de enviar uma mensagem e, em seguida, recorá-las quando enviar a próxima mensagem. O encerramento de uma fábrica de mensagens elimina a ligação ao serviço Service Bus e é estabelecida uma nova ligação ao recriar a fábrica. Estabelecer uma ligação é uma operação dispendiosa que pode evitar reutilizando a mesma fábrica e objetos clientes para múltiplas operações. Pode utilizar estes objetos clientes com segurança para operações assíncronos simultâneas e a partir de vários fios.
+Os objetos clientes do Service Bus, tais como `QueueClient` `MessageSender` ou, são criados através de um objeto [MessagingFactory,][MessagingFactory] que também fornece uma gestão interna de ligações. Recomendamos que não feche as fábricas de mensagens, filas, tópicos ou clientes por subscrição depois de enviar uma mensagem e, em seguida, recorá-las quando enviar a próxima mensagem. O encerramento de uma fábrica de mensagens elimina a ligação ao serviço Service Bus e é estabelecida uma nova ligação ao recriar a fábrica. 
 
 ---
+
+A seguinte nota aplica-se a todos os SDKs:
+
+> [!NOTE]
+> Estabelecer uma ligação é uma operação dispendiosa que pode evitar reutilizando a mesma fábrica e objetos clientes para múltiplas operações. Pode utilizar estes objetos clientes com segurança para operações assíncronos simultâneas e a partir de vários fios.
 
 ## <a name="concurrent-operations"></a>Operações simultâneas
 Operações como enviar, receber, apagar, e assim por diante, levar algum tempo. Desta vez inclui o tempo que o serviço service bus leva para processar a operação e a latência do pedido e a resposta. Para aumentar o número de operações por tempo, as operações devem ser executadas simultaneamente.

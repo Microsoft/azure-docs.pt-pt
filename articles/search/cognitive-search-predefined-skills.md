@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 417cc13c4a201a0dd86a846c347cb395b8d81c43
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bde82a0ad50c2172e70337ad202b91af0a62c530
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91535530"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102547820"
 ---
 # <a name="built-in-cognitive-skills-for-text-and-image-processing-during-indexing-azure-cognitive-search"></a>Competências cognitivas incorporadas para processamento de texto e imagem durante a indexação (Pesquisa Cognitiva Azure)
 
@@ -31,10 +31,10 @@ Neste artigo, você aprende sobre as habilidades cognitivas fornecidas com a Azu
 
 Várias competências são flexíveis naquilo que consomem ou produzem. Em geral, a maioria das habilidades baseia-se em modelos pré-treinados, o que significa que não se pode treinar o modelo usando os seus próprios dados de treino. A tabela a seguir enumera e descreve as competências fornecidas pela Microsoft. 
 
-| Habilidade | Descrição |
+| Habilidade | Description |
 |-------|-------------|
 |[Microsoft.Skills.text.customentityLookupSkill](cognitive-search-skill-custom-entity-lookup.md)| Procura texto a partir de uma lista personalizada de palavras e frases definida pelo utilizador.|
-| [Microsoft.Skills.Text.KeyPhraseSkill](cognitive-search-skill-keyphrases.md) | Esta habilidade usa um modelo pré-treinado para detetar frases importantes com base na colocação de termo, regras linguísticas, proximidade a outros termos, e quão incomum o termo é dentro dos dados de origem. |
+| [Microsoft.Skills.Text.KeyPhraseExtractionSkill](cognitive-search-skill-keyphrases.md) | Esta habilidade usa um modelo pré-treinado para detetar frases importantes com base na colocação de termo, regras linguísticas, proximidade a outros termos, e quão incomum o termo é dentro dos dados de origem. |
 | [Microsoft.Skills.Text.LanguageDetectionskill](cognitive-search-skill-language-detection.md)  | Esta habilidade utiliza um modelo pré-treinado para detetar qual a língua utilizada (um ID de idioma por documento). Quando várias línguas são usadas dentro dos mesmos segmentos de texto, a saída é o LCID da língua predominantemente usada.|
 | [Microsoft.Skills.text.mergeSkill](cognitive-search-skill-textmerger.md) | Consolida o texto de uma coleção de campos num único campo.  |
 | [Microsoft.Skills.Text.EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md) | Esta habilidade utiliza um modelo pré-treinado para estabelecer entidades para um conjunto fixo de categorias: pessoas, localização, organização, e-mails, URLs, campos de datas. |
@@ -53,7 +53,7 @@ Várias competências são flexíveis naquilo que consomem ou produzem. Em geral
 
 Para obter orientações sobre a criação de uma [habilidade personalizada,](cognitive-search-custom-skill-web-api.md)consulte [Como definir uma interface personalizada](cognitive-search-custom-skill-interface.md) e [Exemplo: Criar uma habilidade personalizada para enriquecimento de IA](cognitive-search-create-custom-skill-example.md).
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 + [Como definir um skillset](cognitive-search-defining-skillset.md)
 + [Definição de interface de habilidades personalizadas](cognitive-search-custom-skill-interface.md)

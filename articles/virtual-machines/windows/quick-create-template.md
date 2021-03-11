@@ -2,18 +2,19 @@
 title: 'Quickstart: Use um modelo de Gestor de Recursos para criar um VM do Windows'
 description: Neste arranque rápido, aprende-se a usar um modelo de Gestor de Recursos para criar uma máquina virtual do Windows
 author: cynthn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.collection: windows
 ms.topic: quickstart
 ms.workload: infrastructure
 ms.date: 06/04/2020
 ms.author: cynthn
 ms.custom: subject-armqs
-ms.openlocfilehash: ded59b2f517c5b109dfd00bde2fb73f8351bf821
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b2856c51ccc31b57ea567c5d0940cd260797f770
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88649674"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102560757"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-using-an-arm-template"></a>Quickstart: Criar uma máquina virtual do Windows utilizando um modelo ARM
 
@@ -75,7 +76,7 @@ O portal do Azure é utilizado para implementar o modelo. Além do portal Azure,
 Pode utilizar o portal Azure para verificar o VM e outros recursos que foram criados. Depois de concluída a implementação, selecione **Ir ao grupo de recursos** para ver o VM e outros recursos.
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não for necessário, elimine o grupo de recursos, que elimina o VM e todos os recursos do grupo de recursos. 
 

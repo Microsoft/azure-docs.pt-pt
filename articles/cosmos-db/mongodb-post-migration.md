@@ -5,14 +5,14 @@ author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
-ms.date: 03/20/2020
+ms.date: 02/14/2021
 ms.author: chrande
-ms.openlocfilehash: 300177b9d5a20ce8082db57837be3ff461fd51a0
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: ce0facaba43e9cc8e37b19fbd3dfc840067d278f
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93361661"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102560400"
 ---
 # <a name="post-migration-optimization-steps-when-using-azure-cosmos-dbs-api-for-mongodb"></a>Etapas de otimização pós-migração ao utilizar a API da Azure Cosmos para a MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -61,7 +61,7 @@ A Azure Cosmos DB oferece 5 níveis de consistência bem [definidos.](consistenc
 
 A maioria dos utilizadores deixa o seu nível de consistência na definição de consistência da sessão predefinida. No entanto, [existem compensações de disponibilidade e desempenho para vários níveis de consistência.](./consistency-levels.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Ligar uma aplicação MongoDB ao Azure Cosmos DB](connect-mongodb-account.md)
 * [Ligue-se à conta DB da Azure Cosmos usando o Studio 3T](mongodb-mongochef.md)

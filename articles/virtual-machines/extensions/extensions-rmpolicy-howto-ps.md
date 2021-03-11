@@ -1,25 +1,19 @@
 ---
 title: Utilize a Política Azure para restringir a instalação de extensão VM (Windows)
 description: Utilize a Política Azure para restringir as implementações de extensão.
-services: virtual-machines-linux
-documentationcenter: ''
-author: axayjo
-manager: gwallace
-editor: ''
-ms.service: virtual-machines-linux
-ms.subservice: extensions
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services
+ms.service: virtual-machines
+ms.subservice: extensions
+author: amjads1
+ms.author: amjads
+ms.collection: windows
 ms.date: 03/23/2018
-ms.author: akjosh
-ms.reviewer: cynthn
-ms.openlocfilehash: 558b23b4a89fd161b9e97265f6e1ed82624e8254
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 0587c2af8a90ce362fa6243e9da8a05734f0d8ec
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94955604"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102559754"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-windows-vms"></a>Utilize a Política Azure para restringir a instalação de extensões em VMs do Windows
 
@@ -120,7 +114,7 @@ $definition = New-AzPolicyDefinition `
 
 Este exemplo atribui a política a um grupo de recursos que utiliza [o New-AzPolicyAssignment](/powershell/module/az.resources/new-azpolicyassignment). Qualquer VM criado no grupo de recursos **myResourceGroup** não será capaz de instalar o Agente de Acesso VM ou extensões de Script Personalizado. 
 
-Use a [subscrição get-AzSubscription / Cmdlet de tabela de formato](/powershell/module/az.accounts/get-azsubscription) para obter o seu ID de subscrição para usar no lugar do que está no exemplo.
+Utilize o [| Get-AzSubscription Cmdlet de tabela de formato](/powershell/module/az.accounts/get-azsubscription) para obter o seu ID de subscrição para usar no lugar do que está no exemplo.
 
 ```azurepowershell-interactive
 $scope = "/subscriptions/<subscription id>/resourceGroups/myResourceGroup"

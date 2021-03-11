@@ -3,12 +3,12 @@ title: host.jsem referência para Funções Azure 1.x
 description: A documentação de referência para as Funções Azure host.jsarquivada com o tempo de execução v1.
 ms.topic: conceptual
 ms.date: 10/19/2018
-ms.openlocfilehash: 588ab6723015f34d15e4a46ec4f7324302b13b81
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 48dba50b384731befdc7fba7c418e542994cedd9
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94832828"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102608959"
 ---
 # <a name="hostjson-reference-for-azure-functions-1x"></a>host.jsem referência para Funções Azure 1.x
 
@@ -137,7 +137,7 @@ Definições de configuração para o [gatilho DB Azure Cosmos e encadernações
 }
 ```
 
-|Propriedade  |Predefinição | Descrição |
+|Propriedade  |Predefinição | Description |
 |---------|---------|---------|
 |GatewayMode|Gateway|O modo de ligação utilizado pela função ao ligar-se ao serviço DB Azure Cosmos. As opções são `Direct` e `Gateway`|
 |Protocolo|Https|O protocolo de ligação utilizado pela função quando ligado ao serviço DB Azure Cosmos.  Leia [aqui para uma explicação de ambos os modos](../cosmos-db/performance-tips.md#networking)|
@@ -149,7 +149,7 @@ Definições de configuração para o [gatilho DB Azure Cosmos e encadernações
 
 ## <a name="eventhub"></a>eventHub
 
-Definições de configuração para [gatilhos e encadernações do Centro de Eventos](functions-bindings-event-hubs-trigger.md#functions-1x).
+Definições de configuração para [gatilhos e encadernações do Centro de Eventos](functions-bindings-event-hubs.md#functions-1x).
 
 ## <a name="functions"></a>funções
 
@@ -187,7 +187,7 @@ Definições de configuração para [monitor de saúde host](https://github.com/
 }
 ```
 
-|Propriedade  |Predefinição | Descrição |
+|Propriedade  |Predefinição | Description |
 |---------|---------|---------| 
 |ativado|true|Especifica se a funcionalidade está ativada. | 
 |healthCheckInterval|10 segundos|O intervalo de tempo entre as verificações de saúde de fundo periódicos. | 
@@ -210,7 +210,7 @@ Definições de configuração para [gatilhos e encadernações http](functions-
 }
 ```
 
-|Propriedade  |Predefinição | Descrição |
+|Propriedade  |Predefinição | Description |
 |---------|---------|---------| 
 |dynamicThrottlesEnabled|false|Quando ativado, esta definição faz com que o gasoduto de processamento de pedidos verifique periodicamente os contadores de desempenho do sistema, como ligações/fios/processos/memória/cpu/etc. e se algum desses contadores estiver acima de um limiar elevado incorporado (80%), os pedidos serão rejeitados com uma resposta 429 "Demasiado Ocupado" até que o contador volte aos níveis normais.|
 |maxConcurrentRequests|desvinculado ( `-1` )|O número máximo de funções HTTP que serão executadas em paralelo. Isto permite-lhe controlar a concordância, o que pode ajudar a gerir a utilização de recursos. Por exemplo, pode ter uma função HTTP que utiliza muitos recursos do sistema (memória/cpu/tomadas) de modo a causar problemas quando a contusão é demasiado elevada. Ou pode ter uma função que faz pedidos de saída para um serviço de terceiros, e essas chamadas precisam de ser limitadas. Nestes casos, aplicar um acelerador aqui pode ajudar.|
@@ -248,7 +248,7 @@ Controla a filtragem de registos escritos por um objeto [ILogger](functions-dotn
 }
 ```
 
-|Propriedade  |Predefinição | Descrição |
+|Propriedade  |Predefinição | Description |
 |---------|---------|---------| 
 |categoriaFiltro|n/a|Especifica a filtragem por categoria| 
 |defaultLevel|Informações|Para quaisquer categorias não especificadas na `categoryLevels` matriz, envie registos a este nível e acima para Insights de Aplicação.| 
@@ -270,7 +270,7 @@ Definições de configuração para [acionadores e encadernações](functions-bi
 }
 ```
 
-|Propriedade  |Predefinição | Descrição |
+|Propriedade  |Predefinição | Description |
 |---------|---------|---------| 
 |maxPollingInterval|60000|O intervalo máximo em milissegundos entre as sondagens.| 
 |visibilidadeTimeout|0|O intervalo de tempo entre as recauchutagens ao processamento de uma mensagem falha.| 
@@ -290,7 +290,7 @@ Definição de configuração para a [ligação de saída SendGrind](functions-b
 }    
 ```
 
-|Propriedade  |Predefinição | Descrição |
+|Propriedade  |Predefinição | Description |
 |---------|---------|---------| 
 |De|n/a|O endereço de e-mail do remetente em todas as funções.| 
 
@@ -309,7 +309,7 @@ Definição de configuração para [acionadores e encadernações do Service Bus
 }
 ```
 
-|Propriedade  |Predefinição | Descrição |
+|Propriedade  |Predefinição | Description |
 |---------|---------|---------| 
 |maxConcurrentCalls|16|O número máximo de chamadas simultâneas para a chamada que a bomba de mensagem deve iniciar. Por predefinição, o tempo de execução de Funções processa várias mensagens simultaneamente. Para direcionar o tempo de execução para processar apenas uma fila ou mensagem de tópico de cada vez, definido `maxConcurrentCalls` para 1. | 
 |prefetchCount|n/a|O PrefetchCount prefetch padrão que será usado pelo MensagemReceiver subjacente.| 
@@ -332,7 +332,7 @@ Definições de configuração para o comportamento de bloqueio de Singleton. Pa
 }
 ```
 
-|Propriedade  |Predefinição | Descrição |
+|Propriedade  |Predefinição | Description |
 |---------|---------|---------| 
 |lockPeriod|00:00:15|O período para o que os bloqueios de nível de função são tomados. As fechaduras renovam-se automaticamente.| 
 |ouvinteLockPeriod|00:01:00|O período para o que os ouvintes bloqueiam.| 
@@ -355,7 +355,7 @@ Configurações de configuração para registos que cria utilizando um `TraceWri
 }
 ```
 
-|Propriedade  |Predefinição | Descrição |
+|Propriedade  |Predefinição | Description |
 |---------|---------|---------| 
 |consoleLevel|informações|O nível de rastreio para a registo de consolas. As opções são: `off` , , , e `error` `warning` `info` `verbose` .|
 |fileLoggingMode|depuraronamente|O nível de rastreio para a extração de ficheiros. As opções `never` `always` são, `debugOnly` . .| 

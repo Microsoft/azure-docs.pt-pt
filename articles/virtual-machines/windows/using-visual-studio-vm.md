@@ -3,19 +3,19 @@ title: Usando o Estúdio Visual em uma máquina virtual Azure
 description: Utilização do Estúdio Visual numa máquina virtual Azure.
 author: cathysull
 manager: cathys
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.custom: vs-azure
 ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: cathys
 keywords: visuaistudio
-ms.openlocfilehash: 315987060b96312c666bd5aa928588e27d13173b
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: a6acf27743f17941e14adc3f6deea903f4f5ca87
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96938108"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102562083"
 ---
 # <a name="visual-studio-images-on-azure"></a>Imagens do Estúdio Visual em Azure
 Usar o Visual Studio numa máquina virtual Azure pré-configurada (VM) é uma maneira rápida e fácil de ir do nada para um ambiente de desenvolvimento em funcionamento. Imagens de sistema com diferentes configurações do Estúdio Visual estão disponíveis no [Azure Marketplace.](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?filters=virtual-machine-images%3Bmicrosoft%3Bwindows&page=1&subcategories=application-infrastructure)
@@ -31,7 +31,7 @@ As imagens para as versões mais recentes, Visual Studio 2019, Visual Studio 201
 | Versão de lançamento                                                                                                                                                | Edições              | Versão do Produto   |
 |:--------------------------------------------------------------------------------------------------------------------------------------------------------------:|:---------------------:|:-----------------:|
 | [Visual Studio 2019: Mais recente (Versão 16.8)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio2019latest?tab=Overview) | Empresa, Comunidade | Versão 16.8.0    |
-| Visual Studio 2019: RTW                         | Enterprise | Versão 16.0.20    |
+| Visual Studio 2019: RTW                         | Grandes Empresas | Versão 16.0.20    |
 | Visual Studio 2017: Mais recente (Versão 15.9)           | Empresa, Comunidade | Versão 15.9.29   |
 | Visual Studio 2017: RTW                             | Empresa, Comunidade | Versão 15.0.28  |
 | Visual Studio 2015: Mais recente (Atualização 3)               | Empresa, Comunidade | Versão 14.0.25431.01 |

@@ -1,18 +1,18 @@
 ---
 title: Definições políticas incorporadas para Azure SQL Database
 description: Lista definições de políticas incorporadas da Azure Policy para Azure SQL Database e SQL Managed Instance. Estas definições políticas incorporadas fornecem abordagens comuns para gerir os seus recursos Azure.
-ms.date: 03/05/2021
+ms.date: 03/10/2021
 ms.topic: reference
 author: stevestein
 ms.author: sstein
 ms.service: sql-database
 ms.custom: subject-policy-reference
-ms.openlocfilehash: b333e7b93705e90d190c2a2f88d380628f387c93
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 8bbb9fc7a023059d4c0d0557bcb45cbcd173a267
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102434857"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102617990"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-sql-database--sql-managed-instance"></a>Definições incorporadas da Política Azure para a Base de Dados Azure SQL & sql Gestd instance
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]

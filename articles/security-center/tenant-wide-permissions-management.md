@@ -6,20 +6,17 @@ ms.author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 02/25/2021
-ms.openlocfilehash: b3ddbdf04dc736b6f78a04dc6bb2bc484e67f70f
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.date: 03/11/2021
+ms.openlocfilehash: 0a24546579df020dcb7c7a9b01ee3d181226d2df
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102107947"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102617493"
 ---
 # <a name="grant-and-request-tenant-wide-visibility"></a>Conceder e solicitar visibilidade ao inquilina
 
 Um utilizador com o papel de Administrador Ativo (AD) da Azure Ative **Directory** (AD) pode ter responsabilidades em todo o inquilino, mas não tem as permissões do Azure para visualizar essa informação em toda a organização no Azure Security Center. A elevação da permissão é necessária porque as atribuições de funções AZure AD não dão acesso aos recursos da Azure. 
-
-> [!TIP]
-> Saiba mais sobre a elevação da permissão para o papel de Administrador Global no [acesso elevate para gerir todas as subscrições e grupos de gestão da Azure.](../role-based-access-control/elevate-access-global-admin.md)
 
 ## <a name="grant-tenant-wide-permissions-to-yourself"></a>Conceder permissões a si mesmo
 
@@ -45,6 +42,14 @@ Para atribuir permissão ao nível do inquilino:
 1. Faça login fora do portal Azure e, em seguida, faça login novamente.
 
 1. Uma vez elevado acesso, abra ou refresque o Centro de Segurança Azure para verificar se tem visibilidade em todas as subscrições sob o seu inquilino AZure AD. 
+
+O processo simples acima realiza uma série de operações automaticamente para si:
+
+1. As permissões do utilizador são temporariamente elevadas.
+1. Utilizando as novas permissões, o utilizador é designado para o papel de Azure RBAC desejado no grupo de gestão de raiz.
+1. As permissões elevadas são removidas.
+
+Para obter mais detalhes sobre o processo de elevação da AD Azure, consulte [o acesso da Elevate para gerir todas as subscrições e grupos de gestão da Azure.](../role-based-access-control/elevate-access-global-admin.md)
 
 
 ## <a name="request-tenant-wide-permissions-when-yours-are-insufficient"></a>Solicite permissões em todo o inquilino quando as suas são insuficientes

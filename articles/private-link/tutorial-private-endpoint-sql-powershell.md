@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Conecte-se a um servidor Azure SQL utilizando um Azure Private Endpoint - PowerShell
+title: 'Tutorial: Ligue-se a um servidor Azure SQL utilizando um Azure Private Endpoint - PowerShell'
 description: Utilize este tutorial para aprender a criar um servidor Azure SQL com um ponto final privado usando a Azure PowerShell
 services: private-link
 author: asudbring
@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 10/31/2020
 ms.author: allensu
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 4999d8b5d5ebe5d44aae782589b5c63324a4027b
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 8668bdb9dc391582234bf5741c0dd287d026defd
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102096518"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102554943"
 ---
-# <a name="tutorial---connect-to-an-azure-sql-server-using-an-azure-private-endpoint---azure-powershell"></a>Tutorial - Conecte-se a um servidor Azure SQL utilizando um Azure Private Endpoint - Azure PowerShell
+# <a name="tutorial-connect-to-an-azure-sql-server-using-an-azure-private-endpoint---azure-powershell"></a>Tutorial: Ligue-se a um servidor Azure SQL utilizando um Azure Private Endpoint - Azure PowerShell
 
 O ponto final privado Azure é o bloco de construção fundamental para private link em Azure. Permite que os recursos do Azure, como máquinas virtuais (VMs), comuniquem com os recursos de Private Link em privado.
 
@@ -338,8 +338,6 @@ Neste tutorial, criou um:
 
 Utilizou a máquina virtual para testar a conectividade de forma segura para o servidor SQL através do ponto final privado.
 
-Como próximo passo, poderá também estar interessado na aplicação Web com conectividade privada ao cenário de arquitetura [de base de dados Azure SQL,](https://docs.microsoft.com/azure/architecture/example-scenario/private-web-app/private-web-app) que liga uma aplicação web fora da rede virtual ao ponto final privado de uma base de dados.
-
-Saiba como criar um serviço de Ligação Privada:
+Como próximo passo, poderá também estar interessado na aplicação Web com conectividade privada ao cenário de arquitetura **de base de dados Azure SQL,** que liga uma aplicação web fora da rede virtual ao ponto final privado de uma base de dados.
 > [!div class="nextstepaction"]
-> [Criar um serviço de Ligação Privada](create-private-link-service-portal.md)
+> [Aplicativo web com conectividade privada para base de dados Azure SQL](/azure/architecture/example-scenario/private-web-app/private-web-app)

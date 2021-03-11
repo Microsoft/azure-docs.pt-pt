@@ -3,17 +3,18 @@ title: Executar scripts de conchas em um Linux VM em Azure
 description: Este tópico descreve como executar scripts dentro de uma máquina virtual Azure Linux usando a funcionalidade Comando de Execução
 services: automation
 ms.service: virtual-machines
+ms.collection: linux
 author: bobbytreed
 ms.author: robreed
 ms.date: 04/26/2019
 ms.topic: how-to
 manager: carmonm
-ms.openlocfilehash: dae77dfb72fb6b11721500686991f2b199606b99
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 73dd15a5eed3e27d9b72bc0357e35901c04ba7a2
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737868"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102552937"
 ---
 # <a name="run-shell-scripts-in-your-linux-vm-by-using-run-command"></a>Executar scripts de concha no seu Linux VM usando o Comando de Execução
 
@@ -96,6 +97,6 @@ Executar um comando requer a `Microsoft.Compute/virtualMachines/runCommand/actio
 
 Pode utilizar uma das [funções incorporadas](../../role-based-access-control/built-in-roles.md) ou criar um [papel personalizado](../../role-based-access-control/custom-roles.md) para utilizar o Comando Run.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para aprender sobre outras formas de executar scripts e comandos remotamente no seu VM, consulte [scripts Run no seu Linux VM](run-scripts-in-vm.md).

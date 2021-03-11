@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: 895e22d94122539ee68bcac8ee4debce2d824ff0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6519cd952bd1265b4daad3b77b29aabd47ea4cc5
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88935284"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102547480"
 ---
 # <a name="sentiment-cognitive-skill"></a>Capacidade cognitiva do sentimento
 
@@ -36,20 +36,20 @@ O tamanho máximo de um disco deve ser de 5000 caracteres medido por [`String.Le
 
 Os parâmetros são sensíveis às maiúsculas e minúsculas.
 
-| Nome do Parâmetro | Descrição |
+| Nome do Parâmetro | Description |
 |----------------|----------------------|
 | `defaultLanguageCode` | (opcional) O código linguístico a aplicar a documentos que não especificam explicitamente a língua. <br/> Ver [lista completa de línguas apoiadas](../cognitive-services/text-analytics/language-support.md) |
 
 ## <a name="skill-inputs"></a>Entradas de habilidades 
 
-| Nome de entrada | Descrição |
+| Nome de entrada | Description |
 |--------------------|-------------|
 | `text` | O texto a ser analisado.|
 | `languageCode`    |  (Opcional) Uma corda que indica a linguagem dos registos. Se este parâmetro não for especificado, o valor predefinido é "en". <br/>Consulte [a lista completa de línguas suportadas.](../cognitive-services/text-analytics/language-support.md)|
 
 ## <a name="skill-outputs"></a>Saídas de competências
 
-| Nome de saída | Descrição |
+| Nome de saída | Description |
 |--------------------|-------------|
 | `score` | Um valor entre 0 e 1 que representa o sentimento do texto analisado. Valores próximos de 0 têm sentimento negativo, perto de 0,5 têm sentimento neutro, e valores próximos de 1 têm sentimento positivo.|
 
@@ -110,13 +110,11 @@ Os parâmetros são sensíveis às maiúsculas e minúsculas.
 }
 ```
 
-## <a name="notes"></a>Notas
-Se estiver vazio, uma pontuação de sentimento não é devolvida para esses registos.
+## <a name="warning-cases"></a>Casos de aviso
+Se o seu texto estiver vazio, é gerado um aviso e não é devolvida nenhuma pontuação de sentimento.
+Se uma língua não for suportada, um aviso é gerado e nenhuma pontuação de sentimento é devolvida.
 
-## <a name="error-cases"></a>Casos de erro
-Se uma língua não for suportada, um erro é gerado e nenhuma pontuação de sentimento é devolvida.
-
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 + [Competências incorporadas](cognitive-search-predefined-skills.md)
 + [Como definir um skillset](cognitive-search-defining-skillset.md)

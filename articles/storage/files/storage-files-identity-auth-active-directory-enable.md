@@ -7,16 +7,16 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 09/13/2020
 ms.author: rogarana
-ms.openlocfilehash: 2214dbc9dcbd4ba7728065ee45471e9f94b9e513
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 6098497e89ad66fad7659aa64c9a7849380f8c43
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95740000"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102547521"
 ---
 # <a name="overview---on-premises-active-directory-domain-services-authentication-over-smb-for-azure-file-shares"></a>Visão geral - autenticação de serviços de domínio de diretório ativo no local sobre SMB para ações de ficheiros Azure
 
-Ficheiros Azure [Azure Files](storage-files-introduction.md)   suporta a autenticação baseada na identidade sobre o Bloco de Mensagens do Servidor (SMB) através de dois tipos de Serviços de Domínio: no local Serviços de Domínio de Diretório Ativo (AD DS) e Azure Ative Directory Domain Services (Azure AD DS). Recomendamos vivamente que reveja a [secção Como funciona](./storage-files-active-directory-overview.md#how-it-works) para selecionar o serviço de domínio certo para autenticação. A configuração é diferente dependendo do serviço de domínio que escolher. Estas séries de artigos focam-se em ativar e configurar o DS AD no local para autenticação com ações de ficheiros Azure.
+Ficheiros Azure [](storage-files-introduction.md)   suporta a autenticação baseada na identidade sobre o Bloco de Mensagens do Servidor (SMB) através de dois tipos de Serviços de Domínio: no local Serviços de Domínio de Diretório Ativo (AD DS) e Azure Ative Directory Domain Services (Azure AD DS). Recomendamos vivamente que reveja a [secção Como funciona](./storage-files-active-directory-overview.md#how-it-works) para selecionar o serviço de domínio certo para autenticação. A configuração é diferente dependendo do serviço de domínio que escolher. Estas séries de artigos focam-se em ativar e configurar o DS AD no local para autenticação com ações de ficheiros Azure.
 
 Se é novo nas ações de ficheiros Azure, recomendamos que leia o nosso [guia de planeamento](storage-files-planning.md) antes de ler a seguinte série de artigos.
 
@@ -33,10 +33,14 @@ Se é novo nas ações de ficheiros Azure, recomendamos que leia o nosso [guia d
 
 Quando ativa ações de ficheiros AD DS para Azure sobre a SMB, as suas máquinas aderidas a DS AD podem montar ações de ficheiros Azure utilizando as credenciais de DS AD existentes. Esta capacidade pode ser ativada com um ambiente AD DS hospedado em máquinas on-prem ou hospedado em Azure.
 
-> [!NOTE]
-> Para ajudá-lo a configurar a autenticação Azure Files AD para alguns casos de uso comum, publicámos dois vídeos com orientação passo a passo para os seguintes cenários:
-> - [Substituição de servidores de ficheiros no local por Ficheiros Azure (incluindo configuração em link privado para ficheiros e autenticação de AD)](https://sec.ch9.ms/ch9/3358/0addac01-3606-4e30-ad7b-f195f3ab3358/ITOpsTalkAzureFiles_high.mp4)
-> - [Utilização de Ficheiros Azure como recipiente de perfil para o Windows Virtual Desktop (incluindo configuração na autenticação AD e configuração FsLogix)](https://www.youtube.com/embed/9S5A1IJqfOQ)
+## <a name="videos"></a>Vídeos
+
+Para ajudá-lo a configurar a autenticação Azure Files AD para alguns casos de uso comum, publicámos dois vídeos com orientação passo a passo para os seguintes cenários:
+
+| Substituição de servidores de ficheiros no local por Ficheiros Azure (incluindo configuração em link privado para ficheiros e autenticação de AD) | Utilização de Ficheiros Azure como recipiente de perfil para o Windows Virtual Desktop (incluindo configuração na autenticação AD e configuração FsLogix)  |
+|-|-|
+| [![Screencast do vídeo de servidores de ficheiros substitutos no local - clique para reproduzir.](./media/storage-files-identity-auth-active-directory-enable/replace-on-prem-server-thumbnail.png)](https://www.youtube.com/watch?v=jd49W33DxkQ) | [![Screencast of the Using Azure Files as the profile container video - clique para reproduzir.](./media/storage-files-identity-auth-active-directory-enable/files-ad-ds-fslogix-thumbnail.png)](https://www.youtube.com/watch?v=9S5A1IJqfOQ) |
+
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 
@@ -64,7 +68,7 @@ Antes de ativar a autenticação AD DS para ações de ficheiros Azure, certifiq
 
 A autenticação de Ficheiros Azure com DS AD está disponível em [todas as regiões Azure Public e Gov](https://azure.microsoft.com/global-infrastructure/locations/).
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Se pretender ativar quaisquer configurações de rede na sua partilha de ficheiros, recomendamos que leia o artigo [de consideração de rede](./storage-files-networking-overview.md) e complete a configuração relacionada antes de permitir a autenticação de DS AD.
 

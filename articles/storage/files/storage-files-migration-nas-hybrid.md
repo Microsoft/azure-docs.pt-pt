@@ -7,21 +7,30 @@ ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 73dc2520fbe970123a52133cb00909fea190610a
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 86e79302716fa502d8562dd563b0a5c5fb220a67
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102202676"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102547561"
 ---
 # <a name="migrate-from-network-attached-storage-nas-to-a-hybrid-cloud-deployment-with-azure-file-sync"></a>Migrar do Armazenamento Ligado à Rede (NAS) para uma implementação em nuvem híbrida com Azure File Sync
+
+Este artigo de migração é um dos vários que envolvem as palavras-chave NAS e Azure File Sync. Verifique se este artigo se aplica ao seu cenário:
+
+> [!div class="checklist"]
+> * Fonte de dados: Armazenamento Ligado à Rede (NAS)
+> * Rota de migração: UPLOAD e sincronização do SERVIDOR NAS &rArr; Windows com a partilha de &rArr; ficheiros Azure
+> * Caching ficheiros no local: Sim, o objetivo final é uma implementação de Azure File Sync.
+
+Se o seu cenário for diferente, olhe através da [tabela de guias de migração.](storage-files-migration-overview.md#migration-guides)
 
 O Azure File Sync funciona em locais de armazenamento direto anexado (DAS) e não suporta sincronização em locais de armazenamento anexado à rede (NAS).
 Este facto torna necessária uma migração dos seus ficheiros e este artigo guia-o através do planeamento e execução de tal migração.
 
 ## <a name="migration-goals"></a>Objetivos de migração
 
-O objetivo é mover as ações que tem no seu aparelho NAS para um Servidor Windows. Em seguida, utilize o Azure File Sync para uma implementação de nuvem híbrida. Esta migração tem de ser feita de forma a garantir a integridade dos dados de produção, bem como a disponibilidade durante a migração. Este último requer manter o tempo de inatividade ao mínimo, de modo a que possa encaixar ou apenas exceder ligeiramente as janelas de manutenção regulares.
+O objetivo é mover as ações que tem no seu aparelho NAS para um Servidor Windows. Em seguida, utilize o Azure File Sync para uma implementação de nuvem híbrida. Geralmente, as migrações têm de ser feitas de uma forma que garantisse a integridade dos dados de produção e a sua disponibilidade durante a migração. Este último requer manter o tempo de inatividade ao mínimo, de modo a que possa encaixar ou apenas exceder ligeiramente as janelas de manutenção regulares.
 
 ## <a name="migration-overview"></a>Descrição geral da migração
 
@@ -45,14 +54,14 @@ Como mencionado no artigo geral de [migração](storage-files-migration-overview
 * Crie um Windows Server 2019 - no mínimo 2012R2 - como uma máquina virtual ou servidor físico. Um cluster de falha do Windows Server também é suportado.
 * Provisão ou adicionar Armazenamento Direto Anexado (DAS em comparação com o NAS, que não é suportado).
 
-    A quantidade de armazenamento que fornece pode ser menor do que a que está a utilizar atualmente no seu aparelho NAS, se utilizar [a função de nivelamento de nuvem](storage-sync-cloud-tiering-overview.md) Azure File Syncs.
+    A quantidade de armazenamento que o seu fornecimento pode ser menor do que o que está a utilizar atualmente no seu aparelho NAS. Esta escolha de configuração requer que também utilize a funcionalidade de [tiering](storage-sync-cloud-tiering-overview.md) de cloud Syncs Azure File Syncs.
     No entanto, quando copiar os seus ficheiros do espaço NAS maior para o menor volume do Windows Server numa fase posterior, terá de trabalhar em lotes:
 
     1. Mova um conjunto de ficheiros que se encaixe no disco
     2. deixe sincronizar ficheiros e nivelar o nível de nuvem
-    3. quando mais espaço livre for criado no volume, proceda com o próximo lote de ficheiros. 
+    3. quando mais espaço livre for criado no volume, proceda com o próximo lote de ficheiros. Em alternativa, reveja o comando RoboCopy na próxima [secção RoboCopy](#phase-7-robocopy) para utilização do novo `/LFSM` comutador. A utilização `/LFSM` pode simplificar significativamente os seus trabalhos roboCopy, mas não é compatível com outros interruptores RoboCopy de que possa depender.
     
-    Pode evitar esta abordagem de lote, disponibilizando o espaço equivalente no Windows Server que os seus ficheiros ocupam no aparelho NAS. Considere a deduplicação no NAS / Windows. Se não quiser comprometer permanentemente esta elevada quantidade de armazenamento no seu Windows Server, pode reduzir o tamanho do volume após a migração e antes de ajustar as políticas de nivelamento da nuvem. Isso cria uma cache menor no local das suas ações de ficheiros Azure.
+    Pode evitar esta abordagem de lote, disponibilizando o espaço equivalente no Windows Server que os seus ficheiros ocupam no aparelho NAS. Considere a deduplicação no NAS / Windows. Se não quiser comprometer permanentemente esta elevada quantidade de armazenamento no seu Windows Server, pode reduzir o tamanho do volume após a migração e antes de ajustar as políticas de tiering da nuvem. Isso cria uma cache menor no local das suas ações de ficheiros Azure.
 
 A configuração de recursos (computação e RAM) do Servidor do Windows que implementa depende principalmente do número de itens (ficheiros e pastas) que estará a sincronizar. Recomendamos que vá com uma configuração de desempenho mais alta se tiver alguma preocupação.
 
@@ -108,76 +117,7 @@ O seguinte comando RoboCopy copiará ficheiros do seu armazenamento NAS para a p
 Se fornequir menos armazenamento no seu Windows Server do que os seus ficheiros ocuparem o aparelho NAS, então tem um nível de nuvem configurado. À medida que o volume do Servidor do Windows local fica cheio, [o tiering](storage-sync-cloud-tiering-overview.md) da nuvem entrará em edição de ficheiros que já tenham sincronizado com sucesso. O tiering da nuvem gerará espaço suficiente para continuar a cópia do aparelho NAS. O tiering da nuvem verifica uma vez por hora para ver o que sincronizou e para libertar o espaço do disco para alcançar o espaço livre de volume de 99%.
 É possível que o RoboCopy mova os ficheiros mais rapidamente do que pode sincronizar com a nuvem e o nível localmente, ficando assim sem espaço de disco local. RoboCopy vai falhar. Recomenda-se que trabalhe através das ações numa sequência que o impeça. Por exemplo, não iniciar trabalhos roboCopy para todas as ações ao mesmo tempo, ou apenas mover ações que se encaixam na quantidade atual de espaço livre no Windows Server, para mencionar algumas.
 
-```console
-Robocopy /MT:32 /UNILOG:<file name> /TEE /B /MIR /COPYALL /DCOPY:DAT <SourcePath> <Dest.Path>
-```
-
-Antecedentes:
-
-:::row:::
-   :::column span="1":::
-      /MT
-   :::column-end:::
-   :::column span="1":::
-      Permite que o RoboCopy corra com vários fios. O padrão é 8, máx é 128.
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /UNILOG:\<file name\>
-   :::column-end:::
-   :::column span="1":::
-      Estado das saídas para ficheiro LOG como UNICODE (substitui registo existente).
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /TEE
-   :::column-end:::
-   :::column span="1":::
-      Saídas para a janela da consola. Usado em conjunto com a saída para um ficheiro de registo.
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /B
-   :::column-end:::
-   :::column span="1":::
-      Executa roboCopy no mesmo modo que uma aplicação de backup usaria. Permite que o RoboCopy mova ficheiros para os quais o utilizador atual não tem permissões.
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /MIR
-   :::column-end:::
-   :::column span="1":::
-      Permite executar este comando RoboCopy várias vezes, sequencialmente no mesmo alvo/destino. Identifica o que já foi copiado antes e omite-o. Apenas alterações, adições e " eliminações " serão *processadas,* que ocorreram desde a última execução. Se o comando não foi dirigido antes, nada é omitido. A bandeira */MIR* é uma excelente opção para locais de origem que ainda são ativamente utilizados e alterados.
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /COPY:copyflag[s]
-   :::column-end:::
-   :::column span="1":::
-      fidelidade da cópia do ficheiro (predefinição é /COPY:DAT), bandeiras de cópia: D=Data, A=Atributos, T=Timestamps, S=Security=NTFS ACLs, O=Informação do Proprietário, U=aUditing info
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /COPYALL
-   :::column-end:::
-   :::column span="1":::
-      CÓPIA DE TODAS AS informações de ficheiro (equivalente a /COPY:DATSOU)
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /DCOPY:copyflag[s]
-   :::column-end:::
-   :::column span="1":::
-      fidelidade para a cópia de diretórios (padrão é /DCOPY:DA), bandeiras de cópia: D=Dados, A=Atributos, T=Timestamps
-   :::column-end:::
-:::row-end:::
+[!INCLUDE [storage-files-migration-robocopy](../../../includes/storage-files-migration-robocopy.md)]
 
 ## <a name="phase-8-user-cut-over"></a>Fase 8: Corte do utilizador
 
@@ -196,7 +136,7 @@ A segunda vez terminará mais rápido, porque só precisa de transportar mudanç
 
 Repita este processo até estar convencido de que o tempo necessário para completar um RoboCopy para uma localização específica está dentro de uma janela aceitável para o tempo de inatividade.
 
-Quando considera o tempo de inatividade aceitável e está preparado para desligar a localização NAS: Para tirar o acesso do utilizador offline, tem a opção de alterar ACLs na raiz da partilha de modo a que os utilizadores não possam mais aceder à localização ou dar qualquer outro passo apropriado que impeça que o conteúdo mude nesta pasta no seu NAS.
+Quando considerar o tempo de inatividade aceitável, tem de remover o acesso do utilizador às suas ações baseadas no NAS. Pode fazê-lo por quaisquer passos que impeçam os utilizadores de alterar a estrutura e conteúdo do ficheiro e da pasta. Um exemplo é apontar o seu DFS-Namespace para um local não existente ou alterar os ACLs de raiz na partilha.
 
 Executar uma última rodada de RoboCopy. Vai detetar quaisquer alterações que possam ter sido perdidas.
 Quanto tempo este passo final leva, depende da velocidade do scan RoboCopy. Pode estimar o tempo (que é igual ao seu tempo de inatividade) medindo o tempo que a execução anterior demorou.
@@ -224,7 +164,7 @@ Verifique o link na secção seguinte para verificar problemas de resolução de
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Há mais a descobrir sobre as ações de ficheiros Azure e a Azure File Sync. Os seguintes artigos ajudam a compreender opções avançadas, boas práticas e também contêm ajuda para resolver problemas. Estes artigos ligam-se à [documentação de partilha de ficheiros Azure](storage-files-introduction.md) conforme apropriado.
+Há mais a descobrir sobre as ações de ficheiros Azure e a Azure File Sync. Os seguintes artigos ajudam a compreender opções avançadas, boas práticas, e também contêm ajuda para resolver problemas. Estes artigos ligam-se à [documentação de partilha de ficheiros Azure](storage-files-introduction.md) conforme apropriado.
 
 * [Visão geral da AFS](./storage-sync-files-planning.md)
 * [Guia de implantação da AFS](./storage-how-to-create-file-share.md)

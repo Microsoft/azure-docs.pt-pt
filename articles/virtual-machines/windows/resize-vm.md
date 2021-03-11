@@ -2,18 +2,18 @@
 title: Redimensionar um Windows VM em Azure
 description: Mude o tamanho VM utilizado para uma máquina virtual Azure.
 author: cynthn
-ms.service: virtual-machines-windows
-ms.subservice: sizes
+ms.service: virtual-machines
+ms.collection: windows
 ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: cynthn
-ms.openlocfilehash: 4860422fefb5a95fe41912b4898f02867f7b3aeb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f7f41c0fb2bf949dd47491761fde8025a2d35155
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87832251"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102560655"
 ---
 # <a name="resize-a-windows-vm"></a>Redimensionar VMs do Windows
 
@@ -21,7 +21,7 @@ Este artigo mostra-lhe como mover um VM para um [tamanho VM](../sizes.md)diferen
 
 Depois de criar uma máquina virtual (VM), pode escalar o VM para cima ou para baixo alterando o tamanho VM. Em alguns casos, primeiro tem de negociar com o VM. Isto pode acontecer se o novo tamanho não estiver disponível no cluster de hardware que está atualmente hospedando o VM.
 
-Se o seu VM utilizar o Premium Storage, certifique-se de que escolhe uma versão **s** do tamanho para obter suporte de Armazenamento Premium. Por exemplo, escolha Standard_E4**s**_v3 em vez de Standard_E4_v3.
+Se o seu VM utilizar o Premium Storage, certifique-se de que escolhe uma versão **s** do tamanho para obter suporte de Armazenamento Premium. Por exemplo, escolha Standard_E4 **s** _v3 em vez de Standard_E4_v3.
 
 ## <a name="use-the-portal"></a>Utilizar o portal
 
