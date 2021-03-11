@@ -6,12 +6,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: bwren
-ms.openlocfilehash: cb4f1ecdada68218c104558a85277417641906f6
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 2435e4ed16889d9d4701b6047c0a1f602ee7ae91
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102033017"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102558700"
 ---
 # <a name="azure-resource-logs"></a>Registos de recursos do Azure
 Os registos de recursos Azure são [registos de plataformas](../essentials/platform-logs-overview.md) que fornecem informações sobre operações que foram realizadas dentro de um recurso Azure. O conteúdo dos registos de recursos varia consouros e de tipo de recurso. Os registos de recursos não são recolhidos por predefinição. Tem de criar uma definição de diagnóstico para cada recurso Azure para enviar os seus registos de recursos para um espaço de trabalho do Log Analytics para utilizar com [registos do Monitor Azure,](../logs/data-platform-logs.md)Azure Event Hubs para encaminhar para fora do Azure, ou para o Azure Storage para arquivar.
@@ -28,11 +28,11 @@ Consulte [Criar definições de diagnóstico para enviar registos e métricas da
 
 [Crie uma definição de diagnóstico](../essentials/diagnostic-settings.md) para enviar registos de recursos para um espaço de trabalho Log Analytics. Estes dados são armazenados em tabelas conforme descrito na [Estrutura de Registos monitores Azure](../logs/data-platform-logs.md). As tabelas utilizadas pelos registos de recursos dependem do tipo de recolha que o recurso está a utilizar:
 
-- Diagnósticos Azure - Todos os dados escritos são para a tabela _AzureDiagnostics._
+- Diagnósticos Azure - Todos os dados escritos são para a tabela [AzureDiagnostics.](/azure/azure-monitor/reference/tables/azurediagnostics)
 - Específico de recursos - Os dados são escritos para tabela individual para cada categoria do recurso.
 
 ### <a name="azure-diagnostics-mode"></a>Modo de diagnóstico Azure 
-Neste modo, todos os dados de qualquer definição de diagnóstico serão recolhidos na tabela _AzureDiagnostics._ Este é o método legado usado hoje pela maioria dos serviços da Azure. Uma vez que vários tipos de recursos enviam dados para a mesma tabela, o seu esquema é o superconjunto dos esquemas de todos os diferentes tipos de dados que estão a ser recolhidos.
+Neste modo, todos os dados de qualquer definição de diagnóstico serão recolhidos na tabela [AzureDiagnostics.](/azure/azure-monitor/reference/tables/azurediagnostics) Este é o método legado usado hoje pela maioria dos serviços da Azure. Uma vez que vários tipos de recursos enviam dados para a mesma tabela, o seu esquema é o superconjunto dos esquemas de todos os diferentes tipos de dados que estão a ser recolhidos. Consulte [a referência AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagnostics) para obter detalhes sobre a estrutura desta tabela e como funciona com este número potencialmente grande de colunas.
 
 Considere o seguinte exemplo onde as definições de diagnóstico estão a ser recolhidas no mesmo espaço de trabalho para os seguintes tipos de dados:
 
@@ -95,16 +95,6 @@ A maioria dos recursos Azure escreverá dados para o espaço de trabalho no modo
 Pode modificar uma definição de diagnóstico existente para o modo específico de recursos. Neste caso, os dados já recolhidos permanecerão na tabela _AzureDiagnostics_ até que seja removido de acordo com a sua definição de retenção para o espaço de trabalho. Novos dados serão recolhidos na tabela dedicada. Utilize o operador [sindical](/azure/kusto/query/unionoperator) para consultar dados em ambas as tabelas.
 
 Continue a ver o blog [Azure Updates](https://azure.microsoft.com/updates/) para anúncios sobre os serviços Azure que suportam Resource-Specific modo.
-
-### <a name="column-limit-in-azurediagnostics"></a>Limite de coluna em AzureDiagnostics
-Existe um limite de propriedade de 500 para qualquer tabela em Registos monitores Azure. Uma vez atingido este limite, quaisquer linhas que contenham dados com qualquer propriedade fora dos primeiros 500 serão largadas no momento da ingestão. A tabela *AzureDiagnostics* é, em particular, suscetível a este limite, uma vez que inclui propriedades para todos os serviços Azure que lhe escrevem.
-
-Se estiver a recolher registos de recursos de vários serviços, _o AzureDiagnostics_ poderá exceder este limite e os dados serão perdidos. Até que todos os serviços Azure suportem o modo específico de recursos, deve configurar recursos para escrever em vários espaços de trabalho para reduzir a possibilidade de atingir o limite de coluna de 500.
-
-### <a name="azure-data-factory"></a>Azure Data Factory
-Azure Data Factory, devido a um conjunto detalhado de registos, é um serviço que é conhecido por escrever um grande número de colunas e potencialmente fazer com que _o AzureDiagnostics_ exceda o seu limite. Para quaisquer definições de diagnóstico configuradas antes do modo específico de recursos ser ativado, haverá uma nova coluna criada para cada parâmetro de utilizador exclusivamente nomeado contra qualquer atividade. Mais colunas serão criadas devido à natureza verbosa das entradas e saídas de atividade.
- 
-Deve migrar os seus registos para utilizar o modo específico de recursos o mais rapidamente possível. Se não conseguir fazê-lo imediatamente, uma alternativa provisória é isolar os registos da Azure Data Factory no seu próprio espaço de trabalho para minimizar a probabilidade destes registos terem impacto em outros tipos de registos que estão a ser recolhidos nos seus espaços de trabalho.
 
 
 ## <a name="send-to-azure-event-hubs"></a>Enviar para Azure Event Hubs

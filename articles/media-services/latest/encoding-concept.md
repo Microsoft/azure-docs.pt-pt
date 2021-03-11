@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 84caa287803fa64b12d9da4c2afb1f8dd1418e13
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.openlocfilehash: 6a486057a265b02ce30059940c8c98837ec43f8e
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102455285"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102617646"
 ---
 # <a name="encoding-video-and-audio-with-media-services"></a>Codificação de vídeo e áudio com Serviços de Media
 
@@ -95,20 +95,25 @@ Os Serviços de Comunicação Social suportam as seguintes predefinições codif
 
 [O BuiltInStandardEncoderPreset](/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) é utilizado para definir uma predefinição incorporada para codificar o vídeo de entrada com o Standard Encoder.
 
-As seguintes predefinições são atualmente suportadas:
+As seguintes predefinições incorporadas são atualmente suportadas:
 
 - **EncoderNamedPreset.AACGoodQualityAudio:** produz um único ficheiro MP4 contendo apenas áudio estéreo codificado a 192 kbps.
-- **EncoderNamedPreset.AdaptiveStreaming** (recomendado): Para obter mais informações, consulte uma escada de [bitrate que gera automaticamente](autogen-bitrate-ladder.md).
-- **EncoderNamedPreset.ContentAwareEncoding:** expõe uma predefinição para codificação consciente do conteúdo. Dado qualquer conteúdo de entrada, o serviço tenta determinar automaticamente o número ideal de camadas e definições de bitrate e resolução apropriadas para entrega através do streaming adaptativo. Os algoritmos subjacentes continuarão a evoluir ao longo do tempo. A saída conterá ficheiros MP4 com vídeo e áudio intercalados. Para obter mais informações, consulte [a codificação consciente do conteúdo.](content-aware-encoding.md)
-
+- **EncoderNamedPreset.AdaptiveStreaming** (recomendado): Isto suporta a codificação de bitramento adaptativo H.264. Para obter mais informações, consulte [uma escada de bitrate que gera automaticamente.](autogen-bitrate-ladder.md)
+- **EncoderNamerPreset.H265AdaptiveStreaming** : Semelhante à pré-sintonia de AdaptiveStreaming, mas utiliza o codec HEVC (H.265). Produz um conjunto de ficheiros MP4 alinhados com vídeo H.265 e áudio AAC estéreo. Gera automaticamente uma escada de bitrate com base na resolução de entrada, bitrate e taxa de fotogramas. A predefinição gerada automaticamente nunca excederá a resolução de entrada. Por exemplo, se a entrada for de 720p, a saída permanecerá 720p na melhor das hipóteses.
+- **EncoderNamedPreset.ContentAwareEncoding:** expõe uma predefinição para codificação consciente do conteúdo H.264. Dado qualquer conteúdo de entrada, o serviço tenta determinar automaticamente o número ideal de camadas e definições de bitrate e resolução apropriadas para entrega através do streaming adaptativo. Os algoritmos subjacentes continuarão a evoluir ao longo do tempo. A saída conterá ficheiros MP4 com vídeo e áudio intercalados. Para obter mais informações, consulte [a codificação consciente do conteúdo.](content-aware-encoding.md)
+- **EncoderNamedPreset.H265ContentAwareEncoding:** expõe uma predefinição para codificação consciente do conteúdo HEVC (H.265). Produz um conjunto de MP4s alinhados com GOP utilizando codificação consciente do conteúdo. Dado qualquer conteúdo de entrada, o serviço realiza uma análise leve inicial do conteúdo de entrada, e utiliza os resultados para determinar o número ideal de camadas, definições de bitrate e resolução apropriadas para entrega através do streaming adaptativo. Esta predefinição é particularmente eficaz para vídeos de baixa e média complexidade, onde os ficheiros de saída estarão em bitrates mais baixos, mas com uma qualidade que ainda oferece uma boa experiência aos espectadores. A saída conterá ficheiros MP4 com vídeo e áudio intercalados.
   > [!NOTE]
-  > Certifique-se de que utiliza **o ContentAwareEncoding** e não o ContentAwareEncodingExperimental.
+  > Certifique-se de usar **ContentAwareEncoding** não ContentAwareEncodingExperimental que agora é depreciado
+
 - **EncoderNamedPreset.H264MultipleBitrate1080p**: produz um conjunto de oito ficheiros MP4 alinhados com GOP, que variam de 6000 kbps a 400 kbps, e áudio Estéreo AAC. A resolução começa às 1080p e desce para 360p.
 - **EncoderNamedPreset.H264MultipleBitrate720p:** produz um conjunto de seis ficheiros MP4 alinhados com GOP, que variam de 3400 kbps a 400 kbps, e áudio Estéreo AAC. A resolução começa em 720p e desce para 360p.
 - **EncoderNamedPreset.H264MultipleBitrateSD:** produz um conjunto de cinco ficheiros MP4 alinhados com GOP, que variam entre 1600 kbps e 400 kbps, e áudio AAC estéreo. A resolução começa a 480p e desce para 360p.
 - **EncoderNamedPreset.H264SingleBitrate1080p**: produz um ficheiro MP4 onde o vídeo é codificado com código H.264 a 6750 kbps e uma altura de imagem de 1080 pixels, e o áudio estéreo é codificado com código AAC-LC a 64 kbps.
 - **EncoderNamedPreset.H264SingleBitrate720p**: produz um ficheiro MP4 onde o vídeo é codificado com código H.264 a 4500 kbps e uma altura de imagem de 720 pixels, e o áudio estéreo é codificado com codec AAC-LC a 64 kbps.
 - **EncoderNamedPreset.H264SingleBitrateSD:** produz um ficheiro MP4 onde o vídeo é codificado com código H.264 a 2200 kbps e uma altura de imagem de 480 pixels, e o áudio estéreo é codificado com código AAC-LCc a 64 kbps.
+- **EncoderNamedPreset.H265SingleBitrate720P:** produz um ficheiro MP4 onde o vídeo é codificado com código HEVC (H.265) a 1800 kbps e uma altura de imagem de 720 pixels, e o áudio estéreo é codificado com codec AAC-LC a 128 kbps.
+- **EncoderNamedPreset.H265SingleBitrate1080p**: produz um ficheiro MP4 onde o vídeo é codificado com código HEVC (H.265) a 3500 kbps e uma altura de imagem de 1080 pixels, e o áudio estéreo é codificado com código AAC-LCC a 128 kbps.
+- **EncoderNamedPreset.H265SingleBitrate4K**: produz um ficheiro MP4 onde o vídeo é codificado com código HEVC (H.265) a 9500 kbps e uma altura de imagem de 2160 pixels, e o áudio estéreo é codificado com codec AAC-LC a 128 kbps.
 
 Para ver a lista de predefinições mais atualizadas, consulte [predefinições incorporadas para serem usadas para codificar vídeos](/rest/api/media/transforms/createorupdate#encodernamedpreset).
 
@@ -135,6 +140,7 @@ Os Serviços de Comunicação Social suportam totalmente a personalização de t
 - [Personalize predefinições com CLI](custom-preset-cli-howto.md)
 - [Personalize predefinições com REST](custom-preset-rest-howto.md)
 
+
 ## <a name="preset-schema"></a>Esquema predefinido
 
 Nos Serviços de Comunicação Social v3, as predefinições são entidades fortemente dactilografada na própria API. Pode encontrar a definição de "esquema" para estes objetos em [Especificação API Aberta (ou Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01). Também pode ver as definições predefinidas (como **StandardEncoderPreset)** na [API REST](/rest/api/media/transforms/createorupdate#standardencoderpreset), [.NET SDK](/dotnet/api/microsoft.azure.management.media.models.standardencoderpreset) (ou outros Serviços de Mídia v3 SDK documentação de referência).
@@ -142,6 +148,7 @@ Nos Serviços de Comunicação Social v3, as predefinições são entidades fort
 ## <a name="scaling-encoding-in-v3"></a>Codificação de escalonamento em v3
 
 Para escalar o processamento dos meios de comunicação, consulte [Scale com CLI](media-reserved-units-cli-how-to.md).
+Para contas criadas com a versão **2020-05-01** da API ou através do portal Azure, já não são necessárias unidades reservadas para o escalonamento e media. O dimensionamento será automático e manuseado pelo serviço internamente.
 
 ## <a name="billing"></a>Faturação
 

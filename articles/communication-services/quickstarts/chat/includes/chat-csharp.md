@@ -10,12 +10,12 @@ ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: b4f058d9829a23748b8ef61daea5b3f12ce5fedf
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: f0e1208adb0ce937c7b72d88564e346a30608291
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102489715"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102603352"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar, certifique-se de:
@@ -46,7 +46,7 @@ dotnet build
 Instale a biblioteca de clientes Azure Communication Chat para .NET
 
 ```PowerShell
-dotnet add package Azure.Communication.Chat --version 1.0.0-beta.4
+dotnet add package Azure.Communication.Chat --version 1.0.0-beta.5
 ```
 
 ## <a name="object-model"></a>Modelo de objeto

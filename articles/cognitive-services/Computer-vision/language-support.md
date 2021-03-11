@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 2e0cd424b71ff828ed0d8ad4c16d3333cf8a1c45
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 43804907d68ddd58e55c7ce453e0731d0cb4b9b5
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99575877"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102560383"
 ---
 # <a name="language-support-for-computer-vision"></a>Suporte linguístico para Visão de Computador
 
@@ -68,13 +68,13 @@ As APIs de OCR da Visão Computacional suportam vários idiomas. Não exigem que
 |Italiano | `it` |✔ |✔ |✔ |
 |Japonês | `ja` |✔ | |✔ |
 |Javanese | `jv` | | |✔ |
+|K'iche'  | `quc` | | |✔ |
 |Rio Kabuverdianu | `kea` | | |✔ |
 |Kachin (latim) | `kac` | | |✔ |
 |Kara-Kalpak | `kaa` | | |✔ |
 |Kashubian | `csb` | | |✔ |
 |Rio Khasi  | `kha` | | |✔ |
 |Coreano | `ko` |✔ | |✔ |
-|K'iche'  | `quc` | | |✔ |
 |Curdo (latim) | `kur` | | |✔ |
 |Luxemburguês  | `lb` | | |✔ |
 |Malaio (latim)  | `ms` | | |✔ |

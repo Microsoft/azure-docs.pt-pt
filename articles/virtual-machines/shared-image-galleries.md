@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 10/14/2020
 ms.author: akjosh
 ms.reviewer: cynthn
-ms.openlocfilehash: 225aca8c4695db33e504a5857acb856f4e01d1f1
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 32b4cf1555a2d0e074ae1551a5c0085f2758fa2b
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/10/2021
-ms.locfileid: "102551067"
+ms.locfileid: "102609146"
 ---
 # <a name="shared-image-galleries-overview"></a>Visão geral das Galerias de Imagem Partilhadas
 
@@ -104,7 +104,7 @@ Os VM especializados não passaram por um processo para remover informações e 
 
 ## <a name="regional-support"></a>Apoio Regional
 
-Todas as regiões públicas podem ser regiões-alvo, mas para replicar para a Austrália Central e Austrália Central 2 você precisa ter a sua subscrição adicionada à lista de permitis. Para solicitar que uma subscrição seja adicionada à lista de autorizações, aceda a: https://docs.microsoft.com/azure/virtual-machines/shared-image-galleries#regional-support
+Todas as regiões públicas podem ser regiões-alvo, mas certas regiões exigem que os clientes passem por um processo de pedido para terem acesso. Para solicitar que uma subscrição seja adicionada à lista de autorizações para uma região como a Austrália Central ou a Austrália Central 2, apresente [um pedido de acesso](/troubleshoot/azure/general/region-access-request-process)
 
 ## <a name="limits"></a>Limites 
 

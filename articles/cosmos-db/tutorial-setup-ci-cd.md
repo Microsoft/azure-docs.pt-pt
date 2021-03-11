@@ -8,12 +8,12 @@ ms.date: 01/28/2020
 ms.author: dech
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a5b8842718aa2d9f90ac06283abc5fe2fdd925cb
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: c7246511a88e2d2756a8ef56c5adf51ddbfd3e58
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95997006"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102560536"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>Crie um oleoduto CI/CD com a tarefa de construção do Emulador Azure Cosmos DB em Azure DevOps
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -33,13 +33,13 @@ Para utilizar a tarefa de compilação, tem de a instalar primeiro na sua organi
 Em seguida, selecione a organização em que pretende instalar a extensão. 
 
 > [!NOTE]
-> Para instalar uma extensão a uma organização do Azure DevOps, tem de ser proprietário de uma conta ou administrador de cobrança de projetos. Se não tiver permissões mas for membro de uma conta, terá a opção de pedir extensões. [Saiba mais.](/azure/devops/marketplace/faq-extensions?preserve-view=true&view=vsts)
+> Para instalar uma extensão a uma organização do Azure DevOps, tem de ser proprietário de uma conta ou administrador de cobrança de projetos. Se não tiver permissões mas for membro de uma conta, terá a opção de pedir extensões. [Saiba mais.](/azure/devops/marketplace/faq-extensions)
 
 :::image type="content" source="./media/tutorial-setup-ci-cd/addExtension_2.png" alt-text="Escolha uma organização Azure DevOps na qual instalar uma extensão":::
 
 ## <a name="create-a-build-definition"></a>Criar uma definição de compilação
 
-Agora que a extensão está instalada, inscreva-se na sua organização Azure DevOps e encontre o seu projeto a partir do painel de projetos. Pode adicionar um [pipeline de compilação](/azure/devops/pipelines/get-started-designer?preserve-view=true&tabs=new-nav&view=vsts) ao seu projeto ou modificar um pipeline de compilação existente. Se já tem um pipeline de compilação, pode avançar para [Adicionar a tarefa de compilação do Emulador à definição de compilação](#addEmulatorBuildTaskToBuildDefinition).
+Agora que a extensão está instalada, inscreva-se na sua organização Azure DevOps e encontre o seu projeto a partir do painel de projetos. Pode adicionar um [pipeline de compilação](/azure/devops/pipelines/get-started-designer?preserve-view=true&tabs=new-nav) ao seu projeto ou modificar um pipeline de compilação existente. Se já tem um pipeline de compilação, pode avançar para [Adicionar a tarefa de compilação do Emulador à definição de compilação](#addEmulatorBuildTaskToBuildDefinition).
 
 1. Para criar uma nova definição de compilação, navegue até ao separador **Compilações** no DevOps do Azure. Selecione **+Novo.** \> **Novo pipeline de compilação**
 
@@ -52,7 +52,7 @@ Agora que a extensão está instalada, inscreva-se na sua organização Azure De
 3. Por fim, selecione o modelo desejado para o pipeline de compilação. Neste tutorial, vamos selecionar o modelo **ASP.NET**. Agora tem um oleoduto de construção que pode configurar para usar a tarefa de construção do Emulador Azure Cosmos DB. 
 
 > [!NOTE]
-> O conjunto de agentes a selecionar para este CI deve ter o Docker para o Windows instalado, a menos que a instalação seja feita manualmente numa tarefa anterior como parte do CI. Consulte o artigo [dos agentes hospedados pela Microsoft](/azure/devops/pipelines/agents/hosted?preserve-view=true&tabs=yaml&view=azure-devops) para uma seleção de piscinas de agentes; recomendamos começar com `Hosted VS2017` .
+> O conjunto de agentes a selecionar para este CI deve ter o Docker para o Windows instalado, a menos que a instalação seja feita manualmente numa tarefa anterior como parte do CI. Consulte o artigo [dos agentes hospedados pela Microsoft](/azure/devops/pipelines/agents/hosted?tabs=yaml) para uma seleção de piscinas de agentes; recomendamos começar com `Hosted VS2017` .
 
 A Azure Cosmos DB Emulator atualmente não suporta a piscina de agentes VS2019 hospedada. No entanto, o emulador já vem com VS2019 instalado e utiliza-o iniciando o emulador com os seguintes cmdlets PowerShell. Se encontrar algum problema ao utilizar o VS2019, contacte a equipa da [Azure DevOps](https://developercommunity.visualstudio.com/spaces/21/index.html) para obter ajuda:
 

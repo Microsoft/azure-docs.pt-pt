@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 03/24/2020
 author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 41f2ee9806b8f6818f2b2dd7a48920ac9907ca79
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c03ba657ac264b72d035f28956354398421ed2f9
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91854652"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102566605"
 ---
 # <a name="create-a-cicd-pipeline-for-github-repo-using-azure-devops-starter"></a>Crie um pipeline CI/CD para gitHub repo usando Azure DevOps Starter
 
@@ -45,17 +45,17 @@ O Azure DevOps Starter cria um gasoduto CI/CD em Pipelines Azure. Pode criar uma
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-1. Na caixa de pesquisa, escreva **DevOps Starter**e, em seguida, selecione. Clique em **Adicionar** para criar um novo.
+1. Na caixa de pesquisa, escreva **DevOps Starter** e, em seguida, selecione. Clique em **Adicionar** para criar um novo.
 
     ![O painel de arranque de DevOps](_img/azure-devops-starter-aks/search-devops-starter.png)
     
-1. **Selecione Traga o seu próprio código**e, em seguida, selecione **Seguinte**.
+1. **Selecione Traga o seu próprio código** e, em seguida, selecione **Seguinte**.
 
 ## <a name="configure-access-to-your-github-repo-and-select-a-framework"></a>Configure o acesso ao seu repo GitHub e selecione uma estrutura
 
 1. Selecione **GitHub** ou um repositório de código **Git** externo. Para este tutorial, selecione **GitHub**. Poderá ser-lhe exigido que autente com o GitHub pela primeira vez para permitir que o Azure aceda ao seu repositório GitHub.
 
-1. Selecione um **Repositório** e um **Ramo**e, em seguida, selecione **Seguinte**.
+1. Selecione um **Repositório** e um **Ramo** e, em seguida, selecione **Seguinte**.
 
 1. Se estiver a utilizar os recipientes Docker, mude **a aplicação S Dockerized** para **SIM**. Para este tutorial, deixe **NÃO** selecionado e, em seguida, selecione **Next**. Para obter mais informações sobre a utilização de recipientes Docker, sobressaia o ícone **i.**
 
@@ -71,7 +71,7 @@ O Azure DevOps Starter cria um gasoduto CI/CD em Pipelines Azure. Pode criar uma
 
 1. Crie uma nova organização gratuita na **Azure DevOps Organization** ou selecione uma organização existente a partir do menu suspenso.
 
-1. Selecione a sua subscrição na **Subscrição Azure**e introduza um nome na **aplicação Web** ou utilize o padrão. Selecione uma **localização**e, em seguida, **selecione Fazer**. Após alguns minutos, a visão geral da implementação do DevOps Starter é exibida no portal Azure.
+1. Selecione a sua subscrição na **Subscrição Azure** e introduza um nome na **aplicação Web** ou utilize o padrão. Selecione uma **localização** e, em seguida, **selecione Fazer**. Após alguns minutos, a visão geral da implementação do DevOps Starter é exibida no portal Azure.
 
 1. Selecione **Vá para** o recurso para ver o painel de arranque de devOps. No canto superior direito, coloque o **Projeto** no seu painel de instrumentos para um acesso rápido. O Azure DevOps Starter configura automaticamente uma construção de CI e desbloqueia o gatilho. O seu código permanece no seu repo GitHub ou em outra repo externa, e uma aplicação de amostra é criada num repo na **Azure DevOps Organization**. O Azure DevOps Starter executa a construção e implementa a aplicação para o Azure.
 
@@ -97,9 +97,9 @@ O Azure DevOps Starter configura automaticamente um gasoduto CI/CD em Pipelines 
 
    ![Azure Pipelines constrói página](_img/azure-devops-project-github/pipelinesbuildpage.png)
 
-1. No canto superior direito da página **Builds,** pode selecionar **Editar** para alterar a construção atual, **fila** para adicionar uma nova construção, ou o botão de elipse vertical** (&#8942;**) para abrir um menu com mais opções. Selecione **Editar**.
+1. No canto superior direito da página **Builds,** pode selecionar **Editar** para alterar a construção atual, **fila** para adicionar uma nova construção, ou o botão de elipse vertical **(&#8942;**) para abrir um menu com mais opções. Selecione **Editar**.
 
-1. A construção faz várias tarefas, tais como buscar fontes do repo, restaurar dependências e publicar saídas para implementações. À direita, em **Nome,** mude o nome do pipeline de construção para algo mais descritivo. **Selecione Guardar & fila**e, em seguida, selecione **Guardar**. Introduza um comentário e, em seguida, **selecione Guardar** novamente.
+1. A construção faz várias tarefas, tais como buscar fontes do repo, restaurar dependências e publicar saídas para implementações. À direita, em **Nome,** mude o nome do pipeline de construção para algo mais descritivo. **Selecione Guardar & fila** e, em seguida, selecione **Guardar**. Introduza um comentário e, em seguida, **selecione Guardar** novamente.
 
    ![Azure DevOps constrói página](_img/azure-devops-project-github/buildpage.png)
 
@@ -118,7 +118,7 @@ Quando configuraste o teu processo ci/CD neste tutorial, criaste automaticamente
 Para saber mais sobre o oleoduto CI/CD, consulte:
 
 > [!div class="nextstepaction"]
-> [Defina o seu pipeline de implantação contínua em várias fases (CD)](/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
+> [Defina o seu pipeline de implantação contínua em várias fases (CD)](/azure/devops/pipelines/release/define-multistage-release-process)
 
 Para saber mais sobre a monitorização de aplicações, consulte:
   

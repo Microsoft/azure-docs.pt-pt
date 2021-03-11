@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 302e4becd337c8e7b0b425a52ed46d562db5bae4
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 30858e9978f7e8857c5f8a2dcdfd7455f6e97b60
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98725332"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102553430"
 ---
 # <a name="discover-the-current-state-of-external-collaboration-in-your-organization"></a>Descubra o estado atual da colaboração externa na sua organização 
 
@@ -34,11 +34,11 @@ Os indivíduos da sua organização provavelmente já estão a colaborar com uti
 
 Os utilizadores que iniciam a colaboração externa melhor entendem as aplicações mais relevantes para a colaboração externa, e quando esse acesso deve terminar. Compreender estes utilizadores pode ajudá-lo a determinar quem deve ser delegado a convidar utilizadores externos, criar pacotes de acesso e completar revisões de acesso.
 
-Para encontrar utilizadores que estão atualmente a colaborar, reveja o registo de auditoria da [Microsoft 365 para atividades de partilha e acesso.](/microsoft-365/compliance/search-the-audit-log-in-security-and-compliance?view=o365-worldwide#sharing-and-access-request-activities) Também pode rever o registo de auditoria da [Azure AD para obter mais informações sobre quem convidou](../external-identities/auditing-and-reporting.md) utilizadores B2B para o seu diretório.
+Para encontrar utilizadores que estão atualmente a colaborar, reveja o registo de auditoria da [Microsoft 365 para atividades de partilha e acesso.](/microsoft-365/compliance/search-the-audit-log-in-security-and-compliance#sharing-and-access-request-activities) Também pode rever o registo de auditoria da [Azure AD para obter mais informações sobre quem convidou](../external-identities/auditing-and-reporting.md) utilizadores B2B para o seu diretório.
 
 ## <a name="find-current-collaboration-partners"></a>Encontre os atuais parceiros de colaboração
 
-Os utilizadores externos podem ser [utilizadores Azure AD B2B](../external-identities/what-is-b2b.md) (preferíveis) com credenciais geridas por parceiros ou utilizadores externos com credenciais alojadas localmente. Estes utilizadores são tipicamente (mas nem sempre) marcados com um UserType de Guest. Pode enumerar utilizadores convidados através do [Microsoft Graph API,](/graph/api/user-list?tabs=http&view=graph-rest-1.0) [PowerShell](/graph/api/user-list?tabs=http&view=graph-rest-1.0)ou do [portal Azure](../enterprise-users/users-bulk-download.md).
+Os utilizadores externos podem ser [utilizadores Azure AD B2B](../external-identities/what-is-b2b.md) (preferíveis) com credenciais geridas por parceiros ou utilizadores externos com credenciais alojadas localmente. Estes utilizadores são tipicamente (mas nem sempre) marcados com um UserType de Guest. Pode enumerar utilizadores convidados através do [Microsoft Graph API,](/graph/api/user-list?tabs=http) [PowerShell](/graph/api/user-list?tabs=http)ou do [portal Azure](../enterprise-users/users-bulk-download.md).
 
 ### <a name="use-email-domains-and-companyname-property"></a>Use domínios de e-mail e propriedade de nome de empresa
 
@@ -55,7 +55,7 @@ Se estiver a utilizar a gestão de direitos, também pode estender os pacotes de
 
 ## <a name="find-access-being-granted-to-external-users"></a>Encontrar acesso a utilizadores externos
 
-Uma vez que tenha um inventário de utilizadores e organizações externos, pode determinar o acesso concedido a estes utilizadores usando a API do Microsoft Graph para determinar a [adesão ao grupo](/graph/api/resources/groups-overview?view=graph-rest-1.0) AD do Azure ou [a atribuição de aplicações diretas](/graph/api/resources/approleassignment?view=graph-rest-1.0) em Azure AD.
+Uma vez que tenha um inventário de utilizadores e organizações externos, pode determinar o acesso concedido a estes utilizadores usando a API do Microsoft Graph para determinar a [adesão ao grupo](/graph/api/resources/groups-overview) AD do Azure ou [a atribuição de aplicações diretas](/graph/api/resources/approleassignment) em Azure AD.
 
 
 ### <a name="enumerate-application-specific-permissions"></a>Enumerar permissões específicas da aplicação
@@ -65,9 +65,9 @@ Também poderá realizar a enumeração de permissão específica para aplicaç�
 Investigue especificamente o acesso a todas as suas aplicações sensíveis ao negócio e críticas ao negócio para que esteja plenamente ciente de qualquer acesso externo.
 
 ### <a name="detect-ad-hoc-sharing"></a>Detetar partilha de Ad Hoc
-Se os seus planos de e-mail e rede o permitirem, pode investigar o conteúdo partilhado através de e-mail ou através de software não autorizado como aplicações de serviço (SaaS). [A Microsoft 365 Data Loss Protection](/microsoft-365/compliance/data-loss-prevention-policies?view=o365-worldwide) ajuda-o a identificar, prevenir e monitorizar a partilha acidental de informações sensíveis através da sua infraestrutura Microsoft 365. [O Microsoft Cloud App Security](https://www.microsoft.com/microsoft-365/enterprise-mobility-security/cloud-app-security) pode ajudá-lo a identificar o uso de aplicações SaaS não autorizadas no seu ambiente.
+Se os seus planos de e-mail e rede o permitirem, pode investigar o conteúdo partilhado através de e-mail ou através de software não autorizado como aplicações de serviço (SaaS). [A Microsoft 365 Data Loss Protection](/microsoft-365/compliance/data-loss-prevention-policies) ajuda-o a identificar, prevenir e monitorizar a partilha acidental de informações sensíveis através da sua infraestrutura Microsoft 365. [O Microsoft Cloud App Security](https://www.microsoft.com/microsoft-365/enterprise-mobility-security/cloud-app-security) pode ajudá-lo a identificar o uso de aplicações SaaS não autorizadas no seu ambiente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte os seguintes artigos sobre a garantia do acesso externo aos recursos. Recomendamos que tome as ações na ordem listada.
 

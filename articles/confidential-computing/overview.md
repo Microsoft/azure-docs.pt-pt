@@ -4,16 +4,16 @@ description: Visão geral da Azure Confidential (ACC) Computação
 services: virtual-machines
 author: JBCook
 ms.service: virtual-machines
-ms.subservice: workloads
+ms.subservice: confidential-computing
 ms.topic: overview
 ms.date: 09/22/2020
 ms.author: JenCook
-ms.openlocfilehash: 44479db6b29075e87b0d2dcef6f0d9bc1881738c
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: c3ef6a764123f52583f081a3b152651b9bb8b8b7
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94560830"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102554195"
 ---
 # <a name="confidential-computing-on-azure"></a>Computação confidencial em Azure
 
@@ -25,7 +25,7 @@ A computação confidencial Azure permite isolar os seus dados sensíveis enquan
 - Executar algoritmos em conjuntos de dados encriptados de várias fontes
 
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 <p><p>
 
 
@@ -49,11 +49,11 @@ Um TEE é um ambiente que impõe a execução de apenas código autorizado. Quai
 Correr cargas de trabalho na nuvem requer confiança. Você dá esta confiança a vários fornecedores que permitem diferentes componentes da sua aplicação.
 
 
-**Fornecedores de software de aplicações** : Confie no software implementando on-prem, utilizando código aberto ou construindo software de aplicação interna.
+**Fornecedores de software de aplicações**: Confie no software implementando on-prem, utilizando código aberto ou construindo software de aplicação interna.
 
-**Fornecedores de hardware** : Confie no hardware utilizando hardware no local ou hardware interno. 
+**Fornecedores de hardware**: Confie no hardware utilizando hardware no local ou hardware interno. 
 
-**Fornecedores de infraestruturas** : Confie em fornecedores de nuvem ou gere os seus próprios centros de dados no local.
+**Fornecedores de infraestruturas**: Confie em fornecedores de nuvem ou gere os seus próprios centros de dados no local.
 
 
 A computação confidencial Azure facilita a confiança no fornecedor de nuvem, reduzindo a necessidade de confiança em vários aspetos da infraestrutura de nuvem computacional. A computação confidencial Azure minimiza a confiança para o núcleo de OS do hospedeiro, o hipervisor, o administrador VM e o administrador anfitrião.
@@ -68,13 +68,13 @@ Um TCB mais baixo significa maior segurança. Há menos risco de exposição a v
 
 A computação confidencial Azure permite-lhe alavancar capacidades de computação confidenciais num ambiente virtualizado. Agora pode utilizar ferramentas, software e infraestruturas em nuvem para construir em cima de hardware seguro.  
 
-**Impedir o acesso não autorizado** : Executar dados sensíveis na nuvem. Confie que a Azure fornece a melhor proteção de dados possível, com pouca ou nenhuma alteração do que é feito hoje.
+**Impedir o acesso não autorizado**: Executar dados sensíveis na nuvem. Confie que a Azure fornece a melhor proteção de dados possível, com pouca ou nenhuma alteração do que é feito hoje.
 
-**Conformidade regulamentar** : Migrar para a nuvem e manter o controlo total dos dados para satisfazer os regulamentos governamentais para proteger informações pessoais e garantir o IP organizacional.
+**Conformidade regulamentar**: Migrar para a nuvem e manter o controlo total dos dados para satisfazer os regulamentos governamentais para proteger informações pessoais e garantir o IP organizacional.
 
-**Colaboração segura e não fidedtiva** : Enfrente problemas à escala de trabalho em toda a indústria, penteando dados entre organizações, mesmo concorrentes, para desbloquear uma ampla análise de dados e insights mais profundos.
+**Colaboração segura e não fidedtiva**: Enfrente problemas à escala de trabalho em toda a indústria, penteando dados entre organizações, mesmo concorrentes, para desbloquear uma ampla análise de dados e insights mais profundos.
 
-**Processamento isolado** : Ofereça uma nova onda de produtos que removam a responsabilidade sobre dados privados com processamento cego. Os dados do utilizador nem sequer podem ser recuperados pelo prestador de serviços. 
+**Processamento isolado**: Ofereça uma nova onda de produtos que removam a responsabilidade sobre dados privados com processamento cego. Os dados do utilizador nem sequer podem ser recuperados pelo prestador de serviços. 
 
 ## <a name="get-started"></a>Começar Agora
 ### <a name="azure-compute"></a>Computação do Azure

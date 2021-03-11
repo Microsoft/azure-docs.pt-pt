@@ -1,24 +1,25 @@
 ---
 title: Extensão de configuração de estado desejada com modelos de gestor de recursos Azure
 description: Saiba mais sobre a definição do modelo do Gestor de Recursos para a extensão de Configuração do Estado Desejado (DSC) em Azure.
-services: virtual-machines-windows
+services: virtual-machines
 author: mgoedtel
 tags: azure-resource-manager
 keywords: dsc
 ms.assetid: b5402e5a-1768-4075-8c19-b7f7402687af
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.subservice: extensions
+ms.collection: windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 02/09/2021
 ms.author: magoedte
-ms.openlocfilehash: 4e9133697cda4a46a895c7e41eff6d17ccd01e4a
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 6d22e93fe8bd36e24520108bc310d5b08c25120c
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100093663"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102560026"
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>Extensão de configuração de estado desejada com modelos de gestor de recursos Azure
 

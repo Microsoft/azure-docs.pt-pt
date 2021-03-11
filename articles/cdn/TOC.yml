@@ -27,8 +27,6 @@
       href: cdn-custom-ssl.md
     - name: Configurar regras de colocação em cache
       href: cdn-caching-rules-tutorial.md
-    - name: Impor HTTPS com o Motor de regras standard
-      href: cdn-standard-rules-engine.md
 - name: Amostras
   items:
     - name: Exemplos de código
@@ -76,6 +74,8 @@
           href: cdn-improve-performance.md
         - name: Ponto final de várias origens
           href: endpoint-multiorigin.md
+        - name: Impor HTTPS com o Motor de regras standard
+          href: cdn-standard-rules-engine.md
         - name: Controlo de comportamento de colocação em cache
           items:
             - name: Controlar o comportamento de colocação em cache com as regras de colocação em cache

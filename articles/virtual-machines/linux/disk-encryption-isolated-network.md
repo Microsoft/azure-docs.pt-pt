@@ -2,18 +2,19 @@
 title: Encriptação do disco Azure numa rede isolada
 description: Neste artigo, saiba mais sobre dicas de resolução de problemas para a Encriptação do Disco Azure da Microsoft em VMs Linux.
 author: msmbaldwin
-ms.service: virtual-machines-linux
-ms.subservice: security
+ms.service: virtual-machines
+ms.subservice: disks
+ms.collection: linux
 ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 02/27/2020
 ms.custom: seodec18
-ms.openlocfilehash: 1d7e019e7759e22e945bddee477a4cb77f17350b
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 8d8d2b88251f837a23c4e82a90eb4d4eb0043702
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913828"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102553056"
 ---
 # <a name="azure-disk-encryption-on-an-isolated-network"></a>Encriptação do disco Azure numa rede isolada
 
@@ -25,12 +26,12 @@ A encriptação do disco Azure depende de uma série de componentes, que são no
 
 Aqui estão os pacotes necessários para cada distribuição. Para obter uma lista completa de distros suportados e tipos de volume, consulte [VMs e sistemas operativos suportados.](disk-encryption-overview.md#supported-vms-and-operating-systems)
 
-- **Ubuntu 14.04, 16.04, 18.04** : lsscsi, psmisc, at, cryptsetup-bin, python-parted, python-six, procps, grub-pc-bin
-- **CentOS 7.2 - 7.7** : lsscsi, psmisc, lvm2, uuid, at, patch, cryptsetup, cryptsetup-reencript, pyparted, procps-ng, util-linux
-- **CentOS 6.8** : lsscsi, psmisc, lvm2, uuid, at, cryptsetup-reencript, pyparted, python-six
-- **RedHat 7.2 - 7.7** : lsscsi, psmisc, lvm2, uuid, at, patch, cryptsetup, cryptsetup-reencript, procps-ng, util-linux
-- **RedHat 6.8** : lsscsi, psmisc, lvm2, uuid, at, patch, cryptsetup-reencript
-- **openSUSE 42.3, SLES 12-SP4, 12-SP3** : lsscsi, criptsetup
+- **Ubuntu 14.04, 16.04, 18.04**: lsscsi, psmisc, at, cryptsetup-bin, python-parted, python-six, procps, grub-pc-bin
+- **CentOS 7.2 - 7.7**: lsscsi, psmisc, lvm2, uuid, at, patch, cryptsetup, cryptsetup-reencript, pyparted, procps-ng, util-linux
+- **CentOS 6.8**: lsscsi, psmisc, lvm2, uuid, at, cryptsetup-reencript, pyparted, python-six
+- **RedHat 7.2 - 7.7**: lsscsi, psmisc, lvm2, uuid, at, patch, cryptsetup, cryptsetup-reencript, procps-ng, util-linux
+- **RedHat 6.8**: lsscsi, psmisc, lvm2, uuid, at, patch, cryptsetup-reencript
+- **openSUSE 42.3, SLES 12-SP4, 12-SP3**: lsscsi, criptsetup
 
 No Red Hat, quando é necessário um representante, deve certificar-se de que o gestor de subscrição e o yum estão corretamente configurados. Para obter mais informações, consulte [Como resolver problemas de subscrição e problemas com yum](https://access.redhat.com/solutions/189533).  
 

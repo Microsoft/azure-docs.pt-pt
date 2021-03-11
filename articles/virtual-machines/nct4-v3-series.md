@@ -2,17 +2,17 @@
 title: NCas T4 v3 série
 description: Especificações para os VMs da série NCas T4 v3.
 ms.service: virtual-machines
-ms.subservice: hpc
+ms.subservice: vm-sizes-gpu
 author: vikancha-MSFT
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: vikancha
-ms.openlocfilehash: 0ead1c5772cb4a2e231867ef1e77bfa646cbb29e
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: b7418825b4f22bfe4fe1941cb1f70ffb9f0a939b
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102042747"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102609214"
 ---
 # <a name="ncast4_v3-series"></a>Série NCasT4_v3 
 
@@ -28,7 +28,7 @@ As máquinas virtuais da série NCasT4_v3 são alimentadas por [GPUs Nvidia Tesl
 [Suporte de geração VM](generation-2.md): Geração 1 e 2<br>
 [Rede Acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): Suportado<br>
 [Discos EFÉMEROS :](ephemeral-os-disks.md)Não Suportados <br>
-Nvidia NVLink Interconnect: Não suportado<br>
+Nvidia NVLink Interconnect: Suportado<br>
 <br>
 
 | Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | GPU | Memória gpu: GiB | Discos de dados máximos | Max NICs / Largura de banda esperada (Mbps) |

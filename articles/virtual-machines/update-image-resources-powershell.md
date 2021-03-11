@@ -3,18 +3,18 @@ title: Listar, atualizar e eliminar recursos de imagem usando o PowerShell
 description: Liste, atualize e elimine os recursos de imagem dentro da sua galeria de imagens partilhada utilizando a Azure PowerShell.
 author: cynthn
 ms.service: virtual-machines
-ms.subservice: imaging
+ms.subservice: shared-image-gallery
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 04/27/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: d480d880d9b26666f393c179efa953b653c80c3e
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: bde11f57152b7fd72ce08be54b616bbe428fa167
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881996"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102553600"
 ---
 # <a name="list-update-and-delete-image-resources-using-powershell"></a>Listar, atualizar e eliminar recursos de imagem usando o PowerShell 
 
@@ -24,6 +24,6 @@ Pode gerir os recursos da sua galeria de imagens partilhada usando a Azure Power
 
 [!INCLUDE [virtual-machines-common-shared-images-update-delete-ps](../../includes/virtual-machines-common-shared-images-update-delete-ps.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [O Azure Image Builder (pré-visualização)](./image-builder-overview.md) pode ajudar a automatizar a criação de versão de imagem, podendo até usá-la para atualizar e [criar uma nova versão de imagem a partir de uma versão de imagem existente.](./linux/image-builder-gallery-update-image-version.md)

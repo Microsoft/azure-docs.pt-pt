@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 4fe13c418452a7a88dcd97939d6e853039f3fb64
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: 30d6061e15b8eb17c1450500d9e8c141a83a3e08
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94517075"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102553923"
 ---
 # <a name="onboarding-and-installing"></a>Integração e instalação
 
@@ -63,7 +63,7 @@ A equipa de Análise de Códigos de Segurança da Microsoft está à procura de 
 1. Selecione **Compartilhado**.
 1. Selecione a extensão de Análise de Código de Segurança da Microsoft, selecione **instalar.**
 1. A partir da lista de drop-down, escolha a organização Azure DevOps para instalar a extensão.
-1. Selecione **Install** (Instalar). Após a instalação estar concluída, pode começar a utilizar a extensão.
+1. Selecione **Instalar**. Após a instalação estar concluída, pode começar a utilizar a extensão.
 
 >[!NOTE]
 > Mesmo que não tenha acesso para instalar a extensão, continue com os passos de instalação. Pode solicitar acesso à sua administração da organização Azure DevOps durante o processo de instalação.
@@ -73,7 +73,7 @@ Depois de instalar a extensão, as tarefas seguras de construção de desenvolvi
 ## <a name="adding-specific-build-tasks-to-your-azure-devops-pipeline"></a>Adicionar tarefas de construção específicas ao seu pipeline Azure DevOps
 
 1. Da sua organização Azure DevOps, abra o seu projeto de equipa.
-1. Selecione **Pipelines**  >  **Pipelines Builds**.
+1. Selecione   >  **Pipelines Builds**.
 1. Selecione o pipeline no qual pretende adicionar as tarefas de construção de extensão:
    - Novo oleoduto: Selecione **New** e siga os passos detalhados para criar um novo oleoduto.
    - Editar o pipeline: Selecione um pipeline existente e, em seguida, **selecione Editar** para começar a editar o pipeline.
@@ -90,7 +90,7 @@ Depois de instalar a extensão, as tarefas seguras de construção de desenvolvi
 > - **Selecione Continue em Erro** para tarefas de construção de desenvolvimento seguro. Mesmo que uma ferramenta falhe, as outras podem correr. Não há interdependências entre as ferramentas.
 > - As tarefas de construção do Código de Segurança do Microsoft só falham se uma ferramenta não funcionar com sucesso. Mas têm sucesso mesmo que uma ferramenta identifique problemas no código. Ao utilizar a tarefa de construção pós-análise, pode configurar a sua construção para falhar quando uma ferramenta identifica problemas no código.
 > - Algumas tarefas de construção de Azure DevOps não são suportadas quando executadas através de um oleoduto de libertação. Mais especificamente, a Azure DevOps não suporta tarefas que publiquem artefactos dentro de um oleoduto de lançamento.
-> - Para obter uma lista de variáveis pré-finadas na Azure DevOps Team Build que pode especificar como parâmetros, consulte [Azure DevOps Build Variables](/azure/devops/pipelines/build/variables?tabs=batch&view=vsts).
+> - Para obter uma lista de variáveis pré-finadas na Azure DevOps Team Build que pode especificar como parâmetros, consulte [Azure DevOps Build Variables](/azure/devops/pipelines/build/variables?tabs=batch).
 
 ## <a name="next-steps"></a>Passos seguintes
 

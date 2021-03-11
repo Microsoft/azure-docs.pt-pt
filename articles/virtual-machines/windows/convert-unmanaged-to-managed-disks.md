@@ -2,17 +2,17 @@
 title: Converter uma máquina virtual do Windows de discos não geridos em discos geridos
 description: Como converter um VM do Windows de discos não geridos para discos geridos utilizando o PowerShell no modelo de implementação do Gestor de Recursos
 author: roygara
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.subservice: disks
 ms.topic: how-to
 ms.date: 07/12/2018
 ms.author: rogarana
-ms.openlocfilehash: 2168b3e3c55eaf06b93358f4623b181f134b4f9e
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 3f586c8907ded618b4cc4aaaadf3c87471cda0b5
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96017356"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102550727"
 ---
 # <a name="convert-a-windows-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Converter uma máquina virtual do Windows de discos não geridos em discos geridos
 
@@ -20,7 +20,7 @@ Se tiver máquinas virtuais (VMs) existentes que utilizam discos não geridos, p
 
  
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 
 * Plano de Revisão [da migração para Discos Geridos.](on-prem-to-azure.md#plan-for-the-migration-to-managed-disks)

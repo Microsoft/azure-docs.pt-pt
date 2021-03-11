@@ -38,8 +38,14 @@
       items:
         - name: Visão geral das amostras de Gestão de Aplicações
           href: app-management-powershell-samples.md
-        - name: 'Exportar todos os registos, segredos e certificados de aplicações'
+        - name: Segredos de exportação e certificados (registos de aplicações)
           href: ./scripts/powershell-export-all-app-registrations-secrets-and-certs.md
+        - name: Segredos de exportação e certs (aplicações empresariais)
+          href: ./scripts/powershell-export-all-enterprise-apps-secrets-and-certs.md
+        - name: Exportar segredos e certificados de expiração
+          href: ./scripts/powershell-export-apps-with-expriring-secrets.md
+        - name: Segredos de exportação e certificados que expiram para além da data exigida
+          href: ./scripts/powershell-export-apps-with-secrets-beyond-required.md
     - name: Amostras de Proxy PowerShell de aplicativo
       href: application-proxy-powershell-samples.md
 - name: Conceitos

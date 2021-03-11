@@ -4,12 +4,12 @@ ms.service: databox
 ms.topic: include
 ms.date: 03/08/2021
 ms.author: alkohli
-ms.openlocfilehash: 12e67103fb1d16276cc3d8fd6171eee30dd58851
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 00ddc7cd806a9275de7b4ec579bdef62bdf8062d
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102517579"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102603214"
 ---
 Dependendo do sistema operativo do cliente, os procedimentos para ligar remotamente ao dispositivo são diferentes.
 
@@ -91,7 +91,7 @@ Siga estes passos para ligar remotamente a um cliente NFS.
 
 1. Para abrir a sessão PowerShell, escreva:
 
-    `sudo pwsh`
+    `pwsh`
  
 2. Para ligar utilizando o cliente remoto, escreva:
 

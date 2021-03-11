@@ -10,12 +10,12 @@ ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 18282bbe902599c471775a853704e459ea44bac1
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 24f64e19077488223e13d01e110b5b5118231673
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101661635"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102603344"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar, certifique-se de:
@@ -140,22 +140,22 @@ Utilize o `createThread` método para criar um fio de chat.
 - Use `topic` para dar um tópico a esta conversa. Os tópicos podem ser atualizados após a criação do fio de chat utilizando a `UpdateThread` função.
 - Utilize `participants` para listar os participantes a adicionar ao fio de chat.
 
-Quando resolvido, `createChatThread` o método devolve a `CreateChatThreadResponse` . Este modelo contém uma `chatThread` propriedade onde pode aceder ao fio `id` recém-criado. Em seguida, pode usar `id` o para obter um exemplo de um `ChatThreadClient` . `ChatThreadClient`Em seguida, pode ser usado para executar o funcionamento dentro do fio, como enviar mensagens ou listar participantes.
+Quando resolvido, `createChatThread` o método devolve a `CreateChatThreadResult` . Este modelo contém uma `chatThread` propriedade onde pode aceder ao fio `id` recém-criado. Em seguida, pode usar `id` o para obter um exemplo de um `ChatThreadClient` . `ChatThreadClient`Em seguida, pode ser usado para executar o funcionamento dentro do fio, como enviar mensagens ou listar participantes.
 
 ```JavaScript
 async function createChatThread() {
     let createThreadRequest = {
         topic: 'Preparation for London conference',
         participants: [{
-                    user: { communicationUserId: '<USER_ID_FOR_JACK>' },
+                    id: { communicationUserId: '<USER_ID_FOR_JACK>' },
                     displayName: 'Jack'
                 }, {
-                    user: { communicationUserId: '<USER_ID_FOR_GEETA>' },
+                    id: { communicationUserId: '<USER_ID_FOR_GEETA>' },
                     displayName: 'Geeta'
                 }]
     };
-    let createThreadResponse = await chatClient.createChatThread(createThreadRequest);
-    let threadId = createThreadResponse.chatThread.id;
+    let createChatThreadResult = await chatClient.createChatThread(createThreadRequest);
+    let threadId = createChatThreadResult.chatThread.id;
     return threadId;
     }
 
@@ -184,7 +184,7 @@ Thread created: <thread_id>
 O `getChatThreadClient` método devolve um para um fio que já `chatThreadClient` existe. Pode ser usado para realizar operações no fio criado: adicionar participantes, enviar mensagem, etc. threadId é o ID único do fio de chat existente.
 
 ```JavaScript
-let chatThreadClient = await chatClient.getChatThreadClient(threadId);
+let chatThreadClient = chatClient.getChatThreadClient(threadId);
 console.log(`Chat Thread client for threadId:${threadId}`);
 
 ```
@@ -195,35 +195,33 @@ Chat Thread client for threadId: <threadId>
 
 ## <a name="send-a-message-to-a-chat-thread"></a>Envie uma mensagem para um fio de chat
 
-Utilize `sendMessage` o método para enviar uma mensagem de chat para o fio que acabou de criar, identificado pelo threadId.
+Utilize `sendMessage` o método para enviar uma mensagem para um fio identificado pelo threadId.
 
-`sendMessageRequest` descreve os campos necessários do pedido de mensagem de chat:
+`sendMessageRequest` é usado para descrever o pedido de mensagem:
 
 - Utilizar `content` para fornecer o conteúdo da mensagem de chat;
 
-`sendMessageOptions` descreve os campos opcionais do pedido de mensagem de chat:
+`sendMessageOptions` é utilizado para descrever os params opcionais da operação:
 
-- Utilize `priority` para especificar o nível prioritário da mensagem de chat, como 'Normal' ou 'Alto'. Esta propriedade pode ser usada para exibir um indicador de UI para o utilizador recetor na sua app para chamar a atenção para a mensagem ou executar lógica de negócio personalizada.
 - Utilizar `senderDisplayName` para especificar o nome de visualização do remetente;
+- Utilizar `type` para especificar o tipo de mensagem, como 'texto' ou 'html';
 
-A resposta `sendChatMessageResult` contém um ID, que é o ID único dessa mensagem.
+`SendChatMessageResult` é a resposta devolvida do envio de uma mensagem, contém um ID, que é o ID único da mensagem.
 
 ```JavaScript
-
 let sendMessageRequest =
 {
     content: 'Hello Geeta! Can you share the deck for the conference?'
 };
 let sendMessageOptions =
 {
-    priority: 'Normal',
-    senderDisplayName : 'Jack'
+    senderDisplayName : 'Jack',
+    type: 'text'
 };
 let sendChatMessageResult = await chatThreadClient.sendMessage(sendMessageRequest, sendMessageOptions);
 let messageId = sendChatMessageResult.id;
-console.log(`Message sent!, message id:${messageId}`);
-
 ```
+
 Adicione este código no lugar do `<SEND MESSAGE TO A CHAT THREAD>` comentário em **client.js,** refresque o separador do navegador e verifique a consola.
 ```console
 Message sent!, message id:<number>
@@ -286,7 +284,7 @@ Uma vez criado um fio de chat, pode adicionar e remover os utilizadores do mesmo
 Antes de ligar para o `addParticipants` método, certifique-se de que adquiriu um novo token de acesso e identidade para esse utilizador. O utilizador necessitará desse token de acesso para inicializar o seu cliente de chat.
 
 `addParticipantsRequest` Descreve o objeto de pedido em que `participants` lista os participantes a adicionar ao fio de chat;
-- `user`, necessário, é necessário que o utilizador de comunicação seja adicionado ao fio de chat.
+- `id`, necessário, é o identificador de comunicação a ser adicionado ao fio de conversação.
 - `displayName`, opcional, é o nome de exibição do participante do thread.
 - `shareHistoryTime`, opcional, é o momento a partir do qual a história do chat é partilhada com o participante. Para partilhar a história desde o início do fio de chat, coloque esta propriedade em qualquer data igual ou inferior ao tempo de criação de fios. Para não partilhar nenhuma história anterior à data da adição do participante, desafete-a para a data atual. Para partilhar a história parcial, desemafete-a à data da sua escolha.
 
@@ -296,7 +294,7 @@ let addParticipantsRequest =
 {
     participants: [
         {
-            user: { communicationUserId: '<NEW_PARTICIPANT_USER_ID>' },
+            id: { communicationUserId: '<NEW_PARTICIPANT_USER_ID>' },
             displayName: 'Jane'
         }
     ]
