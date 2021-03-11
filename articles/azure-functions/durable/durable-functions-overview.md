@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 12/23/2020
 ms.author: cgillum
 ms.reviewer: azfuncdf
-ms.openlocfilehash: 2079a3a7c9ce6817186e743bb09d31facdecf0e7
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 15e1dff37e1782baf5740a3fb35119bbbbffc297
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97931726"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102558802"
 ---
 # <a name="what-are-durable-functions"></a>O que é a Durable Functions?
 
@@ -23,7 +23,7 @@ Funções Duradouras suportam atualmente os seguintes idiomas:
 
 * **C.**: ambas [as bibliotecas de classes pré-recompensadas](../functions-dotnet-class-library.md) e [o script C#](../functions-reference-csharp.md).
 * **JavaScript**: suportado apenas para a versão 2.x do tempo de execução das Funções Azure. Requer a versão 1.7.0 da extensão funções duradouras, ou uma versão posterior. 
-* **Python**: requer a versão 2.3.1 da extensão de Funções Duráveis, ou uma versão posterior. O suporte para funções duradouras está atualmente em pré-visualização pública.
+* **Python**: requer a versão 2.3.1 da extensão de Funções Duráveis, ou uma versão posterior.
 * **F#**: bibliotecas de classes pré-recompensadas e script F#. F# O script só é suportado para a versão 1.x do tempo de execução das Funções Azure.
 * **PowerShell**: o suporte para Funções Duradouras está atualmente em visualização pública. Suportado apenas para a versão 3.x do tempo de funcionamento das Funções Azure e PowerShell 7. Requer a versão 2.2.2 da extensão funções duradouras, ou uma versão posterior. Apenas os seguintes padrões são suportados atualmente: [Acorrentamento de funções,](#chaining) [Fan-out/fan-in,](#fan-in-out) [APIs Async HTTP](#async-http).
 

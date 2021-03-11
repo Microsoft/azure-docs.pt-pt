@@ -2,16 +2,17 @@
 title: Use cloud-init para executar um roteiro de bash em um Linux VM em Azure
 description: Como usar o cloud-init para executar um roteiro de bash em um Linux VM durante a criação com o CLI Azure
 author: rickstercdn
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.topic: how-to
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: 0370ddeafd1f695292ba122bfebd6197a360f560
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1dabd7db85d4222ca2e9f8387b716af291ee6a69
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87372812"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102559431"
 ---
 # <a name="use-cloud-init-to-run-a-bash-script-in-a-linux-vm-in-azure"></a>Use cloud-init para executar um roteiro de bash em um Linux VM em Azure
 Este artigo [mostra-lhe](https://cloudinit.readthedocs.io) como usar o init cloud para executar um script de bash existente em uma máquina virtual Linux (VM) ou conjuntos de escala de máquina virtual (VMSS) em tempo de provisionamento em Azure. Estes scripts de nuvem funcionam na primeira bota uma vez que os recursos foram a provisionados pela Azure. Para obter mais informações sobre como o cloud-init funciona de forma nativa em Azure e os distros de Linux suportados, consulte [a visão geral de cloud-init](using-cloud-init.md)
@@ -51,7 +52,7 @@ SSH para o endereço IP público do seu VM mostrado na saída do comando anterio
 ssh <publicIpAddress>
 ```
 
-Altere para o **diretório /tmp** e verifique se myScript.txt ficheiro existe e tem o texto apropriado dentro do mesmo.  Caso contrário, pode verificar o **registo /var/log/cloud-init.log** para obter mais detalhes.  Procure a seguinte entrada:
+Altere para o **diretório /tmp** e verifique se myScript.txt ficheiro existe e tem o texto apropriado dentro do mesmo.  Caso contrário, pode verificar o **(var/log/cloud-init.log** para obter mais detalhes.  Procure a seguinte entrada:
 
 ```bash
 Running config-scripts-user using lock Running command ['/var/lib/cloud/instance/scripts/part-001']

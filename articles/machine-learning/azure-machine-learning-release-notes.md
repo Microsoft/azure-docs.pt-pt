@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: larryfr
 author: BlackMist
 ms.date: 02/18/2021
-ms.openlocfilehash: b61337f29eac11ca3fb45056b9348fbc70956b53
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 8c876a09c77a2ed5441a2f40acc2da508697febb
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102521208"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102608687"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de lançamento do Azure Machine Learning
 
@@ -59,8 +59,8 @@ __Feed RSS__: Seja notificado quando esta página for atualizada copiando e cola
   + [Terminal Nativo (GA)](https://docs.microsoft.com/azure/machine-learning/how-to-access-terminal). Os utilizadores passarão a ter acesso a um terminal integrado, bem como a uma operação git através do terminal integrado.
   + [Snippets de portátil (pré-visualização)](https://azure.github.io/azureml-web/docs/vs-code-snippets/snippets). Excertos de código Azure ML comuns estão agora disponíveis na ponta dos dedos. Navegue para o painel de cortes de código, acessível através da barra de ferramentas, ou ative o menu de snippets in-code utilizando ctrl + Espaço.  
   + [Atalhos de teclado](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#shortcut-keys). Paridade total com atalhos de teclado disponíveis no Jupyter. 
-  + Indicar parâmetros celulares. Mostra que os utilizadores com célula num bloco de notas são células de parâmetros e podem executar cadernos parametrizados via [Papermill](https://github.com/nteract/papermill) na Instância de Computação.
-  + Terminal e Kernel: Os utilizadores serão capazes de gerir todos os núcleos e sessões terminais em execução no seu cálculo.
+  + Indicar parâmetros celulares. Mostra aos utilizadores quais as células num bloco de notas são células de parâmetros e podem executar cadernos parametrizados via [Papermill](https://github.com/nteract/papermill) na Instância de Computação.
+  + Terminal e Kernel: Os utilizadores poderão gerir todos os núcleos e sessões terminais em execução no seu cálculo.
   + Botão de partilha. Os utilizadores podem agora partilhar qualquer ficheiro no explorador de ficheiros Do Notebook clicando corretamente no ficheiro e utilizando o botão de partilha.
 
 

@@ -5,12 +5,12 @@ author: anthonychu
 ms.topic: quickstart
 ms.date: 12/23/2020
 ms.reviewer: azfuncdf, antchu
-ms.openlocfilehash: 749dea2d9d46cb69d0c7c8a799a3f82c04d020e8
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 567388277f5a68ae23e8c806a8581c177c3fd1dd
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936180"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102549469"
 ---
 # <a name="create-your-first-durable-function-in-python"></a>Crie a sua primeira função durável em Python
 
@@ -58,22 +58,7 @@ Nesta secção, você usa Código de Estúdio Visual para criar um projeto local
 
 O Código do Estúdio Visual instala as Ferramentas Centrais de Funções Azure, se necessário. Também cria um projeto de aplicação de função numa pasta. Este projeto contém o [host.jse](../functions-host-json.md) [local.settings.jsem](../functions-run-local.md#local-settings-file) ficheiros de configuração.
 
-Um ficheiro requirements.txt também é criado na pasta raiz. Especifica os pacotes Python necessários para executar a sua aplicação de função.
-
-## <a name="update-azure-functions-extension-bundles-version"></a>Atualizar versão de pacotes de extensão de funções Azure Functions
-
-As funções Python Azure requerem a versão 2.x dos pacotes de [extensão Azure Functions](../functions-bindings-register.md#access-extensions-in-non-net-languages). Os pacotes de extensão são configurados em *host.jsem*.
-
-1. Abra *host.jsno* projeto. Atualize o pacote de extensão `version` para `[2.*, 3.0.0)` . Isto especifica uma gama de versão superior ou igual a 2.0, e inferior a 3.0.
-
-    ```json
-    "extensionBundle": {
-        "id": "Microsoft.Azure.Functions.ExtensionBundle",
-        "version": "[2.*, 3.0.0)"
-    }
-    ```
-
-1. O código VS deve ser recarregado antes de refletir a versão atualizada do pacote de extensão. Na paleta de comando, procure o *Comando developer: Reload Window* e execute-o.
+Um *ficheirorequirements.txt* também é criado na pasta raiz. Especifica os pacotes Python necessários para executar a sua aplicação de função.
 
 ## <a name="install-azure-functions-durable-from-pypi"></a>Instalar funções azure-duráveis a partir de PyPI
 
@@ -83,7 +68,7 @@ Quando criou o projeto, a extensão do Código Azure Functions VS criou automati
 
     ```
     azure-functions
-    azure-functions-durable>=1.0.0b12
+    azure-functions-durable
     ```
 
 1. Abra o terminal integrado do editor na pasta atual<kbd>(Ctrl+Shift+'</kbd>).

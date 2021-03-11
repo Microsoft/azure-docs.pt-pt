@@ -12,12 +12,12 @@ ms.date: 06/01/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 5b0542bbcc4d1acd37f7eeb333a53fb6826a4eea
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 9c269e2ab37a08e48eedd3ee468080a382f9a8e3
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101643597"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102558734"
 ---
 # <a name="manage-app-consent-policies"></a>Gerir as políticas de consentimento da aplicação
 
@@ -31,7 +31,7 @@ As políticas de consentimento da aplicação onde o ID começa com "microsoft-"
 
 ## <a name="pre-requisites"></a>Pré-requisitos
 
-1. Certifique-se de que está a utilizar o módulo [AzureADPreview.](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview) Este passo é importante se tiver instalado o módulo [AzureAD](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0) e o módulo [AzureADPreview).](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview)
+1. Certifique-se de que está a utilizar o módulo [AzureADPreview.](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview) Este passo é importante se tiver instalado o módulo [AzureAD](/powershell/module/azuread/) e o módulo [AzureADPreview).](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview)
 
     ```powershell
     Remove-Module AzureAD -ErrorAction SilentlyContinue
@@ -130,7 +130,7 @@ Uma vez criada a política de consentimento da aplicação, pode [permitir o con
 
 A tabela seguinte fornece a lista de condições suportadas para políticas de consentimento de aplicações.
 
-| Condição | Descrição|
+| Condição | Description|
 |:---------------|:----------|
 | Classificação de Permissões | A classificação de [permissão](configure-permission-classifications.md) para a permissão concedida, ou "todos" para corresponder a qualquer classificação de permissão (incluindo permissões que não são classificadas). O padrão é "tudo". |
 | Tipo de permissão | O tipo de permissão que está a ser concedida. Utilize "aplicação" para permissões de candidatura (por exemplo.app funções) ou "delegada" para permissões delegadas. <br><br>**Nota:** O valor "delegadoUserConsentable" indica permissões delegadas que não foram configuradas pelo editor da API para exigir o consentimento administrativo — este valor pode ser usado em políticas de concessão de permissões incorporadas, mas não pode ser utilizado em políticas de concessão de permissão personalizadas. Obrigatório. |

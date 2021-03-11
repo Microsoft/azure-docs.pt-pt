@@ -3,16 +3,17 @@ title: Use cloud-init para configurar uma partição de troca num Linux VM
 description: Como usar o cloud-init para configurar uma partição swap num Linux VM durante a criação com o CLI Azure
 author: rickstercdn
 manager: gwallace
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.topic: how-to
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: 1f8746e67ba712ac4c2c3e832fcb5ffefb170d59
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9f4adc4e1e980db2af4fcc20b3a4492309c89f3
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87371945"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102559380"
 ---
 # <a name="use-cloud-init-to-configure-a-swap-partition-on-a-linux-vm"></a>Use cloud-init para configurar uma partição de troca num Linux VM
 Este artigo mostra-lhe como usar [a ineit em nuvem](https://cloudinit.readthedocs.io) para configurar a partição swap em várias distribuições Linux. A partição swap foi tradicionalmente configurada pelo Agente Linux (WALA) com base na qual as distribuições exigiam uma.  Este documento irá delinear o processo de construção da partição swap a pedido durante o tempo de fornecimento usando o cloud-init.  Para obter mais informações sobre como o cloud-init funciona de forma nativa em Azure e os distros de Linux suportados, consulte [a visão geral de cloud-init](using-cloud-init.md)

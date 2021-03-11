@@ -5,16 +5,16 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: e58f63b6ed7fb26a4e3b3069773810c5e5b7cdc3
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: e9a5427f7c3a057f291067ac83d3d9032d7e693d
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101732280"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102559363"
 ---
 # <a name="startstop-vms-during-off-hours-overview"></a>VMs de início/paragem durante a visão geral fora de horas
 
-Os VMs de início/paragem durante o início ou paragens ativadas ativadas Azure VMs. Inicia ou para as máquinas em horários definidos pelo utilizador, fornece insights através de registos do Azure Monitor e envia e-mails opcionais utilizando [grupos de ação](../azure-monitor/alerts/action-groups.md). A funcionalidade pode ser ativada tanto no Azure Resource Manager como em VMs clássicos para a maioria dos cenários. 
+Os VMs de início/paragem durante o início ou paragens ativadas ativadas Azure VMs. Inicia ou para as máquinas em horários definidos pelo utilizador, fornece insights através de registos do Azure Monitor e envia e-mails opcionais utilizando [grupos de ação](../azure-monitor/alerts/action-groups.md). A funcionalidade pode ser ativada tanto no Azure Resource Manager como em VMs clássicos para a maioria dos cenários.
 
 Esta função utiliza [o cmdlet Start-AzVm](/powershell/module/az.compute/start-azvm) para iniciar VMs. Utiliza [o Stop-AzVM](/powershell/module/az.compute/stop-azvm) para parar os VMs.
 
@@ -34,6 +34,9 @@ Seguem-se limitações com a característica atual:
 
 - Gere VMs em qualquer região, mas só pode ser usado na mesma subscrição que a sua conta Azure Automation.
 - Está disponível em Azure e Azure Government para qualquer região que suporte um espaço de trabalho Log Analytics, uma conta Azure Automation, e alertas. Atualmente, as regiões do Governo do Azure não suportam a funcionalidade de e-mail.
+
+> [!NOTE]
+> Antes de instalar esta versão, gostaríamos que soubesse sobre a [próxima versão](https://github.com/microsoft/startstopv2-deployments)– que está em pré-visualização neste momento.  Esta nova versão (V2) oferece todas as mesmas funcionalidades que esta, mas foi concebida para tirar partido da tecnologia mais recente em Azure. Adiciona algumas das funcionalidades geralmente solicitadas aos clientes, tais como suporte multi-subscrição a partir de uma única instância Start/Stop.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -106,7 +109,7 @@ A tabela que se segue lista os livros que a funcionalidade implementa na sua con
 
 Todos os livros de bordo dos pais incluem o `WhatIf` parâmetro. Quando definido para True, o parâmetro suporta detalhar o comportamento exato que o livro de execução leva quando executado sem o parâmetro e valida que os VMs corretos são alvo. Um livro de bordo só executa as suas ações definidas quando o `WhatIf` parâmetro é definido como Falso.
 
-|Runbook | Parâmetros | Descrição|
+|Runbook | Parâmetros | Description|
 | --- | --- | ---|
 |AutoStop_CreateAlert_Child | VMObject <br> AlertaAção <br> WebHookURI | Liga do livro dos pais. Este runbook cria alertas por recurso para o cenário de paragem automática.|
 |AutoStop_CreateAlert_Parent | VMList<br> WhatIf: Verdadeiro ou Falso  | Cria ou atualiza as regras de alerta Azure em VMs nos grupos de subscrição ou recursos direcionados. <br> `VMList` é uma lista separada por vm (sem espaços em branco), por exemplo, `vm1,vm2,vm3` .<br> `WhatIf` permite validação da lógica do runbook sem executar.|
@@ -158,7 +161,7 @@ A tabela que se segue lista cada um dos horários predefinidos criados na sua co
 
 Não ative todos os horários, porque fazê-lo pode criar ações de horário sobrepostas. É melhor determinar quais as otimizações que pretende fazer e modificá-las em conformidade. Consulte os cenários de exemplo na secção geral para obter mais explicações.
 
-|Nome da agenda | Frequência | Descrição|
+|Nome da agenda | Frequência | Description|
 |--- | --- | ---|
 |Schedule_AutoStop_CreateAlert_Parent | A cada 8 horas | Executa o **AutoStop_CreateAlert_Parent** livro de 8 horas, o que por sua vez para os valores baseados em VM em `External_Start_ResourceGroupNames` , e `External_Stop_ResourceGroupNames` `External_ExcludeVMNames` variáveis. Em alternativa, pode especificar uma lista de VMs separadas por vírgula utilizando o `VMList` parâmetro.|
 |Scheduled_StopVM | Definido pelo utilizador, diariamente | Executa o **ScheduledStopStart_Parent** livro de bordo com um parâmetro de `Stop` todos os dias na hora especificada. Para automaticamente todos os VMs que cumprem as regras definidas por ativos variáveis. Ativar o horário relacionado **Programado-StartVM**.|

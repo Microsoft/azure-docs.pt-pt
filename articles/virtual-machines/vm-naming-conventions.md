@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 7/22/2020
 ms.author: mimckitt
 ms.custom: sttsinar
-ms.openlocfilehash: 13894e534dc8d6dd89baf75ea2bd3b6500b718f7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 98d35821c884ba25a109f929556087ff6ecba0ca
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88650966"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102551019"
 ---
 # <a name="azure-virtual-machine-sizes-naming-conventions"></a>Tamanhos de máquina virtual Azure nomeando convenções
 
@@ -21,13 +21,14 @@ Esta página descreve as convenções de nomeação utilizadas para os VMs Azure
 
 ## <a name="naming-convention-explanation"></a>Explicação da convenção de nomeação
 
-**[Família]**  +  **[Sub-família*]**  +  **[# de vCPUs]**  +  **[Características aditivas]**  +  **[Tipo de acelerador*]**  +  **[Versão]**
+**[Família]**  +  **[Sub-família*]**  +  **[# de vCPUs]**  +  **[VCPUs constrangido*]**  +  **[Características aditivas]**  +  **[Tipo de acelerador*]**  +  **[Versão]**
 
 |Valor | Explicação|
 |---|---|
 | Família | Indica a Série Familiar VM| 
 | *Sub-família | Usado apenas para diferenciações de VM especializadas|
 | # de vCPUs| Denota o número de VCPUs do VM |
+| *VCPUs constrangidos| Usado apenas para certos tamanhos VM. Denota o número de vCPUs para o [tamanho de vCPU limitado](https://docs.microsoft.com/azure/virtual-machines/constrained-vcpu) |
 | Características adírias | Uma ou mais letras minúsculas denotam características aditivas, tais como: <br> a = processador baseado em AMD <br> d = disco (disco temporário local está presente); isto é para novos VMs Azure, ver [Ddv4 e Série Ddsv4](./ddv4-ddsv4-series.md) <br> h = hibernação capaz <br> i = tamanho isolado <br> l = memória baixa; uma menor quantidade de memória do que o tamanho intensivo da memória <br> m = memória intensiva; a maior quantidade de memória em um tamanho particular <br> t = memória minúscula; a menor quantidade de memória em um tamanho particular <br> r = RDMA capaz <br> s = Armazenamento Premium capaz, incluindo a possível utilização de [Ultra SSD](./disks-types.md#ultra-disk) (Nota: alguns tamanhos mais recentes sem o atributo de s ainda podem suportar Armazenamento Premium, por exemplo, M128, M64, etc.)<br> |
 | *Tipo de acelerador | Denota o tipo de acelerador de hardware nos SKUs especializados/GPU. Apenas os novos SKUs especializados/GPU lançados a partir do 3º trimestre de 2020 terão o acelerador de hardware no nome. |
 | Versão | Denota a versão da VM Family Series |
@@ -65,6 +66,16 @@ Esta página descreve as convenções de nomeação utilizadas para os VMs Azure
 | Características adírias | a = processador baseado em AMD <br> s = Armazenamento Premium capaz |
 | Tipo de Acelerador | T4 |
 | Versão | v3 |
+
+### <a name="example-4-m8-2ms_v2-constrained-vcpu"></a>Exemplo 4: M8-2ms_v2 (VCPU constrangido)
+
+|Valor | Explicação|
+|---|---|
+| Família | M | 
+| # de vCPUs | 8 |
+| # de vCPUs constrangidos (reais) | 2 |
+| Características adírias | m = memória intensiva <br> s = Armazenamento Premium capaz |
+| Versão | v2 |
 
 ## <a name="next-steps"></a>Passos seguintes
 

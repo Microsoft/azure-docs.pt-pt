@@ -3,19 +3,20 @@ title: Migrar de AWS e outras plataformas para Discos Geridos em Azure
 description: Crie VMs em Azure usando VHDs carregados de outras nuvens como AWS ou outras plataformas de virtualização e aproveite os Discos Geridos Azure.
 author: roygara
 manager: twooley
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.subervice: disks
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: conceptual
 ms.date: 10/07/2017
 ms.author: rogarana
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 55f7c68df1e339f0f9eda809bbb0acbb2e9131b5
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: c817528ff26dd10112eaf69c7ad20f8fb5813695
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98200894"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102550404"
 ---
 # <a name="migrate-from-amazon-web-services-aws-and-other-platforms-to-managed-disks-in-azure"></a>Migrar dos Serviços Web da Amazon (AWS) e de outras plataformas para Discos Geridos em Azure
 
@@ -31,7 +32,7 @@ Pode carregar VHDs generalizados e especializados.
 >
 
 
-| Cenário                                                                                                                         | Documentação                                                                                                                       |
+| Scenario                                                                                                                         | Documentação                                                                                                                       |
 |----------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
 | Tem instâncias AWS EC2 existentes que gostaria de migrar para VMs Azure usando discos geridos                              | [Mover um VM da Amazon Web Services (AWS) para Azure](aws-to-azure.md)                           |
 | Tem um VM de outra plataforma de virtualização que gostaria de usar como imagem para criar vários VMs Azure. | [Faça upload de um VHD generalizado e use-o para criar um novo VM em Azure](upload-generalized-managed.md) |
@@ -49,7 +50,7 @@ Esta secção ajuda-o a tomar a melhor decisão sobre os tipos de VM e discos.
 
 Se está a planear migrar de discos não geridos para discos geridos, deve estar ciente de que os utilizadores com a função [de Contribuinte de Máquina Virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) não poderão alterar o tamanho do VM (como poderiam pré-conversão). Isto porque os VMs com discos geridos exigem que o utilizador tenha a permissão microsoft.Compute/disks/write nos discos DE.
 
-### <a name="location"></a>A localização
+### <a name="location"></a>Localização
 
 Escolha um local onde os Discos Geridos Azure estão disponíveis. Se estiver a migrar para Discos Geridos Premium, certifique-se também de que o armazenamento Premium está disponível na região para onde planeia migrar. Consulte [os Serviços Azure por Região](https://azure.microsoft.com/regions/#services) para obter informações atualizadas sobre os locais disponíveis.
 

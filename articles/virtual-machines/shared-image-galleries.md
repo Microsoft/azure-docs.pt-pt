@@ -3,18 +3,18 @@ title: Partilhar imagens VM com Galerias Partilhadas
 description: Aprenda a usar galerias de imagens partilhadas para partilhar imagens Linux VM em toda a sua organização.
 author: axayjo
 ms.service: virtual-machines
-ms.subservice: imaging
+ms.subservice: shared-image-gallery
 ms.topic: conceptual
 ms.workload: infrastructure
 ms.date: 10/14/2020
 ms.author: akjosh
 ms.reviewer: cynthn
-ms.openlocfilehash: 9a5bc0620468980da68e1b92f758d5f3862ac7d3
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: 225aca8c4695db33e504a5857acb856f4e01d1f1
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102487258"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102551067"
 ---
 # <a name="shared-image-galleries-overview"></a>Visão geral das Galerias de Imagem Partilhadas
 
@@ -170,12 +170,12 @@ Por exemplo, digamos que tem uma imagem de um disco oss de 127 GB, que ocupa ape
 Uma vez criado, pode fazer algumas alterações nos recursos da galeria de imagens. Estes limitam-se a:
  
 Galeria de imagens partilhada:
-- Descrição
+- Description
 
 Definição de imagem:
 - VCPUs recomendados
 - Memória recomendada
-- Descrição
+- Description
 - Data de fim de vida
 
 Versão de imagem:

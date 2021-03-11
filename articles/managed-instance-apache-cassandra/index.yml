@@ -11,12 +11,12 @@ metadata:
   author: TheovanKraay
   ms.author: thvankra
   ms.date: 01/18/2021
-  ms.openlocfilehash: 8300012954756f1083c93745299ca57e4c4db0d3
-  ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+  ms.openlocfilehash: 2ffbd257c9db27a9c895d566bca6107b8f2fe546
+  ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/03/2021
-  ms.locfileid: "101749157"
+  ms.lasthandoff: 03/10/2021
+  ms.locfileid: "102608381"
 landingContent:
 - title: Sobre Azure Managed Instance for Apache Cassandra
   linkLists:
@@ -28,6 +28,8 @@ landingContent:
     links:
     - text: Azure Managed Instance for Apache Cassandra Vs Azure Cosmos DB Cassandra API
       url: compare-cosmosdb-managed-instance.md
+- title: Criar e implementar um cluster
+  linkLists:
   - linkListType: quickstart
     links:
     - text: Criar um cluster - Portal

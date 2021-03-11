@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 08/23/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 0eeea04cd42498c5ba066a3a3e977c92b2906292
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 681b60ac664a210971f083900b9d8b5ba5df119f
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98738038"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102617561"
 ---
 # <a name="source-control-integration-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Integração de Controlo de Fontes para piscina SQL dedicada em Azure Synapse Analytics
 
@@ -51,7 +51,7 @@ Este tutorial descreve como integrar o seu projeto de base de dados SQL Server D
 
    ![Repo clone](./media/sql-data-warehouse-source-control-integration/4-clone-repo.png "Repo clone")
 
-Para obter mais informações sobre a ligação de projetos utilizando o Visual Studio, consulte o [Connect para projetos no Team Explorer.](/visualstudio/ide/connect-team-project?view=vs-2019&preserve-view=true) Para obter orientações sobre a clonagem de um repo usando o Visual Studio, reveja o Clone um artigo [de repo de saída do Git.](/azure/devops/repos/git/clone?tabs=visual-studio&view=azure-devops&preserve-view=true) 
+Para obter mais informações sobre a ligação de projetos utilizando o Visual Studio, consulte o [Connect para projetos no Team Explorer.](/visualstudio/ide/connect-team-project?view=vs-2019&preserve-view=true) Para obter orientações sobre a clonagem de um repo usando o Visual Studio, reveja o Clone um artigo [de repo de saída do Git.](/azure/devops/repos/git/clone?tabs=visual-studio) 
 
 ## <a name="create-and-connect-your-project"></a>Crie e ligue o seu projeto
 
@@ -89,6 +89,6 @@ Para obter mais informações sobre a ligação de projetos utilizando o Visual 
 
 4. (**Opcional)** Utilize o Schema Compare e atualize as alterações à sua piscina SQL dedicada ao seu alvo utilizando O SSDT para garantir que as definições de objeto no seu repositório de Azure Repositório e repositório local reflitam a sua piscina DE SQL dedicada.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Desenvolvimento para piscina SQL dedicada](sql-data-warehouse-overview-develop.md)

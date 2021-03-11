@@ -1,7 +1,7 @@
 ---
 title: Estenda a Azure IoT Central com | de análise personalizada Microsoft Docs
 description: Como desenvolvedor de soluções, configurar uma aplicação IoT Central para fazer análises e visualizações personalizadas. Esta solução utiliza a Azure Databricks.
-author: TheJasonAndrew
+author: TheRealJasonAndrew
 ms.author: v-anjaso
 ms.date: 02/18/2020
 ms.topic: how-to
@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 86f94b8059d85b892a87c82537b1e9b02552f8f7
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 11e5ba3c0700cc9b29b8a11c0f9aa20cb5adb132
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101741721"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102551322"
 ---
 # <a name="extend-azure-iot-central-with-custom-analytics-using-azure-databricks"></a>Estenda a Azure IoT Central com análises personalizadas usando Azure Databricks
 
@@ -103,7 +103,7 @@ O seu espaço de nomes do Event Hubs parece a seguinte imagem:
 
 No site do [gestor de aplicações Azure IoT Central,](https://aka.ms/iotcentral) navegue para a aplicação IoT Central que criou a partir do modelo Contoso. Nesta secção, configura a aplicação para transmitir a telemetria dos seus dispositivos simulados para o seu centro de eventos. Para configurar a exportação:
 
-1. Navegue para a página **Data Export (Legacy),** selecione **+ Novos**, e depois **Azure Event Hubs**.
+1. Navegue para a página **data export,** selecione **+ Novos**, e depois **Azure Event Hubs**.
 1. Utilize as seguintes definições para configurar a exportação e, em seguida, **selecione Guardar**:
 
     | Definição | Valor |
@@ -136,7 +136,7 @@ Utilize as informações na tabela seguinte para criar o seu cluster:
 | Modo cluster | Standard |
 | Versão de runtime databricks | 5.5 LTS (Scala 2.11, Faísca 2.4.5) |
 | Versão Python | 3 |
-| Ativar a autoscalagem | Não |
+| Ativar a autoscalagem | No |
 | Terminar após minutos de inatividade | 30 |
 | Tipo de trabalhador | Standard_DS3_v2 |
 | Trabalhadores | 1 |
