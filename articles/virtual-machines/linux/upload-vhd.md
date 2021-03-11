@@ -1,25 +1,27 @@
 ---
 title: Faça upload ou copie um Linux VM personalizado com Azure CLI
 description: Faça upload ou copie uma máquina virtual personalizada utilizando o modelo de implementação do Gestor de Recursos e o CLI Azure
-services: virtual-machines-linux
+services: virtual-machines
 documentationcenter: ''
 author: cynthn
 manager: gwallace
 tags: azure-resource-manager
 ms.assetid: a8c7818f-eb65-409e-aa91-ce5ae975c564
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.subservice: disks
+ms.collection: linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 10/10/2019
 ms.author: cynthn
-ms.openlocfilehash: 941be52f25b08589134f693b9c0fe17a8a87ff28
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 9d549d77b4a60f7543f69a9fd89e8b538c95d010
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98196406"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102564616"
 ---
 # <a name="create-a-linux-vm-from-a-custom-disk-with-the-azure-cli"></a>Criar um Linux VM a partir de um disco personalizado com o Azure CLI
 

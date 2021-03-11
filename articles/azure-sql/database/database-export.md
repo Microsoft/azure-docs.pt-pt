@@ -11,12 +11,12 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/11/2021
 ms.topic: how-to
-ms.openlocfilehash: 1e08f3bd40dbd51a31eb6a78f102c12ab26e2790
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 866500e9cd9e3fe6aac6a5bfded0dbb21ab137fc
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102519729"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102614280"
 ---
 # <a name="export-to-a-bacpac-file---azure-sql-database-and-azure-sql-managed-instance"></a>Exportação para um ficheiro BACPAC - Azure SQL Database e Azure SQL Managed Instance
 
@@ -106,7 +106,7 @@ $exportStatus
 ```
 ## <a name="cancel-the-export-request"></a>Cancelar o pedido de exportação
 
-Utilizar as [Operações de Base de Dados - Cancelar a API](https://docs.microsoft.com/rest/api/sql/databaseoperations/cancel) ou o comando Powershell [Stop-AzSqlDatabaseActivity](https://docs.microsoft.com/powershell/module/az.sql/Stop-AzSqlDatabaseActivity?view=azps-5.5.0), aqui um exemplo de comando powershell.
+Utilizar as [Operações de Base de Dados - Cancelar a API](https://docs.microsoft.com/rest/api/sql/databaseoperations/cancel) ou o comando Powershell [Stop-AzSqlDatabaseActivity](https://docs.microsoft.com/powershell/module/az.sql/Stop-AzSqlDatabaseActivity), aqui um exemplo de comando powershell.
 
 ```cmd
 Stop-AzSqlDatabaseActivity -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName -OperationId $Operation.OperationId

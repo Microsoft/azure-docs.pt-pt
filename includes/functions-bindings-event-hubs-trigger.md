@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 03/05/2019
 ms.author: cshoe
-ms.openlocfilehash: 0cd514c852e13b83a679821ca2d940e4ed112bd8
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 145db7693db126d4e114e8c8a885ea7fd7809e69
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95563712"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102608920"
 ---
 Utilize o gatilho de função para responder a um evento enviado para um fluxo de eventos do centro de eventos. Deve ter lido o acesso ao centro de eventos subjacente para configurar o gatilho. Quando a função é desencadeada, a mensagem transmitida para a função é dactilografada como uma corda.
 
@@ -351,7 +351,7 @@ A partir da [biblioteca de funções](/java/api/overview/azure/functions/runtime
 
 A tabela seguinte explica as propriedades de configuração de encadernação que definiu no *function.jsno* ficheiro e no `EventHubTrigger` atributo.
 
-|function.jsna propriedade | Propriedade de atributo |Descrição|
+|function.jsna propriedade | Propriedade de atributo |Description|
 |---------|---------|----------------------|
 |**tipo** | n/a | Deve ser definido para `eventHubTrigger` . Esta propriedade é definida automaticamente quando cria o gatilho no portal Azure.|
 |**direção** | n/a | Deve ser definido para `in` . Esta propriedade é definida automaticamente quando cria o gatilho no portal Azure. |
@@ -360,15 +360,65 @@ A tabela seguinte explica as propriedades de configuração de encadernação qu
 |**eventHubName** |**Nome eventHub** | Funções 2.x e superior. O nome do centro de eventos. Quando o nome do hub do evento também está presente na cadeia de ligação, esse valor sobrepõe-se a esta propriedade em tempo de execução. Pode ser referenciado através de [configurações de aplicativos](../articles/azure-functions/functions-bindings-expressions-patterns.md#binding-expressions---app-settings)`%eventHubName%` |
 |**consumerGroup** |**Grupo de Consumidores** | Uma propriedade opcional que define o [grupo de consumidores](../articles/event-hubs/event-hubs-features.md#event-consumers) usado para subscrever eventos no centro. Se omitido, o `$Default` grupo de consumidores é utilizado. |
 |**cardinalidade** | n/a | Usado para todos os idiomas não-C#. De modo a `many` ativar o lote.  Se omitir ou definir `one` para , uma única mensagem é transmitida para a função.<br><br>Em C#, esta propriedade é automaticamente atribuída sempre que o gatilho tem uma matriz para o tipo.|
-|**conexão** |**Ligação** | O nome de uma definição de aplicação que contém a cadeia de ligação ao espaço de nome do centro de eventos. Copie esta cadeia de ligação clicando no botão **Informação de Ligação** para o [espaço de nomes,](../articles/event-hubs/event-hubs-create.md#create-an-event-hubs-namespace)e não o próprio hub do evento. Esta cadeia de ligação deve ter pelo menos permissões de leitura para ativar o gatilho.|
+|**conexão** |**Ligação** | O nome de uma definição de aplicação que contém a cadeia de ligação ao espaço de nome do centro de eventos. Copie esta cadeia de ligação clicando no botão **Informação de Ligação** para o [espaço de nomes,](../articles/event-hubs/event-hubs-create.md#create-an-event-hubs-namespace)e não o próprio hub do evento. Esta cadeia de ligação deve ter pelo menos permissões de leitura para ativar o gatilho.<br><br>Se estiver a utilizar [a versão 5.x ou superior da extensão](../articles/azure-functions/functions-bindings-event-hubs.md#event-hubs-extension-5x-and-higher), em vez de uma cadeia de ligação, pode fornecer uma referência a uma secção de configuração que defina a ligação. Ver [Ligações](../articles/azure-functions/functions-reference.md#connections).|
 
 [!INCLUDE [app settings to local.settings.json](../articles/azure-functions/../../includes/functions-app-settings-local.md)]
+
+## <a name="usage"></a>Utilização
+
+# <a name="c"></a>[C#](#tab/csharp)
+
+### <a name="default"></a>Predefinição
+
+Pode utilizar os seguintes tipos de parâmetros para o centro de eventos de desencadeamento:
+
+* `string`
+* `byte[]`
+* `POCO`
+* `EventData` - As propriedades predefinidas do EventData são fornecidas no espaço de [nomes Microsoft.Azure.EventHubs](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet).
+
+### <a name="additional-types"></a>Tipos adicionais 
+As aplicações que utilizam a versão 5.0.0 ou superior da extensão do Event Hub utilizam o `EventData` tipo em [Azure.Messaging.EventHubs](https://docs.microsoft.com/dotnet/api/azure.messaging.eventhubs.eventdata?view=azure-dotnet) em vez da do espaço de [nomes Microsoft.Azure.EventHubs](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet). Esta versão deixa cair o suporte para o tipo legado `Body` a favor dos seguintes tipos:
+
+- [EventBody](https://docs.microsoft.com/dotnet/api/azure.messaging.eventhubs.eventdata.eventbody?view=azure-dotnet)
+
+# <a name="c-script"></a>[C# Script](#tab/csharp-script)
+
+### <a name="default"></a>Predefinição
+
+Pode utilizar os seguintes tipos de parâmetros para o centro de eventos de desencadeamento:
+
+* `string`
+* `byte[]`
+* `POCO`
+* `EventData` - As propriedades predefinidas do EventData são fornecidas no espaço de [nomes Microsoft.Azure.EventHubs](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet).
+
+### <a name="additional-types"></a>Tipos adicionais 
+As aplicações que utilizam a versão 5.0.0 ou superior da extensão do Event Hub utilizam o `EventData` tipo em [Azure.Messaging.EventHubs](https://docs.microsoft.com/dotnet/api/azure.messaging.eventhubs.eventdata?view=azure-dotnet) em vez da do espaço de [nomes Microsoft.Azure.EventHubs](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet). Esta versão deixa cair o suporte para o tipo legado `Body` a favor dos seguintes tipos:
+
+- [EventBody](https://docs.microsoft.com/dotnet/api/azure.messaging.eventhubs.eventdata.eventbody?view=azure-dotnet)
+
+# <a name="java"></a>[Java](#tab/java)
+
+Consulte o [exemplo](#example) do gatilho de Java para obter mais detalhes.
+
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+Consulte o exemplo do [gatilho](#example) Javascript para obter mais detalhes.
+
+# <a name="python"></a>[Python](#tab/python)
+
+Consulte o [exemplo](#example) do gatilho Python para obter mais detalhes.
+
+
+---
+
 
 ## <a name="event-metadata"></a>Metadados de eventos
 
 O gatilho do Event Hubs fornece várias [propriedades de metadados.](../articles/azure-functions/./functions-bindings-expressions-patterns.md) As propriedades dos metadados podem ser usadas como parte de expressões de ligação noutras ligações ou como parâmetros no seu código. As propriedades provêm da classe [EventData.](/dotnet/api/microsoft.servicebus.messaging.eventdata)
 
-|Propriedade|Tipo|Descrição|
+|Propriedade|Tipo|Description|
 |--------|----|-----------|
 |`PartitionContext`|[PartitionContexto](/dotnet/api/microsoft.servicebus.messaging.partitioncontext)|O `PartitionContext` exemplo.|
 |`EnqueuedTimeUtc`|`DateTime`|O tempo encadeado na UTC.|
@@ -379,10 +429,3 @@ O gatilho do Event Hubs fornece várias [propriedades de metadados.](../articles
 |`SystemProperties`|`IDictionary<String,Object>`|As propriedades do sistema, incluindo os dados do evento.|
 
 Consulte [exemplos de código](#example) que utilizam estas propriedades anteriormente neste artigo.
-
-## <a name="hostjson-properties"></a>host.jssobre propriedades
-<a name="host-json"></a>
-
-A [host.jsno](../articles/azure-functions/functions-host-json.md#eventhub) ficheiro contém definições que controlam o comportamento do Event Hubs. A configuração é diferente dependendo da versão Azure Functions.
-
-[!INCLUDE [functions-host-json-event-hubs](../articles/azure-functions/../../includes/functions-host-json-event-hubs.md)]

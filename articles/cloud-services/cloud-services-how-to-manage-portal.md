@@ -8,12 +8,12 @@ ms.author: tagore
 author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 306da8dae31c2bbdb487e7128e3a2e24424c239d
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: a1b37ed1d15282224cc7de61ec6f8a98a4bbf732
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98743394"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102610506"
 ---
 # <a name="manage-cloud-services-classic-in-the-azure-portal"></a>Gerir serviços cloud (clássicos) no portal Azure
 
@@ -81,7 +81,7 @@ Existem dois pré-requisitos fundamentais para uma troca de implementação bem 
 
 - Se pretender utilizar um endereço IP estático para a sua ranhura de produção, também deve reservar um para a sua ranhura de preparação. Caso contrário, a troca falha.
 
-- Todas as instâncias das suas funções devem estar a decorrer antes de poder efetuar a troca. Pode verificar o estado das suas instâncias na lâmina **geral** do portal Azure. Em alternativa, pode utilizar o comando [Get-AzureRole](/powershell/module/servicemanagement/azure.service/get-azurerole?view=azuresmps-3.7.0&preserve-view=true) no Windows PowerShell.
+- Todas as instâncias das suas funções devem estar a decorrer antes de poder efetuar a troca. Pode verificar o estado das suas instâncias na lâmina **geral** do portal Azure. Em alternativa, pode utilizar o comando [Get-AzureRole](/powershell/module/servicemanagement/azure.service/get-azurerole) no Windows PowerShell.
 
 Note que as atualizações do SO do hóspede e as operações de cura do serviço também podem causar a falha de trocas de implementação. Para obter mais informações, consulte [problemas de implementação do serviço de nuvem troubleshoot](cloud-services-troubleshoot-deployment-problems.md).
 
@@ -123,7 +123,7 @@ A **lâmina de visão geral** tem uma barra de estado no topo. Quando selecionar
 
 [Azure portal]: https://portal.azure.com
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Configuração geral do seu serviço na nuvem](cloud-services-how-to-configure-portal.md).
 * Saiba como [implementar um serviço de cloud](cloud-services-how-to-create-deploy-portal.md).
 * Configure um [nome de domínio personalizado.](cloud-services-custom-domain-name-portal.md)

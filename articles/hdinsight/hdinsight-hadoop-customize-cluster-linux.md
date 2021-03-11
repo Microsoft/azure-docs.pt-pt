@@ -4,13 +4,13 @@ description: Adicione componentes personalizados aos clusters HDInsight utilizan
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, devx-track-azurecli, contperf-fy21q2
-ms.date: 09/02/2020
-ms.openlocfilehash: ed1277df0ebfa42d6ee95d58fa568241b291656b
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.date: 03/09/2021
+ms.openlocfilehash: 00ed8c26bbafeb94b1481e6157a242dad7ed84c6
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102434683"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102610268"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>Personalize os clusters Azure HDInsight utilizando ações de script
 
@@ -25,7 +25,7 @@ Uma ação de script é o script Bash que corre nos nós num cluster HDInsight. 
 - Deve ser armazenado num URI acessível a partir do cluster HDInsight. Seguem-se possíveis locais de armazenamento:
 
     - Para agrupamentos regulares (não-ESP):
-      - Data Lake Storage Gen1/Gen2: O principal serviço hdInsight usa para aceder ao Armazenamento do Lago de Dados deve ter lido o acesso ao script. O formato URI para scripts armazenados na Data Lake Storage Gen1 é `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file` . O formato URI para scripts De Armazenamento de Dados Lake Gen2 é `abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/<PATH>`
+      - Data Lake Storage Gen1/Gen2: O principal serviço hdInsight usa para aceder ao Armazenamento do Lago de Dados deve ter lido o acesso ao script. O formato URI para scripts armazenados na Data Lake Storage Gen1 é `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file` . 
       - Uma bolha numa conta de Armazenamento Azure que é a conta de armazenamento primário ou adicional para o cluster HDInsight. O HDInsight tem acesso a ambos estes tipos de contas de armazenamento durante a criação de clusters.
 
         > [!IMPORTANT]  

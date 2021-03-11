@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: a84942337b3c8eb5f7509f61f9ba5bcd564d8bb3
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: ceac1e7b5e8efa7e87ecf6e1f4c9dd8286c87e98
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97653083"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102614076"
 ---
 # <a name="team-data-science-process-for-developer-operations"></a>Processo de ciência de dados de equipa para operações de desenvolvedor
 
@@ -74,10 +74,10 @@ O quadro seguinte fornece orientações baseadas em nível para ajudar a complet
 |  |  | [Esta referência explica como criar um pipeline de dados para a sua solução, que pode guardar como modelo JSON como um "pacote"](../../data-factory/v1/data-factory-introduction.md) | Azure Data Factory | Intermédio | Fundo geral de computação, experiência de projeto de dados |
 |  |  | [Este tópico descreve a estrutura de um modelo de Gestor de Recursos Azure](../../azure-resource-manager/templates/template-syntax.md) | Azure Resource Manager | Intermédio | Familiaridade com a Plataforma Microsoft Azure |
 |  |  | [A DSC é uma plataforma de gestão no PowerShell que lhe permite gerir a sua infraestrutura de TI e desenvolvimento com a configuração como código, guardada como um pacote. Esta referência é uma visão geral para este tópico](/powershell/scripting/dsc/overview/overview) | Configuração de estado desejada powerShell | Intermédio | Codificação PowerShell, familiaridade com arquiteturas empresariais, scripting |
-|  | Libertar | [Este artigo de referência de cabeça contém conceitos para construção, teste e libertação para ambientes CI/CD](/azure/devops/pipelines/?view=azure-devops) | Visual Studio Codespace | Experiente | Desenvolvimento de software, familiaridade com ambientes de CI/CD, familiaridade com um SDLC |
+|  | Libertar | [Este artigo de referência de cabeça contém conceitos para construção, teste e libertação para ambientes CI/CD](/azure/devops/pipelines/) | Visual Studio Codespace | Experiente | Desenvolvimento de software, familiaridade com ambientes de CI/CD, familiaridade com um SDLC |
 |  |  | [Utilize esta referência anterior para Runbooks para automatizar a gestão de lançamentos utilizando o System Center](/system-center/orchestrator/automate-runbooks) | System Center | Experiente | Experiência com o Orquestrador do Centro de Sistemas |
 |  |  | [Este artigo ajuda-o a determinar a melhor opção para implementar os ficheiros da sua aplicação web, backend de aplicativos móveis ou app API para o Azure App Service, e, em seguida, orienta-o para os recursos adequados com instruções específicas para a sua opção preferida](../../app-service/deploy-local-git.md) | Implementação microsoft Azure | Intermédio | Desenvolvimento de software, experiência com a plataforma Microsoft Azure |
-|  | Monitorizar | [Esta referência explica a Aplicação Insights e como pode adicioná-lo às suas Soluções Avançadas de Análise](../../azure-monitor/app/app-insights-overview.md) | Application Insights | Intermédio | Desenvolvimento de Software, familiaridade com a plataforma Microsoft Azure |
+|  | Monitor | [Esta referência explica a Aplicação Insights e como pode adicioná-lo às suas Soluções Avançadas de Análise](../../azure-monitor/app/app-insights-overview.md) | Application Insights | Intermédio | Desenvolvimento de Software, familiaridade com a plataforma Microsoft Azure |
 |  |  | [Este tópico explica conceitos básicos sobre Gestor de Operações para o administrador que gere a infraestrutura do Gestor de Operações e o operador que monitoriza e apoia a Solução De Análise Avançada](/previous-versions/system-center/system-center-2012-R2/hh230741(v=sc.12)) | System Center | Experiente | Familiaridade com a monitorização da empresa, Gestor de Operações do Centro de Sistema |
 |  |  | [Esta entrada no blog explica como usar a Azure Data Factory para monitorizar e gerir o pipeline Advanced Analytics](https://azure.microsoft.com/blog/azure-data-factory-updates-monitoring-and-management-enhancements/) | Azure Data Factory | Intermédio | Familiaridade com a Azure Data Factory |
 |  |  | [Este vídeo mostra como monitorizar um registo com registos do Azure Monitor](https://channel9.msdn.com/Shows/Data-Exposed/Enterprise-HDInsight-Monitoring-with-Operations-Management-Suite) | Logs Azure, PowerShell | Experiente | Familiaridade com a Plataforma Azure |

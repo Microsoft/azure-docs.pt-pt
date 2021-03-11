@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: b9804e119f5b5cfbee1a61eabf217dad7dbf5500
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: cab32a6c2835dc283a169f58c79ff54e7925467b
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102507233"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102554246"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Utilizar as APIs e SDKs do Azure Digital Twins
 
@@ -122,18 +122,21 @@ Também pode encontrar amostras adicionais no [repo GitHub para o .NET (C#) SDK]
 Os ajudantes de serialização são funções de ajuda disponíveis dentro do SDK para criar ou deserizar rapidamente dados gémeos para acesso a informações básicas. Uma vez que os métodos SDK principais devolvem dados gémeos como JSON por padrão, pode ser útil usar estas classes de ajudantes para quebrar ainda mais os dados gémeos.
 
 As aulas de ajudante disponível são:
-* `BasicDigitalTwin`: Representa os dados fundamentais de um gémeo digital
-* `BasicRelationship`: Representa os dados fundamentais de uma relação
-* `UpdateOperationUtility`: Representa as informações do Patch JSON utilizadas nas chamadas de atualização
-* `WriteableProperty`: Representa metadados de propriedade
+* `BasicDigitalTwin`: Genericamente representa os dados fundamentais de um gémeo digital
+* `BasicDigitalTwinComponent`: Genericamente representa um componente nas `Contents` propriedades de um `BasicDigitalTwin`
+* `BasicRelationship`: Genericamente representa os dados fundamentais de uma relação
+* `DigitalTwinsJsonPropertyName`: Contém as constantes de corda para utilização na serialização e deserialização de JSON para tipos de gémeos digitais personalizados
 
 ##### <a name="deserialize-a-digital-twin"></a>Deserializar um gémeo digital
 
-Pode sempre desseeciar dados gémeos utilizando a biblioteca JSON à sua escolha, como `System.Test.Json` ou `Newtonsoft.Json` . Para o acesso básico a um gémeo, as aulas de ajudante tornam isto um pouco mais conveniente.
+Pode sempre desseeciar dados gémeos utilizando a biblioteca JSON à sua escolha, como `System.Text.Json` ou `Newtonsoft.Json` . Para o acesso básico a um gémeo, as aulas de ajudante podem tornar isto mais conveniente.
 
 A `BasicDigitalTwin` classe de ajudante também lhe dá acesso a propriedades definidas no gémeo, através de um `Dictionary<string, object>` . Para listar as propriedades do gémeo, pode utilizar:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs" id="GetTwin":::
+
+> [!NOTE]
+> `BasicDigitalTwin` usa `System.Text.Json` atributos. Para utilizar `BasicDigitalTwin` com o seu [DigitalTwinsClient,](/dotnet/api/azure.digitaltwins.core.digitaltwinsclient?view=azure-dotnet&preserve-view=true)deve rubricar o cliente com o construtor predefinido, ou, se quiser personalizar a opção serializadora, utilize o [JsonObjectSerializador](/dotnet/api/azure.core.serialization.jsonobjectserializer?view=azure-dotnet&preserve-view=true).
 
 ##### <a name="create-a-digital-twin"></a>Criar um gémeo digital
 

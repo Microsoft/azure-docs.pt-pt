@@ -1231,16 +1231,24 @@
           href: ../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md?context=/azure/virtual-machines/context/context
     - name: Diretório Ativo Linux
       href: ./linux/login-using-aad.md
-- name: Manutenção e atualizações
+- name: Atualizações e manutenção
   items:
-    - name: Descrição Geral
-      href: maintenance-and-updates.md
-    - name: Aplicação de patches automática de convidado da VM (pré-visualização)
-      href: automatic-vm-guest-patching.md
+    - name: Atualizações do SO do hóspede
+      items:
+        - name: Patching de SO convidado
+          items:
+            - name: Aplicação de patches automática de convidado da VM (pré-visualização)
+              href: automatic-vm-guest-patching.md
+            - name: Hotpatching
+              href: ../automanage/automanage-hotpatch.md?context=/azure/virtual-machines/context/context
+        - name: Atualização automática de imagem do SO
+          href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md?context=/azure/virtual-machines/context/context
     - name: Atualização automática de extensão (pré-visualização)
       href: automatic-extension-upgrade.md
-    - name: Controlo da manutenção
+    - name: Manutenção
       items:
+        - name: Descrição Geral
+          href: maintenance-and-updates.md
         - name: Notificações de manutenção
           items:
             - name: Descrição geral
@@ -1251,7 +1259,7 @@
               href: maintenance-notifications-portal.md
             - name: PowerShell
               href: maintenance-notifications-powershell.md
-        - name: Manutenção da plataforma
+        - name: Controlo da manutenção
           items:
             - name: Descrição geral
               href: maintenance-control.md
@@ -1273,16 +1281,6 @@
               href: ./linux/tutorial-config-management.md
             - name: Windows
               href: ./windows/tutorial-config-management.md
-        - name: Atualizações da imagem do SO do conjunto de dimensionamento de máquinas virtuais
-          items:
-            - name: Atualizações automáticas do SO
-              href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md?context=/azure/virtual-machines/context/context
-            - name: Controlo da manutenção
-              items:
-                - name: Descrição Geral (Pré-visualização)
-                  href: virtual-machine-scale-sets-maintenance-control.md
-                - name: PowerShell (Pré-visualização)
-                  href: virtual-machine-scale-sets-maintenance-control-powershell.md
 - name: Monitorização
   items:
     - name: Descrição geral

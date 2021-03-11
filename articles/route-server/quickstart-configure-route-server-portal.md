@@ -7,12 +7,12 @@ ms.service: route-server
 ms.topic: quickstart
 ms.date: 03/03/2021
 ms.author: duau
-ms.openlocfilehash: ef48f7623aee1256ad1f889d2e70b5a2fdb8e6bf
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: f76c48af4f5ebc8013daad457f9973cf7792c7c6
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102108880"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102548002"
 ---
 # <a name="quickstart-create-and-configure-route-server-using-the-azure-portal"></a>Quickstart: Criar e configurar o Servidor de Rota utilizando o portal Azure
 
@@ -101,6 +101,12 @@ Se tiver um gateway ExpressRoute e/ou gateway VPN e quiser que troquem rotas com
 1. **Selecione Ativar** para a definição **de ramo-a-ramo** e, em seguida, selecione **Guardar**.
 
     :::image type="content" source="./media/quickstart-configure-route-server-portal/enable-route-exchange.png" alt-text="Screenshot de como ativar a troca de rotas.":::
+
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+Se já não precisar do Servidor de Rota Azure, **selecione Eliminar** a partir da página de visão geral para desprovisionar o Servidor de Rotas.
+
+:::image type="content" source="./media/quickstart-configure-route-server-portal/delete-route-server.png" alt-text="Screenshot de como eliminar o Route Server.":::
 
 ## <a name="next-steps"></a>Passos seguintes
 

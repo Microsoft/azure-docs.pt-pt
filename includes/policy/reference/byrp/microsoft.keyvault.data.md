@@ -2,17 +2,17 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 03/05/2021
+ms.date: 03/10/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: f3fa84d6c6dab91d734d485122bfec28e1e84798
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 7697496e689aad2dbe70b30024decbc572b32239
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102428129"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102609451"
 ---
-|Name<br /><sub>(Portal Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[Os certificados devem ser emitidos pela autoridade de certificados integrados especificado](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F8e826246-c976-48f6-b03e-619bb92b3d82) |Gerencie os seus requisitos de conformidade organizacional especificando as autoridades de certificados integrados Azure que podem emitir certificados no seu cofre-chave, como Digicert ou GlobalSign. |auditoria, negação, desativado |[2.0.0-pré-visualização](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/Certificates_Issuers_SupportedCAs.json) |
 |[Os certificados devem ser emitidos pela autoridade de certificados não integrada especificada](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa22f4a40-01d3-4c7d-8071-da157eeff341) |Gerencie os seus requisitos de conformidade organizacional especificando as autoridades de certificados personalizados ou internos que podem emitir certificados no seu cofre principal. |auditoria, negação, desativado |[2.0.0-pré-visualização](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/Certificates_Issuers_CustomCAs.json) |

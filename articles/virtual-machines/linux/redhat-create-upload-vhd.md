@@ -2,18 +2,20 @@
 title: Crie e carrele um Red Hat Enterprise Linux VHD para uso em Azure
 description: Aprenda a criar e carregar um disco rígido virtual Azure (VHD) que contenha um sistema operativo Red Hat Linux.
 author: danielsollondon
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.subservice: redhat
+ms.collection: linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: how-to
 ms.date: 12/01/2020
 ms.author: danis
-ms.openlocfilehash: 07c5be6339048517169f14032e8c37b1dc5fbf01
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: ff22010f12a7d76e60b629c4c1c4e24946d4af5a
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100546623"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102552971"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure"></a>Prepare a Red Hat-based virtual machine for Azure (Preparar uma máquina virtual baseada em Red Hat para o Azure)
 

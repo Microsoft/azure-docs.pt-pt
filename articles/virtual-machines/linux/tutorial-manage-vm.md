@@ -1,25 +1,26 @@
 ---
 title: Tutorial - Criar e gerir Os VMs do Linux com o Azure CLI
 description: Neste tutorial, vai aprender a utilizar a CLI do Azure para criar e gerir VMs do Linux no Azure
-services: virtual-machines-linux
+services: virtual-machines
 documentationcenter: virtual-machines
 author: cynthn
 manager: gwallace
 tags: azure-resource-manager
 ms.assetid: ''
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/23/2018
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: aeb44a52dc7a83321752bb00e09270fe7bfd0bbe
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 77213fe83a56a33f4d10658f85465349949be792
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91972191"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102555606"
 ---
 # <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli"></a>Tutorial: Criar e Gerir VMs do Linux com a CLI do Azure
 
@@ -251,7 +252,7 @@ Uma VM do Azure pode ter um de vários estados de energia. Este estado represent
 
 ### <a name="power-states"></a>Estados de energia
 
-| Estado de Energia | Descrição
+| Estado de Energia | Description
 |----|----|
 | A iniciar | Indica que a máquina virtual está a iniciar. |
 | Em Execução | Indica que a máquina virtual está em execução. |

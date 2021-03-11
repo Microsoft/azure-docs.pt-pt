@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 08/20/2019
-ms.openlocfilehash: 6fc5bea71909d0e17b4ef0256ab0cad644dacbb3
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 37c4bd2af080a76e93bc9599f06e4d502985979f
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95993827"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102609656"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>Utilize o Gestor de Tráfego do Microsoft Azure para gerir a quota de ponto final através das teclas
 A Compreensão linguística (LUIS) oferece a capacidade de aumentar a quota de pedido de ponto final para além da quota de uma única chave. Isto é feito criando mais chaves para o LUIS e adicionando-as à aplicação LUIS na página **Publicar** na secção **Recursos e Chaves.**
@@ -306,7 +306,7 @@ Crie o perfil do Gestor de Tráfego parental e ligue dois perfis de Gerente de T
     Uma resposta bem sucedida é a mesma resposta que o passo 3.
 
 ### <a name="powershell-variables"></a>Variáveis PowerShell
-Nas secções anteriores, foram criadas três variáveis PowerShell: `$eastprofile` . . . . . `$westprofile` `$parentprofile` . Estas variáveis são utilizadas no final da configuração do Gestor de Tráfego. Se optar por não criar as variáveis, ou se esqueceu, ou os tempos de janela do PowerShell, pode utilizar o cmdlet PowerShell, **[Get-AzTrafficManagerProfile,](/powershell/module/az.TrafficManager/Get-azTrafficManagerProfile)** para obter o perfil novamente e atribuí-lo a uma variável.
+Nas secções anteriores, foram criadas três variáveis PowerShell: `$eastprofile` `$westprofile` . . `$parentprofile` Estas variáveis são utilizadas no final da configuração do Gestor de Tráfego. Se optar por não criar as variáveis, ou se esqueceu, ou os tempos de janela do PowerShell, pode utilizar o cmdlet PowerShell, **[Get-AzTrafficManagerProfile,](/powershell/module/az.TrafficManager/Get-azTrafficManagerProfile)** para obter o perfil novamente e atribuí-lo a uma variável.
 
 Substitua os itens em suportes `<>` angulares, com os valores corretos para cada um dos três perfis de que necessita.
 
@@ -371,7 +371,7 @@ Remova as duas chaves de ponto final LUIS, os três perfis do Gestor de Tráfego
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Reveja as opções [de middleware](/azure/bot-service/bot-builder-create-middleware?tabs=csaddmiddleware%252ccsetagoverwrite%252ccsmiddlewareshortcircuit%252ccsfallback%252ccsactivityhandler&view=azure-bot-service-4.0) no BotFramework v4 para entender como este código de gestão de tráfego pode ser adicionado a um botFramework.
+Reveja as opções [de middleware](/azure/bot-service/bot-builder-create-middleware?tabs=csaddmiddleware%252ccsetagoverwrite%252ccsmiddlewareshortcircuit%252ccsfallback%252ccsactivityhandler) no BotFramework v4 para entender como este código de gestão de tráfego pode ser adicionado a um botFramework.
 
 [traffic-manager-marketing]: https://azure.microsoft.com/services/traffic-manager/
 [traffic-manager-docs]: ../../traffic-manager/index.yml

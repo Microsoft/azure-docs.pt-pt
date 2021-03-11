@@ -3,16 +3,17 @@ title: Utilize chaves SSH para ligar aos VMs Linux
 description: Aprenda a gerar e a utilizar as teclas SSH a partir de um computador Windows para ligar a uma máquina virtual Linux no Azure.
 author: cynthn
 ms.service: virtual-machines
+ms.collection: linux
 ms.workload: infrastructure-services
 ms.date: 10/31/2020
 ms.topic: how-to
 ms.author: cynthn
-ms.openlocfilehash: 183b601a4521c3ff3e4578784f7adadd01045b0e
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 167ce63931155f5142ed34b41f857505699bc0a6
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93147152"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102552784"
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>Como utilizar as chaves SSH com Windows on Azure
 
@@ -23,9 +24,9 @@ Para utilizar as teclas SSH de um cliente Linux ou macOS, consulte os [passos r�
 
 ## <a name="overview-of-ssh-and-keys"></a>Visão geral do SSH e chaves
 
-[SSH](https://www.ssh.com/ssh/) é um protocolo de ligação encriptado que permite iniciar s-ins seguros sobre ligações não seguras. SSH é o protocolo de ligação padrão para Os VMs Linux hospedados em Azure. Embora o próprio SSH forneça uma ligação encriptada, usar palavras-passe com SSH ainda deixa o VM vulnerável a ataques de força bruta. Recomendamos a ligação a um VM sobre SSH utilizando um par de chaves público-privado, também conhecido como *teclas SSH* . 
+[SSH](https://www.ssh.com/ssh/) é um protocolo de ligação encriptado que permite iniciar s-ins seguros sobre ligações não seguras. SSH é o protocolo de ligação padrão para Os VMs Linux hospedados em Azure. Embora o próprio SSH forneça uma ligação encriptada, usar palavras-passe com SSH ainda deixa o VM vulnerável a ataques de força bruta. Recomendamos a ligação a um VM sobre SSH utilizando um par de chaves público-privado, também conhecido como *teclas SSH*. 
 
-O par de chaves público-privado é como a fechadura da sua porta da frente. A fechadura está exposta ao **público,** qualquer pessoa com a chave certa pode abrir a porta. A chave é **privada** , e só é dada a pessoas em quem confia porque pode ser usada para destrancar a porta. 
+O par de chaves público-privado é como a fechadura da sua porta da frente. A fechadura está exposta ao **público,** qualquer pessoa com a chave certa pode abrir a porta. A chave é **privada**, e só é dada a pessoas em quem confia porque pode ser usada para destrancar a porta. 
 
 - A *chave pública* é colocada no seu VM Linux quando cria o VM. 
 

@@ -4,12 +4,12 @@ description: Fornece um resumo das definições e limitações de suporte ao faz
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
-ms.openlocfilehash: 2536ae0d33767de5ad53740407622e67c582cc37
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 82de73944bd833ec5f921e07a29960ac6d175f8d
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101710673"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102609792"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matriz de suporte da cópia de segurança de uma VM do Azure
 
@@ -72,6 +72,7 @@ Aqui está o que é suportado se quiser apoiar as máquinas Linux.
 Apoie os VMs Linux Azure com o agente Linux Azure VM | Arquivar cópias de segurança consistentes.<br/><br/> Cópia de segurança consistente com aplicações utilizando [scripts personalizados.](backup-azure-linux-app-consistent.md)<br/><br/> Durante a restauração, pode criar um novo VM, restaurar um disco e usá-lo para criar um VM, ou restaurar um disco e usá-lo para substituir um disco num VM existente. Também pode restaurar ficheiros e pastas individuais.
 Apoiar os VMs linux Azure com agente MARS | Não suportado.<br/><br/> O agente MARS só pode ser instalado em máquinas Windows.
 Apoiar os VMs Linux Azure com DPM/MABS | Não suportado.
+Backup Linux Azure VMs com pontos de montagem de estivadores | Atualmente, o Azure Backup não suporta a exclusão dos pontos de montagem do docker, uma vez que estes são montados em diferentes caminhos sempre.
 
 ## <a name="operating-system-support-linux"></a>Suporte ao sistema operativo (Linux)
 
@@ -170,6 +171,7 @@ Armazenamento compartilhado| O backup de VMs utilizando o Cluster Shared Volume 
 [Discos compartilhados](../virtual-machines/disks-shared-enable.md) | Não suportado.
 Discos Ultra SSD | Não suportado. Para mais informações, consulte estas [limitações.](selective-disk-backup-restore.md#limitations)
 [Discos temporários](../virtual-machines/managed-disks-overview.md#temporary-disk) | Os discos temporários não são apoiados pela Azure Backup.
+Discos NVMe/efémeros | Não suportado.
 
 ## <a name="vm-network-support"></a>Suporte à rede VM
 
@@ -211,10 +213,10 @@ Segurança de dados:
 
 **Máquina** | **Em trânsito** | **Em repouso**
 --- | --- | ---
-Máquinas Windows no local sem DPM/MABS | ![Sim][green] | ![Sim][green]
-VMs do Azure | ![Sim][green] | ![Sim][green]
-Instalações/VMs Azure com DPM | ![Sim][green] | ![Sim][green]
-Em instalações/VMs Azure com MABS | ![Sim][green] | ![Sim][green]
+Máquinas Windows no local sem DPM/MABS | ![Yes][green] | ![Yes][green]
+VMs do Azure | ![Yes][green] | ![Yes][green]
+Instalações/VMs Azure com DPM | ![Yes][green] | ![Yes][green]
+Em instalações/VMs Azure com MABS | ![Yes][green] | ![Yes][green]
 
 ## <a name="vm-compression-support"></a>Suporte à compressão VM
 
@@ -227,8 +229,8 @@ A cópia de segurança suporta a compressão do tráfego de backup, tal como res
 --- | --- | ---
 Máquinas Windows no local sem DPM/MABS | ND | ![Sim][green]
 VMs do Azure | ND | ND
-Instalações/VMs Azure com DPM | ![Sim][green] | ![Sim][green]
-Em instalações/VMs Azure com MABS | ![Sim][green] | ![Sim][green]
+Instalações/VMs Azure com DPM | ![Yes][green] | ![Yes][green]
+Em instalações/VMs Azure com MABS | ![Yes][green] | ![Sim][green]
 
 ## <a name="next-steps"></a>Próximos passos
 

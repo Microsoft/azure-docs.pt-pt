@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: 9989c6ea6b75203d43c37854caef7fdcbc321779
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 1a107f812ceb46649126bdbefcf3b828e1938ff3
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102519032"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102612903"
 ---
 # <a name="install-and-run-the-spatial-analysis-container-preview"></a>Instale e execute o recipiente de análise espacial (Pré-visualização)
 
@@ -306,7 +306,7 @@ Instale o desbloqueio 1.0.9:
 sudo apt-get install iotedge=1.0.9* libiothsm-std=1.0.9*
 ```
 
-Em seguida, registe o computador anfitrião como um dispositivo IoT Edge na sua instância IoT Hub, utilizando uma [cadeia de ligação](../../iot-edge/how-to-register-device.md?view=iotedge-2018-06).
+Em seguida, registe o computador anfitrião como um dispositivo IoT Edge na sua instância IoT Hub, utilizando uma [cadeia de ligação](../../iot-edge/how-to-register-device.md).
 
 Tem de ligar o dispositivo IoT Edge ao seu Azure IoT Hub. Tem de copiar a cadeia de ligação do dispositivo IoT Edge que criou anteriormente. Em alternativa, pode executar o comando abaixo no CLI Azure.
 
@@ -468,7 +468,7 @@ Instale o desbloqueio 1.0.9:
 sudo apt-get install iotedge=1.0.9* libiothsm-std=1.0.9*
 ```
 
-Em seguida, registe o VM como um dispositivo IoT Edge na sua instância IoT Hub, utilizando uma [cadeia de ligação](../../iot-edge/how-to-register-device.md?view=iotedge-2018-06).
+Em seguida, registe o VM como um dispositivo IoT Edge na sua instância IoT Hub, utilizando uma [cadeia de ligação](../../iot-edge/how-to-register-device.md).
 
 Tem de ligar o dispositivo IoT Edge ao seu Azure IoT Hub. Tem de copiar a cadeia de ligação do dispositivo IoT Edge que criou anteriormente. Em alternativa, pode executar o comando abaixo no CLI Azure.
 

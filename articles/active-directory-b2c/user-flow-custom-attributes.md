@@ -7,17 +7,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/04/2021
+ms.date: 03/10/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: c9453f2fc5803fb6ce09d8749cbf7fa1c7c2ec46
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 17c73257db371bbec0c72a23b1303847a8d14102
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102174840"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102607922"
 ---
 # <a name="define-custom-attributes-in-azure-active-directory-b2c"></a>Defina atributos personalizados no Azure Ative Directory B2C
 
@@ -30,6 +30,8 @@ O diretório do Azure AD B2C inclui um [conjunto de atributos interno](user-pro
 * Uma aplicação voltada para o cliente precisa de persistir num atributo **LoyaltyId.**
 * Um fornecedor de identidade tem um identificador de utilizador único, **uniqueUserGUID,** que deve ser persistido.
 * Uma viagem personalizada de utilizador precisa de persistir o estado do utilizador, **migrationStatus,** para que outra lógica funcione.
+
+Os termos *propriedade de extensão,* *atributo personalizado,* e *reivindicação personalizada* referem-se à mesma coisa no contexto deste artigo. O nome varia consoante o contexto, como aplicação, objeto ou política.
 
 O Azure AD B2C permite-lhe alargar o conjunto de atributos armazenados em cada conta de utilizador. Também pode ler e escrever estes atributos utilizando a [API](microsoft-graph-operations.md)do Gráfico microsoft .
 
@@ -66,11 +68,7 @@ Uma vez criado um novo utilizador utilizando um fluxo de utilizador, que utiliza
 
 ## <a name="azure-ad-b2c-extensions-app"></a>App de extensões AD B2C Azure AD
 
-Os atributos de extensão só podem ser registados num objeto de aplicação, mesmo que possam conter dados para um utilizador. O atributo de extensão é anexado à aplicação chamada b2c-extensions-app. Não modifique esta aplicação, uma vez que é utilizada pelo Azure AD B2C para armazenar dados do utilizador. Pode encontrar esta aplicação em Azure AD B2C, registos de aplicações.
-
-Os termos *propriedade de extensão,* *atributo personalizado,* e *reivindicação personalizada* referem-se à mesma coisa no contexto deste artigo. O nome varia consoante o contexto, como aplicação, objeto ou política.
-
-## <a name="get-the-application-properties"></a>Obtenha as propriedades da aplicação
+Os atributos de extensão só podem ser registados num objeto de aplicação, mesmo que possam conter dados para um utilizador. O atributo de extensão é anexado à aplicação denominada `b2c-extensions-app` . Não modifique esta aplicação, uma vez que é utilizada pelo Azure AD B2C para armazenar dados do utilizador. Pode encontrar esta aplicação em Azure AD B2C, registos de aplicações. Obtenha as propriedades da aplicação:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Selecione o filtro **de subscrição Diretório +** no menu superior e, em seguida, selecione o diretório que contém o seu inquilino Azure AD B2C.
@@ -80,14 +78,6 @@ Os termos *propriedade de extensão,* *atributo personalizado,* e *reivindicaç�
 1. Copie os seguintes identificadores para a sua área de transferência e guarde-os:
     * **ID da Aplicação**. Exemplo: `11111111-1111-1111-1111-111111111111`.
     * **Identificação de objetos.** Exemplo: `22222222-2222-2222-2222-222222222222`.
-
-## <a name="using-custom-attribute-with-ms-graph-api"></a>Usando atributo personalizado com MS Graph API
-
-A Microsoft Graph API suporta a criação e atualização de um utilizador com atributos de extensão. Os atributos de extensão na API do Gráfico são nomeados através da `extension_ApplicationClientID_attributename` convenção, onde é o `ApplicationClientID` **ID de Aplicação (cliente)** da `b2c-extensions-app` aplicação. Note que o **ID de Aplicação (cliente)** tal como está representado no nome do atributo de extensão não inclui hífenes. Por exemplo:
-
-```json
-"extension_831374b3bd5041bfaa54263ec9e050fc_loyaltyNumber": "212342"
-``` 
 
 ::: zone pivot="b2c-custom-policy"
 
@@ -172,6 +162,14 @@ O exemplo a seguir demonstra a utilização de um atributo personalizado na pol�
 ```
 
 ::: zone-end
+
+## <a name="using-custom-attribute-with-ms-graph-api"></a>Usando atributo personalizado com MS Graph API
+
+A Microsoft Graph API suporta a criação e atualização de um utilizador com atributos de extensão. Os atributos de extensão na API do Gráfico são nomeados através da `extension_ApplicationClientID_attributename` convenção, onde é o `ApplicationClientID` **ID de Aplicação (cliente)** da `b2c-extensions-app` aplicação. Note que o **ID de Aplicação (cliente)** tal como está representado no nome do atributo de extensão não inclui hífenes. Por exemplo:
+
+```json
+"extension_831374b3bd5041bfaa54263ec9e050fc_loyaltyId": "212342" 
+``` 
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: b8110323afda2ad445ffe279030ee7f3035e2b71
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.openlocfilehash: 3f52dc502233cbab42ae5decff70b77c41c38e0e
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102455404"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102609690"
 ---
 # <a name="enterprise-strategies-for-a-luis-app"></a>Estratégias empresariais para uma aplicação LUIS
 Reveja estas estratégias de design para a sua aplicação empresarial.
@@ -48,10 +48,10 @@ Se a sua aplicação pretende prever uma grande variedade de declarações de ut
 Agende uma revisão periódica [das expressões de ponto final](luis-how-to-review-endpoint-utterances.md) para a aprendizagem ativa, como de duas em duas semanas, em seguida, retreine e reedita. 
 
 ## <a name="when-you-need-to-have-more-than-500-intents"></a>Quando é preciso ter mais de 500 intenções
-Suponha que está a desenvolver um assistente de escritório que tem mais de 500 intenções. Se 200 intenções dizem respeito a reuniões de agendamento, 200 são sobre lembretes, 200 são sobre obter informações sobre colegas, e 200 são para enviar e-mails, intenções de grupo para que cada grupo esteja em uma única app, em seguida, criar uma app de alto nível contendo cada intenção. Utilize o [modelo de despacho](#dispatch-tool-and-model) para construir a aplicação de nível superior. Em seguida, mude o seu bot para utilizar a chamada em cascata, como mostra o [tutorial do modelo de despacho](/azure/bot-service/bot-builder-tutorial-dispatch?tabs=cs&view=azure-bot-service-4.0). 
+Suponha que está a desenvolver um assistente de escritório que tem mais de 500 intenções. Se 200 intenções dizem respeito a reuniões de agendamento, 200 são sobre lembretes, 200 são sobre obter informações sobre colegas, e 200 são para enviar e-mails, intenções de grupo para que cada grupo esteja em uma única app, em seguida, criar uma app de alto nível contendo cada intenção. Utilize o [modelo de despacho](#dispatch-tool-and-model) para construir a aplicação de nível superior. Em seguida, mude o seu bot para utilizar a chamada em cascata, como mostra o [tutorial do modelo de despacho](/azure/bot-service/bot-builder-tutorial-dispatch?tabs=cs). 
 
 ## <a name="when-you-need-to-combine-several-luis-and-qna-maker-apps"></a>Quando você precisa combinar várias aplicações de fabricantes LUIS e QnA
-Se tiver várias aplicações de fabricantes LUIS e QnA que precisam responder a um bot, use o [modelo de despacho](#dispatch-tool-and-model) para construir a app de alto nível.  Em seguida, mude o seu bot para utilizar a chamada em cascata, como mostra o [tutorial do modelo de despacho](/azure/bot-service/bot-builder-tutorial-dispatch?tabs=cs&view=azure-bot-service-4.0). 
+Se tiver várias aplicações de fabricantes LUIS e QnA que precisam responder a um bot, use o [modelo de despacho](#dispatch-tool-and-model) para construir a app de alto nível.  Em seguida, mude o seu bot para utilizar a chamada em cascata, como mostra o [tutorial do modelo de despacho](/azure/bot-service/bot-builder-tutorial-dispatch?tabs=cs). 
 
 ## <a name="dispatch-tool-and-model"></a>Ferramenta de despacho e modelo
 Utilize a ferramenta de linha de comando [Despacho,][dispatch-tool] encontrada em [ferramentas BotBuilder](https://github.com/Microsoft/botbuilder-tools) para combinar várias aplicações LUIS e/ou QnA Maker numa aplicação DE LUIS principal. Esta abordagem permite-lhe ter um domínio parental, incluindo todos os assuntos e diferentes domínios de menores em aplicações separadas. 
@@ -62,7 +62,7 @@ O domínio dos pais é notado em LUIS com uma versão nomeada `Dispatch` na list
 
 O bot de chat recebe a expressão e, em seguida, envia para a app de entrada LUIS para previsão. A intenção prevista pela aplicação dos pais determina qual a aplicação para crianças LUIS que é chamada a seguir. O chat bot envia a expressão para a aplicação infantil para uma previsão mais específica.
 
-Entenda como esta hierarquia de chamadas é feita a partir do Bot Builder v4 [dispatcher-application-tutorial](/azure/bot-service/bot-builder-tutorial-dispatch?tabs=cs&view=azure-bot-service-4.0).  
+Entenda como esta hierarquia de chamadas é feita a partir do Bot Builder v4 [dispatcher-application-tutorial](/azure/bot-service/bot-builder-tutorial-dispatch?tabs=cs).  
 
 ### <a name="intent-limits-in-dispatch-model"></a>Limites de intenção no modelo de despacho
 Um pedido de despacho tem 500 fontes de expedição, equivalentes a 500 intenções, como o máximo. 
@@ -70,7 +70,7 @@ Um pedido de despacho tem 500 fontes de expedição, equivalentes a 500 intenç�
 ## <a name="more-information"></a>Mais informações
 
 * [Estrutura bot SDK](https://github.com/Microsoft/botframework)
-* [Tutorial de modelo de despacho](/azure/bot-service/bot-builder-tutorial-dispatch?tabs=cs&view=azure-bot-service-4.0)
+* [Tutorial de modelo de despacho](/azure/bot-service/bot-builder-tutorial-dispatch?tabs=cs)
 * [Despacho CLI](https://github.com/Microsoft/botbuilder-tools)
 * Amostra de bot modelo de despacho [-.NET,](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/csharp_dotnetcore/14.nlp-with-dispatch) [Node.js](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/javascript_nodejs/14.nlp-with-dispatch)
 

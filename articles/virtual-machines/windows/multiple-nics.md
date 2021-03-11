@@ -2,24 +2,25 @@
 title: Criar e gerir VMs windows em Azure que usam vários NICs
 description: Aprenda a criar e gerir um VM do Windows que tenha vários NICs ligados a ele utilizando modelos Azure PowerShell ou Resource Manager.
 author: cynthn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.collection: windows
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 09/26/2017
 ms.author: cynthn
-ms.openlocfilehash: 66a135cd1629aa2befcd4c56d835473791d62ce8
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 2664d175818a6e29dcd3f704c6938987bae050cd
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91974010"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102555181"
 ---
 # <a name="create-and-manage-a-windows-virtual-machine-that-has-multiple-nics"></a>Criar e gerir uma máquina virtual Windows que tenha vários NICs
 As máquinas virtuais (VMs) em Azure podem ter vários cartões de interface de rede virtuais (NICs) ligados a eles. Um cenário comum é ter sub-redes diferentes para a conectividade frontal e traseira. Pode associar vários NICs num VM a várias sub-redes, mas essas sub-redes devem residir todas na mesma rede virtual (vNet). Este artigo detalha como criar um VM que tenha vários NICs ligados a ele. Também aprende a adicionar ou remover NICs de um VM existente. Diferentes [tamanhos VM](../sizes.md) suportam um número variado de NICs, por isso dimensione o seu VM em conformidade.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Nos exemplos seguintes, substitua os nomes dos parâmetros de exemplo pelos seus próprios valores. Os nomes dos parâmetros incluem *myResourceGroup,* *myVnet*e *myVM*.
+Nos exemplos seguintes, substitua os nomes dos parâmetros de exemplo pelos seus próprios valores. Os nomes dos parâmetros incluem *myResourceGroup,* *myVnet* e *myVM*.
 
  
 

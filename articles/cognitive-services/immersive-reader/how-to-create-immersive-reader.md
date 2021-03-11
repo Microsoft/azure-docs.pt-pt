@@ -7,15 +7,15 @@ author: rwaller
 manager: guillasi
 ms.service: cognitive-services
 ms.subservice: immersive-reader
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/22/2019
 ms.author: rwaller
-ms.openlocfilehash: 2503355a24a7452ca1ff9886a80f2956897889c4
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: d7a8a598ab2d0c873cf07510cf40a08c22c0f1d4
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98630400"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102608602"
 ---
 # <a name="create-an-immersive-reader-resource-and-configure-azure-active-directory-authentication"></a>Crie um recurso imersivo do Leitor e configuure a autenticação do Azure Ative Directory
 
@@ -172,7 +172,7 @@ O guião foi concebido para ser flexível. Primeiro procurará os recursos Imers
     | ResourceName |  Deve ser alfanumérico, e pode conter '--,, desde que o '-' não seja o primeiro ou último carácter. O comprimento não pode exceder 63 caracteres.|
     | ResourceSubdomain |Um subdomínio personalizado é necessário para o seu recurso Immersive Reader. O subdomínio é utilizado pelo SDK quando chama o serviço De Leitor Imersivo para lançar o Leitor. O subdomínio deve ser globalmente único. O subdomínio deve ser alfanumérico, e pode conter '--', desde que o '-' não seja o primeiro ou último carácter. O comprimento não pode exceder 63 caracteres. Este parâmetro é opcional se o recurso já existir. |
     | ResourceSKU |Opções: `S0` (Nível padrão) ou `S1` (Organizações de Educação/Sem Fins Lucrativos). Visite a nossa [página de preços dos Serviços Cognitivos](https://azure.microsoft.com/pricing/details/cognitive-services/immersive-reader/) para saber mais sobre cada SKU disponível. Este parâmetro é opcional se o recurso já existir. |
-    | ResourceLocation |Opções: `eastus` `eastus2` , `southcentralus` `westus` `westus2` `australiaeast` `southeastasia` `centralindia` `japaneast` `northeurope` `uksouth` `westeurope` . Este parâmetro é opcional se o recurso já existir. |
+    | ResourceLocation |Opções: `eastus` , , , , , , , , `eastus2` , , , `southcentralus` , , `westus` `westus2` `australiaeast` `southeastasia` `centralindia` `japaneast` `northeurope` `uksouth` `westeurope` . Este parâmetro é opcional se o recurso já existir. |
     | ResourceGroupName |Os recursos são criados em grupos de recursos dentro de subscrições. Forneça o nome de um grupo de recursos existente. Se o grupo de recursos já não existir, será criado um novo com este nome. |
     | ResourceGroupLocation |Se o seu grupo de recursos não existir, precisa fornecer um local para criar o grupo. Para encontrar uma lista de locais, `az account list-locations` corra. Utilize a propriedade *do nome* (sem espaços) do resultado devolvido. Este parâmetro é opcional se o seu grupo de recursos já existir. |
     | Nome AADAppDisplay |O nome de visualização da aplicação do Azure Ative Directory. Se não for encontrada uma aplicação AD Azure existente, será criada uma nova com este nome. Este parâmetro é opcional se a aplicação AD Azure já existir. |

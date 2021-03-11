@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 03/01/2021
-ms.openlocfilehash: 4782e6c0ed866c467051fc1811a60df0010a3db1
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: c1d4c9be1f76e62be3c17d4dec22479db003b77a
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101746272"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102608262"
 ---
 # <a name="pre-certification-checklist-for-iot-edge-modules"></a>Lista de verificação de pré-certificação para módulos IoT Edge
 
@@ -74,6 +74,7 @@ Verifique o seguinte:
 - A cadeia de ligação de gestão de chumbo está presente.
 - Política de privacidade presente
 - Termos de utilização presentes
+- Adicionar link de dispositivo ioT edge suportado do catálogo de [dispositivos Azure IoT](https://devicecatalog.azure.com/devices?certificationBadgeTypes=IoTEdgeCompatible) 
 
 ## <a name="next-steps"></a>Passos seguintes
 
