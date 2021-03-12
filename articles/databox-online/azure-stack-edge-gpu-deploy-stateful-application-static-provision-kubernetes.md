@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 02/22/2021
+ms.date: 03/09/2021
 ms.author: alkohli
-ms.openlocfilehash: 51c4a873ca0f4d8c3013e77399f0f9b948875fb6
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 01ba8e1f22deb376fd461be24d3f66f0a7f5e1ae
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102520715"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102610489"
 ---
 # <a name="use-kubectl-to-run-a-kubernetes-stateful-application-with-a-persistentvolume-on-your-azure-stack-edge-pro-device"></a>Use kubectl para executar uma aplicação stateful Kubernetes com um PersistenteVolume no seu dispositivo Azure Stack Edge Pro
 
@@ -21,7 +21,7 @@ ms.locfileid: "102520715"
 
 Este artigo mostra-lhe como implementar uma aplicação stateful de instância única em Kubernetes usando um PersistentVolume (PV) e uma implementação. A implementação utiliza `kubectl` comandos num cluster Kubernetes existente e implementa a aplicação MySQL. 
 
-Este procedimento destina-se a quem tenha revisto o [armazenamento kubernetes no dispositivo Azure Stack Edge Pro](azure-stack-edge-gpu-kubernetes-storage.md) e esteja familiarizado com os conceitos de armazenamento [kubernetes.](https://kubernetes.io/docs/concepts/storage/)
+Este procedimento destina-se a quem tenha revisto o [armazenamento kubernetes no dispositivo Azure Stack Edge Pro](azure-stack-edge-gpu-kubernetes-storage.md) e esteja familiarizado com os conceitos de armazenamento [kubernetes.](https://kubernetes.io/docs/concepts/storage/) 
 
 O Azure Stack Edge Pro também suporta a execução de recipientes Azure SQL Edge e estes podem ser implantados de forma semelhante à detalhada aqui para o MySQL. Para mais informações, consulte [Azure SQL Edge](../azure-sql-edge/overview.md).
 
@@ -62,7 +62,8 @@ Está pronto para implementar uma aplicação imponente no seu dispositivo Azure
 Para provisões estáticas de um PV, é necessário criar uma parte no seu dispositivo. Siga estes passos para providenciar um PV contra a sua parte SMB. 
 
 > [!NOTE]
-> O exemplo específico utilizado neste artigo de como fazer não funciona com ações da NFS. Em geral, as ações NFS podem ser acumuedadas no seu dispositivo Azure Stack Edge com aplicações não-base de dados.
+> - O exemplo específico utilizado neste artigo de como fazer não funciona com ações da NFS. Em geral, as ações NFS podem ser acumuedadas no seu dispositivo Azure Stack Edge com aplicações não-base de dados.
+> - Para implementar aplicações estatais que utilizem volumes de armazenamento para fornecer armazenamento persistente, recomendamos que utilize `StatefulSet` . Este exemplo utiliza `Deployment` apenas uma réplica e é adequado para desenvolvimento e teste. 
 
 1. Escolha se deseja criar uma partilha Edge ou uma participação local edge. Siga as instruções em [Adicionar uma partilha](azure-stack-edge-manage-shares.md#add-a-share) para criar uma partilha. Certifique-se de selecionar a caixa de verificação para **utilizar a partilha com o cálculo Edge**.
 

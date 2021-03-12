@@ -6,15 +6,15 @@ metadata:
   description: Saiba como utilizar o Azure VMware Solution para implementar uma cloud privada VMware no Azure
   ms.service: azure-vmware
   ms.topic: landing-page
-  author: dikamath
-  ms.author: dikamath
-  ms.date: 11/19/2020
-  ms.openlocfilehash: 7bff439db0b9567292707efeac085f8537de33a5
-  ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+  author: shortpatti
+  ms.author: v-patsho
+  ms.date: 03/12/2021
+  ms.openlocfilehash: 9014dbbfdb9d1f0ef4af975da917abdcf71d8b2a
+  ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/10/2021
-  ms.locfileid: "102612138"
+  ms.lasthandoff: 03/12/2021
+  ms.locfileid: "103232958"
 landingContent:
 - title: Acerca do Azure VMware Solution
   linkLists:
@@ -140,11 +140,11 @@ landingContent:
     links:
     - text: Lista de reprodução
       url: https://youtube.com/playlist?list=PL1NLwHeM6ewbZu0dC0guj-OSpIoZnnJin
-    - text: Demistificar DNS e Comunicação Segura
+    - text: Integração com o Serviço Azure
       url: https://youtu.be/m26iLu6DHbU
-    - text: Integre com gateway de aplicação Azure
+    - text: Integração com gateway de aplicação Azure
       url: https://youtu.be/BoQYvqzb6Y8
-    - text: Migrar e planear capacidades
+    - text: Migração e planeamento de capacidades
       url: https://youtu.be/NoNG-hkksrA
 - title: Resolução de problemas
   linkLists:

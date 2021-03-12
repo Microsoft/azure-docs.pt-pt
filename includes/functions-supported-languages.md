@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 11/27/2020
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: d09d69db33cadee1b5a214e9cb2f09a508f37242
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 01e62685fa73a7f547ef5246b28fdfdf659e7afa
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102431856"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102623560"
 ---
 |Linguagem                                 |1.x         |2.x| 3.x |
 |-----------------------------------------|------------|---| --- |
 |[C#](../articles/azure-functions/functions-reference-csharp.md)|GA (.Quadro NET 4.7)|GA (.NET Core 2.2<sup>1</sup>)| GA (.NET Core 3.1)<br/>[Pré-visualização (.NET 5.0)](../articles/azure-functions/dotnet-isolated-process-guide.md) |
-|[JavaScript](../articles/azure-functions/functions-reference-node.md#node-version)|GA (Nó 6)|GA (Nó 10 & 8)| GA (Nó 12 & 10)<br />Pré-visualização (Nó 14) |
+|[JavaScript](../articles/azure-functions/functions-reference-node.md#node-version)|GA (Nó 6)|GA (Nó 10 & 8)| GA (Nó 14, 12, & 10) |
 |[F#](../articles/azure-functions/functions-reference-fsharp.md)|GA (.Quadro NET 4.7)|GA (.NET Core 2.2<sup>1</sup>)| GA (.NET Core 3.1) |
 |[Java](../articles/azure-functions/functions-reference-java.md)|N/D|GA (Java 8)| GA (Java 11 & 8)|
 |[PowerShell](../articles/azure-functions/functions-reference-powershell.md) |N/D|GA (PowerShell Core 6)| GA (PowerShell 7 & Core 6)|

@@ -7,22 +7,22 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/05/2021
-ms.openlocfilehash: 7f7a09b9e20b461a8a1e448bf4a7b0747a35fbb1
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.date: 03/12/2021
+ms.openlocfilehash: 621cfa8977d4d0ed987b7d38407bbf5bbb370950
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102487154"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103232749"
 ---
 # <a name="create-a-semantic-query-in-cognitive-search"></a>Criar uma consulta semântica na Pesquisa Cognitiva
 
 > [!IMPORTANT]
-> O tipo de consulta semântica está em pré-visualização pública, disponível através do portal REST API e Azure de pré-visualização. As funcionalidades de pré-visualização são oferecidas como está, nos [Termos Complementares de Utilização.](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) Durante o lançamento inicial da pré-visualização, não há qualquer custo para a procura semântica. Para mais informações, consulte [Disponibilidade e preços.](semantic-search-overview.md#availability-and-pricing)
+> O tipo de consulta semântica está em pré-visualização pública, disponível através do portal REST API e Azure de pré-visualização. As funcionalidades de pré-visualização são oferecidas como está, nos [Termos Complementares de Utilização.](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) Para mais informações, consulte [Disponibilidade e preços.](semantic-search-overview.md#availability-and-pricing)
 
-Neste artigo, aprenda a formular um pedido de pesquisa que usa ranking semântico, e produz legendas e respostas semânticas.
+Neste artigo, aprenda a formular um pedido de pesquisa que utilize ranking semântico. O pedido devolverá legendas semânticas e [respostas semânticas](semantic-answers.md)opcionalmente, com destaques sobre os termos e frases mais relevantes.
 
-Consultas semânticas tendem a funcionar melhor em índices de pesquisa que são construídos a partir de conteúdo pesado de texto, como PDFs ou documentos com grandes pedaços de texto.
+Ambas as legendas e respostas são extraídas verbatim do texto no documento de pesquisa. O subsistema semântico determina que conteúdo tem as características de uma legenda ou resposta, mas não compõe novas frases ou frases. Por esta razão, os conteúdos que incluem explicações ou definições funcionam melhor para pesquisa semântica.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -36,13 +36,13 @@ Consultas semânticas tendem a funcionar melhor em índices de pesquisa que são
 
   O cliente de pesquisa deve suportar pré-visualização REST APIs no pedido de consulta. Pode utilizar [o Carteiro](search-get-started-rest.md), [Código de Estúdio Visual](search-get-started-vs-code.md)ou código que modificou para fazer chamadas REST para as APIs de pré-visualização. Também pode utilizar [o Explorador de Pesquisa](search-explorer.md) no portal Azure para submeter uma consulta semântica.
 
-+ Um pedido [de Documentos de Busca](/rest/api/searchservice/preview-api/search-documents) com a opção semântica e outros parâmetros descritos neste artigo.
++ Um [pedido de consulta](/rest/api/searchservice/preview-api/search-documents) deve incluir a opção semântica e outros parâmetros descritos neste artigo.
 
 ## <a name="whats-a-semantic-query"></a>O que é uma consulta semântica?
 
 Na Pesquisa Cognitiva, uma consulta é um pedido parametrizado que determina o processamento de consulta e a forma da resposta. Uma *consulta semântica* adiciona parâmetros que invocam o modelo semântico de reclasse que pode avaliar o contexto e significado de resultados correspondentes, promover jogos mais relevantes para o topo, e devolver respostas e legendas semânticas.
 
-O seguinte pedido é representativo de uma consulta semântica básica (sem respostas).
+O seguinte pedido é representativo de uma consulta semântica mínima (sem respostas).
 
 ```http
 POST https://[service name].search.windows.net/indexes/[index name]/docs/search?api-version=2020-06-30-Preview      
@@ -54,15 +54,25 @@ POST https://[service name].search.windows.net/indexes/[index name]/docs/search?
 }
 ```
 
-Tal como acontece com todas as consultas na Pesquisa Cognitiva, o pedido visa a recolha de documentos de um único índice. Além disso, uma consulta semântica sofre a mesma sequência de análise, análise e digitalização como uma consulta não semântica. A diferença reside na relevância que é calculada. Tal como definido nesta versão de pré-visualização, uma consulta semântica é aquela cujos *resultados* são re-processados usando algoritmos avançados, fornecendo uma forma de emergir os jogos considerados mais relevantes pelo ranker semântico, em vez das pontuações atribuídas pelo algoritmo de classificação de semelhança padrão. 
+Tal como acontece com todas as consultas na Pesquisa Cognitiva, o pedido visa a recolha de documentos de um único índice. Além disso, uma consulta semântica sofre a mesma sequência de análise, análise, digitalização e pontuação como uma consulta não semântica. 
 
-Apenas os 50 melhores jogos dos resultados iniciais podem ser classificados semânticamente, e todos incluem legendas na resposta. Opcionalmente, pode especificar um **`answer`** parâmetro sobre o pedido para extrair uma resposta potencial. Este modelo formula até cinco respostas potenciais para a consulta, que pode optar por renderizar no topo da página de pesquisa.
+A diferença reside na relevância e na pontuação. Tal como definido nesta versão de pré-visualização, uma consulta semântica é aquela cujos *resultados* são reclassied usando um modelo de linguagem semântica, fornecendo uma forma de emergir os jogos considerados mais relevantes pelo ranker semântico, em vez das pontuações atribuídas pelo algoritmo de classificação de semelhança padrão.
 
-## <a name="query-using-rest-apis"></a>Consulta usando APIs REST
+Apenas os 50 melhores jogos dos resultados iniciais podem ser classificados semânticamente, e todos incluem legendas na resposta. Opcionalmente, pode especificar um **`answer`** parâmetro sobre o pedido para extrair uma resposta potencial. Para mais informações, consulte [as respostas semânticas.](semantic-answers.md)
 
-A especificação completa da API REST pode ser encontrada em [Documentos de Busca (pré-visualização DE REST)](/rest/api/searchservice/preview-api/search-documents).
+## <a name="query-with-search-explorer"></a>Consultar com o Explorador de procura
 
-Consultas semânticas fornecem legendas e realçam automaticamente. Se quiser que a resposta inclua respostas, pode adicionar um parâmetro opcional **`answer`** sobre o pedido. Este parâmetro, mais a construção da própria cadeia de consultas, produzirá uma resposta na resposta.
+[O explorador de pesquisa](search-explorer.md) foi atualizado para incluir opções para consultas semânticas. Estas opções tornam-se visíveis no portal depois de ter acesso à pré-visualização. As opções de consulta podem permitir consultas semânticas, pesquisar campos e correção de feitiços.
+
+Também pode colar os parâmetros de consulta necessários na cadeia de consulta.
+
+:::image type="content" source="./media/semantic-search-overview/search-explorer-semantic-query-options.png" alt-text="Opções de consulta no explorador de pesquisa" border="true":::
+
+## <a name="query-using-rest"></a>Consulta usando REST
+
+Utilize os [Documentos de Busca (pré-visualização REST)](/rest/api/searchservice/preview-api/search-documents) para formular o pedido programáticamente.
+
+Uma resposta inclui legendas e destaque automaticamente. Se quiser que a resposta inclua correção ortográfica ou respostas, adicione um opcional **`speller`** ou **`answers`** parâmetro no pedido.
 
 O exemplo a seguir utiliza o índice de amostras de hotéis para criar um pedido de consulta semântica com respostas e legendas semânticas:
 
@@ -81,6 +91,16 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
     "count": true
 }
 ```
+
+A tabela seguinte resume os parâmetros de consulta utilizados numa consulta semântica para que possa vê-los holisticamente. Para obter uma lista de todos os parâmetros, consulte [Documentos de Pesquisa (pré-visualização REST)](/rest/api/searchservice/preview-api/search-documents)
+
+| Parâmetro | Tipo | Description |
+|-----------|-------|-------------|
+| consultaType | String | Valores válidos incluem simples, completo e semântico. É necessário um valor de "semântica" para consultas semânticas. |
+| queryLanguage | String | Necessário para consultas semânticas. Atualmente, apenas "en-us" é implementado. |
+| searchFields | String | Uma lista delimitada por vírgulas de campos pesjáveis. Opcional, mas recomendado. Especifica os campos sobre os quais ocorre uma classificação semântica. </br></br>Em contraste com os tipos de consulta simples e completa, a ordem em que os campos estão listados determina a precedência. Para obter mais instruções de utilização, consulte [o passo 2: Definir campos de pesquisa](#searchfields). |
+| soletrador | String | Parâmetro opcional, não específico para consultas semânticas, que corrige os termos mal escritos antes de chegarem ao motor de busca. Para obter mais informações, consulte [adicionar correção de feitiços a consultas](speller-how-to-add.md). |
+| respostas |String | Parâmetros opcionais que especificam se as respostas semânticas estão incluídas no resultado. Atualmente, apenas é implementada a "extração". As respostas podem ser configuradas para devolver um máximo de cinco. O padrão é um. Este exemplo mostra uma contagem de três respostas: \| "contagem extrativa3". Para obter mais informações, consulte [respostas semânticas de retorno.](semantic-answers.md)|
 
 ### <a name="formulate-the-request"></a>Formular o pedido
 
@@ -109,7 +129,7 @@ Este parâmetro é opcional na verdade, não há erro se o deixar de fora, mas d
 
 O parâmetro searchFields é usado para identificar passagens a avaliar para "semelhança semântica" com a consulta. Para a pré-visualização, não recomendamos deixar a searchFields em branco, uma vez que o modelo requer uma pista sobre quais os campos mais importantes para processar.
 
-A ordem dos campos de busca é crítica. Se já utilizar searchFields em consultas lucene simples ou completas existentes, certifique-se de que revisita este parâmetro ao mudar para um tipo de consulta semântica.
+A ordem dos campos de busca é crítica. Se já utilizar searchFields em consultas lucene simples ou completas existentes, certifique-se de que revisita este parâmetro para verificar se existe ordem de campo ao mudar para um tipo de consulta semântica.
 
 Siga estas diretrizes para garantir os melhores resultados quando forem especificados dois ou mais campos de pesquisa:
 
@@ -117,27 +137,19 @@ Siga estas diretrizes para garantir os melhores resultados quando forem especifi
 
 + O primeiro campo deve ser sempre conciso (como um título ou nome), idealmente com menos de 25 palavras.
 
-+ Se o índice tiver um campo URL que seja textual (legível humano como `www.domain.com/name-of-the-document-and-other-details` e não máquina focada `www.domain.com/?id=23463&param=eis` como), coloque-o em segundo lugar na lista (ou primeiro se não houver um campo de título conciso).
++ Se o índice tiver um campo URL que seja textual (legível humano como `www.domain.com/name-of-the-document-and-other-details` , e não máquina focada como ), `www.domain.com/?id=23463&param=eis` coloque-o em segundo lugar na lista (ou primeiro se não houver um campo de título conciso).
 
 + Siga esses campos por campos descritivos onde a resposta a consultas semânticas pode ser encontrada, como o conteúdo principal de um documento.
 
-Se apenas um campo especificado, utilize campos descritivos onde a resposta a consultas semânticas possa ser encontrada, como o conteúdo principal de um documento. Escolha um campo que forneça conteúdo suficiente.
+Se apenas um campo especificado, utilize um campo descritivo onde possa ser encontrada a resposta a consultas semânticas, como o conteúdo principal de um documento. Escolha um campo que forneça conteúdo suficiente. Para garantir o processamento oportuno, apenas os primeiros 20.000 tokens dos conteúdos coletivos de searchFields passam por avaliação e classificação semântica.
 
 #### <a name="step-3-remove-orderby-clauses"></a>Passo 3: Remover cláusulas de ordemBy
 
 Remova quaisquer cláusulas de encomenda Por cláusulas, se existirem num pedido existente. A pontuação semântica é usada para encomendar resultados, e se incluir lógica de classificação explícita, um erro HTTP 400 é devolvido.
 
-#### <a name="step-4-add-answers"></a>Passo 4: adicionar respostas
+#### <a name="step-4-add-answers"></a>Passo 4: Adicionar respostas
 
-Opcionalmente, adicione "respostas" se quiser incluir um processamento adicional que forneça uma resposta. As respostas (e legendas) são formuladas a partir de passagens encontradas em campos listados em searchFields. Certifique-se de incluir campos ricos em conteúdo em searchFields para obter as melhores respostas e legendas numa resposta.
-
-Há condições explícitas e implícitas que produzem respostas. 
-
-+ As condições explícitas incluem a adição de "respostas=extrativas". Além disso, para especificar o número de respostas devolvidas na resposta global, adicione "contagem" seguida de um número: `"answers=extractive|count=3"` .  O padrão é um. Máximo é cinco.
-
-+ As condições implícitas incluem uma construção de cordas de consulta que se presta a uma resposta. Uma consulta composta por "que hotel tem a sala verde" é mais provável de ser "respondida" do que uma consulta composta por uma declaração como "hotel com interior chique". Como seria de esperar, a consulta não pode ser não especificada ou nula.
-
-O ponto importante a retirar é que se a consulta não se parece com uma pergunta, o processamento de respostas é ignorado, mesmo que o parâmetro de "respostas" esteja definido.
+Opcionalmente, adicione "respostas" se quiser incluir um processamento adicional que forneça uma resposta. As respostas (e legendas) são extraídas de passagens encontradas em campos listados em searchFields. Certifique-se de incluir campos ricos em conteúdo em searchFields para obter as melhores respostas numa resposta. Para mais informações, consulte [Como devolver respostas semânticas.](semantic-answers.md)
 
 #### <a name="step-5-add-other-parameters"></a>Passo 5: Adicionar outros parâmetros
 
@@ -145,129 +157,33 @@ Desa estada quaisquer outros parâmetros que pretenda no pedido. Parâmetros com
 
 Opcionalmente, pode personalizar o estilo de destaque aplicado às legendas. As legendas aplicam-se a formatação de destaque sobre as passagens-chave no documento que resumem a resposta. A predefinição é `<em>`. Se quiser especificar o tipo de formatação (por exemplo, fundo amarelo), pode definir o destaquePreTag e realçar oPostTag.
 
-### <a name="review-the-response"></a>Reveja a resposta
+## <a name="evaluate-the-response"></a>Avaliar a resposta
 
-A resposta para a consulta acima devolve o seguinte jogo como a escolha principal. As legendas são devolvidas automaticamente, com texto simples e versões realçadas. Para obter mais informações sobre respostas semânticas, consulte [o ranking semântico e as respostas.](semantic-how-to-query-response.md)
+Como em todas as consultas, uma resposta é composta por todos os campos marcados como recuperáveis, ou apenas os campos listados no parâmetro selecionado. Inclui a pontuação original de relevância, e também pode incluir uma contagem, ou resultados em lotados, dependendo da forma como formulou o pedido.
+
+Numa consulta semântica, a resposta tem elementos adicionais: uma nova pontuação de relevância semântica classificada, legendas em texto simples e com destaques, e opcionalmente uma resposta.
+
+Numa aplicação de cliente, pode estruturar a página de pesquisa para incluir uma legenda como a descrição da partida, em vez de todo o conteúdo de um campo específico. Isto é útil quando os campos individuais são demasiado densos para a página de resultados da pesquisa.
+
+A resposta para a consulta de exemplo acima devolve o seguinte jogo como a escolha principal. As legendas são devolvidas automaticamente, com texto simples e versões realçadas. As respostas são omitidas do exemplo porque não se pode ser determinado para esta consulta e corpus em particular.
 
 ```json
-"@odata.count": 29,
+"@odata.count": 35,
+"@search.answers": [],
 "value": [
     {
-        "@search.score": 1.8920634,
-        "@search.rerankerScore": 1.1091284966096282,
+        "@search.score": 1.8810667,
+        "@search.rerankerScore": 1.1446577133610845,
         "@search.captions": [
             {
-                "text": "Oceanside Resort. Budget. New Luxury Hotel. Be the first to stay. Bay views from every room, location near the pier, rooftop pool, waterfront dining & more.",
-                "highlights": "<strong>Oceanside Resort.</strong> Budget. New Luxury Hotel. Be the first to stay.<strong> Bay views</strong> from every room, location near the pier, rooftop pool, waterfront dining & more."
+                "text": "Oceanside Resort. Luxury. New Luxury Hotel. Be the first to stay. Bay views from every room, location near the pier, rooftop pool, waterfront dining & more.",
+                "highlights": "<strong>Oceanside Resort.</strong> Luxury. New Luxury Hotel. Be the first to stay.<strong> Bay</strong> views from every room, location near the pier, rooftop pool, waterfront dining & more."
             }
         ],
-        "HotelId": "18",
         "HotelName": "Oceanside Resort",
-        "Description": "New Luxury Hotel.  Be the first to stay. Bay views from every room, location near the pier, rooftop pool, waterfront dining & more.",
-        "Category": "Budget"
+        "Description": "New Luxury Hotel. Be the first to stay. Bay views from every room, location near the pier, rooftop pool, waterfront dining & more.",
+        "Category": "Luxury"
     },
-```
-
-### <a name="parameters-used-in-a-semantic-query"></a>Parâmetros utilizados numa consulta semântica
-
-A tabela seguinte resume os parâmetros de consulta utilizados numa consulta semântica para que possa vê-los holisticamente. Para obter uma lista de todos os parâmetros, consulte [Documentos de Pesquisa (pré-visualização REST)](/rest/api/searchservice/preview-api/search-documents)
-
-| Parâmetro | Tipo | Descrição |
-|-----------|-------|-------------|
-| consultaType | String | Valores válidos incluem simples, completo e semântico. É necessário um valor de "semântica" para consultas semânticas. |
-| queryLanguage | String | Necessário para consultas semânticas. Atualmente, apenas "en-us" é implementado. |
-| searchFields | String | Uma lista delimitada por vírgulas de campos pesjáveis. Opcional, mas recomendado. Especifica os campos sobre os quais ocorre uma classificação semântica. </br></br>Em contraste com os tipos de consulta simples e completa, a ordem em que os campos estão listados determina a precedência.|
-| respostas |String | Campo opcional para especificar se as respostas semânticas estão incluídas no resultado. Atualmente, apenas é implementada a "extração". As respostas podem ser configuradas para devolver um máximo de cinco. O padrão é um. Este exemplo mostra uma contagem de três respostas: \| "contagem extrativa3". |
-
-## <a name="query-with-search-explorer"></a>Consultar com o Explorador de procura
-
-A seguinte consulta visa o índice de amostra de Hotéis incorporados, utilizando a versão API 2020-06-30-Preview, e corre no Explorador de Pesquisa. A `$select` cláusula limita os resultados a apenas alguns campos, facilitando a digitalização no verboso JSON no explorador de pesquisa.
-
-### <a name="with-querytypesemantic"></a>Com consultaType=semântica
-
-```json
-search=nice hotel on water with a great restaurant&$select=HotelId,HotelName,Description,Tags&queryType=semantic&queryLanguage=english&searchFields=Description,Tags
-```
-
-Os primeiros resultados são os seguintes.
-
-```json
-{
-    "@search.score": 0.38330218,
-    "@search.rerankerScore": 0.9754053303040564,
-    "HotelId": "18",
-    "HotelName": "Oceanside Resort",
-    "Description": "New Luxury Hotel. Be the first to stay. Bay views from every room, location near the pier, rooftop pool, waterfront dining & more.",
-    "Tags": [
-        "view",
-        "laundry service",
-        "air conditioning"
-    ]
-},
-{
-    "@search.score": 1.8920634,
-    "@search.rerankerScore": 0.8829904259182513,
-    "HotelId": "36",
-    "HotelName": "Pelham Hotel",
-    "Description": "Stunning Downtown Hotel with indoor Pool. Ideally located close to theatres, museums and the convention center. Indoor Pool and Sauna and fitness centre. Popular Bar & Restaurant",
-    "Tags": [
-        "view",
-        "pool",
-        "24-hour front desk service"
-    ]
-},
-{
-    "@search.score": 0.95706713,
-    "@search.rerankerScore": 0.8538530203513801,
-    "HotelId": "22",
-    "HotelName": "Stone Lion Inn",
-    "Description": "Full breakfast buffet for 2 for only $1.  Excited to show off our room upgrades, faster high speed WiFi, updated corridors & meeting space. Come relax and enjoy your stay.",
-    "Tags": [
-        "laundry service",
-        "air conditioning",
-        "restaurant"
-    ]
-},
-```
-
-### <a name="with-querytype-default"></a>Com consultaType (padrão)
-
-Para comparação, executar a mesma consulta que acima, removendo `&queryType=semantic&queryLanguage=english&searchFields=Description,Tags` . Note que não há `"@search.rerankerScore"` nenhum nestes resultados, e que diferentes hotéis aparecem nas três primeiras posições.
-
-```json
-{
-    "@search.score": 8.633856,
-    "HotelId": "3",
-    "HotelName": "Triple Landscape Hotel",
-    "Description": "The Hotel stands out for its gastronomic excellence under the management of William Dough, who advises on and oversees all of the Hotel’s restaurant services.",
-    "Tags": [
-        "air conditioning",
-        "bar",
-        "continental breakfast"
-    ]
-},
-{
-    "@search.score": 6.407289,
-    "HotelId": "40",
-    "HotelName": "Trails End Motel",
-    "Description": "Only 8 miles from Downtown.  On-site bar/restaurant, Free hot breakfast buffet, Free wireless internet, All non-smoking hotel. Only 15 miles from airport.",
-    "Tags": [
-        "continental breakfast",
-        "view",
-        "view"
-    ]
-},
-{
-    "@search.score": 5.843788,
-    "HotelId": "14",
-    "HotelName": "Twin Vertex Hotel",
-    "Description": "New experience in the Making.  Be the first to experience the luxury of the Twin Vertex. Reserve one of our newly-renovated guest rooms today.",
-    "Tags": [
-        "bar",
-        "restaurant",
-        "air conditioning"
-    ]
-},
 ```
 
 ## <a name="next-steps"></a>Passos seguintes

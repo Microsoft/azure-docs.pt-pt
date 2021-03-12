@@ -1,5 +1,5 @@
 ---
-title: Bloqueio de conta de resolução de problemas nos Serviços de Domínio Azure AD Microsoft Docs
+title: Bloqueio de conta de resolução de problemas em Azure AD Domain Services | Microsoft Docs
 description: Saiba como resolver problemas comuns que fazem com que as contas dos utilizadores sejam bloqueadas nos Serviços de Domínio do Diretório Ativo do Azure.
 services: active-directory-ds
 author: justinha
@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/06/2020
 ms.author: justinha
-ms.openlocfilehash: 7967347fa63c657ba6211328bdd1d55512358521
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 3341f290a5a5bb169b6e70ea22459a2afafedbbc
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96618778"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103198965"
 ---
 # <a name="troubleshoot-account-lockout-problems-with-an-azure-active-directory-domain-services-managed-domain"></a>Problemas de bloqueio de conta de resolução de problemas com um domínio gerido por serviços de domínio do diretório ativo Azure
 
@@ -83,6 +83,23 @@ AADDomainServicesAccountManagement
 | where OperationName has "4740"
 | sort by TimeGenerated asc
 ```
+
+**Nota**
+
+Você pode encontrar em 4776 e 4740 detalhes do evento de "Source Workstation: " vazio. Isto porque a má senha aconteceu através da rede de início de saúde através de outros dispositivos.
+Por exemplo: Se tiver o servidor RADIUS, que pode encaminhar a auth para AAD DS. Para confirmar que o RdP para o backend DC configura os registos de netlogon.
+
+03/04 19:07:29 [LOGON] [10752] contoso: SamLogon: Transitive Network logon of contoso\Nagappan.Veerappan from (via LOB11-RADIUS) Insed 
+
+03/04 19:07:29 [LOGON] [10752] contoso: SamLogon: Transitive Network logon of contoso\Nagappan.Veerappan from (via LOB11-RADIUS) Returns 0xC000006A
+
+03/04 19:07:35 [LOGON] [10753] contoso: SamLogon: Transitive Network logon of contoso\Nagappan.Veerappan from (via LOB11-RADIUS) Insed 
+
+03/04 19:07:35 [LOGON] [10753] contoso: SamLogon: Transitive Network logon of contoso\Nagappan.Veerappan from (via LOB11-RADIUS) Returns 0xC000006A
+
+Permitir que o RDP dos seus DCs em NSG recue para configurar a captura de diagnósticos (i.e netlogon) https://docs.microsoft.com/azure/active-directory-domain-services/alert-nsg#inbound-security-rules se já tiver modificado NSG padrão , siga a maneira PSlet de ativar https://docs.microsoft.com/azure/active-directory-domain-services/network-considerations#port-3389---management-using-remote-desktop
+
+Para ativar o registo do Netlogon em qualquer servidor https://docs.microsoft.com/troubleshoot/windows-client/windows-security/enable-debug-logging-netlogon-service
 
 ## <a name="next-steps"></a>Passos seguintes
 

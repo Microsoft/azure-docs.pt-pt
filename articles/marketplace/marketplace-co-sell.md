@@ -7,12 +7,12 @@ ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
 ms.date: 3/08/2021
-ms.openlocfilehash: d3759590cdd926b5e144cdc11761630a0aba4e29
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 7d1d4a1a89931e3ded8274a4731aa3606695771b
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102563783"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199877"
 ---
 # <a name="co-sell-with-microsoft-sales-teams-and-partners-overview"></a>Co-vender com equipas de vendas da Microsoft e visão geral dos parceiros
 
@@ -46,8 +46,8 @@ Co-venda de estatutos para a Azure:
 - Azure IP co-vender incentivado
 
 Estatuto de co-venda para aplicações empresariais
-- Biz Apps ISV Connect Standard
-- Biz Apps ISV Connect Premium  
+- Biz Apps ISV Connect Standard ou Premium incentivo Standard ou Premium
+- Biz Apps ISV Connect Standard ou Premium incentivo Premium  
 
 Para obter mais informações sobre os requisitos para alcançar estes estatutos de co-venda, consulte [os requisitos de Co-venda](co-sell-requirements.md).
 
@@ -74,12 +74,12 @@ Biz Apps ISV Connect Standard ou Premium incentive status pode ser aplicado a es
 - Dinâmica 365 para Envolvimento de Clientes & PowerApps
 - Dinâmica 365 para operações
 
-Ofertas que alcançam _Azure IP Co-vender incentivado_ ou _Biz Apps ISV Connect Standard ou_ Premium status de incentivo ganham estes benefícios do mercado comercial:
+Ofertas que alcançam _Azure IP Co-venda_ de estatuto incentivado obtenha estes benefícios do mercado comercial:
 
 - A taxa de serviço no mercado é reduzida de 20% para 10%. Este desconto aplica-se à sua infraestrutura como solução de serviço (IaaS) ou software como solução de serviço (SaaS) vendida através do mercado comercial. Para mais informações, consulte [as taxas de serviço de marketplace comercial.](marketplace-commercial-transaction-capabilities-and-considerations.md#commercial-marketplace-service-fees)
 - Os parceiros Cloud Solution Provider (CSP) recebem um incentivo de 10% para vender a sua solução IaaS ou oferta SaaS. Para saber mais sobre o programa CSP, consulte o [programa Cloud Solution Provider](cloud-solution-providers.md).
 - As vendas da sua oferta através do mercado comercial contribuirão para os compromissos de consumo da Azure dos clientes. Os clientes elegíveis verão a oferta marcada como **benefício Azure elegível** no portal Azure. Para mais informações, consulte [o benefício do compromisso de consumo da Azure.](azure-consumption-commitment-benefit.md)
-- Ofertas que atinjam _o Azure IP Co-venda incentivado_ ou _Biz Apps ISV Connect Standard ou_ Premium status receberá um crachá de **soluções Preferidas** da Microsoft na página de listagem de ofertas nas lojas online. O crachá promove a qualidade, desempenho e capacidade de uma oferta para atender às necessidades dos clientes numa determinada área vertical ou de solução da indústria.
+- Ofertas que alcançam _O Azure IP Co-vender incentivos ou_ _biz apps ISV Connect Standard ou Premium._ status receberá um crachá **de soluções Preferidas** microsoft na página de listagem de ofertas nas lojas online. O crachá promove a qualidade, desempenho e capacidade de uma oferta para atender às necessidades dos clientes numa determinada área vertical ou de solução da indústria.
 
 Para aprender a conseguir o estatuto de co-venda pronta e co-venda, consulte [Co-vender requisitos prontos e co-vender requisitos incentivados.](co-sell-requirements.md)
 

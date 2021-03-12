@@ -6,22 +6,22 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/27/2020
-ms.openlocfilehash: a124f576b2540399d27fcd97e0e58476dba4ba4b
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 883b76929ac3310dd3089ecb088a4691adbb4ca1
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492816"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103010359"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>Backup e restauro na Base de Dados Azure para o MySQL
 
-A Azure Database for MySQL cria automaticamente cópias de segurança do servidor e armazena-as em armazenamento localmente redundante ou geo-redundante do utilizador. As cópias de segurança podem ser utilizadas para restaurar o servidor para um ponto no tempo. Backup e restauro são uma parte essencial de qualquer estratégia de continuidade do negócio porque protegem os seus dados de corrupção acidental ou eliminação.
+A Base de Dados do Azure para MySQL cria automaticamente cópias de segurança do servidor e guarda-as no armazenamento georredundante ou localmente redundante configurado pelo utilizador. As cópias de segurança podem ser utilizadas para restaurar o servidor para um ponto no tempo. A cópia de segurança e o restauro são uma parte essencial de qualquer estratégia de continuidade empresarial, uma vez que protegem os seus dados contra danos e a eliminação acidentais.
 
 ## <a name="backups"></a>Cópias de segurança
 
 A Azure Database for MySQL retira cópias dos ficheiros de dados e do registo de transações. Estas cópias de segurança permitem restaurar um servidor em qualquer ponto no tempo dentro do período de retenção de backup configurado. O período de retenção de backup predefinido é de sete dias. Pode [configurar opcionalmente](howto-restore-server-portal.md#set-backup-configuration) até 35 dias. Todas as cópias de segurança são encriptadas através da encriptação AES de 256 bits.
 
-Estes ficheiros de cópia de segurança não são expostos ao utilizador e não podem ser exportados. Estas cópias de segurança só podem ser utilizadas para operações de restauro na Base de Dados Azure para o MySQL. Pode usar [o meu "mysqldump"](concepts-migrate-dump-restore.md) para copiar uma base de dados.
+Estes ficheiros de cópia de segurança não são expostos pelo utilizador e não podem ser exportados. Estas cópias de segurança só podem ser utilizadas para operações de restauro na Base de Dados Azure para o MySQL. Pode usar [o meu "mysqldump"](concepts-migrate-dump-restore.md) para copiar uma base de dados.
 
 O tipo de cópia de segurança e a frequência dependem do armazenamento de backend para os servidores.
 
@@ -86,7 +86,17 @@ Existem dois tipos de restauro disponíveis:
 - **O restauro pontual** está disponível com a opção de redundância de backup e cria um novo servidor na mesma região que o seu servidor original, utilizando a combinação de cópias de segurança completas e de registo de transações.
 - **O geo-restauro** só está disponível se configurar o seu servidor para armazenamento geo-redundante e permitir-lhe restaurar o seu servidor numa região diferente utilizando a cópia de segurança mais recente tomada.
 
-O tempo estimado de recuperação depende de vários fatores, incluindo os tamanhos da base de dados, o tamanho do registo de transações, a largura de banda da rede e o número total de bases de dados que recuperam na mesma região ao mesmo tempo. O tempo de recuperação é geralmente inferior a 12 horas.
+O tempo estimado para a recuperação do servidor depende de vários fatores:
+* O tamanho das bases de dados
+* O número de registos de transações envolvidos
+* A quantidade de atividade que precisa de ser repetida para recuperar ao ponto de restauro
+* A largura de banda da rede se o restauro for para uma região diferente
+* O número de pedidos de restauro simultâneos que estão a ser processados na região alvo
+* A presença da chave primária nas tabelas da base de dados. Para uma recuperação mais rápida, considere adicionar a chave primária para todas as tabelas da sua base de dados. Para verificar se as suas tabelas têm chave primária, pode utilizar a seguinte consulta:
+```sql
+select tab.table_schema as database_name, tab.table_name from information_schema.tables tab left join information_schema.table_constraints tco on tab.table_schema = tco.table_schema and tab.table_name = tco.table_name and tco.constraint_type = 'PRIMARY KEY' where tco.constraint_type is null and tab.table_schema not in('mysql', 'information_schema', 'performance_schema', 'sys') and tab.table_type = 'BASE TABLE' order by tab.table_schema, tab.table_name;
+```
+Para uma base de dados grande ou muito ativa, a restauração pode demorar várias horas. Se houver uma paragem prolongada numa região, é possível que um elevado número de pedidos de geo-restauro seja iniciado para a recuperação de desastres. Quando há muitos pedidos, o tempo de recuperação para bases de dados individuais pode aumentar. A maioria das casas de dados restaura em menos de 12 horas.
 
 > [!IMPORTANT]
 > Os servidores eliminados só podem ser restaurados no prazo de **cinco dias** após o qual as cópias de segurança são eliminadas. A cópia de segurança da base de dados só pode ser acedida e restaurada a partir da subscrição Azure que hospeda o servidor. Para restaurar um servidor abandonado, consulte [os passos documentados](howto-restore-dropped-server.md). Para proteger os recursos do servidor, a implantação pós-implantação, contra a eliminação acidental ou alterações inesperadas, os administradores podem alavancar [os bloqueios de gestão](../azure-resource-manager/management/lock-resources.md).
@@ -114,7 +124,7 @@ Pode restaurar um servidor para outra região do Azure onde o serviço está dis
 O geo-restauro é a opção de recuperação padrão quando o seu servidor está indisponível devido a um incidente na região onde o servidor está hospedado. Se um incidente em larga escala numa região resultar na indisponibilidade da sua aplicação de base de dados, pode restaurar um servidor das cópias de segurança geo-redundantes para um servidor em qualquer outra região. Geo-restauro utiliza a cópia de segurança mais recente do servidor. Há um atraso entre quando um backup é tomado e quando é replicado para diferentes regiões. Este atraso pode ser de até uma hora, por isso, se ocorrer uma catástrofe, pode haver até uma hora de perda de dados.
 
 > [!IMPORTANT]
->Se um geo-restauro for realizado para um servidor recém-criado, a sincronização inicial de backup pode demorar mais de 24 horas, dependendo do tamanho dos dados, uma vez que o tempo inicial de cópia de cópia de cópia de cópia de cópia de instantâneo completo é muito maior. As cópias de segurança instantânea subsequentes são cópias incrementais e, portanto, as restaurações são mais rápidas após 24 horas de criação do servidor. Se estiver a avaliar geo-restauros para definir o seu RTO, recomendamos que espere e avalie o geo-restauro **apenas após 24 horas** de criação do servidor para obter melhores estimativas.
+>Se um geo-restauro for realizado para um servidor recém-criado, a sincronização inicial de backup pode demorar mais de 24 horas, dependendo do tamanho dos dados, uma vez que o tempo inicial de cópia de cópia de instantâneo completo é muito maior. As cópias de segurança instantânea subsequentes são cópias incrementais e, portanto, as restaurações são mais rápidas após 24 horas de criação do servidor. Se estiver a avaliar geo-restauros para definir o seu RTO, recomendamos que espere e avalie o geo-restauro **apenas após 24 horas** de criação do servidor para obter melhores estimativas.
 
 Durante o geo-restauro, as configurações do servidor que podem ser alteradas incluem geração de computação, vCore, período de retenção de backup e opções de redundância de backup. A alteração do nível de preços (Básico, Final geral ou memória otimizada) ou o tamanho do armazenamento durante a geo-restauração não é suportado.
 

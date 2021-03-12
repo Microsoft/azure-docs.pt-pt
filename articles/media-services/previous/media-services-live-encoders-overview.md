@@ -1,9 +1,9 @@
 ---
-title: Configurar codificadores no local ao utilizar os Serviços de Media Azure para criar fluxos multi-bitrates [ Microsoft Docs
+title: Configure os codificadores no local ao utilizar os Serviços de Media Azure para criar fluxos multi-bitrates | Microsoft Docs
 description: Este tópico lista os codificadores ao vivo que pode usar para capturar os seus eventos ao vivo e enviar um único bitrate live stream para canais AMS (que estão ativados em codificação ao vivo) para posterior processamento. O tópico liga-se a tutoriais que mostram como configurar codificadores listados.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: 0ec6f046-0841-4673-9057-883bdbc30d5c
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
-ms.openlocfilehash: 77f2d433b32d180c7b3a819af96a50b721c2087f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 03/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: d83c81e1a8a7d8d689e18cc8ba46fbb137959481
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89263439"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103014864"
 ---
 # <a name="how-to-configure-on-premises-encoders-when-using-azure-media-services-to-create-multi-bitrate-streams"></a>Como configurar codificadores no local ao utilizar os Azure Media Services para criar fluxos multi-bitrates
 

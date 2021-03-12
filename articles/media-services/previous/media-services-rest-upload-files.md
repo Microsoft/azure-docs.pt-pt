@@ -1,9 +1,9 @@
 ---
-title: Faça upload de ficheiros numa conta da Azure Media Services usando REST Microsoft Docs
+title: Faça o upload de ficheiros numa conta Azure Media Services utilizando o REST | Microsoft Docs
 description: Saiba como obter conteúdo sonoro nos Media Services criando e carregando ativos usando REST.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
-ms.author: juliako
-ms.openlocfilehash: 49863bec4cbd367b6b309ef5a79e7287cb53ee5b
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.date: 3/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: 9f27a427df07302840ce719d35c7876f9dc17dbf
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93042970"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103012943"
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>Carregar ficheiros para uma conta dos Serviços de Multimédia com REST
 
@@ -96,7 +96,7 @@ Para obter etapas sobre como configurar o Carteiro para este tutorial, consulte 
 
     ![Screenshot que mostra "1. Obtenha um token A D Auth - Obtenha A Azure A D Token para o principal de serviço" selecionado a partir da janela "Carteiro" e o botão "Enviar" selecionado.](./media/media-services-rest-upload-files/postment-get-token.png)
 
-5. Prima **Enviar** .
+5. Prima **Enviar**.
 
     Pode ver a resposta que contém "access_token". O script "test" toma este valor e define a variável ambiente **AccessToken** (como descrito acima). Se examinar as variáveis ambientais, verá que esta variável contém agora o valor de token de acesso (token ao portador) que é usado no resto das operações. 
 
@@ -113,8 +113,8 @@ Antes de enviar quaisquer ficheiros para o armazenamento de bolhas, descreva os 
 
 ### <a name="create-an-access-policy"></a>Criar uma política de acesso
 
-1. Selecione **AccessPolicy**  ->  **Create AccessPolicy for Upload** .
-2. Prima **Enviar** .
+1. Selecione **AccessPolicy**  ->  **Create AccessPolicy for Upload**.
+2. Prima **Enviar**.
 
     ![Screenshot que mostra "AccessPolicy - Create AccessPolicy for Upload" selecionado a partir do menu do lado esquerdo, e o botão "Enviar" selecionado.](./media/media-services-rest-upload-files/postman-access-policy.png)
 
@@ -126,7 +126,7 @@ Antes de enviar quaisquer ficheiros para o armazenamento de bolhas, descreva os 
 
 Um [ativo](/rest/api/media/operations/asset) é um recipiente para vários tipos ou conjuntos de objetos em Serviços de Mídia, incluindo vídeo, áudio, imagens, coleções de miniaturas, faixas de texto e ficheiros de legendas fechados. Na API REST, a criação de um Ativo requer o envio de um pedido de CORREIO aos Serviços de Comunicação Social e a colocação de qualquer informação de propriedade sobre o seu ativo no organismo de pedido.
 
-Uma das propriedades que pode adicionar ao criar um ativo são **opções.** Pode especificar uma das seguintes opções de encriptação: **Nenhuma** (padrão, nenhuma encriptação é utilizada), **StorageEncrypted** (para conteúdos pré-encriptados com encriptação de armazenamento do lado do cliente), **CommonEncrypationProtegado,** ou **EnvelopeEncrypationProtetado** . Quando se tem um ativo encriptado, é necessário configurar uma política de entrega. Para obter mais informações, consulte [as políticas de entrega de ativos configuradas.](media-services-rest-configure-asset-delivery-policy.md)
+Uma das propriedades que pode adicionar ao criar um ativo são **opções.** Pode especificar uma das seguintes opções de encriptação: **Nenhuma** (padrão, nenhuma encriptação é utilizada), **StorageEncrypted** (para conteúdos pré-encriptados com encriptação de armazenamento do lado do cliente), **CommonEncrypationProtegado,** ou **EnvelopeEncrypationProtetado**. Quando se tem um ativo encriptado, é necessário configurar uma política de entrega. Para obter mais informações, consulte [as políticas de entrega de ativos configuradas.](media-services-rest-configure-asset-delivery-policy.md)
 
 Se o seu ativo estiver encriptado, tem de criar um **ContentKey** e ligá-lo ao seu ativo, conforme descrito no seguinte artigo: [Como criar um ContentKey](media-services-rest-create-contentkey.md). Depois de fazer o upload dos ficheiros para o ativo, tem de atualizar as propriedades de encriptação na entidade **AssetFile** com os valores que obteve durante a encriptação **do Ativo.** Faça-o utilizando o pedido **MERGE** HTTP. 
 
@@ -134,8 +134,8 @@ Neste exemplo, estamos a criar um ativo não encriptado.
 
 ### <a name="create-an-asset"></a>Criar um recurso
 
-1. Selecione **Ativos**  ->  **Criar Ativo** .
-2. Prima **Enviar** .
+1. Selecione **Ativos**  ->  **Criar Ativo**.
+2. Prima **Enviar**.
 
     ![Screenshot que mostra "Ativos - Criar Ativo" selecionado a partir do menu "Coleções" e o botão "Enviar" selecionado.](./media/media-services-rest-upload-files/postman-create-asset.png)
 
@@ -166,7 +166,7 @@ São aplicáveis algumas considerações:
 ### <a name="create-a-sas-locator"></a>Criar um localizador SAS
 
 1. **Selecione localizador**  ->  **criar localizador SAS.**
-2. Prima **Enviar** .
+2. Prima **Enviar**.
 
     O script "test" cria o "UPLOAD URL" com base no nome de ficheiro de mídia especificado e informações de localizador SAS e define a variável ambiente apropriada.
 
@@ -192,10 +192,10 @@ Criar e configurar um novo pedido:
 1. Pressione **+** , para criar um novo separador de pedidos.
 2. Selecione a operação **PUT** e cole **{{UploadURL}}** no URL.
 2. Deixe o separador **de autorização** como está (não o coloque no **Token do Portador).**
-3. No **separador Cabeçalhos,** especifique: **Tecla** : "x-ms-blob-type" e **Valor** : "BlockBlob".
+3. No **separador Cabeçalhos,** especifique: **Tecla**: "x-ms-blob-type" e **Valor**: "BlockBlob".
 2. No **separador Corpo,** clique **em binário.**
 4. Escolha o ficheiro com o nome especificado na variável **ambiente MediaFileName.**
-5. Prima **Enviar** .
+5. Prima **Enviar**.
 
     ![Screenshot que mostra o separador "(UploadU R L)" selecionado.](./media/media-services-rest-upload-files/postman-upload-file.png)
 
@@ -203,8 +203,8 @@ Criar e configurar um novo pedido:
 
 Uma vez que o ficheiro tenha sido carregado, precisa de criar um metadados no ativo para o ficheiro de mídia que carregou no armazenamento de bolhas associado ao seu ativo.
 
-1. Selecione **ActivosFiles**  ->  **CreateFileInfos** .
-2. Prima **Enviar** .
+1. Selecione **ActivosFiles**  ->  **CreateFileInfos**.
+2. Prima **Enviar**.
 
     ![Carregar um ficheiro](./media/media-services-rest-upload-files/postman-create-file-info.png)
 

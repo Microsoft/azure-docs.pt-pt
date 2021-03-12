@@ -16,12 +16,12 @@ ms.date: 08/09/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: bd58f18959df3aa290083f907be8ab703366a7c6
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: d980b92bc4effc58ef84ef6ec70c3908f575e484
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97360106"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102615606"
 ---
 # <a name="pricing-guidance-for-sql-server-on-azure-vms"></a>Orientação de preços para O SQL Server em VMs Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -60,7 +60,7 @@ Se tiver uma carga de trabalho de produção não leve, utilize uma das seguinte
 |-----|-----|
 | Web | Pequenos sites |
 | Standard | Cargas de trabalho pequenas a médias |
-| Enterprise | Cargas de trabalho grandes ou críticas de missão|
+| Grandes Empresas | Cargas de trabalho grandes ou críticas de missão|
 
 Você tem duas opções para pagar o licenciamento SQL Server para estas edições: *pagar por utilização* ou *trazer a sua própria licença (BYOL)*.
 
@@ -97,10 +97,7 @@ Para criar um Azure VM em execução SQL Server 2017 com uma destas imagens pay-
 
 ## <a name="bring-your-own-license-byol"></a><a id="byol"></a> Traga a sua própria licença (BYOL)
 
-**Trazer a sua própria licença SQL Server através da Mobility License**, também designada por **BYOL,** significa utilizar uma licença de volume de servidor SQL existente com garantia de software num VM Azure. Um SQL Server VM que utiliza apenas o BYOL cobra apenas pelo custo de execução do VM, e não pelo licenciamento do SQL Server, uma vez que já adquiriu licenças e Garantia de Software através de um programa de Licenciamento de Volume.
-
-> [!IMPORTANT]
-> As imagens BYOL requerem um Acordo Empresarial com Garantia de Software. Não estão disponíveis como parte do Azure Cloud Solution Partner (CSP) neste momento. Os clientes da CSP podem trazer a sua própria licença através da implementação de uma imagem pay-as-you-go e, em seguida, ativar o [Azure Hybrid Benefit](licensing-model-azure-hybrid-benefit-ahb-change.md).
+**Trazer a sua própria licença SQL Server através da Mobility License**, também designada por **BYOL,** significa utilizar uma licença de volume de servidor SQL existente com garantia de software num VM Azure. Um SQL Server VM que utiliza apenas o BYOL cobra apenas pelo custo de execução do VM, e não pelo licenciamento do SQL Server, uma vez que já adquiriu licenças e Garantia de Software através de um programa de licenciamento de volume ou através de um Parceiro de Solução Cloud (CSP).
 
 > [!NOTE]
 > Atualmente, as imagens BYOL só estão disponíveis para máquinas virtuais do Windows. No entanto, pode instalar manualmente o SQL Server num VM apenas para Linux. Consulte as diretrizes do [SQL Server numa FAQ Linux VM](../linux/frequently-asked-questions-faq.md).
@@ -113,7 +110,7 @@ Para criar um Azure VM em execução SQL Server 2017 com uma destas imagens pay-
 
 Para utilizar o BYOL com um SQL Server VM, tem de ter uma licença para SQL Server Standard ou Enterprise and [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default.aspx#tab=1), que é uma opção necessária através de alguns programas de licenciamento de volume e uma compra opcional com outros. O nível de preços fornecido através dos programas de licenciamento de volume varia, com base no tipo de acordo e na quantidade e ou compromisso com o SQL Server. Mas, como regra geral, trazer a sua própria licença para cargas de trabalho contínuas de produção tem os seguintes benefícios:
 
-| Benefício BYOL | Descrição |
+| Benefício BYOL | Description |
 |-----|-----|
 | **Poupança de custos** | O [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) oferece até 55% de poupança. Para mais informações, consulte [o modelo de licenciamento da Switch](licensing-model-azure-hybrid-benefit-ahb-change.md) |
 | **Réplica secundária passiva livre** | Outro benefício de trazer a sua própria licença é o [licenciamento gratuito para uma réplica secundária passiva](https://azure.microsoft.com/pricing/licensing-faq/) por SQL Server para fins de alta disponibilidade. Isto reduz para metade o custo de licenciamento de uma implementação altamente disponível do SQL Server (por exemplo, usando sempre grupos de disponibilidade). Os direitos de execução do secundário passivo são fornecidos através do benefício Fail-Over Servers Software Assurance. |

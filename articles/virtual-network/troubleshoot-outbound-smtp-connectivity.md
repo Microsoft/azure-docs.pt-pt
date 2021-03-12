@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: genli
-ms.openlocfilehash: 518b8e33ac9adfdd1aa121e0cb8d1558545980e7
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: c28790b2ef423a3d0f996d7c6030b04198756eb1
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99054859"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102607616"
 ---
 # <a name="troubleshoot-outbound-smtp-connectivity-problems-in-azure"></a>Problemas de conectividade SMTP de resolução de problemas em Azure
 
@@ -76,6 +76,10 @@ Para subscrições dos seguintes tipos que foram criados após 15 de novembro de
 Se pretender enviar e-mails da Azure VMs diretamente para fornecedores de e-mail externos (sem utilizar um relé SMTP autenticado), pode fazer um pedido abrindo um caso de suporte utilizando o seguinte tipo de problema: Conectividade de rede virtual **técnica**  >    >    >  **Não pode enviar e-mail (SMTP/Porta 25)**. Certifique-se de adicionar detalhes sobre o motivo pelo qual a sua implementação tem de enviar correio diretamente para os fornecedores de correio em vez de usar um retransmissor autenticado. Os pedidos serão revistos e aprovados à discrição da Microsoft. Os pedidos só serão concedidos após a conclusão de controlos antifraundo adicionais. 
 
 Depois de uma subscrição ser isenta e os VMs terem sido interrompidos e reiniciados no portal Azure, todos os VMs nessa subscrição estão isentos daqui para a frente. A isenção aplica-se apenas à subscrição solicitada e apenas ao tráfego VM que é encaminhado diretamente para a internet.
+
+## <a name="changing-subscription-type"></a>Alteração do tipo de assinatura
+
+Se alterar o tipo de subscrição ou o seu Fornecedor de Solução Cloud ou a subscrição pay-as-you-go for aprovada, tem de parar, fazer negócios e, em seguida, reiniciar o seu VM para que a nova política entre em vigor. Da mesma forma, se tiver um tipo de subscrição que seja permitido por padrão, e depois mudar para um tipo de subscrição que não é permitido, a porta 25 pode então ser bloqueada devido às alterações à implementação.
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Contactar o suporte
 

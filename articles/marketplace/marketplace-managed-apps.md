@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: msjogarrig
 ms.author: jogarrig
 ms.date: 09/04/2020
-ms.openlocfilehash: d4fb3354b7035149b80191528b2f5335b593b764
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 09badebab86da8e4fd8d35307aa6648a26e91821
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96433553"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103232261"
 ---
 # <a name="publishing-guide-for-azure-managed-applications"></a>Guia de publicação de aplicações geridas pela Azure
 
@@ -33,8 +33,8 @@ Utilize o tipo de oferta de aplicação gerida nas seguintes condições:
 |Requisitos |Detalhes  |
 |---------|---------|
 |Uma subscrição do Azure | As aplicações geridas devem ser implementadas na subscrição de um cliente, mas podem ser geridas por terceiros. |
-|Faturação e medição    |  Os recursos são fornecidos na subscrição Azure de um cliente. Os VMs que utilizam o modelo de pagamento pay-as-you-go são transacionados com o cliente através da Microsoft e faturados através da subscrição Azure do cliente. <br><br> Para os VMs de sua própria licença, a Microsoft fatura quaisquer custos de infraestrutura que sejam incorridos na subscrição do cliente, mas você transaciona diretamente as taxas de licenciamento de software com o cliente.        |
-|Um disco rígido virtual compatível com Azure (VHD)    |   Os VMs devem ser construídos em Windows ou Linux.<br><br>Para obter mais informações sobre a criação de um Linux VHD, consulte [as distribuições linux endossadas no Azure](../virtual-machines/linux/endorsed-distros.md).<br><br>Para obter mais informações sobre a criação de um VHD do Windows, consulte [criar uma oferta de aplicação Azure.](./create-new-azure-apps-offer.md) |
+|Faturação e medição    |  Os recursos são fornecidos na subscrição Azure de um cliente. Os Recursos Azure que utilizam o modelo de pagamento pay-as-you-go são transacionados com o cliente através da Microsoft e faturados através da subscrição Azure do cliente. <br><br> Para trazer a sua própria licença Azure Resources, a Microsoft fatura quaisquer custos de infraestrutura que sejam incorridos na subscrição do cliente, mas você transaciona diretamente as taxas de licenciamento de software com o cliente.        |
+|Um pacote de aplicações geridas Azure    |   O modelo de gestor de recursos Azure configurado e criar definição de UI que será usado para implementar a sua aplicação na subscrição do cliente.<br><br>Para obter mais informações sobre a criação de uma Aplicação Gerida, consulte [a Visão Geral](../azure-resource-manager/managed-applications/publish-service-catalog-app.md)da Aplicação Gerida .|
 
 ---
 

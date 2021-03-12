@@ -11,12 +11,12 @@ ms.author: asrastog
 ms.custom:
 - 'Role: Cloud Development'
 - devx-track-csharp
-ms.openlocfilehash: 19ae5dc24e0a08548f4914114c9c0a6be65f4f0b
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: d2fe8f32ec854e1e6db644a039e6a249cfbddcaa
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101096096"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103012892"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Utilize o encaminhamento de mensagens IoT Hub para enviar mensagens dispositivo-a-nuvem para diferentes pontos finais
 
@@ -126,7 +126,7 @@ Pode ativar/desativar a rota de recuo na lâmina de encaminhamento de mensagens 
 
 ## <a name="non-telemetry-events"></a>Eventos de não telemetria
 
-Além da telemetria do dispositivo, o encaminhamento de mensagens também permite o envio de eventos de mudança de dois dispositivos, eventos de ciclo de vida do dispositivo e eventos de mudança de gémeos digitais. Por exemplo, se uma rota for criada com fonte de dados definida para **eventos de mudança dupla** do dispositivo, o IoT Hub envia mensagens para o ponto final que contêm a alteração no twin do dispositivo. Da mesma forma, se uma rota for criada com a origem de dados definida para **eventos de ciclo de vida** do dispositivo, o IoT Hub envia uma mensagem indicando se o dispositivo foi eliminado ou criado. Finalmente, como parte do [Azure IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md), um desenvolvedor pode criar rotas com fonte de **dados definidas para eventos de mudança de gémeos digitais** e o IoT Hub envia mensagens sempre que uma [propriedade](../iot-pnp/iot-plug-and-play-glossary.md) digital twin é definida ou alterada, um [twin digital](../iot-pnp/iot-plug-and-play-glossary.md) é substituído, ou quando um evento de mudança acontece para o twin dispositivo subjacente.
+Além da telemetria do dispositivo, o encaminhamento de mensagens também permite o envio de eventos de mudança de dois dispositivos, eventos de ciclo de vida do dispositivo e eventos de mudança de gémeos digitais. Por exemplo, se uma rota for criada com fonte de dados definida para **eventos de mudança dupla** do dispositivo, o IoT Hub envia mensagens para o ponto final que contêm a alteração no twin do dispositivo. Da mesma forma, se uma rota for criada com a origem de dados definida para **eventos de ciclo de vida** do dispositivo, o IoT Hub envia uma mensagem indicando se o dispositivo foi eliminado ou criado. Finalmente, como parte do [Azure IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md), um desenvolvedor pode criar rotas com fonte de **dados definidas para eventos de mudança de gémeos digitais** e o IoT Hub envia mensagens sempre que uma propriedade digital twin é definida ou alterada, um twin digital é substituído, ou quando um evento de mudança acontece para o twin dispositivo subjacente.
 
 [O IoT Hub também se integra com a Azure Event Grid](iot-hub-event-grid.md) para publicar eventos de dispositivos para apoiar integrações em tempo real e automatização de fluxos de trabalho baseados nestes eventos. Consulte as principais [diferenças entre o encaminhamento de mensagens e a Grade de Eventos](iot-hub-event-grid-routing-comparison.md) para saber qual o melhor funciona para o seu cenário.
 

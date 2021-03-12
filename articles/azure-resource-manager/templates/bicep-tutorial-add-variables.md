@@ -2,16 +2,16 @@
 title: Tutorial - adicione variável ao ficheiro Bicep do Azure Resource Manager
 description: Adicione variáveis ao seu ficheiro Bicep para simplificar a sintaxe.
 author: mumian
-ms.date: 03/01/2021
+ms.date: 03/10/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 1706bafb85834cfd3abae1f5d6a0090da9041bb5
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: da2755c1f2c0f9fa891fe1a99b1fed21f64492c8
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101748170"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102632480"
 ---
 # <a name="tutorial-add-variables-to-azure-resource-manager-bicep-file"></a>Tutorial: Adicionar variáveis ao ficheiro Bicep do Gestor de Recursos Azure
 
@@ -35,7 +35,7 @@ O parâmetro para o nome da conta de armazenamento é difícil de usar porque vo
 
 ## <a name="use-variable"></a>Utilizar variável
 
-O exemplo a seguir destaca as alterações para adicionar uma variável ao seu ficheiro Bicep que cria um nome de conta de armazenamento único. Copie todo o ficheiro e substitua o seu ficheiro Bicep pelo seu conteúdo.
+O exemplo a seguir mostra as alterações para adicionar uma variável ao seu ficheiro Bicep que cria um nome de conta de armazenamento único. Copie todo o ficheiro e substitua o seu ficheiro Bicep pelo seu conteúdo.
 
 :::code language="bicep" source="~/resourcemanager-templates/get-started-with-templates/add-variable/azuredeploy.bicep" range="1-31" highlight="1-3,19,22":::
 

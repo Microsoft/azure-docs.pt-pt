@@ -5,14 +5,14 @@ author: jseb225
 ms.author: jeanb
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 12/06/2018
+ms.date: 3/12/2021
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 633885bb1062edac8226c073768ffdeba84fcb55
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 9adc4c92e3e637b9d3e18249b5de00782a94baab
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98012636"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103232890"
 ---
 # <a name="management-net-sdk-set-up-and-run-analytics-jobs-using-the-azure-stream-analytics-api-for-net"></a>Gestão .NET SDK: Criar e executar trabalhos de análise utilizando a API AZure Stream Analytics para .NET
 Saiba como configurar e executar trabalhos de análise utilizando a API stream Analytics para .NET utilizando a Management .NET SDK. Crie um projeto, crie fontes de entrada e saída, transformações e iniciar e parar empregos. Para os seus trabalhos de análise, pode transmitir dados a partir do armazenamento blob ou de um centro de eventos.
@@ -81,7 +81,7 @@ Para criar um trabalho de análise, utilize a API stream Analytics para .NET, co
    <Reference Include="System.Configuration" />
    ```
 
-5. Adicione as **seguintes declarações usando** o ficheiro de origem (Program.cs) no projeto:
+5. Adicione as **seguintes declarações** ao ficheiro de origem (Programa.cs) no projeto:
    
    ```csharp
    using System;
@@ -207,6 +207,12 @@ O método **TestConnection** testa se o trabalho stream Analytics é capaz de li
    // Test the connection to the input
    ResourceTestStatus testInputResult = streamAnalyticsManagementClient.Inputs.Test(resourceGroupName, streamingJobName, inputName);
    ```
+O resultado da chamada TestConnection é um objeto *ResourceTestResult* que contém duas propriedades:
+
+- *estado*: Pode ser uma das seguintes cordas: ["TestNotAttempted", "TestSucceed", "TestFailed"]
+- *erro*: É do tipo ErrorResponse contendo as seguintes propriedades:
+   - *código:* uma propriedade requerida de cadeia de tipo. O valor é o padrão System.Net.HttpStatusCode recebido durante os testes.
+   - *mensagem:* uma propriedade requerida de tipo de cadeia que representa o erro. 
 
 ## <a name="create-a-stream-analytics-output-target"></a>Criar um alvo de saída stream Analytics
 Criar um alvo de saída é semelhante à criação de uma fonte de entrada Stream Analytics. Tal como as fontes de entrada, os alvos de saída estão ligados a um trabalho específico. Para utilizar o mesmo alvo de saída para diferentes trabalhos, deve voltar a ligar para o método e especificar um nome de trabalho diferente.
@@ -286,7 +292,7 @@ O método **Delete** eliminará o trabalho, bem como os sub-recursos subjacentes
 ## <a name="get-support"></a>Obter suporte
 Para obter mais assistência, experimente o nosso [Microsoft Q&Uma página de perguntas para a Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Aprendeu o básico de usar um .NET SDK para criar e executar trabalhos de análise. Para saber mais, leia os artigos seguintes:
 
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)

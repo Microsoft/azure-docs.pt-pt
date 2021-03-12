@@ -1,0 +1,14 @@
+- name: Azure
+  tocHref: /azure
+  topicHref: /azure/index
+  items:
+    - name: Internet das Coisas
+      tocHref: /azure/iot-fundamentals/
+      topicHref: /azure/iot-fundamentals/index
+      items:
+        - name: Centro de IoT
+          tocHref: /azure/iot-central/
+          topicHref: /azure/iot-central/index/
+        - name: Centro de IoT
+          tocHref: /azure/iot-fundamentals/
+          topicHref: /azure/iot-central/index

@@ -9,12 +9,12 @@ author: rolyon
 ms.author: rolyon
 ms.date: 02/25/2021
 ms.custom: generated
-ms.openlocfilehash: 90c0be8e6df3e489595bdafed1f29d1ed0ef00f8
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: baa783d0dfb54e0e606e3f6c6d5397941ae7b7bc
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101724511"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103011634"
 ---
 # <a name="azure-built-in-roles"></a>Funções incorporadas do Azure
 
@@ -128,7 +128,7 @@ A tabela seguinte fornece uma breve descrição e a identificação única de ca
 > | [Leitor de Registo de Schema (Pré-visualização)](#schema-registry-reader-preview) | Leia e liste grupos de registo de Schema e esquemas. | 2c56ea50-c6b3-40a6-83c0-9d98858bc7d2 |
 > | **Blockchain** |  |  |
 > | [Acesso ao nó do membro blockchain (visualização)](#blockchain-member-node-access-preview) | Permite o acesso aos nóns do Membro Blockchain | 31a002a1-acaf-453e-8a5b-297c9ca1ea24 |
-> | **IA + machine learning** |  |  |
+> | **IA + aprendizagem automática** |  |  |
 > | [Colaborador dos Serviços Cognitivos](#cognitive-services-contributor) | Permite criar, ler, atualizar, eliminar e gerir chaves dos Serviços Cognitivos. | 25fbc0a9-bd7c-42a3-aa1a-3b75d497ee68 |
 > | [Colaborador de Visão Personalizada de Serviços Cognitivos](#cognitive-services-custom-vision-contributor) | Acesso total ao projeto, incluindo a capacidade de visualizar, criar, editar ou apagar projetos. | c1ff6cc2-c111-46fe-8896-e0ef812ad9f3 |
 > | [Implementação de visão personalizada de serviços cognitivos](#cognitive-services-custom-vision-deployment) | Publique, não publique ou exporte modelos. A implementação pode ver o projeto, mas não pode atualizar. | 5c4089e1-6d96-4d2f-b296-c1bc7137275f |
@@ -6702,7 +6702,7 @@ Permite-lhe ler subscrições de eventosGrid. [Saiba mais](../event-grid/securit
 
 ### <a name="fhir-data-contributor"></a>Colaborador de dados da FHIR
 
-Função permite ao utilizador ou principal acesso total aos dados do FHIR [Saiba mais](../healthcare-apis/configure-azure-rbac.md)
+Função permite ao utilizador ou principal acesso total aos dados do FHIR [Saiba mais](../healthcare-apis/fhir/configure-azure-rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -6741,7 +6741,7 @@ Função permite ao utilizador ou principal acesso total aos dados do FHIR [Saib
 
 ### <a name="fhir-data-exporter"></a>Exportador de dados FHIR
 
-Função permite ao utilizador ou principal ler e exportar dados do FHIR [Saiba mais](../healthcare-apis/configure-azure-rbac.md)
+Função permite ao utilizador ou principal ler e exportar dados do FHIR [Saiba mais](../healthcare-apis/fhir/configure-azure-rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -6782,7 +6782,7 @@ Função permite ao utilizador ou principal ler e exportar dados do FHIR [Saiba 
 
 ### <a name="fhir-data-reader"></a>Leitor de dados FHIR
 
-Função permite ao utilizador ou principal ler dados do FHIR [Saiba mais](../healthcare-apis/configure-azure-rbac.md)
+Função permite ao utilizador ou principal ler dados do FHIR [Saiba mais](../healthcare-apis/fhir/configure-azure-rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -6821,7 +6821,7 @@ Função permite ao utilizador ou principal ler dados do FHIR [Saiba mais](../he
 
 ### <a name="fhir-data-writer"></a>Escritor de dados da FHIR
 
-Função permite ao utilizador ou principal ler e escrever dados FHIR [Saiba mais](../healthcare-apis/configure-azure-rbac.md)
+Função permite ao utilizador ou principal ler e escrever dados FHIR [Saiba mais](../healthcare-apis/fhir/configure-azure-rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |

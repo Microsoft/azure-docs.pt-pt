@@ -10,12 +10,12 @@ ms.date: 08/20/2020
 ms.topic: include
 ms.custom: include file
 ms.author: tchladek
-ms.openlocfilehash: 42fbd1c89418bfe944d416f47a0a885c76f1f22a
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: 1bad9b3412edd9d384c2757069b0ded85c2d675f
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102510696"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102623427"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -37,7 +37,7 @@ ms.locfileid: "102510696"
 
    ```python
    import os
-   from azure.communication.identity import CommunicationIdentityClient
+   from azure.communication.identity import CommunicationIdentityClient, CommunicationUserIdentifier
 
    try:
       print('Azure Communication Services - Access Tokens Quickstart')

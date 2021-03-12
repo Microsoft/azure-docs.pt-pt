@@ -3,7 +3,7 @@ title: Personalização de pré-sintonias padrão de Media Encoder | Microsoft D
 description: Este tópico mostra como executar codificação avançada personalizando predefinições de tarefas Media Encoder Standard. O tópico mostra como usar os Serviços de Comunicação Social .NET SDK para criar uma tarefa e trabalho de codificação. Também mostra como fornecer predefinições personalizadas para o trabalho de codificação.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: ec95392f-d34a-4c22-a6df-5274eaac445b
@@ -12,21 +12,21 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/26/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6c1c74f86a9cf0e4bcd73844222f256a715cbfe5
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: c2ec7c8fe312787d153c76b0b0194354e1717db7
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98695895"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103016717"
 ---
 # <a name="customizing-media-encoder-standard-presets"></a>Personalização de predefinições padrão media Encoder
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]  
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Este artigo mostra como realizar codificação avançada com a Media Encoder Standard (MES) utilizando uma predefinição personalizada. O artigo utiliza .NET para criar uma tarefa de codificação e um trabalho que executa esta tarefa.  
 

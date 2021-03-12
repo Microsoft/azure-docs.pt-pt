@@ -4,12 +4,12 @@ description: Restaurar uma máquina virtual Azure a partir de um ponto de recupe
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: c15b2dc39202c6f8386031bcf055688aa2d279df
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 506c764250347bfccc3f80dcb055f1203583748c
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101722692"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103016530"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Como restaurar os dados do Azure VM no portal Azure
 
@@ -181,7 +181,7 @@ Atualmente, a [RPO](azure-backup-glossary.md#rpo-recovery-point-objective) da re
 
 [VMs fixados zona](../virtual-machines/windows/create-portal-availability-zone.md) azul podem ser restaurados em quaisquer [zonas](../availability-zones/az-overview.md) de disponibilidade da mesma região.
 
-No processo de restauro, você verá a opção **Zona de Disponibilidade.** Verá a sua zona padrão primeiro. Para escolher uma zona diferente, escolha o número da zona à sua escolha. Se a zona fixa não estiver disponível, não poderá restaurar os dados para outra zona porque os dados de back-up não são replicados.
+No processo de restauro, você verá a opção **Zona de Disponibilidade.** Verá a sua zona padrão primeiro. Para escolher uma zona diferente, escolha o número da zona à sua escolha. Se a zona fixa não estiver disponível, não poderá restaurar os dados para outra zona porque os dados de back-up não são replicados. A restauração em zonas de disponibilidade é possível a partir de pontos de recuperação apenas no nível do cofre.
 
 ![Escolha a zona de disponibilidade](./media/backup-azure-arm-restore-vms/cross-zonal-restore.png)
 

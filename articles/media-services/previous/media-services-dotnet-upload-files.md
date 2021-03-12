@@ -3,7 +3,7 @@ title: Faça o upload de ficheiros numa conta de Serviços de Mídia utilizando 
 description: Saiba como obter conteúdo sonoro nos Media Services criando e carregando ativos usando .NET.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: c9c86380-9395-4db8-acea-507c52066f73
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9e9f1dc0ce303b45ad2d43c0c9365edc197f7d8e
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: ee9bcc6861245ce40c43570126445a3613cd2744
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98695599"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103013733"
 ---
 # <a name="upload-files-into-a-media-services-account-using-net"></a>Carregar ficheiros para uma conta dos Serviços de Multimédia com .NET
 

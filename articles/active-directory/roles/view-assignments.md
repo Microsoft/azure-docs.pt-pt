@@ -13,12 +13,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c13167706c2794253108b04eaa2dcc46e0e6c09a
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: c3e2bbc88b896d65592ba742fece723d3f5e168f
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98740691"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103015765"
 ---
 # <a name="view-custom-role-assignments-using-azure-active-directory"></a>Ver atribuições de funções personalizadas usando O Diretório Ativo Azure
 
@@ -48,17 +48,17 @@ Em primeiro lugar, tem de [descarregar o módulo PowerShell de pré-visualizaç�
 Para instalar o módulo Azure AD PowerShell, utilize os seguintes comandos:
 
 ``` PowerShell
-install-module azureadpreview
-import-module azureadpreview
+Install-Module -Name AzureADPreview
+Import-Module -Name AzureADPreview
 ```
 
 Para verificar se o módulo está pronto a ser utilizado, utilize o seguinte comando:
 
 ``` PowerShell
-get-module azuread
+Get-Module -Name AzureADPreview
   ModuleType Version      Name                         ExportedCommands
   ---------- ---------    ----                         ----------------
-  Binary     2.0.0.115    azuread                      {Add-AzureADAdministrati...}
+  Binary     2.0.0.115    AzureADPreview               {Add-AzureADAdministrati...}
 ```
 
 ### <a name="view-the-assignments-of-a-role"></a>Ver as atribuições de um papel
@@ -117,7 +117,7 @@ Esta secção descreve atribuições de visualização de uma função com âmbi
 
     ![Ver atribuições de funções de registo de aplicativos a partir das propriedades de um registo de aplicações](./media/view-assignments/app-reg-assignments-2.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Sinta-se livre para compartilhar conosco no fórum de [funções administrativas Azure AD.](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032)
 * Para obter mais informações sobre funções e atribuição de funções de Administrador, consulte [as funções de administrador de atribuição](permissions-reference.md).

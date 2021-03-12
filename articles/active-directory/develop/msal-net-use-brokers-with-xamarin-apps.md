@@ -12,12 +12,12 @@ ms.date: 09/08/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 6958302a429fd88d4e26087b860b7f473bf4a1f9
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 226e94510709b37a7e6b1aae90a7e0ec5b4222b9
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100103996"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199583"
 ---
 # <a name="use-microsoft-authenticator-or-intune-company-portal-on-xamarin-applications"></a>Utilize o Microsoft Authenticator ou o Portal da Empresa Intune em aplicações Xamarin
 
@@ -65,7 +65,7 @@ Para obter mais informações, consulte [ativar o acesso ao chaveiro.](msal-net-
 
 ### <a name="step-3-update-appdelegate-to-handle-the-callback"></a>Passo 3: Atualizar AppDeegate para lidar com a chamada
 
-Quando MSAL.NET chama o corretor, o corretor volta para a sua aplicação através `OpenUrl` do método da `AppDelegate` classe. Como a MSAL aguarda a resposta do corretor, a sua aplicação precisa de cooperar para voltar a ligar MSAL.NET. Para permitir esta cooperação, atualize o ficheiro *AppDelegate.cs* para anular o seguinte método.
+Quando MSAL.NET chama o corretor, o corretor volta para a sua aplicação através `OpenUrl` do método da `AppDelegate` classe. Como a MSAL aguarda a resposta do corretor, a sua aplicação precisa de cooperar para voltar a ligar MSAL.NET. Para permitir esta cooperação, atualize o ficheiro *.cs AppDeegate* para anular o seguinte método.
 
 ```csharp
 public override bool OpenUrl(UIApplication app, NSUrl url,
@@ -91,23 +91,23 @@ Este método é invocado sempre que a aplicação é iniciada. É usada como uma
 
 ### <a name="step-4-set-uiviewcontroller"></a>Passo 4: Definir UIViewController()
 
-Ainda no ficheiro *AppDelegate.cs,* coloque uma janela de objeto. Normalmente, não precisa de definir a janela do objeto para o IOS de Xamarin, mas precisa de uma janela de objeto para enviar e receber respostas do corretor.
+Ainda no ficheiro *.cs AppDeegate,* desfise uma janela de objeto. Normalmente, não precisa de definir a janela do objeto para o IOS de Xamarin, mas precisa de uma janela de objeto para enviar e receber respostas do corretor.
 
 Para configurar a janela do objeto:
 
-1. No ficheiro *AppDelegate.cs,* definido `App.RootViewController` para um novo `UIViewController()` . Esta atribuição garante que a chamada para o corretor inclui `UIViewController` . Se esta definição for atribuída incorretamente, poderá obter este erro:
+1. No ficheiro *.cs AppDeegate,* definido `App.RootViewController` para um novo `UIViewController()` . Esta atribuição garante que a chamada para o corretor inclui `UIViewController` . Se esta definição for atribuída incorretamente, poderá obter este erro:
 
       `"uiviewcontroller_required_for_ios_broker":"UIViewController is null, so MSAL.NET cannot invoke the iOS broker. See https://aka.ms/msal-net-ios-broker"`
 
 1. Na `AcquireTokenInteractive` chamada, use `.WithParentActivityOrWindow(App.RootViewController)` e passe na referência à janela do objeto que utilizará.
 
-    Em *App.cs:*
+    Na *App.cs:*
 
     ```csharp
        public static object RootViewController { get; set; }
     ```
 
-    Em *AppDelegate.cs:*
+    No *AppDeegate.cs:*
 
     ```csharp
        LoadApplication(new App());
@@ -326,6 +326,8 @@ Por exemplo, se tiver um URI de `msauth://com.microsoft.xforms.testApp/hgbUYHVBY
                     android:path="/hgbUYHVBYUTvuvT&Y6tr554365466="/>
 ```
 
+Para obter mais informações sobre a configuração da sua aplicação para o navegador do sistema e suporte ao Android 11, consulte [Update the Android manifest para suporte ao navegador do sistema.](msal-net-xamarin-android-considerations.md#update-the-android-manifest-for-system-webview-support)
+
 Como alternativa, pode configurar a MSAL para voltar ao navegador incorporado, que não depende de um URI de redirecionamento:
 
 ```csharp
@@ -344,22 +346,22 @@ Aqui ficam algumas dicas para evitar problemas quando implementa a autenticaçã
 
     Exemplo: Se instalar primeiro o Microsoft Authenticator e depois instalar o Portal da Empresa Intune, a autenticação intermediada *só* acontecerá no Autenticador microsoft.
 - **Registos** - Se encontrar um problema com a autenticação intermediada, a visualização dos registos do corretor poderá ajudá-lo a diagnosticar a causa.
-  - Ver registos do Microsoft Authenticator:
+  - Obtenha registos autenticadores da Microsoft:
 
     1. Selecione o botão do menu no canto superior direito da aplicação.
-    1. Selecione **Ajuda**  >  **Enviar Registos**  >  **Ver Registos**.
-    1. Selecione **Copy All** para copiar os registos do corretor na área de transferência do dispositivo.
+    1. Selecione **Enviar Feedback**  >  **Com Problemas?**
+    1. Em **O que está a tentar fazer?**
+    1. Para enviar os registos, selecione a seta no canto superior direito da aplicação.
 
-    A melhor maneira de depurar com estes registos é enviar por e-mail para si mesmo e vê-los na sua máquina de desenvolvimento. Pode ser mais fácil analisar os registos do seu computador em vez de no próprio dispositivo. Também pode utilizar um editor de teste no Android para guardar os registos como ficheiro de texto e, em seguida, usar um cabo USB para copiar o ficheiro para um computador.
+    Depois de enviar os registos, uma caixa de diálogo mostra o ID do incidente. Grave a identificação do incidente, e inclua-o quando pedir assistência.
 
-  - Ver registos do Portal da Empresa Intune:
+  - Obtenha registos do Portal da Empresa Intune:
 
-    1. Selecione o botão do menu no canto superior esquerdo da aplicação
-    1. Selecione **dados de** diagnóstico de  >  **definições**
-    1. Selecione **Copy Logs** para copiar os registos do corretor no cartão SD do dispositivo.
-    1. Ligue o dispositivo a um computador utilizando um cabo USB para visualizar os registos da sua máquina de desenvolvimento.
+    1. Selecione o botão do menu no canto superior esquerdo da aplicação.
+    1. Selecione **Suporte**  >  **de e-mail de ajuda**.
+    1. Para enviar os registos, selecione **'Apenas' 'Registares'** de upload .
 
-    Assim que tiver os registos, pode pesquisar através deles as suas tentativas de autenticação através do ID de correlação. A identificação da correlação está anexada a todos os pedidos de autenticação. Para encontrar erros devolvidos pelo ponto final de autenticação da plataforma de identidade da Microsoft, procure `AADSTS` .
+    Depois de enviar os registos, uma caixa de diálogo mostra o ID do incidente. Grave a identificação do incidente, e inclua-o quando pedir assistência.
 
 ## <a name="next-steps"></a>Passos seguintes
 
