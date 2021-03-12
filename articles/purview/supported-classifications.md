@@ -1,18 +1,18 @@
 ---
 title: Lista de classificações apoiadas
 description: Esta página lista as classificações suportadas do sistema em Azure Purview.
-author: animukherjee
+author: anmuk601
 ms.author: anmuk
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: reference
-ms.date: 2/5/2021
-ms.openlocfilehash: d98f2f80bf22627eb34855234e22e314c241c852
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.date: 02/05/2021
+ms.openlocfilehash: 60aede65f8217d46844398d0199ff7edca7f36a9
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99988308"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200807"
 ---
 # <a name="supported-classifications-in-azure-purview"></a>Classificações apoiadas em Azure Purview
 
@@ -59,7 +59,9 @@ Formatado:
 - um hífen
 - quatro dígitos
 - um hífen
-- um dígito Não testado: nove dígitos consecutivos a começar com 0, 1, 2, 3, 6, 7 ou 8
+- um dígito
+
+Não formatados: nove dígitos consecutivos a começar com 0, 1, 2, 3, 6, 7 ou 8
 
 ### <a name="keywords"></a>Palavras-chave
 

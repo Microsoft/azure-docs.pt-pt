@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 01/14/2021
 ms.author: jamesmantu
 ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: 3ffd739b12bdda577c3bc302635472768160f50f
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: 0bf08c45e82dc6f36d4e179e95e1b58e655b14db
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102122668"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103224372"
 ---
 # <a name="quickstart-sign-in-and-get-an-access-token-in-a-react-spa-using-the-auth-code-flow"></a>Quickstart: Inicie e obtenha um token de acesso num React SPA usando o fluxo de código auth
 
@@ -119,12 +119,18 @@ Este quickstart utiliza o MSAL React com o fluxo de código de autorização. Pa
 > Modifique os valores na `msalConfig` secção descrita aqui:
 >
 > - `Enter_the_Application_Id_Here` é o **ID de Aplicação (cliente)** para a aplicação que registou.
+>
+>    Para encontrar o valor do ID da **Aplicação (cliente),** aceda à página **geral** do registo da aplicação no portal Azure.
 > - `Enter_the_Cloud_Instance_Id_Here` é o exemplo da nuvem Azure. Para a nuvem Azure principal ou global, `https://login.microsoftonline.com/` entre. Para nuvens **nacionais** (por exemplo, China), ver [nuvens nacionais.](authentication-national-cloud.md)
 > - `Enter_the_Tenant_info_here` é definido para um dos seguintes:
 >   - Se a sua candidatura suporta *contas neste diretório organizacional,* substitua este valor pelo **ID** do Inquilino ou **nome de Inquilino.** Por exemplo, `contoso.microsoft.com`.
+>
+>    Para encontrar o valor do ID do **Diretório (inquilino),** aceda à página **geral** do registo da aplicação no portal Azure.
 >   - Se a sua candidatura suportar *contas em qualquer diretório organizacional,* substitua este valor por `organizations` .
 >   - Se a sua aplicação suportar *contas em qualquer diretório organizacional e contas pessoais da Microsoft,* substitua este valor por `common` . **Para este arranque rápido,** utilize `common` .
 >   - Para restringir apenas o suporte às *contas pessoais da Microsoft,* substitua este valor por `consumers` .
+>
+>    Para encontrar o valor dos tipos de **conta suportada,** aceda à página **geral** do registo da aplicação no portal Azure.
 > - `Enter_the_Redirect_Uri_Here` é `http://localhost:3000/`.
 >
 > O `authority` valor do seu *authConfig.js* deve ser semelhante ao seguinte se estiver a usar a nuvem Azure principal (global):
@@ -133,9 +139,6 @@ Este quickstart utiliza o MSAL React com o fluxo de código de autorização. Pa
 > authority: "https://login.microsoftonline.com/common",
 > ```
 >
-> > [!TIP]
-> > Para encontrar os valores de ID de **aplicação (cliente),** **ID de diretório (inquilino)** e **tipos de conta suportados,** aceda à **página** geral do registo da aplicação no portal Azure.
-
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>Passo 3: A sua aplicação está configurada e pronta para correr
 > Configuramos o seu projeto com valores das propriedades da sua aplicação.

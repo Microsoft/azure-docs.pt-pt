@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: reference
-ms.date: 03/04/2021
+ms.date: 03/10/2021
 ms.author: memildin
-ms.openlocfilehash: da2201931c92939029724b1086589803845109a7
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: 7080f79ca85a401ddcd3d421bb4a0292994508dd
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102439634"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102636679"
 ---
 # <a name="whats-new-in-azure-security-center"></a>O que há de novo no Centro de Segurança Azure?
 
@@ -36,6 +36,7 @@ As atualizações em março incluem:
 - [Livros de trabalho do Monitor Azure integrados no Centro de Segurança e três modelos fornecidos](#azure-monitor-workbooks-integrated-into-security-center-and-three-templates-provided)
 - [O painel de conformidade regulamentar inclui agora os relatórios da Auditoria Azure (pré-visualização)](#regulatory-compliance-dashboard-now-includes-azure-audit-reports-preview)
 - [Atualizações das políticas de implantação da automatização do fluxo de trabalho](#updates-to-the-policies-for-deploying-workflow-automation)
+- [Duas recomendações antigas já não escrevem dados diretamente para o registo de atividades da Azure](#two-legacy-recommendations-no-longer-write-data-directly-to-azure-activity-log)
 
 
 ### <a name="azure-firewall-management-integrated-into-security-center"></a>Gestão do Azure Firewall integrada no Centro de Segurança
@@ -113,6 +114,19 @@ Existem duas atualizações para as características destas políticas:
 Começa com [modelos de automatização de fluxos de trabalho.](https://github.com/Azure/Azure-Security-Center/tree/master/Workflow%20automation)
 
 Saiba mais sobre como [automatizar respostas aos gatilhos do Centro de Segurança.](workflow-automation.md)
+
+
+### <a name="two-legacy-recommendations-no-longer-write-data-directly-to-azure-activity-log"></a>Duas recomendações antigas já não escrevem dados diretamente para o registo de atividades da Azure 
+
+O Centro de Segurança transmite os dados de quase todas as recomendações de segurança ao Azure Advisor que, por sua vez, os escreve para o [registo de atividades do Azure.](../azure-monitor/essentials/activity-log.md)
+
+Para duas recomendações, os dados são simultaneamente escritos diretamente no registo de atividades do Azure. Com esta alteração, o Security Center deixa de escrever dados para estas recomendações de segurança antigas diretamente ao Registo de Atividade. Em vez disso, estamos a exportar os dados para o Azure Advisor, como fazemos para todas as outras recomendações.
+
+As duas recomendações antigas são:
+- Problemas de saúde de proteção de ponto final devem ser resolvidos nas suas máquinas
+- As vulnerabilidades na configuração de segurança das suas máquinas devem ser remediadas
+
+Se tem acedido a informações para estas duas recomendações na categoria "Recomendação do tipo TaskDiscovery" do registo de atividades, esta já não está disponível.
 
 
 

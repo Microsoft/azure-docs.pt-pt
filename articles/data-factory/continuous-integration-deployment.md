@@ -6,13 +6,13 @@ author: dcstwh
 ms.author: weetok
 ms.reviewer: maghan
 ms.topic: conceptual
-ms.date: 02/18/2021
-ms.openlocfilehash: 2fd8911ca11ee6dfcf795347e1fe7f2c36a2b636
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/11/2021
+ms.openlocfilehash: 4f03236176acea14bed2dfaac53b1a1e6cf7a1e2
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101716541"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103197875"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Integração e entrega contínuas no Azure Data Factory
 
@@ -204,7 +204,7 @@ Se a sua fábrica de desenvolvimento tiver um repositório de git associado, pod
 * Utiliza CI/CD automatizado e pretende alterar algumas propriedades durante a implementação do Gestor de Recursos, mas as propriedades não são parametrizadas por padrão.
 * A sua fábrica é tão grande que o modelo de Gestor de Recursos predefinido é inválido porque tem mais do que os parâmetros máximos permitidos (256).
 
-    Para lidar com o parâmetro personalizado limite 256, existem 3 opções:    
+    Para lidar com o limite do parâmetro 256 personalizado, existem três opções:    
   
     * Utilize o ficheiro de parâmetros personalizados e remova propriedades que não necessitam de parametrização, ou seja, propriedades que podem manter um valor padrão e, portanto, diminuir a contagem de parâmetros.
     * A lógica do refactor no fluxo de dados para reduzir parâmetros, por exemplo, os parâmetros do pipeline todos têm o mesmo valor, pode apenas usar parâmetros globais em vez disso.
@@ -333,6 +333,10 @@ Aqui está uma explicação de como o modelo anterior é construído, dividido p
 #### <a name="datasets"></a>Conjuntos de dados
 
 * Embora a personalização específica do tipo esteja disponível para conjuntos de dados, pode fornecer configuração sem ter explicitamente uma \* configuração de nível. No exemplo anterior, todas as propriedades do conjunto de `typeProperties` dados são parametrizadas.
+
+> [!NOTE]
+> **Alertas e matrizes azure**  se configurados para um gasoduto não são atualmente suportados como parâmetros para as implementações da ARM. Para reaplicar os alertas e matrizes em novos ambientes, siga a [Monitorização, Alertas e Matrizes da Data Factory.](https://docs.microsoft.com/azure/data-factory/monitor-using-azure-monitor#data-factory-metrics)
+> 
 
 ### <a name="default-parameterization-template"></a>Modelo de parametrização padrão
 
@@ -678,6 +682,8 @@ Se estiver a utilizar a integração do Git com a sua fábrica de dados e tiver 
 -   Não pode publicar de agências privadas.
 
 -   Não pode atualmente acolher projetos no Bitbucket.
+
+-   Não se pode exportar e importar alertas e matrizes como parâmetros. 
 
 ## <a name="sample-pre--and-post-deployment-script"></a><a name="script"></a> Guião pré e pós-implantação da amostra
 

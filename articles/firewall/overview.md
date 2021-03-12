@@ -6,15 +6,15 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc, contperf-fy21q1
-ms.date: 02/24/2021
+ms.date: 03/10/2021
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: 6e5b553ea3be7e5b4b1d8cb396b35fdf2d5796a9
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 0982f0293b452c29a1c9fbb46cb24d47e70c0f5e
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101721774"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102615572"
 ---
 # <a name="what-is-azure-firewall"></a>O que é o Azure Firewall?
 
@@ -53,7 +53,7 @@ Para saber as novidades com o Azure Firewall, consulte as atualizações do [Azu
 
 O Azure Firewall tem os seguintes problemas conhecidos:
 
-|Problema  |Descrição  |Mitigação  |
+|Problema  |Description  |Mitigação  |
 |---------|---------|---------|
 |Se atualizar uma regra do endereço IP para o Ip Group ou vice-versa utilizando o portal, ambos os tipos são guardados, mas apenas um é apresentado no portal.|Esta questão acontece com as regras clássicas.<br><br>Quando utiliza o portal para atualizar um tipo de origem de regra NAT do endereço IP para o Ip Group ou vice-versa, guarda ambos os tipos no backend, mas apresenta apenas o tipo recém-actualizado.<br><br>O mesmo problema existe quando atualiza um tipo de destino de regra de rede ou aplicação do endereço IP para o tipo ip group ou vice-versa.|Uma correção do portal está prevista para março de 2021.<br><br>Entretanto, utilize a Azure PowerShell, Azure CLI ou API para modificar uma regra do endereço IP para o Ip Group ou vice-versa.|
 |As regras de filtragem de rede para protocolos não TCP/UDP (por exemplo, ICMP) não funcionam para o tráfego vinculado à Internet|As regras de filtragem da rede para protocolos não-TCP/UDP não funcionam com o SNAT no seu endereço IP público. Os protocolos não TCP/UDP são suportados entre VNets e sub-redes spoke.|O Azure Firewall utiliza o Balanceador de Carga Standard [que não suporta atualmente SNAT para protocolos IP](../load-balancer/load-balancer-overview.md). Estamos a explorar opções para apoiar este cenário num futuro lançamento.|
@@ -83,6 +83,6 @@ O Azure Firewall tem os seguintes problemas conhecidos:
 
 ## <a name="next-steps"></a>Passos seguintes
 
+- [Quickstart: Crie uma Firewall Azure e uma política de firewall - modelo ARM](../firewall-manager/quick-firewall-policy.md)
+- [Quickstart: Implementar firewall Azure com Zonas de Disponibilidade - modelo ARM](deploy-template.md)
 - [Tutorial: Implementar e configurar o Azure Firewall com o portal do Azure](tutorial-firewall-deploy-portal.md)
-- [Implementar o Azure Firewall através de um modelo](deploy-template.md)
-- [Criar um ambiente de teste do Azure Firewall](scripts/sample-create-firewall-test.md)

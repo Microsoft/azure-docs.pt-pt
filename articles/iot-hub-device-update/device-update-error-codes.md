@@ -1,17 +1,17 @@
 ---
 title: Códigos de erro do cliente para atualização de dispositivos para Azure IoT Hub | Microsoft Docs
 description: Este documento fornece uma tabela de códigos de erro do cliente para vários componentes de Atualização de Dispositivos.
-author: lichris
+author: chrisjlin
 ms.author: lichris
 ms.date: 2/18/2021
 ms.topic: reference
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 5251d0cb09e40305d1efd89c31d3af0fa36ad385
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: dbdddc7cee0c3664a83501ba619a38e1cc44e1f3
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101663650"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200345"
 ---
 # <a name="device-update-for-iot-hub-error-codes"></a>Atualização do dispositivo para códigos de erro do hub IoT
 
@@ -38,7 +38,7 @@ Provavelmente verá o `ExtendedResultCode` número de inteiros assinados na inte
 
 **Códigos de Facilidade**
 
-| Código de Facilidade     | Descrição  |
+| Código de Facilidade     | Description  |
 |-------------------|--------------|
 | D                 | Erro levantado do DO SDK|
 | E                 | O código de erro é um errno |
@@ -59,26 +59,19 @@ A representação hexa negra não assinada `-536870781` `FFFFFFFF E0000083` é.
 ## <a name="delivery-optimization-agent"></a>Agente de otimização de entrega
 A tabela que se segue lista os códigos de erro relativos ao componente de Otimização de Entrega (DO) do cliente de Atualização do Dispositivo. O componente DO é responsável por descarregar conteúdo de atualização no dispositivo IoT.
 
-O código de erro DO pode ser obtido examinando as exceções lançadas em resposta a uma chamada da API.
+O código de erro DO pode ser obtido examinando as exceções lançadas em resposta a uma chamada da API. Todos os códigos de erro DO podem ser identificados pelo prefixo 0x80D0.
 
-| Código de Erro  | Erro de cadeia                       | Tipo                 | Descrição |
+| Código de Erro  | Erro de cadeia                       | Tipo                 | Description |
 |-------------|------------------------------------|----------------------|-------------|
 | 0x80D01001L | DO_E_NO_SERVICE                    | n/a                  | A Otimização de Entrega não foi capaz de fornecer o serviço |
 | 0x80D02002L | DO_E_DOWNLOAD_NO_PROGRESS          | Baixar Job         | O download de um ficheiro não viu progressos dentro do período definido |
-| 0x80D02003L | DO_E_JOB_NOT_FOUND                 | Baixar Job         | O trabalho não foi encontrado. |
-| 0x80D02005L | DO_E_NO_DOWNLOADS                  | Baixar Job         | Não existem atualmente downloads |
-| 0x80D0200CL | DO_E_JOB_TOO_OLD                   | Baixar Job         | O trabalho não foi concluído ou foi cancelado antes de atingir o limiar máximo de idade |
 | 0x80D02011L | DO_E_UNKNOWN_PROPERTY_ID           | Baixar Job         | SetProperty() ou GetProperty() chamado com um ID de propriedade desconhecida |
 | 0x80D02012L | DO_E_READ_ONLY_PROPERTY            | Baixar Job         | Não é possível ligar para o SetProperty numa propriedade só de leitura |
 | 0x80D02013L | DO_E_INVALID_STATE                 | Baixar Job         | A ação solicitada não é permitida no estado de trabalho atual. O trabalho pode ter sido cancelado ou concluído a transferência. Está num estado só de leitura agora. |
 | 0x80D02018L | DO_E_FILE_DOWNLOADSINK_UNSPECIFIED | Baixar Job         | Não é possível iniciar um download porque não foi especificado nenhum lavatório de descarregamento (arquivo local ou interface de fluxo) |
 | 0x80D02200L | DO_E_DOWNLOAD_NO_URI               | IDODownload Interface| O download foi iniciado sem fornecer um URI |
 | 0x80D03805L | DO_E_BLOCKED_BY_NO_NETWORK         | Condições transitórias | Download interrompido devido à perda de conectividade da rede |
-| 0x80D05001L | DO_E_HTTP_BLOCKSIZE_MISMATCH       | HTTP                 | O servidor HTTP devolveu uma resposta com o tamanho dos dados não igual ao que foi solicitado |
-| 0x80D05002L | DO_E_HTTP_CERT_VALIDATION          | HTTP                 | A validação do certificado do servidor HTTP falhou |
-| 0x80D05010L | DO_E_INVALID_RANGE                 | HTTP                 | A gama byte especificada é inválida |
-| 0x80D05011L | DO_E_INSUFFICIENT_RANGE_SUPPORT    | HTTP                 | O servidor não suporta o protocolo HTTP necessário. A Otimização de Entrega (DO) requer que o servidor suporte o cabeçalho do protocolo Range |
-| 0x80D05012L | DO_E_OVERLAPPING_RANGES            | HTTP                 | A lista de gamas byte contém algumas gamas sobrepostas, que não são suportadas |
+
 ## <a name="device-update-content-service"></a>Serviço de conteúdo de atualização de dispositivos
 A tabela que se segue lista os códigos de erro relativos ao componente de serviço de conteúdo do serviço de atualização do dispositivo. A componente de serviço de conteúdo é responsável pelo tratamento da importação de conteúdos de atualização.
 

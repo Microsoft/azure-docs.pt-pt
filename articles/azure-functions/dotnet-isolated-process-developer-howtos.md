@@ -4,14 +4,14 @@ description: Aprenda a criar e depurar funções C# utilizando .NET 5.0 e, em se
 ms.date: 03/03/2021
 ms.topic: how-to
 zone_pivot_groups: development-environment-functions
-ms.openlocfilehash: 70eacc5ec7f6adb65ba6e01c55acc6c6e3075ca9
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 9751d5d354d738a64d6b02e8153464491d78ec14
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102584137"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103201374"
 ---
-# <a name="develop-and-publish-net-5-function-using-azure-functions"></a>Desenvolver e publicar a função .NET 5 utilizando funções Azure 
+# <a name="develop-and-publish-net-5-functions-using-azure-functions"></a>Desenvolver e publicar funções .NET 5 utilizando funções Azure 
 
 Este artigo mostra-lhe como trabalhar com funções C# utilizando .NET 5.0, que fica sem processo a partir do tempo de funcionamento das Funções Azure. Você vai aprender a criar, depurar localmente, e publicar estas funções de processo isolado .NET para Azure. Em Azure, estas funções funcionam num processo isolado que suporta .NET 5.0. Para saber mais, consulte [o Guia para executar funções em .NET 5.0 em Azure](dotnet-isolated-process-guide.md).
 
@@ -105,7 +105,7 @@ Em Funções Azure, um projeto de função é um recipiente para uma ou mais fun
     func new --name HttpExample --template "HTTP trigger" --authlevel "anonymous"
     ``` 
 
-    `func new` cria um ficheiro de código HttpExample.cs.
+    `func new` cria um ficheiro de código httpExample.cs.
 ::: zone-end  
 
 ::: zone pivot="development-environment-vscode"  
@@ -152,7 +152,7 @@ Neste ponto, pode executar o `func start` comando a partir da raiz da sua pasta 
  
 1. Na saída de tempo de execução do Azure Functions, tome nota do ID do processo de funcionamento do processo de anfitrião, ao qual irá anexar um depurador. Note também o URL da sua função local.
 
-1. A partir do menu **Debug** em Visual Studio, **selecione Attach to Process...**, localize o processo dotnet.exe que corresponda ao ID do processo e selecione **Attach**. 
+1. A partir do menu **Debug** em Visual Studio, **selecione Attach to Process...**, localize o processo que corresponde ao ID do processo e selecione **Attach**. 
     
     :::image type="content" source="media/dotnet-isolated-process-developer-howtos/attach-to-process.png" alt-text="Anexar o depurar ao processo de anfitrião de funções":::    
 

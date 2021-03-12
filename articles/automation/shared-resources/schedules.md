@@ -5,12 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 09/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: 844a45c9b596522b949443b6edc311308da7806c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f40e3d555d6e1472b9d2368a114ee27d588f6383
+ms.sourcegitcommit: 6776f0a27e2000fb1acb34a8dddc67af01ac14ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90004617"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103149482"
 ---
 # <a name="manage-schedules-in-azure-automation"></a>Gerir horários na Azure Automation
 
@@ -26,7 +26,7 @@ Para agendar um livro de execução na Azure Automation para começar numa hora 
 
 Os cmdlets na tabela seguinte criam e gerem horários de Automação com o PowerShell. Eles enviam como parte dos [módulos Az.](modules.md#az-modules)
 
-| Cmdlets | Descrição |
+| Cmdlets | Description |
 |:--- |:--- |
 | [Get-AzAutomationSchedule](/powershell/module/Az.Automation/Get-AzAutomationSchedule) |Recupera um horário. |
 | [Get-AzAutomationScheduldRunbook](/powershell/module/az.automation/get-azautomationscheduledrunbook) |Recupera livros de corridas programados. |
@@ -59,7 +59,7 @@ Pode criar um novo horário para os seus runbooks no portal Azure ou com o Power
 
     ![Definição de horário recorrente de fim de semana](../media/schedules/week-end-weekly-recurrence.png)
 
-    * Se selecionar **mês,** é-lhe dadas diferentes opções. Para a opção **de ocorrências mensais,** selecione **os dias mensais** ou **semanas**. Se selecionar **dias de mês,** aparece um calendário para que possa escolher quantos dias quiser. Se escolher uma data como a 31ª que não ocorre no mês em curso, o horário não será executado. Se quiser que o horário seja executado no último dia, selecione **Sim** em **Execução no último dia do mês**. Se selecionar **os dias semanais,** aparece todas as opções **de Recur.** Escolha **primeiro,** **segundo,** **terceiro,** **quarto**ou **último**. Finalmente, escolha um dia para repetir.
+    * Se selecionar **mês,** é-lhe dadas diferentes opções. Para a opção **de ocorrências mensais,** selecione **os dias mensais** ou **semanas**. Se selecionar **dias de mês,** aparece um calendário para que possa escolher quantos dias quiser. Se escolher uma data como a 31ª que não ocorre no mês em curso, o horário não será executado. Se quiser que o horário seja executado no último dia, selecione **Sim** em **Execução no último dia do mês**. Se selecionar **os dias semanais,** aparece todas as opções **de Recur.** Escolha **primeiro,** **segundo,** **terceiro,** **quarto** ou **último**. Finalmente, escolha um dia para repetir.
 
     ![Horário mensal no primeiro, décimo quinto e último dia do mês](../media/schedules/monthly-first-fifteenth-last.png)
 
@@ -119,6 +119,47 @@ O exemplo a seguir mostra como criar um horário recorrente que funciona no prim
 ```azurepowershell-interactive
 $StartTime = (Get-Date "18:00:00").AddDays(1)
 New-AzAutomationSchedule -AutomationAccountName "TestAzureAuto" -Name "1st, 15th and Last" -StartTime $StartTime -DaysOfMonth @("One", "Fifteenth", "Last") -ResourceGroupName "TestAzureAuto" -MonthInterval 1
+```
+
+## <a name="create-a-schedule-with-a-resource-manager-template"></a>Crie um horário com um modelo de Gestor de Recursos
+
+Neste exemplo, usamos um modelo de Gestor de Recursos de Automação (ARM) que cria um novo horário de trabalho. Para obter informações gerais sobre este modelo para gerir os horários de trabalho da Automação, consulte [a referência do modelo microsoft.Automation automation](/templates/microsoft.automation/automationaccounts/jobschedules#quickstart-templates)
+
+Copie este ficheiro de modelo num editor de texto:
+
+```json
+{
+  "name": "5d5f3a05-111d-4892-8dcc-9064fa591b96",
+  "type": "Microsoft.Automation/automationAccounts/jobSchedules",
+  "apiVersion": "2015-10-31",
+  "properties": {
+    "schedule": {
+      "name": "scheduleName"
+    },
+    "runbook": {
+      "name": "runbookName"
+    },
+    "runOn": "hybridWorkerGroup",
+    "parameters": {}
+  }
+}
+```
+
+Edite os seguintes valores de parâmetro e guarde o modelo como um ficheiro JSON:
+
+* Nome do objeto da agenda de trabalho: Um GUID (Globalmente Unique Identifier) é usado como o nome do objeto do agendamento de trabalho.
+
+   >[!IMPORTANT]
+   > Para cada programa de trabalho implantado com um modelo ARM, o GUID deve ser único. Mesmo que esteja a reagendar um horário existente, terá de alterar o GUID. Isto aplica-se mesmo que tenha apagado previamente um horário de trabalho existente que foi criado com o mesmo modelo. Reutilizar o mesmo GUID resulta numa implantação falhada.</br></br>
+   > Existem serviços online que podem gerar um novo GUID para si, como este [Gerador GUIADO Online Gratuito.](https://guidgenerator.com/)
+
+* Nome da agenda: Representa o nome do horário de trabalho da Automatização que estará ligado ao livro de contas especificado.
+* Nome do runbook: Representa o nome do livro de trabalho da Automação com o qual o horário de trabalho deve ser associado.
+
+Uma vez guardado o ficheiro, pode criar o horário de trabalho do runbook com o seguinte comando PowerShell. O comando utiliza o `TemplateFile` parâmetro para especificar o caminho e o nome de arquivo do modelo.
+
+```powershell
+New-AzResourceGroupDeployment -ResourceGroupName "ContosoEngineering" -TemplateFile "<path>\RunbookJobSchedule.json"
 ```
 
 ## <a name="link-a-schedule-to-a-runbook"></a>Ligue um horário a um livro de corridas

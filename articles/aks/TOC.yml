@@ -136,8 +136,10 @@
       items:
         - name: Dimensionar um cluster do AKS
           href: scale-cluster.md
-        - name: Parar um cluster AKS (pré-visualizar)
+        - name: Pare um cluster AKS
           href: start-stop-cluster.md
+        - name: Utilizar a manutenção planeada (pré-visualização)
+          href: planned-maintenance.md
         - name: Atualizar um cluster do AKS
           href: upgrade-cluster.md
         - name: Utilizar SLA de Tempo de Atividade

@@ -7,16 +7,16 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/30/2020
-ms.openlocfilehash: ceb30cee194994e5b31db312f191194932c937b4
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 476355f41de5e0e6aaffdedea8947cab5221767a
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96554106"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200736"
 ---
 # <a name="data-lineage-in-azure-purview-data-catalog-client"></a>Linhagem de dados no cliente do Catálogo de Dados Azure Purview
 
-Este artigo fornece uma visão geral da linhagem de dados no Catálogo de Dados do Azure Purview. Também detalha como os sistemas de dados podem integrar-se com o catálogo para capturar a linhagem de dados. A visão pode capturar a linhagem para dados em diferentes partes da propriedade de dados das suas organizações, e em diferentes níveis de preparação, incluindo:
+Este artigo fornece uma visão geral da linhagem de dados no Catálogo de Dados do Azure Purview. Também detalha como os sistemas de dados podem integrar-se com o catálogo para capturar a linhagem de dados. A visão pode capturar a linhagem de dados em diferentes partes do espólio de dados da sua organização, e em diferentes níveis de preparação, incluindo:
 
 - Dados completamente brutos encenados a partir de várias plataformas
 - Dados transformados e preparados

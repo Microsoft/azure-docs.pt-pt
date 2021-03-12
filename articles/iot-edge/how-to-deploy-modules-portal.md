@@ -8,14 +8,16 @@ ms.date: 10/13/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ef3f09648e0d9101d07c6d8941ee7f79ae97b2b8
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 9248c9578d94b000c04c82b33eeeb089e55a26ef
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048037"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200300"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-the-azure-portal"></a>Implementar módulos Azure IoT Edge a partir do portal Azure
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Uma vez criados módulos IoT Edge com a sua lógica de negócio, pretende implantá-los nos seus dispositivos para operar na borda. Se tiver vários módulos que trabalham em conjunto para recolher e processar dados, pode implantá-los todos de uma vez e declarar as regras de encaminhamento que os ligam.
 
@@ -32,7 +34,7 @@ Este artigo mostra como o portal Azure o guia através da criação de um manife
 
 Um manifesto de implantação é um documento JSON que descreve quais os módulos a implementar, como os dados fluem entre os módulos e as propriedades desejadas dos gémeos módulos. Para obter mais informações sobre como os manifestos de implantação funcionam e como criá-los, consulte como os [módulos IoT Edge podem ser usados, configurados e reutilizados.](module-composition.md)
 
-O portal Azure tem um assistente que o acompanha através da criação do manifesto de implantação, em vez de construir o documento JSON manualmente. Tem três etapas: **Adicionar módulos,** **especificar rotas**e **revisão.**
+O portal Azure tem um assistente que o acompanha através da criação do manifesto de implantação, em vez de construir o documento JSON manualmente. Tem três etapas: **Adicionar módulos,** **especificar rotas** e **revisão.**
 
 >[!NOTE]
 >Os passos deste artigo refletem a versão mais recente do esquema do agente e hub IoT Edge. A versão 1.1 do Schema foi lançada juntamente com a versão 1.0.10 do IoT Edge e permite a ordem de arranque do módulo e as funcionalidades de priorização da rota.
@@ -108,7 +110,7 @@ Pode implantar rapidamente um módulo do Azure Marketplace no seu dispositivo no
 1. No painel esquerdo, em **Gestão Automática de Dispositivos,** selecione **IoT Edge**.
 1. Selecione o dispositivo IoT Edge que deve receber a implementação.
 1. Na barra superior, selecione **Módulos de Conjunto**.
-1. Na secção **Módulos IoT Edge,** clique em **Adicionar**e selecione **o Módulo De Mercado** a partir do menu suspenso.
+1. Na secção **Módulos IoT Edge,** clique em **Adicionar** e selecione **o Módulo De Mercado** a partir do menu suspenso.
 
 ![Adicione módulo no IoT Hub](./media/how-to-deploy-modules-portal/iothub-add-module.png)
 

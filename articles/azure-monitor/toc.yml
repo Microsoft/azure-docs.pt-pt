@@ -475,8 +475,6 @@
           items:
             - name: Gerir alertas de métrica
               href: alerts/alerts-metric.md
-            - name: Disponibilidade
-              href: app/monitor-web-app-availability.md
             - name: Utilizar limiares dinâmicos
               href: alerts/alerts-dynamic-thresholds.md
             - name: Alertas individuais para muitas séries temporais

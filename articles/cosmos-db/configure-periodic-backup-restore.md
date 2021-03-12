@@ -7,17 +7,17 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 185320868c491d98df5fb6e31d9a627157431944
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 69a9f0a82f5c19504564825e47f69ab8414e0909
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99527783"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102565840"
 ---
 # <a name="configure-azure-cosmos-db-account-with-periodic-backup"></a>Configure conta DB Azure Cosmos com backup periódico
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-A Azure Cosmos DB recolhe automaticamente cópias de segurança dos seus dados em intervalos regulares. As cópias de segurança automáticas são tomadas sem afetar o desempenho ou disponibilidade das operações de base de dados. Todos os backups são armazenados separadamente num serviço de armazenamento, e esses backups são globalmente replicados para resiliência contra desastres regionais. Com a Azure Cosmos DB, não só os seus dados, mas também os backups dos seus dados são altamente redundantes e resistentes a desastres regionais. Os seguintes passos mostram como a Azure Cosmos DB executa a cópia de segurança de dados:
+O Azure Cosmos DB tira automaticamente cópias de segurança dos dados em intervalos regulares. As cópias de segurança automáticas são feitas sem afetar o desempenho ou a disponibilidade das operações da base de dados. Todos os backups são armazenados separadamente num serviço de armazenamento, e esses backups são globalmente replicados para resiliência contra desastres regionais. Com a Azure Cosmos DB, não só os seus dados, mas também os backups dos seus dados são altamente redundantes e resistentes a desastres regionais. Os seguintes passos mostram como a Azure Cosmos DB executa a cópia de segurança de dados:
 
 * A Azure Cosmos DB recebe automaticamente uma cópia de segurança completa da sua base de dados a cada 4 horas e, em qualquer momento, apenas as duas cópias de segurança mais recentes são armazenadas por padrão. Se os intervalos predefinidos não forem suficientes para as suas cargas de trabalho, pode alterar o intervalo de backup e o período de retenção a partir do portal Azure. Pode alterar a configuração de backup durante ou após a criação da conta Azure Cosmos. Se o contentor ou base de dados for eliminado, a Azure Cosmos DB mantém as imagens existentes de um dado ou base de dados durante 30 dias.
 
@@ -33,7 +33,7 @@ A Azure Cosmos DB recolhe automaticamente cópias de segurança dos seus dados e
 
 ## <a name="modify-the-backup-interval-and-retention-period"></a><a id="configure-backup-interval-retention"></a>Modifique o intervalo de backup e o período de retenção
 
-A Azure Cosmos DB requer automaticamente uma cópia de segurança completa dos seus dados por cada 4 horas e, em qualquer momento, as duas últimas cópias de segurança são armazenadas. Esta configuração é a opção padrão e é oferecida sem qualquer custo extra. Pode alterar o intervalo de backup predefinido e o período de retenção durante a criação da conta Azure Cosmos ou após a criação da conta. A configuração da cópia de segurança é definida ao nível da conta do Azure Cosmos e é preciso configurá-la em cada conta. Depois de configurar as opções de backup para uma conta, é aplicada a todos os contentores dentro dessa conta. Atualmente, só pode alterar as opções de cópia de segurança no portal do Azure.
+A Azure Cosmos DB requer automaticamente uma cópia de segurança completa dos seus dados por cada 4 horas e, em qualquer momento, as duas últimas cópias de segurança são armazenadas. Esta configuração é a opção padrão e é oferecida sem qualquer custo extra. Pode alterar o intervalo de cópia de segurança e o período de retenção predefinidos durante ou após a criação da conta do Azure Cosmos. A configuração da cópia de segurança é definida ao nível da conta do Azure Cosmos e é preciso configurá-la em cada conta. Depois de configurar as opções de backup para uma conta, é aplicada a todos os contentores dentro dessa conta. Atualmente, só pode alterar as opções de cópia de segurança no portal do Azure.
 
 Se acidentalmente eliminou ou corrompeu os seus dados, **antes de criar um pedido de suporte para restaurar os dados, certifique-se de aumentar a retenção de backup da sua conta para pelo menos sete dias. É melhor aumentar a sua retenção dentro de 8 horas deste evento.** Desta forma, a equipa do Azure Cosmos DB tem tempo suficiente para restaurar a conta.
 
@@ -115,7 +115,7 @@ Se fornecer produção ao nível da base de dados, o processo de backup e restau
 Os principais que fazem parte do papel [CosmosdbBackupOperator,](../role-based-access-control/built-in-roles.md#cosmosbackupoperator)proprietário ou colaborador são autorizados a solicitar um restauro ou alterar o período de retenção.
 
 ## <a name="understanding-costs-of-extra-backups"></a>Compreender os custos das cópias de segurança adicionais
-Duas cópias de segurança são fornecidas gratuitamente e são cobradas cópias de segurança extra de acordo com os preços baseados na região para armazenamento de backup descritos nos [preços de armazenamento de backup](https://azure.microsoft.com/en-us/pricing/details/cosmos-db/). Por exemplo, se a retenção de backup estiver configurada a 240 horas, ou seja, 10 dias e intervalo de backup a 24 horas. Isto implica 10 cópias dos dados de reserva. Assumindo 1 TB de dados em West US 2, o seria 1000 * 0,12 ~ $ 120 para armazenamento de backup em dado mês. 
+Duas cópias de segurança são fornecidas gratuitamente e são cobradas cópias de segurança extra de acordo com os preços baseados na região para armazenamento de backup descritos nos [preços de armazenamento de backup](https://azure.microsoft.com/en-us/pricing/details/cosmos-db/). Por exemplo, se a retenção de backup estiver configurada a 240 horas, ou seja, 10 dias e intervalo de backup a 24 horas. Isto implica 10 cópias dos dados de reserva. Assumindo que 1 TB de dados no Oeste dos EUA 2, o custo será de 0,12 * 1000 * 8 para armazenamento de backup em dado mês. 
 
 
 ## <a name="options-to-manage-your-own-backups"></a>Opções para gerir os seus próprios backups

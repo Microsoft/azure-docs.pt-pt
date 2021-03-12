@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Configurar obterAbstract para fornecimento automático de utilizadores com Azure Ative Directory | Microsoft Docs'
-description: Saiba como provisão e desa provisionar automaticamente as contas de utilizadores da Azure AD para obter aAbstract.
+description: Saiba como providenciar e desprovisionar automaticamente as contas dos utilizadores do Azure Ative Directory para obter oAbstract.
 services: active-directory
 documentationcenter: ''
 author: Zhchia
@@ -15,116 +15,116 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2021
 ms.author: Zhchia
-ms.openlocfilehash: 25253e9a302a34fb473da63ad4cad562d6302a8a
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 1d1b2417750b917f5b09bb53ee980887218a785c
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101651751"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102616150"
 ---
 # <a name="tutorial-configure-getabstract-for-automatic-user-provisioning"></a>Tutorial: Configurar obterAbstract para o fornecimento automático de utilizadores
 
-Este tutorial descreve os passos necessários para realizar tanto no getAbstract como no Azure Ative Directory (Azure AD) para configurar o fornecimento automático do utilizador. Quando configurado, a Azure AD fornece automaticamente e deseserta utilizadores e grupos para [obterAbstract](https://www.getabstract.com) usando o serviço de provisionamento Azure AD. Para obter detalhes importantes sobre o que este serviço faz, como funciona e perguntas frequentes, veja [Automatizar o aprovisionamento e desaprovisionamento de utilizadores em aplicações SaaS no Azure Active Directory](../app-provisioning/user-provisioning.md). 
+Este tutorial descreve os passos necessários para realizar tanto no getAbstract como no Azure Ative Directory (Azure AD) para configurar o fornecimento automático do utilizador. Quando configurado, o Azure AD fornece automaticamente e desprovisiona utilizadores e grupos para [obterAbstract](https://www.getabstract.com) utilizando o serviço de fornecimento Azure AD. Para obter detalhes importantes sobre o que este serviço faz, como funciona, e perguntas frequentes, consulte [automatizar o fornecimento e desprovisionamento do utilizador para software como aplicações de serviço (SaaS) com Azure AD](../app-provisioning/user-provisioning.md).
 
+## <a name="capabilities-supported"></a>Capacidades suportadas
 
-## <a name="capabilities-supported"></a>Capacidades Suportadas
 > [!div class="checklist"]
 > * Criar utilizadores no getAbstract.
 > * Remova os utilizadores no getAbstract quando já não necessitam de acesso.
 > * Mantenha os atributos do utilizador sincronizados entre Azure AD e getAbstract.
 > * Grupos de provisão e membros do grupo no getAbstract.
-> * [Único sinal para](getabstract-tutorial.md) obterAbstract (recomendado)
+> * Faça com que [o sign-on único (SSO)](getabstract-tutorial.md) obtenha oAbstract (recomendado).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 O cenário delineado neste tutorial pressupõe que já tem os seguintes pré-requisitos:
 
-* [Um inquilino da AD AZure](../develop/quickstart-create-new-tenant.md) 
-* Uma conta de utilizador em Azure AD com [permissão](../roles/permissions-reference.md) para configurar o provisionamento (por exemplo, Administrador de Aplicação, Administrador de Aplicação cloud, Proprietário de Aplicações ou Administrador Global). 
-* Um inquilino getAbstract (obter licença Corporativa Corporativa).
+* [Um inquilino do Azure AD](../develop/quickstart-create-new-tenant.md).
+* Uma conta de utilizador em Azure AD com [permissão](../roles/permissions-reference.md) para configurar o provisionamento. Exemplos são Administrador de Aplicação, Administrador de Aplicação cloud, Proprietário de Aplicações ou Administrador Global.
+* Um inquilino getAbstract (obter licença corporativa corporativa deAbstract).
 * SSO habilitado para inquilino Azure AD e obter inquilinoabstrato.
-* Aprovação e SCIM habilitando para obterAbstract (enviar e-mail para b2b.itsupport@getabstract.com ).
+* Aprovação e Sistema de Gestão de Identidade de Domínio Cruzado (SCIM) que permite obterAbstract. (Enviar e-mail para b2b.itsupport@getabstract.com .)
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Passo 1. Planear a sua implementação de aprovisionamento
+
 1. Saiba [como funciona o serviço de aprovisionamento](../app-provisioning/user-provisioning.md).
-2. Determine quem vai estar no [âmbito do aprovisionamento](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
-3. Determine quais os dados a [mapear entre Azure AD e getAbstract](../app-provisioning/customize-application-attributes.md). 
+1. Determine quem vai estar no [âmbito do aprovisionamento](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+1. Determine quais os dados a [mapear entre Azure AD e getAbstract](../app-provisioning/customize-application-attributes.md).
 
 ## <a name="step-2-configure-getabstract-to-support-provisioning-with-azure-ad"></a>Passo 2. Configure obterAbstract para apoiar o provisionamento com Azure AD
-1. Inscreva-se no getAbstract
-2. Clique no ícone de definições localizado no canto superior direito e clique na opção **Admin Central,**
- 
-    ![getAbstract My Central Admin](media/getabstract-provisioning-tutorial/my-account.png)
 
-3. Localizar e clicar na opção **administração SCIM**
- 
-    ![getAbstract SCIM Admin](media/getabstract-provisioning-tutorial/scim-admin.png) 
+1. Inscreva-se para obterAbstract.
+1. Selecione o ícone de definições localizado no canto superior direito e selecione a opção **My Central Admin.**
 
-4. Clique no botão **Go** 
+    ![Screenshot que mostra o getAbstract My Central Admin.](media/getabstract-provisioning-tutorial/my-account.png)
 
-    ![getAbstract SCIM Client Id](media/getabstract-provisioning-tutorial/scim-client-go.png)
+1. Localize e selecione a opção **ADMINISTRAÇÃO SCIM.**
 
-5. Clique no **novo token Gerar**
+    ![Screenshot que mostra o getAbstract SCIM Admin.](media/getabstract-provisioning-tutorial/scim-admin.png)
 
-    ![getAbstract SCIM Token 1](media/getabstract-provisioning-tutorial/scim-generate-token-step-2.png)
+1. Selecione **Go**.
 
-6. Se tiver a certeza, clique no botão **'Gerar novo token'.** Caso contrário, clique no botão **Cancelar**
+    ![Screenshot que mostra o getAbstract SCIM Client Id.](media/getabstract-provisioning-tutorial/scim-client-go.png)
 
-    ![getAbstract SCIM Token 2](media/getabstract-provisioning-tutorial/scim-generate-token-step-1.png)
+1. **Selecione Gerer novo símbolo**.
 
-7. Por último, pode clicar na cópia para o ícone da área de transferência ou selecionar todo o token e copiá-lo. Também tome nota de que o Inquilino/URL base `https://www.getabstract.com/api/scim/v2` é. Estes valores serão inseridos no campo **Secret Token** * e NO campo **DE INQUILINO URL*** no separador Provisioning da aplicação do seu getAbstract no portal Azure.
+    ![Screenshot que mostra o getAbstract SCIM Token 1.](media/getabstract-provisioning-tutorial/scim-generate-token-step-2.png)
 
-    ![getAbstract SCIM Token 3](media/getabstract-provisioning-tutorial/scim-generate-token-step-3.png)
+1. Se tiver a certeza, **selecione Gerer novo token**. Caso contrário, **selecione Cancelar**.
 
+    ![Screenshot que mostra o getAbstract SCIM Token 2.](media/getabstract-provisioning-tutorial/scim-generate-token-step-1.png)
+
+1. Selecione o ícone copy-to-clipboard ou selecione todo o token e copie-o. Também tome nota de que o INQUILINO/BASE URL é `https://www.getabstract.com/api/scim/v2` . Estes valores serão introduzidos nas caixas URL **secret Token** e **Tenant** no **separador Provisioning** da sua aplicação getAbstract no portal Azure.
+
+    ![Screenshot que mostra o getAbstract SCIM Token 3.](media/getabstract-provisioning-tutorial/scim-generate-token-step-3.png)
 
 ## <a name="step-3-add-getabstract-from-the-azure-ad-application-gallery"></a>Passo 3. Adicione getAbstract da galeria de aplicações AZure AD
 
-Adicione getAbstract na galeria de aplicações AZure AD para começar a gerir o provisionamento para obterAbstract. Se tiver configurado previamente getAbstract para SSO, pode utilizar a mesma aplicação. No entanto, é recomendável criar uma aplicação separada ao testar a integração inicialmente. Saiba mais sobre como adicionar uma aplicação a partir da galeria [aqui](../manage-apps/add-application-portal.md). 
+Adicione getAbstract na galeria de aplicações AZure AD para começar a gerir o provisionamento para obterAbstract. Se já configurar o getAbstract para SSO, pode utilizar a mesma aplicação. Recomendamos que crie uma aplicação separada quando testar a integração inicialmente. Para saber mais sobre como adicionar uma aplicação na galeria, consulte [este arranque rápido.](../manage-apps/add-application-portal.md)
 
-## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Passo 4: Determinar quem vai estar no âmbito do aprovisionamento 
+## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Passo 4: Determinar quem vai estar no âmbito do aprovisionamento
 
-O serviço de aprovisionamento do Azure AD permite-lhe determinar quem vai ser aprovisionado com base na atribuição à aplicação e/ou com base em atributos do utilizador/grupo. Se optar por determinar quem vai ser aprovisionado na sua aplicação com base na atribuição, pode utilizar os seguintes [passos](../manage-apps/assign-user-or-group-access-portal.md) para atribuir utilizadores e grupos à aplicação. Se escolher determinar quem vai ser aprovisionado com base apenas em atributos do utilizador ou grupo, pode utilizar um filtro de âmbito conforme descrito [aqui](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
+Pode utilizar o serviço de fornecimento Azure AD para o âmbito de aplicação que será prestado com base na atribuição à aplicação ou com base em atributos do utilizador ou grupo. Se optar por determinar quem vai ser aprovisionado na sua aplicação com base na atribuição, pode utilizar os seguintes [passos](../manage-apps/assign-user-or-group-access-portal.md) para atribuir utilizadores e grupos à aplicação. Se optar por escolher o âmbito de aplicação de quem será a provisionado apenas com base em atributos do utilizador ou grupo, pode utilizar um filtro de deteção conforme descrito nas [aplicações Provision com filtros de escoamento](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-* Ao atribuir utilizadores e grupos para obterAbstract, tem de selecionar outra função que não o **Acesso Predefinido**. Os utilizadores com a função Acesso Predefinido são excluídos do aprovisionamento e marcados como não autorizados de forma efetiva nos registos de aprovisionamento. Se a única função disponível na aplicação for a função de acesso predefinido, pode [atualizar o manifesto de aplicação](../develop/howto-add-app-roles-in-azure-ad-apps.md) para adicionar funções adicionais. 
+* Quando atribui utilizadores e grupos para obterAbstract, tem de selecionar outra função que não **o Acesso Predefinido**. Os utilizadores com a função de acesso predefinido estão excluídos do provisionamento e serão marcados como não efetivamente intitulados nos registos de provisionamento. Se a única função disponível na aplicação for a função de acesso predefinido, pode [atualizar o manifesto de aplicação](../develop/howto-add-app-roles-in-azure-ad-apps.md) para adicionar mais funções.
 
-* Comece pequeno. Teste com um pequeno conjunto de utilizadores e grupos antes de implementar para todos. Quando o âmbito do aprovisionamento está definido para os utilizadores e os grupos atribuídos, pode controlar isto ao atribuir um ou dois utilizadores ou grupos à aplicação. Quando o âmbito está definido para todos os utilizadores e grupos, pode especificar um [filtro de âmbito baseado em atributos](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
+* Comece pequeno. Teste com um pequeno conjunto de utilizadores e grupos antes de chegar a todos. Quando o âmbito de provisão é definido para utilizadores e grupos atribuídos, pode controlar esta opção atribuindo um ou dois utilizadores ou grupos à aplicação. Quando o âmbito é definido para todos os utilizadores e grupos, pode especificar um [filtro de deteção baseado em atributos](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
+## <a name="step-5-configure-automatic-user-provisioning-to-getabstract"></a>Passo 5. Configure o fornecimento automático do utilizador para obterAbstract
 
-## <a name="step-5-configure-automatic-user-provisioning-to-getabstract"></a>Passo 5. Configure o fornecimento automático do utilizador para obterAbstract 
+Esta secção guia-o através dos passos para configurar o serviço de fornecimento de AD Azure para criar, atualizar e desativar utilizadores ou grupos no TestApp com base em atribuições de utilizador ou grupo em Ad Azure.
 
-Esta secção guia-o através dos passos para configurar o serviço de fornecimento de AD Azure para criar, atualizar e desativar utilizadores e/ou grupos no TestApp com base em atribuições de utilizador e/ou grupo em Azure AD.
+### <a name="configure-automatic-user-provisioning-for-getabstract-in-azure-ad"></a>Configure o fornecimento automático de utilizadores para obterAbstract em Azure AD
 
-### <a name="to-configure-automatic-user-provisioning-for-getabstract-in-azure-ad"></a>Para configurar o fornecimento automático do utilizador para obterAbstract em Azure AD:
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **aplicações da Empresa**  >  **Todas as aplicações**.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **Aplicações Empresariais** e, em seguida, **Todas as aplicações**.
+    ![Screenshot que mostra o painel de aplicações da Enterprise.](common/enterprise-applications.png)
 
-    ![Painel Aplicações empresariais](common/enterprise-applications.png)
+1. Na lista de aplicações, selecione **getAbstract**.
 
-2. Na lista de candidaturas, selecione **getAbstract**.
+    ![Screenshot que mostra o link getAbstract na lista de aplicações.](common/all-applications.png)
 
-    ![O link getAbstract na lista de Aplicações](common/all-applications.png)
+1. Selecione o separador **Aprovisionamento**.
 
-3. Selecione o separador **Aprovisionamento**.
+    ![Screenshot que mostra o separador Provisioning.](common/provisioning.png)
 
-    ![Separador Aprovisionamento](common/provisioning.png)
+1. Desa ajuste **o modo de provisionamento** para **automático**.
 
-4. Defina o **Modo de Aprovisionamento** como **Automático**.
+    ![Screenshot que mostra o modo de provisionamento definido para Automático.](common/provisioning-automatic.png)
 
-    ![Separador de provisionamento automático](common/provisioning-automatic.png)
+1. Na secção **credenciais de administração,** insira a sua URL de inquilino de administração e informações **secretas do token.**  Selecione **a Ligação de Teste** para garantir que o Azure AD pode ligar-se para obterAbstract. Se a ligação falhar, certifique-se de que a sua conta getAbstract tem permissões de administração e tente novamente.
 
-5. Sob a secção **de Credenciais Admin,** insira o seu URL de inquilinoabstrato e o token secreto. Clique em **Testar A Ligação** para garantir que a Azure AD pode ligar-se para obterAbstract. Se a ligação falhar, certifique-se de que a sua conta getAbstract tem permissões de Administração e tente novamente.
+    ![Screenshot que mostra a URL do inquilino e caixas de token secretos.](common/provisioning-testconnection-tenanturltoken.png)
 
-    ![Token](common/provisioning-testconnection-tenanturltoken.png)
+1. Na caixa de **e-mail de notificação,** insira o endereço de e-mail de uma pessoa ou grupo que deve receber as notificações de erro de provisionamento. Selecione a **notificação Enviar uma notificação por e-mail quando ocorrer uma falha** na caixa de verificação.
 
-6. No campo **E-mail de Notificação**, introduza o endereço de e-mail de uma pessoa ou um grupo que deve receber as notificações de erro de aprovisionamento e marque a caixa de verificação **Enviar uma notificação de e-mail quando ocorre uma falha**.
+    ![Screenshot que mostra a caixa de e-mail de notificação.](common/provisioning-notification-email.png)
 
-    ![E-mail de Notificação](common/provisioning-notification-email.png)
+1. Selecione **Guardar**.
 
-7. Selecione **Guardar**.
+1. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Users para obterAbstract**.
 
-8. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Users para obterAbstract**.
-
-9. Reveja os atributos do utilizador que são sincronizados a partir do Azure AD para obterAbstract na secção **De mapeamento de atributos.** Os atributos selecionados como propriedades **de correspondência** são utilizados para combinar as contas do utilizador no getAbstract para operações de atualização. Se optar por alterar o [atributo de alvo correspondente,](../app-provisioning/customize-application-attributes.md)terá de garantir que a API getAbstract suporta utilizadores filtrantes com base nesse atributo. Selecione o botão **Guardar** para escoar quaisquer alterações.
+1. Reveja os atributos do utilizador que são sincronizados a partir do Azure AD para obterAbstract na secção **De Mapeamento** de Atributos. Os atributos selecionados como propriedades **de correspondência** são utilizados para combinar as contas do utilizador no getAbstract para operações de atualização. Se alterar o [atributo de alvo correspondente,](../app-provisioning/customize-application-attributes.md)terá de garantir que a API getAbstract suporta utilizadores filtrantes com base nesse atributo. **Selecione Guardar** para escoar quaisquer alterações.
 
    |Atributo|Tipo|Suportado para filtragem|
    |---|---|---|
@@ -136,41 +136,43 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
    |externalId|String|
    |preferiuLanguage|String|
 
-10. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Groups para obterAbstract**.
+1. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Groups para obterAbstract**.
 
-11. Reveja os atributos do grupo que são sincronizados a partir do Azure AD para obterAbstract na secção **De mapeamento de atributos.** Os atributos selecionados como propriedades **de correspondência** são usados para combinar os grupos no getAbstract para operações de atualização. Selecione o botão **Guardar** para escoar quaisquer alterações.
+1. Reveja os atributos do grupo que são sincronizados a partir do Ad Azure para obterAbstract na secção **De Mapeamento de Atributos.** Os atributos selecionados como propriedades **de correspondência** são usados para combinar os grupos no getAbstract para operações de atualização. **Selecione Guardar** para escoar quaisquer alterações.
 
     |Atributo|Tipo|Suportado para filtragem|
     |---|---|---|
     |displayName|String|&check;|
     |externalId|String|
     |membros|Referência|
-12. Para configurar filtros de âmbito, veja as instruções seguintes disponibilizadas no [Tutorial de filtro de âmbito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-13. Para ativar o serviço de prestação de Ad Azure para obterAbstract, altere o **Estado de Provisionamento** para **On** na secção **Definições.**
+1. Para configurar filtros de deteção, consulte as instruções fornecidas no tutorial do [filtro de escotagem](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-    ![Estado do Aprovisionamento Ativado](common/provisioning-toggle-on.png)
+1. Para ativar o serviço de provisionamento Azure AD para obterAbstract, altere o **Estado de Provisionamento** para **On** na secção **Definições.**
 
-14. Defina os utilizadores e/ou grupos que deseja providenciar para obter oAbstract, escolhendo os valores desejados no **Âmbito** na secção **Definições.**
+    ![Screenshot que mostra o Estado de Provisionamento alternado.](common/provisioning-toggle-on.png)
 
-    ![Âmbito de Aprovisionamento](common/provisioning-scope.png)
+1. Defina os utilizadores ou grupos que pretende providenciar para obterAbstract selecionando os valores pretendidos no **Âmbito** na secção **Definições.**
 
-15. Quando estiver pronto para aprovisionar, clique em **Guardar**.
+    ![Screenshot que mostra o Âmbito de Provisionamento.](common/provisioning-scope.png)
 
-    ![Guardar Configuração de Aprovisionamento](common/provisioning-configuration-save.png)
+1. Quando estiver pronto para a provisão, **selecione Save**.
 
-Esta operação inicia o ciclo de sincronização inicial de todos os utilizadores e grupos definidos no **Âmbito** na secção **Definições**. O ciclo inicial leva mais tempo a ser executado do que os ciclos subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de aprovisionamento do Azure AD esteja em execução. 
+    ![Screenshot que mostra o botão Guardar.](common/provisioning-configuration-save.png)
+
+Esta operação inicia o ciclo de sincronização inicial de todos os utilizadores e grupos definidos no **Âmbito** na secção **Definições**. O ciclo inicial demora mais tempo a ser efetuado do que os ciclos subsequentes, que ocorrem a cada 40 minutos, desde que o serviço de fornecimento AZure AD esteja em funcionamento.
 
 ## <a name="step-6-monitor-your-deployment"></a>Passo 6. Monitorizar a implementação
-Depois de configurar o aprovisionamento, utilize os seguintes recursos para monitorizar a sua implementação:
 
-* Utilize os [registos de aprovisionamento](../reports-monitoring/concept-provisioning-logs.md) para determinar quais os utilizadores que foram aprovisionados com ou sem êxito
-* Verifique a [barra de progresso](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) para ver o estado do ciclo de aprovisionamento e quão próximo está da conclusão
-* Se a configuração de aprovisionamento parecer estar num mau estado de funcionamento, a aplicação vai entrar em quarentena. Saiba mais sobre os estados de quarentena [aqui](../app-provisioning/application-provisioning-quarantine-status.md).  
+Depois de configurar o provisionamento, use os seguintes recursos para monitorizar a sua implantação:
+
+* Utilize os [registos de provisionamento](../reports-monitoring/concept-provisioning-logs.md) para determinar quais os utilizadores que foram a provisionados com sucesso ou sem sucesso.
+* Verifique a barra de [progresso](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) para ver o estado do ciclo de provisionamento e o quão perto está de ser concluído.
+* Se a configuração de aprovisionamento parecer estar num mau estado de funcionamento, a aplicação vai entrar em quarentena. Para saber mais sobre estados de quarentena, consulte [o estado de colocação de quarentena.](../app-provisioning/application-provisioning-quarantine-status.md)
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gerir o aprovisionamento de contas de utilizador para Aplicações Empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Gestão do provisionamento de conta de utilizador para aplicações empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 ## <a name="next-steps"></a>Passos seguintes

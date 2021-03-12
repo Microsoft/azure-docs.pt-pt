@@ -12,14 +12,16 @@ ms.custom:
 - amqp
 - mqtt
 - devx-track-js
-ms.openlocfilehash: 44fe128658b90d2327f17f22b2a33aaa1d4da1fc
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: dc2d2d3e92435c7a028b43a095f456c2c383ecb4
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102046130"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199620"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>Ligar um dispositivo a jusante a um gateway do Azure IoT Edge
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Este artigo fornece instruções para estabelecer uma ligação fidedigna entre dispositivos a jusante e gateways transparentes IoT Edge. Num cenário transparente de gateway, um ou mais dispositivos podem passar as suas mensagens através de um único dispositivo de gateway que mantém a ligação ao IoT Hub.
 
@@ -44,7 +46,19 @@ Neste artigo, os termos *gateway* e *gateway IoT Edge* referem-se a um dispositi
 
 ## <a name="prepare-a-downstream-device"></a>Preparar um dispositivo a jusante
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
 Um dispositivo a jusante pode ser qualquer aplicação ou plataforma que tenha uma identidade criada com o serviço de nuvem Azure IoT Hub. Em muitos casos, estas aplicações utilizam o [dispositivo Azure IoT SDK](../iot-hub/iot-hub-devguide-sdks.md). Um dispositivo a jusante pode até ser uma aplicação em execução no próprio dispositivo de gateway IoT Edge. No entanto, outro dispositivo IoT Edge não pode ser a jusante de um gateway IoT Edge.
+:::moniker-end
+<!-- end 1.1 -->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+Um dispositivo a jusante pode ser qualquer aplicação ou plataforma que tenha uma identidade criada com o serviço de nuvem Azure IoT Hub. Em muitos casos, estas aplicações utilizam o [dispositivo Azure IoT SDK](../iot-hub/iot-hub-devguide-sdks.md). Um dispositivo a jusante pode até ser uma aplicação em execução no próprio dispositivo de gateway IoT Edge.
+
+Este artigo fornece os passos para ligar um dispositivo IoT como um dispositivo a jusante. Se tiver um dispositivo IoT Edge como dispositivo a jusante, consulte [ligar um dispositivo IoT Edge a jusante a um gateway Azure IoT Edge](how-to-connect-downstream-iot-edge-device.md).
+:::moniker-end
+<!-- end 1.2 -->
 
 >[!NOTE]
 >Os dispositivos IoT registados com o IoT Hub podem usar [gémeos módulos](../iot-hub/iot-hub-devguide-module-twins.md) para isolar diferentes processos, hardware ou funções num único dispositivo. Os gateways IoT Edge suportam ligações de módulos a jusante utilizando a autenticação da chave simétrica, mas não a autenticação do certificado X.509.
@@ -157,7 +171,7 @@ Esta secção introduz uma aplicação de amostra para ligar um cliente de dispo
 3. Nas **Propriedades /launchSettings.jsem** arquivo, atualize as variáveis **DEVICE_CONNECTION_STRING** e **CA_CERTIFICATE_PATH.** Se pretender utilizar o certificado instalado na loja de certificados fidedigna no sistema de anfitrião, deixe esta variável em branco.
 4. Consulte a documentação SDK para obter instruções sobre como executar a amostra no seu dispositivo.
 
-Para instalar programáticamente um certificado de confiança na loja de certificados através de uma aplicação .NET, consulte a função **InstallCACert()** no ficheiro **EdgeDownstreamDevice/Program.cs.** Esta operação é idempotente, pelo que pode ser executada várias vezes com os mesmos valores sem efeito adicional.
+Para instalar programáticamente um certificado de confiança na loja de certificados através de uma aplicação .NET, consulte a função **InstallCACert()** no ficheiro **EdgeDownstreamDevice /Programa.cs.** Esta operação é idempotente, pelo que pode ser executada várias vezes com os mesmos valores sem efeito adicional.
 
 ### <a name="c"></a>C
 

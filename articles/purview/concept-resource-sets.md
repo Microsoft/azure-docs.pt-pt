@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 02/03/2021
-ms.openlocfilehash: 39a1400bfe642672ba276686851d4f0edebbeb00
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: cbf070dce056795ad8e4a5f3e4d609e7d36d631e
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100387857"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200821"
 ---
 # <a name="understanding-resource-sets"></a>Compreender os conjuntos de recursos
 
@@ -21,7 +21,7 @@ Este artigo ajuda-o a entender como o Azure Purview utiliza conjuntos de recurso
 
 Os sistemas de processamento de dados à escala normalmente armazenam uma única tabela num disco como vários ficheiros. Este conceito é representado em Azure Purview utilizando conjuntos de recursos. Um conjunto de recursos é um único objeto no catálogo que representa um grande número de ativos em armazenamento.
 
-Por exemplo, suponha que o seu cluster Spark tenha persistido um DataFrame numa fonte de dados da Azure DataL Lake Storage (ADLS) Gen2. Embora em Spark a tabela pareça um único recurso lógico, no disco existem provavelmente milhares de ficheiros Parquet, cada um dos quais representa uma divisão do conteúdo total do DataFrame. Os dados de IoT e os dados de registo web têm o mesmo desafio. Imagine que tem um sensor que faz registo de ficheiros várias vezes por segundo. Não vai demorar muito até teres centenas de milhares de ficheiros de registo daquele único sensor.
+Por exemplo, suponha que o seu cluster Spark tenha persistido um DataFrame numa fonte de dados da Azure Data Lake Storage (ADLS) Gen2. Embora em Spark a tabela pareça um único recurso lógico, no disco existem provavelmente milhares de ficheiros Parquet, cada um dos quais representa uma divisão do conteúdo total do DataFrame. Os dados de IoT e os dados de registo web têm o mesmo desafio. Imagine que tem um sensor que faz registo de ficheiros várias vezes por segundo. Não vai demorar muito até teres centenas de milhares de ficheiros de registo daquele único sensor.
 
 Para enfrentar o desafio de mapear um grande número de ativos de dados para um único recurso lógico, o Azure Purview utiliza conjuntos de recursos.
 

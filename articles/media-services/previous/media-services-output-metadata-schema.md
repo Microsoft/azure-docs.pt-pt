@@ -1,7 +1,7 @@
 ---
-title: Azure Media Services produção metadados esquema de metadados / Microsoft Docs
+title: Azure Media Services produção de metadados | Microsoft Docs
 description: Este artigo apresenta uma visão geral do esquema de metadados de saída da Azure Media Services.
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
@@ -12,20 +12,20 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2019
-ms.author: juliako
-ms.openlocfilehash: cd81ef78ecc5ef9cea71adb387597681460d50c8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 03/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: 519aa158d60eae97eb4c1b792bcecfc8a6c066e0
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89261330"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103008298"
 ---
 # <a name="output-metadata"></a>Metadados de saída
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Um trabalho de codificação está associado a um ativo de entrada (ou ativos) no qual pretende executar algumas tarefas de codificação. Por exemplo, codificar um ficheiro MP4 para conjuntos de bitrate adaptativos H.264 MP4; criar uma miniatura; criar sobreposições. Após a conclusão de uma tarefa, é produzido um ativo de saída.  O ativo de saída contém vídeo, áudio, miniaturas, etc. O ativo de saída também contém um ficheiro com metadados sobre o ativo de saída. O nome do ficheiro XML dos metadados tem o seguinte formato: &lt; source_file_name &gt;_manifest.xml (por exemplo, BigBuckBunny_manifest.xml).  
 
 Os Serviços de Mídia não digitalizam preventivamente os ativos de entrada para gerar metadados. Os metadados de entrada são gerados apenas como um artefacto quando um Ativo de entrada é processado num Job. Daí que este artefacto seja escrito para o Ativo de saída. São utilizadas diferentes ferramentas para gerar metadados para ativos de entrada e ativos de saída. Portanto, os metadados de entrada têm um esquema ligeiramente diferente dos metadados de saída.
@@ -97,14 +97,14 @@ Uma faixa de vídeo específica no ActivoFile.
 Pode encontrar um [exemplo XML de exemplo XML.](#xml)  
 
 ### <a name="attributes"></a>Atributos
-| Nome | Tipo | Descrição |
+| Nome | Tipo | Description |
 | --- | --- | --- |
 | **ID**<br/><br/> minInclusive ="0"<br/><br/> Necessário |**xs:int** |Índice baseado em zero desta pista de vídeo. **Nota:**  Este **Id** não é necessariamente o TrackID usado num ficheiro MP4. |
 | **FourCC**<br/><br/> Necessário |**xs:cadeia** |Código de vídeo Código QuatroCC. |
 | **Perfil** |**xs:cadeia** |Perfil H264 (apenas aplicável ao código H264). |
 | **Nível** |**xs:cadeia** |Nível H264 (apenas aplicável ao código H264). |
-| **Largura**<br/><br/> minInclusive ="0"<br/><br/> Necessário |**xs:int** |Largura de vídeo codificada em pixels. |
-| **Altura**<br/><br/> minInclusive ="0"<br/><br/> Necessário |**xs:int** |A altura de vídeo codificada em pixels. |
+| **Width**<br/><br/> minInclusive ="0"<br/><br/> Necessário |**xs:int** |Largura de vídeo codificada em pixels. |
+| **Height**<br/><br/> minInclusive ="0"<br/><br/> Necessário |**xs:int** |A altura de vídeo codificada em pixels. |
 | **DisplayAspectRatioNumerator**<br/><br/> minInclusive ="0"<br/><br/> Necessário |**xs:duplo** |Numerador de aspeto de visualização de vídeo. |
 | **DisplayAspectRatioDenominador**<br/><br/> minInclusive ="0"<br/><br/> Necessário |**xs:duplo** |Denominador de rácio de aspeto do visualização de vídeo. |
 | **Taxa de fotogramas**<br/><br/> minInclusive ="0"<br/><br/> Necessário |**xs:decimal** |Taxa de fotogramas de vídeo medida em formato .3f. |
@@ -129,7 +129,7 @@ Uma faixa áudio específica no ActivoFile principal.
 Pode encontrar um [exemplo XML de exemplo XML.](#xml)  
 
 ### <a name="attributes"></a>Atributos
-| Nome | Tipo | Descrição |
+| Nome | Tipo | Description |
 | --- | --- | --- |
 | **ID**<br/><br/> minInclusive ="0"<br/><br/> Necessário |**xs:int** |Índice baseado em zero desta faixa de áudio. **Nota:**  Este não é necessariamente o TrackID usado num ficheiro MP4. |
 | **Codec** |**xs:cadeia** |Cadeia de codec de faixa de áudio. |
@@ -150,7 +150,7 @@ Parâmetros de resultado de medição de ruído alto.
 Pode encontrar um [exemplo XML de exemplo XML.](#xml)  
 
 ### <a name="attributes"></a>Atributos
-| Nome | Tipo | Descrição |
+| Nome | Tipo | Description |
 | --- | --- | --- |
 | **DPLMVersionInformation** |**xs:cadeia** |Versão do kit de desenvolvimento de medidores de alto nível do **dolby** profissional. |
 | **DiálogoNormalização**<br/><br/> minInclusive="-31" maxInclusive="-1"<br/><br/> Necessário |**xs:int** |DiálogoNormalização gerada através do DPLM, necessária quando o LoudnessMetering é definido |

@@ -4,15 +4,15 @@ description: Aprenda a testar e submeta uma oferta de máquina virtual Azure no 
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: github-2407
+author: kriti-ms
 ms.author: krsh
-ms.date: 02/19/2020
-ms.openlocfilehash: 48e41e870676bf6939ccaf5268c462f885e67572
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.date: 03/10/2021
+ms.openlocfilehash: 9ffba221625c57332cd695125651d92adc11cf60
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102630185"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200384"
 ---
 # <a name="test-a-virtual-machine-image"></a>Teste uma imagem de máquina virtual
 

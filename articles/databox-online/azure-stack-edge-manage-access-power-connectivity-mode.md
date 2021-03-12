@@ -1,5 +1,5 @@
 ---
-title: Acesso, potência e conectividade do dispositivo Azure Stack Edge Pro Microsoft Docs
+title: Acesso ao dispositivo Azure Stack Edge Pro, modo de alimentação e conectividade | Microsoft Docs
 description: Descreve como gerir o modo de acesso, energia e conectividade para o dispositivo Azure Stack Edge Pro que ajuda a transferir dados para o Azure
 services: databox
 author: alkohli
@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 06/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 6455e4c9fa9460e47e3be7c860f89be540a514b0
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 240d3872536e6974d7f65eed22dace6816844e9e
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96453078"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200213"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-stack-edge-pro"></a>Gerir o modo de acesso, energia e conectividade para o seu Azure Stack Edge Pro
 
@@ -103,7 +103,7 @@ Além do modo padrão totalmente ligado, o seu dispositivo também pode funciona
 
 - **Totalmente ligado** - Este é o modo predefinido normal em que o dispositivo funciona. Tanto o upload em nuvem como o download de dados estão ativados neste modo. Pode utilizar o portal Azure ou a UI web local para gerir o dispositivo.
 
-- **Parcialmente desligado** – Neste modo, o dispositivo não consegue carregar ou descarregar quaisquer dados de partilha, no entanto pode ser gerido através do portal Azure.
+- **Parcialmente ligado** – Neste modo, o dispositivo não consegue carregar ou descarregar quaisquer dados de partilha, no entanto pode ser gerido através do portal Azure.
 
     Este modo é normalmente utilizado quando numa rede de satélite medido e o objetivo é minimizar o consumo de largura de banda de rede. O consumo mínimo da rede pode ainda ocorrer para operações de monitorização do dispositivo.
 

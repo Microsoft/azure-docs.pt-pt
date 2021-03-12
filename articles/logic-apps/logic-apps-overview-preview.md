@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 03/08/2021
-ms.openlocfilehash: d53a36d99c9a54fdfef7baceb50edb4e8f5ae4c8
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.date: 03/10/2021
+ms.openlocfilehash: 7120b6ff17657232c0e614f49b75bb24263712b7
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102561862"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102636340"
 ---
 # <a name="overview-azure-logic-apps-preview"></a>Visão geral: Pré-visualização de apps da Azure Logic Apps
 
@@ -59,7 +59,7 @@ O quadro seguinte resume brevemente as diferenças na forma como os fluxos de tr
 | Azure Logic Apps (Multi-inquilino) | Fluxos de trabalho *de clientes de vários inquilinos* partilham o mesmo processamento (computação), armazenamento, rede, e assim por diante. |
 | Azure Logic Apps (Preview, inquilino único) | Fluxos de trabalho *na mesma aplicação lógica e um único inquilino* partilham o mesmo processamento (computação), armazenamento, rede, e assim por diante. |
 | Ambiente de serviço de integração (indisponível em Pré-visualização) | Os fluxos de trabalho no *mesmo ambiente* partilham o mesmo processamento (computação), armazenamento, rede, e assim por diante. |
-||||
+|||
 
 Entretanto, ainda pode criar o tipo de aplicação lógica multi-inquilino no portal Azure e no Código do Estúdio Visual utilizando a extensão de Apps lógicas Azure multi-inquilinos. Embora as experiências de desenvolvimento diferam entre os tipos de aplicativos de lógica multi-inquilino e single-tenant, a sua subscrição Azure pode incluir ambos os tipos. Pode ver e aceder a todas as aplicações lógicas implementadas na sua subscrição Azure, mas as aplicações estão organizadas nas suas próprias categorias e secções.
 
@@ -122,7 +122,10 @@ A Azure Logic Apps Preview inclui muitas capacidades atuais e adicionais, por ex
 
 * Crie aplicações lógicas e seus fluxos de trabalho a partir de mais de [400 conectores](/connectors/connector-reference/connector-reference-logicapps-connectors) para aplicações e serviços de Software-as-a-Service (SaaS) e Platform-as-a-Service (PaaS) além de conectores para sistemas no local.
 
-  * Alguns conectores geridos, tais como Azure Service Bus, Azure Event Hubs, SQL Server e MQ, funcionam de forma semelhante aos gatilhos e ações incorporados que são nativos do tempo de pré-visualização de apps Azure Logic, por exemplo, o gatilho do Pedido e ação HTTP.
+  * Alguns conectores geridos estão agora disponíveis como versões incorporadas, que funcionam de forma semelhante aos gatilhos e ações incorporados, como o trigger do Pedido e a ação HTTP, que funcionam de forma nativa no tempo de pré-visualização das apps Azure Logic. Por exemplo, estes novos conectores incorporados incluem Azure Service Bus, Azure Event Hubs, SQL Server e MQ.
+
+    > [!NOTE]
+    > Para o conector SQL Server incorporado, apenas a ação **Executar Consulta** pode [ligar-se](logic-apps-gateway-connection.md)diretamente às redes virtuais Azure sem necessitar do gateway de dados no local .
 
   * Crie os seus próprios conectores incorporados para qualquer serviço que necessite utilizando a [estrutura de extensibilidade do lançamento de pré-visualização](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272). Semelhantes aos conectores incorporados, como o Azure Service Bus e o SQL Server, mas ao contrário dos [conectores personalizados](../connectors/apis-list.md#custom-apis-and-connectors) que não são suportados atualmente para pré-visualização, estes conectores fornecem maior potência, baixa latência, conectividade local, e funcionam de forma nativa no mesmo processo que o tempo de pré-visualização.
 

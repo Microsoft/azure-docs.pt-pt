@@ -4,13 +4,13 @@
   displayName: 'IoT, OT, getting started'
   href: overview.md
   items:
+    - name: Novidades
+      href: release-notes.md
     - name: Arquitetura de solução sem agente
       displayName: 'deployment, where to deploy'
       href: architecture.md
     - name: Arquitetura de solução baseada em agente
       href: architecture-agent-based.md
-- name: Novidades
-  href: release-notes.md
 - name: Guias de Início Rápido
   expanded: true
   items:
@@ -111,13 +111,13 @@
         - name: Preparar a sua rede
           items:
             - name: Identificar as aplicações necessárias
-              displayName: 'virtual, Dell, HPE, SMB, certified, hardware, deployment'
               href: how-to-identify-required-appliances.md
+              displayName: 'virtual, Dell, HPE, SMB, certified, hardware, deployment, DL20, EL300, R340, enterprise, SMB, corporate'
             - name: Configurar a sua rede
               displayName: 'passive, browsers, network access, TAP, switch, mirroring, firewall, SPAN, monitoring, tuning'
               href: how-to-set-up-your-network.md
             - name: Instalar software
-              displayName: 'virtual, Dell, HPE, SMB, certified, hardware, port mirroring, ESXi, install'
+              displayName: 'virtual, Dell, HPE, SMB, certified, hardware, port mirroring, ESXi, DL20, EL300, R340,enterprise, SMB, corporate'
               href: how-to-install-software.md
         - name: Preparar os seus sensores
           items:
@@ -155,8 +155,8 @@
         - name: Gerir sensores na cloud
           href: how-to-manage-sensors-on-the-cloud.md
         - name: Gerir a consola de gestão no local
-          displayName: 'upgrade, activation, certificate, software update, backup, restore, proxy, password recovery'
           href: how-to-manage-the-on-premises-management-console.md
+          displayName: 'mail, SMTP, activation, certificate, software update, backup, restore, proxy, password recovery'
         - name: Trabalhar com pacotes de informações sobre ameaças
           href: how-to-work-with-threat-intelligence-packages.md
         - name: Trabalhar com informações de inventário de dispositivos
@@ -295,17 +295,12 @@
             - name: Investigar um dispositivo
               displayName: 'access, data, kql, ports, logins, process'
               href: how-to-investigate-device.md
-- name: Resolução de problemas
-  items:
-    - name: Resolução de problemas do micro agente do Defender IoT (Pré-visualização)
-      displayName: 'service status, review logs'
-      href: troubleshoot-defender-micro-agent.md
-- name: Suporte de recurso e aposentadoria
-  items:
-    - name: Suporte de recurso e aposentadoria
-      displayName: 'C, C#, deprecation, support'
-      href: edge-security-module-deprecation.md
-- name: Referências
+    - name: Resolução de problemas
+      items:
+        - name: Resolução de problemas do micro agente do Defender IoT (Pré-visualização)
+          displayName: 'service status, review logs'
+          href: troubleshoot-defender-micro-agent.md
+- name: Referência
   items:
     - name: Solução sem Agente para Organizações
       items:
@@ -334,7 +329,12 @@
           href: 'https://azure.microsoft.com/roadmap/?category=security-identity'
     - name: Glossário do Defender para IoT
       href: references-defender-for-iot-glossary.md
-- name: Recursos
+    - name: Suporte de recurso e aposentadoria
+      items:
+        - name: Suporte de recurso e aposentadoria
+          displayName: 'C, C#, deprecation, support'
+          href: edge-security-module-deprecation.md
+- name: Recurso
   items:
     - name: Solução com base em agente para Criadores de Dispositivos
       items:

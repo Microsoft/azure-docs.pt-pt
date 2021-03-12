@@ -1,7 +1,7 @@
 ---
-title: Redatória lógica no SDK dos Serviços de Comunicação Social para .NET / Microsoft Docs
+title: Redatória lógica no SDK dos Serviços de Media para .NET | Microsoft Docs
 description: O tópico dá uma visão geral da lógica de reluto no SDK dos Serviços de Media para .NET.
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
-ms.author: juliako
-ms.openlocfilehash: 144db6a5ceaf56a35d3ce11dd54e1dfb4c97d7e3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 3/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: feda0ccfa1dc6d02153b98ad084bd775a055e9e3
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89264118"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103012909"
 ---
 # <a name="retry-logic-in-the-media-services-sdk-for-net"></a>Redatória lógica no SDK dos Serviços de Media para .NET
 
@@ -41,47 +41,47 @@ O quadro que se segue descreve exceções que o Media Services SDK para as pegas
 
 | Exceção | Pedido web | Armazenamento | Consulta | SaveChanges |
 | --- | --- | --- | --- | --- |
-| WebException<br/>Para obter mais informações, consulte a secção [de códigos de estado WebException.](media-services-retry-logic-in-dotnet-sdk.md#WebExceptionStatus) |Sim |Sim |Sim |Sim |
-| DataServiceClientExcepção<br/> Para obter mais informações, consulte [os códigos de estado de erro HTTP](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |Não |Sim |Sim |Sim |
-| DataServiceQueryException<br/> Para obter mais informações, consulte [os códigos de estado de erro HTTP](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |Não |Sim |Sim |Sim |
-| DataServiceRequestException<br/> Para obter mais informações, consulte [os códigos de estado de erro HTTP](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |Não |Sim |Sim |Sim |
-| DataServiceTransportException |Não |Não |Sim |Sim |
-| TimeoutExcepção |Sim |Sim |Sim |Não |
-| SocketException |Sim |Sim |Sim |Sim |
-| ArmazenamentoExcepção |Não |Sim |Não |Não |
-| IoExcepção |Não |Sim |Não |Não |
+| WebException<br/>Para obter mais informações, consulte a secção [de códigos de estado WebException.](media-services-retry-logic-in-dotnet-sdk.md#WebExceptionStatus) |Yes |Yes |Yes |Yes |
+| DataServiceClientExcepção<br/> Para obter mais informações, consulte [os códigos de estado de erro HTTP](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |No |Yes |Yes |Yes |
+| DataServiceQueryException<br/> Para obter mais informações, consulte [os códigos de estado de erro HTTP](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |No |Yes |Yes |Yes |
+| DataServiceRequestException<br/> Para obter mais informações, consulte [os códigos de estado de erro HTTP](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |No |Yes |Yes |Yes |
+| DataServiceTransportException |No |No |Yes |Yes |
+| TimeoutExcepção |Yes |Yes |Yes |No |
+| SocketException |Yes |Yes |Yes |Yes |
+| ArmazenamentoExcepção |No |Yes |No |No |
+| IoExcepção |No |Yes |No |No |
 
 ### <a name="webexception-status-codes"></a><a name="WebExceptionStatus"></a> Códigos de estado WebException
 A tabela a seguir mostra para o qual o erro WebException codifica a lógica de repetição. A enumeração [WebExceptionStatus](/dotnet/api/system.net.webexceptionstatus?view=netcore-3.1) define os códigos de estado.  
 
 | Estado | Pedido web | Armazenamento | Consulta | SaveChanges |
 | --- | --- | --- | --- | --- |
-| ConnectFailure |Sim |Sim |Sim |Sim |
-| NomeResolutionFailure |Sim |Sim |Sim |Sim |
-| ProxyNameResolutionFailure |Sim |Sim |Sim |Sim |
-| Enviar AFailure |Sim |Sim |Sim |Sim |
-| PipelineFailure |Sim |Sim |Sim |Não |
-| ConexãoClosed |Sim |Sim |Sim |Não |
-| KeepAliveFailure |Sim |Sim |Sim |Não |
-| DesconhecidoError |Sim |Sim |Sim |Não |
-| Receber AProfissilução |Sim |Sim |Sim |Não |
-| PedidoCanceled |Sim |Sim |Sim |Não |
-| Tempo Limite |Sim |Sim |Sim |Não |
-| ProtocoloError <br/>A repetição no ProtocolError é controlada pelo tratamento do código de estado HTTP. Para obter mais informações, consulte [os códigos de estado de erro HTTP](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |Sim |Sim |Sim |Sim |
+| ConnectFailure |Yes |Yes |Yes |Yes |
+| NomeResolutionFailure |Yes |Yes |Yes |Yes |
+| ProxyNameResolutionFailure |Yes |Yes |Yes |Yes |
+| Enviar AFailure |Yes |Yes |Yes |Yes |
+| PipelineFailure |Yes |Yes |Yes |No |
+| ConexãoClosed |Yes |Yes |Yes |No |
+| KeepAliveFailure |Yes |Yes |Yes |No |
+| DesconhecidoError |Yes |Yes |Yes |No |
+| Receber AProfissilução |Yes |Yes |Yes |No |
+| PedidoCanceled |Yes |Yes |Yes |No |
+| Tempo Limite |Yes |Yes |Yes |No |
+| ProtocoloError <br/>A repetição no ProtocolError é controlada pelo tratamento do código de estado HTTP. Para obter mais informações, consulte [os códigos de estado de erro HTTP](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |Yes |Yes |Yes |Yes |
 
 ### <a name="http-error-status-codes"></a><a name="HTTPStatusCode"></a> Códigos de estado de erro HTTP
 Quando as operações de Consulta e SaveChanges lançam DataServiceClientException, DataServiceQueryException ou DataServiceQueryException, o código de estado de erro HTTP é devolvido na propriedade StatusCode.  A tabela a seguir mostra para que códigos de erro a lógica de repetição é implementada.  
 
 | Estado | Pedido web | Armazenamento | Consulta | SaveChanges |
 | --- | --- | --- | --- | --- |
-| 401 |Não |Sim |Não |Não |
-| 403 |Não |Sim<br/>Manusear recaímos com esperas mais longas. |Não |Não |
-| 408 |Sim |Sim |Sim |Sim |
-| 429 |Sim |Sim |Sim |Sim |
-| 500 |Sim |Sim |Sim |Não |
-| 502 |Sim |Sim |Sim |Não |
-| 503 |Sim |Sim |Sim |Sim |
-| 504 |Sim |Sim |Sim |Não |
+| 401 |No |Yes |No |No |
+| 403 |No |Yes<br/>Manusear recaímos com esperas mais longas. |No |No |
+| 408 |Yes |Yes |Yes |Yes |
+| 429 |Yes |Yes |Yes |Yes |
+| 500 |Yes |Yes |Yes |No |
+| 502 |Yes |Yes |Yes |No |
+| 503 |Yes |Yes |Yes |Yes |
+| 504 |Yes |Yes |Yes |No |
 
 Se quiser dar uma olhada na implementação real do SDK dos Serviços de Comunicação Social para a lógica de relemque de .NET, consulte [azure-sdk-for-media-services](https://github.com/Azure/azure-sdk-for-media-services/tree/dev/src/net/Client/TransientFaultHandling).
 

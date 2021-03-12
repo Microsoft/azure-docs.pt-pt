@@ -175,8 +175,6 @@
               href: iot-hub-mqtt-5-reference.md
         - name: Suporte para AMQP
           href: iot-hub-amqp-support.md
-        - name: Glossário
-          href: iot-hub-devguide-glossary.md
     - name: Segurança
       items:
         - name: Linha de base de segurança
@@ -497,6 +495,8 @@
   items:
     - name: Opções de suporte e ajuda
       href: ../iot-fundamentals/iot-support-help.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json
+    - name: IoT Glossário
+      href: ../iot-fundamentals/iot-glossary.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json
     - name: Serviços de IoT do Azure
       items:
         - name: IoT Hub

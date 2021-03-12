@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 04/19/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 855765648d68756598f2942e0c994fa939bcbda0
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 679df881e928825496a03b2fef7c9374d61593f7
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101695673"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199993"
 ---
 # <a name="access-external-storage-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Aceda ao armazenamento externo utilizando piscina SQL sem servidor em Azure Synapse Analytics
 
-Este documento descreve como os utilizadores podem ler dados dos ficheiros armazenados no Azure Storage na piscina SQL sem servidor. Os utilizadores têm as seguintes opções de acesso ao armazenamento:
+Este artigo descreve como os utilizadores podem ler dados dos ficheiros armazenados no Azure Storage na piscina SQL sem servidor. Os utilizadores têm as seguintes opções de acesso ao armazenamento:
 
 - [Função OPENROWSET](develop-openrowset.md) que permite consultas ad-hoc sobre os ficheiros no Azure Storage.
 - [Tabela externa](develop-tables-external-tables.md) que é uma estrutura de dados predefinida construída em cima de conjunto de ficheiros externos.

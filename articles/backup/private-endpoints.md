@@ -3,12 +3,12 @@ title: Pontos Finais Privados
 description: Compreenda o processo de criação de pontos finais privados para o Azure Backup e os cenários em que a utilização de pontos finais privados ajuda a manter a segurança dos seus recursos.
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.openlocfilehash: 9363aaf45a7c092d8a773a07803c8c1bce1eedd7
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 7423157abbc0833394af055f5e31f724caa10b46
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101728217"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103224712"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Pontos finais privados para backup Azure
 
@@ -24,7 +24,7 @@ Este artigo irá ajudá-lo a entender o processo de criação de pontos finais p
 - Uma ligação de ponto final privado para cópia de segurança utiliza um total de 11 IPs privados na sua sub-rede, incluindo os utilizados pela Azure Backup para armazenamento. Este número pode ser superior (até 25) para certas regiões de Azure. Por isso, sugerimos que tenha iPs privados suficientes disponíveis quando tentar criar pontos finais privados para backup.
 - Enquanto um cofre de Serviços de Recuperação é usado por (ambos) Azure Backup e Azure Site Recovery, este artigo discute o uso de pontos finais privados apenas para Azure Backup.
 - O Azure Ative Directory não suporta atualmente pontos finais privados. Assim, os IPs e FQDNs necessários para que o Azure Ative Directory funcione numa região terá de ser autorizado a aceder à saída da rede segura ao realizar cópias de segurança de bases de dados em VMs Azure e cópia de segurança utilizando o agente MARS. Também pode utilizar tags NSG e Azure Firewall para permitir o acesso ao Azure AD, conforme aplicável.
-- As redes virtuais com políticas de rede não são suportadas por pontos finais privados. Terá de desativar a Polícia de Rede antes de continuar.
+- As redes virtuais com políticas de rede não são suportadas por pontos finais privados. Terá de [desativar](https://docs.microsoft.com/azure/private-link/disable-private-endpoint-network-policy) a Polícia de Rede antes de continuar.
 - Tem de voltar a registar o fornecedor de recursos dos Serviços de Recuperação com a assinatura se o registar antes de 1 de maio de 2020. Para voltar a registar o fornecedor, aceda à sua subscrição no portal Azure, navegue para o **fornecedor de Recursos** na barra de navegação esquerda, em seguida, selecione **Microsoft.RecoveryServices** e selecione **Re-registr .**
 - [A restauração transversal](backup-create-rs-vault.md#set-cross-region-restore) para as cópias de dados SQL e SAP HANA não são suportadas se o cofre tiver pontos finais privados ativados.
 - Quando você mover um cofre de Serviços de Recuperação já usando pontos finais privados para um novo inquilino, você precisará atualizar o cofre dos Serviços de Recuperação para recriar e reconfigurar a identidade gerida do cofre e criar novos pontos finais privados conforme necessário (que deve estar no novo inquilino). Se isto não for feito, as operações de backup e restauro começarão a falhar. Além disso, quaisquer permissões de controlo de acesso baseadas em funções (RBAC) criadas dentro da subscrição terão de ser reconfiguradas.
@@ -297,6 +297,10 @@ Ao utilizar o Agente MARS para fazer o back up dos seus recursos no local, certi
 
 Mas se remover os pontos finais privados do cofre depois de um agente da MARS ter sido registado, terá de voltar a registar o contentor com o cofre. Não precisas de parar de proteção para eles.
 
+## <a name="deleting-private-endpoints"></a>Apagar Pontos Finais Privados
+
+Consulte [esta secção](https://docs.microsoft.com/rest/api/virtualnetwork/privateendpoints/delete) para saber como eliminar Os Pontos Finais Privados.
+
 ## <a name="additional-topics"></a>Tópicos adicionais
 
 ### <a name="create-a-recovery-services-vault-using-the-azure-resource-manager-client"></a>Criar um cofre de Serviços de Recuperação utilizando o cliente Azure Resource Manager
@@ -554,4 +558,4 @@ A. Depois de seguir o processo detalhado neste artigo, não precisa de fazer tra
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Leia sobre todos os [recursos de segurança no Azure Backup](security-overview.md)
+- Leia sobre todos os [recursos de segurança no Azure Backup](security-overview.md).

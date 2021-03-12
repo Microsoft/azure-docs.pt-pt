@@ -8,12 +8,12 @@ ms.date: 02/11/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 75beb214682536b996cf4896588ea32d568579f1
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: edca5a278414288ceb3c3d13f5d49e723e0ee5c2
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102045994"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102615929"
 ---
 # <a name="azure-iot-edge-supported-systems"></a>Sistemas suportados Azure IoT Edge
 
@@ -23,7 +23,7 @@ Este artigo fornece detalhes sobre quais os sistemas e componentes que são supo
 
 Se tiver problemas durante a utilização do serviço Azure IoT Edge, existem várias formas de procurar suporte. Experimente um dos seguintes canais de apoio:
 
-**Bugs** de relatório – A maior parte do desenvolvimento que vai para o produto Azure IoT Edge acontece no projeto de código aberto IoT Edge. Os bugs podem ser reportados na página de [assuntos](https://github.com/azure/iotedge/issues) do projeto. As correções fazem rapidamente o seu caminho desde o projeto até atualizações de produtos.
+**Reportar bugs** – A maior parte do desenvolvimento que vai para o produto Azure IoT Edge acontece no projeto de código aberto IoT Edge. Os bugs podem ser reportados na página de [assuntos](https://github.com/azure/iotedge/issues) do projeto. Os bugs relacionados com o Azure IoT Edge para Linux no Windows podem ser reportados na [página de problemas iotedge-eflow](https://github.com/azure/iotedge-eflow/issues). As correções fazem rapidamente o seu caminho desde os projetos até às atualizações de produtos.
 
 **Equipa de Apoio ao Cliente da Microsoft** – Os utilizadores que tenham um plano de [suporte](https://azure.microsoft.com/support/plans/) podem envolver a equipa de Suporte ao Cliente da Microsoft criando um bilhete de suporte diretamente do [portal Azure](https://ms.portal.azure.com/signin/index/?feature.settingsportalinstance=mpac).
 

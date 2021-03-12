@@ -3,12 +3,12 @@ title: Consulta da base de conhecimento - QnA Maker
 description: Uma base de conhecimento deve ser publicada. Uma vez publicada, a base de conhecimento é consultada no ponto final de previsão de tempo de execução usando a API generateAnswer.
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: deefc53fdc94851da0e9e255962fbf85692d1393
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.openlocfilehash: c723d1446c90290929bc8cad066b4744e284f3f4
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99820386"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103008676"
 ---
 # <a name="query-the-knowledge-base-for-answers"></a>Consultar a base de conhecimento para respostas
 
@@ -84,10 +84,9 @@ Uma consulta do utilizador é a pergunta que o utilizador final faz da base de c
     "userId": "sd53lsY="
 }
 ```
+Controla a resposta definindo propriedades como [scoreThreshold,](./confidence-score.md#choose-a-score-threshold) [top](../how-to/improve-knowledge-base.md#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers)e [strictFilters](../how-to/query-knowledge-base-with-metadata.md).
 
-Controla a resposta definindo propriedades como [scoreThreshold,](./confidence-score.md#choose-a-score-threshold) [top](../how-to/improve-knowledge-base.md#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers)e [strictFilters](../how-to/metadata-generateanswer-usage.md#filter-results-with-strictfilters-for-metadata-tags).
-
-Utilize o contexto de [conversação](../how-to/metadata-generateanswer-usage.md#use-question-and-answer-results-to-keep-conversation-context) com [funcionalidades multi-voltas](../how-to/multiturn-conversation.md) para manter a conversa afinar as perguntas e respostas, para encontrar a resposta correta e final.
+Utilize o contexto de [conversação](../how-to/query-knowledge-base-with-metadata.md) com [funcionalidades multi-voltas](../how-to/multiturn-conversation.md) para manter a conversa afinar as perguntas e respostas, para encontrar a resposta correta e final.
 
 ### <a name="the-response-from-a-call-to-generate-an-answer"></a>A resposta de uma chamada para gerar uma resposta
 
