@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: d76fd3b30d823efbf85e84a74a21c694f5a0e6fb
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: aafac1133b2bee54624d5f0b00061c5332fcd90b
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102565568"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102631885"
 ---
 # <a name="windows-10-enterprise-multi-session-faq"></a>FAQ de multissessões do Windows 10 Enterprise
 
@@ -63,7 +63,7 @@ Windows 10 Enterprise multi-sessão, versões 1809 e posteriormente são suporta
 
 ## <a name="which-profile-management-solution-should-i-use-for-windows-10-enterprise-multi-session"></a>Que solução de gestão de perfis devo utilizar para o Windows 10 Enterprise multi-sessão?
 
-Recomendamos que utilize recipientes de perfil FSLogix quando configurar o Windows 10 Enterprise em ambientes não persistentes ou outros cenários que necessitem de um perfil centralmente armazenado. A FSLogix garante que o perfil do utilizador está disponível e atualizado para cada sessão de utilizador. Recomendamos também que utilize o seu contentor de perfil FSLogix para armazenar um perfil de utilizador em qualquer partilha SMB com permissões apropriadas, mas pode armazenar perfis de utilizador no armazenamento de blob de página Azure, se necessário. Os utilizadores do Windows Virtual Desktop podem utilizar o FSLogix sem custos adicionais.
+Recomendamos que utilize recipientes de perfil FSLogix quando configurar o Windows 10 Enterprise em ambientes não persistentes ou outros cenários que necessitem de um perfil centralmente armazenado. A FSLogix garante que o perfil do utilizador está disponível e atualizado para cada sessão de utilizador. Recomendamos também que utilize o seu contentor de perfil FSLogix para armazenar um perfil de utilizador em qualquer partilha SMB com permissões apropriadas, mas pode armazenar perfis de utilizador no armazenamento de blob de página Azure, se necessário. Os utilizadores do Windows Virtual Desktop podem utilizar o FSLogix sem custos adicionais.  A FSLogix vem pré-instalada em todas as imagens multi-sessão do Windows 10 Enterprise, mas o administrador de TI ainda é responsável pela configuração do contentor de perfil FSLogix.
 
 Para obter mais informações sobre como configurar um recipiente de perfil FSLogix, consulte [configurar o recipiente de perfil FSLogix](create-host-pools-user-profile.md#configure-the-fslogix-profile-container).
 

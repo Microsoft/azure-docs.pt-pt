@@ -2,15 +2,15 @@
 title: Tutorial - Modelo JSON de exportação do portal Azure para o desenvolvimento de Bicep
 description: Aprenda a usar um modelo JSON exportado para completar o seu desenvolvimento Bicep.
 author: mumian
-ms.date: 03/01/2021
+ms.date: 03/10/2021
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 0cba91a8c021f4baa90d1a4264bf84d3c56930ec
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 3bc7ed4ada4f7810e9864778c7f76a0573c9dc89
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101748161"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102632554"
 ---
 # <a name="tutorial-use-exported-json-template-from-the-azure-portal"></a>Tutorial: Use o modelo JSON exportado a partir do portal Azure
 
@@ -79,7 +79,7 @@ Atualmente, o portal Azure apenas suporta a exportação de modelos JSON. Existe
 
 O modelo exportado descomplisado dá-lhe a maior parte do Bicep que precisa, mas precisa personalizá-lo para o seu ficheiro Bicep. Preste especial atenção às diferenças de parâmetros e variáveis entre o seu ficheiro Bicep e o ficheiro Bicep exportado. Obviamente, o processo de exportação não conhece os parâmetros e variáveis que já definiu no seu ficheiro Bicep.
 
-O exemplo a seguir destaca as adições ao seu ficheiro Bicep. Contém o código exportado mais algumas alterações. Primeiro, muda o nome do parâmetro para corresponder à sua convenção de nomeação. Em segundo lugar, utiliza o seu parâmetro de localização para a localização do plano de serviço de aplicações. Em terceiro lugar, remove algumas das propriedades onde o valor padrão é bom.
+O exemplo a seguir mostra as adições ao seu ficheiro Bicep. Contém o código exportado mais algumas alterações. Primeiro, muda o nome do parâmetro para corresponder à sua convenção de nomeação. Em segundo lugar, utiliza o seu parâmetro de localização para a localização do plano de serviço de aplicações. Em terceiro lugar, remove algumas das propriedades onde o valor padrão é bom.
 
 Copie todo o ficheiro e substitua o seu ficheiro Bicep pelo seu conteúdo.
 

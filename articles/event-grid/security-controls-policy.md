@@ -1,15 +1,15 @@
 ---
 title: Controlos de conformidade regulamentar da política Azure para a grelha de eventos Azure
 description: Lista controlos de conformidade regulamentar da política Azure disponíveis para a Grelha de Eventos Azure. Estas definições políticas incorporadas fornecem abordagens comuns para gerir o cumprimento dos seus recursos Azure.
-ms.date: 03/05/2021
+ms.date: 03/10/2021
 ms.topic: sample
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: f837d43d2a287e3b28e68321b81937de151f4dc4
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: 19400af4932f1ab59aec8546ce1f7c8f1989f40d
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102440651"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102633351"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-event-grid"></a>Controlos de conformidade regulamentar da política Azure para a grelha de eventos Azure
 

@@ -9,12 +9,12 @@ metadata:
   author: dikamath
   ms.author: dikamath
   ms.date: 11/19/2020
-  ms.openlocfilehash: 9412889bef1ababa6d44d5cf3aa48c2231bed08d
-  ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+  ms.openlocfilehash: 7bff439db0b9567292707efeac085f8537de33a5
+  ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/07/2021
-  ms.locfileid: "102436197"
+  ms.lasthandoff: 03/10/2021
+  ms.locfileid: "102612138"
 landingContent:
 - title: Acerca do Azure VMware Solution
   linkLists:
@@ -136,6 +136,16 @@ landingContent:
       url: /powershell/module/az.vmware
     - text: FAQ
       url: faq.yml
+  - linkListType: video
+    links:
+    - text: Lista de reprodução
+      url: https://youtube.com/playlist?list=PL1NLwHeM6ewbZu0dC0guj-OSpIoZnnJin
+    - text: Demistificar DNS e Comunicação Segura
+      url: https://youtu.be/m26iLu6DHbU
+    - text: Integre com gateway de aplicação Azure
+      url: https://youtu.be/BoQYvqzb6Y8
+    - text: Migrar e planear capacidades
+      url: https://youtu.be/NoNG-hkksrA
 - title: Resolução de problemas
   linkLists:
   - linkListType: reference

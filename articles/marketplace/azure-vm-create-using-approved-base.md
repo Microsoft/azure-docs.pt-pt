@@ -6,17 +6,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: emuench
 ms.author: krsh
-ms.date: 01/06/2021
-ms.openlocfilehash: 9164c1e2542024a02bf4868658d0f29728f32c7b
-ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
+ms.date: 02/18/2021
+ms.openlocfilehash: 7ed3f707ad69c60111bcc97e139c0825fd503d8e
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97976865"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102630116"
 ---
 # <a name="how-to-create-a-virtual-machine-using-an-approved-base"></a>Como criar uma máquina virtual usando uma base aprovada
 
-Este artigo descreve como usar o Azure para criar uma máquina virtual (VM) contendo um sistema operativo pré-configurado e endossado. Se isto não for compatível com a sua solução, é possível [criar e configurar um VM no local utilizando](azure-vm-create-using-own-image.md) um sistema operativo aprovado, em seguida, configurá-lo e prepará-lo para o upload como descrito em [Prepare um VHD ou VHDX do Windows para carregar para a Azure](../virtual-machines/windows/prepare-for-upload-vhd-image.md).
+Este artigo descreve como usar o Azure para criar uma máquina virtual (VM) contendo um sistema operativo pré-configurado e endossado. Se isto não for compatível com a sua solução, é possível [criar e configurar um VM no local utilizando](azure-vm-create-using-own-image.md) um sistema operativo aprovado.
 
 > [!NOTE]
 > Antes de iniciar este procedimento, reveja os [requisitos técnicos](marketplace-virtual-machines.md#technical-requirements) para as ofertas de VM Azure, incluindo os requisitos de disco rígido virtual (VHD).
@@ -75,8 +75,8 @@ Consulte a seguinte documentação para ligar ao seu [Windows](../virtual-machin
 
 [!INCLUDE [Discussion of addition security checks](includes/size-connect-generalize.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Passo seguinte recomendado: [Teste a sua imagem em VM](azure-vm-image-test.md) para garantir que satisfaz os requisitos de publicação do Azure Marketplace. Isto é opcional.
-- Se não testar a sua imagem em VM, continue com [Generate the SAS URI](azure-vm-get-sas-uri.md).
+- Se não quiser testar a sua imagem em VM, inscreva-se no [Partner Center](https://partner.microsoft.com/) para publicar a sua imagem.
 - Se tiver dificuldades em criar o seu novo VHD baseado em Azure, consulte [a VM FAQ para o Azure Marketplace](azure-vm-create-faq.md).

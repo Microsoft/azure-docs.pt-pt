@@ -2,15 +2,15 @@
 title: Tutorial - adicione parâmetros ao ficheiro Bicep do Azure Resource Manager
 description: Adicione parâmetros ao seu ficheiro Bicep para torná-lo reutilizável.
 author: mumian
-ms.date: 03/01/2021
+ms.date: 03/10/2021
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 603aa8f8bdb8136f4418d8f9a77bb40ec39243c0
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 00df2ffc6272011127c5a1eb0c1e302011f8de5f
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101748210"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102632786"
 ---
 # <a name="tutorial-add-parameters-to-azure-resource-manager-bicep-file"></a>Tutorial: Adicionar parâmetros ao ficheiro Bicep do Gestor de Recursos Azure
 
@@ -34,7 +34,7 @@ Deve ter reparado que há um problema com este ficheiro Bicep. O nome da conta d
 
 ## <a name="make-bicep-file-reusable"></a>Tornar o ficheiro Bicep reutilizável
 
-Para tornar o seu ficheiro Bicep reutilizável, vamos adicionar um parâmetro que pode usar para passar num nome de conta de armazenamento. O Bicep destacado no exemplo a seguir mostra o que mudou no seu ficheiro. O `storageName` parâmetro é identificado como uma corda. O comprimento máximo é definido para 24 caracteres para evitar nomes que sejam demasiado longos.
+Para tornar o seu ficheiro Bicep reutilizável, vamos adicionar um parâmetro que pode usar para passar num nome de conta de armazenamento. O seguinte ficheiro Bicep mostra o que mudou no seu ficheiro. O `storageName` parâmetro é identificado como uma corda. O comprimento máximo é definido para 24 caracteres para evitar nomes que sejam demasiado longos.
 
 Copie todo o ficheiro e substitua-o pelos seguintes conteúdos.
 

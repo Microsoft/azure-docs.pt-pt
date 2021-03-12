@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/27/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 4889744347b72603a0f6318f981bc2db4906b835
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 7bb9b6d4a6ca006952d709244e6526345d44431e
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102433544"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102630271"
 ---
 # <a name="connect-function-apps-in-azure-for-processing-data"></a>Conecte aplicações de função em Azure para processamento de dados
 
@@ -63,7 +63,7 @@ Para utilizar o SDK, terá de incluir os seguintes pacotes no seu projeto. Pode 
 * [System.net.http](https://www.nuget.org/packages/System.Net.Http/)
 * [Azure.Core](https://www.nuget.org/packages/Azure.Core/)
 
-Em seguida, no seu Visual Studio Solution Explorer, abra o ficheiro _Function1.cs_ onde tem código de amostra e adicione as `using` seguintes declarações para estes pacotes à sua função. 
+Em seguida, no seu Visual Studio Solution Explorer, abra o ficheiro _Function1.cs_ onde tem código de amostra e adicione as `using` seguintes declarações para estes pacotes à sua função.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs" id="Function_dependencies":::
 
@@ -96,6 +96,20 @@ Agora que a sua aplicação está escrita, pode publicá-la ao Azure utilizando 
 ## <a name="publish-the-function-app-to-azure"></a>Publique a aplicação de funções no Azure
 
 [!INCLUDE [digital-twins-publish-azure-function.md](../../includes/digital-twins-publish-azure-function.md)]
+
+### <a name="verify-function-publish"></a>Verificar publicação de função
+
+1. Inscreva-se com as suas credenciais no [portal Azure](https://portal.azure.com/).
+2. Na barra de pesquisa no topo da janela, procure o nome da **aplicação da** sua função .
+
+    :::image type="content" source="media/how-to-create-azure-function/search-function-app.png" alt-text="Procure a sua aplicação de função com o seu nome no portal Azure." lightbox="media/how-to-create-azure-function/search-function-app.png":::
+
+3. Na página *de aplicações 'Função'* que abre, escolha *Funções* nas opções do menu à esquerda. Se a sua função for publicada com sucesso, verá o nome da sua função na lista.
+Note que pode ter de esperar alguns minutos ou refrescar a página algumas vezes antes de poder ver a sua função listada na lista de funções publicadas.
+
+    :::image type="content" source="media/how-to-create-azure-function/view-published-functions.png" alt-text="Ver funções publicadas no portal Azure." lightbox="media/how-to-create-azure-function/view-published-functions.png":::
+
+Para que a sua aplicação de funções possa aceder ao Azure Digital Twins, terá de ter uma identidade gerida pelo sistema com permissões para aceder à sua instância Azure Digital Twins. Vais marcar isso a seguir.
 
 ## <a name="set-up-security-access-for-the-function-app"></a>Configurar o acesso à segurança para a aplicação de função
 

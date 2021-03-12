@@ -5,12 +5,12 @@ author: stevelas
 ms.topic: article
 ms.date: 07/21/2020
 ms.author: stevelas
-ms.openlocfilehash: e5f0fe76b599874afe8d64c293f3d914da5dd243
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: 4e82be0e81e5e8c0182e061a0fba0f880bd45cc6
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97705171"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102632395"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Geo-replicação no Registo do Contentor de Azure
 
@@ -22,6 +22,7 @@ Um registo com georreplicação proporciona as seguintes vantagens:
 * Melhorar o desempenho e a fiabilidade das implementações regionais com acesso ao registo de proximidade da rede
 * Reduza os custos de transferência de dados puxando camadas de imagem de um registo local, replicado na mesma região ou nas proximidades que o seu anfitrião de contentores
 * Gestão única de um registo em múltiplas regiões
+* Resiliência do registo se ocorrer uma paralisação regional
 
 > [!NOTE]
 > Se necessitar de manter cópias de imagens de contentores em mais de um registo de contentores Azure, o Registo de Contentores Azure também suporta [a importação de imagens](container-registry-import-images.md). Por exemplo, num fluxo de trabalho de DevOps, você pode importar uma imagem de um registo de desenvolvimento para um registo de produção, sem precisar de usar comandos Docker.
@@ -59,6 +60,7 @@ Utilizando a funcionalidade de geo-replicação do Registo do Contentor Azure, e
 * Gerir uma única configuração de implementações de imagem, uma vez que todas as regiões utilizam o mesmo URL de imagem: `contoso.azurecr.io/public/products/web:1.2`
 * Empurre para um único registo, enquanto a ACR gere a geo-replicação. O ACR apenas replica camadas únicas, reduzindo a transferência de dados entre regiões. 
 * Configure [webhooks](container-registry-webhook.md) regionais para notificá-lo de eventos em réplicas específicas.
+* Fornecer um registo altamente disponível que seja resistente a interrupções regionais.
 
 O Registo de Contentores Azure também suporta [zonas de disponibilidade](zone-redundancy.md) para criar um registo de contentores Azure resiliente e de alta disponibilidade dentro de uma região de Azure. A combinação de zonas de disponibilidade para redundância dentro de uma região, e a geo-replicação em várias regiões, aumenta tanto a fiabilidade como o desempenho de um registo.
 

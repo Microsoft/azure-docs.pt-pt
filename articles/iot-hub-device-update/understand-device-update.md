@@ -6,12 +6,12 @@ ms.author: vimeht
 ms.date: 2/11/2021
 ms.topic: overview
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 0d12ce74cb961148776d81b3d7cabc281bbc59fc
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 17674c1a5d7acff50a3dd17b9d98f5295c2e1b19
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101665613"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102633041"
 ---
 # <a name="device-update-for-iot-hub-preview-overview"></a>Atualização do dispositivo para IoT Hub (Visualização) Visão geral
 
@@ -23,10 +23,10 @@ Para perceber todos os benefícios da transformação digital ativada pelo IoT, 
 
 ## <a name="support-for-a-wide-range-of-iot-devices"></a>Suporte para uma vasta gama de dispositivos IoT
 
-A Atualização de Dispositivos para IoT Hub foi concebida para oferecer uma implementação otimizada de atualização e operações simplificadas através da integração com [o Azure IoT Hub](https://azure.microsoft.com/en-us/services/iot-hub/). Esta integração facilita a adoção da Atualização do Dispositivo em qualquer solução existente. Fornece uma solução em nuvem para ligar praticamente qualquer dispositivo. A Atualização do Dispositivo suporta uma vasta gama de sistemas operativos IoT - incluindo Linux e [Azure RTOS](https://azure.microsoft.com/en-us/services/rtos/) (sistema operativo em tempo real) e é extensível através de fonte aberta. 
+A Atualização de Dispositivos para IoT Hub foi concebida para oferecer uma implementação otimizada de atualização e operações simplificadas através da integração com [o Azure IoT Hub](https://azure.microsoft.com/en-us/services/iot-hub/). Esta integração facilita a adoção da Atualização do Dispositivo em qualquer solução existente. Fornece uma solução em nuvem para ligar praticamente qualquer dispositivo. A Atualização do Dispositivo suporta uma vasta gama de sistemas operativos IoT - incluindo Linux e [Azure RTOS](https://azure.microsoft.com/en-us/services/rtos/) (sistema operativo em tempo real) e é extensível através de fonte aberta. Estamos a codificar a atualização do dispositivo para ofertas de IoT Hub com os nossos parceiros semicondutores, incluindo a STMicroelectronics, NXP, Renesas e Microchip. Consulte as [amostras](https://github.com/azure-rtos/samples/tree/PublicPreview/ADU) dos principais conselhos de avaliação de semicondutores que incluem os guias de arranque para aprender a configurar, construir e implementar as atualizações over-the-air (OTA) para dispositivos da classe MCU.
 
 São fornecidas imagens yocto de referência do Agente de Atualização de Dispositivos e raspberry Pi.
-A Atualização do Dispositivo para O Hub IoT também suporta a atualização de dispositivos Azure IoT Edge. Um agente de atualização de dispositivos é fornecido para a plataforma Ubuntu Server 18.04 amd64. A Atualização de Dispositivos para IoT Hub também fornece código de código aberto se não estiver a executar uma das plataformas acima. Isto permite-lhe levar o agente para a distribuição que está a executar.
+A Atualização do Dispositivo para O Hub IoT também suporta a atualização de dispositivos Azure IoT Edge. Um agente de atualização de dispositivos é fornecido para a plataforma Ubuntu Server 18.04 amd64. A Atualização de Dispositivos para IoT Hub também fornece código de código aberto se não estiver a executar uma das plataformas acima. Pode levar o agente para a distribuição que está a executar.
 
 A Atualização do Dispositivo funciona com ioT Plug and Play (PnP) e pode gerir qualquer dispositivo que suporte as interfaces PnP necessárias. Para obter mais informações, consulte [a atualização do dispositivo para IoT Hub e IoT Plug and Play](device-update-plug-and-play.md).
 

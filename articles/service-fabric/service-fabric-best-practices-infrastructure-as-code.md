@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: a0f0324d1f7308eb1392c4f7a98a6a5d226026be
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: b765d92778df40caec0864dc6f547324216fdb07
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97705511"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102611985"
 ---
 # <a name="infrastructure-as-code"></a>Infraestrutura como código
 
@@ -91,7 +91,7 @@ microservices_sfpkg.close()
 ```
 
 ## <a name="azure-virtual-machine-operating-system-automatic-upgrade-configuration"></a>Configuração automática de upgrade do sistema operativo da máquina virtual Azure 
-A atualização das suas máquinas virtuais é uma operação iniciada pelo utilizador, e recomenda-se que utilize [a atualização do Sistema Operativo Automático conjunto de máquinas virtuais](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) para a gestão de patchs de anfitrião de clusters de tecidos de serviço Azure; Patch Orchestration Application é uma solução alternativa que se destina a quando hospedado fora de Azure, embora o POA possa ser usado em Azure, com a sobrecarga de hospedagem de POA em Azure sendo uma razão comum para preferir o Sistema Operativo Virtual Funcionamento Automático do Sistema Operativo em vez de POA. Seguem-se as propriedades do modelo do Gestor de Recursos do Conjunto de Máquinas Virtuais compute para permitir a atualização do Auto OS:
+A atualização das suas máquinas virtuais é uma operação iniciada pelo utilizador, e recomenda-se que utilize [a atualização do Sistema Operativo Automático conjunto de máquinas virtuais](service-fabric-patch-orchestration-application.md) para a gestão de patchs de anfitrião de clusters de tecidos de serviço Azure; Patch Orchestration Application é uma solução alternativa que se destina a quando hospedado fora de Azure, embora o POA possa ser usado em Azure, com a sobrecarga de hospedagem de POA em Azure sendo uma razão comum para preferir o Sistema Operativo Virtual Funcionamento Automático do Sistema Operativo em vez de POA. Seguem-se as propriedades do modelo do Gestor de Recursos do Conjunto de Máquinas Virtuais compute para permitir a atualização do Auto OS:
 
 ```json
 "upgradePolicy": {

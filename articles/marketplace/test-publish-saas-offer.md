@@ -7,13 +7,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
-ms.date: 09/02/2020
-ms.openlocfilehash: bef59ea9e7de77e7f9a80cc3950762ea70238b87
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 03/10/2021
+ms.openlocfilehash: ea647591194dfd6ba0bf818f4ce4d3a2005f0bc4
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89380907"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102630792"
 ---
 # <a name="how-to-test-and-publish-a-saas-offer-to-the-commercial-marketplace"></a>Como testar e publicar uma oferta saaS para o mercado comercial
 
@@ -32,7 +32,7 @@ Este artigo explica como usar o Partner Center para submeter a sua oferta SaaS p
 
 1. Se alguma das páginas tiver um estado diferente do **Complete**, selecione o nome da página, corrija o problema, guarde a página e, em seguida, selecione **'Rever e publicar** novamente para voltar a esta página.'
 1. Depois de todas as páginas estarem completas, na **caixa de notas para certificação,** forneça instruções de teste à equipa de certificação para garantir que a sua aplicação seja testada corretamente. Forneça quaisquer notas suplementares úteis para entender a sua aplicação.
-1. Para iniciar o processo de publicação da sua oferta, **selecione Publicar**. A página **geral da Oferta** aparece e mostra o estado da **publicação**da oferta.
+1. Para iniciar o processo de publicação da sua oferta, **selecione Publicar**. A página **geral da Oferta** aparece e mostra o estado da **publicação** da oferta.
 
 O estado de publicação da sua oferta mudará à medida que se move através do processo de publicação. Para obter informações detalhadas sobre este processo, consulte [a validação e as etapas de publicação.](review-publish-offer.md#validation-and-publishing-steps)
 
@@ -42,17 +42,19 @@ Quando a oferta estiver pronta para a sua assinatura, enviaremos um e-mail para 
 
 A imagem seguinte mostra a página **geral da Oferta** para uma oferta SaaS, com dois links de pré-visualização no botão Go **live.** Os passos de validação que verá nesta página variam consoante as seleções que fez quando criou a oferta.
 
-![Ilustra a página geral da Oferta para uma oferta no Partner Center. São mostrados os botões Go ao vivo e os links de pré-visualização.](media/publish-status-publisher-signoff.png)
+![Ilustra a página geral da Oferta para uma oferta no Partner Center. São mostrados os botões Go ao vivo e os links de pré-visualização. O link do relatório de validação do Ver também é apresentado na validação automatizada.](./media/review-publish-offer/publish-status-saas.png)
 
 Use os seguintes passos para pré-visualizar a sua oferta.
 
-1. Na página **'Visão geral' da Oferta,** selecione um link de pré-visualização no botão **Go live.** 
+1. Na página **'Visão geral' da Oferta,** selecione um link de pré-visualização no botão **Go live.**
 
 1. Para validar o fluxo de compra e configuração de ponta a ponta, compre a sua oferta enquanto está em pré-visualização. Em primeiro lugar, notifique a Microsoft com um [bilhete de apoio](https://aka.ms/marketplacesupport) para garantir que não processamos uma taxa.
 
 1. Se a sua oferta SaaS suporta [faturação medido utilizando o serviço de medição de mercado comercial,](./partner-center-portal/saas-metered-billing.md)reveja e siga as melhores práticas de teste detalhadas em [APIs de faturação medido](./partner-center-portal/marketplace-metering-service-apis.md#development-and-testing-best-practices)pelo Marketplace .
 
 1. Reveja e siga as instruções de teste em [SaaS cumprir a versão 2 do SaaS no mercado comercial da Microsoft](./partner-center-portal/pc-saas-fulfillment-api-v2.md#development-and-testing) para garantir que a sua oferta está integrada com sucesso com as APIs antes de publicar a sua oferta ao vivo.
+
+1. Se o passo de validação da Oferta resultou em advertências, aparece um link **de relatório de validação** de visualização da Visualização da Oferta na página geral da **Oferta.** Certifique-se de rever o relatório e abordar os problemas antes de selecionar o botão **Go live.** Caso contrário, a certificação provavelmente falhará e atrasará a sua oferta de ir ao vivo.
 
 1. Se precisar de fazer alterações após a pré-visualização e teste da oferta, pode editar e reenviar para publicar uma nova pré-visualização. Para mais informações, consulte [Atualizar uma oferta existente no mercado comercial.](./partner-center-portal/update-existing-offer.md)
 
@@ -67,6 +69,6 @@ Agora que escolheu disponibilizar a sua oferta no mercado comercial, realizamos 
 
 Após estes cheques de validação estarem completos, a sua oferta será ao vivo no mercado.
 
-## <a name="next-step"></a>Passo seguinte
+## <a name="next-steps"></a>Passos seguintes
 
-[Aceder a relatórios analíticos para o mercado comercial no Partner Center](./partner-center-portal/analytics.md)
+- [Aceder a relatórios analíticos para o mercado comercial no Partner Center](./partner-center-portal/analytics.md)

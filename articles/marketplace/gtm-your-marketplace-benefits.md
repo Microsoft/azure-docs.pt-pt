@@ -4,15 +4,15 @@ description: Go-To-Market Services - Os recursos da Microsoft que os editores po
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 03/03/2021
+ms.date: 03/09/2021
 author: keferna
 ms.author: keferna
-ms.openlocfilehash: 06f98a8e303d2ff692c0f84314e639c2a51cbcc1
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: 58e55527c84db0c368e676f2bf1314dca32e78db
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102489472"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102631057"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Os seus benefícios no mercado comercial
 
@@ -50,18 +50,16 @@ Descrições detalhadas de todos os benefícios do programa podem ser encontrada
     1. Depois de atualizar o contacto de marketing, **selecione Ativar** para o benefício que pretende começar a usar. Depois de ativar um benefício, o contacto de marketing será contactado por um membro da equipa do Rewards no prazo de uma semana.
 
 > [!NOTE]
-> Se a sua oferta está ao vivo há mais de quatro semanas e não recebeu uma mensagem, por favor, verifique dentro da sua organização quem é o proprietário da oferta em questão, olhando para o Partner Center. Devem ter a comunicação e os próximos passos.
-
-Se não conseguir determinar o proprietário, ou se o proprietário tiver deixado a sua empresa, pode levantar um bilhete de apoio na [Ajuda e Apoio.](https://aka.ms/marketplacepublishersupport)
+> Se a sua oferta está ao vivo há mais de quatro semanas e não recebeu uma mensagem, por favor, verifique dentro da sua organização quem é o proprietário da oferta em questão, olhando para o Partner Center. Devem ter a comunicação e os próximos passos.<br><br>Se não conseguir determinar o proprietário, ou se o proprietário tiver deixado a sua empresa, levante um bilhete de apoio na [Ajuda e Apoio.](https://aka.ms/marketplacepublishersupport)
 
 O âmbito das atividades disponíveis para si expande-se à medida que aumenta as suas ofertas no mercado comercial. Todos os anúncios recebem um nível base de recomendações de otimização e promoção como parte de um email auto-servido de recursos e boas práticas.
 
 ## <a name="list-trial-and-consulting-benefits"></a>Lista, experiência e benefícios de consultoria
 
-Sempre que publicar no Microsoft AppSource ou no Azure Marketplace, terá acesso a um novo conjunto de benefícios. Assim que a sua oferta for transmitida, vá ao [Partner Center](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fpartner.microsoft.com%2Fdashboard%2Fmpn%2Fmembership%2Fbenefits%2Fcommercialmarketplace&data=04%7C01%7Cv-kilieb%40microsoft.com%7C3b13a8a6e41a47d6d96008d8c7cb3b50%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637479022971578374%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000&sdata=MF1ZlPX9M5JiJZE2e%2B6kXEsRX1klB5hTcSqcHYDjZq8%3D&reserved=0) para ativar o seu marketing, vendas e benefícios técnicos elegíveis.
+Sempre que publicar no Microsoft AppSource ou no Azure Marketplace, terá acesso a um novo conjunto de benefícios. Assim que a sua oferta for transmitida, vá ao [Partner Center](https://partner.microsoft.com/dashboard) para ativar o seu marketing, vendas e benefícios técnicos elegíveis.
 
-> [!NOTE]
-> Todos os benefícios do Trial and Consulting expiram após 3 meses.
+> [!IMPORTANT]
+> Todos os benefícios da Trial and Consulting expiram após três meses.
 
 O quadro abaixo resume os requisitos de elegibilidade para ofertas de lista, julgamento e consultoria:
 
@@ -80,13 +78,19 @@ Estes benefícios são projetados para apoiá-lo em marketing, vendas e atividad
 
 Todos os parceiros que tenham uma oferta ao vivo podem trabalhar com um gestor de noivado dedicado para escolher as atividades de maior valor para o seu portfólio de ofertas de mercado comercial. Este compromisso é sempre verde por oferta, o que significa que você pode escolher suas atividades e o momento destas atividades para alinhar com o timing das estratégias de marketing e vendas mais amplas da sua empresa.
 
+### <a name="marketing-benefits-for-transact-offers"></a>Benefícios de marketing para ofertas transacionadas
+
 ![Benefícios de marketing](./media/marketplace-publishers-guide/marketing-benefit.png)
+
+### <a name="sales-benefits-for-transact-offers"></a>Benefícios de venda para ofertas transacionadas
 
 ![Benefícios de venda](./media/marketplace-publishers-guide/sales-benefit.png)
 
+### <a name="technical-benefits-for-transact-offers"></a>Benefícios técnicos para ofertas transacionadas
+
 ![Benefícios técnicos](./media/marketplace-publishers-guide/technical-benefit.png)
 
-\* O limiar de lugares vendidos aplica-se apenas às aplicações da Microsoft 365 (aplicações SaaS que tenham integrações com as Equipas da Microsoft, Office, Outlook ou SharePoint) e os benefícios devem estar concluídos até 30 de junho de 2021.
+O limiar de lugares vendidos aplica-se apenas às aplicações da Microsoft 365 (aplicações SaaS que tenham integrações com as Equipas da Microsoft, Office, Outlook ou SharePoint) e os benefícios devem estar concluídos até 30 de junho de 2021.
 
 Descrições detalhadas para todos estes benefícios podem ser encontradas no deck do [programa Marketplace Rewards.](https://aka.ms/marketplacerewards)
 

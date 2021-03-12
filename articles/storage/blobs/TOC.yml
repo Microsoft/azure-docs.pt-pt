@@ -153,18 +153,18 @@
               href: ../common/network-routing-preference.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Proteção de dados
           items:
+            - name: Eliminação recuperável para contentores
+              href: soft-delete-container-overview.md
             - name: Controlo de versões
               href: versioning-overview.md
             - name: Eliminação recuperável para blobs
               href: soft-delete-blob-overview.md
-            - name: Eliminação recuperável para contentores
-              href: soft-delete-container-overview.md
+            - name: Restauro para um ponto anterior no tempo
+              href: point-in-time-restore-overview.md
             - name: Instantâneos
               href: snapshots-overview.md
             - name: Feed de alterações
               href: storage-blob-change-feed.md
-            - name: Restauro para um ponto anterior no tempo
-              href: point-in-time-restore-overview.md
             - name: Blobs imutáveis
               href: storage-blob-immutable-storage.md
         - name: Redundância e recuperação de desastres
@@ -401,18 +401,20 @@
               href: ../common/azure-defender-storage-configure.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Proteger dados blob
           items:
+            - name: Bloqueie uma conta de armazenamento
+              href: ../common/lock-account-resource.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Ativar a eliminação recuperável para contentores
+              href: soft-delete-container-enable.md
             - name: Ativar a criação de versões de blobs
               href: versioning-enable.md
             - name: Ativar a eliminação recuperável para blobs
               href: soft-delete-blob-enable.md
-            - name: Ativar a eliminação recuperável para contentores
-              href: soft-delete-container-enable.md
+            - name: Ativar restauro para um ponto anterior no tempo
+              href: point-in-time-restore-manage.md
             - name: Criar instantâneos (.NET)
               href: snapshots-manage-dotnet.md
             - name: Processar registos do feed de alterações
               href: storage-blob-change-feed-how-to.md
-            - name: Ativar restauro para um ponto anterior no tempo
-              href: point-in-time-restore-manage.md
             - name: Definir e gerir políticas de imutabilidade
               href: storage-blob-immutability-policies-manage.md
         - name: Gerir a redundância e o failover

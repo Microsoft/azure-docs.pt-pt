@@ -1,5 +1,5 @@
 ---
-title: Configurar o acesso direto usando o Azure Ative Directory B2C / Microsoft Docs
+title: Configurar o insindús de entrada direta utilizando o Azure Ative Directory B2C | Microsoft Docs
 description: Saiba como pré-epopular o nome de inscrição ou redirecione diretamente para um provedor de identidade social.
 services: active-directory-b2c
 author: msmimart
@@ -12,12 +12,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: b2342ed978204284bee4d2be0f1c983aa10ade36
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 35e8efa269ab72477b06e86824d368d0a3dced03
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97585042"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103197331"
 ---
 # <a name="set-up-direct-sign-in-using-azure-active-directory-b2c"></a>Configurar o acesso direto usando o Azure Ative Directory B2C
 
@@ -79,7 +79,7 @@ O parâmetro de cadeia de sugestão de domínio pode definir-se para um dos segu
 
 ::: zone pivot="b2c-custom-policy"
 
-Para suportar o parâmetro de dobragem de domínio, pode configurar o nome de domínio utilizando o `<Domain>domain name</Domain>` elemento XML de qualquer `<ClaimsProvider>` .
+Para suportar o parâmetro de sugestão de domínio, pode configurar o nome de domínio utilizando o `<Domain>domain name</Domain>` elemento XML de qualquer `<ClaimsProvider>` .
 
 ```xml
 <ClaimsProvider>

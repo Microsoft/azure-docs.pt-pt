@@ -1,5 +1,5 @@
 ---
-title: Tamanhos Azure VM - Memória / Microsoft Docs
+title: Tamanhos Azure VM - Memory | Microsoft Docs
 description: Lista os diferentes tamanhos otimizados de memória disponíveis para máquinas virtuais em Azure. Lista informações sobre o número de vCPUs, discos de dados e NICs, bem como a produção de armazenamento e largura de banda de rede para tamanhos nesta série.
 services: virtual-machines
 documentationcenter: ''
@@ -10,17 +10,18 @@ tags: azure-resource-manager,azure-service-management
 keywords: VM isolamento,VM isolado,isolamento,isolado
 ms.assetid: ''
 ms.service: virtual-machines
+ms.subservice: vm-sizes-memory
 ms.devlang: na
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: mimckitt
-ms.openlocfilehash: 1e27ee2c045404d13b10945ac65484281b0cd967
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 08a14a1c97a1eae9c07c50334929fb16304e635a
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019720"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102556524"
 ---
 # <a name="memory-optimized-virtual-machine-sizes"></a>Tamanhos de máquina virtual otimizados de memória
 
@@ -49,7 +50,7 @@ O Azure Compute oferece tamanhos de máquinas virtuais que são isolados a um ti
 - [Fins gerais](sizes-general.md)
 - [Com otimização de computação](sizes-compute.md)
 - [Com otimização de armazenamento](sizes-storage.md)
-- [Com otimização de GPU](sizes-gpu.md)
+- [Otimizada para GPU](sizes-gpu.md)
 - [Computação de elevado desempenho](sizes-hpc.md)
 - [Gerações anteriores](sizes-previous-gen.md)
 

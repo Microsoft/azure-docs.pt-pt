@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 1/21/2021
 ms.author: baanders
-ms.openlocfilehash: 59506b1d1d3fbbc5a532c597d46dc92ee3c2e98e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 9f8ca9ab6dc184abb8d9dcd25ebe87cbd7761722
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101750093"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102630280"
 ---
 Para publicar o projeto numa aplicação de função em Azure, selecione o projeto à direita no *Solution Explorer* e escolha **a Publish.**
 
@@ -57,6 +57,4 @@ No painel *publicar* que se abre de volta na janela principal do Estúdio Visual
 >
 > Siga as instruções para atualizar para a versão mais recente do tempo de execução do Azure Functions. Este problema pode ocorrer se estiver a utilizar uma versão mais antiga do Visual Studio.
 
-A sua aplicação de função foi agora publicada no Azure. 
-
-Para que a sua aplicação de funções possa aceder ao Azure Digital Twins, terá de ter uma identidade gerida pelo sistema com permissões para aceder à sua instância Azure Digital Twins. Vais marcar isso a seguir.
+A sua aplicação de função foi agora publicada no Azure.

@@ -8,14 +8,16 @@ ms.author: kgremban
 ms.date: 3/27/2020
 ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 2ae6d46198d979f91de5bf31d389f75961b4ab88
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 6e5b5c021eb6a83de9ecfb31757855065b70c290
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96437172"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103196946"
 ---
 # <a name="use-visual-studio-2019-to-develop-and-debug-modules-for-azure-iot-edge"></a>Use o Visual Studio 2019 para desenvolver e depurar módulos para Azure IoT Edge
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Pode transformar a sua lógica de negócio em módulos para Azure IoT Edge. Este artigo mostra-lhe como usar o Visual Studio 2019 como a principal ferramenta para desenvolver e depurar módulos.
 
@@ -112,7 +114,7 @@ O projeto **IotEdgeModule1** é uma aplicação de consola .NET Core 2.1 se for 
 
 ## <a name="develop-your-module"></a>Desenvolva o seu módulo
 
-O código do módulo predefinido que acompanha a solução está localizado em **IotEdgeModule1**  >  **Program.cs** (para C#) ou **principal.c** (C). O módulo e o `deployment.template.json` ficheiro são configurados para que possa construir a solução, empurrá-la para o registo do seu contentor e implantá-la num dispositivo para iniciar os testes sem tocar em nenhum código. O módulo foi construído para obter a entrada de uma fonte (neste caso, o módulo **SimulaçãoTemperatureSensor** que simula dados) e canalizar para o Azure IoT Hub.
+O código do módulo predefinido que acompanha a solução está localizado no Programa **IotEdgeModule1.cs**  >   (para C#) ou **principal.c** (C). O módulo e o `deployment.template.json` ficheiro são configurados para que possa construir a solução, empurrá-la para o registo do seu contentor e implantá-la num dispositivo para iniciar os testes sem tocar em nenhum código. O módulo foi construído para obter a entrada de uma fonte (neste caso, o módulo **SimulaçãoTemperatureSensor** que simula dados) e canalizar para o Azure IoT Hub.
 
 Quando estiver pronto para personalizar o modelo do módulo com o seu próprio código, utilize os [SDKs Azure IoT Hub](../iot-hub/iot-hub-devguide-sdks.md) para construir módulos que respondam às principais necessidades de soluções IoT, tais como segurança, gestão de dispositivos e fiabilidade.
 
@@ -147,7 +149,7 @@ Normalmente, você vai querer testar e depurar cada módulo antes de executá-lo
 
    ![Módulo correndo](./media/how-to-visual-studio-develop-csharp-module/single-module-run.png)
 
-1. Se se desenvolver em C#, desaponte um ponto de rutura `PipeMessage()` na função em **Program.cs**; se utilizar C, desaponte um ponto de rutura `InputQueue1Callback()` na função em **geral.c**. Em seguida, pode testá-la enviando uma mensagem executando o seguinte comando numa casca **de Git Bash** ou **WSL Bash.** (Não é possível executar o comando a `curl` partir de um powerShell ou de um pedido de comando.)
+1. Se desenvolver em C#, desaponte um ponto de rutura `PipeMessage()` na função no **Programa.cs**; se utilizar C, desaponte um ponto de rutura `InputQueue1Callback()` na função em **geral.c**. Em seguida, pode testá-la enviando uma mensagem executando o seguinte comando numa casca **de Git Bash** ou **WSL Bash.** (Não é possível executar o comando a `curl` partir de um powerShell ou de um pedido de comando.)
 
     ```bash
     curl --header "Content-Type: application/json" --request POST --data '{"inputName": "input1","data":"hello world"}' http://localhost:53000/api/v1/messages

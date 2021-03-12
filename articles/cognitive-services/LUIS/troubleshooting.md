@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: troubleshooting
 ms.date: 05/06/2020
-ms.openlocfilehash: e4de77a8a56ce21511ad099af59a77e10ab1815d
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: b5e25e9ed25ced96d38994928bcb6275ce79420f
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98787541"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102612801"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Perguntas Frequentes (FAQ) do Language Understanding 
 
@@ -286,7 +286,7 @@ Se estiver a utilizar o Serviço Azure Bot e o problema é que o **Teste no Web 
 
 #### <a name="resolve-issue-while-debugging-on-local-machine-with-bot-framework"></a>Resolva o problema enquanto depura na máquina local com a Bot Framework.
 
-Para saber mais sobre a depuragem local de um bot, consulte [Debug a bot.](/azure/bot-service/bot-service-debug-bot?view=azure-bot-service-4.0)
+Para saber mais sobre a depuragem local de um bot, consulte [Debug a bot.](/azure/bot-service/bot-service-debug-bot)
 
 ## <a name="integrating-luis"></a>Integração DO LUIS
 
@@ -330,7 +330,7 @@ Vídeos:
 
 * [Como usar a Azure Conversational IA para escalar o seu negócio para a próxima geração](https://www.youtube.com/watch?v=_k97jd-csuk&feature=youtu.be)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre o LUIS, consulte os seguintes recursos:
 * [Perguntas de Stack Overflow marcadas com LUIS](https://stackoverflow.com/questions/tagged/luis)

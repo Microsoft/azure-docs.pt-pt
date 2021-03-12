@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 11/17/2020
 ms.author: alkohli
-ms.openlocfilehash: 763ccd397d8cd704ca161032e65f17979bccb53b
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 9fa4c678a04342b47601f81ede7c49ab841f42ba
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96467896"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102630967"
 ---
 # <a name="configure-vpn-on-your-azure-stack-edge-mini-r-device-via-azure-powershell"></a>Configure VPN no seu dispositivo Azure Stack Edge Mini R via Azure PowerShell
 
@@ -303,7 +303,7 @@ Siga estes passos na UI local do seu dispositivo Azure Stack Edge.
 
 ## <a name="validate-data-transfer-through-vpn"></a>Validar transferência de dados através da VPN
 
-Para confirmar que a VPN está a funcionar, copie os dados para uma participação da SMB. Siga os passos no [Adicionar uma parte](azure-stack-edge-j-series-manage-shares.md#add-a-share) no seu dispositivo Azure Stack Edge. 
+Para confirmar que a VPN está a funcionar, copie os dados para uma participação da SMB. Siga os passos no [Adicionar uma parte](azure-stack-edge-gpu-manage-shares.md#add-a-share) no seu dispositivo Azure Stack Edge. 
 
 1. Copie um ficheiro, por exemplo, \data\pictures\waterfall.jpg para a parte SMB que montou no seu sistema de clientes. 
 2. Para validar que os dados estão a passar pela VPN, enquanto os dados estão a ser copiados:

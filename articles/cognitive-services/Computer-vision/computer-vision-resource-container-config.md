@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/23/2020
 ms.author: aahi
 ms.custom: seodec18
-ms.openlocfilehash: 0539f37fe15f68d8bfd47bf426333f9d5c67c37d
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: ee2e4fca697c086b95e83feb9d40ce8e07dc344c
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96006882"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102611900"
 ---
 # <a name="configure-read-ocr-docker-containers"></a>Configure Ler recipientes OCR Docker
 
@@ -33,12 +33,14 @@ O contentor também tem as seguintes definições de configuração específicas
 
 |Necessário|Definição|Objetivo|
 |--|--|--|
-|Não|ReadEngineConfig:ResultadoExpirationPeriod| apenas contentores v2.0. Prazo de expiração do resultado em horas. O padrão é de 48 horas. A definição especifica quando o sistema deve limpar os resultados do reconhecimento. Por exemplo, se `resultExpirationPeriod=1` , o sistema limpar o resultado do reconhecimento 1 hora após o processo. Se `resultExpirationPeriod=0` , o sistema limpar o resultado do reconhecimento após a recuperação do resultado.|
-|Não|Cache:Redis| apenas contentores v2.0. Permite o armazenamento redis para armazenar resultados. É *necessária* uma cache se vários recipientes de leitura forem colocados atrás de um equilibrador de carga.|
-|Não|Fila:RabbitMQ|apenas contentores v2.0. Permite o RabbitMQ para o envio de tarefas. A regulação é útil quando vários recipientes de leitura são colocados atrás de um equilibrador de carga.|
-|Não|Fila:Azure:QueueVisibilityTimeoutInMilliseconds | apenas contentores v3.x. O tempo para uma mensagem ser invisível quando outro trabalhador está a processá-la. |
-|Não|Armazenamento::D ocumentStore::MongoDB|apenas contentores v2.0. Permite o MongoDB para armazenamento permanente de resultados. |
-|Não|Armazenamento:ObjectStore:AzureBlob:ConnectionString| apenas contentores v3.x. Cadeia de ligação de armazenamento de bolhas Azure. |
+|No|ReadEngineConfig:ResultadoExpirationPeriod| apenas contentores v2.0. Prazo de expiração do resultado em horas. O padrão é de 48 horas. A definição especifica quando o sistema deve limpar os resultados do reconhecimento. Por exemplo, se `resultExpirationPeriod=1` , o sistema limpar o resultado do reconhecimento 1 hora após o processo. Se `resultExpirationPeriod=0` , o sistema limpar o resultado do reconhecimento após a recuperação do resultado.|
+|No|Cache:Redis| apenas contentores v2.0. Permite o armazenamento redis para armazenar resultados. É *necessária* uma cache se vários recipientes de leitura forem colocados atrás de um equilibrador de carga.|
+|No|Fila:RabbitMQ|apenas contentores v2.0. Permite o RabbitMQ para o envio de tarefas. A regulação é útil quando vários recipientes de leitura são colocados atrás de um equilibrador de carga.|
+|No|Fila:Azure:QueueVisibilityTimeoutInMilliseconds | apenas contentores v3.x. O tempo para uma mensagem ser invisível quando outro trabalhador está a processá-la. |
+|No|Armazenamento::D ocumentStore::MongoDB|apenas contentores v2.0. Permite o MongoDB para armazenamento permanente de resultados. |
+|No|Armazenamento:ObjectStore:AzureBlob:ConnectionString| apenas contentores v3.x. Cadeia de ligação de armazenamento de bolhas Azure. |
+|No|Armazenamento:TimeToLiveInDays| apenas contentores v3.x. Prazo de expiração do resultado em dias. A definição especifica quando o sistema deve limpar os resultados do reconhecimento. O padrão é de 2 dias (48 horas), o que significa que qualquer resultado vivo por mais tempo do que esse período não é garantido para ser recuperado com sucesso. |
+|No|Tarefa:MaxRunningTimeSpanInMinutes| apenas contentores v3.x. Tempo máximo de funcionamento para um único pedido. O padrão é de 60 minutos. |
 
 ## <a name="apikey-configuration-setting"></a>Definição de configuração apikey
 
@@ -62,7 +64,7 @@ Esta definição pode ser encontrada no seguinte local:
 
 Lembre-se de adicionar o `vision/v1.0` encaminhamento ao ponto final URI, como indicado na tabela seguinte. 
 
-|Necessário| Nome | Tipo de dados | Descrição |
+|Necessário| Name | Tipo de dados | Descrição |
 |--|------|-----------|-------------|
 |Sim| `Billing` | String | URI de ponto final de faturação<br><br>Exemplo:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v1.0` |
 
@@ -90,7 +92,7 @@ Os recipientes de Visão de Computador não utilizam suportes de entrada ou saí
 
 A sintaxe exata da localização do suporte do hospedeiro varia consoante o sistema operativo do hospedeiro. Além disso, a localização do suporte do [computador anfitrião](computer-vision-how-to-install-containers.md#the-host-computer)pode não estar acessível devido a um conflito entre permissões utilizadas pela conta de serviço Docker e as permissões de localização do anfitrião. 
 
-|Opcional| Nome | Tipo de dados | Descrição |
+|Opcional| Name | Tipo de dados | Descrição |
 |-------|------|-----------|-------------|
 |Não permitido| `Input` | String | Os recipientes de Visão de Computador não utilizam isto.|
 |Opcional| `Output` | String | O alvo do suporte de saída. O valor predefinido é `/output`. Esta é a localização dos registos. Isto inclui registos de contentores. <br><br>Exemplo:<br>`--mount type=bind,src=c:\output,target=/output`|

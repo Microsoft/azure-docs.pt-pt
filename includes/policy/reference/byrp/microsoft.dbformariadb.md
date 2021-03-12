@@ -2,17 +2,17 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 03/05/2021
+ms.date: 03/10/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 3b8cab3cf193d132b50a07f9f72503bb90caf650
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: c4129555ef04205d13574be327d0cbb8e2a85ba7
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102425192"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102613349"
 ---
-|Name<br /><sub>(Portal Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[Backup geo-redundante deve ser ativado para Azure Database for MariaDB](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0ec47710-77ff-4a3d-9181-6aa50af424d0) |A Azure Database for MariaDB permite-lhe escolher a opção de redundância para o seu servidor de base de dados. Pode ser configurado para um armazenamento de backup geo-redundante no qual os dados não são apenas armazenados dentro da região em que o seu servidor está hospedado, mas também é replicado para uma região emparelhada para fornecer opção de recuperação em caso de falha na região. Configurar o armazenamento geo-redundante para cópia de segurança só é permitido durante a criação do servidor. |Auditoria, Deficientes |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/GeoRedundant_DBForMariaDB_Audit.json) |
 |[O servidor MariaDB deve usar um ponto final de serviço de rede virtual](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fdfbd9a64-6114-48de-a47d-90574dc2e489) |As regras de firewall baseadas em rede virtual são usadas para permitir o tráfego de uma sub-rede específica para a base de dados Azure para MariaDB, garantindo ao mesmo tempo que o tráfego permanece dentro do limite de Azure. Esta política fornece uma forma de auditoria se a Base de Dados Azure para MariaDB tem o ponto final do serviço de rede virtual a ser utilizado. |AuditIfNotExists, Desativado |[1.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/MariaDB_VirtualNetworkServiceEndpoint_Audit.json) |

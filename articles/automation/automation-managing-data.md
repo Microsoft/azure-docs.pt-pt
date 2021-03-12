@@ -3,14 +3,14 @@ title: Segurança de dados da Azure Automation
 description: Este artigo ajuda-o a aprender como a Azure Automation protege a sua privacidade e protege os seus dados.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 03/02/2021
+ms.date: 03/10/2021
 ms.topic: conceptual
-ms.openlocfilehash: 2bdf25ef24f1fbf4aaf4dec154ea6af3421b915a
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: e41e9af418b08210f5f0f40de9951d03711dc8e7
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102050822"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102616121"
 ---
 # <a name="management-of-azure-automation-data"></a>Gestão dos dados da Automatização do Azure
 
@@ -22,11 +22,11 @@ Para garantir a segurança dos dados em trânsito para a Azure Automation, encor
 
 * Chamadas webhook
 
-* Trabalhadores de runbook híbridos, que inclui máquinas geridas por Gestão de Atualização e Rastreio e Inventário de Alterações.
+* Trabalhadores de runbook híbridos, que incluem máquinas geridas por Gestão de Atualização e Rastreio de Alterações e Inventário.
 
 * Nódes DSC
 
-Versões mais antigas da camada de tomadas TLS/Secure Sockets (SSL) foram consideradas vulneráveis e, embora ainda atualmente trabalhem para permitir retrocompatibilidade, não são **recomendadas**. Não recomendamos que o seu agente utilize apenas o TLS 1.2 a menos que seja absolutamente necessário, pois pode quebrar funcionalidades de segurança de nível da plataforma que lhe permitam detetar e tirar partido de protocolos mais recentes e mais seguros à medida que estes ficam disponíveis, como o TLS 1.3.
+Versões mais antigas da camada de tomadas TLS/Secure Sockets (SSL) foram consideradas vulneráveis e, embora ainda atualmente trabalhem para permitir retrocompatibilidade, não são **recomendadas**. Não recomendamos que o seu agente utilize explicitamente o TLS 1.2 a menos que seja necessário, pois pode quebrar funcionalidades de segurança de nível de plataforma que lhe permitam detetar e tirar partido de protocolos mais recentes e mais seguros à medida que estes ficam disponíveis, como o TLS 1.3.
 
 Para obter informações sobre o suporte TLS 1.2 com o agente Log Analytics para Windows e Linux, que é uma dependência para o papel de Trabalhador de Runbook Híbrido, consulte [a visão geral do agente Log Analytics - TLS 1.2](..//azure-monitor/agents/log-analytics-agent.md#tls-12-protocol).
 
@@ -41,7 +41,7 @@ Para obter informações sobre o suporte TLS 1.2 com o agente Log Analytics para
 
 ## <a name="data-retention"></a>Retenção de dados
 
-Quando elimina um recurso na Azure Automation, é retido por vários dias para efeitos de auditoria antes da remoção permanente. Não pode ver ou usar o recurso durante este tempo. Esta política aplica-se também aos recursos que pertencem a uma conta de Automação eliminada. A política de retenção aplica-se a todos os utilizadores e atualmente não pode ser personalizada. No entanto, se necessitar de manter os dados por um período mais longo, pode [encaminhar os dados de trabalho da Azure Automation para os registos do Azure Monitor](automation-manage-send-joblogs-log-analytics.md).
+Quando elimina um recurso na Azure Automation, é retido por muitos dias para efeitos de auditoria antes da remoção permanente. Não pode ver ou usar o recurso durante este tempo. Esta política aplica-se também aos recursos que pertencem a uma conta de Automação eliminada. A política de retenção aplica-se a todos os utilizadores e atualmente não pode ser personalizada. No entanto, se necessitar de manter os dados por um período mais longo, pode [encaminhar os dados de trabalho da Azure Automation para os registos do Azure Monitor](automation-manage-send-joblogs-log-analytics.md).
 
 O quadro que se segue resume a política de retenção de diferentes recursos.
 
@@ -68,7 +68,7 @@ Pode exportar os seus livros para scripts utilizando o portal Azure ou o cmdlet 
 
 ### <a name="integration-modules"></a>Módulos de integração
 
-Não é possível exportar módulos de integração da Azure Automation. Deve disponibilizá-los fora da conta Automation.
+Não é possível exportar módulos de integração da Azure Automation, eles têm de ser disponibilizados fora da conta Automation.
 
 ### <a name="assets"></a>Elementos
 
@@ -84,7 +84,10 @@ Pode exportar as suas configurações DSC para ficheiros de scripts utilizando o
 
 A geo-replicação é padrão nas contas Azure Automation. Você escolhe uma região primária ao configurar a sua conta. O serviço de geo-replicação da Automação interna atribui automaticamente uma região secundária à conta. O serviço, em seguida, continuamente confirma os dados da conta da região primária para a região secundária. A lista completa das regiões primárias e secundárias pode ser encontrada na [continuidade do Negócios e na recuperação de desastres (BCDR): Regiões Emparelhadas Azure](../best-practices-availability-paired-regions.md).
 
-A cópia de segurança criada pelo serviço de geo-replicação automation é uma cópia completa dos ativos, configurações e similares da Automação. Esta cópia de segurança pode ser usada se a região primária descer e perder dados. No caso improvável de os dados de uma região primária se perderem, a Microsoft tenta recuperá-lo. Se a empresa não conseguir recuperar os dados primários, utiliza falha automática e informa-o da situação através da sua assinatura Azure.
+A cópia de segurança criada pelo serviço de geo-replicação automation é uma cópia completa dos ativos, configurações e similares da Automação. Esta cópia de segurança pode ser usada se a região primária descer e perder dados. No caso improvável de os dados de uma região primária se perderem, a Microsoft tenta recuperá-lo.
+
+> [!NOTE]
+> A Azure Automation armazena os dados dos clientes na região selecionada pelo cliente. Para efeitos do BCDR, para todas as regiões, com exceção do Brasil Sul e Sudeste Asiático, os dados da Azure Automation são armazenados numa região diferente (região emparelhada Azure). Apenas para a região do Brasil Sul (Estado de São Paulo) da geografia do Brasil e da região do Sudeste Asiático (Singapura) da geografia do Pacífico Asiático, armazenamos dados da Azure Automation na mesma região para acomodar requisitos de residência de dados para estas regiões.
 
 O serviço de geo-replicação automation não é acessível diretamente a clientes externos se houver uma falha regional. Se pretender manter a configuração da Automatização e os livros de execução durante as falhas regionais:
 

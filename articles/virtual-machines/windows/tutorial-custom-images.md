@@ -2,19 +2,19 @@
 title: Tutorial - Criar imagens VM personalizadas com Azure PowerShell
 description: Neste tutorial, aprende-se a usar o Azure PowerShell para criar uma imagem de máquina virtual personalizada do Windows armazenada numa Galeria de Imagens Partilhadas Azure.
 author: cynthn
-ms.service: virtual-machines-windows
-ms.subservice: imaging
+ms.service: virtual-machines
+ms.subservice: shared-image-gallery
 ms.topic: tutorial
 ms.workload: infrastructure
 ms.date: 05/01/2020
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 0e3521603c4651133f1420809e4921ad27279860
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 145b7300272243099cfccad0c99d8f69e83e6762
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98873196"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102555827"
 ---
 # <a name="tutorial-create-windows-vm-images-with-azure-powershell"></a>Tutorial: Criar imagens VM do Windows com Azure PowerShell
 
@@ -35,7 +35,7 @@ Os passos abaixo detalham como tomar um VM existente e transformá-lo numa image
 
 Para concluir o exemplo neste tutorial, tem de ter uma máquina virtual existente. Se necessário, pode ver o [quickstart PowerShell](quick-create-powershell.md) para criar um VM para usar para este tutorial. Ao trabalhar através do tutorial, substitua os nomes de recursos sempre que necessário.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Uma [Galeria de Imagens Partilhadas](../shared-image-galleries.md) simplifica a partilha de imagens personalizadas em toda a sua organização. As imagens personalizadas são como imagens do marketplace, mas são criadas por si. As imagens personalizadas podem ser utilizadas para configurações do programa de arranque do sistema, como o pré-carregamento de aplicações, configurações de aplicação e outras configurações do SO. 
 
@@ -209,7 +209,7 @@ Remove-AzResourceGroup -Name myResoureceGroup
 
 A Azure também oferece um serviço, construído sobre Packer, [Azure VM Image Builder.](../image-builder-overview.md) Basta descrever as suas personalizações num modelo, e lidará com a criação de imagem. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, criou uma imagem VM especializada. Aprendeu a:
 

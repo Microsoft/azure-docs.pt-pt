@@ -1,5 +1,5 @@
 ---
-title: Conceitos de gestão para Azure AD Domain Services / Microsoft Docs
+title: Conceitos de gestão para Azure AD Domain Services | Microsoft Docs
 description: Saiba como administrar um domínio gerido pelo Azure Ative Directory Domain Services e o comportamento das contas de utilizador e das palavras-passe
 services: active-directory-ds
 author: justinha
@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 06/05/2020
+ms.date: 03/10/2021
 ms.author: justinha
-ms.openlocfilehash: 76af477af8290634d2658c58574b8f96cff7b1fb
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 5473ef46751d64fdbbf1d52f39c66f49d707e615
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96620346"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102631392"
 ---
 # <a name="management-concepts-for-user-accounts-passwords-and-administration-in-azure-active-directory-domain-services"></a>Conceitos de gestão para contas de utilizador, palavras-passe e administração em Azure Ative Directory Domain Services
 
@@ -72,7 +72,7 @@ Por padrão, um domínio gerido é criado como uma floresta *de utilizadores.* E
 
 Numa floresta de *recursos* Azure AD DS, os utilizadores autenticam-se sobre uma *confiança* florestal unidireccionária a partir dos seus DS AD no local. Com esta abordagem, os objetos de utilizador e as hashes de palavra-passe não são sincronizados com O AZure AD DS. Os objetos e credenciais do utilizador só existem no local AD DS. Esta abordagem permite às empresas acolher recursos e plataformas de aplicação em Azure que dependem da autenticação clássica como LDAPS, Kerberos ou NTLM, mas quaisquer problemas ou preocupações de autenticação são removidos.
 
-Para obter mais informações sobre os tipos de floresta em Azure AD DS, veja [o que são as florestas de recursos?][concepts-forest] [How do forest trusts work in Azure AD DS?][concepts-trust]
+Para obter mais informações sobre os tipos de floresta em Azure AD DS, veja [o que são as florestas de recursos?][concepts-forest] [][concepts-trust]
 
 ## <a name="azure-ad-ds-skus"></a>Azure AD DS SKUs
 
@@ -80,8 +80,8 @@ No Azure AD DS, o desempenho e funcionalidades disponíveis são baseados no SKU
 
 | Nome SKU   | Contagem máxima de objetos | Frequência de cópia de segurança | Número máximo de fundos florestais de saída |
 |------------|----------------------|------------------|----|
-| Standard   | Ilimitado            | A cada 7 dias     | 0  |
-| Enterprise | Ilimitado            | A cada 3 dias     | 5  |
+| Standard   | Ilimitado            | A cada 5 dias     | 0  |
+| Grandes Empresas | Ilimitado            | A cada 3 dias     | 5  |
 | Premium    | Ilimitado            | Diário            | 10 |
 
 Antes desteS Azure AD DS SKUs, foi utilizado um modelo de faturação baseado no número de objetos (contas de utilizador e computador) no domínio gerido. Já não existe preços variáveis com base no número de objetos no domínio gerido.
