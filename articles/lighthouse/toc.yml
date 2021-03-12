@@ -53,48 +53,50 @@
         - name: Ver a atividade do fornecedor de serviços
           displayName: 'monitor, log, customer, visibility, transparency, control'
           href: ./how-to/view-service-provider-activity.md
-    - name: Incluir um cliente no Azure Lighthouse
-      displayName: resource management
-      href: ./how-to/onboard-customer.md
-    - name: Publicar ofertas de Serviço Gerido no Azure Marketplace
-      displayName: 'managed services offer, azure marketplace, publish, marketplace'
-      href: ./how-to/publish-managed-services-offers.md
+    - name: Gestão de embarque e delegação
+      items:
+        - name: Clientes a bordo
+          displayName: 'ARM, template, delegation, authorization, resource management'
+          href: ./how-to/onboard-customer.md
+        - name: Publicar ofertas de Serviço Gerido no Azure Marketplace
+          displayName: 'managed services offer, azure marketplace, publish, marketplace'
+          href: ./how-to/publish-managed-services-offers.md
+        - name: Atualizar delegações
+          displayName: upgrade
+          href: ./how-to/update-delegation.md
+        - name: Remover o acesso às delegações
+          displayName: 'delete, undelegate'
+          href: ./how-to/remove-delegation.md
+        - name: Monitorizar alterações de delegação
+          displayName: activity log
+          href: ./how-to/monitor-delegation-changes.md
     - name: Ver e gerir clientes
       displayName: my customers
       href: ./how-to/view-manage-customers.md
     - name: Associar o seu ID de parceiro
       displayName: 'partner earned credit, pec, mpn'
       href: ./how-to/partner-earned-credit.md
-    - name: Atualizar uma delegação
-      displayName: upgrade
-      href: ./how-to/update-delegation.md
-    - name: Remover o acesso a uma delegação
-      displayName: 'delete, undelegate'
-      href: ./how-to/remove-delegation.md
-    - name: Integração do Azure Arc
-      displayName: 'server, kubernetes, hybrid, infrastructure'
-      href: ./how-to/manage-hybrid-infrastructure-arc.md
-    - name: Integração do Azure Migrate
-      displayName: 'migration, project, on-prem'
-      href: ./how-to/migration-at-scale.md
-    - name: Integração do Azure Monitor
+    - name: Integração de serviços Azure
       items:
-        - name: Utilize os Registos do Azure Monitor em escala
+        - name: Integração do Azure Arc
+          displayName: 'server, kubernetes, hybrid, infrastructure'
+          href: ./how-to/manage-hybrid-infrastructure-arc.md
+        - name: Integração do Azure Migrate
+          displayName: 'migration, project, on-prem'
+          href: ./how-to/migration-at-scale.md
+        - name: Integração do Azure Monitor
           displayName: 'log, analytics, analyze, activity'
           href: ./how-to/monitor-at-scale.md
-        - name: Monitorizar alterações de delegação
-          displayName: activity log
-          href: ./how-to/monitor-delegation-changes.md
-    - name: Integração do Azure Policy
-      items:
-        - name: Implementar uma política à escala
-          displayName: storage
-          href: ./how-to/policy-at-scale.md
-        - name: Implementar uma política que pode ser corrigida
-          displayName: 'deployIfNotExists, modify, managed identities, managed identity'
-          href: ./how-to/deploy-policy-remediation.md
-    - name: Integração do Azure Sentinel
-      href: ./how-to/manage-sentinel-workspaces.md
+        - name: Integração do Azure Policy
+          items:
+            - name: Implementar uma política à escala
+              displayName: storage
+              href: ./how-to/policy-at-scale.md
+            - name: Implementar uma política que pode ser corrigida
+              displayName: 'deployIfNotExists, modify, managed identities, managed identity'
+              href: ./how-to/deploy-policy-remediation.md
+        - name: Integração do Azure Sentinel
+          href: ./how-to/manage-sentinel-workspaces.md
 - name: Referência
   items:
     - name: CLI do Azure

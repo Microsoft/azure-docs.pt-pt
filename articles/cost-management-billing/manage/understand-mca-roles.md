@@ -5,20 +5,24 @@ author: amberbhargava
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 02/05/2021
+ms.date: 03/10/2021
 ms.author: banders
-ms.openlocfilehash: 00ac61567502984759c5db9837060c86aaee378d
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: e334a423fd11aa3a357d52099a792dcc905aedeb
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99593591"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103011668"
 ---
 # <a name="understand-microsoft-customer-agreement-administrative-roles-in-azure"></a>Compreender as funções administrativas do Contrato de Cliente da Microsoft no Azure
 
 Para gerir a sua conta de faturação para um Contrato de Cliente da Microsoft, utilize as funções descritas nas secções a seguir. Estas funções acrescem às funções incorporadas do Azure para controlar o acesso aos recursos. Para obter mais informações, veja [Funções incorporadas do Azure](../../role-based-access-control/built-in-roles.md).
 
-Este artigo aplica-se a uma conta de faturação para um Contrato de Cliente da Microsoft. Verifique se tem acesso a um Contrato de Cliente da Microsoft.
+Este artigo aplica-se a uma conta de faturação para um Contrato de Cliente da Microsoft. [Verifique se tem acesso a um Contrato de Cliente da Microsoft](#check-access-to-a-microsoft-customer-agreement).
+
+Assista ao acesso a gerir o vídeo [da sua conta de faturação MCA](https://www.youtube.com/watch?v=9sqglBlKkho) para saber como pode controlar o acesso à sua conta de faturação do Microsoft Customer Agreement (MCA).
+
+>[!VIDEO https://www.youtube.com/embed/9sqglBlKkho]
 
 ## <a name="billing-role-definitions"></a>Definições de função de faturação
 
@@ -32,7 +36,7 @@ A tabela a seguir descreve as funções de faturação que utiliza para gerir a 
 |Proprietário do perfil de faturação|Gere tudo no perfil de faturação|
 |Contribuidor do perfil de faturação|Gere tudo exceto permissões no perfil de faturação|
 |Leitor do perfil de faturação|Vista só de leitura de tudo no perfil de faturação|
-|Gestor de faturas|Ver faturas para o perfil de faturação|
+|Gestor de faturas|Visualiza e paga faturas para o perfil de faturação|
 |Proprietário da secção de fatura|Gere tudo na secção de fatura|
 |Contribuidor da secção de fatura|Gere tudo exceto permissões na secção de fatura|
 |Leitor da secção de fatura|Vista só de leitura de tudo na secção de fatura|
@@ -40,7 +44,7 @@ A tabela a seguir descreve as funções de faturação que utiliza para gerir a 
 
 ## <a name="billing-account-roles-and-tasks"></a>Funções e tarefas da conta de faturação
 
-Uma conta de faturação permite-lhe gerir a faturação da organização. Utiliza a conta de faturação para organizar custos, monitorizar custos e faturas e controlar o acesso de faturação para a sua organização. Para obter mais informações, veja [Compreender a conta de faturação](../understand/mca-overview.md#your-billing-account).
+Ao inscrever-se para utilizar o Azure, é criada uma conta de faturação. Utiliza a conta de faturação para gerir faturas, pagamentos e controlar custos. As funções na conta de faturação têm o mais alto nível de permissões e os utilizadores nestas funções obtêm visibilidade na informação de custos e faturação de toda a sua conta. Atribua estas funções apenas aos utilizadores que necessitem de visualizar faturas e rastreiem os custos de toda a sua conta, como membro das equipas de finanças e de contabilidade. Para obter mais informações, veja [Compreender a conta de faturação](../understand/mca-overview.md#your-billing-account).
 
 As tabelas a seguir mostram qual a função necessária para realizar tarefas no contexto da conta de faturação.
 
@@ -48,45 +52,44 @@ As tabelas a seguir mostram qual a função necessária para realizar tarefas no
 
 |Tarefa|Proprietário da conta de faturação|Contribuidor da conta de faturação|Leitor da conta de faturação|
 |---|---|---|---|
-|Ver permissões existentes para a conta de faturação|✔|✔|✔|
+|Ver atribuições de funções para conta de faturação|✔|✔|✔|
 |Conceder permissões a outras pessoas para verem e gerirem a conta de faturação|✔|✘|✘|
-|Ver propriedades da conta de faturação, como nome da empresa, endereço e mais|✔|✔|✔|
+|Ver propriedades de conta de faturação como endereço, acordos e muito mais|✔|✔|✔|
+|Atualizar propriedades de conta de faturação como vendido-para, nome de exibição, e muito mais|✔|✔|✘|
 
 ### <a name="manage-billing-profiles-for-billing-account"></a>Gerir perfis de faturação para a conta de faturação
 
 |Tarefa|Proprietário da conta de faturação|Contribuidor da conta de faturação|Leitor da conta de faturação|
 |---|---|---|---|
-|Ver todos os perfis de faturação na conta|✔|✔|✔|
+|Ver todos os perfis de faturação da conta|✔|✔|✔|
+|Criar novos perfis de faturação|✔|✔|✘|
 
 ### <a name="manage-invoices-for-billing-account"></a>Gerir faturas para a conta de faturação
 
 |Tarefa|Proprietário da conta de faturação|Contribuidor da conta de faturação|Leitor da conta de faturação|
 |---|---|---|---|
-|Ver todas as faturas na conta|✔|✔|✔|
-|Transferir faturas, ficheiros de utilização e custos do Azure, folhas de preços e documentos fiscais na conta|✔|✔|✔|
+|Ver todas as faturas da conta|✔|✔|✔|
+|Pagar faturas com cartão de crédito|✔|✔|✘|
+|Baixar faturas, ficheiros de uso do Azure, folhas de preços e documentos fiscais|✔|✔|✔|
 
-### <a name="manage-invoice-sections-for-billing-account"></a>Gerir secções de fatura para a conta de faturação
-
-|Tarefa|Proprietário da conta de faturação|Contribuidor da conta de faturação|Leitor da conta de faturação|
-|---|---|---|---|
-|Ver todas as secções de fatura na conta|✔|✔|✔|
-
-### <a name="manage-transactions-for-billing-account"></a>Gerir transações para a conta de faturação
+### <a name="manage-products-for-billing-account"></a>Gerir produtos para conta de faturação
 
 |Tarefa|Proprietário da conta de faturação|Contribuidor da conta de faturação|Leitor da conta de faturação|
 |---|---|---|---|
-|Ver todas as transações de faturação da conta|✔|✔|✔|
 |Ver todos os produtos comprados para a conta|✔|✔|✔|
+|Gerir faturação para produtos como cancelar, desligar a renovação automática, e muito mais|✔|✔|✘|
 
 ### <a name="manage-subscriptions-for-billing-account"></a>Gerir subscrições da conta de faturação
 
 |Tarefa|Proprietário da conta de faturação|Contribuidor da conta de faturação|Leitor da conta de faturação|
 |---|---|---|---|
-|Ver todas as subscrições do Azure na conta de faturação|✔|✔|✔|
+|Ver todas as subscrições do Azure criadas para a conta de faturação|✔|✔|✔|
+|Criar novas subscrições do Azure|✔|✔|✘|
+|Cancelar subscrições da Azure|✘|✘|✘|
 
 ## <a name="billing-profile-roles-and-tasks"></a>Funções e tarefas do perfil de faturação
 
-Um perfil de faturação permite-lhe gerir as suas faturas e os métodos de pagamento. Uma fatura mensal é gerada para as subscrições do Azure e outros produtos comprados com o perfil de faturação. Utiliza os métodos de pagamento para pagar a fatura. Para obter mais informações, veja [Compreender os perfis de faturação](../understand/mca-overview.md#billing-profiles).
+Cada conta de faturação tem pelo menos um perfil de faturação. O seu primeiro perfil de faturação é configurado quando se inscreve para usar o Azure. Uma fatura mensal é gerada para o perfil de faturação e contém todos os seus encargos associados do mês anterior. Pode configurar mais perfis de faturação com base nas suas necessidades. Os utilizadores com papéis num perfil de faturação podem ver o custo, definir o orçamento e gerir e pagar as suas faturas. Atribua estas funções aos utilizadores responsáveis pela gestão do orçamento e pelo pagamento de faturas pelo perfil de faturação como membros das equipas de administração de empresas da sua organização. Para obter mais informações, veja [Compreender os perfis de faturação](../understand/mca-overview.md#billing-profiles).
 
 As tabelas a seguir mostram qual a função necessária para realizar tarefas no contexto do perfil de faturação.
 
@@ -94,20 +97,19 @@ As tabelas a seguir mostram qual a função necessária para realizar tarefas no
 
 |Tarefa|Proprietário do perfil de faturação|Contribuidor do perfil de faturação|Leitor do perfil de faturação|Gestor de faturas|Proprietário da conta de faturação|Contribuidor da conta de faturação|Leitor da conta de faturação
 |---|---|---|---|---|---|---|---|
-|Ver permissões existentes para o perfil de faturação|✔|✔|✔|✔|✔|✔|✔|
-|Conceder permissões a outras pessoas para verem e gerirem o perfil de faturação|✔|✘|✘|✘|✘|✘|✘|
-|Ver propriedades do perfil de faturação, como número da OC, preferência de envio de fatura por e-mail e mais|✔|✔|✔|✔|✔|✔|✔|
-|Atualizar propriedades do perfil de faturação |✔|✔|✘|✘|✘|✘|✘|
-|Ver políticas aplicadas no perfil de faturação, como ativar compras de reservas do Azure, ativar compras no Azure Marketplace e mais|✔|✔|✔|✔|✔|✔|✔|
-|Aplicar políticas no perfil de faturação |✔|✔|✘|✘|✘|✘|✘|
-|Gerir encomendas de reservas |✔|✔|✘|✘|✘|✘|✘|
-|Ver encomendas de reserva |✔|✔|✔|✘|✘|✘|✘|
+|Ver atribuições de funções para o perfil de faturação|✔|✔|✔|✔|✔|✔|✔|
+|Conceder permissões a outras pessoas para verem e gerirem o perfil de faturação|✔|✘|✘|✘|✔|✘|✘|
+|Ver propriedades de perfil de faturação como número de PO, bill-to, e muito mais|✔|✔|✔|✔|✔|✔|✔|
+|Atualizar propriedades do perfil de faturação |✔|✔|✘|✘|✔|✔|✘|
+|Ver políticas aplicadas no perfil de faturação como compras de reservas Azure, compras do Azure Marketplace, e muito mais|✔|✔|✔|✔|✔|✔|✔|
+|Aplicar políticas no perfil de faturação |✔|✔|✘|✘|✔|✔|✘|
 
 ### <a name="manage-invoices-for-billing-profile"></a>Gerir faturas para o perfil de faturação
 
 |Tarefa|Proprietário do perfil de faturação|Contribuidor do perfil de faturação|Leitor do perfil de faturação|Gestor de faturas|Proprietário da conta de faturação|Contribuidor da conta de faturação|Leitor da conta de faturação
 |---|---|---|---|---|---|---|---|
 |Ver todas as faturas do perfil de faturação|✔|✔|✔|✔|✔|✔|✔|
+|Pagar faturas com cartão de crédito|✔|✔|✘|✔|✔|✘|✘|
 |Transferir faturas, ficheiros de utilização e custos do Azure, folhas de preços e documentos fiscais do perfil de faturação|✔|✔|✔|✔|✔|✔|✔|
 
 ### <a name="manage-invoice-sections-for-billing-profile"></a>Gerir as secções de fatura do perfil de faturação
@@ -115,19 +117,22 @@ As tabelas a seguir mostram qual a função necessária para realizar tarefas no
 |Tarefa|Proprietário do perfil de faturação|Contribuidor do perfil de faturação|Leitor do perfil de faturação|Gestor de faturas|Proprietário da conta de faturação|Contribuidor da conta de faturação|Leitor da conta de faturação
 |---|---|---|---|---|---|---|---|
 |Ver todas as secções de fatura do perfil de faturação|✔|✔|✔|✔|✔|✔|✔|
-|Criar nova secção de fatura do perfil de faturação|✔|✔|✘|✘|✘|✘|✘|
+|Criar nova secção de fatura do perfil de faturação|✔|✔|✘|✘|✔|✔|✘|
 
-### <a name="manage-transactions-for-billing-profile"></a>Gerir transações para o perfil de faturação
+### <a name="manage-products-for-billing-profile"></a>Gerir produtos para perfil de faturação
 
 |Tarefa|Proprietário do perfil de faturação|Contribuidor do perfil de faturação|Leitor do perfil de faturação|Gestor de faturas|Proprietário da conta de faturação|Contribuidor da conta de faturação|Leitor da conta de faturação
 |---|---|---|---|---|---|---|---|
-|Ver todas as transações de faturação do perfil de faturação|✔|✔|✔|✔|✔|✔|✔|
+|Ver todos os produtos comprados para o perfil de faturação|✔|✔|✔|✔|✔|✔|✔|
+|Gerir faturação para produtos como cancelar, desligar a renovação automática, e muito mais|✔|✔|✘|✘|✔|✔|✘|
+|Alterar perfil de faturação para os produtos|✔|✔|✘|✘|✔|✔|✘|
 
 ### <a name="manage-payment-methods-for-billing-profile"></a>Gerir os métodos de pagamento do perfil de faturação
 
 |Tarefa|Proprietário do perfil de faturação|Contribuidor do perfil de faturação|Leitor do perfil de faturação|Gestor de faturas|Proprietário da conta de faturação|Contribuidor da conta de faturação|Leitor da conta de faturação
 |---|---|---|---|---|---|---|---|
 |Ver os métodos de pagamento do perfil de faturação|✔|✔|✔|✔|✔|✔|✔|
+|Gerir métodos de pagamento como substituir cartão de crédito, desvincular o cartão de crédito e muito mais|✔|✔|✘|✘|✔|✔|✘|
 |Controlar o saldo de créditos do Azure para o perfil de faturação|✔|✔|✔|✔|✔|✔|✔|
 
 ### <a name="manage-subscriptions-for-billing-profile"></a>Gerir subscrições do perfil de faturação
@@ -135,47 +140,54 @@ As tabelas a seguir mostram qual a função necessária para realizar tarefas no
 |Tarefa|Proprietário do perfil de faturação|Contribuidor do perfil de faturação|Leitor do perfil de faturação|Gestor de faturas|Proprietário da conta de faturação|Contribuidor da conta de faturação|Leitor da conta de faturação
 |---|---|---|---|---|---|---|---|
 |Ver todas as subscrições do Azure do perfil de faturação|✔|✔|✔|✔|✔|✔|✔|
+|Criar novas subscrições do Azure|✔|✔|✘|✘|✔|✔|✘|
+|Cancelar subscrições da Azure|✘|✘|✘|✘|✘|✘|✘|
+|Alterar o perfil de faturação para as subscrições do Azure|✔|✔|✘|✘|✔|✔|✘|
 
 ## <a name="invoice-section-roles-and-tasks"></a>Funções e tarefas da secção de fatura
 
-Uma secção de fatura permite-lhe organizar os custos na fatura. Pode criar uma secção para organizar os custos por departamento, ambiente de desenvolvimento ou com base nas necessidades da sua organização. Conceda permissões a outras pessoas para criar subscrições do Azure para a secção. Todos os custos de utilização e compras para as subscrições são então apresentados na secção da fatura. Para obter mais informações, veja [Compreender a secção de fatura](../understand/mca-overview.md#invoice-sections).
+Cada perfil de faturação contém uma secção de fatura por predefinição. Pode criar mais secções de fatura para agrupar o custo na fatura do perfil de faturação.  Os utilizadores com funções numa secção de fatura podem controlar quem cria subscrições Azure e fazer outras compras. Atribua essas funções a utilizadores que configuram o ambiente do Azure para as equipas da nossa organização, como líderes de engenharia e arquitetos técnicos. Para obter mais informações, veja [Compreender a secção de fatura](../understand/mca-overview.md#invoice-sections).
 
 As tabelas a seguir mostram qual a função necessária para realizar tarefas no contexto das secções de fatura.
 
 ### <a name="manage-invoice-section-permissions-and-properties"></a>Gerir permissões e propriedades da secção de fatura
 
-|Tarefas|Proprietário da secção de fatura|Contribuidor da secção de fatura|Leitor da secção de fatura|Criador de subscrições do Azure|Proprietário da conta de faturação|Contribuidor da conta de faturação|Leitor da conta de faturação |
-|---|---|---|---|---|---|---|---|
-|Ver todas as permissões na secção de fatura|✔|✔|✔|✔|✔|✔|✔|
-|Conceder permissões a outras pessoas para verem e gerirem a secção de fatura|✔|✘|✘|✘|✘|✘|✘|
-|Ver propriedades da secção de fatura|✔|✔|✔|✔|✔|✔|✔|
-|Atualizar propriedades da secção de fatura|✔|✔|✘|✘|✘|✘|✘|
+|Tarefas|Proprietário da secção de fatura|Contribuidor da secção de fatura|Leitor da secção de fatura|Criador de subscrições do Azure|Proprietário do perfil de faturação|Contribuidor do perfil de faturação|Leitor do perfil de faturação |Gestor de faturas|Proprietário da conta de faturação|Contribuidor da conta de faturação|Leitor da conta de faturação 
+|---|---|---|---|---|---|---|---|---|---|---|---|
+|Ver atribuições de funções para a secção de faturas|✔|✔|✔|✘|✔|✔|✔|✔|✔|✔|✔|
+|Conceder permissões a outras pessoas para verem e gerirem a secção de fatura|✔|✘|✘|✘|✔|✘|✘|✘|✔|✘|✘|
+|Ver propriedades da secção de fatura|✔|✔|✔|✘|✔|✔|✔|✔|✔|✔|✔|
+|Atualizar propriedades da secção de fatura|✔|✔|✘|✘|✔|✔|✘|✘|✔|✔|✘|
 
 ### <a name="manage-products-for-invoice-section"></a>Gerir produtos para a secção de fatura
 
-|Tarefas|Proprietário da secção de fatura|Contribuidor da secção de fatura|Leitor da secção de fatura|Criador de subscrições do Azure|Proprietário da conta de faturação|Contribuidor da conta de faturação|Leitor da conta de faturação
-|---|---|---|---|---|---|---|---|
-|Ver todos os produtos comprados na secção de fatura|✔|✔|✔|✘|✔|✔|✔|
-|Gerir a faturação de produtos na secção de fatura, como cancelar, desativar a renovação automática e mais|✔|✔|✘|✘|✘|✘|✘|
-|Alterar a secção de fatura dos produtos|✔|✔|✘|✘|✘|✘|✘|
+|Tarefas|Proprietário da secção de fatura|Contribuidor da secção de fatura|Leitor da secção de fatura|Criador de subscrições do Azure|Proprietário do perfil de faturação|Contribuidor do perfil de faturação|Leitor do perfil de faturação |Gestor de faturas|Proprietário da conta de faturação|Contribuidor da conta de faturação|Leitor da conta de faturação 
+|---|---|---|---|---|---|---|---|---|---|---|---|
+|Ver todos os produtos comprados para a secção de fatura|✔|✔|✔|✘|✔|✔|✔|✔|✔|✔|✔|
+|Gerir faturação para produtos como cancelar, desligar a renovação automática, e muito mais|✔|✔|✘|✘|✔|✔|✘|✘|✔|✔|✘|
+|Alterar a secção de fatura dos produtos|✔|✔|✘|✘|✔|✔|✘|✘|✔|✔|✘|
 
 ### <a name="manage-subscriptions-for-invoice-section"></a>Gerir subscrições da secção de fatura
 
-|Tarefas|Proprietário da secção de fatura|Contribuidor da secção de fatura|Leitor da secção de fatura|Criador de subscrições do Azure|Proprietário da conta de faturação|Contribuidor da conta de faturação|Leitor da conta de faturação
-|---|---|---|---|---|---|---|---|
-|Ver todas as subscrições do Azure da secção de fatura|✔|✔|✔|✘|✔|✔|✔|
-|Alterar a secção de fatura das subscrições|✔|✔|✘|✘|✘|✘|✘|
-|Solicitar a propriedade da faturação das subscrições de utilizadores noutras contas de faturação|✔|✔|✘|✘|✘|✘|✘|
+|Tarefas|Proprietário da secção de fatura|Contribuidor da secção de fatura|Leitor da secção de fatura|Criador de subscrições do Azure|Proprietário do perfil de faturação|Contribuidor do perfil de faturação|Leitor do perfil de faturação |Gestor de faturas|Proprietário da conta de faturação|Contribuidor da conta de faturação|Leitor da conta de faturação 
+|---|---|---|---|---|---|---|---|---|---|---|---|
+|Ver todas as subscrições do Azure da secção de fatura|✔|✔|✔|✘|✔|✔|✔|✔|✔|✔|✔|
+|Cria subscrições do Azure|✔|✔|✘|✔|✔|✔|✘|✘|✔|✔|✘|
+|Cancelar subscrições da Azure|✘|✘|✘|✘|✘|✘|✘|✘|✘|✘|✘|
+|Alterar a secção de fatura para a subscrição do Azure|✔|✔|✘|✘|✔|✔|✘|✘|✔|✔|✘|
+|Solicitar a propriedade da faturação das subscrições de utilizadores noutras contas de faturação|✔|✔|✘|✘|✔|✔|✘|✘|✔|✔|✘|
 
 ## <a name="subscription-billing-roles-and-tasks"></a>Tarefas e funções da faturação de subscrição
 
 A tabela a seguir mostra qual a função necessária para realizar tarefas no contexto de uma subscrição.
 
-|Tarefas|Proprietário da secção de fatura|Contribuidor da secção de fatura|Leitor da secção de fatura|Criador de subscrições do Azure|
-|---|---|---|---|---|
-|Cria subscrições do Azure|✔|✔|✘|✔|
-|Atualizar o centro de custos da subscrição|✔|✔|✘|✘|
-|Alterar a secção de fatura da subscrição|✔|✔|✘|✘|
+|Tarefas|Proprietário da secção de fatura|Contribuidor da secção de fatura|Leitor da secção de fatura|Criador de subscrições do Azure|Proprietário do perfil de faturação|Contribuidor do perfil de faturação|Leitor do perfil de faturação |Gestor de faturas|Proprietário da conta de faturação|Contribuidor da conta de faturação|Leitor da conta de faturação 
+|---|---|---|---|---|---|---|---|---|---|---|---|
+|Criar subscrições|✔|✔|✘|✔|✔|✔|✘|✘|✔|✔|✘|
+|Atualizar o centro de custos da subscrição|✔|✔|✘|✘|✔|✔|✘|✘|✔|✔|✘|
+|Alterar a secção de fatura da subscrição|✔|✔|✘|✘|✔|✔|✘|✘|✔|✔|✘|
+|Alterar o perfil de faturação para a subscrição|✘|✘|✘|✘|✔|✔|✘|✘|✔|✔|✘|
+|Cancelar subscrições da Azure|✘|✘|✘|✘|✘|✘|✘|✘|✘|✘|✘|
 
 ## <a name="manage-billing-roles-in-the-azure-portal"></a>Gerir funções de faturação no portal do Azure
 

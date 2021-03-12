@@ -1,24 +1,24 @@
 ---
-title: Copiar dados de e para a Base de Dados Azure para o MySQL
-description: Saiba como copiar dados de e para a Azure Database para o MySQL utilizando uma atividade de cópia num pipeline da Azure Data Factory.
+title: Copiar e transformar dados na Base de Dados Azure para o MySQL
+description: ganhar como copiar e transformar dados em Azure Database para o MySQL utilizando a Azure Data Factory.
 ms.author: jingwang
 author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/25/2019
-ms.openlocfilehash: 4b6cc13343a7ca7af1bba84ed84d2ce5c8387b1f
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 03/10/2021
+ms.openlocfilehash: 4d13f6f435a21b467cae1b8e14211a001792787f
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100381380"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103012614"
 ---
-# <a name="copy-data-to-and-from-azure-database-for-mysql-using-azure-data-factory"></a>Copiar dados de e para a base de dados Azure para o MySQL utilizando a Azure Data Factory
+# <a name="copy-and-transform-data-in-azure-database-for-mysql-by-using-azure-data-factory"></a>Copiar e transformar dados na Base de Dados Azure para o MySQL utilizando a Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Este artigo descreve como utilizar a Atividade de Cópia na Fábrica de Dados Azure para copiar dados da Base de Dados Azure para o MySQL. Baseia-se no artigo [de visão geral](copy-activity-overview.md) da atividade de cópia que apresenta uma visão geral da atividade da cópia.
+Este artigo descreve como utilizar a Copy Activity in Azure Data Factory para copiar dados de e para Azure Database para o MySQL, e utilizar o Fluxo de Dados para transformar dados na Base de Dados Azure para o MySQL. Para saber mais sobre a Azure Data Factory, leia o [artigo introdutório](introduction.md).
 
 Este conector é especializado para [a Azure Database para o serviço MySQL](../mysql/overview.md). Para copiar dados da base de dados genérica do MySQL localizada no local ou na nuvem, utilize o [conector MySQL](connector-mysql.md).
 
@@ -27,11 +27,8 @@ Este conector é especializado para [a Azure Database para o serviço MySQL](../
 Esta Base de Dados Azure para o conector MySQL é suportada para as seguintes atividades:
 
 - [Atividade de cópia](copy-activity-overview.md) com [matriz de fonte/pia suportada](copy-activity-overview.md)
+- [Fluxo de dados de mapeamento](concepts-data-flow-overview.md)
 - [Atividade de procura](control-flow-lookup-activity.md)
-
-Pode copiar dados da Azure Database para o MySQL para qualquer loja de dados de lavatórios suportados. Ou, pode copiar dados de qualquer loja de dados de origem suportada para a Base de Dados Azure para o MySQL. Para obter uma lista de lojas de dados suportadas como fontes/pias pela atividade de cópia, consulte a tabela [de lojas de dados suportadas.](copy-activity-overview.md#supported-data-stores-and-formats)
-
-A Azure Data Factory fornece um controlador incorporado para permitir a conectividade, pelo que não é necessário instalar manualmente qualquer controlador utilizando este conector.
 
 ## <a name="getting-started"></a>Introdução
 
@@ -217,6 +214,63 @@ Para copiar dados para a Base de Dados Azure para o MySQL, as seguintes propried
         }
     }
 ]
+```
+
+## <a name="mapping-data-flow-properties"></a>Mapeamento de propriedades de fluxo de dados
+
+Ao transformar dados no fluxo de dados de mapeamento, pode ler e escrever para tabelas a partir da Base de Dados Azure para o MySQL. Para obter mais informações, consulte a [transformação](data-flow-source.md) da fonte e [a transformação do sumidouro](data-flow-sink.md) nos fluxos de dados de mapeamento. Pode optar por utilizar uma Base de Dados Azure para conjunto de dados Do MySQL ou um [conjunto de dados inline](data-flow-source.md#inline-datasets) como fonte e tipo de pia.
+
+### <a name="source-transformation"></a>Transformação de origem
+
+A tabela abaixo lista as propriedades suportadas pela Base de Dados Azure para a fonte MySQL. Pode editar estas propriedades no separador **Opções Fonte.**
+
+| Nome | Descrição | Obrigatório | Valores permitidos | Propriedade de script de fluxo de dados |
+| ---- | ----------- | -------- | -------------- | ---------------- |
+| Tabela | Se selecionar tabela como entrada, o fluxo de dados recolhe todos os dados da tabela especificada no conjunto de dados. | No | - |*(apenas para conjunto de dados em linha)*<br>tableName |
+| Consulta | Se selecionar a Consulta como entrada, especifique uma consulta SQL para obter dados da fonte, que substitui qualquer tabela que especifique no conjunto de dados. Usar consultas é uma ótima maneira de reduzir linhas para testes ou análises.<br><br>**A** cláusula Por cláusula não é suportada, mas pode definir uma declaração completa SELECT FROM. Também pode utilizar funções de tabela definidas pelo utilizador. **selecionar * do udfGetData()** é um UDF em SQL que devolve uma tabela que pode usar no fluxo de dados.<br>Exemplo de consulta: `select * from mytable where customerId > 1000 and customerId < 2000` ou `select * from "MyTable"` . .| Não | String | consulta |
+| Tamanho do lote | Especifique o tamanho do lote para colar dados grandes em lotes. | No | Número inteiro | batchSize |
+| Nível de Isolamento | Escolha um dos seguintes níveis de isolamento:<br>- Ler Comprometido<br>- Ler Não Comprometido (padrão)<br>- Leitura Repetível<br>- Serializável<br>- Nenhum (ignorar o nível de isolamento) | No | <small>READ_COMMITTED<br/>READ_UNCOMMITTED<br/>REPEATABLE_READ<br/>SERIALIZÁVEL<br/>NENHUMA</small> |isolamentoLevel |
+
+#### <a name="azure-database-for-mysql-source-script-example"></a>Azure Database para o exemplo do script de origem MySQL
+
+Quando utiliza a Base de Dados Azure para o MySQL como tipo de origem, o script de fluxo de dados associado é:
+
+```
+source(allowSchemaDrift: true,
+    validateSchema: false,
+    isolationLevel: 'READ_UNCOMMITTED',
+    query: 'select * from mytable',
+    format: 'query') ~> AzureMySQLSource
+```
+
+### <a name="sink-transformation"></a>Transformação do sumidouro
+
+A tabela abaixo lista as propriedades suportadas pela Base de Dados Azure para o lavatório MySQL. Pode editar estas propriedades no **separador Opções De Sumidouro.**
+
+| Nome | Descrição | Obrigatório | Valores permitidos | Propriedade de script de fluxo de dados |
+| ---- | ----------- | -------- | -------------- | ---------------- |
+| Método de atualização | Especifique quais as operações permitidas no seu destino de base de dados. O padrão é apenas permitir inserções.<br>Para atualizar, intensificar ou apagar linhas, é necessária uma [transformação de linha Alter](data-flow-alter-row.md) para marcar linhas para essas ações. | Yes | `true` ou `false` | deletable <br/>inserível <br/>atualizável <br/>upsertable |
+| Colunas-chave | Para atualizações, atualizações e eliminações, as colunas-chave devem ser definidas para determinar qual a linha a alterar.<br>O nome da coluna que escolher como chave será utilizado como parte da atualização subsequente, atualizar, eliminar. Portanto, deve escolher uma coluna que exista no mapeamento da Pia. | No | Matriz | keys |
+| Salte a escrita de colunas-chave | Se não pretender não escrever o valor na coluna-chave, selecione "Salte as colunas-chave de escrita". | No | `true` ou `false` | skipKeyWrites |
+| Ação de mesa |Determina se deve recriar ou remover todas as linhas da tabela de destino antes de escrever.<br>- **Nenhuma:** nenhuma ação será feita à mesa.<br>- **Recriar:** A mesa será largada e recriada. Necessário se criar uma nova tabela dinamicamente.<br>- **Truncato**: Todas as linhas da mesa-alvo serão removidas. | No | `true` ou `false` | recriar<br/>truncato |
+| Tamanho do lote | Especifique quantas linhas estão a ser escritas em cada lote. Tamanhos maiores do lote melhoram a compressão e a otimização da memória, mas arriscam-se a sair das exceções de memória ao caching dados. | No | Número inteiro | batchSize |
+| Scripts pré e post SQL | Especifique scripts SQL de várias linhas que serão executados antes (pré-processamento) e depois (pós-processamento) os dados são escritos na sua base de dados de Sink. | Não | String | pré-QLs<br>postSQLs |
+
+#### <a name="azure-database-for-mysql-sink-script-example"></a>Azure Database para o exemplo do script do pia MySQL
+
+Quando utiliza a Base de Dados Azure para o MySQL como tipo de pia, o script de fluxo de dados associado é:
+
+```
+IncomingStream sink(allowSchemaDrift: true,
+    validateSchema: false,
+    deletable:false,
+    insertable:true,
+    updateable:true,
+    upsertable:true,
+    keys:['keyColumn'],
+    format: 'table',
+    skipDuplicateMapInputs: true,
+    skipDuplicateMapOutputs: true) ~> AzureMySQLSink
 ```
 
 ## <a name="lookup-activity-properties"></a>Propriedades de atividade de procura

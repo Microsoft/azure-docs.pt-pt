@@ -11,16 +11,16 @@ ms.topic: sample
 ms.date: 03/09/2021
 ms.author: kenwith
 ms.reviewer: mifarca
-ms.openlocfilehash: 7123c87d8883d9ac309797255152611fb9fb81d2
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: c8a37b08db5cdb35bc9328cbc29caa04a5cdf412
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102584388"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103010842"
 ---
 # <a name="export-apps-with-expiring-secrets-and-certificates"></a>Aplicativos de exportação com segredos e certificados caducados
 
-Este exemplo de script PowerShell exporta todas as aplicações com segredos e certificados expirados para as aplicações especificadas do seu diretório num ficheiro CSV.
+Este exemplo de script PowerShell exporta todos os registos de aplicações com segredos expirando, certificados e seus proprietários para as aplicações especificadas do seu diretório em um ficheiro CSV.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
@@ -33,6 +33,7 @@ Esta amostra requer o [AzureAD V2 PowerShell para módulo Graph](/powershell/azu
 ## <a name="script-explanation"></a>Explicação do script
 
 O comando "Add-Member" é responsável pela criação das colunas no ficheiro CSV.
+O comando "Novo Objeto" cria um objeto a ser utilizado para as colunas na exportação de ficheiros CSV.
 Pode modificar a variável "$Path" diretamente no PowerShell, com um percurso de ficheiro CSV, caso prefira que a exportação não seja interativa.
 
 | Comando | Notas |

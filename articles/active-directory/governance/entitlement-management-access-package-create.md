@@ -16,18 +16,18 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b2ce3b362d02e7acb0a11e6d93b8e94ca8e4d04e
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: e3df08272b352ee789c9879b1118105c435cffbd
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96903535"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103011090"
 ---
 # <a name="create-a-new-access-package-in-azure-ad-entitlement-management"></a>Criar um novo pacote de acesso na gestão de direitos AD da Azure
 
 Um pacote de acesso permite-lhe fazer uma configuração única de recursos e políticas que administra automaticamente o acesso à vida útil do pacote de acesso. Este artigo descreve como criar um novo pacote de acesso.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Todos os pacotes de acesso devem ser colocados num recipiente chamado catálogo. Um catálogo define os recursos que pode adicionar ao seu pacote de acesso. Se não especificar um catálogo, o seu pacote de acesso será colocado no catálogo geral. Atualmente, não é possível mover um pacote de acesso existente para um catálogo diferente.
 
@@ -149,3 +149,4 @@ Também pode criar um pacote de acesso utilizando o Microsoft Graph.  Um utiliza
 - [Partilhar link para solicitar um pacote de acesso](entitlement-management-access-package-settings.md)
 - [Alterar funções de recursos para um pacote de acesso](entitlement-management-access-package-resources.md)
 - [Atribuir diretamente um utilizador ao pacote de acesso](entitlement-management-access-package-assignments.md)
+- [Crie uma revisão de acesso para um pacote de acesso](entitlement-management-access-reviews-create.md)

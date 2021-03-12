@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 06/08/2020
-ms.openlocfilehash: 543fb7474c0a9efc41667945c89489054a44d657
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 8083b9edd49f65f29fe9c9b2cfa30edfacf89507
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101724494"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102614892"
 ---
 # <a name="prepare-on-premises-machines-for-migration-to-azure"></a>Preparar máquinas no local para migração para Azure
 
@@ -111,11 +111,12 @@ Configure esta definição manualmente da seguinte forma:
 
 Azure Migrate completa estas ações automaticamente para estas versões
 
-- Red Hat Enterprise Linux 7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x
-- Cent OS 7.7, 7.6, 7.5, 7.4, 6.x
+- Red Hat Enterprise Linux 7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x (O agente VM Azure Linux também é instalado automaticamente durante a migração)
+- Cent OS 7.7, 7.6, 7.5, 7.4, 6.x (O agente VM Azure Linux também é instalado automaticamente durante a migração)
 - SUSE Linux Enterprise Server 12 SP1+
 - SUSE Linux Enterprise Server 15 SP1
-- Ubuntu 19.04, 19.10, 18.04LTS, 16.04LTS, 14.04LTS
+- Ubuntu 19.04, 19.10, 18.04LTS, 16.04LTS, 14.04LTS (O agente VM Azure Linux também é instalado automaticamente durante a migração)
+- Ubuntu 18.04LTS, 16.04LTS
 - Debian 9, 8, 7
 - Oracle Linux 7.7, 7.7-CI
 
@@ -137,16 +138,17 @@ O quadro seguinte resume os passos realizados automaticamente para os sistemas o
 
 | Ação                                      | Migração \- VMware baseada em agente | Migração de VMware sem agente | Hyper\-V   |
 |---------------------------------------------|-------------------------------|----------------------------|------------|
-| Instalar serviços de integração Hyper \- V Linux | Sim                           | Sim                        | Não necessário |
-| Ativar o registo da consola em série do Azure         | Sim                           | Sim                        | Não         |
-| Atualizar o ficheiro do mapa do dispositivo                      | Sim                           | Não                         | Não         |
-| Atualizar entradas fstab                        | Sim                           | Sim                        | Não         |
-| Remover a regra udev                            | Sim                           | Sim                        | Não         |
-| Atualizar interfaces de rede                   | Sim                           | Sim                        | Não         |
-| Ativar ssh                                  | Não                            | Não                         | Não         |
+| Instalar serviços de integração Hyper \- V Linux | Yes                           | Yes                        | Não necessário |
+| Ativar o registo da consola em série do Azure         | Yes                           | Yes                        | No         |
+| Atualizar o ficheiro do mapa do dispositivo                      | Yes                           | No                         | No         |
+| Atualizar entradas fstab                        | Yes                           | Yes                        | No         |
+| Remover a regra udev                            | Yes                           | Yes                        | No         |
+| Atualizar interfaces de rede                   | Yes                           | Yes                        | No         |
+| Ativar ssh                                  | No                            | No                         | No         |
 
 Saiba mais sobre os passos para [executar um Linux VM em Azure,](../virtual-machines/linux/create-upload-generic.md)e obtenha instruções para algumas das populares distribuições do Linux.
 
+Reveja a lista de [pacotes necessários](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux#requirements) para instalar o agente Linux VM. A Azure Migrate instala automaticamente o agente Linux VM para RHEL6, RHEL7, CentOS7 (6 deve ser suportado similar ao RHEL), Ubuntu 14.04, Ubuntu 16.04, Ubuntu18.04 quando utilizar o método sem agente da migração VMware.
 
 ## <a name="check-azure-vm-requirements"></a>Verifique os requisitos do Azure VM
 

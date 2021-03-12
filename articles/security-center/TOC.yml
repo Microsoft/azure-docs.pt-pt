@@ -108,7 +108,10 @@
         - name: Automatizar as respostas às recomendações
           displayName: workflow
           href: workflow-automation.md
-        - name: Isentar um recurso de uma recomendação
+        - name: Desativar uma recomendação
+          href: tutorial-security-policy.md#disable-security-policies-and-disable-recommendations
+        - name: 'Recomendações isentas por recurso, subscrição ou grupo de gestão'
+          displayName: disable
           href: exempt-resource.md
         - name: Criar iniciativas e políticas de segurança personalizadas
           href: custom-security-policies.md
@@ -233,7 +236,8 @@
       href: security-center-partner-integration.md
     - name: Proteger os recursos de rede
       href: security-center-network-recommendations.md
-    - name: Proteger a identidade e o acesso
+    - name: Impor e gerir o MFA
+      displayName: 'identity, access, AAD, active directory, multi-factor, authentication, multifactor, users, passwords'
       href: security-center-identity-access.md
     - name: Use as proteções adicionais de ameaças do Centro de Segurança
       href: other-threat-protections.md

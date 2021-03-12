@@ -10,12 +10,12 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, devx-track-azurecli
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: a00e5d262724f4799f8b7b91a54e4b2710f4ce2b
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.openlocfilehash: 6170f91d11b47a43e15488bcbb0e91ff3f7c906e
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100008082"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102616099"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-windows-device-preview"></a>Quickstart: Implemente o seu primeiro módulo IoT Edge num dispositivo Windows (pré-visualização)
 
@@ -51,9 +51,16 @@ Crie um grupo de recursos em nuvem para gerir todos os recursos que utilizar nes
 
 Certifique-se de que o seu dispositivo IoT Edge cumpre os seguintes requisitos:
 
-* Pc ou servidor do Windows, versão 1809 ou posterior
-* Pelo menos 4 GB de memória, recomendado 8 GB de memória
-* 10 GB de espaço livre em disco
+* Edições
+  * Versão 1809 ou posterior do Windows 10; construir 17763 ou mais tarde
+    * Profissional, Enterprise, IoT Enterprise
+  * Windows Server 2019 construir 17763 ou mais tarde
+
+  
+* Requisitos de hardware
+  * Memória mínima gratuita: 2GB
+  * Espaço mínimo de disco gratuito: 10GB
+
 
 >[!NOTE]
 >Este quickstart utiliza o Windows Admin Center para criar uma implementação de IoT Edge para Linux no Windows. Também pode utilizar o PowerShell. Se desejar utilizar o PowerShell para criar a sua implantação, siga os passos no guia de como [instalar e a provisionar o Azure IoT Edge para o Linux num dispositivo Windows](how-to-install-iot-edge-on-windows.md).
@@ -108,7 +115,7 @@ Instale o IoT Edge para o Linux no Windows no seu dispositivo e configuure-o com
 
 ![Diagrama que mostra o passo para iniciar o tempo de execução IoT Edge.](./media/quickstart/start-runtime.png)
 
-1. [Baixar o Windows Admin Center](https://aka.ms/WACDownloadEFLOW).
+1. [Baixar o Windows Admin Center](https://aka.ms/wacdownload).
 
 1. Siga as indicações no assistente de instalação para configurar o Windows Admin Center no seu dispositivo.
 

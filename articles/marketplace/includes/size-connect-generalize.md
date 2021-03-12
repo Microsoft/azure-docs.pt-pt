@@ -7,12 +7,12 @@ ms.topic: include
 author: mingshen-ms
 ms.author: krsh
 ms.date: 10/20/2020
-ms.openlocfilehash: addc18a0ebf9e49d3474d3f40cb1e2a6e0f0b272
-ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
+ms.openlocfilehash: c60d2a9b13cce9251ff0f730081a9d677206770d
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97826668"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102630125"
 ---
 ## <a name="generalize-the-image"></a>Generalizar a imagem
 
@@ -38,60 +38,31 @@ O processo seguinte generaliza um Linux VM e reimplanta-o como um VM separado. P
     1. No portal Azure, selecione o seu grupo de recursos (RG) e desatribua o VM.
     2. O seu VM está agora generalizado e pode criar um novo VM utilizando este disco VM.
 
-### <a name="take-a-snapshot-of-the-vm-disk"></a>Tire uma foto do disco VM
+### <a name="capture-image"></a>Imagem de captura
 
-1. Inicie sessão no [portal do Azure](https://ms.portal.azure.com/).
-2. A partir da parte superior esquerda, **selecione Criar um recurso** e, em seguida, procurar e selecionar **Snapshot**.
-3. Na lâmina Snapshot,  **selecione Criar**.
-4. Insira um **nome** para a foto.
-5. Selecione um grupo de recursos existente ou insira o nome para um novo.
-6. Para **o disco Source**, selecione o disco gerido para o instantâneo.
-7. Selecione o **tipo de Conta** a utilizar para armazenar o instantâneo. Utilize **o HDD standard** a menos que precise de ser armazenado num SSD de alto desempenho.
-8. Selecione **Criar**.
+Assim que o seu VM estiver pronto, pode capturá-lo numa galeria de imagens partilhada em Azure. Siga os passos abaixo para capturar:
 
-#### <a name="extract-the-vhd"></a>Extrair o VHD
+1. No [portal Azure,](https://ms.portal.azure.com/)aceda à página da sua Máquina Virtual.
+2. Selecione **Capture**.
+3. Em **Imagem partilhada para galeria de imagens Partilhadas,** selecione **Sim, partilhe-a numa galeria como uma versão de imagem**.
+4. Em **Estado do sistema operativo** selecione Generalizado.
+5. Selecione uma galeria de imagens Target ou **Crie Novo**.
+6. Selecione uma definição de imagem alvo ou **crie novo**.
+7. Forneça um **número de versão** para a imagem.
+8. Selecione **Review + crie** para rever as suas escolhas.
+9. Uma vez aprovada a validação, **selecione Criar**.
 
-Use o seguinte script para exportar o instantâneo para um VHD na sua conta de armazenamento.
+Para publicar, a conta de editor deve ter um Proprietário acesso ao SIG. Para conceder acesso:
 
-```azurecli-interactive
-#Provide the subscription Id where the snapshot is created
-$subscriptionId=yourSubscriptionId
+1. Vá à Galeria de Imagens Partilhadas.
+2. Selecione **o controlo de acesso** (IAM) no painel esquerdo.
+3. **Selecione Adicionar** e, em seguida, **Adicionar a atribuição de função**.
+4. Selecione uma **função** ou **proprietário**.
+5. No âmbito **do Access de Atribuir acesso a** **utilizador, grupo ou principal de serviço** selecionados.
+6. Selecione o e-mail Azure da pessoa que vai publicar a imagem.
+7. Selecione **Guardar**.
 
-#Provide the name of your resource group where the snapshot is created
-$resourceGroupName=myResourceGroupName
+:::image type="content" source="../media/create-vm/add-role-assignment.png" alt-text="Exibe a janela de atribuição de funções de adicionar.":::
 
-#Provide the snapshot name
-$snapshotName=mySnapshot
-
-#Provide Shared Access Signature (SAS) expiry duration in seconds (such as 3600)
-#Know more about SAS here: https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-shared-access-signature-part-1
-$sasExpiryDuration=3600
-
-#Provide storage account name where you want to copy the underlying VHD file. 
-$storageAccountName=mystorageaccountname
-
-#Name of the storage container where the downloaded VHD will be stored.
-$storageContainerName=mystoragecontainername
-
-#Provide the key of the storage account where you want to copy the VHD 
-$storageAccountKey=mystorageaccountkey
-
-#Give a name to the destination VHD file to which the VHD will be copied.
-$destinationVHDFileName=myvhdfilename.vhd
-
-az account set --subscription $subscriptionId
-
-sas=$(az snapshot grant-access --resource-group $resourceGroupName --name $snapshotName --duration-in-seconds $sasExpiryDuration --query [accessSas] -o tsv)
-
-az storage blob copy start --destination-blob $destinationVHDFileName --destination-container $storageContainerName --account-name $storageAccountName --account-key $storageAccountKey --source-uri $sas
-```
-
-#### <a name="script-explanation"></a>Explicação do script
-
-Este script utiliza comandos seguintes para gerar o SAS URI para uma snapshot e copia o VHD subjacente a uma conta de armazenamento usando o SAS URI. Cada comando na tabela liga à documentação específica do comando.
-
-| Comando | Notas |
-| --- | --- |
-| az disk grant-access | Gera o SAS só de leitura utilizado para copiar o ficheiro VHD subjacente para uma conta de armazenamento ou transferi-lo para o local
-| az storage blob copy start | Copia uma bolha assíncronea de uma conta de armazenamento para outra. Utilize `az storage blob show` para verificar o estado da nova bolha. |
-|
+> [!NOTE]
+> Não precisa gerar URIs SAS, pois agora pode publicar uma Imagem SIG no Partner Center. No entanto, se ainda precisar de se referir aos passos de geração SAS URI, consulte [Como gerar um SAS URI para uma imagem VM](../azure-vm-get-sas-uri.md).

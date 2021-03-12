@@ -3,7 +3,7 @@ title: Começa com a autenticação AZure AD utilizando o portal Azure| Microsof
 description: Saiba como utilizar o portal Azure para aceder à autenticação do Azure Ative Directory (Azure AD) para consumir a AZure Media Services API.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2019
-ms.author: juliako
-ms.openlocfilehash: c2ac03f600f57ae97cebb77e3b67bcd466955d0b
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.date: 03/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: d9ad439fe3f41d9e2634fbf9a76cfd21114a5dbc
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98695412"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103013062"
 ---
 # <a name="get-started-with-azure-ad-authentication-by-using-the-azure-portal"></a>Introdução à autenticação do Azure AD através do portal do Azure
 
@@ -69,6 +69,6 @@ Esta opção poderia ser usada para autenticar um empregado ou membro de um Dire
 
 Copie as suas credenciais para ligar a sua aplicação de utilizador a partir da secção **API de Serviços de Comunicação Social.** Pode obter valores de texto ou copiar os blocos JSON ou XML.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Começa com [o upload de ficheiros para a tua conta.](media-services-portal-upload-files.md)

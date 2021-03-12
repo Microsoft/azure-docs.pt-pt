@@ -1,9 +1,9 @@
 ---
-title: Design de um sistema de proteção de conteúdos com controlo de acessos utilizando a Azure Media Services Microsoft Docs
+title: Conceção de um sistema de proteção de conteúdos com controlo de acesso utilizando a Azure Media Services | Microsoft Docs
 description: Saiba como licenciar o Kit de Porting do Cliente de Streaming Microsoft.
 services: media-services
 documentationcenter: ''
-author: willzhan
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,22 +11,22 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2019
+ms.date: 03/10/2021
 ms.author: willzhan
 ms.reviewer: kilroyh;yanmf;juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b98b66d8f0350c32e89d62d776ee1288d9271712
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 1a4f151b597b57b77fa6517c6ea0d586c1106986
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96010916"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103017142"
 ---
 # <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>Conceção de um sistema de proteção de conteúdos com controlo de acesso usando a Azure Media Services
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Conceber e construir um subsistema de gestão de direitos digitais (DRM) para uma solução de streaming (OTT) ou de streaming online é uma tarefa complexa. Os operadores/fornecedores de vídeo online normalmente subcontratam esta tarefa a prestadores de serviços drm especializados. O objetivo deste documento é apresentar um design de referência e implementação de um subsistema de DRM de ponta a ponta numa solução de streaming OTT ou online.
 

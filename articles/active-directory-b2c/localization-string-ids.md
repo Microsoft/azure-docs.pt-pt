@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/08/2021
+ms.date: 03/10/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e867fee753fb9db530db2b2015c3aea9280bc16f
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: b60b447d8302b89813ca462c3220603ef926eb26
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102448649"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102631188"
 ---
 # <a name="localization-string-ids"></a>IDs de cadeia de localização
 
@@ -152,7 +152,7 @@ Seguem-se os IDs para uma definição de conteúdo com identificação ou qualqu
 | **cancel_message** | O utilizador cancelou a introdução de informações autoafirmadas |
 | **preloader_alt** | Aguarde |
 | **ver_but_send** | Enviar código de verificação |
-| **alert_yes** | Sim |
+| **alert_yes** | Yes |
 | **error_fieldIncorrect** | Um ou mais campos são preenchidos incorretamente. Por favor, verifiquem as suas entradas e tentem novamente. |
 | **ano** | Anual |
 | **verifying_blurb** | Por favor, aguarde enquanto processamos a sua informação. |
@@ -170,7 +170,7 @@ Seguem-se os IDs para uma definição de conteúdo com identificação ou qualqu
 | **ver_incorrect_format** | Formato incorreto. |
 | **ver_but_edit** | Alterar e-mail |
 | **ver_but_verify** | Verificar código |
-| **alert_no** | Não |
+| **alert_no** | No |
 | **ver_info_msg** | O código de verificação foi enviado para a sua caixa de entrada. Por favor, copie-o para a caixa de entrada abaixo. |
 | **dia** | Dia |
 | **ver_fail_throttled** | Houve muitos pedidos para verificar este endereço de e-mail. Por favor, espere um pouco, e tente de novo. |
@@ -356,7 +356,7 @@ Seguem-se os IDs para um [controlo de visualização de verificação](display-c
 
 | ID | Valor predefinido |
 | -- | ------------- |
-|intro_msg| A verificação é necessária. Clique no botão Enviar por favor.|
+|intro_msg <sup>*</sup>| A verificação é necessária. Clique no botão Enviar por favor.|
 |success_send_code_msg | O código de verificação foi enviado. Por favor, copie-o para a caixa de entrada abaixo.|
 |failure_send_code_msg | Estamos com dificuldades em verificar o seu endereço de e-mail. Por favor, insira um endereço de e-mail válido e tente novamente.|
 |success_verify_code_msg | Endereço de e-mail verificado. Agora pode continuar.|
@@ -365,6 +365,12 @@ Seguem-se os IDs para um [controlo de visualização de verificação](display-c
 |but_verify_code | Verificar código|
 |but_send_new_code | Enviar novo código|
 |but_change_claims | Alterar e-mail|
+
+Nota: O `intro_msg` elemento está oculto e não é mostrado na página autoafirmada. Para torná-lo visível, utilize a [personalização HTML](customize-ui-with-html.md) com folhas de estilo em cascata. Por exemplo:
+    
+```css
+.verificationInfoText div{display: block!important}
+```
 
 ### <a name="verification-display-control-example"></a>Exemplo de controlo de visualização de verificação
 

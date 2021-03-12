@@ -3,7 +3,7 @@ title: Plugin de streaming suave para o quadro de mídia open source
 description: Saiba como utilizar o plugin de streaming suave dos serviços Azure Media para o Adobe Open Source Media Framework.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: 6068151f-b6b0-4507-9346-f03416d3d572
@@ -12,21 +12,21 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
-ms.author: juliako
+ms.date: 3/10/2021
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9b71a2064887cc2b6099ead2e59f9fa3113d2f0b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 70042a5c4c27ec5d163e5f05089ae50b92140c28
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89269017"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103011260"
 ---
 # <a name="how-to-use-the-microsoft-smooth-streaming-plugin-for-the-adobe-open-source-media-framework"></a>Como utilizar o Plugin de streaming suave do Microsoft para o Adobe Open Source Media Framework
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 O plugin de streaming da Microsoft Smooth para Open Source Media Framework 2.0 (SS for OSMF) alarga as capacidades padrão do OSMF e adiciona a reprodução de conteúdo sonoro do Microsoft Smooth streaming a novos e existentes jogadores OSMF. O plugin também adiciona capacidades de reprodução de streaming suave à Reprodução de Mídia Strobe (SMP).
 
 SS para OSMF inclui duas versões de plugin:
@@ -198,7 +198,7 @@ package
 
 
 ### <a name="ss-for-osmf-dynamic-loading"></a>SS para carregamento dinâmico osmmF
-O corte de código abaixo mostra como carregar o plugin SS para OSMF dinamicamente e reproduzir um vídeo básico utilizando a classe MEDIAFactory OSMF. Antes de incluir o plugin dinâmico SS para OSMF, copie o plugin dinâmico "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf" na pasta do projeto se pretender carregar usando o protocolo FILE ou copiar num servidor web para carga HTTP. Não há necessidade de incluir "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swc" nas referências do projeto.
+O corte de código abaixo mostra como carregar o plugin SS para OSMF dinamicamente e reproduzir um vídeo básico utilizando a classe MEDIAFactory OSMF. Antes de incluir o plugin dinâmico SS para OSMF, copie o plugin dinâmico "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf" na pasta do projeto se pretender carregar usando o protocolo FILE ou copiar para baixo de um servidor web para carga HTTP. Não há necessidade de incluir "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swc" nas referências do projeto.
 
 ```csharp
 package 

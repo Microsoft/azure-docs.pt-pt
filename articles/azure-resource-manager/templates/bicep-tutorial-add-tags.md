@@ -2,16 +2,16 @@
 title: Tutorial - adicione tags aos recursos no ficheiro Bicep do Azure Resource Manager
 description: Adicione etiquetas aos recursos que implementa nos seus ficheiros Bicep. As etiquetas permitem organizar logicamente recursos.
 author: mumian
-ms.date: 03/01/2021
+ms.date: 03/10/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 05bb68609705ac4c13ad77d2c74db7c105ba23fb
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: ea5e078eb692d002b3f86cd43663dd042d692611
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101748167"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102632620"
 ---
 # <a name="tutorial-add-tags-in-azure-resource-manager-bicep-files"></a>Tutorial: Adicionar tags em ficheiros Bicep do Gestor de Recursos Azure
 
@@ -37,7 +37,7 @@ Depois de implementar estes recursos, poderá ter de rastrear os custos e encont
 
 Coloca etiquetas nos recursos para adicionar valores que o ajudam a identificar a sua utilização. Por exemplo, pode adicionar tags que listam o ambiente e o projeto. Pode adicionar tags que identifiquem um centro de custos ou a equipa proprietária do recurso. Adicione os valores que façam sentido para a sua organização.
 
-O exemplo a seguir destaca as alterações ao ficheiro Bicep. Copie todo o ficheiro e substitua o seu ficheiro Bicep pelo seu conteúdo.
+O exemplo a seguir mostra as alterações no ficheiro Bicep. Copie todo o ficheiro e substitua o seu ficheiro Bicep pelo seu conteúdo.
 
 :::code language="bicep" source="~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.bicep" range="1-81" highlight="27-30,38,51,71":::
 

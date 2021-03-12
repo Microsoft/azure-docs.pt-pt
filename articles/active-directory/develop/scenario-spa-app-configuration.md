@@ -12,26 +12,22 @@ ms.workload: identity
 ms.date: 02/11/2020
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 5cbb576a7fcfb2daf492a149130aa7c99fe10ac5
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: fe73832ec5eaee62a2dc2d397c12f82334e2efd8
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98753614"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103010712"
 ---
 # <a name="single-page-application-code-configuration"></a>Aplicação de uma página: Configuração de código
 
 Saiba como configurar o código para a sua aplicação de uma página única (SPA).
 
-## <a name="msal-libraries-for-spas-and-supported-authentication-flows"></a>Bibliotecas MSAL para SPAs e fluxos de autenticação suportados
+## <a name="microsoft-libraries-supporting-single-page-apps"></a>Bibliotecas da Microsoft que suportam aplicações de página única 
 
-A plataforma de identidade da Microsoft fornece a seguinte Biblioteca de Autenticação do Microsoft para o JavaScript (MSAL.js) para suportar o fluxo de código de fluxo e autorização implícito com o PKCE utilizando práticas de segurança recomendadas pela indústria:
+As seguintes bibliotecas da Microsoft suportam aplicações de uma só página:
 
-| Biblioteca MSAL | Fluxo | Descrição |
-|--------------|------|-------------|
-| ![MSAL.js](media/sample-v2-code/logo_js.png) <br/> [MSAL.js (2.x)](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser) | Fluxo de código de autorização (PKCE) | Biblioteca JavaScript simples para uso em qualquer aplicação web do lado do cliente que seja construída através de estruturas JavaScript ou SPA, tais como Angular, Vue.js e React.js. |
-| ![MSAL.js](media/sample-v2-code/logo_js.png) <br/> [MSAL.js (1.x)](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-core) | Fluxo implícito | Biblioteca JavaScript simples para uso em qualquer aplicação web do lado do cliente que seja construída através de estruturas JavaScript ou SPA, tais como Angular, Vue.js e React.js. |
-| ![MSAL Angular](media/sample-v2-code/logo_angular.png) <br/> [MSAL Angular](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/README.md) | Fluxo implícito | O invólucro do núcleo MSAL.js biblioteca para simplificar o uso em aplicações de uma só página que são construídas através da estrutura angular. |
+[!INCLUDE [active-directory-develop-libraries-spa](../../../includes/active-directory-develop-libraries-spa.md)]
 
 ## <a name="application-code-configuration"></a>Configuração do código de aplicação
 
@@ -74,6 +70,6 @@ export class AppModule { }
 
 ---
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Passe para o próximo artigo neste cenário, [iniciar sômis e assinar](scenario-spa-sign-in.md).

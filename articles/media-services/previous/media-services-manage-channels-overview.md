@@ -3,7 +3,7 @@ title: Visão geral do Live Streaming usando a Azure Media Services | Microsoft 
 description: Este artigo fornece uma visão geral do streaming ao vivo usando o Microsoft Azure Media Services.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: fb63502e-914d-4c1f-853c-4a7831bb08e8
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
-ms.openlocfilehash: 77c68b3c17b8815c4858e1d73251975a7e00e6eb
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.date: 03/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: 195333f5f06145a1dfa84f0de2c5984190e3d7ca
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98695709"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103014830"
 ---
 # <a name="overview-of-live-streaming-using-media-services"></a>Visão geral do Live Streaming usando serviços de mídia
 
@@ -28,7 +28,7 @@ ms.locfileid: "98695709"
 > [!NOTE]
 > Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](../latest/index.yml). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-v-2-v-3-migration-introduction.md)
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Ao entregar eventos de streaming ao vivo com a Azure Media Services, os seguintes componentes estão geralmente envolvidos:
 
@@ -76,17 +76,17 @@ A tabela seguinte fornece um guia para comparar os dois tipos de Canal suportado
 
 | Funcionalidade | Canal de passagem | Canal Standard |
 | --- | --- | --- |
-| A entrada bitrate única é codificada em vários bitrates na nuvem |Não |Sim |
+| A entrada bitrate única é codificada em vários bitrates na nuvem |No |Yes |
 | Resolução máxima, número de camadas |1080p, 8 camadas, 60+fps |720p, 6 camadas, 30 fps |
 | Protocolos de entrada |RTMP, Streaming Suave |RTMP, Streaming Suave |
 | Preço |Veja [a página de preços](https://azure.microsoft.com/pricing/details/media-services/) e clique no separador "Live Video" |Consulte [a página de preços](https://azure.microsoft.com/pricing/details/media-services/) |
 | Tempo máximo de execução |24x7 |8 horas |
-| Suporte para inserção de ardósias |Não |Sim |
-| Suporte para sinalização de anúncios |Não |Sim |
-| Pass-through CEA 608/708 legendas |Sim |Sim |
-| Suporte para GOPs de entrada não uniforme |Sim |Não – a entrada deve ser fixada 2sec GOPs |
-| Suporte para entrada de taxa de fotogramas variáveis |Sim |Não – a entrada deve ser fixa.<br/>Pequenas variações são toleradas, por exemplo, durante cenas de movimento elevado. Mas o codificadores não pode cair para 10 fotogramas/seg. |
-| Desligação automática dos canais quando o feed de entrada é perdido |Não |Depois de 12 horas, se não houver programa em execução |
+| Suporte para inserção de ardósias |No |Yes |
+| Suporte para sinalização de anúncios |No |Yes |
+| Pass-through CEA 608/708 legendas |Yes |Yes |
+| Suporte para GOPs de entrada não uniforme |Yes |Não – a entrada deve ser fixada 2sec GOPs |
+| Suporte para entrada de taxa de fotogramas variáveis |Yes |Não – a entrada deve ser fixa.<br/>Pequenas variações são toleradas, por exemplo, durante cenas de movimento elevado. Mas o codificadores não pode cair para 10 fotogramas/seg. |
+| Desligação automática dos canais quando o feed de entrada é perdido |No |Depois de 12 horas, se não houver programa em execução |
 
 ## <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders-pass-through"></a>Trabalhar com Canais que recebem transmissões em fluxo em direto com velocidade de transmissão múltipla a partir de codificadores no local (pass-through)
 
@@ -155,7 +155,7 @@ A tabela que se segue mostra como o Channel afirma o mapa para o modo de fatura�
 | A iniciar |A iniciar |Não (estado transitório) |
 | Em Execução |Pronto (sem programas de execução)<br/>ou<br/>Streaming (pelo menos um programa em execução) |SIM |
 | A parar |A parar |Não (estado transitório) |
-| Parada |Parada |Não |
+| Parada |Parada |No |
 
 ## <a name="media-services-learning-paths"></a>Percursos de aprendizagem dos Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

@@ -1,0 +1,59 @@
+### YamlMime:Landing
+title: Documentação do Azure API for FHIR
+summary: O Azure API for FHIR é uma API conforme gerida e baseada em normas para dados da área dos cuidados de saúde que permite a utilização de soluções para análises acionáveis e machine learning.
+metadata:
+  title: Documentação do Azure API for FHIR - tutoriais, manuais de instruções
+  description: O Azure API for FHIR é uma API conforme gerida e baseada em normas para dados da área dos cuidados de saúde que permite a utilização de soluções para análises acionáveis e machine learning.
+  services: healthcare-apis
+  ms.service: healthcare-apis
+  ms.subservice: fhir
+  ms.topic: landing-page
+  ms.collection: collection
+  author: matjazl
+  ms.author: matjazl
+  ms.date: 08/13/2020
+  ms.openlocfilehash: d633b5376832672ecc7c917e24728666b889e16c
+  ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+  ms.translationtype: MT
+  ms.contentlocale: pt-PT
+  ms.lasthandoff: 03/11/2021
+  ms.locfileid: "103017445"
+landingContent:
+- title: Começar a utilizar o Azure API for FHIR
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que é o Azure API for FHIR?
+      url: overview.md
+    - text: O que é o Azure IoT Connector for FHIR (pré-visualização)?
+      url: overview.md#azure-iot-connector-for-fhir-preview
+  - linkListType: quickstart
+    links:
+    - text: Implementar o Servidor de API para FHIR
+      url: fhir-paas-portal-quickstart.md
+    - text: Implementar o Conector IoT do Azure para o FHIR (pré-visualização)
+      url: iot-fhir-portal-quickstart.md
+- title: Tutoriais de configuração
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Implementar a aplicação JavaScript para ler dados do serviço FHIR
+      url: tutorial-web-app-fhir-server.md
+    - text: Aceder à API de FHIR com o Postman
+      url: access-fhir-postman-tutorial.md
+    - text: Integração SMART para aplicações e registos médicos de terceiros
+      url: use-smart-on-fhir-proxy.md
+    - text: Receber dados do dispositivo através do Hub IoT do Azure
+      url: device-data-through-iot-hub.md
+- title: Registar aplicações para autenticação AD
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Registar uma aplicação de recurso
+      url: register-resource-azure-ad-client-app.md
+    - text: Registar uma aplicação cliente confidencial
+      url: register-confidential-azure-ad-client-app.md
+    - text: Registar uma aplicação cliente pública
+      url: register-public-azure-ad-client-app.md
+    - text: Registar uma aplicação cliente de serviço
+      url: register-service-azure-ad-client-app.md

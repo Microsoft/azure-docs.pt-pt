@@ -3,7 +3,7 @@ title: Utilize a autenticação Azure AD para aceder à Azure Media Services API
 description: Saiba como aceder à Azure Media Services API com autenticação do Azure Ative Directory utilizando REST.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ms.reviewer: willzhan; johndeu
-ms.openlocfilehash: 28719046c9a8ccc65d231244ef8b5b3f8e116282
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: a2b4e7bf03ebb1fbc197b78287cb50b3f421d713
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98694735"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103017312"
 ---
 # <a name="use-azure-ad-authentication-to-access-the-media-services-api-with-rest"></a>Utilizar a autenticação do Azure AD para aceder à API de Serviços de Multimédia com REST
 
@@ -60,7 +60,7 @@ Neste tutorial, ficará a saber como:
 
 ## <a name="get-the-authentication-information-from-the-azure-portal"></a>Obtenha a informação de autenticação do portal Azure
 
-### <a name="overview"></a>Descrição geral
+### <a name="overview"></a>Descrição Geral
 
 Para aceder à API dos Serviços de Mídia, é necessário recolher os seguintes pontos de dados.
 
@@ -198,7 +198,7 @@ Esta secção mostra como aceder à API **de Ativos** utilizando **o Carteiro**.
 
 A resposta devolvida contém os ativos que estão na sua conta.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Experimente este código de amostra na [autenticação AD Azure para acesso a serviços de mídia Azure: Ambos via REST API](https://github.com/willzhan/WAMSRESTSoln)
 * [Faça upload de ficheiros com .NET](media-services-dotnet-upload-files.md)

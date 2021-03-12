@@ -41,7 +41,7 @@
           href: test-drive-hosted-detailed-config.md
         - name: Configurar subscrição do Azure para versões de teste alojadas
           href: test-drive-azure-subscription-setup.md
-    - name: Atribuição da utilização do cliente de parceiro do Azure
+    - name: Atribuição de utilização do cliente Azure
       href: azure-partner-customer-usage-attribution.md
     - name: Opções de entrada no mercado
       items:

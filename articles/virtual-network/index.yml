@@ -11,12 +11,12 @@ metadata:
   author: KumudD
   ms.author: kumud
   ms.date: 01/28/2021
-  ms.openlocfilehash: 11e3de57bdf2853e94ec61a21ab54ae085f4f6b1
-  ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+  ms.openlocfilehash: 25d73a08b5311d93f46830d6f23095c83db35091
+  ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 01/29/2021
-  ms.locfileid: "99062151"
+  ms.lasthandoff: 03/11/2021
+  ms.locfileid: "103010495"
 landingContent:
 - title: Sobre a Rede Virtual
   linkLists:
@@ -64,10 +64,6 @@ landingContent:
     links:
     - text: Proteger e isolar o acesso a recursos do Azure
       url: /learn/modules/secure-and-isolate-with-nsg-and-service-endpoints
-  - linkListType: video
-    links:
-    - text: Aceda de forma segura aos seus recursos PaaS do Azure com o Azure Private Link
-      url: https://www.youtube.com/watch?v=PWKM5KXjWno
 - title: Ligar redes virtuais
   linkLists:
   - linkListType: concept

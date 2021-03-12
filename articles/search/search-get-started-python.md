@@ -7,14 +7,14 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 01/29/2021
+ms.date: 03/12/2021
 ms.custom: devx-track-python
-ms.openlocfilehash: eb5de33fd41d3a454f4d0b8d44325ed30f9c5d47
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: 8b9c4792fa6dbdc70f657ce3c5f1757473a22fda
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99071635"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103225222"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-python-using-jupyter-notebook"></a>Quickstart: Criar um índice de pesquisa cognitiva Azure em Python usando o Caderno Jupyter
 
@@ -271,9 +271,9 @@ Para carregar documentos, crie uma recolha de documentos, utilizando uma [ação
 
 ## <a name="3---search-an-index"></a>3 - Pesquisar um índice
 
-Este passo mostra-lhe como consultar um índice utilizando os [Documentos de Pesquisa (REST)](/rest/api/searchservice/search-documents).
+Este passo mostra-lhe como consultar um índice utilizando o método de **pesquisa** da [classe search.client](/python/api/azure-search-documents/azure.search.documents.searchclient).
 
-1. Para esta operação, utilize search_client. Esta consulta executa uma pesquisa vazia `search=*` (), devolvendo uma lista não reclassiizada (pontuação de pesquisa = 1.0) de documentos arbitrários. Como não existem critérios, todos os documentos estão incluídos nos resultados. Esta consulta imprime apenas dois dos campos em cada documento. Acrescenta ainda `include_total_count=True` para obter uma contagem de todos os documentos (4) nos resultados.
+1. O passo seguinte executa uma busca vazia `search=*` (), devolvendo uma lista não reclassiizada (pontuação de pesquisa = 1.0) de documentos arbitrários. Como não existem critérios, todos os documentos estão incluídos nos resultados. Esta consulta imprime apenas dois dos campos em cada documento. Acrescenta ainda `include_total_count=True` para obter uma contagem de todos os documentos (4) nos resultados.
 
     ```python
     results =  search_client.search(search_text="*", include_total_count=True)

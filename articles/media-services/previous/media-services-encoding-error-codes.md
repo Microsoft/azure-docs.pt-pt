@@ -1,9 +1,9 @@
 ---
-title: Azure Media Services codifica códigos de erros Microsoft Docs
+title: Azure Media Services codifica códigos de erro | Microsoft Docs
 description: Este tópico lista códigos de erro que podem ser devolvidos no caso de um erro ter sido encontrado durante a execução da tarefa de codificação..
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: ce4e939f-5aee-41f9-859d-e4429815e9f2
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
-ms.openlocfilehash: 6e56dbe1d1236a567ed6f59acfcca325a6c9ee7e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 03/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: 7e6848fb49dd63fa67a639d09754a28dd5953a32
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89269034"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103013487"
 ---
 # <a name="encoding-error-codes"></a>Encoding error codes (Códigos de erro de codificação)
 

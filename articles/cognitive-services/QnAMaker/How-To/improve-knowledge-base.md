@@ -6,12 +6,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 7c477655dfb24eebab9a2669697d9ef610088198
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: 3fe6ee8336872c04e85b732713494adf0fefa28a
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99592029"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103011447"
 ---
 # <a name="accept-active-learning-suggested-questions-in-the-knowledge-base"></a>Aceitar aprendizagem ativa sugerida questões na base de conhecimento
 
@@ -79,25 +79,24 @@ Ao reimportar esta aplicação, a aprendizagem ativa continua a recolher informa
 
 Um bot ou outra aplicação de cliente deve usar o seguinte fluxo arquitetónico para utilizar a aprendizagem ativa:
 
-* Bot [obtém a resposta da base de conhecimento](#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers) com a API GenerateAnswer, usando a propriedade para obter uma série de `top` respostas.
+1. Bot [obtém a resposta da base de conhecimento](#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers) com a API GenerateAnswer, usando a propriedade para obter uma série de `top` respostas.
 
-    #### <a name="use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers"></a>Use a propriedade de topo no pedido generateAnswer para obter várias respostas correspondentes
-
-    Ao submeter uma pergunta ao QnA Maker para obter uma resposta, a `top` propriedade do corpo JSON define o número de respostas para devolver.
-
-    ```json
-    {
-        "question": "wi-fi",
-        "isTest": false,
-        "top": 3
-    }
-    ```
-
-* Bot determina feedback explícito:
+2. Bot determina feedback explícito:
     * Utilizando a sua própria [lógica de negócio personalizado,](#use-the-score-property-along-with-business-logic-to-get-list-of-answers-to-show-user)filtre pontuações baixas.
     * No bot ou na aplicação do cliente, mostrar a lista de possíveis respostas ao utilizador e obter a resposta selecionada do utilizador.
-* Bot [envia resposta selecionada de volta ao QnA Maker](#bot-framework-sample-code) com a [API do comboio.](#train-api)
+3. Bot [envia resposta selecionada de volta ao QnA Maker](#bot-framework-sample-code) com a [API do comboio.](#train-api)
 
+### <a name="use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers"></a>Use a propriedade de topo no pedido generateAnswer para obter várias respostas correspondentes
+
+Ao submeter uma pergunta ao QnA Maker para obter uma resposta, a `top` propriedade do corpo JSON define o número de respostas para devolver.
+
+```json
+{
+    "question": "wi-fi",
+    "isTest": false,
+    "top": 3
+}
+```
 
 ### <a name="use-the-score-property-along-with-business-logic-to-get-list-of-answers-to-show-user"></a>Use a propriedade de pontuação juntamente com a lógica de negócio para obter uma lista de respostas para mostrar ao utilizador
 

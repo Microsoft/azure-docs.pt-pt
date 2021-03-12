@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.author: jingwang
 author: linda33wj
 ms.custom: seo-lt-2019
-ms.date: 12/18/2020
-ms.openlocfilehash: 5c2023ffa4446760c85b07659f13e421e62e6020
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 03/12/2021
+ms.openlocfilehash: 91e383b746509000cef74e96c08d1b70316a0527
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100383794"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103225256"
 ---
 # <a name="copy-and-transform-data-in-azure-sql-managed-instance-by-using-azure-data-factory"></a>Copiar e transformar dados em Azure SQL Managed Instance usando Azure Data Factory
 
@@ -761,7 +761,7 @@ Mais especificamente:
         Driver={ODBC Driver 17 for SQL Server};Server=<serverName>;Database=<databaseName>;ColumnEncryption=Enabled;KeyStoreAuthentication=KeyVaultClientSecret;KeyStorePrincipalId=<servicePrincipalKey>;KeyStoreSecret=<servicePrincipalKey>
         ```
 
-    - Para utilizar a **autenticação de identidade gerida pela fábrica de dados:** 
+    - Se executar o tempo de execução de integração auto-hospedado na Máquina Virtual Azure, pode utilizar **a autenticação de identidade gerida** com a identidade de Azure VM: 
 
         1. Siga os [mesmos pré-requisitos](#managed-identity) para criar o utilizador de base de dados para a identidade gerida e conceder o papel adequado na sua base de dados.
         2. No serviço ligado, especifique a cadeia de ligação ODBC como abaixo e selecione a autenticação **anónima** como a própria cadeia de ligação indica `Authentication=ActiveDirectoryMsi` .

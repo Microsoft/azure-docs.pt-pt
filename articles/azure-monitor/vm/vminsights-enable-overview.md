@@ -6,12 +6,12 @@ author: bwren
 ms.author: bwren
 ms.date: 12/22/2020
 ms.custom: references_regions
-ms.openlocfilehash: 7aa8221c960685149a5d475665be105acaf7aa15
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: bb2e12082b80c397eec27409b1177379a92fdd7d
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102046674"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102634163"
 ---
 # <a name="enable-vm-insights-overview"></a>Ativar a visão geral dos conhecimentos do VM
 
@@ -41,11 +41,11 @@ Os conhecimentos VM suportam as seguintes máquinas:
 ## <a name="supported-azure-arc-machines"></a>Máquinas Azure Arc suportadas
 Os insights VM estão disponíveis para servidores ativados a Azure Arc em regiões onde o serviço de extensão Arc está disponível. Deve estar a executar a versão 0.9 ou superior ao do Agente Arc.
 
-| Origem ligada | Suportado | Descrição |
+| Origem ligada | Suportado | Description |
 |:--|:--|:--|
-| Agentes do Windows | Sim | Juntamente com o [agente Log Analytics para windows,](../agents/log-analytics-agent.md)os agentes windows precisam do agente Dependency. Para obter mais informações, consulte [os sistemas operativos suportados.](../agents/agents-overview.md#supported-operating-systems) |
-| Agentes do Linux | Sim | Juntamente com o [agente Log Analytics para o Linux,](../agents/log-analytics-agent.md)os agentes Linux precisam do agente Desadependição. Para obter mais informações, consulte [os sistemas operativos suportados.](#supported-operating-systems) |
-| Grupo de gestão do System Center Operations Manager | Não | |
+| Agentes do Windows | Yes | Juntamente com o [agente Log Analytics para windows,](../agents/log-analytics-agent.md)os agentes windows precisam do agente Dependency. Para obter mais informações, consulte [os sistemas operativos suportados.](../agents/agents-overview.md#supported-operating-systems) |
+| Agentes do Linux | Yes | Juntamente com o [agente Log Analytics para o Linux,](../agents/log-analytics-agent.md)os agentes Linux precisam do agente Desadependição. Para obter mais informações, consulte [os sistemas operativos suportados.](#supported-operating-systems) |
+| Grupo de gestão do System Center Operations Manager | No | |
 
 ## <a name="supported-operating-systems"></a>Sistemas operativos suportados
 
@@ -54,6 +54,7 @@ Os conhecimentos VM suportam qualquer sistema operativo que suporte o agente Log
 > [!IMPORTANT]
 > A funcionalidade de saúde dos hóspedes de informações VM tem um suporte mais limitado do sistema operativo enquanto está em pré-visualização pública. Consulte [a Saúde dos hóspedes (pré-visualização) do Enable VM insights para](../vm/vminsights-health-enable.md) obter uma lista detalhada.
 
+### <a name="linux-considerations"></a>Considerações de Linux
 Consulte a seguinte lista de considerações sobre o apoio do Linux ao agente de dependência que suporta insights VM:
 
 - Apenas as versões de kernel padrão e SMP Linux são suportadas.
@@ -61,7 +62,22 @@ Consulte a seguinte lista de considerações sobre o apoio do Linux ao agente de
 - Os núcleos personalizados, incluindo as reparações de núcleos padrão, não são suportados.
 - Para distros de Debian que não a versão 9.4, a funcionalidade do mapa não é suportada, e a funcionalidade Performance está disponível apenas a partir do menu Azure Monitor. Não está disponível diretamente a partir do painel esquerdo do Azure VM.
 - O núcleo CentOSPlus é suportado.
-- O núcleo Linux deve ser remendado para a vulnerabilidade do Espectro. Consulte o seu fornecedor de distribuição Linux para mais detalhes.
+
+O núcleo Linux deve ser corrigido para as vulnerabilidades spectre e Meltdown. Consulte o seu fornecedor de distribuição Linux para mais detalhes. Executar o seguinte comando para verificar se está disponível se a Spectre/Meltdown foi atenuada:
+
+```
+$ grep . /sys/devices/system/cpu/vulnerabilities/*
+```
+
+A saída para este comando será semelhante à seguinte e especificará se uma máquina está vulnerável a qualquer um dos problemas. Se estes ficheiros estiverem em falta, a máquina não é remada.
+
+```
+/sys/devices/system/cpu/vulnerabilities/meltdown:Mitigation: PTI
+/sys/devices/system/cpu/vulnerabilities/spectre_v1:Vulnerable
+/sys/devices/system/cpu/vulnerabilities/spectre_v2:Vulnerable: Minimal generic ASM retpoline
+```
+
+
 ## <a name="log-analytics-workspace"></a>Área de trabalho do Log Analytics
 As introspeções em VM requerem um espaço de trabalho log analytics. Consulte [o espaço de trabalho Configure Log Analytics para obter informações sobre VM](vminsights-configure-workspace.md) para obter detalhes e requisitos deste espaço de trabalho.
 ## <a name="agents"></a>Agentes

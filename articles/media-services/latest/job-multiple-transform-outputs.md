@@ -12,19 +12,18 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a40ce1fd7b3d9d946641c91f5876d8c73755b005
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: fc3ab64a35c24df2af9d90a5ad348f840610d188
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101092267"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102635846"
 ---
 # <a name="create-a-job-with-multiple-transform-outputs"></a>Criar um trabalho com múltiplas saídas de transformação
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Este tópico mostra como criar uma Transformação com duas Saídas de Transformação. O primeiro pede que a entrada seja codificada para o streaming de bitrate adaptativo com uma predefinição [adaptivestreaming](encoding-concept.md#builtinstandardencoderpreset) incorporada. O segundo pede que o sinal de áudio no vídeo de entrada seja processado com o [AudioAnalyzerPreset](analyzing-video-audio-files-concept.md#built-in-presets). Após a criação do Transform, pode submeter um trabalho que irá processar o seu vídeo em conformidade. Uma vez que neste exemplo estamos especificando duas Saídas de Transformação, temos de especificar duas Saídas de Trabalho. Pode optar por direcionar ambas as Saídas de Emprego para o mesmo Ativo (como mostrado abaixo), ou pode ter os resultados escritos para separar ativos.
- 
 
 > [!TIP]
 > Antes de começar a desenvolver, [reveja o Desenvolvimento com os Serviços de Comunicação Social v3 APIs](media-services-apis-overview.md) (inclui informações sobre o acesso a APIs, convenções de nomeação, etc.)

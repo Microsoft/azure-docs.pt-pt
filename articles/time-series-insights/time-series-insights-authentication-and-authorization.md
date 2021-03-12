@@ -11,19 +11,16 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 02/23/2021
 ms.custom: seodec18, has-adal-ref
-ms.openlocfilehash: 02d9edd555566f86fd8bb09cf4acef4956ae53e4
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 88fd575d40cc31f12f052158bda0aed9a5335555
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102041217"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103009271"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Autenticação e autorização para API do Azure Time Series Insights
 
-Dependendo das necessidades do seu negócio, a sua solução pode incluir uma ou mais aplicações de clientes que utiliza para interagir com as [APIs](/rest/api/time-series-insights/reference-data-access-overview)do ambiente Azure Time Series Insights . Azure Time Series Insights executa a autenticação utilizando [tokens de segurança Azure AD com base em AAUTH 2.0](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims). Para autenticar o seu cliente, terá de obter um token ao portador com as permissões certas e passá-lo juntamente com as suas chamadas API. Este documento descreve vários métodos de obtenção de credenciais que pode usar para obter um símbolo ao portador e autenticar.
-
-
-  como registar uma aplicação no Azure Ative Directory usando a nova lâmina do Azure Ative Directory. As aplicações registadas no Azure Ative Directory permitem que os utilizadores autentem autenticar e ser autorizados a utilizar a Azure Time Series Insight API associada a um ambiente Azure Time Series Insights.
+Dependendo das necessidades do seu negócio, a sua solução pode incluir uma ou mais aplicações de clientes que utiliza para interagir com as [APIs](/rest/api/time-series-insights/reference-data-access-overview)do ambiente Azure Time Series Insights . Azure Time Series Insights executa a autenticação utilizando [tokens de segurança Azure AD com base em AAUTH 2.0](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims). Para autenticar o seu cliente, terá de obter um token ao portador com as permissões certas e passá-lo juntamente com as suas chamadas API. Este documento descreve vários métodos para obter credenciais que pode usar para obter um token ao portador e autenticar, incluindo a utilização de identidade gerida e o registo de aplicações do Azure Ative Directory.
 
 ## <a name="managed-identities"></a>Identidades geridas
 
@@ -108,10 +105,7 @@ Uma vez que o seu registo de identidade ou aplicação gerido tenha sido aprovis
 
 Ao aceder a partir do Azure App Service ou Funções siga a orientação nos [tokens Obter recursos Azure](../app-service/overview-managed-identity.md).
 
-> [!TIP]
-> Para aplicações e funções .NET, a forma mais simples de trabalhar com uma identidade gerida é através da biblioteca cliente [de Identidade Azure](/dotnet/api/overview/azure/identity-readme) para .NET. 
-
-Para aplicações e funções .NET, a forma mais simples de trabalhar com uma identidade gerida é através do pacote Microsoft.Azure.Services.AppAuthentication. Este pacote é popular devido à sua simplicidade e benefícios de segurança. Os desenvolvedores podem escrever código uma vez e permitir que a biblioteca do cliente determine como autenticar com base no ambiente de aplicação - seja numa estação de trabalho de desenvolvedor usando a conta de um desenvolvedor ou implantada em Azure usando uma identidade de serviço gerida. Para orientação de migração da biblioteca antecessora AppAuthentication leia [AppAuthentication to Azure.Identity Migration Guidance](/dotnet/api/overview/azure/app-auth-migration).
+Para aplicações e funções .NET, a forma mais simples de trabalhar com uma identidade gerida é através da biblioteca cliente [de Identidade Azure](/dotnet/api/overview/azure/identity-readme) para .NET. Esta biblioteca de clientes é popular devido à sua simplicidade e benefícios de segurança. Os desenvolvedores podem escrever código uma vez e permitir que a biblioteca do cliente determine como autenticar com base no ambiente de aplicação - seja numa estação de trabalho de desenvolvedor usando a conta de um desenvolvedor ou implantada em Azure usando uma identidade de serviço gerida. Para orientação de migração da biblioteca antecessora AppAuthentication leia [AppAuthentication to Azure.Identity Migration Guidance](/dotnet/api/overview/azure/app-auth-migration).
 
 Solicite um token para Azure Time Series Insights usando C# e a biblioteca de clientes de identidade Azure para .NET:
 
@@ -154,7 +148,7 @@ Esta secção descreve os cabeçalhos e parâmetros comuns de pedidos HTTP utili
 
 Os cabeçalhos de pedido necessários são descritos abaixo.
 
-| Cabeçalho de pedido exigido | Descrição |
+| Cabeçalho de pedido exigido | Description |
 | --- | --- |
 | Autorização | Para autenticar com a Azure Time Series Insights, um símbolo de portador OAuth 2.0 válido deve ser passado no [cabeçalho de autorização](/rest/api/apimanagement/2019-12-01/authorizationserver/createorupdate). |
 
@@ -163,7 +157,7 @@ Os cabeçalhos de pedido necessários são descritos abaixo.
 
 Os cabeçalhos de pedido opcionais são descritos abaixo.
 
-| Cabeçalho de pedido opcional | Descrição |
+| Cabeçalho de pedido opcional | Description |
 | --- | --- |
 | Tipo de conteúdo | só `application/json` é suportado. |
 | x-ms-cliente-pedido-id | Um pedido de identificação do cliente. O serviço regista este valor. Permite que o serviço rastreie a operação através dos serviços. |
@@ -172,7 +166,7 @@ Os cabeçalhos de pedido opcionais são descritos abaixo.
 
 Os cabeçalhos de resposta opcionais mas recomendados são descritos abaixo.
 
-| Cabeçalho de resposta | Descrição |
+| Cabeçalho de resposta | Description |
 | --- | --- |
 | Tipo de conteúdo | Só `application/json` é apoiado. |
 | x-ms-request-id | ID de pedido gerado pelo servidor. Pode ser usado para contactar a Microsoft para investigar um pedido. |

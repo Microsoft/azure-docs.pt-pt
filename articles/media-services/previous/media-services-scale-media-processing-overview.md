@@ -1,5 +1,5 @@
 ---
-title: Visão geral das unidades reservadas aos meios de comunicação social Microsoft Docs
+title: Visão geral das unidades reservadas aos meios de comunicação social | Microsoft Docs
 description: Este artigo é uma visão geral do dimensionamento do processamento de mídia com a Azure Media Services.
 services: media-services
 documentationcenter: ''
@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/30/2020
+ms.date: 3/10/2021
 ms.author: inhenkel
-ms.openlocfilehash: 5353cf841663d70f2fce6662964358b7828610d8
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: d0692996c27f969ffc90078db2ddcc849ee15ab1
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95020900"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103012722"
 ---
 # <a name="media-reserved-units"></a>Unidades reservadas de multimédia
 
@@ -30,7 +30,7 @@ A Azure Media Services permite-lhe escalar o processamento de meios de comunica�
 
 A tabela a seguir ajuda-o a tomar uma decisão ao escolher entre diferentes velocidades de codificação.  Mostra a duração da codificação durante um vídeo de 7 minutos e 1080p, dependendo da ressonância magnética utilizada.
 
-|Tipo RU|Cenário|Resultados de exemplo para o vídeo de 7 min 1080p |
+|Tipo RU|Scenario|Resultados de exemplo para o vídeo de 7 min 1080p |
 |---|---|---|
 | **S1**|Codificação de bitrate única. <br/>Ficheiros em SD ou abaixo de resoluções, não sensíveis ao tempo, baixo custo.|A codificação para um único ficheiro MP4 de resolução de bitrate sd utilizando "H264 Single Bitrate SD 16x9" demora cerca de 7 minutos.|
 | **S2**|Bitrate único e múltiplas codificações bitrate.<br/>Utilização normal para codificação SD e HD.|A codificação com a predefinição "H264 Single Bitrate 720p" demora cerca de 6 minutos.<br/><br/>A codificação com a predefinição "H264 Multiple Bitrate 720p" demora cerca de 12 minutos.|
@@ -52,7 +52,7 @@ A tabela a seguir ajuda-o a tomar uma decisão ao escolher entre diferentes velo
 
 Para obter informações sobre quotas e limitações e como abrir um bilhete de apoio, consulte [Quotas e limitações.](media-services-quotas-and-limitations.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Experimente o processamento de mídia de escala com uma destas tecnologias:
 

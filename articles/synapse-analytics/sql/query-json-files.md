@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 56d9c621579e19cf2c32562560e40fe42ff3989b
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 5fcf688bbe8a5be2fc10b70950990b7b6ca71df8
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101677508"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103225596"
 ---
 # <a name="query-json-files-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Consulta ficheiros JSON usando piscina SQL sem servidor em Azure Synapse Analytics
 
@@ -126,12 +126,13 @@ Os exemplos de consulta lêem ficheiros *json* contendo documentos com a seguint
 
 ### <a name="query-json-files-using-json_value"></a>Consultar ficheiros JSON usando JSON_VALUE
 
-A consulta abaixo mostra-lhe como usar [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?view=azure-sqldw-latest&preserve-view=true) para recuperar valores escalar (título, editor) a partir de documentos JSON:
+A consulta abaixo mostra como usar [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?view=azure-sqldw-latest&preserve-view=true) para recuperar valores escalares `date_rep` (, `countries_and_territories` ) a partir `cases` de documentos JSON:
 
 ```sql
 select
     JSON_VALUE(doc, '$.date_rep') AS date_reported,
     JSON_VALUE(doc, '$.countries_and_territories') AS country,
+    CAST(JSON_VALUE(doc, '$.deaths') AS INT) as fatal,
     JSON_VALUE(doc, '$.cases') as cases,
     doc
 from openrowset(
@@ -143,6 +144,8 @@ from openrowset(
     ) with (doc nvarchar(max)) as rows
 order by JSON_VALUE(doc, '$.geo_id') desc
 ```
+
+Uma vez extraídas propriedades JSON de um documento JSON, pode definir pseudónimos de coluna e lançar opcionalmente o valor textual para algum tipo.
 
 ### <a name="query-json-files-using-openjson"></a>Consulta ficheiros JSON usando OPENJSON
 
@@ -166,6 +169,10 @@ from openrowset(
 where country = 'Serbia'
 order by country, date_rep desc;
 ```
+Os resultados são funcionalmente os mesmos que os resultados devolvidos usando a `JSON_VALUE` função. Em alguns casos, `OPENJSON` pode ter vantagem `JSON_VALUE` sobre:
+- Na `WITH` cláusula pode definir explicitamente os pseudónimos da coluna e os tipos de cada propriedade. Não é preciso colocar a `CAST` função em todas as colunas da `SELECT` lista.
+- `OPENJSON` pode ser mais rápido se você estiver devolvendo um grande número de propriedades. Se estiver a devolver apenas 1-2 propriedades, a `OPENJSON` função pode ser sobrecarga.
+- Deve utilizar a `OPENJSON` função se precisar de analisar a matriz de cada documento e juná-la à linha dos pais.
 
 ## <a name="next-steps"></a>Passos seguintes
 

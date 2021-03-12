@@ -13,12 +13,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f06a1e9ea83fc7ad758ad17245ffa5d7ca973f6
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 9bf0a9ca193be9fd61d0b284338c0f581c9f91e3
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98742103"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103012059"
 ---
 # <a name="create-a-role-assignable-group-in-azure-active-directory"></a>Criar um grupo atribuível a funções no Azure Ative Directory
 
@@ -51,14 +51,14 @@ O grupo é criado com quaisquer funções que lhe possas ter atribuído.
 ### <a name="install-the-azure-ad-preview-module"></a>Instale o módulo de pré-visualização AZure AD
 
 ```powershell
-install-module azureadpreview
-import-module azureadpreview
+Install-Module -Name AzureADPreview
+Import-Module -Name AzureADPreview
 ```
 
 Para verificar se o módulo está pronto a ser utilizado, emita o seguinte comando:
 
 ```powershell
-get-module azureadpreview
+Get-Module -Name AzureADPreview
 ```
 
 ### <a name="create-a-group-that-can-be-assigned-to-role"></a>Criar um grupo que possa ser atribuído ao papel
@@ -73,9 +73,9 @@ Para este tipo de grupo, `isPublic` será sempre falso e será sempre `isSecurit
 
 ```powershell
 #Basic set up
-install-module azureadpreview
-import-module azureadpreview
-get-module azureadpreview
+Install-Module -Name AzureADPreview
+Import-Module -Name AzureADPreview
+Get-Module -Name AzureADPreview
 
 #Connect to Azure AD. Sign in as Privileged Role Administrator or Global Administrator. Only these two roles can create a role-assignable group.
 Connect-AzureAD
@@ -107,7 +107,7 @@ Add-AzureADGroupMember -ObjectId $roleAssignablegroup.Id -RefObjectId $member.Ob
 
 ### <a name="create-a-role-assignable-group-in-azure-ad"></a>Criar um grupo atribuível a papéis em Azure AD
 
-```powershell
+```http
 POST https://graph.microsoft.com/beta/groups
 {
 "description": "This group is assigned to Helpdesk Administrator built-in role of Azure AD.",
@@ -124,7 +124,7 @@ POST https://graph.microsoft.com/beta/groups
 
 Para este tipo de grupo, `isPublic` será sempre falso e será sempre `isSecurityEnabled` verdade.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Atribuir uma função a um grupo da cloud](groups-assign-role.md)
 - [Utilizar os grupos da cloud para gerir atribuições de funções](groups-concept.md)
