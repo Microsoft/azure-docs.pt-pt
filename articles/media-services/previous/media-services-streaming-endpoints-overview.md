@@ -3,7 +3,7 @@ title: Visão geral do ponto final dos serviços de comunicação social Azure |
 description: Este artigo apresenta uma visão geral dos pontos finais de streaming da Azure Media Services.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 writer: juliako
 manager: femila
 editor: ''
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
-ms.author: juliako
-ms.openlocfilehash: f5e3d7e61b6c2a6ad3c121da9c0198c95ac24850
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.date: 3/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: 0961b52ebc7271fabf4cc05ed99eea23d911a2d4
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98694577"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103009115"
 ---
 # <a name="streaming-endpoints-overview"></a>Visão geral dos pontos finais do streaming  
 
@@ -52,7 +52,7 @@ Para quaisquer pontos finais adicionais: `{EndpointName}-{AccountName}.streaming
 A partir do lançamento de janeiro de 2017 dos Media Services, tem dois tipos de streaming: **Standard** (pré-visualização) e **Premium**. Estes tipos fazem parte da versão "2.0" do ponto final de streaming.
 
 
-|Tipo|Descrição|
+|Tipo|Description|
 |--------|--------|  
 |**Standard**|O ponto final de streaming predefinido é um tipo **Standard,** pode ser alterado para o tipo Premium ajustando as unidades de streaming.|
 |**Premium** |Esta opção é adequada para cenários profissionais que requerem maior escala ou controlo. Muda-se para um tipo **Premium** ajustando unidades de streaming.<br/>Os Endpoints de streaming dedicados vivem em ambientes isolados e não competem por recursos.|
@@ -79,10 +79,10 @@ Se a sua **versão "1.0"** streaming endpoint tiver >=1 unidades de streaming pr
 
 |Tipo|StreamingEndpointVersion|Unidades de escala|CDN|Faturação|
 |--------------|----------|-----------------|-----------------|-----------------|
-|Clássico|1,0|0|ND|Gratuito|
-|Ponto final de streaming padrão (pré-visualização)|2,0|0|Yes|Paga|
-|Unidades de streaming premium|1,0|>0|Yes|Paga|
-|Unidades de streaming premium|2,0|>0|Yes|Paga|
+|Clássico|1.0|0|ND|Gratuito|
+|Ponto final de streaming padrão (pré-visualização)|2.0|0|Yes|Paga|
+|Unidades de streaming premium|1.0|>0|Yes|Paga|
+|Unidades de streaming premium|2.0|>0|Yes|Paga|
 
 ### <a name="features"></a>Funcionalidades
 

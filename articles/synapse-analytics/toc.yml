@@ -1131,6 +1131,8 @@
           href: ./machine-learning/tutorial-cognitive-services-sentiment.md
         - name: Deteção de anomalias com os Serviços Cognitivos
           href: ./machine-learning/tutorial-cognitive-services-anomaly.md
+        - name: Construa aplicações de aprendizagem automática usando o Microsoft Machine Learning para Apache Spark (Preview)
+          href: ./machine-learning/tutorial-build-applications-use-mmlspark.md
 - name: Catálogo de Dados e Governação
   items:
     - name: Guias de Início Rápido

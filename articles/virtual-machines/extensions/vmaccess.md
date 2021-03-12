@@ -1,30 +1,22 @@
 ---
 title: Reiniciar o acesso a um VM Azure Linux
 description: Como gerir os utilizadores administrativos e reiniciar o acesso aos VMs Linux utilizando a Extensão VMAccess e o CLI Azure
-services: virtual-machines-linux
-documentationcenter: ''
-author: axayjo
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 261a9646-1f93-407e-951e-0be7226b3064
-ms.service: virtual-machines-linux
-ms.subservice: extensions
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-ms.devlang: azurecli
 ms.topic: article
+ms.service: virtual-machines
+ms.subservice: extensions
+author: amjads1
+ms.author: amjads
+ms.collection: linux
 ms.date: 05/10/2018
-ms.author: akjosh
-ms.openlocfilehash: e46f7f3d51d2841a2287c86f9e8dddd7460b1a5d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: e0e63762fc151d93cb34885c04dd4d03285c29f1
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96016442"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102557051"
 ---
 # <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli"></a>Gerir utilizadores administrativos, SSH e verificar ou reparar discos em VMs Linux utilizando a Extensão VMAccess com o CLI Azure
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 O disco do seu Linux VM está a mostrar erros. De alguma forma, repõe a palavra-passe de raiz para o seu VM Linux ou apagou acidentalmente a sua chave privada SSH. Se isso acontecesse nos dias do datacenter, terias de conduzir até lá e depois abrir o KVM para chegar à consola do servidor. Pense na extensão Azure VMAccess como aquele interruptor KVM que lhe permite aceder à consola para reiniciar o acesso ao Linux ou realizar a manutenção do nível do disco.
 
 Este artigo mostra-lhe como utilizar a Extensão Azure VMAccesss para verificar ou reparar um disco, redefinir o acesso do utilizador, gerir contas administrativas do utilizador ou atualizar a configuração SSH no Linux quando estão a funcionar como máquinas virtuais Azure Resource Manager. Se precisar de gerir máquinas virtuais clássicas - pode seguir as instruções encontradas na [documentação clássica](/previous-versions/azure/virtual-machines/linux/classic/reset-access-classic)do VM . 

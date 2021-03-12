@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: vinigam
-ms.openlocfilehash: e95f6fdff164a6f5f9d4af4f19b1876d1483a70c
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 998b0cb04d465f675423e2472a7ca8c6441b1fed
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102038718"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103010410"
 ---
 # <a name="migrate-to-connection-monitor-from-network-performance-monitor"></a>Migrar para o Monitor de Ligação do Monitor de Desempenho da Rede
 
@@ -37,6 +37,9 @@ A migração ajuda a produzir os seguintes resultados:
 * Monitorização de dados:
    * **Dados em Log Analytics**: Antes da migração, os dados permanecem no espaço de trabalho no qual o NPM está configurado na tabela NetworkMonitoring. Após a migração, os dados vão para a tabela NetworkMonitoring, nwConnectionMonitorTestResult e nwConnectionMonitorPathResult no mesmo espaço de trabalho. Após os testes serem desativados em NPM, os dados são armazenados apenas na tabela NWConnectionMonitorTestResult e na tabela NWConnectionMonitorPathResult.
    * **Alertas, dashboards e integrações baseados em registos**: Tem de editar manualmente as consultas com base na nova tabela NWConnectionMonitorTestResult e na tabela NWConnectionMonitorPathResult. Para recriar os alertas em métricas, consulte [a monitorização da conectividade da rede com o Monitor de Ligação](./connection-monitor-overview.md#metrics-in-azure-monitor).
+* Para monitorização ExpressRoute:
+    * **Fim à perda e latência terminais**: O Monitor de Ligação irá alimentar isto, e será mais fácil do que o NPM, uma vez que os utilizadores não precisam de configurar quais circuitos e espreitadores para monitorizar. Os circuitos na trajetória serão automaticamente descobertos, os dados estarão disponíveis em métricas (mais rápido do que LA, que foi onde a NPM armazenou os resultados). A topologia funcionará como está também.
+    * **Medições de largura** de banda : Com o lançamento de métricas relacionadas com a largura de banda, a abordagem baseada em análise de registo da NPM não foi eficaz na monitorização da largura de banda para os clientes ExpressRoute. Esta capacidade não está agora disponível no Connection Monitor.
     
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -60,7 +63,7 @@ Após o início da migração, ocorrem as seguintes alterações:
    * É criado um monitor de ligação por região e subscrição. Para testes com agentes no local, o novo nome do monitor de ligação é formatado como `<workspaceName>_"workspace_region_name"` . Para testes com agentes Azure, o novo nome do monitor de ligação é formatado como `<workspaceName>_<Azure_region_name>` .
    * Os dados de monitorização são agora armazenados no mesmo espaço de trabalho do Log Analytics em que o NPM está ativado, em novas tabelas chamadas NWConnectionMonitorTestResult e tabela NWConnectionMonitorPathResult. 
    * O nome do teste é transportado para a frente como o nome do grupo de teste. A descrição do teste não é migrada.
-   * Os pontos finais de origem e destino são criados e utilizados no novo grupo de teste. Para os agentes no local, os pontos finais são formatados como `<workspaceName>_<FQDN of on-premises machine>` .
+   * Os pontos finais de origem e destino são criados e utilizados no novo grupo de teste. Para os agentes no local, os pontos finais são formatados como `<workspaceName>_<FQDN of on-premises machine>` . A descrição do agente não está migrada.
    * A porta de destino e o intervalo de sondagem são movidos para uma configuração de teste chamada `TC_<protocol>_<port>` e `TC_<protocol>_<port>_AppThresholds` . O protocolo é definido com base nos valores portuários. Para o ICMP, as configurações de teste são nomeadas como `TC_<protocol>` e `TC_<protocol>_AppThresholds` . Limiares de sucesso e outras propriedades opcionais se definidos forem migrados, caso contrário ficam em branco.
    * Se os testes migratórios contiverem agentes que não estão a funcionar, tens de ativar os agentes e migrar novamente.
 * O NPM não está desativado, pelo que os testes migrados podem continuar a enviar dados para a tabela NetworkMonitoring, para a tabela NWConnectionMonitorTestResult e para a tabela NWConnectionMonitorPathResult. Esta abordagem garante que os alertas e integrações existentes baseados em registos não sejam afetados.

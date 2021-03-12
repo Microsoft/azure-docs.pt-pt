@@ -3,18 +3,18 @@ title: Crie uma imagem instantânea de um disco rígido virtual usando o portal 
 description: Aprenda a criar uma cópia de um VM Azure para usar como back up ou para problemas de resolução de problemas usando o portal ou PowerShell.
 author: roygara
 manager: twooley
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.subservice: disks
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 10/08/2018
 ms.author: rogarana
-ms.subservice: disks
-ms.openlocfilehash: dd19729f8b119946a12220d4b0c434f0b039989a
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 9070b69ac4c6b85791ff3dd4662273e75a3cd22c
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879668"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102556065"
 ---
 # <a name="create-a-snapshot-using-the-portal-or-powershell"></a>Crie um instantâneo utilizando o portal ou PowerShell
 
@@ -80,6 +80,6 @@ Os passos a seguir mostram como copiar o disco VHD e criar a configuração inst
    ```
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Crie uma máquina virtual a partir de um instantâneo criando um disco gerido a partir de um instantâneo e, em seguida, anexando o novo disco gerido como o disco DE. Para obter mais informações, consulte a amostra em [Criar um VM a partir de uma foto com PowerShell](/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-from-snapshot).

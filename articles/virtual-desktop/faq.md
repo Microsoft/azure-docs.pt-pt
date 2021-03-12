@@ -3,15 +3,15 @@ title: Windows Virtual Desktop FAQ - Azure
 description: Perguntas frequentes e boas práticas para o Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 10/15/2020
+ms.date: 03/09/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3bdb38b8a9590cf6191c75fdef024543c2b1c190
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 8592b679fcfbb860962bf75b882dc1a0543412c0
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101720278"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102613974"
 ---
 # <a name="windows-virtual-desktop-faq"></a>FAQ do Windows Virtual Desktop
 
@@ -140,3 +140,22 @@ Finalmente, se for habilitado o fornecedor de recursos a partir da conta do prop
 ## <a name="how-often-should-i-turn-my-vms-on-to-prevent-registration-issues"></a>Com que frequência devo ligar os meus VM para evitar problemas de registo?
 
 Depois de registar um VM num pool de anfitriões dentro do serviço de ambiente de trabalho virtual do Windows, o agente atualiza regularmente o sinal do VM sempre que o VM estiver ativo. O certificado para o token de inscrição é válido por 90 dias. Devido a este limite de 90 dias, recomendamos que comece os seus VM a cada 90 dias. Ligar o seu VM dentro deste prazo evitará que o seu token de registo expire ou se torne inválido. Se iniciou o seu VM após 90 dias e tiver problemas de registo, siga as instruções no [guia de resolução de problemas](troubleshoot-agent.md#your-issue-isnt-listed-here-or-wasnt-resolved) do agente virtual do Windows para remover o VM da piscina hospedeira, reinstalar o agente e reregistá-lo na piscina.
+
+## <a name="can-i-set-availability-options-when-creating-host-pools"></a>Posso definir opções de disponibilidade ao criar piscinas de anfitriões?
+
+Sim. As piscinas de anfitriões virtual do Windows Desktop têm a opção de selecionar zonas de disponibilidade ou disponibilidade quando cria um VM. Estas opções de disponibilidade são as mesmas que a Azure Compute utiliza. Se selecionar uma zona para o VM que cria numa piscina de anfitrião, a definição aplica-se automaticamente a todos os VMs que cria nessa zona. Se preferir espalhar os VMs da sua piscina de anfitriões em várias zonas, terá de seguir as instruções em [Adicionar máquinas virtuais com o portal Azure](expand-existing-host-pool.md#add-virtual-machines-with-the-azure-portal) para selecionar manualmente uma nova zona para cada novo VM que criar.
+
+## <a name="which-availability-option-is-best-for-me"></a>Qual é a melhor opção de disponibilidade para mim?
+
+A opção de disponibilidade que deve utilizar para os seus VMs depende da localização da sua imagem e dos campos de discos geridos. A tabela seguinte explica a relação que cada configuração tem com estas variáveis para ajudá-lo a descobrir qual a melhor opção para a sua implementação. 
+
+| Opção de disponibilidade | Localização da imagem | Utilize o botão de opção de disco gerido (botão de rádio) |
+|---|---|---|
+| Nenhum | Galeria | Desativado com "Sim" como padrão |
+| Nenhum | Armazenamento de blobs | Ativado com "Não" como padrão |
+| Zona de disponibilidade | Galeria (opção de armazenamento de bolhas desativada) | Desativado com "Sim" como padrão |
+| Conjunto de disponibilidade com SKU gerido (disco gerido) | Galeria | Desativado com "Sim" como padrão |
+| Conjunto de disponibilidade com SKU gerido (disco gerido) | Armazenamento de blobs | Ativado com "Não" como padrão |
+| Conjunto de disponibilidade com SKU gerido (disco gerido) | Armazenamento blob (opção galeria desativada) | Desativado com "Não" como padrão |
+| Conjunto de disponibilidade (recém-criado pelo utilizador) | Galeria | Desativado com "Sim" como padrão |
+| Conjunto de disponibilidade (recém-criado pelo utilizador) | Armazenamento de blobs | Ativado com "Não" como padrão |

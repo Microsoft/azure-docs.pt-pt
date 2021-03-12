@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2020
+ms.date: 03/10/2021
 ms.author: inhenkel
-ms.openlocfilehash: 495b6bc68e79e50a0bda773e7229225595236fac
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: 3487e735e48cb5067515762d6276429ca81e43fe
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98694347"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103008744"
 ---
 # <a name="azure-media-services-legacy-components"></a>Componentes legados da Azure Media Services
 
@@ -47,6 +47,6 @@ Os seguintes processadores de media Media Analytics são depreciados ou em breve
 | Detetor de Rosto | 1 de junho de 2020 | Este processador de mídia foi substituído por [Azure Media Services Video Indexer](../video-indexer/index.yml). Além disso, considere a utilização [da Azure Media Services v3 API](../latest/analyzing-video-audio-files-concept.md). <br/>Consulte [o Compare Azure Media Services v3 predefinições e Índice de Vídeo](../video-indexer/compare-video-indexer-with-media-services-presets.md). |
 | Content Moderator | 1 de junho de 2020 |Este processador de mídia foi substituído por [Azure Media Services Video Indexer](../video-indexer/index.yml). Além disso, considere a utilização [da Azure Media Services v3 API](../latest/analyzing-video-audio-files-concept.md). <br/>Consulte [o Compare Azure Media Services v3 predefinições e Índice de Vídeo](../video-indexer/compare-video-indexer-with-media-services-presets.md). |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Orientação de migração para passar dos Serviços de Comunicação v2 para v3](../latest/migrate-v-2-v-3-migration-introduction.md)

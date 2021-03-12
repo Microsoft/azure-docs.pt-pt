@@ -1,9 +1,9 @@
 ---
-title: Codificar um ativo utilizando o Media Encoder Standard no portal Azure ! Microsoft Docs
+title: Codificar um ativo utilizando o Media Encoder Standard no portal Azure | Microsoft Docs
 description: Este tutorial acompanha-o através dos passos de codificação de um ativo utilizando o Media Encoder Standard no portal Azure.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: 107d9e9a-71e9-43e5-b17c-6e00983aceab
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2019
-ms.author: juliako
-ms.openlocfilehash: 606a4d753675475cf0138b688523e9029e6d3b0a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 03/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: 5f4bb3c9b23ffd68939f1088b1252c6e31c1dad7
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89260786"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103010512"
 ---
 # <a name="encode-an-asset-by-using-media-encoder-standard-in-the-azure-portal"></a>Encode an asset by using Media Encoder Standard in the Azure portal (Codificar um recurso com o Media Encoder Standard no portal do Azure)
 
@@ -43,7 +43,7 @@ Para aprender a escalar o processamento de mídia, consulte [o processamento de 
 Para codificar o seu conteúdo utilizando o Media Encoder Standard:
 
 1. No [portal do Azure](https://portal.azure.com/) selecione a sua conta de Serviços de Multimédia do Azure.
-2. Selecione **Settings**  >  **Configurações Ativos**. Selecione o elemento que pretende codificar.
+2. Selecione   >  **Configurações Ativos**. Selecione o elemento que pretende codificar.
 3. Selecione o botão **Codificar**.
 4. No painel **Codificar um elemento**, selecione o processador **Media Encoder Standard** e uma predefinição. Para obter informações sobre as predefinições, veja [Auto-generate a bitrate ladder](media-services-autogen-bitrate-ladder-with-mes.md) (Gerar automaticamente uma escala de velocidade de transmissão) e [Task presets for Media Encoder Standard](media-services-mes-presets-overview.md) (Predefinições de tarefas para o Media Encoder Standard). É importante escolher a predefinição que funcionará melhor no seu vídeo de entrada. Por exemplo, se sabe que o seu vídeo de entrada tem uma resolução de 1920 &#215; 1080 pixels, pode escolher a predefinição **H264 Multiple Bitrate 1080p**. Se o vídeo for de baixa resolução (640 &#215; 360), não deve utilizar a predefinição **H264 Multiple Bitrate 1080p**.
    

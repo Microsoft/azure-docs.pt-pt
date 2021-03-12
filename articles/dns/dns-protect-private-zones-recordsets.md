@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: how-to
 ms.date: 02/18/2020
 ms.author: allensu
-ms.openlocfilehash: d5a81a56e6b29bb0cad681876b9476809bd9f3cb
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 6e77f983f3600ae7c54d7d88f2ad1a006d7325fa
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102203441"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102614195"
 ---
 # <a name="how-to-protect-private-dns-zones-and-records"></a>Como proteger zonas e registos privados de DNS
 
@@ -204,7 +204,7 @@ As fechaduras de recursos de nível de zona podem ser criadas através do portal
 
 ![Bloqueios de recursos de nível de zona através do portal Azure](./media/dns-protect-private-zones-recordsets/locks1.png)
 
-Os bloqueios de recursos ao nível da zona também podem ser criados através do [Azure PowerShell:](/powershell/module/az.resources/new-azresourcelock?view=latest)
+Os bloqueios de recursos ao nível da zona também podem ser criados através do [Azure PowerShell:](/powershell/module/az.resources/new-azresourcelock)
 
 ```azurepowershell-interactive
 # Lock a DNS zone

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/18/2021
 ms.author: jeedes
-ms.openlocfilehash: 1d66396b2d97a7f33158f91025f5735c7714cd65
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 537378ef11333bd8942a61ab2bbb4e8a251c2b59
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99221057"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103196817"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-github-ae"></a>Tutorial: Azure Ative Directory integração única (SSO) com GitHub AE
 
@@ -101,9 +101,9 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Clique em **Selecionar grupos** e procurar o **Grupo** que pretende incluir esta reclamação, onde os seus membros deverão ser administradores para o GHAE.
 
-1. **Selecione Atributo** para **Origem** e introduza **verdadeiro** para o **Valor**. 
+1. **Selecione Atributo** para **Origem** e introduza **verdadeiro** (sem cotações) para o **Valor**. 
 
-10. Clique em **Guardar**.
+1. Clique em **Guardar**.
 
     ![gerir reivindicação](./media/github-ae-tutorial/administrator.png)
 
@@ -112,7 +112,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Na **configuração de um único sessão de inscrição com** a página SAML, na secção **Certificado de Assinatura SAML,** encontre **o Certificado (Base64)** e selecione **Descarregamento** para descarregar o certificado e guardá-lo no seu computador.
 
-    ![O link de descarregamento de certificado](common/certificateBase64.png)
+    ![O link de descarregamento de certificado](common/certificatebase64.png)
 
 1. Na secção **Configurar GitHub AE,** copie os URL(s) apropriados com base no seu requisito.
 

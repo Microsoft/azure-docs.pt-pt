@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/05/2021
 ms.author: Zhchia
-ms.openlocfilehash: e03d23bbfd5be55d218d07a5354bf6df23eeefa4
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: d6c697591eb231efff98d48ad97cfe58d69ce74c
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102435670"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102554449"
 ---
 # <a name="tutorial-configure-bpanda-for-automatic-user-provisioning"></a>Tutorial: Configurar bpanda para o fornecimento automático de utilizadores
 
@@ -55,14 +55,16 @@ O cenário delineado neste tutorial pressupõe que já tem os seguintes pré-req
 
 3. Para estabelecer uma ligação bem sucedida entre a Azure AD e a Bpanda, deve ser recuperado um token de acesso de qualquer uma das seguintes formas.
 
-Use este comando em **Linux**
+* Use este comando em **Linux**
 ```
 curl -u scim:{Your client secret} --location --request POST '{Your tenant specific authentication endpoint}/protocol/openid-connect/token' \
 --header 'Content-Type: application/x-www-form-urlencoded' \
 --data-urlencode 'grant_type=client_credentials'
+```
 
-or this command using **PowerShell**
-  
+* ou este comando em **PowerShell**
+
+``` 
 $base64AuthInfo = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(("scim:{0}" -f {Your client secret})))    
 $headers=@{}   
 $headers.Add("Content-Type", "application/x-www-form-urlencoded")  

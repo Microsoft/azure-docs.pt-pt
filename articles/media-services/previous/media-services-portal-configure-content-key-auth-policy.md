@@ -1,9 +1,9 @@
 ---
-title: Configurar uma política de autorização chave de conteúdo utilizando o portal Azure Microsoft Docs
+title: Configure uma política de autorização chave de conteúdo utilizando o portal Azure | Microsoft Docs
 description: Este artigo demonstra como configurar uma política de autorização para uma chave de conteúdo.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: ee82a3fa-c34b-48f2-a108-8ba321f1691e
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2019
-ms.author: juliako
-ms.openlocfilehash: 0218c24637b9b49972e93b8dd53e5970c9ab89d5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 03/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: 68bd4bd2472e80a663294745368fb505767a230a
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89260905"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103008319"
 ---
 # <a name="configure-a-content-key-authorization-policy"></a>Configure uma política de autorização chave de conteúdo
 
@@ -27,7 +27,7 @@ ms.locfileid: "89260905"
 
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../../includes/media-services-selector-content-key-auth-policy.md)]
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
  Pode utilizar os serviços de mídia Azure para fornecer streams MPEG-DASH, Smooth Streaming e HTTP Live Streaming (HLS) protegidos com o Advanced Encryption Standard (AES) utilizando chaves de encriptação de 128 bits ou [a gestão de direitos digitais PlayReady (DRM)](https://www.microsoft.com/playready/overview/). Com os Media Services, também pode fornecer streams DASH encriptados com DrM Widevine. Tanto o PlayReady, como o Widevine, são encriptados de acordo com a especificação de encriptação comum (ISO/IEC 23001 7 CENC).
 
 Os Serviços de Mídia também fornecem um serviço de entrega de chaves/licenças a partir do qual os clientes podem obter chaves AES ou licenças PlayReady/Widevine para reproduzir o conteúdo encriptado.

@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.custom: it-pro
-ms.openlocfilehash: facdb99a49c3778a75e733abf1fc72eed67549ab
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: 59246c3739ad4de27e65641cc9d2154b33a6ee5e
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102611632"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103008438"
 ---
 # <a name="add-an-api-connector-to-a-sign-up-user-flow-preview"></a>Adicione um conector API a um fluxo de utilizador de inscrição (pré-visualização)
 
@@ -61,9 +61,9 @@ Para o Azure App Service e Azure Functions, consulte [a autenticação mútua de
 Recomenda-se que desista de alertas para quando o seu certificado expirar. Para enviar um novo certificado para um conector API existente, selecione o conector API nos **conectores API (pré-visualização)** e clique no **Upload novo certificado**. O certificado mais recentemente carregado que não está expirado e já passou a data de início será automaticamente utilizado pelo Azure AD B2C.
 
 ### <a name="api-key"></a>Chave de API
-Alguns serviços utilizam um mecanismo de "chave API" para dificultar o acesso aos seus pontos finais HTTP durante o desenvolvimento. Para [funções Azure,](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys)pode fazê-lo incluindo o `code` parâmetro de consulta no URL **endpoint**. Por exemplo, `https://contoso.azurewebsites.net/api/endpoint` <b>`?code=0123456789`</b> ). 
+Alguns serviços utilizam um mecanismo de "chave API" para obstacular o acesso aos seus pontos finais HTTP durante o desenvolvimento. Para [funções Azure,](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys)pode fazê-lo incluindo o `code` parâmetro de consulta no URL **endpoint**. Por exemplo, `https://contoso.azurewebsites.net/api/endpoint` <b>`?code=0123456789`</b> ). 
 
-Este não é um mecanismo que deve ser utilizado apenas na produção. Portanto, a configuração para a autenticação básica ou certificado é sempre necessária. Se desejar implementar qualquer método de autenticação (não recomendado) para fins de desenvolvimento, pode escolher a autenticação básica e utilizar valores temporários `username` para e que a sua `password` API possa ignorar enquanto implementa a autorização na sua API.
+Este não é um mecanismo que deve ser utilizado apenas na produção. Portanto, a configuração para a autenticação básica ou certificado é sempre necessária. Se não pretender implementar nenhum método de autenticação (não recomendado) para fins de desenvolvimento, pode escolher a autenticação básica e utilizar valores temporários `username` para e que a sua `password` API possa ignorar enquanto implementa a autorização na sua API.
 
 ## <a name="the-request-sent-to-your-api"></a>O pedido enviado à sua API
 Um conector API materializa-se como um pedido **HTTP POST,** enviando atributos do utilizador ('claims') como pares de valor-chave num corpo JSON. Os atributos são serializados de forma semelhante às propriedades do utilizador [do Microsoft Graph.](/graph/api/resources/user#properties) 

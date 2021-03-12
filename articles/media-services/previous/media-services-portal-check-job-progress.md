@@ -3,7 +3,7 @@ title: Monitorar o progresso do trabalho com o portal Azure
 description: Este tutorial acompanha-o através dos passos de monitorização do progresso do seu trabalho utilizando o portal Azure.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: bb4e3ee3-1ab9-46d0-9ae7-848d945bc0b8
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2019
-ms.author: juliako
-ms.openlocfilehash: ec14e59e748e74709b909b0590bc750cf5f075b8
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.date: 03/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: b59d64607c60b9b09e5c962cd706e7e00404266b
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98695497"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103008339"
 ---
 # <a name="monitor-encoding-job-progress-with-the-azure-portal"></a>Monitorar o progresso do trabalho com o portal Azure
 
@@ -28,7 +28,7 @@ ms.locfileid: "98695497"
 > [!NOTE]
 > Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](../latest/index.yml). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-v-2-v-3-migration-introduction.md)
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Quando se gere empregos, muitas vezes é preciso uma forma de acompanhar o progresso do emprego. 
 

@@ -11,20 +11,20 @@ ms.subservice: core
 ms.date: 08/06/2020
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy21q1
-ms.openlocfilehash: ab7a74166e85f2ba9fd73e7323cf9cd200cf32e4
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 4194c71823e1affde1dcae47fd7e64668b57c0cf
+ms.sourcegitcommit: 6776f0a27e2000fb1acb34a8dddc67af01ac14ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97031033"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103149363"
 ---
 # <a name="create-compute-targets-for-model-training-and-deployment-in-azure-machine-learning-studio"></a>Criar metas de computação para formação de modelos e implantação no estúdio Azure Machine Learning
 
 Neste artigo, aprenda a criar e gerir alvos de computação no estúdio Azure Machine.  Também pode criar e gerir alvos de computação com:
 
 * Extensão Azure Machine Learning Learning SDK ou CLI para aprendizagem automática Azure
-  * [Instância de computação](how-to-create-manage-compute-instance.md)
-  * [Cluster de cálculo](how-to-create-attach-compute-cluster.md)
+  * [Instância computacional](how-to-create-manage-compute-instance.md)
+  * [Cluster computacional](how-to-create-attach-compute-cluster.md)
   * [Aglomerado de serviçoS Azure Kubernetes](how-to-create-attach-kubernetes.md)
   * [Outros recursos computacional](how-to-attach-compute-targets.md)
 * A [extensão do Código VS](how-to-manage-resources-vscode.md#compute-clusters) para Azure Machine Learning.
@@ -68,7 +68,7 @@ Siga os passos anteriores para ver a lista de alvos de computação. Em seguida,
 
 1. Preencha o formulário para o seu tipo de cálculo:
 
-  * [Instância de computação](#compute-instance)
+  * [Instância computacional](#compute-instance)
   * [Clusters computacional](#amlcompute)
   * [Aglomerados de inferência](#inference-clusters)
   * [Cálculo anexo](#attached-compute)
@@ -132,7 +132,7 @@ Crie ou anexe um cluster Azure Kubernetes Service (AKS) para inferenização em 
 |---------|---------|
 |Nome da computação     |  <li>O nome é necessário. O nome deve ter entre 2 a 16 caracteres. </li><li>Os caracteres válidos são letras maiúsculas e minúsculas, dígitos e o  **-** personagem.</li><li>O nome deve começar com uma carta</li><li>O nome tem de ser único em todos os cálculos existentes dentro de uma região de Azure. Verá um alerta se o nome que escolher não for único</li><li>Se **-**  o caráter é usado, então precisa ser seguido por pelo menos uma letra mais tarde no nome</li>     |
 |Kubernetes Service | Selecione **Create New** e preencha o resto do formulário.  Ou selecione **Use existente** e, em seguida, selecione um cluster AKS existente a partir da sua subscrição.
-|Região |  Selecione a região onde o cluster será criado |
+|Region |  Selecione a região onde o cluster será criado |
 |Tamanho da máquina virtual     |  Os tamanhos de máquina virtual suportados podem ser restringidos na sua região. Consulte a [lista de disponibilidades](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)     |
 |Finalidade do cluster  | Selecione **Produção** ou **Teste de Dev** |
 |Número de nós | O número de nós multiplicados pelo número de núcleos (vCPUs) da máquina virtual deve ser superior ou igual a 12. |
@@ -147,7 +147,7 @@ Utilize os [passos acima](#portal-create) para anexar um cálculo.  Em seguida, 
 
 1. Insira um nome para o alvo do cálculo. 
 1. Selecione o tipo de computação a fixar. Nem todos os tipos de cálculo podem ser ligados a partir do estúdio Azure Machine Learning. Os tipos de cálculo que podem ser atualmente ligados para a formação incluem:
-    * Um VM remoto
+    * Uma máquina virtual Azure (para anexar uma máquina virtual de ciência de dados)
     * Azure Databricks (para utilização em gasodutos de aprendizagem automática)
     * Azure Data Lake Analytics (para utilização em gasodutos de aprendizagem automática)
     * Azure HDInsight

@@ -1,9 +1,9 @@
 ---
-title: Criar fluxos de trabalho de codificação avançada com designer de fluxo de trabalho / Microsoft Docs
+title: Criar fluxos de trabalho de codificação avançadas com | de designers de fluxo de trabalho Microsoft Docs
 description: Saiba como criar fluxos de trabalho de codificação avançados com o Workflow Designer.
 services: media-services
 documentationcenter: ''
-author: anilmur
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: 004815f2-0761-4706-87a1-675ba36e0322
@@ -12,21 +12,21 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 3/10/2021
 ms.author: anilmur
 ms.reviewer: juliako;johndeu
-ms.openlocfilehash: a53027ec1f775c240164f67e7ee0473a44690964
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8173da37792948e267aae2078fee9f864bf7bdc9
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89262690"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103011158"
 ---
 # <a name="create-advanced-encoding-workflows-with-workflow-designer"></a>Criar Fluxos de Trabalho de Codificação Avançados com o Estruturador de Fluxos de Trabalho
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 O **Workflow Designer** é uma ferramenta de ambiente de trabalho do Windows que é usada para conceber e construir fluxos de trabalho personalizados para codificação com o fluxo de **trabalho Premium Media Encoder**.
 Ao utilizar a potência da ferramenta de design de fluxo de trabalho, pode projetar e criar fluxos de trabalho complexos que irão funcionar no **Media Encoder Premium.**  
 

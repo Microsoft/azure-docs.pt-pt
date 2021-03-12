@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 30b30697750a0b9068cfcde19ea4bf9c474f9ad9
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: aec60218774f3f8e293a5e5ab8c03707d117c2a0
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102424585"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102634979"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>Tutorial: Construir uma solução de ponta a ponta
 
@@ -120,6 +120,8 @@ Isto abrirá o Gestor de Pacotes NuGet. Selecione o separador *Atualizações* e
 De volta à janela do Estúdio Visual onde está aberto o projeto _**AdtE2ESample,**_ localize o projeto _**SampleFunctionsApp**_ no painel *Solution Explorer.*
 
 [!INCLUDE [digital-twins-publish-azure-function.md](../../includes/digital-twins-publish-azure-function.md)]
+
+Para que a sua aplicação de funções possa aceder ao Azure Digital Twins, terá de ter uma identidade gerida pelo sistema com permissões para aceder à sua instância Azure Digital Twins. Vais marcar isso a seguir.
 
 ### <a name="assign-permissions-to-the-function-app"></a>Atribuir permissões à aplicação de função
 

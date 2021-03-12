@@ -7,12 +7,12 @@ author: stuartatmicrosoft
 ms.author: stkirk
 ms.service: azure-redhat-openshift
 keywords: encriptação, byok, aro, cmk, openshift, chapéu vermelho
-ms.openlocfilehash: ca69594952c9fa547390e9a73b48ec8165145378
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: fa84096dcc44e668a6cf7ebd0369c6d3631c28d2
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102505227"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102555623"
 ---
 # <a name="encrypt-persistent-volume-claims-with-a-customer-managed-key-cmk-on-azure-red-hat-openshift-aro-preview"></a>Criptografe as reclamações de volume persistentes com uma chave gerida pelo cliente (CMK) no Azure Red Hat OpenShift (ARO) (pré-visualização)
 
@@ -29,7 +29,7 @@ Este artigo assume que:
 
 * Tem um cluster ARO pré-existente na versão OpenShift 4.4 (ou maior).
 
-* Tem a ferramenta de linha de comando **oc** OpenShift, base64 (parte dos utensílios do núcleo) e o **Azure** CLI instalado.
+* Tem a ferramenta de linha de comando **oc** OpenShift, base64 (parte dos coreutils) e o **Azure** CLI instalados.
 
 * Você está iniciado no seu cluster ARO usando **oc** como um utilizador global de cluster-administração (kubeadmin).
 
@@ -43,8 +43,8 @@ Este artigo assume que:
 ## <a name="declare-cluster--encryption-variables"></a>Declare variáveis de encriptação & cluster
 Deve configurar as variáveis abaixo para o que for apropriado para o cluster ARO no qual deseja ativar as chaves de encriptação geridas pelo cliente:
 ```
-aroCluster="mycluster"             # The name of the ARO cluster that you wish to enable CMK on. This may be obtained from *az aro list -o table*
-buildRG="mycluster-rg"             # The name of the resource group used when you initially built the ARO cluster. This may be obtained from *az aro list -o table*
+aroCluster="mycluster"             # The name of the ARO cluster that you wish to enable CMK on. This may be obtained from **az aro list -o table**
+buildRG="mycluster-rg"             # The name of the resource group used when you initially built the ARO cluster. This may be obtained from **az aro list -o table**
 desName="aro-des"                  # Your Azure Disk Encryption Set name. This must be unique in your subscription.
 vaultName="aro-keyvault-1"         # Your Azure Key Vault name. This must be unique in your subscription.
 vaultKeyName="myCustomAROKey"      # The name of the key to be used within your Azure Key Vault. This is the name of the key, not the actual value of the key that you will rotate.
@@ -58,18 +58,19 @@ subId="$(az account list -o tsv | grep True | awk '{print $3}')"
 ```
 
 ## <a name="create-an-azure-key-vault-instance"></a>Criar uma instância Azure Key Vault
-Uma instância do Cofre da Chave Azure deve ser usada para guardar as suas chaves. Crie um novo Cofre de Chaves com proteção de purga e eliminação suave ativado. Em seguida, crie uma nova chave dentro do cofre para armazenar a sua própria chave personalizada:
+Uma instância do Cofre da Chave Azure deve ser usada para guardar as suas chaves. Crie um novo Cofre-chave com proteção de purga ativada. Em seguida, crie uma nova chave dentro do cofre para armazenar a sua própria chave personalizada:
 
 ```azurecli-interactive
 # Create an Azure Key Vault resource in a supported Azure region
 az keyvault create -n $vaultName -g $buildRG --enable-purge-protection true -o table
+
 # Create the actual key within the Azure Key Vault
 az keyvault key create --vault-name $vaultName --name $vaultKeyName --protection software -o jsonc
 ```
 
 ## <a name="create-an-azure-disk-encryption-set"></a>Criar um conjunto de encriptação de disco Azure
 
-O conjunto de encriptação do disco Azure é usado como ponto de referência para discos em ARO. Está ligado ao Cofre de Chaves Azure que criamos no passo anterior e irá retirar as chaves geridas pelo cliente a partir desse local.
+O Conjunto de Encriptação do Disco Azure é utilizado como ponto de referência para discos em ARO. Está ligado ao Cofre de Chaves Azure que criamos no passo anterior e irá retirar as chaves geridas pelo cliente a partir desse local.
 
 ```azurecli-interactive
 # Retrieve the Key Vault Id and store it in a variable
@@ -82,24 +83,25 @@ keyVaultKeyUrl="$(az keyvault key show --vault-name $vaultName --name $vaultKeyN
 az disk-encryption-set create -n $desName -g $buildRG --source-vault $keyVaultId --key-url $keyVaultKeyUrl -o table
 ```
 
-## <a name="grant-the-disk-encryption-set-access-to-key-vault"></a>Conceder ao conjunto de encriptação do disco acesso ao Key Vault
+## <a name="grant-the-disk-encryption-set-access-to-key-vault"></a>Conceder ao conjunto de encriptação do disco acesso ao cofre de chaves
 Utilize o conjunto de encriptação do disco que criamos nos passos anteriores e conceda ao conjunto de encriptação do disco acesso ao Cofre da Chave Azure:
 
 ```azurecli-interactive
-# First, find the disk encryption set's AppId value.
+# First, find the disk encryption set's Azure Application ID value.
 desIdentity="$(az disk-encryption-set show -n $desName -g $buildRG --query [identity.principalId] -o tsv)"
 
 # Next, update the Key Vault security policy settings to allow access to the disk encryption set.
 az keyvault set-policy -n $vaultName -g $buildRG --object-id $desIdentity --key-permissions wrapkey unwrapkey get -o table
 
-# Now, ensure the disk encryption set can read the contents of the Azure Key Vault.
+# Now, ensure the Disk Encryption Set can read the contents of the Azure Key Vault.
 az role assignment create --assignee $desIdentity --role Reader --scope $keyVaultId -o jsonc
 ```
 
 ### <a name="obtain-other-ids-required-for-role-assignments"></a>Obter outros IDs necessários para atribuições de funções
-Precisamos permitir que o cluster ARO utilize o conjunto de encriptação do disco para encriptar as persistentes alegações de volume (PVCs) no cluster ARO. Para isso, criaremos uma nova Identidade de Serviço Gerido (MSI). Também definiremos outras permissões para o MSI ARO e para o conjunto de encriptação do disco.
-```
-# First, get the application ID of the service principal used in the ARO cluster.
+Precisamos permitir que o cluster ARO utilize o conjunto de encriptação do disco para encriptar as persistentes alegações de volume (PVCs) no cluster ARO. Para isso, criaremos uma nova Identidade de Serviço Gerido (MSI). Também definiremos outras permissões para o MSI ARO e para o Conjunto de Encriptação de Discos.
+
+```azurecli-interactive
+# First, get the Azure Application ID of the service principal used in the ARO cluster.
 aroSPAppId="$(oc get secret azure-credentials -n kube-system -o jsonpath='{.data.azure_client_id}' | base64 --decode)"
 
 # Next, get the object ID of the service principal used in the ARO cluster.
@@ -111,7 +113,7 @@ msiName="$aroCluster-msi"
 # Create the Managed Service Identity (MSI) required for disk encryption.
 az identity create -g $buildRG -n $msiName -o jsonc
 
-# Get the ARO Managed Service Identity application ID.
+# Get the ARO Managed Service Identity Azure Application ID.
 aroMSIAppId="$(az identity show -n $msiName -g $buildRG -o tsv --query [clientId])"
 
 # Get the resource ID for the disk encryption set and the Key Vault resource group.
@@ -132,9 +134,10 @@ az role assignment create --assignee $aroMSIAppId --role Reader --scope $buildRG
 az role assignment create --assignee $aroSPObjId --role Contributor --scope $buildRGResourceId -o jsonc
 ```
 
-## <a name="create-a-k8s-storage-class-for-encrypted-premium--ultra-disks-optional"></a>Criar uma classe de armazenamento k8s para discos Premium & Ultra encriptados (opcional)
+## <a name="create-a-k8s-storage-class-for-encrypted-premium--ultra-disks"></a>Criar uma classe de armazenamento k8s para discos Premium & Ultra encriptados
 Gerar aulas de armazenamento para serem utilizadas para cmk para discos de Premium_LRS e UltraSSD_LRS:
-```
+
+```azurecli-interactive
 # Premium Disks
 cat > managed-premium-encrypted-cmk.yaml<< EOF
 kind: StorageClass
@@ -174,13 +177,15 @@ EOF
 ```
 
 Em seguida, execute esta implementação no seu cluster ARO para aplicar a configuração da classe de armazenamento:
-```
+
+```azurecli-interactive
 # Update cluster with the new storage classes
 oc apply -f managed-premium-encrypted-cmk.yaml
 oc apply -f managed-ultra-encrypted-cmk.yaml
 ```
-## <a name="test-encryption-with-customer-managed-keys"></a>Teste encriptação com chaves geridas pelo cliente
-Para verificar se o seu cluster está a usar uma chave gerida pelo cliente para encriptação de PVC, criaremos uma reivindicação de volume persistente usando a classe de armazenamento apropriada. O corte de código abaixo cria uma cápsula e monta uma reivindicação de volume persistente usando discos standard
+
+## <a name="test-encryption-with-customer-managed-keys-optional"></a>Teste encriptação com chaves geridas pelo cliente (opcional)
+Para verificar se o seu cluster está a usar uma chave gerida pelo cliente para encriptação de PVC, criaremos uma reivindicação de volume persistente usando a nova classe de armazenamento. O corte de código abaixo cria uma cápsula e monta uma reivindicação de volume persistente usando discos Premium.
 ```
 # Create a pod which uses a persistent volume claim referencing the new storage class
 cat > test-pvc.yaml<< EOF
@@ -220,9 +225,9 @@ spec:
         claimName: mypod-with-cmk-encryption-pvc
 EOF
 ```
-### <a name="apply-the-test-pod-configuration-file"></a>Aplicar o ficheiro de configuração do pod de teste
+### <a name="apply-the-test-pod-configuration-file-optional"></a>Aplicar o ficheiro de configuração do casulo de teste (opcional)
 Execute os comandos abaixo para aplicar a configuração do Pod de teste e devolva o UID da nova reivindicação de volume persistente. O UID será utilizado para verificar se o disco está encriptado utilizando CMK.
-```
+```azurecli-interactive
 # Apply the test pod configuration file and set the PVC UID as a variable to query in Azure later.
 pvcUid="$(oc apply -f test-pvc.yaml -o jsonpath='{.items[0].metadata.uid}')"
 
@@ -230,8 +235,9 @@ pvcUid="$(oc apply -f test-pvc.yaml -o jsonpath='{.items[0].metadata.uid}')"
 pvName="$(oc get pv pvc-$pvcUid -o jsonpath='{.spec.azureDisk.diskName}')"
 ```
 > [!NOTE]
-> Por vezes, há um ligeiro atraso na aplicação de atribuições de funções no Diretório Azure Ative. Dependendo da velocidade que estes comandos são executados, o comando para "Determinar o nome completo do disco Azure" pode não ter sucesso. Se isto ocorrer, consulte a saída do **oc descrever pvc mypod-with-cmk-encryption-pvc** para garantir que o disco foi a provisionado com sucesso. Se a propagação da atribuição de funções não tiver sido concluída, terá de *eliminar* e *aplicar* o Pod & PVC YAML.
-### <a name="verify-pvc-disk-is-configured-with-encryptionatrestwithcustomerkey"></a>Verifique se o disco de PVC está configurado com "EncryptionAtRestWithCustomerKey" 
+> Por vezes, pode haver um ligeiro atraso na aplicação de atribuições de funções no Diretório Azure Ative. Dependendo da velocidade que estas instruções são executadas, o comando para "Determinar o nome completo do disco Azure" pode não ter sucesso. Se isto ocorrer, reveja a saída do **oc descrever pvc mypod-with-cmk-encryption-pvc** para garantir que o disco foi a provisionado com sucesso. Se a propagação da atribuição de funções não tiver sido concluída, poderá ter de *eliminar* e *re-aplicar* o Pod & PVC YAML.
+
+### <a name="verify-pvc-disk-is-configured-with-encryptionatrestwithcustomerkey-optional"></a>Verifique se o disco de PVC está configurado com "EncryptionAtRestWithCustomerKey" (Opcional)
 O Pod deve criar uma alegação de volume persistente que refira a classe de armazenamento CMK. Executando o seguinte comando validará que o PVC foi implantado como esperado:
 ```azurecli-interactive
 # Describe the OpenShift cluster-wide persistent volume claims

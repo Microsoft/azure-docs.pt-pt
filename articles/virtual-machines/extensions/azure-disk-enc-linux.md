@@ -1,29 +1,23 @@
 ---
 title: Encriptação do disco Azure para Linux
 description: Implementa encriptação de disco Azure para Linux para uma máquina virtual usando uma extensão de máquina virtual.
-services: virtual-machines-linux
-documentationcenter: ''
-author: ejarvi
-manager: gwallace
-editor: ''
-ms.assetid: ''
-ms.service: virtual-machines-linux
-ms.subservice: extensions
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services
-ms.date: 03/19/2020
+ms.service: virtual-machines
+ms.subservice: disks
+author: ejarvi
 ms.author: ejarvi
-ms.openlocfilehash: 61f8fd3d671bbd66d2dc5656e9a467b06798d280
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.date: 03/19/2020
+ms.collection: linux
+ms.openlocfilehash: 7c79391e3459804a4b5ce72c2230d17af3269641
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968422"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102566265"
 ---
 # <a name="azure-disk-encryption-for-linux-microsoftazuresecurityazurediskencryptionforlinux"></a>Encriptação do disco Azure para Linux (Microsoft.Azure.Security.AzureDiskEncryptionForLinux)
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 A Azure Disk Encryption aproveita o subsistema dm-crypt em Linux para fornecer encriptação completa do disco nas [distribuições selecionadas do Azure Linux](../linux/disk-encryption-overview.md).  Esta solução está integrada com o Azure Key Vault para gerir chaves e segredos de encriptação de discos.
 
@@ -142,13 +136,13 @@ O esquema 0.1 requer `AADClientID` e qualquer um ou `AADClientSecret` `AADClient
 
 ### <a name="property-values"></a>Valores patrimoniais
 
-| Nome | Valor / Exemplo | Tipo de Dados |
+| Name | Valor / Exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
 | apiVersion | 2019-07-01 | data |
 | publicador | Microsoft.Azure.Security | string |
 | tipo | AzureDiskEncryptionForLinux | string |
 | typeHandlerVersion | 1.1, 0.1 | int |
-| (0.1 esquema) AADClientID | xxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxxxxxxxxx | guid | 
+| (0.1 esquema) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | guid | 
 | (0.1 esquema) AADClientSecret | palavra-passe | string |
 | (0.1 esquema) Certificado de AADClient | impressão digital | string |
 | (opcional) (0.1 esquema) Frase-passe | palavra-passe | string |

@@ -6,14 +6,14 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/11/2020
-ms.openlocfilehash: afe14bc03f0d12e56e1512aeb788a77c64151b58
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 7f98e14c2eae133941f3fc87247a427198ebcdc2
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547253"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102611968"
 ---
-# <a name="best-practices-for-building-an-application-with-azure-database-for-mysql"></a>Melhores práticas para a construção de uma aplicação com Base de Dados Azure para o MySQL 
+# <a name="best-practices-for-building-an-application-with-azure-database-for-mysql"></a>Melhores práticas para criar uma aplicação com a Base de Dados do Azure para MySQL 
 
 Aqui estão algumas boas práticas para ajudá-lo a construir uma aplicação pronta para nuvens usando a Base de Dados Azure para o MySQL. Estas boas práticas podem reduzir o tempo de desenvolvimento da sua aplicação. 
 
@@ -73,10 +73,10 @@ Pode utilizar [a replicação de dados](./howto-data-in-replication.md) para cen
 
 Vai notar um desfasamento entre a fonte e a réplica porque a replicação é assíncronea. O lag de rede pode ser influenciado por muitos fatores, como o tamanho da carga de trabalho que funciona no servidor de origem e a latência entre centros de dados. Na maioria dos casos, o lag de réplica varia de alguns segundos a alguns minutos.
 
-## <a name="database-deployment"></a>Implantação de bases de dados 
+## <a name="database-deployment"></a>Implementação de base de dados 
 
 ### <a name="configure-an-azure-database-for-mysql-task-in-your-cicd-deployment-pipeline"></a>Configure uma base de dados Azure para a tarefa MySQL no seu pipeline de implantação CI/CD
-De vez em quando, tem de implementar alterações na sua base de dados. Nesses casos, pode utilizar a integração contínua (CI) e a entrega contínua (CD) através [dos Pipelines Azure](https://azure.microsoft.com/services/devops/pipelines/) e utilizar uma tarefa para [o seu servidor MySQL](/azure/devops/pipelines/tasks/deploy/azure-mysql-deployment?view=azure-devops&preserve-view=true) atualizar a base de dados executando um script personalizado contra ele.
+De vez em quando, tem de implementar alterações na sua base de dados. Nesses casos, pode utilizar a integração contínua (CI) e a entrega contínua (CD) através [dos Pipelines Azure](https://azure.microsoft.com/services/devops/pipelines/) e utilizar uma tarefa para [o seu servidor MySQL](/azure/devops/pipelines/tasks/deploy/azure-mysql-deployment) atualizar a base de dados executando um script personalizado contra ele.
 
 ### <a name="use-an-effective-process-for-manual-database-deployment"></a>Utilize um processo eficaz para a implementação de bases de dados manuais 
 Durante a implementação da base de dados manual, siga estes passos para minimizar o tempo de inatividade ou reduzir o risco de implantação falhada: 

@@ -1,5 +1,5 @@
 ---
-title: Sincronizar com o armazenamento Azure Blob utilizando o AzCopy v10 Microsoft Docs
+title: Sincronizar com o armazenamento Azure Blob utilizando a AzCopy v10 | Microsoft Docs
 description: Este artigo contém uma coleção de comandos de exemplo AzCopy que o ajudam a sincronizar com o armazenamento Azure Blob.
 author: normesta
 ms.service: storage
@@ -8,12 +8,12 @@ ms.date: 12/08/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: f8210428e772241134b57ac4fccb5b1549e04483
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: ab1da88899ba2b90e303da107631e3878b3a8b58
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97617277"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102635880"
 ---
 # <a name="synchronize-with-azure-blob-storage-by-using-azcopy-v10"></a>Sincronizar com o armazenamento Azure Blob utilizando o AzCopy v10
 
@@ -33,7 +33,7 @@ Consulte o [artigo da AzCopy](storage-use-azcopy-v10.md) para descarregar o AzCo
 > [!NOTE] 
 > Os exemplos deste artigo assumem que forneceu credenciais de autorização utilizando o Azure Ative Directory (Azure AD).
 >
-> Se preferir usar um token SAS para autorizar o acesso a dados blob, então pode anexar esse símbolo ao URL de recursos em cada comando AzCopy. Por exemplo: `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'` .ken>''.
+> Se preferir usar um token SAS para autorizar o acesso a dados blob, então pode anexar esse símbolo ao URL de recursos em cada comando AzCopy. Por exemplo: `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`.
 
 ## <a name="guidelines"></a>Diretrizes
 
@@ -95,7 +95,7 @@ O primeiro diretório que aparece neste comando é a fonte. O segundo é o desti
 
 Pode ajustar a sua operação de sincronização utilizando bandeiras opcionais. Aqui estão alguns exemplos.
 
-|Cenário|Sinalizador|
+|Scenario|Sinalizador|
 |---|---|
 |Especifique como os hashes MD5 devem ser validados ao descarregar.|**--check-md5** = \[ NoCheck \| LogOnly \| FailIfDifferent \| FailIfDifferentOrMissing\]|
 |Excluir ficheiros com base num padrão.|**--excluir caminho**|

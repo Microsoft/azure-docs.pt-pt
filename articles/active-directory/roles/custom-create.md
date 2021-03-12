@@ -13,12 +13,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba8ecf5442ea3da6db02335520eef3856ea48c62
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 0e0e1543f18c18c7fdf97c39f35ba38ded658392
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98740164"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103007822"
 ---
 # <a name="create-and-assign-a-custom-role-in-azure-active-directory"></a>Criar e atribuir um papel personalizado no Azure Ative Directory
 
@@ -58,18 +58,18 @@ Em primeiro lugar, tem de [descarregar o módulo PowerShell de pré-visualizaç�
 Para instalar o módulo Azure AD PowerShell, utilize os seguintes comandos:
 
 ``` PowerShell
-install-module azureadpreview 
-import-module azureadpreview 
+Install-Module -Name AzureADPreview 
+Import-Module -Name AzureADPreview 
 ```
 
 Para verificar se o módulo está pronto a ser utilizado, utilize o seguinte comando:
 
 ``` PowerShell
-get-module azureadpreview 
+Get-Module -Name AzureADPreview 
 
   ModuleType Version      Name                         ExportedCommands 
   ---------- ---------    ----                         ---------------- 
-  Binary     2.0.0.115    azureadpreview               {Add-AzureADAdministrati...} 
+  Binary     2.0.0.115    AzureADPreview               {Add-AzureADAdministrati...} 
 ```
 
 ### <a name="connect-to-azure"></a>Ligar ao Azure
@@ -188,7 +188,7 @@ Tal como as funções incorporadas, as funções personalizadas são atribuídas
 1. Selecione a função para abrir a página **Atribuições.**
 1. **Selecione Adicionar a atribuição** para adicionar um utilizador. O utilizador receberá quaisquer permissões apenas sobre o registo de aplicações selecionados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Sinta-se livre para compartilhar conosco no fórum de [funções administrativas Azure AD.](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032)
 - Para obter mais informações sobre funções e atribuição de funções de Administrador, consulte [as funções de administrador de atribuição](permissions-reference.md).

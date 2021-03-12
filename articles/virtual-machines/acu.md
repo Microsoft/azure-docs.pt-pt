@@ -3,18 +3,18 @@ title: Visão geral da Unidade Azure Compute
 description: Visão geral do conceito das unidades computacional Azure. A ACU fornece uma forma de comparar o desempenho do CPU em todos os SKUs do Azure.
 author: mimckitt
 ms.service: virtual-machines
-ms.subservice: sizes
+ms.subservice: azure-compute-unit
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: mimckitt
 ms.reviewer: davberg
-ms.openlocfilehash: ba8c3f730897c01c52aaf4499269425426d0b7b5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae37771cd9e48f450ae538174b9bed9cfa866f9d
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91667185"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102565534"
 ---
 # <a name="azure-compute-unit-acu"></a>Unidade de computação Azure (ACU)
 
@@ -77,6 +77,6 @@ Aqui estão links para mais informações sobre os diferentes tamanhos:
 - [Fins gerais](sizes-general.md)
 - [Com otimização de memória](sizes-memory.md)
 - [Com otimização de computação](sizes-compute.md)
-- [Com otimização de GPU](sizes-gpu.md)
+- [Otimizada para GPU](sizes-gpu.md)
 - [Computação de elevado desempenho](sizes-hpc.md)
 - [Com otimização de armazenamento](sizes-storage.md)

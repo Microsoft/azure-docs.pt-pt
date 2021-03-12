@@ -2,17 +2,18 @@
 title: Adicione um disco de dados ao Linux VM utilizando o Azure CLI
 description: Aprenda a adicionar um disco de dados persistente ao seu Linux VM com o Azure CLI
 author: cynthn
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.subservice: disks
+ms.collection: linux
 ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: cynthn
-ms.subservice: disks
-ms.openlocfilehash: 1155b4274b97f540fd97bf39e51fd41c37bc9627
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: a4e0cee7a46e3f61f95e87f7cba1fb3595ace3c5
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98730626"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102556813"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Adicionar um disco a uma VM com Linux
 
@@ -179,7 +180,7 @@ Existem duas formas de ativar o suporte TRIM no seu Linux VM. Como sempre, consu
 
 [!INCLUDE [virtual-machines-linux-lunzero](../../../includes/virtual-machines-linux-lunzero.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para garantir que o seu VM Linux está configurado corretamente, reveja as recomendações de desempenho da [máquina Linux.](/previous-versions/azure/virtual-machines/linux/optimization)
 * Expanda a sua capacidade de armazenamento adicionando discos adicionais e [configurar o RAID](/previous-versions/azure/virtual-machines/linux/configure-raid) para um desempenho adicional.
