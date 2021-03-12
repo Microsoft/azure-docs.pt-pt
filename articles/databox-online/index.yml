@@ -12,12 +12,12 @@ metadata:
   author: alkohli
   ms.author: alkohli
   ms.date: 10/27/2020
-  ms.openlocfilehash: 654c55436a47d91318548997aecc2605ae342099
-  ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+  ms.openlocfilehash: 5ec423338b913bfab56212dcb801fa4097557d8b
+  ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 01/25/2021
-  ms.locfileid: "98763071"
+  ms.lasthandoff: 03/11/2021
+  ms.locfileid: "102630321"
 landingContent:
 - title: Acerca do Azure Stack Edge
   linkLists:
@@ -30,7 +30,7 @@ landingContent:
     - text: O que é o Azure Stack Edge R?
       url: azure-stack-edge-j-series-overview.md
     - text: O que é o Azure Stack Edge Mini R?
-      url: azure-stack-edge-k-series-overview.md
+      url: azure-stack-edge-mini-r-overview.md
   - linkListType: architecture
     links:
     - text: Escolher as opções de transferência de dados do Azure
@@ -82,7 +82,7 @@ landingContent:
     - text: Computação Edge
       url: azure-stack-edge-manage-compute.md
     - text: Contas de armazenamento do Edge
-      url: azure-stack-edge-j-series-manage-storage-accounts.md
+      url: azure-stack-edge-gpu-manage-storage-accounts.md
 - title: Resolução de problemas
   linkLists:
   - linkListType: how-to-guide

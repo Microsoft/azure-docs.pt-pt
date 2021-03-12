@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/20/2021
 ms.author: v-tcassi
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: c12dbeb81fd2b3d67863b5b84fa30cf77e165549
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: 812bfcc8d82c08600bd7391cdf70661585ceaf2f
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102123195"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103015187"
 ---
 # <a name="install-and-provision-azure-iot-edge-for-linux-on-a-windows-device-preview"></a>Instalar e aprovisionar o Azure IoT Edge para Linux num dispositivo Windows (Pré-visualização)
 
@@ -43,18 +43,11 @@ Este artigo lista os passos para configurar o IoT Edge num dispositivo Windows. 
   * RAM mínimo: 4 GB (8 GB recomendado)
   * Armazenamento mínimo: 10 GB
 
-* Acesso ao Windows Admin Center insider build com a extensão Azure IoT Edge para Windows Admin Center instalado:  <!-- The link below needs the language localization to work; otherwise broken -->
-   1. Visite a [pré-visualização](https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewserver)do Windows Insider .
+* Acesso ao Windows Admin Center com a extensão Azure IoT Edge para o Windows Admin Center instalado:
 
-   1. No dropdown das pré-visualizações, selecione **Windows Admin Center Preview - Build 2012**, e escolha **Confirmar**.
+   1. Descarregue o instalador do [Windows Admin Center](https://aka.ms/wacdownload).
 
-      ![Escolha a pré-visualização do Windows Admin Center - Construa 2012 a partir do menu suspenso das pré-visualizações disponíveis.](./media/how-to-install-iot-edge-on-windows/select-windows-admin-center-preview-build.png)
-
-   1. No **dropdown de língua select,** escolha **inglês** e escolha **Confirmar**.
-
-   1. Escolha **baixar agora** para baixar o *WindowsAdminCenterPreview2012.msi*.
-
-   1. Executar o *WindowsAdminCenterPreview2012.msi* e seguir as instruções do assistente de instalação para instalar o Windows Admin Center. Uma vez instalado, abra o Windows Admin Center.
+   1. Executar o instalador descarregado e seguir as instruções do assistente de instalação para instalar o Windows Admin Center. Uma vez instalado, abra o Windows Admin Center.
 
    1. Na primeira utilização do Windows Admin Center, será solicitado que selecione um certificado para utilizar. Selecione **o Cliente do Centro de Administração do Windows** como o seu certificado.
 
@@ -143,7 +136,7 @@ Instale o IoT Edge para o Linux no Windows no seu dispositivo-alvo se ainda não
    ```azurepowershell-interactive
    $msiPath = $([io.Path]::Combine($env:TEMP, 'AzureIoTEdge.msi'))
    $ProgressPreference = 'SilentlyContinue'
-   Invoke-WebRequest "https://aka.ms/AzureEdgeForLinuxOnWindowsMSI" -OutFile $msiPath
+   Invoke-WebRequest "https://aka.ms/AzEflowMSI" -OutFile $msiPath
    ```
 
 1. Instale ioT Edge para Linux no Windows no seu dispositivo.

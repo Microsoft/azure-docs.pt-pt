@@ -6,14 +6,14 @@ ms.reviewer: adwise
 ms.service: cost-management-billing
 ms.subservice: common
 ms.topic: reference
-ms.date: 11/19/2020
+ms.date: 03/10/2021
 ms.author: banders
-ms.openlocfilehash: 93dda4fc3a152b0a07a95ff327c9ea619f25787c
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
-ms.translationtype: HT
+ms.openlocfilehash: 24fbf52c8fd0338537862a54e15e8a249541a701
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96355825"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102635795"
 ---
 # <a name="migrate-from-enterprise-reporting-to-azure-resource-manager-apis"></a>Migrar dos Relatórios do Enterprise para as APIs do Azure Resource Manager
 
@@ -51,28 +51,7 @@ Depois de criar um Principal de Serviço para chamar programaticamente as APIs d
 
 ### <a name="azure-billing-hierarchy-access"></a>Acesso à Hierarquia da Faturação do Azure
 
-Para atribuir permissões do Principal de Serviço aos seus âmbitos de Conta de Faturação do Enterprise, Departamentos ou Contas de Inscrição, utilize as APIs [Permissões de Faturação](/rest/api/billing/2019-10-01-preview/billingpermissions), [Definições da Função de Faturação](/rest/api/billing/2019-10-01-preview/billingroledefinitions) e [Atribuições de Função de Faturação](/rest/api/billing/2019-10-01-preview/billingroleassignments).
-
-- Utilize as APIs de Permissões de Faturação para identificar as permissões que um Principal de Serviço já tem num determinado âmbito, como Conta de Faturação ou Departamento.
-- Utilize as APIs de Definições de Função de Faturação para enumerar as funções disponíveis que podem ser atribuídas ao seu Principal de Serviço.
-  - Neste momento, só podem ser atribuídas aos Principais de Serviço as funções Administrador do EA Só de Leitura e Administrador de Departamento Só de Leitura.
-- Utilize as APIs de Atribuições de Função de Faturação para atribuir uma função ao seu Principal de Serviço.
-
-O exemplo seguinte mostra como chamar a API Atribuições de Funções para conceder acesso a um Principal de Serviço à sua conta de faturação. Para fazer estas configurações de permissões únicas, recomendamos utilizar o [PostMan](https://postman.com).
-
-```json
-POST https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/createBillingRoleAssignment?api-version=2019-10-01-preview
-```
-
-#### <a name="request-body"></a>Corpo do Pedido
-
-```json
-{
-  "principalId": "00000000-0000-0000-0000-000000000000",
-  "billingRoleDefinitionId": "/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/providers/Microsoft.Billing/billingRoleDefinition/10000000-aaaa-bbbb-cccc-100000000000"
-}
-
-```
+Para atribuir permissões principais de serviço à sua Conta de Faturação da Empresa, Departamentos ou Âmbitos de Conta de Inscrição, consulte [atribuir funções aos nomes principais do serviço do Azure Enterprise Agreement](../manage/assign-roles-azure-service-principals.md).
 
 ### <a name="azure-role-based-access-control"></a>Controlo de acesso baseado em funções do Azure
 

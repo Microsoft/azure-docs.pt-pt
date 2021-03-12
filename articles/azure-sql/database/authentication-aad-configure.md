@@ -12,12 +12,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, sstein
 ms.date: 08/17/2020
-ms.openlocfilehash: b8711b3995c322614c547434850d7c031abfadd5
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: f3c34526fd4005dbbb0be7e763721e125ed7828e
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99094948"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103201203"
 ---
 # <a name="configure-and-manage-azure-ad-authentication-with-azure-sql"></a>Configure e gere a autenticação AD AD com Azure SQL
 
@@ -345,8 +345,8 @@ Em todas as máquinas clientes, a partir das quais as suas aplicações ou utili
 - .NET Quadro 4.6 ou posteriormente de [https://msdn.microsoft.com/library/5a4x27ek.aspx](/dotnet/framework/install/guide-for-developers) .
 - Biblioteca de autenticação do Diretório Ativo Azure para o Servidor SQL *(ADAL.DLL*). Abaixo estão os links de descarregamento para instalar os mais recentes SSMS, ODBC e OLE DB que contém a biblioteca *ADAL.DLL.*
   - [O SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)
-  - [Controlador ODBC 17 para sql server](https://www.microsoft.com/download/details.aspx?id=56567)
-  - [OLE DB Driver 18 para SQL Server](https://www.microsoft.com/download/details.aspx?id=56730)
+  - [Controlador ODBC 17 para sql server](/sql/connect/odbc/download-odbc-driver-for-sql-server?view=sql-server-ver15)
+  - [OLE DB Driver 18 para SQL Server](/sql/connect/oledb/download-oledb-driver-for-sql-server?view=sql-server-ver15)
 
 Pode cumprir estes requisitos através de:
 
@@ -355,9 +355,9 @@ Pode cumprir estes requisitos através de:
   - A SSDT instala a versão amd64 do *ADAL.DLL*.
   - O mais recente Visual Studio de [Visual Studio Downloads](https://www.visualstudio.com/downloads/download-visual-studio-vs) cumpre o requisito .NET Framework 4.6, mas não instala a versão amd64 necessária de *ADAL.DLL*.
 
-## <a name="create-contained-users-mapped-to-azure-ad-identities"></a>Criar utilizadores contidos mapeados para identidades AD Azure
+## <a name="create-contained-users-mapped-to-azure-ad-identities"></a>Criar utilizadores contidos mapeados para identidades do AAD
 
-Como a SQL Managed Instance suporta os principais dos servidores Azure AD (logins), não é necessário utilizar utilizadores de bases de dados contidos. Os principais servidores AD do Azure (logins) permitem-lhe criar logins a partir de utilizadores, grupos ou aplicações Azure AD. Isto significa que pode autenticar com o seu SQL Managed Instance utilizando o login do servidor Azure AD em vez de um utilizador de base de dados contido. Para obter mais informações, consulte [a visão geral do SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md#azure-active-directory-integration). Para sintaxe sobre a criação de principais servidores AD do Azure (logins), consulte <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>.
+Como a SQL Managed Instance suporta os principais dos servidores Azure AD (logins), não é necessário utilizar utilizadores de bases de dados contidos. Os principais (inícios de sessão) do servidor do Azure Active Directory permitem-lhe criar inícios de sessão a partir de utilizadores, grupos ou aplicações do Azure Active Directory. Isto significa que pode autenticar com o seu SQL Managed Instance utilizando o login do servidor Azure AD em vez de um utilizador de base de dados contido. Para obter mais informações, consulte [a visão geral do SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md#azure-active-directory-integration). Para sintaxe sobre a criação de principais servidores AD do Azure (logins), consulte <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>.
 
 No entanto, a utilização da autenticação do Azure Ative Directory com base de dados SQL e Azure Synapse requer a utilização de utilizadores de bases de dados contidos com base numa identidade AD Azure. Um utilizador de base de dados contido não tem um login na base de dados principal, e mapeia para uma identidade em Azure AD que está associada à base de dados. A identidade AZure AD pode ser uma conta de utilizador individual ou um grupo. Para obter mais informações sobre os utilizadores de bases de dados contidos, consulte [os Utilizadores da Base de Dados Contidos, tornando a sua base de dados portátil](/sql/relational-databases/security/contained-database-users-making-your-database-portable).
 

@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 03/18/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 83d3a21de22be4c491207d3ee3605dd31b1c3da8
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: b5c75f62f730c1bbc09a66e81f70f0e71a246fde
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102487581"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102613362"
 ---
 # <a name="client-libraries-and-rest-apis"></a>Bibliotecas de cliente e APIs REST
 
@@ -40,7 +40,7 @@ Note que as bibliotecas de clientes Azure Resource Manager, Identity e SMS estã
 
 As localizações de publicação de pacotes individuais de biblioteca de clientes são detalhadas abaixo.
 
-| Área           | JavaScript | .NET | Python | Java SE | iOS | Android | Outros                          |
+| Área           | JavaScript | .NET | Python | Java SE | iOS | Android | Outro                          |
 | -------------- | ---------- | ---- | ------ | ---- | -------------- | -------------- | ------------------------------ |
 | Azure Resource Manager | -         | [NuGet](https://www.nuget.org/packages/Azure.ResourceManager.Communication)    |   [PyPi](https://pypi.org/project/azure-mgmt-communication/)    |  -  | -              | -  | [Vá via GitHub](https://github.com/Azure/azure-sdk-for-go/releases/tag/v46.3.0) |
 | Common         | [npm](https://www.npmjs.com/package/@azure/communication-common)         | [NuGet](https://www.nuget.org/packages/Azure.Communication.Common/)    | N/D      | [Maven](https://search.maven.org/search?q=a:azure-communication-common)   | [GitHub](https://github.com/Azure/azure-sdk-for-ios/releases)            | [Maven](https://search.maven.org/artifact/com.azure.android/azure-communication-common)             | -                              |
@@ -48,7 +48,7 @@ As localizações de publicação de pacotes individuais de biblioteca de client
 | Chat           | [npm](https://www.npmjs.com/package/@azure/communication-chat)        | [NuGet](https://www.nuget.org/packages/Azure.Communication.Chat)     | [PyPi](https://pypi.org/project/azure-communication-chat/)     | [Maven](https://search.maven.org/search?q=a:azure-communication-chat)   | [GitHub](https://github.com/Azure/azure-sdk-for-ios/releases)  | [Maven](https://search.maven.org/search?q=a:azure-communication-chat)   | -                              |
 | SMS            | [npm](https://www.npmjs.com/package/@azure/communication-sms)         | [NuGet](https://www.nuget.org/packages/Azure.Communication.Sms)    | [PyPi](https://pypi.org/project/azure-communication-sms/)       | [Maven](https://search.maven.org/artifact/com.azure/azure-communication-sms)   | -              | -              | -                              |
 | Chamando        | [npm](https://www.npmjs.com/package/@azure/communication-calling)         | -      | -      | -     | [GitHub](https://github.com/Azure/Communication/releases)     | [Maven](https://search.maven.org/artifact/com.azure.android/azure-communication-calling/)            | -                              |
-| Documentação de Referência     | [docs](https://azure.github.io/azure-sdk-for-js/communication.html)         | [docs](https://azure.github.io/azure-sdk-for-net/communication.html)      | -      | [docs](http://azure.github.io/azure-sdk-for-java/communication.html)     | [docs](/objectivec/communication-services/calling/)      | [docs](/java/api/com.azure.communication.calling?view=communication-services-java-android)            | -                              |
+| Documentação de Referência     | [docs](https://azure.github.io/azure-sdk-for-js/communication.html)         | [docs](https://azure.github.io/azure-sdk-for-net/communication.html)      | -      | [docs](http://azure.github.io/azure-sdk-for-java/communication.html)     | [docs](/objectivec/communication-services/calling/)      | [docs](/java/api/com.azure.communication.calling)            | -                              |
 
 ## <a name="rest-apis"></a>APIs REST
 

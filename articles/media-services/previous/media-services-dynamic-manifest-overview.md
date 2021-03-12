@@ -3,7 +3,7 @@ title: Filtros e manifestos dinâmicos | Microsoft Docs
 description: Este tópico descreve como criar filtros para que o seu cliente possa usá-los para transmitir secções específicas de um fluxo. Os Media Services criam manifestos dinâmicos para arquivar este streaming seletivo.
 services: media-services
 documentationcenter: ''
-author: cenkdin
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: ff102765-8cee-4c08-a6da-b603db9e2054
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
-ms.openlocfilehash: 96f0c4d4ea7c32e2b58807204ef45b75feae7132
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: 002a7c61d6760decf65016870739ab62b15d5c72
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101727333"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103013691"
 ---
 # <a name="filters-and-dynamic-manifests"></a>Filters and dynamic manifests (Filtros e manifestos dinâmicos)
 

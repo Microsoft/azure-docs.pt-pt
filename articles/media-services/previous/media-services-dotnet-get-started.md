@@ -3,7 +3,7 @@ title: Introdução à entrega de conteúdo a pedido com o .NET | Microsoft Docs
 description: Este tutorial vai ajudá-lo a implementar uma aplicação de distribuição de conteúdos a pedido com os Media Services do Azure utilizando o .NET.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: 388b8928-9aa9-46b1-b60a-a918da75bd7b
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 03/18/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: bbbf924ea950c5ba281be430190370ae77734b7a
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: f0e7f9fa33af43fb846255815d862d4cd3a07e99
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96184404"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103013980"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-net-sdk"></a>Introdução à distribuição de conteúdos a pedido utilizando o SDK do .NET
 
@@ -49,7 +49,7 @@ Este tutorial inclui as seguintes tarefas:
 4. Publicar o elemento e obter os URLs de transferência progressiva e transmissão em fluxo.  
 5. Reproduzir os conteúdos.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Este tutorial vai ajudá-lo a implementar uma aplicação de distribuição de conteúdos de Vídeo a Pedido (VoD) utilizando o SDK do .NET dos Media Services do Azure (AMS).
 
 O tutorial apresenta o fluxo de trabalho básico dos Media Services, os objetos de programação mais comuns e as tarefas necessárias para o desenvolvimento dos Media Services. No final do tutorial, será capaz de transmitir ou transferir progressivamente um ficheiro de multimédia de exemplo que carregou, codificou e transferiu.

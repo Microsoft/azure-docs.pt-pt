@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Começa com o Código do Estúdio Visual'
+title: 'Quickstart: Começar com a Azure Cognitive Search usando o Código do Estúdio Visual'
 titleSuffix: Azure Cognitive Search
 description: Aprenda a instalar e a utilizar a extensão visual studio code para a pesquisa cognitiva do Azure.
 author: dereklegenzoff
@@ -7,21 +7,19 @@ manager: luisca
 ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 01/12/2021
-ms.openlocfilehash: 7a613dd6cba55831b02a60f833088b6c34bfc4a7
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.date: 03/10/2021
+ms.openlocfilehash: 3237a32a90e3964644ff84958a065656cdf7f3ab
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98122709"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103015850"
 ---
-# <a name="get-started-with-visual-studio-code-and-azure-cognitive-search"></a>Começar com Visual Studio Code e Azure Cognitive Search
+# <a name="get-started-with-azure-cognitive-search-using-visual-studio-code"></a>Começar com a Azure Cognitive Search usando o Código do Estúdio Visual
 
-Este artigo explica como formular pedidos de API rest interactivemente usando as APIs de [Rest de Pesquisa Cognitiva Azure](/rest/api/searchservice) e um cliente API para o envio e receção de pedidos. Com um cliente API e estas instruções, pode enviar pedidos e visualizar respostas antes de escrever qualquer código.
+Este artigo explica como formular pedidos de API rest interactivemente usando as APIs de [REPOUSO DE PESQUISA Cognitiva Azure](/rest/api/searchservice) e Código do Estúdio [Visual](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurecognitivesearch). Com a extensão de [código do Estúdio Visual para Azure Cognitive Search (pré-visualização)](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurecognitivesearch) e estas instruções, pode enviar pedidos e visualizar respostas antes de escrever qualquer código.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
-
-O artigo utiliza uma extensão de código visual Studio (pré-visualização) para Azure Cognitive Search REST APIs.
 
 > [!IMPORTANT] 
 > Esta funcionalidade encontra-se atualmente em visualização pública. A funcionalidade de pré-visualização é fornecida sem um contrato de nível de serviço, e não é recomendada para cargas de trabalho de produção. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
@@ -35,18 +33,6 @@ São necessários os seguintes serviços e ferramentas para este arranque rápid
 + [Pesquisa cognitiva Azure para Código do Estúdio Visual (Pré-visualização)](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurecognitivesearch)
 
 + [Crie um serviço de Pesquisa Cognitiva Azure](search-create-service-portal.md) ou [encontre um serviço existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) sob a sua subscrição atual. Pode utilizar um serviço gratuito para este arranque rápido. 
-
-## <a name="copy-a-key-and-url"></a>Copiar uma chave e URL
-
-As chamadas à API precisam do URL de serviço e de uma chave de acesso em todos os pedidos. Um serviço de pesquisa é criado com ambos, por isso, se adicionar Azure Cognitive Search à sua subscrição, siga estes passos para obter as informações necessárias:
-
-1. [Inscreva-se no portal Azure,](https://portal.azure.com/)e na página **geral do** seu serviço de pesquisa, obtenha o URL. Um ponto final de exemplo poderá ser parecido com `https://mydemo.search.windows.net`.
-
-1. Em **Definições**  >  **Teclas,** obtenha uma chave de administração para todos os direitos sobre o serviço. Existem duas chaves de administração intercambiáveis, previstas para a continuidade do negócio, caso precise de rolar uma. Pode utilizar a tecla primária ou secundária nos pedidos de adição, modificação e eliminação de objetos.
-
-![Obtenha uma chave de acesso http e acesso](media/search-get-started-rest/get-url-key.png "Obtenha uma chave de acesso http e acesso")
-
-Todos os pedidos requerem uma chave API em cada pedido enviado ao seu serviço. Ter uma chave válida estabelece fidedignidade, numa base por pedido, entre a aplicação a enviar o pedido e o serviço que o processa.
 
 ## <a name="install-the-extension"></a>Instalar a extensão
 
@@ -390,7 +376,7 @@ search=*&$select=HotelId,HotelName,Rating&searchFields=HotelName&facet=Category
 
 Se quiser ver o seu serviço de pesquisa no portal, clique com o botão direito no nome do serviço de pesquisa e selecione **Abrir no Portal**. Isto irá levá-lo ao serviço de pesquisa no portal Azure.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Ao trabalhar na sua própria subscrição, recomendamos que verifique, depois de concluir um projeto, se irá precisar dos recursos que criou. Os recursos que deixar em execução podem custar-lhe dinheiro. Pode eliminar recursos individualmente ou eliminar o grupo de recursos para eliminar todo o conjunto de recursos.
 

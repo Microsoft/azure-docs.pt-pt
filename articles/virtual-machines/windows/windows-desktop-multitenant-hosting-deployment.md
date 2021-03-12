@@ -2,18 +2,19 @@
 title: Como implementar o Windows 10 no Azure com direitos de hospedagem multitenant
 description: Saiba como maximizar os benefícios da garantia do software do Windows para trazer licenças no local para a Azure com direitos de hospedagem multitenant.
 author: mimckitt
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.collection: windows
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 2/2/2021
 ms.author: mimckitt
 ms.custom: rybaker, chmimckitt
-ms.openlocfilehash: 6e6f6ced1cdba429abd914354a5eba861ab127ec
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: bb86ba6867ad796ef0f5eeb1357a6df9e93e9f9e
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101670048"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102555776"
 ---
 # <a name="how-to-deploy-windows-10-on-azure-with-multitenant-hosting-rights"></a>Como implementar o Windows 10 no Azure com direitos de hospedagem multitenant 
 Para clientes com Windows 10 Enterprise E3/E5 por utilizador ou Windows Virtual Desktop Access por utilizador (Licenças de subscrição de utilizador ou licenças de subscrição de utilizadores adicionais), os direitos de hospedagem multitenant para o Windows 10 permitem-lhe trazer as suas Licenças do Windows 10 para a nuvem e executar máquinas virtuais do Windows 10 no Azure sem pagar outra licença. Os Direitos de Hospedagem Multitenant só estão disponíveis para o Windows 10 (versão 1703 ou posterior).
@@ -26,7 +27,7 @@ Para obter mais informações, consulte [o Multitenant Hosting para windows 10](
 
 ## <a name="subscription-licenses-that-qualify-for-multitenant-hosting-rights"></a>Licenças de subscrição que se qualificam para direitos de hospedagem multitenant
 
-Utilizando o [centro de administração](/microsoft-365/admin/admin-overview/about-the-admin-center?preserve-view=true&view=o365-worldwide)da Microsoft, pode confirmar se foi atribuída a um utilizador uma licença suportada pelo Windows 10.
+Utilizando o [centro de administração](/microsoft-365/admin/admin-overview/about-the-admin-center)da Microsoft, pode confirmar se foi atribuída a um utilizador uma licença suportada pelo Windows 10.
 
 > [!IMPORTANT]
 > Os utilizadores devem ter uma das licenças de subscrição abaixo para utilizar imagens do Windows 10 no Azure. Se não tiver uma destas licenças de subscrição, estas podem ser adquiridas através do seu [Parceiro de Serviço cloud](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/) ou diretamente através da [Microsoft.](https://www.microsoft.com/microsoft-365?rtc=1)

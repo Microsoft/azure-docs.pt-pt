@@ -13,12 +13,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro, devx-track-azurepowershell
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 260b0621bf204c6d7593b3696c602665c42ad77e
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 48740c52e6713735957e1ebf00e8996800eabec2
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98740861"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103015782"
 ---
 # <a name="quickstart-grant-permission-to-create-unlimited-app-registrations"></a>Quickstart: Conceder permissão para criar registos ilimitados de aplicações
 
@@ -69,16 +69,16 @@ Existem duas permissões disponíveis para a concessão da capacidade de criar r
 Em primeiro lugar, instale o módulo Azure AD PowerShell da [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.17). Em seguida, importe o módulo de pré-visualização Azure AD PowerShell, utilizando o seguinte comando:
 
 ```powershell
-import-module azureadpreview
+Import-Module -Name AzureADPreview
 ```
 
 Para verificar se o módulo está pronto a ser utilizado, combine a versão devolvida pelo seguinte comando ao indicado aqui:
 
 ```powershell
-get-module azureadpreview
+Get-Module -Name AzureADPreview
   ModuleType Version      Name                         ExportedCommands
   ---------- ---------    ----                         ----------------
-  Binary     2.0.0.115    azureadpreview               {Add-AzureADAdministrati...}
+  Binary     2.0.0.115    AzureADPreview               {Add-AzureADAdministrati...}
 ```
 
 ### <a name="create-the-custom-role-in-azure-ad-powershell"></a>Crie o papel personalizado no Azure AD PowerShell
@@ -178,7 +178,7 @@ Corpo
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Sinta-se livre para compartilhar conosco no fórum de [funções administrativas Azure AD.](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032)
 - Para obter mais informações sobre as atribuições de funções de Azure AD, consulte [as funções de administrador de atribuição](permissions-reference.md).

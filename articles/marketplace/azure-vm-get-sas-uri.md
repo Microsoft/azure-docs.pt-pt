@@ -6,17 +6,18 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: krsh
-ms.date: 1/5/2021
-ms.openlocfilehash: 560699296b8cae83413c36820106eedf7fef7414
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.date: 02/19/2021
+ms.openlocfilehash: 870482ca7894c5e260a78270fb036d6a6b22ee41
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97914166"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102630066"
 ---
 # <a name="how-to-generate-a-sas-uri-for-a-vm-image"></a>Como gerar um SAS URI para uma imagem VM
 
-Durante o processo de publicação, deve fornecer um URI SAS (Shared Access Signature) para cada VHD associado aos seus planos (anteriormente chamado SKUs). A Microsoft precisa de acesso a estes VHDs durante o processo de certificação. Você vai inserir este URI no **separador Planos** no Partner Center.
+> [!NOTE]
+> Não precisa de um SAS URI para publicar o seu VM. Pode simplesmente partilhar uma imagem no Parter Center. Consulte a [Criar uma máquina virtual utilizando uma base aprovada](https://docs.microsoft.com/azure/marketplace/azure-vm-create-using-approved-base) ou Criar uma máquina virtual utilizando as suas próprias instruções de [imagem.](https://docs.microsoft.com/azure/marketplace/azure-vm-create-using-own-image)
 
 Gerar URIs SAS para os seus VHDs tem estes requisitos:
 
@@ -24,6 +25,71 @@ Gerar URIs SAS para os seus VHDs tem estes requisitos:
 - São necessárias apenas permissões de Lista e Leitura. Não forneça acesso a Escrever ou Eliminar.
 - A duração do acesso (data de validade) deve ser mínima de três semanas a partir da criação do SAS URI.
 - Para proteger contra alterações de tempo UTC, desajei a data de início para um dia antes da data atual. Por exemplo, se a data atual for 16 de junho de 2020, selecione 6/15/2020.
+
+## <a name="extract-vhd-from-a-vm"></a>Extrato vhd de um VM
+
+> [!NOTE]
+> Pode saltar este passo se já tiver um vhd carregado numa Conta de Armazenamento.
+
+Para extrair o vhd do seu VM, precisa tirar uma foto do seu disco VM e extrair vhd da foto.
+
+Comece por tirar uma foto do disco VM:
+
+1. Inicie sessão no Portal do Azure.
+2. A partir da parte superior esquerda, selecione Criar um recurso e, em seguida, procurar e selecionar Snapshot.
+3. Na lâmina Snapshot, selecione Criar.
+4. Insira um nome para a foto.
+5. Selecione um grupo de recursos existente ou insira o nome para um novo.
+6. Para o disco 'Fonte', selecione o disco gerido para o instantâneo.
+7. Selecione o tipo de Conta a utilizar para armazenar o instantâneo. Utilize o HDD standard a menos que precise de ser armazenado num SSD de alto desempenho.
+8. Selecione Criar.
+
+### <a name="extract-the-vhd"></a>Extrair o VHD
+
+Use o seguinte script para exportar o instantâneo para um VHD na sua conta de armazenamento.
+
+```azurecli
+#Provide the subscription Id where the snapshot is created
+$subscriptionId=yourSubscriptionId
+
+#Provide the name of your resource group where the snapshot is created
+$resourceGroupName=myResourceGroupName
+
+#Provide the snapshot name
+$snapshotName=mySnapshot
+
+#Provide Shared Access Signature (SAS) expiry duration in seconds (such as 3600)
+#Know more about SAS here: https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-shared-access-signature-part-1
+$sasExpiryDuration=3600
+
+#Provide storage account name where you want to copy the underlying VHD file. 
+$storageAccountName=mystorageaccountname
+
+#Name of the storage container where the downloaded VHD will be stored.
+$storageContainerName=mystoragecontainername
+
+#Provide the key of the storage account where you want to copy the VHD 
+$storageAccountKey=mystorageaccountkey
+
+#Give a name to the destination VHD file to which the VHD will be copied.
+$destinationVHDFileName=myvhdfilename.vhd
+
+az account set --subscription $subscriptionId
+
+sas=$(az snapshot grant-access --resource-group $resourceGroupName --name $snapshotName --duration-in-seconds $sasExpiryDuration --query [accessSas] -o tsv)
+
+az storage blob copy start --destination-blob $destinationVHDFileName --destination-container $storageContainerName --account-name $storageAccountName --account-key $storageAccountKey --source-uri $sas
+```
+
+### <a name="script-explanation"></a>Explicação do script
+Este script utiliza comandos seguintes para gerar o SAS URI para uma snapshot e copia o VHD subjacente a uma conta de armazenamento usando o SAS URI. Cada comando na tabela liga à documentação específica do comando.
+
+
+|Comando  |Notas  |
+|---------|---------|
+| az disk grant-access    |     Gera o SAS só de leitura utilizado para copiar o ficheiro VHD subjacente para uma conta de armazenamento ou transferi-lo para o local    |
+|  az storage blob copy start   |    Copia uma bolha assíncronea de uma conta de armazenamento para outra. Utilize o show de bolhas de armazenamento az para verificar o estado da nova bolha.     |
+|
 
 ## <a name="generate-the-sas-address"></a>Gerar o endereço SAS
 

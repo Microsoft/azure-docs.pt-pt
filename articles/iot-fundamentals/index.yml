@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 09/04/2019
-  ms.openlocfilehash: 1dfbaea2086dd038a55bfb84b350d526ec49466b
-  ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+  ms.openlocfilehash: 5af26d889ae6cfa6943bfa09ff47cc19d5977b4c
+  ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/07/2021
-  ms.locfileid: "102425571"
+  ms.lasthandoff: 03/10/2021
+  ms.locfileid: "102615895"
 highlightedContent:
   items:
   - title: O que é o IoT do Azure?
@@ -132,6 +132,20 @@ conceptualContent:
       text: Guia para programadores
     footerLink:
       url: ../iot-pnp/index.yml
+      text: Ver mais
+  - title: Atualize os seus dispositivos IoT Hub
+    links:
+    - url: ../iot-hub-device-update/understand-device-update.md
+      itemType: overview
+      text: O que é a Atualização do Dispositivo?
+    - url: ../iot-hub-device-update/device-update-simulator.md
+      itemType: tutorial
+      text: Utilize a atualização do dispositivo num simulador
+    - url: ../iot-hub-device-update/device-update-ubuntu-agent.md
+      itemType: tutorial
+      text: Atualização de pacote no Ubuntu Server
+    footerLink:
+      url: ../iot-hub-device-update/index.yml
       text: Ver mais
   - title: Explorar e analisar dados do dispositivo
     links:

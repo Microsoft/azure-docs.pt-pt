@@ -3,14 +3,14 @@ title: Executar os runbooks da Azure Automation em um trabalhador de runbook hí
 description: Este artigo descreve como executar livros em máquinas no seu datacenter local ou outro fornecedor de nuvem com o Trabalhador de Runbook Híbrido.
 services: automation
 ms.subservice: process-automation
-ms.date: 01/29/2021
+ms.date: 03/10/2021
 ms.topic: conceptual
-ms.openlocfilehash: a6827f8629423b9ed3adc362d3d05fd740e25a65
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: 6d1f504458aed440464015a34479d75992fe5c45
+ms.sourcegitcommit: 6776f0a27e2000fb1acb34a8dddc67af01ac14ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100633313"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103149380"
 ---
 # <a name="run-runbooks-on-a-hybrid-runbook-worker"></a>Executar runbooks numa Função de Trabalho de Runbook Híbrida
 
@@ -56,10 +56,10 @@ Os trabalhadores híbridos runbook em máquinas virtuais Azure podem usar identi
 Siga os próximos passos para utilizar uma identidade gerida para os recursos da Azure num Trabalhador De Runbook Híbrido:
 
 1. Criar um Azure VM.
-2. Configure identidades geridas para os recursos da Azure no VM. Consulte [as identidades geridas para os recursos da Azure num VM utilizando o portal Azure](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#enable-system-assigned-managed-identity-on-an-existing-vm).
-3. Dê ao VM acesso a um grupo de recursos no Gestor de Recursos. Consulte a [Utilização de uma identidade gerida pelo sistema Windows VM para aceder ao Gestor de Recursos](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#grant-your-vm-access-to-a-resource-group-in-resource-manager).
-4. Instale o Trabalhador de Runbook Híbrido no VM. Consulte [implementar um trabalhador de runbook híbrido do Windows](automation-windows-hrw-install.md) ou implementar um trabalhador de [runbook híbrido Linux](automation-linux-hrw-install.md).
-5. Atualize o livro de execução para utilizar o [cmdlet Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) com o `Identity` parâmetro para autenticar os recursos do Azure. Esta configuração reduz a necessidade de utilizar uma conta Run As e executar a gestão de conta associada.
+1. Configure identidades geridas para os recursos da Azure no VM. Consulte [as identidades geridas para os recursos da Azure num VM utilizando o portal Azure](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#enable-system-assigned-managed-identity-on-an-existing-vm).
+1. Dê ao VM acesso a um grupo de recursos no Gestor de Recursos. Consulte a [Utilização de uma identidade gerida pelo sistema Windows VM para aceder ao Gestor de Recursos](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#grant-your-vm-access-to-a-resource-group-in-resource-manager).
+1. Instale o Trabalhador de Runbook Híbrido no VM. Consulte [implementar um trabalhador de runbook híbrido do Windows](automation-windows-hrw-install.md) ou implementar um trabalhador de [runbook híbrido Linux](automation-linux-hrw-install.md).
+1. Atualize o livro de execução para utilizar o [cmdlet Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) com o `Identity` parâmetro para autenticar os recursos do Azure. Esta configuração reduz a necessidade de utilizar uma conta Run As e executar a gestão de conta associada.
 
     ```powershell
     # Connect to Azure using the managed identities for Azure resources identity configured on the Azure VM that is hosting the hybrid runbook worker
@@ -76,20 +76,24 @@ Siga os próximos passos para utilizar uma identidade gerida para os recursos da
 
 Em vez de ter o seu runbook fornecer a sua própria autenticação aos recursos locais, pode especificar uma conta Run As para um grupo híbrido de runbook worker. Para especificar uma conta Run As, tem de definir um [ativo credencial](./shared-resources/credentials.md) que tenha acesso aos recursos locais. Estes recursos incluem lojas de certificados e todos os runbooks executados sob estas credenciais em um Trabalhador De Runbook Híbrido no grupo.
 
-O nome de utilizador da credencial deve estar num dos seguintes formatos:
+- O nome de utilizador da credencial deve estar num dos seguintes formatos:
 
-* domínio\username
-* username@domain
-* nome de utilizador (para contas locais para o computador no local)
+   * domínio\username
+   * username@domain
+   * nome de utilizador (para contas locais para o computador no local)
+
+- Para utilizar o runbook PowerShell **Export-RunAsCertificateToHybridWorker,** é necessário instalar os módulos Az para Automatização Azure na máquina local.
+
+#### <a name="use-a-credential-asset-to-specify-a-run-as-account"></a>Utilize um ativo credencial para especificar uma conta Run As
 
 Utilize o seguinte procedimento para especificar uma conta Run As para um grupo híbrido de trabalhador runbook:
 
 1. Criar um [ativo credencial](./shared-resources/credentials.md) com acesso a recursos locais.
-2. Abra a conta Automation no portal Azure.
-3. Selecione **Grupos operários híbridos** e, em seguida, selecione o grupo específico.
-4. Selecione **Todas as definições**, seguidas de **configurações do grupo de trabalhadores híbridos**.
-5. Alterar o valor de **Run As** from **Predefinição** para **Personalizado**.
-6. Selecione a credencial e clique em **Guardar**.
+1. Abra a conta Automation no portal Azure.
+1. Selecione **Grupos operários híbridos** e, em seguida, selecione o grupo específico.
+1. Selecione **Todas as definições**, seguidas de **configurações do grupo de trabalhadores híbridos**.
+1. Alterar o valor de **Run As** from **Predefinição** para **Personalizado**.
+1. Selecione a credencial e clique em **Guardar**.
 
 ## <a name="install-run-as-account-certificate"></a><a name="runas-script"></a>Instalar Executar Como certificado de conta
 
@@ -178,11 +182,11 @@ Get-AzAutomationAccount | Select-Object AutomationAccountName
 Para terminar a preparação da conta Run As:
 
 1. Guarde o livro **de bordo DoRas-RunAsCertificateToHybridWorker** para o seu computador com uma extensão **.ps1.**
-2. Importe-o na sua conta de Automação.
-3. Edite o runbook, alterando o valor da `Password` variável para a sua própria senha.
-4. Publique o livro de corridas.
-5. Executa o runbook, direcionando o grupo híbrido Runbook Worker que executa e autentica os runbooks usando a conta Run As. 
-6. Examine o fluxo de trabalho para verificar se relata a tentativa de importação do certificado para a loja de máquinas local, seguida de várias linhas. Este comportamento depende de quantas contas de Automação define na sua subscrição e do grau de sucesso da autenticação.
+1. Importe-o na sua conta de Automação.
+1. Edite o runbook, alterando o valor da `Password` variável para a sua própria senha.
+1. Publique o livro de corridas.
+1. Executa o runbook, direcionando o grupo híbrido Runbook Worker que executa e autentica os runbooks usando a conta Run As. 
+1. Examine o fluxo de trabalho para verificar se relata a tentativa de importação do certificado para a loja de máquinas local, seguida de várias linhas. Este comportamento depende de quantas contas de Automação define na sua subscrição e do grau de sucesso da autenticação.
 
 ## <a name="work-with-signed-runbooks-on-a-windows-hybrid-runbook-worker"></a>Trabalhe com livros assinados em um trabalhador de runbook híbrido do Windows
 
@@ -267,13 +271,13 @@ Para criar o porta-chaves GPG e o keypair, utilize a conta de [nxautomation](aut
     sudo su – nxautomation
     ```
 
-2. Uma vez que esteja a utilizar **a nxautomação,** gere o keypair GPG. A GPG guia-o através dos degraus. Deve fornecer nome, endereço de e-mail, tempo de validade e frase de passe. Depois espera-se até que haja entropia suficiente na máquina para que a chave seja gerada.
+1. Uma vez que esteja a utilizar **a nxautomação,** gere o keypair GPG. A GPG guia-o através dos degraus. Deve fornecer nome, endereço de e-mail, tempo de validade e frase de passe. Depois espera-se até que haja entropia suficiente na máquina para que a chave seja gerada.
 
     ```bash
     sudo gpg --generate-key
     ```
 
-3. Como o diretório GPG foi gerado com sudo, você deve mudar o seu proprietário para **nxautomation** usando o seguinte comando.
+1. Como o diretório GPG foi gerado com sudo, você deve mudar o seu proprietário para **nxautomation** usando o seguinte comando.
 
     ```bash
     sudo chown -R nxautomation ~/.gnupg

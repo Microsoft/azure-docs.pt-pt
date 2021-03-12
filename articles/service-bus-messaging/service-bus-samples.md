@@ -5,12 +5,12 @@ author: spelluru
 ms.topic: article
 ms.date: 10/14/2020
 ms.author: spelluru
-ms.openlocfilehash: f8729d0a947ebf2fd918a478fb3354e6d84fe1e3
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: 177c0eff7d0e7df254df4cc6c77c0a0cf674147d
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95803090"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103201549"
 ---
 # <a name="service-bus-messaging-samples"></a>Amostras de mensagens de ônibus de serviço
 As amostras de mensagens Service Bus demonstram características-chave nas [mensagens service bus](https://azure.microsoft.com/services/service-bus/). Atualmente, pode encontrar as amostras nos seguintes locais:
@@ -33,10 +33,15 @@ As amostras de mensagens Service Bus demonstram características-chave nas [mens
 | -------------------- | ----------------------- |
 | azure.servicebus | https://docs.microsoft.com/samples/azure/azure-sdk-for-python/servicebus-samples/ |
 
+## <a name="typescript-samples"></a>Amostras de TypeScript
+| Pacote | Localização das amostras | 
+| ------- | ---------------- | 
+| @azure/service-bus | https://docs.microsoft.com/samples/azure/azure-sdk-for-js/service-bus-typescript/ | 
+
 ## <a name="javascript-samples"></a>Exemplos de JavaScript
 | Pacote | Localização das amostras | 
 | ------- | ---------------- | 
-| azure/service-bus | https://docs.microsoft.com/samples/azure/azure-sdk-for-js/service-bus-javascript/ | 
+| @azure/service-bus | https://docs.microsoft.com/samples/azure/azure-sdk-for-js/service-bus-javascript/ | 
 
 ## <a name="go-samples"></a>Amostras de go
 | Pacote | Localização das amostras | 

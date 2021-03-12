@@ -1,9 +1,9 @@
 ---
-title: Stream ao vivo com codificadores no local que criam riachos multi-bitrate - Azure Microsoft Docs
+title: Stream ao vivo com codificadores no local que criam riachos multi-bitrate - Azure | Microsoft Docs
 description: Este tópico descreve como configurar um canal que recebe um stream multi-bitrate ao vivo a partir de um codificador no local.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: d9f0912d-39ec-4c9c-817b-e5d9fcf1f7ea
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
-ms.openlocfilehash: 746fe9132dcb06678e2a0a975c8eed0aba6c3fad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 03/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: 316372f091833519f0479d07355d2845c82743b6
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89269629"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103014847"
 ---
 # <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders"></a>Trabalhar com canais que recebem transmissão ao vivo multi-bitrate a partir de codificadores no local
 
@@ -28,7 +28,7 @@ ms.locfileid: "89269629"
 > [!NOTE]
 > A partir de 12 de maio de 2018, os canais ao vivo deixarão de suportar o protocolo de transmissão rtp/MPEG-2. Por favor, migrar de PROTOCOLOs de ingestão RTP/MPEG-2 para RTMP ou MP4 (Smooth Streaming).
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Na Azure Media Services, um *canal* representa um oleoduto para o processamento de conteúdos de streaming em direto. Um canal recebe transmissões de entrada ao vivo de uma de duas maneiras:
 
 * Um codificador ao vivo no local envia um stream rtmp multi-bitrate ou smooth streaming (MP4 fragmentado) para o canal que não está habilitado a realizar codificação ao vivo com serviços de media. Os fluxos ingeridos passam por canais sem qualquer processamento adicional. Este método *chama-se passagem.* Um codificador ao vivo também pode enviar um fluxo de bitrate único para um canal que não está habilitado para codificação ao vivo, mas não recomendamos isso. A Media Services entrega o fluxo aos clientes que o solicitam.
@@ -179,7 +179,7 @@ Mesmo depois de parar e apagar o programa, os utilizadores podem transmitir o co
 Os valores possíveis para o estado atual de um canal incluem:
 
 * **Parado**: Este é o estado inicial do canal após a sua criação. Neste estado, as propriedades do canal podem ser atualizadas, mas o streaming não é permitido.
-* **A partir de**início: O canal está a ser iniciado. Não são permitidas atualizações ou streamings durante este estado. Se ocorrer um erro, o canal volta ao estado **Stop.**
+* **A partir de** início: O canal está a ser iniciado. Não são permitidas atualizações ou streamings durante este estado. Se ocorrer um erro, o canal volta ao estado **Stop.**
 * **Funcionando**: O canal pode processar streams ao vivo.
 * **Paragem:** O canal está a ser parado. Não são permitidas atualizações ou streamings durante este estado.
 * **Eliminação:** O canal está a ser apagado. Não são permitidas atualizações ou streamings durante este estado.
@@ -189,9 +189,9 @@ A tabela seguinte mostra como os estados do canal mapeiam para o modo de fatura�
 | Estado do canal | Indicadores de UI do Portal | Cobrado? |
 | --- | --- | --- |
 | **A iniciar** |**A iniciar** |Não (estado transitório) |
-| **Em Execução** |**Pronto** (sem programas de execução)<p><p>ou<p>**Streaming** (pelo menos um programa em execução) |Sim |
+| **Em Execução** |**Pronto** (sem programas de execução)<p><p>ou<p>**Streaming** (pelo menos um programa em execução) |Yes |
 | **A parar** |**A parar** |Não (estado transitório) |
-| **Parada** |**Parada** |Não |
+| **Parada** |**Parada** |No |
 
 ## <a name="closed-captioning-and-ad-insertion"></a><a id="cc_and_ads"></a>Legenda fechada e inserção de anúncios
 A tabela a seguir demonstra normas suportadas para legendas fechadas e inserção de anúncios.

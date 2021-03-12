@@ -8,12 +8,12 @@ ms.author: mikben
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 30b075cfbd7d38ff81cdf79a05a3a95b87b0bc13
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: c84bea660b5d4408e399c471d6dd08d849f5e842
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102488550"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102635863"
 ---
 # <a name="what-is-azure-communication-services"></a>O que é o Azure Communication Services?
 
@@ -48,8 +48,8 @@ Os seguintes recursos são um ótimo lugar para começar se você é novo nos Se
 | Recurso                               |Descrição                           |
 |---                                    |---                                   |
 |**[Associe a sua aplicação de chamadas a uma reunião do Teams](./quickstarts/voice-video-calling/get-started-teams-interop.md)**|Os Serviços de Comunicação Azure podem ser usados para construir experiências de reunião personalizadas que interagem com as Equipas da Microsoft. Os utilizadores da sua solução de Serviços de Comunicação podem interagir com os participantes das Equipas em vez de voz, vídeo, chat e partilha de ecrãs.|
-|**[Criar um recurso do Communication Services](./quickstarts/create-communication-resource.md)**|Pode começar a utilizar os Serviços de Comunicação Azure utilizando o portal Azure ou a biblioteca de clientes da Administração de Serviços de Comunicação para forragem do seu primeiro recurso de Serviços de Comunicação. Assim que tiver a sua cadeia de ligação de recursos de serviços de comunicação, pode providenciar os seus primeiros tokens de acesso ao utilizador.|
-|**[Crie o seu primeiro token de acesso ao utilizador](./quickstarts/access-tokens.md)**|Os tokens de acesso ao utilizador são utilizados para autenticar os seus serviços contra o seu recurso Azure Communication Services. Estes tokens são a provisionados e reemitidos utilizando a biblioteca de clientes da Administração de Serviços de Comunicação.|
+|**[Criar um recurso do Communication Services](./quickstarts/create-communication-resource.md)**|Pode começar a utilizar os Serviços de Comunicação Azure utilizando o portal Azure ou a biblioteca de clientes dos Serviços de Comunicação para forrê-lo através do seu primeiro recurso de Serviços de Comunicação. Assim que tiver a sua cadeia de ligação de recursos de serviços de comunicação, pode providenciar os seus primeiros tokens de acesso ao utilizador.|
+|**[Crie o seu primeiro token de acesso ao utilizador](./quickstarts/access-tokens.md)**|Os tokens de acesso ao utilizador são utilizados para autenticar os seus serviços contra o seu recurso Azure Communication Services. Estes tokens são a provisionados e reemitidos utilizando a biblioteca de clientes dos Serviços de Comunicação.|
 |**[Obtenha um número de telefone](./quickstarts/telephony-sms/get-phone-number.md)**|Pode utilizar os Serviços de Comunicação Azure para providenciar e libertar números de telefone. Estes números de telefone podem ser usados para iniciar chamadas de saída e construir soluções de comunicações SMS.|
 |**[Envie um SMS da sua aplicação](./quickstarts/telephony-sms/send.md)**|A biblioteca de clientes Azure Communication Services permite-lhe enviar e receber mensagens SMS das suas aplicações .NET e JavaScript.|
 |**[Começar com voz e vídeo chamando](./quickstarts/voice-video-calling/getting-started-with-calling.md)**| Os Serviços de Comunicação Azure permitem-lhe adicionar chamadas de voz e vídeo às suas aplicações utilizando a biblioteca do cliente Call. Esta biblioteca é alimentada pela WebRTC e permite-lhe estabelecer comunicações peer-to-peer, multimédia, em tempo real dentro das suas aplicações.|
@@ -61,7 +61,7 @@ Os seguintes recursos são um ótimo lugar para começar se você é novo nos Se
 As seguintes amostras demonstram a utilização de ponta a ponta das bibliotecas dos serviços de comunicação Azure. Sinta-se à vontade para usar estas amostras para arrancar as suas próprias soluções de Serviços de Comunicação.
 <br>
 
-| Nome da amostra                               | Descrição                           |
+| Nome da amostra                               | Description                           |
 |---                                    |---                                   |
 |**[O Grupo Chamando a Amostra de Herói](./samples/calling-hero-sample.md)**|Veja como as bibliotecas de clientes dos Serviços de Comunicação podem ser usadas para construir uma experiência de chamada em grupo.|
 |**[A amostra de herói de chat do grupo](./samples/chat-hero-sample.md)**|Veja como as bibliotecas de clientes dos Serviços de Comunicação podem ser usadas para construir uma experiência de chat em grupo.|

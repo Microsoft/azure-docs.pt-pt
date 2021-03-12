@@ -3,12 +3,12 @@ title: Cópia de segurança e restauro periódicos no Azure Service Fabric
 description: Utilize a funcionalidade de backup e restauro periódicos do Service Fabric para permitir a cópia de segurança periódica dos dados da sua aplicação.
 ms.topic: conceptual
 ms.date: 5/24/2019
-ms.openlocfilehash: 2d167b261f9b5915a970b4c219113f0765c039cb
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 42097b50277e78b3f0e8f5e61a2bf70cc08dbc02
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98927992"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103198717"
 ---
 # <a name="periodic-backup-and-restore-in-an-azure-service-fabric-cluster"></a>Backup periódico e restauro em um cluster de tecido de serviço Azure
 > [!div class="op_single_selector"]
@@ -215,6 +215,7 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 ``` 
 
 #### <a name="using-service-fabric-explorer"></a>Usando o Explorador de Tecido de Serviço
+Certifique-se de que o [modo avançado](service-fabric-visualizing-your-cluster.md#backup-and-restore) para o Service Fabric Explorer está ativado 
 
 1. Selecione uma aplicação e vá à ação. Clique em Ativar/Atualizar Backup da aplicação.
 
@@ -305,7 +306,7 @@ Para visualizar cópias de segurança no Service Fabric Explorer, navegue para u
 - Os cmdlets PowerShell do tecido de serviço estão em modo de pré-visualização.
 - Sem suporte para clusters de tecido de serviço em Linux.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - [Compreender a configuração da cópia de segurança periódica](./service-fabric-backuprestoreservice-configure-periodic-backup.md)
 - [Backup restaurar referência API REST](/rest/api/servicefabric/sfclient-index-backuprestore)
 

@@ -8,20 +8,20 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 10/16/2020
+ms.date: 03/10/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d4a68b492bad4ac091b4600c9ec81ac0de27cc05
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 435a0b85d205328d10f8762498c7a981d7ee45f5
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100572905"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102611832"
 ---
 # <a name="collect-azure-active-directory-b2c-logs-with-application-insights"></a>Recolher registos B2C do Diretório Ativo Azure com Insights de Aplicação
 
-Este artigo fornece passos para a recolha de registos do Ative Directory B2C (Azure AD B2C) para que possa diagnosticar problemas com as suas políticas personalizadas. O Application Insights fornece uma forma de diagnosticar exceções e visualizar problemas de desempenho da aplicação. O Azure AD B2C inclui uma funcionalidade para o envio de dados para o Application Insights.
+Este artigo fornece passos para a recolha de registos do Ative Directory B2C (Azure AD B2C) para que possa diagnosticar problemas com as suas políticas personalizadas. O Application Insights disponibiliza uma forma de diagnosticar exceções e ver problemas de desempenho da aplicação. O AAD B2C inclui uma funcionalidade para enviar dados para o Application Insights.
 
 Os registos de atividades detalhados aqui descritos devem ser ativados **apenas** durante o desenvolvimento das suas políticas personalizadas.
 
@@ -51,7 +51,7 @@ Se ainda não tiver um, crie uma instância de Application Insights na sua subsc
    UserJourneyRecorderEndpoint="urn:journeyrecorder:applicationinsights"
    ```
 
-1. Se já não existir, adicione um `<UserJourneyBehaviors>` nó de criança ao `<RelyingParty>` nó. Deve ser colocado imediatamente após `<DefaultUserJourney ReferenceId="UserJourney Id" from your extensions policy, or equivalent (for example:SignUpOrSigninWithAAD" />` .
+1. Se já não existir, adicione um `<UserJourneyBehaviors>` nó de criança ao `<RelyingParty>` nó. Deve ser colocado `<DefaultUserJourney ReferenceId="UserJourney Id" from your extensions policy, or equivalent (for example:SignUpOrSigninWithAAD" />` depois.
 1. Adicione o nó seguinte como uma criança do `<UserJourneyBehaviors>` elemento. Certifique-se de que substitui a Chave de `{Your Application Insights Key}` Instrumentação de **Insights de Aplicação** que gravou anteriormente.
 
     ```xml
@@ -130,7 +130,7 @@ Para melhorar o desempenho do seu ambiente de produção e uma melhor experiênc
 
 ## <a name="next-steps"></a>Passos seguintes
 
-A comunidade desenvolveu um espectador de viagem de utilizador para ajudar os desenvolvedores de identidade. Lê a partir da sua instância Application Insights e fornece uma visão bem estruturada dos eventos de viagem do utilizador. Obtém o código fonte e implanta-o na sua própria solução.
+A comunidade desenvolveu um visualizador do percurso do utilizador para ajudar os programadores de identidade. O visualizador lê a partir da instância do Application Insights e disponibiliza uma vista bem estruturada dos eventos do percurso do utilizador. Deve obter o código fonte e implementá-lo na sua própria solução.
 
 O jogador de viagem de utilizador não é suportado pela Microsoft e é disponibilizado estritamente como está.
 

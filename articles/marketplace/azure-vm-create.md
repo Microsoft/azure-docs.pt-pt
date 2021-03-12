@@ -7,12 +7,12 @@ ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 10/20/2020
-ms.openlocfilehash: 2ef80d26336ddbe3c015dfcde0c5ed29b762f39b
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 5c01b1965c38811e78909f27ca4ab65614bc7f0e
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629721"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102629981"
 ---
 # <a name="how-to-create-a-virtual-machine-offer-on-azure-marketplace"></a>Como criar uma oferta de máquina virtual no Azure Marketplace
 
@@ -71,7 +71,7 @@ Quando publicar uma oferta ao mercado comercial com o Partner Center, conecte-a 
    - [Configure a sua oferta de envio leva à Salesforce](./partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce.md#configure-your-offer-to-send-leads-to-salesforce)
 
 1. Para validar a configuração fornecida, selecione o link **Validate.**
-1. Selecione **Connect** (Ligar).
+1. Selecione **Ligar**.
 
 **Selecione Guardar** o rascunho antes de continuar para o separador seguinte no menu de navegação à esquerda, **Propriedades**.
 

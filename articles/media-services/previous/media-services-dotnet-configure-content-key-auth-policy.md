@@ -1,9 +1,9 @@
 ---
-title: Configure uma política de autorização de chave de conteúdo utilizando os Serviços de Comunicação Social .NET SDK ; Microsoft Docs
+title: Configure uma política de autorização de chave de conteúdo utilizando os Serviços de Comunicação Social .NET SDK | Microsoft Docs
 description: Saiba como configurar uma política de autorização para uma chave de conteúdo utilizando os Serviços de Comunicação Social .NET SDK.
 services: media-services
 documentationcenter: ''
-author: mingfeiy
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: 1a0aedda-5b87-4436-8193-09fc2f14310c
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: bdaa823a14d99a16aa0f2e71483086d883b0515f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 63cc20a9d7f6878961519aa28ae6478d9145852d
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89263778"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103014218"
 ---
 # <a name="configure-a-content-key-authorization-policy-by-using-the-media-services-net-sdk"></a>Configure uma política de autorização chave de conteúdo utilizando os Serviços de Comunicação Social .NET SDK
 
@@ -28,7 +28,7 @@ ms.locfileid: "89263778"
 
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../../includes/media-services-selector-content-key-auth-policy.md)]
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
  Pode utilizar os serviços de mídia Azure para fornecer streams MPEG-DASH, Smooth Streaming e HTTP Live Streaming (HLS) protegidos com a Norma Avançada de Encriptação (AES) utilizando chaves de encriptação de 128 bits ou [gestão de direitos digitais PlayReady (DRM)](https://www.microsoft.com/playready/overview/). Com os Media Services, também pode fornecer streams DASH encriptados com DrM Widevine. Tanto o PlayReady, como o Widevine, são encriptados de acordo com a especificação de encriptação comum (ISO/IEC 23001 7 CENC).
 
 Os Serviços de Comunicação Social também fornecem um serviço de entrega chave/licença a partir do qual os clientes podem obter chaves AES ou licenças PlayReady/Widevine para reproduzir o conteúdo encriptado.
@@ -41,7 +41,7 @@ Os Media Services suportam várias formas de autenticar utilizadores que efetuam
 
 Os Serviços de Comunicação Social não fornecem STS. Pode criar um STS personalizado ou utilizar o Serviço de Controlo de Acesso Azure para emitir fichas. O STS deve ser configurado para criar um símbolo assinado com a chave especificada e emitir alegações que especificou na configuração de restrição simbólica (conforme descrito neste artigo). Se o token for válido e as reclamações no token corresponderem às configuradas para a chave de conteúdo, o serviço de entrega de chaves dos Serviços de Media devolve a chave de encriptação ao cliente.
 
-Para obter mais informações, veja os artigos seguintes:
+Para obter mais informações, veja os seguintes artigos:
 
 - [Autenticação simbólica JWT](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)
 - [Integre a app baseada em Azure Media Services OWIN MVC com o Azure Ative Directory e restringir a entrega de chaves de conteúdo com base em alegações de JWT](http://www.gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/)

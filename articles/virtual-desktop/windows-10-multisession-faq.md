@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 24d27859aad7642392a5702ab7ddbb727b538d51
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: d76fd3b30d823efbf85e84a74a21c694f5a0e6fb
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95025015"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102565568"
 ---
 # <a name="windows-10-enterprise-multi-session-faq"></a>FAQ de multissessões do Windows 10 Enterprise
 
@@ -81,7 +81,7 @@ A maioria dos ambientes virtualizados são configurados por padrão para impedir
 
 - [Publicar aplicativos incorporados no Windows Virtual Desktop](publish-apps.md)
 - [Opções de linha de comando de pacote de aplicativos DISM](/windows-hardware/manufacture/desktop/dism-app-package--appx-or-appxbundle--servicing-command-line-options)
-- [Pacote de pacotes adicionais](/powershell/module/dism/add-appxprovisionedpackage?view=win10-ps)
+- [Pacote de pacotes adicionais](/powershell/module/dism/add-appxprovisionedpackage)
 
 ## <a name="how-do-i-make-sure-users-dont-download-and-install-apps-from-the-microsoft-store"></a>Como posso garantir que os utilizadores não descarreguem e instalem aplicações a partir da Microsoft Store?
 
@@ -90,13 +90,13 @@ Pode desativar a aplicação da Microsoft Store para garantir que os utilizadore
 Para desativar a aplicação Store:
 
 1. Criar uma nova Política de Grupo.
-2. Selecione **Computer Configuration**  >  **modelos administrativos de** configuração do computador  >  **Componentes do Windows**.
+2. Selecione   >  **modelos administrativos de** configuração do computador  >  **Componentes do Windows**.
 3. Selecione **Loja**.
 4. Selecione **a aplicação da loja**.
 5. Selecione **Desativado** e, em seguida, selecione **OK**.
 6. Selecione **Aplicar**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre o Windows Virtual Desktop e o Windows 10 Enterprise multi-sessão:
 

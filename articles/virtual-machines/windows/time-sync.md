@@ -2,17 +2,18 @@
 title: Sincronização de tempo para VMs do Windows em Azure
 description: Sincronização temporal para máquinas virtuais do Windows.
 author: cynthn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.collection: windows
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 830bdd45be4b0365ac45bc3ea366b99a34882a4c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 85abc77757d31f3b1054a0670ea3f65a4fcb2e52
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96010627"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102555963"
 ---
 # <a name="time-sync-for-windows-vms-in-azure"></a>Sincronização de tempo para VMs do Windows em Azure
 
@@ -26,7 +27,7 @@ O Azure é agora apoiado por infraestruturas que executam o Windows Server 2016.
 >
 > Para obter mais informações, consulte [a hora exata para o Windows Server 2016](/windows-server/networking/windows-time-service/accurate-time). 
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 A precisão para um relógio de computador é avaliada sobre a proximidade do relógio do computador ao padrão de tempo universal coordenado (UTC). A UTC é definida por uma amostra multinacional de relógios atómicos precisos que só podem ser desligados por um segundo em 300 anos. Mas, ler a UTC requer hardware especializado. Em vez disso, os servidores de tempo são sincronizados com utc e são acedidos a partir de outros computadores para fornecer escalabilidade e robustez. Todos os computadores têm o serviço de sincronização de tempo em execução que sabe a que horas os servidores devem utilizar e verifica periodicamente se o relógio do computador precisa de ser corrigido e ajusta o tempo se necessário. 
 
@@ -160,7 +161,7 @@ reg add HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\w32time\Config /v U
 w32tm /config /update
 ```
 
-Para que a w32time possa utilizar os novos intervalos de votação, os NtpServers precisam de ser marcados como usando-os. Se os servidores forem anotados com máscara bitflag 0x1, isso iria anular este mecanismo e w32time usaria SpecialPollInterval em vez disso. Certifique-se de que os servidores NTP especificados estão a usar a bandeira 0x8 ou nenhuma bandeira:
+Para que a w32time possa utilizar os novos intervalos de votação, os NtpServers precisam de ser marcados como usando-os. Se os servidores forem anotados com 0x1 máscara bitflag, isso iria anular este mecanismo e w32time usaria SpecialPollInterval em vez disso. Certifique-se de que os servidores NTP especificados estão a usar 0x8 bandeira ou nenhum sinal:
 
 Verifique quais as bandeiras que estão a ser usadas para os servidores NTP usados.
 

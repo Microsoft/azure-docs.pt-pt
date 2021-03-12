@@ -1,5 +1,5 @@
 ---
-title: Redact enfrenta a Azure Media Analytics Microsoft Docs
+title: Redact enfrenta Azure Media Analytics | Microsoft Docs
 description: O Azure Media Redator é um processador de media Azure Media Analytics que oferece uma redação facial escalável na nuvem. Este artigo demonstra como redigir rostos com analítica dos media Azure.
 services: media-services
 documentationcenter: ''
@@ -11,21 +11,21 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/17/2020
+ms.date: 03/10/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2029ec2d0b0f27d7078f381880cf7ca177d24ca0
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 7d416810f6a39fb36bfa3c5225301fe87fdd128c
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98020209"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103013470"
 ---
 # <a name="redact-faces-with-azure-media-analytics"></a>Redact enfrenta a Azure Media Analytics
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 **O Azure Media Redator** é um processador de media [Azure Media Analytics](./legacy-components.md) (MP) que oferece uma redação facial escalável na nuvem. A redação facial permite-lhe modificar o seu vídeo de modo a desfocar rostos de indivíduos selecionados. Pode querer utilizar o serviço de redação facial em cenários de segurança pública e media de notícias. Alguns minutos de imagens que contêm múltiplas faces podem demorar horas a redigir manualmente, mas com este serviço o processo de redação facial requer apenas alguns passos simples.
 
@@ -376,7 +376,7 @@ namespace FaceRedaction
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 

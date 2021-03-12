@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 01/28/2021
 ms.author: glenga
-ms.openlocfilehash: 1a0521f76a2cf986f7036d1f701a40a156d16ee7
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 5bc1d2ddb5b9ddb185a8349fb42d5f5db79c1498
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99493487"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103201354"
 ---
 ## <a name="run-the-function-locally"></a>Executar a função localmente
 
@@ -24,8 +24,10 @@ O Código do Estúdio Visual integra-se com [as ferramentas core do Azure Functi
 1. Com as Ferramentas Core em funcionamento, vá para a área **Azure: Funções.** Em **Funções**, expandir funções **de projeto**  >  **locais.** Clique à direita (Windows) ou <kbd>Ctrl -</kbd> clique (macOS) na `HttpExample` função e escolha **Executar Função Agora...**.
 
     :::image type="content" source="media/functions-run-function-test-local-vs-code/execute-function-now.png" alt-text="Execute a função agora a partir do Código do Estúdio Visual":::
+    
+1. In **Enter request body** você vê o valor do corpo da mensagem de pedido de `{ "name": "Azure" }` . Prima Insira para enviar esta mensagem de pedido para a sua função. 
 
-1. In **Enter request body** você vê o valor do corpo da mensagem de pedido de `{ "name": "Azure" }` . Prima Insira para enviar esta mensagem de pedido para a sua função.  
+   Em vez disso, poderia ter enviado um pedido HTTP GET para o <http://localhost:7071/api/HttpExample> endereço num browser.
 
 1. Quando a função executa localmente e devolve uma resposta, uma notificação é levantada no Código do Estúdio Visual. As informações sobre a execução da função são mostradas no painel **terminal.**
 
