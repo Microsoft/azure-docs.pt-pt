@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: allensu
 ms.custom: references_regions
-ms.openlocfilehash: 1d435c3b15433b7fec00d5dfa80970c04323e635
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.openlocfilehash: 8e14b22895c4734f1efd8688a5b20c946422a080
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/12/2021
-ms.locfileid: "103199372"
+ms.locfileid: "103225630"
 ---
 # <a name="cross-region-load-balancer-preview"></a>Balanceador de carga transversal (Pré-visualização)
 
@@ -94,7 +94,7 @@ O pool de backend do balanceador de carga transversal contém um ou mais equilib
 
 Adicione as suas implementações existentes do balanceador de carga a um equilibrador de carga entre regiões para uma implantação transnacentes altamente disponível.
 
-**A região natal** é onde o equilibrador de carga transversal é implantado. Esta região não afeta a forma como o tráfego será encaminhado. Se uma região natal diminuir, o fluxo de tráfego não é afetado.
+**A região natal** é onde o equilibrador de carga transversal ou o endereço IP público do nível global é implantado. Esta região não afeta a forma como o tráfego será encaminhado. Se uma região natal diminuir, o fluxo de tráfego não é afetado.
 
 ### <a name="home-regions"></a>Regiões de origem
 * E.U.A. Leste 2
@@ -106,7 +106,7 @@ Adicione as suas implementações existentes do balanceador de carga a um equili
 * Ásia Leste
 
 > [!NOTE]
-> Só pode implantar o seu equilibrador de carga transversal numa das 7 regiões acima.
+> Só pode implantar o seu equilibrador de carga transversal ou IP público em nível Global numa das 7 regiões acima.
 
 Uma **região participante** é onde está disponível o IP público global do equilibrador de carga. 
 

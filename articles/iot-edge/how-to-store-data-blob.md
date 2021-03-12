@@ -8,14 +8,16 @@ ms.date: 12/13/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 6cefb60d794defcce54766b9c7f71e7fbf40fe5c
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 5954c3083afc73fb25c796086f8fb8809af03ec1
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99539438"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200673"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge"></a>Armazenar dados na periferia com o Armazenamento de Blobs do Azure no IoT Edge
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 O Azure Blob Storage on IoT Edge fornece uma [solução de](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs) armazenamento de bolhas de bloco e [apêndice](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs) na borda. Um módulo de armazenamento de bolhas no seu dispositivo IoT Edge comporta-se como um serviço de bolhas Azure, exceto que as bolhas são armazenadas localmente no seu dispositivo IoT Edge. Pode aceder às suas bolhas utilizando os mesmos métodos SDK de armazenamento Azure ou chamadas API blob a que já está habituado. Este artigo explica os conceitos relacionados com o Azure Blob Storage no recipiente IoT Edge que executa um serviço de bolhas no seu dispositivo IoT Edge.
 
@@ -291,7 +293,7 @@ Sem apoio:
 
 Este módulo Azure Blob Storage on IoT Edge proporciona agora integração com a Grade de Eventos em IoT Edge. Para obter informações detalhadas sobre esta integração, consulte o [tutorial para implementar os módulos, publicar eventos e verificar a entrega do evento.](../event-grid/edge/react-blob-storage-events-locally.md)
 
-## <a name="release-notes"></a>Notas de Versão
+## <a name="release-notes"></a>Release Notes (Notas de Lançamento)
 
 Aqui estão as [notas de lançamento no estivador hub](https://hub.docker.com/_/microsoft-azure-blob-storage) para este módulo. Poderá encontrar mais informações relacionadas com correções de erros e remediação nas notas de lançamento de uma versão específica.
 

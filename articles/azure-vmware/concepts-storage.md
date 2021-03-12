@@ -2,13 +2,13 @@
 title: Conceitos - Armazenamento
 description: Saiba mais sobre as principais capacidades de armazenamento em nuvens privadas Azure VMware Solution.
 ms.topic: conceptual
-ms.date: 02/02/2021
-ms.openlocfilehash: 522e4f651b36532ac0c144b3889b2b67c91dc77b
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.date: 03/11/2021
+ms.openlocfilehash: a4c34f8767b20de3ca0647e09c5dc9edad3d45fb
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99536955"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200547"
 ---
 #  <a name="azure-vmware-solution-storage-concepts"></a>Conceitos de armazenamento de solução Azure VMware
 
@@ -32,7 +32,7 @@ vSAN datastores usam encriptação de dados em repouso por padrão. A solução 
 
 ## <a name="scaling"></a>Dimensionamento
 
-A capacidade de armazenamento de clusters nativo é dimensionada adicionando hospedeiros a um cluster. Para os agrupamentos que utilizam hospedeiros HE, a capacidade bruta de cluster é aumentada em 15,4 TB com cada hospedeiro adicionado. Os clusters que são construídos com anfitriões GP têm a sua capacidade bruta aumentada em 7,7 TB com cada hospedeiro adicionado. Em ambos os tipos de aglomerados, os anfitriões demoram cerca de 10 minutos a serem adicionados a um cluster. Para obter instruções sobre aglomerados de escala, consulte o [tutorial de nuvem privada de escala.][tutorial-scale-private-cloud]
+A capacidade de armazenamento de clusters nativo é dimensionada adicionando hospedeiros a um cluster. Para os clusters que utilizam hospedeiros AVS36, a capacidade bruta de cluster é aumentada em 15,4 TB com cada hospedeiro adicionado. Os anfitriões demoram cerca de 10 minutos a ser adicionados a um aglomerado. Para obter instruções sobre aglomerados de escala, consulte o [tutorial de nuvem privada de escala.][tutorial-scale-private-cloud]
 
 ## <a name="azure-storage-integration"></a>Integração de armazenamento azul
 

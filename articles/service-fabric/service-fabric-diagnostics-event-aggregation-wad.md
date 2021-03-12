@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 04/03/2018
 ms.author: srrengar
-ms.openlocfilehash: 87fc8e30274f0a11b7ddfc5eeb184f1a45a5351d
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: eaf40bafb68820b56fc9bf00dd4c11fbb337406f
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100588379"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102613464"
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Agregação e recolha de eventos usando o Windows Azure Diagnostics
 > [!div class="op_single_selector"]
@@ -181,15 +181,15 @@ Depois de modificar o template.jsno ficheiro conforme descrito, reebine o modelo
 
 > [!TIP]
 > Se vai colocar contentores no seu cluster, ative o WAD a recolher estatísticas de estivadores adicionando-as à secção **WadCfg > DiagnosticMonitorConfiguration.**
->
->```json
->"DockerSources": {
->    "Stats": {
->        "enabled": true,
->        "sampleRate": "PT1M"
->    }
->},
->```
+
+```json
+"DockerSources": {
+    "Stats": {
+        "enabled": true,
+        "sampleRate": "PT1M"
+    }
+},
+```
 
 ### <a name="update-storage-quota"></a>Atualizar quota de armazenamento
 

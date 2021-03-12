@@ -1,5 +1,5 @@
 ---
-title: Desenvolver e depurar módulos para Azure IoT Edge Microsoft Docs
+title: Desenvolver e depurar módulos para a Azure IoT Edge | Microsoft Docs
 description: Use o Código do Estúdio Visual para desenvolver, construir e depurar um módulo para Azure IoT Edge usando C#, Python, Node.js, Java ou C
 services: iot-edge
 keywords: ''
@@ -9,14 +9,16 @@ ms.date: 08/07/2019
 ms.topic: conceptual
 ms.service: iot-edge
 ms.custom: devx-track-js
-ms.openlocfilehash: ebc12e6d64d015267497497bebc22c8586adf999
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: eae6f1ec8cb6917d0d51deca8c9e88725c9b01a7
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95995918"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200638"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>Use o Código do Estúdio Visual para desenvolver e depurar módulos para Azure IoT Edge
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Pode transformar a sua lógica de negócio em módulos para Azure IoT Edge. Este artigo mostra-lhe como usar o Código do Estúdio Visual como a principal ferramenta para desenvolver e depurar módulos.
 
@@ -123,7 +125,7 @@ Para adicionar módulos adicionais à sua solução, executar o comando **Azure 
 O código do módulo predefinido que acompanha a solução está localizado no seguinte local:
 
 - Função Azure (C#): **os módulos > *&lt; o nome do &gt; módulo o* nome  >  *&lt; &gt; do módulo*.cs**
-- C#: **módulos > *&lt; o &gt; nome do módulo* > Program.cs**
+- C#: **módulos > *&lt; o &gt; seu módulo >* Programa.cs**
 - Python: **módulos > *&lt; o nome &gt; do seu módulo* > main.py**
 - Node.js: **módulos > *&lt; o nome &gt; do módulo* > app.js**
 - Java: **os módulos > *&lt; o &gt; nome* do módulo > src > principal > java > com > edgemodulemodul > App.java**
@@ -160,7 +162,7 @@ Para configurar e iniciar o simulador, executar o comando **Azure IoT Edge: Inic
 
 1. Prepare o seu ambiente para depurar de acordo com os requisitos do seu idioma de desenvolvimento, desaponte um ponto de rutura no seu módulo e selecione a configuração de depuração para usar:
    - **C#**
-     - No terminal integrado do Código do Estúdio Visual, altere o diretório para a pasta * o *_&lt; nome &gt; do módulo_* _ e, em seguida, executar o seguinte comando para construir a aplicação .NET Core.
+     - No terminal integrado do Código do Estúdio Visual, altere o diretório para a pasta ***&lt; do nome &gt;*** do módulo e, em seguida, execute o seguinte comando para construir a aplicação .NET Core.
 
        ```cmd
        dotnet build
@@ -168,13 +170,13 @@ Para configurar e iniciar o simulador, executar o comando **Azure IoT Edge: Inic
 
      - Abra o ficheiro `Program.cs` e adicione um ponto de rutura.
 
-     - Navegue para a vista Visual Studio Code Debug selecionando _*Ver > Debug*** Selecione a configuração do depurg **_ &lt; o nome do módulo _ &gt; Debug Local (.NET Core)** a partir do dropdown.
+     - Navegue para a vista Visual Studio Code Debug selecionando **Ver > Debug**. Selecione a configuração de depurg **_&lt; o &gt; nome_ do módulo Local Debug (.NET Core)** a partir do dropdown.
 
         > [!NOTE]
         > Se o seu Núcleo .NET `TargetFramework` não for consistente com o seu percurso de `launch.json` programa, terá de atualizar manualmente o caminho do programa `launch.json` para combinar com o ficheiro `TargetFramework` .csproj para que o Código do Estúdio Visual possa lançar este programa com sucesso.
 
    - **Node.js**
-     - No terminal integrado do Código do Estúdio Visual, altere o diretório para a pasta * o *_&lt; nome &gt; do módulo_* _ e, em seguida, executar o seguinte comando para instalar pacotes de nó
+     - No terminal integrado do Código do Estúdio Visual, altere o diretório para a pasta ***&lt; do nome &gt;*** do módulo e, em seguida, execute o seguinte comando para instalar pacotes de nó
 
        ```cmd
        npm install
@@ -182,7 +184,7 @@ Para configurar e iniciar o simulador, executar o comando **Azure IoT Edge: Inic
 
      - Abra o ficheiro `app.js` e adicione um ponto de rutura.
 
-     - Navegue para a vista Visual Studio Code Debug selecionando _*Ver > Debug*** Selecione a configuração do depurg **_ &lt; o nome do módulo _ &gt; Debug Local (Node.js)** a partir do dropdown.
+     - Navegue para a vista Visual Studio Code Debug selecionando **Ver > Debug**. Selecione a configuração de depurg **_&lt; o nome &gt;_ do módulo Local Debug (Node.js)** a partir do dropdown.
    - **Java**
      - Abra o ficheiro `App.java` e adicione um ponto de rutura.
 
@@ -234,7 +236,7 @@ Na sua máquina de desenvolvimento, pode iniciar um simulador IoT Edge em vez de
 
    ![Variáveis de relógio](media/how-to-vs-code-develop-module/view-log.png)
 
-1. Navegue para a vista Visual Studio Code Debug e selecione o ficheiro de configuração de depurg para o seu módulo. O nome da opção de depurar deve ser semelhante ao **_&lt; nome &gt;_ do seu módulo Remote Debug**
+1. Navegue para a vista Visual Studio Code Debug e selecione o ficheiro de configuração de depurg para o seu módulo. O nome da opção de depurar deve ser semelhante ao ***&lt; nome &gt;* do seu módulo Remote Debug**
 
 1. Selecione **Iniciar Depuragem** ou prima **F5**. Selecione o processo a que se anexar.
 
@@ -322,13 +324,13 @@ Pode saltar esta secção se os seus módulos estiverem a funcionar na mesma má
 
   - Certifique-se de que o módulo da máquina a depurar está em funcionamento e pronto para os depurados fixarem e que a porta 9229 está acessível externamente. Pode verificar isto abrindo `http://<target-machine-IP>:9229/json` na máquina de depurar. Este URL deve mostrar informações sobre o módulo Node.js a ser depurado.
   
-  - Na sua máquina de desenvolvimento, abra o Código do Estúdio Visual e edite `launch.json` de modo a que o valor de endereço do **_&lt; &gt;_ perfil de Depurador Remoto (Node.js) (ou** **_&lt; o &gt; nome do módulo_ Remote Debug (Node.js no Windows Container)** se o módulo estiver a funcionar como um recipiente Windows) seja o IP da máquina que está a ser depurada.
+  - Na sua máquina de desenvolvimento, abra o Código do Estúdio Visual e edite `launch.json` de modo a que o valor de endereço do ***&lt; &gt;* perfil de Depurador Remoto (Node.js) (ou** **_&lt; o &gt; nome do módulo_ Remote Debug (Node.js no Windows Container)** se o módulo estiver a funcionar como um recipiente Windows) seja o IP da máquina que está a ser depurada.
 
 - **Java**
 
   - Construa um túnel SSH para a máquina a ser depurada em funcionamento `ssh -f <username>@<target-machine> -L 5005:127.0.0.1:5005 -N` .
   
-  - Na sua máquina de desenvolvimento, abra o Código do Estúdio Visual e edite o perfil de **_&lt; nome &gt;_ do módulo Remote Debug (Java)** `launch.json` para que possa ser ligado à máquina-alvo. Para saber mais sobre edição `launch.json` e depurar Java com Código de Estúdio Visual, consulte a secção sobre [a configuração do depurante](https://code.visualstudio.com/docs/java/java-debugging#_configuration).
+  - Na sua máquina de desenvolvimento, abra o Código do Estúdio Visual e edite o perfil de ***&lt; nome &gt;* do módulo Remote Debug (Java)** `launch.json` para que possa ser ligado à máquina-alvo. Para saber mais sobre edição `launch.json` e depurar Java com Código de Estúdio Visual, consulte a secção sobre [a configuração do depurante](https://code.visualstudio.com/docs/java/java-debugging#_configuration).
 
 - **Python**
 
@@ -336,11 +338,11 @@ Pode saltar esta secção se os seus módulos estiverem a funcionar na mesma má
 
   - No código `ptvsd.enable_attach(('0.0.0.0', 5678))` que inseriu `main.py` anteriormente, altere **0.0.0.0** para o endereço IP da máquina a depurar. Construa, empurre e volte a colocar o seu módulo IoT Edge.
 
-  - Na sua máquina de desenvolvimento, abra o Código do Estúdio Visual e, em seguida, edite `launch.json` de modo a que o valor do perfil de `host` **Debug Remoto (Python) do _&lt; seu módulo &gt;_** utilize o endereço IP da máquina-alvo em vez de `localhost` .
+  - Na sua máquina de desenvolvimento, abra o Código do Estúdio Visual e, em seguida, edite `launch.json` de modo a que o valor do perfil de `host` **Debug Remoto (Python) do *&lt; seu módulo &gt;*** utilize o endereço IP da máquina-alvo em vez de `localhost` .
 
 ### <a name="debug-your-module"></a>Depurar o seu módulo
 
-1. Na vista Visual Studio Code Debug, selecione o ficheiro de configuração de depurg para o seu módulo. O nome da opção de depurar deve ser semelhante ao **_&lt; nome &gt;_ do seu módulo Remote Debug**
+1. Na vista Visual Studio Code Debug, selecione o ficheiro de configuração de depurg para o seu módulo. O nome da opção de depurar deve ser semelhante ao ***&lt; nome &gt;* do seu módulo Remote Debug**
 
 1. Abra o ficheiro do módulo para o seu idioma de desenvolvimento e adicione um ponto de rutura:
 

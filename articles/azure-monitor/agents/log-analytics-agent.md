@@ -5,19 +5,19 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/12/2021
-ms.openlocfilehash: 1dc8e3a78e681947a70ad96638d1d6e09f0bbc88
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 8b3b1d39766d556b820f21c1775210611b995d92
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102050669"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199904"
 ---
 # <a name="log-analytics-agent-overview"></a>Visão geral do agente do Log Analytics
 
 O agente Azure Log Analytics recolhe telemetria a partir de máquinas virtuais Windows e Linux em qualquer nuvem, máquinas no local, e as monitorizadas pelo [System Center Operations Manager](/system-center/scom/) e envia-os dados recolhidos para o seu espaço de trabalho Log Analytics no Azure Monitor. O agente Log Analytics também suporta insights e outros serviços no Azure Monitor, tais como [insights VM,](../vm/vminsights-enable-overview.md) [Azure Security Center](../../security-center/index.yml)e [Azure Automation](../../automation/automation-intro.md). Este artigo fornece uma visão geral detalhada dos requisitos do agente, do sistema e da rede e dos métodos de implantação.
 
 > [!NOTE]
-> Também pode ver o agente Log Analytics referido como o Agente de Monitorização da Microsoft (MMA) ou o agente OMS Linux.
+> Pode também ver o agente Log Analytics referido como o Agente de Monitorização da Microsoft (MMA).
 
 ## <a name="comparison-to-azure-diagnostics-extension"></a>Comparação com a extensão de diagnósticos Azure
 A [extensão de diagnóstico Azure](./diagnostics-extension-overview.md) no Azure Monitor também pode ser usada para recolher dados de monitorização do sistema operativo convidado de máquinas virtuais Azure. Pode optar por utilizar qualquer um ou ambos dependendo dos seus requisitos. Consulte [a visão geral dos agentes do Monitor Azure](../agents/agents-overview.md) para uma comparação detalhada dos agentes do Monitor Azure. 
@@ -40,7 +40,7 @@ Não há qualquer custo para o agente Log Analytics, mas pode incorrer em encarg
 
 A tabela que se segue lista os tipos de dados que pode configurar um espaço de trabalho Log Analytics para recolher de todos os agentes conectados. Ver [O que é monitorizado pelo Azure Monitor?](../monitor-reference.md)
 
-| Origem de dados | Descrição |
+| Origem de dados | Description |
 | --- | --- |
 | [Registos do Evento Windows](../agents/data-sources-windows-events.md) | Informação enviada para o sistema de registo de eventos do Windows. |
 | [Syslog](../agents/data-sources-syslog.md)                     | Informação enviada para o sistema de registo de eventos Linux. |
@@ -116,10 +116,10 @@ A tabela que se segue lista as informações de configuração de procuração e
 
 |Recursos do Agente|Portas |Direção |Inspeção de HTTPS direto|
 |------|---------|--------|--------|
-|*.ods.opinsights.azure.com |Porto 443 |Saída|Sim |  
-|*.oms.opinsights.azure.com |Porto 443 |Saída|Sim |  
-|*.blob.core.windows.net |Porto 443 |Saída|Sim |
-|*.azure-automation.net |Porto 443 |Saída|Sim |
+|*.ods.opinsights.azure.com |Porto 443 |Saída|Yes |  
+|*.oms.opinsights.azure.com |Porto 443 |Saída|Yes |  
+|*.blob.core.windows.net |Porto 443 |Saída|Yes |
+|*.azure-automation.net |Porto 443 |Saída|Yes |
 
 Para obter informações sobre firewall necessárias para o Governo de Azure, consulte [a gestão do Governo Azure](../../azure-government/compare-azure-government-global-azure.md#azure-monitor). 
 

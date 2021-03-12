@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 03/18/2020
 ms.author: janutter
-ms.openlocfilehash: 95747bb68a904212e7e075fc29b2497932d66e5f
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 5ac6a19fc569d60f75f9da788629331a70b0a4c9
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100103860"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103225052"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-an-angular-single-page-application"></a>Quickstart: Inscreva-se nos utilizadores e obtenha um token de acesso numa aplicação de página única angular
 
@@ -102,8 +102,8 @@ Neste arranque rápido, você descarrega e execute uma amostra de código que de
 >|Enter_the_Redirect_Uri_Here|Substitua-a por **http://localhost:4200** .|
 >|cacheLocação  | (Opcional) Desa estação o armazenamento do navegador para o estado de autenticação. O padrão é **sessãoStorage**.   |
 >|lojaAuthStateInCookie  | (Opcional) Identifique a biblioteca que armazena o estado de pedido de autenticação. Este estado é necessário para validar os fluxos de autenticação nos cookies do navegador. Este cookie está definido para Internet Explorer e Edge para acomodar esses dois navegadores. Para mais detalhes, consulte as [questões conhecidas.](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues->on-IE-and-Edge-Browser#issues) |
-> > [!TIP]
-> > Para encontrar os valores do **ID da Aplicação (cliente)**, o **ID de Diretório (inquilino)** e os **Tipos de conta suportados**, vá para a página **Descrição geral** da aplicação no portal do Azure.
+>
+> Para encontrar os valores do **ID da Aplicação (cliente)**, o **ID de Diretório (inquilino)** e os **Tipos de conta suportados**, vá para a página **Descrição geral** da aplicação no portal do Azure.
 
 Para obter mais informações sobre as opções disponíveis, consulte [As aplicações do cliente Inicialize.](msal-js-initializing-client-applications.md)
 

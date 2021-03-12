@@ -1,0 +1,148 @@
+- name: API do Azure para FHIR
+  href: index.yml
+- name: Descrição geral
+  items:
+    - name: Sobre a API do Azure para FHIR
+      href: overview.md
+    - name: Acerca do Conector IoT do Azure para o FHIR (pré-visualização)
+      href: overview.md#azure-iot-connector-for-fhir-preview
+- name: Guias de Início Rápido
+  expanded: true
+  items:
+    - name: Implementar o Azure API for FHIR
+      expanded: false
+      items:
+        - name: Utilizar o portal
+          href: fhir-paas-portal-quickstart.md
+        - name: Utilizar o PowerShell
+          href: fhir-paas-powershell-quickstart.md
+        - name: Com a CLI
+          href: fhir-paas-cli-quickstart.md
+        - name: Com o modelo do ARM
+          displayName: Resource Manager
+          href: fhir-paas-arm-template-quickstart.md
+    - name: Implementar o Conector IoT do Azure para o FHIR (pré-visualização)
+      expanded: false
+      items:
+        - name: Utilizar o portal
+          href: iot-fhir-portal-quickstart.md
+        - name: Com o modelo do ARM
+          href: iot-fhir-arm-template-quickstart.md
+- name: Tutoriais
+  expanded: false
+  items:
+    - name: Implementar a aplicação JavaScript
+      expanded: false
+      items:
+        - name: 1. Configuração inicial e implementação do FHIR
+          href: tutorial-web-app-fhir-server.md
+        - name: 2. Registar aplicação cliente pública
+          href: tutorial-web-app-public-app-reg.md
+        - name: 3. Testar configuração com o Postman
+          href: tutorial-web-app-test-postman.md
+        - name: 4. Escrever aplicação Web
+          href: tutorial-web-app-write-web-app.md
+    - name: Aceder à API de FHIR com o Postman
+      href: access-fhir-postman-tutorial.md
+    - name: Utilizar tecnologia SMART no proxy FHIR
+      href: use-smart-on-fhir-proxy.md
+    - name: Ingerir dados de dispositivos IoT
+      expanded: false
+      items:
+        - name: Receber dados do dispositivo através do Hub IoT do Azure
+          href: device-data-through-iot-hub.md
+- name: Guias de procedimentos
+  expanded: false
+  items:
+    - name: Registar aplicações
+      expanded: false
+      items:
+        - name: Descrição geral do registo de aplicações do Azure API for FHIR
+          href: fhir-app-registration.md
+        - name: Aplicação de recurso
+          href: register-resource-azure-ad-client-app.md
+        - name: Aplicação cliente confidencial
+          href: register-confidential-azure-ad-client-app.md
+        - name: Aplicação cliente pública
+          href: register-public-azure-ad-client-app.md
+        - name: Aplicação cliente de serviço
+          href: register-service-azure-ad-client-app.md
+    - name: Configurar definições
+      expanded: false
+      items:
+        - name: Configurar definições adicionais do Azure API for FHIR
+          href: azure-api-for-fhir-additional-settings.md
+        - name: Configurar RBAC do Azure
+          href: configure-azure-rbac.md
+        - name: Configurar RBAC Local
+          href: configure-local-rbac.md
+        - name: Configurar as definições da base de dados
+          href: configure-database.md
+        - name: Configurar chaves geridas pelo cliente
+          href: customer-managed-key.md
+        - name: Configurar o CORS
+          href: configure-cross-origin-resource-sharing.md
+        - name: Configurar Exportação
+          href: configure-export-data.md
+        - name: Configurar o Private Link
+          href: configure-private-link.md
+    - name: Exportar dados
+      expanded: false
+      items:
+        - name: Exportar dados
+          href: export-data.md
+        - name: Exportação sem identificação
+          href: de-identified-export.md
+    - name: Converter dados
+      expanded: false
+      items:
+        - name: $convert dados e modelos de extensão do conversor FHIR
+          href: convert-data.md
+    - name: Localizar IDs de objeto de identidade
+      href: find-identity-object-ids.md
+    - name: Registo de diagnóstico e métricas
+      expanded: false
+      items:
+        - name: Ativar o Registo de Diagnósticos no Azure API for FHIR
+          href: enable-diagnostic-logging.md
+        - name: Apresentar e configurar métricas do Conector IoT do Azure para FHIR (pré-visualização)
+          href: iot-metrics-display.md
+    - name: Obter um token para a API do Azure para FHIR - CLI
+      href: get-healthcare-apis-access-token-cli.md
+    - name: Resolver problemas de falhas no Conector IoT do Azure para o FHIR (pré-visualização)
+      href: iot-troubleshoot-guide.md
+- name: Conceitos
+  expanded: false
+  items:
+    - name: Descrição geral do Azure AD e do Azure API for FHIR
+      href: azure-ad-hcapi.md
+    - name: Validação do token de acesso
+      href: azure-ad-hcapi-token-validation.md
+    - name: Utilizar cabeçalhos HTTP personalizados para adicionar dados a Registos de Auditoria
+      href: use-custom-headers.md
+    - name: Funcionamento do Conector IoT do Azure para o FHIR (pré-visualização)
+      expanded: false
+      items:
+        - name: Fluxo de dados do Conector IoT do Azure para o FHIR (pré-visualização)
+          href: iot-data-flow.md
+        - name: Modelos de mapeamento do Conector IoT do Azure para o FHIR (pré-visualização)
+          href: iot-mapping-templates.md
+    - name: Segurança
+      items:
+        - name: Controlos de segurança do Azure Policy
+          href: ./security-controls-policy.md
+- name: Recursos
+  items:
+    - name: FAQ
+      href: fhir-faq.md
+    - name: Funcionalidades suportadas
+      href: fhir-features-supported.md
+    - name: Ecossistema de parceiros
+      href: partner-ecosystem.md
+- name: Referência
+  items:
+    - name: CLI do Azure
+      href: /cli/azure/ext/healthcareapis/healthcareapis
+    - name: Incorporações do Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md

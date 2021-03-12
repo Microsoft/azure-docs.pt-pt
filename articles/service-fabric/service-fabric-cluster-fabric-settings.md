@@ -3,12 +3,12 @@ title: Alterar configurações de cluster de tecido de serviço Azure
 description: Este artigo descreve as definições de tecido e as políticas de upgrade de tecido que pode personalizar.
 ms.topic: reference
 ms.date: 08/30/2019
-ms.openlocfilehash: fed66c1a1908977fbe9769c1aec77945bc38c3dc
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 78d83faea802862d3cd6d1b1a9cf9f1016245065
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102183408"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103232057"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personalizar as definições do cluster do Service Fabric
 Este artigo descreve as várias definições de tecido para o seu cluster de Tecido de Serviço que pode personalizar. Para os clusters alojados no Azure, pode personalizar as definições através do [portal Azure](https://portal.azure.com) ou utilizando um modelo de Gestor de Recursos Azure. Para obter mais informações, consulte [atualizar a configuração de um cluster Azure](service-fabric-cluster-config-upgrade-azure.md). Para clusters autónomos, personaliza as definições atualizando o *ClusterConfig.jsno* ficheiro e executando uma atualização de configuração no seu cluster. Para obter mais informações, consulte [atualizar a configuração de um cluster autónomo](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -349,6 +349,7 @@ Segue-se uma lista de configurações de Tecido que pode personalizar, organizad
 |DisableContainers|bool, o padrão é FALSO|Estático|Config para recipientes desativados - usado em vez de DisableContainerServiceStartOnContainerActivatorOpen que é depreciado config |
 |DisableDockerRequestRetry|bool, o padrão é FALSO |Dinâmica| Por defeito, a SF comunica com dD (docker dameon) com um tempo limite de 'DockerRequestTimeout' para cada pedido http enviado para o mesmo. Se o DD não responder dentro deste período de tempo; A SF reencaminho o pedido se a operação de nível superior ainda tiver tempo restante.  Com recipiente hiperv; DD às vezes demora muito mais tempo a trazer o recipiente ou desativá-lo. Nestes casos, o DD solicita tempos fora do ponto de vista da SF e SF retrição a operação. Às vezes isto parece aumentar a pressão sobre o DD. Este config permite desativar esta nova agem e esperar que o DD responda. |
 |DnsServerListTwoIps | Bool, o padrão é FALSO | Estático | Esta bandeira adiciona o servidor dns local duas vezes para ajudar a aliviar problemas de resolução intermitente. |
+| DockerTerminateOnLastHandleClosed | bool, o padrão é FALSO | Estático | Por padrão, se o FabricHost estiver a gerir o 'dockerd' (baseado em: SkipDockerProcessManagement == falso) esta definição configura o que acontece quando o FabricHost ou o estivador falham. Quando programado para `true` se qualquer um dos processos colidir com todos os recipientes de funcionamento será encerrado à força pelo HCS. Se estivermos `false` definidos para os recipientes, continuará a funcionar. Nota: Anterior a 8.0 este comportamento foi involuntariamente o equivalente a `false` . A definição padrão `true` daqui é o que esperamos que aconteça por padrão, avançando para que a nossa lógica de limpeza seja eficaz no reinício destes processos. |
 | DoNotInjectLocalDnsServer | bool, o padrão é FALSO | Estático | Evita que o tempo de execução injete o IP local como servidor DNS para contentores. |
 |EnableActivateNoWindow| bool, o padrão é FALSO|Dinâmica| O processo ativado é criado em segundo plano sem qualquer consola. |
 |EnableContainerServiceDebugMode|bool, o padrão é VERDADEIRO|Estático|Ativar/desativar a sessão para recipientes de estivadores.  Só janelas.|

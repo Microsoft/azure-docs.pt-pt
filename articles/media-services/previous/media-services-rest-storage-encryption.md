@@ -3,7 +3,7 @@ title: Encriptar o seu conteúdo com encriptação de armazenamento usando AMS R
 description: Aprenda a encriptar o seu conteúdo com encriptação de armazenamento utilizando APIs AMS REST.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: a0a79f3d-76a1-4994-9202-59b91a2230e0
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
-ms.author: juliako
+ms.date: 3/10/2021
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4ae1d19ee3da59c43722ca1ea720eb441f6dd484
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: 885390d9246937247107128114e9242aa5e2dc01
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98696215"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103015476"
 ---
 # <a name="encrypting-your-content-with-storage-encryption"></a>Encriptar o seu conteúdo com encriptação de armazenamento
 
@@ -47,7 +47,7 @@ Ao aceder a entidades nos Serviços de Media, deve definir campos e valores espe
 
 ### <a name="storage-side-encryption"></a>Encriptação lateral do armazenamento
 
-|Opção de encriptação|Descrição|Serviços de Multimédia v2|Serviços de Multimédia v3|
+|Opção de encriptação|Description|Serviços de Multimédia v2|Serviços de Multimédia v3|
 |---|---|---|---|
 |Encriptação de armazenamento de serviços de mídia|Encriptação AES-256, chave gerida pelos Media Services|Suportado<sup>(1)</sup>|Não suportado<sup>(2)</sup>|
 |[Encriptação do serviço de armazenamento para dados em repouso](../../storage/common/storage-service-encryption.md)|Encriptação do lado do servidor oferecida pelo Azure Storage, chave gerida pelo Azure ou pelo cliente|Suportado|Suportado|
@@ -62,7 +62,7 @@ Ao aceder a entidades nos Serviços de Media, deve definir campos e valores espe
 Para obter informações sobre como ligar à AMS API, consulte [Aceda à API dos Serviços de Media Azure com autenticação AD Azure](media-services-use-aad-auth-to-access-ams-api.md). 
 
 ## <a name="storage-encryption-overview"></a>Visão geral da encriptação do armazenamento
-A encriptação de armazenamento AMS aplica encriptação do modo **AES-CTR** a todo o ficheiro.  O modo AES-CTR é uma cifra de bloco que pode encriptar dados de comprimento arbitrário sem necessidade de enchimento. Opera encriptando um contra-bloco com o algoritmo AES e, em seguida, XOR-ing a saída de AES com os dados para encriptar ou desencriptar.  O contra-bloco utilizado é construído copiando o valor do InitializationVector para bytes 0 a 7 do valor de contador e os bytes 8 a 15 do valor de contador são definidos para zero. Do bloco de balcão de 16 bytes, os bytes 8 a 15 (ou seja, os bytes menos significativos) são usados como um simples número inteiro não assinado de 64 bits que é incrementado por um para cada bloco subsequente de dados processados e é mantido em ordem byte de rede. Se este número inteiro atingir o valor máximo (0xFFFFFFFFFFFFFFFFFFFF), em seguida, incrementando-o repõe o contador de blocos a zero (bytes 8 a 15) sem afetar os outros 64 bits do balcão (ou seja, bytes 0 a 7).   Para manter a segurança da encriptação do modo AES-CTR, o valor InitializationVector para um determinado identificador-chave para cada chave de conteúdo deve ser único para cada ficheiro e os ficheiros devem ter menos de 2^64 blocos de comprimento.  Este valor único é garantir que um valor de contra-valor nunca seja reutilizado com uma determinada chave. Para obter mais informações sobre o modo CTR, consulte [esta página wiki](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#CTR) (o artigo wiki utiliza o termo "Nonce" em vez de "InitializationVector").
+A encriptação de armazenamento AMS aplica encriptação do modo **AES-CTR** a todo o ficheiro.  O modo AES-CTR é uma cifra de bloco que pode encriptar dados de comprimento arbitrário sem necessidade de enchimento. Opera encriptando um contra-bloco com o algoritmo AES e, em seguida, XOR-ing a saída de AES com os dados para encriptar ou desencriptar.  O contra-bloco utilizado é construído copiando o valor do InitializationVector para bytes 0 a 7 do valor de contador e os bytes 8 a 15 do valor de contador são definidos para zero. Do bloco de balcão de 16 bytes, os bytes 8 a 15 (ou seja, os bytes menos significativos) são usados como um simples número inteiro não assinado de 64 bits que é incrementado por um para cada bloco subsequente de dados processados e é mantido em ordem byte de rede. Se este número inteiro atingir o valor máximo (0xFFFFFFFFFFFFFFFF), em seguida, o incremento repõe o contador do bloco a zero (bytes 8 a 15) sem afetar os outros 64 bits do balcão (ou seja, bytes 0 a 7).   Para manter a segurança da encriptação do modo AES-CTR, o valor InitializationVector para um determinado identificador-chave para cada chave de conteúdo deve ser único para cada ficheiro e os ficheiros devem ter menos de 2^64 blocos de comprimento.  Este valor único é garantir que um valor de contra-valor nunca seja reutilizado com uma determinada chave. Para obter mais informações sobre o modo CTR, consulte [esta página wiki](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#CTR) (o artigo wiki utiliza o termo "Nonce" em vez de "InitializationVector").
 
 Utilize **encriptação de armazenamento** para encriptar o seu conteúdo límpido localmente usando encriptação de bits AES-256 e, em seguida, carregá-lo para o Azure Storage, onde é armazenado encriptado em repouso. Os ativos protegidos com encriptação de armazenamento são automaticamente desencriptados e colocados num sistema de ficheiros encriptados antes da codificação, e opcionalmente reen encriptados antes de serem carregados como um novo ativo de saída. O caso principal de utilização para encriptação de armazenamento é quando pretende proteger os seus ficheiros de meios de entrada de alta qualidade com uma encriptação forte em repouso no disco.
 
@@ -114,7 +114,7 @@ Seguem-se os passos gerais para gerar chaves de conteúdo que associa a ativos q
 
     Para encriptação de armazenamento, as seguintes propriedades devem ser incluídas no corpo de pedido.
 
-    Solicitar propriedade do corpo    | Descrição
+    Solicitar propriedade do corpo    | Description
     ---|---
     Id | O ID ContentKey é gerado usando o seguinte formato, "nb:kid:UUID: \<NEW GUID> ".
     ContentKeyType | O tipo de chave de conteúdo é um número inteiro que define a chave. Para o formato de encriptação de armazenamento, o valor é 1.

@@ -63,6 +63,8 @@
       href: tutorials/hmac-header-tutorial.md
     - name: Preparar uma aplicação web para serviços de comunicação (Node.js)
       href: tutorials/building-app-start.md
+    - name: Assine e faça pedidos para a API SMS da ACS com carteiro
+      href: tutorials/postman-tutorial.md
 - name: Conceitos
   expanded: false
   items:
@@ -145,9 +147,9 @@
     - name: Bibliotecas de chamadas
       items:
         - name: Chamada (JavaScript)
-          href: /javascript/api/azure-communication-services/@azure/communication-calling/?view=azure-communication-services-js
+          href: /javascript/api/azure-communication-services/@azure/communication-calling/
         - name: Chamada (Android/Java)
-          href: /java/api/com.azure.communication.calling?view=communication-services-java-android
+          href: /java/api/com.azure.communication.calling
         - name: Chamada (iOS)
           href: /objectivec/communication-services/calling/
     - name: Bibliotecas de chat

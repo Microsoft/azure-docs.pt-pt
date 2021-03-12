@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 34b06d2b74c0e13e924ae14e85ccfde0c9847793
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 51d1b3dcf66c124d113d63c3c5a46d5f41fd531d
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/10/2021
-ms.locfileid: "102554960"
+ms.locfileid: "102615300"
 ---
 # <a name="azure-security-baseline-for-azure-ddos-protection-standard"></a>Linha de base de segurança Azure para Azure DDoS Protection Standard
 
@@ -410,9 +410,9 @@ Utilize o Azure Resource Graph para consultar e detetar recursos dentro das subs
 
 **Orientação**: Se utilizar definições personalizadas da Política Azure, utilize Azure DevOps ou Azure Repos para armazenar e gerir o seu código de forma segura.
 
-- [Como armazenar código em Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [Como armazenar código em Azure DevOps](/azure/devops/repos/git/gitworkflow)
 
-- [Documentação de Azure Repos](/azure/devops/repos/index?view=azure-devops)
+- [Documentação de Azure Repos](/azure/devops/repos/index)
 
 **Monitorização do Centro de Segurança do Azure**: Não aplicável
 

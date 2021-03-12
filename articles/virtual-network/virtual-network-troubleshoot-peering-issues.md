@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2019
 ms.author: kaushika
-ms.openlocfilehash: f3e1ea8861646490875667f6238b3f8813bd6c4b
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 608f3d72aecb0c6d53325c0d082b1779822e9c80
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100518169"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200535"
 ---
 # <a name="troubleshoot-virtual-network-peering-issues"></a>Resolver problemas de peering de rede virtual
 
@@ -44,7 +44,7 @@ Para configurar a rede virtual que observa as redes virtuais que estão na mesma
 >
 > * Máquinas virtuais (VMs) por trás do balanceador de carga interna básico (ILB) SKU
 > * Cache Redis (usa Basic ILB SKU)
-> * Gateway de aplicações (utiliza Basic ILB SKU)
+> * Gateway de aplicação v1 (utiliza Basic ILB SKU)
 > * Conjuntos de escala de máquina virtual (utiliza Basic ILB SKU)
 > * Aglomerados de tecido de serviço Azure (utiliza Basic ILB SKU)
 > * SQL Server Always On (utiliza SKU Básico ILB)

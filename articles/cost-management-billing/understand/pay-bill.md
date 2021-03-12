@@ -10,12 +10,12 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 01/13/2021
 ms.author: banders
-ms.openlocfilehash: 8117f3ca70f51f2d9b11c479803ac33b49f416e7
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
-ms.translationtype: HT
+ms.openlocfilehash: ecc5c8ebef0d2add365d128e11caedaa173d9d63
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98540039"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103232148"
 ---
 # <a name="how-to-pay-your-bill-for-microsoft-azure"></a>Como pagar a sua fatura do Microsoft Azure
 
@@ -59,6 +59,18 @@ Para pagar as faturas no portal do Azure, tem de ter as [permissões de MCA](../
 1. Depois de selecionar um método de pagamento, selecione **Pagar agora**.
 
 O estado da fatura indica *pago* dentro de 24 horas.
+
+## <a name="pay-now-for-customers-in-india"></a>Pague agora para os clientes na Índia
+
+O Banco Reserva da Índia emitiu [novos regulamentos](https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=12002&Mode=0) que entrarão em vigor a 1 de abril de 2021. Após esta data, os bancos na Índia poderão começar a recusar pagamentos automáticos recorrentes, e os pagamentos terão de ser feitos manualmente no portal Azure.
+
+Se o seu banco recusar um pagamento automático recorrente, iremos notificá-lo por e-mail e fornecer instruções sobre como proceder.
+
+A partir de 1 de abril de 2021, poderá pagar um saldo pendente a qualquer momento seguindo estes passos: 
+
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/) como Administrador de Conta.
+1. Procure **Cost Management + Faturação**.
+1. Na página 'Vista Geral', selecione o botão **'Pagar agora'.** (Se não vir o botão **Pay now,** não tem um saldo pendente.)
 
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Verificar o acesso ao Contrato de Cliente da Microsoft
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]

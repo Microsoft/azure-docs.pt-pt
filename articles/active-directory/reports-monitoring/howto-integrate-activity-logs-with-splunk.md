@@ -1,5 +1,5 @@
 ---
-title: Integre o Splunk usando o Azure Monitor ! Microsoft Docs
+title: Integre o Splunk utilizando o monitor Azure | Microsoft Docs
 description: Saiba como integrar os registos do Azure Ative Directory com o Splunk utilizando o Azure Monitor.
 services: active-directory
 documentationcenter: ''
@@ -13,16 +13,16 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 03/10/2020
+ms.date: 03/10/2021
 ms.author: markvi
-ms.reviewer: dhanyahk
+ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 351669453a5ce6930d3eb912e95e530d14febf61
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: afb6a597d4fd58646f56e271cb6027fb46db1e26
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335855"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102634231"
 ---
 # <a name="how-to-integrate-azure-active-directory-logs-with-splunk-using-azure-monitor"></a>Como: Integrar registos de diretório ativo do Azure com splunk usando o Azure Monitor
 
@@ -34,7 +34,7 @@ Para utilizar esta funcionalidade, precisa de:
 
 - Um centro de eventos Azure que contém registos de atividade azure AD. Saiba como [transmitir os seus registos de atividade para um centro de eventos.](./tutorial-azure-monitor-stream-logs-to-event-hub.md) 
 
--  O [Microsoft Azure Add on for Splunk](https://splunkbase.splunk.com/app/3757/). 
+-  O [Add-on Splunk para os Serviços microsoft cloud](https://splunkbase.splunk.com/app/3110/#/details). 
 
 ## <a name="integrate-azure-active-directory-logs"></a>Integre registos de diretório ativo Azure 
 

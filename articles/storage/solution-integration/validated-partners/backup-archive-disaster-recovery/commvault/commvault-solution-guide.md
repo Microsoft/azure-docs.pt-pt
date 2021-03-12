@@ -9,12 +9,12 @@ ms.date: 11/11/2020
 ms.topic: article
 ms.service: storage
 ms.subservice: blobs
-ms.openlocfilehash: f340a06f3b6b7c8fc0d78051fb0496dcab11fb5d
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: bc5bcca394fa66cea9cbf6bc20ac7d164c671cf7
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102122753"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102632956"
 ---
 # <a name="back-up-to-azure-with-commvault"></a>De volta a Azure com Commvault
 
@@ -84,7 +84,7 @@ Ao usar o Azure como alvo de backup, os clientes fazem uso do [Azure Blob Storag
 |Eficaz # de Cópias     | 3         | 3         | 6         | 6 |
 |# de Zonas de Disponibilidade     | 1         | 3         | 2         | 4 |
 |# de Regiões     | 1         | 1         | 2         | 2 |
-|Falha manual na Região Secundária     | ND         | ND         | Sim         | Sim |
+|Falha manual na Região Secundária     | ND         | ND         | Sim         | Yes |
 
 **Níveis de armazenamento Azure Blob:**
 
@@ -161,11 +161,11 @@ Esta secção fornece um breve guia para adicionar O Armazenamento Azure a uma i
 
 9. Em seguida, navegue para "Storage" --> "Cloud" no Centro de Comando commvault. Escolha "Adicionar". Introduza um nome amigável para a Conta de Armazenamento e, em seguida, selecione "Microsoft Azure Storage" da lista "Tipo". Selecione um servidor media agent para ser usado para transferir cópias de segurança para o Azure Storage. Adicione o recipiente que criou, escolha o Nível de Armazenamento para alavancar dentro da conta de Armazenamento Azure e selecione as Credenciais criadas no #8 Passo. Por fim, escolha transferir ou não cópias de segurança deduplicadas e uma localização para a base de dados deduplica.
     
-     ![Commvault Adicionar Armazenamento](../media/commvault-add-storage.png)
+     ![Screenshot da interface de utilizador da nuvem Add. No menu suspenso do Arquivo, é selecionado **Archive**](../media/commvault-add-storage.png)
 
 10. Por fim, adicione o seu novo recurso de Armazenamento Azure a um plano existente ou novo no Centro de Comando commvault via "Gerir" --> "Plans" como "Destino de Reserva".
 
-    ![Commvault Adicionar Armazenamento](../media/commvault-plan.png)
+    ![Screenshot da interface de utilizador do Centro de Comando COMMVAULT. Na navegação à esquerda, em **Manage**, **Plans** é selecionado.](../media/commvault-plan.png)
 
 11. ***(Opcional)*** Se planeia aproveitar o Azure como um site de recuperação ou commvault para migrar servidores e aplicações para Azure, é uma boa prática implementar um Proxy VSA em Azure. Pode encontrar instruções detalhadas [aqui.](https://documentation.commvault.com/commvault/v11/article?p=106208.htm)  
 

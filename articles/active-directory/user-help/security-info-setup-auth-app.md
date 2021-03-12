@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 02/13/2019
 ms.author: curtand
-ms.openlocfilehash: e383896e50ccf06ef6d1b5caaeb0ef36ece2ce3b
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: c947bee0b702797a86d1e038f74c6c10e2b23eb4
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96348301"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103197482"
 ---
 # <a name="set-up-the-microsoft-authenticator-app-as-your-verification-method"></a>Configurar a app Microsoft Authenticator como o seu método de verificação
 
@@ -46,8 +46,8 @@ Os métodos de informação de segurança são utilizados tanto para a verifica�
 
 Dependendo das definições da sua organização, poderá utilizar uma aplicação de autenticação como um dos seus métodos de informação de segurança. Não é obrigado a utilizar a aplicação Microsoft Authenticator, e pode escolher uma aplicação diferente durante o processo de configuração. No entanto, este artigo utiliza a aplicação Microsoft Authenticator.
 
->[!Important]
-> Se tiver configurado a aplicação Microsoft Authenticator em 5 dispositivos diferentes ou 5 fichas de hardware, não poderá configurar uma sexta e poderá ver a seguinte mensagem de erro.
+> [!IMPORTANT]
+> Se tiver configurado a aplicação Microsoft Authenticator em cinco dispositivos diferentes ou se tiver usado cinco fichas de hardware, não poderá configurar uma sexta, e poderá ver a seguinte mensagem de erro:
 > 
 > **Não é possível configurar o Microsoft Authenticator porque já tem cinco aplicações autenticadoras ou fichas de hardware. Contacte o seu administrador para eliminar uma das suas aplicações autenticadoras ou fichas de hardware.**
 
@@ -57,7 +57,7 @@ Dependendo das definições da sua organização, poderá utilizar uma aplicaç�
 
     ![A minha página de perfil, mostrando links de informações de segurança destacados](media/security-info/securityinfo-myprofile-page.png)
 
-2. Selecione **informações** de segurança a partir do painel de navegação à esquerda ou do link no bloco **de informações de Segurança** e, em seguida, selecione Adicionar **método** a partir da página **de informações de Segurança.**
+2. Selecione **informações de segurança** no menu esquerdo ou utilizando o link no painel **de informações de Segurança.** Se já se registou, será solicitado para verificação de dois fatores. Em seguida, **selecione Adicionar** o método no painel **de informações de Segurança.**
 
     ![Página de informações de segurança com opção de método adicionar realçada](media/security-info/securityinfo-myprofile-addmethod-page.png)
 

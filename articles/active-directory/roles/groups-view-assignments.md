@@ -13,12 +13,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a1939be42126606fdae261e60c890c71374c894
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 7dac23897f8a17c9adb4ae78736a6a8afa85a18b
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98741830"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103012008"
 ---
 # <a name="view-roles-assigned-to-a-group-in-azure-active-directory"></a>Ver funções atribuídas a um grupo no Azure Ative Directory
 
@@ -37,7 +37,7 @@ Esta secção descreve como as funções atribuídas a um grupo podem ser visual
 ### <a name="get-object-id-of-the-group"></a>Obtenha o objeto ID do grupo
 
 ```powershell
-Get-AzureADMSGroup -SearchString “Contoso_Helpdesk_Administrators”
+Get-AzureADMSGroup -SearchString "Contoso_Helpdesk_Administrators"
 ```
 
 ### <a name="view-role-assignment-to-a-group"></a>Ver atribuição de funções a um grupo
@@ -50,17 +50,17 @@ Get-AzureADMSRoleAssignment -Filter "principalId eq '<object id of group>"
 
 ### <a name="get-object-id-of-the-group"></a>Obtenha o objeto ID do grupo
 
-```powershell
-GET https://graph.microsoft.com/beta/groups?$filter displayName eq ‘Contoso_Helpdesk_Administrator’ 
+```http
+GET https://graph.microsoft.com/beta/groups?$filter=displayName+eq+'Contoso_Helpdesk_Administrator'
 ```
 
 ### <a name="get-role-assignments-to-a-group"></a>Obtenha atribuições de papéis para um grupo
 
-```powershell
+```http
 GET https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments?$filter=principalId eq
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Utilizar os grupos da cloud para gerir atribuições de funções](groups-concept.md)
 - [Resolver problemas de funções atribuídas a grupos de cloud](groups-faq-troubleshooting.md)

@@ -175,7 +175,9 @@
 - name: Recursos
   items:
     - name: Opções de suporte e ajuda
-      href: ../iot-fundamentals/iot-support-help.md
+      href: ../iot-fundamentals/iot-support-help.md?toc=/azure/iot-dps/toc.json&bc=/azure/iot-dps/breadcrumb/toc.json
+    - name: IoT Glossário
+      href: ../iot-fundamentals/iot-glossary.md?toc=/azure/iot-dps/toc.json&bc=/azure/iot-dps/breadcrumb/toc.json
     - name: Serviços de IoT do Azure
       items:
         - name: IoT Hub

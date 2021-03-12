@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: how-to
 ms.date: 11/10/2020
-ms.openlocfilehash: c6b9cfab4256c72118a65f7fb0c8e672e2082ffe
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 18ae21c4b1348a1690818f8c07a5b3fae45102cd
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102199667"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103232278"
 ---
 # <a name="how-to-use-postman-to-send-requests-to-the-azure-digital-twins-apis"></a>Como usar o Carteiro para enviar pedidos para as APIs das Gémeas Digitais do Azure
 
@@ -52,7 +52,7 @@ Caso contrário, pode abrir uma janela [Azure Cloud Shell](https://shell.azure.c
     az login
     ```
 
-1. Em seguida, use o comando [get-token da conta az](/cli/azure/account#az_account_get_access_token) para obter um token portador com acesso ao serviço Azure Digital Twins.
+1. Em seguida, use o comando [get-token da conta az](/cli/azure/account#az_account_get_access_token) para obter um token portador com acesso ao serviço Azure Digital Twins. Neste comando, passará o ID de recursos para o ponto final de serviço Azure Digital Twins (um valor estático de), de forma a obter um token de acesso que possa aceder aos recursos da `0b07f429-9f4b-4714-9392-cc5e8e80c8b0` Azure Digital Twins.
 
     ```azurecli-interactive
     az account get-access-token --resource 0b07f429-9f4b-4714-9392-cc5e8e80c8b0

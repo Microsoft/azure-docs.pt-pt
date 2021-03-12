@@ -9,12 +9,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 02/11/2021
-ms.openlocfilehash: 15cc935457f76fb1d2fe4e8d699db831ebacc357
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 68267cdedd2f0b64549791866e8750cf42928ab4
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102181759"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103201246"
 ---
 # <a name="azure-active-directory-service-principal-with-azure-sql"></a>Azure Ative Directory service principal com Azure SQL
 
@@ -52,7 +52,7 @@ O suporte a esta funcionalidade é útil nos processos de automatização de apl
 
 Para permitir a criação de um objeto AD Azure na Base de Dados SQL e na Azure Synapse em nome de uma aplicação AD Azure, são necessárias as seguintes definições:
 
-1. Atribua a identidade do servidor. A identidade do servidor atribuída representa a Identidade do Sistema Gerido (MSI). Atualmente, a identidade do servidor do Azure SQL não suporta a Identidade Gerida pelo Utilizador (UMI).
+1. Atribua a identidade do servidor. A identidade do servidor atribuída representa a Identidade de Serviço Gerido (MSI). Atualmente, a identidade do servidor do Azure SQL não suporta a Identidade Gerida pelo Utilizador (UMI).
     - Para um novo servidor lógico Azure SQL, execute o seguinte comando PowerShell:
     
     ```powershell

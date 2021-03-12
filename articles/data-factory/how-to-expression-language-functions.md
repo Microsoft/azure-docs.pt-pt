@@ -7,12 +7,12 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/08/2020
-ms.openlocfilehash: 4aa8a0790e7f5812e8c6a70eab1718f92a5e00d0
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 8f22645eafa0969eac3d6c4c0645909f8c650cad
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102520307"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199820"
 ---
 # <a name="how-to-use-parameters-expressions-and-functions-in-azure-data-factory"></a>Como utilizar parâmetros, expressões e funções na Azure Data Factory
 
@@ -25,7 +25,7 @@ Neste documento, vamos focar-nos principalmente na aprendizagem de conceitos fun
 
 ## <a name="azure-data-factory-ui-and-parameters"></a>UI da fábrica de dados Azure e parâmetros
 
-Se é novo na utilização de parâmetros de fábrica de dados Azure na interface de utilizador ADF, por favor reveja [a UI da fábrica de dados para serviços ligados com parâmetros](https://docs.microsoft.comazure/data-factory/parameterize-linked-services#data-factory-ui)  e [UI de fábrica de dados para pipeline conduzido por metadados com parâmetros](https://docs.microsoft.com/azure/data-factory/how-to-use-trigger-parameterization#data-factory-ui) para explicação visual.
+Se é novo na utilização de parâmetros de fábrica de dados Azure na interface de utilizador ADF, por favor reveja [a UI da fábrica de dados para serviços ligados com parâmetros](https://docs.microsoft.com/azure/data-factory/parameterize-linked-services#data-factory-ui)  e [UI de fábrica de dados para pipeline conduzido por metadados com parâmetros](https://docs.microsoft.com/azure/data-factory/how-to-use-trigger-parameterization#data-factory-ui) para explicação visual.
 
 ## <a name="parameter-and-expression-concepts"></a>Conceitos de parâmetro e expressão 
 

@@ -3,7 +3,7 @@ title: Utilizar a encriptação comum dinâmica com PlayReady e/ou Widevine | Mi
 description: Pode utilizar os Serviços de Multimédia do Azure para entregar transmissões em fluxo MPEG-DASH, Smooth Streaming e HTTP Live Streaming (HLS) protegidas com o Microsoft PlayReady DRM. Também os pode utilizar para entregar DASH encriptado com o Widevine DRM. Este tópico mostra como encriptar de forma dinâmica com PlayReady e Widevine DRM.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: 548d1a12-e2cb-45fe-9307-4ec0320567a2
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/20/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 58ca7df5a99752f05a4715511685b31a467356f1
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: 9a0e8a513023c093157a3f14a64de9f87de543ab
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98695057"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103009458"
 ---
 # <a name="use-playready-andor-widevine-dynamic-common-encryption"></a>Utilizar a encriptação comum dinâmica com PlayReady e/ou Widevine
 
@@ -30,7 +30,7 @@ ms.locfileid: "98695057"
 > Para concluir este tutorial, precisa de uma conta do Azure. Para obter mais detalhes, consulte [Avaliação Gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).   > Não estão a ser adicionadas novas funcionalidades ou funcionalidades aos Serviços de Comunicação Social v2. <br/>Confira a versão mais recente, [Media Services v3](../latest/index.yml). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-v-2-v-3-migration-introduction.md)
 >   
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
  Pode utilizar os Serviços de Multimédia para entregar transmissões em fluxo MPEG-DASH, Smooth Streaming e HTTP Live Streaming (HLS) protegidas com a [gestão de direitos digitais (DRM) do PlayReady](https://www.microsoft.com/playready/overview/). Também pode entregar transmissões em fluxo DASH encriptadas com licenças DRM do Widevine. Tanto o PlayReady, como o Widevine, são encriptados de acordo com a especificação de encriptação comum (ISO/IEC 23001 7 CENC). Pode utilizar o [SDK .NET dos Serviços de Multimédia](https://www.nuget.org/packages/windowsazure.mediaservices/) (a partir da versão 3.5.1) ou a API REST para configurar o AssetDeliveryConfiguration para utilizar o Widevine.
 

@@ -1,5 +1,5 @@
 ---
-title: Guia de desenvolvimento para Azure IoT Hub Microsoft Docs
+title: Guia de desenvolvimento para Azure IoT Hub | Microsoft Docs
 description: O guia de desenvolvimento do Azure IoT Hub inclui discussões sobre pontos finais, segurança, registo de identidade, gestão de dispositivos, métodos diretos, gémeos de dispositivos, uploads de ficheiros, empregos, a linguagem de consulta ioT Hub e mensagens.
 author: wesmc7777
 manager: philmea
@@ -9,12 +9,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.custom: mqtt
-ms.openlocfilehash: 03e05eb2bc56a07c2bda3d3fb224012abb3c9e4a
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 1fcf560ba1fef137a28ab1872635cc2182cd07e1
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92735937"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103009203"
 ---
 # <a name="azure-iot-hub-developer-guide"></a>Guia de desenvolvimento do Azure IoT Hub
 
@@ -75,5 +75,3 @@ Este guia de desenvolvimento do IoT Hub inclui os seguintes artigos:
 * [Referência - Dispositivo e serviço Os SDKs](iot-hub-devguide-sdks.md) listam os SDKs Azure IoT para o desenvolvimento de aplicações de dispositivos e serviços que interagem com o seu hub IoT. O artigo inclui links para documentação online da API.
 
 * [Referência - O suporte do IoT Hub MQTT](iot-hub-mqtt-support.md) fornece informações detalhadas sobre como o IoT Hub suporta o protocolo MQTT. O artigo descreve o suporte para o protocolo MQTT incorporado aos SDKs Azure IoT e fornece informações sobre a utilização direta do protocolo MQTT.
-
-* [Glossário](iot-hub-devguide-glossary.md) uma lista de termos comuns relacionados com o IoT Hub.

@@ -1,5 +1,5 @@
 ---
-title: Fornecimento automaticamente de dispositivos Windows com DPS - Azure IoT Edge / Microsoft Docs
+title: Fornecendo automaticamente dispositivos Windows com DPS - Azure IoT Edge | Microsoft Docs
 description: Utilize um dispositivo simulado na sua máquina Windows para testar o fornecimento automático de dispositivos para Azure IoT Edge com serviço de provisionamento de dispositivos
 author: kgremban
 manager: philmea
@@ -8,14 +8,16 @@ ms.date: 4/3/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 56696f138fbf58993e990e263d2fa8e490672bb6
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 11279c552cb599c24b72473d6574175450ca7ab0
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92106302"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200855"
 ---
 # <a name="create-and-provision-a-simulated-iot-edge-device-with-a-virtual-tpm-on-windows"></a>Criar e providenciar um dispositivo IoT Edge simulado com um TPM virtual no Windows
+
+[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
 
 Os dispositivos Azure IoT Edge podem ser provisões automáticas utilizando o [Serviço de Provisionamento de Dispositivos,](../iot-dps/index.yml) tal como dispositivos que não estão ativados por arestas. Se não estiver familiarizado com o processo de provisão automática, reveja a visão geral do [provisionamento](../iot-dps/about-iot-dps.md#provisioning-process) antes de continuar.
 

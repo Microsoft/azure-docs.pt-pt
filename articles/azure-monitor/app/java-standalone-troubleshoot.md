@@ -4,12 +4,12 @@ description: Saiba como resolver problemas com o agente Java para Azure Monitor 
 ms.topic: conceptual
 ms.date: 11/30/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 45f45e71546909b71c71c66303c1459edd74548f
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: f971466f25c2b7a4bd28e5b7eec6268f1b2e8b3d
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102199616"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103225579"
 ---
 # <a name="troubleshooting-guide-azure-monitor-application-insights-for-java"></a>Guia de resolução de problemas: Azure Monitor Application Insights for Java
 
@@ -41,7 +41,9 @@ Estas alterações incluem:
 
 ## <a name="some-logging-is-not-auto-collected"></a>Alguns registos não são recolhidos automaticamente
 
-A exploração madeireira só é capturada se cumprir primeiro o limiar configurado dos quadros de registo, e em segundo lugar também cumpre o limiar configurado de Insights de Aplicação.
+A exploração madeireira só é capturada se cumprir primeiro o nível configurado para a estrutura de registo e, em segundo lugar, também cumpre o nível configurado para Insights de Aplicação.
+
+Por exemplo, se a sua estrutura de registo estiver configurada para registar `WARN` (e acima) a partir do pacote `com.example` , e o Application Insights estiver configurado para capturar `INFO` (e acima), então o Application Insights apenas capturará `WARN` (e acima) do pacote `com.example` .
 
 A melhor maneira de saber se uma determinada declaração de registo satisfaz o limiar configurado dos quadros de registo é confirmar que está a aparecer no seu registo normal de aplicações (por exemplo, ficheiro ou consola).
 

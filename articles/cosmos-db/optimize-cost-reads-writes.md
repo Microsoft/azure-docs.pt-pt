@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 3f4c33a88d9a8fbf2c3d64135d93da54cf75fab3
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 36ecef007e10f9a090dbabc8b5a91fd473930141
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097513"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102633857"
 ---
 # <a name="optimize-request-cost-in-azure-cosmos-db"></a>Otimizar o custo do pedido na Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -35,7 +35,7 @@ As operações de leitura em Azure Cosmos DB são normalmente encomendadas de ma
 
 ### <a name="role-of-the-consistency-level"></a>Papel do nível de consistência
 
-Ao utilizar os níveis de consistência **forte** ou [limitados,](consistency-levels.md)o custo RU de qualquer operação de leitura (leitura ou consulta de ponto) é duplicado. **bounded staleness**
+Ao utilizar os níveis de consistência **forte** ou [limitados,](consistency-levels.md)o custo RU de qualquer operação de leitura (leitura ou consulta de ponto) é duplicado. 
 
 ### <a name="point-reads"></a>Leituras de pontos
 
@@ -105,7 +105,7 @@ O custo ru de escrever um item depende de:
 - O tamanho do item.
 - O número de imóveis abrangidos pela [política de indexação](index-policy.md) precisava de ser indexado.
 
-Inserir um item de 1 KB com menos de 5 propriedades para indexar custa cerca de 5 RUs. A substituição de um artigo custa duas vezes a carga necessária para inserir o mesmo item.
+Inserir um item de 1 KB sem indexar custa cerca de ~5,5 RUs. A substituição de um artigo custa duas vezes a carga necessária para inserir o mesmo item.
 
 ### <a name="optimizing-writes"></a>Otimização de escritos
 
