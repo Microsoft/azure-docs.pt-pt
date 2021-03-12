@@ -3,14 +3,14 @@ title: Referência do desenvolvedor JavaScript para Funções Azure
 description: Entenda como desenvolver funções usando o JavaScript.
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
-ms.date: 11/17/2020
+ms.date: 03/07/2021
 ms.custom: devx-track-js
-ms.openlocfilehash: 71fe2d342f928c9d50a3fcf3f5367c21d7fba2ff
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 971fb2a3239614a708e14c109e567081f1ec9ff6
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100591047"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102614909"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript guia de desenvolvedores
 
@@ -507,20 +507,20 @@ A tabela a seguir mostra as versões Node.js suportadas atuais para cada versão
 
 | Versão de funções | Versão nó (Windows) | Versão nó (Linux) |
 |---|---| --- |
+| 3.x (recomendado) | `~14` (recomendado)<br/>`~12`<br/>`~10` | `node|14` (recomendado)<br/>`node|12`<br/>`node|10` |
+| 2.x  | `~12`<br/>`~10`<br/>`~8` | `node|10`<br/>`node|8`  |
 | 1.x | 6.11.2 (travado pelo tempo de funcionação) | n/a |
-| 2.x  | `~8`<br/>`~10` (recomendado)<br/>`~12` | `node|8`<br/>`node|10` (recomendado)  |
-| 3.x | `~10`<br/>`~12` (recomendado)<br/>`~14` (pré-visualização)  | `node|10`<br/>`node|12` (recomendado)<br/>`node|14` (pré-visualização) |
 
 Pode ver a versão atual que o tempo de execução está a utilizar, registando-se `process.version` a partir de qualquer função.
 
 ### <a name="setting-the-node-version"></a>Definição da versão nó
 
-Para aplicações de função Windows, direcione a versão em Azure definindo a definição da `WEBSITE_NODE_DEFAULT_VERSION` [aplicação](functions-how-to-use-azure-function-app-settings.md#settings) para uma versão LTS suportada, como `~12` .
+Para aplicações de função Windows, direcione a versão em Azure definindo a definição da `WEBSITE_NODE_DEFAULT_VERSION` [aplicação](functions-how-to-use-azure-function-app-settings.md#settings) para uma versão LTS suportada, como `~14` .
 
 Para aplicações de função Linux, executar o seguinte comando Azure CLI para atualizar a versão Nó.
 
 ```bash
-az functionapp config set --linux-fx-version "node|12" --name "<MY_APP_NAME>" --resource-group "<MY_RESOURCE_GROUP_NAME>"
+az functionapp config set --linux-fx-version "node|14" --name "<MY_APP_NAME>" --resource-group "<MY_RESOURCE_GROUP_NAME>"
 ```
 
 ## <a name="dependency-management"></a>Gestão de dependências
@@ -597,6 +597,23 @@ module.exports = async function (context, myTimer) {
 
     context.log("AzureWebJobsStorage: " + process.env["AzureWebJobsStorage"]);
     context.log("WEBSITE_SITE_NAME: " + process.env["WEBSITE_SITE_NAME"]);
+};
+```
+
+## <a name="ecmascript-modules-preview"></a><a name="ecmascript-modules"></a>Módulos ECMAScript (pré-visualização)
+
+> [!NOTE]
+> Como os módulos ECMAScript são atualmente rotulados *experimentais* em Node.js 14, estão disponíveis como uma funcionalidade de pré-visualização em Node.js 14 Funções Azure. Até Node.js suporte de 14 módulos ECMAScript se torne *estável*, espere possíveis alterações na sua API ou comportamento.
+
+[Os módulos ECMAScript](https://nodejs.org/docs/latest-v14.x/api/esm.html#esm_modules_ecmascript_modules) (módulos ES) são o novo sistema oficial de módulos padrão para Node.js. Até agora, as amostras de código deste artigo utilizam a sintaxe CommonJS. Ao executar funções Azure em Node.js 14, pode optar por escrever as suas funções utilizando a sintaxe dos módulos ES.
+
+Para utilizar módulos ES numa função, altere o seu nome de ficheiro para utilizar uma `.mjs` extensão. O exemplo de ficheiro *index.mjs* a seguir é uma função desencadeada http que utiliza a sintaxe dos módulos ES para importar a `uuid` biblioteca e devolver um valor.
+
+```js
+import { v4 as uuidv4 } from 'uuid';
+
+export default async function (context, req) {
+    context.res.body = uuidv4();
 };
 ```
 

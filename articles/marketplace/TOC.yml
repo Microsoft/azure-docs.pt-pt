@@ -13,6 +13,8 @@
       href: partner-center-portal/company-work-accounts.md
     - name: Migração da conta do CPP para o Partner Center
       href: partner-center-portal/account-migration-from-cpp-to-pc.md
+    - name: Notificando a Microsoft
+      href: submit-legal-notice.md
 - name: Conceitos
   items:
     - name: Opções de listagem

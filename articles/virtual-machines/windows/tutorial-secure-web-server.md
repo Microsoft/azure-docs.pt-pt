@@ -2,19 +2,20 @@
 title: 'Tutorial: Proteja um servidor web do Windows com certificados TLS/SSL em Azure'
 description: Neste tutorial, aprende-se a usar o Azure PowerShell para proteger uma máquina virtual Windows que executa o servidor web IIS com certificados TLS/SSL armazenados no Cofre da Chave Azure.
 author: cynthn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.collection: windows
 ms.subservice: security
 ms.topic: tutorial
 ms.workload: infrastructure
 ms.date: 02/09/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 4e5bbe179c43508033e0747bc2c03089f283b6e2
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: a1009d24c1fb8712e88075097460ad179629f478
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98873083"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102557408"
 ---
 # <a name="tutorial-secure-a-web-server-on-a-windows-virtual-machine-in-azure-with-tlsssl-certificates-stored-in-key-vault"></a>Tutorial: Fixe um servidor web numa máquina virtual do Windows em Azure com certificados TLS/SSL armazenados no Cofre de Chaves
 
@@ -37,7 +38,7 @@ O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para execu
 Para abrir o Cloud Shell, basta selecionar **Experimente** no canto superior direito de um bloco de código. Também pode lançar cloud Shell num separador de navegador indo para [https://shell.azure.com/powershell](https://shell.azure.com/powershell) . Selecione **Copiar** para copiar os blocos de código, cole-o no Cloud Shell e prima Enter para executá-lo.
 
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 O Azure Key Vault salvaguarda as chaves criptográficas e os segredos, como certificados ou palavras-passe. O Key Vault ajuda a simplificar o processo de gestão de chaves e permite-lhe manter o controlo das chaves que acedem a esses certificados. Pode criar um certificado autoassinado no Key Vault ou carregar um certificado fidedigno que já possui.
 
 Em vez de utilizar uma imagem de VM personalizada, que inclua certificados integrados, pode inserir certificados numa VM em execução. Este processo garante que são instalados os certificados mais atualizados num servidor Web durante a implementação. Se renovar ou substituir um certificado, também não tem de criar uma nova imagem de VM personalizada. Os certificados mais recentes são inseridos automaticamente à medida que cria VMs adicionais. Durante todo o processo, os certificados nunca saem da plataforma do Azure nem são expostos num script, histórico de linha de comandos ou modelo.
@@ -165,7 +166,7 @@ O site IIS protegido é apresentado como no exemplo seguinte:
 ![Ver site IIS seguro em execução](./media/tutorial-secure-web-server/secured-iis.png)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Neste tutorial, você garantiu um servidor web IIS com um certificado TLS/SSL armazenado no Cofre da Chave Azure. Aprendeu a:
 
 > [!div class="checklist"]

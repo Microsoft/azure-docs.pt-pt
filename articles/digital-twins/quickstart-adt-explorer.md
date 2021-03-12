@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/24/2020
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: f1b25b853977b3a1f4871e232a562d6a3cfd2fae
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: c1c1b5f58aa0e760ff626af4607cf8e2d1e13910
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102434207"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103232426"
 ---
 # <a name="quickstart---explore-a-sample-azure-digital-twins-scenario-using-azure-digital-twins-explorer"></a>Quickstart - Explore uma amostra do cenário Azure Digital Twins usando o Azure Digital Twins Explorer
 
@@ -91,15 +91,18 @@ Abra uma janela da consola para a localização da pasta **Azure_Digital_Twins__
 
    :::image type="content" source="media/quickstart-adt-explorer/sign-in.png" alt-text="Azure Digital Twins Explorer destacando o ícone Sign In perto do topo da janela. O ícone mostra uma silhueta simples de uma pessoa sobreposta com uma silhueta de uma chave." lightbox="media/quickstart-adt-explorer/sign-in.png":::
 
-1. Introduza o URL de exemplo de gémeos digitais Azure que recolheu anteriormente na secção Configurar uma secção [de exemplos Azure Digital Twins,](#set-up-an-azure-digital-twins-instance) no formato *https://{instance host name}*.
-
->[!NOTE]
-> Pode revisitar ou editar estas informações a qualquer momento selecionando o mesmo ícone para abrir novamente a caixa **Sign In.** Vai manter os valores que passaste.
+1. Introduza o URL de exemplo de gémeos digitais Azure que recolheu anteriormente na secção Configurar uma secção [de exemploS Azure Digital Twins,](#set-up-an-azure-digital-twins-instance) no formato *https://{instance nome de anfitrião}*.
 
 > [!TIP]
 > Se aparecer uma `SignalRService.subscribe` mensagem de erro quando ligar, certifique-se de que o URL das gémeas digitais Azure começa com *https://*.
 
+> [!TIP]
+> Se aparecer um erro de autenticação, é melhor verificar as variáveis do seu ambiente para se certificar de que quaisquer credenciais incluídas são válidas para a Azure Digital Twins. As tentativas de DefaultAzureCredential de autenticação contra [tipos de credenciais](/dotnet/api/overview/azure/identity-readme#defaultazurecredential) numa ordem específica, e as variáveis ambientais são avaliadas primeiro.
+
 Se vir uma janela pop-up **solicitada pela Microsoft,** conceda o consentimento para esta aplicação e aceite continuar.
+
+>[!NOTE]
+> Pode revisitar ou editar estas informações a qualquer momento selecionando o mesmo ícone para abrir novamente a caixa **Sign In.** Vai manter os valores que passaste.
 
 ## <a name="add-the-sample-data"></a>Adicione os dados da amostra
 

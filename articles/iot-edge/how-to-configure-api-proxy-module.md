@@ -1,5 +1,5 @@
 ---
-title: Módulo de procuração configure API - Azure IoT Edge / Microsoft Docs
+title: Módulo de procuração API configurar - Azure IoT Edge | Microsoft Docs
 description: Saiba como personalizar o módulo de procuração API para as hierarquias de gateway IoT Edge.
 author: kgremban
 manager: philmea
@@ -12,14 +12,16 @@ ms.custom:
 - amqp
 - mqtt
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: 894398d63e326db3c6ee9de9bebc426a6e621600
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 1070a4c8daecfedae513f2fd8738c27abfb33078
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024675"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200585"
 ---
 # <a name="configure-the-api-proxy-module-for-your-gateway-hierarchy-scenario-preview"></a>Configurar o módulo de procuração API para o seu cenário de hierarquia gateway (Pré-visualização)
+
+[!INCLUDE [iot-edge-version-202011](../../includes/iot-edge-version-202011.md)]
 
 O módulo de procuração API permite que os dispositivos IoT Edge enviem pedidos HTTP através de gateways em vez de fazer ligações diretas aos serviços na nuvem. Este artigo percorre as opções de configuração para que possa personalizar o módulo para suportar os requisitos da hierarquia do gateway.
 
@@ -50,7 +52,7 @@ O módulo de procuração API vem com uma configuração padrão que suporta cen
 
 Atualmente, as variáveis de ambiente padrão incluem:
 
-| Variável de ambiente | Descrição |
+| Variável de ambiente | Description |
 | -------------------- | ----------- |
 | `PROXY_CONFIG_ENV_VAR_LIST` | Enumere todas as variáveis que pretende atualizar numa lista separada por vírgula. Este passo evita modificar acidentalmente as definições de configuração erradas.
 | `NGINX_DEFAULT_PORT` | Muda a porta que o proxy nginx ouve. Se atualizar esta variável de ambiente, certifique-se de que a porta selecionada também está exposta no ficheiro de estiva do módulo e declarada como uma ligação de porta no manifesto de implantação.<br><br>O padrão é 443.<br><br>Quando implantado a partir do Azure Marketplace, a porta padrão é atualizada para 8000, para evitar conflitos com o módulo EdgeHub. Para mais informações, consulte [As portas abertas.](#minimize-open-ports) |
@@ -121,7 +123,7 @@ Configure os seguintes módulos na **camada superior:**
 * Um módulo de procuração API
   * Configure as seguintes variáveis ambientais:
 
-    | Nome | Valor |
+    | Name | Valor |
     | ---- | ----- |
     | `DOCKER_REQUEST_ROUTE_ADDRESS` | O nome do módulo de registo e a porta aberta. Por exemplo, `registry:5000`. |
     | `NGINX_DEFAULT_PORT` | A porta que o proxy nginx ouve para pedidos de dispositivos a jusante. Por exemplo, `8000`. |
@@ -147,7 +149,7 @@ Configure o seguinte módulo em qualquer **camada inferior** para este cenário:
 * Um módulo de procuração API
   * Configure as seguintes variáveis ambientais:
 
-    | Nome | Valor |
+    | Name | Valor |
     | ---- | ----- |
     | `NGINX_DEFAULT_PORT` | A porta que o proxy nginx ouve para pedidos de dispositivos a jusante. Por exemplo, `8000`. |
 
@@ -179,7 +181,7 @@ Configure os seguintes módulos na **camada superior:**
 * Um módulo de procuração API
   * Configure as seguintes variáveis ambientais:
 
-    | Nome | Valor |
+    | Name | Valor |
     | ---- | ----- |
     | `BLOB_UPLOAD_ROUTE_ADDRESS` | O nome do módulo de armazenamento blob e porta aberta. Por exemplo, `azureblobstorageoniotedge:1102`. |
     | `NGINX_DEFAULT_PORT` | A porta que o proxy nginx ouve para pedidos de dispositivos a jusante. Por exemplo, `8000`. |
@@ -205,7 +207,7 @@ Configure o seguinte módulo em qualquer **camada inferior** para este cenário:
 * Um módulo de procuração API
   * Configure as seguintes variáveis ambientais:
 
-    | Nome | Valor |
+    | Name | Valor |
     | ---- | ----- |
     | `NGINX_DEFAULT_PORT` | A porta que o proxy nginx ouve para pedidos de dispositivos a jusante. Por exemplo, `8000`. |
 
@@ -269,6 +271,6 @@ Para atualizar a configuração proxy de forma dinâmica, utilize os seguintes p
 
    ![Pasta codificada ficheiro config como valor de proxy_config propriedade](./media/how-to-configure-api-proxy-module/change-config.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Utilize o módulo de procuração API para [ligar um dispositivo IoT Edge a jusante a um gateway Azure IoT Edge](how-to-connect-downstream-iot-edge-device.md).

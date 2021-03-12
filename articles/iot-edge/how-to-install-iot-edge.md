@@ -9,14 +9,16 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 03/01/2021
 ms.author: kgremban
-ms.openlocfilehash: 3a2d048bfd3b47cd5a3cb93763aa27fac1b89649
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 6a64bb2801830440dc49e72786c9c00a6e4796b3
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102044923"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103201624"
 ---
 # <a name="install-or-uninstall-azure-iot-edge-for-linux"></a>Instale ou desinstale a borda Azure IoT para o Linux
+
+[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
 
 O tempo de execução Azure IoT Edge é o que transforma um dispositivo num dispositivo IoT Edge. O tempo de funcionaamento pode ser implantado em dispositivos tão pequenos como um Raspberry Pi ou tão grande como um servidor industrial. Quando um dispositivo é configurado com o runtime do IoT Edge, pode começar a implementar a lógica de negócio no mesmo partir da cloud. Para saber mais, consulte [o tempo de execução Azure IoT Edge e a sua arquitetura.](iot-edge-runtime.md)
 

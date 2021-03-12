@@ -3,7 +3,7 @@ title: Proteja o seu conteúdo com a Azure Media Services | Microsoft Docs
 description: Este artigo dá uma visão geral da proteção de conteúdos com a Azure Media Services v2.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: 81bc00e1-dcda-4d69-b9ab-8768b793422b
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/01/2019
-ms.author: juliako
-ms.openlocfilehash: 287f93a60a1c44b29b75def8cc3ee9adc577971c
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.date: 03/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: edffa2dddd0ec877a4b825a69a76fb158928c89f
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98695929"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103016768"
 ---
 # <a name="content-protection-overview"></a>Descrição geral da proteção de conteúdo
 
@@ -113,7 +113,7 @@ As seguintes considerações são aplicáveis:
 
 * Widevine é um serviço fornecido pela Google Inc. e sujeito aos termos de serviço e Política de Privacidade da Google, Inc.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Os seguintes artigos descrevem os próximos passos para ajudá-lo a começar com a proteção de conteúdos:
 
 * [Proteger com encriptação de armazenamento](media-services-rest-storage-encryption.md)

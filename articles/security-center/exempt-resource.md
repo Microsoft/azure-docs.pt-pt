@@ -3,16 +3,16 @@ title: Isentar uma recomendação do Azure Security Center de um recurso, subscr
 description: Saiba como criar regras para isentar as recomendações de segurança de subscrições ou grupos de gestão e evitar que impactem a sua pontuação segura
 author: memildin
 ms.author: memildin
-ms.date: 01/22/2021
+ms.date: 03/11/2021
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 374ddaa088fba9ae7035f170562e06b7f07eae47
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: d3627f6bcda7a18204c24fc2a1347c4a512c5369
+ms.sourcegitcommit: 6776f0a27e2000fb1acb34a8dddc67af01ac14ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101709381"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103149737"
 ---
 # <a name="exempting-resources-and-recommendations-from-your-secure-score"></a>Isenção de recursos e recomendações da sua pontuação segura 
 
@@ -30,13 +30,14 @@ Nesses casos, pode criar uma isenção para uma recomendação para:
 
 ## <a name="availability"></a>Disponibilidade
 
-|Aspeto|Detalhes|
-|----|:----|
-|Estado de libertação:|Pré-visualizar<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
-|Preços:|Esta é uma capacidade de política premium Azure que é oferecida para os clientes Azure Defender sem custos adicionais. Para outros utilizadores, os encargos podem ser aplicados no futuro.|
-|Funções e permissões necessárias:|**Proprietário de assinatura** ou **colaborador de política** para criar uma isenção<br>Para criar uma regra, precisa de permissões para editar políticas na Política Azure.<br>Saiba mais nas [permissões Azure RBAC na Azure Policy](../governance/policy/overview.md#azure-rbac-permissions-in-azure-policy).|
-|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Não](./media/icons/no-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
-|||
+| Aspeto                          | Detalhes                                                                                                                                                                                                                                                                                                                            |
+|---------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Estado de libertação:                  | Pré-visualizar<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)]                                                                                                                                                                                                                                             |
+| Preços:                        | Esta é uma capacidade de política premium Azure que é oferecida para os clientes Azure Defender sem custos adicionais. Para outros utilizadores, os encargos podem ser aplicados no futuro.                                                                                                                                                                 |
+| Funções e permissões necessárias: | **Proprietário de assinatura** ou **colaborador de política** para criar uma isenção<br>Para criar uma regra, precisa de permissões para editar políticas na Política Azure.<br>Saiba mais nas [permissões Azure RBAC na Azure Policy](../governance/policy/overview.md#azure-rbac-permissions-in-azure-policy).                                            |
+| Limitações:                    | As isenções só podem ser criadas para recomendações incluídas na iniciativa padrão do Security Center, Azure Security Benchmark, ou em qualquer uma das iniciativas regulamentares fornecidas. As recomendações geradas por iniciativas personalizadas não podem ser isentas. Saiba mais sobre as relações entre [políticas, iniciativas e recomendações.](security-policy-concept.md) |
+| Nuvens:                         | ![Yes](./media/icons/yes-icon.png) Nuvens comerciais<br>![No](./media/icons/no-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)                                                                                                                                                                                         |
+|                                 |                                                                                                                                                                                                                                                                                                                                    |
 
 ## <a name="define-an-exemption"></a>Definir uma isenção
 
@@ -44,6 +45,9 @@ Para afinar as recomendações de segurança que o Security Center faz para as s
 
 - Marque uma **recomendação** específica ou como "atenuado" ou "risco aceite". Pode criar isenções de recomendação para uma subscrição, subscrições múltiplas ou um grupo de gestão inteiro.
 - Marque **um ou mais recursos** como "atenuados" ou "riscos aceites" para uma recomendação específica.
+
+> [!NOTE]
+> As isenções só podem ser criadas para recomendações incluídas na iniciativa padrão do Security Center, Azure Security Benchmark ou qualquer uma das iniciativas padrão regulamentares fornecidas. As recomendações que são geradas a partir de quaisquer iniciativas personalizadas atribuídas às suas subscrições não podem ser isentas. Saiba mais sobre as relações entre [políticas, iniciativas e recomendações.](security-policy-concept.md)
 
 > [!TIP]
 > Também pode criar isenções usando a API. Por exemplo, JSON, e uma explicação das estruturas relevantes ver estrutura de [isenção da Política Azure.](../governance/policy/concepts/exemption-structure.md)
@@ -161,7 +165,7 @@ Saiba mais nas seguintes páginas:
 
 
 
-## <a name="exemption-rule-faq"></a>Regra de isenção FAQ
+## <a name="faq---exemption-rules"></a>FAQ - Regras de isenção
 
 ### <a name="what-happens-when-one-recommendation-is-in-multiple-policy-initiatives"></a>O que acontece quando uma recomendação está em múltiplas iniciativas políticas?
 

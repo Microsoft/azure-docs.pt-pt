@@ -8,12 +8,12 @@ ms.author: chpalm
 ms.date: 10/03/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 6fbc20ec7145a474d9f3aada153f2d012aba34f8
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 4e9ea1ec85067a59c5ee6bcd27993e294559f410
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102561352"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103232091"
 ---
 # <a name="region-availability-and-data-residency"></a>Disponibilidade de região e residência dos dados
 
@@ -51,12 +51,14 @@ Utilizando o portal Azure ou Azure Resource Manager APIs com Serviços de Comuni
 
 ### <a name="telephone-number-management"></a>Gestão de números telefónicos
 
-A Azure Communication Services mantém um diretório de números de telefone associados a um recurso de Serviços de Comunicação. Utilize estes APIs para recuperar números de telefone e eliminá-los:
+A Azure Communication Services mantém um diretório de números de telefone associados a um recurso de Serviços de Comunicação. Utilize [APIs da Administração de Números de Telefone](/rest/api/communication/phonenumberadministration) para recuperar números de telefone e eliminá-los:
+
+- `Get All Phone Numbers`
 - `Release Phone Number`
 
 ### <a name="chat"></a>Chat
 
-As linhas de chat e as mensagens são mantidas até serem explicitamente eliminadas. Um fio totalmente ocioso será apagado automaticamente após 30 dias. Utilize [APIs de chat](/rest/api/communication/chat/deletechatmessage/deletechatmessage) para obter, listar, atualizar e eliminar mensagens.
+As linhas de chat e as mensagens são mantidas até serem explicitamente eliminadas. Um fio totalmente ocioso será apagado automaticamente após 30 dias. Utilize [APIs de chat](/rest/api/communication/chat/chatthread) para obter, listar, atualizar e eliminar mensagens.
 
 - `Get Thread`
 - `Get Message`

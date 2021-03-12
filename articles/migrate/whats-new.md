@@ -7,12 +7,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.date: 04/19/2020
 ms.custom: mvc
-ms.openlocfilehash: f50737bdefc9065c9b16633ba3360bda1d028cd6
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 41476c5f8165729caa6780f8e74eb6c3ae30a59c
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102043053"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102614637"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Novidades em Azure Migrate
 
@@ -20,7 +20,9 @@ ms.locfileid: "102043053"
 
 ## <a name="update-march-2021"></a>Atualização (março de 2021)
 - Suporte para fornecer múltiplas credenciais de servidor no aparelho Azure Migrate para descobrir aplicações instaladas (inventário de software), análise de dependência de agentes e descobrir instâncias e bases de dados do SQL Server no seu ambiente VMware. [Saiba mais](tutorial-discover-vmware.md#provide-server-credentials)
-- A descoberta e avaliação de instâncias e bases de dados do SQL Server em execução no seu ambiente VMware está agora em pré-visualização. [Saiba mais](concepts-azure-sql-assessment-calculation.md)<br/>Para experimentar esta funcionalidade, utilize [este link](https://aka.ms/AzureMigrate/SQL) para criar um projeto na região **leste da Austrália.** Consulte os tutoriais [de descoberta](tutorial-discover-vmware.md) e [avaliação](tutorial-assess-sql.md) para começar.
+- A descoberta e avaliação de instâncias e bases de dados do SQL Server em execução no seu ambiente VMware está agora em pré-visualização. [Saiba mais](concepts-azure-sql-assessment-calculation.md)<br/>Para experimentar esta funcionalidade, utilize [esta hiperligação](https://aka.ms/AzureMigrate/SQL) para criar um projeto na região **Leste da Austrália**. Veja os tutoriais sobre [Deteção](tutorial-discover-vmware.md) e [avaliação](tutorial-assess-sql.md) para começar.
+- A migração de VMware sem agente suporta agora a replicação simultânea de 500 VMs por vCenter.
+- A Azure Migrate instala agora automaticamente o agente Azure VM nos VMware VMs enquanto os migra para Azure utilizando o método sem agente da migração de VMware.
 
 ## <a name="update-january-2021"></a>Atualização (janeiro de 2021)
 -  Azure Migrate: A ferramenta de migração do servidor permite-lhe agora migrar máquinas virtuais VMware, servidores físicos e máquinas virtuais de outras nuvens para máquinas virtuais Azure com discos encriptados com encriptação do lado do servidor com teclas geridas pelo cliente (CMK).

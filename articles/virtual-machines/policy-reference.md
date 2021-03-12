@@ -1,19 +1,19 @@
 ---
 title: Definições políticas incorporadas para máquinas virtuais Azure
 description: Lista definições de políticas incorporadas para máquinas virtuais Azure. Estas definições políticas incorporadas fornecem abordagens comuns para gerir os seus recursos Azure.
-ms.date: 03/05/2021
+ms.date: 03/10/2021
 ms.topic: reference
 author: cynthn
 ms.author: cynthn
 ms.service: virtual-machines
 ms.subservice: security
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 35008d117dd4d12b95416af9540c3dedc09c6921
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: a8f1689deb50809a4462fc6a8fe3df4a7a46da28
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102435367"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102616185"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-virtual-machines"></a>Definições incorporadas da Política Azure para máquinas virtuais Azure
 

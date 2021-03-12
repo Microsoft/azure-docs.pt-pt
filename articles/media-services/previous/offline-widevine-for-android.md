@@ -4,7 +4,7 @@ description: Este tópico mostra como configurar a sua conta Azure Media Service
 services: media-services
 keywords: DASH, DRM, Widevine Offline Mode, ExoPlayer, Android
 documentationcenter: ''
-author: willzhan
+author: IngridAtMicrosoft
 manager: steveng
 editor: ''
 ms.service: media-services
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/16/2019
+ms.date: 3/10/2021
 ms.author: willzhan
 ms.reviewer: dwgeo
-ms.openlocfilehash: dc21523d158330d70adfbc33734abe3d49535804
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: b13feeda162f9babe1958402a694b728312ea4e5
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98696300"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103015408"
 ---
 # <a name="offline-widevine-streaming-for-android"></a>Transmissão offline em fluxo de Widevine para Android
 
@@ -49,7 +49,7 @@ Para a construção das aplicações para jogadores Android, delineamos três op
 
 O artigo também responde a algumas questões comuns relacionadas com o streaming offline de conteúdos protegidos de Widevine.
 
-## <a name="requirements"></a>Requirements 
+## <a name="requirements"></a>Requisitos 
 
 Antes de implementar DRM offline para Widevine em dispositivos Android, você deve primeiro:
 
@@ -165,7 +165,7 @@ A aplicação PWA de código aberto acima é da autoria em Node.js. Se pretender
     - O certificado deve ter confiado em AC e um certificado de desenvolvimento auto-assinado não funciona
     - O certificado deve ter um CN correspondente ao nome DNS do servidor web ou gateway
 
-## <a name="frequently-asked-questions"></a>Perguntas frequentes
+## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
 ### <a name="question"></a>Pergunta
 

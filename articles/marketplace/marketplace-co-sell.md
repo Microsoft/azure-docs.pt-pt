@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 3/08/2021
-ms.openlocfilehash: 7d1d4a1a89931e3ded8274a4731aa3606695771b
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.date: 3/12/2021
+ms.openlocfilehash: 47f8f4ec3b5c5dd2d4545fc67561487d4f5a465c
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/12/2021
-ms.locfileid: "103199877"
+ms.locfileid: "103225319"
 ---
 # <a name="co-sell-with-microsoft-sales-teams-and-partners-overview"></a>Co-vender com equipas de vendas da Microsoft e visão geral dos parceiros
 
@@ -33,7 +33,7 @@ Uma oportunidade de co-venda é qualquer tipo de colaboração com equipas de ve
 - **Co-vender com as equipas de vendas da Microsoft** – Trabalhe com uma ou mais equipas de vendas da Microsoft para satisfazer ativamente as necessidades dos clientes. Isto pode incluir a venda das suas ofertas, as ofertas da Microsoft, ou ambas. Você e as equipas de vendas da Microsoft podem identificar e partilhar oportunidades de clientes em que as suas soluções podem ser um bom encaixe.
 - **Parceiro para Parceiro (P2P)** – Trabalhe com outro parceiro da Microsoft para resolver ativamente um problema de cliente.
 - **Oferta privada** – Partilhe o que está a trabalhar independentemente com a Microsoft para que se reflita no sistema de reporte da Microsoft para análise e previsão.
-- **Avaliação de Soluções (SA)** – Trabalhe com parceiros que são examinados pela equipa de negócios de avaliação de soluções para aceder às necessidades tecnológicas dos clientes que estão a usar ou planeiam utilizar tecnologias da Microsoft.
+- **Avaliação de Soluções (SA)** – Trabalhe com parceiros que são examinados pela equipa de negócios de avaliação de soluções para avaliar as necessidades tecnológicas dos clientes que estão a usar ou planeiam utilizar tecnologias da Microsoft.
 
 ## <a name="co-sell-statuses"></a>Estatutos de co-venda
 

@@ -10,14 +10,16 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: 65d95533e4cff02866111881f036225f9f544852
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: c06120d1a2e8aa6aa0c006c6f40fed6fab44c5b7
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101719020"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200701"
 ---
 # <a name="retrieve-logs-from-iot-edge-deployments"></a>Recuperar registos de implementações IoT Edge
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Recupere os registos das suas implementações IoT Edge sem necessitar de acesso físico ou SSH ao dispositivo utilizando os métodos diretos incluídos no módulo de agente IoT Edge. Os métodos diretos são implementados no dispositivo e, em seguida, podem ser invocados a partir da nuvem. O agente IoT Edge inclui métodos diretos que o ajudam a monitorizar e gerir remotamente os seus dispositivos IoT Edge. Os métodos diretos discutidos neste artigo estão geralmente disponíveis com a versão 1.0.10.
 
@@ -74,7 +76,7 @@ Este método aceita uma carga JSON com o seguinte esquema:
     }
 ```
 
-| Nome | Tipo | Descrição |
+| Nome | Tipo | Description |
 |-|-|-|
 | schemaVersão | string | Definir para `1.0` |
 | itens | Matriz JSON | Uma matriz com `id` `filter` tuples. |
@@ -183,7 +185,7 @@ Este método aceita uma carga útil JSON semelhante à **GetModuleLogs,** com a 
     }
 ```
 
-| Nome | Tipo | Descrição |
+| Nome | Tipo | Description |
 |-|-|-|
 | sasURL | corda (URI) | [URL de assinatura de acesso compartilhado com acesso de escrita ao recipiente de armazenamento Azure Blob](/archive/blogs/jpsanders/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer). |
 
@@ -197,7 +199,7 @@ Um pedido bem sucedido para carregar registos devolve um **"status": 200** segui
     }
 ```
 
-| Nome | Tipo | Descrição |
+| Nome | Tipo | Description |
 |-|-|-|
 | status | string | Um dos `NotStarted` , , , ou `Running` `Completed` `Failed` `Unknown` . |
 | message | string | Mensagem se erro, corda vazia de outra forma. |
@@ -300,7 +302,7 @@ Este método aceita uma carga JSON com o seguinte esquema:
     }
 ```
 
-| Nome | Tipo | Descrição |
+| Nome | Tipo | Description |
 |-|-|-|
 | schemaVersão | string | Definir para `1.0` |
 | sasURL | corda (URI) | [URL de assinatura de acesso compartilhado com acesso de escrita ao recipiente de armazenamento Azure Blob](/archive/blogs/jpsanders/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer) |
@@ -321,7 +323,7 @@ Um pedido bem sucedido para carregar registos devolve um **"status": 200** segui
     }
 ```
 
-| Nome | Tipo | Descrição |
+| Nome | Tipo | Description |
 |-|-|-|
 | status | string | Um dos `NotStarted` , , , ou `Running` `Completed` `Failed` `Unknown` . |
 | message | string | Mensagem se erro, corda vazia de outra forma. |
@@ -379,7 +381,7 @@ Um pedido bem sucedido para carregar registos devolve um **"status": 200** segui
     }
 ```
 
-| Nome | Tipo | Descrição |
+| Nome | Tipo | Description |
 |-|-|-|
 | status | string | Um dos `NotStarted` , , , ou `Running` `Completed` `Failed` `Unknown` . |
 | message | string | Mensagem se erro, corda vazia de outra forma. |

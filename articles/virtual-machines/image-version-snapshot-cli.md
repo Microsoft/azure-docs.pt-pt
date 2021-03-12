@@ -3,18 +3,18 @@ title: CLI - Criar uma imagem a partir de um instantâneo ou disco gerido numa G
 description: Saiba como criar uma imagem a partir de um instantâneo ou disco gerido numa Galeria de Imagens Partilhadas utilizando o Azure CLI.
 author: cynthn
 ms.service: virtual-machines
-ms.subservice: imaging
+ms.subservice: shared-image-gallery
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 06/30/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 9cfb1fe6d2050a63070e9c21e4b8c3ef59efcb15
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: c809edd3699d0b9827fe15da53d5d18b12cbe6e6
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98682686"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102556966"
 ---
 # <a name="create-an-image-from-a-managed-disk-or-snapshot-in-a-shared-image-gallery-using-the-azure-cli"></a>Crie uma imagem a partir de um disco gerido ou instantâneo numa Galeria de Imagens Partilhadas utilizando o Azure CLI
 
@@ -25,7 +25,7 @@ As imagens numa galeria de imagens têm dois componentes, que iremos criar neste
 - Uma **versão de imagem** é o que é usado para criar um VM quando se utiliza uma Galeria de Imagens Partilhadas. Pode ter várias versões de uma imagem necessária para o seu ambiente. Quando se cria um VM, a versão de imagem é usada para criar novos discos para o VM. As versões de imagem podem ser usadas várias vezes.
 
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Para completar este artigo, tem de ter uma foto ou disco gerido. 
 

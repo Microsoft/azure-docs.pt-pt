@@ -116,6 +116,16 @@
           href: fix-deployment-provisioning-failures.md
     - name: FAQ
       href: faq.yml
+    - name: Vídeos
+      items:
+        - name: Lista de reprodução
+          href: 'https://youtube.com/playlist?list=PL1NLwHeM6ewbZu0dC0guj-OSpIoZnnJin'
+        - name: Integração com o Serviço Azure
+          href: 'https://youtu.be/m26iLu6DHbU'
+        - name: Integração com gateway de aplicação Azure
+          href: 'https://youtu.be/BoQYvqzb6Y8'
+        - name: Migração e planeamento de capacidades
+          href: 'https://youtu.be/NoNG-hkksrA'
 - name: Referência
   items:
     - name: CLI do Azure

@@ -10,12 +10,12 @@ ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 8ec1ac5d804721e9af50a70a29cdcaf40d3375be
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: ce6d2c34c48a26f99f78c364db5f06f9931c9dd7
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102623582"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103021177"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar, certifique-se de:
@@ -68,10 +68,10 @@ Este quickstart não cobre a criação de um nível de serviço para gerir ficha
 
 Copie os seguintes fragmentos de código e cole-os no ficheiro de origem: **Program.cs**
 ```csharp
-using Azure.Communication.Identity;
-using Azure.Communication.Chat;
 using Azure;
 using Azure.Communication;
+using Azure.Communication.Chat;
+using System;
 
 namespace ChatQuickstart
 {
@@ -98,12 +98,12 @@ Use o `createChatThread` método no chatClient para criar um fio de chat
 O objeto de resposta do `createChatThread` método contém os `chatThread` detalhes. Para interagir com as operações do fio de chat, como adicionar participantes, enviar uma mensagem, apagar uma mensagem, etc., uma `chatThreadClient` instância do cliente precisa de ser instantânea usando o método no `GetChatThreadClient` `ChatClient` cliente.
 
 ```csharp
-var chatParticipant = new ChatParticipant(communicationIdentifier: new CommunicationUserIdentifier(id: "<Access_ID>"))
+var chatParticipant = new ChatParticipant(identifier: new CommunicationUserIdentifier(id: "<Access_ID>"))
 {
     DisplayName = "UserDisplayName"
 };
 CreateChatThreadResult createChatThreadResult = await chatClient.CreateChatThreadAsync(topic: "Hello world!", participants: new[] { chatParticipant });
-ChatThreadClient chatThreadClient = chatClient.GetChatThreadClient(createChatThreadResult.ChatThread.Id);
+ChatThreadClient chatThreadClient = chatClient.GetChatThreadClient(threadId: createChatThreadResult.ChatThread.Id);
 string threadId = chatThreadClient.Id;
 ```
 
@@ -112,7 +112,7 @@ O `GetChatThreadClient` método devolve um cliente de linha para um fio que já 
 
 ```csharp
 string threadId = "<THREAD_ID>";
-ChatThreadClient chatThreadClient = chatClient.GetChatThreadClient(threadId);
+ChatThreadClient chatThreadClient = chatClient.GetChatThreadClient(threadId: threadId);
 ```
 
 ## <a name="send-a-message-to-a-chat-thread"></a>Envie uma mensagem para um fio de chat
@@ -134,7 +134,7 @@ Utilize `GetMessage` para recuperar uma mensagem do serviço.
 `ChatMessage` é a resposta devolvida de receber uma mensagem, contém um ID, que é o identificador único da mensagem, entre outros campos. Consulte Azure.Communication.Chat.ChatMessage
 
 ```csharp
-ChatMessage chatMessage = await chatThreadClient.GetMessageAsync(messageId);
+ChatMessage chatMessage = await chatThreadClient.GetMessageAsync(messageId: messageId);
 ```
 
 ## <a name="receive-chat-messages-from-a-chat-thread"></a>Receba mensagens de chat de um fio de chat
@@ -174,7 +174,7 @@ Pode atualizar uma mensagem que já foi enviada invocando `UpdateMessage` `ChatT
 ```csharp
 string id = "id-of-message-to-edit";
 string content = "updated content";
-await chatThreadClient.UpdateMessageAsync(id, content);
+await chatThreadClient.UpdateMessageAsync(messageId: id, content: content);
 ```
 
 ## <a name="deleting-a-message"></a>Apagar uma mensagem
@@ -183,7 +183,7 @@ Pode apagar uma mensagem invocando `DeleteMessage` `ChatThreadClient` .
 
 ```csharp
 string id = "id-of-message-to-delete";
-await chatThreadClient.DeleteMessageAsync(id);
+await chatThreadClient.DeleteMessageAsync(messageId: id);
 ```
 
 ## <a name="add-a-user-as-a-participant-to-the-chat-thread"></a>Adicione um utilizador como participante ao fio de chat
@@ -207,7 +207,7 @@ var participants = new[]
     new ChatParticipant(amy) { DisplayName = "Amy" }
 };
 
-await chatThreadClient.AddParticipantsAsync(participants);
+await chatThreadClient.AddParticipantsAsync(participants: participants);
 ```
 ## <a name="remove-user-from-a-chat-thread"></a>Remova o utilizador de um fio de chat
 
@@ -215,7 +215,7 @@ Similar a adicionar um utilizador a um fio, pode remover os utilizadores de um f
 
 ```csharp
 var gloria = new CommunicationUserIdentifier(id: "<Access_ID_For_Gloria>");
-await chatThreadClient.RemoveParticipantAsync(gloria);
+await chatThreadClient.RemoveParticipantAsync(identifier: gloria);
 ```
 
 ## <a name="get-thread-participants"></a>Receba participantes de thread
@@ -243,7 +243,7 @@ await chatThreadClient.SendTypingNotificationAsync();
 Utilize `SendReadReceipt` para notificar outros participantes de que a mensagem é lida pelo utilizador.
 
 ```csharp
-await chatThreadClient.SendReadReceiptAsync(messageId);
+await chatThreadClient.SendReadReceiptAsync(messageId: messageId);
 ```
 
 ## <a name="get-read-receipts"></a>Receba recibos de leitura

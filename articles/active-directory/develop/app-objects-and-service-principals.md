@@ -13,12 +13,12 @@ ms.date: 02/15/2021
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: sureshja
-ms.openlocfilehash: f0a9298b6d8ee011052a20dc34d314adbc5a0b1e
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 358e066631304e727d18d092bd4b9a5b2a0bb89a
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101646406"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199612"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Objetos do principal de serviço e aplicação no Azure Active Directory
 
@@ -63,11 +63,10 @@ O objeto de aplicação é a representação *global* do seu pedido de uso em to
 
 O objeto da aplicação serve como o modelo a partir do qual as propriedades comuns e predefinidas são *derivadas* para utilização na criação de objetos correspondentes do principal de serviço. Um objeto de aplicação tem, portanto, uma relação 1:1 com a aplicação de software, e uma relação de 1:muitos com o seu(s) objeto principal de serviço correspondente.
 
-Deve ser criado um resmedificado de serviço em cada arrendatário em que o pedido seja utilizado, permitindo-lhe estabelecer uma identidade para a inscrição e/ou acesso aos recursos que o arrendatário assegura. Uma aplicação de inquilino único tem apenas um principal de serviço (no inquilino principal), criado e com permissão para utilização durante o registo da aplicação. Uma aplicação Web/API multi-arrendatário também tem um principal serviço criado em cada inquilino onde um utilizador desse inquilino consentiu a sua utilização.
+Deve ser criado um resmedificado de serviço em cada arrendatário em que o pedido seja utilizado, permitindo-lhe estabelecer uma identidade para a inscrição e/ou acesso aos recursos que o arrendatário assegura. Uma aplicação de inquilino único tem apenas um principal de serviço (no inquilino principal), criado e com permissão para utilização durante o registo da aplicação. Uma aplicação multi-arrendatário também tem um principal serviço criado em cada inquilino onde um utilizador desse inquilino consentiu a sua utilização.
 
-Quaisquer alterações que faça ao seu objeto de candidatura, incluindo a eliminação, refletem-se no seu principal objeto de serviço apenas no arrendatário do pedido (o arrendatário onde foi registado). No caso de aplicações multi-arrendatários, as alterações ao objeto de aplicação não se refletem em objetos principais de serviço dos inquilinos do consumidor, até que o acesso seja removido através do Painel de Acesso à [Aplicação](https://myapps.microsoft.com) e concedido novamente.
-
-As aplicações nativas são registadas como multi-inquilinos por defeito.
+### <a name="consequences-of-modifying-and-deleting-applications"></a>Consequências da modificação e eliminação de aplicações
+Quaisquer alterações que faça ao seu objeto de candidatura também se refletem no seu objeto principal de serviço apenas no arrendatário do pedido (o inquilino onde foi registado). Isto significa que a eliminação de um objeto de aplicação também apagará o seu objeto principal de serviço de inquilino domiciliário.  No entanto, restaurar o objeto de aplicação não irá restaurar o seu correspondente principal de serviço. No caso de aplicações multi-arrendatários, as alterações ao objeto de aplicação não se refletem em objetos principais de serviço dos inquilinos do consumidor, até que o acesso seja removido através do Painel de Acesso à [Aplicação](https://myapps.microsoft.com) e concedido novamente.
 
 ## <a name="example"></a>Exemplo
 

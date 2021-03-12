@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 02/22/2021
+ms.date: 03/08/2021
 ms.author: alkohli
-ms.openlocfilehash: 5289f9b558a200bf3dbefdf584eab59d1792439b
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: ddbf3c99845f4c38f511260f4dec274903a9d586
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102437745"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102631966"
 ---
 # <a name="connect-to-and-manage-a-kubernetes-cluster-via-kubectl-on-your-azure-stack-edge-pro-gpu-device"></a>Ligue e gere um cluster Kubernetes através de kubectl no seu dispositivo GPU Azure Stack Edge Pro
 
@@ -105,7 +105,7 @@ Nesta abordagem, cria-se um espaço de nome e um utilizador. Em seguida, associe
 
 4. O ficheiro config deve viver na `.kube` pasta do seu perfil de utilizador na máquina local. Copie o ficheiro para essa pasta no seu perfil de utilizador.
 
-    ![Localização do ficheiro config no cliente](media/azure-stack-edge-j-series-create-kubernetes-cluster/location-config-file.png)
+    ![Localização do ficheiro config no cliente](media/azure-stack-edge-gpu-create-kubernetes-cluster/location-config-file.png)
 
 5. Associe o espaço de nomes ao utilizador que criou. Escreva:
 
@@ -169,9 +169,9 @@ Agora pode implementar as suas aplicações no espaço de nomes e, em seguida, v
 
 Para remover o cluster Kubernetes, terá de remover a configuração IoT Edge.
 
-Para obter instruções detalhadas, aceda à [configuração remove ioT Edge](azure-stack-edge-j-series-manage-compute.md#remove-iot-edge-service).
+Para obter instruções detalhadas, aceda à [configuração manage IoT Edge](azure-stack-edge-gpu-manage-compute.md#manage-iot-edge-configuration).
    
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Implemente uma aplicação apátrida no seu Azure Stack Edge Pro](azure-stack-edge-j-series-deploy-stateless-application-kubernetes.md).
+- [Implemente uma aplicação apátrida no seu Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-stateless-application-kubernetes.md).

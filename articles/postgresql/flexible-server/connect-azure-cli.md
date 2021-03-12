@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 03/06/2021
-ms.openlocfilehash: f10978107f80e7dea4e6d5ad40c078c55f225c2d
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: f4eec89aadee1966271286b9280916af973e4b1c
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102494787"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102614348"
 ---
 # <a name="quickstart-connect-and-query-with-azure-cli--with-azure-database-for-postgresql---flexible-server"></a>Quickstart: Conecte-se e questione-se com o Azure CLI com a Azure Database for PostgreSQL - Servidor Flexível
 
@@ -34,7 +34,7 @@ A primeira coisa que vamos criar é um servidor PósgreSQL gerido. Em [Azure Clo
 ```azurecli
 az postgres flexible-server create --public-access <your-ip-address>
 ```
-Pode fornecer argumentos adicionais para este comando para personalizá-lo. Consulte todos os argumentos para [a criação de postgres flexíveis az](/cli/azure/postgres/flexible-server?view=azure-cli-latest#az_postgres_flexible_server_create).
+Pode fornecer argumentos adicionais para este comando para personalizá-lo. Consulte todos os argumentos para [a criação de postgres flexíveis az](/cli/azure/postgres/flexible-server#az_postgres_flexible_server_create).
 
 ## <a name="view-all-the-arguments"></a>Ver todos os argumentos
 Pode ver todos os argumentos para este comando com ```--help``` argumento. 

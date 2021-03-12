@@ -1,5 +1,5 @@
 ---
-title: Scripts windows para Azure IoT Edge | Microsoft Docs
+title: Scripts para Azure IoT Edge com recipientes Windows | Microsoft Docs
 description: Informações de referência para scripts IoT Edge PowerShell para instalar, desinstalar ou atualizar em dispositivos Windows
 author: kgremban
 manager: philmea
@@ -8,14 +8,14 @@ ms.date: 10/06/2020
 ms.topic: reference
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 2878d682d0f2025a50f26baf87476f66aa236e2c
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: b7614f7ccd24d0237a043a9b5bf0ad988146d89c
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98630621"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102615912"
 ---
-# <a name="powershell-scripts-for-iot-edge-on-windows"></a>Scripts PowerShell para IoT Edge no Windows
+# <a name="powershell-scripts-for-iot-edge-with-windows-containers"></a>Scripts PowerShell para IoT Edge com recipientes Windows
 
 Compreenda os scripts PowerShell que instalam, atualizam ou desinstalam o IoT Edge nos dispositivos Windows.
 

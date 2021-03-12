@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: a51121b9dd9c7dcb894399fd9ad5f49cc5e07f3a
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: 0d45e04bbafc7b2480abdcb2ab21bdb219a09b9e
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102486614"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103021300"
 ---
 ## <a name="add-managed-identity-to-your-communication-services-solution-js"></a>Adicionar identidade gerida à sua solução de Serviços de Comunicação (JS)
 
@@ -24,7 +24,7 @@ Adicione as `import` seguintes diretivas ao seu código para utilizar as bibliot
 ```typescript
 import { DefaultAzureCredential } from "@azure/identity";
 import { CommunicationIdentityClient } from "@azure/communication-identity";
-import { SmsClient } from "@azure/communication-sms";
+import { SmsClient, SmsSendRequest } from "@azure/communication-sms";
 ```
 
 Os exemplos abaixo estão a utilizar o [DefaultAzureCredential](/javascript/api/azure.identity.defaultazurecredential). Esta credencial é adequada para ambientes de produção e desenvolvimento.
@@ -51,7 +51,7 @@ O seguinte exemplo de código mostra como criar um objeto de cliente de serviço
 export async function sendSms(resourceEndpoint: string, fromNumber: any, toNumber: any, message: string) {
      let credential = new DefaultAzureCredential();
      const smsClient = new SmsClient(resourceEndpoint, credential);
-     const sendRequest: SendRequest = { 
+     const sendRequest: SmsSendRequest = { 
           from: fromNumber, 
           to: [toNumber], 
           message: message 

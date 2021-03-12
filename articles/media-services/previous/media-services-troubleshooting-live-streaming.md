@@ -1,9 +1,9 @@
 ---
-title: Guia de resolução de problemas para transmissão em direto Microsoft Docs
+title: Guia de resolução de problemas para | de streaming ao vivo Microsoft Docs
 description: Este artigo dá sugestões sobre como resolver problemas de problemas com o Azure Media Services em direto.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
-ms.author: juliako
-ms.openlocfilehash: 97ad3048fccc4f8ed6baf0f1d5304f1c8d81c3f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 3/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: 1b7a7ec746f5400fe65e3e1db88ae61e97ae710a
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89269238"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103009050"
 ---
 # <a name="troubleshooting-guide-for-live-streaming"></a>Guia de resolução de problemas de transmissão em fluxo em direto
 
@@ -33,7 +33,7 @@ Esta secção dá sugestões sobre como resolver problemas relacionados com os c
 * **Problema potencial**: Não é possível encontrar registos codificadores que possam ajudar a depurar problemas.
   
   * **Telestream Wirecast**: Normalmente pode encontrar registos em C:\Username}\AppData\Roaming\Wirecast\ \{ 
-  * **Elemental Live**: Pode encontrar links para registos no portal de gestão. Clique em **Estatísticas**e, em seguida, **Regista**. Na página **'Ficheiros de Registo',** verá uma lista de registos de todos os itens LiveEvent; selecione a que corresponde à sua sessão atual. 
+  * **Elemental Live**: Pode encontrar links para registos no portal de gestão. Clique em **Estatísticas** e, em seguida, **Regista**. Na página **'Ficheiros de Registo',** verá uma lista de registos de todos os itens LiveEvent; selecione a que corresponde à sua sessão atual. 
   * **Flash Media Live Encoder**: Pode encontrar o **Diretório de Registos...** navegando no **separador Registo de Codificação.**
 
 ### <a name="problem-there-is-no-option-for-outputting-a-progressive-stream"></a>Problema: Não há opção para a saída de um fluxo progressivo

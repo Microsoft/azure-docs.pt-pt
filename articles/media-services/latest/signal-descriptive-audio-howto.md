@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.custom: devx-track-csharp
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 3d029f23a094646d20dd6ae8cb6560aeef4aed54
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 5174cb584f2e8df236725f7427b423fda1a02c88
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954517"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102630865"
 ---
 # <a name="signal-descriptive-audio-tracks"></a>Faixas de áudio descritivas de sinal
 

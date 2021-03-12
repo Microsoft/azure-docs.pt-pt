@@ -1,9 +1,9 @@
 ---
-title: Redact enfrenta a Azure Media Analytics a passar por / Microsoft Docs
+title: Redact enfrenta Azure Media Analytics a percorrer | Microsoft Docs
 description: Este tópico mostra instruções passo a passo sobre como executar um fluxo de trabalho de redação completo usando Azure Media Services Explorer (AMSE) e Azure Media Redator Visualizer (ferramenta open source).
 services: media-services
 documentationcenter: ''
-author: Lichard
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: d6fa21b8-d80a-41b7-80c1-ff1761bc68f2
@@ -12,21 +12,21 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 03/10/2021
 ms.author: ril
 ms.reviewer: juliako
-ms.openlocfilehash: 048635a33c3d84416dae00b731b386572aa3f89d
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: 1a7e20681dfa7da7ce30f46a7c4b0b6df6f78916
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97802580"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103009567"
 ---
 # <a name="redact-faces-with-azure-media-analytics-walkthrough"></a>Redact enfrenta com Azure Media Analytics walkthrough
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 **O Azure Media Redator** é um processador de media [Azure Media Analytics](./legacy-components.md) (MP) que oferece uma redação facial escalável na nuvem. A redação facial permite-lhe modificar o seu vídeo de modo a desfocar rostos de indivíduos selecionados. Pode querer utilizar o serviço de redação facial em cenários de segurança pública e media de notícias. Alguns minutos de imagens que contêm múltiplas faces podem demorar horas a redigir manualmente, mas com este serviço o processo de redação facial requer apenas alguns passos simples. Para mais informações, consulte [este](https://azure.microsoft.com/blog/azure-media-redactor/) blog.
 
