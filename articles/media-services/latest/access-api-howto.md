@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 08/31/2020
+ms.date: 03/10/2021
 ms.author: inhenkel
-ms.openlocfilehash: 00808c25ac84da852cce6169fb210767ee2b56cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2f55d1dcc3364f119faab0c728f6e3b7f5ecbb06
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89265886"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102614943"
 ---
 # <a name="get-credentials-to-access-media-services-api"></a>Obtenha credenciais para aceder à API dos Serviços de Mídia
 
@@ -37,7 +37,7 @@ Este artigo descreve passos para obter credenciais para aceder à API dos Servi�
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Uma conta do Azure. Se não tem conta, comece com um [julgamento gratuito do Azure.](https://azure.microsoft.com/pricing/free-trial/) 
+- Uma conta do Azure. Se não tem conta, comece com um [julgamento gratuito do Azure.](https://azure.microsoft.com/pricing/free-trial/)
 - Uma conta dos Media Services. Para obter mais informações, consulte [criar uma conta Azure Media Services utilizando o portal Azure](create-account-howto.md).
 
 ## <a name="portal"></a>[Portal](#tab/portal/)
@@ -47,7 +47,7 @@ Este artigo descreve passos para obter credenciais para aceder à API dos Servi�
 A página **de acesso API** permite selecionar o método de autenticação que pretende utilizar para ligar à API. A página também fornece os valores necessários para se ligar à API.
 
 1. No [portal Azure,](https://portal.azure.com/)selecione a sua conta De Serviços de Comunicação.
-2. Selecione a lâmina **de acesso API (nova)** na barra de navegação esquerda.
+2. Selecione a lâmina **de acesso API** na barra de navegação esquerda.
 3. No **Âmbito do Connect to Media Services API**, selecione a versão API dos Serviços de Mídia a que pretende ligar (v3 é a versão mais recente do serviço).
 
 ### <a name="service-principal-authentication--recommended"></a>Autenticação principal do serviço (recomendado)

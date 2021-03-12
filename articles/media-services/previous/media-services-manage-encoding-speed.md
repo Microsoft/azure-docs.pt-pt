@@ -1,9 +1,9 @@
 ---
-title: Gerir a velocidade e a concordância da sua codificação com a Azure Media Services Microsoft Docs
+title: Gerencie a velocidade e a concordância da sua codificação com a Azure Media Services | Microsoft Docs
 description: Este artigo apresenta uma breve visão geral de como pode gerir a velocidade e a concordância dos seus trabalhos/tarefas de codificação com a Azure Media Services.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: 676313f8-a158-4e3a-a99b-2c29a341ecc9
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
-ms.openlocfilehash: 4b6f843678d64bddd276f6123a432699efc89ad9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 03/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: f01235e5b02bf2a61a359fa5571c6e6d575c1232
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89269289"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103014813"
 ---
 #  <a name="manage-speed-and-concurrency-of-your-encoding"></a>Gerir a velocidade e simultaneidade da codificação
 
@@ -27,9 +27,9 @@ ms.locfileid: "89269289"
 
 Este artigo apresenta uma breve visão geral de como pode gerir a velocidade e a concordância dos seus trabalhos/tarefas de codificação.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
-Nos Serviços de Comunicação Social, um **Tipo de Unidade Reservada** determina a rapidez com que as suas tarefas de processamento de meios de comunicação são processadas. Pode escolher entre os seguintes tipos de unidade reservada: **S1,** **S2**ou **S3**. Por exemplo, a mesma tarefa de trabalho de codificação é executada mais depressa se utilizar o tipo de unidade reservada **S2** em comparação com o tipo **S1**. O tópico [das unidades de codificação de escala](media-services-scale-media-processing-overview.md) mostra uma tabela que o ajuda a tomar uma decisão na escolha entre diferentes velocidades de codificação.
+Nos Serviços de Comunicação Social, um **Tipo de Unidade Reservada** determina a rapidez com que as suas tarefas de processamento de meios de comunicação são processadas. Pode escolher entre os seguintes tipos de unidade reservada: **S1,** **S2** ou **S3**. Por exemplo, a mesma tarefa de trabalho de codificação é executada mais depressa se utilizar o tipo de unidade reservada **S2** em comparação com o tipo **S1**. O tópico [das unidades de codificação de escala](media-services-scale-media-processing-overview.md) mostra uma tabela que o ajuda a tomar uma decisão na escolha entre diferentes velocidades de codificação.
 
 Além de especificar o tipo de unidade reservada, pode especificar a disponibilização da sua conta com **Unidades Reservadas.** O número de unidades reservadas aprovisionadas determina o número de tarefas de multimédia que podem ser processadas em simultâneo numa determinada conta. Por exemplo, se a sua conta tiver cinco unidades reservadas, então cinco tarefas de media serão executadas simultaneamente enquanto houver tarefas a serem processadas. As restantes tarefas aguardarão na fila e serão recolhidas para processamento sequencialmente quando uma tarefa de execução terminar. Se uma conta não tiver nenhuma unidade reservada a provisionada, então as tarefas serão recolhidas sequencialmente. Neste caso, o tempo de espera entre um acabamento de uma tarefa e o próximo arranque dependerá da disponibilidade de recursos no sistema.
 

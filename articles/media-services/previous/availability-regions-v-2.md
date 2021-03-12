@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/03/2020
+ms.date: 03/10/2021
 ms.author: inhenkel
 ms.custom: references_regions
-ms.openlocfilehash: 458927afc78c46ad365d437a574d0b40b32fc11e
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: 125f2be205760618ab6ffa3175f719f5e91e8c05
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98695802"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103012263"
 ---
 # <a name="media-services-regional-availability"></a>Disponibilidade regional dos Serviços de Mídia
 
@@ -42,7 +42,7 @@ Utilize [produtos Azure por Região](https://azure.microsoft.com/global-infrastr
 
 Os clientes dos Serviços de Multimédia podem escolher um ponto final de transmissão em fluxo **Standard** ou **Premium**.
 
-|Name|Estado|Região
+|Name|Estado|Region
 |---|---|---|
 |Standard|GA|Todos|
 |Premium|GA|Todos|
@@ -67,7 +67,7 @@ A Análise de Multimédia é um conjunto de componentes de voz e visão que faci
 > [!NOTE]
 > Alguns processadores de mídia analíticos serão reformados. Para as datas de aposentadoria, consulte o tema dos [componentes do legado.](legacy-components.md)
 
-|Nome do processador de mulitmédia|Estado|Região
+|Nome do processador de mulitmédia|Estado|Region
 |---|---|---|
 |Azure Media Face Detector|Pré-visualizar|Todos|
 |Azure Media Indexer|GA|Todos|

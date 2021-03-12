@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/12/2020
-ms.openlocfilehash: a13f78b6aa4fc3cb6f6777c76bc762ec565624fc
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: dce4c41d0d6f15ac9dc33e687c9a5ac7b7b96e06
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951320"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200788"
 ---
 # <a name="configure-a-connection-from-an-azure-cognitive-search-indexer-to-sql-server-on-an-azure-vm"></a>Configure uma ligação de um indexante de pesquisa cognitiva Azure para SQL Server em um VM Azure
 
@@ -75,18 +75,9 @@ A abordagem IP pode colocar alguns desafios que são facilmente ultrapassados se
 #### <a name="restrict-access-to-the-azure-cognitive-search"></a>Restringir o acesso à Pesquisa Cognitiva Azure
 Recomendamos vivamente que restringa o acesso ao endereço IP do seu serviço de pesquisa e à gama de endereços IP da etiqueta de `AzureCognitiveSearch` [serviço](../virtual-network/service-tags-overview.md#available-service-tags) na ACL em vez de tornar os seus VMs SQL Azure abertos a todos os pedidos de ligação.
 
-Pode descobrir o endereço IP, pingando o FQDN (por `<your-search-service-name>.search.windows.net` exemplo,) do seu serviço de pesquisa.
+Pode descobrir o endereço IP, pingando o FQDN (por `<your-search-service-name>.search.windows.net` exemplo,) do seu serviço de pesquisa. Embora seja possível que o endereço IP do serviço de pesquisa seja alterado, é improvável que este se altere. O endereço IP tende a ser estático durante toda a vida do serviço.
 
 Pode descobrir a gama de endereços IP da tag de `AzureCognitiveSearch` [serviço](../virtual-network/service-tags-overview.md#available-service-tags) utilizando [ficheiros JSON transferíveis](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) ou através da [API de Descoberta de Marca de Serviço.](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview) O intervalo de endereços IP é atualizado semanalmente.
-
-#### <a name="managing-ip-address-fluctuations"></a>Gestão de flutuações de endereços IP
-Se o seu serviço de pesquisa tiver apenas uma unidade de pesquisa (isto é, uma réplica e uma partição), o endereço IP mudará durante o reinício do serviço de rotina, invalidando um ACL existente com o endereço IP do seu serviço de pesquisa.
-
-Uma maneira de evitar o erro de conectividade subsequente é usar mais do que uma réplica e uma partição na Pesquisa Cognitiva Azure. Ao fazê-lo, aumenta o custo, mas também resolve o problema do endereço IP. Na Pesquisa Cognitiva Azure, os endereços IP não mudam quando se tem mais do que uma unidade de pesquisa.
-
-Uma segunda abordagem é permitir que a ligação falhe e, em seguida, reconfigurar os ACLs no NSG. Em média, pode esperar que os endereços IP sejam alterados de vez em quando. Para os clientes que controlam a indexação numa base pouco frequente, esta abordagem pode ser viável.
-
-Uma terceira abordagem viável (mas não particularmente segura) consiste em especificar o intervalo de endereços IP da região de Azure onde o seu serviço de pesquisa é aussido. A lista de gamas IP a partir das quais os endereços IP públicos são atribuídos aos recursos Azure é publicada nas [gamas IP do Azure Datacenter](https://www.microsoft.com/download/details.aspx?id=41653). 
 
 #### <a name="include-the-azure-cognitive-search-portal-ip-addresses"></a>Incluir os endereços IP do portal de pesquisa cognitiva Azure
 Se estiver a utilizar o portal Azure para criar um indexante, a lógica do portal Azure Cognitive Search também precisa de acesso ao seu SQL Azure VM durante o tempo de criação. Os endereços IP do portal de pesquisa cognitiva Azure podem ser encontrados através do `stamp2.search.ext.azure.com` pinging .

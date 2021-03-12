@@ -9,14 +9,14 @@ ms.subservice: service
 ms.custom: sqldbrb=2
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 06/17/2020
+ms.date: 03/10/2021
 ms.author: sstein
-ms.openlocfilehash: 86687e8259e7abcb9ff0e97f8cb75d96c0abfca8
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 0ddd2c96be3513d253537cefd5b9eb83da2b3c12
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102042509"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102634843"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>Quais as novidades na Base de Dados Azure SQL & SQL Managed Instance?
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -50,13 +50,10 @@ Esta tabela proporciona uma comparação rápida para a mudança na terminologia
 
 | Funcionalidade | Detalhes |
 | ---| --- |
-| Recuperação acelerada da base de dados com bases de dados únicas e piscinas elásticas | Para obter informações, consulte [a Recuperação acelerada da base de dados.](../accelerated-database-recovery.md)|
-| Deteção e classificação de dados  |Para obter informações, consulte [a Base de Dados Azure SQL e a Azure Synapse Analytics para a descoberta de dados & classificação](data-discovery-and-classification-overview.md).|
 | Trabalhos de base de dados elásticos (pré-visualização) | Para obter informações, consulte [Criar, configurar e gerir trabalhos elásticos.](elastic-jobs-overview.md) |
 | Consultas elásticas | Para obter informações, consulte [a visão geral da consulta elástica.](elastic-query-overview.md) |
 | Transações elásticas | [Transações distribuídas através de bases de dados em nuvem.](elastic-transactions-overview.md) |
 | Editor de consulta no portal Azure |Para obter informações, consulte [o editor de consulta SQL do portal Azure para ligar e consultar dados](connect-query-portal.md).|
-| R serviços/machine learning com bases de dados individuais e piscinas elásticas |Para obter informações, consulte [os Serviços de Aprendizagem automática na Base de Dados Azure SQL](/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services?view=sql-server-2017#machine-learning-services-in-azure-sql-database).|
 |Análise de SQL|Para obter informações, consulte [a Azure SQL Analytics](../../azure-monitor/insights/azure-sql.md).|
 | &nbsp; |
 
@@ -66,7 +63,7 @@ Esta tabela proporciona uma comparação rápida para a mudança na terminologia
 | ---| --- |
 | <a href="/azure/azure-sql/database/elastic-transactions-overview">Transações distribuídas</a> | Transações distribuídas por Instâncias Geridas. |
 | <a href="/azure/sql-database/sql-database-instance-pools">Conjuntos de instâncias</a> | Uma forma conveniente e económica de migrar pequenos exemplos de SQL para a nuvem. |
-| <a href="/en-gb/sql/t-sql/statements/create-login-transact-sql">Principais do servidor Azure AD ao nível de instância (logins)</a> | Crie logins de nível de instância utilizando uma declaração <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">DE CRIAÇÃO DE PROVEDOR EXTERNO.</a> |
+| <a href="/en-gb/sql/t-sql/statements/create-login-transact-sql">Principais do servidor Azure AD ao nível de instância (logins)</a> | Crie logins de nível de instância utilizando uma declaração <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true">DE CRIAÇÃO DE PROVEDOR EXTERNO.</a> |
 | [Replicação transacional](../managed-instance/replication-transactional-overview.md) | Replique as alterações das suas tabelas para outras bases de dados em SQL Managed Instance, SQL Database ou SQL Server. Ou atualize as suas tabelas quando algumas linhas são alteradas em outros casos de SQL Managed Instance ou SQL Server. Para obter informações, consulte a replicação de [configuração em Azure SQL Managed Instance](../managed-instance/replication-between-two-instances-configure-tutorial.md). |
 | Deteção de ameaças |Para obter informações, consulte [a deteção de ameaças configure em Azure SQL Managed Instance](../managed-instance/threat-detection-configure.md).|
 | Retenção de cópia de segurança de longa duração | Para obter informações, consulte [a Configure back-up retenção em Azure SQL Managed Instance](../managed-instance/long-term-backup-retention-configure.md), que está atualmente em pré-visualização pública limitada. | 
@@ -101,7 +98,7 @@ As seguintes funcionalidades estão ativadas no modelo de implementação sql Ma
 |[Procedimento sp_send_dbmail pode falhar transitoriamente quando @query o parâmetro é usado](#procedure-sp_send_dbmail-may-transiently-fail-when--parameter-is-used)|jan 2021|Tem Solução||
 |[As transações distribuídas podem ser executadas após a remoção da Instância Gerida do Grupo De Confiança do Servidor](#distributed-transactions-can-be-executed-after-removing-managed-instance-from-server-trust-group)|Out 2020|Tem Solução||
 |[As transações distribuídas não podem ser executadas após a operação de dimensionamento de instâncias geridas](#distributed-transactions-cannot-be-executed-after-managed-instance-scaling-operation)|Out 2020|Tem Solução||
-|[INSERÇÃO](/sql/t-sql/statements/bulk-insert-transact-sql) / A GRANEL [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql?view=sql-server-ver15) em Azure SQL e `BACKUP` / `RESTORE` declaração em Instância Gerida não pode usar Azure AD Manage Identity para autenticar para armazenamento Azure|Sep 2020|Tem Solução||
+|[INSERÇÃO](/sql/t-sql/statements/bulk-insert-transact-sql) / A GRANEL [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql) em Azure SQL e `BACKUP` / `RESTORE` declaração em Instância Gerida não pode usar Azure AD Manage Identity para autenticar para armazenamento Azure|Sep 2020|Tem Solução||
 |[Diretor de serviço não pode aceder a Azure AD e AKV](#service-principal-cannot-access-azure-ad-and-akv)|Agosto 2020|Tem Solução||
 |[Restaurar a cópia de segurança manual sem o CHECKSUM pode falhar](#restoring-manual-backup-without-checksum-might-fail)|Maio de 2020|Resolvido|Junho de 2020|
 |[Agente torna-se sem resposta ao modificar, desativar ou permitir empregos existentes](#agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs)|Maio de 2020|Resolvido|Junho de 2020|
@@ -174,7 +171,7 @@ GO
 BULK INSERT Sales.Invoices FROM 'inv-2017-12-08.csv' WITH (DATA_SOURCE = 'MyAzureBlobStorage');
 ```
 
-**Solução alternativa**: Utilize [a Assinatura de Acesso Partilhado para autenticar para armazenamento](/sql/t-sql/statements/bulk-insert-transact-sql?view=sql-server-ver15#f-importing-data-from-a-file-in-azure-blob-storage).
+**Solução alternativa**: Utilize [a Assinatura de Acesso Partilhado para autenticar para armazenamento](/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage).
 
 ### <a name="service-principal-cannot-access-azure-ad-and-akv"></a>Diretor de serviço não pode aceder a Azure AD e AKV
 

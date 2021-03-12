@@ -1,9 +1,9 @@
 ---
 title: Operações de Serviços de Mídia REST API visão geral | Microsoft Docs
-description: A API "Media Services Operations REST" é utilizada para a criação de Empregos, Ativos, Canais Ao Vivo e outros recursos numa conta de Serviços de Comunicação Social. Este artigo fornece uma visão geral da Azure Media Services v2 REST API.
+description: A API de Operações de Serviços de Mídia É utilizada para a criação de Empregos, Ativos, Canais Ao Vivo e outros recursos numa conta dos Serviços de Comunicação Social. Este artigo fornece uma visão geral da Azure Media Services v2 REST API.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: a5f1c5e7-ec52-4e26-9a44-d9ea699f68d9
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/20/2019
-ms.author: juliako
+ms.date: 3/10/2021
+ms.author: inhenkel
 ms.reviewer: johndeu
-ms.openlocfilehash: f48a01bb81829ff2bc10b4db1ed543382f992b58
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: 9f147e333e4d1b95a14dd3121d7ab304b6166248
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98696232"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103010053"
 ---
 # <a name="media-services-operations-rest-api-overview"></a>Operações de Serviços de Mídia REST Visão geral da API
 
@@ -124,7 +124,7 @@ Para mais informações sobre como obter os dados de autenticação necessários
 
 Para obter mais informações sobre o código de escrita que se liga à API REST utilizando a autenticação AZure AD, consulte o artigo [Utilize a autenticação Azure AD para aceder à AZure Media Services API com REST](media-services-rest-connect-with-aad.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para aprender a utilizar a autenticação AZure AD com serviços de mídia REST API, consulte [a autenticação AD do Azure para aceder à Azure Media Services API com REST](media-services-rest-connect-with-aad.md).
 
 ## <a name="media-services-learning-paths"></a>Percursos de aprendizagem dos Media Services

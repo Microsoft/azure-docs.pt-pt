@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: f1b1a94dc1d96e625947eef5730c24f080fc155a
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 3f997b577fb473e30fbafec08c4e68547a641fa3
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101721417"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200140"
 ---
 # <a name="tutorial-create-a-hierarchy-of-iot-edge-devices-preview"></a>Tutorial: Criar uma hierarquia de dispositivos IoT Edge (Pré-visualização)
 
@@ -526,7 +526,7 @@ No [portal Azure:](https://ms.portal.azure.com/)
            "$edgeAgent": {
                "properties.desired": {
                    "modules": {
-                       "dockerContainerRegistry": {
+                       "registry": {
                            "settings": {
                                "image": "registry:latest",
                                "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"5000/tcp\":[{\"HostPort\":\"5000\"}]}}}"

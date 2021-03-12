@@ -13,12 +13,12 @@ metadata:
   ms.date: 03/03/2021
   featureFlags:
   - clicktale
-  ms.openlocfilehash: 77c953664459419ca4f3069eb727c6d0cc29892f
-  ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+  ms.openlocfilehash: 323172092a6530e97de36c1cf50fea855f38da28
+  ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/09/2021
-  ms.locfileid: "102488918"
+  ms.lasthandoff: 03/11/2021
+  ms.locfileid: "103011175"
 highlightedContent:
   items:
   - title: Guia de introdução para programadores do Azure
@@ -602,7 +602,7 @@ productDirectory:
     azureCategories:
     - databases
     - integration
-    url: healthcare-apis/index.yml
+    url: healthcare-apis/fhir/index.yml
   - title: Cache do Azure para Redis
     summary: Confira às suas aplicações débito elevado e acesso a dados de baixa latência
     imageSrc: https://static.docs.com/ui/media/product/azure/cache-redis.svg

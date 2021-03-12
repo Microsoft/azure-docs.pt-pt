@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/12/2020
-ms.openlocfilehash: 046fcb9d7473de5666b3acb25cbcaa1f9549e679
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 40e737a1ec5fb34cd22a08925143a100d36cdc6b
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102039500"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103009322"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Ligar os produtos/serviços do ITSM ao Conector de Gestão de Serviços de TI
 Este artigo fornece informações sobre como configurar a ligação entre o seu produto/serviço ITSM e o It Service Management Connector (ITSMC) no Log Analytics para gerir centralmente os seus itens de trabalho. Para obter mais informações sobre o ITSMC, consulte [a Visão Geral.](./itsmc-overview.md)
@@ -24,6 +24,9 @@ São suportados os seguintes produtos/serviços ITSM. Selecione o produto para v
 
 > [!NOTE]
 > Propomos aos nossos clientes Cherwell e Provance que utilizem a [ação Webhook](./action-groups.md#webhook) para cherwell e provance como outra solução para a integração.
+
+## <a name="ip-ranges-for-itsm-partners-connections"></a>Gamas IP para ligações de parceiros ITSM
+Para enumerar os endereços IP itsm para permitir ligações ITSM de parceiros ferramentas ITSM, recomendamos que enuseça toda a gama pública de IP da região de Azure onde o seu espaço de trabalho LogAnalytics pertence. [detalhes aqui](https://www.microsoft.com/en-us/download/details.aspx?id=56519) Para as regiões EUS/WEU/EUS2/WUS2/US South Central, o cliente só pode listar a etiqueta de rede do ActionGroup.
 
 ## <a name="next-steps"></a>Passos seguintes
 

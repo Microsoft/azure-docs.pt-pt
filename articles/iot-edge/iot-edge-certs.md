@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mqtt
-ms.openlocfilehash: e5b1950935e6279995b44c2e07931519e82359d2
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 9b066dfd260a18f35149822b4107ea2c37db931c
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102040639"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200244"
 ---
 # <a name="understand-how-azure-iot-edge-uses-certificates"></a>Entenda como Azure IoT Edge usa certificados
 
@@ -90,7 +90,7 @@ Uma vez que os processos de fabrico e operação estão separados, considere as 
 
 ## <a name="devtest-implications"></a>Implicações de dev/teste
 
-Para facilitar o desenvolvimento e os cenários de teste, a Microsoft fornece um conjunto de [scripts](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates) de conveniência para gerar certificados de não produção adequados para ioT Edge no cenário transparente gateway. Por exemplo, como funcionam os scripts, consulte [criar certificados de demonstração para testar as funcionalidades do dispositivo IoT Edge](how-to-create-test-certificates.md).
+Para facilitar o desenvolvimento e os cenários de teste, a Microsoft fornece um conjunto de [scripts](https://github.com/Azure/iotedge/tree/master/tools/CACertificates) de conveniência para gerar certificados de não produção adequados para ioT Edge no cenário transparente gateway. Por exemplo, como funcionam os scripts, consulte [criar certificados de demonstração para testar as funcionalidades do dispositivo IoT Edge](how-to-create-test-certificates.md).
 
 >[!Tip]
 > Para ligar os dispositivos IoT "leaf" e aplicações que utilizam o nosso dispositivo IoT SDK através do IoT Edge, deve adicionar o parâmetro opcional GatewayHostName na extremidade da cadeia de ligação do dispositivo. Quando o Certificado do Servidor Edge Hub é gerado, baseia-se numa versão minúscula do nome anfitrião a partir do ficheiro config, portanto, para que os nomes correspondam e a verificação do certificado TLS seja bem sucedida, deve introduzir o parâmetro GatewayHostName em caso inferior.

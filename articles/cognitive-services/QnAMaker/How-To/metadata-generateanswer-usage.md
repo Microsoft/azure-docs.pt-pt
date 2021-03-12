@@ -9,28 +9,16 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 1c2b608107beff2a4f34325f8a6e5be3a0551053
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 7e8d1b13dfd802df820bea4015e411dbb85540ba
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102051910"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103011430"
 ---
-# <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>Obtenha uma resposta com a API generateAnswer e metadados
+# <a name="get-an-answer-with-the-generateanswer-api"></a>Obtenha uma resposta com a API GenerateAnswer
 
 Para obter a resposta prevista à pergunta de um utilizador, utilize a API GenerateAnswer. Ao publicar uma base de conhecimento, pode ver informações sobre como utilizar esta API na página **Publicar.** Também pode configurar a API para filtrar respostas com base em etiquetas de metadados e testar a base de conhecimento a partir do ponto final com o parâmetro de cadeia de consulta de teste.
-
-O QnA Maker permite-lhe adicionar metadados, sob a forma de pares de chaves e valor, aos seus pares de perguntas e respostas. Em seguida, pode utilizar estas informações para filtrar resultados para consultas do utilizador e para armazenar informações adicionais que podem ser usadas em conversas de seguimento. Para mais informações, consulte [a Base de Conhecimento.](../index.yml)
-
-<a name="qna-entity"></a>
-
-## <a name="store-questions-and-answers-with-a-qna-entity"></a>Armazenar perguntas e respostas com uma entidade QnA
-
-É importante entender como a QnA Maker armazena os dados de perguntas e respostas. A seguinte ilustração mostra uma entidade QnA:
-
-![Ilustração de uma entidade QnA](../media/qnamaker-how-to-metadata-usage/qna-entity.png)
-
-Cada entidade QnA tem um ID único e persistente. Pode utilizar o ID para fazer atualizações a uma determinada entidade QnA.
 
 <a name="generateanswer-api"></a>
 
@@ -134,6 +122,21 @@ A [resposta](/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#
 
 O anterior JSON respondeu com uma resposta com uma pontuação de 38,5%.
 
+## <a name="match-questions-only-by-text"></a>Apenas questões de correspondência, por texto
+
+Por predefinição, o QnA Maker procura através de perguntas e respostas. Se quiser pesquisar apenas através de perguntas, para gerar uma resposta, utilize `RankerType=QuestionOnly` o corpo POST do pedido GenerateAnswer.
+
+Pode pesquisar através do kb publicado, utilizando `isTest=false` ou no kb de teste utilizando `isTest=true` .
+
+```json
+{
+  "question": "Hi",
+  "top": 30,
+  "isTest": true,
+  "RankerType":"QuestionOnly"
+}
+
+```
 ## <a name="use-qna-maker-with-a-bot-in-c"></a>Use o Fabricante QnA com um bot em C #
 
 A estrutura bot fornece acesso às propriedades do Fabricante QnA com a [API getAnswer](/dotnet/api/microsoft.bot.builder.ai.qna.qnamaker.getanswersasync#Microsoft_Bot_Builder_AI_QnA_QnAMaker_GetAnswersAsync_Microsoft_Bot_Builder_ITurnContext_Microsoft_Bot_Builder_AI_QnA_QnAMakerOptions_System_Collections_Generic_Dictionary_System_String_System_String__System_Collections_Generic_Dictionary_System_String_System_Double__):
@@ -170,108 +173,6 @@ var qnaResults = await this.qnaMaker.getAnswers(stepContext.context, qnaMakerOpt
 ```
 
 O JSON anterior solicitou apenas respostas que estejam a 30% ou acima da pontuação limiar.
-
-<a name="metadata-example"></a>
-
-## <a name="use-metadata-to-filter-answers-by-custom-metadata-tags"></a>Utilize metadados para filtrar respostas por etiquetas de metadados personalizados
-
-A adição de metadados permite filtrar as respostas através destas etiquetas de metadados. Adicione a coluna de metadados no menu **Ver Opções.** Adicione metadados à sua base de conhecimento selecionando o ícone de metadados **+** para adicionar um par de metadados. Este par é composto por uma chave e um valor.
-
-![Screenshot da adição de metadados](../media/qnamaker-how-to-metadata-usage/add-metadata.png)
-
-<a name="filter-results-with-strictfilters-for-metadata-tags"></a>
-
-## <a name="filter-results-with-strictfilters-for-metadata-tags"></a>Filtrar resultados com filtros rigorosos para tags de metadados
-
-Considere a pergunta do utilizador "Quando é que este hotel fecha?", onde a intenção está implícita para o restaurante "Paradise".
-
-Como os resultados são necessários apenas para o restaurante "Paradise", pode definir um filtro na chamada GenerateAnswer nos metadados "Nome do Restaurante". O exemplo a seguir mostra o seguinte:
-
-```json
-{
-    "question": "When does this hotel close?",
-    "top": 1,
-    "strictFilters": [ { "name": "restaurant", "value": "paradise"}]
-}
-```
-
-### <a name="logical-and-by-default"></a>Lógica E por defeito
-
-Para combinar vários filtros de metadados na consulta, adicione os filtros de metadados adicionais à matriz da `strictFilters` propriedade. Por predefinição, os valores são logicamente combinados (E). Uma combinação lógica requer todos os filtros para combinar com os pares QnA para que o par seja devolvido na resposta.
-
-Isto equivale a usar o `strictFiltersCompoundOperationType` imóvel com o valor de `AND` .
-
-### <a name="logical-or-using-strictfilterscompoundoperationtype-property"></a>Lógico OU usando propriedade rígida deFiltersCompoundOperationType
-
-Ao combinar vários filtros de metadados, se estiver apenas preocupado com um ou alguns dos filtros correspondentes, utilize a `strictFiltersCompoundOperationType` propriedade com o valor de `OR` .
-
-Isto permite que a sua base de conhecimento devolva respostas quando qualquer filtro corresponde, mas não devolve respostas que não têm metadados.
-
-```json
-{
-    "question": "When do facilities in this hotel close?",
-    "top": 1,
-    "strictFilters": [
-      { "name": "type","value": "restaurant"},
-      { "name": "type", "value": "bar"},
-      { "name": "type", "value": "poolbar"}
-    ],
-    "strictFiltersCompoundOperationType": "OR"
-}
-```
-
-### <a name="metadata-examples-in-quickstarts"></a>Exemplos de metadados em arranques rápidos
-
-Saiba mais sobre metadados no portal QnA Maker quickstart para metadados:
-* [Autoria - adicione metadados ao par QnA](../quickstarts/add-question-metadata-portal.md#add-metadata-to-filter-the-answers)
-* [Previsão de consulta - respostas de filtro por metadados](../quickstarts/get-answer-from-knowledge-base-using-url-tool.md)
-
-<a name="keep-context"></a>
-
-## <a name="use-question-and-answer-results-to-keep-conversation-context"></a>Use os resultados da pergunta e resposta para manter o contexto da conversação
-
-A resposta ao GenerateAnswer contém as informações correspondentes de metadados do par de perguntas e respostas correspondentes. Pode utilizar esta informação na aplicação do seu cliente para armazenar o contexto da conversa anterior para utilização em conversas posteriores.
-
-```json
-{
-    "answers": [
-        {
-            "questions": [
-                "What is the closing time?"
-            ],
-            "answer": "10.30 PM",
-            "score": 100,
-            "id": 1,
-            "source": "Editorial",
-            "metadata": [
-                {
-                    "name": "restaurant",
-                    "value": "paradise"
-                },
-                {
-                    "name": "location",
-                    "value": "secunderabad"
-                }
-            ]
-        }
-    ]
-}
-```
-
-## <a name="match-questions-only-by-text"></a>Apenas questões de correspondência, por texto
-
-Por predefinição, o QnA Maker procura através de perguntas e respostas. Se quiser pesquisar apenas através de perguntas, para gerar uma resposta, utilize `RankerType=QuestionOnly` o corpo POST do pedido GenerateAnswer.
-
-Pode pesquisar através do kb publicado, utilizando `isTest=false` ou no kb de teste utilizando `isTest=true` .
-
-```json
-{
-  "question": "Hi",
-  "top": 30,
-  "isTest": true,
-  "RankerType":"QuestionOnly"
-}
-```
 
 ## <a name="return-precise-answers"></a>Respostas precisas de retorno
 

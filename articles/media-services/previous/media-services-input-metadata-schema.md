@@ -1,7 +1,7 @@
 ---
-title: Azure Media Services insere metadados em esquemas de metadados Microsoft Docs
+title: Azure Media Services introduz esquema de metadados | Microsoft Docs
 description: Este artigo apresenta uma visão geral do esquema de metadados de entrada da Azure Media Services.
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
-ms.openlocfilehash: 57a91622bef401d946a383e3be39f2e566fa50b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 03/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: eebe1c77c9af6791be94c16f0f792a9e7deb9a6e
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89267841"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103017414"
 ---
 # <a name="input-metadata"></a>Inserir Metadados
 
@@ -67,7 +67,7 @@ Veja um exemplo XML no final deste artigo: [exemplo XML](media-services-input-me
 > 
 
 ### <a name="child-elements"></a>Elementos infantis
-| Nome | Tipo | Descrição |
+| Nome | Tipo | Description |
 | --- | --- | --- |
 | **Programas**<br /><br /> minOccurs="0" | |Recolha de todos os [elementos programos](media-services-input-metadata-schema.md#Programs) quando o ficheiro do ativo está no formato MPEG-TS. |
 | **VideoTracks**<br /><br /> minOccurs="0" | |Cada ficheiro de ativo físico pode conter faixas de vídeos zero ou mais intercaladas num formato de recipiente apropriado. Este elemento contém uma coleção de todos os [VideoTracks](media-services-input-metadata-schema.md#VideoTracks) que fazem parte do ficheiro do ativo. |
@@ -78,7 +78,7 @@ Veja um exemplo XML no final deste artigo: [exemplo XML](media-services-input-me
 Veja um exemplo XML no final deste artigo: [exemplo XML](media-services-input-metadata-schema.md#xml).  
 
 ### <a name="attributes"></a>Atributos
-| Nome | Tipo | Descrição |
+| Nome | Tipo | Description |
 | --- | --- | --- |
 | **ID**<br /><br /> Necessário |**xs:int** |Índice baseado em zero desta faixa de áudio ou vídeo.<br /><br /> Isto não é necessariamente o TrackID usado num ficheiro MP4. |
 | **Codec** |**xs:cadeia** |Cadeia codec de pista de vídeo. |
@@ -94,7 +94,7 @@ Veja um exemplo XML no final deste artigo: [exemplo XML](media-services-input-me
 > 
 
 ### <a name="child-elements"></a>Elementos infantis
-| Nome | Tipo | Descrição |
+| Nome | Tipo | Description |
 | --- | --- | --- |
 | **Disposição**<br /><br /> minOccurs="0" maxOccurs="1" |[StreamDispositionType](media-services-input-metadata-schema.md#StreamDispositionType) |Contém informações de apresentação (por exemplo, se uma determinada faixa de áudio é para espectadores com deficiência visual). |
 | **Metadados**<br /><br /> minOccurs="0" maxOccurs="unbounded" |[MetadadosType](media-services-input-metadata-schema.md#MetadataType) |Cordas genéricas/valor que podem ser usadas para conter uma variedade de informações. Por exemplo, key="language", e value="eng". |
@@ -107,7 +107,7 @@ Veja um exemplo XML no final deste artigo: [exemplo XML](media-services-input-me
  Veja um exemplo XML no final deste artigo: [exemplo XML](media-services-input-metadata-schema.md#xml).  
 
 ### <a name="attributes"></a>Atributos
-| Nome | Tipo | Descrição |
+| Nome | Tipo | Description |
 | --- | --- | --- |
 | **SampleFormat** |**xs:cadeia** |Formato de amostra. |
 | **ChannelLayout** |**xs: corda** |Disposição do canal. |
@@ -124,14 +124,14 @@ O tipo representa uma faixa de vídeo específica no ficheiro do ativo.
 Veja um exemplo XML no final deste artigo: [exemplo XML](media-services-input-metadata-schema.md#xml).  
 
 ### <a name="attributes"></a>Atributos
-| Nome | Tipo | Descrição |
+| Nome | Tipo | Description |
 | --- | --- | --- |
 | **FourCC**<br /><br /> Necessário |**xs:cadeia** |Código de vídeo Código QuatroCC. |
 | **Perfil** |**xs: corda** |Perfil da pista de vídeo. |
 | **Nível** |**xs: corda** |Nível de pista de vídeo. |
 | **PixelFormat** |**xs: corda** |O formato pixel da pista de vídeo. |
-| **Largura**<br /><br /> Necessário |**xs:int** |Largura de vídeo codificada em pixels. |
-| **Altura**<br /><br /> Necessário |**xs:int** |A altura de vídeo codificada em pixels. |
+| **Width**<br /><br /> Necessário |**xs:int** |Largura de vídeo codificada em pixels. |
+| **Height**<br /><br /> Necessário |**xs:int** |A altura de vídeo codificada em pixels. |
 | **DisplayAspectRatioNumerator**<br /><br /> Necessário |**xs: duplo** |Numerador de aspeto de visualização de vídeo. |
 | **DisplayAspectRatioDenominador**<br /><br /> Necessário |**xs:duplo** |Denominador de rácio de aspeto do visualização de vídeo. |
 | **DisplayAspectRatioDenominador**<br /><br /> Necessário |**xs: duplo** |Numerador de aspeto da amostra de vídeo. |
@@ -148,7 +148,7 @@ Veja um exemplo XML no final deste artigo: [exemplo XML](media-services-input-me
 Veja um exemplo XML no final deste artigo: [exemplo XML](media-services-input-metadata-schema.md#xml).  
 
 ### <a name="attributes"></a>Atributos
-| Nome | Tipo | Descrição |
+| Nome | Tipo | Description |
 | --- | --- | --- |
 | **chave**<br /><br /> Necessário |**xs:cadeia** |A chave no par chave/valor. |
 | **value**<br /><br /> Necessário |**xs:cadeia** |O valor no par chave/valor. |
@@ -157,7 +157,7 @@ Veja um exemplo XML no final deste artigo: [exemplo XML](media-services-input-me
 **ProgramType** é um tipo complexo global que descreve um programa.  
 
 ### <a name="attributes"></a>Atributos
-| Nome | Tipo | Descrição |
+| Nome | Tipo | Description |
 | --- | --- | --- |
 | **Programid**<br /><br /> Necessário |**xs:int** |Id do programa |
 | **NúmerosProgramas**<br /><br /> Necessário |**xs:int** |Número de programas. |
@@ -172,7 +172,7 @@ Veja um exemplo XML no final deste artigo: [exemplo XML](media-services-input-me
 Veja um exemplo XML no final deste artigo: [exemplo XML](media-services-input-metadata-schema.md#xml).  
 
 ### <a name="attributes"></a>Atributos
-| Nome | Tipo | Descrição |
+| Nome | Tipo | Description |
 | --- | --- | --- |
 | **Predefinição**<br /><br /> Necessário |**xs: int** |Desafine este atributo para 1 para indicar que esta é a apresentação predefinida. |
 | **Dub**<br /><br /> Necessário |**xs:int** |Desapeda fique com este atributo para 1 para indicar que esta é a apresentação apelidada. |
@@ -190,7 +190,7 @@ Veja um exemplo XML no final deste artigo: [exemplo XML](media-services-input-me
 Elemento de invólucro segurando vários elementos **do Programa.**  
 
 ### <a name="child-elements"></a>Elementos infantis
-| Nome | Tipo | Descrição |
+| Nome | Tipo | Description |
 | --- | --- | --- |
 | **Programa**<br /><br /> minOccurs="0" maxOccurs="unbounded" |[ProgramType](media-services-input-metadata-schema.md#ProgramType) |Para ficheiros de ativos que se encontram no formato MPEG-TS, contém informações sobre programas no ficheiro do ativo. |
 
@@ -200,7 +200,7 @@ Elemento de invólucro segurando vários elementos **do Programa.**
  Veja um exemplo XML no final deste artigo: [exemplo XML](media-services-input-metadata-schema.md#xml).  
 
 ### <a name="child-elements"></a>Elementos infantis
-| Nome | Tipo | Descrição |
+| Nome | Tipo | Description |
 | --- | --- | --- |
 | **VideoTrack**<br /><br /> minOccurs="0" maxOccurs="unbounded" |[VideoTrackType (herda do TrackType)](media-services-input-metadata-schema.md#VideoTrackType) |Contém informações sobre faixas de vídeo no ficheiro do ativo. |
 
@@ -210,7 +210,7 @@ Elemento de invólucro segurando vários elementos **do Programa.**
  Veja um exemplo XML no final deste artigo: [exemplo XML](media-services-input-metadata-schema.md#xml).  
 
 ### <a name="elements"></a>elementos
-| Nome | Tipo | Descrição |
+| Nome | Tipo | Description |
 | --- | --- | --- |
 | **AudioTrack**<br /><br /> minOccurs="0" maxOccurs="unbounded" |[AudioTrackType (herda do TrackType)](media-services-input-metadata-schema.md#AudioTrackType) |Contém informações sobre faixas de áudio no ficheiro do ativo. |
 

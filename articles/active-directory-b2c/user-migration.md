@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/14/2020
+ms.date: 03/11/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 34bc50f5f95725b59c0d2b30b529e12abb6aa7fa
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: d2d4a61f653c5bedb31223d2eb3d37b92a076821
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98661158"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103010172"
 ---
-# <a name="migrate-users-to-azure-ad-b2c"></a>Migrar utilizadores para Azure AD B2C
+# <a name="migrate-users-to-azure-ad-b2c"></a>Migrar utilizadores para o AAD B2C
 
 A migração de outro fornecedor de identidade para o Azure Ative Directory B2C (Azure AD B2C) também pode exigir a migração das contas de utilizadores existentes. São discutidos dois métodos de migração, *pré-migração* e *migração sem emenda.* Com qualquer uma das abordagens, é obrigado a escrever uma aplicação ou script que utilize a [API do Microsoft Graph](microsoft-graph-operations.md) para criar contas de utilizador em Azure AD B2C.
 
@@ -50,7 +50,7 @@ O fluxo migratório sem emenda tem, assim, duas fases: *pré-migração* e *cred
 ### <a name="phase-1-pre-migration"></a>Fase 1: Pré-migração
 
 1. A sua aplicação de migração lê as contas de utilizador do antigo fornecedor de identidade.
-1. A aplicação de migração cria contas de utilizador correspondentes no seu diretório Azure AD B2C, mas *não define palavras-passe*.
+1. A aplicação de migração cria contas de utilizador correspondentes no seu diretório Azure AD B2C, mas *define senhas aleatórias* que gera.
 
 ### <a name="phase-2-set-credentials"></a>Fase 2: Definir credenciais
 

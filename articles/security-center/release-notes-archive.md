@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: reference
 ms.date: 03/04/2021
 ms.author: memildin
-ms.openlocfilehash: 3766f29f26a6b2ffeb385cffc971b1ac7a1556cb
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: a00c11924d2c0f6860c297ab7e58da21da5e1975
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102182581"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102634707"
 ---
 # <a name="archive-for-whats-new-in-azure-security-center"></a>Arquivo para o que há de novo no Centro de Segurança Azure?
 
@@ -759,7 +759,7 @@ Se tiver subscrições no nível de preços gratuitos, as suas pontuações segu
 
 Saiba mais sobre [recomendações de identidade e acesso.](recommendations-reference.md#recs-identityandaccess)
 
-Saiba mais sobre [a monitorização da identidade e do acesso.](security-center-identity-access.md)
+Saiba mais sobre [a gestão da aplicação da autenticação de vários fatores (MFA) nas suas subscrições.](security-center-identity-access.md)
 
 
 

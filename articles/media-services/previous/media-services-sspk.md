@@ -3,7 +3,7 @@ title: Licenciamento Microsoft &reg; Smooth Streaming Cliente Kit de Porting
 description: Saiba como licenciar o Kit de Porting do &reg; Cliente de Streaming Do Microsoft.
 services: media-services
 documentationcenter: ''
-author: xpouyat
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: e3b488e7-8428-4c10-a072-eb3af46c82ad
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2019
+ms.date: 3/10/2021
 ms.author: xpouyat
-ms.openlocfilehash: f6c43f943bb12e8230772f2d195589ecc4543030
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: f7e371f892fb0796a310be46a402781e8eb57e1a
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101705318"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103009424"
 ---
 # <a name="licensing-microsoftreg-smooth-streaming-client-porting-kit"></a>Licenciamento Microsoft &reg; Smooth Streaming Cliente Kit de Porting
 
@@ -32,7 +32,7 @@ Incluído abaixo é uma arquitetura de alto nível e iIS Smooth Streaming Portin
 
 ![SSPK](./media/media-services-sspk/sspk-arch.png)
 
-## <a name="description"></a>Descrição
+## <a name="description"></a>Description
 A SSPK é licenciada em termos que oferecem excelente valor de negócio. A licença SSPK fornece à indústria:
 
 * Fonte do Kit de Porting de Streaming Suave em C++ 

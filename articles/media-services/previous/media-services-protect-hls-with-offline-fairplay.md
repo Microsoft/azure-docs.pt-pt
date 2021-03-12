@@ -4,7 +4,7 @@ description: Este tópico dá uma visão geral e mostra como usar o Azure Media 
 services: media-services
 keywords: HLS, DRM, FairPlay Streaming (FPS), Offline, iOS 10
 documentationcenter: ''
-author: willzhan
+author: IngridAtMicrosoft
 manager: steveng
 editor: ''
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/07/2020
+ms.date: 03/10/2021
 ms.author: willzhan
 ms.reviewer: dwgeo
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ae1d4ef81d14d5adfb728cf7a59534cb376a0eb1
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: 2d05810da6abfd33ff6605fa7a6f3bfb6a0c202b
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98695091"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103009577"
 ---
 # <a name="offline-fairplay-streaming-for-ios"></a>Offline FairPlay Streaming for iOS (Transmissão Offline do FairPlay para iOS)
 
@@ -209,7 +209,7 @@ As seguintes perguntas frequentes prestam assistência à resolução de problem
 
 - **Porque é que só o áudio reproduz, mas não o vídeo durante o modo offline?** Este comportamento parece ser por design da aplicação da amostra. Quando existe uma faixa de áudio alternativa (o que é o caso do HLS) durante o modo offline, tanto o iOS 10 como o iOS 11 estão por defeito na faixa de áudio alternativa. Para compensar este comportamento para o modo offline FPS, remova a faixa de áudio alternativa do fluxo. Para isso nos Serviços de Media, adicione o filtro manifesto dinâmico "audio-only=falso". Por outras palavras, um URL HLS termina com .ism/manifest (formato=m3u8-aapl,audio-only=falso). 
 - **Porque é que ainda reproduz áudio apenas sem vídeo durante o modo offline depois de eu adicionar áudio-only=falso?** Dependendo do design da chave de cache da rede de entrega de conteúdos (CDN), o conteúdo pode ser em cache. Purgue a cache.
-- **O modo offline FPS também é suportado no iOS 11, além do iOS 10?** Yes. O modo offline FPS é suportado para iOS 10 e iOS 11.
+- **O modo offline FPS também é suportado no iOS 11, além do iOS 10?** Sim. O modo offline FPS é suportado para iOS 10 e iOS 11.
 - **Por que não posso encontrar o documento "Offline Playback with FairPlay Streaming e HTTP Live Streaming" no FPS Server SDK?** Desde a versão 4 do FPS Server SDK, este documento foi fundido no "Guia de Programação de Streaming fairPlay".
 - **O que significa o último parâmetro no seguinte modo API para o modo offline FPS?**
 `Microsoft.WindowsAzure.MediaServices.Client.FairPlay.FairPlayConfiguration.CreateSerializedFairPlayOptionConfiguration(objX509Certificate2, pfxPassword, pfxPasswordId, askId, iv, RentalAndLeaseKeyType.PersistentUnlimited, 0x9999);`

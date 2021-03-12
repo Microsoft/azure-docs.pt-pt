@@ -13,12 +13,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10f179ab1bf328a2132c9206580dfa58efb80f1b
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 02cd3f54823b80ae201316fee29c02616b9d8502
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98741926"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103012042"
 ---
 # <a name="assign-a-role-to-a-group-using-privileged-identity-management"></a>Atribuir um papel a um grupo que utilize a Gestão de Identidade Privilegiada
 
@@ -45,17 +45,17 @@ Este artigo descreve como pode atribuir um papel de Azure Ative Directory (Azure
 
 ### <a name="download-the-azure-ad-preview-powershell-module"></a>Descarregue o módulo PowerShell de pré-visualização Azure AD
 
-Para instalar o módulo AD #PowerShell, utilize os seguintes cmdlets:
+Para instalar o módulo AD AD AD #PowerShell, utilize os seguintes cmdlets:
 
 ```powershell
-install-module azureadpreview
-import-module azureadpreview
+Install-Module -Name AzureADPreview
+Import-Module -Name AzureADPreview
 ```
 
 Para verificar se o módulo está pronto a ser utilizado, utilize o seguinte cmdlet:
 
 ```powershell
-get-module azureadpreview
+Get-Module -Name AzureADPreview
 ```
 
 ### <a name="assign-a-group-as-an-eligible-member-of-a-role"></a>Atribuir um grupo como membro elegível de um papel
@@ -70,38 +70,25 @@ Open-AzureADMSPrivilegedRoleAssignmentRequest -ProviderId aadRoles -Schedule $sc
 
 ## <a name="using-microsoft-graph-api"></a>Utilização da Microsoft Graph API
 
-```powershell
+```http
 POST
-https://graph.microsoft.com/beta/privilegedAccess/aadroles/roleAssignmentRequests  
-
+https://graph.microsoft.com/beta/privilegedAccess/aadroles/roleAssignmentRequests
 {
-
  "roleDefinitionId": {roleDefinitionId},
-
  "resourceId": {tenantId},
-
  "subjectId": {GroupId},
-
  "assignmentState": "Eligible",
-
  "type": "AdminAdd",
-
  "reason": "reason string",
-
  "schedule": {
-
    "startDateTime": {DateTime},
-
    "endDateTime": {DateTime},
-
    "type": "Once"
-
  }
-
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Utilizar os grupos da cloud para gerir atribuições de funções](groups-concept.md)
 - [Resolver problemas de funções atribuídas a grupos de cloud](groups-faq-troubleshooting.md)

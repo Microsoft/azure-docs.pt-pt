@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: a928b1223b91faae6d4aca68b81cc16c827933b3
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.openlocfilehash: 3e55970b0603da9be9bf28a50d4c474e34a1cad3
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99820071"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103017244"
 ---
 # <a name="tutorial-create-a-water-quality-monitoring-application-in-azure-iot-central"></a>Tutorial: Criar uma aplicação de monitorização da qualidade da água no Azure IoT Central
 
@@ -56,7 +56,7 @@ Nesta secção, utilize o modelo de **monitorização** da qualidade da água ce
     * **URL**: Pode introduzir qualquer URL que desejar ou alterar o valor URL mais tarde.
     * Se tiver uma subscrição Azure, insira valores para **Diretório,** **subscrição Azure** e **Região**. Se não tiver uma subscrição, pode ligar o **teste gratuito de 7 dias** e completar as informações de contacto necessárias.
 
-    Para obter mais informações sobre diretórios e subscrições, consulte o Criar um quickstart de [aplicação.](../core/quick-deploy-iot-central.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
+    Para obter mais informações sobre diretórios e subscrições, consulte o Criar um quickstart de [aplicação.](../core/quick-deploy-iot-central.md)
 
 1. Selecione o botão **Criar** na parte inferior esquerda da página.
 

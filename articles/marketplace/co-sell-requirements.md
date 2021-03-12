@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 2/24/2021
-ms.openlocfilehash: 9fb86b3d4a46a70d71aa0c3fe9fd1b4a1ea6f298
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.date: 3/12/2021
+ms.openlocfilehash: fa8f2b5e952ddd188f99d130c2154d4602191c2b
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102120135"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103225069"
 ---
 # <a name="co-sell-requirements"></a>Requisitos de co-venda
 
@@ -24,7 +24,7 @@ Esta tabela mostra todos os possíveis estatutos de co-venda:
 | ------------ | ------------- |
 | Não co-vender pronto | Os [requisitos mínimos para o estatuto de co-venda pronta](#requirements-for-co-sell-ready-status) não foram cumpridos. |
 | Co-vender pronto | Todos os [requisitos para o estatuto de co-venda pronta](#requirements-for-co-sell-ready-status) foram cumpridos. |
-| Azure IP Co-venda incentivado | Os requisitos de co-venda prontos foram cumpridos para além [destes requisitos adicionais.](#requirements-for-ip-co-sell-incentivized-status) |
+| Azure IP Co-venda incentivado | Os requisitos de co-venda prontos foram cumpridos para além [destes requisitos adicionais.](#requirements-for-azure-ip-co-sell-incentivized-status) |
 | Biz Apps ISV Connect Premium incentivo  | Este estatuto aplica-se às ofertas da Dynamics 365 e power apps e indica que todos os requisitos para este estatuto foram [cumpridos.](#requirements-for-biz-apps-isv-connect-premium-incentive-status) |
 |||
 
@@ -35,7 +35,7 @@ Para uma oferta para obter o estatuto de co-venda, deve cumprir os seguintes req
 **Todos os parceiros:**
 
 - Tenha uma identificação mpn e uma conta de mercado comercial ativa [no Partner Center.](./partner-center-portal/create-account.md)
-- Certifique-se de que tem um [perfil de negócio](/partner-center/create-a-marketing-profile.md) completo no Partner Center. Como parceiro qualificado da Microsoft, o seu perfil de negócio ajuda a mostrar o seu negócio a clientes que procuram as suas soluções e conhecimentos únicos para responder às suas necessidades de negócio, resultando em [referências.](/partner-center/referrals.md)
+- Certifique-se de que tem um [perfil de negócio](/partner-center/create-a-marketing-profile) completo no Partner Center. Como parceiro qualificado da Microsoft, o seu perfil de negócio ajuda a mostrar o seu negócio a clientes que procuram as suas soluções e conhecimentos únicos para responder às suas necessidades de negócio, resultando em [referências.](/partner-center/referrals)
 - Complete a **Co-venda com** o separador Microsoft e publique a oferta no mercado comercial.
 - Fornecer um contacto de vendas para cada co-venda de geografia elegível e fatura de materiais exigidos)
 
@@ -60,7 +60,7 @@ Fornecemos modelos para ajudá-lo a criar estes documentos. Para obter mais info
 
 Para se qualificar para o estatuto de co-venda, a sua oferta ou solução deve ser publicada em direto para pelo menos uma das lojas online do mercado comercial: Azure Marketplace ou Microsoft AppSource. Para obter informações sobre ofertas de publicação no mercado comercial, consulte [o guia de publicação por tipo de oferta.](publisher-guide-by-offer-type.md) Se ainda não publicou uma oferta no mercado comercial, certifique-se de que tem uma [conta de mercado comercial.](./partner-center-portal/create-account.md)
 
-## <a name="requirements-for-ip-co-sell-incentivized-status"></a>Requisitos para o estatuto de co-venda de IP
+## <a name="requirements-for-azure-ip-co-sell-incentivized-status"></a>Requisitos para Azure IP Co-vender estatuto incentivado
 
 Azure IP Co-venda o estatuto incentivado aplica-se aos seguintes tipos de oferta:
 

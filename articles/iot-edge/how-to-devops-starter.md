@@ -7,14 +7,16 @@ ms.date: 08/25/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 933ddfb5fa5d58231e954dfd54bcc069b53dfe56
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 8a23041a714089c447ab35ee05aae0de0c9c33d2
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101721519"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103201162"
 ---
 # <a name="create-a-cicd-pipeline-for-iot-edge-with-azure-devops-starter"></a>Criar um pipeline CI/CD para IoT Edge com Azure DevOps Starter
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Configure a integração contínua (CI) e a entrega contínua (CD) para a sua aplicação IoT Edge com Projetos DevOps. O DevOps Starter simplifica a configuração inicial de um gasoduto de construção e libertação em Pipelines Azure.
 

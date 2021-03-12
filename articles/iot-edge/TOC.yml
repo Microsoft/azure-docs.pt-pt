@@ -115,8 +115,6 @@
       href: support.md
     - name: Lista de verificação da implementação de produção
       href: production-checklist.md
-    - name: Glossário do IoT Edge
-      href: iot-edge-glossary.md
 - name: Guias de procedimentos
   items:
     - name: Criar um dispositivo IoT Edge
@@ -259,6 +257,8 @@
   items:
     - name: Opções de suporte e ajuda
       href: ../iot-fundamentals/iot-support-help.md?toc=/azure/iot-edge/toc.json&bc=/azure/iot-edge/breadcrumb/toc.json
+    - name: IoT Glossário
+      href: ../iot-fundamentals/iot-glossary.md?toc=/azure/iot-edge/toc.json&bc=/azure/iot-edge/breadcrumb/toc.json
     - name: Serviços de IoT do Azure
       items:
         - name: IoT Hub

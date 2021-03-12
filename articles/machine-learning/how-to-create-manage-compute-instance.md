@@ -11,12 +11,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: 5aaaf2000fb8310a5208447f8eaf8546feda90fb
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 6c29bf87c5f0ecaaeb6d608069791431a949c89b
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102509324"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103009968"
 ---
 # <a name="create-and-manage-an-azure-machine-learning-compute-instance"></a>Criar e gerir um exemplo de cálculo de aprendizagem automática Azure
 
@@ -108,7 +108,7 @@ Também pode criar uma instância de computação com um [modelo de Gestor de Re
 ### <a name="create-on-behalf-of-preview"></a>Criar em nome de (pré-visualização)
 
 Como administrador, pode criar uma instância computacional em nome de um cientista de dados e atribuir-lhes a instância com:
-* [Modelo de Gestor de Recursos Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance).  Para obter mais informações sobre como encontrar o TenantID e o ObjectID necessários neste modelo, consulte [encontrar iDs de objeto de identidade para configuração de autenticação](../healthcare-apis/find-identity-object-ids.md).  Pode também encontrar estes valores no portal Azure Ative Directory.
+* [Modelo de Gestor de Recursos Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance).  Para obter mais informações sobre como encontrar o TenantID e o ObjectID necessários neste modelo, consulte [encontrar iDs de objeto de identidade para configuração de autenticação](../healthcare-apis/fhir/find-identity-object-ids.md).  Pode também encontrar estes valores no portal Azure Ative Directory.
 * API REST
 
 O cientista de dados que cria o caso de computação para necessidades são permissões de [controlo de acesso baseado em funções Azure (Azure RBAC):](../role-based-access-control/overview.md) 
