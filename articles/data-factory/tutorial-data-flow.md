@@ -7,22 +7,25 @@ ms.reviewer: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 11/09/2019
-ms.openlocfilehash: b0f564f68a638e7efd1cd1ce9116a26f4d19f277
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 03/11/2021
+ms.openlocfilehash: 5deaef04330e21c8d9c580bf2a16814d4e902f6a
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96497066"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199858"
 ---
 # <a name="transform-data-using-mapping-data-flows"></a>Transformar dados com o fluxo de dados de mapeamento
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Se não estiver familiarizado com o Azure Data Factory, veja [Introdução ao Azure Data Factory](introduction.md).
 
 Neste tutorial, você usará a interface de utilizador da Azure Data Factory (UX) para criar um pipeline que copia e transforma dados de uma fonte de Armazenamento de Lago de Dados (ADLS) da Azure Para uma pia ADLS Gen2 usando o fluxo de dados de mapeamento. O padrão de configuração neste tutorial pode ser expandido ao transformar dados usando o fluxo de dados de mapeamento
 
+ >[!NOTE]
+   >Este tutorial destina-se a mapear fluxos de dados em geral. Os fluxos de dados estão disponíveis tanto na Azure Data Factory como em Pipelines Synapse. Se é novo nos fluxos de dados nos oleodutos Azure Synapse, siga o [Fluxo de Dados utilizando os gasodutos Azure Synapse](https://docs.microsoft.com/azure/synapse-analytics/concepts-data-flow-overview) 
+   
 Neste tutorial, vai executar os seguintes passos:
 
 > [!div class="checklist"]
@@ -43,7 +46,7 @@ O ficheiro que estamos a transformar neste tutorial é MoviesDB.csv, que pode se
 Neste passo, cria-se uma fábrica de dados e abre-se o Data Factory UX para criar um pipeline na fábrica de dados.
 
 1. Abra **o Microsoft Edge** ou o Google **Chrome**. Atualmente, a Data Factory UI é suportada apenas nos navegadores Web Microsoft Edge e Google Chrome.
-2. No menu esquerdo, **selecione Criar uma** Fábrica de  >  Dados de **Integração de** Recursos  >  **Data Factory**:
+2. No menu esquerdo, **selecione Criar uma** Fábrica de  >  Dados de **Integração de** Recursos  >  :
 
    ![Seleção do Data Factory no painel "Novo"](./media/doc-common-process/new-azure-data-factory-menu.png)
 
@@ -109,7 +112,7 @@ Assim que criar o fluxo de dados, será automaticamente enviado para a tela de f
     ![Serviço Ligado](media/tutorial-data-flow/ls1.png)
 1. Assim que voltar ao ecrã de criação do conjunto de dados, insira onde o seu ficheiro está localizado no campo **do caminho do Ficheiro.** Neste tutorial, o ficheiro moviesDB.csv está localizado em dados de amostras de contentores. Como o ficheiro tem cabeçalhos, verifique **a primeira linha como cabeçalho**. Selecione **Da ligação/loja** para importar o esquema do cabeçalho diretamente do ficheiro armazenado. Clique em OK quando terminar.
 
-    ![Conjuntos de Dados](media/tutorial-data-flow/dataset4.png)
+    ![Conjuntos de dados](media/tutorial-data-flow/dataset4.png)
 1. Se o seu cluster de depuração tiver começado, vá ao **separador Des preview** de Dados da transformação da fonte e clique em **Refresh** para obter uma imagem dos dados. Pode utilizar a pré-visualização de dados para verificar se a sua transformação está configurada corretamente.
 
     ![Screenshot que mostra onde pode visualizar os seus dados para verificar se a sua transformação está configurada corretamente.](media/tutorial-data-flow/dataflow4.png)
@@ -131,7 +134,7 @@ Assim que criar o fluxo de dados, será automaticamente enviado para a tela de f
 
     Se tiver um cluster de depuração ativo, pode verificar a sua lógica clicando em **Refresh** para ver a saída da expressão em comparação com as entradas utilizadas. Há mais do que uma resposta certa sobre como pode realizar esta lógica usando a linguagem de expressão de fluxo de dados.
 
-    ![Filtrar](media/tutorial-data-flow/filter2.png)
+    ![Filtro](media/tutorial-data-flow/filter2.png)
 
     Clique **em Guardar e Terminar** assim que terminar com a sua expressão.
 

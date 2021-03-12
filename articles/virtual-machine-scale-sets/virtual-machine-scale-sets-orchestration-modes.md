@@ -9,12 +9,12 @@ ms.subservice: extensions
 ms.date: 02/12/2021
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 8805b3c4947311a3054066b3378d881d673c2b14
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: d1290b1dcc1e97d63dd41d5be8ca19b81e32f838
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102521752"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103225035"
 ---
 # <a name="preview-orchestration-modes-for-virtual-machine-scale-sets-in-azure"></a>Pré-visualização: Modos de orquestração para conjuntos de escala de máquina virtual em Azure 
 
@@ -128,12 +128,22 @@ A tabela a seguir compara o modo de orquestração flexível, o modo de orquestr
 |         Alertas Azure  |            No  |            Yes  |            Yes  |
 |         VM Insights  |            No  |            Yes  |            Yes  |
 |         Azure Backup  |            Yes  |            Yes  |            Yes  |
-|         Azure Site Recovery  |            No  |            No  |            Yes  |
+|         Azure Site Recovery  |     No  |            No  |            Yes  |
 |         Adicionar/remover vm existente ao grupo  |            No  |            No  |            No  | 
 
 
 ## <a name="register-for-flexible-orchestration-mode"></a>Registe-se no modo de orquestração flexível
 Antes de poder implantar conjuntos de escala de máquina virtual no modo de orquestração flexível, tem primeiro de registar a sua subscrição para a funcionalidade de pré-visualização. A inscrição pode demorar vários minutos a ser concluída. Pode utilizar os seguintes comandos Azure PowerShell ou Azure CLI para registar.
+
+### <a name="azure-portal"></a>Portal do Azure
+Navegue na página de detalhes para a subscrição que pretende criar uma escala definida no modo de orquestração flexível e selecione Funcionalidades de Pré-visualização no menu. Selecione as duas funcionalidades do orquestrador para ativar: _VMOrchestratorSingleFD_ e _VMOrchestratorMultiFD_, e prima o botão Registar. A inscrição da funcionalidade pode demorar até 15 minutos.
+
+![Registo de recurso.](https://user-images.githubusercontent.com/157768/110361543-04d95880-7ff5-11eb-91a7-2e98f4112ae0.png)
+
+Uma vez registadas as funcionalidades para a sua subscrição, complete o processo de opt-in propagando a alteração no fornecedor de recursos Compute. Navegue no separador fornecedores de Recursos para a sua subscrição, selecione Microsoft.compute e clique em Re-registrar.
+
+![Re-registrar](https://user-images.githubusercontent.com/157768/110362176-cd1ee080-7ff5-11eb-8cc8-36aa967e267a.png)
+
 
 ### <a name="azure-powershell"></a>Azure PowerShell 
 Utilize o [cmdlet Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) para ativar a pré-visualização da sua subscrição. 

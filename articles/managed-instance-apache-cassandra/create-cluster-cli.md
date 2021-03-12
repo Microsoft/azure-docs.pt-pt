@@ -6,12 +6,12 @@ ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 03/02/2021
-ms.openlocfilehash: 86fa7e2e45dacb86b6601b699dca46b1b909fd08
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 28599c08f25533e042c03612d035912a8d0f17c0
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102424704"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103225375"
 ---
 # <a name="quickstart-create-an-azure-managed-instance-for-apache-cassandra-cluster-using-azure-cli-preview"></a>Quickstart: Criar uma instância gerida azure para o cluster Apache Cassandra usando Azure CLI (Preview)
 
@@ -56,7 +56,7 @@ Este quickstart demonstra como usar os comandos Azure CLI para criar um cluster 
    ```
 
    > [!NOTE]
-   > Os `assignee` `role` valores e valores no comando anterior são princípio de serviço fixo e identificadores de função, respectivamente.
+   > Os `assignee` `role` valores e valores no comando anterior são valores fixos, insira estes valores exatamente como mencionado no comando. Não fazê-lo levará a erros ao criar o cluster. Se encontrar algum erro ao executar este comando, poderá não ter permissões para o executar, por favor contacte o seu administrador para obter permissões.
 
 1. Em seguida, crie o cluster na sua rede virtual recém-criada. Executar o seguinte comando e certifique-se de que utiliza o `Resource ID` valor recuperado no comando anterior como valor da `delegatedManagementSubnetId` variável:
 

@@ -9,15 +9,15 @@ metadata:
   ms.subservice: 
   ms.topic: landing-page
   ms.collection: collection
-  author: Juliako
-  ms.author: juliako
+  author: IngridAtMicrosoft
+  ms.author: inhenkel
   ms.date: 02/18/2020
-  ms.openlocfilehash: 05a5e8d179258815e75482f1532e01e79fa0353c
-  ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+  ms.openlocfilehash: b1f2a4c02802250eb4a0d3a388d857cc69fa050a
+  ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 01/22/2021
-  ms.locfileid: "98707907"
+  ms.lasthandoff: 03/11/2021
+  ms.locfileid: "103010019"
 landingContent:
 - title: Sobre os Serviços de Multimédia do Azure v2
   linkLists:

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 550481b9153d8fe8745d2a745fe6b6f00d09cdb1
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 509d267dcdaef58a9792609a60c8a9401e90e867
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100365825"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199716"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Ative Directory gestão de dispositivos FAQ
 
@@ -147,7 +147,7 @@ Veja abaixo como estas ações podem ser retificadas.
 
 ### <a name="q-i-cannot-add-more-than-3-azure-ad-user-accounts-under-the-same-user-session-on-a-windows-10-device-why"></a>P: Não posso adicionar mais de 3 contas de utilizadores AZure AD na mesma sessão de utilizadores num dispositivo Windows 10, porquê?
 
-**R**: Azure AD adicionou suporte para várias contas AD Azure na versão do Windows 10 1803. No entanto, o Windows 10 restringe o número de contas AD AZure num dispositivo a 3 para limitar o tamanho dos pedidos de token e permitir um único sinal fiável (SSO). Uma vez adicionadas 3 contas, os utilizadores verão um erro nas contas subsequentes. As informações adicionais sobre problemas no ecrã de erro fornecem a seguinte mensagem indicando o motivo - "Adicionar a operação da conta está bloqueada porque o limite de acesso é atingido". 
+**R**: Azure AD adicionou suporte para várias contas AD Azure na versão do Windows 10 1803. No entanto, o Windows 10 restringe o número de contas AD AZure num dispositivo a 3 para limitar o tamanho dos pedidos de token e permitir um único sinal fiável (SSO). Uma vez adicionadas 3 contas, os utilizadores verão um erro nas contas subsequentes. As informações adicionais sobre problemas no ecrã de erro fornecem a seguinte mensagem indicando o motivo - "Adicionar a operação da conta está bloqueada porque o limite de conta é atingido". 
 
 ---
 ## <a name="azure-ad-join-faq"></a>Azure AD junta-se à FAQ

@@ -1,9 +1,9 @@
 ---
-title: Tutorial de Aplicativos Windows Store de streaming lisos Microsoft Docs
+title: Tutorial de aplicativos windows store de streaming liso | Microsoft Docs
 description: Saiba como utilizar o Azure Media Services para criar uma aplicação C# Windows Store com um controlo XML MediaElement para reproduzir conteúdo Smooth Stream.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: 0fa5d8c5-3d5f-4886-ae55-fb6de4f5256d
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9b616b03698e83d256a7b81e4548edbf21dba058
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 20c7068fa0cb56699fdbc6d75b279abadd583832
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96021134"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103017125"
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Como construir uma aplicação de loja de Windows de streaming suave
 
@@ -69,11 +69,11 @@ Para obter mais informações sobre o desenvolvimento da aplicação Windows Sto
 1. A partir do menu **FILE,** clique em **Novo** e, em seguida, clique em **Projeto**.
 1. A partir do diálogo do Novo Projeto, escreva ou selecione os seguintes valores:
 
-    | Nome | Valor |
+    | Name | Valor |
     | --- | --- |
     | Grupo de modelo |Instalado/Modelos/Visual C#/Windows Store |
     | Modelo |App em branco (XAML) |
-    | Nome |SSPlayer |
+    | Name |SSPlayer |
     | Localização |C:\SSTutorials |
     | Nome da Solução |SSPlayer |
     | Criar diretório para solução |(selecionado) |
@@ -85,7 +85,7 @@ Para obter mais informações sobre o desenvolvimento da aplicação Windows Sto
 1. A partir do Solution Explorer, clique à direita **no SSPlayer** e, em seguida, clique em **Adicionar Referência**.
 1. Escreva ou selecione os seguintes valores:
 
-    | Nome | Valor |
+    | Name | Valor |
     | --- | --- |
     | Grupo de referência |Janelas/Extensões |
     | Referência |Selecione Microsoft Smooth Streaming Client SDK para Windows 8 e Microsoft Visual C++ Pacote de tempo de execução |
@@ -251,7 +251,7 @@ Esta lição contém os seguintes procedimentos:
 5. Adicionar código relacionado com barra de slider
 6. Compilar e testar a aplicação
 
-### <a name="to-register-the-smooth-streaming-byte-stream-handler-and-pass-the-propertyset"></a>Para registar o manipulador de fluxo de fluxo de fluxo de streaming smooth e passar o conjunto de propriedades
+### <a name="to-register-the-smooth-streaming-byte-stream-handler-and-pass-the-propertyset"></a>Para registar o manipulador de fluxo de streaming smooth e passar o conjunto de propriedades
 
 1. A partir do Solution Explorer, clique no **mainPage.xaml** e, em seguida, clique em **Ver Código**.
 2. No início do processo, adicione a seguinte declaração utilizando:

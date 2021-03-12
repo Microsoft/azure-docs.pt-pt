@@ -10,14 +10,16 @@ ms.date: 11/09/2020
 ms.topic: conceptual
 ms.service: iot-edge
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: e4043fd8b7c9571b62cbf65d7398754b27375efd
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: 730680b0cb6e8a728ed3072419674346de649368
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100633976"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200677"
 ---
 # <a name="publish-and-subscribe-with-azure-iot-edge"></a>Publicar e subscrever com a Azure IoT Edge
+
+[!INCLUDE [iot-edge-version-202011](../../includes/iot-edge-version-202011.md)]
 
 Pode utilizar o corretor MQTT Azure IoT Edge para publicar e subscrever mensagens. Este artigo mostra-lhe como ligar a este corretor, publicar e subscrever mensagens sobre tópicos definidos pelo utilizador, e usar primitivos de mensagens IoT Hub. O corretor IoT Edge MQTT é incorporado no hub IoT Edge. Para obter mais informações, consulte [as capacidades de corretagem do hub IoT Edge](iot-edge-runtime.md).
 

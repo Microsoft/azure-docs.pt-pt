@@ -3,7 +3,7 @@ title: Azure Media Services divulga notas | Microsoft Docs
 description: Este artigo fala sobre as notas de lançamento v2 da Microsoft Azure Media Services.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: media
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/01/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e1700489b4f3ee37d95b87b1bf026d47c9f1de4d
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: 019f0bc98de45fa1fe6f9b8c72ef74beb50ea2c2
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98694907"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103017363"
 ---
 # <a name="azure-media-services-release-notes"></a>Notas de lançamento da Azure Media Services
 
@@ -32,7 +32,7 @@ Estas notas de lançamento para a Azure Media Services resumem as alterações d
 
 Queremos ouvir os nossos clientes para que possamos focar-nos na resolução de problemas que o afetam. Para reportar um problema ou fazer perguntas, envie um post no [Fórum MSDN dos Media Media Services]. 
 
-## <a name="known-issues"></a><a name="issues"></a>Problemas conhecidos
+## <a name="known-issues"></a><a name="issues"></a>Questões conhecidas
 ### <a name="media-services-general-issues"></a><a name="general_issues"></a>Questões gerais dos Serviços de Comunicação Social
 
 | Problema | Description |
@@ -48,6 +48,26 @@ Queremos ouvir os nossos clientes para que possamos focar-nos na resolução de 
 
 ## <a name="rest-api-version-history"></a><a name="rest_version_history"></a>Rest API versão história
 Para obter informações sobre o histórico da versão API dos Serviços de Mídia REST, consulte a referência API dos [Serviços de Mídia Azure].
+
+## <a name="february-2021"></a>Fevereiro de 2021
+
+### <a name="azure-media-services-v2-api-and-sdks-deprecation-announcement"></a>Azure Media Services v2 API e SDKs anúncio de depreciação
+
+#### <a name="update-your-azure-media-services-rest-api-and-sdks-to-v3-by-29-february-2024"></a>Atualize os seus Serviços de Media Azure REST API e SDKs para v3 até 29 de fevereiro de 2024
+
+Como a versão 3 do Azure Media Services REST API e os Clientes SDKs para .NET e Java oferecem mais capacidades do que a versão 2, estamos a retirar a versão 2 do Azure Media Services REST API e os SDKs clientes para .NET e Java. Encorajamo-lo a fazer a troca mais cedo para obter os benefícios mais ricos da versão 3 da Azure Media Services REST API e dos Clientes SDKs para .NET e Java.
+A versão 3 fornece:
+ 
+- Suporte ao evento ao vivo 24x7
+- ARM REST APIs, SDKs cliente para .NET core, Node.js, Python, Java, Go e Ruby.
+- Chaves geridas pelo cliente, integração de armazenamento confiável, suporte de ligação privada, e [muito mais](https://review.docs.microsoft.com/en-us/azure/media-services/latest/migrate-v-2-v-3-migration-benefits)
+
+#### <a name="action-required"></a>Ação necessária:
+
+Para minimizar a perturbação das suas cargas de trabalho, reveja o guia de [migração](https://go.microsoft.com/fwlink/?linkid=2149150&clcid=0x409) para transitar o seu código da versão 2 API e SDKs para a versão 3 API e SDK antes de 29 de fevereiro de 2024.
+**Depois de 29 de fevereiro de 2024,** a Azure Media Services deixará de aceitar o tráfego na versão 2 REST API, na versão API de gestão de conta ARM 2015-10-01, ou na versão 2 .NET client SDKs. Isto inclui qualquer cliente de código aberto de 3ª parte SDKS que pode ligar para a versão 2 API.  
+
+Veja o anúncio oficial do [Azure Updates](https://azure.microsoft.com/updates/update-your-azure-media-services-rest-api-and-sdks-to-v3-by-29-february-2024/).
 
 ## <a name="september-2020"></a>Setembro de 2020
 

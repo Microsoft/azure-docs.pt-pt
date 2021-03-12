@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 02/05/2021
 ms.author: alkohli
-ms.openlocfilehash: 6836777c761fa2cce482cb000b6c86919e6b5613
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: 829f89f716a29f09f88a2e02b257aba1b207d072
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99834073"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102634197"
 ---
 # <a name="azure-stack-edge-mini-r-system-requirements"></a>Requisitos do sistema Azure Stack Edge Mini R
 
@@ -38,7 +38,7 @@ Os requisitos do sistema para o Azure Stack Edge Mini R incluem:
 
 ## <a name="supported-edge-storage-accounts"></a>Contas de armazenamento suportadas edge
 
-As seguintes contas de armazenamento Edge são suportadas com a interface REST do dispositivo. As contas de armazenamento Edge são criadas no dispositivo. Para mais informações, consulte [as contas de armazenamento edge](azure-stack-edge-j-series-manage-storage-accounts.md#about-edge-storage-accounts)
+As seguintes contas de armazenamento Edge são suportadas com a interface REST do dispositivo. As contas de armazenamento Edge são criadas no dispositivo. Para mais informações, consulte [as contas de armazenamento edge](azure-stack-edge-gpu-manage-storage-accounts.md#about-edge-storage-accounts)
 
 |Tipo  |Conta de armazenamento  |Comentários  |
 |---------|---------|---------|
@@ -82,7 +82,7 @@ Utilize a seguinte tabela para configuração de porta para os servidores que ho
 
 | Porto não. | Dentro ou fora | Âmbito portuário | Necessário | Orientação |
 |----------|-----------|------------|----------|----------|
-| TCP 443 (HTTPS)| Saída       | WAN        | Sim      | Saída aberta para provisão IoT Edge. Esta configuração é necessária quando se utilizam scripts manuais ou serviço de provisionamento de dispositivos Azure IoT (DPS).|
+| TCP 443 (HTTPS)| Saída       | WAN        | Yes      | Saída aberta para provisão IoT Edge. Esta configuração é necessária quando se utilizam scripts manuais ou serviço de provisionamento de dispositivos Azure IoT (DPS).|
 
 Para obter informações completas, aceda às [regras de configuração de Firewall e porta para a implementação do IoT Edge](../iot-edge/troubleshoot.md).
 

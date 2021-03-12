@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2020
-ms.openlocfilehash: 2c86086a636ea667cff4fc8a853c4ef20fa6ae04
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: dae9ab56ca1349d288aee02f7e2dfa4eccf1508c
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102041846"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199167"
 ---
 # <a name="install-log-analytics-agent-on-linux-computers"></a>Instalar o agente do Log Analytics em computadores Linux
 Este artigo fornece detalhes sobre a instalação do agente Log Analytics em computadores Linux utilizando os seguintes métodos:
@@ -41,7 +41,7 @@ Começando com versões lançadas após agosto de 2018, estamos a fazer as segui
 * As versões que tenham passado a data de fim de suporte do fabricante não são suportadas.
 * Suporta apenas imagens VM; os contentores, mesmo os derivados de imagens oficiais de editores distro, não são suportados.
 * As novas versões da AMI não são suportadas.  
-* Apenas as versões que executam o SSL 1.x por padrão são suportadas.
+* Apenas as versões que executam o OpenSSL 1.x por padrão são suportadas.
 
 >[!NOTE]
 >Se estiver a utilizar um distro ou versão que não esteja atualmente suportado e não esteja alinhado com o nosso modelo de suporte, recomendamos que você forque este repo, reconhecendo que o suporte da Microsoft não fornecerá assistência com versões de agentes forcados.
@@ -86,7 +86,7 @@ Outros métodos de endurecimento e personalização não são suportados nem pla
 
 A tabela seguinte realça as embalagens necessárias para [os distros Linux suportados](#supported-operating-systems) em que o agente será instalado.
 
-|Pacote necessário |Descrição |Versão mínima |
+|Pacote necessário |Description |Versão mínima |
 |-----------------|------------|----------------|
 |Glibc |    Biblioteca GNU C | 2.5-12 
 |Openssl    | Bibliotecas OpenSSL | 1.0.x ou 1.1.x |

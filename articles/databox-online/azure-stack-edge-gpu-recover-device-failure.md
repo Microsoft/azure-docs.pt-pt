@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: b32757dddf745e7aaa0ea8276a3527fa464cc0d4
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: b1bfbda007619bf5bd94d47297845881758037bc
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102442167"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102636645"
 ---
 # <a name="recover-from-a-failed-azure-stack-edge-pro-gpu-device"></a>Recuperar de um dispositivo GPU Azure Stack Edge Pro falhado 
 
@@ -52,10 +52,10 @@ Está agora pronto para implantar as cargas de trabalho que estava a executar no
 
 Siga estes passos para restaurar os dados nas partilhas de nuvem Edge no seu dispositivo:
 
-1. [Adicione ações](azure-stack-edge-j-series-manage-shares.md#add-a-share) com os mesmos nomes de ações criados anteriormente no dispositivo falhado. Certifique-se de que, durante a criação de partilhas, **selecione o recipiente blob** para **utilizar a** opção existente e, em seguida, selecione o recipiente que foi utilizado com o dispositivo anterior.
-1. [Adicione utilizadores](azure-stack-edge-j-series-manage-users.md#add-a-user) que tenham tido acesso ao dispositivo anterior.
-1. [Adicione contas de armazenamento associadas](azure-stack-edge-j-series-manage-storage-accounts.md#add-an-edge-storage-account) às ações anteriormente no dispositivo. Ao criar contas de armazenamento Edge, selecione a partir de um recipiente existente e aponte para o recipiente que foi mapeado para a conta de Armazenamento Azure mapeada no dispositivo anterior. Todos os dados do dispositivo que foi escrito na conta de armazenamento Edge no dispositivo anterior foram enviados para o recipiente de armazenamento selecionado na conta de Armazenamento Azure mapeada.
-1. [Refresque os](azure-stack-edge-j-series-manage-shares.md#refresh-shares) dados de partilha do Azure. Isto retira todos os dados da nuvem do recipiente existente para as ações.
+1. [Adicione ações](azure-stack-edge-gpu-manage-shares.md#add-a-share) com os mesmos nomes de ações criados anteriormente no dispositivo falhado. Certifique-se de que, durante a criação de partilhas, **selecione o recipiente blob** para **utilizar a** opção existente e, em seguida, selecione o recipiente que foi utilizado com o dispositivo anterior.
+1. [Adicione utilizadores](azure-stack-edge-gpu-manage-users.md#add-a-user) que tenham tido acesso ao dispositivo anterior.
+1. [Adicione contas de armazenamento associadas](azure-stack-edge-gpu-manage-storage-accounts.md#add-an-edge-storage-account) às ações anteriormente no dispositivo. Ao criar contas de armazenamento Edge, selecione a partir de um recipiente existente e aponte para o recipiente que foi mapeado para a conta de Armazenamento Azure mapeada no dispositivo anterior. Todos os dados do dispositivo que foi escrito na conta de armazenamento Edge no dispositivo anterior foram enviados para o recipiente de armazenamento selecionado na conta de Armazenamento Azure mapeada.
+1. [Refresque os](azure-stack-edge-gpu-manage-shares.md#refresh-shares) dados de partilha do Azure. Isto retira todos os dados da nuvem do recipiente existente para as ações.
 
 ## <a name="restore-edge-local-shares"></a>Restaurar ações locais edge
 
@@ -73,7 +73,7 @@ Depois de configurar completamente o dispositivo de substituição, ative o disp
 Siga estes passos para recuperar os dados das ações locais:
 
 1. [Configure o cálculo do dispositivo](azure-stack-edge-gpu-deploy-configure-compute.md).
-1. [Adicione uma parte local](azure-stack-edge-j-series-manage-shares.md#add-a-local-share) de volta.
+1. [Adicione uma parte local](azure-stack-edge-gpu-manage-shares.md#add-a-local-share) de volta.
 1. Executar o procedimento de recuperação fornecido pela solução de proteção de dados de eleição. Consulte as referências da tabela anterior.
 
 ## <a name="restore-vm-files-and-folders"></a>Restaurar ficheiros e pastas VM

@@ -4,17 +4,17 @@ description: Reidrate as suas bolhas do armazenamento de arquivo para que possa 
 services: storage
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 01/08/2021
+ms.date: 03/11/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: hux
-ms.openlocfilehash: 5a89e5a9eca653a2d15e5b09605b78bc18d76b8f
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
+ms.openlocfilehash: 2f0ddca9cbd7d85909b1d86e68b92fa1d847476d
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98165676"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103225086"
 ---
 # <a name="rehydrate-blob-data-from-the-archive-tier"></a>Reidratar dados blob do nível de arquivo
 
@@ -29,6 +29,10 @@ Enquanto uma bolha está no nível de acesso ao arquivo, é considerada offline 
 
 [!INCLUDE [storage-blob-rehydration](../../../includes/storage-blob-rehydrate-include.md)]
 
+### <a name="lifecycle-management"></a>Gestão do ciclo de vida
+
+Hidratar uma bolha não muda. `Last-Modified` A [utilização da função de gestão](storage-lifecycle-management-concepts.md) do ciclo de vida pode criar um cenário em que uma bolha é rehidratada, em seguida, uma política de gestão do ciclo de vida move a bolha de volta para arquivar porque o `Last-Modified` tempo está além do limiar definido para a política. Para evitar este cenário, utilize a Cópia de uma bolha arquivada para um método *[de nível on-line.](#copy-an-archived-blob-to-an-online-tier)* O método de cópia cria uma nova instância da bolha com um tempo atualizado `Last-Modified` e não vai desencadear a política de gestão do ciclo de vida.
+
 ## <a name="monitor-rehydration-progress"></a>Monitorizar o progresso da reidratação
 
 Durante a reidratação, utilize o funcionamento das propriedades do blob para verificar o atributo Estado de **Arquivo** e confirmar quando a mudança de nível estiver completa. Consoante a camada de destino, o estado mostra “rehydrate-pending-to-hot” (“reidratação para frequenet pendente”) ou “rehydrate-pending-to-cool” (“reidratação para esporádica pendente). Após a conclusão, a propriedade do estado do arquivo é removida, e a propriedade blob **Access Tier** reflete o novo nível quente ou fresco.
@@ -42,7 +46,7 @@ Copiar uma bolha do arquivo pode demorar horas a ser completada dependendo da pr
 > [!IMPORTANT]
 > Não elimine a bolha de origem até que a cópia esteja concluída com sucesso no destino. Se a bolha de origem for eliminada, a bolha de destino pode não completar a cópia e ficará vazia. Pode verificar o *estado da cópia x-ms* para determinar o estado da operação da cópia.
 
-As bolhas de arquivo só podem ser copiadas para níveis de destino on-line dentro da mesma conta de armazenamento. A cópia de uma bolha de arquivo para outra bolha de arquivo não é suportada. A tabela seguinte indica as capacidades do CopyBlob.
+As bolhas de arquivo só podem ser copiadas para níveis de destino on-line dentro da mesma conta de armazenamento. A cópia de uma bolha de arquivo para outra bolha de arquivo não é suportada. A tabela seguinte mostra as capacidades de uma operação **Copy Blob.**
 
 |                                           | **Fonte de nível quente**   | **Fonte de nível fresco** | **Fonte de nível de arquivo**    |
 | ----------------------------------------- | --------------------- | -------------------- | ------------------- |

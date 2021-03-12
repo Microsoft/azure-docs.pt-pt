@@ -1,5 +1,5 @@
 ---
-title: Migrar do Indexer v1 e v2 para Azure Media Services Video Indexer Microsoft Docs
+title: Migrar do Indexer v1 e v2 para O Azure Media Services Video Indexer | Microsoft Docs
 description: Este tópico discute como migrar do Azure Media Indexer v1 e v2 para Azure Media Services Video Indexer.
 services: media-services
 documentationcenter: ''
@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2020
+ms.date: 3/10/2021
 ms.author: inhenkel
-ms.openlocfilehash: 330bffebb870635fd473e88a8eadb300eed40b9b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: eb4f662a4b34d748da0e97da9b64a386be3f5c49
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96012140"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103016428"
 ---
 # <a name="migrate-from-media-indexer-and-media-indexer-2-to-video-indexer"></a>Migrar do Indexador de Media e do Indexador de Media 2 para Indexador de Vídeo
 

@@ -2,56 +2,56 @@
 title: Migrar a configuração da piscina do Lote de Cloud Services para Máquinas Virtuais
 description: Saiba como atualizar a configuração da piscina para a configuração mais recente e recomendada
 ms.topic: how-to
-ms.date: 2/16/2021
-ms.openlocfilehash: 9cbcf3864526bd8f8132f3b0f729e2d728e07bb8
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.date: 03/11/2021
+ms.openlocfilehash: a176c4df1737a340a546b4ab7926447cd821350d
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100546045"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200563"
 ---
-# <a name="migrate-batch-pool-configuration-from-cloud-services-to-virtual-machines"></a>Migrar a configuração da piscina do Lote de Cloud Services para Máquinas Virtuais
+# <a name="migrate-batch-pool-configuration-from-cloud-services-to-virtual-machine"></a>Migrar a configuração da piscina do Lote de Cloud Services para Máquina Virtual
 
-Os lotes podem ser criados utilizando a [cloudServiceConfiguration](/rest/api/batchservice/pool/add#cloudserviceconfiguration) ou [a virtualMachineConfiguration](/rest/api/batchservice/pool/add#virtualmachineconfiguration). 'virtualMachineConfiguration' é a configuração recomendada, uma vez que suporta todas as capacidades do Batch. As piscinas 'cloudServiceConfiguration' não suportam todas as funcionalidades e não estão previstas novas funcionalidades.
+Atualmente, as piscinas batch podem ser criadas usando a [configuração virtual DesachineConfiguration](/rest/api/batchservice/pool/add#virtualmachineconfiguration) ou [cloudServiceConfiguration](/rest/api/batchservice/pool/add#cloudserviceconfiguration). Recomendamos a utilização apenas da Configuração virtual da máquina, uma vez que esta configuração suporta todas as capacidades do Lote.
 
-Se utilizar piscinas de "cloudServiceConfiguration", é altamente recomendável que se mova para utilizar piscinas de "configuração virtual de investigação". Isto permitir-lhe-á beneficiar de todas as capacidades do Batch, tais como uma seleção alargada [de séries VM,](batch-pool-vm-sizes.md)VMs Linux, [contentores,](batch-docker-container-workloads.md) [redes virtuais Azure Resource Manager](batch-virtual-network.md)e [encriptação de discos de nó.](disk-encryption.md)
+As piscinas de configuração de serviços de nuvem não suportam algumas das funcionalidades atuais do Batch e não suportam quaisquer funcionalidades recém-adicionadas. Não poderá criar novas piscinas 'CloudServiceConfiguration' ou adicionar novos nós às piscinas existentes [após 29 de fevereiro de 2024.](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024/)
 
-Este artigo descreve como migrar para a "Configuração virtual da Investigação".
+Se as suas soluções Batch utilizarem atualmente piscinas de 'cloudServiceConfiguration', recomendamos a alteração para 'virtualMachineConfiguration' o mais rapidamente possível. Isto permitir-lhe-á beneficiar de todas as capacidades do Batch, tais como uma seleção alargada [de séries VM,](batch-pool-vm-sizes.md)VMs Linux, [contentores,](batch-docker-container-workloads.md) [redes virtuais Azure Resource Manager](batch-virtual-network.md)e [encriptação de discos de nó.](disk-encryption.md)
 
-## <a name="new-pools-are-required"></a>São necessárias novas piscinas
+## <a name="create-a-pool-using-virtual-machine-configuration"></a>Criar uma piscina usando a configuração da máquina virtual
 
-Os pools ativos existentes não podem ser atualizados de 'cloudServiceConfiguration' para 'virtualMachineConfiguration', devem ser criados novos pools. A criação de piscinas utilizando a 'configuração virtualMachine' é suportada por todas as APIs do lote, ferramentas de linha de comando, portal Azure e o Batch Explorer UI.
+Não é possível mudar um pool ativo existente que utilize a 'cloudServiceConfiguration' para utilizar a "configuração virtual da tecnologia". Em vez disso, terá de criar novas piscinas. Uma vez criado as suas novas piscinas 'virtualMachineConfiguration' e replicado todos os seus trabalhos e tarefas, pode eliminar as antigas piscinas 'cloudServiceConfiguration' que já não está a usar.
 
-**Os tutoriais [.NET](tutorial-parallel-dotnet.md) e [Python](tutorial-parallel-python.md) fornecem exemplos de criação de piscinas usando a "configuração virtual da investigação".**
+Todas as APIs do lote, ferramentas de linha de comando, o portal Azure e o Batch Explorer UI permitem criar piscinas usando a "configuração virtualMachineConfiguration".
+
+Para uma passagem pelo processo de criação de piscinas que utilizem 'virtualMachineConfiguration, consulte o [tutorial .NET](tutorial-parallel-dotnet.md) ou o [tutorial python](tutorial-parallel-python.md).
 
 ## <a name="pool-configuration-differences"></a>Diferenças de configuração da piscina
 
-O seguinte deve ser considerado na atualização da configuração da piscina:
+Algumas das principais diferenças entre as duas configurações incluem:
 
-- Os nós de piscina 'cloudServiceConfiguration' são sempre Windows OS, as piscinas 'virtualMachineConfiguration' podem ser Linux ou Windows OS.
+- Os nós de piscina 'cloudServiceConfiguration' utilizam apenas o Windows OS. As piscinas 'virtualMachineConfiguration' podem utilizar o Linux ou o Windows OS.
 - Em comparação com as piscinas 'cloudServiceConfiguration', as piscinas 'virtualMachineConfiguration' têm um conjunto de capacidades mais rico, tais como suporte a contentores, discos de dados e encriptação de discos.
+- O arranque de piscinas e nó e os tempos de eliminação podem diferir ligeiramente entre piscinas 'cloudServiceConfiguration' e piscinas 'virtualMachineConfiguration'.
 - Os nós de piscina 'virtualMachineConfiguration' utilizam discos de OS geridos. O [tipo de disco gerido](../virtual-machines/disks-types.md) que é utilizado para cada nó depende do tamanho VM escolhido para a piscina. Se for especificado um tamanho VM 's' para a piscina, por exemplo , "Standard_D2s_v3", então é utilizado um SSD premium. Se for especificado um tamanho VM 'não-s', por exemplo , 'Standard_D2_v3', então é utilizado um HDD padrão.
 
    > [!IMPORTANT]
-   > Tal como acontece com máquinas virtuais e conjuntos de balanças de máquinas virtuais, o disco gerido pelo SISTEMA utilizado para cada nó incorre num custo, que é adicional ao custo dos VMs. Não existe um custo de disco DE PARA os nós 'cloudServiceConfiguration', uma vez que o disco OS é criado nos nós locais SSD.
-
-- O arranque de piscinas e nó e os tempos de eliminação podem diferir ligeiramente entre piscinas 'cloudServiceConfiguration' e piscinas 'virtualMachineConfiguration'.
+   > Tal como acontece com máquinas virtuais e conjuntos de balanças de máquinas virtuais, o disco gerido pelo SISTEMA utilizado para cada nó incorre num custo, que é adicional ao custo dos VMs. Não existe um custo de disco DE PARA os nós 'cloudServiceConfiguration', uma vez que o disco DE É criado nos nós SSD local.
 
 ## <a name="azure-data-factory-custom-activity-pools"></a>Piscinas de atividade personalizada azure Data Factory
 
 As piscinas Azure Batch podem ser usadas para executar atividades personalizadas da Data Factory. Quaisquer piscinas de 'cloudServiceConfiguration' utilizadas para executar atividades personalizadas terão de ser eliminadas e novas piscinas 'virtualMachineConfiguration' criadas.
 
-- As condutas devem ser pausadas antes de eliminar/recriar para garantir que não serão interrompidas execuções.
+Ao criar as suas novas piscinas para executar atividades personalizadas da Data Factory, siga estas práticas:
+
+- Faça uma pausa em todos os oleodutos antes de criar as novas piscinas e apagar as antigas para garantir que nenhuma execução será interrompida.
 - O mesmo id de piscina pode ser usado para evitar alterações na configuração do serviço ligado.
 - Retomar os oleodutos quando novas piscinas tiverem sido criadas.
 
-Para mais informações sobre a utilização do Azure Batch para executar atividades personalizadas da Data Factory:
-
-- [Serviço ligado a Azure Batch](../data-factory/compute-linked-services.md#azure-batch-linked-service)
-- [Atividades personalizadas num oleoduto da Data Factory](../data-factory/transform-data-using-dotnet-custom-activity.md)
+Para obter mais informações sobre a utilização do Azure Batch para executar atividades personalizadas da Data Factory, consulte [o serviço ligado ao Azure Batch](../data-factory/compute-linked-services.md#azure-batch-linked-service) e as  [atividades personalizadas num pipeline da Data Factory](../data-factory/transform-data-using-dotnet-custom-activity.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [as configurações da piscina.](nodes-and-pools.md#configurations)
 - Saiba mais sobre [as melhores práticas da piscina.](best-practices.md#pools)
-- Referência API REST para [a adição de piscina](/rest/api/batchservice/pool/add) e [configuração virtual.](/rest/api/batchservice/pool/add#virtualmachineconfiguration)
+- Consulte a referência REST API para [a adição](/rest/api/batchservice/pool/add) de piscina e [configuração virtual.](/rest/api/batchservice/pool/add#virtualmachineconfiguration)

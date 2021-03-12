@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 01/13/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 92bf066c9769cc4b2525923b9e18ed3c0e9c577a
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 2ad5bf08542cd98f7acae36827b1a7b284a893b0
+ms.sourcegitcommit: 6776f0a27e2000fb1acb34a8dddc67af01ac14ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98937141"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103149316"
 ---
 # <a name="identify-required-appliances"></a>Identificar as aplicações necessárias
 
@@ -38,13 +38,13 @@ O Defender for IoT suporta implementações físicas e virtuais.
 
 Esta secção fornece uma visão geral dos modelos de sensores físicos que estão disponíveis. Pode adquirir sensores com software pré-configurado ou sensores de compra que não estejam pré-configurados.
 
-| Tipo de implantação | Empresarial | Grandes Empresas | SMB |
-|--|--|--|--|
-| Imagem | :::image type="content" source="media/how-to-prepare-your-network/corporate-hpe-proliant-dl360-v2.png" alt-text="O modelo de nível corporativo."::: | :::image type="content" source="media/how-to-prepare-your-network/enterprise-and-smb-hpe-proliant-dl20-v2.png" alt-text="O modelo de nível empresarial."::: | :::image type="content" source="media/how-to-prepare-your-network/enterprise-and-smb-hpe-proliant-dl20-v2.png" alt-text="O modelo de nível SMB."::: |
-| Modelação | HPE ProLiant DL360 | HPE ProLiant DL20 | HPE ProLiant DL20 |
-| Portas de monitorização | Até 15 RJ45 ou 8 OPT | Até 8 RJ45 ou 6 OPT | 4 RJ45 |
-| Largura de banda máxima [1](#anchortext) | 3 Gb por segundo | 1 Gb por segundo | 200 Mb por segundo |
-| Dispositivos máximos protegidos | 30,000 | 15 000 | 1,000 |
+| Tipo de implantação | Empresarial | Grandes Empresas | Montagem de cremalheira SMB| SMB acidentado|
+|--|--|--|--|--|
+| Imagem | :::image type="content" source="media/how-to-prepare-your-network/corporate-hpe-proliant-dl360-v2.png" alt-text="O modelo de nível corporativo."::: | :::image type="content" source="media/how-to-prepare-your-network/enterprise-and-smb-hpe-proliant-dl20-v2.png" alt-text="O modelo de nível empresarial."::: | :::image type="content" source="media/how-to-prepare-your-network/enterprise-and-smb-hpe-proliant-dl20-v2.png" alt-text="O modelo de nível SMB."::: | :::image type="content" source="media/how-to-prepare-your-network/office-ruggedized.png" alt-text="O modelo de nível robusto SMB."::: |
+| Modelação | HPE ProLiant DL360 | HPE ProLiant DL20 | HPE ProLiant DL20 | HPE EL300 |
+| Portas de monitorização | Até 15 RJ45 ou 8 OPT | Até 8 RJ45 ou 6 OPT | 4 RJ45 | Até 5 |
+| Largura de banda máxima [1](#anchortext) | 3 Gb/seg | 1 Gb/seg | 200 Mb/Sec | 100 Mb/seg |
+| Dispositivos máximos protegidos | 30,000 | 15 000 | 1,000 | 800 |
 
 Consulte [as especificações do aparelho](#appliance-specifications) para obter detalhes do fornecedor.
 
@@ -109,7 +109,7 @@ Esta secção descreve especificações de hardware para os seguintes aparelhos:
 
 ### <a name="appliance-bom"></a>Aparelho BOM
 
-| PN | Descrição | Quantidade |
+| PN | Description | Quantidade |
 |--|--|--|
 | P19766-B21 | HPE DL360 Gen10 8SFF NC CTO Server | 1 |
 | P19766-B21 | Europa - Localização Multilíngue | 1 |
@@ -180,7 +180,7 @@ Esta secção descreve especificações de hardware para os seguintes aparelhos:
 
 ### <a name="appliance-bom"></a>Aparelho BOM
 
-| PN | Descrição | Quantidade |
+| PN | Description | Quantidade |
 |--|--|--|
 | P06961-B21 | HPE DL20 Gen10 NHP 2LFF CTO Server | 1 |
 | P06961-B21 | HPE DL20 Gen10 NHP 2LFF CTO Server | 1 |
@@ -194,6 +194,45 @@ Esta secção descreve especificações de hardware para os seguintes aparelhos:
 | P06683-B21 | Kit de cabo HPE DL20 Gen10 M.2 SATA/LFF AROC | 1 |
 | 512485-B21 | HPE iLO Adv 1-Server Licença 1 Ano Suporte | 1 |
 | 775612-B21 | Kit de trilho de fricção curta HPE 1U | 1 |
+
+## <a name="smb-rugged-hpe-edgeline-el300"></a>SMB Rugged: HPE Edgeline EL300
+
+| Componente | Especificações técnicas |
+|--|--|
+| Construção | Design à prova de pó de alumínio, & sem ventilador |
+| Dimensões (altura x largura x profundidade) | 200,5 mm (7,9") de altura, 232mm (9,14") de largura por 100mm (3,9") de profundidade |
+| Peso | 4,91 KG (10,83 lbs.) |
+| CPU | Intel Core i7-8650U (1.9GHz/4-core/15W) |
+| Chipset | Intel® Hub de Controlador de Plataforma Q170 |
+| Memória | 8GB DDR4 2133MHz Temperatura ampla SODIMM |
+| Armazenamento | 128GB 3ME3 Temperatura larga mSATA SSD |
+| Controlador de rede | Portas 6x Gigabit Ethernet by Intel® I219 |
+| Acesso ao dispositivo  | 4 USBs: 2 frentes; 2 traseiras; 1 interno |
+| Adaptador de potência | 250V/10A |
+| Montagem | Kit de montagem, Din Rail |
+| Temperatura operacional | 0C a +70C  |
+| Humidade | 10%~~90%, não condensação |
+| Vibração | 0,3 grms 10Hz a 300Hz, 15 minutos por eixo - Carril Din   |
+| Choque | 10G 10ms, meio-sena, três para cada eixo. (Ambos positivos & pulso negativo) – Din Rail |
+
+### <a name="appliance-bom"></a>Aparelho BOM
+| Produto | Description |
+|--|--|
+| P25828-B21 | HPE Edgeline EL300 v2 Sistema de Borda Convergida |
+| P25828-B21 B19 | HPE EL300 v2 Sistema de Borda Convergida |
+| P25833-B21 | Intel Core i7-8650U (1.9GHz/4-core/15W) Kit de processador básico FIO para HPE Edgeline EL300 |
+| P09176-B21 | HPE Edgeline 8GB (1x8GB) Dual Rank x8 DDR4-2666 SODIMM WT CAS-19-19-19 Cartão de Memória Registada FIO |
+| P09188-B21 | HPE Edgeline 256GB SATA 6G Ler Intensivo M.2 2242 3yr Wty Wide Temp SSD |
+| P04054-B21 | HPE Edgeline EL300 SFF para M.2 Kit de Ativação |
+| P08120-B21 | HPE Edgeline EL300 12VDC FIO Transfer Board |
+| P08641-B21 | HPE Edgeline EL300 80W 12VDC Fonte de alimentação |
+| AF564A | HPE C13 - SI-32 IL 250V 10Amp 1.83m Cabo de alimentação |
+| P25835-B21 | HPE EL300 v2 FIO Carrier Board |
+| R1P49AAE | HPE EL300 iSM Adv 3yr 24x7 Sup_Upd E-LTU |
+| P08018-B21 opcional | HPE Edgeline EL300 Kit de suporte de baixo perfil  |
+| P08019-B21 opcional | HPE Edgeline EL300 DIN Rail Mount Kit |
+| P08020-B21 opcional | Kit de montagem de parede HPE Edgeline EL300 |
+| P03456-B21 opcional | HPE Edgeline 1GbE 4-porta TSN FIO Cartão filha |
 
 ## <a name="virtual-appliance-specifications"></a>Especificações do aparelho virtual
 
@@ -209,7 +248,7 @@ Esta secção descreve especificações de hardware para os seguintes aparelhos:
 
 | Tipo | Grandes Empresas |
 |--|--|
-| Descrição | Aparelho virtual para tipos de implementação de empresas |
+| Description | Aparelho virtual para tipos de implementação de empresas |
 | vCPU | 8 |
 | Memória | 32 GB |
 | Armazenamento | 1.8 TB |
@@ -238,7 +277,7 @@ Depois de adquirir o aparelho, aceda ao **Defender para** obter  >  **sensores d
 
 | Componente | Especificações técnicas |
 |--|--|
-| Chassis | Servidor de rack 1U |
+| Chassis | Servidor de rack 1U
 | Dimensões | 42,8 x 434,0 x 596 (mm) /1,67" x 17,09" x 23,5" (in) |
 | Peso | Máx 29,98 lb/13,6 kg |
 | Processador | Intel Xeon E-2144G 3.6 GHz, cache 8M, 4C/8T, turbo (71 W) |
@@ -255,8 +294,9 @@ Depois de adquirir o aparelho, aceda ao **Defender para** obter  >  **sensores d
 
 :::image type="content" source="media/how-to-prepare-your-network/enterprise-deployment-for-azure-defender-for-iot-dell-r340-bom.png" alt-text="Dell R340 BOM.":::
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Sobre o Azure Defender para a instalação IoT](how-to-install-software.md)
 
 [Sobre o Azure Defender para a configuração da rede IoT](how-to-set-up-your-network.md)
+

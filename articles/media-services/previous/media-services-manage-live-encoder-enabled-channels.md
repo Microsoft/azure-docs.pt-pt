@@ -1,9 +1,9 @@
 ---
-title: Streaming ao vivo usando a Azure Media Services para criar streams multi-bitrates Microsoft Docs
+title: Streaming ao vivo usando Azure Media Services para criar streams multi-bitrate | Microsoft Docs
 description: Este tópico descreve como configurar um Canal que recebe um único stream bitrate ao vivo a partir de um codificador no local e, em seguida, executa codificação ao vivo para fluxo bitrate adaptativo com Serviços de Media.
 services: media-services
 documentationcenter: ''
-author: anilmur
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: 30ce6556-b0ff-46d8-a15d-5f10e4c360e2
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 03/10/2021
 ms.author: anilmur
 ms.reviewer: juliako
-ms.openlocfilehash: 09d0e53840c2bf7a0d67c7c7fb0b224f9f77c587
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9b4cd54375a13da95259e27da680255f785df45
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89268310"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103013215"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Transmissão em fluxo em direto utilizando os Serviços de Multimédia do Azure para criar transmissões com velocidade de transmissão múltipla
 
@@ -29,11 +29,11 @@ ms.locfileid: "89268310"
 > [!NOTE]
 > A partir de 12 de maio de 2018, os canais ao vivo deixarão de suportar o protocolo de transmissão rtp/MPEG-2. Por favor, migrar de PROTOCOLOs de ingestão RTP/MPEG-2 para RTMP ou MP4 (Smooth Streaming).
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Na Azure Media Services (AMS), um **Canal** representa um oleoduto para o processamento de conteúdos de streaming ao vivo. Um **Canal** recebe transmissões de entrada ao vivo de uma de duas maneiras:
 
 * Um codificador ao vivo no local envia um fluxo de bitrate único para o Canal que está habilitado a realizar codificação ao vivo com os Media Services num dos seguintes formatos: RTMP ou Smooth Streaming (MP4 fragmentado). O Canal, em seguida, realiza live encoding da transmissão em fluxo de velocidade de transmissão única de entrada para uma transmissão em fluxo de vídeo com várias velocidades (adaptável). Quando solicitado, os Media Services disponibilizam a transmissão em fluxo para os clientes.
-* Um codificador ao vivo no local envia um **RTMP** ou **Streaming Liso** (MP4 fragmentado) para o Canal que não está habilitado a realizar codificação ao vivo com AMS. Os riachos ingeridos passam pelo **Canal**s sem qualquer processamento adicional. Este método **chama-se passagem.** Pode utilizar os seguintes codificadores ao vivo que produzem streaming suave multi-bitrate: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco e Elemental. Os seguintes codificadores ao vivo produção RTMP: [Telestream Wirecast,](media-services-configure-wirecast-live-encoder.md)Haivision, Teradek codificadores.  Um codificador em direto pode também enviar uma transmissão em fluxo de velocidade de transmissão única para um canal, que não está ativado para live encoding, mas tal não é recomendado. Quando solicitado, os Media Services disponibilizam a transmissão em fluxo para os clientes.
+* Um codificador ao vivo no local envia um **RTMP** ou **Streaming Liso** (MP4 fragmentado) para o Canal que não está habilitado a realizar codificação ao vivo com AMS. Os riachos ingeridos passam pelo **Canal** s sem qualquer processamento adicional. Este método **chama-se passagem.** Pode utilizar os seguintes codificadores ao vivo que produzem streaming suave multi-bitrate: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco e Elemental. Os seguintes codificadores ao vivo produção RTMP: [Telestream Wirecast,](media-services-configure-wirecast-live-encoder.md)Haivision, Teradek codificadores.  Um codificador em direto pode também enviar uma transmissão em fluxo de velocidade de transmissão única para um canal, que não está ativado para live encoding, mas tal não é recomendado. Quando solicitado, os Media Services disponibilizam a transmissão em fluxo para os clientes.
 
   > [!NOTE]
   > A utilização de um método de passagem é a forma mais económica de fazer streaming ao vivo.
@@ -46,7 +46,7 @@ Começando com a versão Media Services 2.10, quando cria um Canal, pode especif
 * **Standard** – Escolha este valor, se planeia utilizar os Media Services para codificar o seu fluxo de live stream bitrate único para fluxo multi-bitrate. Esteja ciente de que há um impacto de faturação para codificação ao vivo e deve lembrar-se que deixar um canal de codificação ao vivo no estado "Running" irá incorrer em taxas de faturação.  Recomenda-se que pare imediatamente os seus canais de funcionamento após o evento de streaming ao vivo estar completo para evitar custos extra por hora.
 
 > [!NOTE]
-> Este tópico discute atributos de canais que estão habilitados a realizar codificação ao vivo ( Tipo de codificação**standard).** Para obter informações sobre o trabalho com canais que não estejam habilitados a realizar codificação ao vivo, consulte [o streaming ao vivo com codificadores no local que criam fluxos multi-bitrates](media-services-live-streaming-with-onprem-encoders.md).
+> Este tópico discute atributos de canais que estão habilitados a realizar codificação ao vivo ( Tipo de codificação **standard).** Para obter informações sobre o trabalho com canais que não estejam habilitados a realizar codificação ao vivo, consulte [o streaming ao vivo com codificadores no local que criam fluxos multi-bitrates](media-services-live-streaming-with-onprem-encoders.md).
 > 
 > Certifique-se de rever a secção [de Considerações.](media-services-manage-live-encoder-enabled-channels.md#Considerations)
 > 
@@ -75,7 +75,7 @@ A tabela que se segue mostra como o Channel afirma o mapa para o modo de fatura�
 | A iniciar |A iniciar |Não (estado transitório) |
 | Em Execução |Pronto (sem programas de execução)<br/>ou<br/>Streaming (pelo menos um programa em execução) |SIM |
 | A parar |A parar |Não (estado transitório) |
-| Parada |Parada |Não |
+| Parada |Parada |No |
 
 ### <a name="automatic-shut-off-for-unused-channels"></a>Desligação automática para canais não reutilizados
 A partir de 25 de janeiro de 2016, os Media Services lançaram uma atualização que para automaticamente um Canal (com codificação ao vivo ativada) depois de ter estado a funcionar num estado não reutilizado durante um longo período. Isto aplica-se a Canais que não têm Programas ativos, e que não receberam um feed de contribuição por um longo período de tempo.
@@ -209,7 +209,7 @@ Uma bandeira opcional que diz ao codificadora ao vivo para ignorar qualquer dado
 #### <a name="index"></a>Índice
 Recomenda-se o envio de um único fluxo de transporte de programa (SPTS). Se o fluxo de entrada contiver vários programas, o codificadora ao vivo dentro do Canal analisa a Tabela de Mapas do Programa (PMT) na entrada, identifica as entradas que têm um nome tipo de fluxo de MPEG-2 AAC ADTS ou AC-3 System-A ou AC-3 System-B ou MPEG-2 Private PES ou MPEG-1 Audio ou MPEG-2 Audio, e organiza-as na ordem especificada no PMT. O índice baseado em zero é então usado para captar a entrada n-th nesse arranjo.
 
-#### <a name="language"></a>Idioma
+#### <a name="language"></a>Linguagem
 O identificador de linguagem do fluxo de áudio, em conformidade com a ISO 639-2, tal como o ENG. Se não estiver presente, o padrão é UND (indefinido).
 
 ### <a name="system-preset"></a><a id="preset"></a>Predefinição do sistema
@@ -274,7 +274,7 @@ Opcional. Especifica o ID do Ativo do Ativo dos Serviços de Mídia que contém 
 
 * No máximo 1920x1080 em resolução.
 * No máximo 3 Mbytes de tamanho.
-* O nome do ficheiro deve ter uma extensão *.jpg.
+* O nome do ficheiro deve ter uma extensão de *.jpg.
 * A imagem deve ser carregada num Ativo como o único ActivoFile nesse Ativo e este AssetFile deve ser marcado como o ficheiro principal. O Ativo não pode ser encriptado.
 
 Se a **ardósia padrão O Id** do ativo não for especificado e **inserir ardósia no marcador de anúncios** é definido como **verdadeiro**, uma imagem padrão do Azure Media Services será usada para ocultar o fluxo de vídeo de entrada. O áudio também é silenciado durante a ardósia. 
@@ -315,9 +315,9 @@ A tabela que se segue mostra como o Channel afirma o mapa para o modo de fatura�
 | Estado do canal | Indicadores de UI do Portal | Cobrado? |
 | --- | --- | --- |
 | A iniciar |A iniciar |Não (estado transitório) |
-| Em Execução |Pronto (sem programas de execução)<br/>ou<br/>Streaming (pelo menos um programa em execução) |Sim |
+| Em Execução |Pronto (sem programas de execução)<br/>ou<br/>Streaming (pelo menos um programa em execução) |Yes |
 | A parar |A parar |Não (estado transitório) |
-| Parada |Parada |Não |
+| Parada |Parada |No |
 
 > [!NOTE]
 > Atualmente, a média de início do Canal é de cerca de 2 minutos, mas às vezes pode demorar até 20 minutos. Os resets do canal podem demorar até 5 minutos.

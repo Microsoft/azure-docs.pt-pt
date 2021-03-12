@@ -10,12 +10,12 @@ ms.date: 08/20/2020
 ms.topic: include
 ms.custom: include file
 ms.author: tchladek
-ms.openlocfilehash: 391bc24b8468281c0a9e9fd287a0a3ac3d3380b2
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: 0665a4ca80f7cf1b15ba432bfce68b42db36ddaa
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102510819"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103021671"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -44,7 +44,7 @@ Abra o ficheiro **pom.xml** no seu editor de texto. Adicione o seguinte elemento
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-identity</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.0-beta.6</version>
 </dependency>
 ```
 
@@ -60,13 +60,18 @@ Do diretório do projeto:
 Utilize o seguinte código para começar:
 
 ```java
-import com.azure.communication.identity.*;
-import com.azure.communication.common.*;
-import java.io.*;
-import java.util.*;
-import java.time.*;
+package com.communication.quickstart;
 
+import com.azure.communication.common.*;
+import com.azure.communication.identity.*;
+import com.azure.communication.identity.models.*;
+import com.azure.core.credential.*;
 import com.azure.core.http.*;
+import com.azure.core.http.netty.*;
+
+import java.io.IOException;
+import java.time.*;
+import java.util.*;
 
 public class App
 {
@@ -97,10 +102,10 @@ String accessKey = "SECRET";
 HttpClient httpClient = new NettyAsyncHttpClientBuilder().build();
 
 CommunicationIdentityClient communicationIdentityClient = new CommunicationIdentityClientBuilder()
-    .endpoint(endpoint)
-    .accessKey(accessKey)
-    .httpClient(httpClient)
-    .buildClient();
+        .endpoint(endpoint)
+        .credential(new AzureKeyCredential(accessKey))
+        .httpClient(httpClient)
+        .buildClient();
 ```
 
 Pode inicializar o cliente com qualquer cliente HTTP personalizado que implementa a `com.azure.core.http.HttpClient` interface. O código acima demonstra a utilização do [cliente Azure Core Netty HTTP](/java/api/overview/azure/core-http-netty-readme) que é fornecido por `azure-core` .
@@ -109,6 +114,8 @@ Também pode fornecer toda a cadeia de ligação utilizando a `connectionString(
 ```java
 // Your can find your connection string from your resource in the Azure portal
 String connectionString = "<connection_string>";
+HttpClient httpClient = new NettyAsyncHttpClientBuilder().build();
+
 CommunicationIdentityClient communicationIdentityClient = new CommunicationIdentityClientBuilder()
     .connectionString(connectionString)
     .httpClient(httpClient)
@@ -130,7 +137,7 @@ Utilize o `getToken` método para emitir um token de acesso para a identidade do
 
 ```java
 // Issue an access token with the "voip" scope for a user identity
-List<String> scopes = new ArrayList<>(Arrays.asList(CommunicationTokenScope.VOIP));
+List<CommunicationTokenScope> scopes = new ArrayList<>(Arrays.asList(CommunicationTokenScope.VOIP));
 AccessToken accessToken = communicationIdentityClient.getToken(user, scopes);
 OffsetDateTime expiresAt = accessToken.getExpiresAt();
 String token = accessToken.getToken();
@@ -143,7 +150,7 @@ Em alternativa, utilize o método "createUserAndToken" para criar uma nova entra
 
 ```java
 List<CommunicationTokenScope> scopes = Arrays.asList(CommunicationTokenScope.CHAT);
-CommunicationUserIdentifierWithTokenResult result = client.createUserAndToken(scopes);
+CommunicationUserIdentifierAndToken result = communicationIdentityClient.createUserAndToken(scopes);
 CommunicationUserIdentifier user = result.getUser();
 System.out.println("\nCreated a user identity with ID: " + user.getId());
 AccessToken accessToken = result.getUserToken();
@@ -161,7 +168,7 @@ Para refrescar um token de acesso, use o `CommunicationUserIdentifier` objeto pa
 ```java
 // Value existingIdentity represents identity of Azure Communication Services stored during identity creation
 CommunicationUserIdentifier identity = new CommunicationUserIdentifier(existingIdentity);
-response = communicationIdentityClient.getToken(identity, scopes);
+AccessToken response = communicationIdentityClient.getToken(identity, scopes);
 ```
 
 ## <a name="revoke-access-tokens"></a>Revogar fichas de acesso

@@ -49,8 +49,6 @@
       items:
         - name: Criar uma conta com o ARM
           href: quickstart-arm-template-account.md
-    - name: Python Basic Codificação Quickstart
-      href: quickstart-basic-encoding-python.md
 - name: Tutoriais
   items:
     - name: .NET
@@ -86,6 +84,10 @@
       items:
         - name: Codificar e transmitir em fluxo um ficheiro remoto Node.js
           href: stream-files-nodejs-quickstart.md
+    - name: Python
+      items:
+        - name: Python Basic Codificação Quickstart
+          href: quickstart-basic-encoding-python.md
     - name: Portal do Azure
       items:
         - name: Chaves geridas pelo cliente ou tutorial BYOK

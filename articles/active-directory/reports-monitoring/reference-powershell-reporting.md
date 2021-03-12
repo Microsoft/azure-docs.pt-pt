@@ -1,5 +1,5 @@
 ---
-title: Cmdlets Azure AD PowerShell para reportagem Microsoft Docs
+title: Cmdlets Azure AD PowerShell para reportar | Microsoft Docs
 description: Referência dos cmdlets Azure AD PowerShell para reporte.
 services: active-directory
 documentationcenter: ''
@@ -18,17 +18,17 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 9ff923d0231a1b00493a54996c2fcd489012bbe7
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 329036f3ed815eaaba94f441e372f4be86edd629
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96862042"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102558088"
 ---
 # <a name="azure-ad-powershell-cmdlets-for-reporting"></a>Cmdlets do Azure AD PowerShell para relatórios
 
 > [!NOTE] 
-> Atualmente, estes cmdlets PowerShell funcionam apenas com o Módulo [de Pré-visualização AZURE AD.](/powershell/module/azuread/?view=azureadps-2.0-preview#directory_auditing) Tenha em atenção que o módulo de pré-visualização não é sugerido para utilização na produção. 
+> Atualmente, estes cmdlets PowerShell funcionam apenas com o Módulo [de Pré-visualização AZURE AD.](/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#directory_auditing) Tenha em atenção que o módulo de pré-visualização não é sugerido para utilização na produção. 
 
 Para instalar o lançamento de pré-visualização pública, utilize o seguinte. 
 
@@ -49,7 +49,7 @@ Este artigo dá-lhe uma visão geral dos cmdlets PowerShell para usar para regis
 Obtém acesso aos registos de auditoria utilizando o cmdlet 'Get-AzureADAuditDirectoryLogs.
 
 
-| Cenário                      | Comando do PowerShell |
+| Scenario                      | Comando do PowerShell |
 | :--                           | :--                |
 | Nome do display da aplicação      | Get-AzureADAuditDirectoryLogs -Filtro "iniciadoBy/app/displayName eq 'Azure AD Cloud Sync'" |
 | Categoria                      | Get-AzureADAuditDirectoryLogs -Filtrar "categoria eq 'ApplicationManagement'" |
@@ -70,7 +70,7 @@ Os [registos de login](concept-sign-ins.md) fornecem informações sobre o uso d
 Obtém acesso aos registos de entrada utilizando o cmdlet 'Get-AzureADAuditSignInLogs.
 
 
-| Cenário                      | Comando do PowerShell |
+| Scenario                      | Comando do PowerShell |
 | :--                           | :--                |
 | Nome de exibição do utilizador             | Get-AzureADAuditSignInLogs -Filtro "userDisplayName eq 'Timothy Perkins'" |
 | Criar hora da data              | Get-AzureADAuditSignInLogs -Filtro "createdDateTime gt 2019-04-18T17:30:00.0Z" (Tudo desde as 17h30 do dia 4/18) |

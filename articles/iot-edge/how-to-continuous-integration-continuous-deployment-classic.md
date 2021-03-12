@@ -8,14 +8,16 @@ ms.date: 08/26/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: e38b3c617ded9c0001b01e481d4d3c1120be62ef
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: 218c0f345e4ea453a2300b3de85ac8856a09c6ee
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100634758"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199281"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge-devices-classic-editor"></a>Integração contínua e implementação contínua para dispositivos Azure IoT Edge (editor clássico)
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Pode facilmente adotar DevOps com as suas aplicações Azure IoT Edge com as tarefas Azure IoT Edge incorporadas em Pipelines Azure. Este artigo demonstra como pode utilizar as funcionalidades de integração contínua e implementação contínua dos Oleodutos Azure para construir, testar e implementar aplicações de forma rápida e eficiente para o seu Azure IoT Edge utilizando o editor clássico. Em alternativa, pode [utilizar YAML](how-to-continuous-integration-continuous-deployment.md).
 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/05/2021
+ms.date: 03/08/2021
 ms.author: alkohli
-ms.openlocfilehash: 3ff07c773a2976a296d13510a3ddd7b41217aaa2
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: 57633df8c6482a9b0645813519991282bdbf22c1
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102437626"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102633517"
 ---
 # <a name="deploy-azure-data-services-on-your-azure-stack-edge-pro-gpu-device"></a>Implementar serviços de dados Azure no seu dispositivo GPU Azure Stack Edge Pro
 
@@ -87,7 +87,7 @@ Crie um novo espaço de nome dedicado onde irá implantar o Controlador de Dados
 
 1. O ficheiro config deve viver na `.kube` pasta do seu perfil de utilizador na máquina local. Copie o ficheiro para essa pasta no seu perfil de utilizador.
 
-    ![Localização do ficheiro config no cliente](media/azure-stack-edge-j-series-create-kubernetes-cluster/location-config-file.png)
+    ![Localização do ficheiro config no cliente](media/azure-stack-edge-gpu-create-kubernetes-cluster/location-config-file.png)
 1. Conceda ao utilizador acesso ao espaço de nomes que criou. Escreva: 
 
     `Grant-HcsKubernetesNamespaceAccess -Namespace <Name of namespace> -UserName <User name>`
