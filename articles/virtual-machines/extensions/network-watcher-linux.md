@@ -1,30 +1,23 @@
 ---
 title: Extensão de máquina virtual do Agente observador de rede Azure para Linux
 description: Implemente o Agente observador de rede na máquina virtual Linux utilizando uma extensão de máquina virtual.
-services: virtual-machines-linux
-documentationcenter: ''
-author: mimckitt
-manager: vashan
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 5c81e94c-e127-4dd2-ae83-a236c4512345
-ms.service: virtual-machines-linux
-ms.subservice: extensions
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services
+ms.service: virtual-machines
+ms.subservice: extensions
+author: amjads1
+ms.author: amjads
+ms.collection: linux
 ms.date: 02/14/2017
-ms.author: mimckitt
-ms.openlocfilehash: 870606299ee0e76c7a55578f258e837c4b8a9368
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: bc252e560df782625d795b30c6688a34f5c2bd79
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94952272"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102563596"
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-linux"></a>Extensão de máquina virtual do Agente do Observador de Rede para Linux
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 [O Azure Network Watcher](../../network-watcher/index.yml) é um serviço de monitorização, diagnóstico e análise de desempenho de rede que permite a monitorização das redes Azure. A extensão da máquina virtual do Network Watcher Agent (VM) é um requisito para algumas das funcionalidades do Observador de Rede em VMs Azure, como a captura do tráfego de rede a pedido e outras funcionalidades avançadas.
 
@@ -76,7 +69,7 @@ O JSON seguinte mostra o esquema para a extensão do Agente observador de rede. 
 
 ### <a name="property-values"></a>Valores patrimoniais
 
-| Nome | Valor / Exemplo |
+| Name | Valor / Exemplo |
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
 | publicador | Microsoft.Azure.NetworkWatcher |

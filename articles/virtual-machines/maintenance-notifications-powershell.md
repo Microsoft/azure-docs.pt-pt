@@ -3,16 +3,17 @@ title: Receba notificações de manutenção para VMs Azure usando PowerShell
 description: Ver notificações de manutenção para máquinas virtuais em funcionamento em Azure e iniciar a manutenção de self-service utilizando o PowerShell.
 author: shants123
 ms.service: virtual-machines
+ms.subservice: maintenance-control
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: shants
-ms.openlocfilehash: 9942ad359bf1e1e7a02f30979ba4a9325d90d484
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4278aa563d76b783e02e67ee964764864931fd68
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91336059"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102552376"
 ---
 # <a name="handling-planned-maintenance-using-powershell"></a>Manuseamento da manutenção planeada utilizando o PowerShell
 

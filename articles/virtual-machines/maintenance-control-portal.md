@@ -3,16 +3,17 @@ title: Controlo de manutenção para máquinas virtuais Azure utilizando o porta
 description: Saiba como controlar quando a manutenção é aplicada aos seus VMs Azure utilizando o controlo de manutenção e o portal Azure.
 author: cynthn
 ms.service: virtual-machines
+ms.subservice: maintenance-control
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 04/22/2020
 ms.author: cynthn
-ms.openlocfilehash: b174e2631131e6bf26d7b1cb62442c8a99102e2e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0dea30723a3ebe1598d6304ac3c98bfe1b55b466
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91397288"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102563018"
 ---
 # <a name="control-updates-with-maintenance-control-and-the-azure-portal"></a>Atualizações de controlo com o Controlo de Manutenção e o portal Azure
 
@@ -86,7 +87,7 @@ Pode aplicar atualizações pendentes a pedido utilizando **Máquinas Virtuais.*
 
 ## <a name="check-the-status-of-applying-updates"></a>Verifique o estado da aplicação de atualizações 
 
-Pode verificar o progresso das atualizações para uma configuração em **Configurações de Manutenção** ou utilizando **Máquinas Virtuais.** Nos detalhes do VM, clique em **Manutenção.** No exemplo seguinte, o **estado de Manutenção** mostra que está **pendente**uma atualização.
+Pode verificar o progresso das atualizações para uma configuração em **Configurações de Manutenção** ou utilizando **Máquinas Virtuais.** Nos detalhes do VM, clique em **Manutenção.** No exemplo seguinte, o **estado de Manutenção** mostra que está **pendente** uma atualização.
 
 ![Screenshot mostrando como verificar o estado das atualizações pendentes](media/virtual-machines-maintenance-control-portal/maintenance-configurations-status.png)
 

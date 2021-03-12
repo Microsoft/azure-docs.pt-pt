@@ -1,22 +1,23 @@
 ---
 title: 'Faça o D: unidade de um VM um disco de dados '
 description: 'Descreve como alterar as letras de unidade para um VM do Windows para que possa utilizar o D: conduzir como unidade de dados.'
-services: virtual-machines-windows
+services: virtual-machines
 author: cynthn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.collection: windows
 ms.subservice: disks
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 01/02/2018
 ms.author: cynthn
-ms.openlocfilehash: cae29954211e62601debb35d76f938fb6a92779e
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 87aa1344b3fbe0d11c1c5cdfa8a56560d67eb54f
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96019808"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102555555"
 ---
-# <a name="use-the-d-drive-as-a-data-drive-on-a-windows-vm"></a>Utilize o D: conduza como unidade de dados num VM do Windows
+# <a name="use-the-d-drive-as-a-data-drive-on-a-windows-vm"></a>Utilizar a unidade D: como uma unidade de dados numa VM do Windows
 Se a sua aplicação precisar de utilizar a unidade D para armazenar dados, siga estas instruções para utilizar uma letra de unidade diferente para o disco temporário. Nunca utilize o disco temporário para armazenar dados que precisa de guardar.
 
 Se redimensionar ou **parar (Deallocate)** uma máquina virtual, isto pode desencadear a colocação da máquina virtual para um novo hipervisor. Um evento de manutenção planeado ou não planeado também pode desencadear esta colocação. Neste cenário, o disco temporário será reatribuído à primeira carta de condução disponível. Se tiver uma aplicação que exija especificamente o D: unidade, tem de seguir estes passos para mover temporariamente o pagefile.sys, anexar um novo disco de dados e atribuí-lo à letra D e, em seguida, mover a pagefile.sys de volta para a unidade temporária. Uma vez concluído, O Azure não retira o D: se o VM se deslocar para um hipervisor diferente.

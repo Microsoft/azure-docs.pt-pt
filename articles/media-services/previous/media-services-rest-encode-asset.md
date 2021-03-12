@@ -1,9 +1,9 @@
 ---
-title: Como codificar um ativo da Azure utilizando o Media Encoder Standard Microsoft Docs
+title: Como codificar um ativo Azure utilizando o Media Encoder Standard | Microsoft Docs
 description: Saiba como usar o Media Encoder Standard para codificar conteúdos de mídia nos Serviços Azure Media. As amostras de código utilizam a API REST.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: 2a7273c6-8a22-4f82-9bfe-4509ff32d4a4
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
-ms.author: juliako
-ms.openlocfilehash: b0bff0c6b3ef7934188b548bd06c35d83b323fde
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 03/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: d4b7a188a9509c3510de2843b232f57e3437177b
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91359602"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103009832"
 ---
 # <a name="how-to-encode-an-asset-by-using-media-encoder-standard"></a>Como codificar um ativo utilizando o Media Encoder Standard
 
@@ -32,7 +32,7 @@ ms.locfileid: "91359602"
 >
 >
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Para entregar vídeo digital através da Internet, tem de comprimir os meios de comunicação. Os ficheiros de vídeo digitais são grandes e podem ser demasiado grandes para serem entregues através da Internet, ou para que os dispositivos dos seus clientes sejam exibidos corretamente. A codificação é o processo de compressão de vídeo e áudio para que os seus clientes possam ver os seus meios de comunicação.
 
@@ -295,5 +295,5 @@ HTTP/1.1 201 Created
 ## <a name="next-steps"></a>Passos seguintes
 Agora que sabe como criar um emprego para codificar um ativo, veja [como verificar o progresso do trabalho com os Media Services.](media-services-rest-check-job-progress.md)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 [Obter processadores de mídia](media-services-rest-get-media-processor.md)

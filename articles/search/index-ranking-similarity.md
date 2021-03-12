@@ -1,39 +1,43 @@
 ---
-title: Configurar algoritmo de semelhança de classificação
+title: Configure o algoritmo de semelhança
 titleSuffix: Azure Cognitive Search
-description: Como definir o algoritmo de semelhança para tentar um novo algoritmo de semelhança para o ranking
+description: Saiba como ativar o BM25 em serviços de pesquisa mais antigos e como os parâmetros BM25 podem ser modificados para melhor acomodar o conteúdo dos seus índices.
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/02/2021
-ms.openlocfilehash: 9f806b512ae8e118fca8f32115c8be3b493fd681
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.date: 03/12/2021
+ms.openlocfilehash: 52b3523d3c092f1b9375f53038cc3b20d0ddedcc
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101677788"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103232839"
 ---
-# <a name="configure-ranking-algorithms-in-azure-cognitive-search"></a>Configurar algoritmos de classificação em Pesquisa Cognitiva Azure
+# <a name="configure-the-similarity-ranking-algorithm-in-azure-cognitive-search"></a>Configure o algoritmo de classificação de semelhança na Pesquisa Cognitiva Azure
 
 A Azure Cognitive Search suporta dois algoritmos de classificação de semelhança:
 
 + Um algoritmo *clássico de semelhança,* usado por todos os serviços de pesquisa até 15 de julho de 2020.
 + Uma implementação do algoritmo *Okapi BM25,* utilizado em todos os serviços de pesquisa criados após 15 de julho.
 
-O ranking BM25 é o novo padrão porque tende a produzir rankings de pesquisa que se alinham melhor com as expectativas dos utilizadores. Também permite opções de configuração para afinar resultados com base em fatores como o tamanho do documento. Para novos serviços criados após 15 de julho de 2020, o BM25 é utilizado automaticamente e é o único algoritmo de semelhança. Se tentar definir semelhanças com a ClassicSimilarity num novo serviço, será devolvido um erro HTTP 400 porque esse algoritmo não é suportado pelo serviço.
+O ranking BM25 é o novo padrão porque tende a produzir rankings de pesquisa que se alinham melhor com as expectativas dos utilizadores. Vem com [parâmetros](#set-bm25-parameters) para afinação de resultados com base em fatores como o tamanho do documento. 
 
-Para os serviços mais antigos criados antes de 15 de julho de 2020, a semelhança clássica continua a ser o algoritmo padrão. Os serviços mais antigos podem definir propriedades num índice de pesquisa para invocar o BM25, como explicado abaixo. Se estiver a mudar de clássico para BM25, pode esperar ver algumas diferenças na forma como os resultados da pesquisa são encomendados.
+Para novos serviços criados após 15 de julho de 2020, o BM25 é utilizado automaticamente e é o único algoritmo de semelhança. Se tentar definir semelhanças com a ClassicSimilarity num novo serviço, será devolvido um erro HTTP 400 porque esse algoritmo não é suportado pelo serviço.
+
+Para os serviços mais antigos criados antes de 15 de julho de 2020, a semelhança clássica continua a ser o algoritmo padrão. Os serviços mais antigos podem ser atualizados para BM25 por índice, como explicado abaixo. Se estiver a mudar de clássico para BM25, pode esperar ver algumas diferenças na forma como os resultados da pesquisa são encomendados.
 
 > [!NOTE]
-> A pesquisa semântica é um algoritmo de reposição semântica adicional que reduz ainda mais o fosso entre expectativas e resultados. Ao contrário dos outros algoritmos, é uma funcionalidade de complemento que itera sobre um conjunto de resultados existente. Para utilizar o algoritmo de pesquisa semântica de pré-visualização, tem de criar um novo serviço, e tem de especificar um [tipo de consulta semântica](semantic-how-to-query-request.md). Para mais informações, consulte [a visão geral da pesquisa semântica.](semantic-search-overview.md)
+> O ranking semântico, atualmente em pré-visualização dos serviços standard em regiões selecionadas, constitui um passo adicional na produção de resultados mais relevantes. Ao contrário dos outros algoritmos, é uma funcionalidade de complemento que itera sobre um conjunto de resultados existente. Para mais informações, consulte [a visão geral da pesquisa semântica](semantic-search-overview.md) e [o ranking semântico.](semantic-ranking.md)
 
-## <a name="create-a-search-index-for-bm25-scoring"></a>Criar um índice de pesquisa para pontuação BM25
+## <a name="enable-bm25-scoring-on-older-services"></a>Ativar a pontuação de BM25 em serviços mais antigos
 
-Se estiver a executar um serviço de pesquisa que foi criado antes de 15 de julho de 2020, pode definir a propriedade de semelhança para bM25Similarity ou ClassicSimilarity na definição de índice. Se a propriedade de semelhança for omitida ou definida para nula, o índice usa o algoritmo Clássico.
+Se estiver a executar um serviço de pesquisa criado antes de 15 de julho de 2020, pode ativar o BM25 definindo uma propriedade de semelhança em novos índices. A propriedade só está exposta em novos índices, pelo que se quiser O BM25 num índice existente, deve cair e [reconstruir o índice](search-howto-reindex.md) com uma nova propriedade de similaridade definida para "Microsoft.Azure.Search.BM25Similarity".
 
-O algoritmo de semelhança só pode ser definido no tempo de criação de índices. No entanto, uma vez criado um índice com BM25, pode atualizar o índice existente para definir ou modificar os parâmetros BM25.
+Uma vez que exista um índice com uma propriedade de semelhança, pode alternar entre BM25Similarity ou ClassicSimilarity. 
+
+Os seguintes links descrevem a propriedade de semelhança nos Azure SDKs. 
 
 | Biblioteca de cliente | Propriedade de semelhança |
 |----------------|---------------------|
@@ -70,11 +74,11 @@ PUT https://[search service name].search.windows.net/indexes/[index name]?api-ve
 }
 ```
 
-## <a name="bm25-similarity-parameters"></a>Parâmetros de semelhança BM25
+## <a name="set-bm25-parameters"></a>Definir parâmetros BM25
 
 A semelhança BM25 adiciona dois parâmetros personalizáveis ao utilizador para controlar a pontuação de relevância calculada. Pode definir parâmetros BM25 durante a criação de índices ou como uma atualização de índice se o algoritmo BM25 foi especificado durante a criação do índice.
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | Tipo | Description |
 |----------|------|-------------|
 | k1 | número | Controla a função de escala entre a frequência do termo de cada termos correspondentes à pontuação de relevância final de um par de consultas de documento. Os valores são geralmente de 0,0 a 3,0, com 1.2 como padrão. </br></br>Um valor de 0.0 representa um "modelo binário", em que a contribuição de um único termo correspondente é a mesma para todos os documentos correspondentes, independentemente do número de vezes que esse termo aparece no texto, enquanto um valor k1 maior permite que a pontuação continue a aumentar à medida que mais instâncias do mesmo termo são encontradas no documento. </br></br>A utilização de um valor k1 superior pode ser importante nos casos em que esperamos que vários termos sejam parte de uma consulta de pesquisa. Nesses casos, podemos querer favorecer documentos que correspondam a muitos dos diferentes termos de consulta que estão a ser pesquisados sobre documentos que apenas correspondem a um único, várias vezes. Por exemplo, ao consultar o índice de documentos que contenham os termos "Apollo Spaceflight", talvez queiramos baixar a pontuação de um artigo sobre mitologia grega que contém o termo "Apollo" algumas dezenas de vezes, sem menções de "Spaceflight", em comparação com outro artigo que menciona explicitamente tanto "Apollo" como "Spaceflight" apenas algumas vezes. |
 | b | número | Controla como o comprimento de um documento afeta a pontuação de relevância. Os valores estão entre 0 e 1, com 0,75 como o padrão. </br></br>Um valor de 0.0 significa que o comprimento do documento não influenciará a pontuação, enquanto um valor de 1.0 significa que o impacto da frequência de prazo na pontuação de relevância será normalizado pelo comprimento do documento. </br></br>Normalizar a frequência do termo pelo comprimento do documento é útil nos casos em que queremos penalizar documentos mais longos. Em alguns casos, documentos mais longos (como um romance completo), são mais propensos a conter muitos termos irrelevantes, em comparação com documentos muito mais curtos. |

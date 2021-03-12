@@ -5,12 +5,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 03/01/2021
 ms.custom: template-concept
-ms.openlocfilehash: ffdb146b26e83e1973c1d1bfee130eabfa09ea6a
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: cfef510646489e65f5cbc5d0d3e14c468301f48e
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102613957"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199957"
 ---
 # <a name="guide-for-running-functions-on-net-50-in-azure"></a>Guia para executar funções em .NET 5.0 em Azure
 
@@ -47,7 +47,7 @@ Um projeto de função isolada .NET é basicamente um projeto de aplicação de 
 + [host.jsarquivado.](functions-host-json.md)
 + [local.settings.jsarquivado.](functions-run-local.md#local-settings-file)
 + Arquivo de projeto C# (.csproj) que define o projeto e dependências.
-+ Program.cs ficheiro que é o ponto de entrada para a aplicação.
++ Programa.cs ficheiro que é o ponto de entrada para a aplicação.
 
 ## <a name="package-references"></a>Referências do pacote
 
@@ -68,7 +68,7 @@ Encontrará estes pacotes de extensão ao abrigo [do Microsoft.Azure.Functions.W
 
 ## <a name="start-up-and-configuration"></a>Arranque e configuração 
 
-Ao utilizar funções isoladas .NET, tem acesso ao arranque da sua aplicação de função, que normalmente está em Program.cs. É responsável por criar e começar o seu próprio caso de anfitrião. Como tal, também tem acesso direto ao pipeline de configuração da sua aplicação. Você pode muito mais facilmente injetar dependências e executar middleware quando está a ficar sem processo. 
+Ao utilizar funções isoladas .NET, tem acesso ao arranque da sua aplicação de função, que normalmente está no Programa.cs. É responsável por criar e começar o seu próprio caso de anfitrião. Como tal, também tem acesso direto ao pipeline de configuração da sua aplicação. Você pode muito mais facilmente injetar dependências e executar middleware quando está a ficar sem processo. 
 
 O seguinte código mostra um exemplo de um `HostBuilder` gasoduto:
 
@@ -84,7 +84,12 @@ Ter acesso ao pipeline do construtor anfitrião significa que pode definir quais
 
 <!--The following example shows how to add configuration `args`, which are read as command-line arguments: 
  
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" id="docsnippet_configure_app" :::
+:::code language="csharp" 
+                .ConfigureAppConfiguration(c =>
+                {
+                    c.AddCommandLine(args);
+                })
+                :::
 
 The `ConfigureAppConfiguration` method is used to configure the rest of the build process and application. This example also uses an [IConfigurationBuilder](/dotnet/api/microsoft.extensions.configuration.iconfigurationbuilder?view=dotnet-plat-ext-5.0&preserve-view=true), which makes it easier to add multiple configuration items. Because `ConfigureAppConfiguration` returns the same instance of [`IConfiguration`](/dotnet/api/microsoft.extensions.configuration.iconfiguration?view=dotnet-plat-ext-5.0&preserve-view=true), you can also just call it multiple times to add multiple configuration items.-->  
 Pode aceder ao conjunto completo de configurações de ambos [`HostBuilderContext.Configuration`](/dotnet/api/microsoft.extensions.hosting.hostbuildercontext.configuration?view=dotnet-plat-ext-5.0&preserve-view=true) e [`IHost.Services`](/dotnet/api/microsoft.extensions.hosting.ihost.services?view=dotnet-plat-ext-5.0&preserve-view=true) .
@@ -172,7 +177,7 @@ Esta secção descreve o estado atual das diferenças funcionais e comportamenta
 | Recurso/comportamento |  Processo em curso (.NET Core 3.1) | Fora de processo (.NET 5.0) |
 | ---- | ---- | ---- |
 | Versões .NET | LTS (.NET Core 3.1) | Corrente (.NET 5.0) |
-| Pacotes centrais | [Microsoft.NET.Sdk.Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/) | [Microsoft.Azure.Functions.Worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/)<br/>[Microsoft.Azure.Functions.Worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk) | 
+| Pacotes centrais | [Microsoft.NET.Sdk.Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/) | [Microsoft.Azure.Functions.Worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/)<br/>[Microsoft.Azure.Functions.Worker.Sdk](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk) | 
 | Pacotes de extensão vinculativa | [`Microsoft.Azure.WebJobs.Extensions.*`](https://www.nuget.org/packages?q=Microsoft.Azure.WebJobs.Extensions)  | Sob [`Microsoft.Azure.Functions.Worker.Extensions.*`](https://www.nuget.org/packages?q=Microsoft.Azure.Functions.Worker.Extensions) | 
 | Registo | [`ILogger`](/dotnet/api/microsoft.extensions.logging.ilogger?view=dotnet-plat-ext-5.0&preserve-view=true) passou para a função | [`ILogger`](/dotnet/api/microsoft.extensions.logging.ilogger?view=dotnet-plat-ext-5.0&preserve-view=true) obtido a partir de `FunctionContext` |
 | Fichas de cancelamento | [Suportado](functions-dotnet-class-library.md#cancellation-tokens) | Não suportado |

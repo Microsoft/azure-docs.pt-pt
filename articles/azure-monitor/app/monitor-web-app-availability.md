@@ -2,14 +2,14 @@
 title: Monitorizar a disponibilidade e a capacidade de resposta de qualquer site | Microsoft Docs
 description: Configurar testes Web no Application Insights. Receber alertas se um site ficar indisponível ou responder lentamente.
 ms.topic: conceptual
-ms.date: 02/14/2021
+ms.date: 03/10/2021
 ms.reviewer: sdash
-ms.openlocfilehash: 0ea44aad43a3dd6f11656a45dc7d0e619187fc22
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: d7c610e374dcb7b97850d815ba8bb927cdebacfc
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101729033"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103012569"
 ---
 # <a name="monitor-the-availability-of-any-website"></a>Monitorize a disponibilidade de qualquer website
 

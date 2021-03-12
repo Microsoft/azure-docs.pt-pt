@@ -8,19 +8,19 @@ ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: thweiss
 ms.custom: devx-track-js
-ms.openlocfilehash: b7d880183ac5f920bbed1a85d7660db6a8f21462
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: e488d1acfe116409caf571e7878e454628a9dea9
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93078480"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103201334"
 ---
 # <a name="find-the-request-unit-charge-for-operations-executed-in-azure-cosmos-db-api-for-mongodb"></a>Encontre a taxa da unidade de pedido para operações executadas na Azure Cosmos DB API para a MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 Azure Cosmos DB suporta muitas APIs, tais como SQL, MongoDB, Cassandra, Gremlin e Table. Cada API tem o seu próprio conjunto de operações de base de dados. Estas operações vão desde leituras simples de pontos e escritas a consultas complexas. Cada operação de base de dados consome recursos do sistema com base na complexidade da operação.
 
-O custo de todas as operações de bases de dados é regulado pelo Azure Cosmos DB e é expresso por Unidades de Pedido (ou RUs, abreviatura em inglês). Pode pensar em RUs como uma moeda de desempenho que abstrai os recursos do sistema, tais como CPU, IOPS e memória que são necessárias para executar as operações de base de dados suportadas pela Azure Cosmos DB. Não interessa que API utiliza para interagir com o contentor do Azure Cosmos: os custos são sempre medidos por RUs. Quer a operação da base de dados seja uma escrita, leitura de ponto ou consulta, os custos são sempre medidos em RUs. Para saber mais, consulte as unidades de pedido e é artigo [de considerações.](request-units.md)
+O custo de todas as operações de bases de dados é regulado pelo Azure Cosmos DB e é expresso por Unidades de Pedido (ou RUs, abreviatura em inglês). A taxa de pedido é a unidade de pedido consumida por todas as suas operações de base de dados. Pode pensar em RUs como uma moeda de desempenho que abstrai os recursos do sistema, tais como CPU, IOPS e memória que são necessárias para executar as operações de base de dados suportadas pela Azure Cosmos DB. Não interessa que API utiliza para interagir com o contentor do Azure Cosmos: os custos são sempre medidos por RUs. Quer a operação da base de dados seja uma escrita, leitura de ponto ou consulta, os custos são sempre medidos em RUs. Para saber mais, consulte as unidades de pedido e é artigo [de considerações.](request-units.md)
 
 Este artigo apresenta as diferentes formas de encontrar o consumo da [unidade de pedido](request-units.md) (RU) para qualquer operação executada contra um contentor em Azure Cosmos DB API para a MongoDB. Se estiver a utilizar uma API diferente, consulte [a SQL API,](find-request-unit-charge.md) [a Cassandra API,](find-request-unit-charge-cassandra.md) [a Gremlin API](find-request-unit-charge-gremlin.md)e os artigos [da Table API](find-request-unit-charge-table.md) para encontrar a taxa RU/s.
 
@@ -34,9 +34,9 @@ A carga RU é exposta por um [comando de base de dados](https://docs.mongodb.com
 
 1. Vá ao painel **do Data Explorer** e, em seguida, selecione o recipiente em que pretende trabalhar.
 
-1. Selecione **Nova Consulta** .
+1. Selecione **Nova Consulta**.
 
-1. Introduza uma consulta válida e, em seguida, selecione **Executar Consulta** .
+1. Introduza uma consulta válida e, em seguida, selecione **Executar Consulta**.
 
 1. Selecione **Estatísticas de Consulta** para mostrar o custo de pedido real para o pedido que executou.
 

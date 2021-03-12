@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/26/2020
+ms.date: 03/10/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 08b08e3e799ff7b579889a62ecec70677a3cbce9
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: 8d3343838216522abfc11ec3f202ae2da1c0e38f
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98059063"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102611883"
 ---
 # <a name="define-a-self-asserted-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico autoafirmado numa política personalizada do Azure Ative Directory B2C
 
@@ -199,24 +199,26 @@ Também pode chamar um perfil técnico de API REST com a sua lógica de negócio
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| definição.operandoMode <sup>1</sup>| Não | Para uma página de entrada, esta propriedade controla o comportamento do campo de nome de utilizador, como validação de entradas e mensagens de erro. Valores esperados: `Username` ou `Email` .  |
-| Permitir aGerationOfClaimsWithNullValues| Não| Permitir gerar uma reclamação com valor nulo. Por exemplo, num caso, o utilizador não seleciona uma caixa de verificação.|
-| ConteúdoDefinitionReferenceId | Sim | O identificador da [definição](contentdefinitions.md) de conteúdo associado a este perfil técnico. |
-| Reforçar aVerificação | Não | Para inscrição ou edição de perfil, aplica a verificação de e-mail. Valores possíveis: `true` (padrão), ou `false` . |
-| definição.retripsLimit | Não | Controla o número de vezes que um utilizador pode tentar fornecer os dados que são verificados com um perfil técnico de validação. Por exemplo, um utilizador tenta inscrever-se com uma conta que já existe e continua a tentar até que o limite seja atingido.
-| SignUpTarget <sup>1</sup>| Não | O identificador de troca de alvo de inscrição. Quando o utilizador clica no botão de inscrição, o Azure AD B2C executa o identificador de troca especificado. |
-| definição.showCancelButton | Não | Exibe o botão de cancelamento. Valores possíveis: `true` (padrão), ou `false` |
-| setting.showContinueButton | Não | Exibe o botão de continuidade. Valores possíveis: `true` (padrão), ou `false` |
-| definição.showSignupLink <sup>2</sup>| Não | Exibe o botão de inscrição. Valores possíveis: `true` (padrão), ou `false` |
-| definição.forgotPasswordLinkLocation <sup>2</sup>| Não| Apresenta o link de senha esquecido. Valores possíveis: `AfterLabel` (predefinido) exibe o link diretamente após a etiqueta ou após o campo de entrada de palavra-passe quando não há etiqueta,  `AfterInput` exibe o link após o campo de entrada da palavra-passe, exibe o link na parte inferior do formulário após os `AfterButtons` botões ou remove o link de senha `None` esquecido.|
-| definição.enableRememberMe <sup>2</sup>| Não| Exibe o [Keep me assinado na](session-behavior.md?pivots=b2c-custom-policy#enable-keep-me-signed-in-kmsi) caixa de verificação. Valores possíveis: `true` , ou `false` (predefinição). |
-| definição.inputVerificationDelayTimeMliseconds <sup>3</sup>| Não| Melhora a experiência do utilizador, esperando que o utilizador pare de digitar e, em seguida, valide o valor. Valor padrão 2000 milissegundos. |
-| IncluirClaimResolvingInClaimsHandling  | Não | Para pedidos de entradas e saídas, especifica se a [resolução de sinistros](claim-resolver-overview.md) está incluída no perfil técnico. Valores possíveis: `true` , ou `false` (predefinição). Se pretender utilizar uma reclamação no perfil técnico, desa um pouco `true` para . |
+| definição.operandoMode <sup>1</sup>| No | Para uma página de entrada, esta propriedade controla o comportamento do campo de nome de utilizador, como validação de entradas e mensagens de erro. Valores esperados: `Username` ou `Email` .  |
+| Permitir aGerationOfClaimsWithNullValues| No| Permitir gerar uma reclamação com valor nulo. Por exemplo, num caso, o utilizador não seleciona uma caixa de verificação.|
+| ConteúdoDefinitionReferenceId | Yes | O identificador da [definição](contentdefinitions.md) de conteúdo associado a este perfil técnico. |
+| Reforçar aVerificação | No | Para inscrição ou edição de perfil, aplica a verificação de e-mail. Valores possíveis: `true` (padrão), ou `false` . |
+| definição.retripsLimit | No | Controla o número de vezes que um utilizador pode tentar fornecer os dados que são verificados com um perfil técnico de validação. Por exemplo, um utilizador tenta inscrever-se com uma conta que já existe e continua a tentar até que o limite seja atingido.
+| SignUpTarget <sup>1</sup>| No | O identificador de troca de alvo de inscrição. Quando o utilizador clica no botão de inscrição, o Azure AD B2C executa o identificador de troca especificado. |
+| definição.showCancelButton | No | Exibe o botão de cancelamento. Valores possíveis: `true` (padrão), ou `false` |
+| setting.showContinueButton | No | Exibe o botão de continuidade. Valores possíveis: `true` (padrão), ou `false` |
+| definição.showSignupLink <sup>2</sup>| No | Exibe o botão de inscrição. Valores possíveis: `true` (padrão), ou `false` |
+| definição.forgotPasswordLinkLocation <sup>2</sup>| No| Apresenta o link de senha esquecido. Valores possíveis: `AfterLabel` (predefinido) exibe o link diretamente após a etiqueta ou após o campo de entrada de palavra-passe quando não há etiqueta,  `AfterInput` exibe o link após o campo de entrada da palavra-passe, exibe o link na parte inferior do formulário após os `AfterButtons` botões ou remove o link de senha `None` esquecido.|
+| definição.enableRememberMe <sup>2</sup>| No| Exibe o [Keep me assinado na](session-behavior.md?pivots=b2c-custom-policy#enable-keep-me-signed-in-kmsi) caixa de verificação. Valores possíveis: `true` , ou `false` (predefinição). |
+| definição.inputVerificationDelayTimeMliseconds <sup>3</sup>| No| Melhora a experiência do utilizador, esperando que o utilizador pare de digitar e, em seguida, valide o valor. Valor padrão 2000 milissegundos. |
+| IncluirClaimResolvingInClaimsHandling  | No | Para pedidos de entradas e saídas, especifica se a [resolução de sinistros](claim-resolver-overview.md) está incluída no perfil técnico. Valores possíveis: `true` , ou `false` (predefinição). Se pretender utilizar uma reclamação no perfil técnico, desa um pouco `true` para . |
+|esqueceuPasswordLinkOverride <sup>4</sup>| No | Uma palavra-passe reiniciou a troca de pedidos para ser executada. Para obter mais informações, consulte [a palavra-passe self-service reposta](add-password-reset-policy.md). |
 
 Notas:
 1. Disponível para definição de conteúdo [DataUri](contentdefinitions.md#datauri) tipo de `unifiedssp` , ou `unifiedssd` .
 1. Disponível para definição de conteúdo [DataUri](contentdefinitions.md#datauri) tipo de `unifiedssp` , ou `unifiedssd` . [Versão de layout da página](page-layout.md) 1.1.0 e superior.
 1. Disponível para [a versão de layout da página](page-layout.md) 1.2.0 ou superior.
+1. Disponível para definição de conteúdo [DataUri](contentdefinitions.md#datauri) tipo de `unifiedssp` . [Versão de layout da página](page-layout.md) 2.1.2 e acima.
 
 ## <a name="cryptographic-keys"></a>Chaves criptográficas
 

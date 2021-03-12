@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 03/05/2021
-ms.openlocfilehash: ab2d7c23e69c73c78c852de722733e8f0d09fcec
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.date: 03/08/2021
+ms.openlocfilehash: f7f8082cc9120345336610d5cb49741140d3b606
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102449735"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102557017"
 ---
 # <a name="create-stateful-and-stateless-workflows-in-visual-studio-code-with-the-azure-logic-apps-preview-extension"></a>Criar fluxos de trabalho apátridas e apátridas no Código do Estúdio Visual com a extensão Azure Logic Apps (Preview)
 
@@ -33,6 +33,8 @@ Este artigo mostra como criar a sua aplicação lógica e um fluxo de trabalho n
 * Adicione um gatilho e uma ação.
 
 * Executar, testar, depurar e rever a história localmente.
+
+* Encontre detalhes do nome de domínio para acesso a firewall.
 
 * Implementar para a Azure, que inclui opcionalmente habilitar insights de aplicação.
 
@@ -462,9 +464,9 @@ O fluxo de trabalho neste exemplo utiliza este gatilho e estas ações:
 
    | Propriedade | Necessário | Valor | Descrição |
    |----------|----------|-------|-------------|
-   | **Para** | Sim | <*seu endereço de e-mail*> | O destinatário do e-mail, que pode ser o seu endereço de e-mail para efeitos de teste. Este exemplo utiliza o e-mail fictício, `sophiaowen@fabrikam.com` . |
-   | **Assunto** | Sim | `An email from your example workflow` | O assunto do e-mail |
-   | **Corpo** | Sim | `Hello from your example workflow!` | O conteúdo do corpo de e-mail |
+   | **Para** | Yes | <*seu endereço de e-mail*> | O destinatário do e-mail, que pode ser o seu endereço de e-mail para efeitos de teste. Este exemplo utiliza o e-mail fictício, `sophiaowen@fabrikam.com` . |
+   | **Assunto** | Yes | `An email from your example workflow` | O assunto do e-mail |
+   | **Corpo** | Yes | `Hello from your example workflow!` | O conteúdo do corpo de e-mail |
    ||||
 
    > [!NOTE]
@@ -576,7 +578,7 @@ Para adicionar um ponto de rutura, siga estes passos:
 
 1. Para rever a informação disponível quando um breakpoint atinge, na vista Run, examine o painel **de Variáveis.**
 
-1. Para continuar a execução do fluxo de trabalho, na barra de ferramentas Debug, selecione **Continue** (botão de reprodução). 
+1. Para continuar a execução do fluxo de trabalho, na barra de ferramentas Debug, selecione **Continue** (botão de reprodução).
 
 Pode adicionar e remover pontos de rutura a qualquer momento durante o fluxo de trabalho. No entanto, se atualizar o **workflow.jsno** ficheiro após o início da execução, os pontos de rutura não atualizam automaticamente. Para atualizar os pontos de rutura, reinicie a aplicação lógica.
 
@@ -650,7 +652,7 @@ Para testar a sua aplicação lógica, siga estes passos para iniciar uma sessã
 
    ![Screenshot que mostra a página geral do fluxo de trabalho com estado de execução e histórico](./media/create-stateful-stateless-workflows-visual-studio-code/post-trigger-call.png)
 
-   | Estado de execução | Descrição |
+   | Estado de execução | Description |
    |------------|-------------|
    | **Abortada** | A execução parou ou não terminou devido a problemas externos, por exemplo, uma falha do sistema ou subscrição do Azure caducado. |
    | **Cancelado** | A corrida foi desencadeada e iniciada, mas recebeu um pedido de cancelamento. |
@@ -674,7 +676,7 @@ Para testar a sua aplicação lógica, siga estes passos para iniciar uma sessã
 
    Aqui estão os possíveis estatutos que cada passo no fluxo de trabalho pode ter:
 
-   | Estado de ação | Ícone | Descrição |
+   | Estado de ação | Ícone | Description |
    |---------------|------|-------------|
    | **Abortada** | ![Ícone para estado de ação "abortado"][aborted-icon] | A ação parou ou não terminou devido a problemas externos, por exemplo, uma falha no sistema ou subscrição do Azure caducado. |
    | **Cancelado** | ![Ícone para estado de ação "cancelado"][cancelled-icon] | A ação estava em andamento, mas recebeu um pedido de cancelamento. |
@@ -758,6 +760,55 @@ Depois de fazer atualizações para a sua aplicação lógica, pode realizar out
    ![Screenshot que mostra o estado de cada passo no fluxo de trabalho atualizado mais as entradas e saídas na ação expandida "Resposta".](./media/create-stateful-stateless-workflows-visual-studio-code/run-history-details-rerun.png)
 
 1. Para parar a sessão de depurar, no menu **Executar,** selecione **Stop Debugging** (Shift + F5).
+
+<a name="firewall-setup"></a>
+
+##  <a name="find-domain-names-for-firewall-access"></a>Encontre nomes de domínio para acesso a firewall
+
+Antes de implementar e executar o fluxo de trabalho da sua aplicação lógica no portal Azure, se o seu ambiente tiver requisitos de rede rígidos ou firewalls que limitem o tráfego, tem de configurar permissões para qualquer gatilho ou ligações de ação que existam no seu fluxo de trabalho.
+
+Para encontrar os nomes de domínio totalmente qualificados (FQDNs) para estas ligações, siga estes passos:
+
+1. No seu projeto de aplicação lógica, abra o **connections.jsem** ficheiro, que é criado depois de adicionar o primeiro gatilho ou ação baseado em conexão ao seu fluxo de trabalho, e encontrar o `managedApiConnections` objeto.
+
+1. Para cada ligação que criou, encontre, copie e guarde o valor da `connectionRuntimeUrl` propriedade em algum lugar seguro para que possa configurar a sua firewall com esta informação.
+
+   Este exemplo **connections.jsficheiro** contém duas ligações, uma ligação AS2 e uma ligação do Office 365 com estes `connectionRuntimeUrl` valores:
+
+   * AS2: `"connectionRuntimeUrl": https://9d51d1ffc9f77572.00.common.logic-{Azure-region}.azure-apihub.net/apim/as2/11d3fec26c87435a80737460c85f42ba`
+
+   * Escritório 365: `"connectionRuntimeUrl": https://9d51d1ffc9f77572.00.common.logic-{Azure-region}.azure-apihub.net/apim/office365/668073340efe481192096ac27e7d467f`
+
+   ```json
+   {
+      "managedApiConnections": {
+         "as2": {
+            "api": {
+               "id": "/subscriptions/{Azure-subscription-ID}/providers/Microsoft.Web/locations/{Azure-region}/managedApis/as2"
+            },
+            "connection": {
+               "id": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{Azure-resource-group}/providers/Microsoft.Web/connections/{connection-resource-name}"
+            },
+            "connectionRuntimeUrl": https://9d51d1ffc9f77572.00.common.logic-{Azure-region}.azure-apihub.net/apim/as2/11d3fec26c87435a80737460c85f42ba,
+            "authentication": {
+               "type":"ManagedServiceIdentity"
+            }
+         },
+         "office365": {
+            "api": {
+               "id": "/subscriptions/{Azure-subscription-ID}/providers/Microsoft.Web/locations/{Azure-region}/managedApis/office365"
+            },
+            "connection": {
+               "id": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{Azure-resource-group}/providers/Microsoft.Web/connections/{connection-resource-name}"
+            },
+            "connectionRuntimeUrl": https://9d51d1ffc9f77572.00.common.logic-{Azure-region}.azure-apihub.net/apim/office365/668073340efe481192096ac27e7d467f,
+            "authentication": {
+               "type":"ManagedServiceIdentity"
+            }
+         }
+      }
+   }
+   ```
 
 <a name="deploy-azure"></a>
 

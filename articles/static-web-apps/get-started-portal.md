@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 09/03/2020
 ms.author: cshoe
-ms.openlocfilehash: c54a56843be5121e16449d95fb18c24901a95a8d
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: b19c37a45131e3689fdc9726d186f220ab5ba9fe
+ms.sourcegitcommit: 6776f0a27e2000fb1acb34a8dddc67af01ac14ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100650575"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103149533"
 ---
 # <a name="quickstart-building-your-first-static-site-in-the-azure-portal"></a>Quickstart: Construir o seu primeiro site estático no portal Azure
 
@@ -115,9 +115,9 @@ Se não continuar a utilizar esta aplicação, pode eliminar a instância Azure 
 
 1. Abra o [portal do Azure](https://portal.azure.com)
 1. Procure **a minha primeira web-web-app** a partir da barra de pesquisa de topo
-1. Selecione no nome da aplicação
-1. Selecione no botão **Eliminar**
-1. Selecione **Sim** para confirmar a ação de eliminação
+1. Selecione o nome da aplicação
+1. Selecione o botão **Eliminar**
+1. Selecione **Sim** para confirmar a ação de eliminação (esta ação pode levar alguns momentos para ser concluída)
 
 ## <a name="next-steps"></a>Passos seguintes
 

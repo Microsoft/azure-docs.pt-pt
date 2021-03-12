@@ -1,15 +1,15 @@
 ---
 title: Lista de definições políticas incorporadas
 description: Listar definições políticas incorporadas para a Política Azure. As categorias incluem Tags, Conformidade Regulamentar, Cofre-Chave, Kubernetes, Configuração de Hóspedes, e muito mais.
-ms.date: 03/05/2021
+ms.date: 03/10/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 566a439b2b25a4c8a0a09ca190e79c2cf1dc10a9
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 6c98b59c14dffff746aadd1cc4cb4cfcaa321813
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102429412"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102611024"
 ---
 # <a name="azure-policy-built-in-policy-definitions"></a>Definições políticas incorporadas da Política Azure
 
@@ -80,6 +80,10 @@ O nome de cada ligação incorporada à definição de política no portal Azure
 ## <a name="compute"></a>Computação
 
 [!INCLUDE [azure-policy-reference-policies-compute](../../../../includes/policy/reference/bycat/policies-compute.md)]
+
+## <a name="container-instance"></a>Instância de Contentor
+
+[!INCLUDE [azure-policy-reference-policies-container-instance](../../../../includes/policy/reference/bycat/policies-container-instance.md)]
 
 ## <a name="container-registry"></a>Registo de Contentor
 

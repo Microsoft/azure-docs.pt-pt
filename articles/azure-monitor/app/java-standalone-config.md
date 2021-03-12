@@ -6,12 +6,12 @@ ms.date: 11/04/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 32b1558bf4af2ee151fef33a8c0cbe7df82f1e84
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 4ed3b3d60be0e5e4bedcb604ce021f6a64002120
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102201758"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103201265"
 ---
 # <a name="configuration-options---azure-monitor-application-insights-for-java"></a>Opções de configuração - Azure Monitor Application Insights for Java
 
@@ -61,7 +61,7 @@ Se especificar um caminho relativo, será resolvido em relação ao diretório o
 }
 ```
 
-Também pode definir a cadeia de ligação utilizando a variável `APPLICATIONINSIGHTS_CONNECTION_STRING` ambiente.
+Também pode definir a cadeia de ligação utilizando a variável ambiente `APPLICATIONINSIGHTS_CONNECTION_STRING` (que terá precedência se a cadeia de ligação também for especificada na configuração json).
 
 Não definir a cadeia de ligação irá desativar o agente Java.
 
@@ -81,7 +81,7 @@ Se quiser definir o nome da função de nuvem:
 
 Se o nome da função de nuvem não estiver definido, o nome do recurso Application Insights será utilizado para rotular o componente no mapa de aplicações.
 
-Também pode definir o nome da função de nuvem usando a variável `APPLICATIONINSIGHTS_ROLE_NAME` ambiente.
+Também pode definir o nome da função de nuvem usando a variável ambiente `APPLICATIONINSIGHTS_ROLE_NAME` (que terá precedência se o nome da função de nuvem também for especificado na configuração json).
 
 ## <a name="cloud-role-instance"></a>Instância de papel em nuvem
 
@@ -98,7 +98,7 @@ Se quiser definir a instância de papel em nuvem para algo diferente do nome da 
 }
 ```
 
-Também pode definir a instância de função em nuvem usando a variável `APPLICATIONINSIGHTS_ROLE_INSTANCE` ambiente.
+Também pode definir a instância de função em nuvem usando a variável ambiente `APPLICATIONINSIGHTS_ROLE_INSTANCE` (que terá precedência se a instância de função da nuvem também for especificada na configuração json).
 
 ## <a name="sampling"></a>Amostragem
 
@@ -117,7 +117,7 @@ Aqui está um exemplo de como definir a amostragem para capturar aproximadamente
 }
 ```
 
-Também pode definir a percentagem de amostragem utilizando a variável `APPLICATIONINSIGHTS_SAMPLING_PERCENTAGE` ambiente.
+Também pode definir a percentagem de amostragem utilizando a variável ambiente `APPLICATIONINSIGHTS_SAMPLING_PERCENTAGE` (que terá precedência se a percentagem de amostragem também for especificada na configuração json).
 
 > [!NOTE]
 > Para a percentagem de amostragem, escolha uma percentagem próxima de 100/N onde N é um inteiro. Atualmente, a amostragem não suporta outros valores.
@@ -150,9 +150,6 @@ Se quiser recolher algumas métricas JMX adicionais:
 `attribute` é o nome de atributo dentro do JMX MBean que pretende recolher.
 
 Os valores métricos JMX numéricos e boolean são suportados. As métricas boolean jMX são mapeadas `0` para falso, e `1` para verdade.
-
-[//]: # "NOTA: Não documentar APPLICATIONINSIGHTS_JMX_METRICS aqui"
-[//]: # "json incorporado no env var é confuso, e deve ser documentado apenas para cenário de anexação sem código"
 
 ## <a name="custom-dimensions"></a>Dimensões personalizadas
 
@@ -201,7 +198,7 @@ O limiar de Insights de Aplicação predefinido é `INFO` . Se quiser alterar es
 }
 ```
 
-Também pode definir o limiar utilizando a variável `APPLICATIONINSIGHTS_INSTRUMENTATION_LOGGING_LEVEL` ambiente.
+Também pode definir o nível utilizando a variável ambiente `APPLICATIONINSIGHTS_INSTRUMENTATION_LOGGING_LEVEL` (que terá precedência se o nível também for especificado na configuração json).
 
 Estes são os `level` valores válidos que pode especificar no `applicationinsights.json` ficheiro e como correspondem aos níveis de registo em diferentes quadros de registo:
 
@@ -284,7 +281,7 @@ Por predefinição, a Application Insights Java 3.0 envia uma métrica de batime
 ```
 
 > [!NOTE]
-> Não é possível diminuir a frequência do batimento cardíaco, uma vez que os dados do batimento cardíaco também são utilizados para rastrear o uso de Insights de Aplicação.
+> Não é possível aumentar o intervalo para mais de 15 minutos, porque os dados do batimento cardíaco também são utilizados para rastrear o uso de Insights de Aplicação.
 
 ## <a name="http-proxy"></a>HTTP Proxy
 
@@ -300,6 +297,30 @@ Se a sua aplicação estiver por detrás de uma firewall e não puder ligar-se d
 ```
 
 Application Insights Java 3.0 também respeita o global `-Dhttps.proxyHost` e se estes são `-Dhttps.proxyPort` definidos.
+
+## <a name="metric-interval"></a>Intervalo métrico
+
+Esta funcionalidade está em pré-visualização.
+
+Por predefinição, as métricas são capturadas a cada 60 segundos.
+
+A partir da versão 3.0.3-BETA, pode alterar este intervalo:
+
+```json
+{
+  "preview": {
+    "metricIntervalSeconds": 300
+  }
+}
+```
+
+A definição aplica-se a todas estas métricas:
+
+* Contadores de desempenho predefinidos, por exemplo CPU e Memória
+* Métricas personalizadas padrão, por exemplo, tempo de recolha de lixo
+* Métricas JMX configuradas[(ver acima)](#jmx-metrics)
+* Métricas de micrómetros[(ver acima)](#auto-collected-micrometer-metrics-including-spring-boot-actuator-metrics)
+
 
 [//]: # "NOTA O suporte openTelemetry está em pré-visualização privada até que a API openTelemetry atinja 1.0"
 
@@ -349,7 +370,7 @@ Por predefinição, os registos De Aplicação Java 3.0 estão ao nível `INFO` 
 
 `maxHistory` é o número de ficheiros de registo retorlados que são retidos (além do ficheiro de registo atual).
 
-A partir da versão 3.0.2, também pode definir os autodiagnóstos `level` utilizando a variável ambiente `APPLICATIONINSIGHTS_SELF_DIAGNOSTICS_LEVEL` .
+A partir da versão 3.0.2, também pode definir os autodiagnóscos `level` utilizando a variável ambiente `APPLICATIONINSIGHTS_SELF_DIAGNOSTICS_LEVEL` (que terá precedência se o autodiagnósto `level` também for especificado na configuração json).
 
 ## <a name="an-example"></a>Um exemplo
 

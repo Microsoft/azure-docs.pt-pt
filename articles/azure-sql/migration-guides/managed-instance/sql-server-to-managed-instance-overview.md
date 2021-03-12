@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 02/18/2020
-ms.openlocfilehash: 9074480f44e75a90c202f0d0813c43aed1f7ba95
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: ac2b535b2e6b7a6b4169d08dd1768d69e685a216
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102488210"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102562015"
 ---
 # <a name="migration-overview-sql-server-to-sql-managed-instance"></a>Visão geral da migração: SQL Server para SQL Managed Instance
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -64,6 +64,8 @@ Pode escolher recursos de computação e armazenamento durante a implementação
 
 > [!IMPORTANT]
 > Qualquer discrepância nos [requisitos de rede virtuais geridos](../../managed-instance/connectivity-architecture-overview.md#network-requirements) pode impedi-lo de criar novos casos ou usar os existentes. Saiba mais sobre [a criação](../../managed-instance/virtual-network-subnet-create-arm-template.md)de redes novas   e [configuradas.](../../managed-instance/vnet-existing-add-subnet.md)   
+
+Outra consideração chave na seleção do nível de serviço alvo em Azure SQL Managed Instance (General Purpose Vs Business Critical) é a disponibilidade de certas funcionalidades como In-Memory OLTP que só está disponível no nível Business Critical. 
 
 ### <a name="sql-server-vm-alternative"></a>Alternativa SQL Server VM
 
@@ -192,6 +194,26 @@ Ao migrar bases de dados protegidas por  [Encriptação de Dados Transparentes
 
 A restauração das bases de dados do sistema não é suportada. Para migrar objetos de nível de instância (armazenados em bases de dados master ou msdb), guie-os utilizando o Transact-SQL (T-SQL) e, em seguida, recrie-os no caso gerido pelo alvo. 
 
+#### <a name="in-memory-oltp-memory-optimized-tables"></a>In-Memory OLTP (tabelas otimizadas pela memória)
+
+O SQL Server fornece In-Memory capacidade OLTP que permite o uso de tabelas otimizadas pela memória, tipos de mesa otimizados pela memória e módulos SQL compilados de forma nativa para executar cargas de trabalho com elevado rendimento e baixos requisitos de processamento de transações de latência. 
+
+> [!IMPORTANT]
+> In-Memory OLTP só é suportado no nível Business Critical em Azure SQL Managed Instance (e não suportado no nível final de propósito geral).
+
+Se tiver tabelas otimizadas para a memória ou tipos de mesa otimizados para a memória no seu SqL Server no local e pretende migrar para a Azure SQL Managed Instance, deve:
+
+- Escolha o nível Critical de Negócios para o seu target Azure SQL Managed Instance que suporta In-Memory OLTP, ou
+- Se pretender migrar para o nível de Finalidade Geral em Azure SQL Managed Instance, remova as tabelas otimizadas pela memória, os tipos de mesa otimizados pela memória e os módulos SQL compilados de forma nativa que interagem com objetos otimizados para a memória antes de migrar a sua base de dados. A seguinte consulta T-SQL pode ser usada para identificar todos os objetos que precisam de ser removidos antes da migração para o nível final:
+
+```tsql
+SELECT * FROM sys.tables WHERE is_memory_optimized=1
+SELECT * FROM sys.table_types WHERE is_memory_optimized=1
+SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
+```
+
+Para saber mais sobre as tecnologias de memória, consulte [o desempenho otimizar utilizando tecnologias de memória na Base de Dados Azure SQL e na Azure SQL Managed Instance](https://docs.microsoft.com/azure/azure-sql/in-memory-oltp-overview)
+
 ## <a name="leverage-advanced-features"></a>Alavancar recursos avançados 
 
 Certifique-se de aproveitar as funcionalidades avançadas baseadas na nuvem oferecidas pela SQL Managed Instance. Por exemplo, já não precisa de se preocupar em gerir backups, pois o serviço o faz por si. Pode restaurar a qualquer [ponto no tempo dentro do período de retenção](../../database/recovery-using-backups.md#point-in-time-restore). Além disso, não precisa de se preocupar em criar alta disponibilidade, uma vez [que a elevada disponibilidade é incorporada.](../../database/high-availability-sla.md) 
@@ -206,7 +228,7 @@ Algumas funcionalidades só estão disponíveis quando o [nível de compatibilid
 
 Para assistência adicional, consulte os seguintes recursos que foram desenvolvidos para projetos de migração no mundo real.
 
-|Recurso  |Descrição  |
+|Recurso  |Description  |
 |---------|---------|
 |[Modelo e ferramenta de avaliação da carga de trabalho de dados](https://github.com/Microsoft/DataMigrationTeam/tree/master/Data%20Workload%20Assessment%20Model%20and%20Tool)| Esta ferramenta fornece plataformas-alvo sugeridas "melhor ajuste", prontidão na nuvem e nível de remediação de aplicações/bases de dados para uma determinada carga de trabalho. Oferece um cálculo simples e de um clique e uma geração de relatórios que ajuda a acelerar as grandes avaliações imobiliárias, fornecendo e automatizada e uniforme processo de decisão da plataforma-alvo.|
 |[Utilidade DBLoader](https://github.com/microsoft/DataMigrationTeam/tree/master/DBLoader%20Utility)|O DBLoader pode ser usado para carregar dados de ficheiros de texto delimitados para o SQL Server. Este utilitário de consola Windows utiliza a interface de volume de pessoal do cliente nativo do SQL Server, que funciona em todas as versões do SQL Server, incluindo O SQL MI.|

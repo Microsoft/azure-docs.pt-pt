@@ -1,5 +1,5 @@
 ---
-title: Use um motor de regras para impor HTTPS na Standard Azure CDN Microsoft Docs
+title: Utilize um motor de regras para impor HTTPS na Standard Azure CDN | Microsoft Docs
 description: Utilize o motor de regras da Microsoft Standard Azure Content Delivery Network (Azure CDN) para personalizar a forma como o Azure CDN lida com pedidos HTTP, incluindo bloquear a entrega de certos tipos de conteúdo, definir uma política de caching e modificar os cabeçalhos HTTP. Neste artigo, aprenda a criar uma regra para redirecionar os utilizadores para HTTPS.
 services: cdn
 author: asudbring
@@ -7,12 +7,12 @@ ms.service: azure-cdn
 ms.topic: how-to
 ms.date: 11/01/2019
 ms.author: allensu
-ms.openlocfilehash: 1c596bf10d8afbce504b5abf04eacb877989521a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b94798580b2d4ba746c152486c0de753cf64d2c9
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84887539"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102564905"
 ---
 # <a name="set-up-the-standard-rules-engine-for-azure-cdn"></a>Configurar o motor de regras Standard para Azure CDN
 
@@ -44,7 +44,7 @@ Pode utilizar o motor de regras Standard para a Azure CDN para personalizar a fo
 1. **Selecione Adicionar regra** e introduzir um nome de regra. Os nomes das regras devem começar com uma letra e conter apenas números e letras.
 
 1. Para identificar o tipo de pedidos a que a regra se aplica, crie uma condição de correspondência:
-    1. **Selecione Adicionar a condição**e, em seguida, selecione a condição de correspondência do protocolo **'Pedido'.**
+    1. **Selecione Adicionar a condição** e, em seguida, selecione a condição de correspondência do protocolo **'Pedido'.**
     1. Para **Operator** (Operador), selecione **Equals** (É igual a).
     1. Para **Valor**, selecione **HTTP**.
    
@@ -54,7 +54,7 @@ Pode utilizar o motor de regras Standard para a Azure CDN para personalizar a fo
    > Pode selecionar a partir de várias condições de correspondência na lista de down-down do **estado de adicionar.** Para obter uma lista detalhada das condições de jogo, consulte [as condições de jogo no motor de regras Standard](cdn-standard-rules-engine-match-conditions.md).
    
 1. Selecione a ação para aplicar aos pedidos que satisfaçam a condição de jogo:
-   1. **Selecione Adicionar a ação**e, em seguida, selecione o **reorientação de URL**.
+   1. **Selecione Adicionar a ação** e, em seguida, selecione o **reorientação de URL**.
    1. Para **tipo**, selecione **Found (302)**.
    1. Para **protocolo**, selecione **HTTPS**.
    1. Deixe todos os outros campos em branco para utilizar valores de entrada.

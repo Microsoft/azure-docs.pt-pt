@@ -1,5 +1,5 @@
 ---
-title: Fluxo de código de autorização - Azure Ative Directy B2C / Microsoft Docs
+title: Fluxo de código de autorização - Azure Ative Directory B2C | Microsoft Docs
 description: Saiba como construir aplicações web utilizando o protocolo de autenticação AZure AD B2C e OpenID Connect.
 services: active-directory-b2c
 author: msmimart
@@ -7,16 +7,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 03/10/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 10444974cf31b95fccd2d11aef20bfd57fab7939
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: a6a993fdf4fd266afb9459fedd13412d8796e0a5
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92275284"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102611509"
 ---
 # <a name="oauth-20-authorization-code-flow-in-azure-active-directory-b2c"></a>Fluxo de código de autorização OAuth 2.0 no Azure Ative Directory B2C
 
@@ -59,7 +59,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &code_challenge_method=S256
 ```
 
-| Parâmetro | Necessário? | Descrição |
+| Parâmetro | Necessário? | Description |
 | --- | --- | --- |
 |{inquilino}| Necessário | Nome do seu inquilino Azure AD B2C|
 | {política} | Necessário | O fluxo do utilizador a ser executado. Especifique o nome de um fluxo de utilizador que criou no seu inquilino Azure AD B2C. Por exemplo: `b2c_1_sign_in` `b2c_1_sign_up` , ou . `b2c_1_edit_profile` . |
@@ -72,6 +72,9 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | rápido |Opcional |O tipo de interação do utilizador que é necessária. Atualmente, o único valor válido é `login` o que obriga o utilizador a introduzir as suas credenciais nesse pedido. Uma única s inscrição não fará efeito. |
 | code_challenge  | recomendado / necessário | Utilizado para garantir concessões de código de autorização através da Chave de Prova para Troca de Códigos (PKCE). Necessário se `code_challenge_method` estiver incluído. Para mais informações, consulte o [PKCE RFC](https://tools.ietf.org/html/rfc7636). Isto agora é recomendado para todos os tipos de aplicações - aplicações nativas, SPAs e clientes confidenciais, como aplicações web. | 
 | `code_challenge_method` | recomendado / necessário | O método usado para codificar o `code_verifier` `code_challenge` parâmetro. Isto *deve* ser `S256` , mas a especificação permite a utilização de `plain` se por alguma razão o cliente não pode suportar SHA256. <br/><br/>Se excluído, `code_challenge` presume-se que é texto simples se `code_challenge` estiver incluído. A plataforma de identidade da Microsoft suporta ambos `plain` e `S256` . Para mais informações, consulte o [PKCE RFC](https://tools.ietf.org/html/rfc7636). Isto é necessário para [aplicações de página única usando o fluxo de código de autorização](tutorial-register-spa.md).|
+| login_hint | No| Pode ser usado para pré-preencher o campo de nome de inscrição da página de inscrição. Para obter mais informações, consulte [Prepopular o nome de inscrição](direct-signin.md#prepopulate-the-sign-in-name).  |
+| domain_hint | No| Fornece uma dica ao Azure AD B2C sobre o fornecedor de identidade social que deve ser usado para iniciar sação. Se for incluído um valor válido, o utilizador vai diretamente para a página de entrada do fornecedor de identidade.  Para obter mais informações, consulte [redirecionar o sin-in para um provedor social.](direct-signin.md#redirect-sign-in-to-a-social-provider) |
+| Parâmetros personalizados | No| Parâmetros personalizados que podem ser usados com [políticas personalizadas.](custom-policy-overview.md) Por exemplo, [o conteúdo dinâmico da página personalizada URI,](customize-ui-with-html.md?pivots=b2c-custom-policy#configure-dynamic-custom-page-content-uri)ou os [resolveres de reivindicação de valor-chave](claim-resolver-overview.md#oauth2-key-value-parameters). |
 
 Neste momento, é solicitado ao utilizador que complete o fluxo de trabalho do utilizador. Isto pode envolver o utilizador inserindo o seu nome de utilizador e senha, inserindo-se com uma identidade social, inserindo-se no diretório ou qualquer outro número de etapas. As ações do utilizador dependem da definição do fluxo do utilizador.
 
@@ -118,7 +121,7 @@ Content-Type: application/x-www-form-urlencoded
 grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access&code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob&code_verifier=ThisIsntRandomButItNeedsToBe43CharactersLong 
 ```
 
-| Parâmetro | Necessário? | Descrição |
+| Parâmetro | Necessário? | Description |
 | --- | --- | --- |
 |{inquilino}| Necessário | Nome do seu inquilino Azure AD B2C|
 |{política}| Necessário| O fluxo de utilizador que foi utilizado para adquirir o código de autorização. Não é possível utilizar um fluxo de utilizador diferente neste pedido. |
@@ -185,7 +188,7 @@ Content-Type: application/x-www-form-urlencoded
 grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access&refresh_token=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob
 ```
 
-| Parâmetro | Necessário? | Descrição |
+| Parâmetro | Necessário? | Description |
 | --- | --- | --- |
 |{inquilino}| Necessário | Nome do seu inquilino Azure AD B2C|
 |{política} |Necessário |O fluxo de utilizador que foi usado para adquirir o token original da atualização. Não é possível utilizar um fluxo de utilizador diferente neste pedido. |

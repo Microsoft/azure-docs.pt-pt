@@ -1,9 +1,9 @@
 ---
-title: Codificação avançada com media Encoder Premium Workflow / Microsoft Docs
+title: Codificação avançada com fluxo de trabalho premium media encoder | Microsoft Docs
 description: Saiba como codificar com o Fluxo de Trabalho Premium Media Encoder. As amostras de código são escritas em C# e utilizam o SDK dos Serviços de Mídia para .NET.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7f3efa23ad0b5e79e84a2436aaf56b67a805d05f
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: b58a1ae2a20afb357f6363077e70b692256d2ce7
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92017238"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103013504"
 ---
 # <a name="advanced-encoding-with-media-encoder-premium-workflow"></a>Advanced encoding with Media Encoder Premium Workflow (Codificação avançada com o Media Encoder Premium Workflow)
 
@@ -30,7 +30,7 @@ ms.locfileid: "92017238"
 >
 >
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 A Microsoft Azure Media Services está a introduzir o processador de mídia **Media Encoder Premium Workflow.** Este processador oferece capacidades de codificação antecipadas para os seus fluxos de trabalho premium a pedido.
 
 Os seguintes tópicos delineiam detalhes relacionados com **o fluxo de trabalho premium da Media Encoder:**

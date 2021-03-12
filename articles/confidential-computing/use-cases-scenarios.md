@@ -4,15 +4,16 @@ description: Entenda como usar a computação confidencial no seu cenário.
 services: virtual-machines
 author: JBCook
 ms.service: virtual-machines
+ms.subservice: confidential-computing
 ms.topic: overview
 ms.date: 9/22/2020
 ms.author: jencook
-ms.openlocfilehash: e1280ac90032869616830ccb931b367ff22f8bfb
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 47938f3a44c3a47f8b444b59d7e2f0867a274f33
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91001012"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102566622"
 ---
 # <a name="common-scenarios-for-azure-confidential-computing"></a>Cenários comuns para a computação confidencial do Azure
 
@@ -33,7 +34,7 @@ Várias fontes podem enviar os seus dados para um enclave numa máquina virtual.
 Na computação multipartidária segura, os dados encriptados vão para o enclave, o enclave desencripta os dados usando uma chave, executa a análise, obtém um resultado, e envia de volta um resultado encriptado que uma parte pode desencriptar com a chave designada. 
 
 **Proteger os dados em uso:** 
-- Utilize uma máquina virtual (VM) da Série DCsv2 no Azure com suporte Intel SGX ativado. Estes VMs estão habilitados com ambientes de execução fidedignos (TEEs) que asseguram e isolam partes dos dados e códigos da sua aplicação.
+- Utilize uma máquina virtual DCsv2-Series (VM) no Azure com suporte Intel SGX ativado. Estes VMs estão habilitados com ambientes de execução fidedignos (TEEs) que asseguram e isolam partes dos dados e códigos da sua aplicação.
 - Use um SDK consciente do enclave para criar um enclave dentro da máquina virtual. Dentro do enclave, os dados não serão expostos a nenhum, mesmo o fornecedor de VM. Os dados no enclave serão encriptados por suporte de hardware.
     - Por exemplo, pode utilizar o [OE SDK](https://github.com/openenclave/openenclave) para o processamento do lado do servidor. 
 
@@ -67,9 +68,9 @@ O [CCF](https://www.microsoft.com/research/project/confidential-consortium-frame
 
 ![Uma rede de nóns](./media/use-cases-scenarios/ccf.png)
 
-No CCF, o livro-razão descentralizado é composto por alterações registadas numa loja de Valor-Chave que é replicada em todos os nós de rede. Cada um destes nós tem um motor de transação que pode ser acionado pelos utilizadores da blockchain sobre tLS. Quando disparas um ponto final, mutas a loja Key-Value. Antes que a alteração encriptada seja gravada no livro de contabilidade descentralizado, deve ser acordado por um certo número de nós para chegar a um consenso. 
+No CCF, o livro-razão descentralizado é composto por alterações registadas numa loja Key-Value que é replicada em todos os nós da rede. Cada um destes nós tem um motor de transação que pode ser acionado pelos utilizadores da blockchain sobre tLS. Quando disparas um ponto final, mutas a loja Key-Value. Antes que a alteração encriptada seja gravada no livro de contabilidade descentralizado, deve ser acordado por um certo número de nós para chegar a um consenso. 
 
 ## <a name="next-steps"></a>Passos Seguintes
-[Implementar](quick-create-marketplace.md) uma máquina virtual série DCsv2.
+[Implemente](quick-create-marketplace.md) uma máquina virtual DCsv2-Series.
 
 

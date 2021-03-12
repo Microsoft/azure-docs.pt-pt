@@ -2,18 +2,18 @@
 title: Criar uma Galeria de Imagens Partilhadas Azure usando o portal
 description: Aprenda a usar o portal Azure para criar e partilhar imagens de máquinas virtuais.
 author: cynthn
-ms.service: virtual-machines-windows
-ms.subservice: imaging
+ms.service: virtual-machines
+ms.subservice: shared-image-gallery
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 11/06/2019
 ms.author: cynthn
-ms.openlocfilehash: 25cd75035a814fd718cc1101e6575f78c50f105e
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: e28a1412fa417b9f15ab7a6f79305d07ca6d9fec
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879702"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102556099"
 ---
 # <a name="create-an-azure-shared-image-gallery-using-the-portal"></a>Criar uma Galeria de Imagens Partilhadas Azure usando o portal
 
@@ -60,7 +60,7 @@ Quando já não forem necessários, pode eliminar o grupo de recursos, a máquin
 
 Se pretender eliminar recursos individuais, tem de os eliminar por ordem inversa. Por exemplo, para eliminar uma definição de imagem, é necessário eliminar todas as versões de imagem criadas a partir dessa imagem.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Também pode criar recursos da Galeria de Imagens Partilhadas utilizando modelos. Existem vários modelos Azure Quickstart disponíveis: 
 

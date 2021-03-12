@@ -1,18 +1,18 @@
 ---
 title: Definições políticas incorporadas para configuração de aplicativos Azure
 description: Lista definições de políticas incorporadas da Azure Policy para configuração de aplicações Azure. Estas definições políticas incorporadas fornecem abordagens comuns para gerir os seus recursos Azure.
-ms.date: 03/05/2021
+ms.date: 03/10/2021
 ms.topic: reference
 author: AlexandraKemperMS
 ms.author: alkemper
 ms.service: azure-app-configuration
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 1a3a13fb78de3e3f992c8a5e1bbb0050eb22f67d
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: f2133d96c3258e574a52ea6f5fdd50659cd7f74a
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102424538"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102609048"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-app-configuration"></a>Definições incorporadas da Política Azure para configuração de aplicações Azure
 
