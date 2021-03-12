@@ -12,23 +12,27 @@ ms.reviewer: nibaccam
 ms.date: 03/04/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: d142c523862d61bf56723726be50cd6f095c5ee9
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 977498abb17fe592cef344f407a662d3b79749b7
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102520341"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102634785"
 ---
-# <a name="start-monitor-and-cancel-training-runs-in-python"></a>Iniciar, monitorizar e cancelar treinos em Python
+# <a name="start-monitor-and-track-runs"></a>Início, monitor e pista 
 
 O [Azure Machine Learning SDK para Python,](/python/api/overview/azure/ml/intro) [Machine Learning CLI](reference-azure-machine-learning-cli.md)e a [Azure Machine Learning studio](https://ml.azure.com) fornecem vários métodos para monitorizar, organizar e gerir as suas corridas para treino e experimentação.
 
 Este artigo mostra exemplos das seguintes tarefas:
 
 * Monitorize o desempenho da execução.
+* Monitorize o estado de execução por notificação de e-mail.
+* Marque e encontre corridas.
+* Adicione uma descrição de execução. 
+* Procure. 
 * Cancelar ou falhar corre.
 * Criar corridas de crianças.
-* Marque e encontre corridas.
+ 
 
 > [!TIP]
 > Se procura informações sobre a monitorização do serviço de Aprendizagem automática Azure e dos serviços associados da Azure, consulte [Como monitorizar a Azure Machine Learning](monitor-azure-machine-learning.md).
@@ -50,7 +54,8 @@ Vai precisar dos seguintes itens:
     print(azureml.core.VERSION)
     ```
 
-* A extensão [Azure CLI](/cli/azure/) e [CLI para Azure Machine Learning](reference-azure-machine-learning-cli.md).
+* A extensão [Azure CLI](/cli/azure/?preserve-view=true&view=azure-cli-latest) e [CLI para Azure Machine Learning](reference-azure-machine-learning-cli.md).
+
 
 ## <a name="monitor-run-performance"></a>Monitor de execução
 
@@ -96,7 +101,7 @@ Vai precisar dos seguintes itens:
     
         Este comando cria uma `.azureml` subdiretória que contém ficheiros de ambiente runconfig e conda. Também contém um `config.json` ficheiro que é usado para comunicar com o seu espaço de trabalho Azure Machine Learning.
     
-        Para obter mais informações, consulte [o az ml pasta anexa .](/cli/azure/ext/azure-cli-ml/ml/folder#ext-azure-cli-ml-az-ml-folder-attach)
+        Para obter mais informações, consulte [o az ml pasta anexa .](/cli/azure/ext/azure-cli-ml/ml/folder?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-folder-attach)
     
     2. Para iniciar a execução, utilize o seguinte comando. Ao utilizar este comando, especifique o nome do ficheiro runconfig (o texto antes \* de .runconfig se estiver a olhar para o seu sistema de ficheiros) contra o parâmetro -c.
     
@@ -111,7 +116,7 @@ Vai precisar dos seguintes itens:
         >
         > Para mais ficheiros runconfig, consulte [https://github.com/MicrosoftDocs/pipelines-azureml/](https://github.com/MicrosoftDocs/pipelines-azureml/) .
     
-        Para obter mais informações, consulte [o roteiro de submissão az ml run](/cli/azure/ext/azure-cli-ml/ml/run#ext-azure-cli-ml-az-ml-run-submit-script).
+        Para obter mais informações, consulte [o roteiro de submissão az ml run](/cli/azure/ext/azure-cli-ml/ml/run?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-submit-script).
 
     # <a name="studio"></a>[Studio](#tab/azure-studio)
 
@@ -162,7 +167,7 @@ Vai precisar dos seguintes itens:
     
         Este comando devolve um documento JSON que lista informações sobre execuções para esta experiência.
     
-        Para mais informações, consulte [a lista de experiências az ml](/cli/azure/ext/azure-cli-ml/ml/experiment#ext-azure-cli-ml-az-ml-experiment-list).
+        Para mais informações, consulte [a lista de experiências az ml](/cli/azure/ext/azure-cli-ml/ml/experiment?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-experiment-list).
     
     * Para visualizar informações numa execução específica, utilize o seguinte comando. `runid`Substitua-a pelo ID da execução:
     
@@ -172,7 +177,7 @@ Vai precisar dos seguintes itens:
     
         Este comando devolve um documento JSON que lista informações sobre a execução.
     
-        Para mais informações, consulte [o az ml run show](/cli/azure/ext/azure-cli-ml/ml/run#ext-azure-cli-ml-az-ml-run-show).
+        Para mais informações, consulte [o az ml run show](/cli/azure/ext/azure-cli-ml/ml/run?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-show).
     
     
     # <a name="studio"></a>[Studio](#tab/azure-studio)
@@ -192,6 +197,29 @@ Vai precisar dos seguintes itens:
     1. Para visualizar os registos de execução, selecione uma execução específica e no separador **Saídas + registos,** pode encontrar registos de diagnóstico e erro para a sua execução.
     
     ---
+
+## <a name="monitor-the-run-status-by-email-notification"></a>Monitorize o estado de execução por notificação de e-mail
+
+1. No [portal Azure,](https://ms.portal.azure.com/)na barra de navegação esquerda, selecione o **separador Monitor.** 
+
+1. Selecione **definições de diagnóstico** e, em seguida, selecione **+ Adicione a definição de diagnóstico**.
+
+    ![Screenshot das definições de diagnóstico para notificação de e-mail](./media/how-to-manage-runs/diagnostic-setting.png)
+
+1. Na Definição de Diagnóstico, 
+    1. nos **detalhes** da categoria , selecione **o AmlRunStatusChangedEvent**. 
+    1. Nos **detalhes** do Destino , selecione o **espaço de trabalho Enviar para Registar Analytics**  e especificar o espaço de trabalho **subscrição** e **log analytics**. 
+
+    > [!NOTE]
+    > O **Espaço de Trabalho Azure Log Analytics** é um tipo diferente de Recurso Azure do que o espaço de trabalho do serviço de **aprendizagem automática Azure.** Se não houver opções nessa lista, pode [criar um espaço de trabalho log analytics](https://docs.microsoft.com/azure/azure-monitor/logs/quick-create-workspace). 
+    
+    ![Onde guardar a notificação de e-mail](./media/how-to-manage-runs/log-location.png)
+
+1. No **separador 'Registos',** adicione uma **nova regra de alerta**. 
+
+    ![Nova regra de alerta](./media/how-to-manage-runs/new-alert-rule.png)
+
+1. Veja [como criar e gerir alertas de registo utilizando o Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/alerts/alerts-log).
 
 ## <a name="run-description"></a>Executar descrição 
 
@@ -253,7 +281,7 @@ No Azure Machine Learning, pode utilizar propriedades e tags para ajudar a organ
     az ml run update -r runid --add-tag quality='fantastic run'
     ```
     
-    Para mais informações, consulte [a atualização de execução az ml](/cli/azure/ext/azure-cli-ml/ml/run#ext-azure-cli-ml-az-ml-run-update).
+    Para mais informações, consulte [a atualização de execução az ml](/cli/azure/ext/azure-cli-ml/ml/run?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-update).
     
     # <a name="studio"></a>[Studio](#tab/azure-studio)
     
@@ -287,17 +315,17 @@ No Azure Machine Learning, pode utilizar propriedades e tags para ajudar a organ
     az ml run list --experiment-name experiment [?properties.author=='azureml-user' && tags.quality=='fantastic run']
     ```
     
-    Para obter mais informações sobre os resultados do Azure CLI, consulte [a saída do comando Do CLI da Consulta .](/cli/azure/query-azure-cli)
+    Para obter mais informações sobre os resultados do Azure CLI, consulte [a saída do comando Do CLI da Consulta .](/cli/azure/query-azure-cli?preserve-view=true&view=azure-cli-latest)
     
     # <a name="studio"></a>[Studio](#tab/azure-studio)
     
-    1. Navegue para a lista **de todas as corridas.**
+    Para procurar execuções específicas, navegue para a lista **de todas as corridas.** A partir daí tem duas opções:
     
-    1. Utilize a barra de pesquisa para filtrar os metadados executados como as etiquetas, descrições, nomes de experiências e nome do apresentador. O filtro de etiquetas também pode ser utilizado para filtrar as etiquetas. 
+    1. Utilize o botão **de filtro Adicionar** e selecione o filtro nas etiquetas para filtrar as suas correções por etiqueta que foi atribuída à(s) run(s). <br><br>
+    OR
     
-    ---
-
-
+    1. Utilize a barra de pesquisa para encontrar rapidamente corridas pesquisando nos metadados de execução como o estado de execução, descrições, nomes de experiências e nome do apresentador. 
+    
 ## <a name="cancel-or-fail-runs"></a>Cancelar ou falhar corre
 
 Se notar um erro ou se a sua corrida estiver a demorar muito tempo a terminar, pode cancelar a corrida.
@@ -331,7 +359,7 @@ Para cancelar uma execução utilizando o CLI, utilize o seguinte comando. `runi
 az ml run cancel -r runid -w workspace_name -e experiment_name
 ```
 
-Para mais informações, consulte [a corrida az ml cancelar](/cli/azure/ext/azure-cli-ml/ml/run#ext-azure-cli-ml-az-ml-run-cancel).
+Para mais informações, consulte [a corrida az ml cancelar](/cli/azure/ext/azure-cli-ml/ml/run?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-cancel).
 
 # <a name="studio"></a>[Studio](#tab/azure-studio)
 
@@ -375,7 +403,7 @@ Para criar muitas crianças funciona de forma eficiente, use o [`create_children
 
 ### <a name="submit-child-runs"></a>Submeter corridas de crianças
 
-As corridas para crianças também podem ser submetidas a partir de uma corrida de pais. Isto permite-lhe criar hierarquias de pais e filhos. Não é possível criar uma corrida sem filhos: mesmo que a corrida dos pais não faça nada a não ser lançar a criança, ainda é necessário criar a hierarquia. O estatuto de todas as corridas é independente: um progenitor pode estar no `"Completed"` estado de sucesso, mesmo que uma ou mais crianças sejam canceladas ou falhadas.  
+As corridas para crianças também podem ser submetidas a partir de uma corrida de pais. Isto permite-lhe criar hierarquias de pais e filhos. Não é possível criar uma corrida sem filhos: mesmo que a corrida dos pais não faça nada a não ser lançar a criança, ainda é necessário criar a hierarquia. Os estatutos de todas as corridas são independentes: um progenitor pode estar no `"Completed"` estado de sucesso, mesmo que uma ou mais crianças sejam canceladas ou falhadas.  
 
 Pode desejar que o seu filho corra para utilizar uma configuração de execução diferente da execução dos pais. Por exemplo, pode utilizar uma configuração menos potente e baseada em CPU para o progenitor, enquanto utiliza configurações baseadas em GPU para os seus filhos. Outro desejo comum é passar a cada criança diferentes argumentos e dados. Para personalizar uma corrida de crianças, crie um `ScriptRunConfig` objeto para a corrida da criança. O código abaixo faz o seguinte:
 

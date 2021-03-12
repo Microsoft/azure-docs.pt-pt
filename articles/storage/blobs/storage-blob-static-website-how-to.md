@@ -8,21 +8,18 @@ ms.topic: conceptual
 ms.author: normesta
 ms.date: 03/04/2020
 ms.custom: devx-track-js, devx-track-azurecli
-ms.openlocfilehash: a90251097f2b4cced5b30f5d6eea03b6ca0b1c61
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 2ba0e836f1be97681d677158f5cb81c5b033e915
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98664754"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103008506"
 ---
 # <a name="host-a-static-website-in-azure-storage"></a>Hospedar um site estático no Azure Storage
 
-Pode servir conteúdo estático (HTML, CSS, JavaScript e ficheiros de imagem) diretamente a partir de um recipiente numa conta GPv2 de armazenamento Azure. Para saber mais, consulte [o site Static hospedado no Azure Storage.](storage-blob-static-website.md)
+Pode servir conteúdo estático (HTML, CSS, JavaScript e ficheiros de imagem) diretamente a partir de um recipiente numa conta V2 ou [BlockBlobStorage](storage-blob-create-account-block-blob.md) [de uso geral.](../common/storage-account-create.md) Para saber mais, consulte [o site Static hospedado no Azure Storage.](storage-blob-static-website.md)
 
 Este artigo mostra-lhe como permitir hospedagem de websites estáticos utilizando o portal Azure, o Azure CLI ou PowerShell.
-
-> [!NOTE]
-> Certifique-se de criar uma conta de armazenamento v2 Standard para fins gerais . Os sites estáticos não estão disponíveis em qualquer outro tipo de conta de armazenamento.
 
 ## <a name="enable-static-website-hosting"></a>Ativar hospedagem estática no site
 

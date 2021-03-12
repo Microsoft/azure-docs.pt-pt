@@ -3,7 +3,7 @@ title: Telemetria Azure Media Services Telemetria | Microsoft Docs
 description: Este artigo fornece uma visão geral da telemetria da Microsoft Azure Media Services.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: 95c20ec4-c782-4063-8042-b79f95741d28
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/01/2019
-ms.author: juliako
-ms.openlocfilehash: 4bf9a96d7ffc3b939abe8cfb889c5bd49fee09cc
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.date: 3/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: b17b5901248056f6000710fa25d2ea1e9df2e2a5
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98694626"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103009099"
 ---
 # <a name="azure-media-services-telemetry"></a>Telemetria Azure Media Services  
 
@@ -36,7 +36,7 @@ O sistema de telemetria não gere a retenção de dados. Pode remover os dados a
 
 Este tópico discute como configurar e consumir a telemetria AMS.
 
-## <a name="configuring-telemetry"></a>Telemetria configurada
+## <a name="configuring-telemetry"></a>Configurar a telemetria
 
 Pode configurar a telemetria numa granularidade de nível de componente. Há dois níveis de detalhe "Normal" e "Verbose". Atualmente, ambos os níveis devolvem a mesma informação. Recomenda-se a utilização "Normal. 
 

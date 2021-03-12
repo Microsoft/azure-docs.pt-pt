@@ -3,13 +3,13 @@ title: Use identidades geridas por cápsulas Azure Ative pod no Serviço Azure K
 description: Saiba como utilizar identidades geridas por cápsulas AAD no Serviço Azure Kubernetes (AKS)
 services: container-service
 ms.topic: article
-ms.date: 12/01/2020
-ms.openlocfilehash: e7c8a96ad012afdcd724a4a242c27018563f3a10
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.date: 3/12/2021
+ms.openlocfilehash: 8b94c859800c3757842ad56df6e20f215bb13a7d
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102176319"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103233501"
 ---
 # <a name="use-azure-active-directory-pod-managed-identities-in-azure-kubernetes-service-preview"></a>Use identidades geridas por cápsulas Azure Ative pod no Serviço Azure Kubernetes (Pré-visualização)
 
@@ -24,13 +24,13 @@ As identidades geridas pelo Azure Ative Directory usam primitivos Kubernetes par
 
 Deve ter o seguinte recurso instalado:
 
-* O Azure CLI, versão 2.8.0 ou mais tarde
-* A `azure-preview` versão de extensão 0.4.68 ou mais tarde
+* O Azure CLI, versão 2.20.0 ou mais tarde
+* A `azure-preview` versão de extensão 0.5.5 ou mais tarde
 
 ### <a name="limitations"></a>Limitações
 
-* Um máximo de 50 identidades de vagem são permitidas para um cluster.
-* Um máximo de 50 cápsulas de exceção de identidade são permitidas para um cluster.
+* Um máximo de 200 identidades de vagem são permitidas para um cluster.
+* Um máximo de 200 exceções de identidade de vagem são permitidas para um cluster.
 * Identidades geridas por pod estão disponíveis apenas nas piscinas de nóleiros Linux.
 
 ### <a name="register-the-enablepodidentitypreview"></a>Registar o `EnablePodIdentityPreview`
@@ -66,6 +66,21 @@ Use [credenciais az aks][az-aks-get-credentials] para iniciar sação no seu clu
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
+```
+## <a name="create-an-aks-cluster-with-kubenet-network-plugin"></a>Criar um cluster AKS com plugin de rede Kubenet
+
+Crie um cluster AKS com plugin de rede Kubenet e identidade gerida por pods.
+
+```azurecli-interactive
+az aks create -g $MY_RESOURCE_GROUP -n $MY_CLUSTER --enable-pod-identity --enable-pod-identity-with-kubenet
+```
+
+## <a name="update-an-existing-aks-cluster-with-kubenet-network-plugin"></a>Atualize um cluster AKS existente com plugin de rede Kubenet
+
+Atualize um cluster AKS existente com plugin de rede Kubnet para incluir identidade gerida por pod.
+
+```azurecli-interactive
+az aks update -g $MY_RESOURCE_GROUP -n $MY_CLUSTER --enable-pod-identity --enable-pod-identity-with-kubenet
 ```
 
 ## <a name="create-an-identity"></a>Criar uma identidade

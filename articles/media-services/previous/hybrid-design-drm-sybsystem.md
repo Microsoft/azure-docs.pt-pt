@@ -1,9 +1,9 @@
 ---
-title: Design híbrido dos subsistemas DRM utilizando a Azure Media Services Microsoft Docs
+title: Design híbrido dos subsistemas DRM utilizando a Azure Media Services | Microsoft Docs
 description: Este tópico discute o design híbrido dos subsistemas DRM utilizando os Azure Media Services.
 services: media-services
 documentationcenter: ''
-author: willzhan
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: 18213fc1-74f5-4074-a32b-02846fe90601
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/31/2020
+ms.date: 03/10/2021
 ms.author: willzhan
 ms.reviewer: juliako
-ms.openlocfilehash: 1bf01e98e418edfe8f15043d16a199b276b71020
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a48e761c4fb74802c6b1db63884ee192446720a4
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89266906"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103016281"
 ---
 # <a name="hybrid-design-of-drm-subsystems"></a>Design híbrido dos subsistemas DRM
 
@@ -28,7 +28,7 @@ ms.locfileid: "89266906"
 
 Este tópico discute o design híbrido dos subsistemas DRM utilizando os Azure Media Services.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 A Azure Media Services presta suporte para os seguintes três sistemas DRM:
 
@@ -82,8 +82,8 @@ Através da configuração de uma chave de conteúdo, pode controlar os seguinte
 
 * A chave de conteúdo utilizada para encriptação drm dinâmica.
 * Conteúdo da licença DRM a ser entregue por serviços de entrega de licenças: direitos, chave de conteúdo e restrições.
-* Tipo de **restrição de política**de autorização de chave de conteúdo: restrição aberta, IP ou token.
-* Se for utilizada **a** **restrição**da política de autorização de autorização de dados do tipo simbólico, a **restrição da política de autorização de autorização de conteúdo** deve ser cumprida antes de ser emitida uma licença.
+* Tipo de **restrição de política** de autorização de chave de conteúdo: restrição aberta, IP ou token.
+* Se for utilizada **a** **restrição** da política de autorização de autorização de dados do tipo simbólico, a **restrição da política de autorização de autorização de conteúdo** deve ser cumprida antes de ser emitida uma licença.
 
 ### <a name="asset-delivery-policy"></a>Política de entrega de ativos
 
@@ -95,15 +95,15 @@ Através da configuração de uma política de entrega de ativos, pode controlar
 
 ## <a name="scenarios-and-samples"></a>Cenários e amostras
 
-Com base nas explicações na secção anterior, os **Content key**seguintes cinco cenários híbridos utilizam as - respetivas combinações de configuração da política de**entrega de ativos** (as amostras mencionadas na última coluna seguem a tabela):
+Com base nas explicações na secção anterior, os seguintes cinco cenários híbridos utilizam as - respetivas combinações de configuração da política de **entrega de ativos** (as amostras mencionadas na última coluna seguem a tabela):
 
-|**Conteúdo que hospeda & origem**|**Encriptação DRM**|**Entrega de licença DRM**|**Chave de conteúdo de configuração**|**Configure a política de entrega de ativos**|**Amostra**|
+|**Conteúdo que hospeda & origem**|**Encriptação DRM**|**Entrega de licença DRM**|**Chave de conteúdo de configuração**|**Configure a política de entrega de ativos**|**Sample**|
 |---|---|---|---|---|---|
-|AMS|AMS|AMS|Sim|Sim|Exemplo 1|
-|AMS|AMS|Terceiros|Sim|Sim|Exemplo 2|
-|AMS|Terceiros|AMS|Sim|Não|Exemplo 3|
-|AMS|Terceiros|Lá fora|Não|Não|Exemplo 4|
-|Terceiros|Terceiros|AMS|Sim|Não|    
+|AMS|AMS|AMS|Yes|Yes|Exemplo 1|
+|AMS|AMS|Terceiros|Yes|Yes|Exemplo 2|
+|AMS|Terceiros|AMS|Yes|No|Exemplo 3|
+|AMS|Terceiros|Lá fora|No|No|Exemplo 4|
+|Terceiros|Terceiros|AMS|Yes|No|    
 
 Nas amostras, a proteção PlayReady funciona tanto para o DASH como para o streaming suave. Os URLs de vídeo abaixo são URLs de streaming suaves. Para obter os URLs DASH correspondentes, basta anexar "(formato=mpd-time-csf)". Você poderia usar o leitor [de teste de mídia azul](https://aka.ms/amtest) para testar em um navegador. Permite-lhe configurar qual o protocolo de streaming a utilizar, segundo o qual a tecnologia. IE11 e Microsoft Edge no Suporte do Windows 10 PlayReady através do EME. Para mais informações, consulte [detalhes sobre a ferramenta de teste.](./offline-playready-streaming-windows-10.md)
 

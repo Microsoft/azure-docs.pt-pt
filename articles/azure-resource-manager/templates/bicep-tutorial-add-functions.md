@@ -2,16 +2,16 @@
 title: Tutorial - adicione funções aos ficheiros Bicep do Azure Resource Manager
 description: Adicione funções aos seus ficheiros Bicep para construir valores.
 author: mumian
-ms.date: 03/02/2021
+ms.date: 03/10/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: references_regions
-ms.openlocfilehash: 9c66ab132d3343115b1a9bd852d3eb3d83ae4ca7
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: b909beb0cce9ad04ba00068ee25247520dcff47d
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101748231"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102633160"
 ---
 # <a name="tutorial-add-functions-to-azure-resource-manager-bicep-file"></a>Tutorial: Adicionar funções ao ficheiro Bicep do Gestor de Recursos da Azure
 
@@ -37,7 +37,7 @@ A localização da conta de armazenamento é codificada para os **EUA.** No enta
 
 As funções adicionam flexibilidade ao seu ficheiro Bicep obtendo valores dinamicamente durante a implementação. Neste tutorial, você usa uma função para obter a localização do grupo de recursos que você está usando para implantação.
 
-O exemplo a seguir destaca as alterações para adicionar um parâmetro chamado `location` . O valor predefinido do parâmetro chama a função [grupo de recursos.](template-functions-resource.md#resourcegroup) Esta função devolve um objeto com informações sobre o grupo de recursos que está a ser utilizado para a implantação. Uma das propriedades do objeto é uma propriedade de localização. Quando utiliza o valor predefinido, a localização da conta de armazenamento tem a mesma localização que o grupo de recursos. Os recursos dentro de um grupo de recursos não têm que partilhar o mesmo local. Também pode fornecer uma localização diferente quando necessário.
+O exemplo a seguir mostra as alterações para adicionar um parâmetro chamado `location` . O valor predefinido do parâmetro chama a função [grupo de recursos.](template-functions-resource.md#resourcegroup) Esta função devolve um objeto com informações sobre o grupo de recursos que está a ser utilizado para a implantação. Uma das propriedades do objeto é uma propriedade de localização. Quando utiliza o valor predefinido, a localização da conta de armazenamento tem a mesma localização que o grupo de recursos. Os recursos dentro de um grupo de recursos não têm que partilhar o mesmo local. Também pode fornecer uma localização diferente quando necessário.
 
 Copie todo o ficheiro e substitua o seu ficheiro Bicep pelo seu conteúdo.
 

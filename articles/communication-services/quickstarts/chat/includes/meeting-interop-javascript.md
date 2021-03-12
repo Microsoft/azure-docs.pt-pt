@@ -5,12 +5,12 @@ ms.author: askaur
 ms.date: 02/17/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 0c5ff52e5d3769124cd101b2483f18aea6963d25
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 76293bf8497b1cdc20522cc00783dd910f8d77dc
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101750736"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103020899"
 ---
 ## <a name="joining-the-meeting-chat"></a>Juntando-se ao chat da reunião 
 
@@ -23,7 +23,7 @@ Utilize o `npm install` comando para instalar as bibliotecas de clientes dos Ser
 ```console
 npm install @azure/communication-common --save
 
-npm install @azure/communication-administration --save
+npm install @azure/communication-identity --save
 
 npm install @azure/communication-signaling --save
 
@@ -153,7 +153,7 @@ Dentro do corte, substitua
 // npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool inline-source-map
 import { CallClient, CallAgent } from "@azure/communication-calling";
 import { AzureCommunicationUserCredential } from "@azure/communication-common";
-import { CommunicationIdentityClient } from "@azure/communication-administration";
+import { CommunicationIdentityClient } from "@azure/communication-identity";
 import { ChatClient } from "@azure/communication-chat";
 
 let call;

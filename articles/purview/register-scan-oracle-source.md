@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 2/25/2021
-ms.openlocfilehash: 3ae81a9c05f0c88a52db6409bf870ee0427f09db
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 37f6a779e7dd83a6aa61de9850ad3b49b57393f9
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101696173"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103010481"
 ---
 # <a name="register-and-scan-oracle-source-preview"></a>Registar e scan o oráculo (pré-visualização)
 
@@ -31,7 +31,7 @@ A fonte da Oracle suporta a **verificação completa** para extrair metadados de
 
 3.  Certifique-se de que \" o Visual C++ Redistributable Update 4 \" está instalado na máquina de tempo de execução de integração auto-hospedada. Se \' ainda não o tiver instalado, descarregue-o a partir [daqui.](https://www.microsoft.com/download/details.aspx?id=30679)
 
-4.  Terá de descarregar manualmente um controlador Oracle JDBC chamado 'oracle.jdbc.driver.OracleDriver \' na sua máquina virtual onde o tempo de funcionamento da integração auto-hospedada está a decorrer.
+4.  Terá de descarregar manualmente um controlador Oracle JDBC a partir [daqui](https://www.oracle.com/database/technologies/appdev/jdbc-downloads.html) na sua máquina virtual, onde o tempo de funcionamento da integração auto-hospedada está a decorrer.
 
     > [!Note] 
     > O condutor deve estar acessível a todas as contas do VM. Não o instale numa conta de utilizador.

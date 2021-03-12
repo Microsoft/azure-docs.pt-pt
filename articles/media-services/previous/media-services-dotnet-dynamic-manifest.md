@@ -3,7 +3,7 @@ title: Criar Filtros com o SDK .NET dos Serviços de Multimédia do Azure
 description: Este tópico descreve como criar filtros para que o seu cliente possa usá-los para transmitir secções específicas de um fluxo. Media Services .NET SDK cria manifestos dinâmicos para alcançar este streaming seletivo.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: 2f6894ca-fb43-43c0-9151-ddbb2833cafd
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ms.reviewer: cenkdin
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 862385d1117e0a1b5d2220c06885e0fd0ecfa4d7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bd5435f7a2969c486042c9447a0fffbb745229f9
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90531632"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103014116"
 ---
 # <a name="creating-filters-with-media-services-net-sdk"></a>Criação de Filtros com Serviços de Mídia .NET SDK
 
@@ -33,7 +33,7 @@ ms.locfileid: "90531632"
 > 
 > 
 
-A partir do lançamento 2.17, os Serviços de Media permitem definir filtros para os seus ativos. Estes filtros são regras do lado do servidor que permitem aos seus clientes optar por fazer coisas como: reproduzir apenas uma secção de um vídeo (em vez de reproduzir todo o vídeo), ou especificar apenas um subconjunto de representações áudio e vídeo que o dispositivo do seu cliente pode suportar (em vez de todas as representações que estão associadas ao ativo). Esta filtragem dos seus ativos é conseguida através do **Dynamic Manifest**s que são criados a pedido do seu cliente para transmitir um vídeo com base em filtros especificados.
+A partir do lançamento 2.17, os Serviços de Media permitem definir filtros para os seus ativos. Estes filtros são regras do lado do servidor que permitem aos seus clientes optar por fazer coisas como: reproduzir apenas uma secção de um vídeo (em vez de reproduzir todo o vídeo), ou especificar apenas um subconjunto de representações áudio e vídeo que o dispositivo do seu cliente pode suportar (em vez de todas as representações que estão associadas ao ativo). Esta filtragem dos seus ativos é conseguida através do **Dynamic Manifest** s que são criados a pedido do seu cliente para transmitir um vídeo com base em filtros especificados.
 
 Para obter informações mais detalhadas relacionadas com filtros e Manifesto Dinâmico, consulte [a visão geral dos manifestos dinâmicos.](media-services-dynamic-manifest-overview.md)
 

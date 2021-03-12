@@ -103,6 +103,12 @@
           href: ./samples/nist-sp-800-53-r4.md
         - name: NIST SP 800-171 R2
           href: ./samples/nist-sp-800-171-r2.md
+    - name: Linhas de base de configuração de hóspedes
+      items:
+        - name: Linha de base Linux para Azure Security Benchmark
+          href: ./samples/guest-configuration-baseline-linux.md
+        - name: Linha de base do Windows para Azure Security Benchmark
+          href: ./samples/guest-configuration-baseline-windows.md
 - name: Conceitos
   items:
     - name: Estrutura de definição

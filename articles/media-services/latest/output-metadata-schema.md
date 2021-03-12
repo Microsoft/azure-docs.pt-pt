@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 1a27db81866760bff56c900a908162f356c01a66
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: f26905366949c2c198e52f78bc7adb734cbb7f90
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98895208"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102612461"
 ---
 # <a name="output-metadata"></a>Metadados de saída
 
@@ -52,8 +52,8 @@ Cada AssetFile físico pode conter nele zero ou mais vídeos faixas intercaladas
 | Nome | Descrição |
 | --- | --- |
 | **ID**<br /> Necessário |Índice baseado em zero desta pista de vídeo. **Nota:**  Este **Id** não é necessariamente o TrackID usado num ficheiro MP4. <br /><br />Exemplo: `"Id": 1`|
-| **FourCC**<br />Necessário | Código de vídeo Código FourCC que é reportado por ffmpeg.  <br /><br />Exemplo: `"FourCC": "avc1"`|
-| **Perfil** |Perfil H264 (apenas aplicável ao código H264).  <br /><br />Exemplo: `"Profile": "High"` |
+| **FourCC**<br />Necessário | Código de vídeo Código FourCC que é reportado por ffmpeg.  <br /><br />Exemplo: `"FourCC": "avc1" | "hev1" | "hvc1"`|
+| **Perfil** |Perfil H264 (apenas aplicável ao código H264)  <br /><br />Exemplo: `"Profile": "High"` |
 | **Nível** |Nível H264 (apenas aplicável ao código H264).  <br /><br />Exemplo: `"Level": "3.2"`|
 | **Width**<br />Necessário |Largura de vídeo codificada em pixels.  <br /><br />Exemplo: `"Width": "1280"`|
 | **Height**<br />Necessário |A altura de vídeo codificada em pixels.  <br /><br />Exemplo: `"Height": "720"`|
@@ -260,6 +260,6 @@ Cada ActivoFile físico pode conter nele zero ou mais faixas de áudio intercala
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Criar uma entrada de trabalho a partir de um URL HTTPS](job-input-from-http-how-to.md)

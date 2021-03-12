@@ -12,27 +12,22 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 5b74c817a974378a7fefc71e4eed67e6564765be
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 372efa217e400ffd4bcecd286f3c3dc7b81f64d6
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756561"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103007974"
 ---
 # <a name="desktop-app-that-calls-web-apis-code-configuration"></a>Aplicativo de desktop que chama APIs web: configuração de código
 
 Agora que criou a sua aplicação, aprenderá a configurar o código com as coordenadas da aplicação.
 
-## <a name="microsoft-authentication-libraries"></a>Bibliotecas de Autenticação microsoft
+## <a name="microsoft-libraries-supporting-desktop-apps"></a>Bibliotecas da Microsoft que suportam aplicações de desktop
 
-As seguintes aplicações de suporte para bibliotecas de autenticação da Microsoft (MSALs).
+As seguintes bibliotecas da Microsoft suportam aplicações de ambiente de trabalho:
 
-  Biblioteca de Autenticação da Microsoft | Descrição
-  ------------ | ----------
-  ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Suporta a construção de uma aplicação para desktop em várias plataformas, como Linux, Windows e macOS.
-  ![Python](media/sample-v2-code/logo_python.png) <br/> Pitão MSAL | Suporta a construção de uma aplicação de desktop em várias plataformas.
-  ![Java](media/sample-v2-code/logo_java.png) <br/> MSAL Java | Suporta a construção de uma aplicação de desktop em várias plataformas.
-  ![MSAL iOS](media/sample-v2-code/logo_iOS.png) <br/> MSAL iOS | Suporta aplicações de desktop que funcionam apenas no macOS.
+[!INCLUDE [active-directory-develop-libraries-desktop](../../../includes/active-directory-develop-libraries-desktop.md)]
 
 ## <a name="public-client-application"></a>Aplicação cliente pública
 
@@ -260,6 +255,6 @@ if let application = try? MSALPublicClientApplication(configuration: config) { /
 ```
 ---
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Passe para o próximo artigo neste cenário, [adquira um símbolo para a aplicação de ambiente de trabalho](scenario-desktop-acquire-token.md).

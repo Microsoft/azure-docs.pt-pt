@@ -16,12 +16,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9abed17f5a3d23f811c7cec0d4fd31e4433f651d
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: df90857bf30b6fff3c18faf126efabe8c959c0c6
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102177029"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102633432"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Quais as novidades no Diretório Ativo do Azure?
 
@@ -211,7 +211,7 @@ Para mais informações, leia [o fornecimento de utilizadores da Automamate para
  
 10 As funções AD AD foram renomeadas para que estejam alinhadas através do [centro de administração microsoft 365](https://docs.microsoft.com/microsoft-365/admin/microsoft-365-admin-center-preview), [portal AD AD Azure](https://portal.azure.com/)e [Microsoft Graph](https://developer.microsoft.com/graph/). Para saber mais sobre as novas funções, consulte as [permissões de função de Administrador no Azure Ative Directory](../roles/permissions-reference.md#all-roles).
 
-![Tabela de novos nomes](media/whats-new/roles-table-rbac.png)
+![Tabela mostrando nomes de papéis na MS Graph API e no portal Azure, e o nome final proposto através da API, portal Azure e Mac.](media/whats-new/roles-table-rbac.png)
 
 ---
 
@@ -968,7 +968,7 @@ Pode agora permitir que os proprietários de aplicações monitorizem a atividad
  
 Alguns papéis incorporados no Azure Ative Directory (AD) têm nomes que diferem dos que aparecem no Microsoft 365 admin center, no portal AD Azure e no Microsoft Graph. Esta inconsistência pode causar problemas em processos automatizados. Com esta atualização, estamos a renomear 10 nomes para torná-los consistentes. A tabela a seguir tem os novos nomes:
 
-![Tabela de novos nomes](media/whats-new/azure-role.png)
+![Tabela mostrando nomes de papéis na MS Graph API e no portal Azure, e o novo nome de papel proposto no M365 Admin Center, portal Azure e API.](media/whats-new/azure-role.png)
 
 ---
 

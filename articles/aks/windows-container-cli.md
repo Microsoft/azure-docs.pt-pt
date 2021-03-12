@@ -4,12 +4,12 @@ description: Aprenda a criar rapidamente um cluster Kubernetes, implementar uma 
 services: container-service
 ms.topic: article
 ms.date: 07/16/2020
-ms.openlocfilehash: 4d429b7136158723fa6110975326217c5540bc2e
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 13b4fbd21bb348d1ef79a3ca68128869115745cc
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102181011"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200895"
 ---
 # <a name="create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Criar um recipiente do Windows Server num cluster Azure Kubernetes Service (AKS) utilizando o Azure CLI
 
@@ -69,32 +69,35 @@ A saída de exemplo a seguir mostra o grupo de recursos criado com sucesso:
 
 Para executar um cluster AKS que suporta piscinas de nós para recipientes do Windows Server, o seu cluster precisa de utilizar uma política de rede que utilize plugin de rede [Azure CNI][azure-cni-about] (avançado). Para obter informações mais pormenorizadas para ajudar a planear as gamas de sub-redes necessárias e considerações de rede, consulte [a configuração da rede CNI Azure][use-advanced-networking]. Utilize os [az aks criar][az-aks-create] comando para criar um cluster AKS chamado *myAKSCluster*. Este comando criará os recursos de rede necessários se não existirem.
 
-* O cluster está configurado com dois nóns
-* Os parâmetros *de nome de utilizador do windows-admin* e do nome de utilizador do *windows-admin* definem as credenciais de administração de quaisquer recipientes do Windows Server criados no cluster e devem satisfazer os [requisitos de senha do Windows Server][windows-server-password].
-* A piscina de nó usa `VirtualMachineScaleSets`
+* O aglomerado está configurado com dois nós.
+* Os `--windows-admin-password` `--windows-admin-username` parâmetros e parâmetros definem as credenciais de administração de quaisquer contentores do Windows Server criados no cluster e devem satisfazer os [requisitos de senha do Windows Server][windows-server-password]. Se não especificar o parâmetro *de palavra-passe para administração de janelas,* será solicitado que forneça um valor.
+* A piscina de nó `VirtualMachineScaleSets` usa.
 
 > [!NOTE]
 > Para garantir que o seu cluster funcione de forma fiável, deverá executar pelo menos 2 (dois) nós na piscina de nós predefinidos.
 
-Forneça o seu próprio *PASSWORD_WIN* seguro (lembre-se que os comandos deste artigo são inseridos numa concha BASH):
+Crie um nome de utilizador para utilizar como credenciais de administrador para os seus recipientes do Windows Server no seu cluster. Os seguintes comandos solicitam-lhe um nome de utilizador e define-o WINDOWS_USERNAME para utilização num comando posterior (lembre-se que os comandos deste artigo são introduzidos numa concha BASH).
 
 ```azurecli-interactive
-PASSWORD_WIN="P@ssw0rd1234"
+echo "Please enter the username to use as administrator credentials for Windows Server containers on your cluster: " && read WINDOWS_USERNAME
+```
 
+Crie o seu cluster certificando-se de que especifica `--windows-admin-username` o parâmetro. O seguinte exemplo de comando cria um cluster utilizando o valor a partir de *WINDOWS_USERNAME* que definiu no comando anterior. Em alternativa, pode fornecer um nome de utilizador diferente diretamente no parâmetro em vez de utilizar *WINDOWS_USERNAME*. O seguinte comando também lhe solicitará a criação de uma palavra-passe para as credenciais de administrador para os seus Contentores do Servidor do Windows no seu cluster. Em alternativa, pode utilizar o parâmetro *de palavra-passe para administração de janelas* e especificar o seu próprio valor lá.
+
+```azurecli-interactive
 az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \
     --node-count 2 \
     --enable-addons monitoring \
     --generate-ssh-keys \
-    --windows-admin-password $PASSWORD_WIN \
-    --windows-admin-username azureuser \
+    --windows-admin-username $WINDOWS_USERNAME \
     --vm-set-type VirtualMachineScaleSets \
     --network-plugin azure
 ```
 
 > [!NOTE]
-> Se obter um erro de validação de palavra-passe, verifique se o parâmetro *de palavra-passe do windows-admin* cumpre os [requisitos][windows-server-password]de senha do Windows Server . Se a sua palavra-passe satisfaz os requisitos, tente criar o seu grupo de recursos noutra região. Em seguida, tente criar o cluster com o novo grupo de recursos.
+> Se obter um erro de validação de palavra-passe, verifique se a palavra-passe que definiu satisfaz os [requisitos][windows-server-password]de senha do Windows Server . Se a sua palavra-passe satisfaz os requisitos, tente criar o seu grupo de recursos noutra região. Em seguida, tente criar o cluster com o novo grupo de recursos.
 
 Após alguns minutos, o comando completa e devolve informações formatadas com JSON sobre o cluster. Ocasionalmente, o cluster pode demorar mais do que alguns minutos a providenciar. Deixe até 10 minutos nestes casos.
 

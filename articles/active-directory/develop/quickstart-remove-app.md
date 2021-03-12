@@ -13,12 +13,12 @@ ms.date: 11/15/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: marsma, aragra, lenalepa, sureshja
-ms.openlocfilehash: a0543905f41abc9c21327159d63f7adaa5b025dc
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: e04884c078bd9a5693ddcbc4e71470bb23e13d60
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101645896"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199800"
 ---
 # <a name="how-to-remove-an-application-registered-with-the-microsoft-identity-platform"></a>Como remover uma aplicação registada na plataforma de identidade da Microsoft
 
@@ -47,7 +47,8 @@ Para eliminar uma aplicação, ser listado como proprietário da aplicação ou 
 1. Pesse e selecione o **Diretório Ativo Azure**. 
 1. Em **Gestão**, selecione **as inscrições da App**  e selecione a aplicação que pretende configurar. Depois de selecionar a aplicação, verá a página **Descrição geral** da aplicação.
 1. Na página **Descrição geral**, selecione **Eliminar**.
-1. Selecione **Sim** para confirmar que pretende eliminar a aplicação.
+1. Leia as consequências da eliminação.  Verifique a caixa se aparecer na parte inferior do painel.
+1. **Selecione Eliminar** para confirmar que pretende eliminar a aplicação.
 
 ## <a name="remove-an-application-authored-by-another-organization"></a>Remover uma aplicação criada por outra organização
 

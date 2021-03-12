@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: cfc980fdabdb9c6e7085088db12754243f133d89
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 0ddbd4b798d37498af92cec40af6a80a88115fab
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100581397"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103014898"
 ---
 # <a name="security-best-practices"></a>Melhores práticas de segurança
 
@@ -117,7 +117,6 @@ Para testar esta nova funcionalidade:
 >[!NOTE]
 >Durante a pré-visualização, apenas as ligações completas do ambiente de trabalho a partir dos pontos finais do Windows 10 suportam esta funcionalidade.
 
-
 ### <a name="enable-endpoint-protection"></a>Permitir a proteção do ponto final
 
 Para proteger a sua implementação de software malicioso conhecido, recomendamos que se permita a proteção do ponto final em todos os anfitriões da sessão. Pode utilizar o Antivírus do Windows Defender ou um programa de terceiros. Para saber mais, consulte [o guia de implementação do Antivírus do Windows Defender num ambiente VDI](/windows/security/threat-protection/windows-defender-antivirus/deployment-vdi-windows-defender-antivirus).
@@ -169,6 +168,52 @@ Ao restringir as capacidades do sistema operativo, pode reforçar a segurança d
 - Conceder aos utilizadores permissões limitadas quando acedem a sistemas de ficheiros locais e remotos. Pode restringir as permissões certificando-se de que os seus sistemas de ficheiros locais e remotos utilizam listas de controlo de acesso com o menor privilégio. Desta forma, os utilizadores só podem aceder ao que precisam e não podem alterar ou apagar recursos críticos.
 
 - Evite que o software indesejado esteja a funcionar em anfitriões de sessão. Pode ativar o App Locker para obter segurança adicional nos anfitriões da sessão, garantindo que apenas as aplicações que permite podem ser executadas no anfitrião.
+
+## <a name="windows-virtual-desktop-support-for-trusted-launch"></a>Suporte virtual para desktop do Windows para lançamento fidedigno
+
+Lançamento fidedigno são Os VMs da Gen2 Azure com funcionalidades de segurança reforçadas destinadas a proteger contra ameaças "inferiores da pilha" através de vetores de ataque, tais como rootkits, kits de arranque e malware de nível kernel. Seguem-se as funcionalidades de segurança melhoradas do lançamento fidedigno, todas suportadas no Windows Virtual Desktop. Para saber mais sobre o lançamento fidedigno, visite [o lançamento trusted para máquinas virtuais Azure (pré-visualização)](../virtual-machines/trusted-launch.md).
+
+### <a name="secure-boot"></a>Arranque Seguro
+
+O Secure Boot é um modo que o firmware da plataforma suporta que protege o seu firmware de rootkits e kits de arranque baseados em malware. Este modo só permite que os OSes e os controladores assinados arranquem a máquina. 
+
+### <a name="monitor-boot-integrity-using-remote-attestation"></a>Monitoria a integridade do arranque utilizando o Attestation Remoto
+
+Atestado remoto é uma ótima maneira de verificar a saúde dos seus VMs. O atestado remoto verifica se os registos medidos de arranque estão presentes, genuínos e originam-se do Módulo de Plataforma Fidedigna Virtual (vTPM). Como um exame de saúde, fornece certeza criptográfica de que uma plataforma começou corretamente. 
+
+### <a name="vtpm"></a>vTPM
+
+A vTPM é uma versão virtualizada de um Módulo de Plataforma Fidedigna de hardware (TPM), com uma instância virtual de um TPM por VM. vTPM permite a realização de atestado remoto através da medição da integridade de toda a cadeia de arranque do VM (UEFI, OS, sistema e controladores). 
+
+Recomendamos que o vTPM utilize atestado remoto nos seus VMs. Com o vTPM ativado, também pode ativar a funcionalidade BitLocker, que fornece encriptação de volume completo para proteger os dados em repouso. Quaisquer funcionalidades que utilizem vTPM resultarão em segredos ligados ao VM específico. Quando os utilizadores se ligam ao serviço de desktop virtual do Windows num cenário repleto, os utilizadores podem ser redirecionados para qualquer VM na piscina de anfitrião. Dependendo da forma como a funcionalidade é desenhada, isto pode ter um impacto.
+
+>[!NOTE]
+>O BitLocker não deve ser utilizado para encriptar o disco específico onde está a armazenar os seus dados de perfil FSLogix.
+
+### <a name="virtualization-based-security"></a>Segurança baseada em virtualização
+
+A Segurança baseada na Virtualização (VBS) utiliza o hipervisor para criar e isolar uma região segura de memória inacessível ao SO. Hypervisor-Protected Code Integrity (HVCI) e Windows Defender Credenciais Guard ambos usam VBS para fornecer uma maior proteção contra vulnerabilidades. 
+
+#### <a name="hypervisor-protected-code-integrity"></a>Integridade do Código Hypervisor-Protected
+
+O HVCI é uma poderosa mitigação do sistema que utiliza vBS para proteger os processos do modo kernel do Windows contra a injeção e execução de código malicioso ou não verificado.
+
+#### <a name="windows-defender-credential-guard"></a>Windows Defender Credential Guard
+
+O Windows Defender Credential Guard utiliza o VBS para isolar e proteger segredos para que apenas o software privilegiado do sistema possa aceder aos mesmos. Isto impede o acesso não autorizado a estes segredos e ataques de roubo credenciais, como ataques de Pass-the-Hash.
+
+### <a name="deploy-trusted-launch-in-your-windows-virtual-desktop-environment"></a>Implementar lançamento fidedigno no ambiente de ambiente de trabalho virtual do Windows
+
+O Windows Virtual Desktop não suporta atualmente configurar automaticamente o Lançamento Fidedigno durante o processo de configuração do pool do anfitrião. Para utilizar o lançamento fidedigno no ambiente de ambiente de trabalho virtual do Windows, terá de implementar o Lançamento Fidedigno normalmente e, em seguida, adicionar manualmente a máquina virtual à piscina de anfitriões desejada.
+
+## <a name="nested-virtualization"></a>Virtualização aninhada
+
+Os seguintes sistemas operativos suportam a virtualização aninhada no Windows Virtual Desktop:
+
+- Windows Server 2016
+- Windows Server 2019
+- Windows 10 Enterprise
+- Várias sessões do Windows 10 Enterprise.
 
 ## <a name="next-steps"></a>Passos seguintes
 

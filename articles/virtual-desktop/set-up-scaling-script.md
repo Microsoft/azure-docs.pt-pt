@@ -3,15 +3,15 @@ title: Sessão de escala acolhe Azure Automation - Azure
 description: Como escalar automaticamente os anfitriões da sessão virtual do Windows desktop com a Azure Automation.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 03/30/2020
+ms.date: 03/09/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 12a15ab1a4c7369c448e9f65862121b03ca05bba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f60341ea51f1cf4e856b1b4598887da3dc37ebb2
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89078559"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102613124"
 ---
 # <a name="scale-session-hosts-using-azure-automation"></a>Anfitriões de sessão de escala usando Azure Automation
 
@@ -41,7 +41,7 @@ Durante o tempo de utilização fora do pico, o trabalho determina quantas VMs d
 >[!NOTE]
 >Se definir manualmente o VM do anfitrião da sessão para o modo de drenagem, o trabalho não gerirá o VM do anfitrião da sessão. Se o VM do anfitrião da sessão estiver em funcionamento e definido para o modo de drenagem, será tratado como indisponível, o que fará com que o trabalho inicie VMs adicionais para lidar com a carga. Recomendamos que marque quaisquer VMs Azure antes de os definir manualmente para o modo de drenagem. Pode nomear a etiqueta com o parâmetro *ManutençãoTagName* quando criar o Azure Logic App Scheduler mais tarde. As etiquetas ajudar-lhe-ão a distinguir estes VMs daqueles que a ferramenta de escalagem gere. A definição da etiqueta de manutenção também impede que a ferramenta de escalação faça alterações no VM até remover a etiqueta.
 
-Se definir o parâmetro *LimitSecondsToForceLogOffUser* para zero, o trabalho permite que a definição de configuração da sessão em políticas de grupo especificadas lide com a assinatura de sessões de utilizador. Para ver estas políticas de grupo, aceda a políticas **de configuração de computador**  >  **Policies**  >  **Modelos administrativos**Windows  >  **Components Remote**Desktop Services Remote  >  **Desktop**Session  >  **Host**  >  **Time Limits**. Se houver sessões ativas num VM anfitrião de sessão, o trabalho deixará o VM anfitrião da sessão em funcionamento. Se não houver sessões ativas, o trabalho encerrará o VM anfitrião da sessão.
+Se definir o parâmetro *LimitSecondsToForceLogOffUser* para zero, o trabalho permite que a definição de configuração da sessão em políticas de grupo especificadas lide com a assinatura de sessões de utilizador. Para ver estas políticas de grupo, aceda a políticas **de configuração de computador**  >    >  **Modelos administrativos** Windows  >  **Components Remote** Desktop Services Remote  >  **Desktop** Session  >  **Host**  >  **Time Limits**. Se houver sessões ativas num VM anfitrião de sessão, o trabalho deixará o VM anfitrião da sessão em funcionamento. Se não houver sessões ativas, o trabalho encerrará o VM anfitrião da sessão.
 
 Durante qualquer tempo, o trabalho também leva em conta o *MaxSessionLimit* do anfitrião para determinar se o número atual de sessões é mais de 90% da capacidade máxima. Se for, o trabalho iniciará vMs de anfitrião adicional.
 
@@ -52,6 +52,9 @@ No entanto, a ferramenta também tem as seguintes limitações:
 - Esta solução aplica-se apenas aos VM do anfitrião de múltiplas sessões em conjunto.
 - Esta solução gere VMs em qualquer região, mas só pode ser usada na mesma subscrição que a sua conta Azure Automation e Azure Logic App.
 - O tempo máximo de funcionamento de um trabalho no livro de corridas é de 3 horas. Se começar ou parar os VMs na piscina de anfitrião demorar mais tempo do que isso, o trabalho falhará. Para mais detalhes, consulte [recursos partilhados.](../automation/automation-runbook-execution.md#fair-share)
+- Pelo menos um VM ou anfitrião de sessão precisa de ser ligado para que o algoritmo de escala funcione corretamente.
+- A ferramenta de escala não suporta o escalonamento com base no CPU ou na memória.
+- A escala só funciona com os anfitriões existentes na piscina de anfitriões. A ferramenta de escala não suporta a escala de novos anfitriões de sessão.
 
 >[!NOTE]
 >A ferramenta de escala controla o modo de equilíbrio de carga da piscina hospedeira que está atualmente a escalonar. A ferramenta utiliza o modo de equilíbrio de primeira carga para horas de pico e de pico.

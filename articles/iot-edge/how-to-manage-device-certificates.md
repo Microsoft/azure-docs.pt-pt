@@ -8,14 +8,16 @@ ms.date: 03/01/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 6a4cade6a740bffc33695c40663609df38ba6e7a
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: e5c85d2c3049ea8718d0a9e0e574c13d0d99394c
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102044906"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200282"
 ---
 # <a name="manage-certificates-on-an-iot-edge-device"></a>Gerir certificados num dispositivo IoT Edge
+
+[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
 
 Todos os dispositivos IoT Edge utilizam certificados para criar ligações seguras entre o runtime e quaisquer módulos em execução no dispositivo. Os dispositivos IoT Edge que funcionam como gateways usam estes mesmos certificados para se ligarem aos seus dispositivos a jusante, também.
 

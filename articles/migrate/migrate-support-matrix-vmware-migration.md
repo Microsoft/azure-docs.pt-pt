@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: fc3ba062f4995e975015d7c4db145ccde0c3f701
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: cbb1db15eed53af1d0e4590e1b228e5e47680560
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101705216"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102614926"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Matriz de suporte da migração do VMware
 
@@ -73,7 +73,7 @@ A tabela resume os requisitos de migração sem agente para VMware VMs.
 **IPv6** | Não suportado.
 **Disco-alvo** | Os VMs só podem ser migrados para discos geridos (HDD padrão, SSD padrão, SSD premium) em Azure.
 **Replicação simultânea** | 500 VMs por vCenter Server. Se tiver mais, migra-os em lotes de 500.
-**Instalação automática do agente Azure VM (Windows Agent)** | Suportado para Windows Server 2008 R2 em diante.
+**Instalação automática do agente Azure VM (Windows e Linux Agent)** | Suportado para Windows Server 2008 R2 em diante. <br/> Apoiado para RHEL6, RHEL7, CentOS7, Ubuntu 14.04, Ubuntu 16.04, Ubuntu18.04. Reveja a lista de [pacotes necessários](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux#requirements)) para estes sistemas operativos Linux.
 
 ### <a name="appliance-requirements-agentless"></a>Requisitos do aparelho (sem agente)
 

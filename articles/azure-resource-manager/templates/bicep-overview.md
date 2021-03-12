@@ -2,19 +2,19 @@
 title: Linguagem bicep para modelos de gestor de recursos Azure
 description: Descreve a linguagem Bicep para implantar infraestruturas para Azure através de modelos Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 03/03/2021
-ms.openlocfilehash: 2fb13bca9e9d456889185d512ee2fc9d4cbbe673
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.date: 03/12/2021
+ms.openlocfilehash: 11ba562fa3d91ffc7baeca647ed05e839f9c8013
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102036389"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103232975"
 ---
 # <a name="what-is-bicep-preview"></a>O que é Bicep (Pré-visualização)?
 
-Bicep é uma linguagem para a implantação declarativa dos recursos do Azure. Simplifica a experiência de autoria fornecendo sintaxe concisa e melhor suporte para a reutilização de códigos. Bicep é uma língua específica do domínio (DSL), o que significa que é projetado para um determinado cenário ou domínio. Bicep não se destina a ser uma linguagem de programação geral para escrever aplicações.
+Bicep é uma linguagem para a implantação declarativa dos recursos do Azure. Pode utilizar Bicep em vez de JSON para desenvolver os seus modelos de Gestor de Recursos Azure (modelos ARM). A Bicep simplifica a experiência de autoria fornecendo sintaxe concisa, melhor suporte para a reutilização de códigos e melhor segurança do tipo. Bicep é uma língua específica do domínio (DSL), o que significa que é projetado para um determinado cenário ou domínio. Não se destina a ser uma linguagem de programação geral para escrever aplicações.
 
-No passado, desenvolveu modelos de Gestor de Recursos Azure (modelos ARM) com JSON. A sintaxe JSON para criar o modelo pode ser verbosa e requer expressão complicada. Bicep melhora essa experiência sem perder nenhuma das capacidades de um modelo JSON. É uma abstração transparente sobre o JSON para modelos ARM. Cada ficheiro Bicep compila-se com um modelo ARM padrão. Os tipos de recursos, versões API e propriedades válidas num modelo ARM são válidos num ficheiro Bicep.
+A sintaxe JSON para criar o modelo pode ser verbosa e requer expressão complicada. Bicep melhora essa experiência sem perder nenhuma das capacidades de um modelo JSON. É uma abstração transparente sobre o JSON para modelos ARM. Cada ficheiro Bicep compila-se com um modelo ARM padrão. Os tipos de recursos, versões API e propriedades válidas num modelo ARM são válidos num ficheiro Bicep. Existem algumas [limitações conhecidas](#known-limitations) na versão atual.
 
 ## <a name="get-started"></a>Introdução
 
@@ -55,7 +55,15 @@ Com o Bicep, pode dividir o seu projeto em vários módulos.
 
 A estrutura do ficheiro Bicep é mais flexível do que o modelo JSON. Pode declarar parâmetros, variáveis e saídas em qualquer lugar do ficheiro. No JSON, tem de declarar todos os parâmetros, variáveis e saídas dentro das secções correspondentes do modelo.
 
-A extensão do Código VS para Bicep oferece validação mais rica e intellisense. Por exemplo, a extensão tem intellisense para obter propriedades de um recurso.
+A extensão do Código VS para Bicep oferece uma rica validação e intellisense. Por exemplo, pode usar o intellisense da extensão para obter propriedades de um recurso.
+
+## <a name="known-limitations"></a>Limitações conhecidas
+
+Existem atualmente os seguintes limites:
+
+* Não é possível definir o modo ou o tamanho do lote em ciclos de cópia.
+* Não se pode combinar laços e condições.
+* Objetos de linha única e matrizes, `['a', 'b', 'c']` como, não são suportados.
 
 ## <a name="faq"></a>FAQ
 

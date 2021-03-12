@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: inhenkel
-ms.openlocfilehash: 9be00fd89234be0a8b5740af9e12811f36a47619
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 4f4f53d4a20397f38b565cb73e74b01d15cc3022
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101092342"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102633058"
 ---
 # <a name="dynamic-packaging-in-media-services-v3"></a>Embalagem dinâmica em Media Services v3
 
@@ -27,9 +27,6 @@ ms.locfileid: "101092342"
 O Microsoft Azure Media Services pode ser utilizado para codificar muitos formatos de ficheiros de origem de mídia. Fornece-os através de diferentes protocolos de streaming, com ou sem proteção de conteúdos, para chegar a todos os principais dispositivos (como dispositivos iOS e Android). Estes clientes entendem diferentes protocolos. Por exemplo, o iOS requer que os streams sejam entregues em formato HTTP Live Streaming (HLS) e dispositivos Android suportam HLS, bem como MPEG DASH.
 
 Nos Media Services, um [ponto final de streaming](streaming-endpoint-concept.md) (origem) representa um serviço dinâmico (just-in-time) de embalagem e origem que pode entregar o seu conteúdo ao vivo e a pedido diretamente a uma aplicação de cliente. Utiliza um dos protocolos comuns de streaming mencionados na secção seguinte. *A embalagem dinâmica* é uma característica que vem de série em todos os pontos finais de streaming.
-
-> [!NOTE]
-> Você pode usar o [portal Azure](https://portal.azure.com/) para gerir [eventos v3 ao vivo,](live-events-outputs-concept.md)ver [ativos](assets-concept.md)v3, obter informações sobre o acesso a APIs. Para todas as outras tarefas de gestão (por exemplo, transformações e empregos), utilize o [REST API,](/rest/api/media/) [O CLI,](/cli/azure/ams)ou um dos [SDKs apoiados.](media-services-apis-overview.md#sdks)
 
 ## <a name="to-prepare-your-source-files-for-delivery"></a>Para preparar os seus ficheiros de origem para entrega
 

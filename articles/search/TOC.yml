@@ -312,6 +312,8 @@
           href: search-query-create.md
         - name: Criar uma consulta semântica
           href: semantic-how-to-query-request.md
+        - name: Devolva uma resposta semântica
+          href: semantic-answers.md
         - name: Adicione verificação ortográfica a consultas
           href: speller-how-to-add.md
         - name: Tipos de consulta e composição
@@ -330,6 +332,8 @@
               href: index-add-suggesters.md
             - name: Adicionar preenchimento automático e sugestões
               href: search-autocomplete-tutorial.md
+        - name: Paging e conta
+          href: search-pagination-page-layout.md
         - name: Referência de sintaxe
           items:
             - name: Sintaxe de consulta simples
@@ -352,16 +356,14 @@
           href: search-query-understand-collection-filters.md
         - name: Filtrar por idioma
           href: search-filters-language.md
-    - name: Resultados
+    - name: Relevância
       items:
-        - name: Trabalhar com os resultados
-          href: search-pagination-page-layout.md
-        - name: Estruturar uma resposta semântica
-          href: semantic-how-to-query-response.md
+        - name: Ranking de semelhança
+          href: index-ranking-similarity.md
+        - name: Ranking semântico
+          href: semantic-ranking.md
         - name: Perfis de classificação
           href: index-add-scoring-profiles.md
-        - name: Algoritmo de semelhança
-          href: index-ranking-similarity.md
     - name: Segurança
       items:
         - name: Encriptação de dados

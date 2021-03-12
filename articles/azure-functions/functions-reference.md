@@ -4,12 +4,12 @@ description: Aprenda os conceitos e técnicas das Funções Azure que precisa pa
 ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
 ms.topic: conceptual
 ms.date: 10/12/2017
-ms.openlocfilehash: fdc898c02cfd20ecfdd72dece4fb1e92d803dbb0
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 7030ca1c1950f7c06580ce7417a4429fbe330c4e
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100386905"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102614824"
 ---
 # <a name="azure-functions-developer-guide"></a>Guia do programador das Funções do Azure
 Nas Funções Azure, funções específicas partilham alguns conceitos e componentes técnicos fundamentais, independentemente do idioma ou ligação que utilizar. Antes de entrar em detalhes de aprendizagem específicos de uma determinada língua ou ligação, não se esqueça de ler este resumo que se aplica a todos eles.
@@ -116,10 +116,11 @@ Algumas ligações em Funções Azure são configuradas para usar uma identidade
 
 As ligações baseadas na identidade são suportadas pelas seguintes extensões de gatilho e ligação:
 
-| Nome de extensão | Versão da extensão                                                                                     | Suporta ligações baseadas na identidade no plano de consumo |
+| Nome de extensão | Versão da extensão                                                                                     | Apoiado no Plano de Consumo |
 |----------------|-------------------------------------------------------------------------------------------------------|---------------------------------------|
 | Blob do Azure     | [Versão 5.0.0-beta1 ou posterior](./functions-bindings-storage-blob.md#storage-extension-5x-and-higher)  | No                                    |
 | Filas do Azure    | [Versão 5.0.0-beta1 ou posterior](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher) | No                                    |
+| Azure Event Hubs    | [Versão 5.0.0-beta1 ou posterior](./functions-bindings-event-hubs.md#event-hubs-extension-5x-and-higher) | No                                    |
 
 > [!NOTE]
 > O suporte para ligações baseadas na identidade ainda não está disponível para ligações de armazenamento utilizadas pelo tempo de execução de Funções para comportamentos fundamentais. Isto significa que a `AzureWebJobsStorage` regulação deve ser uma cadeia de ligação.
@@ -128,9 +129,10 @@ As ligações baseadas na identidade são suportadas pelas seguintes extensões 
 
 Uma ligação baseada na identidade de um serviço Azure aceita as seguintes propriedades:
 
-| Propriedade    | Variável de ambiente | é necessário | Description |
+| Propriedade    | Necessário para extensões | Variável de ambiente | Description |
 |---|---|---|---|
-| Serviço URI | `<CONNECTION_NAME_PREFIX>__serviceUri` | Yes | O plano de dados URI do serviço ao qual está a ligar. |
+| Serviço URI | Azure Blob, Fila Azure | `<CONNECTION_NAME_PREFIX>__serviceUri` |  O plano de dados URI do serviço ao qual está a ligar. |
+| Espaço de nome totalmente qualificado | Hubs de Eventos | `<CONNECTION_NAME_PREFIX>__fullyQualifiedNamespace` | O espaço de nomes do Event Hub totalmente qualificado. |
 
 Podem ser suportadas opções adicionais para um determinado tipo de ligação. Consulte a documentação do componente que estica a ligação.
 
@@ -152,14 +154,26 @@ Em alguns casos, pode desejar especificar o uso de uma identidade diferente. Pod
 > [!NOTE]
 > As seguintes opções de configuração não são suportadas quando hospedadas no serviço Azure Functions.
 
-Para ligar usando um diretor de serviço Azure Ative Com um ID do cliente e secreto, defina a ligação com as seguintes propriedades:
+Para ligar utilizando um diretor de serviço Azure Ative Com um ID do cliente e secreto, defina a ligação com as seguintes propriedades necessárias para além das [propriedades de Conexão](#connection-properties) acima:
 
-| Propriedade    | Variável de ambiente | é necessário | Description |
-|---|---|---|---|
-| Serviço URI | `<CONNECTION_NAME_PREFIX>__serviceUri` | Yes | O plano de dados URI do serviço ao qual está a ligar. |
-| ID do inquilino | `<CONNECTION_NAME_PREFIX>__tenantId` | Yes | Identificação do inquilino do Diretório Ativo Azure (diretório). |
-| ID de Cliente | `<CONNECTION_NAME_PREFIX>__clientId` | Yes |  O cliente (aplicação) ID de um registo de aplicação no inquilino. |
-| Segredo do cliente | `<CONNECTION_NAME_PREFIX>__clientSecret` | Yes | Um segredo de cliente que foi gerado para o registo da aplicação. |
+| Propriedade    | Variável de ambiente | Description |
+|---|---|---|
+| ID do inquilino | `<CONNECTION_NAME_PREFIX>__tenantId` | Identificação do inquilino do Diretório Ativo Azure (diretório). |
+| ID de Cliente | `<CONNECTION_NAME_PREFIX>__clientId` |  O cliente (aplicação) ID de um registo de aplicação no inquilino. |
+| Segredo do cliente | `<CONNECTION_NAME_PREFIX>__clientSecret` | Um segredo de cliente que foi gerado para o registo da aplicação. |
+
+Exemplo das `local.settings.json` propriedades necessárias para a ligação baseada na identidade com a Azure Blob: 
+```json
+{
+  "IsEncrypted": false,
+  "Values": {
+    "<CONNECTION_NAME_PREFIX>__serviceUri": "<serviceUri>",
+    "<CONNECTION_NAME_PREFIX>__tenantId": "<tenantId>",
+    "<CONNECTION_NAME_PREFIX>__clientId": "<clientId>",
+    "<CONNECTION_NAME_PREFIX>__clientSecret": "<clientSecret>"
+  }
+}
+```
 
 #### <a name="grant-permission-to-the-identity"></a>Conceder permissão à identidade
 

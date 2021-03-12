@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/12/2020
+ms.date: 03/03/2021
 ms.author: jeedes
-ms.openlocfilehash: f9e4af3330ecf5fbe161f7ba92ddf96eb04880a1
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 1996024d163a4bf7cfa741110038bb8db5b883e8
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98728045"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102632751"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-beyondtrust-remote-support"></a>Tutorial: Azure Ative Directory integração única (SSO) com Suporte Remoto BeyondTrust
 
@@ -51,7 +51,7 @@ Para configurar a integração do BeyondTrust Remote Support em Azure AD, precis
 1. Na secção Adicionar a partir da secção **de galeria,** **digite BeyondTrust Remote Support** na caixa de pesquisa.
 1. Selecione **BeyondTrust Remote Support** do painel de resultados e adicione a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-beyondtrust-remote-support"></a>Configurar e testar o Azure AD um único sinal de entrada para o Suporte Remoto BeyondTrust
+## <a name="configure-and-test-azure-ad-sso-for-beyondtrust-remote-support"></a>Configure e teste Azure AD SSO para suporte remoto BeyondTrust
 
 Configure e teste Azure AD SSO com Suporte Remoto BeyondTrust usando um utilizador de teste chamado **B.Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador Azure AD e o utilizador relacionado no BeyondTrust Remote Support.
 
@@ -76,14 +76,14 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Na secção **Configuração Básica SAML,** insira os valores para os seguintes campos:
 
-    a. Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão: `https://<HOSTNAME>.bomgar.com/saml`
+    a. Na caixa **identifier,** digite um URL utilizando o seguinte padrão: `https://<HOSTNAME>.bomgar.com`
 
-    b. Na caixa **identifier,** digite um URL utilizando o seguinte padrão: `https://<HOSTNAME>.bomgar.com`
-
-    c. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão: `https://<HOSTNAME>.bomgar.com/saml/sso`
+    b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão: `https://<HOSTNAME>.bomgar.com/saml/sso`
+    
+    c. Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão: `https://<HOSTNAME>.bomgar.com/saml`
 
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o URL de Sign-On real, identifier e responder URL. Obterá estes valores explicados mais tarde no tutorial.
+    > Estes valores não são reais. Atualize estes valores com o identificador real, URL de resposta e URL Sign-On. Obterá estes valores explicados mais tarde no tutorial.
 
 1. A aplicação BeyondTrust Remote Support espera as afirmações DO SAML num formato específico, o que requer que adicione mapeamentos de atributos personalizados à configuração de atributos de token SAML. A imagem que se segue mostra a lista de atributos predefinidos.
 
@@ -167,6 +167,10 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 ### <a name="create-beyondtrust-remote-support-test-user"></a>Criar utilizador de teste de suporte remoto BeyondTrust
 
+Nesta secção, um utilizador chamado Britta Simon é criado no BeyondTrust Remote Support. BeyondTrust Remote Support suporta o fornecimento de utilizadores just-in-time, o que é ativado por padrão. Não há nenhum item de ação para si nesta secção. Se um utilizador já não existir no BeyondTrust Remote Support, um novo é criado após a autenticação.
+
+Siga o procedimento abaixo, que é obrigatório para configurar o Suporte Remoto BeyondTrust.
+
 Vamos configurar as Definições de Provisão do Utilizador aqui. Os valores utilizados nesta secção serão referenciados a partir da secção **Atributos & Reclamações** do Utilizador no portal Azure. Configuramos que este é o valor padrão que já são importados no momento da criação, no entanto, o valor pode ser personalizado se necessário.
 
 ![A screenshot mostra as Definições de Provisão do Utilizador onde pode configurar os valores do utilizador.](./media/bomgarremotesupport-tutorial/user-attribute.png)
@@ -174,7 +178,7 @@ Vamos configurar as Definições de Provisão do Utilizador aqui. Os valores uti
 > [!NOTE]
 > Os grupos e o atributo de e-mail não são necessários para esta implementação. Se utilizar grupos Azure AD e atribuí-los às políticas do Grupo de Suporte Remoto BeyondTrust para permissões, o ID do objeto do grupo terá de ser referenciado através das suas propriedades no portal Azure e colocado na secção 'Grupos Disponíveis'. Uma vez concluído este problema, o Grupo ID/AD do objeto estará agora disponível para atribuição a uma política de grupo para permissões.
 
-![A screenshot mostra a secção I T com o tipo de membro, origem, tipo e objeto I D.](./media/bomgarremotesupport-tutorial/config-user2.png)
+![A screenshot mostra a secção I T com o tipo de membro, origem, tipo e objeto I D.](./media/bomgarremotesupport-tutorial/config-user-2.png)
 
 ![A screenshot mostra a página Definições Básicas para uma política de grupo.](./media/bomgarremotesupport-tutorial/group-policy.png)
 
@@ -191,6 +195,6 @@ Nesta secção, testa a configuração de um único sinal de inscrição Azure A
 
 * Pode utilizar as minhas apps do Microsoft. Quando clicar no azulejo de Suporte Remoto BeyondTrust nas Minhas Apps, este irá redirecionar para URL de suporte remoto BeyondTrust. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](../user-help/my-apps-portal-end-user-access.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Uma vez configurado o Suporte Remoto BeyondTrust, pode impor controlos de sessão, o que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. Os controlos de sessão estendem-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com a Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)

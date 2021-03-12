@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 11b10817959a390b4ea0215d72f97513a6b23345
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: 8295849a7177eab774517816a239472677689434
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102486596"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103020887"
 ---
 ## <a name="add-managed-identity-to-your-communication-services-solution-net"></a>Adicionar identidade gerida à sua solução de Serviços de Comunicação (.NET)
 
@@ -37,16 +37,18 @@ O exemplo de código que se segue mostra como criar um objeto de cliente de serv
 Em seguida, use o cliente para emitir um símbolo para um novo utilizador:
 
 ```csharp
-     public async Task<Response<CommunicationUserToken>> CreateIdentityAndGetTokenAsync(Uri resourceEdnpoint)
+     public async Task<Response<AccessToken>> CreateIdentityAndGetTokenAsync(Uri resourceEndpoint)
      {
           TokenCredential credential = new DefaultAzureCredential();
+
           // You can find your endpoint and access key from your resource in the Azure portal
-          String resourceEndpoint = "https://<RESOURCE_NAME>.communication.azure.com";
+          // "https://<RESOURCE_NAME>.communication.azure.com";
 
           var client = new CommunicationIdentityClient(resourceEndpoint, credential);
           var identityResponse = await client.CreateUserAsync();
+          var identity = identityResponse.Value;
 
-          var tokenResponse = await client.GetTokenAsync(identity, scopes: new [] { CommunicationTokenScope.VoIP });
+          var tokenResponse = await client.GetTokenAsync(identity, scopes: new[] { CommunicationTokenScope.VoIP });
 
           return tokenResponse;
      }
@@ -57,19 +59,19 @@ Em seguida, use o cliente para emitir um símbolo para um novo utilizador:
 O seguinte exemplo de código mostra como criar um objeto de serviço SMS com identidade gerida e, em seguida, usar o cliente para enviar uma mensagem SMS:
 
 ```csharp
-     public async Task SendSms(Uri resourceEndpoint, PhoneNumber from, PhoneNumber to, string message)
+     public async Task SendSms(Uri resourceEndpoint, string from, string to, string message)
      {
           TokenCredential credential = new DefaultAzureCredential();
           // You can find your endpoint and access key from your resource in the Azure portal
-          String resourceEndpoint = "https://<RESOURCE_NAME>.communication.azure.com";
+          // "https://<RESOURCE_NAME>.communication.azure.com";
 
           SmsClient smsClient = new SmsClient(resourceEndpoint, credential);
           smsClient.Send(
                from: from,
                to: to,
                message: message,
-               new SendSmsOptions { EnableDeliveryReport = true } // optional
+               new SmsSendOptions(enableDeliveryReport: true) // optional
           );
-     }
+      }
 ```
 

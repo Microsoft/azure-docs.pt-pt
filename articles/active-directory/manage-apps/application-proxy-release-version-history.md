@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD Application Proxy: O histórico de lançamentos da versão'
-description: Este artigo lista todos os lançamentos de Azure AD Application Proxy e descreve novas funcionalidades e problemas fixos
+title: 'Azure Ative Directory Application Proxy: Versão lança histórico'
+description: Este artigo lista todos os lançamentos de Azure Ative Directory Application Proxy e descreve novas funcionalidades e problemas fixos.
 services: active-directory
 author: kenwith
 manager: daveba
@@ -8,15 +8,16 @@ ms.assetid: ''
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.date: 07/22/2020
+ms.date: 02/17/2021
 ms.subservice: app-mgmt
 ms.author: kenwith
-ms.openlocfilehash: 6ba622bd52dc13fb0053b61b65529db6e6912611
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.reviewer: japere
+ms.openlocfilehash: 0244e0ca66f452649d3136eb122d1c2666182ae2
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101686721"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200971"
 ---
 # <a name="azure-ad-application-proxy-version-release-history"></a>Azure AD Application Proxy: O histórico de lançamentos da versão
 Este artigo lista as versões e funcionalidades do Azure Ative Directory (Azure AD) Application Proxy que foram lançados. A equipa Azure AD atualiza regularmente o Application Proxy com novas funcionalidades e funcionalidades. Os conectores Proxy da aplicação são atualizados automaticamente quando uma nova versão é lançada. 
@@ -25,11 +26,11 @@ Recomendamos que se certifique de que as atualizações automáticas estão ativ
 
 Aqui está uma lista de recursos relacionados:
 
-Recurso |  Detalhes
---------- | --------- |
-Como ativar o Proxy de Aplicação | Neste [tutorial](application-proxy-add-on-premises-application.md)são descritos os pré-requisitos para permitir a aplicação Proxy e instalar e registar um conector .
-Compreenda os conectores Proxy de aplicação AD Azure | Saiba mais sobre [a gestão do conector](application-proxy-connectors.md) e como os conectores [atualizam automaticamente.](application-proxy-connectors.md#automatic-updates)
-Download do conector proxy da aplicação Azure Ad |  [Descarregue o conector mais recente.](https://download.msappproxy.net/subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/connector/download)
+| Recurso                                         | Detalhes                                                      |
+| ------------------------------------------------ | ------------------------------------------------------------ |
+| Como ativar o Proxy de Aplicação                  | Neste [tutorial](application-proxy-add-on-premises-application.md)são descritos os pré-requisitos para permitir a aplicação Proxy e instalar e registar um conector . |
+| Compreenda os conectores Proxy de aplicação AD Azure | Saiba mais sobre [a gestão do conector](application-proxy-connectors.md) e como os conectores [atualizam automaticamente.](application-proxy-connectors.md#automatic-updates) |
+| Download do conector proxy da aplicação Azure Ad    | [Descarregue o conector mais recente.](https://download.msappproxy.net/subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/connector/download) |
 
 ## <a name="1519750"></a>1.5.1975.0
 
@@ -41,6 +42,7 @@ Download do conector proxy da aplicação Azure Ad |  [Descarregue o conector ma
 -   Melhor apoio aos ambientes nublados do Governo de Azure. Para etapas sobre como instalar corretamente o conector para a nuvem do Governo Azure, reveja os [passos de pré-requisitos](../hybrid/reference-connect-government-cloud.md#allow-access-to-urls) e [de instalação](../hybrid/reference-connect-government-cloud.md#install-the-agent-for-the-azure-government-cloud).
 - Suporte para utilizar o cliente web remote desktop Services com Application Proxy. Consulte [o Ambiente de Trabalho Remoto com O Azure AD Application Proxy](application-proxy-integrate-with-remote-desktop-services.md) para obter mais detalhes.
 - Melhores negociações de extensão de websocket. 
+- Suporte para encaminhamento otimizado entre grupos de conector e serviços de nuvem Proxy de aplicação com base na região. Consulte [o fluxo de tráfego otimizado com o Azure Ative Directory Application Proxy](application-proxy-network-topology.md) para obter mais detalhes. 
 
 ### <a name="fixed-issues"></a>Problemas corrigidos
 - Corrigiu um problema de websocket que forçou cordas minúsculas.

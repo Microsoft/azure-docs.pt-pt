@@ -136,9 +136,13 @@
           href: ./security-controls-policy.md
         - name: Linha de base de segurança
           href: security-baseline.md
-    - name: Guia do protocolo AMQP 1.0
-      href: ../service-bus-messaging/service-bus-amqp-protocol-guide.md
-      maintainContext: true
+    - name: AMQP
+      items:
+        - name: Guia do protocolo AMQP 1.0
+          href: ../service-bus-messaging/service-bus-amqp-protocol-guide.md
+          maintainContext: true
+        - name: Erros de AMQP
+          href: event-hubs-amqp-troubleshoot.md
 - name: Guias de procedimentos
   items:
     - name: Criar um registo de esquema

@@ -2,16 +2,16 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 03/05/2021
+ms.date: 03/10/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 83e00b96897e973641c5e5c9175d2520bb2a4600
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: d110f6b64bcd7f297bca77e2f8552261c709d975
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102429403"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102610983"
 ---
-|Name<br /><sub>(Portal Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Ativar automanage - Azure máquina virtual boas práticas](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F270610db-8c04-438a-a739-e8e6745b22d3) |Automanagem matricula, configura e monitoriza máquinas virtuais com serviços de boas práticas Azure VM. Utilize esta política para aplicar a Automanagem ao seu âmbito selecionado. |implementarIfNotExists |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Automanage/Automanage_Windows_Deploy.json) |
+|[Configure máquinas virtuais a bordo da Azure Automanage](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F270610db-8c04-438a-a739-e8e6745b22d3) |A Azure Automanage inscreve, configura e monitoriza máquinas virtuais com as melhores práticas definidas no Quadro de Adoção da Microsoft Cloud para O Azure. Utilize esta política para aplicar a Automanagem ao seu âmbito selecionado. |ImplementarIfNotExists, Desativado |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Automanage/Automanage_Deploy.json) |

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 49d9b91df896646da7bf36e077d9f3c9187137dd
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: b41bcda7381e5811ef1e1f91c102d8c85f50b3b5
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95021801"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103196921"
 ---
 # <a name="debug-errors-when-running-a-custom-commands-application"></a>Depurar erros ao executar uma aplicação de Comandos Personalizados
 
@@ -28,7 +28,7 @@ Se a sua aplicação de Comandos Personalizados executar a partir da aplicação
 | Código de erro | Detalhes |
 | ------- | -------- |
 | [401](#error-401) | AutenticaçãoFailure: WebSocket Upgrade falhou com um erro de autenticação |
-| [1002](#error-1002)] | O servidor devolveu o código de estado '404' quando o código de estado '101' era esperado. |
+| [1002](#error-1002) | O servidor devolveu o código de estado '404' quando o código de estado '101' era esperado. |
 
 ### <a name="error-401"></a>Erro 401
 - A região especificada na aplicação do cliente não corresponde à região da aplicação de comando personalizado
@@ -135,7 +135,7 @@ Um parâmetro indefinido é usado na resposta da fala.
 ### <a name="object-reference-not-set-to-an-instance-of-an-object"></a>Referência do objeto não definida para uma instância de um objeto
 Tem um parâmetro vazio na carga útil JSON definida na **ação enviar atividade para o cliente.**
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Ver amostras no GitHub](https://aka.ms/speech/cc-samples)

@@ -7,13 +7,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
-ms.date: 10/27/2020
-ms.openlocfilehash: 8b63dfb015c7337e36dac3812e92ddc53914206d
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.date: 03/10/2021
+ms.openlocfilehash: f8ddcbef6d2ce4a9cba625374db9908335954424
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98247170"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102630899"
 ---
 # <a name="how-to-review-and-publish-an-offer-to-the-commercial-marketplace"></a>Como rever e publicar uma oferta ao mercado comercial
 
@@ -74,6 +74,13 @@ O primeiro passo no processo de publicação é um conjunto de validações auto
 - **Validação e registo de gestão de chumbo** (<15 min)
 
     Confirmamos que o seu sistema de gestão de chumbo pode receber leads de clientes com base nos detalhes fornecidos na página **de configuração** da Oferta. Este passo só é aplicável para ofertas com gestão de chumbo habilitada.
+
+- **Validação da oferta** (<30 min)
+
+    Apenas para ofertas saaS, executamos validações rápidas para conteúdo e configurações técnicas. A criação de pré-visualização não será bloqueada em quaisquer problemas de validação detetados neste passo. Se encontrarmos algum problema que possa falhar na certificação, um link **de relatório de validação de visualização** aparece na página geral da **Oferta.** O relatório conterá descrições de quaisquer violações de políticas.
+
+    > [!IMPORTANT]
+    > Certifique-se de rever e endereçar todas as advertências do passo de validação da Oferta antes de selecionar o botão **Go live.** Caso contrário, arrisca-se a falhar na certificação que atrasará a sua oferta de entrar em direto.
 
 ## <a name="certification-phase"></a>Fase de certificação
 
@@ -143,16 +150,19 @@ Se quiser publicar a oferta mais tarde, terá de começar o processo de publica�
 
 Quando a oferta estiver pronta para que você reveja e seja assinado, enviaremos um e-mail para solicitar que reveja e aprove a sua pré-visualização da oferta. Também pode atualizar a página geral da **Oferta** no seu navegador para ver se a sua oferta chegou à fase de desinsusitada do Publisher. Se tiver, o botão **Go ao vivo** e os links de pré-visualização estarão disponíveis.
 
-A imagem que se segue mostra a página **geral da Oferta** para uma oferta SaaS. Os passos de validação que verá nesta página variam consoante o tipo de oferta e as seleções que fez quando criou a oferta.
+A imagem que se segue mostra a página **geral da Oferta** no programa de marketplace comercial no Partner Center. Os passos de validação que verá nesta página variam consoante o tipo de oferta e as seleções que fez quando criou a oferta. Note que a fase de certificação pode ocorrer durante a submissão à pré-visualização ou submissão ao vivo dependendo do tipo de oferta.
 
 ![Ilustra a página geral da Oferta para uma oferta no Partner Center. São mostrados os botões Go ao vivo e os links de pré-visualização.](./media/publish-status-publisher-signoff.png)
 
 ### <a name="previewing-and-approving-your-offer"></a>Visualização e aprovação da sua oferta
 
 > [!IMPORTANT]
-> Para validar o fluxo de compra e configuração de ponta a ponta, compre a sua oferta enquanto estiver em Pré-Visualização. Primeiro, notifique a Microsoft com um [bilhete de apoio](https://aka.ms/marketplacesupport) para garantir que não processamos uma taxa. Se a sua oferta for uma listagem Contacte-me, teste se um chumbo é criado como esperado, fornecendo os dados do Contact Me durante a pré-visualização.
+> Para validar o fluxo de compra e configuração de ponta a ponta, compre a sua oferta enquanto estiver em Pré-Visualização. Primeiro, notifique a Microsoft com um [bilhete de apoio](https://aka.ms/marketplacesupport) para garantir que não processamos uma taxa. Se a sua oferta for uma listagem _Contacte-me,_ teste se um chumbo é criado como esperado, fornecendo os dados do Contact Me durante a pré-visualização.
 
 Na página **'Geral' da Oferta,** verá links de pré-visualização no botão **Go live.** Haverá um link para a pré-visualização do AppSource, pré-visualização do Azure Marketplace ou ambos dependendo das opções que escolheu ao criar a sua oferta. Se optar por vender a sua oferta através da Microsoft, qualquer pessoa que tenha sido adicionada ao público de pré-visualização pode testar a aquisição e implementação da sua oferta para garantir que ela cumpre os seus requisitos durante esta fase.
+
+> [!IMPORTANT]
+> Certifique-se de rever e endereçar todas as advertências do passo de _validação da Oferta_ antes de selecionar o botão **Go live.** Caso contrário, arrisca-se a falhar na certificação que atrasará a sua oferta de entrar em direto.
 
 Depois de aprovar a sua pré-visualização, selecione **Go live** para publicar a sua oferta ao vivo no mercado comercial. 
 
@@ -225,7 +235,7 @@ Pode utilizar filtros para reduzir todo o histórico da sua oferta a eventos de 
 Há quatro filtros:
 * Eventos
 * Utilizadores
-* Date
+* Data
 * Páginas
 
 Ao escolher o filtro **Páginas,** pode selecionar qualquer uma das páginas do Centro parceiro que sejam aplicáveis ao seu tipo de oferta. Quando aplicado, o filtro **Páginas** mostra toda a **oferta submetida a eventos de pré-visualização** com alterações na página selecionada.

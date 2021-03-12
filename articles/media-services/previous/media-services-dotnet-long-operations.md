@@ -1,9 +1,9 @@
 ---
-title: Operações Long-Running de sondagens Microsoft Docs
+title: '| de Operações Long-Running de Voto Microsoft Docs'
 description: A Azure Media Services oferece APIs que enviam pedidos aos Serviços de Comunicação Social para iniciar operações (por exemplo, criar, iniciar, parar ou apagar um canal), estas operações são de longa duração. Este tópico mostra como sondar operações de longa duração.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 writer: juliako
 manager: femila
 editor: ''
@@ -12,30 +12,30 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 44cecbd8d2cdc95e342d7aaf2b33f6cc0192e182
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7926f7aaa427d49d13cab5e13f5153bcd22e5898
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89262038"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103013827"
 ---
 # <a name="delivering-live-streaming-with-azure-media-services"></a>Entrega de streaming ao vivo com serviços de media Azure
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 O Microsoft Azure Media Services oferece APIs que enviam pedidos aos Media Services para iniciar operações (por exemplo: criar, iniciar, parar ou apagar um canal). Estas operações são longas.
 
 O Serviço de Comunicação Social .NET SDK fornece APIs que enviam o pedido e aguardam que a operação esteja concluída (internamente, as APIs estão a sondar para o progresso da operação em alguns intervalos). Por exemplo, quando liga para o canal. Start(), o método regressa após o início do canal. Também pode utilizar a versão assíncronea: aguarde o canal. StartAsync() (para obter informações sobre o Padrão Assíncrodo baseado em Tarefas, consulte [TAP](./media-services-mes-schema.md)). As APIs que enviam um pedido de operação e depois pesquisam o estado até que a operação esteja concluída são chamadas de "métodos de votação". Estes métodos (especialmente a versão Async) são recomendados para aplicações de clientes ricos e/ou serviços estatais.
 
 Há cenários em que uma aplicação não pode esperar por um pedido http de longa duração e quer fazer sondagens para a operação avançar manualmente. Um exemplo típico seria um navegador interagindo com um serviço web apátrida: quando o navegador solicita a criação de um canal, o serviço web inicia uma longa operação e devolve o ID de operação ao navegador. O navegador poderia então pedir ao serviço web para obter o estado de funcionamento com base no ID. O Media Services .NET SDK fornece APIs que são úteis para este cenário. Estas APIs são chamadas de "métodos não-eleitorais".
-Os "métodos de não votação" têm o seguinte padrão de nomeação: Enviar*Operação Operação Natal*(por exemplo, Envio de Operações). Enviar*OperaçãoName*Métodos de operação devolvem o objeto **IOperação;** o objeto devolvido contém informações que podem ser usadas para rastrear a operação. Os métodos de regresso da*Operação Operação Operação Operação*Operação OperaçãoSync **. \<IOperation> **
+Os "métodos de não votação" têm o seguinte padrão de nomeação: Enviar *Operação Operação Natal*(por exemplo, Envio de Operações). Enviar *OperaçãoName* Métodos de operação devolvem o objeto **IOperação;** o objeto devolvido contém informações que podem ser usadas para rastrear a operação. Os métodos de regresso da *Operação Operação* **\<IOperation> Sync .**
 
-Atualmente, as seguintes classes apoiam métodos de não votação:  **Canal,** **StreamingEndpoint**e **Programa**.
+Atualmente, as seguintes classes apoiam métodos de não votação:  **Canal,** **StreamingEndpoint** e **Programa**.
 
 Para fazer uma sondagem para o estado de funcionamento, utilize o método **GetOperation** na classe **OperationBaseCollection.** Utilizar os seguintes intervalos para verificar o estado de funcionamento: para as operações **channel** and **streamingEndpoint,** utilize 30 segundos; para operações **do programa,** utilize 10 segundos.
 

@@ -1,27 +1,27 @@
 ---
-title: Instale o Defender para o micro agente IoT
+title: Instale o Defender para o micro agente IoT (pré-visualização)
 titleSuffix: Azure Defender for IoT
 description: Aprenda a instalar e autentica o Micro-Agente Defender.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 3/3/2021
+ms.date: 3/9/2021
 ms.topic: quickstart
 ms.service: azure
-ms.openlocfilehash: ccf28c47e2e1438a141e2497da70d32c1832ddb9
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: 8984b1dbcb9a6aca6d313d8195a75093ae421bbd
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102120441"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102611680"
 ---
-# <a name="install-defender-for-iot-micro-agent"></a>Instale o Defender para o micro agente IoT 
+# <a name="install-defender-for-iot-micro-agent-preview"></a>Instale o Defender para o micro agente IoT (pré-visualização)
 
 Este artigo fornece uma explicação de como instalar e autenticar o micro-agente Defender.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de instalar o módulo Defender para IoT, tem de criar uma identidade de módulo no Hub IoT. Para obter mais informações sobre como criar uma identidade de módulo, consulte [Criar um módulo de micro-agente Defender IoT twin ](quickstart-create-micro-agent-module-twin.md).
+Antes de instalar o módulo Defender para IoT, tem de criar uma identidade de módulo no Hub IoT. Para obter mais informações sobre como criar uma identidade de módulo, consulte Criar um módulo de [micro-agente Defender IoT twin (Preview)](quickstart-create-micro-agent-module-twin.md).
 
 ## <a name="install-the-package"></a>Instale o pacote
 
@@ -49,13 +49,37 @@ sudo apt-get install defender-iot-micro-agent
 
 As duas opções utilizadas para autenticar o Defender para o micro-agente IoT são: 
 
-- Cadeia de ligação. 
+- Cadeia de ligação de identidade do módulo. 
 
 - Um certificado.
 
-### <a name="authenticate-using-a-connection-string"></a>Autenticar usando uma cadeia de ligação
+### <a name="authenticate-using-a-module-identity-connection-string"></a>Autenticar usando uma cadeia de ligação de identidade de módulo
 
-Para autenticar usando uma cadeia de ligação:
+Certifique-se de que os [Pré-requisitos](#prerequisites) para este artigo são cumpridos e que cria uma identidade de módulo antes de iniciar estes passos. 
+
+#### <a name="get-the-module-identity-connection-string"></a>Obtenha a cadeia de ligação de identidade do módulo
+
+Para obter a cadeia de ligação de identidade do módulo a partir do Hub IoT: 
+
+1. Navegue até ao Hub IoT e selecione o seu hub.
+
+1. No menu da esquerda, sob a secção **Explorers,** selecione **dispositivos IoT**.
+
+   :::image type="content" source="media/quickstart-standalone-agent-binary-installation/iot-devices.png" alt-text="Selecione dispositivos IoT do menu da esquerda.":::
+
+1. Selecione um dispositivo na lista de identificação do dispositivo para ver a página de detalhes do **dispositivo.**
+
+1. Selecione o separador **identidades** do Módulo   e, em seguida, selecione o módulo **DefenderIotMicroAgent**   da lista de identidades do módulo associadas ao dispositivo.
+
+   :::image type="content" source="media/quickstart-standalone-agent-binary-installation/module-identities.png" alt-text="Selecione o separador identidades do módulo.":::
+
+1. Na página Detalhes de Identidade do **Módulo,** copie a chave primária selecionando o botão **de cópia.**
+
+   :::image type="content" source="media/quickstart-standalone-agent-binary-installation/copy-button.png" alt-text="Selecione o botão de cópia para copiar a tecla principal.":::
+
+#### <a name="configure-authentication-using-a-module-identity-connection-string"></a>Configure a autenticação usando uma cadeia de ligação de identidade de módulo
+
+Para configurar o agente para autenticar utilizando uma cadeia de ligação de identidade do módulo:
 
 1. Coloque um ficheiro com o nome `connection_string.txt` da cadeia de ligação codificada no utf-8 no caminho do diretório do agente de `/var/defender_iot_micro_agent` defesa, introduzindo o seguinte comando:
 
@@ -63,7 +87,7 @@ Para autenticar usando uma cadeia de ligação:
     sudo bash -c 'echo "<connection string" > /var/defender_iot_micro_agent/connection_string.txt' 
     ```
 
-    O `connection_string.txt` local deve agora ser localizado no seguinte local do `/var/defender_iot_micro_agent/connection_string.txt` percurso.
+    O `connection_string.txt` local deve ser localizado no seguinte `/var/defender_iot_micro_agent/connection_string.txt` caminho.
 
 1. Reiniciar o serviço utilizando este comando:  
 

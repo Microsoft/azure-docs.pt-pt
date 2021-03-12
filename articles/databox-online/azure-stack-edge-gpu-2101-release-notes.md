@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 02/22/2021
+ms.date: 03/08/2021
 ms.author: alkohli
-ms.openlocfilehash: e8005bbf0373c91cf9f3515059544b9af3d52384
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: 922480eb2f4795729919c6ed039ccf61f19875b3
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102443799"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102630372"
 ---
 # <a name="azure-stack-edge-2101-release-notes"></a>Notas de lançamento do Azure Stack Edge 2101
 
@@ -29,7 +29,7 @@ Este artigo aplica-se à versão **Azure Stack Edge 2101,** que mapeia para a ve
 
 As seguintes novas funcionalidades estão disponíveis na versão Azure Stack Edge 2101. 
 
-- **Disponibilidade geral de dispositivos Azure Stack Edge Pro R e Azure Stack Edge Mini R** - A partir desta versão, estarão disponíveis os dispositivos Azure Stack Edge Pro R e Azure Stack Edge Mini R. Para mais informações, consulte [O que é Azure Stack Edge Pro R](azure-stack-edge-j-series-overview.md) e What is [Azure Stack Edge Mini R](azure-stack-edge-k-series-overview.md).  
+- **Disponibilidade geral de dispositivos Azure Stack Edge Pro R e Azure Stack Edge Mini R** - A partir desta versão, estarão disponíveis os dispositivos Azure Stack Edge Pro R e Azure Stack Edge Mini R. Para mais informações, consulte [O que é Azure Stack Edge Pro R](azure-stack-edge-pro-r-overview.md) e What is [Azure Stack Edge Mini R](azure-stack-edge-mini-r-overview.md).  
 - **Gestão em nuvem de Máquinas Virtuais** - A partir desta versão, pode criar e gerir as máquinas virtuais do seu dispositivo através do portal Azure. Para mais informações, consulte [implementar VMs através do portal Azure.](azure-stack-edge-gpu-deploy-virtual-machine-portal.md)
 - **Integração com o Azure Monitor** - Pode agora utilizar o Azure Monitor para monitorizar os contentores a partir das aplicações de computação que funcionam no seu dispositivo. A loja de métricas Azure Monitor não é suportada nesta versão. Para obter mais informações, consulte como [ativar o Azure Monitor no seu dispositivo](azure-stack-edge-gpu-enable-azure-monitor.md).
 - **Registo do contentor edge** - Nesta versão, está disponível um registo de contentores Edge que fornece um repositório na borda do seu dispositivo. Pode utilizar este registo para armazenar e gerir imagens de contentores. Para obter mais informações, consulte [o registo do contentor Enable Edge](azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md). 

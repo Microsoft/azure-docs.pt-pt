@@ -583,6 +583,9 @@
             - name: Consulta parametrizada
               displayName: 'parameterized query, parameterized, parameter, parameters'
               href: sql-query-parameterized-queries.md
+            - name: Paginação
+              displayName: continuation tokens
+              href: sql-query-parameterized-queries.md
             - name: LINQ para SQL
               displayName: 'linq, .NET'
               href: sql-query-linq-to-sql.md
