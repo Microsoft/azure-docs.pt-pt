@@ -9,16 +9,16 @@ ms.date: 01/29/2021
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: f1d254eecc41ebef690b4fc9f8294bee5a368ae4
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a5d1d6af68fcbd6a5822b2652ee79c464d02241f
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100570029"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200771"
 ---
 # <a name="azure-storage-analytics-logging"></a>Azure Storage analytics logging (Registo de análise do Armazenamento do Azure)
 
-A Análise de Armazenamento regista informações detalhadas sobre os pedidos com êxito e com falha feitos a um serviço de armazenamento. Estas informações podem ser utilizadas para monitorizar os pedidos individuais e diagnosticar problemas num serviço de armazenamento. Os pedidos são registados numa base de melhor esforço.
+A Análise de Armazenamento regista informações detalhadas sobre os pedidos com êxito e com falha feitos a um serviço de armazenamento. Estas informações podem ser utilizadas para monitorizar os pedidos individuais e diagnosticar problemas num serviço de armazenamento. Os pedidos são registados numa base de melhor esforço. Isto significa que a maioria dos pedidos resultará num registo de registo, mas a completude e a atualidade dos registos de Storage Analytics não estão garantidas. 
 
 > [!NOTE]
 > Recomendamos que utilize registos de armazenamento Azure no Monitor Azure em vez de registos de Storage Analytics. Os registos de armazenamento Azure no Azure Monitor estão em pré-visualização pública e estão disponíveis para testes de pré-visualização em todas as regiões de nuvem pública. Esta pré-visualização permite registos para bolhas (que inclui Azure Data Lake Storage Gen2), ficheiros, filas e tabelas. Para saber mais, consulte qualquer um dos seguintes artigos:

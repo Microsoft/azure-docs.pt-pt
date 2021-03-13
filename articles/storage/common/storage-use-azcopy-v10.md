@@ -8,12 +8,12 @@ ms.date: 12/08/2020
 ms.author: normesta
 ms.subservice: common
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: bec221f762213fa8576ccef30e9b6a27aa708f01
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: a1651ef1b49ecedb8070f32c56e9d23a0f8fd0da
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98944144"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103201576"
 ---
 # <a name="get-started-with-azcopy"></a>Introdução ao AzCopy
 
@@ -101,6 +101,9 @@ Para saber mais sobre fichas SAS e como obter um, consulte [Usando assinaturas d
 
 Depois de ter autorizado a sua identidade ou obtido um token SAS, pode começar a transferir dados.
 
+> [!NOTE]
+> A [configuração necessária](storage-require-secure-transfer.md) da transferência Secure de uma conta de armazenamento determina se a ligação a uma conta de armazenamento é assegurada com a Segurança da Camada de Transporte (TLS). Esta definição está ativada por predefinição.   
+
 Para encontrar comandos de exemplo, consulte qualquer um destes artigos.
 
 | Serviço | Artigo |
@@ -167,6 +170,6 @@ Se precisar de utilizar a versão anterior do AzCopy, consulte qualquer uma das 
 
 - [AzCopy em Linux (v7)](/previous-versions/azure/storage/storage-use-azcopy-linux)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se tiver dúvidas, problemas ou feedback geral, envie-os na página [do GitHub.](https://github.com/Azure/azure-storage-azcopy)

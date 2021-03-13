@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 02/10/2021
 ms.author: alkohli
-ms.openlocfilehash: 1db6574f8ca22b6fe60899f00700ee19d61eab3b
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 5b68ab545e87035d138558ba1911294ef805af6d
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100382825"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102630746"
 ---
 # <a name="migrate-workloads-from-an-azure-stack-edge-pro-fpga-to-an-azure-stack-edge-pro-gpu"></a>Migrar cargas de trabalho de um Azure Stack Edge Pro FPGA para um GPU Azure Stack Edge Pro
 
@@ -157,10 +157,10 @@ Irá agora copiar dados do dispositivo de origem para as partilhas na nuvem Edge
 
 Siga estes passos para sincronizar os dados nas partilhas de nuvem Edge no seu dispositivo-alvo:
 
-1. [Adicione ações](azure-stack-edge-j-series-manage-shares.md#add-a-share) correspondentes aos nomes de ações criados no dispositivo de origem. Certifique-se de que, durante a criação de partilhas, **selecione o recipiente blob** para **utilizar a** opção existente e, em seguida, selecione o recipiente que foi utilizado com o dispositivo anterior.
-1. [Adicione utilizadores](azure-stack-edge-j-series-manage-users.md#add-a-user) que tenham tido acesso ao dispositivo anterior.
-1. [Refresque os](azure-stack-edge-j-series-manage-shares.md#refresh-shares) dados de partilha do Azure. Isto retira todos os dados da nuvem do recipiente existente para as ações.
-1. Recrie os horários de largura de banda para serem associados às suas ações. Consulte [um calendário de largura de banda](azure-stack-edge-j-series-manage-bandwidth-schedules.md#add-a-schedule) para passos detalhados.
+1. [Adicione ações](azure-stack-edge-gpu-manage-shares.md#add-a-share) correspondentes aos nomes de ações criados no dispositivo de origem. Certifique-se de que, durante a criação de partilhas, **selecione o recipiente blob** para **utilizar a** opção existente e, em seguida, selecione o recipiente que foi utilizado com o dispositivo anterior.
+1. [Adicione utilizadores](azure-stack-edge-gpu-manage-users.md#add-a-user) que tenham tido acesso ao dispositivo anterior.
+1. [Refresque os](azure-stack-edge-gpu-manage-shares.md#refresh-shares) dados de partilha do Azure. Isto retira todos os dados da nuvem do recipiente existente para as ações.
+1. Recrie os horários de largura de banda para serem associados às suas ações. Consulte [um calendário de largura de banda](azure-stack-edge-gpu-manage-bandwidth-schedules.md#add-a-schedule) para passos detalhados.
 
 
 ### <a name="2-from-edge-local-shares"></a>2. A partir de ações locais edge
@@ -172,7 +172,7 @@ Depois de configurar completamente o dispositivo de substituição, ative o disp
 Siga estes passos para recuperar os dados das ações locais:
 
 1. [Configure o cálculo do dispositivo](azure-stack-edge-gpu-deploy-configure-compute.md).
-1. Adicione todas as ações locais no dispositivo alvo. Consulte os passos detalhados em [Adicionar uma parte local.](azure-stack-edge-j-series-manage-shares.md#add-a-local-share)
+1. Adicione todas as ações locais no dispositivo alvo. Consulte os passos detalhados em [Adicionar uma parte local.](azure-stack-edge-gpu-manage-shares.md#add-a-local-share)
 1. O acesso às ações SMB no dispositivo de origem utilizará os endereços IP enquanto que no dispositivo-alvo, utilizará o nome do dispositivo. Consulte [a Ligação a uma participação da SMB no GPU Azure Stack Edge Pro .](azure-stack-edge-j-series-deploy-add-shares.md#connect-to-an-smb-share) Para se ligar às ações da NFS no dispositivo-alvo, terá de utilizar os novos endereços IP associados ao dispositivo. Consulte [a Ligação a uma participação da NFS no GPU Azure Stack Edge Pro .](azure-stack-edge-j-series-deploy-add-shares.md#connect-to-an-nfs-share) 
 
     Se copiou os dados da sua partilha para um servidor intermédio sobre SMB/NFS, pode copiar estes dados para ações no dispositivo-alvo. Também pode copiar os dados diretamente do dispositivo de origem se a fonte e o dispositivo-alvo estiverem *online*.

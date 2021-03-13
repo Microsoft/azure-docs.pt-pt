@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/24/2020
-ms.openlocfilehash: e429b87397b91de28f7fea14729b0d18187fa8ff
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 99a8e331e265e686d1de06f8143d2345e51143f1
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102031383"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102613005"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Connect Operations Manager ao Azure Monitor
 
@@ -71,15 +71,15 @@ As informações abaixo listam as informações de configuração de procuraçã
 |Recurso | Número da porta| Inspeção de HTTP Direto|  
 |---------|------|-----------------------|  
 |**Agente**|||  
-|\*.ods.opinsights.azure.com| 443 |Sim|  
-|\*.oms.opinsights.azure.com| 443|Sim|  
-|\*.blob.core.windows.net| 443|Sim|  
-|\*.azure-automation.net| 443|Sim|  
+|\*.ods.opinsights.azure.com| 443 |Yes|  
+|\*.oms.opinsights.azure.com| 443|Yes|  
+|\*.blob.core.windows.net| 443|Yes|  
+|\*.azure-automation.net| 443|Yes|  
 |**Servidor de gestão**|||  
 |\*.service.opinsights.azure.com| 443||  
-|\*.blob.core.windows.net| 443| Sim|  
-|\*.ods.opinsights.azure.com| 443| Sim|  
-|*.azure-automation.net | 443| Sim|  
+|\*.blob.core.windows.net| 443| Yes|  
+|\*.ods.opinsights.azure.com| 443| Yes|  
+|*.azure-automation.net | 443| Yes|  
 |**Consola do Gestor de Operações para o Azure Monitor**|||  
 |service.systemcenteradvisor.com| 443||  
 |\*.service.opinsights.azure.com| 443||  
@@ -99,6 +99,10 @@ Para garantir a segurança dos dados em trânsito para o Azure Monitor, encoraja
 ## <a name="connecting-operations-manager-to-azure-monitor"></a>Gestor de Operações de Ligação ao Monitor Azure
 
 Realize esta série de passos para configurar o grupo de gestão do Operations Manager para se ligar a uma das suas áreas de trabalho do Log Analytics.
+
+> [!NOTE]
+> Se notar que os dados do Log Analytics param de entrar a partir de um agente específico ou servidor de gestão, pode tentar reiniciar o Catálogo Winsock (utilização) e, em `netsh winsock reset` seguida, reiniciar o servidor. A reposição do Catálogo Winsock permite restabelecer as ligações de rede que foram partidas.
+
 
 Durante o registo inicial do seu grupo de gestão de Gestor de Operações com um espaço de trabalho Log Analytics, a opção de especificar a configuração de procuração para o grupo de gestão não está disponível na consola Operações.  O grupo de gestão tem de ser registado com êxito no serviço para esta opção ficar disponível.  Para contornar isto, precisa de atualizar a configuração de procuração do sistema utilizando o Netsh no sistema que executa a consola Operações de integração para configurar a integração, e todos os servidores de gestão no grupo de gestão.  
 

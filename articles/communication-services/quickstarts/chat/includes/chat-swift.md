@@ -10,12 +10,12 @@ ms.date: 2/11/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: e3f61886ca205f39f2d9485dba2218b823b7bac3
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 75983fe89c7f8643701da96493d1b6c9ca1c159f
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102603304"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103021638"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar, certifique-se de:
@@ -240,7 +240,8 @@ chatThreadClient.listParticipants { result, _ in
     case let .success(participants):
         var iterator = participants.syncIterator
         while let participant = iterator.next() {
-            print(participant.user.identifier)
+            let user = participant.id as! CommunicationUserIdentifier
+            print(user.identifier)
         }
     case .failure:
         print("Failed to list participants")

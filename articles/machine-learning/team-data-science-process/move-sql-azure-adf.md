@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 09/03/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 02fd6c1d4cbd1c2db287a38e086045042b5f220a
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: e477e4bb3b31477f9407e981d4c8da2340411f55
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93309542"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102615742"
 ---
 # <a name="move-data-from-a-sql-server-database-to-sql-database-with-azure-data-factory"></a>Mover dados de uma base de dados do SQL Server para a Base de Dados SQL com Azure Data Factory
 
@@ -87,7 +87,7 @@ O procedimento passo a passo para a criação de serviços ligados é prestado n
 Criar tabelas que especifiquem a estrutura, localização e disponibilidade dos conjuntos de dados com os seguintes procedimentos baseados em scripts. Os ficheiros JSON são usados para definir as tabelas. Para obter mais informações sobre a estrutura destes ficheiros, consulte [Datasets](../../data-factory/concepts-datasets-linked-services.md).
 
 > [!NOTE]
-> Deverá executar o `Add-AzureAccount` cmdlet antes de executar o cmdlet [New-AzureDataFactoryTable](/previous-versions/azure/dn835096(v=azure.100)) para confirmar que a subscrição Azure certa está selecionada para a execução do comando. Para documentação deste cmdlet, consulte [Add-AzureAccount](/powershell/module/servicemanagement/azure.service/add-azureaccount?view=azuresmps-3.7.0).
+> Deverá executar o `Add-AzureAccount` cmdlet antes de executar o cmdlet [New-AzureDataFactoryTable](/previous-versions/azure/dn835096(v=azure.100)) para confirmar que a subscrição Azure certa está selecionada para a execução do comando. Para documentação deste cmdlet, consulte [Add-AzureAccount](/powershell/module/servicemanagement/azure.service/add-azureaccount).
 >
 >
 

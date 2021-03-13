@@ -1064,10 +1064,22 @@ groups:
     title: Java (Android)
   - id: programming-language-kotlin
     title: Kotlin (Android)
+- id: immersive-reader-how-to-guides
+  title: Linguagens de programação
+  prompt: Escolher uma linguagem de programação
+  pivots:
+  - id: programming-language-javascript
+    title: Node.js
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-android
+    title: Android
+  - id: programming-language-ios
+    title: iOS
 metadata:
-  ms.openlocfilehash: 4075041f3a79138c80c1e020a7410bbc252de6f3
-  ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+  ms.openlocfilehash: b4118c81551a2808a2d72404598af2e93a19f6f2
+  ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
   ms.translationtype: MT
   ms.contentlocale: pt-PT
   ms.lasthandoff: 03/10/2021
-  ms.locfileid: "102558173"
+  ms.locfileid: "102616473"

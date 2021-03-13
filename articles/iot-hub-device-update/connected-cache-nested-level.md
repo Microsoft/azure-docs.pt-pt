@@ -7,12 +7,12 @@ ms.author: andyriv
 ms.date: 2/16/2021
 ms.topic: tutorial
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 1501153b73683081dfac0684d6714eb537c03380
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 0128d0de4f078b62bc9571c8758d80cb26585354
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101665018"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102615385"
 ---
 # <a name="microsoft-connected-cache-preview-deployment-scenario-sample-two-level-nested-azure-iot-edge-gateway-with-outbound-unauthenticated-proxy"></a>Amostra do cenário de visualização da cache conectada da Microsoft: Dois níveis aninhado Azure IoT Edge Gateway com procuração não autenticada de saída
 
@@ -70,7 +70,7 @@ O diagrama abaixo descreve o cenário em que um gateway Azure IoT Edge como aces
 ## <a name="child-gateway-configuration"></a>Configuração do gateway infantil
 
 >[!Note]
->Se tiver recipientes replicados utilizados na sua configuração no seu próprio registo privado, terá de haver uma modificação nas definições config.toml e nas definições de tempo de funcionamento na implementação do módulo. Para mais informações, consulte [tutorial - Crie uma hierarquia de dispositivos IoT Edge - Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/tutorial-nested-iot-edge?view=iotedge-2020-11&tabs=azure-portal#deploy-modules-to-the-lower-layer-device&preserve-view=true) para mais detalhes.
+>Se tiver recipientes replicados utilizados na sua configuração no seu próprio registo privado, terá de haver uma modificação nas definições config.toml e nas definições de tempo de funcionamento na implementação do módulo. Para mais informações, consulte [tutorial - Crie uma hierarquia de dispositivos IoT Edge - Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/tutorial-nested-iot-edge?view=iotedge-2020-11&tabs=azure-portal&preserve-view=true#deploy-modules-to-the-lower-layer-device) para mais detalhes.
 
 1. Modificar o caminho de imagem para o agente Edge, como demonstrado no exemplo abaixo:
 

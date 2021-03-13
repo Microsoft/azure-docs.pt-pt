@@ -3,14 +3,14 @@ title: Utilize a integração de controlo de fonte na Azure Automation
 description: Este artigo diz como sincronizar o controlo de fonte da Azure Automation com outros repositórios.
 services: automation
 ms.subservice: process-automation
-ms.date: 11/12/2020
+ms.date: 03/10/2021
 ms.topic: conceptual
-ms.openlocfilehash: e7a6b6d3e753352820cdcb910dcbfa9362793493
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 281da27ce95649e85dae5d0795bb743f21fdb578
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99050775"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102631749"
 ---
 # <a name="use-source-control-integration"></a>Utilizar a integração do controlo de código fonte
 
@@ -30,7 +30,7 @@ A Azure Automation suporta três tipos de controlo de origem:
 
 * Um repositório de controlo de fontes (GitHub ou Azure Repos)
 * Uma [conta Run As](automation-security-overview.md#run-as-accounts)
-* Os [mais recentes módulos Azure](automation-update-azure-modules.md) na sua conta Automation, incluindo o `Az.Accounts` módulo (módulo Az equivalente `AzureRM.Profile` a)
+* O [ `AzureRM.Profile` módulo](/powershell/module/azurerm.profile/) deve ser importado para a sua conta de Automação. Note que o módulo Az equivalente `Az.Accounts` ( ) não funcionará com o controlo de fonte de automação.
 
 > [!NOTE]
 > Os trabalhos de sincronização de controlo de fonte são executados sob a conta de Automação do utilizador e são faturados ao mesmo ritmo que outros trabalhos de Automação.

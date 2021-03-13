@@ -1,14 +1,14 @@
 ---
 title: Visão geral da amostra da amostra da Azure Security Benchmark Foundation
 description: Visão geral e arquitetura da amostra de projeto da Fundação Azure Security Benchmark.
-ms.date: 02/17/2020
+ms.date: 03/12/2021
 ms.topic: sample
-ms.openlocfilehash: ed497eff85e07b6a51939907bc751f3b40c99b30
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 9630915328b430c409c48e13e0d22f64dbcc99ea
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101741876"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103232074"
 ---
 # <a name="overview-of-the-azure-security-benchmark-foundation-blueprint-sample"></a>Visão geral da amostra de projeto da Fundação Azure Security Benchmark
 

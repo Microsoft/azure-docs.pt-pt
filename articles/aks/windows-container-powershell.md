@@ -3,14 +3,14 @@ title: Crie um recipiente do Windows Server num cluster AKS utilizando o PowerSh
 description: Aprenda a criar rapidamente um cluster Kubernetes, implementar uma aplicação num contentor do Windows Server no Serviço Azure Kubernetes (AKS) utilizando o PowerShell.
 services: container-service
 ms.topic: article
-ms.date: 05/26/2020
+ms.date: 03/12/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 56fc11583bcdd271d0225de90ef7ab06bcf87cbf
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: b877ecbdca06ff73d152e1b491e993798a99f98a
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98625119"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103233519"
 ---
 # <a name="create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-powershell"></a>Criar um recipiente do Windows Server num cluster Azure Kubernetes Service (AKS) utilizando o PowerShell
 
@@ -83,8 +83,9 @@ Para executar um cluster AKS que suporta piscinas de nós para recipientes do Wi
 > Para garantir que o seu cluster funciona de forma fiável, deve executar pelo menos 2 (dois) nós na piscina de nós predefinidos.
 
 ```azurepowershell-interactive
-$Password = Read-Host -Prompt 'Please enter your password' -AsSecureString
-New-AzAksCluster -ResourceGroupName myResourceGroup -Name myAKSCluster -NodeCount 2 -KubernetesVersion 1.16.7 -NetworkPlugin azure -NodeVmSetType VirtualMachineScaleSets -WindowsProfileAdminUserName akswinuser -WindowsProfileAdminUserPassword $Password
+$Username = Read-Host -Prompt 'Please create a username for the administrator credentials on your Windows Server containers: '
+$Password = Read-Host -Prompt 'Please create a password for the administrator credentials on your Windows Server containers: ' -AsSecureString
+New-AzAksCluster -ResourceGroupName myResourceGroup -Name myAKSCluster -NodeCount 2 -NetworkPlugin azure -NodeVmSetType VirtualMachineScaleSets -WindowsProfileAdminUserName $Username -WindowsProfileAdminUserPassword $Password
 ```
 
 > [!Note]
@@ -97,7 +98,7 @@ Após alguns minutos, o comando completa e devolve informações sobre o cluster
 Por padrão, um cluster AKS é criado com uma piscina de nó que pode executar recipientes Linux. Utilize `New-AzAksNodePool` o cmdlet para adicionar uma piscina de nó que pode executar os recipientes do Windows Server ao lado da piscina de nóleiros Linux.
 
 ```azurepowershell-interactive
-New-AzAksNodePool -ResourceGroupName myResourceGroup -ClusterName myAKSCluster -VmSetType VirtualMachineScaleSets -OsType Windows -Name npwin -KubernetesVersion 1.16.7
+New-AzAksNodePool -ResourceGroupName myResourceGroup -ClusterName myAKSCluster -VmSetType VirtualMachineScaleSets -OsType Windows -Name npwin
 ```
 
 O comando acima cria uma nova piscina de nó chamado **npwin** e adiciona-o ao **myAKSCluster**. Ao criar uma piscina de nó para executar recipientes do Windows Server, o valor padrão para **VmSize** é **Standard_D2s_v3**. Se optar por definir o parâmetro **VmSize,** verifique a lista de [tamanhos VM restritos][restricted-vm-sizes]. O tamanho mínimo recomendado é **Standard_D2s_v3**. O comando anterior também utiliza a sub-rede predefinida na vnet predefinida criada ao executar `New-AzAks` .

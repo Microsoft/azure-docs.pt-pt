@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: trbye
-ms.openlocfilehash: 15f0b01304f3333b8650ab2079cd56271d0095db
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 2c98546d20e9f977a605ccbac21010aa9b1dbadc
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102424500"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103232499"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Preparar dados para Voz Personalizada
 
@@ -39,6 +39,8 @@ Um modelo treinado num subconjunto de cenários só pode ter um bom desempenho n
 > Comece com pequenos conjuntos de dados de amostra que correspondam à linguagem e acústica que o seu modelo irá encontrar.
 > Por exemplo, grave uma pequena mas representativa amostra de áudio no mesmo hardware e no mesmo ambiente acústico que o seu modelo encontrará em cenários de produção.
 > Pequenos conjuntos de dados de dados representativos podem expor problemas antes de ter investido na recolha de conjuntos de dados muito maiores para a formação.
+>
+> Para começar rapidamente, considere usar dados da amostra. Consulte este repositório GitHub para <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/sampledata/customspeech" target="_target">amostra de dados de discurso personalizado </a>
 
 ## <a name="data-types"></a>Tipos de dados
 
@@ -46,21 +48,18 @@ Esta tabela lista os tipos de dados aceites, quando cada tipo de dados deve ser 
 
 | Tipo de dados | Utilizado para testes | Quantidade recomendada | Usado para treino | Quantidade recomendada |
 |-----------|-----------------|----------|-------------------|----------|
-| [Áudio](#audio-data-for-testing) | Sim<br>Usado para inspeção visual | 5+ ficheiros áudio | Não | N/D |
-| [Transcrições com rótulo humano + áudio +](#audio--human-labeled-transcript-data-for-testingtraining) | Sim<br>Usado para avaliar a precisão | 0,5-5 horas de áudio | Sim | 1-20 horas de áudio |
-| [Texto relacionado](#related-text-data-for-training) | Não | N/a | Sim | 1-200 MB de texto relacionado |
-
-Quando treinar um novo modelo, comece com [textos relacionados.](#related-text-data-for-training) Estes dados já melhorarão o reconhecimento de termos e frases especiais. Treinar com texto é muito mais rápido do que treinar com áudio (minutos vs. dias).
+| [Áudio](#audio-data-for-testing) | Yes<br>Usado para inspeção visual | 5+ ficheiros áudio | No | N/D |
+| [Transcrições com rótulo humano + áudio +](#audio--human-labeled-transcript-data-for-testingtraining) | Yes<br>Usado para avaliar a precisão | 0,5-5 horas de áudio | Yes | 1-20 horas de áudio |
+| [Texto relacionado](#related-text-data-for-training) | No | N/a | Yes | 1-200 MB de texto relacionado |
 
 Os ficheiros devem ser agrupados por tipo num conjunto de dados e carregados como um ficheiro .zip. Cada conjunto de dados só pode conter um único tipo de dados.
 
 > [!TIP]
-> Para começar rapidamente, considere usar dados da amostra. Consulte este repositório GitHub para <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/sampledata/customspeech" target="_target">amostra de dados de discurso personalizado </a>
+> Quando treinar um novo modelo, comece com [textos relacionados.](#related-text-data-for-training) Estes dados já melhorarão o reconhecimento de termos e frases especiais. Treinar com texto é muito mais rápido do que treinar com áudio (minutos vs. dias).
 
 > [!NOTE]
 > Nem todos os modelos base suportam o treino com áudio. Se um modelo base não o suportar, o serviço Desemaguiso utilizará apenas o texto das transcrições e ignorará o áudio. Consulte [o suporte linguístico](language-support.md#speech-to-text) para uma lista de modelos base que suportam a formação com dados áudio. Mesmo que um modelo base suporte a formação com dados áudio, o serviço pode usar apenas uma parte do áudio. Ainda assim, vai usar todas as transcrições.
-
-> [!NOTE]
+>
 > Nos casos em que altera o modelo base utilizado para o treino, e tem áudio no conjunto de dados de treino, verifique *sempre* se o novo modelo base selecionado [suporta a formação com dados áudio](language-support.md#speech-to-text). Se o modelo base anteriormente utilizado não suportasse a formação com dados áudio, e o conjunto de dados de formação contiver áudio, o tempo de treino com o novo modelo base aumentará **drasticamente,** podendo facilmente passar de várias horas para vários dias e mais. Isto é especialmente verdade se a subscrição do seu serviço Desem declarações **não** estiver numa [região com o hardware dedicado](custom-speech-overview.md#set-up-your-azure-account) para a formação.
 >
 > Se encarar a questão descrita no parágrafo acima, pode diminuir rapidamente o tempo de treino reduzindo a quantidade de áudio no conjunto de dados ou removendo-o completamente e deixando apenas o texto. Esta última opção é altamente recomendada se a subscrição do serviço Speech **não** estiver numa [região com o hardware dedicado](custom-speech-overview.md#set-up-your-azure-account) para a formação.
@@ -103,7 +102,7 @@ Utilize esta tabela para garantir que os seus ficheiros áudio são formatados c
 
 Utilize <a href="http://sox.sourceforge.net" target="_blank" rel="noopener">o SoX </a> para verificar as propriedades áudio ou converter o áudio existente nos formatos apropriados. Abaixo estão alguns exemplos de como cada uma destas atividades pode ser feita através da linha de comando SoX:
 
-| Atividade | Descrição | Comando SoX |
+| Atividade | Description | Comando SoX |
 |----------|-------------|-------------|
 | Verifique o formato áudio | Use este comando para verificar<br>o formato de ficheiro áudio. | `sox --i <filename>` |
 | Converter formato áudio | Use este comando para converter<br>o ficheiro áudio para um único canal, 16-bit, 16 KHz. | `sox <input> -b 16 -e signed-integer -c 1 -r 16k -t wav <output>.wav` |

@@ -1,9 +1,9 @@
 ---
-title: Criar uma tarefa de codificação do Azure Media Services que gere pedaços de FMP4 Microsoft Docs
+title: Crie uma tarefa de codificação Azure Media Services que gere pedaços de fMP4 | Microsoft Docs
 description: Este tópico mostra como criar uma tarefa de codificação que gere pedaços de fMP4. Quando esta tarefa for utilizada com o codificader Media Encoder Standard ou Media Encoder Premium Workflow, o ativo de saída conterá pedaços de fMP4 em vez de ficheiros MP4 iso.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,21 +11,21 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a247ef24104d9ecb9c827896d2bbfda8c50b9958
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6311aa6d0bfca133925f27b5ea4849769d9e0ec4
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89269408"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103013368"
 ---
 # <a name="create-an-encoding-task-that-generates-fmp4-chunks"></a>Criar uma tarefa de codificação que gere pedaços de fMP4
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Este artigo mostra como criar uma tarefa de codificação que gere pedaços fragmentados de MP4 (fMP4) em vez de ficheiros MP4 ISO. Para gerar pedaços de fMP4, utilize o codificador de fluxo de trabalho **Standard ou** Media **Encoder Premium** para criar uma tarefa de codificação e especificar também a opção **AssetFormatOption.AdaptiveStreaming,** como mostra este código:  
     

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 02/22/2021
+ms.date: 03/08/2021
 ms.author: alkohli
-ms.openlocfilehash: 82019031eab4c17465115c4a24598f43d4620148
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: 36c7078a79cf8b0b7414c5031acb79b9a2c2453c
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102436453"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102630491"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-azure-powershell-script"></a>Implemente VMs no seu dispositivo GPU Azure Stack Edge Pro através do script Azure PowerShell
 
@@ -41,7 +41,7 @@ Antes de começar a criar e gerir um VM no seu dispositivo Azure Stack Edge Pro 
 
     1. Inicie **o Notepad** como administrador (os privilégios de administrador são necessários para guardar o ficheiro) e, em seguida, abra o ficheiro **de anfitriões** localizado em `C:\Windows\System32\Drivers\etc` .
     
-        ![Ficheiro de anfitriões do Windows Explorer](media/azure-stack-edge-j-series-connect-resource-manager/hosts-file.png)
+        ![Ficheiro de anfitriões do Windows Explorer](media/azure-stack-edge-gpu-connect-resource-manager/hosts-file.png)
     
     2. Adicione as seguintes entradas no ficheiro dos **anfitriões** substituindo os valores adequados para o seu dispositivo:
     
@@ -54,7 +54,7 @@ Antes de começar a criar e gerir um VM no seu dispositivo Azure Stack Edge Pro 
 
     3. Utilize a seguinte imagem para referência. Guarde o ficheiro dos **anfitriões.**
 
-        ![hospeda ficheiro no Bloco de Notas](media/azure-stack-edge-j-series-deploy-virtual-machine-cli-python/hosts-screenshot-boxed.png)
+        ![hospeda ficheiro no Bloco de Notas](media/azure-stack-edge-gpu-deploy-virtual-machine-cli-python/hosts-screenshot-boxed.png)
 
 2. [Descarregue o script PowerShell](https://aka.ms/ase-vm-powershell) utilizado neste procedimento.
 

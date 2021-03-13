@@ -2,18 +2,18 @@
 title: incluir ficheiro
 description: incluir ficheiro
 services: active-directory
-author: barclayn
+author: ajburnle
 ms.service: active-directory
 ms.topic: include
 ms.date: 12/07/2020
-ms.author: barclayn
+ms.author: ajburnle
 ms.custom: include file
-ms.openlocfilehash: 0b1606e4506e7a1781426632d1f22221f7028b88
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 9c91eb6cfa18c5302a83347f671e4552befcf3e2
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102193954"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102623589"
 ---
 ## <a name="create-one-or-more-access-reviews"></a>Criar uma ou mais avaliações de acesso
 
@@ -38,6 +38,7 @@ ms.locfileid: "102193954"
     > [!NOTE]
     > - As funções selecionadas aqui incluem [papéis permanentes e elegíveis.](../articles/active-directory/privileged-identity-management/pim-how-to-add-role-to-user.md)
     > - Selecionar mais de uma função criará várias avaliações de acesso. Por exemplo, selecionar cinco funções criará cinco avaliações de acesso separadas.
+    > - Para funções com grupos que lhes sejam atribuídos, o acesso de cada grupo ligado ao papel em análise será revisto como parte da revisão de acesso.
 
     Se estiver a criar uma revisão de acesso das **funções AD do Azure,** o seguinte mostra um exemplo da lista de membros da Revisão.
 
@@ -52,8 +53,8 @@ ms.locfileid: "102193954"
     ![Lista de revisores de utilizadores ou membros selecionados (auto)](./media/active-directory-privileged-identity-management-access-reviews/reviewers.png)
 
     - **Utilizadores selecionados** - Utilize esta opção quando não souber quem precisa de acesso. Com esta opção, pode atribuir o comentário a um proprietário de recursos ou gestor de grupo para completar.
-    - **Membros (self)** - Utilize esta opção para que os utilizadores revejam as suas próprias atribuições de funções.
-    - **Gestor** – Utilize esta opção para que o gestor do utilizador reveja a sua atribuição de funções. Ao selecionar Manager, também terá a opção de especificar um revisor de recuo. Os revisores de recuo são convidados a rever um utilizador quando o utilizador não tem nenhum gestor especificado no diretório.
+    - **Membros (self)** - Utilize esta opção para que os utilizadores revejam as suas próprias atribuições de funções. Os grupos designados para o papel não farão parte da revisão quando esta opção for selecionada.
+    - **Gestor** – Utilize esta opção para que o gestor do utilizador reveja a sua atribuição de funções. Ao selecionar Manager, também terá a opção de especificar um revisor de recuo. Os revisores de recuo são convidados a rever um utilizador quando o utilizador não tem nenhum gestor especificado no diretório. Os grupos designados para o papel serão revistos pelo revisor Fallback se um for selecionado. 
 
 ### <a name="upon-completion-settings"></a>Após definições de conclusão
 

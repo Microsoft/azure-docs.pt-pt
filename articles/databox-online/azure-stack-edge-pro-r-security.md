@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 10/14/2020
 ms.author: alkohli
-ms.openlocfilehash: 922ef24bff7d6e60a3ba3b91113003f8206b8177
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: bd90a16c09dce65115cea2f097d18f2e0ced931a
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100548646"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102632038"
 ---
 # <a name="security-and-data-protection-for-azure-stack-edge-pro-r-and-azure-stack-edge-mini-r"></a>Segurança e proteção de dados para Azure Stack Edge Pro R e Azure Stack Edge Mini R
 
@@ -133,7 +133,7 @@ Quando o dispositivo sofre um reset duro, é executada uma limpeza segura no dis
 
 [!INCLUDE [azure-stack-edge-gateway-data-rest](../../includes/azure-stack-edge-gateway-protect-data-storage-accounts.md)]
 
-- Rode e, em seguida, [sincronize](azure-stack-edge-j-series-manage-storage-accounts.md) regularmente as chaves da sua conta de armazenamento para ajudar a proteger a sua conta de armazenamento de utilizadores não autorizados.
+- Rode e, em seguida, [sincronize](azure-stack-edge-gpu-manage-storage-accounts.md) regularmente as chaves da sua conta de armazenamento para ajudar a proteger a sua conta de armazenamento de utilizadores não autorizados.
 
 ## <a name="manage-personal-information"></a>Gerir informações pessoais
 
@@ -141,7 +141,7 @@ O serviço Azure Stack Edge recolhe informações pessoais nos seguintes cenári
 
 [!INCLUDE [azure-stack-edge-gateway-data-rest](../../includes/azure-stack-edge-gateway-manage-personal-data.md)]
 
-Para ver a lista de utilizadores que podem aceder ou apagar uma partilha, siga os passos em [Gerir ações no Azure Stack Edge](azure-stack-edge-j-series-manage-shares.md).
+Para ver a lista de utilizadores que podem aceder ou apagar uma partilha, siga os passos em [Gerir ações no Azure Stack Edge](azure-stack-edge-gpu-manage-shares.md).
 
 Para mais informações, reveja a política de privacidade da Microsoft no [Trust Center.](https://www.microsoft.com/trustcenter)
 
