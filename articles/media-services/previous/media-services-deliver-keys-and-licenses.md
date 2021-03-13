@@ -3,7 +3,7 @@ title: Utilize a Azure Media Services para entregar licenças DE DRM ou chaves A
 description: Este artigo descreve como pode utilizar o Azure Media Services para fornecer licenças PlayReady e/ou Widevine e chaves AES, mas faça o resto (codificar, encriptar, transmitir) utilizando os seus servidores no local.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: 8546c2c1-430b-4254-a88d-4436a83f9192
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e564feadfdb1d3cb6943d76b4b39ba0ec814e0d6
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: f6d014ced6e25f4c27e1d8ae7225069863e154b3
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98693647"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103015884"
 ---
 # <a name="use-media-services-to-deliver-drm-licenses-or-aes-keys"></a>Utilize serviços de mídia para entregar licenças DE DRM ou chaves AES
 
@@ -33,7 +33,7 @@ O Azure Media Services permite-lhe ingerir, codificar, adicionar proteção de c
 
 Para concluir este tutorial, precisa de uma conta do Azure. Para obter mais detalhes, consulte [Avaliação Gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Os Media Services fornecem um serviço de entrega de licenças de gestão de direitos digitais PlayReady e Widevine (DRM) e chaves AES-128. Os Serviços de Comunicação Social também fornecem APIs que permitem configurar os direitos e restrições que deseja para o tempo de execução drm para aplicar quando um utilizador reproduz o conteúdo protegido pela DRM. Quando um utilizador solicita o conteúdo protegido, a aplicação do jogador solicita uma licença do serviço de licença dos Serviços de Comunicação Social. Se a licença for autorizada, o serviço de licença dos Media Services emite a licença ao jogador. As licenças PlayReady e Widevine contêm a chave de desencriptação que pode ser usada pelo leitor cliente para desencriptar e transmitir o conteúdo.
 
 Os Serviços de Comunicação Social suportam múltiplas formas de autorizar utilizadores que façam licença ou pedidos chave. Configura a política de autorização da chave de conteúdo. A apólice pode ter uma ou mais restrições. As opções estão abertas ou a restrição simbólica. A política de token restrito tem de ser acompanhada por um token emitido por um serviço de tokens seguro (STS). Os Media Services suportam fichas no formato simples web token (SWT) e no formato JSON Web Token (JWT).

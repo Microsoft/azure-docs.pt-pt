@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/22/2021
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: bbab5463f0d022cb9bf155c7d33e2d81c8bdd448
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.openlocfilehash: a8f1f902b14dda7d95e3643c335e82ed7c7e5a3f
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/12/2021
-ms.locfileid: "103199697"
+ms.locfileid: "103232924"
 ---
 # <a name="optimize-traffic-flow-with-azure-active-directory-application-proxy"></a>Otimizar o fluxo de tráfego com o Azure Ative Directory Application Proxy
 
@@ -41,6 +41,9 @@ Por exemplo, se o país ou região do seu inquilino Azure AD for o Reino Unido, 
 Se tiver conectores instalados em regiões diferentes da sua região padrão, pode ser benéfico alterar a região para a qual o seu grupo de conector está otimizado para melhorar o desempenho no acesso a estas aplicações. Uma vez especificada uma região para um grupo de conector, ligará aos serviços de cloud Proxy de aplicação na região designada.
 
 Para otimizar o fluxo de tráfego e reduzir a latência a um grupo de conector atribua o grupo de conector à região mais próxima. Para atribuir uma região:
+
+> [!IMPORTANT]
+> Os conectores devem estar a utilizar pelo menos a versão 1.5.1975.0 para utilizar esta capacidade.
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com/) como administrador de aplicação do diretório que utiliza o Application Proxy. Por exemplo, se o domínio do inquilino for contoso.com, o administrador deve ser admin@contoso.com ou qualquer outro pseudónimo de administração nesse domínio.
 1. Selecione o seu nome de utilizador no canto superior direito. Verifique se está inscrito num diretório que utiliza o Application Proxy. Se precisar de alterar os diretórios, selecione **o diretório da Switch** e escolha um diretório que utilize o Application Proxy.

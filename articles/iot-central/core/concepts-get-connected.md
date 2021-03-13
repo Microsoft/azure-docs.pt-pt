@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - device-developer
-ms.openlocfilehash: 828f0ff81048ca0b6f07b7fdee9ed29c87991db4
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: dc0655aba424d29a4055f0d50a20057f22d084ed
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102032641"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103015460"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Ligar-se ao Azure IoT Central
 
@@ -178,7 +178,7 @@ Esta abordagem é útil quando se está a experimentar com ioT Central ou dispos
 
 ## <a name="associate-a-device-with-a-device-template"></a>Associe um dispositivo a um modelo de dispositivo
 
-O IoT Central associa automaticamente um dispositivo a um modelo de dispositivo quando o dispositivo se liga. Um dispositivo envia um [ID do modelo](../../iot-pnp/iot-plug-and-play-glossary.md#model-id) quando se conecta. A IoT Central utiliza o ID do modelo para identificar o modelo do dispositivo para esse modelo específico do dispositivo. O processo de descoberta funciona da seguinte forma:
+O IoT Central associa automaticamente um dispositivo a um modelo de dispositivo quando o dispositivo se liga. Um dispositivo envia um [ID do modelo](../../iot-fundamentals/iot-glossary.md?toc=/azure/iot-central/toc.json&bc=/azure/iot-central/breadcrumb/toc.json#model-id) quando se conecta. A IoT Central utiliza o ID do modelo para identificar o modelo do dispositivo para esse modelo específico do dispositivo. O processo de descoberta funciona da seguinte forma:
 
 1. Se o modelo do dispositivo já estiver publicado na aplicação IoT Central, o dispositivo está associado ao modelo do dispositivo.
 1. Se o modelo do dispositivo ainda não estiver publicado na aplicação IoT Central, a IoT Central procura o modelo do dispositivo no [repositório de modelos públicos](https://github.com/Azure/iot-plugandplay-models). Se a IoT Central encontrar o modelo, utiliza-o para gerar um modelo de dispositivo básico.

@@ -3,18 +3,18 @@ title: Início Rápido – Explorar os custos do Azure com a análise de custos
 description: Este guia de início rápido ajuda-o a utilizar a análise de custos para explorar e analisar os custos da sua organização associados ao Azure.
 author: bandersmsft
 ms.author: banders
-ms.date: 01/04/2021
+ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 83f2d87e3f4a03ff17526ea5706e4f87b8f39487
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
-ms.translationtype: HT
+ms.openlocfilehash: 86f7bbbb52b1596e20fb1f3a67e42b2dd27c501a
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97882454"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103012618"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Início Rápido: Explorar e analisar os custos com a análise de custos
 
@@ -68,11 +68,9 @@ A vista da análise de custos inicial inclui as seguintes áreas.
 
 ### <a name="understand-forecast"></a>Compreender a previsão
 
-A previsão de custos mostra uma projeção dos seus custos estimados para o período de tempo selecionado. O modelo baseia-se num modelo de regressão de série temporal. Requer pelo menos 10 dias de dados de utilização e custos recentes para prever os custos de forma precisa. Durante um determinado período de tempo, o modelo de previsão requer partes iguais dos dados de preparação para o período previsto. Por exemplo, uma projeção de três meses requer, pelo menos, três meses de dados de utilização e custos recentes.
+Com base na sua utilização recente, as previsões de custos mostram uma projeção dos seus custos estimados para o período de tempo selecionado. Se um orçamento for criado na análise de custos, pode ver quando é que as despesas previstas são suscetíveis de exceder o limiar orçamental. O modelo de previsão pode prever custos futuros até um ano. Selecione filtros para visualizar o custo previsto granular para a sua dimensão selecionada.
 
-O modelo utiliza um máximo de seis meses de dados de preparação para projetar custos para um ano. No mínimo, precisa de sete dias de dados de preparação para alterar a sua previsão. A previsão baseia-se em alterações drásticas, como picos e quedas, nos padrões de custo e utilização. A previsão não gera projeções individuais para cada item nas propriedades **Agrupar por**. Apenas prevê um total dos custos acumulados. Se utilizar várias moedas, o modelo prevê apenas os custos em USD.
-
-Como a dependência do modelo face aos dados tem picos e quedas, grandes compras, como instâncias reservadas, farão com que a sua previsão fique inflacionada artificialmente. O período de tempo da previsão e o tamanho das compras afetam o período durante o qual a previsão é afetada. A previsão volta ao normal quando as despesas estabilizam.
+O modelo de previsão baseia-se num modelo de regressão de séries temporítem. Requer pelo menos 10 dias de dados de utilização e custos recentes para prever os custos de forma precisa. Durante um determinado período de tempo, o modelo de previsão requer partes iguais dos dados de preparação para o período previsto. Por exemplo, uma projeção de três meses requer, pelo menos, três meses de dados de utilização e custos recentes.
 
 ## <a name="customize-cost-views"></a>Personalizar as vistas de custos
 

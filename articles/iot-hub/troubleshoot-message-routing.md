@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: asrastog
-ms.openlocfilehash: 29127a9dff42c0f733e3721d1ea5fea7350e774e
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 3abff5645775d724042acba3ee2461c7cad771a7
+ms.sourcegitcommit: 6776f0a27e2000fb1acb34a8dddc67af01ac14ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547367"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103149669"
 ---
 # <a name="troubleshooting-message-routing"></a>Encaminhamento de mensagens de resolução de problemas
 
@@ -37,7 +37,7 @@ Para resolver este problema, analise o seguinte.
 
 #### <a name="the-routing-metrics-for-this-endpoint"></a>As métricas de encaminhamento para este ponto final
 
-Todas as [métricas do IoT Hub relacionadas com o encaminhamento](monitor-iot-hub-reference.md#routing-metrics) estão prefixadas com *encaminhamento* . Pode combinar informações de várias métricas para identificar a causa principal para problemas. Por exemplo, utilize tentativas de **entrega de encaminhamento métricas** para identificar o número de mensagens que foram entregues num ponto final ou que foram deixadas cair quando não correspondem a consultas em nenhuma das rotas e a rota de retorno foi desativada. Verifique a métrica **de latência de encaminhamento** para observar se a latência para a entrega da mensagem é constante ou crescente. Uma latência crescente pode indicar um problema com um ponto final específico e recomendamos verificar [a saúde do ponto final](#the-health-of-the-endpoint). Estas métricas de encaminhamento também têm [dimensões](monitor-iot-hub-reference.md#metric-dimensions) que fornecem detalhes sobre a métrica como o tipo de ponto final, nome de ponto final específico e uma razão pela qual a mensagem não foi entregue.
+Todas as [métricas do IoT Hub relacionadas com o encaminhamento](monitor-iot-hub-reference.md#routing-metrics) estão prefixadas com *encaminhamento*. Pode combinar informações de várias métricas para identificar a causa principal para problemas. Por exemplo, utilize tentativas de **entrega de encaminhamento métricas** para identificar o número de mensagens que foram entregues num ponto final ou que foram deixadas cair quando não correspondem a consultas em nenhuma das rotas e a rota de retorno foi desativada. Verifique a métrica **de latência de encaminhamento** para observar se a latência para a entrega da mensagem é constante ou crescente. Uma latência crescente pode indicar um problema com um ponto final específico e recomendamos verificar [a saúde do ponto final](#the-health-of-the-endpoint). Estas métricas de encaminhamento também têm [dimensões](monitor-iot-hub-reference.md#metric-dimensions) que fornecem detalhes sobre a métrica como o tipo de ponto final, nome de ponto final específico e uma razão pela qual a mensagem não foi entregue.
 
 #### <a name="the-resource-logs-for-any-operational-issues"></a>Os registos de recursos para quaisquer problemas operacionais
 
@@ -82,4 +82,4 @@ Seguem-se os nomes de operação e os códigos de erro registados nos [registos 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Se precisar de mais ajuda, pode contactar os especialistas do Azure nos [fóruns MSDN Azure e Stack Overflow](https://azure.microsoft.com/support/forums/). Em alternativa, pode apresentar um incidente de suporte Azure. Vá ao [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione Obter **Apoio** .
+Se precisar de mais ajuda, pode contactar os especialistas do Azure nos [fóruns microsoft Q&A e Stack Overflow](https://azure.microsoft.com/support/forums/). Em alternativa, pode apresentar um incidente de suporte Azure. Vá ao [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione Obter **Apoio**.

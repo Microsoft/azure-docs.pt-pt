@@ -12,26 +12,22 @@ ms.workload: identity
 ms.date: 06/16/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 1187c768a54dd04d25b6de0e6785ebb81a7dfc24
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 6f13d789cd63bb568bb8940ce614ebdb2dbcdb83
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99584436"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199753"
 ---
 # <a name="configure-a-mobile-app-that-calls-web-apis"></a>Configure uma aplicação móvel que chama APIs web
 
 Depois de criar a sua aplicação, aprenderá a configurar o código utilizando os parâmetros de registo da aplicação. As aplicações móveis apresentam algumas complexidades relacionadas com a adaptação ao seu quadro de criação.
 
-## <a name="find-msal-support-for-mobile-apps"></a>Encontre suporte MSAL para aplicações móveis
+## <a name="microsoft-libraries-supporting-mobile-apps"></a>Bibliotecas da Microsoft que suportam aplicações móveis
 
-Os seguintes tipos da Microsoft Authentication Library (MSAL) suportam aplicações móveis.
+As seguintes bibliotecas da Microsoft suportam aplicações móveis:
 
-MSAL | Description
------------- | ----------
-![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Usado para desenvolver aplicações portáteis. MSAL.NET suporta as seguintes plataformas para a construção de uma aplicação móvel: Universal Windows Platform (UWP), Xamarin.iOS e Xamarin.Android.
-![MSAL.iOS](media/sample-v2-code/logo_iOS.png) <br/> MSAL.iOS | Usado para desenvolver aplicações nativas do iOS utilizando Object-C ou Swift.
-![O MSAL. Android](media/sample-v2-code/logo_android.png) <br/> O MSAL. Android | Usado para desenvolver aplicações nativas do Android em Java para Android.
+[!INCLUDE [active-directory-develop-libraries-mobile](../../../includes/active-directory-develop-libraries-mobile.md)]
 
 ## <a name="instantiate-the-application"></a>Instantaneamente a aplicação
 
@@ -130,7 +126,7 @@ Estas tarefas são necessárias quando utiliza o MSAL para iOS e macOS:
 Se utilizar Xamarin.Android, faça as seguintes tarefas:
 
 - [Certifique-se de que o controlo volta para a MSAL após o fim da parte interativa do fluxo de autenticação](msal-net-xamarin-android-considerations.md#ensure-that-control-returns-to-msal)
-- [Atualize o manifesto Android](msal-net-xamarin-android-considerations.md#update-the-android-manifest)
+- [Atualize o manifesto Android](msal-net-xamarin-android-considerations.md#update-the-android-manifest-for-system-webview-support)
 - [Utilize a vista web incorporada (opcional)](msal-net-xamarin-android-considerations.md#use-the-embedded-web-view-optional)
 - [Resolução de problemas, se necessário](msal-net-xamarin-android-considerations.md#troubleshooting)
 

@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/02/2021
 ms.custom: references_regions
-ms.openlocfilehash: da172e9a7605876711e4a4f32bf4fac698b35109
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: be72cae8d109bfeccd60e8c821625f75357568e3
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101694806"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103232363"
 ---
 # <a name="add-spell-check-to-queries-in-cognitive-search"></a>Adicione verificação ortográfica a consultas na Pesquisa Cognitiva
 
@@ -96,7 +96,7 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 
 O parâmetro de queryLanguage necessário para soletrar deve ser consistente com quaisquer [analisadores de linguagem](index-add-language-analyzers.md) atribuídos às definições de campo no esquema de índice. 
 
-+ queryLanguage determina quais os léxicos que são usados para verificação ortográfica, e também é usado como uma entrada para o [algoritmo de classificação semântica](semantic-how-to-query-response.md) se estiver a usar "queriaType=semântica".
++ queryLanguage determina quais os léxicos que são usados para verificação ortográfica, e também é usado como uma entrada para o [algoritmo de classificação semântica](semantic-answers.md) se estiver a usar "queriaType=semântica".
 
 + Os analisadores linguísticos são utilizados durante a indexação e execução de consultas para encontrar documentos correspondentes no índice de pesquisa. Um exemplo de uma definição de campo que usa um analisador de linguagem é `"name": "Description", "type": "Edm.String", "analyzer": "en.microsoft"` .
 

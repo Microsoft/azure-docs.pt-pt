@@ -9,14 +9,16 @@ ms.date: 10/13/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9d03b6f4a512c22564480405ec0f0e0c0e62a958
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: db27a466ca5f1370e8b43ceb472f5deeaba509f1
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048428"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200323"
 ---
 # <a name="deploy-iot-edge-modules-at-scale-using-the-azure-portal"></a>Implementar módulos IoT Edge em escala utilizando o portal Azure
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Crie uma **implementação automática IoT Edge** no portal Azure para gerir as implementações em curso para muitos dispositivos ao mesmo tempo. As implementações automáticas para ioT Edge fazem parte da funcionalidade automática de [gestão](../iot-hub/iot-hub-automatic-device-management.md) do dispositivo do IoT Hub. As implementações são processos dinâmicos que permitem implantar vários módulos em vários dispositivos, acompanhar o estado e a saúde dos módulos e fazer alterações quando necessário.
 
@@ -43,7 +45,7 @@ Para obter mais informações sobre os gémeos e tags do dispositivo, consulte [
 
 ## <a name="create-a-deployment"></a>Create a deployment (Criar uma implementação)
 
-O IoT Edge fornece dois tipos diferentes de implementações automáticas que pode utilizar para personalizar o seu cenário. Pode criar uma *implementação*padrão, que inclui os módulos de tempo de execução do sistema e quaisquer módulos e rotas adicionais. Cada dispositivo só pode aplicar uma implantação. Ou pode criar uma *implementação em camadas*, que inclui apenas módulos e rotas personalizados, e não o tempo de funcionamento do sistema. Muitas implementações em camadas podem ser combinadas num dispositivo, em cima de uma implementação padrão. Para obter mais informações sobre como os dois tipos de implementações automáticas funcionam em conjunto, consulte [as implementações automáticas Understand IoT Edge para dispositivos individuais ou à escala](module-deployment-monitoring.md).
+O IoT Edge fornece dois tipos diferentes de implementações automáticas que pode utilizar para personalizar o seu cenário. Pode criar uma *implementação* padrão, que inclui os módulos de tempo de execução do sistema e quaisquer módulos e rotas adicionais. Cada dispositivo só pode aplicar uma implantação. Ou pode criar uma *implementação em camadas*, que inclui apenas módulos e rotas personalizados, e não o tempo de funcionamento do sistema. Muitas implementações em camadas podem ser combinadas num dispositivo, em cima de uma implementação padrão. Para obter mais informações sobre como os dois tipos de implementações automáticas funcionam em conjunto, consulte [as implementações automáticas Understand IoT Edge para dispositivos individuais ou à escala](module-deployment-monitoring.md).
 
 Os passos para criar uma implantação e uma implantação em camadas são muito semelhantes. Quaisquer diferenças são convocadas nos seguintes passos.
 
@@ -131,8 +133,8 @@ Se várias implementações direcionarem o mesmo dispositivo, apenas o que tem a
 
 Qualquer implantação em camadas dirigida a um dispositivo deve ter uma prioridade maior do que a implantação da base para ser aplicada.
 
-1. Introduza um número inteiro positivo para a **prioridade**de implantação .
-1. Introduza uma **condição de Destino** para determinar quais os dispositivos que serão alvo com esta implementação.A condição baseia-se em etiquetas gémeas do dispositivo ou no dispositivo que as propriedades reportadas por gémeos e devem corresponder ao formato de expressão.Por exemplo, `tags.environment='test'` ou `properties.reported.devicemodel='4000x'`.
+1. Introduza um número inteiro positivo para a **prioridade** de implantação .
+1. Introduza uma **condição de Destino** para determinar quais os dispositivos que serão alvo com esta implementação. A condição baseia-se em etiquetas gémeas do dispositivo ou no dispositivo que as propriedades reportadas por gémeos e devem corresponder ao formato de expressão. Por exemplo, `tags.environment='test'` ou `properties.reported.devicemodel='4000x'`.
 
 Selecione **Seguinte: Revisão + Criar** para passar ao passo final.
 
@@ -182,7 +184,7 @@ Quando elimina uma implantação, qualquer dispositivo implantado assume a sua p
 
 1. Utilize a caixa de verificação para selecionar a implementação que pretende eliminar.
 1. Selecione **Eliminar**.
-1. Um aviso irá informá-lo que esta ação irá eliminar esta implementação e reverter para o estado anterior para todos os dispositivos.Será aplicada uma implantação com uma prioridade mais baixa.Se nenhuma outra implantação for direcionada, nenhum módulo será removido. Se pretender remover todos os módulos do seu dispositivo, crie uma implementação com zero módulos e coloque-o nos mesmos dispositivos.Selecione **Sim** para continuar.
+1. Um aviso irá informá-lo que esta ação irá eliminar esta implementação e reverter para o estado anterior para todos os dispositivos. Será aplicada uma implantação com uma prioridade mais baixa. Se nenhuma outra implantação for direcionada, nenhum módulo será removido. Se pretender remover todos os módulos do seu dispositivo, crie uma implementação com zero módulos e coloque-o nos mesmos dispositivos. Selecione **Sim** para continuar.
 
 ## <a name="next-steps"></a>Passos seguintes
 

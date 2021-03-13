@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ecfa9186ef42d4822c9b3053d76b7c0160841621
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 1fc0c4bf9f71a8fe7e8cf49b83d32ac594dbe062
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98740402"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103011404"
 ---
 # <a name="assign-scoped-roles-to-an-administrative-unit"></a>Atribuir funções âmbito a uma unidade administrativa
 
@@ -29,7 +29,7 @@ Para preparar a utilização do PowerShell e do Microsoft Graph para a gestão d
 
 ## <a name="available-roles"></a>Funções disponíveis
 
-Função  |  Descrição
+Função  |  Description
 ----- |  -----------
 Administrador de Autenticação  |  Tem acesso a visualização, definição e reposição de informações do método de autenticação para qualquer utilizador não administrativo apenas na unidade administrativa atribuída.
 Administrador de Grupos  |  Pode gerir todos os aspetos de grupos e configurações de grupos, tais como as políticas de nomeação e expiração, apenas na unidade administrativa atribuída.
@@ -72,23 +72,27 @@ Pode atribuir uma função de âmbito através do portal Azure, PowerShell ou Mi
 ### <a name="use-powershell"></a>Utilizar o PowerShell
 
 ```powershell
-$AdminUser = Get-AzureADUser -ObjectId "Use the user's UPN, who would be an admin on this unit"
-$Role = Get-AzureADDirectoryRole | Where-Object -Property DisplayName -EQ -Value "User Account Administrator"
-$administrativeUnit = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'The display name of the unit'"
-$RoleMember = New-Object -TypeName Microsoft.Open.AzureAD.Model.RoleMemberInfo
-$RoleMember.ObjectId = $AdminUser.ObjectId
-Add-AzureADMSScopedRoleMembership -ObjectId $administrativeUnit.ObjectId -RoleObjectId $Role.ObjectId -RoleMemberInfo $RoleMember
+$adminUser = Get-AzureADUser -ObjectId "Use the user's UPN, who would be an admin on this unit"
+$role = Get-AzureADDirectoryRole | Where-Object -Property DisplayName -EQ -Value "User Account Administrator"
+$adminUnitObj = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'The display name of the unit'"
+$roleMember = New-Object -TypeName Microsoft.Open.AzureAD.Model.RoleMemberInfo
+$roleMember.ObjectId = $adminUser.ObjectId
+Add-AzureADMSScopedRoleMembership -ObjectId $adminUnitObj.ObjectId -RoleObjectId $role.ObjectId -RoleMemberInfo $roleMember
 ```
 
 Pode alterar a secção realçada conforme necessário para o ambiente específico.
 
 ### <a name="use-microsoft-graph"></a>Use o Gráfico microsoft
 
+Pedir
+
 ```http
-Http request
-POST /directory/administrativeUnits/{id}/scopedRoleMembers
+POST /directory/administrativeUnits/{admin-unit-id}/scopedRoleMembers
+```
     
-Request body
+Corpo
+
+```http
 {
   "roleId": "roleId-value",
   "roleMemberInfo": {
@@ -114,22 +118,27 @@ Pode ver todas as atribuições de funções criadas com um âmbito de unidade a
 ### <a name="use-powershell"></a>Utilizar o PowerShell
 
 ```powershell
-$administrativeUnit = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'The display name of the unit'"
-Get-AzureADMSScopedRoleMembership -ObjectId $administrativeUnit.ObjectId | fl *
+$adminUnitObj = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'The display name of the unit'"
+Get-AzureADMSScopedRoleMembership -ObjectId $adminUnitObj.ObjectId | fl *
 ```
 
 Pode alterar a secção realçada conforme necessário para o seu ambiente específico.
 
 ### <a name="use-microsoft-graph"></a>Use o Gráfico microsoft
 
+Pedir
+
 ```http
-Http request
-GET /directory/administrativeUnits/{id}/scopedRoleMembers
-Request body
+GET /directory/administrativeUnits/{admin-unit-id}/scopedRoleMembers
+```
+
+Corpo
+
+```http
 {}
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Utilizar os grupos da cloud para gerir atribuições de funções](groups-concept.md)
 - [Funções de resolução de problemas atribuídas a grupos de nuvem](groups-faq-troubleshooting.md)

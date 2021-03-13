@@ -1,9 +1,9 @@
 ---
-title: Configure uma política de autorização chave de conteúdo com REST - Azure / Microsoft Docs
+title: Configure uma política de autorização chave de conteúdo com REST - Azure | Microsoft Docs
 description: Saiba como configurar uma política de autorização para uma chave de conteúdo utilizando a API dos Serviços de Mídia.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: 7af5f9e2-8ed8-43f2-843b-580ce8759fd4
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9f7910219c34c811cc49f530af145c6e1589711f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 66649eb6109339cd7723ab4a7e3a12c5c322973d
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89257029"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103017295"
 ---
 # <a name="dynamic-encryption-configure-a-content-key-authorization-policy"></a>Encriptação dinâmica: Configurar uma política de autorização de chave de conteúdo
 
@@ -28,7 +28,7 @@ ms.locfileid: "89257029"
  
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../../includes/media-services-selector-content-key-auth-policy.md)]
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
  Pode utilizar o Azure Media Services para entregar o seu conteúdo encriptado (dinamicamente) com o Padrão avançado de encriptação (AES) utilizando chaves de encriptação de 128 bits e a gestão de direitos digitais PlayReady ou Widevine (DRM). Os Serviços de Comunicação Social também fornecem um serviço para entrega de chaves e licenças PlayReady/Widevine a clientes autorizados.
 
 Se pretender que os Serviços de Comunicação Encriptem um ativo, tem de associar uma chave de encriptação (CommonEncryption ou EnvelopeEncryption) ao ativo. Para obter mais informações, consulte [Criar teclas de conteúdo com REST](media-services-rest-create-contentkey.md). Também é necessário configurar políticas de autorização para a chave (conforme descrito neste artigo).
@@ -39,7 +39,7 @@ Os Media Services suportam várias formas de autenticar utilizadores que efetuam
 
 Os Serviços de Comunicação Social não fornecem STS. Pode criar um STS personalizado ou utilizar o Azure Ative Directory (Azure AD) para emitir fichas. O STS deve ser configurado para criar um símbolo assinado com a chave especificada e emitir alegações que especificou na configuração de restrição simbólica (conforme descrito neste artigo). Se o token for válido e as reclamações no token corresponderem às configuradas para a chave de conteúdo, o serviço de entrega de chaves dos Serviços de Media devolve a chave de encriptação ao cliente.
 
-Para obter mais informações, veja os artigos seguintes:
+Para obter mais informações, veja os seguintes artigos:
 - [Autenticação simbólica JWT](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)
 - [Integre uma aplicação baseada em Azure Media Services OWIN MVC com o Azure Ative Directory e restrinja a entrega de chaves de conteúdo com base em alegações de JWT](http://www.gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/)
 

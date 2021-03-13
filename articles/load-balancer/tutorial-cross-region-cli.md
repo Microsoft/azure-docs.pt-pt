@@ -7,12 +7,12 @@ ms.author: allensu
 ms.service: load-balancer
 ms.topic: tutorial
 ms.date: 03/04/2021
-ms.openlocfilehash: c41dc65b920c80d25a81a09f4550e76a8fd1095a
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 83efb428a94d49b77ecd923d4868afe034374b5f
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102204549"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103225188"
 ---
 # <a name="tutorial-create-a-cross-region-azure-load-balancer-using-azure-cli"></a>Tutorial: Criar um balanceador de carga azure cross-region usando Azure CLI
 
@@ -81,23 +81,6 @@ Criar um equilibrador de carga transversal com [a criação de rede az cross-reg
     --backend-pool-name myBackEndPool-CR     
 ```
 
-### <a name="create-the-health-probe"></a>Criar a sonda de estado de funcionamento
-
-Crie uma sonda de saúde equilibrada de carga entre regiões com [sonda LB de rede az create:](/cli/azure/network/cross-region-lb/probe#az_network_cross_region_lb_probe_create)
-
-* Chamado **myHealthProbe-CR**.
-* Protocolo **Tcp**.
-* Porto **80**.
-
-```azurecli-interactive
-  az network cross-region lb probe create \
-    --lb-name myLoadBalancer-CR \
-    --name myHealthProbe-CR \
-    --port 80 \
-    --protocol Tcp \
-    --resource-group myResourceGroupLB-CR
-```
-
 ### <a name="create-the-load-balancer-rule"></a>Criar a regra de balanceador de carga
 
 Uma regra do balançador de carga define:
@@ -122,8 +105,7 @@ Crie uma regra do balançador de carga com [a regra de cruzamento de regiões-lb
     --protocol tcp \
     --resource-group myResourceGroupLB-CR \
     --backend-pool-name myBackEndPool-CR \
-    --frontend-ip-name myFrontEnd-CR \
-    --probe-name myHealthProbe-CR
+    --frontend-ip-name myFrontEnd-CR
 ```
 
 ## <a name="create-backend-pool"></a>Criar conjunto de back-end
@@ -204,7 +186,6 @@ Quando já não for necessário, utilize o comando de eliminação do [grupo AZ]
 Neste tutorial:
 
 * Criou um equilibrador de carga entre regiões.
-* Criei uma sonda de saúde.
 * Criou uma regra de equilíbrio de carga.
 * Adicionou equilibradores de carga regionais ao pool de backend do equilibrador de carga entre regiões.
 * Testei o equilibrador de carga.

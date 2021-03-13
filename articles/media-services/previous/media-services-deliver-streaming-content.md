@@ -1,7 +1,7 @@
 ---
-title: Publique conteúdo da Azure Media Services usando .NET Microsoft Docs
+title: Publique o conteúdo da Azure Media Services utilizando .NET | Microsoft Docs
 description: Aprenda a criar um localizador que seja usado para construir um URL de streaming. As amostras de código são escritas em C# e utilizam o SDK dos Serviços de Mídia para .NET.
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a0343c607a342c3438d68627b97c71cdf05199b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a1a06c9a5fdac1082a57bee71cccad271a6aae81
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89267790"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103015799"
 ---
 # <a name="publish-media-services-content-using-net"></a>Publicar conteúdo dos Serviços de Comunicação Social através de .NET
 
@@ -33,7 +33,7 @@ ms.locfileid: "89267790"
 > 
 > 
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Pode transmitir um conjunto de MP4 bitrate adaptativo, criando um localizador de streaming OnDemand e construindo um URL de streaming. A [codificação de um](media-services-encode-asset.md) tópico de ativo mostra como codificar num conjunto de MP4 bitrate adaptativo. 
 
 > [!NOTE]

@@ -1,18 +1,23 @@
 ---
 title: Guia de desempenho e de escalabilidade da Atividade de cópia
 description: Conheça os factores-chave que afetam o desempenho do movimento de dados na Azure Data Factory quando utilizar a atividade da cópia.
+services: data-factory
+documentationcenter: ''
 ms.author: jingwang
 author: linda33wj
+manager: shwang
+ms.reviewer: douglasl
 ms.service: data-factory
+ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/15/2020
-ms.openlocfilehash: 1c166b99243e5a6ee576100b8470aa38b9535c7a
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: cba248d3f254c9bb97c66ff7a3d39275b4b912c4
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100387670"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102616082"
 ---
 # <a name="copy-activity-performance-and-scalability-guide"></a>Guia de desempenho e de escalabilidade da Atividade de cópia
 
@@ -48,8 +53,8 @@ A ADF oferece uma arquitetura sem servidor que permite o paralelismo a diferente
 
 Esta arquitetura permite-lhe desenvolver oleodutos que maximizem o movimento de dados para o seu ambiente. Estes gasodutos utilizam plenamente os seguintes recursos:
 
-* Largura de banda de rede
-* Operações de entrada/saída de armazenamento por segundo (IOPS) e largura de banda
+* Largura de banda de rede entre as lojas de dados de origem e destino
+* Operações de entrada/saída de dados de origem ou destino por segundo (IOPS) e largura de banda
 
 Esta utilização completa significa que pode estimar a produção global medindo a produção mínima disponível com os seguintes recursos:
 
@@ -57,7 +62,7 @@ Esta utilização completa significa que pode estimar a produção global medind
 * Arquivo de dados de destino
 * Largura de banda de rede entre as lojas de dados de origem e destino
 
-O quadro abaixo calcula a duração da cópia. A duração baseia-se no tamanho dos dados e no limite de largura de banda para o seu ambiente.
+O quadro abaixo calcula a duração da cópia. A duração baseia-se no tamanho dos dados e no limite de largura de banda da rede/data store para o seu ambiente.
 
 &nbsp;
 

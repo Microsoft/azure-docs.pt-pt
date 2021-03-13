@@ -6,12 +6,12 @@ ms.date: 11/04/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 4ed3b3d60be0e5e4bedcb604ce021f6a64002120
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.openlocfilehash: e58d69634712a9cc640ba9e4785a7bf1effaf88c
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/12/2021
-ms.locfileid: "103201265"
+ms.locfileid: "103224661"
 ---
 # <a name="configuration-options---azure-monitor-application-insights-for-java"></a>Opções de configuração - Azure Monitor Application Insights for Java
 
@@ -184,9 +184,11 @@ Para mais informações, consulte a documentação do [processador de telemetria
 
 Log4j, Logback e java.util.logging são instrumentados automaticamente, e o registo realizado através destas estruturas de registo é recolhido automaticamente.
 
-A exploração madeireira só é capturada se cumprir primeiro o limiar configurado dos quadros de registo, e em segundo lugar também cumpre o limiar configurado de Insights de Aplicação.
+A exploração madeireira só é capturada se cumprir primeiro o nível configurado para a estrutura de registo e, em segundo lugar, também cumpre o nível configurado para Insights de Aplicação.
 
-O limiar de Insights de Aplicação predefinido é `INFO` . Se quiser alterar este nível:
+Por exemplo, se a sua estrutura de registo estiver configurada para registar `WARN` (e acima) a partir do pacote `com.example` , e o Application Insights estiver configurado para capturar `INFO` (e acima), então o Application Insights apenas capturará `WARN` (e acima) do pacote `com.example` .
+
+O nível padrão configurado para Insights de Aplicação é `INFO` . Se quiser alterar este nível:
 
 ```json
 {

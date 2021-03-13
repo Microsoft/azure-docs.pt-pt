@@ -2,13 +2,13 @@
 title: Nódoas e piscinas em Azure Batch
 description: Saiba mais sobre os nós e piscinas computacional e como são usados num fluxo de trabalho do Azure Batch do ponto de vista do desenvolvimento.
 ms.topic: conceptual
-ms.date: 11/20/2020
-ms.openlocfilehash: be38d4f91afcaa1ac31e9b9bbc6d2547da2ee99e
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.date: 03/11/2021
+ms.openlocfilehash: e1edcc805e0e8c59d189a4622e494101fb31bb6d
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102183663"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200229"
 ---
 # <a name="nodes-and-pools-in-azure-batch"></a>Nódoas e piscinas em Azure Batch
 
@@ -65,7 +65,7 @@ Quando criar uma piscina batch, especifique a configuração da máquina virtual
 Existem dois tipos de configurações de piscina disponíveis no Lote.
 
 > [!IMPORTANT]
-> As piscinas devem ser configuradas utilizando a "Configuração virtual da máquina" e não a "Configuração dos Serviços de Nuvem". Todas as funcionalidades do Lote são suportadas por piscinas de 'Configuração de Máquina Virtual' e novas funcionalidades estão a ser adicionadas. As piscinas 'Cloud Services Configuration' não suportam todas as funcionalidades e não estão previstas novas capacidades.
+> Embora possa criar piscinas utilizando qualquer uma das configurações, novos pools devem ser configurados usando a Configuração virtual da Máquina e não a Configuração de Serviços de Nuvem. Todas as funcionalidades atuais e novas do Lote serão suportadas por piscinas de configuração de máquinas virtuais. Os pools de configuração de serviços de nuvem não suportam todas as funcionalidades e não estão previstas novas capacidades. Não poderá criar novas piscinas 'CloudServiceConfiguration' ou adicionar novos nós às piscinas existentes [após 29 de fevereiro de 2024.](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024/)
 
 ### <a name="virtual-machine-configuration"></a>Configuração de máquina virtual
 
@@ -76,13 +76,13 @@ O [agente de nó batch](https://github.com/Azure/Batch/blob/master/changelogs/no
 ### <a name="cloud-services-configuration"></a>Configuração de serviços na nuvem
 
 > [!WARNING]
-> As piscinas de configuração do serviço de nuvem são depreciadas. Utilize, em vez disso, piscinas de configuração de máquinas virtuais.
+> As piscinas de configuração de serviços de nuvem são [depreciadas.](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024/) Utilize, em vez disso, piscinas de configuração de máquinas virtuais. Para obter mais informações, consulte [a configuração da piscina Do Lote Migrador dos Serviços de Nuvem para Máquina Virtual.](batch-pool-cloud-service-to-virtual-machine-configuration.md)
 
 A **Configuração de Serviços cloud** especifica que a piscina é composta por nós Azure Cloud Services. Os Serviços Cloud fornecem apenas nós de computação windows.
 
 Os sistemas operativos disponíveis para piscinas de configuração de serviços em nuvem estão listados nas [versões Azure Guest OS e na matriz de compatibilidade SDK](../cloud-services/cloud-services-guestos-update-matrix.md), e os tamanhos de nó de computação disponíveis estão listados em [Tamanhos para Serviços cloud](../cloud-services/cloud-services-sizes-specs.md). Quando cria uma piscina que contém nós cloud Services, especifica o tamanho do nó e a sua *família OS* (que determina quais as versões de .NET instaladas com o SO). Os Serviços Cloud são implantados para Azure mais rapidamente do que máquinas virtuais que executam o Windows. Se quiser agrupamentos de nós de computação do Windows, vai chegar à conclusão de que os Serviços Cloud são mais vantajosos no que diz respeito ao tempo de implementação.
 
-Tal como acontece com as funções de trabalho nos Serviços Cloud, pode especificar uma *Versão de SO* (para obter mais informações sobre as funções de trabalho, consulte a [descrição geral dos Serviços Cloud](../cloud-services/cloud-services-choose-me.md)). Recomendamos que especifique `Latest (*)` para a versão *OS* para que os nós sejam automaticamente atualizados, e não seja necessário trabalhar para atender às versões recém-lançadas. O principal motivo para selecionar uma versão de SO específica é garantir a compatibilidade da aplicação, o que permite fazer testes de retrocompatibilidade antes de permitir a atualização da versão. Após validação, a *versão OS* para o pool pode ser atualizada e a nova imagem de SO pode ser instalada. Quaisquer tarefas de execução serão interrompidas e requeadas.
+Tal como acontece com as funções dos trabalhadores nos Serviços Cloud, pode especificar uma *versão OS*. Recomendamos que especifique `Latest (*)` para a versão *OS* para que os nós sejam automaticamente atualizados, e não seja necessário trabalhar para atender às versões recém-lançadas. O principal motivo para selecionar uma versão de SO específica é garantir a compatibilidade da aplicação, o que permite fazer testes de retrocompatibilidade antes de permitir a atualização da versão. Após validação, a *versão OS* para o pool pode ser atualizada e a nova imagem de SO pode ser instalada. Quaisquer tarefas de execução serão interrompidas e requeadas.
 
 ### <a name="node-agent-skus"></a>Agente de nó SKUs
 

@@ -9,12 +9,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 7e8d1b13dfd802df820bea4015e411dbb85540ba
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.openlocfilehash: 9d2100dbc2c5f24742a949778a1b7450bf303c5f
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103011430"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103232210"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api"></a>Obtenha uma resposta com a API GenerateAnswer
 
@@ -174,9 +174,13 @@ var qnaResults = await this.qnaMaker.getAnswers(stepContext.context, qnaMakerOpt
 
 O JSON anterior solicitou apenas respostas que estejam a 30% ou acima da pontuação limiar.
 
-## <a name="return-precise-answers"></a>Respostas precisas de retorno
+## <a name="get-precise-answers-with-generateanswer-api"></a>Obtenha respostas precisas com a GenerateAnswer API
 
-### <a name="generate-answer-api"></a>Gerar Resposta API 
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (lançamento estável)](#tab/v1)
+
+Oferecemos uma funcionalidade de resposta precisa apenas com a versão gerida pelo QnA Maker.
+
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker gerido (pré-visualização)](#tab/v2)
 
 O utilizador pode ativar [respostas precisas](../reference-precise-answering.md) ao utilizar o recurso gerido pelo QnA Maker. O parâmetro respostaSpanRequest tem de ser atualizado para o mesmo.
 
@@ -211,6 +215,8 @@ Se pretender configurar definições precisas de resposta para o seu serviço de
 |Apenas respostas precisas|true|true|
 |Apenas respostas longas|false|false|
 |Respostas longas e precisas|true|false|
+
+---
 
 ## <a name="common-http-errors"></a>Erros http comuns
 
