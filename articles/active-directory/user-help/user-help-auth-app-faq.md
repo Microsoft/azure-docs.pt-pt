@@ -12,12 +12,12 @@ ms.topic: end-user-help
 ms.date: 01/28/2021
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 84dde96276414e98cbde05d6e046dce03227f60d
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 8ddc02075d2cdeba4a4fa83a2475ec20c3f18d6e
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100547864"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103418084"
 ---
 # <a name="frequently-asked-questions-faq-about-the-microsoft-authenticator-app"></a>Perguntas frequentes (FAQ) sobre a aplicação Microsoft Authenticator
 
@@ -260,7 +260,7 @@ A aplicação Microsoft Authenticator substituiu a aplicação Azure Authenticat
 
 **P:** Os meus funcionários ou alunos poderão utilizar o preenchimento automático de passwords na aplicação Authenticator?
 
-**R:** Sim, o Preenchimento automático funciona agora para a maioria dos utilizadores da empresa, mesmo quando uma conta de trabalho ou escola é adicionada à aplicação Authenticator. Pode preencher um formulário para configurar (permitir ou negar) Preenchimento automático para a sua organização e [enviá-lo para a equipa autenticadora](https://aka.ms/ConfigureAutofillInAuthenticator).
+**R:** Sim, o preenchimento automático para as suas [contas pessoais da Microsoft](https://go.microsoft.com/fwlink/?linkid=2144423) funciona agora para a maioria dos utilizadores da empresa, mesmo quando uma conta de trabalho ou escola é adicionada à aplicação Authenticator. Pode preencher um formulário para permitir ou negar o Preenchimento Automático para a sua organização e [enviá-lo para a equipa authenticator](https://aka.ms/ConfigureAutofillInAuthenticator). O preenchimento automático não está atualmente disponível para contas de trabalho ou escola.
 
 **P:** O trabalho dos meus utilizadores ou a palavra-passe da conta escolar será automaticamente sincronizado?
 

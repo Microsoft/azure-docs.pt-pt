@@ -6,12 +6,12 @@ ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 03/02/2021
-ms.openlocfilehash: 28599c08f25533e042c03612d035912a8d0f17c0
-ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
+ms.openlocfilehash: 6de2e0f1744b333a830fbe500e2df51e7eaca62d
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103225375"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103419087"
 ---
 # <a name="quickstart-create-an-azure-managed-instance-for-apache-cassandra-cluster-using-azure-cli-preview"></a>Quickstart: Criar uma instância gerida azure para o cluster Apache Cassandra usando Azure CLI (Preview)
 
@@ -26,12 +26,12 @@ Este quickstart demonstra como usar os comandos Azure CLI para criar um cluster 
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-* Este artigo requer a versão Azure CLI 2.12.1 ou superior. Se estiver a utilizar o Azure Cloud Shell, a versão mais recente já está instalada.
-
 * [Rede Virtual Azure](../virtual-network/virtual-networks-overview.md) com conectividade ao seu ambiente auto-hospedado ou no local. Para obter mais informações sobre a ligação em ambientes de instalações a Azure, consulte a rede De ligar uma rede no local ao artigo [da Azure.](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/)
 
 * Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
+> [!IMPORTANT]
+> Este artigo requer a versão Azure CLI 2.12.1 ou superior. Se estiver a utilizar o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="create-a-managed-instance-cluster"></a><a id="create-cluster"></a>Criar um cluster de instâncias gerido
 

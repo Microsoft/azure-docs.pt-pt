@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: 5a896d3fbe2d191473b10655ccb19c5759762131
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d28946aad263af635a0139e68d424a77a1eab25
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84803624"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103417829"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>Equilibrar a carga em várias configurações IP utilizando o portal Azure
 
@@ -26,7 +26,6 @@ ms.locfileid: "84803624"
 > * [Portal](load-balancer-multiple-ip.md)
 > * [PowerShell](load-balancer-multiple-ip-powershell.md)
 > * [CLI](load-balancer-multiple-ip-cli.md)
-
 
 Neste artigo, vamos mostrar-lhe como usar o Azure Load Balancer com vários endereços IP num controlador de interface de rede secundária (NIC). O seguinte diagrama ilustra o nosso cenário:
 
@@ -88,7 +87,7 @@ Crie o seu equilibrador de carga para a configuração:
 
 1. Navegue pelo portal Azure: https://portal.azure.com . Inscreva-se na sua conta Azure.
 
-2. Na parte superior esquerda do ecrã, selecione **Criar um**  >  equilibrador de carga de**rede de**recursos  >  **Load Balancer**. Em seguida, **selecione Criar**.
+2. Na parte superior esquerda do ecrã, selecione **Criar um**  >  equilibrador de carga de **rede de** recursos  >  . Em seguida, **selecione Criar**.
 
 3. Em **Criar o balançador de carga,** digite um nome para o seu equilibrador de carga. Neste cenário, estamos a usar o nome **mylb.**
 

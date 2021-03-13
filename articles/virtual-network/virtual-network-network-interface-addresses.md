@@ -1,5 +1,5 @@
 ---
-title: Configurar endereços IP para uma interface de rede Azure / Microsoft Docs
+title: Configurar endereços IP para uma interface de rede Azure | Microsoft Docs
 description: Saiba como adicionar, alterar e remover endereços IP privados e públicos para uma interface de rede.
 services: virtual-network
 documentationcenter: na
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/22/2020
 ms.author: allensu
-ms.openlocfilehash: 3fd0cfe644ad78059e25d5386cd1a01f56ad9fba
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 1df132e558421d2ec6e26c3883c89457716dfc42
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98216993"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103419019"
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Add, change, or remove IP addresses for an Azure network interface (Adicionar, alterar ou remover endereços IP para uma interface de rede do Azure)
 
@@ -29,7 +29,7 @@ Saiba como adicionar, alterar e remover endereços IP públicos e privados para 
 
 Se precisar de criar, alterar ou eliminar uma interface de rede, leia o artigo de interface de [rede.](virtual-network-network-interface.md) Se precisar de adicionar interfaces de rede ou remover interfaces de rede de uma máquina virtual, leia o artigo [de Interfaces de Rede Add ou remova.](virtual-network-network-interface-vm.md)
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -192,8 +192,6 @@ Pode atribuir um endereço IPv6 nulo ou um endereço [IPv6](#ipv6) a uma configu
 
 > [!NOTE]
 > Embora possa criar uma interface de rede com um endereço IPv6 utilizando o portal, não é possível adicionar uma interface de rede existente a uma nova máquina virtual, ou existente, utilizando o portal. Utilize o PowerShell ou o Azure CLI para criar uma interface de rede com um endereço IPv6 privado e, em seguida, prenda a interface de rede ao criar uma máquina virtual. Não é possível anexar uma interface de rede com um endereço IPv6 privado que lhe seja atribuído a uma máquina virtual existente. Não é possível adicionar um endereço IPv6 privado a uma configuração IP para qualquer interface de rede ligada a uma máquina virtual utilizando quaisquer ferramentas (portal, CLI ou PowerShell).
-
-Não é possível atribuir um endereço IPv6 público a uma configuração IP primária ou secundária.
 
 ## <a name="skus"></a>SKUs
 

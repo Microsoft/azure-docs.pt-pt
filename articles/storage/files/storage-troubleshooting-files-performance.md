@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 11/16/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 388a4f06d79116c42bf80cb25d0b133474c02192
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 9f858549f36d196c6412aec549d0ab2e2d864145
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101737635"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103417676"
 ---
 # <a name="troubleshoot-azure-file-shares-performance-issues"></a>Resolução de problemas Azure partilha problemas de desempenho
 
@@ -39,7 +39,8 @@ Para confirmar se a sua parte está a ser acelerada, pode aceder e utilizar mét
     Para as ações de ficheiros padrão, os seguintes tipos de resposta são registados se um pedido for acelerado:
 
     - SucessoWithThrottling
-    - ClientThrottlingError
+    - SucessoComPartiIopsThrottling
+    - ClientShareIopsThrottlingError
 
     Para ações de ficheiros premium, os seguintes tipos de resposta são registados se um pedido for acelerado:
 
@@ -244,7 +245,8 @@ Para confirmar, pode utilizar a Azure Metrics no portal -
     Para ações de ficheiros padrão, selecione os seguintes tipos de resposta:
 
     - SucessoWithThrottling
-    - ClientThrottlingError
+    - SucessoComPartiIopsThrottling
+    - ClientShareIopsThrottlingError
 
     Para ações de ficheiros premium, selecione os seguintes tipos de resposta:
 

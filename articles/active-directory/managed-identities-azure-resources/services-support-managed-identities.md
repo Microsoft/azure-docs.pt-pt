@@ -11,12 +11,12 @@ ms.subservice: msi
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: 7b9ae52a0d62da6a8637f63f15d8680b54aeefd1
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 0531305364b3e6f914a6de00614a3f9af4be3531
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101688574"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103418781"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Serviços que suportam identidades geridas para recursos da Azure
 
@@ -74,6 +74,18 @@ Consulte a seguinte lista para configurar a identidade gerida para o Serviço de
 | Utilizador atribuído | Não disponível | Não disponível | Não disponível | Não disponível |
 
 Azure Arc habilitado kubernetes atualmente [suporta a identidade atribuída ao sistema](../../azure-arc/kubernetes/connect-cluster.md#azure-arc-agents-for-kubernetes). O certificado de identidade de serviço gerido é usado por todos os agentes Azure Arc habilitados kubernetes para comunicação com a Azure.
+
+### <a name="azure-arc-enabled-servers"></a>Servidores preparados para o Azure Arc
+
+| Tipo de identidade gerido | Tudo geralmente disponível<br>Regiões Azure Globais | Azure Government | Azure Alemanha | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| Sistema atribuído | ![Disponível][check] | ![Disponível][check] | Não disponível | Não disponível |
+| Utilizador atribuído | Não disponível | Não disponível | Não disponível | Não disponível |
+
+Todos os servidores ativados do Azure Arc têm uma identidade atribuída ao sistema. Não é possível desativar ou alterar a identidade atribuída ao sistema num servidor ativado pelo Azure Arc. Consulte os seguintes recursos para saber mais sobre como consumir identidades geridas em servidores habilitados Azure Arc:
+
+- [Autenticar contra recursos Azure com servidores ativados pela Arc](../../azure-arc/servers/managed-identity-authentication.md)
+- [Usando uma identidade gerida com servidores ativados arc](../../azure-arc/servers/security-overview.md#using-a-managed-identity-with-arc-enabled-servers)
 
 ### <a name="azure-automanage"></a>Azure Automanage
 

@@ -6,15 +6,14 @@ ms.author: nimag
 ms.date: 08/11/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: d27a79e180a0219773a3094fb85f842773d75183
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 702efa3431ff3c9cf91aae38ac76219d900f7e85
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101656621"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103439310"
 ---
 Neste arranque rápido, você vai aprender como iniciar uma chamada usando a biblioteca de clientes Azure Communication Services Call para JavaScript.
-Este documento refere-se a tipos na versão 1.0.0-beta.5 da biblioteca de chamadas.
 
 > [!NOTE]
 > Este documento utiliza a versão 1.0.0-beta.6 da biblioteca do cliente chamador.

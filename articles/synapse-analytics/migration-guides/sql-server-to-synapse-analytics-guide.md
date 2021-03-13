@@ -2,26 +2,24 @@
 title: 'SQL Server to Azure Synapse Analytics: Guia de migração'
 description: Siga este guia para migrar as suas bases de dados SQL para a piscina Azure Synapse Analytics SQL.
 ms.service: synapse-analytics
-ms.subservice: ''
-ms.custom: ''
-ms.devlang: ''
+ms.subservice: sql
 ms.topic: conceptual
 author: julieMSFT
 ms.author: jrasnick
 ms.reviewer: jrasnick
 ms.date: 03/10/2021
-ms.openlocfilehash: 09914b409c7d8412f6ba30d4412e28e264bd50f6
-ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
+ms.openlocfilehash: 9a7888d3ccf7e033f15f184227c65c746780aa12
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103225788"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103418033"
 ---
 # <a name="migration-guide-sql-server-to-a-dedicated-sql-pool-in-azure-synapse-analytics"></a>Guia de migração: SQL Server para uma piscina SQL dedicada em Azure Synapse Analytics 
-As secções seguintes fornecem uma visão geral do que está envolvido na migração de uma solução de armazém de dados do SQL Server existente para a piscina SQL Azure Synapse Analytics
+As secções seguintes fornecem uma visão geral do que está envolvido na migração de uma solução de armazém de dados DO SQL Server existente para a piscina Azure Synapse Analytics SQL.
 
 ## <a name="overview"></a>Descrição Geral
-Antes de migrar, deve verificar se o Azure Synapse Analytics é a melhor solução para a sua carga de trabalho. Azure Synapse Analytics é um sistema distribuído projetado para executar análises em grandes dados. Migrar para a Azure Synapse Analytics requer algumas mudanças de design que não são difíceis de entender, mas que podem levar algum tempo a implementar. Se o seu negócio necessitar de um armazém de dados de classe empresarial, os benefícios valem o esforço. No entanto, se não necessitar da potência da Azure Synapse Analytics, é mais rentável utilizar o [SQL Server](https://docs.microsoft.com/sql/sql-server/) ou [a Azure SQL Database](https://docs.microsoft.com/azure/azure-sql/).
+Antes de migrar, deve verificar se o Azure Synapse Analytics é a melhor solução para a sua carga de trabalho. Azure Synapse Analytics é um sistema distribuído projetado para executar análises em grandes dados. Migrar para a Azure Synapse Analytics requer algumas mudanças de design que não são difíceis de entender, mas que podem levar algum tempo a implementar. Se o seu negócio necessitar de um armazém de dados de classe empresarial, os benefícios valem o esforço. No entanto, se não necessitar da potência da Azure Synapse Analytics, é mais rentável utilizar o [SQL Server](/sql/sql-server/) ou [a Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview).
 
 Considere usar a Azure Synapse Analytics quando:
 - Tenha um ou mais Terabytes de dados.
@@ -47,7 +45,7 @@ Para migrar o seu SQL Server para Azure Synapse Analytics, certifique-se de que 
 Depois de tomar a decisão de migrar uma solução existente para o Azure Synapse Analytics, é importante planear a migração antes de começar. Um objetivo primordial do planeamento é garantir que os seus dados, esquemas de mesa e código são compatíveis com a Azure Synapse Analytics. Existem algumas diferenças de compatibilidade entre o seu sistema atual e o SQL Data Warehouse que terá de trabalhar. Além disso, migrar grandes quantidades de dados para Azure leva tempo. Um planeamento cuidadoso acelerará o processo de entrega dos seus dados ao Azure. Outro objetivo chave do planeamento é ajustar o seu design para garantir que a sua solução tire o máximo partido do desempenho de alta consulta que o Azure Synapse Analytics foi concebido para fornecer. Projetar armazéns de dados para escala introduz padrões de design únicos, por isso as abordagens tradicionais nem sempre são as melhores. Embora alguns ajustes de design possam ser feitos após a migração, fazer alterações mais cedo no processo irá economizar tempo mais tarde.
 
 ## <a name="azure-synapse-pathway"></a>Caminho da Sinapse Azure
-Um dos bloqueadores críticos que os clientes enfrentam é a tradução do seu código SQL ao migrar de um sistema para outro. [O Azure Synapse Pathway](https://docs.microsoft.com/sql/tools/synapse-pathway/azure-synapse-pathway-overview) ajuda-o a fazer upgrade para uma plataforma moderna de armazém de dados, automatizando a tradução de código do seu armazém de dados existente. É uma ferramenta gratuita, intuitiva e fácil de usar que automatiza a tradução de código permitindo uma migração mais rápida para a Azure Synapse Analytics.
+Um dos bloqueadores críticos que os clientes enfrentam é a tradução do seu código SQL ao migrar de um sistema para outro. [O Azure Synapse Pathway](/sql/tools/synapse-pathway/azure-synapse-pathway-overview) ajuda-o a fazer upgrade para uma plataforma moderna de armazém de dados, automatizando a tradução de código do seu armazém de dados existente. É uma ferramenta gratuita, intuitiva e fácil de usar que automatiza a tradução de código permitindo uma migração mais rápida para a Azure Synapse Analytics.
 
 ## <a name="migrate"></a>Migrate
 Realizar uma migração bem sucedida requer que migrar os seus esquemas de mesa, código e dados. Para obter orientações mais detalhadas sobre estes tópicos, consulte:

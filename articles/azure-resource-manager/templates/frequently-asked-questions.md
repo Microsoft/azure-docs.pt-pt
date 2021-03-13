@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 03/03/2021
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 24baa0dc7444f632040ddaf9fcc2266f9e4ccae5
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: e64253aa79cfaeb2655bb091d038dc7c98b198bd
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102036145"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103419410"
 ---
 # <a name="frequently-asked-questions-about-arm-templates"></a>Perguntas frequentes sobre modelos ARM
 
@@ -100,7 +100,7 @@ Este artigo responde frequentemente a perguntas sobre modelos de Gestor de Recur
 
 * **Você vai oferecer uma ferramenta para converter os meus modelos JSON para a nova linguagem de modelo?**
 
-  Sim. Ver [Decompile JSON a Bicep](compare-template-syntax.md#decompile-json-to-bicep).
+  Sim. Consulte [os modelos ARM de conversão entre JSON e Bicep](bicep-decompile.md).
 
 ## <a name="template-specs"></a>Especificações de Modelo
 

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/12/2021
-ms.openlocfilehash: 1bccfa4d36ad39aec79a50c8a6b6c50260370223
-ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
+ms.openlocfilehash: b99cbf91d7fc1c5d90753dfa1461a58eda055180
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103235078"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103418900"
 ---
 # <a name="return-a-semantic-answer-in-azure-cognitive-search"></a>Devolva uma resposta semântica na Pesquisa Cognitiva Azure
 
@@ -63,7 +63,7 @@ O parâmetro "searchFields" é fundamental para devolver uma resposta de alta qu
 
 + Uma cadeia de consulta não deve ser nula e deve ser formulada como pergunta. Nesta pré-visualização, o "consultaType" e "queryLanguage" devem ser definidos exatamente como mostrado no exemplo.
 
-+ O parâmetro "searchFields" determina quais os campos que fornecem fichas ao modelo de extração. Um máximo de 20.000 fichas são usadas durante a ingestão de tokens, então inicie a lista de campo com campos concisos, e depois progrida para campos ricos em texto. Para obter orientações precisas sobre como definir este campo, consulte [set searchFields](semantic-how-to-query-request.md#searchfields).
++ O parâmetro "searchFields" determina quais os campos que fornecem fichas ao modelo de extração. Certifique-se de definir este parâmetro. Você deve ter pelo menos um campo de cordas, mas incluir qualquer campo de cordas que você acha útil para fornecer uma resposta. Apenas cerca de 8.000 fichas por documento são passadas para o modelo. Inicie a lista de campo com campos concisos e, em seguida, progrida para campos ricos em texto. Para obter orientações precisas sobre como definir este campo, consulte [set searchFields](semantic-how-to-query-request.md#searchfields).
 
 + Para "respostas", a construção de parâmetros `"answers": "extractive"` básicos é, onde o número predefinido de respostas devolvidas é um. Pode aumentar o número de respostas adicionando uma contagem, até um máximo de cinco.  Se precisa de mais do que uma resposta depende da experiência do utilizador da sua aplicação e da forma como pretende obter resultados.
 

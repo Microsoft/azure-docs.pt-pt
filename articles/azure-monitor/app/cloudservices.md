@@ -4,12 +4,12 @@ description: Monitorizar as funções Web e de trabalho eficazmente com o Applic
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 09/05/2018
-ms.openlocfilehash: 1f9204534fcdfbf7c393eaafdbae62c4c4321f2f
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 264d6d4b0b397a29b5dc1db4bb299297c1e30584
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100573872"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103419240"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Insights de Aplicação para serviços em nuvem Azure
 [O Application Insights][start] pode monitorizar [as aplicações do serviço de cloud Azure](https://azure.microsoft.com/services/cloud-services/) para disponibilidade, desempenho, falhas e utilização, combinando dados de SDKs app Insights com dados de [Diagnóstico Azure](../agents/diagnostics-extension-overview.md) dos seus serviços na nuvem. Com o feedback que recebe relativamente ao desempenho e à eficácia da sua aplicação no terreno, pode fazer escolhas informadas sobre o rumo do design em cada ciclo de vida do desenvolvimento.
@@ -52,9 +52,8 @@ A telemetria da sua aplicação é armazenada, analisada e exibida num recurso A
 Cada recurso pertence a um grupo de recursos. Os grupos de recursos são utilizados para gerir custos, para garantir o acesso aos membros da equipa e para implementar atualizações numa única transação coordenada. Por exemplo, pode [escrever um script para implementar](../../azure-resource-manager/templates/deploy-powershell.md) um serviço de cloud Azure e os seus recursos de monitorização de Aplicações Insights numa única operação.
 
 ### <a name="resources-for-components"></a>Recursos para componentes
-Recomendamos que crie um recurso separado para cada componente da sua aplicação. Ou seja, cria-se um recurso para cada papel web e papel de trabalhador. Pode analisar cada componente separadamente, mas cria um [dashboard](./overview-dashboard.md) que reúne os gráficos-chave de todos os componentes, para que possa compará-los e monitorizá-los juntos numa única vista. 
 
-Uma abordagem alternativa é enviar a telemetria de mais de uma função para o mesmo recurso, mas [adicionar uma propriedade de dimensão a cada item de telemetria](./api-filtering-sampling.md#addmodify-properties-itelemetryinitializer) que identifique o seu papel de origem. Nesta abordagem, gráficos métricos, como exceções, normalmente mostram uma agregação das contagens das várias funções, mas você pode segmentar o gráfico pelo identificador de funções, se necessário. Também pode filtrar pesquisas pela mesma dimensão. Esta alternativa torna um pouco mais fácil ver tudo ao mesmo tempo, mas também pode levar a alguma confusão entre os papéis.
+Recomendamos que [adicione uma propriedade de dimensão a cada item de telemetria](./api-filtering-sampling.md#addmodify-properties-itelemetryinitializer) que identifique a sua função de origem. Nesta abordagem, gráficos métricos, como exceções, normalmente mostram uma agregação das contagens das várias funções, mas você pode segmentar o gráfico pelo identificador de funções, se necessário. Também pode filtrar pesquisas pela mesma dimensão. Esta alternativa torna um pouco mais fácil ver tudo ao mesmo tempo, mas também pode levar a alguma confusão entre os papéis.
 
 Normalmente, a telemetria do browser está incluída no mesmo recurso que a função da Web do lado do servidor.
 

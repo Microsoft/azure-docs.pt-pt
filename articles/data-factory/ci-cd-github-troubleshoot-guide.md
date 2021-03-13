@@ -6,13 +6,13 @@ ms.author: susabat
 ms.reviewer: susabat
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 12/03/2020
-ms.openlocfilehash: d96c467807af868c07be12f52d913f881b82f732
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.date: 03/12/2021
+ms.openlocfilehash: 4be015b1a8ba4b6fc6ea3acc74318f9a8b298e8e
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102175877"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103418101"
 ---
 # <a name="troubleshoot-ci-cd-azure-devops-and-github-issues-in-adf"></a>Problemas de CI-CD, Azure DevOps e GitHub em ADF 
 
@@ -178,19 +178,21 @@ O Gestor de Recursos Azure restringe o tamanho do modelo a ser de 4mb. Limite o 
 
 Para obter soluções pequenas a médias, um único modelo é mais fácil de compreender e manter. Pode ver todos os recursos e valores num único ficheiro. Para cenários avançados, os modelos associados permitem-lhe dividir a solução em componentes direcionados. Siga as melhores práticas na [utilização de modelos ligados e aninhados.](../azure-resource-manager/templates/linked-templates.md?tabs=azure-powershell)
 
-### <a name="cannot-connect-to-git-enterprise"></a>Não é possível ligar-se à GIT Enterprise 
+### <a name="cannot-connect-to-git-enterprise-cloud"></a>Não é possível ligar-se à Nuvem Empresarial GIT 
 
 ##### <a name="issue"></a>Problema
 
-Não é possível ligar-se à GIT Enterprise por questões de permissão. Pode ver erro como **422 - Entidade Inprocessável.**
+Não é possível ligar-se à GIT Enterprise Cloud por questões de permissão. Pode ver erro como **422 - Entidade Inprocessável.**
 
 #### <a name="cause"></a>Causa
 
-Não configuraste o Oauth para a ADF. A sua URL está mal configurada.
+* Está a usar a Git Enterprise no servidor prem. 
+* Não configuraste o Oauth para a ADF. 
+* A sua URL está mal configurada.
 
 ##### <a name="resolution"></a>Resolução
 
-Concedes acesso à ADF no início. Em seguida, tem de usar o URL correto para ligar à GIT Enterprise. A configuração deve ser definida para a(s) organização(s) do cliente. Por exemplo, a ADF tentará primeiro *https://hostname/api/v3/search/repositories?q=user%3 <customer credential> ....* e falhará. Então, *https://hostname/api/v3/orgs/ <org> / <repo> tentará...* e terá sucesso. 
+Concedes acesso à ADF no início. Em seguida, tem de usar o URL correto para ligar à GIT Enterprise. A configuração deve ser definida para a(s) organização(s) do cliente. Por exemplo, a ADF tentará *https://hostname/api/v3/search/repositories?q=user%3 <customer credential> ....* no início e falhará. Então, *https://hostname/api/v3/orgs/ <org> / <repo> tentará...* e terá sucesso. 
  
 ### <a name="recover-from-a-deleted-data-factory"></a>Recuperar de uma fábrica de dados eliminada
 

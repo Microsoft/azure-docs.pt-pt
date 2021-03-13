@@ -7,12 +7,12 @@ author: vikancha-MSFT
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: vikancha
-ms.openlocfilehash: b7418825b4f22bfe4fe1941cb1f70ffb9f0a939b
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: d73bd81f15263c79e16b574eb961d4ae0ac61175
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102609214"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103417812"
 ---
 # <a name="ncast4_v3-series"></a>Série NCasT4_v3 
 
@@ -46,6 +46,8 @@ Nvidia NVLink Interconnect: Suportado<br>
 Para tirar partido das capacidades da GPU dos VMs da série Azure NCasT4_v3 que executam o Windows ou o Linux, os controladores da Nvidia GPU devem ser instalados.
 
 Para instalar manualmente os controladores da Nvidia GPU, consulte a [configuração do controlador gpu da série N para windows](./windows/n-series-driver-setup.md) para sistemas operativos suportados, controladores, instalações e etapas de verificação.
+
+A extensão do condutor da GPU Azure Nvidia vai colocar os condutores da CUDA nos VMs da série NCasT4_v3. Para cargas de trabalho de gráficos e visualização, instale manualmente os controladores GRID suportados pela Azure.
 
 ## <a name="other-sizes"></a>Outros tamanhos
 

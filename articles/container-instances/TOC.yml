@@ -156,6 +156,9 @@
       href: container-instances-reference-yaml.md
     - name: Conector
       href: /connectors/aci
+    - name: Incorporações do Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Recursos
   items:
     - name: Desenvolva as suas competências com o Microsoft Learn

@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: e95cd313d341844eabf4f5c5feae8a8ca3dc9c2e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ab41a336c32a1827c23f4c4619f47dc294a4d2ea
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91826542"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103419291"
 ---
 # <a name="authentication-and-authorization-for-azure-static-web-apps-preview"></a>Autenticação e autorização para Pré-visualização das Aplicações Web Estáticas do Azure
 
@@ -145,19 +145,18 @@ Por exemplo, para iniciar sessão com o GitHub pode incluir um link de login com
 
 Se escolheu apoiar mais do que um fornecedor, então tem de expor um link específico do fornecedor para cada um no seu website.
 
-Pode utilizar uma [regra de rota](routes.md) para mapear um fornecedor predefinido para uma rota amigável como _/login_.
+Pode utilizar uma [regra de rota](./configuration.md#routes) para mapear um fornecedor predefinido para uma rota amigável como _/login_.
 
 ```json
 {
   "route": "/login",
-  "serve": "/.auth/login/github"
+  "redirect": "/.auth/login/github"
 }
 ```
 
 ### <a name="post-login-redirect"></a>Redirecionamento de login
 
 Se pretender que um utilizador regresse a uma página específica após o início de sessão, forneça um URL no `post_login_redirect_uri` parâmetro de cadeia de consulta.
-
 
 ## <a name="logout"></a>Terminar sessão
 
@@ -167,12 +166,12 @@ A `/.auth/logout` rota regista os utilizadores fora do site. Pode adicionar um l
 <a href="/.auth/logout">Log out</a>
 ```
 
-Você pode usar uma [regra de rota](routes.md) para mapear uma rota amigável como _/logout_.
+Você pode usar uma [regra de rota](./configuration.md#routes) para mapear uma rota amigável como _/logout_.
 
 ```json
 {
   "route": "/logout",
-  "serve": "/.auth/logout"
+  "redirect": "/.auth/logout"
 }
 ```
 

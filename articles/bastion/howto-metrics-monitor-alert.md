@@ -6,14 +6,14 @@ services: bastion
 author: mialdrid
 ms.service: bastion
 ms.topic: how-to
-ms.date: 03/09/2021
+ms.date: 03/12/2021
 ms.author: mialdrid
-ms.openlocfilehash: dc16b9007c381f1bb0dce9332243842d8d4af9cd
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.openlocfilehash: 3a5beba3938b5a845a378ede155f2f64e6baac7a
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103202598"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103417948"
 ---
 # <a name="how-to-configure-monitoring-and-metrics-for-azure-bastion-using-azure-monitor"></a>Como configurar a monitorização e as métricas para o Bastião Azure utilizando o Monitor Azure
 
@@ -72,7 +72,7 @@ Pode ver a utilização da memória em cada instância de bastião, dividida em 
 
 #### <a name="session-count"></a>Contagem de sessão
 
-Pode ver a contagem de sessões ativas por instância de bastião, agregadas em cada tipo de sessão (RDP e SSH). Cada Bastião Azure pode suportar uma gama de sessões de RDP e SSH ativas. A monitorização desta métrica irá ajudá-lo a entender se precisa de ajustar o número de casos que executam o serviço de bastião. Para obter mais informações sobre a contagem de sessão Azure Bastion pode suportar, consulte as FAQ do [Bastião Azure.](bastion-faq.md) Para obter mais informações sobre quais os SKUs de apoio ao Bastion [SKUs, consulte skus de bastião.](bastion-connect-vm-scale-set.md)
+Pode ver a contagem de sessões ativas por instância de bastião, agregadas em cada tipo de sessão (RDP e SSH). Cada Bastião Azure pode suportar uma gama de sessões de RDP e SSH ativas. A monitorização desta métrica irá ajudá-lo a entender se precisa de ajustar o número de casos que executam o serviço de bastião. Para obter mais informações sobre a contagem de sessão Azure Bastion pode suportar, consulte as FAQ do [Bastião Azure.](bastion-faq.md)
 
 :::image type="content" source="./media/metrics-monitor-alert/session-count.png" alt-text="Screenshot mostrando contagem de sessão.":::
 

@@ -6,12 +6,12 @@ ms.service: managed-instance-apache-cassandra
 ms.topic: how-to
 ms.date: 03/02/2021
 ms.author: thvankra
-ms.openlocfilehash: 3cd5fdbf6cdc504a1290c8fbd80cf89cf85ce714
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 68b1ca625b5c8bd7ec195b89de63485c542e6691
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101746738"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103419078"
 ---
 # <a name="manage-azure-managed-instance-for-apache-cassandra-resources-using-azure-cli-preview"></a>Gerir a exemplo gerida do Azure para os recursos de Apache Cassandra utilizando o Azure CLI (Preview)
 
@@ -24,9 +24,9 @@ Este artigo descreve comandos comuns para automatizar a gestão do seu Azure Man
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-* Este artigo requer a versão Azure CLI 2.12.1 ou superior. Se estiver a utilizar o Azure Cloud Shell, a versão mais recente já está instalada.
-
 > [!IMPORTANT]
+> Este artigo requer a versão Azure CLI 2.12.1 ou superior. Se estiver a utilizar o Azure Cloud Shell, a versão mais recente já está instalada.
+>
 > Gerir a Azure Managed Instance para os recursos da Apache Cassandra não pode ser renomeado, uma vez que isto viola a forma como o Azure Resource Manager funciona com URIs de recursos.
 
 ## <a name="azure-managed-instance-for-apache-cassandra-clusters"></a>Azure Managed Instance para aglomerados Apache Cassandra

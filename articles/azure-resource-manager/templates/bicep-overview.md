@@ -3,12 +3,12 @@ title: Linguagem bicep para modelos de gestor de recursos Azure
 description: Descreve a linguagem Bicep para implantar infraestruturas para Azure através de modelos Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 03/12/2021
-ms.openlocfilehash: 11ba562fa3d91ffc7baeca647ed05e839f9c8013
-ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
+ms.openlocfilehash: 599cb378da51c5d13e7db3cf45cacf750c5843cc
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103232975"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103419835"
 ---
 # <a name="what-is-bicep-preview"></a>O que é Bicep (Pré-visualização)?
 
@@ -24,7 +24,7 @@ Depois de instalar as ferramentas, experimente o [tutorial Bicep](./bicep-tutori
 
 Para ver os ficheiros JSON e Bicep equivalentes lado a lado, consulte o [Bicep Playground](https://aka.ms/bicepdemo).
 
-Se tiver um modelo ARM existente que gostaria de converter em Bicep, consulte [Decompile JSON para Bicep](compare-template-syntax.md#decompile-json-to-bicep).
+Se tiver um modelo ARM existente que gostaria de converter em Bicep, consulte [os modelos DE CONVERSÃO ARM entre JSON e Bicep](bicep-decompile.md).
 
 ## <a name="bicep-improvements"></a>Melhorias do Bicep
 
@@ -89,7 +89,7 @@ A Bicep é uma DSL focada na implementação de soluções completas para o Azur
 
 Continuam a funcionar exatamente como sempre funcionaram. Não precisas de fazer alterações. Continuaremos a apoiar a linguagem JSON do modelo ARM subjacente. Os ficheiros Bicep compilam-se com o JSON, e o JSON é enviado para Azure para ser implantado.
 
-Quando estiver pronto, pode [converter os ficheiros JSON em Bicep](compare-template-syntax.md#decompile-json-to-bicep).
+Quando estiver pronto, pode [converter os ficheiros JSON em Bicep](bicep-decompile.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

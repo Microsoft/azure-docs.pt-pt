@@ -5,14 +5,15 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: conceptual
-ms.date: 03/08/2021
+ms.date: 03/12/2021
 ms.author: victorh
-ms.openlocfilehash: a3f72d235d6c52ce91ae351c2606ee6cf4285159
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.custom: references_regions
+ms.openlocfilehash: 22ee920c38a8cacaf37a1e3a6cfc5165dfa0bb44
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102453432"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103419954"
 ---
 # <a name="azure-firewall-premium-preview-features"></a>Funcionalidades de pré-visualização Azure Firewall Premium
 
@@ -100,12 +101,50 @@ ou
 
 Pode apresentar um pedido [https://aka.ms/azfw-webcategories-request](https://aka.ms/azfw-webcategories-request) em.
  
+## <a name="supported-regions"></a>Regiões suportadas
+
+A pré-visualização Azure Firewall Premium é suportada nas seguintes regiões:
+
+- Europa Ocidental (Público / Europa)
+- Leste dos EUA (Público / Estados Unidos)
+- Austrália Oriental (Público / Austrália)
+- Sudeste Asiático (Público / Ásia Pacífico)
+- Reino Unido Sul (Público / Reino Unido)
+- Norte da Europa (Público / Europa)
+- Leste dos EUA 2 (Público / Estados Unidos)
+- South Central US (Público / Estados Unidos)
+- West US 2 (Público / Estados Unidos)
+- West US (Público / Estados Unidos)
+- Central dos EUA (Público / Estados Unidos)
+- Norte Central DOS EUA (Público / Estados Unidos)
+- Japão Oriental (Público / Japão)
+- Ásia Oriental (Público / Ásia Pacífico)
+- Canadá Central (Público / Canadá)
+- France Central (Público / França)
+- África do Sul Norte (África do Sul/ África do Sul)
+- UAE Norte (Público / EAU)
+- Suíça Norte (Público / Suíça)
+- Brasil Sul (Público / Brasil)
+- Noruega Oriental (Público / Noruega)
+- Austrália Central (Público / Austrália)
+- Austrália Central 2 (Público / Austrália)
+- Sudeste da Austrália (Público / Austrália)
+- Canadá Leste (Público / Canadá)
+- Eua EUA (Público/ Canário (EUA))
+- França Sul (Público / França)
+- Japão Ocidental (Público / Japão)
+- Coreia do Sul (Público / Coreia)
+- UAE Central (Público/ EAU)
+- UK West (Público / Reino Unido)
+- West Central US (Público / Estados Unidos)
+- Índia Ocidental (Público / Índia)
+
 
 ## <a name="known-issues"></a>Problemas conhecidos
 
 A Azure Firewall Premium Preview tem os seguintes problemas conhecidos:
 
-|Problema  |Descrição  |Mitigação  |
+|Problema  |Description  |Mitigação  |
 |---------|---------|---------|
 |Inspeção TLS suportada apenas na porta padrão HTTPS|A Inspeção TLS suporta apenas HTTPS/443. |Nenhum. Outros portos serão apoiados em GA.|
 |Apoio ESNI à resolução FQDN em HTTPS|O SNI encriptado não é suportado no aperto de mão HTTPS.|Hoje apenas o Firefox suporta o ESNI através da configuração personalizada. A solução proposta é para desativar esta funcionalidade.|

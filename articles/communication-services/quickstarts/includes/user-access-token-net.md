@@ -10,12 +10,12 @@ ms.date: 08/20/2020
 ms.topic: include
 ms.custom: include file
 ms.author: tchladek
-ms.openlocfilehash: a8d2a06f5b0ec7ed9a0ef563d7f65e62ef99f3b6
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: e6b92ef17e351c398c958bd7ef4430a002c1ae84
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102623211"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103439199"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -27,7 +27,7 @@ ms.locfileid: "102623211"
 
 ### <a name="create-a-new-c-application"></a>Criar uma nova aplicação C#
 
-Numa janela de consola (como cmd, PowerShell ou Bash), utilize o `dotnet new` comando para criar uma nova aplicação de consola com o nome `AccessTokensQuickstart` . Este comando cria um projeto simples "Hello World" C# com um único ficheiro de origem: **Program.cs**.
+Numa janela de consola (como cmd, PowerShell ou Bash), utilize o `dotnet new` comando para criar uma nova aplicação de consola com o nome `AccessTokensQuickstart` . Este comando cria um projeto "Hello World" C# com um único ficheiro de origem: **Programa.cs**.
 
 ```console
 dotnet new console -o AccessTokensQuickstart
@@ -45,14 +45,14 @@ dotnet build
 Enquanto ainda está no diretório de aplicações, instale a biblioteca de identidade dos serviços de comunicação Azure para o pacote .NET utilizando o `dotnet add package` comando.
 
 ```console
-dotnet add package Azure.Communication.Identity --version 1.0.0
+dotnet add package Azure.Communication.Identity --version 1.0.0-beta.5
 ```
 
 ### <a name="set-up-the-app-framework"></a>Configurar o quadro de aplicações
 
 Do diretório do projeto:
 
-1. Abrir **Program.cs** arquivo em um editor de texto
+1. **Programa Aberto.cs** arquivo em um editor de texto
 1. Adicione uma `using` diretiva para incluir o espaço de `Azure.Communication.Identity` nome
 1. Atualizar a `Main` declaração do método para apoiar o código async
 
@@ -133,7 +133,7 @@ Os tokens de acesso são credenciais de curta duração que precisam de ser reed
 
 Utilize o `CreateUserAndTokenAsync` método para criar uma identidade dos Serviços de Comunicação e emita um símbolo de acesso para o mesmo. O parâmetro `scopes` define um conjunto de primitivos que autorizarão este token de acesso. Consulte a [lista de ações apoiadas.](../../concepts/authentication.md)
 
-```csharp  
+```csharp
 // Issue an identity and an access token with the "voip" scope for the new identity
 var identityAndTokenResponse = await client.CreateUserAndTokenAsync(scopes: new[] { CommunicationTokenScope.VoIP });
 var identity = identityAndTokenResponse.Value.User;

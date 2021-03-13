@@ -4,12 +4,12 @@ description: Insira algumas linhas de código no seu dispositivo ou aplicação 
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 881c657b25d04834d83221c738c578b8281752b7
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a3fa14dcd406f6372a7fb409b92d9db3e8404ca7
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100593745"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103419036"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API do Application Insights para métricas e eventos personalizados
 
@@ -716,21 +716,23 @@ Existem [alguns limites no número de propriedades, valores de propriedade e mé
 *JavaScript*
 
 ```javascript
-appInsights.trackEvent
-    ("WinGame",
-        // String properties:
-        {Game: currentGame.name, Difficulty: currentGame.difficulty},
-        // Numeric metrics:
-        {Score: currentGame.score, Opponents: currentGame.opponentCount}
-        );
+appInsights.trackEvent({
+  name: 'some event',
+  properties: { // accepts any type
+    prop1: 'string',
+    prop2: 123.45,
+    prop3: { nested: 'objects are okay too' }
+  }
+});
 
-appInsights.trackPageView
-    ("page name", "http://fabrikam.com/pageurl.html",
-        // String properties:
-        {Game: currentGame.name, Difficulty: currentGame.difficulty},
-        // Numeric metrics:
-        {Score: currentGame.score, Opponents: currentGame.opponentCount}
-        );
+appInsights.trackPageView({
+  name: 'some page',
+  properties: { // accepts any type
+    prop1: 'string',
+    prop2: 123.45,
+    prop3: { nested: 'objects are okay too' }
+  }
+});
 ```
 
 *C#*
@@ -1020,7 +1022,7 @@ telemetry.InstrumentationKey = "---my key---";
 
 Para evitar misturar telemetria a partir de ambientes de desenvolvimento, teste e produção, pode [criar recursos separados de Insights de Aplicação](./create-new-resource.md) e alterar as suas chaves, dependendo do ambiente.
 
-Em vez de obter a chave de instrumentação do ficheiro de configuração, pode defini-la no seu código. Desa parte num método de inicialização, como global.aspx.cs num serviço ASP.NET:
+Em vez de obter a chave de instrumentação do ficheiro de configuração, pode defini-la no seu código. Definir a chave num método de inicialização, como o global.aspx.cs num serviço ASP.NET:
 
 *C#*
 

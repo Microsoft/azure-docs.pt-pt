@@ -1,32 +1,34 @@
 ---
 title: Azure Lighthouse em cenários empresariais
 description: As capacidades do Farol Azure podem ser usadas para simplificar a gestão de inquilinos cruzados dentro de uma empresa que usa vários inquilinos AD Azure.
-ms.date: 08/12/2020
+ms.date: 03/12/2021
 ms.topic: conceptual
-ms.openlocfilehash: ca3d73a6c5b88f7531c3d76eb3bd348fdfe8fa39
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 97b44f71750bdb533e889546f370a9b36ea5d3b4
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100573019"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103419359"
 ---
 # <a name="azure-lighthouse-in-enterprise-scenarios"></a>Azure Lighthouse em cenários empresariais
 
-Um cenário comum para [o Azure Lighthouse](../overview.md) é um prestador de serviços que gere recursos nos inquilinos Azure Ative Directory (Azure AD) dos seus clientes. No entanto, as capacidades do Farol Azure também podem ser usadas para simplificar a gestão de inquilinos cruzados dentro de uma empresa que usa vários inquilinos AZure AD.
+Um cenário comum para [o Farol Azure](../overview.md) é quando um prestador de serviços gere recursos em inquilinos do Azure Ative Directory (Azure AD) que pertencem aos clientes. As capacidades do Farol Azure também podem ser usadas para simplificar a gestão de inquilinos cruzados dentro de uma empresa que usa vários inquilinos AZure AD.
 
 ## <a name="single-vs-multiple-tenants"></a>Solteiro vs. múltiplos inquilinos
 
-Para a maioria das organizações, a gestão é mais fácil com um único inquilino AZure AD. Ter todos os recursos dentro de um inquilino permite centralizar tarefas de gestão por utilizadores designados, grupos de utilizadores ou diretores de serviço dentro desse inquilino. Recomendamos a utilização de um inquilino para a sua organização sempre que possível. No entanto, algumas organizações podem ter vários inquilinos da AD Azure. Por vezes, esta pode ser uma situação temporária, já que quando se realizam aquisições e ainda não foi definida uma estratégia de consolidação de inquilinos de longo prazo. Outras vezes, as organizações podem precisar de manter múltiplos inquilinos numa base contínua devido a subsidiárias totalmente independentes, requisitos geográficos ou legais, ou outras considerações.
+Para a maioria das organizações, a gestão é mais fácil com um único inquilino AZure AD. Ter todos os recursos dentro de um inquilino permite centralizar tarefas de gestão por utilizadores designados, grupos de utilizadores ou diretores de serviço dentro desse inquilino. Recomendamos a utilização de um inquilino para a sua organização sempre que possível.
+
+Algumas organizações podem precisar de usar vários inquilinos da AD Azure. Esta pode ser uma situação temporária, já que quando as aquisições ocorreram e uma estratégia de consolidação de inquilinos de longo prazo ainda não foi definida. Outras vezes, as organizações podem precisar de manter múltiplos inquilinos numa base contínua devido a subsidiárias totalmente independentes, requisitos geográficos ou legais, ou outras considerações.
 
 Nos casos em que é necessária uma arquitetura multi-arrendatária, o Farol de Azure pode ajudar a centralizar e agilizar as operações de gestão. Utilizando [a gestão de recursos delegada da Azure,](azure-delegated-resource-management.md)os utilizadores de um inquilino gerente podem desempenhar [funções de gestão de inquilinos cruzados de](cross-tenant-management-experience.md) forma centralizada e escalável.
 
 ## <a name="tenant-management-architecture"></a>Arquitetura de gestão de inquilinos
 
-Para utilizar o Azure Lighthouse em uma empresa, você precisará determinar que inquilino incluirá os utilizadores que realizam operações de gestão nos outros inquilinos. Por outras palavras, você precisará determinar qual inquilino será o inquilino gerente para os outros inquilinos.
+Para utilizar o Azure Lighthouse em uma empresa, você precisará determinar que inquilino incluirá os utilizadores que realizam operações de gestão nos outros inquilinos. Por outras palavras, você precisará designar um inquilino como o inquilino gerente para os outros inquilinos.
 
-Por exemplo, digamos que a sua organização tem um único inquilino que chamaremos *de Inquilino A.* A sua organização adquire então *o Inquilino B* e o Inquilino *C,* e tem razões comerciais que exigem que os mantenha como inquilinos separados.
+Por exemplo, digamos que a sua organização tem um único inquilino que chamaremos *de Inquilino A.* A sua organização adquire então *o Inquilino B* e o Inquilino *C,* e tem razões comerciais que exigem que os mantenha como inquilinos separados. No entanto, gostaria de utilizar as mesmas definições de política, práticas de backup e processos de segurança para todos eles, com tarefas de gestão realizadas pelo mesmo conjunto de utilizadores.
 
-A sua organização quer usar as mesmas definições políticas, práticas de backup e processos de segurança em todos os inquilinos. Uma vez que o Inquilino A já inclui utilizadores responsáveis por estas tarefas, pode embarcar subscrições no Arrendatário B e Inquilino C, permitindo aos mesmos utilizadores do Arrendatário A executar essas tarefas.
+Uma vez que o Inquilino A já inclui utentes da sua organização que têm vindo a realizar essas tarefas para o Inquilino A, pode embarcar subscrições dentro do Inquilino B e inquilino C, o que permite aos mesmos utilizadores do Arrendatário A executar essas tarefas em todos os inquilinos.
 
 ![Diagrama mostrando os utilizadores em Inquilino A gerindo recursos no Inquilino B e Inquilino C.](../media/enterprise-azure-lighthouse.jpg)
 
@@ -54,7 +56,7 @@ Para a gestão inter-arrendatário dentro da empresa, as referências aos presta
 
 Por exemplo, no exemplo acima descrito, o Inquilino A pode ser considerado como o inquilino prestador de serviços (o inquilino gerente) e o Inquilino B e Inquilino C podem ser considerados como os inquilinos do cliente.
 
-Neste exemplo, os utilizadores do Inquilino A com as permissões adequadas podem [visualizar e gerir recursos delegados](../how-to/view-manage-customers.md) na página dos **Meus clientes** do portal Azure. Da mesma forma, os utilizadores do Inquilino B e inquilino C com as permissões adequadas podem [visualizar e gerir os recursos que foram delegados](../how-to/view-manage-service-providers.md) ao Inquilino A na página de prestadores de **serviços** do portal Azure.
+Continuando com este exemplo, os utilizadores do Inquilino A com as permissões adequadas podem [ver e gerir recursos delegados](../how-to/view-manage-customers.md) na página dos Meus **clientes** do portal Azure. Da mesma forma, os utilizadores do Inquilino B e inquilino C com as permissões adequadas podem [visualizar e gerir os recursos que foram delegados](../how-to/view-manage-service-providers.md) ao Inquilino A na página de prestadores de **serviços** do portal Azure.
 
 ## <a name="next-steps"></a>Passos seguintes
 

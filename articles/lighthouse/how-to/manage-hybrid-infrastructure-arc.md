@@ -1,14 +1,14 @@
 ---
 title: Gerir infraestrutura híbrida em escala com Azure Arc
 description: Aprenda a gerir eficazmente as máquinas dos seus clientes e os clusters Kubernetes fora de Azure.
-ms.date: 09/22/2020
+ms.date: 03/12/2021
 ms.topic: how-to
-ms.openlocfilehash: 66a798265683045d7ff9f3d8d811141800d08f9b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ec32389cd7444405580530a00c8b7c5bc48bcd56
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91336620"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103419341"
 ---
 # <a name="manage-hybrid-infrastructure-at-scale-with-azure-arc"></a>Gerir infraestrutura híbrida em escala com Azure Arc
 
@@ -18,9 +18,9 @@ Como prestador de serviços, pode ter a bordo vários inquilinos de clientes par
 
 Com [os servidores Azure Arc ativados,](../../azure-arc/servers/overview.md)os clientes podem gerir quaisquer máquinas Windows e Linux hospedadas fora do Azure na sua rede corporativa, da mesma forma que gerem máquinas virtuais nativas do Azure. Ao associar uma máquina virtual híbrida ao Azure, esta torna-se ligada e será processada como um recurso no Azure. Os prestadores de serviços podem então gerir estas máquinas não-Azure, juntamente com os recursos Azure dos seus clientes.
 
-[Azure Arc habilitado Kubernetes (pré-visualização)](../../azure-arc/kubernetes/overview.md) permite que os clientes anexem e configurem aglomerados Kubernetes dentro ou fora de Azure. Quando um cluster Kubernetes estiver ligado ao Arco de Azure, aparecerá no portal Azure, com um ID do Gestor de Recursos Azure e uma identidade gerida. Os clusters estão ligados às subscrições padrão do Azure, estão localizados num grupo de recursos, e podem receber tags como qualquer outro recurso Azure.
+[A azure Arc habilitado Kubernetes](../../azure-arc/kubernetes/overview.md) permite que os clientes anexem e configurem aglomerados Kubernetes dentro ou fora de Azure. Quando um cluster Kubernetes estiver ligado ao Arco de Azure, aparecerá no portal Azure, com um ID do Gestor de Recursos Azure e uma identidade gerida. Os clusters estão ligados às subscrições padrão do Azure, estão localizados num grupo de recursos, e podem receber tags como qualquer outro recurso Azure.
 
-Este tópico fornece uma visão geral de como os prestadores de serviços podem usar servidores azure Arc habilitados e Azure Arc habilitado Kubernetes (pré-visualização) de uma forma escalável para gerir o ambiente híbrido dos seus clientes, com visibilidade em todos os inquilinos geridos do cliente.
+Este tópico fornece uma visão geral de como os prestadores de serviços podem usar servidores azure Arc habilitados e Azure Arc permitiu a Kubernetes de uma forma escalável para gerir o ambiente híbrido dos seus clientes, com visibilidade em todos os inquilinos geridos do cliente.
 
 > [!TIP]
 > Embora nos refiramos a prestadores de serviços e clientes neste tópico, esta orientação também se aplica às [empresas que utilizam o Farol Azure para gerir vários inquilinos.](../concepts/enterprise.md)
@@ -33,10 +33,7 @@ Ao visualizar recursos para uma subscrição delegada no portal Azure, verá est
 
 Por exemplo, pode [garantir que o mesmo conjunto de políticas são aplicados através das máquinas híbridas dos clientes.](../../azure-arc/servers/learn/tutorial-assign-policy-portal.md) Também pode utilizar o Azure Security Center para monitorizar a conformidade em todos os ambientes híbridos dos seus clientes, ou [utilizar o Azure Monitor para recolher dados diretamente das suas máquinas híbridas](../../azure-arc/servers/learn/tutorial-enable-vm-insights.md) num espaço de trabalho do Log Analytics. [As extensões de máquinas virtuais](../../azure-arc/servers/manage-vm-extensions.md) podem ser implantadas em VMs não-Azure Windows e Linux, simplificando a gestão das máquinas híbridas do cliente.
 
-## <a name="manage-hybrid-kubernetes-clusters-at-scale-with-azure-arc-enabled-kubernetes-preview"></a>Gerir clusters híbridos de Kubernetes em escala com Azure Arc habilitado Kubernetes (pré-visualização)
-
-> [!NOTE]
-> Azure Arc habilitado Kubernetes está atualmente em pré-visualização. Não recomendamos para cargas de trabalho de produção neste momento.
+## <a name="manage-hybrid-kubernetes-clusters-at-scale-with-azure-arc-enabled-kubernetes"></a>Gerir clusters híbridos de Kubernetes em escala com Azure Arc habilitado Kubernetes
 
 Você pode gerir clusters Kubernetes que foram [ligados à subscrição de um cliente com Azure Arc](../../azure-arc/kubernetes/connect-cluster.md), assim como se estivessem a funcionar em Azure.
 
@@ -48,9 +45,8 @@ Também pode monitorizar os agrupamentos conectados com o Azure Monitor e [utili
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Explore os arranques e amostras no [repositório Azure Arc GitHub.](https://github.com/microsoft/azure_arc) 
+- Explore os arranques e amostras no [repositório Azure Arc GitHub.](https://github.com/microsoft/azure_arc)
 - Saiba mais sobre [cenários suportados para servidores ativados do Azure Arc](../../azure-arc/servers/overview.md#supported-scenarios).
 - Conheça as [distribuições de Kubernetes suportadas pela Azure Arc.](../../azure-arc/kubernetes/overview.md#supported-kubernetes-distributions)
 - Saiba como [implementar uma política à escala.](policy-at-scale.md)
 - Aprenda a [utilizar registos de monitores Azure à escala](monitor-at-scale.md).
-

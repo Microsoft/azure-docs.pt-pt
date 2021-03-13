@@ -7,12 +7,12 @@ author: tamram
 ms.author: tamram
 ms.service: storage
 ms.custom: subject-policy-reference
-ms.openlocfilehash: b2997312808d14b5c47dc55aef4ee33ec51b7888
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: 54f466f823c5ef253589e61abe49a85e1074b3ed
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102616932"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103419919"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-storage"></a>Definições incorporadas da Política Azure para armazenamento Azure
 
@@ -23,6 +23,14 @@ O nome de cada definição de política incorporada liga-se à definição de po
 ## <a name="microsoftstorage"></a>Microsoft.Storage
 
 [!INCLUDE [azure-policy-reference-service-storage](../../../includes/policy/reference/byrp/microsoft.storage.md)]
+
+## <a name="microsoftstoragecache"></a>Microsoft.StorageCache
+
+[!INCLUDE [azure-policy-reference-service-storagecache](../../../includes/policy/reference/byrp/microsoft.storagecache.md)]
+
+## <a name="microsoftstoragesync"></a>Microsoft.StorageSync
+
+[!INCLUDE [azure-policy-reference-service-storagesync](../../../includes/policy/reference/byrp/microsoft.storagesync.md)]
 
 ## <a name="microsoftclassicstorage"></a>Microsoft.ClassicStorage
 

@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: storage
 author: roygara
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/04/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 372342611265640a2a64100f003880a430d61ca0
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 4b708e80bf335ba8bdce074285857a6f8b77b972
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96620953"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103439218"
 ---
 Durante a pré-visualização, a NFS tem as seguintes limitações:
 
@@ -25,6 +25,7 @@ Durante a pré-visualização, a NFS tem as seguintes limitações:
 - Disponível apenas para o nível premium.
 - As ações da NFS só aceitam uid/GID numérico. Para evitar que os seus clientes enviem UID/GID alfanumérico, deve desativar o mapeamento de ID.
 - As ações só podem ser montadas a partir de uma conta de armazenamento num VM individual, quando se utilizam links privados. A tentativa de montar ações de outras contas de armazenamento falhará.
+- É melhor confiar nas permissões atribuídas ao grupo primário. Por vezes, as permissões atribuídas ao grupo não primário do utilizador podem resultar no acesso negado devido a um bug conhecido.
 
 ### <a name="azure-storage-features-not-yet-supported"></a>Funcionalidades de Armazenamento Azure ainda não suportadas
 

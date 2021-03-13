@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/12/2021
-ms.openlocfilehash: a008551ac6f149617feedd01e256b637f83e975d
-ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
+ms.openlocfilehash: e3078c8f71f8862cacad552bb3176c08530e79bb
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103235062"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103418849"
 ---
 # <a name="semantic-ranking-in-azure-cognitive-search"></a>Ranking semântico em Pesquisa Cognitiva Azure
 
@@ -30,9 +30,9 @@ Para o ranking semântico, o modelo utiliza a compreensão da leitura da máquin
 
 1. Para cada documento, o ranker semântico avalia os campos no parâmetro searchFields por ordem, consolidando o conteúdo numa grande cadeia.
 
-1. A corda é então aparada para garantir que o comprimento total não seja superior a 20.000 fichas. Se tiver documentos muito grandes, com um campo de conteúdos ou merged_content que tenha muitas páginas de conteúdo, apenas serão utilizados os primeiros 20.000 tokens.
+1. A corda é então aparada para garantir que o comprimento total não seja superior a 8.000 fichas. Se tiver documentos muito grandes, com um campo de conteúdos ou merged_content campo que tenha muitas páginas de conteúdo, qualquer coisa depois do limite simbólico é ignorado.
 
-1. Cada um dos 50 documentos é agora representado por uma única longa corda que é até 20.000 fichas. Esta cadeia é enviada para o modelo de resumo. O modelo de resumo produz legendas (e respostas), utilizando a compreensão da leitura da máquina para identificar passagens que parecem resumir o conteúdo ou responder à pergunta. A saída do modelo de resumo é uma corda mais reduzida, que será no máximo 128 fichas.
+1. Cada um dos 50 documentos é agora representado por uma única longa corda. Esta cadeia é enviada para o modelo de resumo. O modelo de resumo produz legendas (e respostas), utilizando a compreensão da leitura da máquina para identificar passagens que parecem resumir o conteúdo ou responder à pergunta. A saída do modelo de resumo é uma corda mais reduzida, que será no máximo 128 fichas.
 
 1. A corda mais pequena torna-se a legenda do documento, e representa as passagens mais relevantes encontradas na corda maior. O conjunto de 50 (ou menos) legendas é então classificado por ordem de relevância. 
 

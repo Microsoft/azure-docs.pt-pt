@@ -12,12 +12,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 07/31/2020
-ms.openlocfilehash: a8f1ca1da54c816199a0504eb17fa0a7bbfc441b
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 54b1fd14f97855dd42afde9a4bb34795373ff229
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102522194"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103417642"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Criar conjuntos de dados do Azure Machine Learning
 
@@ -182,9 +182,55 @@ titanic_ds.take(3).to_pandas_dataframe()
 
 Para reutilizar e partilhar conjuntos de dados através de experiências no seu espaço de trabalho, [registe o seu conjunto de dados](#register-datasets).
 
+## <a name="wrangle-data"></a>Dados wrangle
+Depois de criar e [registar](#register-datasets) o seu conjunto de dados, pode carregá-lo no seu caderno para a criação e [exploração](#explore-data) de dados antes do treino de modelos. 
+
+Se não precisar de fazer qualquer problema de dados ou exploração, consulte como consumir conjuntos de dados nos seus scripts de formação para submeter experiências ML em [Comboio com conjuntos de dados](how-to-train-with-datasets.md).
+
+### <a name="filter-datasets-preview"></a>Conjuntos de dados de filtro (pré-visualização)
+As capacidades de filtragem dependem do tipo de conjunto de dados que tiver. 
+> [!IMPORTANT]
+> Filtrar conjuntos de dados com o método de pré-visualização público, [`filter()`](/python/api/azureml-core/azureml.data.tabulardataset#filter-expression-) é uma funcionalidade de pré-visualização [experimental,](/python/api/overview/azure/ml/#stable-vs-experimental) e pode ser alterado a qualquer momento. 
+> 
+**Para os Separadores Tabular,** pode guardar ou remover colunas com os métodos [keep_columns e](/python/api/azureml-core/azureml.data.tabulardataset#keep-columns-columns--validate-false-) [drop_columns.(](/python/api/azureml-core/azureml.data.tabulardataset#drop-columns-columns-)
+
+Para filtrar linhas por um valor de coluna específico num Conjunto DeDatas Tabular, utilize o método do filtro (pré-visualização). [](/python/api/azureml-core/azureml.data.tabulardataset#filter-expression-) 
+
+Os exemplos a seguir devolvem um conjunto de dados não registado com base nas expressões especificadas.
+
+```python
+# TabularDataset that only contains records where the age column value is greater than 15
+tabular_dataset = tabular_dataset.filter(tabular_dataset['age'] > 15)
+
+# TabularDataset that contains records where the name column value contains 'Bri' and the age column value is greater than 15
+tabular_dataset = tabular_dataset.filter((tabular_dataset['name'].contains('Bri')) & (tabular_dataset['age'] > 15))
+```
+
+**Nos Ficheiros de Ficheiros,** cada linha corresponde a um caminho de um ficheiro, pelo que a filtragem por valor de coluna não ajuda. Mas, pode [filtrar()](/python/api/azureml-core/azureml.data.filedataset#filter-expression-) linhas por metadados como, CreationTime, Size etc.
+
+Os exemplos a seguir devolvem um conjunto de dados não registado com base nas expressões especificadas.
+
+```python
+# FileDataset that only contains files where Size is less than 100000
+file_dataset = file_dataset.filter(file_dataset.file_metadata['Size'] < 100000)
+
+# FileDataset that only contains files that were either created prior to Jan 1, 2020 or where 
+file_dataset = file_dataset.filter((file_dataset.file_metadata['CreatedTime'] < datetime(2020,1,1)) | (file_dataset.file_metadata['CanSeek'] == False))
+```
+
+**Conjuntos de dados rotulados criados** a partir [de projetos de rotulagem de dados](how-to-create-labeling-projects.md) são um caso especial. Estes conjuntos de dados são um tipo de Separadorse deDataset composto por ficheiros de imagem. Para este tipo de conjuntos de dados, pode [filtrar()](/python/api/azureml-core/azureml.data.tabulardataset#filter-expression-) imagens por metadados, e por valores de coluna como `label` e `image_details` .
+
+```python
+# Dataset that only contains records where the label column value is dog
+labeled_dataset = labeled_dataset.filter(labeled_dataset['label'] == 'dog')
+
+# Dataset that only contains records where the label and isCrowd columns are True and where the file size is larger than 100000
+labeled_dataset = labeled_dataset.filter((labeled_dataset['label']['isCrowd'] == True) & (labeled_dataset.file_metadata['Size'] > 100000))
+```
+
 ## <a name="explore-data"></a>Explorar dados
 
-Depois de criar e [registar](#register-datasets) o seu conjunto de dados, pode carregá-lo no seu caderno para exploração de dados antes do treino de modelos. Se não precisar de fazer qualquer exploração de dados, consulte como consumir conjuntos de dados nos seus scripts de formação para submeter experiências ML em [Comboio com conjuntos de dados](how-to-train-with-datasets.md).
+Depois de terminar a recolha dos seus dados, pode [registar](#register-datasets) o seu conjunto de dados e depois carregá-lo no seu caderno para exploração de dados antes do treino de modelos.
 
 Para datas de ficheiros, pode **montar** ou **descarregar** o conjunto de dados e aplicar as bibliotecas python que normalmente utilizaria para a exploração de dados. [Saiba mais sobre o mount vs download](how-to-train-with-datasets.md#mount-vs-download).
 
@@ -261,7 +307,7 @@ titanic_ds = titanic_ds.register(workspace=workspace,
 
 ## <a name="create-datasets-using-azure-resource-manager"></a>Criar conjuntos de dados utilizando o Gestor de Recursos Azure
 
-Há uma série de modelos [https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-dataset-create-*](https://github.com/Azure/azure-quickstart-templates/tree/master/) que podem ser usados para criar conjuntos de dados.
+Existem muitos modelos [https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-dataset-create-*](https://github.com/Azure/azure-quickstart-templates/tree/master/) que podem ser usados para criar conjuntos de dados.
 
 Para obter informações sobre a utilização destes modelos, consulte [utilize um modelo de Gestor de Recursos Azure para criar um espaço de trabalho para a aprendizagem de máquinas Azure](how-to-create-workspace-template.md).
 

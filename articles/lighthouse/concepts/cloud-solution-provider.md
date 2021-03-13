@@ -1,14 +1,14 @@
 ---
 title: Considerações sobre o programa do Fornecedor de Soluções Cloud
 description: Para os parceiros da CSP, a gestão de recursos delegada da Azure ajuda a melhorar a segurança e o controlo, permitindo permissões granulares.
-ms.date: 09/22/2020
+ms.date: 03/12/2021
 ms.topic: conceptual
-ms.openlocfilehash: 27bb1c4f82fe3c9ff8abe74b74bef19f16a8a874
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8736cf913739f2bd16fb519aed98fd336f6876a5
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90967168"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103419393"
 ---
 # <a name="azure-lighthouse-and-the-cloud-solution-provider-program"></a>Farol Azure e o programa Cloud Solution Provider
 

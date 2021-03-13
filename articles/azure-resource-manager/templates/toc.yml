@@ -328,7 +328,9 @@
       items:
         - name: Instalar Bicep
           href: bicep-install.md
-        - name: Comparando JSON a Bicep
+        - name: Converter entre JSON e Bicep
+          href: bicep-decompile.md
+        - name: Compare JSON e Bicep
           href: compare-template-syntax.md
     - name: Tipos de dados
       href: data-types.md

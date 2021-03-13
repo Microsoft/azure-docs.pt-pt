@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4311d0acc7c417bf31c71f46e6c25c65312b894d
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: ee6ac21d67f32fbc61db19b348fc29cdf3ee9fd7
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102034548"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103418186"
 ---
 # <a name="governing-azure-ad-service-accounts"></a>Contas de serviço AZure AD governando
 
@@ -32,7 +32,7 @@ Existem três tipos de contas de serviço no Azure Ative Directory (Azure AD): [
 
 Antes de criar uma conta de serviço, ou de registar uma aplicação, documente as informações-chave da conta de serviço. Ter informação documentada facilita o acompanhamento e a gestão eficaz da conta. Recomendamos recolher os seguintes dados e rastreá-lo na sua Base de Dados centralizada de Gestão de Configuração (CMDB).
 
-| Dados| Descrição| Detalhes |
+| Dados| Description| Detalhes |
 | - | - | - |
 | Proprietário| Utilizador ou grupo responsável pela gestão e monitorização da conta de serviço.| Doar ao proprietário as permissões necessárias para monitorizar a conta e implementar uma forma de mitigar as questões. A mitigação da questão pode ser feita pelo proprietário, ou através de um pedido de TI. |
 | Objetivo| Como a conta será usada.| Mapear a conta de serviço para um serviço específico, aplicação ou script. Evite criar contas de serviço multiusos. |
@@ -172,7 +172,7 @@ Estabeleça um processo de revisão para garantir que as contas de serviço são
 
 **Os processos de desprovisionamento devem incluir as seguintes tarefas.**
 
-1. Uma vez desprovisionada a aplicação ou script associado, [monitorize as entradas](../reports-monitoring/concept-all-sign-ins.md#sign-ins-report) e o acesso aos recursos pela conta de serviço.
+1. Uma vez desprovisionada a aplicação ou script associado, [monitorize as entradas](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins#sign-ins-report) e o acesso aos recursos pela conta de serviço.
 
    * Se a conta ainda estiver ativa, determine como está a ser usada antes de tomar os passos subsequentes.
  

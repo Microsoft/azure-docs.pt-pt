@@ -4,13 +4,13 @@ description: Utilize o Kit de Ferramentas Azure para IntelliJ para desenvolver a
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 04/13/2020
-ms.openlocfilehash: 0b2c2a91ba9d029bcf24b0980d0a2339194e6d8a
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.date: 04/14/2020
+ms.openlocfilehash: ced066623d23c6894745374ace812454c52f3109
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98931029"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103420022"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-hdinsight-cluster"></a>Use o Azure Toolkit para IntelliJ para criar aplicações Apache Spark para cluster HDInsight
 
@@ -475,7 +475,7 @@ Se não continuar a utilizar esta aplicação, elimine o cluster que criou com o
 
 ![Portal Azure elimina cluster HDInsight](./media/apache-spark-intellij-tool-plugin/hdinsight-azure-portal-delete-cluster.png "Excluir o cluster HDInsight")
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu a usar o Azure Toolkit para o plug-in IntelliJ para desenvolver aplicações Apache Spark escritas em [Scala.](https://www.scala-lang.org/) Em seguida, submeteu-os a um cluster HDInsight Spark diretamente do ambiente de desenvolvimento integrado IntelliJ (IDE). Avance para o próximo artigo para ver como os dados registados no Apache Spark podem ser puxados para uma ferramenta de análise de BI, como o Power BI.
 

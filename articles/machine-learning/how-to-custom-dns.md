@@ -8,15 +8,15 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 11/20/2020
+ms.date: 03/12/2021
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 66a709f15191a8142f10f15d825276ea2ba4b83f
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: 67341fcc7be21e4fa62c6e52a921fe397c8ffeb6
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102487989"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103417625"
 ---
 # <a name="how-to-use-your-workspace-with-a-custom-dns-server"></a>Como utilizar a área de trabalho com um servidor DNS personalizado
 
@@ -37,23 +37,9 @@ Ao utilizar um espaço de trabalho de aprendizagem automática Azure com um pont
 
 - Opcionalmente, [Azure CLI](/cli/azure/install-azure-cli) ou [Azure PowerShell](/powershell/azure/install-az-ps).
 
-## <a name="fqdns-in-use"></a>FQDNs em uso
-### <a name="these-fqdns-are-in-use-in-the-following-regions-eastus-southcentralus-and-westus2"></a>Estas FQDNs estão a ser utilizadas nas seguintes regiões: leste, sulcentralus e westus2.
-A lista que se segue contém os nomes de domínio totalmente qualificados (FQDN) utilizados pelo seu espaço de trabalho:
+## <a name="public-regions"></a>Regiões públicas
 
-* `<workspace-GUID>.workspace.<region>.cert.api.azureml.ms`
-* `<workspace-GUID>.workspace.<region>.api.azureml.ms`
-* `<workspace-GUID>.workspace.<region>.experiments.azureml.net`
-* `<workspace-GUID>.workspace.<region>.modelmanagement.azureml.net`
-* `<workspace-GUID>.workspace.<region>.aether.ms`
-* `ml-<workspace-name>-<region>-<workspace-guid>.notebooks.azure.net`
-* Se criar uma instância computacional, também deve adicionar uma entrada `<instance-name>.<region>.instances.azureml.ms` para o IP privado do ponto final privado do espaço de trabalho.
-
-    > [!NOTE]
-    > As instâncias computacional só podem ser acedidas a partir da rede virtual.
-    
-### <a name="these-fqdns-are-in-use-in-all-other-public-regions"></a>Estes FQDNs estão em uso em todas as outras regiões públicas
-A lista que se segue contém os nomes de domínio totalmente qualificados (FQDN) utilizados pelo seu espaço de trabalho:
+A lista que se segue contém os nomes de domínio totalmente qualificados (FQDN) utilizados pelo seu espaço de trabalho se estiver numa região pública::
 
 * `<workspace-GUID>.workspace.<region>.cert.api.azureml.ms`
 * `<workspace-GUID>.workspace.<region>.api.azureml.ms`
@@ -63,7 +49,7 @@ A lista que se segue contém os nomes de domínio totalmente qualificados (FQDN)
     > [!NOTE]
     > As instâncias computacional só podem ser acedidas a partir da rede virtual.
 
-### <a name="azure-china-21vianet-regions"></a>Regiões Azure China 21Vianet
+## <a name="azure-china-21vianet-regions"></a>Regiões Azure China 21Vianet
 
 As seguintes FQDNs são para as regiões Azure China 21Vianet:
 

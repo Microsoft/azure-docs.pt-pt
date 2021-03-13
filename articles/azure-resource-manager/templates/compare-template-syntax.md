@@ -2,13 +2,13 @@
 title: Compare a sintaxe para modelos de Gestor de Recursos Azure em JSON e Bicep
 description: Compara os modelos do Azure Resource Manager desenvolvidos com JSON e Bicep, e mostra como se converter entre os idiomas.
 ms.topic: conceptual
-ms.date: 03/03/2021
-ms.openlocfilehash: 29c2b9948957ebc10a26f22f0fe3daf383dfe5ba
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.date: 03/12/2021
+ms.openlocfilehash: 85f85e66e69eede68bab847e4bc68514e65115eb
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102036219"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103418050"
 ---
 # <a name="comparing-json-and-bicep-for-templates"></a>Comparando JSON e Bicep para modelos
 
@@ -40,42 +40,7 @@ Se estiver familiarizado com a utilização de JSON para desenvolver modelos ARM
 * Utilize invólucros consistentes para identificadores. Se não tem certeza de que tipo de invólucro usar, experimente o invólucro de camelo. Por exemplo, `param myCamelCasedParameter string`.
 * Adicione uma descrição a um parâmetro apenas quando a descrição fornecer informações essenciais aos utilizadores. Pode utilizar `//` comentários para obter algumas informações.
 
-## <a name="decompile-json-to-bicep"></a>Decompile JSON a Bicep
-
-O Bicep CLI fornece um comando para decompiler qualquer modelo ARM existente para um ficheiro Bicep. Para descompiler um ficheiro JSON, utilize: `bicep decompile "path/to/file.json"`
-
-Este comando fornece um ponto de partida para a autoria de Bicep, mas o comando não funciona para todos os modelos. O comando pode falhar ou poderá ter de corrigir problemas após a descompilação. Atualmente, os modelos aninhados só podem ser descompilados se usarem o âmbito de avaliação de expressão 'interior'.
-
-Pode exportar o modelo para um grupo de recursos e, em seguida, passá-lo diretamente para o comando decompile bicep. O exemplo a seguir mostra como descompilar um modelo exportado.
-
-# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
-
-```azurecli
-az group export --name "your_resource_group_name" > main.json
-bicep decompile main.json
-```
-
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
-
-```azurepowershell
-Export-AzResourceGroup -ResourceGroupName "your_resource_group_name" -Path ./main.json
-bicep decompile main.json
-```
-
-# <a name="portal"></a>[Portal](#tab/azure-portal)
-
-[Exporte o modelo](export-template-portal.md) através do portal. Use `bicep decompile <filename>` no ficheiro descarregado.
-
----
-
-## <a name="build-json-from-bicep"></a>Construir JSON de Bicep
-
-O Bicep CLI também fornece um comando para converter Bicep para JSON. Para construir um ficheiro JSON, utilize: `bicep build "path/to/file.json"`
-
-## <a name="side-by-side-view"></a>Vista lado a lado
-
-O [recreio Bicep](https://aka.ms/bicepdemo) permite-lhe visualizar ficheiros JSON e Bicep equivalentes lado a lado. Pode selecionar um modelo de amostra para ver ambas as versões. Ou, selecione `Decompile` para carregar o seu próprio modelo JSON e ver o ficheiro Bicep equivalente.
-
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter informações sobre o Bicep, consulte o [tutorial de Bicep.](./bicep-tutorial-create-first-bicep.md)
+* Para obter informações sobre o Bicep, consulte o [tutorial de Bicep.](./bicep-tutorial-create-first-bicep.md)
+* Para aprender sobre a conversão de modelos entre as línguas, consulte [os modelos DE CONVERSÃO ARM entre JSON e Bicep](bicep-decompile.md).

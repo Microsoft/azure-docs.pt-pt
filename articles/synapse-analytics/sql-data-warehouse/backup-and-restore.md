@@ -11,12 +11,12 @@ ms.date: 11/13/2020
 ms.author: joanpo
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019"
-ms.openlocfilehash: 8fd64023b9c07e8dd426b2b51916db4515a5405a
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.openlocfilehash: 866fe01e11ee53188cea6ea490304462acc1f6a2
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102451511"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103420005"
 ---
 # <a name="backup-and-restore-in-azure-synapse-dedicated-sql-pool"></a>Backup e restauro na piscina SQL dedicada Azure Synapse
 
@@ -48,7 +48,7 @@ order by run_id desc
 Esta funcionalidade permite-lhe ativar manualmente instantâneos para criar pontos de restauro do seu armazém de dados antes e depois de grandes modificações. Esta capacidade garante que os pontos de restauro são logicamente consistentes, o que fornece proteção adicional de dados em caso de interrupções de carga de trabalho ou erros do utilizador para um tempo de recuperação rápida. Os pontos de restauro definidos pelo utilizador estão disponíveis durante sete dias e são automaticamente eliminados em seu nome. Não é possível alterar o período de retenção dos pontos de restauro definidos pelo utilizador. **42 pontos de restauro definidos** pelo utilizador são garantidos a qualquer momento, pelo que devem ser [eliminados](/powershell/module/azurerm.sql/remove-azurermsqldatabaserestorepoint) antes de criar outro ponto de restauro. Pode ativar instantâneos para criar pontos de restauro definidos pelo utilizador através do [PowerShell](/powershell/module/az.sql/new-azsqldatabaserestorepoint?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.jsont#examples) ou do portal Azure.
 
 > [!NOTE]
-> Se necessitar de pontos de restauro superiores a 7 dias, por favor vote nesta capacidade [aqui](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/35114410-user-defined-retention-periods-for-restore-points). Também pode criar um ponto de restauro definido pelo utilizador e restaurar do ponto de restauro recém-criado para um novo armazém de dados. Uma vez restaurado, você tem a piscina SQL dedicada on-line e pode fazê-lo indefinidamente para economizar custos de cálculo. A base de dados pausada incorre em encargos de armazenamento à taxa de armazenamento Azure Premium. Se precisar de uma cópia ativa do armazém de dados restaurado, pode retomar o que deve demorar apenas alguns minutos.
+> Se necessitar de pontos de restauro superiores a 7 dias, por favor vote nesta capacidade [aqui](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/35114410-user-defined-retention-periods-for-restore-points). Também pode criar um ponto de restauro definido pelo utilizador e restaurar do ponto de restauro recém-criado para um novo armazém de dados. Uma vez restaurado, você tem a piscina SQL dedicada on-line e pode fazê-lo indefinidamente para economizar custos de cálculo. A base de dados pausada incorre em encargos de armazenamento na taxa de armazenamento Azure Synapse. Se precisar de uma cópia ativa do armazém de dados restaurado, pode retomar o que deve demorar apenas alguns minutos.
 
 ### <a name="restore-point-retention"></a>Restaurar a retenção de pontos
 

@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 56ec893de159f4c8a90c5a229ccf7669856fb066
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e77bbd6e82d0d4a48b72e13e60b60608f2d7674
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89020223"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103419596"
 ---
 # <a name="how-to-process-and-extract-information-from-images-in-ai-enrichment-scenarios"></a>Como processar e extrair informação de imagens em cenários de enriquecimento de IA
 
@@ -30,7 +30,7 @@ Como parte da quebra de documentos, existem um novo conjunto de parâmetros de c
 
 Não é possível desligar a normalização da imagem. As habilidades que iteram sobre as imagens esperam imagens normalizadas. Permitir a normalização da imagem num indexante requer que seja anexada uma habilidade a esse indexante.
 
-| Parâmetro de configuração | Descrição |
+| Parâmetro de configuração | Description |
 |--------------------|-------------|
 | imageAction   | Definido como "nenhum" se não for necessário tomar medidas quando forem encontradas imagens incorporadas ou ficheiros de imagem. <br/>Configurar para "gerar ImagensNormalizadas" para gerar uma série de imagens normalizadas como parte da quebra de documentos.<br/>Definido para "generateNormalizedImagePerPage" para gerar um conjunto de imagens normalizadas onde, para PDFs na sua fonte de dados, cada página é renderizada a uma imagem de saída.  A funcionalidade é a mesma que "generateNormalizedImages" para tipos de ficheiros não PDF.<br/>Para qualquer opção que não seja "nenhuma", as imagens serão expostas no campo *normalized_images.* <br/>O padrão é "nenhum". Esta configuração é apenas pertinente para obter fontes de dados blob, quando "dataToExtract" é definido como "contentAndMetadata". <br/>Um máximo de 1000 imagens será extraído de um determinado documento. Se houver mais de 1000 imagens num documento, as primeiras 1000 serão extraídas e será gerado um aviso. |
 |  ImageMaxWidth normalizado | A largura máxima (em pixels) para imagens normalizadas geradas. A predefinição é 2 000. O valor máximo permitido é de 10.000. | 
@@ -61,7 +61,7 @@ Especifica a imagemAcção na [definição do indexante](/rest/api/searchservice
 
 Quando a *imagemAcção* é definida como um valor diferente então "nenhuma", o novo campo *de normalized_images* conterá uma variedade de imagens. Cada imagem é um tipo complexo que tem os seguintes membros:
 
-| Membro da imagem       | Descrição                             |
+| Membro da imagem       | Description                             |
 |--------------------|-----------------------------------------|
 | dados               | BASE64 codificada cadeia da imagem normalizada em formato JPEG.   |
 | largura              | Largura da imagem normalizada em pixels. |
@@ -163,7 +163,7 @@ O exemplo seguinte skillset cria um campo *merged_text* contendo o conteúdo tex
 }
 ```
 
-Agora que tem um campo merged_text, pode mapeá-lo como um campo pes pes pes pes pes pes pes pestilizável na sua definição de indexante. Todo o conteúdo dos seus ficheiros, incluindo o texto das imagens, será pes pes pes pesjável.
+Agora que tem um campo merged_text, pode mapeá-lo como um campo pestilizável na sua definição de indexante. Todo o conteúdo dos seus ficheiros, incluindo o texto das imagens, será pesjável.
 
 ## <a name="visualize-bounding-boxes-of-extracted-text"></a>Visualizar caixas de delimitação de texto extraído
 
@@ -213,11 +213,83 @@ Como ajudante, se precisar de transformar coordenadas normalizadas para o espaç
             return original;
         }
 ```
+## <a name="passing-images-to-custom-skills"></a>Passando imagens para habilidades personalizadas
 
-## <a name="see-also"></a>Consulte também
+Para cenários em que você precisa de uma habilidade personalizada para trabalhar em imagens, você pode passar imagens para a habilidade personalizada, e fazê-lo devolver texto ou imagens. O processamento de imagem da [amostra Python](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Image-Processing) demonstra o fluxo de trabalho. O seguinte skillset é da amostra.
+
+O seguinte skillset tira a imagem normalizada (obtida durante a rachadura do documento) e produz fatias da imagem.
+
+#### <a name="sample-skillset"></a>Skillset de amostra
+```json
+{
+  "description": "Extract text from images and merge with content text to produce merged_text",
+  "skills":
+  [
+    {
+          "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
+          "name": "ImageSkill",
+          "description": "Segment Images",
+          "context": "/document/normalized_images/*",
+          "uri": "https://your.custom.skill.url",
+          "httpMethod": "POST",
+          "timeout": "PT30S",
+          "batchSize": 100,
+          "degreeOfParallelism": 1,
+          "inputs": [
+            {
+              "name": "image",
+              "source": "/document/normalized_images/*"
+            }
+          ],
+          "outputs": [
+            {
+              "name": "slices",
+              "targetName": "slices"
+            }
+          ],
+          "httpHeaders": {}
+        }
+  ]
+}
+```
+
+#### <a name="custom-skill"></a>Habilidade personalizada
+
+A habilidade personalizada em si é externa ao skillset. Neste caso, é o código Python que primeiro dá a volta ao lote de registos de pedidos no formato de habilidade personalizada, depois converte a cadeia codificada base64 para uma imagem.
+
+```python
+# deserialize the request, for each item in the batch
+for value in values:
+  data = value['data']
+  base64String = data["image"]["data"]
+  base64Bytes = base64String.encode('utf-8')
+  inputBytes = base64.b64decode(base64Bytes)
+  # Use numpy to convert the string to an image
+  jpg_as_np = np.frombuffer(inputBytes, dtype=np.uint8)
+  # you now have an image to work with
+```
+Da mesma forma para devolver uma imagem, devolva uma corda codificada base64 dentro de um objeto JSON com uma `$type` propriedade de `file` .
+
+```python
+def base64EncodeImage(image):
+    is_success, im_buf_arr = cv2.imencode(".jpg", image)
+    byte_im = im_buf_arr.tobytes()
+    base64Bytes = base64.b64encode(byte_im)
+    base64String = base64Bytes.decode('utf-8')
+    return base64String
+
+ base64String = base64EncodeImage(jpg_as_np)
+ result = { 
+  "$type": "file", 
+  "data": base64String 
+}
+```
+
+## <a name="see-also"></a>Ver também
 + [Criar indexante (REST)](/rest/api/searchservice/create-indexer)
 + [Habilidade de análise de imagem](cognitive-search-skill-image-analysis.md)
 + [Habilidade de OCR](cognitive-search-skill-ocr.md)
 + [Habilidade de fusão de texto](cognitive-search-skill-textmerger.md)
 + [Como definir um skillset](cognitive-search-defining-skillset.md)
 + [Como mapear campos enriquecidos](cognitive-search-output-field-mapping.md)
++ [Como passar imagens para habilidades personalizadas](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Image-Processing)
