@@ -10,17 +10,70 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 3/5/2021
+ms.date: 3/12/2021
 ms.author: gunnarc
-ms.openlocfilehash: 518de78d3adc847030c69ef24965d4250d5a4c02
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 81b3d7ca21699b1e9b0dc91eaae8075f189eecd3
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102433204"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103461951"
 ---
 # <a name="azure-guest-os"></a>Hóspede Azure OS
 As tabelas seguintes mostram as atualizações do Microsoft Security Response Center (MSRC) aplicadas ao Azure Guest OS. Pes faça uma pesquisa neste artigo para determinar se uma determinada atualização se aplica ao so-os convidado que está a utilizar. As atualizações são sempre transmitidas para a [família][family-explain] em particular em que foram introduzidas.
+
+## <a name="march-2021-guest-os"></a>Março 2021 Guest OS
+
+>[!NOTE] 
+
+>O Sistema de Atendimento de março está a ser lançado para os VMs do Cloud Service que estão configurados para atualizações automáticas. Quando o lançamento estiver concluído, esta versão será disponibilizada para atualizações manuais através do portal Azure e ficheiros de configuração. Os seguintes patches estão incluídos no Os Convidados de março. Esta lista está sujeita a alterações. 
+
+| Product Category (Categoria de Produto) | Artigo KB dos pais | Descrição da Vulnerabilidade | SO convidado | Data Introduzida pela primeira vez |
+| --- | --- | --- | --- | --- |
+|  Rel 21-03 |  [5000822]  |  Última atualização cumulativa (LCU) | 6.29 | Mar 9, 2021 |
+|  Rel 21-03 |  [4580325]  |  Atualização flash | 3.95, 4.88, 5.53, 6.29 | 13 out, 2020 |
+|  Rel 21-03 |  [5000800]  |  Atualizações Cumulativas do IE | 2.108, 3.95, 4.88 | Mar 9, 2021 |
+|  Rel 21-03 |  [5000803]  |  Última atualização cumulativa (LCU) | 5.53 | Mar 9, 2021 |
+|  Rel 21-03 |  [4578952]  |  .Net Framework 3.5 Rollup de segurança e qualidade  | 2.108 | 13 out, 2020 |
+|  Rel 21-03 |  [4578955]  |  .Net Framework 4.5.2 Rollup de segurança e qualidade  | 2.108 | 13 out, 2020 |
+|  Rel 21-03 |  [4578953]  |  .Net Framework 3.5 Rollup de segurança e qualidade  | 4.88 | 13 out, 2020 |
+|  Rel 21-03 |  [4578956]  |  .Net Framework 4.5.2 Rollup de segurança e qualidade  | 4.88 | 13 out, 2020 |
+|  Rel 21-03 |  [4578950]  |  .Net Framework 3.5 Rollup de segurança e qualidade  | 3.95 | 13 out, 2020 |
+|  Rel 21-03 |  [4578954]  |  . Quadro NET 4.5.2 Rollup de segurança e qualidade  | 3.95 | 13 out, 2020 |
+|  Rel 21-03 |  [4601060]  |  . Quadro LÍQUIDO 3.5 e 4.7.2 Atualização Cumulativa  | 6.29 | 9 de fevereiro de 2021 |
+|  Rel 21-03 |  [5000841]  |  Rollup mensal  | 2.108 | Mar 9, 2021 |
+|  Rel 21-03 |  [5000847]  |  Rollup mensal  | 3.95 | Mar 9, 2021 |
+|  Rel 21-03 |  [5000848]  |  Rollup mensal  | 4.88 | Mar 9, 2021 |
+|  Rel 21-03 |  [4566426]  |  Atualização de Stack de Manutenção  | 3.95 | 14 de julho de 2020 |
+|  Rel 21-03 |  [4566425]  |  Atualização de Stack de Manutenção  | 4.88 | 14 de julho de 2020 |
+|  Rel 21-03 OOB |  [4578013]  |  Atualização de segurança autónoma  | 4.88 | 19 de agosto de 2020 |
+|  Rel 21-03 |  [4592510]  |  Atualização de Stack de Manutenção  | 2.108 | Dez 8, 2020 |
+|  Rel 21-03 |  [5000859]  |  Atualização de Stack de Manutenção  | 6.29 | Mar 9, 2021 |
+|  Rel 21-03 |  [4494175]  |  Microcódigo  | 5.53 | 1 de setembro de 2020 |
+|  Rel 21-03 |  [4494174]  |  Microcódigo  | 6.29 | 1 de setembro de 2020 |
+
+[5000822]: https://support.microsoft.com/kb/5000822
+[4580325]: https://support.microsoft.com/kb/4580325
+[5000800]: https://support.microsoft.com/kb/5000800
+[5000803]: https://support.microsoft.com/kb/5000803
+[4578952]: https://support.microsoft.com/kb/4578952
+[4578955]: https://support.microsoft.com/kb/4578955
+[4578953]: https://support.microsoft.com/kb/4578953
+[4578956]: https://support.microsoft.com/kb/4578956
+[4578950]: https://support.microsoft.com/kb/4578950
+[4578954]: https://support.microsoft.com/kb/4578954
+[4601060]: https://support.microsoft.com/kb/4601060
+[5000841]: https://support.microsoft.com/kb/5000841
+[5000847]: https://support.microsoft.com/kb/5000847
+[5000848]: https://support.microsoft.com/kb/5000848
+[4566426]: https://support.microsoft.com/kb/4566426
+[4566425]: https://support.microsoft.com/kb/4566425
+[4578013]: https://support.microsoft.com/kb/4578013
+[4592510]: https://support.microsoft.com/kb/4592510
+[5000859]: https://support.microsoft.com/kb/5000859
+[4494175]: https://support.microsoft.com/kb/4494175
+[4494174]: https://support.microsoft.com/kb/4494174
+
 
 ## <a name="february-2021-guest-os"></a>Os hóspedes de fevereiro de 2021
 

@@ -1,5 +1,5 @@
 ---
-title: Política de versão - Azure Database for MySQL - Single Server and Flexible Server (Preview)
+title: Política de suporte de versão - Azure Database for MySQL - Single Server and Flexible Server (Preview)
 description: Descreve a política em torno das versões principais e menores do MySQL na Base de Dados Azure para o MySQL
 author: sr-msft
 ms.author: srranga
@@ -7,14 +7,14 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/03/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 6acb3268ba40399612940b395437fde3beffda1a
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 9f34e1ff7134788d064a82ec7b646df915dbe24e
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101732875"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103462563"
 ---
-# <a name="azure-database-for-mysql-versioning-policy"></a>Base de dados Azure para a política de versão MySQL
+# <a name="azure-database-for-mysql-version-support-policy"></a>Política de suporte à versão Azure Database para a versão MySQL
 
 Esta página descreve a base de dados Azure para a política de versão MySQL, e é aplicável à Base de Dados Azure para o MySQL - Single Server e Azure Database para os modos de implementação mySQL - Servidor Flexível (Pré-visualização).
 

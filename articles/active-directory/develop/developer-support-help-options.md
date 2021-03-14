@@ -1,27 +1,26 @@
 ---
-title: Opções de suporte e ajuda para desenvolvedores de aplicações AD Azure
-description: Saiba como obter ajuda e suporte para questões e problemas relacionados com o desenvolvimento ao criar uma aplicação que se integre com identidades da Microsoft (Azure Ative Directory e conta Microsoft)
+title: Opções de suporte e ajuda para desenvolvedores de plataformas de identidade da Microsoft | Rio Azure
+description: Saiba onde obter ajuda e encontre respostas às suas perguntas à medida que constrói soluções de gestão de identidade e acesso (IAM) que se integram com o Azure Ative Directory (Azure AD) e outros componentes da plataforma de identidade Microsoft.
 services: active-directory
-author: rwike77
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/23/2019
-ms.author: ryanwi
+ms.date: 03/09/2021
+ms.author: marsma
 ms.reviewer: jmprieur, saeeda
-ms.custom: aaddev
-ms.openlocfilehash: 43990952f6cbe90c729ac2df421c682fe8d42b1b
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 8b0d6ffc00a140073c2dfb5789fbf9760e1767c9
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102517952"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103462767"
 ---
 # <a name="support-and-help-options-for-developers"></a>Opções de suporte e ajuda para programadores
 
-Se está apenas a começar a integrar-se com o Azure Ative Directory (Azure AD), as identidades da Microsoft ou a Microsoft Graph API, ou quando está a implementar uma nova funcionalidade na sua aplicação, há momentos em que precisa de obter ajuda da comunidade ou de compreender as opções de suporte que tem enquanto desenvolvedor. Aqui ficam as sugestões para onde poderá obter ajuda ao desenvolver as suas soluções de plataforma de identidade microsoft.
+Se precisa de uma resposta para uma pergunta ou ajuda na resolução de um problema não coberto na nossa documentação, talvez seja altura de pedir ajuda a especialistas. Aqui ficam várias sugestões para obter respostas às suas perguntas à medida que desenvolve aplicações que se integram na plataforma de identidade da Microsoft.
 
 ## <a name="create-an-azure-support-request"></a>Criar um pedido de suporte do Azure
 
@@ -33,9 +32,10 @@ Explore a gama de opções de [suporte do Azure e escolha o plano](https://azure
 
 - Se já tem um Plano de Apoio Azure, [abra aqui um pedido de apoio.](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
 
-- Se não for um cliente Azure, também pode abrir um pedido de suporte com a Microsoft através do [nosso suporte comercial.](https://support.serviceshub.microsoft.com/supportforbusiness)
+- Se não for um cliente Azure, pode abrir um pedido de suporte com [o Microsoft Support para o negócio.](https://support.serviceshub.microsoft.com/supportforbusiness)
 
 ## <a name="post-a-question-to-microsoft-qa"></a>Publique uma pergunta ao Microsoft Q&A
+
 <div class='icon is-large'>
     <img alt='Microsoft Q&A' src='./media/common/question-mark-icon.png'>
 </div>             

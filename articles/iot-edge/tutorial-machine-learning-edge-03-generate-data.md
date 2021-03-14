@@ -8,14 +8,16 @@ ms.date: 1/20/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: eef5e60b06eedb1fb07c57aa2e369dd3830fcad5
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: d5fdd762834d351119116c5e4854dd4233671c29
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96932409"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103463134"
 ---
 # <a name="tutorial-generate-simulated-device-data"></a>Tutorial: Gerar dados simulados do dispositivo
+
+[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
 
 Neste artigo, usamos dados de treinamento de machine learning para simular um dispositivo que envia telemetria para Azure IoT Hub. Tal como indicado na introdução, este tutorial utiliza o [conjunto de dados](https://c3.nasa.gov/dashlink/resources/139/) de simulação de degradação do motor Turbofan para simular dados de um conjunto de motores de avião para treino e teste.
 
@@ -92,7 +94,7 @@ Este artigo faz parte de uma série para um tutorial sobre a utilização de Azu
 
 Agora que temos o edifício do projeto, ligue-se ao seu hub IoT para aceder à cadeia de ligação e monitorizar o progresso da geração de dados.
 
-### <a name="sign-in-to-azure-in-visual-studio-code"></a>Inscreva-se no Azure em Código de Estúdio Visual
+### <a name="sign-in-to-azure-in-visual-studio-code"></a>Iniciar sessão no Azure no Visual Studio Code
 
 1. Inscreva-se na sua subscrição Azure no Código do Estúdio Visual abrindo a paleta de comando `Ctrl + Shift + P` ou **ver** paleta  >  **de comando**.
 

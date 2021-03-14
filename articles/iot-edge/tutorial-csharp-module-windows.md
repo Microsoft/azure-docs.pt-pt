@@ -9,20 +9,25 @@ ms.date: 08/03/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, amqp, devx-track-csharp
-ms.openlocfilehash: edbe2b8370b943aa93a1cef425c64e9f11feb735
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: 4e01b1ca9a3858ff31ad9b5da1d1159209c44330
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97705596"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103464071"
 ---
-# <a name="tutorial-develop-c-iot-edge-modules-for-windows-devices"></a>Tutorial: Desenvolver módulos IoT Edge C# para dispositivos Windows
+# <a name="tutorial-develop-c-iot-edge-modules-using-windows-containers"></a>Tutorial: Desenvolver módulos IoT Edge C# utilizando recipientes Windows
+
+[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
 
 Este artigo mostra-lhe como usar o Visual Studio para desenvolver o código C# e implantá-lo num dispositivo Windows que está a executar Azure IoT Edge.
 
-Pode utilizar módulos Azure IoT Edge para implementar código que implementa a sua lógica de negócio diretamente nos seus dispositivos IoT Edge. Este tutorial explica-lhe como criar e implementar um módulo do IoT Edge que filtra dados de sensores. 
+>[!NOTE]
+>IoT Edge 1.1 LTS é o último canal de lançamento que irá suportar recipientes Windows. A partir da versão 1.2, os recipientes windows não são suportados. Considere usar ou mover-se para [IoT Edge para o Linux no Windows](iot-edge-for-linux-on-windows.md) para executar IoT Edge em dispositivos Windows.
 
-Neste tutorial, vai aprender a:
+Pode utilizar módulos Azure IoT Edge para implementar código que implementa a sua lógica de negócio diretamente nos seus dispositivos IoT Edge. Este tutorial explica-lhe como criar e implementar um módulo do IoT Edge que filtra dados de sensores.
+
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 >
@@ -37,19 +42,19 @@ O módulo do IoT Edge que criou neste tutorial filtra os dados de temperatura qu
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este tutorial demonstra como desenvolver um módulo em C# utilizando o Visual Studio 2019 e, em seguida, implantá-lo num dispositivo Windows. Se estiver a desenvolver módulos para dispositivos Linux, vá ao [Develop C# IoT Edge para dispositivos Linux.](tutorial-csharp-module.md)
+Este tutorial demonstra como desenvolver um módulo em C# utilizando o Visual Studio 2019 e, em seguida, implantá-lo num dispositivo Windows. Se estiver a desenvolver módulos utilizando recipientes Linux, vá para [desenvolver módulos IoT Edge utilizando recipientes Linux.](tutorial-csharp-module.md)
 
-Para compreender as suas opções de desenvolvimento e implantação de módulos C# para dispositivos Windows, consulte a seguinte tabela:
+Para compreender as suas opções de desenvolvimento e implantação de módulos C# utilizando recipientes Windows, consulte a seguinte tabela:
 
 | C# | Código do Estúdio Visual &nbsp; &nbsp; | Estúdio Visual 2017 &nbsp; e &nbsp; 2019 |
 | -- | :------------------: | :------------------: |
 | Windows AMD64 desenvolver | ![Desenvolver módulos C# para WinAMD64 em Código de Estúdio Visual](./media/tutorial-c-module/green-check.png) | ![Desenvolver módulos C# para WinAMD64 em Estúdio Visual](./media/tutorial-c-module/green-check.png) |
 | Depurar Windows AMD64 |   | ![Módulos Debug C# para WinAMD64 em Visual Studio](./media/tutorial-c-module/green-check.png) |
 
-Antes de iniciar este tutorial, crie o seu ambiente de desenvolvimento seguindo as instruções nos [módulos Develop IoT Edge para dispositivos Windows](tutorial-develop-for-windows.md) tutorial. Depois de o completar, o seu ambiente conterá os seguintes pré-requisitos:
+Antes de iniciar este tutorial, crie o seu ambiente de desenvolvimento seguindo as instruções nos [módulos Develop IoT Edge utilizando](tutorial-develop-for-windows.md) o tutorial de recipientes Windows. Depois de o completar, o seu ambiente conterá os seguintes pré-requisitos:
 
 * Um [hub IoT](../iot-hub/iot-hub-create-through-portal.md) gratuito ou de nível padrão em Azure.
-* Um [dispositivo Windows que está a executar a Azure IoT Edge](quickstart.md).
+* Um [dispositivo Windows que está a executar a Azure IoT Edge](how-to-install-iot-edge-windows-on-windows.md).
 * Um registo de contentores, como [o Registo do Contentor de Azure.](../container-registry/index.yml)
 * [Visual Studio 2019,](/visualstudio/install/install-visual-studio)configurado com a extensão [Azure IoT Edge Tools.](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools)
 * [Docker Desktop](https://docs.docker.com/docker-for-windows/install/), configurado para executar recipientes Windows.
@@ -124,7 +129,7 @@ O manifesto de implantação partilha as credenciais para o seu registo de conte
 
 O código do módulo predefinido recebe mensagens numa fila de entrada e passa-as através de uma fila de saída. Vamos adicionar algum código adicional para que o módulo processe as mensagens na borda antes de encaminhá-las para o seu hub IoT. Atualize o módulo de modo a analisar os dados de temperatura em cada mensagem e envie a mensagem para o hub IoT apenas se a temperatura exceder um determinado limiar.
 
-1. No Visual Studio, selecione **CSharpModule**  >  **Program.cs**.
+1. No Visual Studio, selecione O Programa **CSharpModule.cs**  >  .
 
 1. Na parte superior do espaço de nomes **CSharpModule**, adicione três declarações **em utilização** para os tipos que são utilizados mais tarde:
 

@@ -2,13 +2,13 @@
 title: Ligue a Solução Azure VMware ao seu ambiente no local
 description: Saiba como ligar a Solução VMware Azure ao seu ambiente no local.
 ms.topic: tutorial
-ms.date: 12/28/2020
-ms.openlocfilehash: 753835b0206d8bbabe42b057fa40a2d6c4c8c414
-ms.sourcegitcommit: 31d242b611a2887e0af1fc501a7d808c933a6bf6
+ms.date: 03/13/2021
+ms.openlocfilehash: 6d1c52784eae2efabe79a9ba5c6cdf9bbfdc1950
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97809688"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103461657"
 ---
 # <a name="connect-azure-vmware-solution-to-your-on-premises-environment"></a>Ligue a Solução Azure VMware ao seu ambiente no local
 
@@ -17,7 +17,7 @@ Neste artigo, continuará a utilizar as [informações recolhidas durante](produ
 Antes de começar, existem dois pré-requisitos para ligar a Solução Azure VMware ao seu ambiente no local:
 
 - Um circuito ExpressRoute do seu ambiente no local para Azure.
-- Um bloco de endereços de rede não sobreposto /29 para o espreitamento expressRoute Global Reach, que definiu como parte da fase de [planeamento](production-ready-deployment-steps.md).
+- Um bloco de endereços cidr não sobreposto de /29 para o espreguiçadamento expressRoute Global Reach, que definiu como parte da fase de [planeamento](production-ready-deployment-steps.md).
 
 >[!NOTE]
 > Pode ligar através da VPN, mas isso está fora de alcance para este documento de arranque rápido.
@@ -25,6 +25,10 @@ Antes de começar, existem dois pré-requisitos para ligar a Solução Azure VMw
 ## <a name="establish-an-expressroute-global-reach-connection"></a>Estabelecer uma ligação ExpressRoute Global Reach
 
 Para estabelecer conectividade no local com a sua nuvem privada Azure VMware Solution utilizando o ExpressRoute Global Reach, siga os ambientes do Peer no local para um tutorial [de nuvem privada.](tutorial-expressroute-global-reach-private-cloud.md)
+
+Este tutorial resulta numa ligação como mostrado no diagrama.
+
+:::image type="content" source="media/pre-deployment/azure-vmware-solution-on-premises-diagram.png" alt-text="ExpressRoute Global Reach no local diagrama de conectividade de rede." lightbox="media/pre-deployment/azure-vmware-solution-on-premises-diagram.png":::
 
 ## <a name="verify-on-premises-network-connectivity"></a>Verificar a conectividade da rede no local
 

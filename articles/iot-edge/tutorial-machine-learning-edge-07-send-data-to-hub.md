@@ -9,14 +9,16 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 50df3424892594a6817d481aa4a3d540a342854f
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 25320fb8cde0cc5a38f1edf4019a2f0e07cefe14
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96932324"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103461101"
 ---
 # <a name="tutorial-send-data-via-transparent-gateway"></a>Tutorial: Enviar dados via gateway transparente
+
+[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
 
 Neste artigo, mais uma vez usamos o VM de desenvolvimento como um dispositivo simulado. No entanto, em vez de enviar dados diretamente para o IoT Hub, o dispositivo envia dados para o dispositivo IoT Edge configurados como um gateway transparente.
 
@@ -49,7 +51,7 @@ Veja o código para ver como estes dois itens são implementados.
 
 1. Utilize a pasta open **de**  >  **ficheiros...** para abrir C: \\ fonte \\ IoTEdgeAndMlSample \\ DeviceHarness.
 
-1. Veja o método InstallCertificate() em Program.cs.
+1. Veja o método InstallCertificate() no programa.cs.
 
 1. Note que se o código encontrar o caminho do certificado, chama o método CertificateManager.InstallCACert para instalar o certificado na máquina.
 
@@ -143,7 +145,7 @@ Podemos observar os resultados do nosso dispositivo de folha enviando dados olha
 
 Incluímos um simples utilitário de linha de comando para ler um ficheiro Avro e devolver uma sequência JSON das mensagens no ficheiro. Nesta secção, vamos instalá-lo e executá-lo.
 
-1. Abra um terminal em **Terminal** Visual Studio Code  >  **(Terminal Novo terminal).**
+1. Abra um terminal emVisual Studio Code  >  **(Terminal Novo terminal).**
 
 1. Instalar o hubavroreader:
 

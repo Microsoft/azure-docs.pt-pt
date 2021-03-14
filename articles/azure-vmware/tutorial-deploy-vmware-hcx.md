@@ -2,13 +2,13 @@
 title: Tutorial - Implementar e configurar VMware HCX
 description: Aprenda a implementar e configurar uma solução VMware HCX para a sua nuvem privada Azure VMware Solution.
 ms.topic: tutorial
-ms.date: 11/25/2020
-ms.openlocfilehash: a8b089ce834d5b49e4ad32081a58e371835e8602
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.date: 03/13/2021
+ms.openlocfilehash: d1b0792ab9b9975edf45ab8addb81410e1da4107
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102488310"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103462336"
 ---
 # <a name="deploy-and-configure-vmware-hcx"></a>Implementar e configurar o VMware HCX
 
@@ -183,7 +183,7 @@ Pode ligar ou emparelhar o VMware HCX Cloud Manager em Azure VMware Solution com
 
 1. Em **Infraestruturas**, selecione **O Emparelhamento do Site** e, em seguida, selecione a opção **'Ligar ao Local Remoto'** (no meio do ecrã). 
 
-1. Introduza o URL ou endereço IP do Azure VMware Solution HCX Cloud Manager que observou anteriormente `https://x.x.x.9` , o nome de utilizador Azure VMware Solution e a cloudadmin@vsphere.local palavra-passe. Em seguida, selecione **Ligar**.
+1. Introduza o URL ou endereço IP do Azure VMware Solution HCX Cloud Manager que observou anteriormente , o nome `https://x.x.x.9` de utilizador Azure VMware Solution cloudadmin \@ vsphere.local username e a palavra-passe. Em seguida, selecione **Ligar**.
 
    > [!NOTE]
    > Para estabelecer com sucesso um par de site:

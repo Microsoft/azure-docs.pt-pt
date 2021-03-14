@@ -9,14 +9,16 @@ ms.date: 07/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 8e64233ce1d59512e38ce6c366eba889392c4623
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 8da5c24265a43eaaf1ecfe80649b6f4fea588b3f
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101736496"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103464072"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>Tutorial: Classificar imagens na periferia com o Serviço de Visão Personalizada
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 O Azure IoT Edge pode mover as suas cargas de trabalho da cloud para a periferia e tornar a sua solução IoT Edge mais eficiente. Esta capacidade é particularmente útil para serviços que processam muitos dados, como modelos de imagem digitalizada. O [Serviço de Visão Personalizada](../cognitive-services/custom-vision-service/overview.md) permite-lhe compilar classificadores de imagens personalizados e implementá-los como contentores nos dispositivos. Em conjunto, estes dois serviços permitem-lhe obter informações de imagens ou de transmissões em fluxo de vídeos sem que seja necessário transferir todos os dados do local primeiro. A Visão Personalizada oferece um classificador que compara uma imagem com um modelo preparado para gerar informações.
 
@@ -42,10 +44,10 @@ Neste tutorial, ficará a saber como:
 >[!TIP]
 >Este tutorial é uma versão simplificada da [Visão Personalizada e da Borda IoT Azure num](https://github.com/Azure-Samples/custom-vision-service-iot-edge-raspberry-pi) projeto de amostra raspberry Pi 3. Este tutorial foi projetado para funcionar em um VM em nuvem e usa imagens estáticas para treinar e testar o classificador de imagem, o que é útil para alguém que apenas começa a avaliar a Visão Personalizada no IoT Edge. O projeto da amostra usa hardware físico e configura um feed de câmara ao vivo para treinar e testar o classificador de imagem, o que é útil para alguém que quer experimentar um cenário mais detalhado e real.
 
-Antes de iniciar este tutorial, deveria ter passado pelo tutorial anterior para configurar o seu ambiente para o desenvolvimento de recipientes Linux: [Desenvolver módulos IoT Edge para dispositivos Linux](tutorial-develop-for-linux.md). Ao completar este tutorial, deverá ter os seguintes pré-requisitos no lugar:
+Antes de iniciar este tutorial, deveria ter passado pelo tutorial anterior para configurar o seu ambiente para o desenvolvimento de recipientes Linux: [Desenvolver módulos IoT Edge utilizando recipientes Linux](tutorial-develop-for-linux.md). Ao completar este tutorial, deverá ter os seguintes pré-requisitos no lugar:
 
 * Um [Hub IoT](../iot-hub/iot-hub-create-through-portal.md) no escalão gratuito ou standard no Azure.
-* Um [dispositivo Linux executando Azure IoT Edge](quickstart-linux.md)
+* Um dispositivo em execução Azure IoT Edge. Pode utilizar os arranques rápidos para configurar um [dispositivo Linux](quickstart-linux.md) ou [dispositivo Windows](quickstart.md).
 * Um registo de contentores, como [o Registo de Contentores de Azure.](../container-registry/index.yml)
 * [Código de Estúdio Visual](https://code.visualstudio.com/) configurado com as [Ferramentas Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 * [Docker CE](https://docs.docker.com/install/) configurado para executar contentores Linux.
@@ -75,7 +77,7 @@ Quando o classificador de imagens estiver compilado e preparado, pode exportá-l
    | Campo | Valor |
    | ----- | ----- |
    | Nome | Indique um nome para o projeto, como **EdgeTreeClassifier**. |
-   | Descrição | Descrição do projeto opcional. |
+   | Description | Descrição do projeto opcional. |
    | Recurso | Selecione um dos seus grupos de recursos Azure que inclui um recurso De Serviço de Visão Personalizada ou **crie novos** caso ainda não tenha adicionado um. |
    | Project Types (Tipos de Projetos) | **Classificação** |
    | Classification Types (Tipos de Classificações) | **Multiclasse (marca única por imagem)** |

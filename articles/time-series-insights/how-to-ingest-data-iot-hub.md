@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 01/21/2021
 ms.custom: seodec18
-ms.openlocfilehash: bb13df0f87cd10719f33afe4ec080c4c785df720
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: 85773ec66dbe567afcfd1afca1d14aa0119fb8f6
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98695565"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103464025"
 ---
 # <a name="add-an-iot-hub-event-source-to-your-azure-time-series-insight-environment"></a>Adicione uma fonte de evento de hub IoT ao seu ambiente Azure Time Series Insight
 
@@ -27,7 +27,7 @@ Este artigo descreve como usar o portal Azure para adicionar uma fonte de evento
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Criar um [ambiente Azure Time Series Insights](./tutorials-set-up-tsi-environment.md).
+* Criar um [ambiente Azure Time Series Insights](./tutorial-set-up-environment.md).
 * Crie um [hub IoT utilizando o portal Azure](../iot-hub/iot-hub-create-through-portal.md).
 * O hub IoT deve ter eventos de mensagens ativos sendo enviados.
 * Crie um grupo de consumidores dedicado no hub IoT para o ambiente Azure Time Series Insight para consumir. Cada fonte de eventos Azure Time Series Insight deve ter o seu próprio grupo de consumidores dedicado que não é partilhado com nenhum outro consumidor. Se vários leitores consumirem eventos do mesmo grupo de consumidores, todos os leitores são suscetíveis de apresentar falhas. Para mais detalhes, leia o guia de desenvolvimento do [Azure IoT Hub](../iot-hub/iot-hub-devguide.md).

@@ -3,15 +3,15 @@ title: Melhores práticas
 description: Melhores práticas recomendadas para obter melhores resultados
 author: ariye
 ms.author: crtreasu
-ms.date: 02/17/2021
+ms.date: 03/12/2021
 ms.topic: best-practice
 ms.service: azure-object-anchors
-ms.openlocfilehash: da3be6e3d97e50b27ded29ba017164fdbd9a0a5b
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: e287d8305b3fd85fc992417e1563b1e58e6f8424
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102503050"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103463005"
 ---
 # <a name="best-practices"></a>Melhores práticas
 
@@ -19,7 +19,7 @@ Recomendamos experimentar alguns destes passos para obter os melhores resultados
 
 ## <a name="ingestion"></a>Ingestão
 
-- Verifique as dimensões dos seus objetos físicos. As âncoras de objetos funcionam melhor para objetos cuja menor dimensão se encontra no intervalo de 1m-10m recomendado.
+- Verifique as dimensões dos seus objetos físicos. As âncoras do Objeto Azure funcionam melhor para objetos cuja menor dimensão se encontra no intervalo de 1m-10m recomendado.
 - Inspecione o seu modelo 3D em software como o [**MeshLab**](https://www.meshlab.net/) para obter os seguintes detalhes.
   - Certifique-se de que o modelo 3D tem uma malha triangular e que os triângulos na superfície exterior estão virados para fora. Ou seja, os vértices devem ser orientados para que as normas sigam a regra da direita na sua orientação para fora.
   - Certifique-se de que o Modelo 3D é especificado com as unidades de escala corretas no que diz respeito aos objetos físicos. As unidades devem ser uma de: ***Centímetros, Decimetros, Pés, Centímetros, Quilómetros, Metros, Milímetros, Estaleiros.***
@@ -32,12 +32,12 @@ Recomendamos experimentar alguns destes passos para obter os melhores resultados
 > [!VIDEO https://channel9.msdn.com/Shows/Docs-Mixed-Reality/Azure-Object-Anchors-Detection-and-Alignment-Best-Practices/player]
 
 - O tempo de execução fornecido pela SDK requer uma região de pesquisa fornecida pelo utilizador para procurar e detetar os objetos físicos. A região de busca pode ser uma caixa de delimitação, uma esfera, uma vista frustum, ou qualquer combinação deles. Para evitar uma deteção falsa, é preferível definir uma região de pesquisa suficientemente grande para cobrir o objeto. Ao utilizar as aplicações de amostra fornecidas, pode ficar de um lado do objeto a cerca de 2 metros da superfície mais próxima e iniciar a aplicação.
-- Antes de iniciar a aplicação Object Anchors num dispositivo HoloLens 2, remova os hologramas nas proximidades do seu local de trabalho através das definições principais dos seus dispositivos através ***de Hologramas >do Sistema de Definições >***
+- Antes de iniciar a aplicação Azure Object Anchors num dispositivo HoloLens 2, remova os hologramas nas proximidades do seu local de trabalho através das definições principais dos seus dispositivos através ***de Hologramas >sistema de Definições >***
 
   Este passo garante que se um novo objeto como um carro estiver presente no mesmo espaço que ocupado por outro anteriormente, ou se o objeto se moveu do espaço alvo, quaisquer hologramas antigos e irrelevantes não persistirão e criarão uma visualização confusa para o objeto atualmente à vista.
 - Depois de remover os hologramas e antes de iniciar a aplicação, digitalize o objeto como um carro olhando para o objeto enquanto usa o dispositivo a cerca de 1-2 metros e andando lentamente ao redor do objeto uma ou duas vezes.
 
-  Este passo garante que quaisquer estimativas residuais de superfície criadas no seu espaço por objetos anteriores e digitalizações são refrescadas com as superfícies do objeto alvo atual com o quais vai trabalhar. Caso contrário, a aplicação poderá ver superfícies fantasma duplas que conduzam a um alinhamento impreciso do seu modelo 3D e dos hologramas associados. A pré-digitalização do objeto também reduzirá consideravelmente a latência de deteção ao AOA, digamos, de 30 segundos para 5 segundos.
+  Este passo garante que quaisquer estimativas residuais de superfície criadas no seu espaço por objetos anteriores e digitalizações são refrescadas com as superfícies do objeto alvo atual com o quais vai trabalhar. Caso contrário, a aplicação poderá ver superfícies fantasma duplas que conduzam a um alinhamento impreciso do seu modelo 3D e dos hologramas associados. A pré-digitalização do objeto também reduzirá consideravelmente a latência de deteção de âncoras de objetos Azure, por exemplo, de 30 segundos para 5 segundos.
 - Para objetos escuros e altamente reflexivos, poderá ter de digitalizar o objeto mais perto e também movendo a cabeça para cima e para baixo e para a esquerda e para a direita para que o dispositivo veja superfícies de múltiplos ângulos e múltiplas distâncias.
 - Quando vir uma deteção errada de objetos, como a orientação a ser virada ou a pose incorreta, tal como um modelo inclinado, deve visualizar o mapeamento espacial. Muitas vezes, os resultados incorretos devem-se a uma reconstrução superficial deficiente ou incompleta. Pode remover os hologramas, digitalizar o objeto e executar novamente a deteção de objetos na aplicação.
 - O SDK de execução fornecido fornece alguns parâmetros para permitir aos utilizadores afinar a deteção, como demonstrado nas nossas aplicações de amostra. Os parâmetros padrão funcionam bem para a maioria dos objetos. Se descobrir que precisa de os ajustar para objetos específicos, aqui ficam algumas recomendações:

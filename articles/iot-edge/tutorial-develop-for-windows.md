@@ -9,18 +9,23 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: e46105f5889f4925be9873fd8613021fe5e8ac2d
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: b5ff515f5a6d25285009f6579570aa3afa5a711f
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920762"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103463362"
 ---
-# <a name="tutorial-develop-iot-edge-modules-for-windows-devices"></a>Tutorial: Desenvolver módulos IoT Edge para dispositivos Windows
+# <a name="tutorial-develop-iot-edge-modules-using-windows-containers"></a>Tutorial: Desenvolver módulos IoT Edge utilizando recipientes Windows
+
+[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
 
 Utilize o Visual Studio para desenvolver e implementar código para dispositivos Windows que executam ioT Edge.
 
-No arranque rápido, criou um dispositivo IoT Edge utilizando uma máquina virtual Windows e implementou um módulo pré-construído a partir do Azure Marketplace. Este tutorial percorre o que é preciso para desenvolver e implementar o seu próprio código num dispositivo IoT Edge. Este tutorial é um pré-requisito útil para os outros tutoriais, que entram em mais detalhes sobre linguagens de programação específicas ou serviços Azure.
+>[!NOTE]
+>IoT Edge 1.1 LTS é o último canal de lançamento que irá suportar recipientes Windows. A partir da versão 1.2, os recipientes windows não são suportados. Considere usar ou mover-se para [IoT Edge para o Linux no Windows](iot-edge-for-linux-on-windows.md) para executar IoT Edge em dispositivos Windows.
+
+Este tutorial percorre o que é preciso para desenvolver e implementar o seu próprio código num dispositivo IoT Edge. Este tutorial é um pré-requisito útil para os outros tutoriais, que entram em mais detalhes sobre linguagens de programação específicas ou serviços Azure.
 
 Este tutorial utiliza o exemplo de implantação de um **módulo C# num dispositivo Windows**. Este exemplo foi escolhido porque é o cenário de desenvolvimento mais comum. Se você está interessado em desenvolver em uma linguagem diferente, ou planejar implementar serviços Azure como módulos, este tutorial ainda será útil para aprender sobre as ferramentas de desenvolvimento. Assim que compreender os conceitos de desenvolvimento, poderá escolher o seu idioma preferido ou o serviço Azure para mergulhar nos detalhes.
 
@@ -44,8 +49,8 @@ Uma máquina de desenvolvimento:
 
 Um dispositivo Azure IoT Edge no Windows:
 
-* Recomendamos que não coloque ioT Edge na sua máquina de desenvolvimento, mas use um dispositivo separado. Esta distinção entre máquina de desenvolvimento e dispositivo IoT Edge espelha com mais precisão um verdadeiro cenário de implementação, e ajuda a manter os diferentes conceitos em linha reta.
-* Se não tiver um segundo dispositivo disponível, utilize o artigo de arranque rápido para criar um dispositivo IoT Edge em Azure com uma [máquina virtual Windows](quickstart.md).
+* [Instale e gere a borda Azure IoT com recipientes Windows](how-to-install-iot-edge-windows-on-windows.md).
+* Recomendamos que não coloque o IoT Edge na sua máquina de desenvolvimento, mas utilize um dispositivo separado, se possível. Esta distinção entre máquina de desenvolvimento e dispositivo IoT Edge espelha com mais precisão um verdadeiro cenário de implementação, e ajuda a manter os diferentes conceitos em linha reta.
 
 Recursos da cloud:
 
@@ -66,7 +71,7 @@ A tabela seguinte lista os cenários de desenvolvimento suportados para **recipi
 |   | Visual Studio Code | Estúdio Visual 2017/2019 |
 | - | ------------------ | ------------------ |
 | **Serviços do Azure** | Funções do Azure <br> Azure Stream Analytics |   |
-| **Linguagens** | C# (depurar não suportado) | C <br> C# |
+| **Idiomas** | C# (depurar não suportado) | C <br> C# |
 | **Mais informações** | [Azure IoT Edge para Código de Estúdio Visual](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) | [Ferramentas Azure IoT Edge para Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools)<br>[Ferramentas Azure IoT Edge para Visual Studio 2019](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) |
 
 ## <a name="install-container-engine"></a>Instale o motor do contentor
@@ -148,7 +153,7 @@ Assim que o seu novo projeto estiver carregado na janela do Estúdio Visual, apr
     > [!TIP]
     > Na secção de credenciais de registo, o endereço é preenchido automaticamente a partir da informação que forneceu quando criou a solução. No entanto, o nome de utilizador e as variáveis de referência de palavra-passe armazenadas no ficheiro .env. Isto é para segurança, uma vez que o ficheiro .env é ignorado, mas o modelo de implementação não é.
 * Um projeto de módulo IoT Edge chamado **IotEdgeModule1**.
-  * O **ficheiro program.cs** contém o código de módulo C# padrão que vem com o modelo de projeto. O módulo predefinido retira a entrada de uma fonte e passa-a para o IoT Hub.
+  * O ficheiro **.cs programa** contém o código de módulo C# padrão que vem com o modelo de projeto. O módulo predefinido retira a entrada de uma fonte e passa-a para o IoT Hub.
   * A **module.jsem** ficheiros detêm detalhes sobre o módulo, incluindo o repositório de imagem completo, a versão de imagem, e que o Dockerfile usar para cada plataforma suportada.
 
 ### <a name="provide-your-registry-credentials-to-the-iot-edge-agent"></a>Forneça as suas credenciais de registo ao agente IoT Edge
@@ -183,7 +188,7 @@ Cada módulo pode ter múltiplas filas *de entrada* e *saída* declaradas no seu
 
 O código de amostra C# que vem com o modelo de projeto utiliza a [Classe MóduloClient](/dotnet/api/microsoft.azure.devices.client.moduleclient) do IoT Hub SDK para .NET.
 
-1. No ficheiro **program.cs,** encontre o método **SetInputMessageHandlerAsync.**
+1. No ficheiro **.cs programa,** encontre o método **SetInputMessageHandlerAsync.**
 
 2. O método [SetInputMessageHandlerAsync](/dotnet/api/microsoft.azure.devices.client.moduleclient.setinputmessagehandlerasync) configura uma fila de entrada para receber mensagens recebidas. Reveja este método e veja como iniciaisiza uma fila de entrada chamada **input1**.
 

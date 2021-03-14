@@ -1,16 +1,16 @@
 ---
 title: Como planear uma implantação em escala de servidores ativados pelo Azure Arc
 description: Saiba como permitir que um grande número de máquinas para o Azure Arc permitiu que os servidores simplificassem a configuração das capacidades essenciais de segurança, gestão e monitorização em Azure.
-ms.date: 02/23/2021
+ms.date: 03/12/2021
 ms.topic: conceptual
-ms.openlocfilehash: 0e77fc00f94f2f46c60bb2c5dcecc10a4e2e3bc5
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 63e224180cff8cab6e700bc72b8a5c39a7f26857
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102032233"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103461305"
 ---
-# <a name="planing-for-an-at-scale-deployment-of-azure-arc-enabled-servers"></a>Planar para uma implantação em escala de servidores ativados do Arco Azure
+# <a name="plan-and-deploy-arc-enabled-servers-at-scale"></a>Planeie e implemente os servidores ativados pelo Arc em escala
 
 A implantação de um serviço de infraestrutura de TI ou de uma aplicação de negócios é um desafio para qualquer empresa. Para executá-lo bem e evitar quaisquer surpresas indesejáveis e custos não planeados, você precisa planejar cuidadosamente para que ele garanta que está o mais pronto possível. Para planear a implementação de servidores ativados pelo Azure Arc em escala, deve cobrir os critérios de conceção e implementação que precisam de ser cumpridos para completar com sucesso as tarefas de suporte a uma implementação em escala.
 
@@ -67,7 +67,7 @@ Nesta fase, os engenheiros ou administradores de sistemas permitem que as funcio
 
 ## <a name="phase-2-deploy-arc-enabled-servers"></a>Fase 2: Implementar servidores ativados pelo Arco
 
-Em seguida, adicionamos à fundação estabelecida na fase 1, preparando a implantação, e realizando a instalação do agente.
+Em seguida, adicionamos à fundação estabelecida na fase 1, preparando e implantando o arc ativo servidores Agente máquina conectada.
 
 |Tarefa |Detalhes |Duração |
 |-----|-------|---------|
@@ -77,7 +77,7 @@ Em seguida, adicionamos à fundação estabelecida na fase 1, preparando a impla
 
 ## <a name="phase-3-manage-and-operate"></a>Fase 3: Gerir e operar
 
-A fase 3 vê administradores ou engenheiros de sistema que permitem automatizar tarefas manuais para gerir e operar o agente da Máquina Conectada e a máquina durante o seu ciclo de vida.
+A fase 3 vê administradores ou engenheiros de sistema permitir automatizar tarefas manuais para gerir e operar o agente da Máquina Conectada e a máquina durante o seu ciclo de vida.
 
 |Tarefa |Detalhes |Duração |
 |-----|-------|---------|

@@ -1,5 +1,5 @@
 ---
-title: Enviar eventos para um ambiente - Azure Time Series Insights Microsoft Docs
+title: Enviar eventos para um ambiente - Azure Time Series Insights | Microsoft Docs
 description: Aprenda a configurar um centro de eventos, executar uma aplicação de amostra e enviar eventos para o seu ambiente Azure Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
@@ -11,26 +11,26 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 9a9115b5400cc6d6c1ecc5740af796d831f5dee3
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 8ee2cc5473d83eafc2443f3aea7cab6a2e77727c
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95023263"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103463566"
 ---
 # <a name="send-events-to-an-azure-time-series-insights-gen1-environment-by-using-an-event-hub"></a>Envie eventos para um ambiente Azure Time Series Insights Gen1 usando um centro de eventos
 
 > [!CAUTION]
 > Este é um artigo da Gen1.
 
-Este artigo explica como criar e configurar um centro de eventos em Azure Event Hubs. Também descreve como executar uma aplicação de amostra para empurrar eventos para Azure Time Series Insights de Event Hubs. Se tiver um centro de eventos existente com eventos em formato JSON, ignore este tutorial e veja o seu ambiente em [Azure Time Series Insights](./tutorials-set-up-tsi-environment.md).
+Este artigo explica como criar e configurar um centro de eventos em Azure Event Hubs. Também descreve como executar uma aplicação de amostra para empurrar eventos para Azure Time Series Insights de Event Hubs. Se tiver um centro de eventos existente com eventos em formato JSON, ignore este tutorial e veja o seu ambiente em [Azure Time Series Insights](./tutorial-set-up-environment.md).
 
 ## <a name="configure-an-event-hub"></a>Configurar um hub de eventos
 
 1. Para aprender a criar um centro de eventos, leia a documentação do [Event Hubs.](../event-hubs/index.yml)
 1. Na caixa de pesquisa, procure por **Centros de Eventos.** Na lista de devoluções, selecione **Event Hubs**.
 1. Selecione o seu centro de eventos.
-1. Quando crias um centro de eventos, estás a criar um espaço de nomes de centros de eventos. Se ainda não criou um centro de eventos dentro do espaço de nomes, no menu, em Entidades, crie um centro de **eventos.**  
+1. Quando crias um centro de eventos, estás a criar um espaço de nomes de centros de eventos. Se ainda não criou um centro de eventos dentro do espaço de nomes, no menu, em Entidades, crie um centro de **eventos.**
 
     [![Lista de centros de eventos](media/send-events/tsi-connect-event-hub-namespace.png)](media/send-events/tsi-connect-event-hub-namespace.png#lightbox)
 
@@ -78,7 +78,7 @@ No Azure Time Series Insights Gen2, pode adicionar dados contextuais à telemetr
 
 1. Aceda a <https://tsiclientsample.azurewebsites.net/windFarmGen.html>. O URL cria e executa dispositivos simulados de moinho de vento.
 1. Na caixa **de cordas de ligação** do centro de eventos na página web, cole a cadeia de ligação que copiou no campo de entrada do moinho de [vento](#push-events-to-windmills-sample).
-  
+
     [![Cole a cadeia de ligação principal da chave na caixa de cordas de ligação do centro de eventos](media/send-events/configure-wind-mill-sim.png)](media/send-events/configure-wind-mill-sim.png#lightbox)
 
 1. Selecione **Clique para iniciar**.
@@ -204,7 +204,7 @@ No Azure Time Series Insights Gen2, pode adicionar dados contextuais à telemetr
     |WestUs|manufacturer1|EastUs|device1|2016-01-08T01:08:00Z|pressão|psi|108.09|
     |WestUs|manufacturer1|EastUs|device2|2016-01-08T01:17:00Z|vibration|abs G|217.09|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Veja o seu ambiente](https://insights.timeseries.azure.com) no Azure Time Series Insights Explorer.
 

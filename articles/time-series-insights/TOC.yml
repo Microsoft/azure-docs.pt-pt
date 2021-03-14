@@ -14,7 +14,7 @@
 - name: Tutoriais
   items:
     - name: Configurar um ambiente do Time Series Insights Gen2
-      href: tutorials-set-up-tsi-environment.md
+      href: tutorial-set-up-environment.md
     - name: Sincronização de modelos entre o Azure Digital Twins e o Time Series Insights Gen2
       href: tutorials-model-sync.md
 - name: Conceitos
@@ -95,9 +95,13 @@
           items:
             - name: Planear o ambiente
               href: how-to-plan-your-environment.md
-        - name: Gestão do ambiente
+        - name: Gestão
           items:
-            - name: Como aprovisionar e gerir
+            - name: Como criar um ambiente usando o Azure CLI
+              href: how-to-create-environment-using-cli.md
+            - name: Como criar um ambiente usando o portal Azure
+              href: how-to-create-environment-using-portal.md
+            - name: Como gerir um ambiente
               href: how-to-provision-manage.md
             - name: Como selecionar um TSID
               href: how-to-select-tsid.md

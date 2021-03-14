@@ -9,7 +9,7 @@
       href: select-right-deployment-type.md
     - name: Versões suportadas
       href: concepts-supported-versions.md
-    - name: Versioning policy (Política de versões)
+    - name: Política de suporte de versão
       href: concepts-version-policy.md
       displayName: version policy
 - name: Servidor Único

@@ -2,17 +2,17 @@
 title: Tutorial - Eliminar uma nuvem privada Azure VMware Solution
 description: Saiba como eliminar uma nuvem privada Azure VMware Solution que já não necessita.
 ms.topic: tutorial
-ms.date: 02/09/2021
-ms.openlocfilehash: b11b8f902691db4bd71fd3f52aaa67d46efea643
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.date: 03/13/2021
+ms.openlocfilehash: 453e7a3316c342cd724a951eafea0ae9fa045506
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100101711"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103462104"
 ---
 # <a name="tutorial-delete-an-azure-vmware-solution-private-cloud"></a>Tutorial: Eliminar uma nuvem privada Azure VMware Solution
 
-Se tiver uma nuvem privada Azure VMware Solution de que já não precisa, pode eliminá-la. A nuvem privada inclui um domínio de rede isolado, um ou mais aglomerados de vSphere a provisionados em anfitriões de servidores dedicados e várias máquinas virtuais (VMs). Quando elimina uma nuvem privada, todos os VMs, os seus dados e clusters são eliminados. Os anfitriões dedicados são limpos e devolvidos à piscina gratuita. O domínio de rede previsto para o cliente também é eliminado.  
+Se tiver uma nuvem privada Azure VMware Solution de que já não precisa, pode eliminá-la. A nuvem privada inclui um domínio de rede isolado, um ou mais aglomerados de vSphere a provisionados em anfitriões de servidores dedicados e várias máquinas virtuais (VMs). Quando elimina uma nuvem privada, todos os VMs, os seus dados e clusters são eliminados. Os anfitriões dedicados Azure VMware Solution são limpos e devolvidos à piscina gratuita. O espaço de endereço de rede previsto também é eliminado.  
 
 > [!CAUTION]
 > Apagar a nuvem privada é uma operação irreversível. Uma vez eliminada a nuvem privada, os dados não podem ser recuperados, uma vez que encerra todas as cargas de trabalho e componentes em execução e destrói todos os dados e configurações de nuvem privada, incluindo endereços IP públicos.

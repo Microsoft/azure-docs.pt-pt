@@ -5,12 +5,12 @@ author: cachai2
 ms.topic: conceptual
 ms.date: 1/21/2021
 ms.author: cachai
-ms.openlocfilehash: f826c947b1e47c1c996a8e9102492e85adafa326
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 0267184a921c92c3dc092908a09467ef3a090175
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102215158"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103463039"
 ---
 # <a name="azure-functions-networking-options"></a>Opções de rede das Funções do Azure
 
@@ -87,7 +87,7 @@ Para saber mais, consulte [os pontos finais do serviço de rede Virtual.](../vir
 
 ## <a name="restrict-your-storage-account-to-a-virtual-network"></a>Restringir a sua conta de armazenamento a uma rede virtual 
 
-Quando criar uma aplicação de função, deve criar ou ligar para uma conta de Armazenamento Azure de uso geral que suporte o armazenamento de Blob, Queue e Table. Pode substituir esta conta de armazenamento por uma que esteja segura com pontos finais de serviço ou ponto final privado. Atualmente, esta funcionalidade funciona para todos os skus suportados pela rede virtual, que inclui Standard e Premium, com exceção dos selos flex onde as redes virtuais estão disponíveis apenas para sku Premium. Para criar uma função com uma conta de armazenamento restrita a uma rede privada:
+Quando criar uma aplicação de função, deve criar ou ligar para uma conta de Armazenamento Azure de uso geral que suporte o armazenamento de Blob, Queue e Table. Pode substituir esta conta de armazenamento por uma que esteja segura com pontos finais de serviço ou ponto final privado. Atualmente, esta funcionalidade funciona para todos os skus suportados pela rede virtual do Windows, que inclui Standard e Premium, com exceção dos selos flex onde as redes virtuais estão disponíveis apenas para sku Premium. Para criar uma função com uma conta de armazenamento restrita a uma rede privada:
 
 1. Crie uma função com uma conta de armazenamento que não tenha pontos finais de serviço ativados.
 1. Configure a função para ligar à sua rede virtual.

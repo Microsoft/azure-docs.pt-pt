@@ -4,15 +4,15 @@ description: Aprenda a executar scripts Python como parte de um oleoduto atravé
 author: pkshultz
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 08/12/2020
+ms.date: 03/12/2021
 ms.author: peshultz
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: 6c96c5b03a3561ae57807ad2788064f2a568f84c
-ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
+ms.openlocfilehash: 241a47ccf9021c6065fea907b4d9914744a64972
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2021
-ms.locfileid: "103418713"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103461696"
 ---
 # <a name="tutorial-run-python-scripts-through-azure-data-factory-using-azure-batch"></a>Tutorial: Executar scripts Python através da Azure Data Factory usando Azure Batch
 

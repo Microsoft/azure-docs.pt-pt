@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 02/11/2021
-ms.openlocfilehash: 1857eab485e8651c05959f82cf11e69b6353c575
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 3802d25ebd8f21ab5b8991a66ceb6650f2f276a9
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101673513"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103461713"
 ---
 # <a name="credentials-for-source-authentication-in-azure-purview"></a>Credenciais para autenticação de origem em Azure Purview
 
@@ -41,7 +41,7 @@ Se estiver a usar a identidade gerida pela Purview para configurar as sondagens,
 
 Antes de poder criar um Credencial, primeiro associe uma ou mais das suas instâncias existentes do Azure Key Vault com a sua conta Azure Purview.
 
-1. A partir do [portal Azure,](https://portal.azure.com)selecione a sua conta Azure Purview. Navegue para o **Centro de Gestão** e, em seguida, navegue para **credenciais.**
+1. A partir do [portal Azure,](https://portal.azure.com)selecione a sua conta Azure Purview e Open Azure Purview Studio. Navegue para o **Centro de Gestão** no Azure Purview Studio e, em seguida, navegue para **credenciais.**
 
 2. Na página **Credenciais,** **selecione 'Gerir as ligações 'Gestão do Cofre de Chaves'.**
 

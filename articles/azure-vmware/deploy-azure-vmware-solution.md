@@ -4,12 +4,12 @@ description: Saiba como utilizar as informações recolhidas na fase de planeame
 ms.topic: tutorial
 ms.custom: contperf-fy21q3
 ms.date: 02/17/2021
-ms.openlocfilehash: 6f1e587894d51eae2af4e9f76114f53f27ffefe1
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 48b6927407a95d41603c3032f298ffc28def9693
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101703867"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103462461"
 ---
 # <a name="deploy-and-configure-azure-vmware-solution"></a>Implementar e configurar a solução VMware Azure
 
@@ -35,7 +35,7 @@ Depois de implementar a Solução VMware Azure, criará a caixa de salto da rede
 
 :::image type="content" source="media/pre-deployment/jump-box-diagram.png" alt-text="Crie a caixa de salto Azure VMware Solution" border="false" lightbox="media/pre-deployment/jump-box-diagram.png":::
 
-Para criar uma máquina virtual (VM) na rede virtual que [identificou ou criou como parte do processo de implantação,](production-ready-deployment-steps.md#attach-virtual-network-to-azure-vmware-solution)siga estas instruções: 
+Para criar uma máquina virtual (VM) na rede virtual que [identificou ou criou como parte do processo de implantação,](production-ready-deployment-steps.md#attach-azure-virtual-network-to-azure-vmware-solution)siga estas instruções: 
 
 [!INCLUDE [create-avs-jump-box-steps](includes/create-jump-box-steps.md)]
 
@@ -52,7 +52,7 @@ Se não definiu uma rede virtual no passo de implementação e a sua intenção 
 
 A caixa de salto encontra-se na rede virtual onde a Azure VMware Solution se conecta através do seu circuito ExpressRoute.  Em Azure, vá à interface de rede da caixa de salto e [veja as rotas eficazes.](../virtual-network/manage-route-table.md#view-effective-routes)
 
-Na lista de rotas eficazes, deverá ver as redes criadas como parte da implementação da Solução VMware Azure. Verá várias redes que foram derivadas da [ `/22` rede que definiu](production-ready-deployment-steps.md#ip-address-segment) quando [cria uma nuvem privada.](#create-an-azure-vmware-solution-private-cloud)  
+Na lista de rotas eficazes, deverá ver as redes criadas como parte da implementação da Solução VMware Azure. Verá várias redes que foram derivadas da [ `/22` rede que definiu](production-ready-deployment-steps.md#ip-address-segment-for-private-cloud-management) quando [cria uma nuvem privada.](#create-an-azure-vmware-solution-private-cloud)  
 
 :::image type="content" source="media/pre-deployment/azure-vmware-solution-effective-routes.png" alt-text="Verifique as rotas de rede anunciadas da Solução VMware Azure para a Rede Virtual Azure" lightbox="media/pre-deployment/azure-vmware-solution-effective-routes.png":::
 

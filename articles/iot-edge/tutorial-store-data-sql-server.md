@@ -9,14 +9,16 @@ ms.date: 08/04/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: a8d09f762002c89d225ccc00eac83da336850a3c
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: e5aeda35ed4110807f17c11e93b31d0b3998846e
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047952"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103461118"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>Tutorial: Armazenar dados na periferia com bases de dados do SQL Server
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Implemente um módulo SQL Server para armazenar dados num dispositivo Linux que executa a Azure IoT Edge.
 
@@ -24,7 +26,7 @@ Utilize o Azure IoT Edge e o SQL Server para armazenar e consultar dados na peri
 
 Este artigo fornece instruções para implementar uma base de dados do SQL Server num dispositivo IoT Edge. As Funções do Azure, em execução no dispositivo IoT Edge, estruturam os dados recebidos e, em seguida, envia-os para a base de dados. Os passos neste artigo também podem ser aplicados a outras bases de dados que funcionam em contentores, como o MySQL ou o PostgreSQL.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 >
@@ -40,7 +42,7 @@ Neste tutorial, vai aprender a:
 Antes de iniciar este tutorial, deveria ter passado pelo tutorial anterior para configurar o seu ambiente de desenvolvimento para o desenvolvimento de recipientes Linux: [Desenvolver módulos IoT Edge para dispositivos Linux](tutorial-develop-for-linux.md). Ao completar este tutorial, deverá ter os seguintes pré-requisitos no lugar:
 
 * Um [Hub IoT](../iot-hub/iot-hub-create-through-portal.md) no escalão gratuito ou standard no Azure.
-* Um dispositivo AMD64 [Linux em execução Azure IoT Edge](quickstart-linux.md).
+* Um dispositivo AMD64 em execução Azure IoT Edge. Pode utilizar os arranques rápidos para configurar um [dispositivo Linux](quickstart-linux.md) ou [dispositivo Windows](quickstart.md).
   * Dispositivos ARM, como Raspberry Pis, não podem executar o SQL Server. Se quiser utilizar o SQL num dispositivo ARM, pode inscrever-se para experimentar [o Azure SQL Edge](https://azure.microsoft.com/services/sql-edge/) na pré-visualização.
 * Um registo de contentores, como [o Registo de Contentores de Azure.](../container-registry/index.yml)
 * [Código de Estúdio Visual](https://code.visualstudio.com/) configurado com as [Ferramentas Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
@@ -91,7 +93,7 @@ Você precisa selecionar que arquitetura você está dirigindo com cada soluçã
 
 1. Abra a paleta de comando e procure **por Azure IoT Edge: Definir Plataforma-alvo padrão para solução de borda**, ou selecione o ícone de atalho na barra lateral na parte inferior da janela.
 
-2. Na paleta de comando, selecione a arquitetura-alvo da lista de opções. Para este tutorial, estamos a usar uma máquina virtual Ubuntu como dispositivo IoT Edge, por isso manteremos o **amd64**padrão.
+2. Na paleta de comando, selecione a arquitetura-alvo da lista de opções. Para este tutorial, estamos a usar uma máquina virtual Ubuntu como dispositivo IoT Edge, por isso manteremos o **amd64** padrão.
 
 ### <a name="update-the-module-with-custom-code"></a>Atualizar o módulo com o código personalizado
 
@@ -105,7 +107,7 @@ Você precisa selecionar que arquitetura você está dirigindo com cada soluçã
 
 3. Guarde o ficheiro **sqlFunction.csproj.**
 
-4. Abra o ficheiro **sqlFunction.cs.**
+4. Abra o **ficheiro sqlFunction.cs.**
 
 5. Substitua todo o conteúdo do ficheiro pelo seguinte código:
 
@@ -208,7 +210,7 @@ Você precisa selecionar que arquitetura você está dirigindo com cada soluçã
 
 Um [Manifesto de implementação](module-composition.md) declara os módulos que o runtime do IoT Edge irá instalar no seu dispositivo IoT Edge. Forneceu o código para fazer um módulo de função personalizado na secção anterior, mas o módulo SQL Server já está construído e disponível no Azure Marketplace. Apenas tem de indicar ao runtime do IoT Edge para o incluir e configurar no seu dispositivo.
 
-1. No Código do Estúdio Visual, abra a paleta de comando selecionando a paleta **de**Comando ver  >  **Command palette**.
+1. No Código do Estúdio Visual, abra a paleta de comando selecionando a paleta **de** Comando ver  >  .
 
 2. Na paleta de comando, escreva e execute o comando **Azure IoT Edge: Adicione o módulo IoT Edge**. Na paleta de comando, forneça as seguintes informações para adicionar um novo módulo:
 
@@ -219,7 +221,7 @@ Um [Manifesto de implementação](module-composition.md) declara os módulos que
 
 3. No mercado do módulo Azure IoT Edge, procure e selecione **o Módulo de Servidor SQL**.
 
-4. Mude o nome do módulo para **sql,** todos os minúsculos. Este nome corresponde ao nome do recipiente declarado no fio de ligação no ficheiro sqlFunction.cs.
+4. Mude o nome do módulo para **sql,** todos os minúsculos. Este nome corresponde ao nome do recipiente declarado na cadeia de ligação no ficheiro sqlFunction.cs.
 
 5. **Selecione Importar** para adicionar o módulo à sua solução.
 
@@ -236,7 +238,7 @@ Um [Manifesto de implementação](module-composition.md) declara os módulos que
 
 Nas secções anteriores, criou uma solução com um módulo e, em seguida, adicionou outra ao modelo de manifesto de implementação. O módulo SQL Server é hospedado publicamente pela Microsoft, mas é necessário contentorizar o código no módulo Funções. Nesta secção, constrói a solução, cria imagens de contentores para o módulo sqlFunction e empurra a imagem para o registo do seu contentor.
 
-1. No Código do Estúdio Visual, abra o terminal integrado selecionando **o Terminal de Visualização**  >  **Terminal**.  
+1. No Código do Estúdio Visual, abra o terminal integrado selecionando **o Terminal de Visualização**  >  .  
 
 1. Inicie sessão no seu registo de contentor do Visual Studio Code para que possa enviar as imagens para o seu registo. Utilize as mesmas credenciais de Registo de Contentores Azure (ACR) que adicionou ao ficheiro .env. Introduza o seguinte comando no terminal integrado:
 
@@ -246,7 +248,7 @@ Nas secções anteriores, criou uma solução com um módulo e, em seguida, adic
 
     Pode ver um aviso de segurança recomendando a utilização do parâmetro --password-stdin. Enquanto a sua utilização está fora do âmbito deste artigo, recomendamos que siga esta melhor prática. Para obter mais informações, consulte a referência do comando de login do [estivador.](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin)
 
-1. No explorador de código VS, clique com o botão direito ** no ficheirodeployment.template.js** e selecione a **solução Build and Push IoT Edge**.
+1. No explorador de código VS, clique com o botão direito **no ficheirodeployment.template.js** e selecione a **solução Build and Push IoT Edge**.
 
    O comando de construção e pressão inicia três operações. Em primeiro lugar, cria uma nova pasta na solução chamada **config** que detém o manifesto de implantação completo, que é construído a partir de informações no modelo de implementação e outros ficheiros de solução. Em segundo lugar, funciona `docker build` para construir a imagem do contentor com base no arquivo apropriado para a arquitetura do seu alvo. Em seguida, corre `docker push` para empurrar o repositório de imagem para o seu registo de contentores.
 
@@ -323,7 +325,7 @@ A partir da ferramenta de comandos SQL, execute o seguinte comando para ver os d
 
    ![Ver conteúdo da base de dados local](./media/tutorial-store-data-sql-server/view-data.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se planeia avançar para o próximo artigo recomendado, pode manter os recursos e as configurações que criou e reutilizá-los. Também pode continuar a utilizar o mesmo dispositivo IoT Edge como um dispositivo de teste.
 

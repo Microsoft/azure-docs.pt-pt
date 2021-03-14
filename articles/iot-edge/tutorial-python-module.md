@@ -10,18 +10,20 @@ ms.date: 08/04/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 402b61bb0845532d601e9f5dcaaf55eacce685d1
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: d6a95dae91ef3e6aa7d39cf8af51c355a87ea73a
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94959378"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103462733"
 ---
-# <a name="tutorial-develop-and-deploy-a-python-iot-edge-module-for-linux-devices"></a>Tutorial: Desenvolver e implementar um módulo Python IoT Edge para dispositivos Linux
+# <a name="tutorial-develop-and-deploy-a-python-iot-edge-module-using-linux-containers"></a>Tutorial: Desenvolver e implantar um módulo Python IoT Edge utilizando recipientes Linux
 
-Utilize o Código do Estúdio Visual para desenvolver o código Python e implemente-o num dispositivo Linux que executa a Azure IoT Edge.
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
-Pode utilizar os módulos do Azure IoT Edge para implementar código que aplica a sua lógica de negócio diretamente aos seus dispositivos IoT Edge. Este tutorial acompanha-o através da criação e implementação de um módulo IoT Edge que filtra os dados do sensor no dispositivo IoT Edge que configura no arranque rápido. Neste tutorial, vai aprender a:
+Utilize o Código do Estúdio Visual para desenvolver o código Python e implemente-o num dispositivo em execução Azure IoT Edge.
+
+Pode utilizar os módulos do Azure IoT Edge para implementar código que aplica a sua lógica de negócio diretamente aos seus dispositivos IoT Edge. Este tutorial acompanha-o através da criação e implementação de um módulo IoT Edge que filtra os dados do sensor no dispositivo IoT Edge que configura no arranque rápido. Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 >
@@ -36,19 +38,21 @@ O módulo do IoT Edge que criou neste tutorial filtra os dados de temperatura qu
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este tutorial demonstra como desenvolver um módulo em **Python** usando **o Código do Estúdio Visual,** e como implantá-lo num **dispositivo Linux**. O IoT Edge não suporta módulos Python para dispositivos Windows.
+Este tutorial demonstra como desenvolver um módulo em **Python** usando **o Visual Studio Code,** e como implantá-lo num dispositivo IoT Edge.
 
-Utilize a seguinte tabela para compreender as suas opções de desenvolvimento e implantação de módulos Python para Linux:
+O IoT Edge não suporta módulos Python utilizando recipientes Windows.
+
+Utilize a seguinte tabela para compreender as suas opções de desenvolvimento e implantação de módulos Python utilizando recipientes Linux:
 
 | Python | Visual Studio Code | Estúdio Visual 2017/2019 |
 | - | ------------------ | ------------------ |
 | **Linux AMD64** | ![Utilize código VS para módulos Python no Linux AMD64](./media/tutorial-c-module/green-check.png) |  |
 | **Linux ARM32** | ![Utilize código VS para módulos Python no Linux ARM32](./media/tutorial-c-module/green-check.png) |  |
 
-Antes de iniciar este tutorial, deveria ter passado pelo tutorial anterior para configurar o seu ambiente de desenvolvimento para o desenvolvimento de recipientes Linux: [Desenvolver módulos IoT Edge para dispositivos Linux](tutorial-develop-for-linux.md). Ao completar este tutorial, deverá ter os seguintes pré-requisitos no lugar:
+Antes de iniciar este tutorial, deveria ter passado pelo tutorial anterior para configurar o seu ambiente de desenvolvimento para o desenvolvimento de recipientes Linux: [Desenvolver módulos IoT Edge utilizando recipientes Linux](tutorial-develop-for-linux.md). Ao completar este tutorial, deverá ter os seguintes pré-requisitos no lugar:
 
 * Um [Hub IoT](../iot-hub/iot-hub-create-through-portal.md) no escalão gratuito ou standard no Azure.
-* Um [dispositivo Linux executando Azure IoT Edge](quickstart-linux.md)
+* Um dispositivo em execução Azure IoT Edge. Pode utilizar os arranques rápidos para configurar um [dispositivo Linux](quickstart-linux.md) ou [dispositivo Windows](quickstart.md).
 * Um registo de contentores, como [o Registo de Contentores de Azure.](../container-registry/index.yml)
 * [Código de Estúdio Visual](https://code.visualstudio.com/) configurado com as [Ferramentas Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 * [Docker CE](https://docs.docker.com/install/) configurado para executar contentores Linux.
@@ -199,7 +203,7 @@ Cada modelo inclui código de amostra, que recolhe dados simulados do sensor do 
 
 Na secção anterior, criou uma solução IoT Edge e adicionou código à PythonModule que filtrará as mensagens onde a temperatura da máquina reportada está dentro dos limites aceitáveis. Agora, tem de criar a solução como uma imagem de contentor e enviá-la para o registo de contentor.
 
-1. Abra o terminal integrado do Código VS selecionando o Terminal **de Visualização**  >  **Terminal**.
+1. Abra o terminal integrado do Código VS selecionando o Terminal **de Visualização**  >  .
 
 2. Inscreva-se no Docker introduzindo o seguinte comando no terminal. Inicie sessão com o nome de utilizador, palavra-passe e servidor de login do seu registo de contentores Azure. Pode recuperar estes valores a partir da secção de **teclas de acesso** do seu registo no portal Azure.
 

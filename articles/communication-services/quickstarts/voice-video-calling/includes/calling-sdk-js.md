@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: 195e8fefbf0dbf3ff55e1bd4d043de772000248b
-ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
+ms.openlocfilehash: 7d694ba15379dcb16f881d23712c64ead2ff6e7d
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2021
-ms.locfileid: "103439204"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103464967"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -559,6 +559,8 @@ console.log(result.video);
 
 
 ## <a name="call-recording-management"></a>Gestão de gravação de chamadas
+
+[!INCLUDE [Private Preview Notice](../../../includes/private-preview-include-section.md)]
 
 A gravação de chamadas é uma característica estendida da `Call` API central. Primeiro, tem de obter o objeto API da funcionalidade de gravação:
 

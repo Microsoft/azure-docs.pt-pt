@@ -1,5 +1,5 @@
 ---
-title: Dados de consulta de um ambiente da Gen2 usando C# - Azure Time Series Insights Microsoft Docs
+title: Dados de consulta de um ambiente da Gen2 usando C# - Azure Time Series Insights | Microsoft Docs
 description: Aprenda a consultar dados de um ambiente Azure Time Series Insights Gen2 utilizando uma aplicação escrita em C#.
 ms.service: time-series-insights
 services: time-series-insights
@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/02/2020
 ms.custom: seodec18
-ms.openlocfilehash: 81725a28102caf0d69a9fb303eaccdcf2151587d
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: aecd18fd0d568904f9704b749525204ced05f3ef
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95020032"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103463430"
 ---
 # <a name="query-data-from-the-azure-time-series-insights-gen2-environment-using-c-sharp"></a>Dados de consulta do ambiente Azure Time Series Insights Gen2 usando C Sharp
 
@@ -48,7 +48,7 @@ O código de amostra abaixo demonstra as seguintes características:
 
 Complete os seguintes passos antes de compilar e executar o código de amostra:
 
-1. [Provisionar um ambiente gen2 Azure Time Series Insights.](./how-to-provision-manage.md#create-the-environment)
+1. [Provisionar um ambiente gen2 Azure Time Series Insights.](./how-to-create-environment-using-portal.md)
 1. Configure o seu ambiente Azure Time Series Insights para o Azure Ative Directory, conforme descrito na [Autenticação e autorização](time-series-insights-authentication-and-authorization.md).
 1. Executar o [GenerateCode.bat](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/gen2-sample/csharp-tsi-gen2-sample/DataPlaneClient/GenerateCode.bat) conforme especificado no [Readme.md](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/gen2-sample/csharp-tsi-gen2-sample/DataPlaneClient/Readme.md) para gerar as dependências do cliente Azure Time Series Insights Gen2.
 1. Abra a `TSIPreviewDataPlaneclient.sln` solução e definir `DataPlaneClientSampleApp` como o projeto padrão no Estúdio Visual.
@@ -78,7 +78,7 @@ Consulte o [Azure Time Series Insights](https://github.com/Azure-Samples/Azure-T
 > * A amostra de código pode ser executada sem alterar as variáveis ambientais padrão.
 > * A amostra de código compila-se-á para uma aplicação de consola executável .NET.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para saber mais sobre consultas, leia a [referência API de Consulta.](/rest/api/time-series-insights/reference-query-apis)
 

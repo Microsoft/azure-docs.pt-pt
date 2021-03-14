@@ -2,19 +2,19 @@
 title: Planeamento da implementação da Solução VMware Azure
 description: Este artigo descreve um fluxo de trabalho de implementação de Solução VMware Azure.  O resultado final é um ambiente pronto para a criação e migração de máquinas virtuais (VM).
 ms.topic: tutorial
-ms.date: 02/22/2021
-ms.openlocfilehash: f9d49d7ff8109364c9fc1eee4388b30ccc1a61b6
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/13/2021
+ms.openlocfilehash: f1895f14361b7121ae0d78950cdf8eca3cf7eb52
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101733670"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103462427"
 ---
 # <a name="planning-the-azure-vmware-solution-deployment"></a>Planeamento da implementação da Solução VMware Azure
 
-Este artigo fornece-lhe o processo de planeamento para identificar e recolher dados utilizados durante a implementação. Ao planear a sua implantação, certifique-se de documentar as informações que recolhe para uma referência fácil durante a implementação.
+Este artigo fornece-lhe o processo de planeamento para identificar e recolher as informações que utilizará durante a implementação. Ao planear a sua implantação, certifique-se de documentar as informações que recolhe para uma referência fácil durante a implementação.
 
-Os processos deste arranque rápido resultam num ambiente pronto para a produção para a criação de máquinas virtuais (VMs) e migração. 
+Os passos delineados neste início rápido dão-lhe um ambiente pronto para a produção para a criação de máquinas virtuais (VMs) e migração. 
 
 >[!IMPORTANT]
 >Antes de criar o seu recurso Azure VMware Solution, siga o como permitir que o artigo [de recursos da Azure VMware Solution](enable-azure-vmware-solution.md) envie um bilhete de apoio para que os seus anfitriões tenham os seus anfitriões atribuídos. Uma vez que a equipa de apoio recebe o seu pedido, leva até cinco dias úteis para confirmar o seu pedido e alocar os seus anfitriões. Se tiver uma nuvem privada Azure VMware Solution e quiser mais anfitriões, passará pelo mesmo processo. 
@@ -46,21 +46,30 @@ Defina o nome de recurso que utilizará durante a implantação.  O nome do recu
 
 Identifique os anfitriões de tamanho que pretende utilizar ao implementar a Solução VMware Azure.  Para obter uma lista completa, consulte a documentação [privada Azure VMware Solution e clusters.](concepts-private-clouds-clusters.md#hosts)
 
-## <a name="number-of-hosts"></a>Número de anfitriões
+## <a name="number-of-clusters-and-hosts"></a>Número de agrupamentos e anfitriões
 
-Defina o número de anfitriões que pretende implantar na nuvem privada Azure VMware Solution.  O número mínimo de hospedeiros é de três, e o máximo é de 16 por agrupamento.  Para mais informações, consulte a documentação [privada de nuvem e clusters Azure VMware Solution.](concepts-private-clouds-clusters.md#clusters)
+Na Solução Azure VMware, irá implementar uma nuvem privada e criar vários clusters. Para a sua implantação, terá de definir o número de clusters e os anfitriões f que pretende implantar em cada cluster. O número mínimo de hospedeiros por agrupamento é de três, e o máximo é de 16. O número máximo de aglomerados por nuvem privada é de quatro. O número máximo de nós por nuvem privada é de 64.
 
-Pode sempre estender o cluster mais tarde se precisar de ir além do número inicial de implantação.
+Para mais informações, consulte a documentação [privada de nuvem e clusters Azure VMware Solution.](concepts-private-clouds-clusters.md#clusters)
 
-## <a name="ip-address-segment"></a>Segmento de endereço IP
+>[!TIP]
+>Pode sempre estender o cluster mais tarde se precisar de ir além do número inicial de implantação.
 
-O primeiro passo para planear a implantação é planear a segmentação de IP.  A Azure VMware Solution ingere uma rede /22 que fornece. Em seguida, esculpe-o em segmentos menores e, em seguida, usa esses segmentos IP para vCenter, VMware HCX, NSX-T e vMotion.
+## <a name="vcenter-admin-password"></a>vCenter senha de administração
+Defina a palavra-passe de administração vCenter. Durante a implementação, irá criar uma palavra-passe de administração vCenter. A palavra-passe é atribuída à cloudadmin@vsphere.local conta de administração durante a construção do vCenter. Vai usar estas credenciais para se inscrever no vCenter.
 
-A Azure VMware Solution conecta-se à sua Rede Virtual Microsoft Azure através de um circuito ExpressRoute interno. Na maioria dos casos, conecta-se ao seu centro de dados através do ExpressRoute Global Reach. 
+## <a name="nsx-t-admin-password"></a>Senha de administração NSX-T
+Defina a palavra-passe de administração NSX-T. Durante a implementação, irá criar uma senha de administração NSX-T. A palavra-passe é atribuída ao utilizador administrativo na conta NSX durante a construção do NSX. Usará estas credenciais para iniciar sposição no NSX-T Manager.
 
-Azure VMware Solution, o seu ambiente Azure existente e o ambiente no local em todas as rotas de troca (normalmente). Sendo assim, o bloco de endereços de rede CIDR /22 que define neste passo não deve sobrepor-se a nada que já tenha no local ou a Azure.
+## <a name="ip-address-segment-for-private-cloud-management"></a>Segmento de endereço IP para gestão de nuvem privada
+
+O primeiro passo para planear a implantação é planear a segmentação de IP. A Azure VMware Solution requer uma rede CIDR /22. Este espaço de endereço esculpe-o em segmentos de rede mais pequenos (subnetas) e utilizados para a funcionalidade vCenter, VMware HCX, NSX-T e vMotion.
+
+Este bloco de endereços de rede CIDR /22 não deve sobrepor-se a qualquer segmento de rede existente que já tenha no local ou no Azure.
 
 **Exemplo:** 10.0.0.0/22
+
+A Azure VMware Solution conecta-se à sua Rede Virtual Microsoft Azure através de um circuito interno ExpressRoute Global Reach (D-MSEE na visualização abaixo). Esta funcionalidade faz parte do serviço Azure VMware Solution e não será carregada.
 
 Para obter mais informações, consulte a [lista de verificação de planeamento da Rede.](tutorial-network-checklist.md#routing-and-subnet-considerations)
 
@@ -68,12 +77,12 @@ Para obter mais informações, consulte a [lista de verificação de planeamento
 
 ## <a name="ip-address-segment-for-virtual-machine-workloads"></a>Segmento de endereço IP para cargas de trabalho de máquinas virtuais
 
-Identifique um segmento IP para criar a sua primeira rede (segmento NSX) na sua nuvem privada.  Por outras palavras, pretende criar um segmento de rede na Solução VMware Azure para que possa implantar VMs na Solução VMware Azure.   
+Identifique um segmento IP para criar a sua primeira rede para cargas de trabalho (segmento NSX) na sua nuvem privada. Por outras palavras, terá de criar um segmento de rede na Solução VMware Azure para poder implementar VMs na Solução VMware Azure.
 
-Mesmo que planeie apenas alargar as redes L2, crie um segmento de rede que valide o ambiente.
+Mesmo que planeie estender as redes das instalações para a Azure VMware Solution (L2), ainda precisa de criar um segmento de rede que valide o ambiente.
 
-Lembre-se, quaisquer segmentos IP criados devem ser únicos em todo o seu Azure e pegada no local.  
-
+Lembre-se, quaisquer segmentos IP criados devem ser únicos em todo o seu Azure e pegada no local.
+  
 **Exemplo:** 10.0.4.0/24
 
 :::image type="content" source="media/pre-deployment/nsx-segment-diagram.png" alt-text="Identificar - Segmento de endereço IP para cargas de trabalho de máquinas virtuais" border="false":::     
@@ -87,9 +96,9 @@ Tenha em mente que:
 - Se pretender estender as redes a partir do local, essas redes devem ligar-se a um [vSphere Distributed Switch (vDS)](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.networking.doc/GUID-B15C6A13-797E-4BCB-B9D9-5CBC5A60C3A6.html) no seu ambiente VMware no local.  
 - Se a rede(s) pretender prolongar ao vivo num [vSphere Standard Switch,](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.networking.doc/GUID-350344DE-483A-42ED-B0E2-C811EE927D59.html)então não pode ser estendida.
 
-## <a name="attach-virtual-network-to-azure-vmware-solution"></a>Anexar rede virtual à Solução Azure VMware
+## <a name="attach-azure-virtual-network-to-azure-vmware-solution"></a>Anexar a rede virtual Azure à Solução VMware Azure
 
-Neste passo, irá identificar um gateway de rede virtual ExpressRoute e suporte a Rede Virtual Azure utilizado para ligar o circuito Azure VMware Solution ExpressRoute.  O circuito ExpressRoute facilita a conectividade de e para a nuvem privada Azure VMware Solution para outros serviços Azure, recursos Azure e ambientes no local.
+Neste passo, irá identificar um gateway de rede virtual ExpressRoute e a rede virtual Azure suportada utilizada para ligar o circuito Azure VMware Solution ExpressRoute.  O circuito ExpressRoute facilita a conectividade de e para a nuvem privada Azure VMware Solution para outros serviços Azure, recursos Azure e ambientes no local.
 
 Pode utilizar um *novo* gateway *de* rede virtual ExpressRoute existente.
 

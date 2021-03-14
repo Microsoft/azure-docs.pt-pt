@@ -2,13 +2,13 @@
 title: Tutorial - Lista de verificação de planeamento de rede
 description: Conheça os requisitos de rede para a conectividade da rede e portas de rede na Azure VMware Solution.
 ms.topic: tutorial
-ms.date: 01/27/2021
-ms.openlocfilehash: f493443da617f5f76771e5d1b2b3b190b37f9b5d
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.date: 03/13/2021
+ms.openlocfilehash: 8cee5fa24aab8bd7fe6a9527f9c8e7cdff997511
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98918590"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103462070"
 ---
 # <a name="networking-planning-checklist-for-azure-vmware-solution"></a>Lista de verificação de planeamento de rede para Solução VMware Azure 
 
@@ -67,7 +67,7 @@ As sub-redes:
 
 ## <a name="required-network-ports"></a>Portas de rede necessárias
 
-| Origem | Destino | Protocolo | Porta | Descrição  | 
+| Origem | Destino | Protocolo | Porta | Description  | 
 | ------ | ----------- | :------: | :---:| ------------ | 
 | Servidor privado de DNS em nuvem | Servidor DNS nas instalações | UDP | 53 | CLIENTE DNS - Pedidos a prazo do PC vCenter para quaisquer consultas DNS no local (ver secção DNS abaixo) |  
 | Servidor DNS no local   | Servidor privado de DNS em nuvem | UDP | 53 | CLIENTE DNS - Encaminhar pedidos de serviços no local para servidores DNS private Cloud (ver secção DNS abaixo) |  
@@ -89,13 +89,12 @@ Aplicações e cargas de trabalho em execução em um ambiente de nuvem privada 
 
 Utilize o serviço DHCP incorporado para NSX ou use um servidor DHCP local na nuvem privada em vez de encaminhar o tráfego DHCP transmitido sobre o WAN de volta para o local.
 
-
-## <a name="next-steps"></a>Próximos passos
-
-Neste tutorial, aprendeu sobre as considerações e requisitos para a implementação de uma nuvem privada Azure VMware Solution. 
+Para mais detalhes, consulte os [serviços Provide DHCP para o artigo do segmento de rede NSX-T.](deploy-azure-vmware-solution.md#optional-provide-dhcp-services-to-nsx-t-network-segment)
 
 
-Assim que tiver a rede adequada no lugar, continue até ao próximo tutorial para criar a sua nuvem privada Azure VMware Solution.
+## <a name="next-steps"></a>Passos seguintes
+
+Neste tutorial, aprendeu sobre as considerações e requisitos para a implementação de uma nuvem privada Azure VMware Solution. Assim que tiver a rede adequada no lugar, continue até ao próximo tutorial para criar a sua nuvem privada Azure VMware Solution.
 
 > [!div class="nextstepaction"]
 > [Criar uma nuvem privada Azure VMware Solution](tutorial-create-private-cloud.md)

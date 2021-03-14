@@ -2,25 +2,25 @@
 title: Tutorial - Aceda à sua nuvem privada
 description: Saiba como aceder a uma nuvem privada Azure VMware Solution
 ms.topic: tutorial
-ms.date: 02/22/2021
-ms.openlocfilehash: 456767a9edd78a70a0aba45c7b44a2150a2217a1
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.date: 03/13/2021
+ms.openlocfilehash: f689a0c706b6427497c80dabb01579ace161d1e2
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102045008"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103462264"
 ---
 # <a name="tutorial-access-an-azure-vmware-solution-private-cloud"></a>Tutorial: Aceda a uma nuvem privada Azure VMware Solution
 
-A Azure VMware Solution não lhe permite gerir a sua nuvem privada com o seu vCenter no local. Você precisará fazer configuração adicional e conexão com um vCenter local através de uma caixa de salto. 
+A Azure VMware Solution não lhe permite gerir a sua nuvem privada com o seu vCenter no local. Terá de se ligar à solução VMware VCenter Azure através de uma caixa de salto. 
 
-Neste tutorial, você vai criar uma caixa de salto no grupo de recursos que criou no [tutorial anterior](tutorial-configure-networking.md) e assinar no vCenter. A caixa de salto é uma máquina virtual (VM) do Windows na mesma rede virtual que criou.  Fornece acesso ao vCenter e ao NSX Manager. 
+Neste tutorial, irá criar uma caixa de salto no grupo de recursos que criou no [tutorial anterior](tutorial-configure-networking.md) e assinará no Azure VMware Solution vCenter. Esta caixa de salto é uma máquina virtual (VM) do Windows na mesma rede virtual que criou.  Fornece acesso tanto ao vCenter como ao NSX Manager. 
 
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> * Criar uma máquina virtual windows para usar para ligar ao vCenter
-> * Faça login no vCenter a partir da sua máquina virtual
+> * Criar uma máquina virtual Windows para acesso à Solução VMware Azure vCenter
+> * Inscreva-se no vCenter a partir desta máquina virtual
 
 ## <a name="create-a-new-windows-virtual-machine"></a>Criar uma nova máquina virtual do Windows
 
@@ -28,16 +28,16 @@ Neste tutorial, ficará a saber como:
 
 ## <a name="connect-to-the-local-vcenter-of-your-private-cloud"></a>Ligue-se ao vCenter local da sua nuvem privada
 
-1. A partir da caixa de salto, inscreva-se no vSphere Client com VMware vCenter SSO utilizando um nome de utilizador e veridade de administração em nuvem que a interface do utilizador exibe com sucesso.
+1. A partir da caixa de salto, inscreva-se no vSphere Client com VMware vCenter SSO utilizando um nome de utilizador de administração em nuvem e verifique se a interface do utilizador é exibida com sucesso.
 
-1. No portal Azure, selecione a sua nuvem privada e, em seguida, **Gerencie**  >  **a Identidade.** 
+1. No portal Azure, selecione a sua nuvem privada e, em seguida, **Gerencie**  >  **a Identidade**. 
 
    Os URLs e as credenciais de utilizador para o visor privado de vCenter e NSX-T Manager.
 
    >[!TIP]
    >**Selecione Gere uma nova palavra-passe** para gerar novas palavras-passe vCenter e NSX-T.
 
-   :::image type="content" source="media/tutorial-access-private-cloud/ss4-display-identity.png" alt-text="Exiba urls e credenciais de cloud vCenter e NSX Manager." border="true" lightbox="media/tutorial-access-private-cloud/ss4-display-identity.png":::
+   :::image type="content" source="media/tutorial-access-private-cloud/generate-vcenter-nsxt-passwords.png" alt-text="Exiba urls e credenciais de cloud vCenter e NSX Manager." border="true" lightbox="media/tutorial-access-private-cloud/generate-vcenter-nsxt-passwords.png":::
 
 1. Navegue para o VM que criou no passo anterior e ligue-se à máquina virtual. 
 

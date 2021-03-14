@@ -9,20 +9,25 @@ ms.date: 05/28/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 1f346e1b737075fa79dc1146152125a6c5a3ec1a
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: 8f019c8f3c560fdfdc0c8e5992389c253c9b0d74
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97704691"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103463379"
 ---
-# <a name="tutorial-develop-c-iot-edge-modules-for-windows-devices"></a>Tutorial: Desenvolver módulos C IoT Edge para dispositivos Windows
+# <a name="tutorial-develop-c-iot-edge-modules-using-windows-containers"></a>Tutorial: Desenvolver módulos C IoT Edge utilizando recipientes Windows
+
+[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
 
 Este artigo mostra-lhe como usar o Visual Studio para desenvolver código C e implantá-lo num dispositivo Windows que está a executar Azure IoT Edge.
 
-Pode utilizar módulos Azure IoT Edge para implementar código que implementa a sua lógica de negócio diretamente nos seus dispositivos IoT Edge. Este tutorial explica-lhe como criar e implementar um módulo do IoT Edge que filtra dados de sensores. 
+>[!NOTE]
+>IoT Edge 1.1 LTS é o último canal de lançamento que irá suportar recipientes Windows. A partir da versão 1.2, os recipientes windows não são suportados. Considere usar ou mover-se para [IoT Edge para o Linux no Windows](iot-edge-for-linux-on-windows.md) para executar IoT Edge em dispositivos Windows.
 
-Neste tutorial, vai aprender a:
+Pode utilizar módulos Azure IoT Edge para implementar código que implementa a sua lógica de negócio diretamente nos seus dispositivos IoT Edge. Este tutorial explica-lhe como criar e implementar um módulo do IoT Edge que filtra dados de sensores.
+
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 >
@@ -37,18 +42,18 @@ O módulo do IoT Edge que criou neste tutorial filtra os dados de temperatura qu
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este tutorial demonstra como desenvolver um módulo em C utilizando o Visual Studio 2019 e, em seguida, implantá-lo num dispositivo Windows. Se estiver a desenvolver módulos para dispositivos Linux, vá ao [Develop C IoT Edge módulos para dispositivos Linux.](tutorial-csharp-module.md)
+Este tutorial demonstra como desenvolver um módulo em C utilizando o Visual Studio 2019 e, em seguida, implantá-lo num dispositivo Windows. Se estiver a desenvolver módulos utilizando recipientes Linux, vá ao [Develop C IoT Edge módulos utilizando recipientes Linux.](tutorial-csharp-module.md)
 
-Para compreender as suas opções de desenvolvimento e implantação de módulos C para dispositivos Windows, consulte a seguinte tabela:
+Para compreender as suas opções de desenvolvimento e implantação de módulos C utilizando recipientes Windows, consulte a seguinte tabela:
 
 | C | Código do Estúdio Visual &nbsp; &nbsp; | Estúdio Visual 2017 &nbsp; e &nbsp; 2019 |
 | -- | ------------------ | :------------------: |
 | Windows AMD64 |  | ![Desenvolver módulos C para WinAMD64 em Estúdio Visual](./media/tutorial-c-module/green-check.png) |
 
-Antes de iniciar este tutorial, crie o seu ambiente de desenvolvimento seguindo as instruções nos [módulos Develop IoT Edge para dispositivos Windows](tutorial-develop-for-windows.md) tutorial. Depois de o completar, o seu ambiente conterá os seguintes pré-requisitos:
+Antes de iniciar este tutorial, crie o seu ambiente de desenvolvimento seguindo as instruções nos [módulos Develop IoT Edge utilizando](tutorial-develop-for-windows.md) o tutorial de recipientes Windows. Depois de o completar, o seu ambiente conterá os seguintes pré-requisitos:
 
 * Um [hub IoT](../iot-hub/iot-hub-create-through-portal.md) gratuito ou de nível padrão em Azure.
-* Um [dispositivo Windows que está a executar a Azure IoT Edge](quickstart.md).
+* Um [dispositivo Windows que está a executar a Azure IoT Edge](how-to-install-iot-edge-windows-on-windows.md).
 * Um registo de contentores, como [o Registo do Contentor de Azure.](../container-registry/index.yml)
 * [Visual Studio 2019,](/visualstudio/install/install-visual-studio)configurado com a extensão [Azure IoT Edge Tools.](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools)
 * [Docker Desktop](https://docs.docker.com/docker-for-windows/install/), configurado para executar recipientes Windows.

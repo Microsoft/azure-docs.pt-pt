@@ -7,12 +7,12 @@ ms.author: abnarain
 ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 02/02/2021
-ms.openlocfilehash: 49ec43e59989f3fdad8f5731867953cc7cbb5757
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 496d2b6b3d669013c8174e9bc961d0a2f640bed3
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101699713"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103462087"
 ---
 # <a name="automated-publishing-for-continuous-integration-and-delivery"></a>Publicação automatizada para integração e entrega contínuas
 
@@ -20,98 +20,99 @@ ms.locfileid: "101699713"
 
 ## <a name="overview"></a>Descrição Geral
 
-A integração contínua é a prática de testar cada alteração feita automaticamente na sua base de código e o mais cedo possível a entrega contínua segue o teste que ocorre durante a integração contínua e empurra alterações para um sistema de preparação ou produção.
+A integração contínua é a prática de testar automaticamente cada alteração feita ao código base. O mais cedo possível, a entrega contínua segue o teste que acontece durante a integração contínua e empurra alterações para um sistema de encenação ou produção.
 
-No Azure Data Factory, a integração contínua e entrega contínua (CI/CD) significa mover pipelines do Data Factory de um ambiente (desenvolvimento, teste, produção) para outro. A Azure Data Factory utiliza [modelos do Azure Resource Manager](../azure-resource-manager/templates/overview.md) para armazenar a configuração das suas várias entidades ADF (pipelines, conjuntos de dados, fluxos de dados, e assim por diante). Existem dois métodos sugeridos para promover uma fábrica de dados para outro ambiente:
+Na Azure Data Factory, integração contínua e entrega contínua (CI/CD) significa mover os gasodutos da Data Factory de um ambiente, como o desenvolvimento, teste e produção, para outro. A Data Factory utiliza [modelos de Gestor de Recursos Azure (modelos ARM)](../azure-resource-manager/templates/overview.md) para armazenar a configuração das suas várias entidades da Data Factory, tais como oleodutos, conjuntos de dados e fluxos de dados.
 
-- Implantação automatizada utilizando a integração da Data Factory com [a Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines).
-- Carre faça o upload manual de um modelo de Gestor de Recursos utilizando a integração UX da Data Factory com o Azure Resource Manager.
+Existem dois métodos sugeridos para promover uma fábrica de dados para outro ambiente:
+
+- Implantação automatizada utilizando a integração da Data Factory com [gasodutos Azure](/azure/devops/pipelines/get-started/what-is-azure-pipelines).
+- Carregar manualmente um modelo ARM utilizando a integração do utilizador da Data Factory com o Azure Resource Manager.
 
 Para mais informações, consulte [integração contínua e entrega na Azure Data Factory.](continuous-integration-deployment.md)
 
-Neste artigo, focamo-nos nas melhorias contínuas da implementação e na funcionalidade de publicação automatizada para o CI/CD.
+Este artigo centra-se nas melhorias contínuas da implementação e na funcionalidade de publicação automatizada para o CI/CD.
 
 ## <a name="continuous-deployment-improvements"></a>Melhorias contínuas da implementação
 
-A funcionalidade "Publicação Automatizada" retira a *validação de todas as* funcionalidades do *modelo Azure Resource Manager (ARM)* do ADF UX e torna a lógica consumível através de um pacote npm disponível ao [@microsoft/azure-data-factory-utilities](https://www.npmjs.com/package/@microsoft/azure-data-factory-utilities) público. Isto permite-lhe desencadear programáticamente estas ações em vez de ter de ir ao UI ADF e fazer um clique de botão. Isto dará aos seus oleodutos CI/CD uma experiência de integração contínua mais verdadeira.
+A funcionalidade de publicação automatizada retira as funcionalidades do modelo **Validate all** and **Export ARM** da experiência do utilizador data Factory e torna a lógica consumível através de um pacote npm disponível ao [@microsoft/azure-data-factory-utilities](https://www.npmjs.com/package/@microsoft/azure-data-factory-utilities) público. Por esta razão, pode desencadear programáticamente estas ações em vez de ter de ir à UI da Data Factory e selecionar manualmente um botão. Esta capacidade dará aos seus oleodutos CI/CD uma experiência de integração contínua mais verdadeira.
 
 ### <a name="current-cicd-flow"></a>Fluxo atual de CI/CD
 
 1. Cada utilizador faz alterações nos seus balcões privados.
-2. É proibido empurrar para o domínio, os utilizadores devem criar um PR para dominar para fazer alterações.
-3. Os utilizadores devem carregar ADF UI e clicar em publicar para implementar alterações na Data Factory e gerar os modelos ARM na sucursal publicar.
-4. O pipeline de desbloqueio de devOps está configurado para criar uma nova versão e implementar o modelo ARM cada vez que uma nova alteração é empurrada para o ramo de publicação.
+1. Empurrar para o mestre não é permitido. Os utilizadores devem criar um pedido de puxar para fazer alterações.
+1. Os utilizadores devem carregar o UI da Fábrica de Dados e selecionar **publicar** para implementar alterações na Data Factory e gerar os modelos ARM na sucursal de publicação.
+1. O pipeline DevOps Release está configurado para criar uma nova versão e implementar o modelo ARM cada vez que uma nova alteração é empurrada para o ramo de publicação.
 
-![Fluxo atual de CI/CD](media/continuous-integration-deployment-improvements/current-ci-cd-flow.png)
+![Diagrama que mostra o fluxo atual de CI/CD.](media/continuous-integration-deployment-improvements/current-ci-cd-flow.png)
 
 ### <a name="manual-step"></a>Passo manual
 
-No fluxo atual de CI/CD, o UX é o intermediário para criar o modelo ARM, pelo que um utilizador deve ir para a UI ADF e clicar manualmente em publicar para iniciar a geração do modelo ARM e deixá-lo cair no ramo de publicação, que é um pouco de hack.
+No fluxo atual de CI/CD, a experiência do utilizador é o intermediário para criar o modelo ARM. Como resultado, um utilizador deve ir à UI da Data Factory e selecionar manualmente **Publicar** para iniciar a geração do modelo ARM e deixá-la cair no ramo de publicação.
 
 ### <a name="the-new-cicd-flow"></a>O novo fluxo CI/CD
 
 1. Cada utilizador faz alterações nos seus balcões privados.
-2. É proibido empurrar para o domínio, os utilizadores devem criar um PR para dominar para fazer alterações.
-3. **A construção do oleoduto Azure DevOps é desencadeada sempre que um novo compromisso é feito para dominar, valida os recursos e gera um modelo ARM como um artefacto se a validação for bem sucedida.**
-4. O pipeline de desbloqueio de devOps está configurado para criar uma nova versão e implementar o modelo ARM sempre que estiver disponível uma nova construção. 
+1. Empurrar para o mestre não é permitido. Os utilizadores devem criar um pedido de puxar para fazer alterações.
+1. A construção do oleoduto Azure DevOps é desencadeada sempre que um novo compromisso é feito para dominar. Valida os recursos e gera um modelo ARM como artefacto se a validação for bem sucedida.
+1. O pipeline DevOps Release está configurado para criar uma nova versão e implementar o modelo ARM sempre que estiver disponível uma nova construção.
 
-![Novo fluxo CI/CD](media/continuous-integration-deployment-improvements/new-ci-cd-flow.png)
+![Diagrama que mostra o novo fluxo ci/CD.](media/continuous-integration-deployment-improvements/new-ci-cd-flow.png)
 
 ### <a name="what-changed"></a>O que mudou?
 
-- Temos agora um processo de construção usando um oleoduto de construção de DevOps.
-- O gasoduto de construção utiliza o pacote NPM da ADFUtilities, que validará todos os recursos e gerará os modelos ARM (modelos individuais e ligados).
-- O gasoduto de construção será responsável pela validação dos recursos ADF e pela geração do modelo ARM em vez de ADF UI (botão publicar).
+- Temos agora um processo de construção que usa um oleoduto de construção de DevOps.
+- O gasoduto de construção utiliza o pacote NPM da ADFUtilities, que validará todos os recursos e gerará os modelos ARM. Estes modelos podem ser solteiros e ligados.
+- O pipeline de construção é responsável por validar os recursos da Data Factory e gerar o modelo ARM em vez do UI da Fábrica de Dados ( Botão **Publicar).**
 - A definição de libertação de DevOps irá agora consumir este novo oleoduto de construção em vez do artefacto Git.
 
 > [!NOTE]
-> Pode continuar a utilizar o mecanismo existente (adf_publish ramo) ou utilizar o novo fluxo. Ambos são apoiados. 
+> Pode continuar a utilizar o mecanismo existente, que é o `adf_publish` ramo, ou pode utilizar o novo fluxo. Ambos são apoiados.
 
 ## <a name="package-overview"></a>Descrição geral do pacote
 
-Existem dois comandos atualmente disponíveis no pacote:
+Dois comandos estão atualmente disponíveis no pacote:
+
 - Exportar o modelo do Resource Manager
 - Validação
 
 ### <a name="export-arm-template"></a>Exportar o modelo do Resource Manager
 
-Executar npm run iniciar a exportação <rootFolder> <factoryId> [outputFolder] para exportar o modelo ARM usando os recursos de uma determinada pasta. Este comando executa uma verificação de validação também antes de gerar o modelo ARM. Abaixo está um exemplo:
+Corra `npm run start export <rootFolder> <factoryId> [outputFolder]` para exportar o modelo ARM utilizando os recursos de uma determinada pasta. Este comando também executa uma verificação de validação antes de gerar o modelo ARM. Eis um exemplo:
 
 ```
 npm run start export C:\DataFactories\DevDataFactory /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testResourceGroup/providers/Microsoft.DataFactory/factories/DevDataFactory ArmTemplateOutput
 ```
 
-- RootFolder é um campo obrigatório que representa onde estão localizados os recursos da Data Factory.
-- FactoryId é um campo obrigatório que representa o ID de recursos de fábrica de dados no formato: "/subscrições/ <subId> /resourceGroups/ <rgName> /providers/Microsoft.DataFactory/fábricas/ <dfName> ".
-- OutputFolder é um parâmetro opcional que especifica o caminho relativo para salvar o modelo ARM gerado.
+- `RootFolder` é um campo obrigatório que representa onde estão localizados os recursos da Data Factory.
+- `FactoryId` é um campo obrigatório que representa o ID de recursos da Data Factory no formato `/subscriptions/<subId>/resourceGroups/<rgName>/providers/Microsoft.DataFactory/factories/<dfName>` .
+- `OutputFolder` é um parâmetro opcional que especifica o caminho relativo para salvar o modelo ARM gerado.
  
 > [!NOTE]
-> O modelo ARM gerado não é publicado na `Live` versão da fábrica. A implantação deve ser efetuada utilizando um gasoduto CI/CD. 
+> O modelo ARM gerado não é publicado para a versão ao vivo da fábrica. A implantação deve ser efetuada utilizando um gasoduto CI/CD.
  
-
 ### <a name="validate"></a>Validação
 
-Executar npm run começar <rootFolder> <factoryId> a validar para validar todos os recursos de uma determinada pasta. Abaixo está um exemplo:
-    
+Corra `npm run start validate <rootFolder> <factoryId>` para validar todos os recursos de uma determinada pasta. Eis um exemplo:
+
 ```
 npm run start validate C:\DataFactories\DevDataFactory /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testResourceGroup/providers/Microsoft.DataFactory/factories/DevDataFactory
 ```
 
-- RootFolder é um campo obrigatório que representa onde estão localizados os recursos da Data Factory.
-- FactoryId é um campo obrigatório que representa o ID de recursos de fábrica de dados no formato: "/subscrições/ <subId> /resourceGroups/ <rgName> /providers/Microsoft.DataFactory/fábricas/ <dfName> ".
-
+- `RootFolder` é um campo obrigatório que representa onde estão localizados os recursos da Data Factory.
+- `FactoryId` é um campo obrigatório que representa o ID de recursos da Data Factory no formato `/subscriptions/<subId>/resourceGroups/<rgName>/providers/Microsoft.DataFactory/factories/<dfName>` .
 
 ## <a name="create-an-azure-pipeline"></a>Criar um gasoduto Azure
 
-Enquanto os pacotes npm podem ser consumidos de várias maneiras, um dos principais benefícios está a ser consumido através de um [Gasoduto Azure](https://nam06.safelinks.protection.outlook.com/?url=https:%2F%2Fdocs.microsoft.com%2F%2Fazure%2Fdevops%2Fpipelines%2Fget-started%2Fwhat-is-azure-pipelines%3Fview%3Dazure-devops%23:~:text%3DAzure%2520Pipelines%2520is%2520a%2520cloud%2Cit%2520available%2520to%2520other%2520users.%26text%3DAzure%2520Pipelines%2520combines%2520continuous%2520integration%2Cship%2520it%2520to%2520any%2520target.&data=04%7C01%7Cabnarain%40microsoft.com%7C5f064c3d5b7049db540708d89564b0bc%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C1%7C637423607000268277%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000&sdata=jo%2BkIvSBiz6f%2B7kmgqDN27TUWc6YoDanOxL9oraAbmA%3D&reserved=0). Em cada fusão no seu ramo de colaboração, pode ser acionado um gasoduto que primeiro valida todo o código e, em seguida, exporta o modelo ARM para um [artefacto de construção](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2F%2Fazure%2Fdevops%2Fpipelines%2Fartifacts%2Fbuild-artifacts%3Fview%3Dazure-devops%26tabs%3Dyaml%23how-do-i-consume-artifacts&data=04%7C01%7Cabnarain%40microsoft.com%7C5f064c3d5b7049db540708d89564b0bc%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C1%7C637423607000278113%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000&sdata=dN3t%2BF%2Fzbec4F28hJqigGANvvedQoQ6npzegTAwTp1A%3D&reserved=0) que pode ser consumido por um oleoduto de libertação. **A forma como difere do processo atual de CI/CD é que irá apontar o seu oleoduto de libertação para este artefacto em vez do `adf_publish` ramo existente.**
+Enquanto os pacotes npm podem ser consumidos de várias maneiras, um dos principais benefícios está a ser consumido através do [Gasoduto Azure.](https://nam06.safelinks.protection.outlook.com/?url=https:%2F%2Fdocs.microsoft.com%2F%2Fazure%2Fdevops%2Fpipelines%2Fget-started%2Fwhat-is-azure-pipelines%3Fview%3Dazure-devops%23:~:text%3DAzure%2520Pipelines%2520is%2520a%2520cloud%2Cit%2520available%2520to%2520other%2520users.%26text%3DAzure%2520Pipelines%2520combines%2520continuous%2520integration%2Cship%2520it%2520to%2520any%2520target.&data=04%7C01%7Cabnarain%40microsoft.com%7C5f064c3d5b7049db540708d89564b0bc%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C1%7C637423607000268277%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000&sdata=jo%2BkIvSBiz6f%2B7kmgqDN27TUWc6YoDanOxL9oraAbmA%3D&reserved=0) Em cada fusão no seu ramo de colaboração, pode ser acionado um gasoduto que primeiro valida todo o código e, em seguida, exporta o modelo ARM para um [artefacto de construção](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2F%2Fazure%2Fdevops%2Fpipelines%2Fartifacts%2Fbuild-artifacts%3Fview%3Dazure-devops%26tabs%3Dyaml%23how-do-i-consume-artifacts&data=04%7C01%7Cabnarain%40microsoft.com%7C5f064c3d5b7049db540708d89564b0bc%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C1%7C637423607000278113%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000&sdata=dN3t%2BF%2Fzbec4F28hJqigGANvvedQoQ6npzegTAwTp1A%3D&reserved=0) que pode ser consumido por um oleoduto de libertação. A forma como difere do atual processo ci/CD é que irá *apontar o seu oleoduto de libertação para este artefacto em vez do `adf_publish` ramo existente*.
 
-Siga os passos abaixo para começar:
+Siga estes passos para começar:
 
-1.  Abra um projeto Azure DevOps e vá a "Pipelines". Selecione "Novo Oleoduto".
+1.  Abra um projeto Azure DevOps e vá a **Pipelines.** Selecione **Novo Pipeline**.
 
-    ![Novo Pipeline](media/continuous-integration-deployment-improvements/new-pipeline.png)
+    ![Screenshot que mostra o novo botão do gasoduto.](media/continuous-integration-deployment-improvements/new-pipeline.png)
     
-2.  Selecione o repositório onde deseja guardar o seu script Pipeline YAML. Recomendamos guardá-lo numa pasta de *construção* dentro do mesmo repositório dos seus recursos ADF. Certifique-se de que existe uma **package.jsno** ficheiro no repositório que contenha o nome do pacote (como mostrado a seguir).
+1.  Selecione o repositório onde pretende guardar o seu script YAML do pipeline. Recomendamos guardá-lo numa pasta de construção no mesmo repositório dos seus recursos de Data Factory. Certifique-se de que há uma *package.jsno* arquivo no repositório que contém o nome do pacote, como mostrado no seguinte exemplo:
 
     ```json
     {
@@ -124,12 +125,12 @@ Siga os passos abaixo para começar:
     } 
     ```
     
-3.  Selecione *o gasoduto starter*. Se tiver carregado ou fundido o ficheiro YAML (como mostrado no exemplo abaixo), também pode apontar diretamente para isso e editá-lo. 
+1.  Selecione **o gasoduto starter**. Se tiver carregado ou fundido o ficheiro YAML, como mostrado no exemplo seguinte, também pode apontar diretamente para isso e editá-lo.
 
-    ![Gasoduto de arranque](media/continuous-integration-deployment-improvements/starter-pipeline.png) 
+    ![Screenshot que mostra o gasoduto Starter.](media/continuous-integration-deployment-improvements/starter-pipeline.png)
 
     ```yaml
-    # Sample YAML file to validate and export an ARM template into a Build Artifact
+    # Sample YAML file to validate and export an ARM template into a build artifact
     # Requires a package.json file located in the target repository
     
     trigger:
@@ -153,8 +154,8 @@ Siga os passos abaixo para começar:
         verbose: true
       displayName: 'Install npm package'
     
-    # Validates all of the ADF resources in the repository. You will get the same validation errors as when "Validate All" is clicked
-    # Enter the appropriate subscription and name for the source factory 
+    # Validates all of the Data Factory resources in the repository. You'll get the same validation errors as when "Validate All" is selected.
+    # Enter the appropriate subscription and name for the source factory.
     
     - task: Npm@1
       inputs:
@@ -162,8 +163,8 @@ Siga os passos abaixo para começar:
         customCommand: 'run build validate $(Build.Repository.LocalPath) /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testResourceGroup/providers/Microsoft.DataFactory/factories/yourFactoryName'
       displayName: 'Validate'
     
-    # Validate and then generate the ARM template into the destination folder. Same as clicking "Publish" from UX
-    # The ARM template generated is not published to the ‘Live’ version of the factory. Deployment should be done using a CI/CD pipeline. 
+    # Validate and then generate the ARM template into the destination folder, which is the same as selecting "Publish" from the UX.
+    # The ARM template generated isn't published to the live version of the factory. Deployment should be done by using a CI/CD pipeline. 
     
     - task: Npm@1
       inputs:
@@ -171,7 +172,7 @@ Siga os passos abaixo para começar:
         customCommand: 'run build export $(Build.Repository.LocalPath) /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testResourceGroup/providers/Microsoft.DataFactory/factories/yourFactoryName "ArmTemplate"'
       displayName: 'Validate and Generate ARM template'
     
-    # Publish the Artifact to be used as a source for a release pipeline
+    # Publish the artifact to be used as a source for a release pipeline.
     
     - task: PublishPipelineArtifact@1
       inputs:
@@ -180,11 +181,11 @@ Siga os passos abaixo para começar:
         publishLocation: 'pipeline'
     ```
 
-4.  Introduza o seu código YAML. Recomendamos que tome o ficheiro YAML e o utilize como ponto de partida.
-5.  Salve e corra. Se utilizar o YAML, será acionado sempre que o ramo "principal" for atualizado.
+1.  Insira o seu código YAML. Recomendamos que utilize o ficheiro YAML como ponto de partida.
+1.  Salve e corra. Se utilizar o YAML, é acionado sempre que o ramo principal é atualizado.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais informações sobre integração contínua e entrega na Data Factory: 
+Saiba mais informações sobre integração contínua e entrega na Data Factory:
 
 - [Integração contínua e entrega na Azure Data Factory.](continuous-integration-deployment.md)

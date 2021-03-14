@@ -9,14 +9,16 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 25db7104e565a987f3be9e2d6f3b239cf1884ae4
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 5c096b26f31bdf92bb5ab91c8dad7876f228ff14
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96932341"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103462801"
 ---
 # <a name="tutorial-create-and-deploy-custom-iot-edge-modules"></a>Tutorial: Criar e implementar módulos IoT Edge personalizados
+
+[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
 
 Neste artigo, criamos três módulos IoT Edge que recebem mensagens de dispositivos IoT de folhas, executam os dados através do seu modelo de aprendizagem automática e, em seguida, encaminhamos insights para o IoT Hub.
 
@@ -181,7 +183,7 @@ O módulo Router é uma peça importante da solução que garante que as mensage
     copy c:\source\IoTEdgeAndMlSample\EdgeModules\modules\turbofanRouter\*.cs c:\source\IoTEdgeAndMlSample\EdgeSolution\modules\turbofanRouter\
     ```
 
-1. Aceite o pedido para substituir o ficheiro program.cs.
+1. Aceite o pedido para substituir o ficheiro .cs programa.
 
 ### <a name="build-router-module"></a>Construa módulo de router
 
@@ -220,7 +222,7 @@ O módulo Router é uma peça importante da solução que garante que as mensage
 
 1. Salve e feche tasks.js.
 
-1. Executar a construção com `Ctrl + Shift + B` ou a Tarefa de Construção de **Terminal**  >  **Execução** terminal .
+1. Executar a construção com `Ctrl + Shift + B` ou a Tarefa de Construção de   >  **Execução** terminal .
 
 ### <a name="set-up-module-routes"></a>Configurar rotas de módulos
 
@@ -228,7 +230,7 @@ Como mencionado acima, o tempo de execução IoT Edge utiliza rotas configuradas
 
 #### <a name="inputs"></a>Entradas
 
-1. No método Init de Program.cs registamos duas chamadas para o módulo:
+1. No método Init() do Programa.cs registamos duas chamadas para o módulo:
 
    ```csharp
    await ioTHubModuleClient.SetInputMessageHandlerAsync(EndpointNames.FromLeafDevice, LeafDeviceInputMessageHandler, ioTHubModuleClient);
@@ -251,7 +253,7 @@ Como mencionado acima, o tempo de execução IoT Edge utiliza rotas configuradas
 
 Adicione quatro rotas adicionais ao parâmetro de rota $edgeHub, para lidar com as saídas do módulo Router.
 
-1. Program.cs define o método SendMessageToClassifier(), que utiliza o cliente do módulo para enviar uma mensagem ao classificador RUL utilizando a rota:
+1. Programa.cs define o método SendMessageToClassifier(), que utiliza o cliente do módulo para enviar uma mensagem ao classificador RUL utilizando a rota:
 
    ```json
    "routerToClassifier": "FROM /messages/modules/turbofanRouter/outputs/classOutput INTO BrokeredEndpoint(\"/modules/turbofanRulClassifier/inputs/amlInput\")"

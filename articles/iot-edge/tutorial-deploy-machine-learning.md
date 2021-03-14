@@ -9,14 +9,16 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: fd297ec5cfb7831a438fc51e72e3c2fc163eff49
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 292c82624103fc2eae46d8aecb5e85b2181e7938
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88271282"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103463056"
 ---
 # <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>Tutorial: Implementar o Azure Machine Learning como um módulo do IoT Edge (pré-visualização)
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Utilize cadernos Azure para desenvolver um módulo de aprendizagem automática e implantá-lo num dispositivo Linux que executa a Azure IoT Edge.
 Pode utilizar os módulos do IoT Edge para implementar código que aplica a sua lógica de negócio diretamente nos seus dispositivos IoT Edge. Este tutorial explica como implementar um módulo do Azure Machine Learning que prevê quando um dispositivo falha com base nos dados de temperatura simulada no computador. Para obter mais informações sobre Azure Machine Learning on IoT Edge, consulte [a documentação de Aprendizagem automática do Azure.](../machine-learning/how-to-deploy-and-where.md)
@@ -41,7 +43,7 @@ Neste tutorial, ficará a saber como:
 
 Um dispositivo Azure IoT Edge:
 
-* Pode utilizar uma máquina virtual Azure como dispositivo IoT Edge seguindo os passos no arranque rápido do [Linux](quickstart-linux.md).
+* Pode utilizar os arranques rápidos para configurar um [dispositivo Linux](quickstart-linux.md) ou [dispositivo Windows](quickstart.md).
 * O módulo Azure Machine Learning não suporta recipientes Windows.
 * O módulo Azure Machine Learning não suporta processadores ARM.
 
@@ -98,7 +100,7 @@ Verifique se a sua imagem de recipiente foi criada e armazenada com sucesso no r
 
 4. **Selecione a deteção tempanomaly**. Deve ver que o repositório tem uma etiqueta: **1**.
 
-   Agora que conhece o nome do registo, o nome do repositório e a etiqueta, conhece o caminho de imagem completo do contentor. Os caminhos de imagem parecem ** \<registry_name\> .azurecr.io/tempanomalydetection:1**. Pode utilizar o caminho da imagem para implementar este contentor para dispositivos IoT Edge.
+   Agora que conhece o nome do registo, o nome do repositório e a etiqueta, conhece o caminho de imagem completo do contentor. Os caminhos de imagem parecem **\<registry_name\> .azurecr.io/tempanomalydetection:1**. Pode utilizar o caminho da imagem para implementar este contentor para dispositivos IoT Edge.
 
 5. No registo do contentor, em **Definições,** selecione **teclas de acesso**. Deverá ver várias credenciais de acesso, incluindo **o servidor de Login** e o nome de **utilizador,** e **a Palavra-passe** para um utilizador administrativo.
 

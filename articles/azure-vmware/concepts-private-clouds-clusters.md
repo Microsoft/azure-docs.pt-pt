@@ -2,13 +2,13 @@
 title: Conceitos - Nuvens privadas e aglomerados
 description: Conheça as principais capacidades dos centros de dados definidos por software Azure VMware Solution e clusters vSphere.
 ms.topic: conceptual
-ms.date: 02/02/2021
-ms.openlocfilehash: 87bd2592da681726227f89b403916a12593a9db8
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 03/13/2021
+ms.openlocfilehash: d1837ae7cf01fcb9642e0cafe4e0430e403b9899
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100391393"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103462525"
 ---
 #  <a name="azure-vmware-solution-private-cloud-and-cluster-concepts"></a>Azure VMware Solution conceitos de nuvem privada e cluster
 
@@ -20,8 +20,6 @@ Este artigo descreve todos estes conceitos.
 
 ![Imagem de duas nuvens privadas em uma subscrição de cliente](./media/hosts-clusters-private-clouds-final.png)
 
->[!NOTE]
->Devido às necessidades potenciais mais baixas de um ambiente de desenvolvimento, utilize clusters menores com hospedeiros de menor capacidade. 
 
 ## <a name="private-clouds"></a>Nuvens privadas
 
@@ -30,7 +28,7 @@ Nuvens privadas contêm aglomerados vSAN construídos com hospedeiros Azure dedi
 Tal como acontece com outros recursos, as nuvens privadas são instaladas e geridas a partir de uma subscrição do Azure. O número de nuvens privadas dentro de uma subscrição é escalável. Inicialmente, há um limite de uma nuvem privada por subscrição.
 
 ## <a name="clusters"></a>Clusters
-Para cada nuvem privada criada, há um cluster vSAN por padrão. Pode adicionar, eliminar e escalar agrupamentos utilizando o portal Azure ou através da API.  Todos os clusters têm um tamanho padrão de três anfitriões e podem escalar até 16 anfitriões.  Os anfitriões utilizados num aglomerado devem ser do mesmo tipo de hospedeiro.
+Para cada nuvem privada criada, há um cluster vSAN por padrão. Pode adicionar, eliminar e escalar agrupamentos utilizando o portal Azure ou através da API.  Todos os clusters têm um tamanho padrão de três anfitriões e podem escalar até 16 anfitriões. Pode ter até quatro aglomerados por nuvem privada.
 
 Os clusters de ensaio estão disponíveis para avaliação e limitados a três anfitriões. Há um único aglomerado de ensaios por nuvem privada. Pode escalar um cluster de ensaio por um único hospedeiro durante o período de avaliação.
 
@@ -38,11 +36,11 @@ Você usa vSphere e NSX-T Manager para gerir a maioria dos outros aspetos da con
 
 ## <a name="hosts"></a>Anfitriões
 
-Os clusters de nuvem privada Azure VMware Solution utilizam anfitriões de infraestruturas de metal hiperconversado e de metal nu. A tabela seguinte mostra as capacidades de RAM, CPU e disco do hospedeiro. 
+Os clusters Azure VMware Solution baseiam-se em infraestruturas de metal hiperconvernado e desnudadas. A tabela seguinte mostra as capacidades de RAM, CPU e disco do hospedeiro.
 
 | Tipo de Anfitrião              |             CPU             |   RAM (GB)   |  vSAN NVMe cache Tier (TB, cru)  |  vSAN SSD nível de capacidade (TB, cru)  |
 | :---                   |            :---:            |    :---:     |               :---:              |                :---:               |
-| High-End (HE)          |  dual Intel 18 core 2.3 GHz  |     576      |                3.2               |                15.20               |
+| AVS36          |  dual Intel 18 core 2.3 GHz  |     576      |                3.2               |                15.20               |
 
 Os anfitriões usados para construir ou escalar aglomerados vêm de uma piscina isolada de anfitriões. Estes anfitriões passaram em testes de hardware e tiveram todos os dados eliminados de forma segura. 
 
@@ -55,10 +53,7 @@ Os anfitriões usados para construir ou escalar aglomerados vêm de uma piscina 
 
 A manutenção do hospedeiro e a gestão do ciclo de vida não têm qualquer impacto na capacidade ou desempenho dos aglomerados de nuvem privada.  Exemplos de manutenção automatizada do hospedeiro incluem upgrades de firmware e reparação de hardware ou substituição.
 
-A Microsoft é responsável pela gestão do ciclo de vida de aparelhos NSX-T, tais como NSX-T Manager e NSX-T Edge. São também responsáveis pela configuração da rede de bootstrapping, como a criação do gateway Tier-0 e a viação North-South. É responsável pela configuração NSX-T SDN. Por exemplo, segmentos de rede, regras de firewall distribuídas, gateways de nível 1 e equilibres de carga.
-
-> [!IMPORTANT]
-> Não modifique a configuração de NSX-T Edge ou Gateway Tier-0, pois isto pode resultar numa perda de serviço.
+A Microsoft é responsável pela gestão do ciclo de vida de aparelhos NSX-T, tais como NSX-T Manager e NSX-T Edge. A Microsoft é responsável pela configuração da rede de bootstrapping, como criar o gateway Tier-0 e permitir North-South encaminhamento. É responsável pela configuração NSX-T SDN. Por exemplo, segmentos de rede, regras de firewall distribuídas, gateways de nível 1 e equilibres de carga.
 
 ## <a name="backup-and-restoration"></a>Backup e restauro
 

@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 02/09/2021
-ms.openlocfilehash: 111424ab3a3bd6020e70a08ddf2c494996f6f0ea
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: efb5d498c627a6731d2a90623c81eefabd0042a0
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101676685"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103462784"
 ---
 # <a name="manage-your-azure-cognitive-search-service-with-powershell"></a>Gerencie o seu serviço de Pesquisa Cognitiva Azure com o PowerShell
 > [!div class="op_single_selector"]
@@ -187,7 +187,7 @@ ResourceId        : /subscriptions/<alphanumeric-subscription-ID>/resourceGroups
 
 ## <a name="create-or-delete-a-service"></a>Criar ou apagar um serviço
 
-[**O New-AzSearchService**](/powershell/module/az.search/new-azsearchadminkey) é utilizado para [criar um novo serviço de pesquisa.](search-create-service-portal.md)
+[**O New-AzSearchService**](/powershell/module/az.search/new-azsearchservice) é utilizado para [criar um novo serviço de pesquisa.](search-create-service-portal.md)
 
 ```azurepowershell-interactive
 New-AzSearchService -ResourceGroupName <resource-group-name> -Name <search-service-name> -Sku "Standard" -Location "West US" -PartitionCount 3 -ReplicaCount 3 -HostingMode Default

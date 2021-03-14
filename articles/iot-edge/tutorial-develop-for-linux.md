@@ -9,18 +9,20 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: b352bd92ecc69ca68a6870d3a59ef5e0cdd1daba
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: fea8f52ebf40ba8195de134098693f90315bb384
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920858"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103461424"
 ---
-# <a name="tutorial-develop-iot-edge-modules-for-linux-devices"></a>Tutorial: Desenvolver módulos IoT Edge para dispositivos Linux
+# <a name="tutorial-develop-iot-edge-modules-with-linux-containers"></a>Tutorial: Desenvolver módulos IoT Edge com recipientes Linux
 
-Utilize o Código do Estúdio Visual para desenvolver e implementar código para dispositivos Linux que executam ioT Edge.
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
-No arranque rápido, criou um dispositivo IoT Edge utilizando uma máquina virtual Linux e implementou um módulo a partir do Azure Marketplace. Este tutorial passa pelo desenvolvimento e implantação do seu próprio código para um dispositivo IoT Edge. Este artigo é um pré-requisito útil para os outros tutoriais, que entram em mais detalhes sobre linguagens de programação específicas ou serviços Azure.
+Utilize o Código do Estúdio Visual para desenvolver e implementar código para dispositivos que executam o IoT Edge.
+
+No arranque rápido, criou um dispositivo IoT Edge e implementou um módulo a partir do Azure Marketplace. Este tutorial passa pelo desenvolvimento e implantação do seu próprio código para um dispositivo IoT Edge. Este artigo é um pré-requisito útil para os outros tutoriais, que entram em mais detalhes sobre linguagens de programação específicas ou serviços Azure.
 
 Este tutorial utiliza o exemplo de implantação de um **módulo C# num dispositivo Linux**. Este exemplo foi escolhido porque é o cenário de desenvolvimento mais comum para soluções IoT Edge. Mesmo que planeie usar uma linguagem diferente ou implementar um serviço Azure, este tutorial ainda é útil para aprender sobre as ferramentas e conceitos de desenvolvimento. Complete esta introdução ao processo de desenvolvimento, em seguida, escolha o seu idioma preferido ou serviço Azure para mergulhar nos detalhes.
 
@@ -44,7 +46,7 @@ Uma máquina de desenvolvimento:
 * [Extensão C# para Visual Studio Code (com tecnologia da OmniSharp)](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).
 * [SDK de .NET Core 2.1](https://www.microsoft.com/net/download).
 
-Um dispositivo Azure IoT Edge em Linux:
+Um dispositivo Azure IoT Edge:
 
 * Recomendamos que não coloque ioT Edge na sua máquina de desenvolvimento, mas use um dispositivo separado. Esta distinção entre máquina de desenvolvimento e dispositivo IoT Edge espelha com mais precisão um verdadeiro cenário de implementação, e ajuda a manter os diferentes conceitos em linha reta.
 * Se não tiver um segundo dispositivo disponível, utilize o artigo de arranque rápido para criar um dispositivo IoT Edge em Azure com uma [máquina virtual Linux](quickstart-linux.md).
@@ -61,7 +63,10 @@ Este tutorial percorre o desenvolvimento de um módulo IoT Edge. Um *módulo IoT
 
 Ao desenvolver módulos IoT Edge, é importante entender a diferença entre a máquina de desenvolvimento e o dispositivo IoT Edge alvo onde o módulo será eventualmente implantado. O recipiente que constrói para manter o código do módulo deve coincidir com o sistema operativo (OS) do *dispositivo-alvo*. Por exemplo, o cenário mais comum é alguém desenvolver um módulo num computador Windows que pretenda direcionar um dispositivo Linux com ioT Edge. Nesse caso, o sistema operativo do contentor seria o Linux. Ao passar por este tutorial, tenha em mente a diferença entre a *máquina de desenvolvimento OS* e o recipiente *OS*.
 
-Este tutorial visa dispositivos Linux que executam IoT Edge. Pode utilizar o seu sistema operativo preferido desde que a sua máquina de desenvolvimento utilize recipientes Linux. Recomendamos a utilização do Código do Estúdio Visual para desenvolver dispositivos Linux, por isso é isso que este tutorial vai usar. Também pode utilizar o Visual Studio, embora existam diferenças de suporte entre as duas ferramentas.
+>[!TIP]
+>Se estiver a utilizar [o IoT Edge para o Linux no Windows](iot-edge-for-linux-on-windows.md), então o dispositivo *alvo* no seu cenário é a máquina virtual Linux, e não o anfitrião do Windows.
+
+Este tutorial visa dispositivos que executam IoT Edge com recipientes Linux. Pode utilizar o seu sistema operativo preferido desde que a sua máquina de desenvolvimento utilize recipientes Linux. Recomendamos a utilização do Código do Estúdio Visual para desenvolver com recipientes Linux, por isso é isso que este tutorial vai usar. Também pode utilizar o Visual Studio, embora existam diferenças de suporte entre as duas ferramentas.
 
 A tabela seguinte lista os cenários de desenvolvimento suportados para **recipientes Linux** em Visual Studio Code e Visual Studio.
 
@@ -69,7 +74,7 @@ A tabela seguinte lista os cenários de desenvolvimento suportados para **recipi
 | - | ------------------ | ------------------ |
 | **Arquitetura de dispositivos Linux** | Linux AMD64 <br> Linux ARM32 | Linux AMD64 <br> Linux ARM32 |
 | **Serviços do Azure** | Funções do Azure <br> Azure Stream Analytics <br> Azure Machine Learning |   |
-| **Linguagens** | C <br> C# <br> Java <br> Node.js <br> Python | C <br> C# |
+| **Idiomas** | C <br> C# <br> Java <br> Node.js <br> Python | C <br> C# |
 | **Mais informações** | [Azure IoT Edge para Código de Estúdio Visual](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) | [Ferramentas Azure IoT Edge para Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) <br> [Ferramentas Azure IoT Edge para Visual Studio 2019](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) |
 
 >[!NOTE]
@@ -97,11 +102,11 @@ Utilize as extensões IoT para o Código do Estúdio Visual para desenvolver mó
 
 1. Instale [o Código do Estúdio Visual](https://code.visualstudio.com/) na sua máquina de desenvolvimento.
 
-2. Uma vez terminada **View** a instalação, selecione  >  **Ver Extensões**.
+2. Uma vez terminada a instalação, selecione  >  **Ver Extensões**.
 
 3. Procure **ferramentas Azure IoT**, que na verdade é uma coleção de extensões que o ajudam a interagir com dispositivos IoT Hub e IoT, bem como desenvolver módulos IoT Edge.
 
-4. Selecione **Install** (Instalar). Cada extensão incluída instala-se individualmente.
+4. Selecione **Instalar**. Cada extensão incluída instala-se individualmente.
 
 5. Quando as extensões terminarem de instalar, abra a paleta de comando selecionando **a**  >  **Paleta de Comando ver**.
 
@@ -178,9 +183,9 @@ Cada módulo pode ter múltiplas filas *de entrada* e *saída* declaradas no seu
 
 O código de amostra C# que vem com o modelo de projeto utiliza a [Classe MóduloClient](/dotnet/api/microsoft.azure.devices.client.moduleclient) do IoT Hub SDK para .NET.
 
-1. Abra o ficheiro **Program.cs,** que está dentro dos **módulos/pasta SampleModule.**
+1. Abra o ficheiro **program.cs,** que está dentro dos **módulos/pasta SampleModule.**
 
-2. Em program.cs, encontre o método **SetInputMessageHandlerAsync.**
+2. No programa.cs, encontre o método **SetInputMessageHandlerAsync.**
 
 3. O método [SetInputMessageHandlerAsync](/dotnet/api/microsoft.azure.devices.client.moduleclient.setinputmessagehandlerasync) configura uma fila de entrada para receber mensagens recebidas. Reveja este método e veja como iniciaisiza uma fila de entrada chamada **input1**.
 
@@ -212,7 +217,7 @@ Reviu o código do módulo e o modelo de implementação para entender alguns co
 
 Forneça as suas credenciais de registo do seu contentor ao Docker para que possa empurrar a imagem do seu contentor para ser armazenado no registo.
 
-1. Abra o terminal integrado do Código do Estúdio Visual selecionando o Terminal **de Visualização**  >  **Terminal**.
+1. Abra o terminal integrado do Código do Estúdio Visual selecionando o Terminal **de Visualização**  >  .
 
 2. Inscreva-se no Docker com as credenciais de registo do Contentor Azure que guardou após a criação do registo.
 

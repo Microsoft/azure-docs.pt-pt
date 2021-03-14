@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 01/21/2021
 ms.custom: seodec18
-ms.openlocfilehash: f4b5d4915cd6520edd7a45af85a836c3360eee32
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: ee66e68216933c410092865a1cdb781476a944c6
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98696334"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103461139"
 ---
 # <a name="add-an-event-hub-event-source-to-your-azure-time-series-insights-environment"></a>Adicione uma fonte de eventos hub de evento ao seu ambiente Azure Time Series Insights
 
@@ -27,7 +27,7 @@ Este artigo descreve como usar o portal Azure para adicionar uma fonte de evento
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Crie um ambiente Azure Time Series Insights, conforme descrito no [Criar um ambiente de Insights de Séries de Tempo Azure](./tutorials-set-up-tsi-environment.md).
+- Crie um ambiente Azure Time Series Insights, conforme descrito no [Criar um ambiente de Insights de Séries de Tempo Azure](./tutorial-set-up-environment.md).
 - Crie um hub de eventos. Leia [Criar um espaço de nomes de Centros de Eventos e um centro de eventos utilizando o portal Azure](../event-hubs/event-hubs-create.md).
 - O centro de eventos deve ter eventos de mensagens ativas enviados para ele. Saiba como [enviar eventos para Azure Event Hubs utilizando o quadro .NET](../event-hubs/event-hubs-dotnet-framework-getstarted-send.md).
 - Crie um grupo de consumidores dedicado no centro de eventos que o ambiente Azure Time Series Insights pode consumir. Cada fonte de eventos Azure Time Series Insights deve ter o seu próprio grupo de consumidores dedicado que não é partilhado com nenhum outro consumidor. Se vários leitores consumirem eventos do mesmo grupo de consumidores, todos os leitores são suscetíveis de apresentar falhas. Há um limite de 20 grupos de consumidores por centro de eventos. Para mais detalhes, leia o guia de programação do [Event Hubs.](../event-hubs/event-hubs-programming-guide.md)

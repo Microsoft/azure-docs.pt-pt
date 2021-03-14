@@ -2,13 +2,13 @@
 title: Tutorial - Escalar uma nuvem privada
 description: Neste tutorial, você usa o portal Azure para escalar uma nuvem privada Azure VMware Solution.
 ms.topic: tutorial
-ms.date: 09/21/2020
-ms.openlocfilehash: d49d973cc6d97280dc0c7ea6681f2602b871e1ba
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.date: 03/13/2021
+ms.openlocfilehash: 2129a3f5d04311883369b7b708689a13f07ec118
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791244"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103463631"
 ---
 # <a name="tutorial-scale-an-azure-vmware-solution-private-cloud"></a>Tutorial: Escalar uma nuvem privada Azure VMware Solution
 
@@ -22,17 +22,17 @@ Neste tutorial, você usará o portal Azure para:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Uma nuvem privada para completar este tutorial. Se não criou uma nuvem privada, use o [tutorial de nuvem privada](tutorial-create-private-cloud.md) para criar uma. Configure a rede para a sua nuvem privada VMware em Azure para configurar a rede virtual necessária.
+Você precisará de uma nuvem privada existente para completar este tutorial. Se não criou uma nuvem privada, use o [tutorial de nuvem privada](tutorial-create-private-cloud.md) para criar uma. 
 
 ## <a name="add-a-new-cluster"></a>Adicione um novo cluster
 
-1. Na página geral de uma nuvem privada existente, em **Manage** , selecione **Scale private cloud** . Em seguida, **selecione + Adicione um cluster.**
+1. Na página geral de uma nuvem privada existente, em **Manage**, selecione **Scale private cloud**. Em seguida, **selecione + Adicione um cluster.**
 
    :::image type="content" source="./media/tutorial-scale-private-cloud/ss2-select-add-cluster.png" alt-text="selecionar adicionar um cluster" border="true":::
 
-1. Na página **de cluster Adicionar,** utilize o slider para selecionar o número de anfitriões. Selecione **Guardar** .
+1. Na página **de cluster Adicionar,** utilize o slider para selecionar o número de anfitriões. Selecione **Guardar**.
 
-   :::image type="content" source="./media/tutorial-scale-private-cloud/ss3-configure-new-cluster.png" alt-text="selecionar adicionar um cluster" border="true":::
+   :::image type="content" source="./media/tutorial-scale-private-cloud/ss3-configure-new-cluster.png" alt-text="Na página de cluster Adicionar, utilize o slider para selecionar o número de anfitriões. Selecione Save." border="true":::
 
    A implantação do novo cluster começará.
 
@@ -40,13 +40,13 @@ Uma nuvem privada para completar este tutorial. Se não criou uma nuvem privada,
 
 1. Na página geral de uma nuvem privada existente, selecione **Scale private cloud** e selecione o ícone do lápis para editar o cluster.
 
-   :::image type="content" source="./media/tutorial-scale-private-cloud/ss4-select-scale-private-cloud-2.png" alt-text="selecionar adicionar um cluster" border="true":::
+   :::image type="content" source="./media/tutorial-scale-private-cloud/ss4-select-scale-private-cloud-2.png" alt-text="Selecione a nuvem privada de escala em visão geral" border="true":::
 
-1. Na página **'EditAr Cluster',** utilize o slider para selecionar o número de anfitriões. Selecione **Guardar** .
+1. Na página **'EditAr Cluster',** utilize o slider para selecionar o número de anfitriões. Selecione **Guardar**.
 
-   :::image type="content" source="./media/tutorial-scale-private-cloud/ss5-scale-cluster.png" alt-text="selecionar adicionar um cluster" border="true":::
+   :::image type="content" source="./media/tutorial-scale-private-cloud/ss5-scale-cluster.png" alt-text="Na página 'EditAr Cluster', utilize o slider para selecionar o número de anfitriões. Selecione Save." border="true":::
 
-   A adição de anfitriões ao cluster começará.
+   Começa a adição de anfitriões ao cluster.
 
 ## <a name="next-steps"></a>Passos seguintes
 
