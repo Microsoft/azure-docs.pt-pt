@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
 zone_pivot_groups: non-azure-machines
-ms.openlocfilehash: b5dd06c148c53517214b47b39f083c99d0f37e0b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 68fcf8a8feb046fca2c26041d92264dd8b3a638e
+ms.sourcegitcommit: 33ac5cd254c33659f668a76a2e295fddcd5d194d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101712203"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103465502"
 ---
 # <a name="connect-your-non-azure-machines-to-security-center"></a>Ligue as suas máquinas não-Azure ao Centro de Segurança
 
@@ -75,24 +75,24 @@ Saiba mais sobre [os servidores ativados do Azure Arc](../azure-arc/servers/over
 
     A partir daqui, escolha o procedimento relevante abaixo, dependendo do tipo de máquinas que está a bordo:
 
-    - [A bordo dos seus VMs Azure Stack](#onboard-your-azure-stack-vms)
+    - [A bordo do seu Azure Stack Hub VMs](#onboard-your-azure-stack-hub-vms)
     - [A bordo das suas máquinas Linux](#onboard-your-linux-machines)
     - [A bordo das suas máquinas Windows](#onboard-your-windows-machines)
 
-### <a name="onboard-your-azure-stack-vms"></a>A bordo dos seus VMs Azure Stack
+### <a name="onboard-your-azure-stack-hub-vms"></a>A bordo do seu Azure Stack Hub VMs
 
-Para adicionar VMs Azure Stack, precisa das informações na página **de gestão** de Agentes e para configurar a extensão virtual da máquina virtual **Azure Monitor, Update and Configuration Management** nas máquinas virtuais em execução na sua Stack Azure.
+Para adicionar VMs do Azure Stack Hub, precisa das informações na página **de gestão** de Agentes e para configurar a extensão virtual da máquina virtual **Azure Monitor, Update and Configuration Management** nas máquinas virtuais que executam a sua instância Azure Stack Hub.
 
 1. A partir da página **de gestão** de agentes, copie o **ID** do Espaço de Trabalho e **a Chave Primária** no Bloco de Notas.
-1. Inicie sessão no seu portal **Azure Stack** e abra a página **de máquinas Virtuais.**
+1. Inicie sessão no portal **Azure Stack Hub** e abra a página **de máquinas Virtuais.**
 1. Selecione a máquina virtual que pretende proteger com o Centro de Segurança.
     >[!TIP]
-    > Para obter informações sobre como criar uma máquina virtual no Azure Stack, consulte [este arranque rápido para máquinas virtuais windows](/azure-stack/user/azure-stack-quick-windows-portal) ou este arranque rápido para [máquinas virtuais Linux](/azure-stack/user/azure-stack-quick-linux-portal).
+    > Para obter informações sobre como criar uma máquina virtual no Azure Stack Hub, consulte [este arranque rápido para máquinas virtuais windows](/azure-stack/user/azure-stack-quick-windows-portal) ou este arranque rápido para [máquinas virtuais Linux](/azure-stack/user/azure-stack-quick-linux-portal).
 1. Selecione **Extensões**. É apresentada a lista de extensões de máquinas virtuais instaladas nesta máquina virtual.
 1. Selecione o **separador Adicionar.** O menu **New Resource** mostra a lista de extensões de máquinas virtuais disponíveis.
 1. Selecione a extensão de Gestão de **Azure Monitor, Atualização e Configuração** e selecione **Criar**. A página **de configuração de extensão de instalação** abre.
     >[!NOTE]
-    > Se não vir a extensão de Gestão de **Azure Monitor, Atualização e Configuração** listada no seu mercado, contacte o operador Azure Stack para o disponibilizar.
+    > Se não vir a extensão de Gestão de **Azure Monitor, Atualização e Configuração** listada no seu mercado, contacte o operador do Azure Stack Hub para o disponibilizar.
 1. Na página de configuração de **extensão de instalação,** cole a chave **de ID** do espaço de trabalho e **do espaço de trabalho (chave primária)** que copiou no Bloco de Notas no passo anterior.
 1. Quando completar a configuração, selecione **OK**. O estado da extensão mostrará como **Provisioning Succeeded**. Pode levar até uma hora para a máquina virtual aparecer no Centro de Segurança.
 

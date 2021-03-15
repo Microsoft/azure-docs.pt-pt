@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/11/2021
 ms.author: memildin
-ms.openlocfilehash: b82f0ca0624fcbd64f1c23f87f8f21f96d8e4d4c
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: a91329d3bd0247932614233ef5b1ec71bf4d2a6b
+ms.sourcegitcommit: 33ac5cd254c33659f668a76a2e295fddcd5d194d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102100581"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103465468"
 ---
 # <a name="enable-azure-defender-for-sql-servers-on-machines"></a>Ativar o Azure Defender para servidores SQL em máquinas 
 
@@ -33,7 +33,7 @@ Você verá alertas quando há atividades de base de dados suspeitas, potenciais
 |Estado de libertação:|Disponibilidade Geral (GA)|
 |Preços:|**O Azure Defender para servidores SQL em máquinas** é faturado como mostrado nos [preços do Centro de Segurança](https://azure.microsoft.com/pricing/details/security-center/)|
 |Versões SQL protegidas:|Azure SQL Server (todas as versões abrangidas pelo suporte da Microsoft)|
-|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) US Gov<br>![Não](./media/icons/no-icon.png) China Gov, Outro Gov|
+|Nuvens:|![Yes](./media/icons/yes-icon.png) Nuvens comerciais<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) China Gov, Outro Gov|
 |||
 
 ## <a name="set-up-azure-defender-for-sql-servers-on-machines"></a>Configurar o Azure Defender para servidores SQL em máquinas
@@ -47,7 +47,7 @@ Para ativar este plano:
 
 ### <a name="step-1-provision-the-log-analytics-agent-on-your-sql-servers-host"></a>Passo 1. Provisionar o agente Log Analytics no anfitrião do seu servidor SQL:
 
-- **SQL Server em Azure VM** - Se a sua máquina SQL estiver hospedada num VM Azure, pode [ativar o fornecimento automático do agente <a name="auto-provision-mma"></a> Log Analytics](security-center-enable-data-collection.md#auto-provision-mma). Em alternativa, pode seguir o procedimento manual para [A bordo dos seus VMs Azure Stack](quickstart-onboard-machines.md#onboard-your-azure-stack-vms).
+- **SQL Server em Azure VM** - Se a sua máquina SQL estiver hospedada num VM Azure, pode [ativar o fornecimento automático do agente <a name="auto-provision-mma"></a> Log Analytics](security-center-enable-data-collection.md#auto-provision-mma). Em alternativa, pode seguir o procedimento manual para [A bordo dos seus VMs Azure Stack Hub](quickstart-onboard-machines.md?pivots=azure-portal#onboard-your-azure-stack-hub-vms).
 - **SQL Server em Azure Arc** - Se o seu SQL Server for gerido por servidores ativados pelo [Azure Arc,](../azure-arc/index.yml) pode implementar o agente Log Analytics utilizando a recomendação do Centro de Segurança "O agente Log Analytics deve ser instalado nas suas máquinas Azure Arc baseadas no Windows (Preview)". Em alternativa, pode seguir os métodos de instalação descritos na documentação do [Arco Azure](../azure-arc/servers/manage-vm-extensions.md).
 
 - **SQL Server on-prem** - Se o seu SQL Server estiver hospedado numa máquina Windows no local sem Azure Arc, tem duas opções para ligá-lo ao Azure:
