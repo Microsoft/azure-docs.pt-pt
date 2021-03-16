@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 2d4286cc8bc08eaf7d0b376a8b7789c8c8db183d
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 81cabe8dea178b2988039640065cb0eabc3287af
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102202642"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103470893"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Perguntas mais frequentes (FAQ) sobre os Ficheiros do Azure
 [O Azure Files](storage-files-introduction.md) oferece ações de ficheiros totalmente geridas na nuvem que são acessíveis através do protocolo do Bloco de [Mensagens do Servidor (SMB)](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) padrão da indústria e do [protocolo do Sistema de Ficheiros de Rede (NFS)](https://en.wikipedia.org/wiki/Network_File_System) (pré-visualização). Pode montar ações de ficheiros Azure simultaneamente em implementações em nuvem ou no local de Windows, Linux e macOS. Também pode cache ações de ficheiros Azure em máquinas do Windows Server utilizando o Azure File Sync para um acesso rápido perto do local onde os dados são utilizados.
@@ -308,6 +308,18 @@ Este artigo responde a perguntas comuns sobre funcionalidades e funcionalidades 
 **Existem APIs REST para suportar Get/set/Copy directy/file Windows ACLs?**
 
     Sim, apoiamos AS APIs rest que obtenham, definir ou copiar ACLs NTFS para diretórios ou ficheiros quando utilizar a API REST [2019-07](/rest/api/storageservices/versioning-for-the-azure-storage-services#version-2019-07-07) (ou posterior) REST. Também suportamos ACLs do Windows em ferramentas baseadas em REST: [AzCopy v10.4+](https://github.com/Azure/azure-storage-azcopy/releases).
+
+* <a id="ad-support-rest-apis"></a>
+**Como remover credenciais em cache com chave de conta de armazenamento e eliminar as ligações SMB existentes antes de rubricar uma nova ligação com credenciais AZure AD ou AD?**
+
+    Pode seguir o processo de dois passos abaixo para remover a credencial guardada associada à chave da conta de armazenamento e remover a ligação SMB: 
+    1. Executar o cmdlet abaixo no Windows Cmd.exe para remover a credencial. Se não conseguir encontrar um, significa que não persistiu na credencial e pode saltar este passo.
+    
+       cmdkey /delete:Domain:target=storage-account-name.file.core.windows.net
+    
+    2. Elimine a ligação existente à partilha de ficheiros. Pode especificar o caminho de montagem como a letra de unidade montada ou o caminho storage-account-name.file.core.windows.net.
+    
+       utilização líquida <drive-letter/share-path> /delete
 
 ## <a name="network-file-system"></a>Sistema de Ficheiros de Rede
 

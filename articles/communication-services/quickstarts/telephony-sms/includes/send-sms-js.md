@@ -1,21 +1,21 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: azure-communication-services
 author: dademath
 manager: nimag
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 07/28/2020
+ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: dademath
-ms.openlocfilehash: ad8266d936c272ee2f6bad254738622c3f81bf03
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: fc20396053dee32ac7976139a634b4592389ab5f
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91757168"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103488348"
 ---
 Inicie-se com os Serviços de Comunicação Azure utilizando a biblioteca de clientes SMS javaScript dos Serviços de Comunicação para enviar mensagens SMS.
 
@@ -47,7 +47,7 @@ Primeiro, abra o seu terminal ou janela de comando, crie um novo diretório para
 mkdir sms-quickstart && cd sms-quickstart
 ```
 
-Corra `npm init -y` para criar umapackage.js** no** ficheiro com definições predefinidos.
+Corra `npm init -y` para criar umapackage.js **no** ficheiro com definições predefinidos.
 
 ```console
 npm init -y
@@ -79,7 +79,7 @@ As seguintes classes e interfaces lidam com algumas das principais característi
 
 Importe o **SmsClient** da biblioteca do cliente e o instantie com a sua cadeia de ligação. O código abaixo recupera a cadeia de ligação para o recurso a partir de uma variável ambiental chamada `COMMUNICATION_SERVICES_CONNECTION_STRING` . Saiba como gerir a [cadeia de ligação dos recursos.](../../create-communication-resource.md#store-your-connection-string)
 
-Adicione o seguinte código à **send-sms.js: **
+Adicione o seguinte código à **send-sms.js:**
 
 ```javascript
 const { SmsClient } = require('@azure/communication-sms');
@@ -94,7 +94,7 @@ const smsClient = new SmsClient(connectionString);
 
 ## <a name="send-an-sms-message"></a>Enviar uma mensagem SMS
 
-Envie uma mensagem SMS ligando para o `send` método. Adicione este código ao fim do **send-sms.js: **
+Envie uma mensagem SMS ligando para o `send` método. Adicione este código ao fim do **send-sms.js:**
 
 ```javascript
 async function main() {

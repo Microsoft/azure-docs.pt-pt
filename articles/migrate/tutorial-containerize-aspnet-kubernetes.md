@@ -1,5 +1,5 @@
 ---
-title: Contentorize & migram ASP.NET aplicações para Azure Kubernetes
+title: ASP.NET de contentorização de aplicativos Azure; Contentorização e migração de aplicações ASP.NET para Azure Kubernetes.
 description: Tutorial:Containerize & migrar ASP.NET aplicações para o Serviço Azure Kubernetes.
 services: ''
 author: rahugup
@@ -7,12 +7,12 @@ manager: bsiva
 ms.topic: tutorial
 ms.date: 3/2/2021
 ms.author: rahugup
-ms.openlocfilehash: 6be6db2048ac5e671d8ab988ac2e15c08e900193
-ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
+ms.openlocfilehash: 7c9b4032346e61eb3bfd21c0c4067e2364bc28af
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103233672"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103466580"
 ---
 # <a name="containerize-aspnet-applications-and-migrate-to-azure-kubernetes-service"></a>Contentorizar aplicações de ASP.NET e migrar para o Serviço Azure Kubernetes
 

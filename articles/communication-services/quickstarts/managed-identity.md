@@ -6,16 +6,16 @@ services: azure-communication-services
 author: peiliu
 ms.service: azure-communication-services
 ms.topic: how-to
-ms.date: 2/24/2021
+ms.date: 03/10/2021
 ms.author: peiliu
 ms.reviewer: mikben
 zone_pivot_groups: acs-js-csharp-java-python
-ms.openlocfilehash: 2aea4daddb9cccbf7f268c596fd121357cc17b6d
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: ffda88da451e25b79112a7adf85026158bd27acc
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102486633"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103492358"
 ---
 # <a name="use-managed-identities"></a>Utilizar identidades geridas
 Começa com os Serviços de Comunicação Azure utilizando identidades geridas. As bibliotecas de serviços de comunicação identidade e SMS apoiam a autenticação do Azure Ative Directory (Azure AD) com [identidades geridas para recursos Azure.](../../active-directory/managed-identities-azure-resources/overview.md)

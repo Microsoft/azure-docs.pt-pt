@@ -13,15 +13,15 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 07/24/2019
+ms.date: 03/15/2021
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 608401858c0119d281ab6ff46156fc7bdccd9d84
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: a51f874d09aebfcb2c0b73e0b484f68042d1bb6d
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101675343"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103496206"
 ---
 # <a name="cluster-an-sap-ascsscs-instance-on-a-windows-failover-cluster-by-using-a-file-share-in-azure"></a>Cluster uma instância SAP ASCS/SCS num cluster de failover do Windows utilizando uma partilha de ficheiros no Azure
 
@@ -147,10 +147,14 @@ Para utilizar uma partilha de ficheiros de escala, o seu sistema deve satisfazer
 
 ### <a name="configure-sap-ascsscs-instances-and-a-scale-out-file-share-in-two-clusters"></a>Configure as instâncias SAP ASCS/SCS e uma partilha de ficheiros de escala em dois clusters
 
-Pode implementar casos SAP ASCS/SCS num só cluster, com o seu próprio \<SID\> papel de cluster SAP. Neste caso, configura a partilha de ficheiros de escala em outro cluster, com outra função de cluster.
+Deve implantar as instâncias SAP ASCS/SCS num cluster separado, com o seu próprio \<SID\> papel de cluster SAP. Neste caso, configura a partilha de ficheiros de escala em outro cluster, com outra função de cluster.
+
 
 > [!IMPORTANT]
->Neste cenário, a instância SAP ASCS/SCS é configurada para aceder ao hospedeiro global SAP utilizando o anfitrião global DO UNC \\ \\ &lt; PATH SAP &gt; \sapmnt \\ &lt; SID &gt; \SYS\.
+> A configuração deve satisfazer o seguinte requisito: as instâncias SAP ASCS/SCS e a quota SOFS devem ser implantadas em agrupamentos separados.    
+>
+> [!IMPORTANT] 
+> Neste cenário, a instância SAP ASCS/SCS é configurada para aceder ao hospedeiro global SAP utilizando o anfitrião global DO UNC \\ \\ &lt; PATH SAP &gt; \sapmnt \\ &lt; SID &gt; \SYS\.
 >
 
 ![Figura 5: Caso SAP ASCS/SCS e uma quota de ficheiros de escala implantada em dois clusters][sap-ha-guide-figure-8007]

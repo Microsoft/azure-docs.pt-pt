@@ -3,12 +3,12 @@ title: Ligue a Solução Azure VMware ao seu ambiente no local
 description: Saiba como ligar a Solução VMware Azure ao seu ambiente no local.
 ms.topic: tutorial
 ms.date: 03/13/2021
-ms.openlocfilehash: 6d1c52784eae2efabe79a9ba5c6cdf9bbfdc1950
-ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.openlocfilehash: 0b26dc4756cb37544c2b2f8c5a75df0ac1a9d629
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2021
-ms.locfileid: "103461657"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103491797"
 ---
 # <a name="connect-azure-vmware-solution-to-your-on-premises-environment"></a>Ligue a Solução Azure VMware ao seu ambiente no local
 
@@ -28,7 +28,7 @@ Para estabelecer conectividade no local com a sua nuvem privada Azure VMware Sol
 
 Este tutorial resulta numa ligação como mostrado no diagrama.
 
-:::image type="content" source="media/pre-deployment/azure-vmware-solution-on-premises-diagram.png" alt-text="ExpressRoute Global Reach no local diagrama de conectividade de rede." lightbox="media/pre-deployment/azure-vmware-solution-on-premises-diagram.png":::
+:::image type="content" source="media/pre-deployment/azure-vmware-solution-on-premises-diagram.png" alt-text="ExpressRoute Global Reach no local diagrama de conectividade de rede." lightbox="media/pre-deployment/azure-vmware-solution-on-premises-diagram.png" border="false":::
 
 ## <a name="verify-on-premises-network-connectivity"></a>Verificar a conectividade da rede no local
 

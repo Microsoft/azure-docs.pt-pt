@@ -4,26 +4,26 @@ description: Como criar e aplicar políticas de acesso personalizado para limita
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 12/28/2020
+ms.date: 03/11/2021
 ms.author: v-erkel
-ms.openlocfilehash: 795b194eb7cd31e633128c22ddffe808b32e07da
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: eb9e71cc8ec463077e3b12b8738203a4945a2eab
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97802422"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103471789"
 ---
-# <a name="use-client-access-policies"></a>Use as políticas de acesso ao cliente
+# <a name="control-client-access"></a>Controlar o acesso ao cliente
 
 Este artigo explica como criar e aplicar políticas de acesso personalizado ao cliente para os seus alvos de armazenamento.
 
-As políticas de acesso ao cliente controlam a forma como os clientes são capazes de se conectarem às exportações-alvo de armazenamento. Você pode controlar coisas como squash raiz e ler/escrever acesso ao anfitrião do cliente ou nível de rede.
+As políticas de acesso ao cliente controlam a forma como os clientes são autorizados a ligar-se às exportações-alvo de armazenamento. Você pode controlar coisas como squash raiz e ler/escrever acesso ao anfitrião do cliente ou nível de rede.
 
 As políticas de acesso são aplicadas a uma via de espaço de nome, o que significa que você pode usar diferentes políticas de acesso para duas exportações diferentes em um sistema de armazenamento NFS.
 
 Esta funcionalidade destina-se a fluxos de trabalho onde é necessário controlar a forma como diferentes grupos de clientes acedem aos alvos de armazenamento.
 
-Se não precisar de controlo fino sobre o acesso ao alvo de armazenamento, pode utilizar a política predefinida, ou pode personalizar a política predefinida com regras extra.
+Se não precisar de controlo fino sobre o acesso ao alvo de armazenamento, pode utilizar a política predefinida, ou pode personalizar a política predefinida com regras extra. Por exemplo, se pretender ativar a squash de raiz para todos os clientes que se ligam através da cache, pode editar a política nomeada **por defeito** para adicionar a definição de abóbora raiz.
 
 ## <a name="create-a-client-access-policy"></a>Criar uma política de acesso ao cliente
 
@@ -81,15 +81,21 @@ Verifique esta caixa para permitir que os clientes especificados montem diretame
 
 Escolha se deve ou não definir a squash de raiz para clientes que correspondam a esta regra.
 
-Este valor permite-lhe a squash de raiz ao nível de exportação de armazenamento. Também pode [definir abóboras de raiz ao nível da cache.](configuration.md#configure-root-squash)
+Esta definição controla a forma como a Azure HPC Cache trata os pedidos do utilizador raiz nas máquinas do cliente. Quando a abóbora raiz está ativada, os utilizadores de raiz de um cliente são automaticamente mapeados para um utilizador não privilegiado quando enviam pedidos através da Cache Azure HPC. Também impede que os pedidos do cliente utilizem bits de permissão set-UID.
 
-Se ligar squash de raiz, também deve definir o valor do utilizador de ID anónimo para uma destas opções:
+Se a abóbora raiz for desativada, um pedido do utilizador raiz do cliente (UID 0) é transmitido para um sistema de armazenamento NFS de back-end como raiz. Esta configuração pode permitir o acesso inadequado ao ficheiro.
 
-* **-2** (ninguém)
-* **65534** (ninguém)
-* **-1** (sem acesso)
-* **65535** (sem acesso)
+Definir a radiada para os pedidos dos clientes pode ajudar a compensar a configuração necessária ``no_root_squash`` nos sistemas NAS que são usados como alvos de armazenamento. (Ler mais sobre [os pré-requisitos do alvo de armazenamento NFS](hpc-cache-prerequisites.md#nfs-storage-requirements).) Também pode melhorar a segurança quando usado com alvos de armazenamento Azure Blob.
+
+Se ligar squash de raiz, também deve definir o valor de id anónimo do utilizador. O portal aceita valores inteiros entre 0 e 4294967295. (Os valores antigos -2 e -1 são suportados para retrocompatibilidade, mas não recomendados para novas configurações.)
+
+Estes valores são mapeados para valores específicos do utilizador:
+
+* **-2** ou **65534** (ninguém)
+* **-1** ou **65535** (sem acesso)
 * **0** (raiz desfavorecida)
+
+O seu sistema de armazenamento pode ter outros valores com significados especiais.
 
 ## <a name="update-access-policies"></a>Atualizar políticas de acesso
 

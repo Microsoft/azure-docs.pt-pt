@@ -132,6 +132,8 @@
       href: concepts/known-issues.md
 - name: Amostras
   items:
+    - name: Descrição Geral
+      href: samples/overview.md
     - name: Exemplo de destaque das chamadas em grupo
       href: samples/calling-hero-sample.md
     - name: Exemplo de destaque do chat de grupo

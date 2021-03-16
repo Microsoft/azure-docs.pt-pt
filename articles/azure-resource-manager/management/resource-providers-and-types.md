@@ -2,14 +2,14 @@
 title: Fornecedores de recursos e tipos de recursos
 description: Descreve os fornecedores de recursos que suportam o Gestor de Recursos Azure. Descreve os seus esquemas, versões API disponíveis e as regiões que podem acolher os recursos.
 ms.topic: conceptual
-ms.date: 12/04/2020
+ms.date: 03/15/2021
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6d114fdfae12dd9ee96a23e4dafc3847c6429d0c
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 584f3065d0e696f2ee379a8cf6c048994a1e68d5
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96745121"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103493140"
 ---
 # <a name="azure-resource-providers-and-types"></a>Tipos e fornecedores de recursos do Azure
 
@@ -32,7 +32,9 @@ Para obter uma lista que mapeia os fornecedores de recursos para os serviços Az
 
 ## <a name="register-resource-provider"></a>Registar o fornecedor de recursos
 
-Antes de utilizar um fornecedor de recursos, a sua assinatura Azure deve ser registada para o fornecedor de recursos. O registo configura a sua subscrição para trabalhar com o fornecedor de recursos. Alguns fornecedores de recursos estão registados por padrão. Outros fornecedores de recursos são registados automaticamente quando toma determinadas ações. Por exemplo, quando cria um recurso através do portal, o fornecedor de recursos é normalmente registado para si. Para outros cenários, poderá ter de registar manualmente um fornecedor de recursos. Para obter uma lista de fornecedores de recursos registados por padrão, consulte [os fornecedores de recursos para os serviços Azure](azure-services-resource-providers.md).
+Antes de utilizar um fornecedor de recursos, a sua assinatura Azure deve ser registada para o fornecedor de recursos. O registo configura a sua subscrição para trabalhar com o fornecedor de recursos. Alguns fornecedores de recursos estão registados por padrão. Para obter uma lista de fornecedores de recursos registados por padrão, consulte [os fornecedores de recursos para os serviços Azure](azure-services-resource-providers.md).
+
+Outros fornecedores de recursos são registados automaticamente quando toma determinadas ações. Quando implementa um modelo de Gestor de Recursos Azure, todos os fornecedores de recursos necessários são automaticamente registados. Quando cria um recurso através do portal, o fornecedor de recursos é normalmente registado para si. Para outros cenários, poderá ter de registar manualmente um fornecedor de recursos. 
 
 Este artigo mostra-lhe como verificar o estado de registo de um fornecedor de recursos e registá-lo conforme necessário. Tem de ter autorização para fazer a `/register/action` operação para o fornecedor de recursos. A permissão está incluída nas funções de Contribuinte e Proprietário.
 

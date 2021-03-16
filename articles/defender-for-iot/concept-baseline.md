@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/07/2019
 ms.author: mlottner
-ms.openlocfilehash: 04fe87cd69efc4c064b8fbdc596a5f9e187abbb1
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: bced45474a3a851bc5785f662c0b2e50ae3a380c
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100102245"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103491083"
 ---
 # <a name="azure-defender-for-iot-baseline-and-custom-checks"></a>Azure Defender para linha de base IoT e verificações personalizadas
 
@@ -42,7 +42,7 @@ As verificações personalizadas de base estabelecem uma lista personalizada de 
 
 1. Faça o upload do ficheiro **de verificação personalizada** da linha de base para o dispositivo.
 
-1. Adicione propriedades de base ao módulo de segurança e clique em **Guardar**.
+1. Adicione propriedades de base ao micro-agente Defender-IoT e clique em **Guardar**.
 
 ### <a name="baseline-custom-check-file-example"></a>Exemplo de ficheiro de verificação personalizado de linha de base
 
@@ -66,7 +66,7 @@ Para configurar verificações personalizadas de base:
 
 ## <a name="baseline-custom-check-properties"></a>Propriedades de verificação personalizadas de base
 
-| Name| Estado | Valores válidos| Valores predefinidos| Description |
+| Name| Estado | Valores válidos| Valores predefinidos| Descrição |
 |------|-----|------|-----|-----|
 |linha de baseCustomChecksEnabled|Requerido: verdadeiro |Valores válidos: **Boolean** |Valor predefinido: **falso** |Intervalo de tempo máximo antes de serem enviadas mensagens de alta prioridade.|
 |linha de baseCustomChecksFilePath |Requerido: verdadeiro|Valores válidos: **String,** **nulo** |Valor predefinido: **nulo** |Caminho completo da configuração xml de base|

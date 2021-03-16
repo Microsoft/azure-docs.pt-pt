@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fea9662b6f5890c6240e91b26cf641d6166d560a
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: d1e8a0f1919da125a571429e1efff06589c7e85a
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102051196"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103466716"
 ---
 # <a name="delegate-app-registration-permissions-in-azure-active-directory"></a>Delegar permissões de registo de aplicativos no Azure Ative Directory
 
@@ -30,7 +30,7 @@ Este artigo descreve como utilizar permissões concedidas por funções personal
 - [Atribuindo uma função administrativa incorporada](#assign-built-in-application-admin-roles) que concede acesso à configuração de gestão em Azure AD para todas as aplicações. Esta é a forma recomendada de conceder aos especialistas em TI acesso para gerir permissões de configuração de aplicações amplas sem dar acesso à gestão de outras partes do AD Azure não relacionadas com a configuração da aplicação.
 - [Criar um papel personalizado](#create-and-assign-a-custom-role-preview) que defina permissões muito específicas e atribuí-la a alguém quer ao âmbito de uma única aplicação como proprietário limitado, quer ao âmbito do diretório (todas as aplicações) como administrador limitado.
 
-É importante considerar a concessão de acesso usando um dos métodos acima por duas razões. Em primeiro lugar, delegar a capacidade de executar tarefas administrativas reduz a sobrecarga global do administrador. Em segundo lugar, a utilização de permissões limitadas melhora a sua postura de segurança e reduz o potencial de acesso não autorizado. As questões da delegação e as orientações gerais são discutidas [na administração delegado no Azure Ative Directory](concept-delegation.md).
+É importante considerar a concessão de acesso usando um dos métodos acima por duas razões. Em primeiro lugar, delegar a capacidade de executar tarefas administrativas reduz a sobrecarga global do administrador. Em segundo lugar, a utilização de permissões limitadas melhora a sua postura de segurança e reduz o potencial de acesso não autorizado. Para obter orientações sobre o planeamento da segurança de funções, consulte [garantir o acesso privilegiado para implantações híbridas e em nuvem em Azure AD](security-planning.md).
 
 ## <a name="restrict-who-can-create-applications"></a>Restringir quem pode criar aplicações
 

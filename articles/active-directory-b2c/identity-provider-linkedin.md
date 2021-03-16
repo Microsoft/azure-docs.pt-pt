@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 03/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: ce5e8cfda4a9f51a90c8f26133a710f4d1c258b6
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: dd87b58c604b0bb2141c29d3b2227e9a81668a75
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102448273"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103488827"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-linkedin-account-using-azure-active-directory-b2c"></a>Configurar inscrição e inscrição com uma conta LinkedIn utilizando o Azure Ative Directory B2C
 
@@ -43,8 +43,8 @@ Para permitir o sessão de sessão para utilizadores com uma conta LinkedIn no A
 1. Insira **o nome da App**, **LinkedIn Page,** **URL de política de privacidade** e logotipo da **App.**
 1. Concorde com os **Termos de Utilização da API do** LinkedIn e clique em Criar **app.**
 1. Selecione o separador **Auth.** Em **Teclas de Autenticação,** copie os valores para **Identificação do Cliente** e Segredo do **Cliente.** Vai precisar de ambos para configurar o LinkedIn como fornecedor de identidade no seu inquilino. **A Client Secret** é uma importante credencial de segurança.
-1. Selecione o lápis de edição ao lado **de URLs de redirecionamento autorizados para a sua aplicação** e, em seguida, selecione **Adicionar URL de redirecionamento**. `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`Insira, substituindo `your-tenant-name` pelo nome do seu inquilino. Você precisa usar todas as letras minúsculas ao introduzir o seu nome de inquilino, mesmo que o inquilino seja definido com letras maiúsculas em Azure AD B2C. Selecione **Atualizar**.
-2. Por padrão, a sua aplicação LinkedIn não está aprovada para os âmbitos relacionados com a inscrição. Para solicitar uma revisão, selecione o separador **Produtos** e, em seguida, selecione **Iniciar sôs com o LinkedIn**. Quando a revisão estiver concluída, os âmbitos necessários serão adicionados à sua aplicação.
+1. Selecione o lápis de edição ao lado **de URLs de redirecionamento autorizados para a sua aplicação** e, em seguida, selecione **Adicionar URL de redirecionamento**. Introduza `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Se utilizar um [domínio personalizado,](custom-domain.md)insira `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp` . `your-tenant-name`Substitua-o pelo nome do seu inquilino e `your-domain-name` pelo seu domínio personalizado. Você precisa usar todas as letras minúsculas ao introduzir o seu nome de inquilino, mesmo que o inquilino seja definido com letras maiúsculas em Azure AD B2C. Selecione **Atualizar**.
+1. Por padrão, a sua aplicação LinkedIn não está aprovada para os âmbitos relacionados com a inscrição. Para solicitar uma revisão, selecione o separador **Produtos** e, em seguida, selecione **Iniciar sôs com o LinkedIn**. Quando a revisão estiver concluída, os âmbitos necessários serão adicionados à sua aplicação.
    > [!NOTE]
    > Pode ver os âmbitos que são atualmente permitidos para a sua aplicação no separador **Auth** na secção **de âmbitos OAuth 2.0.**
 

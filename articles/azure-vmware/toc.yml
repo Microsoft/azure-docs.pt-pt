@@ -56,6 +56,8 @@
   items:
     - name: Solicite quota de anfitrião e permita a Solução VMware Azure
       href: enable-azure-vmware-solution.md
+    - name: Mover assinaturas EA e CSP
+      href: move-ea-csp-subscriptions.md
     - name: Poupar custos com uma instância reservada
       href: reserved-instance.md
     - name: Avaliação da migração

@@ -4,14 +4,14 @@ description: Como editar alvos de armazenamento Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 09/30/2020
+ms.date: 03/10/2021
 ms.author: v-erkel
-ms.openlocfilehash: f97ff1c20b7edbf24e5a2c58e22097f88883ae4f
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 78010ef2d93b23a12fc7f3e988a536b4993b4dd4
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102204036"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103471863"
 ---
 # <a name="edit-storage-targets"></a>Adicionar destinos de armazenamento
 
@@ -19,13 +19,16 @@ Pode remover ou modificar alvos de armazenamento com o portal Azure ou utilizand
 
 Dependendo do tipo de armazenamento, pode modificar estes valores-alvo de armazenamento:
 
-* Para os alvos de armazenamento blob, pode alterar o caminho do espaço de nome.
+* Para os alvos de armazenamento blob, pode alterar a trajetória do espaço de nome e a política de acesso.
 
 * Para os alvos de armazenamento NFS, pode alterar estes valores:
 
   * Caminhos do espaço de nome
+  * Política de acesso
   * O subdiretório de exportação ou exportação de armazenamento associado a um caminho de espaço de nome
   * Modelo de utilização
+
+* Para os alvos de armazenamento ADLS-NFS, pode alterar o caminho do espaço de nome, a política de acesso e o modelo de utilização.
 
 Não é possível editar o nome, o tipo ou o sistema de armazenamento de um alvo de armazenamento (recipiente Blob ou endereço NFS hostname/IP). Se precisar de alterar estas propriedades, elimine o alvo de armazenamento e crie uma substituição pelo novo valor.
 
@@ -94,10 +97,13 @@ Para alterar o espaço de nome de um alvo de armazenamento de bolhas com o CLI A
 
 Para os alvos de armazenamento NFS, pode alterar ou adicionar caminhos virtuais de espaço de nome, alterar os valores de exportação ou subdiretórios NFS que um caminho de espaço de nome aponta e alterar o modelo de utilização.
 
+Os alvos de armazenamento em caches com alguns tipos de configurações de DNS personalizados também têm um controlo para refrescar os seus endereços IP. (Este tipo de configuração é raro.)
+
 Os detalhes estão abaixo:
 
-* [Alterar valores agregados de espaço de nome](#change-aggregated-namespace-values) (caminho virtual do espaço de nome, exportação e subdiretório de exportação)
+* [Alterar valores agregados de espaço de nome](#change-aggregated-namespace-values) (trajetória virtual do espaço de nome, política de acesso, exportação e subdiretório de exportação)
 * [Alterar o modelo de utilização](#change-the-usage-model)
+* [Atualizar DNS](#update-ip-address-custom-dns-configurations-only)
 
 ### <a name="change-aggregated-namespace-values"></a>Alterar valores agregados de espaço de nome
 
@@ -112,7 +118,7 @@ Utilize a página **Namespace** para a sua Cache Azure HPC para atualizar os val
 ![screenshot da página do espaço de nome do portal com a página de atualização NFS aberta à direita](media/update-namespace-nfs.png)
 
 1. Clique no nome do caminho que pretende alterar.
-1. Utilize a janela de edição para escrever novos valores virtuais, de exportação ou de subdiretores.
+1. Utilize a janela de edição para escrever novos valores virtuais, exportação ou subdiretórios, ou para selecionar uma política de acesso diferente.
 1. Depois de escoar as alterações, clique **em OK** para atualizar o alvo de armazenamento ou **cancelar** para descartar alterações.
 
 ### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
@@ -174,6 +180,37 @@ Se pretender verificar os nomes dos modelos de utilização, utilize a lista de 
 Se a cache for parada ou não em estado saudável, a atualização aplicar-se-á depois de a cache estar saudável.
 
 ---
+
+### <a name="update-ip-address-custom-dns-configurations-only"></a>Atualizar endereço IP (apenas configurações de DNS personalizados)
+
+Se o seu cache utilizar uma configuração de DNS não padrão, é possível que o endereço IP do seu alvo de armazenamento NFS seja alterado devido a alterações de DNS no back-end. Se o servidor DNS alterar o endereço IP do sistema de armazenamento de back-end, o Cache Azure HPC pode perder o acesso ao sistema de armazenamento.
+
+Idealmente, deve trabalhar com o gestor do sistema DNS personalizado do seu cache para planear quaisquer atualizações, uma vez que estas alterações tornam o armazenamento indisponível.
+
+Se precisar de atualizar o endereço IP fornecido por DNS de um alvo de armazenamento, existe um botão na lista de alvos de Armazenamento. Clique **em Refresh DNS** para consultar o servidor DNS personalizado para um novo endereço IP.
+
+![Screenshot da lista de alvos de armazenamento. Para um alvo de armazenamento, o "..." menu na coluna da extrema-direita está aberto e aparecem duas opções: Delete e Refresh DNS.](media/refresh-dns.png)
+
+Se for bem sucedida, a atualização deve demorar menos de dois minutos. Só pode refrescar um alvo de armazenamento de cada vez; aguarde que a operação anterior esteja concluída antes de tentar outra.
+
+## <a name="update-an-adls-nfs-storage-target-preview"></a>Atualizar um alvo de armazenamento ADLS-NFS (PREVIEW)
+
+Semelhante aos alvos NFS, pode alterar o caminho do espaço de nome e o modelo de utilização para alvos de armazenamento ADLS-NFS.
+
+### <a name="change-an-adls-nfs-namespace-path"></a>Alterar um caminho de espaço de nome ADLS-NFS
+
+Utilize a página **Namespace** para a sua Cache Azure HPC para atualizar os valores do espaço de nome. Esta página é descrita com mais detalhe no artigo [Configurar o espaço de nome agregado](add-namespace-paths.md).
+
+![screenshot da página do espaço de nome do portal com uma página de atualização ADS-NFS aberta à direita](media/update-namespace-adls.png)
+
+1. Clique no nome do caminho que pretende alterar.
+1. Utilize a janela de edição para escrever em novo caminho virtual ou atualize a política de acesso.
+1. Depois de escoar as alterações, clique **em OK** para atualizar o alvo de armazenamento ou **cancelar** para descartar alterações.
+
+### <a name="change-adls-nfs-usage-models"></a>Alterar modelos de utilização ADLS-NFS
+
+A configuração para modelos de utilização ADLS-NFS é idêntica à seleção do modelo de utilização NFS. Leia as instruções do portal na [Alteração do modelo de utilização](#change-the-usage-model) na secção NFS acima. Estão em desenvolvimento ferramentas adicionais para atualizar os objetivos de armazenamento ADLS-NFS.
+
 
 ## <a name="next-steps"></a>Passos seguintes
 

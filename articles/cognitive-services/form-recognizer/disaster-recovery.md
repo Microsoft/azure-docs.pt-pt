@@ -2,19 +2,19 @@
 title: Orientação de recuperação de desastres para O Reconhecimento de FormulárioS Azure
 titleSuffix: Azure Cognitive Services
 description: Aprenda a usar o modelo de cópia API para apoiar os recursos do Form Recogniser.
-author: PatrickFarley
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 05/27/2020
-ms.author: pafarley
-ms.openlocfilehash: 0343402d92498bff56250027086cbf2ceb258f0f
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.date: 03/15/2021
+ms.author: lajanuar
+ms.openlocfilehash: b5eb776a7807f48ae6c1a0e3c5879da1f6823830
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102427169"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103466920"
 ---
 # <a name="back-up-and-recover-your-form-recognizer-models"></a>Recue e recupere os seus modelos de Reconhecimento de Formulários
 
@@ -39,9 +39,6 @@ O processo de cópia de um modelo personalizado consiste nos seguintes passos:
 1. Primeiro emita um pedido de autorização de cópia ao recurso-alvo, &mdash; ou seja, o recurso que receberá o modelo copiado. Você recebe de volta o URL do modelo-alvo recém-criado, que receberá os dados copiados.
 1. Em seguida, envia o pedido de cópia para o recurso de origem &mdash; o recurso que contém o modelo a ser copiado. Receberá de volta um URL que pode consultar para acompanhar o progresso da operação.
 1. Você usará as suas credenciais de recurso de origem para consultar o URL de progresso até que a operação seja um sucesso. Também pode consultar o novo ID do modelo no recurso-alvo para obter o estado do novo modelo.
-
-> [!CAUTION]
-> A API copy não suporta atualmente iDs de modelo para [modelos personalizados compostos.](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/Compose) O composição do modelo é uma funcionalidade de pré-visualização em pré-visualização v2.1-preview.2. 
 
 ## <a name="generate-copy-authorization-request"></a>Gerar pedido de autorização de cópia
 
@@ -165,4 +162,4 @@ curl -i GET "https://<SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT>/formrecognizer/v
 ## <a name="next-steps"></a>Passos seguintes
 
 Neste guia, aprendeu a usar a API copy para fazer cópias dos seus modelos personalizados a um recurso secundário do Reconhecimento de Formulários. Em seguida, explore os docs de referência da API para ver o que mais pode fazer com o Form Recogniser.
-* [Documentação de referência da API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm)
+* [Documentação de referência da API REST](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeWithCustomForm)

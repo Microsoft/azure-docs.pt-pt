@@ -9,14 +9,16 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mqtt
-ms.openlocfilehash: 9b066dfd260a18f35149822b4107ea2c37db931c
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.openlocfilehash: ffe2f2b7f94d546cdfe393170da2fd2ca6ac0149
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103200244"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103490998"
 ---
 # <a name="understand-how-azure-iot-edge-uses-certificates"></a>Entenda como Azure IoT Edge usa certificados
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Os certificados IoT Edge são utilizados pelos módulos e dispositivos IoT a jusante para verificar a identidade e a legitimidade do módulo de tempo de funcionaamento do [hub IoT Edge.](iot-edge-runtime.md#iot-edge-hub) Estas verificações permitem uma ligação segura TLS (segurança da camada de transporte) entre o tempo de funcionaamento, os módulos e os dispositivos IoT. Tal como o próprio IoT Hub, o IoT Edge requer uma ligação segura e encriptada a partir de dispositivos IoT a jusante (ou folha) e módulos IoT Edge. Para estabelecer uma ligação TLS segura, o módulo hub IoT Edge apresenta uma cadeia de certificados de servidor para ligar clientes para verificar a sua identidade.
 

@@ -7,16 +7,19 @@ ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 02/18/2021
 ms.custom: template-concept
-ms.openlocfilehash: c93ecdc138e757f84e995a69a6c3d7f1b5460abe
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: ba960465ab0ca8d5124d5882e3578e61fee2cf14
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102179379"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103490148"
 ---
 # <a name="azure-percept-dk-overview"></a>Visão geral de Azure Percept DK
 
 Azure Percept DK é um kit de desenvolvimento de IA e IoT de borda projetado para desenvolver visão e prova de IA áudio de conceitos. Quando combinado com [o Azure Percept Studio](./overview-azure-percept-studio.md) e [o Azure Percept Audio,](./overview-azure-percept-audio.md)torna-se uma plataforma poderosa mas simples de usar para construir soluções de IA de borda para uma ampla gama de aplicações de IA de visão ou áudio. Está disponível para compra na loja online da [Microsoft.](https://go.microsoft.com/fwlink/p/?LinkId=2155270)
+
+> [!div class="nextstepaction"]
+> [Comprar agora](https://go.microsoft.com/fwlink/p/?LinkId=2155270)
 
 :::image type="content" source="./media/overview-azure-percept-dk/dk-image.png" alt-text="Dispositivo Azure Percept DK.":::
 
@@ -52,4 +55,5 @@ Azure Percept DK é um kit de desenvolvimento de IA e IoT de borda projetado par
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Encomende um Azure Percept DK na [loja online](https://go.microsoft.com/fwlink/p/?LinkId=2155270)da Microsoft .
+> [!div class="nextstepaction"]
+> [Compre um Azure Percept DK na loja online da Microsoft](https://go.microsoft.com/fwlink/p/?LinkId=2155270)

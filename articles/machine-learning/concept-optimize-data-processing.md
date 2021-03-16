@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.topic: conceptual
 ms.date: 06/26/2020
 ms.custom: data4ml
-ms.openlocfilehash: 77edac14ef13901725eed656835e1a937d4f4ddf
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 5ab7bac635a0b670087800212727b0d2e2b96934
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360824"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103472203"
 ---
 # <a name="optimize-data-processing-with-azure-machine-learning"></a>Otimizar o processamento de dados com a Azure Machine Learning
 
@@ -87,9 +87,7 @@ Se preferir `Spark` | `PySpark`
 Para dados inferiores a 1 GB | `Pandas` localmente **ou** um remoto Azure Machine Learning caso
 Para dados maiores que 10 GB| Mude-se para um cluster usando `Ray` `Dask` , ou `Spark`
 
-Você pode criar `Dask` clusters em Azure ML compute cluster com o pacote [dask-cloudprovider.](https://cloudprovider.dask.org/en/latest/#azure) Ou pode correr `Dask` localmente numa instância computacional.
-
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Opções de ingestão de dados com Azure Machine Learning](concept-data-ingestion.md).
 * [Criar e registar conjuntos de dados](how-to-create-register-datasets.md).

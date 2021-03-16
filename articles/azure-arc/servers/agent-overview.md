@@ -1,14 +1,14 @@
 ---
-title: Visão geral do agente Windows da máquina conectada
+title: Visão geral do agente da máquina conectada
 description: Este artigo fornece uma visão detalhada do agente de servidores ativado Azure Arc disponível, que suporta a monitorização de máquinas virtuais hospedadas em ambientes híbridos.
-ms.date: 02/18/2021
+ms.date: 03/15/2021
 ms.topic: conceptual
-ms.openlocfilehash: ebd9412849b4a0b3081e892d7472e598ca6e8365
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 1fd863ccacc7768401e35254a98c7bb494b3d358
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101651098"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103470494"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Visão geral do agente de servidores ativado pelo Azure Arc
 
@@ -90,9 +90,11 @@ As seguintes versões do sistema operativo Windows e Linux são oficialmente sup
 
 ### <a name="required-permissions"></a>Permissões obrigatórias
 
-* Para máquinas a bordo, você é membro da **função de azure connected machine onboarding.**
+* Para máquinas a bordo, é membro da **função Azure Connected Machine Onboarding** ou [Contributo](../../role-based-access-control/built-in-roles.md#contributor) no grupo de recursos.
 
-* Para ler, modificar e eliminar uma máquina, é membro da função de Administrador de **Recursos da Máquina Azure.** 
+* Para ler, modificar e eliminar uma máquina, é membro da função de Administrador de **Recursos da Máquina Azure Conectada** no grupo de recursos.
+
+* Para selecionar um grupo de recursos da lista de drop-down ao utilizar o método **de script Gerar,** no mínimo é membro da função [Reader](../../role-based-access-control/built-in-roles.md#reader) para esse grupo de recursos.
 
 ### <a name="azure-subscription-and-service-limits"></a>Subscrição do Azure e limites do serviço
 

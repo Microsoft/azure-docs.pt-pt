@@ -8,22 +8,22 @@ ms.author: shhazam
 ms.date: 1/21/2021
 ms.service: azure
 ms.topic: how-to
-ms.openlocfilehash: 2779a73d3a5f77e3a3b144309baf6d2788565443
-ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
+ms.openlocfilehash: a33e7ff230292d4ceb14610e3cf00935dc1a67a0
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99809878"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103493174"
 ---
 # <a name="feature-support-and-retirement"></a>Suporte de recurso e aposentadoria
 
 Este artigo descreve as funcionalidades e suporte do Azure Defender para diferentes capacidades dentro do Defender para IoT.
 
-## <a name="defender-for-iot-c-c-and-edge-security-module-deprecation"></a>Defender para deprecação do módulo de segurança IoT C, C#e Edge
+## <a name="defender-for-iot-c-c-and-edge-defender-iot-micro-agent-deprecation"></a>Defender para IoT C, C#e Edge Defender-IoT-micro-agente depreciação
 
-O novo micro-agente substituirá o módulo de segurança C, C#e Edge atual.  
+O novo micro-agente substituirá o atual C, C#e Edge Defender-IoT-micro-agent.  
 
-O novo micro-agente baseia-se no conhecimento e experiência recolhida a partir do desenvolvimento do módulo de segurança, clientes e parceiros com quatro melhorias importantes: 
+O novo micro-agente baseia-se no conhecimento e experiência recolhida a partir do desenvolvimento de defender-ioT-micro-agente, clientes e parceiros com quatro melhorias importantes: 
 
 - **Valor de segurança de profundidade**: O novo agente funcionará ao nível do hospedeiro, o que proporcionará maior visibilidade às operações subjacentes do dispositivo e permitirá uma melhor cobertura de segurança.
 

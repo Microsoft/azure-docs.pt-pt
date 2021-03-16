@@ -7,12 +7,12 @@ ms.author: sujie
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/10/2020
-ms.openlocfilehash: b601a3586cfa971b2e8337a914f4e10bb0178ba0
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: f62b4c354ffa90bf1a03651fccf8780074344e46
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98014251"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103466427"
 ---
 # <a name="use-azure-devops-to-create-a-cicd-pipeline-for-a-stream-analytics-job"></a>Utilize Azure DevOps para criar um pipeline CI/CD para um trabalho de Stream Analytics
 
@@ -56,6 +56,22 @@ Nesta secção, aprende-se a criar um oleoduto de construção. Pode fazer refer
 
    :::image type="content" source="media/set-up-cicd-pipeline/npm-config.png" alt-text="Introduza configurações para tarefa npm":::
 
+Utilize os seguintes passos se precisar de utilizar o agente alojado Linux:
+1.  Selecione a **especificação do seu agente**
+   
+    :::image type="content" source="media/set-up-cicd-pipeline/select-linux-agent.png" alt-text="Screenshot da especificação do agente selecionado.":::
+
+2.  Na página **Tarefas,** selecione o sinal de mais ao lado **do trabalho do Agente 1**. Insira *a linha de comando* na procura de tarefas e selecione a linha de **comando**.
+   
+    :::image type="content" source="media/set-up-cicd-pipeline/cmd-search.png" alt-text="Screenshot da tarefa de comando de pesquisa. ":::
+
+3.  Dê à tarefa um **nome de Exibição**. inserir o seguinte comando no **Script**. Deixe as restantes opções predefinidos.
+
+      ```bash
+      sudo npm install -g azure-streamanalytics-cicd --unsafe-perm=true --allow-root
+      ```
+      :::image type="content" source="media/set-up-cicd-pipeline/cmd-scripts.png" alt-text="Screenshot de introduzir script para tarefa cmd.":::
+
 ## <a name="add-a-build-task"></a>Adicione uma tarefa de construção
 
 1. Na página **'Variáveis',** selecione **+ Adicionar** **variáveis pipeline**. Adicione as seguintes variáveis. Desaça os seguintes valores de acordo com a sua preferência:
@@ -64,7 +80,7 @@ Nesta secção, aprende-se a criar um oleoduto de construção. Pode fazer refer
    |-|-|
    |projectRootPath|[O Seu Nome DeProjecto]|
    |saídaapata|Saída|
-   |implementarPata|Implementação|
+   |implementarPata|Implementar|
 
 2. Na página **Tarefas,** selecione o sinal de mais ao lado **do trabalho do Agente 1**. Procurar **linha de comando**.
 
@@ -106,7 +122,7 @@ Nesta secção, aprende-se a criar um oleoduto de construção. Pode fazer refer
 
 1. Na página **Tarefas,** selecione o **+** trabalho seguinte ao Agente **1**. Procurar **por ficheiros Copy**. Em seguida, introduza as seguintes configurações. Ao atribuir `**` ao **Conteúdo,** todos os ficheiros dos resultados dos testes são copiados.
 
-   |Parâmetro|Input|
+   |Parâmetro|Entrada|
    |-|-|
    |Nome a apresentar|Copy Files to: $(build.artifactstagingdirectory)|
    |Pasta de Origem|`$(system.defaultworkingdirectory)/$(outputPath)/`|
@@ -197,7 +213,7 @@ Para criar um desbloqueio, selecione **Criar o desbloqueio** no canto superior d
 
 :::image type="content" source="media/set-up-cicd-pipeline/create-release.png" alt-text="Criar um desbloqueio utilizando gasodutos Azure":::
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Integração contínua e implantação contínua para Azure Stream Analytics](cicd-overview.md)
 * [Automatizar a construção, teste e implantação de um trabalho Azure Stream Analytics utilizando ferramentas CI/CD](cicd-tools.md)

@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 03/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 36bdda4165c7307eaa7837d6208952da7f1d115f
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: e2c82858b9f4b9846ff5371da347be942eed0a4f
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102448375"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103488861"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-github-account-using-azure-active-directory-b2c"></a>Configurar inscrição e inscrição com uma conta GitHub utilizando o Azure Ative Directory B2C
 
@@ -43,7 +43,7 @@ Para ativar o sessão com uma conta GitHub no Azure Ative Directory B2C (Azure A
 1. Inscreva-se no [GitHub Developer](https://github.com/settings/developers) com as suas credenciais GitHub.
 1. Selecione **aplicações OAuth** e, em seguida, selecione **Nova App OAuth**.
 1. Introduza um **nome de aplicação** e o seu **URL de página inicial.**
-1. Introduza `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` em URL de retorno de **autorização**. `your-tenant-name`Substitua-o pelo nome do seu inquilino Azure AD B2C. Utilize todas as letras minúsculas ao introduzir o nome do seu inquilino, mesmo que o arrendatário seja definido com letras maiúsculas em Azure AD B2C.
+1. Para o **URL de retorno de autorização,** insira `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` . Se utilizar um [domínio personalizado,](custom-domain.md)insira `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp` . `your-domain-name`Substitua-o pelo seu domínio personalizado e `your-tenant-name` pelo nome do seu inquilino. Utilize todas as letras minúsculas ao introduzir o nome do seu inquilino, mesmo que o arrendatário seja definido com letras maiúsculas em Azure AD B2C.
 1. Clique **na aplicação Registar.**
 1. Copiar os valores do **ID do Cliente** e **do Cliente Secreto.** Precisa de ambos para adicionar o fornecedor de identidade ao seu inquilino.
 

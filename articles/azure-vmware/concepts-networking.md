@@ -3,12 +3,12 @@ title: Conceitos - Interconectividade da rede
 description: Conheça os principais aspetos e utilize casos de networking e interconectividade na Azure VMware Solution.
 ms.topic: conceptual
 ms.date: 03/11/2021
-ms.openlocfilehash: cd62949c13b1f12e635d8d7bf07518a94c4e8d4b
-ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.openlocfilehash: 4c964151c49e2fea56031dd24bacf4655753a18d
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2021
-ms.locfileid: "103462593"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103491814"
 ---
 # <a name="azure-vmware-solution-networking-and-interconnectivity-concepts"></a>Conceitos de networking e interconectividade Azure VMware Solution
 
@@ -16,9 +16,9 @@ ms.locfileid: "103462593"
 
 Existem duas formas de interconectividade na nuvem privada Azure VMware Solution:
 
-1. [**A interconectividade básica só de Azure permite-lhe**](#azure-virtual-network-interconnectivity) gerir e utilizar a sua nuvem privada com apenas uma única rede virtual em Azure. Esta implementação é mais adequada para avaliações ou implementações da Azure VMware Solution que não requerem acesso a partir de ambientes no local.
+- [**A interconectividade básica só de Azure permite-lhe**](#azure-virtual-network-interconnectivity) gerir e utilizar a sua nuvem privada com apenas uma única rede virtual em Azure. Esta implementação é mais adequada para avaliações ou implementações da Azure VMware Solution que não requerem acesso a partir de ambientes no local.
 
-1. [**As instalações completas para a interconectividade de nuvem privada**](#on-premises-interconnectivity) alargam a implementação básica apenas do Azure para incluir a interconectividade entre as nuvens privadas do Azure VMware Solution.
+- [**As instalações completas para a interconectividade de nuvem privada**](#on-premises-interconnectivity) alargam a implementação básica apenas do Azure para incluir a interconectividade entre as nuvens privadas do Azure VMware Solution.
  
 Neste artigo, vamos cobrir os conceitos-chave que estabelecem networking e interconectividade, incluindo requisitos e limitações. Este artigo fornece-lhe as informações que precisa de saber para configurar a sua rede para trabalhar com a Azure VMware Solution.
 

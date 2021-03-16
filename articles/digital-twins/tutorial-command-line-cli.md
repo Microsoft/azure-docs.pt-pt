@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 2/26/2021
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 16425c1f15b78e2d0aaa7a8a1f55ff47a44d56dd
-ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.openlocfilehash: d155d0c4a18b254f66ff5fb58ea91dbee22d2c34
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2021
-ms.locfileid: "103464787"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103496614"
 ---
 # <a name="tutorial-create-an-azure-digital-twins-graph-using-the-azure-cli"></a>Tutorial: Criar um gráfico Azure Digital Twins usando o Azure CLI
 
@@ -64,7 +64,7 @@ Pode obter ambos estes valores, por sua vez, na saída do seguinte comando Azure
 az dt show -n <ADT_instance_name>
 ```
 
-:::image type="content" source="media/tutorial-command-line/cli/instance-details.png" alt-text="Janela cloud Shell mostrando a saída do comando az dt show. Destacam-se o campo hostName e o ID de subscrição (parte do campo de id).":::
+:::image type="content" source="media/tutorial-command-line/cli/instance-details.png" alt-text="Screenshot da janela do navegador Cloud Shell mostrando a saída do comando az dt show. Destacam-se o campo hostName e o ID de subscrição (parte do campo de id).":::
 
 ## <a name="model-a-physical-environment-with-dtdl"></a>Modelar um ambiente físico com DTDL
 
@@ -87,7 +87,7 @@ Depois de desenhar modelos, precisa de os enviar para a sua instância Azure Dig
 
 1. Para adicionar modelos que utilizem a Cloud Shell, terá de enviar os seus ficheiros de modelo para o armazenamento da Cloud Shell para que os ficheiros estejam disponíveis quando executar o comando Cloud Shell que os utiliza. Para isso, selecione o ícone "Carregar/Transferir ficheiros" e escolha "Upload".
 
-    :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="Janela cloud Shell mostrando a seleção do ícone upload":::
+    :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="Screenshot da janela do navegador Cloud Shell mostrando a seleção do ícone upload.":::
     
     Navegue para a *Room.jsficheiro na* sua máquina e selecione "Abrir". Em seguida, repita este passo para *Floor.js.*
 
@@ -111,7 +111,7 @@ Depois de desenhar modelos, precisa de os enviar para a sua instância Azure Dig
     
     Procure o modelo *de quarto* editado nos resultados:
     
-    :::image type="content" source="media/tutorial-command-line/cli/output-get-models.png" alt-text="Resultados do comando da lista de modelos, mostrando o modelo de Quarto atualizado" lightbox="media/tutorial-command-line/cli/output-get-models.png":::
+    :::image type="content" source="media/tutorial-command-line/cli/output-get-models.png" alt-text="Screenshot de Cloud Shell mostrando o resultado do comando da lista de modelos, que inclui o modelo de Quarto atualizado." lightbox="media/tutorial-command-line/cli/output-get-models.png":::
 
 ### <a name="errors"></a>Erros
 
@@ -159,7 +159,7 @@ Para criar um gémeo digital, usa-se o comando [**az dt twin.**](/cli/azure/ext/
     
     Procure o *quarto 0,* *sala1,* *piso 0,* e *1 4º andar* nos resultados. Aqui está um excerto mostrando parte do resultado desta consulta.
     
-    :::image type="content" source="media/tutorial-command-line/cli/output-query-all.png" alt-text="Resultados parciais de consulta dupla, mostrando sala0 e sala1" lightbox="media/tutorial-command-line/cli/output-query-all.png":::
+    :::image type="content" source="media/tutorial-command-line/cli/output-query-all.png" alt-text="Screenshot de Cloud Shell mostrando resultado parcial de consulta dupla, incluindo quarto0 e quarto1." lightbox="media/tutorial-command-line/cli/output-query-all.png":::
 
 ### <a name="modify-a-digital-twin"></a>Modificar um gémeo digital
 
@@ -181,7 +181,7 @@ Também pode modificar as propriedades de um gémeo que criou.
     
     A saída deste comando mostrará as informações atuais do gémeo, e deverá ver o novo valor para o `RoomName` resultado.
 
-    :::image type="content" source="media/tutorial-command-line/cli/output-update-twin.png" alt-text="Resultados do comando de atualização, mostrando um QuartoName de PresidentialSuite" lightbox="media/tutorial-command-line/cli/output-update-twin.png":::
+    :::image type="content" source="media/tutorial-command-line/cli/output-update-twin.png" alt-text="Screenshot de Cloud Shell mostrando o resultado do comando de atualização, que inclui um RoomName de PresidentialSuite." lightbox="media/tutorial-command-line/cli/output-update-twin.png":::
 
 1. Pode verificar se a atualização foi bem sucedida executando o comando [**de show az dt twin**](/cli/azure/ext/azure-iot/dt/twin?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_dt_twin_show) para ver as informações da *sala0:*
 
@@ -236,7 +236,7 @@ Para adicionar uma relação, use a [**relação gémea az dt criar**](/cli/azur
 
 As gémeas e relações que criou neste formato tutorial são o seguinte gráfico conceptual:
 
-:::image type="content" source="media/tutorial-command-line/app/sample-graph.png" alt-text="Um gráfico mostrando o piso0 conectado via relação0 com o quarto0, e piso1 conectado via relação1 com o quarto1" border="false" lightbox="media/tutorial-command-line/app/sample-graph.png":::
+:::image type="content" source="media/tutorial-command-line/app/sample-graph.png" alt-text="Um diagrama mostrando um gráfico conceptual. o piso 0 está ligado através da relação0 com o quarto0, e o piso 1 está ligado através da relação1 com o quarto1." border="false" lightbox="media/tutorial-command-line/app/sample-graph.png":::
 
 ## <a name="query-the-twin-graph-to-answer-environment-questions"></a>Consultar o gráfico gémeo para responder a questões ambientais
 
@@ -252,7 +252,7 @@ Execute as seguintes consultas na Cloud Shell para responder a algumas perguntas
 
     Isto permite-lhe fazer um balanço do seu ambiente num ápice, e certifique-se de que tudo está representado como gostaria que estivesse dentro da Azure Digital Twins. O resultado disto é uma saída contendo cada gémeo digital com os seus detalhes. Aqui está um excerto:
 
-    :::image type="content" source="media/tutorial-command-line/cli/output-query-all.png" alt-text="Resultados parciais de consulta dupla, mostrando sala0 e sala1" lightbox="media/tutorial-command-line/cli/output-query-all.png":::
+    :::image type="content" source="media/tutorial-command-line/cli/output-query-all.png" alt-text="Screenshot de Cloud Shell mostrando resultado parcial de consulta dupla, incluindo quarto0 e quarto1." lightbox="media/tutorial-command-line/cli/output-query-all.png":::
 
     >[!TIP]
     >Pode reconhecer que este é o mesmo comando que usou na secção [*Criar gémeos digitais*](#create-digital-twins) mais cedo para encontrar todas as Gémeas Digitais Azure no caso.
@@ -265,7 +265,7 @@ Execute as seguintes consultas na Cloud Shell para responder a algumas perguntas
 
     Pode restringir a sua consulta a gémeos de um certo tipo, para obter informações mais específicas sobre o que está representado. O resultado deste mostra *a sala0* e *a sala1,* mas **não** mostra o *piso 0* ou *o piso 1* (uma vez que são pisos, não quartos).
     
-    :::image type="content" source="media/tutorial-command-line/cli/output-query-model.png" alt-text="Resultados da consulta do modelo, mostrando apenas quarto0 e sala1" lightbox="media/tutorial-command-line/cli/output-query-model.png":::
+    :::image type="content" source="media/tutorial-command-line/cli/output-query-model.png" alt-text="Screenshot de Cloud Shell mostrando o resultado da consulta do modelo, que inclui apenas o quarto0 e o quarto1." lightbox="media/tutorial-command-line/cli/output-query-model.png":::
 
 1. **Quais são todos os quartos no *andar0?*** (consulta por relação)
 
@@ -275,7 +275,7 @@ Execute as seguintes consultas na Cloud Shell para responder a algumas perguntas
 
     Você pode consultar com base em relacionamentos no seu gráfico, para obter informações sobre como os gémeos estão conectados ou para restringir a sua consulta a uma determinada área. Só *o quarto 0* é no *andar 0,* por isso é o único quarto no resultado.
 
-    :::image type="content" source="media/tutorial-command-line/cli/output-query-relationship.png" alt-text="Resultados da consulta de relacionamento, mostrando espaço0" lightbox="media/tutorial-command-line/cli/output-query-relationship.png":::
+    :::image type="content" source="media/tutorial-command-line/cli/output-query-relationship.png" alt-text="Screenshot de Cloud Shell mostrando o resultado da consulta de relacionamento, que inclui o quarto0." lightbox="media/tutorial-command-line/cli/output-query-relationship.png":::
 
     > [!NOTE]
     > Note que o ID de um gémeo (como o *piso 0* na consulta acima) é consultado utilizando o campo de metadados `$dtId` . 
@@ -290,7 +290,7 @@ Execute as seguintes consultas na Cloud Shell para responder a algumas perguntas
 
     Você pode consultar o gráfico com base em propriedades para responder a uma variedade de perguntas, incluindo descobrir outliers no seu ambiente que podem precisar de atenção. Outros operadores de comparação *<* *>* (, *=* , , , ou *!=*) também são apoiados. *quarto1* aparece nos resultados aqui, porque tem uma temperatura de 80.
 
-    :::image type="content" source="media/tutorial-command-line/cli/output-query-property.png" alt-text="Resultados da consulta de propriedade, mostrando apenas o quarto1" lightbox="media/tutorial-command-line/cli/output-query-property.png":::
+    :::image type="content" source="media/tutorial-command-line/cli/output-query-property.png" alt-text="Screenshot de Cloud Shell mostrando o resultado da consulta de propriedade, que inclui apenas o quarto1." lightbox="media/tutorial-command-line/cli/output-query-property.png":::
 
 1. **Quais são todos os quartos no *andar0* com uma temperatura superior a 75?** (consulta composta)
 
@@ -300,7 +300,7 @@ Execute as seguintes consultas na Cloud Shell para responder a algumas perguntas
 
     Também pode combinar as consultas anteriores como em SQL, utilizando operadores de combinação `AND` `OR` como, `NOT` . . Esta consulta `AND` utiliza-se para tornar a consulta anterior sobre temperaturas duplas mais específica. O resultado agora só inclui quartos com temperaturas acima dos 75 que estão no *chão0*— o que, neste caso, não é nenhum deles. O resultado está vazio.
 
-    :::image type="content" source="media/tutorial-command-line/cli/output-query-compound.png" alt-text="Resultados da consulta composta, sem resultados" lightbox="media/tutorial-command-line/cli/output-query-compound.png":::
+    :::image type="content" source="media/tutorial-command-line/cli/output-query-compound.png" alt-text="Screenshot de Cloud Shell mostrando o resultado de consulta composta, que não inclui quaisquer itens." lightbox="media/tutorial-command-line/cli/output-query-compound.png":::
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

@@ -6,16 +6,16 @@ author: mikben
 manager: mikben
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 9/1/2020
+ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: ce6d2c34c48a26f99f78c364db5f06f9931c9dd7
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.openlocfilehash: 80d6c4d3f0b2eef5bc6012f2aab3fcbeab0e31b8
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103021177"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103495436"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar, certifique-se de:
@@ -28,7 +28,7 @@ Antes de começar, certifique-se de:
 
 ### <a name="create-a-new-c-application"></a>Criar uma nova aplicação C#
 
-Numa janela de consola (como cmd, PowerShell ou Bash), utilize o `dotnet new` comando para criar uma nova aplicação de consola com o nome `ChatQuickstart` . Este comando cria um projeto simples "Hello World" C# com um único ficheiro de origem: **Program.cs**.
+Numa janela de consola (como cmd, PowerShell ou Bash), utilize o `dotnet new` comando para criar uma nova aplicação de consola com o nome `ChatQuickstart` . Este comando cria um projeto "Hello World" C# com um único ficheiro de origem: **Programa.cs**.
 
 ```console
 dotnet new console -o ChatQuickstart
@@ -66,7 +66,7 @@ Saiba mais sobre [tokens de acesso ao utilizador.](../../access-tokens.md)
 
 Este quickstart não cobre a criação de um nível de serviço para gerir fichas para a sua aplicação de chat, embora seja recomendado. Saiba mais sobre [a Arquitetura chat](../../../concepts/chat/concepts.md)
 
-Copie os seguintes fragmentos de código e cole-os no ficheiro de origem: **Program.cs**
+Copie os seguintes fragmentos de código e cole-os no ficheiro de origem: **Programa.cs**
 ```csharp
 using Azure;
 using Azure.Communication;

@@ -8,14 +8,16 @@ ms.date: 08/31/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: fa7a56bcad067176d8f9805b418cca45ad144579
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 951111b217b7ace3f12676edf6febfa7266094df
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978701"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103489953"
 ---
 # <a name="properties-of-the-iot-edge-agent-and-iot-edge-hub-module-twins"></a>Propriedades do agente IoT Edge e gémeos módulos de hub IoT Edge
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 O agente IoT Edge e o hub IoT Edge são dois módulos que compõem o tempo de execução IoT Edge. Para obter mais informações sobre as responsabilidades de cada módulo de tempo de execução, consulte [o tempo de execução Azure IoT Edge e a sua arquitetura.](iot-edge-runtime.md)
 
@@ -36,30 +38,30 @@ O módulo twin para o agente IoT Edge é chamado `$edgeAgent` e coordena as comu
 | schemaVersão | Ou "1.0" ou "1.1". A versão 1.1 foi introduzida com a versão 1.0.10 do IoT Edge, e é recomendada. | Sim |
 | tempo de execução.tipo | Tem que ser "estivador". | Sim |
 | runtime.settings.minDockerVersion | Definir para a versão estival mínima exigida por este manifesto de implantação | Sim |
-| tempo de execução.definições.loggingOptions | Um JSON com uma JSON com cordas que contém as opções de registo para o contentor do agente IoT Edge. [Opções de registo de estivadores](https://docs.docker.com/engine/admin/logging/overview/) | Não |
-| tempo de execução.definições.registryCredentais<br>. {registryId}.username | O nome de utilizador do registo do contentor. Para o Registo do Contentor Azure, o nome de utilizador é normalmente o nome de registo.<br><br> As credenciais de registo são necessárias para quaisquer imagens de módulos privados. | Não |
-| tempo de execução.definições.registryCredentais<br>. {registryId}.password | A senha do registo do contentor. | Não |
-| tempo de execução.definições.registryCredentais<br>. {registryId}.endereço | O endereço do registo do contentor. Para o Registo do Contentor Azure, o endereço é geralmente *{registry name}.azurecr.io*. | Não |  
+| tempo de execução.definições.loggingOptions | Um JSON com uma JSON com cordas que contém as opções de registo para o contentor do agente IoT Edge. [Opções de registo de estivadores](https://docs.docker.com/engine/admin/logging/overview/) | No |
+| tempo de execução.definições.registryCredentais<br>. {registryId}.username | O nome de utilizador do registo do contentor. Para o Registo do Contentor Azure, o nome de utilizador é normalmente o nome de registo.<br><br> As credenciais de registo são necessárias para quaisquer imagens de módulos privados. | No |
+| tempo de execução.definições.registryCredentais<br>. {registryId}.password | A senha do registo do contentor. | No |
+| tempo de execução.definições.registryCredentais<br>. {registryId}.endereço | O endereço do registo do contentor. Para o Registo do Contentor Azure, o endereço é geralmente *{registry name}.azurecr.io*. | No |  
 | systemModules.edgeAgent.type | Tem que ser "estivador". | Sim |
 | systemModules.edgeAgent.settings.image | O URI da imagem do agente IoT Edge. Atualmente, o agente IoT Edge não é capaz de se atualizar. | Sim |
-| systemModules.edgeAgent.settings<br>.createOptions | Um JSON cordificado contendo as opções para a criação do contentor de agente IoT Edge. [Docker criar opções](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | Não |
+| systemModules.edgeAgent.settings<br>.createOptions | Um JSON cordificado contendo as opções para a criação do contentor de agente IoT Edge. [Docker criar opções](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | No |
 | systemModules.edgeAgent.configuration.id | A identificação da implantação que implantou este módulo. | IoT Hub define esta propriedade quando o manifesto é aplicado usando uma implantação. Não faz parte de um manifesto de implantação. |
 | systemModules.edgeHub.type | Tem que ser "estivador". | Sim |
 | systemModules.edgeHub.status | Tem que estar a "correr" | Sim |
 | systemModules.edgeHub.restartPolicy | Tem que ser "sempre" | Sim |
-| systemModules.edgeHub.startupOrder | Um valor inteiro para o qual um módulo tem na ordem de arranque. 0 é o primeiro e o inteiro máximo (4294967295) é o último. Se um valor não for fornecido, o padrão é o número máximo.  | Não |
+| systemModules.edgeHub.startupOrder | Um valor inteiro para o qual um módulo tem na ordem de arranque. 0 é o primeiro e o inteiro máximo (4294967295) é o último. Se um valor não for fornecido, o padrão é o número máximo.  | No |
 | systemModules.edgeHub.settings.image | O URI da imagem do hub IoT Edge. | Sim |
-| systemModules.edgeHub.settings<br>.createOptions | Um JSON cordificado contendo as opções para a criação do recipiente do hub IoT Edge. [Docker criar opções](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | Não |
+| systemModules.edgeHub.settings<br>.createOptions | Um JSON cordificado contendo as opções para a criação do recipiente do hub IoT Edge. [Docker criar opções](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | No |
 | systemModules.edgeHub.configuration.id | A identificação da implantação que implantou este módulo. | IoT Hub define esta propriedade quando o manifesto é aplicado usando uma implantação. Não faz parte de um manifesto de implantação. |
 | módulos. {moduleId}.versão | Uma cadeia definida pelo utilizador que representa a versão deste módulo. | Sim |
 | módulos. {moduleId}.type | Tem que ser "estivador". | Sim |
 | módulos. {moduleId}.status | {"running" \| "parado"} | Sim |
 | módulos. {moduleId}.restartPolicy | {"nunca" \| "on-failure" \| "on-unhealthy" \| "always"} | Sim |
-| módulos. {moduleId}.startupOrder | Um valor inteiro para o qual um módulo tem na ordem de arranque. 0 é o primeiro e o inteiro máximo (4294967295) é o último. Se um valor não for fornecido, o padrão é o número máximo.  | Não |
-| módulos. {moduleId}.imagePullPolicy | {"on-create" \| "nunca"} | Não |
-| módulos. {moduleId}.env | Uma lista de variáveis ambientais para passar para o módulo. Toma o formato `"<name>": {"value": "<value>"}` | Não |
+| módulos. {moduleId}.startupOrder | Um valor inteiro para o qual um módulo tem na ordem de arranque. 0 é o primeiro e o inteiro máximo (4294967295) é o último. Se um valor não for fornecido, o padrão é o número máximo.  | No |
+| módulos. {moduleId}.imagePullPolicy | {"on-create" \| "nunca"} | No |
+| módulos. {moduleId}.env | Uma lista de variáveis ambientais para passar para o módulo. Toma o formato `"<name>": {"value": "<value>"}` | No |
 | módulos. {moduleId}.definições.imagem | O URI para a imagem do módulo. | Sim |
-| módulos. {moduleId}.configurações.createOptions | Um JSON cordificado contendo as opções para a criação do recipiente do módulo. [Docker criar opções](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | Não |
+| módulos. {moduleId}.configurações.createOptions | Um JSON cordificado contendo as opções para a criação do recipiente do módulo. [Docker criar opções](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | No |
 | módulos. {moduleId}.configuration.id | A identificação da implantação que implantou este módulo. | IoT Hub define esta propriedade quando o manifesto é aplicado usando uma implantação. Não faz parte de um manifesto de implantação. |
 
 ## <a name="edgeagent-reported-properties"></a>EdgeAgent reportou propriedades

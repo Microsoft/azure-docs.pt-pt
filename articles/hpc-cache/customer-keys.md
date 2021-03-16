@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 07/20/2020
 ms.author: v-erkel
-ms.openlocfilehash: 90af33a01450002c7d36a4ab4cf4a3da647068c5
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: e8f1b3fffefcdf1d2ec8bd3e9b1aaea93697ca8a
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96444570"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103471970"
 ---
 # <a name="use-customer-managed-encryption-keys-for-azure-hpc-cache"></a>Utilize chaves de encriptação geridas pelo cliente para cache Azure HPC
 
@@ -22,7 +22,7 @@ Pode utilizar o Cofre da Chave Azure para controlar a propriedade das chaves uti
 
 O Azure HPC Cache também está protegido pela [encriptação do anfitrião VM](../virtual-machines/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data) nos discos geridos que detêm os seus dados em cache, mesmo que adicione uma chave de cliente para os discos de cache. Adicionar uma chave gerida pelo cliente para encriptação dupla dá um nível extra de segurança para clientes com elevadas necessidades de segurança. Leia [a encriptação do lado do servidor do armazenamento do disco Azure](../virtual-machines/disk-encryption.md) para obter detalhes.
 
-Esta funcionalidade está disponível apenas em algumas das regiões do Azure onde o Azure HPC Cache está disponível. Consulte a lista [de disponibilidade da Região](hpc-cache-overview.md#region-availability) para mais detalhes.
+<!-- This feature is available only in some of the Azure regions where Azure HPC Cache is available. Refer to the [Region availability](hpc-cache-overview.md#region-availability) list for details. -->
 
 Existem três passos para permitir a encriptação da chave gerida pelo cliente para a Cache Azure HPC:
 

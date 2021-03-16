@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: v-erkel
-ms.openlocfilehash: 77bd5e3b7a258ef83e5de4ec645ea70578fb9dfb
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 50fdab1fa8def1b4e3b9a9d59d3b2593e5526c65
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94657096"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103472038"
 ---
 # <a name="create-an-azure-hpc-cache"></a>Criar uma Cache Azure HPC
 
@@ -59,7 +59,7 @@ A Azure HPC Cache gere quais os ficheiros em cache e pré-carregados para maximi
 
 ## <a name="enable-azure-key-vault-encryption-optional"></a>Ativar encriptação do cofre da chave Azure (opcional)
 
-Se o seu cache estiver numa região que suporta chaves de encriptação geridas pelo cliente, a página **das chaves de encriptação do disco** aparece entre os separadores **Cache** e **Tags.** Leia [a disponibilidade regional](hpc-cache-overview.md#region-availability) para saber mais sobre o apoio à região.
+A página **das chaves de encriptação** do disco aparece entre os separadores **Cache** e **Tags.**<!-- Read [Regional availability](hpc-cache-overview.md#region-availability) to learn more about region support. -->
 
 Se pretender gerir as chaves de encriptação utilizadas para o armazenamento do cache, forneça as informações do Cofre da Chave Azure na página das **chaves de encriptação** do disco. O cofre-chave deve estar na mesma região e na mesma subscrição que a cache.
 
@@ -105,7 +105,7 @@ Quando a criação termina, uma notificação aparece com um link para a nova in
 [Configurar o Azure CLI para a cache Azure HPC](./az-cli-prerequisites.md).
 
 > [!NOTE]
-> Atualmente, o CLI Azure não suporta a criação de um cache com chaves de encriptação geridas pelo cliente. Use o portal Azure.
+> Atualmente, o CLI Azure não suporta a criação de um cache com chaves de encriptação geridas pelo cliente. Utilize o portal do Azure.
 
 Utilize o comando [az hpc-cache](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-create) para criar uma nova Cache Azure HPC.
 
@@ -194,7 +194,7 @@ A mensagem inclui algumas informações úteis, incluindo estes itens:
 > [!CAUTION]
 > O módulo Az.HPCCache PowerShell está atualmente em pré-visualização pública. Esta versão de pré-visualização é disponibilizada sem contrato de nível de serviço. Não é recomendada para cargas de trabalho de produção. Algumas funcionalidades podem não ser suportadas ou podem ter capacidades restritas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="requirements"></a>Requirements
+## <a name="requirements"></a>Requisitos
 
 Se optar por utilizar o PowerShell localmente, este artigo requer que instale o módulo Az PowerShell e se conecte à sua conta Azure utilizando o cmdlet [Connect-AzAccount.](/powershell/module/az.accounts/connect-azaccount) Para obter mais informações sobre a instalação do módulo Az PowerShell, consulte [instalar a Azure PowerShell](/powershell/azure/install-az-ps). Se optar por utilizar a Cloud Shell, consulte [a visão geral da Azure Cloud Shell](../cloud-shell/overview.md) para obter mais informações.
 
@@ -208,7 +208,7 @@ Install-Module -Name Az.HPCCache
 ## <a name="create-the-cache-with-azure-powershell"></a>Crie a cache com Azure PowerShell
 
 > [!NOTE]
-> A Azure PowerShell não suporta atualmente a criação de um cache com chaves de encriptação geridas pelo cliente. Use o portal Azure.
+> A Azure PowerShell não suporta atualmente a criação de um cache com chaves de encriptação geridas pelo cliente. Utilize o portal do Azure.
 
 Utilize o [cmdlet New-AzHpcCache](/powershell/module/az.hpccache/new-azhpccache) para criar uma nova Cache Azure HPC.
 
@@ -282,7 +282,7 @@ A mensagem inclui algumas informações úteis, incluindo estes itens:
 
 ---
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Depois da sua cache aparecer na lista **de Recursos,** pode passar para o próximo passo.
 

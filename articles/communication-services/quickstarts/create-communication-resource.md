@@ -6,16 +6,16 @@ author: mikben
 manager: jken
 services: azure-communication-services
 ms.author: mikben
-ms.date: 09/30/2020
+ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-azp-net
-ms.openlocfilehash: 9324ca3b347550c2514a506c5a143b6e963e116f
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: ffb40d7fb45f43349004fc4d18e7582aa3521185
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102487326"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103495905"
 ---
 # <a name="quickstart-create-and-manage-communication-services-resources"></a>Quickstart: Criar e gerir recursos dos Serviços de Comunicação
 

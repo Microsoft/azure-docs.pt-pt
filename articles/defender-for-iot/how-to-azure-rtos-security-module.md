@@ -1,6 +1,6 @@
 ---
-title: Configure e personalize módulo de segurança para Azure RTOS
-description: Saiba como configurar e personalizar o seu Módulo de Segurança para Azure RTOS.
+title: Configure e personalize defender-ioT-micro-agente para Azure RTOS
+description: Saiba como configurar e personalizar o seu Defender-IoT-micro-agente para a Azure RTOS.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/07/2021
 ms.author: shhazam
-ms.openlocfilehash: 524286fa7a923485d0085fb63f3ef9669db1a4d5
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: 874a783763882a28f2fe7078e3a264d09107808a
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102449820"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103495101"
 ---
-# <a name="configure-and-customize-defender-iot-micro-agent-for-azure-rtos-ga"></a>Configure e personalize defender-ioT-micro-agente para Azure RTOS GA
+# <a name="configure-and-customize-defender-iot-micro-agent-for-azure-rtos-preview"></a>Configure e personalize o defender-ioT-micro-agente para Azure RTOS (pré-visualização)
 
 Este artigo descreve como configurar o defender-ioT-micro-agente para o seu dispositivo Azure RTOS, para satisfazer os requisitos de rede, largura de banda e memória.
 
@@ -89,5 +89,6 @@ Pode ativar e configurar o Log Analytics para investigar eventos e atividades do
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Rever e personalizar módulo de segurança para [alertas e recomendações de segurança](concept-rtos-security-alerts-recommendations.md) Azure RTOS
-- Consulte o [Módulo de Segurança para Azure RTOS API,](azure-rtos-security-module-api.md) conforme necessário.
+
+- Rever e personalizar o defender-ioT-micro-agente para [alertas e recomendações](concept-rtos-security-alerts-recommendations.md) de segurança Azure RTOS
+- Consulte o [Defender-IoT-micro-agente para a API AZure RTOS,](azure-rtos-security-module-api.md) se necessário.

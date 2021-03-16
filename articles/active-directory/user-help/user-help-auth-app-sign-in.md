@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 06/03/2020
+ms.date: 03/12/2021
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 3a9e4c8f3dd9e4cf291388bc102ae9a73d8de6dd
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 0fd0aa19d52adb4bf06c9d21d4182e27497a531b
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93131569"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103471773"
 ---
 # <a name="sign-in-to-your-accounts-using-the-microsoft-authenticator-app"></a>Inscreva-se nas suas contas utilizando a aplicação Microsoft Authenticator
 
@@ -54,6 +54,9 @@ Abra a aplicação Microsoft Authenticator, vá à sua conta de trabalho ou esco
 - **Quando toca no azulejo da conta,** vê uma visão completa da conta. Se vir **o registo do Telefone ativado,** significa que está totalmente configurado para iniciar sôm sem a sua senha. Se vir **Ativar o registo do telefone,** toque-o para ativar o registo do telefone.
 - **Se já esteve a utilizar a app para verificação de dois fatores,** pode tocar no azulejo da conta para ver uma visão completa do ecrã da conta. Em **seguida,** toque Em Ativar o registo telefónico para ativar o registo do telefone.
 - **Se não conseguir encontrar o seu trabalho ou conta escolar** no ecrã das **Contas** da aplicação, significa que ainda não a adicionou à aplicação. Adicione o seu trabalho ou conta escolar seguindo os passos na ajuda de [trabalho ou conta escolar.](user-help-auth-app-add-work-school-account.md)
+
+> [!NOTE]
+> A Microsoft não suporta uma combinação de registo de dispositivos e autenticação baseada em certificados no iOS. Em vez disso, o utilizador deve registar o dispositivo manualmente através das definições do Autenticador antes de iniciar a sua sessão.
 
 Depois de iniciar a sômin do telefone, pode iniciar sôms usando apenas a aplicação Microsoft Authenticator. Eis como:
 
