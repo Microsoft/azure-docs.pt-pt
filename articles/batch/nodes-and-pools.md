@@ -3,12 +3,12 @@ title: Nódoas e piscinas em Azure Batch
 description: Saiba mais sobre os nós e piscinas computacional e como são usados num fluxo de trabalho do Azure Batch do ponto de vista do desenvolvimento.
 ms.topic: conceptual
 ms.date: 03/11/2021
-ms.openlocfilehash: e1edcc805e0e8c59d189a4622e494101fb31bb6d
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.openlocfilehash: 7d4c2d45849deb011498efe4c8a1ae91724b9acd
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103200229"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103563900"
 ---
 # <a name="nodes-and-pools-in-azure-batch"></a>Nódoas e piscinas em Azure Batch
 
@@ -208,3 +208,4 @@ Se adicionar um certificado a uma piscina existente, deve reiniciar os seus nós
 ## <a name="next-steps"></a>Passos seguintes
 
 - Conheça [os empregos e tarefas.](jobs-and-tasks.md)
+- Saiba como [detetar e evitar falhas nas operações de fundo de piscina e nó. ](batch-pool-node-error-checking.md)

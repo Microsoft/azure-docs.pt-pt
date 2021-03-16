@@ -7,16 +7,16 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 10/05/2019
 ms.author: allensu
-ms.openlocfilehash: 4e81d8f88a7c01b6d302bcdaa88559159bed04ea
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: d06e90a691389b99d8f439364203b921f49b2305
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101709414"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103496478"
 ---
 # <a name="azure-private-link-frequently-asked-questions-faq"></a>Perguntas mais frequentes (FAQ) sobre o Azure Private Link
 
-## <a name="private-link"></a>Ligação Privada
+## <a name="private-link"></a>Private Link
 
 ### <a name="what-is-azure-private-endpoint-and-azure-private-link-service"></a>O que é Azure Private Endpoint e Azure Private Link Service?
 
@@ -54,6 +54,11 @@ Sim. Os pontos finais privados podem ligar-se aos recursos do Azure PaaS em toda
 
 ### <a name="can-i-modify-my-private-endpoint-network-interface-nic-"></a>Posso modificar a minha Interface de Rede de Pontos Finais (NIC) ?
 Quando um ponto final privado é criado, um NIC apenas de leitura é atribuído. Isto não pode ser modificado e permanecerá para o ciclo de vida do ponto final privado.
+
+### <a name="how-do-i-achieve-availability-while-using-private-endpoints-in-case-of-regional-failures-"></a>Como posso obter disponibilidade enquanto uso pontos finais privados em caso de falhas regionais?
+
+Os Pontos Finais Privados são recursos altamente disponíveis com 99,99% SLA [[SLA for Azure Private Link]](https://azure.microsoft.com/support/legal/sla/private-link/v1_0/). No entanto, uma vez que são recursos regionais, qualquer paralisação da região de Azure pode ter impacto na disponibilidade. Para conseguir disponibilidade em caso de falhas regionais, vários EE ligados ao mesmo recurso de destino poderiam ser implantados em diferentes regiões. Desta forma, se uma região cair, ainda pode encaminhar o tráfego para os seus cenários de recuperação através de PE em diferentes regiões para aceder ao recurso de destino. Para obter informações sobre como as falhas regionais são tratadas no lado do serviço de destino, por favor reveja a documentação do serviço sobre failover e recuperação. O tráfego de Ligação Privada segue a resolução Azure DNS para o ponto final de destino. 
+
 
 ## <a name="private-link-service"></a>Serviço de Ligação Privada
  

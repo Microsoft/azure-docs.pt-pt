@@ -5,15 +5,15 @@ author: boris-bazilevskiy
 manager: nmurav
 services: azure-communication-services
 ms.author: bobazile
-ms.date: 02/09/2021
+ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: a94aa0a0deea14cca2b558c602ff7e35ca0ba81f
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: ede650ae072ef53ed40a9372a292ab69fe8cc1af
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102487398"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103492733"
 ---
 # <a name="sip-interface-infrastructure-requirements"></a>Requisitos de infraestrutura sip Interface 
 
@@ -47,7 +47,7 @@ A tabela a seguir mostra exemplos de nomes DNS registados para o inquilino, se o
 
 |Nome DNS|Pode ser usado para SBC FQDN|Exemplos de nomes FQDN|
 |:--- |:--- |:--- |
-contoso.com|Yes|**Nomes válidos:**<br/>sbc1.contoso.com<br/>ssbcs15.contoso.com<br/>europe.contoso.com|
+contoso.com|Sim|**Nomes válidos:**<br/>sbc1.contoso.com<br/>ssbcs15.contoso.com<br/>europe.contoso.com|
 |contoso.onmicrosoft.com|No|A utilização de domínios *.onmicrosoft.com não é suportada para nomes SBC
 
 Se você é um cliente do Office 365, então o nome de domínio SBC não deve corresponder registado em Domínios do Inquilino Office 365. Segue-se o exemplo da coexistência do Office 365 e do Serviço de Comunicação Azure:

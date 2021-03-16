@@ -1,5 +1,5 @@
 ---
-title: Políticas de Gestão da AZure API Microsoft Docs
+title: Políticas de gestão da API Azure | Microsoft Docs
 description: Saiba mais sobre as políticas disponíveis para utilização na Gestão de API do Azure. As políticas permitem ao editor alterar o comportamento da API através da configuração.
 services: api-management
 documentationcenter: ''
@@ -10,14 +10,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/19/2017
+ms.date: 02/17/2021
 ms.author: apimpm
-ms.openlocfilehash: 312a496a5acda05a6b04a0bb47abb101f4ffcc8e
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: e809efa9da32da5fe9ca296608c602e770f78265
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107594"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103562353"
 ---
 # <a name="api-management-policies"></a>Políticas de API Management
 Esta secção fornece uma referência para as seguintes políticas de Gestão da API. Para obter informações sobre políticas de adição e configuração, consulte [Políticas em Gestão de API.](api-management-howto-policies.md)
@@ -81,10 +81,16 @@ Esta secção fornece uma referência para as seguintes políticas de Gestão da
     - [Enviar pedido para um serviço](api-management-dapr-policies.md#invoke) - usa o tempo de execução da Dapr para localizar e comunicar de forma fiável com um microserviço Dapr.
     -  [Enviar mensagem para pub/sub tópico](api-management-dapr-policies.md#pubsub) - usa o tempo de execução da Dapr para publicar uma mensagem para um tópico de Publicação/Subscreva.
     -  [Ligação de saída do gatilho](api-management-dapr-policies.md#bind) - usa o tempo de execução da Dapr para invocar um sistema externo através da ligação de saída.
+- [Políticas de validação](validation-policies.md)
+    - [Validar o conteúdo](validation-policies.md#validate-content) - Valida o tamanho ou esquema JSON de um órgão de pedido ou resposta contra o esquema da API.
+. 
+    - [Validar parâmetros](validation-policies.md#validate-parameters) - Valida o cabeçalho, consulta ou parâmetros de percurso do pedido contra o esquema da API.
+    - [Validar cabeçalhos](validation-policies.md#validate-headers) - Valida os cabeçalhos de resposta contra o esquema da API.
+    - [Validar código de estado](validation-policies.md#validate-status-code) - Valida os códigos de estado HTTP em respostas ao esquema API.
 
 ## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações sobre as políticas, consulte:
 
 + [Políticas em Gestão de API](api-management-howto-policies.md)
 + [Transformar APIs](transform-api.md)
-+ [Amostras de política](./policy-reference.md)
++ [Exemplos de Políticas](./policy-reference.md)

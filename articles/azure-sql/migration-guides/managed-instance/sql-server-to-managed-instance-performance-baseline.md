@@ -1,8 +1,8 @@
 ---
 title: 'SQL Server para SQL Managed Instance: Análise de desempenho'
 description: Aprenda a criar e comparar uma linha de base de desempenho ao migrar as bases de dados do SQL Server para Azure SQL Managed Instance.
-ms.service: sql-database
-ms.subservice: migration
+ms.service: sql-managed-instance
+ms.subservice: migration-guide
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -10,12 +10,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: mokabiru
 ms.date: 11/06/2020
-ms.openlocfilehash: 2b6f9bef445cc07a3aa00377b41010a536855935
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 28eedd3a22a0a5adc6e9a37c9e0f0fa0214a4e47
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97358865"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103564444"
 ---
 # <a name="migration-performance-sql-server-to-sql-managed-instance-performance-analysis"></a>Desempenho da migração: SQL Server para SQL Managed Instance análise de desempenho
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqlmi.md)]

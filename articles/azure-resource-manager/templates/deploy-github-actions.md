@@ -4,12 +4,12 @@ description: Descreve como implementar modelos de Gestor de Recursos Azure (mode
 ms.topic: conceptual
 ms.date: 10/13/2020
 ms.custom: github-actions-azure, devx-track-azurecli
-ms.openlocfilehash: 243316b32d5b0cf62f03ae77d8a9fb919743ace1
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 564a21d565fb80eba605eece95562a809a93246f
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102172835"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103471914"
 ---
 # <a name="deploy-arm-templates-by-using-github-actions"></a>Implemente modelos ARM utilizando ações do GitHub
 
@@ -43,7 +43,7 @@ Pode criar um [principal de serviço](../../active-directory/develop/app-objects
 Crie um grupo de recursos se ainda não tiver um.
 
 ```azurecli-interactive
-    az group create -n {MyResourceGroup}
+    az group create -n {MyResourceGroup} -l {location}
 ```
 
 Substitua o espaço reservado `myApp` pelo nome da sua aplicação.

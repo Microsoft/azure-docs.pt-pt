@@ -1,5 +1,5 @@
 ---
-title: Agregação clássica de evento de módulo de segurança
+title: Agregação clássica de eventos Defender-IoT-micro-agente
 description: Saiba mais sobre a agregação de eventos defender para ioT.
 services: defender-for-iot
 ms.service: defender-for-iot
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/20/2021
 ms.author: shhazam
-ms.openlocfilehash: 0718c2637658e5519760a68f29c7a816b2aa61a1
-ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
+ms.openlocfilehash: 01333da3041cc93154c46fb45a39bb209fd30f91
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99809223"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103493083"
 ---
-# <a name="security-module-classic-event-aggregation"></a>Agregação clássica de evento de módulo de segurança
+# <a name="defender-iot-micro-agent-classic-event-aggregation"></a>Agregação clássica de eventos Defender-IoT-micro-agente
 
 O Defender para agentes de segurança IoT recolhe dados e eventos do sistema a partir do seu dispositivo local e envia estes dados para a nuvem Azure para processamento e análise. O agente de segurança recolhe muitos tipos de eventos de dispositivos, incluindo novos processos e novos eventos de conexão. Tanto novos eventos de processo como novos eventos de conexão podem ocorrer legitimamente frequentemente num dispositivo dentro de um segundo, e embora importante para uma segurança robusta e abrangente, o número de mensagens que os agentes de segurança são forçados a enviar pode rapidamente alcançar ou exceder a sua quota IoT Hub e limites de custos. No entanto, estes eventos contêm informações de segurança altamente valiosas que são cruciais para proteger o seu dispositivo.
 

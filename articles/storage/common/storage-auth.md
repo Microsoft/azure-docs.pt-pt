@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/15/2020
+ms.date: 03/14/2021
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 3d86f862dcf7973ef3e7c42b069d6734ac95274a
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: a8733723fdc59634609a4a79c3b12f12208ab63b
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92784088"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103470290"
 ---
 # <a name="authorizing-access-to-data-in-azure-storage"></a>Autorizar o acesso aos dados no Azure Storage
 
@@ -23,7 +23,7 @@ Sempre que acede aos dados na sua conta de armazenamento, o seu cliente faz um p
 
 A tabela a seguir descreve as opções que o Azure Storage oferece para autorizar o acesso aos recursos:
 
-| Artefacto azul | Chave partilhada (chave da conta de armazenamento) | Assinatura de acesso partilhado (SAS) | Azure Active Directory (Azure AD) | Serviços de Domínio de Diretório Ativo no local (pré-visualização) | Público anónimo lê acesso |
+| Artefacto azul | Chave partilhada (chave da conta de armazenamento) | Assinatura de acesso partilhado (SAS) | Azure Active Directory (Azure AD) | Serviços de Domínio de Diretório Ativo no local | Público anónimo lê acesso |
 | -------------- | -------------------------------- | ----------------------------- | --------------------------------- | ------------------------------------------------------ | ---------------------------- |
 |Blobs do Azure     |[Suportado](/rest/api/storageservices/authorize-with-shared-key/)         |[Suportado](storage-sas-overview.md)         |[Suportado](storage-auth-aad.md)         |Não suportado|[Suportado](../blobs/anonymous-read-access-configure.md)         |
 |Ficheiros Azure (SMB)     |[Suportado](/rest/api/storageservices/authorize-with-shared-key/)         |Não suportado         |[Suportado, apenas com serviços de domínio AAD](../files/storage-files-active-directory-overview.md)         |[Suportadas, as credenciais devem ser sincronizadas com a Azure AD](../files/storage-files-active-directory-overview.md)|Não suportado         |
@@ -37,7 +37,7 @@ Cada opção de autorização é brevemente descrita abaixo:
 
 - **Autenticação dos Serviços de Domínio do Diretório Ativo Azure (Azure AD DS)** para ficheiros Azure. O Azure Files suporta uma autorização baseada na identidade sobre o Bloco de Mensagens do Servidor (SMB) através do Azure AD DS. Você pode usar O RBAC Azure para um controlo fino sobre o acesso de um cliente aos recursos do Azure Files numa conta de armazenamento. Para obter mais informações sobre a autenticação dos Ficheiros Azure utilizando os serviços de domínio, consulte a [visão geral](../files/storage-files-active-directory-overview.md).
 
-- **No local, serviços de domínio de diretório ativo (DS AD, ou no local AD DS) autenticação (pré-visualização)** para Ficheiros Azure. A Azure Files suporta a autorização baseada na identidade sobre o SMB através da DS AD. O seu ambiente AD DS pode ser hospedado em máquinas no local ou em VMs Azure. O acesso SMB a Ficheiros é suportado utilizando credenciais AD DS de máquinas de ligação de domínio, quer no local, quer em Azure. Você pode usar uma combinação de Azure RBAC para controlo de acesso ao nível de ações e NTFS DACLs para aplicação de permissão de nível de diretório/arquivo. Para obter mais informações sobre a autenticação dos Ficheiros Azure utilizando os serviços de domínio, consulte a [visão geral](../files/storage-files-active-directory-overview.md).
+- **No local, os Serviços de Domínio do Diretório Ativo (DS AD ou DS no local) autenticam para ficheiros** Azure. A Azure Files suporta a autorização baseada na identidade sobre o SMB através da DS AD. O seu ambiente AD DS pode ser hospedado em máquinas no local ou em VMs Azure. O acesso SMB a Ficheiros é suportado utilizando credenciais AD DS de máquinas de ligação de domínio, quer no local, quer em Azure. Você pode usar uma combinação de Azure RBAC para controlo de acesso ao nível de ações e NTFS DACLs para aplicação de permissão de nível de diretório/arquivo. Para obter mais informações sobre a autenticação dos Ficheiros Azure utilizando os serviços de domínio, consulte a [visão geral](../files/storage-files-active-directory-overview.md).
 
 - **Autorização de chave partilhada** para bolhas, ficheiros, filas e mesas. Um cliente que usa a Chave Partilhada passa um cabeçalho com cada pedido assinado usando a chave de acesso à conta de armazenamento. Para mais informações, consulte [Autorizar com chave partilhada.](/rest/api/storageservices/authorize-with-shared-key/)
 - **Assinaturas de acesso partilhadas** para bolhas, ficheiros, filas e mesas. As assinaturas de acesso partilhado (SAS) proporcionam acesso limitado e delegado aos recursos numa conta de armazenamento. A adição de restrições no intervalo de tempo para o qual a assinatura é válida ou nas permissões que concede proporciona flexibilidade na gestão do acesso. Para obter mais informações, consulte [utilizando assinaturas de acesso partilhado (SAS)](storage-sas-overview.md).
