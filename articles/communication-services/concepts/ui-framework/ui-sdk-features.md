@@ -4,15 +4,15 @@ titleSuffix: An Azure Communication Services conceptual document
 description: Conheça as capacidades do UI Framework
 author: ddematheu2
 ms.author: dademath
-ms.date: 11/16/2020
+ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 51caf1e73cdeda5862e033a05878f35ddb6ff8dc
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 5b1aab8b38614249d6b502044b5c4c8170f46b3c
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99539909"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103492222"
 ---
 # <a name="ui-framework-capabilities"></a>Capacidades de enquadramento da UI
 
@@ -22,7 +22,7 @@ O Quadro de UI dos Serviços de Comunicação Azure permite-lhe construir experi
 
 ## <a name="ui-framework-composite-components"></a>Componentes compósitos do UI Framework
 
-| Composto               | Description                                               | Web   | Android | iOS   |
+| Composto               | Descrição                                               | Web   | Android | iOS   |
 |-------------------------|-----------------------------------------------------------|-------|---------|-------|
 | Grupo chamando composto | Experiência de chamada de voz e vídeo leve para serviços de comunicação Azure chamando usando ativos de design fluente ui. Suporta a chamada de grupo usando o ID do Grupo de Serviços de Comunicação Azure. O composto permite que uma chamada de um para um seja usada através da referência a uma identidade dos Serviços de Comunicação Azure ou a um número de telefone para a PSTN utilizando um número de telefone adquirido através do Azure.                                    | React |  |  |
 | Compósito de chat de grupo    | Experiência de chat leve para serviços de comunicação Azure usando ativos de design fluente ui. Esta experiência concentra-se em oferecer um cliente de chat simples que pode ligar-se aos threads dos Serviços de Comunicação Azure. Permite que os utilizadores enviem mensagens e vejam mensagens recebidas com indicadores de dactilografia e ler recibos. Escala de 1:1 para cenários de chat em grupo. Suporta um único fio de chat.                         | React |  |  |

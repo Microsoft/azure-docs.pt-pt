@@ -2,15 +2,15 @@
 author: mikben
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 11/29/2020
+ms.date: 03/10/2021
 ms.author: mikben
 ms.custom: references_regions
-ms.openlocfilehash: 6b29a5f229ab9928a51f447fd730fa9b7fc442b2
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: 6161c98fc7a8b9cf9216b46e4ba45690fc5244af
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102486487"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103488345"
 ---
 > [!IMPORTANT]
 > A disponibilidade de números de telefone está atualmente restrita a subscrições do Azure que têm um endereço de faturação nos Estados Unidos. Para mais informações, visite a documentação dos [tipos de telefone.](../concepts/telephony-sms/plan-solution.md)

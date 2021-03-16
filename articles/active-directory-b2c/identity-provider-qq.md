@@ -7,17 +7,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 03/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 2fa8c2ea990644fa82ae79114322fa087259378b
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: 0f09b4557f9bbf2f074948bd7c8dbd349cd397bc
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102448198"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103488674"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-qq-account-using-azure-active-directory-b2c"></a>Configurar inscrição e inscrição com uma conta QQ utilizando o Azure Ative Directory B2C
 
@@ -46,7 +46,7 @@ Para permitir o acesso aos utilizadores com uma conta QQ no Azure Ative Director
 1. Vai [https://connect.qq.com/index.html](https://connect.qq.com/index.html) para.
 1. Selecione **应用管理** (gestão de aplicações).
 1. Selecione **创建应用** (criar app) e introduza as informações necessárias.
-1. Introduza `https://your-tenant-name.b2clogin.com/your-tenant-name}.onmicrosoft.com/oauth2/authresp` em **授权回调域** (URL de retorno). Por exemplo, se o seu `tenant_name` é contoso, desemosse o `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp` URL.
+1. Para a **授权回调域** (URL de retorno), insira `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` . Se utilizar um [domínio personalizado,](custom-domain.md)insira `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp` . `your-tenant-name`Substitua-o pelo nome do seu inquilino e `your-domain-name` pelo seu domínio personalizado.
 1. Selecione **创建应用** (criar app).
 1. Na página de confirmação, selecione **应用管理** (gestão de aplicações) para voltar à página de gestão de aplicações.
 1. Selecione **查看** (vista) ao lado da aplicação que criou.

@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: zhshang
-ms.openlocfilehash: 9d0e94cf2318db777bb44c15037f73531cd969fa
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 3c4d28addac0ecfc9605678582562550a1c96b8d
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100593325"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103491950"
 ---
 # <a name="messages-and-connections-in-azure-signalr-service"></a>Mensagens e ligações no Serviço Azure SignalR
 
@@ -48,9 +48,16 @@ Se tiver três clientes e um servidor de aplicações. Um cliente envia uma mens
 
 Existem ligações ao servidor e ligações ao cliente com o Serviço Azure SignalR. Por predefinição, cada servidor de aplicação começa com cinco ligações iniciais por hub, e cada cliente tem uma ligação com o cliente.
 
-A contagem de ligação mostrada no portal Azure inclui ligações ao servidor e ligações ao cliente.
-
 Por exemplo, assuma que tem dois servidores de aplicações e define cinco hubs em código. A contagem de ligação do servidor será de 50: 2 servidores de aplicações * 5 hubs * 5 ligações por hub.
+
+A contagem de ligação mostrada no portal Azure inclui ligações ao servidor, ligações ao cliente, ligações de diagnóstico e ligações de vestígios ao vivo. Os tipos de ligação são definidos na seguinte lista:
+
+- **Ligação do servidor**: Liga o Serviço Azure SignalR e o servidor de aplicações.
+- **Ligação ao cliente**: Liga o Serviço Azure SignalR e a aplicação do cliente.
+- **Ligação de diagnóstico**: Um tipo especial de ligação ao cliente que pode produzir um registo mais detalhado, que pode afetar o desempenho. Este tipo de cliente é projetado para resolver problemas.
+- **Ligação ao traço ao vivo**: Liga-se ao ponto final do traço vivo e recebe vestígios ao vivo do Serviço Azure SignalR. 
+ 
+Note que uma ligação ao vivo não é contada como uma ligação ao cliente ou como uma ligação de servidor. 
 
 ASP.NET SignalR calcula as ligações do servidor de uma forma diferente. Inclui um hub padrão para além dos centros que define. Por predefinição, cada servidor de aplicação necessita de mais cinco ligações iniciais do servidor. A contagem inicial de ligação para o hub padrão permanece consistente com outros centros.
 

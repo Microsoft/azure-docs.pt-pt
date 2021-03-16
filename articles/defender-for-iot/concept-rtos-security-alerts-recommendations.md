@@ -1,6 +1,6 @@
 ---
-title: Módulo de Segurança para Azure RTOS incorporado & alertas e recomendações personalizáveis
-description: Saiba mais sobre alertas de segurança e remediação recomendada utilizando o Módulo de Segurança Azure IoT -RTOS.
+title: Defender-IoT-micro-agente para Azure RTOS incorporado & alertas e recomendações personalizáveis
+description: Saiba mais sobre alertas de segurança e remediação recomendada utilizando o Azure IoT Defender-IoT-micro-agent -RTOS.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
@@ -13,24 +13,24 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/07/2020
 ms.author: mlottner
-ms.openlocfilehash: cf4924f8a9b97487e64e12ab80df92f2b2a81de2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d6dfeb01e174d71c926e9fcf7f5f1ee078524cf9
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90939517"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103494279"
 ---
-# <a name="security-module-for-azure-rtos-security-alerts-and-recommendations-preview"></a>Módulo de segurança para alertas e recomendações de segurança Azure RTOS (pré-visualização)
+# <a name="defender-iot-micro-agent-for-azure-rtos-security-alerts-and-recommendations-preview"></a>Defender-IoT-micro-agente para alertas e recomendações de segurança Azure RTOS (pré-visualização)
 
-O Módulo de Segurança para O Azure RTOS analisa continuamente a sua solução IoT utilizando análises avançadas e inteligência de ameaça para alertá-lo para potenciais atividades maliciosas e modificações suspeitas do sistema. Também pode criar alertas personalizados com base no seu conhecimento do comportamento esperado do dispositivo e das linhas de base.
+O defender-ioT-micro-agente da Azure RTOS analisa continuamente a sua solução IoT utilizando análises avançadas e inteligência de ameaça para alertá-lo para potenciais atividades maliciosas e modificações suspeitas do sistema. Também pode criar alertas personalizados com base no seu conhecimento do comportamento esperado do dispositivo e das linhas de base.
 
-Um módulo de segurança para o alerta de RTOS Azure funciona como um indicador de potencial compromisso, e deve ser investigado e remediado. Um módulo de segurança para a recomendação de Azure RTOS identifica a postura de segurança fraca para ser remediada e atualizada. 
+Um alerta defender-ioT-micro-agente para o Azure RTOS funciona como um indicador de potencial compromisso, e deve ser investigado e remediado. Uma recomendação Defender-IoT-micro-agente para a Azure RTOS identifica a fraca postura de segurança a ser remediada e atualizada. 
 
 Neste artigo, encontrará uma lista de alertas e recomendações incorporados que são desencadeados com base nas gamas padrão, e personalizáveis com os seus próprios valores, com base no comportamento esperado ou de base. 
 
-Para obter mais informações sobre como funciona a personalização de alerta no serviço Defender para IoT, consulte [alertas personalizáveis.](concept-customizable-security-alerts.md) Os alertas e recomendações específicos disponíveis para personalização ao utilizar o Módulo de Segurança para Azure RTOS são detalhados nas seguintes tabelas. 
+Para obter mais informações sobre como funciona a personalização de alerta no serviço Defender para IoT, consulte [alertas personalizáveis.](concept-customizable-security-alerts.md) Os alertas e recomendações específicos disponíveis para personalização ao utilizar o defender-ioT-micro-agente para Azure RTOS são detalhados nas tabelas seguintes. 
 
-## <a name="security-module-for-azure-rtos-supported-security-alerts"></a>Módulo de Segurança para Azure RTOS suportado alertas de segurança
+## <a name="defender-iot-micro-agent-for-azure-rtos-supported-security-alerts"></a>Defender-IoT-micro-agente para Azure RTOS apoiou alertas de segurança
 
 ### <a name="device-related-security-alerts"></a>Alertas de segurança relacionados com dispositivos
 
@@ -53,7 +53,7 @@ Para obter mais informações sobre como funciona a personalização de alerta n
 |Certificado eliminado    | Supressão detetada de um certificado de um hub IoT        |
 |Novo certificado     |  Detetado adição de novo certificado a um Hub IoT       |
 
-## <a name="security-module-for-azure-rtos-supported-customizable-alerts"></a>Módulo de Segurança para Azure RTOS suportado alertas personalizáveis
+## <a name="defender-iot-micro-agent-for-azure-rtos-supported-customizable-alerts"></a>Defender-IoT-micro-agente para Azure RTOS suportado alertas personalizáveis
 
 ### <a name="device-related-customizable-alerts"></a>Alertas personalizáveis relacionados com dispositivo
 
@@ -75,7 +75,7 @@ Para obter mais informações sobre como funciona a personalização de alerta n
 |Atualizações para módulos duplos     |  Número de atualizações para módulos duplos fora da gama permitida       |
 |Operações não autorizadas    |  Número de operações não autorizadas fora do alcance permitido       |
 
-## <a name="security-module-for-azure-rtos-supported-recommendations"></a>Módulo de Segurança para Azure RTOS apoiou recomendações
+## <a name="defender-iot-micro-agent-for-azure-rtos-supported-recommendations"></a>Defender-IoT-micro-agente para Azure RTOS apoiou recomendações
 
 ### <a name="device-related-recommendations"></a>Recomendações relacionadas com dispositivos
 
@@ -97,6 +97,6 @@ Para obter uma lista completa de todos os alertas e recomendações relacionados
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Quickstart: Módulo de segurança para Azure RTOS](quickstart-azure-rtos-security-module.md)
-- [Configure e personalize módulo de segurança para Azure RTOS](how-to-azure-rtos-security-module.md)
-- Consulte o [Módulo de Segurança para Azure RTOS API](azure-rtos-security-module-api.md)
+- [Quickstart: Defender-IoT-micro-agente para Azure RTOS](quickstart-azure-rtos-security-module.md)
+- [Configure e personalize defender-ioT-micro-agente para Azure RTOS](how-to-azure-rtos-security-module.md)
+- Consulte o [Defender-IoT-micro-agente para a API AZURE RTOS](azure-rtos-security-module-api.md)

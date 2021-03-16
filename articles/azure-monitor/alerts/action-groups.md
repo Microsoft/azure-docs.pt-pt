@@ -5,12 +5,12 @@ author: dkamstra
 ms.topic: conceptual
 ms.date: 02/25/2021
 ms.author: dukek
-ms.openlocfilehash: ca43315258ea6439b08682898612137f7de1d61b
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 0771249e94d3e00cbeaff00406a0dbf33777a14d
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102045637"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103490335"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Criar e gerir grupos de ações no portal do Azure
 Um grupo de ação é uma coleção de preferências de notificação definidas pelo proprietário de uma subscrição Azure. Os alertas Azure Monitor e Service Health utilizam grupos de ação para notificar os utilizadores de que foi desencadeado um alerta. Vários alertas podem utilizar o mesmo grupo de ação ou diferentes grupos de ação, dependendo dos requisitos do utilizador. 
@@ -250,7 +250,7 @@ else
     
 New-AzureADServiceAppRoleAssignment -Id $myApp.AppRoles[0].Id -ResourceId $myServicePrincipal.ObjectId -ObjectId $actionGroupsSP.ObjectId -PrincipalId $actionGroupsSP.ObjectId
     
-Write-Host "My Azure AD Application ($myApp.ObjectId): " + $myApp.ObjectId
+Write-Host "My Azure AD Application (ObjectId): " + $myApp.ObjectId
 Write-Host "My Azure AD Application's Roles"
 Write-Host $myApp.AppRoles
 ```

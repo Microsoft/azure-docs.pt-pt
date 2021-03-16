@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/3/2020
-ms.openlocfilehash: 920f6a4fec1ec8a260a98641888268e4955bbf44
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 8b85307f01a11366a2147c947f26658f548932e8
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101718782"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103467719"
 ---
 # <a name="supported-azure-database-for-mysql-server-versions"></a>Banco de dados Azure suportado para versões de servidor MySQL
 
@@ -25,9 +25,11 @@ A Azure Database for MySQL suporta atualmente as seguintes versões principais e
 
 | Versão | Servidor Único <br/> Versão menor atual |Servidor Flexível (Pré-visualização) <br/> Versão menor atual  |
 |:-------------------|:-------------------------------------------|:---------------------------------------------|
-|MySQL Versão 5.6 |  [5.6.47](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-47.html) | Não suportado|
+|MySQL Versão 5.6 |  [5.6.47](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-47.html) (Aposentado) | Não suportado|
 |MySQL Versão 5.7 | [5.7.29](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-29.html) | [5.7.29](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-29.html)|
 |MySQL Versão 8.0 | [8.0.15](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-15.html) | [8.0.21](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-21.html)|
+
+Leia a política de suporte da versão para versões aposentadas na [documentação de política de suporte de versão.](concepts-version-policy.md#retired-mysql-engine-versions-not-supported-in-azure-database-for-mysql)
 
 ## <a name="managing-updates-and-upgrades"></a>Gerir atualizações e atualizações
 O serviço gere automaticamente a correção para atualizações de versões de correção de erros. Por exemplo, 5.7.20 a 5.7.21.  

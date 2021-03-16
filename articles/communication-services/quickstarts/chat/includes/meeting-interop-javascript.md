@@ -2,15 +2,15 @@
 title: Quickstart - Junte-se a um encontro de equipas
 author: askaur
 ms.author: askaur
-ms.date: 02/17/2020
+ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 76293bf8497b1cdc20522cc00783dd910f8d77dc
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.openlocfilehash: dd183e9088f24aa8b94955bc8ed2a68b4a7eb27c
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103020899"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103496185"
 ---
 ## <a name="joining-the-meeting-chat"></a>Juntando-se ao chat da reunião 
 

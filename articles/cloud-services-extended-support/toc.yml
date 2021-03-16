@@ -1,6 +1,6 @@
 - name: Documentação dos Serviços de Nuvem (suporte alargado)
   href: index.yml
-- name: Descrição geral
+- name: Descrição Geral
   items:
     - name: Sobre os Serviços cloud (suporte alargado)
       href: overview.md
@@ -65,6 +65,8 @@
       href: configure-scaling.md
     - name: Certificados
       href: certificates-and-key-vault.md
+    - name: Gerar modelo ARM usando o Portal
+      href: generate-template-portal.md
 - name: Amostras
   items:
     - name: Modelos de amostra

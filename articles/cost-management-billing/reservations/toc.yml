@@ -124,6 +124,8 @@
           href: reservation-renew.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Resolução de problemas
       items:
+        - name: Encontre um comprador de reservas a partir de registos Azure
+          href: find-reservation-purchaser-from-logs.md?toc=/azure/cost-management-billing/reservations/toc.json
         - name: Transferências de resolução de problemas entre inquilinos
           href: troubleshoot-reservation-transfers-between-tenants.md?toc=/azure/cost-management-billing/reservations/toc.json
         - name: Não existem subscrições elegíveis

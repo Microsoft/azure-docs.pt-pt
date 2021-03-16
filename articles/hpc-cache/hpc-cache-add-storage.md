@@ -4,20 +4,20 @@ description: Como definir alvos de armazenamento para que o seu Cache Azure HPC 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 01/28/2021
+ms.date: 03/11/2021
 ms.author: v-erkel
-ms.openlocfilehash: b4df5863cc746490f13685a8d412232217af3bc8
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 4e6c5b5ea69c55c09887528f1723414f53fcb0f9
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99054370"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103471944"
 ---
 # <a name="add-storage-targets"></a>Adicionar destinos de armazenamento
 
 *Os alvos de armazenamento* são armazenamento de back-end para ficheiros que são acedidos através de uma Cache Azure HPC. Pode adicionar armazenamento NFS (como um sistema de hardware no local) ou armazenar dados em Azure Blob.
 
-Pode definir até dez alvos de armazenamento diferentes para uma cache. A cache apresenta todos os alvos de armazenamento num espaço de nome agregado.
+Pode definir até 20 alvos de armazenamento diferentes para uma cache. A cache apresenta todos os alvos de armazenamento num espaço de nome agregado.
 
 Os caminhos do espaço de nome são configurados separadamente depois de adicionar os alvos de armazenamento. Em geral, um alvo de armazenamento NFS pode ter até dez caminhos de espaço de nome, ou mais para algumas configurações grandes. Leia [os caminhos do espaço de nome NFS](add-namespace-paths.md#nfs-namespace-paths) para mais detalhes.
 
@@ -29,7 +29,7 @@ Adicione os alvos de armazenamento depois de criar o seu cache. Acompanhe este p
 1. Definir um alvo de armazenamento (informação neste artigo)
 1. [Crie os caminhos voltados para o cliente](add-namespace-paths.md) (para o [espaço de nome agregado)](hpc-cache-namespace.md)
 
-O procedimento para adicionar um alvo de armazenamento é ligeiramente diferente dependendo se você está adicionando armazenamento Azure Blob ou uma exportação NFS. Os detalhes para cada um estão abaixo.
+O procedimento para adicionar um alvo de armazenamento é ligeiramente diferente dependendo do tipo de armazenamento que utiliza. Os detalhes para cada um estão abaixo.
 
 Clique na imagem abaixo para ver uma [demonstração](https://azure.microsoft.com/resources/videos/set-up-hpc-cache/) de vídeo de criar uma cache e adicionar um alvo de armazenamento a partir do portal Azure.
 
@@ -40,6 +40,9 @@ Clique na imagem abaixo para ver uma [demonstração](https://azure.microsoft.co
 Um novo alvo de armazenamento Blob precisa de um recipiente Blob vazio ou um recipiente que esteja povoado com dados no formato do sistema de ficheiros cloud Cache Azure HPC. Leia mais sobre o pré-carregamento de um recipiente Blob em [Move para o armazenamento de Azure Blob](hpc-cache-ingest.md).
 
 O portal Azure **Adicionar página-alvo de armazenamento** inclui a opção de criar um novo recipiente Blob pouco antes de o adicionar.
+
+> [!NOTE]
+> Para o armazenamento de bolhas montado em NFS, utilize o tipo [de alvo de armazenamento ADLS-NFS.](#)
 
 ### <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -161,38 +164,48 @@ Um alvo de armazenamento NFS tem configurações diferentes de um alvo de armaze
 > Antes de criar um alvo de armazenamento NFS, certifique-se de que o seu sistema de armazenamento está acessível a partir da Cache Azure HPC e cumpre os requisitos de permissão. A criação do alvo de armazenamento falhará se a cache não conseguir aceder ao sistema de armazenamento. Leia [os requisitos de armazenamento NFS](hpc-cache-prerequisites.md#nfs-storage-requirements) e [a configuração do NAS de resolução de problemas e problemas de alvo de armazenamento NFS](troubleshoot-nas.md) para mais detalhes.
 
 ### <a name="choose-a-usage-model"></a>Escolha um modelo de utilização
-<!-- referenced from GUI - update aka.ms link if you change this heading -->
+<!-- referenced from GUI - update aka.ms link to point at new article when published -->
 
-Quando cria um alvo de armazenamento que aponta para um sistema de armazenamento NFS, tem de escolher o modelo de utilização para esse alvo. Este modelo determina como os seus dados são em cache.
+Quando cria um alvo de armazenamento que utilize NFS para atingir o seu sistema de armazenamento, tem de escolher um modelo de utilização para esse alvo. Este modelo determina como os seus dados são em cache.
 
-Os modelos de utilização incorporados permitem-lhe escolher como equilibrar a resposta rápida com o risco de obter dados antigos. Se pretender otimizar a velocidade de leitura do ficheiro, pode não se importar se os ficheiros da cache são verificados contra os ficheiros de fundo. Por outro lado, se quiser certificar-se de que os seus ficheiros estão sempre atualizados com o armazenamento remoto, escolha um modelo que verifique com frequência.
+Leia [Os modelos de utilização](cache-usage-models.md) para obter mais detalhes sobre todas estas definições.
 
-Existem três opções:
+Os modelos de utilização incorporados permitem-lhe escolher como equilibrar a resposta rápida com o risco de obter dados antigos. Se pretender otimizar a velocidade para os ficheiros de leitura, pode não se importar se os ficheiros da cache são verificados contra os ficheiros de fundo. Por outro lado, se quiser certificar-se de que os seus ficheiros estão sempre atualizados com o armazenamento remoto, escolha um modelo que verifique com frequência.
 
-* **Leia escritas pesadas e pouco frequentes** - Utilize esta opção se quiser acelerar o acesso de leitura a ficheiros que são estáticos ou raramente alterados.
+Estas três opções abrangem a maioria das situações:
 
-  Esta opção caches ficheiros que os clientes lêem, mas passa a escrever para o armazenamento back-end imediatamente. Os ficheiros armazenados na cache não são automaticamente comparados com os ficheiros do volume de armazenamento NFS. (Leia a nota abaixo sobre a verificação de back-end para saber mais.)
+* **Leia gravações pesadas e pouco frequentes** - As velocidades de leitura do acesso a ficheiros que são estáticos ou raramente alterados.
+
+  Esta opção caches ficheiros de leituras de clientes, mas passa o cliente escreve para o armazenamento de back-end imediatamente. Os ficheiros armazenados na cache não são automaticamente comparados com os ficheiros do volume de armazenamento NFS.
 
   Não utilize esta opção se existir o risco de um ficheiro poder ser modificado diretamente no sistema de armazenamento sem antes o escrever para a cache. Se isso acontecer, a versão em cache do ficheiro estará dessincronizada com o ficheiro back-end.
 
-* **Mais de 15% escreve** - Esta opção acelera tanto a leitura como a gravação. Ao utilizar esta opção, todos os clientes devem aceder aos ficheiros através da Cache Azure HPC em vez de montarem o armazenamento de back-end diretamente. Os ficheiros em cache terão alterações recentes que não são armazenadas na parte de trás.
+* **Mais de 15% escreve** - Esta opção acelera tanto a leitura como a gravação.
 
-  Neste modelo de utilização, os ficheiros na cache só são verificados com os ficheiros de armazenamento de back-end a cada oito horas. Presume-se que a versão em cache do ficheiro é mais atual. Um ficheiro modificado na cache é escrito no sistema de armazenamento de back-end depois de ter estado na cache durante uma hora sem alterações adicionais.
+  As leituras dos clientes e as escritas dos clientes estão em cache. Presume-se que os ficheiros na cache são mais recentes do que os ficheiros do sistema de armazenamento de back-end. Os ficheiros em cache são verificados automaticamente contra os ficheiros do armazenamento de back-end a cada oito horas. Os ficheiros modificados na cache são escritos no sistema de armazenamento de back-end depois de terem estado na cache durante 20 minutos sem alterações adicionais.
 
-* **Os clientes escrevem para o alvo NFS, contornando a cache** - Escolha esta opção se algum cliente no seu fluxo de trabalho escrever dados diretamente para o sistema de armazenamento sem primeiro escrever para a cache, ou se pretende otimizar a consistência dos dados. Os ficheiros que os clientes solicitam estão em cache, mas quaisquer alterações nesses ficheiros do cliente são imediatamente repercutidos no sistema de armazenamento back-end.
+  Não utilize esta opção se algum cliente montar o volume de armazenamento de back-end diretamente, porque existe o risco de ter ficheiros desatualizados.
 
-  Com este modelo de utilização, os ficheiros na cache são frequentemente verificados com as versões back-end para obter atualizações. Esta verificação permite que os ficheiros sejam alterados fora da cache, mantendo a consistência dos dados.
+* **Os clientes escrevem para o alvo NFS, contornando a cache** - Escolha esta opção se algum cliente no seu fluxo de trabalho escrever dados diretamente para o sistema de armazenamento sem primeiro escrever para a cache, ou se pretende otimizar a consistência dos dados.
 
-Esta tabela resume as diferenças do modelo de utilização:
+  Os ficheiros que os clientes solicitam estão em cache, mas quaisquer alterações a esses ficheiros do cliente são imediatamente transmitidas para o sistema de armazenamento back-end. Os ficheiros na cache são verificados frequentemente com as versões back-end para atualizações. Esta verificação mantém a consistência dos dados quando os ficheiros são alterados diretamente no sistema de armazenamento em vez de através da cache.
 
-| Modelo de utilização                   | Modo caching | Verificação de back-end | Atraso máximo de desatrada |
-|-------------------------------|--------------|-----------------------|--------------------------|
-| Leia escritos pesados e pouco frequentes | Ler         | Nunca                 | Nenhum                     |
-| Mais de 15% escreve       | Leitura/escrita   | 8 horas               | Uma hora                   |
-| Os clientes contornam a cache      | Ler         | 30 segundos            | Nenhum                     |
+Para mais detalhes sobre as outras opções, leia [Os modelos de utilização](cache-usage-models.md).
+
+Esta tabela resume as diferenças entre todos os modelos de utilização:
+
+| Modelo de utilização | Modo caching | Verificação de back-end | Atraso máximo de desatrada |
+|--|--|--|--|
+| Leia escritos pesados e pouco frequentes | Ler | Nunca | Nenhum |
+| Mais de 15% escreve | Leitura/escrita | 8 horas | 20 minutos |
+| Os clientes contornam a cache | Ler | 30 segundos | Nenhum |
+| Mais de 15% de escritos, verificação frequente de back-end (30 segundos) | Leitura/escrita | 30 segundos | 20 minutos |
+| Mais de 15% de escritos, verificação frequente de back-end (60 segundos) | Leitura/escrita | 60 segundos | 20 minutos |
+| Mais de 15% escreve, frequentemente write-back | Leitura/escrita | 30 segundos | 30 segundos |
+| Leia pesado, verificando o servidor de apoio a cada 3 horas | Ler | 3 horas | Nenhum |
 
 > [!NOTE]
-> O valor **de verificação back-end** mostra quando o cache compara automaticamente os seus ficheiros com ficheiros de origem no armazenamento remoto. No entanto, pode forçar a Azure HPC Cache a comparar ficheiros através da realização de uma operação de diretório que inclui um pedido de readdirplus. Readdirplus é uma API padrão NFS (também chamada de leitura estendida) que devolve metadados de diretório, o que faz com que a cache compare e atualize ficheiros.
+> O valor **de verificação back-end** mostra quando o cache compara automaticamente os seus ficheiros com ficheiros de origem no armazenamento remoto. No entanto, pode desencadear uma comparação enviando um pedido de cliente que inclui uma operação readdirplus no sistema de armazenamento back-end. Readdirplus é uma API padrão NFS (também chamada de leitura estendida) que devolve metadados de diretório, o que faz com que a cache compare e atualize ficheiros.
 
 ### <a name="create-an-nfs-storage-target"></a>Criar um alvo de armazenamento NFS
 
@@ -291,6 +304,43 @@ Resultado:
 ```
 
 ---
+
+## <a name="add-a-new-adls-nfs-storage-target-preview"></a>Adicione um novo alvo de armazenamento ADLS-NFS (PREVIEW)
+
+Os alvos de armazenamento ADLS-NFS utilizam recipientes Azure Blob que suportam o protocolo Sistema de Ficheiros de Rede (NFS) 3.0.
+
+> [!NOTE]
+> O suporte do protocolo NFS 3.0 para o armazenamento Azure Blob está em pré-visualização pública. A disponibilidade é restrita e as funcionalidades podem mudar entre agora e quando a funcionalidade se torna geralmente disponível. Não utilize tecnologia de pré-visualização em sistemas de produção.
+>
+> Leia [o suporte do protocolo NFS 3.0](../storage/blobs/network-file-system-protocol-support.md) para obter as últimas informações.
+
+Os alvos de armazenamento ADLS-NFS têm algumas semelhanças com alvos de armazenamento Blob e alguns com alvos de armazenamento NFS. Por exemplo:
+
+* Como um alvo de armazenamento Blob, você precisa dar permissão de Cache Azure HPC para aceder à [sua conta de armazenamento](#add-the-access-control-roles-to-your-account).
+* Como um alvo de armazenamento NFS, você precisa definir um [modelo de utilização](#choose-a-usage-model)de cache .
+* Como os recipientes blob ativados por NFS têm uma estrutura hierárquica compatível com NFS, não é necessário utilizar a cache para ingerir dados, e os recipientes são legíveis por outros sistemas NFS. Pode pré-carregar os dados num recipiente ADLS-NFS, em seguida, adicioná-lo a uma cache HPC como alvo de armazenamento e, em seguida, aceder aos dados mais tarde a partir de fora de uma cache HPC. Quando utiliza um recipiente blob padrão como alvo de armazenamento de cache HPC, os dados são escritos num formato proprietário e só podem ser acedidos a partir de outros produtos compatíveis com cache Azure HPC.
+
+Antes de criar um alvo de armazenamento ADLS-NFS, tem de criar uma conta de armazenamento ativada por NFS. Siga as dicas em [Pré-Requisitos para Cache Azure HPC](hpc-cache-prerequisites.md#nfs-mounted-blob-adls-nfs-storage-requirements-preview) e as instruções no [armazenamento do Monte Blob utilizando NFS](../storage/blobs/network-file-system-protocol-support-how-to.md). Após a configuração da sua conta de armazenamento, pode criar um novo recipiente quando criar o alvo de armazenamento.
+
+Para criar um alvo de armazenamento ADLS-NFS, abra a **página-alvo de armazenamento Add** no portal Azure. (Estão em desenvolvimento métodos adicionais.)
+
+![Screenshot da página-alvo de armazenamento com o alvo ADLS-NFS definido](media/add-adls-target.png)
+
+Insira esta informação.
+
+* **Nome alvo de armazenamento** - Desconfie um nome que identifique este alvo de armazenamento na Cache Azure HPC.
+* **Tipo alvo** - Escolha **ADLS-NFS**.
+* **Conta de armazenamento** - Selecione a conta que pretende utilizar. Se a sua conta de armazenamento ativada por NFS não constar da lista, verifique se está em conformidade com os pré-requisitos e se a cache pode aceder à sua conta.
+
+  Terá de autorizar a cache para aceder à conta de armazenamento, tal como descrito no [Add the access roles](#add-the-access-control-roles-to-your-account).
+
+* **Recipiente de armazenamento** - Selecione o recipiente de bolhas ativado por NFS para este alvo ou clique em **Criar novo**.
+
+* **Modelo de utilização** - Escolha um dos perfis de caching de dados com base no seu fluxo de trabalho, descrito em [Escolha um modelo de utilização](#choose-a-usage-model) acima.
+
+Quando terminar, clique **em OK** para adicionar o alvo de armazenamento.
+
+<!-- **** -->
 
 ## <a name="view-storage-targets"></a>Ver alvos de armazenamento
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: 89ecf26778433a3f075f76905183f3fe866cb5db
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: e35e3dd0bacc0b1e3a44d9338f612a70ca4b52bf
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102447270"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103496529"
 ---
 # <a name="select-and-deploy-a-security-agent-on-your-iot-device"></a>Selecione e coloque um agente de segurança no seu dispositivo IoT
 
@@ -42,7 +42,7 @@ O agente de segurança baseado em C tem uma pegada de memória mais baixa, e é 
 | --- | ----------- | --------- |
 | **É open-source** | Disponível sob [licença do MIT](https://en.wikipedia.org/wiki/MIT_License) no [GitHub](https://aka.ms/iot-security-github-c) | Disponível sob [licença do MIT](https://en.wikipedia.org/wiki/MIT_License) no [GitHub](https://aka.ms/iot-security-github-cs) |
 | **Linguagem de programação**    | C | C# |
-| **Plataformas suportadas do Windows?** | Não | Sim |
+| **Plataformas suportadas do Windows?** | No | Sim |
 | **Pré-requisitos do Windows** | --- | [WMI](/windows/desktop/wmisdk/) |
 | **Apoiou plataformas Linux?** | Sim, x64 e x86 | Sim, apenas x64 |
 | **Pré-requisitos linux** | libunwind8, libcurl3, uuid-runtime, auditado, audispd-plugins | libunwind8, libcurl3, uuid-runtime, auditado, audispd-plugins, sudo, netstat, iptables |
@@ -51,7 +51,7 @@ O agente de segurança baseado em C tem uma pegada de memória mais baixa, e é 
 | **[Autenticação](concept-security-agent-authentication-methods.md) no IoT Hub** | Sim | Sim |
 | **Recolha [de](how-to-agent-configuration.md#supported-security-events) dados de segurança** | Sim | Sim |
 | **Agregação de eventos** | Sim | Sim |
-| **Configuração remota através do [módulo de segurança twin](concept-security-module.md)** | Sim | Sim |
+| **Configuração remota através [do gémeo Defender-IoT-micro-agente](concept-security-module.md)** | Sim | Sim |
 
 ## <a name="security-agent-installation-guidelines"></a>Diretrizes de instalação de agentes de segurança
 

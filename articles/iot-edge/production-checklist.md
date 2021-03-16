@@ -11,14 +11,16 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 65710047d5d5d1cc6b835144f7778392fb20b797
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 1fc229b04ac317578e9e90686496cd081b279afd
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102042271"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103489760"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Prepare-se para implementar a sua solução IoT Edge na produção
+
+[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
 
 Quando estiver pronto para levar a sua solução IoT Edge do desenvolvimento para a produção, certifique-se de que está configurada para o desempenho contínuo.
 

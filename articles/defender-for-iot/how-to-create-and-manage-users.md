@@ -4,15 +4,15 @@ description: Criar e gerir os utilizadores de sensores e a consola de gestão no
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 1/3/2021
+ms.date: 03/03/2021
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: fd0c7b74bea979737644824f93b4dce7a2364b99
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: dff379c99fa7383c7f7844cf8d195a345e88a335
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100522347"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103466274"
 ---
 # <a name="about-defender-for-iot-console-users"></a>Sobre o Defender para utilizadores de consolas IoT
 
@@ -162,7 +162,7 @@ São suportados dois tipos de autenticação baseada em LDAP:
 
 ### <a name="active-directory-and-defender-for-iot-permissions"></a>Diretório Ativo e Defender para permissões IoT
 
-Pode associar grupos de Diretório Ativo definidos aqui com níveis de permissão específicos. Por exemplo, configurar um grupo de Diretório Ativo específico e atribuir permissões RO a todos os utilizadores do grupo. Consulte [criar e gerir os utilizadores](how-to-create-and-manage-users.md) para obter mais detalhes.
+Pode associar grupos de Diretório Ativo definidos aqui com níveis de permissão específicos. Por exemplo, configurar um grupo específico de Diretório Ativo e atribuir permissões de Read Only a todos os utilizadores do grupo.
 
 Para configurar o Diretório Ativo:
 
@@ -170,11 +170,11 @@ Para configurar o Diretório Ativo:
 
     :::image type="content" source="media/how-to-setup-active-directory/ad-system-settings-v2.png" alt-text="Veja as definições do sistema Ative Directory.":::
 
-1. No painel **de definições** do sistema, selecione **Ative Directory**.
+2. No painel **de definições** do sistema, selecione **Ative Directory**.
 
     :::image type="content" source="media/how-to-setup-active-directory/ad-configurations-v2.png" alt-text="Edite as configurações do Ative Directory.":::
 
-1. Na caixa de diálogo de **configuração de configuração do diretório ativo de edição,** selecione **Ative Directory Integration Enabled**  >  **Save**. A caixa de diálogo de **configuração de diretório ativo** de edição expande-se e agora pode introduzir os parâmetros para configurar o Ative Directory.
+3. Na caixa de diálogo de **configuração de configuração do diretório ativo de edição,** selecione **Ative Directory Integration Enabled**  >  **Save**. A caixa de diálogo de **configuração de diretório ativo** de edição expande-se e agora pode introduzir os parâmetros para configurar o Ative Directory.
 
     :::image type="content" source="media/how-to-setup-active-directory/ad-integration-enabled-v2.png" alt-text="Introduza os parâmetros para configurar o Ative Directory.":::
 
@@ -183,7 +183,7 @@ Para configurar o Diretório Ativo:
     > - Para todos os parâmetros do Diretório Ativo, utilize apenas minúsculas. Utilize minúsculas mesmo quando as configurações no Ative Directory utilizarem maiúsculas.
     > - Não é possível configurar tanto lDAP como LDAPS para o mesmo domínio. No entanto, pode utilizar ambos para diferentes domínios ao mesmo tempo.
 
-1. Desa esta medida os parâmetros do servidor ative directory, da seguinte forma:
+4. Desa esta medida os parâmetros do servidor ative directory, da seguinte forma:
 
    | Parâmetro do servidor | Description |
    |--|--|
@@ -193,11 +193,15 @@ Para configurar o Diretório Ativo:
    | Grupos de diretório ativo | Introduza os nomes de grupo definidos na configuração do Ative Directory no servidor LDAP. |
    | Domínios fidedignos | Para adicionar um domínio de confiança, adicione o nome de domínio e o tipo de ligação de um domínio fidedigno. <br />Só é possível configurar domínios fidedignos para utilizadores definidos pelos utilizadores. |
 
+#### <a name="activedirectory-groups-for-the-on-premises-management-console"></a>Grupos ActiveDirectory para a consola de gestão on-in
+
+Se estiver a criar grupos de Diretório Ativo para utilizadores de consolas de gestão no local, tem de criar uma regra do Grupo de Acesso para cada grupo ative. As credenciais de gestão de gestão no local não funcionarão se não existir uma regra do Grupo de Acesso para o grupo de utilizadores do Ative Directory. Ver [Definir controlo global de acesso.](how-to-define-global-user-access-control.md)
+
 1. Selecione **Guardar**.
 
-1. Para adicionar um servidor de confiança, **selecione Adicionar Servidor** e configuure outro servidor.
+2. Para adicionar um servidor de confiança, **selecione Adicionar Servidor** e configuure outro servidor.
 
-## <a name="resetting-a-users-password-for-the-sensor-or-on-premises-management-console"></a>Repor a palavra-passe de um utilizador para o sensor ou consola de gestão no local
+## <a name="resetting-passwords"></a>Redefinir palavras-passe
 
 ### <a name="cyberx-or-support-user"></a>Utilizador de CyberX ou Suporte
 
@@ -265,7 +269,7 @@ Para redefinir a palavra-passe de um utilizador na consola de gestão no local:
 
 1. Selecione **Atualizar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="see-also"></a>Ver também
 
 [Ative e crie o seu sensor](how-to-activate-and-set-up-your-sensor.md) 
  [Ative e crie a sua consola](how-to-activate-and-set-up-your-on-premises-management-console.md) 

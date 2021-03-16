@@ -2,19 +2,19 @@
 title: 'Tutorial: Extrair dados de formulário a granel usando Azure Data Factory - Reconhecimento de Formulários'
 titleSuffix: Azure Cognitive Services
 description: Crie atividades da Azure Data Factory para desencadear a formação e execução de modelos de Reconhecimento de Formulários e digitalizar um grande atraso de documentos.
-author: PatrickFarley
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: tutorial
 ms.date: 01/04/2021
-ms.author: pafarley
-ms.openlocfilehash: 5b220652009f54482c757f01232517569596c562
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.author: lajanuar
+ms.openlocfilehash: 0c009a87a5834997cdc489efc75ebb16f9459754
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102423901"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103467107"
 ---
 # <a name="tutorial-extract-form-data-in-bulk-by-using-azure-data-factory"></a>Tutorial: Extrair dados de formulário a granel utilizando a Azure Data Factory
 
@@ -511,4 +511,4 @@ Se adicionar novas formas de um novo tipo, também terá de enviar um conjunto d
 
 Neste tutorial, você configura os oleodutos Azure Data Factory para desencadear o treino e execução de modelos de Reconhecimento de Formulários e digitalizar um grande atraso de ficheiros. Em seguida, explore a API do Reconhecimento de Formulários para ver o que mais pode fazer com ele.
 
-* [API de Reconhecimento de Formulários](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeBusinessCardAsync)
+* [API de Reconhecimento de Formulários](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeBusinessCardAsync)

@@ -2,13 +2,13 @@
 title: Regras de ação para alertas do Monitor Azure
 description: Compreender quais são as regras de ação no Azure Monitor e como configurá-las e geri-las.
 ms.topic: conceptual
-ms.date: 04/25/2019
-ms.openlocfilehash: bf254249f5b347d32255820da370a499c84da212
-ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.date: 03/15/2021
+ms.openlocfilehash: 2ad87cce668555ece0eba6479bf9d21db312bfcf
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2021
-ms.locfileid: "103463073"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103466733"
 ---
 # <a name="action-rules-preview"></a>Regras de ação (pré-visualização)
 
@@ -67,17 +67,18 @@ Os filtros disponíveis são:
 
 * **Gravidade**  
 Esta regra aplica-se apenas a alertas com as severidades selecionadas.  
-Por exemplo, **Severidade = Sev1** significa que a regra se aplicará apenas a alertas com severidade Sev1.
-* **Monitorizar Serviço**  
+Por exemplo, **gravidade = Sev1** significa que a regra se aplicará apenas a alertas com severidade Sev1.
+* **Serviço de monitorização**  
 Esta regra aplica-se apenas aos alertas provenientes dos serviços de monitorização selecionados.  
-Por exemplo, **Monitor Service = "Azure Backup"** significa que a regra se aplicará apenas a alertas de backup (provenientes de Azure Backup).
-* **Tipo de Recurso**:  
+Por exemplo, **o serviço de monitorização = "Azure Backup"** significa que a regra se aplicará apenas a alertas de backup (provenientes de Azure Backup).
+* **Tipo de recurso**  
 Esta regra aplica-se apenas aos alertas sobre os tipos de recursos selecionados.  
-Por exemplo, **O Tipo de Recurso = "Máquinas Virtuais"** significa que a regra se aplicará apenas a alertas em máquinas virtuais.
-* **ID de regra de alerta**  
+Por exemplo, **o tipo de recurso = "Máquinas Virtuais"** significa que a regra se aplicará apenas a alertas em máquinas virtuais.
+* **ID da regra de alerta**  
 Esta regra aplica-se apenas aos alertas provenientes de uma regra de alerta específica. O valor deve ser o ID do Gestor de Recursos da regra de alerta.  
-Por exemplo, **O ID da Regra de Alerta = "/subscrições/SubId1/resourceGroups/ResourceGroup1/providers/microsoft.insights/metricalerts/API-Latency"** significa que esta regra se aplicará apenas aos alertas provenientes da regra de alerta métrico "API-Latência".
-* **Condição do Monitor**  
+Por exemplo, **o ID da regra de alerta = "/subscrições/SubId1/resourceGroups/RG1/providers/microsoft.insights/metricalerts/API-Latency"** significa que esta regra se aplicará apenas aos alertas provenientes da regra de alerta métrico "API-Latência".
+Pode obter o ID de regra de alerta adequado, listando as suas regras de alerta a partir do CLI, ou abrindo uma regra de alerta específica no portal, clicando em "Propriedades", e copiando o valor "ID de recurso".
+* **Condição do monitor**  
 Esta regra aplica-se apenas a eventos de alerta com a condição de monitor especificado - **disparado** ou **resolvido**.
 * **Descrição**  
 Esta regra aplica-se apenas a alertas que contenham uma cadeia específica no campo de descrição do alerta. O campo contém a descrição da regra de alerta.  
@@ -86,7 +87,7 @@ Por exemplo, **a descrição contém 'prod'** significa que a regra apenas corre
 Esta regra aplica-se apenas a alertas que contenham qualquer um ou mais valores específicos nos campos de contexto de alerta.  
 Por exemplo, **o contexto de alerta (carga útil) contém 'Computador-01'** significa que a regra só se aplicará a alertas cuja carga útil contenha a cadeia "Computador-01".
 
-Se definir vários filtros numa regra, todos eles se aplicam. Por exemplo, se definir **o tipo de recurso' = Máquinas Virtuais** e **Severidade' = Sev0**, então a regra aplicar-se-á apenas para alertas Sev0 em máquinas virtuais.
+Se definir vários filtros numa regra, todos eles se aplicam. Por exemplo, se definir o **tipo de recurso' = Máquinas Virtuais** e **gravidade' = Sev0**, então a regra aplicar-se-á apenas aos alertas Sev0 em máquinas virtuais.
 
 ![Filtros de regras de ação](media/alerts-action-rules/action-rules-new-rule-creation-flow-filters.png)
 

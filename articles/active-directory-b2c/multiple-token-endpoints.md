@@ -1,5 +1,5 @@
 ---
-title: Migrar APIs web baseadas em OWIN para b2clogin.com
+title: Migrar APIs web baseados em OWIN para b2clogin.com ou um domínio personalizado
 titleSuffix: Azure AD B2C
 description: Saiba como ativar uma API web .NET para suportar fichas emitidas por vários emitentes simbólicos enquanto migra as suas aplicações para b2clogin.com.
 services: active-directory-b2c
@@ -8,26 +8,23 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/31/2019
+ms.date: 03/15/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c362ce256259606c85af0a7e13ccde1715bb012b
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 860f167913211ee7c511e515937f29ba5bf954cf
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94953938"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103491574"
 ---
-# <a name="migrate-an-owin-based-web-api-to-b2clogincom"></a>Migrar uma API web baseada em OWIN para b2clogin.com
+# <a name="migrate-an-owin-based-web-api-to-b2clogincom-or-a-custom-domain"></a>Migrar uma API web baseada em OWIN para b2clogin.com ou um domínio personalizado
 
-Este artigo descreve uma técnica para permitir o suporte a múltiplos emitentes simbólicos em APIs web que implementam a [Interface Web Aberta para .NET (OWIN)](http://owin.org/). O suporte a vários pontos finais simbólicos é útil quando está a migrar APIs do Azure Ative Directory B2C (Azure AD B2C) e as suas aplicações de *login.microsoftonline.com* a *b2clogin.com*.
+Este artigo descreve uma técnica para permitir o suporte a múltiplos emitentes simbólicos em APIs web que implementam a [Interface Web Aberta para .NET (OWIN)](http://owin.org/). O suporte a vários pontos finais simbólicos é útil quando está a migrar APIs do Azure Ative Directory B2C (Azure AD B2C) e as suas aplicações de um domínio para outro. Por exemplo, de *login.microsoftonline.com* a *b2clogin.com,* ou a um [domínio personalizado.](custom-domain.md)
 
-Ao adicionar suporte na sua API para aceitar fichas emitidas tanto por b2clogin.com como login.microsoftonline.com, pode migrar as suas aplicações web de forma faseada antes de remover o suporte para tokens emitidos por login.microsoftonline.com da API.
+Ao adicionar suporte na sua API para aceitar fichas emitidas por b2clogin.com, login.microsoftonline.com ou um domínio personalizado, pode migrar as suas aplicações web de forma faseada antes de remover o suporte para tokens emitidos por login.microsoftonline.com da API.
 
 As secções seguintes apresentam um exemplo de como ativar vários emitentes numa API web que utiliza os componentes de middleware [Microsoft OWIN][katana] (Katana). Embora os exemplos de código sejam específicos do middleware Microsoft OWIN, a técnica geral deve ser aplicável a outras bibliotecas OWIN.
-
-> [!NOTE]
-> Este artigo destina-se a clientes Azure AD B2C com APIs atualmente implantados e aplicações que se `login.microsoftonline.com` referem e que pretendem migrar para o `b2clogin.com` ponto final recomendado. Se estiver a configurar uma nova aplicação, utilize [b2clogin.com](b2clogin.md) conforme direcionado.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -88,7 +85,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-an
 Nesta secção, atualiza o código para especificar que ambos os pontos finais do emitente são válidos.
 
 1. Abra a solução **B2C-WebAPI-DotNet.sln** em Estúdio Visual
-1. No projeto **TaskService,** abra o ficheiro *TaskService \\ App_Start \\ **Startup.Auth.cs** _ no seu editor
+1. No projeto **TaskService,** abra o ficheiro *TaskService \\ App_Start \\ **Startup.Auth.cs*** no seu editor
 1. Adicione a seguinte `using` diretiva ao topo do processo:
 
     `using System.Collections.Generic;`
@@ -102,12 +99,13 @@ Nesta secção, atualiza o código para especificar que ambos os pontos finais d
         AuthenticationType = Startup.DefaultPolicy,
         ValidIssuers = new List<string> {
             "https://login.microsoftonline.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/v2.0/",
-            "https://{your-b2c-tenant}.b2clogin.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/v2.0/"
+            "https://{your-b2c-tenant}.b2clogin.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/v2.0/"//,
+            //"https://your-custom-domain/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/v2.0/"
         }
     };
     ```
 
-`TokenValidationParameters` é fornecido por MSAL.NET e é consumido pelo middleware OWIN na próxima secção de código em _Startup.Auth.cs*. Com vários emitentes válidos especificados, o pipeline de aplicação OWIN é dado conhecimento de que ambos os pontos finais simbólicos são emitentes válidos.
+`TokenValidationParameters` é fornecido por MSAL.NET e é consumido pelo middleware OWIN na próxima secção de código em *Startup.Auth.cs*. Com vários emitentes válidos especificados, o pipeline de aplicação OWIN é dado conhecimento de que ambos os pontos finais simbólicos são emitentes válidos.
 
 ```csharp
 app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions
@@ -142,6 +140,13 @@ Depois (substituir `{your-b2c-tenant}` pelo nome do seu inquilino B2C):
 ```
 
 Quando as cordas do ponto final são construídas durante a execução da aplicação web, os pontos finais baseados em b2clogin.com são utilizados quando solicita tokens.
+
+Ao utilizar o domínio personalizado:
+
+```xml
+<!-- Custom domain -->
+<add key="ida:AadInstance" value="https://custom-domain/{0}/{1}" />
+```
 
 ## <a name="next-steps"></a>Passos seguintes
 

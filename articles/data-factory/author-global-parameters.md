@@ -5,13 +5,13 @@ ms.service: data-factory
 ms.topic: conceptual
 author: dcstwh
 ms.author: weetok
-ms.date: 03/04/2021
-ms.openlocfilehash: 06d04eb8679b4484f330b69a8cffb263d353bdcd
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.date: 03/15/2021
+ms.openlocfilehash: 3110ce8cb97379fd4690903ec769cc1dfc7f1326
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102197870"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103492767"
 ---
 # <a name="global-parameters-in-azure-data-factory"></a>Parâmetros globais na Azure Data Factory
 
@@ -49,7 +49,10 @@ Existem duas formas de integrar parâmetros globais na sua solução contínua d
 Para a maioria dos casos de utilização, recomenda-se incluir parâmetros globais no modelo ARM. Isto integrar-se-á de forma nativa com a solução delineada [no doc CI/CD](continuous-integration-deployment.md). Os parâmetros globais serão adicionados como um parâmetro do modelo ARM por padrão, uma vez que muitas vezes mudam de ambiente para ambiente. Pode ativar a inclusão de parâmetros globais no modelo ARM a partir do hub **Manage.**
 
 > [!NOTE]
-> A configuração **do modelo Incluir no ARM** só está disponível em "Modo Git". Atualmente está desativado no modo "modo vivo" ou no modo "Data Factory".
+> A configuração **do modelo Incluir no ARM** só está disponível em "Modo Git". Atualmente está desativado no modo "modo vivo" ou no modo "Data Factory". 
+
+> [!WARNING]
+>Não pode utilizar '-' no nome do parâmetro. Receberá um código de erro "{"code":"BadRequest","message":"ErrorCode=InvalidTemplate,ErrorMessage=The expression >'pipeline().globalParameters.myparam-dbtest-url" não é válido: ......}". Mas, pode usar o '_' no nome do parâmetro.
 
 ![Incluir no modelo ARM](media/author-global-parameters/include-arm-template.png)
 

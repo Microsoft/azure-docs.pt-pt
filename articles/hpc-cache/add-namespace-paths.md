@@ -4,14 +4,14 @@ description: Como criar caminhos voltados para o cliente para armazenamento com 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 12/22/2020
+ms.date: 03/11/2021
 ms.author: v-erkel
-ms.openlocfilehash: 5549670dbd1f302bdb17b8b94cbd1fb5c4c1a1d9
-ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
+ms.openlocfilehash: f45d5710f6feb8af2347ca298e07e8a4870d3d4f
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97760545"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103470472"
 ---
 # <a name="set-up-the-aggregated-namespace"></a>Configurar o espaço de nome agregado
 
@@ -132,6 +132,30 @@ Para atualizar o caminho do espaço de nome do alvo ou para adicionar caminhos a
 As opções utilizadas para o comando de atualização são semelhantes ao comando "criar", exceto que não passas as informações do sistema de armazenamento (endereço IP ou nome de anfitrião), e o modelo de utilização é opcional. Leia [Adicione um novo alvo de armazenamento NFS](hpc-cache-add-storage.md?tabs=azure-cli#add-a-new-nfs-storage-target) para mais detalhes sobre a sintaxe da ``--junction`` opção.
 
 ---
+
+### <a name="adls-nfs-namespace-paths-preview"></a>Caminhos de espaço de nome ADLS-NFS (PREVIEW)
+
+Como um alvo regular de armazenamento de bolhas, um alvo de armazenamento ADLS-NFS tem apenas uma exportação, por isso só pode ter um caminho de espaço de nome.
+
+Siga as instruções abaixo para definir ou alterar o caminho com o portal Azure.
+
+Carregue a página de definições **do Espaço Nome.**
+
+* **Adicione um novo caminho:** Clique no botão **+ Adicionar** na parte superior e preencha as informações no painel de edição.
+
+  ![Screenshot dos campos de edição de espaço de nome adicionando com um alvo de armazenamento ADLS-NFS selecionado. Os caminhos de exportação e subdiretiva são definidos para/e não editáveis.](media/namespace-add-adls.png)
+
+  * Entre no caminho que os clientes utilizarão para aceder a este alvo de armazenamento.
+
+  * Selecione qual a política de acesso a utilizar para este caminho. Saiba mais sobre a personalização do acesso ao cliente nas [políticas de acesso ao cliente.](access-policies.md)
+
+  * Selecione o alvo de armazenamento da lista de drop-down. Se um alvo de armazenamento ADLS-NFS já tiver um caminho de espaço de nome, não pode ser selecionado.
+
+  * Para um objetivo de armazenamento ADLS-NFS, os caminhos de exportação e subdiretórios são automaticamente definidos para ``/`` .
+
+* **Alterar um caminho existente:** Clique no caminho do espaço de nome. O painel de edição abre. Pode modificar o caminho e a política de acesso, mas não pode mudar para um alvo de armazenamento diferente.
+
+* **Excluir um caminho de espaço de nome:** Selecione a caixa de verificação à esquerda do caminho e clique no botão **Eliminar.**
 
 ## <a name="next-steps"></a>Passos seguintes
 

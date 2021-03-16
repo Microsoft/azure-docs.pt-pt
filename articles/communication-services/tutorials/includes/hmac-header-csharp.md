@@ -5,15 +5,15 @@ author: alexandra142
 manager: soricos
 services: azure-communication-services
 ms.author: apistrak
-ms.date: 01/15/2021
+ms.date: 03/10/2021
 ms.topic: include
 ms.service: azure-communication-services
-ms.openlocfilehash: c8cf2eb091aa7ab70fa6dba1a8b1f56bea1a00bf
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.openlocfilehash: 34c7df2b0e61536c0b5f0bc1e4a97d58d0d9c6a4
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102631362"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103490518"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -45,7 +45,7 @@ Os passos seguintes descrevem como construir o cabeçalho de autorização.
 
 ### <a name="create-a-new-c-application"></a>Criar uma nova aplicação C#
 
-Numa janela de consola, como cmd, PowerShell ou Bash, use o `dotnet new` comando para criar uma nova aplicação de consola com o nome `SignHmacTutorial` . Este comando cria um projeto simples "Hello World" C# com um único ficheiro de origem: **Program.cs**.
+Numa janela de consola, como cmd, PowerShell ou Bash, use o `dotnet new` comando para criar uma nova aplicação de consola com o nome `SignHmacTutorial` . Este comando cria um projeto "Hello World" C# com um único ficheiro de origem: **Programa.cs**.
 
 ```console
 dotnet new console -o SignHmacTutorial

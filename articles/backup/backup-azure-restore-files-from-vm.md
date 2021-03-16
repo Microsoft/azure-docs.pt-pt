@@ -4,12 +4,12 @@ description: Neste artigo, aprenda a recuperar ficheiros e pastas a partir de um
 ms.topic: conceptual
 ms.date: 03/12/2020
 ms.custom: references_regions
-ms.openlocfilehash: c5a027773a55347b71c1e6a66d24d7fdb99220d0
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 63714773d1b6f84b88bd2207aca4196fa16f1a94
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101725514"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103493531"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Recuperar ficheiros a partir da cópia de segurança de máquinas virtuais do Azure
 
@@ -60,18 +60,18 @@ Para restaurar ficheiros ou pastas a partir do ponto de recuperação, vá à m�
 
 ## <a name="step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script"></a>Passo 2: Certifique-se de que a máquina cumpre os requisitos antes de executar o script
 
-Depois de o script ser descarregado com sucesso, certifique-se de que tem a máquina certa para executar este script. O VM onde planeia executar o script, não deve ter nenhuma das seguintes configurações não apoiadas. Se o fizer, então escolha uma máquina alternativa de preferência da mesma região que satisfaça os requisitos.  
+Depois de o script ser descarregado com sucesso, certifique-se de que tem a máquina certa para executar este script. O VM onde planeia executar o script, não deve ter nenhuma das seguintes configurações não apoiadas. **Se o fizer, então escolha uma máquina alternativa de preferência da mesma região que satisfaça os requisitos.**  
 
 ### <a name="dynamic-disks"></a>Discos dinâmicos
 
-Não é possível executar o script executável no VM com qualquer uma das seguintes características:
+Não é possível executar o script executável no VM com qualquer uma das seguintes características: Escolha uma máquina alternativa
 
 - Volumes que se estendem por vários discos (volumes de riscas e listras).
 - Volumes tolerantes a falhas (volumes espelhados e RAID-5) em discos dinâmicos.
 
 ### <a name="windows-storage-spaces"></a>Espaços de Armazenamento do Windows
 
-Não é possível executar o executável descarregado no VM que está configurado para espaços de armazenamento do Windows.
+Não é possível executar o executável descarregado no mesmo VM com ressarte se o VM com o windows tem Espaços de Armazenamento do Windows. Escolha uma máquina alternativa.
 
 ### <a name="virtual-machine-backups-having-large-disks"></a>Backups de máquinas virtuais com discos grandes
 

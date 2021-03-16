@@ -1,5 +1,5 @@
 ---
-title: Operar dispositivos offline - Azure IoT Edge / Microsoft Docs
+title: Operar dispositivos offline - Azure IoT Edge | Microsoft Docs
 description: Compreenda como os dispositivos e módulos IoT Edge podem funcionar sem ligação à Internet por longos períodos de tempo, e como o IoT Edge pode permitir que dispositivos IoT regulares também funcionem offline.
 author: kgremban
 ms.author: kgremban
@@ -7,14 +7,16 @@ ms.date: 11/22/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: bf8b8554aa2ea1d6d06f58f726ca65f77499ec5f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c748034145781f639da244b16e3df7053da3d5d2
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91440048"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103489970"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices"></a>Compreender as capacidades offline alargadas para dispositivos, módulos e dispositivos ioT Edge
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 O Azure IoT Edge suporta operações offline alargadas nos seus dispositivos IoT Edge e permite operações offline em dispositivos para crianças não IoT Edge também. Enquanto um dispositivo IoT Edge tiver tido uma oportunidade de ligar ao IoT Hub, esse dispositivo e qualquer dispositivo infantil pode continuar a funcionar com ligação intermitente ou sem internet.
 
@@ -84,11 +86,11 @@ device_list=$(az iot hub query \
 
 # Add all IoT devices to IoT Edge (as child)
 az iot hub device-identity add-children \
-  --device-id $egde_device \
-  --child-list $device_list \
-  --hub-name replace-with-hub-name \
-  --resource-group replace-with-rg-name \
-  --subscription replace-with-sub-name
+  --device-id $egde_device \
+  --child-list $device_list \
+  --hub-name replace-with-hub-name \
+  --resource-group replace-with-rg-name \
+  --subscription replace-with-sub-name
 ```
 
 Pode modificar a [consulta](../iot-hub/iot-hub-devguide-query-language.md) para selecionar um subconjunto diferente de dispositivos. O comando pode demorar alguns segundos se especificar um grande conjunto de dispositivos.

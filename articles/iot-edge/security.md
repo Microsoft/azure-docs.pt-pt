@@ -1,5 +1,5 @@
 ---
-title: Quadro de segurança - Azure IoT Edge / Microsoft Docs
+title: Quadro de segurança - Azure IoT Edge | Microsoft Docs
 description: Conheça os padrões de segurança, autenticação e autorização que foram usados para desenvolver o Azure IoT Edge e deve ser considerado como você projeta a sua solução
 author: kgremban
 manager: philmea
@@ -8,14 +8,16 @@ ms.date: 08/30/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 3212493963805de3c8845ec494d87fc92d72998a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ff154eee6c6174a8f1a3aa7bea37ef62273bb1a
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76760118"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103489507"
 ---
 # <a name="security-standards-for-azure-iot-edge"></a>Normas de segurança para Azure IoT Edge
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 O Azure IoT Edge aborda os riscos inerentes ao mover os seus dados e análises para a borda inteligente. As normas de segurança IoT Edge equilibram a flexibilidade para diferentes cenários de implantação com a proteção que espera de todos os serviços Azure.
 

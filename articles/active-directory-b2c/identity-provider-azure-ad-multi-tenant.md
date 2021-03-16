@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 03/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: f6e932cb6a6086e4cea6f474f296ca086e48c75e
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: 5089a289e617aa8c2ec153320763647fc8afac9e
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102448462"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103489041"
 ---
 # <a name="set-up-sign-in-for-multi-tenant-azure-active-directory-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar o sº de inscrição para o Diretório Ativo Azure multi-inquilino utilizando políticas personalizadas no Azure Ative Directory B2C
 
@@ -56,6 +56,8 @@ Para permitir o acesso aos utilizadores com uma conta Azure AD no Azure Ative Di
     ```
 
     Por exemplo, `https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/oauth2/authresp`.
+
+    Se utilizar um [domínio personalizado,](custom-domain.md)insira `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp` . `your-domain-name`Substitua-o pelo seu domínio personalizado e `your-tenant-name` pelo nome do seu inquilino.
 
 1. Selecione **Registar**. Grave o **ID da Aplicação (cliente)** para utilização num passo posterior.
 1. Selecione **Certificados & segredos** e, em seguida, selecione **Novo segredo de cliente**.

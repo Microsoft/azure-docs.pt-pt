@@ -1,17 +1,17 @@
 ---
 title: Aceder a registos de consulta lenta - Portal Azure - Base de Dados Azure para MySQL
 description: Este artigo descreve como configurar e aceder aos registos lentos na Base de Dados Azure para o MySQL a partir do portal Azure.
-author: savjani
-ms.author: pariks
+author: Bashar-MSFT
+ms.author: bahusse
 ms.service: mysql
 ms.topic: how-to
-ms.date: 4/13/2020
-ms.openlocfilehash: 5ad4ffa99a7af592e3e93e53673d254956807c40
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.date: 3/15/2021
+ms.openlocfilehash: 91569780aa71861e07c7e96bec5eac879642760d
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94541628"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103496223"
 ---
 # <a name="configure-and-access-slow-query-logs-from-the-azure-portal"></a>Configurar e aceder a registos de consulta lenta a partir do portal Azure
 
@@ -34,11 +34,13 @@ Configure o acesso ao registo de consulta lenta MySQL.
 
 5. Ligue **slow_query_log** para **ON**.
 
-6. Selecione para onde descodundo os registos para utilizar **log_output**. Para enviar registos para armazenamento local e registos de diagnóstico do Monitor Azure, selecione **Ficheiro**. 
+6. Selecione para onde descodundo os registos para utilizar **log_output**. Para enviar registos para armazenamento local e registos de diagnóstico do Monitor Azure, selecione **Ficheiro**.
 
-7. Altere quaisquer outros parâmetros necessários. 
+7. Considere a definição de "long_query_time" que represente o limiar de tempo de consulta para as consultas que serão recolhidas no ficheiro de registo de consulta lenta, os valores mínimos e predefinidos de long_query_time são 0 e 10, respectivamente.
 
-8. Selecione **Guardar**. 
+8. Ajuste outros parâmetros, tais como log_slow_admin_statements para registar declarações administrativas. Por padrão, as declarações administrativas não são registadas, nem são consultas que não usam índices para procuras. 
+
+9. Selecione **Guardar**. 
 
    :::image type="content" source="./media/howto-configure-server-logs-in-portal/3-save-discard.png" alt-text="Screenshot de parâmetros de registo de consulta lenta e guardar.":::
 
@@ -70,17 +72,17 @@ Após o início do registo, pode ver uma lista de registos de consulta lenta dis
 
    :::image type="content" source="./media/howto-configure-server-logs-in-portal/add-diagnostic-setting.png" alt-text="Screenshot das opções de definições de diagnóstico":::
 
-1. Forneça um nome de definição de diagnóstico.
+2. Forneça um nome de definição de diagnóstico.
 
-1. Especificar quais os dados que afundam para enviar os registos de consulta lenta (conta de armazenamento, centro de eventos ou espaço de trabalho Log Analytics).
+3. Especificar quais os dados que afundam para enviar os registos de consulta lenta (conta de armazenamento, centro de eventos ou espaço de trabalho Log Analytics).
 
-1. Selecione **MySqlSlowLogs** como o tipo de registo.
+4. Selecione **MySqlSlowLogs** como o tipo de registo.
 :::image type="content" source="./media/howto-configure-server-logs-in-portal/configure-diagnostic-setting.png" alt-text="Screenshot das opções de configuração de definições de diagnóstico":::
 
-1. Depois de configurar os sumidouros de dados para canalizar os registos de consulta lenta para, **selecione Save**.
+5. Depois de configurar os sumidouros de dados para canalizar os registos de consulta lenta para, **selecione Save**.
 :::image type="content" source="./media/howto-configure-server-logs-in-portal/save-diagnostic-setting.png" alt-text="Screenshot das opções de configuração de definições de diagnóstico, com o Save em destaque":::
 
-1. Aceda aos registos de consulta lenta explorando-os nos sumidouros de dados configurados. Pode levar até 10 minutos para os registos aparecerem.
+6. Aceda aos registos de consulta lenta explorando-os nos sumidouros de dados configurados. Pode levar até 10 minutos para os registos aparecerem.
 
 ## <a name="next-steps"></a>Passos seguintes
 - Consulte [Access slow consulta Logs in CLI](howto-configure-server-logs-in-cli.md) para aprender a descarregar registos de consulta lenta programáticamente.

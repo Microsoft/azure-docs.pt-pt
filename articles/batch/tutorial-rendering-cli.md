@@ -4,12 +4,13 @@ description: Saiba como fazer uma cena Autodesk 3ds Max com Arnold usando o Serv
 ms.topic: tutorial
 ms.date: 12/30/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 3518e074589284e6d6cd7432dc77ba8bdd457045
-ms.sourcegitcommit: 42922af070f7edf3639a79b1a60565d90bb801c0
+ROBOTS: NOINDEX
+ms.openlocfilehash: 5165e5feb566a4b9081f40b681b92aafa143869f
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97827534"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103491747"
 ---
 # <a name="tutorial-render-a-scene-with-azure-batch"></a>Tutorial: compor uma cena com o Azure Batch
 
@@ -186,7 +187,7 @@ Tome nota do token devolvido pelo comando, que é semelhante ao seguinte. Vais u
 
 ## <a name="render-a-single-frame-scene"></a>Compor uma cena com um único fotograma
 
-### <a name="create-a-job"></a>Criar um trabalho
+### <a name="create-a-job"></a>Criar uma tarefa
 
 Crie uma tarefa de composição para executar no conjunto, com o comando [az batch job create](/cli/azure/batch/job#az-batch-job-create). Inicialmente, o trabalho não tem tarefas.
 

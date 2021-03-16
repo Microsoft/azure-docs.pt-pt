@@ -1,22 +1,25 @@
 ---
 title: Aplicações de renderização
 description: É possível utilizar quaisquer aplicações de renderização com o Azure Batch. No entanto, as imagens VM do Azure Marketplace estão disponíveis com aplicações comuns pré-instaladas.
-ms.date: 02/12/2021
+ms.date: 03/12/2021
 ms.topic: how-to
-ms.openlocfilehash: 18fc142d2fa9c819b9872c64ef7aae4c73cc2428
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: c98e2e0a81051dad47c201de9eda9f89cc311cf2
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100635341"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103496648"
 ---
 # <a name="pre-installed-applications-on-batch-rendering-vm-images"></a>Aplicações pré-instaladas em imagens VM de renderização de lotes
 
 É possível utilizar quaisquer aplicações de renderização com o Azure Batch. No entanto, as imagens VM do Azure Marketplace estão disponíveis com aplicações comuns pré-instaladas.
 
-Se for caso disso, o licenciamento pay-per-use está disponível para os pedidos de renderização pré-instalados. Quando um pool de Lote é criado, as aplicações necessárias podem ser especificadas e tanto o custo de VM como as aplicações serão faturadas por minuto. Os preços da aplicação estão listados na página de preços do [Azure Batch](https://azure.microsoft.com/pricing/details/batch/#graphic-rendering).
+Se for caso disso, o licenciamento pay-for-use está disponível para os pedidos de renderização pré-instalados. Quando um pool de Lote é criado, as aplicações necessárias podem ser especificadas e tanto o custo de VM como as aplicações serão faturadas por minuto. Os preços da aplicação estão listados na página de preços do [Azure Batch](https://azure.microsoft.com/pricing/details/batch/#graphic-rendering).
 
 Algumas aplicações apenas suportam o Windows, mas a maioria é suportada tanto no Windows como no Linux.
+
+> [!IMPORTANT]
+> As imagens VM de renderização e o licenciamento pay-for-use foram [depreciados e serão retirados no dia 29 de fevereiro de 2024](https://azure.microsoft.com/updates/azure-batch-rendering-vm-images-licensing-will-be-retired-on-29-february-2024/). Para utilizar o Batch para renderização, [deve ser utilizado um licenciamento de imagem VM e aplicação padrão.](batch-rendering-functionality.md#batch-pools-using-custom-vm-images-and-standard-application-licensing)
 
 ## <a name="applications-on-latest-centos-7-rendering-image"></a>Aplicações na mais recente imagem de renderização do CentOS 7
 

@@ -6,15 +6,15 @@ author: mikben
 manager: jken
 services: azure-communication-services
 ms.author: mikben
-ms.date: 03/04/2021
+ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: a26f1a297837a01089783b1e920d1a6a17bc6cdc
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: 110607e9da68cf131a43651b97c599873ce33cb8
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102618326"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103495271"
 ---
 # <a name="calling-client-library-overview"></a>Descrição geral da biblioteca de cliente de chamadas
 

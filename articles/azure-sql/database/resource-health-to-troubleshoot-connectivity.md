@@ -11,19 +11,19 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: wiassaf, sstein
 ms.date: 02/26/2019
-ms.openlocfilehash: a51840daa2c8b19c323ad761ff6e6d1dcef15f75
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 1a74a2f44ac9b03e39e9fea48a3428b82111a48c
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96497967"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103472010"
 ---
 # <a name="use-resource-health-to-troubleshoot-connectivity-for-azure-sql-database-and-azure-sql-managed-instance"></a>Utilize a Saúde dos Recursos para resolver problemas de conectividade para a Base de Dados Azure SQL e para a Azure SQL Gestão de Instâncias
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 [Resource Health](../../service-health/resource-health-overview.md#get-started) for Azure SQL Database and Azure SQL Managed Instance ajuda-o a diagnosticar e obter suporte quando um problema de Azure impacta os seus recursos SQL. Este serviço informa-o do estado de funcionamento atual e antigo dos seus recursos e ajuda-o a mitigar problemas. A Resource Health fornece suporte técnico quando precisa de ajuda com problemas de serviço da Azure.
 
-![Descrição geral](./media/resource-health-to-troubleshoot-connectivity/sql-resource-health-overview.jpg)
+![Descrição Geral](./media/resource-health-to-troubleshoot-connectivity/sql-resource-health-overview.jpg)
 
 ## <a name="health-checks"></a>Verificações de saúde
 
@@ -61,7 +61,7 @@ Pode aceder até 14 dias de história da saúde na secção de História da Saú
 
 ### <a name="downtime-reasons"></a>Razões de inatividade
 
-Quando a sua base de dados experimenta tempo de inatividade, a análise é feita para determinar uma razão. Quando disponível, a razão de inatividade é reportada na secção de História da Saúde da Saúde. Geralmente, os motivos para os tempos de inatividade são publicados 30 minutos após os eventos.
+Quando a sua base de dados experimenta tempo de inatividade, a análise é feita para determinar uma razão. Quando disponível, a razão de inatividade é reportada na secção de História da Saúde da Saúde. As razões de inatividade são normalmente publicadas dentro de 45 minutos após um evento.
 
 #### <a name="planned-maintenance"></a>Manutenção planeada
 

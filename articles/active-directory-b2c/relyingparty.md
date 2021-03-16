@@ -7,21 +7,21 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/04/2021
+ms.date: 03/15/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: bcdc8c448a348bf067995bf92615ceab1ac19fb4
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 5374ce59d3a599e243684c168a8d84a6434059ee
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102198443"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103492018"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-O elemento **RelyingParty** especifica a jornada do utilizador para fazer cumprir o pedido atual ao Azure Ative Directory B2C (Azure AD B2C). Especifica igualmente a lista de reclamações de que a parte dependente (RP) necessita como parte do token emitido. Uma aplicação RP, como uma aplicação web, móvel ou desktop, chama o ficheiro de política rp. O ficheiro de política RP executa uma tarefa específica, como iniciar sessão, redefinir uma palavra-passe ou editar um perfil. Várias aplicações podem usar a mesma política de RP e uma única aplicação pode usar várias políticas. Todas as aplicações RP recebem o mesmo sinal com reclamações, e o utilizador passa pela mesma viagem de utilizador.
+O elemento **RelyingParty** especifica o percurso do utilizador para impor o pedido atual ao Azure Ative Directory B2C (AAD B2C). Também especifica a lista de afirmações de que a entidade confiadora (RP) necessita como parte do token emitido. Uma aplicação RP, como uma aplicação web, móvel ou desktop, chama o ficheiro de política rp. O ficheiro de política RP executa uma tarefa específica, como iniciar sessão, redefinir uma palavra-passe ou editar um perfil. Várias aplicações podem usar a mesma política de RP e uma única aplicação pode usar várias políticas. Todas as aplicações RP recebem o mesmo sinal com reclamações, e o utilizador passa pela mesma viagem de utilizador.
 
 O exemplo a seguir mostra um elemento **DaParte de Apoio** no ficheiro de política *B2C_1A_signup_signin:*
 
@@ -145,16 +145,17 @@ O elemento **UserJourneyBehaviors** contém os seguintes elementos:
 | JourneyInsights | 0:1 | A chave de instrumentação Azure Application Insights a utilizar. |
 | ConteúdoDefinitionParameters | 0:1 | A lista de pares de valores-chave a anexar à definição de conteúdo carregar URI. |
 |ScriptExecution| 0:1| Os modos de execução [JavaScript](javascript-and-page-layout.md) suportados. Valores possíveis: `Allow` ou `Disallow` (predefinição).
+| Viagem | 0:1| Permite que a interface do utilizador desta política seja carregada num iframe. |
 
 ### <a name="singlesignon"></a>SingleSignOn
 
-O elemento **SingleSignOn** contém no seguinte atributo:
+O elemento **SingleSignOn** contém os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
 | Âmbito | Sim | O âmbito do comportamento de um único sinal. Valores possíveis: `Suppressed` `Tenant` , , ou `Application` `Policy` . O `Suppressed` valor indica que o comportamento é suprimido e o utilizador é sempre solicitado para uma seleção de fornecedor de identidade.  O `Tenant` valor indica que o comportamento é aplicado a todas as políticas do arrendatário. Por exemplo, um utilizador que navegue através de duas viagens políticas para um inquilino não é solicitado para uma seleção de fornecedor de identidade. O `Application` valor indica que o comportamento é aplicado a todas as políticas para a aplicação que faz o pedido. Por exemplo, um utilizador que navega através de duas viagens políticas para uma aplicação não é solicitado para uma seleção de fornecedor de identidade. O `Policy` valor indica que o comportamento só se aplica a uma política. Por exemplo, um utilizador que navegue através de duas viagens políticas para um quadro de confiança é solicitado para uma seleção do fornecedor de identidade ao alternar entre políticas. |
-| KeepAliveInDays | Não | Controla quanto tempo o utilizador permanece assinado. Definir o valor para 0 desliga a funcionalidade KMSI. Para mais informações, consulte [Keep me signed in.](session-behavior.md?pivots=b2c-custom-policy#enable-keep-me-signed-in-kmsi) |
-|EnforceIdTokenHintOnLogout| Não|  Forçar a passar um token de ID previamente emitido para o ponto final do logout como uma dica sobre a sessão autenticada atual do utilizador final com o cliente. Valores possíveis: `false` (padrão), ou `true` . Para obter mais informações, consulte [o web-in com OpenID Connect](openid-connect.md).  |
+| KeepAliveInDays | No | Controla quanto tempo o utilizador permanece assinado. Definir o valor para 0 desliga a funcionalidade KMSI. Para mais informações, consulte [Keep me signed in.](session-behavior.md?pivots=b2c-custom-policy#enable-keep-me-signed-in-kmsi) |
+|EnforceIdTokenHintOnLogout| No|  Forçar a passar um token de ID previamente emitido para o ponto final do logout como uma dica sobre a sessão autenticada atual do utilizador final com o cliente. Valores possíveis: `false` (padrão), ou `true` . Para obter mais informações, consulte [o web-in com OpenID Connect](openid-connect.md).  |
 
 
 ## <a name="journeyinsights"></a>JourneyInsights
@@ -165,7 +166,7 @@ O elemento **JourneyInsights** contém os seguintes atributos:
 | --------- | -------- | ----------- |
 | TelemetriaEngine | Sim | O valor deve `ApplicationInsights` ser. |
 | InstrumentaçãoKey | Sim | A cadeia que contém a chave de instrumentação para o elemento de insights de aplicação. |
-| DeveloperMode | Sim | Valores possíveis: `true` ou `false` . Se, `true` Application Insights acelerar a telemetria através do gasoduto de processamento. Este cenário é bom para o desenvolvimento, mas limitado em volumes elevados. Os registos de atividades detalhados destinam-se apenas a ajudar no desenvolvimento de políticas personalizadas. Não utilize o modo de desenvolvimento na produção. Os registos recolhem todas as reclamações enviadas de e para os fornecedores de identidade durante o desenvolvimento. Se for utilizado na produção, o desenvolvedor assume a responsabilidade pelo PII (PrivateLy Identifiable Information) recolhido no registo app Insights que possuem. Estes registos detalhados só são recolhidos quando este valor é definido para `true` .|
+| DeveloperMode | Sim | Valores possíveis: `true` ou `false` . Se, `true` Application Insights acelerar a telemetria através do gasoduto de processamento. Este cenário é bom para o desenvolvimento, mas limitado em volumes elevados. Os registos de atividades detalhados destinam-se apenas a ajudar no desenvolvimento de políticas personalizadas. Não utilize o modo de desenvolvimento na produção. Os registos recolhem todas as reclamações enviadas de e para os fornecedores de identidade durante o desenvolvimento. Se for utilizado na produção, o desenvolvedor assume a responsabilidade pelos dados pessoais recolhidos no registo app Insights que possuem. Estes registos detalhados só são recolhidos quando este valor é definido para `true` .|
 | ClienteEnabled | Sim | Valores possíveis: `true` ou `false` . Se `true` , enviar o script do lado do cliente do Application Insights para visualização da página de rastreio e erros do lado do cliente. |
 | ServerEnabled | Sim | Valores possíveis: `true` ou `false` . Se `true` , enviar o Atual UserJourneyRecorder JSON como um evento personalizado para a Application Insights. |
 | TelemetriaVersão | Sim | O valor deve `1.0.0` ser. |
@@ -193,6 +194,15 @@ O elemento **ContentDefinitionParameter** contém o seguinte atributo:
 | Nome | Sim | O nome do par de valores chave. |
 
 Para obter mais informações, consulte [configurar a UI com conteúdo dinâmico utilizando políticas personalizadas](customize-ui-with-html.md#configure-dynamic-custom-page-content-uri)
+
+### <a name="journeyframing"></a>Viagem
+
+O elemento **JourneyFraming** contém os seguintes atributos:
+
+| Atributo | Obrigatório | Descrição |
+| --------- | -------- | ----------- |
+| Ativado | Sim | Permite que esta política seja carregada dentro de um iframe. Valores possíveis: `false` (padrão), ou `true` . |
+| Origens | Sim | Contém os domínios que carregarão o anfitrião do iframe. Para obter mais informações, consulte [Loading Azure B2C num iframe](embedded-login.md). |
 
 ## <a name="technicalprofile"></a>Ficha Técnica
 
@@ -225,13 +235,13 @@ Quando o protocolo é `SAML` , um elemento de metadados contém os seguintes ele
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| IdpInitiatedProfileEnabled | Não | Indica se o fluxo iniciado pelo IDP é suportado. Valores possíveis: `true` ou `false` (predefinição). | 
-| XmlSignatureAlgorithm | Não | O método que a Azure AD B2C utiliza para assinar a Resposta SAML. Valores possíveis: `Sha256` `Sha384` , , ou `Sha512` `Sha1` . Certifique-se de configurar o algoritmo de assinatura em ambos os lados com o mesmo valor. Use apenas o algoritmo que o seu certificado suporta. Para configurar a afirmação do SAML, consulte [metadados de perfil técnico do emitente SAML](saml-issuer-technical-profile.md#metadata). |
-| DataEncryptionMethod | Não | Indica o método que o Azure AD B2C utiliza para encriptar os dados, utilizando algoritmos Advanced Encryption Standard (AES). Os metadados controlam o valor do `<EncryptedData>` elemento na resposta SAML. Valores possíveis: `Aes256` (padrão), `Aes192` `Sha512` ou ` Aes128` . |
-| KeyEncryptionMethod| Não | Indica o método que o Azure AD B2C utiliza para encriptar a cópia da chave que foi usada para encriptar os dados. Os metadados controlam o valor do  `<EncryptedKey>` elemento na resposta SAML. Valores possíveis: ` Rsa15` (padrão) - RSA Public Key Cryptography Standard (PKCS) Algoritmo versão 1.5, ` RsaOaep` - RSA Optimal Encryption Estofamento de encriptação assimétrica (OAEP). |
-| Utilizar's DetachedKeys | Não |  Valores possíveis: `true` , ou `false` (predefinição). Quando o valor é definido para `true` , Azure AD B2C altera o formato das afirmações encriptadas. A utilização de teclas separadas adiciona a afirmação encriptada como uma criança da EncrytedAssertion em oposição ao Dado Encriptado. |
-| Quer Respostas Assinadas| Não | Indica se a Azure AD B2C assina a `Response` secção da resposta SAML. Valores possíveis: `true` (padrão) ou `false` . .  |
-| RemoveMillisecondsFromDateTime| Não | Indica se os milissegundos serão removidos dos valores da data dentro da resposta SAML (estes incluem IssueInstant, NotBefore, NotOnOrAfter e AuthnInstant). Valores possíveis: `false` (padrão) ou `true` . .  |
+| IdpInitiatedProfileEnabled | No | Indica se o fluxo iniciado pelo IDP é suportado. Valores possíveis: `true` ou `false` (predefinição). | 
+| XmlSignatureAlgorithm | No | O método que a Azure AD B2C utiliza para assinar a Resposta SAML. Valores possíveis: `Sha256` `Sha384` , , ou `Sha512` `Sha1` . Certifique-se de configurar o algoritmo de assinatura em ambos os lados com o mesmo valor. Use apenas o algoritmo que o seu certificado suporta. Para configurar a afirmação do SAML, consulte [metadados de perfil técnico do emitente SAML](saml-issuer-technical-profile.md#metadata). |
+| DataEncryptionMethod | No | Indica o método que o Azure AD B2C utiliza para encriptar os dados, utilizando algoritmos Advanced Encryption Standard (AES). Os metadados controlam o valor do `<EncryptedData>` elemento na resposta SAML. Valores possíveis: `Aes256` (padrão), `Aes192` `Sha512` ou ` Aes128` . |
+| KeyEncryptionMethod| No | Indica o método que o Azure AD B2C utiliza para encriptar a cópia da chave que foi usada para encriptar os dados. Os metadados controlam o valor do  `<EncryptedKey>` elemento na resposta SAML. Valores possíveis: ` Rsa15` (padrão) - RSA Public Key Cryptography Standard (PKCS) Algoritmo versão 1.5, ` RsaOaep` - RSA Optimal Encryption Estofamento de encriptação assimétrica (OAEP). |
+| Utilizar's DetachedKeys | No |  Valores possíveis: `true` , ou `false` (predefinição). Quando o valor é definido para `true` , Azure AD B2C altera o formato das afirmações encriptadas. A utilização de teclas separadas adiciona a afirmação encriptada como uma criança da EncrytedAssertion em oposição ao Dado Encriptado. |
+| Quer Respostas Assinadas| No | Indica se a Azure AD B2C assina a `Response` secção da resposta SAML. Valores possíveis: `true` (padrão) ou `false` . .  |
+| RemoveMillisecondsFromDateTime| No | Indica se os milissegundos serão removidos dos valores da data dentro da resposta SAML (estes incluem IssueInstant, NotBefore, NotOnOrAfter e AuthnInstant). Valores possíveis: `false` (padrão) ou `true` . .  |
 
 
 ### <a name="outputclaims"></a>Resultados
@@ -247,8 +257,8 @@ O elemento **OutputClaim** contém os seguintes atributos:
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | Sim | Uma referência a um **ClaimType** já definido na secção **ClaimsSchema** no ficheiro de política. |
-| PadrãoValue | Não | Um valor predefinido que pode ser usado se o valor da reclamação estiver vazio. |
-| PartnerClaimType | Não | Envia a reclamação num nome diferente, tal como configurado na definição DeTipo de Reclamação. |
+| PadrãoValue | No | Um valor predefinido que pode ser usado se o valor da reclamação estiver vazio. |
+| PartnerClaimType | No | Envia a reclamação num nome diferente, tal como configurado na definição DeTipo de Reclamação. |
 
 ### <a name="subjectnaminginfo"></a>Nomeação de AssuntosInfo
 
@@ -262,7 +272,7 @@ O elemento **SubjectNamingInfo** contém o seguinte atributo:
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
 | ClaimType | Sim | Uma referência ao **PartnerClaimType** de uma reclamação de saída. As reclamações de saída devem ser definidas na política do partido dependente Da recolha **OutputClaims.** |
-| Formato | Não | Utilizado para as partes de confiança SAML para definir o **formato NameId** devolvido na Afirmação SAML. |
+| Formato | No | Utilizado para as partes de confiança SAML para definir o **formato NameId** devolvido na Afirmação SAML. |
 
 O exemplo a seguir mostra como definir uma parte de confiante OpenID Connect. A informação sobre o nome do sujeito é configurada `objectId` como:
 

@@ -2,13 +2,13 @@
 title: Novidades com o agente de servidores Azure Arc
 description: Este artigo tem notas de lançamento para o agente de servidores ativado pelo Azure Arc. Para muitas das questões resumidas, há ligações a mais detalhes.
 ms.topic: conceptual
-ms.date: 12/21/2020
-ms.openlocfilehash: 4b7fd97d5b7e1cddc1d78e0d24205890e74c45c1
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.date: 03/15/2021
+ms.openlocfilehash: acf606ed1ad0f54c983b14a0141d0dc11e2c45d9
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97722526"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103470511"
 ---
 # <a name="whats-new-with-azure-arc-enabled-servers-agent"></a>Novidades com o agente de servidores Azure Arc
 
@@ -18,13 +18,27 @@ O agente Azure Arc ativado por máquina conectada recebe melhorias numa base con
 - Problemas conhecidos
 - Correções de erros
 
+## <a name="march-2021"></a>março de 2021
+
+Versão 1.4
+
+## <a name="new-feature"></a>Nova funcionalidade
+
+- Apoio adicional a pontos finais privados.
+- Lista alargada de códigos de saída para azcmagent.
+- Os parâmetros de configuração do agente podem agora ser lidos a partir de um ficheiro com o parâmetro --config.
+
+## <a name="fixed"></a>Fixo
+
+As verificações de pontos finais da rede são agora mais rápidas.
+
 ## <a name="december-2020"></a>Dezembro de 2020
 
 Versão: 1.3
 
 ### <a name="new-feature"></a>Nova funcionalidade
 
-Suporte adicionado para Windows Server 2008 R2
+Suporte adicionado para Windows Server 2008 R2.
 
 ### <a name="fixed"></a>Fixo
 
@@ -47,7 +61,7 @@ Version: 1.1
 - Script de procuração fixo para lidar com a localização alternativa do ficheiro da unidade GC daemon.
 - Alterações de fiabilidade do agente GuestConfig.
 - Apoio ao agente Da GuestConfig para a região norte-americana de Gov Virginia.
-- As mensagens de relatório de extensão do agente GuestConfig devem ser mais verbosas em caso de falhas.
+- As mensagens de relatório de extensão do agente GuestConfig devem ser mais verbosas se houver uma falha.
 
 ## <a name="september-2020"></a>Setembro de 2020
 

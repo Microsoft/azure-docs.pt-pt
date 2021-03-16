@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/21/2021
+ms.date: 03/12/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: rateller
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9430066ad92b4d0b69bd07c763e3f7b5d6e889a
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: dd2a38e3d59af18477a1e5bb11e8b58dbbe81e0b
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98693541"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103471655"
 ---
 # <a name="configure-and-enable-users-for-sms-based-authentication-using-azure-active-directory"></a>Configure e permita aos utilizadores a autenticação baseada em SMS utilizando o Azure Ative Directory 
 
@@ -34,7 +34,6 @@ Para completar este artigo, precisa dos seguintes recursos e privilégios:
     * Se necessário, [crie um inquilino do Azure Ative Directory][create-azure-ad-tenant] ou [associe uma assinatura Azure à sua conta.][associate-azure-ad-tenant]
 * Precisa de privilégios *globais* de administrador no seu inquilino AZure AD para ativar a autenticação baseada em SMS.
 * Cada utilizador que esteja ativado na política do método de autenticação de mensagens de texto deve ser licenciado, mesmo que não o utilize. Cada utilizador ativado deve ter uma das seguintes licenças Azure AD, EMS, Microsoft 365:
-    * [Azure AD Premium P1 ou P2][azuread-licensing]
     * [Microsoft 365 (M365) F1 ou F3][m365-firstline-workers-licensing]
     * [Mobilidade Empresarial + Segurança (EMS) E3 ou E5][ems-licensing] ou [Microsoft 365 (M365) E3 ou E5][m365-licensing]
 
@@ -95,7 +94,7 @@ Quando um número de telefone é definido para sinal de SMS, também está dispo
 1. Selecione o utilizador que ativou para a autenticação por SMS na secção anterior, como o *Utilizador Contoso,* selecione **métodos de autenticação**.
 1. **Selecione + Adicione o método de autenticação,** em seguida, no menu de drop-down método *Escolha,* escolha número de **telefone**.
 
-    Introduza o número de telefone do utilizador, incluindo o código do país, como *+1 xxxxx*. O portal Azure valida que o número de telefone está no formato correto.
+    Introduza o número de telefone do utilizador, incluindo o código do país, como *+1 xxxxxxxxx*. O portal Azure valida que o número de telefone está no formato correto.
 
     Em seguida, a partir do menu drop-down *do tipo Telefone,* selecione *Mobile*, *Alternate mobile* ou *Other,* conforme necessário.
 
@@ -145,7 +144,7 @@ Se receber um erro quando tentar definir um número de telefone para uma conta d
 1. Certifique-se de que o número de telefone não é usado em outro lugar no seu inquilino.
 1. Verifique se não há nenhum número de voz definido na conta. Se um número de voz estiver definido, apague e tente novamente o número de telefone.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter formas adicionais de iniciar sing no AD Azure sem uma senha, como a App autenticador microsoft ou as teclas de segurança FIDO2, consulte [opções de autenticação sem palavras-passe para Azure AD][concepts-passwordless].
 
