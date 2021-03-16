@@ -3,12 +3,12 @@ title: Tutorial - Aceda à sua nuvem privada
 description: Saiba como aceder a uma nuvem privada Azure VMware Solution
 ms.topic: tutorial
 ms.date: 03/13/2021
-ms.openlocfilehash: f689a0c706b6427497c80dabb01579ace161d1e2
-ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.openlocfilehash: f2af1cffda08bf4b9c62e63f32d36cc9bbd7024a
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2021
-ms.locfileid: "103462264"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103494398"
 ---
 # <a name="tutorial-access-an-azure-vmware-solution-private-cloud"></a>Tutorial: Aceda a uma nuvem privada Azure VMware Solution
 
@@ -34,10 +34,7 @@ Neste tutorial, ficará a saber como:
 
    Os URLs e as credenciais de utilizador para o visor privado de vCenter e NSX-T Manager.
 
-   >[!TIP]
-   >**Selecione Gere uma nova palavra-passe** para gerar novas palavras-passe vCenter e NSX-T.
-
-   :::image type="content" source="media/tutorial-access-private-cloud/generate-vcenter-nsxt-passwords.png" alt-text="Exiba urls e credenciais de cloud vCenter e NSX Manager." border="true" lightbox="media/tutorial-access-private-cloud/generate-vcenter-nsxt-passwords.png":::
+   :::image type="content" source="media/tutorial-access-private-cloud/ss4-display-identity.png" alt-text="Exiba urls e credenciais de cloud vCenter e NSX Manager." border="true" lightbox="media/tutorial-access-private-cloud/ss4-display-identity.png":::
 
 1. Navegue para o VM que criou no passo anterior e ligue-se à máquina virtual. 
 

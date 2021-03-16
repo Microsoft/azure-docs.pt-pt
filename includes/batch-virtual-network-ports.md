@@ -10,15 +10,15 @@ ms.service: batch
 ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
-ms.date: 01/13/2021
+ms.date: 02/16/2021
 ms.author: jenhayes
 ms.custom: include file
-ms.openlocfilehash: c625253585cc99c035852b8b9042f939284bad19
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: baf146bdd89d45c5d7e1ed359822a35d383b7b6c
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101750711"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103561931"
 ---
 ### <a name="general-requirements"></a>Requisitos gerais
 
@@ -42,10 +42,10 @@ Os requisitos adicionais de VNet diferem, consoante o conjunto do Batch está na
 
 **Permissões** - verifique se as suas políticas de segurança ou bloqueios na subscrição ou no grupo de recursos da VNet restringem as permissões de um utilizador para gerir a VNet.
 
-**Recursos de rede adicionais** - o Batch aloca automaticamente recursos de rede adicionais no grupo de recursos que contém a VNet.
+**Recursos adicionais de rede** - O Batch cria automaticamente recursos adicionais de rede no grupo de recursos que contém o VNet.
 
 > [!IMPORTANT]
-> Para cada 100 nós dedicados ou de baixa prioridade, o Batch atribui: um grupo de segurança de rede (NSG), um endereço IP público e um equilibrador de carga. Estes recursos estão limitados pelas [quotas de recursos](../articles/azure-resource-manager/management/azure-subscription-service-limits.md) da subscrição. Para conjuntos grandes, poderá ter de pedir um aumento de quota para um ou mais destes recursos.
+> Para cada 100 nós dedicados ou de baixa prioridade, o Batch cria: um grupo de segurança de rede (NSG), um endereço IP público e um equilibrador de carga. Estes recursos estão limitados pelas [quotas de recursos](../articles/azure-resource-manager/management/azure-subscription-service-limits.md) da subscrição. Para conjuntos grandes, poderá ter de pedir um aumento de quota para um ou mais destes recursos.
 
 #### <a name="network-security-groups-batch-default"></a>Grupos de segurança de rede: Predefinição do Batch
 

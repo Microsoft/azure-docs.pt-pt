@@ -14,12 +14,12 @@ metadata:
   ms.author: mathoma
   ms.reviewer: sstein
   ms.date: 11/06/2020
-  ms.openlocfilehash: ad10f236ed042d0935e01d056ef1a56de1054835
-  ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
-  ms.translationtype: HT
+  ms.openlocfilehash: 1486b04f14d014e0d4915bfa197379a173fa7450
+  ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+  ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 11/30/2020
-  ms.locfileid: "96327445"
+  ms.lasthandoff: 03/16/2021
+  ms.locfileid: "103563815"
 landingContent:
 - title: Base de Dados SQL do Azure
   linkLists:
@@ -29,8 +29,16 @@ landingContent:
       url: database/sql-server-to-sql-database-overview.md
     - text: A partir do SQL Server
       url: database/sql-server-to-sql-database-guide.md
+    - text: A partir do acesso
+      url: database/access-to-sql-database-guide.md
     - text: A partir do DB2
       url: database/db2-to-sql-database-guide.md
+    - text: De Oráculo
+      url: database/oracle-to-sql-database-guide.md
+    - text: Do MySQL
+      url: database/mysql-to-sql-database-guide.md
+    - text: Da SAP ASE
+      url: database/sap-ase-to-sql-database.md
 - title: Instância Gerida do SQL do Azure
   linkLists:
   - linkListType: get-started
@@ -41,6 +49,8 @@ landingContent:
       url: managed-instance/sql-server-to-managed-instance-guide.md
     - text: A partir do DB2
       url: managed-instance/db2-to-managed-instance-guide.md
+    - text: De Oráculo
+      url: managed-instance/oracle-to-managed-instance-guide.md
 - title: SQL Server numa VM do Azure
   linkLists:
   - linkListType: get-started
@@ -51,6 +61,8 @@ landingContent:
       url: virtual-machines/sql-server-to-sql-on-azure-vm-individual-databases-guide.md
     - text: A partir do DB2
       url: virtual-machines/db2-to-sql-on-azure-vm-guide.md
+    - text: De Oráculo
+      url: virtual-machines/oracle-to-sql-on-azure-vm-guide.md
 - title: Ferramentas de migração
   linkLists:
   - linkListType: deploy

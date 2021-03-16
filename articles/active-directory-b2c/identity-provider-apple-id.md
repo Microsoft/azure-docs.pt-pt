@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/09/2021
+ms.date: 03/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: cc385c3a7ceb0245e3a4acbedb037b1b28bde7b3
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 24377cf02b30a550043ee63267229039d680cd1c
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102518114"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103489139"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-an-apple-id--using-azure-active-directory-b2c-preview"></a>Configurar o pré-serviço e iniciar seduca com um Apple ID utilizando o Azure Ative Directory B2C (Pré-visualização)
 
@@ -57,8 +57,8 @@ Para permitir o insessão para utilizadores com um Apple ID em Azure Ative Direc
 1. A partir **de Identificadores,** selecione o identificador que criou.
 1. Selecione **Iniciar S-S-In com a Apple** e, em seguida, selecione **Configure**.
     1. Selecione o **ID da aplicação primária** com o que pretende configurar Iniciar súm em apple com.
-    1. Em **Domínios e Subdomínios,** insira `your-tenant-name.b2clogin.com` . Substitua o nome do seu inquilino pelo nome do seu inquilino.
-    1. In **Return URLs**, insira `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` . Substitua o nome do seu inquilino pelo nome do seu inquilino.
+    1. Em **Domínios e Subdomínios,** insira `your-tenant-name.b2clogin.com` . Substitua o nome do seu inquilino pelo nome do seu inquilino. Se utilizar um [domínio personalizado,](custom-domain.md)insira `https://your-domain-name` .
+    1. In **Return URLs**, insira `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` . Se utilizar um [domínio personalizado,](custom-domain.md)insira `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp` . `your-tenant-name`Substitua-o pelo nome do seu inquilino e `your-domain-name` pelo seu domínio personalizado.
     1. Selecione **Seguinte** e, em seguida, selecione **Fazer**.
     1. Quando a janela pop-up estiver fechada, selecione **Continue** e, em seguida, selecione **Save**.
 

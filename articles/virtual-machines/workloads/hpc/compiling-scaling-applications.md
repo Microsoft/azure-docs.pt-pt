@@ -5,19 +5,47 @@ author: vermagit
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 03/12/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: d560b261e058d01040616f3c59ede60e5986c672
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 9185f502a7d9dd7ab00a149fb2f3365372b350cc
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101666982"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103470753"
 ---
 # <a name="scaling-hpc-applications"></a>Aplicações de escala HPC
 
 O melhor desempenho de escala e escala das aplicações HPC no Azure requer experiências de afinação e otimização de desempenho para a carga de trabalho específica. Esta secção e as páginas específicas da série VM oferecem orientações gerais para o escalonamento das suas aplicações.
+
+## <a name="optimally-scaling-mpi"></a>MPI de escala ideal 
+
+As seguintes sugestões aplicam-se para uma melhor eficiência, desempenho e consistência de escala de aplicações:
+
+- Para trabalhos de menor escala (isto é, < ligações 256K) utilize a opção:
+   ```bash
+   UCX_TLS=rc,sm
+   ```
+
+- Para trabalhos de maior escala (isto é, > ligações 256K) utilize a opção:
+   ```bash
+   UCX_TLS=dc,sm
+   ```
+
+- No acima, para calcular o número de ligações para o seu trabalho de MPI, utilize:
+   ```bash
+   Max Connections = (processes per node) x (number of nodes per job) x (number of nodes per job) 
+   ```
+
+## <a name="process-pinning"></a>Fixação de processos
+
+- Pin processa para núcleos usando uma abordagem de fixação sequencial (em oposição a uma abordagem de autobalance). 
+- A ligação por Numa/Core/HwThread é melhor do que a ligação padrão.
+- Para aplicações paralelas híbridas (OpenMP+MPI), utilize 4 fios e 1 grau MPI por CCX nos tamanhos HB e HBv2 VM.
+- Para aplicações mpi puras, experimente com 1-4 mpi ranks por CCX para obter um desempenho ótimo nos tamanhos HB e HBv2 VM.
+- Algumas aplicações com extrema sensibilidade à largura de banda de memória podem beneficiar da utilização de um número reduzido de núcleos por CCX. Para estas aplicações, a utilização de 3 ou 2 núcleos por CCX pode reduzir a contenção da largura de banda da memória e produzir um desempenho mais elevado no mundo real ou uma escalabilidade mais consistente. Em particular, o MPI Allreduce pode beneficiar desta abordagem.
+- Para corridas de escala significativamente maiores, recomenda-se a utilização de transportes UD ou híbridos RC+UD. Muitas bibliotecas mpi/bibliotecas de tempo de execução fazem-no internamente (como UCX ou MVAPICH2). Verifique as configurações de transporte para obter execuções em larga escala.
 
 ## <a name="compiling-applications"></a>Compilação de aplicações
 
@@ -25,7 +53,7 @@ Embora não seja necessário, compilar aplicações com bandeiras de otimizaçã
 
 ### <a name="amd-optimizing-cc-compiler"></a>Compilador de otimização da AMD C/C++
 
-O sistema de compilador de compilador C/C++ (AOCC) da AMD otimização oferece um alto nível de otimizações avançadas, multi-threading e suporte ao processador que inclui otimização global, vectorização, análises inter-processuais, transformações de loop e geração de códigos. Os binários de compilador AOCC são adequados para sistemas Linux com a versão 2.17 ou superior da GNU C Library (glibc). A suíte de compilador é composta por um compilador C/C++ (clang), um compilador Fortran (FLANG) e uma extremidade frontal de Fortran para Clang (Ovo de Dragão).
+O sistema de compilador de compilador C/C++ (AOCC) da AMD otimização oferece um alto nível de otimizações avançadas, multi-threading e suporte ao processador que inclui otimização global, vectorização, análises inter-processuais, transformações de loop e geração de códigos. Os binários de compilador AOCC são adequados para sistemas Linux com a versão 2.17 ou superior da GNU C Library (glibc). A suíte de compilador é composta por um compilador C/C++ (clang), um compilador Fortran (FLANG), e uma extremidade frontal de Fortran para Clang (Ovo de Dragão).
 
 ### <a name="clang"></a>Clang
 
@@ -37,7 +65,7 @@ O compilador FLANG é uma adição recente à suite AOCC (adicionado abril de 20
 
 ### <a name="dragonegg"></a>DragonEgg
 
-DragonEgg é um plugin gcc que substitui os otimizadores e geradores de código da GCC com os do projeto LLVM. DragonEgg que vem com ao AOCC funciona com gcc-4.8.x, foi testado para alvos x86-32/x86-64 e tem sido usado com sucesso em várias plataformas Linux.
+DragonEgg é um plugin gcc que substitui os otimizadores e geradores de código da GCC com os do projeto LLVM. DragonEgg que vem com ao AOCC funciona com gcc-4.8.x, foi testado para alvos x86-32/x86-64, e tem sido usado com sucesso em várias plataformas Linux.
 
 GFortran é o frontend real para os programas Fortran responsáveis pelo pré-processamento, análise e análise semântica gerando a representação intermediária GCC GIMPLE (IR). DragonEgg é um plugin GNU, que liga o fluxo de compilação GFortran. Implementa a API plugin plugin GNU. Com a arquitetura plugin, DragonEgg torna-se o condutor do compilador, conduzindo as diferentes fases da compilação.  Após seguir as instruções de descarregamento e instalação, o Ovo de Dragão pode ser invocado utilizando: 
 
@@ -68,17 +96,6 @@ Para o HPC, a AMD recomenda o compilador GCC 7.3 ou mais recente. Não são reco
 ```bash
 gcc $(OPTIMIZATIONS) $(OMP) $(STACK) $(STREAM_PARAMETERS) stream.c -o stream.gcc
 ```
-
-## <a name="scaling-applications"></a>Dimensionamento de aplicações 
-
-As seguintes sugestões aplicam-se para uma melhor eficiência, desempenho e consistência de escala de aplicações:
-
-* Pin processa para núcleos 0-59 utilizando uma abordagem de fixação sequencial (em oposição a uma abordagem de equilíbrio automático). 
-* A ligação por Numa/Core/HwThread é melhor do que a ligação padrão.
-* Para aplicações paralelas híbridas (OpenMP+MPI), utilize 4 fios e 1 grau MPI por CCX.
-* Para aplicações mpi puras, experimente com 1-4 mpi ranks por CCX para obter um desempenho ideal.
-* Algumas aplicações com extrema sensibilidade à largura de banda de memória podem beneficiar da utilização de um número reduzido de núcleos por CCX. Para estas aplicações, a utilização de 3 ou 2 núcleos por CCX pode reduzir a contenção da largura de banda da memória e produzir um desempenho mais elevado no mundo real ou uma escalabilidade mais consistente. Em particular, o MPI Allreduce pode beneficiar disto.
-* Para corridas de escala significativamente maiores, recomenda-se a utilização de transportes UD ou híbridos RC+UD. Muitas bibliotecas mpi/bibliotecas de tempo de execução fazem-no internamente (como UCX ou MVAPICH2). Verifique as configurações de transporte para obter execuções em larga escala.
 
 ## <a name="next-steps"></a>Passos seguintes
 

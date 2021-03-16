@@ -9,12 +9,12 @@ metadata:
   author: shortpatti
   ms.author: v-patsho
   ms.date: 03/12/2021
-  ms.openlocfilehash: 9014dbbfdb9d1f0ef4af975da917abdcf71d8b2a
-  ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
+  ms.openlocfilehash: edf9adfa316407eb0bf1270bae93d7cfa273d50f
+  ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/12/2021
-  ms.locfileid: "103232958"
+  ms.lasthandoff: 03/16/2021
+  ms.locfileid: "103490095"
 landingContent:
 - title: Acerca do Azure VMware Solution
   linkLists:
@@ -74,12 +74,6 @@ landingContent:
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Solicite quota de anfitrião e permita a Solução VMware Azure
-      url: enable-azure-vmware-solution.md
-    - text: Poupar custos com uma instância reservada
-      url: reserved-instance.md
-    - text: Avaliação da migração
-      url: ../migrate/how-to-create-azure-vmware-solution-assessment.md?context=/azure/migrate/context/migrate-context.json
     - text: Gerir DHCP
       url: manage-dhcp.md
     - text: Configurar componentes de rede NSX
@@ -94,6 +88,16 @@ landingContent:
       url: public-ip-usage.md
     - text: Criar um túnel IPsec
       url: create-ipsec-tunnel.md
+  - linkListType: reference
+    links:
+    - text: Solicitar quota de anfitrião Azure VMware Solution
+      url: enable-azure-vmware-solution.md
+    - text: Mover assinaturas EA e CSP
+      url: move-ea-csp-subscriptions.md
+    - text: Poupar custos com uma instância reservada
+      url: reserved-instance.md
+    - text: Avaliação da migração
+      url: /azure/migrate/how-to-create-azure-vmware-solution-assessment?context=/azure/azure-vmware/context/context
 - title: Integração nativa do Azure
   linkLists:
   - linkListType: how-to-guide

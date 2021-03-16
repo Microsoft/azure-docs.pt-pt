@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 03/15/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit, project-no-code
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: dc824c7e4caa2a634a60f7d8a69870ddd961998c
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: 497b171cad956dee23139bcfb0ec76fad82bfb33
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102448477"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103488973"
 ---
 # <a name="set-up-sign-in-for-a-specific-azure-active-directory-organization-in-azure-active-directory-b2c"></a>Configurar o sº de inscrição para uma organização específica do Azure Ative Directory em Azure Ative Directory B2C
 
@@ -53,6 +53,8 @@ Para permitir o acesso aos utilizadores com uma conta Azure AD de uma organizaç
     ```
 
     Por exemplo, `https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/oauth2/authresp`.
+
+    Se utilizar um [domínio personalizado,](custom-domain.md)insira `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp` . `your-domain-name`Substitua-o pelo seu domínio personalizado e `your-tenant-name` pelo nome do seu inquilino.
 
 1. Selecione **Registar**. Grave o **ID da Aplicação (cliente)** para utilização num passo posterior.
 1. Selecione **Certificados & segredos** e, em seguida, selecione **Novo segredo de cliente**.

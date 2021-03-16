@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/08/2021
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 24cc7773d281d98b6a0943f5e0a61b6f547991ee
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 90a4ad068f332b198696d96bddbb794c820f42f5
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102032828"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103564393"
 ---
 # <a name="speech-to-text-rest-api"></a>API REST de conversão de voz em texto
 
@@ -24,11 +24,11 @@ Falar-a-texto tem duas APIs de DESCANSO diferentes. Cada API serve o seu propós
 
 As APIs de repouso de discurso para texto são:
 - [O API REST de voz em texto v3.0](#speech-to-text-rest-api-v30) é utilizado para [a transcrição do lote](batch-transcription.md) e discurso [personalizado](custom-speech-overview.md). v3.0 é um [sucessor de v2.0](./migrate-v2-to-v3.md).
-- [A API REST de voz para texto para áudio curto](#speech-to-text-rest-api-for-short-audio) é usada para a transcrição onLine como alternativa ao [SDK](speech-sdk.md)do discurso . Os pedidos que utilizem esta API só podem transmitir até 60 segundos de áudio por pedido. 
+- [A API REST de voz para texto para áudio curto](#speech-to-text-rest-api-for-short-audio) é usada para transcrição on-line como alternativa ao [SDK do discurso](speech-sdk.md). Os pedidos que utilizem esta API só podem transmitir até 60 segundos de áudio por pedido. 
 
 ## <a name="speech-to-text-rest-api-v30"></a>A API DE REPOUSO de expressão em texto v3.0
 
-O API REST de voz em texto v3.0 é utilizado para [a transcrição do lote](batch-transcription.md) e discurso [personalizado](custom-speech-overview.md). Se necessitar de comunicar com a transcrição OnLine via REST, utilize [a API REST de voz para texto para áudio curto](#speech-to-text-rest-api-for-short-audio).
+O API REST de voz em texto v3.0 é utilizado para [a transcrição do lote](batch-transcription.md) e discurso [personalizado](custom-speech-overview.md). Se necessitar de comunicar com a transcrição online via REST, utilize [a API REST de voz para texto para áudio curto](#speech-to-text-rest-api-for-short-audio).
 
 Utilizar REST API v3.0 para:
 - Copie modelos para outras subscrições caso pretenda que os colegas tenham acesso a um modelo que construiu, ou nos casos em que pretende implementar um modelo para mais de uma região

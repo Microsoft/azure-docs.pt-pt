@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: pepogors
-ms.openlocfilehash: 3767a16656ac4d11511c0928be8b2703c4e94c7c
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: eb19005019a6e4e878f6b0bd6a145048d4a2804c
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98680608"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103563781"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-with-stateless-only-node-types-preview"></a>Implementar um cluster de tecido de serviço Azure com tipos de nó apenas apátridas (Pré-visualização)
 Os tipos de nó de tecido de serviço vêm com a presunção inerente de que em algum momento, os serviços estatais podem ser colocados nos nós. Os tipos de nó apátrida relaxam esta suposição para um tipo de nó, permitindo assim que o tipo de nó utilize outras funcionalidades, tais como operações de escala mais rápida, suporte para upgrades automáticos de SO na durabilidade de Bronze e escala para mais de 100 nós num único conjunto de escala de máquina virtual.
@@ -72,9 +72,13 @@ Para definir um ou mais tipos de nó como apátridas num recurso de cluster, des
 Para ativar os tipos de nóles apátridas, deve configurar o recurso de escala de máquina virtual subjacente da seguinte forma:
 
 * O valor  **único Propriedade DoPlacementGroup,** que deve ser definido como **falso** se precisar de escalar para mais de 100 VMs.
-* O conjunto de **escala's upgradePolicy** que **modo** deve ser definido para **Rolling**.
+* O modo de atualização do conjunto de **escalaPolicy** **deve** ser definido para **rolling**.
 * O modo de atualização de rolamento requer extensão de saúde da aplicação ou sondas de saúde configuradas. Configure a sonda de saúde com configuração padrão para os tipos de nó apátrida, conforme sugerido abaixo. Uma vez implementadas as aplicações para o tipo de nó, as portas de extensão health probe/health podem ser alteradas para monitorizar a saúde da aplicação.
 
+>[!NOTE]
+> É necessário que a contagem de domínio de falha da plataforma seja atualizada para 5 quando um tipo de nó apátrida é apoiado por um conjunto de escala de máquina virtual que se estende por várias zonas. Consulte este [modelo](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/15-VM-2-NodeTypes-Windows-Stateless-CrossAZ-Secure) para mais detalhes.
+> 
+> **plataformaFaultDomainCount:5**
 ```json
 {
     "apiVersion": "2018-10-01",

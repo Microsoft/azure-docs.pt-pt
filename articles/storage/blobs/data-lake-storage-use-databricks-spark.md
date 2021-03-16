@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Data Lake Storage Gen2, Azure Databricks & Spark [ Microsoft Docs'
+title: 'Tutorial: Azure Data Lake Storage Gen2, Azure Databricks & Spark | Microsoft Docs'
 description: Este tutorial mostra como executar consultas spark em um cluster Azure Databricks para aceder a dados em uma conta de armazenamento Azure Data Lake Armazenamento Gen2.
 author: normesta
 ms.subservice: data-lake-storage-gen2
@@ -9,12 +9,12 @@ ms.date: 11/19/2019
 ms.author: normesta
 ms.reviewer: dineshm
 ms.custom: devx-track-python
-ms.openlocfilehash: 5fce5871b4bd6c3e2353f7df04018e88b86ec4c7
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 232e28d3cc8b0bc7427dd035d51743f623e54259
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95912523"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103564308"
 ---
 # <a name="tutorial-azure-data-lake-storage-gen2-azure-databricks--spark"></a>Tutorial: Azure Data Lake Storage Gen2, Azure Databricks & Spark
 
@@ -54,7 +54,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Este tutorial utiliza dados de voo do Bureau of Transportation Statistics para demonstrar como realizar uma operação ETL. Tem de descarregar estes dados para completar o tutorial.
 
-1. Vá à [Research and Innovative Technology Administration, Bureau of Transportation Statistics](https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time).
+1. Vá à [Research and Innovative Technology Administration, Bureau of Transportation Statistics](https://www.transtats.bts.gov/DL_SelectFields.asp?gnoyr_VQ=FGJ).
 
 2. Selecione a caixa de verificação **prezipped para** selecionar todos os campos de dados.
 

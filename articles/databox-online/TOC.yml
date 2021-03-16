@@ -162,6 +162,8 @@
               href: azure-stack-edge-gpu-kubernetes-rbac.md
             - name: Cargas de trabalho do Kubernetes
               href: azure-stack-edge-gpu-kubernetes-workload-management.md
+        - name: O que é a partilha da GPU?
+          href: azure-stack-edge-gpu-sharing.md
         - name: Ver a integração do Key Vault
           href: azure-stack-edge-gpu-activation-key-vault.md
         - name: Ativar os registos proativos
@@ -194,10 +196,14 @@
                   href: azure-stack-edge-gpu-deploy-stateful-application-static-provision-kubernetes.md
                 - name: Aplicação com estado aprovisionada dinamicamente
                   href: azure-stack-edge-gpu-deploy-stateful-application-dynamic-provision-kubernetes.md
+                - name: GPU compartilhada carga de trabalho
+                  href: azure-stack-edge-gpu-deploy-kubernetes-gpu-sharing.md
             - name: Através do IoT Edge
               items:
                 - name: Aplicação sem estado
                   href: azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module.md
+                - name: GPU compartilhada carga de trabalho
+                  href: azure-stack-edge-gpu-deploy-iot-edge-gpu-sharing.md
                 - name: Desenvolver um módulo C#
                   href: azure-stack-edge-gpu-create-iot-edge-module.md
             - name: Através do Azure Arc (Pré-visualização)

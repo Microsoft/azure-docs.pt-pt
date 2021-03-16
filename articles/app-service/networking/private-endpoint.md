@@ -9,12 +9,12 @@ ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 4534a315429a120af45dfd495df4a8c29b233de7
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 8d471b680a6ff97b4b96a9c5f90f5548488dd35f
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98763030"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103563616"
 ---
 # <a name="using-private-endpoints-for-azure-web-app"></a>Utilizar Pontos Finais Privados para a Aplicação Web do Azure
 
@@ -122,9 +122,11 @@ As ranhuras não podem ser utilizadas no Ponto Final Privado.
 
 A funcionalidade de depuração remota não está disponível quando o Private Endpoint está ativado para a Web App. A recomendação é colocar o código numa ranhura e desativá-lo remotamente lá.
 
+O acesso FTP é fornecido através do endereço IP público de entrada. O Private Endpoint não suporta o acesso ftp à Web App.
+
 Estamos a melhorar regularmente o recurso Private Link e o Private Endpoint, consulte [este artigo][pllimitations] para obter informações atualizadas sobre limitações.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para implementar o Private Endpoint para a sua Web App através do portal, consulte [como ligar-se privadamente a uma Aplicação Web com o Portal][howtoguide1]
 - Para implementar o Private Endpoint para a sua Web App utilizando o Azure CLI, consulte [como ligar-se privadamente a uma Aplicação Web com o Azure CLI][howtoguide2]

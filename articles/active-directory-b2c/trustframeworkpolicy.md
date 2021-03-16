@@ -1,5 +1,5 @@
 ---
-title: TrustFrameworkPolicy - Azure Ative Directory B2C / Microsoft Docs
+title: TrustFrameworkPolicy - Azure Ative Directory B2C | Microsoft Docs
 description: Especificar o elemento TrustFrameworkPolicy de uma política personalizada no Azure Ative Directory B2C.
 services: active-directory-b2c
 author: msmimart
@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 01/31/2020
+ms.date: 03/15/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a87b4c6b845006a9f9f3cf82815277c67c09bef0
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: 9bf1cc197a7d6977ccb6ef69e157d9f8a76a58d5
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178845"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103470722"
 ---
 # <a name="trustframeworkpolicy"></a>TrustFrameworkPolicy
 
@@ -29,9 +29,9 @@ Uma política personalizada é representada como um ou mais ficheiros com format
   xmlns:xsd="https://www.w3.org/2001/XMLSchema"
   xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06"
   PolicySchemaVersion="0.3.0.0"
-  TenantId="mytenant.onmicrosoft.com"
+  TenantId="yourtenant.onmicrosoft.com"
   PolicyId="B2C_1A_TrustFrameworkBase"
-  PublicPolicyUri="http://mytenant.onmicrosoft.com/B2C_1A_TrustFrameworkBase">
+  PublicPolicyUri="http://yourtenant.onmicrosoft.com/B2C_1A_TrustFrameworkBase">
   ...
 ```
 
@@ -41,12 +41,12 @@ O elemento **TrustFrameworkPolicy** contém os seguintes atributos:
 | Atributo | Obrigatório | Descrição |
 |---------- | -------- | ----------- |
 | PolíticaSesoversão | Sim | A versão do esquema que deve ser usada para executar a apólice. O valor deve ser `0.3.0.0` |
-| TenantObjectId | Não | O identificador de objetos único do inquilino Azure Ative Directory B2C (Azure AD B2C). |
+| TenantObjectId | No | O identificador de objetos único do inquilino Azure Ative Directory B2C (Azure AD B2C). |
 | TenantId | Sim | O identificador único do inquilino a que esta política pertence. |
 | PolicyId | Sim | O identificador único para a apólice. Este identificador deve ser pré-fixado por *B2C_1A_* |
 | PublicPolicyUri | Sim | O URI para a apólice, que é a combinação da identificação do inquilino e a identificação da apólice. |
-| Envio de munições | Não | Valores possíveis: `Production` , ou `Development` . . `Production` é a predefinição. Use esta propriedade para depurar a sua apólice. Para obter mais informações, consulte [a Recolha de Registos.](troubleshoot-with-application-insights.md) |
-| UserJourneyRecorderEndpoint | Não | O ponto final que é utilizado para a exploração madeireira. O valor deve ser definido `urn:journeyrecorder:applicationinsights` se o atributo existir. Para obter mais informações, consulte [a Recolha de Registos.](troubleshoot-with-application-insights.md) |
+| Envio de munições | No | Valores possíveis: `Production` , ou `Development` . . `Production` é a predefinição. Use esta propriedade para depurar a sua apólice. Para obter mais informações, consulte [a Recolha de Registos.](troubleshoot-with-application-insights.md) |
+| UserJourneyRecorderEndpoint | No | O ponto final que é utilizado para a exploração madeireira. O valor deve ser definido `urn:journeyrecorder:applicationinsights` se o atributo existir. Para obter mais informações, consulte [a Recolha de Registos.](troubleshoot-with-application-insights.md) |
 
 
 O exemplo a seguir mostra como especificar o elemento **TrustFrameworkPolicy:**
@@ -57,9 +57,9 @@ O exemplo a seguir mostra como especificar o elemento **TrustFrameworkPolicy:**
    xmlns:xsd="https://www.w3.org/2001/XMLSchema"
    xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06"
    PolicySchemaVersion="0.3.0.0"
-   TenantId="mytenant.onmicrosoft.com"
+   TenantId="yourtenant.onmicrosoft.com"
    PolicyId="B2C_1A_TrustFrameworkBase"
-   PublicPolicyUri="http://mytenant.onmicrosoft.com/B2C_1A_TrustFrameworkBase">
+   PublicPolicyUri="http://yourtenant.onmicrosoft.com/B2C_1A_TrustFrameworkBase">
 ```
 
 O elemento **TrustFrameworkPolicy** contém os seguintes elementos:
@@ -90,9 +90,9 @@ O exemplo a seguir mostra como especificar uma política de base. Esta **políti
    xmlns:xsd="https://www.w3.org/2001/XMLSchema"
    xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06"
    PolicySchemaVersion="0.3.0.0"
-   TenantId="mytenant.onmicrosoft.com"
+   TenantId="yourtenant.onmicrosoft.com"
    PolicyId="B2C_1A_TrustFrameworkExtensions"
-   PublicPolicyUri="http://mytenant.onmicrosoft.com/B2C_1A_TrustFrameworkExtensions">
+   PublicPolicyUri="http://yourtenant.onmicrosoft.com/B2C_1A_TrustFrameworkExtensions">
 
   <BasePolicy>
     <TenantId>yourtenant.onmicrosoft.com</TenantId>

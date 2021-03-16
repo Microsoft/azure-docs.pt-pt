@@ -3,22 +3,22 @@ title: 'Quickstart: Biblioteca de clientes Do Reconhecimento de Formulários ou 
 titleSuffix: Azure Cognitive Services
 description: Utilize a biblioteca do cliente Do Reconhecimento de Formulários ou a API REST para criar uma aplicação de processamento de formulários que extrai pares de chaves/valor e dados de tabela dos seus documentos personalizados.
 services: cognitive-services
-author: PatrickFarley
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 01/29/2021
-ms.author: pafarley
+ms.author: lajanuar
 zone_pivot_groups: programming-languages-set-formre
 ms.custom: devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
 keywords: tratamento de formulários, processamento automatizado de dados
-ms.openlocfilehash: d468f40d9de7fd7efb4ac7d8021a667e0c6c31f6
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 43182892aa80f6226ffb5177d0be2e24d15ead5c
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99584613"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103467231"
 ---
 # <a name="quickstart-use-the-form-recognizer-client-library-or-rest-api"></a>Quickstart: Use a biblioteca do cliente do Reconhecimento de Formulários ou a API REST
 

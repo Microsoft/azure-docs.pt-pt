@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 03/12/2021
 ms.author: alkohli
-ms.openlocfilehash: 8be0a444dca4cae9b8f7a1e7c04be8a3046e56be
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.openlocfilehash: 348ddff56ed61cd608d6b9f28417e7cd4c4e6b13
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102639077"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103563968"
 ---
 # <a name="configure-and-run-a-module-on-gpu-on-azure-stack-edge-pro-device"></a>Configure e execute um módulo em GPU no dispositivo Azure Stack Edge Pro
 
@@ -50,7 +50,7 @@ Para configurar um módulo para utilizar a GPU no seu dispositivo Azure Stack Ed
    |--------|---------|
    |Subscrição      | Subscrição utilizada pelo recurso Azure Stack Edge. |
    |Grupo de recursos    | Grupo de recursos utilizado pelo recurso Azure Stack Edge. |
-   |IoT Hub           | Escolha entre **criar novo** ou **utilizar existente.** <br> Por predefinição, é utilizado um escalão Standard (S1) para criar um recurso IoT. Para utilizar um recurso IoT de escalão gratuito, crie um e, em seguida, selecione o recurso existente. <br> Em cada caso, o recurso IoT Hub utiliza o mesmo grupo de subscrição e recursos que é utilizado pelo recurso Azure Stack Edge.     |
+   |IoT Hub           | Escolha entre **criar novo** ou **utilizar existente.** <br> Por predefinição, é utilizado um escalão Standard (S1) para criar um recurso IoT. Para utilizar um recurso IoT de escalão gratuito, crie um e, em seguida, selecione o recurso existente. <br> Em cada caso, o recurso do Hub IoT utiliza a mesma subscrição e o mesmo grupo de recursos utilizados pelo recurso do Azure Stack Edge.     |
    |Name              | Se não quiser utilizar o nome padrão fornecido para um novo recurso IoT Hub, insira um nome diferente. |
 
    Quando terminar as definições, selecione **Review + Create**. Reveja as definições do seu recurso IoT Hub e selecione **Criar**.
@@ -104,7 +104,7 @@ Para configurar um módulo para utilizar a GPU no seu dispositivo Azure Stack Ed
        Para obter mais informações sobre variáveis ambientais que você pode usar com o GPU da Nvidia, vá para o [tempo de funcionação do contentor nVidia](https://github.com/NVIDIA/nvidia-container-runtime#environment-variables-oci-spec).
 
     > [!NOTE]
-    > Uma GPU só pode ser mapeada para um módulo. No entanto, um módulo pode usar um, ambos ou nenhum GPUs.
+    > Um módulo pode usar um, ambos ou nenhum GPUs.
 
 12. Insira um nome para o seu módulo. Neste ponto pode optar por fornecer ao recipiente criar opção e modificar as definições gémeas do módulo ou, se for feito, selecione **Adicionar**. 
 

@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.custom: project-no-code
-ms.date: 03/08/2021
+ms.date: 03/15/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 5880b6f44caec053aef292960cecbf64f25c6743
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: 3e1eaf4f97b9b04ed02aeb3c6de65b90bf4947e1
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102448579"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103489156"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-an-amazon-account-using-azure-active-directory-b2c"></a>Configurar inscrição e inscrição com uma conta Amazon utilizando o Azure Ative Directory B2C
 
@@ -38,12 +38,17 @@ ms.locfileid: "102448579"
 
 Para ativar o sessão para utilizadores com uma conta Amazon no Azure Ative Directory B2C (Azure AD B2C), precisa de criar uma aplicação nos [Serviços e Tecnologias de Desenvolvimento da Amazon.](https://developer.amazon.com) Para mais informações, consulte [Registar-se para Iniciar sessão com a Amazon.](https://developer.amazon.com/docs/login-with-amazon/register-web.html) Se ainda não tem uma conta Amazon, pode inscrever-se em [https://www.amazon.com/](https://www.amazon.com/) .
 
-> [!NOTE]  
-> Utilize os seguintes URLs no **passo 8** abaixo, substituindo-os `your-tenant-name` pelo nome do seu inquilino. Ao inserir o nome do seu inquilino, utilize todas as letras minúsculas, mesmo que o arrendatário seja definido com letras maiúsculas em Azure AD B2C.
-> - Para **Origens Permitidas, insira**`https://your-tenant-name.b2clogin.com` 
-> - Para **URLs de retorno permitidos, insira**`https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`
-
-[!INCLUDE [identity-provider-amazon-idp-register.md](../../includes/identity-provider-amazon-idp-register.md)]
+1. Inscreva-se na [Consola de Desenvolvimento](https://developer.amazon.com/dashboard) da Amazon com as suas credenciais de conta Amazon.
+1. Se ainda não o fez, selecione **Inscrever-se,** siga as etapas de registo do desenvolvedor e, em seguida, aceite a política.
+1. A partir do Painel de Instrumentos, **selecione Login com a Amazon.**
+1. Selecione **Criar um novo perfil de segurança**.
+1. Introduza um **Nome de Perfil de Segurança**, **Descrição do Perfil de Segurança** e URL de Aviso de Privacidade do **Consentimento**, por `https://www.contoso.com/privacy` exemplo, O URL de aviso de privacidade é uma página que gere que fornece informações de privacidade aos utilizadores. Em seguida, clique em **Guardar**.
+1. Na secção **Iniciar Sessão com Configurações Amazon,** selecione o **Nome do Perfil de Segurança** criado, selecione o ícone **'Gerir'** e, em seguida, selecione **Definições web**.
+1. Na secção **Definições Web,** copie os valores do **ID** do Cliente . Selecione **Show Secret** para obter o segredo do cliente e, em seguida, copiá-lo. Você precisa de ambos os valores para configurar uma conta Amazon como um fornecedor de identidade no seu inquilino. **A Client Secret** é uma importante credencial de segurança.
+1. Na secção **Definições Web,** selecione **Editar**. 
+    1. In **Allowed Origins,** enter `https://your-tenant-name.b2clogin.com` . `your-tenant-name`Substitua-o pelo nome do seu inquilino. Se utilizar um [domínio personalizado,](custom-domain.md)insira `https://your-domain-name` .
+    1.  **URLs de retorno permitidos,** insira `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` .  Se utilizar um [domínio personalizado,](custom-domain.md)insira `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp` .  `your-tenant-name`Substitua-o pelo nome do seu inquilino e `your-domain-name` pelo seu domínio personalizado.
+1. Selecione **Guardar**.
 
 ::: zone pivot="b2c-user-flow"
 

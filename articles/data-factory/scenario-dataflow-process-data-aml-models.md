@@ -10,14 +10,16 @@ ms.topic: conceptual
 ms.date: 1/31/2021
 ms.author: amberz
 ms.co-author: Donnana
-ms.openlocfilehash: 494fc2c227b6fe855e96a780d43cc6702722fa94
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: e8352b687a3cdfac7ea2a819e1217906598a6837
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100521019"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103563271"
 ---
 # <a name="process-data-from-automated-machine-learningautoml-models-using-data-flow"></a>Processar dados de modelos automatizados de aprendizagem automática (AutoML) utilizando fluxo de dados
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 O machine learning automatizado (AutoML) é adotado por projetos de machine learning para treinar, sintonizar e ganhar o melhor modelo automaticamente usando a métrica-alvo que especifica para classificação, regressão e previsão de séries de tempo. 
 

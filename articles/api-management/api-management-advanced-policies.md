@@ -1,5 +1,5 @@
 ---
-title: Azure API Management avançou políticas Microsoft Docs
+title: Azure API Management avançou políticas | Microsoft Docs
 description: Conheça as políticas avançadas disponíveis para utilização na Azure API Management. Veja exemplos e veja recursos adicionais disponíveis.
 services: api-management
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/13/2020
 ms.author: apimpm
-ms.openlocfilehash: 3a37cde79cef59eaf9c3ef130bfbae9cff958bd7
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 03529fd3c0231617c477f4f16773039a02386683
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96919449"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103562489"
 ---
 # <a name="api-management-advanced-policies"></a>Políticas avançadas de Gestão de API
 
@@ -130,7 +130,7 @@ Este exemplo mostra como executar a filtragem de conteúdos removendo elementos 
 | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | escolher    | Elemento de raiz.                                                                                                                                                                                                                                                             | Sim      |
 | quando      | A condição a usar para a `if` ou `ifelse` partes da `choose` apólice. Se a `choose` apólice tiver `when` várias secções, são avaliadas sequencialmente. Uma vez que o `condition` elemento de um quando o elemento `true` avalia, não são avaliadas mais `when` condições. | Sim      |
-| caso contrário | Contém o corte de política a utilizar se nenhuma das `when` condições avaliar `true` .                                                                                                                                                                               | Não       |
+| caso contrário | Contém o corte de política a utilizar se nenhuma das `when` condições avaliar `true` .                                                                                                                                                                               | No       |
 
 ### <a name="attributes"></a>Atributos
 
@@ -252,11 +252,11 @@ Esta política de nível de funcionamento não encaminha pedidos para o serviço
 
 | Atributo                                     | Descrição                                                                                                                                                                                                                                                                                                    | Obrigatório | Predefinição |
 | --------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
-| timeout="inteiro"                             | A quantidade de tempo em segundos para aguardar que os cabeçalhos de resposta HTTP sejam devolvidos pelo serviço de backend antes de um erro de tempo for aumentado. O valor mínimo é de 0 segundos. Valores superiores a 240 segundos não podem ser honrados, uma vez que a infraestrutura de rede subjacente pode deixar cair as ligações inativas após este tempo. | Não       | Nenhum    |
-| follow-redirects="falso &#124; verdadeiro"          | Especifica se os redirecionamentos do serviço de backend são seguidos pelo gateway ou devolvidos ao chamador.                                                                                                                                                                                                    | Não       | false   |
-| buffer-request-body="falso &#124; verdadeiro"       | Quando definido como pedido "verdadeiro" é tamponado e será reutilizado em [re-try](api-management-advanced-policies.md#Retry).                                                                                                                                                                                               | Não       | false   |
-| resposta tampão="falso &#124; verdadeiro" | Afeta o processamento de respostas em pedaços. Quando definido como "falso" cada pedaço recebido do backend é imediatamente devolvido ao chamador. Quando definidos para pedaços "verdadeiros" são tamponados (8KB, a menos que o fim do fluxo seja detetado) e só depois devolvidos ao chamador. | Não | true |
-| fail-on-error-status-code="falso &#124; verdadeiro" | Quando definido para a secção [de erro](api-management-error-handling-policies.md) verdadeiro, os códigos de resposta entre 400 e 599 inclusive.                                                                                                                                                                      | Não       | false   |
+| timeout="inteiro"                             | A quantidade de tempo em segundos para aguardar que os cabeçalhos de resposta HTTP sejam devolvidos pelo serviço de backend antes de um erro de tempo for aumentado. O valor mínimo é de 0 segundos. Valores superiores a 240 segundos não podem ser honrados, uma vez que a infraestrutura de rede subjacente pode deixar cair as ligações inativas após este tempo. | No       | Nenhum    |
+| follow-redirects="falso &#124; verdadeiro"          | Especifica se os redirecionamentos do serviço de backend são seguidos pelo gateway ou devolvidos ao chamador.                                                                                                                                                                                                    | No       | false   |
+| buffer-request-body="falso &#124; verdadeiro"       | Quando definido como pedido "verdadeiro" é tamponado e será reutilizado em [re-try](api-management-advanced-policies.md#Retry).                                                                                                                                                                                               | No       | false   |
+| resposta tampão="falso &#124; verdadeiro" | Afeta o processamento de respostas em pedaços. Quando definido como "falso" cada pedaço recebido do backend é imediatamente devolvido ao chamador. Quando definidos para pedaços "verdadeiros" são tamponados (8KB, a menos que o fim do fluxo seja detetado) e só depois devolvidos ao chamador. | No | true |
+| fail-on-error-status-code="falso &#124; verdadeiro" | Quando definido para a secção [de erro](api-management-error-handling-policies.md) verdadeiro, os códigos de resposta entre 400 e 599 inclusive.                                                                                                                                                                      | No       | false   |
 
 ### <a name="usage"></a>Utilização
 
@@ -403,8 +403,8 @@ status code and media type. If no example or schema found, the content is empty.
 
 | Atributo    | Descrição                                                                                           | Obrigatório | Predefinição |
 | ------------ | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
-| código de estado  | Especifica o código de estado de resposta e é utilizado para selecionar o exemplo ou esquema correspondente.                 | Não       | 200     |
-| tipo de conteúdo | Especifica o `Content-Type` valor do cabeçalho de resposta e é utilizado para selecionar o exemplo ou esquema correspondente. | Não       | Nenhum    |
+| código de estado  | Especifica o código de estado de resposta e é utilizado para selecionar o exemplo ou esquema correspondente.                 | No       | 200     |
+| tipo de conteúdo | Especifica o `Content-Type` valor do cabeçalho de resposta e é utilizado para selecionar o exemplo ou esquema correspondente. | No       | Nenhum    |
 
 ### <a name="usage"></a>Utilização
 
@@ -465,9 +465,9 @@ No exemplo seguinte, o reencaminhamento de pedidos é novamente experimentado at
 | condição        | Um literal ou [expressão](api-management-policy-expressions.md) booleano especificando se as retrósias devem ser paradas `false` () ou continuadas ( `true` ).      | Sim      | N/D     |
 | count            | Um número positivo que especifica o número máximo de tentativas.                                                                                | Sim      | N/D     |
 | interval         | Um número positivo em segundos especificando o intervalo de espera entre as tentativas de repetição.                                                                 | Sim      | N/D     |
-| intervalo máximo     | Um número positivo em segundos especificando o intervalo máximo de espera entre as tentativas de repetição. É usado para implementar um algoritmo exponencial de retíria. | Não       | N/D     |
-| delta            | Um número positivo em segundos especificando o incremento do intervalo de espera. É usado para implementar os algoritmos lineares e exponenciais de retíria.             | Não       | N/D     |
-| primeira-rápida retry | Se estiver `true` definido, a primeira tentativa de repetição é executada imediatamente.                                                                                  | Não       | `false` |
+| intervalo máximo     | Um número positivo em segundos especificando o intervalo máximo de espera entre as tentativas de repetição. É usado para implementar um algoritmo exponencial de retíria. | No       | N/D     |
+| delta            | Um número positivo em segundos especificando o incremento do intervalo de espera. É usado para implementar os algoritmos lineares e exponenciais de retíria.             | No       | N/D     |
+| primeira-rápida retry | Se estiver `true` definido, a primeira tentativa de repetição é executada imediatamente.                                                                                  | No       | `false` |
 
 > [!NOTE]
 > Quando apenas as `interval` especificadas são especificadas, são executadas recaídas de intervalo **fixa.**
@@ -514,9 +514,9 @@ A `return-response` apólice aborta a execução do gasoduto e devolve uma respo
 | Elemento         | Descrição                                                                               | Obrigatório |
 | --------------- | ----------------------------------------------------------------------------------------- | -------- |
 | resposta de retorno | Elemento de raiz.                                                                             | Sim      |
-| set-header      | Uma declaração [política de cabeçalho.](api-management-transformation-policies.md#SetHTTPheader) | Não       |
-| conjunto de corpo        | Uma [declaração política de corpo definido.](api-management-transformation-policies.md#SetBody)         | Não       |
-| estado de conjunto      | Uma declaração de política [de definição.](api-management-advanced-policies.md#SetStatus)           | Não       |
+| set-header      | Uma declaração [política de cabeçalho.](api-management-transformation-policies.md#SetHTTPheader) | No       |
+| conjunto de corpo        | Uma [declaração política de corpo definido.](api-management-transformation-policies.md#SetBody)         | No       |
+| estado de conjunto      | Uma declaração de política [de definição.](api-management-advanced-policies.md#SetStatus)           | No       |
 
 ### <a name="attributes"></a>Atributos
 
@@ -586,17 +586,17 @@ Esta política de amostra mostra um exemplo de utilização da `send-one-way-req
 | enviar-um-pedido de ida       | Elemento de raiz.                                                                                               | Sim                             |
 | url                        | A URL do pedido.                                                                                     | Não se mode=copy; caso contrário, sim. |
 | método                     | O método HTTP para o pedido.                                                                            | Não se mode=copy; caso contrário, sim. |
-| cabeçalho                     | Pedido de cabeçalho. Utilize vários elementos do cabeçalho para vários cabeçalhos de pedido.                                  | Não                              |
-| body                       | O corpo de pedido.                                                                                           | Não                              |
-| certificado de autenticação | [Certificado para utilização para autenticação do cliente](api-management-authentication-policies.md#ClientCertificate) | Não                              |
+| cabeçalho                     | Pedido de cabeçalho. Utilize vários elementos do cabeçalho para vários cabeçalhos de pedido.                                  | No                              |
+| body                       | O corpo de pedido.                                                                                           | No                              |
+| certificado de autenticação | [Certificado para utilização para autenticação do cliente](api-management-authentication-policies.md#ClientCertificate) | No                              |
 
 ### <a name="attributes"></a>Atributos
 
 | Atributo     | Descrição                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Obrigatório | Predefinição  |
 | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- |
-| mode="string" | Determina se se trata de um novo pedido ou de uma cópia do pedido atual. No modo de saída, mode=copy não inicializa o corpo de pedido.                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Não       | Novo      |
+| mode="string" | Determina se se trata de um novo pedido ou de uma cópia do pedido atual. No modo de saída, mode=copy não inicializa o corpo de pedido.                                                                                                                                                                                                                                                                                                                                                                                                                                                                | No       | Novo      |
 | name          | Especifica o nome do cabeçalho a definir.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Sim      | N/D      |
-| existe-ação | Especifica que medidas tomar quando o cabeçalho já está especificado. Este atributo deve ter um dos seguintes valores.<br /><br /> - sobreposição - substitui o valor do cabeçalho existente.<br />- saltar - não substitui o valor do cabeçalho existente.<br />- apêndice - anexa o valor ao valor do cabeçalho existente.<br />- excluir - retire o cabeçalho do pedido.<br /><br /> Quando definido para `override` a inscrição de várias entradas com o mesmo nome resulta na configuração do cabeçalho de acordo com todas as entradas (que serão listadas várias vezes); apenas os valores listados serão definidos no resultado. | Não       | sobreposição |
+| existe-ação | Especifica que medidas tomar quando o cabeçalho já está especificado. Este atributo deve ter um dos seguintes valores.<br /><br /> - sobreposição - substitui o valor do cabeçalho existente.<br />- saltar - não substitui o valor do cabeçalho existente.<br />- apêndice - anexa o valor ao valor do cabeçalho existente.<br />- excluir - retire o cabeçalho do pedido.<br /><br /> Quando definido para `override` a inscrição de várias entradas com o mesmo nome resulta na configuração do cabeçalho de acordo com todas as entradas (que serão listadas várias vezes); apenas os valores listados serão definidos no resultado. | No       | sobreposição |
 
 ### <a name="usage"></a>Utilização
 
@@ -670,20 +670,20 @@ Este exemplo mostra uma maneira de verificar um token de referência com um serv
 | envio-pedido               | Elemento de raiz.                                                                                               | Sim                             |
 | url                        | A URL do pedido.                                                                                     | Não se mode=copy; caso contrário, sim. |
 | método                     | O método HTTP para o pedido.                                                                            | Não se mode=copy; caso contrário, sim. |
-| cabeçalho                     | Pedido de cabeçalho. Utilize vários elementos do cabeçalho para vários cabeçalhos de pedido.                                  | Não                              |
-| body                       | O corpo de pedido.                                                                                           | Não                              |
-| certificado de autenticação | [Certificado para utilização para autenticação do cliente](api-management-authentication-policies.md#ClientCertificate) | Não                              |
+| cabeçalho                     | Pedido de cabeçalho. Utilize vários elementos do cabeçalho para vários cabeçalhos de pedido.                                  | No                              |
+| body                       | O corpo de pedido.                                                                                           | No                              |
+| certificado de autenticação | [Certificado para utilização para autenticação do cliente](api-management-authentication-policies.md#ClientCertificate) | No                              |
 
 ### <a name="attributes"></a>Atributos
 
 | Atributo                       | Descrição                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Obrigatório | Predefinição  |
 | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- |
-| mode="string"                   | Determina se se trata de um novo pedido ou de uma cópia do pedido atual. No modo de saída, mode=copy não inicializa o corpo de pedido.                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Não       | Novo      |
+| mode="string"                   | Determina se se trata de um novo pedido ou de uma cópia do pedido atual. No modo de saída, mode=copy não inicializa o corpo de pedido.                                                                                                                                                                                                                                                                                                                                                                                                                                                                | No       | Novo      |
 | resposta-variável-nome="string" | O nome da variável de contexto que receberá um objeto de resposta. Se a variável não existir, será criada após a execução bem sucedida da apólice e tornar-se-á acessível através da [`context.Variable`](api-management-policy-expressions.md#ContextVariables) recolha.                                                                                                                                                                                                                                                                                                                          | Sim      | N/D      |
-| timeout="inteiro"               | O intervalo de tempo em segundos antes da chamada para o URL falhar.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Não       | 60       |
-| ignorar erro                    | Se for verdade e o pedido resultar em erro:<br /><br /> - Se o nome variável de resposta for especificado, conterá um valor nulo.<br />- Se não for especificado o nome variável de resposta, o contexto. O pedido não será atualizado.                                                                                                                                                                                                                                                                                                                                                                                   | Não       | false    |
+| timeout="inteiro"               | O intervalo de tempo em segundos antes da chamada para o URL falhar.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | No       | 60       |
+| ignorar erro                    | Se for verdade e o pedido resultar em erro:<br /><br /> - Se o nome variável de resposta for especificado, conterá um valor nulo.<br />- Se não for especificado o nome variável de resposta, o contexto. O pedido não será atualizado.                                                                                                                                                                                                                                                                                                                                                                                   | No       | false    |
 | name                            | Especifica o nome do cabeçalho a definir.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Sim      | N/D      |
-| existe-ação                   | Especifica que medidas tomar quando o cabeçalho já está especificado. Este atributo deve ter um dos seguintes valores.<br /><br /> - sobreposição - substitui o valor do cabeçalho existente.<br />- saltar - não substitui o valor do cabeçalho existente.<br />- apêndice - anexa o valor ao valor do cabeçalho existente.<br />- excluir - retire o cabeçalho do pedido.<br /><br /> Quando definido para `override` a inscrição de várias entradas com o mesmo nome resulta na configuração do cabeçalho de acordo com todas as entradas (que serão listadas várias vezes); apenas os valores listados serão definidos no resultado. | Não       | sobreposição |
+| existe-ação                   | Especifica que medidas tomar quando o cabeçalho já está especificado. Este atributo deve ter um dos seguintes valores.<br /><br /> - sobreposição - substitui o valor do cabeçalho existente.<br />- saltar - não substitui o valor do cabeçalho existente.<br />- apêndice - anexa o valor ao valor do cabeçalho existente.<br />- excluir - retire o cabeçalho do pedido.<br /><br /> Quando definido para `override` a inscrição de várias entradas com o mesmo nome resulta na configuração do cabeçalho de acordo com todas as entradas (que serão listadas várias vezes); apenas os valores listados serão definidos no resultado. | No       | sobreposição |
 
 ### <a name="usage"></a>Utilização
 
@@ -724,8 +724,8 @@ Note a utilização de [propriedades](api-management-howto-properties.md) como v
 | Atributo         | Descrição                                            | Obrigatório | Predefinição |
 | ----------------- | ------------------------------------------------------ | -------- | ------- |
 | url="string"      | URL de procuração na forma de http://host:port .             | Sim      | N/D     |
-| username="string" | Nome de utilizador para ser utilizado para autenticação com o representante. | Não       | N/D     |
-| palavra-passe="cadeia" | Palavra-passe para ser usada para autenticação com o representante. | Não       | N/D     |
+| username="string" | Nome de utilizador para ser utilizado para autenticação com o representante. | No       | N/D     |
+| palavra-passe="cadeia" | Palavra-passe para ser usada para autenticação com o representante. | No       | N/D     |
 
 ### <a name="usage"></a>Utilização
 
@@ -865,7 +865,7 @@ O exemplo a seguir demonstra uma política variável definida na secção de ent
 
 ### <a name="attributes"></a>Atributos
 
-| Atributo | Descrição                                                              | Obrigatório |
+| Atributo | Descrição                                                              | Necessário |
 | --------- | ------------------------------------------------------------------------ | -------- |
 | name      | O nome da variável.                                                | Sim      |
 | valor     | O valor da variável. Isto pode ser uma expressão ou um valor literal. | Sim      |
@@ -918,7 +918,7 @@ As expressões utilizadas na `set-variable` apólice devem devolver um dos segui
 A `trace` política adiciona um traço personalizado na saída do Inspetor API, telemetria de Insights de Aplicação e/ou Registos de Recursos.
 
 -   A apólice adiciona um traço personalizado à saída do Inspetor da [API](./api-management-howto-api-inspector.md) quando o rastreio é desencadeado, ou seja, `Ocp-Apim-Trace` o cabeçalho de pedido está presente e definido para o cabeçalho verdadeiro e `Ocp-Apim-Subscription-Key` o cabeçalho de pedido está presente e contém uma chave válida que permite o rastreio.
--   A política cria uma telemetria [Trace](../azure-monitor/app/data-model-trace-telemetry.md) in Application Insights, quando a [integração de Insights de Aplicação](./api-management-howto-app-insights.md) está ativada e o `severity` nível especificado na política é igual ou superior ao `verbosity` nível especificado na definição de diagnóstico.
+-   A política cria uma telemetria [Trace](../azure-monitor/app/data-model-trace-telemetry.md) in Application Insights, quando a [integração de Insights de Aplicação](./api-management-howto-app-insights.md) está ativada e `severity` a especificada na política é igual ou superior à `verbosity` especificada na definição de diagnóstico.
 -   A política adiciona uma propriedade na entrada de registo quando os [Registos de Recursos](./api-management-howto-use-azure-monitor.md#activity-logs) estão ativados e o nível de gravidade especificado na política é superior ou superior ao nível de verbosidade especificado na definição de diagnóstico.
 
 ### <a name="policy-statement"></a>Declaração política
@@ -947,14 +947,14 @@ A `trace` política adiciona um traço personalizado na saída do Inspetor API, 
 | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | traço    | Elemento de raiz.                                                                                                                                        | Sim      |
 | message  | Uma corda ou expressão a ser registada.                                                                                                                 | Sim      |
-| do IdP | Adiciona uma propriedade personalizada à telemetria Application Insights [Trace.](../azure-monitor/app/data-model-trace-telemetry.md) | Não       |
+| do IdP | Adiciona uma propriedade personalizada à telemetria Application Insights [Trace.](../azure-monitor/app/data-model-trace-telemetry.md) | No       |
 
 ### <a name="attributes"></a>Atributos
 
 | Atributo | Descrição                                                                                                               | Obrigatório | Predefinição |
 | --------- | ------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
 | source    | String literal significativo para o observador de vestígios e especificando a origem da mensagem.                                   | Sim      | N/D     |
-| gravidade  | Especifica o nível de gravidade do vestígio. Os valores permitidos `verbose` `information` são, `error` (do mais baixo ao mais alto). | Não       | Verboso |
+| gravidade  | Especifica o nível de gravidade do vestígio. Os valores permitidos `verbose` `information` são, `error` (do mais baixo ao mais alto). | No       | Verboso |
 | name      | Nome da propriedade.                                                                                                     | Sim      | N/D     |
 | valor     | Valor do imóvel.                                                                                                    | Sim      | N/D     |
 
@@ -1026,7 +1026,7 @@ No exemplo seguinte, existem duas `choose` políticas como políticas imediatas 
 
 | Atributo | Descrição                                                                                                                                                                                                                                                                                                                                                                                                            | Obrigatório | Predefinição |
 | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
-| para       | Determina se a política aguarda que `wait` todas as políticas imediatas para crianças sejam concluídas ou apenas uma. Os valores permitidos são:<br /><br /> - `all` - aguardar que todas as políticas imediatas para a criança terminem<br />- qualquer - aguarde que qualquer política imediata de crianças seja completada. Uma vez concluída a primeira política imediata da criança, a `wait` política completa e a execução de quaisquer outras políticas imediatas para crianças é encerrada. | Não       | all     |
+| para       | Determina se a política aguarda que `wait` todas as políticas imediatas para crianças sejam concluídas ou apenas uma. Os valores permitidos são:<br /><br /> - `all` - aguardar que todas as políticas imediatas para a criança terminem<br />- qualquer - aguarde que qualquer política imediata de crianças seja completada. Uma vez concluída a primeira política imediata da criança, a `wait` política completa e a execução de quaisquer outras políticas imediatas para crianças é encerrada. | No       | all     |
 
 ### <a name="usage"></a>Utilização
 

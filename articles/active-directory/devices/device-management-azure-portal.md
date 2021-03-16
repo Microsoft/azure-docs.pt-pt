@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: hafowler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0aea468c64f70bd7f35dd25206faa9ea33459999
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 23c74a8a35255162c7c9ddee6c917d4d98d83b89
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101688914"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103561656"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Gerir identidades de dispositivos com o portal do Azure
 
@@ -169,6 +169,10 @@ Deve ser-lhe atribuída uma das seguintes funções para visualizar ou gerir as 
 
 > [!NOTE]
 > **Os dispositivos a aderir ao AZure AD ou a Azure AD registados requerem que a definição de autenticação multi-factor** se aplique a dispositivos que estejam ligados ao Azure AD (com algumas exceções) ou a Azure AD registada. Esta definição não se aplica aos dispositivos híbridos Azure AD, [a Azure AD juntou VMs em Azure](./howto-vm-sign-in-azure-ad-windows.md#enabling-azure-ad-login-in-for-windows-vm-in-azure) e Azure AD dispositivos de ligação com [o Modo de Auto-implantação do Windows Autopilot](/mem/autopilot/self-deploying).
+
+> [!IMPORTANT]
+> - Recomendamos a utilização de [uma ação do utilizador "Registar ou juntar dispositivos"](../conditional-access/concept-conditional-access-cloud-apps.md#user-actions) no Acesso Condicional para impor a autenticação de vários fatores para a junção ou registo de um dispositivo. 
+> - Tem de definir esta definição para **Não** se estiver a utilizar a política de Acesso Condicional para exigir a authencação de vários fatores. 
 
 - **Número máximo de dispositivos** - Esta definição permite selecionar o número máximo de dispositivos registados AZURE AD ou Azure AD que um utilizador pode ter no Azure AD. Se um utilizador atingir esta quota, não poderá adicionar dispositivos adicionais até que um ou mais dos dispositivos existentes sejam removidos. O valor predefinido é **de 50**.
 

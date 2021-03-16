@@ -1,6 +1,6 @@
 ---
-title: Módulo de segurança para visão geral do Azure RTOS
-description: Saiba mais sobre o módulo de segurança para suporte e implementação Azure RTOS como parte do Azure Defender para IoT.
+title: Defender-IoT-micro-agente para visão geral do Azure RTOS
+description: Saiba mais sobre o defender-ioT-micro-agente para suporte e implementação Azure RTOS como parte do Azure Defender para IoT.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/14/2021
 ms.author: shhazam
-ms.openlocfilehash: 47b2b49a21a82be13c987b95c7c775f5014a532e
-ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
+ms.openlocfilehash: ae1ae941dcb1af73286a4865089b1be227c484fc
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99809087"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103496053"
 ---
-# <a name="overview-defender-for-iot-security-module-for-azure-rtos-preview"></a>Visão geral: Defender para módulo de segurança IoT para Azure RTOS (pré-visualização)
+# <a name="overview-defender-for-iot-defender-iot-micro-agent-for-azure-rtos-preview"></a>Visão geral: Defender-IoT-micro-agente IoT para Azure RTOS (pré-visualização)
 
-O Azure Defender para micro módulo IoT fornece uma solução de segurança abrangente para dispositivos que utilizam O Azure RTOS. Fornece cobertura para ameaças comuns e potenciais atividades maliciosas em dispositivos do sistema operativo em tempo real (RTOS). A Azure RTOS agora envia com o módulo de segurança Azure IoT incorporado.
+O Azure Defender para micro módulo IoT fornece uma solução de segurança abrangente para dispositivos que utilizam O Azure RTOS. Fornece cobertura para ameaças comuns e potenciais atividades maliciosas em dispositivos do sistema operativo em tempo real (RTOS). A Azure RTOS agora envia com o Azure IoT Defender-IoT-micro-agente incorporado.
 
 :::image type="content" source="./media/architecture/azure-rtos-security-monitoring.png" alt-text="Visualização do Defender para IoT Azure RTOS.":::
 
@@ -47,11 +47,11 @@ Ao utilizar a infraestrutura recomendada que o Defender for IoT fornece, pode ob
 
 ## <a name="get-started-protecting-azure-rtos-devices"></a>Começar a proteger dispositivos Azure RTOS
 
-O Módulo de Segurança para Azure RTOS é fornecido como um download gratuito para os seus dispositivos. O serviço de nuvem Defender for IoT está disponível com um teste de 30 dias por subscrição Azure. Para começar, descarregue o [módulo de segurança para Azure RTOS](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/defender-for-iot/iot-security-azure-rtos.md). 
+O defender-ioT-micro-agente para Azure RTOS é fornecido como um download gratuito para os seus dispositivos. O serviço de nuvem Defender for IoT está disponível com um teste de 30 dias por subscrição Azure. Para começar, descarregue o [defender-ioT-micro-agente para Azure RTOS](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/defender-for-iot/iot-security-azure-rtos.md). 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, você aprendeu sobre o módulo de segurança para Azure RTOS. Para saber mais sobre o módulo de segurança e começar, consulte os seguintes artigos:
+Neste artigo, você aprendeu sobre o Defender-IoT-micro-agente para Azure RTOS. Para saber mais sobre o defender-ioT-micro-agente e começar, consulte os seguintes artigos:
 
-- [Conceitos de módulo de segurança Azure RTOS IoT](concept-rtos-security-module.md)
-- [Quickstart: Módulo de segurança Azure RTOS IoT](quickstart-azure-rtos-security-module.md)
+- [Conceitos de Azure RTOS IoT Defender-IoT-micro-agente](concept-rtos-security-module.md)
+- [Quickstart: Azure RTOS IoT Defender-IoT-micro-agent](quickstart-azure-rtos-security-module.md)

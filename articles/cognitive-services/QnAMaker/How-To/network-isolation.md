@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 731d94aa76146bf06a03842e8f3907d1762eeca3
-ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
+ms.openlocfilehash: afb396bc364a2fa2db923fbcbe6bfe1b7aedbc26
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103225613"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103467549"
 ---
 # <a name="recommended-settings-for-network-isolation"></a>Configurações recomendadas para isolamento de rede
 
@@ -22,8 +22,7 @@ Pode adicionar IPs ao serviço app, permitir a lista para restringir o acesso ou
 
 #### <a name="add-ips-to-app-service-allow-list"></a>Adicionar IPs à lista de permitis do Serviço de Aplicações
 
-1. 
-tráfego apenas de IPs de Serviços Cognitivos. Estes já estão incluídos na Etiqueta de `CognitiveServicesManagement` Serviço. Isto é necessário para que as APIs de Autoria (Create/Update KB) invoquem o serviço de aplicações e atualizem o serviço de Pesquisa Azure em conformidade. Confira [mais informações sobre etiquetas de serviço.](../../../virtual-network/service-tags-overview.md)
+1. Permitir o tráfego apenas a partir de IPs de Serviços Cognitivos. Estes já estão incluídos na Etiqueta de `CognitiveServicesManagement` Serviço. Isto é necessário para que as APIs de Autoria (Create/Update KB) invoquem o serviço de aplicações e atualizem o serviço de Pesquisa Azure em conformidade. Confira [mais informações sobre etiquetas de serviço.](../../../virtual-network/service-tags-overview.md)
 2. Certifique-se de que também permite outros pontos de entrada como o Azure Bot Service, o portal QnA Maker, etc. para a previsão de acesso a API "GenerateAnswer".
 3. Siga estes passos para adicionar os intervalos de endereço IP a uma lista de autorizações:
 

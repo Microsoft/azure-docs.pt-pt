@@ -6,13 +6,13 @@ author: kromerm
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 09/11/2020
-ms.openlocfilehash: f8a852a8c4197169061a9c7633f4f363ad057337
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.date: 03/15/2021
+ms.openlocfilehash: fe65a9528e35416d537f3aecd3a44f8b4e568afe
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102505805"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103467736"
 ---
 # <a name="troubleshoot-mapping-data-flows-in-azure-data-factory"></a>Fluxos de dados de mapeamento de resolução de problemas na Azure Data Factory
 
@@ -165,36 +165,6 @@ Este artigo explora métodos comuns de resolução de problemas para mapear flux
 - **Causa:** Indeterminado.
 - **Recomendação**: Verifique a atribuição do valor dos parâmetros no oleoduto. Uma expressão de parâmetro pode conter caracteres inválidos.
 
-### <a name="error-code-df-excel-invalidconfiguration"></a>Código de erro: DF-Excel-InvalidConfiguration
-- **Mensagem**: É necessário o nome ou índice da folha excel.
-- **Causa:** Indeterminado.
-- **Recomendação**: Verifique o valor do parâmetro. Especifique o nome ou índice da folha de cálculo para a leitura dos dados do Excel.
-
-- **Mensagem**: O nome e o índice da folha de excel não podem existir ao mesmo tempo.
-- **Causa:** Indeterminado.
-- **Recomendação**: Verifique o valor do parâmetro. Especifique o nome ou índice da folha de cálculo para a leitura dos dados do Excel.
-
-- **Mensagem**: É fornecido um intervalo inválido.
-- **Causa:** Indeterminado.
-- **Recomendação**: Verifique o valor do parâmetro. Especifique um intervalo válido por referência. Para mais informações, consulte [as propriedades do Excel.](./format-excel.md#dataset-properties)
-
-- **Mensagem**: O ficheiro excel inválido é fornecido enquanto apenas .xlsx e .xls são suportados
-- **Causa:** Indeterminado.
-- **Recomendação**: Certifique-se de que a extensão do ficheiro Excel é .xlsx ou .xls.
-
-
- ### <a name="error-code-df-excel-invaliddata"></a>Código de erro: DF-Excel-InvalidData
-- **Mensagem**: A folha de cálculo do Excel não existe.
-- **Causa:** Indeterminado.
-- **Recomendação**: Verifique o valor do parâmetro. Especifique um nome ou índice de folha de cálculo válido para ler os dados do Excel.
-
-- **Mensagem**: Ler ficheiros excel com esquemas diferentes não é suportado agora.
-- **Causa:** Indeterminado.
-- **Recomendação**: Utilize um ficheiro Excel suportado.
-
-- **Mensagem**: O tipo de dados não é suportado.
-- **Causa:** Indeterminado.
-- **Recomendação**: Utilize tipos de dados de ficheiros Excel suportados.
 
 ### <a name="error-code-4502"></a>Código de erro: 4502
 - **Mensagem**: Existem execuções simultâneas de MappingDataflow substanciais que estão a causar falhas devido a estrangulamentos no tempo de execução da integração.
@@ -211,6 +181,206 @@ Este artigo explora métodos comuns de resolução de problemas para mapear flux
 - **Mensagem**: A atividade estava a decorrer no Tempo de Execução da Integração Azure e não conseguiu desencriptar a credencial de data store ou computação ligada através de um Tempo de Execução de Integração Auto-hospedado. Verifique a configuração dos serviços ligados associados a esta atividade e certifique-se de utilizar o tipo de tempo de execução de integração adequado.
 - **Causa:** O fluxo de dados não suporta serviços ligados em tempos de integração auto-hospedados.
 - **Recomendação**: Configurar o fluxo de dados para executar num tempo de integração da rede virtual gerido.
+
+### <a name="error-code-df-xml-invalidvalidationmode"></a>Código de erro: DF-Xml-InvalidValidationMode
+- **Mensagem**: É fornecido o modo de validação de xml inválido.
+- **Recomendação**: Verifique o valor do parâmetro e especifique o modo de validação certo.
+
+### <a name="error-code-df-xml-invaliddatafield"></a>Código de erro: DF-Xml-InvalidDataField
+- **Mensagem**: O campo para registos corruptos deve ser tipo de corda e anulado.
+- **Recomendação**: Certifique-se de que a coluna `\"_corrupt_record\"` no projeto de origem tem um tipo de dados de cadeia.
+
+### <a name="error-code-df-xml-malformedfile"></a>Código de erro: DF-Xml-MalformeFile
+- **Mensagem**: Xml mal formado em 'FailFastMode'.
+- **Recomendação**: Atualizar o conteúdo do ficheiro XML para o formato certo.
+
+### <a name="error-code-df-xml-invaliddatatype"></a>Código de erro: DF-Xml-InvalidDataType
+- **Mensagem**: Elemento XML tem sub elementos ou atributos e não pode ser convertido.
+
+### <a name="error-code-df-xml-invalidreferenceresource"></a>Código de erro: DF-Xml-InvalidReferenceResource
+- **Mensagem**: O recurso de referência no ficheiro de dados xml não pode ser resolvido.
+- **Recomendação**: Deve verificar o recurso de referência no ficheiro de dados XML.
+
+### <a name="error-code-df-xml-invalidschema"></a>Código de erro: DF-Xml-InvalidSchema
+- **Mensagem**: A validação do esquema falhou.
+
+### <a name="error-code-df-xml-unsupportedexternalreferenceresource"></a>Código de erro: DF-Xml-Não-SuportadoExponalReferênciaReferresource
+- **Mensagem**: O recurso de referência externo no ficheiro de dados xml não é suportado.
+- **Recomendação**: Atualize o conteúdo do ficheiro XML quando o recurso de referência externo não for suportado agora.
+
+### <a name="error-code-df-gen2-invalidaccountconfiguration"></a>Código de erro: DF-GEN2-InvalidAccountConfiguration
+- **Mensagem**: Deve ser especificado um dos elementos da chave da conta ou inquilino/spnIde/spnCredentialType ou miServiceUri/miServiceToken.
+- **Recomendação**: Configurar a conta certa no serviço ligado à GEN2.
+
+### <a name="error-code-df-gen2-invalidauthconfiguration"></a>Código de erro: DF-GEN2-InvalidAuthConfiguration
+- **Mensagem**: Apenas um dos três métodos auth (Key, ServicePrincipal e MI) pode ser especificado. 
+- **Recomendação**: Escolha o tipo de auth certo no serviço ligado à GEN2.
+
+### <a name="error-code-df-gen2-invalidserviceprincipalcredentialtype"></a>Código de erro: DF-GEN2-InvalidServicePrincipalCredentialType
+- **Mensagem**: ServicePrincipalCredentialType é inválido.
+
+### <a name="error-code-df-gen2-invaliddatatype"></a>Código de erro: DF-GEN2-InvalidDataType
+- **Mensagem**: O tipo de nuvem é inválido.
+
+### <a name="error-code-df-blob-invalidaccountconfiguration"></a>Código de erro: DF-Blob-InvalidAccountConfiguration
+- **Mensagem**: Uma das chaves da conta ou sas_token deve ser especificada.
+
+### <a name="error-code-df-blob-invalidauthconfiguration"></a>Código de erro: DF-Blob-InvalidAuthConfiguration
+- **Mensagem**: Apenas um dos dois métodos de auth (Chave, SAS) pode ser especificado.
+
+### <a name="error-code-df-blob-invaliddatatype"></a>Código de erro: DF-Blob-InvalidDataType
+- **Mensagem**: O tipo de nuvem é inválido.
+
+### <a name="error-code-df-cosmos-partitionkeymissed"></a>Código de erro: DF-Cosmos-PartitionKeyMissed
+- **Mensagem**: O caminho chave da partição deve ser especificado para atualizações e eliminação de operações.
+- **Recomendação**: Utilize a chave de partição de fornecimento nas definições da pia cosmos.
+
+### <a name="error-code-df-cosmos-invalidpartitionkey"></a>Código de erro: DF-Cosmos-InvalidPartitionKey
+- **Mensagem**: O caminho da chave da partição não pode ser vazio para atualização e eliminação de operações.
+- **Recomendação**: Utilize a chave de partição de fornecimento nas definições da pia cosmos.
+
+### <a name="error-code-df-cosmos-idpropertymissed"></a>Código de erro: DF-Cosmos-IdPropertyMissed
+- **Mensagem**: propriedade 'id' deve ser mapeada para apagar e atualizar operações.
+- **Recomendação**: Certifique-se de que os dados de entrada têm uma `id` coluna nas definições da pia cosmos. Se não, utilize **uma transformação selecionada ou derivada** para gerar esta coluna antes de afundar.
+
+### <a name="error-code-df-cosmos-invalidpartitionkeycontent"></a>Código de erro: DF-Cosmos-InvalidPartitionKeyContent
+- **Mensagem**: a tecla de partição deve começar com /.
+- **Recomendação**: Faça a chave de partição começar com `/` as definições da pia cosmos, por exemplo: `/movieId` .
+
+### <a name="error-code-df-cosmos-invalidpartitionkey"></a>Código de erro: DF-Cosmos-InvalidPartitionKey
+- **Mensagem**: partitionKey não mapeado na pia para apagar e atualizar operações.
+- **Recomendação**: Nas definições da pia cosmos, utilize a chave de partição que é igual à chave de partição do seu recipiente.
+
+### <a name="error-code-df-cosmos-invalidconnectionmode"></a>Código de erro: DF-Cosmos-InvalidConnectionMode
+- **Mensagem**: Ligação inválidaMode.
+- **Recomendação**: Confirme que o modo suportado é **Gateway** e **DirectHttps** nas definições cosmos.
+
+### <a name="error-code-df-cosmos-invalidaccountconfiguration"></a>Código de erro: DF-Cosmos-InvalidAccountConfiguration
+- **Mensagem**: Ou o nome da conta ou o ponto de contaende deve ser especificado.
+
+### <a name="error-code-df-github-writenotsupported"></a>Código de erro: DF-Github-WriteNotSupporto
+- **Mensagem**: A loja Github não permite escritas.
+
+### <a name="error-code-df-pgsql-invalidcredential"></a>Código de erro: DF-PGSQL-InvalidCredential
+- **Mensagem**: O utilizador/palavra-passe deve ser especificado.
+- **Recomendação**: Certifique-se de que tem as definições credenciais certas no serviço relacionado com postgresql.
+
+### <a name="error-code-df-snowflake-invalidstageconfiguration"></a>Código de erro: DF-Snowflake-InvalidStageConfiguration
+- **Mensagem**: Só o tipo de armazenamento de bolhas pode ser utilizado como palco na operação de leitura/escrita de flocos de neve.
+
+### <a name="error-code-df-snowflake-invalidstageconfiguration"></a>Código de erro: DF-Snowflake-InvalidStageConfiguration
+- **Mensagem**: As propriedades do estágio do floco de neve devem ser especificadas com a autenticação de blob + sas azul.
+
+### <a name="error-code-df-snowflake-invaliddatatype"></a>Código de erro: DF-Snowflake-InvalidDataType
+- **Mensagem**: O tipo de faísca não é suportado em floco de neve.
+- **Recomendação**: Utilize a **transformação derivada** para alterar a coluna de dados de entrada relacionadas no tipo de corda antes da pia do floco de neve. 
+
+### <a name="error-code-df-hive-invalidblobstagingconfiguration"></a>Código de erro: DF-Hive-InvalidBlobStagingConfiguration
+- **Mensagem**: Devem ser especificadas as propriedades de paragem de armazenamento de bolhas.
+
+### <a name="error-code-df-hive-invalidgen2stagingconfiguration"></a>Código de erro: DF-Hive-InvalidGen2StagingConfiguration
+- **Mensagem**: AdLS Gen2 storage staging apenas suporte principal credencial principal do serviço.
+- **Recomendação**: Confirme que aplica a credencial principal do serviço no serviço ligado à ADLS Gen2 que é utilizado como encenação.
+
+### <a name="error-code-df-hive-invalidgen2stagingconfiguration"></a>Código de erro: DF-Hive-InvalidGen2StagingConfiguration
+- **Mensagem**: As propriedades de armazenamento da ADLS Gen2 devem ser especificadas. Seja necessário um dos chaves ou inquilino/spnId/spnKey ou miServiceUri/miServiceToken.
+- **Recomendação**: Aplicar a credencial certa que é usada como encenação na colmeia no serviço ligado à ADLS Gen2. 
+
+### <a name="error-code-df-hive-invaliddatatype"></a>Código de erro: DF-Hive-InvalidDataType
+- **Mensagem**: Colunas não apoiadas.
+- **Recomendação**: Atualizar a coluna de dados de entrada para corresponder ao tipo de dados suportado pela colmeia.
+
+### <a name="error-code-df-hive-invalidstoragetype"></a>Código de erro: DF-Hive-InvalidStorageType
+- **Mensagem**: O tipo de armazenamento pode ser blob ou gen2.
+
+### <a name="error-code-df-delimited-invalidconfiguration"></a>Código de erro: Df-Delimited-InvalidConfiguration
+- **Mensagem**: Uma das linhas vazias ou do cabeçalho personalizado deve ser especificada.
+- **Recomendação**: Especifique linhas vazias ou cabeçalhos personalizados nas definições de CSV.
+
+### <a name="error-code-df-delimited-columndelimitermissed"></a>Código de erro: DF-Delimitado-ColunaDelimiterMissed
+- **Mensagem**: O delimiter de coluna é necessário para analisar.
+- **Recomendação**: Confirme que tem o delimiter da coluna nas definições de CSV.
+
+### <a name="error-code-df-mssql-invalidcredential"></a>Código de erro: DF-MSSQL-InvalidCredential
+- **Mensagem**: Deve ser especificado um dos utilizadores/pwd ou inquilino/spnId/spnKey ou miServiceUri/miServiceToken.
+- **Recomendação**: Aplicar credenciais certas no serviço relacionado com a MSSQL.
+
+### <a name="error-code-df-mssql-invaliddatatype"></a>Código de erro: DF-MSSQL-InvalidDataType
+- **Mensagem**: Campo não suportado.
+- **Recomendação**: Modificar a coluna de dados de entrada para corresponder ao tipo de dados suportado pelo MSSQL.
+
+### <a name="error-code-df-mssql-invalidauthconfiguration"></a>Código de erro: DF-MSSQL-InvalidAuthConfiguration
+- **Mensagem**: Apenas um dos três métodos auth (Key, ServicePrincipal e MI) pode ser especificado.
+- **Recomendação**: Só é possível especificar um dos três métodos auth (Key, ServicePrincipal e MI) no serviço relacionado com a MSSQL.
+
+### <a name="error-code-df-mssql-invalidcloudtype"></a>Código de erro: DF-MSSQL-InvalidCloudType
+- **Mensagem**: O tipo de nuvem é inválido.
+- **Recomendação**: Verifique o seu tipo de nuvem no serviço relacionado com a MSSQL.
+
+### <a name="error-code-df-sqldw-invalidblobstagingconfiguration"></a>Código de erro: DF-SQLDW-InvalidBlobStagingConfiguration
+- **Mensagem**: Devem ser especificadas as propriedades de paragem de armazenamento de bolhas.
+
+### <a name="error-code-df-sqldw-invalidstoragetype"></a>Código de erro: DF-SQLDW-InvalidStorageType
+- **Mensagem**: O tipo de armazenamento pode ser blob ou gen2.
+
+### <a name="error-code-df-sqldw-invalidgen2stagingconfiguration"></a>Código de erro: DF-SQLDW-InvalidGen2StagingConfiguration
+- **Mensagem**: AdLS Gen2 storage staging apenas suporte principal credencial principal do serviço.
+
+### <a name="error-code-df-sqldw-invalidconfiguration"></a>Código de erro: DF-SQLDW-InvalidConfiguration
+- **Mensagem**: As propriedades de armazenamento da ADLS Gen2 devem ser especificadas. É necessário um dos principais ou inquilinos/spnId/spnCredentialType ou miServiceUri/miServiceToken.
+
+### <a name="error-code-df-delta-invalidconfiguration"></a>Código de erro: Df-DELTA-InvalidConfiguration
+- **Mensagem**: A etiqueta de tempo e a versão não podem ser definidas ao mesmo tempo.
+
+### <a name="error-code-df-delta-keycolumnmissed"></a>Código de erro: DF-DELTA-KeyColumnMissed
+- **Mensagem**: As colunas de chaves devem ser especificadas para operações não inseríveis.
+
+### <a name="error-code-df-delta-invalidtableoperationsettings"></a>Código de erro: DF-DELTA-InvalidTableOperationSettings
+- **Mensagem:** As opções de recriação e truncado não podem ser especificadas.
+
+### <a name="error-code-df-excel-worksheetconfigmissed"></a>Código de erro: DF-Excel-Folha de cálculoConfigMissed
+- **Mensagem**: É necessário o nome ou índice da folha excel.
+- **Recomendação**: Verifique o valor do parâmetro e especifique o nome ou índice da folha para ler os dados do excel.
+
+### <a name="error-code-df-excel-invalidworksheetconfiguration"></a>Código de erro: DF-Excel-InvalidWorksheetConfiguration
+- **Mensagem**: O nome e o índice da folha de excel não podem existir ao mesmo tempo.
+- **Recomendação**: Verifique o valor do parâmetro e especifique o nome ou índice da folha para ler os dados do excel.
+
+### <a name="error-code-df-excel-invalidrange"></a>Código de erro: DF-Excel-InvalidRange
+- **Mensagem**: É fornecido um intervalo inválido.
+- **Recomendação**: Verifique o valor do parâmetro e especifique a gama válida pela seguinte referência: [Formato Excel em propriedades Factory-Dataset dados Azure](https://docs.microsoft.com/azure/data-factory/format-excel#dataset-properties).
+
+### <a name="error-code-df-excel-worksheetnotexist"></a>Código de erro: DF-Excel-Folha de CálculoNotExist
+- **Mensagem**: A folha de cálculo do Excel não existe.
+- **Recomendação**: Verifique o valor do parâmetro e especifique o nome ou índice de folha válido para ler os dados do excel.
+
+### <a name="error-code-df-excel-differentschemanotsupport"></a>Código de erro: DF-Excel-DifferentSchemaNotSupport
+- **Mensagem**: Leia os ficheiros excel com esquemas diferentes não é suportado agora.
+
+### <a name="error-code-df-excel-invaliddatatype"></a>Código de erro: DF-Excel-InvalidDataType
+- **Mensagem**: O tipo de dados não é suportado.
+
+### <a name="error-code-df-excel-invalidfile"></a>Código de erro: DF-Excel-InvalidFile
+- **Mensagem**: O ficheiro excel inválido é fornecido enquanto apenas .xlsx e .xls são suportados.
+
+### <a name="error-code-df-adobeintegration-invalidmaptofilter"></a>Código de erro: DF-AdobeIntegration-InvalidMapToFilter
+- **Mensagem**: O recurso personalizado só pode ter uma chave/Id mapeada para filtrar.
+
+### <a name="error-code-df-adobeintegration-invalidpartitionconfiguration"></a>Código de erro: DF-AdobeIntegration-InvalidPartitionConfiguration
+- **Mensagem**: Apenas uma única partição é suportada. O esquema de partição pode ser RoundRobin ou Hash.
+- **Recomendação**: Nas definições de AdobeIntegration, confirme que só tem divisórias individuais. O esquema de partição pode ser RoundRobin ou Hash.
+
+### <a name="error-code-df-adobeintegration-keycolumnmissed"></a>Código de erro: DF-AdobeIntegration-KeyColumnMissed
+- **Mensagem**: A chave deve ser especificada para operações não inseríveis.
+- **Recomendação**: Especifique as suas colunas-chave nas definições de AdobeIntegration para operações não inseríveis.
+
+### <a name="error-code-df-adobeintegration-invalidpartitiontype"></a>Código de erro: DF-AdobeIntegration-InvalidPartitionType
+- **Mensagem**: O tipo de partição tem de ser redondoRobin.
+- **Recomendação**: Confirme que o tipo de partição é redondoRobin nas definições de AdobeIntegration.
+
+### <a name="error-code-df-adobeintegration-invalidprivacyregulation"></a>Código de erro: DF-AdobeIntegration-InvalidPrivacyRegulation
+- **Mensagem**: Apenas a regulação de privacidade suportada atualmente é o RGPD.
+- **Recomendação**: Confirme que o regulamento de privacidade nas definições de AdobeIntegration é **"RGPD".**
 
 ## <a name="miscellaneous-troubleshooting-tips"></a>Dicas de resolução de problemas diversos
 - **Emissão:** Ocorreu uma exceção inesperada e a execução falhou.

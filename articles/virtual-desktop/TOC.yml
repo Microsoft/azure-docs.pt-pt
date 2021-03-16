@@ -36,7 +36,7 @@
           href: connect-ios.md
         - name: Ligar ao cliente da Microsoft Store
           href: connect-microsoft-store.md
-        - name: Ligar a dispositivos Linux
+        - name: Conecte-se com clientes finos
           href: linux-overview.md
     - name: Configurar redirecionamentos de dispositivo
       href: configure-device-redirections.md
