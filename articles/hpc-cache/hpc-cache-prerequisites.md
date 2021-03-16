@@ -4,14 +4,14 @@ description: Pré-requisitos para a utilização da Cache Azure HPC
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 03/11/2021
+ms.date: 03/15/2021
 ms.author: v-erkel
-ms.openlocfilehash: 7a91cf5f9341d2b42f1c8f242d288b4ee59b632d
-ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
+ms.openlocfilehash: 5ac0f0677be6b641d496a941c5a8e1343fd017bc
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/15/2021
-ms.locfileid: "103471806"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103562563"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Pré-requisitos para cache Azure HPC
 
@@ -61,7 +61,7 @@ A cache precisa de DNS para aceder a recursos fora da sua rede virtual. Dependen
 * Para aceder aos pontos finais de armazenamento Azure Blob e outros recursos internos, precisa do servidor DNS baseado em Azure.
 * Para aceder ao armazenamento no local, é necessário configurar um servidor DNS personalizado que possa resolver os seus nomes de anfitriões de armazenamento. Tens de fazer isto **antes** de criares a cache.
 
-Se necessitar apenas de acesso ao armazenamento Blob, pode utilizar o servidor DNS fornecido pelo Azure para o seu cache. No entanto, se precisar de acesso a outros recursos, deverá criar um servidor DNS personalizado e configurá-lo para encaminhar quaisquer pedidos de resolução específicos do Azure para o servidor Azure DNS.
+Se utilizar apenas o armazenamento Blob, pode utilizar o servidor DNS fornecido pelo Azure para o seu cache. No entanto, se precisar de acesso ao armazenamento ou a outros recursos fora do Azure, deverá criar um servidor DNS personalizado e configurá-lo para encaminhar quaisquer pedidos de resolução específicos do Azure para o servidor Azure DNS.
 
 Para utilizar um servidor DNS personalizado, é necessário fazer estes passos de configuração antes de criar o seu cache:
 
@@ -185,13 +185,13 @@ A Azure HPC Cache também pode usar um recipiente blob montado com o protocolo N
 
 Os requisitos da conta de armazenamento são diferentes para um alvo de armazenamento de bolhas ADLS-NFS e para um alvo de armazenamento de bolhas padrão. Siga cuidadosamente as instruções no [armazenamento do Mount Blob utilizando o protocolo Network File System (NFS) 3.0](../storage/blobs/network-file-system-protocol-support-how-to.md) para criar e configurar a conta de armazenamento ativada por NFS.
 
-Esta é uma visão geral dos passos:
+Esta é uma visão geral dos passos. Estes passos podem mudar, por isso consulte sempre as instruções da [ADLS-NFS](../storage/blobs/network-file-system-protocol-support-how-to.md) para os detalhes atuais.
 
 1. Certifique-se de que as funcionalidades de que necessita estão disponíveis nas regiões onde planeia trabalhar.
 
 1. Ative a função de protocolo NFS para a sua subscrição. Faça isto *antes* de criar a conta de armazenamento.
 
-1. Crie uma rede virtual segura (VNet) para a conta de armazenamento. Deverá utilizar a mesma rede virtual para a sua conta de armazenamento ativada por NFS e para a sua Cache Azure HPC.
+1. Crie uma rede virtual segura (VNet) para a conta de armazenamento. Deverá utilizar a mesma rede virtual para a sua conta de armazenamento ativada por NFS e para a sua Cache Azure HPC. (Não utilize a mesma sub-rede que a cache.)
 
 1. Crie a conta de armazenamento.
 

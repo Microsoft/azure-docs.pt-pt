@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 12/20/2020
 ms.topic: conceptual
 ms.custom: how-to, automl
-ms.openlocfilehash: a91a4f3a2e686c8d502093dc41520df32b313209
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 2e06375441d6540d6630cfe9d4d8c3beec558879
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102520643"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103562727"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Criar, rever e implementar modelos automatizados de aprendizagem automática com Azure Machine Learning
 
@@ -37,7 +37,7 @@ Para uma experiência baseada em código Python, [configuure as suas experiênci
 
 ## <a name="get-started"></a>Introdução
 
-1. Inscreva-se no Azure Machine Learning em https://ml.azure.com . 
+1. Inscreva-se no [estúdio Azure Machine Learning](https://ml.azure.com). 
 
 1. Selecione a sua subscrição e espaço de trabalho. 
 
@@ -132,7 +132,7 @@ Caso contrário, verá uma lista das suas recentes experiências automatizadas d
 
 1. (Opcional) Ver definições de configuração de adição: definições adicionais que pode utilizar para controlar melhor o trabalho de treino. Caso contrário, os padrão são aplicados com base na seleção de experiências e dados. 
 
-    Configurações adicionais|Description
+    Configurações adicionais|Descrição
     ------|------
     Métrica primária| Métrica principal usada para marcar o seu modelo. [Saiba mais sobre as métricas dos modelos.](how-to-configure-auto-train.md#primary-metric)
     Explicar o melhor modelo | Selecione para ativar ou desativar, de modo a mostrar explicações para o melhor modelo recomendado. <br> Esta funcionalidade não está atualmente disponível para [certos algoritmos de previsão.](how-to-machine-learning-interpretability-automl.md#interpretability-during-training-for-the-best-model) 
@@ -199,6 +199,11 @@ Para obter explicações para um modelo em particular,
 
 Quando tem o melhor modelo em mãos, é o momento de o implementar como um serviço Web para prever novos dados.
 
+>[!TIP]
+> Se procura implementar um modelo que foi gerado através do `automl` pacote com o Python SDK, tem de registar o seu [modelo](how-to-deploy-and-where.md?tabs=python#register-a-model-from-an-azure-ml-training-run-1) no espaço de trabalho. 
+>
+> Uma vez registado o modelo, encontre-o no estúdio selecionando **Modelos** no painel esquerdo. Assim que abrir o modelo, pode selecionar o botão **Desdobrar** na parte superior do ecrã e, em seguida, seguir as instruções descritas como descrito no **passo 2** da secção **'Implementar'.**
+
 O ML automatizado ajuda-o a implementar o modelo sem escrever código:
 
 1. Tem algumas opções para a implantação. 
@@ -217,7 +222,7 @@ O ML automatizado ajuda-o a implementar o modelo sem escrever código:
     Campo| Valor
     ----|----
     Nome| Insira um nome único para a sua implantação.
-    Description| Introduza uma descrição para identificar melhor para que é esta implantação.
+    Descrição| Introduza uma descrição para identificar melhor para que é esta implantação.
     Tipo de computação| Selecione o tipo de ponto final que pretende implantar: *Serviço Azure Kubernetes (AKS)* ou *Instância de Contentores Azure (ACI)*.
     Nome da computação| *Aplica-se apenas a AKS:* Selecione o nome do cluster AKS para o quais pretende implementar.
     Ative a autenticação | Selecione para permitir a autenticação baseada em símbolos ou em teclas.

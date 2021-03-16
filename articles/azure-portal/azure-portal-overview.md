@@ -2,14 +2,14 @@
 title: Descrição geral do portal do Azure
 description: O portal Azure é uma interface de utilizador gráfica que pode utilizar para gerir os seus serviços Azure. Aprenda a navegar e a encontrar recursos no portal Azure.
 keywords: portal
-ms.date: 12/20/2019
+ms.date: 03/12/2021
 ms.topic: overview
-ms.openlocfilehash: 1e9cf1a9609b9d4f30e51094f1d0542335ead0e2
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 8f61934e6af150c18d1331c2b28e2686641967d1
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96745932"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103563999"
 ---
 # <a name="azure-portal-overview"></a>Descrição geral do portal do Azure
 
@@ -75,7 +75,7 @@ A figura abaixo rotula os elementos básicos do portal Azure, cada um dos quais 
 
 ## <a name="get-started-with-services"></a>Começar com serviços
 
-Se for um novo subscritor, terá de criar um recurso antes de haver algo para gerir. Selecione **+ Crie um recurso** para visualizar os serviços disponíveis no Mercado Azure. Você encontrará aplicações e serviços de centenas de fornecedores aqui, todos certificados para executar em Azure.
+Se for um novo subscritor, terá de criar um recurso antes de haver algo para gerir. Selecione **+ Crie um recurso** para visualizar os serviços disponíveis no Mercado Azure. Você encontrará centenas de aplicações e serviços de muitos fornecedores aqui, todos certificados para executar em Azure.
 
 Preobitámos os seus Favoritos na barra lateral com links para serviços comumente utilizados.  Para ver todos os serviços disponíveis, selecione **Todos os serviços** da barra lateral.
 

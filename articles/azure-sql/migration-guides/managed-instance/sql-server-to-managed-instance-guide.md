@@ -1,6 +1,6 @@
 ---
 title: 'SQL Server para SQL Managed Instance: Guia de migração'
-description: Siga este guia para migrar as bases de dados do SQL Server para Azure SQL Managed Instance.
+description: Este guia ensina-o a migrar as bases de dados do SQL Server para Azure SQL Managed Instance.
 ms.service: sql-managed-instance
 ms.subservice: migration-guide
 ms.custom: ''
@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 67f5665225bc1297d0eb1b1e1da954fb47660dee
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: 6dcbf4a570fb5cdb58c914ea5e4b1164ed6a76ca
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102488965"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103564495"
 ---
 # <a name="migration-guide-sql-server-to-sql-managed-instance"></a>Guia de migração: SQL Server para SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -197,10 +197,6 @@ A abordagem de ensaio para a migração de bases de dados consiste nas seguintes
 1. **Configurar ambiente de teste**: O ambiente de ensaio deve conter uma cópia da base de dados de origem e da base de dados-alvo. Certifique-se de isolar o ambiente de teste.
 1. **Executar testes de validação**: Escada os testes de validação contra a fonte e o alvo e, em seguida, analise os resultados.
 1. **Executar testes de desempenho**: Executar teste de desempenho contra a fonte e o alvo e, em seguida, analisar e comparar os resultados.
-
-   > [!NOTE]
-   > Para obter assistência para desenvolver e executar testes de validação pós-migração, considere a Solução de Qualidade de Dados disponível a partir do parceiro [QuerySurge](https://www.querysurge.com/company/partners/microsoft). 
-
 
 
 ## <a name="leverage-advanced-features"></a>Alavancar recursos avançados 

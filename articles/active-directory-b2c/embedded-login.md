@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 03/16/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 526d8bfa0124fba75eb33518acd83169ff020698
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: fd4724fc19814a5ffd35380c0b326e035a340ef2
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/16/2021
-ms.locfileid: "103555434"
+ms.locfileid: "103561520"
 ---
 # <a name="embedded-sign-in-experience"></a>Experiência de inscrição incorporada
 
@@ -31,7 +31,7 @@ O elemento de moldura inline `<iframe>` é usado para incorporar um documento nu
 Ao utilizar o iframe, considere o seguinte:
 
 - O insinusado siná-in suporta apenas as contas locais. A maioria dos fornecedores de identidade social (por exemplo, Google e Facebook) bloqueiam as suas páginas de inscrição de serem renderizadas em quadros inline.
-- Como os cookies de sessão AZure AD B2C dentro de um iframe são considerados cookies de terceiros, certos navegadores (por exemplo, Safari ou Chrome em modo incógnito) bloqueiam ou limpam esses cookies, resultando numa experiência indesejável do utilizador. Para evitar este problema, certifique-se de que o nome do domínio da sua aplicação e o seu domínio Azure AD B2C têm a *mesma origem*. Por exemplo, uma aplicação acolhida https://app.contoso.com tem a mesma origem que o Azure AD B2C em funcionamento https://login.contoso.com .
+- Como os cookies de sessão AZure AD B2C dentro de um iframe são considerados cookies de terceiros, certos navegadores (por exemplo, Safari ou Chrome em modo incógnito) bloqueiam ou limpam esses cookies, resultando numa experiência indesejável do utilizador. Para evitar este problema, certifique-se de que o nome do domínio da sua aplicação e o seu domínio Azure AD B2C têm a *mesma origem*. Para utilizar a mesma origem, [ative domínios personalizados](custom-domain.md) para inquilino Azure AD B2C e, em seguida, configuure a sua aplicação web com a mesma origem. Por exemplo, uma aplicação acolhida https://app.contoso.com tem a mesma origem que o Azure AD B2C em funcionamento https://login.contoso.com .
  
 ## <a name="configure-your-policy"></a>Configure a sua política
 

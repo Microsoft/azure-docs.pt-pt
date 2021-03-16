@@ -4,14 +4,14 @@ description: Descreve os diferentes modelos de utilização da cache e como esco
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 03/15/2021
 ms.author: v-erkel
-ms.openlocfilehash: 856f2c15d2bd0b39212e8962a92b1df50cada29e
-ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
+ms.openlocfilehash: b23afb17b9b7152e82049ca4f6127e2811913296
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/15/2021
-ms.locfileid: "103472887"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103563458"
 ---
 # <a name="understand-cache-usage-models"></a>Compreender modelos de utilização de cache
 
@@ -29,7 +29,7 @@ O cache de ficheiros é como a Azure HPC Cache acelera os pedidos dos clientes. 
 
   Se o cache de escrita for desativado, o cache não armazena o ficheiro alterado e escreve-o imediatamente para o sistema de armazenamento back-end.
 
-* **Atraso de descrumação** - Para uma cache com caching de escrita ligado, o atraso de recídula é o tempo que o cache espera por alterações adicionais de ficheiro antes de mover o ficheiro para o sistema de armazenamento de back-end.
+* **Atraso de descrumação** - Para uma cache com caching de escrita ligado, o atraso de recídula é o tempo que o cache aguarda por alterações adicionais de ficheiro antes de copiar o ficheiro para o sistema de armazenamento de back-end.
 
 * **Verificação de back-end** - A definição de verificação de back-end determina a frequência com que a cache compara a sua cópia local de um ficheiro com a versão remota no sistema de armazenamento de back-end. Se a cópia traseira for mais recente do que a cópia em cache, a cache recolhe a cópia remota e armazena-a para pedidos futuros.
 
@@ -43,7 +43,7 @@ Deve escolher um modelo de utilização para cada alvo de armazenamento montado 
 
 Os modelos de utilização da cache HPC permitem-lhe escolher como equilibrar a resposta rápida com o risco de obter dados antigos. Se pretender otimizar a velocidade para os ficheiros de leitura, pode não se importar se os ficheiros da cache são verificados contra os ficheiros de fundo. Por outro lado, se quiser certificar-se de que os seus ficheiros estão sempre atualizados com o armazenamento remoto, escolha um modelo que verifique com frequência.
 
-Existem várias opções:
+Estas são as opções do modelo de utilização:
 
 * **Leia escritas pesadas e pouco frequentes** - Utilize esta opção se quiser acelerar o acesso de leitura a ficheiros que são estáticos ou raramente alterados.
 
@@ -53,13 +53,16 @@ Existem várias opções:
 
   Não utilize esta opção se existir o risco de um ficheiro poder ser modificado diretamente no sistema de armazenamento sem antes o escrever para a cache. Se isso acontecer, a versão em cache do ficheiro estará dessincronizada com o ficheiro back-end.
 
-* **Mais de 15% escreve** - Esta opção acelera tanto a leitura como a gravação. Ao utilizar esta opção, todos os clientes devem aceder aos ficheiros através da Cache Azure HPC em vez de montarem o armazenamento de back-end diretamente. Os ficheiros em cache terão alterações recentes que não são armazenadas na parte de trás.
+* **Mais de 15% escreve** - Esta opção acelera tanto a leitura como a gravação. Ao utilizar esta opção, todos os clientes devem aceder aos ficheiros através da Cache Azure HPC em vez de montarem o armazenamento de back-end diretamente. Os ficheiros em cache terão alterações recentes que ainda não foram copiadas para a parte de trás.
 
   Neste modelo de utilização, os ficheiros na cache só são verificados com os ficheiros de armazenamento de back-end a cada oito horas. Presume-se que a versão em cache do ficheiro é mais atual. Um ficheiro modificado na cache é escrito para o sistema de armazenamento de back-end depois de ter estado na cache por 20 minutos<!-- an hour --> sem alterações adicionais.
 
 * **Os clientes escrevem para o alvo NFS, contornando a cache** - Escolha esta opção se algum cliente no seu fluxo de trabalho escrever dados diretamente para o sistema de armazenamento sem primeiro escrever para a cache, ou se pretende otimizar a consistência dos dados. Os ficheiros que os clientes solicitam estão em cache (leituras), mas quaisquer alterações a esses ficheiros do cliente (escreve) não estão em cache. São passados diretamente para o sistema de armazenamento back-end.
 
-  Com este modelo de utilização, os ficheiros na cache são frequentemente verificados com as versões back-end para obter atualizações. Esta verificação permite que os ficheiros sejam alterados fora da cache, mantendo a consistência dos dados.
+  Com este modelo de utilização, os ficheiros na cache são frequentemente verificados com as versões back-end para atualizações - a cada 30 segundos. Esta verificação permite que os ficheiros sejam alterados fora da cache, mantendo a consistência dos dados.
+
+  > [!TIP]
+  > Estes três primeiros modelos básicos de utilização podem ser usados para lidar com a maioria dos fluxos de trabalho da Cache Azure HPC. As próximas opções são para cenários menos comuns.
 
 * **Mais de 15% escreve, verificando o servidor de suporte para alterações a cada 30 segundos** e **mais de 15% escreve, verificando o servidor de suporte para alterações a cada 60 segundos** - Estas opções são concebidas para fluxos de trabalho onde pretende acelerar tanto as leituras como as escritas, mas há a possibilidade de outro utilizador escrever diretamente para o sistema de armazenamento back-end. Por exemplo, se vários conjuntos de clientes estiverem a trabalhar nos mesmos ficheiros de diferentes locais, estes modelos de utilização podem fazer sentido equilibrar a necessidade de acesso rápido de ficheiros com baixa tolerância para conteúdos antigos da fonte.
 
@@ -71,16 +74,18 @@ Existem várias opções:
 
 Esta tabela resume as diferenças do modelo de utilização:
 
-| Modelo de utilização                   | Modo caching | Verificação de back-end | Atraso máximo de desatrada |
-|-------------------------------|--------------|-----------------------|--------------------------|
-| Leia escritos pesados e pouco frequentes | Ler         | Nunca                 | Nenhum                     |
-| Mais de 15% escreve       | Leitura/escrita   | 8 horas               | 20 minutos               |
-| Os clientes contornam a cache      | Ler         | 30 segundos            | Nenhum                     |
-| Mais de 15% de escritos, verificação frequente de back-end (30 segundos) | Leitura/escrita | 30 segundos | 20 minutos |
-| Mais de 15% de escritos, verificação frequente de back-end (60 segundos) | Leitura/escrita | 60 segundos | 20 minutos |
-| Mais de 15% escreve, frequentemente write-back | Leitura/escrita | 30 segundos | 30 segundos |
-| Leia pesado, verificando o servidor de apoio a cada 3 horas | Ler | 3 horas | Nenhum |
+[!INCLUDE [usage-models-table.md](includes/usage-models-table.md)]
 
+<!-- | Usage model                   | Caching mode | Back-end verification | Maximum write-back delay |
+|-------------------------------|--------------|-----------------------|--------------------------|
+| Read heavy, infrequent writes | Read         | Never                 | None                     |
+| Greater than 15% writes       | Read/write   | 8 hours               | 20 minutes               |
+| Clients bypass the cache      | Read         | 30 seconds            | None                     |
+| Greater than 15% writes, frequent back-end checking (30 seconds) | Read/write | 30 seconds | 20 minutes |
+| Greater than 15% writes, frequent back-end checking (60 seconds) | Read/write | 60 seconds | 20 minutes |
+| Greater than 15% writes, frequent write-back | Read/write | 30 seconds | 30 seconds |
+| Read heavy, checking the backing server every 3 hours | Read | 3 hours | None |
+-->
 Se tiver dúvidas sobre o melhor modelo de utilização para o seu fluxo de trabalho Azure HPC Cache, fale com o seu representante da Azure ou abra um pedido de ajuda de apoio.
 
 ## <a name="next-steps"></a>Passos seguintes

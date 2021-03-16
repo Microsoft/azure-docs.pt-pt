@@ -7,13 +7,13 @@ metadata:
   services: Azure portal
   ms.topic: landing-page
   ms.collection: collection
-  ms.date: 08/05/2020
-  ms.openlocfilehash: c1617f295a101ae645743d60fdbe82a09d936ea2
-  ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
-  ms.translationtype: HT
+  ms.date: 03/15/2021
+  ms.openlocfilehash: 7b7727d1fdf550b3ab3341bd0dc852f343b00791
+  ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+  ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 12/07/2020
-  ms.locfileid: "96749016"
+  ms.lasthandoff: 03/16/2021
+  ms.locfileid: "103563917"
 landingContent:
 - title: Acerca do portal do Azure
   linkLists:
@@ -21,18 +21,44 @@ landingContent:
     links:
     - text: O que é o portal do Azure?
       url: azure-portal-overview.md
+    - text: Integração com o Centro de Início Rápido do Azure
+      url: azure-portal-quickstart-center.md
     - text: Dispositivos e browsers suportados
       url: azure-portal-supported-browsers-devices.md
-- title: Personalizar o portal do Azure
+- title: Introdução
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Criar uma VM no portal
+      url: ../virtual-machines/windows/quick-create-portal.md?toc=/azure/azure-portal/toc.json&bc=/azure/azure-portal/breadcrumb/toc.json
+    - text: Criar um dashboard - Azure CLI
+      url: quickstart-portal-dashboard-azure-cli.md
+    - text: Criar um dashboard - Azure PowerShell
+      url: quickstart-portal-dashboard-powershell.md
+    - text: Criar um dashboard - modelo ARM
+      url: quick-create-template.md
+  - linkListType: how-to-guide
+    links:
+    - text: Séries de vídeos de procedimentos do portal do Azure
+      url: azure-portal-video-series.md
+- title: Criar e gerir pedidos de suporte
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Definir as preferências do portal
-      url: set-preferences.md
-    - text: Criar e partilhar dashboards personalizados
-      url: azure-portal-dashboards.md
-    - text: Gerir os seus favoritos
-      url: azure-portal-add-remove-sort-favorites.md
+    - text: Criar um pedido de suporte do Azure
+      url: supportability/how-to-create-azure-support-request.md
+    - text: Gerir um pedido de suporte do Azure
+      url: supportability/how-to-manage-azure-support-request.md
+- title: Utilizar as opções de acessibilidade
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Atalhos de teclado
+      url: azure-portal-keyboard-shortcuts.md
+  - linkListType: how-to-guide
+    links:
+    - text: Ativar o contraste elevado
+      url: set-preferences.md#choose-a-theme-or-enable-high-contrast
 - title: Gerir o acesso ao portal do Azure
   linkLists:
   - linkListType: reference
@@ -45,39 +71,17 @@ landingContent:
     links:
     - text: Gerir recursos no Azure
       url: /learn/paths/manage-resources-in-azure/
-    - text: Proteja os seus recursos do Azure com o controlo de acesso baseado em funções do Azure (RBAC do Azure)
-      url: /learn//modules/secure-azure-resources-with-rbac/
-- title: Introdução
-  linkLists:
-  - linkListType: quickstart
-    links:
-    - text: Integração com o Centro de Início Rápido do Azure
-      url: azure-portal-quickstart-center.md
-  - linkListType: how-to-guide
-    links:
-    - text: Séries de vídeos de procedimentos do portal do Azure
-      url: azure-portal-video-series.md
-  - linkListType: learn
-    links:
-    - text: Princípios fundamentais do Azure
-      url: /learn/paths/azure-fundamentals/
-    - text: Conceitos da Cloud – princípios da computação na cloud
-      url: /learn/modules/principles-cloud-computing/
-- title: Utilizar as opções de acessibilidade
-  linkLists:
-  - linkListType: reference
-    links:
-    - text: Atalhos de teclado
-      url: azure-portal-keyboard-shortcuts.md
-  - linkListType: how-to-guide
-    links:
-    - text: Ativar o contraste elevado
-      url: set-preferences.md#choose-a-theme-or-enable-high-contrast
-- title: Criar e gerir pedidos de suporte
+    - text: Proteja os seus recursos com o controlo de acesso baseado em funções Azure (Azure RBAC)
+      url: /learn/modules/secure-azure-resources-with-rbac
+- title: Personalizar o portal do Azure
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Criar um pedido de suporte do Azure
-      url: ../azure-portal/supportability/how-to-create-azure-support-request.md
-    - text: Resolução de problemas de subscrição de SKU ou região
-      url: ../azure-portal/supportability/sku-series-unavailable.md
+    - text: Gerir as definições e as preferências do portal do Azure
+      url: set-preferences.md
+    - text: Ver e filtrar informações dos recursos
+      url: manage-filter-resource-views.md
+    - text: Criar um dashboard - Azure portal UI
+      url: azure-portal-dashboards.md
+    - text: Adicionar, remover e ordenar favoritos
+      url: azure-portal-add-remove-sort-favorites.md

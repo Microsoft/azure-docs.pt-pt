@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/10/2021
-ms.openlocfilehash: 78a17ad6599e1ac4f455f2806a5f944675198b4b
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.openlocfilehash: 0e60ac6da55c11d45e8b691b4883b0f5f93a2498
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102631494"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103563939"
 ---
 # <a name="data-transformation-expressions-in-mapping-data-flow"></a>Expressões de transformação de dados no fluxo de dados de mapeamento
 
@@ -152,14 +152,13 @@ Recolhe todos os valores da expressão no grupo agregado numa matriz. As estrutu
 ___
 ### <code>columnNames</code>
 <code><b>columnNames(<i>&lt;value1&gt;</i> : string) => array</b></code><br/><br/>
-Obtém todas as colunas de saída para um fluxo. Pode passar um nome de fluxo opcional como segundo argumento.  
+Obtém os nomes de todas as colunas de saída para um fluxo. Pode passar um nome de fluxo opcional como segundo argumento.  
 * ``columnNames()``
 * ``columnNames('DeriveStream')``
-
 ___
 ### <code>columns</code>
 <code><b>columns([<i>&lt;stream name&gt;</i> : string]) => any</b></code><br/><br/>
-Obtém todas as colunas de saída para um fluxo. Pode passar um nome de fluxo opcional como segundo argumento.   
+Obtém os valores de todas as colunas de saída para um fluxo. Pode passar um nome de fluxo opcional como segundo argumento.   
 * ``columns()``
 * ``columns('DeriveStream')``
 ___

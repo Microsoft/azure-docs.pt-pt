@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 6e5994f05187cd25996bcc007d27a7e10eb76427
-ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
+ms.openlocfilehash: 79d6fecddf060909a74664ff29e08301f45d7042
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103232533"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103472317"
 ---
 # <a name="prerequisites-for-deploying-azure-cloud-services-extended-support"></a>Pré-requisitos para a implantação de Serviços cloud Azure (suporte alargado)
 
@@ -78,6 +78,11 @@ Remova as definições antigas de ambiente de trabalho remoto do ficheiro De con
 <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountExpiration" value="2021-12-17T23:59:59.0000000+05:30" /> 
 <Setting name="Microsoft.WindowsAzure.Plugins.RemoteForwarder.Enabled" value="true" /> 
 ```
+Remova as definições de diagnóstico antigos para cada função no ficheiro de Configuração de Serviço (.cscfg).
+
+```xml
+<Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
+```
 
 ## <a name="required-service-definition-file-csdef-updates"></a>Atualizações necessárias do ficheiro de definição de serviço (.csdef)
 
@@ -116,6 +121,11 @@ As implementações que utilizaram os antigos plugins remotos de ambiente de tra
 <Import moduleName="RemoteAccess" /> 
 <Import moduleName="RemoteForwarder" /> 
 </Imports> 
+```
+As implementações que utilizaram os antigos plugins de diagnóstico precisam das definições removidas para cada função a partir do ficheiro Definição de Serviço (.csdef)
+
+```xml
+<Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" />
 ```
 
 ## <a name="key-vault-creation"></a>Criação do Cofre Chave 

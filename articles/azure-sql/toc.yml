@@ -345,8 +345,16 @@
               href: database/migrate-sqlite-db-to-azure-sql-serverless-offline-tutorial.md
     - name: Guias de migração
       items:
+        - name: A partir do acesso
+          href: migration-guides/database/access-to-sql-database-guide.md
         - name: A partir do DB2
           href: migration-guides/database/db2-to-sql-database-guide.md
+        - name: De Oráculo
+          href: migration-guides/database/oracle-to-sql-database-guide.md
+        - name: Do MySQL
+          href: migration-guides/database/mysql-to-sql-database-guide.md
+        - name: Da SAP ASE
+          href: migration-guides/database/sap-ase-to-sql-database.md
         - name: A partir do SQL Server
           items:
             - name: Descrição geral
@@ -753,6 +761,8 @@
       items:
         - name: A partir do DB2
           href: migration-guides/managed-instance/db2-to-managed-instance-guide.md
+        - name: De Oráculo
+          href: migration-guides/managed-instance/oracle-to-managed-instance-guide.md
         - name: A partir do SQL Server
           items:
             - name: Descrição geral
@@ -1252,10 +1262,12 @@
       items:
         - name: Descrição geral
           href: migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-migration-overview.md
-        - name: A partir do SQL Server
-          href: migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-individual-databases-guide.md
         - name: A partir do DB2
           href: migration-guides/virtual-machines/db2-to-sql-on-azure-vm-guide.md
+        - name: De Oráculo
+          href: migration-guides/virtual-machines/oracle-to-sql-on-azure-vm-guide.md
+        - name: A partir do SQL Server
+          href: migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-individual-databases-guide.md
 - name: Referência
   items:
     - name: Referência de linguagem do T-SQL

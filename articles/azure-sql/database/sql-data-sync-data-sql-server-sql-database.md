@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/20/2019
-ms.openlocfilehash: 55fa106f0515405dcad969f05d28e0bc7b975b40
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: c38e4681c76fb0dd52d77c7dc1438b87a9571a80
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96922275"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103562064"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>O que é SQL Data Sync para Azure?
 
@@ -26,7 +26,7 @@ SQL Data Sync é um serviço construído na Base de Dados Azure SQL que permite 
 > O Azure SQL Data Sync não suporta a Azure SQL Managed Instance neste momento.
 
 
-## <a name="overview"></a>Descrição geral 
+## <a name="overview"></a>Descrição Geral 
 
 O Data Sync baseia-se no conceito de um grupo de sincronização. Um grupo de sincronização é um grupo de bases de dados que pretende sincronizar.
 
@@ -58,7 +58,7 @@ O Data Sync é útil nos casos em que os dados precisam de ser mantidos atualiza
 
 Data Sync não é a solução preferida para os seguintes cenários:
 
-| Cenário | Algumas soluções recomendadas |
+| Scenario | Algumas soluções recomendadas |
 |----------|----------------------------|
 | Recuperação Após Desastre | [Backups geo-redundantes do Azure](automated-backups-overview.md) |
 | Escala de leitura | [Utilize réplicas apenas de leitura para carregar cargas de trabalho de consulta apenas de leitura (pré-visualização)](read-scale-out.md) |
@@ -100,6 +100,9 @@ A nova funcionalidade de ligação privada (pré-visualização) permite-lhe esc
 
 - [Utilize o PowerShell para sincronizar entre várias bases de dados na Base de Dados Azure SQL](scripts/sql-data-sync-sync-data-between-sql-databases.md)
 - [Utilize o PowerShell para sincronizar entre uma base de dados na Base de Dados Azure SQL e uma base de dados num caso de Servidor SQL](scripts/sql-data-sync-sync-data-between-azure-onprem.md)
+
+### <a name="set-up-data-sync-with-rest-api"></a>Configurar o Data Sync com REST API
+- [Utilize a API REST para sincronizar entre várias bases de dados na Base de Dados Azure SQL](scripts/sql-data-sync-sync-data-between-sql-databases-rest-api.md)
 
 ### <a name="review-the-best-practices-for-data-sync"></a>Reveja as melhores práticas para Data Sync
 

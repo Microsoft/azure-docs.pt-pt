@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 01/14/2021
 ms.author: alsin
-ms.openlocfilehash: df5133ad4bb3155afdc9d43e595591d9cfda4ea0
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 2bdf04143121e1286ffc7bfa86b4a9ee291ae6ef
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101644447"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103561871"
 ---
 # <a name="troubleshoot-common-automanage-onboarding-errors"></a>Resolução de problemas erros comuns de auto-produção de bordo
 A auto-produção pode não conseguir embarcar uma máquina no serviço. Este documento explica como resolver falhas de implementação, partilha algumas razões comuns pelas quais as implementações podem falhar e descreve potenciais próximos passos na mitigação.
@@ -21,7 +21,7 @@ A auto-produção pode não conseguir embarcar uma máquina no serviço. Este do
 ## <a name="troubleshooting-deployment-failures"></a>Falhas de implantação de resolução de problemas
 Embarcar uma máquina para auto-gestão resultará na criação de uma implementação do Azure Resource Manager. Se o embarque falhar, poderá ser útil consultar a implementação para mais detalhes sobre o porquê de ter falhado. Existem ligações com as implementações no desvio de detalhes de falha, na imagem abaixo.
 
-:::image type="content" source="media\automanage-common-errors\failure-flyout.png" alt-text="Falha de auto-produção de detalhes flyout.":::
+:::image type="content" source="media\common-errors\failure-flyout.png" alt-text="Falha de auto-produção de detalhes flyout.":::
 
 ### <a name="check-the-deployments-for-the-resource-group-containing-the-failed-vm"></a>Verifique as implementações do grupo de recursos que contém o VM falhado
 O voo de falha conterá uma ligação às implementações dentro do grupo de recursos que contém a máquina que falhou no embarque e um nome de prefixo que pode usar para filtrar implementações com. Clicar no link irá levá-lo à lâmina de implementação, onde pode filtrar as implementações para ver as implementações de auto-produção na sua máquina. Se estiver a implantar em várias regiões, certifique-se de que clica na implantação na região correta.
@@ -38,6 +38,7 @@ Erro |  Mitigação
 :-----|:-------------|
 Erro de permissões insuficientes da conta de auto-controlo | Isto pode acontecer se mudou recentemente uma subscrição contendo uma nova Conta de Automanage para um novo inquilino. Os passos para resolver isto estão localizados [aqui.](./repair-automanage-account.md)
 Região do espaço de trabalho não corresponde aos requisitos de mapeamento da região | A automanagem não foi capaz de embarcar na sua máquina, mas o espaço de trabalho log Analytics ao qual a máquina está atualmente ligada não está mapeado para uma região de Automação suportada. Certifique-se de que o seu espaço de trabalho e conta de Automação do Log Analytics existentes estão localizados num [mapeamento de região suportada.](../automation/how-to/region-mappings.md)
+"Acesso negado por causa da atribuição de negação com o nome 'Sistema negar atribuição criada por aplicação gerida'" | Foi criada uma assinatura [de negação](https://docs.microsoft.com/azure/role-based-access-control/deny-assignments) no seu recurso que impediu a Automanage de aceder ao seu recurso. Isto pode ter sido causado por uma [Planta](https://docs.microsoft.com/azure/governance/blueprints/concepts/resource-locking) ou uma [Aplicação Gerida](https://docs.microsoft.com/azure/azure-resource-manager/managed-applications/overview).
 "A atribuição falhou; não há informação adicional disponível" | Por favor, abra um caso com o suporte do Microsoft Azure.
 
 ## <a name="next-steps"></a>Passos seguintes

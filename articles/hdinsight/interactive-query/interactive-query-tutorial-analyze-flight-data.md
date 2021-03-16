@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,mvc
 ms.date: 07/02/2019
-ms.openlocfilehash: 13b6b8658aa2d896ec154cfa3c7a961e37df6cbf
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 1aab6b4fe4ffafb3cbba60b2b3774d2577d3d53c
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98935913"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103562472"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-interactive-query-in-azure-hdinsight"></a>Tutorial: Extrair, transformar e carregar dados usando Consulta Interativa em Azure HDInsight
 
@@ -35,7 +35,7 @@ Este tutorial abrange as seguintes tarefas:
 
 ## <a name="download-the-flight-data"></a>Transferir os dados de voos
 
-1. Navegue para [Research and Innovative Technology Administration, Bureau of Transportation Statistics](https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time) (Administração de Investigação e Inovação Tecnológica, Instituto de Estatísticas de Transportes).
+1. Navegue para [Research and Innovative Technology Administration, Bureau of Transportation Statistics](https://www.transtats.bts.gov/DL_SelectFields.asp?gnoyr_VQ=FGJ) (Administração de Investigação e Inovação Tecnológica, Instituto de Estatísticas de Transportes).
 
 2. Na página, limpe todos os campos e, em seguida, selecione os seguintes valores:
 
@@ -290,7 +290,7 @@ Depois de concluir o tutorial, pode pretender eliminar o cluster. Com o HDInsigh
 
 Para eliminar um cluster, consulte [Eliminar um cluster HDInsight utilizando o seu navegador, PowerShell ou o Azure CLI](../hdinsight-delete-cluster.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, pegou num ficheiro de dados CSV bruto, importou-o num armazenamento de cluster HDInsight e depois transformou os dados usando a Interactive Query em Azure HDInsight.  Avance para o próximo tutorial para saber sobre o Conector do Armazém da Colmeia Apache.
 

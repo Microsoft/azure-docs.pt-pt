@@ -2,14 +2,14 @@
 title: Provisionamento de uma piscina em uma rede virtual
 description: Como criar um pool de Lote numa rede virtual Azure para que os nós de computação possam comunicar de forma segura com outros VMs na rede, como um servidor de ficheiros.
 ms.topic: how-to
-ms.date: 01/13/2021
+ms.date: 03/15/2021
 ms.custom: seodec18
-ms.openlocfilehash: bedb0cbd826e2891560320ed11c0ba28e07f8e88
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
+ms.openlocfilehash: d6e5de75164e098fc95f6c086d9f98a652dcee4a
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98165761"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103561922"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Criar uma piscina Azure Batch numa rede virtual
 

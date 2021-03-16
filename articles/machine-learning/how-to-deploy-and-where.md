@@ -12,12 +12,12 @@ ms.date: 01/13/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli
 adobe-target: true
-ms.openlocfilehash: fa68db4bd166ebe1acd1ae85fca2d7e51236a4c4
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: ed397e9f8db721a6baa641fc958af0dda570ce57
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102522058"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103561945"
 ---
 # <a name="deploy-machine-learning-models-to-azure"></a>Implementar modelos de aprendizagem automática para Azure
 
@@ -145,6 +145,7 @@ Para obter mais `az ml model register` informações, consulte a [documentação
 
     Para mais informações, consulte a documentação [AutoMLRun.register_model.](/python/api/azureml-train-automl-client/azureml.train.automl.run.automlrun#register-model-model-name-none--description-none--tags-none--iteration-none--metric-none-)
 
+    Para implementar um modelo registado a partir de um `AutoMLRun` , recomendamos fazê-lo através do [botão de implantação de um clique no estúdio de aprendizagem Azure Machine](how-to-use-automated-ml-for-ml-models.md#deploy-your-model). 
 ### <a name="register-a-model-from-a-local-file"></a>Registar um modelo a partir de um arquivo local
 
 Pode registar um modelo fornecendo o percurso local do modelo. Pode fornecer o caminho de uma pasta ou de um único ficheiro. Pode utilizar este método para registar modelos treinados com Azure Machine Learning e depois descarregados. Também pode utilizar este método para registar modelos treinados fora do Azure Machine Learning.
@@ -315,13 +316,13 @@ Durante a implementação do modelo, poderá ver a alteração do estado de serv
 
 A tabela a seguir descreve os diferentes estados de serviço:
 
-| Estado do serviço web | Description | Estado final?
+| Estado do serviço web | Descrição | Estado final?
 | ----- | ----- | ----- |
 | Transição | O serviço está em processo de implantação. | No |
 | Mau estado de funcionamento | O serviço foi implantado, mas está atualmente inacessível.  | No |
 | Insodulável | O serviço não pode ser implantado neste momento devido à falta de recursos. | No |
-| Com falhas | O serviço falhou em ser acionado devido a um erro ou acidente. | Yes |
-| Bom estado de funcionamento | O serviço é saudável e o ponto final está disponível. | Yes |
+| Com falhas | O serviço falhou em ser acionado devido a um erro ou acidente. | Sim |
+| Bom estado de funcionamento | O serviço é saudável e o ponto final está disponível. | Sim |
 
 > [!TIP]
 > Ao implementar, as imagens do Docker para alvos de computação são construídas e carregadas a partir do Registo de Contentores de Azure (ACR). Por predefinição, o Azure Machine Learning cria um ACR que utiliza o nível *básico* de serviço. Mudar o ACR para o seu espaço de trabalho para um nível normal ou premium pode reduzir o tempo que leva para construir e implementar imagens para os seus alvos de computação. Para mais informações, consulte [os níveis de serviço de registo de contentores Azure.](../container-registry/container-registry-skus.md)
@@ -368,6 +369,7 @@ Para obter mais informações, consulte a documentação para [WebService.delete
 * [Criar aplicações de clientes para consumir serviços web](how-to-consume-web-service.md)
 * [Atualizar serviços Web](how-to-deploy-update-web-service.md)
 * [Como implementar um modelo usando uma imagem personalizada do Docker](how-to-deploy-custom-docker-image.md)
+* [Uma implementação de clique para ML automatizado corre no estúdio Azure Machine Learning](how-to-use-automated-ml-for-ml-models.md#deploy-your-model)
 * [Utilizar o TLS para proteger um serviço Web através do Azure Machine Learning](how-to-secure-web-service.md)
 * [Monitorize os seus modelos de machine learning Azure com Insights de Aplicações](how-to-enable-app-insights.md)
 * [Recolher dados para modelos em produção](how-to-enable-data-collection.md)

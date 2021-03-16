@@ -3,12 +3,12 @@ title: Melhores práticas
 description: Aprenda as melhores práticas e dicas úteis para desenvolver as suas soluções Azure Batch.
 ms.date: 03/11/2020
 ms.topic: conceptual
-ms.openlocfilehash: 15ff46ad74c4c48c6b5f320622bc364adf59d4cc
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: d1040762c171af486c7f5d66daca44ec65602aff
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/16/2021
-ms.locfileid: "103496291"
+ms.locfileid: "103561843"
 ---
 # <a name="azure-batch-best-practices"></a>As melhores práticas do Azure Batch
 
@@ -238,6 +238,6 @@ A limpeza automatizada do diretório de trabalho será bloqueada se executar um 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Criar uma conta Azure Batch utilizando o portal Azure](batch-account-create-portal.md).
 - Conheça o fluxo de trabalho do [serviço Batch e os recursos primários,](batch-service-workflow-features.md) tais como piscinas, nós, empregos e tarefas.
 - Saiba mais sobre [as quotas, limites e restrições padrão do Azure Batch e como solicitar aumentos de quota](batch-quota-limit.md).
+- Saiba como [detetar e evitar falhas nas operações de fundo de piscina e nó. ](batch-pool-node-error-checking.md)

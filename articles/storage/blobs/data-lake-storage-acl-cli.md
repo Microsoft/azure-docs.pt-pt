@@ -10,12 +10,12 @@ ms.date: 02/17/2021
 ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9814dc06e7e570a923ba3ea5b3b0df7ade99bb28
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 5ec7d2b243a5eadab2d22dea14ebeac8eabb1722
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100654240"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103563169"
 ---
 # <a name="use-azure-cli-to-manage-acls-in-azure-data-lake-storage-gen2"></a>Use O CLI Azure para gerir ACLs em Azure Data Lake Storage Gen2
 
@@ -31,7 +31,7 @@ A herança ACL já está disponível para novos itens infantis que são criados 
 
 - Uma conta de armazenamento que tem espaço hierárquico habilitado. Siga [estas](create-data-lake-storage-account.md) instruções para criar uma.
 
-- Versão Azure CLI `2.6.0` ou superior.
+- Versão Azure CLI `2.14.0` ou superior.
 
 - Uma das seguintes permissões de segurança:
 
@@ -137,6 +137,9 @@ Este exemplo define o ACL num ficheiro para o utilizador próprio, grupo própri
 az storage fs access set --acl "user::rw-,group::rw-,other::-wx" -p my-directory/upload.txt -f my-file-system --account-name mystorageaccount --auth-mode login
 ```
 
+> [!NOTE]
+> Para um conjunto da ACL de um grupo ou utilizador específico, utilize os respetivos IDs de objeto. Por exemplo, `group:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` ou `user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.
+
 A imagem a seguir mostra a saída após a definição do ACL de um ficheiro.
 
 ![Obtenha saída ACL 2](./media/data-lake-storage-directory-file-acl-cli/set-acl-file.png)
@@ -184,6 +187,9 @@ Este exemplo atualiza o ACL de um **ficheiro**.
 ```azurecli
 az storage fs access set --permissions rwxrwxrwx -p my-directory/upload.txt -f my-file-system --account-name mystorageaccount --auth-mode login
 ```
+
+> [!NOTE]
+> Para uma atualização do ACL de um grupo ou utilizador específico, utilize os respetivos IDs de objeto. Por exemplo, `group:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` ou `user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.
 
 Também pode atualizar o utilizador e o grupo próprio de um diretório ou ficheiro, definindo os `--owner` parâmetros ou `group` parâmetros para o ID da entidade ou nome principal do utilizador (UPN) de um utilizador.
 

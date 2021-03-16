@@ -3,14 +3,14 @@ title: Verifique se há erros na piscina e node
 description: Este artigo abrange as operações de fundo que podem ocorrer, juntamente com erros a verificar e como evitá-las ao criar piscinas e nós.
 author: mscurrell
 ms.author: markscu
-ms.date: 02/03/2020
+ms.date: 03/15/2021
 ms.topic: how-to
-ms.openlocfilehash: 2b67eada5dfa89f95e2c9ae045c6bbe3fa0bb1ce
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 4a0d3e017f36f580024b77fbd23145d7447f336d
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576317"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103564410"
 ---
 # <a name="check-for-pool-and-node-errors"></a>Verifique se há erros na piscina e node
 
@@ -62,6 +62,13 @@ Quando apaga uma piscina que contém nós, primeiro o Lote elimina os nós. Esta
 
 O lote define o estado da [piscina](/rest/api/batchservice/pool/get#poolstate) para **apagar** durante o processo de eliminação. A aplicação de chamada pode detetar se a eliminação da piscina está a demorar muito tempo usando as propriedades **state** e **stateTransitionTime.**
 
+Se a piscina demorar mais tempo do que o esperado, o Batch voltará a tentar periodicamente até que a piscina possa ser eliminada com sucesso. Em alguns casos, o atraso deve-se a uma paragem de serviço da Azure ou a outros problemas temporários. Outros fatores que podem impedir que um pool seja eliminado com sucesso podem exigir que tome medidas para corrigir o problema. Estes fatores incluem os seguintes:
+
+- Foram colocadas fechaduras de recursos em recursos criados pelo Lote ou em recursos de rede utilizados pelo Batch.
+- Os recursos que criou têm uma dependência de um recurso criado pelo Batch. Por exemplo, se [criar um pool numa rede virtual,](batch-virtual-network.md)o Batch cria um grupo de segurança de rede (NSG), um endereço IP público e um equilibrador de carga. Se utilizar estes recursos fora da piscina, a piscina não pode ser eliminada até que essa dependência seja removida.
+- O fornecedor de recursos ch Microsoft.Batnão foi registado a partir da subscrição que contém o seu pool.
+- "Microsoft Azure Batch" já não tem a [função de Contribuinte ou Proprietário](batch-account-create-portal.md#allow-azure-batch-to-access-the-subscription-one-time-operation) para a subscrição que contém o seu pool (para o modo de subscrição do utilizador Contas Batch).
+
 ## <a name="node-errors"></a>Erros no nó
 
 Mesmo quando o Batch atribui com sucesso os nós numa piscina, vários problemas podem fazer com que alguns dos nós não sejam saudáveis e incapazes de executar tarefas. Estes nós ainda incorrem em acusações, por isso é importante detetar problemas para evitar pagar por nós que não podem ser usados. Além de erros comuns no nó, conhecer o estado de [trabalho](/rest/api/batchservice/job/get#jobstate) atual é útil para a resolução de problemas.
@@ -105,15 +112,10 @@ Se o Batch conseguir determinar a causa, a propriedade de [erros](/rest/api/batc
 Exemplos adicionais de causas para os **nóns inutilizáveis** incluem:
 
 - Uma imagem VM personalizada é inválida. Por exemplo, uma imagem que não está devidamente preparada.
-
 - Um VM é movido devido a uma falha de infraestrutura ou a uma atualização de baixo nível. O lote recupera o nó.
-
 - Foi implementada uma imagem VM em hardware que não a suporta. Por exemplo, tentar executar uma imagem CentOS HPC numa [VM Standard_D1_v2.](../virtual-machines/dv2-dsv2-series.md)
-
 - Os VMs estão numa [rede virtual Azure,](batch-virtual-network.md)e o tráfego foi bloqueado para portas-chave.
-
 - Os VMs estão numa rede virtual, mas o tráfego de saída para o armazenamento do Azure está bloqueado.
-
 - Os VMs estão numa rede virtual com uma configuração DE DNS do cliente e o servidor DNS não consegue resolver o armazenamento do Azure.
 
 ### <a name="node-agent-log-files"></a>Ficheiros de registo de agente de nó

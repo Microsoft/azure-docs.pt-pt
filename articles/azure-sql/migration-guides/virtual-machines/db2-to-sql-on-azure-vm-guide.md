@@ -1,6 +1,6 @@
 ---
-title: DB2 para SQL Server em VMs Azure (guia de migração)
-description: Siga este guia para migrar o seu servidor DB2 para o SQL Server em VMs Azure.
+title: 'DB2 para SQL Server em VMs Azure: Guia de migração'
+description: Este guia ensina-o a migrar a sua base de dados DB2 para o SQL Server em VMs Azure utilizando o SqL Server Migration Assistant para dB2.
 ms.custom: ''
 ms.service: virtual-machines-sql
 ms.subservice: migration-guide
@@ -10,12 +10,12 @@ author: markjones-msft
 ms.author: markjon
 ms.reviewer: mathoma
 ms.date: 11/06/2020
-ms.openlocfilehash: c3f3af6a1c114d6587992f79e95dcc0c1ccb41e6
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: aadfd2d96e2ed610ee1e3eaaec9276212e912b0d
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98797477"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103562234"
 ---
 # <a name="migration-guide-db2-to-sql-server-on-azure-vms"></a>Guia de migração: DB2 para SQL Server em VMs Azure
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlvm.md)]
@@ -144,8 +144,6 @@ A abordagem de ensaio para a migração de bases de dados consiste nas seguintes
 1. **Executar testes de validação**: Escada os testes de validação contra a fonte e o alvo e, em seguida, analise os resultados.
 1. **Executar testes de desempenho**: Executar teste de desempenho contra a fonte e o alvo e, em seguida, analisar e comparar os resultados.
 
-   > [!NOTE]
-   > Para obter assistência para desenvolver e executar testes de validação pós-migração, considere a Solução de Qualidade de Dados disponível a partir do parceiro [QuerySurge](https://www.querysurge.com/company/partners/microsoft). 
 
 ## <a name="migration-assets"></a>Ativos de migração 
 
@@ -160,7 +158,7 @@ Para assistência adicional, consulte os seguintes recursos, que foram desenvolv
 
 Estes recursos foram desenvolvidos como parte do Programa Ninja Data SQL, que é patrocinado pela equipa de engenharia do Azure Data Group. A carta principal do programa Data SQL Ninja é desbloquear e acelerar a modernização complexa e competir oportunidades de migração da plataforma de dados para a plataforma de dados Azure Data da Microsoft. Se acha que a sua organização estaria interessada em participar no programa Data SQL Ninja, contacte a sua equipa de conta e peça-lhes que apresentem uma nomeação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Após a migração, reveja o [guia de validação e otimização pós-migração.](/sql/relational-databases/post-migration-validation-and-optimization-guide) 
 
@@ -169,5 +167,4 @@ Para uma matriz dos serviços e ferramentas da Microsoft e de terceiros que est�
 Para outros guias de migração, consulte [a Migração da Base de Dados.](https://datamigration.microsoft.com/) 
 
 Para conteúdos de vídeo, consulte:
-- [Como utilizar o Guia de Migração da Base de Dados](https://azure.microsoft.com/resources/videos/how-to-use-the-azure-database-migration-guide/)
 - [Visão geral da jornada de migração](https://azure.microsoft.com/resources/videos/overview-of-migration-and-recommended-tools-services/)

@@ -5,14 +5,14 @@ author: linda33wj
 ms.service: data-factory
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 12/18/2020
+ms.date: 03/16/2021
 ms.author: jingwang
-ms.openlocfilehash: 821f64c46e0ae813e7dcd437bb0d4af848647185
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 12f7a87ce166be516d070b66b069f7a584a386c7
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100372693"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103563509"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-net-sdk"></a>Quickstart: Create a data factory and pipeline using .NET SDK (Guia de Início Rápido: Criar uma fábrica de dados e um pipeline com o SDK .NET)
 
@@ -32,10 +32,6 @@ Este quickstart descreve como usar .NET SDK para criar uma Fábrica de Dados Azu
 ### <a name="visual-studio"></a>Visual Studio
 
 A passagem por este artigo utiliza o Visual Studio 2019. Os procedimentos para Visual Studio 2013, 2015 ou 2017 diferem ligeiramente.
-
-### <a name="azure-net-sdk"></a>SDK do Azure para .NET
-
-Transfira e instale o [SDK do Azure para .NET](https://azure.microsoft.com/downloads/) no seu computador.
 
 ## <a name="create-an-application-in-azure-active-directory"></a>Criar uma Aplicação no Azure Active Directory
 

@@ -5,12 +5,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 03/01/2021
 ms.custom: template-concept
-ms.openlocfilehash: cfef510646489e65f5cbc5d0d3e14c468301f48e
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.openlocfilehash: 5ee38fa4b005cf053890c223dfec9244c637bd00
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103199957"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103561826"
 ---
 # <a name="guide-for-running-functions-on-net-50-in-azure"></a>Guia para executar funções em .NET 5.0 em Azure
 
@@ -122,7 +122,7 @@ While the full middleware registration set of APIs is not yet exposed, we do sup
 
 As ligações são definidas utilizando atributos em métodos, parâmetros e tipos de devolução. Um método de função é um método com um `Function` atributo de gatilho aplicado a um parâmetro de entrada, como mostra o seguinte exemplo:
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/SampleApp/Queue/QueueFunction.cs" id="docsnippet_queue_trigger" :::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Queue/QueueFunction.cs" id="docsnippet_queue_trigger" :::
 
 O atributo gatilho especifica o tipo de gatilho e liga os dados de entrada a um parâmetro do método. A função exemplo anterior é desencadeada por uma mensagem de fila, e a mensagem de fila é passada para o método no `myQueueItem` parâmetro.
 
@@ -140,7 +140,7 @@ Uma função pode ter ligações de entrada zero ou mais que podem passar dados 
 
 Para escrever para uma ligação de saída, deve aplicar um atributo de ligação de saída ao método de função, que definiu como escrever ao serviço vinculado. O valor devolvido pelo método é escrito para a ligação de saída. Por exemplo, o exemplo a seguir escreve um valor de corda para uma fila de mensagens nomeada `functiontesting2` utilizando uma ligação de saída:
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/SampleApp/Queue/QueueFunction.cs" id="docsnippet_queue_output_binding" :::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Queue/QueueFunction.cs" id="docsnippet_queue_output_binding" :::
 
 ### <a name="multiple-output-bindings"></a>Encadernações múltiplas de saída
 
@@ -156,7 +156,7 @@ Da mesma forma, a função devolve um `HttpReponseData` objeto, que fornece dado
 
 O seguinte código é um gatilho HTTP 
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/SampleApp/Http/HttpFunction.cs" id="docsnippet_http_trigger" :::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Http/HttpFunction.cs" id="docsnippet_http_trigger" :::
 
 ## <a name="logging"></a>Registo
 
@@ -164,7 +164,7 @@ Em .NET isolado, pode escrever para registos utilizando uma [`ILogger`](/dotnet/
 
 O exemplo a seguir mostra como obter um `ILogger` e escrever registos dentro de uma função:
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/SampleApp/Http/HttpFunction.cs" id="docsnippet_logging" ::: 
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Http/HttpFunction.cs" id="docsnippet_logging" ::: 
 
 Utilize vários métodos `ILogger` para escrever vários níveis de registo, tais como `LogWarning` ou `LogError` . Para saber mais sobre os níveis de registo, consulte o [artigo de monitorização](functions-monitoring.md#log-levels-and-categories).
 

@@ -6,15 +6,15 @@ ms.author: maquaran
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: tutorial
-ms.date: 09/21/2020
+ms.date: 03/15/2021
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6cf0e77657175449b126eeca02a12c164478e568
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 1c178f57a31e02b3dac712a5425db226720200c5
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96548074"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103563628"
 ---
 # <a name="bulk-import-data-to-azure-cosmos-db-sql-api-account-by-using-the-net-sdk"></a>Dados de importação a granel para a conta Azure Cosmos DL API através da utilização da conta .NET SDK
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -112,7 +112,7 @@ Vamos começar por sobrepor o método padrão `Main` e definir as variáveis glo
         private const string AuthorizationKey = "<your-account-key>";
         private const string DatabaseName = "bulk-tutorial";
         private const string ContainerName = "items";
-        private const int ItemsToInsert = 300000;
+        private const int AmountToInsert = 300000;
 
         static async Task Main(string[] args)
         {
@@ -150,14 +150,11 @@ Em seguida, crie uma função de ajudante dentro da `Program` classe. Esta funç
 
 [!code-csharp[Main](~/cosmos-dotnet-bulk-import/src/Program.cs?name=Bogus)]
 
-Leia os artigos e serialize-os em casos de fluxo utilizando a `System.Text.Json` classe. Devido à natureza dos dados autogerados, está a serializar os dados como streams. Também pode utilizar a instância do item diretamente, mas ao convertê-las em streams, pode aproveitar o desempenho das APIs de fluxo no CosmosClient. Normalmente, pode utilizar os dados diretamente desde que conheça a chave de partição. 
-
-
-Para converter os dados para transmitir casos, dentro do `Main` método, adicione o seguinte código logo após a criação do recipiente:
+Utilize a função de ajudante para inicializar uma lista de documentos para trabalhar com:
 
 [!code-csharp[Main](~/cosmos-dotnet-bulk-import/src/Program.cs?name=Operations)]
 
-Em seguida, utilize os fluxos de dados para criar tarefas simultâneas e povoar a lista de tarefas para inserir os itens no recipiente. Para efetuar esta operação, adicione o seguinte código à `Program` classe:
+Em seguida, utilize a lista de documentos para criar tarefas simultâneas e povoar a lista de tarefas para inserir os itens no recipiente. Para efetuar esta operação, adicione o seguinte código à `Program` classe:
 
 [!code-csharp[Main](~/cosmos-dotnet-bulk-import/src/Program.cs?name=ConcurrentTasks)]
 
@@ -175,7 +172,7 @@ Para executar a amostra, pode fazê-lo simplesmente pelo `dotnet` comando:
 
 Se não tiver tempo de completar os passos deste tutorial, ou apenas pretender transferir os exemplos de código, pode obtê-los a partir do [GitHub](https://github.com/Azure-Samples/cosmos-dotnet-bulk-import-throughput-optimizer).
 
-Após a clonagem do projeto, certifique-se de atualizar as credenciais desejadas dentro [Program.cs](https://github.com/Azure-Samples/cosmos-dotnet-bulk-import-throughput-optimizer/blob/main/src/Program.cs#L25).
+Após a clonagem do projeto, certifique-se de atualizar as credenciais desejadas dentro [do Programa.cs](https://github.com/Azure-Samples/cosmos-dotnet-bulk-import-throughput-optimizer/blob/main/src/Program.cs#L25).
 
 A amostra pode ser executada mudando para o diretório do repositório e `dotnet` utilizando:
 

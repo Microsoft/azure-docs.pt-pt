@@ -1053,6 +1053,8 @@
                     - name: Portal do Azure
                       displayname: 'Azure disk encryption, encryption, ADE'
                       href: ./linux/disk-encryption-portal-quickstart.md
+                - name: Cenários de encriptação de discos para Linux
+                  href: ./linux/disk-encryption-linux.md
                 - name: Cofre de chaves para o Azure Disk Encryption
                   displayname: 'Azure disk encryption, encryption, ADE, Key vault'
                   href: ./linux/disk-encryption-key-vault.md
@@ -1081,8 +1083,8 @@
                       href: ./linux/disk-encryption-linux-aad.md
             - name: Windows
               items:
-                - name: Cenários de encriptação de discos para Windows
-                  href: ./windows/disk-encryption-windows.md
+                - name: Descrição geral
+                  href: ./windows/disk-encryption-overview.md
                 - name: Guias de Início Rápido
                   items:
                     - name: CLI do Azure
@@ -1091,6 +1093,8 @@
                       href: ./windows/disk-encryption-powershell-quickstart.md
                     - name: Portal do Azure
                       href: ./windows/disk-encryption-portal-quickstart.md
+                - name: Cenários de encriptação de discos para Windows
+                  href: ./windows/disk-encryption-windows.md
                 - name: Cofre de chaves para o Azure Disk Encryption
                   href: ./windows/disk-encryption-key-vault.md
                 - name: Scripts de exemplo de encriptação de discos

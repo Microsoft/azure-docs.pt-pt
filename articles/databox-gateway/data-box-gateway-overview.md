@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: overview
-ms.date: 08/21/2019
+ms.date: 03/15/2021
 ms.author: alkohli
-ms.openlocfilehash: adb0e12b81701acbdb33018f055bfe8fda2efc52
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 2adbefff2a0154268157c7d1735d83e70aa92ee8
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98786644"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103563594"
 ---
 # <a name="what-is-azure-data-box-gateway"></a>O que é Azure Data Box Gateway?
 
@@ -87,7 +87,7 @@ A solução Data Box Gateway inclui o recurso Data Box Gateway, o dispositivo vi
 
 ## <a name="region-availability"></a>Disponibilidade de região
 
-O dispositivo físico Data Box Gateway, o recurso Azure e a conta de armazenamento alvo para a qual transfere dados nem todos têm de estar na mesma região.
+O dispositivo Data Box Gateway, o recurso Azure e a conta de armazenamento alvo para a qual transfere dados nem todos têm de estar na mesma região.
 
 - **Disponibilidade de recursos** - Para uma lista de todas as regiões onde está disponível o recurso Azure Data Box Gateway, aceda aos [produtos Azure disponíveis por região.](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=databox) O Data Box Gateway também pode ser implantado na Nuvem do Governo de Azure. Para mais informações, veja [o que é o Governo Azure?](../azure-government/documentation-government-welcome.md)
 
@@ -96,7 +96,7 @@ O dispositivo físico Data Box Gateway, o recurso Azure e a conta de armazenamen
     As regiões nas quais as contas de armazenamento armazenam os dados do Data Box devem estar localizadas próximo de onde estiver o dispositivo, para um desempenho ideal. Uma conta de armazenamento localizada longe do dispositivo resulta em latências longas e desempenho mais lento.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Reveja os [requisitos de sistema do Data Box Gateway](data-box-gateway-system-requirements.md).
 - Compreenda os [Limites do Data Box Gateway](data-box-gateway-limits.md).

@@ -8,16 +8,16 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 12/10/2020
-ms.openlocfilehash: 01ee890fe77abebfdec8d3d643773b42cb54187e
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 1529d2d546227880fee71d1823482e040d2e57c1
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97606186"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103564325"
 ---
 # <a name="mapping-data-flows-in-azure-data-factory"></a>Mapeamento de fluxos de dados na Azure Data Factory
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 ## <a name="what-are-mapping-data-flows"></a>O que são fluxos de dados de mapeamento?
 
@@ -57,7 +57,7 @@ O primeiro separador no painel de configuração de cada transformação contém
 
 ![Separador de definições de origem](media/data-flow/source1.png "Separador de definições de origem")
 
-#### <a name="optimize"></a>Otimizar
+#### <a name="optimize"></a>Otimização
 
 O **separador Otimize** contém configurações para configurar esquemas de partição. Para saber mais sobre como otimizar os fluxos de dados, consulte o guia de desempenho do [fluxo de dados de mapeamento.](concepts-data-flow-performance.md)
 
@@ -99,14 +99,14 @@ A equipa da Azure Data Factory criou um [guia de afinação de desempenho](conce
 
 ## <a name="available-regions"></a>Regiões disponíveis
 
-==== Os fluxos de dados de mapeamento estão disponíveis nas seguintes regiões em ADF:
+========= Os fluxos de dados de mapeamento estão disponíveis nas seguintes regiões em ADF:
 
 | Região do Azure | Fluxos de dados em ADF |
 | ------------ | ----------------- |
 |  Austrália Central | |
 | Austrália Central 2 | |
 | Leste da Austrália | ✓ |
-| Sudeste da Austrália   | ✓ |
+| Austrália Sudeste   | ✓ |
 | Sul do Brasil  | ✓ |
 | Canadá Central | ✓ |
 | Índia Central | ✓ |

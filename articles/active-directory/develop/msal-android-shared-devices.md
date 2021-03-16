@@ -13,17 +13,14 @@ ms.date: 03/31/2020
 ms.author: marsma
 ms.reviewer: hahamil
 ms.custom: aaddev, identitypla | Azuretformtop40
-ms.openlocfilehash: ea902b8b609d226f6bb9e61ec0bfd60f75a3825d
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: a67e0d851ab544f737097eff9a884752cff9f5fc
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102038582"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103491560"
 ---
 # <a name="shared-device-mode-for-android-devices"></a>Modo de dispositivo partilhado para dispositivos Android
-
->[!IMPORTANT]
-> Esta característica [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
 
 Os trabalhadores da firstline, como os associados de retalho, os tripulantes de voo e os trabalhadores de serviços de campo, usam frequentemente um dispositivo móvel partilhado para fazer o seu trabalho. Isso torna-se problemático quando começam a partilhar palavras-passe ou números pin para aceder a dados de clientes e negócios no dispositivo partilhado.
 

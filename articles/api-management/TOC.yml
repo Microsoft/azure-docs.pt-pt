@@ -245,6 +245,8 @@
           href: api-management-transformation-policies.md
         - name: Políticas de integração do Distributed Application Runtime (Dapr)
           href: api-management-dapr-policies.md
+        - name: Políticas de validação
+          href: validation-policies.md
     - name: Gerir na produção
       items:
         - name: Exportar APIs para o Power Platform

@@ -1,6 +1,6 @@
 ---
 title: 'DB2 para SQL Base de Dados: Guia de migração'
-description: Siga este guia para migrar as suas bases de dados DB2 para a Base de Dados Azure SQL.
+description: Este guia ensina-o a migrar as suas bases de dados DB2 para Azure SQL Database utilizando o SqL Server Migration Assistant for DB2 (SSMA for DB2).
 ms.service: sql-database
 ms.subservice: migration-guide
 ms.custom: ''
@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 3e216c4aeb8d1206011ff9cca2d80900c23b2399
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 917390b43a772cbb9374c560fc3a65cfa7278839
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97356349"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103563951"
 ---
 # <a name="migration-guide-db2-to-sql-database"></a>Guia de migração: DB2 para SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqldb.md)]
@@ -102,7 +102,7 @@ Para converter o esquema, siga estes passos:
 1. Guarde o projeto localmente para um exercício de remediação de esquemas offline. Selecione **Save Project** a partir do menu **'Ficheiro'.** 
 
 
-## <a name="migrate"></a>Migrar
+## <a name="migrate"></a>Migrate
 
 Depois de ter concluído a avaliação das suas bases de dados e de abordar eventuais discrepâncias, o próximo passo é executar o processo de migração.
 
@@ -142,9 +142,6 @@ A abordagem de ensaio para a migração de bases de dados consiste nas seguintes
 1. **Configurar ambiente de teste**: O ambiente de ensaio deve conter uma cópia da base de dados de origem e da base de dados-alvo. Certifique-se de isolar o ambiente de teste.
 1. **Executar testes de validação**: Escada os testes de validação contra a fonte e o alvo e, em seguida, analise os resultados.
 1. **Executar testes de desempenho**: Executar teste de desempenho contra a fonte e o alvo e, em seguida, analisar e comparar os resultados.
-
-   > [!NOTE]
-   > Para obter assistência para desenvolver e executar testes de validação pós-migração, considere a Solução de Qualidade de Dados disponível a partir do parceiro [QuerySurge](https://www.querysurge.com/company/partners/microsoft). 
 
 
 ## <a name="leverage-advanced-features"></a>Alavancar recursos avançados 

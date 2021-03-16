@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 02/24/2021
+ms.date: 03/15/2021
 ms.author: alexeyo
-ms.openlocfilehash: f6c7ec3f66d0ab9186645654adf3c062c241e5d0
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: 78e40250710c133cbed53c05137971247663b0df
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102449854"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103564427"
 ---
 # <a name="speech-services-quotas-and-limits"></a>Limites e Quotas dos Serviços de Voz
 
@@ -27,6 +27,7 @@ Saltar para [quotas e limites de texto para discurso](#text-to-speech-quotas-and
 Nas tabelas abaixo Os parâmetros sem linha "ajustável" **não** são ajustáveis para todos os níveis de preço.
 
 #### <a name="online-transcription"></a>Transcrição online
+Para a utilização com API REST [de Speech SDK](speech-sdk.md) e/ou [Discurso-a-texto PARA áudio curto](rest-speech-to-text.md#speech-to-text-rest-api-for-short-audio).
 
 | Quota | Grátis (F0)<sup>1</sup> | Padrão (S0) |
 |--|--|--|
@@ -74,7 +75,7 @@ Na tabela abaixo os parâmetros sem linha "ajustável" **não** são ajustáveis
 | **Quotas específicas websocket** |  |  |
 |Comprimento de áudio max produzido por turno | 10 min | 10 min |
 |Tamanho da mensagem Max SSML por turno |64 KB |64 KB |
-| **Limite de API de repouso** | 20 pedidos por minuto | 25 pedidos por 5 segundos |
+| **Limite de API de repouso** | 20 pedidos por minuto | 300 pedidos por minuto |
 
 
 <sup>3</sup> Para o nível de preços **gratuito (F0)** ver também subsídios mensais na [página de preços](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).<br/>

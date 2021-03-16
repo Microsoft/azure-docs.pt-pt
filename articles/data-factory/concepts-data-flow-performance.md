@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 01/29/2021
-ms.openlocfilehash: 01c448165e6d1f4d6103c61387298f2d9eb40254
-ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
+ms.date: 03/15/2021
+ms.openlocfilehash: dd5b857c274e757f70920f244786df61c2770085
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99222954"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103561690"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Mapeamento de dados flui desempenho e guia de afinação
 
@@ -41,7 +41,7 @@ Ao monitorizar o desempenho do fluxo de dados, existem quatro possíveis estrang
 * Tempo de transformação
 * Escrevendo para uma pia 
 
-![Monitorização do fluxo de dados](media/data-flow/monitoring-performance.png "Monitor de fluxo de dados 3")
+![Monitorização de Fluxo de Dados](media/data-flow/monitoring-performance.png "Monitor de fluxo de dados 3")
 
 O tempo de arranque do cluster é o tempo que leva para girar um aglomerado de Faíscas Apache. Este valor está localizado no canto superior direito do ecrã de monitorização. Os fluxos de dados funcionam num modelo just-in-time onde cada trabalho utiliza um cluster isolado. Este tempo de arranque geralmente demora 3-5 minutos. Para trabalhos sequenciais, este pode ser reduzido permitindo um tempo de vida. Para obter mais informações, consulte [a otimização do tempo de funcionamento da integração do Azure.](#ir)
 
@@ -141,7 +141,7 @@ Se a maioria dos fluxos de dados forem executados em paralelo, não é recomend�
 > [!NOTE]
 > O tempo de viver não está disponível quando se utiliza o tempo de integração de resolução automática
 
-## <a name="optimizing-sources"></a>Fontes de otimização
+## <a name="optimizing-sources"></a>Otimizar origens
 
 Para cada fonte, exceto a Base de Dados Azure SQL, recomenda-se que continue **a utilizar a partição atual** como valor selecionado. Ao ler de todos os outros sistemas de origem, os dados fluem automaticamente os dados de forma uniforme com base no tamanho dos dados. Uma nova partição é criada para cerca de 128 MB de dados. À medida que o tamanho dos dados aumenta, o número de divisórias aumenta.
 
@@ -181,7 +181,7 @@ Se estiver a executar o mesmo fluxo de dados num conjunto de ficheiros, recomend
 
 Se possível, evite utilizar a atividade For-Each para executar fluxos de dados sobre um conjunto de ficheiros. Isto fará com que cada iteração do for-each rode o seu próprio cluster Spark, que muitas vezes não é necessário e pode ser caro. 
 
-## <a name="optimizing-sinks"></a>Otimização de pias
+## <a name="optimizing-sinks"></a>Otimizar os sinks
 
 Quando os fluxos de dados escrevem para afundar, qualquer divisória personalizada acontecerá imediatamente antes da escrita. Tal como a fonte, na maioria dos casos recomenda-se que continue **a utilizar a partição atual** como opção de partição selecionada. Os dados divididos escreverão significativamente mais rápido do que os dados não participantes, mesmo o seu destino não é dividido. Abaixo estão as considerações individuais para vários tipos de pias. 
 
@@ -250,7 +250,7 @@ Ao escrever para o CosmosDB, alterar o tamanho da produção e do lote durante a
 
 **Escreva o orçamento de produção:** Utilize um valor inferior ao total de RUs por minuto. Se tiver um fluxo de dados com um elevado número de divisórias Spark, definir uma produção orçamental permitirá um maior equilíbrio entre essas divisórias.
 
-## <a name="optimizing-transformations"></a>Otimização de transformações
+## <a name="optimizing-transformations"></a>Otimizar as transformações
 
 ### <a name="optimizing-joins-exists-and-lookups"></a>Otimização de Junções, Existe e Procura
 
@@ -259,6 +259,8 @@ Ao escrever para o CosmosDB, alterar o tamanho da produção e do lote durante a
 Em juntas, procuras e transformações existentes, se um ou ambos os fluxos de dados forem pequenos o suficiente para caber na memória do nó do trabalhador, pode otimizar o desempenho permitindo a **radiodifusão.** A radiodifusão é quando envia pequenos quadros de dados para todos os nós do cluster. Isto permite que o motor Spark execute uma junção sem remodelar os dados no grande fluxo. Por predefinição, o motor Spark decidirá automaticamente se transmite ou não um dos lados de uma junção. Se estiver familiarizado com os seus dados de entrada e souber que um fluxo será significativamente menor do que o outro, pode selecionar a radiodifusão **Fixa.** A radiodifusão fixa obriga a Spark a transmitir o fluxo selecionado. 
 
 Se o tamanho dos dados transmitidos for demasiado grande para o nó faísca, poderá obter um erro de memória. Para evitar erros de memória, utilize agrupamentos **otimizados de memória.** Se experimentar intervalos de transmissão durante as execuções de fluxo de dados, pode desligar a otimização da transmissão. No entanto, isto resultará numa execução mais lenta dos fluxos de dados.
+
+Ao trabalhar com fontes de dados que podem demorar mais tempo a consultar, como grandes consultas de base de dados, recomenda-se desligar a transmissão para as juntas. A fonte com longos tempos de consulta pode causar intervalos de faísca quando o cluster tenta transmitir para calcular os nós. Outra boa escolha para desligar a transmissão é quando você tem um fluxo de dados que está agregando valores para uso em uma transformação de procura mais tarde. Este padrão pode confundir o otimizador de faíscas e causar intervalos.
 
 ![Junte-se à transformação otimizar](media/data-flow/joinoptimize.png "Junte-se à otimização")
 
