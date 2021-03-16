@@ -3,12 +3,12 @@ title: Regras de ação para alertas do Monitor Azure
 description: Compreender quais são as regras de ação no Azure Monitor e como configurá-las e geri-las.
 ms.topic: conceptual
 ms.date: 03/15/2021
-ms.openlocfilehash: 2ad87cce668555ece0eba6479bf9d21db312bfcf
-ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
+ms.openlocfilehash: f70d798270ad82193f7ae5935d34f8f418d35e05
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/15/2021
-ms.locfileid: "103466733"
+ms.locfileid: "103471687"
 ---
 # <a name="action-rules-preview"></a>Regras de ação (pré-visualização)
 
@@ -76,8 +76,8 @@ Esta regra aplica-se apenas aos alertas sobre os tipos de recursos selecionados.
 Por exemplo, **o tipo de recurso = "Máquinas Virtuais"** significa que a regra se aplicará apenas a alertas em máquinas virtuais.
 * **ID da regra de alerta**  
 Esta regra aplica-se apenas aos alertas provenientes de uma regra de alerta específica. O valor deve ser o ID do Gestor de Recursos da regra de alerta.  
-Por exemplo, **o ID da regra de alerta = "/subscrições/SubId1/resourceGroups/RG1/providers/microsoft.insights/metricalerts/API-Latency"** significa que esta regra se aplicará apenas aos alertas provenientes da regra de alerta métrico "API-Latência".
-Pode obter o ID de regra de alerta adequado, listando as suas regras de alerta a partir do CLI, ou abrindo uma regra de alerta específica no portal, clicando em "Propriedades", e copiando o valor "ID de recurso".
+Por exemplo, **o ID da regra de alerta = "/subscrições/SubId1/resourceGroups/RG1/providers/microsoft.insights/metricalerts/API-Latency"** significa que esta regra se aplicará apenas aos alertas provenientes da regra de alerta métrico "API-Latência".  
+_NOTA - pode obter o ID de regra de alerta adequado, listando as suas regras de alerta a partir do CLI, ou abrindo uma regra de alerta específica no portal, clicando em "Propriedades", e copiando o valor "ID de recursos"._
 * **Condição do monitor**  
 Esta regra aplica-se apenas a eventos de alerta com a condição de monitor especificado - **disparado** ou **resolvido**.
 * **Descrição**  
@@ -118,7 +118,7 @@ Se selecionar o **Grupo de Ação** no toggle, adicione um grupo de ação exist
 Por último, configurar os seguintes detalhes para a regra de ação:
 * Name
 * Grupo de recursos no qual é salvo
-* Description
+* Descrição
 
 ### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 

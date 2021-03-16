@@ -4,16 +4,16 @@ titleSuffix: An Azure Communication Services quickstart
 description: Neste arranque rápido, você vai aprender a se juntar a uma reunião de equipas com o Azure Communication Calling SDK.
 author: matthewrobertson
 ms.author: chpalm
-ms.date: 10/10/2020
+ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-web-ios-android
-ms.openlocfilehash: f8daed736f1d7f5ecf77a5b44f95d191eb5930f8
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: c2cda93534a2010ced5c98f8e1a3563f8446ea84
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102120458"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103488016"
 ---
 # <a name="quickstart-join-your-calling-app-to-a-teams-meeting"></a>Quickstart: Junte-se à sua app de chamadas para uma reunião de equipas
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/07/2021
 ms.author: trbye
 ms.custom: references_regions
-ms.openlocfilehash: ebdb6a44a1f20ce0835fc5d7358d99c8224d3d77
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 43456655d057ee79ed347e4a94c008d825bfa639
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102044940"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103470239"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Suporte linguístico e de voz para o serviço de fala
 
@@ -194,8 +194,8 @@ As vozes neurais podem ser usadas para tornar as interações com chatbots e ass
 | Inglês (Reino Unido) | `en-GB` | Mulheres | `en-GB-MiaNeural` | Geral |
 | Inglês (Reino Unido) | `en-GB` | Homens | `en-GB-RyanNeural` | Geral |
 | Inglês (Estados Unidos) | `en-US` | Mulheres | `en-US-AriaNeural` | Geral, vários estilos de voz disponíveis [usando SSML](speech-synthesis-markup.md#adjust-speaking-styles)  |
-| Inglês (Estados Unidos) | `en-US` | Mulheres | `en-US-JennyNeural` | Geral |
-| Inglês (Estados Unidos) | `en-US` | Homens | `en-US-GuyNeural` | Geral |
+| Inglês (Estados Unidos) | `en-US` | Mulheres | `en-US-JennyNeural` | Geral, vários estilos de voz disponíveis [usando SSML](speech-synthesis-markup.md#adjust-speaking-styles)  |
+| Inglês (Estados Unidos) | `en-US` | Homens | `en-US-GuyNeural` | Geral, vários estilos de voz disponíveis [usando SSML](speech-synthesis-markup.md#adjust-speaking-styles)  |
 | Finlandês (Finlândia) | `fi-FI` | Mulheres | `fi-FI-NooraNeural` | Geral |
 | Finlandês (Finlândia) | `fi-FI` | Mulheres | `fi-FI-SelmaNeural` <sup>Novo</sup> | Geral |
 | Finlandês (Finlândia) | `fi-FI` | Homens | `fi-FI-HarriNeural` <sup>Novo</sup> | Geral |
@@ -408,19 +408,19 @@ A Voz Personalizada está disponível no padrão e no nível neural. As línguas
 |--|--|--|--|
 | Chinês (Mandarim, Simplificado) | `zh-CN` | Sim | Sim |
 | Chinês (mandarim, simplificado), inglês bilingue | `zh-CN` bilingue | Sim | Sim |
-| Inglês (Austrália) | `en-AU` | Não | Sim |
+| Inglês (Austrália) | `en-AU` | No | Sim |
 | Inglês (Índia) | `en-IN` | Sim | Sim |
 | Inglês (Reino Unido) | `en-GB` | Sim | Sim |
 | Inglês (Estados Unidos) | `en-US` | Sim | Sim |
-| Francês (Canadá) | `fr-CA` | Não | Sim |
+| Francês (Canadá) | `fr-CA` | No | Sim |
 | Francês (França) | `fr-FR` | Sim | Sim |
 | Alemão (Alemanha) | `de-DE` | Sim | Sim |
 | Italiano (Itália) | `it-IT` | Sim | Sim |
-| Japonês (Japão) | `ja-JP` | Não | Sim |
-| Coreano (Coreia) | `ko-KR` | Não | Sim |
+| Japonês (Japão) | `ja-JP` | No | Sim |
+| Coreano (Coreia) | `ko-KR` | No | Sim |
 | Português (Brasil) | `pt-BR` | Sim | Sim |
 | Espanhol (México) | `es-MX` | Sim | Sim |
-| Espanhol (Espanha) | `es-ES` | Não | Sim |
+| Espanhol (Espanha) | `es-ES` | No | Sim |
 
 Selecione o local certo que corresponda aos dados de treino que tem para treinar um modelo de voz personalizado. Por exemplo, se os dados de gravação que tem forem falados em inglês com sotaque britânico, selecione `en-GB` .
 

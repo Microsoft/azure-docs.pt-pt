@@ -2,23 +2,23 @@
 title: Como construir um conjunto de dados de formação para um modelo personalizado - Form Recogniser
 titleSuffix: Azure Cognitive Services
 description: Saiba como garantir que o seu conjunto de dados de treino está otimizado para a formação de um modelo de Reconhecimento de Formulários.
-author: PatrickFarley
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 06/19/2019
-ms.author: pafarley
-ms.openlocfilehash: ee57ccb82e771ee8ab93b09e476a94df32278069
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.author: lajanuar
+ms.openlocfilehash: b33ac3cb710a2d2a9d92efadf14dc829cb5da6e8
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99585114"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103467498"
 ---
 # <a name="build-a-training-data-set-for-a-custom-model"></a>Construa um conjunto de dados de formação para um modelo personalizado
 
-Ao utilizar o modelo personalizado Form Recogniser, fornece os seus próprios dados de formação para a operação [Do Modelo Personalizado de Comboio,](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/TrainCustomModelAsync) para que o modelo possa treinar para os seus formulários específicos da indústria. Siga este guia para aprender a recolher e preparar dados para treinar o modelo de forma eficaz.
+Ao utilizar o modelo personalizado Form Recogniser, fornece os seus próprios dados de formação para a operação [Do Modelo Personalizado de Comboio,](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/TrainCustomModelAsync) para que o modelo possa treinar para os seus formulários específicos da indústria. Siga este guia para aprender a recolher e preparar dados para treinar o modelo de forma eficaz.
 
 Precisa de pelo menos cinco formas preenchidas do mesmo tipo.
 
@@ -47,7 +47,7 @@ Se quiser utilizar dados etiquetados manualmente, também terá de carregar o *.
 
 ### <a name="organize-your-data-in-subfolders-optional"></a>Organize os seus dados em sub-dobradeiras (opcional)
 
-Por predefinição, a [API do Modelo Personalizado do Comboio](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/TrainCustomModelAsync) apenas utilizará documentos de formulário que estejam localizados na raiz do seu recipiente de armazenamento. No entanto, pode treinar com dados em sub-dobradeiras se o especificar na chamada API. Normalmente, o corpo da chamada [Train Custom Model](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/TrainCustomModelAsync) tem o seguinte formato, onde está o URL de assinatura de acesso partilhado do seu `<SAS URL>` recipiente:
+Por predefinição, a [API do Modelo Personalizado do Comboio](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/TrainCustomModelAsync) apenas utilizará documentos de formulário que estejam localizados na raiz do seu recipiente de armazenamento. No entanto, pode treinar com dados em sub-dobradeiras se o especificar na chamada API. Normalmente, o corpo da chamada [Train Custom Model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/TrainCustomModelAsync) tem o seguinte formato, onde está o URL de assinatura de acesso partilhado do seu `<SAS URL>` recipiente:
 
 ```json
 {

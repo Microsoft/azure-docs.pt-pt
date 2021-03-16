@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/21/2021
 ms.author: shhazam
-ms.openlocfilehash: 832c8e426b57e6b447ef805f2868a6d42abe3d9d
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: cfd5192a78c34caf5acbe4576f5a00ab314acb61
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102449701"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103489901"
 ---
 # <a name="quickstart-create-an-azureiotsecurity-module-twin"></a>Quickstart: Criar um módulo de azureiotsecurity twin
 
@@ -39,9 +39,9 @@ Consulte [os gémeos módulos IoT Hub](../iot-hub/iot-hub-devguide-module-twins.
 
 O Defender for IoT utiliza o mecanismo twin do módulo e mantém um módulo de segurança twin nomeado _azureiotsecurity_ para cada um dos seus dispositivos.
 
-O módulo de segurança twin contém todas as informações relevantes para a segurança do dispositivo para cada um dos seus dispositivos.
+O Gémeo Defender-IoT-micro-agente contém todas as informações relevantes para a segurança do dispositivo para cada um dos seus dispositivos.
 
-Para utilizar plenamente as funcionalidades do Defender para ioT, terá de criar, configurar e utilizar este módulo de segurança gémeos para todos os dispositivos do serviço.
+Para utilizar plenamente as funcionalidades do Defender para ioT, terá de criar, configurar e utilizar estes gémeos Defender-IoT-micro-agente para todos os dispositivos do serviço.
 
 ## <a name="create-azureiotsecurity-module-twin"></a>Criar módulo de azureiotsecurity twin
 

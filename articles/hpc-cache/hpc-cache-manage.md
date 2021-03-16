@@ -4,14 +4,14 @@ description: Como gerir e atualizar a Cache Azure HPC utilizando o portal Azure 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 08/31/2020
+ms.date: 03/08/2021
 ms.author: v-erkel
-ms.openlocfilehash: 40d091782f37a32b75659cd274e49798dbe527cb
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: b34beb65bb8c4136887651d8365c937b17718572
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100590783"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103471908"
 ---
 # <a name="manage-your-cache"></a>Gerencie a sua cache
 
@@ -254,6 +254,20 @@ A página geral mostra gráficos para algumas estatísticas básicas de cache - 
 ![screenshot de três gráficos de linha mostrando as estatísticas acima mencionadas para uma cache de amostra](media/hpc-cache-overview-stats.png)
 
 Estes gráficos fazem parte das ferramentas de monitorização e análise incorporadas da Azure. Estão disponíveis ferramentas e alertas adicionais a partir das páginas sob o título **de Monitorização** na barra lateral do portal. Saiba mais na secção do portal da [documentação de Monitorização do Azure](../azure-monitor/essentials/monitor-azure-resource.md#monitoring-in-the-azure-portal).
+
+## <a name="view-warnings"></a>Ver avisos
+
+Se a cache entrar num estado pouco saudável, verifique a página **Avisos.** Esta página mostra notificações do software cache que podem ajudá-lo a entender o seu estado.
+
+Estas notificações não aparecem no registo de atividades por não serem controladas pelo portal Azure. Estão frequentemente associados a configurações personalizadas que pode ter feito.
+
+Os tipos de avisos que pode ver aqui incluem:
+
+* A cache não pode alcançar o seu servidor NTP
+* A cache falhou em descarregar informações de nome de utilizador de Grupos Estendidos
+* As definições personalizadas de DNS mudaram num alvo de armazenamento
+
+![screenshot da página monitoring > Warnings mostrando uma mensagem que os nomes de utilizadores de grupos alargados não podiam ser descarregados](media/warnings-page.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 

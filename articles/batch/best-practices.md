@@ -3,12 +3,12 @@ title: Melhores práticas
 description: Aprenda as melhores práticas e dicas úteis para desenvolver as suas soluções Azure Batch.
 ms.date: 03/11/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0b3dfe6d974f2cc2449faf54c4549589e0baa7cf
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.openlocfilehash: 15ff46ad74c4c48c6b5f320622bc364adf59d4cc
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103199854"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103496291"
 ---
 # <a name="azure-batch-best-practices"></a>As melhores práticas do Azure Batch
 
@@ -25,8 +25,8 @@ Este artigo discute uma coleção de boas práticas e dicas úteis para usar efi
 
 - **Modo de atribuição de piscinas** Ao criar uma conta Batch, pode escolher entre dois modos de atribuição de piscinas: **serviço de lote** ou **subscrição do utilizador.** Na maioria dos casos, deve utilizar o modo de serviço Predefinido Batch, no qual os pools são atribuídos nos bastidores em subscrições geridas pelo Batch. No modo de subscrição de utilizador alternativo, as VMs do Batch e outros recursos são criados diretamente na sua subscrição quando é criado um conjunto. As contas de subscrição do utilizador são usadas principalmente para permitir um subconjunto importante, mas pequeno, de cenários. Pode ler mais sobre o modo de subscrição do utilizador na [configuração adicional para o modo de subscrição do utilizador](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode).
 
-- **'virtualMachineConfiguration' ou 'virtualMachineConfiguration'.**
-    Embora possa criar piscinas utilizando qualquer uma das configurações, as novas piscinas devem ser configuradas utilizando a "configuração virtual Daachine" e não a "Configuração virtual da Tecnologia". Todas as funcionalidades atuais e novas do Lote serão suportadas por piscinas de configuração de máquinas virtuais. Os pools de configuração de serviços de nuvem não suportam todas as funcionalidades e não estão previstas novas capacidades. Não poderá criar novas piscinas 'CloudServiceConfiguration' ou adicionar novos nós às piscinas existentes [após 29 de fevereiro de 2024.](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024/) Para obter mais informações, consulte [a configuração da piscina Do Lote Migrador dos Serviços de Nuvem para Máquina Virtual.](batch-pool-cloud-service-to-virtual-machine-configuration.md)
+- **'virtualMachineConfiguration' ou 'cloudServiceConfiguration'.**
+    Embora possa criar piscinas utilizando qualquer uma das configurações, as novas piscinas devem ser configuradas utilizando a "configuração virtualMachineConfiguration" e não a "CloudServiceConfiguration". Todas as funcionalidades atuais e novas do Lote serão suportadas por piscinas de configuração de máquinas virtuais. Os pools de configuração de serviços de nuvem não suportam todas as funcionalidades e não estão previstas novas capacidades. Não poderá criar novas piscinas 'cloudServiceConfiguration' ou adicionar novos nós às piscinas existentes [após 29 de fevereiro de 2024.](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024/) Para obter mais informações, consulte [a configuração da piscina Do Lote Migrador dos Serviços de Nuvem para Máquina Virtual.](batch-pool-cloud-service-to-virtual-machine-configuration.md)
 
 - **Considere o tempo de trabalho e de execução de tarefas ao determinar o trabalho para o mapeamento da piscina.**
     Se tiver empregos constituídos principalmente por tarefas de curto prazo, e as contagens totais de tarefas previstas forem reduzidas, de modo que o tempo de execução global esperado do trabalho não seja longo, não aloque um novo pool para cada trabalho. O tempo de atribuição dos nós diminuirá o tempo de funcionação do trabalho.

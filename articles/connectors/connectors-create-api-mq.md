@@ -7,26 +7,26 @@ author: ChristopherHouser
 ms.author: chrishou
 ms.reviewer: valthom, estfan, logicappspm
 ms.topic: article
-ms.date: 05/14/2020
+ms.date: 03/10/2021
 tags: connectors
-ms.openlocfilehash: e9e554fdc092e49f5a87049de0e3dc3163105f58
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a07eb6e592c68794f0e4038a7cf9a42bd396b47a
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85609508"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103495237"
 ---
 # <a name="connect-to-an-ibm-mq-server-from-azure-logic-apps"></a>Ligar a um servidor IBM MQ a partir do Azure Logic Apps
 
-O conector IBM MQ envia e recupera mensagens armazenadas num servidor IBM MQ nas instalações ou no Azure. Este conector inclui um cliente Microsoft MQ que comunica com um servidor MQ IBM remoto através de uma rede TCP/IP. Este artigo fornece um guia de arranque para utilizar o conector MQ. Pode começar por navegar uma única mensagem numa fila e depois experimentar outras ações.
+O conector MQ envia e recupera mensagens armazenadas num servidor MQ nas instalações ou no Azure. Este conector inclui um cliente Microsoft MQ que comunica com um servidor MQ IBM remoto através de uma rede TCP/IP. Este artigo fornece um guia de arranque para utilizar o conector MQ. Pode começar por navegar uma única mensagem numa fila e depois experimentar outras ações.
 
-O conector IBM MQ inclui estas ações, mas não fornece gatilhos:
+O conector MQ inclui estas ações, mas não fornece gatilhos:
 
-- Navegue numa única mensagem sem apagar a mensagem do servidor IBM MQ.
-- Navegue num lote de mensagens sem apagar as mensagens do servidor IBM MQ.
-- Receba uma única mensagem e elimine a mensagem do servidor IBM MQ.
-- Receba um lote de mensagens e elimine as mensagens do servidor IBM MQ.
-- Envie uma única mensagem para o servidor IBM MQ.
+- Navegue numa única mensagem sem apagar a mensagem do servidor MQ.
+- Navegue num lote de mensagens sem apagar as mensagens do servidor MQ.
+- Receba uma única mensagem e elimine a mensagem do servidor MQ.
+- Receba um lote de mensagens e elimine as mensagens do servidor MQ.
+- Envie uma única mensagem para o servidor MQ.
 
 Aqui estão as versões MQ da IBM websphere oficialmente suportadas:
 
@@ -37,15 +37,20 @@ Aqui estão as versões MQ da IBM websphere oficialmente suportadas:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Se estiver a utilizar um servidor MQ no local, [instale o portal de dados no local](../logic-apps/logic-apps-gateway-install.md) num servidor dentro da sua rede. O servidor onde está instalado o gateway de dados no local também deve ter .NET Framework 4.6 instalado para o conector MQ funcionar.
+* Se utilizar um servidor MQ no local, tem de [instalar o portal de dados no local](../logic-apps/logic-apps-gateway-install.md) num servidor dentro da sua rede.
 
-  Depois de terminar a instalação do gateway, também deve criar um recurso em Azure para o portal de dados no local. Para obter mais informações, consulte [Configurar a ligação de porta de entrada de dados](../logic-apps/logic-apps-gateway-connection.md).
+  > [!NOTE]
+  > Se o seu servidor MQ estiver disponível publicamente ou disponível dentro do Azure, não terá de utilizar o portal de dados.
 
-  Se o seu servidor MQ estiver disponível publicamente ou disponível dentro do Azure, não terá de utilizar o portal de dados.
+  * Para que o conector MQ funcione, o servidor onde instala o gateway de dados no local também precisa de ter .NET Framework 4.6 instalado.
+  
+  * Depois de instalar o gateway de dados no local, também precisa de [criar um recurso de gateway Azure para o gateway de dados no local](../logic-apps/logic-apps-gateway-connection.md) que o conector MQ utiliza para aceder ao servidor MQ no local.
 
-* A aplicação lógica onde pretende adicionar a ação MQ. Esta aplicação lógica deve utilizar a mesma localização que a sua ligação de gateway de dados no local e já deve ter um gatilho que inicie o seu fluxo de trabalho.
+* A aplicação lógica onde pretende utilizar o conector MQ. O conector MQ não tem gatilhos, por isso deve adicionar primeiro um gatilho à sua aplicação lógica. Por exemplo, pode utilizar o [gatilho de Recorrência](../connectors/connectors-native-recurrence.md). Se é novo em aplicações lógicas, experimente este [quickstart para criar a sua primeira aplicação lógica.](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-  O conector MQ não tem gatilhos, por isso deve adicionar primeiro um gatilho à sua aplicação lógica. Por exemplo, pode utilizar o gatilho de Recorrência. Se é novo em aplicações lógicas, experimente este [quickstart para criar a sua primeira aplicação lógica.](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+## <a name="limitations"></a>Limitações
+
+O conector MQ não suporta nem utiliza o campo **formato** da mensagem e não executa nenhuma conversão de caracteres. O conector apenas coloca os dados que aparecem no campo de mensagem numa mensagem JSON e envia a mensagem junto.
 
 <a name="create-connection"></a>
 
@@ -61,13 +66,13 @@ Se ainda não tiver uma ligação MQ quando adicionar uma ação MQ, é solicita
 
    * Para **o Servidor,** pode introduzir o nome do servidor MQ ou introduzir o endereço IP seguido de um cólon e o número de porta.
 
-   * Para utilizar a camada de tomadas seguras (SSL), selecione **Ativar SSL?**
+   * Para utilizar a segurança da camada de transporte (TLS) ou a camada de tomadas seguras (SSL), selecione **Enable SSL?**
 
      O conector MQ suporta atualmente apenas a autenticação do servidor, e não a autenticação do cliente. Para mais informações, consulte [problemas de Ligação e autenticação.](#connection-problems)
 
 1. Na secção **gateway,** siga estes passos:
 
-   1. Na lista **de Subscrição,** selecione a subscrição Azure associada ao seu recurso de gateway Azure.
+   1. Na lista **de Subscrição,** selecione a subscrição Azure que está associada ao seu recurso de gateway Azure.
 
    1. Na lista **'Connection Gateway',** selecione o recurso gateway Azure que pretende utilizar.
 
@@ -185,7 +190,7 @@ A ação **'Receber mensagens'** tem as mesmas entradas e saídas que a ação d
 
 ## <a name="connector-reference"></a>Referência do conector
 
-Para obter detalhes técnicos sobre ações e limites, descritos pela descrição do Conector Swagger, consulte a página de [referência](/connectors/mq/)do conector .
+Para mais detalhes técnicos, tais como ações e limites, descritos no ficheiro Swagger do conector, reveja a [página de referência do conector](/connectors/mq/).
 
 ## <a name="next-steps"></a>Passos seguintes
 

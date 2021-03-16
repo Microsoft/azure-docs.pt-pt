@@ -7,12 +7,12 @@ manager: femila
 ms.topic: reference
 ms.service: media-services
 ms.date: 03/11/2021
-ms.openlocfilehash: c5545ead3e4d40c7a0642aee6273c4df241bd394
-ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.openlocfilehash: 461c998aa85d70d69cb267fdbeabd7eabcfb5854
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2021
-ms.locfileid: "103464495"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103471539"
 ---
 # <a name="monitoring-media-services-data-reference"></a>Referência de dados dos Serviços de Mídia de Monitorização
 
@@ -31,7 +31,7 @@ Os Serviços de Comunicação Social apoiam métricas de monitorização dos seg
 
 Pode monitorizar as seguintes métricas de conta.
 
-|Nome da métrica|Nome a apresentar|Description|
+|Nome da métrica|Nome a apresentar|Descrição|
 |---|---|---|
 |Conta de Ativos|Contagem de ativos|Bens na sua conta.|
 |AssetQuota|Quota de ativos|Quota de ativo na sua conta.|
@@ -49,7 +49,7 @@ Deve também rever [as quotas e limites de conta.](../limits-quotas-constraints.
 
 São suportadas as [seguintes métricas de serviços](/rest/api/media/streamingendpoints) de streaming de media:
 
-|Nome da métrica|Nome a apresentar|Description|
+|Nome da métrica|Nome a apresentar|Descrição|
 |---|---|---|
 |Pedidos|Pedidos|Fornece o número total de pedidos HTTP servidos pelo Streaming Endpoint.|
 |Saída|Saída|Egress bytes total por minuto por streaming Endpoint.|
@@ -61,7 +61,7 @@ São suportadas as [seguintes métricas de serviços](/rest/api/media/streaminge
 
 Para obter mais informações sobre as dimensões métricas, consulte [métricas multidimensionais.](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics#multi-dimensional-metrics)
 
-**ESPAÇO RESERVADO** para tabela de dimensões.
+<!--**PLACEHOLDER** for dimensions table.-->
 
 ## <a name="resource-logs"></a>Registos do recurso
 

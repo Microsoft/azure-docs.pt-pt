@@ -3,12 +3,12 @@ title: Respostas a perguntas comuns
 description: 'Respostas a perguntas comuns sobre: funcionalidades do Azure Backup incluindo os cofres dos Serviços de Recuperação, que cópias de segurança podem criar, como funcionam, a encriptação e os limites. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: f819440001180a3c446f366e61e3ac0f983fa67f
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: ac58cee66aa2a89efb7194a051801b068628d3bc
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98806650"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103467634"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup – Perguntas frequentes
 
@@ -18,7 +18,7 @@ Este artigo responde a questões comuns sobre o serviço do Azure Backup.
 
 ### <a name="is-there-any-limit-on-the-number-of-vaults-that-can-be-created-in-each-azure-subscription"></a>Existe algum limite ao número de cofres que podem ser criados em cada subscrição do Azure?
 
-Yes. Pode criar até 500 cofres dos Serviços de Recuperação, por região suportada do Azure Backup, por subscrição. Se precisar de mais cofres, crie uma subscrição adicional.
+Sim. Pode criar até 500 cofres dos Serviços de Recuperação, por região suportada do Azure Backup, por subscrição. Se precisar de mais cofres, crie uma subscrição adicional.
 
 ### <a name="are-there-limits-on-the-number-of-serversmachines-that-can-be-registered-against-each-vault"></a>Existem limites no número de servidores/máquinas que podem ser registados em relação a cada cofre?
 
@@ -39,11 +39,11 @@ Os dados de servidores que quer recuperar em conjunto deverão utilizar a mesma 
 
 ### <a name="can-i-move-my-vault-between-subscriptions"></a>Posso mover o meu cofre entre subscrições?
 
-Yes. Para mover um cofre dos Serviços de Recuperação, veja este [artigo](backup-azure-move-recovery-services-vault.md)
+Sim. Para mover um cofre dos Serviços de Recuperação, veja este [artigo](backup-azure-move-recovery-services-vault.md)
 
 ### <a name="can-i-move-backup-data-to-another-vault"></a>Posso mover dados de cópia de segurança para outro cofre?
 
-Não. Os dados da cópia de segurança armazenados num cofre não podem ser movidos para um cofre diferente.
+N.º Os dados da cópia de segurança armazenados num cofre não podem ser movidos para um cofre diferente.
 
 ### <a name="can-i-change-the-storage-redundancy-setting-after-a-backup"></a>Posso mudar a definição de redundância de armazenamento depois de uma cópia de segurança?
 
@@ -66,6 +66,13 @@ Não é suportado a exportação de dados diretamente do cofre dos Serviços de 
 
 No caso de um cofre [GRS](azure-backup-glossary.md#grs) sem capacidade [crr](azure-backup-glossary.md#cross-region-restore-crr) ativada, os dados na região secundária não podem ser acedidos até que Azure declare um desastre na região primária. Neste cenário, a restauração acontece a partir da região secundária. Quando o CRR está ativado, mesmo que a região primária esteja a funcionar, pode desencadear um restauro na região secundária.
 
+### <a name="can-i-move-a-subscription-that-contains-a-vault-to-a-different-azure-active-directory"></a>Posso mover uma assinatura que contenha um cofre para um Diretório Ativo Azure diferente?
+
+Sim. Para mover uma subscrição (que contém um cofre) para um diretório ativo Azure diferente (AD), consulte [a subscrição de Transferência para um diretório diferente](../role-based-access-control/transfer-subscription.md).
+
+>[!IMPORTANT]
+>Certifique-se de que executa as seguintes ações após a mudança da subscrição:<ul><li>As permissões de controlo de acesso baseadas em funções e as funções personalizadas não são transferíveis. Deve recriar as permissões e funções no novo AD Azure.</li><li>Deve recriar a Identidade Gerida (MI) do cofre desativando-a e permitindo-a novamente. Além disso, deve avaliar e recriar as permissões do MI.</li><li>Se o cofre utilizar funcionalidades que alavancam o MI, como [pontos finais privados](private-endpoints.md#before-you-start) e [chaves geridas pelo cliente,](encryption-at-rest-with-cmk.md#before-you-start)tem de reconfigurar as funcionalidades.</li></ul>
+
 ## <a name="azure-backup-agent"></a>Agente do Backup do Azure
 
 ### <a name="where-can-i-find-common-questions-about-the-azure-backup-agent-for-azure-vm-backup"></a>Onde posso encontrar as perguntas comuns sobre o agente do Azure Backup para a cópia de segurança de VMs do Azure?
@@ -77,7 +84,7 @@ No caso de um cofre [GRS](azure-backup-glossary.md#grs) sem capacidade [crr](azu
 
 ### <a name="are-there-limits-on-backup-scheduling"></a>Existem limites no agendamento de cópias de segurança?
 
-Yes.
+Sim.
 
 - Pode fazer cópias de segurança de computadores Windows ou Windows Server até três vezes por dia. Pode definir a política de agendamento para agendamentos diários ou semanais.
 - Pode fazer cópias de segurança do DPM até duas vezes por dia. Pode definir a política de agendamento para agendamentos diários, semanais, mensais e anuais.
@@ -147,7 +154,7 @@ Não, o Azure Backup não suporta a eliminação ou limpeza de itens individuais
 
 ### <a name="if-i-cancel-a-backup-job-after-it-starts-is-the-transferred-backup-data-deleted"></a>Se cancelar uma tarefa de cópia de segurança após ter sido iniciada, os dados transferidos serão eliminados?
 
-Não. Todos os dados que foram transferidos para o cofre antes da tarefa de cópia de segurança ser cancelada permanecem no cofre.
+N.º Todos os dados que foram transferidos para o cofre antes da tarefa de cópia de segurança ser cancelada permanecem no cofre.
 
 - O Backup do Azure utiliza um mecanismo de ponto de verificação para adicionar, ocasionalmente, pontos de verificação aos dados de cópia de segurança durante a cópia de segurança.
 - Por existirem pontos de verificação nos dados de cópia de segurança, o processo de cópia de segurança seguinte pode validar a integridade dos ficheiros.
@@ -167,13 +174,13 @@ Sim, há políticas personalizadas. Por exemplo, pode configurar requisitos de r
 
 ### <a name="can-i-use-different-times-for-backup-scheduling-and-retention-policies"></a>Posso utilizar horários diferentes para o agendamento de cópias de segurança e políticas de retenção?
 
-Não. Só podem ser aplicadas políticas de retenção em pontos de cópia de segurança. Por exemplo, esta imagem mostra uma política de retenção para cópias de segurança efetuadas às 12:00 e às 18:00.
+N.º Só podem ser aplicadas políticas de retenção em pontos de cópia de segurança. Por exemplo, esta imagem mostra uma política de retenção para cópias de segurança efetuadas às 12:00 e às 18:00.
 
 ![Agendar Cópia de Segurança e Retenção](./media/backup-azure-backup-faq/Schedule.png)
 
 ### <a name="if-a-backup-is-kept-for-a-long-time-does-it-take-more-time-to-recover-an-older-data-point"></a>Se uma cópia de segurança for mantida durante muito tempo, demora mais tempo para recuperar um ponto de dados mais antigo?
 
-Não. Não, o tempo para recuperar o ponto mais antigo ou mais recente é o mesmo. Cada ponto de recuperação funciona como um ponto completo.
+N.º Não, o tempo para recuperar o ponto mais antigo ou mais recente é o mesmo. Cada ponto de recuperação funciona como um ponto completo.
 
 ### <a name="if-each-recovery-point-is-like-a-full-point-does-it-impact-the-total-billable-backup-storage"></a>Se cada ponto de recuperação é como um ponto completo, afeta o armazenamento de cópia de segurança faturável total?
 
@@ -196,7 +203,7 @@ Não há limite para o número de recuperações do Reforço Azure.
 
 ### <a name="when-restoring-data-do-i-pay-for-the-egress-traffic-from-azure"></a>Quando restaurar os dados, pago pelo tráfego de saída do Azure?
 
-Não. A recuperação é gratuita e não lhe é cobrado o tráfego de saída.
+N.º A recuperação é gratuita e não lhe é cobrado o tráfego de saída.
 
 ### <a name="what-happens-when-i-change-my-backup-policy"></a>O que acontece quando altero a minha política de cópias de segurança?
 
@@ -213,11 +220,11 @@ Quando as cópias de segurança são interrompidas e os dados são retidos, as r
 
 ### <a name="is-the-data-sent-to-azure-encrypted"></a>Os dados enviados para o Azure são encriptados?
 
-Yes. Os dados são encriptados no computador no local com AES256. Os dados são enviados através de uma ligação HTTPS segura. Os dados transmitidos na cloud são protegidos pela ligação HTTPS apenas entre o serviço de armazenamento e recuperação. O protocolo iSCSI protege os dados transmitidos entre o serviço de recuperação e o computador do utilizador. O túnel seguro é utilizado para proteger o canal iSCSI.
+Sim. Os dados são encriptados no computador no local com AES256. Os dados são enviados através de uma ligação HTTPS segura. Os dados transmitidos na cloud são protegidos pela ligação HTTPS apenas entre o serviço de armazenamento e recuperação. O protocolo iSCSI protege os dados transmitidos entre o serviço de recuperação e o computador do utilizador. O túnel seguro é utilizado para proteger o canal iSCSI.
 
 ### <a name="is-the-backup-data-on-azure-encrypted-as-well"></a>Os dados da cópia de segurança no Azure também são encriptados?
 
-Yes. Os dados no Azure são encriptados inativamente.
+Sim. Os dados no Azure são encriptados inativamente.
 
 - Para cópias de segurança no local, a encriptação inativa de dados é fornecida ao utilizar a frase de acesso que forneceu ao fazer cópias de segurança no Azure.
 - Nas VMs do Azure, os dados são encriptados inativamente com a Encriptação do Serviço de Armazenamento (SSE).
@@ -232,7 +239,7 @@ A chave de encriptação utilizada pelo Agente microsoft Azure Recovery Services
 
 Apenas o seu site possui a chave utilizada para encriptar os dados da cópia de segurança. A Microsoft não mantém uma cópia no Azure e não tem qualquer acesso à chave. Se tiver colocado a chave num local incorreto, a Microsoft não poderá recuperar os dados da cópia de segurança.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Leia as outras FAQs:
 

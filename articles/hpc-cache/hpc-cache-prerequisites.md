@@ -4,14 +4,14 @@ description: Pré-requisitos para a utilização da Cache Azure HPC
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 11/05/2020
+ms.date: 03/11/2021
 ms.author: v-erkel
-ms.openlocfilehash: a31aee3f4548d3137fa1241aaa3a0f6171cf6895
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 7a91cf5f9341d2b42f1c8f242d288b4ee59b632d
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412515"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103471806"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Pré-requisitos para cache Azure HPC
 
@@ -91,14 +91,18 @@ Verifique estes pré-requisitos relacionados com a permissão antes de começar 
   Siga as instruções em [Adicionar os alvos de armazenamento](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) para adicionar as funções.
 
 ## <a name="storage-infrastructure"></a>Infraestrutura de armazenamento
+<!-- heading is linked in create storage target GUI as aka.ms/hpc-cache-prereq#storage-infrastructure - make sure to fix that if you change the wording of this heading -->
 
-A cache suporta contentores Azure Blob ou exportações de armazenamento de hardware NFS. Adicione os alvos de armazenamento depois de criar a cache.
+A cache suporta recipientes Azure Blob, exportações de armazenamento de hardware NFS e recipientes de bolhas ADLS montados em NFS (atualmente em pré-visualização). Adicione os alvos de armazenamento depois de criar a cache.
 
 Cada tipo de armazenamento tem pré-requisitos específicos.
 
 ### <a name="blob-storage-requirements"></a>Requisitos de armazenamento de bolhas
 
 Se pretender utilizar o armazenamento Azure Blob com o seu cache, necessita de uma conta de armazenamento compatível e de um recipiente Blob vazio ou de um recipiente que esteja povoado com dados formatados Azure HPC Cache, conforme descrito nos [dados do Move para o armazenamento do Azure Blob](hpc-cache-ingest.md).
+
+> [!NOTE]
+> Requisitos diferentes aplicam-se ao armazenamento de bolhas montado em NFS. Leia [os requisitos de armazenamento ADLS-NFS](#nfs-mounted-blob-adls-nfs-storage-requirements-preview) para mais detalhes.
 
 Crie a conta antes de tentar adicionar um alvo de armazenamento. Pode criar um novo recipiente quando adicionar o alvo.
 
@@ -169,6 +173,37 @@ Mais informações estão incluídas na [configuração do Troubleshoot NAS e no
   * Se o seu armazenamento tiver alguma exportação que sejam subdiretivas de outra exportação, certifique-se de que a cache tem acesso à raiz ao segmento mais baixo do caminho. Leia o acesso à raiz nos caminhos do diretório no artigo de resolução de [problemas](troubleshoot-nas.md#allow-root-access-on-directory-paths) do alvo de armazenamento NFS para obter mais detalhes.
 
 * O armazenamento de back-end NFS deve ser uma plataforma de hardware/software compatível. Contacte a equipa da Azure HPC Cache para mais detalhes.
+
+### <a name="nfs-mounted-blob-adls-nfs-storage-requirements-preview"></a>Requisitos de armazenamento de bolhas montadas em NFS (ADLS-NFS) (PREVIEW)
+
+A Azure HPC Cache também pode usar um recipiente blob montado com o protocolo NFS como alvo de armazenamento.
+
+> [!NOTE]
+> O suporte do protocolo NFS 3.0 para o armazenamento Azure Blob está em pré-visualização pública. A disponibilidade é restrita e as funcionalidades podem mudar entre agora e quando a funcionalidade se torna geralmente disponível. Não utilize tecnologia de pré-visualização em sistemas de produção.
+>
+> Leia mais sobre esta funcionalidade de pré-visualização no [suporte do protocolo NFS 3.0 no armazenamento Azure Blob](../storage/blobs/network-file-system-protocol-support.md).
+
+Os requisitos da conta de armazenamento são diferentes para um alvo de armazenamento de bolhas ADLS-NFS e para um alvo de armazenamento de bolhas padrão. Siga cuidadosamente as instruções no [armazenamento do Mount Blob utilizando o protocolo Network File System (NFS) 3.0](../storage/blobs/network-file-system-protocol-support-how-to.md) para criar e configurar a conta de armazenamento ativada por NFS.
+
+Esta é uma visão geral dos passos:
+
+1. Certifique-se de que as funcionalidades de que necessita estão disponíveis nas regiões onde planeia trabalhar.
+
+1. Ative a função de protocolo NFS para a sua subscrição. Faça isto *antes* de criar a conta de armazenamento.
+
+1. Crie uma rede virtual segura (VNet) para a conta de armazenamento. Deverá utilizar a mesma rede virtual para a sua conta de armazenamento ativada por NFS e para a sua Cache Azure HPC.
+
+1. Crie a conta de armazenamento.
+
+   * Em vez de utilizar as definições da conta de armazenamento para uma conta de armazenamento padrão, siga as instruções no [documento de como fazê-lo](../storage/blobs/network-file-system-protocol-support-how-to.md). O tipo de conta de armazenamento suportada pode variar consoante a região de Azure.
+
+   * Na secção **De Rede,** escolha um ponto final privado na rede virtual segura que criou (recomendado) ou escolha um ponto final público com acesso restrito a partir do VNet seguro.
+
+   * Não se esqueça de completar a secção **Advanced,** onde permite o acesso ao NFS.
+
+   * Dê à aplicação cache acesso à sua conta de armazenamento Azure, como mencionado em [Permissões,](#permissions)acima. Pode fazê-lo da primeira vez que criar um alvo de armazenamento. Siga o procedimento em [Adicionar os alvos de armazenamento](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) para dar à cache as funções de acesso necessárias.
+
+     Se você não é o proprietário da conta de armazenamento, faça o proprietário fazer este passo.
 
 ## <a name="set-up-azure-cli-access-optional"></a>Configurar o acesso do Azure CLI (opcional)
 

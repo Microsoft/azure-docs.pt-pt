@@ -43,6 +43,8 @@
           href: tutorial-private-endpoint-sql-cli.md
 - name: Conceitos
   items:
+    - name: Disponibilidade
+      href: availability.md
     - name: Ponto Final Privado
       href: private-endpoint-overview.md
     - name: Serviço de Ligação Privada

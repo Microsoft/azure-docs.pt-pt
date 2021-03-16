@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/04/2021
+ms.date: 03/15/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: adfe5318949ffa624ebe3548944b558bd0dda9e1
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 09cfdd026105a34db976118f38b011e2c4578a24
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102198477"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103470786"
 ---
 # <a name="options-for-registering-a-saml-application-in-azure-ad-b2c"></a>Opções para registo de uma aplicação SAML em Azure AD B2C
 
@@ -278,6 +278,19 @@ Exemplo:
 ## <a name="session-management"></a>Gestão de sessões
 
 Pode gerir a sessão entre o Azure AD B2C e a aplicação do partido que conta com a SAML utilizando o `UseTechnicalProfileForSessionManagement` elemento e o [SamlSSOSessionProvider](custom-policy-reference-sso.md#samlssosessionprovider).
+
+## <a name="force-users-to-re-authenticate"></a>Forçar os utilizadores a reautensar 
+
+Para forçar os utilizadores a reautensar, a aplicação pode incluir o `ForceAuthn` atributo no pedido de autenticação SAML. O `ForceAuthn` atributo é um valor booleano. Quando definido como verdadeiro, a sessão de utilizadores será invalidada no Azure AD B2C, e o utilizador é obrigado a reautensar. O seguinte pedido de autenticação SAML demonstra como definir o `ForceAuthn` atributo a verdadeiro. 
+
+
+```xml
+<samlp:AuthnRequest 
+       Destination="https://contoso.b2clogin.com/contoso.onmicrosoft.com/B2C_1A_SAML2_signup_signin/samlp/sso/login"
+       ForceAuthn="true" ...>
+    ...
+</samlp:AuthnRequest>
+```
 
 ## <a name="debug-the-saml-protocol"></a>Depurar o protocolo SAML
 

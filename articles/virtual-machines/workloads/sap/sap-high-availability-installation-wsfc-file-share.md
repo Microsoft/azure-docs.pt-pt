@@ -13,15 +13,15 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/04/2020
+ms.date: 03/15/2021
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d5fa4cba67e279f66c090c8cb30eadf099f3c998
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: a3759bbe92a2de8515c7d812637acd88070f8d46
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101673546"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103490913"
 ---
 # <a name="install-sap-netweaver-high-availability-on-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances-on-azure"></a>Instale a alta disponibilidade do SAP NetWeaver num cluster de failover do Windows e partilhe a partilha de ficheiros para as instâncias SAP ASCS/SCS no Azure
 
@@ -214,9 +214,11 @@ Precisa dos seguintes executáveis e DLLs da SAP:
 * Kernel SAP 7.49 ou mais tarde
 
 > [!IMPORTANT]
-> O agrupamento de casos SAP ASCS/SCS utilizando uma partilha de ficheiros é suportado por SAP NetWeaver 7.40 (e mais tarde), com SAP Kernel 7.49 (e mais tarde).
+> O agrupamento de casos SAP ASCS/SCS utilizando uma partilha de ficheiros é suportado por SAP NetWeaver 7.40 (e mais tarde), com SAP Kernel 7.49 (e mais tarde).  
+>   
+> [!IMPORTANT]
+> A configuração deve satisfazer o seguinte requisito: as instâncias SAP ASCS/SCS e a quota SOFS devem ser implantadas em agrupamentos separados.    
 >
-
 
 Não descrevemos a configuração do Sistema de Gestão de Bases de Dados (DBMS) porque as configurações variam consoante o DBMS que utiliza. No entanto, assumimos que as preocupações de alta disponibilidade com o DBMS são abordadas com as funcionalidades que vários fornecedores de DBMS suportam para o Azure. Tais funcionalidades incluem o espelho de AlwaysOn ou base de dados para o SQL Server e a Oracle Data Guard para bases de dados Oracle. No cenário que usamos neste artigo, não adicionamos mais proteção ao DBMS.
 

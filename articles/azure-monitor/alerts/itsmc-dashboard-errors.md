@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 01/18/2021
-ms.openlocfilehash: 5cc3c4a07cc698f3592a2ff2fd76e9f4bbef441b
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 727e744c59d0a8d90cf320e1ee2e2a17e10ff847
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102036457"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103471521"
 ---
 # <a name="connector-status-errors-in-the-itsmc-dashboard"></a>Erros de estado do conector no painel ITSMC
 
@@ -88,3 +88,11 @@ As secções seguintes descrevem erros comuns que aparecem na secção de estado
 
 * Quando uma nova instância ITSMC é criada, começa a sincronizar informações a partir do sistema ITSM, tais como modelos de produto de trabalho e itens de trabalho. [Sync ITSMC para gerar um novo token de atualização](./itsmc-resync-servicenow.md).
 * [Reveja os seus dados de conexão no ITSMC](./itsmc-connections-servicenow.md#create-a-connection) e verifique se o ITSMC pode [sincronizar](./itsmc-resync-servicenow.md)com sucesso.
+
+
+## <a name="ip-restrictions"></a>Restrições ip
+**Erro**: "Falha na adição da Ligação ITSM denominada "XXX" devido a Mau Pedido. Erro: Mau pedido. Parâmetros inválidos previstos para a ligação. http exceção: Código de Estado Proibido."
+
+**Causa**: O endereço IP da aplicação ITSM não permite ligações ITSM a partir de ferramentas ITSM de parceiros.
+
+**Resolução**: Para enumerar os endereços IP ITSM de forma a permitir ligações ITSM a partir de ferramentas ITSM parceiras, recomendamos que enuseça toda a gama pública de IP da região de Azure onde o seu espaço de trabalho LogAnalytics pertence. [detalhes aqui](https://www.microsoft.com/download/details.aspx?id=56519) Para as regiões EUS/WEU/EUS2/WUS2/US South Central, o cliente só pode listar a etiqueta de rede do ActionGroup.

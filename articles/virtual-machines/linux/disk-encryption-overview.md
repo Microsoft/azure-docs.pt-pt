@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 066fb32dc9da13e8a77660a9144b53675d689f63
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: fb81960b573b5b7d28f44f7a7482c28b4ef284be
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102553804"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103496461"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Azure Disk Encryption para VMs do Linux 
 
@@ -143,6 +143,7 @@ A encriptação do disco Azure requer um Cofre de Chave Azure para controlar e g
 Para mais detalhes, consulte [criar e configurar um cofre chave para encriptação do disco Azure](disk-encryption-key-vault.md).
 
 ## <a name="terminology"></a>Terminologia
+
 A tabela a seguir define alguns dos termos comuns utilizados na documentação de encriptação do disco Azure:
 
 | Terminologia | Definição |

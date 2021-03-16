@@ -1,19 +1,19 @@
 ---
 title: Proteção de exfiltração de dados para espaços de trabalho Azure Synapse Analytics
 description: Este artigo explicará a proteção de exfiltração de dados no Azure Synapse Analytics
-author: NanditaV
+author: nanditavalsan
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: security
 ms.date: 12/01/2020
 ms.author: NanditaV
 ms.reviewer: jrasnick
-ms.openlocfilehash: 71210cdcc2b3758a59a1b41816e6468556e94808
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: e4067d5acf55f94cd46e629792312af1547c5901
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96518265"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103489378"
 ---
 # <a name="data-exfiltration-protection-for-azure-synapse-analytics-workspaces"></a>Proteção de exfiltração de dados para espaços de trabalho Azure Synapse Analytics
 Este artigo explicará a proteção de exfiltração de dados no Azure Synapse Analytics
@@ -25,7 +25,7 @@ Os espaços de trabalho Azure Synapse Analytics suportam a proteção de exfiltr
 >Não é possível alterar a configuração do espaço de trabalho para a rede virtual gerida e a proteção contra a exfiltração de dados após a criação do espaço de trabalho.
 
 ## <a name="managing-synapse-workspace-data-egress-to-approved-targets"></a>Gerir a erupção de dados do espaço de trabalho da Synapse para metas aprovadas
-Após a criação do espaço de trabalho com a exfiltração de dados ativada, os proprietários do recurso do espaço de trabalho podem gerir a lista de inquilinos aprovados da Azure AD para o espaço de trabalho. Os utilizadores com [as permissões certas](./synapse-workspace-access-control-overview.md) no espaço de trabalho podem usar o Estúdio Synapse para criar pedidos de conexão de ponto final privado geridos para recursos nos inquilinos aprovados do Azure AD aprovados no espaço de trabalho. A criação de ponto final privado gerido será bloqueada se o utilizador tentar criar uma ligação privada de ponto final a um recurso num inquilino não aprovado.
+Após a criação do espaço de trabalho com a proteção de exfiltração de dados ativada, os proprietários do recurso do espaço de trabalho podem gerir a lista de inquilinos aprovados da Azure AD para o espaço de trabalho. Os utilizadores com [as permissões certas](./synapse-workspace-access-control-overview.md) no espaço de trabalho podem usar o Estúdio Synapse para criar pedidos de conexão de ponto final privado geridos para recursos nos inquilinos aprovados do Azure AD aprovados no espaço de trabalho. A criação de ponto final privado gerido será bloqueada se o utilizador tentar criar uma ligação privada de ponto final a um recurso num inquilino não aprovado.
 
 ## <a name="sample-workspace-with-data-exfiltration-protection-enabled"></a>Espaço de trabalho de amostra com proteção de exfiltração de dados ativada
 Utilizemos um exemplo para ilustrar a proteção contra a exfiltração de dados para os espaços de trabalho da Sinapse. A Contoso tem recursos Azure no Inquilino A e inquilino B e há a necessidade de estes recursos se conectarem de forma segura. Um espaço de trabalho da Sinapse foi criado no Inquilino A com Inquilino B adicionado como um inquilino aprovado da AD AZure. O diagrama mostra ligações privadas de ponto final às contas de Armazenamento A azul no Inquilino A e inquilino B que foram aprovadas pelos proprietários da conta de Armazenamento. O diagrama também mostra a criação de ponto final privado bloqueado. A criação deste ponto final privado foi bloqueada por ter como alvo uma conta de Armazenamento Azure no inquilino da AD Fabrikam Azure, que não é um inquilino aprovado da AD AD para o espaço de trabalho de Contoso. 

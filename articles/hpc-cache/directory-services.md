@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 12/22/2020
 ms.author: v-erkel
-ms.openlocfilehash: 28265861c98cceaedf7d2662f6526a9f62fe68de
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: 4f1499c9a86999bac86fb7bf185f195e9ba5f690
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97803770"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103472067"
 ---
 # <a name="configure-directory-services"></a>Serviços de diretório de configuração
 
@@ -75,7 +75,7 @@ O servidor e o DN base são as únicas definições necessárias para fazer o LD
 
 Na secção **acesso Secure,** pode ativar a encriptação e validação de certificados para a ligação LDAP. Depois de clicar **Em Sim** para ativar a encriptação, tem estas opções:
 
-* **Requerer certificado válido** - Quando este é definido, o certificado do servidor LDAP é verificado contra a autoridade de certificados no campo URI abaixo.
+* **Certificado validado** - Quando este é definido, o certificado do servidor LDAP é verificado contra a autoridade de certificados no campo URI abaixo.
 
 * **Certificado CA URI** - Especifique o caminho para o certificado autoritário. Isto pode ser um link para um certificado validado pela AC ou para um certificado auto-assinado. Este campo é obrigado a utilizar a definição de certificados validados externamente.
 

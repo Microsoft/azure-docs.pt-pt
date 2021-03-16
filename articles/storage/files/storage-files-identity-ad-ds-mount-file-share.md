@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 06/22/2020
 ms.author: rogarana
-ms.openlocfilehash: 9807563c768b82c823ff754aaa679ddc917bf62d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3aa7ab2fd3217377e9c56c8c71a1c1acc959bcd9
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87535064"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103472277"
 ---
 # <a name="part-four-mount-a-file-share-from-a-domain-joined-vm"></a>Parte quatro: montar uma partilha de ficheiros a partir de um VM de domínio
 
@@ -28,10 +28,10 @@ Inscreva-se no cliente utilizando as credenciais a que concedeu permissões, com
 
 Antes de poder montar a partilha de ficheiros, certifique-se de que passou pelos seguintes pré-requisitos:
 
-- Se estiver a montar a parte do ficheiro de um cliente que já montou a parte do ficheiro utilizando a chave da sua conta de armazenamento, certifique-se de que desligou a partilha, removeu as credenciais persistentes da chave da conta de armazenamento e está atualmente a utilizar credenciais de DS AD para autenticação.
+- Se estiver a montar a parte do ficheiro de um cliente que já montou a parte do ficheiro utilizando a chave da sua conta de armazenamento, certifique-se de que desligou a partilha, removeu as credenciais persistentes da chave da conta de armazenamento e está atualmente a utilizar credenciais de DS AD para autenticação. Para obter instruções para limpar a partilha montada com a chave da conta de armazenamento, consulte a [página de PERGUNTAS Frequentes](https://docs.microsoft.com/azure/storage/files/storage-files-faq#ad-ds--azure-ad-ds-authentication).
 - O seu cliente deve ter uma linha de visão para o seu DS AD. Se a sua máquina ou VM estiver fora da rede gerida pelo seu DS AD, terá de ativar a VPN para chegar a DS AD para autenticação.
 
-Substitua os valores do espaço reservado pelos seus próprios valores e, em seguida, use o seguinte comando para montar a partilha de ficheiros Azure:
+Substitua os valores do espaço reservado pelos seus próprios valores e, em seguida, utilize o seguinte comando para montar a partilha de ficheiros Azure. É sempre necessário montar utilizando o caminho indicado abaixo. A utilização do CNAME para suporte de ficheiros não é suportada para a autenticação baseada na identidade (AD DS ou Azure AD DS).
 
 ```PSH
 # Always mount your share using.file.core.windows.net, even if you setup a private endpoint for your share.

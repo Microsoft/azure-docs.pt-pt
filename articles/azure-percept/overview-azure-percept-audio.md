@@ -7,16 +7,19 @@ ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 02/18/2021
 ms.custom: template-concept
-ms.openlocfilehash: 85eb4ed0832c9384fcd05154833bc21f83f4adf2
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 8f57c63868d6f70094cf040a92c0124b46477758
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102426353"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103490199"
 ---
 # <a name="introduction-to-azure-percept-audio"></a>Introdução ao Azure Percept Audio
 
 Azure Percept Audio é um dispositivo acessório que adiciona capacidades de IA de fala ao Azure Percept DK. Contém um processador de áudio pré-configurado e uma matriz linear de quatro microfones, que lhe permite aplicar comandos de voz, observação de palavras-chave e discurso de campo distante para dispositivos de audição locais usando serviços cognitivos Azure. O Azure Percept Audio permite que os fabricantes de dispositivos alarguem o Azure Percept DK para além das capacidades de visão a novos dispositivos inteligentes ativados por voz. É integrado fora da caixa com Azure Percept DK, Azure Percept Studio, e outros serviços de gestão de borda azure. Está disponível para compra na loja online da [Microsoft.](https://go.microsoft.com/fwlink/p/?LinkId=2155270)
+
+> [!div class="nextstepaction"]
+> [Comprar agora](https://go.microsoft.com/fwlink/p/?LinkId=2155270)
 
 :::image type="content" source="./media/overview-azure-percept-audio/percept-audio.png" alt-text="Dispositivo Azure Percept Audio.":::
 
@@ -67,4 +70,5 @@ Construa uma [solução de discurso sem código](./tutorial-no-code-speech.md) n
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Encomende um dispositivo Azure Percept Audio na [loja online](https://go.microsoft.com/fwlink/p/?LinkId=2155270)da Microsoft .
+> [!div class="nextstepaction"]
+> [Compre um dispositivo Azure Percept Audio na loja online da Microsoft](https://go.microsoft.com/fwlink/p/?LinkId=2155270)

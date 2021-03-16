@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 02/22/2021
+ms.date: 03/15/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: 0bbaf5fa4f3404b0e4fdb4dc016b703c58910457
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: ee10aa7c461aca65f385c735f6e9aaa28af7f9e5
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101652084"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103471689"
 ---
 # <a name="what-authentication-and-verification-methods-are-available-in-azure-active-directory"></a>Que métodos de autenticação e verificação estão disponíveis no Azure Active Directory?
 
@@ -43,7 +43,7 @@ O quadro que se segue descreve as considerações de segurança para os métodos
 | Windows Hello para empresas     | Alto     | Alto      | Alto         |
 | Aplicação Microsoft Authenticator    | Alto     | Alto      | Alto         |
 | Chave de segurança FIDO2             | Alto     | Alto      | Alto         |
-| Tokens de hardware de OATH           | Médio   | Médio    | Alto         |
+| Fichas de hardware do OATH (pré-visualização) | Médio   | Médio    | Alto         |
 | Fichas de software OATH           | Médio   | Médio    | Alto         |
 | SMS                            | Médio   | Alto      | Médio       |
 | Voz                          | Médio   | Médio    | Médio       |
@@ -68,10 +68,10 @@ Os seguintes contornos da tabela quando um método de autenticação pode ser ut
 | Windows Hello para empresas     | Sim                    | MFA                       |
 | Aplicação Microsoft Authenticator    | Sim                    | MFA e SSPR              |
 | Chave de segurança FIDO2             | Sim                    | MFA                       |
-| Tokens de hardware de OATH           | Não                     | MFA                       |
-| Fichas de software OATH           | Não                     | MFA                       |
+| Fichas de hardware do OATH (pré-visualização) | No                     | MFA                       |
+| Fichas de software OATH           | No                     | MFA                       |
 | SMS                            | Sim                    | MFA e SSPR              |
-| Chamada de voz                     | Não                     | MFA e SSPR              |
+| Chamada de voz                     | No                     | MFA e SSPR              |
 | Palavra-passe                       | Sim                    |                           |
 
 Todos estes métodos de autenticação podem ser configurados no portal Azure e, cada vez mais, utilizando a beta API do [Microsoft Graph REST](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta).
@@ -81,7 +81,7 @@ Para saber mais sobre o funcionamento de cada método de autenticação, consult
 * [Windows Hello para empresas](/windows/security/identity-protection/hello-for-business/hello-overview)
 * [Aplicação Microsoft Authenticator](concept-authentication-authenticator-app.md)
 * [Chave de segurança FIDO2](concept-authentication-passwordless.md#fido2-security-keys)
-* [Tokens de hardware de OATH](concept-authentication-oath-tokens.md#oath-hardware-tokens)
+* [Fichas de hardware do OATH (pré-visualização)](concept-authentication-oath-tokens.md#oath-hardware-tokens-preview)
 * [Fichas de software OATH](concept-authentication-oath-tokens.md#oath-software-tokens)
 * [Sindução](howto-authentication-sms-signin.md) e [verificação](concept-authentication-phone-options.md#mobile-phone-verification) por SMS
 * [Verificação de chamadas de voz](concept-authentication-phone-options.md)

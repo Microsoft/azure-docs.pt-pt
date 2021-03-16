@@ -8,12 +8,12 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 01/28/2021
 ms.author: allensu
-ms.openlocfilehash: 0218bfef66e779a31d999c8d58bc1ce2691f46d4
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: ac21e1f00dc2a5580b90a1a5eb43da05288e800a
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102179226"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103489428"
 ---
 # <a name="backend-pool-management"></a>Gestão de piscinas de backend
 A piscina de backend é um componente crítico do equilibrador de carga. O pool backend define o grupo de recursos que servirá o tráfego para uma determinada regra de equilíbrio de carga.
@@ -250,7 +250,11 @@ Corpo de pedido JSON:
 ```
 
 ### <a name="resource-manager-template"></a>Modelo do Resource Manager
+
 Siga este [modelo quickstart Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-load-balancer-standard-create/) para implementar um equilibrador de carga e máquinas virtuais e adicione as máquinas virtuais ao pool de backend através da interface de rede.
+
+Siga este [modelo de Gestor de Recursos de arranque rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/101-load-balancer-ip-configured-backend-pool) para implementar um equilibrador de carga e máquinas virtuais e adicione as máquinas virtuais ao pool de backend através do endereço IP.
+
 
 ## <a name="configure-backend-pool-by-ip-address-and-virtual-network"></a>Configure o pool de backend por endereço IP e rede virtual
 Em cenários com piscinas de backend pré-povoadas, utilize IP e rede virtual.

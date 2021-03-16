@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 02/28/2021
-ms.author: anfeldma
+ms.date: 03/15/2021
+ms.author: kuthapar
 ms.custom: devx-track-java
-ms.openlocfilehash: 9c3209895902a11ad0b9f29ff28e9ac7f845b101
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 3c740aa00b158c7ddbca3e4f61d79e37978223c2
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101692730"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103493616"
 ---
 # <a name="spring-data-azure-cosmos-db-v3-for-core-sql-api-release-notes-and-resources"></a>Dados de primavera Azure Cosmos DB v3 para Core (SQL) API: Notas de lançamento e recursos
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -40,7 +40,13 @@ ms.locfileid: "101692730"
 
 A versão DB DB do Spring Data Azure Cosmos para Core (SQL) permite que os desenvolvedores utilizem O Azure Cosmos DB em aplicações primavera. A Spring Data Azure Cosmos DB expõe a interface de Dados da primavera para manipular bases de dados e coleções, trabalhar com documentos e emitir consultas. As APIs de Sincronização e Async (Reativa) são suportadas no mesmo artefacto Maven. 
 
-Dados de primavera Azure Cosmos DB tem uma dependência da estrutura de dados da primavera. A equipa da Azure Cosmos DB SDK lança artefactos Maven para as versões 2.2 e 2.3 da Spring Data.
+> [!IMPORTANT]
+> Dados de primavera Azure Cosmos DB tem uma dependência da estrutura de dados da primavera.
+> 
+> versões azure-spring-data-cosmos de 3.0.0 a 3.4.0 suportam as versões 2.2 e 2.3.
+> 
+> versões azure-spring-data-cosmos 3.5.0 e acima suportam as versões 2.4.3 ou superior.
+>
 
 O [Quadro primavera](https://spring.io/projects/spring-framework) é um modelo de programação e configuração que dinamiza o desenvolvimento de aplicações java. A mola simplifica a "canalização" das aplicações utilizando a injeção de dependência. Muitos desenvolvedores como a primavera porque torna as aplicações de construção e teste mais simples. [O Boot spring](https://spring.io/projects/spring-boot) estende este manuseamento da canalização com um olho para aplicação web e desenvolvimento de microserviços. [O Spring Data](https://spring.io/projects/spring-data) é um modelo de programação e enquadramento para aceder a datastores como a Azure Cosmos DB a partir do contexto de uma aplicação Spring ou Spring Boot. 
 

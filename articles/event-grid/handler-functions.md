@@ -2,13 +2,13 @@
 title: Use uma função em Azure como manipulador de eventos para eventos Azure Event Grid
 description: Descreve como pode utilizar funções criadas e hospedadas pela Azure Functions como manipuladores de eventos para eventos de Grade de Eventos.
 ms.topic: conceptual
-ms.date: 09/18/2020
-ms.openlocfilehash: beddc35f2dd8db974492d14aec27ce754a74737c
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.date: 03/15/2021
+ms.openlocfilehash: f547b09fe7e62eb3fa9e02bd17298a936350f871
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98632517"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103496546"
 ---
 # <a name="use-a-function-as-an-event-handler-for-event-grid-events"></a>Use uma função como manipulador de eventos para eventos de Grelha de Eventos
 
@@ -79,6 +79,9 @@ Pode utilizar o comando [de subscrição de eventos az ou](/cli/azure/eventgrid/
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 Pode utilizar o [cmdion de subscrição new-AzEventGridS ou](/powershell/module/az.eventgrid/new-azeventgridsubscription) [Update-AzEventGridSubscription](/powershell/module/az.eventgrid/update-azeventgridsubscription) para configurar as definições relacionadas com o lote utilizando os seguintes parâmetros: `-MaxEventsPerBatch` ou `-PreferredBatchSizeInKiloBytes` .
+
+> [!NOTE]
+> Quando utiliza o Event Grid Trigger, o serviço De Grelha de Eventos recolhe o segredo do cliente para a função Azure alvo, e usa-o para entregar eventos à função Azure. Se proteger a sua função de azul com uma aplicação Azure Ative Directory, tem de seguir a abordagem genérica do gancho web e utilizar o disparador HTTP.
 
 ## <a name="next-steps"></a>Passos seguintes
 Consulte o artigo [dos manipuladores do Evento](event-handlers.md) para obter uma lista de manipuladores de eventos suportados.

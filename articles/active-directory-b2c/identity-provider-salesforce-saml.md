@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 03/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 63288bca124959463dc6ea16cb9d681c68ad00da
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: e740fdb9cd232892dadfe98c4d739759be66bf55
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102448205"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103488725"
 ---
 # <a name="set-up-sign-in-with-a-salesforce-saml-provider-by-using-saml-protocol-in-azure-active-directory-b2c"></a>Configurar o início de saúde com um fornecedor de SAML salesforce utilizando o protocolo SAML em Azure Ative Directory B2C
 
@@ -60,11 +60,24 @@ Este artigo mostra-lhe como ativar o início de saúde dos utilizadores de uma o
       https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/B2C_1A_TrustFrameworkBase
       ```
 
+      Ao utilizar um [domínio personalizado,](custom-domain.md)utilize o seguinte formato:
+
+      ```
+      https://your-domain-name/your-tenant.onmicrosoft.com/B2C_1A_TrustFrameworkBase
+      ```
+
 6. No campo **URL ACS,** insira o seguinte URL. Certifique-se de que substitui o valor pelo `your-tenant` nome do seu inquilino Azure AD B2C.
 
       ```
       https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/B2C_1A_TrustFrameworkBase/samlp/sso/assertionconsumer
       ```
+
+      Ao utilizar um [domínio personalizado,](custom-domain.md)utilize o seguinte formato:
+
+      ```
+      https://your-domain-name/your-tenant.onmicrosoft.com/B2C_1A_TrustFrameworkBase/samlp/sso/assertionconsumer
+      ```
+
 7. Percorra para a parte inferior da lista e, em seguida, clique em **Guardar**.
 
 ### <a name="get-the-metadata-url"></a>Obtenha o URL de metadados

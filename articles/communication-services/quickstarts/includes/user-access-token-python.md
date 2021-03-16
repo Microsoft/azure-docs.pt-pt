@@ -6,16 +6,16 @@ author: tomaschladek
 manager: nmurav
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 08/20/2020
+ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: tchladek
-ms.openlocfilehash: 1bad9b3412edd9d384c2757069b0ded85c2d675f
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: 68114893ed3db858d00ca7811b1a83395ff02507
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102623427"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103495339"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 

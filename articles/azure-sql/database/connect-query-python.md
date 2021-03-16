@@ -12,14 +12,15 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/19/2020
-ms.openlocfilehash: 8fb6d319cacf85630b2c400cd18d14487725f925
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: f21e11e33d3ddf1489dba3419766a8adaa878d5f
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97703977"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103491967"
 ---
 # <a name="quickstart-use-python-to-query-a-database"></a>Quickstart: Use Python para consultar uma base de dados
+
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 Neste arranque rápido, você usa Python para ligar à Base de Dados Azure SQL, Azure SQL Gestd Instance, ou base de dados Sinaapse SQL e usar declarações T-SQL para consultar dados.
@@ -35,28 +36,16 @@ Para concluir este guia de início rápido, precisa de:
   [!INCLUDE[create-configure-database](../includes/create-configure-database.md)]
 
 - [Python](https://python.org/downloads) 3 e software relacionado
+    
 
-  # <a name="macos"></a>[macOS](#tab/macos)
+    |**Ação**|**macOS**|**Ubuntu**|**Windows**|
+    |----------|-----------|------------|---------|
+    |Instale o controlador ODBC, o SQLCMD e o controlador Python para o SQL Server|Utilize os passos **1.2**, **1.3** e **2.1** na [criação de aplicações Python utilizando o SQL Server no macOS](https://www.microsoft.com/sql-server/developer-get-started/python/mac/). Isto também instalará a instalação Homebrew e Python.       |[Configure um ambiente para o desenvolvimento de pyodbc Python](/sql/connect/python/pyodbc/step-1-configure-development-environment-for-pyodbc-python-development#linux)|[Configure um ambiente para o desenvolvimento de pyodbc Python](/sql/connect/python/pyodbc/step-1-configure-development-environment-for-pyodbc-python-development#windows).|
+    |Instalar Python e outros pacotes necessários|    |Utilize `sudo apt-get install python python-pip gcc g++ build-essential`.|    |
+    |Informações adicionais|[Controlador ODBC da Microsoft no macOS](/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server)  |[Controlador ODBC da Microsoft no Linux](/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server)|[Controlador ODBC da Microsoft no Linux](/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server)|
 
-  Para instalar o Homebrew e o Python, o controlador ODBC e o SQLCMD, e o controlador Python para o SQL Server, utilize os passos **1.2**, **1.3** e **2.1** na [criação de aplicações Python utilizando o SQL Server no macOS](https://www.microsoft.com/sql-server/developer-get-started/python/mac/).
 
-  Para mais informações, consulte [o controlador microsoft ODBC no macOS](/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server).
 
-  # <a name="ubuntu"></a>[Ubuntu](#tab/ubuntu)
-
-  Para instalar python e outros pacotes necessários, utilize `sudo apt-get install python python-pip gcc g++ build-essential` .
-
-  Para instalar o controlador ODBC, SQLCMD, e o controlador Python para o SQL Server, consulte [configurar um ambiente para o desenvolvimento de pyodbc Python](/sql/connect/python/pyodbc/step-1-configure-development-environment-for-pyodbc-python-development#linux).
-
-  Para mais informações, consulte [o controlador da Microsoft ODBC no Linux](/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server).
-
-  # <a name="windows"></a>[Windows](#tab/windows)
-
-  Para instalar python, o controlador ODBC e SQLCMD, e o controlador Python para o SQL Server, consulte [configurar um ambiente para o desenvolvimento de pyodbc Python](/sql/connect/python/pyodbc/step-1-configure-development-environment-for-pyodbc-python-development#windows).
-
-  Para mais informações, consulte [o controlador microsoft ODBC](/sql/connect/odbc/microsoft-odbc-driver-for-sql-server).
-
----
 Para explorar ainda mais a Python e a base de dados na Base de Dados Azure SQL, consulte [as bibliotecas de bases de dados Azure SQL para Python,](/python/api/overview/azure/sql)o [repositório de pyodbc](https://github.com/mkleehammer/pyodbc/wiki/)e uma [amostra de pyodbc.](https://github.com/mkleehammer/pyodbc/wiki/Getting-started)
 
 ## <a name="create-code-to-query-your-database"></a>Crie código para consultar a sua base de dados 

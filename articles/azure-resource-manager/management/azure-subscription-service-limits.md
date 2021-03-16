@@ -2,15 +2,15 @@
 title: Limites e quotas de subscrição do Azure
 description: Fornece uma lista de limites comuns de subscrição e serviço da Azure, quotas e constrangimentos. Este artigo inclui informações sobre como aumentar limites, juntamente com valores máximos.
 ms.topic: conceptual
-ms.date: 09/02/2020
-ms.openlocfilehash: fd9f8c9fff60ea9f7c24eb5d6f35542a197fe366
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/15/2021
+ms.openlocfilehash: 4dd62c926cce765ebc2b21378308650e313716ff
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101734089"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103471010"
 ---
-# <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Subscrição do Azure e limites, quotas e restrições do serviço
+# <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Limites de subscrição e serviços da Azure, quotas e constrangimentos
 
 Este documento enumera alguns dos limites mais comuns do Microsoft Azure, que também são por vezes chamados de quotas.
 

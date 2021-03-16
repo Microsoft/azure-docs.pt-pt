@@ -13,12 +13,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b66b004a0371b76f82d525972feefab9c89efb2d
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 3fad2c683890776908afbfbf15ee91d46d564783
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98742051"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103466767"
 ---
 # <a name="overview-of-role-based-access-control-in-azure-active-directory"></a>Visão geral do controlo de acesso baseado em funções no Azure Ative Directory
 
@@ -60,7 +60,7 @@ Uma atribuição de funções é um recurso AD Azure que anexa uma *definição*
 - Definição de função
 - Âmbito do recurso
 
-Pode [criar atribuições de funções](custom-create.md) utilizando o portal Azure, Azure AD PowerShell ou API de gráficos. Também pode [ver as atribuições para um papel personalizado.](custom-view-assignments.md#view-the-assignments-of-a-role)
+Pode [criar atribuições de funções](custom-create.md) utilizando o portal Azure, Azure AD PowerShell ou API de gráficos. Também pode [listar as atribuições de funções.](view-assignments.md)
 
 O diagrama seguinte mostra um exemplo de uma atribuição de função. Neste exemplo, Chris Green foi atribuído ao administrador de registo da App papel personalizado no âmbito do registo da aplicação Contoso Widget Builder. A atribuição concede ao Chris as permissões da função de administrador de registo da App apenas para este registo específico da aplicação.
 
@@ -85,8 +85,8 @@ Um âmbito é a restrição de ações permitidas a um determinado recurso AD Az
 
 A utilização de funções incorporadas no Azure AD é gratuita, enquanto as funções personalizadas requerem uma licença Azure AD Premium P1. Para encontrar a licença certa para os seus requisitos, veja [Comparação das funcionalidades disponíveis geralmente das edições Gratuita, Básica e Premium](https://azure.microsoft.com/pricing/details/active-directory).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Compreender as funções do Azure AD](concept-understand-roles.md)
 - Crie atribuições de funções personalizadas utilizando [o portal Azure AD PowerShell e API de gráficos](custom-create.md)
-- [Ver as atribuições para um papel personalizado](custom-view-assignments.md)
+- [Listar atribuições de função](view-assignments.md)

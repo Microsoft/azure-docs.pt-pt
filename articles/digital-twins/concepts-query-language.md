@@ -8,12 +8,12 @@ ms.date: 11/19/2020
 ms.topic: conceptual
 ms.service: digital-twins
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 9549e6ea30be0cd9eb1a8c200a5af4a4721793a6
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: fc9cd95063f84a9af7f989af9a65ce8f99852dc1
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102034681"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103490981"
 ---
 # <a name="about-the-query-language-for-azure-digital-twins"></a>Sobre a linguagem de consulta para Azure Digital Twins
 
@@ -85,7 +85,7 @@ Esta secção descreve limitações da linguagem de consulta.
 * Não há subqueries suportados dentro da `FROM` declaração.
 * `OUTER JOIN` a semântica não é suportada, o que significa que se a relação tem uma classificação de zero, então toda a "linha" é eliminada do conjunto de resultados de saída.
 * A profundidade transversal de gráficos é restrita a cinco `JOIN` níveis por consulta.
-* A fonte de `JOIN` operações é restrita: a consulta deve declarar os gémeos onde a consulta começa.
+* As relações em Azure Digital Twins não podem ser questionadas como entidades independentes; também precisa fornecer informações sobre a origem gémea de que a relação vem. Isto significa que existem algumas restrições à `JOIN` operação, que são usadas para consultar relações, para garantir que a consulta declara os gémeos(s) onde a consulta começa. Por exemplo, consulte [*Consulta por relação*](how-to-query-graph.md#query-by-relationship) no *Como-a-fazer: Consultar o* artigo de gráfico duplo.
 
 ## <a name="next-steps"></a>Passos seguintes
 

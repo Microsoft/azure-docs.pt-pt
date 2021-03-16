@@ -10,12 +10,12 @@ ms.date: 03/12/2020
 ms.author: santoshc
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 16d3d50d5ade298e2ca22f271466c70e74724381
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: 67480786e963235d4d3c010bea72e551a8be7bbc
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102613566"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103493803"
 ---
 # <a name="use-private-endpoints-for-azure-storage"></a>Use pontos finais privados para armazenamento Azure
 
@@ -146,6 +146,12 @@ Este constrangimento resulta das alterações ao DNS escamado quando a conta A2 
 ### <a name="network-security-group-rules-for-subnets-with-private-endpoints"></a>Network Security Group rules for subnets with private endpoints (Regras do Grupo de Segurança de Rede para sub-redes com pontos de extremidade privados)
 
 Atualmente, não é possível configurar as regras [do Grupo de Segurança da Rede](../../virtual-network/network-security-groups-overview.md) (NSG) e as rotas definidas pelo utilizador para pontos finais privados. As regras NSG aplicadas à sub-rede que acolhe o ponto final privado não são aplicadas ao ponto final privado. Aplicam-se apenas a outros pontos finais (por exemplo: controladores de interface de rede). Uma solução limitada para esta questão é implementar as suas regras de acesso a pontos finais privados nas sub-redes de origem, embora esta abordagem possa exigir uma maior sobrecarga de gestão.
+
+### <a name="copying-blobs-between-storage-accounts"></a>Cópia de bolhas entre contas de armazenamento
+
+Só pode copiar bolhas entre contas de armazenamento utilizando pontos finais privados se utilizar a API Azure REST ou ferramentas que utilizem a API REST REST. Estas ferramentas incluem AzCopy, Storage Explorer, Azure PowerShell, Azure CLI e os SDKs de armazenamento Azure Blob. 
+
+Apenas os pontos finais privados que visam o recurso blob são suportados. Os pontos finais privados que visam o Data Lake Storage Gen2 ou o recurso File ainda não estão suportados. Além disso, a cópia entre contas de armazenamento utilizando o protocolo Sistema de Ficheiros de Rede (NFS) ainda não está suportada. 
 
 ## <a name="next-steps"></a>Passos seguintes
 

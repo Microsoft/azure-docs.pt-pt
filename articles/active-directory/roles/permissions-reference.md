@@ -14,16 +14,18 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a65b91e3dff3ef412dad8bbe57383a9dbf8c7765
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: b7a0f50a7f84b89d7c048e57eadc85635df10f77
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102032250"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103467685"
 ---
 # <a name="azure-ad-built-in-roles"></a>Funções incorporadas do Azure AD
 
-Utilizando o Azure Ative Directory (Azure AD), pode designar administradores limitados para gerir tarefas de identidade em funções menos privilegiadas. Os administradores podem ser designados para fins como adicionar ou alterar utilizadores, atribuir funções administrativas, redefinir palavras-passe do utilizador, gerir licenças de utilizador e gerir nomes de domínio. As [permissões do utilizador predefinidas](../fundamentals/users-default-permissions.md) só podem ser alteradas nas definições do utilizador em Azure AD.
+No Azure Ative Directory (Azure AD), se outro administrador ou não administrador precisar de gerir os recursos Azure AD, atribua-lhes uma função AD Azure que fornece as permissões de que necessitam. Por exemplo, pode atribuir funções para permitir adicionar ou alterar utilizadores, redefinir palavras-passe do utilizador, gerir licenças de utilizador ou gerir nomes de domínio.
+
+Este artigo lista as funções incorporadas AD AZure que pode atribuir para permitir a gestão dos recursos AZure AD. Para obter informações sobre como atribuir funções, consulte [atribuir funções AZure AD aos utilizadores](manage-roles-portal.md).
 
 ## <a name="limit-use-of-global-administrator"></a>Limitar a utilização do Administrador Global
 
@@ -31,27 +33,10 @@ Os utilizadores que estão atribuídos à função de Administrador Global podem
 
 Como uma boa prática, recomendamos que atribua este papel a menos de cinco pessoas na sua organização. Se tiver mais de cinco administradores atribuídos ao papel de Administrador Global na sua organização, eis algumas formas de reduzir o seu uso.
 
-### <a name="find-the-role-you-need"></a>Encontre o papel de que precisa
-
-Se é frustrante para si encontrar o papel que precisa de uma lista de muitos papéis, a Azure AD pode mostrar-lhe subconjuntos dos papéis baseados em categorias de papéis. Consulte o nosso novo filtro **Tipo** para [Funções AD Azure e administradores](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RolesAndAdministrators) para mostrar apenas as funções no tipo selecionado.
-
-### <a name="a-role-exists-now-that-didnt-exist-when-you-assigned-the-global-administrator-role"></a>Existe agora um papel que não existia quando atribuíste o papel de Administrador Global
-
-É possível que um papel ou funções foram adicionados ao Azure AD que fornecem mais permissões granulares que não eram uma opção quando elevou alguns utilizadores ao Administrador Global. Com o tempo, estamos a desenvolver papéis adicionais que realizam tarefas que só o papel de Administrador Global poderia fazer antes. Pode ver estes refletidos nos seguintes [papéis.](#all-roles)
-
-## <a name="assign-or-remove-administrator-roles"></a>Atribuir ou remover funções de administrador
-
-Para aprender a atribuir funções administrativas a um utilizador no Azure Ative Directory, consulte [Ver e atribuir funções de administrador no Azure Ative Directory](manage-roles-portal.md).
-
-> [!Note]
-> Se tem uma licença P2 premium Azure E já é um utilizador privilegiado de Gestão de Identidade (PIM), todas as tarefas de gestão de funções são executadas na Gestão de Identidade de Privilégio e não na Ad AZure.
->
-> ![Funções AD AD geridas em PIM para utilizadores que já usam PIM e têm uma licença Premium P2](./media/permissions-reference/pim-manages-roles-for-p2.png)
-
 ## <a name="all-roles"></a>Todos os papéis
 
 > [!div class="mx-tableFixed"]
-> | Função | Descrição | ID do Modelo |
+> | Função | Description | ID do Modelo |
 > | --- | --- | --- |
 > | [Administrador de Aplicações](#application-administrator) | Pode criar e gerir todos os aspetos dos registos de aplicações e aplicações empresariais. | 9b895d92-2cd3-44c7-9d02-a6ac2d5ea5c3 |
 > | [Programador de Aplicações](#application-developer) | Pode criar registos de aplicações independentemente da definição de "Os Utilizadores podem registar as aplicações". | cf1c38e5-3621-4004-a7cb-879624dced7c |
@@ -241,9 +226,9 @@ A [função de administrador de política de autenticação](#authentication-pol
 
 | Função | Gerir os métodos de auth do utilizador | Gerir por utilizador MFA | Gerir as definições de MFA | Gerir a política do método auth | Gerir a política de proteção de senhas |
 | ---- | ---- | ---- | ---- | ---- | ---- |
-| Administrador de autenticação | Sim para alguns utilizadores (ver acima) | Sim para alguns utilizadores (ver acima) | Não | Não | Não |
-| Administrador de autenticação privilegiada| Sim para todos os utilizadores | Sim para todos os utilizadores | Não | Não | Não |
-| Administrador de política de autenticação | Não |Não | Sim | Sim | Sim |
+| Administrador de autenticação | Sim para alguns utilizadores (ver acima) | Sim para alguns utilizadores (ver acima) | No | No | No |
+| Administrador de autenticação privilegiada| Sim para todos os utilizadores | Sim para todos os utilizadores | No | No | No |
+| Administrador de política de autenticação | No |No | Yes | Yes | Yes |
 
 > [!IMPORTANT]
 > Os utilizadores com esta função podem alterar credenciais para pessoas que possam ter acesso a informações sensíveis ou privadas ou configuração crítica dentro e fora do Azure Ative Directory. Alterar as credenciais de um utilizador pode significar a capacidade de assumir a identidade e permissões desse utilizador. Por exemplo:
@@ -276,9 +261,9 @@ As funções [de administrador de autenticação](#authentication-administrator)
 
 | Função | Gerir os métodos de auth do utilizador | Gerir por utilizador MFA | Gerir as definições de MFA | Gerir a política do método auth | Gerir a política de proteção de senhas |
 | ---- | ---- | ---- | ---- | ---- | ---- |
-| Administrador de autenticação | Sim para alguns utilizadores (ver acima) | Sim para alguns utilizadores (ver acima) | Não | Não | Não |
-| Administrador de autenticação privilegiada| Sim para todos os utilizadores | Sim para todos os utilizadores | Não | Não | Não |
-| Administrador de política de autenticação | Não | Não | Sim | Sim | Sim |
+| Administrador de autenticação | Sim para alguns utilizadores (ver acima) | Sim para alguns utilizadores (ver acima) | No | No | No |
+| Administrador de autenticação privilegiada| Sim para todos os utilizadores | Sim para todos os utilizadores | No | No | No |
+| Administrador de política de autenticação | No | No | Yes | Yes | Yes |
 
 > [!IMPORTANT]
 > Esta função não é atualmente capaz de gerir as definições de MFA no antigo portal de gestão de MFA.
@@ -1388,9 +1373,9 @@ A [função de administrador de política de autenticação](#authentication-pol
 
 | Função | Gerir os métodos de auth do utilizador | Gerir por utilizador MFA | Gerir as definições de MFA | Gerir a política do método auth | Gerir a política de proteção de senhas |
 | ---- | ---- | ---- | ---- | ---- | ---- |
-| Administrador de autenticação | Sim para alguns utilizadores (ver acima) | Sim para alguns utilizadores (ver acima) | Não | Não | Não |
-| Administrador de autenticação privilegiada| Sim para todos os utilizadores | Sim para todos os utilizadores | Não | Não | Não |
-| Administrador de política de autenticação | Não | Não | Sim | Sim | Sim |
+| Administrador de autenticação | Sim para alguns utilizadores (ver acima) | Sim para alguns utilizadores (ver acima) | No | No | No |
+| Administrador de autenticação privilegiada| Sim para todos os utilizadores | Sim para todos os utilizadores | No | No | No |
+| Administrador de política de autenticação | No | No | Yes | Yes | Yes |
 
 > [!IMPORTANT]
 > Os utilizadores com esta função podem alterar credenciais para pessoas que possam ter acesso a informações sensíveis ou privadas ou configuração crítica dentro e fora do Azure Ative Directory. Alterar as credenciais de um utilizador pode significar a capacidade de assumir a identidade e permissões desse utilizador. Por exemplo:
@@ -1879,6 +1864,6 @@ Leitor de Relatórios de Resumo de Utilização | &nbsp; | :heavy_check_mark: | 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para saber mais sobre como atribuir um utilizador como administrador de uma subscrição do Azure, consulte [atribuir um utilizador como administrador de uma subscrição do Azure](../../role-based-access-control/role-assignments-portal-subscription-admin.md)
-* Para saber mais sobre como o acesso a recursos é controlado no Microsoft Azure, consulte [Compreender as diferentes funções](../../role-based-access-control/rbac-and-directory-admin-roles.md)
-* Para mais detalhes sobre a relação entre subscrições e um inquilino AZure AD, ou para instruções para associar ou adicionar uma subscrição, consulte [Associado ou adicione uma assinatura Azure ao seu inquilino Azure Ative Directory](../fundamentals/active-directory-how-subscriptions-associated-directory.md)
+- [Atribuir funções de Ad AZure a grupos](groups-assign-role.md)
+- [Compreender as diferentes funções](../../role-based-access-control/rbac-and-directory-admin-roles.md)
+- [Atribuir um utilizador como administrador de uma subscrição do Azure](../../role-based-access-control/role-assignments-portal-subscription-admin.md)

@@ -4,12 +4,12 @@ description: Insira algumas linhas de código no seu dispositivo ou aplicação 
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: a3fa14dcd406f6372a7fb409b92d9db3e8404ca7
-ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
+ms.openlocfilehash: d658d7e64f720a3fb700d157cd5194ff50a48c33
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2021
-ms.locfileid: "103419036"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103471630"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API do Application Insights para métricas e eventos personalizados
 
@@ -486,7 +486,11 @@ telemetry.trackTrace({
 *JavaScript do lado do cliente/navegador*
 
 ```javascript
-trackTrace(message: string, properties?: {[string]:string}, severityLevel?: SeverityLevel)
+trackTrace({
+    message: string, 
+    properties?: {[string]:string}, 
+    severityLevel?: SeverityLevel
+})
 ```
 
 Faça um registo de um evento de diagnóstico como entrar ou sair de um método.

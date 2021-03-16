@@ -12,12 +12,12 @@ ms.date: 11/04/2020
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 110da0a12336415d9d9c781e24684d7e2af8bc9d
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: d2159540c688a63082efb792fd4d261062ef65d9
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98741660"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103466798"
 ---
 # <a name="enterprise-application-permissions-for-custom-roles-in-azure-active-directory"></a>Permissões de aplicações da empresa para funções personalizadas no Azure Ative Directory
 
@@ -119,7 +119,7 @@ Para delegar a capacidade de autorizar o acesso à aplicação para provisioname
 
 ## <a name="full-list-of-permissions"></a>Lista completa de permissões
 
-Permissão | Descrição
+Permissão | Description
 ---------- | -----------
 microsoft.diretório/aplicaçãoPolicies/allProperties/read | Leia todas as propriedades sobre as políticas de aplicação.
 microsoft.diretório/aplicaçãoPolicies/allProperties/update | Atualize todas as propriedades sobre as políticas de aplicação.
@@ -166,7 +166,7 @@ microsoft.diretório/serviçoPrincipals/sincronização/standard/read | Ler as d
 microsoft.diretório/serviçoPrincipals/sincronizaçãoSchema/gerir | Gerir todos os aspetos da sincronização de schema para os recursos principais do serviço
 microsoft.diretório/provisioningLogs/allProperties/read | Leia todas as propriedades dos registos de provisionamento
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Crie funções personalizadas utilizando o portal Azure, Azure AD PowerShell e Graph API](custom-create.md)
-- [Ver as atribuições para um papel personalizado](custom-view-assignments.md)
+- [Listar atribuições de função](view-assignments.md)

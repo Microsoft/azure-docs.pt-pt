@@ -5,15 +5,15 @@ author: chpalm
 manager: anvalent
 services: azure-communication-services
 ms.author: chpalm
-ms.date: 10/03/2020
+ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 4e9ea1ec85067a59c5ee6bcd27993e294559f410
-ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
+ms.openlocfilehash: 933b5605cf38be90d419673a94e23e4c36f0ef36
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103232091"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103495713"
 ---
 # <a name="region-availability-and-data-residency"></a>Disponibilidade de região e residência dos dados
 

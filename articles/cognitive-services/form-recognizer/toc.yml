@@ -8,7 +8,7 @@
     - name: Novidades
       href: whats-new.md
 - name: Introdução ao Reconhecedor de Formato
-  expaned: true
+  expanded: true
   items:
     - name: Utilizar a biblioteca de cliente ou a API REST
       href: quickstarts/client-library.md
@@ -26,18 +26,27 @@
       href: tutorial-bulk-processing.md
 - name: Conceitos
   items:
-    - name: Extração do esquema
-      href: concept-layout.md
+    - name: Layout API
+      expanded: true
+      items:
+        - name: Extrair dados do formulário
+          href: concept-layout.md
+    - name: Modelos personalizados
+      href: concept-custom.md
     - name: Recibos
       href: concept-receipts.md
     - name: Cartões de visita
       href: concept-business-cards.md
     - name: Faturas
       href: concept-invoices.md
+    - name: Cartões de identificação
+      href: concept-identification-cards.md
 - name: Guias de procedimentos
   items:
     - name: Criar um conjunto de dados de preparação
       href: build-training-data-set.md
+    - name: Use etiquetas de mesa para treinar o seu modelo personalizado
+      href: supervised-table-tags.md
     - name: Implementar a ferramenta de etiquetagem de exemplo
       href: deploy-label-tool.md
     - name: Utilizar contentores
@@ -57,8 +66,8 @@
       href: disaster-recovery.md
 - name: Referência
   items:
-    - name: Pré-visualização da API v2.1 do Reconhecedor de Formato
-      href: 'https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeBusinessCardAsync'
+    - name: Formulário Reconhecedor API v2.1 pré-visualização.3
+      href: 'https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeWithCustomForm'
     - name: API do Reconhecedor de Formato v2.0
       href: 'https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm'
     - name: SDKs

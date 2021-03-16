@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: trbye
-ms.openlocfilehash: 4da93503c32e380adb82028e7c5e11dddb247d6f
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 166fb94f5a3aea505c0d20df861b8bc4de9ad8aa
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100373373"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103491117"
 ---
 # <a name="train-and-deploy-a-custom-speech-model"></a>Preparar e implementar um modelo de Voz Personalizada
 
@@ -61,7 +61,7 @@ A tabela **Training** apresenta uma nova entrada que corresponde ao novo modelo.
 Consulte o [como avaliar](how-to-custom-speech-evaluate-data.md) e melhorar a precisão do modelo de discurso personalizado. Se optar por testar a precisão, é importante selecionar um conjunto de dados acústico que seja diferente daquele que usou com o seu modelo para obter uma noção realista do desempenho do modelo.
 
 > [!NOTE]
-> Tanto os modelos base como os modelos personalizados podem ser utilizados até uma determinada data (ver [ciclo de vida do modelo).](custom-speech-overview.md#model-lifecycle) O Speech Studio mostra esta data na coluna **Expiração** para cada modelo e ponto final. Após essa data, o pedido para um ponto final ou para a transcrição do lote pode falhar ou voltar ao modelo base.
+> Tanto os modelos base como os modelos personalizados só podem ser utilizados até uma determinada data (ver [ciclo de vida Modelo e Endpoint).](./how-to-custom-speech-model-and-endpoint-lifecycle.md) O Speech Studio mostra esta data na coluna **Expiração** para cada modelo e ponto final. Após essa data, o pedido para um ponto final ou para a transcrição do lote pode falhar ou voltar ao modelo base.
 >
 > Retreine o seu modelo utilizando o modelo base mais recente para beneficiar de melhorias de precisão e evitar que o seu modelo expire.
 

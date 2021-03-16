@@ -1,14 +1,14 @@
 ---
 title: Descrição geral do exemplo de esquema Zona de destino de migração do CAF
 description: Descrição geral e arquitetura do exemplo de esquema da zona de destino da Migração do Framework de Adoção da Cloud (CAF) para o Azure.
-ms.date: 09/14/2020
+ms.date: 03/12/2021
 ms.topic: sample
-ms.openlocfilehash: 6b8e3484690d263a43d3824c054b28344ea07fb1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
+ms.openlocfilehash: 9cbf1c1a4ac4cf7a58ed27ec05cc77997da1366d
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90531683"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103472197"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-migration-landing-zone-blueprint-sample"></a>Descrição geral do exemplo de esquema Zona de destino de migração do Microsoft Cloud Adoption Framework para o Azure
 

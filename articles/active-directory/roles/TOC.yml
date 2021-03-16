@@ -4,89 +4,68 @@
   items:
     - name: O que é a RBAC do Azure AD?
       href: custom-overview.md
-    - name: Compreender as funções do Azure AD
-      href: concept-understand-roles.md
 - name: Guias de Início Rápido
   items:
-    - name: Criar registos de aplicação ilimitados
-      href: quickstart-app-registration-limits.md
-- name: Tutoriais
-  expanded: true
-  items:
-    - name: Atribuir utilizadores a funções de administrador
+    - name: Atribuir funções a utilizadores
       href: ../fundamentals/active-directory-users-assign-role-azure-portal.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
 - name: Conceitos
-  expanded: true
   items:
-    - name: Delegar funções de administrador do Azure AD
-      href: concept-delegation.md
-    - name: Comparar as permissões predefinidas de utilizador
-      href: ../fundamentals/users-default-permissions.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
-    - name: Comprar as funções do Azure e Azure AD
-      href: ../../role-based-access-control/rbac-and-directory-admin-roles.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
-    - name: Compreender as unidades administrativas no Azure AD
+    - name: Compreender as funções do Azure AD
+      href: concept-understand-roles.md
+    - name: Comparar papéis
+      items:
+        - name: Comprar as funções do Azure e Azure AD
+          href: ../../role-based-access-control/rbac-and-directory-admin-roles.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
+        - name: Funções do Microsoft 365
+          href: m365-workload-docs.md
+    - name: Atribuições de funções baseadas em grupo
+      href: groups-concept.md
+    - name: Unidades administrativas
       href: administrative-units.md
-- name: Guias de procedimentos
-  expanded: true
-  items:
-    - name: Funções e permissões
-      expanded: true
-      items:
-        - name: Funções e permissões
-          href: permissions-reference.md
-        - name: Ver e atribuir funções
-          href: manage-roles-portal.md
-        - name: Delegação do My Staff
-          href: my-staff-configure.md
-    - name: Funções personalizadas
-      expanded: true
-      items:
-        - name: Criar uma função personalizada
-          href: custom-create.md
-        - name: Ver atribuições de funções personalizadas
-          href: custom-view-assignments.md
-        - name: Atribuir funções personalizadas no portal do Azure
-          href: ../fundamentals/active-directory-users-assign-role-azure-portal.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
-        - name: Atribuir funções personalizadas no PowerShell
-          href: custom-assign-powershell.md
-        - name: Atribuir funções personalizadas para aplicações empresariais
-          href: custom-enterprise-apps.md
-        - name: Permissões de função personalizada
-          items:
-            - name: Permissões do registo da aplicação
-              href: custom-available-permissions.md
-            - name: Permissões da aplicação empresarial
-              href: custom-enterprise-app-permissions.md
-            - name: Permissões de consentimento da aplicação
-              href: custom-consent-permissions.md
-        - name: Delegar a função de administrador de aplicações
-          href: delegate-app-roles.md
-    - name: Atribuir funções a grupos
-      items:
-        - name: Pré-visualização da atribuição de função baseada em grupo
-          href: groups-concept.md
-        - name: Criar um grupo ao qual se pode atribuir funções
-          href: groups-create-eligible.md
-        - name: Atribuir funções a um grupo
-          href: groups-assign-role.md
-        - name: Remover atribuições de função de um grupo
-          href: groups-remove-assignment.md
-        - name: Ver as atribuições de função de um grupo
-          href: groups-view-assignments.md
-        - name: Tornar um grupo elegível para uma função no PIM
-          href: groups-pim-eligible.md
-        - name: FAQ e resolução de problemas
-          href: groups-faq-troubleshooting.md
-    - name: Proteger as suas funções
+    - name: Segurança
       items:
         - name: Planeamento de segurança de função
           href: security-planning.md
         - name: Criar contas de emergência
           href: security-emergency-access.md
+- name: Guias de procedimentos
+  items:
+    - name: Listar definições de função
+      href: role-definitions-list.md
+    - name: Listar atribuições de função
+      items:
+        - name: Listar atribuições de função
+          href: view-assignments.md
+        - name: Atribuições de funções de lista para grupos
+          href: groups-view-assignments.md
+    - name: Atribuir funções
+      items:
+        - name: Atribuir funções a utilizadores
+          href: manage-roles-portal.md
+        - name: Criar um grupo ao qual se pode atribuir funções
+          href: groups-create-eligible.md
+        - name: Atribuir funções a grupos
+          href: groups-assign-role.md
+        - name: Tornar um grupo elegível para uma função no PIM
+          href: groups-pim-eligible.md
+        - name: Atribuir funções com âmbito utilizando o PowerShell
+          href: custom-assign-powershell.md
+        - name: Atribuir funções com o Graph API
+          href: custom-assign-graph.md
+    - name: Remover atribuições de funções
+      items:
+        - name: Remover atribuições de funções de grupos
+          href: groups-remove-assignment.md
+    - name: Criar funções personalizadas
+      items:
+        - name: Criar uma função personalizada
+          href: custom-create.md
+        - name: Criar funções personalizadas para apps empresariais
+          href: custom-enterprise-apps.md
+        - name: Criar registos de aplicação ilimitados
+          href: quickstart-app-registration-limits.md
     - name: Unidades administrativas
       items:
-        - name: Descrição geral das unidades administrativas
-          href: administrative-units.md
         - name: Adicionar e gerir
           href: admin-units-manage.md
         - name: Adicionar e gerir utilizadores
@@ -95,23 +74,39 @@
           href: admin-units-add-manage-groups.md
         - name: Atribuir uma função com âmbito
           href: admin-units-assign-roles.md
-        - name: FAQ e resolução de problemas
-          href: admin-units-faq-troubleshoot.md
+    - name: Delegar
+      items:
+        - name: Delegar a função de administrador de aplicações
+          href: delegate-app-roles.md
+        - name: Delegação do My Staff
+          href: my-staff-configure.md
     - name: Resolução de problemas
       items:
+        - name: Funções de resolução de problemas atribuídas a grupos
+          href: groups-faq-troubleshooting.md
+        - name: Resolução de problemas de unidades administrativas
+          href: admin-units-faq-troubleshoot.md
         - name: Obter suporte para o Azure AD
           href: ../fundamentals/active-directory-troubleshooting-support-howto.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
 - name: Referência
   items:
+    - name: Funções incorporadas
+      href: permissions-reference.md
     - name: Funções com menores privilégios por função
       href: delegate-by-task.md
-    - name: Documentação sobre funções do Microsoft 365
-      href: m365-workload-docs.md
-    - name: Graph API
-      href: /graph/api/resources/directoryrole
-    - name: Azure AD CLI
-      href: /cli/azure/ad
-    - name: Azure AD PowerShell para Graph
-      href: /powershell/azure/active-directory/install-adv2
+    - name: Permissões de utilizador predefinidas
+      href: ../fundamentals/users-default-permissions.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
+    - name: Permissões de função personalizada
+      items:
+        - name: Permissões do registo da aplicação
+          href: custom-available-permissions.md
+        - name: Permissões da aplicação empresarial
+          href: custom-enterprise-app-permissions.md
+        - name: Permissões de consentimento da aplicação
+          href: custom-consent-permissions.md
     - name: Limites do serviço do Azure AD
       href: ../enterprise-users/directory-service-limits-restrictions.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
+    - name: Azure AD PowerShell
+      href: /powershell/azure/active-directory/overview
+    - name: Graph API
+      href: /graph/api/overview

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2021
 ms.author: shhazam
-ms.openlocfilehash: aceeaec63eb637002352f5c503f57890033b0381
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: de8c52372b2ef92dcf2abe357a40ef8947439a8a
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102449242"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103493972"
 ---
 # <a name="quickstart-security-agent-reference-architecture"></a>Quickstart: Arquitetura de referência de agente de segurança
 
@@ -57,7 +57,7 @@ O Defender for IoT oferece diferentes agentes instaladores para Windows de 32 bi
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, você tem uma visão geral de alto nível sobre o Defender para arquitetura de módulos de segurança IoT, e os instaladores disponíveis.
+Neste artigo, você tem uma visão geral de alto nível sobre o Defender-IoT-micro-agente arquitetura, e os instaladores disponíveis.
 
 Para continuar a trabalhar com o Defender para a implementação de IoT, utilize os seguintes artigos:
 

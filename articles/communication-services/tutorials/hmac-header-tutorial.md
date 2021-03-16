@@ -6,15 +6,15 @@ author: alexandra142
 manager: soricos
 services: azure-communication-services
 ms.author: apistrak
-ms.date: 01/15/2021
+ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: af444096ec83b129c07a5f62fae77eac9028e955
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.openlocfilehash: e9b24e981e472371e477cd4dd895e976f709b2fb
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102631353"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103490517"
 ---
 # <a name="sign-an-http-request"></a>Assine um pedido HTTP
 

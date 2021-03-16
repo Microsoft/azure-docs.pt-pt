@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/08/2021
 ms.author: trbye
 ms.custom: references_regions
-ms.openlocfilehash: f33b72a25fc748f8320be8903903f817914733aa
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.openlocfilehash: 9a5f50588c357b56865bc2a8500dcc250e89d930
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102455694"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103470637"
 ---
 # <a name="text-to-speech-rest-api"></a>API REST de conversão de texto em voz
 
@@ -107,20 +107,7 @@ Esta resposta foi truncada para ilustrar a estrutura de uma resposta.
 
 ```json
 [
-  {
-    "Name": "Microsoft Server Speech Text to Speech Voice (ar-EG, Hoda)",
-    "DisplayName": "Hoda",
-    "LocalName": "هدى",
-    "ShortName": "ar-EG-Hoda",
-    "Gender": "Female",
-    "Locale": "ar-EG",
-    "SampleRateHertz": "16000",
-    "VoiceType": "Standard",
-    "Status": "GA"
-  },
-
-...
-      
+     
     {
     "Name": "Microsoft Server Speech Text to Speech Voice (en-US, AriaNeural)",
     "DisplayName": "Aria",
@@ -181,6 +168,21 @@ Esta resposta foi truncada para ilustrar a estrutura de uma resposta.
   },
 
     ...
+      
+   {
+    "Name": "Microsoft Server Speech Text to Speech Voice (ar-EG, Hoda)",
+    "DisplayName": "Hoda",
+    "LocalName": "هدى",
+    "ShortName": "ar-EG-Hoda",
+    "Gender": "Female",
+    "Locale": "ar-EG",
+    "SampleRateHertz": "16000",
+    "VoiceType": "Standard",
+    "Status": "GA"
+  },
+
+...
+
 ]
 ```
 

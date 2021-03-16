@@ -3,20 +3,20 @@ title: Resolução de problemas erros amQP em Azure Event Hubs | Microsoft Docs
 description: Fornece uma lista de erros amqp que pode receber ao utilizar os Hubs de Eventos Azure e causar esses erros.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 409552bb6176f2023901b4518646fbfcb2d51adf
-ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
+ms.openlocfilehash: 51b96792f6921bae9364212c6e5f9c987ff05e2a
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103235056"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103466070"
 ---
 # <a name="amqp-errors-in-azure-event-hubs"></a>Erros amqp em Azure Event Hubs
 Este artigo fornece alguns dos erros que recebe ao utilizar AMQP com Azure Event Hubs. São todos comportamentos padrão do serviço. Pode evitá-las fazendo chamadas de envio/receção na ligação/ligação, que recria automaticamente a ligação/ligação.
 
 ## <a name="link-is-closed"></a>Link está fechado 
-Vê o seguinte erro quando a ligação e ligação AMQP estão ativas, mas nenhuma chamada (por exemplo, enviar ou receber) é feita usando o link durante 10 minutos. Então, a ligação está fechada. A ligação ainda está aberta.
+Vê o seguinte erro quando a ligação e ligação AMQP estão ativas, mas nenhuma chamada (por exemplo, enviar ou receber) é feita usando o link durante 30 minutos. Então, a ligação está fechada. A ligação ainda está aberta.
 
-" AMQP:link: desprendedo-forçado: A ligação 'G2:7223832:user.tenant0.cud_00000000000-0000-0000-0000-00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000-0000000000000000000000 Origem detache: AmqpMessagePublisher.IdleTimerExpired: Idle timeout: 00:10:00. TrackingId:00000000000000000000000000000000000000_G2_B3, SystemTracker:mynamespace:Topic:MyTopic, Timestamp: 2/16/2018 11:10:40 PM "
+" AMQP:link: desprendedo-forçado: A ligação 'G2:7223832:user.tenant0.cud_00000000000-0000-0000-0000-00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000-0000000000000000000000 Origem detache: AmqpMessagePublisher.IdleTimerExpired: Idle timeout: 00:30:00. TrackingId:00000000000000000000000000000000000000_G2_B3, SystemTracker:mynamespace:Topic:MyTopic, Timestamp: 2/16/2018 11:10:40 PM "
 
 ## <a name="connection-is-closed"></a>A ligação está fechada
 Você vê o seguinte erro na ligação AMQP quando todas as ligações na ligação foram fechadas porque não havia atividade (inativa) e um novo link não foi criado em 5 minutos.

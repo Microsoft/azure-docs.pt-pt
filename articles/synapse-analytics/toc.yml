@@ -106,6 +106,8 @@
               items:
                 - name: Regras de firewall do IP da área de trabalho do Synapse
                   href: ./security/synapse-workspace-ip-firewall.md
+                - name: Definições de conectividade
+                  href: ./security/connectivity-settings.md
                 - name: Rede virtual gerida da área de trabalho do Synapse
                   href: ./security/synapse-workspace-managed-vnet.md
                   displayname: vnet
@@ -185,12 +187,6 @@
               href: troubleshoot/workspaces-created-by-sdk.md
             - name: Resolver problemas com a leitura de texto em UTF-8
               href: troubleshoot/reading-utf8-text.md
-- name: Guias de migração
-  items:
-    - name: SQL Server para Azure Synapse Analytics
-      href: migration-guides/sql-server-to-synapse-analytics-guide.md
-    - name: Oráculo para Azure Synapse Analytics
-      href: migration-guides/oracle-to-synapse-analytics-guide.md
 - name: SQL do Synapse
   items:
     - name: Descrição geral

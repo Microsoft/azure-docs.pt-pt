@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: larryfr
 author: BlackMist
 ms.date: 02/18/2021
-ms.openlocfilehash: 8c876a09c77a2ed5441a2f40acc2da508697febb
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: 04ed2e76797474a65d5c7c669066926225c1c1f9
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102608687"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103471755"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de lançamento do Azure Machine Learning
 
@@ -26,7 +26,7 @@ __Feed RSS__: Seja notificado quando esta página for atualizada copiando e cola
 ## <a name="2021-03-08"></a>2021-03-08
 
 ### <a name="azure-machine-learning-sdk-for-python-v1240"></a>Azure Machine Learning SDK para Python v1.24.0
-+ **Novas funcionalidades**
++ **Correções e melhorias de bugs**
   + **azureml-automl-core**
     + Removido para trás importações compatíveis de `azureml.automl.core.shared` . O módulo não encontrado no espaço de `azureml.automl.core.shared` nomes pode ser resolvido importando a partir de `azureml.automl.runtime.shared` .
   + **azureml-contrib-automl-dnn-vision**
@@ -75,7 +75,7 @@ __Feed RSS__: Seja notificado quando esta página for atualizada copiando e cola
 ## <a name="2021-02-16"></a>2021-02-16
 
 ### <a name="azure-machine-learning-sdk-for-python-v1230"></a>Azure Machine Learning SDK para Python v1.23.0
-+ **Novas funcionalidades**
++ **Correções e melhorias de bugs**
   + **azureml-core**
     + [Recurso experimental] Adicione suporte para ligar o espaço de trabalho da sinapse à AML como um serviço ligado
     + [Recurso experimental] Adicione suporte para anexar a piscina de faíscas sinapse em AML como um cálculo
@@ -1052,7 +1052,7 @@ Agora pode criar, editar e partilhar cadernos e ficheiros de machine learning di
 
 Aceda às seguintes ferramentas de autoria baseadas na web do estúdio:
     
-| Ferramenta baseada na web  |     Description  |
+| Ferramenta baseada na web  |     Descrição  |
 |---|---|
 | Cadernos do estúdio Azure ML   |     Primeira autoria em classe para ficheiros de portátil e suporte a toda a operação disponível no Azure ML Python SDK. | 
 
@@ -1564,7 +1564,7 @@ A partir do estúdio, você pode treinar, testar, implementar e gerir ativos de 
 
 Aceda às seguintes ferramentas de autoria baseadas na web do estúdio:
 
-| Ferramenta baseada na web | Description | 
+| Ferramenta baseada na web | Descrição | 
 |-|-|-|
 | VM do portátil (pré-visualização) | Estação de trabalho totalmente gerida em nuvem | 
 | [Aprendizagem automática de máquinas](tutorial-first-experiment-automated-ml.md) (pré-visualização) | Nenhuma experiência de código para automatizar o desenvolvimento de modelos de aprendizagem automática | 

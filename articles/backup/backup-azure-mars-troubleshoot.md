@@ -3,12 +3,12 @@ title: Resolução de problemas do agente reserva da Azure
 description: Neste artigo, aprenda a resolver problemas na instalação e registo do agente Azure Backup.
 ms.topic: troubleshooting
 ms.date: 07/15/2019
-ms.openlocfilehash: c08a146d91a128dc48fa4c379055b8c0efc1df0c
-ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
+ms.openlocfilehash: 3203d5604f1bd5db9cf579af01b2ae6f34032d89
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98986654"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103467617"
 ---
 # <a name="troubleshoot-the-microsoft-azure-recovery-services-mars-agent"></a>Resolução de problemas do agente Microsoft Azure Recovery Services (MARS)
 
@@ -41,7 +41,7 @@ Recomendamos que verifique o seguinte antes de começar a resolver problemas à 
 
 | Causa | Ações recomendadas |
 | ---     | ---    |
-| **As credenciais do cofre não são válidas.** <br/> <br/> Os ficheiros de credenciais de cofre podem ser corruptos, podem ter expirado, ou podem ter uma extensão de ficheiro diferente de *.vaultCredents*. (Por exemplo, podem ter sido descarregados mais de 48 horas antes da hora de inscrição.)| [Descarregue novas credenciais](backup-azure-file-folder-backup-faq.md#where-can-i-download-the-vault-credentials-file) do cofre dos Serviços de Recuperação no portal Azure. Em seguida, tome estas medidas, conforme apropriado: <ul><li> Se já instalou e registou o MARS, abra a consola MMC do Agente de Backup do Microsoft Azure. Em seguida, **selecione 'Registar Servidor'** no painel **de Ações** para completar o registo com as novas credenciais. <br/> <li> Se a nova instalação falhar, tente reinstalar-se com as novas credenciais.</ul> **Nota:** Se vários ficheiros de credenciais de abóbada tiverem sido descarregados, apenas o ficheiro mais recente é válido durante as próximas 48 horas. Recomendamos que descarregue um novo ficheiro de credencial de cofre.
+| **As credenciais do cofre não são válidas.** <br/> <br/> Os ficheiros de credenciais de cofre podem ser corruptos, podem ter expirado, ou podem ter uma extensão de ficheiro diferente de *.vaultCredents*. (Por exemplo, podem ter sido descarregados mais de 10 dias antes da hora de inscrição.)| [Descarregue novas credenciais](backup-azure-file-folder-backup-faq.md#where-can-i-download-the-vault-credentials-file) do cofre dos Serviços de Recuperação no portal Azure. Em seguida, tome estas medidas, conforme apropriado: <ul><li> Se já instalou e registou o MARS, abra a consola MMC do Agente de Backup do Microsoft Azure. Em seguida, **selecione 'Registar Servidor'** no painel **de Ações** para completar o registo com as novas credenciais. <br/> <li> Se a nova instalação falhar, tente reinstalar-se com as novas credenciais.</ul> **Nota:** Se vários ficheiros de credenciais de abóbada tiverem sido descarregados, apenas o ficheiro mais recente é válido para os próximos 10 dias. Recomendamos que descarregue um novo ficheiro de credencial de cofre.
 | **O servidor/firewall proxy está a bloquear o registo** <br/>ou <br/>**Sem conectividade na Internet** <br/><br/> Se a sua máquina ou servidor proxy tiver uma conectividade limitada na Internet e não garantir o acesso aos URLs necessários, o registo falhará.| Tome estes passos:<br/> <ul><li> Trabalhe com a sua equipa de TI para garantir que o sistema tem conectividade com a Internet.<li> Se não tiver um servidor proxy, certifique-se de que a opção de procuração não é selecionada quando regista o agente. [Verifique as definições de procuração](#verifying-proxy-settings-for-windows).<li> Se tiver um servidor de firewall/proxy, trabalhe com a sua equipa de networking para garantir que estes URLs e endereços IP tenham acesso:<br/> <br> **URLs**<br> `www.msftncsi.com` <br> .Microsoft.com <br> .WindowsAzure.com <br> .microsoftonline.com <br> .windows.net <br>`www.msftconnecttest.com`<br><br>**Endereços IP**<br>  20.190.128.0/18 <br>  40.126.0.0/18<br> <br/></ul></ul>Tente registar-se novamente depois de completar os passos anteriores de resolução de problemas.<br></br> Se a sua ligação for via Azure ExpressRoute, certifique-se de que as definições estão configuradas como descrito no [suporte Azure ExpressRoute](backup-support-matrix-mars-agent.md#azure-expressroute-support).
 | **O software antivírus está a bloquear o registo** | Se tiver software antivírus instalado no servidor, adicione as regras de exclusão necessárias à verificação antivírus para estes ficheiros e pastas: <br/><ul> <li> CBengine.exe <li> CSC.exe<li> A pasta de risco. A sua localização predefinida é C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch. <li> A pasta do caixote do lixo em C:\Program Files\Microsoft Azure Recovery Services Agent\Bin.
 

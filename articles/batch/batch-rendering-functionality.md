@@ -3,14 +3,14 @@ title: Capacidades de renderização
 description: As capacidades standard do Lote Azure são usadas para executar cargas de trabalho e aplicações de renderização. O lote inclui funcionalidades específicas para suportar cargas de trabalho de renderização.
 author: mscurrell
 ms.author: markscu
-ms.date: 02/01/2021
+ms.date: 03/12/2021
 ms.topic: how-to
-ms.openlocfilehash: c748c51311a70cd3b4fc6d435e97a33d709467b9
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: a2e2cfb71999bd5ab83591448342d4bac1dabdd5
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99429807"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103496342"
 ---
 # <a name="azure-batch-rendering-capabilities"></a>Capacidades de renderização do Lote Azure
 
@@ -27,6 +27,9 @@ As cordas da linha de comando de tarefa terão de fazer referência às aplicaç
 A maioria dos pedidos de renderização requer licenças obtidas a partir de um servidor de licença. Se houver um servidor de licença existente no local, então tanto o servidor de pool como o servidor de licenças precisam de estar na mesma [rede virtual.](../virtual-network/virtual-networks-overview.md) Também é possível executar um servidor de licença num Azure VM, com o Pool Batch e o servidor de licença VM na mesma rede virtual.
 
 ## <a name="batch-pools-using-rendering-vm-images"></a>Piscinas de lote usando imagens VM renderização
+
+> [!IMPORTANT]
+> As imagens VM de renderização e o licenciamento pay-for-use foram [depreciados e serão retirados no dia 29 de fevereiro de 2024](https://azure.microsoft.com/updates/azure-batch-rendering-vm-images-licensing-will-be-retired-on-29-february-2024/). Para utilizar o Batch para renderização, [deve ser utilizado um licenciamento de imagem VM e aplicação padrão.](batch-rendering-functionality.md#batch-pools-using-custom-vm-images-and-standard-application-licensing)
 
 ### <a name="rendering-application-installation"></a>Instalação de aplicação de renderização
 

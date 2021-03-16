@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: troubleshooting
 ms.date: 03/18/2020
 ms.author: v-erkel
-ms.openlocfilehash: efa163a2c10a7dc93bf5d26865a0e7eb43f11dea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d2a5ffa337f789c4edc3a34b3be81285337473e2
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87082771"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103471715"
 ---
 # <a name="troubleshoot-nas-configuration-and-nfs-storage-target-issues"></a>Resolução de problemas Na configuração e problemas de alvo de armazenamento NFS
 
@@ -64,7 +64,7 @@ Diferentes sistemas de armazenamento utilizam diferentes métodos para permitir 
 Se utilizar as regras de exportação, lembre-se de que a cache pode utilizar vários endereços IP diferentes a partir da sub-rede cache. Permitir o acesso a partir de toda a gama de possíveis endereços IP da sub-rede.
 
 > [!NOTE]
-> Por padrão, a Azure HPC Cache esmaga o acesso à raiz. Leia [configurar as definições adicionais de cache](configuration.md#configure-root-squash) para mais detalhes.
+> Embora a cache precise de acesso raiz ao sistema de armazenamento back-end, pode restringir o acesso aos clientes que se ligam através da cache. Leia [o acesso do cliente ao Control](access-policies.md#root-squash) para mais detalhes.
 
 Trabalhe com o seu fornecedor de armazenamento NAS para permitir o nível de acesso certo para a cache.
 

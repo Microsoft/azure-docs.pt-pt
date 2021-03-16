@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 03/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: eb97ed6e43f70db4cce6a6f8013c8669a6a62a78
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: 272abef5adfbcceebe82ab703152e2a8fde86d9b
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102448086"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103488566"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-weibo-account-using-azure-active-directory-b2c"></a>Configurar inscrição e inscrição com uma conta Weibo utilizando o Azure Ative Directory B2C
 
@@ -52,7 +52,7 @@ Para ativar o acesso aos utilizadores com uma conta Weibo no Azure Ative Directo
 1. Selecione **保存以上信息** (guardar).
 1. Selecione **高级信息** (informações avançadas).
 1. Selecione **编辑**(editar) ao lado do campo para 授权设置 OAuth2.0 (URL de redirecionamento). 
-1. Introduza `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` para OAuth2.0 **授权设置** (URL de redirecionamento). Por exemplo, se o nome do seu inquilino for contoso, desemosse o `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp` URL.
+1. Para o OAuth2.0 **授权设置** (URL de redirecionamento), insira `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` . Se utilizar um [domínio personalizado,](custom-domain.md)insira `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp` . `your-tenant-name`Substitua-o pelo nome do seu inquilino e `your-domain-name` pelo seu domínio personalizado.
 1. Selecione **提交** (enviar).
 
 ::: zone pivot="b2c-user-flow"

@@ -4,13 +4,13 @@ description: Problemas comuns com alertas métricos do Azure Monitor e possívei
 author: harelbr
 ms.author: harelbr
 ms.topic: troubleshooting
-ms.date: 01/21/2021
-ms.openlocfilehash: 2bd82d18d6647e47d9838702af45cff68f2bc6cd
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.date: 03/15/2021
+ms.openlocfilehash: f14142632f6ded9f598d6e94fd1e91ec17f6d0a7
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102037868"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103466502"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Resolver problemas relacionados com os alertas de métricas do Azure Monitor 
 
@@ -138,11 +138,9 @@ Para evitar que a implementação falhe ao tentar validar as definições da mé
 ## <a name="export-the-azure-resource-manager-template-of-a-metric-alert-rule-via-the-azure-portal"></a>Exportar o modelo do Gestor de Recursos Azure de uma regra de alerta métrico através do portal Azure
 
 Exportar o modelo de Gestor de Recursos de uma regra de alerta métrico ajuda-o a compreender a sintaxe e propriedades JSON, e pode ser usado para automatizar futuras implementações.
-1. Navegue na secção **Grupos de Recursos** no portal e selecione o grupo de recursos que contém a regra.
-2. Na secção 'Visão Geral', verifique a caixa de verificação **dos tipos escondidos do Show.**
-3. No filtro **Tipo,** selecione *microsoft.insights/metricalerts*.
-4. Selecione a regra de alerta relevante para ver os seus detalhes.
-5. Em **Definições**, selecione **Modelo de exportação**.
+1. No portal Azure, abra a regra de alerta para ver os seus detalhes.
+2. Clique em **Propriedades**.
+3. Em **Automação,** selecione **modelo de exportação.**
 
 ## <a name="metric-alert-rules-quota-too-small"></a>Quota de regras de alerta métrico muito pequena
 

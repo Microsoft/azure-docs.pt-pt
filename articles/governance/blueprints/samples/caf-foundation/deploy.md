@@ -1,14 +1,14 @@
 ---
 title: Implementar amostra de projeto da Fundação CAF
 description: Implementar etapas para a amostra de planta da Fundação CAF, incluindo detalhes do parâmetro do artefacto da planta.
-ms.date: 05/06/2020
+ms.date: 03/12/2021
 ms.topic: sample
-ms.openlocfilehash: a2d3090e5e9fe265683c077d7056ebf2b108352d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a8d41364451bf2ebf1e48b90fad74f4b24c804e1
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82871634"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103470154"
 ---
 # <a name="deploy-the-microsoft-cloud-adoption-framework-for-azure-foundation-blueprint-sample"></a>Implementar o Quadro de Adoção da Microsoft Cloud para a amostra de projeto da Fundação Azure
 
@@ -52,7 +52,7 @@ A cópia do esquema de exemplo está agora criada no seu ambiente. Está criada 
 
 ## <a name="assign-the-sample-copy"></a>Atribuir a cópia de exemplo
 
-Uma vez publicada com **sucesso**a cópia da amostra de plantas, pode ser atribuída a uma subscrição dentro do grupo de gestão a que foi guardada. É neste passo que são fornecidos os parâmetros que fazem com que cada implementação da cópia do esquema de exemplo seja única.
+Uma vez publicada com **sucesso** a cópia da amostra de plantas, pode ser atribuída a uma subscrição dentro do grupo de gestão a que foi guardada. É neste passo que são fornecidos os parâmetros que fazem com que cada implementação da cópia do esquema de exemplo seja única.
 
 1. Selecione **Todos os serviços** no painel esquerdo. Procure e selecione **Esquemas**.
 

@@ -3,15 +3,15 @@ title: Quickstart - Junte-se a uma reunião de equipas a partir de uma aplicaç�
 description: Neste tutorial, você aprende a se juntar a uma reunião de equipas usando a biblioteca de clientes Azure Communication Services Call para Android
 author: chpalm
 ms.author: mikben
-ms.date: 02/18/2021
+ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: be68b8336861891c6704702379892460fd3b7400
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 82e64af5cec8641abacf5afa323fc38382a124c4
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101660078"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103488015"
 ---
 Neste arranque rápido, você vai aprender a se juntar a uma reunião de equipas usando a biblioteca de clientes Azure Communication Services Call para Android.
 

@@ -6,12 +6,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: vitalyg
-ms.openlocfilehash: e3d8d6529eb943566118cc67eab549cb32891cd8
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: fee71f9ebfc69c19adc026fce5cd78b6a8b5240b
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102037239"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103490308"
 ---
 # <a name="getting-started-with-azure-metrics-explorer"></a>Getting started with Azure Metrics Explorer (Introdução ao Explorador de Métricas do Azure)
 
@@ -63,6 +63,20 @@ Por padrão, o gráfico mostra as 24 horas mais recentes de dados de métricas. 
 - **A divisão** controla se o gráfico apresenta linhas separadas para cada valor de uma dimensão ou agrega os valores numa única linha. Por exemplo, pode ver uma linha para um tempo médio de resposta em todas as instâncias do servidor ou ver linhas separadas para cada servidor. Seria necessário aplicar a divisão na dimensão do caso do *servidor* para ver linhas separadas.
 
 Veja [exemplos dos gráficos](../essentials/metric-chart-samples.md) que têm filtragem e divisão aplicadas. O artigo mostra que os passos foram usados para configurar as tabelas.
+
+## <a name="share-your-metric-chart"></a>Partilhe o seu gráfico métrico
+Existem atualmente duas formas de partilhar o seu gráfico métrico. Abaixo estão as instruções sobre como partilhar informações a partir dos seus gráficos métricos através do Excel e de um link.
+ 
+### <a name="download-to-excel"></a>Baixar para Excel
+Clique em "Partilhar" e selecione "Download to Excel". O seu download deve começar imediatamente.
+
+![screenshot sobre como partilhar gráfico métrico via excel](./media/metrics-getting-started/share-excel.png)
+
+### <a name="share-a-link"></a>Partilhar um link
+Clique em "Partilhar" e selecione "Copy link". Deve receber uma notificação de que o link foi copiado com sucesso.
+
+![screenshot sobre como partilhar gráfico métrico via link](./media/metrics-getting-started/share-link.png)
+
 
 ## <a name="advanced-chart-settings"></a>Definições avançadas do gráfico
 

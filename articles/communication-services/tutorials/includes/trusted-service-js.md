@@ -5,15 +5,15 @@ author: dademath
 manager: nimag
 services: azure-communication-services
 ms.author: ddematheu2
-ms.date: 07/28/2020
+ms.date: 03/10/2021
 ms.topic: include
 ms.service: azure-communication-services
-ms.openlocfilehash: 06bc28d39043fd0a78aad1bd9778542047d57def
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.openlocfilehash: 41d959468e3183af00d2ab514e7c1bf0a134a1f8
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103202933"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103490484"
 ---
 ## <a name="download-code"></a>Código de Descarregamento
 

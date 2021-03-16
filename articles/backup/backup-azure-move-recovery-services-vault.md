@@ -4,12 +4,12 @@ description: Instruções sobre como mover um cofre dos Serviços de Recuperaç�
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: references_regions
-ms.openlocfilehash: 12c276b861e7db8e93e60eea7e9cd7f3aba04860
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 4f75bec533181b29625fb0a10cc26d03f2875036
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96325779"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103466376"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Mover um cofre de serviços de recuperação através de subscrições e grupos de recursos Azure
 
@@ -23,7 +23,7 @@ Todas as regiões públicas e regiões soberanas são apoiadas, exceto França C
 
 - Durante a deslocação do cofre através de grupos de recursos, tanto os grupos de recursos de origem como os grupos de recursos-alvo estão bloqueados impedindo as operações de escrita e eliminação. Para mais informações, consulte este [artigo.](../azure-resource-manager/management/move-resource-group-and-subscription.md)
 - Só a subscrição de administrador tem as permissões para mover um cofre.
-- Para mover cofres através de subscrições, a subscrição-alvo deve residir no mesmo inquilino que a subscrição de origem e o seu estado deve ser ativado.
+- Para mover cofres através de subscrições, a subscrição-alvo deve residir no mesmo inquilino que a assinatura de origem e o seu estado deve ser ativado. Para mover um cofre para um diretório AD Azure diferente, consulte [a subscrição de Transfer para um](../role-based-access-control/transfer-subscription.md) cofre de dados e serviço de [recuperação diferente.](backup-azure-backup-faq.md#recovery-services-vault)
 - Tem de ter permissão para efetuar operações de escrita no grupo de recursos-alvo.
 - Mover o cofre só muda o grupo de recursos. O cofre dos Serviços de Recuperação vai residir no mesmo local e não pode ser alterado.
 - Só pode mover um cofre dos Serviços de Recuperação, por região, de cada vez.
@@ -65,7 +65,7 @@ Para mover um cofre dos Serviços de Recuperação e os seus recursos associados
 
    ![Subscrição de movimento](./media/backup-azure-move-recovery-services/move-resource.png)
 
-5. Para adicionar o grupo de recursos-alvo, na lista de drop-down do **grupo De recurso** selecione um grupo de recursos existente ou selecione criar uma nova opção de **grupo.**
+5. Para adicionar o grupo de recursos-alvo, na lista de drop-down do **grupo De recurso,** selecione um grupo de recursos existente ou selecione criar uma nova opção de **grupo.**
 
    ![Criar recurso](./media/backup-azure-move-recovery-services/create-a-new-resource.png)
 
@@ -95,7 +95,7 @@ Você pode mover um cofre de Serviços de Recuperação e seus recursos associad
    ![recurso de movimento](./media/backup-azure-move-recovery-services/move-resource-source-subscription.png)
 
 5. Selecione a subscrição-alvo da lista de entrega de **assinaturas,** para onde deseja que o cofre seja movido.
-6. Para adicionar o grupo de recursos-alvo, na lista de drop-down do **grupo De recurso** selecione um grupo de recursos existente ou selecione criar uma nova opção de **grupo.**
+6. Para adicionar o grupo de recursos-alvo, na lista de drop-down do **grupo De recurso,** selecione um grupo de recursos existente ou selecione criar uma nova opção de **grupo.**
 
    ![Adicionar Subscrição](./media/backup-azure-move-recovery-services/add-subscription.png)
 

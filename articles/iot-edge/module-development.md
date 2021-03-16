@@ -1,5 +1,5 @@
 ---
-title: Desenvolver módulos para Azure IoT Edge Microsoft Docs
+title: Desenvolver módulos para Azure IoT Edge | Microsoft Docs
 description: Desenvolver módulos personalizados para Azure IoT Edge que podem comunicar com o tempo de funcionamento e ioT Hub
 author: kgremban
 manager: philmea
@@ -8,14 +8,16 @@ ms.date: 11/10/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 8907af07fff7b315eec263d38b686c17218ed9d2
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: a30b4b056d56e096f80b9494ab80a585fff76e66
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445477"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103489935"
 ---
 # <a name="develop-your-own-iot-edge-modules"></a>Desenvolva os seus próprios módulos IoT Edge
+
+[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
 
 Os módulos Azure IoT Edge podem conectar-se com outros serviços Azure e contribuir para o seu maior pipeline de dados em nuvem. Este artigo descreve como pode desenvolver módulos para comunicar com o tempo de execução IoT Edge e ioT Hub, e, portanto, o resto da nuvem Azure.
 

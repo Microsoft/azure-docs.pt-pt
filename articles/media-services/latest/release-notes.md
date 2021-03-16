@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 10/21/2020
 ms.author: inhenkel
-ms.openlocfilehash: fc48c9b8a0a7510dd8792c959c1f63a0340f89ce
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.openlocfilehash: 5a36b5c8b0c8f24d093d887ad788c4ce9857d355
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103011210"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103492681"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de lançamento da Azure Media Services v3
 
@@ -61,7 +61,7 @@ A versão 3 fornece:
 - ARM REST APIs, SDKs cliente para .NET core, Node.js, Python, Java, Go e Ruby.
 - Chaves geridas pelo cliente, integração de armazenamento confiável, suporte de ligação privada, e [muito mais](https://review.docs.microsoft.com/azure/media-services/latest/migrate-v-2-v-3-migration-benefits)
 
-#### <a name="action-required"></a>Ação necessária
+#### <a name="action-required"></a>Ação Necessária
 
 Para minimizar a perturbação das suas cargas de trabalho, reveja o guia de [migração](https://go.microsoft.com/fwlink/?linkid=2149150&clcid=0x409) para transitar o seu código da versão 2 API e SDKs para a versão 3 API e SDK antes de 29 de fevereiro de 2024.
 **Depois de 29 de fevereiro de 2024,** a Azure Media Services deixará de aceitar o tráfego na versão 2 REST API, na versão API de gestão de conta ARM 2015-10-01, ou na versão 2 .NET client SDKs. Isto inclui qualquer cliente de código aberto de 3ª parte SDKS que pode ligar para a versão 2 API.  
@@ -100,7 +100,7 @@ Por favor, atualize os SDKs mais recentes do cliente nas suas bases de código u
 - **[Identidades geridas](concept-managed-identities.md)**: Os clientes podem permitir que uma identidade gerida atribuída a um sistema para uma conta de Serviços de Mídia forneça acesso a Cofres-Chave (para Chaves Geridas pelo Cliente) e contas de armazenamento (para armazenamento fidedigno).
 
 
-### <a name="updated-typescript-nodejs-samples-using-isomorphic-sdk-for-javascript"></a>Amostras de Node.js de máquinas de escrever atualizadas utilizando SDK isomórfico para javascript
+### <a name="updated-typescript-nodejs-samples-using-isomorphic-sdk-for-javascript"></a>Amostras de Node.js de typescript atualizadas usando SDK isomórfico para JavaScript
 
 As amostras Node.js foram atualizadas para utilizar o mais recente SDK isomórfico. As amostras mostram agora o uso da Typescript. Além disso, foi adicionada uma nova amostra de streaming ao vivo para Node.js/Typescript.
 
@@ -312,7 +312,7 @@ Agora pode utilizar o Azure Monitor para visualizar os dados de telemetria emiti
 * Utilize os registos de diagnóstico do Azure Monitor para monitorizar os pedidos enviados pelo ponto final de entrega da chave dos serviços de mídia. 
 * Métricas de monitorização emitidas por Media Services [Streaming Endpoints](streaming-endpoint-concept.md).   
 
-Para mais informações, consulte [as métricas dos Serviços de Mídia do Monitor e os registos de diagnóstico](media-services-metrics-diagnostic-logs.md).
+Para mais informações, consulte [as métricas dos Serviços de Mídia do Monitor e os registos de diagnóstico](monitoring/monitor-media-services-data-reference.md).
 
 ### <a name="multi-audio-tracks-support-in-dynamic-packaging"></a>Suporte de faixas de áudio multi-áudio em Embalagem Dinâmica 
 

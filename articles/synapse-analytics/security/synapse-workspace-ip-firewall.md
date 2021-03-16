@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: b937dad6c3c8f5a5773ca7779493b41c905307b1
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: 787e600df4185346b250d9a96bdb89927e134075
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99226510"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103472026"
 ---
 # <a name="azure-synapse-analytics-ip-firewall-rules"></a>Regras de firewall IP Azure Synapse Analytics
 
@@ -42,10 +42,6 @@ Pode ligar-se ao seu espaço de trabalho Synapse utilizando o Synapse Studio. Ta
 Certifique-se de que a firewall da sua rede e computador local permite a comunicação de saída nas portas TCP 80, 443 e 1443 para o Synapse Studio.
 
 Além disso, você precisa permitir a comunicação de saída na porta UDP 53 para o Synapse Studio. Para ligar utilizando ferramentas como SSMS e Power BI, deve permitir a comunicação de saída na porta TCP 1433.
-
-A política de ligação SQL está definida como *padrão* para o espaço de trabalho. Pode saber mais sobre os endereços IP e portas que os clientes devem permitir a comunicação de saída [para aqui.](../../azure-sql/database/connectivity-architecture.md#connection-policy)
-
-
 
 
 ## <a name="next-steps"></a>Passos seguintes

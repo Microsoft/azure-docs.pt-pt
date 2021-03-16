@@ -10,12 +10,12 @@ keywords: serviços cognitivos, inteligência cognitiva, soluções cognitivas, 
 ms.topic: quickstart
 ms.date: 09/14/2020
 ms.author: aahi
-ms.openlocfilehash: 95d74601ca912647eadd1bd4e1045108be6b2adb
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: c1e8b260f6c06d8f26f5ba99b4fb02edfa5e8656
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102050074"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103472100"
 ---
 # <a name="quickstart-create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>Quickstart: Criar um recurso de Serviços Cognitivos utilizando a Interface Command-Line Azure(CLI)
 
@@ -99,16 +99,6 @@ Ao criar um novo recurso, terá de conhecer o "tipo" de serviço que pretende ut
 | Reconhecedor de Formato            | `FormRecognizer`          |
 | Reconhecedor de Tinta Digital             | `InkRecognizer`           |
 
-### <a name="search"></a>Pesquisar
-
-| Serviço            | Tipo                  |
-|--------------------|-----------------------|
-| Sugestão Automática do Bing   | `Bing.Autosuggest.v7` |
-| Pesquisa Personalizada do Bing | `Bing.CustomSearch`   |
-| Pesquisa de Entidades do Bing | `Bing.EntitySearch`   |
-| Pesquisa do Bing        | `Bing.Search.v7`      |
-| Verificação Ortográfica do Bing   | `Bing.SpellCheck.v7`  |
-
 ### <a name="speech"></a>Voz
 
 | Serviço            | Tipo                 |
@@ -181,7 +171,7 @@ Use o comando da lista de chaves de [conta az cognitiveservices](/cli/azure/cogn
 Os níveis de preços (e o valor que recebe faturado) baseiam-se no número de transações que envia usando as suas informações de autenticação. Cada nível de preços especifica:
 * número máximo de transações permitidas por segundo (TPS).
 * funcionalidades de serviço ativadas dentro do nível de preços.
-* O custo de uma quantia pré-indefinida de transações. Ir acima deste valor irá causar uma taxa extra, conforme especificado nos detalhes de [preços](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/) do seu serviço.
+* O custo de um número predefinido de transações. Ir acima deste valor irá causar uma taxa extra, conforme especificado nos detalhes de [preços](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/) do seu serviço.
 
 ## <a name="get-current-quota-usage-for-your-resource"></a>Obtenha o uso atual da quota para o seu recurso
 
