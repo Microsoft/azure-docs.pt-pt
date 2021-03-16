@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/03/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 9f34e1ff7134788d064a82ec7b646df915dbe24e
-ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.openlocfilehash: 8ad79f2f27864b4fbc78b7c104828230ff7f93bc
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2021
-ms.locfileid: "103462563"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103465662"
 ---
 # <a name="azure-database-for-mysql-version-support-policy"></a>Política de suporte à versão Azure Database para a versão MySQL
 
@@ -29,10 +29,11 @@ A Azure Database for MySQL suporta atualmente as seguintes versões principais e
 
 | Versão | Servidor Único <br/> Versão menor atual |Servidor Flexível (Pré-visualização) <br/> Versão menor atual  |
 |:-------------------|:-------------------------------------------|:---------------------------------------------|
-|MySQL Versão 5.6 |  [5.6.47](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-47.html) | Não suportado|
+|MySQL Versão 5.6 |  [5.6.47](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-47.html)(Aposentado) | Não suportado|
 |MySQL Versão 5.7 | [5.7.29](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-29.html) | [5.7.29](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-29.html)|
 |MySQL Versão 8.0 | [8.0.15](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-15.html) | [8.0.21](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-21.html)|
 
+Leia a política de suporte da versão para versões aposentadas na [documentação de política de suporte de versão.](concepts-version-policy.md#retired-mysql-engine-versions-not-supported-in-azure-database-for-mysql)
 
 ## <a name="major-version-support"></a>Suporte de versão principal
 Cada versão principal do MySQL será suportada pela Azure Database for MySQL a partir da data em que o Azure começa a suportar a versão até que a versão seja retirada pela comunidade MySQL, conforme indicado na [política de versão.](https://www.mysql.com/support/eol-notice.html)

@@ -1,20 +1,20 @@
 ### YamlMime:Landing
 title: Azure Communication Services
-summary: O Azure Communication Services é um serviço de comunicações baseado na cloud que permite adicionar voz, vídeo, chat e telefonia às suas aplicações. Tenha em atenção que o Azure Communication Services está atualmente em pré-visualização pública.
+summary: O Azure Communication Services é um serviço de comunicações baseado na cloud que permite adicionar voz, vídeo, chat e telefonia às suas aplicações.
 metadata:
   title: Azure Communication Services
-  description: O Azure Communication Services é um serviço de comunicações baseado na cloud que permite adicionar voz, vídeo, chat e telefonia às suas aplicações. Tenha em atenção que o Azure Communication Services está atualmente em pré-visualização pública.
+  description: O Azure Communication Services é um serviço de comunicações baseado na cloud que permite adicionar voz, vídeo, chat e telefonia às suas aplicações.
   ms.service: azure-communication-services
   ms.topic: landing-page
   author: mikben
   ms.author: mikben
-  ms.date: 08/10/2020
-  ms.openlocfilehash: 4727e7ca3e0831483811c77be34e69f794cfb576
-  ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+  ms.date: 03/10/2021
+  ms.openlocfilehash: 12648dcf8712973149e8e2c1664f82caf0446e78
+  ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/03/2021
-  ms.locfileid: "101690520"
+  ms.lasthandoff: 03/16/2021
+  ms.locfileid: "103495254"
 landingContent:
 - title: Acerca do Azure Communication Services
   linkLists:

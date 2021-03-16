@@ -3,31 +3,29 @@ title: Recibos - Reconhecimento de Formulários
 titleSuffix: Azure Cognitive Services
 description: Aprenda conceitos relacionados com a análise de recibo com a API do Reconhecimento de Formulários - utilização e limites.
 services: cognitive-services
-author: PatrickFarley
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 08/17/2019
-ms.author: pafarley
-ms.openlocfilehash: 565ba3f7cd02a5ca8a3a858dc29a8fa6c7df16c1
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.date: 03/15/2021
+ms.author: lajanuar
+ms.openlocfilehash: 81e8cd5cf4af8da76ae4eb09bed5a4ee0368da4b
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100546011"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103467362"
 ---
 # <a name="form-recognizer-prebuilt-receipt-model"></a>Modelo de recibo pré-construído do Reconhecimento de Formulário
 
-O Azure Form Recogniser pode analisar e extrair informações dos recibos de venda utilizando o seu modelo de recibo pré-construído. Combina as nossas poderosas capacidades [de Reconhecimento de Caracteres Óticos (OCR)](../computer-vision/concept-recognizing-text.md) com modelos de aprendizagem profunda de receção para extrair informações-chave dos recibos em inglês. A API recibo extrai informações-chave dos recibos de venda em inglês, tais como nome de comerciante, data de transação, total de transações, rubricas e muito mais. 
+O Azure Form Recogniser pode analisar e extrair informações dos recibos de venda utilizando o seu modelo de recibo pré-construído. Combina as nossas poderosas capacidades [de Reconhecimento de Caracteres Óticos (OCR)](../computer-vision/concept-recognizing-text.md) com modelos de aprendizagem profunda para extrair informações-chave dos recibos escritos em inglês.
 
-## <a name="understanding-receipts"></a>Compreensão de recibos 
+## <a name="understanding-receipts"></a>Compreensão de recibos
 
-Muitas empresas e particulares ainda dependem da extração manual de dados das suas receitas de venda, seja para relatórios de despesas de negócios, reembolsos, auditorias, fins fiscais, orçamentação, marketing ou outros fins. Muitas vezes nestes cenários, são necessárias imagens do recibo físico para efeitos de validação.  
+Muitas empresas e indivíduos ainda dependem de dados extraídos manualmente dos recibos de venda. Extrair automaticamente dados destes recibos pode ser complicado. Os recibos podem ser amassados, difíceis de ler, têm peças manuscritas e contêm imagens de smartphones de baixa qualidade. Além disso, os modelos de recibo e os campos podem variar muito por mercado, região e comerciante. Estes desafios de extração de dados e deteção de campo tornam o processamento de recibos um problema único.  
 
-Extrair automaticamente dados destes Recibos pode ser complicado. Os recibos podem ser amassados e difíceis de ler, imprimir ou manuscritos peças e imagens de smartphones de recibos podem ser de baixa qualidade. Além disso, os modelos de recibo e os campos podem variar muito por mercado, região e comerciante. Estes desafios tanto na extração de dados como na deteção de campo tornam o processamento de recibos um problema único.  
-
-Utilizando o Reconhecimento de Caracteres Óticos (OCR) e o nosso modelo de receção pré-construído, a API recibo permite estes cenários de processamento de recibos e extrai dados dos recibos, por exemplo, nome do mercador, ponta, total, itens de linha e muito mais. Com esta API não há necessidade de formar um modelo, basta enviar a imagem de recibo para a API de Receção de Análise e os dados são extraídos.
+A API recibo utiliza o Reconhecimento de Caracteres Óticos (OCR) e o nosso modelo pré-construído para permitir vastos cenários de processamento de recibos. Com a API de Recibo não há necessidade de treinar um modelo. Envie a imagem de recibo para a API de Receção de Análise e os dados são extraídos.
 
 ![recibo de amostra](./media/receipts-example.jpg)
 
@@ -38,7 +36,7 @@ O serviço de Receção pré-construído extrai o conteúdo dos recibos de venda
 
 ### <a name="fields-extracted"></a>Campos extraídos
 
-|Nome| Tipo | Descrição | Texto | Valor (saída padronizada) |
+|Nome| Tipo | Description | Texto | Valor (saída padronizada) |
 |:-----|:----|:----|:----| :----|
 | Tipo de Recibo | string | Tipo de recibo de venda | Itemizado |  |
 | Nome mercante | string | Nome do comerciante que emite o recibo | Contoso |  |
@@ -73,12 +71,12 @@ Para experimentar o serviço de recibos Do Reconhecimento de Formulários, aceda
 
 ## <a name="input-requirements"></a>Requisitos de entrada
 
-[!INCLUDE [input reqs](./includes/input-requirements-receipts.md)]
+[!INCLUDE [input requirements](./includes/input-requirements-receipts.md)]
 
 ## <a name="supported-locales"></a>Locais apoiados 
 
 * **Recibo pré-construído v2.0** (GA) suporta recibos de venda na localidade EN-US
-* **O recibo pré-construído v2.1-pré-visualização.2** (Visualização pública) adiciona suporte adicional para os seguintes locais de receção EN: 
+* **O recibo pré-construído v2.1-pré-visualização.3** (Visualização pública) adiciona suporte adicional para os seguintes locais de receção EN: 
   * EN-AU 
   * EN-CA 
   * EN-GB 
@@ -87,12 +85,12 @@ Para experimentar o serviço de recibos Do Reconhecimento de Formulários, aceda
   > [!NOTE]
   > Entrada linguística 
   >
-  > O Recibo Pré-construído v2.1-preview.2 tem um parâmetro de pedido opcional para especificar um local de recibo de mercados ingleses adicionais. Para receitas de vendas em inglês da Austrália (EN-AU), Canadá (EN-CA), Grã-Bretanha (EN-GB) e Índia (EN-IN), pode especificar o local para obter melhores resultados. Se não for especificado qualquer local em v2.1-pré-visualização.2, o modelo irá desagravar-se com o modelo EN-US.
+  > O Recibo Pré-construído v2.1-preview.3 tem um parâmetro de pedido opcional para especificar um local de recibo de mercados ingleses adicionais. Para receitas de vendas em inglês da Austrália (EN-AU), Canadá (EN-CA), Grã-Bretanha (EN-GB) e Índia (EN-IN), pode especificar o local para obter melhores resultados. Se não for especificado qualquer local em v2.1-pré-visualização.3, o modelo irá desagravar-se com o modelo EN-US.
 
 
 ## <a name="the-analyze-receipt-operation"></a>A operação De Receção de Análise
 
-O [Recibo de Análise](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeReceiptAsync) retira uma imagem ou PDF de um recibo como entrada e extrai os valores de interesse e texto. A chamada devolve um campo de cabeçalho de resposta chamado `Operation-Location` . O `Operation-Location` valor é um URL que contém o Resultado ID para ser usado no passo seguinte.
+O [Recibo de Análise](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeReceiptAsync) retira uma imagem ou PDF de um recibo como entrada e extrai os valores de interesse e texto. A chamada devolve um campo de cabeçalho de resposta chamado `Operation-Location` . O `Operation-Location` valor é um URL que contém o Resultado ID para ser usado no passo seguinte.
 
 |Cabeçalho de resposta| URL de resultados |
 |:-----|:----|
@@ -100,16 +98,16 @@ O [Recibo de Análise](https://westcentralus.dev.cognitive.microsoft.com/docs/se
 
 ## <a name="the-get-analyze-receipt-result-operation"></a>A operação Obter Resultados de Recibos de Análise
 
-O segundo passo é ligar para a operação [Obter Resultados de Receção.](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/GetAnalyzeReceiptResult) Esta operação toma como entrada o Resultado ID que foi criado pela operação 'Receção de Análise'. Devolve uma resposta JSON que contém um campo **de estado** com os seguintes valores possíveis. Você chama a esta operação iterativamente até que ela retorne com o valor **bem sucedido.** Utilize um intervalo de 3 a 5 segundos para evitar exceder os pedidos por segundo (RPS).
+O segundo passo é ligar para a operação [Obter Resultados de Receção.](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/GetAnalyzeReceiptResult) Esta operação toma como entrada o Resultado ID que foi criado pela operação 'Receção de Análise'. Devolve uma resposta JSON que contém um campo **de estado** com os seguintes valores possíveis. Você chama a esta operação iterativamente até que ela retorne com o valor **bem sucedido.** Utilize um intervalo de 3 a 5 segundos para evitar exceder os pedidos por segundo (RPS).
 
 |Campo| Tipo | Valores possíveis |
 |:-----|:----:|:----|
-|status | string | notStarted: A operação de análise ainda não começou. |
+|status | string | não começou: A operação ainda não começou. |
 | |  | funcionamento: A operação de análise está em curso. |
 | |  | falhou: A operação de análise falhou. |
 | |  | conseguiu: A operação de análise foi bem sucedida. |
 
-Quando o campo **de status** tiver o valor **bem sucedido,** a resposta JSON incluirá os resultados de compreensão de recibo e reconhecimento de texto. O resultado da compreensão do recibo é organizado como um dicionário de valores de campo nomeados, onde cada valor contém o texto extraído, valor normalizado, caixa de delimitação, confiança e elementos de palavra correspondentes. O resultado do reconhecimento de texto é organizado como uma hierarquia de linhas e palavras, com texto, caixa de delimitação e informação de confiança.
+Quando o campo **de status** tiver o valor **bem sucedido,** a resposta JSON incluirá os resultados de compreensão de recibo e reconhecimento de texto. O resultado do entendimento de recibo é organizado como um dicionário de valores de campo nomeados. Cada valor contém o texto extraído, o valor normalizado, a caixa de limitação, a confiança e os elementos de palavra correspondentes. O resultado do reconhecimento de texto é organizado como uma hierarquia de linhas e palavras, com texto, caixa de delimitação e informação de confiança.
 
 ![resultados da receção da amostra](./media/contoso-receipt-2-information.png)
 
@@ -447,18 +445,17 @@ Veja o seguinte exemplo de uma resposta JSON bem sucedida:
 }
 ```
 
-
 ## <a name="customer-scenarios"></a>Cenários de clientes  
 
-Os dados extraídos com a API de Receção podem ser utilizados para executar uma variedade de tarefas. Seguem-se alguns exemplos do que os nossos clientes conseguiram com a API recibo. 
+Os dados extraídos com a API de Receção podem ser utilizados para executar uma variedade de tarefas. Abaixo estão alguns exemplos do que os clientes conseguiram com a API recibo.
 
 ### <a name="business-expense-reporting"></a>Relatório de despesas de negócio  
 
 Muitas vezes, arquivar despesas de negócio envolve passar o tempo a introduzir manualmente dados a partir de imagens de recibos. Com a API recibo, pode utilizar os campos extraídos para automatizar parcialmente este processo e analisar rapidamente os seus recibos.  
 
-Como a API recibo tem uma saída JSON simples, pode utilizar os valores de campo extraídos de várias maneiras. Integre com pedidos de despesas internas para pré-povoar relatórios de despesas. Para mais informações sobre este cenário, leia sobre como a Acumatica está a utilizar a API de receção para tornar a [despesa reportando um processo menos doloroso.](https://customers.microsoft.com/story/762684-acumatica-partner-professional-services-azure)  
+A API recetiva é uma saída JSON simples que lhe permite utilizar os valores de campo extraídos de várias maneiras. Integre com pedidos de despesas internas para pré-povoar relatórios de despesas. Para mais informações sobre este cenário, leia sobre como a Acumatica está a utilizar a API de receção para tornar a [despesa reportando um processo menos doloroso.](https://customers.microsoft.com/story/762684-acumatica-partner-professional-services-azure)  
 
-### <a name="auditing-and-accounting"></a>Auditoria e contabilidade 
+### <a name="auditing-and-accounting"></a>Auditoria e contabilidade
 
 A produção da API de receção também pode ser utilizada para realizar análises sobre um grande número de despesas em vários pontos do processo de relatório de despesas e reembolso. Pode processar recibos para triagem para auditoria manual ou aprovações rápidas.  
 
@@ -472,9 +469,13 @@ A API de Receção também alimenta a [funcionalidade de Processamento de Recibo
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Preencha um [quickstart do Form Recogniser](quickstarts/client-library.md) para começar a escrever uma aplicação de processamento de recibos com o Form Recogniser no idioma de desenvolvimento à sua escolha.
+ . Começa a escrever uma aplicação de processamento de recibos com o Form Recogniser no idioma de desenvolvimento à tua escolha.
+
+> [!div class="nextstepaction"]
+> [Complete um quickstart de reconhecimento de formulário](quickstarts/client-library.md)
 
 ## <a name="see-also"></a>Ver também
 
-* [O que é o Reconhecedor de Formato?](./overview.md)
-* [REST API referenciar docs](./index.yml)
+* [O que é o Reconhecedor de Formato?](overview.md)
+* [Referência API do Reconhecimento de Formulários](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeReceiptAsync)
+>

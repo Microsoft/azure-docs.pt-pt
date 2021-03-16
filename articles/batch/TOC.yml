@@ -31,15 +31,6 @@
     - name: Processamento de ficheiros em paralelo - Python
       displayName: 'tutorial, hpc, high-performance, large'
       href: tutorial-parallel-python.md
-    - name: Composição de cenas com o Arnold
-      displayName: tutorial
-      href: tutorial-rendering-cli.md
-    - name: Compor com o Batch Explorer
-      displayName: tutorial
-      href: tutorial-rendering-batchexplorer-blender.md
-    - name: Simulação de R em paralelo
-      displayName: 'tutorial, doAzureParallel, rstudio'
-      href: tutorial-r-doazureparallel.md
     - name: OCR com o Batch e as Funções
       displayName: 'trigger, optical'
       href: tutorial-batch-functions.md

@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 03/15/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 39896d88aeab4c592c74ded2d6edddfb46d2d203
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: 3c5df0c4112f07a465d38e789b1401132ed25931
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102448290"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103488810"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-idme-account-using-azure-active-directory-b2c"></a>Configurar inscrição e inscrição com uma conta ID.me utilizando o Azure Ative Directory B2C
 
@@ -45,7 +45,7 @@ Para permitir o sessão de sessão para utilizadores com uma conta ID.me no Azur
 1. Selecione **Ver as minhas aplicações** e selecione **Continue**.
 1. Selecione **Criar novo**
     1. Introduza um **nome** e **nome de exibição**.
-    1. No **Redirect URI,** insira `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` . `your-tenant-name`Substitua-o pelo nome do seu inquilino. 
+    1. No **Redirect URI,** insira `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` . Se utilizar um [domínio personalizado,](custom-domain.md)insira `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp` . `your-tenant-name`Substitua-o pelo nome do seu inquilino e `your-domain-name` pelo seu domínio personalizado. 
 1. Clique em **Continue** (Continuar).
 1. Copiar os valores do **ID do Cliente** e **do Cliente Secreto.** Precisa de ambos para adicionar o fornecedor de identidade ao seu inquilino.
 

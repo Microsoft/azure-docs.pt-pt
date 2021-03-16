@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 09/08/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: 3ed5c2c1c95822717981f7d30b91edd244420c59
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: c7d06172abd696e386337e563fa29fdbd2d3cdae
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99427690"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103493667"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Supported Kubernetes versions in Azure Kubernetes Service (AKS) (Versões do Kubernetes suportadas no Azure Kubernetes Service [AKS])
 
@@ -151,7 +151,7 @@ Para a história do lançamento passado, consulte [Kubernetes.](https://en.wikip
 
 **Quantas vezes devo esperar atualizar as versões de Kubernetes para me manter no suporte?**
 
-Afirmando com Kubernetes 1.19, a [comunidade de open source expandiu](https://kubernetes.io/blog/2020/08/31/kubernetes-1-19-feature-one-year-support/)o apoio para 1 ano . A AKS compromete-se a permitir patches e suporte que correspondam, no mínimo, aos compromissos a montante. Isto significa que, a partir dos clusters AKS em 1.19, poderá fazer um upgrade no mínimo de uma vez por ano para se manter numa versão suportada. Para versões em 1.18 ou abaixo, a janela de suporte permanece em 9 meses, o que requer uma atualização uma vez a cada 9 meses para permanecer numa versão suportada. É altamente recomendado testar regularmente novas versões e estar preparado para atualizar para versões mais recentes para capturar as mais recentes melhorias estáveis dentro de Kubernetes.
+Começando com Kubernetes 1.19, a comunidade open source expandiu o [apoio para 1 ano](https://kubernetes.io/blog/2020/08/31/kubernetes-1-19-feature-one-year-support/). A AKS compromete-se a permitir patches e suporte que correspondam, no mínimo, aos compromissos a montante. Isto significa que, a partir dos clusters AKS em 1.19, poderá fazer um upgrade no mínimo de uma vez por ano para se manter numa versão suportada. Para versões em 1.18 ou abaixo, a janela de suporte permanece em 9 meses, o que requer uma atualização uma vez a cada 9 meses para permanecer numa versão suportada. É altamente recomendado testar regularmente novas versões e estar preparado para atualizar para versões mais recentes para capturar as mais recentes melhorias estáveis dentro de Kubernetes.
 
 **O que acontece quando um utilizador atualiza um cluster Kubernetes com uma versão menor que não é suportada?**
 

@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 03/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: a3b0be062025681af2b03dfd2e57f1af2d99d701
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: 433e44e9998376d0bea57264f3daeaff7499a3cf
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102448358"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103488844"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-google-account-using-azure-active-directory-b2c"></a>Configurar o sº de inscrição e o inseúbmento com uma conta google utilizando o Azure Ative Directory B2C
 
@@ -47,7 +47,9 @@ Para ativar o sessão para utilizadores com uma conta Google no Azure Ative Dire
 Insira um **Nome** para a sua inscrição. Introduza *b2clogin.com* na secção **de domínios autorizados** e selecione **Guardar**.
 1. Selecione **Credenciais** no menu esquerdo e, em seguida, **selecione Criar credenciais**  >  **ID do cliente do autor daauth**.
 1. Sob **o tipo de aplicação**, selecione **aplicação Web**.
-1. Introduza um **Nome** para a sua aplicação, `https://your-tenant-name.b2clogin.com` introduza nas **origens Autorizadas javaScript**, e `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` em **URIs de redirecionamento autorizado**. `your-tenant-name`Substitua-o pelo nome do seu inquilino. Utilize todas as letras minúsculas ao introduzir o nome do seu inquilino, mesmo que o arrendatário seja definido com letras maiúsculas em Azure AD B2C.
+    1. Insira um **Nome** para a sua inscrição.
+    1. Para as **origens JavaScript autorizadas, insira** `https://your-tenant-name.b2clogin.com` . Se utilizar um [domínio personalizado,](custom-domain.md)insira `https://your-domain-name` .
+    1. Para os **URIs de redirecionamento autorizados,** insira `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` . Se utilizar um [domínio personalizado,](custom-domain.md)insira `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp` . `your-domain-name`Substitua-o pelo seu domínio personalizado e `your-tenant-name` pelo nome do seu inquilino. Utilize todas as letras minúsculas ao introduzir o nome do seu inquilino, mesmo que o arrendatário seja definido com letras maiúsculas em Azure AD B2C.
 1. Clique em **Criar**.
 1. Copie os valores do **ID** do Cliente e **do segredo do Cliente.** Você precisará de ambos para configurar o Google como um fornecedor de identidade no seu inquilino. **O segredo do cliente** é uma importante credencial de segurança.
 

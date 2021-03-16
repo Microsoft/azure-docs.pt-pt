@@ -2,19 +2,19 @@
 title: 'Tutorial: Criar uma aplicação de processamento de formulários com AI Builder - Form Recogniser'
 titleSuffix: Azure Cognitive Services
 description: Neste tutorial, você usará o AI Builder para criar e treinar uma aplicação de processamento de formulários.
-author: PatrickFarley
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: tutorial
 ms.date: 11/23/2020
-ms.author: pafarley
-ms.openlocfilehash: 3ba08f11fb52fc0ffe3acda5e81e21b7e7629628
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.author: lajanuar
+ms.openlocfilehash: 30c44ac60783132344cc018135d2c248f91f46bc
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95757425"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103467124"
 ---
 # <a name="tutorial-create-a-form-processing-app-with-ai-builder"></a>Tutorial: Criar uma app de processamento de formulários com OI Builder
 
@@ -23,7 +23,7 @@ ms.locfileid: "95757425"
 > [!NOTE]
 > Este projeto também está disponível como [módulo Microsoft Learn.](/learn/modules/get-started-with-form-processing/)
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Criar um modelo de IA de processamento de formulários
@@ -120,7 +120,7 @@ Se estiver a obter maus resultados ou pontuações de baixa confiança para dete
 
 - Reforçár a utilização de formulários com valores diferentes em cada campo.
 - Retreine usando um conjunto maior de documentos de treino. Quanto mais documentos marcar, mais construtor de IA aprenderá a reconhecer melhor os campos.
-- Pode otimizar ficheiros PDF selecionando apenas determinadas páginas para treinar. Utilize **Print** a  >  opção Imprimir em **PDF para** selecionar determinadas páginas dentro do seu documento.
+- Pode otimizar ficheiros PDF selecionando apenas determinadas páginas para treinar. Utilize a  >  opção Imprimir em **PDF para** selecionar determinadas páginas dentro do seu documento.
 
 ## <a name="publish-your-model"></a>Publicar o modelo
 

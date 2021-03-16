@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 03/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 578a248de3ee6aacc0db7c5116b66031b404c9ae
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: d445a4e1d0fd39788c18f80b25ce02a7c5d0a243
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102448171"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103488691"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-salesforce-account-using-azure-active-directory-b2c"></a>Configurar inscrição e inscrição com uma conta Salesforce utilizando o Azure Ative Directory B2C
 
@@ -48,7 +48,7 @@ Para ativar o sessão para utilizadores com uma conta Salesforce no Azure Ative 
     1. **Nome API** 
     1. **E-mail de contato** - O e-mail de contacto para a Salesforce
 1. Em **API (Ativar definições de OAuth)**, selecione **Ative OAuth Settings**
-    1. Em **URL callback,** insira `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` . `your-tenant-name`Substitua-o pelo nome do seu inquilino. Você precisa usar todas as letras minúsculas ao introduzir o seu nome de inquilino, mesmo que o inquilino seja definido com letras maiúsculas em Azure AD B2C.
+    1. Para o **URL callback,** insira `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` . Se utilizar um [domínio personalizado,](custom-domain.md)insira `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp` . `your-tenant-name`Substitua-o pelo nome do seu inquilino e `your-domain-name` pelo seu domínio personalizado. Você precisa usar todas as letras minúsculas ao introduzir o seu nome de inquilino, mesmo que o inquilino seja definido com letras maiúsculas em Azure AD B2C.
     1. Nos **OAuth Scopes Selecionados,** selecione **Aceda as suas informações básicas (id, perfil, e-mail, endereço, telefone)** e **permita o acesso ao seu identificador único (openid)**.
     1. **Selecione Requer secret for Web Server Flow**.
 1. **Selecione Configurar ID Token** 

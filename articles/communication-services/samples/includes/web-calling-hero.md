@@ -6,16 +6,16 @@ author: mikben
 manager: mikben
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 9/1/2020
+ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: d3586e03a3c6214390f4a8b72b1db5871d2d1900
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: f3da6fd75ac485a3e22a428934928795f1feae28
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102511115"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103487947"
 ---
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
@@ -27,7 +27,7 @@ Neste quickstart da amostra, vamos aprender como a amostra funciona antes de pas
 
 Encontre o código finalizado para este arranque rápido no [GitHub](https://github.com/Azure-Samples/communication-services-web-calling-hero).
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 A amostra tem uma aplicação do lado do cliente e uma aplicação do lado do servidor. A **aplicação do lado do cliente** é uma aplicação web React/Redux que utiliza a estrutura fluente da Microsoft. Esta aplicação envia pedidos para uma **aplicação do ASP.NET** Core que ajuda a aplicação do lado do cliente a ligar-se ao Azure.
 
@@ -101,7 +101,7 @@ Para obter mais informações, veja os seguintes artigos:
 
 ### <a name="additional-reading"></a>Leitura adicional
 
-- [Azure Communication GitHub](https://github.com/Azure/communication) - Encontre mais exemplos e informações na página oficial do GitHub
+- [Amostras](./../overview.md) - Encontre mais amostras e exemplos na página geral das nossas amostras.
 - [Redux](https://redux.js.org/) - Gestão do Estado do lado do cliente
 - [FluentUI](https://aka.ms/fluent-ui) - Biblioteca de UI alimentada pela Microsoft
 - [Reagir](https://reactjs.org/) - Biblioteca para construção de interfaces de utilizador

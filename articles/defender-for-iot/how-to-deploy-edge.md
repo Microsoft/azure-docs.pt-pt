@@ -1,5 +1,5 @@
 ---
-title: Implementar módulo de segurança IoT Edge
+title: Implementar IoT Edge Defender-IoT-micro-agente
 description: Saiba como implantar um Defensor para agente de segurança IoT no IoT Edge.
 services: defender-for-iot
 ms.service: defender-for-iot
@@ -13,24 +13,24 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/30/2020
 ms.author: mlottner
-ms.openlocfilehash: cd79c928afdb3563b47374869cff577f9221d360
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: e4117c3c0f1016da616a88a36a1b8c926b790c62
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101705777"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103495118"
 ---
-# <a name="deploy-a-security-module-on-your-iot-edge-device"></a>Implemente um módulo de segurança no seu dispositivo IoT Edge
+# <a name="deploy-a-defender-iot-micro-agent-on-your-iot-edge-device"></a>Coloque um defender-ioT-micro-agente no seu dispositivo IoT Edge
 
 O módulo **Defender for IoT** fornece uma solução de segurança abrangente para os seus dispositivos IoT Edge.
-O módulo de segurança recolhe, agrega e analisa dados de segurança bruto do seu Sistema Operativo e sistema de Contentores em recomendações e alertas de segurança acccionáveis.
-Para saber mais, consulte [o módulo de Segurança para IoT Edge](security-edge-architecture.md).
+O Defender-IoT-micro-agente recolhe, agrega e analisa dados de segurança bruto do seu sistema operativo e sistema de contentores em recomendações e alertas de segurança acccionáveis.
+Para saber mais, consulte [Defender-IoT-micro-agente para IoT Edge](security-edge-architecture.md).
 
-Neste artigo, você vai aprender a implementar um módulo de segurança no seu dispositivo IoT Edge.
+Neste artigo, você vai aprender a implementar um micro-agente Defender-IoT no seu dispositivo IoT Edge.
 
-## <a name="deploy-security-module"></a>Implementar módulo de segurança
+## <a name="deploy-defender-iot-micro-agent"></a>Implementar Defender-IoT-micro-agente
 
-Utilize os seguintes passos para implantar um módulo de segurança Defender para IoT edge.
+Utilize os seguintes passos para implantar um Defender-IoT-micro-agente IoT para IoT Edge.
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
@@ -169,7 +169,7 @@ Complete cada passo para completar a sua implementação IoT Edge para Defender 
 
 ## <a name="diagnostic-steps"></a>Etapas de diagnóstico
 
-Se encontrar um problema, os registos de contentores são a melhor forma de aprender sobre o estado de um dispositivo de módulo de segurança IoT Edge. Utilize as ferramentas e comandos nesta secção para recolher informações.
+Se encontrar um problema, os registos de contentores são a melhor forma de aprender sobre o estado de um dispositivo IoT Edge Defender-IoT-micro-agente. Utilize as ferramentas e comandos nesta secção para recolher informações.
 
 ### <a name="verify-the-required-containers-are-installed-and-functioning-as-expected"></a>Verifique se os recipientes necessários estão instalados e funcionando como esperado
 

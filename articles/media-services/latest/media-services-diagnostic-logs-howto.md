@@ -14,25 +14,25 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 3093d20fbe0a1ded68e34e816b7fc865a237ad92
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: e65ab1cdf08e51b3e2f9df49e39fdd921499f4a6
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100576321"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103493824"
 ---
 # <a name="monitor-media-services-diagnostic-logs"></a>Monitor Media Services registos de diagnóstico
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-[O Azure Monitor](../../azure-monitor/overview.md) permite-lhe monitorizar métricas e registos de diagnóstico que o ajudam a compreender como as suas aplicações estão a funcionar. Para uma descrição detalhada desta funcionalidade e para ver por que razão pretende utilizar as métricas e registos de diagnóstico do Azure Media Services, consulte [as métricas dos Serviços de Mídia do Monitor e os registos de diagnóstico](media-services-metrics-diagnostic-logs.md).
+[O Azure Monitor](../../azure-monitor/overview.md) permite-lhe monitorizar métricas e registos de diagnóstico que o ajudam a compreender como as suas aplicações estão a funcionar. Para uma descrição detalhada desta funcionalidade e para ver por que razão pretende utilizar as métricas e registos de diagnóstico do Azure Media Services, consulte [as métricas dos Serviços de Mídia do Monitor e os registos de diagnóstico](monitoring/monitor-media-services.md).
 
 Este artigo mostra-lhe como encaminhar os dados para a conta de armazenamento e, em seguida, ver os dados.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - [Criar uma conta de Serviços de Comunicação](./create-account-howto.md)Social.
-- Rever  [métricas de Serviços de Mídia monitor e registos de diagnóstico](media-services-metrics-diagnostic-logs.md).
+- Rever [monitores de mídia .](monitoring/monitor-media-services.md)
 
 ## <a name="route-data-to-the-storage-account-using-the-portal"></a>Encaminhar os dados para a conta de armazenamento utilizando o portal
 

@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2021
 ms.author: shhazam
-ms.openlocfilehash: 85a5edc1485cb5a1eeb4428b201380ad9ca89422
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: 4aeaa703b5e3203eeb7bc355051e0e8f48f898ac
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102449174"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103494126"
 ---
 # <a name="security-agent-authentication-methods"></a>Métodos de autenticação de agentes de segurança
 
 Este artigo explica os diferentes métodos de autenticação que pode utilizar com o agente AzureIoTSecurity para autenticar com o IoT Hub.
 
-Para cada dispositivo a bordo do Defender para IoT no IoT Hub, é necessário um módulo de segurança. Para autenticar o dispositivo, o Defender para IoT pode utilizar um de dois métodos. Escolha o método que funciona melhor para a sua solução IoT existente.
+Para cada dispositivo a bordo do Defender para IoT no IoT Hub, é necessário um defender-ioT-micro-agente. Para autenticar o dispositivo, o Defender para IoT pode utilizar um de dois métodos. Escolha o método que funciona melhor para a sua solução IoT existente.
 
 - Opção SecurityModule
 - Opção dispositivo
@@ -33,12 +33,12 @@ Para cada dispositivo a bordo do Defender para IoT no IoT Hub, é necessário um
 
 Os dois métodos para o Defensor do IoT AzureIoTSecurity agente realizar a autenticação:
 
-- Modo de autenticação **SecurityModule**<br>
-O agente é autenticado utilizando a identidade do módulo de segurança independentemente da identidade do dispositivo.
-Utilize este tipo de autenticação se pretender que o agente de segurança utilize um método de autenticação dedicado através de módulo de segurança (apenas tecla simétrica).
+- Modo de autenticação **defender-ioT-micro-agente**<br>
+O agente é autenticado utilizando a identidade do micro-agente Defender-IoT independentemente da identidade do dispositivo.
+Utilize este tipo de autenticação se pretender que o agente de segurança utilize um método de autenticação dedicado através do defender-ioT-micro-agente (apenas tecla simétrica).
 
 - **Modo** de autenticação do dispositivo<br>
-Neste método, o agente de segurança autentica-se pela primeira vez com a identidade do dispositivo. Após a autenticação inicial, o Agente Defender para IoT efetua uma chamada **REST** para o Hub IoT utilizando a API REST com os dados de autenticação do dispositivo. O Agente Defender para IoT solicita então o método de autenticação do módulo de segurança e os dados do IoT Hub. Na etapa final, o agente Defender para IoT realiza uma autenticação contra o módulo Defender para IoT.
+Neste método, o agente de segurança autentica-se pela primeira vez com a identidade do dispositivo. Após a autenticação inicial, o Agente Defender para IoT efetua uma chamada **REST** para o Hub IoT utilizando a API REST com os dados de autenticação do dispositivo. O Agente Defender para IoT solicita então o método de autenticação defender-ioT-micro-agente e dados do IoT Hub. Na etapa final, o agente Defender para IoT realiza uma autenticação contra o módulo Defender para IoT.
 
 Utilize este tipo de autenticação se pretender que o agente de segurança reutile um método de autenticação do dispositivo existente (certificado auto-assinado ou chave simétrica).
 

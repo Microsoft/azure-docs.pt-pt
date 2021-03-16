@@ -3,12 +3,12 @@ title: Descrição geral da arquitetura
 description: Fornece uma visão geral da arquitetura, componentes e processos utilizados pelo serviço Azure Backup.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: 288b073c20b93bf1802f34f5dcd17b12430bb279
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 1e5a61bd4e3287c1100ff1f54fda797c1add438b
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427739"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103466416"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Arquitetura e componentes Azure Backup
 
@@ -43,9 +43,9 @@ Os cofres têm as seguintes características:
 - Pode monitorizar itens de apoio num cofre, incluindo VMs Azure e máquinas no local.
 - Você pode gerir o acesso ao cofre com [o controlo de acesso baseado em funções Azure (Azure RBAC)](../role-based-access-control/role-assignments-portal.md).
 - Especifica como os dados no cofre são replicados para redundância:
-  - **Armazenamento localmente redundante (LRS)** : Para proteger contra falhas num datacenter, pode utilizar LRS. O LRS replica dados numa unidade de escala de armazenamento. [Saiba mais](../storage/common/storage-redundancy.md#locally-redundant-storage).
-  - **Armazenamento geo-redundante (GRS)** : Para proteger contra interrupções em toda a região, pode utilizar GRS. GRS replica os seus dados para uma região secundária. [Saiba mais](../storage/common/storage-redundancy.md#geo-redundant-storage).
-  - **Armazenamento redundante de zona (ZRS)** : replica os seus dados em [zonas de disponibilidade,](../availability-zones/az-overview.md#availability-zones)garantindo residência de dados e resiliência na mesma região. [Saiba mais](../storage/common/storage-redundancy.md#zone-redundant-storage)
+  - **Armazenamento localmente redundante (LRS)**: Para proteger contra falhas num datacenter, pode utilizar LRS. O LRS replica dados numa unidade de escala de armazenamento. [Saiba mais](../storage/common/storage-redundancy.md#locally-redundant-storage).
+  - **Armazenamento geo-redundante (GRS)**: Para proteger contra interrupções em toda a região, pode utilizar GRS. GRS replica os seus dados para uma região secundária. [Saiba mais](../storage/common/storage-redundancy.md#geo-redundant-storage).
+  - **Armazenamento redundante de zona (ZRS)**: replica os seus dados em [zonas de disponibilidade,](../availability-zones/az-overview.md#availability-zones)garantindo residência de dados e resiliência na mesma região. [Saiba mais](../storage/common/storage-redundancy.md#zone-redundant-storage)
   - Por predefinição, os cofres dos Serviços de Recuperação utilizam GRS.
 
 Os cofres dos Serviços de Recuperação têm as seguintes características adicionais:
@@ -167,7 +167,7 @@ Não precisa de permitir explicitamente que a conectividade da Internet faça o 
 1. O agente MARS utiliza o VSS para tirar uma imagem pontual dos volumes selecionados para cópia de segurança.
     - O agente MARS utiliza apenas a operação de escrita do sistema Windows para capturar o instantâneo.
     - Como o agente não usa nenhuma aplicação de escritores VSS, não captura imagens consistentes com aplicações.
-1. Depois de tirar a fotografia com VSS, o agente MARS cria um disco rígido virtual (VHD) na pasta de cache especificada quando configura a cópia de segurança. O agente também armazena as datas de verificação para cada bloco de dados.
+1. Depois de tirar a fotografia com VSS, o agente MARS cria um disco rígido virtual (VHD) na pasta de cache especificada quando configura a cópia de segurança. O agente também armazena as datas de verificação para cada bloco de dados. Estes são mais tarde utilizados para detetar blocos alterados para cópias de segurança incrementais subsequentes.
 1. As cópias de segurança incrementais são executadas de acordo com o horário especificado, a menos que faça uma cópia de segurança a pedido.
 1. Em cópias de segurança incrementais, são identificados ficheiros alterados e criado um novo VHD. O VHD é comprimido e encriptado, e depois é enviado para o cofre.
 1. Após os acabamentos incrementais de backup, o novo VHD é fundido com o VHD criado após a replicação inicial. Este VHD fundido fornece o estado mais recente a ser usado para comparação para cópias de segurança em curso.

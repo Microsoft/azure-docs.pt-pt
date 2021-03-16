@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 03/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: d2e2680f1d679a4bd1e967e32a409b59ad992c01
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: c7538cf052fcf51d03d1ac854d4da50db02004ea
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102448103"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103488569"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-wechat-account-using-azure-active-directory-b2c"></a>Configurar inscrição e inscrição com uma conta WeChat utilizando o Azure Ative Directory B2C
 
@@ -40,7 +40,7 @@ Para ativar o sessão de sessão para utilizadores com uma conta WeChat no Azure
 1. Inscreva-se [https://open.weixin.qq.com/](https://open.weixin.qq.com/) com as suas credenciais WeChat.
 1. Selecione **管理中心** (centro de gestão).
 1. Siga os passos para registar uma nova candidatura.
-1. Introduza `https://your-tenant_name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` em **授权回调域** (URL de retorno). Por exemplo, se o nome do seu inquilino for contoso, desemosse o `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp` URL.
+1. Para a **授权回调域** (URL de retorno), insira `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` . Se utilizar um [domínio personalizado,](custom-domain.md)insira `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp` . `your-tenant-name`Substitua-o pelo nome do seu inquilino e `your-domain-name` pelo seu domínio personalizado.
 1. Copie o **ID app** e **a CHAVE APP.** Precisa dos dois para configurar o fornecedor de identidade para o seu inquilino.
 
 ::: zone pivot="b2c-user-flow"

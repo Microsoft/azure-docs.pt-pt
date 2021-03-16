@@ -4,20 +4,20 @@ description: Utilize o Helm com registo de contentores AKS e Azure para embalar 
 services: container-service
 author: zr-msft
 ms.topic: article
-ms.date: 01/12/2021
+ms.date: 03/15/2021
 ms.author: zarhoads
-ms.openlocfilehash: 5656051ecd6e3fd39b051d2d0288e9762c83d9ad
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 4f5232920853908aa5ad714313ead201494caa0d
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98249929"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103493086"
 ---
 # <a name="quickstart-develop-on-azure-kubernetes-service-aks-with-helm"></a>Quickstart: Desenvolva-se no Serviço Azure Kubernetes (AKS) com Helm
 
-[Helm][helm] é uma ferramenta de embalagem de código aberto que o ajuda a instalar e gerir o ciclo de vida das aplicações Kubernetes. Semelhante aos gestores de pacotes Linux, como *APT* e *Yum,* o Helm é usado para gerir gráficos kubernetes, que são pacotes de recursos kubernetes pré-configurados.
+[Helm][helm] é uma ferramenta de embalagem de código aberto que o ajuda a instalar e gerir o ciclo de vida das aplicações Kubernetes. Semelhante aos gestores de pacotes Linux como *APT* e *Yum,* Helm gere gráficos kubernetes, que são pacotes de recursos kubernetes pré-configurados.
 
-Este artigo mostra-lhe como usar o Helm para embalar e executar uma aplicação na AKS. Para obter mais detalhes sobre a instalação de uma aplicação existente utilizando o Helm, consulte [instalar as aplicações existentes com Helm em AKS][helm-existing].
+Neste arranque rápido, você usará Helm para embalar e executar uma aplicação em AKS. Para obter mais detalhes sobre a instalação de uma aplicação existente utilizando o Helm, consulte as [aplicações existentes com Helm in AKS][helm-existing] como orientar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -26,14 +26,16 @@ Este artigo mostra-lhe como usar o Helm para embalar e executar uma aplicação 
 * [Helm v3 instalado][helm-install].
 
 ## <a name="create-an-azure-container-registry"></a>Criar um Azure Container Registry
-Para utilizar o Helm para executar a sua aplicação no seu cluster AKS, precisa de um Registo de Contentores Azure para armazenar as imagens do seu contentor. O exemplo abaixo utiliza [a az acr criar][az-acr-create] para criar um ACR chamado *MyHelmACR* no grupo de recursos *MyResourceGroup* com o *SKU Básico.* Deve fornecer o seu próprio nome de registo único. O nome do registo tem de ser exclusivo no Azure e pode incluir de 5 a 50 carateres alfanuméricos. O SKU *Básico* é um ponto de entrada com otimização de custos para fins de desenvolvimento que fornece um equilíbrio de armazenamento e débito.
+Você precisará armazenar as suas imagens de recipiente num Registo de Contentores Azure (ACR) para executar a sua aplicação no seu cluster AKS usando Helm. Forneça o seu próprio nome de registo único dentro de Azure e contenha 5-50 caracteres alfanuméricos. O SKU *Básico* é um ponto de entrada com otimização de custos para fins de desenvolvimento que fornece um equilíbrio de armazenamento e débito.
+
+O exemplo abaixo usa [a az acr criar][az-acr-create] para criar um ACR chamado *MyHelmACR* no *MyResourceGroup* com o *SKU Básico.*
 
 ```azurecli
 az group create --name MyResourceGroup --location eastus
 az acr create --resource-group MyResourceGroup --name MyHelmACR --sku Basic
 ```
 
-O resultado será semelhante ao seguinte exemplo. Tome nota do valor do *loginServer* para o seu ACR, uma vez que será utilizado num passo posterior. No exemplo abaixo, *myhelmacr.azurecr.io* é o *loginServer* da *MyHelmACR*.
+A saída será semelhante ao seguinte exemplo. Tome nota do valor do *seu loginServer* para o seu ACR uma vez que irá usá-lo num passo posterior. No exemplo abaixo, *myhelmacr.azurecr.io* é o *loginServer* da *MyHelmACR*.
 
 ```console
 {
@@ -57,31 +59,32 @@ O resultado será semelhante ao seguinte exemplo. Tome nota do valor do *loginSe
 }
 ```
 
-## <a name="create-an-azure-kubernetes-service-cluster"></a>Criar um cluster do Azure Kubernetes Service
+## <a name="create-an-aks-cluster"></a>Criar um cluster do AKS (Create an AKS cluster)
 
-Crie um cluster AKS. O comando abaixo cria um cluster AKS chamado MyAKS e anexa o MyHelmACR.
+O seu novo cluster AKS precisa de acesso ao seu ACR para retirar as imagens do contentor e executá-las. Utilize o seguinte comando para:
+* Crie um cluster AKS chamado *MyAKS* e prenda *o MyHelmACR*.
+* Conceda o acesso do cluster *MyAKS* ao seu *ACR MyHelmACR.*
+
 
 ```azurecli
 az aks create -g MyResourceGroup -n MyAKS --location eastus  --attach-acr MyHelmACR --generate-ssh-keys
 ```
 
-O seu cluster AKS precisa de acesso ao seu ACR para retirar as imagens do contentor e executá-las. O comando acima também concede ao cluster *MyAKS* acesso ao seu *ACR MyHelmACR.*
-
 ## <a name="connect-to-your-aks-cluster"></a>Ligue-se ao seu cluster AKS
 
-Para ligar ao cluster de Kubernetes a partir do computador local, utilize [kubectl][kubectl], o cliente de linha de comandos do Kubernetes.
+Para ligar um cluster Kubernetes localmente, utilize o cliente da linha de comando Kubernetes, [kubectl][kubectl]. `kubectl` já está instalado se utilizar a Azure Cloud Shell. 
 
-Se utilizar o Azure Cloud Shell, o `kubectl` já está instalado. Também pode instalá-lo a nível local com o comando [az aks install-cli][]:
+1. Instale `kubectl` localmente usando o `az aks install-cli` comando:
 
-```azurecli
-az aks install-cli
-```
+    ```azurecli
+    az aks install-cli
+    ```
 
-Para configurar `kubectl` para se ligar ao cluster do Kubernetes, utilize o comando [az aks get-credentials][]. O exemplo a seguir obtém credenciais para o cluster AKS chamado *MyAKS* no *MyResourceGroup:*
+2. Configure-se `kubectl` para ligar ao seu cluster Kubernetes usando o `az aks get-credentials` comando. O exemplo de comando a seguir obtém credenciais para o cluster AKS chamado *MyAKS* no *MyResourceGroup:*  
 
-```azurecli
-az aks get-credentials --resource-group MyResourceGroup --name MyAKS
-```
+    ```azurecli
+    az aks get-credentials --resource-group MyResourceGroup --name MyAKS
+    ```
 
 ## <a name="download-the-sample-application"></a>Transferir a aplicação de exemplo
 
@@ -94,7 +97,7 @@ cd dev-spaces/samples/nodejs/getting-started/webfrontend
 
 ## <a name="create-a-dockerfile"></a>Criar um Dockerfile
 
-Criar um novo ficheiro *Dockerfile* utilizando o seguinte:
+Criar um novo ficheiro *Dockerfile* utilizando os seguintes comandos:
 
 ```dockerfile
 FROM node:latest
@@ -113,7 +116,7 @@ CMD ["node","server.js"]
 
 ## <a name="build-and-push-the-sample-application-to-the-acr"></a>Construa e empurre a aplicação da amostra para o ACR
 
-Utilize o comando [de construção az acr][az-acr-build] para construir e empurrar uma imagem para o registo, utilizando o Dockerfile anterior. O `.` fim do comando define a localização do Dockerfile, neste caso o atual diretório.
+Utilizando o dockerfile anterior, executar o comando [de construção az acr][az-acr-build] para construir e empurrar uma imagem para o registo. O `.` fim do comando define a localização do Dockerfile (neste caso, o diretório atual).
 
 ```azurecli
 az acr build --image webfrontend:v1 \
@@ -129,8 +132,8 @@ Gere o seu gráfico Helm usando o `helm create` comando.
 helm create webfrontend
 ```
 
-Faça as seguintes atualizações para *webfrontend/values.yaml*. Substitua o loginServer do seu registo que observou num passo anterior, como *myhelmacr.azurecr.io:*
-
+Atualizar *webfrontend/values.yaml*:
+* Substitua o loginServer do seu registo que registou num passo anterior, como *myhelmacr.azurecr.io*.
 * Alterar `image.repository` para `<loginServer>/webfrontend`
 * Alterar `service.type` para `LoadBalancer`
 
@@ -166,13 +169,13 @@ appVersion: v1
 
 ## <a name="run-your-helm-chart"></a>Executar o seu gráfico Helm
 
-Utilize o `helm install` comando para instalar a sua aplicação utilizando a sua tabela Helm.
+Instale a sua aplicação utilizando o seu gráfico Helm utilizando o `helm install` comando.
 
 ```console
 helm install webfrontend webfrontend/
 ```
 
-O serviço demora alguns minutos a devolver um endereço IP público. Para monitorizar o progresso, utilize o `kubectl get service` comando com o parâmetro do *relógio:*
+O serviço demora alguns minutos a devolver um endereço IP público. Monitorize o progresso usando o `kubectl get service` comando com o `--watch` argumento.
 
 ```console
 $ kubectl get service --watch
@@ -183,18 +186,20 @@ webfrontend         LoadBalancer  10.0.141.72   <pending>     80:32150/TCP   2m
 webfrontend         LoadBalancer  10.0.141.72   <EXTERNAL-IP> 80:32150/TCP   7m
 ```
 
-Navegue até ao equilibrador de carga da sua aplicação num browser utilizando `<EXTERNAL-IP>` a aplicação para ver a amostra.
+Navegue para o balancer de carga da sua aplicação num browser usando `<EXTERNAL-IP>` a aplicação para ver a amostra.
 
 ## <a name="delete-the-cluster"></a>Eliminar o cluster
 
-Quando o cluster já não for necessário, utilize o comando de eliminação do [grupo az][az-group-delete] para remover o grupo de recursos, o cluster AKS, o registo do contentor, as imagens do contentor aí armazenadas e todos os recursos conexos.
+Utilize o comando de eliminação do [grupo az][az-group-delete] para remover o grupo de recursos, o cluster AKS, o registo do contentor, as imagens do contentor armazenadas no ACR e todos os recursos conexos.
 
 ```azurecli-interactive
 az group delete --name MyResourceGroup --yes --no-wait
 ```
 
 > [!NOTE]
-> Quando elimina o cluster, o principal de serviço do Azure Active Directory utilizado pelo cluster do AKS não é removido. Para obter passos sobre como remover o principal de serviço, consulte [Considerações sobre e eliminação do principal de serviço AKS][sp-delete]. Se usou uma identidade gerida, a identidade é gerida pela plataforma e não necessita de remoção.
+> Quando elimina o cluster, o principal de serviço do Azure Active Directory utilizado pelo cluster do AKS não é removido. Para obter passos sobre como remover o principal de serviço, consulte [Considerações sobre e eliminação do principal de serviço AKS][sp-delete].
+> 
+> Se usou uma identidade gerida, a identidade é gerida pela plataforma e não necessita de remoção.
 
 ## <a name="next-steps"></a>Passos seguintes
 

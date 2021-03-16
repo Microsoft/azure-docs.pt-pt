@@ -7,16 +7,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 01/29/2021
+ms.date: 03/15/2021
 ms.author: lajanuar
 ms.custom: cog-serv-seo-aug-2020
 keywords: processamento de documentos
-ms.openlocfilehash: f07e3b6142ad99ba3b9e64e4733109a7e5ae04f9
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 89de0752b3015fb8132bfa50c7dbdce174061bcc
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102425762"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103467298"
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
@@ -33,7 +33,7 @@ Neste arranque rápido, utilizará a API do Coitalista de Formulários com a fer
 Para completar este arranque rápido, você deve ter:
 
 * Subscrição Azure - [Crie uma gratuitamente](https://azure.microsoft.com/free/cognitive-services)
-* Assim que tiver a sua subscrição Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title=" Crie um recurso De Reconhecimento de "  target="_blank"> Formulários crie um recurso De Reconhecimento de </a> Formulários no portal Azure para obter a sua chave e ponto final. Depois de implementar, clique em **Ir para o recurso**.
+* Assim que tiver a sua subscrição Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title=" Crie um recurso De Reconhecimento de "  target="_blank"> Formulários crie um recurso De Reconhecimento de </a> Formulários no portal Azure para obter a sua chave e ponto final. Depois de ser implantado, selecione **Ir para o recurso**.
   * Necessitará da chave e ponto final do recurso que criar para ligar a sua aplicação à API do Reconhecimento de Formulários. Colará a chave e o ponto final no código abaixo mais tarde no arranque rápido.
   * Pode utilizar o nível de preços gratuitos `F0` para experimentar o serviço e fazer upgrade mais tarde para um nível pago para produção.
 * Um conjunto de pelo menos seis formas do mesmo tipo. Usará estes dados para treinar o modelo e testar um formulário. Pode utilizar um [conjunto de dados de amostra](https://go.microsoft.com/fwlink/?linkid=2090451) (descarregar e extrair *sample_data.zip)* para este arranque rápido. Faça o upload dos ficheiros de treino para a raiz de um recipiente de armazenamento de bolhas numa conta de armazenamento Azure de nível de desempenho padrão.
@@ -124,7 +124,7 @@ Primeiro, certifique-se de que todos os documentos de treino são do mesmo forma
 
 ### <a name="configure-cross-domain-resource-sharing-cors"></a>Configure a partilha de recursos de domínio cruzado (CORS)
 
-Ativar o CORS na sua conta de armazenamento. Selecione a sua conta de armazenamento no portal Azure e clique no **separador CORS** no painel esquerdo. Na linha de fundo, preencha os seguintes valores. Em seguida, clique em **Guardar** na parte superior.
+Ativar o CORS na sua conta de armazenamento. Selecione a sua conta de armazenamento no portal Azure e, em seguida, escolha o **separador CORS** no painel esquerdo. Na linha de fundo, preencha os seguintes valores. **Selecione Save** at the top.
 
 * Origens permitidas = *
 * Métodos permitidos = \[ selecione todos os\]
@@ -137,11 +137,11 @@ Ativar o CORS na sua conta de armazenamento. Selecione a sua conta de armazename
 
 ## <a name="connect-to-the-sample-labeling-tool"></a>Ligue-se à ferramenta de rotulagem da amostra
 
-A ferramenta de rotulagem da amostra liga-se a uma fonte (onde estão os seus formulários originais) e a um alvo (onde exporta os rótulos e dados de saída criados).
+ A ferramenta de rotulagem da amostra liga-se a uma fonte (os seus formulários carregados originais) e a um alvo (rótulos criados e dados de saída).
 
 As ligações podem ser configurada e partilhadas entre projetos. Eles usam um modelo de fornecedor extensível, para que você possa facilmente adicionar novos fornecedores de origem/alvo.
 
-Para criar uma nova ligação, clique no ícone **Novas Ligações** (ficha) na barra de navegação esquerda.
+Para criar uma nova ligação, selecione o ícone **Novas Ligações** (ficha) na barra de navegação esquerda.
 
 Preencha os campos com os seguintes valores:
 
@@ -153,13 +153,12 @@ Preencha os campos com os seguintes valores:
 
 :::image type="content" source="../media/label-tool/connections.png" alt-text="Regulações de ligação da ferramenta de rotulagem da amostra.":::
 
-
 ## <a name="create-a-new-project"></a>Criar um novo projeto
 
 Na ferramenta de rotulagem da amostra, os projetos armazenam as suas configurações e configurações. Criar um novo projeto e preencher os campos com os seguintes valores:
 
 * **Display Name** - o nome do display do projeto
-* **Token de segurança** - Algumas definições de projeto podem incluir valores sensíveis, tais como chaves API ou outros segredos partilhados. Cada projeto gerará um símbolo de segurança que pode ser usado para encriptar/desencriptar configurações sensíveis do projeto. Pode encontrar fichas de segurança nas Definições de Aplicação clicando no ícone de engrenagem na parte inferior da barra de navegação esquerda.
+* **Token de segurança** - Algumas definições de projeto podem incluir valores sensíveis, tais como chaves API ou outros segredos partilhados. Cada projeto gerará um símbolo de segurança que pode ser usado para encriptar/desencriptar configurações sensíveis do projeto. Pode encontrar fichas de segurança nas Definições de Aplicação selecionando o ícone de engrenagem na parte inferior da barra de navegação esquerda.
 * **Ligação Origem** - A ligação Azure Blob Storage que criou no passo anterior que gostaria de utilizar para este projeto.
 * **Caminho da pasta** - Opcional - Se os formulários de origem estiverem localizados numa pasta no recipiente blob, especifique o nome da pasta aqui
 * **Formulário Reconhecedor Serviço Uri** - O seu URL de ponto final do Reconhecimento de Formulário.
@@ -176,26 +175,28 @@ Quando cria ou abre um projeto, abre-se a janela principal do editor de etiqueta
 * O painel de editor principal que lhe permite aplicar etiquetas.
 * O painel de editores de etiquetas que permite aos utilizadores modificar, bloquear, reencomendar e eliminar tags.
 
-### <a name="identify-text-elements"></a>Identificar elementos de texto
+### <a name="identify-text-and-tables"></a>Identificar texto e tabelas 
 
-Clique **em OCR em todos os ficheiros** do painel esquerdo para obter as informações de layout de texto para cada documento. A ferramenta de rotulagem irá desenhar caixas de delimitação em torno de cada elemento de texto.
+Selecione **executar OCR em todos os ficheiros** do painel esquerdo para obter as informações de texto e layout da tabela para cada documento. A ferramenta de rotulagem irá desenhar caixas de delimitação em torno de cada elemento de texto.
 
-Também mostrará quais as tabelas que foram automaticamente extraídas. Clique no ícone de tabela/grelha na mão esquerda do documento para ver a tabela extraída. Neste arranque rápido, uma vez que o conteúdo da tabela é extraído automaticamente, não vamos rotular o conteúdo da tabela, mas sim confiar na extração automatizada.
+A ferramenta de rotulagem também mostrará quais as tabelas que foram automaticamente extraídas. Selecione o ícone de tabela/grelha na mão esquerda do documento para ver a tabela extraída. Neste arranque rápido, uma vez que o conteúdo da tabela é extraído automaticamente, não vamos rotular o conteúdo da tabela, mas sim confiar na extração automatizada.
 
 :::image type="content" source="../media/label-tool/table-extraction.png" alt-text="Visualização da tabela na ferramenta de rotulagem da amostra.":::
+
+Em v2.1, se o seu documento de treino não tiver um valor preenchido, pode desenhar uma caixa onde o valor deveria estar. Utilize **a região Draw** no canto superior esquerdo da janela para tornar a região marcada.
 
 ### <a name="apply-labels-to-text"></a>Aplicar rótulos no texto
 
 Em seguida, irá criar tags (etiquetas) e aplicá-las nos elementos de texto que pretende que o modelo analise.
 
-### <a name="v21-preview"></a>[pré-visualização v2.1](#tab/v2-1)
+### <a name="v20"></a>[v2.0](#tab/v2-1)  
 
-1. Primeiro, use o painel de editor de tags para criar as etiquetas que gostaria de identificar:
-   * Clique **+** para criar uma nova etiqueta.
-   * Insira o nome da etiqueta.
-   * Pressione Insira para guardar a etiqueta.
-1. No editor principal, clique para selecionar palavras dos elementos de texto realçados. Na _pré-visualização v2.1.2_ API, também pode clicar para selecionar _Marcas de Seleção_ como botões de rádio e caixas de verificação como pares de valor chave. O Reconhecimento de Formulários identificará se a marca de seleção é "selecionada" ou "não selecionada" como o valor.
-1. Clique na etiqueta que pretende aplicar ou prima a tecla de teclado correspondente. As teclas numeradas são atribuídas como hotkeys para as primeiras 10 tags. Pode reencomendar as suas etiquetas utilizando os ícones de seta para cima e para baixo no painel de editores de etiquetas.
+1. Primeiro, use o painel de editores de etiquetas para criar as etiquetas que gostaria de identificar.
+   1. Selecione **+** para criar uma nova etiqueta.
+   1. Insira o nome da etiqueta.
+   1. Pressione Insira para guardar a etiqueta.
+1. No editor principal, selecione palavras dos elementos de texto realçados ou de uma região em que se reuniu.
+1. Selecione a etiqueta que pretende aplicar ou prima a tecla de teclado correspondente. As teclas numeradas são atribuídas como hotkeys para as primeiras 10 tags. Pode reencomendar as suas etiquetas utilizando os ícones de seta para cima e para baixo no painel de editores de etiquetas.
     > [!Tip]
     > Tenha em mente as seguintes dicas quando estiver a rotular os formulários:
     >
@@ -212,11 +213,11 @@ Em seguida, irá criar tags (etiquetas) e aplicá-las nos elementos de texto que
 ### <a name="v20"></a>[v2.0](#tab/v2-0)
 
 1. Primeiro, use o painel de editores de etiquetas para criar as etiquetas que gostaria de identificar.
-   1. Clique **+** para criar uma nova etiqueta.
+   1. Selecione **+** para criar uma nova etiqueta.
    1. Insira o nome da etiqueta.
    1. Pressione Insira para guardar a etiqueta.
-1. No editor principal, clique para selecionar palavras dos elementos de texto realçados.
-1. Clique na etiqueta que pretende aplicar ou prima a tecla de teclado correspondente. As teclas numeradas são atribuídas como hotkeys para as primeiras 10 tags. Pode reencomendar as suas etiquetas utilizando os ícones de seta para cima e para baixo no painel de editores de etiquetas.
+1. No editor principal, selecione palavras dos elementos de texto realçados.
+1. Selecione a etiqueta que pretende aplicar ou prima a tecla de teclado correspondente. As teclas numeradas são atribuídas como hotkeys para as primeiras 10 tags. Pode reencomendar as suas etiquetas utilizando os ícones de seta para cima e para baixo no painel de editores de etiquetas.
     > [!Tip]
     > Tenha em mente as seguintes dicas quando estiver a rotular os formulários:
     >
@@ -231,6 +232,7 @@ Em seguida, irá criar tags (etiquetas) e aplicá-las nos elementos de texto que
 >
 
 ---
+---
 
 :::image type="content" source="../media/label-tool/main-editor-2-1.png" alt-text="Janela principal do editor da ferramenta de rotulagem de amostra.":::
 
@@ -238,7 +240,7 @@ Siga os passos acima para rotular pelo menos cinco dos seus formulários.
 
 ### <a name="specify-tag-value-types"></a>Especifique tipos de valor de etiqueta
 
-Opcionalmente, pode definir o tipo de dados esperado para cada tag. Abra o menu de contexto à direita de uma etiqueta e selecione um tipo no menu. Esta funcionalidade permite ao algoritmo de deteção fazer certos pressupostos que melhorarão a precisão da deteção de texto. Também garante que os valores detetados serão devolvidos num formato padronizado na saída final do JSON. As informações do tipo de valor são guardadas no *fields.jsficheiro* no mesmo caminho que os ficheiros da sua etiqueta.
+Pode definir o tipo de dados esperado para cada tag. Abra o menu de contexto à direita de uma etiqueta e selecione um tipo no menu. Esta funcionalidade permite ao algoritmo de deteção fazer pressupostos que melhorarão a precisão da deteção de texto. Também garante que os valores detetados serão devolvidos num formato padronizado na saída final do JSON. As informações do tipo de valor são guardadas no **fields.jsficheiro** no mesmo caminho que os ficheiros da sua etiqueta.
 
 > [!div class="mx-imgBorder"]
 > ![Seleção do tipo de valor com ferramenta de rotulagem de amostra](../media/whats-new/value-type.png)
@@ -285,12 +287,22 @@ Os seguintes tipos de valor e variações são atualmente suportados:
 > * 01Jan2020
 > * 01 Jan 2020
 
+### <a name="label-tables-v21-only"></a>Tabelas de etiquetas (apenas v2.1)
+
+Por vezes, os seus dados podem emprestar-se melhor para ser rotulado como uma tabela em vez de pares de valores-chave. Neste caso, pode criar uma etiqueta de tabela clicando em "Adicionar uma nova etiqueta de tabela", especificar se a tabela terá um número fixo de linhas ou número variável de linhas dependendo do documento, e definir o esquema.
+
+:::image type="content" source="../media/label-tool/table-tag.png" alt-text="Configurar uma etiqueta de mesa.":::
+
+Depois de definir a etiqueta de tabela, marque os valores da célula.
+
+:::image type="content" source="../media/table-labeling.png" alt-text="Rotulando uma mesa.":::
+
 ## <a name="train-a-custom-model"></a>Preparar um modelo personalizado
 
-Clique no ícone Train no painel esquerdo para abrir a página De Treino. Em seguida, clique no botão **Train** para começar a treinar o modelo. Assim que o processo de treino estiver concluído, verá as seguintes informações:
+Escolha o ícone train no painel esquerdo para abrir a página De Treino. Em seguida, selecione o botão **Train** para começar a treinar o modelo. Assim que o processo de treino estiver concluído, verá as seguintes informações:
 
 * **ID modelo** - O ID do modelo que foi criado e treinado. Cada chamada de treino cria um novo modelo com a sua própria identificação. Copie esta cadeia para um local seguro; você vai precisar se você quiser fazer chamadas de previsão através da [API REST](./client-library.md?pivots=programming-language-rest-api) ou [biblioteca de clientes](./client-library.md).
-* **Precisão média** - Precisão média do modelo. Pode melhorar a precisão do modelo rotulando formas adicionais e treinando novamente para criar um novo modelo. Recomendamos começar por rotular cinco formas e adicionar mais formas conforme necessário.
+* **Precisão média** - Precisão média do modelo. Pode melhorar a precisão do modelo rotulando formas adicionais e requalificação para criar um novo modelo. Recomendamos começar por rotular cinco formas e adicionar mais formas conforme necessário.
 * A lista de etiquetas e a precisão estimada por etiqueta.
 
 
@@ -305,10 +317,10 @@ Após o final do treino, examine o valor **de precisão média.** Se for baixo, 
 
 ### <a name="v21-preview"></a>[pré-visualização v2.1](#tab/v2-1)
 
-Com a Composição de Modelo, pode compor até 100 modelos para um único ID de modelo. Quando chama Analisar com este ID de modelo composto, o Reconhecedor de Formato vai, em primeiro lugar, classificar o formulário que submeteu, fazendo-o corresponder ao modelo com a melhor correspondência e, em seguida, devolver os resultados para esse modelo. Tal é útil quando os formulários recebidos possam pertencer a um de vários modelos.
+Com a Composição de Modelo, pode compor até 100 modelos para um único ID de modelo. Quando ligar para analisar com o composto, o `modelID` Form Recogniser classificará primeiro o formulário que submeteu, escolherá o melhor modelo de correspondência e, em seguida, devolverá os resultados para esse modelo. Esta operação é útil quando os formulários de entrada podem pertencer a um de vários modelos.
 
-Para compor os modelos na ferramenta de rotulagem da amostra, clique no ícone Model Compose (seta de fusão) à esquerda. À esquerda, selecione os modelos que pretende compor em conjunto. Os modelos com o ícone das setas já são modelos compostos.
-Clique no botão "Compor". No pop-up, nomeie o seu novo modelo composto e clique em "Compor". Quando a operação estiver concluída, o seu novo modelo composto deverá aparecer na lista.
+Para compor os modelos na ferramenta de rotulagem da amostra, selecione o ícone Model Compose (seta de fusão) à esquerda. À esquerda, selecione os modelos que pretende compor em conjunto. Os modelos com o ícone das setas já são modelos compostos.
+Escolha o **botão Compor.** No pop-up, nomeie o seu novo modelo composto e **selecione Compose**. Quando a operação estiver concluída, o seu modelo recém-composto deverá aparecer na lista.
 
 :::image type="content" source="../media/label-tool/model-compose.png" alt-text="Modelo componha a vista UX.":::
 
@@ -320,16 +332,16 @@ Esta funcionalidade encontra-se atualmente disponível em v2.1. previsualizar.
 
 ## <a name="analyze-a-form"></a>Analisar um formulário
 
-Clique no ícone Predict (lâmpada) à esquerda para testar o seu modelo. Faça upload de um documento de formulário que não usou no processo de treino. Em seguida, clique no botão **Prever** à direita para obter previsões de chave/valor para o formulário. A ferramenta aplicará etiquetas em caixas de delimitação e reportará a confiança de cada etiqueta.
+Selecione o ícone Predict (lâmpada) à esquerda para testar o seu modelo. Faça upload de um documento de formulário que não usou no processo de treino. Em seguida, escolha o botão **Prever** à direita para obter previsões de chave/valor para o formulário. A ferramenta aplicará etiquetas em caixas de delimitação e reportará a confiança de cada etiqueta.
 
 > [!TIP]
 > Também pode executar a API de Análise com uma chamada REST. Para aprender a fazê-lo, consulte [Train com rótulos usando Python.](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md)
 
 ## <a name="improve-results"></a>Melhorar os resultados
 
-Dependendo da precisão reportada, pode querer fazer mais treino para melhorar o modelo. Depois de fazer uma previsão, examine os valores de confiança de cada uma das etiquetas aplicadas. Se o valor médio de treino de precisão for elevado, mas as notas de confiança forem baixas (ou os resultados forem imprecisos), deve adicionar o ficheiro utilizado para a previsão no conjunto de treino, rotulá-lo e treinar novamente.
+Dependendo da precisão reportada, pode querer fazer mais treino para melhorar o modelo. Depois de fazer uma previsão, examine os valores de confiança de cada uma das etiquetas aplicadas. Se o valor médio de treino de precisão for elevado, mas as notas de confiança forem baixas (ou os resultados forem imprecisos), deve adicionar o ficheiro de previsão ao conjunto de treino, rotulá-lo e treinar novamente.
 
-A precisão média reportada, as pontuações de confiança e a precisão real podem ser inconsistentes quando os documentos analisados diferem dos utilizados no treino. Tenha em mente que alguns documentos são semelhantes quando vistos por pessoas, mas podem parecer distintos ao modelo de IA. Por exemplo, pode treinar com um tipo de formulário que tem duas variações, onde o conjunto de formação consiste em variação de 20% A e 80% de variação B. Durante a previsão, as pontuações de confiança para documentos de variação A são suscetíveis de ser menores.
+A precisão média reportada, as pontuações de confiança e a precisão real podem ser inconsistentes quando os documentos analisados diferem dos documentos utilizados na formação. Tenha em mente que alguns documentos são semelhantes quando vistos por pessoas, mas podem parecer distintos ao modelo de IA. Por exemplo, pode treinar com um tipo de formulário que tem duas variações, onde o conjunto de formação consiste em variação de 20% A e 80% de variação B. Durante a previsão, as pontuações de confiança para documentos de variação A são suscetíveis de ser menores.
 
 ## <a name="save-a-project-and-resume-later"></a>Guarde um projeto e retome mais tarde
 
@@ -341,11 +353,11 @@ Vá à página de definições do projeto (ícone de slider) e tome nota do nome
 
 ### <a name="restore-project-credentials"></a>Restaurar credenciais de projeto
 
-Quando pretende retomar o seu projeto, primeiro tem de criar uma ligação ao mesmo recipiente de armazenamento de bolhas. Repita os passos acima para fazer isto. Em seguida, vá à página de definições de aplicação (ícone de engrenagem) e veja se o sinal de segurança do seu projeto está lá. Se não for, adicione um novo token de segurança e copie o nome e a chave do seu token do passo anterior. Em seguida, clique em Guardar Definições.
+Quando pretende retomar o seu projeto, primeiro tem de criar uma ligação ao mesmo recipiente de armazenamento de bolhas. Para tal, repita os passos acima. Em seguida, vá à página de definições de aplicação (ícone de engrenagem) e veja se o sinal de segurança do seu projeto está lá. Se não for, adicione um novo token de segurança e copie o nome e a chave do seu token do passo anterior. **Selecione Guardar** para reter as suas definições..
 
 ### <a name="resume-a-project"></a>Retomar um projeto
 
-Por fim, vá à página principal (ícone da casa) e clique no Open Cloud Project. Em seguida, selecione a ligação de armazenamento de bolhas e selecione o ficheiro *.fott* do seu projeto. A aplicação irá carregar todas as configurações do projeto porque tem o token de segurança.
+Por fim, vá à página principal (ícone da casa) e selecione **Open Cloud Project**. Em seguida, selecione a ligação de armazenamento de bolhas e selecione o ficheiro **.fott** do seu projeto. A aplicação irá carregar todas as configurações do projeto porque tem o token de segurança.
 
 ## <a name="next-steps"></a>Passos seguintes
 

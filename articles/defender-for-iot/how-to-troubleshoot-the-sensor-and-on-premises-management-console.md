@@ -4,15 +4,15 @@ description: Resolva os problemas do seu sensor e da consola de gestão no local
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 1/3/2021
+ms.date: 03/14/2021
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: 624f60441f56646c3633a2afa79d326c92ba1a37
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: ba68bc3eee94689236792f0270d779357dffde9f
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100523724"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103465781"
 ---
 # <a name="troubleshoot-the-sensor-and-on-premises-management-console"></a>Resolver problemas do sensor e da consola de gestão no local
 
@@ -54,7 +54,7 @@ Para recuperar a sua palavra-passe:
 1. Selecione **Next**, e o seu utilizador, e a palavra-passe gerada pelo sistema para a sua consola de gestão aparecerá então.
 
     > [!NOTE]
-    > Quando iniciar sôs o seu sôm numa consola de gestão sensorial ou no local pela primeira vez, estará ligado à subscrição a que o ligou. Se precisar de redefinir a palavra-passe para o utilizador CyberX ou Support, terá de selecionar essa subscrição. Para obter mais informações sobre a recuperação de uma palavra-passe do utilizador CyberX ou Suporte, consulte [redefinir a palavra-passe de um utilizador para a consola de gestão de sensores ou no local](how-to-create-and-manage-users.md#resetting-a-users-password-for-the-sensor-or-on-premises-management-console)
+    > Quando iniciar sôs o seu sôm numa consola de gestão sensorial ou no local pela primeira vez, estará ligado à subscrição a que o ligou. Se precisar de redefinir a palavra-passe para o utilizador CyberX ou Support, terá de selecionar essa subscrição. Para obter mais informações sobre a recuperação de uma palavra-passe do utilizador CyberX ou Suporte, consulte [as palavras-passe de Reposição](how-to-create-and-manage-users.md#resetting-passwords).
 
 ### <a name="investigate-a-lack-of-traffic"></a>Investigar a falta de trânsito
 
@@ -283,7 +283,7 @@ Os registos exportados são adicionados à lista **de Registos Arquivados.** Env
 
 A lista de registos arquivados pode conter até cinco itens. Se o número de itens da lista for além desse número, o item mais antigo é eliminado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="see-also"></a>Ver também
 
 - [Ver alertas](how-to-view-alerts.md)
 

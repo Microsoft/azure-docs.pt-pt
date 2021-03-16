@@ -1,5 +1,5 @@
 ---
-title: Ambiente de desenvolvimento Azure IoT Edge Microsoft Docs
+title: Ambiente de desenvolvimento Azure IoT Edge | Microsoft Docs
 description: Conheça os sistemas suportados e as ferramentas de desenvolvimento de primeira parte que o ajudarão a criar módulos IoT Edge
 author: kgremban
 manager: philmea
@@ -8,14 +8,16 @@ ms.date: 01/04/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 4064acd6d2857ebc00a38ea7f6ff5d5e30bbd699
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 517bcdab375db819b0942306df82e7285b9473b1
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93041377"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103487705"
 ---
 # <a name="prepare-your-development-and-test-environment-for-iot-edge"></a>Prepare o seu ambiente de desenvolvimento e teste para ioT Edge
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 O Azure IoT Edge move a sua lógica de negócio existente para dispositivos que operam no limite. Para preparar as suas aplicações e cargas de trabalho para funcionar como [módulos IoT Edge,](iot-edge-modules.md)é necessário construí-las como recipientes. Este artigo fornece orientações sobre como configurar o seu ambiente de desenvolvimento para que possa criar com sucesso uma solução IoT Edge. Assim que tiver o seu ambiente de desenvolvimento configurado, poderá aprender a [desenvolver os seus próprios módulos IoT Edge.](module-development.md)
 
@@ -56,11 +58,11 @@ Os modelos do módulo para algumas línguas e serviços têm pré-requisitos nec
 | Modelo de módulo | Pré-requisito |
 | --------------- | ------------ |
 | Funções do Azure | [.NET Core 2.1 SDK](https://www.microsoft.com/net/download) |
-| C | [Rio Git](https://git-scm.com/) |
+| C | [Git](https://git-scm.com/) |
 | C# | [.NET Core 2.1 SDK](https://www.microsoft.com/net/download) |
 | Java | <ul><li>[Kit de Desenvolvimento Java SE 10](/azure/developer/java/fundamentals/java-jdk-long-term-support) <li> [Definir a variável do ambiente JAVA_HOME](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) <li> [Maven](https://maven.apache.org/)</ul> |
 | Node.js | <ul><li>[Node.js](https://nodejs.org/) <li> [Rio Yeoman](https://www.npmjs.com/package/yo) <li> [Gerador de módulo de Node.js Azure IoT Edge](https://www.npmjs.com/package/generator-azure-iot-edge-module)</ul> |
-| Python |<ul><li> [Python](https://www.python.org/downloads/) <li> [Pip](https://pip.pypa.io/en/stable/installing/#installation) <li> [Rio Git](https://git-scm.com/) </ul> |
+| Python |<ul><li> [Python](https://www.python.org/downloads/) <li> [Pip](https://pip.pypa.io/en/stable/installing/#installation) <li> [Git](https://git-scm.com/) </ul> |
 
 ### <a name="visual-studio-20172019-extension"></a>Extensão Visual Studio 2017/2019
 

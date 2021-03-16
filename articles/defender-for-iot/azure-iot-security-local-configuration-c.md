@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/08/2020
 ms.author: v-ekrieg
-ms.openlocfilehash: d96a73c3ba996fecf24a4232e1391f0b814be868
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 161bc008076de2bba62cd65c6c9bb106f648aa47
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91851259"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103493242"
 ---
 # <a name="understanding-the-localconfigurationjson-file---c-agent"></a>Compreender o ficheiro LocalConfiguration.json - Agente C
 
@@ -39,10 +39,10 @@ As alterações no ficheiro de configuração ocorrem quando o agente é reinici
 | TriggerdEventsInterval | Corda ISO8601 | Intervalo de programador para recolha de eventos desencadeados |
 | Intervalo de conexão | Corda ISO8601 | Período de tempo antes da ligação ao IoThub ser cronometrado |
 | Autenticação | JsonObject | Configuração de autenticação. Este objeto contém todas as informações necessárias para a autenticação contra o IoTHub |
-| Identidade | "DPS", "SecurityModule", "Dispositivo" | Identidade de autenticação - DPS se a autenticação for feita através de DPS, SecurityModule se a autenticação for feita através de credenciais de módulo de segurança ou dispositivo se a autenticação for feita com credenciais do Dispositivo |
+| Identidade | "DPS", "SecurityModule", "Dispositivo" | Identidade de autenticação - DPS se a autenticação for feita através de DPS, SecurityModule se a autenticação for feita através de defender-ioT-micro-agentes ou dispositivo se a autenticação for feita com credenciais do Dispositivo |
 | AutenticaçãoMethod | "SasToken", "SelfSignedCertificate" | o segredo do utilizador para a autenticação - Escolha SasToken se o segredo de uso for uma chave simétrica, escolha certificado auto-assinado se o segredo for um certificado auto-assinado  |
 | FilePath | Caminho para arquivar (cadeia) | Caminho para o arquivo que contém o segredo de autenticação |
-| Nome do Anfitrião | string | O nome anfitrião do hub Azure IoT. geralmente <o meu hub>.azure-devices.net |
+| Nome do Anfitrião | string | O nome anfitrião do hub Azure IoT. geralmente <meu hub>.azure-devices.net |
 | DeviceId | string | O ID do dispositivo (conforme registado no Azure IoT Hub) |
 | DPS | JsonObject | Configurações relacionadas com dPS |
 | IDScope | string | ID âmbito de DPS |

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/16/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 99741a412ae02a2d30293e1aa254245f5ca7b662
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: b1889a693c08ce78a8bd06b6fe348c0c67bf3812
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96171437"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103465679"
 ---
 # <a name="tutorial-for-configuring-saviynt-with-azure-active-directory-b2c"></a>Tutorial para configurar Saviynt com Azure Ative Directory B2C
 
@@ -69,7 +69,7 @@ O seguinte diagrama de arquitetura mostra a implementação.
 
 1. Para criar uma conta Saviynt, contacte [a Saviynt](https://saviynt.com/contact-us/)
 
-2. Crie políticas de administração delegadas e atribua os utilizadores como [administradores delegados](../active-directory/roles/concept-delegation.md) com várias funções.
+2. Crie políticas de administração delegadas e atribua os utilizadores como administradores delegados com várias funções.
 
 ## <a name="configure-azure-ad-b2c-with-saviynt"></a>Configure Azure AD B2C com Saviynt
 

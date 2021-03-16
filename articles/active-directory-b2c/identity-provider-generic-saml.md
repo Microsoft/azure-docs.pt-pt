@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 357ea903ed4bbc87717dfefc1c542722f5bd40c0
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: 9e47171fc20ba07823e73f71713307e3a0e37278
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102448409"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103488929"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-saml-identity-provider-using-azure-active-directory-b2c"></a>Configurar inscrição e inscrição com o fornecedor de identidade SAML utilizando o Azure Ative Directory B2C
 
@@ -205,9 +205,16 @@ O exemplo a seguir mostra um endereço URL para os metadados SAML de um perfil t
 https://<your-tenant-name>.b2clogin.com/<your-tenant-name>.onmicrosoft.com/<your-policy>/samlp/metadata?idptp=<your-technical-profile>
 ```
 
+Ao utilizar um [domínio personalizado,](custom-domain.md)utilize o seguinte formato:
+
+```
+https://your-domain-name/<your-tenant-name>.onmicrosoft.com/<your-policy>/samlp/metadata?idptp=<your-technical-profile>
+```
+
 Substitua os seguintes valores:
 
-- **seu inquilino** com o seu nome de inquilino, como your-tenant.onmicrosoft.com.
+- **seu nome de inquilino** com o seu nome de inquilino, como your-tenant.onmicrosoft.com.
+- **o seu nome de domínio** com o seu nome de domínio personalizado, como login.contoso.com.
 - **sua política** com o seu nome de política. Por exemplo, B2C_1A_signup_signin_adfs.
 - **seu perfil técnico** com o nome do seu perfil técnico do fornecedor de identidade SAML. Por exemplo, Contoso-SAML2.
 

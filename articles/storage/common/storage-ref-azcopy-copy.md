@@ -4,16 +4,16 @@ description: Este artigo fornece informações de referência para o comando de 
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 12/11/2020
+ms.date: 03/08/2021
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: c4e85195ace0a24aa11d4a03b8f429f2714399b0
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: c676b92fd07c6e444aa22f25c48fdb1b1957ca7a
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879161"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103493769"
 ---
 # <a name="azcopy-copy"></a>azcopy copy
 
@@ -31,6 +31,7 @@ Copia dados de origem para um local de destino. As direções apoiadas são:
   - Ficheiros Azure (SAS) -> Ficheiros Azure (SAS)
   - Azure Files (SAS) -> Azure Blob (autenticação SAS ou OAuth)
   - Amazon Web Services (AWS) S3 (Chave de Acesso) -> Azure Block Blob (autenticação SAS ou OAuth)
+  - Google Cloud Storage (Chave de Conta de Serviço) -> Azure Block Blob (SAS ou autenticação OAuth) [Pré-visualização]
 
 Para mais informações, consulte a secção de exemplos deste artigo.
 
@@ -230,6 +231,36 @@ Transfira ficheiros e diretórios para a conta de Armazenamento Azure e descreva
     
 - Ao definir tags nas bolhas, existem permissões adicionais ('t' para tags) em SAS sem as quais o serviço devolverá o erro de autorização.
 
+Copie um único objeto para o Blob Storage do Google Cloud Storage utilizando uma chave de conta de serviço e um token SAS. Em primeiro lugar, desaprove a variável ambiental GOOGLE_APPLICATION_CREDENTIALS para a fonte de armazenamento do Google Cloud.
+  
+```azcopy
+azcopy cp "https://storage.cloud.google.com/[bucket]/[object]" "https://[destaccount].blob.core.windows.net/[container]/[path/to/blob]?[SAS]"
+```
+
+Copie um diretório inteiro para o Blob Storage do Google Cloud Storage utilizando uma chave de conta de serviço e um token SAS. Em primeiro lugar, desaprove a variável ambiental GOOGLE_APPLICATION_CREDENTIALS para a fonte de armazenamento do Google Cloud.
+ 
+```azcopy
+  - azcopy cp "https://storage.cloud.google.com/[bucket]/[folder]" "https://[destaccount].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive=true
+```
+
+Copie um balde inteiro para o Blob Storage do Google Cloud Storage utilizando uma chave de conta de serviço e um token SAS. Em primeiro lugar, desaprove a variável ambiental GOOGLE_APPLICATION_CREDENTIALS para a fonte de armazenamento do Google Cloud.
+
+```azcopy 
+azcopy cp "https://storage.cloud.google.com/[bucket]" "https://[destaccount].blob.core.windows.net/?[SAS]" --recursive=true
+```
+
+Copie todos os baldes para o Blob Storage do Google Cloud Storage utilizando uma chave de conta de serviço e um token SAS. Em primeiro lugar, dedi o GOOGLE_APPLICATION_CREDENTIALS das variáveis ambientais e GOOGLE_CLOUD_PROJECT=<> de id de projeto para fonte GCS
+
+```azcopy
+  - azcopy cp "https://storage.cloud.google.com/" "https://[destaccount].blob.core.windows.net/?[SAS]" --recursive=true
+```
+
+Copie um subconjunto de baldes utilizando um símbolo wildcard (*) no nome do balde do Google Cloud Storage utilizando uma chave de conta de serviço e um token SAS para destino. Em primeiro lugar, desaprove as variáveis ambientais GOOGLE_APPLICATION_CREDENTIALS e GOOGLE_CLOUD_PROJECT=<> de id de projeto para a fonte de Armazenamento da Nuvem do Google.
+ 
+```azcopy
+azcopy cp "https://storage.cloud.google.com/[bucket*name]/" "https://[destaccount].blob.core.windows.net/?[SAS]" --recursive=true
+```
+
 ## <a name="options"></a>Opções
 
 **--backup** Ativa o SeBackupPrivilege do Windows para uploads, ou SeRestorePrivilege para downloads, para permitir que o AzCopy veja e leia todos os ficheiros, independentemente das permissões do sistema de ficheiros, e para restaurar todas as permissões. Requer que a conta que executa a AzCopy já tenha estas permissões (por exemplo, tem direitos de administrador ou é membro do `Backup Operators` grupo). Esta bandeira ativa privilégios que a conta já tem.
@@ -324,6 +355,6 @@ Transfira ficheiros e diretórios para a conta de Armazenamento Azure e descreva
 
 **--cadeia de sufixos fidedignos-microsoft-sufixos** Especifica sufixos de domínio adicionais onde podem ser enviados tokens de login do Azure Ative Directory.  A predefinição é `*.core.windows.net;*.core.chinacloudapi.cn;*.core.cloudapi.de;*.core.usgovcloudapi.net`. Qualquer listado aqui é adicionado ao padrão. Para a segurança, só deve colocar os domínios microsoft Azure aqui. Separe várias entradas com pontos e vírgulas.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 - [azcopia](storage-ref-azcopy.md)

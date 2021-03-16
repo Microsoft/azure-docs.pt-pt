@@ -4,15 +4,15 @@ titleSuffix: An Azure Communication Services quickstart
 description: Neste arranque rápido, você vai aprender a adicionar capacidades de chamada de vídeo à sua app usando os Serviços de Comunicação Azure.
 author: xumo-95
 ms.author: mikben
-ms.date: 07/24/2020
+ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 1d5bd8179d07477d8ae0cf60d4de291ed0e00201
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.openlocfilehash: 82f4d9028fa94d4df0ff089fda213d64e13d56ec
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103201067"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103487875"
 ---
 # <a name="quickstart-add-11-video-calling-to-your-app-javascript"></a>QuickStart: Adicione 1:1 chamada de vídeo para a sua aplicação (JavaScript)
 

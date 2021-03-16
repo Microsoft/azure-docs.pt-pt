@@ -6,16 +6,16 @@ author: dademath
 manager: nimag
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 07/28/2020
+ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: dademath
-ms.openlocfilehash: a084295aec2cafadd07d47e85a0116a89d37c985
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: a118dfceb73aca0897ba0f116ce3c5462368f6c3
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94816794"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103488371"
 ---
 Inicie-se com os Serviços de Comunicação Azure utilizando a biblioteca de clientes SMS dos Serviços de Comunicação C# PARA enviar mensagens SMS.
 
@@ -41,7 +41,7 @@ Completar este quickstart incorre num pequeno custo de alguns usd ou menos na su
 
 ### <a name="create-a-new-c-application"></a>Criar uma nova aplicação C#
 
-Numa janela de consola (como cmd, PowerShell ou Bash), utilize o `dotnet new` comando para criar uma nova aplicação de consola com o nome `SmsQuickstart` . Este comando cria um projeto simples "Hello World" C# com um único ficheiro de origem: **Program.cs**.
+Numa janela de consola (como cmd, PowerShell ou Bash), utilize o `dotnet new` comando para criar uma nova aplicação de consola com o nome `SmsQuickstart` . Este comando cria um projeto "Hello World" C# com um único ficheiro de origem: **Programa.cs**.
 
 ```console
 dotnet new console -o SmsQuickstart
@@ -62,7 +62,7 @@ Enquanto ainda está no diretório de aplicações, instale a biblioteca de clie
 dotnet add package Azure.Communication.Sms --version 1.0.0-beta.3
 ```
 
-Adicione uma `using` diretiva ao topo de **Program.cs** para incluir o espaço `Azure.Communication` de nome.
+Adicione uma `using` diretiva ao topo do **Programa.cs** para incluir o `Azure.Communication` espaço de nome.
 
 ```csharp
 
@@ -82,7 +82,7 @@ As seguintes classes e interfaces lidam com algumas das principais característi
 
 ## <a name="authenticate-the-client"></a>Autenticar o cliente
 
- Abra **Program.cs** num editor de texto e substitua o corpo do `Main` método por código para inicializar um com `SmsClient` a sua cadeia de ligação. O código abaixo recupera a cadeia de ligação para o recurso a partir de uma variável ambiental chamada `COMMUNICATION_SERVICES_CONNECTION_STRING` . Saiba como gerir a [cadeia de ligação dos recursos.](../../create-communication-resource.md#store-your-connection-string)
+ **Programa Aberto.cs** num editor de texto e substitua o corpo do `Main` método por código para inicializar um com `SmsClient` a sua cadeia de ligação. O código abaixo recupera a cadeia de ligação para o recurso a partir de uma variável ambiental chamada `COMMUNICATION_SERVICES_CONNECTION_STRING` . Saiba como gerir a [cadeia de ligação dos recursos.](../../create-communication-resource.md#store-your-connection-string)
 
 
 ```csharp
@@ -95,7 +95,7 @@ SmsClient smsClient = new SmsClient(connectionString);
 
 ## <a name="send-an-sms-message"></a>Enviar uma mensagem SMS
 
-Envie uma mensagem SMS chamando o método Enviar. Adicione este código ao fim do `Main` método em **Program.cs:**
+Envie uma mensagem SMS chamando o método Enviar. Adicione este código ao fim do `Main` método no **Programa.cs:**
 
 ```csharp
 smsClient.Send(

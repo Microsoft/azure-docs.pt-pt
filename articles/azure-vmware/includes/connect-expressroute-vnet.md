@@ -3,12 +3,12 @@ title: Conecte o ExpressRoute ao gateway de rede virtual
 description: Passos para ligar o ExpressRoute ao portal de rede virtual.
 ms.topic: include
 ms.date: 12/08/2020
-ms.openlocfilehash: cea07f9a75e91b2b8ff444c9dda4a59d421ca37c
-ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.openlocfilehash: 6e2e3748dbfd8d69b53dcc4c3a09809756ac48dc
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2021
-ms.locfileid: "103462368"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103494371"
 ---
 <!-- Used in deploy-azure-vmware-solution.md and tutorial-configure-networking.md -->
 
@@ -16,7 +16,7 @@ ms.locfileid: "103462368"
 
 1. Copie a chave de autorização. Se não houver uma chave de autorização, tem de criar uma, selecione **+ Solicite uma chave de autorização.**
 
-   :::image type="content" source="../media/expressroute-global-reach/start-request-auth-key.png" alt-text="Copie a chave de autorização. Se não houver uma chave de autorização, precisa de criar uma, selecione + Solicite uma chave de autorização." border="true" lightbox="../media/expressroute-global-reach/start-request-auth-key.png":::
+   :::image type="content" source="../media/expressroute-global-reach/start-request-authorization-key.png" alt-text="Copie a chave de autorização. Se não houver uma chave de autorização, precisa de criar uma, selecione + Solicite uma chave de autorização." border="true" lightbox="../media/expressroute-global-reach/start-request-authorization-key.png":::
 
 1. Navegue para o Gateway de Rede Virtual que criou no passo anterior e em **Definições**, selecione **Connections**. Na página **'Ligações',** selecione **+ Adicionar**.
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
-ms.openlocfilehash: aa863ce556840903d16238d6afef32136ba2b80d
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: b59d9079b6d0fe0ab3fe61eacf43f3a99eb46686
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92090850"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103495781"
 ---
 # <a name="tutorial-configure-security-agents"></a>Tutorial: Configure agentes de segurança
 
@@ -88,7 +88,7 @@ Para utilizar um valor de propriedade padrão, remova a propriedade do objeto de
 
 1. Clique em **Módulo Identidade Twin**.
 
-1. Edite as propriedades que pretende alterar no módulo de segurança.
+1. Edite as propriedades que pretende alterar no defender-ioT-micro-agente.
 
    Por exemplo, para configurar eventos de ligação como alta prioridade e recolher eventos de alta prioridade a cada 7 minutos, utilize a seguinte configuração.
 
@@ -117,7 +117,7 @@ A tabela seguinte contém as propriedades controláveis do Defender para agentes
 
 Os valores predefinidos estão disponíveis no esquema adequado no [GitHub](https\://aka.ms/iot-security-module-default).
 
-| Name| Estado | Valores válidos| Valores predefinidos| Description |
+| Name| Estado | Valores válidos| Valores predefinidos| Descrição |
 |----------|--------|--|-------|----|
 |altaPriorityMessageFrequency|Obrigatório: falso |Valores válidos: Duração no Formato ISO 8601 |Valor predefinido: PT7M |Intervalo de tempo máximo antes de serem enviadas mensagens de alta prioridade.|
 |baixaPriorityMessageFrequency |Obrigatório: falso|Valores válidos: Duração no Formato ISO 8601 |Valor predefinido: PT5H |Tempo máximo antes de serem enviadas mensagens de baixa prioridade.|

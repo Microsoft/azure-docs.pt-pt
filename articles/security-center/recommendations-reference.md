@@ -4,15 +4,15 @@ description: Este artigo lista as recomendações de segurança do Azure Securit
 author: memildin
 ms.service: security-center
 ms.topic: reference
-ms.date: 02/16/2021
+ms.date: 03/14/2021
 ms.author: memildin
 ms.custom: generated
-ms.openlocfilehash: d484802b35ffec26d1248e51b365ac9041fc7934
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: b4fe575039c6e913ca20198f204b6529f6c482c7
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102100411"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103466239"
 ---
 # <a name="security-recommendations---a-reference-guide"></a>Recomendações de segurança: um guia de referência
 
@@ -28,9 +28,17 @@ A sua pontuação segura baseia-se no número de recomendações do Centro de Se
 > Se a descrição de uma recomendação diz "Nenhuma política relacionada", é geralmente porque essa recomendação depende de uma recomendação diferente e _da sua_ política. Por exemplo, a recomendação "As falhas de saúde de proteção endpoint devem ser remediadas...", baseia-se na recomendação de que verifica se uma solução de proteção de pontos finais é mesmo _instalada_ ("Solução de proteção de ponto final deve ser instalada..."). A recomendação subjacente _tem_ uma política.
 > Limitar as políticas apenas à recomendação fundamental simplifica a gestão das políticas.
 
+## <a name="appservices-recommendations"></a><a name='recs-appservices'></a>Recomendações do AppServices
+
+[!INCLUDE [asc-recs-appservices](../../includes/asc-recs-appservices.md)]
+
 ## <a name="compute-recommendations"></a><a name='recs-compute'></a>Recomendações de cálculo
 
 [!INCLUDE [asc-recs-compute](../../includes/asc-recs-compute.md)]
+
+## <a name="container-recommendations"></a><a name='recs-container'></a>Recomendações do contentor
+
+[!INCLUDE [asc-recs-container](../../includes/asc-recs-container.md)]
 
 ## <a name="data-recommendations"></a><a name='recs-data'></a>Recomendações de dados
 

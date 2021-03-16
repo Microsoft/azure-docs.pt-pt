@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: b94cb6d6302cd92816fe25f6e672b1ce3bb9398d
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 34f54bb30e959ecc2fa27fba5ab7392b9eddc68e
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98792002"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103494517"
 ---
 # <a name="copy-data-from-amazon-s3-to-azure-storage-by-using-azcopy"></a>Copiar dados do Amazon S3 para o Azure Storage utilizando o AzCopy
 
@@ -70,7 +70,7 @@ Utilize a mesma sintaxe URL `blob.core.windows.net` para contas que tenham um es
 >
 > Também pode utilizar URLs de estilo hospedeiro virtual (por exemplo: `http://bucket.s3.amazonaws.com` ). 
 >
-> Para saber mais sobre o alojamento virtual de baldes, consulte [Hospedagem Virtual de https://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html) Baldes].
+> Para saber mais sobre hospedagem virtual de baldes, consulte [Virtual Hosting of Buckets.](https://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html)
 
 ### <a name="copy-a-directory"></a>Copiar um diretório
 
@@ -103,7 +103,7 @@ Utilize a mesma sintaxe URL `blob.core.windows.net` para contas que tenham um es
 |--------|-----------|
 | **Syntax** | `azcopy copy 'https://s3.amazonaws.com/<bucket-name>' 'https://<storage-account-name>.blob.core.windows.net/<container-name>' --recursive=true` |
 | **Exemplo** | `azcopy copy 'https://s3.amazonaws.com/mybucket' 'https://mystorageaccount.blob.core.windows.net/mycontainer' --recursive=true` |
-| **Exemplo** (espaço hierárquico)| `azcopy copy 'https://s3.amazonaws.com/mybucket/mydirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory' --recursive=true` |
+| **Exemplo** (espaço hierárquico)| `azcopy copy 'https://s3.amazonaws.com/mybucket/mydirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer' --recursive=true` |
 
 ### <a name="copy-all-buckets-in-all-regions"></a>Copiar todos os baldes em todas as regiões
 
@@ -113,7 +113,7 @@ Utilize a mesma sintaxe URL `blob.core.windows.net` para contas que tenham um es
 |--------|-----------|
 | **Syntax** | `azcopy copy 'https://s3.amazonaws.com/' 'https://<storage-account-name>.blob.core.windows.net' --recursive=true` |
 | **Exemplo** | `azcopy copy 'https://s3.amazonaws.com' 'https://mystorageaccount.blob.core.windows.net' --recursive=true` |
-| **Exemplo** (espaço hierárquico)| `azcopy copy 'https://s3.amazonaws.com/mybucket/mydirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory' --recursive=true` |
+| **Exemplo** (espaço hierárquico)| `azcopy copy 'https://s3.amazonaws.com' 'https://mystorageaccount.blob.core.windows.net' --recursive=true` |
 
 ### <a name="copy-all-buckets-in-a-specific-s3-region"></a>Copie todos os baldes numa região específica do S3
 
@@ -123,7 +123,7 @@ Utilize a mesma sintaxe URL `blob.core.windows.net` para contas que tenham um es
 |--------|-----------|
 | **Syntax** | `azcopy copy 'https://s3-<region-name>.amazonaws.com/' 'https://<storage-account-name>.blob.core.windows.net' --recursive=true` |
 | **Exemplo** | `azcopy copy 'https://s3-rds.eu-north-1.amazonaws.com' 'https://mystorageaccount.blob.core.windows.net' --recursive=true` |
-| **Exemplo** (espaço hierárquico)| `azcopy copy 'https://s3.amazonaws.com/mybucket/mydirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory' --recursive=true` |
+| **Exemplo** (espaço hierárquico)| `azcopy copy 'https://s3.amazonaws.com/mybucket' 'https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory' --recursive=true` |
 
 ## <a name="handle-differences-in-object-naming-rules"></a>Lidar com diferenças nas regras de nomeação de objetos
 
@@ -161,14 +161,12 @@ A AzCopy realiza estes passos:
    Esta chave será utilizada para guardar a chave inválida dos metadados **originais**.
    Pode utilizar esta chave para tentar recuperar os metadados do lado Azure, uma vez que a tecla de metadados é preservada como um valor no serviço de armazenamento Blob.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Encontre mais exemplos em qualquer um destes artigos:
 
 - [Introdução ao AzCopy](storage-use-azcopy-v10.md)
 
 - [Transferir dados](storage-use-azcopy-v10.md#transfer-data)
-
-- [Transferir dados com o AzCopy e armazenamento de ficheiros](storage-use-azcopy-files.md)
 
 - [Configurar, otimizar e resolver problemas AzCopy](storage-use-azcopy-configure.md)

@@ -6,16 +6,16 @@ author: chrwhit
 manager: nimag
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 08/20/2020
+ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: chrwhit
-ms.openlocfilehash: 1c4f3c47e3ac6e1e701b673574bb664237c1a9af
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 313832c29eb3f3f175fb20a60ba712937fdede0a
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102244807"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103488360"
 ---
 Inicie-se com os Serviços de Comunicação Azure utilizando a biblioteca de clientes de SMS java para enviar mensagens SMS.
 

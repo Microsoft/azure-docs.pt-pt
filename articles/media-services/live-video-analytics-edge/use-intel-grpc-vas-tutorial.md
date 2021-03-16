@@ -6,12 +6,12 @@ ms.date: 02/04/2021
 ms.service: media-services
 ms.author: faneerde
 author: fvneerden
-ms.openlocfilehash: 282ab76c34405f19e7f81b2a8069c178b17ee0c1
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: 20a22d11973f5bb01e2c1345538d5d94ce311dc7
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102124419"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103465764"
 ---
 # <a name="tutorial-analyze-live-video-by-using-intel-openvino-dl-streamer--edge-ai-extension"></a>Tutorial: Analise o vídeo ao vivo utilizando Intel OpenVINO™ DL Streamer – Extensão Edge AI 
 
@@ -98,7 +98,7 @@ Como parte dos pré-requisitos, descarregou o código de amostra para uma pasta.
 
     * ***c2d-console-app.csproj*** - O ficheiro do projeto para Visual Studio Code.
     * ***operations.jsem*** - Uma lista das operações que quer que o programa seja executado.
-    * ***Program.cs*** - O código do programa de amostra. Este código:
+    * ***Programa.cs*** - O código do programa de amostra. Este código:
 
         * Carrega as definições da aplicação.
         * Invoca métodos diretos que o live video analytics no módulo IoT Edge expõe. Pode utilizar o módulo para analisar streams de vídeo ao vivo invocando os seus [métodos diretos.](direct-methods.md)
@@ -128,7 +128,7 @@ Como parte dos pré-requisitos, descarregou o código de amostra para uma pasta.
     A *deployment.openvino.grpc.cpu.amd64.jsno* ficheiro manifesto é criada na pasta *src/edge/config.*
 
 > [!NOTE]
-Também incluímos um *deployment.openvino.grpc.gpu.template.jsno* modelo que permite o suporte de GPU para o módulo intel OpenVINO DL Streamer - Edge AI Extension. Estes modelos apontam para a imagem do hub do Docker da Intel.
+> Também incluímos um *deployment.openvino.grpc.gpu.template.jsno* modelo que permite o suporte de GPU para o módulo intel OpenVINO DL Streamer - Edge AI Extension. Estes modelos apontam para a imagem do hub do Docker da Intel.
 
 Os modelos acima mencionados apontam para a imagem do hub do Intel Docker. Se preferir hospedar uma cópia no seu próprio Registo de Contentores Azure, pode seguir os passos 1 e 2 abaixo:
 1. SSH num dispositivo com ferramentas CLI estivas instaladas (isto é, o seu dispositivo de aresta) e puxe/tag/empurre o recipiente com estes passos:

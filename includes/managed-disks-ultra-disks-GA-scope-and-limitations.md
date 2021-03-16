@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/28/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: e94b14584f8eece3d772f67b680df4a2ffb8b5cd
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: aafeb7ebd939805ae18e29670f359660db12e2e1
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102603275"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103555802"
 ---
 Por enquanto, os discos ultra têm limitações adicionais, são os seguintes:
 
@@ -65,11 +65,11 @@ O quadro que se segue descreve as regiões em que os discos ultra estão dispon�
     - [Mv2](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md)
 - Nem todos os tamanhos de VM estão disponíveis em todas as regiões suportadas com discos ultra.
 - Só estão disponíveis como discos de dados. 
-- Suporte tamanho do sector físico 4k por padrão. O tamanho do sector 512E está disponível como uma oferta geralmente disponível (sem necessidade de inscrição), mas atualmente só está disponível usando o CLI ou a powershell. A maioria das aplicações são compatíveis com tamanhos do sector 4k, mas, algumas requerem 512 tamanhos do setor byte. Um exemplo seria a Oracle Database, que requer a libertação 12.2 ou mais tarde para suportar os discos nativos 4k. Para versões mais antigas do Oracle DB, é necessário o tamanho do sector 512 byte.
+- Suporte tamanho do sector físico 4k por padrão. O tamanho do sector 512E está disponível como uma oferta geralmente disponível (sem necessidade de inscrição). A maioria das aplicações são compatíveis com tamanhos do sector 4k, mas, algumas requerem 512 tamanhos do setor byte. Um exemplo seria a Oracle Database, que requer a libertação 12.2 ou mais tarde para suportar os discos nativos 4k. Para versões mais antigas do Oracle DB, é necessário o tamanho do sector 512 byte.
 - Só podem ser criados como discos vazios.
 - Atualmente não suporta instantâneos de disco, imagens VM, conjuntos de disponibilidade, Anfitriões Dedicados Azure ou encriptação de disco Azure.
 - Atualmente não suporta a integração com a Azure Backup ou Azure Site Recovery.
 - Apenas suporta leituras não em cache e escritos não em cache.
 - O limite máximo atual para iops em VMs GA é de 80.000.
 
-Os discos Azure ultra oferecem até 16 TiB por região por subscrição por padrão, mas os discos ultra suportam maior capacidade por pedido. Para solicitar um aumento de capacidade, contacte o Suporte Azure.
+Os discos Azure ultra oferecem até 32 TiB por região por subscrição por padrão, mas os discos ultra suportam maior capacidade por pedido. Para solicitar um aumento de capacidade, solicite um aumento de quota ou contacte o Apoio À Azure.

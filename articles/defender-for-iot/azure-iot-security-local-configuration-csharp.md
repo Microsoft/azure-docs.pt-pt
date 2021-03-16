@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/08/2020
 ms.author: v-ekrieg
-ms.openlocfilehash: 13c16407481d4fa6f7d468a73051cc4945e6314e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 14237894a38725ee07deca3b5f46cbe0ecfce4cd
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91851238"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103493225"
 ---
 # <a name="understanding-the-local-configuration-file-c-agent"></a>Compreender o ficheiro de configuração local (agente C#)
 
@@ -84,10 +84,10 @@ Para Windows:
 
 | Nome de configuração | Valores possíveis | Detalhes |
 |:-----------|:---------------|:--------|
-| nome do módulo | string | Nome da identidade do módulo de segurança. Este nome deve corresponder ao nome de identidade do módulo no dispositivo. |
+| nome do módulo | string | Nome da identidade do Defender-IoT-micro-agente. Este nome deve corresponder ao nome de identidade do módulo no dispositivo. |
 | deviceId | string | ID do dispositivo (conforme registado no Azure IoT Hub). |
 | schedulerInterval | Cadeia TimeSpan | Intervalo interno do agendador. |
-| gatewayHostname | string | Nome anfitrião do Azure Iot Hub. Normalmente <o meu hub>.azure-devices.net |
+| gatewayHostname | string | Nome anfitrião do Azure Iot Hub. Normalmente <meu hub>.azure-devices.net |
 | filePath | string - caminho para arquivar | Caminho para o ficheiro que contém o segredo de autenticação.|
 | tipo | "SimétricaKey", "SelfSignedCertificate" | O segredo do utilizador para a autenticação. Escolha *o SymmetricKey* se o segredo do utilizador for uma chave simétrica, escolha *o certificado auto-assinado* se o segredo for um certificado auto-assinado. |
 | identidade | "DPS", "Módulo", "Dispositivo" | Identidade de autenticação - DPS se a autenticação for feita através de DPS, Módulo se a autenticação for feita com recurso a credenciais de módulos, ou dispositivo se a autenticação for feita com recurso a credenciais do dispositivo.
