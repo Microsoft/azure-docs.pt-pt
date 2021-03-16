@@ -1,0 +1,74 @@
+### YamlMime:Landing
+title: Inicie o Acordo de Cliente da Microsoft
+summary: Começa por gerir a tua faturação e subscrições ao abrigo do Teu Contrato de Cliente microsoft. Aprenda a compreender e a otimizar os seus custos, garantindo um acesso seguro ao seu ambiente de faturação.
+metadata:
+  title: Inicie o Acordo de Cliente da Microsoft
+  description: Saiba como começar com o seu Microsoft Customer Agreement.
+  ms.service: cost-management-billing
+  ms.subservice: billing
+  ms.topic: landing-page
+  ms.collection: collection
+  author: bandersmsft
+  ms.author: banders
+  ms.date: 03/01/2021
+  ms.openlocfilehash: f2dcb2687a5a765e674a3dce7ac9016e58056b81
+  ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
+  ms.translationtype: MT
+  ms.contentlocale: pt-PT
+  ms.lasthandoff: 03/16/2021
+  ms.locfileid: "103574713"
+landingContent:
+- title: Introdução
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que é um Acordo de Cliente da Microsoft?
+      url: ../understand/mca-overview.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+  - linkListType: how-to-guide
+    links:
+    - text: Passe do cartão de crédito para a fatura
+      url: ../manage/mca-request-billing-ownership.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+    - text: Aceder a subscrições com ID de domínio
+      url: ../manage/mca-setup-account.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+    - text: Configurar administrador para gerir utilizadores de subscrição
+      url: ../manage/add-change-subscription-administrator.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+    - text: Criar novas subscrições
+      url: ../manage/create-subscription.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+- title: Gerir faturação
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Compreenda o meu ciclo de faturação
+      url: ../understand/mca-understand-your-invoice.md#billing-period
+  - linkListType: tutorial
+    links:
+    - text: Receba uma conta ao abrigo do meu acordo.
+      url: ../understand/review-customer-agreement-bill.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+  - linkListType: how-to-guide
+    links:
+    - text: O que é um perfil de faturação e como o faço?
+      url: ../manage/mca-section-invoice.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+    - text: Pagar fatura por fatura
+      url: ../manage/pay-by-invoice.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+    - text: Pagar conta por cartão de crédito ou débito ou por cheque ou transferência bancária
+      url: ../understand/pay-bill.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+    - text: Criar um administrador para gerir a faturação
+      url: ../manage/understand-mca-roles.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+    - text: Comece a faturar para o meu acordo
+      url: ../manage/mca-request-billing-ownership.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+    - text: Encontre o meu proprietário de subscrição
+      url: ../manage/add-change-subscription-administrator.md#assign-a-subscription-administrator
+  - linkListType: video
+    links:
+    - text: Organizar custos
+      url: https://www.youtube.com/watch?v=7RxTfShGHwU
+    - text: Gerir o acesso à conta de faturação
+      url: https://www.youtube.com/watch?v=9sqglBlKkho
+    - text: Compreender a sua fatura
+      url: https://www.youtube.com/watch?v=e2LGZZ7GubA
+- title: Gerir subscrições
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: O que é o Ative Directory?
+      url: ../../active-directory/fundamentals/active-directory-whatis.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
