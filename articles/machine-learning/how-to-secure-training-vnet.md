@@ -11,12 +11,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 07/16/2020
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1
-ms.openlocfilehash: 2b264da06cf5088da07ec91cfa40c4babfde4c38
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 81a6a6aeb826ba4a61fd4f0a4abdb63fe3674bc4
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102219068"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103573732"
 ---
 # <a name="secure-an-azure-machine-learning-training-environment-with-virtual-networks"></a>Garantir um ambiente de formação Azure Machine Learning com redes virtuais
 
@@ -327,3 +327,5 @@ Este artigo é parte três de uma série de rede virtual de cinco partes. Veja o
 * [Parte 2: Garantir os recursos do espaço de trabalho](how-to-secure-workspace-vnet.md)
 * [Parte 4: Assegurar o ambiente de inferencção](how-to-secure-inferencing-vnet.md)
 * [Parte 5: Ativar a funcionalidade do estúdio](how-to-enable-studio-virtual-network.md)
+
+Consulte também o artigo sobre a utilização [de DNS personalizados](how-to-custom-dns.md) para resolução de nomes.

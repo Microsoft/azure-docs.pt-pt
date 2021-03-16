@@ -5,13 +5,13 @@ author: jseb225
 ms.author: jeanb
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 03/16/2020
-ms.openlocfilehash: b9768bacf8d29b37f479ea080afddd494b506262
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.date: 01/15/2021
+ms.openlocfilehash: 1ee1411aba7724d76ed8626de9b8b038d02339dc
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98013945"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103574259"
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-studio-classic-functions"></a>Escalar o seu trabalho stream analytics com funções Azure Machine Learning Studio (clássico)
 
@@ -24,7 +24,7 @@ Este artigo discute como escalar eficientemente os trabalhos do Azure Stream Ana
 
 Uma função de Machine Learning Studio (clássico) em Stream Analytics pode ser usada como uma chamada de função regular na linguagem de consulta Stream Analytics. Nos bastidores, no entanto, estas chamadas de função são na verdade pedidos de Studio (clássico) do Serviço Web.
 
-Pode melhorar a produção de pedidos de serviço web studio (clássico) "lotando" várias linhas juntas na mesma chamada de serviço web API. Este agrupamento é chamado de mini-lote. Para mais informações, consulte [o Azure Machine Learning Studio (clássico) Web Services](../machine-learning/classic/consume-web-services.md). O suporte para o Studio (clássico) em Stream Analytics está em pré-visualização.
+Pode melhorar a produção de pedidos de serviço web studio (clássico) "lotando" várias linhas juntas na mesma chamada de serviço web API. Este agrupamento é chamado de mini-lote. Para mais informações, consulte [o Azure Machine Learning Studio (clássico) Web Services](../machine-learning/classic/consume-web-services.md). Suporte para Estúdio (clássico) em Stream Analytics.
 
 ## <a name="configure-a-stream-analytics-job-with-studio-classic-functions"></a>Configure um trabalho stream analytics com funções studio (clássicas)
 
@@ -51,7 +51,7 @@ Para processar 200.000 eventos por segundo, o trabalho stream Analytics precisa 
 
 ![Scale Stream Analytics com Estúdio (clássico) Funções dois exemplos de trabalho](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-00.png "Scale Stream Analytics com Estúdio (clássico) Funções dois exemplos de trabalho")
 
-Em geral, **_B_* _ para o tamanho do lote, _*_L_*_ para a latência do serviço web no tamanho do lote B em milissegundos, a produção de um trabalho stream Analytics com _*_N_*_ SUs é:
+Em geral, ***B** _ para o tamanho do lote, _*_L_*_ para a latência do serviço web no tamanho do lote B em milissegundos, a produção de um trabalho stream Analytics com _ *_N_** SUs é:
 
 ![Scale Stream Analytics com Fórmula de Funções de Estúdio (clássico)](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-02.png "Scale Stream Analytics com Fórmula de Funções de Estúdio (clássico)")
 
@@ -62,7 +62,7 @@ Para obter mais informações sobre este cenário, reveja o [artigo de Escala pa
 ## <a name="example--sentiment-analysis"></a>Exemplo – Análise de Sentimentos
 O exemplo a seguir inclui um trabalho stream Analytics com a função de análise de sentimento Studio (clássico), como descrito no [tutorial de integração de machine learning (clássico) stream Analytics Machine Learning Studio ( clássico).](stream-analytics-machine-learning-integration-tutorial.md)
 
-A consulta é uma consulta simples e totalmente dividida seguida pela função _ *sentiment** , como mostra o seguinte exemplo:
+A consulta é uma consulta simples e totalmente dividida seguida pela função de **sentimento,** como mostra o exemplo seguinte:
 
 ```SQL
     WITH subquery AS (
@@ -141,7 +141,7 @@ Para escalar um trabalho stream analytics com funções studio (clássicas), con
 
 Uma consulta stream analytics totalmente dividida foi usada como um exemplo. Se for necessária uma consulta mais complexa, o [Microsoft Q&Página de perguntas para o Azure Stream Analytics](/answers/topics/azure-stream-analytics.html) é um ótimo recurso para obter ajuda adicional da equipa do Stream Analytics.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para saber mais sobre stream analytics, consulte:
 
 * [Começar a utilizar o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)

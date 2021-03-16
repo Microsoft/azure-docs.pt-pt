@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/24/2020
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: c1c1b5f58aa0e760ff626af4607cf8e2d1e13910
-ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
+ms.openlocfilehash: feeb3e63375e918498e704add6dac672d6a46de3
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103232426"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103574582"
 ---
 # <a name="quickstart---explore-a-sample-azure-digital-twins-scenario-using-azure-digital-twins-explorer"></a>Quickstart - Explore uma amostra do cenário Azure Digital Twins usando o Azure Digital Twins Explorer
 
@@ -95,9 +95,8 @@ Abra uma janela da consola para a localização da pasta **Azure_Digital_Twins__
 
 > [!TIP]
 > Se aparecer uma `SignalRService.subscribe` mensagem de erro quando ligar, certifique-se de que o URL das gémeas digitais Azure começa com *https://*.
-
-> [!TIP]
-> Se aparecer um erro de autenticação, é melhor verificar as variáveis do seu ambiente para se certificar de que quaisquer credenciais incluídas são válidas para a Azure Digital Twins. As tentativas de DefaultAzureCredential de autenticação contra [tipos de credenciais](/dotnet/api/overview/azure/identity-readme#defaultazurecredential) numa ordem específica, e as variáveis ambientais são avaliadas primeiro.
+>
+> Se aparecer um erro de autenticação, é melhor verificar as **variáveis do** seu ambiente para se certificar de que quaisquer credenciais incluídas são válidas para a Azure Digital Twins. As `DefaultAzureCredential` tentativas de autenticação contra tipos de credenciais numa [ordem específica,](/dotnet/api/overview/azure/identity-readme#defaultazurecredential)e as variáveis ambientais são avaliadas em primeiro lugar.
 
 Se vir uma janela pop-up **solicitada pela Microsoft,** conceda o consentimento para esta aplicação e aceite continuar.
 

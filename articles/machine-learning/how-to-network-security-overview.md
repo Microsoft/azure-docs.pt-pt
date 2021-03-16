@@ -11,12 +11,12 @@ author: peterclu
 ms.date: 03/02/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, references_regions, contperf-fy21q1
-ms.openlocfilehash: fcb678efe29178784c9233e79b307f705c40e3f7
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 1c3d9b286a8262efa126ba9c661c50dd88e78b64
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102518687"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103573477"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>Isolamento de rede virtual e visão geral da privacidade
 
@@ -36,7 +36,6 @@ Este artigo assume que tem familiaridade com os seguintes tópicos:
 + [Azure Private Link](how-to-configure-private-link.md)
 + [Grupos de segurança de rede (NSG)](../virtual-network/network-security-groups-overview.md)
 + [Firewalls de rede](../firewall/overview.md)
-
 ## <a name="example-scenario"></a>Cenário de exemplo
 
 Nesta secção, você aprende como um cenário de rede comum é configurado para garantir a comunicação Azure Machine Learning com endereços IP privados.
@@ -62,8 +61,8 @@ As próximas cinco secções mostram-lhe como proteger o cenário de rede acima 
 1. Proteja o [**ambiente de treino.**](#secure-the-training-environment)
 1. Proteja o [**ambiente de inferenculação**](#secure-the-inferencing-environment).
 1. Opcionalmente: [**ativar a funcionalidade do estúdio**](#optional-enable-studio-functionality).
-1. Configurar [ **definições** de firewall](#configure-firewall-settings)
-
+1. Configurar [**as definições de firewall**](#configure-firewall-settings).
+1. Configurar a [resolução do nome DNS](#custom-dns).
 ## <a name="secure-the-workspace-and-associated-resources"></a>Garantir o espaço de trabalho e os recursos associados
 
 Use os seguintes passos para garantir o seu espaço de trabalho e recursos associados. Estes passos permitem que os seus serviços se comuniquem na rede virtual.
@@ -186,3 +185,5 @@ Este artigo é parte de uma série de rede virtual de cinco partes. Veja o resto
 * [Parte 3: Assegurar o ambiente de treino](how-to-secure-training-vnet.md)
 * [Parte 4: Assegurar o ambiente de inferencção](how-to-secure-inferencing-vnet.md)
 * [Parte 5: Ativar a funcionalidade do estúdio](how-to-enable-studio-virtual-network.md)
+
+Consulte também o artigo sobre a utilização [de DNS personalizados](how-to-custom-dns.md) para resolução de nomes.

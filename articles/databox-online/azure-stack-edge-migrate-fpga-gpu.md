@@ -6,36 +6,36 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 02/10/2021
+ms.date: 03/11/2021
 ms.author: alkohli
-ms.openlocfilehash: 5b68ab545e87035d138558ba1911294ef805af6d
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.openlocfilehash: 24d6528a105d593d1cb4c9c66d981c8787f85633
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102630746"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103573286"
 ---
 # <a name="migrate-workloads-from-an-azure-stack-edge-pro-fpga-to-an-azure-stack-edge-pro-gpu"></a>Migrar cargas de trabalho de um Azure Stack Edge Pro FPGA para um GPU Azure Stack Edge Pro
 
-Este artigo descreve como migrar cargas de trabalho e dados de um dispositivo Azure Stack Edge Pro FPGA para um dispositivo GPU Azure Stack Edge Pro. O procedimento de migração envolve uma visão geral da migração, incluindo uma comparação entre os dois dispositivos, considerações de migração, passos detalhados e verificação seguida de limpeza.
+Este artigo descreve como migrar cargas de trabalho e dados de um dispositivo Azure Stack Edge Pro FPGA para um dispositivo GPU Azure Stack Edge Pro. O processo de migração começa com uma comparação entre os dois dispositivos, um plano de migração e uma revisão das considerações migratórias. O procedimento de migração dá passos detalhados terminando com verificação e limpeza do dispositivo.
 
-<!--Azure Stack Edge Pro FPGA devices will reach end-of-life in February 2024. If you are considering new deployments, we recommend that you explore Azure Stack Edge Pro GPU devices for your workloads.-->
+[!INCLUDE [Azure Stack Edge Pro FPGA end-of-life](../../includes/azure-stack-edge-fpga-eol.md)]
 
 ## <a name="about-migration"></a>Acerca da migração
 
 Migração é o processo de movimentação de cargas de trabalho e dados de aplicação de um local de armazenamento para outro. Isto implica fazer uma cópia exata dos dados atuais de uma organização de um dispositivo de armazenamento para outro dispositivo de armazenamento - de preferência sem perturbar ou desativar aplicações ativas - e, em seguida, redirecionar toda a atividade de entrada/saída (I/O) para o novo dispositivo. 
 
-Este guia de migração fornece uma passagem passo a passo dos passos necessários para migrar dados de um dispositivo Azure Stack Edge Pro FPGA para um dispositivo GPU Azure Stack Edge Pro. Este documento destina-se a profissionais de tecnologias da informação (TI) e trabalhadores do conhecimento responsáveis pela operação, implantação e gestão de dispositivos Azure Stack Edge no datacenter. 
+Este guia de migração fornece uma passagem passo a passo dos passos necessários para migrar dados de um dispositivo Azure Stack Edge Pro FPGA para um dispositivo GPU Azure Stack Edge Pro. Este documento destina-se a profissionais de tecnologias da informação (TI) e trabalhadores do conhecimento responsáveis pela operação, implantação e gestão de dispositivos Azure Stack Edge no datacenter.
 
 Neste artigo, o dispositivo Azure Stack Edge Pro FPGA é referido como o dispositivo *de origem* e o dispositivo GPU Azure Stack Edge Pro é o dispositivo *alvo.* 
 
 ## <a name="comparison-summary"></a>Resumo da comparação
 
-Esta secção fornece um resumo comparativo das capacidades entre o GPU Azure Stack Edge Pro vs. os dispositivos Azure Stack Edge Pro FPGA. O hardware tanto na fonte como no dispositivo alvo é em grande parte idêntico e difere apenas no que diz respeito ao cartão de aceleração de hardware e à capacidade de armazenamento. 
+Esta secção fornece um resumo comparativo das capacidades entre o GPU Azure Stack Edge Pro vs. os dispositivos Azure Stack Edge Pro FPGA. O hardware tanto na fonte como no dispositivo-alvo é em grande parte idêntico; apenas o cartão de aceleração de hardware e a capacidade de armazenamento podem diferir.<!--Please verify: These components MAY, but need not necessarily, differ?-->
 
 |    Funcionalidade  | GPU Azure Stack Edge Pro (dispositivo alvo)  | Azure Stack Edge Pro FPGA (dispositivo de origem)|
 |----------------|-----------------------|------------------------|
-| Hardware       | Aceleração do hardware: 1 ou 2 GPUs Nvidia T4 <br> Computação, memória, interface de rede, unidade de alimentação, especificações do cabo de alimentação são idênticas ao dispositivo com a FPGA.  | Aceleração do hardware: Intel Arria 10 FPGA <br> Computação, memória, interface de rede, unidade de alimentação, especificações do cabo de alimentação são idênticas ao dispositivo com GPU.          |
+| Hardware       | Aceleração do hardware: 1 ou 2 GPUs Nvidia T4 <br> Computação, memória, interface de rede, unidade de alimentação e especificações do cabo de alimentação são idênticas ao dispositivo com a FPGA.  | Aceleração do hardware: Intel Arria 10 FPGA <br> Computação, memória, interface de rede, unidade de alimentação e especificações do cabo de alimentação são idênticas ao dispositivo com GPU.          |
 | Armazenamento utilizável | 4.19 TB <br> Depois de reservar espaço para a resiliência da paridade e uso interno | 12.5 TB <br> Depois de reservar espaço para uso interno |
 | Segurança       | Certificados |                                                     |
 | Cargas de trabalho      | Cargas de trabalho IoT Edge <br> Cargas de trabalho de VM <br> Cargas de trabalho do Kubernetes| Cargas de trabalho IoT Edge |
@@ -55,11 +55,11 @@ Para criar o seu plano de migração, considere as seguintes informações:
 
 Antes de prosseguir com a migração, considere as seguintes informações: 
 
-- Um dispositivo GPU Azure Stack Edge Pro não pode ser ativado contra um recurso Azure Stack Edge Pro FPGA. Deve ser criado um novo recurso para o dispositivo GPU Azure Stack Edge Pro, conforme descrito na [ordem GPU Create a azure Stack Edge Pro](azure-stack-edge-gpu-deploy-prep.md#create-a-new-resource).
+- Um dispositivo GPU Azure Stack Edge Pro não pode ser ativado contra um recurso Azure Stack Edge Pro FPGA. Deverá criar um novo recurso para o dispositivo GPU Azure Stack Edge Pro, conforme descrito na [ordem Create a azure Stack Edge Pro GPU](azure-stack-edge-gpu-deploy-prep.md#create-a-new-resource).
 - Os modelos machine learning implantados no dispositivo de origem que utilizou o FPGA terão de ser alterados para o dispositivo-alvo com GPU. Para obter ajuda com os modelos, pode contactar o Microsoft Support. Os modelos personalizados implantados no dispositivo de origem que não utilizaram o FPGA (apenas CPU utilizado) devem funcionar como está no dispositivo-alvo (utilizando o CPU).
-- Os módulos IoT Edge implantados no dispositivo de origem podem necessitar de alterações antes de estes poderem ser implantados com sucesso no dispositivo-alvo. 
+- Os módulos IoT Edge implantados no dispositivo de origem podem necessitar de alterações antes de os módulos poderem ser implantados com sucesso no dispositivo-alvo. 
 - O dispositivo de origem suporta os protocolos NFS 3.0 e 4.1. O dispositivo-alvo suporta apenas o protocolo NFS 3.0.
-- O dispositivo de origem suporta os protocolos SMB e NFS. O dispositivo-alvo suporta o armazenamento através do protocolo REST utilizando contas de armazenamento, para além dos protocolos SMB e NFS para ações.
+- O dispositivo de origem suporta os protocolos SMB e NFS. O dispositivo-alvo suporta o armazenamento através do protocolo REST utilizando contas de armazenamento para além dos protocolos SMB e NFS para ações.
 - O acesso à partilha no dispositivo de origem é através do endereço IP, enquanto que o acesso à partilha no dispositivo-alvo é através do nome do dispositivo.
 
 ## <a name="migration-steps-at-a-glance"></a>Passos de migração num ápice
@@ -99,15 +99,15 @@ A nuvem edge partilha dados de nível do seu dispositivo para Azure. Faça estes
 
 - Faça uma lista de todas as partilhas de nuvem Edge e utilizadores que tenha no dispositivo de origem.
 - Faça uma lista de todos os horários de largura de banda que tem. Irá recriar estes horários de largura de banda no seu dispositivo-alvo.
-- Dependendo da largura de banda disponível, configurar os horários de largura de banda no seu dispositivo de modo a maximizar os dados hierárquicos para a nuvem. Isto minimizaria os dados locais do dispositivo.
-- Certifique-se de que as ações estão totalmente niveladas para a nuvem. Isto pode ser confirmado verificando o estado da partilha no portal Azure.  
+- Dependendo da largura de banda disponível, configurar os horários de largura de banda no seu dispositivo para maximizar os dados hierárquicos para a nuvem. Isso minimiza os dados locais do dispositivo.
+- Certifique-se de que as ações estão totalmente niveladas para a nuvem. O tiering pode ser confirmado verificando o estado da partilha no portal Azure.  
 
 #### <a name="data-in-edge-local-shares"></a>Dados em ações locais edge
 
 Os dados nas ações locais da Edge permanecem no dispositivo. Faça estes passos no seu dispositivo *de origem* através do portal Azure. 
 
-- Faça uma lista das ações locais edge que tem no dispositivo.
-- Dado que esta é uma migração única dos dados, crie uma cópia dos dados de partilha local edge para outro servidor no local. Pode utilizar ferramentas de cópia como `robocopy` (SMB) ou `rsync` (NFS) para copiar os dados. Opcionalmente, pode já ter implementado uma solução de proteção de dados de terceiros para fazer o back up dos dados nas suas ações locais. As seguintes soluções de terceiros são suportadas para utilização com dispositivos Azure Stack Edge Pro FPGA:
+- Faça uma lista das ações locais edge no dispositivo.
+- Uma vez que vai fazer uma migração única dos dados, crie uma cópia dos dados de partilha locais edge para outro servidor no local. Pode utilizar ferramentas de cópia como `robocopy` (SMB) ou `rsync` (NFS) para copiar os dados. Opcionalmente, pode já ter implementado uma solução de proteção de dados de terceiros para fazer o back up dos dados nas suas ações locais. As seguintes soluções de terceiros são suportadas para utilização com dispositivos Azure Stack Edge Pro FPGA:
 
     | Software de terceiros           | Referência à solução                               |
     |--------------------------------|---------------------------------------------------------|
@@ -157,10 +157,10 @@ Irá agora copiar dados do dispositivo de origem para as partilhas na nuvem Edge
 
 Siga estes passos para sincronizar os dados nas partilhas de nuvem Edge no seu dispositivo-alvo:
 
-1. [Adicione ações](azure-stack-edge-gpu-manage-shares.md#add-a-share) correspondentes aos nomes de ações criados no dispositivo de origem. Certifique-se de que, durante a criação de partilhas, **selecione o recipiente blob** para **utilizar a** opção existente e, em seguida, selecione o recipiente que foi utilizado com o dispositivo anterior.
-1. [Adicione utilizadores](azure-stack-edge-gpu-manage-users.md#add-a-user) que tenham tido acesso ao dispositivo anterior.
-1. [Refresque os](azure-stack-edge-gpu-manage-shares.md#refresh-shares) dados de partilha do Azure. Isto retira todos os dados da nuvem do recipiente existente para as ações.
-1. Recrie os horários de largura de banda para serem associados às suas ações. Consulte [um calendário de largura de banda](azure-stack-edge-gpu-manage-bandwidth-schedules.md#add-a-schedule) para passos detalhados.
+1. [Adicione ações](azure-stack-edge-j-series-manage-shares.md#add-a-share) correspondentes aos nomes de ações criados no dispositivo de origem. Quando criar as ações, certifique-se de que o **recipiente de bolhas Select** está definido para utilizar o dispositivo existente e, **em** seguida, selecione o recipiente que foi utilizado com o dispositivo anterior.
+1. [Adicione utilizadores](azure-stack-edge-j-series-manage-users.md#add-a-user) que tenham tido acesso ao dispositivo anterior.
+1. [Refresque os](azure-stack-edge-j-series-manage-shares.md#refresh-shares) dados de partilha do Azure. Refrescar a partilha irá retirar todos os dados da nuvem do recipiente existente para as ações.
+1. Recrie os horários de largura de banda para serem associados às suas ações. Consulte [um calendário de largura de banda](azure-stack-edge-j-series-manage-bandwidth-schedules.md#add-a-schedule) para passos detalhados.
 
 
 ### <a name="2-from-edge-local-shares"></a>2. A partir de ações locais edge
@@ -175,9 +175,9 @@ Siga estes passos para recuperar os dados das ações locais:
 1. Adicione todas as ações locais no dispositivo alvo. Consulte os passos detalhados em [Adicionar uma parte local.](azure-stack-edge-gpu-manage-shares.md#add-a-local-share)
 1. O acesso às ações SMB no dispositivo de origem utilizará os endereços IP enquanto que no dispositivo-alvo, utilizará o nome do dispositivo. Consulte [a Ligação a uma participação da SMB no GPU Azure Stack Edge Pro .](azure-stack-edge-j-series-deploy-add-shares.md#connect-to-an-smb-share) Para se ligar às ações da NFS no dispositivo-alvo, terá de utilizar os novos endereços IP associados ao dispositivo. Consulte [a Ligação a uma participação da NFS no GPU Azure Stack Edge Pro .](azure-stack-edge-j-series-deploy-add-shares.md#connect-to-an-nfs-share) 
 
-    Se copiou os dados da sua partilha para um servidor intermédio sobre SMB/NFS, pode copiar estes dados para ações no dispositivo-alvo. Também pode copiar os dados diretamente do dispositivo de origem se a fonte e o dispositivo-alvo estiverem *online*.
+    Se copiou os seus dados de partilha para um servidor intermédio sobre SMB ou NFS, pode copiar os dados do servidor intermédio para partilhar no dispositivo-alvo. Se a fonte e o dispositivo alvo estiverem *online,* também pode copiar os dados diretamente do dispositivo de origem.
 
-    Se tivesse usado um software de terceiros para fazer o back up dos dados nas ações locais, terá de executar o procedimento de recuperação fornecido pela solução de proteção de dados de escolha. Consulte as referências na tabela seguinte.
+    Se tiver usado software de terceiros para fazer o back up dos dados nas ações locais, terá de executar o procedimento de recuperação que é fornecido pela solução de proteção de dados de eleição. Consulte as referências na tabela seguinte.
 
     | Software de terceiros           | Referência à solução                               |
     |--------------------------------|---------------------------------------------------------|

@@ -924,6 +924,9 @@
         - name: Reservas
           tocHref: /azure/cost-management-billing/reservations/
           topicHref: /azure/cost-management-billing/reservations/
+        - name: Contrato de Cliente da Microsoft
+          tocHref: /azure/cost-management-billing/microsoft-customer-agreement/
+          topicHref: /azure/cost-management-billing/microsoft-customer-agreement/
     - name: Competência
       tocHref: /azure/purview/
       topicHref: /azure/purview/

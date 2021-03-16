@@ -4,12 +4,12 @@ description: O serviço Azure Container Instances oferece a forma mais rápida e
 ms.topic: overview
 ms.date: 08/10/2020
 ms.custom: seodec18, mvc
-ms.openlocfilehash: bd68fab380754eca38eebf3fd52634508f282cf6
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 873f7cc51d1b369503a72501ae000000ff06f805
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88121668"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103573018"
 ---
 # <a name="what-is-azure-container-instances"></a>O que é o Azure Container Instances?
 
@@ -21,10 +21,7 @@ O Azure Container Instances é uma ótima solução para qualquer cenário que p
 
 Os contentores oferecem benefícios de arranque significativos em relação às máquinas virtuais (VMs). Com o Azure Container Instances, pode iniciar contentores no Azure em segundos, sem ter de aprovisionar e gerir VMs.
 
-Traga imagens de contentores Linux ou Windows do Docker Hub, um registo privado de [contentores Azure,](../container-registry/index.yml)ou outro registo de estivadores baseado na nuvem. Azure Container Instances caches várias imagens de SO de base comum, ajudando a acelerar a implementação das suas imagens de aplicação personalizadas.
-
-> [!NOTE]
-> Atualmente, não é possível implantar uma imagem de um registo no local para instâncias de contentores Azure.
+Traga imagens de contentores Linux ou Windows do Docker Hub, um registo privado de [contentores Azure,](../container-registry/index.yml)ou outro registo de estivadores baseado na nuvem. Visite as [FAQ](container-instances-faq.md) para saber quais os registos suportados pelo ACI. Azure Container Instances caches várias imagens de SO de base comum, ajudando a acelerar a implementação das suas imagens de aplicação personalizadas.
 
 ## <a name="container-access"></a>Acesso a contentores
 
@@ -43,7 +40,7 @@ Historicamente, os contentores têm vindo a oferecer isolamento de dependências
 
 ### <a name="customer-data"></a>Dados do cliente
 
-O serviço ACI armazena os dados mínimos do cliente necessários para garantir que os seus grupos de contentores estão a funcionar como esperado. Atualmente, o armazenamento de dados dos clientes numa única região só está disponível na Região do Sudeste Asiático (Singapura) da Ásia-Pacífico Geo. Para todas as outras regiões, os dados dos clientes são armazenados na [Geo.](https://azure.microsoft.com/global-infrastructure/geographies/) Por favor, entre em contato com a Azure Support para saber mais.
+O serviço ACI armazena os dados mínimos do cliente necessários para garantir que os seus grupos de contentores estão a funcionar como esperado. O armazenamento de dados de clientes numa única região está atualmente disponível apenas na Região do Sudeste Asiático (Singapura) da Região Geo do Pacífico Asiático e Do Brasil Sul (Estado de São Paulo) do Brasil Geo. Para todas as outras regiões, os dados dos clientes são armazenados na [Geo.](https://azure.microsoft.com/global-infrastructure/geographies/) Por favor, entre em contato com a Azure Support para saber mais.
 
 ## <a name="custom-sizes"></a>Tamanhos personalizados
 
@@ -68,9 +65,6 @@ Algumas funcionalidades estão atualmente restritas aos contentores Linux:
 * [Recursos da GPU](container-instances-gpu.md) (pré-visualização)
 
 Para a implementação de contentores do Windows, utilize imagens com base em [imagens comuns do Windows](container-instances-faq.md#what-windows-base-os-images-are-supported).
-
-> [!NOTE]
-> A utilização de imagens baseadas no Windows Server 2019 em Instâncias de Contentores Azure está em pré-visualização.
 
 ## <a name="co-scheduled-groups"></a>Grupos agendados conjuntamente
 

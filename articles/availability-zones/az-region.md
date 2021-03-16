@@ -4,16 +4,16 @@ description: Para criar aplicações altamente disponíveis e resilientes no Azu
 author: prsandhu
 ms.service: azure
 ms.topic: conceptual
-ms.date: 01/26/2021
+ms.date: 03/16/2021
 ms.author: prsandhu
 ms.reviewer: cynthn
 ms.custom: fasttrack-edit, mvc, references_regions
-ms.openlocfilehash: fee000009be90a083406725fe7f1e8c4382af3e9
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 7aff8320186ada53772fc4ff2232e8cf55585a77
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101701455"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103573035"
 ---
 # <a name="azure-services-that-support-availability-zones"></a>Serviços do Azure que suportam as Zonas de Disponibilidade
 
@@ -50,12 +50,13 @@ Para alcançar uma ampla continuidade de negócios em Azure, construa a sua arqu
 | América           | Europa               | África              | Ásia-Pacífico   |
 |--------------------|----------------------|---------------------|----------------|
 |                    |                      |                     |                |
-| Canadá Central     | França Central       | África do Sul Norte* | Leste do Japão     |
-| E.U.A. Central         | Alemanha Centro-Oeste |                     | Sudeste Asiático |
-| E.U.A. Leste            | Europa do Norte         |                     | Leste da Austrália |
-| E.U.A. Leste 2          | Sul do Reino Unido             |                     |                |
-| Centro-Sul dos EUA | Europa Ocidental          |                     |                |
-| US Gov - Virginia    |                      |                     |                |
+| Sul do Brasil       | França Central       | África do Sul Norte* | Leste do Japão     |
+| Canadá Central     | Alemanha Centro-Oeste |                     | Sudeste Asiático |
+| E.U.A. Central         | Europa do Norte         |                     | Leste da Austrália |
+| E.U.A. Leste            | Sul do Reino Unido             |                     |                |
+| E.U.A. Leste 2          | Europa Ocidental          |                     |                |
+| Centro-Sul dos EUA |                      |                     |                |
+| US Gov - Virginia     |                      |                     |                |
 | Oeste DOS EUA 2        |                      |                     |                |
 
 
@@ -125,6 +126,7 @@ Para alcançar uma ampla continuidade de negócios em Azure, construa a sua arqu
 | Base de Dados Azure para MySQL – Servidor Flexível      |      :large_blue_diamond:  |
 | Base de Dados Azure para PostgreSQL – Servidor Flexível |      :large_blue_diamond:  |
 | Azure DDoS Protection                           |      :large_blue_diamond:  |
+| Azure Disk Encryption                           |      :large_blue_diamond:  |
 | Azure Firewall                                  |      :large_blue_diamond:  |
 | Azure Firewall Manager                          |      :large_blue_diamond:  |
 | Azure Kubernetes Service (AKS)                  |      :large_blue_diamond:  |
@@ -169,6 +171,7 @@ Para alcançar uma ampla continuidade de negócios em Azure, construa a sua arqu
 |     Assistente do Azure                             |     :globe_with_meridians:             |
 |     Azure Blueprints                          |     :globe_with_meridians:             |
 |     Azure Bot Services                        |     :globe_with_meridians:             |
+|     Azure Front Door                          |     :globe_with_meridians:             |
 |     Azure Defender para IoT                  |     :globe_with_meridians:             |
 |     Azure Front Door                           |     :globe_with_meridians:             |
 |     Proteção de Informação Azure            |     :globe_with_meridians:             |

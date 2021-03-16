@@ -1,5 +1,5 @@
 ---
-title: Relatórios de atividades de inscrição do Azure Ative Directory - pré-visualização / Microsoft Docs
+title: Relatórios de atividades de inscrição do Azure Ative Directory - pré-visualização | Microsoft Docs
 description: Introdução aos relatórios de atividade de inscrição no portal Azure Ative Directory
 services: active-directory
 documentationcenter: ''
@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 09/23/2020
+ms.date: 03/16/2021
 ms.author: markvi
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36e6642e230fa809630751e224ff9384ea8524d1
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 185638d683699403c304603d968cfe84e32a55b5
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319783"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103574565"
 ---
 # <a name="azure-active-directory-sign-in-activity-reports---preview"></a>Relatórios de atividades de inscrição do Azure Ative Directory - pré-visualização
 
@@ -125,7 +125,12 @@ Cada separador na lâmina de inscrição mostra as colunas predefinidos abaixo. 
 
 As entradas interativas do utilizador são inserções em que um utilizador fornece um fator de autenticação ao Azure AD ou interage diretamente com a AZure AD ou uma aplicação auxiliar, como a aplicação Microsoft Authenticator. Os fatores que os utilizadores fornecem incluem palavras-passe, respostas a desafios de MFA, fatores biométricos ou códigos QR que um utilizador fornece ao Azure AD ou a uma aplicação auxiliar.
 
-Este relatório inclui também as inscrições federadas de fornecedores de identidade que são federadas à Azure AD.  
+> [!NOTE]
+> Este relatório inclui também as inscrições federadas de fornecedores de identidade que são federadas à Azure AD.  
+
+
+
+Nota: O relatório de logins interativos do utilizador usado para conter alguns logins não interativos dos clientes do Microsoft Exchange. Embora esses sign-ins não fossem interativos, foram incluídos no relatório interativo de inscrição dos utilizadores para uma visibilidade adicional. Uma vez que o relatório de logins de utilizador não interativo entrou em pré-visualização pública em novembro de 2020, esses registos de eventos de inscrição não interativos foram transferidos para o sinal de utilizador não interativo em relatório para maior precisão. 
 
 
 **Tamanho do relatório:** pequeno <br> 
@@ -205,7 +210,7 @@ Para facilitar a digestão dos dados, os eventos de entrada não interativo são
 
 - Aplicação
 
-- Utilizador
+- User
 
 - Endereço IP
 
@@ -395,7 +400,7 @@ Quando descarrega um relatório de atividade de inscrição, o seguinte é verda
 - O número de registos que pode descarregar está limitado pelas políticas de retenção do [relatório Azure Ative Directory](reference-reports-data-retention.md). 
 
 
-![Relatórios de descarregamento](./media/concept-all-sign-ins/download-reports.png "Relatórios de descarregamento")
+![Transferir relatórios](./media/concept-all-sign-ins/download-reports.png "Transferir relatórios")
 
 
 Cada download de CSV é composto por seis ficheiros diferentes:

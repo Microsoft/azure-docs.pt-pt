@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 960c00f516aac0c804718e439ae3ed9691759329
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.openlocfilehash: dbd4923dd2843ab2c043da69f1b72efd8e1eb701
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103010682"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103573052"
 ---
 # <a name="scenario-web-app-that-signs-in-users"></a>Cenário: aplicação web que assina nos utilizadores
 
@@ -55,7 +55,7 @@ Se desenvolver com Python, experimente o seguinte quickstart:
 
 Adiciona autenticação à sua aplicação web para que possa iniciar sação nos utilizadores. A adição de autenticação permite à sua aplicação web aceder a informações de perfil limitadas de forma a personalizar a experiência para os utilizadores.
 
-As aplicações web autenticam um utilizador num navegador web. Neste cenário, a aplicação web direciona o navegador do utilizador para os inscrever no Azure Ative Directory (Azure AD). O Azure AD devolve uma resposta de súmis através do browser do utilizador, que contém reclamações sobre o utilizador num sinal de segurança. A assinatura nos utilizadores tira partido do protocolo [padrão Open ID Connect,](./v2-protocols-oidc.md) simplificado pela utilização de [bibliotecas](scenario-web-app-sign-user-app-configuration.md#microsoft libraries supporting web apps)de middleware .
+As aplicações web autenticam um utilizador num navegador web. Neste cenário, a aplicação web direciona o navegador do utilizador para os inscrever no Azure Ative Directory (Azure AD). O Azure AD devolve uma resposta de súmis através do browser do utilizador, que contém reclamações sobre o utilizador num sinal de segurança. A assinatura nos utilizadores tira partido do protocolo [padrão Open ID Connect,](./v2-protocols-oidc.md) simplificado pela utilização de [bibliotecas](scenario-web-app-sign-user-app-configuration.md#microsoft-libraries-supporting-web-apps)de middleware .
 
 ![Sinais de aplicações web nos utilizadores](./media/scenario-webapp/scenario-webapp-signs-in-users.svg)
 

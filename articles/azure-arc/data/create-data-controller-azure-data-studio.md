@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 12/09/2020
 ms.topic: how-to
-ms.openlocfilehash: 2b35abf7f318d4db6166dd48c4f7bd35aaf4d98a
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: f2d44cc769e9673eeb75828126f806d2b2308a17
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101644413"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103573885"
 ---
 # <a name="create-data-controller-in-azure-data-studio"></a>Criar controlador de dados no Azure Data Studio
 
@@ -47,7 +47,7 @@ Siga estes passos para criar um controlador de dados Azure Arc utilizando o assi
 1. Escolha o grupo de subscrição e recursos pretendido.
 1. Selecione uma localização do Azure.
    
-   A localização Azure selecionada aqui é a localização em Azure onde os *metadados* sobre o controlador de dados e as instâncias de base de dados que gere serão armazenados. As instâncias do controlador de dados e da base de dados serão realmente tripuladas no seu cluster Kubernetes onde quer que isso esteja.
+   A localização Azure selecionada aqui é a localização em Azure onde os *metadados* sobre o controlador de dados e as instâncias de base de dados que gere serão armazenados. As instâncias do controlador de dados e da base de dados serão realmente criadas no seu cluster Kubernetes onde quer que isso esteja.
 
 10. Selecione o modo de conectividade apropriado. Saiba mais sobre [os modos conectividade](./connectivity.md). **Clique em Seguinte**.
 

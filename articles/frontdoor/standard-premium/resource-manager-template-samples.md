@@ -6,13 +6,13 @@ author: johndowns
 ms.author: jodowns
 ms.service: frontdoor
 ms.topic: sample
-ms.date: 03/05/2021
-ms.openlocfilehash: 393c15761c16dbf04d2af48fe13c0bc41b2e15b1
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.date: 03/16/2021
+ms.openlocfilehash: 241c4c713890af0db8fce74b0817b5bdcf9a1403
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102509572"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103573800"
 ---
 # <a name="azure-resource-manager-templates-for-azure-front-door"></a>Modelos de gestor de recursos Azure para Azure Front Door
 
@@ -21,7 +21,7 @@ ms.locfileid: "102509572"
 
 A tabela seguinte inclui links para modelos Azure Resource Manager para Azure Front Door, com arquiteturas de referência incluindo outros serviços Azure.
 
-| Serviço de Aplicações | Descrição |
+| Serviço de Aplicações | Description |
 |-|-|
 | [Serviço de Aplicações](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium-app-service-public) | Cria uma aplicação de Serviço de Aplicações com um ponto final público e um perfil da Porta frontal.  |
 | [Serviço de Aplicações com Link Privado](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-premium-app-service-private-link) | Cria uma aplicação de Serviço de Aplicações com um ponto final privado e um perfil da Porta frontal.  |
@@ -34,4 +34,8 @@ A tabela seguinte inclui links para modelos Azure Resource Manager para Azure Fr
 |**Armazenamento**| **Descrição** |
 | [Site estático de armazenamento](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium-storage-static-website) | Cria uma conta de Armazenamento Azure e um website estático com um ponto final público e um perfil da Porta frontal.  |
 | [Bolhas de armazenamento com link privado](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-premium-storage-blobs-private-link) | Cria uma conta de armazenamento Azure e um recipiente blob com um ponto final privado e um perfil da porta da frente.  |
+|**Gateway de Aplicação**| **Descrição** |
+| [Gateway de Aplicação](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium-application-gateway-public) | Cria um Gateway de Aplicação e um perfil da porta da frente. |
+|**Máquina virtual**| **Descrição** |
+| [Máquina virtual com serviço private link](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-premium-vm-private-link) | Cria uma máquina virtual e um serviço de Ligação Privada e um perfil da Porta frontal. |
 | | |

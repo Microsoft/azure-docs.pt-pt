@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/11/2021
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 86c8943531171094600bc7d93b8694bdd1c6e051
-ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
+ms.openlocfilehash: 16158b4ecfb46ea9092fe9eeb31cc4dee259b1ab
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103225804"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103573749"
 ---
 # <a name="speech-service-containers-frequently-asked-questions-faq"></a>Recipientes de serviço de fala frequentemente perguntas (FAQ)
 
@@ -344,20 +344,6 @@ Apenas para esclarecer para o interativo, conversa e ditado; esta é uma forma a
 - Para o microfone, será a 1x em tempo real. O uso geral deve ser de cerca de 1 núcleo para um único reconhecimento.
 
 Tudo isto pode ser verificado a partir dos registos do estivador. Na verdade, despejamos a linha com estatísticas de sessão e frase/expressão, e isso inclui os números de RTF.
-
-
-<br>
-</details>
-
-<details>
-<summary>
-<b>É comum dividir ficheiros de áudio em mandrils para uso de recipientes de fala?</b>
-</summary>
-
-O meu plano atual é pegar num ficheiro áudio existente e dividi-lo em pedaços de 10 segundos e enviá-los através do contentor. É um cenário aceitável?  Existe uma maneira melhor de processar ficheiros áudio maiores com o recipiente?
-
-**Resposta:** Usa o discurso SDK e dá-lhe o ficheiro, vai fazer a coisa certa. Por que precisa de acabar com o ficheiro?
-
 
 <br>
 </details>

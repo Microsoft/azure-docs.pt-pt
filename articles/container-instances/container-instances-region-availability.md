@@ -4,12 +4,12 @@ description: Disponibilidade de recursos de computação e memória para o servi
 ms.topic: article
 ms.date: 04/27/2020
 ms.custom: references_regions
-ms.openlocfilehash: a415a739cd9c1e2ca39ebeaef1d8903ab72cf0c4
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: 4decf29be23c2f1ed51f422052869e99abe4a511
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99831285"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103573613"
 ---
 # <a name="resource-availability-for-azure-container-instances-in-azure-regions"></a>Disponibilidade de recursos para instâncias de contentores Azure nas regiões de Azure
 
@@ -48,6 +48,7 @@ As seguintes regiões e recursos máximos estão disponíveis para grupos de con
 | E.U.A. Centro-Sul | 4 | 16 | 4 | 16 | 50 | N/D |
 | Sudeste Asiático | 4 | 16 | 4 | 16 | 50 | P100, V100 |
 | Sul da Índia | 4 | 16 | N/D | N/D | 50 | N/D |
+| Suíça Norte | 3 | 16 | N/D | N/D | 50 | N/D |
 | Sul do Reino Unido | 4 | 16 | 4 | 16 | 50 | N/D |
 | Uae Norte | 3 | 16 | N/D | N/D | 50 | N/D |
 | E.U.A. Centro-Oeste| 4 | 16 | 4 | 16 | 50 | N/D |

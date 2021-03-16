@@ -7,18 +7,18 @@ ms.date: 09/25/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: a75ecac20c553f697585648c5654d375b85e5183
-ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
+ms.openlocfilehash: 25f00024fb7371fd08bf6c4ceec3177cfaca029b
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100535200"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103572813"
 ---
 # <a name="key-vault-authentication-fundamentals"></a>Princípios Fundamentais da Autenticação do Key Vault
 
 O Azure Key Vault permite armazenar e gerir credenciais de aplicação de forma segura, tais como segredos, chaves e certificados num repositório de nuvem central e seguro. O Key Vault elimina a necessidade de armazenar credenciais nas suas aplicações. As suas aplicações podem autenticar-se no Key Vault na hora de executar para obter credenciais.
 
-Como administrador, pode controlar rigorosamente quais os utilizadores e aplicações que podem aceder ao cofre-chave e pode limitar e auditar as operações que realizam. Este documento explica os conceitos fundamentais do modelo de acesso ao cofre chave. Ele irá e fornecer-lhe-á um nível de conhecimento introdutório e mostrar-lhe como pode autenticar um utilizador ou aplicação para o cofre chave do início ao fim.
+Como administrador, pode controlar rigorosamente quais os utilizadores e aplicações que podem aceder ao cofre-chave e pode limitar e auditar as operações que realizam. Este documento explica os conceitos fundamentais do modelo de acesso ao cofre chave. Irá fornecer-lhe um nível de conhecimento introdutório e mostrar-lhe como pode autenticar um utilizador ou aplicação para o cofre chave do início ao fim.
 
 ## <a name="required-knowledge"></a>Conhecimento Necessário
 

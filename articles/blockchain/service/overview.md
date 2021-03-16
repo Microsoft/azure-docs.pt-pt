@@ -1,15 +1,15 @@
 ---
 title: Visão geral do Serviço Azure Blockchain
 description: Visão geral do Serviço Azure Blockchain
-ms.date: 01/04/2021
+ms.date: 03/15/2021
 ms.topic: overview
-ms.reviewer: ravastra
-ms.openlocfilehash: 15d1126a98a4d3194a256ed07de3918cb066a4e2
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.reviewer: patricka
+ms.openlocfilehash: 035e2c1df5912f291ad241ade25361f9cc098b22
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97963883"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103573630"
 ---
 # <a name="what-is-azure-blockchain-service"></a>O que é o Azure Blockchain Service?
 
@@ -19,7 +19,7 @@ O Azure Blockchain Service é um serviço de contabilidade totalmente gerido que
 * Gestão de consórcios incorporados
 * Desenvolver contratos inteligentes com ferramentas de desenvolvimento familiares
 
-O Azure Blockchain Service foi concebido para suportar vários protocolos de contabilidade. Atualmente, fornece suporte para o livro-razão Ethereum [Quorum](https://www.goquorum.com/) utilizando o mecanismo de consenso [de Tolerância à Falha Bizantina de Istambul (IBFT).](https://github.com/jpmorganchase/quorum/wiki/Quorum-Consensus)
+O Azure Blockchain Service foi concebido para suportar vários protocolos de contabilidade. Atualmente, fornece suporte para o livro-razão Ethereum [Quorum](https://www.goquorum.com/) utilizando o mecanismo de consenso [de Tolerância à Falha Bizantina de Istambul (IBFT).](https://docs.goquorum.consensys.net/en/stable/Concepts/Consensus/IBFT/)
 
 Estas funcionalidades não exigem praticamente qualquer ação de administração e são todas fornecidas sem custos adicionais. Você pode focar-se no desenvolvimento de aplicações e lógica de negócio em vez de alocar tempo e recursos para gerir máquinas virtuais e infraestruturas. Além disso, pode continuar a desenvolver a sua aplicação com as ferramentas de código aberto e plataforma à sua escolha para entregar as suas soluções sem ter de aprender novas competências.
 

@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 01/12/2021
+ms.date: 03/16/2021
 ms.author: victorh
-ms.openlocfilehash: 63e2aac4c12ecc5d832cb037fda91bd2c6ad0bf1
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 506799f94676be007cf94320e3958bd305ce85f0
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98132448"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103573460"
 ---
 # <a name="what-is-azure-firewall-manager"></a>O que é o Azure Firewall Manager?
 
@@ -76,7 +76,7 @@ As políticas de firewall do Azure podem ser usadas em todas as regiões. Por ex
 
 O Azure Firewall Manager tem os seguintes problemas conhecidos:
 
-|Problema  |Descrição  |Mitigação  |
+|Problema  |Description  |Mitigação  |
 |---------|---------|---------|
 |Divisão de tráfego|A divisão de tráfego da Microsoft 365 e do Azure Public PaaS não está suportada neste momento. Como tal, selecionar um fornecedor de terceiros para V2I ou B2I também envia todo o tráfego Azure Public PaaS e Microsoft 365 através do serviço de parceiros.|A investigar a divisão de trânsito no centro.
 |Um centro virtual seguro por região|Não se pode ter mais do que um centro virtual seguro por região.|Crie várias WANs virtuais numa região.|
@@ -88,7 +88,6 @@ O Azure Firewall Manager tem os seguintes problemas conhecidos:
 |Falha na adição de endereço IP em massa|A firewall do hub seguro entra num estado falhado se adicionar vários endereços IP públicos.|Adicione pequenos incrementos de endereços IP públicos. Por exemplo, adicione 10 de cada vez.|
 |DDoS Protection Standard não suportado com centros virtuais seguros|A Norma de Proteção DDoS não está integrada com vWANs.|A investigar|
 |Registos de atividade não totalmente suportados|A política de firewall não suporta atualmente registos de atividade.|A investigar|
-|Configurar gamas de endereços IP privados SNAT|[As definições privadas de gama IP](../firewall/snat-private-range.md) são ignoradas se a política do Azure Firewall estiver configurada. O comportamento padrão do Azure Firewall é utilizado, onde não é regras da Rede SNAT quando o endereço IP de destino está em uma gama de endereços IP privada por [IANA RFC 1918](https://tools.ietf.org/html/rfc1918).|A investigar|
 |Algumas definições de firewall não são migradas quando a firewall é migrada para usar a Política de Firewall|As zonas de disponibilidade e os endereços privados SNAT não são migrados quando migra para a Política de Firewall do Azure.|A investigar| 
 
 ## <a name="next-steps"></a>Passos seguintes

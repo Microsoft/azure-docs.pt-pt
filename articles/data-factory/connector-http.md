@@ -6,12 +6,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: jingwang
-ms.openlocfilehash: 0462dac12d41fff667212902152b420d1460186d
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: f3184602bad8aabf654c8fa94d33372d08c11a66
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100383641"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103573205"
 ---
 # <a name="copy-data-from-an-http-endpoint-by-using-azure-data-factory"></a>Copie os dados de um ponto final HTTP utilizando a Azure Data Factory
 
@@ -221,7 +221,7 @@ As seguintes propriedades são suportadas para HTTP em `storeSettings` definiç�
 | ------------------------ | ------------------------------------------------------------ | -------- |
 | tipo                     | A propriedade tipo em baixo `storeSettings` deve ser definida para **HttpReadSettings**. | Yes      |
 | requestMethod            | O método HTTP. <br>Os valores permitidos são **Get** (predefinido) e **Post**. | No       |
-| addtionalHeaders         | Cabeçalhos de pedido HTTP adicionais.                             | No       |
+| cabeçalhos adicionais         | Cabeçalhos de pedido HTTP adicionais.                             | No       |
 | requestCorp              | O corpo para o pedido HTTP.                               | No       |
 | httpRequestTimeout           | O tempo limite (o valor **TimeSpan)** para o pedido HTTP obter uma resposta. Este valor é o tempo limite para obter uma resposta, não o tempo limite para ler dados de resposta. O valor predefinido é **00:01:40**. | No       |
 | maxConcurrentConnections | O número de ligações a ligar ao armazém simultaneamente. Especifique apenas quando pretende limitar a ligação simultânea à loja de dados. | No       |

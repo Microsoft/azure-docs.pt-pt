@@ -5,12 +5,12 @@ author: macolso
 ms.author: macolso
 ms.topic: article
 ms.date: 06/02/2020
-ms.openlocfilehash: 5de1188ee018e796f918d7559c0e2c24c77834f4
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 2645c3f183e2217dff28a96c9c0d376eb82a6476
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98186197"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103573137"
 ---
 # <a name="frequently-asked-questions-about-azure-container-instances"></a>Perguntas frequentes sobre instâncias de contentores Azure
 
@@ -45,7 +45,7 @@ Consulte [orientações](container-instances-troubleshooting.md#container-takes-
 > [!NOTE]
 > As imagens do Windows baseadas no Semi-Annual lançamento do Canal 1709 ou 1803 não são suportadas.
 
-#### <a name="windows-server-2019-and-client-base-images-preview"></a>Windows Server 2019 e imagens base do cliente (pré-visualização)
+#### <a name="windows-server-2019-and-client-base-images"></a>Windows Server 2019 e imagens base de clientes
 
 * [Nano Server](https://hub.docker.com/_/microsoft-windows-nanoserver): `1809` , ou mais `10.0.17763.1040` recente
 * [Núcleo do Servidor do Windows:](https://hub.docker.com/_/microsoft-windows-servercore) `ltsc2019` , ou mais `1809` `10.0.17763.1040` recente
@@ -55,9 +55,12 @@ Consulte [orientações](container-instances-troubleshooting.md#container-takes-
 
 Use a imagem mais pequena que satisfaça os seus requisitos. Para o Linux, pode utilizar uma imagem *de runtime-alpine* .NET Core, que foi suportada desde o lançamento de .NET Core 2.1. Para o Windows, se estiver a utilizar o quadro .NET completo, então tem de utilizar uma imagem do Núcleo do Servidor do Windows (imagem apenas em funcionamento, como *4.7.2-windowsservercore-ltsc2016).* As imagens apenas de tempo de execução são menores, mas não suportam cargas de trabalho que requeiram o .NET SDK.
 
+> [!NOTE]
+> A ACI não pode extrair imagens de registos não conformes com o OCI.
+
 ### <a name="what-types-of-container-registries-are-compatible-with-aci"></a>Que tipos de registos de contentores são compatíveis com o ACI?
 
-O ACI suporta a imagem a partir de registos de contentores de terceiros, como o DockerHub. O ACI também suporta a retirada de imagens dos registos no local, desde que sejam compatíveis com o OCR e tenham um ponto final que esteja exposto publicamente à internet.
+O ACI suporta a imagem a partir de registos de contentores de terceiros, como o DockerHub. O ACI suporta a imagem a partir de registos de contentores compatíveis com OCI de terceiros, tais como DockerHub com um ponto final que está exposto publicamente à internet.
 
 ## <a name="availability-and-quotas"></a>Disponibilidade e quotas
 

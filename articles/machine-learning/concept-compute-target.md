@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 09/29/2020
-ms.openlocfilehash: 3b1e102385f43dd9a1ba6996e657f49d435038a2
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: b4422c664071087ccae73a5b6f642b53dcca74bf
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102503623"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103574650"
 ---
 # <a name="what-are-compute-targets-in-azure-machine-learning"></a>Quais são os destinos de computação no Azure Machine Learning?
 
@@ -98,30 +98,30 @@ Existem algumas exceções e limitações à escolha de um tamanho VM:
 
 Consulte a tabela seguinte para saber mais sobre séries e restrições apoiadas.
 
-| **SérieS VM suportadas**  | **Restrições** |
-|------------|------------|
-| D | Nenhum. |
-| DDSv4 | Nenhum. |
-| Dv2 | Nenhum. |  
-| Dv3 | Nenhum.|
-| DSv2 | Nenhum. | 
-| DSv3 | Nenhum.|
-| EAv4 | Nenhum. |
-| Ev3 | Nenhum. |
-| FSv2 | Nenhum. | 
-| H | Nenhum. |
-| HB | Requer aprovação. |
-| HBv2 | Requer aprovação. |  
-| HCS | Requer aprovação. |  
-| M | Requer aprovação. |
-| NC | Nenhum. |  
-| NC Promo | Nenhum. |
-| NCsv2 | Requer aprovação. |
-| NCsv3 | Requer aprovação. |  
-| NDs | Requer aprovação. |
-| NDv2 | Requer aprovação. |
-| NV | Nenhum. |
-| NVv3 | Requer aprovação. | 
+| **SérieS VM suportadas**  | **Restrições** | **Categoria** | **Apoiado por** |
+|------------|------------|------------|------------|
+| D | Nenhum. | Fins gerais | Aglomerados e instâncias computacional |
+| DDSv4 | Nenhum. | Fins gerais | Aglomerados e instâncias computacional |
+| Dv2 | Nenhum. | Fins gerais | Aglomerados e instâncias computacional |
+| Dv3 | Nenhum.| Fins gerais | Aglomerados e instâncias computacional |
+| DSv2 | Nenhum. | Fins gerais | Aglomerados e instâncias computacional |
+| DSv3 | Nenhum.| Fins gerais | Aglomerados e instâncias computacional |
+| EAv4 | Nenhum. | Otimizada para memória | Aglomerados e instâncias computacional |
+| Ev3 | Nenhum. | Otimizada para memória | Aglomerados e instâncias computacional |
+| FSv2 | Nenhum. | Otimizado para computação | Aglomerados e instâncias computacional |
+| H | Nenhum. | Computação de elevado desempenho | Aglomerados e instâncias computacional |
+| HB | Requer aprovação. | Computação de elevado desempenho | Aglomerados e instâncias computacional |
+| HBv2 | Requer aprovação. |  Computação de elevado desempenho | Aglomerados e instâncias computacional |
+| HCS | Requer aprovação. |  Computação de elevado desempenho | Aglomerados e instâncias computacional |
+| M | Requer aprovação. | Otimizada para memória | Aglomerados e instâncias computacional |
+| NC | Nenhum. |  GPU | Aglomerados e instâncias computacional |
+| NC Promo | Nenhum. | GPU | Aglomerados e instâncias computacional |
+| NCsv2 | Requer aprovação. | GPU | Aglomerados e instâncias computacional |
+| NCsv3 | Requer aprovação. | GPU | Aglomerados e instâncias computacional |  
+| NDs | Requer aprovação. | GPU | Aglomerados e instâncias computacional | 
+| NDv2 | Requer aprovação. | GPU | Aglomerados e instâncias computacional | 
+| NV | Nenhum. | GPU | Aglomerados e instâncias computacional | 
+| NVv3 | Requer aprovação. | GPU | Aglomerados e instâncias computacional | 
 
 
 Embora a Azure Machine Learning suporte estas séries VM, podem não estar disponíveis em todas as regiões do Azure. Para verificar se as séries VM estão disponíveis, consulte [os Produtos disponíveis por região.](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)
