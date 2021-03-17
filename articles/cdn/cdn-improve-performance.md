@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 02/28/2018
 ms.author: allensu
-ms.openlocfilehash: 7c84d8129e1d0d88601495dec41883077784bb71
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 11a2dbfc9c6da60e4dd96f65d2a20165a3663e8c
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101728200"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103601547"
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>Improve performance by compressing files in Azure CDN (Comprimir ficheiros na CDN do Azure para melhorar o desempenho)
 A compressão de ficheiros é um método simples e eficaz para melhorar a velocidade de transferência de ficheiros e aumentar o desempenho da carga de página, reduzindo o tamanho de um ficheiro antes de ser enviado do servidor. A compressão de ficheiros pode reduzir os custos de largura de banda e proporcionar uma experiência mais responsiva para os seus utilizadores.
@@ -63,10 +63,6 @@ Os níveis padrão e premium de CDN fornecem a mesma funcionalidade de compress�
 
    > [!TIP]
    > Embora seja possível, não é aconselhável aplicar compressão em formatos comprimidos. Por exemplo, ZIP, MP3, MP4 ou JPG.
-   > 
-
-   > [!NOTE]
-   > A modificação da lista padrão dos tipos de MIME não é atualmente suportada no Azure CDN Standard da Microsoft.
    > 
 
 5. Depois de escoar as alterações, **selecione Guardar**.

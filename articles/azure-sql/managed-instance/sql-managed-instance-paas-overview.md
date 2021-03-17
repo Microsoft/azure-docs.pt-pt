@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, vanto
 ms.date: 08/14/2020
-ms.openlocfilehash: 83f38797e406ff7e62503f59ef979b9ce4f07f97
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 81d4527817d637e7b764cc83160153d974ced5c0
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917941"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103600967"
 ---
 # <a name="what-is-azure-sql-managed-instance"></a>O que é Azure SQL Managed Instance?
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -35,6 +35,9 @@ O seguinte diagrama descreve as principais características da SQL Managed Insta
 
 Azure SQL Managed Instance é projetado para clientes que procuram migrar um grande número de aplicações de um iaas no local ou IaaS, auto-construído, ou ISV forneceu ambiente para um ambiente de nuvem PaaS totalmente gerido, com o mínimo de esforço de migração possível. Utilizando o [Serviço de Migração de Dados Azure](../../dms/tutorial-sql-server-to-managed-instance.md#create-an-azure-database-migration-service-instance)totalmente automatizado, os clientes podem levantar e transferir a sua instância existente do SQL Server para a SQL Managed Instance, que oferece compatibilidade com o SQL Server e isolamento total de instâncias de clientes com suporte nativo VNet. Para obter mais informações sobre opções e ferramentas de [migração, consulte a visão geral da migração: SQL Server to Azure SQL Managed Instance](../migration-guides/managed-instance/sql-server-to-managed-instance-overview.md).</br> Com a Garantia de Software, pode trocar as licenças existentes por tarifas com desconto em SQL Managed Instance utilizando o [Benefício Híbrido Azure para o SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/). SQL Managed Instance é o melhor destino de migração na nuvem para casos de SQL Server que requerem alta segurança e uma rica superfície de programabilidade.
 
+> [!TIP]
+> Como podemos tornar o Azure SQL melhor? [Faça o levantamento.](https://aka.ms/AzureSQLSurvey)
+
 ## <a name="key-features-and-capabilities"></a>Principais funcionalidades e capacidades
 
 SQL Managed Instance combina as melhores funcionalidades que estão disponíveis tanto na Base de Dados Azure SQL como no motor de base de dados sql Server.
@@ -46,7 +49,7 @@ SQL Managed Instance combina as melhores funcionalidades que estão disponíveis
 | --- | --- |
 |Sem compra e gestão de hardware <br>Sem despesas gerais de gestão para a gestão de infraestruturas subjacentes <br>Dimensionamento rápido do fornecimento e do serviço <br>Patching automatizado e atualização de versão <br>Integração com outros serviços de dados PaaS |99,99% uptime SLA  <br>Alta [disponibilidade](../database/high-availability-sla.md) incorporada <br>Dados protegidos com [cópias de segurança automatizadas](../database/automated-backups-overview.md) <br>Período de retenção de backup configurável do cliente <br>[Backups iniciados](/sql/t-sql/statements/backup-transact-sql?preserve-view=true&view=azuresqldb-mi-current) pelo utilizador <br>[Capacidade de restauro da base de dados pontual](../database/recovery-using-backups.md#point-in-time-restore) |
 |**Segurança e conformidade** | **Gestão**|
-|Ambiente isolado[(integração VNet,](connectivity-architecture-overview.md)serviço de inquilino único, computação e armazenamento dedicados) <br>[Encriptação transparente de dados (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Autenticação do Azure Ative Directory (Azure AD),](../database/authentication-aad-overview.md)suporte único de inscrição <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Principais do servidor AD do Azure (logins)</a>  <br>Adere aos padrões de conformidade como a Base de Dados Azure SQL <br>[Auditoria SQL](auditing-configure.md) <br>[Advanced Threat Protection](threat-detection-configure.md) |A API gestor de recursos Azure para automatizar o fornecimento e dimensionamento de serviços <br>Funcionalidade do portal Azure para o fornecimento e dimensionamento de serviços manuais <br>Serviço de Migração de Dados
+|Ambiente isolado[(integração VNet,](connectivity-architecture-overview.md)serviço de inquilino único, computação e armazenamento dedicados) <br>[Encriptação transparente de dados (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Autenticação do Azure Ative Directory (Azure AD),](../database/authentication-aad-overview.md)suporte único de inscrição <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true">Principais do servidor AD do Azure (logins)</a>  <br>Adere aos padrões de conformidade como a Base de Dados Azure SQL <br>[Auditoria SQL](auditing-configure.md) <br>[Advanced Threat Protection](threat-detection-configure.md) |A API gestor de recursos Azure para automatizar o fornecimento e dimensionamento de serviços <br>Funcionalidade do portal Azure para o fornecimento e dimensionamento de serviços manuais <br>Serviço de Migração de Dados
 
 > [!IMPORTANT]
 > A Azure SQL Managed Instance foi certificada contra uma série de normas de conformidade. Para mais informações, consulte as Ofertas de Conformidade do [Microsoft Azure,](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuideV3?command=Download&downloadType=Document&downloadId=44bbae63-bf4d-4e3b-9d3d-c96fb25ec363&tab=7027ead0-3d6b-11e9-b9e1-290b1eb4cdeb&docTab=7027ead0-3d6b-11e9-b9e1-290b1eb4cdeb_FAQ_and_White_Papers)onde pode encontrar a lista mais atual de certificações de conformidade de instâncias geridas SQL, listadas na **Base de Dados SQL**.
@@ -158,7 +161,7 @@ A migração de uma base de dados encriptada para SQL Managed Instance é suport
 
 SQL Managed Instance suporta logins e logins tradicionais do sql server integrados com Azure AD. Os principais servidores AD (logins)**(pré-visualização pública)** são uma versão em nuvem Azure de logins de bases de dados no local que está a utilizar no seu ambiente no local. Os principais dos servidores AD do Azure (logins) permitem especificar utilizadores e grupos do seu inquilino AD Azure como verdadeiros principais de instâncias, capazes de realizar qualquer operação ao nível de instância, incluindo consultas de base de dados cruzadas dentro da mesma instância gerida.
 
-É introduzida uma nova sintaxe para criar os principais servidores AD do Azure (logins), **DO FORNECEDOR EXTERNO**. Para obter mais informações sobre a sintaxe, consulte <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>e reveja a [Provisão de um administrador do Azure Ative Directory para](../database/authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance) o artigo sql Managed Instance.
+É introduzida uma nova sintaxe para criar os principais servidores AD do Azure (logins), **DO FORNECEDOR EXTERNO**. Para obter mais informações sobre a sintaxe, consulte <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true">CREATE LOGIN</a>e reveja a [Provisão de um administrador do Azure Ative Directory para](../database/authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance) o artigo sql Managed Instance.
 
 ### <a name="azure-active-directory-integration-and-multi-factor-authentication"></a>Integração do Azure Active Directory e a autenticação multifator
 

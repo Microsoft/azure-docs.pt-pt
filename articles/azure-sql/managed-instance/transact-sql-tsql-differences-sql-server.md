@@ -9,14 +9,14 @@ ms.topic: reference
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
-ms.date: 3/5/2021
+ms.date: 3/16/2021
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 014140b9b9832bab3de4f71c0b5f164b564b3fe5
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 1afd5a0e24e144169280e683321b5843e9766136
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102212727"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103601377"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Diferenças T-SQL entre SQL Server & Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -466,11 +466,13 @@ Para obter informações sobre as declarações de restauro, consulte [as declar
 
 ### <a name="service-broker"></a>Corretor de serviços
 
-O corretor de serviços de cross-instance não é suportado:
+A troca de mensagens de corretor de serviços de cross-instance é suportada apenas entre as instâncias geridas Azure SQL:
 
-- `sys.routes`: Como pré-requisito, deve selecionar o endereço de sys.routes. O endereço deve ser LOCAL em todas as rotas. Ver [sys.routes](/sql/relational-databases/system-catalog-views/sys-routes-transact-sql).
-- `CREATE ROUTE`: Não pode usar `CREATE ROUTE` com outra coisa que `ADDRESS` `LOCAL` não. Ver [ROTA CREATE](/sql/t-sql/statements/create-route-transact-sql).
-- `ALTER ROUTE`: Não pode usar `ALTER ROUTE` com outra coisa que `ADDRESS` `LOCAL` não. Ver [ROTA ALTER](/sql/t-sql/statements/alter-route-transact-sql). 
+- `CREATE ROUTE`: Não pode utilizar `CREATE ROUTE` com outro nome de `ADDRESS` `LOCAL` DNS de outra SqL Managed Instance.
+- `ALTER ROUTE`: Não pode utilizar `ALTER ROUTE` com outro nome de `ADDRESS` `LOCAL` DNS de outra SqL Managed Instance.
+
+A segurança dos transportes é suportada, a segurança do diálogo não é:
+- `CREATE REMOTE SERVICE BINDING`não são suportadas.
 
 O corretor de serviços está ativado por padrão e não pode ser desativado. As seguintes opções ALTER DATABSE não são suportadas:
 - `ENABLE_BROKER`

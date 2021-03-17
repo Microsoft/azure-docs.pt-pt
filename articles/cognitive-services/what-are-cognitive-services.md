@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 10/22/2020
 ms.author: nitinme
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 1a7e1cc2303438a904b95a378a14bd02ac88c179
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 85bcdb319431f1079cdbc8b94f0313f1dd6b67d6
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101736642"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103602006"
 ---
 # <a name="what-are-azure-cognitive-services"></a>O que são os Serviços Cognitivos Azure?
 
@@ -43,7 +43,6 @@ As seguintes secções deste artigo fornecem uma lista de serviços que fazem pa
 |[Serviço de Imagem Personalizada](./custom-vision-service/overview.md "Serviço de Imagem Personalizada")|O Serviço de Visão Personalizada permite-lhe construir classificadores de imagem personalizados.|
 |[Face](./face/index.yml "Rostos")| O serviço Face fornece acesso a algoritmos faciais avançados, permitindo a deteção e reconhecimento de atributos faciais.|
 |[Reconhecedor de Formato](./form-recognizer/index.yml "Reconhecedor de Formato")|O Reconhecimento de Formulários identifica e extrai pares de valores-chave e dados de tabela a partir de documentos de formulário; em seguida, produz dados estruturados, incluindo as relações no ficheiro original.|
-|[Reconhecimento de tinta](/previous-versions/azure/cognitive-services/Ink-Recognizer/ "Reconhecedor de Tinta Digital") (aposentadoria)|O Ink Recogniser permite-lhe reconhecer e analisar dados digitais de traçado de tinta, formas e conteúdo manuscrito, e desempenhá-lo numa estrutura documental com todas as entidades reconhecidas.|
 |[Video Indexer](../media-services/video-indexer/video-indexer-overview.md "Video Indexer")|O Indexer de Vídeo permite-lhe extrair informações do seu vídeo.|
 
 ## <a name="speech-apis"></a>APIs de fala
