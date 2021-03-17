@@ -1,14 +1,14 @@
 ---
-title: Escalaability - Azure Event Hubs / Microsoft Docs
+title: Escalaability - Azure Event Hubs | Microsoft Docs
 description: Este artigo fornece informações sobre como escalar os Hubs de Eventos Azure utilizando divisórias e unidades de produção.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 4dacb24ace2332f590db54959cbf1f06694b982b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 03/16/2021
+ms.openlocfilehash: f258ee2a3b4162dabf7a8e615db82b9b889d628b
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86521960"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103601295"
 ---
 # <a name="scaling-with-event-hubs"></a>Escalando com centros de eventos
 
@@ -39,11 +39,7 @@ Para obter mais informações sobre a função de insuflado automático, consult
 ## <a name="partitions"></a>Partições
 [!INCLUDE [event-hubs-partitions](../../includes/event-hubs-partitions.md)]
 
-### <a name="partition-key"></a>Chave de partição
 
-Pode utilizar uma [chave de partição](event-hubs-programming-guide.md#partition-key) para mapear dados de eventos recebidos em partições específicas para a finalidade de organização de dados. A chave de partição é um valor fornecido pelo remetente transmitido para um hub de eventos. É processada através de uma função hash estática que cria a atribuição de partições. Se não especificar uma chave de partição ao publicar um evento, é utilizada uma atribuição round robin.
-
-O publicador de eventos apenas tem conhecimento da respetiva chave de partição, não da partição onde os eventos são publicados. Este desacoplamento da chave e da partição faz com que o remetente não tenha necessidade de saber muito sobre o processamento a jusante. Uma identidade por dispositivo ou utilizador exclusivo faz com que uma chave de partição seja segura, mas outros atributos como a geografia também podem ser utilizados para agrupar os eventos relacionados numa única partição.
 
 
 ## <a name="next-steps"></a>Passos seguintes

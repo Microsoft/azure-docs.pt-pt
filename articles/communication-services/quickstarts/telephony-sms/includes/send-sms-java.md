@@ -2,28 +2,24 @@
 title: incluir ficheiro
 description: incluir ficheiro
 services: azure-communication-services
-author: chrwhit
-manager: nimag
+author: pvicencio
+manager: ankita
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 03/10/2021
+ms.date: 03/12/2021
 ms.topic: include
 ms.custom: include file
-ms.author: chrwhit
-ms.openlocfilehash: 313832c29eb3f3f175fb20a60ba712937fdede0a
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.author: pvicencio
+ms.openlocfilehash: 2739079b67d80f3e4a9f367aaa58f6dcbbb650ca
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/16/2021
-ms.locfileid: "103488360"
+ms.locfileid: "103622274"
 ---
 Inicie-se com os Serviços de Comunicação Azure utilizando a biblioteca de clientes de SMS java para enviar mensagens SMS.
 
 Completar este quickstart incorre num pequeno custo de alguns usd ou menos na sua conta Azure.
-
-<!--**TODO: update all these reference links as the resources go live**
-
-[API reference documentation](../../../references/overview.md) | [Library source code](https://github.com/Azure/azure-sdk-for-net-pr/tree/feature/communication/sdk/communication/Azure.Communication.Sms#todo-update-to-public) | [Artifact (Maven)](#todo-nuget) | [Samples](#todo-samples)-->
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -58,7 +54,7 @@ Abra o ficheiro **pom.xml** no seu editor de texto. Adicione o seguinte elemento
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-sms</artifactId>
-    <version>1.0.0-beta.3</version>
+    <version>1.0.0-beta.4</version>
 </dependency>
 ```
 
@@ -70,7 +66,12 @@ Adicione a `azure-core-http-netty` dependência ao seu ficheiro **pom.xml.**
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-core-http-netty</artifactId>
-    <version>1.3.0</version>
+    <version>1.8.0</version>
+</dependency>
+<dependency>
+    <groupId>com.azure</groupId>
+    <artifactId>azure-core</artifactId>
+    <version>1.13.0</version> <!-- {x-version-update;com.azure:azure-core;dependency} -->
 </dependency>
 ```
 
@@ -79,23 +80,17 @@ Aberto **/src/main/java/com/communication/quickstart/App.java** num editor de te
 ```java
 package com.communication.quickstart;
 
-import java.io.IOException;
-import java.security.InvalidKeyException;
-import java.security.NoSuchAlgorithmException;
-import java.util.ArrayList;
-import java.util.List;
-
-import com.azure.communication.common.PhoneNumber;
-import com.azure.communication.sms.SmsClient;
-import com.azure.communication.sms.SmsClientBuilder;
-import com.azure.communication.sms.models.SendSmsOptions;
-import com.azure.communication.sms.models.SendSmsResponse;
+import com.azure.communication.sms.models.*;
+import com.azure.core.credential.AzureKeyCredential;
+import com.azure.communication.sms.*;
 import com.azure.core.http.HttpClient;
 import com.azure.core.http.netty.NettyAsyncHttpClientBuilder;
+import com.azure.core.util.Context;
+import java.util.Arrays;
 
 public class App
 {
-    public static void main( String[] args ) throws IOException, NoSuchAlgorithmException, InvalidKeyException
+    public static void main( String[] args )
     {
         // Quickstart code goes here
     }
@@ -111,71 +106,88 @@ As seguintes aulas e interfaces lidam com algumas das principais característica
 | ---------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
 | SmsClientBuilder              | Esta classe cria o SmsClient. Fornece-lhe um ponto final, credencial e um cliente http. |
 | SmsClient                    | Esta classe é necessária para toda a funcionalidade SMS. Usa-o para enviar mensagens SMS.                |
-| Enviar MensagensResponse               | Esta classe contém a resposta do serviço SMS.                                          |
-| PhoneNumber                   | Esta classe contém informações sobre números de telefone
+| SmsSendResult                | Esta classe contém o resultado do serviço SMS.                                          |
+| Opções SmsSend               | Esta classe oferece opções para adicionar tags personalizadas e configurar relatórios de entrega. Se a entregaReportEnabled for definida como verdadeira, então um evento será emitido quando a entrega foi bem sucedida|                           |
 
 ## <a name="authenticate-the-client"></a>Autenticar o cliente
 
-Instantiizar um `SmsClient` com a sua cadeia de ligação. O código abaixo recupera o ponto final e as cordas credenciais para o recurso a partir de variáveis ambientais nomeadas `COMMUNICATION_SERVICES_ENDPOINT_STRING` e `COMMUNICATION_SERVICES_CREDENTIAL_STRING` (Credencial é `Key` o do portal Azure. Saiba como gerir a [cadeia de ligação dos recursos.](../../create-communication-resource.md#store-your-connection-string)
+Instantiizar um `SmsClient` com a sua cadeia de ligação. (Credencial é `Key` do portal Azure. Saiba como gerir a [cadeia de ligação dos recursos.](../../create-communication-resource.md#store-your-connection-string)
 
 Adicione o seguinte código ao método `main`:
 
 ```java
-// Your can find your endpoint and access key from your resource in the Azure Portal
-String endpoint = "https://<RESOURCE_NAME>.communication.azure.com";
-String accessKey = "SECRET";
+// You can find your endpoint and access key from your resource in the Azure Portal
+String endpoint = "https://<resource-name>.communication.azure.com/";
+AzureKeyCredential azureKeyCredential = new AzureKeyCredential("<access-key-credential>");
 
 // Create an HttpClient builder of your choice and customize it
 HttpClient httpClient = new NettyAsyncHttpClientBuilder().build();
 
-// Configure and build a new SmsClient
-SmsClient client = new SmsClientBuilder()
-    .endpoint(endpoint)
-    .accessKey(accessKey)
-    .httpClient(httpClient)
-    .buildClient();
+SmsClient smsClient = new SmsClientBuilder()
+                .endpoint(endpoint)
+                .credential(azureKeyCredential)
+                .httpClient(httpClient)
+                .buildClient();
 ```
 
 Pode inicializar o cliente com qualquer cliente HTTP personalizado que implementa a `com.azure.core.http.HttpClient` interface. O código acima demonstra a utilização do [cliente Azure Core Netty HTTP](/java/api/overview/azure/core-http-netty-readme) que é fornecido por `azure-core` .
 
 Também pode fornecer toda a cadeia de ligação utilizando a função connectionString() em vez de fornecer o ponto final e a chave de acesso. 
 ```java
-// Your can find your connection string from your resource in the Azure Portal
-String connectionString = "<connection_string>";
-SmsClient client = new SmsClientBuilder()
-    .connectionString(connectionString)
-    .httpClient(httpClient)
-    .buildClient();
+// You can find your connection string from your resource in the Azure Portal
+String connectionString = "https://<resource-name>.communication.azure.com/;<access-key>";
+
+// Create an HttpClient builder of your choice and customize it
+HttpClient httpClient = new NettyAsyncHttpClientBuilder().build();
+
+SmsClient smsClient = new SmsClientBuilder()
+            .connectionString(connectionString)
+            .httpClient(httpClient)
+            .buildClient();
 ```
 
-## <a name="send-an-sms-message"></a>Enviar uma mensagem SMS
+## <a name="send-a-11-sms-message"></a>Envie uma mensagem SMS 1:1
 
-Envie uma mensagem SMS ligando para o método de envio de mensagens. Adicione este código ao fim do `main` método:
+Para enviar uma mensagem SMS a um único destinatário, ligue para o `send` método do SmsClient com um único número de telefone do destinatário. Pode também passar em parâmetros opcionais para especificar se o relatório de entrega deve ser ativado e definir etiquetas personalizadas.
 
 ```java
-List<PhoneNumber> to = new ArrayList<PhoneNumber>();
-to.add(new PhoneNumber("<to-phone-number>"));
+SmsSendResult sendResult = smsClient.send(
+                "<from-phone-number>",
+                "<to-phone-number>",
+                "Weekly Promotion");
 
-// SendSmsOptions is an optional field. It can be used
-// to enable a delivery report to the Azure Event Grid
-SendSmsOptions options = new SendSmsOptions();
-options.setEnableDeliveryReport(true);
+System.out.println("Message Id: " + sendResult.getMessageId());
+System.out.println("Recipient Number: " + sendResult.getTo());
+System.out.println("Send Result Successful:" + sendResult.isSuccessful());
+```
+## <a name="send-a-1n-sms-message-with-options"></a>Envie uma mensagem SMS 1:N com opções
+Para enviar uma mensagem SMS para uma lista de destinatários, ligue para o `send` método com uma lista de números de telefone do destinatário. Pode também passar em parâmetros opcionais para especificar se o relatório de entrega deve ser ativado e definir etiquetas personalizadas.
+```java
+SmsSendOptions options = new SmsSendOptions();
+options.setDeliveryReportEnabled(true);
+options.setTag("Marketing");
 
-// Send the message and check the response for a message id
-SendSmsResponse response = client.sendMessage(
-    new PhoneNumber("<leased-phone-number>"),
-    to,
-    "<message-text>",
-    options);
+Iterable<SmsSendResult> sendResults = smsClient.send(
+    "<from-phone-number>",
+    Arrays.asList("<to-phone-number1>", "<to-phone-number2>"),
+    "Weekly Promotion",
+    options /* Optional */,
+    Context.NONE);
 
-System.out.println("MessageId: " + response.getMessageId());
+for (SmsSendResult result : sendResults) {
+    System.out.println("Message Id: " + result.getMessageId());
+    System.out.println("Recipient Number: " + result.getTo());
+    System.out.println("Send Result Successful:" + result.isSuccessful());
+}
 ```
 
-Deverá substituir `<leased-phone-number>` por um número de telefone por SMS associado ao seu recurso de Serviços de Comunicação e `<to-phone-number>` pelo número de telefone a que deseja enviar uma mensagem.
+Deverá substituir `<from-phone-number>` por um número de telefone por SMS associado ao seu recurso de Serviços de Comunicação e `<to-phone-number>` pelo número de telefone ou uma lista de números de telefone a que deseja enviar uma mensagem.
 
-O `enableDeliveryReport` parâmetro é um parâmetro opcional que pode utilizar para configurar relatórios de entrega. Isto é útil para cenários em que pretende emitir eventos quando as mensagens SMS são entregues. Consulte o [Punho SMS Events](../handle-sms-events.md) quickstart para configurar relatórios de entrega para as suas mensagens SMS.
+## <a name="optional-parameters"></a>Parâmetros Opcionais
 
-<!--todo: the signature of the `sendMessage` method changes when configuring delivery reporting. Need to confirm that this is how our client library is to be used.-->
+O `deliveryReportEnabled` parâmetro é um parâmetro opcional que pode utilizar para configurar relatórios de entrega. Isto é útil para cenários em que pretende emitir eventos quando as mensagens SMS são entregues. Consulte o [Punho SMS Events](../handle-sms-events.md) quickstart para configurar relatórios de entrega para as suas mensagens SMS.
+
+O `tag` parâmetro é um parâmetro opcional que pode utilizar para aplicar uma etiqueta no Relatório de Entrega.
 
 ## <a name="run-the-code"></a>Executar o código
 

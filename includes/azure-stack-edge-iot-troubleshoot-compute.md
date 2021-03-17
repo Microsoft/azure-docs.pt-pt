@@ -3,13 +3,13 @@ author: v-dalc
 ms.service: databox
 ms.author: alkohli
 ms.topic: include
-ms.date: 02/05/2021
-ms.openlocfilehash: ad981264a99bd48e27f745a789ebe857b7f17d80
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/02/2021
+ms.openlocfilehash: 57415ec76a3e8d9fc3c160b47668d3419ff6ea5c
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101750080"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103621970"
 ---
 Utilize as respostas de execução do agente IoT Edge para resolver erros relacionados com a computação. Aqui está uma lista de possíveis respostas:
 
@@ -22,7 +22,7 @@ Utilize as respostas de execução do agente IoT Edge para resolver erros relaci
 
 Para mais informações, consulte [o Agente IoT Edge.](../articles/iot-edge/iot-edge-runtime.md?preserve-view=true&view=iotedge-2018-06#iot-edge-agent)
 
-O seguinte erro está relacionado com o serviço IoT Edge no seu Azure Stack Edge Pro<!--/ Data Box Gateway--> todos os dispositivos.
+O seguinte erro está relacionado com o serviço IoT Edge no seu dispositivo Azure Stack Edge Pro.
 
 ### <a name="compute-modules-have-unknown-status-and-cant-be-used"></a>Os módulos computacional têm estatuto desconhecido e não podem ser usados
 
@@ -33,3 +33,36 @@ Todos os módulos do dispositivo mostram o estado desconhecido e não podem ser 
 #### <a name="suggested-solution"></a>Solução sugerida
 
 Elimine o serviço IoT Edge e, em seguida, reposicione o módulo(s). Para mais informações, consulte [o serviço Remove IoT Edge](../articles/databox-online/azure-stack-edge-j-series-manage-compute.md#remove-iot-edge-service).
+
+
+### <a name="modules-show-as-running-but-are-not-working"></a>Os módulos mostram-se em execução, mas não funcionam
+
+#### <a name="error-description"></a>Descrição do erro
+
+O estado de funcionamento do módulo mostra como funcionamento, mas os resultados esperados não são vistos. 
+
+Esta condição pode ser devido a um problema com a configuração da rota do módulo que não está a funcionar ou `edgehub` não está a encaminhar mensagens como esperado. Pode verificar os `edgehub` registos. Se você vê que existem erros como não ligar ao serviço IoT Hub, então a razão mais comum são os problemas de conectividade. Os problemas de conectividade podem ser porque a porta AMPQ que é usada como uma porta padrão pelo serviço IoT Hub para comunicação está bloqueada ou o servidor de procuração web está bloqueando estas mensagens.
+
+#### <a name="suggested-solution"></a>Solução sugerida
+
+Siga estes passos:
+1. Para resolver o erro, aceda ao recurso IoT Hub para o seu dispositivo e, em seguida, selecione o seu dispositivo Edge. 
+1. Ir para **definir módulos > configurações de tempo de execução**. 
+1. Adicione a `Upstream protocol` variável ambiental e atribua-lhe um valor de `AMQPWS` . As mensagens configuradas neste caso são enviadas através da porta 443.
+
+### <a name="modules-show-as-running-but-do-not-have-an-ip-assigned"></a>Os módulos mostram como funcionamento mas não têm um IP atribuído
+
+#### <a name="error-description"></a>Descrição do erro
+
+O estado de funcionamento do módulo mostra como funcionamento, mas a aplicação contentorizada não tem um IP atribuído. 
+
+Esta condição deve-se ao facto de o leque de IPs que forneceu para os IPs de serviço externo kubernetes não ser suficiente. É necessário alargar esta gama para garantir que cada recipiente ou VM que lançou estejam cobertos.
+
+#### <a name="suggested-solution"></a>Solução sugerida
+
+Na UI web local do seu dispositivo, faça os seguintes passos:
+1. Vá à página do **Compute.** Selecione a porta para a qual ativou a rede de cálculo. 
+1. Introduza uma gama estática e contígua de IPs para **os IPs de serviço externo Kubernetes**. Precisa de 1 IP para `edgehub` o serviço. Além disso, precisa de um IP para cada módulo IoT Edge e para cada VM que irá implementar. 
+1. Selecione **Aplicar**. O intervalo de IP alterado deve entrar em vigor imediatamente.
+
+Para obter mais informações, consulte [alterar os IPs de serviço externo para recipientes](../articles/databox-online/azure-stack-edge-j-series-manage-compute.md#change-external-service-ips-for-containers).
