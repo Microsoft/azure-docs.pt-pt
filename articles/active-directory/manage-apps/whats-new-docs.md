@@ -9,12 +9,12 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: daveba
-ms.openlocfilehash: ebd8839fd17f79bc53b5093af83d457bb23712d9
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.openlocfilehash: cd46bb1c6905747ffb98c7e950f66e648c541534
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102452055"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103601768"
 ---
 # <a name="azure-active-directory-application-management-whats-new"></a>Gestão de aplicações do Azure Ative Directory: Quais as novidades
 
@@ -33,7 +33,6 @@ Bem-vindos às novidades da documentação de gestão de aplicações do Azure A
 - [Conceder consentimento de administrador ao nível do inquilino a uma aplicação](grant-admin-consent.md)
 - [Mover a autenticação da aplicação do AD FS para o AAD](migrate-adfs-apps-to-azure.md)
 - [Tutorial: Adicionar uma aplicação no local para acesso remoto através de Aplicação Proxy em Diretório Ativo Azure](application-proxy-add-on-premises-application.md)
-- [Problemas ao iniciar sessão em aplicações configuradas com o início de sessão único com base no SAML](application-sign-in-problem-federated-sso-gallery.md)
 - [Use restrições de inquilinos para gerir o acesso a aplicações em nuvem SaaS](tenant-restrictions.md)
 
 ## <a name="january-2021"></a>Janeiro de 2021
@@ -84,7 +83,6 @@ Bem-vindos às novidades da documentação de gestão de aplicações do Azure A
 
 ### <a name="updated-articles"></a>Artigos atualizados
 - [Gestão de aplicações do Azure Ative Directory: Quais as novidades](whats-new-docs.md)
-- [Problemas ao iniciar sessão em aplicações configuradas com o início de sessão único com base no SAML](application-sign-in-problem-federated-sso-gallery.md)
 
 
 ## <a name="october-2020"></a>Outubro de 2020
@@ -99,7 +97,6 @@ Bem-vindos às novidades da documentação de gestão de aplicações do Azure A
 
 ### <a name="updated-articles"></a>Artigos atualizados
 
-- [Problemas ao iniciar sessão em aplicações configuradas com o início de sessão único com base no SAML](application-sign-in-problem-federated-sso-gallery.md)
 - [Problema ao instalar o Conector do Agente do Proxy de Aplicações](application-proxy-connector-installation-problem.md)
 - [Mover a autenticação da aplicação do AD FS para o AAD](migrate-adfs-apps-to-azure.md)
 - [Configurar a forma como os utilizadores finais concedem consentimento às aplicações](configure-user-consent.md)

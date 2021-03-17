@@ -12,12 +12,12 @@ ms.date: 02/01/2021
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: b82d3963ed12e0d5dc6acd75555a3a7e8f20eeb0
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 606704621a4904dd0fb7b6f55e753dbe77e39cb5
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102175350"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103601020"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Códigos de erro da Autenticação e autorização do Azure AD
 
@@ -60,7 +60,7 @@ Aqui está uma resposta de erro de amostra:
 
 O `error` campo tem vários valores possíveis - reveja as ligações de documentação do protocolo e as especificações de OAuth 2.0 para saber mais sobre erros específicos (por exemplo, `authorization_pending` no fluxo de código do [dispositivo](v2-oauth2-device-code.md)) e como reagir a eles.  Alguns comuns estão listados aqui:
 
-| Código de Erro         | Descrição        | Ação do Cliente    |
+| Código de Erro         | Description        | Ação do Cliente    |
 |--------------------|--------------------|------------------|
 | `invalid_request`  | Erro de protocolo, como um parâmetro exigido em falta. | Corrija e reenvia o pedido.|
 | `invalid_grant`    | Parte do material de autenticação (código auth, token de atualização, token de acesso, desafio PKCE) era inválido, inparável, em falta ou de outra forma inutilizável | Tente um novo pedido para o `/authorize` ponto final para obter um novo código de autorização.  Considere rever e validar o uso da aplicação nos protocolos. |
@@ -96,13 +96,13 @@ Por exemplo, se recebeu o código de erro "AADSTS50058" então faça uma pesquis
 | AADSTS50001 | InvalidResource - O recurso é desativado ou não existe. Verifique o código da sua aplicação para garantir que especificou o URL de recurso exato para o recurso a que está a tentar aceder.  |
 | AADSTS50002 | NotAllowedTenant - A inscrição falhou devido a um acesso restrito por procuração ao inquilino. Se for a sua própria política de inquilino, pode alterar as definições de restrição do inquilino para corrigir este problema. |
 | AADSTS500021 | O acesso ao inquilino '{inquilino}' é negado. O AADSTS500021 indica que a funcionalidade de restrição do arrendatário está configurada e que o utilizador está a tentar aceder a um inquilino que não está na lista de inquilinos autorizados especificados no `Restrict-Access-To-Tenant` cabeçalho. Para obter mais informações, consulte [as restrições de utilização do arrendatário para gerir o acesso às aplicações em nuvem SaaS.](../manage-apps/tenant-restrictions.md)|
-| AADSTS50003 | MissingSigningKey - O sessão falhou devido à falta de uma chave ou certificado de assinatura. Isto pode ser porque não havia nenhuma chave de assinatura configurada na app. Confira as resoluções delineadas em [.. /gestão de apps/aplicação-sign-in-problem-federated-sso-gallery.md#certificate-or-key-not-configurado](../manage-apps/application-sign-in-problem-federated-sso-gallery.md#certificate-or-key-not-configured). Se ainda vir problemas, contacte o proprietário da aplicação ou um administrador de aplicações. |
+| AADSTS50003 | MissingSigningKey - O sessão falhou devido à falta de uma chave ou certificado de assinatura. Isto pode ser porque não havia nenhuma chave de assinatura configurada na app. Para saber mais, consulte o artigo de resolução de problemas de erro [AADSTS50003](/troubleshoot/azure/active-directory/error-code-aadsts50003-cert-or-key-not-configured). Se ainda vir problemas, contacte o proprietário da aplicação ou um administrador de aplicações. |
 | AADSTS50005 | DevicePolicyError - O utilizador tentou iniciar sessão num dispositivo a partir de uma plataforma que não é suportada através da política de Acesso Condicional. |
 | AADSTS50006 | InvalidSignature - A verificação de assinatura falhou devido a uma assinatura inválida. |
 | AADSTS50007 | PartnerEncryptionCertificateMissing - O certificado de encriptação do parceiro não foi encontrado para esta aplicação. [Abra um bilhete de apoio](../fundamentals/active-directory-troubleshooting-support-howto.md) com a Microsoft para que isto seja corrigido. |
 | AADSTS50008 | InvalidSamlToken - Afirmação SAML está em falta ou mal configurada no token. Contacte o seu fornecedor de federação. |
 | AADSTS50010 | AudienceUriValidationFailed - Validação URI do público para a aplicação falhou uma vez que nenhum público simbólico foi configurado. |
-| AADSTS50011 | InvalidReplyTo - Falta o endereço de resposta, configurado de forma errada ou não corresponde aos endereços de resposta configurados para a app.  Como resolução, certifique-se de adicionar este endereço de resposta em falta ao pedido do Diretório Ativo Azure ou que alguém com as permissões para gerir a sua aplicação no Ative Directory o faça por si.|
+| AADSTS50011 | InvalidReplyTo - Falta o endereço de resposta, configurado de forma errada ou não corresponde aos endereços de resposta configurados para a app.  Como resolução, certifique-se de adicionar este endereço de resposta em falta ao pedido do Diretório Ativo Azure ou que alguém com as permissões para gerir a sua aplicação no Ative Directory o faça por si. Para saber mais, consulte o artigo de resolução de problemas de erro [AADSTS50011](/troubleshoot/azure/active-directory/error-code-aadsts50011-reply-url-mismatch).|
 | AADSTS50012 | AutenticaçãoFaida - A autenticação falhou por uma das seguintes razões:<ul><li>O nome do sujeito do certificado de assinatura não está autorizado</li><li>Não foi encontrada uma política de autoridade de confiança correspondente para o nome do sujeito autorizado.</li><li>A cadeia de certificados não é válida</li><li>O certificado de assinatura não é válido</li><li>A política não está configurada no inquilino.</li><li>A impressão digital do certificado de assinatura não é autorizada</li><li>A afirmação do cliente contém uma assinatura inválida</li></ul> |
 | AADSTS50013 | InvalidAssertion - A afirmação é inválida por várias razões - O emitente de token não corresponde à versão api dentro do seu intervalo de tempo válido - expirado -mal formado - Refresh token na afirmação não é um token de atualização primária. |
 | AADSTS50014 | GuestUserInPendingState - A redenção do utilizador encontra-se num estado pendente. A conta de utilizador do hóspede ainda não foi totalmente criada. |
@@ -140,7 +140,7 @@ Por exemplo, se recebeu o código de erro "AADSTS50058" então faça uma pesquis
 | AADSTS50089 | O fluxo de token expirou - falha na autenticação. Faça com que o utilizador tente iniciar sessão de autógrafos novamente com o nome de utilizador -password. |
 | AADSTS50097 | Dispositivo É necessária autenticação do dispositivo- É necessária a autenticação do dispositivo. |
 | AADSTS50099 | PKeyAuthInvalidJwtUnautized - A assinatura JWT é inválida. |
-| AADSTS50105 | EntitlementGrantsNotFound - O utilizador assinado não está atribuído a uma função para a aplicação assinada. Atribua o utilizador à aplicação. Para mais informações:[.. /gestão de apps/aplicação-sign-in-problem-federated-sso-gallery.md#user-not-assigned-a-role](../manage-apps/application-sign-in-problem-federated-sso-gallery.md#user-not-assigned-a-role). |
+| AADSTS50105 | EntitlementGrantsNotFound - O utilizador assinado não está atribuído a uma função para a aplicação assinada. Atribua o utilizador à aplicação. Para saber mais, consulte o artigo de resolução de problemas de erro [AADSTS50105](/troubleshoot/azure/active-directory/error-code-aadsts50105-user-not-assigned-role). |
 | AADSTS50107 | InvalidRealmUri - O objeto do reino da federação solicitado não existe. Contacte o administrador do inquilino. |
 | AADSTS50120 | ThresholdJwtInvalidJwtFormat - Emissão com cabeçalho JWT. Contacte o administrador do inquilino. |
 | AADSTS50124 | SinistrosTransformaçãoInvalidInputParameter - Sinistros A transformação contém um parâmetro de entrada inválido. Contacte o administrador de inquilinos para atualizar a política. |
@@ -175,7 +175,7 @@ Por exemplo, se recebeu o código de erro "AADSTS50058" então faça uma pesquis
 | AADSTS50187 | DeviceInformationNotProvided - O serviço falhou na autenticação do dispositivo. |
 | AADSTS50196 | LoopDetected - Foi detetado um laço de cliente. Verifique a lógica da aplicação para garantir que o caching token é implementado, e que as condições de erro são manuseadas corretamente.  A aplicação fez demasiados pedidos em demasiado curto espaço de tempo, indicando que se encontra em estado de avaria ou que está a solicitar abusivamente fichas. |
 | AADSTS50197 | Identificações contraditórias - O utilizador não foi encontrado. Tente entrar de novo. |
-| AADSTS50199 | CmsiInterrupt - Por razões de segurança, a confirmação do utilizador é necessária para este pedido.  Porque este é um erro de "interaction_required", o cliente deve fazer auth interativo.  Isto ocorre porque um webview do sistema foi usado para solicitar um token para uma aplicação nativa - o utilizador deve ser solicitado a perguntar se esta era realmente a app que pretendiam assinar. Para evitar este pedido, o URI de redirecionamento deve fazer parte da seguinte lista de segurança: <br />http://<br />https://<br />msauth://(apenas iOS)<br />msauthv2://(apenas iOS)<br />chrome-extension:// (apenas para desktop Chrome) |
+| AADSTS50199 | CmsiInterrupt - Por razões de segurança, a confirmação do utilizador é necessária para este pedido.  Porque este é um erro de "interaction_required", o cliente deve fazer auth interativo.  Isto ocorre porque um webview do sistema foi usado para solicitar um token para uma aplicação nativa - o utilizador deve ser solicitado a perguntar se esta era realmente a app que pretendiam assinar. Para evitar este pedido, o URI de redirecionamento deve fazer parte da seguinte lista de segurança: <br />http://<br />https://<br />msauth:// (apenas iOS)<br />msauthv2://(apenas iOS)<br />chrome-extension:// (apenas para desktop Chrome) |
 | AADSTS51000 | ObrigatórioFeatureNotEnabled - A função está desativada. |
 | AADSTS51001 | DomainHintMustbePresent - Dica de domínio deve estar presente com o identificador de segurança no local ou no local UPN. |
 | AADSTS51004 | UserAccountNotInDirect - A conta de utilizador não existe no diretório. |
@@ -191,11 +191,11 @@ Por exemplo, se recebeu o código de erro "AADSTS50058" então faça uma pesquis
 | AADSTS54000 | MinorUserBlockedLegalAgeGroupRule |
 | AADSTS65001 | DelegaçãoDoesNotExist - O utilizador ou administrador não consentiu em utilizar o pedido com o ID X. Envie um pedido de autorização interativa para este utilizador e recurso. |
 | AADSTS65004 | UserDeclinedConsent - O utilizador recusou-se a consentir no acesso à aplicação. Pedir ao utilizador que repita o início de sessão e que autorize o acesso à aplicação|
-| AADSTS65005 | Configuração erradaApplication - A lista de acesso a recursos exigida pela aplicação não contém aplicações detetáveis pelo recurso ou a aplicação do cliente solicitou acesso a recursos, o que não foi especificado na sua lista de acesso a recursos necessários ou o serviço Graph devolveu mau pedido ou recurso não encontrado. Se a aplicação suportar o SAML, poderá ter configurado a aplicação com o identificador errado (Entidade). Experimente a resolução listada para a SAML utilizando o link abaixo: [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#no-resource-in-requiredresourceaccess-list](../manage-apps/application-sign-in-problem-federated-sso-gallery.md?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav) |
+| AADSTS65005 | Configuração erradaApplication - A lista de acesso a recursos exigida pela aplicação não contém aplicações detetáveis pelo recurso ou a aplicação do cliente solicitou acesso a recursos, o que não foi especificado na sua lista de acesso a recursos necessários ou o serviço Graph devolveu mau pedido ou recurso não encontrado. Se a aplicação suportar o SAML, poderá ter configurado a aplicação com o identificador errado (Entidade). Para saber mais, consulte o artigo de resolução de problemas de erro [AADSTS650056](/troubleshoot/azure/active-directory/error-code-aadsts650056-misconfigured-app). |
 | AADSTS650052 | A aplicação precisa de acesso a um serviço `(\"{name}\")` que a sua organização não `\"{organization}\"` subscreveu ou ativou. Contacte o seu Administrador DE TI para rever a configuração das suas subscrições de serviço. |
 | AADSTS67003 | ActorNotValidServiceIdentity |
 | AADSTS70000 | InvalidGrant - A autenticação falhou. O token de atualização não é válido. O erro pode dever-se às seguintes razões:<ul><li>Cabeçalho de encadernação token está vazio</li><li>O haxixe de ligação token não corresponde</li></ul> |
-| AADSTS70001 | Não autorizado - A aplicação está desativada. |
+| AADSTS70001 | Não autorizado - A aplicação está desativada. Para saber mais, consulte o artigo de resolução de problemas de erro [AADSTS70001](/troubleshoot/azure/active-directory/error-code-aadsts70001-app-not-found-in-directory). |
 | AADSTS70002 | InvalidAção - Erro de validação das credenciais. A client_secret especificada não corresponde ao valor esperado para este cliente. Corrija o client_secret e tente de novo. Para obter mais informações, consulte [utilizar o código de autorização para solicitar um token de acesso.](v2-oauth2-auth-code-flow.md#request-an-access-token) |
 | AADSTS70003 | Não suportadoGrantType - A aplicação devolveu um tipo de subvenção não suportado. |
 | AADSTS70004 | InvalidRedirectUri - A aplicação devolveu um URI de redirecionamento inválido. O endereço de redirecionamento especificado pelo cliente não corresponde a nenhum dos endereços configurados ou a nenhum dos endereços na lista de aprovações OIDC. |
@@ -209,10 +209,11 @@ Por exemplo, se recebeu o código de erro "AADSTS50058" então faça uma pesquis
 | AADSTS70019 | CódigoEx expirado - Código de verificação expirado. Peça ao utilizador que volte a tentar iniciar sessão. |
 | AADSTS75001 | BindingSerializationError - Ocorreu um erro durante a ligação da mensagem SAML. |
 | AADSTS75003 | Não suportadaBindingError - A aplicação devolveu um erro relacionado com a ligação não suportada (a resposta do protocolo SAML não pode ser enviada através de encadernações diferentes do HTTP POST). |
-| AADSTS75005 | Saml2MessageInvalid - Azure AD não suporta o pedido SAML enviado pela app para SSO. |
+| AADSTS75005 | Saml2MessageInvalid - Azure AD não suporta o pedido SAML enviado pela app para SSO. Para saber mais, consulte o artigo de resolução de problemas de erro [AADSTS75005](/troubleshoot/azure/active-directory/error-code-aadsts75005-not-a-valid-saml-request). |
 | AADSTS7500514 | Não foi encontrado um tipo de resposta SAML suportado. Os tipos de resposta suportados são 'Resposta' (em XML namespace 'urn:oasis:names:tc:SAML:2.0:protocol') ou 'Assertion' (em XML namespace 'urn:oasis:names:tc:SAML:2.0:assertion'). Erro de aplicação - o desenvolvedor tratará deste erro.|
+| AADSTS750054 | SAMLRequest ou SAMLResponse devem estar presentes como parâmetros de cadeia de consulta no pedido HTTP para ligação de redirecionamento SAML. Para saber mais, consulte o artigo de resolução de problemas de erro [AADSTS750054](/troubleshoot/azure/active-directory/error-code-aadsts750054-saml-request-not-present). |
 | AADSTS75008 | RequestDeniedError - O pedido da app foi negado uma vez que o pedido da SAML tinha um destino inesperado. |
-| AADSTS75011 | NoMatchedAuthnContextInOutputClaims - O método de autenticação pelo qual o utilizador autenticado com o serviço não corresponde ao método de autenticação solicitado. |
+| AADSTS75011 | NoMatchedAuthnContextInOutputClaims - O método de autenticação pelo qual o utilizador autenticado com o serviço não corresponde ao método de autenticação solicitado. Para saber mais, consulte o artigo de resolução de problemas de erro [AADSTS75011](/troubleshoot/azure/active-directory/error-code-aadsts75011-auth-method-mismatch). |
 | AADSTS75016 | Saml2AuthenticationRequestInvalidNameIDPolicy - SAML2 Authentication Request has invalid NameIdPolicy. |
 | AADSTS80001 | OnPremiseStoreIsNotAvailable - O Agente de Autenticação não consegue ligar-se ao Ative Directory. Certifique-se de que os servidores de agentes são membros da mesma floresta de AD que os utilizadores cujas palavras-passe precisam de ser validadas e que são capazes de se conectar ao Ative Directory. |
 | AADSTS80002 | OnPremisePasswordValidatorRequestTimedout - Pedido de validação de palavras-passe cronometrado. Certifique-se de que o Ative Directory está disponível e responde aos pedidos dos agentes. |

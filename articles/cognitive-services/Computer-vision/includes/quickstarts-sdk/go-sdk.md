@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: include
 ms.date: 12/15/2020
 ms.author: pafarley
-ms.openlocfilehash: d9b77e96bc5cdf284eeedcaae67369356d43fc08
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 9cb46a57792ecdd650a8a9f5025a5055257057ec
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102444275"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103622215"
 ---
 <a name="HOLTop"></a>
 
@@ -78,13 +78,23 @@ cd src
 touch sample-app.go
 ```
 
-Abra `sample-app.go` no seu IDE preferido ou editor de texto. Em seguida, adicione o nome do pacote e importe as seguintes bibliotecas:
+> [!TIP]
+> Quer ver todo o ficheiro de código de arranque rápido de uma vez? Pode encontrá-lo no [GitHub,](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/go/ComputerVision/ComputerVisionQuickstart.go)que contém os exemplos de código neste arranque rápido.
 
-[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_imports)]
+Abra `sample-app.go` no seu IDE preferido ou editor de texto.
 
-Além disso, declare um contexto na raiz do seu script. Necessitará deste objeto para executar a maioria das chamadas de função de Visão de Computador:
+Declare um contexto na raiz do seu roteiro. Vai precisar deste objeto para executar a maioria das chamadas de função de Visão de Computador.
 
-[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_context)]
+### <a name="find-the-subscription-key-and-endpoint"></a>Encontre a chave de subscrição e o ponto final
+
+Aceda ao portal do Azure. Se o recurso de Visão De Computador que criou na secção **Pré-Requisitos** implementado com sucesso, clique no botão **'Ir a Recursos'** nos **Passos Seguintes**. Pode encontrar a chave de subscrição e o ponto final na **página chave e ponto final** do recurso, sob **gestão de recursos.** 
+
+Crie variáveis para a sua chave de subscrição de Visão de Computador e ponto final. Cole a chave de subscrição e o ponto final no seguinte código, quando indicado. O seu ponto final de visão de computador tem o formulário `https://<your_computer_vision_resource_name>.cognitiveservices.azure.com/` .
+
+[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_imports_and_vars)]
+
+> [!IMPORTANT]
+> Lembre-se de remover a chave de subscrição do seu código quando terminar e nunca postá-la publicamente. Para a produção, considere utilizar uma forma segura de armazenar e aceder às suas credenciais. Por exemplo, [cofre de chaves Azure](../../../../key-vault/general/overview.md).
 
 Em seguida, começará a adicionar código para realizar diferentes operações de Visão Computacional.
 

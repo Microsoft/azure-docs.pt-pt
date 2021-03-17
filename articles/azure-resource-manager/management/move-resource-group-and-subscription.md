@@ -4,12 +4,12 @@ description: Utilize o Azure Resource Manager para mover recursos para um novo g
 ms.topic: conceptual
 ms.date: 09/15/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: aca1e5255c89e99a2c996e072e5106da8dc3eef9
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 1218df618f7f5fa0787505cb4fcee67dd264ea76
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101093634"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103601394"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>Mover recursos para um novo grupo de recursos ou subscrição
 
@@ -34,6 +34,7 @@ Antes de mover um recurso, é necessário realizar alguns passos importantes. Ao
    * [Orientação de movimento em rede](./move-limitations/networking-move-limitations.md)
    * [Orientação de mudança de serviços de recuperação](../../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json)
    * [Máquinas virtuais movem orientação](./move-limitations/virtual-machines-move-limitations.md)
+   * Para mover uma subscrição do Azure para um novo grupo de gestão, consulte [as subscrições da Move](../../governance/management-groups/manage.md#move-subscriptions).
 
 1. Se mover um recurso que tenha uma função Azure atribuída diretamente ao recurso (ou recurso infantil), a atribuição de funções não é movida e torna-se órfã. Depois da mudança, tens de recriar a tarefa de função. Eventualmente, a atribuição de funções órfãs será automaticamente removida, mas é uma boa prática remover a atribuição de funções antes de mover o recurso.
 

@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/21/2020
-ms.openlocfilehash: 0bd6300f4b9dbcf76b5447a0fb58502b7aebf311
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: c6b1129ca4a63e9adc8bb679dce53ff728456f42
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96451417"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103601836"
 ---
 # <a name="what-is-azure-sql-database"></a>O que é a Base de Dados SQL do Azure?
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -32,6 +32,9 @@ A SQL Database permite-lhe definir e escalar facilmente o desempenho dentro de d
 
 Se é novo na Base de Dados Azure SQL, consulte o vídeo da *Base de Dados Azure SQL* da nossa série de [vídeos Azure SQL](https://channel9.msdn.com/Series/Azure-SQL-for-Beginners?WT.mc_id=azuresql4beg_azuresql-ch9-niner):
 > [!VIDEO https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/Azure-SQL-Database-Overview-7-of-61/player]
+
+> [!TIP]
+> Como podemos tornar o Azure SQL melhor? [Faça o levantamento.](https://aka.ms/AzureSQLSurvey)
 
 ## <a name="deployment-models"></a>Modelos de implementação
 
@@ -114,7 +117,7 @@ As Zonas de Disponibilidade Azure tentam proteger-se contra a interrupção de u
 
 De facto, o acordo de nível de serviço [(SLA)](https://azure.microsoft.com/support/legal/sla/) da Azure, alimentado por uma rede global de datacenters geridos pela Microsoft, ajuda a manter a sua aplicação a funcionar 24 horas por dia. A plataforma Azure gere totalmente todas as bases de dados, e garante nenhuma perda de dados e uma elevada percentagem de disponibilidade de dados. O Azure lida automaticamente com patching, backups, replicação, deteção de falhas, potenciais falhas de hardware, software ou rede subjacentes, implementando correções de bugs, falhas, atualizações de bases de dados e outras tarefas de manutenção. A disponibilidade standard é conseguida por uma separação das camadas de armazenamento e computação. A disponibilidade premium é conseguida através da integração do computação e armazenamento num único nó para o desempenho e, em seguida, implementando tecnologia semelhante a Always On Availability Groups. Para uma discussão completa sobre as elevadas capacidades de disponibilidade da Base de Dados Azure SQL, consulte [a disponibilidade da Base de Dados SQL](high-availability-sla.md). 
 
-Além disso, a SQL Database fornece funcionalidades de continuidade de negócios incorporadas e de [escalabilidade global.](business-continuity-high-availability-disaster-recover-hadr-overview.md) Estas incluem:
+Além disso, a SQL Database fornece funcionalidades de continuidade de negócios incorporadas e de [escalabilidade global.](business-continuity-high-availability-disaster-recover-hadr-overview.md) Incluem-se:
 
 - [Backups automáticos:](automated-backups-overview.md)
 
@@ -190,7 +193,7 @@ A Base de Dados SQL ajuda a proteger os dados ao proporcionar a encriptação. 
 
 A Base de Dados SQL permite-lhe gerir centralmente identidades de utilizadores de bases de dados e outros serviços Microsoft com a [integração do Azure Active Directory](authentication-aad-overview.md). Esta capacidade simplifica a gestão de permissões e melhora a segurança. O Azure Ative Directory suporta a [autenticação de vários fatores](authentication-mfa-ssms-overview.md) para aumentar a segurança de dados e aplicações, ao mesmo tempo que suporta um único processo de inscrição.
 
-## <a name="easy-to-use-tools"></a>Ferramentas fáceis de utilizar
+## <a name="easy-to-use-tools"></a>Ferramentas de fácil utilização
 
 Com a Base de Dados SQL, criar e manter aplicações é mais fácil e produtivo. A Base de Dados SQL permite-lhe dedicar-se ao que sabe fazer melhor: criar aplicações excelentes. Pode gerir e desenvolver na SQL Database utilizando ferramentas e competências que já tem.
 
@@ -198,7 +201,7 @@ Com a Base de Dados SQL, criar e manter aplicações é mais fácil e produtivo.
 |:---|:---|
 |[O portal do Azure](https://portal.azure.com/)|Uma aplicação baseada na web para gerir todos os serviços Azure.|
 |[Azure Data Studio](/sql/azure-data-studio/)|Uma ferramenta de base de dados transversal que funciona no Windows, macOS e Linux.|
-|[SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)|Uma aplicação gratuita e transferível para o cliente para gerir qualquer infraestrutura SQL, desde o SQL Server até à BASE de Dados SQL.|
+|[O SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)|Uma aplicação gratuita e transferível para o cliente para gerir qualquer infraestrutura SQL, desde o SQL Server até à BASE de Dados SQL.|
 |[Ferramentas de dados do servidor SQL no Estúdio Visual](/sql/ssdt/download-sql-server-data-tools-ssdt)|Uma aplicação gratuita e transferível para o cliente para o desenvolvimento de bases de dados relacionais do SQL Server, bases de dados na Base de Dados Azure SQL, pacotes de Serviços de Integração, modelos de dados de serviços de análise e relatórios de Serviços de Relatórios.|
 |[Visual Studio Code](https://code.visualstudio.com/docs)|Um editor de código gratuito, transferível e aberto para Windows, macOS e Linux. Suporta extensões, incluindo a [extensão mssql](https://aka.ms/mssql-marketplace) para consulta do Microsoft SQL Server, Azure SQL Database e Azure Azure Synapse Analytics.|
 
@@ -210,7 +213,7 @@ A SQL Database suporta aplicações de construção com Python, Java, Node.js, P
 
 ### <a name="can-i-control-when-patching-downtime-occurs"></a>Posso controlar quando ocorre o tempo de inatividade?
 
-Não. O impacto do patching geralmente não é percetível se [você empregar a lógica de repreensão](develop-overview.md#resiliency) na sua app. Para mais informações, consulte [Os eventos de manutenção do Plano para Azure na Base de Dados Azure SQL](planned-maintenance.md).
+N.º O impacto do patching geralmente não é percetível se [você empregar a lógica de repreensão](develop-overview.md#resiliency) na sua app. Para mais informações, consulte [Os eventos de manutenção do Plano para Azure na Base de Dados Azure SQL](planned-maintenance.md).
 
 
 

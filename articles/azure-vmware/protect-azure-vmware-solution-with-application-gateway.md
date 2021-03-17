@@ -3,12 +3,12 @@ title: Utilize o Gateway de Aplicações Azure para proteger as suas aplicaçõe
 description: Configure Azure Application Gateway para expor de forma segura as suas aplicações web em execução na Solução VMware Azure.
 ms.topic: how-to
 ms.date: 02/10/2021
-ms.openlocfilehash: 1ad615efe0de86a49714914507227b7cc1dca4cb
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: f92027ee46fdaae275939acaea10e144b6bde101
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101733589"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103601921"
 ---
 # <a name="use-azure-application-gateway-to-protect-your-web-apps-on-azure-vmware-solution"></a>Utilize o Gateway de Aplicações Azure para proteger as suas aplicações web na Solução VMware Azure
 
@@ -193,4 +193,4 @@ Agora que cobriu o uso do Application Gateway para proteger uma aplicação web 
 - [Configurar gateway de aplicação Azure para diferentes cenários](../application-gateway/configuration-overview.md).
 - [Implantação do Gestor de Tráfego para equilibrar as cargas de trabalho da Solução VMware Azure](deploy-traffic-manager-balance-workloads.md).
 - [Integração de ficheiros Azure NetApp com cargas de trabalho baseadas em soluções VMware Azure](netapp-files-with-azure-vmware-solution.md).
-- [Proteger os recursos do Azure em redes virtuais](../ddos-protection/ddos-protection-overview.md)
+- [Proteger os recursos do Azure em redes virtuais.](../ddos-protection/ddos-protection-overview.md)

@@ -13,12 +13,12 @@ ms.date: 12/09/2020
 ms.author: kenwith
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 05447f41ca891adfe14533a74dfedf153e3c5773
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 0cccf45037320b476b1a44cafa8074bacadacbc8
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100102704"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103600954"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Como: personalizar reclamações emitidas no token SAML para aplicações empresariais
 
@@ -71,7 +71,7 @@ Selecione a fonte desejada para a `NameIdentifier` reclamação (ou NameID). Pod
 |------|-------------|
 | E-mail | Endereço de e-mail do utilizador |
 | userprincipalName | Nome principal do utilizador (UPN) do utilizador |
-| conta de onpremisessamaccount | Nome da conta SAM que foi sincronizado a partir de Azure AD no local |
+| nome onpremisessamaccountname | Nome da conta SAM que foi sincronizado a partir de Azure AD no local |
 | objectid | Objectid do utilizador em Azure AD |
 | empregado | ID do funcionário do utilizador |
 | Extensões de diretórios | Extensões [de diretório sincronizadas a partir de diretório ativo no local usando Azure AD Connect Sync](../hybrid/how-to-connect-sync-feature-directory-extensions.md) |
@@ -155,7 +155,7 @@ O tipo de utilizador pode ser:
 - **Hóspedes externos**: O utilizador convidado pertence a uma organização externa que não tem Azure AD.
 
 
-Um dos cenários em que isso é útil é quando a origem de uma reclamação é diferente para um hóspede e um funcionário que acede a uma aplicação. Pode querer especificar que, se o utilizador for um empregado, o NameID é obtido a partir de user.email, mas se o utilizador for um hóspede, o NameID é proveniente do user.extensionattribute1.
+Um dos cenários em que isso é útil é quando a origem de uma reclamação é diferente para um hóspede e um funcionário que acede a uma aplicação. Pode querer especificar que, se o utilizador for um empregado, o NameID é proveniente de user.email, mas se o utilizador for um hóspede, o NameID é proveniente do utilizador.extensionattribute1.
 
 Para adicionar uma condição de reclamação:
 

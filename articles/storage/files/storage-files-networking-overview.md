@@ -1,5 +1,5 @@
 ---
-title: Azure Files considerações de networking / Microsoft Docs
+title: Azure Files considerações de rede | Microsoft Docs
 description: Uma visão geral das opções de networking para ficheiros Azure.
 author: roygara
 ms.service: storage
@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 02/22/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 7164c3dd5c98544f3cb2944cb33cfd0e9703e36d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: cec386b798b843a5badc9d52d9c71bd7df54b59a
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90563340"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103601938"
 ---
 # <a name="azure-files-networking-considerations"></a>Considerações de networking de ficheiros Azure 
 Pode ligar-se a uma partilha de ficheiros Azure de duas formas:
@@ -25,6 +25,15 @@ Este artigo centra-se em como configurar a rede para quando o seu caso de utiliz
 A configuração de rede para ações de ficheiros Azure é feita na conta de armazenamento Azure. Uma conta de armazenamento é uma construção de gestão que representa um conjunto partilhado de armazenamento no qual você pode implementar várias partilhas de arquivos, bem como outros recursos de armazenamento, tais como recipientes blob ou filas. As contas de armazenamento expõem várias configurações que o ajudam a garantir o acesso da rede às suas partilhas de ficheiros: pontos finais de rede, definições de firewall de conta de armazenamento e encriptação em trânsito. 
 
 Recomendamos a leitura [do Planeamento de uma implementação de Ficheiros Azure](storage-files-planning.md) antes de ler este guia conceptual.
+
+:::row:::
+    :::column:::
+        <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/jd49W33DxkQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    :::column-end:::
+    :::column:::
+        Este vídeo é um guia e demonstração para como expor de forma segura as partilhas de ficheiros Azure diretamente a trabalhadores de informação e apps em cinco passos simples. As secções abaixo fornecem links e contexto adicional à documentação referenciada no vídeo.
+   :::column-end:::
+:::row-end:::
 
 ## <a name="accessing-your-azure-file-shares"></a>Aceder às suas ações de ficheiros Azure
 Quando implementa uma parte do ficheiro Azure numa conta de armazenamento, a sua parte do ficheiro é imediatamente acessível através do ponto final público da conta de armazenamento. Isto significa que os pedidos autenticados, tais como pedidos autorizados pela identidade de início de súmã de um utilizador, podem ter origem seguramente dentro ou fora de Azure. 
@@ -155,6 +164,6 @@ Pode desativar a encriptação em trânsito para uma conta de armazenamento Azur
 
 Para obter mais informações sobre encriptação em trânsito, consulte [a necessidade de transferência segura no armazenamento Azure](../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 - [Descrição geral dos Ficheiros do Azure](storage-files-introduction.md)
 - [Planear uma implementação de Ficheiros do Azure](storage-files-planning.md)

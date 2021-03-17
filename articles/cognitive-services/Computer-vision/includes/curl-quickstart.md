@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 12/02/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: c8221a15ddd92276c105f1e441c8da722655d576
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 914fe0bbf04fa8835cbe96e5bbb83604f0d07bc2
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102444704"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103622066"
 ---
 Utilize a API de Visão De Computador para:
 
@@ -40,17 +40,21 @@ Utilize a API de Visão De Computador para:
 Para analisar uma imagem para uma variedade de funcionalidades visuais, faça os seguintes passos:
 
 1. Copie o comando seguinte para um editor de texto.
+1. Aceda ao portal do Azure. Se o recurso de Visão De Computador que criou na secção **Pré-Requisitos** implementado com sucesso, clique no botão **'Ir a Recursos'** nos **Passos Seguintes**. Pode encontrar a chave de subscrição e o ponto final na **página chave e ponto final** do recurso, sob **gestão de recursos.**
 1. Faça as alterações seguintes ao comando, se for necessário:
-    1. Substitua o valor de `<subscriptionKey>` pela chave de subscrição.
-    1. Substitua a primeira parte do URL de pedido `westcentralus` () com o texto no seu próprio URL de ponto final.
+    1. Substitua o valor de `PASTE_YOUR_COMPUTER_VISION_SUBSCRIPTION_KEY_HERE` pela chave de subscrição.
+    1. Substitua a primeira parte do URL de pedido `PASTE_YOUR_COMPUTER_VISION_ENDPOINT_HERE` () pelo seu próprio ponto final de Visão de Computador. O seu ponto final de visão de computador tem o formulário `https://<your_computer_vision_resource_name>.cognitiveservices.azure.com/` .
         [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
     1. Opcionalmente, altere o URL da imagem no corpo do pedido (`http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg\`) pelo URL de uma imagem diferente a ser analisada.
 1. Abra uma janela da linha de comandos.
 1. Cole o comando a partir do editor de texto na janela da linha de comandos e, em seguida, execute o comando.
 
 ```bash
-curl -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: application/json" "https://westcentralus.api.cognitive.microsoft.com/vision/v3.1/analyze?visualFeatures=Categories,Description&details=Landmarks" -d "{\"url\":\"http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg\"}"
+curl -H "Ocp-Apim-Subscription-Key: PASTE_YOUR_COMPUTER_VISION_SUBSCRIPTION_KEY_HERE" -H "Content-Type: application/json" "PASTE_YOUR_COMPUTER_VISION_ENDPOINT_HERE/vision/v3.1/analyze?visualFeatures=Categories,Description&details=Landmarks" -d "{\"url\":\"http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg\"}"
 ```
+
+> [!IMPORTANT]
+> Lembre-se de remover a chave de subscrição do seu código quando terminar e nunca postá-la publicamente. Para a produção, considere utilizar uma forma segura de armazenar e aceder às suas credenciais. Por exemplo, [cofre de chaves Azure](../../../key-vault/general/overview.md).
 
 ### <a name="examine-the-response"></a>Examinar a resposta
 
