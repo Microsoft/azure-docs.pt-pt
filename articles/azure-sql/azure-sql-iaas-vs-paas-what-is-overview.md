@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 07/27/2020
-ms.openlocfilehash: 7f267b4909817e89444883403bef6662771332ad
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 6961c0ffc0d5b9c6559d20b00bfb5510f7247adb
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99550883"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103600986"
 ---
 # <a name="what-is-azure-sql"></a>O que é o Azure SQL? 
 [!INCLUDE[appliesto-asf](includes/appliesto-asf.md)]
@@ -32,11 +32,11 @@ O Azure SQL é construído sobre o familiar motor SQL Server, para que possa mig
 
 Saiba como cada produto se encaixa na plataforma de dados Azure SQL da Microsoft para corresponder à opção certa para os requisitos do seu negócio. Quer priorize a poupança de custos ou a administração mínima, este artigo pode ajudá-lo a decidir qual a abordagem que oferece contra os requisitos de negócio que mais gosta.
 
-
 Se você é novo no Azure SQL, confira o vídeo *What is Azure SQL* da nossa série de [vídeo Azure SQL](https://channel9.msdn.com/Series/Azure-SQL-for-Beginners?WT.mc_id=azuresql4beg_azuresql-ch9-niner)aprofundada :
 > [!VIDEO https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/What-is-Azure-SQL-3-of-61/player]
 
-
+> [!TIP]
+> Como podemos tornar o Azure SQL melhor? [Faça o levantamento.](https://aka.ms/AzureSQLSurvey)
 
 ## <a name="overview"></a>Descrição Geral
 
@@ -144,7 +144,7 @@ Para obter mais informações sobre preços, consulte os seguintes recursos:
 
 - [Base de dados SQL & preços de instância gerida sql](https://azure.microsoft.com/pricing/details/sql-database/)
 - [Preços da máquina virtual](https://azure.microsoft.com/pricing/details/virtual-machines/) para [SQL](https://azure.microsoft.com/pricing/details/virtual-machines/#sql) e para [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/#windows)
-- [Calculadora de Preços de Azure](https://azure.microsoft.com/pricing/calculator/)
+- [Calculadora de Preços do Azure](https://azure.microsoft.com/pricing/calculator/)
 
 ## <a name="administration"></a>Administração
 

@@ -11,18 +11,20 @@ author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7099de23b825fa7af203dff9696bb53e23a099c8
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: a1dee21182349108c44f9d498417d3b760ac4913
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96741121"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103600867"
 ---
 # <a name="troubleshoot-self-service-password-reset-in-azure-active-directory"></a>Resolução de problemas de autosserviço redefinição de senha no Azure Ative Directory
 
 O Azure Ative Directory (Azure AD) redefiniu a palavra-passe de autosserviço (SSPR) permite que os utilizadores republem as suas palavras-passe na nuvem.
 
-Se tiver problemas com a SSPR, as seguintes etapas de resolução de problemas e erros comuns podem ajudar. Se não conseguir encontrar a resposta para o seu problema, [as nossas equipas de apoio estão sempre disponíveis](#contact-microsoft-support) para o ajudar mais.
+Se tiver problemas com a SSPR, as seguintes etapas de resolução de problemas e erros comuns podem ajudar. Também pode ver este pequeno vídeo no [How ot resolve as seis mensagens de erro de utilizador final SSPR mais comuns](https://www.youtube.com/watch?v=9RPrNVLzT8I&list=PL3ZTgFEc7LyuS8615yo39LtXR7j1GCerW&index=1).
+
+Se não conseguir encontrar a resposta para o seu problema, [as nossas equipas de apoio estão sempre disponíveis](#contact-microsoft-support) para o ajudar mais.
 
 ## <a name="sspr-configuration-in-the-azure-portal"></a>Configuração SSPR no portal Azure
 

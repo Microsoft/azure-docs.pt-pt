@@ -12,15 +12,21 @@ metadata:
   ms.author: sstein
   ms.reviewer: 
   ms.date: 05/27/2020
-  ms.openlocfilehash: 7d1b6f9f79226cac4e0956d551943e40ac178387
-  ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+  ms.openlocfilehash: 7e4f1d42f0b5510d916e4eeebfb17716f9d30141
+  ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/02/2021
-  ms.locfileid: "101655875"
+  ms.lasthandoff: 03/16/2021
+  ms.locfileid: "103601462"
 landingContent:
 - title: Instância Gerida do Azure SQL
   linkLists:
+  - linkListType: whats-new
+    links:
+    - text: Novidades
+      url: ../database/doc-changes-updates-release-notes.md?tabs=managed-instance
+    - text: Comentários? Faça a pesquisa!
+      url: https://aka.ms/AzureSQLSurvey
   - linkListType: quickstart
     links:
     - text: Criar Instância Gerida do SQL
@@ -31,8 +37,6 @@ landingContent:
       url: https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/Azure-SQL-Managed-Instance-Overview-6-of-61
   - linkListType: concept
     links:
-    - text: Novidades
-      url: ../database/doc-changes-updates-release-notes.md?tabs=managed-instance
     - text: O que é a Instância Gerida do SQL?
       url: sql-managed-instance-paas-overview.md
     - text: Opções de compra

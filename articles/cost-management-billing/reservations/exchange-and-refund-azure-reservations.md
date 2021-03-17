@@ -5,14 +5,14 @@ author: yashesvi
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 02/24/2021
+ms.date: 03/16/2021
 ms.author: banders
-ms.openlocfilehash: 9015cbcd669665467d3836112b152aa504176f2b
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: bd16bbbe33876a3c44b20c5d1756b83814f9b17d
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102035998"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103601955"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Trocas e reembolsos personalizados das Reservas do Azure
 
@@ -105,6 +105,7 @@ O Azure tem as seguintes políticas para cancelamentos, trocas e reembolsos.
 - Atualmente, não estamos a cobrar uma taxa de rescisão antecipada, mas poderá haver uma taxa de 12% para cancelamentos no futuro.
 - A alocação total cancelada não pode exceder 50 000 USD num período de 12 meses para um perfil de faturação ou uma única inscrição. Por exemplo, numa reserva de três anos que custe 100 USD por mês e reembolsada no 18.º mês, a alocação cancelada é de 1800 USD. Após o reembolso, o limite disponível novo para reembolso será de 48 200 $. A partir de 365 dias a seguir ao reembolso, o limite de 48 200 será aumentado em 1800 USD e o seu conjunto novo será de 50 000 USD. Qualquer outro cancelamento de reserva para o perfil de faturação ou inscrição de EA esgotará o mesmo conjunto e será aplicada a mesma lógica de renovação.
 - O Azure não processará qualquer reembolso que exceda o limite de 50 000 USD num período de 12 meses para um perfil de faturação ou inscrição de EA.
+    - Os reembolsos resultantes de uma troca não contam contra o limite de reembolso.
 - Os reembolsos são calculados com base no preço mais baixo do preço de compra ou do preço atual da reserva.
 - Apenas os proprietários de encomendas de reservas podem processar reembolsos. [Saiba como Adicionar ou alterar os utilizadores que podem gerir uma reserva](manage-reserved-vm-instance.md#who-can-manage-a-reservation-by-default).
 

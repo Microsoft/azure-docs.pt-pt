@@ -44,7 +44,7 @@
 - name: Amostras
   items:
     - name: Exemplos de código
-      href: 'https://azure.microsoft.com/resources/samples/?service=stream-analytics'
+      href: 'https://docs.microsoft.com/en-us/samples/browse/?products=azure-stream-analytics'
 - name: Conceitos
   items:
     - name: Padrões de soluções de ponto a ponto
@@ -688,7 +688,7 @@
     - name: Mapa do Azure
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Blogue
-      href: 'https://azure.microsoft.com/blog/tag/azure-stream-analytics/'
+      href: 'https://techcommunity.microsoft.com/t5/analytics-on-azure/bg-p/AnalyticsonAzure'
     - name: Fórum de comentários
       href: 'https://feedback.azure.com/forums/270577-azure-stream-analytics'
     - name: Página de perguntas das Perguntas e Respostas da Microsoft
@@ -705,5 +705,3 @@
       href: 'https://azure.microsoft.com/resources/videos/index/?services=stream-analytics&sort=newest'
     - name: Casos práticos de clientes
       href: 'https://azure.microsoft.com/case-studies/?service=stream-analytics'
-    - name: Documento técnico - Processamento de eventos em tempo real
-      href: stream-analytics-real-time-event-processing-reference-architecture.md

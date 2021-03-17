@@ -2,13 +2,13 @@
 title: Mobilizar recursos para o grupo de gestão
 description: Descreve como implantar recursos no âmbito do grupo de gestão num modelo de Gestor de Recursos Azure.
 ms.topic: conceptual
-ms.date: 01/13/2021
-ms.openlocfilehash: a203dd2c52bdc889452a6755fb025c7ed5721a59
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.date: 03/16/2021
+ms.openlocfilehash: b14dc3622a6ad6519968bd2998aa354a850f2515
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99491618"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103601598"
 ---
 # <a name="management-group-deployments-with-arm-templates"></a>Implementações de grupos de gestão com modelos ARM
 
@@ -219,6 +219,8 @@ O próximo exemplo cria um novo grupo de gestão no grupo de gestão especificad
     }
 }
 ```
+
+Para implementar um modelo que move uma subscrição Azure existente para um novo grupo de gestão, consulte [subscrições move no modelo ARM](../../governance/management-groups/manage.md#move-subscriptions-in-arm-template)
 
 ## <a name="azure-policy"></a>Azure Policy
 
