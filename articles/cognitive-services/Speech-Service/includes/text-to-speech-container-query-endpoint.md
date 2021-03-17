@@ -8,20 +8,20 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 08/31/2020
 ms.author: aahi
-ms.openlocfilehash: 7e5ea8dcddce31a414d983d14fba483eb388d5d5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9a29244745b154aa81997813fcf4e1457f599270
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91334685"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103622188"
 ---
 O recipiente fornece [APIs de ponta com base em REST](../rest-text-to-speech.md). Existem muitos [projetos de código fonte de amostra](https://github.com/Azure-Samples/Cognitive-Speech-TTS) para plataforma, enquadramento e variações linguísticas disponíveis.
 
-Com os recipientes Standard ou Neural Text-to-speech, deve contar com o local e a voz da etiqueta de imagem que descarregou. Por exemplo, se descarregou a `latest` etiqueta, o local padrão é `en-US` e a `AriaRUS` voz. O `{VOICE_NAME}` argumento seria [`en-US-AriaRUS`](../language-support.md#standard-voices) então. Veja o exemplo SSML abaixo:
+Com os recipientes Standard ou Neural Text-to-speech, deve contar com o local e a voz da etiqueta de imagem que descarregou. Por exemplo, se descarregou a `latest` etiqueta, o local padrão é `en-US` e a `AriaNeural` voz. O `{VOICE_NAME}` argumento seria [`en-US-AriaNeural`](../language-support.md#neural-voices) então. Veja o exemplo SSML abaixo:
 
 ```xml
 <speak version="1.0" xml:lang="en-US">
-    <voice name="en-US-AriaRUS">
+    <voice name="en-US-AriaNeural">
         This text will get converted into synthesized speech.
     </voice>
 </speak>

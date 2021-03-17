@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 title: Documentação do Azure SQL
-summary: 'Encontre documentação sobre a família Azure SQL dos produtos do motor de base de dados SQL Server na cloud: Base de Dados SQL do Azure, Instância Gerida do SQL no Azure e SQL Server nas VMs do Azure. '
+summary: 'Encontre documentação sobre a família Azure SQL dos produtos do motor de base de dados SQL Server na cloud: Base de Dados SQL do Azure, Instância Gerida do SQL no Azure e SQL Server nas VMs do Azure.'
 metadata:
   title: Documentação do Azure SQL
   description: O SQL do Azure é uma família de produtos do motor de base de dados SQL Server na cloud, a partir de uma base de dados totalmente gerida na Base de Dados SQL do Azure, uma instância totalmente gerida no Azure SQL Managed Instance ou do SQL Server instalado numa máquina virtual no Azure.
@@ -14,19 +14,23 @@ metadata:
   ms.author: sstein
   ms.reviewer: 
   ms.date: 10/30/2019
-  ms.openlocfilehash: 91221735001f55974f6aba4b6fcae39a92834da8
-  ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
-  ms.translationtype: HT
+  ms.openlocfilehash: 13fcc3b41777a6b198ad9a8b12d93877adae75ca
+  ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
+  ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 11/13/2020
-  ms.locfileid: "94593897"
+  ms.lasthandoff: 03/16/2021
+  ms.locfileid: "103601428"
 landingContent:
 - title: Base de Dados SQL do Azure
   linkLists:
-  - linkListType: overview
+  - linkListType: whats-new
     links:
     - text: Novidades
       url: database/doc-changes-updates-release-notes.md?tabs=single-database
+    - text: Comentários? Faça a pesquisa!
+      url: https://aka.ms/AzureSQLSurvey
+  - linkListType: overview
+    links:
     - text: O que é a Base de Dados SQL?
       url: database/sql-database-paas-overview.md
     - text: O que são conjuntos elásticos?
@@ -55,6 +59,12 @@ landingContent:
       url: database/transact-sql-tsql-differences-sql-server.md
 - title: Instância Gerida do Azure SQL
   linkLists:
+  - linkListType: whats-new
+    links:
+    - text: Novidades
+      url: database/doc-changes-updates-release-notes.md?tabs=managed-instance
+    - text: Comentários? Faça a pesquisa!
+      url: https://aka.ms/AzureSQLSurvey
   - linkListType: overview
     links:
     - text: Novidades

@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Pausa e retomar o cálculo na piscina Synapse SQL com Azure PowerShell'
-description: Pode utilizar o Azure PowerShell para fazer uma pausa e retomar a piscina Synapse SQL (armazém de dados). recursos compute.
+title: 'Quickstart: Pausa e retomar o cálculo na piscina SQL dedicada (anteriormente SQL DW) com a Azure PowerShell'
+description: Pode utilizar a Azure PowerShell para fazer uma pausa e retomar a piscina SQL dedicada (anteriormente SQL DW). recursos compute.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -11,23 +11,23 @@ ms.date: 03/20/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse, devx-track-azurepowershell
-ms.openlocfilehash: 6022974b80a7f691edc9b9a11b972035b203187c
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 0851bbf990e78e32a1b4330719ad82bd6a7d3703
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98121044"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103600924"
 ---
-# <a name="quickstart-pause-and-resume-compute-in-synapse-sql-pool-with-azure-powershell"></a>Quickstart: Pausa e retomar o cálculo na piscina Synapse SQL com Azure PowerShell
+# <a name="quickstart-pause-and-resume-compute-in-dedicated-sql-pool-formerly-sql-dw-with-azure-powershell"></a>Quickstart: Pausa e retomar o cálculo na piscina SQL dedicada (anteriormente SQL DW) com a Azure PowerShell
 
-Pode utilizar o Azure PowerShell para fazer uma pausa e retomar os recursos de cálculo do Pool Synapse SQL (data warehouse).
+Você pode usar Azure PowerShell para parar e retomar recursos de cálculo de piscina SQL (anteriormente SQL DW).
 Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Este quickstart assume que já tem uma piscina SQL que pode parar e retomar. Se precisar de criar um, pode utilizar [o portal Create and Connect -](create-data-warehouse-portal.md) para criar uma piscina SQL chamada **mySampleDataWarehouse**.
+Este quickstart pressupõe que já tem uma piscina SQL dedicada (anteriormente SQL DW) que pode parar e retomar. Se precisar de criar um, pode utilizar [o portal Create and Connect -](create-data-warehouse-portal.md) para criar uma piscina SQL dedicada (anteriormente SQL DW) chamada **mySampleDataWarehouse**.
 
 ## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
 
@@ -49,11 +49,11 @@ Se precisar de utilizar uma subscrição diferente do padrão, executar [Set-AzC
 Set-AzContext -SubscriptionName "MySubscription"
 ```
 
-## <a name="look-up-sql-pool-information"></a>Procure informações sobre piscinas SQL
+## <a name="look-up-dedicated-sql-pool-formerly-sql-dw-information"></a>Procure informações dedicadas da piscina SQL (anteriormente SQL DW)
 
-Localize o nome da base de dados, o nome do servidor e o grupo de recursos para a piscina SQL que pretende fazer uma pausa e retomar.
+Localize o nome da base de dados, o nome do servidor e o grupo de recursos para a piscina de SQL dedicada (anteriormente SQL DW) que pretende fazer uma pausa e retomar.
 
-Siga estes passos para encontrar informações de localização para a sua piscina SQL:
+Siga estes passos para encontrar informações de localização para a sua piscina SQL dedicada (anteriormente SQL DW):
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 1. Clique em **Azure Synapse Analytics (anteriormente SQL DW)** na página esquerda do portal Azure.
@@ -61,7 +61,7 @@ Siga estes passos para encontrar informações de localização para a sua pisci
 
     ![O nome do servidor e grupo de recursos](./media/pause-and-resume-compute-powershell/locate-data-warehouse-information.png)
 
-1. Escreva o nome da piscina SQL, que é o nome da base de dados. Anote também o nome do servidor e do grupo de recursos.
+1. Escreva o nome da piscina SQL (anteriormente SQL DW), que é o nome da base de dados. Anote também o nome do servidor e do grupo de recursos.
 1. Utilize apenas a primeira parte do nome do servidor nos cmdlets PowerShell. Na imagem anterior, o nome completo do servidor é sqlpoolservername.database.windows.net. Usamos **o nome sqlpoolserver como** o nome do servidor no cmdlet PowerShell.
 
 ## <a name="pause-compute"></a>Cálculo de pausa
@@ -75,7 +75,7 @@ Para fazer uma pausa numa base de dados, utilize o cmdlet [Suspend-AzSqlDatabase
 
 ```Powershell
 Suspend-AzSqlDatabase –ResourceGroupName "myResourceGroup" `
-–ServerName "nsqlpoolservername" –DatabaseName "mySampleDataWarehouse"
+–ServerName "sqlpoolservername" –DatabaseName "mySampleDataWarehouse"
 ```
 
 O exemplo a seguir recupera a base de dados no objeto $database. Em seguida, canaliza o objeto para [suspender a base de dados AzSql](/powershell/module/az.sql/suspend-azsqldatabase?toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Os resultados são armazenados no resultado do objectoDatabase. O comando final mostra os resultados.
@@ -107,15 +107,15 @@ $resultDatabase
 
 ## <a name="check-status-of-your-sql-pool-operation"></a>Verifique o estado da sua operação de piscina SQL
 
-Para verificar o estado da sua piscina SQL, utilize o cmdlet [Get-AzSqlDatabaseActivity.](/powershell/module/az.sql/Get-AzSqlDatabaseActivity?toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
+Para verificar o estado da sua piscina SQL dedicada (anteriormente SQL DW), utilize o cmdlet [Get-AzSqlDatabaseActivity.](/powershell/module/az.sql/Get-AzSqlDatabaseActivity?toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
 
 ```Powershell
 Get-AzSqlDatabaseActivity -ResourceGroupName "myResourceGroup" -ServerName "sqlpoolservername" -DatabaseName "mySampleDataWarehouse"
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
-Está a ser cobrado por unidades de armazém de dados e os dados armazenaram a sua piscina SQL. Estes recursos de computação e armazenamento são faturados em separado.
+Está a ser cobrado por unidades de armazém de dados e os dados armazenaram a sua piscina DE SQL dedicada (anteriormente SQL DW). Estes recursos de computação e armazenamento são faturados em separado.
 
 - Se quiser manter os dados armazenados, faça uma pausa no cálculo.
 - Se quiser remover as cargas futuras, pode apagar a piscina SQL.
@@ -124,7 +124,7 @@ Siga estes passos para limpar os recursos conforme quiser.
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com)e clique na sua piscina SQL.
 
-    ![Limpar recursos](./media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
+    ![Limpar os recursos](./media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
 2. Para interromper a computação, clique no botão **Pausar**. Quando a piscina SQL é pausada, vê-se um botão **Iniciar.**  Para retomar a computação, clique em **Iniciar**.
 
@@ -136,4 +136,4 @@ Siga estes passos para limpar os recursos conforme quiser.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre a piscina SQL, continue os dados de Carga no artigo [de piscina SQL.](./load-data-from-azure-blob-storage-using-copy.md) Para obter informações adicionais sobre a gestão das capacidades de computação, consulte o artigo [de visão geral do cálculo do](sql-data-warehouse-manage-compute-overview.md) cálculo.
+Para saber mais sobre o pool SQL, continue os dados de Load em um artigo [dedicado da piscina SQL (anteriormente SQL DW).](./load-data-from-azure-blob-storage-using-copy.md) Para obter informações adicionais sobre a gestão das capacidades de computação, consulte o artigo [de visão geral do cálculo do](sql-data-warehouse-manage-compute-overview.md) cálculo.
