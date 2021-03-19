@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 78f9e4d8fa80fdf74bdb5cd79f4489d12696fcc2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88935794"
 ---
 # <a name="odata-full-text-search-functions-in-azure-cognitive-search---searchismatch-and-searchismatchscoring"></a>OData funções de pesquisa de texto completo em Azure Cognitive Search - `search.ismatch` e `search.ismatchscoring`
@@ -69,7 +69,7 @@ A `search.ismatch` função avalia uma consulta de pesquisa de texto completo co
 
 Os parâmetros são definidos na tabela seguinte:
 
-| Nome do parâmetro | Tipo | Descrição |
+| Nome do parâmetro | Tipo | Description |
 | --- | --- | --- |
 | `search` | `Edm.String` | A consulta de pesquisa (na sintaxe de consulta de Lucene [simples](query-simple-syntax.md) ou [completa).](query-lucene-syntax.md) |
 | `searchFields` | `Edm.String` | Lista separada por vírgula de campos pes pesjáveis para pesquisar; incumprimentos para todos os campos pes pesjáveis no índice. Ao utilizar a pesquisa de [campo](query-lucene-syntax.md#bkmk_fields) no `search` parâmetro, os especificadores de campo na consulta Lucene sobrepõem-se a quaisquer campos especificados neste parâmetro. |

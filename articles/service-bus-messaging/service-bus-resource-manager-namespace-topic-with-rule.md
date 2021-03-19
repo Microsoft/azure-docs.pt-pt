@@ -8,10 +8,10 @@ ms.date: 06/23/2020
 ms.author: spelluru
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.openlocfilehash: 3f3287dd67f89f678a9875ddce93e2d0d26b2209
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89077629"
 ---
 # <a name="create-a-service-bus-namespace-with-topic-subscription-and-rule-using-an-azure-resource-manager-template"></a>Crie um espaço de nome de ônibus de serviço com tópico, subscrição e regra usando um modelo de Gestor de Recursos Azure
@@ -161,7 +161,7 @@ Cria um espaço de nome padrão do Service Bus do tipo **Mensagens,** com tópic
     }]
 ```
 
-Para sintaxe e propriedades JSON, consulte [espaços de nome,](/azure/templates/microsoft.servicebus/namespaces) [tópicos,](/azure/templates/microsoft.servicebus/namespaces/topics)subscrições e [regras.](/azure/templates/microsoft.servicebus/namespaces/topics/subscriptions) [rules](/azure/templates/microsoft.servicebus/namespaces/topics/subscriptions/rules)
+Para sintaxe e propriedades JSON, consulte [espaços de nome,](/azure/templates/microsoft.servicebus/namespaces) [tópicos,](/azure/templates/microsoft.servicebus/namespaces/topics)subscrições e [regras.](/azure/templates/microsoft.servicebus/namespaces/topics/subscriptions) [](/azure/templates/microsoft.servicebus/namespaces/topics/subscriptions/rules)
 
 ## <a name="commands-to-run-deployment"></a>Comandos para executar a implementação
 

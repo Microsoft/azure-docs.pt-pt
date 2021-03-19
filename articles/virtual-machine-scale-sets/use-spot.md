@@ -9,12 +9,12 @@ ms.subservice: spot
 ms.date: 02/26/2021
 ms.reviewer: cynthn
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: b20a5bd9c06c3948097389d5439defa219a7931b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a176a30a1e21ec03c2da329785ab895ec67a4faf
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101694993"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104596421"
 ---
 # <a name="azure-spot-virtual-machines-for-virtual-machine-scale-sets"></a>Máquinas virtuais Azure Spot para conjuntos de escala de máquinas virtuais 
 
@@ -46,7 +46,7 @@ Os [seguintes tipos de oferta](https://azure.microsoft.com/support/legal/offer-d
 -   Contrato Enterprise
 -   Código de oferta pay-as-you-go 003P
 -   Patrocinado
-- Para Provedor de Serviços em Nuvem (CSP), consulte o [Centro de Parceiros](https://docs.microsoft.com/partner-center/azure-plan-get-started) ou contacte diretamente o seu parceiro.
+- Para Provedor de Serviços em Nuvem (CSP), consulte o [Centro de Parceiros](/partner-center/azure-plan-get-started) ou contacte diretamente o seu parceiro.
 
 ## <a name="eviction-policy"></a>Política de expulsão
 
@@ -202,7 +202,7 @@ Para eliminar o caso depois de ter sido despejado, altere o `evictionPolicy` par
 
 ## <a name="simulate-an-eviction"></a>Simular um despejo
 
-Você pode [simular um despejo](https://docs.microsoft.com/rest/api/compute/virtualmachines/simulateeviction) de uma Máquina Virtual Azure Spot para testar quão bem a sua aplicação irá responder a um despejo súbito. 
+Você pode [simular um despejo](/rest/api/compute/virtualmachines/simulateeviction) de uma Máquina Virtual Azure Spot para testar quão bem a sua aplicação irá responder a um despejo súbito. 
 
 Substitua as seguintes informações: 
 

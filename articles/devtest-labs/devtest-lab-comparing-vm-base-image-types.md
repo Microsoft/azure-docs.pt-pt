@@ -1,13 +1,13 @@
 ---
-title: Comparar imagens e fórmulas personalizadas em DevTest Labs Microsoft Docs
+title: Comparar imagens e fórmulas personalizadas em DevTest Labs | Microsoft Docs
 description: Conheça as diferenças entre imagens personalizadas e fórmulas como bases VM para que possa decidir qual melhor se adequa ao seu ambiente.
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: df7a8e6209f8033eb5a29c65079e9c2f4cbbe544
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87287536"
 ---
 # <a name="comparing-custom-images-and-formulas-in-devtest-labs"></a>Comparar imagens e fórmulas personalizadas em Laboratórios DevTest

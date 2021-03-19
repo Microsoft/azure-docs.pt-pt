@@ -4,13 +4,13 @@ description: Saiba como criar um espaço de trabalho Log Analytics para permitir
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 05/26/2020
-ms.openlocfilehash: 3c5df095cccec7509084f122c9a42f3b113d1c95
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.date: 03/18/2021
+ms.openlocfilehash: 27eac9cefe645087cae43c34cb6503b562fb7c07
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102047320"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104656319"
 ---
 # <a name="create-a-log-analytics-workspace-in-the-azure-portal"></a>Criar uma área de trabalho do Log Analytics no portal do Azure
 Utilize o menu **de espaços de trabalho Log Analytics** para criar um espaço de trabalho Log Analytics utilizando o portal Azure. Um espaço de trabalho Log Analytics é um ambiente único para os dados de registo do Azure Monitor. Cada espaço de trabalho tem o seu próprio repositório de dados e configuração, e as fontes de dados e soluções são configuradas para armazenar os seus dados num determinado espaço de trabalho. Necessita de um espaço de trabalho Log Analytics se pretender recolher dados a partir das seguintes fontes:
@@ -32,23 +32,24 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com). 
 
 ## <a name="create-a-workspace"></a>Criar uma área de trabalho
-1. No portal do Azure, clique em **Todos os serviços**. Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **log analytics espaços de trabalho**.
+No portal do Azure, clique em **Todos os serviços**. Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **log analytics espaços de trabalho**.
 
-    ![Portal do Azure](media/quick-create-workspace/azure-portal-01.png)
+![Portal do Azure](media/quick-create-workspace/azure-portal-01.png)
   
-2. Clique **em Adicionar** e, em seguida, selecione escolhas para os seguintes itens:
+Clique **em Adicionar** e, em seguida, forneça valores para as seguintes opções:
 
-   * Indique um nome para a nova **Área de trabalho do Log Analytics**, como *DefaultLAWorkspace*. Este nome deve ser globalmente único em todas as subscrições do Azure Monitor.
    * Selecione uma **Subscrição** à qual ligar ao escolher na lista pendente se a predefinição selecionada não é adequada.
    * Para **o Grupo de Recursos,** opte por utilizar um grupo de recursos já existente configurado ou crie um novo.  
-   * Selecione uma **localização disponível.**  Para obter mais informações, consulte em que [regiões o Log Analytics está disponível](https://azure.microsoft.com/regions/services/) e procure o Azure Monitor a partir do campo de **pesquisa de um** produto.  
-   * Se estiver a criar uma área de trabalho numa subscrição nova criada depois de 2 de abril de 2018, a mesma utilizará automaticamente o plano de preços *Por GB* e a opção para selecionar um escalão de preços não estará disponível.  Se estiver a criar um espaço de trabalho para uma subscrição existente criada antes de 2 de abril, ou a uma subscrição que estava ligada a uma inscrição existente no Enterprise Agreement (EA), selecione o seu nível de preços preferido.  Para obter mais informações sobre os níveis específicos, consulte [Detalhes de preços do Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
+   * Indique um nome para a nova **Área de trabalho do Log Analytics**, como *DefaultLAWorkspace*. Este nome deve ser globalmente único em todas as subscrições do Azure Monitor.
+   * Selecione uma **Região** disponível.  Para obter mais informações, consulte em que [regiões o Log Analytics está disponível](https://azure.microsoft.com/regions/services/) e procure o Azure Monitor a partir do campo de **pesquisa de um** produto.  
 
-        ![Criar lâmina de recurso Log Analytics](media/quick-create-workspace/create-loganalytics-workspace-02.png)  
 
-3. Depois de fornecer as informações necessárias no painel **de trabalho do Log Analytics,** clique em **OK**.  
+        ![Criar lâmina de recurso Log Analytics](media/quick-create-workspace/create-workspace.png)  
 
-Enquanto as informações são confirmadas e a área de trabalho criada, pode acompanhar o progresso em **Notificações**, no menu. 
+
+Clique **em Rever + criar** para rever as definições e, em seguida, **criar** para criar o espaço de trabalho. Isto irá selecionar um nível de preços predefinido de Pay-as-you-go que não incorrerá em quaisquer alterações até que comece a recolher uma quantidade suficiente de dados. Para obter mais informações sobre outros níveis de preços, consulte [Detalhes de preços do Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
+
+
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 Quando cria um espaço de trabalho que foi eliminado nos últimos 14 dias e em [estado de eliminação suave,](../logs/delete-workspace.md#soft-delete-behavior)a operação pode ter resultados diferentes dependendo da configuração do seu espaço de trabalho:

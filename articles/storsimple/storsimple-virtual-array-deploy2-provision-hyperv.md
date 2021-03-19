@@ -1,5 +1,5 @@
 ---
-title: Provisão StorSimple Matriz Virtual em Hiper-V Microsoft Docs
+title: Provisão StorSimple Matriz Virtual em | Hiper-V Microsoft Docs
 description: Este segundo tutorial na implementação de Matriz Virtual StorSimple envolve o fornecimento de uma matriz virtual em Hyper-V.
 services: storsimple
 documentationcenter: NA
@@ -16,16 +16,16 @@ ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: d6dfc95820e911781ffa88e2207601703f165839
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87070587"
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-hyper-v"></a>Implementar StorSimple Virtual Array - Provisão em Hiper-V
 ![Diagrama mostrando os passos necessários para implantar uma matriz virtual. A primeira parte do segundo passo é rotulada Provisão em Hiper-V e é destacada.](./media/storsimple-virtual-array-deploy2-provision-hyperv/hyperv4.png)
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 [!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner.md)]
 

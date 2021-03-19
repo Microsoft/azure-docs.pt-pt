@@ -4,10 +4,10 @@ description: Neste artigo, aprenda a fazer backup de uma partilha de ficheiros A
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.openlocfilehash: 948931764769bc967b88e7942b7e8384b0f93dff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87077001"
 ---
 # <a name="back-up-an-azure-file-share-by-using-powershell"></a>Faça o back up de uma partilha de ficheiros Azure usando o PowerShell
@@ -223,7 +223,7 @@ $afsPol =  Get-AzRecoveryServicesBackupProtectionPolicy -Name "dailyafs"
 
 Ativar a proteção utilizando [a Proteção Enable-AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection). Depois da apólice estar associada ao cofre, as cópias de segurança são ativadas de acordo com o calendário da apólice.
 
-O exemplo a seguir permite a proteção do teste de partilha de ficheiros **AzureAureFileShare** em teste de conta de **armazenamentoStorageAcct,** com os **dailyafs de**política :
+O exemplo a seguir permite a proteção do teste de partilha de ficheiros **AzureAureFileShare** em teste de conta de **armazenamentoStorageAcct,** com os **dailyafs de** política :
 
 ```powershell
 Enable-AzRecoveryServicesBackupProtection -StorageAccountName "testStorageAcct" -Name "testAzureFS" -Policy $afsPol

@@ -4,10 +4,10 @@ description: Marcador de posição
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: 17b1f93c18dfb013916c4c0d3756fb97a73e2675
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87042966"
 ---
 # <a name="video-playback"></a>Reproduzir vídeo 
@@ -18,7 +18,7 @@ ms.locfileid: "87042966"
 * [Análise de vídeo ao vivo na terminologia IoT Edge](terminology.md)
 * [Conceito de gráfico de mídia](media-graph-concept.md)
 
-## <a name="overview"></a>Descrição geral  
+## <a name="overview"></a>Descrição Geral  
 
 Pode utilizar [gráficos de mídia](media-graph-concept.md) para gravar vídeo num [ativo](terminology.md#asset)da Azure Media Services . Neste documento, pode aprender sobre os passos que precisa de tomar para jogar um ativo utilizando as capacidades de streaming existentes da Azure Media Services.
 

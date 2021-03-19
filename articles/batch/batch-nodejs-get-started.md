@@ -3,12 +3,12 @@ title: Utilize a biblioteca de clientes Azure Batch para Node.js
 description: Aprenda os conceitos básicos do Azure Batch e crie uma solução simples com Node.js.
 ms.topic: how-to
 ms.date: 10/08/2020
-ms.openlocfilehash: 36a127a20014e87554f0d3e3927b05679b6f72f1
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: a2d86582c94804a20a3a9e952bc64d60414e25a5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737291"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104656027"
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>Introdução ao SDK do Batch para Node.js
 
@@ -32,9 +32,9 @@ O diagrama seguinte ilustra como podemos ampliar o script Python com o Azure Bat
 
 O cliente de Node.js implementa uma tarefa de lote com uma tarefa de preparação (explicada em detalhe mais à frente) e um conjunto de tarefas, dependendo do número de contentores na conta de armazenamento. Você pode baixar os scripts do repositório GitHub.
 
-- [Cliente Node.js](https://github.com/Azure/azure-batch-samples/blob/master/Node.js/GettingStarted/nodejs_batch_client_sample.js)
-- [Scripts de shell da tarefa de preparação](https://github.com/Azure/azure-batch-samples/blob/master/Node.js/GettingStarted/startup_prereq.sh)
-- [Processador de csv em JSON em Python](https://github.com/Azure/azure-batch-samples/blob/master/Node.js/GettingStarted/processcsv.py)
+- [Cliente Node.js](https://github.com/Azure-Samples/azure-batch-samples/blob/master/JavaScript/Node.js/sample.js)
+- [Scripts de shell da tarefa de preparação](https://github.com/Azure-Samples/azure-batch-samples/blob/master/JavaScript/Node.js/startup_prereq.sh)
+- [Processador de csv em JSON em Python](https://github.com/Azure-Samples/azure-batch-samples/blob/master/JavaScript/Node.js/processcsv.py)
 
 > [!TIP]
 > O cliente Node.js na ligação especificada não contém código específico para implementação como uma aplicação de função das Funções do Azure. Para saber como criar uma aplicação destas, pode ver as ligações seguintes:
@@ -334,7 +334,7 @@ O código adiciona várias tarefas ao conjunto e cada uma das tarefas é executa
 
 O portal tem vistas detalhadas sobre as tarefas e os estados dos trabalhos. Também pode utilizar a lista para obter funções no SDK do Azure para Node. Estão disponíveis detalhes na [ligação](https://azure.github.io/azure-sdk-for-node/azure-batch/latest/Job.html) da documentação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Conheça o fluxo de trabalho do [serviço Batch e os recursos primários,](batch-service-workflow-features.md) tais como piscinas, nós, empregos e tarefas.
 - Veja [Batch Node.js reference](/javascript/api/overview/azure/batch) (Referência de Node.js do Batch) para explorar a API do Batch.

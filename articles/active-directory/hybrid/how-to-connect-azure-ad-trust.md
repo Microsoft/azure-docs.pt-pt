@@ -1,5 +1,5 @@
 ---
-title: Azure AD Connect - Gerir a confiança da AD FS com a AZure AD usando a Azure AD Connect / Microsoft Docs
+title: Azure AD Connect - Gerir a confiança da AD FS com a AZure AD usando a Azure AD Connect | Microsoft Docs
 description: Detalhes operacionais do manuseamento de confiança Azure AD pela ligação Azure AD.
 keywords: AD FS, ADFS, Gestão de FS AD, AAD Connect, Connect, Azure AD, trust, AAD, reivindicação, regras de reclamação, emissão, transformação, regras, backup, restauro
 services: active-directory
@@ -19,15 +19,15 @@ author: billmath
 ms.custom: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 13d56ec321cd257412c2b0abbe0be655c6cb4dbf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85360100"
 ---
 # <a name="manage-ad-fs-trust-with-azure-ad-using-azure-ad-connect"></a>Gerir a confiança do AD FS com o Azure AD com o Azure AD Connect
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 O Azure AD Connect pode gerir a federação entre o Serviço de Federação de Diretórios Ativos (AD FS) e a Azure AD. Este artigo fornece uma visão geral de:
 
@@ -103,7 +103,7 @@ O Azure AD Connect garante que o fundo Azure AD está sempre configurado com o c
 
 ## <a name="restore-issuance-transform-rules"></a>Restaurar regras de transformação de emissão
 
-Azure AD Connect versão 1.1.873.0 ou posterior faz uma cópia de segurança das definições de confiança AD AZure sempre que uma atualização é feita para as definições de confiança AD Azure. As definições de confiança AD AZure são apoiadas em **%ProgramData%\\AADConnect\ADFS**. O nome do ficheiro está no seguinte formato AadTrust- &lt; hora da data &gt; - &lt; &gt; .txt, por exemplo - AadTrust-20180710-150216.txt
+Azure AD Connect versão 1.1.873.0 ou posterior faz uma cópia de segurança das definições de confiança AD AZure sempre que uma atualização é feita para as definições de confiança AD Azure. As definições de confiança AD AZure são apoiadas em **%ProgramData%\\AADConnect\ADFS**. O nome do ficheiro está no seguinte formato AadTrust- &lt; &gt; - &lt; data &gt; .txt, por exemplo - AadTrust-20180710-150216.txt
 
 ![Uma imagem de exemplo de volta da confiança AD AD Azure](./media/how-to-connect-azure-ad-trust/backup.png)
 

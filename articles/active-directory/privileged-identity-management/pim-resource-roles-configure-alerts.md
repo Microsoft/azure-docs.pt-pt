@@ -1,5 +1,5 @@
 ---
-title: Configure alertas de segurança para funções de recursos da Azure em Gestão de Identidade Privilegiada - Diretório Ativo Azure Microsoft Docs
+title: Configure alertas de segurança para funções de recursos Azure em Gestão de Identidade Privilegiada - Azure Ative Directory | Microsoft Docs
 description: Saiba como configurar alertas de segurança para funções de recursos Azure em Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0bfca096eb49ee9f1807935de1dac49151cc8ac3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84743767"
 ---
 # <a name="configure-security-alerts-for-azure-resource-roles-in-privileged-identity-management"></a>Configure alertas de segurança para funções de recursos Azure na Gestão de Identidade Privilegiada

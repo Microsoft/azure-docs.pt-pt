@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.custom: devx-track-csharp
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 5174cb584f2e8df236725f7427b423fda1a02c88
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.openlocfilehash: 01854e7636f53ec1faab157b51cc84f3539582b4
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102630865"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104596727"
 ---
 # <a name="signal-descriptive-audio-tracks"></a>Faixas de áudio descritivas de sinal
 
@@ -80,7 +80,7 @@ A tarefa demora algum tempo a terminar, por isso irá querer receber uma notific
 
 O trabalho geralmente passa pelos seguintes estados: **Programado,** **Fila,** **Processamento,** **Terminado** (o estado final). Se a tarefa encontrar um erro, obterá um estado de **Erro**. Se a tarefa estiver a ser cancelada, verá **A cancelar** e **Cancelada** quando terminar.
 
-Para obter mais informações, consulte [eventos de Grelha de Eventos de Gestão](reacting-to-media-services-events.md).
+Para obter mais informações, consulte [eventos de Grelha de Eventos de Gestão](monitoring/reacting-to-media-services-events.md).
 
 ## <a name="upload-the-audio-only-mp4-file"></a>Faça o upload do ficheiro MP4 apenas áudio
 

@@ -1,13 +1,13 @@
 ---
-title: Mensagens prefetch do Azure Service Bus Microsoft Docs
+title: Mensagens prefetch do autocarro da Azure Service | Microsoft Docs
 description: Melhorar o desempenho, pré-mantendo as mensagens do Azure Service Bus. As mensagens estão prontamente disponíveis para a recuperação local antes dos pedidos de candidatura para as mesmos.
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 05e23b0590f0c04171efda8fb561b4c2664ed096
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85341047"
 ---
 # <a name="prefetch-azure-service-bus-messages"></a>Mensagens de autocarro do Serviço Prefetch Azure
@@ -18,11 +18,11 @@ Uma única chamada inicial [de Receber](/dotnet/api/microsoft.servicebus.messagi
 
 ## <a name="enable-prefetch"></a>Ativar prefetch
 
-Com .NET, ativa a função Prefetch definindo a propriedade [PrefetchCount](/dotnet/api/microsoft.azure.servicebus.queueclient.prefetchcount#Microsoft_Azure_ServiceBus_QueueClient_PrefetchCount) de um **MessageReceiver,** **QueueClient**ou **SubscriptionClient** para um número superior a zero. Definir o valor para zero desliga a pré-recado.
+Com .NET, ativa a função Prefetch definindo a propriedade [PrefetchCount](/dotnet/api/microsoft.azure.servicebus.queueclient.prefetchcount#Microsoft_Azure_ServiceBus_QueueClient_PrefetchCount) de um **MessageReceiver,** **QueueClient** ou **SubscriptionClient** para um número superior a zero. Definir o valor para zero desliga a pré-recado.
 
 Pode adicionar facilmente esta definição ao lado de receção das definições de [amostras DePressingStarted](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/QueuesGettingStarted) ou [ReceiveLoop](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/ReceiveLoop) para ver o efeito nesses contextos.
 
-Enquanto as mensagens estão disponíveis **Receive**no tampão de pré-recado, quaisquer chamadas / **ReceiveAsync** subsequentes são imediatamente preenchidas a partir do tampão, e o tampão é reabastecido em segundo plano à medida que o espaço fica disponível. Se não houver mensagens disponíveis para entrega, a operação de receção esvazia o tampão e, em seguida, espera ou bloqueia, como esperado.
+Enquanto as mensagens estão disponíveis no tampão de pré-recado, quaisquer chamadas / **ReceiveAsync** subsequentes são imediatamente preenchidas a partir do tampão, e o tampão é reabastecido em segundo plano à medida que o espaço fica disponível. Se não houver mensagens disponíveis para entrega, a operação de receção esvazia o tampão e, em seguida, espera ou bloqueia, como esperado.
 
 A Prefetch também funciona da mesma forma com as APIs [OnMessage](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage) e [OnMessageAsync.](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessageasync)
 
@@ -30,7 +30,7 @@ A Prefetch também funciona da mesma forma com as APIs [OnMessage](/dotnet/api/m
 
 O prefetch acelera o fluxo da mensagem tendo uma mensagem prontamente disponível para a recuperação local quando e antes da aplicação pedir uma. Este ganho de produção é o resultado de uma compensação que o autor da aplicação deve fazer explicitamente:
 
-Com o modo de receção [ReceiveAndDelete,](/dotnet/api/microsoft.servicebus.messaging.receivemode) todas as mensagens adquiridas no tampão pré-fetch já não estão disponíveis na fila, e apenas residem no tampão de pré-aplicação na memória até serem recebidas na aplicação através dos **Receive** / **APIs receiveAsync** ou **OnMessage** / **OnMessage.** Se a aplicação terminar antes de as mensagens serem recebidas na aplicação, essas mensagens são irrecuperáveis perdidas.
+Com o modo de receção [ReceiveAndDelete,](/dotnet/api/microsoft.servicebus.messaging.receivemode) todas as mensagens adquiridas no tampão pré-fetch já não estão disponíveis na fila, e apenas residem no tampão de pré-aplicação na memória até serem recebidas na aplicação através dos  / **APIs receiveAsync** ou **OnMessage** / **OnMessage.** Se a aplicação terminar antes de as mensagens serem recebidas na aplicação, essas mensagens são irrecuperáveis perdidas.
 
 No modo de receção [PeekLock,](/dotnet/api/microsoft.servicebus.messaging.receivemode#Microsoft_ServiceBus_Messaging_ReceiveMode_PeekLock) as mensagens recolhidas no tampão Prefetch são adquiridas no tampão num estado bloqueado e têm o tempo limite para o tique-taque de bloqueio. Se o tampão pré-de primeira categoria for grande e o processamento demorar tanto tempo que as fechaduras de mensagens expiram enquanto residem no tampão pré-desproteto ou mesmo enquanto a aplicação está a processar a mensagem, pode haver alguns eventos confusos para a aplicação a manusear.
 

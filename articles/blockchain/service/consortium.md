@@ -5,10 +5,10 @@ ms.date: 11/21/2019
 ms.topic: conceptual
 ms.reviewer: zeyadr
 ms.openlocfilehash: 7b8885ba08d35db20d1eb7e75141cb173913b386
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84712535"
 ---
 # <a name="azure-blockchain-service-consortium"></a>Consórcio Azure Blockchain Service
@@ -33,12 +33,12 @@ Os participantes num consórcio podem ser indivíduos ou organizações e podem 
 
 | Ação | Função de utilizador | Função de administrador
 |--------|:----:|:------------:|
-| Criar novo membro | Sim | Sim |
-| Convidar novos membros | Não | Sim |
-| Definir ou alterar o papel de participante do membro | Não | Sim |
+| Criar novo membro | Yes | Yes |
+| Convidar novos membros | No | Yes |
+| Definir ou alterar o papel de participante do membro | No | Yes |
 | Alterar nome de exibição de membro | Apenas para o próprio membro | Apenas para o próprio membro |
-| Remover membros | Apenas para o próprio membro | Sim |
-| Participar em transações blockchain | Sim | Sim |
+| Remover membros | Apenas para o próprio membro | Yes |
+| Participar em transações blockchain | Yes | Yes |
 
 ### <a name="user-role"></a>Função de utilizador
 

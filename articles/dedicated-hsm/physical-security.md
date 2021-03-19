@@ -1,5 +1,5 @@
 ---
-title: Segurança física HSM - Azure Dedicado HSM / Microsoft Docs
+title: Segurança física HSM - Azure Dedicado HSM | Microsoft Docs
 description: Informação sobre a segurança física dos dispositivos HSM dedicados a Azure nos centros de dados
 services: dedicated-hsm
 author: msmbaldwin
@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: mbaldwin
 ms.openlocfilehash: ede1af4625d06af4e280eda86d09ae1db3dfdfd1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "70881020"
 ---
 # <a name="azure-dedicated-hsm-physical-security"></a>Segurança física dedicada a Azure HSM
@@ -56,7 +56,7 @@ Os HSMs são a provisionados a uma rede virtual criada pelo cliente. Este é o e
 Recomenda-se que todos os conceitos-chave do serviço, tais como alta disponibilidade e segurança e capacidade de suporte, por exemplo, sejam bem compreendidos antes do fornecimento do dispositivo, design de aplicações ou implementação.
 
 * [Alta Disponibilidade](high-availability.md)
-* [Redes](networking.md)
+* [Rede](networking.md)
 * [Suportabilidade](supportability.md)
 * [Monitorização](monitoring.md)
 * [Arquitetura de implantação](deployment-architecture.md)

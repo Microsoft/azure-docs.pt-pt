@@ -8,10 +8,10 @@ ms.date: 05/29/2018
 ms.author: twooley
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 67ba4f12aec9e987d79109b7197d03301bf40650
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89004787"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-net-sdk"></a>Autenticação de utilizador final com Azure Data Lake Storage Gen1 usando .NET SDK
@@ -19,7 +19,7 @@ ms.locfileid: "89004787"
 > * [Utilizar o Java](data-lake-store-end-user-authenticate-java-sdk.md)
 > * [Com o .NET SDK](data-lake-store-end-user-authenticate-net-sdk.md)
 > * [Utilizar o Python](data-lake-store-end-user-authenticate-python.md)
-> * [Utilização de REST API](data-lake-store-end-user-authenticate-rest-api.md)
+> * [Utilizar a API REST](data-lake-store-end-user-authenticate-rest-api.md)
 > 
 >  
 
@@ -33,7 +33,7 @@ Neste artigo, você aprende sobre como usar o .NET SDK para fazer a autenticaç�
 * **Criar uma aplicação "Native" do Diretório Ativo Azure**. Deve ter completado os passos na [autenticação do utilizador final com a Data Lake Storage Gen1 utilizando o Azure Ative Directory](data-lake-store-end-user-authenticate-using-active-directory.md).
 
 ## <a name="create-a-net-application"></a>Criar uma aplicação .NET
-1. No Estúdio Visual, selecione o menu **'Ficheiro',** **Novo**e, em seguida, **Project**.
+1. No Estúdio Visual, selecione o menu **'Ficheiro',** **Novo** e, em seguida, **Project**.
 2. Escolha **a App consola (.NET Framework)** e, em seguida, selecione **Seguinte**.
 3. No **nome do Projeto,** insira `CreateADLApplication` e, em seguida, selecione **Criar**.
 
@@ -49,7 +49,7 @@ Neste artigo, você aprende sobre como usar o .NET SDK para fazer a autenticaç�
         ![Adicionar uma fonte nuGet](./media/data-lake-store-get-started-net-sdk/data-lake-store-install-nuget-package.png "Criar uma nova conta Azure Data Lake")
    4. Feche o **Gestor de Pacotes NuGet**.
 
-5. Abrir **Program.cs**
+5. **Programa Aberto.cs**
 6. Substitua as declarações de utilização pelas seguintes linhas:
 
     ```csharp

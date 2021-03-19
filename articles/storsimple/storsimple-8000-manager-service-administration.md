@@ -1,5 +1,5 @@
 ---
-title: StorSimple Device Manager administração de serviços / Microsoft Docs
+title: Administração de serviços StorSimple Device Manager | Microsoft Docs
 description: Saiba como gerir o seu dispositivo StorSimple utilizando o serviço StorSimple Device Manager no portal Azure.
 services: storsimple
 documentationcenter: ''
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/12/2017
+ms.date: 03/17/2021
 ms.author: alkohli
-ms.openlocfilehash: 69a36f38cc76693f596b45d4df6e232bc01584d5
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 0e25d41fbf6a9683f178cbfd1b07fde1b6796509
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967980"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104656826"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-administer-your-storsimple-device"></a>Utilize o serviço StorSimple Device Manager para administrar o seu dispositivo StorSimple
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Este artigo descreve a interface de serviço StorSimple Device Manager, incluindo como ligar-se a ele, as várias opções disponíveis, e liga-se aos fluxos de trabalho específicos que podem ser realizados através deste UI. Esta orientação é aplicável a ambos; o dispositivo físico StorSimple e o aparelho em nuvem.
 
@@ -47,6 +47,8 @@ O serviço StorSimple Device Manager funciona no Microsoft Azure e liga-se a vá
 A tabela a seguir mostra um resumo de todas as tarefas de gestão comuns e fluxos de trabalho complexos que podem ser realizados dentro do serviço StorSimple Device Manager UI. Estas tarefas são organizadas com base nas lâminas de UI em que são iniciadas.
 
 Para obter mais informações sobre cada fluxo de trabalho, clique no procedimento apropriado na tabela.
+
+[!INCLUDE [StorSimple software warning](../../includes/storsimple-update-software-warning.md)]
 
 #### <a name="storsimple-device-manager-workflows"></a>Fluxos de trabalho do Gestor de Dispositivos StorSimple
 

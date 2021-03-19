@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 35ef9d8731e169e890f5985ce01215fec5d6e3de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84697712"
 ---
 # <a name="durable-functions-types-and-features"></a>Tipos e funcionalidades de funções duráveis
@@ -52,7 +52,7 @@ Para mais informações sobre funções de entidade, consulte o artigo [Entidade
 
 ## <a name="client-functions"></a>Funções do cliente
 
-As funções de orquestrador são desencadeadas por uma [ligação de gatilho](durable-functions-bindings.md#orchestration-trigger) de orquestração e as funções de entidade são desencadeadas por uma [entidade que desencadeia a ligação](durable-functions-bindings.md#entity-trigger). Ambos os gatilhos funcionam reagindo a mensagens que são encadeadas num [centro de tarefas.](durable-functions-task-hubs.md) A principal forma de entregar estas mensagens é utilizando uma [ligação de cliente orquestrador](durable-functions-bindings.md#orchestration-client) ou uma [entidade que vincula](durable-functions-bindings.md#entity-client) a partir de uma *função*do cliente . Qualquer função não orquestradora pode ser uma *função do cliente*. Por exemplo, pode ativar o orquestrador a partir de uma função acionada por HTTP, uma função ativada pelo Azure Event Hub, etc. O que torna uma função de *cliente* é o seu uso da ligação de saída do cliente durável.
+As funções de orquestrador são desencadeadas por uma [ligação de gatilho](durable-functions-bindings.md#orchestration-trigger) de orquestração e as funções de entidade são desencadeadas por uma [entidade que desencadeia a ligação](durable-functions-bindings.md#entity-trigger). Ambos os gatilhos funcionam reagindo a mensagens que são encadeadas num [centro de tarefas.](durable-functions-task-hubs.md) A principal forma de entregar estas mensagens é utilizando uma [ligação de cliente orquestrador](durable-functions-bindings.md#orchestration-client) ou uma [entidade que vincula](durable-functions-bindings.md#entity-client) a partir de uma *função* do cliente . Qualquer função não orquestradora pode ser uma *função do cliente*. Por exemplo, pode ativar o orquestrador a partir de uma função acionada por HTTP, uma função ativada pelo Azure Event Hub, etc. O que torna uma função de *cliente* é o seu uso da ligação de saída do cliente durável.
 
 > [!NOTE]
 > Ao contrário de outros tipos de funções, as funções de orquestrador e de entidade não podem ser ativadas diretamente utilizando os botões do Portal Azure. Se pretender testar uma função de orquestrador ou entidade no Portal Azure, deve, em vez disso, executar uma *função de cliente* que inicie uma função de orquestrador ou entidade como parte da sua implementação. Para uma experiência de teste mais simples, recomenda-se uma função *de gatilho manual.*

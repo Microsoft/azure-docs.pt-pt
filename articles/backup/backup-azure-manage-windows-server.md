@@ -4,10 +4,10 @@ description: Neste artigo, aprenda a usar o painel de visão geral do cofre dos 
 ms.topic: conceptual
 ms.date: 07/08/2019
 ms.openlocfilehash: 74351d781287d863db8be0fc7d20517e0479106c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89002135"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Monitorizar e gerir cofres dos Serviços de Recuperação
@@ -276,9 +276,9 @@ O azulejo de armazenamento de reserva no painel de instrumentos mostra o armazen
 
 **Etapas de resolução de problemas:** O processo, ```OBRecoveryServicesManagementAgent``` envia o trabalho e alerta os dados para o serviço de Backup Azure. Ocasionalmente, este processo pode ficar preso ou desligado.
 
-1. Para verificar se o processo não está a decorrer, abra o **Gestor de Tarefas**e ```OBRecoveryServicesManagementAgent``` verifique se está a decorrer.
+1. Para verificar se o processo não está a decorrer, abra o **Gestor de Tarefas** e ```OBRecoveryServicesManagementAgent``` verifique se está a decorrer.
 
-2. Se o processo não estiver em curso, abra o **Painel de Controlo**e consulte a lista de serviços. Iniciar ou reiniciar o **Agente de Gestão de Serviços de Recuperação do Microsoft Azure**.
+2. Se o processo não estiver em curso, abra o **Painel de Controlo** e consulte a lista de serviços. Iniciar ou reiniciar o **Agente de Gestão de Serviços de Recuperação do Microsoft Azure**.
 
     Para mais informações, consulte os registos em:<br/>
    `<AzureBackup_agent_install_folder>\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider*` Por exemplo:<br/>

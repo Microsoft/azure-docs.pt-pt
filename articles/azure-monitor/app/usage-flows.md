@@ -7,10 +7,10 @@ ms.author: daviste
 ms.date: 01/24/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: a31ab24b96fa44787d08801a0680f94ff98bb5a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87309274"
 ---
 # <a name="analyze-user-navigation-patterns-with-user-flows-in-application-insights"></a>Analise os padrões de navegação dos utilizadores com fluxos de utilizador em insights de aplicação
@@ -37,7 +37,7 @@ A ferramenta Fluxos de Utilizador começa a partir de uma vista inicial de pági
 
 Para começar a responder a perguntas com a ferramenta Fluxos de Utilizador, escolha uma vista inicial de página, evento personalizado ou exceção para servir como ponto de partida para a visualização:
 
-1. Clique no link no **o que os utilizadores fazem depois...?** **Edit**
+1. Clique no link no **o que os utilizadores fazem depois...?** 
 2. Selecione uma vista de página, evento personalizado ou exceção do **dropdown inicial** do evento.
 3. Clique **em Criar gráfico.**
 

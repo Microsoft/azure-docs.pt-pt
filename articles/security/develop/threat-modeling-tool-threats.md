@@ -1,5 +1,5 @@
 ---
-title: Ameaças - Ferramenta de Modelação de Ameaças da Microsoft - Azure Microsoft Docs
+title: Ameaças - Ferramenta de Modelação de Ameaças da Microsoft - Azure | Microsoft Docs
 description: Página da categoria de ameaça para a Ferramenta de Modelação de Ameaças da Microsoft, contendo categorias para todas as ameaças geradas expostas.
 services: security
 documentationcenter: na
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
 ms.openlocfilehash: eb006482b851e9094b82ec3d0753b74c05296994
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "68727836"
 ---
 # <a name="microsoft-threat-modeling-tool-threats"></a>Ameaças de ferramenta de modelação de ameaças da Microsoft

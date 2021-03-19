@@ -4,17 +4,17 @@ description: Conecte-se privadamente a uma Aplicação Web usando o Azure Privat
 author: ericgre
 ms.assetid: 2dceac28-1ba6-4904-a15d-9e91d5ee162c
 ms.topic: article
-ms.date: 10/09/2020
+ms.date: 03/16/2021
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 8d471b680a6ff97b4b96a9c5f90f5548488dd35f
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.openlocfilehash: 4de405e07a9ae9d1efb33f2cee3630a1eefdef33
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103563616"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104655908"
 ---
 # <a name="using-private-endpoints-for-azure-web-app"></a>Utilizar Pontos Finais Privados para a Aplicação Web do Azure
 
@@ -117,8 +117,6 @@ Para obter detalhes sobre os preços, consulte [os preços do Azure Private Link
 Quando utilizar a Função Azure em Plano Premium Elástico com Ponto Final Privado, para executar ou executar a função no portal Azure Web, tem de ter acesso direto à rede ou receberá um erro HTTP 403. Por outras palavras, o seu navegador deve ser capaz de chegar ao Ponto Final Privado para executar a função a partir do portal Azure Web. 
 
 Pode ligar até 100 pontos de final privados a uma determinada Web App.
-
-As ranhuras não podem ser utilizadas no Ponto Final Privado.
 
 A funcionalidade de depuração remota não está disponível quando o Private Endpoint está ativado para a Web App. A recomendação é colocar o código numa ranhura e desativá-lo remotamente lá.
 

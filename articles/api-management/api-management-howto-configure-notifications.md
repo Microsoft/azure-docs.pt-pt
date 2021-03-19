@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: apimpm
 ms.openlocfilehash: 786a9e26003a7afb98307e0bd7fae94c42a2f00d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84690307"
 ---
 # <a name="how-to-configure-notifications-and-email-templates-in-azure-api-management"></a>Como configurar notificações e modelos de e-mail na API Management do Azure
@@ -30,7 +30,7 @@ Se não tiver uma instância de serviço de Gestão API, complete o seguinte qui
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## <a name="configure-notifications"></a><a name="publisher-notifications"> </a>Configurar notificações
+## <a name="configure-notifications"></a><a name="publisher-notifications"> </a>Configure notificações
 
 1.  Selecione a sua instância **API MANAGEMENT.**
 2.  Clique **em Notificações** para ver as notificações disponíveis.
@@ -88,7 +88,7 @@ A lista **de Parâmetros** contém uma lista de parâmetros que, quando inserido
 > [!NOTE]
 > Os parâmetros não são substituídos por valores reais ao visualizar ou enviar um teste.
 
-Para guardar as alterações no modelo de e-mail, clique em **Guardar**ou cancelar as alterações clique em **Descartar**.
+Para guardar as alterações no modelo de e-mail, clique em **Guardar** ou cancelar as alterações clique em **Descartar**.
 
 [api-management-management-console]: ./media/api-management-howto-configure-notifications/api-management-management-console.png
 [api-management-publisher-notifications]: ./media/api-management-howto-configure-notifications/api-management-publisher-notifications.png

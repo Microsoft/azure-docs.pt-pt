@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c98269f9851272e8caa9b26ae0c57ed13e9a99f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89049133"
 ---
 # <a name="conditional-access-require-compliant-devices"></a>Acesso Condicional: Requer dispositivos compatíveis
@@ -34,7 +34,7 @@ Esta informação de conformidade da política é reencaminhada para a Azure AD 
 As seguintes medidas ajudarão a criar uma política de Acesso Condicional para exigir que os dispositivos que acedam aos recursos sejam marcados como conformes com as políticas de conformidade intune da sua organização.
 
 1. Inscreva-se no **portal Azure** como administrador global, administrador de segurança ou administrador de acesso condicional.
-1. Navegue pelo Acesso Condicional de Segurança **do Diretório Ativo Azure**  >  **Security**  >  **Conditional Access**.
+1. Navegue pelo Acesso Condicional de Segurança **do Diretório Ativo Azure**  >    >  .
 1. Selecione **Nova política**.
 1. Dê um nome à sua política. Recomendamos que as organizações criem um padrão significativo para os nomes das suas políticas.
 1. Em **Atribuições**, selecione **Utilizadores e grupos**

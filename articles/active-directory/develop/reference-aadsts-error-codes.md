@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/01/2021
+ms.date: 03/17/2021
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 606704621a4904dd0fb7b6f55e753dbe77e39cb5
-ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
+ms.openlocfilehash: 56ffa8c33c409e274318407a70f33edaabb5073d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103601020"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104578503"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Códigos de erro da Autenticação e autorização do Azure AD
 
@@ -269,6 +269,7 @@ Por exemplo, se recebeu o código de erro "AADSTS50058" então faça uma pesquis
 | AADSTS90094 | AdminConsentRequired - Consentimento do administrador é necessário. |
 | AADSTS900382 | O Cliente Confidencial não é suportado no pedido da Cross Cloud. |
 | AADSTS90099 | A aplicação '{appId}' ({appName}) não foi autorizada no inquilino '{tenant}'. As candidaturas devem ser autorizadas a aceder ao cliente inquilino antes que os administradores delegados do parceiro possam usá-las. Fornecer pré-consentimento ou executar a API do Centro de Parceiros apropriado para autorizar o pedido. |
+| AADSTS900971| Sem endereço de resposta fornecido.|
 | AADSTS90100 | InvalidRequestParameter - O parâmetro está vazio ou não é válido. |
 | AADSTS901002 | AADSTS901002: O parâmetro de pedido de "recursos" não é suportado. |
 | AADSTS90101 | InvalidEmailAddress - Os dados fornecidos não são um endereço de e-mail válido. O endereço de e-mail deve estar no formato `someone@example.com` . |

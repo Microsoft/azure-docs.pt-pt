@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: iot-fundamentals
 author: robinsh
 ms.service: iot-fundamentals
@@ -9,10 +9,10 @@ ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: 4fdb891d668d99644d8a9ed9c15d158e65d53ba5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "72793140"
 ---
 Garantir uma infraestrutura de Internet das Coisas (IoT) requer uma estratégia rigorosa em profundidade em segurança. Esta estratégia requer que você proteja os dados na nuvem, proteja a integridade dos dados durante o transporte através da internet pública e dispositivos de fornecimento de segurança. Cada camada constrói uma maior garantia de segurança na infraestrutura global.
@@ -37,7 +37,7 @@ Seguem-se as melhores práticas para fabricantes de hardware IoT e integradores 
 
 * **Hardware de âmbito aos requisitos mínimos**: O design do hardware deve incluir as características mínimas necessárias para o funcionamento do hardware, e nada mais. Um exemplo é incluir portas USB apenas se necessário para o funcionamento do dispositivo. Estas funcionalidades adicionais abrem o dispositivo para vetores de ataque indesejados que devem ser evitados.
 
-* **Faça prova de adulteração**de hardware : Construa em mecanismos para detetar manipulações físicas, tais como a abertura da tampa do dispositivo ou a remoção de uma parte do dispositivo. Estes sinais de adulteração podem fazer parte do fluxo de dados enviado para a nuvem, o que pode alertar os operadores destes eventos.
+* **Faça prova de adulteração** de hardware : Construa em mecanismos para detetar manipulações físicas, tais como a abertura da tampa do dispositivo ou a remoção de uma parte do dispositivo. Estes sinais de adulteração podem fazer parte do fluxo de dados enviado para a nuvem, o que pode alertar os operadores destes eventos.
 
 * **Construa em torno de hardware seguro**: Se o COGS permitir, construa funcionalidades de segurança como armazenamento seguro e encriptado ou funcionalidade de boot com base no Módulo de Plataforma Fidedigna (TPM). Estas funcionalidades tornam os dispositivos mais seguros e ajudam a proteger a infraestrutura IoT global.
 
@@ -47,7 +47,7 @@ Seguem-se as melhores práticas para fabricantes de hardware IoT e integradores 
 
 Seguem-se as melhores práticas para os desenvolvedores de soluções IoT:
 
-* **Siga a metodologia segura**de desenvolvimento do software : O desenvolvimento de software seguro requer uma reflexão sobre segurança, desde o início do projeto até à sua implementação, teste e implementação. As escolhas de plataformas, idiomas e ferramentas são todas influenciadas com esta metodologia. O Microsoft Security Development Lifecycle fornece uma abordagem passo a passo para a construção de software seguro.
+* **Siga a metodologia segura** de desenvolvimento do software : O desenvolvimento de software seguro requer uma reflexão sobre segurança, desde o início do projeto até à sua implementação, teste e implementação. As escolhas de plataformas, idiomas e ferramentas são todas influenciadas com esta metodologia. O Microsoft Security Development Lifecycle fornece uma abordagem passo a passo para a construção de software seguro.
 
 * **Escolha software de código aberto com cuidado**: O software de código aberto oferece uma oportunidade para desenvolver rapidamente soluções. Ao escolher software de código aberto, considere o nível de atividade da comunidade para cada componente de código aberto. Uma comunidade ativa garante que o software é suportado e que os problemas são descobertos e tratados. Em alternativa, um projeto de software de código aberto obscuro e inativo pode não ser suportado e os problemas não são provavelmente descobertos.
 
@@ -65,7 +65,7 @@ Seguem-se as melhores práticas para os desdobradores de soluções IoT:
 
 Seguem-se as melhores práticas para os operadores de soluções IoT:
 
-* Mantenha o sistema atualizado : **Certifique-se de**que os sistemas operativos do dispositivo e todos os controladores de dispositivos são atualizados para as versões mais recentes. Se ligar atualizações automáticas no Windows 10 (IoT ou outros SKUs), a Microsoft mantém-na atualizada, fornecendo um sistema operativo seguro para dispositivos IoT. Manter outros sistemas operativos (como o Linux) atualizados ajuda a garantir que também estão protegidos contra ataques maliciosos.
+* Mantenha o sistema atualizado : **Certifique-se de** que os sistemas operativos do dispositivo e todos os controladores de dispositivos são atualizados para as versões mais recentes. Se ligar atualizações automáticas no Windows 10 (IoT ou outros SKUs), a Microsoft mantém-na atualizada, fornecendo um sistema operativo seguro para dispositivos IoT. Manter outros sistemas operativos (como o Linux) atualizados ajuda a garantir que também estão protegidos contra ataques maliciosos.
 
 * **Proteger contra atividades maliciosas**: Se o sistema operativo permitir, instale as mais recentes capacidades antivírus e antimalware em cada sistema operativo do dispositivo. Esta prática pode ajudar a mitigar a maioria das ameaças externas. Pode proteger a maioria dos sistemas operativos modernos contra ameaças, tomando as medidas adequadas.
 

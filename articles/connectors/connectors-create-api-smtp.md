@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/25/2018
 tags: connectors
 ms.openlocfilehash: 9989d0ebd95bfe5ee49be2ba76b73e07630b519a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87283950"
 ---
 # <a name="send-email-from-your-smtp-account-with-azure-logic-apps"></a>Envie e-mail da sua conta SMTP com Azure Logic Apps
@@ -51,12 +51,12 @@ Com aplicações lógicas Azure e o conector Simple Mail Transfer Protocol (SMTP
 
    | Propriedade | Necessário | Descrição |
    |----------|----------|-------------|
-   | **Nome de conexão** | Sim | Um nome para a ligação ao seu servidor SMTP | 
-   | **Endereço do servidor SMTP** | Sim | O endereço do seu servidor SMTP | 
-   | **Nome de Utilizador** | Sim | O seu nome de utilizador para a sua conta SMTP | 
-   | **Palavra-passe** | Sim | A sua senha para a sua conta SMTP | 
-   | **Porta de servidor SMTP** | Não | Uma porta específica no seu servidor SMTP que pretende utilizar | 
-   | **Ativar o SSL?** | Não | Ligue ou desligue a encriptação TLS/SSL. | 
+   | **Nome de conexão** | Yes | Um nome para a ligação ao seu servidor SMTP | 
+   | **Endereço do servidor SMTP** | Yes | O endereço do seu servidor SMTP | 
+   | **Nome de Utilizador** | Yes | O seu nome de utilizador para a sua conta SMTP | 
+   | **Palavra-passe** | Yes | A sua senha para a sua conta SMTP | 
+   | **Porta de servidor SMTP** | No | Uma porta específica no seu servidor SMTP que pretende utilizar | 
+   | **Ativar o SSL?** | No | Ligue ou desligue a encriptação TLS/SSL. | 
    |||| 
 
 1. Forneça os detalhes necessários para a sua ação selecionada. 

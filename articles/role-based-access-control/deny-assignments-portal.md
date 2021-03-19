@@ -15,10 +15,10 @@ ms.date: 06/10/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 92046b3a944a747ce76d2426855eec7b6bc2cd70
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84790251"
 ---
 # <a name="list-azure-deny-assignments-using-the-azure-portal"></a>Lista Azure nega atribuições usando o portal Azure
@@ -42,7 +42,7 @@ Siga estes passos para listar as atribuições de negação no âmbito do grupo 
 
 1. Clique no grupo de gestão ou subscrição que pretende listar.
 
-1. Clique em **Controlo de acesso (IAM)** .
+1. Clique em **Controlo de acesso (IAM)**.
 
 1. Clique no separador **'Negar atribuições'** (ou clique no botão **Ver** no azulejo 'Negar atribuições').
 
@@ -90,7 +90,7 @@ Siga estes passos para listar detalhes adicionais sobre uma atribuição de nega
 
     ![Atribuição de negação - Permissões Negadas](./media/deny-assignments-portal/deny-assignment-denied-permissions.png)
 
-    | Tipo de ação | Descrição |
+    | Tipo de ação | Description |
     | --- | --- |
     | **Ações**  | Negadas operações de gestão. |
     | **NotActions** | Operações de gestão excluídas da operação de gestão negada. |

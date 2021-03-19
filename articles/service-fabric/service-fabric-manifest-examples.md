@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 06/11/2018
 ms.author: pepogors
 ms.openlocfilehash: 6f44d2ddaac11545a3a3dc52fd20e02263c6ad67
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "75451647"
 ---
 # <a name="service-fabric-application-and-service-manifest-examples"></a>Aplicação de tecido de serviço e exemplos manifestos de serviço
@@ -19,7 +19,7 @@ Segue-se um índice das características apresentadas e o exemplo manifesto(s) e
 
 |Funcionalidade|Manifesto|
 |---|---|
-|[Governação de recursos](service-fabric-resource-governance.md)|[Manifesto de Aplicação de Serviços Fiáveis,](service-fabric-manifest-example-reliable-services-app.md#application-manifest) [Manifesto de Aplicação de Contentores](service-fabric-manifest-example-container-app.md#application-manifest)|
+|[Gestão de recursos](service-fabric-resource-governance.md)|[Manifesto de Aplicação de Serviços Fiáveis,](service-fabric-manifest-example-reliable-services-app.md#application-manifest) [Manifesto de Aplicação de Contentores](service-fabric-manifest-example-container-app.md#application-manifest)|
 |[Executar um serviço como uma conta de administração local](service-fabric-application-runas-security.md)|[Manifesto de aplicação de serviços fiáveis](service-fabric-manifest-example-reliable-services-app.md#application-manifest)|
 |[Aplicar uma política padrão a todos os pacotes de código de serviço](service-fabric-application-runas-security.md#apply-a-default-policy-to-all-service-code-packages)|[Manifesto de aplicação de serviços fiáveis](service-fabric-manifest-example-reliable-services-app.md#application-manifest)|
 |[Criar principais de utilizador e grupo](service-fabric-application-runas-security.md)|[Manifesto de aplicação de serviços fiáveis](service-fabric-manifest-example-reliable-services-app.md#application-manifest)|

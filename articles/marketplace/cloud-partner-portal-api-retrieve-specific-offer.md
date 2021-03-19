@@ -8,10 +8,10 @@ author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
 ms.openlocfilehash: 9f3ba6b2f13b9f2bb1d538db84723e3a9baaef12
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87271846"
 ---
 # <a name="retrieve-a-specific-offer"></a>Recupere uma oferta específica
@@ -39,11 +39,11 @@ Também pode recuperar uma versão específica da oferta, ou recuperar a oferta 
 
 | **Nome**    | **Descrição**                                                                          | **Tipo de dados** |
 |-------------|------------------------------------------------------------------------------------------|---------------|
-| publisherId | publisherId. Por exemplo, Contoso                                                        | Cadeia        |
-| offerId     | Guid que identifica exclusivamente a oferta.                                                 | Cadeia        |
+| publisherId | publisherId. Por exemplo, Contoso                                                        | String        |
+| offerId     | Guid que identifica exclusivamente a oferta.                                                 | String        |
 | versão     | Versão da oferta a ser recuperada. Por padrão, a versão mais recente da oferta é recuperada. | Número inteiro       |
 | slotId      | A ranhura a partir da qual a oferta deve ser recuperada, pode ser uma das:      <br/>  - `Draft` (predefinido) recupera a versão da oferta atualmente em projeto.  <br/>  -  `Preview` recupera a versão oferta atualmente em pré-visualização.     <br/>  -  `Production` recupera a versão de oferta atualmente em produção.          |      enum |
-| api-version | Última versão da API                                                                    | Date          |
+| api-version | Última versão da API                                                                    | Data          |
 |  |  |  |
 
 ## <a name="header"></a>Cabeçalho

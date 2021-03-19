@@ -3,12 +3,12 @@ title: Descrição geral das Tarefas do ACR
 description: Uma introdução ao ACR Tasks, um conjunto de funcionalidades no Registo de Contentores Azure que proporciona uma construção, gestão e remendos de imagem de contentores seguros e automatizados na nuvem.
 ms.topic: article
 ms.date: 08/12/2020
-ms.openlocfilehash: b6df415bd55979ef00f6921321dbc254ef7a7e59
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 1cf9faf934cebfb5abe0d2e1b26ffd7da2d6c549
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97562859"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104606791"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>Automatizar a imagem do contentor constrói e manutenção com tarefas ACR
 
@@ -39,7 +39,7 @@ O ciclo de desenvolvimento do ciclo interno, o processo iterativo de escrever c�
 
 Antes de comprometer a sua primeira linha de código, a funcionalidade [de tarefa rápida](container-registry-tutorial-quick-task.md) da ACR Tasks pode proporcionar uma experiência de desenvolvimento integrada, descarregando a sua imagem de contentor para Azure. Com tarefas rápidas, pode verificar as definições de construção automatizada e apanhar potenciais problemas antes de comprometer o seu código.
 
-Utilizando o `docker build` formato familiar, o comando [de construção az acr][az-acr-build] no CLI Azure tem um [contexto](#context-locations) (o conjunto de ficheiros a construir), envia-lhe Tarefas ACR e, por padrão, empurra a imagem construída para o seu registo após a conclusão.
+Utilizando o `docker build` formato familiar, o comando [de construção az acr][az-acr-build] no CLI Azure tem um [contexto](#context-locations) (o conjunto de ficheiros a construir), envia-o para tarefas ACR e, por padrão, empurra a imagem construída para o seu registo após a conclusão.
 
 Para uma introdução, consulte o quickstart para [construir e executar uma imagem de recipiente](container-registry-quickstart-task-cli.md) no Registo do Contentor Azure.  
 
@@ -58,8 +58,8 @@ A ACR Tasks suporta os seguintes gatilhos quando define um git repo como o conte
 
 | Acionador | Ativado por predefinição |
 | ------- | ------------------ |
-| Consolidação | Sim |
-| Pedido Pull | Não |
+| Consolidação | Yes |
+| Pedido Pull | No |
 
 Para configurar um gatilho de atualização de código fonte, é necessário fornecer à tarefa um token de acesso pessoal (PAT) para definir o webhook no repo do GitHub ou do Azure DevOps.
 

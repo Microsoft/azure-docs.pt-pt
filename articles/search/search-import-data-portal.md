@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 7cff009d5d1e187e8d0330fadca530b57b3e3d21
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88935216"
 ---
 # <a name="import-data-wizard-for-azure-cognitive-search"></a>Assistente de dados de importação para Azure Cognitive Search
@@ -75,7 +75,7 @@ Deve criar esta única tabela ou visualização antes de executar o assistente, 
 
 Nos bastidores, o assistente cria, configura e invoca os seguintes objetos. Depois de o assistente ser executado, pode encontrar a sua saída nas páginas do portal. A página geral do seu serviço tem listas de índices, indexadores, fontes de dados e skillsets. As definições de índice podem ser vistas em JSON completo no portal. Para outras definições, pode utilizar a [API REST](/rest/api/searchservice/) para obter objetos específicos.
 
-| Objeto | Descrição | 
+| Objeto | Description | 
 |--------|-------------|
 | [Origem de dados](/rest/api/searchservice/create-data-source)  | Persiste a informação de ligação aos dados de origem, incluindo credenciais. Um objeto de origem de dados é utilizado exclusivamente com indexadores. | 
 | [Índice](/rest/api/searchservice/create-index) | Estrutura de dados físicos utilizada para pesquisa completa de texto e outras consultas. | 

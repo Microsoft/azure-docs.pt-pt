@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 06/26/2019
 keywords: kinect, azul, sensor, sdk, sistema de coordenadas, calibração, projeto, nãoprojecto, transformação, rgb-d, nuvem de ponto
 ms.openlocfilehash: df7f2aa13c0e9c0241494e96e720b30f3ff1d8a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85277459"
 ---
 # <a name="use-azure-kinect-sensor-sdk-image-transformations"></a>Use transformações de imagem SDK sensor Azure Kinect
@@ -32,7 +32,7 @@ https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga7
 
 ### <a name="k4a_transformation_depth_image_to_color_camera"></a>k4a_transformation_depth_image_to_color_camera
 
-#### <a name="overview"></a>Descrição geral
+#### <a name="overview"></a>Descrição Geral
 
  A função [k4a_transformation_depth_image_to_color_camera()](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_gafacffb5f781a9c2df30d4a16241cd514.html#gafacffb5f781a9c2df30d4a16241cd514) transforma o mapa de profundidade do ponto de vista da câmara de profundidade no ponto de vista da câmara de cores. Esta função foi concebida para produzir as chamadas imagens RGB-D, onde D representa um canal de imagem adicional que regista o valor de profundidade. Como se pode ver na figura abaixo, a imagem a cores e a saída de [k4a_transformation_depth_image_to_color_camera()](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_gafacffb5f781a9c2df30d4a16241cd514.html#gafacffb5f781a9c2df30d4a16241cd514) parecem ter sido tiradas do mesmo ponto de vista, ou seja, o ponto de vista da câmara a cores.
 
@@ -48,7 +48,7 @@ https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga7
 
 ### <a name="k4a_transformation_depth_image_to_color_camera_custom"></a>k4a_transformation_depth_image_to_color_camera_custom
 
-#### <a name="overview"></a>Descrição geral
+#### <a name="overview"></a>Descrição Geral
 
  A função [k4a_transformation_depth_image_to_color_camera_custom transforma](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_gac00dd00e7612a86382e3d0a130f276bb.html#gac00dd00e7612a86382e3d0a130f276bb) o mapa de profundidade e uma imagem personalizada do ponto de vista da câmara de profundidade no ponto de vista da câmara de cores. Como extensão de [k4a_transformation_depth_image_to_color_camera()](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_gafacffb5f781a9c2df30d4a16241cd514.html#gafacffb5f781a9c2df30d4a16241cd514), esta função é projetada para produzir uma imagem personalizada correspondente para a qual cada pixel corresponde às coordenadas de pixel correspondentes da câmara de cores adicional à imagem de profundidade transformada.
 
@@ -62,7 +62,7 @@ https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga7
 
 ### <a name="k4a_transformation_color_image_to_depth_camera"></a>k4a_transformation_color_image_to_depth_camera
 
-#### <a name="overview"></a>Descrição geral
+#### <a name="overview"></a>Descrição Geral
 
  A função [k4a_transformation_color_image_to_depth_camera()](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_gaf3a941f07bb0185cd7a72699a648fc29.html#gaf3a941f07bb0185cd7a72699a648fc29) transforma a imagem de cor do ponto de vista da câmara de cor no ponto de vista da câmara de profundidade (ver figura acima). Pode ser usado para gerar imagens RGB-D.
 
@@ -76,7 +76,7 @@ Os parâmetros de entrada são o cabo de transformação, uma imagem de profundi
 
 ### <a name="k4a_transformation_depth_image_to_point_cloud"></a>k4a_transformation_depth_image_to_point_cloud
 
-#### <a name="overview"></a>Descrição geral
+#### <a name="overview"></a>Descrição Geral
 
 A função [k4a_transformation_depth_image_to_point_cloud()](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga7385eb4beb9d8892e8a88cf4feb3be70.html#ga7385eb4beb9d8892e8a88cf4feb3be70) converte um mapa de profundidade 2D tirado por uma câmara numa nuvem de ponto 3D no sistema de coordenadas da mesma câmara. A câmara pode, assim, ser a câmara de profundidade ou de cor.
 

@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: kavyako
 ms.openlocfilehash: bbc1fe5a76ecb5720bc49e0a082d5e9151b403d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "75645468"
 ---
 # <a name="monitor-and-diagnose-request-processing-at-the-reverse-proxy"></a>Monitore e diagnostice o processamento de pedido no proxy inverso
@@ -77,7 +77,7 @@ Aqui estão alguns exemplos sobre como interpretar os registos comuns de falha q
     
     Aqui está um evento exemplo onde o proxy reverso devolve 404, uma vez que não encontrou o ponto final de serviço correspondente.
     As entradas de juros da carga útil aqui são:
-   * **processoRequestPhase**: Indica a fase durante o processamento do pedido quando ocorreu a falha, ***TryGetEndpoint*** i.e enquanto tenta buscar o ponto final de serviço para a frente. 
+   * **processoRequestPhase**: Indica a fase durante o processamento do pedido quando ocorreu a falha, **_TryGetEndpoint_** i.e enquanto tenta buscar o ponto final de serviço para a frente. 
    * **errorDetails**: Lista os critérios de pesquisa do ponto final. Aqui pode ver que o ouvinteName especificado = **FrontEndListener,** enquanto que a lista de pontos finais de réplica contém apenas um ouvinte com o nome **OldListener**.
     
      ```

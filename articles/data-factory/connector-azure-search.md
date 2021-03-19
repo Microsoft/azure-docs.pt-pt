@@ -6,13 +6,13 @@ author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/13/2019
-ms.openlocfilehash: 8c0fe30961e8ca0f31374bfdb5c5f17d58cb7673
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 03/17/2021
+ms.openlocfilehash: 82f5d4f4c3f12b6e14e260fa004bb031247e1096
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100385800"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104597509"
 ---
 # <a name="copy-data-to-an-azure-cognitive-search-index-using-azure-data-factory"></a>Copiar dados para um índice de pesquisa cognitiva Azure usando Azure Data Factory
 
@@ -113,6 +113,7 @@ Para copiar dados para a Azure Cognitive Search, defina o tipo de origem na ativ
 | tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **AzureSearchIndexSink** | Yes |
 | escrever Comportamento | Especifica se deve fundir ou substituir quando um documento já existe no índice. Consulte a [propriedade WriteBehavior](#writebehavior-property).<br/><br/>Os valores permitidos são: **Fusão** (padrão) e **Upload**. | No |
 | escreverBatchSize | Envia dados para o índice de pesquisa quando o tamanho do tampão atinge o writeBatchSize. Consulte a [propriedade WriteBatchSize](#writebatchsize-property) para mais detalhes.<br/><br/>Os valores permitidos são: inteiro 1 a 1.000; padrão é 1000. | No |
+| maxConcurrentConnections |O limite superior das ligações simultâneas estabelecidas na loja de dados durante a atividade. Especifique um valor apenas quando pretende limitar ligações simultâneas.| No |
 
 ### <a name="writebehavior-property"></a>Propriedade WriteBehavior
 

@@ -7,10 +7,10 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 05/26/2017
 ms.openlocfilehash: 3fe98160cc10eb3607b8309a9a263d63380dcfb5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89073221"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Crie APIs personalizados que pode chamar a partir de Azure Logic Apps
@@ -136,7 +136,7 @@ Para este padrão, crie dois pontos finais no seu controlador: `subscribe` e `un
 
 ![Padrão de ação webhook](./media/logic-apps-create-api-app/custom-api-webhook-action-pattern.png)
 
-Atualmente, o Logic App Designer não suporta a descoberta de pontos finais webhook através da Swagger. Assim, para este padrão, você tem que adicionar uma [ação **Webhook** ](../connectors/connectors-native-webhook.md) e especificar o URL, cabeçalhos e corpo para o seu pedido. Consulte também [ações e gatilhos de fluxo de trabalho.](logic-apps-workflow-actions-triggers.md#apiconnection-webhook-action) Para um padrão de webhook, reveja esta [amostra de gatilho webhook no GitHub](https://github.com/logicappsio/LogicAppTriggersExample/blob/master/LogicAppTriggers/Controllers/WebhookTriggerController.cs).
+Atualmente, o Logic App Designer não suporta a descoberta de pontos finais webhook através da Swagger. Assim, para este padrão, você tem que adicionar uma [ação **Webhook**](../connectors/connectors-native-webhook.md) e especificar o URL, cabeçalhos e corpo para o seu pedido. Consulte também [ações e gatilhos de fluxo de trabalho.](logic-apps-workflow-actions-triggers.md#apiconnection-webhook-action) Para um padrão de webhook, reveja esta [amostra de gatilho webhook no GitHub](https://github.com/logicappsio/LogicAppTriggersExample/blob/master/LogicAppTriggers/Controllers/WebhookTriggerController.cs).
 
 Aqui estão outras dicas e notas:
 
@@ -173,8 +173,8 @@ Por exemplo, para verificar periodicamente o seu serviço para novos ficheiros, 
 
 | O pedido `triggerState` inclui? | Resposta da API | 
 | -------------------------------- | -------------| 
-| Não | Volte a colocar um estado HTTP `202 ACCEPTED` mais um `location` cabeçalho com a hora atual e `triggerState` o intervalo a `retry-after` 15 segundos. | 
-| Sim | Verifique se o seu serviço tem ficheiros adicionados após o `DateTime` `triggerState` seguinte. | 
+| No | Volte a colocar um estado HTTP `202 ACCEPTED` mais um `location` cabeçalho com a hora atual e `triggerState` o intervalo a `retry-after` 15 segundos. | 
+| Yes | Verifique se o seu serviço tem ficheiros adicionados após o `DateTime` `triggerState` seguinte. | 
 ||| 
 
 | Número de ficheiros encontrados | Resposta da API | 
@@ -200,7 +200,7 @@ Os gatilhos webhook agem muito como as [ações webhook](#webhook-actions) anter
 
 ![Padrão do gatilho webhook](./media/logic-apps-create-api-app/custom-api-webhook-trigger-pattern.png)
 
-Atualmente, o Logic App Designer não suporta a descoberta de pontos finais webhook através da Swagger. Assim, para este padrão, você tem que adicionar um gatilho [ **Webhook** ](../connectors/connectors-native-webhook.md) e especificar o URL, cabeçalhos e corpo para o seu pedido. Consulte também [o gatilho HTTPWebhook](logic-apps-workflow-actions-triggers.md#httpwebhook-trigger). Para um padrão de webhook, reveja esta [amostra do controlador do gatilho webhook no GitHub](https://github.com/logicappsio/LogicAppTriggersExample/blob/master/LogicAppTriggers/Controllers/WebhookTriggerController.cs).
+Atualmente, o Logic App Designer não suporta a descoberta de pontos finais webhook através da Swagger. Assim, para este padrão, você tem que adicionar um gatilho [ **Webhook**](../connectors/connectors-native-webhook.md) e especificar o URL, cabeçalhos e corpo para o seu pedido. Consulte também [o gatilho HTTPWebhook](logic-apps-workflow-actions-triggers.md#httpwebhook-trigger). Para um padrão de webhook, reveja esta [amostra do controlador do gatilho webhook no GitHub](https://github.com/logicappsio/LogicAppTriggersExample/blob/master/LogicAppTriggers/Controllers/WebhookTriggerController.cs).
 
 Aqui estão outras dicas e notas:
 

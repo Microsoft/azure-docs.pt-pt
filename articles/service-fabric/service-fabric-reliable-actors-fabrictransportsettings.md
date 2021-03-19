@@ -7,10 +7,10 @@ ms.date: 04/20/2017
 ms.author: pepogors
 ms.custom: devx-track-csharp
 ms.openlocfilehash: e3c20d86bd29d60eca328a44ab5d5d600bbf4da4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89010941"
 ---
 # <a name="configure-fabrictransport-settings-for-reliable-actors"></a>Configurar configurações fabricTransport para atores fiáveis
@@ -70,7 +70,7 @@ Por predefinição, o código do ator procura o Nome da Secção como " &lt; Act
 
 ### <a name="configure-fabrictransport-settings-for-the-actor-client-assembly"></a>Configurar as definições do FabricTransport para a montagem do cliente do ator
 
-Se o cliente não estiver a funcionar como parte de um serviço, pode criar um &lt; ficheiro "Client Exe Name &gt;.settings.xml" no mesmo local que o ficheiro cliente .exe. Em seguida, adicione uma secção TransportSettings nesse ficheiro. O Nome da Secção deve ser "TransportSettings".
+Se o cliente não estiver a funcionar como parte de um serviço, pode criar um &lt; ficheiro "Client Exe Name &gt;.settings.xml" no mesmo local que o ficheiro .exe cliente. Em seguida, adicione uma secção TransportSettings nesse ficheiro. O Nome da Secção deve ser "TransportSettings".
 
   ```xml
   <?xml version="1.0" encoding="utf-8"?>

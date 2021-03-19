@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 09/01/2019
 ms.openlocfilehash: c56c31bb6f56efb10808ce25b6b232089391e831
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84712450"
 ---
 # <a name="data-operation-code-samples-for-azure-logic-apps"></a>Exemplos de código de operação de dados para o Azure Logic Apps
@@ -23,7 +23,7 @@ Com base nos padrões javaScript Object Notation (JSON), estas definições de a
 
 ## <a name="compose"></a>Compor
 
-Para experimentar o exemplo de [ação **Compose,** ](../logic-apps/logic-apps-perform-data-operations.md#compose-action)eis as definições de ação que pode utilizar:
+Para experimentar o exemplo de [ação **Compose,**](../logic-apps/logic-apps-perform-data-operations.md#compose-action)eis as definições de ação que pode utilizar:
 
 ```json
 "actions": {
@@ -93,7 +93,7 @@ Para experimentar o exemplo de [ação **Compose,** ](../logic-apps/logic-apps-p
 
 ## <a name="create-csv-table"></a>Criar tabela CSV
 
-Para experimentar o exemplo de ação da [ **tabela Create CSV,** ](../logic-apps/logic-apps-perform-data-operations.md#create-csv-table-action)eis as definições de ação que pode utilizar:
+Para experimentar o exemplo de ação da [ **tabela Create CSV,**](../logic-apps/logic-apps-perform-data-operations.md#create-csv-table-action)eis as definições de ação que pode utilizar:
 
 ```json
 "actions": {
@@ -138,7 +138,7 @@ Para experimentar o exemplo de ação da [ **tabela Create CSV,** ](../logic-app
 
 ## <a name="create-html-table"></a>Criar tabela HTML
 
-Para experimentar o exemplo de ação da [ **tabela Create HTML,** ](../logic-apps/logic-apps-perform-data-operations.md#create-html-table-action)eis as definições de ação que pode utilizar:
+Para experimentar o exemplo de ação da [ **tabela Create HTML,**](../logic-apps/logic-apps-perform-data-operations.md#create-html-table-action)eis as definições de ação que pode utilizar:
 
 ```json
 "actions": {
@@ -183,7 +183,7 @@ Para experimentar o exemplo de ação da [ **tabela Create HTML,** ](../logic-ap
 
 ## <a name="filter-array"></a>Matriz de filtro
 
-Para experimentar o exemplo de ação da [ **matriz do filtro,** ](../logic-apps/logic-apps-perform-data-operations.md#filter-array-action)eis as definições de ação que pode utilizar:
+Para experimentar o exemplo de ação da [ **matriz do filtro,**](../logic-apps/logic-apps-perform-data-operations.md#filter-array-action)eis as definições de ação que pode utilizar:
 
 ```json
 "actions": {
@@ -224,7 +224,7 @@ Para experimentar o exemplo de ação da [ **matriz do filtro,** ](../logic-apps
 
 ## <a name="join"></a>Associar
 
-Para experimentar o [exemplo de ação **do Join,** ](../logic-apps/logic-apps-perform-data-operations.md#join-action)aqui estão as definições de ação que pode utilizar:
+Para experimentar o [exemplo de ação **do Join,**](../logic-apps/logic-apps-perform-data-operations.md#join-action)aqui estão as definições de ação que pode utilizar:
 
 ```json
 "actions": {
@@ -265,7 +265,7 @@ Para experimentar o [exemplo de ação **do Join,** ](../logic-apps/logic-apps-p
 
 ## <a name="parse-json"></a>Analisar JSON
 
-Para experimentar o [exemplo de ação **parse JSON,** ](../logic-apps/logic-apps-perform-data-operations.md#parse-json-action)aqui estão as definições de ação que você pode usar:
+Para experimentar o [exemplo de ação **parse JSON,**](../logic-apps/logic-apps-perform-data-operations.md#parse-json-action)aqui estão as definições de ação que você pode usar:
 
 ```json
 "actions": {

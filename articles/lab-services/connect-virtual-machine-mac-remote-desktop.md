@@ -1,13 +1,13 @@
 ---
-title: Como ligar-se a um VM de Serviços Azure Lab da Mac Microsoft Docs
+title: Como ligar-se a um VM de Serviços de Laboratório Azure da Mac | Microsoft Docs
 description: Saiba como ligar-se de um Mac a uma máquina virtual nos Serviços de Laboratório Azure.
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 674bea13093e185ae991148c2cf96599a273d0bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85444629"
 ---
 # <a name="connect-to-a-vm-using-remote-desktop-protocol-on-a-mac"></a>Ligue-se a um VM utilizando o Protocolo de Ambiente de Trabalho Remoto num Mac

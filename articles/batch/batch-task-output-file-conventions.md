@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 11/14/2018
 ms.custom: H1Hack27Feb2017, devx-track-csharp
 ms.openlocfilehash: 1a45eed421dd8d734fcef0dd452df1d4a65fd053
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88936967"
 ---
 # <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>Persistir dados de trabalho e de tarefa para o Azure Storage com a biblioteca de convenções de ficheiros de lote para .NET
@@ -200,7 +200,7 @@ O projeto de amostra [persistOutputs][github_persistoutputs] é uma das amostras
 1. Abra o projeto no **Visual Studio 2019.**
 2. Adicione **as suas credenciais** de conta de lote e armazenamento a **AccountSettings.settings** no projeto Microsoft.Azure.Batch.Samples.Common.
 3. **Construa** (mas não corra) a solução. Restaurar quaisquer pacotes NuGet se solicitado.
-4. Utilize o portal Azure para carregar um [pacote de aplicações](batch-application-packages.md) para **PersistOutputsTask**. Inclua os `PersistOutputsTask.exe` conjuntos e os seus conjuntos dependentes no pacote .zip, de definição do ID da aplicação para "PersistOutputsTask", e a versão do pacote de aplicações para "1.0".
+4. Utilize o portal Azure para carregar um [pacote de aplicações](batch-application-packages.md) para **PersistOutputsTask**. Inclua os `PersistOutputsTask.exe` conjuntos e os seus conjuntos dependentes no pacote .zip, definir o ID da aplicação para "PersistOutputsTask", e a versão do pacote de aplicações para "1.0".
 5. **Inicie** (executar) o projeto **PersistOutputs.**
 6. Quando solicitado para escolher a tecnologia de persistência a utilizar para executar a amostra, introduza **1** para executar a amostra utilizando a biblioteca de Convenções de Ficheiros para persistir na saída da tarefa. 
 
