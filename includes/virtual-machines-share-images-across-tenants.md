@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
@@ -9,10 +9,10 @@ ms.date: 04/25/2019
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: f74d4cbc17e49345534a37e9e6612a36e19be295
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "73903688"
 ---
 Mas, se quiser partilhar imagens fora do seu inquilino Azure, em escala, deverá criar um registo de aplicações para facilitar a partilha.  A utilização de um registo de aplicações pode permitir cenários de partilha mais complexos, como: 
@@ -30,7 +30,7 @@ Crie um registo de inscrição que será usado por ambos os inquilinos para part
 1. Nos **tipos de conta suportada**, selecione Contas em qualquer **diretório organizacional e contas pessoais da Microsoft.**
 1. Em **Redirecionar URI,** *https://www.microsoft.com* digite e, em seguida, selecione **Registar**. Após a criação do registo da aplicação, a página geral será aberta.
 1. Na página geral, copie o **ID da Aplicação (cliente)** e guarde para utilização posterior.   
-1. Selecione **Certificados & segredos**e, em seguida, selecione **Novo segredo de cliente**.
+1. Selecione **Certificados & segredos** e, em seguida, selecione **Novo segredo de cliente**.
 1. Em **Descrição**, tipo *Imagem Partilhada galeria de imagens segredo de aplicação de inquilino.*
 1. Em **Expira,** deixe o padrão de **In 1 ano** e, em seguida, selecione **Adicionar**.
 1. Copie o valor do segredo e guarde-o para um lugar seguro. Não pode recuperá-lo depois de sair da página.

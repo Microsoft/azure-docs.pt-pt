@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 10/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4faa7837a75bab6dfab651862754cd92394c5137
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 91be2f8641a061d009962cdcd03a8d56048594da
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100585905"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104594510"
 ---
 # <a name="how-to-create-alerts-for-change-tracking-and-inventory"></a>Como criar alertas para o Rastreio e Inventário de Alterações
 
@@ -50,11 +50,11 @@ Uma vez configurados os alertas, pode criar um grupo de ação, que é um grupo 
 
 3. Em **Ações**, insira um nome que especifica a ação, por exemplo, **Notificação por E-mail**.
 
-4. Para **o Tipo de Ação**, selecione o tipo apropriado, por exemplo, **Email/SMS/Push/Voice**.
+4. Para **o Tipo de Ação**, selecione o tipo apropriado, por exemplo, **mensagem de e-mail/SMS/Push/Voice**.
 
-5. Selecione **Editar detalhes**.
+5. Selecione o ícone do lápis para editar os detalhes de ação.
 
-6. Preencha o painel para o seu tipo de ação. Por exemplo, se utilizar **o Email/SMS/Push/Voice,** insira um nome de ação, selecione a caixa de verificação **de e-mail,** introduza um endereço de e-mail válido e, em seguida, selecione **OK**.
+6. Preencha o painel para o seu tipo de ação. Por exemplo, se utilizar **a mensagem de E-mail/SMS/Push/Voice** para enviar um e-mail, introduzir um nome de ação, selecionar a caixa de verificação **de e-mail,** introduzir um endereço de e-mail válido e, em seguida, selecionar **OK**.
 
     ![Configurar um grupo de ações de e-mail](./media/configure-alerts/configure-email-action-group.png)
 

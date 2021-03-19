@@ -1,5 +1,5 @@
 ---
-title: Implementar porta de entrada auto-hospedada para Docker ! Microsoft Docs
+title: Implementar porta de entrada auto-hospedada para Docker | Microsoft Docs
 description: Saiba como implementar um componente de gateway auto-hospedado da Azure API Management para Docker
 services: api-management
 documentationcenter: ''
@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 04/26/2020
 ms.author: apimpm
 ms.openlocfilehash: b9e990988770e8aca015ae8b1159bb4f5e50df57
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "82205095"
 ---
 # <a name="deploy-an-azure-api-management-self-hosted-gateway-to-docker"></a>Implementar uma porta de entrada auto-hospedada da AZure API Management para Docker

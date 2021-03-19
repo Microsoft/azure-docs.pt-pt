@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: 86563b0a44bade2cedaf76af3c247821756111fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90939632"
 ---
 # <a name="migrate-sql-server-to-azure-arc-enabled-sql-managed-instance"></a>Migrar: SQL Server para Azure Arc ativado SQL Gestdited Instance
@@ -127,7 +127,7 @@ Este método mostra-lhe como pegar num ficheiro de backup que cria através de q
 ### <a name="prerequisites"></a>Pré-requisitos
 
 - Instale e configure kubectl para apontar para o seu cluster Kubernetes onde os serviços de dados do Azure Arc são implantados
-- Tenha uma ferramenta como o Azure Data Studio ou o SQL Server Management Server instalado e ligado ao SQL Server onde pretende criar o ficheiro de cópia de segurança ou ter um ficheiro .bak já criado no seu sistema de ficheiros local.
+- Tenha uma ferramenta como o Azure Data Studio ou o SQL Server Management Server instalado e ligado ao SQL Server onde pretende criar o ficheiro de cópia de segurança ou ter um ficheiro de .bak já criado no seu sistema de ficheiros local.
 
 ### <a name="step-1-backup-the-database-if-you-havent-already"></a>Passo 1: Faça cópia de segurança da base de dados se ainda não o fez
 

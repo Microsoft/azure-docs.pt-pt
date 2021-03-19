@@ -6,10 +6,10 @@ services: container-service
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: 722fe393ad7637be20360463a4c3b6234224a036
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88653975"
 ---
 # <a name="best-practices-for-storage-and-backups-in-azure-kubernetes-service-aks"></a>Melhores práticas para armazenamento e backups no Serviço Azure Kubernetes (AKS)
@@ -34,9 +34,9 @@ A tabela que se segue descreve os tipos de armazenamento disponíveis e as suas 
 
 | Caso de utilização | Plugin de volume | Ler/escrever uma vez | Ler apenas muitos | Ler/escrever muitos | Suporte ao servidor do Windows |
 |----------|---------------|-----------------|----------------|-----------------|--------------------|
-| Configuração partilhada       | Ficheiros do Azure   | Sim | Sim | Sim | Sim |
-| Dados estruturados da aplicação        | Discos do Azure   | Sim | Não  | Não  | Sim |
-| Dados não estruturados, operações do sistema de ficheiros | [BlobFuse][blobfuse] | Sim | Sim | Sim | Não |
+| Configuração partilhada       | Ficheiros do Azure   | Yes | Yes | Yes | Yes |
+| Dados estruturados da aplicação        | Discos do Azure   | Yes | No  | No  | Yes |
+| Dados não estruturados, operações do sistema de ficheiros | [BlobFuse][blobfuse] | Yes | Yes | Yes | No |
 
 Os dois tipos primários de armazenamento fornecidos para volumes em AKS são apoiados por Discos Azure ou Ficheiros Azure. Para melhorar a segurança, ambos os tipos de armazenamento utilizam encriptação do serviço de armazenamento Azure (SSE) por padrão que encripta os dados em repouso. Os discos não podem ser encriptados utilizando a encriptação do disco Azure ao nível do nó AKS.
 
@@ -49,7 +49,7 @@ Compreenda as necessidades de desempenho da aplicação e os padrões de acesso 
 
 ### <a name="create-and-use-storage-classes-to-define-application-needs"></a>Criar e utilizar aulas de armazenamento para definir necessidades de aplicação
 
-O tipo de armazenamento que utiliza é definido usando *as aulas de armazenamento*Kubernetes. A classe de armazenamento é então referenciada na pod ou especificação de implantação. Estas definições trabalham em conjunto para criar o armazenamento apropriado e conectá-lo a cápsulas. Para obter mais informações, consulte [as aulas de Armazenamento em AKS][aks-concepts-storage-classes].
+O tipo de armazenamento que utiliza é definido usando *as aulas de armazenamento* Kubernetes. A classe de armazenamento é então referenciada na pod ou especificação de implantação. Estas definições trabalham em conjunto para criar o armazenamento apropriado e conectá-lo a cápsulas. Para obter mais informações, consulte [as aulas de Armazenamento em AKS][aks-concepts-storage-classes].
 
 ## <a name="size-the-nodes-for-storage-needs"></a>Dimensione os nó de nó para necessidades de armazenamento
 
@@ -61,7 +61,7 @@ Se as suas aplicações necessitarem de Discos Azure como solução de armazenam
 
 | Tipo e tamanho do nó | vCPU | Memória (GiB) | Discos de dados máximos | Max disco sem cócega IOPS | Produção max sem arrochados (MBps) |
 |--------------------|------|--------------|----------------|------------------------|--------------------------------|
-| Standard_B2ms      | 2    | 8            | 4              | 1,920                  | 22.5                           |
+| Standard_B2ms      | 2    | 8            | 4              | 1,920                  | 22,5                           |
 | Standard_DS2_v2    | 2    | 7            | 8              | 6,400                  | 96                             |
 
 Aqui, o *Standard_DS2_v2* permite duplicar o número de discos anexos, e fornece três a quatro vezes a quantidade de IOPS e produção de disco. Se olhar apenas para os recursos de computação nuclear e custos comparados, pode escolher o *tamanho Standard_B2ms* VM e ter um fraco desempenho e limitações de armazenamento. Trabalhe com a sua equipa de desenvolvimento de aplicações para compreender a sua capacidade de armazenamento e necessidades de desempenho. Escolha o tamanho VM adequado para que os nós AKS satisfaçam ou excedam as suas necessidades de desempenho. Aplicações de base regulares para ajustar o tamanho de VM conforme necessário.

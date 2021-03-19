@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.openlocfilehash: 92333857177d33307d6997bfcbdf79787d3ab127
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90895951"
 ---
 # <a name="determining-application-type"></a>Tipo de aplicação determinante
@@ -22,12 +22,12 @@ Existem, em geral, dois tipos de aplicações que funcionam bem em Hyperscale (C
 
 ## <a name="at-a-glance"></a>At a Glance
 
-| Aplicações multi-arrendatários                                 | Aplicações Real-Time                                |
+| Aplicações multi-arrendatários                                 | Aplicações em Tempo Real                                |
 |-----------------------------------------------------------|-------------------------------------------------------|
-| Às vezes dezenas ou centenas de mesas em esquema          | Pequeno número de mesas                                |
-| Consultas relativas a um inquilino (empresa/loja) de cada vez | Consultas analíticas relativamente simples com agregações |
-| Cargas de trabalho OLTP para servir clientes web                    | Elevado volume de ingestão de dados principalmente imutáveis           |
-| Cargas de trabalho OLAP que servem consultas analíticas por inquilino   | Muitas vezes centrando-se em torno de grande mesa de eventos            |
+| Por vezes, dezenas ou centenas de tabelas no esquema          | Pequeno número de tabelas                                |
+| Consultas relativas a um inquilino (empresa/loja) de cada vez | Consultas de análise relativamente simples com agregações |
+| Cargas de trabalho OLTP para servir clientes Web                    | Alto volume de ingestão de dados maioritariamente imutáveis           |
+| Cargas de trabalho OLAP que apresentam consultas analíticas por inquilino   | Normalmente, centralizadas numa grande tabela de eventos            |
 
 ## <a name="examples-and-characteristics"></a>Exemplos e Características
 

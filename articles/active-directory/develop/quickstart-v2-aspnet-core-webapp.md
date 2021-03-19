@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/11/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: d0d3154d123b5e073a4eadf976d5259d51972da8
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: e7296b04e3e912e96ac8c2ed77b44288324c262f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102436486"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104578707"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Quickstart: Adicione o início de sôs-in com a Microsoft a uma aplicação web core ASP.NET
 
@@ -82,6 +82,8 @@ Neste quickstart, você descarrega e execute uma amostra de código que demonstr
 > [!div renderon="portal" class="sxs-lookup" id="autoupdate" class="nextstepaction"]
 > [Descarregue a amostra de código](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/archive/aspnetcore3-1.zip)
 
+[!INCLUDE [active-directory-develop-path-length-tip](../../../includes/active-directory-develop-path-length-tip.md)]
+
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>Passo 3: A sua aplicação está configurada e pronta para correr
 > Configuramos o seu projeto com valores das propriedades da sua aplicação, e está pronto para funcionar.
@@ -97,6 +99,7 @@ Neste quickstart, você descarrega e execute uma amostra de código que demonstr
 > 1. Abra a *appsettings.jsno* ficheiro e modifique o seguinte código:
 >
 >    ```json
+>    "Domain": "Enter the domain of your tenant, e.g. contoso.onmicrosoft.com",
 >    "ClientId": "Enter_the_Application_Id_here",
 >    "TenantId": "common",
 >    ```
@@ -156,7 +159,7 @@ O `AddAuthentication()` método configura o serviço para adicionar autenticaç�
 
 A linha que contém `.AddMicrosoftIdentityWebApp` adiciona a autenticação da plataforma de identidade da Microsoft à sua aplicação. A aplicação é então configurada para assinar nos utilizadores com base nas seguintes informações na `AzureAD` secção doappsettings.js *no* ficheiro de configuração:
 
-| *appsettings.jsna* chave | Descrição                                                                                                                                                          |
+| *appsettings.jsna* chave | Description                                                                                                                                                          |
 |------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `ClientId`             | Identificação da aplicação (cliente) da aplicação registada no portal Azure.                                                                                       |
 | `Instance`             | Serviço de ficha de segurança (STS) para o utilizador autenticar. Este valor é tipicamente `https://login.microsoftonline.com/` , indicando a nuvem pública Azure. |

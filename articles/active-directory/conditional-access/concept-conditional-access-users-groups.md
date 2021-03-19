@@ -5,24 +5,24 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/04/2021
+ms.date: 03/17/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f316b17096e1241fe23cbf2c965122fd8966522
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.openlocfilehash: b878abbead68b3268891e1f35087e5942969730c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102630882"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579064"
 ---
 # <a name="conditional-access-users-and-groups"></a>Acesso Condicional: Utilizadores e grupos
 
-Uma política de Acesso Condicional deve incluir uma atribuição do utilizador como um dos sinais no processo de decisão. Os utilizadores podem ser incluídos ou excluídos das políticas de Acesso Condicional. O Azure Ative Directory avalia todas as políticas e garante que todos os requisitos são cumpridos antes de conceder acesso ao utilizador. Além deste artigo, temos um vídeo sobre [como incluir ou excluir os utilizadores de políticas de acesso condicional](https://www.youtube.com/watch?v=5DsW1hB3Jqs) que o acompanham através do processo descrito abaixo. 
+Uma política de Acesso Condicional deve incluir uma atribuição do utilizador como um dos sinais no processo de decisão. Os utilizadores podem ser incluídos ou excluídos das políticas de Acesso Condicional. O Azure Ative Directory avalia todas as políticas e garante que todos os requisitos são cumpridos antes de conceder acesso ao utilizador. 
 
-![Utilizador como sinal nas decisões tomadas pelo Acesso Condicional](./media/concept-conditional-access-users-groups/conditional-access-users-and-groups.png)
+> [!VIDEO https://www.youtube.com/embed/5DsW1hB3Jqs]
 
 ## <a name="include-users"></a>Incluir utilizadores
 
@@ -77,7 +77,7 @@ Por predefinição, a política fornecerá uma opção para excluir o utilizador
 
 ![Aviso, não se tranque fora!](./media/concept-conditional-access-users-groups/conditional-access-users-and-groups-lockout-warning.png)
 
-[O que fazer se estiver trancado fora do portal Azure?](troubleshoot-conditional-access.md#what-to-do-if-you-are-locked-out-of-the-azure-portal)
+Se te encontrares trancado,[o que fazer se estiveres trancado fora do portal Azure?](troubleshoot-conditional-access.md#what-to-do-if-you-are-locked-out-of-the-azure-portal)
 
 ## <a name="next-steps"></a>Passos seguintes
 

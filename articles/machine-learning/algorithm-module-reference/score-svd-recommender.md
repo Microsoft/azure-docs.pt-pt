@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 08/10/2020
 ms.openlocfilehash: bf62fa995724b8e1fff757e89945cc39db3d9842
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90893717"
 ---
 # <a name="score-svd-recommender"></a>Classificar Recomendador SVD
@@ -65,7 +65,7 @@ Para recomendar itens para os utilizadores, fornece uma lista de utilizadores e 
 
 1. Adicione um modelo de recomendação treinado ao seu oleoduto e conecte-o ao **recomendador SVD treinado.**  Tem de criar o modelo utilizando o módulo [de recomendador SVD train.](train-svd-recommender.md)
 
-2. Para recomendar itens para uma lista de utilizadores, desa um **tipo de previsão de recomendação** de **recomendação**para o item .
+2. Para recomendar itens para uma lista de utilizadores, desa um **tipo de previsão de recomendação** de **recomendação** para o item .
 
 3. Para **a seleção recomendada de artigos,** indique se está a utilizar o módulo de pontuação em produção ou para avaliação do modelo. Escolha um destes valores:
 

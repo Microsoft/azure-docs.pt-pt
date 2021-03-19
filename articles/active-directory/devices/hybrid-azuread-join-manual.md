@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f346b997b5e0c785d066ce3a1edaab8cbea10212
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 28cc8a858d1779e17c893d64eda5f907bb4c808e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101644124"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104577993"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Tutorial: Configurar dispositivos híbridos associados ao Azure Active Directory manualmente.
 
@@ -74,6 +74,9 @@ Se a sua organização utilizar a configuração gerida (não federada) com o At
 Para dispositivos Windows 10 na versão 1703 ou mais cedo, se a sua organização necessitar de acesso à internet através de um representante de saída, tem de implementar o Web Proxy Auto-Discovery (WPAD) para permitir que os computadores do Windows 10 se registem no Azure AD.
 
 Começando pelo Windows 10 1803, mesmo que um AD híbrido Azure se junte à tentativa de um dispositivo num domínio federado através do AD FS falhar, e se o Azure AD Connect estiver configurado para sincronizar os objetos do computador/dispositivo para o AZure AD, o dispositivo tentará completar a adada híbrida Azure através do computador/dispositivo sincronizado.
+
+> [!NOTE]
+> Para obter a sincronização do registo do dispositivo para ter sucesso, como parte da configuração de registo do dispositivo, não exclua os atributos predefinidos do dispositivo da sua configuração de sincronização Azure AD Connect. Para saber mais sobre os atributos padrão do dispositivo sincronizados com AZure AD, consulte [Atributos sincronizados pelo Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-sync-attributes-synchronized#windows-10).
 
 Para verificar se o dispositivo é capaz de aceder aos recursos acima da Microsoft sob a conta do sistema, pode utilizar o script [de Conectividade de Registo do Dispositivo de Teste.](/samples/azure-samples/testdeviceregconnectivity/testdeviceregconnectivity/)
 

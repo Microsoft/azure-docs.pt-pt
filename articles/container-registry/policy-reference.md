@@ -1,18 +1,18 @@
 ---
 title: Definições políticas incorporadas para registo de contentores Azure
 description: Lista definições de política incorporada da Azure Policy para o Registo de Contentores de Azure. Estas definições políticas incorporadas fornecem abordagens comuns para gerir os seus recursos Azure.
-ms.date: 03/10/2021
+ms.date: 03/17/2021
 ms.topic: reference
 author: dlepow
 ms.author: danlep
 ms.service: container-registry
 ms.custom: subject-policy-reference
-ms.openlocfilehash: b97cd1a834ec58814e0f7ceb9330b80767c8e599
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: ef7a376340c98a3cf0e6096956904284f3c5a2f7
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102618296"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104577428"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-container-registry"></a>Definições incorporadas da Política Azure para o Registo de Contentores de Azure
 

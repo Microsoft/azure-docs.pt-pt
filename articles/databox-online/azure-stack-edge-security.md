@@ -1,5 +1,5 @@
 ---
-title: Segurança Azure Stack Edge Pro Microsoft Docs
+title: Segurança Azure Stack Edge Pro | Microsoft Docs
 description: Descreve as funcionalidades de segurança e privacidade que protegem o seu dispositivo, serviço e dados Azure Stack Edge Pro e na nuvem.
 services: Data Box Edge
 author: alkohli
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 08/21/2019
 ms.author: alkohli
 ms.openlocfilehash: b5c5143c7bc92487aeabc3cdc1afea5061466027
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90903166"
 ---
 # <a name="azure-stack-edge-pro-security-and-data-protection"></a>Segurança e proteção de dados Azure Stack Edge Pro

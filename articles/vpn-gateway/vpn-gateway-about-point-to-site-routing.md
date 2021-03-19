@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 10/07/2020
 ms.author: cherylmc
 ms.openlocfilehash: 0b9b8ba555cddd56c49c750709e69ec180291c95
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91827204"
 ---
 # <a name="about-point-to-site-vpn-routing"></a>Acerca do encaminhamento VPN de Ponto a Site
@@ -56,7 +56,7 @@ Neste exemplo, a ligação de gateway VPN ponto-a-local é para VNet1. VNet1 é 
 
 Os clientes que usam o Windows podem aceder diretamente a VNets, mas o cliente VPN deve ser descarregado novamente se forem feitas alterações ao estojo VNet ou à topologia da rede. Os clientes não-Windows podem aceder diretamente a VNets. O acesso não é transitório e limita-se apenas a VNets diretamente espreitados.
 
-:::image type="content" source="./media/vpn-gateway-about-point-to-site-routing/multiple.jpg" alt-text="Encaminhamento VNet isolado" lightbox="./media/vpn-gateway-about-point-to-site-routing/multiple.jpg":::
+:::image type="content" source="./media/vpn-gateway-about-point-to-site-routing/multiple.jpg" alt-text="Múltiplos VNets espreitados" lightbox="./media/vpn-gateway-about-point-to-site-routing/multiple.jpg":::
 
 ### <a name="address-space"></a>Espaço de endereço:
 
@@ -86,7 +86,7 @@ Neste exemplo, a ligação de gateway VPN ponto-a-local é para VNet1. O VNet1 e
 
 Os clientes que usam o Windows, ou outro SISTEMA suportado, só podem aceder ao VNet1. Para aceder a VNets adicionais, o BGP deve ser utilizado.
 
-:::image type="content" source="./media/vpn-gateway-about-point-to-site-routing/multiple-s2s.jpg" alt-text="Encaminhamento VNet isolado" lightbox="./media/vpn-gateway-about-point-to-site-routing/multiple-s2s.jpg":::
+:::image type="content" source="./media/vpn-gateway-about-point-to-site-routing/multiple-s2s.jpg" alt-text="Vários VNets e S2S" lightbox="./media/vpn-gateway-about-point-to-site-routing/multiple-s2s.jpg":::
 
 ### <a name="address-space"></a>Espaço de endereços
 
@@ -114,7 +114,7 @@ Neste exemplo, a ligação de gateway VPN ponto-a-local é para VNet1. O VNet1 e
 
 Os clientes que usam o Windows, ou outro SISTEMA suportado, podem aceder a todos os VNets que estão ligados através de uma ligação VPN site-to-site, mas as rotas para VNets conectados têm de ser adicionadas manualmente aos clientes windows.
 
-:::image type="content" source="./media/vpn-gateway-about-point-to-site-routing/multiple-bgp.jpg" alt-text="Encaminhamento VNet isolado" lightbox="./media/vpn-gateway-about-point-to-site-routing/multiple-bgp.jpg":::
+:::image type="content" source="./media/vpn-gateway-about-point-to-site-routing/multiple-bgp.jpg" alt-text="Vários VNets e S2S (BGP)" lightbox="./media/vpn-gateway-about-point-to-site-routing/multiple-bgp.jpg":::
 
 ### <a name="address-space"></a>Espaço de endereços
 
@@ -142,7 +142,7 @@ Neste exemplo, a ligação de gateway VPN ponto-a-local é para VNet1. O VNet1 n
 
 Os clientes windows e não-Windows só podem aceder ao VNet1.
 
-:::image type="content" source="./media/vpn-gateway-about-point-to-site-routing/branch-office.jpg" alt-text="Encaminhamento VNet isolado" lightbox="./media/vpn-gateway-about-point-to-site-routing/branch-office.jpg":::
+:::image type="content" source="./media/vpn-gateway-about-point-to-site-routing/branch-office.jpg" alt-text="Encaminhamento com um VNet e uma sucursal" lightbox="./media/vpn-gateway-about-point-to-site-routing/branch-office.jpg":::
 
 ### <a name="address-space"></a>Espaço de endereços
 
@@ -168,7 +168,7 @@ Neste exemplo, a ligação de gateway VPN ponto-a-local é para VNet1. O VNet1 n
 
 Os clientes do Windows podem aceder ao VNet e à sucursal (Site1), mas as rotas para o Site1 devem ser adicionadas manualmente ao cliente. Os clientes não-Windows podem aceder ao VNet, bem como à sucursal no local.
 
-:::image type="content" source="./media/vpn-gateway-about-point-to-site-routing/branch-bgp.jpg" alt-text="Encaminhamento VNet isolado" lightbox="./media/vpn-gateway-about-point-to-site-routing/branch-bgp.jpg":::
+:::image type="content" source="./media/vpn-gateway-about-point-to-site-routing/branch-bgp.jpg" alt-text="Encaminhamento com um VNet e uma sucursal - BGP" lightbox="./media/vpn-gateway-about-point-to-site-routing/branch-bgp.jpg":::
 
 ### <a name="address-space"></a>Espaço de endereços
 
@@ -195,7 +195,7 @@ Neste exemplo, a ligação de gateway VPN ponto-a-local é para VNet1. O VNet1 e
 
 Todos os clientes podem aceder apenas ao VNet1.
 
-:::image type="content" source="./media/vpn-gateway-about-point-to-site-routing/multi-branch.jpg" alt-text="Encaminhamento VNet isolado" lightbox="./media/vpn-gateway-about-point-to-site-routing/multi-branch.jpg":::
+:::image type="content" source="./media/vpn-gateway-about-point-to-site-routing/multi-branch.jpg" alt-text="Diagrama que mostra um S2S multi-VNet e uma sucursal" lightbox="./media/vpn-gateway-about-point-to-site-routing/multi-branch.jpg":::
 
 ### <a name="address-space"></a>Espaço de endereços
 
@@ -225,7 +225,7 @@ Neste exemplo, a ligação de gateway VPN ponto-a-local é para VNet1. O VNet1 e
 
 Os clientes que utilizam o Windows podem aceder a VNets e sites que estejam ligados através de uma ligação VPN site-to-site, mas as rotas para VNet2, VNet3 e Site1 devem ser adicionadas manualmente ao cliente. Os clientes não Windows podem aceder a VNets e sites que estejam conectados utilizando uma ligação VPN site-to-site sem qualquer intervenção manual. O acesso é transitório, e os clientes podem aceder a recursos em todos os VNets e sites conectados (no local).
 
-:::image type="content" source="./media/vpn-gateway-about-point-to-site-routing/multi-branch-bgp.jpg" alt-text="Encaminhamento VNet isolado" lightbox="./media/vpn-gateway-about-point-to-site-routing/multi-branch-bgp.jpg":::
+:::image type="content" source="./media/vpn-gateway-about-point-to-site-routing/multi-branch-bgp.jpg" alt-text="multi-VNet S2S e sucursal" lightbox="./media/vpn-gateway-about-point-to-site-routing/multi-branch-bgp.jpg":::
 
 ### <a name="address-space"></a>Espaço de endereços
 

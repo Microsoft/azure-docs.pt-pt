@@ -2,15 +2,15 @@
 title: Configure aplicações Linux Python
 description: Saiba como configurar o recipiente Python no qual são executadas aplicações web, utilizando tanto o portal Azure como o Azure CLI.
 ms.topic: quickstart
-ms.date: 02/01/2021
+ms.date: 03/16/2021
 ms.reviewer: astay; kraigb
 ms.custom: mvc, seodec18, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: cfbbb7064fcadc06714b237066bb6a009246baac
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 11b9ab8e954827cfcc73e440bee1023504e14057
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101709092"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104577617"
 ---
 # <a name="configure-a-linux-python-app-for-azure-app-service"></a>Configure uma aplicação Linux Python para o Azure App Service
 
@@ -69,7 +69,7 @@ O sistema de construção do App Service, chamado Oryx, executa os seguintes pas
 
 1. Executar um script pré-construção personalizado se especificado pela `PRE_BUILD_COMMAND` definição. (O script pode, por si só, executar outros scripts Python e Node.js, comandos pip e npm, e ferramentas baseadas em nó como fios, por exemplo, `yarn install` e `yarn build` .)
 
-1. Execute o `pip install -r requirements.txt`. O *ficheirorequirements.txt* deve estar presente na pasta raiz do projeto. Caso contrário, o processo de construção relata o erro: "Não foi possível encontrar setup.py ou requirements.txt; Não a funcionar pip instalar."
+1. Execute `pip install -r requirements.txt`. O *ficheirorequirements.txt* deve estar presente na pasta raiz do projeto. Caso contrário, o processo de construção relata o erro: "Não foi possível encontrar setup.py ou requirements.txt; Não a funcionar pip instalar."
 
 1. Se *manage.py* for encontrado na raiz do repositório (indicando uma aplicação Django), executar *manage.py a collectásta .* No entanto, se a `DISABLE_COLLECTSTATIC` regulação `true` for, este passo é ignorado.
 
@@ -373,6 +373,7 @@ As secções seguintes fornecem orientações adicionais para questões específ
 - [App não aparece - mensagem "serviço indisponível"](#service-unavailable)
 - [Não consegui encontrar setup.py ou requirements.txt](#could-not-find-setuppy-or-requirementstxt)
 - [MóduloNotFoundError no arranque](#modulenotfounderror-when-app-starts)
+- [A base de dados está bloqueada](#database-is-locked)
 - [As palavras-passe não aparecem na sessão de SSH quando dactilografada](#other-issues)
 - [Os comandos na sessão SSH parecem estar cortados](#other-issues)
 - [Os ativos estáticos não aparecem numa aplicação do Django](#other-issues)
@@ -409,6 +410,14 @@ As secções seguintes fornecem orientações adicionais para questões específ
 #### <a name="modulenotfounderror-when-app-starts"></a>MóduloNotFoundError quando a aplicação começa
 
 Se vir um erro como `ModuleNotFoundError: No module named 'example'` , isto significa que python não conseguiu encontrar um ou mais dos seus módulos quando a aplicação começou. Isto ocorre mais frequentemente se implementar o seu ambiente virtual com o seu código. Os ambientes virtuais não são portáteis, pelo que um ambiente virtual não deve ser implementado com o seu código de aplicação. Em vez disso, deixe a Oryx criar um ambiente virtual e instalar os seus pacotes na aplicação web, criando uma configuração de `SCM_DO_BUILD_DURING_DEPLOYMENT` aplicações, e definindo-o para `1` . Isto forçará a Oryx a instalar os seus pacotes sempre que implementar no Serviço de Aplicações. Para mais informações, consulte [este artigo sobre portabilidade do ambiente virtual.](https://azure.github.io/AppService/2020/12/11/cicd-for-python-apps.html)
+
+### <a name="database-is-locked"></a>A base de dados está bloqueada
+
+Ao tentar executar migrações de base de dados com uma aplicação Django, poderá ver "sqlite3. OperacionalError: base de dados está bloqueada." O erro indica que a sua aplicação está a utilizar uma base de dados SQLite para a qual o Django está configurado por padrão, em vez de utilizar uma base de dados em nuvem como o PostgreSQL para Azure.
+
+Verifique a `DATABASES` variável no ficheiro *settings.py* da aplicação para garantir que a sua aplicação está a utilizar uma base de dados em nuvem em vez de SQLite.
+
+Se encontrar este erro com a amostra em [Tutorial: Implemente uma aplicação web Django com PostgreSQL,](tutorial-python-postgresql-app.md)verifique se completou os passos em [variáveis ambientais configure para ligar a base de dados.](tutorial-python-postgresql-app.md#42-configure-environment-variables-to-connect-the-database)
 
 #### <a name="other-issues"></a>Outros problemas
 

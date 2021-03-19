@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 06/10/2020
 ms.openlocfilehash: e279a7c9f6810ece482b043284f0be0719a3dafe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90908044"
 ---
 # <a name="edit-metadata-module"></a>Editar módulo de metadados
@@ -46,7 +46,7 @@ As mudanças típicas de metadados podem incluir:
   
 1. Selecione a opção **tipo Dado** se precisar de atribuir um tipo de dado diferente às colunas selecionadas. Pode ser necessário alterar o tipo de dados para determinadas operações. Por exemplo, se o seu conjunto de dados de origem tiver números tratados como texto, deve alterá-los para um tipo de dados numérico antes de utilizar as operações de matemática.
 
-    + Os tipos de dados suportados são **String**, **Integer**, **Double,** **Boolean**e **DateTime**.
+    + Os tipos de dados suportados são **String**, **Integer**, **Double,** **Boolean** e **DateTime**.
 
     + Se selecionar várias colunas, deve aplicar as alterações de metadados em *todas as* colunas selecionadas. Por exemplo, digamos que escolha duas ou três colunas numéricas. Pode alterá-los todos para um tipo de dados de cadeia e renomeá-los numa única operação. No entanto, não é possível alterar uma coluna para um tipo de dados de corda e outra coluna de um flutuador para um inteiro.
   

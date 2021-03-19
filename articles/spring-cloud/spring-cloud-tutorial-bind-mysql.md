@@ -8,10 +8,10 @@ ms.date: 11/04/2019
 ms.author: brendm
 ms.custom: devx-track-java
 ms.openlocfilehash: 5ca8f2b003b7f2142da329a07f929ecf31fee627
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90908256"
 ---
 # <a name="bind-an-azure-database-for-mysql-instance-to-your-azure-spring-cloud-application"></a>Ligue uma base de dados Azure para a sua aplicação Azure Spring Cloud 
@@ -46,9 +46,9 @@ Se não tiver uma instância Azure Spring Cloud implantada, siga as instruções
 
 1. Atualize a atual implementação executando `az spring-cloud app update` , ou crie uma nova implementação para esta mudança executando `az spring-cloud app deployment create` .  Estes comandos atualizam ou criam a aplicação com a nova dependência.
 
-1. No portal Azure, na sua página de serviço **Azure Spring Cloud,** procure o **Painel de Aplicação**e, em seguida, selecione a aplicação para ligar à sua Base de Dados Azure para a sua instância MySQL.  Esta é a mesma aplicação que atualizou ou implementou no passo anterior. 
+1. No portal Azure, na sua página de serviço **Azure Spring Cloud,** procure o **Painel de Aplicação** e, em seguida, selecione a aplicação para ligar à sua Base de Dados Azure para a sua instância MySQL.  Esta é a mesma aplicação que atualizou ou implementou no passo anterior. 
 
-1. Selecione **a ligação de serviço**e, em seguida, selecione o botão de **ligação de serviço Criar.** 
+1. Selecione **a ligação de serviço** e, em seguida, selecione o botão de **ligação de serviço Criar.** 
 
 1. Preencha o formulário, selecionando **O Azure MySQL** como o **tipo de Ligação,** utilizando o mesmo nome de base de dados que usou anteriormente, e utilizando o mesmo nome de utilizador e palavra-passe que observou no primeiro passo.
 

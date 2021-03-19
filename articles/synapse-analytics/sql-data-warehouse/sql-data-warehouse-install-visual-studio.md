@@ -4,20 +4,20 @@ description: Instale ferramentas de desenvolvimento de servidores visuais e SQL 
 services: synapse-analytics
 ms.custom: vs-azure, azure-synapse
 ms.workload: azure-vs
-author: kevinvngo
+author: gaursa
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 05/11/2020
-ms.author: kevin
+ms.author: gaursa
 ms.reviewer: igorstan
-ms.openlocfilehash: b70694011aa0467d8ca037ac309ffb0811c79c01
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: ab70ec4f7f2c313c2ae4efcc6d1ad994fbec8b03
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737953"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104585575"
 ---
 # <a name="getting-started-with-visual-studio-2019"></a>Introdução ao Visual Studio 2019
 
@@ -47,6 +47,6 @@ Há alturas em que as versões de funcionalidades para Synapse SQL podem não in
 - Algumas funcionalidades T-SQL, tais como:
    - *Cláusula DENTRO DO GRUPO* na função de corda [STRING_AGG.](/sql/t-sql/functions/string-agg-transact-sql)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que tem a versão mais recente do SSDT, está pronto para [ligar](sql-data-warehouse-query-visual-studio.md) à sua piscina SQL.

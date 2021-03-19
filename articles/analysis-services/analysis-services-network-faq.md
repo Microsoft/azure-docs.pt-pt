@@ -1,5 +1,5 @@
 ---
-title: Perguntas frequentes sobre a conectividade da rede de Serviços de Análise Microsoft Docs
+title: Perguntas frequentes sobre a conectividade da rede de serviços de análise | Microsoft Docs
 description: Este artigo fornece respostas a algumas das questões mais comuns sobre a conectividade da rede de Serviços de Análise.
 author: minewiskan
 ms.service: azure-analysis-services
@@ -8,10 +8,10 @@ ms.date: 05/05/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: b60cf34e8efed2ed63b6e35cfaf7445edb701610
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "82838506"
 ---
 # <a name="frequently-asked-questions-about-analysis-services-network-connectivity"></a>Perguntas frequentes sobre a conectividade de rede do Analysis Services
@@ -24,7 +24,7 @@ Este artigo fornece respostas a questões comuns sobre a ligação a contas de a
 **Resposta** - Os Serviços de Análise Azure não utilizam endereços IP fixos ou Tags de Serviço. A gama de endereços IP que os servidores dos Serviços de Análise utilizam pode ser qualquer coisa na gama de endereços IP para a *região Azure.* Como os endereços IP do seu servidor são variáveis e podem ser alterados ao longo do tempo, as suas regras de firewall precisam de permitir que toda a gama de endereços IP da região de Azure esteja dentro.
 
 **Pergunta** - A minha conta de armazenamento Azure está numa região diferente do meu servidor de Serviços de Análise. Como posso configurar as definições de firewall de conta de armazenamento?   
-**Resposta** - Se a conta de armazenamento estiver numa região diferente, configufique as definições de firewall de conta de armazenamento para permitir o acesso a partir de **redes selecionadas**. Na **gama**Address De Firewall , especifique o intervalo de endereços IP para a região onde se encontra o servidor de Serviços de Análise. Para obter as gamas IP para regiões do Azure, consulte [as Gamas IP Azure e tags de serviço – Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519). Configurar as definições de firewall de conta de armazenamento para permitir o acesso a partir de todas as redes é suportado, no entanto é preferível escolher redes selecionadas e especificar um intervalo de endereços IP. 
+**Resposta** - Se a conta de armazenamento estiver numa região diferente, configufique as definições de firewall de conta de armazenamento para permitir o acesso a partir de **redes selecionadas**. Na **gama** Address De Firewall , especifique o intervalo de endereços IP para a região onde se encontra o servidor de Serviços de Análise. Para obter as gamas IP para regiões do Azure, consulte [as Gamas IP Azure e tags de serviço – Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519). Configurar as definições de firewall de conta de armazenamento para permitir o acesso a partir de todas as redes é suportado, no entanto é preferível escolher redes selecionadas e especificar um intervalo de endereços IP. 
 
 **Pergunta** - A minha conta de armazenamento Azure está na mesma região que o meu servidor de Serviços de Análise. Como posso configurar as definições de firewall de conta de armazenamento?   
 **Resposta** – Como o servidor e a conta de armazenamento dos serviços de análise estão na mesma região, as comunicações entre eles utilizam intervalos de endereços IP internos, portanto, configurar uma firewall para utilizar redes selecionadas e especificar uma gama de endereços IP não é suportada. Se as políticas de organização requerem uma firewall, deve ser configurada para permitir o acesso a partir de todas as redes.

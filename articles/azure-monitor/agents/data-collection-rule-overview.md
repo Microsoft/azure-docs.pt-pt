@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/19/2021
-ms.openlocfilehash: a0c5e9f89b983871224e79c2fc4f518a15d42a6f
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: a52d6dca423565e7b5e4b6ac059bcf21b637c87c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102039619"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104586340"
 ---
 # <a name="data-collection-rules-in-azure-monitor-preview"></a>Regras de recolha de dados no Azure Monitor (pré-visualização)
 As Regras de Recolha de Dados (DCR) definem os dados que entram no Azure Monitor e especificam para onde esses dados devem ser enviados ou armazenados. Este artigo fornece uma visão geral das regras de recolha de dados, incluindo o seu conteúdo e estrutura e como pode criar e trabalhar com eles.
@@ -39,7 +39,7 @@ O diagrama seguinte mostra os componentes de uma regra de recolha de dados e a s
 ### <a name="data-source-types"></a>Tipos de origem de dados
 Cada fonte de dados tem um tipo de fonte de dados. Cada tipo define um conjunto único de propriedades que devem ser especificadas para cada fonte de dados. Os tipos de fonte de dados atualmente disponíveis são apresentados na tabela seguinte.
 
-| Tipo de fonte de dados | Descrição | 
+| Tipo de fonte de dados | Description | 
 |:---|:---|
 | extensão | Fonte de dados baseada em extensão VM |
 | performanceCounters | Contadores de desempenho tanto para Windows como Linux |
@@ -81,6 +81,10 @@ A regra de recolha de dados da amostra abaixo é para máquinas virtuais com o a
   - Recolhe eventos de alerta, crítico e emergência das instalações do syslog.
 - Destinos
   - Envia todos os dados para um espaço de trabalho Log Analytics chamado centralWorkspace.
+
+> [!NOTE]
+> Para obter uma explicação dos XPaths que são usados para especificar a recolha de eventos nas regras de recolha de dados, consulte [a recolha de dados Limite com consultas personalizadas de XPath](data-collection-rule-azure-monitor-agent.md#limit-data-collection-with-custom-xpath-queries)
+
 
 ```json
 {

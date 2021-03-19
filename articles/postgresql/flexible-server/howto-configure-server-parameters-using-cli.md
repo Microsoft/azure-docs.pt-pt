@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 9/22/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 43b14858cc99cac41e277b03171fd4cac4d6eafa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90940736"
 ---
 # <a name="customize-server-parameters-for-azure-database-for-postgresql---flexible-server-using-azure-cli"></a>Personalize os parâmetros do servidor para Azure Database para PostgreSQL - Servidor Flexível usando O Azure CLI
@@ -39,7 +39,7 @@ az postgres flexible-server parameter list --resource-group myresourcegroup --se
 
 Para mostrar detalhes sobre um parâmetro específico para um servidor, executar o comando [de indicação de parâmetros flexíveis do servidor az postgres.](/cli/azure/postgres/flexible-server/parameter)
 
-Este exemplo mostra detalhes do parâmetro do servidor de ** \_ \_ mensagens de registo min** para **servidor mydemoserver.postgres.database.azure.com** no âmbito do grupo de recursos **myresourcegroup.**
+Este exemplo mostra detalhes do parâmetro do servidor de **\_ \_ mensagens de registo min** para **servidor mydemoserver.postgres.database.azure.com** no âmbito do grupo de recursos **myresourcegroup.**
 
 ```azurecli-interactive
 az postgres flexible-server parameter show --name log_min_messages --resource-group myresourcegroup --server-name mydemoserver
@@ -49,7 +49,7 @@ az postgres flexible-server parameter show --name log_min_messages --resource-gr
 
 Também pode modificar o valor de um determinado parâmetro do servidor, que atualiza o valor de configuração subjacente ao motor do servidor PostgreSQL. Para atualizar o parâmetro, utilize o comando [de parâmetros de conjunto de parâmetros flexíveis do servidor az postgres.](/cli/azure/postgres/flexible-server/parameter) 
 
-Para atualizar o parâmetro do servidor de ** \_ \_ mensagens de registo min** de **mydemoserver.postgres.database.azure.com** no grupo de recursos **myresourcegroup.**
+Para atualizar o parâmetro do servidor de **\_ \_ mensagens de registo min** de **mydemoserver.postgres.database.azure.com** no grupo de recursos **myresourcegroup.**
 
 ```azurecli-interactive
 az postgres flexible-server parameter set --name log_min_messages --value INFO --resource-group myresourcegroup --server-name mydemoserver
@@ -61,7 +61,7 @@ Se pretender redefinir o valor de um parâmetro, simplesmente optar por deixar d
 az postgres flexible-server parameter set --name log_min_messages --resource-group myresourcegroup --server-name mydemoserver
 ```
 
-Este comando reinicia o parâmetro de ** \_ \_ mensagens de log min** ao valor predefinido **AVISO**. Para obter mais informações sobre os parâmetros do servidor e valores admissíveis, consulte a documentação PostgreSQL sobre [parâmetros de definição](https://www.postgresql.org/docs/12/config-setting.html).
+Este comando reinicia o parâmetro de **\_ \_ mensagens de log min** ao valor predefinido **AVISO**. Para obter mais informações sobre os parâmetros do servidor e valores admissíveis, consulte a documentação PostgreSQL sobre [parâmetros de definição](https://www.postgresql.org/docs/12/config-setting.html).
 
 ## <a name="next-steps"></a>Passos seguintes
 

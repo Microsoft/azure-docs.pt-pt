@@ -15,15 +15,15 @@ ms.workload: na
 ms.date: 07/03/2017
 ms.author: alkohli
 ms.openlocfilehash: 18b34ff466f3935cb5cd18d46e6d26e36e756a9b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91774465"
 ---
 # <a name="fail-over-to-your-storsimple-cloud-appliance"></a>Falhe no seu StorSimple Cloud Appliance
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Este tutorial descreve os passos necessários para falhar sobre um dispositivo físico da série StorSimple 8000 para um StorSimple Cloud Appliance se houver um desastre. O StorSimple utiliza a função de falha do dispositivo para migrar dados de um dispositivo físico de origem no datacenter para um aparelho em nuvem em funcionamento em Azure. A orientação neste tutorial aplica-se a dispositivos físicos da série StorSimple 8000 e a aparelhos em nuvem que executam versões de software Update 3 e posteriormente.
 

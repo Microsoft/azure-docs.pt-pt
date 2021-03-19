@@ -9,10 +9,10 @@ ms.date: 09/30/2020
 ms.author: harshacs
 ms.custom: MVC
 ms.openlocfilehash: 80ff2f3f3d5fdcf61770889dcdaaf075941b90ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91814592"
 ---
 # <a name="reprotect-from-azure-to-azure-vmware-solution-private-cloud"></a>Reprotegido de Azure para Azure VMware Solução nuvem privada
@@ -59,7 +59,7 @@ Ative a replicação. Pode reprotegir VMs específicos ou um plano de recuperaç
 
 Permitir a reproteção da seguinte forma:
 
-1. Selecione **Vault**  >  **itens replicados do**cofre . Clique com o botão direito na máquina virtual que falhou e, em seguida, **selecione Re-Protect**. Ou, a partir dos botões de comando, selecione a máquina e, em seguida, **selecione Re-Protect**.
+1. Selecione   >  **itens replicados do** cofre . Clique com o botão direito na máquina virtual que falhou e, em seguida, **selecione Re-Protect**. Ou, a partir dos botões de comando, selecione a máquina e, em seguida, **selecione Re-Protect**.
 2. Verifique se o **Azure para a** direção de proteção no local está selecionado.
 3. No **Master Target Server** and Process **Server**, selecione o servidor-alvo principal no local e o servidor de processo.  
 4. Para **datastore**, selecione a loja de dados para a qual pretende recuperar os discos em Azure VMware Solution. Esta opção é utilizada quando o VM da Solução VMware Azure é eliminado e é necessário criar novos discos. Esta opção é ignorada se os discos já existirem. Ainda precisa especificar um valor.

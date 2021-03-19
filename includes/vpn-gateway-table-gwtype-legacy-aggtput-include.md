@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -9,10 +9,10 @@ ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 9734859c0bf22201c146e5d8a220f3146f6051c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "67184149"
 ---
 A tabela seguinte mostra os tipos de gateways e o débito agregado estimado pelo SKU do gateway. Esta tabela aplica-se ao Gestor de Recursos e aos modelos clássicos de implantação. 
@@ -23,9 +23,9 @@ Tenha em atenção que o SKU do gateway UltraPerformance não está representado
 
 |  | **Débito do VPN Gateway (1)** | **Máximo de túneis IPsec do VPN Gateway (2)** | **Débito do Gateway do ExpressRoute** | **Coexistência do ExpressRoute e do VPN Gateway** |
 | --- | --- | --- | --- | --- |
-| **SKU Básico (3)(5)(6)** |100 Mbps |10 |500 Mbps (6) |Não |
-| **SKU Padrão (4)(5)** |100 Mbps |10 |1000 Mbps |Sim |
-| **SKU de Elevado Desempenho (4)** |200 Mbps |30 |2000 Mbps |Sim |
+| **SKU Básico (3)(5)(6)** |100 Mbps |10 |500 Mbps (6) |No |
+| **SKU Padrão (4)(5)** |100 Mbps |10 |1000 Mbps |Yes |
+| **SKU de Elevado Desempenho (4)** |200 Mbps |30 |2000 Mbps |Yes |
 
 
 (1) O débito da VPN é uma estimativa aproximada baseada em medidas entre VNets na mesma região do Azure. Não é um débito garantido para ligações entre locais na Internet. É a medida de débito mais alta possível.

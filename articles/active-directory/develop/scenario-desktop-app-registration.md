@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/09/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 8a1a2d7f5272def78cd162da1f6ac0265d4fb30b
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 66f11b7a5124f0b9b834b79368d57443ab33e850
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102517741"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104578350"
 ---
 # <a name="desktop-app-that-calls-web-apis-app-registration"></a>Aplicativo de desktop que chama APIs web: Registo de aplicações
 
@@ -40,10 +40,14 @@ Se a sua aplicação para desktop utilizar a autenticação interativa, pode ini
 
 Os URIs de redirecionamento para utilizar numa aplicação de ambiente de trabalho dependem do fluxo que pretende utilizar.
 
-- Se utilizar a autenticação interativa ou o fluxo de código do dispositivo, utilize `https://login.microsoftonline.com/common/oauth2/nativeclient` - Para obter esta configuração, selecione o URL correspondente na secção **autenticação** para a sua aplicação.
+Especifique o URI de redirecionamento para a sua aplicação [configurando as definições da plataforma](quickstart-register-app.md#add-a-redirect-uri) para a aplicação nos **registos** da App no portal Azure.
+
+- Para aplicações que utilizam a autenticação interativa:
+  - Aplicativos que usam navegadores incorporados: `https://login.microsoftonline.com/common/oauth2/nativeclient`
+  - Aplicativos que usam navegadores do sistema: `http://localhost`
 
   > [!IMPORTANT]
-  > A utilização `https://login.microsoftonline.com/common/oauth2/nativeclient` como URI de redirecionamento é recomendada como uma melhor prática de segurança.  Se não for especificado nenhum URI de reorientação, MSAL.NET utiliza `urn:ietf:wg:oauth:2.0:oob` por defeito, o que não é recomendado.  Este padrão será atualizado como uma mudança de rutura no próximo grande lançamento.
+  > Como uma boa prática de segurança, recomendamos a definição explícita `https://login.microsoftonline.com/common/oauth2/nativeclient` ou `http://localhost` como o URI redirecionado. Algumas bibliotecas de autenticação como MSAL.NET usam um valor predefinido `urn:ietf:wg:oauth:2.0:oob` quando não é especificado nenhum outro URI de redirecionamento, o que não é recomendado. Este padrão será atualizado como uma mudança de rutura no próximo grande lançamento.
 
 - Se construir uma aplicação nativa Objective-C ou Swift para macOS, registe o URI de redirecionamento com base no identificador do pacote da sua aplicação no seguinte formato: `msauth.<your.app.bundle.id>://auth` . `<your.app.bundle.id>`Substitua-o pelo identificador do pacote da sua aplicação.
 - Se a sua aplicação utilizar apenas a Autenticação Integrada do Windows ou um nome de utilizador e uma palavra-passe, não precisa de registar um URI de redirecionamento para a sua aplicação. Estes fluxos fazem uma ida e volta para a plataforma de identidade da Microsoft v2.0. A sua candidatura não será chamada de volta em nenhum URI específico.

@@ -1,5 +1,5 @@
 ---
-title: Remover Azure Sentinel Microsoft Docs
+title: Remova O | de Sentinela Azure Microsoft Docs
 description: Como apagar a sua instância Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -15,13 +15,13 @@ ms.workload: na
 ms.date: 09/16/2020
 ms.author: yelevin
 ms.openlocfilehash: f9c400b55b0da47495db4f1ff4ceb86aa39fe2cc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90885835"
 ---
-# <a name="remove-azure-sentinel-from-your-workspace"></a>Remova Azure Sentinel do seu espaço de trabalho
+# <a name="remove-azure-sentinel-from-your-workspace"></a>Remover o Azure Sentinel da área de trabalho
 
 Se já não quiser utilizar o Azure Sentinel, este artigo explica como removê-lo do seu espaço de trabalho.
 
@@ -62,16 +62,16 @@ Nas primeiras 48 horas, os dados e as regras analíticas (incluindo a configura�
 
 -   Incidentes (incluindo metadados de investigação)
 
--   Regras analíticas
+-   Regras de análise
 
 -   Marcadores
 
-Os seus livros de jogadas, livros guardados, consultas de caça guardadas e cadernos não são removidos. **Alguns podem quebrar devido aos dados removidos. Pode removê-las manualmente.**
+Os manuais de procedimentos, livros guardados, consultas de investigação guardadas e blocos de notas não são removidos. **Alguns podem quebrar devido aos dados removidos. Pode removê-las manualmente.**
 
 Após a remoção do serviço, existe um período de carência de 30 dias durante o qual pode voltar a ativar a solução e os seus dados e regras analíticas serão restaurados, mas os conectores configurados que foram desligados devem ser reconectados.
 
 > [!NOTE]
-> Se remover a solução, a sua subscrição continuará registada no fornecedor de recursos Azure Sentinel. **Pode removê-lo manualmente.**
+> Se remover a solução, a subscrição continuará a ser registada com o fornecedor de recursos do Azure Sentinel. **Poderá removê-la manualmente.**
 
 
 

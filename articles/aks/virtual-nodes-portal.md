@@ -3,14 +3,14 @@ title: Criar nós virtuais utilizando o portal nos Serviços Azure Kubernetes (A
 description: Saiba como usar o portal Azure para criar um cluster Azure Kubernetes Services (AKS) que usa nós virtuais para executar cápsulas.
 services: container-service
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 03/15/2021
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 06a3e7263b2e03cfc37f7ba3c733e07536b5d473
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: c1ecaa88dd5329d86818565983a6ba891a6d8424
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102501809"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104577835"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Criar e configurar um cluster Azure Kubernetes Services (AKS) para usar nós virtuais no portal Azure
 
@@ -54,15 +54,15 @@ No canto superior esquerdo do portal Azure, selecione **Criar um**  >  **serviç
 Na página **Informações Básicas**, configure as opções seguintes:
 
 - *DETALHES DO PROJETO*: selecione uma subscrição do Azure e selecione ou crie um grupo de recursos do Azure, como *myResourceGroup*. Introduza um **nome para o cluster do Kubernetes**, como *myAKSCluster*.
-- *DETALHES DO CLUSTER*: selecione uma região, a versão do Kubernetes e o prefixo do nome DNS do cluster do AKS.
+- *DETALHES DO CLUSTER*: Selecione uma versão de região e Kubernetes para o cluster AKS.
 - *PISCINA DE NODE PRIMÁRIO*: Selecione um tamanho VM para os nós AKS. O tamanho da VM **não pode** ser alterado após a implementação de um cluster de AKS.
      - Selecione o número de nós a implementar no cluster. Para este artigo, decrete a **contagem de nó para** *1*. O número de nós **pode** ser ajustado após a implementação do cluster.
 
-Clique **em seguida: Escala**.
+Clique **em seguida: Node Pools**.
 
-Na página **Escala,** selecione *Ativado* sob **nós virtuais**.
+Na página **"Agrupamentos de Nó",** selecione *Ativar os nós virtuais*.
 
-![Crie o cluster AKS e ative os nóns virtuais](media/virtual-nodes-portal/enable-virtual-nodes.png)
+:::image type="content" source="media/virtual-nodes-portal/enable-virtual-nodes.png" alt-text="Num navegador, mostra a criação de um cluster com nós virtuais ativados no portal Azure. A opção 'Ativar nós virtuais' é realçada.":::
 
 Por padrão, uma identidade de cluster é criada. Esta identidade de cluster é usada para comunicação de cluster e integração com outros serviços Azure. Por padrão, esta identidade de cluster é uma identidade gerida. Para obter mais informações, consulte [utilização de identidades geridas.](use-managed-identity.md) Também pode usar um principal de serviço como identidade de cluster.
 
@@ -158,7 +158,7 @@ O pod é atribuído um endereço IP interno da sub-rede virtual Azure delegada p
 Para testar o pod em execução no nó virtual, navegue para a aplicação de demonstração com um cliente web. À medida que a cápsula é atribuída a um endereço IP interno, pode testar rapidamente esta conectividade a partir de outra cápsula no cluster AKS. Crie uma cápsula de teste e anexe-lhe uma sessão terminal:
 
 ```console
-kubectl run -it --rm virtual-node-test --image=debian
+kubectl run -it --rm virtual-node-test --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11
 ```
 
 Instale `curl` na cápsula `apt-get` utilizando:

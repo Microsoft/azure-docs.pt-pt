@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
 ms.openlocfilehash: ae0b343be986f4d8d5176c1f39eef6b23ca81278
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91840647"
 ---
 # <a name="tutorial-install-and-create-service-fabric-cluster"></a>Tutorial: Instalar e criar cluster do Service Fabric
@@ -17,7 +17,7 @@ Os clusters autónomos do Service Fabric oferecem a opção de escolher o seu am
 
 Este tutorial é a segunda parte de uma série. Este tutorial explica os passos para criar um cluster autónomo do Service Fabric.
 
-Neste artigo, aprenderá a:
+Neste artigo, vai aprender a:
 
 > [!div class="checklist"]
 > * Transfira e instale o pacote autónomo do Service Fabric
@@ -99,7 +99,7 @@ Passed                     : True
 
 ## <a name="create-the-cluster"></a>Criar o cluster
 
-Assim que tiver validado com sucesso o seu cluster config, execute * o *CreateServiceFabricCluster.ps1script para implantar o cluster de Tecido de Serviço para as máquinas virtuais no ficheiro de configuração.
+Assim que tiver validado com sucesso o seu cluster config, execute *o* CreateServiceFabricCluster.ps1script para implantar o cluster de Tecido de Serviço para as máquinas virtuais no ficheiro de configuração.
 
 ```powershell
 .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.MultiMachine.json -AcceptEULA

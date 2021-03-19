@@ -4,10 +4,10 @@ description: Utilize o Azure Backup Server (MABS) para restaurar vMware VMware e
 ms.topic: conceptual
 ms.date: 08/18/2019
 ms.openlocfilehash: b3f61aa828db39aeb11b1ce46a850d9a5b868653
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88263525"
 ---
 # <a name="restore-vmware-virtual-machines"></a>Restaurar máquinas virtuais VMware
@@ -38,7 +38,7 @@ Este artigo explica como usar o Microsoft Azure Backup Server (MABS) para restau
 
 6. No ecrã **'Opções de Recuperação de Especificações',** se pretender ativar o estrangulamento da largura de banda da rede, selecione **Modificar**. Para deixar o estrangulamento da rede desativado, selecione **Next**. Não há outras opções neste ecrã de assistentes disponíveis para VMware VMs. Se optar por modificar o acelerador de largura de banda da rede, no diálogo de aceleração, selecione Ativar o **acelerador de utilização da largura de banda** da rede para o ligar. Uma vez ativado, configurar as **Definições** e a **Programação de Trabalho**.
 
-7. No ecrã **Select Recovery Type,** escolha se deve recuperar para a instância original ou para um novo local. e selecione **Seguinte**.
+7. No ecrã **Select Recovery Type,** escolha se deve recuperar para a instância original ou para um novo local. Em seguida, selecione **Seguinte**.
 
      * Se escolher **Recuperar para instância original,** não precisa de fazer mais escolhas no assistente. Os dados relativos à instância original são utilizados.
 

@@ -16,10 +16,10 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
 ms.openlocfilehash: a5f17f009caa9306631debf511f2c890f8f2a450
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "82733778"
 ---
 # <a name="understand-azure-deny-assignments"></a>Compreenda que Azure nega atribuições
@@ -59,16 +59,16 @@ Negar atribuições seguem um padrão semelhante ao das atribuições de funçõ
 > | `DenyAssignmentName` | Sim | String | O nome de exibição da missão de negação. Os nomes devem ser únicos para um determinado âmbito. |
 > | `Description` | Não | String | A descrição da missão de negação. |
 > | `Permissions.Actions` | Pelo menos uma ação ou uma DataActions | Corda[] | Uma série de cadeias que especificam as operações de gestão às quais a missão de negação bloqueia o acesso. |
-> | `Permissions.NotActions` | Não | Corda[] | Uma série de cadeias que especificam as operações de gestão para excluir da atribuição de negação. |
+> | `Permissions.NotActions` | No | Corda[] | Uma série de cadeias que especificam as operações de gestão para excluir da atribuição de negação. |
 > | `Permissions.DataActions` | Pelo menos uma ação ou uma DataActions | Corda[] | Uma série de cadeias que especificam as operações de dados às quais a atribuição de negação bloqueia o acesso. |
-> | `Permissions.NotDataActions` | Não | Corda[] | Uma série de cadeias que especificam as operações de dados para excluir da atribuição de negação. |
+> | `Permissions.NotDataActions` | No | Corda[] | Uma série de cadeias que especificam as operações de dados para excluir da atribuição de negação. |
 > | `Scope` | Não | String | Uma cadeia que especifica o âmbito a que a atribuição de negação se aplica. |
-> | `DoNotApplyToChildScopes` | Não | Booleano | Especifica se a atribuição de negação se aplica aos âmbitos infantis. O valor predefinido é falso. |
-> | `Principals[i].Id` | Sim | Corda[] | Uma matriz de IDs de objeto principal Azure AD (utilizador, grupo, principal de serviço ou identidade gerida) a que se aplica a atribuição de negação. Definir para um GUID vazio `00000000-0000-0000-0000-000000000000` para representar todos os principais. |
-> | `Principals[i].Type` | Não | Corda[] | Uma série de tipos de objetos representados pelos principais[i].Id. Definido `SystemDefined` para representar todos os principais. |
-> | `ExcludePrincipals[i].Id` | Não | Corda[] | Uma série de IDs de objeto principal Azure AD (utilizador, grupo, principal de serviço ou identidade gerida) aos quais a atribuição de negação não se aplica. |
-> | `ExcludePrincipals[i].Type` | Não | Corda[] | Uma série de tipos de objetos representados por ExcludePrincipals[i].Id. |
-> | `IsSystemProtected` | Não | Booleano | Especifica se esta atribuição de negação foi criada pela Azure e não pode ser editada ou eliminada. Atualmente, todas as missões de negação estão protegidas pelo sistema. |
+> | `DoNotApplyToChildScopes` | No | Booleano | Especifica se a atribuição de negação se aplica aos âmbitos infantis. O valor predefinido é falso. |
+> | `Principals[i].Id` | Yes | Corda[] | Uma matriz de IDs de objeto principal Azure AD (utilizador, grupo, principal de serviço ou identidade gerida) a que se aplica a atribuição de negação. Definir para um GUID vazio `00000000-0000-0000-0000-000000000000` para representar todos os principais. |
+> | `Principals[i].Type` | No | Corda[] | Uma série de tipos de objetos representados pelos principais[i].Id. Definido `SystemDefined` para representar todos os principais. |
+> | `ExcludePrincipals[i].Id` | No | Corda[] | Uma série de IDs de objeto principal Azure AD (utilizador, grupo, principal de serviço ou identidade gerida) aos quais a atribuição de negação não se aplica. |
+> | `ExcludePrincipals[i].Type` | No | Corda[] | Uma série de tipos de objetos representados por ExcludePrincipals[i].Id. |
+> | `IsSystemProtected` | No | Booleano | Especifica se esta atribuição de negação foi criada pela Azure e não pode ser editada ou eliminada. Atualmente, todas as missões de negação estão protegidas pelo sistema. |
 
 ## <a name="the-all-principals-principal"></a>O diretor de todos os diretores
 

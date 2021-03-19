@@ -5,12 +5,12 @@ author: ofirmanor
 ms.author: ofmanor
 ms.topic: reference
 ms.date: 03/16/2020
-ms.openlocfilehash: d65fa03a183c15022535debee6476844192ec6bf
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 08ac23fbb29829bf2a7a46e41f9a7f646ad97915
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102037851"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104586323"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-alerts"></a>Problemas de resolução de problemas nos alertas do Monitor Azure
 
@@ -21,7 +21,7 @@ Os alertas do Azure Monitor notificam-no proativamente quando forem encontradas 
 Se tiver algum problema com um disparo de alerta ou não disparar quando esperado, consulte os artigos abaixo. Pode ver alertas "disparados" no portal Azure.
 
 - [Alertas métricos do Monitor Azure na Microsoft Azure](alerts-troubleshoot-metric.md)  
-- [Alertas de registo do monitor de azure na Microsoft Azure](alerts-troubleshoot-metric.md)
+- [Alertas de registo do monitor de azure na Microsoft Azure](alerts-troubleshoot-log.md)
 
 Se o alerta disparar conforme o previsto pelo portal Azure, mas as notificações adequadas não ocorrerem, utilize as informações no resto deste artigo para resolver esse problema.
 

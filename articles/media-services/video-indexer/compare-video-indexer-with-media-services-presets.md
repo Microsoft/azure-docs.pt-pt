@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/24/2020
 ms.author: juliako
 ms.openlocfilehash: 0961aa3e573e511a6941bc59ddc335f64799abb4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87047337"
 ---
 # <a name="compare-azure-media-services-v3-presets-and-video-indexer"></a>Compare os Azure Media Services v3 predefinições e indexante de vídeo 
@@ -31,7 +31,7 @@ Atualmente, existe uma sobreposição entre as funcionalidades oferecidas pelas 
 
 |Funcionalidade|APIs indexante de vídeo |Predefinições de analisador de vídeo e analisador de áudio<br/>em Serviços de Mídia v3 APIs|
 |---|---|---|
-|Media Insights|[Melhorada](video-indexer-output-json-v2.md) |[Noções básicas](../latest/analyzing-video-audio-files-concept.md)|
+|Media Insights|[Melhorada](video-indexer-output-json-v2.md) |[Fundamentos](../latest/analyzing-video-audio-files-concept.md)|
 |Experiências|Consulte a lista completa de funcionalidades suportadas: <br/> [Descrição geral](video-indexer-overview.md)|Retorna apenas insights de vídeo|
 |Faturação|[Preços dos Serviços de Mídia](https://azure.microsoft.com/pricing/details/media-services/#analytics)|[Preços dos Serviços de Mídia](https://azure.microsoft.com/pricing/details/media-services/#analytics)|
 |Conformidade|Para obter as atualizações de conformidade mais atuais, visite [a Azure Compliance Offerings.pdf](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942/file/178110/23/Microsoft%20Azure%20Compliance%20Offerings.pdf) e procure "Video Indexer" para ver se cumpre um certificado de interesse.|Para obter as atualizações de conformidade mais atuais, visite [a Azure Compliance Offerings.pdf](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942/file/178110/23/Microsoft%20Azure%20Compliance%20Offerings.pdf) e procure "Media Services" para ver se cumpre um certificado de interesse.|

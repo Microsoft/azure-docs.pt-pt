@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 05/31/2019
 ms.author: allensu
 ms.openlocfilehash: a49912bc2275e478d657f06587c4ddc830210d3a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87040205"
 ---
 # <a name="override-http-behavior-using-the-azure-cdn-from-verizon-premium-rules-engine"></a>Anular o comportamento http usando o Azure CDN do motor de regras Verizon Premium
 
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 O motor de regras Azure CDN permite-lhe personalizar a forma como os pedidos HTTP são tratados. Por exemplo, bloquear a entrega de certos tipos de conteúdo, definir uma política de caching ou modificar um cabeçalho HTTP. Este tutorial demonstra como criar uma regra que altera o comportamento de caching dos ativos da CDN. Para obter mais informações sobre a sintaxe do motor de regras, consulte [a referência do motor das regras do Azure CDN](cdn-verizon-premium-rules-engine-reference.md).
 
@@ -93,11 +93,11 @@ Para aceder ao motor de regras, tem primeiro de selecionar **Gerir** a partir da
    >
    >
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 - [Visão geral do Azure CDN](cdn-overview.md)
 - [Referência do motor de regras](cdn-verizon-premium-rules-engine-reference.md)
-- [Regras condições de correspondência do motor](cdn-verizon-premium-rules-engine-reference-match-conditions.md)
+- [Condições de correspondência do motor de regras](cdn-verizon-premium-rules-engine-reference-match-conditions.md)
 - [Expressões condicionais do motor de regras](cdn-verizon-premium-rules-engine-reference-conditional-expressions.md)
 - [Funcionalidades do motor de regras](cdn-verizon-premium-rules-engine-reference-features.md)
 - [Azure Fridays: As poderosas novas funcionalidades premium da Azure CDN](https://azure.microsoft.com/documentation/videos/azure-cdns-powerful-new-premium-features/) (vídeo)

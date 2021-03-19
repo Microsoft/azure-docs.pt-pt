@@ -9,10 +9,10 @@ ms.tgt_pltfrm: dotnet
 ms.date: 06/23/2020
 ms.author: spelluru
 ms.openlocfilehash: 69cffb6000df9d8b058d92231c130ea8a601e6d2
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88660636"
 ---
 # <a name="quickstart-create-a-service-bus-namespace-and-a-queue-using-an-arm-template"></a>Quickstart: Crie um espaço de nome de ônibus de serviço e uma fila usando um modelo ARM
@@ -70,7 +70,7 @@ Para executar a implementação automaticamente, clique no seguinte botão: Crie
     ![Grupo de recursos - espaço de nome](./media/service-bus-resource-manager-namespace-queue/resource-group-namespace.png)
 3. Selecione o espaço de nomes da lista para ver a página **Service Bus Namespace.** 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 1. No portal Azure, navegue na página do **grupo De recursos** para o seu grupo de recursos.
 2. Selecione **Eliminar grupo de recursos**, na barra de ferramentas. 

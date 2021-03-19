@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 12/16/2019
 ms.author: rohogue
 ms.openlocfilehash: 44a4e1293bc4c5a54e1e345d5cf95ba307a7b120
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88272576"
 ---
 # <a name="mount-the-avere-vfxt-cluster"></a>Montar o cluster Avere vFXT
@@ -102,7 +102,7 @@ Para garantir uma montagem de cliente sem emenda, passe estas definições e arg
 
 ``mount -o hard,proto=tcp,mountproto=tcp,retry=30 ${VSERVER_IP_ADDRESS}:/${NAMESPACE_PATH} ${LOCAL_FILESYSTEM_MOUNT_POINT}``
 
-| Configurações necessárias | Descrição |
+| Configurações necessárias | Description |
 --- | ---
 ``hard`` | Os suportes macios ao cluster vFXT estão associados a falhas de aplicação e possíveis perda de dados.
 ``proto=netid`` | Esta opção suporta o manuseamento adequado de erros de rede NFS.

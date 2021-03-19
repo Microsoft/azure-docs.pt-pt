@@ -4,13 +4,13 @@ titleSuffix: Azure Kubernetes Service
 description: Saiba como proteger o tráfego que flui dentro e fora das cápsulas utilizando as políticas de rede Kubernetes no Serviço Azure Kubernetes (AKS)
 services: container-service
 ms.topic: article
-ms.date: 05/06/2019
-ms.openlocfilehash: 4b72c5551d6ed33deb4df40a60215aed8071141d
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.date: 03/16/2021
+ms.openlocfilehash: 17e14859ecdfe11872d5b0526d755d01bc1b034a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102178903"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104577857"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Tráfego seguro entre cápsulas utilizando políticas de rede no Serviço Azure Kubernetes (AKS)
 
@@ -181,9 +181,13 @@ As políticas de networking da Calico com nós Windows estão atualmente em pré
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-```azurecli
-PASSWORD_WIN="P@ssw0rd1234"
+Crie um nome de utilizador para utilizar como credenciais de administrador para os seus recipientes do Windows Server no seu cluster. Os seguintes comandos solicitam-lhe um nome de utilizador e define-o WINDOWS_USERNAME para utilização num comando posterior (lembre-se que os comandos deste artigo são introduzidos numa concha BASH).
 
+```azurecli-interactive
+echo "Please enter the username to use as administrator credentials for Windows Server containers on your cluster: " && read WINDOWS_USERNAME
+```
+
+```azurecli
 az aks create \
     --resource-group $RESOURCE_GROUP_NAME \
     --name $CLUSTER_NAME \
@@ -195,8 +199,7 @@ az aks create \
     --vnet-subnet-id $SUBNET_ID \
     --service-principal $SP_ID \
     --client-secret $SP_PASSWORD \
-    --windows-admin-password $PASSWORD_WIN \
-    --windows-admin-username azureuser \
+    --windows-admin-username $WINDOWS_USERNAME \
     --vm-set-type VirtualMachineScaleSets \
     --kubernetes-version 1.20.2 \
     --network-plugin azure \
@@ -222,7 +225,7 @@ az aks get-credentials --resource-group $RESOURCE_GROUP_NAME --name $CLUSTER_NAM
 
 ## <a name="deny-all-inbound-traffic-to-a-pod"></a>Negar todo o tráfego de entrada para uma cápsula
 
-Antes de definir regras para permitir o tráfego específico da rede, primeiro crie uma política de rede para negar todo o tráfego. Esta política dá-lhe um ponto de partida para começar a criar uma lista de permitis apenas para o tráfego desejado. Pode também ver claramente que o tráfego é abandonado quando a política da rede é aplicada.
+Antes de definir regras para permitir o tráfego específico da rede, primeiro crie uma política de rede para negar todo o tráfego. Esta política dá-lhe um ponto de partida para começar a criar uma lista de admissões apenas para o tráfego desejado. Pode também ver claramente que o tráfego é abandonado quando a política da rede é aplicada.
 
 Para o ambiente de aplicação da amostra e regras de tráfego, vamos primeiro criar um espaço de nome chamado *desenvolvimento* para executar as cápsulas de exemplo:
 
@@ -234,13 +237,13 @@ kubectl label namespace/development purpose=development
 Crie um pod de back-end exemplo que executa o NGINX. Esta cápsula de back-end pode ser usada para simular uma aplicação baseada na web com base na amostra. Crie este casulo no espaço de *nomes de desenvolvimento* e abra a porta *80* para servir o tráfego web. Rotular o pod com *app=webapp,role=backend* para que possamos direcioná-lo com uma política de rede na secção seguinte:
 
 ```console
-kubectl run backend --image=nginx --labels app=webapp,role=backend --namespace development --expose --port 80
+kubectl run backend --image=mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine --labels app=webapp,role=backend --namespace development --expose --port 80
 ```
 
 Crie outra cápsula e anexe uma sessão de terminal para testar que pode alcançar com sucesso a página web padrão do NGINX:
 
 ```console
-kubectl run --rm -it --image=alpine network-policy --namespace development
+kubectl run --rm -it --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11 network-policy --namespace development
 ```
 
 Na operação de concha, utilize `wget` para confirmar que pode aceder à página web padrão do NGINX:
@@ -296,7 +299,7 @@ kubectl apply -f backend-policy.yaml
 Vamos ver se consegues voltar a usar a página web do NGINX na cápsula de fundo. Crie outra cápsula de teste e anexe uma sessão terminal:
 
 ```console
-kubectl run --rm -it --image=alpine network-policy --namespace development
+kubectl run --rm -it --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11 network-policy --namespace development
 ```
 
 Na operação de concha, use `wget` para ver se consegue aceder à página web NGINX predefinido. Desta vez, desa um valor de tempo limite para *2* segundos. A política de rede bloqueia agora todo o tráfego de entrada, pelo que a página não pode ser carregada, como mostra o exemplo seguinte:
@@ -353,7 +356,7 @@ kubectl apply -f backend-policy.yaml
 Agende um casulo que está rotulado como *app=webapp,role=frontend* e anexar uma sessão terminal:
 
 ```console
-kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace development
+kubectl run --rm -it frontend --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11 --labels app=webapp,role=frontend --namespace development
 ```
 
 Na operação de concha, use `wget` para ver se consegue aceder à página web padrão do NGINX:
@@ -383,7 +386,7 @@ exit
 A política de rede permite o tráfego a partir de cápsulas de *aplicação rotuladas: webapp,role: frontend*, mas deve negar todo o tráfego. Vamos testar se outra cápsula sem essas etiquetas pode aceder à cápsula NGINX de fundo. Crie outra cápsula de teste e anexe uma sessão terminal:
 
 ```console
-kubectl run --rm -it --image=alpine network-policy --namespace development
+kubectl run --rm -it --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11 network-policy --namespace development
 ```
 
 Na operação de concha, use `wget` para ver se consegue aceder à página web NGINX predefinido. A política de rede bloqueia o tráfego de entrada, para que a página não possa ser carregada, como mostra o exemplo seguinte:
@@ -416,7 +419,7 @@ kubectl label namespace/production purpose=production
 Agende uma cápsula de teste no espaço de nome de *produção* que é rotulado como *app=webapp,role=frontend*. Anexar uma sessão terminal:
 
 ```console
-kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace production
+kubectl run --rm -it frontend --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11 --labels app=webapp,role=frontend --namespace production
 ```
 
 Na operação de concha, utilize `wget` para confirmar que pode aceder à página web padrão do NGINX:
@@ -480,7 +483,7 @@ kubectl apply -f backend-policy.yaml
 Agende outra cápsula no espaço de nome de *produção* e anexe uma sessão terminal:
 
 ```console
-kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace production
+kubectl run --rm -it frontend --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11 --labels app=webapp,role=frontend --namespace production
 ```
 
 Na origem da concha, use `wget` para ver que a política da rede agora nega o tráfego:
@@ -502,7 +505,7 @@ exit
 Com o tráfego negado do espaço de nome de *produção,* agende uma cápsula de teste de volta no espaço de nome de *desenvolvimento* e anexe uma sessão terminal:
 
 ```console
-kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace development
+kubectl run --rm -it frontend --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11 --labels app=webapp,role=frontend --namespace development
 ```
 
 Na solicitação da concha, utilize `wget` para ver se a política da rede permite o tráfego:

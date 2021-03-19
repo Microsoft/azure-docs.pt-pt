@@ -11,10 +11,10 @@ ms.topic: end-user-help
 ms.date: 05/28/2020
 ms.author: curtand
 ms.openlocfilehash: e5b07f8f7ae766d110c87a495a3e1623b815e526
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88795988"
 ---
 # <a name="what-is-the-additional-verification-page"></a>O que é a página Verificação adicional?
@@ -60,7 +60,7 @@ Depois de a sua organização iniciar a verificação de dois fatores, sempre qu
 
 2. Na página **de verificação de segurança adicional,** selecione o método de verificação de dois fatores para verificar se é quem diz ser quando se inscreve na sua conta de trabalho ou escola. Pode selecionar:
 
-    | Método de contato | Descrição |
+    | Método de contato | Description |
     | --- | --- |
     | Aplicação móvel | <ul><li>**Receber notificações para verificação.** Esta opção empurra uma notificação para a aplicação autenticadora no seu smartphone ou tablet. Ver a notificação e, se for legítimo, **selecione Authenticate** na aplicação. O seu trabalho ou escola pode exigir que introduza um PIN antes de autenticar.</li><li>**Use o código de verificação.** Neste modo, a aplicação gera um código de verificação que atualiza a cada 30 segundos. Introduza o código de verificação mais atual no ecrã de entrada.<br>A aplicação Microsoft Authenticator está disponível para [Android](https://go.microsoft.com/fwlink/?linkid=866594) e [iOS.](https://go.microsoft.com/fwlink/?linkid=866594)</li></ul> |
     | Telefone de autenticação | <ul><li>**A chamada telefónica** coloca uma chamada de voz automatizada para o número de telefone que fornece. Atende a chamada e prima a tecla da libra (#) no teclado do telefone para autenticar.</li><li>**A mensagem de** texto termina uma mensagem de texto contendo um código de verificação. Seguindo o pedido no texto, responda à mensagem de texto ou introduza o código de verificação fornecido na interface de entrada.</li></ul> |

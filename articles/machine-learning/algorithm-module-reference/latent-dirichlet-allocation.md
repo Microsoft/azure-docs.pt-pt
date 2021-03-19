@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 06/05/2020
 ms.openlocfilehash: f9f239ea69aaf71e591a447feb300c13a45ba1a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90907855"
 ---
 # <a name="latent-dirichlet-allocation-module"></a>Módulo de atribuição de Dirichlet Latent
@@ -30,7 +30,7 @@ Este módulo pega numa coluna de texto e gera estas saídas:
 
 + Uma transformação, que pode guardar e reaplicar para novo texto usado como entrada
 
-Este módulo usa a biblioteca de aprendizagem de scikit. Para obter mais informações sobre scikit-learn, consulte o [repositório GitHub,](https://github.com/scikit-learn/scikit-learn)que inclui tutoriais e uma explicação do algoritmo.
+Este módulo usa a biblioteca de aprendizagem de scikit. Para obter mais informações sobre scikit-learn, consulte o [repositório GitHub,](https://github.com/scikit-learn/scikit-learn)que inclui tutoriais e uma explicação do algoritmo.
 
 ## <a name="more-about-latent-dirichlet-allocation"></a>Mais sobre a atribuição de Dirichlet Latent
 
@@ -77,7 +77,7 @@ Este módulo requer um conjunto de dados que contenha uma coluna de texto, crua 
     > [!NOTE] 
     > No designer de Aprendizagem automática Azure, a biblioteca scikit-learn já não suporta *doc_topic_distr* saída não normalizada da versão 0.19. Neste módulo, o parâmetro **Normalizar** só pode ser aplicado para apresentar a saída *da matriz tópico.* A saída *de conjunto de dados transformada* é sempre normalizada.
 
-7. Selecione a opção **Mostrar todas as opções**e, em seguida, defini-la para **TRUE** se pretender definir os seguintes parâmetros avançados.
+7. Selecione a opção **Mostrar todas as opções** e, em seguida, defini-la para **TRUE** se pretender definir os seguintes parâmetros avançados.
 
     Estes parâmetros são específicos para a implementação scikit-learn da LDA. Existem alguns bons tutoriais sobre lDA no scikit-learn, bem como o documento oficial [de aprendizagem de scikit.](https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.LatentDirichletAllocation.html)
 
@@ -105,7 +105,7 @@ Este módulo requer um conjunto de dados que contenha uma coluna de texto, crua 
 
 10. Envie o oleoduto. O módulo LDA usa o teorema de Bayes para determinar que tópicos podem estar associados a palavras individuais. As palavras não estão exclusivamente associadas a tópicos ou grupos. Em vez disso, cada n-gram tem uma probabilidade aprendida de ser associado a qualquer uma das classes descobertas.
 
-## <a name="results"></a>Results
+## <a name="results"></a>Resultados
 
 O módulo tem duas saídas:
 
@@ -181,7 +181,7 @@ Após a cálculo dos índices de termo, uma medida de semelhança baseada na dis
 
 ###  <a name="module-parameters"></a>Parâmetros do módulo
 
-|Nome|Tipo|Intervalo|Opcional|Predefinição|Descrição|  
+|Nome|Tipo|Intervalo|Opcional|Predefinição|Description|  
 |----------|----------|-----------|--------------|-------------|-----------------|  
 |Colunas-alvo(s)|Seleção de Colunas||Necessário|CadeiaFeature|Nome ou índice da coluna-alvo.|  
 |Número de tópicos para modelar|Número inteiro|[1;1000]|Necessário|5|Modele a distribuição do documento contra os tópicos N.|  
