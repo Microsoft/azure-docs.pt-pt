@@ -5,10 +5,10 @@ ms.date: 08/17/2020
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.openlocfilehash: c32f833520a811d47129196ae4d67c92bad7e21f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89651433"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-by-using-an-arm-template"></a>Quickstart: Criar uma atribuição de política para identificar recursos não conformes usando um modelo ARM
@@ -52,7 +52,7 @@ O recurso definido no modelo é:
    | Name | Valor |
    |------|-------|
    | Subscrição | Selecione a sua subscrição do Azure. |
-   | Grupo de recursos | **Selecione Criar novo,** especifique um nome e, em seguida, selecione **OK**. Na imagem, o nome do grupo de recursos é _mypolicyquickstart \<Date in MMDD\> rg_. |
+   | O grupo de recursos | **Selecione Criar novo,** especifique um nome e, em seguida, selecione **OK**. Na imagem, o nome do grupo de recursos é _mypolicyquickstart \<Date in MMDD\> rg_. |
    | Localização | selecione uma região. Por exemplo, **E.U.A. Central**. |
    | Nome de atribuição de políticas | Especifique um nome de atribuição de política. Pode utilizar o visor de definição de política, se quiser. Por exemplo, _Audit VMs que não utilizam discos geridos_. |
    | Nome Rg | Especifique um nome de grupo de recursos para onde pretende atribuir a apólice. Neste arranque rápido, utilize o valor predefinido **[grupo de recursos().nome]**. **[resourceGroup()](../../azure-resource-manager/templates/template-functions-resource.md#resourcegroup)** é uma função de modelo que recupera o grupo de recursos. |
@@ -72,13 +72,13 @@ Alguns recursos adicionais:
 
 Selecione **Conformidade** no lado esquerdo da página. Em seguida, localize os _VMs de auditoria que não utilizem_ a atribuição de política de discos geridos que criou.
 
-:::image type="content" source="./media/assign-policy-template/policy-compliance.png" alt-text="Botão para implantar o modelo ARM para atribuir uma Política de Azure ao Azure." border="false":::
+:::image type="content" source="./media/assign-policy-template/policy-compliance.png" alt-text="Screenshot dos detalhes de conformidade na página De Conformidade de Política." border="false":::
 
 Se houver recursos existentes que não estejam em conformidade com esta nova atribuição, eles aparecem sob **recursos não conformes.**
 
 Para mais informações, consulte [como funciona a conformidade.](./how-to/get-compliance-data.md#how-compliance-works)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Para remover a atribuição criada, siga estes passos:
 
@@ -86,7 +86,7 @@ Para remover a atribuição criada, siga estes passos:
 
 1. Clique com o direito nos _VMs de auditoria que não utilizam_ a atribuição de política de discos geridos e selecione a atribuição de **Eliminar**.
 
-   :::image type="content" source="./media/assign-policy-template/delete-assignment.png" alt-text="Botão para implantar o modelo ARM para atribuir uma Política de Azure ao Azure." border="false":::
+   :::image type="content" source="./media/assign-policy-template/delete-assignment.png" alt-text="Screenshot de usar o menu de contexto para eliminar uma atribuição da página Compliance." border="false":::
 
 ## <a name="next-steps"></a>Passos seguintes
 

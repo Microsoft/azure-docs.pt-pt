@@ -1,5 +1,5 @@
 ---
-title: Microsoft Azure StorSimple Manager Virtual Array administração / Microsoft Docs
+title: Administração virtual do Microsoft Azure StorSimple Manager virtual Array | Microsoft Docs
 description: Saiba como gerir o seu StorSimple no local Virtual Array utilizando o serviço StorSimple Device Manager no portal Azure.
 services: storsimple
 documentationcenter: ''
@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/1/2016
+ms.date: 03/17/2021
 ms.author: alkohli
-ms.openlocfilehash: 2395e3c6f2026bc1024de38122bc20959fdcf9b7
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: cb5b6b1a2d890fe49d78da17d549c5676557b971
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967096"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104654262"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-administer-your-storsimple-virtual-array"></a>Utilize o serviço StorSimple Device Manager para administrar o seu StorSimple Virtual Array
 ![fluxo de processo de configuração](./media/storsimple-virtual-array-manager-service-administration/manage4.png)
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Este artigo descreve a interface de serviço StorSimple Device Manager, incluindo como ligar-se a ele e as várias opções disponíveis, e fornece links para os fluxos de trabalho específicos que podem ser realizados através deste UI.
 
 Depois de ler este artigo, saberá como:
@@ -35,14 +35,12 @@ Depois de ler este artigo, saberá como:
 
 > [!NOTE]
 > Para visualizar as opções de gestão disponíveis para o dispositivo da série StorSimple 8000, consulte [o serviço StorSimple Manager para administrar o seu dispositivo StorSimple](./storsimple-8000-manager-service-administration.md).
-> 
-> 
 
 ## <a name="connect-to-the-storsimple-device-manager-service"></a>Ligue-se ao serviço StorSimple Device Manager
 O serviço StorSimple Device Manager funciona no Microsoft Azure e liga-se a várias Matrizes Virtuais StorSimple. Utiliza um portal central da Microsoft Azure a funcionar num browser para gerir estes dispositivos. Para ligar ao serviço StorSimple Device Manager, faça o seguinte.
 
 #### <a name="to-connect-to-the-service"></a>Para ligar ao serviço
-1. Vai [https://ms.portal.azure.com](https://ms.portal.azure.com) para.
+1. Vai [https://portal.azure.com](https://portal.azure.com) para.
 2. Utilizando as credenciais de conta microsoft, inicie sessão no portal Microsoft Azure (localizado no topo direito do painel).
 3. Navegue para Browse --> 'Filter' em StorSimple Device Managers para ver todos os seus gestores de dispositivos numa determinada subscrição.
 
@@ -50,6 +48,8 @@ O serviço StorSimple Device Manager funciona no Microsoft Azure e liga-se a vá
 A tabela a seguir mostra um resumo de todas as tarefas de gestão comuns e fluxos de trabalho complexos que podem ser realizados dentro da lâmina de resumo do serviço StorSimple Device Manager. Estas tarefas são organizadas com base nas lâminas em que são iniciadas.
 
 Para obter mais informações sobre cada fluxo de trabalho, clique no procedimento apropriado na tabela.
+
+[!INCLUDE [StorSimple software warning](../../includes/storsimple-update-software-warning.md)]
 
 #### <a name="storsimple-device-manager-workflows"></a>Fluxos de trabalho do Gestor de Dispositivos StorSimple
 | Se quiser fazer isto... | Utilize este procedimento |

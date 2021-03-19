@@ -1,5 +1,5 @@
 ---
-title: Especificações técnicas StorSimple / Microsoft Docs
+title: Especificações técnicas StorSimple | Microsoft Docs
 description: Descreve as especificações técnicas e as normas regulamentares de conformidade para os componentes de hardware StorSimple.
 services: storsimple
 documentationcenter: NA
@@ -15,15 +15,15 @@ ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
 ms.openlocfilehash: 061194422a8c1bc449dbef0c4f04bb8e1db10dea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "68965294"
 ---
 # <a name="technical-specifications-and-compliance-for-the-storsimple-device"></a>Especificações técnicas e conformidade para o dispositivo StorSimple
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 [!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
 
@@ -46,7 +46,7 @@ O recinto EBOD utiliza um PCM de 580 W, e o recinto primário utiliza um PCM de 
 | Saída |Tensão de espera 5V \@ 2.0 A |Tensão de espera 5V \@ 2.7 A |
 | +5V \@ 42 A |+5V \@ 40 A | |
 | +12V \@ 38 A |+12V \@ 38 A | |
-| Pluggável quente |Sim |Sim |
+| Pluggável quente |Yes |Yes |
 | Interruptores e LEDs |Interruptor AC ON/OFF e quatro LED indicadores de estado |Interruptor AC ON/OFF e seis LED indicadores de estado |
 | Arrefecimento do recinto |Ventiladores de arrefecimento axial com controlo de velocidade do ventilador variável |Ventiladores de arrefecimento axial com controlo de velocidade do ventilador variável |
 

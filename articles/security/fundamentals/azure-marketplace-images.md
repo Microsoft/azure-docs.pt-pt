@@ -1,5 +1,5 @@
 ---
-title: Recomendações de segurança para Azure Marketplace Images Microsoft Docs
+title: Recomendações de segurança para imagens do mercado Azure | Microsoft Docs
 description: Este artigo fornece recomendações para imagens incluídas no mercado
 services: security
 documentationcenter: na
@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 01/11/2019
 ms.author: terrylan
 ms.openlocfilehash: 7c317a0b4fea0c981b227bace00c1b8924fd582c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89536387"
 ---
 # <a name="security-recommendations-for-azure-marketplace-images"></a>Recomendações de segurança para imagens do mercado de Azure
@@ -39,8 +39,8 @@ Execute sempre uma deteção de vulnerabilidade de segurança na sua imagem ante
 | Segurança                                                     | Evite utilizar o LVM.                                                                                                                                                                                                                                            |
 | Segurança                                                     | Inclua as versões mais recentes das bibliotecas necessárias: </br> - OpenSSL v1.0 ou superior </br> - Python 2.5 ou superior (Python 2.6+ é altamente recomendado) </br> - Pacote Python pyasn1 se ainda não estiver instalado </br> - d.OpenSSL v 1.0 ou maior                                                                |
 | Segurança                                                     | Entradas claras da história bash/Shell.                                                                                                                                                                                                                                             |
-| Redes                                                   | Inclua o servidor SSH por predefinição. Set SSH mantenha-se vivo para sshd config com a seguinte opção: ClientAliveInterval 180.                                                                                                                                                        |
-| Redes                                                   | Remova qualquer configuração de rede personalizada da imagem. Eliminar o resolve.conf: `rm /etc/resolv.conf` .                                                                                                                                                                                |
+| Rede                                                   | Inclua o servidor SSH por predefinição. Set SSH mantenha-se vivo para sshd config com a seguinte opção: ClientAliveInterval 180.                                                                                                                                                        |
+| Rede                                                   | Remova qualquer configuração de rede personalizada da imagem. Eliminar o resolve.conf: `rm /etc/resolv.conf` .                                                                                                                                                                                |
 | Implementação                                                   | Instale o mais recente agente Azure Linux.</br> - Instalar utilizando o pacote RPM ou Deb.  </br> - Também pode utilizar o processo de instalação manual, mas as embalagens do instalador são recomendadas e preferidas. </br> - Se instalar o agente manualmente a partir do repositório GitHub, primeiro copie o `waagent` ficheiro para e corra `/usr/sbin` (como raiz): </br>`# chmod 755 /usr/sbin/waagent` </br>`# /usr/sbin/waagent -install` </br>O ficheiro de configuração do agente é colocado em `/etc/waagent.conf` . |
 | Implementação                                                   | Certifique-se de que o Suporte Azure pode fornecer aos nossos parceiros a saída da consola em série quando necessário e fornecer um tempo suficiente para a montagem do disco de SO a partir do armazenamento em nuvem. Adicione os seguintes parâmetros à imagem Kernel Boot Line: `console=ttyS0 earlyprintk=ttyS0 rootdelay=300` . |
 | Implementação                                                   | Sem troca de divisórias no disco de so. O Swap pode ser solicitado para criação no disco de recursos local pelo Agente Linux.         |

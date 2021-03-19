@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: b2164f8927e5c3224f8b07c30d057f48fb7bbc32
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87495981"
 ---
 # <a name="set-up-disaster-recovery-for-hyper-v-vms-to-a-secondary-on-premises-site"></a>Configurar a recuperação após desastre para VMs Hyper-V para um site no local secundário
@@ -64,7 +64,7 @@ Prepare o VMM da seguinte forma:
 
 Selecione o que pretende replicar e para onde pretende que seja replicado.
 
-1. Clique no Passo de **Recuperação do Local**  >  **1: Prepare o**objetivo de  >  **proteção da**infraestrutura .
+1. Clique no Passo de **Recuperação do Local**  >  **1: Prepare o** objetivo de  >  **proteção da** infraestrutura .
 2. Selecione **Para site de recuperação** e selecione **Sim, com o Hyper-V**.
 3. Selecione **Sim** para indicar que está a utilizar o VMM para gerir os anfitriões de Hyper-V.
 4. Se tiver um servidor do VMM secundário, selecione **Sim**. Se estiver a implementar a replicação entre clouds num único servidor do VMM, clique em **Não**. Em seguida, clique em **OK**.
@@ -74,7 +74,7 @@ Selecione o que pretende replicar e para onde pretende que seja replicado.
 
 Instale o Fornecedor do Azure Site Recovery nos servidores do VMM e descubra e registe os servidores no cofre.
 
-1. Clique **em Preparar Fonte de Infraestrutura**  >  **Source**.
+1. Clique **em Preparar Fonte de Infraestrutura**  >  .
 2. Na **fonte preparar**, clique + **VMM** para adicionar um servidor VMM.
 3. Em **Adicionar Servidor**, verifique se **Servidor do System Center VMM** aparece em **Tipo de servidor**.
 4. Transfira o ficheiro de instalação do Fornecedor do Azure Site Recovery.
@@ -98,21 +98,21 @@ Instale o Fornecedor do Azure Site Recovery nos servidores do VMM e descubra e r
 6. Em **Nome do cofre**, verifique o nome do cofre no qual o servidor será registado. Clique em **Seguinte**.
 7. Em **Ligação Proxy**, especifique a forma como o Fornecedor em execução no servidor do VMM se liga à Internet.
    - Pode especificar que o Fornecedor se deve ligar diretamente à Internet ou através de um proxy. Especifique as definições do proxy, conforme necessário.
-   - Se utilizar um proxy, é criada automaticamente uma conta RunAs do VMM (DRAProxyAccount) com as credenciais de proxy especificadas. Configure o servidor proxy para que esta conta possa autenticar-se com êxito. As definições da conta RunAs podem ser modificadas na consola VMM > **Configurações**  >  **De Segurança**Executar como  >  **contas**.
+   - Se utilizar um proxy, é criada automaticamente uma conta RunAs do VMM (DRAProxyAccount) com as credenciais de proxy especificadas. Configure o servidor proxy para que esta conta possa autenticar-se com êxito. As definições da conta RunAs podem ser modificadas na consola VMM > **Configurações**  >  **De Segurança** Executar como  >  **contas**.
    - Reinicie o serviço VMM para atualizar as alterações.
 8. Em **Chave de Registo**, selecione a chave que transferiu e copiou para o servidor do VMM.
 9. A definição de encriptação não é relevante para este cenário. 
 10. Em **Nome do servidor**, especifique um nome amigável para identificar o servidor VMM no cofre. Num cluster, especifique o nome da função de cluster do VMM.
 11. Em **Sincronizar metadados da cloud**, selecione se pretende sincronizar os metadados de todas as clouds no servidor do VMM. Esta ação só deverá ocorrer uma vez em cada servidor. Se não quiser sincronizar todas as clouds, deixe esta definição desmarcada. Pode sincronizar cada cloud individualmente nas propriedades da cloud na consola do VMM.
-12. Clique em **Seguinte** para concluir o processo. Após o registo, o Site Recovery obtém os metadados do servidor do VMM. O servidor é **Servers**apresentado nos  >  **Servidores VMM dos Servidores do** Servidor no cofre.
-13. Depois de o servidor aparecer no cofre, na fonte De preparação **de origem**  >  **Prepare source** selecione o servidor VMM e selecione a nuvem na qual o anfitrião Hyper-V está localizado. Em seguida, clique em **OK**.
+12. Clique em **Seguinte** para concluir o processo. Após o registo, o Site Recovery obtém os metadados do servidor do VMM. O servidor é apresentado nos  >  **Servidores VMM dos Servidores do** Servidor no cofre.
+13. Depois de o servidor aparecer no cofre, na fonte De preparação **de origem**  >   selecione o servidor VMM e selecione a nuvem na qual o anfitrião Hyper-V está localizado. Em seguida, clique em **OK**.
 
 
 ## <a name="set-up-the-target-environment"></a>Configurar o ambiente de destino
 
 Selecione o servidor do VMM e a cloud de destino:
 
-1. Clique **em Preparar a infraestrutura**  >  **Target**e selecione o servidor VMM alvo.
+1. Clique **em Preparar a infraestrutura**  >  **Target** e selecione o servidor VMM alvo.
 2. São apresentadas as clouds do VMM que estão sincronizadas com o Site Recovery. Selecione a cloud de destino.
 
    ![Screenshot das seleções do VMM Server e Cloud alvo.](./media/hyper-v-vmm-disaster-recovery/target-vmm.png)
@@ -122,9 +122,9 @@ Selecione o servidor do VMM e a cloud de destino:
 
 Antes de começar, confirme que todos os anfitriões que utilizam a política têm o mesmo sistema operativo. Se os anfitriões estiverem a executar versões diferentes do Windows Server, precisa de várias políticas de replicação.
 
-1. Para criar uma nova política de replicação, clique em **Preparar**  >  **Definições de Replicação de**Infraestrutura  >  **+Criar e associar.**
+1. Para criar uma nova política de replicação, clique em **Preparar**  >  **Definições de Replicação de** Infraestrutura  >  **+Criar e associar.**
 2. Na **política de criar e associar,** especifique um nome de política. O tipo de origem e de destino deve ser **Hyper-V**.
-3. Em**Versão do anfitrião de Hyper-V**, selecione o sistema operativo que está a ser executado no anfitrião.
+3. Em **Versão do anfitrião de Hyper-V**, selecione o sistema operativo que está a ser executado no anfitrião.
 4. Em **Tipo de autenticação** e **Porta de autenticação**, especifique de que forma é que o tráfego é autenticado entre os servidores do anfitrião de Hyper-V principal e de recuperação.
     - Selecione **Certificado**, a menos que tenha um ambiente do Kerberos em funcionamento. O Azure Site Recovery configura automaticamente os certificados para autenticação HTTPS. Não é necessário fazer nada manualmente.
     - Por predefinição, as portas 8083 e 8084 (para os certificados) estarão abertas no Windows Firewall nos servidores do anfitrião de Hyper-V.

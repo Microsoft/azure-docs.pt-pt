@@ -14,10 +14,10 @@ ms.author: curtand
 ms.reviewer: jairoc
 ms.custom: user-help, seo-update-azuread-jan
 ms.openlocfilehash: 0435b99525c34eb72d7cc5315ccb4359859cd528
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90033052"
 ---
 # <a name="register-your-personal-device-on-your-organizations-network"></a>Registe o seu dispositivo pessoal na rede da sua organização
@@ -41,7 +41,7 @@ Enquanto regista o seu dispositivo na rede da sua organização, as seguintes a�
 
 Siga estes passos para registar o seu dispositivo pessoal na sua rede.
 
-1. Abrir **Definições**e, em seguida, selecionar **Contas**.
+1. Abrir **Definições** e, em seguida, selecionar **Contas**.
 
     ![Contas no ecrã De Definições](./media/user-help-register-device-on-network/register-device-settings-accounts.png)
 
@@ -58,7 +58,7 @@ Siga estes passos para registar o seu dispositivo pessoal na sua rede.
 ## <a name="to-verify-that-youre-registered"></a>Para verificar se está registado
 Pode certificar-se de que está registado olhando para as suas definições.
 
-1. Abrir **Definições**e, em seguida, selecionar **Contas**.
+1. Abrir **Definições** e, em seguida, selecionar **Contas**.
 
     ![Contas no ecrã De Definições](./media/user-help-register-device-on-network/register-device-settings-accounts.png)
 

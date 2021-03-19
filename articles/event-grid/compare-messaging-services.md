@@ -4,10 +4,10 @@ description: Descreve os três serviços de mensagens Azure - Azure Event Grid, 
 ms.topic: overview
 ms.date: 07/07/2020
 ms.openlocfilehash: 7a3a0cd7f63a67206053ae55f33bd71aee2c19c6
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87460410"
 ---
 # <a name="choose-between-azure-messaging-services---event-grid-event-hubs-and-service-bus"></a>Escolha entre serviços de mensagens Azure - Event Grid, Event Hubs e Service Bus
@@ -92,7 +92,7 @@ Noutros casos, pode utilizá-los ao mesmo tempo para formar um pipeline de event
 
 ## <a name="next-steps"></a>Passos seguintes
 Consulte os seguintes artigos: 
-- [Opções de mensagens assíncronas em Azure](/azure/architecture/guide/technology-choices/messaging)
+- [Opções de mensagens assíncronas no Azure](/azure/architecture/guide/technology-choices/messaging)
 - [Eventos, Pontos de Dados e Mensagens - Escolher o serviço de mensagens Azure certo para os seus dados.](https://azure.microsoft.com/blog/events-data-points-and-messages-choosing-the-right-azure-messaging-service-for-your-data/)
 - [Filas de armazenamento e filas de autocarros de serviço - comparadas e contrastadas](../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 - Para começar a utilizar o Event Grid, veja [Criar e encaminhar eventos personalizados com o Azure Event Grid](custom-event-quickstart.md).

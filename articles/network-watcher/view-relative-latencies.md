@@ -13,10 +13,10 @@ ms.date: 12/14/2017
 ms.author: damendo
 ms.custom: ''
 ms.openlocfilehash: 938315dac80ae51984851083753a9cb8f77662b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84737908"
 ---
 # <a name="view-relative-latency-to-azure-regions-from-specific-locations"></a>Ver latência relativa para as regiões do Azure a partir de localizações específicas
@@ -134,7 +134,7 @@ Get-AzNetworkWatcherReachabilityProvidersList -NetworkWatcherName NetworkWatcher
 
 Os dados só estão disponíveis para os países/regiões, estados e cidades devolvidos pelo comando anterior. O comando anterior requer que especifique um observador de rede existente. O exemplo especificou o *NetworkWatcher_eastus* observador de rede num grupo de recursos chamado *NetworkWatcherRG*, mas pode especificar qualquer observador de rede existente. Se não tiver um observador de rede existente, crie um, completando as tarefas no [Criar um observador de rede](#create-a-network-watcher). 
 
-Depois de executar o comando anterior, pode filtrar a saída devolvida especificando valores válidos para **País,** **Estado**e **Cidade,** se desejar.  Por exemplo, para ver a lista de fornecedores de serviços de Internet disponíveis em Seattle, Washington, nos Estados Unidos, insira o seguinte comando:
+Depois de executar o comando anterior, pode filtrar a saída devolvida especificando valores válidos para **País,** **Estado** e **Cidade,** se desejar.  Por exemplo, para ver a lista de fornecedores de serviços de Internet disponíveis em Seattle, Washington, nos Estados Unidos, insira o seguinte comando:
 
 ```powershell
 Get-AzNetworkWatcherReachabilityProvidersList `
@@ -146,4 +146,4 @@ Get-AzNetworkWatcherReachabilityProvidersList `
 ```
 
 > [!WARNING]
-> O valor especificado para **o País** deve ser superior e minúsculo. Os valores especificados para **Estado** e **Cidade** devem ser minúsculos. Os valores devem ser listados na saída devolvida após a execução do comando sem valores para **País,** **Estado**e **Cidade.** Se especificar o caso incorreto, ou especificar um valor para **País,** **Estado**ou **Cidade** que não esteja na saída devolvida após executar o comando sem valores para estas propriedades, a saída devolvida está vazia.
+> O valor especificado para **o País** deve ser superior e minúsculo. Os valores especificados para **Estado** e **Cidade** devem ser minúsculos. Os valores devem ser listados na saída devolvida após a execução do comando sem valores para **País,** **Estado** e **Cidade.** Se especificar o caso incorreto, ou especificar um valor para **País,** **Estado** ou **Cidade** que não esteja na saída devolvida após executar o comando sem valores para estas propriedades, a saída devolvida está vazia.

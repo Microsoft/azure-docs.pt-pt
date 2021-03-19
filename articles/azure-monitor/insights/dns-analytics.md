@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/20/2018
-ms.openlocfilehash: df9efef1000ab6a824c869e6684ab1424e8462f4
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: f01a1204aefbcaabe0ddac254b24bc014c3d5a64
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101708106"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104654531"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Recolha informações sobre a sua infraestrutura DNS com a solução de pré-visualização do DNS Analytics
 
@@ -34,10 +34,10 @@ O quadro que se segue descreve as fontes ligadas suportadas por esta solução:
 
 | **Origem ligada** | **Suporte** | **Descrição** |
 | --- | --- | --- |
-| [Agentes do Windows](../agents/agent-windows.md) | Sim | A solução recolhe informações sobre DNS de agentes do Windows. |
-| [Agentes do Linux](../vm/quick-collect-linux-computer.md) | Não | A solução não recolhe informações de DNS de agentes linux diretos. |
-| [Grupo de gestão do System Center Operations Manager](../agents/om-agents.md) | Sim | A solução recolhe informações de DNS de agentes de um grupo de gestão de Gestores de Operações conectado. Não é necessária uma ligação direta do agente gestor de operações ao Azure Monitor. Os dados são reencaminhados do grupo de gestão para o espaço de trabalho Log Analytics. |
-| [Conta de armazenamento Azure](../essentials/resource-logs.md#send-to-log-analytics-workspace) | Não | O armazenamento Azure não é usado pela solução. |
+| [Agentes do Windows](../agents/agent-windows.md) | Yes | A solução recolhe informações sobre DNS de agentes do Windows. |
+| [Agentes do Linux](../vm/quick-collect-linux-computer.md) | No | A solução não recolhe informações de DNS de agentes linux diretos. |
+| [Grupo de gestão do System Center Operations Manager](../agents/om-agents.md) | Yes | A solução recolhe informações de DNS de agentes de um grupo de gestão de Gestores de Operações conectado. Não é necessária uma ligação direta do agente gestor de operações ao Azure Monitor. Os dados são reencaminhados do grupo de gestão para o espaço de trabalho Log Analytics. |
+| [Conta de armazenamento Azure](../essentials/resource-logs.md#send-to-log-analytics-workspace) | No | O armazenamento Azure não é usado pela solução. |
 
 ### <a name="data-collection-details"></a>Detalhes da recolha de dados
 
@@ -54,7 +54,7 @@ A solução começa a recolher dados sem a necessidade de uma configuração adi
 
 ### <a name="configure-the-solution"></a>Configure a solução
 
-No painel de instrumentos de solução, clique em **Configuração** para abrir a página de Configuração do DNS Analytics. Existem dois tipos de alterações de configuração que pode fazer:
+A partir do espaço de trabalho Log Analytics no portal Azure, selecione o **resumo do Espaço de Trabalho** e, em seguida, clique no azulejo **DNS Analytics.** No painel de instrumentos de solução, clique em **Configuração** para abrir a página de Configuração do DNS Analytics. Existem dois tipos de alterações de configuração que pode fazer:
 
 - **Nomes de domínio listados permitidos**. A solução não processa todas as consultas de procura. Mantém uma lista de sufixos de nome de domínio. As consultas de procura que resolvem os nomes de domínio que correspondem aos sufixos de nome de domínio nesta lista de admissões não são processadas pela solução. O não processamento de nomes de domínios listados ajuda a otimizar os dados enviados para o Azure Monitor. A lista de admissões por defeito inclui nomes de domínio público populares, como www.google.com e www.facebook.com. Pode ver a lista completa por defeito deslocando-se.
 

@@ -1,5 +1,5 @@
 ---
-title: Atributos de sombra de sincronização Azure AD Connect Microsoft Docs
+title: Atributos de sombra de sincronização Azure AD Connect | Microsoft Docs
 description: Descreve como os atributos de sombra funcionam no serviço de sincronização Azure AD Connect.
 services: active-directory
 documentationcenter: ''
@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 128303cb51b39db8442fdda71f949db17923bfa2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90088975"
 ---
 # <a name="azure-ad-connect-sync-service-shadow-attributes"></a>Atributos de sombra de sincronização Azure AD Connect
@@ -74,6 +74,6 @@ O ProxyCalc pode demorar algum tempo a processar uma mudança num utilizador e n
 ### <a name="quarantined-attribute-values"></a>Valores de atributos em quarentena
 Os atributos de sombra também são usados quando existem valores de atributos duplicados. Para obter mais informações, consulte [a duplicação da resiliência do atributo](how-to-connect-syncservice-duplicate-attribute-resiliency.md).
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 * [Sincronização Azure Ad Connect](how-to-connect-sync-whatis.md)
 * [Integrando as suas identidades no local com o Azure Ative Directory](whatis-hybrid-identity.md).

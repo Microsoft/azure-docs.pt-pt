@@ -6,12 +6,12 @@ ms.service: data-factory
 ms.topic: quickstart
 ms.date: 12/14/2020
 ms.author: jingwang
-ms.openlocfilehash: e7d4770af38081353fc58eec9957f50e2b6a7348
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 8b33005b7f0d08e6da963457813b012199d89f5f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100372795"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104655105"
 ---
 # <a name="quickstart-create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Início Rápido: criar uma fábrica de dados através da interface de utilizador do Azure Data Factory 
 
@@ -39,7 +39,8 @@ Ver este vídeo ajuda-o a compreender a IU do Data Factory:
 1. No menu do portal do Azure, selecione **Criar um recurso**.
 1. Selecione **Integração** e, em seguida, selecione **Data Factory**. 
    
-   ![Seleção do Data Factory no painel "Novo"](./media/doc-common-process/new-azure-data-factory-menu.png)
+   :::image type="content" source="./media/doc-common-process/new-azure-data-factory-menu.png" alt-text="Seleção de Fábrica de Dados no Novo Painel.":::
+
 1. Na página **'Criar Fábrica de** Dados', no separador **Basics,** selecione a **subscrição** Azure na qual pretende criar a fábrica de dados.
 1. Em **Grupo de Recursos**, efetue um destes passos:
 
@@ -55,8 +56,8 @@ Ver este vídeo ajuda-o a compreender a IU do Data Factory:
  
 1. Para **citar ,** insira a **ADFTutorialDataFactory**.
    O nome da fábrica de dados Azure deve ser *globalmente único.* Se vir o seguinte erro, altere o nome da fábrica de dados (por exemplo, **&lt; o seu nome &gt; ADFTutorialDataFactory)** e tente criar novamente. Para regras de nomenclatura de artefactos do Data Factory, veja o artigo [Data Factory – Regras de Nomenclatura](naming-rules.md).
-  
-   ![Erro quando um nome não está disponível](./media/doc-common-process/name-not-available-error.png)
+
+    :::image type="content" source="./media/doc-common-process/name-not-available-error.png" alt-text="Nova mensagem de erro da fábrica de dados para nome duplicado.":::
 
 1. Em **Versão**, selecione **V2**.
 
@@ -66,7 +67,7 @@ Ver este vídeo ajuda-o a compreender a IU do Data Factory:
 
 1. Selecione o **azulejo do Monitor & autor** para iniciar a aplicação de interface de utilizador (UI) da Azure Data Factory num separado separado do navegador.
    
-   ![Home page da fábrica de dados, com o mosaico "Criar e Monitorizar"](./media/doc-common-process/data-factory-home-page.png)
+    :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Página inicial da Fábrica de Dados Azure, com o azulejo do Monitor de autores &.":::
    
    > [!NOTE]
    > Se vir que o navegador está preso em "Autorizar", limpe os **cookies de terceiros do Bloco e** a caixa de verificação de dados do site. Ou mantenha-a selecionada, crie uma exceção para **login.microsoftonline.com**, e depois tente abrir novamente a app.
@@ -79,7 +80,7 @@ Neste procedimento, cria um serviço ligado para ligar a sua conta de Armazename
 
 1. Na página de serviços Linked, selecione **+Novo** para criar um novo serviço ligado.
 
-   ![Novo serviço ligado](./media/doc-common-process/new-linked-service.png)
+   :::image type="content" source="./media/doc-common-process/new-linked-service.png" alt-text="Novo serviço ligado.":::
    
 1. Na página **Novo Serviço Ligado**, selecione **Armazenamento de Blobs do Azure** e selecione **Continuar**. 
 
@@ -93,7 +94,7 @@ Neste procedimento, cria um serviço ligado para ligar a sua conta de Armazename
 
    d. Selecione **Criar** para salvar o serviço ligado. 
 
-      ![Serviço ligado](./media/quickstart-create-data-factory-portal/linked-service.png)
+      :::image type="content" source="./media/quickstart-create-data-factory-portal/linked-service.png" alt-text="Serviço ligado.":::
 
 
 ## <a name="create-datasets"></a>Criar conjuntos de dados
@@ -109,13 +110,13 @@ Nas definições de serviço ligadas, especificou a conta de Armazenamento Azure
 
 1. Selecione o **+** botão (mais) e, em seguida, **selecione Dataset**.
 
-   ![Menu para criar um conjunto de dados](./media/quickstart-create-data-factory-portal/new-dataset-menu.png)
+   :::image type="content" source="./media/quickstart-create-data-factory-portal/new-dataset-menu.png" alt-text="Menu para criar um conjunto de dados.":::
 
 1. Na página **New Dataset,** selecione **Azure Blob Storage** e, em seguida, selecione **Continue**. 
 
 1. Na página **'Selecionar Formato',** escolha o tipo de formato dos seus dados e, em seguida, selecione **Continue**. Neste caso, selecione **Binary** quando copiar ficheiros como-está sem analisar o conteúdo.
 
-   ![Selecione formato](./media/quickstart-create-data-factory-portal/select-format.png)
+   :::image type="content" source="./media/quickstart-create-data-factory-portal/select-format.png" alt-text="Selecione o formato.":::   
    
 1. Na página **'Definir Propriedades',** complete os seguintes passos:
 
@@ -129,7 +130,8 @@ Nas definições de serviço ligadas, especificou a conta de Armazenamento Azure
     
     e. Selecione **OK**.   
 
-    ![Definir propriedades para InputDataset](./media/quickstart-create-data-factory-portal/set-properties-for-inputdataset.png)
+    :::image type="content" source="./media/quickstart-create-data-factory-portal/set-properties-for-inputdataset.png" alt-text="Definir propriedades para InputDataset.":::
+
 1. Repita os passos para criar o conjunto de dados de saída:  
 
     a. Selecione o **+** botão (mais) e, em seguida, **selecione Dataset**.
@@ -144,7 +146,7 @@ Nas definições de serviço ligadas, especificou a conta de Armazenamento Azure
 
     f. Selecione **OK**.   
 
-    ![Definir propriedades para OutputDataset](./media/quickstart-create-data-factory-portal/set-properties-for-outputdataset.png)
+    :::image type="content" source="./media/quickstart-create-data-factory-portal/set-properties-for-outputdataset.png" alt-text="Definir propriedades para OutputDataset.":::    
 
 ## <a name="create-a-pipeline"></a>Criar um pipeline 
 Neste procedimento, vai criar e validar um pipeline com uma atividade de cópia que utiliza os conjuntos de dados de entrada e saída. A atividade de cópia copia dados do ficheiro especificado nas definições do conjunto de dados de entrada para o ficheiro especificado nas definições do conjunto de dados de saída. Se o conjunto de dados de entrada especifica apenas uma pasta (e não o nome do ficheiro), a atividade de cópia copia todos os ficheiros na pasta de origem para o destino. 
@@ -155,7 +157,7 @@ Neste procedimento, vai criar e validar um pipeline com uma atividade de cópia 
 
 1. Na caixa de ferramentas **Atividades**, expanda **Mover e Transformar**. Arraste a atividade **de Copiar dados** da caixa de **ferramentas De atividades** para a superfície do designer de gasodutos. Também pode pesquisar por atividades na caixa de ferramentas **Atividades**. Especifique **CopyFromBlobToBlob** em **Nome**.
 
-   ![Criação de uma atividade de dados de cópia](./media/quickstart-create-data-factory-portal/copy-activity.png)
+    :::image type="content" source="./media/quickstart-create-data-factory-portal/copy-activity.png" alt-text="Criar uma atividade de dados de cópia.":::   
 
 1. Mude para o separador **Origem** nas definições da atividade de cópia e selecione **InputDataset** em **Conjunto de Dados de Origem**.
 
@@ -163,7 +165,7 @@ Neste procedimento, vai criar e validar um pipeline com uma atividade de cópia 
 
 1. Clique em **Validar** na barra de ferramentas do pipeline acima da tela, para validar as definições do pipeline. Confirme que o pipeline foi confirmado com êxito. Para fechar a saída de validação, selecione o botão de validação no canto superior direito. 
 
-   ![Validar um oleoduto](./media/quickstart-create-data-factory-portal/pipeline-validate.png)
+   :::image type="content" source="./media/quickstart-create-data-factory-portal/pipeline-validate.png"   alt-text="Valide um oleoduto.":::
 
 ## <a name="debug-the-pipeline"></a>Depurar o pipeline
 Neste passo, vai depurar o pipeline antes de o implementar no Data Factory. 
@@ -172,7 +174,7 @@ Neste passo, vai depurar o pipeline antes de o implementar no Data Factory.
     
 1. Confirme se vê o estado da execução do pipeline no separador **Saída** das definições do pipeline na parte inferior. 
  
-    ![Saída de execução do gasoduto](./media/quickstart-create-data-factory-portal/pipeline-output.png)
+    :::image type="content" source="./media/quickstart-create-data-factory-portal/pipeline-output.png" alt-text="Saída de execução do gasoduto":::
 
 1. Confirme que vê um ficheiro de saída na pasta **output** do contentor **adftutorial**. Se a pasta de saída não existir, o serviço Data Factory cria-a automaticamente. 
 
@@ -181,7 +183,7 @@ Neste procedimento, vai implementar entidades (serviços ligados, conjuntos de d
 
 1. Antes de acionar um pipeline, tem de publicar entidades no Data Factory. Para publicar, **selecione Publicar tudo** no topo. 
 
-    ![Publicar tudo](./media/quickstart-create-data-factory-portal/publish-all.png)
+    :::image type="content" source="./media/quickstart-create-data-factory-portal/publish-all.png" alt-text="Publique tudo.":::    
 
 1. Para ativar o gasoduto manualmente, **selecione Adicionar Gatilho** na barra de ferramentas do gasoduto e, em seguida, selecione Trigger **Now**. Na página **de execução pipeline,** selecione **OK**.
 
@@ -189,12 +191,12 @@ Neste procedimento, vai implementar entidades (serviços ligados, conjuntos de d
 
 1. Mude para o separador **Monitorizar**, no lado esquerdo. Utilize o botão **Atualizar** para atualizar a lista.
 
-   ![Separador para monitorização do gasoduto funciona](./media/quickstart-create-data-factory-portal/monitor-trigger-now-pipeline.png)
+    :::image type="content" source="./media/quickstart-create-data-factory-portal/monitor-trigger-now-pipeline.png" alt-text="Separador para monitorização do gasoduto funciona"::: 
 1. Selecione o link **CopyPipeline,** verá o estado da atividade da cópia executado nesta página. 
 
 1. Para ver detalhes sobre a operação da cópia, selecione o link **Detalhes** (imagem de óculos). Para obter os detalhes das propriedades, veja [Copy Activity overview](copy-activity-overview.md) (Descrição geral da Atividade Copy). 
 
-   ![Detalhes da operação de cópia](./media/quickstart-create-data-factory-portal/copy-operation-details.png)
+   :::image type="content" source="./media/quickstart-create-data-factory-portal/copy-operation-details.png" alt-text="Copiar detalhes da operação.":::
 1. Confirme que vê um ficheiro novo na pasta **output**. 
 1. Pode voltar a mudar para a vista de **execuções** do Pipeline a partir da vista **"Atividade"** selecionando a ligação **"Todas as corre" do gasoduto.** 
 
@@ -213,7 +215,7 @@ Este procedimento é opcional neste tutorial. Pode criar um *acionador de agenda
 
 1. Na página **Novo Gatilho,** selecione a caixa **de verificação ativada** e, em seguida, selecione **OK**. 
 
-   ![Nova definição do gatilho](./media/quickstart-create-data-factory-portal/trigger-settings-next.png)
+    :::image type="content" source="./media/quickstart-create-data-factory-portal/trigger-settings-next.png" alt-text="Nova definição do gatilho.":::   
 1. Reveja a mensagem de aviso e selecione **OK**.
 
 1. **Selecione Publicar tudo** para publicar alterações na Data Factory. 

@@ -9,12 +9,12 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: klaasl
 ms.custom: references_regions
-ms.openlocfilehash: bfaee493c25f882b8beeed565a155db93efd0083
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: be2ff9d6ed908bdc0645fc713717a08674354096
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102431759"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104593225"
 ---
 # <a name="manage-and-find-azure-blob-data-with-blob-index-tags-preview"></a>Gerir e encontrar dados do Azure Blob com etiquetas de índice blob (pré-visualização)
 
@@ -289,12 +289,7 @@ As etiquetas de índice blob só estão disponíveis em contas de Finalidade Ger
 
 As etiquetas de índice não são suportadas em contas de armazenamento Premium. Para obter mais informações sobre contas de armazenamento, consulte [a visão geral da conta de armazenamento Azure](../common/storage-account-overview.md).
 
-Na pré-visualização pública, as etiquetas do índice blob só estão disponíveis nas seguintes regiões:
-
-- Canadá Central
-- Leste do Canadá
-- França Central
-- Sul de França
+As etiquetas do índice blob estão atualmente disponíveis em todas as regiões públicas.
 
 Para começar, consulte [utilize etiquetas de índice blob para gerir e encontrar dados](storage-blob-index-how-to.md).
 

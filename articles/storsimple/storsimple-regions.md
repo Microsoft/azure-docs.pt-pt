@@ -7,17 +7,17 @@ ms.topic: conceptual
 ms.date: 11/16/2017
 ms.author: alkohli
 ms.openlocfilehash: 5efb87ad674474b2e21b86b5cdc48785753a51dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90564156"
 ---
 # <a name="available-regions-for-your-storsimple"></a>Regiões disponíveis para o seu StorSimple
 
 [!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Os datacenters da Azure operam em múltiplas geografias em todo o mundo para atender às exigências do cliente de desempenho, requisitos e preferências em relação à localização dos dados. Uma geografia azul é uma área definida do mundo que contém pelo menos uma região de Azure. Uma região de Azure é uma área dentro de uma geografia, contendo um ou mais datacenters.
 

@@ -1,5 +1,5 @@
 ---
-title: Termine a revisão de acesso das funções de recursos da Azure na PIM - Azure AD ! Microsoft Docs
+title: Termine a revisão de acesso das funções de recursos Azure em PIM - Azure AD | Microsoft Docs
 description: Saiba como completar uma revisão de acesso das funções de recursos Azure Gestão de Identidade Privilegiada no Diretório Ativo Azure.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1601c9fc750df1f8e18bdaa072ede1b5ee164329
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84743818"
 ---
 # <a name="complete-an-access-review-of-azure-resource-roles-in-privileged-identity-management"></a>Complete uma revisão de acesso das funções de recursos da Azure na Gestão de Identidade Privilegiada
@@ -30,7 +30,7 @@ Após o fim do período de revisão de acesso, ou depois de todos os utilizadore
 
 ## <a name="manage-access-reviews"></a>Gerir comentários de acesso
 
-1. Aceda ao [portal do Azure](https://portal.azure.com/). No painel de instrumentos, selecione o serviço **de recursos Azure.**
+1. Aceda ao [Portal do Azure](https://portal.azure.com/). No painel de instrumentos, selecione o serviço **de recursos Azure.**
 
 2. Selecione o seu recurso.
 
@@ -60,7 +60,7 @@ Depois de concluída uma revisão de acesso, **selecione Aplicar** para implemen
 
 Se já não está interessado na revisão, apague-a. **Selecione Delete** yo remover o comentário do serviço de Gestão de Identidade Privilegiada.
 
-## <a name="results"></a>Results
+## <a name="results"></a>Resultados
 
 Na página **Resultados,** veja e descarregue uma lista dos resultados da sua avaliação.
 

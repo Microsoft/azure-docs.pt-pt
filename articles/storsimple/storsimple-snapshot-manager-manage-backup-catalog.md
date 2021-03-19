@@ -1,5 +1,5 @@
 ---
-title: Catálogo de backup StorSimple Snapshot Manager / Microsoft Docs
+title: Catálogo de backup StorSimple Snapshot Manager | Microsoft Docs
 description: Descreve como utilizar o snap-in StorSimple Snapshot Manager MMC para visualizar e gerir o catálogo de backup.
 services: storsimple
 documentationcenter: NA
@@ -15,15 +15,15 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
 ms.openlocfilehash: 2efc35e65ca1db2b5241e1d3b2798e068880c87e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90054998"
 ---
 # <a name="use-storsimple-snapshot-manager-to-manage-the-backup-catalog"></a>Use storSimple Snapshot Manager para gerir o catálogo de backup
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 A função principal do StorSimple Snapshot Manager é permitir-lhe criar cópias de backup consistentes de aplicações de volumes StorSimple sob a forma de instantâneos. As imagens instantâneas são então listadas num ficheiro XML chamado *catálogo de backup*. O catálogo de backup organiza instantâneos por grupo de volume e, em seguida, por instantâneo local ou instantâneo em nuvem.
 
 Este tutorial descreve como pode utilizar o nó **do Catálogo de Cópias de Segurança** para completar as seguintes tarefas:
@@ -46,7 +46,7 @@ Pode ver o catálogo de cópias de segurança expandindo o nó **do Catálogo de
   * **Importado** – se o backup foi importado. **A verdade** indica que a cópia de segurança foi importada do serviço StorSimple Device Manager no momento em que o dispositivo foi configurado no StorSimple Snapshot Manager; **O falso** indica que não foi importado, mas foi criado pelo StorSimple Snapshot Manager. (Pode identificar facilmente um grupo de volume importado porque é adicionado um sufixo que identifica o dispositivo a partir do qual o grupo de volume foi importado.)
     
     ![Catálogo de backup](./media/storsimple-snapshot-manager-manage-backup-catalog/HCS_SSM_Backup_catalog.png)
-* Se expandir o **Snapshot Local** ou o **Cloud Snapshot**e clicar num nome de instantâneo individual, o painel de resultados mostra as **seguintes** informações sobre o instantâneo que selecionou:
+* Se expandir o **Snapshot Local** ou o **Cloud Snapshot** e clicar num nome de instantâneo individual, o painel de resultados mostra as **seguintes** informações sobre o instantâneo que selecionou:
   
   * **Nome** – o volume identificado por carta de unidade. 
   * **Nome Local** – o nome local da unidade (se disponível). 
@@ -74,7 +74,7 @@ O StorSimple Snapshot Manager exibe a seguinte mensagem enquanto cria a cópia d
 3. Encontre a cópia de segurança que pretende restaurar, clique à direita e, em seguida, clique em **Restaurar**.
    
     ![Restaurar catálogo de backup](./media/storsimple-snapshot-manager-manage-backup-catalog/HCS_SSM_Restore_BU_catalog.png) 
-4. Na página de confirmação, reveja os detalhes, **escreva Confirmar**e, em seguida, clique **em OK**. O StorSimple Snapshot Manager utiliza a cópia de segurança para restaurar o volume.
+4. Na página de confirmação, reveja os detalhes, **escreva Confirmar** e, em seguida, clique **em OK**. O StorSimple Snapshot Manager utiliza a cópia de segurança para restaurar o volume.
    
     ![Restaurar a mensagem de confirmação](./media/storsimple-snapshot-manager-manage-backup-catalog/HCS_SSM_Restore_volume_msg.png) 
 5. Pode monitorizar a ação de restauro enquanto funciona. No **painel Scope,** expanda o nó **Jobs** e, em seguida, clique em **Executar**. Os detalhes do trabalho aparecem no painel **de resultados.** Quando o trabalho de restauro estiver terminado, os detalhes do trabalho são transferidos para a lista **das últimas 24 horas.**
@@ -91,7 +91,7 @@ Utilize o seguinte procedimento para criar uma duplicação (clone) de um grupo 
 4. Preencha a caixa de diálogo **Clone Cloud Snapshot** da seguinte forma: 
    
    1. Na caixa de texto **Name,** digite um nome para o volume clonado. Este nome aparecerá no nó **Volumes.** 
-   2. (Opcional) selecione **Drive**e, em seguida, selecione uma letra de unidade da lista de drop-down.
+   2. (Opcional) selecione **Drive** e, em seguida, selecione uma letra de unidade da lista de drop-down.
    3. (Opcional) selecione **pasta (NTFS)** e digite um caminho de pasta ou clique em navegar e selecione um local para a pasta. 
    4. Clique em **Criar**.
 5. Quando o processo de clonagem estiver concluído, deve rubricar o volume clonado. Inicie o Gestor do Servidor e, em seguida, inicie a Gestão do Disco. Para obter instruções detalhadas, consulte [os volumes do monte](storsimple-snapshot-manager-manage-volumes.md#mount-volumes). Após a sua inicialção, o volume será listado no nó **volumes** no painel **Scope.** Se não vir o volume listado, atualize a lista de volumes (clique à direita no nó **Volumes** e, em seguida, clique em **Refresh**).
@@ -124,8 +124,8 @@ Antes de começar, certifique-se de que tem uma cópia de segurança atual do gr
 4. Preencha a caixa de diálogo **Clone Cloud Snapshot** da seguinte forma: 
    
    1. Na caixa de texto **Name,** digite um nome para o volume clonado. Este nome aparecerá no nó **Volumes.** 
-   2. (Opcional) Selecione **Drive**e, em seguida, selecione uma letra de unidade da lista de drop-down. 
-   3. (Opcional) Selecione **pasta (NTFS)**, escreva um caminho de pasta ou clique em navegar e selecione um local para a pasta. **Browse** 
+   2. (Opcional) Selecione **Drive** e, em seguida, selecione uma letra de unidade da lista de drop-down. 
+   3. (Opcional) Selecione **pasta (NTFS)**, escreva um caminho de pasta ou clique em navegar e selecione um local para a pasta.  
    4. Clique em **Criar**. 
 5. Quando o processo de clonagem estiver concluído, deve rubricar o volume clonado. Inicie o Gestor do Servidor e, em seguida, inicie a Gestão do Disco. Para obter instruções detalhadas, consulte [os volumes do monte](storsimple-snapshot-manager-manage-volumes.md#mount-volumes). Após a sua inicialção, o volume será listado no nó **volumes** no painel **Scope.** 
    

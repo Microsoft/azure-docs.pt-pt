@@ -8,10 +8,10 @@ services: web-application-firewall
 ms.date: 06/09/2020
 ms.author: victorh
 ms.openlocfilehash: 596374d4f3f188e08a10bd25b36b178cc79a6e57
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84808958"
 ---
 # <a name="azure-web-application-firewall-monitoring-and-logging"></a>Monitorização e registo de firewall de aplicação web Azure
@@ -22,7 +22,7 @@ A monitorização e registo de registos do Azure Web Application Firewall (WAF) 
 
 O waf com log FrontDoor está integrado com [o Azure Monitor](../../azure-monitor/overview.md). O Azure Monitor permite-lhe rastrear informações de diagnóstico, incluindo alertas e registos waf. Pode configurar a monitorização da WAF dentro do recurso Porta Frontal no portal sob o separador **Diagnóstico ou** através do serviço Azure Monitor diretamente.
 
-A partir do portal Azure, vá para o tipo de recurso Front Door. A partir do **separador Métricas de Monitorização** / **Metrics** à esquerda, pode adicionar **WebApplicationFirewallRequestCount** para rastrear o número de pedidos que correspondem às regras da WAF. Os filtros personalizados podem ser criados com base em tipos de ação e nomes de regras.
+A partir do portal Azure, vá para o tipo de recurso Front Door. A partir do **separador Métricas de Monitorização** /  à esquerda, pode adicionar **WebApplicationFirewallRequestCount** para rastrear o número de pedidos que correspondem às regras da WAF. Os filtros personalizados podem ser criados com base em tipos de ação e nomes de regras.
 
 :::image type="content" source="../media/waf-frontdoor-monitor/waf-frontdoor-metrics.png" alt-text="WAFMetrics ":::
 

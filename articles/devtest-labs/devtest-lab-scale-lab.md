@@ -1,13 +1,13 @@
 ---
-title: Limites e quotas de escala no seu laboratório em Azure DevTest Labs Microsoft Docs
+title: Limites e quotas no seu laboratório em Azure DevTest Labs | Microsoft Docs
 description: Este artigo descreve como pode escalar o seu laboratório em Azure DevTest Labs. Veja as suas quotas de utilização e limites e solicite um aumento.
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 2166eaab073e2abc24ca24494ae13eb876db1fcf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87533959"
 ---
 # <a name="scale-quotas-and-limits-in-devtest-labs"></a>Quotas e limites em Laboratórios DevTest
@@ -26,7 +26,7 @@ Por exemplo, cada subscrição tem uma quota padrão de 20 núcleos. Então, se 
 Estes passos mostram-lhe como visualizar as quotas atuais na sua subscrição para recursos específicos da Azure, e ver qual a percentagem de cada quota que utilizou.
 
 1. Inicie sessão no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
-1. Selecione **Mais Serviços**e, em seguida, selecione **Billing** da lista.
+1. Selecione **Mais Serviços** e, em seguida, selecione **Billing** da lista.
 1. Na lâmina de faturação, selecione uma subscrição.
 4. Selecione **Utilização + quotas**.
 
@@ -41,7 +41,7 @@ Se atingir um limite de quota, o limite padrão de um recurso numa subscrição 
 
 Estes passos mostram como solicitar um aumento de quota através do [portal Azure.](https://go.microsoft.com/fwlink/p/?LinkID=525040)
 
-1. Selecione **Mais Serviços,** selecione **Billing**e, em seguida, selecione **Usage + quotas**.
+1. Selecione **Mais Serviços,** selecione **Billing** e, em seguida, selecione **Usage + quotas**.
 1. Na lâmina Utilização + quotas, selecione o botão **'Aumentar pedido'.**
 
    ![Pedido de aumento botão](./media/devtest-lab-scale-lab/devtestlab-request-increase-new.png)

@@ -5,12 +5,12 @@ description: Aprenda as melhores práticas do operador do cluster para gerir a s
 services: container-service
 ms.topic: conceptual
 ms.date: 11/12/2020
-ms.openlocfilehash: ad1f14fc92433e8d9cb31de165645e4a5731f01a
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: a56cf35fe3780aa53b12581358bd91fe44e8c8a1
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95019471"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104585065"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>Melhores práticas para segurança de clusters e upgrades no Serviço Azure Kubernetes (AKS)
 
@@ -94,7 +94,7 @@ metadata:
 spec:
   containers:
   - name: hello
-    image: busybox
+    image: mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11
     command: [ "sh", "-c", "echo 'Hello AppArmor!' && sleep 1h" ]
 ```
 
@@ -104,13 +104,14 @@ Implementar a cápsula de amostra utilizando o [comando de aplicação de kubect
 kubectl apply -f aks-apparmor.yaml
 ```
 
-Com a cápsula implantada, utilize o comando [executivo de kubectl][kubectl-exec] para escrever num ficheiro. O comando não pode ser executado, como mostra a seguinte saída de exemplo:
+Com a cápsula implantada, utilize verifique se o pod da *cápsula hello-apparmor* mostra como *bloqueado:*
 
 ```
-$ kubectl exec hello-apparmor touch /tmp/test
+$ kubectl get pods
 
-touch: /tmp/test: Permission denied
-command terminated with exit code 1
+NAME             READY   STATUS    RESTARTS   AGE
+aks-ssh          1/1     Running   0          4m2s
+hello-apparmor   0/1     Blocked   0          50s
 ```
 
 Para mais informações sobre o AppArmor, consulte [os perfis appArmor em Kubernetes.][k8s-apparmor]
@@ -145,7 +146,7 @@ metadata:
 spec:
   containers:
   - name: chmod
-    image: busybox
+    image: mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11
     command:
       - "chmod"
     args:
@@ -209,7 +210,7 @@ Se quiser um controlo de grãos mais fino quando ocorrerem reboots, `kured` pode
 
 Para obter mais informações sobre como lidar com as reinicializações de nó, consulte [Aplicar atualizações de segurança e kernel aos nós em AKS][aks-kured].
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Este artigo focou-se em como proteger o seu cluster AKS. Para implementar algumas destas áreas, consulte os seguintes artigos:
 

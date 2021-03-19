@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/28/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 6f48245983898c542197deb7e0b3cd53bd39be33
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c8fa6e108550b1417f736d1caff5cafd3e16f63a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91707528"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104595010"
 ---
 # <a name="limits-in-azure-database-for-postgresql---single-server"></a>Limites na Base de Dados Azure para PostgreSQL - Servidor Único
 As seguintes secções descrevem limites de capacidade e funcionais no serviço de base de dados. Se quiser aprender sobre os níveis de recursos (computação, memória, armazenamento), consulte o artigo [de níveis de preços.](concepts-pricing-tiers.md)
@@ -68,9 +68,12 @@ Uma ligação PostgreSQL, mesmo inativa, pode ocupar cerca de 10MB de memória. 
 - Em alguns cenários, os caracteres UTF-8 não são totalmente suportados em PostgreSQL de código aberto no Windows, que afeta a Base de Dados Azure para PostgreSQL. Por favor, consulte a linha [do Bug #15476 no arquivo pós-quadrado](https://www.postgresql-archive.org/BUG-15476-Problem-on-show-trgm-with-4-byte-UTF-8-characters-td6056677.html) para obter mais informações.
 
 ### <a name="gss-error"></a>Erro GSS
-Se vir um erro relacionado com **o GSS,** é provável que utilize uma versão mais recente do cliente/controlador que o Azure Postgres Single Server ainda não suporta totalmente. Este erro é conhecido por afetar as [versões do condutor JDBC 42.2.15 e 42.2.16](https://github.com/pgjdbc/pgjdbc/issues/1868).
-   - Planeamos concluir a atualização até ao final de novembro. Considere usar uma versão de motorista de trabalho entretanto.
-   - Ou, considere desativar o pedido do GSS.  Utilize um parâmetro de ligação como `gssEncMode=disable` .
+Se vir um erro relacionado com **GSS**, é provável que esteja a utilizar uma versão do cliente/controlador mais recente que o Servidor Único Postgres do Azure ainda não suporta totalmente. Este erro afeta as [versões 42.2.15 e 42.2.16 do controlador JDBC](https://github.com/pgjdbc/pgjdbc/issues/1868).
+   - Planeamos concluir a atualização até ao final de novembro. Entretanto, considere utilizar uma versão funcional do controlador.
+   - Ou, considere desativar o pedido do GSS.  Utilize um parâmetro de ligação como `gssEncMode=disable`.
+
+### <a name="storage-size-reduction"></a>Redução do tamanho do armazenamento
+O tamanho do armazenamento não pode ser reduzido. Tem de criar um novo servidor com o tamanho de armazenamento pretendido, executar o despejo manual [e restaurar](./howto-migrate-using-dump-and-restore.md) e migrar a sua base de dados para o novo servidor.
 
 ## <a name="next-steps"></a>Passos seguintes
 - Compreenda [o que está disponível em cada nível de preços](concepts-pricing-tiers.md)

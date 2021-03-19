@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
 ms.openlocfilehash: 415c95a441ac0cc6ed2dbf2d6a37f57d7a9e7341
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90562524"
 ---
 # <a name="deploy-an-internet-facing-load-balancer-solution-with-ipv6-using-a-template"></a>Implementar uma solução de balanceador de carga virada para a Internet com o IPv6 utilizando um modelo
@@ -72,7 +72,7 @@ Este artigo refere um modelo que é publicado na galeria [Azure Quickstart Templ
 
     ![A screenshot mostra o passo mais disparado de uma implementação personalizada, que é o modelo de edição.](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step5.png)
 
-6. Clique em "Editar parâmetros". Na lâmina parâmetros, especifique os valores por orientação na secção de parâmetros do modelo e, em seguida, clique em "Guardar" para fechar a lâmina de parâmetros. Na lâmina de implementação personalizada, selecione a sua subscrição, um grupo de recursos existente ou crie uma. Se estiver a criar um grupo de recursos, selecione uma localização para o grupo de recursos. Em seguida, clique em **Termos Legais**e, em seguida, clique em **Comprar** para os termos legais. O Azure começa a mobilizar os recursos. Leva vários minutos para mobilizar todos os recursos.
+6. Clique em "Editar parâmetros". Na lâmina parâmetros, especifique os valores por orientação na secção de parâmetros do modelo e, em seguida, clique em "Guardar" para fechar a lâmina de parâmetros. Na lâmina de implementação personalizada, selecione a sua subscrição, um grupo de recursos existente ou crie uma. Se estiver a criar um grupo de recursos, selecione uma localização para o grupo de recursos. Em seguida, clique em **Termos Legais** e, em seguida, clique em **Comprar** para os termos legais. O Azure começa a mobilizar os recursos. Leva vários minutos para mobilizar todos os recursos.
 
     ![A screenshot mostra os passos envolvidos na implementação personalizada, começando com a introdução dos valores dos parâmetros do modelo.](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step6.png)
 

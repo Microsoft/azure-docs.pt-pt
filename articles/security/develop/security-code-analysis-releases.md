@@ -13,10 +13,10 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.openlocfilehash: 33ce2a496caa52609d8bdf8c92e29064ca4ae349
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85362045"
 ---
 # <a name="microsoft-security-code-analysis-releases-and-roadmap"></a>Microsoft Security Code Analysis lança e roteiro
@@ -57,7 +57,7 @@ A equipa de Análise de Códigos de Segurança da Microsoft em parceria com o De
 - BUG FIX: Fix tipografia em BA2021. Saída DoNotMarkWritableSectionsAsExecutable output.
 - DESEMPENHO: Elimine o carregamento de PDB para todos os modos não mistos para conjuntos geridos, incluindo binários da Biblioteca IL (antes do tempo compilado).
 - FALSA CORREÇÃO NEGATIVA: Verifique se um PDB colocado ao lado de um binário corresponde ao binário em análise
-- CARACTERÍSTICA: Fornecer --argumento local-symbol-directies para especificar locais de procura PDB adicionais (locais locais locais locais, não-símbolo-servidor)
+- CARACTERÍSTICA: Fornecer --argumento local-symbol-directies para especificar locais de procura PDB adicionais (locais locais, não-símbolo-servidor)
 - CORREÇÃO POSITIVA FALSA: Ignore a análise orientada por PDB para o exe de botas nativo .NET core (que não é um código controlável pelo utilizador).
 
 ## <a name="whats-next-in-q3-cy20"></a>O que vem a seguir no Q3 CY20?

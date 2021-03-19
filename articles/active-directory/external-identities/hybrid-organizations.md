@@ -12,10 +12,10 @@ manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 427f7ad4d6a1b9839b1197ef9f7ca15400ea0f59
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87909399"
 ---
 # <a name="azure-active-directory-b2b-collaboration-for-hybrid-organizations"></a>Colaboração B2B do Diretório Ativo Azure para organizações híbridas
@@ -47,7 +47,7 @@ Para obter detalhes de implementação, consulte [grant contas de parceiro gerid
  
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Grant B2B utilizadores em Azure AD acesso às suas aplicações no local](hybrid-cloud-to-on-premises.md)
-- [Conceder contas de parceiros geridos localmente acesso a recursos em nuvem usando a colaboração Azure AD B2B](hybrid-on-premises-to-cloud.md)
+- [Conceder aos utilizadores B2B no AAD acesso às aplicações no local](hybrid-cloud-to-on-premises.md)
+- [Conceder aos recursos na cloud acesso às contas dos parceiros geridas localmente com a colaboração B2B do AAD](hybrid-on-premises-to-cloud.md)
 
 

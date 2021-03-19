@@ -4,10 +4,10 @@ description: Aprenda a configurar um cluster de tecido de serviço seguro em Azu
 ms.topic: conceptual
 ms.date: 09/06/2018
 ms.openlocfilehash: c679a804db09b1034f31e9d8da1f7d2ad206f684
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90563731"
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Criar um cluster de tecido de serviço em Azure usando o portal Azure
@@ -110,7 +110,7 @@ Configure os seus nós de cluster. Os tipos de nó definem os tamanhos de VM, o 
 5. Escolha a **capacidade inicial de conjunto de balança de máquina virtual** para o tipo de nó. Pode escalar o número de VMs num nó mais tarde, mas no tipo de nó primário, o mínimo é de cinco para cargas de trabalho de produção. Outros tipos de nó podem ter um mínimo de um VM. O **número** mínimo de VMs para o tipo de nó primário impulsiona a **fiabilidade** do seu cluster.  
 6. Configurar **pontos finais personalizados**. Este campo permite-lhe introduzir uma lista de portas separadas por vírgula que pretende expor através do Azure Load Balancer para a Internet pública para as suas aplicações. Por exemplo, se planeia implementar uma aplicação web no seu cluster, insira aqui "80" para permitir o tráfego na porta 80 no seu cluster. Para obter mais informações sobre os pontos finais, consulte [a comunicação com as aplicações][service-fabric-connect-and-communicate-with-services]
 7. **Ativar o proxy invertido**.  O [proxy reverso do Service Fabric](service-fabric-reverseproxy.md) ajuda os microserviços a funcionar num cluster de Tecidos de Serviço a descobrir e comunicar com outros serviços que tenham pontos finais http.
-8. De volta à lâmina de **configuração cluster,** em **+Mostrar definições opcionais,** configurar **diagnósticos**de cluster . Por padrão, os diagnósticos são ativados no seu cluster para ajudar com problemas de resolução de problemas. Se pretender desativar os diagnósticos, altere o alterar o alterar o **'Status'** para **Off**. **Não** é aconselhável desligar os diagnósticos. Se já tem o projeto Application Insights criado, então dê a sua chave, para que os vestígios da aplicação sejam encaminhados para ele.
+8. De volta à lâmina de **configuração cluster,** em **+Mostrar definições opcionais,** configurar **diagnósticos** de cluster . Por padrão, os diagnósticos são ativados no seu cluster para ajudar com problemas de resolução de problemas. Se pretender desativar os diagnósticos, altere o alterar o alterar o **'Status'** para **Off**. **Não** é aconselhável desligar os diagnósticos. Se já tem o projeto Application Insights criado, então dê a sua chave, para que os vestígios da aplicação sejam encaminhados para ele.
 9. **Incluir o serviço DNS**.  O [serviço DNS é](service-fabric-dnsservice.md) um serviço opcional que lhe permite encontrar outros serviços utilizando o protocolo DNS.
 10. Selecione o **modo de atualização do Tecido** para o quais pretende definir o seu cluster. Selecione **Automatic**, se quiser que o sistema recolha automaticamente a versão mais recente disponível e tente atualizar o seu cluster para o mesmo. Desa ajuste o modo **manual,** se pretender escolher uma versão suportada. Para obter mais detalhes sobre o modo de atualização do Tecido consulte o [documento de upgrade do Cluster de Tecido de Serviço.][service-fabric-cluster-upgrade]
 
@@ -145,7 +145,7 @@ Insira o nome do certificado e clique **em OK**.
 #### <a name="custom-option"></a>Opção personalizada
 Ignore esta secção, se já tiver realizado os passos na Opção **Básica.**
 
-![A screenshot mostra a caixa de diálogo de configuração de configuração do cluster de segurança de configuração de segurança de segurança de segurança de segurança de segurança.][SecurityCustomOption]
+![A screenshot mostra a caixa de diálogo de configuração de configuração do cluster de segurança de configuração de segurança.][SecurityCustomOption]
 
 Precisa do cofre de chave Fonte, URL de certificado e informação de impressão digital do certificado para completar a página de segurança. Se não o tiver à mão, abra outra janela do navegador e no portal Azure faça o seguinte
 

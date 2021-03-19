@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 09/20/2019
 ms.openlocfilehash: baa6e5732221d120ff71217a3a86a942794c53f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84710376"
 ---
 # <a name="perform-data-operations-in-azure-logic-apps"></a>Realizar operações de dados em Azure Logic Apps
@@ -34,7 +34,7 @@ Estas ações ajudam-no a trabalhar com dados em matrizes.
 | [**Criar tabela CSV**](#create-csv-table-action) | Crie uma tabela de valor separado em vírgula (CSV) a partir de uma matriz. |
 | [**Criar tabela HTML**](#create-html-table-action) | Crie uma tabela HTML a partir de uma matriz. |
 | [**Matriz de filtro**](#filter-array-action) | Crie um subconjunto de matriz a partir de uma matriz com base no filtro ou condição especificados. |
-| [**Associar**](#join-action) | Crie uma cadeia a partir de todos os itens numa matriz e separe cada item com o carácter especificado. |
+| [**Junte-se**](#join-action) | Crie uma cadeia a partir de todos os itens numa matriz e separe cada item com o carácter especificado. |
 | [**Selecione**](#select-action) | Crie uma matriz a partir das propriedades especificadas para todos os itens numa matriz diferente. |
 ||| 
 
@@ -44,7 +44,7 @@ Estas ações ajudam-no a trabalhar com dados no formato JavaScript Object Notat
 
 | Ação | Descrição |
 |--------|-------------|
-| [**Compor**](#compose-action) | Crie uma mensagem, ou cadeia, a partir de múltiplas entradas que podem ter vários tipos de dados. Em seguida, pode utilizar esta cadeia como uma única entrada, em vez de introduzir repetidamente as mesmas entradas. Por exemplo, pode criar uma única mensagem JSON a partir de várias entradas. |
+| [**Compose**](#compose-action) | Crie uma mensagem, ou cadeia, a partir de múltiplas entradas que podem ter vários tipos de dados. Em seguida, pode utilizar esta cadeia como uma única entrada, em vez de introduzir repetidamente as mesmas entradas. Por exemplo, pode criar uma única mensagem JSON a partir de várias entradas. |
 | [**Parse JSON**](#parse-json-action) | Crie fichas de dados fáceis de utilizar para propriedades em conteúdo JSON para que possa utilizar mais facilmente as propriedades nas suas aplicações lógicas. |
 |||
 
@@ -156,7 +156,7 @@ Se preferir trabalhar no editor de visualização de código, pode copiar o exem
 
 1. Na caixa **From,** forneça a matriz ou expressão que deseja para criar a tabela.
 
-   Para este exemplo, quando clica dentro da caixa **''' ''' ''' 'A',** aparece a lista de conteúdos dinâmicos para que possa selecionar a variável previamente criada:
+   Para este exemplo, quando clica dentro da caixa **'A',** aparece a lista de conteúdos dinâmicos para que possa selecionar a variável previamente criada:
 
    ![Selecione a saída da matriz para criar a tabela CSV](./media/logic-apps-perform-data-operations/configure-create-csv-table-action.png)
 
@@ -307,7 +307,7 @@ Se preferir trabalhar no editor de visualização de código, pode copiar o exem
 
 1. Na caixa **From,** forneça a matriz ou expressão que deseja para criar a tabela.
 
-   Para este exemplo, quando clica dentro da caixa **''' ''' ''' 'A',** aparece a lista de conteúdos dinâmicos para que possa selecionar a variável previamente criada:
+   Para este exemplo, quando clica dentro da caixa **'A',** aparece a lista de conteúdos dinâmicos para que possa selecionar a variável previamente criada:
 
    ![Selecione a saída da matriz para criar a tabela HTML](./media/logic-apps-perform-data-operations/configure-create-html-table-action.png)
 
@@ -472,7 +472,7 @@ Se preferir trabalhar no editor de visualização de código, pode copiar o exem
 
 1. Na caixa **'From',** forneça a matriz ou a expressão que pretende filtrar.
 
-   Para este exemplo, quando clica dentro da caixa **''' ''' ''' 'A',** aparece a lista de conteúdos dinâmicos para que possa selecionar a variável previamente criada:
+   Para este exemplo, quando clica dentro da caixa **'A',** aparece a lista de conteúdos dinâmicos para que possa selecionar a variável previamente criada:
 
    ![Selecione a saída da matriz para criar matriz filtrada](./media/logic-apps-perform-data-operations/configure-filter-array-action.png)
 
@@ -534,7 +534,7 @@ Se preferir trabalhar no editor de visualização de código, pode copiar o exem
 
 1. Na caixa **From,** forneça a matriz que tem os itens que pretende juntar como uma corda.
 
-   Para este exemplo, quando clicar dentro da caixa **''' ''' De's'**  
+   Para este exemplo, quando clicar dentro da caixa **' ' De's'**  
 
    ![Selecione a saída da matriz para criar a cadeia](./media/logic-apps-perform-data-operations/configure-join-action.png)
 
@@ -624,7 +624,7 @@ Para confirmar se a ação **Parse JSON** cria os resultados esperados, envie-se
 
 1. Nessa ação, clique em qualquer lugar que queira que os resultados apareçam. Quando a lista de conteúdos dinâmicos abrir, sob a ação **Parse JSON,** pode agora selecionar as propriedades a partir do conteúdo JSON analisado.
 
-   Este exemplo utiliza o Office 365 Outlook Enviar uma ação **por e-mail** e inclui os campos **FirstName**, **LastName**e **Email** no corpo do e-mail:
+   Este exemplo utiliza o Office 365 Outlook Enviar uma ação **por e-mail** e inclui os campos **FirstName**, **LastName** e **Email** no corpo do e-mail:
 
    ![Propriedades JSON na ação "Enviar um e-mail"](./media/logic-apps-perform-data-operations/send-email-parse-json-action.png)
 
@@ -669,7 +669,7 @@ Se preferir trabalhar no editor de visualização de código, pode copiar o exem
 
 1. Na caixa **'Partir',** especifique a matriz de origem desejada.
 
-   Para este exemplo, quando clica dentro da caixa **''' ''' ''' 'A',** aparece a lista de conteúdos dinâmicos para que possa selecionar a variável previamente criada:
+   Para este exemplo, quando clica dentro da caixa **'A',** aparece a lista de conteúdos dinâmicos para que possa selecionar a variável previamente criada:
 
    ![Selecione o conjunto de origem para selecionar ação](./media/logic-apps-perform-data-operations/configure-select-action.png)
 

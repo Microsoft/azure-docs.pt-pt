@@ -7,10 +7,10 @@ ms.date: 06/19/2019
 ms.author: jobreen
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 4f425af7681b666b42fbcc70ac0e4c31d9df6d49
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87503757"
 ---
 # <a name="create-and-use-a-custom-provider"></a>Criar e utilizar um fornecedor personalizado
@@ -34,9 +34,9 @@ Depois de criar um ponto final, pode criar um fornecedor personalizado para gera
 
 Propriedade | Necessário | Descrição
 ---|---|---
-**nome** | Sim | O nome da definição de ponto final. O Azure expõe este nome através da sua API em /subscrições/{subscriçãoD}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders<br>/resourceProviders/{resourceProviderName}/{endpointDefinitionName}
-**roteamentoType** | Não | O tipo de contrato de ponto final. Se o valor não for especificado, é por defeito de "Proxy".
-**ponto final** | Sim | O ponto final para encaminhar os pedidos para. Este ponto final trata da resposta e dos efeitos secundários do pedido.
+**nome** | Yes | O nome da definição de ponto final. O Azure expõe este nome através da sua API em /subscrições/{subscriçãoD}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders<br>/resourceProviders/{resourceProviderName}/{endpointDefinitionName}
+**roteamentoType** | No | O tipo de contrato de ponto final. Se o valor não for especificado, é por defeito de "Proxy".
+**ponto final** | Yes | O ponto final para encaminhar os pedidos para. Este ponto final trata da resposta e dos efeitos secundários do pedido.
 
 O valor do **ponto final** é o URL de gatilho da aplicação de função Azure. O `<yourapp>` , e espaços `<funcname>` `<functionkey>` reservados deve ser substituído por valores para a sua aplicação de função criada.
 
@@ -126,9 +126,9 @@ az resource invoke-action --action myCustomAction \
 
 Parâmetro | Obrigatório | Descrição
 ---|---|---
-*ação* | Sim | O nome da ação definida no fornecedor personalizado
-*ids* | Sim | O ID de recursos do fornecedor personalizado
-*pedido-corpo* | Não | O órgão de pedido que será enviado para o ponto final
+*ação* | Yes | O nome da ação definida no fornecedor personalizado
+*ids* | Yes | O ID de recursos do fornecedor personalizado
+*pedido-corpo* | No | O órgão de pedido que será enviado para o ponto final
 
 # <a name="template"></a>[Modelo](#tab/template)
 
@@ -159,9 +159,9 @@ az resource create --is-full-object \
 
 Parâmetro | Obrigatório | Descrição
 ---|---|---
-*é objeto completo* | Sim | Indica se o objeto de propriedades inclui outras opções, como localização, tags, SKU ou plano.
-*id* | Sim | A identificação de recursos do recurso personalizado. Este ID é uma extensão do ID do fornecedor personalizado.
-*propriedades* | Sim | O corpo de pedido que será enviado para o ponto final.
+*é objeto completo* | Yes | Indica se o objeto de propriedades inclui outras opções, como localização, tags, SKU ou plano.
+*id* | Yes | A identificação de recursos do recurso personalizado. Este ID é uma extensão do ID do fornecedor personalizado.
+*propriedades* | Yes | O corpo de pedido que será enviado para o ponto final.
 
 #### <a name="delete-a-custom-resource"></a>Excluir um recurso personalizado
 
@@ -171,7 +171,7 @@ az resource delete --id /subscriptions/{subscriptionId}/resourceGroups/{resource
 
 Parâmetro | Obrigatório | Descrição
 ---|---|---
-*id* | Sim | A identificação de recursos do recurso personalizado. Este ID é uma extensão do ID do fornecedor personalizado.
+*id* | Yes | A identificação de recursos do recurso personalizado. Este ID é uma extensão do ID do fornecedor personalizado.
 
 #### <a name="retrieve-a-custom-resource"></a>Recuperar um recurso personalizado
 
@@ -181,7 +181,7 @@ az resource show --id /subscriptions/{subscriptionId}/resourceGroups/{resourceGr
 
 Parâmetro | Obrigatório | Descrição
 ---|---|---
-*id* | Sim | A identificação de recursos do recurso personalizado. Este ID é uma extensão do ID do fornecedor personalizado.
+*id* | Yes | A identificação de recursos do recurso personalizado. Este ID é uma extensão do ID do fornecedor personalizado.
 
 # <a name="template"></a>[Modelo](#tab/template)
 
@@ -207,9 +207,9 @@ Um modelo de gestor de recursos de amostra:
 
 Parâmetro | Obrigatório | Descrição
 ---|---|---
-*nome de recursoTypeName* | Sim | O `name` valor da propriedade **recursosTypes** definida no fornecedor personalizado.
-*nome de recursoProviderName* | Sim | O nome da instância do fornecedor personalizado.
-*customResourceName* | Sim | O nome de recurso personalizado.
+*nome de recursoTypeName* | Yes | O `name` valor da propriedade **recursosTypes** definida no fornecedor personalizado.
+*nome de recursoProviderName* | Yes | O nome da instância do fornecedor personalizado.
+*customResourceName* | Yes | O nome de recurso personalizado.
 
 ---
 

@@ -7,10 +7,10 @@ ms.date: 06/29/2018
 ms.custom: devx-track-java
 ms.author: pepogors
 ms.openlocfilehash: cc65deb924a9f3367c2ea1d7c71544743ccf2697
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87327366"
 ---
 # <a name="develop-java-service-fabric-applications-with-visual-studio-code"></a>Desenvolver aplicações de tecido de serviço java com código de estúdio visual
@@ -76,7 +76,7 @@ Ao depurar as aplicações no Código VS, a aplicação deve estar a decorrer nu
 
 Para preparar o VoteDataService e o pedido de votação para depurar, complete os seguintes passos:
 
-1. Atualizar o *ficheiro Vote/VoteApplication/VoteDataServicePkg/Code/entryPoint.sh.*
+1. Atualizar o *ficheiro Vote/VoteApplication/VoteDataServicePkg/Code/entryPoint.sh* ficheiro.
 Comente o comando na linha 6 (use '#') e adicione o seguinte comando à parte inferior do ficheiro:
 
    ```
@@ -101,7 +101,7 @@ Comente o comando na linha 6 (use '#') e adicione o seguinte comando à parte in
 
 Para definir um ponto de rutura, complete os seguintes passos:
 
-1. No Explorer, abra o ficheiro */Vote/VoteDataService/src/statefulservice/VoteDataService.java.* Desaponte um ponto de rutura na primeira linha de código do `try` bloco no `addItem` método (linha 80).
+1. No Explorer, abra o ficheiro */Vote/VoteDataService/src/statefulservice/VoteDataService.java* ficheiro. Desaponte um ponto de rutura na primeira linha de código do `try` bloco no `addItem` método (linha 80).
    
    ![Definir ponto de rutura no Serviço de Dados de Voto](./media/service-fabric-develop-java-applications-with-vs-code/breakpoint-set.png)
 

@@ -7,12 +7,12 @@ ms.author: allensu
 ms.service: load-balancer
 ms.topic: tutorial
 ms.date: 02/24/2021
-ms.openlocfilehash: 9107ef6100a3c362eae982412d54a981851bcb42
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: c16123fae63b89eff57b5c91864d9a947e01b386
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102561403"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104576922"
 ---
 # <a name="tutorial-create-a-cross-region-azure-load-balancer-using-the-azure-portal"></a>Tutorial: Criar um balanceador de carga azure cross-region usando o portal Azure
 
@@ -41,7 +41,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="sign-in-to-azure-portal"></a>Iniciar sessão no portal do Azure
 
-[Inscreva-se no](https://preview.portal.azure.com) portal de pré-visualização do Azure.
+[Inicie sessão](https://portal.azure.com) no portal do Azure.
 
 ## <a name="create-cross-region-load-balancer"></a>Criar balanceador de carga entre regiões
 

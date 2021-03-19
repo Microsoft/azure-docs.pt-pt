@@ -1,5 +1,5 @@
 ---
-title: Alterar o nível de preços do espaço de nomes dos Centros de Notificação / Microsoft Docs
+title: Alterar o nível de preços do espaço de nomes dos Centros de Notificação | Microsoft Docs
 description: Saiba como alterar o nível de preços de um espaço de nome azure Notification Hubs.
 services: notification-hubs
 author: sethmanheim
@@ -14,23 +14,23 @@ ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 01/28/2019
 ms.openlocfilehash: 1455259bc42aea9d506a9a2a19d725cac3d643f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87562774"
 ---
 # <a name="change-pricing-tier-of-an-azure-notification-hubs-namespace"></a>Alterar o nível de preços de um espaço de nome de centros de notificação Azure
 
-Os Centros de Notificação são oferecidos em três níveis: **gratuito,** **básico**e **padrão.** Este artigo mostra-lhe como alterar o nível de preços para um espaço de nomes Azure Notification Hubs.
+Os Centros de Notificação são oferecidos em três níveis: **gratuito,** **básico** e **padrão.** Este artigo mostra-lhe como alterar o nível de preços para um espaço de nomes Azure Notification Hubs.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Nos Hubs de Notificação Azure, um *centro de notificação* é o menor recurso/entidade. Geralmente mapeia para uma aplicação e pode conter um certificado para cada Sistema de Notificação de Plataforma (PNS) que apoiamos para a aplicação. A aplicação pode ser um híbrido, ou um nativo e uma aplicação cross-platform.
 
 Um *espaço de nome* é uma coleção de centros de notificação. Cada espaço de nome geralmente consiste em centros que estão relacionados e usados para um propósito específico. Por exemplo, pode ter três espaços de nome diferentes para fins de desenvolvimento, teste e produção, respectivamente.
 
-Pode associar um espaço de nome aos níveis de preços **gratuitos,** **básicos**ou **padrão.** Para qualquer espaço de nome, pode utilizar o nível que se adequa às suas necessidades. As secções seguintes mostram-lhe como alterar o nível de preços de um espaço de nomes de Centros de Notificação.
+Pode associar um espaço de nome aos níveis de preços **gratuitos,** **básicos** ou **padrão.** Para qualquer espaço de nome, pode utilizar o nível que se adequa às suas necessidades. As secções seguintes mostram-lhe como alterar o nível de preços de um espaço de nomes de Centros de Notificação.
 
 ## <a name="use-azure-portal"></a>Utilizar o portal do Azure
 
@@ -67,7 +67,7 @@ Siga estes passos para alterar o nível de preços de um espaço de nome na pág
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Selecione **Todos os serviços** no menu esquerdo.
 3. Selecione Centros de **Notificação** na secção **Internet das Coisas.**
-4. Selecione o seu **centro de**notificação .
+4. Selecione o seu **centro de** notificação .
 5. Selecione **O Nível de Preços** no menu esquerdo.
 6. Mude o nível de preços e clique no botão **Seleção.** Esta ação altera a definição do nível de preços para o espaço de nome que contém o hub. Então, você vê o novo nível de preços na página do espaço de nome e todas as páginas do hub.
 

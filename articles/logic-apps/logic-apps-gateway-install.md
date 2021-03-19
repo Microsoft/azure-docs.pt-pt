@@ -4,18 +4,18 @@ description: Antes de poder aceder aos dados nas instalações a partir de Azure
 services: logic-apps
 ms.suite: integration
 ms.reviewer: arthii, logicappspm
-ms.topic: article
-ms.date: 05/15/2020
-ms.openlocfilehash: 799e879b4d9fd54367d54c17b3d275acfc5f34c1
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.topic: how-to
+ms.date: 03/16/2021
+ms.openlocfilehash: 4b2559ad20036870c6df5c0662bb973f35155bfa
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99054776"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104576803"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Instalar o gateway de dados no local para o Azure Logic Apps
 
-Antes de [poder ligar-se a fontes de dados no local a partir de Azure Logic Apps,](../logic-apps/logic-apps-gateway-connection.md)descarregue e instale o [portal de dados no local](https://aka.ms/on-premises-data-gateway-installer) num computador local. O gateway funciona como uma ponte que proporciona encriptação e transferência de dados rápidas entre as origens de dados no local e as aplicações lógicas. Pode utilizar a mesma instalação de gateway com outros serviços em nuvem, tais como Power BI, Power Automamate, Power Apps e Azure Analysis Services. Para obter informações sobre como utilizar o portal com estes serviços, consulte estes artigos:
+Antes de [poder ligar-se a fontes de dados no local a partir de Azure Logic Apps,](../logic-apps/logic-apps-gateway-connection.md)descarregue e instale o [portal de dados no local](https://aka.ms/on-premises-data-gateway-installer) num computador local. O gateway funciona como uma ponte que proporciona encriptação e transferência de dados rápidas entre as origens de dados no local e as aplicações lógicas. Pode utilizar a mesma instalação de gateway com outros serviços em nuvem, tais como Power Automamate, Power BI, Power Apps e Azure Analysis Services. Para obter informações sobre como utilizar o portal com estes serviços, consulte estes artigos:
 
 * [Microsoft Power Automatizar porta de dados no local](/power-automate/gateway-reference)
 * [Porta de dados do Microsoft Power BI no local](/power-bi/service-gateway-onprem)
@@ -71,7 +71,12 @@ Este artigo mostra como descarregar, instalar e configurar o seu portal de dados
 
   * Se pretender utilizar a autenticação do Windows, certifique-se de que instala o gateway num computador que é membro do mesmo ambiente ative directory que as suas fontes de dados.
 
-  * A região que seleciona para a instalação do gateway é o mesmo local que deve selecionar quando mais tarde criar o recurso de gateway Azure para a sua aplicação lógica. Por padrão, esta região é a mesma localização que o seu inquilino AZure AD que gere a sua conta Azure. No entanto, pode alterar a localização durante a instalação do gateway.
+  * A região que seleciona para a instalação do gateway é o mesmo local que deve selecionar quando mais tarde criar o recurso de gateway Azure para a sua aplicação lógica. Por padrão, esta região é a mesma localização que o seu inquilino AZure AD que gere a sua conta de utilizador Azure. No entanto, pode alterar a localização durante a instalação do gateway ou mais tarde.
+
+    > [!IMPORTANT]
+    > Durante a configuração do gateway, o comando **change region** está indisponível se você assinar com a sua conta do Governo Azure, que está associado a um inquilino do Azure Ative Directory (Azure AD) na nuvem do [Governo Azure.](../azure-government/compare-azure-government-global-azure.md) O gateway utiliza automaticamente a mesma região que o inquilino AZure AD da sua conta de utilizador.
+    > 
+    > Para continuar a usar a sua conta do Governo Azure, mas crie a porta de entrada para trabalhar na nuvem global multi-arrendatário Azure Commercial, insinuem-se pela primeira vez durante a instalação gateway com o `prod@microsoft.com` nome de utilizador. Esta solução força a porta de entrada para usar a nuvem global de multi-inquilinos Azure, mas ainda assim permite que você continue usando sua conta do Governo Azure.
 
   * Se estiver a atualizar a instalação do gateway, desinstale primeiro o seu gateway atual para uma experiência mais limpa.
 

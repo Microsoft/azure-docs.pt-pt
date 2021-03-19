@@ -8,10 +8,10 @@ ms.date: 11/14/2019
 ms.author: victorh
 ms.topic: article
 ms.openlocfilehash: 8e8aaa9458619bc937c5bb11c450f3197b92f451
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "74048522"
 ---
 # <a name="customize-web-application-firewall-rules-using-the-azure-cli"></a>Personalize as regras de Firewall de aplicações web usando o Azure CLI
@@ -114,7 +114,7 @@ Segue-se uma resposta truncada do exemplo anterior:
 ]
 ```
 
-## <a name="disable-rules"></a>Regras para desativar
+## <a name="disable-rules"></a>Desativar regras
 
 O exemplo a seguir desativa as regras `910018` e num gateway de `910017` aplicações:
 

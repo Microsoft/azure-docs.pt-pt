@@ -5,10 +5,10 @@ ms.date: 10/14/2019
 ms.topic: tutorial
 ms.reviewer: brendal
 ms.openlocfilehash: 5761bf1294691c2d50e0e389fe69ec286df4a06c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "74324047"
 ---
 # <a name="tutorial-using-applications-in-azure-blockchain-workbench"></a>Tutorial: Utilização de aplicações na bancada Azure Blockchain
@@ -61,7 +61,7 @@ Dependendo do estado em que o contrato está, os membros podem tomar medidas par
 
     ![Detalhes do contrato](./media/use/contract-details.png)
 
-    | Section  | Descrição  |
+    | Section  | Description  |
     |---------|---------|
     | Estado | Enumera os progressos atuais nas fases do contrato |
     | Detalhes | Os valores atuais do contrato |

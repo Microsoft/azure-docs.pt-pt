@@ -8,10 +8,10 @@ ms.date: 07/20/2020
 ms.author: surmb
 ms.topic: conceptual
 ms.openlocfilehash: 53f6f37454de886934a483b40daad24204958baf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87474330"
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>Alojamento de vários sites do Gateway de Aplicação
@@ -35,7 +35,7 @@ O Application Gateway permite o encaminhamento baseado no anfitrião utilizando 
 
 Utilizando um personagem wildcard no nome do anfitrião, pode combinar vários nomes de anfitriões num único ouvinte. Por exemplo, `*.contoso.com` pode combinar `ecom.contoso.com` com, assim como por `b2b.contoso.com` `customer1.b2b.contoso.com` diante. Usando uma variedade de nomes de anfitrião, você pode configurar mais do que um nome de anfitrião para um ouvinte, para encaminhar pedidos para uma piscina de backend. Por exemplo, um ouvinte pode conter `contoso.com, fabrikam.com` que aceitará pedidos para ambos os nomes dos anfitriões.
 
-:::image type="content" source="./media/multiple-site-overview/wildcard-listener-diag.png" alt-text="Gateway de aplicação multi-site":::
+:::image type="content" source="./media/multiple-site-overview/wildcard-listener-diag.png" alt-text="Ouvinte wildcard":::
 
 >[!NOTE]
 > Esta funcionalidade está em pré-visualização e está disponível apenas para Standard_v2 e WAF_v2 SKU de Application Gateway. Para saber mais sobre pré-visualizações, consulte [os termos de utilização aqui.](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)

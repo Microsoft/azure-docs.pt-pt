@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 11/19/2019
-ms.openlocfilehash: 0dfde6fef7cc91edf2101095018bc031d392c4ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 03/17/2021
+ms.openlocfilehash: ea6673a04bf9f5f568c660658e51036f2d2712e0
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90898180"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104654735"
 ---
 # <a name="train-clustering-model"></a>Train Clustering Model (Preparar Modelo de Clustering)
 
@@ -45,13 +45,16 @@ O módulo requer um modelo de clustering não treinado que já configurado utili
 
 7. Envie o pipeline ou clique no módulo **Modelo de Agrupamento de Comboios** e selecione Run **Selected**.  
   
-### <a name="results"></a>Results
+### <a name="results"></a>Resultados
 
 Após o treino ter terminado:
 
 + Para guardar uma imagem do modelo treinado, selecione o **separador Saídas** no painel direito do módulo **modelo Train.** Selecione o ícone **do conjunto de dados registar** para guardar o modelo como um módulo reutilizável.
 
 + Para gerar pontuações a partir do modelo, utilize [atribuir dados a clusters](assign-data-to-clusters.md).
+
+> [!NOTE]
+> Se precisar de implementar o modelo treinado no designer, certifique-se de que a Atribuição de [Dados aos Clusters](assign-data-to-clusters.md) em vez do Modelo de **Pontuação** está ligada à entrada do módulo de saída de [serviço web](web-service-input-output.md) no pipeline de inferência.
 
 ## <a name="next-steps"></a>Passos seguintes
 

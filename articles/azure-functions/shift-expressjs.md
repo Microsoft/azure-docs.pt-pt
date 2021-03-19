@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 07/31/2020
 ms.author: cshoe
 ms.openlocfilehash: 266df5371ff5f47526fa9d6567c62e31d51ebb05
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87810229"
 ---
 # <a name="shifting-from-expressjs-to-azure-functions"></a>Passando de Express.js para Funções Azure
@@ -22,7 +22,7 @@ Ao migrar o código para uma arquitetura sem servidor, a refacagem Express.js po
 
 - **APIs diferentes**: A API utilizada para processar tanto pedidos como respostas difere entre Funções Azure e Express.js. O exemplo a seguir detalha as alterações necessárias.
 
-- **Rota predefinida**: Por predefinição, os pontos finais das funções Azure são expostos ao abrigo da `api` rota. As regras de encaminhamento são configuráveis através [ `routePrefix` dohost.js_em_ ficheiro](./functions-bindings-http-webhook-output.md#hostjson-settings).
+- **Rota predefinida**: Por predefinição, os pontos finais das funções Azure são expostos ao abrigo da `api` rota. As regras de encaminhamento são configuráveis através [ `routePrefix` dohost.js _em_ ficheiro](./functions-bindings-http-webhook-output.md#hostjson-settings).
 
 - **Configuração e convenções**: Uma aplicação de funções utiliza o _function.jsem_ ficheiro para definir verbos HTTP, definir políticas de segurança e pode configurar a entrada e saída da [função](./functions-triggers-bindings.md). Por predefinição, o nome da pasta que contém os ficheiros de função define o nome do ponto final, mas pode alterar o nome através da `route` propriedade nofunction.js[ no](./functions-bindings-http-webhook-trigger.md#customize-the-http-endpoint) ficheiro.
 
@@ -113,7 +113,7 @@ Ao deslocar-se para Funções, são feitas as seguintes alterações:
 
 - **Configuração**: Define os verbos HTTP no [function.jsem](./functions-bindings-http-webhook-trigger.md#customize-the-http-endpoint) ficheiros como `POST` ou `PUT` .
 
-A _ seguintefunction.jsno_ ficheiro contém informações de configuração para a função.
+A _seguintefunction.jsno_ ficheiro contém informações de configuração para a função.
 
 ```json
 {

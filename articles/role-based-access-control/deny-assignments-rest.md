@@ -16,10 +16,10 @@ ms.date: 03/19/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 2f835c270930734bf9963a7c7c3168b873eddaf6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84791916"
 ---
 # <a name="list-azure-deny-assignments-using-the-rest-api"></a>Lista Azure nega atribuições usando a API REST
@@ -80,7 +80,7 @@ Para obter informações sobre uma missão de negação, você deve ter:
 1. Substitua *{filter}* pela condição que pretende aplicar para filtrar a lista de atribuição de negar.
 
     > [!div class="mx-tableFixed"]
-    > | Filtrar | Descrição |
+    > | Filtro | Description |
     > | --- | --- |
     > | (sem filtro) | Lista todas as atribuições negam em, acima, e abaixo do âmbito especificado. |
     > | `$filter=atScope()` | As listas negam atribuições apenas para o âmbito especificado e acima. Não inclui as atribuições de negação em subscópios. |
@@ -102,7 +102,7 @@ Para obter informações sobre uma missão de negação, você deve ter:
 1. Substitua *{filter}* pela condição que pretende aplicar para filtrar a lista de atribuição de negar. É necessário um filtro.
 
     > [!div class="mx-tableFixed"]
-    > | Filtrar | Descrição |
+    > | Filtro | Description |
     > | --- | --- |
     > | `$filter=atScope()` | A lista nega atribuições apenas para o âmbito de raiz. Não inclui as atribuições de negação em subscópios. |
     > | `$filter=denyAssignmentName+eq+'{deny-assignment-name}'` | Lista negar atribuições com o nome especificado. |

@@ -7,13 +7,13 @@ ms.date: 07/29/2020
 ms.author: hazeng
 ms.custom: devx-track-python
 ms.openlocfilehash: 9b9f5d389eda5d74e7e78cfcfa9a46fba7276cbd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87846042"
 ---
-# <a name="troubleshoot-python-errors-in-azure-functions"></a>Resolução de problemas Erros python em funções de Azure
+# <a name="troubleshoot-python-errors-in-azure-functions"></a>Resolver erros do Python nas Funções do Azure
 
 Segue-se uma lista de guias de resolução de problemas para questões comuns nas funções python:
 
@@ -69,7 +69,7 @@ Consulte [Ativar a construção remota](#enable-remote-build) ou [construir depe
 
 Ir para `.python_packages/lib/python3.6/site-packages/<package-name>-<version>-dist-info` `.python_packages/lib/site-packages/<package-name>-<version>-dist-info` ou. Utilizando um editor de texto, abra o ficheiro METADAS e verifique **os Classificadores:** secção. Se a secção não contiver `Python :: 3` , ou , isto significa que a versão do pacote é demasiado `Python :: 3.6` `Python :: 3.7` `Python :: 3.8` velha, ou provavelmente, a embalagem já está fora de manutenção.
 
-Pode consultar a versão Python da sua aplicação de função a partir do [portal Azure.](https://portal.azure.com) Navegue para a sua aplicação de função, escolha **o Explorador de Recursos**e selecione **Go**.
+Pode consultar a versão Python da sua aplicação de função a partir do [portal Azure.](https://portal.azure.com) Navegue para a sua aplicação de função, escolha **o Explorador de Recursos** e selecione **Go**.
 
 :::image type="content" source="media/recover-module-not-found/resource-explorer.png" alt-text="Abra o Explorador de Recursos para a aplicação de função no portal":::
 
@@ -132,7 +132,7 @@ Se estes estiverem corretos, pode atualizar o pacote para a versão mais recente
 
 Alguns desenvolvedores usam `pip freeze > requirements.txt` para gerar a lista de pacotes Python para os seus ambientes em desenvolvimento. Embora esta conveniência deva funcionar na maioria dos casos, pode haver problemas em cenários de implementação de plataformas cruzadas, como o desenvolvimento de funções localmente no Windows ou macOS, mas a publicação para uma aplicação de função, que funciona no Linux. Neste cenário, `pip freeze` pode introduzir dependências ou dependências inesperadas do sistema operativo para o seu ambiente de desenvolvimento local. Estas dependências podem quebrar a aplicação de função Python quando estiver em funcionamento no Linux.
 
-A melhor prática é verificar a declaração de importação de cada ficheiro .py no seu código fonte do projeto e apenas fazer o check-in desses módulos no ficheiro requirements.txt. Isto garante que a resolução de pacotes pode ser manuseada corretamente em diferentes sistemas operativos.
+A melhor prática é verificar a declaração de importação de cada .py ficheiro no seu código fonte do projeto e apenas fazer o check-in desses módulos no ficheiro requirements.txt. Isto garante que a resolução de pacotes pode ser manuseada corretamente em diferentes sistemas operativos.
 
 #### <a name="replace-the-package-with-equivalents"></a>Substitua a embalagem por equivalentes
 

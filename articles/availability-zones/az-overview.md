@@ -8,12 +8,12 @@ ms.date: 02/23/2021
 ms.author: prsandhu
 ms.reviewer: cynthn
 ms.custom: fasttrack-edit, mvc
-ms.openlocfilehash: 4adfb63ecab72eb42e188af472bb5387a0276a79
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: dad8661de55fc90c9f3d3782c402deb519d16536
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101723780"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104596013"
 ---
 # <a name="regions-and-availability-zones-in-azure"></a>Regiões e Zonas de Disponibilidade em Azure
 
@@ -23,7 +23,7 @@ Os serviços microsoft Azure estão disponíveis globalmente para conduzir as su
 
 Para melhor entender as regiões e as Zonas de Disponibilidade em Azure, ajuda a compreender termos ou conceitos chave.
 
-| Termo ou conceito | Descrição |
+| Termo ou conceito | Description |
 | --- | --- |
 | region | Um conjunto de datacenters implantados dentro de um perímetro definido pela latência e ligados através de uma rede regional dedicada de baixa latência. |
 | geografia | Uma área do mundo contendo pelo menos uma região de Azure. As geografias definem um mercado discreto que preserva os limites de residência de dados e conformidade. As localizações geográficas permitem que os clientes com uma residência de dados e necessidades de conformidade específicas mantenham os respetivos dados e aplicações próximos. As geografias são tolerantes a falhas para resistir ao fracasso total da região através da sua ligação à nossa dedicada infraestrutura de rede de alta capacidade. |
@@ -82,7 +82,7 @@ Se uma oferta de serviço não estiver disponível numa região específica, pod
 | Recomendado | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Orientada para a procura | :heavy_check_mark: | :heavy_check_mark: |
 | Suplente | :heavy_check_mark: | :heavy_check_mark: | Orientada para a procura | Orientada para a procura | N/D | :heavy_check_mark: |
 
-### <a name="services-by-category-with-availability-zones"></a>Serviços por categoria com Zonas de Disponibilidade
+### <a name="services-by-category"></a>Serviços por categoria
 
 Como mencionado anteriormente, a Azure classifica os serviços em três categorias: fundacional, mainstream e especializada. As categorias de serviço são atribuídas à disponibilidade geral. Muitas vezes, os serviços iniciam o seu ciclo de vida como um serviço especializado e à medida que a procura e o aumento da utilização podem ser promovidos ao mainstream ou fundacional. A tabela a seguir enumera a categoria de serviços como fundamental, mainstream. Deve ter em conta o seguinte sobre a tabela:
 
@@ -101,7 +101,7 @@ Como mencionado anteriormente, a Azure classifica os serviços em três categori
 > | Azure ExpressRoute                     | Azure Bastion                                     | 
 > | IP Público do Azure                        | Cache do Azure para Redis                             | 
 > | Base de Dados SQL do Azure                     | Azure Cognitive Search                            | 
-> | Azure SQL : Caso gerido           | Serviços Cognitivos do Azure                          | 
+> | Instância Gerida do Azure SQL             | Serviços Cognitivos do Azure                          | 
 > | Armazenamento de Discos                           | Serviços Cognitivos do Azure: Imagem Digitalizada         | 
 > | Hubs de Eventos                             | Azure Cognitive Services: Moderador de Conteúdo       | 
 > | Key Vault                              | Serviços Cognitivos Azure: Rosto                    | 
