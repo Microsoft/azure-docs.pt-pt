@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: f6a1bc652125990a7daf3414895f34b95c544912
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "83590559"
 ---
 # <a name="configure-text-analytics-docker-containers"></a>Configurar os recipientes de estiva de texto Analytics
@@ -43,13 +43,13 @@ Esta definição pode ser encontrada no seguinte local:
 
 ## <a name="billing-configuration-setting"></a>Definição de configuração de faturação
 
-A `Billing` definição especifica o ponto final URI do recurso _Text Analytics_ no Azure utilizado para medir as informações de faturação do recipiente. Tem de especificar um valor para esta definição de configuração, e o valor deve ser um URI de ponto final válido para um recurso __Text Analytics_ em Azure. O recipiente relata o uso a cada 10 a 15 minutos.
+A `Billing` definição especifica o ponto final URI do recurso _Text Analytics_ no Azure utilizado para medir as informações de faturação do recipiente. Tem de especificar um valor para esta definição de configuração, e o valor deve ser um URI de ponto final válido para um recurso _ _Text Analytics_ em Azure. O recipiente relata o uso a cada 10 a 15 minutos.
 
 Esta definição pode ser encontrada no seguinte local:
 
 * Portal Azure: Visão geral da Análise de **Texto,** rotulada `Endpoint`
 
-|Necessário| Nome | Tipo de dados | Descrição |
+|Necessário| Name | Tipo de dados | Descrição |
 |--|------|-----------|-------------|
 |Sim| `Billing` | String | URI de faturação. Para obter mais informações sobre a obtenção do URI de faturação, consulte [a recolha dos parâmetros necessários](how-tos/text-analytics-how-to-install-containers.md#gathering-required-parameters). Para obter mais informações e uma lista completa de pontos finais regionais, consulte [os nomes de subdomínio personalizados para serviços cognitivos.](../cognitive-services-custom-subdomains.md) |
 
@@ -77,10 +77,10 @@ Os recipientes Text Analytics não utilizam suportes de entrada ou saída para a
 
 A sintaxe exata da localização do suporte do hospedeiro varia consoante o sistema operativo do hospedeiro. Além disso, a localização do suporte do [computador anfitrião](how-tos/text-analytics-how-to-install-containers.md#the-host-computer)pode não estar acessível devido a um conflito entre permissões utilizadas pela conta de serviço do estivador e as permissões de localização do anfitrião. 
 
-|Opcional| Nome | Tipo de dados | Descrição |
+|Opcional| Name | Tipo de dados | Descrição |
 |-------|------|-----------|-------------|
-|Não permitido| `Input` | Cadeia | Os recipientes de análise de texto não utilizam isto.|
-|Opcional| `Output` | Cadeia | O alvo do suporte de saída. O valor predefinido é `/output`. Esta é a localização dos registos. Isto inclui registos de contentores. <br><br>Exemplo:<br>`--mount type=bind,src=c:\output,target=/output`|
+|Não permitido| `Input` | String | Os recipientes de análise de texto não utilizam isto.|
+|Opcional| `Output` | String | O alvo do suporte de saída. O valor predefinido é `/output`. Esta é a localização dos registos. Isto inclui registos de contentores. <br><br>Exemplo:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="next-steps"></a>Passos seguintes
 

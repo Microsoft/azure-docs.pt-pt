@@ -5,10 +5,10 @@ ms.reviewer: dcurwin
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.openlocfilehash: a50b9ee05be48113221f2a12f968540bd3a00b3b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88824417"
 ---
 # <a name="monitor-your-backups-with-backup-explorer"></a>Monitorize as suas cópias de segurança com o Backup Explorer
@@ -60,13 +60,13 @@ Pode filtrar e visualizar cada um dos seus itens de reserva por subscrição, co
 
 ### <a name="the-jobs-tab"></a>O separador Jobs
 
-Selecione o separador **Jobs** para ver os detalhes de todos os trabalhos que foram desencadeados nos últimos 7 dias. Aqui, pode filtrar por *Operação de Trabalho,* *Estado do Trabalho*e Código de *Erro* (para trabalhos falhados).
+Selecione o separador **Jobs** para ver os detalhes de todos os trabalhos que foram desencadeados nos últimos 7 dias. Aqui, pode filtrar por *Operação de Trabalho,* *Estado do Trabalho* e Código de *Erro* (para trabalhos falhados).
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4nOrh]
 
 ### <a name="the-alerts-tab"></a>O separador Alertas
 
-Selecione o separador **Alertas** para ver os detalhes de todos os alertas que foram gerados nos seus cofres nos últimos 7 dias. Pode filtrar alertas por tipo *(Falha de backup* ou *falha de restauro),* estado atual *(Ativo* ou *Resolvido)* e gravidade *(Crítico,* *Aviso*ou *Informação).* Também pode selecionar um link para ir ao Azure VM e tomar todas as medidas necessárias.
+Selecione o separador **Alertas** para ver os detalhes de todos os alertas que foram gerados nos seus cofres nos últimos 7 dias. Pode filtrar alertas por tipo *(Falha de backup* ou *falha de restauro),* estado atual *(Ativo* ou *Resolvido)* e gravidade *(Crítico,* *Aviso* ou *Informação).* Também pode selecionar um link para ir ao Azure VM e tomar todas as medidas necessárias.
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4nTxe]
 

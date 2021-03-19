@@ -1,5 +1,5 @@
 ---
-title: Desenvolver para Azure Files com Python Microsoft Docs
+title: Desenvolva para arquivos Azure com | Python Microsoft Docs
 description: Saiba como desenvolver aplicações e serviços Python que utilizem ficheiros Azure para armazenar dados de ficheiros.
 author: roygara
 ms.service: storage
@@ -9,10 +9,10 @@ ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-python
 ms.openlocfilehash: 8bef69037fad8bf8ee9537e90f26ca967560b9d2
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91876102"
 ---
 # <a name="develop-for-azure-files-with-python"></a>Programar para os Ficheiros do Azure com Python
@@ -197,7 +197,7 @@ for file_or_dir in generator:
 
 Para descarregar dados de um ficheiro, utilize [download_file](/azure/developer/python/sdk/storage/azure-storage-file-share/azure.storage.fileshare.sharefileclient#download-file-offset-none--length-none----kwargs-).
 
-O exemplo a seguir demonstra a utilização `download_file` para obter o conteúdo do ficheiro especificado e armazená-lo localmente com download-premeded para o nome de ficheiro. **DOWNLOADED-**
+O exemplo a seguir demonstra a utilização `download_file` para obter o conteúdo do ficheiro especificado e armazená-lo localmente com download-premeded para o nome de ficheiro. 
 
 :::code language="python" source="~/azure-storage-snippets/files/howto/python/python-v12/file_share_ops.py" id="Snippet_DownloadFile":::
 

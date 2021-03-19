@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 03/17/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: d445a4e1d0fd39788c18f80b25ce02a7c5d0a243
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: f87ef03a3af110ec17b7d907d4c2eac1bc1ca58b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103488691"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579931"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-salesforce-account-using-azure-active-directory-b2c"></a>Configurar inscrição e inscrição com uma conta Salesforce utilizando o Azure Ative Directory B2C
 
@@ -87,6 +87,8 @@ Para ativar o sessão para utilizadores com uma conta Salesforce no Azure Ative 
 1. Selecione **Guardar**.
 
 ## <a name="add-salesforce-identity-provider-to-a-user-flow"></a>Adicione o fornecedor de identidade Salesforce a um fluxo de utilizador 
+
+Neste momento, o fornecedor de identidade Salesforce foi criado, mas ainda não está disponível em nenhuma das páginas de inscrição. Para adicionar o fornecedor de identidade Salesforce a um fluxo de utilizador:
 
 1. No seu inquilino Azure AD B2C, selecione **fluxos de utilizador**.
 1. Clique no fluxo de utilizador que pretende adicionar ao fornecedor de identidade Salesforce.

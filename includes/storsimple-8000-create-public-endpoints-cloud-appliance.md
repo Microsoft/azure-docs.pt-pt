@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: a5a286753e438b7d65f3d33a82669c4f7e79a282
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86545033"
 ---
 #### <a name="to-create-public-endpoints-on-the-cloud-appliance"></a>Para criar pontos finais públicos na aplicação da cloud
 
-1. Inicie sessão no Portal do Azure.
+1. Inicie sessão no portal do Azure.
 2. Aceda a **Máquinas Virtuais** e, em seguida, selecione e clique na máquina virtual que está a ser utilizada como a sua aplicação da cloud.
     
 3. Tem de criar uma regra de grupo de segurança de rede (NSG) para controlar o fluxo de tráfego que entra e sai da sua máquina virtual. Execute os seguintes passos para criar uma regra NSG.

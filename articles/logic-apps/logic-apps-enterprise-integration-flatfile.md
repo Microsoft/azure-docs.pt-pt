@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 05/09/2020
 ms.openlocfilehash: aebce8f284ed4bb21d99efffc8dd6d0c51b39533
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87001490"
 ---
 # <a name="encode-and-decode-flat-files-in-azure-logic-apps-by-using-the-enterprise-integration-pack"></a>Codificar e descodificar ficheiros simples no Azure Logic Apps através do Enterprise Integration Pack
@@ -35,7 +35,7 @@ Antes de enviar conteúdo XML a um parceiro de negócios num cenário de negóci
 
 1. No [portal Azure,](https://portal.azure.com)abra a sua aplicação lógica no Logic App Designer.
 
-1. Sob o gatilho ou ação na sua aplicação lógica, selecione **Novo passo**Adicione  >  **uma ação**. Este exemplo utiliza o gatilho 'Pedido', que é denominado **Quando um pedido HTTP é recebido**, e trata de pedidos de entrada de fora da aplicação lógica.
+1. Sob o gatilho ou ação na sua aplicação lógica, selecione **Novo passo** Adicione  >  **uma ação**. Este exemplo utiliza o gatilho 'Pedido', que é denominado **Quando um pedido HTTP é recebido**, e trata de pedidos de entrada de fora da aplicação lógica.
 
    > [!TIP]
    > Desde que um esquema JSON seja opcional. Se tiver uma carga útil de amostra a partir do pedido de entrada, selecione Utilize a carga útil da **amostra para gerar esquema,** introduza a carga útil da amostra e selecione 'Fazer ' **'Fazer'.** O esquema aparece na caixa **de esquema do Corpo de Pedido JSON.**
@@ -67,7 +67,7 @@ Já acabou de configurar a sua ação de codificação de ficheiros planos. Numa
 
 1. No [portal Azure,](https://portal.azure.com)abra a sua aplicação lógica no Logic App Designer.
 
-1. Sob o gatilho ou ação na sua aplicação lógica, selecione **Novo passo**Adicione  >  **uma ação**. Este exemplo utiliza o gatilho 'Pedido', que é denominado **Quando um pedido HTTP é recebido**, e trata de pedidos de entrada de fora da aplicação lógica.
+1. Sob o gatilho ou ação na sua aplicação lógica, selecione **Novo passo** Adicione  >  **uma ação**. Este exemplo utiliza o gatilho 'Pedido', que é denominado **Quando um pedido HTTP é recebido**, e trata de pedidos de entrada de fora da aplicação lógica.
 
    > [!TIP]
    > Desde que um esquema JSON seja opcional. Se tiver uma carga útil de amostra a partir do pedido de entrada, selecione Utilize a carga útil da **amostra para gerar esquema,** introduza a carga útil da amostra e selecione 'Fazer ' **'Fazer'.** O esquema aparece na caixa **de esquema do Corpo de Pedido JSON.**

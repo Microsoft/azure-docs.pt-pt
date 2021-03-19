@@ -7,15 +7,15 @@ ms.reviewer: apseth, divswa, logicappspm
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.openlocfilehash: 8c00d2e4f622bcfad7b2468013336f0d936e318c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87048666"
 ---
 # <a name="send-related-messages-in-order-by-using-a-sequential-convoy-in-azure-logic-apps-with-azure-service-bus"></a>Envie mensagens relacionadas por ordem usando um comboio sequencial em Azure Logic Apps com Azure Service Bus
 
-Quando precisa de enviar mensagens correlacionadas numa ordem específica, pode seguir o padrão do [ *comboio sequencial* ](/azure/architecture/patterns/sequential-convoy) ao utilizar [as Aplicações Lógicas Azure](../logic-apps/logic-apps-overview.md) utilizando o [conector Azure Service Bus](../connectors/connectors-create-api-servicebus.md). As mensagens correlacionadas têm uma propriedade que define a relação entre essas mensagens, como o ID para a [sessão](../service-bus-messaging/message-sessions.md) em Service Bus.
+Quando precisa de enviar mensagens correlacionadas numa ordem específica, pode seguir o padrão do [ *comboio sequencial*](/azure/architecture/patterns/sequential-convoy) ao utilizar [as Aplicações Lógicas Azure](../logic-apps/logic-apps-overview.md) utilizando o [conector Azure Service Bus](../connectors/connectors-create-api-servicebus.md). As mensagens correlacionadas têm uma propriedade que define a relação entre essas mensagens, como o ID para a [sessão](../service-bus-messaging/message-sessions.md) em Service Bus.
 
 Por exemplo, suponha que tem 10 mensagens para uma sessão chamada "Sessão 1", e tem 5 mensagens para uma sessão chamada "Session 2" que são todas enviadas para a mesma [fila de autocarros](../service-bus-messaging/service-bus-queues-topics-subscriptions.md)de serviço. Pode criar uma aplicação lógica que processa mensagens a partir da fila para que todas as mensagens de "Sessão 1" sejam manuseadas por um único gatilho e todas as mensagens de "Sessão 2" sejam tratadas pelo próximo gatilho.
 
@@ -47,7 +47,7 @@ Para mais informações, consulte [o padrão do comboio sequencial - Azure Archi
 
 Se não tem a certeza se a sua aplicação lógica tem permissões para aceder ao seu espaço de nomes de Service Bus, confirme essas permissões.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). Encontre e selecione o seu *espaço de nomes*de Service Bus .
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). Encontre e selecione o seu *espaço de nomes* de Service Bus .
 
 1. No menu namespace, em **Definições,** selecione **Políticas de acesso partilhado**. Em **Sinistros,** verifique se tem permissões **de Gestão** para esse espaço de nome.
 
@@ -62,13 +62,13 @@ Se não tem a certeza se a sua aplicação lógica tem permissões para aceder a
       ![Cadeia de conexão de espaço de nome do serviço de cópia do serviço de serviço](./media/send-related-messages-sequential-convoy/copy-service-bus-connection-string.png)
 
    > [!TIP]
-   > Para confirmar se a sua cadeia de ligação está associada ao seu espaço de nomes de Service Bus ou a uma entidade de mensagens, como uma fila, procure a cadeia de ligação para o `EntityPath`   parâmetro. Se encontrar este parâmetro, a cadeia de ligação é para uma entidade específica, e não é a cadeia correta para usar com a sua aplicação lógica.
+   > Para confirmar se a sua cadeia de ligação está associada ao seu espaço de nomes de Service Bus ou a uma entidade de mensagens, como uma fila, procure a cadeia de ligação para o `EntityPath` parâmetro. Se encontrar este parâmetro, a cadeia de ligação é para uma entidade específica, e não é a cadeia correta para usar com a sua aplicação lógica.
 
 ## <a name="create-logic-app"></a>Criar uma aplicação lógica
 
 Nesta secção, você cria uma aplicação lógica usando a entrega de ordem correlacionada usando o modelo **de sessões de ônibus de serviço,** que inclui o gatilho e ações para implementar este padrão de fluxo de trabalho. Também cria uma ligação ao seu espaço de nomes de Service Bus e especifica o nome da fila de ônibus de serviço que pretende utilizar.
 
-1. No [portal Azure,](https://portal.azure.com)crie uma aplicação lógica em branco. A partir da página inicial do Azure, **selecione Criar uma**App lógica de  >  **integração**  >  **de**recursos.
+1. No [portal Azure,](https://portal.azure.com)crie uma aplicação lógica em branco. A partir da página inicial do Azure, **selecione Criar uma** App lógica de  >  **integração**  >  **de** recursos.
 
 1. Depois da galeria do modelo aparecer, percorra o vídeo e as secções de gatilho comum. A partir da secção **Modelos,** selecione o modelo, **correlacionada entrega por encomenda usando sessões de ônibus de serviço**.
 
@@ -76,7 +76,7 @@ Nesta secção, você cria uma aplicação lógica usando a entrega de ordem cor
 
 1. Quando a caixa de confirmação aparecer, selecione **Utilize este modelo**.
 
-1. No Logic App Designer, na forma **de Service Bus,** selecione **Continue**e, em seguida, selecione o sinal de mais ( ) que aparece **+** na forma.
+1. No Logic App Designer, na forma **de Service Bus,** selecione **Continue** e, em seguida, selecione o sinal de mais ( ) que aparece **+** na forma.
 
    ![Selecione "Continue" para ligar ao ônibus da Azure Service](./media/send-related-messages-sequential-convoy/connect-to-service-bus.png)
 
@@ -120,9 +120,9 @@ Aqui está o fluxo de trabalho de alto nível na entrega de encomenda correlacio
 | Nome | Descrição |
 |------|-------------|
 | **`When a message is received in a queue (peek-lock)`** | Com base na recorrência especificada, este gatilho do Service Bus verifica a fila de serviços especificado para qualquer mensagem. Se existe uma mensagem na fila, o gatilho dispara, o que cria e executa uma instância de fluxo de trabalho. <p><p>O termo *"peek-lock"* significa que o gatilho envia um pedido para recuperar uma mensagem da fila. Se existir uma mensagem, o gatilho recupera e bloqueia a mensagem de modo a que nenhum outro tratamento aconteça nessa mensagem até que o período de bloqueio expire. Para mais detalhes, [inicialize a sessão](#initialize-session). |
-| **`Init isDone`** | Esta [ **ação variável inicializa** ](../logic-apps/logic-apps-create-variables-store-values.md#initialize-variable) uma variável Booleana que está definida `false` e indica quando as seguintes condições são verdadeiras: <p><p>- Não há mais mensagens disponíveis para ler. <br>- O bloqueio da sessão já não precisa de ser renovado para que a atual instância de fluxo de trabalho possa terminar. <p><p>Para mais detalhes, consulte [Initialize the session](#initialize-session). |
-| **`Try`** | Esta ação [ **Scope** ](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md) contém as ações que correm para processar uma mensagem. Se um problema acontecer no `Try` âmbito, a ação scope subsequente `Catch` **Scope** trata desse problema. Para mais informações, consulte [o âmbito "Tente".](#try-scope) |
-| **`Catch`**| Esta ação [ **Scope** ](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md) contém as ações que são executadas se um problema acontecer no `Try` âmbito anterior. Para mais informações, consulte [o âmbito "Catch".](#catch-scope) |
+| **`Init isDone`** | Esta [ **ação variável inicializa**](../logic-apps/logic-apps-create-variables-store-values.md#initialize-variable) uma variável Booleana que está definida `false` e indica quando as seguintes condições são verdadeiras: <p><p>- Não há mais mensagens disponíveis para ler. <br>- O bloqueio da sessão já não precisa de ser renovado para que a atual instância de fluxo de trabalho possa terminar. <p><p>Para mais detalhes, consulte [Initialize the session](#initialize-session). |
+| **`Try`** | Esta ação [ **Scope**](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md) contém as ações que correm para processar uma mensagem. Se um problema acontecer no `Try` âmbito, a ação scope subsequente `Catch`  trata desse problema. Para mais informações, consulte [o âmbito "Tente".](#try-scope) |
+| **`Catch`**| Esta ação [ **Scope**](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md) contém as ações que são executadas se um problema acontecer no `Try` âmbito anterior. Para mais informações, consulte [o âmbito "Catch".](#catch-scope) |
 |||
 
 <a name="try-scope"></a>
@@ -147,9 +147,9 @@ Aqui está o fluxo de alto nível na `Try` [ação](../logic-apps/logic-apps-con
 | Nome | Descrição |
 |------|-------------|
 | `Complete initial message in queue` | Esta ação do Service Bus marca uma mensagem recuperada com sucesso como completa e remove a mensagem da fila para evitar o reprocessamento. Para mais informações, consulte [Handle the initial message](#handle-initial-message). |
-| `While there are more messages for the session in the queue` | Este loop [ **Até** ](../logic-apps/logic-apps-control-flow-loops.md#until-loop) que o loop continue a receber mensagens enquanto as mensagens existem ou até que uma hora passe. Para obter mais informações sobre as ações neste ciclo, consulte [Enquanto houver mais mensagens para a sessão na fila.](#while-more-messages-for-session) |
-| **`Set isDone = true`** | Quando não existem mais mensagens, esta [ **ação variável definida** ](../logic-apps/logic-apps-create-variables-store-values.md#set-variable) `isDone` define-se para `true` . |
-| **`Renew session lock until cancelled`** | Este loop [ **Até** ](../logic-apps/logic-apps-control-flow-loops.md#until-loop) que o loop certifique-se de que o bloqueio de sessão é mantido por esta aplicação lógica enquanto as mensagens existem ou até que uma hora passe. Para obter mais informações sobre as ações neste ciclo, consulte [renovar o bloqueio da sessão até ser cancelado](#renew-session-while-messages-exist). |
+| `While there are more messages for the session in the queue` | Este loop [ **Até**](../logic-apps/logic-apps-control-flow-loops.md#until-loop) que o loop continue a receber mensagens enquanto as mensagens existem ou até que uma hora passe. Para obter mais informações sobre as ações neste ciclo, consulte [Enquanto houver mais mensagens para a sessão na fila.](#while-more-messages-for-session) |
+| **`Set isDone = true`** | Quando não existem mais mensagens, esta [ **ação variável definida**](../logic-apps/logic-apps-create-variables-store-values.md#set-variable) `isDone` define-se para `true` . |
+| **`Renew session lock until cancelled`** | Este loop [ **Até**](../logic-apps/logic-apps-control-flow-loops.md#until-loop) que o loop certifique-se de que o bloqueio de sessão é mantido por esta aplicação lógica enquanto as mensagens existem ou até que uma hora passe. Para obter mais informações sobre as ações neste ciclo, consulte [renovar o bloqueio da sessão até ser cancelado](#renew-session-while-messages-exist). |
 |||
 
 <a name="abandon-initial-message"></a>
@@ -171,9 +171,9 @@ Aqui está o fluxo de alto nível na ação de `Catch` âmbito quando os detalhe
 | Nome | Descrição |
 |------|-------------|
 | **`Close a session in a queue and fail`** | Esta ação de Service Bus encerra a sessão na fila para que o bloqueio da sessão não fique aberto. Para mais detalhes, consulte [Fechar uma sessão numa fila e falhar](#close-session-fail). |
-| **`Find failure msg from 'Try' block`** | Esta ação [ **Filter Array** ](../logic-apps/logic-apps-perform-data-operations.md#filter-array-action) cria um conjunto a partir das entradas e saídas de todas as ações dentro do `Try` âmbito com base nos critérios especificados. Neste caso, esta ação devolve os resultados das ações que resultaram em `Failed` estatuto. Para mais detalhes, consulte [Find Fail MSG do bloco 'Try'.](#find-failure-message) |
-| **`Select error details`** | Esta ação [ **Select** ](../logic-apps/logic-apps-perform-data-operations.md#select-action) cria uma matriz que contém objetos JSON com base nos critérios especificados. Estes objetos JSON são construídos a partir dos valores da matriz criada pela ação anterior, `Find failure msg from 'Try' block` . Neste caso, esta ação devolve um conjunto que contém um objeto JSON criado a partir dos detalhes de erro devolvidos da ação anterior. Para mais detalhes, consulte [Selecionar detalhes de erro .](#select-error-details) |
-| **`Terminate`** | Esta ação [ **terminada** ](../logic-apps/logic-apps-workflow-actions-triggers.md#terminate-action) interrompe a execução do fluxo de trabalho, cancela quaisquer ações em curso, ignora quaisquer ações restantes e devolve o estado especificado, o ID da sessão e o resultado do erro da `Select error details` ação. Para mais detalhes, consulte [a aplicação lógica Terminate](#terminate-logic-app). |
+| **`Find failure msg from 'Try' block`** | Esta ação [ **Filter Array**](../logic-apps/logic-apps-perform-data-operations.md#filter-array-action) cria um conjunto a partir das entradas e saídas de todas as ações dentro do `Try` âmbito com base nos critérios especificados. Neste caso, esta ação devolve os resultados das ações que resultaram em `Failed` estatuto. Para mais detalhes, consulte [Find Fail MSG do bloco 'Try'.](#find-failure-message) |
+| **`Select error details`** | Esta ação [ **Select**](../logic-apps/logic-apps-perform-data-operations.md#select-action) cria uma matriz que contém objetos JSON com base nos critérios especificados. Estes objetos JSON são construídos a partir dos valores da matriz criada pela ação anterior, `Find failure msg from 'Try' block` . Neste caso, esta ação devolve um conjunto que contém um objeto JSON criado a partir dos detalhes de erro devolvidos da ação anterior. Para mais detalhes, consulte [Selecionar detalhes de erro .](#select-error-details) |
+| **`Terminate`** | Esta ação [ **terminada**](../logic-apps/logic-apps-workflow-actions-triggers.md#terminate-action) interrompe a execução do fluxo de trabalho, cancela quaisquer ações em curso, ignora quaisquer ações restantes e devolve o estado especificado, o ID da sessão e o resultado do erro da `Select error details` ação. Para mais detalhes, consulte [a aplicação lógica Terminate](#terminate-logic-app). |
 |||
 
 <a name="complete-template"></a>
@@ -195,11 +195,11 @@ Para fornecer os valores para o gatilho e ações na entrega correlacionada de e
 
   | Propriedade | Necessário para este cenário | Valor | Descrição |
   |----------|----------------------------|-------|-------------|
-  | **Nome da fila** | Sim | <*nome de fila*> | O nome da sua fila de ônibus de serviço anteriormente criada. Este exemplo utiliza "Fabrikam-Service-Bus-Queue". |
-  | **Tipo de fila** | Sim | **Principal** | Sua fila de ônibus de serviço primário |
-  | **Id de sessão** | Sim | **Próximo disponível** | Esta opção obtém uma sessão para cada gatilho, com base no ID da sessão a partir da mensagem na fila do Service Bus. A sessão também está bloqueada para que nenhuma outra aplicação lógica ou outro cliente possa processar mensagens relacionadas com esta sessão. As ações subsequentes do fluxo de trabalho processam todas as mensagens que estão associadas a essa sessão, como descrito mais tarde neste artigo. <p><p>Aqui está mais informações sobre as outras opções **de id session:** <p>- **Nenhuma**: A opção padrão, que não resulta em sessões e não pode ser usada para implementar o padrão do comboio sequencial. <p>- **Insira o valor personalizado**: Utilize esta opção quando souber o ID da sessão que pretende utilizar e sempre pretenda executar o gatilho para esse ID de sessão. <p>**Nota:** O conector Service Bus pode guardar um número limitado de sessões únicas de cada vez desde a Azure Service Bus até à cache do conector. Se a contagem de sessão exceder este limite, as sessões antigas são removidas da cache. Para obter mais informações, consulte [mensagens exchange na nuvem com Azure Logic Apps e Azure Service Bus](../connectors/connectors-create-api-servicebus.md#connector-reference). |
-  | **Intervalo** | Sim | <*número de intervalos*> | O número de unidades de tempo entre recorrências antes de verificar uma mensagem. |
-  | **Frequência** | Sim | **Segundo,** **Minuto,** **Hora,** **Dia,** **Semana**ou **Mês** | A unidade de tempo para a recorrência usar ao verificar uma mensagem. <p>**Sugestão**: Para adicionar um **fuso horário** ou **hora de início,** selecione estas propriedades da nova lista **de parâmetros** adicionar. |
+  | **Nome da fila** | Yes | <*nome de fila*> | O nome da sua fila de ônibus de serviço anteriormente criada. Este exemplo utiliza "Fabrikam-Service-Bus-Queue". |
+  | **Tipo de fila** | Yes | **Principal** | Sua fila de ônibus de serviço primário |
+  | **Id de sessão** | Yes | **Próximo disponível** | Esta opção obtém uma sessão para cada gatilho, com base no ID da sessão a partir da mensagem na fila do Service Bus. A sessão também está bloqueada para que nenhuma outra aplicação lógica ou outro cliente possa processar mensagens relacionadas com esta sessão. As ações subsequentes do fluxo de trabalho processam todas as mensagens que estão associadas a essa sessão, como descrito mais tarde neste artigo. <p><p>Aqui está mais informações sobre as outras opções **de id session:** <p>- **Nenhuma**: A opção padrão, que não resulta em sessões e não pode ser usada para implementar o padrão do comboio sequencial. <p>- **Insira o valor personalizado**: Utilize esta opção quando souber o ID da sessão que pretende utilizar e sempre pretenda executar o gatilho para esse ID de sessão. <p>**Nota:** O conector Service Bus pode guardar um número limitado de sessões únicas de cada vez desde a Azure Service Bus até à cache do conector. Se a contagem de sessão exceder este limite, as sessões antigas são removidas da cache. Para obter mais informações, consulte [mensagens exchange na nuvem com Azure Logic Apps e Azure Service Bus](../connectors/connectors-create-api-servicebus.md#connector-reference). |
+  | **Intervalo** | Yes | <*número de intervalos*> | O número de unidades de tempo entre recorrências antes de verificar uma mensagem. |
+  | **Frequência** | Yes | **Segundo,** **Minuto,** **Hora,** **Dia,** **Semana** ou **Mês** | A unidade de tempo para a recorrência usar ao verificar uma mensagem. <p>**Sugestão**: Para adicionar um **fuso horário** ou **hora de início,** selecione estas propriedades da nova lista **de parâmetros** adicionar. |
   |||||
 
   Para obter mais informações sobre o gatilho, consulte [o Service Bus - Quando uma mensagem é recebida numa fila (peek-lock)](/connectors/servicebus/#when-a-message-is-received-in-a-queue-(peek-lock)). O gatilho produz um [ServiceBusMessage](/connectors/servicebus/#servicebusmessage).
@@ -261,7 +261,7 @@ Isto [ **Até** que o loop](../logic-apps/logic-apps-control-flow-loops.md#until
 
    ![Condição - Processar mensagens se houver](./media/send-related-messages-sequential-convoy/process-messages-if-any.png)
 
-   Na secção **Se for falsa,** a **Para cada** loop processa cada mensagem na primeira ordem de primeira e primeira saída (FIFO). Nas **Definições**do loop, a definição de Controlo de **Concurrency** está definida para `1` , pelo que apenas uma única mensagem é processada de cada vez.
+   Na secção **Se for falsa,** a **Para cada** loop processa cada mensagem na primeira ordem de primeira e primeira saída (FIFO). Nas **Definições** do loop, a definição de Controlo de **Concurrency** está definida para `1` , pelo que apenas uma única mensagem é processada de cada vez.
 
    ![Loop "Para cada" - Processe cada mensagem uma de cada vez](./media/send-related-messages-sequential-convoy/for-each-additional-message.png)
 
@@ -277,7 +277,7 @@ Em seguida, irá fornecer as informações necessárias para as ações no bloqu
 
 ### <a name="renew-session-lock-until-cancelled"></a>Renovar o bloqueio da sessão até ser cancelado
 
-Este loop [ **Até** ](../logic-apps/logic-apps-control-flow-loops.md#until-loop) que o loop certifique-se de que o bloqueio de sessão é mantido por esta aplicação lógica enquanto as mensagens existem na fila ou até que uma hora passe executando estas ações. Para alterar o prazo do loop, edite o valor da propriedade **timeout** do loop.
+Este loop [ **Até**](../logic-apps/logic-apps-control-flow-loops.md#until-loop) que o loop certifique-se de que o bloqueio de sessão é mantido por esta aplicação lógica enquanto as mensagens existem na fila ou até que uma hora passe executando estas ações. Para alterar o prazo do loop, edite o valor da propriedade **timeout** do loop.
 
 * Atrase por 25 segundos ou uma quantidade de tempo que seja inferior à duração do tempo de bloqueio para a fila que está a ser processada. A menor duração do bloqueio é de 30 segundos, pelo que o valor predefinido é suficiente. No entanto, pode otimizar o número de vezes que o loop funciona ajustando-se adequadamente.
 
@@ -331,7 +331,7 @@ Em seguida, o fluxo de trabalho cria um conjunto que tem as entradas e saídas d
 
 ### <a name="find-failure-msg-from-try-block"></a>Encontre msg de falha do bloco 'Try'
 
-Esta ação [ **Filter Array** ](../logic-apps/logic-apps-perform-data-operations.md#filter-array-action) cria uma matriz que tem as entradas e saídas de todas as ações dentro do `Try` âmbito com base nos critérios especificados utilizando a [ `result()` função](../logic-apps/workflow-definition-language-functions-reference.md#result). Neste caso, esta ação devolve as saídas das ações que têm `Failed` estatuto utilizando a [ `equals()` função](../logic-apps/workflow-definition-language-functions-reference.md#equals) e [ `item()` a função.](../logic-apps/workflow-definition-language-functions-reference.md#item)
+Esta ação [ **Filter Array**](../logic-apps/logic-apps-perform-data-operations.md#filter-array-action) cria uma matriz que tem as entradas e saídas de todas as ações dentro do `Try` âmbito com base nos critérios especificados utilizando a [ `result()` função](../logic-apps/workflow-definition-language-functions-reference.md#result). Neste caso, esta ação devolve as saídas das ações que têm `Failed` estatuto utilizando a [ `equals()` função](../logic-apps/workflow-definition-language-functions-reference.md#equals) e [ `item()` a função.](../logic-apps/workflow-definition-language-functions-reference.md#item)
 
 ![Ação de matriz de filtro - "Encontre msg de falha do bloco 'Try' "](./media/send-related-messages-sequential-convoy/find-failure-message.png)
 
@@ -358,7 +358,7 @@ Em seguida, o fluxo de trabalho cria uma matriz com um objeto JSON que contém a
 
 ### <a name="select-error-details"></a>Selecione detalhes de erro
 
-Esta ação [ **Select** ](../logic-apps/logic-apps-perform-data-operations.md#select-action) cria uma matriz que contém objetos JSON com base na matriz de entrada que é saída da ação anterior, `Find failure msg from 'Try' block` . Especificamente, esta ação devolve uma matriz que tem apenas as propriedades especificadas para cada objeto na matriz. Neste caso, a matriz contém o nome de ação e as propriedades de resultados de erro.
+Esta ação [ **Select**](../logic-apps/logic-apps-perform-data-operations.md#select-action) cria uma matriz que contém objetos JSON com base na matriz de entrada que é saída da ação anterior, `Find failure msg from 'Try' block` . Especificamente, esta ação devolve uma matriz que tem apenas as propriedades especificadas para cada objeto na matriz. Neste caso, a matriz contém o nome de ação e as propriedades de resultados de erro.
 
 ![Selecione ação - "Selecione detalhes de erro"](./media/send-related-messages-sequential-convoy/select-error-details.png)
 
@@ -388,7 +388,7 @@ Em seguida, o fluxo de trabalho para a execução da aplicação lógica e devol
 
 ### <a name="terminate-logic-app-run"></a>Executar aplicativos de lógica de fim
 
-Esta [ação **Terminada** ](../logic-apps/logic-apps-workflow-actions-triggers.md#terminate-action) para a execução da aplicação lógica e retorna `Failed` como o estado da aplicação lógica executado juntamente com o ID da sessão e o erro resulta da `Select error details` ação.
+Esta [ação **Terminada**](../logic-apps/logic-apps-workflow-actions-triggers.md#terminate-action) para a execução da aplicação lógica e retorna `Failed` como o estado da aplicação lógica executado juntamente com o ID da sessão e o erro resulta da `Select error details` ação.
 
 ![Termine a ação para parar a execução de aplicações lógicas](./media/send-related-messages-sequential-convoy/terminate-logic-app-run.png)
 

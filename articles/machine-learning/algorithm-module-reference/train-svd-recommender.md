@@ -8,19 +8,19 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 02/22/2020
-ms.openlocfilehash: a5740e851fbd8f7ba82e179f7e5299d6c7090596
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 03/17/2021
+ms.openlocfilehash: 77407f253bb347160ea331bd7384d8085f21b040
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90890236"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104654463"
 ---
 # <a name="train-svd-recommender"></a>Preparar Recomendador SVD
 
 Este artigo descreve como usar o módulo de recomendador SVD do comboio no designer de aprendizagem automática Azure. Utilize este módulo para treinar um modelo de recomendação baseado no algoritmo de decomposição de valor único (SVD).  
 
-O módulo de recomendador SVD do comboio lê um conjunto de dados de triplos de classificação de artigos de utilizador. Devolve um recomendador SVD treinado. Em seguida, pode utilizar o modelo treinado para prever classificações ou gerar recomendações, utilizando o módulo [De Recomendação Score SVD.](score-svd-recommender.md)  
+O módulo de recomendador SVD do comboio lê um conjunto de dados de triplos de classificação de artigos de utilizador. Devolve um recomendador SVD treinado. Em seguida, pode utilizar o modelo treinado para prever classificações ou gerar recomendações, ligando o módulo [De Recomendação Score SVD.](score-svd-recommender.md)  
 
 
   
@@ -58,7 +58,7 @@ A partir desta amostra, pode ver que um único utilizador classificou vários fi
 
 1.  Adicione o módulo de recomendador SVD do comboio ao seu oleoduto no designer e conecte-o aos dados de treino.  
    
-2.  Para **o número de fatores, especifique**o número de fatores a utilizar com o recomendador.  
+2.  Para **o número de fatores, especifique** o número de fatores a utilizar com o recomendador.  
     
     Cada fator mede o quanto o utilizador está relacionado com o item. O número de fatores é também a dimensionalidade do espaço do fator latente. Com o número de utilizadores e itens a aumentar, é melhor definir um maior número de fatores. Mas se o número for muito grande, o desempenho pode cair.
     
@@ -70,6 +70,9 @@ A partir desta amostra, pode ver que um único utilizador classificou vários fi
   
 5.  Envie o oleoduto.  
 
+## <a name="results"></a>Resultados
+
+Após a execução do gasoduto, para utilizar o modelo de pontuação, ligue o [Recomendador SVD do comboio](train-svd-recommender.md) à [Pontuação SVD Recommender,](score-svd-recommender.md)para prever valores para novos exemplos de entrada.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -1,5 +1,5 @@
 ---
-title: Requisitos de controlo de acesso à identidade híbrida Azure Microsoft Docs
+title: Requisitos híbridos de controlo de acesso ao design de identidade Azure | Microsoft Docs
 description: Abrange os pilares da identidade e identifica os requisitos de acesso dos recursos para os utilizadores num ambiente híbrido.
 documentationcenter: ''
 services: active-directory
@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 84b786a1701892823554a83fa2015ac88d6eff4d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "60295148"
 ---
 # <a name="determine-access-control-requirements-for-your-hybrid-identity-solution"></a>Determine os requisitos de controlo de acesso para a sua solução de identidade híbrida

@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 10/08/2020
 ms.openlocfilehash: 1845de8332287f85e96b4e29c40caa66cb8704d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91856675"
 ---
 # <a name="exchange-as2-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Trocar mensagens AS2 para a integração empresarial B2B no Azure Logic Apps com o Enterprise Integration Pack
@@ -63,7 +63,7 @@ Este artigo mostra como adicionar as ações de codificação e descodamento do 
 
 * Se utilizar [o Cofre da Chave Azure](../key-vault/general/overview.md) para a gestão do certificado, verifique se as chaves do cofre permitem as operações de **Encriptação** e **Desencriptação.** Caso contrário, as ações de codificação e descodão falham.
 
-  No portal Azure, vá à chave do cofre, reveja as **operações permitidas**da sua chave e confirme que as operações **de Encriptação** e **Desencriptação** estão selecionadas, por exemplo:
+  No portal Azure, vá à chave do cofre, reveja as **operações permitidas** da sua chave e confirme que as operações **de Encriptação** e **Desencriptação** estão selecionadas, por exemplo:
 
   ![Verifique as operações da chave do cofre](media/logic-apps-enterprise-integration-as2/key-vault-permitted-operations.png)
 

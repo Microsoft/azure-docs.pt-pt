@@ -4,10 +4,10 @@ description: Saiba como ativar uma política de retenção no seu registo de con
 ms.topic: article
 ms.date: 10/02/2019
 ms.openlocfilehash: 5dda85934bb10cf16fd90381539b892df4f5445c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "83683452"
 ---
 # <a name="set-a-retention-policy-for-untagged-manifests"></a>Definir uma política de retenção para manifestos não marcados
@@ -43,7 +43,7 @@ O exemplo que se segue mostra como utilizar o CLI Azure para definir uma políti
 
 Por predefinição, nenhuma política de retenção é definida num registo de contentores. Para definir ou atualizar uma política de retenção, executar o comando [de atualização de retenção az acr config][az-acr-config-retention-update] no CLI Azure. Pode especificar um número de dias entre 0 e 365 para reter os manifestos não testados. Se não especificar um número de dias, o comando define um padrão de 7 dias. Após o período de retenção, todos os manifestos não registados no registo são automaticamente eliminados.
 
-O exemplo a seguir define uma política de retenção de 30 dias para manifestos não registados no *miogrísta do*registo:
+O exemplo a seguir define uma política de retenção de 30 dias para manifestos não registados no *miogrísta do* registo:
 
 ```azurecli
 az acr config retention update --registry myregistry --status enabled --days 30 --type UntaggedManifests

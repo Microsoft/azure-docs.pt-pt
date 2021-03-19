@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 12/10/2018
 ms.author: genemi
 ms.openlocfilehash: bca885f9b19086302fd91d29b8ff6553b7205f28
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86544193"
 ---
 ## <a name="c-program-example"></a>Exemplo do programa C#
@@ -35,11 +35,11 @@ O PS mostra a relação entre as duas mesas. Os valores na coluna *criança* **t
 
 ### <a name="to-compile-and-run"></a>Para compilar e correr
 
-O programa C# é logicamente um ficheiro .cs, e está fisicamente dividido em vários blocos de código, para tornar cada bloco mais fácil de entender. Para compilar e executar o programa, faça os seguintes passos:
+O programa C# é logicamente um .cs ficheiro, e está fisicamente dividido em vários blocos de código, para tornar cada bloco mais fácil de entender. Para compilar e executar o programa, faça os seguintes passos:
 
 1. Criar um projeto C# no Visual Studio. O tipo de projeto deve ser uma *Consola*, encontrada nos **Modelos**  >  **Visual C#**  >  **Windows Desktop**  >  **Console App (.NET Framework)**.
 
-1. No ficheiro *Program.cs*, substitua as linhas de arranque do código pelos seguintes passos:
+1. No ficheiro *Programa.cs,* substitua as linhas de arranque do código pelos seguintes passos:
 
     1. Copiar e colar os seguintes blocos de código, na mesma sequência que são apresentados, ver [Ligar à base de dados,](#cs_1_connect)Gerar [T-SQL](#cs_2_return)e [Submeter à base de dados](#cs_3_submit).
 

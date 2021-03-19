@@ -1,5 +1,5 @@
 ---
-title: 'Configure a política personalizada do IPsec para a Azure Virtual WAN: Portal / Microsoft Docs'
+title: 'Configure a política personalizada do IPsec para a Azure Virtual WAN: Portal | Microsoft Docs'
 description: Saiba como configurar a política personalizada do IPsec para o Azure Virtual WAN utilizando o portal.
 services: virtual-wan
 author: cherylmc
@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 10/14/2019
 ms.author: cherylmc
 ms.openlocfilehash: 07eae453441ea8bff81d7cdb60f9c46c08a22829
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91851183"
 ---
 # <a name="configure-a-custom-ipsec-policy-for-virtual-wan-using-the-portal"></a>Configure uma política personalizada do IPsec para o WAN virtual usando o portal

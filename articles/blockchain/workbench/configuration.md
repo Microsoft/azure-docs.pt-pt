@@ -5,10 +5,10 @@ ms.date: 12/09/2019
 ms.topic: article
 ms.reviewer: brendal
 ms.openlocfilehash: f0ba19bf1d7fdf05014ac199fae9392b5c3249d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87073071"
 ---
 # <a name="azure-blockchain-workbench-configuration-reference"></a>Referência de configuração da azure Blockchain Workbench
@@ -35,11 +35,11 @@ Uma aplicação blockchain contém metadados de configuração, fluxos de trabal
 
 | Campo | Descrição | Obrigatório |
 |-------|-------------|:--------:|
-| ApplicationName | Nome único da aplicação. O contrato inteligente correspondente deve utilizar o mesmo **Nome de Aplicação** para a classe contratual aplicável.  | Sim |
-| DisplayName | Nome de exibição amigável da aplicação. | Sim |
-| Descrição | Descrição do pedido. | Não |
-| AplicaçõesRoles | Coleção de [AplicaçõesRoles.](#application-roles) Funções de utilizador que podem atuar ou participar dentro da aplicação.  | Sim |
-| Fluxos de trabalho | Coleção de [fluxos de trabalho.](#workflows) Cada fluxo de trabalho funciona como uma máquina estatal para controlar o fluxo da lógica de negócio. | Sim |
+| ApplicationName | Nome único da aplicação. O contrato inteligente correspondente deve utilizar o mesmo **Nome de Aplicação** para a classe contratual aplicável.  | Yes |
+| DisplayName | Nome de exibição amigável da aplicação. | Yes |
+| Description | Descrição do pedido. | No |
+| AplicaçõesRoles | Coleção de [AplicaçõesRoles.](#application-roles) Funções de utilizador que podem atuar ou participar dentro da aplicação.  | Yes |
+| Fluxos de trabalho | Coleção de [fluxos de trabalho.](#workflows) Cada fluxo de trabalho funciona como uma máquina estatal para controlar o fluxo da lógica de negócio. | Yes |
 
 Por exemplo, consulte o [exemplo do ficheiro de configuração](#configuration-file-example).
 
@@ -49,15 +49,15 @@ A lógica de negócio de uma aplicação pode ser modelada como uma máquina est
 
 | Campo | Descrição | Obrigatório | Comprimento máximo |
 |-------|-------------|:--------:|-----------:|
-| Nome | Nome único do fluxo de trabalho. O contrato inteligente correspondente deve utilizar o mesmo **Nome** para a classe contratual aplicável. | Sim | 50 |
-| DisplayName | Nome de exibição amigável do fluxo de trabalho. | Sim | 255 |
-| Descrição | Descrição do fluxo de trabalho. | Não | 255 |
-| Iniciadores | Coleção de [AplicaçõesRoles.](#application-roles) Funções atribuídas a utilizadores autorizados a criar contratos no fluxo de trabalho. | Sim | |
-| Estado De Início | Nome do estado inicial do fluxo de trabalho. | Sim | |
-| Propriedades | Coleção de [identificadores.](#identifiers) Representa dados que podem ser lidos fora de cadeia ou visualizados numa ferramenta de experiência do utilizador. | Sim | |
-| Construtor | Define parâmetros de entrada para criar uma instância do fluxo de trabalho. | Sim | |
-| Funções | Uma coleção de funções que podem ser [executadas](#functions) no fluxo de trabalho. | Sim | |
-| Estados | Uma coleção de [trabalho afirma.](#states) | Sim | |
+| Name | Nome único do fluxo de trabalho. O contrato inteligente correspondente deve utilizar o mesmo **Nome** para a classe contratual aplicável. | Yes | 50 |
+| DisplayName | Nome de exibição amigável do fluxo de trabalho. | Yes | 255 |
+| Description | Descrição do fluxo de trabalho. | No | 255 |
+| Iniciadores | Coleção de [AplicaçõesRoles.](#application-roles) Funções atribuídas a utilizadores autorizados a criar contratos no fluxo de trabalho. | Yes | |
+| Estado De Início | Nome do estado inicial do fluxo de trabalho. | Yes | |
+| Propriedades | Coleção de [identificadores.](#identifiers) Representa dados que podem ser lidos fora de cadeia ou visualizados numa ferramenta de experiência do utilizador. | Yes | |
+| Construtor | Define parâmetros de entrada para criar uma instância do fluxo de trabalho. | Yes | |
+| Funções | Uma coleção de funções que podem ser [executadas](#functions) no fluxo de trabalho. | Yes | |
+| Estados | Uma coleção de [trabalho afirma.](#states) | Yes | |
 
 Por exemplo, consulte o [exemplo do ficheiro de configuração](#configuration-file-example).
 
@@ -65,7 +65,7 @@ Por exemplo, consulte o [exemplo do ficheiro de configuração](#configuration-f
 
 Tipos de dados suportados.
 
-| Tipo | Descrição |
+| Tipo | Description |
 |-------|-------------|
 | address  | Tipo de endereço blockchain, como *contratos* ou *utilizadores.* |
 | matriz    | Conjunto de inteiros de tipo único, bool, dinheiro ou tempo. As matrizes podem ser estáticas ou dinâmicas. Utilize **o ElementType** para especificar o tipo de dados dos elementos dentro da matriz. Ver [configuração de exemplo](#example-configuration-of-type-array). |
@@ -170,7 +170,7 @@ Define parâmetros de entrada para um caso de fluxo de trabalho.
 
 | Campo | Descrição | Obrigatório |
 |-------|-------------|:--------:|
-| Parâmetros | Recolha de [identificadores](#identifiers) necessários para iniciar um contrato inteligente. | Sim |
+| Parâmetros | Recolha de [identificadores](#identifiers) necessários para iniciar um contrato inteligente. | Yes |
 
 ### <a name="constructor-example"></a>Exemplo de construtor
 
@@ -203,10 +203,10 @@ Define funções que podem ser executadas no fluxo de trabalho.
 
 | Campo | Descrição | Obrigatório | Comprimento máximo |
 |-------|-------------|:--------:|-----------:|
-| Nome | O nome único da função. O contrato inteligente correspondente deve utilizar o mesmo **Nome** para a função aplicável. | Sim | 50 |
-| DisplayName | Nome de exibição amigável da função. | Sim | 255 |
-| Descrição | Descrição da função | Não | 255 |
-| Parâmetros | Recolha de [identificadores](#identifiers) correspondentes aos parâmetros da função. | Sim | |
+| Name | O nome único da função. O contrato inteligente correspondente deve utilizar o mesmo **Nome** para a função aplicável. | Yes | 50 |
+| DisplayName | Nome de exibição amigável da função. | Yes | 255 |
+| Description | Descrição da função | No | 255 |
+| Parâmetros | Recolha de [identificadores](#identifiers) correspondentes aos parâmetros da função. | Yes | |
 
 ### <a name="functions-example"></a>Funções exemplo
 
@@ -251,12 +251,12 @@ Uma coleção de estados únicos dentro de um fluxo de trabalho. Cada estado cap
 
 | Campo | Descrição | Obrigatório | Comprimento máximo |
 |-------|-------------|:--------:|-----------:|
-| Nome | Nome único do estado. O contrato inteligente correspondente deve utilizar o mesmo **Nome** para o estado aplicável. | Sim | 50 |
-| DisplayName | Nome de exibição amigável do estado. | Sim | 255 |
-| Descrição | Descrição do estado. | Não | 255 |
-| PercentComplete | Um valor inteiro exibido na interface de utilizador blockchain Workbench para mostrar o progresso dentro do fluxo de controlo da lógica do negócio. | Sim | |
-| Estilo | Sugestão visual que indique se o estado representa um estado de sucesso ou fracasso. Existem dois valores válidos: `Success` ou `Failure` . | Sim | |
-| Transições | Recolha de [transições](#transitions) disponíveis do estado atual para o próximo conjunto de estados. | Não | |
+| Name | Nome único do estado. O contrato inteligente correspondente deve utilizar o mesmo **Nome** para o estado aplicável. | Yes | 50 |
+| DisplayName | Nome de exibição amigável do estado. | Yes | 255 |
+| Description | Descrição do estado. | No | 255 |
+| PercentComplete | Um valor inteiro exibido na interface de utilizador blockchain Workbench para mostrar o progresso dentro do fluxo de controlo da lógica do negócio. | Yes | |
+| Estilo | Sugestão visual que indique se o estado representa um estado de sucesso ou fracasso. Existem dois valores válidos: `Success` ou `Failure` . | Yes | |
+| Transições | Recolha de [transições](#transitions) disponíveis do estado atual para o próximo conjunto de estados. | No | |
 
 ### <a name="states-example"></a>Exemplo dos Estados
 
@@ -320,12 +320,12 @@ Ações disponíveis para o próximo estado. Uma ou mais funções de utilizador
 
 | Campo | Descrição | Obrigatório |
 |-------|-------------|:--------:|
-| PermitidoRoles | Lista de funções de candidaturas autorizadas a iniciar a transição. Todos os utilizadores da função especificada poderão realizar a ação. | Não |
-| PermitidoInstanceRoles | Lista de funções de utilizador participantes ou especificadas no contrato inteligente permitiu iniciar a transição. As funções de instância são definidas em **Propriedades** dentro de fluxos de trabalho. AllowedInstanceRoles representa um utilizador que participa num caso de contrato inteligente. AllowedInstanceRoles dá-lhe a capacidade de restringir a tomada de uma ação para uma função de utilizador em caso de contrato.  Por exemplo, só pode querer permitir que o utilizador que criou o contrato (InstanceOwner) possa rescindir em vez de todos os utilizadores em tipo de função (Proprietário) se especificar a função em AllowedRoles. | Não |
-| DisplayName | Nome de exibição amigável da transição. | Sim |
-| Descrição | Descrição da transição. | Não |
-| Função | O nome da função para iniciar a transição. | Sim |
-| Estados Seguintes | Uma coleção de potenciais próximos estados após uma transição bem sucedida. | Sim |
+| PermitidoRoles | Lista de funções de candidaturas autorizadas a iniciar a transição. Todos os utilizadores da função especificada poderão realizar a ação. | No |
+| PermitidoInstanceRoles | Lista de funções de utilizador participantes ou especificadas no contrato inteligente permitiu iniciar a transição. As funções de instância são definidas em **Propriedades** dentro de fluxos de trabalho. AllowedInstanceRoles representa um utilizador que participa num caso de contrato inteligente. AllowedInstanceRoles dá-lhe a capacidade de restringir a tomada de uma ação para uma função de utilizador em caso de contrato.  Por exemplo, só pode querer permitir que o utilizador que criou o contrato (InstanceOwner) possa rescindir em vez de todos os utilizadores em tipo de função (Proprietário) se especificar a função em AllowedRoles. | No |
+| DisplayName | Nome de exibição amigável da transição. | Yes |
+| Description | Descrição da transição. | No |
+| Função | O nome da função para iniciar a transição. | Yes |
+| Estados Seguintes | Uma coleção de potenciais próximos estados após uma transição bem sucedida. | Yes |
 
 ### <a name="transitions-example"></a>Exemplo de transições
 
@@ -365,8 +365,8 @@ As funções de aplicação definem um conjunto de funções que podem ser atrib
 
 | Campo | Descrição | Obrigatório | Comprimento máximo |
 |-------|-------------|:--------:|-----------:|
-| Nome | O nome único do papel de candidatura. O contrato inteligente correspondente deve utilizar o mesmo **Nome** para a função aplicável. Os nomes do tipo base estão reservados. Não é possível nomear uma função de candidatura com o mesmo nome que [Tipo](#type)| Sim | 50 |
-| Descrição | Descrição da função de candidatura. | Não | 255 |
+| Name | O nome único do papel de candidatura. O contrato inteligente correspondente deve utilizar o mesmo **Nome** para a função aplicável. Os nomes do tipo base estão reservados. Não é possível nomear uma função de candidatura com o mesmo nome que [Tipo](#type)| Yes | 50 |
+| Description | Descrição da função de candidatura. | No | 255 |
 
 ### <a name="application-roles-example"></a>Exemplo de funções de aplicação
 
@@ -388,10 +388,10 @@ Os identificadores representam uma recolha de informações usadas para descreve
 
 | Campo | Descrição | Obrigatório | Comprimento máximo |
 |-------|-------------|:--------:|-----------:|
-| Nome | O nome único da propriedade ou parâmetro. O contrato inteligente correspondente deve utilizar o mesmo **Nome** para a propriedade ou parâmetro aplicável. | Sim | 50 |
-| DisplayName | Nome de exibição amigável para a propriedade ou parâmetro. | Sim | 255 |
-| Descrição | Descrição da propriedade ou parâmetro. | Não | 255 |
-| Tipo | [Tipo de dados de](#type)propriedade. | Sim |
+| Name | O nome único da propriedade ou parâmetro. O contrato inteligente correspondente deve utilizar o mesmo **Nome** para a propriedade ou parâmetro aplicável. | Yes | 50 |
+| DisplayName | Nome de exibição amigável para a propriedade ou parâmetro. | Yes | 255 |
+| Description | Descrição da propriedade ou parâmetro. | No | 255 |
+| Tipo | [Tipo de dados de](#type)propriedade. | Yes |
 
 ### <a name="identifiers-example"></a>Exemplo dos identificadores
 
@@ -418,7 +418,7 @@ Os identificadores representam uma recolha de informações usadas para descreve
 
 ## <a name="configuration-file-example"></a>Exemplo de ficheiro de configuração
 
-A transferência de ativos é um cenário de contrato inteligente para comprar e vender ativos de alto valor, que requerem um inspetor e avaliador. Os vendedores podem listar os seus ativos através da instantânea de um contrato inteligente de transferência de ativos. Os compradores podem fazer ofertas tomando uma ação sobre o contrato inteligente, e outras partes podem tomar medidas para inspecionar ou avaliar o ativo. Uma vez que o ativo é marcado tanto inspecionado como avaliado, o comprador e o vendedor confirmarão a venda novamente antes do contrato estar definido para ser concluído. Em cada ponto do processo, todos os participantes têm visibilidade para o estado do contrato à medida que é atualizado. 
+A transferência de ativos é um cenário de contrato inteligente para comprar e vender ativos de alto valor, que requerem um inspetor e avaliador. Os vendedores podem listar os seus ativos através da instantânea de um contrato inteligente de transferência de ativos. Os compradores podem fazer ofertas tomando uma ação sobre o contrato inteligente, e outras partes podem tomar medidas para inspecionar ou avaliar o ativo. Uma vez que o ativo é marcado tanto inspecionado como avaliado, o comprador e o vendedor confirmarão a venda novamente antes do contrato estar definido para ser concluído. Em cada ponto do processo, todos os participantes têm visibilidade para o estado do contrato à medida que é atualizado. 
 
 Para obter mais informações, incluindo os ficheiros de código, consulte [a amostra de transferência de ativos para a Azure Blockchain Workbench](https://github.com/Azure-Samples/blockchain/tree/master/blockchain-workbench/application-and-smart-contract-samples/asset-transfer)
 

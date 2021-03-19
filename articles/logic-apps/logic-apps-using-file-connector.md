@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 10/08/2020
 ms.openlocfilehash: 4715d7173dd959d12350229e457717c908a83756
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91873239"
 ---
 # <a name="connect-to-on-premises-file-systems-with-azure-logic-apps"></a>Ligar a sistemas de ficheiros no local com o Azure Logic Apps
@@ -73,12 +73,12 @@ Este artigo mostra como pode ligar-se a um sistema de ficheiros no local, confor
 
    | Propriedade | Necessário | Valor | Descrição |
    | -------- | -------- | ----- | ----------- |
-   | **Nome de conexão** | Sim | <*nome de conexão*> | O nome que deseja para a sua ligação |
-   | **Pasta raiz** | Sim | <*nome de pasta de raiz*> | A pasta raiz do seu sistema de ficheiros, por exemplo, se instalou o seu portal de dados no local, como uma pasta local no computador onde está instalado o gateway de dados no local ou a pasta para uma partilha de rede a que o computador pode aceder. <p>Por exemplo: `\\PublicShare\\DropboxFiles` <p>A pasta raiz é a pasta principal dos pais, que é usada para caminhos relativos para todas as ações relacionadas com o ficheiro. |
-   | **Tipo de autenticação** | Não | <*auth-type*> | O tipo de autenticação que o seu sistema de ficheiros utiliza: **Windows** |
-   | **Nome de Utilizador** | Sim | <*domain* > \\ domínio < *nome de utilizador*> <p>-ou- <p><*local-computador* > \\ < *nome de utilizador*> | O nome de utilizador do computador onde tem a pasta do sistema de ficheiros. <p>Se a pasta do sistema de ficheiros estiver no mesmo computador que o gateway de dados no local, pode utilizar <nome de utilizador *local do computador* > \\ < *username*>. |
-   | **Palavra-passe** | Sim | <*sua senha*> | A palavra-passe para o computador onde tem o seu sistema de ficheiros |
-   | **porta de entrada** | Sim | <*instalado-gateway-name*> | O nome do seu gateway previamente instalado |
+   | **Nome de conexão** | Yes | <*nome de conexão*> | O nome que deseja para a sua ligação |
+   | **Pasta raiz** | Yes | <*nome de pasta de raiz*> | A pasta raiz do seu sistema de ficheiros, por exemplo, se instalou o seu portal de dados no local, como uma pasta local no computador onde está instalado o gateway de dados no local ou a pasta para uma partilha de rede a que o computador pode aceder. <p>Por exemplo: `\\PublicShare\\DropboxFiles` <p>A pasta raiz é a pasta principal dos pais, que é usada para caminhos relativos para todas as ações relacionadas com o ficheiro. |
+   | **Tipo de autenticação** | No | <*auth-type*> | O tipo de autenticação que o seu sistema de ficheiros utiliza: **Windows** |
+   | **Nome de Utilizador** | Yes | < > \\ domínio < *nome de utilizador*> <p>-ou- <p><*local-computador* > \\ < *nome de utilizador*> | O nome de utilizador do computador onde tem a pasta do sistema de ficheiros. <p>Se a pasta do sistema de ficheiros estiver no mesmo computador que o gateway de dados no local, pode utilizar <nome de utilizador *local do computador* > \\ < >. |
+   | **Palavra-passe** | Yes | <*sua senha*> | A palavra-passe para o computador onde tem o seu sistema de ficheiros |
+   | **porta de entrada** | Yes | <*instalado-gateway-name*> | O nome do seu gateway previamente instalado |
    |||||
 
 1. Quando tiver terminado, escolha **Create** (Criar).

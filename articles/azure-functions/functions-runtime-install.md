@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: anwestg
 ms.openlocfilehash: 73b9533fa00c783e1cfb85270198f5c00c66afd5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86540388"
 ---
 # <a name="install-the-azure-functions-runtime-preview-2"></a>Instale a pré-visualização do tempo de execução das funções Azure 2
@@ -48,7 +48,7 @@ O Instalador de Pré-visualização de tempo de execução Azure Funções orien
 
 1. Clique em **Seguinte**.
 1. Depois de ler os termos do **EULA,** **consulte a caixa** para aceitar os termos e clique em **Seguir** para avançar.
-1. Selecione as funções que pretende instalar nesta máquina **Funções Funções Função e/ou** **Funções Funções Funções Funções Funções Funções Funções Funções Funções Funções Funções Funções Função Trabalho e/ou Funções Funções Funções Funções Funções Funções Funções Funções Funções Funções Função Trabalhador** Role e/ou **Next**
+1. Selecione as funções que pretende instalar nesta máquina **Funções Funções Função e/ou** Funções Funções Função Trabalho **e/ou** **Funções Funções Função Trabalhador** Role e/ou
 
     ![Azure Functions Instalador de pré-visualização de tempo de execução - seleção de funções][3]
 

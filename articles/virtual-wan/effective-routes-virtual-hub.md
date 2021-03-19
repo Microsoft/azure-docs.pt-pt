@@ -1,5 +1,5 @@
 ---
-title: 'Ver rotas eficazes de um hub virtual: Azure Virtual WAN / Microsoft Docs'
+title: 'Ver rotas eficazes de um hub virtual: Azure Virtual WAN | Microsoft Docs'
 description: Como ver rotas eficazes para um hub virtual em Azure Virtual WAN
 services: virtual-wan
 author: cherylmc
@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.openlocfilehash: ad487aa7492abcf02988c78ccfa2ba7cd4798249
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90983659"
 ---
 # <a name="view-virtual-hub-effective-routes"></a>Ver rotas efetivas do hub virtual

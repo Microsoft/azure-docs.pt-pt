@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 12/03/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 673e2260f358332de00a15b29729f14d62fe82a4
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: aa91851787bbb0f5570a4f439f794ee352bf0625
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102518012"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579693"
 ---
 # <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>Tutorial: Criar um inquilino do Azure Active Directory B2C
 
@@ -24,7 +24,7 @@ Antes de as suas candidaturas poderem interagir com o Azure Ative Directory B2C 
 > [!NOTE]
 > Você pode criar até 20 inquilinos por subscrição. Este limite ajuda a proteger contra ameaças aos seus recursos, tais como ataques de negação de serviço, e é aplicado tanto no portal Azure como na criação de inquilinos subjacentes À API. Se precisar de criar mais de 20 inquilinos, contacte o [Microsoft Support](support-options.md).
 > 
-> Se quiser reutilizar um nome de inquilino que tentou apagar anteriormente, mas vê o erro "Já em uso por outro diretório" quando introduzir o nome de domínio, terá de [seguir estes passos para eliminar totalmente primeiro o arrendatário.](https://docs.microsoft.com/azure/active-directory-b2c/faq?tabs=app-reg-ga#how-do-i-delete-my-azure-ad-b2c-tenant) É necessário um papel de administrador de assinatura pelo menos. Depois de eliminar o inquilino, você também pode precisar assinar e assinar de volta antes de poder reutilizar o nome de domínio.
+> Se quiser reutilizar um nome de inquilino que tentou apagar anteriormente, mas vê o erro "Já em uso por outro diretório" quando introduzir o nome de domínio, terá de [seguir estes passos para eliminar totalmente primeiro o arrendatário.](./faq.md?tabs=app-reg-ga#how-do-i-delete-my-azure-ad-b2c-tenant) É necessário um papel de administrador de assinatura pelo menos. Depois de eliminar o inquilino, você também pode precisar assinar e assinar de volta antes de poder reutilizar o nome de domínio.
 
 Neste artigo, vai aprender a:
 

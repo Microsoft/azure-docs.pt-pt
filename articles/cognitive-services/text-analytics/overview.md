@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 02/09/2021
+ms.date: 03/09/2021
 ms.author: aahi
 keywords: mineração de texto, análise de sentimento, análise de texto
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: cb7bdeb379ee753424d9c975a8c030b0f7890552
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 7fcc030e3c63c24fa255e578c2d8aaf1b466e99c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101722284"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104598971"
 ---
 # <a name="what-is-the-text-analytics-api"></a>O que é a API de Análise de Texto?
 
@@ -33,7 +33,7 @@ Use a análise de [sentimentos](how-tos/text-analytics-how-to-sentiment-analysis
 
 A funcionalidade fornece rótulos de sentimento (tais como "negativo", "neutro" e "positivo") com base na pontuação de confiança mais elevada encontrada pelo serviço a nível de uma frase e de documento. Esta funcionalidade também devolve pontuações de confiança entre 0 e 1 por cada documento & frases dentro do mesmo por sentimento positivo, neutro e negativo. Também pode ser executado o serviço nas instalações [utilizando um recipiente.](how-tos/text-analytics-how-to-install-containers.md)
 
-A partir da pré-visualização v3.1, a mineração de opinião é uma característica da Análise do Sentimento. Também conhecida como Análise de Sentimento baseada em Aspetos no Processamento de Linguagem Natural (NLP), esta funcionalidade fornece mais informações granulares sobre as opiniões relacionadas com aspetos (como os atributos de produtos ou serviços) em texto.
+A partir da pré-visualização v3.1, a mineração de opinião é uma característica da Análise do Sentimento. Também conhecida como Análise de Sentimento baseada em Aspeto no Processamento de Linguagem Natural (NLP), esta funcionalidade fornece mais informações granulares sobre as opiniões relacionadas com palavras (como os atributos de produtos ou serviços) em texto.
 
 ## <a name="key-phrase-extraction"></a>Extração de expressões-chave
 

@@ -4,10 +4,10 @@ description: Descreve como pode usar webhooks como manipuladores de eventos para
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: aa20c75789a18b93f787134dffe165e60ff1ab6f
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91875806"
 ---
 # <a name="webhooks-automation-runbooks-logic-apps-as-event-handlers-for-azure-event-grid-events"></a>Webhooks, livros de automação, Aplicações Lógicas como manipuladores de eventos para eventos Azure Event Grid
@@ -36,7 +36,7 @@ Pode processar eventos utilizando os runbooks da Azure Automation. O processamen
 |[Tutorial: Azure Automation com Grade de Eventos e Equipas microsoft](ensure-tags-exists-on-new-virtual-machines.md) |Crie uma máquina virtual, que envia um evento. O evento aciona um runbook Automation que marca a máquina virtual e despoleta uma mensagem que é enviada para um canal microsoft Teams. |
 
 
-## <a name="logic-apps"></a>Aplicações Lógicas
+## <a name="logic-apps"></a>Logic Apps
 Utilize **aplicações lógicas** para implementar processos de negócio para processar eventos da Grade de Eventos. Não se cria um webhook explicitamente neste cenário. O webhook é criado automaticamente para si quando configura a aplicação lógica para lidar com eventos a partir de Event Grid. Veja os seguintes tutoriais por exemplo: 
 
 |Título  |Descrição  |

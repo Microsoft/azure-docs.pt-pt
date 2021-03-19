@@ -17,10 +17,10 @@ ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 18bc7ca9e108a35fd27f7b3155f186221a8caae3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90980060"
 ---
 # <a name="view-add-and-remove-assignments-for-an-access-package-in-azure-ad-entitlement-management"></a>Ver, adicionar e remover atribuições para um pacote de acesso na gestão de direitos AD Azure
@@ -32,7 +32,7 @@ Na gestão de direitos da AD Azure, você pode ver quem foi designado para acede
 Para utilizar a gestão de direitos AD da Azure e atribuir aos utilizadores o acesso a pacotes, deve ter uma das seguintes licenças:
 
 - Azure AD Premium P2
-- Licença E5 de Mobilidade Empresarial + Segurança (EMS)
+- Licença E5 do Enterprise Mobility + Security (EMS)
 
 ## <a name="view-who-has-an-assignment"></a>Ver quem tem uma missão
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/19/2019
 ms.author: johndeu
 ms.openlocfilehash: 6454bc863cb5fd628d581fff380c5ab61354f762
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87053057"
 ---
 # <a name="smooth-streaming-protocol-ms-sstr-amendment-for-hevc"></a>Alteração do Protocolo de Streaming Suave (MS-SSTR) para o HEVC 
@@ -50,7 +50,7 @@ Os seguintes termos são específicos deste documento:
 
 >   **HEVC:** Codificação de vídeo de alta eficiência, tal como definida em [ISO/IEC 23008-2]
 > 
->   **manifesto:** Metadados sobre a **apresentação** que permite a um cliente fazer pedidos para **meios de comunicação.** **meios de comunicação:** Dados de áudio, vídeo e texto comprimidos utilizados pelo cliente para reproduzir uma **apresentação**. **formato de meios de comunicação:** Um formato bem definido para representar áudio ou vídeo como uma **amostra**comprimido .
+>   **manifesto:** Metadados sobre a **apresentação** que permite a um cliente fazer pedidos para **meios de comunicação.** **meios de comunicação:** Dados de áudio, vídeo e texto comprimidos utilizados pelo cliente para reproduzir uma **apresentação**. **formato de meios de comunicação:** Um formato bem definido para representar áudio ou vídeo como uma **amostra** comprimido .
 > 
 >   **apresentação:** O conjunto de todos os streams e metadados **relacionados** precisava para reproduzir um único filme. **Pedido:** Uma mensagem HTTP enviada do cliente para o servidor, conforme definido na **resposta** [[RFC2616]:](https://go.microsoft.com/fwlink/?LinkId=90372) Uma mensagem HTTP enviada do servidor para o cliente, conforme definido em [[RFC2616]](https://go.microsoft.com/fwlink/?LinkId=90372)
 > 
@@ -207,7 +207,7 @@ O ProtectionElement estará presente quando a Encriptação Comum (CENC) tiver s
 
 #### <a name="2247-trunbox"></a>2.2.4.7 TrunBox 
 
->   A **TrunBox** e os campos conexos encapsulam por metadados de amostra para o fragmento solicitado. A sintaxe de **TrunBox** é um subconjunto rigoroso da caixa de corrida do fragmento de faixa da versão 1 definida na secção 8.8.8 da secção[ISO/IEC-14496-](https://go.microsoft.com/fwlink/?LinkId=183695)*12.*
+>   A **TrunBox** e os campos conexos encapsulam por metadados de amostra para o fragmento solicitado. A sintaxe de **TrunBox** é um subconjunto rigoroso da caixa de corrida do fragmento de faixa da versão 1 definida na secção 8.8.8 da secção [ISO/IEC-14496-](https://go.microsoft.com/fwlink/?LinkId=183695)*12.*
 > 
 >   **SampleCompositionTimeOffset (4 bytes):** A compensação do tempo de composição da amostra de cada amostra ajustada de modo a que o tempo de apresentação da primeira amostra apresentada no fragmento seja igual ao tempo de descodificar da primeira amostra descodificada. Devem ser utilizadas compensações negativas da composição da amostra de vídeo,
 > 
@@ -231,7 +231,7 @@ O ProtectionElement estará presente quando a Encriptação Comum (CENC) tiver s
 
 #### <a name="2271-filetype"></a>2.2.7.1 FileType 
 
->   **FileType (variável):** especifica o subtipo e a utilização pretendida do ficheiro[MPEG-4 (MPEG4-RA])](https://go.microsoft.com/fwlink/?LinkId=327787) e atributos de alto nível.
+>   **FileType (variável):** especifica o subtipo e a utilização pretendida do ficheiro [MPEG-4 (MPEG4-RA])](https://go.microsoft.com/fwlink/?LinkId=327787) e atributos de alto nível.
 > 
 >   **MajorBrand (variável):** A maior marca do ficheiro dos media. DEVE ser definido para "isml".
 > 

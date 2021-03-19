@@ -1,5 +1,5 @@
 ---
-title: Tutorial para ativar dispositivo Azure Stack Edge Pro com GPU no portal Azure Microsoft Docs
+title: Tutorial para ativar dispositivo Azure Stack Edge Pro com GPU no portal Azure | Microsoft Docs
 description: Tutorial para implementar Azure Stack Edge Pro GPU instrui-o a ativar o seu dispositivo físico.
 services: databox
 author: alkohli
@@ -10,10 +10,10 @@ ms.date: 10/07/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to activate Azure Stack Edge Pro so I can use it to transfer data to Azure.
 ms.openlocfilehash: a767f6f877ae22a311afdb00417efb9f28fdc8f0
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91938360"
 ---
 # <a name="tutorial-activate-azure-stack-edge-pro-with-gpu"></a>Tutorial: Ativar Azure Stack Edge Pro com GPU
@@ -59,7 +59,7 @@ Antes de configurar e configurar o seu dispositivo Azure Stack Edge Pro com GPU,
     
     ![Web local UI "Cloud details" página 3](./media/azure-stack-edge-gpu-deploy-activate/activate-3.png)
     
-    Selecione **Baixar e continuar** e guardar asdevice-serial-no.js* no* ficheiro num local seguro fora do dispositivo. **Este ficheiro-chave contém as teclas de recuperação do disco de so e discos de dados no seu dispositivo.** Estas chaves podem ser necessárias para facilitar uma futura recuperação do sistema.
+    Selecione **Baixar e continuar** e guardar asdevice-serial-no.js *no* ficheiro num local seguro fora do dispositivo. **Este ficheiro-chave contém as teclas de recuperação do disco de so e discos de dados no seu dispositivo.** Estas chaves podem ser necessárias para facilitar uma futura recuperação do sistema.
 
     Aqui está o conteúdo do ficheiro *json:*
 

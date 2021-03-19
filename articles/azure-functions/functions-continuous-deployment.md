@@ -5,10 +5,10 @@ ms.assetid: 361daf37-598c-4703-8d78-c77dbef91643
 ms.topic: conceptual
 ms.date: 09/25/2019
 ms.openlocfilehash: e49c235e11eea17fdd1a7ff7751cc0493934d725
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "83123693"
 ---
 # <a name="continuous-deployment-for-azure-functions"></a>Implementação contínua para Funções do Azure
@@ -36,13 +36,13 @@ Para que a implementação contínua tenha sucesso, a sua estrutura de diretóri
 
 Para configurar a implementação contínua para uma aplicação de função existente, complete estes passos. Os passos demonstram a integração com um repositório GitHub, mas passos semelhantes aplicam-se a Azure Repos ou outros repositórios de código fonte.
 
-1. Na sua aplicação de função no [portal Azure](https://portal.azure.com), selecione **Centro de Implementação,** selecione **GitHub**e, em seguida, selecione **Authorize**. Se já autorizou o GitHub, **selecione Continue** e ignore o próximo passo. 
+1. Na sua aplicação de função no [portal Azure](https://portal.azure.com), selecione **Centro de Implementação,** selecione **GitHub** e, em seguida, selecione **Authorize**. Se já autorizou o GitHub, **selecione Continue** e ignore o próximo passo. 
 
     :::image type="content" source="./media/functions-continuous-deployment/github.png" alt-text="Centro de Implementação de Serviço de Aplicações Azure":::
 
 3. No GitHub, **selecione Authorize AzureAppService**.
 
-    :::image type="content" source="./media/functions-continuous-deployment/authorize.png" alt-text="Centro de Implementação de Serviço de Aplicações Azure":::
+    :::image type="content" source="./media/functions-continuous-deployment/authorize.png" alt-text="Autorizar o Serviço de Aplicações Azure":::
 
     Introduza a sua palavra-passe GitHub e, em seguida, **selecione Continue**.
 
@@ -53,9 +53,9 @@ Para configurar a implementação contínua para uma aplicação de função exi
 
     Selecione **Continuar**.
 
-5. Configure informações específicas da opção de controlo de origem especificada. Para o GitHub, tem de introduzir ou selecionar valores para **Organização,** **Repositório**e **Ramo.** Os valores baseiam-se na localização do seu código. Em seguida, **selecione Continue**.
+5. Configure informações específicas da opção de controlo de origem especificada. Para o GitHub, tem de introduzir ou selecionar valores para **Organização,** **Repositório** e **Ramo.** Os valores baseiam-se na localização do seu código. Em seguida, **selecione Continue**.
 
-    :::image type="content" source="./media/functions-continuous-deployment/github-specifics.png" alt-text="Centro de Implementação de Serviço de Aplicações Azure":::
+    :::image type="content" source="./media/functions-continuous-deployment/github-specifics.png" alt-text="Configurar o GitHub":::
 
 6. Reveja todos os detalhes e, em seguida, **selecione Terminar** para completar a sua configuração de implementação.
 

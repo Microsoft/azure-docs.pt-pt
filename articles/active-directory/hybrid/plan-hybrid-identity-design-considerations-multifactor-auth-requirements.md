@@ -1,5 +1,5 @@
 ---
-title: Design de identidade híbrida - requisitos de autenticação de vários fatores Azure / Microsoft Docs
+title: Design de identidade híbrida - requisitos de autenticação de vários fatores Azure | Microsoft Docs
 description: Com o controlo de Acesso Condicional, a Azure AD verifica as condições específicas que escolhe ao autenticar o utilizador e antes de permitir o acesso à aplicação.
 documentationcenter: ''
 services: active-directory
@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7d8ddf372e234bab242e4b28ba53dce7dd68cc89
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90976060"
 ---
 # <a name="determine-multi-factor-authentication-requirements-for-your-hybrid-identity-solution"></a>Determine os requisitos de autenticação de vários fatores para a sua solução de identidade híbrida
@@ -58,6 +58,6 @@ Depois de responder às perguntas anteriores, poderá perceber se existem autent
 ## <a name="next-steps"></a>Passos seguintes
 [Definir uma estratégia híbrida de adoção de identidade](plan-hybrid-identity-design-considerations-identity-adoption-strategy.md)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 [Visão geral de considerações de design](plan-hybrid-identity-design-considerations-overview.md)
 

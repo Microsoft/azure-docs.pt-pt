@@ -8,17 +8,17 @@ ms.service: azure-education
 ms.subservice: education-hub
 ms.date: 06/30/2020
 ms.openlocfilehash: 5a29fa8d60d3c581a502cded1a7e04026f768667
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86540700"
 ---
 # <a name="managing-your-academic-grant"></a>Gerir a sua Bolsa Académica
 
 A sua página principal de aterragem no Azure Education Hub é a página geral. Esta página contém todas as informações relevantes sobre o seu Subsídio Académico, como o número de aulas que estabeleceu e o seu crédito total de execução atribuído e utilizado a partir dessas classes. Também exibe atalhos para outros benefícios fornecidos pelo Education Hub: Software, Learning e Quickstart.
 
-## <a name="overview-page"></a>Página geral
+## <a name="overview-page"></a>Página de descrição geral
 :::image type="content" source="media/hub-overview-page/overview.png" alt-text="Assine a mensagem de erro." border="false":::
 
 1. **Os cursos** mostram o número total de cursos ativos na conta do Instrutor.

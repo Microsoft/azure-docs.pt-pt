@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 04/10/2020
 ms.reviewer: azfuncdf
 ms.openlocfilehash: b029fa246977dfe4210f6e8df242415f7e4103f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87081921"
 ---
 # <a name="create-durable-functions-using-the-azure-portal"></a>Criar Funções Duráveis utilizando o portal Azure
@@ -38,14 +38,21 @@ Se estiver a criar Funções Duradouras JavaScript, terá de instalar o [ `durab
 
 2. Na página **Ferramentas Avançadas,** selecione **Go**.
 
-3. Dentro da consola Kudu, selecione **a consola Debug**e, em seguida, **CMD**.
+3. Dentro da consola Kudu, selecione **a consola Debug** e, em seguida, **CMD**.
 
-   :::image type="content" source="./media/durable-functions-create-portal/kudu-choose-debug-console.png" alt-text="Funcionalidades da plataforma escolham Kudu"
+   :::image type="content" source="./media/durable-functions-create-portal/kudu-choose-debug-console.png" alt-text="Consola Kudu debug":::
+
+3. A estrutura do diretório de ficheiros da sua aplicação de funções deve ser exibida. Navegue para a pasta `site/wwwroot`. A partir daí, pode carregar um `package.json` ficheiro arrastando-o e largando-o na janela do diretório de ficheiros. Uma amostra `package.json` é abaixo:
+
+    ```json
+    {
+      "dependencies": {
+        "durable-functions": "^1.3.1"
       }
     }
     ```
 
-   :::image type="content" source="./media/durable-functions-create-portal/kudu-choose-debug-console.png" alt-text="Funcionalidades da plataforma escolham Kudu":::
+   :::image type="content" source="./media/durable-functions-create-portal/kudu-choose-debug-console.png" alt-text="Kudu carregar package.jsem":::
 
 4. Uma vez `package.json` carregado, executa o `npm install` comando a partir da Consola de Execução Remota kudu.
 
@@ -57,7 +64,7 @@ Se estiver a criar Funções Duradouras JavaScript, terá de instalar o [ `durab
 
 1. No campo de pesquisa da página **Nova Função,** insira `durable` e, em seguida, escolha o modelo **de arranque FUNÇÕES Duradouras HTTP.**
 
-   :::image type="content" source="./media/durable-functions-create-portal/durable-functions-http-starter-template.png" alt-text="Funcionalidades da plataforma escolham Kudu":::
+   :::image type="content" source="./media/durable-functions-create-portal/durable-functions-http-starter-template.png" alt-text="Selecione funções duradouras http starter":::
 
 1. Para o nome **da Nova Função,** `HttpStart` insira e, em seguida, **selecione Criar Função**.
 
@@ -69,7 +76,7 @@ Se estiver a criar Funções Duradouras JavaScript, terá de instalar o [ `durab
 
 ## <a name="test-the-durable-function-orchestration"></a>Teste a orquestração de função durável
 
-1. Volte para a função **HttpStart,** escolha **'Copiar' função url**e selecione o ícone **copy to clipboard** para copiar o URL. Utilize este URL para iniciar a função **HelloSequence.**
+1. Volte para a função **HttpStart,** escolha **'Copiar' função url** e selecione o ícone **copy to clipboard** para copiar o URL. Utilize este URL para iniciar a função **HelloSequence.**
 
 1. Utilize uma ferramenta HTTP como o Carteiro ou o CURL para enviar um pedido de POST para o URL que copiou. O exemplo a seguir é um comando cURL que envia um pedido DEM para a função durável:
 

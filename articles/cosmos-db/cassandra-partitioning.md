@@ -8,10 +8,10 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.openlocfilehash: ba615d3e41393afe007238a0fe1e694732ad123e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93087643"
 ---
 # <a name="partitioning-in-azure-cosmos-db-cassandra-api"></a>Partição em Azure Cosmos DB Cassandra API
@@ -54,7 +54,7 @@ CREATE TABLE uprofile.user (
 
 Neste projeto, definimos o `id` campo como a chave primária. A chave primária funciona como o identificador para o registo na tabela e também é usado como a chave de partição em Azure Cosmos DB. Se a chave primária for definida da forma previamente descrita, haverá apenas um único registo em cada partição. Isto resultará numa distribuição perfeitamente horizontal e escalável ao escrever dados para a base de dados, e é ideal para casos de procura de valor-chave. A aplicação deve fornecer a chave primária sempre que ler os dados da tabela, para maximizar o desempenho da leitura. 
 
-:::image type="content" source="./media/cassandra-partitioning/cassandra-partitioning.png" alt-text="divisórias" border="false":::
+:::image type="content" source="./media/cassandra-partitioning/cassandra-partitioning.png" alt-text="partições" border="false":::
 
 
 ## <a name="compound-primary-key"></a>Chave primária composta
@@ -84,11 +84,11 @@ insert into uprofile.user (user, id, message) values ('theo', 2, 'hello again');
 
 Quando os dados são devolvidos, é classificado pela chave de agrupamento, como esperado em Apache Cassandra:
 
-:::image type="content" source="./media/cassandra-partitioning/select-from-pk.png" alt-text="divisórias":::
+:::image type="content" source="./media/cassandra-partitioning/select-from-pk.png" alt-text="Screenshot que mostra os dados devolvidos que são classificados pela chave de clustering.":::
 
 Com os dados modelados desta forma, vários registos podem ser atribuídos a cada partição, agrupados pelo utilizador. Assim, podemos emitir uma consulta que seja encaminhada de forma eficiente pelo `partition key` (neste `user` caso,) para obter todas as mensagens para um determinado utilizador. 
 
-:::image type="content" source="./media/cassandra-partitioning/cassandra-partitioning2.png" alt-text="divisórias" border="false":::
+:::image type="content" source="./media/cassandra-partitioning/cassandra-partitioning2.png" alt-text="Diagrama que mostra como vários registos podem ser atribuídos a cada partição, agrupados pelo utilizador." border="false":::
 
 
 ## <a name="composite-partition-key"></a>Chave de partição composta

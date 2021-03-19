@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/16/2019
 ms.reviewer: sngun
 ms.openlocfilehash: d986106337eb1ede2f6d61303d8a4c487bbed276
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93088476"
 ---
 # <a name="understanding-the-differences-between-nosql-and-relational-databases"></a>Compreender as diferenças entre as bases de dados NoSQL e as bases de dados relacionais
@@ -40,7 +40,7 @@ No entanto, hoje em dia, a popularidade das bases de dados de estilo documental 
 
 O surgimento do [design orientado para objetos](https://en.wikipedia.org/wiki/Object-oriented_design), e o [desfasamento de impedância](https://en.wikipedia.org/wiki/Object-relational_impedance_mismatch) que surge ao combiná-lo com modelos relacionais, também destaca um antipadrão nas bases de dados relacionais para determinados casos de uso. Custos de manutenção ocultos, mas muitas vezes significativos, podem surgir como resultado. Embora [as abordagens ORM](https://en.wikipedia.org/wiki/Object-relational_mapping) tenham evoluído para atenuar parcialmente esta base de dados orientadas para os documentos, no entanto, a colidem muito melhor com abordagens orientadas para os objetos. Com esta abordagem, os desenvolvedores não são obrigados a ser comprometidos com os condutores orm, ou [motores de base de dados de OO específicos](https://en.wikipedia.org/wiki/Object_database)da linguagem. Se os seus dados contiver muitos relacionamentos entre pais e filhos e níveis profundos de hierarquia, talvez deva considerar a utilização de uma base de dados de documentos NoSQL, como a [API API API AZURE Cosmos DB SQL](./introduction.md).
 
-:::image type="content" source="./media/relational-or-nosql/order-orderdetails.jpg" alt-text="Backend":::
+:::image type="content" source="./media/relational-or-nosql/order-orderdetails.jpg" alt-text="OrderDetails":::
 
 ## <a name="complex-networks-and-relationships"></a>Redes e relacionamentos complexos
 
@@ -50,7 +50,7 @@ Várias formas de bases de dados "Rede" surgiram durante o tempo em que as bases
 
 Se estiver a manter uma rede complexa de relações na sua base de dados, talvez queira considerar uma base de dados de gráficos como a [API API AZure Cosmos DB Gremlin](./graph-introduction.md) para a gestão destes dados.
 
-:::image type="content" source="./media/relational-or-nosql/graph.png" alt-text="Backend":::
+:::image type="content" source="./media/relational-or-nosql/graph.png" alt-text="O diagrama da base de dados mostra vários funcionários e departamentos ligados entre si.":::
 
 Azure Cosmos DB é um serviço de base de dados multi-modelo, que oferece uma projeção de API para todos os principais tipos de modelos NoSQL; Coluna-família, Documento, Gráfico e Valor-Chave. As camadas de API do documento [Gremlin (gráfico)](./gremlin-support.md) e SQL (Core) são totalmente interoperáveis. Isto tem benefícios para alternar entre diferentes modelos ao nível da programabilidade. As lojas de gráficos podem ser consultadas tanto em termos de transações complexas de rede como de transações modeladas como registos documentais na mesma loja.
 
@@ -77,7 +77,7 @@ Embora existam algumas vantagens claras na implementação de bases de dados NoS
 
 Olhando para o primeiro desafio, a regra do polegar nas bases de dados NoSQL é geralmente desnormalização, que, tal como articulada anteriormente, produz leituras mais eficientes num sistema distribuído. No entanto, existem alguns desafios de design que entram em jogo com esta abordagem. Vejamos um exemplo de um produto relacionado com uma categoria e várias tags:
 
-:::image type="content" source="./media/relational-or-nosql/many-joins.png" alt-text="Backend":::
+:::image type="content" source="./media/relational-or-nosql/many-joins.png" alt-text="Associações":::
 
 Uma abordagem de boas práticas numa base de dados de documentos NoSQL seria desnormalizar o nome da categoria e marcar nomes diretamente num "documento do produto". No entanto, para manter categorias, etiquetas e produtos sincronizados, as opções de design para facilitar isso têm uma complexidade de manutenção acrescida, porque os dados são duplicados em vários registos do produto, em vez de ser uma simples atualização numa relação "um a muitos", e uma união para recuperar os dados. 
 

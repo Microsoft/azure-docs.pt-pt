@@ -7,10 +7,10 @@ ms.date: 10/09/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: ec26f021ffa581b0713973904c97349df83a08ef
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91930276"
 ---
 # <a name="tutorial-manage-app-groups-with-the-azure-portal"></a>Tutorial: Gerir grupos de aplicações com o portal Azure
@@ -53,7 +53,7 @@ Se já criou um VM de anfitrião de pool e sessão utilizando o portal Azure ou 
     > [!div class="mx-imgBorder"]
     > ![Uma imagem do separador Basics no portal Azure.](media/basics-tab.png)
 
-6. Selecione **RemoteApp** sob **o tipo de grupo Aplicação**e, em seguida, introduza um nome para o seu RemoteApp.
+6. Selecione **RemoteApp** sob **o tipo de grupo Aplicação** e, em seguida, introduza um nome para o seu RemoteApp.
 
       > [!div class="mx-imgBorder"]
       > ![Uma imagem dos campos do tipo grupo Application. "RemoteApp" está em destaque.](media/remoteapp-button.png)
@@ -69,7 +69,7 @@ Se já criou um VM de anfitrião de pool e sessão utilizando o portal Azure ou 
 
 10.  Selecione **Selecionar**.
 
-11.  Selecione **Seguinte: As aplicações >, **em seguida, selecione **+Adicionar aplicações**.
+11.  Selecione **Seguinte: As aplicações >,** em seguida, selecione **+Adicionar aplicações**.
 
 12.  Para adicionar uma aplicação no menu inicial:
 
@@ -88,7 +88,7 @@ Se já criou um VM de anfitrião de pool e sessão utilizando o portal Azure ou 
 
       - No **caminho de aplicação,** insira o caminho para a aplicação no anfitrião da sessão registrado na piscina anfitriã associada.
 
-      - Introduza os detalhes da aplicação no nome da **aplicação,** **nome de exibição,** **caminho do ícone**e índice de **ícone.**
+      - Introduza os detalhes da aplicação no nome da **aplicação,** **nome de exibição,** **caminho do ícone** e índice de **ícone.**
 
       - Selecione **Guardar**.
 
@@ -109,7 +109,7 @@ Se já criou um VM de anfitrião de pool e sessão utilizando o portal Azure ou 
      > [!div class="mx-imgBorder"]
      > ![Uma imagem da página do grupo de inscrição para um espaço de trabalho já existente. A piscina de anfitriões está pré-selecionado.](media/register-existing.png)
 
-18.  Opcionalmente, se pretender criar tags para facilitar a organização do seu espaço de trabalho, selecione **Next: Tags >e insira ** os seus nomes de identificação.
+18.  Opcionalmente, se pretender criar tags para facilitar a organização do seu espaço de trabalho, selecione **Next: Tags >e insira** os seus nomes de identificação.
 
 19.  Quando terminar, selecione **Review + create**.
 
