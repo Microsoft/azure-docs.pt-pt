@@ -3,21 +3,21 @@ title: Endereços IP em Funções Azure
 description: Saiba como encontrar endereços IP de entrada e saída para aplicações de função, e o que as faz mudar.
 ms.topic: conceptual
 ms.date: 12/03/2018
-ms.openlocfilehash: fcc92e61e180d25bc67d5ca3f9e2bff4af01fd3f
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 2c248756899459e17082bcab863a4e857b594909
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98726736"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104608236"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>Endereços IP em Funções Azure
 
-Este artigo explica os seguintes tópicos relacionados com endereços IP de aplicações de funções:
+Este artigo explica os seguintes conceitos relacionados com endereços IP de aplicações de funções:
 
-* Como encontrar os endereços IP atualmente em uso por uma aplicação de função.
-* O que faz com que os endereços IP de uma aplicação de função sejam alterados.
-* Como restringir os endereços IP que podem aceder a uma aplicação de função.
-* Como obter endereços IP dedicados para uma aplicação de função.
+* Localizar os endereços IP atualmente em uso por uma aplicação de função.
+* Condições que fazem com que os endereços IP da aplicação de função se alterem.
+* Restringir os endereços IP que podem aceder a uma aplicação de função.
+* Definição de endereços IP dedicados para uma aplicação de função.
 
 Os endereços IP estão associados a aplicações de funções, não a funções individuais. Os pedidos HTTP de entrada não podem utilizar o endereço IP de entrada para ligar para funções individuais; devem utilizar o nome de domínio predefinido (functionappname.azurewebsites.net) ou um nome de domínio personalizado.
 
@@ -54,9 +54,9 @@ az webapp show --resource-group <group_name> --name <app_name> --query possibleO
 
 ## <a name="data-center-outbound-ip-addresses"></a>Endereços IP de saída do data center
 
-Se precisar de adicionar os endereços IP de saída utilizados pelas suas aplicações de função a uma lista de autorizações, outra opção é adicionar o data center das aplicações de função (região Azure) a uma lista de autorizações. Você pode [baixar um ficheiro JSON que lista endereços IP para todos os centros de dados Azure](https://www.microsoft.com/en-us/download/details.aspx?id=56519). Em seguida, encontre o fragmento JSON que se aplica à região em que a sua aplicação de função funciona.
+Se precisar de adicionar os endereços IP de saída utilizados pelas suas aplicações de função a uma lista de admissões, outra opção é adicionar o data center das aplicações de função (região Azure) a uma lista de admissões. Você pode [baixar um ficheiro JSON que lista endereços IP para todos os centros de dados Azure](https://www.microsoft.com/en-us/download/details.aspx?id=56519). Em seguida, encontre o fragmento JSON que se aplica à região em que a sua aplicação de função funciona.
 
-Por exemplo, é assim que o fragmento JSON da Europa Ocidental pode parecer:
+Por exemplo, o seguinte fragmento JSON é o que a lista de admissão para a Europa Ocidental pode parecer:
 
 ```
 {
@@ -99,10 +99,12 @@ O conjunto de endereços IP de saída disponíveis para uma aplicação de funç
 
 Quando a sua aplicação de função funciona num [plano de Consumo](consumption-plan.md) ou num plano [Premium,](functions-premium-plan.md)o endereço IP de saída também pode mudar mesmo quando não tenha tomado quaisquer ações como as [listadas acima.](#inbound-ip-address-changes)
 
-Para forçar deliberadamente uma alteração de endereço IP de saída:
+Utilize o seguinte procedimento para forçar deliberadamente uma alteração de endereço IP de saída:
 
 1. Dimensione o seu plano de Serviço de Aplicações para cima ou para baixo entre os níveis de preços Standard e Premium v2.
+
 2. Espere 10 minutos.
+
 3. Recue para onde começou.
 
 ## <a name="ip-address-restrictions"></a>restrições de endereços IP
@@ -111,7 +113,15 @@ Pode configurar uma lista de endereços IP que pretende permitir ou negar o aces
 
 ## <a name="dedicated-ip-addresses"></a>Endereços IP dedicados
 
-Se precisar de endereços IP estáticos e dedicados, recomendamos [Ambientes de Serviço de Aplicação](../app-service/environment/intro.md) (o [nível isolado](https://azure.microsoft.com/pricing/details/app-service/) dos planos de Serviço de Aplicações). Para obter mais informações, consulte [os endereços IP do App Service Environment](../app-service/environment/network-info.md#ase-ip-addresses) e como controlar o tráfego de entrada num Ambiente de Serviço de [Aplicações.](../app-service/environment/app-service-app-service-environment-control-inbound-traffic.md)
+Existem várias estratégias para explorar quando a sua aplicação de função requer endereços IP estáticos e dedicados. 
+
+### <a name="virtual-network-nat-gateway-for-outbound-static-ip"></a>Gateway NAT de rede virtual para IP estático de saída
+
+Pode controlar o endereço IP do tráfego de saída das suas funções utilizando uma porta de entrada NAT de rede virtual para direcionar o tráfego através de um endereço IP público estático. Você pode usar esta topologia ao executar um [plano Premium.](functions-premium-plan.md) Para saber mais, consulte [Tutorial: ControlE Azure Functions outbound IP com um gateway NAT de rede virtual Azure](functions-how-to-use-nat-gateway.md).
+
+### <a name="app-service-environments"></a>Ambientes do App Service
+
+Para controlo total sobre os endereços IP, tanto de entrada como de saída, recomendamos [Ambientes de Serviço de Aplicação](../app-service/environment/intro.md) (o [nível isolado](https://azure.microsoft.com/pricing/details/app-service/) dos planos de Serviço de Aplicações). Para obter mais informações, consulte [os endereços IP do App Service Environment](../app-service/environment/network-info.md#ase-ip-addresses) e como controlar o tráfego de entrada num Ambiente de Serviço de [Aplicações.](../app-service/environment/app-service-app-service-environment-control-inbound-traffic.md)
 
 Para saber se a sua aplicação de função funciona num Ambiente de Serviço de Aplicações:
 
@@ -128,6 +138,6 @@ az webapp show --resource-group <group_name> --name <app_name> --query sku --out
 
 O Ambiente de Serviço de `sku` Aplicações é `Isolated` .
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Uma causa comum de alterações ip é alterações na escala de aplicações de função. [Saiba mais sobre o dimensionamento de aplicações de função.](functions-scale.md)

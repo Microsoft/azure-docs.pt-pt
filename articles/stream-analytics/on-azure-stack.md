@@ -1,23 +1,20 @@
 ---
-title: Executar Azure Stream Analytics em Azure Stack (Pré-visualização)
+title: Executar Azure Stream Analytics na Pilha Azure
 description: Crie um trabalho de borda Azure Stream Analytics e implemente-o para o hub Azure Stack através do tempo de execução IoT Edge.
 ms.service: stream-analytics
 author: an-emma
 ms.author: raan
 ms.topic: how-to
-ms.date: 08/21/2020
+ms.date: 03/15/2021
 ms.custom: seodec18
-ms.openlocfilehash: 3463b3eae96c0a65206023ed0f21efe44294d4eb
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 315b2efa042721a19fa779794c4921f9ced1fc83
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98020133"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104589808"
 ---
-# <a name="run-azure-stream-analytics-on-azure-stack-preview"></a>Executar Azure Stream Analytics em Azure Stack (Pré-visualização)
-
-> [!IMPORTANT]
-> Esta funcionalidade encontra-se em pré-visualização e não é recomendada para utilização na produção.
+# <a name="run-azure-stream-analytics-on-azure-stack"></a>Executar Azure Stream Analytics na Pilha Azure 
 
 Pode executar a Azure Stream Analytics no Azure Stack Hub como um módulo IoT Edge. As configurações foram adicionadas ao módulo IoT Edge que lhe permite interagir com o armazenamento de bolhas, os Centros de Eventos e os Hubs IoT em execução numa subscrição do Azure Stack Hub, permitindo URLs personalizados encontrados em cada emprego do Azure Stack Hub.
 
@@ -174,6 +171,6 @@ Quando o trabalho do Stream Analytics estiver criado no portal do Azure, pode co
    > [!div class="mx-imgBorder"]
    > [Página de ![ ](media/on-azure-stack/edge-deployment.png) implementação ](media/on-azure-stack/edge-deployment.png#lightbox)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - [Azure Stream Analytics no IoT Edge](./stream-analytics-edge.md)
 - [Desenvolver trabalhos stream Analytics Edge](/stream-analytics-query/stream-analytics-query-language-reference)

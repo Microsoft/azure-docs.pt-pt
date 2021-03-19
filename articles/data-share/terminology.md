@@ -7,10 +7,10 @@ ms.author: joanpo
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.openlocfilehash: 33532380d8f98df44029eeea998130d1da5fdafd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "73468551"
 ---
 # <a name="azure-data-share-concepts"></a>Conceitos de partilha de dados Azure 
@@ -27,7 +27,7 @@ Um consumidor de Dados é a organização que está a receber dados de um fornec
 
 ## <a name="data-share"></a>Data Share
 
-Uma partilha de dados é um grupo de conjuntos de dados que são partilhados como uma única entidade. Os conjuntos de dados podem ser de várias fontes de dados do Azure que são suportadas pela Azure Data Share. Atualmente, a Azure Data Share suporta o Azure Blob Storage e a Azure Data Lake Store. 
+Uma partilha de dados é um grupo de conjuntos de dados partilhados como uma única entidade. Os conjuntos de dados podem ser de várias origens de dados do Azure suportadas pelo Azure Data Share. Atualmente, o Azure Data Share suporta o Armazenamento de Blobs do Azure e o Azure Data Lake Store. 
 
 ## <a name="share-subscription"></a>Assinatura de partilha 
 

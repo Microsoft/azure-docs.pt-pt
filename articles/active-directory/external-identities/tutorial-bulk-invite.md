@@ -5,26 +5,26 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: tutorial
-ms.date: 05/07/2020
+ms.date: 03/17/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f0f88b310bc00881e66ee8e8b5f2d40616d60315
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 01deae46c442fc95c6aead0f11de929f47163c3c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87905931"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104586562"
 ---
 # <a name="tutorial-bulk-invite-azure-ad-b2b-collaboration-users"></a>Tutorial: Convidar utilizadores da colaboração B2B do Azure AD em massa
 
 Se utilizar a colaboração B2B do Azure Active Directory (Azure AD) para trabalhar com parceiros externos, pode convidar múltiplos utilizadores convidados para a sua organização ao mesmo tempo. Neste tutorial, aprende-se a usar o portal Azure para enviar convites a granel para utilizadores externos. Deve fazer o seguinte:
 
 > [!div class="checklist"]
-> * Utilizar **a Granel convidar os utilizadores** a preparar um ficheiro de valor separado de vírgula (.csv) com as informações do utilizador e preferências de convite
-> * Faça o upload do ficheiro .csv para Azure AD
+> * Use **A granel convide os utilizadores** a preparar um ficheiro de valor separado de vírgula (.csv) com as informações do utilizador e preferências de convite
+> * Faça o upload do ficheiro .csv para a Azure AD
 > * Verificar se os utilizadores foram adicionados ao diretório
 
 Se não tiver o Azure Ative Directory, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
@@ -41,7 +41,7 @@ As linhas de um modelo de CSV descarregado são as seguintes:
 
 - **Número da versão**: A primeira linha que contém o número da versão deve ser incluída no upload CSV.
 - **Posições de coluna :** O formato das posições da coluna é &lt; *o nome do item* &gt; [Nome de Propriedade] &lt; *Obrigatório ou em branco* &gt; . Por exemplo, `Email address to invite [inviteeEmail] Required`. Algumas versões mais antigas do modelo podem ter ligeiras variações.
-- **Linha exemplos**: Incluímos no modelo uma linha de exemplos de valores aceitáveis para cada coluna. Deve remover os exemplos e substituí-lo pelas suas próprias entradas.
+- **Linha exemplos**: Incluímos no modelo uma linha de exemplos de valores para cada coluna. Deve remover os exemplos e substituí-lo pelas suas próprias entradas.
 
 ### <a name="additional-guidance"></a>Orientações adicionais
 
@@ -56,18 +56,22 @@ Precisa de duas ou mais contas de e-mail de teste para as quais possa enviar os 
 
 ## <a name="invite-guest-users-in-bulk"></a>Convidar utilizadores convidados a granel
 
-1. Inscreva-se no portal Azure com uma conta que é administrador do Utilizador na organização.
+1. Inscreva-se no portal Azure com uma conta que é um administrador global na organização.
 2. No painel de navegação, selecione **Azure Ative Directory**.
-3. Em **Gestão**, selecione **Utilizadores**  >  **a granel convidar**.
+3. Em **Gestão**, **selecione Todos os Utilizadores**.
+4. **Selecione a granel**  >  **convite.**
+
+    ![Botão de convite a granel](media/tutorial-bulk-invite/bulk-invite-button.png)
+
 4. Na página de convidar a **granel,** selecione **Descarregue** para obter um modelo de .csv válido com propriedades de convite.
 
-    ![Botão de descarregamento de convite a granel](media/tutorial-bulk-invite/bulk-invite-button.png)
+     ![Descarregue o ficheiro CSV](media/tutorial-bulk-invite/download-button.png)
 
-5. Abra o modelo .csv e adicione uma linha para cada utilizador convidado. Os valores exigidos são:
+1. Abra o modelo de .csv e adicione uma linha para cada utilizador convidado. Os valores exigidos são:
 
    * **Endereço de e-mail para convidar** - o utilizador que receberá um convite
 
-   * **Url de redirecionamento** - o URL para o qual o utilizador convidado é reencaminhado após aceitar o convite
+   * **Url de redirecionamento** - o URL para o qual o utilizador convidado é reencaminhado após aceitar o convite. Se pretender encaminhar o utilizador para a página My Apps, tem de alterar este valor para https://myapps.microsoft.com ou https://myapplications.microsoft.com .
 
     ![Exemplo de um ficheiro CSV com utilizadores convidados introduzido](media/tutorial-bulk-invite/bulk-invite-csv.png)
 

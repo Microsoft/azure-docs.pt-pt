@@ -11,12 +11,12 @@ ms.date: 04/19/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: 218803d0b7e1f5add2f033a7ce01e0a8f6ffc956
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 450a089c6cc1c77ac26cb0aa339277d5c49b41c8
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101674100"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104594789"
 ---
 # <a name="statistics-in-synapse-sql"></a>Estatísticas em Synapse SQL
 
@@ -90,9 +90,9 @@ As estatísticas sobre uma coluna de país ou região numa tabela de clientes po
 
 No entanto, quando o seu armazém de dados contém apenas um país ou região e você traz dados de um novo país ou região, então você precisa atualizar estatísticas sobre o país ou coluna da região.
 
-Seguem-se recomendações que atualizam as estatísticas:
+Seguem-se recomendações para a atualização das estatísticas:
 
-|||
+|Tipo|Recomendação|
 |-|-|
 | **Frequência das atualizações de estatísticas**  | Conservador: Diariamente </br> Depois de carregar ou transformar os seus dados |
 | **Amostragem** |  Menos de mil milhões de linhas, use amostragem padrão (20 por cento). </br> Com mais de mil milhões de filas, use amostragem de 2%. |
@@ -443,7 +443,7 @@ Existem várias visões e funções do sistema que pode usar para encontrar info
 
 Estas opiniões do sistema fornecem informações sobre estatísticas:
 
-| Vista de catálogo | Descrição |
+| Vista de catálogo | Description |
 |:--- |:--- |
 | [sys.columns](/sql/relational-databases/system-catalog-views/sys-columns-transact-sql?view=azure-sqldw-latest&preserve-view=true) |Uma linha para cada coluna. |
 | [sys.objects](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql?view=azure-sqldw-latest&preserve-view=true) |Uma linha para cada objeto na base de dados. |
@@ -457,7 +457,7 @@ Estas opiniões do sistema fornecem informações sobre estatísticas:
 
 Estas funções do sistema são úteis para trabalhar com estatísticas:
 
-| Função do sistema | Descrição |
+| Função do sistema | Description |
 |:--- |:--- |
 | [STATS_DATE](/sql/t-sql/functions/stats-date-transact-sql?view=azure-sqldw-latest&preserve-view=true) |Data em que o objeto estatístico foi atualizado pela última vez. |
 | [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?view=azure-sqldw-latest&preserve-view=true) |Nível de resumo e informação detalhada sobre a distribuição de valores conforme entendido pelo objeto estatístico. |
@@ -825,7 +825,7 @@ Existem várias visões e funções do sistema que pode usar para encontrar info
 
 Estas opiniões do sistema fornecem informações sobre estatísticas:
 
-| Vista de catálogo                                                 | Descrição                                                  |
+| Vista de catálogo                                                 | Description                                                  |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | [sys.columns](/sql/relational-databases/system-catalog-views/sys-columns-transact-sql?view=azure-sqldw-latest&preserve-view=true) | Uma linha para cada coluna.                                     |
 | [sys.objects](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql?view=azure-sqldw-latest&preserve-view=true) | Uma linha para cada objeto na base de dados.                     |
@@ -839,7 +839,7 @@ Estas opiniões do sistema fornecem informações sobre estatísticas:
 
 Estas funções do sistema são úteis para trabalhar com estatísticas:
 
-| Função do sistema                                              | Descrição                                  |
+| Função do sistema                                              | Description                                  |
 | :----------------------------------------------------------- | :------------------------------------------- |
 | [STATS_DATE](/sql/t-sql/functions/stats-date-transact-sql?view=azure-sqldw-latest&preserve-view=true) | Data em que o objeto estatístico foi atualizado pela última vez. |
 
@@ -884,6 +884,6 @@ WHERE   st.[user_created] = 1
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para melhorar ainda mais o desempenho de consulta para piscinas SQL dedicadas, consulte [monitorar a sua carga de trabalho](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) e as [melhores práticas para piscina SQL dedicada.](best-practices-sql-pool.md#maintain-statistics)
+Para melhorar ainda mais o desempenho de consulta para piscinas SQL dedicadas, consulte [monitorar a sua carga de trabalho](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) e as [melhores práticas para piscina SQL dedicada.](best-practices-dedicated-sql-pool.md#maintain-statistics)
 
-Para melhorar ainda mais o desempenho da consulta para o pool SQL sem servidor, consulte [as melhores práticas para piscina SQL sem servidor](best-practices-sql-on-demand.md)
+Para melhorar ainda mais o desempenho da consulta para o pool SQL sem servidor, consulte [as melhores práticas para piscina SQL sem servidor](best-practices-serverless-sql-pool.md)

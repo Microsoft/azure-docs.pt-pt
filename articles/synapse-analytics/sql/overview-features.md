@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 769149d49d4d233c5c202f570ceb871365728c59
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: b22f2ed2704f752ff2ca7a5bc21e856b076f0f70
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101671229"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104584096"
 ---
 # <a name="transact-sql-features-supported-in-azure-synapse-sql"></a>Características Transact-SQL suportadas no Azure Synapse SQL
 
@@ -31,18 +31,18 @@ Os modelos de consumo em Synapse SQL permitem-lhe utilizar diferentes objetos de
 | **Tabelas** | [Sim](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?view=azure-sqldw-latest&preserve-view=true) | Não, o modelo sem servidor só pode consultar dados externos colocados no [Azure Storage](#storage-options) |
 | **Vistas** | [Sim](/sql/t-sql/statements/create-view-transact-sql?view=azure-sqldw-latest&preserve-view=true). As vistas podem usar [elementos de linguagem](#query-language) de consulta que estão disponíveis em modelo dedicado. | [Sim](/sql/t-sql/statements/create-view-transact-sql?view=azure-sqldw-latest&preserve-view=true). As vistas podem utilizar [elementos de linguagem](#query-language) de consulta que estão disponíveis no modelo sem servidor. |
 | **Esquemas** | [Sim](/sql/t-sql/statements/create-schema-transact-sql?view=azure-sqldw-latest&preserve-view=true) | [Sim](/sql/t-sql/statements/create-schema-transact-sql?view=azure-sqldw-latest&preserve-view=true) |
-| **Tabelas temporárias** | [Sim](../sql-data-warehouse/sql-data-warehouse-tables-temporary.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | Não |
-| **Procedimentos** | [Sim](/sql/t-sql/statements/create-procedure-transact-sql?view=azure-sqldw-latest&preserve-view=true) | Sim |
+| **Tabelas temporárias** | [Sim](../sql-data-warehouse/sql-data-warehouse-tables-temporary.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | No |
+| **Procedimentos** | [Sim](/sql/t-sql/statements/create-procedure-transact-sql?view=azure-sqldw-latest&preserve-view=true) | Yes |
 | **Funções** | [Sim](/sql/t-sql/statements/create-function-sql-data-warehouse?view=azure-sqldw-latest&preserve-view=true) | Sim, apenas funções de valor de mesa em linha. |
-| **Acionadores** | Não | Não |
+| **Acionadores** | No | No |
 | **Tabelas externas** | [Sim](/sql/t-sql/statements/create-external-table-transact-sql?view=azure-sqldw-latest&preserve-view=true). Consulte [os formatos de dados suportados.](#data-formats) | [Sim](/sql/t-sql/statements/create-external-table-transact-sql?view=azure-sqldw-latest&preserve-view=true). Consulte [os formatos de dados suportados.](#data-formats) |
-| **Consultas de caching** | Sim, múltiplas formas (caching baseado em SSD, na memória, caching resultset). Além disso, a Vista Materializada é suportada | Não |
-| **Variáveis de tabela** | [Não,](/sql/t-sql/data-types/table-transact-sql?view=azure-sqldw-latest&preserve-view=true)use mesas temporárias | Não |
-| **[Distribuição de mesas](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)**               | Sim | Não |
-| **[Índices de tabela](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)**                           | Sim | Não |
-| **[Divisórias de mesa](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)**                     | Sim | Não |
-| **[Estatísticas](develop-tables-statistics.md)**            | Sim | Sim |
-| **[Gestão da carga de trabalho, classes de recursos e controlo da conuscção](../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)** | Sim    | Não |
+| **Consultas de caching** | Sim, múltiplas formas (caching baseado em SSD, na memória, caching resultset). Além disso, a Vista Materializada é suportada | No |
+| **Variáveis de tabela** | [Não,](/sql/t-sql/data-types/table-transact-sql?view=azure-sqldw-latest&preserve-view=true)use mesas temporárias | No |
+| **[Distribuição de mesas](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)**               | Yes | No |
+| **[Índices de tabela](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)**                           | Yes | No |
+| **[Divisórias de mesa](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)**                     | Yes | No |
+| **[Estatísticas](develop-tables-statistics.md)**            | Yes | Yes |
+| **[Gestão da carga de trabalho, classes de recursos e controlo da conuscção](../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)** | Yes    | No |
 | **Controlo de custos** | Sim, usando ações de escala e de escala. | Sim, utilizando [o portal Azure ou o procedimento T-SQL](./data-processed.md#cost-control). |
 
 ## <a name="query-language"></a>Linguagem da consulta
@@ -51,17 +51,17 @@ As línguas de consulta utilizadas no Sinaapse SQL podem ter diferentes funciona
 
 |   | Dedicada | Sem servidor |
 | --- | --- | --- |
-| **Declaração SELECT** | Sim. As cláusulas de consulta Transact-SQL [FOR XML/FOR JSON,](/sql/t-sql/queries/select-for-clause-transact-sql?view=azure-sqldw-latest&preserve-view=true)e [MATCH](/sql/t-sql/queries/match-sql-graph?view=azure-sqldw-latest&preserve-view=true) não são suportadas. | Sim. As cláusulas de consulta Transact-SQL [FOR XML](/sql/t-sql/queries/select-for-clause-transact-sql?view=azure-sqldw-latest&preserve-view=true), [MATCH](/sql/t-sql/queries/match-sql-graph?view=azure-sqldw-latest&preserve-view=true), [PREDICT,](/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest&preserve-view=true)e dicas de consulta não são suportadas. |
-| **Declaração de INSERÇÃO** | Sim | Não |
-| **Declaração de ATUALIZAÇÃO** | Sim | Não |
-| **Declaração de EXCLUSÃO** | Sim | Não |
-| **Declaração da MERGE** | Sim[(pré-visualização)](/sql/t-sql/statements/merge-transact-sql?view=azure-sqldw-latest&preserve-view=true) | Não |
-| **[Transações](develop-transactions.md)** | Sim | Sim, aplicável em objetos de meta-dado. |
-| **[Etiquetas](develop-label.md)** | Sim | Não |
-| **Carga de dados** | Sim. Utilitário preferencial é a declaração [COPY,](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) mas o sistema suporta tanto a carga BULK (BCP) como [o CETAS](/sql/t-sql/statements/create-external-table-as-select-transact-sql?view=azure-sqldw-latest&preserve-view=true) para carregamento de dados. | Não |
+| **Declaração SELECT** | Sim. As cláusulas de consulta Transact-SQL [FOR XML/FOR JSON](/sql/t-sql/queries/select-for-clause-transact-sql?view=azure-sqldw-latest&preserve-view=true), [MATCH,](/sql/t-sql/queries/match-sql-graph?view=azure-sqldw-latest&preserve-view=true)OFFSET/FETCH não são suportadas. | Sim. As cláusulas de consulta Transact-SQL [FOR XML](/sql/t-sql/queries/select-for-clause-transact-sql?view=azure-sqldw-latest&preserve-view=true), [MATCH](/sql/t-sql/queries/match-sql-graph?view=azure-sqldw-latest&preserve-view=true), [PREDICT,](/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest&preserve-view=true)GROUPNG SETS e dicas de consulta não são suportadas. |
+| **Declaração de INSERÇÃO** | Yes | No |
+| **Declaração de ATUALIZAÇÃO** | Yes | No |
+| **Declaração de EXCLUSÃO** | Yes | No |
+| **Declaração da MERGE** | Sim[(pré-visualização)](/sql/t-sql/statements/merge-transact-sql?view=azure-sqldw-latest&preserve-view=true) | No |
+| **[Transações](develop-transactions.md)** | Yes | Sim, aplicável em objetos de meta-dado. |
+| **[Etiquetas](develop-label.md)** | Yes | No |
+| **Carga de dados** | Sim. Utilitário preferencial é a declaração [COPY,](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) mas o sistema suporta tanto a carga BULK (BCP) como [o CETAS](/sql/t-sql/statements/create-external-table-as-select-transact-sql?view=azure-sqldw-latest&preserve-view=true) para carregamento de dados. | No |
 | **Exportação de dados** | Sim. Utilização [de CETAs](/sql/t-sql/statements/create-external-table-as-select-transact-sql?view=azure-sqldw-latest&preserve-view=true). | Sim. Utilização [de CETAs](/sql/t-sql/statements/create-external-table-as-select-transact-sql?view=azure-sqldw-latest&preserve-view=true). |
 | **Tipos** | Sim, todos os tipos Transact-SQL exceto [cursor,](/sql/t-sql/data-types/cursor-transact-sql?view=azure-sqldw-latest&preserve-view=true) [hierarquia,](/sql/t-sql/data-types/hierarchyid-data-type-method-reference?view=azure-sqldw-latest&preserve-view=true) [ntext, texto e imagem,](/sql/t-sql/data-types/ntext-text-and-image-transact-sql?view=azure-sqldw-latest&preserve-view=true) [rowversion,](/sql/t-sql/data-types/rowversion-transact-sql?view=azure-sqldw-latest&preserve-view=true) [Spatial Types,](/sql/t-sql/spatial-geometry/spatial-types-geometry-transact-sql?view=azure-sqldw-latest&preserve-view=true) [ \_ sql variant](/sql/t-sql/data-types/sql-variant-transact-sql?view=azure-sqldw-latest&preserve-view=true), e [xml](/sql/t-sql/xml/xml-transact-sql?view=azure-sqldw-latest&preserve-view=true) | Sim, todos os tipos Transact-SQL exceto [cursor,](/sql/t-sql/data-types/cursor-transact-sql?view=azure-sqldw-latest&preserve-view=true) [hierarquia,](/sql/t-sql/data-types/hierarchyid-data-type-method-reference?view=azure-sqldw-latest&preserve-view=true) [ntext, texto e imagem,](/sql/t-sql/data-types/ntext-text-and-image-transact-sql?view=azure-sqldw-latest&preserve-view=true) [rowversion,](/sql/t-sql/data-types/rowversion-transact-sql?view=azure-sqldw-latest&preserve-view=true) [Spatial Types,](/sql/t-sql/spatial-geometry/spatial-types-geometry-transact-sql?view=azure-sqldw-latest&preserve-view=true) [ \_ variante sql,](/sql/t-sql/data-types/sql-variant-transact-sql?view=azure-sqldw-latest&preserve-view=true) [xml,](/sql/t-sql/xml/xml-transact-sql?view=azure-sqldw-latest&preserve-view=true)e tipo de tabela |
-| **Consultas entre bases de dados** | Não | Sim, incluindo a declaração [do USO.](/sql/t-sql/language-elements/use-transact-sql?view=azure-sqldw-latest&preserve-view=true) |
+| **Consultas entre bases de dados** | No | Sim, incluindo a declaração [do USO.](/sql/t-sql/language-elements/use-transact-sql?view=azure-sqldw-latest&preserve-view=true) |
 | **Funções incorporadas (análise)** | Sim, todos os [Analíticos](/sql/t-sql/functions/analytic-functions-transact-sql?view=azure-sqldw-latest&preserve-view=true)Transact-SQL, Conversão, [Data e Hora,](/sql/t-sql/functions/date-and-time-data-types-and-functions-transact-sql?view=azure-sqldw-latest&preserve-view=true)Funções Lógicas, [Matemáticas,](/sql/t-sql/functions/mathematical-functions-transact-sql?view=azure-sqldw-latest&preserve-view=true) exceto [CHOOSE,](/sql/t-sql/functions/logical-functions-choose-transact-sql?view=azure-sqldw-latest&preserve-view=true) [IIF,](/sql/t-sql/functions/logical-functions-iif-transact-sql?view=azure-sqldw-latest&preserve-view=true)e [PARSE](/sql/t-sql/functions/parse-transact-sql?view=azure-sqldw-latest&preserve-view=true) | Sim, todas as [funções analíticas](/sql/t-sql/functions/analytic-functions-transact-sql?view=azure-sqldw-latest&preserve-view=true)Transact-SQL, Conversão, [Data e Hora,](/sql/t-sql/functions/date-and-time-data-types-and-functions-transact-sql?view=azure-sqldw-latest&preserve-view=true)Lógica, [Matemática.](/sql/t-sql/functions/mathematical-functions-transact-sql?view=azure-sqldw-latest&preserve-view=true) |
 | **Funções incorporadas (texto)** | Sim. Todas as funções Transact-SQL [String](/sql/t-sql/functions/string-functions-transact-sql?view=azure-sqldw-latest&preserve-view=true), [JSON](/sql/t-sql/functions/json-functions-transact-sql?view=azure-sqldw-latest&preserve-view=true)e Collation, exceto [STRING_ESCAPE](/sql/t-sql/functions/string-escape-transact-sql?view=azure-sqldw-latest&preserve-view=true) e [TRADUZIR](/sql/t-sql/functions/translate-transact-sql?view=azure-sqldw-latest&preserve-view=true) | Sim. Todas as funções Transact-SQL [String](/sql/t-sql/functions/string-functions-transact-sql?view=azure-sqldw-latest&preserve-view=true), [JSON](/sql/t-sql/functions/json-functions-transact-sql?view=azure-sqldw-latest&preserve-view=true)e Collation. |
 | **Funções de valor de mesa incorporadas** | Sim, [funções de conjunto de linha Transact-SQL,](/sql/t-sql/functions/functions?view=azure-sqldw-latest&preserve-view=true#rowset-functions)com exceção [do OPENXML,](/sql/t-sql/functions/openxml-transact-sql?view=azure-sqldw-latest&preserve-view=true) [OPENDATASOURCE,](/sql/t-sql/functions/opendatasource-transact-sql?view=azure-sqldw-latest&preserve-view=true) [OPENQUERY](/sql/t-sql/functions/openquery-transact-sql?view=azure-sqldw-latest&preserve-view=true)e [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql?view=azure-sqldw-latest&preserve-view=true) | Sim, [funções de Conjunto de Linha Transact-SQL,](/sql/t-sql/functions/functions?view=azure-sqldw-latest&preserve-view=true#rowset-functions)com exceção [do OPENXML,](/sql/t-sql/functions/openxml-transact-sql?view=azure-sqldw-latest&preserve-view=true) [OPENDATASOURCE](/sql/t-sql/functions/opendatasource-transact-sql?view=azure-sqldw-latest&preserve-view=true)e [OPENQUERY](/sql/t-sql/functions/openquery-transact-sql?view=azure-sqldw-latest&preserve-view=true)  |
@@ -76,33 +76,33 @@ O Sinaapse SQL permite-lhe utilizar funcionalidades de segurança incorporadas p
 
 |   | Dedicada | Sem servidor |
 | --- | --- | --- |
-| **Inícios de sessão** | N/A (apenas os utilizadores contidos são suportados em bases de dados) | Sim |
-| **Utilizadores** |  N/A (apenas os utilizadores contidos são suportados em bases de dados) | Sim |
-| **[Utilizadores contidos](/sql/relational-databases/security/contained-database-users-making-your-database-portable?view=azure-sqldw-latest&preserve-view=true)** | Sim. **Nota:** apenas um utilizador AZure AD pode ser administrador sem restrições | Não |
-| **Autenticação de nome de utilizador/palavra-passe SQL**| Sim | Sim |
+| **Inícios de sessão** | N/A (apenas os utilizadores contidos são suportados em bases de dados) | Yes |
+| **Utilizadores** |  N/A (apenas os utilizadores contidos são suportados em bases de dados) | Yes |
+| **[Utilizadores contidos](/sql/relational-databases/security/contained-database-users-making-your-database-portable?view=azure-sqldw-latest&preserve-view=true)** | Sim. **Nota:** apenas um utilizador AZure AD pode ser administrador sem restrições | No |
+| **Autenticação de nome de utilizador/palavra-passe SQL**| Yes | Yes |
 | **Autenticação do Azure Ative Directory (Azure AD)**| Sim, utilizadores de AD Azure | Sim, logins e utilizadores da AD Azure |
-| **Armazenamento Azure Ative Directy (Azure AD) através da autenticação** | Sim | Sim |
-| **Armazenamento sas token autenticação** | Não | Sim, utilizando [a CREDENCIAL SCOPED DE BASE DE DADOS](/sql/t-sql/statements/create-database-scoped-credential-transact-sql?view=azure-sqldw-latest&preserve-view=true) em [FONTE DE DADOS EXTERNA](/sql/t-sql/statements/create-external-data-source-transact-sql?view=azure-sqldw-latest&preserve-view=true) ou [CREDENCIAL](/sql/t-sql/statements/create-credential-transact-sql?view=azure-sqldw-latest&preserve-view=true)DE NÍVEL DE INSTÂNCIA . |
-| **Autenticação da chave de acesso ao armazenamento** | Sim, utilizando [a CREDENCIAL SCOPED DE BASE DE DADOS](/sql/t-sql/statements/create-database-scoped-credential-transact-sql?view=azure-sqldw-latest&preserve-view=true) EM [FONTE DE DADOS EXTERNA](/sql/t-sql/statements/create-external-data-source-transact-sql?view=azure-sqldw-latest&preserve-view=true) | Não |
+| **Armazenamento Azure Ative Directy (Azure AD) através da autenticação** | Yes | Yes |
+| **Armazenamento sas token autenticação** | No | Sim, utilizando [a CREDENCIAL SCOPED DE BASE DE DADOS](/sql/t-sql/statements/create-database-scoped-credential-transact-sql?view=azure-sqldw-latest&preserve-view=true) em [FONTE DE DADOS EXTERNA](/sql/t-sql/statements/create-external-data-source-transact-sql?view=azure-sqldw-latest&preserve-view=true) ou [CREDENCIAL](/sql/t-sql/statements/create-credential-transact-sql?view=azure-sqldw-latest&preserve-view=true)DE NÍVEL DE INSTÂNCIA . |
+| **Autenticação da chave de acesso ao armazenamento** | Sim, utilizando [a CREDENCIAL SCOPED DE BASE DE DADOS](/sql/t-sql/statements/create-database-scoped-credential-transact-sql?view=azure-sqldw-latest&preserve-view=true) EM [FONTE DE DADOS EXTERNA](/sql/t-sql/statements/create-external-data-source-transact-sql?view=azure-sqldw-latest&preserve-view=true) | No |
 | **Autenticação [de identidade gerida de](../security/synapse-workspace-managed-identity.md) armazenamento** | Sim, usando [a Credencial de Identidade de Serviço Gerido](../../azure-sql/database/vnet-service-endpoint-rule-overview.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&preserve-view=true&toc=%2fazure%2fsynapse-analytics%2ftoc.json&view=azure-sqldw-latest&preserve-view=true) | Sim, usando `Managed Identity` credencial. |
-| **Autenticação de identidade de aplicação de armazenamento** | [Sim](/sql/t-sql/statements/create-external-data-source-transact-sql?view=azure-sqldw-latest&preserve-view=true) | Não |
+| **Autenticação de identidade de aplicação de armazenamento** | [Sim](/sql/t-sql/statements/create-external-data-source-transact-sql?view=azure-sqldw-latest&preserve-view=true) | No |
 | **Permissões - Nível de objeto** | Sim, incluindo a capacidade de conceder, negar e revogar permissões aos utilizadores | Sim, incluindo a capacidade de grant, DENY e REVOGAR permissões para utilizadores/logins nos objetos do sistema que são suportados |
 | **Permissões - Nível de Schema** | Sim, incluindo a capacidade de concessão, NEGAção e REVOGAção de permissões aos utilizadores/logins no esquema | Sim, incluindo a capacidade de concessão, NEGAção e REVOGAção de permissões aos utilizadores/logins no esquema |
-| **Permissões - [Nível de base de dados](/sql/relational-databases/security/authentication-access/database-level-roles?view=azure-sqldw-latest&preserve-view=true)** | Sim | Sim |
-| **Permissões - [Nível de servidor](/sql/relational-databases/security/authentication-access/server-level-roles)** | Não | Sim, sysadmin e outros servidor-roles são suportados |
-| **Permissões - [Segurança ao nível da coluna](../sql-data-warehouse/column-level-security.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json)** | Sim | Sim |
+| **Permissões - [Nível de base de dados](/sql/relational-databases/security/authentication-access/database-level-roles?view=azure-sqldw-latest&preserve-view=true)** | Yes | Yes |
+| **Permissões - [Nível de servidor](/sql/relational-databases/security/authentication-access/server-level-roles)** | No | Sim, sysadmin e outros servidor-roles são suportados |
+| **Permissões - [Segurança ao nível da coluna](../sql-data-warehouse/column-level-security.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json)** | Yes | Yes |
 | **Funções/grupos** | Sim (base de dados incluída) | Sim (tanto o servidor como a base de dados) |
 | **Funções &amp; de identidade de segurança** | Algumas funções e operadores de segurança Transact-SQL:  `CURRENT_USER` , , , , , , , , , `HAS_DBACCESS` , , `IS_MEMBER` , `IS_ROLEMEMBER` `SESSION_USER` `SUSER_NAME` `SUSER_SNAME` `SYSTEM_USER` `USER` `USER_NAME` `EXECUTE AS` , `OPEN/CLOSE MASTER KEY` | Algumas funções e operadores de segurança Transact-SQL:  `CURRENT_USER` , , , , `HAS_DBACCESS` , , `HAS_PERMS_BY_NAME` `IS_MEMBER', 'IS_ROLEMEMBER` e `IS_SRVROLEMEMBER` `SESSION_USER` `SESSION_CONTEXT` `SUSER_NAME` `SUSER_SNAME` `SYSTEM_USER` `USER` `USER_NAME` `EXECUTE AS` `REVERT` . As funções de segurança não podem ser utilizadas para consultar dados externos (armazenar o resultado em variável que pode ser utilizada na consulta).  |
-| **CREDENCIAL SCOPED BASE DE DADOS** | Sim | Sim |
-| **CREDENCIAL DE ÂMBITO DO SERVIDOR** | Não | Sim |
-| **Segurança ao nível da linha** | [Sim](/sql/relational-databases/security/row-level-security?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | Não |
-| **Encriptação de Dados Transparente (TDE)** | [Sim](../../azure-sql/database/transparent-data-encryption-tde-overview.md) | Não | 
-| **Deteção e Classificação de Dados** | [Sim](../../azure-sql/database/data-discovery-and-classification-overview.md) | Não |
-| **Avaliação de Vulnerabilidades** | [Sim](../../azure-sql/database/sql-vulnerability-assessment.md) | Não |
+| **CREDENCIAL SCOPED BASE DE DADOS** | Yes | Yes |
+| **CREDENCIAL DE ÂMBITO DO SERVIDOR** | No | Yes |
+| **Segurança ao nível da linha** | [Sim](/sql/relational-databases/security/row-level-security?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | No |
+| **Encriptação de Dados Transparente (TDE)** | [Sim](../../azure-sql/database/transparent-data-encryption-tde-overview.md) | No | 
+| **Deteção e Classificação de Dados** | [Sim](../../azure-sql/database/data-discovery-and-classification-overview.md) | No |
+| **Avaliação de Vulnerabilidades** | [Sim](../../azure-sql/database/sql-vulnerability-assessment.md) | No |
 | **Advanced Threat Protection** | [Sim](../../azure-sql/database/threat-detection-overview.md)
-| **Auditoria** | [Sim](../../azure-sql/database/auditing-overview.md) | Não |
-| **[Regras da firewall](../security/synapse-workspace-ip-firewall.md)**| Sim | Sim |
-| **[Ponto final privado](../security/synapse-workspace-managed-private-endpoints.md)**| Sim | Sim |
+| **Auditoria** | [Sim](../../azure-sql/database/auditing-overview.md) | No |
+| **[Regras da firewall](../security/synapse-workspace-ip-firewall.md)**| Yes | Yes |
+| **[Ponto final privado](../security/synapse-workspace-managed-private-endpoints.md)**| Yes | Yes |
 
 Piscina SQL dedicada e piscina SQL sem servidor usam linguagem padrão Transact-SQL para consultar dados. Para obter diferenças detalhadas, consulte a [referência linguística Transact-SQL](/sql/t-sql/language-reference).
 
@@ -113,10 +113,10 @@ Pode utilizar várias ferramentas para ligar ao Sinaapse SQL para consultar dado
 |   | Dedicada | Sem servidor |
 | --- | --- | --- |
 | **Synapse Studio** | Sim, scripts SQL | Sim, scripts SQL |
-| **Power BI** | Sim | [Sim](tutorial-connect-power-bi-desktop.md) |
-| **Serviço de Análise Azure** | Sim | Sim |
-| **Azure Data Studio** | Sim | Sim, versão 1.18.0 ou superior. Os scripts SQL e os Cadernos SQL são suportados. |
-| **O SQL Server Management Studio** | Sim | Sim, versão 18.5 ou superior |
+| **Power BI** | Yes | [Sim](tutorial-connect-power-bi-desktop.md) |
+| **Serviço de Análise Azure** | Yes | Yes |
+| **Azure Data Studio** | Yes | Sim, versão 1.18.0 ou superior. Os scripts SQL e os Cadernos SQL são suportados. |
+| **O SQL Server Management Studio** | Yes | Sim, versão 18.5 ou superior |
 
 > [!NOTE]
 > Pode utilizar SSMS para ligar à piscina SQL sem servidor e consultar. É parcialmente suportado a partir da versão 18.5, pode usá-lo apenas para ligar e consultar.
@@ -129,15 +129,15 @@ Os dados que são analisados podem ser armazenados em vários tipos de armazenam
 
 |   | Dedicada | Sem servidor |
 | --- | --- | --- |
-| **Armazenamento interno** | Sim | Não |
-| **Lago Azure Data v2** | Sim | Sim |
-| **Armazenamento de Blobs do Azure** | Sim | Sim |
-| **Azure SQL (remoto)** | Não | Não |
-| **Armazenamento transacional Azure CosmosDB** | Não | Não |
-| **Armazenamento analítico Azure CosmosDB** | Não | Sim, utilizando [o Synapse Link (pré-visualização)](../../cosmos-db/synapse-link.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json) [(pré-visualização pública)](../../cosmos-db/synapse-link.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json#limitations) |
-| **Mesas Apache Spark (no espaço de trabalho)** | Não | Tabelas PARQUET apenas usando [sincronização de metadados](develop-storage-files-spark-tables.md) |
-| **Tabelas de faíscas Apache (remota)** | Não | Não |
-| **Tabelas databricks (remota)** | Não | Não |
+| **Armazenamento interno** | Yes | No |
+| **Lago Azure Data v2** | Yes | Yes |
+| **Armazenamento de Blobs do Azure** | Yes | Yes |
+| **Azure SQL (remoto)** | No | No |
+| **Armazenamento transacional Azure CosmosDB** | No | No |
+| **Armazenamento analítico Azure CosmosDB** | No | Sim, utilizando [o Synapse Link (pré-visualização)](../../cosmos-db/synapse-link.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json) [(pré-visualização pública)](../../cosmos-db/synapse-link.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json#limitations) |
+| **Mesas Apache Spark (no espaço de trabalho)** | No | Tabelas PARQUET apenas usando [sincronização de metadados](develop-storage-files-spark-tables.md) |
+| **Tabelas de faíscas Apache (remota)** | No | No |
+| **Tabelas databricks (remota)** | No | No |
 
 ## <a name="data-formats"></a>Formatos de dados
 
@@ -148,15 +148,15 @@ Os dados que são analisados podem ser armazenados em vários formatos de armaze
 | **Delimitado** | [Sim](/sql/t-sql/statements/create-external-file-format-transact-sql?view=azure-sqldw-latest&preserve-view=true) | [Sim](query-single-csv-file.md) |
 | **CSV** | Sim (delimiters multi-caracteres não suportados) | [Sim](query-single-csv-file.md) |
 | **Parquet** | [Sim](/sql/t-sql/statements/create-external-file-format-transact-sql?view=azure-sqldw-latest&preserve-view=true) | [Sim,](query-parquet-files.md)incluindo ficheiros com [tipos aninhados](query-parquet-nested-types.md) |
-| **Colmeia ORC** | [Sim](/sql/t-sql/statements/create-external-file-format-transact-sql?view=azure-sqldw-latest&preserve-view=true) | Não |
-| **Colmeia RC** | [Sim](/sql/t-sql/statements/create-external-file-format-transact-sql?view=azure-sqldw-latest&preserve-view=true) | Não |
-| **JSON** | Sim | [Sim](query-json-files.md) |
-| **Avro** | Não | Não |
-| **[Delta-lake](https://delta.io/)** | Não | Não |
-| **[CDM](/common-data-model/)** | Não | Não |
+| **Colmeia ORC** | [Sim](/sql/t-sql/statements/create-external-file-format-transact-sql?view=azure-sqldw-latest&preserve-view=true) | No |
+| **Colmeia RC** | [Sim](/sql/t-sql/statements/create-external-file-format-transact-sql?view=azure-sqldw-latest&preserve-view=true) | No |
+| **JSON** | Yes | [Sim](query-json-files.md) |
+| **Avro** | No | No |
+| **[Delta-lake](https://delta.io/)** | No | No |
+| **[CDM](/common-data-model/)** | No | Não |
 
 ## <a name="next-steps"></a>Próximos passos
 Informações adicionais sobre as melhores práticas para piscina SQL dedicada e piscina SQL sem servidor podem ser encontradas nos seguintes artigos:
 
-- [Boas Práticas para piscina SQL dedicada](best-practices-sql-pool.md)
-- [Melhores práticas para piscina SQL sem servidor](best-practices-sql-on-demand.md)
+- [Boas Práticas para piscina SQL dedicada](best-practices-dedicated-sql-pool.md)
+- [Melhores práticas para piscina SQL sem servidor](best-practices-serverless-sql-pool.md)

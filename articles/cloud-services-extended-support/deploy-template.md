@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: a606956483ddb7c7f3a4f3cef8728ade508ab461
-ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
+ms.openlocfilehash: b3fd8dcd5f2e73b798f6e9529b5811b9935bc393
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103574276"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104605771"
 ---
 # <a name="deploy-a-cloud-service-extended-support-using-arm-templates"></a>Implementar um Serviço de Nuvem (suporte alargado) utilizando modelos ARM
 
@@ -45,7 +45,7 @@ Este tutorial explica como criar uma implementação de Cloud Service (suporte a
 ## <a name="deploy-a-cloud-service-extended-support"></a>Implementar um Serviço de Cloud (suporte alargado)
 
 > [!NOTE]
-> Uma forma alternativa de implementar o seu serviço na nuvem (suporte alargado) é através do [portal Azure](https://portal.azure.com). Pode descarregar o modelo ARM gerado através do portal para as suas futuras implementações
+> Uma forma alternativa de implementar o seu serviço na nuvem (suporte alargado) é através do [portal Azure](https://portal.azure.com). Pode [descarregar o modelo ARM gerado](generate-template-portal.md) através do portal para as suas futuras implementações
  
 1. Criar rede virtual. O nome da rede virtual deve coincidir com as referências no ficheiro Configuração de Serviço (.cscfg). Se utilizar uma rede virtual existente, omita esta secção do modelo ARM.
 

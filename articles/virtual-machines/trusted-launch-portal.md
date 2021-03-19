@@ -9,12 +9,12 @@ ms.subservice: trusted-launch
 ms.topic: how-to
 ms.date: 03/03/2021
 ms.custom: template-how-to
-ms.openlocfilehash: f5e361d32cf2ab436f92ce2ca86a054a6dd3337e
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: dec9c7581bbcf55196b04e0a76e9e61f81a27244
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102553753"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104582073"
 ---
 # <a name="deploy-a-vm-with-trusted-launch-enabled-preview"></a>Implementar um VM com lançamento fidedigno ativado (pré-visualização)
 
@@ -134,13 +134,13 @@ Selecione o botão abaixo para implementar as políticas para a sua subscrição
 
 O modelo precisa de ser implantado apenas uma vez por subscrição. Instala e amplia automaticamente `GuestAttestation` `AzureSecurity` em todos os VMs suportados. Se tiver erros, tente recolocar o modelo novamente.
 
-Para obter vTPM e recomendar recomendações de arranque seguras para VMs de lançamento fidedignos, consulte [Adicionar uma iniciativa personalizada à sua subscrição.](https://docs.microsoft.com/azure/security-center/custom-security-policies#to-add-a-custom-initiative-to-your-subscription)
+Para obter vTPM e recomendar recomendações de arranque seguras para VMs de lançamento fidedignos, consulte [Adicionar uma iniciativa personalizada à sua subscrição.](../security-center/custom-security-policies.md#to-add-a-custom-initiative-to-your-subscription)
  
 ## <a name="sign-things-for-secure-boot-on-linux"></a>Assine coisas para Secure Boot em Linux
 
 Em alguns casos, poderá ter de assinar coisas para o UEFI Secure Boot.  Por exemplo, pode precisar de ver [como assinar coisas para Secure Boot](https://ubuntu.com/blog/how-to-sign-things-for-secure-boot) para Ubuntu. Nestes casos, tem de introduzir as chaves de inscrição de utilitário MOK para o seu VM. Para isso, é necessário utilizar a Consola em Série Azure para aceder ao utilitário MOK.
 
-1. Ativar a consola em série Azure para o Linux. Para mais informações, consulte [a Consola em Série para Linux](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/serial-console-linux).
+1. Ativar a consola em série Azure para o Linux. Para mais informações, consulte [a Consola em Série para Linux](/troubleshoot/azure/virtual-machines/serial-console-linux).
 1. Faça login no [portal Azure](https://portal.azure.com).
 1. Procure **por máquinas Virtuais** e selecione o seu VM da lista.
 1. No menu esquerdo, em **Suporte + resolução de problemas,** selecione **Consola série**. Uma página abrir-se-á à direita, com a consola em série.

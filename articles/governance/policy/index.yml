@@ -9,13 +9,13 @@ metadata:
   ms.collection: collection
   author: DCtheGeek
   ms.author: dacoulte
-  ms.date: 10/26/2020
-  ms.openlocfilehash: 753a2b112929b785526e32df9c9836f48b8675ba
-  ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
-  ms.translationtype: HT
+  ms.date: 03/16/2021
+  ms.openlocfilehash: 7803b5fa827e129ccf4cd6f21c327d4e260b1264
+  ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+  ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 01/08/2021
-  ms.locfileid: "98034956"
+  ms.lasthandoff: 03/19/2021
+  ms.locfileid: "104598461"
 landingContent:
 - title: Acerca do Azure Policy
   linkLists:
@@ -131,16 +131,8 @@ landingContent:
       url: /powershell/module/az.resources/#policy
     - text: Azure PowerShell (Informações da Política)
       url: /powershell/module/az.policyinsights#policy-insights
-    - text: REST (Informações da Política)
-      url: /rest/api/policy-insights/
-    - text: REST (Atribuições)
-      url: /rest/api/resources/policyassignments
-    - text: REST (Definições)
-      url: /rest/api/resources/policydefinitions
-    - text: REST (Isenções)
-      url: /rest/api/resources/policyexemptions
-    - text: REST (Iniciativas)
-      url: /rest/api/resources/policysetdefinitions
+    - text: REST
+      url: /rest/api/policy/
     - text: Modelos do Resource Manager
       url: /azure/templates/microsoft.authorization/allversions
 - title: Referência (mais)

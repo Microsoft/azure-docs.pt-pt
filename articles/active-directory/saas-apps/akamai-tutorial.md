@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/04/2021
 ms.author: jeedes
-ms.openlocfilehash: 8838e3c92a2c7ccc77794973b3cb8e67128e3c71
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: a22a214104357b9ad99238a8db157839a1c9fd46
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101655155"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104591950"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-akamai"></a>Tutorial: Azure Ative Directory integração única (SSO) com a Akamai
 
@@ -478,7 +478,7 @@ Designar o Fornecedor de Identidade.
 
 1. Verifique a Criação do Diretório.
 
-    ![Screenshot da janela de diretórios de consolas Akamai EAA mostrando que o diretório superdemo.live foi adicionado.](./media/header-akamai-tutorial/directory-domain.png)
+    ![Screenshot da janela de consolas Akamai EAA mostrando que o diretório superdemo.live foi adicionado.](./media/header-akamai-tutorial/directory-domain.png)
 
 1. Adicione os Grupos/OUs que seriam necessários acesso.
 
@@ -505,7 +505,7 @@ Designar o Fornecedor de Identidade.
 
 1. O nome do logotipo do utilizador será:`HTTP/corpapps.login.go.akamai-access.com`
 
-    ![Screenshot mostrando propriedades dedelegação EAA com o primeiro nome definido para "EAADelegation" e nome de logotipo do utilizador definido para HTTP/corpapps.login.go.akamai-access.com.](./media/header-akamai-tutorial/eaadelegation.png)
+    ![Screenshot mostrando EAADelegation Properties com o primeiro nome definido para "EAADelegation" e conjunto de nome de logotipo do utilizador para HTTP/corpapps.login.go.-akamai access.com.](./media/header-akamai-tutorial/eaadelegation.png)
 
 #### <a name="step-2-configure-the-spn-for-this-account"></a>Passo 2: Configurar o SPN para esta conta
 
@@ -583,8 +583,8 @@ Nesta secção, testa a configuração de um único sinal de inscrição Azure A
 
 * Clique em Testar esta aplicação no portal Azure e deverá ser automaticamente inscrito no Akamai para o qual configura o SSO.
 
-* Pode utilizar as minhas apps do Microsoft. Quando clicar no azulejo da Akamai nas Minhas Apps, deverá ser automaticamente inscrito no Akamai para o qual configura o SSO. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+* Pode utilizar as minhas apps do Microsoft. Quando clicar no azulejo da Akamai nas Minhas Apps, deverá ser automaticamente inscrito no Akamai para o qual configura o SSO. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](../user-help/my-apps-portal-end-user-access.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Uma vez configurado o Akamai, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Uma vez configurado o Akamai, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

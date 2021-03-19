@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/25/2020
 ms.author: trbye
-ms.openlocfilehash: ae2f37cd84904aff33c4752bd54c815b74bb71c8
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 78639386c9d836055d80566f4b84565c2c3b8e80
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102428210"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104612086"
 ---
 Neste arranque rápido, você aprende padrões de design comuns para fazer síntese de texto-a-fala usando o SDK do discurso. Começa por fazer configuração e síntese básicas e passa a exemplos mais avançados para o desenvolvimento de aplicações personalizadas, incluindo:
 
@@ -78,8 +78,8 @@ int wmain()
     }
     return 0;
 }
-    
-void synthesizeSpeech() 
+
+void synthesizeSpeech()
 {
     auto config = SpeechConfig::FromSubscription("YourSubscriptionKey", "YourServiceRegion");
 }
@@ -92,7 +92,7 @@ Em seguida, [`SpeechSynthesizer`](/cpp/cognitive-services/speech/speechsynthesiz
 Para iniciar, crie uma `AudioConfig` para escrever automaticamente a saída para um `.wav` ficheiro, utilizando a `FromWavFileOutput()` função.
 
 ```cpp
-void synthesizeSpeech() 
+void synthesizeSpeech()
 {
     auto config = SpeechConfig::FromSubscription("YourSubscriptionKey", "YourServiceRegion");
     auto audioConfig = AudioConfig::FromWavFileOutput("path/to/write/file.wav");
@@ -102,7 +102,7 @@ void synthesizeSpeech()
 Em seguida, instantânea `SpeechSynthesizer` a, passando o seu `config` objeto e o objeto como `audioConfig` params. Em seguida, executar a síntese da fala e escrever para um ficheiro é tão simples como correr `SpeakTextAsync()` com uma série de textos.
 
 ```cpp
-void synthesizeSpeech() 
+void synthesizeSpeech()
 {
     auto config = SpeechConfig::FromSubscription("YourSubscriptionKey", "YourServiceRegion");
     auto audioConfig = AudioConfig::FromWavFileOutput("path/to/write/file.wav");
@@ -118,7 +118,7 @@ Execute o programa e um ficheiro sintetizado `.wav` é escrito para o local espe
 Em alguns casos, pode querer fazer a produção direta do discurso sintetizado diretamente para um orador. Para isso, simplesmente omite o `AudioConfig` param ao criar `SpeechSynthesizer` o exemplo acima. Isto permite obter o dispositivo de saída ativo atual.
 
 ```cpp
-void synthesizeSpeech() 
+void synthesizeSpeech()
 {
     auto config = SpeechConfig::FromSubscription("YourSubscriptionKey", "YourServiceRegion");
     auto synthesizer = SpeechSynthesizer::FromConfig(config);
@@ -134,7 +134,7 @@ Para muitos cenários no desenvolvimento de aplicações de fala, é provável q
 * Integre o resultado com outros serviços ou serviços da API.
 * Modifique os dados áudio, escreva `.wav` cabeçalhos personalizados, etc.
 
-É simples fazer esta mudança do exemplo anterior. Em primeiro lugar, remova o `AudioConfig` , pois irá gerir manualmente o comportamento da saída a partir deste ponto para um maior controlo. Em seguida, passe `NULL` para o `AudioConfig` no `SpeechSynthesizer` construtor. 
+É simples fazer esta mudança do exemplo anterior. Em primeiro lugar, remova o `AudioConfig` , pois irá gerir manualmente o comportamento da saída a partir deste ponto para um maior controlo. Em seguida, passe `NULL` para o `AudioConfig` no `SpeechSynthesizer` construtor.
 
 > [!NOTE]
 > Passar `NULL` para o , em vez de `AudioConfig` omiti-lo como no exemplo de saída do altifalante acima, não reproduzirá o áudio por padrão no dispositivo de saída ativo atual.
@@ -142,11 +142,11 @@ Para muitos cenários no desenvolvimento de aplicações de fala, é provável q
 Desta vez, guarde o resultado para uma [`SpeechSynthesisResult`](/cpp/cognitive-services/speech/speechsynthesisresult) variável. O `GetAudioData` getter devolve um `byte []` dos dados de saída. Pode trabalhar manualmente com `byte []` isto, ou pode utilizar a [`AudioDataStream`](/cpp/cognitive-services/speech/audiodatastream) classe para gerir o fluxo de memória. Neste exemplo, utiliza-se a `AudioDataStream.FromResult()` função estática para obter um fluxo a partir do resultado.
 
 ```cpp
-void synthesizeSpeech() 
+void synthesizeSpeech()
 {
     auto config = SpeechConfig::FromSubscription("YourSubscriptionKey", "YourServiceRegion");
     auto synthesizer = SpeechSynthesizer::FromConfig(config, NULL);
-    
+
     auto result = synthesizer->SpeakTextAsync("Getting the response as an in-memory stream.").get();
     auto stream = AudioDataStream::FromResult(result);
 }
@@ -172,14 +172,14 @@ Existem várias opções para diferentes tipos de ficheiros, dependendo dos seus
 Neste exemplo, especifica-se um formato RIFF de alta `Riff24Khz16BitMonoPcm` fidelidade, definindo `SpeechSynthesisOutputFormat` o no `SpeechConfig` objeto. Semelhante ao exemplo na secção anterior, [`AudioDataStream`](/cpp/cognitive-services/speech/audiodatastream) usa-se para obter um fluxo de memória do resultado e, em seguida, escreva-o num ficheiro.
 
 ```cpp
-void synthesizeSpeech() 
+void synthesizeSpeech()
 {
     auto config = SpeechConfig::FromSubscription("YourSubscriptionKey", "YourServiceRegion");
     config->SetSpeechSynthesisOutputFormat(SpeechSynthesisOutputFormat::Riff24Khz16BitMonoPcm);
 
     auto synthesizer = SpeechSynthesizer::FromConfig(config, NULL);
     auto result = synthesizer->SpeakTextAsync("A simple test to write to a file.").get();
-    
+
     auto stream = AudioDataStream::FromResult(result);
     stream->SaveToWavFileAsync("path/to/write/file.wav").get();
 }
@@ -205,11 +205,11 @@ Em primeiro lugar, crie um novo ficheiro XML para o config SSML no seu diretóri
 Em seguida, tem de alterar o pedido de síntese de fala para fazer referência ao seu ficheiro XML. O pedido é maioritariamente o mesmo, mas em vez de utilizar a `SpeakTextAsync()` função, `SpeakSsmlAsync()` usa- se. Esta função espera uma cadeia XML, por isso primeiro carregue o seu config SSML como uma corda. A partir daqui, o objeto de resultado é exatamente o mesmo que exemplos anteriores.
 
 ```cpp
-void synthesizeSpeech() 
+void synthesizeSpeech()
 {
     auto config = SpeechConfig::FromSubscription("YourSubscriptionKey", "YourServiceRegion");
     auto synthesizer = SpeechSynthesizer::FromConfig(config, NULL);
-    
+
     std::ifstream file("./ssml.xml");
     std::string ssml, line;
     while (std::getline(file, line))
@@ -218,7 +218,7 @@ void synthesizeSpeech()
         ssml.push_back('\n');
     }
     auto result = synthesizer->SpeakSsmlAsync(ssml).get();
-    
+
     auto stream = AudioDataStream::FromResult(result);
     stream->SaveToWavFileAsync("path/to/write/file.wav").get();
 }
@@ -254,3 +254,11 @@ Para mudar para uma voz neural, mude `name` a uma das [opções de voz neural](.
   </voice>
 </speak>
 ```
+
+## <a name="visemes"></a>Visemes
+
+A fala é geralmente tratada como uma boa maneira de impulsionar a animação de expressões faciais.
+Muitas vezes os [visemes](../../../how-to-speech-synthesis-viseme.md) são usados para representar as poses-chave na fala observada (isto é, a posição dos lábios, mandíbula e língua ao produzir um determinado fonme).
+Pode subscrever o evento Viseme em Speech SDK para gerar dados de animação facial.
+Em seguida, pode aplicar esses dados a um personagem para realizar animação facial.
+Aprenda [a obter saídas visemas](../../../how-to-speech-synthesis-viseme.md#get-viseme-outputs-with-the-speech-sdk).

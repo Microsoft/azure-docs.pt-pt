@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: include
 ms.custom: include file
 ms.date: 06/27/2019
-ms.openlocfilehash: a979cd0a4c2ee6466edebadf61e8a98b8f17c9f3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 0c21c576cbb99ccc96bf7edf733769a9b28b9344
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96013382"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104612846"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -27,7 +27,7 @@ Para criar instâncias do Data Factory, a conta de utilizador que utiliza para i
 
 Para criar e gerir recursos subordinados do Data Factory - incluindo conjuntos de dados, serviços ligados, pipelines, acionadores e runtimes de integração - os requisitos seguintes são aplicáveis:
 
-- Para criar e gerir recursos subordinados no portal do Azure, tem de pertencer à função **Contribuidor do Data Factory** ao nível do grupo de recursos ou superior.
+- Para criar e gerir recursos infantis no portal Azure, deve pertencer à função de Contribuinte da **Data Factory** ao nível do grupo de recursos ou superior.
 - Para criar e gerir recursos subordinados com o PowerShell ou o SDK, a função **contribuidor** ao nível do grupo de recursos ou superior é suficiente.
 
 Para obter instruções de exemplo sobre como adicionar um utilizador a uma função, veja o artigo [Adicionar funções](../articles/cost-management-billing/manage/add-change-subscription-administrator.md).
@@ -55,11 +55,12 @@ Também pode pesquisar e selecionar *contas de Armazenamento* a partir de qualqu
 
 Nesta secção, vai criar um contentor de blobs com o nome **adftutorial** no armazenamento de Blobs do Azure.
 
-1. Na página da conta **Overview** de armazenamento, selecione  >  **Overview Containers**.
+1. Na página da conta de armazenamento, selecione  >  **Overview Containers**.
 2. Na *\<Account name>*  -  barra de ferramentas da página dos **contentores,** selecione **Recipiente**.
 3. Na caixa de diálogo **Novo contentor**, introduza **adftutorial** para o nome e selecione **OK**. A página *\<Account name>*  -  **de Contentores** é atualizada para incluir **adftutorial** na lista de contentores.
 
-   ![Lista de contentores](media/data-factory-quickstart-prerequisites/list-of-containers.png)
+   :::image type="content" source="media/data-factory-quickstart-prerequisites/list-of-containers.png" alt-text="Lista de contentores":::
+
 
 #### <a name="add-an-input-folder-and-file-for-the-blob-container"></a>Adicione uma pasta de entrada e ficheiro para o recipiente blob
 
@@ -82,7 +83,8 @@ Guarde o ficheiro na pasta **C:\ADFv2QuickStartPSH.** (Se a pasta já não exist
 3. Na página **'Carregar blob',** selecione a caixa **'Ficheiros'** e, em seguida, navegue para e selecione o ficheiro **emp.txt.**
 4. Expandir o rumo **avançado.** A página agora mostra como mostrado:
 
-   ![Selecionar a ligação Avançadas](media/data-factory-quickstart-prerequisites/upload-blob-advanced.png)
+   :::image type="content" source="media/data-factory-quickstart-prerequisites/upload-blob-advanced.png" alt-text="Selecionar a ligação Avançadas":::
+
 5. Na caixa **de upload para pasta,** **introduza a entrada**.
 6. Selecione o botão **Carregar**. Deverá ver o ficheiro **emp.txt** e o estado do carregamento na lista.
 7. Selecione o ícone **Close** (um **X)** para fechar a página **de blob upload.**

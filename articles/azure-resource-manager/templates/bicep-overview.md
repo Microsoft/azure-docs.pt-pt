@@ -2,19 +2,23 @@
 title: Linguagem bicep para modelos de gestor de recursos Azure
 description: Descreve a linguagem Bicep para implantar infraestruturas para Azure através de modelos Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 03/12/2021
-ms.openlocfilehash: 599cb378da51c5d13e7db3cf45cacf750c5843cc
-ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
+ms.date: 03/17/2021
+ms.openlocfilehash: 6f706081d04c5337bb3def8088fe97b08c814ea2
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2021
-ms.locfileid: "103419835"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104594228"
 ---
 # <a name="what-is-bicep-preview"></a>O que é Bicep (Pré-visualização)?
 
 Bicep é uma linguagem para a implantação declarativa dos recursos do Azure. Pode utilizar Bicep em vez de JSON para desenvolver os seus modelos de Gestor de Recursos Azure (modelos ARM). A Bicep simplifica a experiência de autoria fornecendo sintaxe concisa, melhor suporte para a reutilização de códigos e melhor segurança do tipo. Bicep é uma língua específica do domínio (DSL), o que significa que é projetado para um determinado cenário ou domínio. Não se destina a ser uma linguagem de programação geral para escrever aplicações.
 
 A sintaxe JSON para criar o modelo pode ser verbosa e requer expressão complicada. Bicep melhora essa experiência sem perder nenhuma das capacidades de um modelo JSON. É uma abstração transparente sobre o JSON para modelos ARM. Cada ficheiro Bicep compila-se com um modelo ARM padrão. Os tipos de recursos, versões API e propriedades válidas num modelo ARM são válidos num ficheiro Bicep. Existem algumas [limitações conhecidas](#known-limitations) na versão atual.
+
+Para saber mais sobre Bicep, veja o seguinte vídeo.
+
+> [!VIDEO https://mediusprodstatic.studios.ms/asset-cccfdaf2-cdbe-49dd-9c58-91a4fe5ff0fd/OD340_1920x1080_AACAudio_5429.mp4?sv=2018-03-28&sr=b&sig=N3DuBaTrK3nt5TGwIagTbCqjVrzgwiJ9at80MXQJFwg%3D&st=2021-03-02T01%3A22%3A57Z&se=2026-03-02T01%3A27%3A57Z&sp=r&rscd=filename%3DIGFY21Q3-OD340-Learn%2Beverything%2Babout%2Bthe%2Bnext%2Bgeneration%2Bof%2BARM.mp4]
 
 ## <a name="get-started"></a>Introdução
 

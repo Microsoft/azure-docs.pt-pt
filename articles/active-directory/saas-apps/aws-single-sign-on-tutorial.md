@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/18/2021
 ms.author: jeedes
-ms.openlocfilehash: 906c7e00cba1e0feb85289e8f2a46e74924dc0c3
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: e890ff1cb64961c7747b8865b68504ff0a266a3e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101665006"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104599702"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-aws-single-sign-on"></a>Tutorial: Azure Ative Directory integração única de sign-on (SSO) com AWS Single Sign-on
 
@@ -39,7 +39,7 @@ Neste tutorial, você configura e testa Azure AD SSO em um ambiente de teste.
 
 * AWS Single Sign-on suporta **SP e IDP** iniciado SSO
 
-* A AWS Single Sign-on suporta [**o fornecimento automatizado de utilizadores**](https://docs.microsoft.com/azure/active-directory/saas-apps/aws-single-sign-on-provisioning-tutorial).
+* A AWS Single Sign-on suporta [**o fornecimento automatizado de utilizadores**](./aws-single-sign-on-provisioning-tutorial.md).
 
 ## <a name="adding-aws-single-sign-on-from-the-gallery"></a>Adicionando AWS Single Sign-on da galeria
 
@@ -196,7 +196,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, permiti
 10. Escolha **Acabamento**.
 
 > [!NOTE]
-> O AWS Single Sign-on também suporta o fornecimento automático do utilizador, podendo encontrar mais detalhes [aqui](https://docs.microsoft.com/azure/active-directory/saas-apps/aws-single-sign-on-provisioning-tutorial) sobre como configurar o fornecimento automático do utilizador.
+> O AWS Single Sign-on também suporta o fornecimento automático do utilizador, podendo encontrar mais detalhes [aqui](./aws-single-sign-on-provisioning-tutorial.md) sobre como configurar o fornecimento automático do utilizador.
 
 ## <a name="test-sso"></a>Teste SSO 
 
@@ -212,11 +212,9 @@ Nesta secção, testa a configuração de um único sinal de inscrição Azure A
 
 * Clique em **Testar esta aplicação** no portal Azure e deverá ser automaticamente inscrito no Único S-On AWS para o qual configura o SSO 
 
-Também pode utilizar o Microsoft My Apps para testar a aplicação em qualquer modo. Quando clicar no azulejo de inscrição única AWS nas Minhas Apps, se configurado no modo SP, será redirecionado para o sinal de aplicação na página para iniciar o fluxo de login e se configurado no modo IDP, deverá ser automaticamente inscrito no SSS Single Sign-on para o qual configura o SSO. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+Também pode utilizar o Microsoft My Apps para testar a aplicação em qualquer modo. Quando clicar no azulejo de inscrição única AWS nas Minhas Apps, se configurado no modo SP, será redirecionado para o sinal de aplicação na página para iniciar o fluxo de login e se configurado no modo IDP, deverá ser automaticamente inscrito no SSS Single Sign-on para o qual configura o SSO. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](../user-help/my-apps-portal-end-user-access.md)
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Uma vez configurado AWS Single Sign-on, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Uma vez configurado AWS Single Sign-on, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

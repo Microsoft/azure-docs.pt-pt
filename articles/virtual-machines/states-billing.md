@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/8/2021
 ms.author: mimckitt
 ms.reviewer: cynthn
-ms.openlocfilehash: 0325dcf16c8e637a58365311a4ebd37a442d6b8c
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: c206cba3b23a0bf41ce32481980aa466e869bcde
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102522455"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104596302"
 ---
 # <a name="states-and-billing-of-azure-virtual-machines"></a>Estados e faturação de Máquinas Virtuais Azure
 
@@ -82,6 +82,6 @@ Os estados de provisão só se aplicam a máquinas virtuais criadas com uma imag
 
 
 ## <a name="next-steps"></a>Passos seguintes
-- Reveja a [documentação de Gestão de Custos e Faturação da Azure](https://docs.microsoft.com/azure/cost-management-billing/)
+- Reveja a [documentação de Gestão de Custos e Faturação da Azure](../cost-management-billing/index.yml)
 - Utilize a [calculadora de preços Azure](https://azure.microsoft.com/pricing/calculator/) para planear as suas implementações.
-- Saiba mais sobre a monitorização do seu VM, consulte [as máquinas virtuais Monitor em Azure.](../azure-monitor/insights/monitor-vm-azure.md)
+- Saiba mais sobre a monitorização do seu VM, consulte [as máquinas virtuais Monitor em Azure.](../azure-monitor/vm/monitor-vm-azure.md)

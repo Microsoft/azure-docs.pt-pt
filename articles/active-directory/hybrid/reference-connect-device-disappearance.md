@@ -1,5 +1,5 @@
 ---
-title: Compreensão Azure AD Connect 1.4.xx.x e desaparecimento do dispositivo Microsoft Docs
+title: Compreender a Azure AD Connect 1.4.xx.x e o desaparecimento do dispositivo | Microsoft Docs
 description: Este documento descreve um problema que surge com a versão 1.4.xx.x do Azure AD Connect
 services: active-directory
 author: billmath
@@ -11,10 +11,10 @@ ms.date: 09/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.openlocfilehash: bc159452c81a673ca4a7ed46aa7eff19fd9209eb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "73176036"
 ---
 # <a name="understanding-azure-ad-connect-14xxx-and-device-disappearance"></a>Compreensão Azure AD Connect 1.4.xx.x e desaparecimento do dispositivo
