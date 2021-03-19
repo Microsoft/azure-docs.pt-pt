@@ -1,6 +1,6 @@
 ---
 title: 'Fast Forest Quantile Regression: Referência do módulo'
-titleSuffix: Azure Machine Learning
+titleSuffix: Azure Machine Learning
 description: Aprenda a usar o módulo de regressão quântil da floresta rápida para criar um modelo de regressão que possa prever valores para um número especificado de quantiles.
 services: machine-learning
 ms.service: machine-learning
@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 07/13/2020
 ms.openlocfilehash: 6d59d2fabb0b74ef12e33f55467b0ba68e0b7386
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90907956"
 ---
 # <a name="fast-forest-quantile-regression"></a>Regressão de Quantil da Floresta Rápida
@@ -87,11 +87,11 @@ A regressão quântica ajuda-o a compreender a distribuição do valor previsto.
 
 11. Envie o oleoduto.
 
-## <a name="results"></a>Results
+## <a name="results"></a>Resultados
 
 Após o treino estar completo:
 
-+ Para guardar uma imagem do modelo treinado, selecione o módulo de treino e, em seguida, mude para o **separador Outputs+logs** no painel direito. Clique no **conjunto de dados**do registo do ícone .  Pode encontrar o modelo guardado como um módulo na árvore do módulo.
++ Para guardar uma imagem do modelo treinado, selecione o módulo de treino e, em seguida, mude para o **separador Outputs+logs** no painel direito. Clique no **conjunto de dados** do registo do ícone .  Pode encontrar o modelo guardado como um módulo na árvore do módulo.
 
 ## <a name="next-steps"></a>Passos seguintes
 

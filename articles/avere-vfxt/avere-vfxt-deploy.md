@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: rohogue
 ms.openlocfilehash: 110fc658ffc3b72de91bbf1c9562f3efeecaf55b
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92342421"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>Implementar o cluster vFXT
@@ -147,7 +147,7 @@ Para encontrar a informação:
 
 1. Vá ao grupo de recursos para o seu controlador de cluster.
 
-1. No lado esquerdo, clique em **Implementações**e, em seguida, **microsoft-avere.vfxt-template**.
+1. No lado esquerdo, clique em **Implementações** e, em seguida, **microsoft-avere.vfxt-template**.
 
    ![Página do portal do grupo de recursos com Implementações selecionadas à esquerda e microsoft-avere.vfxt-modelo mostrando em uma tabela sob nome de Implementação](media/avere-vfxt-outputs-deployments.png)
 

@@ -1,5 +1,5 @@
 ---
-title: Características da solução Connected Factory - Azure / Microsoft Docs
+title: Características da solução Connected Factory - Azure | Microsoft Docs
 description: Este artigo descreve uma visão geral das características da solução pré-configurada da Fábrica Conectada, como painel de contas, regras e alertas.
 author: dominicbetts
 manager: timlt
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: dobett
 ms.openlocfilehash: e492ebf70f69c985691852a1c1f2351d1e09578e
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92425015"
 ---
 # <a name="what-is-connected-factory-iot-solution-accelerator"></a>O que é o acelerador de solução IoT da fábrica?

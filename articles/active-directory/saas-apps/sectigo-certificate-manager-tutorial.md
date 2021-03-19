@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Diretório Ativo do Azure com o Sectigo Certificate Manager Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com o Gestor de Certificados sectigo | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Sectigo Certificate Manager.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
 ms.openlocfilehash: c589db84b6221aa23868b3b49aea84f33623619f
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92673872"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sectigo-certificate-manager"></a>Tutorial: Integração do Diretório Ativo Azure com o Gestor de Certificados sectigo
@@ -38,7 +38,7 @@ Para configurar a integração AZure AD com o Sectigo Certificate Manager, preci
 * Conta de Sectigo Certificate Manager.
 
 > [!NOTE]
-> Sectigo executa várias instâncias de Sectigo Certificate Manager. O principal exemplo de Sectigo Certificate Manager é  **https: \/ /cert-manager.com** , e este URL é usado neste tutorial.  Se a sua conta estiver num caso diferente, deve ajustar os URLs em conformidade.
+> Sectigo executa várias instâncias de Sectigo Certificate Manager. O principal exemplo de Sectigo Certificate Manager é  **https: \/ /cert-manager.com**, e este URL é usado neste tutorial.  Se a sua conta estiver num caso diferente, deve ajustar os URLs em conformidade.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
@@ -53,27 +53,27 @@ Sectigo Certificate Manager suporta as seguintes funcionalidades:
 
 Para integrar o Sectigo Certificate Manager com a Azure AD, tem de adicionar o Sectigo Certificate Manager à sua lista de aplicações geridas pelo SaaS.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-1. No menu esquerdo, selecione **Azure Ative Directory** .
+1. No menu esquerdo, selecione **Azure Ative Directory**.
 
     ![A opção Azure Ative Directory](common/select-azuread.png)
 
-1. Selecione **aplicações da Empresa**  >  **Todas as aplicações** .
+1. Selecione **aplicações da Empresa**  >  **Todas as aplicações**.
 
     ![O painel de aplicações da Enterprise](common/enterprise-applications.png)
 
-1. Para adicionar uma aplicação, selecione **Nova aplicação** .
+1. Para adicionar uma aplicação, selecione **Nova aplicação**.
 
     ![A nova opção de aplicação](common/add-new-app.png)
 
-1. Na caixa de pesquisa, **insira o Gestor de Certificados de Sectigo.** Nos resultados da pesquisa, selecione **Sectigo Certificate Manager** e, em seguida, selecione **Add** .
+1. Na caixa de pesquisa, **insira o Gestor de Certificados de Sectigo.** Nos resultados da pesquisa, selecione **Sectigo Certificate Manager** e, em seguida, selecione **Add**.
 
     ![Sectigo Certificate Manager na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
-Nesta secção, você configura e testa Azure AD um único sign-on com Sectigo Certificate Manager com base em um utilizador de teste chamado **Britta Simon** . Para um único sinal de sação para o trabalho, deve estabelecer uma relação ligada entre um utilizador AZure AD e o utilizador relacionado no Sectigo Certificate Manager.
+Nesta secção, você configura e testa Azure AD um único sign-on com Sectigo Certificate Manager com base em um utilizador de teste chamado **Britta Simon**. Para um único sinal de sação para o trabalho, deve estabelecer uma relação ligada entre um utilizador AZure AD e o utilizador relacionado no Sectigo Certificate Manager.
 
 Para configurar e testar o Azure AD com o Sectigo Certificate Manager, deve completar os seguintes blocos de construção:
 
@@ -90,7 +90,7 @@ Para configurar e testar o Azure AD com o Sectigo Certificate Manager, deve comp
 
 Nesta secção, configurar o Azure AD com o Sectigo Certificate Manager no portal Azure.
 
-1. No [portal Azure,](https://portal.azure.com/)no painel de integração de aplicações **Sectigo Certificate Manager,** selecione **Single sign-on** .
+1. No [portal Azure,](https://portal.azure.com/)no painel de integração de aplicações **Sectigo Certificate Manager,** selecione **Single sign-on**.
 
     ![Configurar a opção de inscrição única](common/select-sso.png)
 
@@ -104,18 +104,18 @@ Nesta secção, configurar o Azure AD com o Sectigo Certificate Manager no porta
 
 1. Na secção **de Configuração Básica SAML** completam os seguintes passos:
 
-    1. Na caixa **identifier (Entity ID),** para a instância principal do Gestor de Certificados de Sectigo, **insira https: \/ /cert-manager.com/shibboleth** .
+    1. Na caixa **identifier (Entity ID),** para a instância principal do Gestor de Certificados de Sectigo, **insira https: \/ /cert-manager.com/shibboleth**.
 
-    1. Na caixa **URL de resposta,** para a instância principal do Gestor de Certificados de Sectigo, **insira https: \/ /cert-manager.com/Shibboleth.sso/SAML2/POST** .
+    1. Na caixa **URL de resposta,** para a instância principal do Gestor de Certificados de Sectigo, **insira https: \/ /cert-manager.com/Shibboleth.sso/SAML2/POST**.
         
     > [!NOTE]
     > Embora, em geral, o **URL de inscrição** seja obrigatório para *o modo iniciado pelo SP,* não é necessário fazer login no Sectigo Certificate Manager.        
 
 1. Opcionalmente, na secção **de Configuração Básica SAML,** para configurar o *modo iniciado pelo IDP* e permitir o trabalho do **Teste,** completar os seguintes passos:
 
-    1. Selecione **Definir URLs adicionais** .
+    1. Selecione **Definir URLs adicionais**.
 
-    1. Na caixa **'Retransmissão State',** insira o URL específico do cliente do Sectigo Certificate Manager. Para a instância principal do Gestor de Certificados de Sectigo, **insira https: \/ /cert-manager.com/customer/ \<customerURI\> /idp** .
+    1. Na caixa **'Retransmissão State',** insira o URL específico do cliente do Sectigo Certificate Manager. Para a instância principal do Gestor de Certificados de Sectigo, **insira https: \/ /cert-manager.com/customer/ \<customerURI\> /idp**.
 
     ![Sectigo Certificate Manager domínio e URLs informações únicas de inscrição](common/idp-relay.png)
 
@@ -125,16 +125,16 @@ Nesta secção, configurar o Azure AD com o Sectigo Certificate Manager no porta
     
     1. **Selecione Adicionar nova reclamação** e adicionar as seguintes quatro reclamações:
     
-        | Name | Espaço de Nomes | Fonte | Atributo de origem | Descrição |
+        | Name | Espaço de Nomes | Origem | Atributo de origem | Description |
         | --- | --- | --- | --- | --- |
         | nome eduPersonPrincipal | vazio | Atributo | user.userprincipalname | Deve coincidir com o campo **IdP Person ID** em Sectigo Certificate Manager para Administrações. |
-        | correio | vazio | Atributo | user.mail | Obrigatório |
+        | correio | vazio | Atributo | user.mail | Necessário |
         | nomeDado | vazio | Atributo | user.givenname | Opcional |
         | sn | vazio | Atributo | utilizador.sobrenome | Opcional |
 
        ![Sectigo Certificate Manager - Adicione quatro novas reclamações](media/sectigo-certificate-manager-tutorial/additional-claims.png)
 
-1. Na secção **certificado de assinatura SAML,** selecione **Descarregue** ao lado **do Metadados da Federação XML** . Guarde o ficheiro XML no seu computador.
+1. Na secção **certificado de assinatura SAML,** selecione **Descarregue** ao lado **do Metadados da Federação XML**. Guarde o ficheiro XML no seu computador.
 
     ![A opção de descarregamento de metadados XML da Federação](common/metadataxml.png)
 
@@ -146,23 +146,23 @@ Para configurar um único sinal no lado do Gestor de Certificados de Sectigo, en
 
 Nesta secção, cria-se um utilizador de teste chamado Britta Simon no portal Azure.
 
-1. No portal Azure, selecione **Utilizadores do Diretório Ativo Azure**  >  **Users**  >  **Todos os utilizadores** .
+1. No portal Azure, selecione **Utilizadores do Diretório Ativo Azure**  >    >  **Todos os utilizadores**.
 
     ![As opções dos Utilizadores e de Todos os utilizadores](common/users.png)
 
-1. Selecione **Novo utilizador** .
+1. Selecione **Novo utilizador**.
 
     ![A nova opção de utilizador](common/new-user.png)
 
 1. No painel de **utilização,** complete os seguintes passos:
 
-    1. Na caixa **Nome,** **insira BrittaSimon** .
+    1. Na caixa **Nome,** **insira BrittaSimon**.
   
-    1. Na caixa **do nome do utilizador,** **introduza brittasimon \@ \<your-company-domain> . \<extension\>** Por exemplo, **\@ brittasimon contoso.com** .
+    1. Na caixa **do nome do utilizador,** **introduza brittasimon \@ \<your-company-domain> . \<extension\>** Por exemplo, **\@ brittasimon contoso.com**.
 
     1. Selecione a caixa **de verificação de senha show.** Grave o valor que é apresentado na **caixa de palavra-passe.**
 
-    1. Selecione **Criar** .
+    1. Selecione **Criar**.
 
     ![O painel de utilizador](common/user-properties.png)
 
@@ -170,11 +170,11 @@ Nesta secção, cria-se um utilizador de teste chamado Britta Simon no portal Az
 
 Nesta secção, você concede a Britta Simon acesso ao Sectigo Certificate Manager para que o utilizador possa usar a Azure um único sinal de inscrição.
 
-1. No portal Azure, selecione **aplicações Enterprise**  >  **Todas as aplicações**  >  **Sectigo Certificate Manager** .
+1. No portal Azure, selecione **aplicações Enterprise**  >  **Todas as aplicações**  >  **Sectigo Certificate Manager**.
 
     ![O painel de aplicações da Enterprise](common/enterprise-applications.png)
 
-1. Na lista de candidaturas, selecione **Sectigo Certificate Manager** .
+1. Na lista de candidaturas, selecione **Sectigo Certificate Manager**.
 
     ![Sectigo Certificate Manager na lista de candidaturas](common/all-applications.png)
 
@@ -182,15 +182,15 @@ Nesta secção, você concede a Britta Simon acesso ao Sectigo Certificate Manag
 
     ![A opção Utilizadores e grupos](common/users-groups-blade.png)
 
-1. Selecione **Adicionar utilizador** . Em seguida, no painel de **atribuição Adicionar,** selecione **Utilizadores e grupos** .
+1. Selecione **Adicionar utilizador**. Em seguida, no painel de **atribuição Adicionar,** selecione **Utilizadores e grupos**.
 
     ![O painel de atribuição adicionar](common/add-assign-user.png)
 
-1. No painel **de Utilizadores e grupos,** selecione **Britta Simon** na lista de utilizadores. Escolha **Selecionar** .
+1. No painel **de Utilizadores e grupos,** selecione **Britta Simon** na lista de utilizadores. Escolha **Selecionar**.
 
-1. Se estiver à espera de um valor de função na afirmação SAML, no painel **de funções Select,** selecione a função relevante para o utilizador da lista. Escolha **Selecionar** .
+1. Se estiver à espera de um valor de função na afirmação SAML, no painel **de funções Select,** selecione a função relevante para o utilizador da lista. Escolha **Selecionar**.
 
-1. No painel **de atribuição de adição,** selecione **Atribuir** .
+1. No painel **de atribuição de adição,** selecione **Atribuir**.
 
 ### <a name="create-a-sectigo-certificate-manager-test-user"></a>Criar um utilizador de teste Sectigo Certificate Manager
 
@@ -202,7 +202,7 @@ Nesta secção, testa a configuração de um único sinal de inscrição Azure.
 
 #### <a name="test-from-sectigo-certificate-manager-sp-initiated-single-sign-on"></a>Teste do Gestor de Certificados de Sectigo (santil-on único iniciado pelo SP)
 
-Navegue pelo URL específico do cliente (para a instância principal do Gestor de Certificados de Sectigo, https: \/ /cert-manager.com/customer/ \<customerURI\> /, e selecione o botão abaixo **ou inscreva-se com** .  Se configurar corretamente, será automaticamente inscrito no Sectigo Certificate Manager.
+Navegue pelo URL específico do cliente (para a instância principal do Gestor de Certificados de Sectigo, https: \/ /cert-manager.com/customer/ \<customerURI\> /, e selecione o botão abaixo **ou inscreva-se com**.  Se configurar corretamente, será automaticamente inscrito no Sectigo Certificate Manager.
 
 #### <a name="test-from-azure-single-sign-on-configuration-idp-initiated-single-sign-on"></a>Teste a partir da configuração de um único sinal de Azure (sinal único iniciado pelo IDP)
 

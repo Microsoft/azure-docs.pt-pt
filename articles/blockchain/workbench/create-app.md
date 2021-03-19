@@ -5,10 +5,10 @@ ms.date: 08/24/2020
 ms.topic: tutorial
 ms.reviewer: ravastra
 ms.openlocfilehash: add790a069d2e0ea66d84bbd632825cf9331fd38
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88784033"
 ---
 # <a name="tutorial-create-a-blockchain-application-for-azure-blockchain-workbench"></a>Tutorial: Criar uma aplicação blockchain para a Azure Blockchain Workbench
@@ -242,7 +242,7 @@ Adicione o cabeçalho do **contrato** ao seu `HelloBlockchain.sol` ficheiro de c
 contract HelloBlockchain {
 ```
 
-### <a name="state-variables"></a>Variáveis do Estado
+### <a name="state-variables"></a>Variáveis de estado
 
 Variáveis estatais armazenam valores do estado para cada instância do contrato. As variáveis estatais no seu contrato devem corresponder às propriedades de fluxo de trabalho definidas no ficheiro de configuração.
 
@@ -320,7 +320,7 @@ Para adicionar uma aplicação blockchain ao Blockchain Workbench, você carrega
 1. Num navegador web, navegue para o endereço web blockchain Workbench. Por exemplo, `https://{workbench URL}.azurewebsites.net/` a aplicação web é criada quando implementa o Blockchain Workbench. Para obter informações sobre como encontrar o seu endereço web Blockchain Workbench, consulte [o URL web da Blockchain Workbench](deploy.md#blockchain-workbench-web-url)
 2. Inscreva-se como [administrador da Blockchain Workbench](manage-users.md#manage-blockchain-workbench-administrators).
 3. Selecione **Aplicações**  >  **Novas**. É apresentado o painel de **aplicação Novo.**
-4. Selecione **Carregar a configuração do contrato**  >  **Navegue** para localizar oHelloBlockchain.js**no** ficheiro de configuração que criou. O ficheiro de configuração é automaticamente validado. Selecione o link **'Mostrar'** para apresentar erros de validação. Corrija erros de validação antes de implementar a aplicação.
+4. Selecione **Carregar a configuração do contrato**  >  **Navegue** para localizar oHelloBlockchain.js **no** ficheiro de configuração que criou. O ficheiro de configuração é automaticamente validado. Selecione o link **'Mostrar'** para apresentar erros de validação. Corrija erros de validação antes de implementar a aplicação.
 5. **Selecione Carregar o código do contrato**  >  **Navegue** para localizar o ficheiro de código de contrato inteligente **HelloBlockchain.sol.** O ficheiro de código é automaticamente validado. Selecione o link **'Mostrar'** para apresentar erros de validação. Corrija erros de validação antes de implementar a aplicação.
 6. Selecione **Implementar** para criar a aplicação blockchain com base na configuração e nos ficheiros de contratos inteligentes.
 

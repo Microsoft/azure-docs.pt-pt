@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 10/02/2020
-ms.openlocfilehash: 11ce7b3da0d33fbe7f1229cbc00246da00858ec5
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: a708f0c1884073a2f2ea73092d25006415c59d5f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/19/2021
-ms.locfileid: "104598223"
+ms.locfileid: "104655228"
 ---
 # <a name="register-and-scan-an-azure-sql-database"></a>Registe-se e digitalize uma Base de Dados Azure SQL
 
@@ -157,8 +157,8 @@ No ecrã **'Azure SQL Database',** faça o seguinte:
 [!INCLUDE [create and manage scans](includes/manage-scans.md)]
 
 > [!NOTE]
-> A eliminação da sua verificação não elimina os seus ativos de análises anteriores da Base de Dados Azure SQL.
-> O ativo deixará de ser atualizado com alterações de esquema se a sua tabela de origem for alterada e rescandatar a tabela de origem após a edição da descrição no separador esquema de Purview.
+> * A eliminação da sua verificação não elimina os seus ativos de análises anteriores da Base de Dados Azure SQL.
+> * O ativo deixará de ser atualizado com alterações de esquema se a sua tabela de origem for alterada e rescandatar a tabela de origem após a edição da descrição no separador esquema de Purview.
 
 ## <a name="next-steps"></a>Passos seguintes
 

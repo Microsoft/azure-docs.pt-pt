@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: c8ae129cbad56e3bb63e055f9d843cac1da22fb1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91710469"
 ---
 # <a name="azure-database-for-postgresql---single-server"></a>Base de Dados do Azure para PostgreSQL – Servidor Único
@@ -41,7 +41,7 @@ Os seguintes elementos ajudam a garantir um acesso seguro à sua base de dados:
 | **Autenticação e autorização** | O servidor de Base de Dados do Azure para PostgreSQL suporta autenticação PostgreSQL nativa. Pode ligar e autenticar-se no servidor com o início de sessão de administrador do servidor. |
 | **Protocolo** | O serviço suporta um protocolo baseado em mensagens utilizado pela PostgreSQL. |
 | **TCP/IP** | O protocolo é suportado sobre TCP/IP, e sobre tomadas de domínio Unix. |
-| **Firewall** | Para ajudar a proteger os seus dados, uma regra de firewall impede todo o acesso ao seu servidor e às suas bases de dados, até que especifique quais os computadores que têm permissão. Consulte [a base de dados Azure para as regras de firewall do servidor postgresQL](concepts-firewall-rules.md). |
+| **Firewall** | Para ajudar a proteger os seus dados, uma regra de firewall impede todo o acesso ao seu servidor e às suas bases de dados, até que especifique quais os computadores que têm permissão. Consulte [a base de dados Azure para as regras de firewall do servidor postgresQL](concepts-firewall-rules.md). |
 
 ## <a name="managing-your-server"></a>Gerir o seu servidor
 Pode gerir a Base de Dados Azure para servidores PostgreSQL utilizando o [portal Azure](https://portal.azure.com) ou o [Azure CLI](/cli/azure/postgres).
@@ -63,7 +63,7 @@ Como serviço gerido para Postgres, os parâmetros configuráveis na Base de Dad
 
 
 ## <a name="next-steps"></a>Passos seguintes
-- Para obter uma visão geral do serviço, consulte [a Base de Dados Azure para obter uma visão geral pós-SQL.](overview.md)
-- Para obter informações sobre quotas e limitações específicas de recursos com base no seu **nível de serviço,** consulte [os níveis de Serviço](concepts-pricing-tiers.md).
-- Para obter informações sobre a ligação ao serviço, consulte [as bibliotecas de ligação para a base de dados Azure para PostgreSQL](concepts-connection-libraries.md).
+- Para obter uma visão geral do serviço, consulte [a Base de Dados Azure para obter uma visão geral pós-SQL.](overview.md)
+- Para obter informações sobre quotas e limitações específicas de recursos com base no seu **nível de serviço,** consulte [os níveis de Serviço](concepts-pricing-tiers.md).
+- Para obter informações sobre a ligação ao serviço, consulte [as bibliotecas de ligação para a base de dados Azure para PostgreSQL](concepts-connection-libraries.md).
 - Ver e editar parâmetros do servidor através do [portal Azure](howto-configure-server-parameters-using-portal.md) ou [do Azure CLI](howto-configure-server-parameters-using-cli.md).

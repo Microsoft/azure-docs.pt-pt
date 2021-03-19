@@ -9,10 +9,10 @@ ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: bd87265140a0bfaeb7ef4dada6dd76be1269654b
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92369374"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Configurar a recuperação após desastre para o Azure das VMs VMware no local
@@ -61,7 +61,7 @@ Complete os tutoriais anteriores:
 No seu ambiente de origem, necessita de uma única máquina, altamente disponível, no local para acolher estes componentes de Recuperação do Local no local:
 
 - **Servidor de configuração**: O servidor de configuração coordena as comunicações entre as instalações e o Azure e gere a replicação de dados.
-- **Servidor de**processo : O servidor de processo funciona como um gateway de replicação. Recebe dados de replicação; otimiza-o com caching, compressão e encriptação, e envia-o para uma conta de armazenamento de cache em Azure. O servidor de processo também instala o agente do Serviço de Mobilidade em VMs que pretende replicar, e executa a descoberta automática de VMware VMware no local.
+- **Servidor de** processo : O servidor de processo funciona como um gateway de replicação. Recebe dados de replicação; otimiza-o com caching, compressão e encriptação, e envia-o para uma conta de armazenamento de cache em Azure. O servidor de processo também instala o agente do Serviço de Mobilidade em VMs que pretende replicar, e executa a descoberta automática de VMware VMware no local.
 - **Servidor alvo principal**: O servidor-alvo principal trata os dados de replicação durante a falha do Azure.
 
 
@@ -74,7 +74,7 @@ Todos estes componentes são instalados em conjunto nas máquinas únicas no loc
 
 ### <a name="download-the-vm-template"></a>Transferir o modelo de VM
 
-1. No cofre, vá para preparar a **fonte de infraestrutura.**  >  **Source**
+1. No cofre, vá para preparar a **fonte de infraestrutura.**  >  
 2. Em **Preparar origem**, selecione **+Servidor de configuração**.
 3. Em **Adicionar Servidor**, verifique se o **Servidor de configuração para VMware** é apresentado no **Tipo de servidor**.
 4. Descarregue o modelo OVA para o servidor de configuração.
@@ -85,7 +85,7 @@ Todos estes componentes são instalados em conjunto nas máquinas únicas no loc
 
 
 1. Inscreva-se no servidor VMware vCenter ou no vSphere ESXi com o VMware vSphere Client.
-2. No menu **'Ficheiro',** selecione **implementar o modelo OVF** para iniciar o **Assistente de Modelo de OVF**de implementação .
+2. No menu **'Ficheiro',** selecione **implementar o modelo OVF** para iniciar o **Assistente de Modelo de OVF** de implementação .
 
      ![Screenshot do comando do modelo de implementação OVF no VMWare vSphere Client.](./media/vmware-azure-tutorial/vcenter-wizard.png)
 
@@ -138,19 +138,19 @@ Termine de configurar e registar o servidor de configuração. Antes de prossegu
     - Para computadores Windows, a conta precisa de privilégios de administrador local nos computadores que pretende replicar.
     - Para o Linux, forneça detalhes para a conta raiz.
 8. Selecione **Finalizar configuração** para concluir o registo.
-9. Após o início do registo, abra o portal Azure e verifique se o servidor de configuração e o servidor VMware estão listados nos **Servidores**de Configuração da Infraestrutura de  >  **Manage**  >  **Recuperação do Cofre**do Cofre  >  **Configuration Servers**de Recuperação do Cofre .
+9. Após o início do registo, abra o portal Azure e verifique se o servidor de configuração e o servidor VMware estão listados nos **Servidores** de Configuração da Infraestrutura de  >    >  **Recuperação do Cofre** do Cofre  >  de Recuperação do Cofre .
 
 
 Após o registo do servidor de configuração, a Recuperação do Site liga-se aos servidores VMware utilizando as definições especificadas e descobre VMs.
 
 > [!NOTE]
-> Pode demorar 15 minutos ou mais para o nome da conta aparecer no portal. Para atualizar imediatamente, selecione o nome do servidor **de servidores de configuração**  >  **_server name_*_ > _* Refresh Server**.
+> Pode demorar 15 minutos ou mais para o nome da conta aparecer no portal. Para atualizar imediatamente, selecione o nome do servidor **de servidores de configuração**  >  ***_ > _* Refresh Server**.
 
 ## <a name="set-up-the-target-environment"></a>Configurar o ambiente de destino
 
 Selecione e verifique os recursos de destino.
 
-1. Selecione Preparar o alvo **da infraestrutura**  >  **Target**. Selecione a subscrição do Azure que pretende utilizar. Estamos a utilizar um modelo do Resource Manager.
+1. Selecione Preparar o alvo **da infraestrutura**  >  . Selecione a subscrição do Azure que pretende utilizar. Estamos a utilizar um modelo do Resource Manager.
 2. A Recuperação do Site verifica se tem uma ou mais redes virtuais. Deve tê-los ao configurar os componentes do Azure no [primeiro tutorial](tutorial-prepare-azure.md) nesta série de tutoriais.
 
    ![Screenshot das opções de preparação > destino da infraestrutura.](./media/vmware-azure-tutorial/storage-network.png)
@@ -159,7 +159,7 @@ Selecione e verifique os recursos de destino.
 
 1. Abra o [portal do Azure](https://portal.azure.com). Procure e selecione **cofres dos Serviços de Recuperação.**
 2. Selecione o cofre dos Serviços de Recuperação (**ContosoVMVault** neste tutorial).
-3. Para criar uma política de replicação, selecione Políticas de replicação **da infraestrutura de recuperação**de  >  **Replication Policies**  >  **sítios +Política de replicação**.
+3. Para criar uma política de replicação, selecione Políticas de replicação **da infraestrutura de recuperação** de  >    >  **sítios +Política de replicação**.
 4. Em **Criar política de replicação**, introduza o nome da política. Estamos a utilizar o **VMwareRepPolicy**.
 5. Em **Limiar de RPO**, utilize a predefinição de 60 minutos. Este valor define com que frequência são criados pontos de recuperação. Será gerado um alerta se a replicação contínua exceder este limite.
 6. Na **Retenção do ponto de recuperação**, especifique quanto tempo cada ponto de recuperação será retido. Para este tutorial, utilizamos 72 horas. As VMs replicadas podem ser recuperadas para qualquer ponto numa janela de retenção.
@@ -186,7 +186,7 @@ Ativar a replicação dos VMs da seguinte forma:
 8. Selecione **Configurar agora para as máquinas selecionadas** para aplicar a definição de rede para todas as VMs em que ativa a replicação. Selecione **Configurar mais tarde** para selecionar a rede do Azure por máquina.
 9. Em **Máquinas Virtuais**  >  **Selecione máquinas virtuais,** selecione cada máquina que pretende replicar. Só pode selecionar máquinas para as quais a replicação pode ser ativada. Em seguida, selecione **OK**. Se não conseguir visualizar/selecionar nenhuma máquina virtual em particular, [saiba mais](./vmware-azure-troubleshoot-replication.md) sobre a resolução do problema.
 10. Nas propriedades **De Configuração de**  >  **Propriedades**, selecione a conta a utilizar pelo servidor de processos para instalar automaticamente o Serviço de Mobilidade na máquina.
-11. Nas **definições de replicação,**  >  **certifique-se de que**a política de replicação correta está selecionada.
+11. Nas **definições de replicação,**  >  **certifique-se de que** a política de replicação correta está selecionada.
 12. Selecione **Ativar a replicação**. O Site Recovery instala o Serviço de Mobilidade quando a replicação está ativada para uma VM.
 13. Pode acompanhar o progresso do trabalho de **Proteção ativa** em **Definições**  >  **de**  >  **Empregos Locais de Recuperação do Local .** Após o **trabalho de Finalize Protection** e uma geração de ponto de recuperação estar completa, a máquina está pronta para o failover.
 14. Pode demorar 15 minutos ou mais tempo para as alterações produzirem efeitos e aparecerem no portal.

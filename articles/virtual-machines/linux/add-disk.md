@@ -8,12 +8,12 @@ ms.collection: linux
 ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: cynthn
-ms.openlocfilehash: a4e0cee7a46e3f61f95e87f7cba1fb3595ace3c5
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: adf6198cf12011c77fcf3f93d4b595ea433ddefd
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102556813"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104580390"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Adicionar um disco a uma VM com Linux
 
@@ -148,7 +148,7 @@ Neste exemplo, estamos a usar o nano editor, por isso, quando terminar de editar
 >
 > A *opção nofalil* garante que o VM começa mesmo que o sistema de ficheiros seja corrupto ou o disco não exista no momento do arranque. Sem esta opção, poderá encontrar comportamento como descrito em [Não SSH a Linux VM devido a erros do FSTAB](/archive/blogs/linuxonazure/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting)
 >
-> A Consola Em Série Azure VM pode ser utilizada para o acesso à consola ao seu VM se modificar o fstab resultou numa falha no arranque. Mais detalhes estão disponíveis na [documentação da Consola Em Série.](../troubleshooting/serial-console-linux.md)
+> A Consola Em Série Azure VM pode ser utilizada para o acesso à consola ao seu VM se modificar o fstab resultou numa falha no arranque. Mais detalhes estão disponíveis na [documentação da Consola Em Série.](/troubleshoot/azure/virtual-machines/serial-console-linux)
 
 ### <a name="trimunmap-support-for-linux-in-azure"></a>Suporte TRIM/UNMAP para Linux em Azure
 Alguns núcleos Linux suportam operações TRIM/UNMAP para descartar blocos não reutilizados no disco. Esta funcionalidade é principalmente útil no armazenamento padrão para informar a Azure que as páginas eliminadas já não são válidas e podem ser descartadas, e pode economizar dinheiro se criar ficheiros grandes e depois eliminá-las.

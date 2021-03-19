@@ -10,10 +10,10 @@ ms.suite: infrastructure-services
 ms.topic: article
 ms.date: 11/14/2018
 ms.openlocfilehash: 5a74240e3f116121c0aaddd11c186e6e674ea26a
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92368184"
 ---
 # <a name="build-advanced-schedules-and-recurrences-for-jobs-in-azure-scheduler"></a>Construir horários avançados e recorrências para empregos no Azure Scheduler
@@ -27,7 +27,7 @@ Dentro de um trabalho [de Azure Scheduler,](../scheduler/scheduler-intro.md) o h
 
 * **Limpar os dados regularmente**: Crie um trabalho diário que elimine todos os tweets com mais de três meses.
 
-* **Dados do**arquivo : Crie um trabalho mensal que empurre o histórico da fatura para um serviço de backup.
+* **Dados do** arquivo : Crie um trabalho mensal que empurre o histórico da fatura para um serviço de backup.
 
 * **Solicitar dados externos**: Crie um trabalho que decorda a cada 15 minutos e retire um novo boletim meteorológico da NOAA.
 
@@ -67,11 +67,11 @@ Esta tabela fornece uma visão geral de alto nível para os principais elementos
 | Elemento | Obrigatório | Descrição | 
 |---------|----------|-------------|
 | **horário de início** | No | Um valor de cadeia DateTime no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) que especifica quando o trabalho começa pela primeira vez num horário básico. <p>Para horários complexos, o trabalho começa o mais cedo que **o startTime**. | 
-| **recorrência** | No | As regras de recorrência para quando o trabalho funciona. O objeto **de recorrência** suporta estes elementos: **frequência,** **intervalo,** **programação,** **contagem**e fim **de hora**. <p>Se utilizar o elemento **de recorrência,** também deve utilizar o elemento **de frequência,** enquanto outros elementos **de recorrência** são opcionais. |
+| **recorrência** | No | As regras de recorrência para quando o trabalho funciona. O objeto **de recorrência** suporta estes elementos: **frequência,** **intervalo,** **programação,** **contagem** e fim **de hora**. <p>Se utilizar o elemento **de recorrência,** também deve utilizar o elemento **de frequência,** enquanto outros elementos **de recorrência** são opcionais. |
 | **frequência** | Sim, quando se usa **a recorrência** | A unidade de tempo entre ocorrências e apoios a estes valores: "Minuto", "Hora", "Dia", "Semana", "Mês" e "Ano" | 
-| **interval** | No | Um número inteiro positivo que determina o número de unidades de tempo entre ocorrências com base na **frequência**. <p>Por exemplo, se **o intervalo** for de 10 e **a frequência** for "Semana", o trabalho repete-se a cada 10 semanas. <p>Aqui está o maior número de intervalos para cada frequência: <p>- 18 meses <br>- 78 semanas <br>- 548 dias <br>- Durante horas e minutos, o intervalo é de 1 <= intervalo <*> <* = 1000. | 
+| **intervalo** | No | Um número inteiro positivo que determina o número de unidades de tempo entre ocorrências com base na **frequência**. <p>Por exemplo, se **o intervalo** for de 10 e **a frequência** for "Semana", o trabalho repete-se a cada 10 semanas. <p>Aqui está o maior número de intervalos para cada frequência: <p>- 18 meses <br>- 78 semanas <br>- 548 dias <br>- Durante horas e minutos, o intervalo é de 1 <= intervalo <*> <* = 1000. | 
 | **agendar** | No | Define alterações à recorrência com base nas notas de minutos especificadas, marcas de horas, dias da semana e dias do mês | 
-| **contar** | No | Um número inteiro positivo que especifica o número de vezes que o trabalho funciona antes de terminar. <p>Por exemplo, quando um trabalho diário tem **a contagem** definida para 7, e a data de início é segunda-feira, o trabalho termina no domingo. Se a data de início já tiver passado, a primeira execução é calculada a partir do tempo de criação. <p>Sem **fim tempo** ou **contagem,** o trabalho funciona infinitamente. Não podes usar a **contagem** e o fim do **Tempo** no mesmo trabalho, mas a regra que termina primeiro é honrada. | 
+| **count** | No | Um número inteiro positivo que especifica o número de vezes que o trabalho funciona antes de terminar. <p>Por exemplo, quando um trabalho diário tem **a contagem** definida para 7, e a data de início é segunda-feira, o trabalho termina no domingo. Se a data de início já tiver passado, a primeira execução é calculada a partir do tempo de criação. <p>Sem **fim tempo** ou **contagem,** o trabalho funciona infinitamente. Não podes usar a **contagem** e o fim do **Tempo** no mesmo trabalho, mas a regra que termina primeiro é honrada. | 
 | **endTime** | No | Um valor de cadeia Data ou DateTime no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) que especifica quando o trabalho deixa de funcionar. Pode definir um valor para **o fim do Tempo** que está no passado. <p>Sem **fim tempo** ou **contagem,** o trabalho funciona infinitamente. Não podes usar a **contagem** e o fim do **Tempo** no mesmo trabalho, mas a regra que termina primeiro é honrada. |
 |||| 
 
@@ -160,7 +160,7 @@ Se especificar mais de um elemento de agenda, a ordem de avaliação é do maior
 
 A tabela seguinte descreve os elementos de agenda detalhadamente:
 
-| Nome JSON | Descrição | Valores válidos |
+| Nome JSON | Description | Valores válidos |
 |:--- |:--- |:--- |
 | **minutos** |Minutos da hora em que o trabalho funciona. |Uma série de inteiros. |
 | **horas** |Horas do dia em que o trabalho funciona. |Uma série de inteiros. |

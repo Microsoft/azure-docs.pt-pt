@@ -8,10 +8,10 @@ author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
 ms.openlocfilehash: 57d3d1c6bb14db3eb2ca499069934a628d2f7fea
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92425785"
 ---
 # <a name="cloud-partner-portal-api-reference"></a>Referência da API do Cloud Partner Portal
@@ -29,7 +29,7 @@ Antes de utilizar as APIs, deve rever:
 
 - O artigo [pré-requisitos](./cloud-partner-portal-api-prerequisites.md) para aprender a adicionar um principal de serviço à sua conta, e obter um token de acesso Azure Ative Directory (Azure AD) para autenticação.
 - As duas estratégias [de controlo da concordância](./cloud-partner-portal-api-concurrency-control.md) disponíveis para chamar estas APIs.
-- Considerações [considerations](./cloud-partner-portal-api-considerations.md)adicionais da API , tais como a versão e o tratamento de erros.
+- Considerações [](./cloud-partner-portal-api-considerations.md)adicionais da API , tais como a versão e o tratamento de erros.
 
 ## <a name="changes-to-cpp-apis-after-the-migration-to-partner-center"></a>Alterações nas APIs do CPP após a migração para o Centro de Parceiros
 

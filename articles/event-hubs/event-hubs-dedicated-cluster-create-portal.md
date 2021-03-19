@@ -3,12 +3,12 @@ title: Criar um cluster dedicado ao Event Hubs utilizando o portal Azure
 description: Neste arranque rápido, você aprende a criar um cluster Azure Event Hubs usando o portal Azure.
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: 6ff4ee1f098407ba8b3cd2727410bdfc842db89a
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 596b07210d35f648af78e45b7472c620a4361e8a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102040095"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104601028"
 ---
 # <a name="quickstart-create-a-dedicated-event-hubs-cluster-using-azure-portal"></a>Quickstart: Criar um cluster dedicado de Centros de Eventos usando o portal Azure 
 Os clusters de eventos Hubs oferecem implantações de inquilinos únicos para clientes com as necessidades de streaming mais exigentes. Esta oferta tem um SLA garantido de 99,99% e está disponível apenas no nosso nível de preços dedicado. Um [cluster Event Hubs](event-hubs-dedicated-overview.md) pode entrar em milhões de eventos por segundo com capacidade garantida e latência do subsegundo. Os espaços de nome e os centros de eventos criados dentro de um cluster incluem todas as características da oferta padrão e muito mais, mas sem limites de entrada. A oferta dedicada também inclui a popular funcionalidade [de captura de Centros de Eventos](event-hubs-capture-overview.md) sem custos adicionais, permitindo-lhe abastruto e registar fluxos de dados para [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md) ou [Azure Data Lake Storage Gen 1](../data-lake-store/data-lake-store-overview.md).
@@ -109,6 +109,6 @@ Neste artigo, criou um cluster De Clusters de Eventos. Para instruções passo a
     - [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
     - [Java](event-hubs-java-get-started-send.md)
     - [Python](event-hubs-python-get-started-send.md)
-    - [JavaScript](event-hubs-java-get-started-send.md)
+    - [JavaScript](event-hubs-node-get-started-send.md)
 - [Use o portal Azure para permitir a captura de centros de eventos](event-hubs-capture-enable-through-portal.md)
 - [Use hubs de eventos Azure para Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md)

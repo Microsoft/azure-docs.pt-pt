@@ -12,16 +12,21 @@ ms.date: 01/4/2020
 ms.author: metang
 ms.custom: cog-serv-seo-aug-2020
 keywords: leitores, aprendizes de línguas, exibir imagens, melhorar a leitura, ler conteúdos, traduzir
-ms.openlocfilehash: 0661bd5f917a2bf071f11393ad8ac9af53ddfe97
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 6affc0a2b94c7ea950a8995981d63470722d981f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92631244"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104599532"
 ---
 # <a name="what-is-immersive-reader"></a>O que é a Leitura Avançada?
 
 [O Immersive Reader](https://www.onenote.com/learningtools) é uma ferramenta inclusivamente concebida que implementa técnicas comprovadas para melhorar a compreensão da leitura para novos leitores, aprendizes de línguas e pessoas com diferenças de aprendizagem como a dislexia. Com a biblioteca de clientes Immersive Reader, pode aproveitar a mesma tecnologia utilizada no Microsoft Word e microsoft One Note para melhorar as suas aplicações web. 
+
+Esta documentação contém os seguintes tipos de artigos:  
+
+* **[Os quickstarts](quickstarts/client-libraries.md)** são instruções passo a passo que lhe permitem fazer chamadas para o serviço e obter resultados.
+* **[Os guias de como fazer](how-to-create-immersive-reader.md)** contêm instruções para a utilização do serviço de formas mais específicas ou personalizadas.  
 
 ## <a name="use-immersive-reader-to-improve-reading-accessibility"></a>Use o Leitor Imersivo para melhorar a acessibilidade à leitura 
 
@@ -72,10 +77,3 @@ O Immersive Reader é uma aplicação web autónoma. Quando invocado através da
 A biblioteca de clientes Immersive Reader está disponível em C#, JavaScript, Java (Android), Kotlin (Android) e Swift (iOS). Introdução a:
 
 * [Quickstart: Use a biblioteca de clientes imersivos Reader](quickstarts/client-libraries.md)
-
-## <a name="next-steps"></a>Passos seguintes
-
-Introdução à Leitura Avançada:
-
-* Leia a biblioteca de [clientes imersivo Reader Referência](./reference.md)
-* Explore a [biblioteca de clientes imersivos reader no GitHub](https://github.com/microsoft/immersive-reader-sdk)

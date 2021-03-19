@@ -1,5 +1,5 @@
 ---
-title: 'FAQ: SRE e DevOps / Microsoft Docs'
+title: 'FAQ: SRE e DevOps | Microsoft Docs'
 titleSuffix: Azure
 description: 'FAQ: Compreender a relação entre SRE e DevOps'
 author: dnblankedelman
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 09/14/2020
 ms.author: dnb
 ms.openlocfilehash: 62872443c386c45d9821053dc901ad8e0055b74f
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92674267"
 ---
 # <a name="frequently-asked-questions-whats-the-relationship-between-sre-and-devops"></a>Perguntas frequentes: Qual é a relação entre SRE e DevOps?

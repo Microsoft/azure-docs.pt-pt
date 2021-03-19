@@ -4,10 +4,10 @@ description: Saiba como utilizar a REST API para gerir e monitorizar as ações 
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.openlocfilehash: 5e2823472c6a7bdd6b3f9819db3079d7efa78c4e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88892852"
 ---
 # <a name="manage-azure-file-share-backup-with-rest-api"></a>Gerir a Azure File partilhar backup com a REST API
@@ -54,7 +54,7 @@ GET https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af
 
 #### <a name="response"></a>Resposta
 
-Nome  | Tipo  |  Descrição
+Nome  | Tipo  |  Description
 --- | --- | ----
 200 OK |  JobResource  | OK
 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/03/2020
 ms.author: tisande
 ms.openlocfilehash: 47eedf1ddbb155180d364c42ec179b3e01279e44
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93336219"
 ---
 # <a name="index-geospatial-data-with-azure-cosmos-db"></a>Dados geoespaciais de índice com Azure Cosmos DB
@@ -19,7 +19,7 @@ ms.locfileid: "93336219"
 
 Desenhamos o motor de base de dados da Azure Cosmos DB para ser verdadeiramente agnóstico e fornecer suporte de primeira classe para o JSON. O motor de base de dados otimizado da Azure Cosmos DB compreende de forma nativa os dados espaciais representados na norma GeoJSON.
 
-Em resumo, a geometria é projetada a partir de coordenadas geodésicas para um plano 2D então dividido progressivamente em células usando uma **árvore quadtree**. Estas células são mapeadas para 1D com base na localização da célula dentro de uma curva de **enchimento de espaço Hilbert** , que preserva a localidade dos pontos. Adicionalmente, quando os dados de localização são indexados, passa por um processo conhecido como **tessellation** , isto é, todas as células que intersectam uma localização são identificadas e armazenadas como chaves no índice DB do Azure Cosmos. No momento da consulta, argumentos como pontos e polígonos também são tessellados para extrair as gamas de ID celular relevantes, então usados para obter dados do índice.
+Em resumo, a geometria é projetada a partir de coordenadas geodésicas para um plano 2D então dividido progressivamente em células usando uma **árvore quadtree**. Estas células são mapeadas para 1D com base na localização da célula dentro de uma curva de **enchimento de espaço Hilbert**, que preserva a localidade dos pontos. Adicionalmente, quando os dados de localização são indexados, passa por um processo conhecido como **tessellation**, isto é, todas as células que intersectam uma localização são identificadas e armazenadas como chaves no índice DB do Azure Cosmos. No momento da consulta, argumentos como pontos e polígonos também são tessellados para extrair as gamas de ID celular relevantes, então usados para obter dados do índice.
 
 Se especificar uma política de indexação que inclua um índice espacial para `/*` (todos os caminhos), então todos os dados encontrados dentro do recipiente são indexados para consultas espaciais eficientes.
 
@@ -111,10 +111,10 @@ Com o tipo de dados **de geometria,** semelhante ao tipo de dados de geografia, 
 
 A caixa de delimitação é constituída pelas seguintes propriedades:
 
-- **xmin** : a coordenada x indexada mínima
-- **ymin** : a coordenada y indexada mínima
-- **xmax** : a coordenada x indexada máxima
-- **ymax** : a coordenada y indexada máxima
+- **xmin**: a coordenada x indexada mínima
+- **ymin**: a coordenada y indexada mínima
+- **xmax**: a coordenada x indexada máxima
+- **ymax**: a coordenada y indexada máxima
 
 Uma caixa de delimitação é necessária porque os dados geométricos ocupam um plano que pode ser infinito. Índices espaciais, no entanto, requerem um espaço finito. Para o tipo de dados **de geografia,** a Terra é o limite e você não precisa definir uma caixa limite.
 

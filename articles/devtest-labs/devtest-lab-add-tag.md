@@ -1,13 +1,13 @@
 ---
-title: Adicione etiquetas a um laboratório em Azure DevTest Labs Microsoft Docs
+title: Adicione etiquetas a um laboratório em Azure DevTest Labs | Microsoft Docs
 description: Aprenda a criar tags personalizadas em Azure DevTest Labs e use tags para categorizar recursos. Pode ver todos os recursos da sua subscrição que têm uma etiqueta.
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: a4d2b328626f0d0f096082fa88bb170894ccf3e4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88270738"
 ---
 # <a name="add-tags-to-a-lab-in-azure-devtest-labs"></a>Adicionar tags a um laboratório em Azure DevTest Labs
@@ -25,19 +25,19 @@ Os recursos que são suportados por tags incluem
 
 Pode aplicar tags quando [criar um laboratório](devtest-lab-create-lab.md) e, mais tarde, geri-las através da lâmina Tags por configuração e configurações.
 
-Cada etiqueta é composta por um par de valor **de nome.** / **value** Por exemplo, pode criar uma etiqueta com o *nome costcenter* que tem um valor de *34543*. Uma etiqueta como esta pode ajudá-lo a identificar mais tarde recursos de laboratório que são faturais para esta área específica da sua organização. Pode escolher nomes e valores que façam sentido para a forma como pretende organizar a sua subscrição.
+Cada etiqueta é composta por um par de valor **de nome.** /  Por exemplo, pode criar uma etiqueta com o *nome costcenter* que tem um valor de *34543*. Uma etiqueta como esta pode ajudá-lo a identificar mais tarde recursos de laboratório que são faturais para esta área específica da sua organização. Pode escolher nomes e valores que façam sentido para a forma como pretende organizar a sua subscrição.
 
 ## <a name="steps-to-manage-tags-in-an-existing-lab"></a>Passos para gerir etiquetas num laboratório existente
 
 1. Inicie sessão no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
-1. Se necessário, selecione **Todos os Serviços**e, em seguida, selecione **DevTest Labs** da lista. O seu laboratório pode já estar no Painel de Instrumentos sob **Todos os Recursos.**
+1. Se necessário, selecione **Todos os Serviços** e, em seguida, selecione **DevTest Labs** da lista. O seu laboratório pode já estar no Painel de Instrumentos sob **Todos os Recursos.**
 1. A partir da lista de laboratórios, selecione o laboratório no qual pretende adicionar ou gerir tags.
 1. Na área de **visão geral** do laboratório, selecione **Configuração e políticas**.
 
     ![Botão de configuração e políticas](./media/devtest-lab-add-tag/devtestlab-config-and-policies.png)
 
 1. À esquerda em **MANAGE**, selecione **Tags**.
-1. Para criar uma nova etiqueta para **Name**este laboratório, insira um par / **de valor de** nome e selecione **Save**. Também pode selecionar uma etiqueta existente na lista para visualizar ou gerir os recursos associados a essa etiqueta.
+1. Para criar uma nova etiqueta para este laboratório, insira um par / **de valor de** nome e selecione **Save**. Também pode selecionar uma etiqueta existente na lista para visualizar ou gerir os recursos associados a essa etiqueta.
 
     ![Gerir tags](./media/devtest-lab-add-tag/devtestlab-manage-tags.png)
 

@@ -14,10 +14,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/29/2020
 ms.openlocfilehash: f823b6d04a217328fe2e825e64906460cd9cbae9
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92672481"
 ---
 # <a name="quickstart-use-visual-studio-code-to-connect-and-query"></a>Quickstart: Use o Código do Estúdio Visual para ligar e consultar 
@@ -51,7 +51,7 @@ Certifique-se de que instalou o mais recente [Código do Estúdio Visual](https:
 
 ### <a name="macos"></a>**macOS**
 
-Para o macOS, é necessário instalar o OpenSSL, que é um pré-requisito para o .NET Core que a extensão mssql utiliza. Abra o terminal e introduza os comandos seguintes para instalar **brew** , **OpenSSL** .
+Para o macOS, é necessário instalar o OpenSSL, que é um pré-requisito para o .NET Core que a extensão mssql utiliza. Abra o terminal e introduza os comandos seguintes para instalar **brew**, **OpenSSL**.
 
 ```bash
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -74,7 +74,7 @@ Nenhuma configuração especial necessária.
 
 Obtenha a informação de ligação necessária para ligar à Base de Dados Azure SQL. Você precisará do nome do servidor totalmente qualificado ou nome de anfitrião, nome da base de dados e informações de login para os próximos procedimentos.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 2. Navegue para as **bases de dados SQL** ou página **sql Managed Instances.**
 
@@ -86,11 +86,11 @@ No Código do Estúdio Visual, deite o modo de linguagem para **SQL**  para perm
 
 1. Abra uma nova janela do Visual Studio Code.
 
-2. Pressione **Ctrl** + **N** . Abre-se um novo ficheiro de texto simples.
+2. Pressione **Ctrl** + **N**. Abre-se um novo ficheiro de texto simples.
 
 3. Selecione **Texto Simples** no canto inferior direito da barra de estado.
 
-4. No menu suspenso do **modo linguístico Select** que abre, selecione **SQL** .
+4. No menu suspenso do **modo linguístico Select** que abre, selecione **SQL**.
 
 ## <a name="connect-to-your-database"></a>Ligar à sua base de dados
 
@@ -103,7 +103,7 @@ Utilize o Código do Estúdio Visual para estabelecer uma ligação ao seu servi
 
 2. Selecione **MS SQL:Conecte-se** e escolha **Entrar.**
 
-3. Selecione **Criar Perfil de Ligação** .
+3. Selecione **Criar Perfil de Ligação**.
 
 4. Siga as indicações para especificar as propriedades de ligação do novo perfil. Depois de especificar cada valor, escolha **Enter** para continuar.
 

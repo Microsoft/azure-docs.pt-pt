@@ -3,18 +3,18 @@ title: Gerir e encontrar dados do Azure Blob com etiquetas de índice blob (pré
 description: Aprenda a usar tags de índice blob para categorizar, gerir e consultar objetos blob.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 03/05/2021
+ms.date: 03/18/2021
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: klaasl
 ms.custom: references_regions
-ms.openlocfilehash: be2ff9d6ed908bdc0645fc713717a08674354096
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 540f6ca165c80dd90f5004fb53e1577cdc35d770
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/19/2021
-ms.locfileid: "104593225"
+ms.locfileid: "104656044"
 ---
 # <a name="manage-and-find-azure-blob-data-with-blob-index-tags-preview"></a>Gerir e encontrar dados do Azure Blob com etiquetas de índice blob (pré-visualização)
 
@@ -30,7 +30,7 @@ As etiquetas de índice blob permitem::
 Considere um cenário em que tenha milhões de bolhas na sua conta de armazenamento, acedidas por várias aplicações diferentes. Você quer encontrar todos os dados relacionados de um único projeto. Não tem a certeza do que está no âmbito, pois os dados podem ser espalhados por vários contentores com diferentes convenções de nomeação. No entanto, as suas aplicações carregam todos os dados com tags com base no seu projeto. Em vez de pesquisar por milhões de bolhas e comparar nomes e propriedades, pode usar `Project = Contoso` como critérios de descoberta. O índice Blob filtrará todos os recipientes em toda a sua conta de armazenamento para encontrar e devolver rapidamente apenas o conjunto de 50 bolhas de `Project = Contoso` .
 
 > [!IMPORTANT]
-> As etiquetas de índice blob estão atualmente em **PREVIEW**. Consulte os [Termos Complementares de Utilização para o Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para termos legais aplicáveis às funcionalidades do Azure que estejam em versão beta, pré-visualização ou ainda não lançadas em disponibilidade geral.
+> As etiquetas de índice blob estão atualmente em **PREVIEW** e disponíveis em todas as regiões públicas. Consulte os [Termos Complementares de Utilização para o Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para termos legais aplicáveis às funcionalidades do Azure que estejam em versão beta, pré-visualização ou ainda não lançadas em disponibilidade geral.
 
 Para começar com exemplos sobre como usar o índice blob, consulte [use tags de índice blob para gerir e encontrar dados](storage-blob-index-how-to.md).
 

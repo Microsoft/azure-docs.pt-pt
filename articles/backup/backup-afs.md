@@ -4,17 +4,17 @@ description: Saiba como usar o portal Azure para apoiar as ações de ficheiros 
 ms.topic: conceptual
 ms.date: 01/20/2020
 ms.openlocfilehash: ca49f1ad48ab0534b27b91ad6a5a50b393cda782
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88890353"
 ---
 # <a name="back-up-azure-file-shares"></a>Fazer cópia de segurança das partilhas de ficheiros do Azure
 
 Este artigo explica como fazer o back up [Azure de partilhas](../storage/files/storage-files-introduction.md) de ficheiros do portal Azure.
 
-Neste artigo, aprenderá a:
+Neste artigo, vai aprender a:
 
 * Crie um cofre dos Serviços de Recuperação.
 * Configure o backup do cofre dos Serviços de Recuperação
@@ -39,11 +39,11 @@ Os seguintes passos explicam como pode configurar a cópia de segurança para v�
 
    ![Cofre dos Serviços de Recuperação](./media/backup-afs/recovery-services-vault.png)
 
-    1. No painel **de objetivos de reserva,** desacordo Onde **Azure** está a sua carga de trabalho **a correr?** **Azure**
+    1. No painel **de objetivos de reserva,** desacordo Onde  está a sua carga de trabalho **a correr?** 
 
           ![Escolha Azure como carga de trabalho](./media/backup-afs/backup-goal.png)
 
-    2. Em O que pretende fazer de **Azure File Share** **trás?**
+    2. Em O que pretende fazer de  **trás?**
 
           ![Selecione Azure FileShare](./media/backup-afs/select-azure-file-share.png)
 
@@ -109,7 +109,7 @@ Os seguintes passos explicam como pode configurar a cópia de segurança para as
 
 1. No [portal Azure,](https://portal.azure.com/)abra a conta de armazenamento que hospeda a parte de ficheiro que pretende fazer.
 
-1. Uma vez na conta de armazenamento, selecione as **ações de ficheiro**com rótulo de azulejo . Também pode navegar para **Arquivar ações** através da tabela de conteúdos para a conta de armazenamento.
+1. Uma vez na conta de armazenamento, selecione as **ações de ficheiro** com rótulo de azulejo . Também pode navegar para **Arquivar ações** através da tabela de conteúdos para a conta de armazenamento.
 
    ![Conta de armazenamento](./media/backup-afs/storage-account.png)
 

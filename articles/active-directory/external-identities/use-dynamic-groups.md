@@ -1,5 +1,5 @@
 ---
-title: Grupos dinâmicos e colaboração B2B - Azure Ative Directory Microsoft Docs
+title: Grupos dinâmicos e colaboração B2B - Azure Ative Directory | Microsoft Docs
 description: Mostra como usar grupos dinâmicos AD AD com colaboração B2B do Azure Ative Directory
 services: active-directory
 ms.service: active-directory
@@ -12,10 +12,10 @@ manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5b820b8b9606795709d03414fa14ec29a1b5c519
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92441560"
 ---
 # <a name="dynamic-groups-and-azure-active-directory-b2b-collaboration"></a>Grupos dinâmicos e colaboração B2B do Diretório Ativo Azure
@@ -30,9 +30,9 @@ Você pode criar um grupo que contenha todos os utilizadores dentro de um inquil
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) com uma conta que é atribuída à função de administrador global ou administrador de utilizador no arrendatário.
 1. Selecione **Azure Active Directory**.
-2. Em **Gestão**, selecione **Grupos**e, em seguida, selecione **Novo grupo**.
+2. Em **Gestão**, selecione **Grupos** e, em seguida, selecione **Novo grupo**.
 1. Na página New **Group,** sob **o tipo grupo,** selecione **Security**. Insira o **nome do grupo** e a **descrição do grupo** para o novo grupo. 
-2. Sob **o tipo de membro**, selecione Dynamic **User**e, em seguida, selecione Adicionar **consulta dinâmica**. 
+2. Sob **o tipo de membro**, selecione Dynamic **User** e, em seguida, selecione Adicionar **consulta dinâmica**. 
 4. Acima da caixa de texto de **sintaxe regra,** selecione **Editar**. Na página **de sintaxe de regra de edição,** digite a seguinte expressão na caixa de texto:
 
    ```

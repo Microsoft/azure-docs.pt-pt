@@ -7,13 +7,13 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 05/13/2020
 ms.openlocfilehash: 7b4d00e8c0366d10fddafa66db699c1a59fd9ad7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "83659784"
 ---
-# <a name="deploy-and-call-custom-apis-from-workflows-in-azure-logic-apps"></a>Implementar e chamar APIs personalizados de fluxos de trabalho em Azure Logic Apps
+# <a name="deploy-and-call-custom-apis-from-workflows-in-azure-logic-apps"></a>Implementar e chamar APIs personalizadas a partir dos fluxos de trabalho no Azure Logic Apps
 
 Depois de [criar as suas próprias APIs](./logic-apps-create-api-app.md) para utilizar nos fluxos de trabalho de aplicações lógicas, precisa de implementar essas APIs antes de poder chamá-las. Pode implementar as suas APIs como [aplicações web,](../app-service/overview.md)mas considere implementar as suas APIs como [aplicações API](../app-service/app-service-web-tutorial-rest-api.md), que facilitam o seu trabalho ao construir, hospedar e consumir APIs na nuvem e nas instalações. Não precisa de alterar nenhum código nas suas APIs - basta implementar o seu código numa aplicação API. Você pode hospedar as suas APIs no [Azure App Service](../app-service/overview.md), uma oferta de plataforma como um serviço (PaaS) que fornece hospedagem API altamente escalável e fácil.
 

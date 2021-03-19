@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: tomfitz
 ms.openlocfilehash: e4255f0d42e28a72ad55d9b7f81d0dc49b2950cb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87040990"
 ---
 # <a name="createuidefinition-functions"></a>Funções createUiDefinition
@@ -49,7 +49,7 @@ Estas funções podem ser usadas com coleções, como cordas JSON, matrizes e ob
 * [mapa](create-ui-definition-collection-functions.md#map)
 * [saltar](create-ui-definition-collection-functions.md#skip)
 * [divisão](create-ui-definition-collection-functions.md#split)
-* [take](create-ui-definition-collection-functions.md#take)
+* [tomar](create-ui-definition-collection-functions.md#take)
 
 ## <a name="conversion-functions"></a>Funções de conversão
 
@@ -63,7 +63,7 @@ Estas funções podem ser utilizadas para converter valores entre tipos de dados
 * [flutuante](create-ui-definition-conversion-functions.md#float)
 * [int](create-ui-definition-conversion-functions.md#int)
 * [parse](create-ui-definition-conversion-functions.md#parse)
-* [cadeia](create-ui-definition-conversion-functions.md#string)
+* [string](create-ui-definition-conversion-functions.md#string)
 
 ## <a name="date-functions"></a>Funções de data
 
@@ -82,7 +82,7 @@ Estas funções podem ser utilizadas em condicional. Algumas funções podem nã
 * [greater](create-ui-definition-logical-functions.md#greater)
 * [greaterOrEquals](create-ui-definition-logical-functions.md#greaterorequals)
 * [se](create-ui-definition-logical-functions.md#if)
-* [less](create-ui-definition-logical-functions.md#less)
+* [menos](create-ui-definition-logical-functions.md#less)
 * [lessOrEquals](create-ui-definition-logical-functions.md#lessorequals)
 * [não](create-ui-definition-logical-functions.md#not)
 * [ou](create-ui-definition-logical-functions.md#or)

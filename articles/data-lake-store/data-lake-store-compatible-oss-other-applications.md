@@ -1,5 +1,5 @@
 ---
-title: Aplicações de big data compatíveis com data lake storage Gen1 Microsoft Docs
+title: Aplicações de big data compatíveis com data lake storage Gen1 | Microsoft Docs
 description: Lista de aplicações de código aberto que funcionam com a Azure Data Lake Storage Gen1 (anteriormente conhecida como Azure Data Lake Store)
 services: data-lake-store
 documentationcenter: ''
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
 ms.openlocfilehash: 37bf26db5f7ae08734410d36a892aaeb2380bd9f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "60878890"
 ---
 # <a name="open-source-big-data-applications-that-work-with-azure-data-lake-storage-gen1"></a>Aplicações Open Source Big Data que funcionam com Azure Data Lake Storage Gen1
@@ -38,6 +38,6 @@ Este artigo lista as aplicações de big data de código aberto que funcionam co
 | [Apache Spark](https://spark.apache.org/) |HDInsight 3.4, 3.5 e 3.6 |
 
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 * [Visão geral do Azure Data Lake Storage Gen1](data-lake-store-overview.md)
 

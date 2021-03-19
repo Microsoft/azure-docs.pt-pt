@@ -4,10 +4,10 @@ description: Saiba como restaurar a chave do Cofre e o segredo em Azure Backup u
 ms.topic: conceptual
 ms.date: 08/28/2017
 ms.openlocfilehash: 456ce18f253ffa02cd6b13826a7839f18beecba7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88827091"
 ---
 # <a name="restore-key-vault-key-and-secret-for-encrypted-vms-using-azure-backup"></a>Restaurar a chave do Key Vault e o segredo para VMs encriptadas utilizando o Azure Backup
@@ -60,7 +60,7 @@ Restore-AzureKeyVaultKey -VaultName '<target_key_vault_name>' -InputFile $keyDes
 
 ## <a name="restore-secret"></a>Restaurar o segredo
 
-Use o ficheiro JSON gerado acima para obter nome e valor secretos e alimente-o para definir o cmdlet secreto para colocar o segredo (BEK) de volta no cofre da chave.Utilize estes cmdlets se o seu **VM estiver encriptado utilizando BEK e KEK**.
+Use o ficheiro JSON gerado acima para obter nome e valor secretos e alimente-o para definir o cmdlet secreto para colocar o segredo (BEK) de volta no cofre da chave. Utilize estes cmdlets se o seu **VM estiver encriptado utilizando BEK e KEK**.
 
 **Utilize estes cmdlets se o seu VM do Windows estiver encriptado utilizando BEK e KEK.**
 
@@ -82,7 +82,7 @@ $Tags = @{'DiskEncryptionKeyEncryptionAlgorithm' = 'RSA-OAEP';'DiskEncryptionKey
 Set-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -Name $secretname -SecretValue $Secret -ContentType  'Wrapped BEK' -Tags $Tags
 ```
 
-Use o ficheiro JSON gerado acima para obter nome e valor secretos e alimente-o para definir o cmdlet secreto para colocar o segredo (BEK) de volta no cofre da chave.Utilize estes cmdlets se o seu **VM estiver encriptado apenas com BEK.**
+Use o ficheiro JSON gerado acima para obter nome e valor secretos e alimente-o para definir o cmdlet secreto para colocar o segredo (BEK) de volta no cofre da chave. Utilize estes cmdlets se o seu **VM estiver encriptado apenas com BEK.**
 
 ```powershell
 $secretDestination = 'C:\secret.blob'

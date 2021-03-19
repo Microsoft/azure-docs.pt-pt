@@ -6,15 +6,15 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: pabouwer
 ms.openlocfilehash: 77cb6a693c5a73d0498b0acf9bc4ad8cc9f8f32f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "83773995"
 ---
 # <a name="consul"></a>Cônsul
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 [O Cônsul][consul] é uma solução de rede de serviços de vários centros de dados para conectar e proteger serviços através de plataformas de tempo de funcionamento. [O Connect][consul-features] é o componente que fornece capacidades de malha de serviço.
 

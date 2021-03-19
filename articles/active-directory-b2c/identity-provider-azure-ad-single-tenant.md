@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 03/17/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit, project-no-code
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 497b171cad956dee23139bcfb0ec76fad82bfb33
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 490880e4a37711a92b44a0ffe01315edfa6ddb26
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103488973"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104580134"
 ---
 # <a name="set-up-sign-in-for-a-specific-azure-active-directory-organization-in-azure-active-directory-b2c"></a>Configurar o sº de inscrição para uma organização específica do Azure Ative Directory em Azure Ative Directory B2C
 
@@ -106,6 +106,8 @@ Se quiser obter as `family_name` `given_name` reclamações da Azure AD, pode co
 1. Selecione **Guardar**.
 
 ## <a name="add-azure-ad-identity-provider-to-a-user-flow"></a>Adicione o fornecedor de identidade Azure AD a um fluxo de utilizador 
+
+Neste momento, o fornecedor de identidade AZure AD foi criado, mas ainda não está disponível em nenhuma das páginas de inscrição. Para adicionar o fornecedor de identidade Azure AD a um fluxo de utilizador:
 
 1. No seu inquilino Azure AD B2C, selecione **fluxos de utilizador**.
 1. Clique no fluxo de utilizador que pretende adicionar ao fornecedor de identidade Azure AD.

@@ -1,5 +1,5 @@
 ---
-title: Amostras de Armazenamento Azure usando C++ Microsoft Docs
+title: Amostras de armazenamento Azure usando | C++ Microsoft Docs
 description: Ver, descarregar e executar código de amostra e aplicações para Azure Storage. Descubra a obtenção de amostras para bolhas, filas, mesas e ficheiros, utilizando as bibliotecas de clientes de armazenamento C++.
 author: mhopkins-msft
 ms.author: mhopkins
@@ -8,10 +8,10 @@ ms.service: storage
 ms.subservice: common
 ms.topic: sample
 ms.openlocfilehash: 158f908dfd52a3365d19f65eb00faf1787893af5
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92379053"
 ---
 # <a name="azure-storage-samples-using-v12-c-client-libraries"></a>Amostras de armazenamento Azure usando bibliotecas de clientes V12 C++

@@ -1,5 +1,5 @@
 ---
-title: Crie um telefone de escritório como o seu método de verificação de dois fatores - Azure Ative Directory / Microsoft Docs
+title: Crie um telefone de escritório como o seu método de verificação de dois fatores - Azure Ative Directory | Microsoft Docs
 description: Aprenda a configurar um telefone de escritório como o seu método de verificação de dois fatores.
 services: active-directory
 author: curtand
@@ -11,10 +11,10 @@ ms.topic: end-user-help
 ms.date: 08/12/2019
 ms.author: curtand
 ms.openlocfilehash: 9dd9853bae324a047c673852f14d2b4c1639d914
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "83739214"
 ---
 # <a name="set-up-an-office-phone-as-your-two-factor-verification-method"></a>Crie um telefone de escritório como o seu método de verificação de dois fatores

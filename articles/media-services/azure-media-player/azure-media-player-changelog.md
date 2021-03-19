@@ -6,11 +6,11 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: overview
 ms.date: 09/23/2020
-ms.openlocfilehash: 9d126f591da1bffebbfd29119c56927cfbb21dcd
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: c63a8efc4bbcf6e5a124d439e6f9f91397e2fa53
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92370581"
 ---
 # <a name="changelog"></a>Registo de alterações
@@ -39,7 +39,7 @@ Devolva erros significativos de KeyDelivery a aplicações de chamadas
 
 ### <a name="changes-235"></a>Alterações 2.3.5
 
-- Mensagem de erro adicionada para código de erro 0x00400005 e documentada
+- Mensagem de erro adicionada para código de erro 0x00400005 e documentá-la
 
 ## <a name="234-official-update-march-4-2020"></a>2.3.4 (Atualização Oficial 4 de março de 2020)
 
@@ -118,7 +118,7 @@ Devolva erros significativos de KeyDelivery a aplicações de chamadas
 - Documentação atualizada para incluir suporte FairPlay para iOS Safari
 - Acrescentou um exemplo para o "srclang" da opção IMSC1
 - Acolchoamento adicionado, textPadding, boxShadow sobreposições para faixas de texto.
-- Adicionei um código de erro (0x00202025B) para diferenciar que o download do segmento falhou por não ter internet em vez de apenas lançar 0x00200259
+- Adicionei um código de erro (0x0020025B) para diferenciar que o download do segmento falhou por não ter internet em vez de apenas lançar 0x00200259
 
 ## <a name="230-official-release-april-30-2019"></a>2.3.0 (Lançamento Oficial 30 de abril de 2019)
 
@@ -164,7 +164,7 @@ Devolva erros significativos de KeyDelivery a aplicações de chamadas
 ### <a name="bug-fixes-223"></a>Correções de Erros 2.2.3 ###
 
 - [Bug Fix] [AMP] [Acessibilidade] Durante as reprodução de transmissão ao vivo, o botão "live" não pode ser selecionado utilizando o teclado
-- [Bug Fix] [AMP] Fixos falsos positivos 0x0400003 erros devido a teste mse falhado
+- [Bug Fix] [AMP] Corrigimos falsos positivos 0x0400003 erros devido a teste mse falhado
 - [Bug Fix] [AMP] Corrigiu um problema onde o vídeo podia congelar ao iniciar uma transmissão em direto
 
 ### <a name="changes-223"></a>Alterações 2.2.3 ###
@@ -198,7 +198,7 @@ Devolva erros significativos de KeyDelivery a aplicações de chamadas
 
 ### <a name="changes"></a>Alterações ###
 
-- [Mudança] [Legenda ao vivo] Mudou o nome API para legendas CEA de 608 para 708. Para mais informações, consulte [as Definições de Legendas CEA708](/javascript/api/azuremediaplayer/cea708captionssettings)-->
+- [Mudança] [Legenda ao vivo] Mudou o nome API para legendas CEA de 608 para 708. Para mais informações, consulte [as Definições de Legendas CEA708](/javascript/api/azuremediaplayer/amp.player.cea708captionssettings)-->
 
 ## <a name="220-official-release"></a>2.2.0 (Lançamento Oficial) ##
 
@@ -242,7 +242,7 @@ Devolva erros significativos de KeyDelivery a aplicações de chamadas
 
 ### <a name="changes-218"></a>Alterações 2.1.8 ###
 
-- [Mudança] Erro atualizado de 0x06000001 para visualizar quando o conteúdo AES é reproduzido com o Flash 30, uma vez que não é suportado neste momento. Por favor, veja [questões conhecidas](azure-media-player-known-issues.md) para mais detalhes
+- [Mudança] Atualizado 0x0600001 erro de exibição quando o conteúdo AES é reproduzido com o Flash 30, uma vez que não é suportado neste momento. Por favor, veja [questões conhecidas](azure-media-player-known-issues.md) para mais detalhes
 - [Mudança] Adicionou mais retréis para cenários ao vivo quando pedidos manifestos 404 ou devolve manifestos vazios.
 
 ## <a name="217-official-update"></a>2.1.7 (Atualização Oficial) ##
@@ -294,7 +294,7 @@ Devolva erros significativos de KeyDelivery a aplicações de chamadas
 
 - [Bug Fix] [Acessibilidade] [Foco] Os utilizadores não podem tabar para se concentrar em botões personalizados adicionados à direita do botão de ecrã completo na barra de controlo
 - [Bug Fix] [IE11] [Barra de volume] A tacagem para o pop-up de volume faz com que todo o ecrã de vídeo flash no IE11 enquanto em modo de ecrã completo
-- [Bug Fix] [Pele] Flush] Espaço exibido entre a barra de controlo e o pop-up da barra de volume
+- [Bug Fix] [Pele| Flush] Espaço exibido entre a barra de controlo e o pop-up da barra de volume
 - [Bug Fix] [AMP] [Legendas] Faixas antigas incorporadas não são limpas quando a fonte é alterada em um jogador existente
 - [Bug Fix] [Acessibilidade] [Narrador] Screen Reader lê o controlo de volume incorretamente
 - [Bug Fix] [FlashSS] Play Event ocasionalmente não dispara da tecnologia Flash
@@ -307,7 +307,7 @@ Devolva erros significativos de KeyDelivery a aplicações de chamadas
 ### <a name="changes-214"></a>Alterações 2.1.4 ###
 
 - [Mudança] [Acessibilidade] [Tecnologia de Assistência] Os botões agora têm propriedade ao vivo de aria para melhorar a experiência com a tecnologia de assistência
-- [Mudança] [Acessibilidade] [Botão de volume] Narrador:Melhor acessibilidade do botão de volume modificando a funcionalidade de tabbing e o comportamento do slider. Estas alterações facilitam aos utilizadores de teclado a modificação do volume do jogador
+- [Mudança] [Acessibilidade] [Botão de volume| Narrador:Melhor acessibilidade do botão de volume modificando a funcionalidade de tabbing e o comportamento do slider. Estas alterações facilitam aos utilizadores de teclado a modificação do volume do jogador
 - [Mudança] Intervalo do menu de contexto de inatividade aumentado de 3 para 5 segundos
 - [Mudança] [Acessibilidade] [Luminosidade] Relação de contraste de luminosidade melhorada nos menus suspensos nas definições de legendas
 
@@ -315,19 +315,19 @@ Devolva erros significativos de KeyDelivery a aplicações de chamadas
 
 ### <a name="bug-fixes-213"></a>Correções de Erros 2.1.3 ###
 
-- [Bug Fix] [Plugins] Título Sobreposição] O plugin de sobreposição de título lança exceções JS com AMP v2. X+
+- [Bug Fix] [Plugins| Título Sobreposição] O plugin de sobreposição de título lança exceções JS com AMP v2. X+
 - [Bug Fix] O evento Source set é enviado para a consola JavaScript mesmo quando o registo é desligado
 - [Bug Fix] [Pele] As dicas de tempo do jogador são renderizadas fora do contexto do jogador quando pairam sobre cada barra de duração final
 - [Bug Fix] [Acessibilidade] [Leitor de Ecrã] Narrador lê "Regional Landmark" ou "Video Player Region Landmark" quando o espectador tem foco no jogador
 - [Bug Fix] [AMP] Não é possível desativar o contorno do jogador via CSS
 - [Bug Fix] [Acessibilidade] Não é possível tabar para se concentrar em todo o jogador quando o utilizador está em modo de ecrã completo
 - [Bug Fix] [Pele] [Ao vivo] Pele não responde ao texto LIVE localizado em japonês
-- [Bug Fix] [Pele] A duração e a hora atual são cortadas quando o fluxo > 60 min -[Bug Fix][iPhone] Live]player mostra texto para o tempo/duração atual na barra de controlo
+- [Bug Fix] [Pele] A duração e a hora atual são cortadas quando o fluxo > 60 min -[Bug Fix][iPhone| Live]player mostra texto para o tempo/duração atual na barra de controlo
 - [Bug Fix] [AMP] Chamar jogador de heurística APIs rende exceções JavaScript
-- [Bug Fix] [Nativo html5].iOS Propriedade de videotag "playsinline" não se propaga para o jogador
-- [Bug Fix] [iOS]iframe] O jogador não pode entrar no ecrã completo no iPhone se o jogador estiver carregado num iframe
+- [Bug Fix] [Nativo html5|iOS] Propriedade de videotag "playsinline" não se propaga para o jogador
+- [Bug Fix] [iOS|iframe] O jogador não pode entrar no ecrã completo no iPhone se o jogador estiver carregado num iframe
 - [Bug Fix] [AMP] [Heurística] A AMP opera sempre com perfil híbrido independentemente das opções dos jogadores
-- [Bug Fix] [AMP] Win8.1]lança quando hospedado na app Win8.1 com uma webview
+- [Bug Fix] [AMP| Win8.1]lança quando hospedado na app Win8.1 com uma webview
 
 ### <a name="changes-213"></a>Alterações 2.1.3 ###
 
@@ -363,7 +363,7 @@ Devolva erros significativos de KeyDelivery a aplicações de chamadas
 - [Bug Fix] A abertura de um webapp que hospeda a AMP pode fazer com que a página web seja carregada duas vezes
 - [Bug Fix] Infinito ao reproduzir conteúdo certos ativos via Flash Tech
 - [Bug Fix] Menu mais Opções não sendo exibido com plugins de 3ª parte
-- [Bug Fix] [Pele] Tube][Live] Dois ícones ao vivo são exibidos quando o jogador está na borda ao vivo de um programa
+- [Bug Fix] [Pele| Tube][Live] Dois ícones ao vivo são exibidos quando o jogador está na borda ao vivo de um programa
 - [Bug Fix] [Pele] O logotipo não pode ser desativado
 - [Bug Fix] [DD+ Conteúdo] Spinner contínuo aparece para os ativos que contêm a faixa de áudio Dolby Digital
 - [Bug Fix] O AMP mais recente congela ao trocar faixas de linguagem áudio durante o livestream
@@ -473,7 +473,7 @@ Devolva erros significativos de KeyDelivery a aplicações de chamadas
 
 ### <a name="features-172"></a>Características 1.7.2 ###
 <!---API needs onboarding. Removed link to API until remedied.--->
-- [Recurso] [AzureHtml5JS] Firefox] Ativar a reprodução de Widevine com a EME para o Firefox 47+
+- [Recurso] [AzureHtml5JS| Firefox] Ativar a reprodução de Widevine com a EME para o Firefox 47+
 - [Recurso] Adicionar evento para a eliminação do jogador
 <!-- ([disposing](index.html#static-amp.eventname.disposing)) -->
 
@@ -483,8 +483,8 @@ Devolva erros significativos de KeyDelivery a aplicações de chamadas
 - [Bug Fix] Exceção lançada no manifestJolength Descartável()
 - [Bug Fix] Espectador nem sempre pode clicar em reproduzir o vídeo depois de o vídeo ter terminado para rever
 - [Bug Fix] Dimensionamento responsivo não conforme a mudanças rápidas no tamanho da janela
-- [Bug Fix] [Edge] IE] Dimensionamento responsivo não entra em vigor na carga da página para largura=x, altura=auto
-- [Bug Fix] [Android] Chrome] Chrome a pedir permissões para reproduzir conteúdo DRM quando o conteúdo não é encriptado
+- [Bug Fix] [Borda| IE] Dimensionamento responsivo não entra em vigor na carga da página para largura=x, altura=auto
+- [Bug Fix] [Android| Chrome] Chrome a pedir permissões para reproduzir conteúdo DRM quando o conteúdo não é encriptado
 - [Bug Fix] [Acessibilidade] [Borda] Os controlos do teclado não selecionam corretamente os itens do menu de contexto
 - [Bug Fix] [Acessibilidade] Falta de borda exibida em modo de alto contraste
 - [Bug Fix] [FlashSS] Ouvinte do evento do rato não removido após eliminação do jogador causa exceção
@@ -529,13 +529,13 @@ Devolva erros significativos de KeyDelivery a aplicações de chamadas
 - [Bug Fix] [AzureHtml5JS] O erro 0x0100002 deve ser mostrado ao reproduzir o stream HTTPS no site HTTPS que, em vez disso, produz uma rotação infinita como resultado de conteúdo misto
 - [Bug Fix] [AzureHtml5JS] Segmento final em falta causando erro de verificação de saúde looping exibindo um estado de tampão infinito percebido
 - [Bug Fix] [AzureHtml5JS] Nome de faixa de áudio incorreto no menu quando utilizarManifestForLabel=falso e três códigos linguísticos de letras são usados
-- [Bug Fix] [AzureHtml5JS] Chrome] Percecionou o estado tampão infinito no final do conteúdo causado pela imprecisão do ponto flutuante em duração com o JavaScript no Chrome
+- [Bug Fix] [AzureHtml5JS| Chrome] Percecionou o estado tampão infinito no final do conteúdo causado pela imprecisão do ponto flutuante em duração com o JavaScript no Chrome
 - [Bug Fix] [FlashSS] Erro intermitente não fatal exibido momentaneamente quando o flash player criou
 - [Bug Fix] [FlashSS] Falha na reprodução quando os streams de vídeo e áudio usam diferentes prazos devido à imprecisão de arredondamento com "Fragmento url (...) não consegue gerar FLVTags"
 - [Bug Fix] [FlashSS] Questões de análise de urls manifestos com espaços codificados
 - [Bug Fix] [FlashSS] Falta verificar se a versão do flash player >= 11.4 que causa um erro na reprodução em vez de voltar para a próxima tecnologia no techOrder
 - [Bug Fix] [FlashSS] [AES] Questões que aceitam fichas AES com sublinhados
-- [Bug Fix] [Luz de prata] OSX] Prefixar um manifesto em vez do protocolo (HTTP ou HTTPS) é reconhecido como um ficheiro local que produz uma rotação infinita
+- [Bug Fix] [Luz de prata| OSX] Prefixar um manifesto em vez do protocolo (HTTP ou HTTPS) é reconhecido como um ficheiro local que produz uma rotação infinita
 
 ### <a name="changes-170"></a>Alterações 1.7.0 ###
 
@@ -565,17 +565,17 @@ Devolva erros significativos de KeyDelivery a aplicações de chamadas
 
 ### <a name="bug-fixes-161"></a>Correções de Erros 1.6.1 ###
 
-- [Bug Fix] [FlashSS] Edge,ie][Silverlightss] IE] Não pode focar-se em outros elementos de UI para entradas ou outros em IE/Edge
+- [Bug Fix] [Flashss| Edge,ie[Silverlightss| IE] Não pode focar-se em outros elementos de UI para entradas ou outros em IE/Edge
 - [Bug Fix] Reprodução da AES falha quando forja indefinida
-- [Bug Fix] [Android] [AzureHtml5JS] Chrome] Spinner contínuo não reproduzindo conteúdo quando em loop de verificação de saúde
-- [Bug Fix] [IE9] console.log() não suportado pelo IE 9 causando exceção
+- [Bug Fix] [Android] [AzureHtml5JS| Chrome] Spinner contínuo não reproduzindo conteúdo quando em loop de verificação de saúde
+- [Bug Fix] [IE9] consola.log.log.log
 
 ## <a name="160-official-update"></a>1.6.0 (Atualização Oficial) ##
 
 ### <a name="features-160"></a>Características 1.6.0 ###
 
 - [Recurso] Redução de tamanho de 33% de azuremediaplayer.min.js
-- [Recurso] [AzureHtml5JS] Edge[Suporte não testado] Suporte para streams de áudio DD+ em Edge (sem comutação de codec após a escolha inicial). A aplicação deve selecionar o fluxo de áudio correto neste momento.
+- [Recurso] [AzureHtml5JS| Edge[Suporte não testado] Suporte para streams de áudio DD+ em Edge (sem comutação de codec após a escolha inicial). A aplicação deve selecionar o fluxo de áudio correto neste momento.
 - [Recurso] Controlos de chaves quentes (ver docs para mais detalhes)
 - [Recurso] A ponta do tempo do progresso paira para o tempo preciso de procurar
 - [Recurso] Permitir a deteção de assíncos de plugins se o método de configuração Existir no plugin
@@ -588,11 +588,11 @@ Devolva erros significativos de KeyDelivery a aplicações de chamadas
 - [Bug Fix] As aulas de CSS são facilmente substituídas acidentalmente
 - [Bug Fix] [Cromo] Atualização da identificação do navegador de cadeia de agente de utilizador é Edge
 - [Bug Fix] [AzureHtml5JS] Botão de legendas não aparece na barra de ferramentas em Edge (Win10) ou Chrome(Mac)
-- [Bug Fix] [Android] [AzureHtml5JS] Chrome] InvalidStateError exceção no endOfStream() chamada em vídeos curtos
+- [Bug Fix] [Android] [AzureHtml5JS| Chrome] InvalidStateError exceção no endOfStream() chamada em vídeos curtos
 - [Bug Fix] [Firefox] Remoção do aviso drm causado pelo Firefox ao verificar capacidades do navegador
 - [Bug Fix] [Html5] Legendas/Legendas não mostradas com conteúdo progressivo de mp4
 - [Bug Fix] [FlashSS] Mensagens com tempotais correspondentes foram registadas em ordem inversa
-- [Bug Fix] [Acessibilidade] [Cromo] Firefox] Tab e selecione controlos selecione automaticamente o primeiro item do menu
+- [Bug Fix] [Acessibilidade] [Cromo| Firefox] Tab e selecione controlos selecione automaticamente o primeiro item do menu
 - [Bug Fix] [Acessibilidade] Abas para controlar o botão de volume
 
 ### <a name="changes-160"></a>Alterações 1.6.0 ###
@@ -614,8 +614,8 @@ Devolva erros significativos de KeyDelivery a aplicações de chamadas
 - [Bug Fix] Atualizar a minificação do CSS para utilizar códigos de fonte de entidade HTML para botões em vez de Unicode
 - [Bug Fix] [AzureHtml5JS] Conteúdo multi-DRM sempre selecionando o símbolo do primeiro elemento da proteçãoInfo fazendo com que o segundo DRM falhe
 - [Bug Fix] [AzureHtml5JS] Procurar nunca se completa quando procura numa área com segmentos em falta.
-- [Bug Fix] [AzureHtml5JS] Edge] Ativar a atualização EME pré-fixa no Edge para reprodução playReady
-- [Bug Fix] [AzureHtml5JS] Firefox] Update EME check para permitir que Firefox v42+ (com MSE) recue para Silverlight para obter conteúdo protegido
+- [Bug Fix] [AzureHtml5JS| Edge] Ativar a atualização EME pré-fixa no Edge para reprodução playReady
+- [Bug Fix] [AzureHtml5JS| Firefox] Update EME check para permitir que Firefox v42+ (com MSE) recue para Silverlight para obter conteúdo protegido
 - [Bug Fix] [FlashSS] Atualizar erro.mensagem do número para a cadeia detalhada
 
 ### <a name="changes-150"></a>Alterações 1.5.0 ###
@@ -626,7 +626,7 @@ Devolva erros significativos de KeyDelivery a aplicações de chamadas
 
 ### <a name="features-140"></a>Características 1.4.0 ###
 
-- [Recurso] [AzureHtml5JS] Chrome] Suporte drm simples de widevine
+- [Recurso] [AzureHtml5JS| Chrome] Suporte drm simples de widevine
 - [Recurso] [AzureHtml5JS] Manipulação de robustez de 404/412 erros durante a reprodução
 
 ### <a name="bug-fixes-140"></a>Correções de Erros 1.4.0 ###
@@ -641,8 +641,8 @@ Devolva erros significativos de KeyDelivery a aplicações de chamadas
 
 ### <a name="bug-fixes-130"></a>Correções de Erros 1.3.0 ###
 
-- [Bug Fix] [AzureHtml5JS] Cromado] Girador infinito intermitente
-- [Bug Fix] [AzureHtml5JS] IE][Windows Phone] Exceção que faz com que o Windows Phone tenha problemas de reprodução
+- [Bug Fix] [AzureHtml5JS| Cromado] Girador infinito intermitente
+- [Bug Fix] [AzureHtml5JS| IE][Windows Phone] Exceção que faz com que o Windows Phone tenha problemas de reprodução
 - [Bug Fix] [FlashSS] Reprodução automática definida para falhas falsas para casos adicionais
 - [Bug Fix] Problemas de dimensionamento de menus de UI
 
@@ -650,13 +650,13 @@ Devolva erros significativos de KeyDelivery a aplicações de chamadas
 
 ### <a name="features-120"></a>Características 1.2.0 ###
 
-- [Recurso] [AzureHtml5JS] Firefox] Suporte quando o MSE estiver ativado
+- [Recurso] [AzureHtml5JS| Firefox] Suporte quando o MSE estiver ativado
 - [Recurso] Já não é necessário que a aplicação forneça caminhos para binários tecnológicos de retorno (swf, xap). O caminho é relativo ao script do Azure Media Player.
 
 ### <a name="bug-fixes-120"></a>Correções de Erros 1.2.0 ###
 
-- [Bug Fix] [AzureHtml5JS] Chrome] Jogador deriva atrás da borda ao vivo quando o jogador no fundo
-- [Bug Fix] [AzureHtml5JS] Edge] Ecrã completo não funcionando
+- [Bug Fix] [AzureHtml5JS| Chrome] Jogador deriva atrás da borda ao vivo quando o jogador no fundo
+- [Bug Fix] [AzureHtml5JS| Edge] Ecrã completo não funcionando
 - [Bug Fix] [AzureHtml5JS] O registo madeireira não foi devidamente ativado quando definido nas opções
 - [Bug Fix] [Flash] Ambos "buffering" e buffering icon show durante o evento de espera
 - [Bug Fix] Permitir que a reprodução continue se o pedido inicial de largura de banda falhar

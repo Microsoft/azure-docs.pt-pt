@@ -4,10 +4,10 @@ description: 'Quickstart: Este artigo fornece informações sobre como receber e
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.openlocfilehash: 099a3ff1ad57616de0d7929d787b82e9d55c9e00
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87087582"
 ---
 # <a name="quickstart-receive-events-from-event-hubs-using-apache-storm"></a>Quickstart: Receber eventos de Centros de Eventos usando a Tempestade Apache
@@ -33,10 +33,10 @@ Este tutorial utiliza uma instalação [HDInsight Storm,][HDInsight Storm] que v
 4. No Eclipse, crie um novo projeto Maven (clique em **File,** em seguida, **Novo,** em **seguida, Projeto).**
    
     ![Projeto De arquivo -> Novo->][12]
-5. Selecione **Use a localização padrão do espaço de trabalho**e, em seguida, clique em **Seguinte**
+5. Selecione **Use a localização padrão do espaço de trabalho** e, em seguida, clique em **Seguinte**
 6. Selecione o **arquétipo maven-arquétipo-quickstart** e, em seguida, clique em **Seguinte**
 7. Insira um **GroupId** e **ArtifactId,** em seguida, clique em **Terminar**
-8. Em **pom.xml, **adicione as seguintes dependências no `<dependency>` nó.
+8. Em **pom.xml,** adicione as seguintes dependências no `<dependency>` nó.
 
     ```xml  
     <dependency>
@@ -234,7 +234,7 @@ Este tutorial utiliza uma instalação [HDInsight Storm,][HDInsight Storm] que v
 Pode saber mais sobre os Hubs de Eventos ao aceder às seguintes ligações:
 
 * [Descrição geral dos Event Hubs][Event Hubs overview]
-* [Criar um hub de eventos](event-hubs-create.md)
+* [Criar um centro de eventos](event-hubs-create.md)
 * [FAQ dos Hubs de Eventos](event-hubs-faq.md)
 
 <!-- Links -->

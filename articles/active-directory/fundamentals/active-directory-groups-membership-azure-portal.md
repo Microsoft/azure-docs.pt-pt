@@ -14,10 +14,10 @@ ms.custom: it-pro, seodec18
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cbd7eecd80b528b1d20d016d51c985bc24d1301d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92371805"
 ---
 # <a name="add-or-remove-a-group-from-another-group-using-azure-active-directory"></a>Adicione ou remova um grupo de outro grupo usando o Azure Ative Directory
@@ -36,7 +36,7 @@ Pode adicionar um grupo de Segurança existente a outro grupo de Segurança exis
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta de Administrador global do diretório.
 
-2. Selecione **Azure Ative Directory**e, em seguida, selecione **Grupos**.
+2. Selecione **Azure Ative Directory** e, em seguida, selecione **Grupos**.
 
 3. Na página **Grupos - Todos os grupos,** procure e selecione o grupo que se tornará membro de outro grupo. Para este exercício, estamos a usar a política do MDM- Grupo **Oeste.**
 

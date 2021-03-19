@@ -1,5 +1,5 @@
 ---
-title: Trabalhe com os incidentes do Azure Sentinel em muitos espaços de trabalho ao mesmo tempo Microsoft Docs
+title: Trabalhe com incidentes do Azure Sentinel em muitos espaços de trabalho ao mesmo tempo | Microsoft Docs
 description: Como ver incidentes em vários espaços de trabalho simultaneamente em Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/20/2020
 ms.author: yelevin
 ms.openlocfilehash: 448998328ff15b74b0aa0b17e2435a7ff55c54a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "83124190"
 ---
 # <a name="work-with-incidents-in-many-workspaces-at-once"></a>Trabalhar com incidentes em muitos espaços de trabalho ao mesmo tempo 

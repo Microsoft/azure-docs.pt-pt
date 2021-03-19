@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/11/2020
 ms.openlocfilehash: 5b7943b2026d640ae7e5d119e165bd752ae2fe7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90898834"
 ---
 # <a name="clean-missing-data-module"></a>Módulo de dados em falta limpo
@@ -112,7 +112,7 @@ Cada vez que aplica o módulo  [De Dados Desaparecidos Limpos](./clean-missing-d
   
 8. Envie o oleoduto.
 
-### <a name="results"></a>Results
+### <a name="results"></a>Resultados
 
 O módulo devolve duas saídas:  
 

@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
-ms.openlocfilehash: 2913869067ff138922ebb7ea1483a1132e360d29
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: d91b62afacad31d78feb7d4743cd4050fcc1bd4e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100382400"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104581648"
 ---
 # <a name="scale-an-azure-cache-for-redis-instance"></a>Escalar uma cache Azure para a instância Redis
 A Azure Cache para Redis tem diferentes ofertas de cache, que proporcionam flexibilidade na escolha do tamanho e características da cache. Para uma cache Basic, Standard ou Premium, pode alterar o seu tamanho e nível depois de ter sido criado para acompanhar as necessidades da sua aplicação. Este artigo mostra-lhe como escalar a sua cache usando o portal Azure, e ferramentas como Azure PowerShell e Azure CLI.
@@ -45,7 +45,7 @@ Pode escalar para um nível de preços diferente com as seguintes restrições:
   * Não se pode escalar de uma cache **standard** até uma cache **básica.**
 * Pode escalar de uma cache **Basic** para uma cache **Standard,** mas não pode mudar o tamanho ao mesmo tempo. Se precisar de um tamanho diferente, pode fazer uma operação de escala subsequente ao tamanho pretendido.
 * Não se pode escalar de uma cache **básica** diretamente para uma cache **Premium.** Primeiro, escalone de **Base** para **Standard** numa operação de escala, e depois de **Standard** para **Premium** numa operação de escala subsequente.
-* Não é possível escalar de um tamanho maior até ao tamanho **C0 (250 MB).**
+* Não é possível escalar de um tamanho maior até ao tamanho **C0 (250 MB).** No entanto, pode reduzir-se a qualquer outro tamanho dentro do mesmo nível de preços. Por exemplo, pode descer de C5 Standard para C1 Standard.
  
 Enquanto a cache está a escalonar para o novo nível de preços, é apresentado um estado **de escala** na Cache Azure para lâmina **Redis.**
 

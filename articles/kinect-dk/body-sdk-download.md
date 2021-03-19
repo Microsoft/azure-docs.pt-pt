@@ -4,15 +4,15 @@ description: Entenda como descarregar cada versão do Azure Kinect Sensor SDK no
 author: qm13
 ms.author: quentinm
 ms.prod: kinect-dk
-ms.date: 06/26/2019
+ms.date: 03/18/2021
 ms.topic: conceptual
 keywords: azul, kinect, sdk, atualização de download, mais recente, disponível, instalar, corpo, rastreio
-ms.openlocfilehash: 0ac0598d893617f341b9e1fd4d45c0c3e3f3c619
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 60018df56433785f3cb723dd54cc96a8e5289b67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359600"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104654497"
 ---
 # <a name="download-azure-kinect-body-tracking-sdk"></a>Baixar Azure Kinect Body Tracking SDK
 
@@ -28,18 +28,13 @@ Este documento fornece links para instalar cada versão do Azure Kinect Body Tra
 
 Versão       | Download
 --------------|----------
+1.1.0 | [msi](https://www.microsoft.com/en-us/download/details.aspx?id=102901)
 1.0.1 | [msi](https://www.microsoft.com/en-us/download/details.aspx?id=100942) [nuget](https://www.nuget.org/packages/Microsoft.Azure.Kinect.BodyTracking/1.0.1)
 1.0.0 | [msi](https://www.microsoft.com/en-us/download/details.aspx?id=100848) [nuget](https://www.nuget.org/packages/Microsoft.Azure.Kinect.BodyTracking/1.0.0)
-0.9.5 | [msi](https://www.microsoft.com/en-us/download/details.aspx?id=100636) [nuget](https://www.nuget.org/packages/Microsoft.Azure.Kinect.BodyTracking/0.9.5)
-0.9.4 | [msi](https://www.microsoft.com/en-us/download/details.aspx?id=100415) [nuget](https://www.nuget.org/packages/Microsoft.Azure.Kinect.BodyTracking/0.9.4)
-0.9.3 | [msi](https://www.microsoft.com/en-us/download/details.aspx?id=100307) [nuget](https://www.nuget.org/packages/Microsoft.Azure.Kinect.BodyTracking/0.9.3)
-0.9.2 | [msi](https://www.microsoft.com/en-us/download/details.aspx?id=100128) [nuget](https://www.nuget.org/packages/Microsoft.Azure.Kinect.BodyTracking/0.9.2)
-0.9.1 | [msi](https://www.microsoft.com/en-us/download/details.aspx?id=100063) [nuget](https://www.nuget.org/packages/Microsoft.Azure.Kinect.BodyTracking/0.9.1)
-0.9.0 | [msi](https://www.microsoft.com/en-us/download/details.aspx?id=58402) [nuget](https://www.nuget.org/packages/Microsoft.Azure.Kinect.BodyTracking/0.9.0)
 
 ## <a name="linux-installation-instructions"></a>Instruções de instalação do Linux
 
-Atualmente, a única distribuição suportada é ubuntu 18.04. Para solicitar apoio a outras distribuições, consulte [esta página.](https://aka.ms/azurekinectfeedback)
+Atualmente, a única distribuição suportada é ubuntu 18.04 e 20.04. Para solicitar apoio a outras distribuições, consulte [esta página.](https://aka.ms/azurekinectfeedback)
 
 Em primeiro lugar, terá de configurar o [Repositório de Pacotes da Microsoft,](https://packages.microsoft.com/)seguindo as instruções [aqui](/windows-server/administration/linux-package-repository-for-microsoft-software).
 
@@ -48,7 +43,7 @@ O `libk4abt<major>.<minor>` pacote contém os objetos partilhados necessários p
 
 Os tutoriais básicos requerem o `libk4abt<major>.<minor>-dev` pacote. Para instalá-lo, executar
 
-`sudo apt install libk4abt1.0-dev`
+`sudo apt install libk4abt<major>.<minor>-dev`
 
 Se o comando for bem sucedido, o SDK está pronto a ser utilizado.
 
@@ -58,6 +53,18 @@ Se o comando for bem sucedido, o SDK está pronto a ser utilizado.
 
 ## <a name="change-log"></a>Change log
 
+### <a name="v110"></a>v1.1.0
+* [Recurso] Adicione suporte para DirectML (apenas Windows) e execução tensorRT do modelo de estimativa de pose. Consulte as FAQ em novos ambientes de execução.
+* [Recurso] Adicione `model_path` à `k4abt_tracker_configuration_t` estrutura. Permite que os utilizadores especifiquem o nome de pathname para o modelo de estimativa de pose. Incumprimentos ao `dnn_model_2_0_op11.onnx` modelo de estimativa de pose padrão localizado no diretório atual.
+* [Recurso] Incluir `dnn_model_2_0_lite_op11.onnx` o modelo de estimativa de pose lite. Este modelo negoceia ~2x aumento de desempenho para ~5% de precisão.
+* [Recurso] As amostras verificadas compilam-se com o Visual Studio 2019 e atualizam amostras para utilizar esta versão.
+* [Mudança de Rutura] Atualize para ONNX Runtime 1.6 com suporte para ambientes de execução CPU, CUDA 11.1, DirectML (apenas Windows) e TensorRT 7.2.1. Requer atualização do controlador NVIDIA para R455 ou melhor.
+* [Mudança de Rutura] Sem instalação nuGet.
+* [Bug Fix] Adicione suporte para NVIDIA RTX série GPUs [Link](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/issues/1481)
+* [Bug Fix] Adicionar suporte para GPUs integrados AMD e Intel (apenas Windows) [Link](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/issues/1481)
+* [Bug Fix] Atualização para [ligação](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/issues/1125) CUDA 11.1
+* [Bug Fix] Atualização para sensor SDK 1.4.1 [Link](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/issues/1248)
+
 ### <a name="v101"></a>v1.0.1
 * [Bug Fix] Corrige o problema que o SDK falha se o carregamento onnxruntime.dll do caminho no Windows construir 19025 ou mais tarde: [Link](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/issues/932)
 
@@ -66,53 +73,6 @@ Se o comando for bem sucedido, o SDK está pronto a ser utilizado.
 * [Bug Fix] Corrigir problema que a rotação da cabeça não pode ser detetado corretamente: [Ligação](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/issues/997)
 * [Bug Fix] Corrige o problema de que o uso do CPU sobe até 100% na máquina Linux: [Link](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/issues/1007)
 * [Amostras] Adicione duas amostras à amostra de repo. A amostra 1 demonstra como transformar os resultados do rastreio do corpo do espaço de profundidade para o espaço de cores [Link;](https://github.com/microsoft/Azure-Kinect-Samples/tree/master/body-tracking-samples/camera_space_transform_sample) amostra 2 demonstra como detetar [ligação](https://github.com/microsoft/Azure-Kinect-Samples/tree/master/body-tracking-samples/floor_detector_sample) de avião do piso
-
-### <a name="v095"></a>v0.9.5
-* [Recurso] Suporte C. O invólucro C# é embalado no pacote nuget.
-* [Recurso] Suporte multi-tracker. É permitido criar vários localizadores. Agora o utilizador pode criar vários rastreadores para rastrear corpos de diferentes dispositivos Azure Kinect.
-* [Recurso] Suporte de processamento multi-thread para o modo CPU. Ao correr no modo CPU, todos os núcleos serão utilizados para maximizar a velocidade.
-* [Recurso] Adicione `gpu_device_id` à `k4abt_tracker_configuration_t` estrutura. Permitir que os utilizadores especifiquem o dispositivo GPU que não seja o padrão para executar o algoritmo de rastreio do corpo.
-* [Alteração de Correção de Bug/Rutura] Fixe tipografia num nome comum. Mude o nome da articulação de `K4ABT_JOINT_SPINE_NAVAL` `K4ABT_JOINT_SPINE_NAVEL` .
-
-### <a name="v094"></a>v0.9.4
-* [Recurso] Adicione o suporte das articulações da mão. O SDK fornecerá informações para três juntas adicionais para cada mão: MÃO, HANDTIP, POLEGAR.
-* [Recurso] Adicione o nível de confiança da previsão para cada articulação detetada.
-* [Recurso] Adicione suporte ao modo CPU. Ao alterar o `cpu_only_mode` valor em , agora o `k4abt_tracker_configuration_t` SDK pode ser executado no modo CPU, o que não requer que o utilizador tenha uma poderosa placa gráfica.
-
-### <a name="v093"></a>v0.9.3
-* [Recurso] Publique um novo modelo DNN dnn_model_2_0.onnx, que melhora em grande parte a robustez do rastreio corporal.
-* [Recurso] Desative o alisamento temporal por defeito. As articulações rastreadas serão mais responsivas.
-* [Recurso] Melhore a precisão do mapa do índice do corpo.
-* [Bug Fix] Corrija o bug de que a definição de orientação do sensor não é eficaz.
-* [Bug Fix] Mude o tipo de body_index_map de K4A_IMAGE_FORMAT_CUSTOM para K4A_IMAGE_FORMAT_CUSTOM8.
-* [Edição conhecida] Dois corpos próximos podem fundir-se ao segmento de instância única.
-
-### <a name="v092"></a>v0.9.2
-* [Mudança de Rutura] A atualização depende do mais recente Sensor Kinect SDK 1.2.0 do Azure Kinect Sensor.
-* [API Change] `k4abt_tracker_create` função começará a tomar uma `k4abt_tracker_configuration_t` entrada. 
-* [API Change] Altere `k4abt_frame_get_timestamp_usec` a API `k4abt_frame_get_device_timestamp_usec` para ser mais específica e consistente com o Sensor SDK 1.2.0.
-* [Recurso] Permita aos utilizadores especificar a orientação de montagem do sensor ao criar o rastreador para obter resultados mais precisos de rastreio do corpo ao montar em diferentes ângulos.
-* [Recurso] Forneça uma nova API `k4abt_tracker_set_temporal_smoothing` para alterar a quantidade de alisamento temporal que o utilizador quer aplicar.
-* [Recurso] Adicione o invólucro C++ k4abt.hpp.
-* [Recurso] Adicione o cabeçalho de definição de versão k4abtversion.h.
-* [Bug Fix] Correção de erros que causaram uma utilização extremamente elevada do CPU.
-* [Bug Fix] Corrija o bicho de colisão do madeireiro.
-
-### <a name="v091"></a>v0.9.1
-* [Bug Fix] Corrija a fuga de memória ao destruir o localizador
-* [Bug Fix] Melhores mensagens de erro para dependências em falta
-* [Bug Fix] Falhar sem colidir ao criar uma segunda instância de rastreador
-* [Bug Fix] As variáveis ambientais do logger agora funcionam corretamente
-* Apoio Técnico para Linux
-
-### <a name="v090"></a>v0.9.0
-
-* [Mudança de Rutura] Desvalorizou a dependência da SDK para CUDA 10.0 (da CUDA 10.1). O tempo de funcionação onnx oficialmente só suporta até CUDA 10.0.
-* [Mudança de Rutura] Comutado para tempo de funcionamento ONNX em vez de tempo de execução de tensorflow. Reduz o tempo de lançamento do primeiro quadro e o uso da memória. Também reduz o tamanho binário SDK.
-* [API Change] Renomeado `k4abt_tracker_queue_capture()` para `k4abt_tracker_enqueue_capture()`
-* [API Change] Invadiu `k4abt_frame_get_body()` duas funções distintas: `k4abt_frame_get_body_skeleton()` e `k4abt_frame_get_body_id()` . Agora pode consultar a identificação do corpo sem copiar sempre toda a estrutura do esqueleto.
-* [API Change] Função  `k4abt_frame_get_timestamp_usec()` adicional para simplificar os passos para os utilizadores consultarem o calendário da moldura do corpo.
-* Melhorou ainda mais a precisão do algoritmo de rastreio do corpo e a fiabilidade do rastreio
 
 ## <a name="next-steps"></a>Passos seguintes
 

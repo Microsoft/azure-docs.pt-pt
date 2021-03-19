@@ -13,10 +13,10 @@ ms.topic: end-user-help
 ms.date: 07/06/2020
 ms.author: curtand
 ms.openlocfilehash: e0a6c566e8e0dfb77b5899f735020d0f1facf3d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88798385"
 ---
 # <a name="change-your-two-factor-verification-method-and-settings"></a>Altere o seu método e configurações de verificação de dois fatores
@@ -86,7 +86,7 @@ Pode adicionar novos números de telefone, ou atualizar os números existentes, 
 
 ### <a name="to-change-your-phone-numbers"></a>Para alterar os seus números de telefone
 
-1. A partir da secção Como pretende **Additional security verification** **responder?** **Authentication phone** **Office phone**
+1. A partir da secção Como pretende  **responder?**  
 
 1. Selecione a caixa ao lado da opção **telefone de autenticação alternativa** e, em seguida, digite um número de telefone secundário onde pode receber chamadas telefónicas se não conseguir aceder ao seu dispositivo principal.
 
@@ -98,7 +98,7 @@ Pode configurar a sua conta de trabalho ou escola na aplicação Microsoft Authe
 
 Se já configurar o seu trabalho ou conta escolar na aplicação Microsoft Authenticator, não precisa de o fazer novamente.
 
-1. A partir da secção Como pretende **Additional security verification** **responder?** **Set up Authenticator app**
+1. A partir da secção Como pretende  **responder?** 
 
     ![Configurar o seu trabalho ou conta escolar na aplicação Microsoft Authenticator](./media/multi-factor-authentication-end-user-manage-settings/mfa-security-verification-page-auth-app.png)
 
@@ -114,7 +114,7 @@ Pode eliminar a sua conta a partir da aplicação Microsoft Authenticator e pode
 
 ### <a name="to-delete-your-device-from-your-work-or-school-account"></a>Para eliminar o seu dispositivo do seu trabalho ou conta escolar
 
-1. A partir da secção Como pretende **Additional security verification** **responder?** **Set up Authenticator app**
+1. A partir da secção Como pretende  **responder?** 
 
 1. Selecione **Guardar**.
 
@@ -128,7 +128,7 @@ Dependendo das definições da sua organização, pode ver uma caixa de verifica
 
 ### <a name="to-turn-two-factor-verification-prompts-back-on-for-your-devices"></a>Para ligar as solicitações de verificação de dois fatores de volta para os seus dispositivos
 
-A partir da página [ **de verificação de segurança adicional,** ](#to-get-to-the-additional-security-verification-page)selecione **Restaurar a autenticação de vários fatores em dispositivos previamente fidedignos**. Da próxima vez que iniciar sedução em qualquer dispositivo, será solicitado para fazer uma verificação de dois fatores.
+A partir da página [ **de verificação de segurança adicional,**](#to-get-to-the-additional-security-verification-page)selecione **Restaurar a autenticação de vários fatores em dispositivos previamente fidedignos**. Da próxima vez que iniciar sedução em qualquer dispositivo, será solicitado para fazer uma verificação de dois fatores.
 
 ## <a name="next-steps"></a>Passos seguintes
 

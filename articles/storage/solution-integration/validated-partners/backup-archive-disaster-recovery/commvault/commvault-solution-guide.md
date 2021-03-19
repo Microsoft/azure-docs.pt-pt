@@ -8,12 +8,12 @@ ms.date: 03/15/2021
 ms.topic: conceptual
 ms.service: storage
 ms.subservice: partner
-ms.openlocfilehash: 29484bee685fcc15073ef255e65a780e05f1200d
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.openlocfilehash: ce321574ce2878f51864f55bf5618df2c96d1068
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103561673"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104589893"
 ---
 # <a name="backup-to-azure-with-commvault"></a>Backup para Azure com Commvault
 
@@ -45,7 +45,7 @@ Um pequeno planeamento inicial irá ajudá-lo a usar o Azure como alvo de backup
 
 ### <a name="get-started-with-azure"></a>Introdução ao Azure
 
-A Microsoft oferece uma estrutura a seguir para começar com o Azure. O [Cloud Adoption Framework](https://docs.microsoft.com/azure/architecture/cloud-adoption/) (CAF) é uma abordagem detalhada da transformação digital empresarial e guia abrangente para planear uma adoção em nuvem de nível de produção. O CAF inclui um guia de configuração passo a passo [Azure](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-setup-guide/) para ajudá-lo a levantar-se e a correr de forma rápida e segura. Pode encontrar uma versão interativa no [portal Azure.](https://portal.azure.com/?feature.quickstart=true#blade/Microsoft_Azure_Resources/QuickstartCenterBlade) Você encontrará arquiteturas de amostra, boas práticas específicas para implementar aplicações, e recursos de formação gratuitos para colocá-lo no caminho para a experiência Azure.
+A Microsoft oferece uma estrutura a seguir para começar com o Azure. O [Cloud Adoption Framework](/azure/architecture/cloud-adoption/) (CAF) é uma abordagem detalhada da transformação digital empresarial e guia abrangente para planear uma adoção em nuvem de nível de produção. O CAF inclui um guia de configuração passo a passo [Azure](/azure/cloud-adoption-framework/ready/azure-setup-guide/) para ajudá-lo a levantar-se e a correr de forma rápida e segura. Pode encontrar uma versão interativa no [portal Azure.](https://portal.azure.com/?feature.quickstart=true#blade/Microsoft_Azure_Resources/QuickstartCenterBlade) Você encontrará arquiteturas de amostra, boas práticas específicas para implementar aplicações, e recursos de formação gratuitos para colocá-lo no caminho para a experiência Azure.
 
 ### <a name="consider-the-network-between-your-location-and-azure"></a>Considere a rede entre a sua localização e a Azure
 
@@ -96,7 +96,7 @@ Quando utilizar o Azure como alvo de reserva, utilizará o [armazenamento Azure 
 |**Eficaz # de cópias**     | 3         | 3         | 6         | 6 |
 |**# de zonas de disponibilidade**     | 1         | 3         | 2         | 4 |
 |**# de regiões**     | 1         | 1         | 2         | 2 |
-|**Falha manual na região secundária**     | N/D         | N/D         | Sim         | Sim |
+|**Falha manual na região secundária**     | N/D         | N/D         | Sim         | Yes |
 
 **Camadas de armazenamento de bolhas:**
 
@@ -187,7 +187,7 @@ Esta secção fornece um breve guia para como adicionar O Armazenamento Azure a 
 
 #### <a name="azure-portal"></a>Portal do Azure
 
-O Azure fornece uma solução de monitorização robusta sob a forma de [Azure Monitor](../../../../../azure-monitor/essentials/monitor-azure-resource.md). Pode [configurar o Azure Monitor](../../../../common/monitor-storage.md) para monitorizar a capacidade de armazenamento do Azure, transações, disponibilidade, autenticação e muito mais. Pode encontrar a referência completa das métricas que são recolhidas [aqui.](../../../../blobs/monitor-blob-storage-reference.md) Algumas métricas úteis a seguir são BlobCapacity - para se certificar de que permanece abaixo do limite máximo de capacidade de [armazenamento,](../../../../common/scalability-targets-standard-account.md)Ingress e Egress - para rastrear a quantidade de dados que estão sendo escritos e lidos a partir da sua conta de Armazenamento Azure, e SuccessE2ELatency - para acompanhar o tempo de ida e volta para pedidos de e para a Azure Storage e seu MediaAgent.
+O Azure fornece uma solução de monitorização robusta sob a forma de [Azure Monitor](../../../../../azure-monitor/essentials/monitor-azure-resource.md). Pode [configurar o Azure Monitor](../../../../blobs/monitor-blob-storage.md) para monitorizar a capacidade de armazenamento do Azure, transações, disponibilidade, autenticação e muito mais. Pode encontrar a referência completa das métricas que são recolhidas [aqui.](../../../../blobs/monitor-blob-storage-reference.md) Algumas métricas úteis a seguir são BlobCapacity - para se certificar de que permanece abaixo do limite máximo de capacidade de [armazenamento,](../../../../common/scalability-targets-standard-account.md)Ingress e Egress - para rastrear a quantidade de dados que estão sendo escritos e lidos a partir da sua conta de Armazenamento Azure, e SuccessE2ELatency - para acompanhar o tempo de ida e volta para pedidos de e para a Azure Storage e seu MediaAgent.
 
 Também pode [criar alertas de registo](../../../../../service-health/alerts-activity-log-service-notifications-portal.md) para rastrear a saúde do serviço de armazenamento Azure e ver o painel de [instrumentos de estado Azure](https://status.azure.com/status) a qualquer momento.
 

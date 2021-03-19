@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b27055ce84bbb073045b69b942fd13f4fde4e3b3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90563867"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-architecture"></a>Azure AD Connect sync: Understanding the architecture
@@ -204,7 +204,7 @@ A sincronização de entrada cria a visão integrada no metaverso da informaçã
 A sincronização de entrada inclui os seguintes processos:
 
 * **Provisão** (também chamada **de Projeção** se for importante distinguir este processo do provisionamento de sincronização de saída). O motor Sync cria um novo objeto metaverso baseado num objeto de paragem e liga-os. A provisão é uma operação ao nível de objetos.
-* **Junte-se**a nós . O motor Sync liga um objeto de encenação a um objeto metaverso existente. Uma junção é uma operação ao nível de objetos.
+* **Junte-se** a nós . O motor Sync liga um objeto de encenação a um objeto metaverso existente. Uma junção é uma operação ao nível de objetos.
 * **Fluxo de atributos de importação**. O motor sincroniza os valores do atributo, chamado fluxo de atributos, do objeto no metaverso. O fluxo de atributos de importação é uma operação de nível de atributo que requer uma ligação entre um objeto de encenação e um objeto metaverso.
 
 A provisão é o único processo que cria objetos no metaverso. A disposição afeta apenas objetos de importação que sejam objetos desunião. Durante a provisão, o motor de sincronização cria um objeto metaverso que corresponde ao tipo de objeto do objeto de importação e estabelece uma ligação entre ambos os objetos, criando assim um objeto unido.
@@ -239,7 +239,7 @@ Se o provisionamento requer que o motor de sincronização crie um novo objeto d
 
 Se o provisionamento requer que o motor de sincronização se junte a um objeto associado, criando um objeto desacoplado, é ativado a desprovisionamento. O processo de desprovisionamento elimina o objeto.
 
-Durante a desprovisionamento, a eliminação de um objeto de exportação não apaga fisicamente o objeto. O objeto é **sinalizado**como eliminado , o que significa que a operação de eliminação é encenada no objeto.
+Durante a desprovisionamento, a eliminação de um objeto de exportação não apaga fisicamente o objeto. O objeto é **sinalizado** como eliminado , o que significa que a operação de eliminação é encenada no objeto.
 
 O fluxo de atributos de exportação também ocorre durante o processo de sincronização de saída, semelhante à forma como o fluxo de atributos de importação ocorre durante a sincronização de entrada. O fluxo de atributos de exportação ocorre apenas entre metaversos e objetos de exportação que se juntam.
 

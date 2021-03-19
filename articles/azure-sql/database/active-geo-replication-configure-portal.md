@@ -12,10 +12,10 @@ ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 02/13/2019
 ms.openlocfilehash: 71c73fec4f559b34b097556243617636acd77480
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92673274"
 ---
 # <a name="tutorial-configure-active-geo-replication-and-failover-in-the-azure-portal-azure-sql-database"></a>Tutorial: Configurar a geo-replicação ativa e o failover no portal Azure (Base de Dados Azure SQL)
@@ -70,7 +70,7 @@ Após a criação e semeada do secundário, os dados começam a replicar-se da b
 A base de dados secundária pode ser mudada para se tornar a principal.  
 
 1. No [portal Azure,](https://portal.azure.com)navegue pela base de dados primária na parceria de geo-replicação.
-2. Na lâmina SQL Database, selecione **Todas as definições**  >  **de geo-replicação** .
+2. Na lâmina SQL Database, selecione **Todas as definições**  >  **de geo-replicação**.
 3. Na lista **DE SECUNDÁRIOS,** selecione a base de dados que pretende tornar-se a nova primária e clique em **"Falha Forçada".**
 
     ![ativação pós-falha](./media/active-geo-replication-configure-portal/secondaries.png)
@@ -90,7 +90,7 @@ Esta operação termina permanentemente a replicação para a base de dados secu
 1. No [portal Azure,](https://portal.azure.com)navegue pela base de dados primária na parceria de geo-replicação.
 2. Na página de base de dados SQL, selecione **a geo-replicação.**
 3. Na lista **DE SECUNDÁRIOS,** selecione a base de dados que pretende remover da parceria de geo-replicação.
-4. Clique **em Stop Replication** .
+4. Clique **em Stop Replication**.
 
     ![Remover secundário](./media/active-geo-replication-configure-portal/remove-secondary.png)
 5. Abre-se uma janela de confirmação. Clique **em Sim** para remover a base de dados da parceria de geo-replicação. (Coloque-o numa base de dados de leitura-escrita que não faça parte de qualquer replicação.)

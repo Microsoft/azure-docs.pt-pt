@@ -1,5 +1,5 @@
 ---
-title: Como gerir contas de utilizadores na Azure API Management Microsoft Docs
+title: Como gerir as contas dos utilizadores na Azure API Management | Microsoft Docs
 description: Saiba como criar ou convidar utilizadores na Azure API Management. Ver recursos adicionais para usar após a criação de uma conta de programador.
 services: api-management
 documentationcenter: ''
@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
 ms.openlocfilehash: 92e032eb104835788f515cc7800fe5dacfa8adaa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88566136"
 ---
 # <a name="how-to-manage-user-accounts-in-azure-api-management"></a>Como gerir contas de utilizador na Gestão de API do Azure
@@ -42,7 +42,7 @@ Para adicionar um novo utilizador, siga os passos desta secção:
 
     ![Adicionar um novo utilizador](./media/api-management-howto-create-or-invite-developers/api-management-create-developer.png)
 
-Por padrão, as contas de programadores recém-criadas são **Ativas**e associadas ao grupo **Developers.** As contas de programadores que se encontrem num estado **ativo** podem ser usadas para aceder a todas as APIs para as quais têm subscrições. Para associar o programador recém-criado a grupos adicionais, consulte [Como associar grupos com desenvolvedores.][How to associate groups with developers]
+Por padrão, as contas de programadores recém-criadas são **Ativas** e associadas ao grupo **Developers.** As contas de programadores que se encontrem num estado **ativo** podem ser usadas para aceder a todas as APIs para as quais têm subscrições. Para associar o programador recém-criado a grupos adicionais, consulte [Como associar grupos com desenvolvedores.][How to associate groups with developers]
 
 ## <a name="invite-a-developer"></a><a name="invite-developer"> </a>Convidar um desenvolvedor
 Para convidar um desenvolvedor, siga os passos desta secção:
@@ -56,7 +56,7 @@ Quando um desenvolvedor é convidado, um e-mail é enviado para o desenvolvedor.
 
 Uma vez que o convite é aceite, a conta torna-se ativa.
 
-## <a name="deactivate-or-reactivate-a-developer-account"></a><a name="block-developer"> </a> Desativar ou reativar uma conta de programador
+## <a name="deactivate-or-reactivate-a-developer-account"></a><a name="block-developer"></a> Desativar ou reativar uma conta de programador
 
 Por padrão, as contas de programadores recém-criadas ou convidadas são **Ativas.** Para desativar uma conta de programador, clique em **Bloquear**. Para reativar uma conta de programador bloqueada, clique em **Ativar**. Uma conta de programador bloqueada não pode aceder ao portal do desenvolvedor ou chamar APIs. Para eliminar uma conta de utilizador, clique em **Eliminar**.
 
@@ -64,7 +64,7 @@ Para bloquear um utilizador, siga os seguintes passos.
 
 1. Selecione o **separador Utilizadores** à esquerda do ecrã.
 2. Clique no utilizador que pretende bloquear.
-3. **Bloco de**Imprensa .
+3. **Bloco de** Imprensa .
 
 ## <a name="reset-a-user-password"></a>Repor a palavra-passe de um utilizador
 

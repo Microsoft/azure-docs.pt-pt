@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
 ms.openlocfilehash: 0e1f670f2ba5ad31f29d56b2de40acd6e2bf18a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88654383"
 ---
 # <a name="integrate-expressroute-with-disaster-recovery-for-azure-vms"></a>Integrar ExpressRoute com recuperação de desastres para VMs Azure
@@ -36,7 +36,7 @@ O ExpressRoute permite-lhe estender as redes no local para a nuvem Microsoft Azu
 
 Antes de começar, certifique-se de compreender os seguintes conceitos:
 
-- Circuitos [circuits](../expressroute/expressroute-circuit-peerings.md) ExpressRoute
+- Circuitos [](../expressroute/expressroute-circuit-peerings.md) ExpressRoute
 - Domínios [de encaminhamento](../expressroute/expressroute-circuit-peerings.md#routingdomains) ExpressRoute
 - Localizações [ExpressRoute](../expressroute/expressroute-locations.md).
 - Arquitetura de [replicação](azure-to-azure-architecture.md) Azure VM

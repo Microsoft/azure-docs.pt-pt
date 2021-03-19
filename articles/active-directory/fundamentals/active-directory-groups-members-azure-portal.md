@@ -1,5 +1,5 @@
 ---
-title: Adicionar ou remover membros do grupo - Azure Ative Directory / Microsoft Docs
+title: Adicione ou remova membros do grupo - Azure Ative Directory | Microsoft Docs
 description: Instruções sobre como adicionar ou remover membros de um grupo que utiliza o Diretório Azure Ative.
 services: active-directory
 author: ajburnle
@@ -14,10 +14,10 @@ ms.custom: it-pro, seodec18
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: af5a85bad1e7b2a6bf645084d6b78f77e6c0d8b2
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92371839"
 ---
 # <a name="add-or-remove-group-members-using-azure-active-directory"></a>Adicionar ou remover membros do grupo usando o Azure Ative Directory
@@ -27,7 +27,7 @@ Utilizando o Azure Ative Directory, pode continuar a adicionar e remover membros
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta de Administrador global do diretório.
 
-2. Selecione **Azure Ative Directory**e, em seguida, selecione **Grupos**.
+2. Selecione **Azure Ative Directory** e, em seguida, selecione **Grupos**.
 
 3. A partir da página **Grupos - Todos os grupos,** procure e selecione o grupo a que pretende adicionar o membro. Neste caso, use o nosso grupo anteriormente criado, **a política do MDM - West**.
 
@@ -37,7 +37,7 @@ Utilizando o Azure Ative Directory, pode continuar a adicionar e remover membros
 
     ![Política do MDM - Página geral do Oeste, com a opção dos membros em destaque](media/active-directory-groups-members-azure-portal/group-overview-blade.png)
 
-5. **Selecione Adicionar os membros**e, em seguida, pesquisar e selecionar cada um dos membros que pretende adicionar ao grupo e, em seguida, escolher **Selecione**.
+5. **Selecione Adicionar os membros** e, em seguida, pesquisar e selecionar cada um dos membros que pretende adicionar ao grupo e, em seguida, escolher **Selecione**.
 
     Receberá uma mensagem que diz que os membros foram adicionados com sucesso.
 
