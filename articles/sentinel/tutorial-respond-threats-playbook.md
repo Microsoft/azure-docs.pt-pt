@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Executar um livro de jogadas em Azure Sentinel'
-description: Utilize este tutorial para ajudá-lo a usar livros de segurança no Azure Sentinel para definir respostas automáticas de ameaças a questões relacionadas com a segurança.
+title: 'Tutorial: Use livros de reprodução com regras de automação em Azure Sentinel'
+description: Utilize este tutorial para o ajudar a usar playbooks juntamente com as regras de automação no Azure Sentinel para automatizar a sua resposta a incidentes e remediar ameaças à segurança.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -14,107 +14,199 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/18/2019
+ms.date: 02/18/2021
 ms.author: yelevin
-ms.openlocfilehash: b6fd26b4965b92f5f06a008d67e2d585fd1b41b7
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 365ba9df39b4b3bd7397e86e6a51b285bf049242
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94652081"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104600629"
 ---
-# <a name="tutorial-set-up-automated-threat-responses-in-azure-sentinel"></a>Tutorial: Configurar respostas automáticas de ameaças em Azure Sentinel
+# <a name="tutorial-use-playbooks-with-automation-rules-in-azure-sentinel"></a>Tutorial: Use livros de reprodução com regras de automação em Azure Sentinel
 
-
-
-Este tutorial ajuda-o a usar livros de segurança no Azure Sentinel para definir respostas automáticas de ameaças a questões relacionadas com a segurança detetadas pelo Azure Sentinel.
-
+Este tutorial mostra-lhe como usar playbooks juntamente com regras de automação para automatizar a sua resposta de incidente e remediar ameaças de segurança detetadas pelo Azure Sentinel. Quando completar este tutorial poderá:
 
 > [!div class="checklist"]
-> * Compreender os livros de reprodução
+>
+> * Criar uma regra de automação
 > * Criar um livro de jogadas
-> * Executar um livro de jogadas
-> * Automatizar respostas de ameaças
+> * Adicionar ações a um livro de jogadas
+> * Anexar um livro de jogadas a uma regra de automação ou a uma regra de análise para automatizar a resposta à ameaça
 
+## <a name="what-are-automation-rules-and-playbooks"></a>O que são regras de automação e livros de jogadas?
 
-## <a name="what-is-a-security-playbook-in-azure-sentinel"></a>O que é um livro de segurança em Azure Sentinel?
+As regras de automação ajudam-no a triagem de incidentes em Azure Sentinel. Pode usá-los para atribuir automaticamente incidentes ao pessoal certo, fechar incidentes ruidosos ou falsos positivos conhecidos, alterar a sua gravidade e adicionar etiquetas. São também o mecanismo através do qual pode executar playbooks em resposta a incidentes.
 
-Um livro de segurança é uma coleção de procedimentos que podem ser executados a partir de Azure Sentinel em resposta a um alerta. Um livro de segurança pode ajudar a automatizar e orquestrar a sua resposta, e pode ser executado manualmente ou definido para ser executado automaticamente quando os alertas específicos são desencadeados. Os playbooks de segurança em Azure Sentinel são baseados em [Azure Logic Apps](../logic-apps/logic-apps-overview.md), o que significa que você obtém toda a potência, personalização e modelos incorporados de Apps Lógicas. Cada livro de jogadas é criado para a subscrição específica que escolher, mas quando olhar para a página Playbooks, verá todos os playbooks em todas as subscrições selecionadas.
+Os playbooks são coleções de procedimentos que podem ser executados a partir de Azure Sentinel em resposta a um alerta ou incidente. Um livro de jogadas pode ajudar a automatizar e orquestrar a sua resposta, e pode ser configurado para ser executado automaticamente quando são gerados alertas ou incidentes específicos, estando ligados a uma regra de análise ou a uma regra de automação, respectivamente. Também pode ser executado manualmente a pedido.
+
+Os playbooks em Azure Sentinel são baseados em fluxos de trabalho construídos em [Azure Logic Apps](../logic-apps/logic-apps-overview.md), o que significa que você obtém toda a potência, personalização e modelos incorporados de Apps Lógicas. Cada livro de jogadas é criado para a subscrição específica a que pertence, mas o ecrã **playbooks** mostra-lhe todos os playbooks disponíveis em todas as subscrições selecionadas.
 
 > [!NOTE]
-> Os playbooks aproveitam as Apps Azure Logic, pelo que os encargos são aplicados. Visite a página de preços do [Azure Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/) para obter mais detalhes.
+> Como os playbooks utilizam as Aplicações Lógicas Azure, podem ser aplicadas taxas adicionais. Visite a página de preços do [Azure Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/) para obter mais detalhes.
 
-Por exemplo, se estiver preocupado com o acesso de atacantes maliciosos aos recursos da sua rede, pode definir um alerta que procura endereços IP maliciosos que acedam à sua rede. Em seguida, pode criar um livro de jogadas que faça o seguinte:
-1. Quando o alerta for acionado, abra um bilhete no ServiceNow ou em qualquer outro sistema de bilhética de TI.
-2. Envie uma mensagem para o seu canal de operações de segurança em Microsoft Teams ou Slack para se certificar de que os seus analistas de segurança estão cientes do incidente.
-3. Envie todas as informações em alerta para o seu administrador de rede sénior e administrador de segurança. A mensagem de e-mail também inclui dois botões de opção do utilizador **Bloquear** ou **Ignorar**.
-4. O livro continua a ser executado depois de uma resposta ser recebida pelos administradores.
-5. Se os administradores escolherem **o Bloco,** o endereço IP está bloqueado na firewall e o utilizador é desativado em Azure AD.
-6. Se os administradores escolherem **o Ignore,** o alerta é fechado em Azure Sentinel e o incidente está encerrado no ServiceNow.
+Por exemplo, se pretender impedir que os utilizadores potencialmente comprometidos se movam pela sua rede e roubem informações, pode criar uma resposta automatizada e multifacetada a incidentes gerados por regras que detetem utilizadores comprometidos. Começa-se por criar um livro de jogadas que toma as seguintes ações:
 
-Os livros de segurança podem ser executados manualmente ou automaticamente. Executá-las manualmente significa que, quando recebe um alerta, pode optar por executar um livro de jogadas a pedido como resposta ao alerta selecionado. Executá-los automaticamente significa que, ao autorizar a regra de correlação, é definido para executar automaticamente um ou mais livros de jogadas quando o alerta é acionado.
+1. Quando o livro de jogadas é chamado por uma regra de automação que lhe passa um incidente, o livro abre um bilhete no [ServiceNow](/connectors/service-now/) ou em qualquer outro sistema de bilhética informática.
 
+1. Envia uma mensagem para o seu canal de operações de segurança em [Microsoft Teams](/connectors/teams/) ou [Slack](/connectors/slack/) para se certificar de que os seus analistas de segurança estão cientes do incidente.
 
-## <a name="create-a-security-playbook"></a>Criar um livro de segurança
+1. Também envia todas as informações do incidente numa mensagem de correio eletrónico para a sua administração de rede sénior e administração de segurança. A mensagem de e-mail incluirá botões de opção **de utilizador Block** e **Ignore.**
 
-Siga estes passos para criar um novo livro de segurança em Azure Sentinel:
+1. O livro de jogadas aguarda até que uma resposta seja recebida dos administradores, e depois continua com os seus próximos passos.
 
-1. Abra o painel **Azure Sentinel.**
-2. Em **Configuração**, selecione **Playbooks**.
+1. Se os administradores escolherem **o Bloco,** envia um comando para Azure AD para desativar o utilizador e outro para a firewall para bloquear o endereço IP.
 
-   ![Aplicação Lógica](./media/tutorial-respond-threats-playbook/playbookimg.png)
+1. Se os administradores escolherem **o Ignore,** o livro de jogadas encerra o incidente em Azure Sentinel e o bilhete no ServiceNow.
 
-3. Na página **Azure Sentinel - Playbooks,** clique no botão **Adicionar.**
+Para ativar o livro de jogadas, criará uma regra de automação que funciona quando estes incidentes são gerados. Esta regra tomará estes passos:
 
-   ![Criar uma aplicação lógica](./media/tutorial-respond-threats-playbook/create-playbook.png) 
+1. A regra altera o estado do incidente para **Ative**.
 
-4. Na página de **aplicações Create Logic,** escreva as informações solicitadas para criar a sua nova aplicação lógica e clique em **Criar**. 
+1. Atribui o incidente ao analista encarregado de gerir este tipo de incidente.
 
-5. No [**Logic App Designer,**](../logic-apps/logic-apps-overview.md)selecione o modelo que pretende utilizar. Se selecionar um modelo que exija credenciais, terá de as fornecer. Em alternativa, pode criar um novo livro em branco do zero. Selecione **Blank Logic App**. 
+1. Adiciona a etiqueta "utilizador comprometido".
 
-   ![Screenshot que mostra o painel da App Blank Logic.](./media/tutorial-respond-threats-playbook/playbook-template.png)
+1. Finalmente, chama o livro de jogadas que acabaste de criar. (São[necessárias permissões especiais para este passo](automate-responses-with-playbooks.md#incident-creation-automated-response).)
 
-6. Você é levado para o Logic App Designer onde você pode construir novo ou editar o modelo. Para mais informações sobre a criação de um livro de jogadas com [aplicações lógicas.](../logic-apps/logic-apps-create-logic-apps-from-templates.md)
+Os playbooks podem ser executados automaticamente em resposta a incidentes, criando regras de automação que chamam os playbooks como ações, como no exemplo acima. Também podem ser executados automaticamente em resposta aos alertas, dizendo à regra de análise para executar automaticamente um ou mais livros de jogadas quando o alerta é gerado. 
 
-7. Se estiver a criar um livro em branco, no campo **'Pesquisar todos os conectores e gatilhos',** escreva *Azure Sentinel*, e selecione **Quando é ativada uma resposta a um alerta de Sentinela Azure**. <br>Depois de criado, o novo livro de jogadas aparece na lista **de Playbooks.** Se não aparecer, clique em **Refresh**.
+Também pode optar por executar um livro manualmente a pedido, como resposta a um alerta selecionado.
 
-1. Utilize as funções **de entidades Get,** que lhe permitem obter as entidades relevantes de dentro da lista **de Entidades,** tais como contas, endereços IP e anfitriões. Isto permitir-lhe-á executar ações em entidades específicas.
+Obtenha uma introdução mais completa e detalhada para automatizar a resposta de ameaça usando [regras de automação](automate-incident-handling-with-automation-rules.md) e [playbooks](automate-responses-with-playbooks.md) em Azure Sentinel.
 
-7. Agora, pode definir o que acontece quando aciona o playbook. Pode adicionar uma ação, condição lógica, mudar as condições da caixa ou loops.
+> [!IMPORTANT]
+>
+> - **As regras** de automação , e a utilização do gatilho de **incidentes** para os playbooks, estão atualmente em **PRÉ-VISUALIZAÇÃO**. Consulte os [Termos Complementares de Utilização para o Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para termos legais adicionais aplicáveis às funcionalidades do Azure que estejam em versão beta, pré-visualização ou ainda não lançadas em disponibilidade geral.
 
-   ![Estruturador da Aplicação Lógica](./media/tutorial-respond-threats-playbook/logic-app.png)
+## <a name="create-a-playbook"></a>Criar um livro de jogadas
 
-## <a name="how-to-run-a-security-playbook"></a>Como executar um livro de segurança
+Siga estes passos para criar um novo livro de jogadas em Azure Sentinel:
 
-Podes fazer um livro a pedido.
+### <a name="prepare-the-playbook-and-logic-app"></a>Prepare o livro de jogadas e a App Lógica
 
-Para executar um livro de jogadas a pedido:
+1. A partir do menu de navegação **Azure Sentinel,** **selecione Automation**.
 
-1. Na página de **incidentes,** selecione um incidente e clique em **Ver todos os detalhes**.
+1. No menu superior, selecione **Criar** e **Adicionar novo livro de jogadas**.
 
-2. No separador **Alertas,** clique no alerta em que pretende executar o livro de jogadas e percorra todo o caminho até à direita e clique em **Ver playbooks** e selecione um livro de jogadas para **executar** a partir da lista de playbooks disponíveis na subscrição. 
+    :::image type="content" source="./media/tutorial-respond-threats-playbook/add-new-playbook.png" alt-text="Adicione um novo livro de jogadas":::
 
+    Um novo separador de navegador irá abrir e levá-lo ao **Assistente de aplicações lógicas Criar.**
 
+   :::image type="content" source="./media/tutorial-respond-threats-playbook/create-playbook.png" alt-text="Criar uma aplicação lógica":::
+
+1. Insira o seu grupo **de Subscrição** e **Recursos** e dê ao seu livro de jogadas um nome com o nome **da aplicação Logic**.
+
+1. Para **a Região**, selecione a região Azure onde as informações da Sua Aplicação Lógica devem ser armazenadas.
+
+1. Se pretender monitorizar a atividade deste livro de jogadas para fins de diagnóstico, marque a caixa **de verificação de analítica de registo de registo** e insira o nome do espaço de trabalho Log **Analytics.**
+
+1. Se pretender aplicar etiquetas no seu livro de jogadas, clique em **Seguinte : Tags >** (não ligados a tags aplicadas pelas regras de automação. [Saiba mais sobre tags).](../azure-resource-manager/management/tag-resources.md) Caso contrário, clique em **'Rever + Criar' (Revisão+ Criação).** Confirme os detalhes que forneceu e clique em **Criar**.
+
+1. Enquanto o seu livro de jogadas está a ser criado e implementado (isto levará alguns minutos), será levado para um ecrã chamado **Microsoft.EmptyWorkflow**. Quando a mensagem "A sua implementação está completa", clique **em Ir para o recurso.**
+
+1. Você será levado para o seu novo design de [apps lógicas,](../logic-apps/logic-apps-overview.md)onde você pode começar a desenhar o fluxo de trabalho. Você verá um ecrã com um pequeno vídeo introdutório e alguns gatilhos e modelos de Aplicação Lógica comumente usados. [Saiba mais](../logic-apps/logic-apps-create-logic-apps-from-templates.md) sobre a criação de um livro com as Aplicações Lógicas.
+
+1. Selecione o modelo **de Aplicação lógica em branco.**
+
+   :::image type="content" source="./media/tutorial-respond-threats-playbook/choose-playbook-template.png" alt-text="Galeria de modelo de design de aplicativos de lógica":::
+
+### <a name="choose-the-trigger"></a>Escolha o gatilho
+
+Todos os livros devem começar com um gatilho. O gatilho define a ação que iniciará o livro de jogadas e o esquema que o livro de jogadas espera receber.
+
+1. Na barra de pesquisa, procure por Azure Sentinel. Selecione **Azure Sentinel** quando aparecer nos resultados.
+
+1. No **separador Triggers** resultante, verá os dois gatilhos oferecidos por Azure Sentinel:
+    - Quando uma resposta a um Alerta sentinela Azure é desencadeada
+    - Quando é acionada a regra de criação de incidentes do Azure Sentinel
+
+   Escolha o gatilho que corresponde ao tipo de livro de jogadas que está a criar.
+
+    :::image type="content" source="./media/tutorial-respond-threats-playbook/choose-trigger.png" alt-text="Escolha um gatilho para o seu livro de jogadas":::
+
+### <a name="add-actions"></a>Adicionar ações
+
+Agora pode definir o que acontece quando se chama o livro de jogadas. Pode adicionar ações, condições lógicas, loops ou mudar as condições de caixa, tudo selecionando **Novo passo**. Esta seleção abre uma nova moldura no designer, onde pode escolher um sistema ou uma aplicação para interagir ou uma condição a definir. Introduza o nome do sistema ou aplicação na barra de pesquisa na parte superior da moldura e, em seguida, escolha entre os resultados disponíveis.
+
+Em cada um destes passos, clicar em qualquer campo exibe um painel com dois menus: **Conteúdo dinâmico** e **Expressão**. A partir do menu **de conteúdo Dinâmico,** pode adicionar referências aos atributos do alerta ou incidente que foi passado para o livro de jogadas, incluindo os valores e atributos de todas as entidades envolvidas. A partir do menu **Expressão,** pode escolher entre uma grande biblioteca de funções para adicionar lógica adicional aos seus passos.
+
+   :::image type="content" source="./media/tutorial-respond-threats-playbook/logic-app.png" alt-text="Estruturador da Aplicação Lógica":::
+
+Esta imagem mostra as ações e condições que adicionaria na criação do livro de jogadas descrito no exemplo no início deste documento. A única diferença é que no livro de jogadas aqui mostrado, está a usar o gatilho de **alerta** em vez do gatilho do **incidente**. Isto significa que você vai chamar este livro de jogadas de uma regra de análise diretamente, não de uma regra de automação. Ambas as formas de chamar um livro de jogadas serão descritas abaixo.
 
 ## <a name="automate-threat-responses"></a>Automatizar respostas de ameaças
 
-As equipas SIEM/SOC podem ser inundadas regularmente com alertas de segurança. O volume de alertas gerados é tão grande que os administradores de segurança disponíveis estão sobrecarregados. Isto resulta demasiadas vezes em situações em que muitos alertas não podem ser investigados, deixando a organização vulnerável a ataques que passam despercebidos. 
+Criou o seu livro de jogadas e definiu o gatilho, definiu as condições e prescreveu as ações que irá tomar e as saídas que produzirá. Agora é necessário determinar os critérios em que irá funcionar e configurar o mecanismo de automatização que o irá executar quando esses critérios forem cumpridos.
 
-Muitos, se não a maioria, destes alertas estão em conformidade com padrões recorrentes que podem ser abordados por ações de reparação específicas e definidas. O Azure Sentinel já lhe permite definir a sua reparação em livros de reprodução. Também é possível definir a automatização em tempo real como parte da definição do seu livro de jogadas para permitir automatizar totalmente uma resposta definida a determinados alertas de segurança. Utilizando a automatização em tempo real, as equipas de resposta podem reduzir significativamente a sua carga de trabalho automatizando totalmente as respostas de rotina a tipos recorrentes de alertas, permitindo-lhe concentrar-se mais em alertas únicos, analisando padrões, caça a ameaças e muito mais.
+### <a name="respond-to-incidents"></a>Responder a incidentes
 
-Para automatizar respostas:
+Usa um livro de jogadas para responder a um **incidente** criando uma [regra de automação](automate-incident-handling-with-automation-rules.md) que será executada quando o incidente é gerado, e por sua vez vai chamar o livro de jogadas.
 
-1. Selecione o alerta para o qual pretende automatizar a resposta.
-1. Na página **de regras de alerta de edição,** em automatização em **tempo real,** escolha o **livro de jogadas Desencadeado** que pretende executar quando esta regra de alerta estiver compatível.
-1. Selecione **Guardar**.
+Para criar uma regra de automação:
 
-   ![automatização em tempo real](./media/tutorial-detect-threats/rt-configuration.png)
+1. A partir da lâmina **Automation** no menu de navegação Azure Sentinel, selecione **Criar** a partir do menu superior e, em seguida, **adicionar nova regra**.
 
+   :::image type="content" source="./media/tutorial-respond-threats-playbook/add-new-rule.png" alt-text="Adicione uma nova regra":::
 
+1. Abre-se o novo painel **de regras de automação.** Insira um nome para a sua regra.
 
+   :::image type="content" source="./media/tutorial-respond-threats-playbook/create-automation-rule.png" alt-text="Criar uma regra de automação":::
 
+1. Se pretender que a regra da automatização produza efeitos apenas em determinadas regras de análise, especifique quais, modificando a condição de **nome da regra If Analytics.**
 
+1. Adicione quaisquer outras condições de que pretenda que a ativação desta regra de automação dependa. Clique **em Adicionar a condição** e escolha as condições da lista de drop-down. A lista de condições é povoada por detalhes de alerta e áreas de identificação de entidades.
 
-## <a name="next-steps"></a>Próximos passos
+1. Escolha as ações que deseja que esta regra de automação tome. As ações disponíveis incluem **Atribuir proprietário,** **alterar o estado,** **alterar a gravidade,** **adicionar tags** e executar o livro de **jogadas**. Pode adicionar o máximo de ações que quiser.
 
-Neste tutorial, aprendeu a publicar um livro de jogadas em Azure Sentinel. Continue a [procurar proactivamente ameaças](hunting.md) usando Azure Sentinel.
+1. Se adicionar uma ação **de playbook Run,** será solicitado que escolha entre a lista de playbooks disponíveis. Apenas os playbooks que começam com o gatilho do **incidente** podem ser executados a partir das regras de automação, pelo que só eles aparecerão na lista.
+
+    > [!IMPORTANT]
+    > Azure Sentinel deve ter permissões explícitas para executar livros de reprodução a partir de regras de automação. Se um livro de jogadas aparecer "acinzentado" na lista de suspensos, significa que o Sentinel não tem permissão para o grupo de recursos desse livro de jogadas. Clique no link **de permissões do livro de jogadas Manage** para atribuir permissões.
+    > No painel **de permissões Manage** que se abre, marque as caixas de verificação dos grupos de recursos que contêm os livros de reprodução que pretende executar e clique em **Aplicar**.
+    > :::image type="content" source="./media/tutorial-respond-threats-playbook/manage-permissions.png" alt-text="Gerir permissões":::
+    > - Você próprio deve ter permissões **de proprietário** em qualquer grupo de recursos ao qual pretende conceder permissões do Azure Sentinel, e deve ter o papel de Contribuinte **de Aplicação Lógica** em qualquer grupo de recursos que contenha playbooks que pretenda executar.
+    > - Em uma implantação multi-inquilino, se o livro que você quer executar é em um inquilino diferente, você deve conceder a Azure Sentinel permissão para executar o livro de jogadas no inquilino do livro de jogadas.
+    >    1. A partir do menu de navegação Azure Sentinel no inquilino dos playbooks, selecione **Definições**.
+    >    1. Na lâmina **Definições,** selecione o **separador Definições** e, em seguida, o expansor de permissões do Livro de **Reprodução.**
+    >    1. Clique no botão **de permissões configurar** para abrir o painel **de permissões De gestão** acima mencionado e continue como descrito lá.
+
+1. Desaça uma data de validade para a sua regra de automação se quiser que tenha uma.
+
+1. Introduza um número sob **Ordem** para determinar onde na sequência das regras de automação esta regra será executada.
+
+1. Clique em **Aplicar**. Acabou-se!
+
+[Descubra outras formas](automate-incident-handling-with-automation-rules.md#creating-and-managing-automation-rules) de criar regras de automação.
+
+### <a name="respond-to-alerts"></a>Responder a alertas
+
+Utiliza um livro de jogadas para responder a um **alerta** criando uma **regra de análise,** ou editando uma existente, que corre quando o alerta é gerado, e selecionando o seu livro de jogadas como uma resposta automatizada no [assistente de regras](tutorial-detect-threats-custom.md)de análise .
+
+1. A partir da lâmina **Analytics** no menu de navegação Azure Sentinel, selecione a regra de análise para a qual deseja automatizar a resposta e clique em **Editar** no painel de detalhes.
+
+1. No **assistente de regras Analytics - Edite a página de regras existente,** selecione o separador **de resposta automatizado.**
+
+   :::image type="content" source="./media/tutorial-respond-threats-playbook/automated-response-tab.png" alt-text="Separador de resposta automatizado":::
+
+1. Escolha o seu livro de jogadas na lista de drop-down. Pode escolher mais do que um livro de jogadas, mas apenas os playbooks que usam o gatilho de **alerta** estarão disponíveis.
+
+1. No **separador 'Rever' e criar,** selecione **Guardar**.
+
+## <a name="run-a-playbook-on-demand"></a>Executar um manual de procedimentos a pedido
+
+Também pode executar um livro de jogadas a pedido.
+
+ > [!NOTE]
+ > Apenas os livros de reprodução que utilizem o gatilho de **alerta** podem ser executados a pedido.
+
+Para executar um livro de jogadas a pedido:
+
+1. Na página **Incidentes,** selecione um incidente e clique em **Ver todos os detalhes**.
+
+2. No separador **Alertas,** clique no alerta em que pretende executar o livro de jogadas e percorra todo o caminho até à direita e clique em **Ver playbooks** e selecione um livro de jogadas para **executar** a partir da lista de playbooks disponíveis na subscrição.
+
+## <a name="next-steps"></a>Passos seguintes
+
+Neste tutorial, aprendeu a usar playbooks e regras de automação no Azure Sentinel para responder a ameaças. 
+- Aprenda a [caçar proactivamente ameaças](hunting.md) usando Azure Sentinel.

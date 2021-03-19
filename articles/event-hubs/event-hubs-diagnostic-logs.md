@@ -3,12 +3,12 @@ title: Configurar registos de diagnóstico - Azure Event Hub | Microsoft Docs
 description: Saiba como configurar registos de atividades e registos de diagnóstico para centros de eventos em Azure.
 ms.topic: article
 ms.date: 02/25/2021
-ms.openlocfilehash: 538ff86f1ef4c06bb5400af3fbd2394134aa17f3
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 5067a2962693ee1c1955aa90e61b43358495585a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101742539"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104602609"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Configurar registos de diagnósticos para um hub de eventos do Azure
 
@@ -247,4 +247,4 @@ O registo de utilizador chave gerido pelo cliente JSON inclui elementos listados
     - [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
     - [Java](event-hubs-java-get-started-send.md)
     - [Python](event-hubs-python-get-started-send.md)
-    - [JavaScript](event-hubs-java-get-started-send.md)
+    - [JavaScript](event-hubs-node-get-started-send.md)

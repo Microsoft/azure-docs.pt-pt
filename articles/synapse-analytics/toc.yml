@@ -20,14 +20,14 @@
     - name: 1 Criar uma área de trabalho do Synapse Analytics
       href: get-started-create-workspace.md
       displayName: 'get, started'
-    - name: 2 Analisar com um conjunto de SQL dedicado
-      href: get-started-analyze-sql-pool.md
+    - name: 2 Analise usando a piscina SQL sem servidor
+      href: get-started-analyze-sql-on-demand.md
       displayName: 'get, started'
     - name: 3 Analisar com o Spark
       href: get-started-analyze-spark.md
       displayName: 'get, started'
-    - name: 4 Analisar com um conjunto de SQL sem servidor
-      href: get-started-analyze-sql-on-demand.md
+    - name: 4 Analise usando uma piscina SQL dedicada
+      href: get-started-analyze-sql-pool.md
       displayName: 'get, started'
     - name: 5 Analisar dados numa conta de armazenamento
       href: get-started-analyze-storage.md
@@ -187,6 +187,10 @@
               href: troubleshoot/workspaces-created-by-sdk.md
             - name: Resolver problemas com a leitura de texto em UTF-8
               href: troubleshoot/reading-utf8-text.md
+- name: Guias de migração
+  items:
+    - name: Migrar para uma piscina SQL dedicada
+      href: migration-guides/migrate-to-synapse-analytics-guide.md
 - name: SQL do Synapse
   items:
     - name: Descrição geral
@@ -211,9 +215,9 @@
         - name: Gestão de custos para o conjunto de SQL sem servidor
           href: sql/data-processed.md
         - name: Melhores práticas do conjunto de SQL sem servidor
-          href: sql/best-practices-sql-on-demand.md
+          href: sql/best-practices-serverless-sql-pool.md
         - name: Melhores práticas dos conjuntos de SQL dedicados
-          href: sql/best-practices-sql-pool.md
+          href: sql/best-practices-dedicated-sql-pool.md
     - name: Guias de Início Rápido
       items:
         - name: Utilizar conjunto de SQL sem servidor

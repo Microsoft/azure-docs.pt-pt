@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 01/20/2021
+ms.date: 03/11/2021
 ms.author: aahi
 keywords: mineração de texto, análise de sentimento, análise de texto
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
 zone_pivot_groups: programming-languages-text-analytics
-ms.openlocfilehash: 78d2f0a7b247ac6a9b7bdf5f4fc8b6c7b5ef6eea
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: d0fae3c12d4315d829ad4d505e7157e3bf919d99
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99090715"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104599100"
 ---
 # <a name="quickstart-use-the-text-analytics-client-library-and-rest-api"></a>Quickstart: Use a biblioteca de clientes Text Analytics e REST API
 
@@ -101,7 +101,7 @@ Se pretender limpar e remover uma subscrição dos Serviços Cognitivos, pode el
 > [Explore uma solução](../text-analytics-user-scenarios.md#analyze-recorded-inbound-customer-calls)
 
 * [Descrição geral da Análise de Texto](../overview.md)
-* [Análise de sentimento](../how-tos/text-analytics-how-to-sentiment-analysis.md)
+* [Análise de sentimentos](../how-tos/text-analytics-how-to-sentiment-analysis.md)
 * [Reconhecimento de entidades](../how-tos/text-analytics-how-to-entity-linking.md)
 * [Detetar linguagem](../how-tos/text-analytics-how-to-keyword-extraction.md)
 * [Reconhecimento linguístico](../how-tos/text-analytics-how-to-language-detection.md)

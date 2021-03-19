@@ -9,12 +9,12 @@ ms.subservice: extensions
 ms.date: 02/12/2021
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: d1290b1dcc1e97d63dd41d5be8ca19b81e32f838
-ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
+ms.openlocfilehash: cc862759ce28c4d23dbc2197f63311e29ba82709
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103225035"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104607508"
 ---
 # <a name="preview-orchestration-modes-for-virtual-machine-scale-sets-in-azure"></a>Pré-visualização: Modos de orquestração para conjuntos de escala de máquina virtual em Azure 
 
@@ -85,7 +85,7 @@ Utilize os comandos VM padrão para iniciar, parar, reiniciar, eliminar instânc
 A monitorização de saúde da aplicação permite que a sua aplicação forneça ao Azure um batimento cardíaco para determinar se a sua aplicação é saudável ou pouco saudável. O Azure pode substituir automaticamente as instâncias VM que não são saudáveis. Para instâncias de escala flexível, deve instalar e configurar a Extensão de Saúde da Aplicação na máquina virtual. Para instâncias de escala uniforme, pode utilizar a Extensão de Saúde da Aplicação ou medir a saúde com uma sonda de saúde personalizada Azure Load Balancer. 
 
 ### <a name="list-scale-sets-vm-api-changes"></a>Escala de lista define alterações de VM API 
-Os conjuntos de escala de máquina virtual permitem-lhe listar as instâncias que pertencem ao conjunto de escalas. Com orquestração flexível, a lista virtual de conjuntos de escala VM fornece uma lista de conjuntos de escala VM IDs. Em seguida, pode ligar para os comandos VM de escala de máquina virtual GET para obter mais detalhes sobre como o conjunto de escala está a funcionar com a instância VM. Para obter todos os detalhes do VM, utilize os comandos STANDARD GET VM ou [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview). 
+Os conjuntos de escala de máquina virtual permitem-lhe listar as instâncias que pertencem ao conjunto de escalas. Com orquestração flexível, a lista virtual de conjuntos de escala VM fornece uma lista de conjuntos de escala VM IDs. Em seguida, pode ligar para os comandos VM de escala de máquina virtual GET para obter mais detalhes sobre como o conjunto de escala está a funcionar com a instância VM. Para obter todos os detalhes do VM, utilize os comandos STANDARD GET VM ou [Azure Resource Graph](../governance/resource-graph/overview.md). 
 
 ### <a name="retrieve-boot-diagnostics-data"></a>Recuperar dados de diagnóstico de arranque 
 Utilize as APIs e comandos padrão para recuperar dados e imagens de boot diagnostics de exemplo. As placas de escala de máquina virtual VM de diagnóstico de botas APIs e comandos não são usados com instâncias de modo de orquestração flexível.
@@ -269,7 +269,7 @@ zones = ["1"]
 
 2. Adicione máquinas virtuais ao conjunto de escala.
     1. Atribua a `virtualMachineScaleSet` propriedade ao conjunto de escala que criou anteriormente. Você é obrigado a especificar a `virtualMachineScaleSet` propriedade no momento da criação de VM. 
-    1. Pode utilizar a **função de** modelo do Gestor de Recursos Azure para criar vários VMs ao mesmo tempo. Consulte [a iteração de recursos](https://docs.microsoft.com/azure/azure-resource-manager/templates/copy-resources#iteration-for-a-child-resource) nos modelos do Gestor de Recursos Azure. 
+    1. Pode utilizar a **função de** modelo do Gestor de Recursos Azure para criar vários VMs ao mesmo tempo. Consulte [a iteração de recursos](../azure-resource-manager/templates/copy-resources.md#iteration-for-a-child-resource) nos modelos do Gestor de Recursos Azure. 
 
     ```json
     {

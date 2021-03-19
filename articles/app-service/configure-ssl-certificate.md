@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 03/02/2021
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: d6f6db34239cf8c77b6e43d4426d889fa12c0690
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 99dc8cb2acf06faae16df6d3a48c4d38b1be46d8
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102051349"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104577789"
 ---
 # <a name="add-a-tlsssl-certificate-in-azure-app-service"></a>Adicionar um certificado TLS/SSL no Serviço de Aplicações do Azure
 
@@ -331,7 +331,7 @@ Assim que a operação de rekey estiver concluída, clique em **Sync**. A opera�
 
 Para ligar a renovação automática do seu certificado a qualquer momento, selecione o certificado na página ['Certificados de Serviço de Aplicação'](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) e, em seguida, clique em **Definições de Renovação Automática** na navegação à esquerda. Por predefinição, os Certificados de Serviço de Aplicações têm um período de validade de um ano.
 
-Selecione **On** e clique **Em Guardar**. Os certificados podem começar a renovar automaticamente 60 dias antes do termo se tiver a renovação automática ligada.
+Selecione **On** e clique **Em Guardar**. Os certificados podem começar a renovar automaticamente 30 dias antes do termo se tiver a renovação automática ligada.
 
 ![Renovar automaticamente o certificado do Serviço de Aplicações](./media/configure-ssl-certificate/auto-renew-app-service-cert.png)
 

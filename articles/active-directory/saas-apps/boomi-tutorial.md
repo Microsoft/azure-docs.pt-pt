@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/25/2021
 ms.author: jeedes
-ms.openlocfilehash: 15db3e5182c39f756d4e9cd63378c3b86ab1eb32
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: c58566c628eedd1dbc3d86ae6a142156cbf31211
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102449554"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104585201"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-boomi"></a>Tutorial: Azure Ative Directory integração única (SSO) com boomi
 
@@ -194,9 +194,9 @@ Nesta secção, testa a configuração de um único sinal de inscrição Azure A
 
 * Clique em Testar esta aplicação no portal Azure e deverá ser automaticamente inscrito no Boomi para o qual configura o SSO.
 
-* Pode utilizar as minhas apps do Microsoft. Quando clicar no azulejo Boomi nas Minhas Apps, deverá ser automaticamente inscrito no Boomi para o qual configura o SSO. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+* Pode utilizar as minhas apps do Microsoft. Quando clicar no azulejo Boomi nas Minhas Apps, deverá ser automaticamente inscrito no Boomi para o qual configura o SSO. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](../user-help/my-apps-portal-end-user-access.md)
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Uma vez configurado Boomi, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Uma vez configurado Boomi, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

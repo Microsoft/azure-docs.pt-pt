@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dc5916cf4277935f6d7d7f453fd4dd76d7909ef2
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 8d4ff717a49ba9c9b4d66e54e5eae1248af3fcea
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101651132"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579370"
 ---
 # <a name="plan-a-passwordless-authentication-deployment-in-azure-active-directory"></a>Planeie uma implementação de autenticação sem palavras-passe no Azure Ative Directory
 
@@ -93,7 +93,7 @@ Considere as necessidades do seu negócio e os casos de utilização para cada m
 
 O quadro seguinte descreve os casos de utilização a implementar durante este projeto.
 
-| Área | Descrição |
+| Área | Description |
 | --- | --- |
 | **Acesso** | O sing-in sem palavra-passe está disponível a partir de um dispositivo corporativo ou pessoal dentro ou fora da rede corporativa. |
 | **Auditoria** | Os dados de utilização estão disponíveis para os administradores auditar em tempo real. <br> Os dados de utilização são descarregados em sistemas corporativos pelo menos a cada 29 dias, ou a ferramenta SIEM é usada. |
@@ -292,7 +292,7 @@ Siga os passos alinhados com o método escolhido abaixo.
 
 ### <a name="required-administrative-roles"></a>Funções administrativas necessárias
 
-| Papel de Azure AD | Descrição |
+| Papel de Azure AD | Description |
 | --- | --- |
 | Administrador Global|Papel menos privilegiado capaz de implementar experiência de registo combinado. |
 | Administrador de Autenticação | Papel menos privilegiado capaz de implementar e gerir métodos de autenticação. |
@@ -330,4 +330,4 @@ Siga os passos do artigo, Ative o [sinal da chave de segurança sem palavras-pas
 
 - [Ativar chaves de segurança sem palavra-passe para iniciar sing para Azure AD](howto-authentication-passwordless-security-key.md)
 - [Ativar o acesso sem palavras-passe com a aplicação Microsoft Authenticator](howto-authentication-passwordless-phone.md)
-- [Saiba mais sobre a utilização dos métodos de autenticação & insights](howto-authentication-methods-usage-insights.md)
+- [Saiba mais sobre a utilização dos métodos de autenticação & insights](./howto-authentication-methods-activity.md)

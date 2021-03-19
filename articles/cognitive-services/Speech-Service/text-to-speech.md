@@ -12,12 +12,12 @@ ms.date: 09/01/2020
 ms.author: trbye
 ms.custom: cog-serv-seo-aug-2020
 keywords: texto para a fala
-ms.openlocfilehash: 54db794d4e9cf0cd2a049a865f2e7bb52698a4bd
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: fec90b3257ffafaf2919d2f0a41c2ade6fbc1f64
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98599547"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104597679"
 ---
 # <a name="what-is-text-to-speech"></a>O que é a conversão de texto em voz?
 
@@ -40,6 +40,8 @@ Nesta visão geral, você aprende sobre os benefícios e capacidades do serviço
 * Vozes neurais - Redes neuronais profundas são usadas para ultrapassar os limites da síntese tradicional da fala no que diz respeito ao stress e entoação na linguagem falada. A previsão da prosódia e a síntese de voz são realizadas simultaneamente, o que resulta em saídas mais fluidas e de som natural. As vozes neurais podem ser usadas para tornar as interações com chatbots e assistentes de voz mais naturais e envolventes, converter textos digitais como e-books em audiolivros e melhorar os sistemas de navegação no carro. Com a prosódia natural humana e a clara articulação das palavras, as vozes neurais reduzem significativamente a fadiga auditiva quando interage com os sistemas de IA. Para obter uma lista completa de vozes neurais, consulte [as línguas apoiadas.](language-support.md#text-to-speech)
 
 * Ajuste os estilos de fala com SSML - Language de marcação de síntese de fala (SSML) é uma linguagem de marcação baseada em XML usada para personalizar saídas de fala para texto. Com o SSML, pode ajustar o tom, adicionar pausas, melhorar a pronúncia, acelerar ou abrandar a taxa de fala, aumentar ou diminuir o volume e atribuir várias vozes a um único documento. Veja o [como ajustar estilos](speech-synthesis-markup.md) de fala.
+
+* Visemes - [Visemes](how-to-speech-synthesis-viseme.md) são usados para representar as poses-chave na fala observada (isto é, a posição dos lábios, mandíbula e língua ao produzir um determinado fonme). Tem uma forte correlação com vozes e fones. Usando Viseme em Speech SDK, você pode gerar dados de animação facial, que é geralmente usado para comunicação animada de leitura de lábios, educação, entretenimento e atendimento ao cliente. 
 
 ## <a name="get-started"></a>Introdução
 

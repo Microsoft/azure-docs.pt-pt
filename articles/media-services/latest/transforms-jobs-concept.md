@@ -3,7 +3,7 @@
 título: Transforms and Jobs in Media Services : Descrição do Azure Media Services: Saiba como criar uma Transforms para descrever as regras de processamento dos seus vídeos nos Serviços Azure Media.
 serviços: media-services documentationcenter: '' autor: IngridAtMicrosoft manager: femila editor: ''
 
-ms.service: media-services ms.workload: ms.topic: conceptual ms.date: 08/19/2019 ms.author: inhenkel
+ms.service: media-services ms.workload: ms.topic: conceptual ms.date: 03/17/2021 ms.author: inhenkel
 ---
 
 # <a name="transforms-and-jobs-in-media-services"></a>Transformações e Empregos em Serviços de Media
@@ -77,7 +77,7 @@ Utilize [o Ativo como entrada de trabalho](job-input-from-local-file-how-to.md) 
 
 ### <a name="checking-job-progress"></a>Verificação do progresso do trabalho
 
-O progresso e o estado dos postos de trabalho podem ser obtidos através da monitorização de eventos com a Grade de Eventos. Para obter mais informações, consulte [os eventos do Monitor utilizando o EventGrid.](job-state-events-cli-how-to.md)
+O progresso e o estado dos postos de trabalho podem ser obtidos através da monitorização de eventos com a Grade de Eventos. Para obter mais informações, consulte [os eventos do Monitor utilizando o EventGrid.](monitoring/job-state-events-cli-how-to.md)
 
 ### <a name="updating-jobs"></a>Atualização de Postos de Trabalho
 

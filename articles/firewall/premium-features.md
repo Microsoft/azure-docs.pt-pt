@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/12/2021
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: 22ee920c38a8cacaf37a1e3a6cfc5165dfa0bb44
-ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
+ms.openlocfilehash: 4a8efff7ef53753e15a47e87a2bb82d0124ae997
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2021
-ms.locfileid: "103419954"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104590454"
 ---
 # <a name="azure-firewall-premium-preview-features"></a>Funcionalidades de pré-visualização Azure Firewall Premium
 
@@ -157,8 +157,7 @@ Certificados assinados por clientes não fidedquis para clientes|Os certificados
 |Propagação de Certificados|Após a aplicação de um certificado de CA na firewall, pode demorar entre 5 a 10 minutos para o certificado entrar em vigor.|Correção marcada para a AG.|
 |IDPS Bypass|O Bypass IDPS não funciona para o tráfego terminado TLS, e o endereço IP de origem e os grupos IP source não são suportados.|Correção marcada para a AG.|
 |Suporte TLS 1.3|TLS 1.3 é parcialmente suportado. O túnel TLS do cliente para a firewall baseia-se no TLS 1.2, e da firewall para o servidor web externo é baseado em TLS 1.3.|As atualizações estão a ser investigadas.|
-
-
+|KeyVault Private Endpoint|O KeyVault suporta o acesso private Endpoint para limitar a sua exposição à rede. Os Serviços de Azure Fidedigno podem contornar esta limitação se uma exceção for configurada como descrito na [documentação KeyVault](../key-vault/general/overview-vnet-service-endpoints.md#trusted-services). A Azure Firewall não está atualmente listada como um serviço de confiança e não pode aceder ao Cofre de Chaves.|Correção marcada para a AG.|
 
 
 ## <a name="next-steps"></a>Passos seguintes

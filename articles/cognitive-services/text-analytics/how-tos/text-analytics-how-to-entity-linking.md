@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 02/17/2021
+ms.date: 03/15/2021
 ms.author: aahi
-ms.openlocfilehash: 3fd3695490331a1f599db71bf5cafb25e957bf08
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 0876dd00933203c943417d87978567cf555a3e4f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101710350"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104599005"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Como utilizar o reconhecimento de entidade nomeada em análise de texto
 
@@ -35,7 +35,7 @@ A funcionalidade PII faz parte do NER e pode identificar e redigir entidades sen
 
 ## <a name="named-entity-recognition-features-and-versions"></a>Características e versões de reconhecimento de entidades nomeadas
 
-| Funcionalidade                                                         | NER v3.0 | NER v3.1-pré-visualização.3 |
+| Funcionalidade                                                         | NER v3.0 | NER v3.1-pré-visualização.4 |
 |-----------------------------------------------------------------|--------|----------|
 | Métodos para pedidos individuais e de lote                          | X      | X        |
 | Reconhecimento de entidades expandidas em várias categorias           | X      | X        |
@@ -47,8 +47,8 @@ Consulte [o suporte linguístico](../language-support.md) para obter informaçõ
 
 O Nome De Reconhecimento de Entidade v3 fornece deteção expandida em vários tipos. Atualmente, o NER v3.0 pode reconhecer entidades na [categoria de entidades gerais.](../named-entity-types.md)
 
-Denominado Reconhecimento de Entidade v3.1-pré-visualização.3 inclui as capacidades de deteção de v3.0, e: 
-* A capacidade de detetar informações pessoais `PII` () utilizando o `v3.1-preview.3/entities/recognition/pii` ponto final. 
+Denominado Reconhecimento de Entidade v3.1-pré-visualização.4 inclui as capacidades de deteção de v3.0, e: 
+* A capacidade de detetar informações pessoais `PII` () utilizando o `v3.1-preview.4/entities/recognition/pii` ponto final. 
 * Um parâmetro opcional `domain=phi` para detetar informações confidenciais de saúde `PHI` ().
 * [Operação assíncronea](text-analytics-how-to-call-api.md) utilizando o `/analyze` ponto final.
 
@@ -72,36 +72,40 @@ Crie um pedido POST. Pode utilizar o [Carteiro](text-analytics-how-to-call-api.m
 
 ### <a name="request-endpoints"></a>Solicitar pontos finais
 
-#### <a name="version-31-preview3"></a>[Versão 3.1-pré-visualização.3](#tab/version-3-preview)
+#### <a name="version-31-preview"></a>[Versão 3.1-pré-visualização](#tab/version-3-preview)
 
-O Reconhecimento de Entidades `v3.1-preview.3` Nomeadas utiliza pontos finais separados para NER, PII e entidade que ligam pedidos. Utilize um formato URL abaixo com base no seu pedido.
+O Reconhecimento de Entidades `v3.1-preview.4` Nomeadas utiliza pontos finais separados para NER, PII e entidade que ligam pedidos. Utilize um formato URL abaixo com base no seu pedido.
 
 **Ligação de entidades**
-* `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/entities/linking`
+* `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.4/entities/linking`
 
-[Chamada Entity Recognition versão 3.1-pré-visualização referência para `Linking`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-3/operations/EntitiesLinking)
+[Chamada Entity Recognition versão 3.1-pré-visualização referência para `Linking`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-4/operations/EntitiesLinking)
 
 **Reconhecimento de Entidades Nomeadas**
-* Entidades gerais - `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/entities/recognition/general`
+* Entidades gerais - `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.4/entities/recognition/general`
 
-[Chamada Entity Recognition versão 3.1-pré-visualização referência para `General`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-3/operations/EntitiesRecognitionGeneral)
+[Chamada Entity Recognition versão 3.1-pré-visualização referência para `General`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-4/operations/EntitiesRecognitionGeneral)
 
 **Informação Pessoalmente Identificável (PII)**
-* Informação pessoal `PII` - `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/entities/recognition/pii`
+* Informação pessoal `PII` - `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.4/entities/recognition/pii`
 
 Também pode utilizar o parâmetro opcional `domain=phi` para detetar informações de saúde `PHI` () em texto. 
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/entities/recognition/pii?domain=phi`
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.4/entities/recognition/pii?domain=phi`
 
-A partir de `v3.1-preview.3` , a resposta JSON inclui um `redactedText` imóvel, que contém o texto de entrada modificado onde as entidades PII detetadas são substituídas por um `*` por cada personagem nas entidades.
+A partir de `v3.1-preview.4` , a resposta JSON inclui um `redactedText` imóvel, que contém o texto de entrada modificado onde as entidades PII detetadas são substituídas por um `*` por cada personagem nas entidades.
 
-[Chamada Entity Recognition versão 3.1-pré-visualização referência para `PII`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-3/operations/EntitiesRecognitionPii)
+[Chamada Entity Recognition versão 3.1-pré-visualização referência para `PII`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-4/operations/EntitiesRecognitionPii)
+
+A API tentará detetar as [categorias de entidades listadas](../named-entity-types.md?tabs=personal) para uma determinada linguagem documental. Se quiser especificar quais as entidades que serão detetadas e devolvidas, utilize o parâmetro de categorias pii opcionais com as categorias de entidades apropriadas. Este parâmetro também pode permitir detetar entidades que não estão habilitados por padrão para o seu idioma documental. Por exemplo, um número de carta de condução francesa que pode ocorrer em texto inglês.
+
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.4/entities/recognition/pii?piiCategories=[FRDriversLicenseNumber]`
 
 **Operação assíncronea**
 
-A partir de `v3.1-preview.3` , pode enviar pedidos NER assíncronos utilizando o `/analyze` ponto final.
+A partir de `v3.1-preview.4` , pode enviar NER e entidade ligando pedidos assíncronos usando o `/analyze` ponto final.
 
-* Operação assíncronea - `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/analyze`
+* Operação assíncronea - `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.4/analyze`
 
 Consulte [como ligar para a API text Analytics](text-analytics-how-to-call-api.md) para obter informações sobre o envio de pedidos assíncronos.
 

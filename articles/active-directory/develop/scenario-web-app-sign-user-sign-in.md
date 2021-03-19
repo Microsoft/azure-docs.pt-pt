@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: f8fa5532a5664741c9ddb9b78b35d5eed8e2e4e0
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 10ddee404de21c5bc04672fdb6dd32c30f481ba3
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98937847"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104578248"
 ---
 # <a name="web-app-that-signs-in-users-sign-in-and-sign-out"></a>Aplicação web que assina nos utilizadores: Iniciar s-in e iniciar sê-out
 
@@ -95,6 +95,16 @@ No nosso quickstart Java, o botão de entrada está localizado no ficheiro [prin
 </html>
 ```
 
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
+
+No Node.js arranque rápido, não há botão de inscrição. O código-por trás solicita automaticamente ao utilizador o seu insusição quando está a atingir a raiz da aplicação web.
+
+```javascript
+app.get('/', (req, res) => {
+    // authentication logic
+});
+```
+
 # <a name="python"></a>[Python](#tab/python)
 
 No início rápido dos Python, não há botão de inscrição. O código-por trás solicita automaticamente ao utilizador o seu insusição quando está a atingir a raiz da aplicação web. Ver [aplicativo.py#L14-L18](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/0.1.0/app.py#L14-L18).
@@ -113,7 +123,7 @@ def index():
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-Em ASP.NET, a seleção do botão de iniciar o **'Iniciar's** na aplicação web despoleta a ação `SignIn` no `AccountController` controlador. Em versões anteriores dos ASP.NET modelos de núcleo, o `Account` controlador foi incorporado com a aplicação web. Isso já não acontece porque o controlador faz agora parte do pacote **Microsoft.Identity.Web.UI** NuGet. Consulte [AccountController.cs](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web.UI/Areas/MicrosoftIdentity/Controllers/AccountController.cs) para mais detalhes.
+Em ASP.NET, a seleção do botão de iniciar o **'Iniciar's** na aplicação web despoleta a ação `SignIn` no `AccountController` controlador. Em versões anteriores dos ASP.NET modelos de núcleo, o `Account` controlador foi incorporado com a aplicação web. Isso já não acontece porque o controlador faz agora parte do pacote **Microsoft.Identity.Web.UI** NuGet. Consulte [o .cs AccountController](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web.UI/Areas/MicrosoftIdentity/Controllers/AccountController.cs) para mais detalhes.
 
 Este controlador também trata das aplicações Azure AD B2C.
 
@@ -158,6 +168,43 @@ public class AuthPageController {
     }
 
     // More code omitted for simplicity
+```
+
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
+
+Ao contrário de outras plataformas, aqui o Nó MSAL cuida de deixar o utilizador iniciar sessão a partir da página de login.
+
+```javascript
+
+// 1st leg of auth code flow: acquire a code
+app.get('/', (req, res) => {
+    const authCodeUrlParameters = {
+        scopes: ["user.read"],
+        redirectUri: REDIRECT_URI,
+    };
+
+    // get url to sign user in and consent to scopes needed for application
+    pca.getAuthCodeUrl(authCodeUrlParameters).then((response) => {
+        res.redirect(response);
+    }).catch((error) => console.log(JSON.stringify(error)));
+});
+
+// 2nd leg of auth code flow: exchange code for token
+app.get('/redirect', (req, res) => {
+    const tokenRequest = {
+        code: req.query.code,
+        scopes: ["user.read"],
+        redirectUri: REDIRECT_URI,
+    };
+
+    pca.acquireTokenByCode(tokenRequest).then((response) => {
+        console.log("\nResponse: \n:", response);
+        res.sendStatus(200);
+    }).catch((error) => {
+        console.log(error);
+        res.status(500).send(error);
+    });
+});
 ```
 
 # <a name="python"></a>[Python](#tab/python)
@@ -229,6 +276,10 @@ Durante o registo da inscrição, regista-se um URL de logotipo de canal frontal
 Durante o registo da inscrição, não precisa de registar um URL de logout de canal frontal extra. A aplicação será chamada de volta no seu URL principal. 
 
 # <a name="java"></a>[Java](#tab/java)
+
+Não é necessário um URL de logout de canal frontal no registo da aplicação.
+
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
 Não é necessário um URL de logout de canal frontal no registo da aplicação.
 
@@ -305,6 +356,10 @@ No nosso quickstart Java, o botão de sinalização está localizado no ficheiro
 ...
 ```
 
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
+
+Esta aplicação de amostra não implementa a assinatura.
+
 # <a name="python"></a>[Python](#tab/python)
 
 No quickstart Python, o botão de sinalização está localizado nos [modelos/index.htmficheiro l#L10.](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/e03be352914bfbd58be0d4170eba1fb7a4951d84/templates/index.html#L10)
@@ -330,13 +385,13 @@ No quickstart Python, o botão de sinalização está localizado nos [modelos/in
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-Em versões anteriores dos ASP.NET modelos de núcleo, o `Account` controlador foi incorporado com a aplicação web. Isso já não acontece porque o controlador faz agora parte do pacote **Microsoft.Identity.Web.UI** NuGet. Consulte [AccountController.cs](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web.UI/Areas/MicrosoftIdentity/Controllers/AccountController.cs) para mais detalhes.
+Em versões anteriores dos ASP.NET modelos de núcleo, o `Account` controlador foi incorporado com a aplicação web. Isso já não acontece porque o controlador faz agora parte do pacote **Microsoft.Identity.Web.UI** NuGet. Consulte [o .cs AccountController](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web.UI/Areas/MicrosoftIdentity/Controllers/AccountController.cs) para mais detalhes.
 
 - Define um URI de redirecionamento OpenID para `/Account/SignedOut` que o controlador seja chamado de volta quando o Azure AD tiver completado a assinatura.
 - Chamadas `Signout()` , que permite que o middleware OpenID Connect contacte o ponto final da plataforma de identidade da `logout` Microsoft. O ponto final, então:
 
   - Limpa o cookie de sessão do navegador.
-  - Chama de volta o reorientar uri pós-logout. Por predefinição, o reorientar o URI pós-logout exibe a página de visualização assinada [SignedOut.cshtml.cs](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web.UI/Areas/MicrosoftIdentity/Pages/Account/SignedOut.cshtml.cs). Esta página também é fornecida como parte do Microsoft.Identity.Web.
+  - Chama de volta o reorientar uri pós-logout. Por predefinição, o reencaminhador pós-logout URI exibe a página de visualização [assinada SignedOut.cshtml.cs](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web.UI/Areas/MicrosoftIdentity/Pages/Account/SignedOut.cshtml.cs). Esta página também é fornecida como parte do Microsoft.Identity.Web.
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
@@ -376,6 +431,10 @@ Em Java, o sign-out é tratado ligando diretamente para o ponto final da platafo
                 URLEncoder.encode(redirectUrl, "UTF-8"));
     }
 ```
+
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
+
+Esta aplicação de amostra não implementa a assinatura.
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -421,6 +480,10 @@ public class AccountController : Controller
 
 No arranque rápido de Java, o redirecionamento de uri pós-logout apenas exibe a página de index.html.
 
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
+
+Esta aplicação de amostra não implementa a assinatura.
+
 # <a name="python"></a>[Python](#tab/python)
 
 No quickstart Python, o redirecionamento de uri pós-logout apenas exibe a página de index.html.
@@ -431,6 +494,6 @@ No quickstart Python, o redirecionamento de uri pós-logout apenas exibe a pági
 
 Se quiser saber mais sobre a assinatura, leia a documentação do protocolo disponível no [Open ID Connect](./v2-protocols-oidc.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Passe para o próximo artigo neste cenário, [passe para a produção](scenario-web-app-sign-user-production.md).

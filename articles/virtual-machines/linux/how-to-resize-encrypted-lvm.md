@@ -7,12 +7,12 @@ ms.subservice: disks
 ms.topic: article
 ms.author: jofrance
 ms.date: 09/21/2020
-ms.openlocfilehash: c3f1d08ac6375dcc854f2c16b6f66901295f88e3
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 92e3be9111abe5712549ba85ef4550a9ac1473f9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102564565"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104596812"
 ---
 # <a name="how-to-resize-logical-volume-management-devices-that-use-azure-disk-encryption"></a>Como redimensionar dispositivos de gestão de volume lógicos que utilizam encriptação do disco Azure
 
@@ -38,7 +38,7 @@ Este artigo assume que tem:
 
 - Experimente usando Linux e LVM.
 
-- Experimente a utilização *de /dev/disk/scsi1/* caminhos para discos de dados em Azure. Para obter mais informações, consulte [problemas de nome do dispositivo De resolução de problemas Linux VM](../troubleshooting/troubleshoot-device-names-problems.md). 
+- Experimente a utilização *de /dev/disk/scsi1/* caminhos para discos de dados em Azure. Para obter mais informações, consulte [problemas de nome do dispositivo De resolução de problemas Linux VM](/troubleshoot/azure/virtual-machines/troubleshoot-device-names-problems). 
 
 ## <a name="scenarios"></a>Cenários
 

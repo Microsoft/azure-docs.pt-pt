@@ -4,12 +4,12 @@ ms.author: dobett
 ms.service: iot-pnp
 ms.topic: include
 ms.date: 11/19/2020
-ms.openlocfilehash: 236c8856dc2e693518f2f0055b622c9a1c88695c
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: f4eb312aff200389f59a3e342305b8eda98f213e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99616395"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104582826"
 ---
 ## <a name="model-id-announcement"></a>Anúncio de ID modelo
 
@@ -42,7 +42,7 @@ Os dispositivos que utilizam o [Serviço de Provisionamento de Dispositivos (DPS
 
 ## <a name="implement-telemetry-properties-and-commands"></a>Implementar telemetria, propriedades e comandos
 
-Conforme descrito nos [componentes Do Understand nos modelos IoT Plug e Play,](../articles/iot-pnp/concepts-components.md)os fabricantes de dispositivos devem decidir se pretendem utilizar componentes para descrever os seus dispositivos. Ao utilizar componentes, os dispositivos devem seguir as regras descritas nesta secção.
+Conforme descrito nos [componentes Do Understand nos modelos IoT Plug e Play,](../articles/iot-pnp/concepts-modeling-guide.md)os fabricantes de dispositivos devem decidir se pretendem utilizar componentes para descrever os seus dispositivos. Ao utilizar componentes, os dispositivos devem seguir as regras descritas nesta secção.
 
 ### <a name="telemetry"></a>Telemetria
 

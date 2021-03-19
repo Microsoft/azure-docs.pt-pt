@@ -1,15 +1,15 @@
 ---
 title: Detalhes da conformidade regulamentar para HIPAA HITRUST 9.2
 description: Detalhes da iniciativa hipaa HITRUST 9.2 Conformidade Regulamentar integrada. Cada controlo é mapeado para uma ou mais definições da Política Azure que ajudam na avaliação.
-ms.date: 03/10/2021
+ms.date: 03/17/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: ebf5d76ee6557312f8f06c980b5288dc9c3ccb4c
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.openlocfilehash: 2e0320052fe2083858f8a263fedee5f2507f926b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102635489"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104590301"
 ---
 # <a name="details-of-the-hipaa-hitrust-92-regulatory-compliance-built-in-initiative"></a>Detalhes da iniciativa HIPAA HITRUST 9.2 Regulatória Compliance
 
@@ -854,7 +854,7 @@ Esta iniciativa incorporada é implementada como parte da amostra de [planta HIP
 |[A solução de proteção do ponto final deve ser instalada em conjuntos de escala de máquina virtual](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F26a828e1-e88f-464e-bbb3-c134a282b9de) |Audite a existência e a saúde de uma solução de proteção de pontos finais nos conjuntos de escala de máquinas virtuais, para protegê-las de ameaças e vulnerabilidades. |AuditIfNotExists, Desativado |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_VmssMissingEndpointProtection_Audit.json) |
 |[O Microsoft Antimalware para Azure deve ser configurado para atualizar automaticamente as assinaturas de proteção](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc43e4a30-77cb-48ab-a4dd-93f175c63b57) |Esta política audita qualquer máquina virtual do Windows não configurada com a atualização automática das assinaturas de proteção antimalware do Microsoft. |AuditIfNotExists, Desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/VirtualMachines_AntiMalwareAutoUpdate_AuditIfNotExists.json) |
 |[Monitor que falta proteção de ponto final no Centro de Segurança Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Faf6cd1bd-1635-48cb-bde7-5b15693900b9) |Os servidores sem um agente instalado de Proteção de Pontos Finais serão monitorizados pelo Azure Security Center como recomendações |AuditIfNotExists, Desativado |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_MissingEndpointProtection_Audit.json) |
-|[As atualizações de sistema devem ser instaladas nos seus computadores](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F86b3d65f-7626-441e-b690-81a8b71cff60) |As atualizações do sistema de segurança em falta nos seus servidores serão monitorizadas pelo Azure Security Center como recomendações |AuditIfNotExists, Desativado |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_MissingSystemUpdates_Audit.json) |
+|[As atualizações de sistema devem ser instaladas nos seus computadores](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F86b3d65f-7626-441e-b690-81a8b71cff60) |As atualizações do sistema de segurança em falta nos seus servidores serão monitorizadas pelo Azure Security Center como recomendações |AuditIfNotExists, Desativado |[4.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_MissingSystemUpdates_Audit.json) |
 
 ## <a name="back-up"></a>Back-up
 

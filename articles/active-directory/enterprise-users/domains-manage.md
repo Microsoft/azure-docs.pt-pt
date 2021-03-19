@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/20/2020
+ms.date: 03/12/2021
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47c991457925664c82baed1a47d89f77a323ff45
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: a201452a9c708d898ee1762385955b63684876c7
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102561539"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104577976"
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Gerir nomes de domínio personalizados no seu Diretório Ativo Azure
 
@@ -43,7 +43,7 @@ Pode alterar o nome de domínio primário para a sua organização ser qualquer 
 
 ## <a name="add-custom-domain-names-to-your-azure-ad-organization"></a>Adicione nomes de domínio personalizados à sua organização AZure AD
 
-Pode adicionar até 900 nomes de domínio geridos. Se estiver a configurar todos os seus domínios para federação com o Ative Directory no local, pode adicionar até 450 nomes de domínio em cada organização.
+Pode adicionar até 5000 nomes de domínio geridos. Se estiver a configurar todos os seus domínios para federação com o Ative Directory no local, pode adicionar até 2500 nomes de domínio em cada organização.
 
 ## <a name="add-subdomains-of-a-custom-domain"></a>Adicione subdomínios de um domínio personalizado
 

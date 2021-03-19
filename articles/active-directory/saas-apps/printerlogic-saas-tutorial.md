@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Ative Directory integração única de sign-on (SSO) com PrinterLogic SaaS | Microsoft Docs'
-description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o PrinterLogic SaaS.
+title: 'Tutorial: Azure Ative Directory integração única de sign-on (SSO) com PrinterLogic | Microsoft Docs'
+description: Saiba como configurar um único sign-on entre o Azure Ative Directory e a PrinterLogic.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -9,21 +9,21 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/25/2021
+ms.date: 03/18/2021
 ms.author: jeedes
-ms.openlocfilehash: 23b534f1ccbd51b028beeee173e5c3e0accd47a3
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: f4537ae1ba79a8885706496967bee2fdff5d4fe4
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102486187"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104591525"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-printerlogic-saas"></a>Tutorial: Azure Ative Directory integração única (SSO) com PrinterLogic SaaS
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-printerlogic"></a>Tutorial: Azure Ative Directy integração única (SSO) com PrinterLogic
 
-Neste tutorial, você vai aprender a integrar PrinterLogic SaaS com Azure Ative Directory (Azure AD). Quando integra o PrinterLogic SaaS com Azure AD, pode:
+Neste tutorial, você vai aprender a integrar a PrinterLogic com o Azure Ative Directory (Azure AD). Quando integra a PrinterLogic com AZure AD, pode:
 
-* Controle em Azure AD que tem acesso a PrinterLogic SaaS.
-* Ative os seus utilizadores a serem automaticamente inscritos no PrinterLogic SaaS com as suas contas AD Azure.
+* Controle em Azure AD que tem acesso à PrinterLogic.
+* Ative os seus utilizadores a serem automaticamente inscritos na PrinterLogic com as suas contas AD Azure.
 * Gerencie as suas contas numa localização central - o portal Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -31,44 +31,44 @@ Neste tutorial, você vai aprender a integrar PrinterLogic SaaS com Azure Ative 
 Para começar, precisa dos seguintes itens:
 
 * Uma assinatura AD Azure. Se não tiver uma subscrição, pode obter uma [conta gratuita.](https://azure.microsoft.com/free/)
-* Subscrição ativada por PrinterLogic SaaS (SSO).
+* Subscrição ativada pela PrinterLogic (SSO).
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
 Neste tutorial, você configura e testa Azure AD SSO em um ambiente de teste.
 
-* PrinterLogic SaaS suporta SSO iniciado **sp e IDP.**
-* PrinterLogic SaaS suporta o fornecimento do utilizador **Just In Time.**
+* A PrinterLogic suporta o SSO iniciado pelo **SP e IDP.**
+* A PrinterLogic suporta o fornecimento do utilizador **Just In Time.**
 
-## <a name="add-printerlogic-saas-from-the-gallery"></a>Adicionar PrinterLogic SaaS da galeria
+## <a name="add-printerlogic-from-the-gallery"></a>Adicione PrinterLogic da galeria
 
-Para configurar a integração do PrinterLogic SaaS no AD Azure, é necessário adicionar o PrinterLogic SaaS da galeria à sua lista de aplicações geridas pelo SaaS.
+Para configurar a integração da PrinterLogic no Azure AD, é necessário adicionar a PrinterLogic da galeria à sua lista de aplicações geridas pelo SaaS.
 
 1. Inscreva-se no portal Azure usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
 1. No painel de navegação à esquerda, selecione o serviço **Azure Ative Directory.**
 1. Navegue para **aplicações empresariais** e, em seguida, selecione **Todas as Aplicações**.
 1. Para adicionar nova aplicação, selecione **Nova aplicação**.
-1. Na secção Adicionar a partir da secção **de galeria,** **digite PrinterLogic SaaS** na caixa de pesquisa.
-1. Selecione **PrinterLogic SaaS** do painel de resultados e adicione a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
+1. Na secção Adicionar a partir da secção **de galeria,** **digite PrinterLogic** na caixa de pesquisa.
+1. Selecione **PrinterLogic** do painel de resultados e adicione a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
-## <a name="configure-and-test-azure-ad-sso-for-printerlogic-saas"></a>Configurar e testar Azure AD SSO para PrinterLogic SaaS
+## <a name="configure-and-test-azure-ad-sso-for-printerlogic"></a>Configurar e testar Azure AD SSO para PrinterLogic
 
-Configure e teste Azure AD SSO com PrinterLogic SaaS usando um utilizador de teste chamado **B.Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador AZure AD e o utilizador relacionado no PrinterLogic SaaS.
+Configure e teste Azure AD SSO com PrinterLogic usando um utilizador de teste chamado **B.Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador AZure AD e o utilizador relacionado na PrinterLogic.
 
-Para configurar e testar O SSO Azure AD com PrinterLogic SaaS, execute os seguintes passos:
+Para configurar e testar o Azure AD SSO com a PrinterLogic, execute os seguintes passos:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
     1. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com B.Simon.
     1. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que b.Simon utilize um único sinal de Ad AD.
-1. **[Configure a ImpressoraLogic SaaS SSO](#configure-printerlogic-saas-sso)** - para configurar as definições de inscrição única no lado da aplicação.
-    1. **[Create PrinterLogic SaaS test user](#create-printerlogic-saas-test-user)** - para ter uma contraparte de B.Simon em PrinterLogic SaaS que está ligada à representação AD AD Azure do utilizador.
+1. **[Configure a ImpressoraLogic SSO](#configure-printerlogic-sso)** - para configurar as definições de inscrição única no lado da aplicação.
+    1. **[Create PrinterLogic test user](#create-printerlogic-test-user)** - para ter uma contraparte de B.Simon na PrinterLogic que está ligada à representação AD AZure do utilizador.
 1. **[Teste SSO](#test-sso)** - para verificar se a configuração funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
 Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
-1. No portal Azure, na página de integração da aplicação **PrinterLogic SaaS,** encontre a secção **Gerir** e selecione **um único sinal de solução.**
+1. No portal Azure, na página de integração da aplicação **PrinterLogic,** encontre a secção **Gerir** e selecione **um único sinal de sposição**.
 1. Na página de método **de inscrição** única, selecione **SAML**.
 1. No **set-on único com** a página SAML, clique no ícone de lápis para **configuração SAML Básica** para editar as definições.
 
@@ -85,13 +85,13 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:  `https://www.<my_instance>printercloud.com`
 
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o identificador real, URL de resposta e URL de inscrição. Contacte [a equipa de suporte do Cliente PrinterLogic SaaS](mailto:support@printerlogic.com) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
+    > Estes valores não são reais. Atualize estes valores com o identificador real, URL de resposta e URL de inscrição. Contacte [a equipa de suporte do Cliente PrinterLogic](mailto:support@printerlogic.com) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
-1. A aplicação PrinterLogic SaaS espera as afirmações SAML num formato específico, o que requer que adicione mapeamentos de atributos personalizados à configuração de atributos de token SAML. A imagem que se segue mostra a lista de atributos predefinidos.
+1. A aplicação PrinterLogic espera as afirmações DE SAML num formato específico, o que requer que adicione mapeamentos de atributos personalizados à configuração de atributos de token SAML. A imagem que se segue mostra a lista de atributos predefinidos.
 
     ![image](common/edit-attribute.png)
 
-1. Além de acima, a aplicação PrinterLogic SaaS espera que alguns mais atributos sejam repercutidos na resposta SAML que são mostrados abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com o seu requisito.
+1. Além de acima, a aplicação PrinterLogic espera que alguns mais atributos sejam repercutidos na resposta SAML que são mostrados abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com o seu requisito.
 
     | Name | Atributo de origem |
     | ---------| ------------ |
@@ -104,7 +104,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
     ![O link de descarregamento de certificado](common/certificatebase64.png)
 
-1. Na secção **Configurar PrinterLogic SaaS,** copie os URL(s) apropriados com base no seu requisito.
+1. Na secção **Configurar a PrinterLogic,** copie os URL(s) apropriados com base no seu requisito.
 
     ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 
@@ -122,23 +122,23 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
-Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso a PrinterLogic SaaS.
+Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso à PrinterLogic.
 
 1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
-1. Na lista de aplicações, selecione **PrinterLogic SaaS**.
+1. Na lista de aplicações, selecione **PrinterLogic**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 1. **Selecione Adicionar utilizador,** em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
 1. No diálogo **de Utilizadores e grupos,** selecione **B.Simon** da lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
 1. Se tiver configurado as funções como explicado no acima, pode selecioná-lo a partir do Dropdown de **função Select.**
 1. No diálogo **'Adicionar Atribuição',** clique no botão **'Atribuir'.**
 
-## <a name="configure-printerlogic-saas-sso"></a>Configure impressoraLogic SaaS SSO
+## <a name="configure-printerlogic-sso"></a>Configure impressoraLogic SSO
 
-Para configurar um único sign-on no lado **da PrinterLogic SaaS,** é necessário enviar o Certificado descarregado **(Base64)** e URLs copiados apropriados do portal Azure para a equipa de [suporte da PrinterLogic SaaS.](mailto:support@printerlogic.com) Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
+Para configurar um único sign-on na **PrinterLogic,** é necessário enviar o Certificado descarregado **(Base64)** e URLs copiados apropriados do portal Azure para a equipa de [suporte da PrinterLogic.](mailto:support@printerlogic.com) Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
 
-### <a name="create-printerlogic-saas-test-user"></a>Criar utilizador de teste PrinterLogic SaaS
+### <a name="create-printerlogic-test-user"></a>Criar utilizador de teste PrinterLogic
 
-Nesta secção, um utilizador chamado Britta Simon é criado na PrinterLogic SaaS. O PrinterLogic SaaS suporta o fornecimento de utilizadores just-in-time, o que é ativado por padrão. Não há nenhum item de ação para si nesta secção. Se um utilizador já não existir no PrinterLogic SaaS, um novo é criado após a autenticação.
+Nesta secção, um utilizador chamado Britta Simon é criado na PrinterLogic. A PrinterLogic suporta o fornecimento de utilizadores just-in-time, o que é ativado por padrão. Não há nenhum item de ação para si nesta secção. Se um utilizador já não existir na PrinterLogic, um novo é criado após a autenticação.
 
 ## <a name="test-sso"></a>Teste SSO 
 
@@ -146,16 +146,16 @@ Nesta secção, testa a configuração de um único sinal de inscrição Azure A
 
 #### <a name="sp-initiated"></a>SP iniciado:
 
-* Clique em **Testar esta aplicação** no portal Azure. Isto irá redirecionar para PrinterLogic SaaS Sign no URL onde pode iniciar o fluxo de login.  
+* Clique em **Testar esta aplicação** no portal Azure. Isto irá redirecionar para o Sinal de PrinterLogic no URL onde pode iniciar o fluxo de login.  
 
-* Vá diretamente ao URL de entrada de assinatura da PrinterLogic SaaS e inicie o fluxo de login a partir daí.
+* Vá diretamente ao URL de assinatura da PrinterLogic e inicie o fluxo de login a partir daí.
 
 #### <a name="idp-initiated"></a>IDP iniciado:
 
-* Clique em **Testar esta aplicação** no portal Azure e deverá ser automaticamente inscrito no SaaS PrinterLogic para o qual configura o SSO. 
+* Clique em **Testar esta aplicação** no portal Azure e deverá ser automaticamente inscrito na PrinterLogic para a qual configura o SSO. 
 
-Também pode utilizar o Microsoft My Apps para testar a aplicação em qualquer modo. Quando clicar no azulejo Da ImpressoraLogic SaaS nas Minhas Apps, se configurado no modo SP, será redirecionado para o sinal de aplicação na página para iniciar o fluxo de login e se configurado no modo IDP, deverá ser automaticamente inscrito no SaaS PrinterLogic para o qual configura o SSO. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+Também pode utilizar o Microsoft My Apps para testar a aplicação em qualquer modo. Quando clicar no azulejo PrinterLogic nas Minhas Apps, se configurado no modo SP, será redirecionado para o sinal de aplicação na página para iniciar o fluxo de login e se configurado no modo IDP, deverá ser automaticamente inscrito na PrinterLogic para a qual configura o SSO. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Uma vez configurado o PrinterLogic SaaS, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Uma vez configurado a PrinterLogic, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

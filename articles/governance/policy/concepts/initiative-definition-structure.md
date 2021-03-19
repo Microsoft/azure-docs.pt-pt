@@ -1,14 +1,14 @@
 ---
 title: Detalhes da estrutura de definição de iniciativa
 description: Descreve como as definições de iniciativa política são usadas para agrupar definições de políticas para implantação de recursos Azure na sua organização.
-ms.date: 10/07/2020
+ms.date: 03/16/2021
 ms.topic: conceptual
-ms.openlocfilehash: 8f9c6146e1dde5b5a7f6595c61638319de60a82d
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: edd3f25dd528d1a718c9287c9f30988b87fb73e2
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876180"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104587224"
 ---
 # <a name="azure-policy-initiative-definition-structure"></a>Estrutura de definição de iniciativa política Azure
 
@@ -134,7 +134,7 @@ Os parâmetros funcionam da mesma forma na construção de iniciativas política
 Um parâmetro tem as seguintes propriedades que são usadas na definição de iniciativa política:
 
 - `name`: O nome do seu parâmetro. Utilizado pela `parameters` função de implantação dentro da regra da política. Para obter mais informações, consulte [utilizando um valor de parâmetro.](#passing-a-parameter-value-to-a-policy-definition)
-- `type`: Determina se o parâmetro é uma **corda,** **matriz,** **objeto,** **boolean,** **inteiro,** **boia**ou **data**.
+- `type`: Determina se o parâmetro é uma **corda,** **matriz,** **objeto,** **boolean,** **inteiro,** **boia** ou **data**.
 - `metadata`: Define subpropriedades utilizadas principalmente pelo portal Azure para apresentar informações fáceis de utilizar:
   - `description`: A explicação para o que o parâmetro é usado. Pode ser usado para fornecer exemplos de valores aceitáveis.
   - `displayName`: O nome amigável indicado no portal para o parâmetro.
@@ -282,7 +282,7 @@ Os incorporados de Conformidade Regulamentar criados pela Microsoft têm informa
 Esta informação é:
 
 - Apresentado no portal Azure sobre a visão geral de um **controlo** sobre uma iniciativa de Conformidade Regulamentar.
-- Disponível via REST API. Consulte o `Microsoft.PolicyInsights` fornecedor de recursos e o grupo de [operações policyMetadata](/rest/api/policy-insights/policymetadata/getresource).
+- Disponível via REST API. Consulte o `Microsoft.PolicyInsights` fornecedor de recursos e o grupo de [operações policyMetadata](/rest/api/policy/policymetadata/getresource).
 - Disponível via Azure CLI. Consulte o comando [de metadados de política az.](/cli/azure/policy/metadata)
 
 > [!IMPORTANT]

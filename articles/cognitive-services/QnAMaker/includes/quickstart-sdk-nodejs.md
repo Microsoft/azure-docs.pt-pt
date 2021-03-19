@@ -4,12 +4,12 @@ description: Este quickstart mostra como começar com a biblioteca de clientes Q
 ms.topic: quickstart
 ms.date: 06/18/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 8e42a7cfe0eacf72d1e59e695ac871368a7a9731
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: e4f6b52a992999bd4c3ac11225ee927c8bff90d1
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101730976"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104583208"
 ---
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (lançamento estável)](#tab/version-1)
 
@@ -125,9 +125,11 @@ Crie uma variável para a chave Esta do seu recurso e nome de recurso.
 > [!IMPORTANT]
 > Vá ao portal Azure e encontre a chave e o ponto final para o recurso QnA Maker que criou nos pré-requisitos. Estarão localizados na **página chave e endpoint** do recurso, sob **gestão de recursos.**
 
-- Crie variáveis ambientais denominadas QNA_MAKER_SUBSCRIPTION_KEY, QNA_MAKER_ENDPOINT e QNA_MAKER_RUNTIME_ENDPOINT para armazenar estes valores.
 - O valor de QNA_MAKER_ENDPOINT tem o `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com` formato. 
-- O valor de QNA_MAKER_RUNTIME_ENDPOINT tem o `https://YOUR-RESOURCE-NAME.azurewebsites.net` formato.
+- O valor de QNA_MAKER_RUNTIME_ENDPOINT tem o `https://YOUR-RESOURCE-NAME.azurewebsites.net` formato. Depois de publicar a base de conhecimentos no portal QnA Maker, pode encontrar o ponto final de tempo de execução, conforme mostrado abaixo.
+
+  ![Ponto final de runtime do fabricante QnA](../media/endpoint.png)
+   
 - Para a produção, considere utilizar uma forma segura de armazenar e aceder às suas credenciais. Por exemplo, [o cofre de chaves Azure](../../../key-vault/general/overview.md) fornece armazenamento de chaves seguros.
 
 [!code-javascript[Set the resource key and resource name](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/qnamaker_quickstart.js?name=Resourcevariables)]
@@ -137,7 +139,6 @@ Crie uma variável para a chave Esta do seu recurso e nome de recurso.
 > [!IMPORTANT]
 > Vá ao portal Azure e encontre a chave e o ponto final para o recurso QnA Maker que criou nos pré-requisitos. Estarão localizados na **página chave e endpoint** do recurso, sob **gestão de recursos.**
 
-- Crie variáveis ambientais denominadas QNA_MAKER_SUBSCRIPTION_KEY e QNA_MAKER_ENDPOINT para armazenar estes valores.
 - O valor de QNA_MAKER_ENDPOINT tem o `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com` formato. 
 - Para a produção, considere utilizar uma forma segura de armazenar e aceder às suas credenciais. Por exemplo, [o cofre de chaves Azure](../../../key-vault/general/overview.md) fornece armazenamento de chaves seguros.
 

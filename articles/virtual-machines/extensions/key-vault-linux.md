@@ -10,16 +10,16 @@ ms.collection: linux
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 23a0d7cd45ceef8f97bb56d65f4807f8d60735dc
-ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
+ms.openlocfilehash: 9032bfca30ead56c91d7904e18b76753cf3b6dfc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103601054"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104582175"
 ---
 # <a name="key-vault-virtual-machine-extension-for-linux"></a>Extensão da máquina virtual key Vault para Linux
 
-A extensão Key Vault VM fornece uma atualização automática dos certificados armazenados num cofre de chaves Azure. Especificamente, a extensão monitoriza uma lista de certificados observados armazenados em cofres-chave.  Ao detetar uma alteração, a extensão recupera e instala os certificados correspondentes. A extensão instalará a cadeia de certificados completa no VM. A extensão Key Vault VM é publicada e suportada pela Microsoft, atualmente em VMs Linux. Este documento detalha as plataformas, configurações e opções de implementação suportadas para a extensão VM do Cofre chave para o Linux. 
+A extensão Key Vault VM fornece uma atualização automática dos certificados armazenados num cofre de chaves Azure. Especificamente, a extensão monitoriza uma lista de certificados observados armazenados em cofres-chave.  Ao detetar uma alteração, a extensão recupera e instala os certificados correspondentes. A extensão Key Vault VM é publicada e suportada pela Microsoft, atualmente em VMs Linux. Este documento detalha as plataformas, configurações e opções de implementação suportadas para a extensão VM do Cofre chave para o Linux. 
 
 ### <a name="operating-system"></a>Sistema operativo
 
@@ -36,6 +36,7 @@ A extensão Key Vault VM suporta estas distribuições Linux:
 
 - #12 PKCS
 - PEM
+
 
 ## <a name="prerequisities"></a>Pré-requisitos
   - Caso do Cofre com certificado. Ver [Criar um cofre de chaves](../../key-vault/general/quick-create-portal.md)
@@ -56,6 +57,20 @@ A extensão Key Vault VM suporta estas distribuições Linux:
                     "msiClientId": "[reference(parameters('userAssignedIdentityResourceId'), variables('msiApiVersion')).clientId]"
                   }
    `
+## <a name="key-vault-vm-extension-version"></a>Versão de extensão VM do Cofre chave
+* Os utilizadores do Ubuntu-18.04 e SUSE-15 podem optar por atualizar a sua versão de extensão de cofre de chaves vm `V2.0` para obter a funcionalidade de descarregamento da cadeia de certificados. Os certificados emitentes (intermédio e raiz) serão anexados ao certificado de folha no ficheiro PEM.
+
+* Se preferir fazer upgrade para `v2.0` , terá de apagar primeiro `v1.0` e, em seguida, instale `v2.0` .
+```
+  az vm extension delete --name KeyVaultForLinux --resource-group ${resourceGroup} --vm-name ${vmName}
+  az vm extension set -n "KeyVaultForLinux" --publisher Microsoft.Azure.KeyVault --resource-group "${resourceGroup}" --vm-name "${vmName}" –settings .\akvvm.json –version 2.0
+```  
+  A bandeira --versão 2.0 é opcional porque a versão mais recente será instalada por padrão.   
+
+* Se o VM tiver certificados descarregados por v1.0, a eliminação da extensão v1.0 AKVVM NÃO eliminará os certificados descarregados.  Após a instalação do v2.0, os certificados existentes NÃO serão modificados.  É necessário eliminar os ficheiros de certificados ou revirar o certificado para obter o ficheiro PEM com corrente completa no VM.
+
+
+
 
 ## <a name="extension-schema"></a>Esquema de extensão
 
@@ -72,7 +87,7 @@ O JSON seguinte mostra o esquema para a extensão VM do Cofre de Chaves. A exten
       "properties": {
       "publisher": "Microsoft.Azure.KeyVault",
       "type": "KeyVaultForLinux",
-      "typeHandlerVersion": "1.0",
+      "typeHandlerVersion": "2.0",
       "autoUpgradeMinorVersion": true,
       "settings": {
         "secretsManagementSettings": {
@@ -109,7 +124,7 @@ O JSON seguinte mostra o esquema para a extensão VM do Cofre de Chaves. A exten
 | apiVersion | 2019-07-01 | data |
 | publicador | Microsoft.Azure.KeyVault | string |
 | tipo | KeyVaultForLinux | string |
-| typeHandlerVersion | 1.0 | int |
+| typeHandlerVersion | 2.0 | int |
 | sondagensIntervalInS | 3600 | string |
 | certificadoStoreName | É ignorado em Linux | string |
 | linkOnRenewal | false | boolean |
@@ -142,7 +157,7 @@ A configuração JSON para uma extensão de máquina virtual deve ser aninhada d
       "properties": {
       "publisher": "Microsoft.Azure.KeyVault",
       "type": "KeyVaultForLinux",
-      "typeHandlerVersion": "1.0",
+      "typeHandlerVersion": "2.0",
       "autoUpgradeMinorVersion": true,
       "settings": {
           "secretsManagementSettings": {
@@ -189,7 +204,7 @@ O Azure PowerShell pode ser utilizado para implantar a extensão VM do Cofre de 
        
     
         # Start the deployment
-        Set-AzVmExtension -TypeHandlerVersion "1.0" -ResourceGroupName <ResourceGroupName> -Location <Location> -VMName <VMName> -Name $extName -Publisher $extPublisher -Type $extType -SettingString $settings
+        Set-AzVmExtension -TypeHandlerVersion "2.0" -ResourceGroupName <ResourceGroupName> -Location <Location> -VMName <VMName> -Name $extName -Publisher $extPublisher -Type $extType -SettingString $settings
     
     ```
 
@@ -209,7 +224,7 @@ O Azure PowerShell pode ser utilizado para implantar a extensão VM do Cofre de 
         
         # Add Extension to VMSS
         $vmss = Get-AzVmss -ResourceGroupName <ResourceGroupName> -VMScaleSetName <VmssName>
-        Add-AzVmssExtension -VirtualMachineScaleSet $vmss  -Name $extName -Publisher $extPublisher -Type $extType -TypeHandlerVersion "1.0" -Setting $settings
+        Add-AzVmssExtension -VirtualMachineScaleSet $vmss  -Name $extName -Publisher $extPublisher -Type $extType -TypeHandlerVersion "2.0" -Setting $settings
 
         # Start the deployment
         Update-AzVmss -ResourceGroupName <ResourceGroupName> -VMScaleSetName <VmssName> -VirtualMachineScaleSet $vmss 
@@ -228,6 +243,7 @@ O CLI Azure pode ser utilizado para implantar a extensão VM do Cofre de Chaves 
          --publisher Microsoft.Azure.KeyVault `
          -g "<resourcegroup>" `
          --vm-name "<vmName>" `
+         --version 2.0 `
          --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\" <observedCert1> \", \" <observedCert2> \"] }}'
     ```
 
@@ -239,6 +255,7 @@ O CLI Azure pode ser utilizado para implantar a extensão VM do Cofre de Chaves 
         --publisher Microsoft.Azure.KeyVault `
         -g "<resourcegroup>" `
         --vmss-name "<vmssName>" `
+        --version 2.0 `
         --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\" <observedCert1> \", \" <observedCert2> \"] }}'
     ```
 Por favor, esteja ciente das seguintes restrições/requisitos:

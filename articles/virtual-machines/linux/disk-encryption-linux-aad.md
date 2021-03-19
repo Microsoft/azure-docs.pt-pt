@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: d1607ef4ff277f9c9cdb55db3e58da1052a00756
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: cec391ba998165af4dd9339b719a3b73cb330c16
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102558407"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104601795"
 ---
 # <a name="enable-azure-disk-encryption-with-azure-ad-on-linux-vms-previous-release"></a>Ativar encriptação do disco Azure com Azure AD em VMs Linux (versão anterior)
 
@@ -65,7 +65,7 @@ Utilize a [encriptação az vm ativar](/cli/azure/vm/encryption#az-vm-encryption
      ```
 
    >[!NOTE]
-   > A sintaxe para o valor do parâmetro de chave-chave de encriptação do disco é a cadeia de identificação completa: /subscrições/[subscrição-id-guid]/resourceGroups/[resource-name]/providers/Microsoft.KeyVault/vaults/[keyvault-name].</br> </br> A sintaxe para o valor do parâmetro chave-encriptação-chave é o URI completo para o KEK como em: https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id].
+   > A sintaxe para o valor do parâmetro de chave-chave de encriptação do disco é a cadeia de identificação completa: /subscrições/[subscrição-id-guid]/resourceGroups/[resource-name]/providers/Microsoft.KeyVault/vaults/[keyvault-name].</br> </br> A sintaxe para o valor do parâmetro chave-chave de encriptação é o URI completo para o KEK como em: https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id].
 
 - **Verifique se os discos estão encriptados:** Para verificar o estado de encriptação de um IaaS VM, utilize o comando [do programa de encriptação az vm.](/cli/azure/vm/encryption#az-vm-encryption-show) 
 
@@ -118,7 +118,7 @@ Utilize o [cmdlet Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute
 
   >[!NOTE]
   > A sintaxe para o valor do parâmetro de chave-chave de encriptação do disco é a cadeia de identificação completa: /subscrições/[subscrição-id-guid]/grupos de recursos/[KVresource-group-name]/providers/Microsoft.KeyVault/vaults/[keyvault-name].</br> </br>
-  A sintaxe para o valor do parâmetro chave-encriptação-chave é o URI completo para o KEK como em: https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id]. 
+  A sintaxe para o valor do parâmetro chave-chave de encriptação é o URI completo para o KEK como em: https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id]. 
     
 - **Verifique se os discos estão encriptados:** Para verificar o estado de encriptação de um IaaS VM, utilize o [cmdlet Get-AzVmDiskEncrypationStatus.](/powershell/module/az.compute/get-azvmdiskencryptionstatus) 
     
@@ -210,7 +210,7 @@ Recomendamos uma configuração LVM-on-crypt. Para todos os exemplos a seguir, s
 - Adicione os discos de dados que compõem o VM.
 - Formato, montagem e adicione estes discos ao ficheiro fstab.
 
-    1. Formate o disco recém-adicionado. Usamos symlinks gerados pelo Azure aqui. A utilização de symlinks evita problemas relacionados com a alteração de nomes de dispositivos. Para obter mais informações, consulte [problemas de nomes de dispositivos de resolução de problemas](../troubleshooting/troubleshoot-device-names-problems.md).
+    1. Formate o disco recém-adicionado. Usamos symlinks gerados pelo Azure aqui. A utilização de symlinks evita problemas relacionados com a alteração de nomes de dispositivos. Para obter mais informações, consulte [problemas de nomes de dispositivos de resolução de problemas](/troubleshoot/azure/virtual-machines/troubleshoot-device-names-problems).
     
         ```console
         mkfs -t ext4 /dev/disk/azure/scsi1/lun0
@@ -266,7 +266,7 @@ New-AzVM -VM $VirtualMachine -ResourceGroupName "MyVirtualMachineResourceGroup"
 Pode adicionar um novo disco de dados utilizando [o discope Az vm](add-disk.md) ou [através do portal Azure](attach-disk-portal.md). Antes de conseguir encriptar, primeiro tem de montar o disco de dados recentemente anexado. Tem de solicitar a encriptação da unidade de dados porque a unidade será inutilizável enquanto a encriptação estiver em curso. 
 
 ### <a name="enable-encryption-on-a-newly-added-disk-with-the-azure-cli"></a>Ativar a encriptação num disco recém-adicionado com o Azure CLI
- Se o VM foi previamente encriptado com "All", então o parâmetro do tipo volume deve permanecer All. Tudo inclui os discos de SO e de dados. Se o VM foi previamente encriptado com um tipo de volume de "SO", então o parâmetro do tipo volume deve ser alterado para All de modo que tanto o SISTEMA como o novo disco de dados sejam incluídos. Se o VM foi encriptado apenas com o tipo de volume de "Dados", então pode permanecer dados como demonstrado aqui. Adicionar e anexar um novo disco de dados a um VM não é preparação suficiente para encriptação. O disco recém-ligado também deve ser formatado e montado corretamente dentro do VM antes de permitir a encriptação. No Linux, o disco deve ser montado em /etc/fstab com um [nome persistente do dispositivo de bloqueio](../troubleshooting/troubleshoot-device-names-problems.md). 
+ Se o VM foi previamente encriptado com "All", então o parâmetro do tipo volume deve permanecer All. Tudo inclui os discos de SO e de dados. Se o VM foi previamente encriptado com um tipo de volume de "SO", então o parâmetro do tipo volume deve ser alterado para All de modo que tanto o SISTEMA como o novo disco de dados sejam incluídos. Se o VM foi encriptado apenas com o tipo de volume de "Dados", então pode permanecer dados como demonstrado aqui. Adicionar e anexar um novo disco de dados a um VM não é preparação suficiente para encriptação. O disco recém-ligado também deve ser formatado e montado corretamente dentro do VM antes de permitir a encriptação. No Linux, o disco deve ser montado em /etc/fstab com um [nome persistente do dispositivo de bloqueio](/troubleshoot/azure/virtual-machines/troubleshoot-device-names-problems). 
 
 Em contraste com a sintaxe PowerShell, o CLI não requer que forneça uma versão de sequência única quando ativa a encriptação. O CLI gera e utiliza automaticamente o seu próprio valor exclusivo de versão de sequência.
 
@@ -324,7 +324,7 @@ Em contraste com a sintaxe PowerShell, o CLI não requer que forneça uma versã
 
 >[!NOTE]
 > A sintaxe para o valor do parâmetro de chave-chave de encriptação do disco é a cadeia de identificação completa: /subscrições/[subscrição-id-guid]/resourceGroups/[resource-name]/providers/Microsoft.KeyVault/vaults/[keyvault-name]. </br> </br>
-A sintaxe para o valor do parâmetro chave-encriptação-chave é o URI completo para o KEK como em: https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id].
+A sintaxe para o valor do parâmetro chave-chave de encriptação é o URI completo para o KEK como em: https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id].
 
 ## <a name="disable-encryption-for-linux-vms"></a>Desativar encriptação para Os VMs Linux
 Pode desativar a encriptação utilizando o Azure PowerShell, o Azure CLI ou um modelo de Gestor de Recursos. 

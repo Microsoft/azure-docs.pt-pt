@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: aa24989103cca5bb7031a21ca106b93ada0c3904
-ms.sourcegitcommit: 6776f0a27e2000fb1acb34a8dddc67af01ac14ac
+ms.openlocfilehash: 0ecfbb9053fde4ff332cbbcb6e14a84a5bbeb99a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103149465"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104593157"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Metas de escalabilidade e desempenho de Ficheiros do Azure
 [O Azure Files](storage-files-introduction.md) oferece ações de ficheiros totalmente geridas na nuvem que são acessíveis através dos protocolos do sistema de ficheiros SMB e NFS. Este artigo discute os objetivos de escalabilidade e desempenho para Azure Files e Azure File Sync.
@@ -134,7 +134,7 @@ A taxa de desempenho é de 20 objetos por segundo. Os clientes podem estimar o t
 
 **A sincronização inicial de dados do Windows Server para a Azure File share**:Muitas implementações de Azure File Sync começam com uma partilha de ficheiros Azure vazia porque todos os dados estão no Servidor do Windows. Nestes casos, a enumeração inicial da mudança de nuvem é rápida e a maior parte do tempo será gasto sincronizando alterações do Servidor do Windows para a partilha de ficheiros Azure. 
 
-Embora o sync carrequiva os dados para a partilha de ficheiros Azure, não há tempo de inatividade no servidor de ficheiros local, e os administradores podem [configurar limites](https://docs.microsoft.com/azure/storage/files/storage-sync-files-server-registration#set-azure-file-sync-network-limits) de rede para restringir a quantidade de largura de banda utilizada para o upload de dados de fundo.
+Embora o sync carrequiva os dados para a partilha de ficheiros Azure, não há tempo de inatividade no servidor de ficheiros local, e os administradores podem [configurar limites](./storage-sync-files-server-registration.md#set-azure-file-sync-network-limits) de rede para restringir a quantidade de largura de banda utilizada para o upload de dados de fundo.
 
 A sincronização inicial é tipicamente limitada pela taxa inicial de upload de 20 ficheiros por segundo por grupo de sincronização. Os clientes podem estimar o momento de enviar todos os seus dados para a Azure usando as seguintes fórmulas para obter tempo em dias:  
 

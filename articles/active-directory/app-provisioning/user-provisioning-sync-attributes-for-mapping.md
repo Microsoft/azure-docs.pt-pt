@@ -1,6 +1,6 @@
 ---
 title: Sincronizar atributos ao AZure AD para mapeamento
-description: Aprenda a sincronizar atributos do seu Ative Directory para Azure AD. Ao configurar o fornecimento de utilizadores para aplicações SaaS, utilize a funcionalidade de extensão do diretório para adicionar atributos de origem que não são sincronizados por padrão.
+description: Ao configurar o fornecimento de utilizadores para aplicações SaaS, utilize a funcionalidade de extensão do diretório para adicionar atributos de origem que não são sincronizados por padrão.
 services: active-directory
 author: kenwith
 manager: daveba
@@ -8,23 +8,23 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 03/12/2021
+ms.date: 03/17/2021
 ms.author: kenwith
-ms.openlocfilehash: 0f8369c80a7a219b159f31aacb7d10a0dd009d00
-ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
+ms.openlocfilehash: 52f34cdafac76a9bca2b4ff0b00e0b3efaa63f5d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2021
-ms.locfileid: "103418679"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579438"
 ---
-# <a name="sync-an-attribute-from-your-on-premises-active-directory-to-azure-ad-for-provisioning-to-an-application"></a>Sync um atributo do seu Ative Directy no local para Azure AD para provisionamento a uma aplicação
+# <a name="syncing-extension-attributes-attributes"></a>Atributos de extensão sincronizado
 
-Ao personalizar mapeamentos de atributos para o fornecimento do utilizador, poderá descobrir que o atributo que pretende mapear não aparece na lista **de atributos Source.** Este artigo mostra-lhe como adicionar o atributo em falta sincronizando-o do seu Ative Directory (AD) no local ao Azure Ative Directory (Azure AD).
+Ao personalizar mapeamentos de atributos para o fornecimento do utilizador, poderá descobrir que o atributo que pretende mapear não aparece na lista **de atributos Source.** Este artigo mostra-lhe como adicionar o atributo em falta sincronizando-o do seu Ative Directory (AD) no local ao Azure Ative Directory (Azure AD) ou criando os atributos de extensão em Ad Azure para um único utilizador em nuvem. 
 
-O Azure AD deve conter todos os dados necessários para criar um perfil de utilizador ao aprovisionar as contas dos utilizadores do Azure AD para uma aplicação SaaS. Em alguns casos, para disponibilizar os dados poderá necessitar de sincronização de atributos do seu AD no local para Azure AD. O Azure AD Connect sincroniza automaticamente determinados atributos ao AZure AD, mas nem todos os atributos. Além disso, alguns atributos (como o SAMAccountName) que são sincronizados por padrão podem não ser expostos usando a API do Microsoft Graph. Nestes casos, pode utilizar a função de extensão de diretório AD Connect Azure para sincronizar o atributo a Azure AD. Desta forma, o atributo será visível para a API do Microsoft Graph e para o serviço de fornecimento de AD Azure.
+O Azure AD deve conter todos os dados necessários para criar um perfil de utilizador ao aprovisionar as contas dos utilizadores do Azure AD para uma aplicação SaaS. Em alguns casos, para disponibilizar os dados poderá necessitar de sincronização de atributos do seu AD no local para Azure AD. O Azure AD Connect sincroniza automaticamente determinados atributos ao AZure AD, mas nem todos os atributos. Além disso, alguns atributos (como o SAMAccountName) que são sincronizados por padrão podem não ser expostos usando a AZure AD Graph API. Nestes casos, pode utilizar a função de extensão de diretório AD Connect Azure para sincronizar o atributo a Azure AD. Desta forma, o atributo será visível para o Azure AD Graph API e o serviço de fornecimento de AD Azure. Se os dados necessários para o provisionamento estiverem no Ative Directory mas não estiverem disponíveis para provisões devido às razões acima descritas, pode utilizar o Azure AD Connect para criar atributos de extensão. 
 
-Se os dados necessários para o provisionamento estiverem no Ative Directory mas não estiverem disponíveis para provisões devido às razões acima descritas, pode utilizar o Azure AD Connect ou o PowerShell para criar atributos de extensão. 
- 
+Embora a maioria dos utilizadores sejam utilizadores híbridos que são sincronizados a partir do Ative Directory, também pode criar extensões em utilizadores apenas na nuvem sem utilizar o Azure AD Connect. Utilizando o PowerShell ou o Microsoft Graph pode estender o esquema de um único utilizador em nuvem. 
+
 ## <a name="create-an-extension-attribute-using-azure-ad-connect"></a>Criar um atributo de extensão usando Azure AD Connect
 
 1. Abra o assistente Azure AD Connect, escolha Tarefas e, em seguida, escolha **Opções de sincronização personalizadas**.
@@ -52,7 +52,47 @@ Se os dados necessários para o provisionamento estiverem no Ative Directory mas
 > [!NOTE]
 > A capacidade de provisão de atributos de referência de AD no local, como **gerido por ou** **DN/DistinguishedName,** não é suportada hoje em dia. Pode solicitar esta funcionalidade no [User Voice](https://feedback.azure.com/forums/169401-azure-active-directory). 
 
-## <a name="create-an-extension-attribute-using-powershell"></a>Criar um atributo de extensão usando PowerShell
+## <a name="create-an-extension-attribute-on-a-cloud-only-user"></a>Crie um atributo de extensão num único utilizador de nuvem
+Os clientes podem utilizar o Microsoft Graph e o PowerShell para estender o esquema do utilizador. Estes atributos de extensão são automaticamente descobertos na maioria dos casos, mas os clientes com mais de 1000 diretores de serviço podem encontrar extensões em falta na lista de atributos de origem. Se um atributo que criar utilizando os passos abaixo não aparecer automaticamente na lista de atributos de origem, verifique utilizando o gráfico de que o atributo de extensão foi criado com sucesso e, em seguida, adicione-o ao seu esquema [manualmente](https://docs.microsoft.com/azure/active-directory/app-provisioning/customize-application-attributes#editing-the-list-of-supported-attributes). Ao fazer os pedidos de gráfico abaixo, clique em saber mais para verificar as permissões necessárias para escamar os pedidos. Pode utilizar [o explorador de gráficos](https://docs.microsoft.com/graph/graph-explorer/graph-explorer-overview) para fazer os pedidos. 
+
+### <a name="create-an-extension-attribute-on-a-cloud-only-user-using-microsoft-graph"></a>Crie um atributo de extensão numa nuvem apenas utilizador usando o Microsoft Graph
+Terá de utilizar uma aplicação para alargar o esquema dos seus utilizadores. Enumere as aplicações no seu inquilino para identificar o id da aplicação que gostaria de usar para estender o esquema do utilizador. [Saiba mais.](https://docs.microsoft.com/graph/api/application-list?view=graph-rest-1.0&tabs=http)
+
+```json
+GET https://graph.microsoft.com/v1.0/applications
+```
+
+Crie o atributo de extensão. Substitua a propriedade **de id** abaixo pelo **id** recuperado no passo anterior. Terá de usar o atributo **"id"** e não o "appId". [Saiba mais.](https://docs.microsoft.com/graph/api/application-post-extensionproperty?view=graph-rest-1.0&tabs=http)
+```json
+POST https://graph.microsoft.com/v1.0/applications/{id}/extensionProperties
+Content-type: application/json
+
+{
+    "name": "extensionName",
+    "dataType": "string",
+    "targetObjects": [
+        "User"
+    ]
+}
+```
+
+O pedido anterior criou um atributo de extensão com o formato "extension_appID_extensionName". Atualize um utilizador com o atributo de extensão. [Saiba mais.](https://docs.microsoft.com/graph/api/user-update?view=graph-rest-1.0&tabs=http)
+```json
+PATCH https://graph.microsoft.com/v1.0/users/{id}
+Content-type: application/json
+
+{
+  "extension_inputAppId_extensionName": "extensionValue"
+}
+```
+Verifique o utilizador para se certificar de que o atributo foi atualizado com sucesso. [Saiba mais.](https://docs.microsoft.com/graph/api/user-get?view=graph-rest-1.0&tabs=http#example-3-users-request-using-select)
+
+```json
+GET https://graph.microsoft.com/v1.0/users/{id}?$select=displayName,extension_inputAppId_extensionName
+```
+
+
+### <a name="create-an-extension-attribute-on-a-cloud-only-user-using-powershell"></a>Crie um atributo de extensão numa nuvem apenas utilizador usando PowerShell
 Crie uma extensão personalizada utilizando o PowerShell e atribua um valor a um utilizador. 
 
 ```

@@ -53,11 +53,11 @@
         - name: Co-sell with Microsoft (Venda conjunta com a Microsoft)
           items:
             - name: Visão geral de co-venda
-              href: marketplace-co-sell.md
+              href: co-sell-overview.md
             - name: Requisitos de co-venda
               href: co-sell-requirements.md
             - name: Conigure co-venda
-              href: commercial-marketplace-co-sell.md
+              href: co-sell-configure.md
             - name: Verificar estado de co-venda
               href: co-sell-status.md
             - name: Migrar soluções de venda conjunta a partir do OCP GTM
