@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: deced953089fcbb2640cbf3e402db24cb511e769
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: c6f4e4851d406b14ed38665274401b96446ac6a0
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97935891"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579081"
 ---
 # <a name="what-is-conditional-access-report-only-mode"></a>O que é o modo de relatório de acesso condicional?
 
@@ -29,6 +29,8 @@ O modo apenas de relatório é um novo estado de política de acesso condicional
 - Os resultados são registados nos separadores **de acesso condicional** e **apenas relatório** dos dados de registo de início de sessão.
 - Os clientes com uma subscrição do Azure Monitor podem monitorizar o impacto das suas políticas de Acesso Condicional utilizando o livro de insights de acesso condicional.
 
+> [!VIDEO https://www.youtube.com/embed/NZbPYfhb5Kc]
+
 > [!WARNING]
 > As políticas no modo apenas de relatórios que exijam dispositivos compatíveis podem levar os utilizadores de Mac, iOS e Android a selecionarem um certificado de dispositivo durante a avaliação da política, mesmo que a conformidade com o dispositivo não seja aplicada. Estas indicações podem repetir-se até que o dispositivo fique em conformidade. Para evitar que os utilizadores finais recebam solicitações durante a entrada, exclua as plataformas de dispositivos Mac, iOS e Android de políticas apenas de relatórios que realizem verificações de conformidade com dispositivos. Note que o modo apenas de relatório não é aplicável para políticas de acesso condicional com âmbito de "Ações do utilizador".
 
@@ -38,7 +40,7 @@ O modo apenas de relatório é um novo estado de política de acesso condicional
 
 Quando uma política em modo apenas de relatório é avaliada para uma determinada entrada, existem quatro novos valores possíveis de resultados:
 
-| Resultado | Descrição |
+| Resultado | Description |
 | --- | --- |
 | Apenas relatório: Sucesso | Todas as condições de política configuradas, os controlos de subvenções não interativos necessários e os controlos de sessão foram satisfeitos. Por exemplo, um requisito de autenticação de vários fatores é preenchido por uma alegação de MFA já presente no token, ou uma política de dispositivo em conformidade é satisfeita com a realização de uma verificação do dispositivo num dispositivo em conformidade. |
 | Apenas relatório: Falha | Todas as condições políticas configuradas foram satisfeitas, mas nem todos os controlos de subvenção não interativos necessários ou os controlos de sessão foram satisfeitos. Por exemplo, uma política aplica-se a um utilizador em que um controlo de blocos é configurado, ou um dispositivo falha uma política de dispositivo conforme. |

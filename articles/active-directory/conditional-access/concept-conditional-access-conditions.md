@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 02/10/2021
+ms.date: 03/17/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fecf3f1a302a6734d92335bc15722df4d5288a56
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: ab840b46503aed1a318e3b39a4e8fe3e4d11735c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100362425"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579132"
 ---
 # <a name="conditional-access-conditions"></a>Acesso Condicional: Condições
 
@@ -174,11 +174,11 @@ Esta definição tem impacto nas tentativas de acesso feitas a partir das seguin
 
 ### <a name="exchange-activesync-clients"></a>Troca de clientes ActiveSync
 
-- As organizações só podem selecionar clientes Exchange ActiveSync ao atribuir a política aos utilizadores ou grupos. Selecionando **Todos os utilizadores**, **Todos os utilizadores convidados e externos,** ou **funções de Diretório** farão com que todos os utilizadores fiquem bloqueados.
+- As organizações só podem selecionar clientes Exchange ActiveSync ao atribuir a política aos utilizadores ou grupos. Selecionando **Todos os utilizadores**, **Todos os utilizadores convidados e externos,** ou **funções de Diretório** farão com que todos os utilizadores sejam sujeitos à política.
 - Ao criar uma política atribuída aos clientes Do Exchange ActiveSync, o **Exchange Online** deve ser a única aplicação em nuvem atribuída à apólice. 
 - As organizações podem reduzir o âmbito desta política a plataformas específicas que utilizam a condição das **plataformas do Dispositivo.**
 
-Se o controlo de acesso atribuído à apólice utilizar **requerer a aplicação de cliente aprovada,** o utilizador é direcionado para instalar e utilizar o cliente móvel do Outlook. No caso de ser necessária **a autenticação multi-factor,** os utilizadores afetados estão bloqueados, porque a autenticação básica não suporta a autenticação de vários fatores.
+Se o controlo de acesso atribuído à apólice utilizar **requerer a aplicação de cliente aprovada,** o utilizador é direcionado para instalar e utilizar o cliente móvel do Outlook. No caso de a **autenticação multi-factor,** **termos de utilização,** ou **controlos personalizados,** os utilizadores afetados estão bloqueados, porque a autenticação básica não suporta estes controlos.
 
 Para obter mais informações, veja os seguintes artigos:
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2895588a5a82ec2b6c69d33ff6cea39bbe3a0372
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 8ff9fe969c90a2bb4aa9f954b984f511fb490ba3
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103492001"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579149"
 ---
 # <a name="conditional-access-cloud-apps-or-actions"></a>Acesso Condicional: aplicativos ou ações na nuvem
 
@@ -131,7 +131,7 @@ As ações do utilizador são tarefas que podem ser executadas por um utilizador
 
 - **Registar ou juntar dispositivos (pré-visualização)**: Esta ação do utilizador permite aos administradores impor a política de Acesso Condicional quando os utilizadores [se registam](../devices/concept-azure-ad-register.md) ou [se juntam](../devices/concept-azure-ad-join.md) a dispositivos para a Azure AD. Existem duas considerações fundamentais com esta ação do utilizador: 
    - `Require multi-factor authentication` é o único controlo de acesso disponível com esta ação do utilizador e todos os outros estão desativados. Esta restrição impede conflitos com controlos de acesso que dependem do registo do dispositivo Azure ou não são aplicáveis ao registo do dispositivo Azure AD. 
-   - Quando uma política de acesso condicional estiver ativada com esta ação do utilizador, deve definir as definições do dispositivo de **diretório ativo Azure**  >    >    -  `Devices to be Azure AD joined or Azure AD registered require Multi-Factor Authentication` para **nº**. Caso contrário, a política de acesso condicional com esta ação do utilizador não é devidamente aplicada. Mais informações sobre esta configuração do dispositivo podem ser encontradas nas [definições do dispositivo Configure](../device-management-azure-portal.md##configure-device-settings). Esta ação do utilizador proporciona flexibilidade para exigir a autenticação de vários fatores para registar ou juntar dispositivos para utilizadores e grupos ou condições específicos em vez de ter uma política de todo o inquilino nas definições do Dispositivo. 
+   - Quando uma política de acesso condicional estiver ativada com esta ação do utilizador, deve definir as definições do dispositivo de **diretório ativo Azure**  >    >    -  `Devices to be Azure AD joined or Azure AD registered require Multi-Factor Authentication` para **nº**. Caso contrário, a política de acesso condicional com esta ação do utilizador não é devidamente aplicada. Mais informações sobre esta configuração do dispositivo podem ser encontradas nas [definições do dispositivo Configure](../devices/device-management-azure-portal.md#configure-device-settings). Esta ação do utilizador proporciona flexibilidade para exigir a autenticação de vários fatores para registar ou juntar dispositivos para utilizadores e grupos ou condições específicos em vez de ter uma política de todo o inquilino nas definições do Dispositivo. 
    
 ## <a name="next-steps"></a>Passos seguintes
 

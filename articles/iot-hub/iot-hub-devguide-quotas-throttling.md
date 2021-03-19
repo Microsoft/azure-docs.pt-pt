@@ -1,22 +1,22 @@
 ---
-title: Compreenda as quotas do Azure IoT Hub e o estrangulamento Microsoft Docs
+title: Compreenda as quotas do Azure IoT Hub e a | de estrangulamento Microsoft Docs
 description: Guia do desenvolvedor - descrição das quotas que se aplicam ao IoT Hub e ao comportamento de estrangulamento esperado.
 author: robinsh
 ms.author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 08/08/2019
+ms.date: 03/18/2021
 ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Operations'
 - 'Role: Technical Support'
-ms.openlocfilehash: 5a5b20efbf804c2ea1097f905da1cfd62727ff15
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 3de9eccd001e421ef3255f83630716df12b7a2ee
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410696"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104595265"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referência - IoT Hub quotas e estrangulamento
 
@@ -43,7 +43,7 @@ A tabela seguinte mostra os aceleradores forçados. Os valores referem-se a um c
 | Limitação | Grátis, B1 e S1 | B2 e S2 | B3 e S3 | 
 | -------- | ------- | ------- | ------- |
 | [Operações de registo de identidade](#identity-registry-operations-throttle) (criar, recuperar, listar, atualizar, excluir) | 1,67/seg/unidade (100/min/unidade) | 1,67/seg/unidade (100/min/unidade) | 83.33/seg/unidade (5.000/min/unidade) |
-| [Novas ligações do dispositivo](#device-connections-throttle) (este limite aplica-se à taxa de _novas ligações_ , não ao número total de ligações) | Superior de 100/seg ou 12/seg/unidade <br/> Por exemplo, duas unidades S1 são 2 \* 12 = 24 novas ligações/seg, mas tem pelo menos 100 novas ligações/seg através das suas unidades. Com nove unidades S1, tem 108 novas ligações/seg (9 \* 12) através das suas unidades. | 120 novas ligações/seg/unidade | 6.000 novas ligações/seg/unidade |
+| [Novas ligações do dispositivo](#device-connections-throttle) (este limite aplica-se à taxa de _novas ligações_, não ao número total de ligações) | Superior de 100/seg ou 12/seg/unidade <br/> Por exemplo, duas unidades S1 são 2 \* 12 = 24 novas ligações/seg, mas tem pelo menos 100 novas ligações/seg através das suas unidades. Com nove unidades S1, tem 108 novas ligações/seg (9 \* 12) através das suas unidades. | 120 novas ligações/seg/unidade | 6.000 novas ligações/seg/unidade |
 | Envios do dispositivo para a cloud | Mais de 100 operações de envio/seg ou 12 operações de envio/seg/unidade <br/> Por exemplo, duas unidades S1 são 2 \* 12 = 24/seg, mas tem pelo menos 100 operações de envio/seg através das suas unidades. Com nove unidades S1, tem 108 operações de envio/seg (9 \* 12) através das suas unidades. | 120 operações de envio/seg/unidade | 6.000 operações de envio/seg/unidade |
 | Nuvem-para-dispositivo envia<sup>1</sup> | 1.67 Enviar operações/seg/unidade (100 mensagens/min/unidade) | 1.67 enviar operações/seg/unidade (100 operações de envio/min/unidade) | 83.33 operações de envio/seg/unidade (5.000 operações de envio/min/unidade) |
 | Cloud-to-device recebe<sup>1</sup> <br/> (apenas quando o dispositivo utiliza HTTPS)| 16.67 receber operações/seg/unidade (1.000 operações de receção/min/unidade) | 16.67 receber operações/seg/unidade (1.000 operações de receção/min/unidade) | 833.33 receber operações/seg/unidade (50.000 operações de receção/min/unidade) |
@@ -86,6 +86,8 @@ Por exemplo, utiliza um dispositivo simulado para enviar 200 mensagens de dispos
 ### <a name="identity-registry-operations-throttle"></a>Acelerador de operações de registo de identidade
 
 As operações de registo de identidade do dispositivo destinam-se a utilização a tempo de funcionamento em cenários de gestão e provisionamento de dispositivos. A leitura ou a atualização de um grande número de identidades de dispositivos é apoiada através de postos de [trabalho de importação e exportação.](iot-hub-devguide-identity-registry.md#import-and-export-device-identities)
+
+Ao iniciar operações de identidade através de [operações de dispositivos](iot-hub-bulk-identity-mgmt.md)a granel, aplicam-se os mesmos limites de aceleração. Por exemplo, se pretender submeter a operação a granel para criar 50 dispositivos, e tiver um Hub S1 IoT com 1 unidade, apenas dois destes pedidos em massa são aceites por minuto. Isto porque o acelerador de operação de identidade para um Hub S1 IoT com 1 unidade é de 100/min/unidade. Também neste caso, um terceiro pedido (e não só) no mesmo minuto seria rejeitado porque o limite já tinha sido atingido. 
 
 ### <a name="device-connections-throttle"></a>Acelerador de ligações ao dispositivo
 

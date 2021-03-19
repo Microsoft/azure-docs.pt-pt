@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: fb81960b573b5b7d28f44f7a7482c28b4ef284be
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 81c026893c3185c6c9f960cdb6acb2d0c2d49cc4
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103496461"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104580356"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Azure Disk Encryption para VMs do Linux 
 
@@ -108,7 +108,7 @@ As distribuições de servidores Linux que não são endossadas pelo Azure não 
 
 A encriptação do disco Azure requer que os módulos dm-crypt e vfat estejam presentes no sistema. Remover ou desativar o vfat da imagem padrão impedirá o sistema de ler o volume da chave e obter a chave necessária para desbloquear os discos em reboots subsequentes. Os passos de endurecimento do sistema que removem o módulo vfat do sistema ou impõem a expansão dos pontos/pastas de oss nas unidades de dados não são compatíveis com a Encriptação do Disco Azure. 
 
-Antes de permitir a encriptação, os discos de dados a encriptar devem ser devidamente listados em /etc/fstab. Utilize a opção "nofail" ao criar entradas e escolha um nome persistente do dispositivo de bloqueio (como os nomes do dispositivo no formato "/dev/sdX" podem não estar associados ao mesmo disco através de reboots, particularmente após a encriptação; para obter mais detalhes sobre este comportamento, consulte: Alterações no nome do [dispositivo Linux VM](../troubleshooting/troubleshoot-device-names-problems.md)de resolução de problemas).
+Antes de permitir a encriptação, os discos de dados a encriptar devem ser devidamente listados em /etc/fstab. Utilize a opção "nofail" ao criar entradas e escolha um nome persistente do dispositivo de bloqueio (como os nomes do dispositivo no formato "/dev/sdX" podem não estar associados ao mesmo disco através de reboots, particularmente após a encriptação; para obter mais detalhes sobre este comportamento, consulte: Alterações no nome do [dispositivo Linux VM](/troubleshoot/azure/virtual-machines/troubleshoot-device-names-problems)de resolução de problemas).
 
 Certifique-se de que as definições /etc/fstab estão configuradas corretamente para a montagem. Para configurar estas definições, executar o suporte -um comando ou reiniciar o VM e acionar a montagem dessa forma. Uma vez concluído, verifique a saída do comando de Lsblk para verificar se a unidade ainda está montada. 
 

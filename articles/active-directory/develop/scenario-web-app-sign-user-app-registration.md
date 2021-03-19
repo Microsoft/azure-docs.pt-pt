@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 96fbe676d4b929d2c1ee2efce0d10f3b5dc7c6ab
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 920249aa252469c3db2be284fc010d775d04c921
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100103197"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104578282"
 ---
 # <a name="web-app-that-signs-in-users-app-registration"></a>Aplicação web que assina nos utilizadores: Registo de aplicações
 
@@ -94,6 +94,21 @@ Por predefinição, a amostra utiliza:
    1. Selecione a duração da chave **Em 1 ano**.
    1. Selecione **Adicionar**.
    1. Quando o valor da chave aparecer, copie-o para mais tarde. Este valor não será exibido novamente ou será recuperado por qualquer outro meio.
+
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
+
+1. Quando aparecer a **página de inscrição,** insira as informações de registo do seu pedido:
+   1. Introduza um **Nome** para a sua aplicação, por `node-webapp` exemplo. Os utilizadores da sua aplicação podem ver este nome, e pode alterá-lo mais tarde.
+   1. Alterar **tipos de conta suportadas** para contas em qualquer **diretório organizacional e contas pessoais da Microsoft (por exemplo, Skype, Xbox, Outlook.com)**.
+   1. Na secção **URI de redirecionamento (opcional),** selecione **Web** na caixa de combinação e introduza o seguinte redireccionamento URI: `http://localhost:3000/redirect` .
+   1. Selecione **Registar** para criar a aplicação.
+1. Na **página** geral da aplicação, encontre o valor de **ID da Aplicação (cliente)** e grave-o para mais tarde. Vai precisar dele para configurar o ficheiro de configuração deste projeto.
+1. Em **Gerir**, selecione **Certificados e segredos**.
+1. Na secção **Segredos** de Cliente, selecione **Novo segredo do cliente,** e depois:
+   1. Insira uma descrição chave.
+   1. Selecione uma duração chave de **In 1 ano**.
+   1. Selecione **Adicionar**.
+   1. Quando o valor da chave aparecer, copie-o. Precisará dela mais tarde.
 
 # <a name="python"></a>[Python](#tab/python)
 

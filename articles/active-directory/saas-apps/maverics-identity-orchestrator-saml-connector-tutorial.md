@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integrar o Azure Ative Directory single sign-on (SSO) com o Maverics Identity Orchestrator SAML Connector / Microsoft Docs'
+title: 'Tutorial: Integre o sign-on single do Azure Ative Directory (SSO) com o Conector SAML Connector | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Maverics Identity Orchestrator SAML Connector.
 services: active-directory
 author: jeevansd
@@ -9,67 +9,60 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/12/2020
+ms.date: 03/17/2021
 ms.author: jeedes
-ms.openlocfilehash: 31392c1fa3d14d6f1e01a8b302575e9b592e42cd
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 19f6b0601afe9ad84f02c93d7f6e1ae3a71a06a4
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98183154"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104585099"
 ---
-# <a name="tutorial-integrate-azure-ad-single-sign-on-with-maverics-identity-orchestrator-saml-connector"></a>Tutorial: Integre o single sign-on do Azure AD com o Conector SAML, orquestrador de identidade Maverics
+# <a name="integrate-azure-ad-single-sign-on-with-maverics-identity-orchestrator-saml-connector"></a>Integre o único sign-on da Azure AD com o Conector SAML, orquestrador de identidade da Maverics
 
-Strata fornece uma forma simples de integrar aplicações no local com O Diretório Ativo Azure (Azure AD) para autenticação e controlo de acessos.
+Strata's Maverics Identity Orchestrator fornece uma forma simples de integrar aplicações no local com Azure Ative Directory (Azure AD) para autenticação e controlo de acessos. O Orquestrador Maverics é capaz de modernizar a autenticação e autorização para aplicações que atualmente dependem de cabeçalhos, cookies e outros métodos de autenticação proprietário. As instâncias do Orquestrador Maverics podem ser implantadas no local ou na nuvem. 
 
-Este artigo explica-lhe como configurar o Orquestrador de Identidade Maverics para:
-* Migrar gradualmente os utilizadores de um sistema de identidade no local para o Azure AD durante o login para uma aplicação de legado no local.
-* Encaminhar pedidos de login de um produto de gestão de acesso web legado, como CA SiteMinder ou Oracle Access Manager, para Azure AD.
-* Autenticar os utilizadores para aplicações no local que estejam protegidas através da utilização de cabeçalhos HTTP ou cookies de sessão proprietárias após autenticar o utilizador contra a Azure AD.
+Este tutorial de acesso híbrido demonstra como migrar uma aplicação web no local que está atualmente protegida por um produto de gestão de acesso web legado para usar Azure AD para autenticação e controlo de acesso. Aqui estão os passos básicos:
 
-Strata fornece software que você pode implementar no local ou na nuvem. Ajuda-o a descobrir, conectar e orquestrar fornecedores de identidade para criar uma gestão de identidade distribuída para empresas híbridas e multi-cloud.
-
-Este tutorial demonstra como migrar uma aplicação web no local que está atualmente protegida por um produto de gestão de acesso web (CA SiteMinder) para usar a Azure AD para autenticação e controlo de acessos. Aqui estão os passos básicos:
-1. Instale o Orquestrador de Identidade Maverics.
-2. Registe a sua aplicação de empresa com Azure AD e configuure-a para utilizar o Conector de Código Zero Maverics AD SAML para um único sinal de SSO baseado em SAML.
-3. Integre os Maverics com o SiteMinder e a loja de utilizadores do Protocolo de Acesso ao Diretório Leve (LDAP).
-4. Crie um cofre de chaves Azure e configuure a Maverics para usá-lo como seu fornecedor de gestão de segredos.
-5. Demonstre a migração do utilizador e a abstração da sessão utilizando maverics para fornecer acesso a uma aplicação web java no local.
-
-Para obter instruções adicionais de instalação e configuração, aceda ao [site strata](https://www.strata.io).
+1. Montar o Orquestrador Maverics
+1. Proxy uma aplicação
+1. Registar um pedido de empresa no Azure AD
+1. Autenticar via Azure e autorizar o acesso à aplicação
+1. Adicione cabeçalhos para acesso sem emenda à aplicação
+1. Trabalhar com múltiplas aplicações
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Uma assinatura AD Azure. Se não tiver uma subscrição, pode obter uma [conta gratuita.](https://azure.microsoft.com/free/)
-- Uma assinatura ativada pelo Maverics Identity Orchestrator SAML Connector SSO. Para obter o software Maverics, contacte [as vendas da Strata](mailto:sales@strata.io).
+* Uma assinatura AD Azure. Se não tiver uma subscrição, pode obter uma [conta gratuita.](https://azure.microsoft.com/free/)
+* Uma assinatura ativada pelo Maverics Identity Orchestrator SAML Connector SSO. Para obter o software Maverics, contacte [as vendas da Strata.](mailto:sales@strata.io)
+* Pelo menos uma aplicação que utiliza a autenticação baseada em cabeçalho. Os exemplos funcionam contra uma aplicação chamada Sonar, que está hospedada em https://app.sonarsystems.com , e uma aplicação chamada Connectulum, hospedada em https://app.connectulum.com .
+* Uma máquina Linux para acolher o Orquestrador Maverics
+  * OS: RHEL 7.7 ou superior, CentOS 7+
+  * Disco: >= 10 GB
+  * Memória: >= 4 GB
+  * Portas: 22 (SSH/SCP), 443, 7474
+  * Acesso à raiz para tarefas de instalação/administrativa
+  * Saída de rede do servidor que hospeda o Orquestrador de Identidade Maverics para a sua aplicação protegida
 
-## <a name="install-maverics-identity-orchestrator"></a>Instalar Orquestrador de Identidade Maverics
+## <a name="step-1-set-up-the-maverics-orchestrator"></a>Passo 1: Montar o Orquestrador Maverics
 
-Para começar com a instalação do Orquestrador de Identidade Maverics, consulte as [instruções de instalação](https://www.strata.io).
+### <a name="install-maverics"></a>Instalar Maverics
 
-### <a name="system-requirements"></a>Requisitos de sistema
-* Sistemas operativos suportados
-  * RHEL 7 e superior
-  * CentOS 7 e superior
+1. Obtenha o mais recente Maverics RPM. Copie a embalagem para o sistema em que pretende instalar o software Maverics.
 
-* Dependências
-  * sistemas
+1. Instale o pacote Maverics, substituindo o nome do seu ficheiro no lugar de `maverics.rpm` .
 
-### <a name="installation"></a>Instalação
+   `sudo rpm -Uvf maverics.rpm`
 
-1. Obtenha o mais recente pacote Maverics Redhat Package Manager (RPM). Copie a embalagem para o sistema em que pretende instalar o software Maverics.
+   Depois de instalar maverics, funcionará como um serviço sob `systemd` . Para verificar se o serviço está em execução, execute o seguinte comando:
 
-2. Instale o pacote Maverics, substituindo o nome do seu ficheiro no lugar de `maverics.rpm` .
+   `sudo systemctl status maverics`
 
-    `sudo rpm -Uvf maverics.rpm`
+1. Para reiniciar o Orquestrador e seguir os registos, pode executar o seguinte comando:
 
-3. Depois de instalar maverics, funcionará como um serviço sob `systemd` . Para verificar se o serviço está em execução, execute o seguinte comando:
+   `sudo service maverics restart; sudo journalctl --identifier=maverics -f`
 
-    `sudo systemctl status maverics`
-
-Por predefinição, a Maverics é instalada no diretório */usr/local/bin.*
-
-Depois de instalar maverics, o ficheiro *maverics.yaml* predefinido é criado no diretório */etc/maverics.* Antes de editar a sua configuração para incluir `workflows` `connectors` e, o seu ficheiro de configuração será assim:
+Depois de instalar maverics, o ficheiro predefinido `maverics.yaml` é criado no `/etc/maverics` diretório. Antes de editar a sua configuração para incluir `appgateways` `connectors` e, o seu ficheiro de configuração será semelhante a este z:
 
 ```yaml
 # © Strata Identity Inc. 2020. All Rights Reserved. Patents Pending.
@@ -77,131 +70,79 @@ Depois de instalar maverics, o ficheiro *maverics.yaml* predefinido é criado no
 version: 0.1
 listenAddress: ":7474"
 ```
-## <a name="configuration-options"></a>Opções de configuração
-### <a name="version"></a>Versão
-O `version` campo declara qual a versão do ficheiro de configuração que está a ser utilizada. Se a versão não for especificada, a versão de configuração mais recente será utilizada.
+
+### <a name="configure-dns"></a>Configurar o DNS
+
+O DNS será útil para que não tenha de se lembrar do IP do servidor do Orquestrador.
+
+Editar o ficheiro de anfitriões da máquina de navegador (do seu portátil), utilizando um hipotético IP orquestrador de 12.34.56.78. Nos sistemas operativos baseados em Linux, este ficheiro está localizado em `/etc/hosts` . No Windows, está localizado em `C:\windows\system32\drivers\etc` .
+
+```
+12.34.56.78 sonar.maverics.com
+12.34.56.78 connectulum.maverics.com
+```
+
+Para confirmar que o DNS está configurado como esperado, pode fazer um pedido ao ponto final do Orquestrador. A partir do seu navegador, http://sonar.maverics.com:7474/status solicite.
+
+### <a name="configure-tls"></a>Configurar TLS
+
+Comunicar através de canais seguros para falar com o seu Orquestrador é fundamental para manter a segurança. Pode adicionar um par de certificado/chave na sua `tls` secção para o conseguir.
+
+Para gerar um certificado e chave auto-assinados para o servidor Orchestrator, executar o seguinte comando a partir do `/etc/maverics` diretório:
+
+`openssl req -new -newkey rsa:4096 -x509 -sha256 -days 365 -nodes -out maverics.crt -keyout maverics.key`
+
+> [!NOTE]
+> Para ambientes de produção, é provável que queira utilizar um certificado assinado por um conhecido CA para evitar avisos no navegador. [O "Let's Encrypt"](https://letsencrypt.org/) é uma opção boa e gratuita se estiver à procura de um CA de confiança.
+
+Agora, use o certificado e chave recém-gerado para o Orquestrador. O seu ficheiro config deve agora conter este código:
 
 ```yaml
 version: 0.1
-```
-### <a name="listenaddress"></a>ouvirAddress
-`listenAddress` declara qual o endereço que o Orquestrador vai ouvir. Se a secção de anfitrião do endereço estiver em branco, o Orquestrador ouvirá todos os endereços IP disponíveis e independentes do sistema local. Se a secção porta do endereço estiver em branco, um número de porta é escolhido automaticamente.
+listenAddress: ":443"
 
-```yaml
-listenAddress: ":453"
-```
-### <a name="tls"></a>TLS
-
-O `tls` campo declara um mapa de objetos de Segurança da Camada de Transporte (TLS). Os objetos TLS podem ser utilizados por conectores e pelo servidor Do Orquestrador. Para todas as opções TLS disponíveis, consulte a documentação do `transport` pacote.
-
-O Microsoft Azure requer comunicação através do TLS quando estiver a utilizar SSO baseado em SAML. Para obter informações sobre a geração de certificados, aceda ao [site Let's Encrypt](https://letsencrypt.org/getting-started/).
-
-A `maverics` chave está reservada para o servidor do Orquestrador. Todas as outras teclas estão disponíveis e podem ser usadas para injetar um objeto TLS num determinado conector.
-
-```yaml
 tls:
   maverics:
-    certFile: /etc/maverics/maverics.cert
+    certFile: /etc/maverics/maverics.crt
     keyFile: /etc/maverics/maverics.key
-```  
-### <a name="include-files"></a>Ficheiros de inclusão
-
-Pode definir `connectors` `workflows` e, nos seus próprios ficheiros de configuração, separar os ficheiros e faz referência no ficheiro *maverics.yaml,* `includeFiles` utilizando, pelo seguinte exemplo:
-
-```yaml
-includeFiles:
-  - workflow/sessionAbstraction.yaml
-  - connector/AzureAD-saml.yaml
-  - connector/siteminder.yaml
-  ```
-
-Este tutorial utiliza um único ficheiro de configuração *maverics.yaml.*
-
-## <a name="use-azure-key-vault-as-your-secrets-provider"></a>Use o Azure Key Vault como seu fornecedor de segredos
-
-### <a name="manage-secrets"></a>Gerir segredos
-
-Para carregar segredos, a Maverics pode integrar-se com várias soluções de gestão secreta. As integrações atuais incluem um ficheiro, Hashicorp Vault, e Azure Key Vault. Se não for especificada nenhuma solução de gestão secreta, a Maverics não consegue carregar segredos em texto simples do ficheiro *maverics.yaml.*
-
-Para declarar um valor como segredo num ficheiro *maverics.yaml* config, encerra o segredo em suportes angulares:
-
-  ```yaml
-  connectors:
-  - name: AzureAD
-    type: AzureAD
-    apiToken: <AzureADAPIToken>
-    oauthClientID: <AzureADOAuthClientID>
-    oauthClientSecret: <AzureADOAuthClientSecret>
-  ```
-
-### <a name="load-secrets-from-a-file"></a>Carregar segredos de um arquivo
-
-1. Para carregar segredos de um ficheiro, adicione a variável ambiente `MAVERICS_SECRET_PROVIDER` no ficheiro */etc/maverics/maverics.env* utilizando:
-
-   `MAVERICS_SECRET_PROVIDER=secretfile:///<PATH TO SECRETS FILE>`
-
-2. Reinicie o serviço Maverics executando:
-
-   `sudo systemctl restart maverics`
-
-O conteúdo do ficheiro *secrets.yaml* pode ser preenchido com qualquer número de `secrets` .
-
-```yaml
-secrets:
-  AzureADAPIToken: aReallyGoodToken
-  AzureADOAuthClientID: aReallyUniqueID
-  AzureADOAuthClientSecret: aReallyGoodSecret
 ```
-### <a name="set-up-an-azure-key-vault"></a>Crie um cofre de chaves Azure
 
-Pode configurar um cofre de chaves Azure utilizando o portal Azure ou o Azure CLI.
+Para confirmar que o TLS está configurado como esperado, reinicie o serviço Maverics e faça um pedido ao ponto final de estado. A partir do seu navegador, https://sonar.maverics.com/status solicite.
 
-**Utilizar o portal do Azure**
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-1. [Criar um novo cofre de chaves.](../../key-vault/general/quick-create-portal.md)
-1. [Adicione os segredos ao cofre das chaves.](../../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault)
-1. [Registe uma candidatura com Azure AD](../develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal).
-1. [Autorizar uma aplicação a usar um segredo.](../../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault)
+## <a name="step-2-proxy-an-application"></a>Passo 2: Proxy uma aplicação
 
-**Utilizar a CLI do Azure**
+Em seguida, configurar a procuração básica no Orquestrador através da utilização `appgateways` . Este passo ajuda-o a validar que o Orquestrador tem a conectividade necessária à aplicação protegida.
 
-1. Abra o [Azure CLI](/cli/azure/install-azure-cli)e, em seguida, insira o seguinte comando:
+O seu ficheiro config deve agora conter este código:
 
-    ```azurecli
-    az login
-    ```
+```yaml
+version: 0.1
+listenAddress: ":443"
 
-1. Criar um novo cofre de chaves executando o seguinte comando:
-    ```azurecli
-    az keyvault create --name "[VAULT_NAME]" --resource-group "[RESOURCE_GROUP]" --location "[REGION]"
-    ```
+tls:
+  maverics:
+    certFile: /etc/maverics/maverics.crt
+    keyFile: /etc/maverics/maverics.key
 
-1. Adicione os segredos ao cofre da chave executando o seguinte comando:
-    ```azurecli
-    az keyvault secret set --vault-name "[VAULT_NAME]" --name "[SECRET_NAME]" --value "[SECRET_VALUE]"
-    ```
+appgateways:
+  - name: sonar
+    location: /
+    # Replace https://app.sonarsystems.com with the address of your protected application
+    upstream: https://app.sonarsystems.com
+```
 
-1. Registar uma candidatura com Azure AD executando o seguinte comando:
-    ```azurecli
-    az ad sp create-for-rbac -n "MavericsKeyVault" --skip-assignment > azure-credentials.json
-    ```
+Para confirmar que a procuração está a funcionar como esperado, reinicie o serviço Maverics e faça um pedido à aplicação através do representante da Maverics. A partir do seu navegador, https://sonar.maverics.com solicite. Pode opcionalmente fazer um pedido a recursos específicos da aplicação, por exemplo, `https://sonar.maverics.com/RESOURCE` onde é um recurso de `RESOURCE` aplicação válido da app protegida a montante.
 
-1. Autorizar uma aplicação a utilizar um segredo executando o seguinte comando:
-    ```azurecli
-    az keyvault set-policy --name "[VAULT_NAME]" --spn [APPID] --secret-permissions list get
-    #APPID can be found in the azure-credentials.json
-    generated in the previous step
-    ```
+## <a name="step-3-register-an-enterprise-application-in-azure-ad"></a>Passo 3: Registar um pedido de empresa no Azure AD
 
-1. Para carregar segredos do seu cofre de chave Azure, desagregue a variável ambiente `MAVERICS_SECRET_PROVIDER` no ficheiro */etc/maverics/maverics.env* utilizando as credenciais encontradas no *azure-credentials.jsno* ficheiro, no seguinte formato:
- 
-   `MAVERICS_SECRET_PROVIDER='azurekeyvault://<KEYVAULT NAME>.vault.azure.net?clientID=<APPID>&clientSecret=<PASSWORD>&tenantID=<TENANT>'`
+Agora, crie uma nova aplicação empresarial em Azure AD que será usada para autenticar utilizadores finais.
 
-1. Reiniciar o serviço Maverics: `sudo systemctl restart maverics`
+> [!NOTE]
+> Quando utiliza funcionalidades Azure AD como Acesso Condicional, é importante criar uma aplicação empresarial por aplicação no local. Isto permite o acesso condicional por app, avaliação de risco por aplicação, permissões por aplicação atribuídas, e assim por diante. Geralmente, uma aplicação empresarial em Azure AD mapeia para um conector Azure em Maverics.
 
-## <a name="configure-your-application-in-azure-ad-for-saml-based-sso"></a>Configure a sua aplicação em AD Azure para SSO baseado em SAML
+Para registar um pedido de empresa na Azure AD:
 
-1. No seu inquilino Azure AD, vá às **aplicações da Enterprise,** procure o **Maverics Identity Orchestrator SAML Connector,** e depois selecione-o.
+1. No seu inquilino AZure AD, vá às **aplicações da Enterprise** e, em seguida, selecione **Nova Aplicação**. Na galeria Azure AD, procure o **Maverics Identity Orchestrator SAML Connector** e, em seguida, selecione-o.
 
 1. No painel Maverics Identity Orchestrator SAML Connector **Properties,** de  definição **de atribuição do utilizador necessária?**
 
@@ -211,246 +152,196 @@ Pode configurar um cofre de chaves Azure utilizando o portal Azure ou o Azure CL
 
    ![Screenshot do botão de edição "Configuração BÁSICA SAML".](common/edit-urls.png)
 
-1. Introduza o **ID da Entidade** digitando um URL no seguinte formato: `https://<SUBDOMAIN>.maverics.org` . O ID da Entidade deve ser único em todas as aplicações do arrendatário. Guarde o valor introduzido aqui para ser incluído na configuração de Maverics.
+1. Introduza um **ID** de entidade de `https://sonar.maverics.com` . O ID da entidade deve ser único em todas as aplicações do arrendatário, e pode ser um valor arbitrário. Utilizará este valor quando definir o `samlEntityID` campo para o seu conector Azure na secção seguinte.
 
-1. Introduza o **URL de resposta** no seguinte formato: `https://<AZURECOMPANY.COM>/<MY_APP>/` . 
+1. Introduza um URL de **resposta** de `https://sonar.maverics.com/acs` . Utilizará este valor quando definir o `samlConsumerServiceURL` campo para o seu conector Azure na secção seguinte.
 
-1. Introduza o **Sinal no URL** no seguinte formato: `https://<AZURE-COMPANY.COM>/<MY_APP>/<LOGIN PAGE>` . 
+1. Introduza um **sinal no URL** de `https://sonar.maverics.com/` . Este campo não será utilizado pela Maverics, mas é necessário em Azure AD para permitir aos utilizadores terem acesso à aplicação através do portal Azure AD My Apps.
 
 1. Selecione **Guardar**.
 
-1. Na secção **Certificado de Assinatura SAML,** selecione o botão **Copiar** para copiar o URL **de metadados da Federação de Aplicações** e guarde-o para o seu computador.
+1. Na secção **Certificado de Assinatura SAML,** selecione o botão **Copiar** para copiar o valor URL **da Federação de Metadados de Aplicação** e guarde-o para o seu computador.
 
-    ![Screenshot do botão de cópia "Certificado de assinatura SAML".](common/copy-metadataurl.png)
+   ![Screenshot do botão de cópia "Certificado de assinatura SAML".](common/copy-metadataurl.png)
 
-## <a name="configure-maverics-identity-orchestrator-azure-ad-saml-connector"></a>Configure Maverics Identity Orchestrator Azure AD SAML Connector
+## <a name="step-4-authenticate-via-azure-and-authorize-access-to-the-application"></a>Passo 4: Autenticar via Azure e autorizar o acesso à aplicação
 
-O Maverics Identity Orchestrator Azure AD Connector suporta OpenID Connect e SAML Connect. Para configurar o conector, faça o seguinte: 
+Em seguida, coloque a aplicação da empresa que acabou de criar para usar configurando o conector Azure em Maverics. Esta `connectors` configuração emparelhada com o `idps` bloco permite ao Orquestrador autenticar os utilizadores.
 
-1. Para ativar o SSO baseado em SAML, coloque em conjunto `authType: saml` .
-
-1. Crie o valor para `samlMetadataURL` no seguinte formato: `samlMetadataURL:https://login.microsoftonline.com/<TENANT ID>/federationmetadata/2007-06/federationmetadata.xml?appid=<APP ID>` .
-
-1. Defina o URL para o qual o Azure será redirecionado de volta para a sua aplicação depois de os utilizadores terem iniciado sessão com as suas credenciais Azure. Utilize o seguinte formato: `samlRedirectURL: https://<AZURECOMPANY.COM>/<MY_APP>` .
-
-1. Copiar o valor da entidadeID previamente configurada: `samlEntityID: https://<SUBDOMAIN>.maverics.org` .
-
-1. Copie o valor do URL de resposta que a Azure AD utilizará para registar a resposta SAML: `samlConsumerServiceURL: https://<AZURE-COMPANY.COM>/<MY_APP>` .
-
-1. Gere uma chave de assinatura JSON Web Token (JWT), que é usada para proteger as informações da sessão do Orquestrador de Identidade Maverics, utilizando a [ferramenta OpenSSL](https://www.openssl.org/source/):
-
-    ```console 
-    openssl rand 64 | base64
-    ```
-1. Copie a resposta à `jwtSigningKey` propriedade config: `jwtSigningKey: TBHPvTtu6NUqU84H3Q45grcv9WDJLHgTioqRhB8QGiVzghKlu1mHgP1QHVTAZZjzLlTBmQwgsSoWxGHRcT4Bcw==` .
-
-## <a name="attributes-and-attribute-mapping"></a>Atributos e mapeamento de atributos
-O mapeamento de atributos é usado para definir o mapeamento dos atributos do utilizador de um diretório de utilizador de fonte no local para um inquilino AZure AD após a configuração do utilizador.
-
-Os atributos determinam quais os dados do utilizador que podem ser devolvidos a uma aplicação numa reclamação, transmitidos em cookies de sessão ou transmitidos à aplicação em variáveis de cabeçalho HTTP.
-
-## <a name="configure-the-maverics-identity-orchestrator-azure-ad-saml-connector-yaml-file"></a>Configure o ficheiro Maverics Identity Orchestrator Azure AD SAML Connector YAML
-
-A configuração do seu orquestrador de identidade Maverics Azure AD Connector será assim:
+O seu ficheiro config deve agora conter o seguinte código. Certifique-se de que substitui `METADATA_URL` o valor URL da Federação de Metadados da App Federation do passo anterior.
 
 ```yaml
-- name: AzureAD
-  type: azure
-  authType: saml
-  samlMetadataURL: https://login.microsoftonline.com/<TENANT ID>/federationmetadata/2007-06/federationmetadata.xml?appid=<APP ID>
-  samlRedirectURL: https://<AZURECOMPANY.COM>/<MY_APP>
-  samlConsumerServiceURL: https://<AZURE-COMPANY.COM>/<MY_APP>
-  jwtSigningKey: <SIGNING KEY>
-  samlEntityID: https://<SUBDOMAIN>.maverics.org
-  attributeMapping:
-    displayName: username
-    mailNickname: givenName
-    givenName: givenName
-    surname: sn
-    userPrincipalName: mail
-    password: password
-```
+version: 0.1
+listenAddress: ":443"
 
-## <a name="migrate-users-to-an-azure-ad-tenant"></a>Migrar utilizadores para um inquilino AZure AD
+tls:
+  maverics:
+    certFile: /etc/maverics/maverics.crt
+    keyFile: /etc/maverics/maverics.key
 
-Siga esta configuração para migrar gradualmente os utilizadores de um produto de gestão de acesso web, como CA SiteMinder, Oracle Access Manager ou IBM Tivoli. Também pode migrar para eles a partir de um diretório de protocolo de diretório leve (LDAP) ou de uma base de dados SQL.
+idps:
+  - name: azureSonarApp
 
-### <a name="configure-your-application-permissions-in-azure-ad-to-create-users"></a>Configure as permissões da sua aplicação em Azure AD para criar utilizadores
+appgateways:
+  - name: sonar
+    location: /
+    # Replace https://app.sonarsystems.com with the address of your protected application
+    upstream: https://app.sonarsystems.com
 
-1. No seu inquilino Azure AD, vá `App registrations` e selecione a aplicação **do Maverics Identity Orchestrator SAML Connector.**
+    policies:
+      - resource: /
+        allowIf:
+          - equal: ["{{azureSonarApp.authenticated}}", "true"]
 
-1. No **Maverics Identity Orchestrator SAML Connector Os certificados & o painel de segredos,** selecione `New client secret` e, em seguida, selecione na opção de expiração. Selecione o botão **Copiar** para copiar o segredo e guarde-o para o seu computador.
-
-1. No **Maverics Identity Orchestrator SAML Connector Permissões API** painel, **selecione Adicionar permissão** e, em seguida, no painel de **permissões API do Pedido,** selecione permissões **de Gráfico** e **Aplicação do** Microsoft . 
-
-1. No ecrã seguinte, selecione **User.ReadWrite.All** e, em seguida, **selecione Adicionar permissões**. 
-
-1. De volta ao painel de permissões da **API,** selecione **Grant consentimento administrativo**.
-
-### <a name="configure-the-maverics-identity-orchestrator-saml-connector-yaml-file-for-user-migration"></a>Configure o ficheiro Maverics Identity Orchestrator SAML Connector YAML para migração de utilizadores
-
-Para ativar o fluxo de trabalho de migração do utilizador, adicione estas propriedades adicionais ao ficheiro de configuração:
-1. Introduza o URL do **Gráfico Azure** no seguinte formato: `graphURL: https://graph.microsoft.com` .
-1. Introduza o **URL OAuth Token** no seguinte formato: `oauthTokenURL: https://login.microsoftonline.com/<TENANT ID>/federationmetadata/2007-06/federationmetadata.xml?appid=<APP ID>` .
-1. Insira o segredo do cliente anteriormente gerado no seguinte formato: `oauthClientSecret: <CLIENT SECRET>` .
-
-
-O seu último ficheiro de configuração do Orquestrador de Identidade Maverics Azure Ad Connector será assim:
-
-```yaml
-- name: AzureAD
-  type: azure
-  authType: saml
-  samlMetadataURL: https://login.microsoftonline.com/<TENANT ID>/federationmetadata/2007-06/federationmetadata.xml?appid=<APP ID>
-  samlRedirectURL: https://<AZURECOMPANY.COM>/<MY_APP>
-  samlConsumerServiceURL: https://<AZURE-COMPANY.COM>/<MY_APP>
-  jwtSigningKey: TBHPvTtu6NUqU84H3Q45grcv9WDJLHgTioqRhB8QGiVzghKlu1mHgP1QHVTAZZjzLlTBmQwgsSoWxGHRcT4Bcw==
-  samlEntityID: https://<SUBDOMAIN>.maverics.org
-  graphURL: https://graph.microsoft.com
-  oauthTokenURL: https://login.microsoftonline.com/<TENANT ID>/oauth2/v2.0/token
-  oauthClientID: <APP ID>
-  oauthClientSecret: <NEW CLIENT SECRET>
-  attributeMapping:
-    displayName: username
-    mailNickname: givenName
-    givenName: givenName
-    surname: sn
-    userPrincipalName: mail
-    password: password
-```
-
-### <a name="configure-maverics-zero-code-connector-for-siteminder"></a>Configure o conector de código zero Maverics para o SiteMinder
-
-Utilize o conector SiteMinder para migrar os utilizadores para um inquilino AZure AD. Inicie sessão com os utilizadores em aplicações antigas no local que são protegidas pelo SiteMinder utilizando as identidades e credenciais AZure AD recém-criadas.
-
-Para este tutorial, o SiteMinder foi configurado para proteger a aplicação do legado utilizando a autenticação baseada em formulários e o `SMSESSION` cookie. Para se integrar com uma aplicação que consome informações de autenticação e de sessão através de cabeçalhos HTTP, é necessário adicionar a configuração de emulação do cabeçalho ao conector.
-
-Este exemplo `username` mapeia o atributo ao `SM_USER` cabeçalho HTTP:
-
-```yaml
-  headers:
-    SM_USER: username
-```
-
-Definir `proxyPass` para o local a que os pedidos são proxiemente. Normalmente, este local é o anfitrião da aplicação protegida.
-
-`loginPage` deve corresponder ao URL do formulário de login que é atualmente utilizado pelo SiteMinder quando redireciona os utilizadores para a autenticação.
-
-```yaml
 connectors:
-- name: siteminder-login-form
-  type: siteminder
-  loginType: form
-  loginPage: /siteminderagent/forms/login.fcc
-  proxyPass: http://host.company.com
+  - name: azureSonarApp
+    type: azure
+    authType: saml
+    # Replace METADATA_URL with the App Federation Metadata URL
+    samlMetadataURL: METADATA_URL
+    samlConsumerServiceURL: https://sonar.maverics.com/acs
+    samlEntityID: https://sonar.maverics.com
 ```
 
-### <a name="configure-maverics-zero-code-connector-for-ldap"></a>Configure Maverics Zero Code Connector para LDAP
+Para confirmar que a autenticação está a funcionar como esperado, reinicie o serviço Maverics e faça um pedido a um recurso de aplicação através do representante da Maverics. Deve ser redirecionado para Azure para autenticação antes de aceder ao recurso.
 
-Quando as aplicações são protegidas por um produto de gestão de acesso web (WAM), como o SiteMinder, as identidades e atributos dos utilizadores são normalmente armazenados num diretório LDAP.
+## <a name="step-5-add-headers-for-seamless-application-access"></a>Passo 5: Adicionar cabeçalhos para acesso sem emenda à aplicação
 
-Esta configuração do conector demonstra como ligar-se ao diretório LDAP. O conector é configurado como a loja de utilizador para o SiteMinder para que as informações corretas do perfil do utilizador possam ser recolhidas durante o fluxo de trabalho da migração e um utilizador correspondente pode ser criado em Azure AD.
+Ainda não estás a enviar cabeçalhos para a candidatura a montante. Vamos adicionar `headers` ao pedido à medida que passa pelo proxy Maverics para permitir que a aplicação a montante identifique o utilizador.
 
-* `baseDN` especifica a localização no diretório contra a qual efetuar a pesquisa LDAP.
-
-* `url` é o endereço e a porta do servidor LDAP a que se deve ligar.
-
-* `serviceAccountUsername` é o nome de utilizador que é usado para ligar ao servidor LDAP, normalmente expresso como um dN vinculado (por exemplo, `CN=Directory Manager` ).
-
-* `serviceAccountPassword` é a palavra-passe que é usada para ligar ao servidor LDAP. Este valor é armazenado na instância de cofre de chave Azure previamente configurada.  
-
-* `userAttributes` define a lista de atributos relacionados com o utilizador à consulta. Estes atributos são posteriormente mapeados em atributos AD Azure correspondentes.
+O seu ficheiro config deve agora conter este código:
 
 ```yaml
-- name: company-ldap
-  type: ldap
-  url: "ldap://ldap.company.com:389"
-  baseDN: ou=People,o=company,c=US
-  serviceAccountUsername: uid=admin,ou=Admins,o=company,c=US
-  serviceAccountPassword: <vaulted-password>
-  userAttributes:
-    - uid
-    - cn
-    - givenName
-    - sn
-    - mail
-    - mobile
+version: 0.1
+listenAddress: ":443"
+
+tls:
+  maverics:
+    certFile: /etc/maverics/maverics.crt
+    keyFile: /etc/maverics/maverics.key
+
+idps:
+  - name: azureSonarApp
+
+appgateways:
+  - name: sonar
+    location: /
+    # Replace https://app.sonarsystems.com with the address of your protected application
+    upstream: https://app.sonarsystems.com
+
+    policies:
+      - resource: /
+        allowIf:
+          - equal: ["{{azureSonarApp.authenticated}}", "true"]
+
+    headers:
+      email: azureSonarApp.name
+      firstname: azureSonarApp.givenname
+      lastname: azureSonarApp.surname
+
+connectors:
+  - name: azureSonarApp
+    type: azure
+    authType: saml
+    # Replace METADATA_URL with the App Federation Metadata URL
+    samlMetadataURL: METADATA_URL
+    samlConsumerServiceURL: https://sonar.maverics.com/acs
+    samlEntityID: https://sonar.maverics.com
 ```
 
-### <a name="configure-the-migration-workflow"></a>Configure o fluxo de trabalho da migração
+Para confirmar que a autenticação está a funcionar como esperado, faça um pedido a um recurso de aplicação através do representante da Maverics. O pedido protegido deve agora receber cabeçalhos no pedido. 
 
-A configuração do fluxo de trabalho de migração determina como a Maverics migra os utilizadores do SiteMinder ou LDAP para a Azure AD.
+Sinta-se à vontade para editar as teclas do cabeçalho se a sua aplicação esperar diferentes cabeçalhos. Todas as reclamações que chegam do Azure AD como parte do fluxo SAML estão disponíveis para usar em cabeçalhos. Por exemplo, pode incluir outro cabeçalho de `secondary_email: azureSonarApp.email` , onde está o nome do `azureSonarApp` conector e é uma `email` reclamação devolvida a Azure AD. 
 
-Este fluxo de trabalho:
-- Utiliza o conector SiteMinder para proxy o login siteMinder. As credenciais do utilizador são validadas através da autenticação SiteMinder e depois passadas para os passos subsequentes do fluxo de trabalho.
-- Recupera os atributos do perfil do utilizador na loja de utilizadores do SiteMinder.
-- Faz um pedido à Microsoft Graph API para criar o utilizador no seu inquilino AZure AD.
+## <a name="step-6-work-with-multiple-applications"></a>Passo 6: Trabalhar com múltiplas aplicações
 
-Para configurar o fluxo de trabalho da migração, faça o seguinte:
+Vamos agora dar uma olhada no que é necessário para procurar várias aplicações que estão em diferentes anfitriões. Para alcançar este passo, configura outra App Gateway, outra aplicação da empresa em Azure AD e outro conector.
 
-1. Dê ao fluxo de trabalho um nome (por exemplo, **SiteMinder para Azure AD Migration).**
-1. Especificar o `endpoint` , que é um caminho HTTP em que o fluxo de trabalho está exposto, desencadeando o `actions` fluxo de trabalho em resposta aos pedidos. O `endpoint` normalmente corresponde à aplicação que é proxied (por exemplo, `/my_app` ). O valor deve incluir tanto os cortes de liderança como os que estão a seguir.
-1. Adicione o adequado `actions` ao fluxo de trabalho.
+O seu ficheiro config deve agora conter este código:
 
-   a. Defina o `login` método para o conector SiteMinder. O valor do conector deve corresponder ao valor do nome na configuração do conector.
+```yaml
+version: 0.1
+listenAddress: ":443"
 
-   b. Defina o `getprofile` método para o conector LDAP.
+tls:
+  maverics:
+    certFile: /etc/maverics/maverics.crt
+    keyFile: /etc/maverics/maverics.key
 
-   c.  Defina o `createuser` método para o conector AzureAD.
+idps:
+  - name: azureSonarApp
+  - name: azureConnectulumApp
 
-    ```yaml
-      workflows:
-      - name: SiteMinder to Azure AD Migration
-        endpoint: /my_app/
-        actions:
-        - connector: siteminder-login-form
-          method: login
-        - connector: company-ldap
-          method: getprofile
-        - connector: AzureAD
-          method: createuser
-    ```
-### <a name="verify-the-migration-workflow"></a>Verifique o fluxo de trabalho da migração
+appgateways:
+  - name: sonar
+    host: sonar.maverics.com
+    location: /
+    # Replace https://app.sonarsystems.com with the address of your protected application
+    upstream: https://app.sonarsystems.com
 
-1. Se o serviço Maverics ainda não estiver em funcionamento, inicie-o executando o seguinte comando: 
+    policies:
+      - resource: /
+        allowIf:
+          - equal: ["{{azureSonarApp.authenticated}}", "true"]
 
-   `sudo systemctl start maverics`
+    headers:
+      email: azureSonarApp.name
+      firstname: azureSonarApp.givenname
+      lastname: azureSonarApp.surname
 
-1. Aceda ao URL de login, `http://host.company.com/my_app` .
-1. Forneça as credenciais de utilizador que são usadas para iniciar sessão na aplicação enquanto esta é protegida pelo SiteMinder.
-4. Ir para  >  **utilizadores domésticos ! Todos os Utilizadores** para verificar se o utilizador é criado no inquilino AZURE AD.  
+  - name: connectulum
+    host: connectulum.maverics.com
+    location: /
+    # Replace https://app.connectulum.com with the address of your protected application
+    upstream: https://app.connectulum.com
 
-### <a name="configure-the-session-abstraction-workflow"></a>Configure o fluxo de trabalho de abstração da sessão
+    policies:
+      - resource: /
+        allowIf:
+          - equal: ["{{azureConnectulumApp.authenticated}}", "true"]
 
-O fluxo de trabalho de abstração da sessão move a autenticação e o controlo de acesso para a aplicação web do legado no local para o inquilino AZure AD.
+    headers:
+      email: azureConnectulumApp.name
+      firstname: azureConnectulumApp.givenname
+      lastname: azureConnectulumApp.surname
 
-O conector Azure utiliza o `login` método para redirecionar o utilizador para o URL de login, assumindo que não existe nenhuma sessão.
+connectors:
+  - name: azureSonarApp
+    type: azure
+    authType: saml
+    # Replace METADATA_URL with the App Federation Metadata URL
+    samlMetadataURL: METADATA_URL
+    samlConsumerServiceURL: https://sonar.maverics.com/acs
+    samlEntityID: https://sonar.maverics.com
 
-Depois de autenticado, o token da sessão que é criado como resultado é passado para Maverics. O método do conector SiteMinder `emulate` é utilizado para imitar a sessão baseada em cookies ou a sessão baseada em cabeçalhos e, em seguida, decorar o pedido com quaisquer atributos adicionais exigidos pela aplicação.
+  - name: azureConnectulumApp
+    type: azure
+    authType: saml
+    # Replace METADATA_URL with the App Federation Metadata URL
+    samlMetadataURL: METADATA_URL
+    samlConsumerServiceURL: https://connectulum.maverics.com/acs
+    samlEntityID: https://connectulum.maverics.com
+```
 
-1. Dê ao fluxo de trabalho um nome (por exemplo, **Resumo da Sessão SiteMinder).**
-1. Especifique o `endpoint` , que corresponde à aplicação que está a ser proxiimente. O valor deve incluir cortes de liderança e de fuga (por exemplo, `/my_app/` ).
-1. Adicione o adequado `actions` ao fluxo de trabalho.
+Pode ter reparado que o código adiciona um `host` campo às definições de App Gateway. O `host` campo permite ao Orquestrador Maverics distinguir a montante o tráfego de procuração.
 
-   a. Defina o `login` método para o conector Azure. O `connector` valor deve corresponder ao valor na `name` configuração do conector.
+Para confirmar que a nova app Gateway está funcionando como esperado, faça um pedido para https://connectulum.maverics.com .
 
-   b. Defina o `emulate` método para o conector SiteMinder.
+## <a name="advanced-scenarios"></a>Cenários avançados
 
-     ```yaml
-      - name: SiteMinder Session Abstraction
-        endpoint: /my_app/
-        actions:
-      - connector: azure
-        method: login
-      - connector: siteminder-login-form
-        method: emulate
-     ```
-### <a name="verify-the-session-abstraction-workflow"></a>Verifique o fluxo de trabalho de abstração da sessão
+### <a name="identity-migration"></a>Migração de identidade
 
-1. Aceda ao URL de aplicação proxied, `https://<AZURECOMPANY.COM>/<MY_APP>` . 
-    
-    É redirecionado para a página de login.
+Não suporta a sua ferramenta de gestão de acesso à Web em fim de vida, mas não tem como migrar os seus utilizadores sem resets de senha em massa? O Orquestrador Maverics apoia a migração de identidade através da utilização `migrationgateways` .
 
-1. Insira as credenciais de utilizador da AZure.
+### <a name="web-server-gateways"></a>Gateways de servidor web
 
-   Deve ser redirecionado para a aplicação como se tivesse sido autenticado diretamente pelo SiteMinder.
+Não quer refazer a sua rede e o tráfego de procuração através do Orquestrador Maverics? Sem problema. O Orquestrador Maverics pode ser emparelhado com portais de servidor web (módulos) para oferecer as mesmas soluções sem procuração.
+
+## <a name="wrap-up"></a>Embrulho
+
+Neste momento, instalou o Orquestrador Maverics, criou e configura uma aplicação empresarial em Azure AD, e configura o Orquestrador para recorrer a uma aplicação protegida, exigindo a autenticação e a aplicação da política. Para saber mais sobre como o Orquestrador Maverics pode ser usado para casos de gestão de identidade distribuídos, [contacte Strata](mailto:sales@strata.io).
+
+## <a name="next-steps"></a>Passos seguintes
+
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)

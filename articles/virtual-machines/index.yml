@@ -10,12 +10,12 @@ metadata:
   author: cynthn
   ms.author: cynthn
   ms.date: 11/05/2020
-  ms.openlocfilehash: 5b2495f2cf5dbe6714796a4e1f6516cd3a3fe7f4
-  ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+  ms.openlocfilehash: 654684ac09a2ea3a11648559bff9ab9dfb556847
+  ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/02/2021
-  ms.locfileid: "101668237"
+  ms.lasthandoff: 03/19/2021
+  ms.locfileid: "104599974"
 landingContent:
 - title: Funcionalidades mais recentes
   linkLists:
@@ -62,13 +62,13 @@ landingContent:
   - linkListType: how-to-guide
     links:
     - text: Problemas de resolução de problemas SSH
-      url: ./troubleshooting/troubleshoot-ssh-connection.md
+      url: /troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection
     - text: Problemas de resolução de problemas do PDR
-      url: ./troubleshooting/rdp.md
+      url: /troubleshoot/azure/virtual-machines/rdp
     - text: Linux VM não arranque
-      url: ./troubleshooting/boot-error-troubleshoot-linux.md
+      url: /troubleshoot/azure/virtual-machines/boot-error-troubleshoot-linux
     - text: Windows VM não arranque
-      url: ./troubleshooting/boot-error-troubleshoot.md
+      url: /troubleshoot/azure/virtual-machines/boot-error-troubleshoot
     - text: Microsoft Q&A
       url: /answers/topics/azure-virtual-machines.html
 - title: Recursos

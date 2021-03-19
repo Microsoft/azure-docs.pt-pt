@@ -5,13 +5,13 @@ author: jseb225
 ms.author: jeanb
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 09/16/2020
-ms.openlocfilehash: feea44741fbc2c81d781f0bba12b280abdb9f68a
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.date: 03/16/2021
+ms.openlocfilehash: 5ff59b0add8a9b3c48ad8ae80a50c0a816c08d6e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98020253"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104588093"
 ---
 # <a name="introduction-to-stream-analytics-windowing-functions"></a>Introdução às funções de janela do Stream Analytics
 
@@ -56,7 +56,7 @@ As janelas instantâneas agrupam eventos que têm a mesma hora de tensão. Ao co
 
 ![Janela snapshot stream Analytics](media/stream-analytics-window-functions/snapshot.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)
 * [Começar a utilizar o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Tarefas de escala do Azure Stream Analytics](stream-analytics-scale-jobs.md)

@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 11/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: dbcd6d55ee921c7fabd8e746e0fdcd6f1427733c
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: f99f9d240a0a9220d3b7f57cddd0a4f8ba6b6101
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102210711"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104595996"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Gatilho temporizador para funções Azure
 
@@ -256,7 +256,7 @@ Os atributos não são suportados pela Python.
 
 A tabela seguinte explica as propriedades de configuração de encadernação que definiu no *function.jsno* ficheiro e no `TimerTrigger` atributo.
 
-|function.jsna propriedade | Propriedade de atributo |Descrição|
+|function.jsna propriedade | Propriedade de atributo |Description|
 |---------|---------|----------------------|
 |**tipo** | n/a | Deve ser definido como "TimerTrigger". Esta propriedade é definida automaticamente quando cria o gatilho no portal Azure.|
 |**direção** | n/a | Deve ser definido para "dentro". Esta propriedade é definida automaticamente quando cria o gatilho no portal Azure. |
@@ -365,6 +365,16 @@ O gatilho do temporizador utiliza um bloqueio de armazenamento para garantir que
 ## <a name="retry-behavior"></a>Relemgar o comportamento
 
 Ao contrário do gatilho da fila, o gatilho do temporizador não se ressando depois de uma função falhar. Quando uma função falha, não é chamada novamente até a próxima vez na programação.
+
+## <a name="manually-invoke-a-timer-trigger"></a>Invoque manualmente um gatilho do temporizador
+
+O gatilho do temporizador para funções Azure fornece um webhook HTTP que pode ser invocado para ativar manualmente a função. Isto pode ser extremamente útil nos seguintes cenários.
+
+* Teste de integração
+* Trocas de slot como parte de um teste de fumo ou atividade de aquecimento
+* Implantação inicial de uma função para povoar imediatamente uma cache ou tabela de procura numa base de dados
+
+Consulte [manualmente uma função não acionada por HTTP](./functions-manually-run-non-http.md) para obter informações sobre como invocar manualmente uma função de temporizador.
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 

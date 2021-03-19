@@ -3,12 +3,12 @@ title: Azure Service Bus premium e níveis padrão
 description: Este artigo descreve os níveis standard e premium da Azure Service Bus. Compara estes níveis e proporciona diferenças técnicas.
 ms.topic: conceptual
 ms.date: 02/17/2021
-ms.openlocfilehash: 0385526560e6aafaab66d9212ff54caff2362ebd
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: aa08a99009ef3d20e831e214ae5811059817d13c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100636514"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104607556"
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>Escalões de mensagens Standard e Premium do Service Bus
 
@@ -26,7 +26,7 @@ Na tabela seguinte, destacam-se algumas das principais diferenças.
 | Possibilidade de aumentar e reduzir verticalmente a carga de trabalho |N/D |
 | Tamanho da mensagem até 1 MB. Este limite poderá ser aumentado no futuro. Para obter as mais recentes atualizações importantes do serviço, consulte [Mensagens no blog Azure](https://techcommunity.microsoft.com/t5/messaging-on-azure/bg-p/MessagingonAzureBlog). |Tamanho da mensagem até 256 KB |
 
-As **Mensagens Premium do Service Bus** fornecem isolamento de recursos no nível de CPU e memória para que cada carga de trabalho do cliente seja executada de forma isolada. Este contentor de recursos é designado por *unidade de mensagens*. A cada espaço de nomes premium é atribuído, pelo menos, uma unidade de mensagens. Pode comprar 1, 2, 4 ou 8 unidades de mensagens para cada espaço de nome Service Bus Premium. Uma única carga de trabalho ou entidade pode abranger várias unidades de mensagens e o número de unidades de mensagens pode ser alterado à vontade. O resultado é um desempenho previsível e repetível da sua solução com base no Service Bus.
+As **Mensagens Premium do Service Bus** fornecem isolamento de recursos no nível de CPU e memória para que cada carga de trabalho do cliente seja executada de forma isolada. Este contentor de recursos é designado por *unidade de mensagens*. A cada espaço de nomes premium é atribuído, pelo menos, uma unidade de mensagens. Você pode comprar 1, 2, 4, 8 ou 16 unidades de mensagens para cada espaço de nome Service Bus Premium. Uma única carga de trabalho ou entidade pode abranger várias unidades de mensagens e o número de unidades de mensagens pode ser alterado à vontade. O resultado é um desempenho previsível e repetível da sua solução com base no Service Bus.
 
 Este desempenho não só é mais previsível e repetível, como também mais rápido. Com as Mensagens Premium, obter o máximo rendimento é muito mais rápido do que com o escalão Standard.
 

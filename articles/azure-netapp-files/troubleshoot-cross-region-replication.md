@@ -1,5 +1,5 @@
 ---
-title: Resolução de problemas de replicação transversal para ficheiros Azure NetApp Microsoft Docs
+title: Resolução de problemas de replicação de regiões para ficheiros Azure NetApp | Microsoft Docs
 description: Descreve mensagens de erro e resoluções que podem ajudá-lo a resolver problemas de replicação de regiões cruzadas para ficheiros Azure NetApp.
 services: azure-netapp-files
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 11/18/2020
+ms.date: 03/10/2021
 ms.author: b-juche
-ms.openlocfilehash: b30ed0cca680013b85efe064d59fb7cb73d753d2
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: d3d944646689e9e6189b0343e8bf67c8fb0abcbd
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95239555"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104590930"
 ---
 # <a name="troubleshoot-cross-region-replication"></a>Resolver problemas da replicação entre regiões
 
@@ -71,11 +71,18 @@ Este artigo descreve mensagens de erro e resoluções que podem ajudá-lo a reso
 |     `Snapshot   cannot be deleted, parent volume is a Data Protection volume with a   replication object`    |     Valide que quebrou a replicação do volume se quiser eliminar esta imagem.    |
 |     `Cannot delete   volume replication generated snapshot`    |     Não é permitida a eliminação de instantâneos de linha de base de replicação.    |
 
-## <a name="next-steps"></a>Próximos passos  
+## <a name="errors-resizing-volumes"></a>Erros de redimensionamento volumes
+
+|     Mensagem de Erro    |     Resolução    |
+|-|-|
+|   Tentar redimensionar um volume de origem está a falhar com o erro `"PoolSizeTooSmall","message":"Pool size too small for total volume size."`  |  Certifique-se de que tem espaço suficiente nas piscinas de capacidade tanto para a fonte como para os volumes de destino da replicação entre regiões. Quando redimensiona o volume de origem, o volume de destino é automaticamente redimensionado. Mas se a capacidade de alojamento do volume de destino não tiver espaço suficiente, o redimensionamento da fonte e dos volumes de destino falhará. Consulte [o Redimensionar um volume de destino de replicação transversal](azure-netapp-files-resize-capacity-pools-or-volumes.md#resize-a-cross-region-replication-destination-volume) para obter mais detalhes.   |
+
+## <a name="next-steps"></a>Passos seguintes  
 
 * [Replicação entre regiões](cross-region-replication-introduction.md)
 * [Requisitos e considerações para a utilização da replicação entre regiões](cross-region-replication-requirements-considerations.md)
 * [Criar replicação de volume](cross-region-replication-create-peering.md)
 * [Apresentar o estado de funcionamento da relação de replicação](cross-region-replication-display-health-status.md)
 * [Gerir a recuperação após desastre](cross-region-replication-manage-disaster-recovery.md)
+* [Redimensionar um volume de destino de replicação transversal](azure-netapp-files-resize-capacity-pools-or-volumes.md#resize-a-cross-region-replication-destination-volume)
 * [Resolver problemas da replicação entre regiões](troubleshoot-cross-region-replication.md)

@@ -44,7 +44,7 @@
 - name: Amostras
   items:
     - name: Exemplos de código
-      href: 'https://docs.microsoft.com/en-us/samples/browse/?products=azure-stream-analytics'
+      href: /samples/browse/?products=azure-stream-analytics
 - name: Conceitos
   items:
     - name: Padrões de soluções de ponto a ponto
@@ -316,13 +316,13 @@
               href: external-error-codes.md
             - name: Erros internos
               href: internal-error-codes.md
-    - name: Integrar com machine learning
+    - name: Integrar-se com machine learning
       items:
         - name: Análise de sentimentos com modelos de ML
           href: stream-analytics-machine-learning-integration-tutorial.md
         - name: Deteção de anomalias
           href: stream-analytics-machine-learning-anomaly-detection.md
-        - name: Utilizar APIs REST
+        - name: Use ML REST APIs
           href: stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md
     - name: Depurar com o diagrama de tarefas
       href: stream-analytics-job-diagram-with-metrics.md

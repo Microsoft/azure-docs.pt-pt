@@ -2,36 +2,19 @@
 title: Ver métricas da grelha de eventos Azure e definir alertas
 description: Este artigo descreve como usar o portal Azure para ver métricas para tópicos e subscrições de Azure Event Grid e criar alertas sobre eles.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: 8f8d7e15475ce74dc1af55dc7f6116d5d8b79cc8
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.date: 03/17/2021
+ms.openlocfilehash: 6f6c119c16452246ec6eeb57ab392b29608938a2
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100577406"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104598563"
 ---
 # <a name="monitor-event-grid-message-delivery"></a>Monitorar a entrega de mensagens da grelha de eventos 
 Este artigo descreve como usar o portal para ver métricas para tópicos e subscrições de Event Grid, e criar alertas sobre eles. 
 
-## <a name="metrics"></a>Métricas
-
-O portal apresenta métricas para o estado de entrega de mensagens de evento.
-
-Para tópicos, aqui estão algumas das métricas:
-
-* **Publicação Conseguida**: Evento enviado com sucesso para o tema, e processado com uma resposta 2xx.
-* **Publicar Falha:** Evento enviado para o tópico mas rejeitado com um código de erro.
-* **Incomparável**: Evento publicado com sucesso para o tema, mas não corresponde a uma subscrição de evento. O evento foi encerrado.
-
-Para subscrições, aqui estão algumas das métricas:
-
-* **Entrega Conseguida**: Evento entregue com sucesso no ponto final da subscrição, e recebeu uma resposta de 2xx.
-* **Entrega Falhada**: Sempre que o serviço tenta entregar e o manipulador de eventos não devolve um código 2xx de sucesso, o contador **De entrega falhou.** Se tentarmos entregar o mesmo evento várias vezes e falharmos, o contador **Dedesema falha de entrega** é incrementado para cada falha.
-* **Eventos Expirados**: O evento não foi entregue e todas as tentativas de retenção foram enviadas. O evento foi encerrado.
-* **Eventos Combinados**: Evento no tópico foi acompanhado pela subscrição do evento.
-
-    > [!NOTE]
-    > Para obter a lista completa de métricas, consulte [métricas suportadas pela Azure Event Grid](metrics.md).
+> [!IMPORTANT]
+> Para obter uma lista de métricas suportadas Azure Event Grid, consulte [métricas](metrics.md).
 
 ## <a name="view-custom-topic-metrics"></a>Ver métricas de tópicos personalizados
 
@@ -48,15 +31,13 @@ Se publicou um tópico personalizado, pode ver as métricas para o mesmo.
 
     :::image type="content" source="./media/monitor-event-delivery/custom-topic-metrics.png" alt-text="Ver métricas do evento":::
 
-Pode criar gráficos com métricas suportadas utilizando o separador **Métricas** da página **Tópico de Grelha de Evento.**
+    Pode criar gráficos com métricas suportadas utilizando o separador **Métricas** da página **Tópico de Grelha de Evento.**
 
-:::image type="content" source="./media/monitor-event-delivery/topics-metrics-page.png" alt-text="Tópico - Página de métricas":::
+    :::image type="content" source="./media/monitor-event-delivery/topics-metrics-page.png" alt-text="Tópico - Página de métricas":::
 
-Para saber mais sobre métricas, consulte [métricas no Azure Monitor](../azure-monitor/essentials/data-platform-metrics.md)
+    Por exemplo, consulte o gráfico de métricas para a **métrica de Eventos Publicados.**
 
-Por exemplo, consulte o gráfico de métricas para a **métrica de Eventos Publicados.**
-
-:::image type="content" source="./media/monitor-event-delivery/custom-topic-metrics-example.png" alt-text="Métrica de eventos publicados":::
+    :::image type="content" source="./media/monitor-event-delivery/custom-topic-metrics-example.png" alt-text="Métrica de eventos publicados":::
 
 
 ## <a name="view-subscription-metrics"></a>Ver métricas de subscrição
@@ -70,7 +51,7 @@ Por exemplo, consulte o gráfico de métricas para a **métrica de Eventos Publi
     :::image type="content" source="./media/monitor-event-delivery/event-subscriptions-page.png" alt-text="Selecione a subscrição do evento a partir da página de subscrições da Grade de Eventos":::        
 
     Para tópicos personalizados, selecione **Tópicos de Grelha de Eventos** como **Tipo tópico**. Para tópicos do sistema, selecione o tipo de recurso Azure, por exemplo, **Contas de Armazenamento (Blob, GPv2)**. 
-3. Consulte as métricas da subscrição na página inicial para a subscrição num gráfico. Pode ver as métricas **General,** **Error,** **Latência** e **Carta Morta** durante as últimas 1 hora, 6 horas, 12 horas, 1 dia, 7 dias ou 30 dias. 
+3. Consulte as métricas da subscrição na página inicial para a subscrição num gráfico. Pode ver as métricas **gerais,** **error** e **latência** para as últimas 1 hora, 6 horas, 12 horas, 1 dia, 7 dias ou 30 dias. 
 
     :::image type="content" source="./media/monitor-event-delivery/subscription-home-page-metrics.png" alt-text="Métricas na página inicial da subscrição":::    
 
@@ -87,12 +68,12 @@ Por exemplo, consulte o gráfico de métricas para a **métrica de Eventos Publi
 
     :::image type="content" source="./media/monitor-event-delivery/system-topic-overview-metrics.png" alt-text="Ver métricas de tópico do sistema na página geral":::
 
-Pode criar gráficos com métricas suportadas utilizando o separador **Métricas** da página **Tópico de Grelha de Evento.**
+    Pode criar gráficos com métricas suportadas utilizando o separador **Métricas** da página **Tópico de Grelha de Evento.**
 
-:::image type="content" source="./media/monitor-event-delivery/system-topic-metrics-page.png" alt-text="Tópico do Sistema - Página de métricas":::
+    :::image type="content" source="./media/monitor-event-delivery/system-topic-metrics-page.png" alt-text="Tópico do Sistema - Página de métricas":::
 
-Para saber mais sobre métricas, consulte [métricas no Azure Monitor](../azure-monitor/essentials/data-platform-metrics.md)
-
+    > [!IMPORTANT]
+    > Para obter uma lista de métricas suportadas Azure Event Grid, consulte [métricas](metrics.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 Consulte os seguintes artigos:

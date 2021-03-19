@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: cbb1db15eed53af1d0e4590e1b228e5e47680560
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: 40fcdae9a94b2b48eb4c665f4e0c9c3e58962f4b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102614926"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104576786"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Matriz de suporte da migração do VMware
 
@@ -27,14 +27,9 @@ Pode migrar VMware VMs de várias maneiras:
 
 [Reveja este artigo](server-migrate-overview.md) para descobrir que método pretende utilizar.
 
-## <a name="migration-limitations"></a>Limitações da migração
-
-- Pode selecionar até 10 VMs de uma só vez para replicação através do portal Azure. Se quiser migrar mais máquinas, então replique em grupos de 10. Não há limite para o número de VMs que podem ser replicados através de cmdlets PowerShell. A nossa recomendação é replicar não mais de 500 VMs de cada vez de um único vCenter através do PowerShell para garantir um desempenho ideal.
-- Para a migração sem agente VMware, pode executar até 500 replicações simultaneamente a partir de cada vCenter Server.
-
 ## <a name="agentless-migration"></a>Migração sem agentes 
 
-Esta secção resume os requisitos para a migração sem agentes.
+Esta secção resume os requisitos para a migração VMware VMware sem agente para Azure.
 
 ### <a name="vmware-requirements-agentless"></a>Requisitos VMware (sem agente)
 
@@ -72,8 +67,11 @@ A tabela resume os requisitos de migração sem agente para VMware VMs.
 **NICs em equipa** | Não suportado.
 **IPv6** | Não suportado.
 **Disco-alvo** | Os VMs só podem ser migrados para discos geridos (HDD padrão, SSD padrão, SSD premium) em Azure.
-**Replicação simultânea** | 500 VMs por vCenter Server. Se tiver mais, migra-os em lotes de 500.
+**Replicação simultânea** | Até 300 VMs em simultâneo com 1 aparelho. Até 500 VMs em simultâneo quando é implantado um [aparelho de escala](./how-to-scale-out-for-migration.md) adicional. 
 **Instalação automática do agente Azure VM (Windows e Linux Agent)** | Suportado para Windows Server 2008 R2 em diante. <br/> Apoiado para RHEL6, RHEL7, CentOS7, Ubuntu 14.04, Ubuntu 16.04, Ubuntu18.04. Reveja a lista de [pacotes necessários](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux#requirements)) para estes sistemas operativos Linux.
+
+> [!TIP]
+>  Utilizando o portal Azure poderá selecionar até 10 VMs de cada vez para configurar a replicação. Para replicar mais VMs pode utilizar o portal e adicionar os VMs para serem replicados em vários lotes de 10 VMs, ou utilizar a interface Azure Migrate PowerShell para configurar a replicação. Certifique-se de que não configura a replicação simultânea em mais do que o número máximo suportado de VMs para replicações simultâneas.
 
 ### <a name="appliance-requirements-agentless"></a>Requisitos do aparelho (sem agente)
 

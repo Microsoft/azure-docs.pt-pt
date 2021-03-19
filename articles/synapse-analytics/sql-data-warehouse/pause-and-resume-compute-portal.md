@@ -2,21 +2,21 @@
 title: 'Quickstart: Pausa e retomar o cálculo na piscina SQL dedicada através do portal Azure'
 description: Utilize o portal Azure para fazer uma pausa no cálculo para uma piscina SQL dedicada para economizar custos. Retomar o cálculo quando estiver pronto para utilizar o armazém de dados.
 services: synapse-analytics
-author: kevinvngo
+author: gaursa
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: sql-dw
 ms.date: 11/23/2020
-ms.author: kevin
+ms.author: gaursa
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 567d5ae8b9d480003486362a7aa0ef69f9740d52
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: f9cc5083c4b515454b9d5cbc40ed3b48cba80211
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98120296"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104602167"
 ---
 # <a name="quickstart-pause-and-resume-compute-in-dedicated-sql-pool-via-the-azure-portal"></a>Quickstart: Pausa e retomar o cálculo na piscina SQL dedicada através do portal Azure
 
@@ -26,7 +26,7 @@ Você pode usar o portal Azure para parar e retomar os recursos dedicados de cá
 
 Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Use [Create and Connect - portal](../quickstart-create-sql-pool-portal.md) para criar uma piscina SQL dedicada chamada **mySampleDataWarehouse**. 
 
@@ -77,7 +77,7 @@ Siga estes passos para retomar uma piscina SQL dedicada.
 
     ![Computação online](././media/pause-and-resume-compute-portal/compute-online.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Está a ser cobrado pelas unidades de armazém de dados e pelos dados armazenados na sua piscina de SQL dedicada. Estes recursos de computação e armazenamento são faturados em separado. 
 
@@ -88,7 +88,7 @@ Siga estes passos para limpar os recursos conforme quiser.
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com)e selecione a sua piscina SQL dedicada.
 
-    ![Limpar recursos](./media/pause-and-resume-compute-portal/clean-up-resources.png)
+    ![Limpar os recursos](./media/pause-and-resume-compute-portal/clean-up-resources.png)
 
 1. Para interromper a computação, clique no botão **Pausar**. 
 

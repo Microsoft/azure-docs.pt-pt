@@ -6,13 +6,14 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 02/24/2021
-ms.openlocfilehash: 9c788109b014be244560fb652de830ba14a44d68
-ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
+ms.reviewer: stmummer
+ms.date: 03/17/2021
+ms.openlocfilehash: d45b46f69480f24f5b2724116984a903093ffc62
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103225018"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104593361"
 ---
 # <a name="verify-co-sell-status-of-a-commercial-marketplace-offer"></a>Verifique o estado de co-venda de uma oferta de mercado comercial
 
@@ -33,7 +34,7 @@ A tabela a seguir mostra todos os possíveis estatutos de co-venda. Para conhece
 | Não co-vender pronto | Os [requisitos mínimos para o estatuto de co-venda pronta](co-sell-requirements.md#requirements-for-co-sell-ready-status) não foram cumpridos. |
 | Co-vender pronto | Todos os [requisitos para o estatuto de co-venda pronta](co-sell-requirements.md#requirements-for-co-sell-ready-status) foram cumpridos. |
 | Azure IP Co-venda incentivado | Os requisitos de co-venda prontos foram cumpridos para além [destes requisitos adicionais.](co-sell-requirements.md#requirements-for-azure-ip-co-sell-incentivized-status) |
-| Biz Apps ISV Connect Premium incentivo  | Este estatuto aplica-se às ofertas da Dynamics 365 e power apps e indica que todos os requisitos para este estatuto foram [cumpridos.](co-sell-requirements.md#requirements-for-biz-apps-isv-connect-premium-incentive-status) |
+| Aplicações empresariais Co-vender incentivado | Este estatuto aplica-se às ofertas de Dynamics 365 e Power Apps no [Programa ISV Connect](business-applications-isv-program.md) e indica que todos os requisitos para este estatuto foram [cumpridos.](co-sell-requirements.md#requirements-for-business-applications-co-sell-incentivized-status) |
 |||
 
 ## <a name="next-steps"></a>Passos seguintes

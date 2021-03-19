@@ -27,6 +27,8 @@
         - name: Migração com DMS com tempo de inatividade mínimo
           href: howto-migrate-online.md
           displayName: 'dms, data migration service'
+        - name: Migrar do Oráculo
+          href: howto-migrate-from-oracle.md
     - name: Versioning policy (Política de versões)
       href: concepts-version-policy.md
       displayName: 'version, postgresql'

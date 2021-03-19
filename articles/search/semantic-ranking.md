@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/12/2021
-ms.openlocfilehash: e3078c8f71f8862cacad552bb3176c08530e79bb
-ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
+ms.openlocfilehash: 01c4d6475ec23b8a55d91e18f49cab27760aa907
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2021
-ms.locfileid: "103418849"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104604292"
 ---
 # <a name="semantic-ranking-in-azure-cognitive-search"></a>Ranking semântico em Pesquisa Cognitiva Azure
 
@@ -28,25 +28,35 @@ O ranking semântico é tanto de recursos como de tempo intensivo. Para completa
 
 Para o ranking semântico, o modelo utiliza a compreensão da leitura da máquina e a aprendizagem de transferência para re-pontuar os documentos com base no quão bem cada um corresponde à intenção da consulta.
 
-1. Para cada documento, o ranker semântico avalia os campos no parâmetro searchFields por ordem, consolidando o conteúdo numa grande cadeia.
+### <a name="preparation-passage-extraction-phase"></a>Fase de preparação (extração de passagem)
 
-1. A corda é então aparada para garantir que o comprimento total não seja superior a 8.000 fichas. Se tiver documentos muito grandes, com um campo de conteúdos ou merged_content campo que tenha muitas páginas de conteúdo, qualquer coisa depois do limite simbólico é ignorado.
+Para cada documento nos resultados iniciais, há um exercício de extração de passagem que identifica passagens-chave. Este é um exercício de redução de tamanho que reduz o conteúdo a uma quantidade que pode ser processada rapidamente.
 
-1. Cada um dos 50 documentos é agora representado por uma única longa corda. Esta cadeia é enviada para o modelo de resumo. O modelo de resumo produz legendas (e respostas), utilizando a compreensão da leitura da máquina para identificar passagens que parecem resumir o conteúdo ou responder à pergunta. A saída do modelo de resumo é uma corda mais reduzida, que será no máximo 128 fichas.
+1. Para cada um dos 50 documentos, cada campo no parâmetro searchFields é avaliado por ordem consecutiva. Os conteúdos de cada campo são consolidados numa longa cadeia. 
 
-1. A corda mais pequena torna-se a legenda do documento, e representa as passagens mais relevantes encontradas na corda maior. O conjunto de 50 (ou menos) legendas é então classificado por ordem de relevância. 
+1. A corda comprida é então aparada para garantir que o comprimento total não seja superior a 8.000 fichas. Por esta razão, recomenda-se que posicione os campos concisos primeiro para que sejam incluídos na cadeia. Se tiver documentos muito grandes com campos pesados de texto, qualquer coisa depois do limite simbólico é ignorado.
 
-A relevância conceptual e semântica é estabelecida através da representação vetorial e dos clusters de termo. Enquanto um algoritmo de semelhança de palavras-chave pode dar igual peso a qualquer termo na consulta, o modelo semântico foi treinado para reconhecer a interdependência e as relações entre palavras que de outra forma não estão relacionadas na superfície. Como resultado, se uma cadeia de consulta inclui termos do mesmo cluster, um documento contendo ambos será classificado acima de um que não.
+1. Cada documento é agora representado por uma única longa corda que é até 8.000 fichas. Estas cordas são enviadas para o modelo de resumo, o que reduzirá ainda mais a corda. O modelo de resumo avalia a longa cadeia para frases-chave ou passagens que melhor resumem o documento ou respondem à pergunta.
 
-:::image type="content" source="media/semantic-search-overview/semantic-vector-representation.png" alt-text="Representação vetorial para o contexto" border="true":::
+1. A saída desta fase é uma legenda (e opcionalmente, uma resposta). A legenda é, no máximo, 128 fichas por documento, e é considerada a mais representativa do documento.
+
+### <a name="scoring-and-ranking-phases"></a>Fases de pontuação e classificação
+
+Nesta fase, todas as 50 legendas são avaliadas para avaliar a relevância.
+
+1. A pontuação é determinada avaliando cada legenda para relevância conceptual e semântica, em relação à consulta fornecida.
+
+   O diagrama seguinte fornece uma ilustração do que significa "relevância semântica". Considere o termo "capital", que poderia ser usado no contexto financeiro, direito, geografia ou gramática. Se uma consulta inclui termos do mesmo espaço vetorial (por exemplo, "capital" e "investimento"), um documento que também inclui tokens no mesmo cluster irá pontuar mais do que um que não.
+
+   :::image type="content" source="media/semantic-search-overview/semantic-vector-representation.png" alt-text="Representação vetorial para o contexto" border="true":::
+
+1. A saída desta fase é atribuída @search.rerankerScore a cada documento. Uma vez que todos os documentos são marcados, eles são listados em ordem descendente e incluídos na carga útil de resposta de consulta.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-O ranking semântico é oferecido nos níveis Standard, em regiões específicas. Para mais informações e para se inscrever, consulte [Disponibilidade e preços.](semantic-search-overview.md#availability-and-pricing)
-
-Um novo tipo de consulta permite o ranking de relevância e as estruturas de resposta da pesquisa semântica. [Crie uma consulta semântica](semantic-how-to-query-request.md) para começar.
+O ranking semântico é oferecido nos níveis Standard, em regiões específicas. Para mais informações e para se inscrever, consulte [Disponibilidade e preços.](semantic-search-overview.md#availability-and-pricing) Um novo tipo de consulta permite o ranking de relevância e as estruturas de resposta da pesquisa semântica. Para começar, [crie uma consulta semântica.](semantic-how-to-query-request.md)
 
 Em alternativa, reveja qualquer um dos seguintes artigos para obter informações relacionadas.
 
-+ [Adicionar verificação ortográfica aos termos de consulta](speller-how-to-add.md)
++ [Visão geral da pesquisa semântica](semantic-search-overview.md)
 + [Devolva uma resposta semântica](semantic-answers.md)

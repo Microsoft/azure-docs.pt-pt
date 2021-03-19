@@ -3,12 +3,12 @@ title: Referência das definições de aplicação para as Funções do Azure
 description: Documentação de referência para as definições da aplicação Azure Functions ou variáveis ambientais.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: 6fa8e2d9fb2270d53d8c0419ac7b4d88d79f30fd
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: fb00f0fe16342bf603d534c34a860278dc21deac
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102425707"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104595982"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referência das definições de aplicação para as Funções do Azure
 
@@ -257,9 +257,17 @@ Apenas utilizado na implementação de um plano Premium ou num plano de consumo 
 
 Quando utilizar um Gestor de Recursos Azure para criar uma aplicação de função durante a implementação, não inclua WEBSITE_CONTENTSHARE no modelo. Esta definição de aplicação é gerada durante a implementação. Para saber mais, consulte [a implementação de recursos de Automatização para a sua aplicação de função.](functions-infrastructure-as-code.md#windows)   
 
+## <a name="website_dns_server"></a>SERVIDOR \_ DNS DO SITE \_
+
+Define o servidor DNS utilizado por uma aplicação ao resolver endereços IP. Esta definição é frequentemente necessária quando se utiliza determinadas funcionalidades de networking, tais como [zonas privadas Azure DNS](functions-networking-options.md#azure-dns-private-zones) e [pontos finais privados](functions-networking-options.md#restrict-your-storage-account-to-a-virtual-network).   
+
+|Chave|Valor da amostra|
+|---|------------|
+|SERVIDOR \_ DNS DO SITE \_|168.63.129.16|
+
 ## <a name="website_max_dynamic_application_scale_out"></a>ESCALA \_ DE \_ \_ APLICAÇÃO MAX DYNAMIC \_ \_ DO SITE
 
-O número máximo de casos a que a aplicação de função pode escalar. O padrão não é limite.
+O número máximo de casos a que a aplicação pode escalar. O padrão não é limite.
 
 > [!IMPORTANT]
 > Esta definição está em pré-visualização.  Foi adicionada uma propriedade de aplicativo para a escala máxima da [função](./event-driven-scaling.md#limit-scale-out) e é a forma recomendada de limitar a escala.
@@ -297,6 +305,14 @@ Permite-lhe definir o timezone para a sua aplicação de função.
 |\_FUSO HORÁRIO \_ DO SITE|Linux|América/New_York|
 
 [!INCLUDE [functions-timezone](../../includes/functions-timezone.md)]
+
+## <a name="website_vnet_route_all"></a>ROTA VNET DO SITE \_ \_ \_ ALL
+
+Indica se todo o tráfego de saída da app é encaminhado através da rede virtual. Um valor de definição `1` indica que todo o tráfego é encaminhado através da rede virtual. É necessário utilizar esta definição quando utilizar funcionalidades de [integração regional de rede virtual](functions-networking-options.md#regional-virtual-network-integration). Também é usado quando um [gateway NAT de rede virtual é usado para definir um endereço IP de saída estática](functions-how-to-use-nat-gateway.md). 
+
+|Chave|Valor da amostra|
+|---|------------|
+|ROTA VNET DO SITE \_ \_ \_ ALL|1|
 
 ## <a name="next-steps"></a>Passos seguintes
 

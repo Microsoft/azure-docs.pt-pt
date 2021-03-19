@@ -1,7 +1,7 @@
 ---
 title: Modo de dispositivo partilhado para dispositivos iOS
 titleSuffix: Microsoft identity platform | Azure
-description: Saiba como ativar o modo de dispositivo partilhado para permitir que os Trabalhadores da Firstline partilhem um dispositivo iOS
+description: Saiba como ativar o modo de dispositivo partilhado para permitir que os Trabalhadores da Linha da Frente partilhem um dispositivo iOS
 services: active-directory
 author: brandwe
 manager: CelesteDG
@@ -13,19 +13,19 @@ ms.date: 03/31/2020
 ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: a97e14bcb68629f5f175a4913146187949af08be
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: c67c5d7b46c04e7f1aea020127ee798878c43d60
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94561068"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104578792"
 ---
 # <a name="shared-device-mode-for-ios-devices"></a>Modo de dispositivo partilhado para dispositivos iOS
 
 >[!IMPORTANT]
 > Esta característica [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
 
-Os trabalhadores da firstline, como os associados de retalho, os tripulantes de voo e os trabalhadores de serviços de campo, usam frequentemente um dispositivo móvel partilhado para realizar o seu trabalho. Estes dispositivos partilhados podem apresentar riscos de segurança se os seus utilizadores partilharem as suas palavras-passe ou PINs, intencionalmente ou não, para acederem a dados de clientes e negócios no dispositivo partilhado.
+Trabalhadores da linha da frente, como associados de retalho, tripulantes de voo e trabalhadores de serviço de campo, usam frequentemente um dispositivo móvel partilhado para realizar o seu trabalho. Estes dispositivos partilhados podem apresentar riscos de segurança se os seus utilizadores partilharem as suas palavras-passe ou PINs, intencionalmente ou não, para acederem a dados de clientes e negócios no dispositivo partilhado.
 
 O modo de dispositivo partilhado permite configurar um dispositivo iOS 13 ou superior para ser partilhado de forma mais fácil e segura pelos colaboradores. Os colaboradores podem iniciar seduca e aceder rapidamente à informação do cliente. Quando terminarem o turno ou a tarefa, podem assinar fora do dispositivo e está imediatamente pronto para ser usado pelo próximo funcionário.
 
@@ -41,7 +41,7 @@ Para criar uma aplicação de modo de dispositivo compartilhado, os desenvolvedo
 
 1. **Os administradores de dispositivos** preparam o dispositivo para ser partilhado utilizando um fornecedor de gestão de dispositivos móveis (MDM) como o Microsoft Intune para gerir os dispositivos na sua organização. O MDM empurra a aplicação microsoft Authenticator para os dispositivos e liga o "Modo Partilhado" para cada dispositivo através de uma atualização de perfil para o dispositivo. Esta definição de Modo Partilhado é o que altera o comportamento das aplicações suportadas no dispositivo. Esta configuração do fornecedor MDM define o modo de dispositivo partilhado para o dispositivo e permite o [plug-in Microsoft Enterprise SSO para dispositivos Apple](apple-sso-plugin.md) que é necessário para o modo de dispositivo partilhado.
 
-1. [ **Requerido apenas durante a Pré-visualização Pública** ] Um utilizador com [função de Administrador de Dispositivos Cloud](../roles/permissions-reference.md#cloud-device-administrator) deve então lançar a [aplicação Microsoft Authenticator](../user-help/user-help-auth-app-overview.md) e juntar o seu dispositivo à organização.
+1. [**Requerido apenas durante a Pré-visualização Pública**] Um utilizador com [função de Administrador de Dispositivos Cloud](../roles/permissions-reference.md#cloud-device-administrator) deve então lançar a [aplicação Microsoft Authenticator](../user-help/user-help-auth-app-overview.md) e juntar o seu dispositivo à organização.
 
     Para configurar a adesão aos seus papéis organizacionais no portal Azure: **Azure Ative Directory**  >  **Roles and Administrators** Cloud  >  **Device Administrators**
 
@@ -56,9 +56,9 @@ O seu dispositivo necessita de ser configurado para suportar o modo de dispositi
 
 1. No Portal de Configuração Intune, informe o dispositivo para ativar o [plug-in Microsoft Enterprise SSO para dispositivos Apple](apple-sso-plugin.md) com a seguinte configuração:
 
-    - **Tipo** : Redirecionamento
-    - **ID de extensão** : com.microsoft.azureauthenticator.ssoextension
-    - **Team ID** : (este campo não é necessário para iOS)
+    - **Tipo**: Redirecionamento
+    - **ID de extensão**: com.microsoft.azureauthenticator.ssoextension
+    - **Team ID**: (este campo não é necessário para iOS)
     - **URLs:**   
         - `https://login.microsoftonline.com`
         - `https://login.microsoft.com`
@@ -95,7 +95,7 @@ Numa alteração de utilizador, deve certificar-se de que ambos os dados do util
 
 ### <a name="detect-shared-device-mode"></a>Detetar o modo de dispositivo partilhado
 
-A deteção do modo dispositivo partilhado é importante para a sua aplicação. Muitas aplicações exigirão uma alteração na sua experiência de utilizador (UX) quando a aplicação é usada num dispositivo partilhado. Por exemplo, a sua aplicação pode ter uma funcionalidade de "Inscrição", o que não é apropriado para um Trabalhador da Firstline porque provavelmente já têm uma conta. Também pode querer adicionar segurança extra ao tratamento de dados da sua aplicação se estiver em modo de dispositivo partilhado.
+A deteção do modo dispositivo partilhado é importante para a sua aplicação. Muitas aplicações exigirão uma alteração na sua experiência de utilizador (UX) quando a aplicação é usada num dispositivo partilhado. Por exemplo, a sua aplicação pode ter uma funcionalidade de "Inscrição", o que não é apropriado para um Trabalhador da Linha da Frente porque provavelmente já têm uma conta. Também pode querer adicionar segurança extra ao tratamento de dados da sua aplicação se estiver em modo de dispositivo partilhado.
 
 Utilize a `getDeviceInformationWithParameters:completionBlock:` API no `MSALPublicClientApplication` para determinar se uma aplicação está a ser em execução num dispositivo em modo de dispositivo partilhado.
 
@@ -230,6 +230,6 @@ signoutParameters.signoutFromBrowser = YES; // Only needed for Public Preview.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para ver o modo de dispositivo partilhado em ação, a seguinte amostra de código no GitHub inclui um exemplo de execução de uma aplicação Firstline Worker num dispositivo iOS no modo dispositivo partilhado:
+Para ver o modo de dispositivo partilhado em ação, a seguinte amostra de código no GitHub inclui um exemplo de execução de uma aplicação Frontline Worker num dispositivo iOS no modo dispositivo partilhado:
 
 [MSAL iOS Swift Microsoft Graph API Sample](https://github.com/Azure-Samples/ms-identity-mobile-apple-swift-objc)

@@ -242,3 +242,5 @@
       href: 'https://aka.ms/wvdroadmap'
     - name: Modelos do Azure Resource Manager
       href: 'https://github.com/Azure/RDS-Templates/tree/master/wvd-templates'
+    - name: Ofertas de conformidade do Azure
+      href: 'https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/'

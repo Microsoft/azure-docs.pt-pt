@@ -13,16 +13,16 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 9e47171fc20ba07823e73f71713307e3a0e37278
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: a66486d791968f5752b96ed00374f8662b9c30fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103488929"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104580050"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-saml-identity-provider-using-azure-active-directory-b2c"></a>Configurar inscrição e inscrição com o fornecedor de identidade SAML utilizando o Azure Ative Directory B2C
 
-O Azure Ative Directory B2C (Azure AD B2C) apoia a federação com os fornecedores de identidade SAML 2.0. Este artigo mostra-lhe como permitir o início de saúde com uma conta de utilizador do fornecedor de identidade SAML, permitindo que os utilizadores assinem com as suas identidades sociais ou empresariais existentes, tais como [ADFS](identity-provider-adfs2016-custom.md) e [Salesforce.](identity-provider-salesforce-saml.md)
+O Azure Ative Directory B2C (Azure AD B2C) apoia a federação com os fornecedores de identidade SAML 2.0. Este artigo mostra-lhe como permitir o início de saúde com uma conta de utilizador do fornecedor de identidade SAML, permitindo que os utilizadores assinem com as suas identidades sociais ou empresariais existentes, tais como [ADFS](./identity-provider-adfs.md) e [Salesforce.](identity-provider-salesforce-saml.md)
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 

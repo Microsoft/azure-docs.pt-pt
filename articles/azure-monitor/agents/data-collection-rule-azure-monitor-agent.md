@@ -4,13 +4,13 @@ description: Descreve como criar uma regra de recolha de dados para recolher dad
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/19/2020
-ms.openlocfilehash: 93e244706d6d478155ac001d20fa3ce74fa6a887
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/16/2021
+ms.openlocfilehash: 73f7ab83ea15d223b76b9f71fde2f8a6a37bdacf
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101723644"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104586374"
 ---
 # <a name="configure-data-collection-for-the-azure-monitor-agent-preview"></a>Configure a recolha de dados para o agente Azure Monitor (pré-visualização)
 
@@ -68,6 +68,32 @@ Clique **em Adicionar Fonte de Dados** e, em seguida, **Reveja + crie** para rev
 > [!NOTE]
 > Após a criação da regra de recolha de dados e das associações, pode demorar até 5 minutos para que os dados sejam enviados para os destinos.
 
+## <a name="limit-data-collection-with-custom-xpath-queries"></a>Limite a recolha de dados com consultas personalizadas de XPath
+Uma vez que é cobrado por quaisquer dados recolhidos num espaço de trabalho do Log Analytics, deve recolher apenas os dados que necessita. Utilizando a configuração básica no portal Azure, apenas tem capacidade limitada de filtrar eventos para recolher. Para registos de aplicações e sistemas, este é todo o registo com uma gravidade particular. Para registos de segurança, isto é todo o sucesso da auditoria ou todos os registos de falha de auditoria.
+
+Para especificar filtros adicionais, tem de utilizar a configuração personalizada e especificar um XPath que filtra os eventos que não tem. As entradas XPath estão escritas no formulário `LogName!XPathQuery` . Por exemplo, pode querer devolver apenas eventos do registo do evento Application com um ID de evento de 1035. O XPathQuery para estes eventos `*[System[EventID=1035]]` seria. Uma vez que você quer recuperar os eventos do registo de eventos da Aplicação, o XPath seria `Application!*[System[EventID=1035]]`
+
+> [!TIP]
+> Utilize o cmdlet PowerShell `Get-WinEvent` com o parâmetro para testar a `FilterXPath` validade de um XPathQuery. O seguinte guião mostra um exemplo.
+> 
+> ```powershell
+> $XPath = '*[System[EventID=1035]]'
+> Get-WinEvent -LogName 'Application' -FilterXPath $XPath
+> ```
+>
+> - Se os eventos forem devolvidos, a consulta é válida.
+> - Se receber a mensagem *Não foram encontrados eventos que correspondam aos critérios de seleção especificados.*
+> - Se receber a mensagem *A consulta especificada é inválida,* a sintaxe de consulta é inválida. 
+
+A tabela que se segue mostra exemplos para eventos de filtragem utilizando um XPath personalizado.
+
+| Description |  XPath |
+|:---|:---|
+| Colete apenas eventos do Sistema com ID de evento = 4648 |  `System!*[System[EventID=4648]]`
+| Colete apenas eventos do Sistema com ID de evento = 4648 e um nome de processo de consent.exe |  `System!*[System[(EventID=4648) and (EventData[@Name='ProcessName']='C:\Windows\System32\consent.exe')]]`
+| Recolha todos os eventos críticos, erros, avisos e informações do registo de eventos do Sistema, exceto para o ID do evento = 6 (Carregado de condutor) |  `System!*[System[(Level=1 or Level=2 or Level=3) and (EventID != 6)]]` |
+| Colete todo o sucesso e insucesso Eventos de segurança, exceto para o Evento ID 4624 (logon de sucesso) |  `Security!*[System[(band(Keywords,13510798882111488)) and (EventID != 4624)]]` |
+
 
 ## <a name="create-rule-and-association-using-rest-api"></a>Criar regra e associação usando REST API
 
@@ -83,6 +109,8 @@ Siga os passos abaixo para criar uma regra de recolha de dados e associações u
 ## <a name="create-association-using-resource-manager-template"></a>Criar associação usando o modelo de Gestor de Recursos
 
 Não é possível criar uma regra de recolha de dados utilizando um modelo de Gestor de Recursos, mas pode criar uma associação entre uma máquina virtual Azure ou um servidor ativado pelo Azure Arc utilizando um modelo de Gestor de Recursos. Consulte [as amostras de modelo do Gestor de Recursos para as regras de recolha de dados no Azure Monitor](./resource-manager-data-collection-rules.md) para modelos de amostras.
+
+
 
 ## <a name="next-steps"></a>Passos seguintes
 

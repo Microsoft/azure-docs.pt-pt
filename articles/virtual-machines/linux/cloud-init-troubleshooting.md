@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 07/06/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 6c5922137b5d3ee14461adb88fba2e8b2cf41e16
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 842107245fe26155d53866bf95e11b08d7593ad1
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102558972"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104582158"
 ---
 # <a name="troubleshooting-vm-provisioning-with-cloud-init"></a>Resolução de problemas de fornecimento de VM com cloud-init
 
@@ -56,11 +56,11 @@ Quando o VM não for o fornecimento, o Azure mostrará o estado de "criação", 
 
 Enquanto o VM está em funcionamento, você precisará dos registos do VM para entender por que o provisionamento falhou.  Para entender por que o fornecimento de VM falhou, não pare o VM. Mantenha o VM a funcionar. Terá de manter o VM falhado num estado de funcionamento para recolher registos. Para recolher os registos, utilize um dos seguintes métodos:
 
-- [Consola de Série](../troubleshooting/serial-console-grub-single-user-mode.md)
+- [Consola de Série](/troubleshoot/azure/virtual-machines/serial-console-grub-single-user-mode)
 
 - [Ativar o Boot Diagnostics](/previous-versions/azure/virtual-machines/linux/tutorial-monitor#enable-boot-diagnostics) antes de criar o VM e depois [vê-los](/previous-versions/azure/virtual-machines/linux/tutorial-monitor#view-boot-diagnostics) durante a bota.
 
-- [Executar A AZ VM Reparação](../troubleshooting/repair-linux-vm-using-azure-virtual-machine-repair-commands.md) para anexar e montar o disco OS, que lhe permitirá recolher estes registos:
+- [Executar A AZ VM Reparação](/troubleshoot/azure/virtual-machines/repair-linux-vm-using-azure-virtual-machine-repair-commands) para anexar e montar o disco OS, que lhe permitirá recolher estes registos:
 ```bash
 /var/log/cloud-init*
 /var/log/waagent*
@@ -108,7 +108,7 @@ Depois de ter encontrado um erro ou aviso, leia para trás no registo de init nu
 2019-10-10 04:51:24,010 - util.py[DEBUG]: Running command ['mount', '-o', 'ro,sync', '-t', 'auto', u'/dev/sr0', '/run/cloud-init/tmp/tmpXXXXX'] with allowed return codes [0] (shell=False, capture=True)
 ```
 
-Se tiver acesso à [Consola em Série,](../troubleshooting/serial-console-grub-single-user-mode.md)pode tentar refazer o comando que a cloud-in estava a tentar executar.
+Se tiver acesso à [Consola em Série,](/troubleshoot/azure/virtual-machines/serial-console-grub-single-user-mode)pode tentar refazer o comando que a cloud-in estava a tentar executar.
 
 O registo `/var/log/cloud-init.log` também pode ser reconfigurado dentro de /etc/cloud/cloud.cfg.d/05_logging.cfg. Para obter mais detalhes sobre o registo de informação em nuvem, consulte a [documentação de insição de nuvem](https://cloudinit.readthedocs.io/en/latest/topics/logging.html). 
 

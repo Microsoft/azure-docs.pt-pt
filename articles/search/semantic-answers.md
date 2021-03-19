@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/12/2021
-ms.openlocfilehash: b99cbf91d7fc1c5d90753dfa1461a58eda055180
-ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
+ms.openlocfilehash: e467affd3ba1b839ce3323e3689d7f5134a0686f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2021
-ms.locfileid: "103418900"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104604309"
 ---
 # <a name="return-a-semantic-answer-in-azure-cognitive-search"></a>Devolva uma resposta semântica na Pesquisa Cognitiva Azure
 
@@ -63,7 +63,7 @@ O parâmetro "searchFields" é fundamental para devolver uma resposta de alta qu
 
 + Uma cadeia de consulta não deve ser nula e deve ser formulada como pergunta. Nesta pré-visualização, o "consultaType" e "queryLanguage" devem ser definidos exatamente como mostrado no exemplo.
 
-+ O parâmetro "searchFields" determina quais os campos que fornecem fichas ao modelo de extração. Certifique-se de definir este parâmetro. Você deve ter pelo menos um campo de cordas, mas incluir qualquer campo de cordas que você acha útil para fornecer uma resposta. Apenas cerca de 8.000 fichas por documento são passadas para o modelo. Inicie a lista de campo com campos concisos e, em seguida, progrida para campos ricos em texto. Para obter orientações precisas sobre como definir este campo, consulte [set searchFields](semantic-how-to-query-request.md#searchfields).
++ O parâmetro "searchFields" determina quais os campos que fornecem fichas ao modelo de extração. Certifique-se de definir este parâmetro. Você deve ter pelo menos um campo de cordas, mas incluir qualquer campo de cordas que você acha útil para fornecer uma resposta. Coletivamente em todos os campos em searchFields, apenas cerca de 8.000 fichas por documento são passados para o modelo. Inicie a lista de campo com campos concisos e, em seguida, progrida para campos ricos em texto. Para obter orientações precisas sobre como definir este campo, consulte [set searchFields](semantic-how-to-query-request.md#searchfields).
 
 + Para "respostas", a construção de parâmetros `"answers": "extractive"` básicos é, onde o número predefinido de respostas devolvidas é um. Pode aumentar o número de respostas adicionando uma contagem, até um máximo de cinco.  Se precisa de mais do que uma resposta depende da experiência do utilizador da sua aplicação e da forma como pretende obter resultados.
 
@@ -115,15 +115,15 @@ Dada a consulta "como se formam as nuvens", a seguinte resposta é devolvida na 
 
 Para obter melhores resultados, devolva respostas semânticas num corpus de documento com as seguintes características:
 
-+ "searchFields" deve incluir um ou mais campos que forneçam texto suficiente no qual uma resposta é suscetível de ser encontrada.
-
-+ A extração semântica e a resumo têm limites sobre quanto conteúdo pode ser analisado em tempo útil. Coletivamente, apenas os primeiros 20.000 tokens são analisados. Qualquer coisa além disso é ignorada. Em termos práticos, se tiver documentos grandes que se esbarram em centenas de páginas, deve tentar dividir o conteúdo em peças manejáveis primeiro.
++ "searchFields" deve fornecer campos que ofereçam texto suficiente no qual uma resposta é suscetível de ser encontrada. Apenas texto verbatim de um documento pode ser apresentado como uma resposta.
 
 + as cordas de consulta não devem ser nulas (pesquisa=) `*` e a cadeia deve ter as características de uma pergunta, em oposição a uma pesquisa de palavras-chave (uma lista sequencial de termos ou frases arbitrárias). Se a cadeia de consulta não parecer ser uma resposta, o processamento de resposta é ignorado, mesmo que o pedido especifique "respostas" como parâmetro de consulta.
+
++ A extração semântica e a resumo têm limites sobre quantos tokens por documento podem ser analisados em tempo útil. Em termos práticos, se tiver documentos grandes que se esbarram em centenas de páginas, deve tentar dividir o conteúdo em documentos menores primeiro.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 + [Visão geral da pesquisa semântica](semantic-search-overview.md)
 + [Algoritmo de classificação semântica](semantic-ranking.md)
-+ [Algoritmo de semelhança](index-ranking-similarity.md)
++ [Algoritmo de classificação de semelhança](index-ranking-similarity.md)
 + [Criar uma consulta semântica](semantic-how-to-query-request.md)

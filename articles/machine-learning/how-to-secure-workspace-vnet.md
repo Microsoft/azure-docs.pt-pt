@@ -8,15 +8,15 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
-ms.date: 10/06/2020
+ms.date: 03/17/2021
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy20q4, tracking-python, contperf-fy21q1
-ms.openlocfilehash: 5031d097b5d1bdef45dd4b653ae7cef06f5daca0
-ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
+ms.openlocfilehash: a923f65e5c6183d045f4b7455e0a01edda75d499
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103573664"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104584353"
 ---
 # <a name="secure-an-azure-machine-learning-workspace-with-virtual-networks"></a>Garantir um espaço de trabalho de aprendizagem automática Azure com redes virtuais
 
@@ -56,16 +56,12 @@ O Azure Private Link permite-lhe ligar-se ao seu espaço de trabalho utilizando 
 
 Para obter mais informações sobre a criação de um espaço de trabalho private link, consulte [Como configurar o Private Link](how-to-configure-private-link.md).
 
+> [!Warning]
+> Garantir um espaço de trabalho com pontos finais privados não garante a segurança de ponta a ponta por si só. Deve seguir os passos do resto deste artigo, e da série VNet, para garantir componentes individuais da sua solução.
+
 ## <a name="secure-azure-storage-accounts-with-service-endpoints"></a>Contas de armazenamento Secure Azure com pontos finais de serviço
 
 A Azure Machine Learning suporta contas de armazenamento configuradas para utilizar pontos finais de serviço ou pontos finais privados. Nesta secção, você aprende a proteger uma conta de armazenamento Azure usando pontos finais de serviço. Para pontos finais privados, consulte a secção seguinte.
-
-> [!IMPORTANT]
-> Pode colocar a _conta de armazenamento predefinida_ para Azure Machine Learning ou _contas de armazenamento não padrão_ numa rede virtual.
->
-> A conta de armazenamento predefinida é automaticamente a provisionada quando cria um espaço de trabalho.
->
-> Para contas de armazenamento não padrão, o `storage_account` parâmetro na [ `Workspace.create()` função](/python/api/azureml-core/azureml.core.workspace%28class%29#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) permite especificar uma conta de armazenamento personalizada por ID de recurso Azure.
 
 Para utilizar uma conta de armazenamento Azure para o espaço de trabalho numa rede virtual, utilize os seguintes passos:
 
@@ -73,18 +69,18 @@ Para utilizar uma conta de armazenamento Azure para o espaço de trabalho numa r
 
    [![O armazenamento que está ligado ao espaço de trabalho Azure Machine Learning](./media/how-to-enable-virtual-network/workspace-storage.png)](./media/how-to-enable-virtual-network/workspace-storage.png#lightbox)
 
-1. Na página da conta de serviço de armazenamento, selecione __Firewalls e redes virtuais__.
+1. Na página da conta de serviço de armazenamento, selecione __Networking__.
 
-   ![A área "Firewalls e redes virtuais" na página de Armazenamento Azure no portal Azure](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks.png)
+   ![A área de networking na página de Armazenamento Azure no portal Azure](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks.png)
 
-1. Na página __firewalls e redes virtuais,__ faça as seguintes ações:
+1. No separador __Firewalls e redes virtuais,__ faça as seguintes ações:
     1. Selecione __Redes selecionadas__.
     1. Nas __redes Virtuais,__ selecione a ligação __de rede virtual Add existente.__ Esta ação adiciona a rede virtual onde reside o seu cálculo (ver passo 1).
 
         > [!IMPORTANT]
         > A conta de armazenamento deve estar na mesma rede virtual e sub-rede que as instâncias de computação ou clusters utilizados para treino ou inferência.
 
-    1. Selecione os __serviços da Microsoft fidedignos para aceder a esta__ caixa de verificação de conta de armazenamento. Isto não dá a todos os serviços Azure acesso à sua conta de armazenamento.
+    1. Selecione os __serviços da Microsoft fidedignos para aceder a esta__ caixa de verificação de conta de armazenamento. Esta alteração não dá a todos os serviços Azure acesso à sua conta de armazenamento.
     
         * Os recursos de alguns serviços, **registados na sua subscrição,** podem aceder à conta de armazenamento **na mesma subscrição** para operações selecionadas. Por exemplo, escrever registos ou criar cópias de segurança.
         * Os recursos de alguns serviços podem ser concedidos acesso explícito à sua conta de __armazenamento, atribuindo uma função Azure__ à sua identidade gerida atribuída pelo sistema.
@@ -101,12 +97,12 @@ Para utilizar uma conta de armazenamento Azure para o espaço de trabalho numa r
 ## <a name="secure-azure-storage-accounts-with-private-endpoints"></a>Contas de armazenamento Secure Azure com pontos finais privados
 
 A Azure Machine Learning suporta contas de armazenamento configuradas para utilizar pontos finais de serviço ou pontos finais privados. Se a conta de armazenamento utilizar pontos finais privados, deve configurar dois pontos finais privados para a sua conta de armazenamento predefinido:
-1. Um ponto final privado com um sub-recurso de alvo de **bolha.**
-1. Um ponto final privado com um sub-recurso alvo de **ficheiro** (fileshare).
+1. Um ponto final privado com um subresource de alvo de **bolha.**
+1. Um ponto final privado com subresource de alvo **de ficheiro** (fileshare).
 
 ![Screenshot mostrando página de configuração de ponto final privado com opções de blob e arquivo](./media/how-to-enable-studio-virtual-network/configure-storage-private-endpoint.png)
 
-Para configurar um ponto final privado para uma conta de armazenamento que **não** seja o armazenamento predefinido, selecione o tipo **de sub-recursos Target** que corresponde à conta de armazenamento que pretende adicionar.
+Para configurar um ponto final privado para uma conta de armazenamento que **não** seja o armazenamento predefinido, selecione o tipo **de sub-fonte Target** que corresponde à conta de armazenamento que pretende adicionar.
 
 Para obter mais informações, consulte [utilizar pontos finais privados para armazenamento Azure](../storage/common/storage-private-endpoints.md)
 
@@ -118,7 +114,7 @@ Para aceder aos dados utilizando o SDK, deve utilizar o método de autenticaçã
 
 ### <a name="disable-data-validation"></a>Desativar validação de dados
 
-Por predefinição, a Azure Machine Learning realiza verificações de validade e credenciais de dados quando tenta aceder a dados utilizando o SDK. Se os dados estiverem por detrás de uma rede virtual, o Azure Machine Learning não pode completar estes controlos. Para evitar isto, tem de criar datas-lojas e conjuntos de dados que saltem a validação.
+Por predefinição, a Azure Machine Learning realiza verificações de validade e credenciais de dados quando tenta aceder a dados utilizando o SDK. Se os dados estiverem por detrás de uma rede virtual, o Azure Machine Learning não pode completar estes controlos. Para contornar esta verificação, tem de criar datas-lojas e conjuntos de dados que saltem a validação.
 
 ### <a name="use-datastores"></a>Utilizar datastores
 
@@ -179,7 +175,7 @@ Para utilizar as capacidades de experimentação de aprendizagem automática Azu
 1. No separador __Firewalls e redes virtuais,__ faça as seguintes ações:
     1. Em __Permitir o acesso a partir de,__ selecione Private __endpoint e redes selecionadas__.
     1. Nas __redes Virtuais,__ selecione __Adicionar as redes virtuais existentes__ para adicionar a rede virtual onde reside o seu compute de experimentação.
-    1. Em __Permitir que os serviços fidedignos da Microsoft contornem esta firewall?__ 
+    1. Em __'Permitir que os serviços fidedignos da Microsoft' contornem esta firewall__, selecione __Sim__.
 
    [![A secção "Firewalls e redes virtuais" no painel do Cofre de Chaves](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png#lightbox)
 
@@ -195,7 +191,13 @@ Para utilizar o Registo de Contentores Azure dentro de uma rede virtual, deve cu
 
     Quando o ACR está por detrás de uma rede virtual, o Azure Machine Learning não pode usá-lo para construir diretamente imagens do Docker. Em vez disso, o cluster computacional é usado para construir as imagens.
 
+    > [!IMPORTANT]
+    > O cluster de cálculo usado para construir imagens Docker precisa ser capaz de aceder aos repositórios de pacotes que são usados para treinar e implantar os seus modelos. Poderá ter de adicionar regras de segurança de rede que permitam o acesso a repos públicos, [utilize pacotes Python privados,](how-to-use-private-python-packages.md)ou utilize [imagens personalizadas](how-to-train-with-custom-image.md) do Docker que já incluam os pacotes.
+
 Uma vez cumpridos os requisitos, utilize os seguintes passos para permitir o registo do contentor Azure.
+
+> [!TIP]
+> Se não utilizar um registo de contentores Azure existente ao criar o espaço de trabalho, pode não existir. Por predefinição, o espaço de trabalho não criará uma instância ACR até que precise de uma. Para forçar a criação de um, treine ou implemente um modelo utilizando o seu espaço de trabalho antes de utilizar os passos nesta secção.
 
 1. Encontre o nome do Registo do Contentor Azure para o seu espaço de trabalho, utilizando um dos seguintes métodos:
 
@@ -217,6 +219,8 @@ Uma vez cumpridos os requisitos, utilize os seguintes passos para permitir o reg
 
 1. Limite o acesso à sua rede virtual utilizando os passos no acesso à [rede Configure para registo.](../container-registry/container-registry-vnet.md#configure-network-access-for-registry) Ao adicionar a rede virtual, selecione a rede virtual e a sub-rede para os seus recursos de Aprendizagem de Máquinas Azure.
 
+1. Configure o ACR para o espaço de trabalho para permitir o [acesso por serviços fidedignos.](../container-registry/allow-access-trusted-services.md)
+
 1. Use o Azure Machine Learning Python SDK para configurar um cluster de computação para construir imagens de estivadores. O seguinte código snippet demonstra como fazê-lo:
 
     ```python
@@ -225,6 +229,8 @@ Uma vez cumpridos os requisitos, utilize os seguintes passos para permitir o reg
     ws = Workspace.from_config()
     # Update the workspace to use an existing compute cluster
     ws.update(image_build_compute = 'mycomputecluster')
+    # To switch back to using ACR to build (if ACR is not in the VNet):
+    # ws.update(image_build_compute = None)
     ```
 
     > [!IMPORTANT]

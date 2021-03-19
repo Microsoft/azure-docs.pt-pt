@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 11/24/2020
+ms.date: 03/17/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5f0a84af0c7a4105327405cfb809f5101ab42931
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: d01a750948f8e3c264b9bcffdaad3ae72fa40ac0
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98938382"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579115"
 ---
 # <a name="conditional-access-grant"></a>Acesso Condicional: Concessão
 
@@ -51,6 +51,8 @@ Por predefinição, o Acesso Condicional requer todos os controlos selecionados.
 ### <a name="require-multi-factor-authentication"></a>Requerem autenticação de vários fatores
 
 A seleção desta caixa de verificação exigirá que os utilizadores realizem a autenticação multi-factor Azure AD. Mais informações sobre a implementação da autenticação multi-factor Azure AD podem ser encontradas no artigo [Planejando uma implementação de autenticação multi-factor Azure AD baseada](../authentication/howto-mfa-getstarted.md)na nuvem .
+
+[O Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-overview) satisfaz o requisito de autenticação de vários fatores nas políticas de Acesso Condicional. 
 
 ### <a name="require-device-to-be-marked-as-compliant"></a>Exigir que o dispositivo seja marcado como conforme
 
@@ -171,7 +173,7 @@ Existe uma restrição de casal quando configura uma política usando o controlo
 
 Se a sua organização criou termos de utilização, opções adicionais podem ser visíveis sob controlo de subvenção. Estas opções permitem que os administradores exijam o reconhecimento dos termos de utilização como condição de acesso aos recursos protegidos pela política. Mais informações sobre os termos de utilização podem ser encontradas no artigo, [termos de utilização do Azure Ative Directory](terms-of-use.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Acesso Condicional: Controlos de sessão](concept-conditional-access-session.md)
 

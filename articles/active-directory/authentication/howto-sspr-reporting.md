@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a764538ebc73927b1d274b2538e123ec90ce60e
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 5ad1b8318e261c7dfef7fc125716736087a84bdc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96741563"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579183"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Reporting options for Azure AD password management (Opções para os relatórios da gestão de palavras-passe do Azure AD)
 
@@ -53,7 +53,7 @@ Na experiência do portal Azure, melhorámos a forma como pode ver a atividade d
 
 ### <a name="combined-registration"></a>Registo combinado
 
-Se tiver ativado o [registo combinado,](./concept-registration-mfa-sspr-combined.md)serão encontradas informações **Security** sobre a atividade do utilizador nos registos de auditoria nos  >  **Métodos de Autenticação de** Segurança .
+Se tiver ativado o [registo combinado,](./concept-registration-mfa-sspr-combined.md)serão encontradas informações sobre a atividade do utilizador nos registos de auditoria nos  >  **Métodos de Autenticação de** Segurança .
 
 ## <a name="description-of-the-report-columns-in-the-azure-portal"></a>Descrição das colunas de relatório no portal Azure
 
@@ -171,7 +171,7 @@ A seguinte lista explica esta atividade em detalhe:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Utilização e informação sobre informações sobre o uso e informações sobre o uso da SSPR e do MFA](howto-authentication-methods-usage-insights.md)
+* [Utilização e informação sobre informações sobre o uso e informações sobre o uso da SSPR e do MFA](./howto-authentication-methods-activity.md)
 * [Como posso concluir uma implementação com êxito da SSPR?](howto-sspr-deployment.md)
 * [Reponha ou altere a palavra-passe](../user-help/active-directory-passwords-update-your-own-password.md).
 * [Registe-se para reiniciar a palavra-passe de autosserviço](../user-help/active-directory-passwords-reset-register.md).

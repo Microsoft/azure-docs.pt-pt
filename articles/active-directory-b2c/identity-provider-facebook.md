@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 03/17/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 49abd2cc62ff7a2eab3d95265f3db8f5c894ebb6
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 7e7a99daa169c994a0b9656786926f0715fa17a2
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103488946"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104580067"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-facebook-account-using-azure-active-directory-b2c"></a>Configurar inscrição e inscrição com uma conta no Facebook utilizando o Azure Ative Directory B2C
 
@@ -73,6 +73,8 @@ Para ativar o sessão para utilizadores com uma conta no Facebook no Azure Ative
 1. Selecione **Guardar**.
 
 ## <a name="add-facebook-identity-provider-to-a-user-flow"></a>Adicione o fornecedor de identidade do Facebook a um fluxo de utilizador 
+
+Neste momento, o fornecedor de identidade do Facebook foi criado, mas ainda não está disponível em nenhuma das páginas de inscrição. Para adicionar o fornecedor de identidade do Facebook a um fluxo de utilizador:
 
 1. No seu inquilino Azure AD B2C, selecione **fluxos de utilizador**.
 1. Clique no fluxo de utilizador que pretende adicionar ao fornecedor de identidade do Facebook.

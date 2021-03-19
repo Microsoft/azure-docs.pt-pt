@@ -1,5 +1,5 @@
 ---
-title: Criar replicação de volume para ficheiros Azure NetApp / Microsoft Docs
+title: Criar replicação de volume para ficheiros Azure NetApp | Microsoft Docs
 description: Descreve como criar a replicação de volume a espreitar os Ficheiros Azure NetApp para configurar a replicação transversal.
 services: azure-netapp-files
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/16/2020
+ms.date: 03/10/2021
 ms.author: b-juche
-ms.openlocfilehash: 412724a072bfc03a67bf1005173702f757c6fdf4
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 2a3c788ce50ccc1d537fd2903fe05acffd079b0b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95249942"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104591015"
 ---
 # <a name="create-volume-replication-for-azure-netapp-files"></a>Criar replicação de volume para ficheiros Azure NetApp
 
@@ -67,7 +67,7 @@ Também pode selecionar uma conta NetApp existente numa região diferente.
     * Piscina de capacidade
     * Quota de volume
         > [!NOTE] 
-        > Recomenda-se que o tamanho da quota de volume seja o do volume de volume.
+        > A quota de volume (tamanho) para o volume de destino deve refletir a do volume de origem. Se especificar um tamanho menor do que o volume de origem, o volume de destino é automaticamente redimensionado para o tamanho do volume de origem. 
     * Rede virtual 
     * Sub-rede
 
@@ -106,13 +106,13 @@ Para autorizar a replicação, é necessário obter o ID de recursos do volume d
 
 6. No campo Authorize, cole o ID do recurso de replicação de destino que obteve no Passo 3 e, em seguida, clique em **OK**.
 
-## <a name="next-steps"></a>Próximos passos  
+## <a name="next-steps"></a>Passos seguintes  
 
 * [Replicação entre regiões](cross-region-replication-introduction.md)
 * [Requisitos e considerações para a utilização da replicação entre regiões](cross-region-replication-requirements-considerations.md)
 * [Apresentar o estado de funcionamento da relação de replicação](cross-region-replication-display-health-status.md)
 * [Métricas de replicação de volume](azure-netapp-files-metrics.md#replication)
 * [Gerir a recuperação após desastre](cross-region-replication-manage-disaster-recovery.md)
-* [Eliminar replicações ou volumes de volume](cross-region-replication-delete.md)
+* [Eliminar volumes ou replicações de volume](cross-region-replication-delete.md)
 * [Resolução de problemas transversal à replicação da região](troubleshoot-cross-region-replication.md)
 

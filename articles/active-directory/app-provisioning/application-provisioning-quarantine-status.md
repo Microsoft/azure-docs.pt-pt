@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 09/24/2020
+ms.date: 03/18/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: d997c85f96fa9f87ca6d017cb555b3732007e21c
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 49590c46588ad0d0f1c1b7b095679a3c3fce96eb
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99256310"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579506"
 ---
 # <a name="application-provisioning-in-quarantine-status"></a>Provisionamento de pedidos em estado de quarentena
 
@@ -52,7 +52,7 @@ Há três formas de verificar se um pedido está em quarentena:
 
 ## <a name="why-is-my-application-in-quarantine"></a>Porque é que o meu pedido está em quarentena?
 
-|Descrição|Ação Recomendada|
+|Description|Ação Recomendada|
 |---|---|
 |**Problema de conformidade SCIM:** Foi devolvida uma resposta HTTP/404 Não Encontrada em vez da resposta HTTP/200 OK esperada. Neste caso, o serviço de fornecimento de Ad Azure fez um pedido ao pedido-alvo e recebeu uma resposta inesperada.|Consulte a secção de credenciais de administração. Veja se a aplicação requer especificar o URL do inquilino e que o URL está correto. Se não vir um problema, contacte o desenvolvedor da aplicação para garantir que o seu serviço está em conformidade com o SCIM. https://tools.ietf.org/html/rfc7644#section-3.4.2 |
 |**Credenciais inválidas:** Ao tentar autorizar o acesso ao pedido de destino, recebemos uma resposta da aplicação-alvo que indica que as credenciais fornecidas são inválidas.|Navegue para a secção de credenciais de administração da configuração de provisionamento UI e autorize o acesso novamente com credenciais válidas. Se a aplicação estiver na galeria, reveja o tutorial de configuração da aplicação para mais passos necessários.|
@@ -85,7 +85,7 @@ Primeiro, resolva a questão que fez com que o pedido fosse colocado em quarente
 
 Depois de resolver o problema, reinicie o trabalho de provisão. Algumas alterações nas definições de provisionamento da aplicação, tais como mapeamentos de atributos ou filtros de deteção, reiniciarão automaticamente o provisionamento para si. A barra de progresso na página de **Provisionamento** da aplicação indica quando o provisionamento começou pela última vez. Se precisar de reiniciar manualmente o trabalho de fornecimento, utilize um dos seguintes métodos:  
 
-- Utilize o portal Azure para reiniciar o trabalho de provisionamento. Na página de **Provisionamento** da aplicação em **Definições**, selecione **Limpar o estado e reiniciar a sincronização** e definir o Estado de **Provisionamento** para **On**. Esta ação reinicia totalmente o serviço de prestação de serviços, o que pode demorar algum tempo. Um ciclo inicial completo será executado novamente, o que limpa as cauções, remove a aplicação da quarentena e limpa quaisquer marcas de água.
+- Utilize o portal Azure para reiniciar o trabalho de provisionamento. Na página de **Provisionamento** da aplicação, selecione **Reatamento**. Esta ação reinicia totalmente o serviço de prestação de serviços, o que pode demorar algum tempo. Um ciclo inicial completo será executado novamente, o que limpa as cauções, remove a aplicação da quarentena e limpa quaisquer marcas de água. O serviço irá então avaliar todos os utilizadores do sistema de origem novamente e determinar se eles estão em possibilidade de provisão. Isto pode ser útil quando a sua aplicação está em quarentena, como este artigo discute, ou precisa de fazer uma alteração nos mapeamentos do seu atributo. Note que o ciclo inicial demora mais tempo a ser concluído do que o ciclo incremental típico devido ao número de objetos que precisam de ser avaliados. Pode aprender mais sobre o desempenho dos ciclos iniciais e incrementais [aqui.](application-provisioning-when-will-provisioning-finish-specific-user.md)
 
 - Utilize o Microsoft Graph para [reiniciar o trabalho de provisionamento](/graph/api/synchronization-synchronizationjob-restart?tabs=http&view=graph-rest-beta&preserve-view=true). Terá controlo total sobre o que reinicia. Pode optar por limpar as cauções (reiniciar o contador de cauções que se acumula para o estado de quarentena), limpar a quarentena (para remover a aplicação da quarentena) ou marcas de água límpias. utilize o seguinte pedido:
  

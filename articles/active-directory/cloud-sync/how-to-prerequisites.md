@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/02/2021
+ms.date: 03/17/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac247b9dc70c565621d3544d14e2f76ff12fda47
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 0277d4ce263610576178e3844a0665ab6506fbfa
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101689322"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579166"
 ---
 # <a name="prerequisites-for-azure-ad-connect-cloud-sync"></a>Pré-requisitos para sincronização de nuvem AZure AD Connect
 Este artigo fornece orientações sobre como escolher e usar o Azure Ative Directory (Azure AD) Conecte a sincronização de nuvem como solução de identidade.
@@ -33,10 +33,10 @@ Precisa do seguinte para utilizar a sincronização de nuvem AD Connect Azure:
 Um grupo Managed Service Account é uma conta de domínio gerida que fornece gestão automática de passwords, gestão de nome principal de serviço simplificado (SPN), a capacidade de delegar a gestão a outros administradores, e também estende esta funcionalidade a vários servidores.  Azure AD Connect Cloud Sync suporta e utiliza um gMSA para executar o agente.  Serão solicitados credenciais administrativas durante a configuração, de forma a criar esta conta.  A conta aparecerá como (domínio\provAgentgMSA$).  Para obter mais informações sobre um gMSA, consulte [contas de serviço geridas pelo grupo](/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview) 
 
 ### <a name="prerequisites-for-gmsa"></a>Pré-requisitos para a GMSA:
-1.  O esquema de Ative Directory na floresta do domínio gMSA precisa de ser atualizado para o Windows Server 2012.
+1.  O esquema de Ative Directory na floresta do domínio gMSA precisa de ser atualizado para o Windows Server 2016.
 2.  [Módulos PowerShell RSAT](/windows-server/remote/remote-server-administration-tools) num controlador de domínio
-3.  Pelo menos um controlador de domínio no domínio deve estar a executar o Windows Server 201.
-4.  Um servidor de união de domínios onde o agente está a ser instalado precisa de ser o Windows Server 2012 ou mais tarde.
+3.  Pelo menos um controlador de domínio no domínio deve estar a executar o Windows Server 2016.
+4.  Um servidor de união de domínios onde o agente está a ser instalado precisa de ser o Windows Server 2016 ou mais tarde.
 
 ### <a name="custom-gmsa-account"></a>Conta gMSA personalizada
 Se estiver a criar uma conta gMSA personalizada, tem de garantir que a conta tem as seguintes permissões.

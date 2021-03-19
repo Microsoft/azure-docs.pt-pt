@@ -11,12 +11,12 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 94187f2f94581b4ff48ddb0cd014dc26268fcf15
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 55fc4c0b5f3e2bbf57c972ad4a7fd2c9bdd3810e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102500517"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579200"
 ---
 # <a name="plan-an-azure-active-directory-self-service-password-reset-deployment"></a>Planeie uma implementação de autosserviço do Azure Ative Directory
 
@@ -322,7 +322,7 @@ Os registos de auditoria para o registo e o reset da palavra-passe estão dispon
 
 ### <a name="authentication-methods--usage-and-insights"></a>Métodos de autenticação - Utilização e Insights
 
-[O uso e os insights](./howto-authentication-methods-usage-insights.md) permitem-lhe compreender como os métodos de autenticação para funcionalidades como Azure AD MFA e SSPR estão a funcionar na sua organização. Esta capacidade de reporte fornece à sua organização os meios para entender que métodos se registam e como usá-los.
+[O uso e os insights](./howto-authentication-methods-activity.md) permitem-lhe compreender como os métodos de autenticação para funcionalidades como Azure AD MFA e SSPR estão a funcionar na sua organização. Esta capacidade de reporte fornece à sua organização os meios para entender que métodos se registam e como usá-los.
 
 ### <a name="troubleshoot"></a>Resolução de problemas
 

@@ -4,15 +4,15 @@ description: Saiba mais sobre a loja transacional Azure Cosmos DB (baseada em li
 author: Rodrigossz
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/30/2020
+ms.date: 03/16/2021
 ms.author: rosouz
 ms.custom: seo-nov-2020
-ms.openlocfilehash: 5dc233348188791404f826870b235d2bdfa4c202
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: bca4eb7f5f266a639916c0f8e520f025d259c39b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452856"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104577364"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store"></a>O que é a loja analítica Azure Cosmos DB?
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -65,32 +65,60 @@ Auto-Sync refere-se à capacidade totalmente gerida do Azure Cosmos DB onde os i
 
 A capacidade de auto-sincronização juntamente com a loja analítica proporciona os seguintes benefícios principais:
 
-#### <a name="scalability--elasticity"></a>Escalabilidade & elasticidade
+### <a name="scalability--elasticity"></a>Escalabilidade & elasticidade
 
 Ao utilizar divisórias horizontais, a loja transacional Azure Cosmos DB pode dimensionar elasticamente o armazenamento e a produção sem qualquer tempo de inatividade. A divisória horizontal na loja transacional proporciona uma escalabilidade & elasticidade em auto-sincronização para garantir que os dados são sincronizados na loja analítica em tempo real. A sincronização de dados acontece independentemente da produção transacional de tráfego, quer se trate de 1000 operações/seg ou 1 milhão de operações/seg, e não afeta o rendimento previsto na loja transacional. 
 
-#### <a name="automatically-handle-schema-updates"></a><a id="analytical-schema"></a>Lidar automaticamente com atualizações de esquemas
+### <a name="automatically-handle-schema-updates"></a><a id="analytical-schema"></a>Lidar automaticamente com atualizações de esquemas
 
 A loja de transações Azure Cosmos DB é schema-agnóstica, e permite-lhe iterar nas suas aplicações transacionais sem ter de lidar com schema ou gestão de índices. Em contraste com isso, a loja analítica Azure Cosmos DB é schematizada para otimizar para o desempenho de consulta analítica. Com a capacidade de auto-sincronização, a Azure Cosmos DB gere a inferência de esquema sobre as últimas atualizações da loja transacional.  Também gere a representação de esquemas na loja analítica fora da caixa, o que inclui o tratamento de tipos de dados aninhados.
 
 À medida que o seu esquema evolui, e novas propriedades são adicionadas ao longo do tempo, a loja analítica apresenta automaticamente um esquema sindicalizado em todos os esquemas históricos na loja transacional.
 
-##### <a name="schema-constraints"></a>Restrições de esquema
+#### <a name="schema-constraints"></a>Restrições de esquema
 
 Os seguintes constrangimentos são aplicáveis nos dados operacionais da Azure Cosmos DB quando permite que a loja analítica infera e represente corretamente o esquema:
 
-* Você pode ter um máximo de 200 propriedades em qualquer nível de nidificação no esquema e uma profundidade máxima de nidificação de 5.
+* Você pode ter um máximo de 1000 propriedades em qualquer nível de nidificação no esquema e uma profundidade máxima de nidificação de 127.
+  * Apenas as primeiras 1000 propriedades estão representadas na loja analítica.
+  * Apenas os primeiros 127 níveis aninhados estão representados na loja analítica.
+
+* Enquanto os documentos JSON (e as coleções/contentores cosmos dB) são sensíveis à perspetiva de singularidade, a loja analítica não é.
+
+  * **No mesmo documento:** Os nomes das propriedades no mesmo nível devem ser únicos quando comparados com casos insensíveis. Por exemplo, o seguinte documento JSON tem "Nome" e "nome" no mesmo nível. Embora seja um documento JSON válido, não satisfaz a limitação de singularidade e, portanto, não estará totalmente representado na loja analítica. Neste exemplo, "Nome" e "nome" são os mesmos quando comparados de forma insensível. Só `"Name": "fred"` estará representado na loja analítica, porque é a primeira ocorrência. E `"name": "john"` não será representado.
   
-  * Um item com 201 propriedades ao nível superior não satisfaz este constrangimento e, portanto, não será representado na loja analítica.
-  * Um item com mais de cinco níveis aninhados no esquema também não satisfaz este constrangimento e, portanto, não será representado na loja analítica. Por exemplo, o seguinte item não satisfaz o requisito:
+  
+  ```json
+  {"id": 1, "Name": "fred", "name": "john"}
+  ```
+  
+  * **Em diferentes documentos:** As propriedades no mesmo nível e com o mesmo nome, mas em casos diferentes, serão representadas dentro da mesma coluna, utilizando o formato de nome da primeira ocorrência. Por exemplo, os seguintes documentos JSON têm `"Name"` e `"name"` no mesmo nível. Uma vez que o primeiro formato documental é `"Name"` , isto é o que será usado para representar o nome da propriedade na loja analítica. Por outras palavras, o nome da coluna na loja analítica será `"Name"` . Ambos `"fred"` e `"john"` serão representados, na `"Name"` coluna.
 
-     `{"level1": {"level2":{"level3":{"level4":{"level5":{"too many":12}}}}}}`
 
-* Os nomes dos imóveis devem ser únicos quando comparados com o caso de forma insensível. Por exemplo, os seguintes itens não satisfazem esta restrição e, portanto, não estarão representados na loja analítica:
+  ```json
+  {"id": 1, "Name": "fred"}
+  {"id": 2, "name": "john"}
+  ```
 
-  `{"Name": "fred"} {"name": "john"}` – "Nome" e "nome" são os mesmos quando comparados de forma insensível.
 
-##### <a name="schema-representation"></a>Representação de Schema
+* O primeiro documento da coleção define o esquema inicial da loja analítica.
+  * As propriedades no primeiro nível do documento serão representadas como colunas.
+  * Documentos com mais propriedades do que o esquema inicial gerarão novas colunas na loja analítica.
+  * As colunas não podem ser removidas.
+  * A eliminação de todos os documentos de uma coleção não repõe o esquema da loja analítica.
+  * Não há versão de esquema. A última versão deduzida da loja transacional é o que vai ver na loja de análise.
+
+* Atualmente não apoiamos nomes de colunas de leitura Azure Synapse Spark que contenham espaços em branco.
+
+* Espere um comportamento diferente em relação aos `NULL` valores:
+  * As piscinas de faíscas em Azure Synapse lerão estes valores como 0 (zero).
+  * Piscinas sem servidor SQL em Azure Synapse lerão estes valores como `NULL` .
+
+* Espere um comportamento diferente no que diz respeito às colunas em falta:
+  * As piscinas de faíscas em Azure Synapse representarão estas colunas como `undefined` .
+  * Piscinas sem servidor SQL em Azure Synapse representarão estas colunas como `NULL` .
+
+#### <a name="schema-representation"></a>Representação de Schema
 
 Há dois modos de representação do esquema no arquivo analítico. Estes modos têm compromissos entre a simplicidade de uma representação em colunas, o processamento de esquemas polimórficos e a simplicidade da experiência de consulta:
 
@@ -106,7 +134,7 @@ A representação de esquema bem definida cria uma simples representação tabul
 
 * Uma propriedade tem sempre o mesmo tipo em vários itens.
 
-  * Por exemplo, `{"a":123} {"a": "str"}` não tem um esquema bem definido porque às `"a"` vezes é uma corda e às vezes um número. Neste caso, a loja analítica regista o tipo de dados `“a”` como o tipo de dados do primeiro item que ocorre durante o tempo de vida do `“a”` recipiente. Os itens em que o tipo de `“a”` dados difere não serão incluídos na loja analítica.
+  * Por exemplo, `{"a":123} {"a": "str"}` não tem um esquema bem definido porque às `"a"` vezes é uma corda e às vezes um número. Neste caso, a loja analítica regista o tipo de dados `"a"` como o tipo de dados do primeiro item que ocorre durante o tempo de vida do `“a”` recipiente. O documento ainda será incluído na loja analítica, mas os itens onde o tipo de `"a"` dados difere não.
   
     Esta condição não se aplica a propriedades nulas. Por exemplo, `{"a":123} {"a":null}` ainda está bem definido.
 
@@ -155,7 +183,7 @@ Aqui está um mapa de todos os tipos de dados de propriedade e suas representaç
 |Int64  | ".int64"  |255486129307|
 |Nulo   | ".nulo"   | nulo|
 |String|    ".string" | "ABC"|
-|Timestamp |    ".timetamp" |  Tempo de carregamento (0,0)|
+|CarimboDeDataEHora |    ".timetamp" |  Tempo de carregamento (0,0)|
 |DateTime   |".data"    | ISODate ("2020-08-21T07:43:07.375Z")|
 |ObjectId   |".objectId"    | ObjectId("5f3f7b59330ec25c132623a2")|
 |Documento   |".objeto" |    {"a": "a"}|
@@ -230,7 +258,7 @@ Para saber mais, consulte [como configurar a TTL analítica num recipiente](conf
 
 Para saber mais, consulte os seguintes documentos:
 
-* [Ligação Azure Synapse para Azure Cosmos DB](synapse-link.md)
+* [Azure Synapse Link para o Azure Cosmos DB](synapse-link.md)
 
 * [Introdução ao Azure Synapse Link para o Azure Cosmos DB](configure-synapse-link.md)
 

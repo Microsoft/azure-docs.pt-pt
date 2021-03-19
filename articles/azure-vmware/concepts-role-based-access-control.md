@@ -2,32 +2,32 @@
 title: Conceitos - vSphere controlo de acesso baseado em funções (vSphere RBAC)
 description: Conheça as principais capacidades do controlo de acesso baseado em funções vSphere para Azure VMware Solution
 ms.topic: conceptual
-ms.date: 03/16/2021
-ms.openlocfilehash: 1e49f219fba8317040bfa56f6576a7c1f5b1ae22
-ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
+ms.date: 03/18/2021
+ms.openlocfilehash: c2d27531f7a0acd36b4047e98aac994668f64a09
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103573336"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104586171"
 ---
 # <a name="vsphere-role-based-access-control-vsphere-rbac-for-azure-vmware-solution"></a>vSphere controlo de acesso baseado em funções (vSphere RBAC) para Azure VMware Solution
 
 Na Azure VMware Solution, o vCenter tem um utilizador local incorporado chamado cloudadmin e atribuído ao papel cloudAdmin incorporado. O utilizador local de cloudadmin é utilizado para configurar utilizadores em AD. Em geral, o papel CloudAdmin cria e gere cargas de trabalho na sua nuvem privada. Na Azure VMware Solution, o papel CloudAdmin tem privilégios vCenter que diferem de outras soluções de nuvem VMware.     
 
 > [!NOTE]
-> A Azure VMware Solution oferece funções personalizadas no vCenter, mas atualmente não as oferece no portal Azure VMware Solution. Para obter mais informações, consulte as [funções personalizadas Criar na secção vCenter](#create-custom-roles-on-vcenter) mais tarde neste artigo. 
+> A Azure VMware Solution oferece funções personalizadas no vCenter que não as oferece no portal Azure VMware Solution. Para obter mais informações, consulte as [funções personalizadas Criar na secção vCenter](#create-custom-roles-on-vcenter) mais tarde neste artigo. 
 
 Numa implementação vCenter e ESXi no local, o administrador tem acesso à administrator@vsphere.local conta vCenter. Também podem ter mais utilizadores/grupos de Diretório Ativo (AD) atribuídos. 
 
 Numa implementação da Azure VMware Solution, o administrador não tem acesso à conta de utilizador do administrador. Mas podem atribuir utilizadores e grupos de AD ao papel cloudAdmin no vCenter.  
 
-O utilizador privado da nuvem não tem acesso e não consegue configurar componentes de gestão específicos suportados e geridos pela Microsoft. Por exemplo, clusters, anfitriões, datastores e comutadores virtuais distribuídos.
+O utilizador privado da nuvem não tem acesso e não pode configurar componentes de gestão específicos suportados e geridos pela Microsoft. Por exemplo, clusters, anfitriões, datastores e interruptores virtuais distribuídos.
 
 ## <a name="azure-vmware-solution-cloudadmin-role-on-vcenter"></a>Função CloudAdmin de Solução VMware Azure no vCenter
 
 Pode ver os privilégios concedidos ao papel cloudAdmin da Solução Azure VMware no seu VMware Solution privado VMware Solution vCenter.
 
-1. Inicie sessão no SDDC vSphere Client e vá para a   >  **Administração** do Menu.
+1. Inicie sessão no vCenter e vá para a   >  **Administração** do Menu.
 1. Sob **controlo de acesso**, selecione **Roles**.
 1. Na lista de funções, selecione **CloudAdmin** e, em seguida, selecione **Privileges**. 
 
@@ -62,7 +62,7 @@ A Azure VMware Solution suporta o uso de funções personalizadas com privilégi
 
 O papel CloudAdmin pode criar, modificar ou eliminar funções personalizadas que tenham privilégios inferiores ou iguais ao seu papel atual. Poderá ser capaz de criar funções que tenham privilégios maiores do que o CloudAdmin, mas não poderá atribuir o papel a nenhum utilizadores ou grupos ou apagar o papel.
 
-Para evitar a criação de funções que não podem ser atribuídas ou eliminadas, a Azure VMware Solution recomenda a clonagem do papel cloudAdmin como base para a criação de novas funções personalizadas.
+Para evitar a criação de papéis que não podem ser atribuídos ou eliminados, recomenda-se clonar o papel de CloudAdmin como base para a criação de novos papéis personalizados.
 
 ### <a name="create-a-custom-role"></a>Criar uma função personalizada
 1. Inscreva-se no vCenter com cloudadmin \@ vsphere.local ou um utilizador com o papel CloudAdmin.

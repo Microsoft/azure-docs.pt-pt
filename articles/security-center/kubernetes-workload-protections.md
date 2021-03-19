@@ -6,14 +6,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 02/16/2021
+ms.date: 03/17/2021
 ms.author: memildin
-ms.openlocfilehash: 6d0e660ecce1d45dab4d6003cdba391ba2eb4ee9
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: eacca5573c672e9f4485c26b1b580ee4c982c5d2
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102095600"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104580760"
 ---
 # <a name="protect-your-kubernetes-workloads"></a>Proteger cargas de trabalho do Kubernetes
 
@@ -39,7 +39,7 @@ O Security Center oferece mais funcionalidades de segurança para contentores se
 |Preços:|Gratuito|
 |Funções e permissões necessárias:|**Administrador de proprietário** ou **segurança** para editar uma atribuição<br>**Leitor** para ver as recomendações|
 |Requisitos ambientais:|Kubernetes v1.14 (ou superior) é necessário<br>Sem recurso PodSecurityPolicy (modelo antigo da PSP) nos clusters<br>Os nómadas do Windows não são suportados|
-|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
+|Nuvens:|![Yes](./media/icons/yes-icon.png) Nuvens comerciais<br>![Yes](./media/icons/yes-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
 |||
 
 
@@ -80,12 +80,12 @@ Para configurar as recomendações, instale o  **addon Azure Policy para Kuberne
 
     | Nome da recomendação                                                         | Controlo de segurança                         | Configuração necessária |
     |-----------------------------------------------------------------------------|------------------------------------------|------------------------|
-    | CpU do contentor e limites de memória devem ser aplicados                          | Proteja as aplicações contra o ataque do DDoS | Não                     |
-    | Recipientes privilegiados devem ser evitados                                     | Gerir acessos e permissões            | Não                     |
-    | O sistema de ficheiros de raiz imutável (apenas para leitura) deve ser aplicado para os contentores     | Gerir acessos e permissões            | Não                     |
-    | Contentor com escalada de privilégio deve ser evitado                       | Gerir acessos e permissões            | Não                     |
-    | Os recipientes de funcionamento como utilizador de raiz devem ser evitados                           | Gerir acessos e permissões            | Não                     |
-    | Os recipientes que partilham espaços sensíveis de nome de hospedeiro devem ser evitados              | Gerir acessos e permissões            | Não                     |
+    | CpU do contentor e limites de memória devem ser aplicados                          | Proteja as aplicações contra o ataque do DDoS | No                     |
+    | Recipientes privilegiados devem ser evitados                                     | Gerir acessos e permissões            | No                     |
+    | O sistema de ficheiros de raiz imutável (apenas para leitura) deve ser aplicado para os contentores     | Gerir acessos e permissões            | No                     |
+    | Contentor com escalada de privilégio deve ser evitado                       | Gerir acessos e permissões            | No                     |
+    | Os recipientes de funcionamento como utilizador de raiz devem ser evitados                           | Gerir acessos e permissões            | No                     |
+    | Os recipientes que partilham espaços sensíveis de nome de hospedeiro devem ser evitados              | Gerir acessos e permissões            | No                     |
     | Capacidades linux menos privilegiadas devem ser aplicadas para contentores       | Gerir acessos e permissões            | **Sim**                |
     | O uso dos suportes de volume pod HostPath deve ser restringido a uma lista conhecida    | Gerir acessos e permissões            | **Sim**                |
     | Os contentores devem ouvir apenas as portas permitidas                              | Restringir o acesso não autorizado à rede     | **Sim**                |

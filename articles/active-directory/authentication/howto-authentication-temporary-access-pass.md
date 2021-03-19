@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/03/2021
+ms.date: 03/18/2021
 ms.author: justinha
 author: inbarckms
 manager: daveba
 ms.reviewer: inbarckms
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 101e3ee9279d3560c0b561f0ea7ea695387bee15
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 44b80b9c6847cfdc8402cb3b4983f15873e367d3
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102096467"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579387"
 ---
 # <a name="configure-temporary-access-pass-in-azure-ad-to-register-passwordless-authentication-methods-preview"></a>Configure o Passe de Acesso Temporário em Azure AD para registar métodos de autenticação sem palavras-passe (Pré-visualização)
 
@@ -127,7 +127,7 @@ Tenha em mente estas limitações:
 - Um Passe de Acesso Temporário não pode ser utilizado com a extensão do Servidor de Política de Rede (NPS) e o adaptador ative Directory Federation Services (AD FS).
 - Quando o SSO sem emenda está ativado no arrendatário, os utilizadores são solicitados a introduzir uma senha. Em **vez disso,** o link Use o seu Passe de Acesso Temporário estará disponível para o utilizador iniciar sação com um Passe de Acesso Temporário.
 
-![Screenshot de usar um passe de acesso temporário em vez](./media/how-to-authentication-temporary-access-pass/alternative.png)
+  ![Screenshot de usar um passe de acesso temporário em vez](./media/how-to-authentication-temporary-access-pass/alternative.png)
 
 ## <a name="troubleshooting"></a>Resolução de problemas    
 

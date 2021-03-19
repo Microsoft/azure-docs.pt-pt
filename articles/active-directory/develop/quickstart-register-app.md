@@ -12,12 +12,12 @@ ms.date: 09/03/2020
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, contperf-fy21q1, contperf-fy21q2
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: c72ae2a2e6dbd2278bdd78f26c145386be22764e
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 413f0be32b54ee6da39934cf3f8753246fbce924
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102175435"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104578809"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Quickstart: Registar uma aplicação com a plataforma de identidade microsoft
 
@@ -44,7 +44,7 @@ Siga estes passos para criar o registo da aplicação:
     Pode alterar o nome do visor a qualquer momento e vários registos de aplicações podem partilhar o mesmo nome. O ID de Aplicação (cliente) gerado automaticamente pelo registo da aplicação, não o seu nome de exibição, identifica exclusivamente a sua aplicação dentro da plataforma de identidade.
 1. Especificar quem pode usar a aplicação, por vezes chamada *de público de inscrição*.
 
-    | Tipos de conta suportados | Descrição |
+    | Tipos de conta suportados | Description |
     |-------------------------|-------------|
     | **Contas apenas neste diretório organizacional** | Selecione esta opção se estiver a construir uma aplicação para uso apenas pelos utilizadores (ou hóspedes) no *seu* inquilino.<br><br>Muitas vezes chamada de aplicação *line-of-business* (LOB), esta aplicação é uma aplicação *de inquilino único* na plataforma de identidade da Microsoft. |
     | **Contas em qualquer diretório organizacional** | Selecione esta opção se quiser que os utilizadores em *qualquer* inquilino do Azure Ative (Azure AD) possam utilizar a sua aplicação. Esta opção é apropriada se, por exemplo, estiver a construir uma aplicação de software-as-a-service (SaaS) que pretende fornecer a várias organizações.<br><br>Este tipo de aplicação é conhecido como uma aplicação *multitenante* na plataforma de identidade da Microsoft. |
@@ -89,7 +89,7 @@ Para configurar as definições de aplicações com base na plataforma ou dispos
     | **Aplicação de página única** | Introduza um **URI de redirecionamento** para a sua aplicação. Este URI é o local onde a plataforma de identidade da Microsoft redireciona o cliente de um utilizador e envia fichas de segurança após a autenticação.<br/><br/>Selecione esta plataforma se estiver a construir uma aplicação web do lado do cliente utilizando o JavaScript ou uma estrutura como Angular, Vue.js, React.js ou Blazor WebAssembly. |
     | **iOS / macOS** | Introduza o **ID do pacote de** aplicações. Encontre-o em **Definições de Construção** ou em Xcode em *Info.plist*.<br/><br/>Um URI de redirecionamento é gerado para si quando especifica um **Bundle ID**. |
     | **Android** | Introduza o **nome do pacote de** aplicações . Encontre-o no ficheiro *AndroidManifest.xml.* Também gerar e inserir o **hash Signature**.<br/><br/>Um URI de redirecionamento é gerado para si quando especifica estas definições. |
-    | **Aplicações móveis e desktop** | Selecione um dos **URIs de redirecionamento sugerido.** Ou especifique um **URI de redirecionamento personalizado.**<br/><br/>Para aplicações de desktop, recomendamos<br/>`https://login.microsoftonline.com/common/oauth2/nativeclient`<br/><br/>Selecione esta plataforma para aplicações móveis que não estejam a usar a mais recente Biblioteca de Autenticação da Microsoft (MSAL) ou que não estejam a utilizar um corretor. Selecione também esta plataforma para aplicações de desktop. |
+    | **Aplicações móveis e desktop** | Selecione um dos **URIs de redirecionamento sugerido.** Ou especifique um **URI de redirecionamento personalizado.**<br/><br/>Para aplicações de desktop usando navegador incorporado, recomendamos<br/>`https://login.microsoftonline.com/common/oauth2/nativeclient`<br/><br/>Para aplicações de desktop usando o navegador do sistema, recomendamos<br/>`http://localhost`<br/><br/>Selecione esta plataforma para aplicações móveis que não estejam a usar a mais recente Biblioteca de Autenticação da Microsoft (MSAL) ou que não estejam a utilizar um corretor. Selecione também esta plataforma para aplicações de desktop. |
 1. Selecione **Configurar** para completar a configuração da plataforma.
 
 ### <a name="redirect-uri-restrictions"></a>Redirecionar as restrições URI

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/03/2021
-ms.openlocfilehash: 97b0a4ca3e4fb94a21cbd30a27a3037f45fed782
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: c088625528190ad116676fbb51cec9f8de4b1578
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102487122"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104600807"
 ---
 # <a name="querying-in-azure-cognitive-search"></a>Consulta em Pesquisa Cognitiva Azure
 
@@ -71,7 +71,7 @@ Na Pesquisa Cognitiva, a pesquisa completa de texto é construída no motor de c
 
 Quando os termos correspondentes são encontrados, o motor de consulta reconstitui um documento de pesquisa contendo a correspondência utilizando a chave de documento ou ID para montar valores de campo, classifica os documentos por ordem de relevância, e devolve o top 50 (por defeito) na resposta ou um número diferente se especificado **`top`** .
 
-Se estiver a implementar uma pesquisa completa de texto, compreender como o seu conteúdo é tokenized irá ajudá-lo a depurar quaisquer anomalias de consulta. Consultas sobre cordas hifenizadas ou caracteres especiais poderiam necessitar de usar um analisador diferente do padrão Lucene para garantir que o índice contém as fichas certas. Pode anular o padrão com [analisadores de linguagem](index-add-language-analyzers.md#language-analyzer-list) ou [analisadores especializados](index-add-custom-analyzers.md#AnalyzerTable) que modificam a análise lexical. Um exemplo é [a palavra-chave](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) que trata todo o conteúdo de um campo como um único símbolo. Isto é útil para dados como códigos postais, IDs e alguns nomes de produtos. Para obter mais informações, consulte [a pesquisa parcial e padrões com caracteres especiais.](search-query-partial-matching.md)
+Se estiver a implementar uma pesquisa completa de texto, compreender como o seu conteúdo é tokenized irá ajudá-lo a depurar quaisquer anomalias de consulta. Consultas sobre cordas hifenizadas ou caracteres especiais poderiam necessitar de usar um analisador diferente do padrão Lucene para garantir que o índice contém as fichas certas. Pode anular o padrão com [analisadores de linguagem](index-add-language-analyzers.md#language-analyzer-list) ou [analisadores especializados](index-add-custom-analyzers.md#built-in-analyzers) que modificam a análise lexical. Um exemplo é [a palavra-chave](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) que trata todo o conteúdo de um campo como um único símbolo. Isto é útil para dados como códigos postais, IDs e alguns nomes de produtos. Para obter mais informações, consulte [a pesquisa parcial e padrões com caracteres especiais.](search-query-partial-matching.md)
 
 Se antecipar o uso pesado dos operadores booleanos, que é mais provável em índices que contenham grandes blocos de texto (um campo de conteúdo ou descrições longas), certifique-se de testar consultas com o **`searchMode=Any|All`** parâmetro para avaliar o impacto dessa definição na pesquisa booleana.
 
@@ -85,7 +85,7 @@ Os filtros são amplamente utilizados em apps que incluem a Pesquisa Cognitiva. 
 
 Também pode precisar de filtros para invocar um formulário de consulta especializado, conforme descrito na tabela seguinte. Pode utilizar um filtro com uma pesquisa não especificada **`search=*`** () ou com uma cadeia de consulta que inclua termos, frases, operadores e padrões.
 
-| Cenário de filtro | Descrição |
+| Cenário de filtro | Description |
 |-----------------|-------------|
 | Filtros de gama | Na Pesquisa Cognitiva Azure, as consultas de alcance são construídas usando o parâmetro do filtro. Para obter mais informações e exemplos, consulte [o exemplo do filtro Range](search-query-simple-examples.md#example-5-range-filters). |
 | Pesquisa de geolocalização | Se um campo pescatório for do [tipo Edm.GeographyPoint,](/rest/api/searchservice/supported-data-types)pode criar uma expressão de filtro para "encontrar perto de mim" ou controlos de pesquisa baseados em mapas. Os campos que impulsionam a geo-pesquisa contêm coordenadas. Para obter mais informações e um exemplo, consulte [o exemplo de Geo-pesquisa.](search-query-simple-examples.md#example-6-geo-search) |

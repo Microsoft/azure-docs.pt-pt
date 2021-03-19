@@ -8,12 +8,12 @@ ms.service: cognitive-search
 ms.topic: overview
 ms.date: 03/12/2021
 ms.custom: references_regions
-ms.openlocfilehash: b4dc8ab44d341b293c044843e6dff2a3b6d3102c
-ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
+ms.openlocfilehash: 8e78fa46125b8aca378598c673ba76829e11d70e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103233553"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104600433"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Novidades na Pesquisa Cognitiva Azure
 
@@ -26,6 +26,7 @@ Saiba o que há de novo no serviço. Marque esta página para manter-se atualiza
 | [Pesquisa semântica](semantic-search-overview.md) | Uma coleção de funcionalidades relacionadas com consultas que melhoram significativamente a relevância dos resultados da pesquisa com muito pouco esforço. </br></br>[O ranking semântico](semantic-ranking.md) calcula pontuações de relevância usando o significado semântico por trás de palavras e conteúdo. </br></br>[As legendas semânticas](semantic-how-to-query-request.md) são passagens relevantes do documento que melhor resumem o documento, com destaques sobre os termos ou frases mais importantes. </br></br>[Respostas semânticas](semantic-answers.md) são passagens-chave, extraídas de um documento de pesquisa, que são formuladas como uma resposta direta a uma consulta que parece uma pergunta. | Pré-visualização pública ([a pedido).](https://aka.ms/SemanticSearchPreviewSignup) </br></br>Utilize documentos de [pesquisa (REST)](/rest/api/searchservice/preview-api/search-documents) versão api=2020-06-30-Preview e [Explorador de Pesquisa](search-explorer.md) no portal Azure. </br></br>Aplicam-se restrições de região e de nível. |
 | [Termos de consulta de verificação ortográfica](speller-how-to-add.md) | Antes de os termos de consulta chegarem ao motor de busca, pode verificar se há erros ortográficos. A `speller` opção funciona com qualquer tipo de consulta (simples, completa ou semântica). |  Pré-visualização pública, REST only, api-version=2020-06-30-Preview|
 | [Indexador Online SharePoint](search-howto-index-sharepoint-online.md) | Este indexante liga-o a um site SharePoint Online para que possa indexar o conteúdo a partir de uma biblioteca de documentos. | Pré-visualização pública, REST only, api-version=2020-06-30-Preview |
+| [Normalizadores](search-normalizers.md) | Os normalizadores fornecem um simples pré-processamento de texto como invólucro, remoção de sotaque, asciifolding e assim por diante sem passar por toda a cadeia de análise.| Pré-visualização pública, REST only, api-version=2020-06-30-Preview |
 
 ## <a name="february-2021"></a>Fevereiro de 2021
 
