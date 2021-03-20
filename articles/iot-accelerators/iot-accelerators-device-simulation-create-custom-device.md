@@ -10,10 +10,10 @@ ms.custom: mvc
 ms.date: 10/25/2018
 ms.author: troyhop
 ms.openlocfilehash: 1fe86aef832223a7485036343b4b12d8bb526e06
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96852392"
 ---
 # <a name="tutorial-create-a-custom-simulated-device"></a>Tutorial: Criar um dispositivo simulado personalizado
@@ -56,7 +56,7 @@ Preencha o formulário com as informações seguintes:
 | ------------------- | ---------------------------------------------------- |
 | Nome do modelo de dispositivo   | Frigorífico                                         |
 | Descrição do modelo   | Frigorífico com sensores de temperatura e humidade |
-| Versão             | 1,0                                                  |
+| Versão             | 1.0                                                  |
 
 > [!NOTE]
 > O nome do modelo de dispositivo tem de ser exclusivo.

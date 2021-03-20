@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 757782e8842fbcaca9c8d95ec8086dd5791a817b
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93240618"
 ---
 # <a name="data-encryption-for-azure-database-for-postgresql-single-server-by-using-the-azure-cli"></a>Encriptação de dados para Azure Database para servidor single PostgreSQL utilizando o Azure CLI
@@ -34,7 +34,7 @@ Saiba como utilizar o CLI Azure para configurar e gerir a encriptação de dados
    ```
 
 * Para utilizar um cofre-chave existente, deve ter as seguintes propriedades para utilizar como chave gerida pelo cliente:
-  * [Excluir suave](../key-vault/general/soft-delete-overview.md)
+  * [Eliminação recuperável](../key-vault/general/soft-delete-overview.md)
 
       ```azurecli-interactive
       az resource update --id $(az keyvault show --name \ <key_vault_name> -o tsv | awk '{print $1}') --set \ properties.enableSoftDelete=true
@@ -46,9 +46,9 @@ Saiba como utilizar o CLI Azure para configurar e gerir a encriptação de dados
       az keyvault update --name <key_vault_name> --resource-group <resource_group_name>  --enable-purge-protection true
       ```
 
-* A chave deve ter os seguintes atributos para usar como chave gerida pelo cliente:
-  * Sem data de validade
-  * Não incapacitado
+* A chave deve ter os seguintes atributos para a utilizar como uma chave gerida pelo cliente:
+  * Não tem uma data de validade
+  * Não está desativada
   * Executar **executar,** **embrulhar** e **desembrulhar** operações
 
 ## <a name="set-the-right-permissions-for-key-operations"></a>Definir as permissões certas para operações chave
@@ -67,7 +67,7 @@ Saiba como utilizar o CLI Azure para configurar e gerir a encriptação de dados
     az postgres server update --resource-group <resource_group> --name <server_name> --assign-identity
     ```
 
-2. Descreva as **permissões chave** **(Obter,** **Embrulhar,** **Desembrulhar)** para o **principal** , que é o nome do servidor servidor single PostgreSQL.
+2. Descreva as **permissões chave** **(Obter,** **Embrulhar,** **Desembrulhar)** para o **principal**, que é o nome do servidor servidor single PostgreSQL.
 
     ```azurecli-interactive
     az keyvault set-policy --name -g <resource_group> --key-permissions get unwrapKey wrapKey --object-id <principal id of the server>

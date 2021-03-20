@@ -9,10 +9,10 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.openlocfilehash: 7d90c9b9b2c9aa97083e17d5ab7d20fc6b471658
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94492128"
 ---
 # <a name="how-to-configure-your-saas-offer-properties"></a>Como configurar as suas propriedades de oferta SaaS
@@ -23,7 +23,7 @@ No separador **Propriedades,** definirá as categorias e indústrias aplicáveis
 
 ## <a name="select-a-category-for-your-offer"></a>Selecione uma categoria para a sua oferta
 
-Na **categoria** , selecione pelo menos uma e até duas categorias para agrupar a sua oferta nas áreas de pesquisa de mercado apropriadas. Com base nas categorias que escolhe, determinamos quais as lojas online que listar a sua oferta: ou Azure Marketplace, Microsoft AppSource ou ambas.
+Na **categoria**, selecione pelo menos uma e até duas categorias para agrupar a sua oferta nas áreas de pesquisa de mercado apropriadas. Com base nas categorias que escolhe, determinamos quais as lojas online que listar a sua oferta: ou Azure Marketplace, Microsoft AppSource ou ambas.
 
 ## <a name="select-industries-optional"></a>Selecione Indústrias (opcional)
 
@@ -32,7 +32,7 @@ No âmbito **das Indústrias,** pode selecionar até duas indústrias e até dua
 > [!NOTE]
 > Se a sua oferta não for específica da indústria, deixe esta secção em branco.
 
-1. Under **Industries** , selecione a ligação **+ Indústrias.**
+1. Under **Industries**, selecione a ligação **+ Indústrias.**
 1. Selecione uma indústria da lista **da Indústria.**
 1. Selecione pelo menos um e um máximo de dois verticais da lista **de sub-indústrias.** Utilize a tecla Ctrl para selecionar várias sub-indústrias.
 1. Para adicionar outra indústria e vertical, selecione **+ Indústrias** e, em seguida, repita os passos 1 a 3.
@@ -87,7 +87,7 @@ Nos termos da **emenda Universal ao contrato padrão para a** caixa de mercado c
 
 Pode optar por fornecer os seus próprios termos e condições, em vez do contrato padrão. Os clientes devem aceitar estes termos antes de poderem experimentar a sua oferta.
 
-1. De acordo com a **Legal** , certifique-se de que **o Uso do Contrato Padrão para** a caixa de verificação do mercado comercial da Microsoft está limpo.
+1. De acordo com a **Legal**, certifique-se de que **o Uso do Contrato Padrão para** a caixa de verificação do mercado comercial da Microsoft está limpo.
 1. Na caixa **de Termos e Condições,** introduza até 10.000 caracteres de texto.
 1. **Selecione Guardar o rascunho** antes de continuar para o separador seguinte, oferecer a **listagem**.
 

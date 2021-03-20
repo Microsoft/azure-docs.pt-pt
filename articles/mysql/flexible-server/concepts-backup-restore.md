@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
 ms.openlocfilehash: 2d69427f9f11a47cedeccb4b1da38b770952f029
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93240771"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql-flexible-server-preview"></a>Backup e restauro na Base de Dados Azure para o MySQL Flexible Server (Pré-visualização)
@@ -18,7 +18,7 @@ ms.locfileid: "93240771"
 > [!IMPORTANT] 
 > A azure Database for MySQL - Flexible Server encontra-se atualmente em pré-visualização pública.
 
-Azure Database for MySQL Flexible Server, cria automaticamente cópias de segurança do servidor e armazena-as de forma segura em armazenamentos redundantes locais dentro da região. As cópias de segurança podem ser utilizadas para restaurar o servidor para um ponto no tempo. Backup e restauro são uma parte essencial de qualquer estratégia de continuidade do negócio porque protegem os seus dados de corrupção acidental ou eliminação.
+Azure Database for MySQL Flexible Server, cria automaticamente cópias de segurança do servidor e armazena-as de forma segura em armazenamentos redundantes locais dentro da região. As cópias de segurança podem ser utilizadas para restaurar o servidor para um ponto no tempo. A cópia de segurança e o restauro são uma parte essencial de qualquer estratégia de continuidade empresarial, uma vez que protegem os seus dados contra danos e a eliminação acidentais.
 
 ## <a name="backup-overview"></a>Descrição geral da Cópia de Segurança
 
@@ -68,8 +68,8 @@ A restauração pontual é útil em vários cenários. Alguns dos casos de uso q
 
 Pode escolher entre um último ponto de restauro e um ponto de restauração personalizado através do [portal Azure.](how-to-restore-server-portal.md)
 
--   **Último ponto de restauro** : O último ponto de restauro ajuda-o a restaurar o servidor até à última cópia de segurança realizada no servidor de origem. O tempotampido para restauro também será exibido no portal. Esta opção é útil para restaurar rapidamente o servidor para o estado mais atualizado.
--   **Ponto de restauração personalizado** : Isto permitir-lhe-á escolher qualquer ponto no tempo dentro do período de retenção definido para este servidor flexível. Esta opção é útil para restaurar o servidor no momento exato para recuperar de um erro do utilizador.
+-   **Último ponto de restauro**: O último ponto de restauro ajuda-o a restaurar o servidor até à última cópia de segurança realizada no servidor de origem. O tempotampido para restauro também será exibido no portal. Esta opção é útil para restaurar rapidamente o servidor para o estado mais atualizado.
+-   **Ponto de restauração personalizado**: Isto permitir-lhe-á escolher qualquer ponto no tempo dentro do período de retenção definido para este servidor flexível. Esta opção é útil para restaurar o servidor no momento exato para recuperar de um erro do utilizador.
 
 O tempo estimado de recuperação depende de vários fatores, incluindo os tamanhos da base de dados, o tamanho da cópia de segurança do registo de transações, o tamanho do cálculo do SKU e a hora da restauração também. A recuperação do registo de transações é a parte mais demorada do processo de restauro. Se o tempo de restauração for escolhido mais perto do horário de backup total ou diferencial de instantâneo, os restauros são mais rápidos uma vez que a aplicação de registo de transação é mínima. Para estimar o tempo de recuperação exato para o seu servidor, recomendamos vivamente testá-lo no seu ambiente, uma vez que tem demasiadas variáveis específicas do ambiente.
 

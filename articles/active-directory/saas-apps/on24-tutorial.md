@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com ON24 Virtual Environment SAML Connection / Microsoft Docs'
+title: 'Tutorial: Integração do Azure Ative Directory com ON24 Virtual Environment SAML Connection | Microsoft Docs'
 description: Saiba como configurar um único sinal de acesso entre o Azure Ative Directory e o ON24 Virtual Environment SAML Connection.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
 ms.openlocfilehash: 30fd3843b50ac6b075d33e961986b94ee2496fef
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92518527"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-on24-virtual-environment-saml-connection"></a>Tutorial: Integração do Azure Ative Directory com LIGAção SAML de Ambiente Virtual ON24

@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 12/07/2020
 ms.author: cherylmc
 ms.openlocfilehash: c12297019b49d7b3cb644ae9c7a904e4ca697f0b
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96855044"
 ---
 # <a name="configure-forced-tunneling"></a>Configurar túnel forçado
@@ -51,7 +51,7 @@ O procedimento a seguir ajuda a criar um grupo de recursos e um VNet. Em seguida
 
 As etapas de procedimento definem o 'DefaultSiteHQ' como a ligação padrão do local para a escavação forçada e configuram as subesí redes 'Midtier' e 'Backend' para utilizar túneis forçados.
 
-## <a name="before-you-begin"></a><a name="before"></a>Before you begin
+## <a name="before-you-begin"></a><a name="before"></a>Antes de começar
 
 Instale a versão mais recente dos cmdlets do PowerShell do Azure Resource Manager. Veja [Como instalar e configurar o Azure PowerShell](/powershell/azure/) para obter mais informações sobre como instalar os cmdlets PowerShell.
 

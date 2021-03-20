@@ -18,13 +18,13 @@ ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: devx-track-js, devx-track-csharp
 ms.openlocfilehash: 8cbe6b39bda0815c4981c497c07750136bcc9dba
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94517489"
 ---
-# <a name="security-frame-configuration-management--mitigations"></a>Quadro de Segurança: Gestão de Configuração / Mitigações 
+# <a name="security-frame-configuration-management--mitigations"></a>Quadro de segurança: | de gestão de configuração Mitigações 
 | Produto/Serviço | Artigo |
 | --------------- | ------- |
 | **Aplicação Web** | <ul><li>[Implementar a Política de Segurança de Conteúdos (CSP) e desativar o javascript inline](#csp-js)</li><li>[Ativar o filtro XSS do navegador](#xss-filter)</li><li>[ASP.NET aplicações devem desativar o rastreio e a depuração antes da implementação](#trace-deploy)</li><li>[Aceda a javascripts de terceiros apenas a partir de fontes fidedignas](#js-trusted)</li><li>[Certifique-se de que as páginas de ASP.NET autenticadas incorporam defesas de reparação ou de tomada de cliques](#ui-defenses)</li><li>[Certifique-se de que apenas as origens fidedignas são permitidas se o CORS estiver ativado em ASP.NET Aplicações Web](#cors-aspnet)</li><li>[Ativar atributo ValideRequest em páginas ASP.NET](#validate-aspnet)</li><li>[Use as versões mais recentes das bibliotecas JavaScript](#local-js)</li><li>[Desativar o cheiro automático de MIME](#mime-sniff)</li><li>[Remova os cabeçalhos padrão do servidor nos Web Sites do Windows Azure para evitar a recolha de impressões digitais](#standard-finger)</li></ul> |

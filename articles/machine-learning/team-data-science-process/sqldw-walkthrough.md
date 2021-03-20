@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, devx-track-python, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: b638cb2b33f24220e7ceb852402862c707cc7bc6
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93315999"
 ---
 # <a name="the-team-data-science-process-in-action-using-azure-synapse-analytics"></a>O processo de ciência de dados da equipa em ação: usando a Azure Synapse Analytics
@@ -63,8 +63,8 @@ A **chave única** usada para juntar dados de viagem e tarifa de \_ viagem é co
 ## <a name="address-three-types-of-prediction-tasks"></a><a name="mltasks"></a>Endereçar três tipos de tarefas de previsão
 Formulamos três problemas de previsão com base na *\_ quantidade* de ponta para ilustrar três tipos de tarefas de modelação:
 
-1. **Classificação binária** : Prever se uma gorjeta foi ou não paga por uma viagem, isto é, um *\_ valor* de gorjeta superior a $0 é um exemplo positivo, enquanto um *\_ valor* de gorjeta de $0 é um exemplo negativo.
-2. **Classificação multiclasse** : Para prever o intervalo de gorjeta paga pela viagem. Dividimos a *\_ quantidade de gorjeta* em cinco caixotes ou classes:
+1. **Classificação binária**: Prever se uma gorjeta foi ou não paga por uma viagem, isto é, um *\_ valor* de gorjeta superior a $0 é um exemplo positivo, enquanto um *\_ valor* de gorjeta de $0 é um exemplo negativo.
+2. **Classificação multiclasse**: Para prever o intervalo de gorjeta paga pela viagem. Dividimos a *\_ quantidade de gorjeta* em cinco caixotes ou classes:
 
 `Class 0 : tip_amount = $0`
 
@@ -76,7 +76,7 @@ Formulamos três problemas de previsão com base na *\_ quantidade* de ponta par
 
 `Class 4 : tip_amount > $20`
 
-3. **Tarefa de regressão** : Prever o valor da gorjeta paga por uma viagem.
+3. **Tarefa de regressão**: Prever o valor da gorjeta paga por uma viagem.
 
 ## <a name="set-up-the-azure-data-science-environment-for-advanced-analytics"></a><a name="setup"></a>Criar o ambiente de ciência de dados Azure para análises avançadas
 Para configurar o seu ambiente Azure Data Science, siga estes passos.
@@ -93,7 +93,7 @@ Para configurar o seu ambiente Azure Data Science, siga estes passos.
 **Provisionar o seu exemplo Azure Synapse Analytics.**
 Siga a documentação na [Create e questione um Azure Synapse Analytics no portal Azure](../../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md) para obter uma instância Azure Synapse Analytics. Certifique-se de que faz notações nas seguintes credenciais Azure Synapse Analytics que serão usadas em etapas posteriores.
 
-* **Nome do servidor** : \<server Name> .database.windows.net
+* **Nome do servidor**: \<server Name> .database.windows.net
 * **Nome SQLDW (Base de Dados)**
 * **Nome de Utilizador**
 * **Palavra-passe**
@@ -363,20 +363,20 @@ A localização geográfica das suas contas de armazenamento afeta os tempos de 
 Terá de decidir o que fazer se tiver ficheiros duplicados de origem e destino.
 
 > [!NOTE]
-> Se os ficheiros .csv a serem copiados do armazenamento de bolhas públicas para a sua conta de armazenamento de bolhas privadas já existirem na sua conta de armazenamento de bolhas privadas, a AzCopy perguntar-lhe-á se pretende sobrepor-se a eles. Se não quiser exagerar, insira **n** quando solicitado. Se quiser substituir **todos,** insira **um** quando solicitado. Também pode inserir **y** para substituir ficheiros .csv individualmente.
+> Se os ficheiros .csv a serem copiados do armazenamento de bolhas públicas para a sua conta de armazenamento de bolhas privadas já existem na sua conta de armazenamento de bolhas privadas, a AzCopy perguntar-lhe-á se pretende sobrepor-se a eles. Se não quiser exagerar, insira **n** quando solicitado. Se quiser substituir **todos,** insira **um** quando solicitado. Também pode inserir **y** para substituir ficheiros .csv individualmente.
 >
 >
 
 ![Saída da AzCopy][21]
 
-Pode usar os seus próprios dados. Se os seus dados estiverem na sua máquina de segurança na sua aplicação de vida real, ainda pode utilizar a AzCopy para enviar dados no local para o seu armazenamento privado de bolhas Azure. Basta alterar a **Source** localização `$Source = "http://getgoing.blob.core.windows.net/public/nyctaxidataset"` Source, no comando AzCopy do ficheiro de script PowerShell para o diretório local que contém os seus dados.
+Pode usar os seus próprios dados. Se os seus dados estiverem na sua máquina de segurança na sua aplicação de vida real, ainda pode utilizar a AzCopy para enviar dados no local para o seu armazenamento privado de bolhas Azure. Basta alterar a  localização `$Source = "http://getgoing.blob.core.windows.net/public/nyctaxidataset"` Source, no comando AzCopy do ficheiro de script PowerShell para o diretório local que contém os seus dados.
 
 > [!TIP]
 > Se os seus dados já estiverem no seu armazenamento privado de blob Azure na sua aplicação real, pode saltar o passo AzCopy no script PowerShell e fazer o upload direto dos dados para a Azure Azure Synapse Analytics. Isto requer edições adicionais do script para adaptá-lo ao formato dos seus dados.
 >
 >
 
-Este script PowerShell também liga as informações do Azure Synapse Analytics nos ficheiros de exemplo de exploração de dados SQLDW_Explorations.sql, SQLDW_Explorations.ipynb e SQLDW_Explorations_Scripts.py para que estes três ficheiros estejam prontos para serem testados instantaneamente após o script PowerShell estar concluído.
+Este script PowerShell também liga as informações do Azure Synapse Analytics nos ficheiros de exemplo de exploração de dados SQLDW_Explorations.sql, SQLDW_Explorations.ipynb e SQLDW_Explorations_Scripts.py para que estes três ficheiros estejam prontos a ser testados instantaneamente após o script PowerShell estar concluído.
 
 Após uma execução bem sucedida, verá o ecrã como abaixo:
 
@@ -609,7 +609,7 @@ AND pickup_longitude != '0' AND dropoff_longitude != '0'
 | 3 |40.761456 |-73.999886 |40.766544 |-73.988228 |0.7037227967 |
 
 ### <a name="prepare-data-for-model-building"></a>Preparar dados para a construção de modelos
-A seguinte consulta junta-se às tabelas **de tarifas nyctaxi \_ e** **nyctaxi, \_** gera uma etiqueta de classificação binária **inclinada** , uma **\_ classe** de ponta de etiqueta de classificação multi-classe , e extrai uma amostra do conjunto de dados completo. A amostragem é feita recuperando um subconjunto das viagens com base no tempo de recolha.  Esta consulta pode ser copiada e colada diretamente no [Azure Machine Learning Studio (clássico)](https://studio.azureml.net) Módulo[de importação de dados de importação de] [dados]para ingestão direta de dados a partir da instância SQL Database em Azure. A consulta exclui registos com coordenadas incorretas (0,0).
+A seguinte consulta junta-se às tabelas **de tarifas nyctaxi \_ e** **nyctaxi, \_** gera uma etiqueta de classificação binária **inclinada**, uma **\_ classe** de ponta de etiqueta de classificação multi-classe , e extrai uma amostra do conjunto de dados completo. A amostragem é feita recuperando um subconjunto das viagens com base no tempo de recolha.  Esta consulta pode ser copiada e colada diretamente no [Azure Machine Learning Studio (clássico)](https://studio.azureml.net) Módulo[de importação de dados de importação de] [dados]para ingestão direta de dados a partir da instância SQL Database em Azure. A consulta exclui registos com coordenadas incorretas (0,0).
 
 ```sql
 SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount,     f.total_amount, f.tip_amount,
@@ -937,9 +937,9 @@ pd.read_sql(query,conn)
 ## <a name="build-models-in-azure-machine-learning"></a><a name="mlmodel"></a>Construa modelos em Azure Machine Learning
 Estamos agora prontos para avançar para a construção de modelos e implantação de modelos em [Azure Machine Learning.](https://studio.azureml.net) Os dados estão prontos para serem utilizados em qualquer um dos problemas de previsão identificados anteriormente, nomeadamente:
 
-1. **Classificação binária** : Para prever se uma gorjeta foi ou não paga por uma viagem.
-2. **Classificação multiclasse** : Para prever o intervalo de gorjeta paga, de acordo com as classes previamente definidas.
-3. **Tarefa de regressão** : Prever o valor da gorjeta paga por uma viagem.
+1. **Classificação binária**: Para prever se uma gorjeta foi ou não paga por uma viagem.
+2. **Classificação multiclasse**: Para prever o intervalo de gorjeta paga, de acordo com as classes previamente definidas.
+3. **Tarefa de regressão**: Prever o valor da gorjeta paga por uma viagem.
 
 Para iniciar o exercício de modelação, inicie sessão no seu espaço de trabalho **Azure Machine Learning (clássico).** Se ainda não criou um espaço de trabalho de aprendizagem automática, consulte [Create a Azure Machine Learning Studio (clássico) espaço de trabalho](../classic/create-workspace.md).
 

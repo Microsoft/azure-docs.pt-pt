@@ -12,10 +12,10 @@ ms.date: 10/24/2019
 ms.author: pafarley
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 326fc2cc162a2ab54b40888250fbeef55ad8800a
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96853463"
 ---
 # <a name="create-video-transcript-reviews-using-net"></a>Criar comentários de transcrição de vídeo usando .NET
@@ -367,7 +367,7 @@ Press any key to close the application.
 
 ## <a name="navigate-to-your-video-transcript-review"></a>Navegue para a sua revisão de transcrição de vídeo
 
-Aceda à revisão da transcrição de vídeo na sua ferramenta de revisão do Moderador de Conteúdo no ecrã **de Transcrição** de Vídeo de > **Video** > **Transcript** Revisão.
+Aceda à revisão da transcrição de vídeo na sua ferramenta de revisão do Moderador de Conteúdo no ecrã **de Transcrição** de Vídeo de >  >  Revisão.
 
 Vê as seguintes características:
 - As duas linhas de transcrição que acrescentou

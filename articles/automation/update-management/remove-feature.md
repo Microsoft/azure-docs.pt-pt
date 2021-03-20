@@ -6,10 +6,10 @@ ms.date: 07/28/2020
 ms.topic: conceptual
 ms.custom: mvc
 ms.openlocfilehash: 1d83f859fce33b9499d01c4b58e69f56fdbbb293
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92222584"
 ---
 # <a name="remove-update-management-from-automation-account"></a>Remover Gestão de Atualização da conta de Automação
@@ -65,7 +65,7 @@ Enquanto tenta desvincular a conta Automation, pode acompanhar o progresso no me
 Se a Update Management foi configurada para suportar versões anteriores da monitorização Azure SQL, a configuração da funcionalidade poderia ter criado ativos de Automação que deve remover. Para a Gestão de Atualizações, pode querer remover os seguintes itens que já não são necessários:
 
    * Agendas de atualização - Cada um tem um nome que corresponde à implementação de atualização que criou.
-   * Grupos operários híbridos criados para a Gestão de Atualização - Cada um deles é nomeado da mesma forma *para machine1.contoso.com_9ceb8108-26c9-4051-b6b3-227600d715c8)*.
+   * Grupos operários híbridos criados para a Gestão de Atualização - Cada um deles é nomeado da mesma forma para *machine1.contoso.com_9ceb8108-26c9-4051-b6b3-227600d715c8)*.
 
 ## <a name="next-steps"></a>Passos seguintes
 

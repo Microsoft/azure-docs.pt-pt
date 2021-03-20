@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
 ms.openlocfilehash: b2648382fb19fafcfc342379aa9da974f6f8d1ff
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90528424"
 ---
 # <a name="quickstart-create-and-provision-a-simulated-tpm-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>Quickstart: Criar e providenciar um dispositivo TPM simulado utilizando o dispositivo C# SDK para serviço de provisionamento de dispositivos IoT Hub
@@ -49,7 +49,7 @@ Este artigo vai demonstrar as inscrições individuais.
 
 ## <a name="provision-the-simulated-device"></a>Aprovisionar o dispositivo simulado
 
-1. Inicie sessão no Portal do Azure. Selecione o botão **Todos os recursos** no menu à esquerda e abra o serviço de Provisionamento de Dispositivos. A partir da lâmina **de visão geral,** note o valor **_ID Scope._**
+1. Inicie sessão no portal do Azure. Selecione o botão **Todos os recursos** no menu à esquerda e abra o serviço de Provisionamento de Dispositivos. A partir da lâmina **de visão geral,** note o valor **_ID Scope._**
 
     ![Copiar o ID de Âmbito do serviço de aprovisionamento a partir do painel do portal](./media/quick-create-simulated-device-tpm-csharp/copy-scope.png) 
 
@@ -96,7 +96,7 @@ Este artigo vai demonstrar as inscrições individuais.
 
     Se tiver alterado o *estado inicial do dispositivo duplo* face ao valor predefinido na entrada de inscrição do seu dispositivo, este pode extrair o estado pretendido do dispositivo duplo a partir do hub e agir em conformidade. Para obter mais informações, consulte [Compreender e utilizar gémeos do dispositivo no IoT Hub.](../iot-hub/iot-hub-devguide-device-twins.md)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se pretender continuar a trabalhar e explorar a amostra do cliente do dispositivo, não limpe os recursos criados neste quickstart. Se não pretender continuar, utilize os seguintes passos para eliminar todos os recursos criados por este arranque rápido.
 

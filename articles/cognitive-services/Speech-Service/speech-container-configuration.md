@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: aahi
 ms.openlocfilehash: e65bb7c7d8fc04baec6b50a53519e689e748fbe1
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96012174"
 ---
 # <a name="configure-speech-service-containers"></a>Configurar recipientes de serviço de fala
@@ -50,7 +50,7 @@ Esta definição pode ser encontrada no seguinte local:
 
 - Portal Azure: Visão geral **da fala,** rotulada `Endpoint`
 
-| Necessário | Nome | Tipo de dados | Descrição |
+| Necessário | Name | Tipo de dados | Descrição |
 | -------- | ---- | --------- | ----------- |
 | Sim | `Billing` | String | URI de faturação. Para obter mais informações sobre a obtenção do URI de faturação, consulte [a recolha dos parâmetros necessários](speech-container-howto.md#gathering-required-parameters). Para obter mais informações e uma lista completa de pontos finais regionais, consulte [os nomes de subdomínio personalizados para serviços cognitivos.](../cognitive-services-custom-subdomains.md) |
 
@@ -78,7 +78,7 @@ Os recipientes Standard Speech não utilizam suportes de entrada ou saída para 
 
 A sintaxe exata da localização do suporte do hospedeiro varia consoante o sistema operativo do hospedeiro. Além disso, a localização do suporte do [computador anfitrião](speech-container-howto.md#the-host-computer)pode não estar acessível devido a um conflito entre permissões utilizadas pela conta de serviço do estivador e as permissões de localização do anfitrião.
 
-| Opcional | Nome | Tipo de dados | Descrição |
+| Opcional | Name | Tipo de dados | Descrição |
 | -------- | ---- | --------- | ----------- |
 | Não permitido | `Input` | String | Os recipientes de fala padrão não usam isto. Os recipientes de fala personalizados utilizam [suportes de volume](#volume-mount-settings).                                                                                    |
 | Opcional | `Output` | String | O alvo do suporte de saída. O valor predefinido é `/output`. Esta é a localização dos registos. Isto inclui registos de contentores. <br><br>Exemplo:<br>`--mount type=bind,src=c:\output,target=/output` |

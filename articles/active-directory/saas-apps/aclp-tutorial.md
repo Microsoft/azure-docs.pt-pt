@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com a ACLP Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com | ACLP Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o ACLP.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 05/07/2019
 ms.author: jeedes
 ms.openlocfilehash: bb91322df315d60adddf184905d0c619f5be8d6a
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92313547"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-aclp"></a>Tutorial: Integração do Diretório Ativo Azure com a ACLP
@@ -142,7 +142,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
 Nesta secção, você permite que Britta Simon utilize a Azure um único sinal de acesso, permitindo o acesso à ACLP.
 
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **ACLP**.
+1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações** e, em seguida, selecione **ACLP**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
@@ -166,7 +166,7 @@ Nesta secção, você permite que Britta Simon utilize a Azure um único sinal d
 
 ### <a name="create-aclp-test-user"></a>Criar utilizador de teste ACLP
 
-Nesta secção, cria-se um utilizador chamado Britta Simon na ACLP. Trabalhe com a [equipa de apoio da ACLP](mailto:mrichards@sans.org) para adicionar os utilizadores na plataforma ACLP. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação.
+Nesta secção, cria-se um utilizador chamado Britta Simon na ACLP. Trabalhe com a [equipa de apoio da ACLP](mailto:mrichards@sans.org) para adicionar os utilizadores na plataforma ACLP. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação.
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único
 

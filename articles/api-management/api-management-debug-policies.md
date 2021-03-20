@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 09/22/2020
 ms.author: apimpm
 ms.openlocfilehash: 2e45d1274cf7332dbca70eaa8fc51f0ac98e5359
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101648021"
 ---
 # <a name="debug-azure-api-management-policies-in-visual-studio-code"></a>Debug Azure API Políticas de Gestão em Código de Estúdio Visual

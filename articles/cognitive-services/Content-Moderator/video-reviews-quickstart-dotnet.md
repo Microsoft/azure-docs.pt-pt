@@ -12,10 +12,10 @@ ms.date: 10/24/2019
 ms.author: pafarley
 ms.custom: devx-track-csharp
 ms.openlocfilehash: d9f80de5a18e27de4a9f8e85613e3c2eee6c111c
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96853480"
 ---
 # <a name="create-video-reviews-using-net"></a>Criar comentários de vídeo usando .NET
@@ -542,7 +542,7 @@ Press any key to close the application.
 
 ## <a name="check-out-your-video-review"></a>Confira a sua análise de vídeo
 
-Finalmente, vê a revisão de vídeo na sua conta de ferramenta de revisão do Moderador de Conteúdo no ecrã **de Vídeo de Revisão.** > **Video**
+Finalmente, vê a revisão de vídeo na sua conta de ferramenta de revisão do Moderador de Conteúdo no ecrã **de Vídeo de Revisão.** > 
 
 ![Revisão de vídeo para moderadores humanos](images/ams-video-review.PNG)
 

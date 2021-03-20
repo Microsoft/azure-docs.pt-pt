@@ -1,5 +1,5 @@
 ---
-title: Cofre de chave de acesso atrás de uma firewall - Azure Key Vault / Microsoft Docs
+title: Cofre de chave de acesso atrás de uma firewall - Azure Key Vault | Microsoft Docs
 description: Saiba mais sobre as portas, anfitriões ou endereços IP para abrir para permitir que uma aplicação de cliente de cofre chave atrás de uma firewall aceda a um cofre chave.
 services: key-vault
 author: amitbapat
@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.date: 08/12/2019
 ms.author: ambapat
 ms.openlocfilehash: ca5842fb268c20f8ae58eb5f683229c4ae3919f4
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93289166"
 ---
 # <a name="access-azure-key-vault-behind-a-firewall"></a>Aceder ao Cofre de Chaves do Azure protegido por firewall
@@ -56,7 +56,7 @@ Para a gestão do Cofre de Chaves (CRUD e definição da política de acesso), a
 
 ## <a name="key-vault-operations"></a>Operações do Cofre de Chaves
 
-Para todas as operações criptográficas e de gestão de objetos do cofre de chaves (chaves e segredos), o cliente do cofre de chaves precisa de aceder ao ponto final do cofre de chaves. O sufixo DNS do ponto final varia consoante a localização do seu cofre de chaves. O ponto final do cofre de chaves tem o formato *vault-name*. *region-specific-dns-suffix* , tal como descrito na tabela seguinte.  
+Para todas as operações criptográficas e de gestão de objetos do cofre de chaves (chaves e segredos), o cliente do cofre de chaves precisa de aceder ao ponto final do cofre de chaves. O sufixo DNS do ponto final varia consoante a localização do seu cofre de chaves. O ponto final do cofre de chaves tem o formato *vault-name*.*region-specific-dns-suffix*, tal como descrito na tabela seguinte.  
 
 | Tipo de operação | Ponto final:porta |
 | --- | --- |

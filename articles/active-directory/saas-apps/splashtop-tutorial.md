@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Directy integração única (SSO) com Splashtop Microsoft Docs'
+title: 'Tutorial: Azure Ative Directory integração única de sign-on (SSO) com | Splashtop Microsoft Docs'
 description: Saiba como configurar um único sinal entre o Azure Ative Directory e o Splashtop.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/04/2020
 ms.author: jeedes
 ms.openlocfilehash: b6dda20487caf6fe3ba49578cfdc0b65434a8dfa
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92520562"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-splashtop"></a>Tutorial: Azure Ative Directory integração única (SSO) com Splashtop
@@ -110,7 +110,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
 
 Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso ao Splashtop.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de aplicações, selecione **Splashtop**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 
@@ -127,7 +127,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 ## <a name="configure-splashtop-sso"></a>Configurar sso splashtop
 
 Nesta secção, terá de se candidatar a um novo método SSO a partir do [portal web Splashtop](https://my.splashtop.com/login).
-1. No portal web Splashtop, **Account info**vá ao  /  separador **'Informações de Conta' Equipa,** desloque-se para baixo para encontrar **o único sinal na** secção . Em seguida, clique **em Aplicar para novo método SSO**.
+1. No portal web Splashtop, vá ao  /  separador **'Informações de Conta' Equipa,** desloque-se para baixo para encontrar **o único sinal na** secção . Em seguida, clique **em Aplicar para novo método SSO**.
 
     ![A screenshot mostra o sinal único na página onde pode selecionar Aplicar para novo método S S O.](media/splashtop-tutorial/apply-for-new-SSO-method.png)
 

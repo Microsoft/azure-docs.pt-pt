@@ -1,13 +1,13 @@
 ---
-title: Sobre laboratórios nos Serviços Azure Lab . Microsoft Docs
+title: Sobre laboratórios em Azure Lab Services | Microsoft Docs
 description: Aprenda a configurar rapidamente um ambiente de laboratório em sala de aula na nuvem - configuure um laboratório com um VM modelo com o software necessário para a aula e disponibilize uma cópia do VM para cada aluno da turma.
 ms.topic: overview
 ms.date: 06/26/2020
 ms.openlocfilehash: 79d6f1cc9f2a6d8d8be872359a4677b36602eea5
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96434809"
 ---
 # <a name="introduction-to-labs"></a>Introdução aos laboratórios

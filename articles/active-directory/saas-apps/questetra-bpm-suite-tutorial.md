@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com a Suite Questetra BPM Microsoft Docs'
+title: 'Tutorial: Integração do Azure Ative Directory com a Suite Questetra BPM | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Questetra BPM Suite.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.openlocfilehash: 13f05005529d3983e042398f5274fd7f981b8c8c
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92516601"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-questetra-bpm-suite"></a>Tutorial: Integração do Azure Ative Directory com a Suite Questetra BPM
@@ -136,9 +136,9 @@ Para configurar o Azure AD single sign-on com questetra BPM Suite, execute os se
 
 4. No seu site da empresa **Questetra BPM Suite,** na secção **de Informação SP,** execute os seguintes passos:
 
-    a. Copie o **URL ACS**e, em seguida, cole-o na caixa de texto **Sign On URL** na secção de **Configuração Básica SAML** do portal Azure.
+    a. Copie o **URL ACS** e, em seguida, cole-o na caixa de texto **Sign On URL** na secção de **Configuração Básica SAML** do portal Azure.
     
-    b. Copie o **ID da Entidade**e, em seguida, cole-o na caixa de texto **identifier** na secção **de Configuração BÁSICA SAML** do portal Azure.
+    b. Copie o **ID da Entidade** e, em seguida, cole-o na caixa de texto **identifier** na secção **de Configuração BÁSICA SAML** do portal Azure.
 
 5. No seu site da empresa **Questetra BPM Suite,** execute os seguintes passos: 
    

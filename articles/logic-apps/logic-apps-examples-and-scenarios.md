@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/28/2020
 ms.openlocfilehash: 5f7afe044ab4f782f2028598c2c56e75edf95860
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92317385"
 ---
 # <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Cenários comuns, exemplos, tutoriais e walkthroughs para apps Azure Logic
@@ -31,7 +31,7 @@ Aqui estão exemplos que descrevem os gatilhos comumente usados:
 
 * *As sondagens* disparam:
 
-  * [O gatilho **de recorrência** ](../connectors/connectors-native-recurrence.md) permite-lhe definir a data e hora de início mais a recorrência para disparar a sua aplicação lógica. Por exemplo, pode selecionar os dias da semana e as horas do dia para ativar a sua aplicação lógica. Para obter mais informações, veja estes tópicos:<p>
+  * [O gatilho **de recorrência**](../connectors/connectors-native-recurrence.md) permite-lhe definir a data e hora de início mais a recorrência para disparar a sua aplicação lógica. Por exemplo, pode selecionar os dias da semana e as horas do dia para ativar a sua aplicação lógica. Para obter mais informações, veja estes tópicos:<p>
 
     * [Agendar e executar tarefas, processos e fluxos de trabalho automatizados com o Azure Logic Apps](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md)
     * [Tutorial: Criar fluxos de trabalho automáticos e recorrentes baseados em horários utilizando apps Azure Logic](../logic-apps/tutorial-build-schedule-recurring-logic-app-workflow.md)
@@ -46,13 +46,13 @@ Aqui estão exemplos que descrevem os gatilhos comumente usados:
     * [Tutorial: Criar fluxos de trabalho automatizados baseados em aprovação utilizando apps Azure Logic](../logic-apps/tutorial-process-mailing-list-subscriptions-workflow.md)
     * [Tutorial: Automatizar tarefas para processar e-mails utilizando apps Azure Logic, Funções Azure e Armazenamento Azure](../logic-apps/tutorial-process-email-attachments-workflow.md)
 
-  * O gatilho [ **HTTP** ](../connectors/connectors-native-http.md) pode chamar um ponto final de serviço em HTTP ou HTTPS. Para obter mais informações, consulte [fluxos de trabalho de chamada, gatilho ou ninho utilizando pontos finais HTTP](../logic-apps/logic-apps-http-endpoint.md).
+  * O gatilho [ **HTTP**](../connectors/connectors-native-http.md) pode chamar um ponto final de serviço em HTTP ou HTTPS. Para obter mais informações, consulte [fluxos de trabalho de chamada, gatilho ou ninho utilizando pontos finais HTTP](../logic-apps/logic-apps-http-endpoint.md).
 
 * *Acionadores:*
 
-  * O gatilho [ **'Pedido'** ](../connectors/connectors-native-reqres.md) pode receber pedidos HTTPS de entrada.
+  * O gatilho [ **'Pedido'**](../connectors/connectors-native-reqres.md) pode receber pedidos HTTPS de entrada.
 
-  * O gatilho [ **HTTP Webhook** ](../connectors/connectors-native-webhook.md) subscreve um ponto final de serviço registando um *URL de retorno* com esse serviço. Dessa forma, o serviço pode simplesmente notificar o gatilho quando o evento especificado acontece, para que o gatilho não precise de sondar o serviço.
+  * O gatilho [ **HTTP Webhook**](../connectors/connectors-native-webhook.md) subscreve um ponto final de serviço registando um *URL de retorno* com esse serviço. Dessa forma, o serviço pode simplesmente notificar o gatilho quando o evento especificado acontece, para que o gatilho não precise de sondar o serviço.
 
 Após o evento especificado acontecer, o gatilho dispara, o que cria uma nova instância lógica de fluxo de trabalho de aplicações e executa as ações no fluxo de trabalho. Pode aceder a quaisquer dados do gatilho durante todo o fluxo de trabalho. Por exemplo, o Twitter Num novo gatilho **de tweet** passa o conteúdo do tweet para a aplicação lógica executada. Para começar com a Azure Logic Apps, experimente estes tópicos de arranque rápido:
 
@@ -99,7 +99,7 @@ Por vezes, as suas aplicações lógicas e contas de integração precisam de ac
 
 Pode desenvolver e implementar totalmente aplicações lógicas com o Visual Studio, Azure DevOps ou qualquer outro controlo de origem e ferramentas de construção automatizadas. Para suportar a implementação de fluxos de trabalho e conexões dependentes num modelo de recurso, as aplicações lógicas usam modelos de implementação de recursos Azure. As ferramentas visual Studio geram automaticamente estes modelos, que pode fazer check-in no controlo de origem para a versão. Para registos de notificação e diagnóstico para o estado de execução do fluxo de trabalho, a Azure Logic Apps também fornece monitorização e alertas.
 
-### <a name="deploy"></a>Implementação
+### <a name="deploy"></a>Implementar
 
 * [Quickstart: Criar tarefas, processos e fluxos de trabalho automatizados utilizando apps Azure Logic - Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)
 * [Visão geral: Automatizar a implementação de aplicativos de lógica](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)
@@ -117,7 +117,7 @@ Pode desenvolver e implementar totalmente aplicações lógicas com o Visual Stu
 * [Criar e gerir contas de integração para integrações empresariais B2B](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)
 * [Gerir o ambiente de serviço de integração (ISE) em Azure Logic Apps](../logic-apps/ise-manage-integration-service-environment.md)
 
-### <a name="monitor"></a>Monitorizar
+### <a name="monitor"></a>Monitor
 
 * [Monitorizar o estado de execução, rever o histórico do acionador e configurar alertas para o Azure Logic Apps](../logic-apps/monitor-logic-apps.md)
 * [Configurar registos do Azure Monitor e recolher dados de diagnóstico para apps Azure Logic](../logic-apps/monitor-logic-apps-log-analytics.md)

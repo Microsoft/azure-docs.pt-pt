@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a09c4513206bea3462577ecba49b5d77b655b0e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91628269"
 ---
 # <a name="conditional-access-sign-in-risk-based-conditional-access"></a>Acesso Condicional: Acesso condicional baseado no risco de inscrição
@@ -29,7 +29,7 @@ Existem dois locais onde esta apólice pode ser atribuída. As organizações de
 ## <a name="enable-with-conditional-access-policy"></a>Ativar com política de acesso condicional
 
 1. Inscreva-se no **portal Azure** como administrador global, administrador de segurança ou administrador de acesso condicional.
-1. Navegue pelo Acesso Condicional de Segurança **do Diretório Ativo Azure**  >  **Security**  >  **Conditional Access**.
+1. Navegue pelo Acesso Condicional de Segurança **do Diretório Ativo Azure**  >    >  .
 1. Selecione **Nova política**.
 1. Dê um nome à sua política. Recomendamos que as organizações criem um padrão significativo para os nomes das suas políticas.
 1. Em **Atribuições**, selecione **Utilizadores e grupos**.
@@ -47,15 +47,15 @@ Existem dois locais onde esta apólice pode ser atribuída. As organizações de
 ## <a name="enable-through-identity-protection"></a>Ativar através da Proteção de Identidade
 
 1. Inicie sessão no **portal do Azure**.
-1. Selecione **Todos os serviços**e, em seguida, navegue **para Azure AD Identity Protection**.
+1. Selecione **Todos os serviços** e, em seguida, navegue **para Azure AD Identity Protection**.
 1. Selecione **a política de risco de inscrição**.
 1. Em **Atribuições**, selecione **Utilizadores.**
    1. Em **Incluir**, selecione **Todos os utilizadores**.
    1. Em **'Excluir'**( **Selecione Selecionar utilizadores excluídos),** escolha o acesso de emergência da sua organização ou contas de break-glass e selecione **Select**.
    1. Selecione **Concluído**.
 1. Em **Condições**, selecione **o risco de inscrição,** em seguida, escolha Médio e **superior**.
-   1. **Selecione Selecione**e, em **seguida, Feito**.
-1. No **Acesso ao**  >  **Controlo**, escolha **Permitir o acesso**e, em seguida, selecione **Requera a autenticação multi-factor**.
+   1. **Selecione Selecione** e, em **seguida, Feito**.
+1. No **Acesso ao**  >  **Controlo**, escolha **Permitir o acesso** e, em seguida, selecione **Requera a autenticação multi-factor**.
    1. Selecione **Selecionar**.
 1. Definir **a política de execução** para **on**.
 1. Selecione **Guardar**.

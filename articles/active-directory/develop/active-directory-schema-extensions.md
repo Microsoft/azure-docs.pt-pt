@@ -14,10 +14,10 @@ ms.date: 07/29/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
 ms.openlocfilehash: 0127c8d796126d1e99b1fa38a9506df477c7eb49
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98755732"
 ---
 # <a name="using-directory-schema-extension-attributes-in-claims"></a>Utilização de atributos de extensão de esquema de diretório em sinistros
@@ -29,7 +29,7 @@ Os atributos de extensão de esquema de diretório fornecem uma forma de armazen
 
 Os atributos de extensão do esquema de diretório estão sempre associados a uma aplicação no arrendatário e são referenciados pela *aplicaçãoid* da aplicação em seu nome.
 
-O identificador de um atributo de extensão de esquema de diretório é do formulário *Extension_xxxxxxxxx_AttributeName*.  Onde *xxxxx* é a *aplicaçãoId* da aplicação para a qual a extensão foi definida.
+O identificador de um atributo de extensão de esquema de diretório é do formulário *Extension_xxxxxxxxx_AttributeName*.  Onde *xxxxxxxxx* é a *aplicaçãoId* da aplicação para a qual a extensão foi definida.
 
 ## <a name="registering-and-using-directory-schema-extensions"></a>Registar e utilizar extensões de esquema de diretório
 Os atributos de extensão do esquema de diretório podem ser registados e povoados de uma de duas maneiras:
@@ -71,6 +71,6 @@ Onde *xxxxxxx* é o ID da aplicação com que a extensão foi registada.
 >
 > O parâmetro "ID" no esquema de alegações utilizado para atributos de diretório incorporado é "ExtensionID" para atributos de extensão de diretório.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Saiba como [adicionar reclamações personalizadas ou adicionais aos tokens SAML 2.0 e JSON Web Tokens (JWT).](active-directory-optional-claims.md)
 - Saiba como [personalizar as reclamações emitidas em fichas para uma aplicação específica.](active-directory-claims-mapping.md)

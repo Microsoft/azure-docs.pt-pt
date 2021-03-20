@@ -1,5 +1,5 @@
 ---
-title: Gerencie o seu ambiente utilizando modelos de Gestor de Recursos Azure - Azure Time Series Insights / Microsoft Docs
+title: Gerencie o seu ambiente utilizando modelos de Gestor de Recursos Azure - Azure Time Series Insights | Microsoft Docs
 description: Aprenda a gerir o ambiente Azure Time Series Insights programático usando o Azure Resource Manager.
 ms.service: time-series-insights
 services: time-series-insights
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 09/30/2020
 ms.custom: seodec18
 ms.openlocfilehash: 493750e69b1fdc935b04d6dc705cfd046b6b086e
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96011664"
 ---
 # <a name="create-azure-time-series-insights-gen-1-resources-using-azure-resource-manager-templates"></a>Criar recursos do Azure Time Series Insights Gen 1 utilizando modelos de Gestor de Recursos Azure
@@ -67,8 +67,8 @@ O procedimento que se segue descreve como usar o PowerShell para implementar um 
      | eventHubNamespaceName | O espaço de nome do centro de eventos de origem. |
      | eventHubName | O nome do centro de eventos de origem. |
      | nome do Grupo de Consumidores | O nome do grupo de consumidores que o serviço Azure Time Series Insights utilizará para ler os dados do centro de eventos. **NOTA:** Para evitar a contenção de recursos, este grupo de consumidores deve ser dedicado ao serviço Azure Time Series Insights e não partilhado com outros leitores. |
-     | ambienteName | O nome do ambiente. O nome não pode incluir:   `<` , , , , , , , , , `>` e `%` `&` `:` `\\` `?` `/` quaisquer caracteres de controlo. Todos os outros carateres são permitidos.|
-     | nome de EventoSource | O nome do recurso para crianças fonte do evento. O nome não pode incluir:   `<` , , , , , , , , , `>` e `%` `&` `:` `\\` `?` `/` quaisquer caracteres de controlo. Todos os outros carateres são permitidos. |
+     | ambienteName | O nome do ambiente. O nome não pode incluir:   `<` , , , , , , , `>` e `%` `&` `:` `\\` `?` `/` quaisquer caracteres de controlo. Todos os outros carateres são permitidos.|
+     | nome de EventoSource | O nome do recurso para crianças fonte do evento. O nome não pode incluir:   `<` , , , , , , , `>` e `%` `&` `:` `\\` `?` `/` quaisquer caracteres de controlo. Todos os outros carateres são permitidos. |
 
     <div id="optional-parameters"></div>
 

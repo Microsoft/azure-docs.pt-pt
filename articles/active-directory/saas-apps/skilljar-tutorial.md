@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com o Skilljar Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com skilljar | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Skilljar.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: bd7d6ae1af85bd483c96c8425c55c3c92a1b8ec2
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92520630"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skilljar"></a>Tutorial: Integração do Azure Ative Directory com Skilljar
@@ -125,7 +125,7 @@ Para configurar o Azure AD com Skilljar, execute os seguintes passos:
 
 ### <a name="configure-skilljar-single-sign-on"></a>Configurar skilljar single Sign-On
 
-Para configurar um único sinal no lado **skilljar,** é necessário enviar o **metadados XML da Federação**descarregado e **o Valor do Formato identificador de Nome - urna:oasis:names:tc:SAML:1.1:nameid-formato:emailAddress** to [Skilljar support team](https://support.skilljar.com/hc/). Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
+Para configurar um único sinal no lado **skilljar,** é necessário enviar o **metadados XML da Federação** descarregado e **o Valor do Formato identificador de Nome - urna:oasis:names:tc:SAML:1.1:nameid-formato:emailAddress** to [Skilljar support team](https://support.skilljar.com/hc/). Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD
 
@@ -156,7 +156,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
 Nesta secção, você permite que Britta Simon use Azure single sign-on, concedendo acesso a Skilljar.
 
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Skilljar**.
+1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações** e, em seguida, selecione **Skilljar**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 

@@ -9,10 +9,10 @@ ms.date: 09/25/2020
 ms.author: albecker1
 ms.custom: include file
 ms.openlocfilehash: 4770ac0181c64ef800aa02ba87284c8add357e36
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92518082"
 ---
 Este artigo ajuda a clarificar o desempenho do disco e como funciona quando combina máquinas virtuais Azure e discos Azure. Também descreve como pode diagnosticar estrangulamentos para o seu IO do disco e as alterações que pode fazer para otimizar o desempenho.

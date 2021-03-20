@@ -4,10 +4,10 @@ description: Compreenda como o serviço Azure Blueprints lhe permite criar, defi
 ms.date: 01/27/2021
 ms.topic: overview
 ms.openlocfilehash: f4ba77f5fcb376bf600d94997b0d6ba569f04f82
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98919347"
 ---
 # <a name="what-is-azure-blueprints"></a>O que é o Azure Blueprints?
@@ -47,7 +47,7 @@ Uma política pode ser incluída como um dos _muitos artefactos_ numa definiçã
 
 Uma planta é composta por _artefactos._ A Azure Blueprints suporta atualmente os seguintes recursos como artefactos:
 
-|Recurso  | Opções de hierarquia| Descrição  |
+|Recurso  | Opções de hierarquia| Description  |
 |---------|---------|---------|
 |Grupos de Recursos | Subscrição | Crie um novo grupo de recursos para utilização por outros artefactos no esquema.  Estes grupos de recursos de espaço reservado permitem-lhe organizar recursos exatamente da forma como os quer estruturados e fornece um limitador de âmbito para artefactos de design de política e função incluídos e modelos ARM. |
 |Modelo ARM | Subscrição, Grupo de Recursos | Modelos, incluindo modelos aninhados e ligados, são usados para compor ambientes complexos. Ambientes de exemplo: um farm do SharePoint, a Configuração de Estado da Automatização do Azure ou uma área de trabalho do Log Analytics. |
@@ -108,7 +108,7 @@ Para atribuir ou anular a atribuição de um esquema, a sua conta necessita das 
 
 Estão disponíveis as seguintes funções incorporadas:
 
-|Função do Azure | Descrição |
+|Função do Azure | Description |
 |-|-|
 |[Proprietário](../../role-based-access-control/built-in-roles.md#owner) | Além de outras permissões, inclui todas as permissões relacionadas com a Azure Blueprint. |
 |[Contribuinte](../../role-based-access-control/built-in-roles.md#contributor) | Além de outras permissões, pode criar e apagar definições de planta, mas não tem permissões de design. |
@@ -137,7 +137,7 @@ A seguinte visão geral da Azure Blueprints é da Azure Fridays. Para download d
 
 > [!VIDEO https://www.youtube.com/embed/cQ9D-d6KkMY]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Criar uma planta - Portal](./create-blueprint-portal.md).
 - [Criar uma planta - PowerShell](./create-blueprint-powershell.md).

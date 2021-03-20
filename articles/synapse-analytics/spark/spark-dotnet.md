@@ -10,10 +10,10 @@ ms.date: 05/01/2020
 ms.author: luquinta
 ms.reviewer: jrasnick
 ms.openlocfilehash: 895d766cc1e70e6a001904770d6f3ef12b6945cd
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98018666"
 ---
 # <a name="use-net-for-apache-spark-with-azure-synapse-analytics"></a>Utilizar o .NET para Apache Spark com o Azure Synapse Analytics
@@ -94,7 +94,7 @@ As seguintes funcionalidades estão disponíveis quando utiliza .NET para Apache
 * Suporte para visualizar a produção dos seus trabalhos spark usando diferentes gráficos (como linha, bar ou histograma) e layouts (como simples, sobreposto, e assim por diante) usando a `XPlot.Plotly` biblioteca.
 * Capacidade de incluir pacotes NuGet no seu caderno C#.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [.NET para documentação Apache Spark](/dotnet/spark/)
 * [.NET para guias Apache Spark Interactive](/dotnet/spark/how-to-guides/dotnet-interactive-udf-issue)

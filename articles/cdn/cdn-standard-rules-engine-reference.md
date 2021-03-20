@@ -1,5 +1,5 @@
 ---
-title: Regras padrão referência do motor para Azure CDN / Microsoft Docs
+title: Regras padrão referência do motor para Azure CDN | Microsoft Docs
 description: Documentação de referência para condições de correspondência e ações no motor de regras standard para Azure Content Delivery Network (Azure CDN).
 services: cdn
 author: asudbring
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/04/2020
 ms.author: allensu
 ms.openlocfilehash: 1a0f4456f38939632026645500dd48acbf7dbc88
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93242213"
 ---
 # <a name="standard-rules-engine-reference-for-azure-cdn"></a>Referência do motor de regras standard para a CDN do Azure

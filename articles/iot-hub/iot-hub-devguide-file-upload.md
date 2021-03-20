@@ -1,5 +1,5 @@
 ---
-title: Compreenda o upload de ficheiros Azure IoT Hub Microsoft Docs
+title: Compreenda o upload do ficheiro Azure IoT Hub | Microsoft Docs
 description: Developer guide - use a funcionalidade de upload de ficheiros do IoT Hub para gerir o upload de ficheiros de um dispositivo para um recipiente de blob de armazenamento Azure.
 author: robinsh
 manager: philmea
@@ -13,10 +13,10 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 ms.openlocfilehash: 3286b464051b8fea88d2797d4f82b20fe432b4b8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90019534"
 ---
 # <a name="upload-files-with-iot-hub"></a>Carregar ficheiros com o Hub IoT

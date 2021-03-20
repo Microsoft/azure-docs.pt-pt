@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 9ae4549fe343422bbf60275a97768ca407f2dc7c
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93321372"
 ---
 # <a name="data-science-using-scala-and-spark-on-azure"></a>Utilizar o Scala e o Spark para Ciência de Dados no Azure
@@ -257,9 +257,9 @@ sqlResultsDF.show(3)
 
 | fare_amount | passenger_count | tip_amount | gorjeta |
 | --- | --- | --- | --- |
-|        13.5 |1,0 |2.9 |1,0 |
-|        16.0 |2,0 |3.4 |1,0 |
-|        10,5 |2,0 |1,0 |1,0 |
+|        13,5 |1.0 |2.9 |1.0 |
+|        16.0 |2.0 |3.4 |1.0 |
+|        10,5 |2.0 |1.0 |1.0 |
 
 ## <a name="data-exploration-and-visualization"></a>Exploração e visualização de dados
 Depois de trazer os dados para a Spark, o próximo passo no processo de Data Science é obter uma compreensão mais profunda dos dados através da exploração e visualização. Nesta secção, você examina os dados do táxi usando consultas SQL. Em seguida, importe os resultados em um quadro de dados para traçar as variáveis-alvo e as funcionalidades prospetivas para inspeção visual usando a funcionalidade de visualização automática Jupyter.
@@ -353,7 +353,7 @@ Para funções de modelação baseadas em árvores de Spark ML e MLlib, você te
 1. Crie uma nova **funcionalidade, vinculando** horas em baldes de tempo de tráfego.
 2. Aplicar **indexação e codificação de um quente** a características categóricas.
 3. **Recolher e dividir os dados definidos** em frações de treino e teste.
-4. **Especifique a variável de formação e as características** , e, em seguida, crie treino codificado indexado ou de uma só vez e teste de entrada de pontos de distribuição resilientes (RDDs) ou quadros de dados.
+4. **Especifique a variável de formação e as características**, e, em seguida, crie treino codificado indexado ou de uma só vez e teste de entrada de pontos de distribuição resilientes (RDDs) ou quadros de dados.
 5. **Categorize e vetorize** automaticamente funcionalidades e metas para usar como entradas para modelos de machine learning.
 
 ### <a name="create-a-new-feature-by-binning-hours-into-traffic-time-buckets"></a>Crie uma nova funcionalidade ao ligar horas aos baldes de tempo de tráfego
@@ -922,7 +922,7 @@ Nesta secção, utiliza-se utilitários de aprendizagem automática que os desen
 * Otimize o modelo utilizando a validação cruzada e a varredura de hiper-parâmetros utilizando a função CrossValidator da Spark ML (classificação binária)
 * Otimize o modelo utilizando o código de validação cruzada personalizada e de varredura de parâmetros para utilizar qualquer função de aprendizagem automática e conjunto de parâmetros (regressão linear)
 
-**A validação cruzada** é uma técnica que avalia o quão bem um modelo treinado num conhecido conjunto de dados irá generalizar para prever as características dos conjuntos de dados em que não foi treinado. A ideia geral por trás desta técnica é que um modelo é treinado num conjunto de dados de dados conhecidos, e então a precisão das suas previsões é testada contra um conjunto de dados independente. Uma implementação comum é dividir *k* um conjunto de dados em k-folds, e depois treinar o modelo de uma forma redonda em todas as dobras.
+**A validação cruzada** é uma técnica que avalia o quão bem um modelo treinado num conhecido conjunto de dados irá generalizar para prever as características dos conjuntos de dados em que não foi treinado. A ideia geral por trás desta técnica é que um modelo é treinado num conjunto de dados de dados conhecidos, e então a precisão das suas previsões é testada contra um conjunto de dados independente. Uma implementação comum é dividir um conjunto de dados em k-folds, e depois treinar o modelo de uma forma redonda em todas as dobras.
 
 **A otimização de hiper-parâmetros** é o problema de escolher um conjunto de hiper-parâmetros para um algoritmo de aprendizagem, geralmente com o objetivo de otimizar uma medida do desempenho do algoritmo num conjunto de dados independente. Um hiper-parâmetro é um valor que deve especificar fora do procedimento de treino do modelo. As suposições sobre os valores dos hiper-parâmetros podem afetar a flexibilidade e a precisão do modelo. As árvores de decisão têm hipermetrões, por exemplo, como a profundidade desejada e o número de folhas na árvore. Você deve definir um termo de penalização de classificação errada para uma máquina vetorial de suporte (SVM).
 

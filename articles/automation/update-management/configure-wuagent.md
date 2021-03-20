@@ -1,18 +1,18 @@
 ---
-title: Configurar as definições da Atualização do Windows para a gestão de atualização de automação Azure
+title: Configurar as definições do Windows Update para a Gestão de Atualizações da Automatização do Azure
 description: Este artigo diz como configurar as definições do Windows Update para funcionar com a Azure Automation Update Management.
 services: automation
 ms.subservice: update-management
 ms.date: 05/04/2020
 ms.topic: conceptual
 ms.openlocfilehash: a1f95ca856223628974a9519b7c4811bde43965e
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92222423"
 ---
-# <a name="configure-windows-update-settings-for-azure-automation-update-management"></a>Configurar as definições da Atualização do Windows para a gestão de atualização de automação Azure
+# <a name="configure-windows-update-settings-for-azure-automation-update-management"></a>Configurar as definições do Windows Update para a Gestão de Atualizações da Automatização do Azure
 
 A Azure Automation Update Management conta com o [cliente Windows Update](/windows/deployment/update/windows-update-overview) para descarregar e instalar atualizações do Windows. Existem definições específicas que são utilizadas pelo cliente do Windows Update ao ligar-se aos Serviços de Atualização do Windows Server (WSUS) ou ao Windows Update. Muitas destas configurações podem ser geridas com:
 

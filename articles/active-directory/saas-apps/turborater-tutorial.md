@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com o TurboRater Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com a | TurboRater Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o TurboRater.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 3/8/2019
 ms.author: jeedes
 ms.openlocfilehash: 7483e7a9300088d07e85d238ad897522d59c5464
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92519389"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-turborater"></a>Tutorial: Integração do Azure Ative Directory com o TurboRater
@@ -48,11 +48,11 @@ TurboRater suporta um único sinal de inscrição (SSO) iniciado pelo IDP.
 Para configurar a integração do TurboRater no AD Azure, é necessário adicionar o TurboRater do Azure Marketplace à sua lista de aplicações geridas pela SaaS:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com?azure-portal=true).
-1. No painel esquerdo, selecione **Azure Active Directory** .
+1. No painel esquerdo, selecione **Azure Active Directory**.
 
     ![A opção Azure Ative Directory](common/select-azuread.png)
 
-1. Vá a **Aplicações Empresariais** e, em seguida, selecione **Todas as Aplicações** .
+1. Vá a **Aplicações Empresariais** e, em seguida, selecione **Todas as Aplicações**.
 
     ![A opção de aplicações da Enterprise](common/enterprise-applications.png)
 
@@ -66,7 +66,7 @@ Para configurar a integração do TurboRater no AD Azure, é necessário adicion
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
-Nesta secção, configura e testa o Azure AD com o TurboRater com base num utilizador de teste chamado  **B Simon** . Para um único sinal de sação a funcionar, deve estabelecer uma ligação entre um utilizador AD Azure e o utilizador relacionado no TurboRater.
+Nesta secção, configura e testa o Azure AD com o TurboRater com base num utilizador de teste chamado  **B Simon**. Para um único sinal de sação a funcionar, deve estabelecer uma ligação entre um utilizador AD Azure e o utilizador relacionado no TurboRater.
 
 Para configurar e testar o Azure AD com o TurboRater, é necessário completar os seguintes blocos de construção:
 
@@ -83,7 +83,7 @@ Nesta secção, você ativa a Azure AD um único sinal no portal Azure.
 
 Para configurar o Azure AD com o TurboRater, tome os seguintes passos:
 
-1. No [portal Azure](https://portal.azure.com/), na página de integração da aplicação **TurboRater,** selecione **Single sign-on** .
+1. No [portal Azure](https://portal.azure.com/), na página de integração da aplicação **TurboRater,** selecione **Single sign-on**.
 
     ![Configurar a opção de inscrição única](common/select-sso.png)
 
@@ -133,11 +133,11 @@ Para configurar um único sinal no lado turboRater, é necessário enviar o Meta
 
 Nesta secção, cria-se um utilizador de teste chamado Britta Simon no portal Azure.
 
-1. No portal Azure, no painel esquerdo, selecione **Utilizadores do Diretório Ativo Azure**    >  **Users**  >  **Todos os utilizadores** .
+1. No portal Azure, no painel esquerdo, selecione **Utilizadores do Diretório Ativo Azure**    >    >  **Todos os utilizadores**.
 
     ![As opções dos Utilizadores e "Todos os utilizadores"](common/users.png)
 
-1. Na parte superior do ecrã, selecione **+ Novo utilizador** .
+1. Na parte superior do ecrã, selecione **+ Novo utilizador**.
 
     ![Nova opção de utilizador](common/new-user.png)
 
@@ -145,27 +145,27 @@ Nesta secção, cria-se um utilizador de teste chamado Britta Simon no portal Az
 
     ![O painel de utilizador](common/user-properties.png)
 
-    1. Na caixa **Nome,** **insira BSimon** .
+    1. Na caixa **Nome,** **insira BSimon**.
   
-    1. Na caixa **de nome do utilizador,** **insira bSimon \@ \<yourcompanydomain> . \<extension>** Por exemplo, **a BSimon \@ contoso.com** .
+    1. Na caixa **de nome do utilizador,** **insira bSimon \@ \<yourcompanydomain> . \<extension>** Por exemplo, **a BSimon \@ contoso.com**.
 
     1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
 
-    1. Selecione **Criar** .
+    1. Selecione **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
 Nesta secção, você permite que B. Simon utilize o Azure single sign-on, concedendo o seu acesso ao TurboRater.
 
-1. No portal Azure, selecione **aplicações Enterprise**  >  **Todas as aplicações**  >  **TurboRater** .
+1. No portal Azure, selecione **aplicações Enterprise**  >  **Todas as aplicações**  >  **TurboRater**.
 
     ![Painel de aplicações da empresa](common/enterprise-applications.png)
 
-1. Na lista de candidaturas, selecione **TurboRater** .
+1. Na lista de candidaturas, selecione **TurboRater**.
 
     ![TurboRater na lista de candidaturas](common/all-applications.png)
 
-1. No painel esquerdo, em **MANAGE,** **selecione Utilizadores e grupos** .
+1. No painel esquerdo, em **MANAGE,** **selecione Utilizadores e grupos**.
 
     ![A opção "Utilizadores e grupos"](common/users-groups-blade.png)
 
@@ -175,9 +175,9 @@ Nesta secção, você permite que B. Simon utilize o Azure single sign-on, conce
 
 1. No painel **de Utilizadores e grupos,** selecione **B. Simon** na lista **de Utilizadores** e, em seguida, escolha **Selecione** na parte inferior do painel.
 
-1. Se está à espera de um valor de função na afirmação SAML, então no painel **'Escolha' de Função,** selecione a função adequada para o utilizador da lista. Na parte inferior do painel, escolha **Select** .
+1. Se está à espera de um valor de função na afirmação SAML, então no painel **'Escolha' de Função,** selecione a função adequada para o utilizador da lista. Na parte inferior do painel, escolha **Select**.
 
-1. No painel **de atribuição de adição,** selecione **Atribuir** .
+1. No painel **de atribuição de adição,** selecione **Atribuir**.
 
 ### <a name="create-a-turborater-test-user"></a>Criar um utilizador de teste TurboRater
 

@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 09/21/2020
 ms.openlocfilehash: 062d53fcb122ebacd004d7dca5e11f5a883354cd
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93241961"
 ---
 # <a name="point-in-time-restore-of-a-azure-database-for-mysql---flexible-server-preview"></a>Restauro pontual de uma Base de Dados Azure para MySQL - Servidor Flexível (Pré-visualização)
@@ -35,20 +35,20 @@ Siga estes passos para restaurar o seu servidor flexível utilizando uma cópia 
 
 2.  Clique **na visão geral** do painel esquerdo.
 
-3.  A partir da página geral, clique em **Restaurar** .
+3.  A partir da página geral, clique em **Restaurar**.
 
     [Espaço reservado]
 
 4.  A página de restauro será mostrada com uma opção para escolher entre **o ponto de restauro mais recente** e o ponto de restauro personalizado.
 
-5.  Selecione **o último ponto de restauro** .
+5.  Selecione **o último ponto de restauro**.
 
 
 6.  Fornecer um novo nome de servidor no campo **Restaurar para novo servidor.**
 
     :::image type="content" source="./media/concept-backup-restore/restore-blade-latest.png" alt-text="O tempo de restauro mais antigo":::
 
-8.  Clique em **OK** .
+8.  Clique em **OK**.
 
 9.  Será apresentada uma notificação de que a operação de restauro foi iniciada.
 
@@ -58,7 +58,7 @@ Siga estes passos para restaurar o seu servidor flexível utilizando uma cópia 
 
 1.  No [portal Azure,](https://portal.azure.com/)escolha o seu servidor flexível de onde pretende restaurar a cópia de segurança.
 
-2.  A partir da página geral, clique em **Restaurar** .
+2.  A partir da página geral, clique em **Restaurar**.
 
     [Espaço reservado]
 
@@ -72,9 +72,9 @@ Siga estes passos para restaurar o seu servidor flexível utilizando uma cópia 
 
 6.  Fornecer um novo nome de servidor no campo **Restaurar para novo servidor.** 
    
-    :::image type="content" source="./media/concept-backup-restore/restore-blade-custom.png" alt-text="O tempo de restauro mais antigo":::
+    :::image type="content" source="./media/concept-backup-restore/restore-blade-custom.png" alt-text="ver visão geral":::
  
-7.  Clique em **OK** .
+7.  Clique em **OK**.
 
 8.  Será apresentada uma notificação de que a operação de restauro foi iniciada.
 

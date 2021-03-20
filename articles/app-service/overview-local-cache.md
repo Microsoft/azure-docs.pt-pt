@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 03/04/2016
 ms.custom: seodec18
 ms.openlocfilehash: 81782f63199a9fe8f43f56aeefcd1c68951d57a4
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96852257"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Visão geral da Cache local do Serviço de Aplicações Azure
@@ -42,7 +42,7 @@ A funcionalidade Cache Local do Serviço de Aplicações Azure proporciona uma v
 * [O streaming de registo](troubleshoot-diagnostic-logs.md#stream-logs) é afetado pela cópia de melhor esforço. Pode observar até um minuto de atraso nos registos transmitidos.
 * Na loja de conteúdos partilhados, há uma alteração na estrutura de pastas dos _Ficheiros de Log E_ Das pastas de _Dados_ para aplicações que utilizam a cache local. Existem agora sub-14 que seguem o padrão de nomeação de "identificador único" + carimbo temporal. Cada uma das subpastas corresponde a uma instância VM em que a aplicação está a funcionar ou foi executada.
 * Outras pastas em _D:\home_ permanecem na cache local e não são copiadas para a loja de conteúdos partilhados.
-* A implementação da aplicação através de qualquer método suportado publica diretamente na loja de conteúdos partilhados durável. Para refrescar as pastas _D:\home\home\siteextensions_ na cache local, a aplicação precisa de ser reiniciada. _D:\home\siteextensions_ Para tornar o ciclo de vida perfeito, consulte a informação mais tarde neste artigo.
+* A implementação da aplicação através de qualquer método suportado publica diretamente na loja de conteúdos partilhados durável. Para refrescar as pastas _D:\home\home\siteextensions_ na cache local, a aplicação precisa de ser reiniciada.  Para tornar o ciclo de vida perfeito, consulte a informação mais tarde neste artigo.
 * A visão de conteúdo padrão do site SCM continua a ser a da loja de conteúdos partilhados.
 
 ## <a name="enable-local-cache-in-app-service"></a>Ativar cache local no serviço de aplicações 
@@ -98,7 +98,7 @@ Recomendamos que utilize cache local em conjunto com a [função Ambientes de Pr
 * Quando estiver pronto, emita uma [operação de troca](../app-service/deploy-staging-slots.md#Swap) entre as ranhuras de Encenação e Produção.  
 * As configurações pegajosas incluem nome e adesivo a uma ranhura. Assim, quando a ranhura de encenação é trocada em Produção, herda as definições da aplicação Cache Local. A slot de produção recentemente trocada irá funcionar contra a cache local após alguns minutos e será aquecida como parte do aquecimento da ranhura após a troca. Assim, quando a troca de slots estiver completa, a sua ranhura de produção está a correr contra a cache local.
 
-## <a name="frequently-asked-questions-faq"></a>Perguntas Frequentes (FAQ)
+## <a name="frequently-asked-questions-faq"></a>Perguntas Mais Frequentes (FAQ)
 
 ### <a name="how-can-i-tell-if-local-cache-applies-to-my-app"></a>Como posso saber se a Cache Local se aplica à minha aplicação?
 Se a sua aplicação precisa de uma loja de conteúdo de alto desempenho e fiável, não utiliza a loja de conteúdos para escrever dados críticos em tempo de execução, e tem menos de 2 GB de tamanho total, então a resposta é "sim"! Para obter o tamanho total das pastas de extensões de sites e /site, pode utilizar a extensão do site "Azure Web Apps Disk Usage".

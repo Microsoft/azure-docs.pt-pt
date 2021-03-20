@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: d238a889648e789087a0803f6b50288318462c7b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91629068"
 ---
 # <a name="restore-the-adventureworks-sample-database-into-sql-managed-instance---azure-arc"></a>Restaurar a base de dados de amostras AdventureWorks em SQL Managed Instance - Azure Arc
@@ -26,7 +26,7 @@ Este documento descreve um processo simples para obter a base de dados de amostr
 
 ## <a name="download-the-adventureworks-backup-file"></a>Descarregue o ficheiro de backup adventureWorks
 
-Descarregue o ficheiro de backup AdventureWorks (.bak) no seu recipiente SQL Managed Instance. Neste exemplo, utilize o `kubectl exec` comando para executar remotamente um comando no interior do recipiente SQL Managed Instance para descarregar o ficheiro .bak para dentro do recipiente. Descarregue este ficheiro a partir de qualquer local acessível `wget` se tiver outros ficheiros de backup de bases de dados que pretende puxar para estar dentro do contentor SQL Managed Instance. Uma vez dentro do recipiente SQL Managed Instance é fácil restaurar usando `RESTORE DATABASE` o T-SQL padrão.
+Descarregue o ficheiro de backup AdventureWorks (.bak) no seu contentor SQL Managed Instance. Neste exemplo, utilize o `kubectl exec` comando para executar remotamente um comando no interior do contentor SQL Managed Instance para descarregar o ficheiro .bak para dentro do recipiente. Descarregue este ficheiro a partir de qualquer local acessível `wget` se tiver outros ficheiros de backup de bases de dados que pretende puxar para estar dentro do contentor SQL Managed Instance. Uma vez dentro do recipiente SQL Managed Instance é fácil restaurar usando `RESTORE DATABASE` o T-SQL padrão.
 
 Executar um comando como este para descarregar o ficheiro .bak substituindo o valor do nome do pod e nome do espaço antes de executá-lo.
 > [!NOTE]

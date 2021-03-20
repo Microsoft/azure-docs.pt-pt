@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 06/02/2020
 zone_pivot_groups: app-service-platform-windows-linux
 ms.openlocfilehash: afac8273b5729bcf5470be471145214426dc7dab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90055304"
 ---
 # <a name="configure-a-php-app-for-azure-app-service"></a>Configure um aplicativo PHP para o Azure App Service
@@ -119,7 +119,7 @@ Comprometa todas as alterações e implemente o seu código utilizando o Git, ou
 
 Se pretender que o Serviço de Aplicações execute ferramentas de automação populares no tempo de implementação, como Grunt, Bower ou Gulp, precisa de fornecer um [script de implementação personalizado.](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script) O Serviço de Aplicações executa este script quando implementa com o Git, ou com [a implementação zip](deploy-zip.md) com automatização de construção ativada. 
 
-Para ativar o seu repositório para executar estas ferramentas, precisa adicioná-las às dependências * empackage.js.* Por exemplo:
+Para ativar o seu repositório para executar estas ferramentas, precisa adicioná-las às dependências *empackage.js.* Por exemplo:
 
 ```json
 "dependencies": {
@@ -241,9 +241,9 @@ getenv("DB_HOST")
 
 ::: zone pivot="platform-windows"  
 
-A estrutura web da sua escolha pode usar um subdirecional como raiz do site. Por exemplo, [Laravel,](https://laravel.com/)utiliza o público/subdireoriário como raiz do site. *public/*
+A estrutura web da sua escolha pode usar um subdirecional como raiz do site. Por exemplo, [Laravel,](https://laravel.com/)utiliza o público/subdireoriário como raiz do site. 
 
-Para personalizar a raiz do site, desacorra o caminho de aplicação virtual para a aplicação utilizando o [`az resource update`](/cli/azure/resource#az-resource-update) comando. O exemplo a seguir define *public/* a raiz do site para o público/subdireorito no seu repositório. 
+Para personalizar a raiz do site, desacorra o caminho de aplicação virtual para a aplicação utilizando o [`az resource update`](/cli/azure/resource#az-resource-update) comando. O exemplo a seguir define  a raiz do site para o público/subdireorito no seu repositório. 
 
 ```azurecli-interactive
 az resource update --name web --resource-group <group-name> --namespace Microsoft.Web --resource-type config --parent sites/<app-name> --set properties.virtualApplications[0].physicalPath="site\wwwroot\public" --api-version 2015-06-01
@@ -288,7 +288,7 @@ As estruturas web populares permitem-lhe aceder à `X-Forwarded-*` informação 
 Se precisar de alterar a sua instalação PHP, pode alterar qualquer uma das [php.ini diretivas](https://www.php.net/manual/ini.list.php) seguindo estes passos.
 
 > [!NOTE]
-> A melhor maneira de ver a versão PHP e a configuração * atualphp.ini* é chamar [phpinfo na](https://php.net/manual/function.phpinfo.php) sua aplicação.
+> A melhor maneira de ver a versão PHP e a configuração *atualphp.ini* é chamar [phpinfo na](https://php.net/manual/function.phpinfo.php) sua aplicação.
 >
 
 ### <a name="customize-non-php_ini_system-directives"></a><a name="Customize-non-PHP_INI_SYSTEM directives"></a>Personalizar diretivas não PHP_INI_SYSTEM
@@ -374,7 +374,7 @@ Primeiro, executar o seguinte comando na [Cloud Shell](https://shell.azure.com) 
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings PHP_INI_SCAN_DIR="/usr/local/etc/php/conf.d:/home/site/ini"
 ```
 
-`/usr/local/etc/php/conf.d`é o diretório padrão onde *existephp.ini.* `/home/site/ini`é o diretório personalizado no qual você vai adicionar um arquivo personalizado *.ini.* Separa-se os valores com um `:` .
+`/usr/local/etc/php/conf.d`é o diretório padrão onde *existephp.ini.* `/home/site/ini`é o diretório personalizado no qual você vai adicionar um arquivo *personalizado .ini.* Separa-se os valores com um `:` .
 
 Navegue para a sessão web SSH com o seu recipiente Linux `https://<app-name>.scm.azurewebsites.net/webssh/host` ().
 
@@ -403,16 +403,16 @@ Para que as alterações entrem em vigor, reinicie a aplicação.
 As instalações PHP incorporadas contêm as extensões mais utilizadas. Pode permitir extensões adicionais da mesma forma que [personaliza php.ini diretivas](#customize-php_ini_system-directives).
 
 > [!NOTE]
-> A melhor maneira de ver a versão PHP e a configuração * atualphp.ini* é chamar [phpinfo na](https://php.net/manual/function.phpinfo.php) sua aplicação.
+> A melhor maneira de ver a versão PHP e a configuração *atualphp.ini* é chamar [phpinfo na](https://php.net/manual/function.phpinfo.php) sua aplicação.
 >
 
 Para permitir extensões adicionais, seguindo estes passos:
 
-Adicione um `bin` diretório ao diretório de raiz da sua aplicação e coloque os `.dll` ficheiros de extensão nela (por exemplo, *mongodb.dll). * Certifique-se de que as extensões são compatíveis com a versão PHP em Azure e são compatíveis com VC9 e não-thread-safe (nts).
+Adicione um `bin` diretório ao diretório de raiz da sua aplicação e coloque os `.dll` ficheiros de extensão nela (por exemplo, *mongodb.dll).* Certifique-se de que as extensões são compatíveis com a versão PHP em Azure e são compatíveis com VC9 e não-thread-safe (nts).
 
 Desdobre as suas alterações.
 
-Siga os passos nas [diretivas Personalizar PHP_INI_SYSTEM,](#customize-php_ini_system-directives)adicione as extensões no ficheiro *personalizado .ini* com as diretivas [de extensão](https://www.php.net/manual/ini.core.php#ini.extension) ou [zend_extension.](https://www.php.net/manual/ini.core.php#ini.zend-extension)
+Siga os passos nas [diretivas Personalizar PHP_INI_SYSTEM](#customize-php_ini_system-directives), adicione as extensões no ficheiro *.ini* personalizado com as diretivas [de extensão](https://www.php.net/manual/ini.core.php#ini.extension) ou [zend_extension.](https://www.php.net/manual/ini.core.php#ini.zend-extension)
 
 ```
 extension=d:\home\site\wwwroot\bin\mongodb.dll
@@ -428,7 +428,7 @@ Para que as alterações entrem em vigor, reinicie a aplicação.
 As instalações PHP incorporadas contêm as extensões mais utilizadas. Pode permitir extensões adicionais da mesma forma que [personaliza php.ini diretivas](#customize-php_ini_system-directives).
 
 > [!NOTE]
-> A melhor maneira de ver a versão PHP e a configuração * atualphp.ini* é chamar [phpinfo na](https://php.net/manual/function.phpinfo.php) sua aplicação.
+> A melhor maneira de ver a versão PHP e a configuração *atualphp.ini* é chamar [phpinfo na](https://php.net/manual/function.phpinfo.php) sua aplicação.
 >
 
 Para permitir extensões adicionais, seguindo estes passos:
@@ -437,7 +437,7 @@ Adicione um `bin` diretório ao diretório de raiz da sua aplicação e coloque 
 
 Desdobre as suas alterações.
 
-Siga os passos nas [diretivas Personalizar PHP_INI_SYSTEM,](#customize-php_ini_system-directives)adicione as extensões no ficheiro *personalizado .ini* com as diretivas [de extensão](https://www.php.net/manual/ini.core.php#ini.extension) ou [zend_extension.](https://www.php.net/manual/ini.core.php#ini.zend-extension)
+Siga os passos nas [diretivas Personalizar PHP_INI_SYSTEM](#customize-php_ini_system-directives), adicione as extensões no ficheiro *.ini* personalizado com as diretivas [de extensão](https://www.php.net/manual/ini.core.php#ini.extension) ou [zend_extension.](https://www.php.net/manual/ini.core.php#ini.zend-extension)
 
 ```ini
 extension=/home/site/wwwroot/bin/mongodb.so

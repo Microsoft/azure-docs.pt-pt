@@ -9,10 +9,10 @@ ms.date: 10/16/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli, devx-track-csharp
 ms.openlocfilehash: fde3145e7bd7f4e53ae7a0c44f02e066c28ec785
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93101583"
 ---
 # <a name="create-a-container-in-azure-cosmos-db-table-api"></a>Criar um recipiente em Azure Cosmos DB Table API
@@ -31,11 +31,11 @@ Este artigo explica as diferentes formas de criar um recipiente na Azure Cosmos 
 
 1. [Crie uma nova conta Azure Cosmos,](create-table-dotnet.md#create-a-database-account)ou selecione uma conta existente.
 
-1. Abra o painel **do Data Explorer** e selecione Nova **Tabela** . Em seguida, forneça os seguintes detalhes:
+1. Abra o painel **do Data Explorer** e selecione Nova **Tabela**. Em seguida, forneça os seguintes detalhes:
 
    * Introduza uma identificação de mesa.
    * Introduza uma produção a ser a provisionada (por exemplo, 1000 RUs).
-   * Selecione **OK** .
+   * Selecione **OK**.
 
     :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-table.png" alt-text="Screenshot da tabela API, adicionar caixa de diálogo de mesa":::
 

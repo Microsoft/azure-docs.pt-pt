@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 08/23/2018
 ms.custom: seodec18, devx-track-azurecli
 ms.openlocfilehash: b4038bb232c14278e838f2c34706dcc103def7e4
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98919668"
 ---
 # <a name="quickstart-send-events-from-private-container-registry-to-event-grid"></a>Quickstart: Enviar eventos do registo privado de contentores para a Grade de Eventos
@@ -218,7 +218,7 @@ Pode encontrar a referência de mensagem do registo do registo do contentor Azur
 
 [Esquema de evento de Azure Event Grid para registo de contentores](../event-grid/event-schema-container-registry.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste quickstart, você implantou um registo de contentores, construiu uma imagem com tarefas ACR, apagou-a e consumiu os eventos do seu registo a partir da Grade de Eventos com uma aplicação de amostragem. Em seguida, passe para o tutorial de tarefas ACR para saber mais sobre a construção de imagens de contentores na nuvem, incluindo construções automatizadas na atualização da imagem base:
 

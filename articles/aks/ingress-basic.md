@@ -6,10 +6,10 @@ services: container-service
 ms.topic: article
 ms.date: 08/17/2020
 ms.openlocfilehash: 9b51ee2767a9595f5732f558cfa25f5064944e49
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93131195"
 ---
 # <a name="create-an-ingress-controller-in-azure-kubernetes-service-aks"></a>Criar um controlador de entrada no Serviço Azure Kubernetes (AKS)
@@ -33,15 +33,15 @@ Este artigo também requer que esteja a executar a versão Azure CLI 2.0.64 ou p
 
 ## <a name="create-an-ingress-controller"></a>Criar um controlador de entrada
 
-Para criar o controlador de entrada, utilize o Helm para instalar *a entrada de nginx* . Para uma maior redundância, são implementadas duas réplicas dos controladores de entrada do NGINX com o parâmetro `--set controller.replicaCount`. Para beneficiar totalmente da execução de réplicas do controlador de entrada, certifique-se de que há mais de um nó no seu cluster AKS.
+Para criar o controlador de entrada, utilize o Helm para instalar *a entrada de nginx*. Para uma maior redundância, são implementadas duas réplicas dos controladores de entrada do NGINX com o parâmetro `--set controller.replicaCount`. Para beneficiar totalmente da execução de réplicas do controlador de entrada, certifique-se de que há mais de um nó no seu cluster AKS.
 
 O controlador de entrada também tem de estar agendado num nó do Linux. Os nós do Windows Server não devem executar o controlador de entrada. É especificado um seletor de nós com o parâmetro `--set nodeSelector` para indicar ao agendador do Kubernetes que execute o controlador de entrada do NGINX num nó baseado no Linux.
 
 > [!TIP]
-> O exemplo a seguir cria um espaço de nome Kubernetes para os recursos *ingressos denominados ingress-basic* . Especifique um espaço de nome para o seu próprio ambiente, conforme necessário.
+> O exemplo a seguir cria um espaço de nome Kubernetes para os recursos *ingressos denominados ingress-basic*. Especifique um espaço de nome para o seu próprio ambiente, conforme necessário.
 
 > [!TIP]
-> Se pretender permitir a [preservação ip da fonte do cliente][client-source-ip] para pedidos a contentores no seu cluster, adicione ao comando de `--set controller.service.externalTrafficPolicy=Local` instalação Helm. A FONTE DO CLIENTE IP é armazenada no cabeçalho de pedido sob *X-Forwarded-For* . Ao utilizar um controlador de entrada com a preservação IP de fonte do cliente ativada, a passagem SSL não funcionará.
+> Se pretender permitir a [preservação ip da fonte do cliente][client-source-ip] para pedidos a contentores no seu cluster, adicione ao comando de `--set controller.service.externalTrafficPolicy=Local` instalação Helm. A FONTE DO CLIENTE IP é armazenada no cabeçalho de pedido sob *X-Forwarded-For*. Ao utilizar um controlador de entrada com a preservação IP de fonte do cliente ativada, a passagem SSL não funcionará.
 
 ```console
 # Create a namespace for your ingress resources
@@ -223,15 +223,15 @@ ingress.extensions/hello-world-ingress-static created
 
 ## <a name="test-the-ingress-controller"></a>Teste o controlador de entrada
 
-Para testar as rotas do controlador de entrada, navegue pelas duas aplicações. Abra um navegador web para o endereço IP do seu controlador de entrada NGINX, como *EXTERNAL_IP* . A primeira aplicação de demonstração é apresentada no navegador web, como mostra o exemplo seguinte:
+Para testar as rotas do controlador de entrada, navegue pelas duas aplicações. Abra um navegador web para o endereço IP do seu controlador de entrada NGINX, como *EXTERNAL_IP*. A primeira aplicação de demonstração é apresentada no navegador web, como mostra o exemplo seguinte:
 
 ![Primeira aplicação a correr atrás do controlador de entrada](media/ingress-basic/app-one.png)
 
-Adicione agora o caminho */olá-mundo-dois* ao endereço IP, como *EXTERNAL_IP/olá-mundo-dois* . É apresentada a segunda aplicação de demonstração com o título personalizado:
+Adicione agora o caminho */olá-mundo-dois* ao endereço IP, como *EXTERNAL_IP/olá-mundo-dois*. É apresentada a segunda aplicação de demonstração com o título personalizado:
 
 ![Segunda aplicação a correr atrás do controlador de entrada](media/ingress-basic/app-two.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Este artigo usou o Helm para instalar os componentes de entrada e as aplicações de amostra. Quando se implementa um gráfico Helm, são criados vários recursos kubernetes. Estes recursos incluem cápsulas, implantações e serviços. Para limpar estes recursos, pode eliminar todo o espaço de nome da amostra ou os recursos individuais.
 

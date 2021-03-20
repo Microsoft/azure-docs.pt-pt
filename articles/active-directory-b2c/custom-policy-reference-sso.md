@@ -12,10 +12,10 @@ ms.date: 12/07/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: f690f4a416e86b02de0d35fc673849c1293df577
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102095770"
 ---
 # <a name="single-sign-on-session-management-in-azure-active-directory-b2c"></a>Gestão única da sessão de sessão de inscrição no Azure Ative Directory B2C
@@ -120,7 +120,7 @@ Este fornecedor é utilizado para suprimir o ecrã "escolher o fornecedor de ide
 
 | Atributo | Obrigatório | Descrição|
 | --- | --- | --- |
-| AlwaysFetchClaimsFromProvider | Não | Não atualmente usado, pode ser ignorado. |
+| AlwaysFetchClaimsFromProvider | No | Não atualmente usado, pode ser ignorado. |
 
 ### <a name="oauthssosessionprovider"></a>OAuthSSOSessionProvider
 
@@ -162,8 +162,8 @@ O seguinte `SM-Saml-issuer` perfil técnico é utilizado pelo perfil técnico do
 
 | Atributo | Obrigatório | Descrição|
 | --- | --- | --- |
-| Inclui SessionIndex | Não | Não atualmente usado, pode ser ignorado.|
-| RegistrServiceProviders | Não | Indica que o prestador deve registar todos os prestadores de serviços SAML que tenham sido emitidos uma afirmação. Valores possíveis: `true` (padrão), ou `false` .|
+| Inclui SessionIndex | No | Não atualmente usado, pode ser ignorado.|
+| RegistrServiceProviders | No | Indica que o prestador deve registar todos os prestadores de serviços SAML que tenham sido emitidos uma afirmação. Valores possíveis: `true` (padrão), ou `false` .|
 
 
 ## <a name="next-steps"></a>Passos seguintes

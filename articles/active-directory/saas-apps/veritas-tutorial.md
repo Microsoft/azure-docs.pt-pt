@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com a Veritas Enterprise Vault.cloud SSO / Microsoft Docs'
-description: Saiba como configurar um único sinal entre o Azure Ative Directory e o Veritas Enterprise Vault.cloud SSO.
+title: 'Tutorial: Integração do Azure Ative Directory com a Veritas Enterprise Vault.cloud SSO | Microsoft Docs'
+description: Saiba como configurar um único sign-on entre o Azure Ative Directory e a Veritas Enterprise Vault.cloud SSO.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -12,19 +12,19 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
 ms.openlocfilehash: 5e777a27e793b1f4ef5489248c170824d69d615c
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92517689"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-veritas-enterprise-vaultcloud-sso"></a>Tutorial: Integração do Azure Ative Directory com Veritas Enterprise Vault.cloud SSO
+# <a name="tutorial-azure-active-directory-integration-with-veritas-enterprise-vaultcloud-sso"></a>Tutorial: Integração do Azure Ative Directory com a Veritas Enterprise Vault.cloud SSO
 
-Neste tutorial, você aprende a integrar Veritas Enterprise Vault.cloud SSO com Azure Ative Directory (Azure AD).
-A integração do Veritas Enterprise Vault.cloud SSO com a AD Azure proporciona-lhe os seguintes benefícios:
+Neste tutorial, aprende-se a integrar a Veritas Enterprise Vault.cloud SSO com o Azure Ative Directory (Azure AD).
+Integrar a Veritas Enterprise Vault.cloud SSO com a Azure AD proporciona-lhe os seguintes benefícios:
 
-* Você pode controlar em Azure AD que tem acesso a Veritas Enterprise Vault.cloud SSO.
-* Pode permitir que os seus utilizadores sejam automaticamente inscritos no Veritas Enterprise Vault.cloud SSO (Single Sign-On) com as suas contas AD Azure.
+* Você pode controlar em Azure AD que tem acesso à Veritas Enterprise Vault.cloud SSO.
+* Pode permitir que os seus utilizadores sejam automaticamente inscritos na Veritas Enterprise Vault.cloud SSO (Single Sign-On) com as suas contas AD Azure.
 * Pode gerir as suas contas numa localização central - o portal Azure.
 
 Se quiser saber mais detalhes sobre a integração da aplicação SaaS com o Azure AD, consulte o que é o acesso à [aplicação e o único acesso ao Azure Ative Directory](../manage-apps/what-is-single-sign-on.md).
@@ -32,10 +32,10 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração AD da Azure com a Veritas Enterprise Vault.cloud SSO, precisa dos seguintes itens:
+Para configurar a integração da AD Azure com a Veritas Enterprise Vault.cloud SSO, precisa dos seguintes itens:
 
 * Uma assinatura AD Azure. Se não tiver um ambiente AD Azure, pode obter uma [conta gratuita](https://azure.microsoft.com/free/)
-* Veritas Enterprise Vault.cloud SSO única subscrição ativada
+* Veritas Enterprise Vault.cloud assinatura única ativada para sSO
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
@@ -43,11 +43,11 @@ Neste tutorial, você configura e testa Azure AD um único sinal de acesso em um
 
 * Veritas Enterprise Vault.cloud SSO suporta **SSO** iniciado SP
 
-## <a name="adding-veritas-enterprise-vaultcloud-sso-from-the-gallery"></a>Adicionando Veritas Enterprise Vault.cloud SSO da galeria
+## <a name="adding-veritas-enterprise-vaultcloud-sso-from-the-gallery"></a>Adicionar a Veritas Enterprise Vault.cloud SSO da galeria
 
-Para configurar a integração do Veritas Enterprise Vault.cloud SSO em Azure AD, precisa adicionar o SSO veritas Enterprise Vault.cloud da galeria à sua lista de aplicações geridas para o SaaS.
+Para configurar a integração da Veritas Enterprise Vault.cloud SSO em AD Azure, precisa adicionar a Veritas Enterprise Vault.cloud SSO da galeria à sua lista de aplicações geridas pelo SaaS.
 
-**Para adicionar Veritas Enterprise Vault.cloud SSO da galeria, execute os seguintes passos:**
+**Para adicionar a Veritas Enterprise Vault.cloud SSO da galeria, execute os seguintes passos:**
 
 1. No **[portal Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.**
 
@@ -61,31 +61,31 @@ Para configurar a integração do Veritas Enterprise Vault.cloud SSO em Azure AD
 
     ![O novo botão de aplicação](common/add-new-app.png)
 
-4. Na caixa de pesquisa, **escreva Veritas Enterprise Vault.cloud SSO**, selecione **Veritas Enterprise Vault.cloud SSO** do painel de resultados e clique em **Adicionar** botão para adicionar a aplicação.
+4. Na caixa de pesquisa, **escreva Veritas Enterprise Vault.cloud SSO**, selecione **Veritas Enterprise Vault.cloud SSO** do painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar a aplicação.
 
      ![Veritas Enterprise Vault.cloud SSO na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
 Nesta secção, você configura e testa Azure AD single sign-on com Veritas Enterprise Vault.cloud SSO com base em um utilizador de teste chamado **Britta Simon**.
-Para um único sinal de s-on para o trabalho, é necessário estabelecer uma relação de ligação entre um utilizador Azure AD e o utilizador relacionado em Veritas Enterprise Vault.cloud SSO.
+Para um único sinal de sação a funcionar, é necessário estabelecer uma relação de ligação entre um utilizador Azure AD e o utilizador relacionado na Veritas Enterprise Vault.cloud SSO.
 
-Para configurar e testar o único sinal de Azure AD com Veritas Enterprise Vault.cloud SSO, você precisa completar os seguintes blocos de construção:
+Para configurar e testar o Azure AD com a Veritas Enterprise Vault.cloud SSO, você precisa completar os seguintes blocos de construção:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure veritas Enterprise Vault.cloud SSO Single Sign-On](#configure-veritas-enterprise-vaultcloud-sso-single-sign-on)** - para configurar as definições de Sign-On únicas no lado da aplicação.
+2. **[Configure a Veritas Enterprise Vault.cloud SSO Single Sign-On](#configure-veritas-enterprise-vaultcloud-sso-single-sign-on)** - para configurar as definições de Sign-On única no lado da aplicação.
 3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
 4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
-5. **[Create Veritas Enterprise Vault.cloud SSO test user](#create-veritas-enterprise-vaultcloud-sso-test-user)** - para ter uma contraparte de Britta Simon em Veritas Enterprise Vault.cloud SSO que está ligada à representação AD Ad Azure do utilizador.
+5. **[Create Veritas Enterprise Vault.cloud utilizador de teste SSO](#create-veritas-enterprise-vaultcloud-sso-test-user)** - para ter uma contraparte de Britta Simon na Veritas Enterprise Vault.cloud SSO que está ligada à representação AD Ad do utilizador.
 6. **[Teste um único sinal](#test-single-sign-on)** - para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar Azure AD único sinal de inscrição
 
 Nesta secção, você ativa a Azure AD um único sinal no portal Azure.
 
-Para configurar o único sinal de Ad AD com Veritas Enterprise Vault.cloud SSO, execute os seguintes passos:
+Para configurar o único sign-on da Azure AD com a Veritas Enterprise Vault.cloud SSO, execute os seguintes passos:
 
-1. No [portal Azure](https://portal.azure.com/), na página de integração de aplicações **SSO do Veritas Enterprise Vault.cloud,** selecione **Single sign-on**.
+1. No [portal Azure](https://portal.azure.com/), na página de integração **de aplicações SSO Vault.cloud Veritas Enterprise,** selecione **Single sign-on**.
 
     ![Configurar link único de inscrição](common/select-sso.png)
 
@@ -99,7 +99,7 @@ Para configurar o único sinal de Ad AD com Veritas Enterprise Vault.cloud SSO, 
 
 4. Na secção **de Configuração Básica SAML,** execute os seguintes passos:
 
-    ![Veritas Enterprise Vault.cloud SSO Domain e URLs informações únicas de sindes](common/sp-identifier-reply.png)
+    ![Veritas Enterprise Vault.cloud SSO Domain e URLs informações únicas de s on](common/sp-identifier-reply.png)
 
     a. Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão: `https://personal.ap.archive.veritas.com/CID=<CUSTOMERID>`
 
@@ -120,13 +120,13 @@ Para configurar o único sinal de Ad AD com Veritas Enterprise Vault.cloud SSO, 
     | Ásia-Pacífico| `https://auth.syd.archivecloud.net`|
 
     > [!NOTE]
-    > Este valor não é real. Atualize este valor com o URL Sign-On real. Contacte a equipa de [suporte do Cliente SSO da Veritas Enterprise Para](https://www.veritas.com/support/.html) obter este valor. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
+    > Este valor não é real. Atualize este valor com o URL Sign-On real. Contacte [a Veritas Enterprise Vault.cloud equipa de suporte ao cliente SSO](https://www.veritas.com/support/.html) para obter este valor. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
 5. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/certificatebase64.png)
 
-6. Na secção **Configurar Veritas Enterprise Vault.cloud SSO,** copie os URL(s) apropriados de acordo com o seu requisito.
+6. Na secção **Configurar a Veritas Enterprise Vault.cloud SSO,** copie os URL(s) apropriados de acordo com o seu requisito.
 
     ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 
@@ -138,7 +138,7 @@ Para configurar o único sinal de Ad AD com Veritas Enterprise Vault.cloud SSO, 
 
 ### <a name="configure-veritas-enterprise-vaultcloud-sso-single-sign-on"></a>Configure Veritas Enterprise Vault.cloud SSO Single Sign-On
 
-Para configurar um único sign-on no **lado SSO da Veritas Enterprise Vault.cloud,** é necessário enviar o Certificado descarregado **(Base64)** e URLs copiados apropriados do portal Azure para a equipa de [suporte SSO da Veritas Enterprise Vault.cloud SSO](https://www.veritas.com/support/.html). Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
+Para configurar um único sign-on na Veritas Enterprise Vault.cloud lado **SSO,** você precisa enviar o Certificado descarregado **(Base64)** e URLs copiados apropriados do portal Azure para [Veritas Enterprise Vault.cloud equipa de apoio SSO](https://www.veritas.com/support/.html). Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD 
 
@@ -166,15 +166,15 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
-Nesta secção, você permite que Britta Simon use Azure single sign-on, concedendo acesso a Veritas Enterprise Vault.cloud SSO.
+Nesta secção, você permite que Britta Simon use a Azure single sign-on, concedendo acesso à Veritas Enterprise Vault.cloud SSO.
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações,** em seguida, selecione **Veritas Enterprise Vault.cloud SSO**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicações, selecione **Veritas Enterprise Vault.cloud SSO**.
+2. Na lista de candidaturas, selecione **Veritas Enterprise Vault.cloud SSO**.
 
-    ![O link SSO veritas Enterprise Vault.cloud na lista de Aplicações](common/all-applications.png)
+    ![A Veritas Enterprise Vault.cloud link SSO na lista de Aplicações](common/all-applications.png)
 
 3. No menu à esquerda, selecione **Utilizadores e grupos**.
 
@@ -190,15 +190,15 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 7. No diálogo **'Adicionar Atribuição'** clique no botão **'Atribuir'.**
 
-### <a name="create-veritas-enterprise-vaultcloud-sso-test-user"></a>Criar utilizador de teste SSO do Veritas Enterprise Vault.cloud
+### <a name="create-veritas-enterprise-vaultcloud-sso-test-user"></a>Criar Vault.cloud utilizador de teste SSO da Veritas Enterprise
 
-Nesta secção, cria-se um utilizador chamado Britta Simon em Veritas Enterprise Vault.cloud SSO. Trabalhe com a equipa de [suporte SSO da Veritas Enterprise Vault.cloud](https://www.veritas.com/support/.html) para adicionar os utilizadores na plataforma SSO veritas Enterprise Vault.cloud. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação.
+Nesta secção, cria-se um utilizador chamado Britta Simon na Veritas Enterprise Vault.cloud SSO. Trabalhe com [a Equipa de Suporte SSO da Veritas Enterprise Vault.cloud](https://www.veritas.com/support/.html) para adicionar os utilizadores na plataforma SSO Vault.cloud Da Veritas Enterprise. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação.
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, testa a configuração de inscrição única AZure AD utilizando o Painel de Acesso.
 
-Quando clicar no azulejo SSO do Veritas Enterprise Vault.cloud no Painel de Acesso, deverá ser automaticamente inscrito no SSO do Veritas Enterprise Vault.cloud para o qual configura sSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/my-apps-portal-end-user-access.md)
+Quando clicar no azulejo SSO da Veritas Enterprise Vault.cloud no Painel de Acesso, deverá ser automaticamente inscrito no SSO da Veritas Enterprise Vault.cloud para o qual configura o SSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/my-apps-portal-end-user-access.md)
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 

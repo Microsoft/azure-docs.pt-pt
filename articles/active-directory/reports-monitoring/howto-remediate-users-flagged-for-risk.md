@@ -1,5 +1,5 @@
 ---
-title: Utentes sinalizados por risco no portal Azure Ative Directory Microsoft Docs
+title: Utilizadores sinalizados por risco no portal Azure Ative Directory | Microsoft Docs
 description: Saiba mais sobre os utilizadores sinalizados no relatório de segurança de risco no portal do Azure Active Directory
 services: active-directory
 author: MarkusVi
@@ -16,10 +16,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 23bd7a26bc6215f50a2860ab4aac84f1b46301f5
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92308947"
 ---
 # <a name="remediate-users-flagged-for-risk-in-the-azure-active-directory-portal"></a>Remediar utilizadores sinalizados para risco no portal do Azure Active Directory
@@ -91,5 +91,5 @@ Além disso, deve:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Proteção de Identidade do Diretório Ativo Azure](../identity-protection/overview-identity-protection.md)
+* [Azure Active Directory Identity Protection](../identity-protection/overview-identity-protection.md)
 * [Utilizadores marcados em risco](../identity-protection/overview-identity-protection.md)

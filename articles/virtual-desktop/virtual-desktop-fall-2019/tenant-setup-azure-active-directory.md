@@ -7,10 +7,10 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: f41584194f8f5e8afde630405116b8b169cb5656
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91542041"
 ---
 # <a name="tutorial-create-a-tenant-in-windows-virtual-desktop-classic"></a>Tutorial: Criar um inquilino no Windows Virtual Desktop (clássico)
@@ -89,7 +89,7 @@ Para atribuir a função de candidatura do TenantCreator:
    > [!div class="mx-imgBorder"]
    > ![Uma imagem dos utilizadores e grupos designados para gerir a aplicação da empresa "Windows Virtual Desktop". A imagem mostra apenas uma atribuição, que é para "Acesso Padrão".](../media/tenant-default-access.png)
 
-4. **Selecione Adicionar utilizador**e, em seguida, selecione **Utilizadores e grupos** no **separador 'Adicionar Atribuição'.**
+4. **Selecione Adicionar utilizador** e, em seguida, selecione **Utilizadores e grupos** no **separador 'Adicionar Atribuição'.**
 5. Procure uma conta de utilizador que crie o seu inquilino virtual do Windows Desktop. Para simplificar, esta pode ser a conta de administrador global.
    - Se estiver a utilizar um Fornecedor de Identidade do Microsoft, pode contosoadmin@live.com contosoadmin@outlook.com não conseguir iniciar sôs o seu sôm. Recomendamos a utilização de uma conta específica de domínio, como admin@contoso.com ou admin@contoso.onmicrosoft.com em vez disso.
 
@@ -116,8 +116,8 @@ Para encontrar o seu ID do inquilino do Azure Ative (ou **ID do Diretório):**
    > [!div class="mx-imgBorder"]
    > ![Uma imagem dos resultados da pesquisa de "Azure Ative Directory" no portal Azure. Destaca-se o resultado da pesquisa em "Serviços".](../media/tenant-search-azure-active-directory.png)
 
-2. Desloque-se para baixo até encontrar **propriedades**e, em seguida, selecione-o.
-3. Procure **o ID do Diretório**e, em seguida, selecione o ícone da área de transferência. Cole-o num local útil para que possa usá-lo mais tarde como o valor **AadTenantId.**
+2. Desloque-se para baixo até encontrar **propriedades** e, em seguida, selecione-o.
+3. Procure **o ID do Diretório** e, em seguida, selecione o ícone da área de transferência. Cole-o num local útil para que possa usá-lo mais tarde como o valor **AadTenantId.**
 
    > [!div class="mx-imgBorder"]
    > ![Uma imagem das propriedades do Azure Ative Directory. O rato está a pairar sobre o ícone da área de transferência para que "Diretório ID" copie e cole.](../media/tenant-directory-id.png)
@@ -129,7 +129,7 @@ Para encontrar o seu ID de subscrição Azure:
    > ![Uma imagem dos resultados da pesquisa de "Azure Ative Directory" no portal Azure. Destaca-se o resultado da pesquisa de "Serviços".](../media/tenant-search-subscription.png)
 
 2. Selecione a subscrição Azure que pretende utilizar para receber notificações de serviço de desktop virtual do Windows.
-3. Procure **o ID da subscrição**e, em seguida, sobre o valor até aparecer um ícone de área de transferência. Selecione o ícone da área de transferência e cole-o num local útil para que possa usá-lo mais tarde como o valor **AzureSubscriptionId.**
+3. Procure **o ID da subscrição** e, em seguida, sobre o valor até aparecer um ícone de área de transferência. Selecione o ícone da área de transferência e cole-o num local útil para que possa usá-lo mais tarde como o valor **AzureSubscriptionId.**
 
    > [!div class="mx-imgBorder"]
    > ![Uma imagem das propriedades de subscrição do Azure. O rato está a pairar sobre o ícone da área de transferência para "Subscription ID" para copiar e colar.](../media/tenant-subscription-id.png)

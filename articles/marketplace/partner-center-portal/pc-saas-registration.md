@@ -8,10 +8,10 @@ ms.date: 06/10/2020
 author: mingshen-ms
 ms.author: mingshen
 ms.openlocfilehash: 39a0830806d2d9c7358d175cae703e9c81c45b02
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93130022"
 ---
 # <a name="register-a-saas-application"></a>Registar uma aplicação SaaS
@@ -33,7 +33,7 @@ Qualquer aplicação que pretenda utilizar as capacidades do Azure AD, tem de es
     ![Registos de Aplicações AD SaaS](./media/saas-offer-app-registration-v1.png)
 
 4. Na página Criar, insira as \' informações de inscrição do seu pedido:
-    -   **Nome** : Introduza um nome de aplicação significativo
+    -   **Nome**: Introduza um nome de aplicação significativo
     -   **Tipo de aplicação:**  
         
         Selecione **aplicativo Web / API** para [aplicações de clientes)](../../active-directory/develop/developer-glossary.md#client-application)e [aplicações de recursos/API](../../active-directory/develop/developer-glossary.md#resource-server)que são instaladas num servidor seguro. Esta definição é utilizada para [clientes web](../../active-directory/develop/developer-glossary.md#web-client)confidenciais da OAuth e [para clientes públicos baseados em agentes de utilizadores).](../../active-directory/develop/developer-glossary.md#user-agent-based-client)

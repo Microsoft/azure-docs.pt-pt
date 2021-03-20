@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 0cdad245981ad02d3cdaefba447d131c775e242f
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93145774"
 ---
 # <a name="customize-the-style-of-the-developer-portal-pages"></a>Personalize o estilo das páginas do portal do desenvolvedor
@@ -45,7 +45,7 @@ Neste artigo, aprende-se a personalizar o estilo de elementos nas páginas do po
 
 ## <a name="customize-the-developer-portal"></a>Personalize o portal do desenvolvedor
 
-1. Selecione **Descrição geral** .
+1. Selecione **Descrição geral**.
 2. Clique no botão **portal Developer (legado)** na parte superior da janela **'Vista Geral'.**
 3. No canto superior esquerdo do ecrã, verá um ícone com dois pincéis. Coloque o cursor sobre este ícone para abrir o menu de personalização do portal.
 
@@ -53,7 +53,7 @@ Neste artigo, aprende-se a personalizar o estilo de elementos nas páginas do po
 4. Selecione **Estilos** no menu para abrir o painel de personalização de estilos.
 
     Todos os elementos que pode personalizar com **Estilos** aparecem na página
-5. Introduza "headings-color" no campo **Alterar valores de variáveis para personalizar o aspeto do portal do programador:** .
+5. Introduza "headings-color" no campo **Alterar valores de variáveis para personalizar o aspeto do portal do programador:**.
 
     O elemento **\@ cor de títulos** aparece na página. Esta variável controla a cor do texto.
 

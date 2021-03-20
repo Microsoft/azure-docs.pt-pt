@@ -1,5 +1,5 @@
 ---
-title: Adicione o principal do serviço à função de administrador dos Serviços de Análise Azure / Microsoft Docs
+title: Adicione o principal do serviço à função de administrador dos Serviços de Análise Azure | Microsoft Docs
 description: Saiba como adicionar um principal de serviço de automação à função de administração de servidores Azure Analysis Services
 author: minewiskan
 ms.service: azure-analysis-services
@@ -9,10 +9,10 @@ ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: fasttrack-edit
 ms.openlocfilehash: b1d5f8ec628245756c53e4dfeeecdeb3a4bebc2e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93100733"
 ---
 # <a name="add-a-service-principal-to-the-server-administrator-role"></a>Adicione um principal de serviço à função de administrador do servidor 
@@ -33,12 +33,12 @@ Antes de completar esta tarefa, deve ter um diretor de serviço registado no Azu
 Pode configurar administradores de servidores utilizando o SQL Server Management Studio (SSMS). Para completar esta tarefa, tem de ter permissões [de administrador de servidores](analysis-services-server-admins.md) no servidor Azure AS. 
 
 1. No SSMS, ligue-se ao seu servidor Azure AS.
-2. Na Segurança **das Propriedades do Servidor,**  >  **Security** clique em **Adicionar** .
-3. Em **Selecionar um Utilizador ou Grupo,** procure a sua aplicação registada pelo nome, selecione e, em seguida, clique em **Adicionar** .
+2. Na Segurança **das Propriedades do Servidor,**  >  clique em **Adicionar**.
+3. Em **Selecionar um Utilizador ou Grupo,** procure a sua aplicação registada pelo nome, selecione e, em seguida, clique em **Adicionar**.
 
     ![Pesquisa de conta principal de serviço](./media/analysis-services-addservprinc-admins/aas-add-sp-ssms-picker.png)
 
-4. Verifique o ID da conta principal do serviço e, em seguida, clique **em OK** .
+4. Verifique o ID da conta principal do serviço e, em seguida, clique **em OK**.
     
     ![Screenshot que mostra o ID da conta principal do serviço e realça o botão OK.](./media/analysis-services-addservprinc-admins/aas-add-sp-ssms-add.png)
 

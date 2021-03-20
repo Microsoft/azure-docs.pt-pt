@@ -1,5 +1,5 @@
 ---
-title: Visão geral de verificação do editor - Plataforma de identidade da Microsoft Rio Azure
+title: Visão geral da verificação do editor - Plataforma de identidade da Microsoft | Rio Azure
 description: Fornece uma visão geral do programa de verificação de editores para a plataforma de identidade da Microsoft. Lista os benefícios, requisitos do programa e perguntas frequentes. Quando uma aplicação é marcada como editora verificada, significa que a editora verificou a sua identidade utilizando uma conta da Microsoft Partner Network que concluiu o processo de verificação e associou esta conta MPN ao seu registo de candidatura.
 services: active-directory
 author: rwike77
@@ -13,10 +13,10 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
 ms.openlocfilehash: 1e913e3a5356ad7f49d8b3066f5bd3da7eddd2c2
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93308770"
 ---
 # <a name="publisher-verification"></a>Verificação do editor
@@ -33,17 +33,17 @@ Esta funcionalidade destina-se principalmente a programadores que couem aplicaç
 
 ## <a name="benefits"></a>Benefícios
 A verificação do editor proporciona os seguintes benefícios:
-- **Maior transparência e redução de risco para os clientes** - esta capacidade ajuda os clientes a entender quais as aplicações que estão a ser usadas nas suas organizações são publicadas pelos desenvolvedores em que confiam. 
+- **Maior transparência e redução de risco para os clientes**- esta capacidade ajuda os clientes a entender quais as aplicações que estão a ser usadas nas suas organizações são publicadas pelos desenvolvedores em que confiam. 
 
-- **Melhor marca** - um crachá "verificado" aparece no [pedido](application-consent-experience.md)de consentimento Azure AD, página de Aplicações empresariais e superfícies UX adicionais usadas pelos utilizadores finais e administradores. 
+- **Melhor marca**- um crachá "verificado" aparece no [pedido](application-consent-experience.md)de consentimento Azure AD, página de Aplicações empresariais e superfícies UX adicionais usadas pelos utilizadores finais e administradores. 
 
-- **Adoção mais suave da empresa** - os administradores podem configurar políticas de consentimento do [utilizador,](../manage-apps/configure-user-consent.md)com o estado de verificação do editor como um dos principais critérios de política.
+- **Adoção mais suave da empresa**- os administradores podem configurar políticas de consentimento do [utilizador,](../manage-apps/configure-user-consent.md)com o estado de verificação do editor como um dos principais critérios de política.
 
 > [!NOTE]
 > A partir de novembro de 2020, os utilizadores finais deixarão de poder conceder o consentimento à maioria das aplicações multi-inquilinos recentemente registadas sem editores verificados. Isto aplica-se a aplicações registadas a partir de 8 de novembro de 2020, utilizará o OAuth2.0 para solicitar permissões para além do perfil básico do utilizador e lerá o consentimento dos utilizadores em diferentes inquilinos do que aquele em que a app está registada. Será exibido um aviso no ecrã de consentimento informando os utilizadores de que estas aplicações são arriscadas e são de editoras não verificadas.    
 
 ## <a name="requirements"></a>Requisitos
-Existem alguns pré-requisitos para a verificação de editores, alguns dos quais já terão sido concluídos por muitos parceiros da Microsoft. São: 
+Existem alguns pré-requisitos para a verificação de editores, alguns dos quais já terão sido concluídos por muitos parceiros da Microsoft. A saber: 
 
 -  Um ID MPN para uma conta válida [da Microsoft Partner Network](https://partner.microsoft.com/membership) que tenha concluído o processo de [verificação.](/partner-center/verification-responses) Esta conta MPN deve ser a [conta global partner (PGA)](/partner-center/account-structure#the-top-level-is-the-partner-global-account-pga) para a sua organização. 
 

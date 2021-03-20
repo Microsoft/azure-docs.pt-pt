@@ -6,10 +6,10 @@ ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 12/05/2016
 ms.openlocfilehash: 11efdb727bacadb674fb49374ef1c70fcc788ecc
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92219994"
 ---
 # <a name="develop-u-sql-user-defined-operators-udos"></a>Desenvolver operadores definidos pelo utilizador U-SQL (UDOs)
@@ -21,7 +21,7 @@ Este artigo descreve como desenvolver operadores definidos pelo utilizador para 
 
 1. Do Estúdio Visual selecione **Arquivo > Projeto New > > U-SQL Project**.
 2. Clique em **OK**. O Visual Studio cria uma solução com um ficheiro Script.usql.
-3. A partir do **Solution Explorer,** expanda o Script.usql e, em seguida, clique duas **vezes Script.usql.cs**.
+3. A partir do **Solution Explorer,** expanda o Script.usql e, em seguida, clique duas vezes **em Script.usql.cs**.
 4. Cole o código seguinte no ficheiro:
 
    ```usql
@@ -77,7 +77,7 @@ Este artigo descreve como desenvolver operadores definidos pelo utilizador para 
    }
    ```
 
-5. Abra **o Script.usql**e cole o seguinte script U-SQL:
+5. Abra **o Script.usql** e cole o seguinte script U-SQL:
 
    ```usql
    @drivers =

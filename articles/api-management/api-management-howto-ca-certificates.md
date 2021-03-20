@@ -1,5 +1,5 @@
 ---
-title: Adicione um certificado ac personalizado - Azure API Management / Microsoft Docs
+title: Adicione um certificado ac personalizado - Azure API Management | Microsoft Docs
 description: Saiba como adicionar um certificado ac personalizado na Azure API Management. Também pode ver instruções para apagar um certificado.
 services: api-management
 documentationcenter: ''
@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 08/20/2018
 ms.author: apimpm
 ms.openlocfilehash: 124bc053aa2c6e59e205bb6f33a9a96190799499
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93102042"
 ---
 # <a name="how-to-add-a-custom-ca-certificate-in-azure-api-management"></a>Como adicionar um certificado ac personalizado na Azure API Management
@@ -39,7 +39,7 @@ Siga os passos abaixo para fazer o upload de um novo certificado de CA. Se ainda
 
 2. Selecione **certificados ca** do menu.
 
-3. Clique no botão **+ Adicionar** .  
+3. Clique no botão **+ Adicionar**.  
 
     ![Screenshot que mostra o botão + Adicionar para adicionar um certificado DEA.](media/api-management-howto-ca-certificates/01.png)  
 
@@ -47,7 +47,7 @@ Siga os passos abaixo para fazer o upload de um novo certificado de CA. Se ainda
 
     ![Screenshot que mostra como navegar para o certificado.](media/api-management-howto-ca-certificates/02.png)  
 
-5. Clique em **Guardar** . Esta operação poderá demorar alguns minutos.
+5. Clique em **Guardar**. Esta operação poderá demorar alguns minutos.
 
     ![Screenshot que mostra como guardar o certificado.](media/api-management-howto-ca-certificates/03.png)  
 

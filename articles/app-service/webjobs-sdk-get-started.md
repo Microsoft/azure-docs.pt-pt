@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
 ms.openlocfilehash: 4a22602dd9638b981cfe3d8bae9b5cdaacbf90dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91652045"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Get started with the Azure WebJobs SDK for event-driven background processing (Introdução ao SDK de WebJobs do Azure para processamento em segundo plano condicionado por eventos)
@@ -32,7 +32,7 @@ Este artigo mostra-lhe como implementar WebJobs como uma aplicação de consola 
 
 2. Selecione **App de consola (.NET Core)**.
 
-3. Nomeie o projeto *WebJobsSDKSample*e, em seguida, **selecione Create**.
+3. Nomeie o projeto *WebJobsSDKSample* e, em seguida, **selecione Create**.
 
    ![Caixa de diálogo Novo Projeto](./media/webjobs-sdk-get-started/new-project.png)
 
@@ -52,7 +52,7 @@ Este artigo mostra-lhe como implementar WebJobs como uma aplicação de consola 
 
 O hospedeiro é o recipiente de tempo de execução para funções que ouve para as funções de gatilhos e chamadas. Os passos seguintes criam um anfitrião que implementa [`IHost`](/dotnet/api/microsoft.extensions.hosting.ihost) , que é o Anfitrião Genérico em ASP.NET Core.
 
-1. Em *Program.cs,* adicione estas `using` declarações:
+1. No *Programa.cs,* adicione estas `using` declarações:
 
     ```cs
     using System.Threading.Tasks;
@@ -92,7 +92,7 @@ Nesta secção, configura o registo de consolas que utiliza a [estrutura de regi
    ```
    Neste comando, `<3_X_VERSION>` substitua-o por uma versão 3.x suportada do pacote.
 
-1. Em *Program.cs,* adicione uma `using` declaração:
+1. No *Programa.cs,* adicione uma `using` declaração:
 
    ```cs
    using Microsoft.Extensions.Logging;
@@ -162,9 +162,9 @@ A partir da versão 3.x, deve instalar explicitamente a extensão de ligação d
 
 ## <a name="create-a-function"></a>Criar uma função
 
-1. Clique com o botão direito no projeto, **selecione Add**  >  **New Item...**, escolha **Classe,** nomeie o novo ficheiro classe C# *Functions.cs*, e selecione **Add**.
+1. Clique com o botão direito no projeto, **selecione Add**  >  **New Item...**, escolha **Classe,** nomeie as novas *funções* de ficheiro classe C#.cs , e **selecione Adicionar**.
 
-1. Em Functions.cs, substitua o modelo gerado pelo seguinte código:
+1. Em Funções.cs, substitua o modelo gerado pelo seguinte código:
     
     ```cs
     using Microsoft.Azure.WebJobs;
@@ -194,7 +194,7 @@ O Emulador de Armazenamento Azure que funciona localmente não tem todas as func
 
    ![Iniciar sessão no Azure](./media/webjobs-sdk-get-started/sign-in.png)
 
-1. Sob o nó **Azure** no **Server Explorer,** clique no **armazenamento**à direita e, em seguida, selecione **Criar a conta de Armazenamento**.
+1. Sob o nó **Azure** no **Server Explorer,** clique no **armazenamento** à direita e, em seguida, selecione **Criar a conta de Armazenamento**.
 
    ![Criar menu de conta de armazenamento](./media/webjobs-sdk-get-started/create-storage-account-menu.png)
 
@@ -327,13 +327,13 @@ Nesta secção, faz as seguintes tarefas para configurar o registo de Insights d
 
 1. Na caixa **'Cordas de Ligação',** adicione a seguinte entrada.
 
-   |Nome  |cadeia de conexão  |Tipo de base de dados|
+   |Name  |cadeia de conexão  |Tipo de base de dados|
    |---------|---------|------|
    |AzureWebJobsStorage | {a cadeia de ligação de armazenamento que copiou anteriormente}|Personalizado|
 
 1. Se a caixa **'Definições de Aplicação'** não tiver uma chave de instrumentação de Insights de Aplicação, adicione a que copiou anteriormente. (A chave de instrumentação pode já estar lá, dependendo da forma como criou a aplicação do Serviço de Aplicações.)
 
-   |Nome  |Valor  |
+   |Name  |Valor  |
    |---------|---------|
    |APPINSIGHTS_INSTRUMENTATIONKEY | {chave de instrumentação} |
 
@@ -370,7 +370,7 @@ Para tirar partido do registo de Insights de [Aplicação,](../azure-monitor/app
    ```
     Neste comando, `<3_X_VERSION>` substitua-o por uma versão suportada do pacote.
 
-1. Abra *Program.cs* e substitua o código no `Main` método pelo seguinte código:
+1. *Programa Aberto.cs* e substitua o código no `Main` método pelo seguinte código:
 
     ```cs
     static async Task Main()
@@ -460,7 +460,7 @@ Durante a implementação, cria uma instância de serviço de aplicações para 
 
 As ligações de entrada simplificam o código que lê dados. Para este exemplo, a mensagem da fila será um nome blob e você usará o nome blob para encontrar e ler uma bolha no Azure Storage.
 
-1. Em *Functions.cs*, substitua o `ProcessQueueMessage` método pelo seguinte código:
+1. Em *Funções.cs,* substitua o `ProcessQueueMessage` método pelo seguinte código:
 
    ```cs
    public static void ProcessQueueMessage(
@@ -482,11 +482,11 @@ As ligações de entrada simplificam o código que lê dados. Para este exemplo,
 
 1. Crie um recipiente de bolhas na sua conta de armazenamento.
 
-   a. No **Server Explorer** in Visual Studio, expanda o nó para a sua conta de armazenamento, clique com o botão direito **Blobs**e, em seguida, selecione **Create Blob Container**.
+   a. No **Server Explorer** in Visual Studio, expanda o nó para a sua conta de armazenamento, clique com o botão direito **Blobs** e, em seguida, selecione **Create Blob Container**.
 
    b. No diálogo **do recipiente Create Blob,** *introduza* o recipiente como nome do recipiente e, em seguida, clique em **OK**.
 
-1. Faça o upload do ficheiro *Program.cs* para o recipiente da bolha. (Este ficheiro é usado aqui como exemplo; pode carregar qualquer ficheiro de texto e criar uma mensagem de fila com o nome do ficheiro.)
+1. Faça o upload do ficheiro *.cs Programa* para o recipiente blob. (Este ficheiro é usado aqui como exemplo; pode carregar qualquer ficheiro de texto e criar uma mensagem de fila com o nome do ficheiro.)
 
    a. No **Server Explorer,** clique duas vezes no nó para o recipiente que criou.
 
@@ -494,11 +494,11 @@ As ligações de entrada simplificam o código que lê dados. Para este exemplo,
 
    ![Botão de upload blob](./media/webjobs-sdk-get-started/blob-upload-button.png)
 
-   c. Encontre e selecione *Program.cs*e, em seguida, selecione **OK**.
+   c. Encontre e selecione *Programa.cs*, e, em seguida, selecione **OK**.
 
-1. Crie uma mensagem de fila na fila que criou anteriormente, com *Program.cs* como texto da mensagem.
+1. Crie uma mensagem de fila na fila que criou anteriormente, com *o Programa.cs* como o texto da mensagem.
 
-   ![Mensagem de fila Program.cs](./media/webjobs-sdk-get-started/queue-msg-program-cs.png)
+   ![Programa de mensagens de fila.cs](./media/webjobs-sdk-get-started/queue-msg-program-cs.png)
 
 1. Executar o projeto localmente.
 
@@ -532,11 +532,11 @@ As ligações de saída simplificam o código que escreve dados. Este exemplo mo
    }
    ```
 
-1. Crie outra mensagem de fila com *Program.cs* como texto da mensagem.
+1. Crie outra mensagem de fila com *o Programa.cs* como texto da mensagem.
 
 1. Executar o projeto localmente.
 
-   A mensagem de fila ativa a função, que depois lê a bolha, regista o seu comprimento e cria uma nova bolha. A saída da consola é a mesma, mas quando se vai à janela do recipiente blob e seleciona **Refresh**, vê-se uma nova bolha chamada *copy-Program.cs.*
+   A mensagem de fila ativa a função, que depois lê a bolha, regista o seu comprimento e cria uma nova bolha. A saída da consola é a mesma, mas quando se vai à janela do recipiente blob e seleciona **Refresh**, vê-se um novo blob nomeado *programa de cópia.cs.*
 
 ## <a name="republish-the-updates-to-azure"></a>Reeditar as atualizações para a Azure
 

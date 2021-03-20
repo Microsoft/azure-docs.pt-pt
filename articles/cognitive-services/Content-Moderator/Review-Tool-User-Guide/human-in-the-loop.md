@@ -11,10 +11,10 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.author: pafarley
 ms.openlocfilehash: ddf4d17cd2631f5bc299e392c46bd9065bb13744
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93146642"
 ---
 # <a name="content-moderator-review-tool"></a>Ferramenta de Revisão do Moderador de Conteúdo
@@ -47,7 +47,7 @@ Clicar no texto no canto superior direito do painel apresenta as Métricas Pesso
 
 ## <a name="review-tool-credentials"></a>Rever credenciais de ferramenta
 
-Quando se inscreve na [ferramenta 'Revisão',](https://contentmoderator.cognitive.microsoft.com)será solicitado que selecione uma região Azure para si. Isto porque a [ferramenta Review](https://contentmoderator.cognitive.microsoft.com) gera uma chave de teste gratuita para os serviços de Moderador de Conteúdo Azure. Você precisará desta chave para aceder a qualquer um dos serviços a partir de uma chamada REST ou cliente SDK. Pode ver a sua chave e URL **Admin** de ponto final da API selecionando  >  **credenciais** de administrador .
+Quando se inscreve na [ferramenta 'Revisão',](https://contentmoderator.cognitive.microsoft.com)será solicitado que selecione uma região Azure para si. Isto porque a [ferramenta Review](https://contentmoderator.cognitive.microsoft.com) gera uma chave de teste gratuita para os serviços de Moderador de Conteúdo Azure. Você precisará desta chave para aceder a qualquer um dos serviços a partir de uma chamada REST ou cliente SDK. Pode ver a sua chave e URL de ponto final da API selecionando  >  **credenciais** de administrador .
 
 > [!div class="mx-imgBorder"]
 > ![Credenciais moderadoras de conteúdo](images/settings-6-credentials.png)

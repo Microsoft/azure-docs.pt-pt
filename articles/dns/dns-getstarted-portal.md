@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 10/20/2020
 ms.author: rohink
 ms.openlocfilehash: be76a7902c2747c7a8dc1bfc21d58ae88f3ff343
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92282150"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-the-azure-portal"></a>Quickstart: Criar uma zona Azure DNS e gravar usando o portal Azure
@@ -51,7 +51,7 @@ Uma zona DNS contém as entradas DNS para um domínio. Para começar a hospedar 
 1. Na página da **zona Do DDS,** escreva ou selecione os seguintes valores:
 
    - **Nome**: Escreva *contoso.xyz* para este exemplo de arranque rápido. O nome da zona DNS pode ser qualquer valor que ainda não esteja configurado nos servidores Azure DNS. Um valor real seria um domínio que comprou de uma entidade de registo de nomes de domínio.
-   - **Grupo de recursos**: Selecione **Criar novo,** insira *o MyResourceGroup*e selecione **OK**. O nome do grupo de recursos deve ser único dentro da assinatura Azure. 
+   - **Grupo de recursos**: Selecione **Criar novo,** insira *o MyResourceGroup* e selecione **OK**. O nome do grupo de recursos deve ser único dentro da assinatura Azure. 
 
 1. Selecione **Criar**.
 
@@ -65,7 +65,7 @@ Cria entradas ou registos DNS para o seu domínio dentro da zona DNS. Crie um no
 
 **Para criar um disco 'A':**
 
-1. No portal Azure, em **todos os recursos,** abra a zona **de DNS contoso.xyz** no grupo de recursos **MyResourceGroup.** Pode inserir *contoso.xyz* na caixa de **nomes Filter para** encontrá-lo mais facilmente.
+1. No portal Azure, em **todos os recursos,** abra a zona **de DNS contoso.xyz** no grupo de recursos **MyResourceGroup.** Pode introduzir *contoso.xyz* na caixa de **nomes filter para** encontrá-lo mais facilmente.
 
 1. No topo da página da **zona DNS,** selecione **+ Conjunto de registos**.
 
@@ -85,7 +85,7 @@ Agora que tem uma zona de DNS de teste com um registo de teste 'A', pode testar 
 
 **Para testar a resolução do nome DNS:**
 
-1. No portal Azure, em **todos os recursos,** abra a zona **de DNS contoso.xyz** no grupo de recursos **MyResourceGroup.** Pode inserir *contoso.xyz* na caixa de **nomes Filter para** encontrá-lo mais facilmente.
+1. No portal Azure, em **todos os recursos,** abra a zona **de DNS contoso.xyz** no grupo de recursos **MyResourceGroup.** Pode introduzir *contoso.xyz* na caixa de **nomes filter para** encontrá-lo mais facilmente.
 
 1. Copie um dos nomes do servidor de nomes da lista de servidores de nomes na página **'Vista Geral'.** 
 
@@ -107,7 +107,7 @@ Agora que tem uma zona de DNS de teste com um registo de teste 'A', pode testar 
 
    ![A screenshot mostra uma janela de pedido de comando com um comando de procura n s e valores para Servidor, Endereço, Nome e Endereço.](media/dns-getstarted-portal/nslookup.PNG)
 
-O nome de anfitrião **www \. contoso.xyz** resolve para **10.10.10.10**, tal como o configuraste. Este resultado verifica que a resolução de nomes está a funcionar corretamente. 
+O nome de anfitrião **www \. contoso.xyz** resolve para **10.10.10.10**, tal como o configura. Este resultado verifica que a resolução de nomes está a funcionar corretamente. 
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

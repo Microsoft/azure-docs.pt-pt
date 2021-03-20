@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 38754b9e349e27afcff58dac27a616e3e4fb5319
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96860937"
 ---
 # <a name="controlled-validation-of-hybrid-azure-ad-join"></a>Validação controlada de associação do Azure AD híbrido
@@ -55,7 +55,7 @@ Utilize o exemplo seguinte para criar um Objeto de Política de Grupo (GPO) para
 
 1. Abra uma consola de Gestão de Políticas de Grupo e crie um novo Objeto de Política de Grupo no seu domínio.
    1. Forneça ao seu gpo recém-criado um nome (por exemplo, ClientSideSCP).
-1. Editar o GPO e localizar o seguinte caminho: **Registo**  >  **de configurações de configuração**  >  **Windows Settings**  >  **do** computador
+1. Editar o GPO e localizar o seguinte caminho: **Registo**  >  **de configurações de configuração**  >    >  **do** computador
 1. Clique com o botão direito no Registo e selecione **Novo**  >  **Item de Registo**
    1. No separador **Geral,** configuure o seguinte
       1. Ação: **Atualização**
