@@ -7,10 +7,10 @@ ms.date: 01/23/2018
 ms.author: mikerou
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 9f39bd874c1f5a1be42ca1c88e6ea2fe8df22f87
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94648213"
 ---
 # <a name="scale-a-service-fabric-cluster-programmatically"></a>Escalar um cluster de tecido de serviço programáticamente 
@@ -116,7 +116,7 @@ Tal como com a escala, os cmdlets PowerShell para modificar a capacidade de conj
 await client.ClusterManager.RemoveNodeStateAsync(mostRecentLiveNode.NodeName);
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para começar a implementar a sua própria lógica de auto-escala, familiarize-se com os seguintes conceitos e APIs úteis:
 

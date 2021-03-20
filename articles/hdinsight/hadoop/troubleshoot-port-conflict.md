@@ -5,10 +5,10 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/23/2020
 ms.openlocfilehash: f42e84d5d9c1dd49d9bf5604fe2f967eae0b6276
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98943099"
 ---
 # <a name="scenario-port-conflict-when-starting-services-in-azure-hdinsight"></a>Cenário: Conflito portuário ao iniciar serviços no Azure HDInsight
@@ -25,7 +25,7 @@ Existe um conflito portuário.
 
 ## <a name="resolution"></a>Resolução
 
-### <a name="method-1"></a>Método 1
+### <a name="method-1"></a>Método 1
 
 Utilize comandos abaixo para obter/eliminar todos os processos de execução, que são afetados pela questão da porta.
 
@@ -37,11 +37,11 @@ kill -9 <service>
 
 Então inicie o serviço.
 
-### <a name="method-2"></a>Método 2
+### <a name="method-2"></a>Método 2
 
 Reinicie o nó.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se não viu o seu problema ou não conseguir resolver o seu problema, visite um dos seguintes canais para obter mais apoio:
 

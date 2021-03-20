@@ -14,10 +14,10 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.openlocfilehash: c1d7bf933b487c40d571f1912341b5ef771e4e67
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90527331"
 ---
 # <a name="creating-filters-with-media-services-rest-api"></a>Criação de filtros com Serviços de Mídia REST API
@@ -95,7 +95,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 Selecione o **separador 'Corpo'** e cole o código json que [definiu anteriormente](#define-a-filter).
 
-Selecione **Send** (Enviar). 
+Selecione **Enviar**. 
 
 O filtro foi criado.
 
@@ -113,7 +113,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 Selecione o **separador 'Corpo'** e cole o código json que [definiu anteriormente](#define-a-filter).
 
-Selecione **Send** (Enviar). 
+Selecione **Enviar**. 
 
 O filtro de ativos foi criado.
 

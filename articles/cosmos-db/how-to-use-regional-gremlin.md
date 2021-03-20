@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/09/2019
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 3e30252d8f5e80538139f8100f1070385c1b6016
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93361792"
 ---
 # <a name="regional-endpoints-for-azure-cosmos-db-graph-account"></a>Pontos finais regionais para conta DB de Azure Cosmos
@@ -111,7 +111,7 @@ foreach (string location in readLocations)
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Como gerir o controlo de contas de base de dados](how-to-manage-database-account.md) em Azure Cosmos DB
 * [Alta disponibilidade](high-availability.md) em Azure Cosmos DB
 * [Distribuição global com Azure Cosmos DB - sob o capot](global-dist-under-the-hood.md)

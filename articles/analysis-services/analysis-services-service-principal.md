@@ -1,5 +1,5 @@
 ---
-title: Automatizar tarefas dos Serviços de Análise da Azure com os principais serviços Microsoft Docs
+title: Automatizar tarefas dos Serviços de Análise Azure com os diretores de serviços | Microsoft Docs
 description: Saiba como criar um principal serviço para automatizar tarefas administrativas dos Serviços de Análise Azure.
 author: minewiskan
 ms.service: azure-analysis-services
@@ -8,10 +8,10 @@ ms.date: 07/07/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: b04b9ababfe0e4c2a60d14044b9d3ee120837dc5
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96491048"
 ---
 # <a name="automation-with-service-principals"></a>Automatização com principais de serviço
@@ -24,14 +24,14 @@ Os Serviços de Análise também apoiam operações realizadas por identidades g
 
 ## <a name="create-service-principals"></a>Criar principais de serviço
  
-Os principais de serviço podem ser criados no portal Azure ou utilizando o PowerShell. Para saber mais, consulte:
+Os principais de serviço podem ser criados no portal Azure ou utilizando o PowerShell. Para saber mais, veja:
 
 [Criar um principal de serviço – portal do Azure](../active-directory/develop/howto-create-service-principal-portal.md)   
 [Criar principal de serviço - PowerShell](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 
 ## <a name="store-credential-and-certificate-assets-in-azure-automation"></a>Armazenar ativos de credencial e certificados na Azure Automation
 
-As credenciais e certificados principais do serviço podem ser armazenados de forma segura na Azure Automation para operações de runbook. Para saber mais, consulte:
+As credenciais e certificados principais do serviço podem ser armazenados de forma segura na Azure Automation para operações de runbook. Para saber mais, veja:
 
 [Ativos credenciais na Azure Automation](../automation/shared-resources/credentials.md)   
 [Recursos de certificados na Automatização do Azure](../automation/shared-resources/certificates.md)

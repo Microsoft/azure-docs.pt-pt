@@ -13,10 +13,10 @@ ms.custom: seo-lt-2019
 ms.topic: quickstart
 ms.date: 03/13/2020
 ms.openlocfilehash: 39f893e9375970ff4bb6e3cfa2c93ceea48ec896
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92331809"
 ---
 # <a name="quickstart-create-a-hybrid-mode-instance-with-azure-portal--azure-database-migration-service"></a>Quickstart: Criar uma instância de modo híbrido com o portal Azure & Serviço de Migração da Base de Dados Azure
@@ -85,7 +85,7 @@ Registe o fornecedor de recursos Microsoft.DataMigration antes de criar a sua pr
 
     ![Exemplo de modo híbrido do Azure Database Migration Service](media/quickstart-create-data-migration-service-hybrid-portal/dms-instance-hybrid-mode.png)
 
-6. Após a criação do serviço, selecione **Propriedades**e, em seguida, copie o valor apresentado na caixa **de identificação** de recursos, que utilizará para instalar o trabalhador híbrido Azure Database Migration Service.
+6. Após a criação do serviço, selecione **Propriedades** e, em seguida, copie o valor apresentado na caixa **de identificação** de recursos, que utilizará para instalar o trabalhador híbrido Azure Database Migration Service.
 
     ![Propriedades híbridas do modo híbrido do Azure Database Migration Service](media/quickstart-create-data-migration-service-hybrid-portal/dms-copy-resource-id.png)
 
@@ -93,7 +93,7 @@ Registe o fornecedor de recursos Microsoft.DataMigration antes de criar a sua pr
 
 Você precisa criar um ID de registo de app Azure que o trabalhador híbrido no local pode usar para comunicar com o Azure Database Migration Service na nuvem.
 
-1. No portal Azure, selecione **Azure Ative Directory,** selecione **registos de Aplicações**e, em seguida, selecione **Novo registo**.
+1. No portal Azure, selecione **Azure Ative Directory,** selecione **registos de Aplicações** e, em seguida, selecione **Novo registo**.
 2. Especifique um nome para a aplicação e, em seguida, nos **tipos de conta suportados,** selecione o tipo de contas para suportar para especificar quem pode usar a aplicação.
 
     ![Aplicação de registo híbrido do Azure Database Migration Service](media/quickstart-create-data-migration-service-hybrid-portal/dms-register-application.png)
@@ -116,7 +116,7 @@ Você precisa criar um ID de registo de app Azure que o trabalhador híbrido no 
 
 1. No portal Azure, navegue para o seu exemplo do Serviço de Migração da Base de Dados Azure.
 
-2. Em **Definições**, selecione **Híbrido**e, em seguida, selecione **Instalar download** para descarregar o trabalhador híbrido.
+2. Em **Definições**, selecione **Híbrido** e, em seguida, selecione **Instalar download** para descarregar o trabalhador híbrido.
 
     ![Download híbrido do Azure Database Migration Service](media/quickstart-create-data-migration-service-hybrid-portal/dms-installer-download.png)
 
@@ -125,7 +125,7 @@ Você precisa criar um ID de registo de app Azure que o trabalhador híbrido no 
     > [!IMPORTANT]
     > O instalador híbrido Azure Database Migration Service requer .NET 4.7.2 ou mais tarde. Para encontrar as versões mais recentes de .NET, consulte a página [Quadro de Descarregamento .NET.](https://dotnet.microsoft.com/download/dotnet-framework)
 
-4. Na pasta de instalação, localize e abra o **dmsSettings.jsno** ficheiro, especifique o **ApplicationId** e **o resourceId**e guarde o ficheiro.
+4. Na pasta de instalação, localize e abra o **dmsSettings.jsno** ficheiro, especifique o **ApplicationId** e **o resourceId** e guarde o ficheiro.
 
     ![Azure Database Migration Service configurações híbridas do serviço de migração](media/quickstart-create-data-migration-service-hybrid-portal/dms-settings.png)
 

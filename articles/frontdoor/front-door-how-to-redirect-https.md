@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: duau
 ms.openlocfilehash: 19908b3cba63bc76a205097ef8d16e612d58503b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91626647"
 ---
 # <a name="create-a-front-door-with-http-to-https-redirection-using-the-azure-portal"></a>Criar uma porta frontal com https para reorientação HTTPS usando o portal Azure
@@ -35,21 +35,21 @@ Pode utilizar o portal Azure para [criar uma Porta frontal](quickstart-create-fr
 
 1. A configuração para Porta Frontal acontece em três passos - adicionando um anfitrião frontal padrão, adicionando backends em uma piscina de backend e, em seguida, criando regras de encaminhamento para mapear o comportamento de encaminhamento para o anfitrião frontal. Selecione o **+** ícone ' ' nos _anfitriões Frontend_ para criar um anfitrião frontal.
 
-    :::image type="content" source="./media/front-door-url-redirect/front-door-designer.png" alt-text="Configurar o básico para a nova Porta da Frente":::
+    :::image type="content" source="./media/front-door-url-redirect/front-door-designer.png" alt-text="Designer de configuração da porta da frente":::
 
 1. Insira um nome globalmente único para o seu anfitrião frontal padrão para a sua Porta da Frente. **Selecione Adicionar** para continuar ao próximo passo.
 
-    :::image type="content" source="./media/front-door-url-redirect/front-door-create-frontend-host.png" alt-text="Configurar o básico para a nova Porta da Frente":::
+    :::image type="content" source="./media/front-door-url-redirect/front-door-create-frontend-host.png" alt-text="Adicione um anfitrião frontend":::
 
 ### <a name="create-backend-pool"></a>Criar piscina backend
 
 1. Selecione o **+** ícone ' ' nas _piscinas backend_ para criar uma piscina de backend. Forneça um nome para a piscina de backend e, em seguida, **selecione Adicione um backend**.
 
-    :::image type="content" source="./media/front-door-url-redirect/front-door-designer-backend-pool.png" alt-text="Configurar o básico para a nova Porta da Frente":::
+    :::image type="content" source="./media/front-door-url-redirect/front-door-designer-backend-pool.png" alt-text="Piscina de backend de design de configuração da porta da frente":::
 
 1. Selecione o Tipo anfitrião backend como _serviço de aplicação_. Selecione a subscrição onde a sua aplicação web está hospedada e, em seguida, selecione a aplicação web específica a partir do dropdown para **o nome de anfitrião backend**.
 
-    :::image type="content" source="./media/front-door-url-redirect/front-door-create-backend-pool.png" alt-text="Configurar o básico para a nova Porta da Frente":::
+    :::image type="content" source="./media/front-door-url-redirect/front-door-create-backend-pool.png" alt-text="Adicione um backend em uma piscina de backend":::
 
 1. **Selecione Adicionar** para guardar o backend e selecione **Adicionar** novamente para guardar o pool config. 
 
@@ -57,11 +57,11 @@ Pode utilizar o portal Azure para [criar uma Porta frontal](quickstart-create-fr
 
 1. Selecione o **+** ícone ' ' nas *regras de encaminhamento* para criar uma rota. Fornecer um nome para a rota, por exemplo 'HttpToHttpsRedirect', e, em seguida, definir o campo *de protocolo aceite* **apenas para 'HTTP'.** Certifique-se de que os *domínios/frontend/domínios adequados são selecionados.*  
 
-    :::image type="content" source="./media/front-door-url-redirect/front-door-designer-routing-rule.png" alt-text="Configurar o básico para a nova Porta da Frente":::
+    :::image type="content" source="./media/front-door-url-redirect/front-door-designer-routing-rule.png" alt-text="Regra de encaminhamento de design de configuração da porta da frente":::
 
-1. Na secção Detalhes da *Rota,* desacione o *Tipo de Rota* para **Redirecionamento**. Certifique-se de que o *tipo de redirecionamento* é definido para **Found (302)** e *o protocolo de redirecionamento* é definido **apenas**para HTTPS . 
+1. Na secção Detalhes da *Rota,* desacione o *Tipo de Rota* para **Redirecionamento**. Certifique-se de que o *tipo de redirecionamento* é definido para **Found (302)** e *o protocolo de redirecionamento* é definido **apenas** para HTTPS . 
 
-    :::image type="content" source="./media/front-door-url-redirect/front-door-redirect-config-example.png" alt-text="Configurar o básico para a nova Porta da Frente":::
+    :::image type="content" source="./media/front-door-url-redirect/front-door-redirect-config-example.png" alt-text="Adicione uma rota de redirecionamento HTTPS a HTTPS":::
 
 1. **Selecione Adicionar** para guardar a regra de encaminhamento para HTTPS redirecionamento.
 
@@ -71,7 +71,7 @@ Pode utilizar o portal Azure para [criar uma Porta frontal](quickstart-create-fr
 
 1. Na secção 'Detalhes da Rota', desagrafe o *Tipo de Rota* para **Encaminhar**. Certifique-se de que o pool de backend direito é selecionado e que o *Protocolo de Encaminhamento* é definido apenas para **HTTPS**. 
 
-    :::image type="content" source="./media/front-door-url-redirect/front-door-forward-route-example.png" alt-text="Configurar o básico para a nova Porta da Frente" border="false":::
+    :::image type="content" source="./media/front-door-url-redirect/front-door-forward-route-example.png" alt-text="Adicione uma rota para a frente para tráfego HTTPS" border="false":::
 
 1. **Selecione Adicionar** para guardar a regra de encaminhamento para reencaminhamento de pedido.
 

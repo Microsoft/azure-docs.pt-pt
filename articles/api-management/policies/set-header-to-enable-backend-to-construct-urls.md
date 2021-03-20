@@ -1,5 +1,5 @@
 ---
-title: Amostra de política de gestão da AZure API - Adicione um cabeçalho reencaminhado Microsoft Docs
+title: Amostra de política de gestão da Azure API - Adicione um cabeçalho reencaminhado | Microsoft Docs
 description: Amostra de política de gestão Azure API - Demonstra como adicionar um cabeçalho reencaminhado no pedido de entrada para permitir que a API de backend construa URLs adequados.
 services: api-management
 documentationcenter: ''
@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
 ms.openlocfilehash: df72ae5e9a1471e1387539d2c89a1eca0b09d866
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92078617"
 ---
 # <a name="add-a-forwarded-header"></a>Adicione um cabeçalho reencaminhado
@@ -34,4 +34,4 @@ Cole o código no bloco **de entrada.**
 Saiba mais sobre as políticas da APIM:
 
 + [Políticas de transformação](../api-management-transformation-policies.md)
-+ [Amostras de política](../policy-reference.md)
++ [Exemplos de Políticas](../policy-reference.md)

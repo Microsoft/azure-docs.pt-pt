@@ -14,10 +14,10 @@ ms.date: 10/16/2020
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 3244cbca3df717d3432670a366147408cf2b2c0e
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101669112"
 ---
 # <a name="backup-and-restore-of-sap-hana-on-hana-large-instances"></a>Backup e restauro de SAP HANA em Grandes Instâncias HANA
@@ -833,7 +833,7 @@ Antes de conseguir clonar, deve ter a mesma versão HANA instalada como base de 
 1. Nos **Scripts,** fornecer o seguinte:
 
    * **Comando de montagem:** /NetApp/sc-system-refresh.sh montagem H34 %hana_data_h31_mnt00001_t250_vol_Clone
-   * **Comando de clone pós-clone:** /NetApp/sc-system-refresh.sh recuperar H34
+   * **Comando de clone de post:** /NetApp/sc-system-refresh.sh recuperar H34
 
 1. Desative (bloqueio) o suporte automático no /etc/fstab uma vez que o volume de dados da base de dados pré-instalada não é necessário. 
 

@@ -4,10 +4,10 @@ description: Este artigo responde a perguntas frequentes sobre o apoio da Azure 
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: dc6a12b2098a1fdf33adda92b4347f91ab4e5489
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91828107"
 ---
 # <a name="frequently-asked-questions---event-hubs-for-apache-kafka"></a>Perguntas frequentes - Centros de Eventos para Apache Kafka 
@@ -32,7 +32,7 @@ Qual é a diferença entre um grupo de consumidores event hub e um grupo de cons
 - Podem armazenar compensações no serviço Event Hubs.
 - São usados como chaves no que é efetivamente uma loja de valor-chave compensada. Para um par único de `group.id` `topic-partition` e, armazenamos um offset no Azure Storage (replicação 3x). Os utilizadores do Event Hubs não incorrem em custos de armazenamento extra ao armazenar compensações kafka. As compensações são manipuláveis através das APIs do grupo de *consumidores* Kafka, mas as contas de armazenamento compensadas não são diretamente visíveis ou manipuláveis para os utilizadores do Event Hub.  
 - Abrangem um espaço de nome. A utilização do mesmo nome do grupo Kafka para múltiplas aplicações em vários tópicos significa que todas as aplicações e os seus clientes Kafka serão reequilibridos sempre que apenas uma aplicação precise de ser reequilibrada.  Escolha os nomes do seu grupo com sabedoria.
-- São totalmente distintos dos grupos de consumidores Event Hubs. Não **don't** precisa de usar o "$Default", nem precisa de se preocupar com os clientes da Kafka que interferem com as cargas de trabalho da AMQP.
+- São totalmente distintos dos grupos de consumidores Event Hubs. Não  precisa de usar o "$Default", nem precisa de se preocupar com os clientes da Kafka que interferem com as cargas de trabalho da AMQP.
 - Não são vistos no portal Azure. A informação do grupo de consumidores é acessível através de APIs kafka.
 
 ## <a name="next-steps"></a>Passos seguintes

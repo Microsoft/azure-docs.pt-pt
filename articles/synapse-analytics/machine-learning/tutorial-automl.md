@@ -10,10 +10,10 @@ ms.date: 11/20/2020
 author: nelgson
 ms.author: negust
 ms.openlocfilehash: aaf0aab2ef600b269b9b47182aeb096ca13c7a87
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98943518"
 ---
 # <a name="tutorial-train-a-machine-learning-model-without-code"></a>Tutorial: Treine um modelo de aprendizagem automática sem código
@@ -116,7 +116,7 @@ Para gerar um caderno, selecione **Abrir No Caderno.** Em seguida, **selecione E
 Depois de ter submetido com sucesso a execução, vê um link para a experiência executada no espaço de trabalho Azure Machine Learning na saída do caderno. Selecione o link para monitorizar a sua execução automatizada em Azure Machine Learning.
 ![Screenshot de Azure Synapse Analytics com um link realçado. ](media/tutorial-automl-wizard/tutorial-automl-wizard-configure-run-00f.png) )
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Tutorial: Assistente de pontuação de modelo de machine learning (pré-visualização) para piscinas SQL dedicadas](tutorial-sql-pool-model-scoring-wizard.md)
 - [Quickstart: Criar um novo serviço de aprendizagem automática Azure em Azure Synapse Analytics](quickstart-integrate-azure-machine-learning.md)

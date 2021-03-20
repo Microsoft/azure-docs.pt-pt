@@ -12,10 +12,10 @@ ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
 ms.openlocfilehash: 66bce573be5a31641bdff809b8e9a79b617a703a
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92371006"
 ---
 # <a name="azure-active-directory-identity-and-access-management-operations-reference-guide"></a>Guia de referência de operações de gestão de diretório ativo Azure
@@ -97,7 +97,7 @@ Se a sua organização não tiver uma estratégia de recuperação de desastres 
 
 ![Uma imagem da configuração do modo de paragem Azure AD Connect](./media/active-directory-ops-guide/active-directory-ops-img1.png)
 
-#### <a name="stay-current"></a>Mantenha-se atualizado
+#### <a name="stay-current"></a>Manter-se a par
 
 A Microsoft atualiza regularmente o Azure AD Connect. Mantenha-se atual para tirar partido das melhorias de desempenho, correções de bugs e novas capacidades que cada nova versão fornece.
 

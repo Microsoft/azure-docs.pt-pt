@@ -10,10 +10,10 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.openlocfilehash: ee54357250e3f31ef9db633d933d897fff362f48
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98878566"
 ---
 # <a name="check-the-encryption-status-of-a-blob"></a>Verifique o estado de encriptação de uma bolha
@@ -96,6 +96,6 @@ azcopy copy 'C:\temp\blob1.txt' 'https://storagesamples.blob.core.windows.net/sa
 
 Para obter mais informações sobre a utilização do AzCopy para copiar dados de bolhas, consulte [os dados de Transferência com armazenamento AzCopy e Blob](../common/storage-use-azcopy-v10.md#transfer-data).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Azure Storage encryption for data at rest](../common/storage-service-encryption.md) (Encriptação do Armazenamento do Azure para dados inativos)

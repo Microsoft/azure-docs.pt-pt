@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/05/2019
 ms.openlocfilehash: aa4be5852b4f8af00346a3ea9a86b13a85f99824
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93358461"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Criar ciclos que repetem as ações do fluxo de trabalho e processam as matrizes no Azure Logic Apps
@@ -124,11 +124,11 @@ Se estiver a trabalhar na visão de código para a sua aplicação lógica, pode
 
 Por predefinição, os ciclos num loop "Foreach" funcionam em paralelo. Para executar cada ciclo sequencialmente, desacorda a opção **sequencial** do loop. Os laços "Foreach" devem ser executados sequencialmente quando tiver laços aninhados ou variáveis dentro de loops onde se espera resultados previsíveis. 
 
-1. No canto superior direito do laço, escolha **elipses** **(...** ) > **Definições**.
+1. No canto superior direito do laço, escolha **elipses** **(...**) > **Definições**.
 
    ![No loop "Foreach", escolha "..." > "Definições"](media/logic-apps-control-flow-loops/for-each-loop-settings.png)
 
-1. Sob **controlo de concurrency,** rode a definição **de Controlo de Concurrency** para **On**. Mova o **Curso de Paralelismo** para **1** , e escolha **Feito**.
+1. Sob **controlo de concurrency,** rode a definição **de Controlo de Concurrency** para **On**. Mova o **Curso de Paralelismo** para **1**, e escolha **Feito**.
 
    ![Ligue o controlo da conuncy](media/logic-apps-control-flow-loops/for-each-loop-sequential-setting.png)
 
@@ -215,7 +215,7 @@ A partir das 8:00 todos os dias, este exemplo de aplicação lógica incrementa 
 
    ![Adicione ação para incrementar variável](./media/logic-apps-control-flow-loops/do-until-loop-increment-variable.png)
 
-1. Para **nome,** selecione a variável **Limite.** Para **Valor** , insira "1". 
+1. Para **nome,** selecione a variável **Limite.** Para **Valor**, insira "1". 
 
      ![Incremento "Limite" por 1](./media/logic-apps-control-flow-loops/do-until-loop-increment-variable-settings.png)
 
@@ -251,9 +251,9 @@ A partir das 8:00 todos os dias, este exemplo de aplicação lógica incrementa 
 
 O laço "Até" para a execução com base nestas propriedades, por isso certifique-se de que define os seus valores em conformidade:
 
-* **Contagem** : Este valor é o maior número de loops que funcionam antes da saída do loop. Para os limites padrão e máximos no número de loops "Até" que uma aplicação lógica pode ter, consulte [Concurrency, looping e debatching limites](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
+* **Contagem**: Este valor é o maior número de loops que funcionam antes da saída do loop. Para os limites padrão e máximos no número de loops "Até" que uma aplicação lógica pode ter, consulte [Concurrency, looping e debatching limites](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
-* **Tempo limite** : Este valor é o maior tempo que o loop corre antes de sair e é especificado no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). Para os limites padrão e máximos no valor **timeout,** consulte [Os limites de Concurrency, looping e debatching](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
+* **Tempo limite**: Este valor é o maior tempo que o loop corre antes de sair e é especificado no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). Para os limites padrão e máximos no valor **timeout,** consulte [Os limites de Concurrency, looping e debatching](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
   O valor de tempo limite é avaliado para cada ciclo de ciclo. Se qualquer ação no circuito demorar mais do que o limite de tempo, o ciclo atual não para. No entanto, o próximo ciclo não começa porque a condição limite não está cumprida.
 
@@ -342,7 +342,7 @@ Este exemplo "Até" chama um ponto final HTTP, que cria um recurso. O loop para 
 * Para dúvidas, visite a página de perguntas do [Microsoft Q&Uma página de perguntas para aplicações Azure Logic](/answers/topics/azure-logic-apps.html).
 * Para submeter ou votar em funcionalidades e sugestões, [o site de feedback do utilizador da Azure Logic Apps](https://aka.ms/logicapps-wish).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Passos de execução com base numa condição (declarações condicionais)](../logic-apps/logic-apps-control-flow-conditional-statement.md)
 * [Passos de execução com base em diferentes valores (declarações de switch)](../logic-apps/logic-apps-control-flow-switch-statement.md)

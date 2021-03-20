@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: yegu
 ms.openlocfilehash: 88e433dbfa87d8ea483789b1fd838c62a6a481c0
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92536764"
 ---
 # <a name="manage-azure-cache-for-redis-with-azure-powershell"></a>Gerir a cache Azure para Redis com Azure PowerShell
@@ -141,7 +141,7 @@ A tabela seguinte contém propriedades e descrições para parâmetros comumente
 
 | Parâmetro | Descrição | Predefinição |
 | --- | --- | --- |
-| Nome |Nome da cache | |
+| Name |Nome da cache | |
 | Localização |Localização da cache | |
 | ResourceGroupName |Nome do grupo de recursos para criar a cache | |
 | Tamanho |Do tamanho da cache. Os valores válidos são: P1, P2, P3, P4, C0, C1, C2, C3, C4, C5, C6, 250MB, 1GB, 2.5GB, 6GB, 13GB, 26GB, 53GB |1GB |

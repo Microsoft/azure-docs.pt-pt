@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: bcc561cd5eea4372d798fff4580362ba0879c3a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91574199"
 ---
 # <a name="analyze-data-in-azure-data-lake-storage-gen1-by-using-power-bi"></a>Analise os dados em Azure Data Lake Storage Gen1 utilizando o Power BI
@@ -20,12 +20,12 @@ Neste artigo, aprende a usar o Power BI Desktop para analisar e visualizar dados
 Antes de começar este tutorial, tem de ter o seguinte:
 
 * **Uma assinatura Azure**. Consulte [Obter versão de avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Uma conta gen1 de armazenamento de data lake.** Siga as instruções da [Azure Data Lake Storage Gen1 utilizando o portal Azure](data-lake-store-get-started-portal.md). Este artigo pressupõe que já criou uma conta Gen1 de Armazenamento de **Dados, chamada myadlsg1,** e enviou um ficheiro de dados de amostra** (Drivers.txt**) para o mesmo. Este ficheiro de amostra está disponível para download a partir do [Repositório Azure Data Lake Git.](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/Drivers.txt)
+* **Uma conta gen1 de armazenamento de data lake.** Siga as instruções da [Azure Data Lake Storage Gen1 utilizando o portal Azure](data-lake-store-get-started-portal.md). Este artigo pressupõe que já criou uma conta Gen1 de Armazenamento de **Dados, chamada myadlsg1,** e enviou um ficheiro de dados de amostra **(Drivers.txt**) para o mesmo. Este ficheiro de amostra está disponível para download a partir do [Repositório Azure Data Lake Git.](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/Drivers.txt)
 * **Power BI Desktop**. Pode fazer o download do [Microsoft Download Center.](https://www.microsoft.com/en-us/download/details.aspx?id=45331) 
 
 ## <a name="create-a-report-in-power-bi-desktop"></a>Criar um relatório no Power BI Desktop
 1. Lançar Power BI Desktop no seu computador.
-2. A partir da fita **Home,** clique em **Obter Dados**e, em seguida, clique em Mais. Na caixa de diálogo **Get Data,** clique em **Azure,** clique em **Azure Data Lake Store**e, em seguida, clique em **Connect**.
+2. A partir da fita **Home,** clique em **Obter Dados** e, em seguida, clique em Mais. Na caixa de diálogo **Get Data,** clique em **Azure,** clique em **Azure Data Lake Store** e, em seguida, clique em **Connect**.
    
     ![Screenshot da caixa de diálogo Get Data com a opção Azure Data Lake Store realçada e a opção Connect chamada.](./media/data-lake-store-power-bi/get-data-lake-store-account.png "Ligue-se à Data Lake Storage Gen1")
 3. Se vir uma caixa de diálogo sobre o conector estar em fase de desenvolvimento, opte por continuar.
@@ -56,7 +56,7 @@ Antes de começar este tutorial, tem de ter o seguinte:
 10. No Editor de Consulta, sob a coluna **Conteúdo,** clique em **Binário**.
     
     ![Screenshot do Editor de Consulta com a coluna de conteúdo chamado.](./media/data-lake-store-power-bi/convert-query1.png "Editar consultas")
-11. Verá um ícone de ficheiro que representa o ** ficheiroDrivers.txt** que carregou. Clique com o botão direito no ficheiro e clique em **CSV**.    
+11. Verá um ícone de ficheiro que representa o **ficheiroDrivers.txt** que carregou. Clique com o botão direito no ficheiro e clique em **CSV**.    
     
     ![Screenshot do Editor de Consulta com a opção CSV chamada.](./media/data-lake-store-power-bi/convert-query2.png "Editar consultas")
 12. Deve ver uma saída como mostrado abaixo. Os seus dados estão agora disponíveis num formato que pode utilizar para criar visualizações.
@@ -90,6 +90,6 @@ Antes de começar este tutorial, tem de ter o seguinte:
 ## <a name="publish-report-to-power-bi-service"></a>Publicar relatório ao serviço Power BI
 Uma vez criadas as visualizações no Power BI Desktop, pode partilhá-la com outras, publicando-as no serviço Power BI. Para obter instruções sobre como fazê-lo, consulte [a Publicação do Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-upload-desktop-files/).
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 * [Analise os dados em Data Lake Storage Gen1 usando data lake analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 

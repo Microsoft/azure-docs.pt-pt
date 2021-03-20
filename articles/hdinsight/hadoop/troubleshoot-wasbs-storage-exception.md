@@ -5,10 +5,10 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 02/06/2020
 ms.openlocfilehash: 46063d5f2d9ff4b85914ad7c4cd74a2400298db0
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98943079"
 ---
 # <a name="the-account-being-accessed-does-not-support-http-error-in-azure-hdinsight"></a>A conta que está a ser acedida não suporta o erro http no Azure HDInsight
@@ -37,7 +37,7 @@ Se a transferência segura estiver ativada para o Azure Storage ou data lake sto
 
 Para novos clusters, utilize uma conta de armazenamento que já tenha a definição de transferência segura desejada. Não altere a definição de transferência segura para uma conta de armazenamento que esteja a ser utilizada por um cluster existente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se não viu o seu problema ou não conseguir resolver o seu problema, visite um dos seguintes canais para obter mais apoio:
 

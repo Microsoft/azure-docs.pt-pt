@@ -6,10 +6,10 @@ ms.subservice: shared-capabilities
 ms.date: 12/01/2020
 ms.topic: conceptual
 ms.openlocfilehash: 6db0c82c034aab97deee1be4aa8bdc54368521bc
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98131530"
 ---
 # <a name="manage-variables-in-azure-automation"></a>Gerir variáveis em Azure Automation
@@ -35,7 +35,7 @@ A Azure Automation armazena cada variável encriptada de forma segura. Quando cr
 
 Quando cria uma variável com o portal Azure, deve especificar um tipo de dados da lista de abandono para que o portal possa apresentar o controlo adequado para introduzir o valor variável. Seguem-se os tipos variáveis disponíveis na Azure Automation:
 
-* Cadeia
+* String
 * Número inteiro
 * DateTime
 * Booleano
@@ -65,7 +65,7 @@ Os cmdlets na tabela seguinte criam e gerem variáveis de automação com PowerS
 
 Os cmdlets internos na tabela seguinte são utilizados para aceder a variáveis nos seus runbooks e configurações DSC. Estes cmdlets vêm com o módulo `Orchestrator.AssetManagement.Cmdlets` global. Para obter mais informações, consulte [as cmdlets internas.](modules.md#internal-cmdlets)
 
-| Cmdlet Interno | Descrição |
+| Cmdlet Interno | Description |
 |:---|:---|
 |`Get-AutomationVariable`|Obtém o valor de uma variável existente.|
 |`Set-AutomationVariable`|Define o valor de uma variável existente.|
@@ -84,7 +84,7 @@ Write-output "The encrypted value of the variable is: $mytestencryptvar"
 
 As funções na tabela seguinte são utilizadas para aceder a variáveis num livro de bordo Python 2 e 3. Os livros de 100 python estão atualmente em pré-visualização.
 
-|Funções Python|Descrição|
+|Funções Python|Description|
 |:---|:---|
 |`automationassets.get_automation_variable`|Obtém o valor de uma variável existente. |
 |`automationassets.set_automation_variable`|Define o valor de uma variável existente. |

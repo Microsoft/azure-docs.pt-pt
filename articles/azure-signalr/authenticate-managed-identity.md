@@ -7,10 +7,10 @@ ms.date: 08/03/2020
 ms.service: signalr
 ms.topic: conceptual
 ms.openlocfilehash: c561bb507a5178f4a838b370a3da8af9447829f4
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101092548"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-azure-signalr-resources"></a>Autenticar uma identidade gerida com o Azure Ative Directory para aceder aos Recursos Azure SignalR

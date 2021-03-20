@@ -1,5 +1,5 @@
 ---
-title: Excluir um grupo - Azure Ative Directory / Microsoft Docs
+title: Excluir um grupo - Azure Ative Directory | Microsoft Docs
 description: Instruções sobre como eliminar um grupo utilizando o Azure Ative Directory.
 services: active-directory
 author: ajburnle
@@ -14,10 +14,10 @@ ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9aed5f282ff7b5d573a6f8511f2fc4dbfd27135d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92371822"
 ---
 # <a name="delete-a-group-using-azure-active-directory"></a>Excluir um grupo que usa o Azure Ative Directory
@@ -32,7 +32,7 @@ Pode eliminar um grupo Azure Ative Directory (Azure AD) por várias razões, mas
 ## <a name="to-delete-a-group"></a>Para eliminar um grupo
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta de Administrador global do diretório.
 
-2. Selecione **Azure Ative Directory**e, em seguida, selecione **Grupos**.
+2. Selecione **Azure Ative Directory** e, em seguida, selecione **Grupos**.
 
 3. A partir da página **Grupos - Todos os grupos,** procure e selecione o grupo que pretende eliminar. Para estes passos, usaremos a política do **MDM - Leste**.
 

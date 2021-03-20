@@ -1,5 +1,5 @@
 ---
-title: Azure Front Door - monitorização de saúde backend / Microsoft Docs
+title: Azure Front Door - monitorização de saúde de backend | Microsoft Docs
 description: Este artigo ajuda-o a entender como a Porta Frontal Azure monitoriza a saúde dos seus backends
 services: frontdoor
 documentationcenter: ''
@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/28/2020
 ms.author: duau
 ms.openlocfilehash: 4cbeea8ad20d41daff3d4ad086a36df5e988991f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91449246"
 ---
 # <a name="health-probes"></a>Sondas do estado de funcionamento
@@ -41,7 +41,7 @@ Porta frontal suporta os seguintes métodos HTTP para o envio das sondas sanitá
 
 ## <a name="health-probe-responses"></a>Respostas da sonda de saúde
 
-| Respostas  | Descrição | 
+| Respostas  | Description | 
 | ------------- | ------------- |
 | Determinação da Saúde  |  Um código de estado de 200 OK indica que o backend é saudável. Todo o resto é considerado um fracasso. Se, por qualquer motivo (incluindo falha de rede) não for recebida uma resposta HTTP válida para uma sonda, a sonda é contada como uma falha.|
 | Medição da Latência  | A latência é o tempo do relógio de parede medido a partir do momento imediatamente antes de enviarmos o pedido da sonda para o momento em que recebemos o último byte da resposta. Usamos uma nova ligação TCP para cada pedido, por isso esta medição não é tendenciosa para backends com conexões quentes existentes.  |

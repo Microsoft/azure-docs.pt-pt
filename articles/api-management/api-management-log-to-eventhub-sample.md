@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 01/23/2018
 ms.author: apimpm
 ms.openlocfilehash: abb9cbb73f8957cec2cb3240bbf186623b9b2ef9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88205505"
 ---
 # <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-moesif"></a>Monitorize as suas APIs com Azure API Management, Event Hubs e Moesif
@@ -295,7 +295,7 @@ public class MoesifHttpMessageProcessor : IHttpMessageProcessor
 }
 ```
 
-Aproveita `MoesifHttpMessageProcessor` uma [biblioteca API C# para o Moesif](https://www.moesif.com/docs/api?csharp#events) que facilita a entrada dos dados do evento HTTP para o seu serviço. Para enviar dados HTTP para a API do Reif Collector, precisa de uma conta e de um ID de aplicação. Obtém um Id de Aplicação Moesif criando uma conta no [site do Moesif](https://www.moesif.com) e, em seguida, vá para a Configuração da App _do Menu Superior Direito._  ->  _App Setup_
+Aproveita `MoesifHttpMessageProcessor` uma [biblioteca API C# para o Moesif](https://www.moesif.com/docs/api?csharp#events) que facilita a entrada dos dados do evento HTTP para o seu serviço. Para enviar dados HTTP para a API do Reif Collector, precisa de uma conta e de um ID de aplicação. Obtém um Id de Aplicação Moesif criando uma conta no [site do Moesif](https://www.moesif.com) e, em seguida, vá para a Configuração da App _do Menu Superior Direito._  ->  
 
 ## <a name="complete-sample"></a>Amostra completa
 O [código-fonte](https://github.com/dgilling/ApimEventProcessor) e os testes para a amostra estão no GitHub. Você precisa de um Serviço de [Gestão API](get-started-create-service-instance.md), [um Centro de Eventos conectado](api-management-howto-log-event-hubs.md), e uma Conta de [Armazenamento](../storage/common/storage-account-create.md) para executar a amostra por si mesmo.   

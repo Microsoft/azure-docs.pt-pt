@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: denisgun
 ms.openlocfilehash: b61faf74d96e2571e91f7bf9d10eac88cdbf8345
-ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94639375"
 ---
 # <a name="implement-quality-of-service-qos-for-windows-virtual-desktop-preview"></a>Implementar Qualidade de Serviço (QoS) para Windows Virtual Desktop (pré-visualização)
@@ -99,17 +99,17 @@ Para criar uma política QoS para anfitriões de sessão ligados ao domínio, em
 
 6. Na caixa de diálogo **QoS baseada em políticas,** na página de abertura, escreva um nome para a nova política na caixa **Nome.** **Selecione Especificar O Valor DSCP** e definir o valor para **46**. Deixe **especificar a taxa de aceleração de saída** não selecionada e, em seguida, selecione **Seguinte**.
 
-7. Na página seguinte, selecione **Apenas aplicações com este nome executável** e introduza o nome **svchost.exe** , e, em seguida, selecione **Next**. Esta definição instrui a política para apenas priorizar o tráfego correspondente do Serviço de Ambiente de Trabalho Remoto.
+7. Na página seguinte, selecione **Apenas aplicações com este nome executável** e introduza o nome **svchost.exe**, e, em seguida, selecione **Next**. Esta definição instrui a política para apenas priorizar o tráfego correspondente do Serviço de Ambiente de Trabalho Remoto.
 
 8. Na terceira página, certifique-se de que tanto qualquer **endereço IP de origem** **como qualquer endereço IP de destino** estão selecionados e, em seguida, selecione **Seguinte**. Estas duas definições garantem que os pacotes serão geridos independentemente do computador (endereço IP) que enviou os pacotes e que computador (endereço IP) receberá os pacotes.
 
 9. Na página quatro, selecione **UDP** do **Select the protocol this QoS policy applie to** drop-down list.
 
-10. Sob a posição **Especifique o número da porta de origem** , selecione **A partir desta porta de origem ou alcance**. Na caixa de texto que o acompanha, tipo **3390**. Selecione **Concluir**.
+10. Sob a posição **Especifique o número da porta de origem**, selecione **A partir desta porta de origem ou alcance**. Na caixa de texto que o acompanha, tipo **3390**. Selecione **Concluir**.
 
 As novas políticas que criou não entrarão em vigor até que a Política de Grupo seja atualizada nos computadores anfitriões da sessão. Embora a Política de Grupo refresque periodicamente por si só, pode forçar uma atualização imediata seguindo estes passos:
 
-1. Em cada anfitrião de sessão para o qual pretende atualizar a Política de Grupo, abra um Aviso de Comando como administrador *(Executar como administrador* ).
+1. Em cada anfitrião de sessão para o qual pretende atualizar a Política de Grupo, abra um Aviso de Comando como administrador *(Executar como administrador*).
 
 1. Na pronta do comando, insira
 

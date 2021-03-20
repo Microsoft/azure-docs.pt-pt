@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 10/08/2020
 ms.custom: seodec18, devx-track-azurecli
 ms.openlocfilehash: 845a32c2feda5a5a3b8d44d237c62db94cae1779
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91848726"
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer"></a>Use modelos CLI de lote de Azure e transferência de ficheiros
@@ -20,7 +20,7 @@ Crie e use ficheiros de modelo JSON com o CLI Azure para criar piscinas, emprego
 > [!NOTE]
 > Os ficheiros JSON não suportam a mesma funcionalidade que os [modelos do Gestor de Recursos Azure.](../azure-resource-manager/templates/template-syntax.md) Destinam-se a ser formatados como o corpo de pedido de REST bruto. A extensão CLI não altera nenhum comando existente, mas tem uma opção de modelo semelhante que adiciona a funcionalidade parcial do modelo do Gestor de Recursos Azure. Consulte [extensões CLI do lote Azure para Windows, Mac e Linux](https://github.com/Azure/azure-batch-cli-extensions).
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Uma extensão do Azure CLI permite que o Batch seja utilizado de ponta a ponta por utilizadores que não sejam desenvolvedores. Com apenas comandos CLI, pode criar um pool, carregar dados de entrada, criar empregos e tarefas associadas e descarregar os dados de saída resultantes. Não é necessário um código adicional. Executar os comandos CLI diretamente ou integrá-los em scripts.
 
@@ -260,7 +260,7 @@ Para carregar um modelo:
 
 2. Selecione, ou arraste e deixe cair, uma piscina local ou modelo de trabalho.
 
-3. Selecione **Utilize este modelo**e siga as indicações no ecrã.
+3. Selecione **Utilize este modelo** e siga as indicações no ecrã.
 
 ## <a name="file-groups-and-file-transfer"></a>Grupos de ficheiros e transferência de ficheiros
 

@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.openlocfilehash: b8dde3ed76587e2343edaec8626287853ec6ef9b
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96487512"
 ---
 # <a name="expressroute-encryption-ipsec-over-expressroute-for-virtual-wan"></a>Encriptação ExpressRoute: IPsec over ExpressRoute for Virtual WAN
@@ -54,7 +54,7 @@ Em ambos os exemplos, a Azure enviará tráfego para 10.0.1.0/24 sobre a ligaç�
 > Se publicitar os *mesmos* prefixos sobre as ligações ExpressRoute e VPN, a Azure utilizará o caminho ExpressRoute diretamente sem proteção VPN.
 >
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 [!INCLUDE [Before you begin](../../includes/virtual-wan-tutorial-vwan-before-include.md)]
 

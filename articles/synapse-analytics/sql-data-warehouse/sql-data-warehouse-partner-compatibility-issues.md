@@ -10,10 +10,10 @@ ms.date: 11/18/2020
 ms.author: procha
 ms.reviewer: jrasnick
 ms.openlocfilehash: a1031656eaa5125d07ae078773379270b26625e7
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98121384"
 ---
 # <a name="compatibility-issues-with-third-party-applications-and-azure-synapse-analytics"></a>Problemas de compatibilidade com aplicações de terceiros e Azure Synapse Analytics
@@ -53,7 +53,7 @@ O exemplo abaixo mostra um ficheiro Tableau TDC que passa o parâmetro FMTONLY=S
 ```
 Para mais detalhes sobre a utilização de ficheiros TDC, contacte o suporte do Tableau. 
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 * [Elementos linguísticos T-SQL para piscina SQL dedicada em Azure Synapse Analytics.](./sql-data-warehouse-reference-tsql-language-elements.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json)
 * [Declarações T-SQL apoiadas para piscina SQL dedicada em Azure Synapse Analytics.](./sql-data-warehouse-reference-tsql-statements.md)

@@ -1,5 +1,5 @@
 ---
-title: Problemas na Azure Files em Linux Microsoft Docs
+title: Problemas na resolução de problemas dos Ficheiros Azure na | Linux Microsoft Docs
 description: Problemas na resolução de problemas dos Ficheiros Azure em Linux. Consulte questões comuns relacionadas com os Ficheiros Azure quando se conecta com os clientes Linux e veja possíveis resoluções.
 author: jeffpatt24
 ms.service: storage
@@ -8,10 +8,10 @@ ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
 ms.openlocfilehash: e680ba10c507ef83591b56652ee8e95c4d665dda
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96492068"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux-smb"></a>Problemas de resolução de ficheiros Azure em Linux (SMB)
@@ -186,7 +186,7 @@ Em alguns cenários, a opção de montagem **de serverino** pode fazer com que o
 
 `//azureuser.file.core.windows.net/cifs /cifs cifs vers=2.1,serverino,username=xxx,password=xxx,dir_mode=0777,file_mode=0777`
 
-Também pode verificar se as opções corretas estão a ser utilizadas executando o  **comando do sudo mount / grep cifs** e verificando a sua saída. Segue-se a saída de exemplo:
+Também pode verificar se as opções corretas estão a ser utilizadas executando o  **comando de montagem de sudo | grep cifs** e verificando a sua saída. Segue-se a saída de exemplo:
 
 ```
 //azureuser.file.core.windows.net/cifs on /cifs type cifs (rw,relatime,vers=2.1,sec=ntlmssp,cache=strict,username=xxx,domain=X,uid=0,noforceuid,gid=0,noforcegid,addr=192.168.10.1,file_mode=0777, dir_mode=0777,persistenthandles,nounix,serverino,mapposix,rsize=1048576,wsize=1048576,actimeo=1)
@@ -306,7 +306,7 @@ Não é possível aceder a pastas ou ficheiros a partir da partilha de ficheiros
 
 ### <a name="cause"></a>Causa
 
-As pastas ou ficheiros foram carregados de um sistema que codifica os caracteres no final do nome para um carácter diferente, os ficheiros enviados de um computador Macintosh podem ter um caráter "0xF028" ou "0xF029" em vez de 0x20 (espaço) ou 0X2E (ponto).
+As pastas ou ficheiros foram carregados de um sistema que codifica os caracteres no final do nome para um carácter diferente, os ficheiros enviados a partir de um computador Macintosh podem ter um caráter de "0xF028" ou "0xF029" em vez de 0x20 (espaço) ou 0X2E (ponto).
 
 ### <a name="solution"></a>Solução
 

@@ -8,10 +8,10 @@ ms.date: 09/13/2019
 ms.author: jeffpatt
 ms.subservice: files
 ms.openlocfilehash: 242c0819e916f3ea7912d4d57b7d3e338152e4d9
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98878515"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows-smb"></a>Problemas de resolução de ficheiros Azure no Windows (SMB)
@@ -210,7 +210,7 @@ Para forçar o fecho de uma pega de ficheiro, utilize o [cmdlet Close-AzStorageF
 > Os Get-AzStorageFileHandle e Close-AzStorageFileHandle cmdlets estão incluídos na versão 2.4 ou posterior do módulo Az PowerShell. Para instalar o mais recente módulo Az PowerShell, consulte [instalar o módulo Azure PowerShell](/powershell/azure/install-az-ps).
 
 ### <a name="cause-2"></a>Motivo 2
-Uma locação de ficheiros é impedir que um ficheiro seja modificado ou eliminado. Pode verificar se um ficheiro tem uma locação de ficheiros com o seguinte PowerShell, `<resource-group>` `<storage-account>` substituindo, e pelos `<file-share>` `<path-to-file>` valores adequados para o seu ambiente:
+Uma concessão de ficheiro serve para impedir que um ficheiro seja modificado ou eliminado. Pode verificar se um ficheiro tem uma locação de ficheiros com o seguinte PowerShell, `<resource-group>` `<storage-account>` substituindo, e pelos `<file-share>` `<path-to-file>` valores adequados para o seu ambiente:
 
 ```PowerShell
 # Set variables 
@@ -236,7 +236,7 @@ $fileClient = $file.ShareFileClient
 $fileClient.GetProperties().Value
 ```
 
-Se um ficheiro tiver uma locação, o objeto devolvido deve conter as seguintes propriedades:
+Se um ficheiro tiver uma concessão, o objeto devolvido deve conter as seguintes propriedades:
 
 ```Output
 LeaseDuration         : Infinite
@@ -245,7 +245,7 @@ LeaseStatus           : Locked
 ```
 
 ### <a name="solution-2"></a>Solução 2
-Para remover um contrato de arrendamento de um ficheiro, pode libertar o contrato de arrendamento ou quebrar o contrato de arrendamento. Para liberar o arrendamento, você precisa do LeaseId do arrendamento, que você define quando você cria o arrendamento. Você não precisa do LeaseId para quebrar o arrendamento.
+Para remover a concessão de um ficheiro, pode libertar ou interromper a concessão. Para libertar a concessão, precisa do LeaseId da concessão, que define quando cria a concessão. Não precisa do LeaseId para interromper a concessão.
 
 O exemplo a seguir mostra como quebrar o contrato de arrendamento para o ficheiro indicado na causa 2 (este exemplo continua com as variáveis PowerShell da causa 2):
 
@@ -370,7 +370,7 @@ Para resolver este problema, ajustando o valor do registo **DirectoryCacheEntryS
 - Tipo de valor:DWORD
  
  
-Por exemplo, pode defini-lo para 0x100000 e ver se o desempenho melhora.
+Por exemplo, pode defini-lo para 0x100000 e ver se o desempenho se torna melhor.
 
 ## <a name="error-aaddstenantnotfound-in-enabling-azure-active-directory-domain-service-azure-ad-ds-authentication-for-azure-files-unable-to-locate-active-tenants-with-tenant-id-aad-tenant-id"></a>Error AadDsTenantNotFound em permitir a autenticação do Azure Ative Directory Domain Service (Azure AD DS) para ficheiros Azure "Incapaz de localizar inquilinos ativos com iD-inquilino-id"
 
@@ -404,7 +404,7 @@ O cmdlet executa estas verificações abaixo em sequência e fornece orientaçã
 3. CheckDomainJoined: Valide que a máquina do cliente é domínio associado à AD. Se a sua máquina não estiver de domínio associado à AD, consulte este [artigo](/windows-server/identity/ad-fs/deployment/join-a-computer-to-a-domain) para obter instruções de união de domínios.
 4. CheckPort445Connectivity: Verifique se a Porta 445 está aberta para a ligação SMB. Se a porta necessária não estiver aberta, consulte a ferramenta de resolução de problemas [AzFileDiagnostics.ps1](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows) para problemas de conectividade com ficheiros Azure.
 5. CheckSidHasAadUser: Verifique se o utilizador com sessão registada no utilizador AD está sincronizado com a Azure AD. Se quiser analisar se um utilizador específico de AD está sincronizado com AZure AD, pode especificar o -UserName e -Domain nos parâmetros de entrada. 
-6. CheckGetKerberosTicket: Tente obter um bilhete Kerberos para ligar à conta de armazenamento. Se não houver um token Kerberos válido, execute o klist obter cifs/storage-account-name.file.core.windows.net cmdlet e examinar o código de erro para causar a falha de recuperação do bilhete.
+6. CheckGetKerberosTicket: Tente obter um bilhete Kerberos para ligar à conta de armazenamento. Se não houver um token Kerberos válido, execute o klist obter cifs/armazenamento-conta-name.file.core.windows.net cmdlet e examine o código de erro para causar a falha de recuperação do bilhete.
 7. CheckStorageAccountDomainJoined: Verifique se a autenticação AD foi ativada e se as propriedades de AD da conta estão povoadas. Caso contrário, consulte [as](./storage-files-identity-ad-ds-enable.md) instruções aqui para ativar a autenticação AD DS nos Ficheiros Azure. 
 8. CheckUserRbacAssignment: Verifique se o utilizador AD tem a atribuição adequada da função RBAC para fornecer permissão de nível de partilha para aceder a Ficheiros Azure. Caso contrário, consulte [a](./storage-files-identity-ad-ds-assign-permissions.md) instrução aqui para configurar a permissão do nível de partilha. (Suportado na versão AzFilesHybrid v0.2.3+
 9. CheckUserFileAccess: Verifique se o utilizador de AD tem a permissão de diretório/ficheiro adequado (ACLs windows) para aceder a Ficheiros Azure. Caso contrário, consulte [a](./storage-files-identity-ad-ds-configure-permissions.md) instrução aqui para configurar a permissão de nível de diretório/arquivo. (Suportado na versão AzFilesHybrid v0.2.3+

@@ -1,6 +1,6 @@
 ---
 title: Modelação de dados de gráficos para Azure Cosmos DB Gremlin API
-description: Saiba como modelar uma base de dados de gráficos utilizando a API API API AZure Cosmos DB Gremlin. Este artigo descreve quando usar uma base de dados de gráficos e as melhores práticas para modelar entidades e relacionamentos.
+description: Saiba como modelar uma base de dados de gráficos utilizando a API AZure Cosmos DB Gremlin. Este artigo descreve quando usar uma base de dados de gráficos e as melhores práticas para modelar entidades e relacionamentos.
 author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 12/02/2019
 ms.author: chrande
 ms.openlocfilehash: d99e2e2ffd63b050e7373c98084fed3fb14727bf
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93357050"
 ---
 # <a name="graph-data-modeling-for-azure-cosmos-db-gremlin-api"></a>Modelação de dados de gráficos para Azure Cosmos DB Gremlin API
@@ -72,11 +72,11 @@ O primeiro passo para um modelo de dados gráficos é mapear todas as entidades 
 
 Uma armadilha comum é mapear propriedades de uma única entidade como vértices separados. Considere o exemplo abaixo, onde a mesma entidade está representada de duas maneiras diferentes:
 
-* **Propriedades baseadas em vértice** : Nesta abordagem, a entidade utiliza três vértices separados e duas bordas para descrever as suas propriedades. Embora esta abordagem possa reduzir a redundância, aumenta a complexidade do modelo. Um aumento da complexidade do modelo pode resultar em latência adicional, complexidade de consulta e custo de computação. Este modelo também pode apresentar desafios na partição.
+* **Propriedades baseadas em vértice**: Nesta abordagem, a entidade utiliza três vértices separados e duas bordas para descrever as suas propriedades. Embora esta abordagem possa reduzir a redundância, aumenta a complexidade do modelo. Um aumento da complexidade do modelo pode resultar em latência adicional, complexidade de consulta e custo de computação. Este modelo também pode apresentar desafios na partição.
 
 :::image type="content" source="./media/graph-modeling/graph-modeling-1.png" alt-text="Modelo de entidade com vértices para propriedades." border="false":::
 
-* **Vértices incorporados à propriedade** : Esta abordagem tira partido da lista de pares de valores-chave para representar todas as propriedades da entidade dentro de um vértice. Esta abordagem proporciona uma complexidade reduzida do modelo, o que levará a consultas mais simples e a travessias mais económicas.
+* **Vértices incorporados à propriedade**: Esta abordagem tira partido da lista de pares de valores-chave para representar todas as propriedades da entidade dentro de um vértice. Esta abordagem proporciona uma complexidade reduzida do modelo, o que levará a consultas mais simples e a travessias mais económicas.
 
 :::image type="content" source="./media/graph-modeling/graph-modeling-2.png" alt-text="O diagrama mostra o vértice Luis do diagrama anterior com i d, etiqueta e propriedades." border="false":::
 

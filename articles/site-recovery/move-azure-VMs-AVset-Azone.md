@@ -9,10 +9,10 @@ ms.date: 01/28/2019
 ms.author: sideeksh
 ms.custom: MVC
 ms.openlocfilehash: 8224ae4a48bb4915492240c414b90edb86a4c258
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93393137"
 ---
 # <a name="move-azure-vms-into-availability-zones"></a>Mover VMs Azure em Zonas de Disponibilidade
@@ -97,8 +97,8 @@ Os seguintes passos irão guiá-lo quando utilizar a Recuperação do Site Azure
 > Estes passos são para um único VM. Pode estender o mesmo a vários VMs. Vá ao cofre dos Serviços de Recuperação, selecione **+ Replica,** e selecione os VMs relevantes juntos.
 
 1. No portal Azure, selecione **máquinas Virtuais** e selecione o VM que pretende mover-se para Zonas de Disponibilidade.
-2. Em **Operações** , selecione **Recuperação após desastre**.
-3. Em **Configurar recuperação após desastre** > **Região de destino** , selecione a região de destino para a qual irá replicar. Certifique-se de que esta região [suporta Zonas](../availability-zones/az-region.md) de Disponibilidade.
+2. Em **Operações**, selecione **Recuperação após desastre**.
+3. Em **Configurar recuperação após desastre** > **Região de destino**, selecione a região de destino para a qual irá replicar. Certifique-se de que esta região [suporta Zonas](../availability-zones/az-region.md) de Disponibilidade.
 4. Selecione **Seguinte: Definições avançadas**.
 5. Escolha os valores adequados para a subscrição-alvo, o grupo de recursos VM alvo e a rede virtual.
 6. Na secção **Disponibilidade,** escolha a Zona de Disponibilidade na qual pretende mover o VM. 
@@ -116,22 +116,22 @@ Após a tarefa de replicação ser concluída, pode ver o estado da replicação
 2. Pode verificar a saúde da replicação, os pontos de recuperação que foram criados e a fonte, e as regiões-alvo no mapa.
 
 
-## <a name="test-the-configuration"></a>Testar a configuração
+## <a name="test-the-configuration"></a>Teste a configuração.
 
 1. No menu de máquinas virtuais, selecione  **Recuperação de Desastres**.
 2. Selecione o ícone **de failover de teste.**
-3. No **Teste Failover** , selecione um ponto de recuperação para a falha:
+3. No **Teste Failover**, selecione um ponto de recuperação para a falha:
 
-   - **Processado mais recentemente** : faz a ativação pós-falha da VM para o ponto de recuperação mais recente processado pelo serviço do Site Recovery. O carimbo de data/hora é apresentado. Com esta opção, não é despendido tempo a processar os dados, pelo que oferece um RTO (objetivo de tempo de recuperação) baixo.
-   - **Consistente com a aplicação mais recente** : esta opção faz a ativação pós-falha de todas as VMs para o último ponto de recuperação consistente com a aplicação. O carimbo de data/hora é apresentado.
-   - **Personalizado** : selecione qualquer ponto de recuperação.
+   - **Processado mais recentemente**: faz a ativação pós-falha da VM para o ponto de recuperação mais recente processado pelo serviço do Site Recovery. O carimbo de data/hora é apresentado. Com esta opção, não é despendido tempo a processar os dados, pelo que oferece um RTO (objetivo de tempo de recuperação) baixo.
+   - **Consistente com a aplicação mais recente**: esta opção faz a ativação pós-falha de todas as VMs para o último ponto de recuperação consistente com a aplicação. O carimbo de data/hora é apresentado.
+   - **Personalizado**: selecione qualquer ponto de recuperação.
 
 3. Selecione o alvo de teste Azure rede virtual para a qual pretende mover os VMs Azure para testar a configuração. 
 
     > [!IMPORTANT]
     > Recomendamos que utilize uma rede Azure VM separada para a falha de teste e não a rede de produção na região-alvo para a qual pretende mover os seus VMs.
 
-4. Para começar a testar o movimento, selecione **OK**. Para acompanhar o progresso, selecione o VM para abrir as suas propriedades. Ou, pode selecionar o trabalho **de Falha de Teste** no nome do cofre > Trabalhos de Recuperação do Local de **Settings**  >  **Trabalhos** de  >  **Definições**.
+4. Para começar a testar o movimento, selecione **OK**. Para acompanhar o progresso, selecione o VM para abrir as suas propriedades. Ou, pode selecionar o trabalho **de Falha de Teste** no nome do cofre > Trabalhos de Recuperação do Local de   >  **Trabalhos** de  >  **Definições**.
 5. Após a conclusão da ativação pós-falha, a VM do Azure de réplica é apresentada no portal do Azure > **Máquinas Virtuais**. Certifique-se de que a VM está em execução, tem as dimensões adequadas e está ligada à rede devida.
 6. Se pretender eliminar o VM criado como parte do teste do movimento, selecione a falha do **teste de limpeza** no item replicado. Em **Notas,** registem e guarde quaisquer observações associadas ao teste.
 
@@ -139,10 +139,10 @@ Após a tarefa de replicação ser concluída, pode ver o estado da replicação
 
 1.  No menu de máquinas virtuais, selecione  **Recuperação de Desastres**.
 2. Selecione o ícone **Failover.**
-3. Em **Ativação pós-falha** , selecione **Mais recente**. 
+3. Em **Ativação pós-falha**, selecione **Mais recente**. 
 4. Selecione **Encerrar a máquina antes de iniciar a ativação pós-falha**. O Site Recovery tenta encerrar a VM de origem antes de acionar a ativação pós-falha. A ativação pós-falha continua, mesmo que o encerramento falhe. Pode acompanhar o progresso falhado na página **Jobs.** 
 5. Após o fim do trabalho, verifique se o VM aparece na região de Azure alvo, como esperado.
-6. Em **Itens replicados** , clique com o botão direito do rato na VM > **Consolidar**. Isto termina o processo de mudança para a região alvo. Espere até que o trabalho de compromisso esteja terminado.
+6. Em **Itens replicados**, clique com o botão direito do rato na VM > **Consolidar**. Isto termina o processo de mudança para a região alvo. Espere até que o trabalho de compromisso esteja terminado.
 
 ## <a name="discard-the-resource-in-the-source-region"></a>Deite fora o recurso na região de origem
 

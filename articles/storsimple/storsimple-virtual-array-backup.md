@@ -1,5 +1,5 @@
 ---
-title: Microsoft Azure StorSimple Virtual Array tutorial de backup Microsoft Docs
+title: Microsoft Azure StorSimple Virtual Array tutorial de backup | Microsoft Docs
 description: Crie cópias de segurança programadas e manuais para o Microsoft Azure StorSimple Virtual Array e execute a recuperação do nível de produto para restaurar um ficheiro eliminado na sua matriz virtual.
 services: storsimple
 documentationcenter: NA
@@ -16,10 +16,10 @@ ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 99c7f4ab92e4cce3937a933fec97008c281a0eae
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96018295"
 ---
 # <a name="back-up-shares-or-volumes-on-your-storsimple-virtual-array"></a>Retorquir ações ou volumes no seu StorSimple Virtual Array

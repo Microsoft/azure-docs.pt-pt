@@ -14,10 +14,10 @@ ms.date: 08/25/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
 ms.openlocfilehash: 2d65889a841655fe27994d3855f30f7a7e20e1ed
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94647601"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Como: Personalizar reclamações emitidas em fichas para uma aplicação específica num inquilino (Preview)
@@ -44,7 +44,7 @@ Uma política de mapeamento de reclamações é um tipo de objeto **de política
 
 Há certos conjuntos de afirmações que definem como e quando são usadas em fichas.
 
-| Conjunto de reclamações | Descrição |
+| Conjunto de reclamações | Description |
 |---|---|
 | Conjunto de reclamação do núcleo | Estão presentes em todos os símbolos, independentemente da política. Estas alegações também são consideradas restritas, e não podem ser modificadas. |
 | Conjunto básico de reclamação | Inclui as reclamações que são emitidas por padrão para tokens (além do conjunto de reclamações principais). Pode omitir ou modificar reclamações básicas utilizando as políticas de mapeamento de reclamações. |
@@ -287,48 +287,48 @@ O elemento ID identifica qual o imóvel na fonte que fornece o valor para a recl
 
 #### <a name="table-3-valid-id-values-per-source"></a>Quadro 3: Valores de identificação válidos por fonte
 
-| Origem | ID | Descrição |
+| Origem | ID | Description |
 |-----|-----|-----|
-| Utilizador | surname | Nome da família |
-| Utilizador | givenname | Nome Próprio |
-| Utilizador | nome de exibição | Nome a Apresentar |
-| Utilizador | objectid | ObjectID |
-| Utilizador | correio | Endereço de E-mail |
-| Utilizador | nome do utilizadorprincipal | Nome Principal de Utilizador |
-| Utilizador | departamento|Departamento|
-| Utilizador | nome onpremisessamaccountname | Nome da conta SAM no local |
-| Utilizador | nome netbiosname| Nome NetBios |
-| Utilizador | dnsdomainme | Nome de Domínio DNS |
-| Utilizador | onpremisesecurityidentifier | Identificador de Segurança no local |
-| Utilizador | nome de empresa| Nome da Organização |
-| Utilizador | streetaddress | Rua |
-| Utilizador | código postal | Código Postal |
-| Utilizador | preferencialmente língua | Língua Preferida |
-| Utilizador | onpremisesuserprincipalname | UPN no local |*
-| Utilizador | nome de mailnickname | Apelido de correio |
-| Utilizador | extensãotribuição1 | Atributo de extensão 1 |
-| Utilizador | extensãotribuiu2 | Atributo de extensão 2 |
-| Utilizador | extensãotribuité3 | Atributo de extensão 3 |
-| Utilizador | extensãotribuição4 | Atributo de extensão 4 |
-| Utilizador | extensãotribuição5 | Atributo de extensão 5 |
-| Utilizador | extensãotribuiu6 | Atributo de extensão 6 |
-| Utilizador | extensãotribuição7 | Atributo de extensão 7 |
-| Utilizador | extensãotribute8 | Atributo de extensão 8 |
-| Utilizador | extensãotribute9 | Atributo de extensão 9 |
-| Utilizador | extensãotribuição10 | Atributo de extensão 10 |
-| Utilizador | extensãotribuição11 | Atributo de extensão 11 |
-| Utilizador | extensãotribuição12 | Atributo de extensão 12 |
-| Utilizador | extensãotribuição13 | Atributo de extensão 13 |
-| Utilizador | extensãotribuição14 | Atributo de extensão 14 |
-| Utilizador | extensãotribuição15 | Atributo de extensão 15 |
-| Utilizador | outromail | Outros Correios |
-| Utilizador | país | País/Região |
-| Utilizador | city | City |
-| Utilizador | state | Estado |
-| Utilizador | cargo | Cargo |
-| Utilizador | empregado | ID de colaborador |
-| Utilizador | facsimiletelephonenumber | Número de telefone facsímia |
-| Utilizador | entidades designadas | lista de funções da App atribuídas ao utilizador|
+| User | surname | Nome da família |
+| User | givenname | Nome Próprio |
+| User | nome de exibição | Nome a Apresentar |
+| User | objectid | ObjectID |
+| User | correio | Endereço de E-mail |
+| User | nome do utilizadorprincipal | Nome Principal de Utilizador |
+| User | departamento|Departamento|
+| User | nome onpremisessamaccountname | Nome da conta SAM no local |
+| User | nome netbiosname| Nome NetBios |
+| User | dnsdomainme | Nome de Domínio DNS |
+| User | onpremisesecurityidentifier | Identificador de Segurança no local |
+| User | nome de empresa| Nome da Organização |
+| User | streetaddress | Rua |
+| User | código postal | Código Postal |
+| User | preferencialmente língua | Língua Preferida |
+| User | onpremisesuserprincipalname | UPN no local |*
+| User | nome de mailnickname | Apelido de correio |
+| User | extensãotribuição1 | Atributo de extensão 1 |
+| User | extensãotribuiu2 | Atributo de extensão 2 |
+| User | extensãotribuité3 | Atributo de extensão 3 |
+| User | extensãotribuição4 | Atributo de extensão 4 |
+| User | extensãotribuição5 | Atributo de extensão 5 |
+| User | extensãotribuiu6 | Atributo de extensão 6 |
+| User | extensãotribuição7 | Atributo de extensão 7 |
+| User | extensãotribute8 | Atributo de extensão 8 |
+| User | extensãotribute9 | Atributo de extensão 9 |
+| User | extensãotribuição10 | Atributo de extensão 10 |
+| User | extensãotribuição11 | Atributo de extensão 11 |
+| User | extensãotribuição12 | Atributo de extensão 12 |
+| User | extensãotribuição13 | Atributo de extensão 13 |
+| User | extensãotribuição14 | Atributo de extensão 14 |
+| User | extensãotribuição15 | Atributo de extensão 15 |
+| User | outromail | Outros Correios |
+| User | país | País/Região |
+| User | city | City |
+| User | state | Estado |
+| User | cargo | Cargo |
+| User | empregado | ID de colaborador |
+| User | facsimiletelephonenumber | Número de telefone facsímia |
+| User | entidades designadas | lista de funções da App atribuídas ao utilizador|
 | aplicação, recurso, audiência | nome de exibição | Nome a Apresentar |
 | aplicação, recurso, audiência | objectid | ObjectID |
 | aplicação, recurso, audiência | etiquetas | Etiqueta principal de serviço |
@@ -364,9 +364,9 @@ Com base no método escolhido, espera-se um conjunto de entradas e saídas. Defi
 
 #### <a name="table-4-transformation-methods-and-expected-inputs-and-outputs"></a>Quadro 4: Métodos de transformação e entradas e saídas esperadas
 
-|TransformaçãoMethod|Entrada esperada|Resultado esperado|Descrição|
+|TransformaçãoMethod|Entrada esperada|Resultado esperado|Description|
 |-----|-----|-----|-----|
-|Associar|string1, string2, separador|outputClaim|Junta cordas de entrada utilizando um separador no meio. Por exemplo: string1:" foo@bar.com " " " " " string2:"sandbox", separador:"." resulta em outputClaim:" foo@bar.com.sandbox|
+|Participar|string1, string2, separador|outputClaim|Junta cordas de entrada utilizando um separador no meio. Por exemplo: string1:" foo@bar.com " " string2:"sandbox", separador:"." resulta em outputClaim:" foo@bar.com.sandbox|
 |ExtratoMailPrefixo|E-mail ou UPN|corda extraída|ExtensãoTribu 1-15 ou quaisquer outras extensões de Esquema que estejam a armazenar um valor de endereço DE UPN ou e-mail para o utilizador, por johndoe@contoso.com exemplo. Extrai a parte local de um endereço de e-mail. Por exemplo: mail:" foo@bar.com " resulta em saídaClaim:"foo". Se não \@ houver sinal, a cadeia de entrada original é devolvida como está.|
 
 **InputClaims:** Utilize um elemento InputClaims para passar os dados de uma entrada de esquema de reclamação para uma transformação. Tem dois atributos: **ClaimTypeReferenceId** e **TransformationClaimType**.
@@ -390,34 +390,34 @@ Com base no método escolhido, espera-se um conjunto de entradas e saídas. Defi
 
 #### <a name="table-5-attributes-allowed-as-a-data-source-for-saml-nameid"></a>Quadro 5: Atributos permitidos como fonte de dados para SAML NameID
 
-|Origem|ID|Descrição|
+|Origem|ID|Description|
 |-----|-----|-----|
-| Utilizador | correio|Endereço de E-mail|
-| Utilizador | nome do utilizadorprincipal|Nome Principal de Utilizador|
-| Utilizador | nome onpremisessamaccountname|No Nome da Conta Sam das Instalações|
-| Utilizador | empregado|ID de colaborador|
-| Utilizador | extensãotribuição1 | Atributo de extensão 1 |
-| Utilizador | extensãotribuiu2 | Atributo de extensão 2 |
-| Utilizador | extensãotribuité3 | Atributo de extensão 3 |
-| Utilizador | extensãotribuição4 | Atributo de extensão 4 |
-| Utilizador | extensãotribuição5 | Atributo de extensão 5 |
-| Utilizador | extensãotribuiu6 | Atributo de extensão 6 |
-| Utilizador | extensãotribuição7 | Atributo de extensão 7 |
-| Utilizador | extensãotribute8 | Atributo de extensão 8 |
-| Utilizador | extensãotribute9 | Atributo de extensão 9 |
-| Utilizador | extensãotribuição10 | Atributo de extensão 10 |
-| Utilizador | extensãotribuição11 | Atributo de extensão 11 |
-| Utilizador | extensãotribuição12 | Atributo de extensão 12 |
-| Utilizador | extensãotribuição13 | Atributo de extensão 13 |
-| Utilizador | extensãotribuição14 | Atributo de extensão 14 |
-| Utilizador | extensãotribuição15 | Atributo de extensão 15 |
+| User | correio|Endereço de E-mail|
+| User | nome do utilizadorprincipal|Nome Principal de Utilizador|
+| User | nome onpremisessamaccountname|No Nome da Conta Sam das Instalações|
+| User | empregado|ID de colaborador|
+| User | extensãotribuição1 | Atributo de extensão 1 |
+| User | extensãotribuiu2 | Atributo de extensão 2 |
+| User | extensãotribuité3 | Atributo de extensão 3 |
+| User | extensãotribuição4 | Atributo de extensão 4 |
+| User | extensãotribuição5 | Atributo de extensão 5 |
+| User | extensãotribuiu6 | Atributo de extensão 6 |
+| User | extensãotribuição7 | Atributo de extensão 7 |
+| User | extensãotribute8 | Atributo de extensão 8 |
+| User | extensãotribute9 | Atributo de extensão 9 |
+| User | extensãotribuição10 | Atributo de extensão 10 |
+| User | extensãotribuição11 | Atributo de extensão 11 |
+| User | extensãotribuição12 | Atributo de extensão 12 |
+| User | extensãotribuição13 | Atributo de extensão 13 |
+| User | extensãotribuição14 | Atributo de extensão 14 |
+| User | extensãotribuição15 | Atributo de extensão 15 |
 
 #### <a name="table-6-transformation-methods-allowed-for-saml-nameid"></a>Quadro 6: Métodos de transformação permitidos para o NOME SAMID
 
 | TransformaçãoMethod | Restrições |
 | ----- | ----- |
 | ExtratoMailPrefixo | Nenhum |
-| Associar | O sufixo que está a ser associado deve ser um domínio verificado do inquilino de recursos. |
+| Participar | O sufixo que está a ser associado deve ser um domínio verificado do inquilino de recursos. |
 
 ### <a name="custom-signing-key"></a>Chave de assinatura personalizada
 
@@ -532,7 +532,7 @@ Neste exemplo, cria-se uma política que emite uma reivindicação personalizada
       Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
       ```
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 - Para saber como personalizar as reclamações emitidas no token SAML através do portal Azure, consulte [Como: Personalizar reclamações emitidas no token SAML para aplicações empresariais](active-directory-saml-claims-customization.md)
 - Para saber mais sobre os atributos de extensão, consulte [utilizando atributos de extensão de esquema de diretório em sinistros](active-directory-schema-extensions.md).

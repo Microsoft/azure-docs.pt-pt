@@ -1,5 +1,5 @@
 ---
-title: ExpressRoute para Fornecedores de Soluções Cloud - Azure / Microsoft Docs
+title: ExpressRoute para fornecedores de soluções cloud - Azure | Microsoft Docs
 description: Este artigo fornece informações para fornecedores de soluções cloud que pretendem incorporar os serviços Azure e ExpressRoute nas suas ofertas.
 services: expressroute
 author: duongau
@@ -9,10 +9,10 @@ ms.date: 10/10/2016
 ms.author: duau
 ms.custom: seodec18
 ms.openlocfilehash: 09fee610ccc15874481ecfd4693e4b89379caa7a
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92330041"
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>ExpressRoute para Fornecedores de Soluções em Nuvem (CSP)

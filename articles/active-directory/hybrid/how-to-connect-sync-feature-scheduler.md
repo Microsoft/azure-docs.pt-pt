@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect sync: Scheduler / Microsoft Docs'
+title: 'Sincronização Azure AD Connect: Scheduler | Microsoft Docs'
 description: Este tópico descreve a funcionalidade de programador incorporado na sincronização Azure AD Connect.
 services: active-directory
 documentationcenter: ''
@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ad7b0039602add7f4cd3cdd300bd829c4f148a79
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90084741"
 ---
 # <a name="azure-ad-connect-sync-scheduler"></a>Sincronização do Azure AD Connect: Scheduler
@@ -28,7 +28,7 @@ Este tópico descreve o programador incorporado na sincronização Azure AD Conn
 
 Esta funcionalidade foi introduzida com a construção 1.1.105.0 (lançada em fevereiro de 2016).
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Azure AD Connect sincroniza as alterações ocorridas no seu diretório no local utilizando um programador. Existem dois processos de programador, um para sincronização de palavra-passe e outro para tarefas de sincronização e manutenção de objeto/atributo. Este tópico abrange este último.
 
 Em lançamentos anteriores, o programador de objetos e atributos era externo ao motor de sincronização. Utilizou o programador de tarefas do Windows ou um serviço separado do Windows para desencadear o processo de sincronização. O programador está com os 1.1 lançamentos incorporados no motor de sincronização e permite alguma personalização. A nova frequência de sincronização padrão é de 30 minutos.

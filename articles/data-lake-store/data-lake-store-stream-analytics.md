@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 05/30/2018
 ms.author: twooley
 ms.openlocfilehash: 4c289ecb1d8471a7b99f1d4c85a0163de4d0c593
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91576222"
 ---
 # <a name="stream-data-from-azure-storage-blob-into-azure-data-lake-storage-gen1-using-azure-stream-analytics"></a>Transmita os dados da Azure Storage Blob para a Azure Data Lake Storage Gen1 usando a Azure Stream Analytics
@@ -48,7 +48,7 @@ Começa por criar um trabalho stream Analytics que inclui uma fonte de entrada e
 
     ![Screenshot do armazenamento Blob - nova lâmina de entrada.](./media/data-lake-store-stream-analytics/create.input.2.png "Adicione uma entrada ao seu trabalho")
 
-   * Para **inserir pseudónimo, insira**um nome único para a entrada de trabalho.
+   * Para **inserir pseudónimo, insira** um nome único para a entrada de trabalho.
    * Para **o tipo de Origem**, selecione Data **stream**.
    * Para **obter**, selecione **Blob storage**.
    * Para **subscrição**, selecione **Use blob storage from current subscription**.
@@ -63,7 +63,7 @@ Começa por criar um trabalho stream Analytics que inclui uma fonte de entrada e
 
 ## <a name="create-a-data-lake-storage-gen1-output-for-the-job"></a>Criar uma saída gen1 de armazenamento de data lake para o trabalho
 
-1. Abra a página para o trabalho stream Analytics, clique no separador **Saídas,** clique em **Adicionar**e selecione **Data Lake Storage Gen1**.
+1. Abra a página para o trabalho stream Analytics, clique no separador **Saídas,** clique em **Adicionar** e selecione **Data Lake Storage Gen1**.
 
     ![Screenshot da lâmina stream Analytics Job com a opção Outputs, Adicionar opção e Data Lake Storage Gen 1 chamada.](./media/data-lake-store-stream-analytics/create.output.1.png "Adicione uma saída ao seu trabalho")
 
@@ -71,7 +71,7 @@ Começa por criar um trabalho stream Analytics que inclui uma fonte de entrada e
 
     ![Screenshot da Data Lake Storage Gen 1 - nova lâmina de saída com a opção Authorize chamada.](./media/data-lake-store-stream-analytics/create.output.2.png "Adicione uma saída ao seu trabalho")
 
-    * Para **o pseudónimo de saída, insira**um nome único para a saída do trabalho. Este é um nome amigável usado em consultas para direcionar a saída de consulta para esta conta de Data Lake Storage Gen1.
+    * Para **o pseudónimo de saída, insira** um nome único para a saída do trabalho. Este é um nome amigável usado em consultas para direcionar a saída de consulta para esta conta de Data Lake Storage Gen1.
     * Será solicitado que autorize o acesso à conta Gen1 de armazenamento de data lake. Clique **em Autorizor**.
 
 3. Na **lâmina de saída Nova,** continue a fornecer os seguintes valores.
@@ -92,9 +92,9 @@ Começa por criar um trabalho stream Analytics que inclui uma fonte de entrada e
 
 1. Para executar um trabalho stream Analytics, você tem que executar uma consulta a partir do **separador Consulta.** Para este tutorial, pode executar a consulta de amostra substituindo os espaços reservados com os pseudónimos de entrada e saída de trabalho, como mostra a captura do ecrã abaixo.
 
-    ![Executar consulta](./media/data-lake-store-stream-analytics/run.query.png "Executar consulta")
+    ![Consulta de execução](./media/data-lake-store-stream-analytics/run.query.png "Executar consulta")
 
-2. Clique em **Guardar** a partir da parte superior do ecrã e, em seguida, a partir do **separador Vista Geral,** clique em **Iniciar**. A partir da caixa de diálogo, selecione **Hora Personalizada**e, em seguida, defina a data e hora atuais.
+2. Clique em **Guardar** a partir da parte superior do ecrã e, em seguida, a partir do **separador Vista Geral,** clique em **Iniciar**. A partir da caixa de diálogo, selecione **Hora Personalizada** e, em seguida, defina a data e hora atuais.
 
     ![Definir tempo de trabalho](./media/data-lake-store-stream-analytics/run.query.2.png "Definir tempo de trabalho")
 
@@ -112,5 +112,5 @@ Começa por criar um trabalho stream Analytics que inclui uma fonte de entrada e
 
     No painel do Data Explorer, note que a saída é escrita para um caminho de pasta, conforme especificado nas definições de saída da Data Lake Storage Gen1 `streamanalytics/job/output/{date}/{time}` ().  
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 * [Crie um cluster HDInsight para utilizar a Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)

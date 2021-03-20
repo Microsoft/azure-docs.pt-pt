@@ -1,5 +1,5 @@
 ---
-title: Utilize uma cache externa na Azure API Management ! Microsoft Docs
+title: Utilize uma cache externa na Azure API Management | Microsoft Docs
 description: Aprenda a configurar e use uma cache externa na Azure API Management. A utilização de uma cache externa permite-lhe ultrapassar algumas limitações da cache incorporada.
 services: api-management
 documentationcenter: ''
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 04/26/2020
 ms.author: apimpm
 ms.openlocfilehash: 6288a10e111e42629abf5e09b84a6a7791dcfe95
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96018227"
 ---
 # <a name="use-an-external-redis-compatible-cache-in-azure-api-management"></a>Utilize uma cache externa compatível com Redis na Gestão API da Azure
@@ -46,13 +46,13 @@ Para concluir este tutorial, precisa de:
 + [crie uma instância da Gestão de API do Azure](get-started-create-service-instance.md)
 + Compreender [o caching na Azure API Management](api-management-howto-cache.md)
 
-## <a name="create-azure-cache-for-redis"></a><a name="create-cache"> </a> Criar cache Azure para Redis
+## <a name="create-azure-cache-for-redis"></a><a name="create-cache"></a> Criar cache Azure para Redis
 
 Esta secção explica como criar uma Cache Azure para Redis em Azure. Se já tem um Cache Azure para Redis, dentro ou fora de Azure, pode <a href="#add-external-cache">saltar</a> para a secção seguinte.
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
 
-## <a name="deploy-redis-cache-to-kubernetes"></a><a name="create-cache"> </a> Implementar cache Redis para Kubernetes
+## <a name="deploy-redis-cache-to-kubernetes"></a><a name="create-cache"></a> Implementar cache Redis para Kubernetes
 
 Para caches, os gateways auto-hospedados dependem exclusivamente de caches externos. Para que os caches sejam portais auto-hospedados eficazes e a cache em que dependem devem ser localizados perto uns dos outros para minimizar a procura e armazenar latências. Implantar uma cache Redis no mesmo cluster Kubernetes ou num aglomerado separado nas proximidades são as melhores opções. Siga este [link](https://github.com/kubernetes/examples/tree/master/guestbook) para aprender a implantar a cache redis para um cluster Kubernetes.
 
