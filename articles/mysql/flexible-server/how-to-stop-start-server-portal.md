@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 09/29/2020
 ms.openlocfilehash: 15b08ea67afe0d307470b5a4fb0f7d26e0f4ea82
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93241927"
 ---
 # <a name="stopstart-an-azure-database-for-mysql---flexible-server-preview"></a>Parar/Iniciar uma base de dados de Azure para o MySQL - Servidor Flexível (Pré-visualização)
@@ -36,7 +36,7 @@ Para completar este guia, precisa:
 
 3.  Clique **em Sim** para confirmar a paragem do seu servidor.
 
-    :::image type="content" source="media/how-to-stop-start-server-portal/confirm-stop.png" alt-text="Pare o servidor flexível."::: 
+    :::image type="content" source="media/how-to-stop-start-server-portal/confirm-stop.png" alt-text="Confirme parar o servidor flexível."::: 
 
 > [!NOTE]
 > Uma vez que o servidor é parado, as outras operações de gestão não estão disponíveis para o servidor flexível.
@@ -47,7 +47,7 @@ Para completar este guia, precisa:
 
 2.  A partir da página **'Vista Geral',** clique no botão **Iniciar** na barra de ferramentas.
 
-    :::image type="content" source="media/how-to-stop-start-server-portal/start-server.png" alt-text="Pare o servidor flexível.":::  
+    :::image type="content" source="media/how-to-stop-start-server-portal/start-server.png" alt-text="Inicie o servidor flexível.":::  
 
 > [!NOTE]
 > Uma vez iniciado o servidor, todas as operações de gestão estão agora disponíveis para o servidor flexível.

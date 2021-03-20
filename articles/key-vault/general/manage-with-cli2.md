@@ -1,5 +1,5 @@
 ---
-title: Gerir o Cofre da Chave Azure usando cli - Cofre de Chaves Azure / Microsoft Docs
+title: Gerir o cofre da chave Azure usando cli - Azure Key Vault | Microsoft Docs
 description: Utilize este artigo para automatizar tarefas comuns no Cofre de Chaves utilizando o CLI Azure
 services: key-vault
 author: msmbaldwin
@@ -11,10 +11,10 @@ ms.date: 08/12/2019
 ms.author: mbaldwin
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: cb7e047d998342125a52af5ea3ae1e88fe88d313
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93289905"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>Gerir o Cofre de Chaves utilizando o Azure CLI 
@@ -28,7 +28,7 @@ Este artigo abrange como começar a trabalhar com o Azure Key Vault usando o Azu
 - Definição de políticas avançadas de acesso ao cofre de chaves
 - Trabalhar com módulos de segurança hardware (HSMs)
 - Apagar o cofre de chaves e chaves e segredos associados
-- Comandos de interface de linha de linha de linha de plataforma cruzada Azure diversos
+- Comandos de interface de linha de plataforma cruzada Azure diversos
 
 
 O Cofre de Chaves do Azure chave está disponível na maior parte das regiões. Para obter mais informações, consulte a [página de preços do Cofre de Chaves](https://azure.microsoft.com/pricing/details/key-vault/).
@@ -60,7 +60,7 @@ az account set -h
 
 Também pode ler os seguintes artigos para se familiarizar com o Azure Resource Manager na Azure Cross-Platform Command-Line Interface:
 
-* [Instalar O Azure CLI](/cli/azure/install-azure-cli)
+* [Instalar a CLI do Azure](/cli/azure/install-azure-cli)
 * [Introdução à CLI do Azure](/cli/azure/get-started-with-azure-cli)
 
 ## <a name="how-to-create-a-hardened-container-a-vault-in-azure"></a>Como criar um recipiente endurecido (um cofre) em Azure
@@ -128,8 +128,8 @@ az keyvault create --name "ContosoKeyVault" --resource-group "ContosoResourceGro
 
 A saída deste comando mostra propriedades do cofre chave que criaste. As duas propriedades mais importantes são:
 
-* **nome** : No exemplo, o nome é ContosoKeyVault. Vais usar este nome para outros comandos do Key Vault.
-* **vaultUri** : No exemplo, o URI é https://contosokeyvault.vault.azure.net . As aplicações que utilizam o cofre através da respetiva API têm de utilizar este URI.
+* **nome**: No exemplo, o nome é ContosoKeyVault. Vais usar este nome para outros comandos do Key Vault.
+* **vaultUri**: No exemplo, o URI é https://contosokeyvault.vault.azure.net . As aplicações que utilizam o cofre através da respetiva API têm de utilizar este URI.
 
 A sua conta do Azure pode agora realizar quaisquer operações neste cofre de chaves. Até agora, ninguém mais está autorizado.
 
@@ -287,7 +287,7 @@ Em alternativa, pode eliminar um grupo de recursos completo do Azure, que inclui
 az group delete --name "ContosoResourceGroup"
 ```
 
-## <a name="miscellaneous-azure-cross-platform-command-line-interface-commands"></a>Comandos de interface de linha de linha de linha de plataforma cruzada Azure diversos
+## <a name="miscellaneous-azure-cross-platform-command-line-interface-commands"></a>Comandos de interface de linha de plataforma cruzada Azure diversos
 
 Outros comandos que poderá achar úteis para gerir o Azure Key Vault.
 

@@ -1,5 +1,5 @@
 ---
-title: Auditoria e Registo - Ferramenta de Modelação de Ameaças da Microsoft - Azure / Microsoft Docs
+title: Auditoria e Registo - Ferramenta de Modelação de Ameaças da Microsoft - Azure | Microsoft Docs
 description: Saiba mais sobre a auditoria e a mitigação do registo na Ferramenta de Modelação de Ameaças. Consulte informações de mitigação e veja exemplos de código.
 services: security
 documentationcenter: na
@@ -16,13 +16,13 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.openlocfilehash: 9d3f3ca7b5d4516c2ad5dc9cb19a2eaed0a8a4a8
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94518282"
 ---
-# <a name="security-frame-auditing-and-logging--mitigations"></a>Quadro de Segurança: Auditoria e RegistoS Registados / Mitigações 
+# <a name="security-frame-auditing-and-logging--mitigations"></a>Quadro de Segurança: Auditoria e registo de | Mitigações 
 
 | Produto/Serviço | Artigo |
 | --------------- | ------- |

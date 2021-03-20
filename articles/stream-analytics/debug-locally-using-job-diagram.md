@@ -7,10 +7,10 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 01/23/2020
 ms.openlocfilehash: d0e94fda1fb21be1a01516f4cecf657426ae867e
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98019453"
 ---
 # <a name="debug-azure-stream-analytics-queries-locally-using-job-diagram-in-visual-studio"></a>Debug Azure Stream Analytics consulta localmente usando diagrama de trabalho em Estúdio Visual
@@ -51,7 +51,7 @@ Nesta secção, você explora as métricas disponíveis para cada parte do diagr
 
 ![Fontes de entrada ao vivo do diagrama de trabalho](./media/debug-locally-using-job-diagram/live-input.png)
 
-|Métrica|Descrição|
+|Metric|Descrição|
 |-|-|
 |**TaxiRide**| O nome da entrada.|
 |**Hub de Eventos** | Tipo de fonte de entrada.|
@@ -67,7 +67,7 @@ Nesta secção, você explora as métricas disponíveis para cada parte do diagr
 
 ![Fontes de entrada locais do diagrama de trabalho](./media/debug-locally-using-job-diagram/local-input.png)
 
-|Métrica|Descrição|
+|Metric|Descrição|
 |-|-|
 |**TaxiRide**| O nome da entrada.|
 |**Contagem de Linhas**| O número de linhas geradas a partir do degrau.|
@@ -78,7 +78,7 @@ Nesta secção, você explora as métricas disponíveis para cada parte do diagr
 
 ![Passo de consulta do diagrama de trabalho](./media/debug-locally-using-job-diagram/query-step.png)
 
-|Métrica|Descrição|
+|Metric|Descrição|
 |-|-|
 |**TripData**|O nome do conjunto de resultados temporários.|
 |**Contagem de Linhas**| O número de linhas geradas a partir do degrau.|
@@ -88,7 +88,7 @@ Nesta secção, você explora as métricas disponíveis para cada parte do diagr
 
 ![Diagrama de trabalho que mostra os lavatórios de saída locais.](./media/debug-locally-using-job-diagram/live-output.png)
 
-|Métrica|Descrição|
+|Metric|Descrição|
 |-|-|
 |**regionaggEH**|O nome da saída.|
 |**Eventos**|O número de eventos a afundar.|
@@ -97,7 +97,7 @@ Nesta secção, você explora as métricas disponíveis para cada parte do diagr
 
 ![Diagrama de trabalho pias de saída locais](./media/debug-locally-using-job-diagram/local-output.png)
 
-|Métrica|Descrição|
+|Metric|Descrição|
 |-|-|
 |**regionaggEH**|O nome da saída.|
 |**Saída local**| Resultado de saída para um ficheiro local.|
@@ -120,7 +120,7 @@ Outras métricas de nível de trabalho aparecem na consola pop-up. Prima **Ctrl+
 
 * Apenas as opções de entrada na nuvem têm suporte às políticas de [tempo,](./stream-analytics-time-handling.md) enquanto as opções de entrada local não.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Quickstart: Criar um trabalho stream analytics usando o Visual Studio](stream-analytics-quick-create-vs.md)
 * [Use o Estúdio Visual para ver os trabalhos do Azure Stream Analytics](stream-analytics-vs-tools.md)

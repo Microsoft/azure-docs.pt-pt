@@ -4,10 +4,10 @@ description: Envie eventos de parceiros de eventos de terceiros SaaS e PaaS dire
 ms.topic: conceptual
 ms.date: 11/10/2020
 ms.openlocfilehash: 31a5fe611871eb4734b6a68e3818592028ebc75c
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94506151"
 ---
 # <a name="partner-events-in-azure-event-grid-preview"></a>Eventos de Parceiros em Azure Event Grid (pré-visualização)
@@ -58,7 +58,7 @@ Se pretender que um serviço de terceiros exponha os seus eventos através da Gr
 ## <a name="resources-managed-by-event-publishers"></a>Recursos geridos por editores de eventos
 Os editores de eventos criam e gerem os seguintes recursos:
 
-### <a name="partner-registration"></a>Inscrição de parceiros
+### <a name="partner-registration"></a>Registo de Parceiro
 O registo contém informações gerais relacionadas com uma editora. Define um tipo de tópico de parceiro que mostra no portal Azure como uma opção quando os utilizadores tentam criar um tópico de parceiro. Um editor pode expor mais de um ou mais tipos de tópicos parceiros para se adaptar às necessidades dos seus subscritores. Ou seja, um editor pode criar registos separados (tipos de tópicos parceiros) para eventos de diferentes serviços. Por exemplo, para o serviço de recursos humanos (RH), o editor pode definir um tópico parceiro para eventos como a associação de colaboradores, colaboradores promovidos e funcionários deixaram a empresa. 
 
 Tenha em consideração os seguintes pontos:
@@ -68,7 +68,7 @@ Tenha em consideração os seguintes pontos:
 - Um registo é um recurso opcional. Mas recomendamos que (como editora) crie um registo. Permite que os utilizadores descubram os seus tópicos na página **'Criar Tópico de Parceiro'** no [portal Azure.](https://portal.azure.com/#create/Microsoft.EventGridPartnerTopic) Em seguida, o utilizador pode selecionar tipos de eventos (por exemplo, funcionários unidos, empregado à esquerda, e assim por diante.) enquanto cria subscrições de eventos.
 
 ### <a name="namespace"></a>Espaço de Nomes
-Como tópicos e [domínios personalizados,](event-domains.md)um espaço de nome de parceiros é um ponto final regional para publicar eventos. [custom topics](custom-topics.md) É através de espaços de nome que as editoras criam e gerem canais de eventos. Um espaço de nome também funciona como o recurso de recipiente para canais de eventos.
+Como tópicos e [domínios personalizados,](event-domains.md)um espaço de nome de parceiros é um ponto final regional para publicar eventos. [](custom-topics.md) É através de espaços de nome que as editoras criam e gerem canais de eventos. Um espaço de nome também funciona como o recurso de recipiente para canais de eventos.
 
 ### <a name="event-channels"></a>Canais de Eventos
 Um canal de eventos é um recurso espelhado para um tópico parceiro. Quando uma editora cria um canal de eventos na subscrição Azure da editora, também cria um tópico parceiro sob a subscrição do Azure de um assinante. As operações es feitas contra um canal de eventos (exceto GET) serão aplicadas ao tópico parceiro de subscrição correspondente, mesmo eliminação. No entanto, apenas os tópicos parceiros são o tipo de recursos em que as subscrições e a entrega de eventos podem ser configuradas.
@@ -82,12 +82,12 @@ A imagem a seguir mostra o fluxo das operações do avião de controlo.
 
 1. A editora cria um **registo de parceiros.** Os registos de parceiros são globais. Ou seja, não estão associados a uma região particular de Azure. Este passo é opcional.
 1. A editora cria um **espaço de nomes de parceiros** numa região específica.
-1. Quando o Assinante 1 tenta criar um tópico de parceiro, um canal de **eventos** , Event Channel 1, é criado primeiro na subscrição Azure da editora.
-1. Em seguida, um **tópico parceiro** , Partner Topic 1, é criado na subscrição do Azure do assinante. O assinante precisa de ativar o tópico do parceiro. 
+1. Quando o Assinante 1 tenta criar um tópico de parceiro, um canal de **eventos**, Event Channel 1, é criado primeiro na subscrição Azure da editora.
+1. Em seguida, um **tópico parceiro**, Partner Topic 1, é criado na subscrição do Azure do assinante. O assinante precisa de ativar o tópico do parceiro. 
 1. O Assinante 1 cria uma **subscrição de Azure Logic Apps** para Partner Topic 1.
 1. O Assinante 1 cria uma **subscrição de Armazenamento Azure Blob** para Partner Topic 1. 
-1. Quando o Assinante 2 tenta criar um tópico de parceiro, outro canal de **eventos** , Event Channel 2, é criado primeiro na subscrição Azure da editora. 
-1. Em seguida, o **tópico parceiro** , Partner Topic 2, é criado na subscrição Azure do segundo subscritor. O assinante precisa de ativar o tópico do parceiro. 
+1. Quando o Assinante 2 tenta criar um tópico de parceiro, outro canal de **eventos**, Event Channel 2, é criado primeiro na subscrição Azure da editora. 
+1. Em seguida, o **tópico parceiro**, Partner Topic 2, é criado na subscrição Azure do segundo subscritor. O assinante precisa de ativar o tópico do parceiro. 
 1. O Assinante 2 cria uma **subscrição de Funções Azure** para O Tópico 2 do Parceiro. 
 
 ## <a name="pricing"></a>Preços

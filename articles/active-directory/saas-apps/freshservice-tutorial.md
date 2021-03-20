@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/15/2021
 ms.author: jeedes
 ms.openlocfilehash: fb8b12cdb8fd9ed37ac4086d213183e800d6febc
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101651765"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-freshservice"></a>Tutorial: Azure Ative Directory integração única (SSO) com Freshservice
@@ -133,7 +133,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. No menu à esquerda, clique em **Administração** e selecione **Helpdesk Security** nas **Definições Gerais**.
 
-    ![Administração](./media/freshservice-tutorial/configure-1.png "Admin")
+    ![Administração](./media/freshservice-tutorial/configure-1.png "Administrador")
 
 1. Na **Segurança**, clique em **Ir ao Freshservice 360 Security**.
 

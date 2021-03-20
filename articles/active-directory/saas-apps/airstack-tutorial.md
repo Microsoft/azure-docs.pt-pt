@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com a Airstack Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com a Airstack | Microsoft Docs'
 description: Saiba como configurar um único sinal entre o Azure Ative Directory e o Airstack.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 07/29/2019
 ms.author: jeedes
 ms.openlocfilehash: 7e0b17c30985617791c1ce55a02f6a60253b43db
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92318936"
 ---
 # <a name="tutorial-integrate-airstack-with-azure-active-directory"></a>Tutorial: Integrar airstack com diretório ativo Azure
@@ -112,7 +112,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
 
 Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso ao Airstack.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de candidaturas, selecione **Airstack**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 
@@ -128,7 +128,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 ### <a name="create-airstack-test-user"></a>Criar utilizador de teste Airstack
 
-Nesta secção, cria-se um utilizador chamado B.Simon in Airstack. Trabalhe com a [equipa de suporte airstack](mailto:jsinger@lenovo.com) para adicionar os utilizadores na plataforma Airstack. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação.
+Nesta secção, cria-se um utilizador chamado B.Simon in Airstack. Trabalhe com a [equipa de suporte airstack](mailto:jsinger@lenovo.com) para adicionar os utilizadores na plataforma Airstack. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação.
 
 ### <a name="test-sso"></a>Teste SSO
 

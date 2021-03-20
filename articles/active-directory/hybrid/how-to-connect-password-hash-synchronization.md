@@ -1,5 +1,5 @@
 ---
-title: Implementar sincronização de hash de palavra-passe com sincronização Azure AD Connect / Microsoft Docs
+title: Implementar sincronização de hash de palavra-passe com sincronização Azure AD Connect | Microsoft Docs
 description: Fornece informações sobre como funciona a sincronização de hash de palavra-passe e como se configurar.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 47d7d541ed7d9805641ffdfde381d482c8700006
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96858744"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implementar a sincronização hash de palavras-passe com a sincronização do Azure AD Connect

@@ -8,10 +8,10 @@ ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
 ms.openlocfilehash: 2ad3ab8c39d9f9a29e74bd139fb5ddd1e5faeff9
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98755159"
 ---
 #  <a name="connect-your-aws-accounts-to-azure-security-center"></a>Ligue as suas contas AWS ao Azure Security Center
@@ -42,7 +42,7 @@ Na imagem abaixo pode ver as contas AWS apresentadas no painel de visão geral d
 |Estado de libertação:|Disponibilidade Geral (GA)|
 |Preços:|Requer [Azure Defender para servidores](defender-for-servers-introduction.md)|
 |Funções e permissões necessárias:|**Proprietário** na assinatura Azure relevante<br>**O contribuinte** também pode ligar uma conta AWS se um proprietário fornecer os principais detalhes do serviço|
-|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Não](./media/icons/no-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
+|Nuvens:|![Yes](./media/icons/yes-icon.png) Nuvens comerciais<br>![No](./media/icons/no-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
 |||
 
 
@@ -197,7 +197,7 @@ SISTEMA suportado para embarque automático no Arco de Azure para máquinas AWS
 - Red Hat Enterprise Linux (RHEL) 7 (x64) - SSM deve ser instalado manualmente ou a bordo separadamente
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Ligar a sua conta AWS faz parte da experiência multi-nuvem disponível no Azure Security Center. Para obter informações relacionadas, consulte a seguinte página:
 

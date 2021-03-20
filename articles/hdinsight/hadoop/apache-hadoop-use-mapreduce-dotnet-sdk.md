@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 01/15/2020
 ms.openlocfilehash: 8fbcb66be11c7c77a9bfaf0e6ec790622dcbbda7
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98932176"
 ---
 # <a name="run-mapreduce-jobs-using-hdinsight-net-sdk"></a>Executar tarefas MapReduce com o SDK .NET do HDInsight
@@ -39,7 +39,7 @@ O HDInsight .NET SDK fornece bibliotecas de clientes .NET, que facilitam o traba
     Install-Package Microsoft.Azure.Management.HDInsight.Job
     ```
 
-1. Copie o código abaixo em **Program.cs**. Em seguida, edite o código definindo os valores para: `existingClusterName` , , , e `existingClusterPassword` `defaultStorageAccountName` `defaultStorageAccountKey` `defaultStorageContainerName` .
+1. Copie o código abaixo no **Programa.cs**. . Em seguida, edite o código definindo os valores para: `existingClusterName` , , , e `existingClusterPassword` `defaultStorageAccountName` `defaultStorageAccountKey` `defaultStorageContainerName` .
 
     ```csharp
     using System.Collections.Generic;
@@ -164,7 +164,7 @@ Para voltar a gerir o trabalho, tem de alterar o nome da pasta de saída de trab
 
 Quando o trabalho termina com sucesso, a aplicação imprime o conteúdo do ficheiro de saída `part-r-00000` .
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu várias formas de criar um cluster HDInsight. Para saber mais, leia os artigos seguintes:
 

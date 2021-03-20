@@ -12,20 +12,20 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7c9f8949fb61f2c152c0fbae09c0da84228908bc
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93135392"
 ---
-# <a name="what-is-app-provisioning"></a>O que é o provisionamento de aplicativos?
+# <a name="what-is-app-provisioning"></a>O que é o aprovisionamento de aplicações?
 
 [!INCLUDE [active-directory-app-provisioning.md](../../../includes/active-directory-app-provisioning.md)]
 
 
 ## <a name="next-steps"></a>Passos seguintes 
 
-- [O que é a gestão do ciclo de vida da identidade?](what-is-identity-lifecycle-management.md)
+- [O que é a gestão do ciclo de vida de identidades?](what-is-identity-lifecycle-management.md)
 - [O que é o aprovisionamento?](what-is-provisioning.md)
 - [O que é o fornecimento conduzido pela HR?](what-is-hr-driven-provisioning.md)
-- [O que é o provisionamento inter-directório?](what-is-inter-directory-provisioning.md)
+- [O que é o aprovisionamento entre diretórios?](what-is-inter-directory-provisioning.md)

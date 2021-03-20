@@ -8,17 +8,17 @@ ms.workload: storage
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.openlocfilehash: f73091552a78760024189b173897913edca724bb
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100593401"
 ---
 # <a name="performance-benchmark-test-recommendations-for-azure-netapp-files"></a>Recomendações do teste da referência de desempenho do Azure NetApp Files
 
 Este artigo fornece recomendações de teste de referência para desempenho de volume e métricas usando Ficheiros Azure NetApp.
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 Para compreender as características de desempenho de um volume de Ficheiros Azure NetApp, pode utilizar a ferramenta de código aberto [FIO](https://github.com/axboe/fio) para executar uma série de referências para simular uma variedade de cargas de trabalho. O FIO pode ser instalado tanto em sistemas operativos Linux como windows.  É uma excelente ferramenta para obter uma imagem rápida de IOPS e produção para um volume.
 

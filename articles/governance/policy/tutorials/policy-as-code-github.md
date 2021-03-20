@@ -4,10 +4,10 @@ description: Neste tutorial, implementa-se uma Política Azure como fluxo de tra
 ms.date: 10/20/2020
 ms.topic: tutorial
 ms.openlocfilehash: 76a46adc3fc8efab4f7a2d6e656e83c2537dd037
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92326157"
 ---
 # <a name="tutorial-implement-azure-policy-as-code-with-github"></a>Tutorial: Implementar a política do Azure como código com o GitHub
@@ -58,7 +58,7 @@ Para exportar uma definição de política do portal Azure, siga estes passos:
 
 1. Verifique a sua pasta gitHub repo, branch e _root level_ para ver se os recursos selecionados são agora exportados para o seu controlo de origem.
 
-Os recursos da Política Azure são exportados para a seguinte estrutura dentro da pasta selecionada do repositório e _do nível de raiz_do GitHub:
+Os recursos da Política Azure são exportados para a seguinte estrutura dentro da pasta selecionada do repositório e _do nível de raiz_ do GitHub:
 
 ```text
 |
@@ -79,7 +79,7 @@ Os recursos da Política Azure são exportados para a seguinte estrutura dentro 
 
 1. Este ficheiro de fluxo de trabalho utiliza a ação ["Manage Azure Policy"](https://github.com/marketplace/actions/manage-azure-policy) para impulsionar as alterações introduzidas nos objetos de política exportadas no repositório gitHub de volta à Política Azure. Por padrão, a ação considera e sincroniza apenas os ficheiros que são diferentes dos existentes no Azure. Também pode utilizar o `assignments` parâmetro na ação para apenas sincronizar alterações feitas em ficheiros de atribuição específicos. Este parâmetro pode ser usado para aplicar atribuições políticas apenas para um ambiente específico. Para obter mais informações, consulte a leitura do [repositório da Política de Gestão.](https://github.com/Azure/manage-azure-policy)
 
-1. Por predefinição, o fluxo de trabalho deve ser acionado manualmente. Para tal, utilize as **Ações** no GitHub, selecione o `manage-azure-policy-<randomLetters>` fluxo de trabalho, selecione **Executar fluxo de trabalho**e, em seguida, executar **novamente o fluxo de trabalho.**
+1. Por predefinição, o fluxo de trabalho deve ser acionado manualmente. Para tal, utilize as **Ações** no GitHub, selecione o `manage-azure-policy-<randomLetters>` fluxo de trabalho, selecione **Executar fluxo de trabalho** e, em seguida, executar **novamente o fluxo de trabalho.**
 
    :::image type="content" source="../media/policy-as-code-github/manually-trigger-workflow.png" alt-text="Screenshot do separador Action, workflow e Executar botões de fluxo de trabalho na interface web GitHub.":::
 
@@ -88,11 +88,11 @@ Os recursos da Política Azure são exportados para a seguinte estrutura dentro 
 
 1. O fluxo de trabalho sincroniza as alterações feitas aos objetos de política com o Azure e dá-lhe o estado nos registos.
 
-   :::image type="content" source="../media/policy-as-code-github/workflow-logging.png" alt-text="Screenshot do separador Action, workflow e Executar botões de fluxo de trabalho na interface web GitHub.":::
+   :::image type="content" source="../media/policy-as-code-github/workflow-logging.png" alt-text="Screenshot do fluxo de trabalho em ação e registou detalhes nos registos.":::
 
 1. O fluxo de trabalho também adiciona detalhes em objetos da Política Azure `properties.metadata` para que possa rastrear.
 
-   :::image type="content" source="../media/policy-as-code-github/updated-definition-metadata.png" alt-text="Screenshot do separador Action, workflow e Executar botões de fluxo de trabalho na interface web GitHub.":::
+   :::image type="content" source="../media/policy-as-code-github/updated-definition-metadata.png" alt-text="Screenshot da definição de Política Azure no portal Azure atualizado com metadados específicos da ação do GitHub.":::
 
 ### <a name="trigger-compliance-scans-using-github-action"></a>Trigger compliance scans usando ação GitHub
 

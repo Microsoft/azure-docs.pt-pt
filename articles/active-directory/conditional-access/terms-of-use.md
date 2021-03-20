@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 95fe70c774b933113c94125d227976e32a9e353f
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98919634"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Termos de utilização do Diretório Ativo Azure
@@ -117,7 +117,7 @@ Uma vez finalizado o documento de política de utilização, utilize o seguinte 
 
     ![Lista de drop-down de acesso condicional para selecionar um modelo de política](./media/terms-of-use/conditional-access-templates.png)
 
-   | Modelo | Descrição |
+   | Modelo | Description |
    | --- | --- |
    | **Acesso a aplicativos em nuvem para todos os hóspedes** | Será criada uma política de Acesso Condicional para todos os hóspedes e aplicações na nuvem. Esta política tem impacto no portal Azure. Uma vez criado, poderá ser obrigado a assinar e iniciar seduca. |
    | **Acesso a aplicativos na nuvem para todos os utilizadores** | Será criada uma política de Acesso Condicional para todos os utilizadores e todas as aplicações na nuvem. Esta política tem impacto no portal Azure. Uma vez criado, terá de assinar e iniciar seduca. |
@@ -436,6 +436,6 @@ R: Se tiver configurado os termos de utilização do AZure AD e os [termos e con
 **P: Que pontos finais utiliza os termos do serviço de utilização para autenticação?**<br />
 R: Os termos de utilização utilizam os seguintes pontos finais para a autenticação: https://tokenprovider.termsofuse.identitygovernance.azure.com e https://account.activedirectory.windowsazure.com . Se a sua organização tiver uma lista de sinais de admissão de URLs para inscrição, terá de adicionar estes pontos finais à sua lista de indicações, juntamente com os pontos finais AZURE AD para a sua inscrição.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Quickstart: Exigir que os termos de uso sejam aceites antes de aceder a aplicações na nuvem](require-tou.md)

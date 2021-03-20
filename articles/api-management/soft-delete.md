@@ -7,10 +7,10 @@ author: vladvino
 ms.author: apimpm
 ms.date: 11/27/2020
 ms.openlocfilehash: e2842f3e428abb4f0eb628dbb8e446f2714d5d89
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101652390"
 ---
 # <a name="api-management-soft-delete-preview"></a>API Management soft-delete (pré-visualização)
@@ -27,7 +27,7 @@ A funcionalidade de eliminação suave está disponível através da [REST API](
 > [!TIP]
 > Consulte a [Azure REST API Reference](/rest/api/azure/) para obter dicas e ferramentas para chamar APIs de REPOUSO Azure.
 
-| Operação | Descrição | Espaço de nome de gestão API | Versão API mínima |
+| Operação | Description | Espaço de nome de gestão API | Versão API mínima |
 |--|--|--|--|
 | [Criar ou Atualizar](/rest/api/apimanagement/2020-06-01-preview/apimanagementservice/createorupdate) | Cria ou atualiza um serviço de Gestão API.  | Serviço de Gestão da API | Qualquer |
 | [Criar ou Atualizar](/rest/api/apimanagement/2020-06-01-preview/apimanagementservice/createorupdate) com `restore` conjunto de propriedade para **verdadeiro** | Undeletes Serviço de Gestão API se anteriormente foi apagado. Se `restore` for especificado e definido para todas as `true` outras propriedades será ignorado.  | Serviço de Gestão da API |  Antevisão de 2020-06-01 |

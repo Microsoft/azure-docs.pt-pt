@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: sutalasi
 ms.openlocfilehash: 6c8219214e7053dcf6b119f6cd5dc97daaa355f7
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92327642"
 ---
 # <a name="test-results-for-hyper-v-replication-to-a-secondary-site"></a>Resultados do teste para a replicação do Hiper-V num local secundário
@@ -106,7 +106,7 @@ Os resultados mostram claramente que a Recuperação do Site, juntamente com a R
 
 ![Requisitos de hardware primários](./media/hyper-v-vmm-performance-results/IC744922.png)
 
-| Servidor | RAM | Modelo | Processador | Número de processadores | NIC | Software |
+| Servidor | RAM | Modelação | Processador | Número de processadores | NIC | Software |
 | --- | --- | --- | --- | --- | --- | --- |
 | Servidores hiper-V em cluster: <br />ESTLAB-HOST11<br />ESTLAB-HOST12<br />ESTLAB-HOST13<br />ESTLAB-HOST14<br />ESTLAB-HOST25 |128<br />ESTLAB-HOST25 tem 256 |Dell ™ PowerEdge ™ R820 |Intel(R) Xeon(R) CPU E5-4620 0 \@ 2.20GHz |4 |I Gbps x 4 |Centro de dados do Windows Server 2012 R2 (x64) + Função Hyper-V |
 | Servidor VMM |2 | | |2 |1 Gbps |Base de Dados do Servidor do Windows 2012 R2 (x64) + VMM 2012 R2 |
@@ -118,7 +118,7 @@ Os resultados mostram claramente que a Recuperação do Site, juntamente com a R
 
 ![Especificação de hardware primário](./media/hyper-v-vmm-performance-results/IC744923.png)
 
-| Servidor | RAM | Modelo | Processador | Número de processadores | NIC | Software |
+| Servidor | RAM | Modelação | Processador | Número de processadores | NIC | Software |
 | --- | --- | --- | --- | --- | --- | --- |
 | Servidores hiper-V em cluster: <br />ESTLAB-HOST07<br />ESTLAB-HOST08<br />ESTLAB-HOST09<br />ESTLAB-HOST10 |96 |Dell ™ PowerEdge ™ R720 |Intel(R) Xeon(R) CPU E5-2630 0 \@ 2.30GHz |2 |I Gbps x 4 |Centro de dados do Windows Server 2012 R2 (x64) + Função Hyper-V |
 | ESTLAB-HOST17 |128 |Dell ™ PowerEdge ™ R820 |Intel(R) Xeon(R) CPU E5-4620 0 \@ 2.20GHz |4 | |Centro de dados do Windows Server 2012 R2 (x64) + Função Hyper-V |
@@ -170,7 +170,7 @@ Os resultados mostram claramente que a Recuperação do Site, juntamente com a R
 
 A tabela resume as métricas de desempenho e os contadores que foram medidos na implantação.
 
-| Métrica | Contador |
+| Metric | Contador |
 | --- | --- |
 | CPU |\Processor(_Total)\% Processor Time |
 | Memória disponível |\Memory\MBytes disponíveis |

@@ -7,10 +7,10 @@ ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 07/01/2019
 ms.openlocfilehash: d019f5df4bba6d223076c8ce35151510afedf2e9
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92220810"
 ---
 # <a name="tutorial-create-the-azure-fxt-edge-filer-cluster"></a>Tutorial: Criar o cluster Azure FXT Edge Filer
@@ -104,7 +104,7 @@ Para verificar a ligação à rede, certifique-se de que os LED de ligação à 
 
 Quando o nó arrancar, solicitará um endereço IP. Se estiver ligado a um servidor DHCP, aceita o endereço IP fornecido pela DHCP. (Este endereço IP é temporário. Mudará quando criar o cluster.)
 
-Se não estiver ligado a um servidor DHCP ou não receber uma resposta, o nó utilizará o software Bonjour para definir um endereço IP autoatribuído no formulário 169.254. \* . . . . . . . . . . . . . . . . . . \* . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . No entanto, deverá definir um endereço IP estático temporário num dos cartões de rede do nó antes de o utilizar para criar um cluster. As instruções estão incluídas neste documento legado; contacte o Microsoft Service and Support para obter informações atualizadas: [Apêndice A: Definição de um endereço IP estático num nó FXT](https://azure.github.io/Avere/legacy/create_cluster/4_8/html/static_ip.html).
+Se não estiver ligado a um servidor DHCP ou não receber uma resposta, o nó utilizará o software Bonjour para definir um endereço IP autoatribuído no formulário 169.254. \* \* . . No entanto, deverá definir um endereço IP estático temporário num dos cartões de rede do nó antes de o utilizar para criar um cluster. As instruções estão incluídas neste documento legado; contacte o Microsoft Service and Support para obter informações atualizadas: [Apêndice A: Definição de um endereço IP estático num nó FXT](https://azure.github.io/Avere/legacy/create_cluster/4_8/html/static_ip.html).
 
 ### <a name="find-the-ip-address"></a>Encontre o endereço IP
 
@@ -168,7 +168,7 @@ Na secção superior, preencha informações básicas para o novo cluster.
   * Pode incluir letras, números e o traço (-) e sublinhar (_) caracteres
   * Não deve incluir outros caracteres de pontuação ou caracteres especiais
   
-  Pode alterar este nome **Cluster**mais tarde na página de configuração de  >  **configuração geral** do cluster. (Para obter mais informações sobre as definições do cluster, leia o Guia de Configuração do [Cluster,](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/ops_conf_index.html)que não faz parte deste conjunto de documentação.)
+  Pode alterar este nome mais tarde na página de configuração de  >  **configuração geral** do cluster. (Para obter mais informações sobre as definições do cluster, leia o Guia de Configuração do [Cluster,](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/ops_conf_index.html)que não faz parte deste conjunto de documentação.)
 
   > [!NOTE]
   > O seu nome de cluster é usado para identificar informações do sistema enviadas para suporte para monitorização ou resolução de problemas, por isso é útil incluir o nome da sua empresa.
@@ -177,7 +177,7 @@ Na secção superior, preencha informações básicas para o novo cluster.
   
   Deve configurar contas individuais de utilizador para cada pessoa que administra o cluster, mas não pode remover o utilizador `admin` . Faça sessão como `admin` se precisasse de criar utilizadores adicionais.
 
-  Pode alterar a palavra-passe na `admin` página de definições de Utilizadores de **Administração**  >  **Users** no Painel de Controlo do cluster. Para mais informações, leia a documentação **dos Utilizadores** no Guia de Configuração do [Cluster.](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_users.html)
+  Pode alterar a palavra-passe na `admin` página de definições de Utilizadores de **Administração**  >   no Painel de Controlo do cluster. Para mais informações, leia a documentação **dos Utilizadores** no Guia de Configuração do [Cluster.](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_users.html)
 
 <!-- to do: update "legacy" URLs when docs are ported to Microsoft site -->
 
@@ -205,7 +205,7 @@ As definições na secção **Gestão** são para a rede que proporciona acesso 
 
 * **Gestão IP** - Especifique o endereço IP que utilizará para aceder ao Painel de Controlo do cluster. Este endereço será reivindicado pelo nó primário do cluster, mas move-se automaticamente para um nó saudável se o nó primário original ficar indisponível.
 
-  A maioria dos clusters usa apenas um endereço IP de gestão. Se quiser mais do que um, pode adicioná-los depois de criar o cluster utilizando a página de definições da Rede Administrativa do **Cluster.**  >  **Administrative Network** Leia mais no Guia de Configuração do [Cluster.](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_admin_network.html)
+  A maioria dos clusters usa apenas um endereço IP de gestão. Se quiser mais do que um, pode adicioná-los depois de criar o cluster utilizando a página de definições da Rede Administrativa do **Cluster.**  >   Leia mais no Guia de Configuração do [Cluster.](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_admin_network.html)
 
 * **Netmask** - Especifique o bímask para a rede de gestão.
 
@@ -227,7 +227,7 @@ As definições de rede de cluster aplicam-se ao tráfego entre os nós do clust
 
 * **Primeiro IP** e **Última IP** - Introduza os endereços IP que definem o intervalo a utilizar para comunicação interna de clusters. Os endereços IP utilizados aqui devem ser contíguos e não atribuídos pela DHCP.
 
-  Pode adicionar mais endereços IP depois de criar o cluster. Utilize **a**página de  >  definições de redes**de cluster** [(documentação do Guia de Configuração do Cluster).](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_cluster_networks.html#gui-cluster-networks)
+  Pode adicionar mais endereços IP depois de criar o cluster. Utilize **a** página de  >  definições de redes **de cluster** [(documentação do Guia de Configuração do Cluster).](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_cluster_networks.html#gui-cluster-networks)
 
   O valor do **Número de IPs no Alcance** é calculado e mostrado automaticamente.
 
@@ -371,14 +371,14 @@ O cluster Azure FXT Edge Filer pode carregar automaticamente dados de suporte so
 
 Siga estes passos para configurar uploads de suporte.
 
-1. Navegue **Cluster**para a  >  página de definições de Suporte**ao** Cluster. Aceite a política de privacidade.
+1. Navegue para a  >  página de definições de Suporte **ao** Cluster. Aceite a política de privacidade.
 
    ![Screenshot mostrando Painel de Controlo e janela pop-up com botão Confirmar para aceitar a política de privacidade](media/fxt-cluster-create/fxt-privacy-policy.png)
 
 1. Clique no triângulo à esquerda da **Informação** do Cliente para expandir a secção.
 1. Clique no botão **de informação de upload de Revalidate.**
 1. Desagure o nome de suporte do cluster em **Unique Cluster Name** - certifique-se de que identifica exclusivamente o seu cluster para apoiar o pessoal.
-1. Consulte as caixas para **monitorização de estatísticas,** **upload de informações gerais**e **upload de informações de colisão**.
+1. Consulte as caixas para **monitorização de estatísticas,** **upload de informações gerais** e **upload de informações de colisão**.
 1. Clique **em Submeter.**  
 
    ![Screenshot contendo secção de informações completas do cliente da página de definições de suporte](media/fxt-cluster-create/fxt-support-info.png)

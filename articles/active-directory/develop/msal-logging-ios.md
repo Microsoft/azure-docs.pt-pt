@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: ee3837b75d586238e7ca6ac85434cc56f592929d
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98763489"
 ---
 # <a name="logging-in-msal-for-iosmacos"></a>Registos no MSAL para iOS/macOS
@@ -78,7 +78,7 @@ MSALGlobalConfig.loggerConfig.piiEnabled = NO;
 
 Para definir o nível de registo quando iniciar sessão utilizando o MSAL para iOS e macOS, utilize um dos seguintes valores:
 
-|Level  |Descrição |
+|Level  |Description |
 |---------|---------|
 | `MSALLogLevelNothing`| Desativar todos os registos |
 | `MSALLogLevelError` | Nível predefinido, imprime a informação apenas quando ocorrem erros |
@@ -155,7 +155,7 @@ MSALGlobalConfig.loggerConfig.piiEnabled = false
 
 Para definir o nível de registo quando iniciar sessão utilizando o MSAL para iOS e macOS, utilize um dos seguintes valores:
 
-|Level  |Descrição |
+|Level  |Description |
 |---------|---------|
 | `MSALLogLevelNothing`| Desativar todos os registos |
 | `MSALLogLevelError` | Nível predefinido, imprime a informação apenas quando ocorrem erros |
@@ -181,6 +181,6 @@ Fornecer identificações de correlação e timetamps são úteis para rastrear 
 
 ---
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais amostras de código, consulte [as amostras de código da plataforma de identidade da Microsoft.](sample-v2-code.md)

@@ -13,10 +13,10 @@ ms.author: josack
 ms.reviewer: sstein
 ms.date: 02/13/2019
 ms.openlocfilehash: b34ac24cb26bf5db4a49a5ad5b531deb252f4695
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96446122"
 ---
 # <a name="new-dba-in-the-cloud--managing-azure-sql-database-after-migration"></a>Novo DBA na nuvem – Gestão da Base de Dados Azure SQL após migração
@@ -172,7 +172,7 @@ Para proteger os seus dados sensíveis em voo e em repouso, a SQL Database forne
 |**Características**|**Always Encrypted**|**Encriptação de Dados Transparente**|
 |---|---|---|
 |**Extensão de encriptação**|De ponta a ponta|Dados de repouso|
-|**O servidor pode aceder a dados sensíveis**|Não|Sim, já que a encriptação é para os dados em repouso|
+|**O servidor pode aceder a dados sensíveis**|No|Sim, já que a encriptação é para os dados em repouso|
 |**Operações T-SQL permitidas**|Comparação da igualdade|Toda a área de superfície T-SQL está disponível|
 |**Alterações de aplicação necessárias para usar a funcionalidade**|Mínimo|Muito mínimo|
 |**Granularidade de encriptação**|Nível de coluna|Ao nível da base de dados|

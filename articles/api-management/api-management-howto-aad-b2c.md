@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 7b586edd7adce8bcea61419005a3ce8cfc814fb3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96013569"
 ---
 # <a name="how-to-authorize-developer-accounts-by-using-azure-active-directory-b2c-in-azure-api-management"></a>Como autorizar as contas de programador ao utilizar o Azure Active Directory B2C na Gestão de API do Azure
@@ -82,7 +82,7 @@ O Azure Ative Directory B2C é uma solução de gestão de identidade em nuvem p
     
 1.  Especificar o nome de domínio do inquilino B2C do Azure Ative Directory B2C no **inquilino de Signin.**
 
-1.  O campo **Autoridade** permite-lhe controlar o URL de login Azure AD B2C para usar. Desapedague o valor em **<your_b2c_tenant_name>.b2clogin.com**.
+1.  O campo **Autoridade** permite-lhe controlar o URL de login Azure AD B2C para usar. Desa esta qual é o valor **para<your_b2c_tenant_name>.b2clogin.com**.
 
 1. Especifique a **Política de Inscrição** e Política de **Inscrição** das políticas de Inquilino B2C. Opcionalmente, também pode fornecer a **Política de Edição de Perfis** e a Política de Reset de **Password.**
 

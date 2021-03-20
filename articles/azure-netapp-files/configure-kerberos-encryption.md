@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 02/18/2021
 ms.author: b-juche
 ms.openlocfilehash: 6ff87d046c60f588e133010895ec3e7ce08cb71f
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101740567"
 ---
 # <a name="configure-nfsv41-kerberos-encryption-for-azure-netapp-files"></a>Configurar a encriptação NFSv4.1 Kerberos para o Azure NetApp Files

@@ -10,10 +10,10 @@ ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
 ms.openlocfilehash: da698a1a8d91273321d4633abd683a06cb4cf403
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96451620"
 ---
 # <a name="connect-to-synapse-sql-with-sql-server-management-studio-ssms"></a>Conecte-se ao SQL Synapse com o SQL Server Management Studio (SSMS)
@@ -75,7 +75,7 @@ Para ligar ao Sinaapse SQL utilizando a piscina SQL sem servidor, siga estes pas
    * **Nome do servidor**: Introduza o nome do **servidor** previamente identificado.
    * **Autenticação**: Escolha um tipo de autenticação, como autenticação do **servidor SQL** ou **autenticação integrada do Diretório Ativo:**
    * **Nome do utilizador** e **palavra-passe**: Introduza o nome de utilizador e a palavra-passe se a autenticação do servidor SQL tiver sido selecionada acima.
-   * Selecione **Connect** (Ligar).
+   * Selecione **Ligar**.
 
 4. Para explorar, expanda o servidor SQL do Azure. Pode ver as bases de dados associadas ao servidor. Expanda a *demonstração* para ver o conteúdo na sua base de dados de amostras.
    

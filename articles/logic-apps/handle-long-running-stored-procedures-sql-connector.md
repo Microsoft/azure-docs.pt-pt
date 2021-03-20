@@ -7,10 +7,10 @@ ms.reviewer: camerost, logicappspm
 ms.topic: conceptual
 ms.date: 10/27/2020
 ms.openlocfilehash: f5b04c563dc81497f591788dc4890d379c0f898f
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93103113"
 ---
 # <a name="handle-stored-procedure-timeouts-in-the-sql-connector-for-azure-logic-apps"></a>Manuseie os intervalos de tempo do procedimento armazenado no conector SQL para apps Azure Logic
@@ -37,10 +37,10 @@ BEGIN
 END
 ```
 
-Em vez de ligar diretamente para o procedimento armazenado, pode executar o procedimento de forma assíncronea em segundo plano utilizando um *agente de trabalho* . Pode armazenar as entradas e saídas numa tabela de estado com a quais pode interagir através da sua aplicação lógica. Se não precisar das entradas e saídas, ou se já estiver a escrever os resultados para uma tabela no procedimento armazenado, pode simplificar esta abordagem.
+Em vez de ligar diretamente para o procedimento armazenado, pode executar o procedimento de forma assíncronea em segundo plano utilizando um *agente de trabalho*. Pode armazenar as entradas e saídas numa tabela de estado com a quais pode interagir através da sua aplicação lógica. Se não precisar das entradas e saídas, ou se já estiver a escrever os resultados para uma tabela no procedimento armazenado, pode simplificar esta abordagem.
 
 > [!IMPORTANT]
-> Certifique-se de que o seu procedimento armazenado e todos os trabalhos são *idempotentes* , o que significa que podem correr várias vezes sem afetar os resultados. Se o processamento assíncronos falhar ou esgotar o tempo, o agente de trabalho pode voltar a tentar o passo, e assim o seu procedimento armazenado, várias vezes. Para evitar a duplicação de saídas, antes de criar quaisquer objetos, reveja estas [boas práticas e abordagens](../azure-sql/database/elastic-jobs-overview.md#idempotent-scripts).
+> Certifique-se de que o seu procedimento armazenado e todos os trabalhos são *idempotentes*, o que significa que podem correr várias vezes sem afetar os resultados. Se o processamento assíncronos falhar ou esgotar o tempo, o agente de trabalho pode voltar a tentar o passo, e assim o seu procedimento armazenado, várias vezes. Para evitar a duplicação de saídas, antes de criar quaisquer objetos, reveja estas [boas práticas e abordagens](../azure-sql/database/elastic-jobs-overview.md#idempotent-scripts).
 
 A secção seguinte descreve como pode utilizar o Agente De Trabalho Elástico Azure para a Base de Dados Azure SQL. Para o SQL Server e Azure SQL Managed Instance, pode utilizar o Agente do Servidor SQL. Alguns detalhes de gestão serão diferentes, mas os passos fundamentais permanecem os mesmos que a criação de um agente de trabalho para a Azure SQL Database.
 

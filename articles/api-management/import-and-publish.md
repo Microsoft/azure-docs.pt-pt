@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 09/30/2020
 ms.author: apimpm
 ms.openlocfilehash: 9ff64f57e61002101b4e2c560bdcd91863cc461e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91626979"
 ---
 # <a name="tutorial-import-and-publish-your-first-api"></a>Tutorial: Importe e publique a sua primeira API
@@ -48,7 +48,7 @@ Esta secção mostra como importar e publicar uma API de backend de especificaç
 
    Pode definir os valores de API durante a criação ou mais tarde indo para o **separador Definições.**
 
-   :::image type="content" source="media/import-and-publish/create-api.png" alt-text="Nova API em Gestão de API":::
+   :::image type="content" source="media/import-and-publish/create-api.png" alt-text="Criar uma API":::
 
 
    |Definição|Valor|Descrição|
@@ -77,9 +77,9 @@ Você pode ligar para as operações da API diretamente a partir do portal Azure
 
 1. Na navegação à esquerda da sua instância de Gestão de API, selecione **APIs**  >  **Demo Conference API**.
 1. Selecione o separador **Teste** e, em seguida, selecione **GetSpeakers**. A página mostra **parâmetros de consulta** e **cabeçalhos,** se houver. A **Chave de Subscrição Ocp-Apim** é preenchida automaticamente para a chave de subscrição associada a esta API.
-1. Selecione **Send** (Enviar).
+1. Selecione **Enviar**.
 
-   :::image type="content" source="media/import-and-publish/01-import-first-api-01.png" alt-text="Nova API em Gestão de API":::
+   :::image type="content" source="media/import-and-publish/01-import-first-api-01.png" alt-text="Teste API no portal Azure":::
 
    O backend responde com **200 OK** e alguns dados.
 

@@ -8,10 +8,10 @@ ms.date: 08/30/2016
 ms.author: stefsch
 ms.custom: seodec18
 ms.openlocfilehash: 813160ee19c8447fdfcb705e7a9162a41a0c308c
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101739513"
 ---
 # <a name="implementing-a-layered-security-architecture-with-app-service-environments"></a>Implementação de uma arquitetura de segurança em camadas com ambientes de serviço de aplicações

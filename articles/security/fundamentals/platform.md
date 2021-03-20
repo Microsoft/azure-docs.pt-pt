@@ -9,10 +9,10 @@ ms.author: terrylan
 manager: rkarlin
 ms.date: 11/10/2020
 ms.openlocfilehash: 4755bc19a645d196487f0b8e0f4d1ef2120723ca
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94557984"
 ---
 # <a name="platform-integrity-and-security-overview"></a>Visão geral da integridade da plataforma e segurança
@@ -21,12 +21,12 @@ A frota Azure é composta por milhões de servidores (anfitriões) com milhares 
 ## <a name="securing-azure-hardware-and-firmware"></a>Segurança de hardware e firmware da Azure
 Esta série de artigos descreve como a Microsoft garante a integridade e segurança dos anfitriões através de várias fases do seu ciclo de vida, desde o fabrico ao pôr-do-sol. O endereço dos artigos:
  
-- [Segurança firmware](firmware.md)
+- [Segurança do firmware](firmware.md)
 - [Bota Segura UEFI](secure-boot.md)
 - [Atestado de arranque e hospedeiro medido](measured-boot-host-attestation.md)
 - [Projeto Cerberus](project-cerberus.md)
-- [Encriptação inativa](encryption-atrest.md)
-- [Segurança hipervisor](hypervisor.md)
+- [Encriptação de dados inativos](encryption-atrest.md)
+- [Segurança do hipervisor](hypervisor.md)
  
 ## <a name="next-steps"></a>Passos seguintes
 

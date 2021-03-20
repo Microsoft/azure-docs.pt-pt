@@ -1,5 +1,5 @@
 ---
-title: Resolução de problemas de políticas instantâneas para ficheiros Azure NetApp Microsoft Docs
+title: As políticas de instantâneo de resolução de problemas para ficheiros Azure NetApp | Microsoft Docs
 description: Descreve mensagens de erro e resoluções que podem ajudá-lo a resolver problemas de gestão de políticas instantâneas para ficheiros Azure NetApp.
 services: azure-netapp-files
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 09/23/2020
 ms.author: b-juche
 ms.openlocfilehash: 6ba8b18876bdae2754a6a772ce3909ff2f5a71b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91651009"
 ---
 # <a name="troubleshoot-snapshot-policies"></a>Resolver problemas das políticas de instantâneo

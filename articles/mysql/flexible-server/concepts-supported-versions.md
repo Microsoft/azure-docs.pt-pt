@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
 ms.openlocfilehash: 7ad6a576262b8e722b16c81af544a9370c2b49b3
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93242267"
 ---
 # <a name="supported-versions-for-azure-database-for-mysql---flexible-server"></a>Versões suportadas para Base de Dados Azure para MySQL - Servidor Flexível

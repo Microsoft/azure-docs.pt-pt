@@ -1,5 +1,5 @@
 ---
-title: Melhores práticas para a utilização do Azure Data Lake Storage Gen1 Microsoft Docs
+title: Boas práticas para a utilização do Azure Data Lake Storage Gen1 | Microsoft Docs
 description: Conheça as melhores práticas sobre a ingestão de dados, segurança de datas e desempenho relacionado com a utilização da Azure Data Lake Storage Gen1 (anteriormente conhecida como Azure Data Lake Store)
 services: data-lake-store
 documentationcenter: ''
@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: sachins
 ms.openlocfilehash: 9a5c5f9a4033b70a664071d6077a69f38c905093
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96452216"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen1"></a>Melhores práticas para a utilização do Azure Data Lake Storage Gen1
@@ -101,8 +101,8 @@ Abaixo estão as três principais opções recomendadas para orquestrar a replic
 |  |Distcp  |Azure Data Factory  |AdlCopy  |
 |---------|---------|---------|---------|
 |**Limites de escala**     | Delimitada por nódoas operárias        | Limitado por unidades de Movimento de Dados de Nuvem Max        | Ligado por unidades de Analytics        |
-|**Suporta a cópia de deltas**     |   Sim      | Não         | Não         |
-|**Orquestração embuta**     |  Não (use Oozie Airflow ou cron jobs)       | Sim        | Não (Use Azure Automation ou Windows Task Scheduler)         |
+|**Suporta a cópia de deltas**     |   Yes      | No         | No         |
+|**Orquestração embuta**     |  Não (use Oozie Airflow ou cron jobs)       | Yes        | Não (Use Azure Automation ou Windows Task Scheduler)         |
 |**Sistemas de ficheiros suportados**     | ADL, HDFS, WASB, S3, GS, CFS        |Numerosos, consulte [conectores.](../data-factory/connector-azure-blob-storage.md)         | ADL a ADL, WASB a ADL (apenas na mesma região)        |
 |**Suporte ao OS**     |Qualquer os que executa o Hadoop         | N/D          | Windows 10         |
 

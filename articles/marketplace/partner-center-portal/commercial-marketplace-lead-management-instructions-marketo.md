@@ -8,10 +8,10 @@ author: trkeya
 ms.author: trkeya
 ms.date: 03/30/2020
 ms.openlocfilehash: cbd12481312d310add15bf3d41e21e9c416f1c39
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94491080"
 ---
 # <a name="use-marketo-to-manage-commercial-marketplace-leads"></a>Use o Marketo para gerir os líderes do mercado comercial
@@ -84,7 +84,7 @@ Quando estiver pronto para configurar as informações de gestão de chumbo para
     > [!NOTE]
     > Tem de configurar o resto da oferta e publicá-la antes de poder receber pistas para a oferta. 
 
-1. No **e-mail de Contato** , insira endereços de e-mail para pessoas da sua empresa que devem receber notificações de e-mail quando um novo chumbo é recebido. Pode fornecer vários endereços de e-mail separando-os com um ponto e vírgula.
+1. No **e-mail de Contato**, insira endereços de e-mail para pessoas da sua empresa que devem receber notificações de e-mail quando um novo chumbo é recebido. Pode fornecer vários endereços de e-mail separando-os com um ponto e vírgula.
 
 1. Selecione **OK**.
 

@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 10/02/2020
 ms.openlocfilehash: e16cc8934407a5c54c84fd045c99e28116e656c9
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93310501"
 ---
 # <a name="receive-and-confirm--b2b-as2-messages-by-using-azure-logic-apps-and-enterprise-integration-pack"></a>Receba e confirme as mensagens B2B AS2 utilizando apps Azure Logic e Pacote de Integração Empresarial
@@ -77,7 +77,7 @@ Adicione agora as ações B2B que pretende utilizar. Este exemplo utiliza açõe
 
      ![Selecione o valor "Corpo" do gatilho](./media/logic-apps-enterprise-integration-b2b/select-body-content-from-trigger.png)
 
-   * Para introduzir uma expressão que faz referência à saída do `body` gatilho, clique no interior da **Caixa de Descodificar.** Depois de aparecer a lista de conteúdos dinâmicos, selecione **Expression**. No editor de expressão, insira a expressão aqui, e selecione **OK** :
+   * Para introduzir uma expressão que faz referência à saída do `body` gatilho, clique no interior da **Caixa de Descodificar.** Depois de aparecer a lista de conteúdos dinâmicos, selecione **Expression**. No editor de expressão, insira a expressão aqui, e selecione **OK**:
 
      `triggerOutputs()['body']`
 
@@ -95,7 +95,7 @@ Adicione agora as ações B2B que pretende utilizar. Este exemplo utiliza açõe
 
       ![Screenshot que mostra "Cabeçalhos de mensagem de switch para modo de texto" selecionado.](./media/logic-apps-enterprise-integration-b2b/as2-decode-switch-text-mode.png)
 
-   1. Clique dentro da caixa **de cabeçalhos de mensagem.** Depois de aparecer a lista de conteúdos dinâmicos, selecione **Expression**. No editor de expressão, insira a expressão aqui, e selecione **OK** :
+   1. Clique dentro da caixa **de cabeçalhos de mensagem.** Depois de aparecer a lista de conteúdos dinâmicos, selecione **Expression**. No editor de expressão, insira a expressão aqui, e selecione **OK**:
 
       `triggerOutputs()['Headers']`
 
@@ -113,7 +113,7 @@ Para notificar o parceiro comercial de que a mensagem foi recebida, pode retorna
 
 1. Sob a ação **AS2 Descodificar,** selecione **Novo passo**.
 
-1. Em **Seleção de uma ação,** sob a caixa de pesquisa, selecione **Built-in**. Na caixa de pesquisa, introduza `condition`. Na lista **Ações** , selecione **Condição**.
+1. Em **Seleção de uma ação,** sob a caixa de pesquisa, selecione **Built-in**. Na caixa de pesquisa, introduza `condition`. Na lista **Ações**, selecione **Condição**.
 
    ![Adicione a ação "Condição"](./media/logic-apps-enterprise-integration-b2b/add-condition-action.png)
 

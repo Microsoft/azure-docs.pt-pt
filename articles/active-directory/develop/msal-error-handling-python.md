@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda, rayluo
 ms.custom: aaddev
 ms.openlocfilehash: 3046787393d38ed60b54236f33acc065db90321d
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98761080"
 ---
 # <a name="handle-errors-and-exceptions-in-msal-for-python"></a>Lidar com erros e exceções no MSAL para Python
@@ -39,6 +39,6 @@ No MSAL para Python, as exceções são raras porque a maioria dos erros são tr
 
 [!INCLUDE [Active directory error handling retries](../../../includes/active-directory-develop-error-handling-retries.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Considere permitir o [início de Sessão em MSAL para python](msal-logging-python.md) para ajudá-lo a diagnosticar e depurar problemas.

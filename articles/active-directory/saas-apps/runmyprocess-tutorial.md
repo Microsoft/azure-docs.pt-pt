@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com o RunMyProcess Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com | do RunMyProcess Microsoft Docs'
 description: Saiba como configurar um único sinal entre o Azure Ative Directory e o RunMyProcess.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 08/07/2019
 ms.author: jeedes
 ms.openlocfilehash: 011bbbda07806f1493ae27fbeef8509f0d12c44b
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92518456"
 ---
 # <a name="tutorial-integrate-runmyprocess-with-azure-active-directory"></a>Tutorial: Integrar RunMyProcess com Diretório Ativo Azure
@@ -130,7 +130,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
 
 Nesta secção, você permitirá que B.Simon utilize o Azure single sign-on, concedendo acesso ao RunMyProcess.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de aplicações, selecione **RunMyProcess**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 
@@ -162,7 +162,7 @@ Para permitir que os utilizadores de Azure AD inscrevam-se no RunMyProcess, deve
   
     a. Digite o **Nome** e **e-mail** de uma conta Azure AD válida que pretende obter nas caixas de texto relacionadas.
 
-    b. Selecione um **idioma IDE,** **idioma**e **perfil.**
+    b. Selecione um **idioma IDE,** **idioma** e **perfil.**
 
     c. Selecione **Enviar-me um e-mail de criação de conta.**
 

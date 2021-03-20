@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 3/20/2020
 ms.custom: mvc
 ms.openlocfilehash: 7559bc2246ca26cf2b14071396e075b28d2af3a7
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94532686"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-database-using-the-azure-portal"></a>Tutorial: Conceber uma Base de Dados do Azure para base de dados MySQL com o portal do Azure
@@ -41,7 +41,7 @@ Abra o browser favorito e visite o [portal do Microsoft Azure](https://portal.az
 
 É criada uma Base de Dados do Azure para o servidor MySQL com um conjunto definido de [recursos de armazenamento e computação](./concepts-pricing-tiers.md). O servidor é criado dentro de um [grupo de recursos do Azure](../azure-resource-manager/management/overview.md).
 
-1. Selecione o botão (+) **Criar um recurso** , no canto superior esquerdo do portal.
+1. Selecione o botão (+) **Criar um recurso**, no canto superior esquerdo do portal.
 
 2. Selecione **Base de Dados**  >  **Azure Databases para o MySQL**. Se não conseguir encontrar o MySQL Server na categoria **Bases de Dados,** clique em **Ver tudo** para mostrar todos os serviços de base de dados disponíveis. Também pode escrever **Base de Dados do Azure para MySQL** na caixa de pesquisa para encontrar rapidamente o serviço.
    
@@ -56,13 +56,13 @@ Abra o browser favorito e visite o [portal do Microsoft Azure](https://portal.az
     Nome do servidor | Nome de servidor exclusivo | Escolha um nome exclusivo que identifique a sua Base de Dados do Azure para o servidor MySQL. Por exemplo, mydemoserver. O nome de domínio *.mysql.database.azure.com* é acrescentado ao nome de servidor que indicar. O nome do servidor pode conter apenas letras minúsculas, números e o caráter de hífen (-). Tem de conter entre 3 e 63 carateres.
     Subscrição | A sua subscrição | Selecione a subscrição do Azure que quer utilizar para o servidor. Se tiver várias subscrições, escolha a subscrição na qual o recurso é cobrado.
     Grupo de recursos | *grupo myresource* | Forneça um novo nome do grupo de recursos ou um existente.
-    Selecionar origem | *Vazio* | Selecione *Em branco* para criar um novo servidor de raiz. (Selecione *Cópia de segurança* se estiver a criar um servidor a partir de uma cópia de segurança geo de um servidor da Base de Dados do Azure para MySQL existente).
-    Início de sessão de administrador do servidor | myadmin | Uma conta de início de sessão para utilizar quando ligar ao servidor. O nome de início de sessão de administrador não pode ser **azure_superuser** , **admin** , **administrator** , **root** , **guest** ou **public**.
+    Selecionar origem | *Em branco* | Selecione *Em branco* para criar um novo servidor de raiz. (Selecione *Cópia de segurança* se estiver a criar um servidor a partir de uma cópia de segurança geo de um servidor da Base de Dados do Azure para MySQL existente).
+    Início de sessão de administrador do servidor | myadmin | Uma conta de início de sessão para utilizar quando ligar ao servidor. O nome de início de sessão de administrador não pode ser **azure_superuser**, **admin**, **administrator**, **root**, **guest** ou **public**.
     Palavra-passe | *A sua escolha* | Forneça uma palavra-passe nova para a conta de administrador do servidor. Tem de conter entre 8 e 128 carateres. A palavra-passe tem de conter carateres das três categorias seguintes: letras em maiúscula inglesas, letras em minúscula inglesas, números (0 - 9) e carateres não alfanuméricos (!, $, #, %, etc.).
     Confirmar palavra-passe | *A sua escolha*| Confirme a palavra-passe da conta de administrador.
     Localização | *A região mais próxima dos seus utilizadores*| Escolha a localização que estiver mais próxima dos seus utilizadores ou das suas outras aplicações do Azure.
     Versão | *A versão mais recente*| A versão mais recente (a não ser que tenha requisitos específicos que exijam outra versão).
-    Escalão de preço | **Fins Gerais** , **Geração 5** , **2 vCores** , **5 GB** , **7 dias** , **Geograficamente Redundante** | As configurações de computação, armazenamento e cópia de segurança do seu novo servidor. **Selecione o nível de preços**. Em seguida, selecione o separador **Finalidade Geral.** *Gen 5* , *2 vCores* , *5 GB* e *7 dias* são os valores padrão para **Compute Generation** , **vCore,** **Storage** , e Backup **Retention Period**. Pode deixar os controlos de deslize como estão. Para ativar as cópias de segurança do servidor no armazenamento geo-redundante, selecione **Geographically Redundante** das **Opções de Redundância de Backup**. Para guardar a seleção deste escalão de preço, selecione **OK**. A captura de ecrã seguinte captura estas seleções.
+    Escalão de preço | **Fins Gerais**, **Geração 5**, **2 vCores**, **5 GB**, **7 dias**, **Geograficamente Redundante** | As configurações de computação, armazenamento e cópia de segurança do seu novo servidor. Selecione **Escalão de preço**. Em seguida, selecione o separador **Finalidade Geral.** *Gen 5*, *2 vCores*, *5 GB* e *7 dias* são os valores padrão para **Compute Generation**, **vCore,** **Storage**, e Backup **Retention Period**. Pode deixar os controlos de deslize como estão. Para ativar as cópias de segurança do servidor no armazenamento geo-redundante, selecione **Geographically Redundante** das **Opções de Redundância de Backup**. Para guardar a seleção deste escalão de preço, selecione **OK**. A captura de ecrã seguinte captura estas seleções.
 
    :::image type="content" source="./media/tutorial-design-database-using-portal/3-pricing-tier.png" alt-text="Escalão de preço":::
 
@@ -88,12 +88,12 @@ Já pode ligar ao servidor através da ferramenta de linha de comandos mysql ou 
 
 Obtenha o **Nome do servidor** completamente qualificado e o **Nome de início de sessão de administração do servidor** para a sua Base de Dados do Azure para o servidor MySQL a partir do portal do Azure. Utilize o nome de servidor totalmente qualificado para ligar ao seu servidor com a ferramenta de linha de comandos mysql.
 
-1. No [portal do Azure](https://portal.azure.com/), clique em **Todos os recursos** , no menu do lado esquerdo, escreva o nome e pesquise a sua Base de Dados do Azure para o servidor MySQL. Selecione o nome do servidor para ver os detalhes.
+1. No [portal do Azure](https://portal.azure.com/), clique em **Todos os recursos**, no menu do lado esquerdo, escreva o nome e pesquise a sua Base de Dados do Azure para o servidor MySQL. Selecione o nome do servidor para ver os detalhes.
 
-2. Na página **Descrição geral** , aponte o **Nome do Servidor** e o **Nome do Início de Sessão de Administrador do Servidor**. Pode clicar no botão Copiar, junto a cada campo, para copiar para a área de transferência.
+2. Na página **Descrição geral**, aponte o **Nome do Servidor** e o **Nome do Início de Sessão de Administrador do Servidor**. Pode clicar no botão Copiar, junto a cada campo, para copiar para a área de transferência.
    :::image type="content" source="./media/tutorial-design-database-using-portal/2-server-properties.png" alt-text="4-2 propriedades do servidor":::
 
-Neste exemplo, o nome do servidor é *mydemoserver.mysql.database.azure.com* , e o login de administrador do servidor é *myadmin \@ mydemoserver*.
+Neste exemplo, o nome do servidor é *mydemoserver.mysql.database.azure.com*, e o login de administrador do servidor é *myadmin \@ mydemoserver*.
 
 ## <a name="connect-to-the-server-using-mysql"></a>Ligar ao servidor com o mysql
 
@@ -168,7 +168,7 @@ SELECT * FROM inventory;
 
 Imagine que eliminou acidentalmente uma tabela de base de dados importante e não consegue recuperar os dados facilmente. A Base de Dados do Azure para MySQL permite restaurar o servidor num momento específico, ao criar uma cópia das bases de dados no novo servidor. Pode utilizar este servidor novo para recuperar os dados eliminados. Os passos seguintes restauram o servidor de exemplo para um ponto antes da tabela ter sido adicionada.
 
-1. No portal do Azure, encontre a Base de Dados do Azure para MySQL. Na página **Descrição geral** , clique em **Restaurar** na barra de ferramentas. É aberta a página Restaurar.
+1. No portal do Azure, encontre a Base de Dados do Azure para MySQL. Na página **Descrição geral**, clique em **Restaurar** na barra de ferramentas. É aberta a página Restaurar.
 
    :::image type="content" source="./media/tutorial-design-database-using-portal/1-restore-a-db.png" alt-text="10-1 restaurar uma base de dados":::
 
@@ -176,14 +176,14 @@ Imagine que eliminou acidentalmente uma tabela de base de dados importante e nã
 
    :::image type="content" source="./media/tutorial-design-database-using-portal/2-restore-form.png" alt-text="10-2 formulário de restauro":::
 
-   - **Ponto de restauro** : selecione um momento específico em que pretende restaurar, durante o período de tempo listado. Certifique-se de que converte o fuso horário local para UTC.
-   - **Restaurar para novo servidor** : indique um novo nome de servidor para o qual pretende restaurar.
-   - **Localização** : a região é a mesma que o servidor de origem e não pode ser alterada.
-   - **Escalão de preço** : o escalão de preço é o mesmo que o servidor de origem e não pode ser alterado.
+   - **Ponto de restauro**: selecione um momento específico em que pretende restaurar, durante o período de tempo listado. Certifique-se de que converte o fuso horário local para UTC.
+   - **Restaurar para novo servidor**: indique um novo nome de servidor para o qual pretende restaurar.
+   - **Localização**: a região é a mesma que o servidor de origem e não pode ser alterada.
+   - **Escalão de preço**: o escalão de preço é o mesmo que o servidor de origem e não pode ser alterado.
    
 3. Clique **em OK** para restaurar o servidor para restaurar um ponto no [tempo](./howto-restore-server-portal.md) antes da tabela ser eliminada. Restaurar um servidor cria uma nova cópia do servidor, a partir do momento específico que especificar.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se não espera precisar destes recursos no futuro, pode eliminá-los eliminando o grupo de recursos ou simplesmente eliminar o servidor MySQL. Para eliminar o grupo de recursos, siga estes passos:
 1. No portal Azure, procure e selecione **grupos de Recursos.** 

@@ -1,13 +1,13 @@
 ---
-title: Padrões de tarefa de replicação de mensagens - Azure Service Bus / Microsoft Docs
+title: Padrões de tarefa de replicação de mensagens - Azure Service Bus | Microsoft Docs
 description: Este artigo fornece orientações detalhadas para implementar padrões específicos de tarefa de replicação de mensagens
 ms.topic: article
 ms.date: 12/12/2020
 ms.openlocfilehash: d823ee7ccd4f53bfc3e10211a4f44908273a110d
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97657505"
 ---
 # <a name="message-replication-tasks-patterns"></a>Padrões de tarefas de replicação de mensagens
@@ -107,16 +107,16 @@ O último cenário requer que as mensagens já replicadas sejam replicadas novam
 
 O padrão do editor baseia-se no padrão [de replicação,](#replication) mas as mensagens são modificadas antes de serem reencaminhadas. Exemplos para tais modificações são:
 
-- **_Transcoding_* _ - Se o conteúdo da mensagem (também designado por "corpo" ou "carga útil") chegar da fonte codificada utilizando o formato _Apache Avro* ou algum formato de serialização proprietário, mas a expectativa do sistema que possui o alvo é que o conteúdo seja codificado *JSON,* uma tarefa de replicação transcodificante irá primeiro deserializar a carga útil do *Apache Avro* para um gráfico de objeto na memória e, em seguida, serializar esse gráfico no formato *JSON* para a mensagem que está sendo reencaminhada. A transcoding também inclui tarefas de compressão e descompressão de **conteúdos.**
-- **_Transformation_* _ - as mensagens que contenham dados estruturados podem exigir a reformulação desses dados para facilitar o consumo por parte dos consumidores a jusante. Isto pode envolver trabalho como achatamento de estruturas aninhadas, poda de elementos de dados extraérs, ou remodelar a carga útil para exatamente encaixar num determinado esquema.
-- _*_Lotear_*_ - as mensagens podem ser recebidas em lotes (várias mensagens numa única transferência) de uma fonte, mas têm de ser reencaminhadas para um alvo, ou vice-versa. Uma tarefa pode, portanto, enviar várias mensagens com base numa única transferência de mensagens de entrada ou agregar um conjunto de mensagens que são depois transferidas em conjunto. 
-- _*_Validação_*_ - os dados de mensagens provenientes de fontes externas precisam frequentemente de ser verificados para saber se estão em conformidade com um conjunto de regras antes de poderem ser reencaminhados. As regras podem ser expressas com recurso a esquemas ou códigos. as mensagens que não estejam em conformidade podem ser retiradas, com o problema anotado em registos, ou podem ser encaminhadas para um destino-alvo especial para os manusear mais.   
-- _*_Enriquecimento_*_ - os dados de mensagens provenientes de algumas fontes podem exigir enriquecimento com mais contexto para que seja utilizável em sistemas-alvo. Isto pode implicar procurar dados de referência e incorporar esses dados com a mensagem, ou adicionar informações sobre a fonte que é conhecida da tarefa de replicação, mas não contida nas mensagens. 
-- _*_Filtragem_*_ - Algumas mensagens que chegam de uma fonte podem ter de ser retidas do alvo com base em alguma regra. Um filtro testa a mensagem contra uma regra e deixa cair a mensagem se a mensagem não corresponder à regra. Filtrar mensagens duplicadas observando determinados critérios e deixando cair mensagens subsequentes com os mesmos valores é uma forma de filtragem.
-- _*_Encaminhamento e Partição_*_ - Algumas tarefas de replicação podem permitir dois ou mais alvos alternativos e definir regras para as quais o alvo de replicação é escolhido para qualquer mensagem específica com base nos metadados ou conteúdo da mensagem. Uma forma especial de encaminhamento é a partição, onde a tarefa atribui explicitamente divisórias num alvo de replicação baseado em regras.
-- _*_Criptografia_*_ - Uma tarefa de replicação pode ter de desencriptar os conteúdos que chegam da fonte e/ou encriptar o conteúdo reencaminhado para um alvo, e/ou pode ter de verificar a integridade do conteúdo e dos metadados em relação a uma assinatura transportada na mensagem, ou anexar tal assinatura. 
-- _*_Attestation_*_ - Uma tarefa de replicação pode anexar metadados, potencialmente protegidos por uma assinatura digital, a uma mensagem que ateste que a mensagem foi recebida através de um canal específico ou num momento específico.     
-- _ Corrente * - Uma tarefa *_de_* replicação pode aplicar assinaturas em sequências de mensagens de modo a que a integridade da sequência seja protegida e mensagens em falta possam ser detetadas.
+- ***Transcoding*** - Se o conteúdo da mensagem (também designado por "corpo" ou "carga útil") chegar da fonte codificada utilizando o formato *Apache Avro* ou algum formato de serialização proprietário, mas a expectativa do sistema que possui o alvo é que o conteúdo seja codificado *JSON,* uma tarefa de replicação transcodificante irá primeiro deserializar a carga útil do *Apache Avro* para um gráfico de objeto na memória e, em seguida, serializar esse gráfico no formato *JSON* para a mensagem que está sendo reencaminhada. A transcoding também inclui tarefas de compressão e descompressão de **conteúdos.**
+- ***Transformação*** - as mensagens que contenham dados estruturados podem exigir a reformulação desses dados para facilitar o consumo por parte dos consumidores a jusante. Isto pode envolver trabalho como achatamento de estruturas aninhadas, poda de elementos de dados extraérs, ou remodelar a carga útil para exatamente encaixar num determinado esquema.
+- ***Lotear*** - as mensagens podem ser recebidas em lotes (várias mensagens numa única transferência) de uma fonte, mas têm de ser reencaminhadas para um alvo, ou vice-versa. Uma tarefa pode, portanto, enviar várias mensagens com base numa única transferência de mensagens de entrada ou agregar um conjunto de mensagens que são depois transferidas em conjunto. 
+- ***Validação*** - os dados de mensagens provenientes de fontes externas precisam frequentemente de ser verificados para saber se estão em conformidade com um conjunto de regras antes de poderem ser reencaminhados. As regras podem ser expressas com recurso a esquemas ou códigos. as mensagens que não estejam em conformidade podem ser retiradas, com o problema anotado em registos, ou podem ser encaminhadas para um destino-alvo especial para os manusear mais.   
+- ***Enriquecimento*** - os dados de mensagens provenientes de algumas fontes podem exigir enriquecimento com mais contexto para que seja utilizável em sistemas-alvo. Isto pode implicar procurar dados de referência e incorporar esses dados com a mensagem, ou adicionar informações sobre a fonte que é conhecida da tarefa de replicação, mas não contida nas mensagens. 
+- ***Filtragem*** - Algumas mensagens que chegam de uma fonte podem ter de ser retidas do alvo com base em alguma regra. Um filtro testa a mensagem contra uma regra e deixa cair a mensagem se a mensagem não corresponder à regra. Filtrar mensagens duplicadas observando determinados critérios e deixando cair mensagens subsequentes com os mesmos valores é uma forma de filtragem.
+- ***Encaminhamento e Partição*** - Algumas tarefas de replicação podem permitir dois ou mais alvos alternativos e definir regras para as quais o alvo de replicação é escolhido para qualquer mensagem específica com base nos metadados ou conteúdo da mensagem. Uma forma especial de encaminhamento é a partição, onde a tarefa atribui explicitamente divisórias num alvo de replicação baseado em regras.
+- ***Criptografia*** - Uma tarefa de replicação pode ter de desencriptar os conteúdos que chegam da fonte e/ou encriptar o conteúdo reencaminhado para um alvo, e/ou pode ter de verificar a integridade do conteúdo e dos metadados em relação a uma assinatura transportada na mensagem, ou anexar tal assinatura. 
+- ***Attestation*** - Uma tarefa de replicação pode anexar metadados, potencialmente protegidos por uma assinatura digital, a uma mensagem que ateste que a mensagem foi recebida através de um canal específico ou num momento específico.     
+- ***Chaining*** - Uma tarefa de replicação pode aplicar assinaturas em sequências de mensagens de modo a que a integridade da sequência seja protegida e mensagens em falta possam ser detetadas.
 
 Todos estes padrões podem ser implementados usando funções Azure, utilizando a [mensagem Hubs Trigger](../azure-functions/functions-bindings-service-bus-trigger.md) para adquirir mensagens e a [fila ou a ligação](../azure-functions/functions-bindings-service-bus-output.md) de saída de tópicos para a sua entrega. 
 

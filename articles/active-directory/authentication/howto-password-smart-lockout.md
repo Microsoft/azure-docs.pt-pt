@@ -12,15 +12,15 @@ manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a5f501c19da3c2ddc06ad89fe5649789477af7ec
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99255378"
 ---
-# <a name="protect-user-accounts-from-attacks-with-azure-active-directory-smart-lockout"></a>Proteja as contas dos utilizadores de ataques com o bloqueio inteligente do Azure Ative Directory
+# <a name="protect-user-accounts-from-attacks-with-azure-active-directory-smart-lockout"></a>Proteger contas de utilizador contra ataques com o bloqueio inteligente do Azure Active Directory
 
-O bloqueio inteligente ajuda a bloquear os maus atores que tentam adivinhar as palavras-passe dos seus utilizadores ou usam métodos de força bruta para entrar. O bloqueio inteligente pode reconhecer as entradas que vêm de utilizadores válidos e tratá-las de forma diferente das de atacantes e outras fontes desconhecidas. Os atacantes ficam bloqueados, enquanto os seus utilizadores continuam a aceder às suas contas e a ser produtivos.
+O bloqueio inteligente ajuda a bloquear pessoas mal-intencionadas que tentam adivinhar as palavras-passe dos utilizadores ou utilizar métodos de força bruta para entrar. O bloqueio inteligente consegue reconhecer inícios de sessão provenientes de utilizadores válidos e tratá-los de forma diferente dos atacantes e de outras origens desconhecidas. Os atacantes são bloqueados, enquanto os utilizadores continuam a aceder às contas e a ser produtivos.
 
 ## <a name="how-smart-lockout-works"></a>Como funciona o bloqueio inteligente
 

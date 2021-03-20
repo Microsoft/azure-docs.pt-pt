@@ -1,5 +1,5 @@
 ---
-title: Alterar a adesão do grupo estático à dinâmica - Azure AD / Microsoft Docs
+title: Alterar a adesão do grupo estático à dinâmica - Azure AD | Microsoft Docs
 description: Aprenda a converter grupos existentes de membros estáticos a dinâmicos utilizando o centro de administração Admin Azure ou os cmdlets PowerShell.
 services: active-directory
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1a46cc3f4a0f2fb25fc693103a64a319dcec0324
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96860886"
 ---
 # <a name="change-static-group-membership-to-dynamic-in-azure-active-directory"></a>Alterar a adesão do grupo estático à dinâmica no Azure Ative Directory

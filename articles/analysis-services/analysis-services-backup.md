@@ -1,5 +1,5 @@
 ---
-title: Backup e restauro da base de dados dos Serviços de Análise Azure Microsoft Docs
+title: Backup da base de dados dos Serviços de Análise Azure e restauro | Microsoft Docs
 description: Este artigo descreve como fazer backup e restaurar metadados e dados de modelos a partir de uma base de dados dos Serviços de Análise Azure.
 author: minewiskan
 ms.service: azure-analysis-services
@@ -9,10 +9,10 @@ ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
 ms.openlocfilehash: af1850f77c1d13c761bfc2a143074b5067b349b4
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96013008"
 ---
 # <a name="analysis-services-database-backup-and-restore"></a>Backup e restauro da base de dados de serviços de análise
@@ -53,7 +53,7 @@ Antes de fazer o backup, tem de configurar as definições de armazenamento para
 
     ![Guardar definições de backup](./media/analysis-services-backup/aas-backup-save.png)
 
-## <a name="backup"></a>Cópia de segurança
+## <a name="backup"></a>Backup
 
 ### <a name="to-backup-by-using-ssms"></a>Para fazer backup utilizando SSMS
 

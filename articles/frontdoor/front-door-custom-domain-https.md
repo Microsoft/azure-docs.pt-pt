@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/21/2020
 ms.author: duau
-ms.openlocfilehash: 17677ea89b04659de66b9bda35975b96ff33473a
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 6c6d33a36c4a0b71932e8c19c8f6dd105c33817c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101740788"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>Tutorial: Configurar HTTPS num domínio personalizado do Front Door
@@ -133,7 +133,12 @@ Conceda permissão à Porta Frontal Azure para aceder aos certificados na sua co
     Azure Front Door lista as seguintes informações: 
     - As contas do cofre de chaves do ID da sua subscrição. 
     - Os certificados (segredos) no cofre de chaves selecionado. 
-    - As versões dos certificados disponíveis.
+    - As versões dos certificados disponíveis. 
+
+> [!NOTE]
+> Deixar a versão do certificado em branco levaria a:
+> - A versão mais recente do certificado a ser selecionada.
+> - Rotação automática de certificados para a versão mais recente, quando uma versão mais recente do certificado estiver disponível no seu Cofre-Chave.
  
 5. Quando utiliza o seu próprio certificado, a validação de domínio não é necessária. Avance para [Aguardar pela propagação](#wait-for-propagation).
 
@@ -273,9 +278,9 @@ Neste tutorial, ficou a saber como:
 
 * Faça o upload de um certificado para o Key Vault.
 * Validar um domínio.
-* Ativar HTTPS para o seu domínio personalizado.
+* Ative HTTPS para o seu domínio personalizado.
 
-Para aprender a configurar uma política de geo-filtragem para a sua Porta da Frente, continue até ao próximo tutorial.
+Para aprender a configurar uma política de geo-filtragem para você Porta da Frente, continue para o próximo tutorial.
 
 > [!div class="nextstepaction"]
 > [Estabeleça uma política de geo-filtragem](front-door-geo-filtering.md)

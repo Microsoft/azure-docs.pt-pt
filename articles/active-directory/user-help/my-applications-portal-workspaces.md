@@ -1,5 +1,5 @@
 ---
-title: Organize aplicações com recurso a coleções do portal My Apps - Azure Ative Directory [ Microsoft Docs
+title: Organize aplicações usando coleções do portal My Apps - Azure Ative Directory | Microsoft Docs
 description: Saiba como aceder e usar coleções para aplicações baseadas na nuvem da sua organização a partir do portal My Apps.
 services: active-directory
 author: curtand
@@ -13,10 +13,10 @@ ms.date: 10/19/2020
 ms.author: curtand
 ms.custom: user-help
 ms.openlocfilehash: d27e5b22fc0e24850a8c454ef1f07e77341ac15a
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92282535"
 ---
 # <a name="use-collections-in-the-my-apps-portal"></a>Use coleções no portal My Apps

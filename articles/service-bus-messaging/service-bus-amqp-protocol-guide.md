@@ -4,10 +4,10 @@ description: Guia protocolar para expressões e descrição de AMQP 1.0 em Azure
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 2154221ebfe69b659ff83100ed614133e178ccdb
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98624494"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>AMQP 1.0 em Azure Service Bus and Event Hubs guia de protocolo
@@ -359,10 +359,10 @@ A mensagem de pedido tem as seguintes propriedades de aplicação:
 
 | Chave | Opcional | Tipo de Valor | Conteúdo de valor |
 | --- | --- | --- | --- |
-| operation |Não |string |**put-token** |
-| tipo |Não |string |O tipo de símbolo que está a ser colocado. |
-| name |Não |string |O "público" a que o símbolo se aplica. |
-| expiração |Sim |carimbo de data/hora |O prazo de validade do token. |
+| operation |No |string |**put-token** |
+| tipo |No |string |O tipo de símbolo que está a ser colocado. |
+| name |No |string |O "público" a que o símbolo se aplica. |
+| expiração |Yes |carimbo de data/hora |O prazo de validade do token. |
 
 O *nome* da propriedade identifica a entidade com a qual o símbolo deve ser associado. No Service Bus é o caminho para a fila, ou tópico/subscrição. A propriedade *tipo* identifica o tipo de símbolo:
 
@@ -378,8 +378,8 @@ A mensagem de resposta tem os seguintes valores *de propriedades de aplicação*
 
 | Chave | Opcional | Tipo de Valor | Conteúdo de valor |
 | --- | --- | --- | --- |
-| código de estado |Não |int |Código de resposta HTTP **[RFC2616]**. |
-| descrição do estado |Sim |string |Descrição do estado. |
+| código de estado |No |int |Código de resposta HTTP **[RFC2616]**. |
+| descrição do estado |Yes |string |Descrição do estado. |
 
 O cliente pode ligar *para o put-token* repetidamente e para qualquer entidade na infraestrutura de mensagens. Os tokens são telescópios para o cliente atual e ancorados na ligação atual, o que significa que o servidor deixa cair quaisquer fichas retidas quando a ligação cai.
 

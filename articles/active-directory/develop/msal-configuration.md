@@ -1,5 +1,5 @@
 ---
-title: Ficheiro de configuração Android MSAL Rio Azure
+title: '| de ficheiros de configuração DORRso Do Android Rio Azure'
 titleSuffix: Microsoft identity platform
 description: Uma visão geral do ficheiro de configuração da Biblioteca de Autenticação do Microsoft Android (MSAL), que representa a configuração de uma aplicação no Azure Ative Directory.
 services: active-directory
@@ -14,10 +14,10 @@ ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman
 ms.openlocfilehash: aa0ce6a5f909e67f0551c8667bb7e5c5e6d7eb04
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92275608"
 ---
 # <a name="android-microsoft-authentication-library-configuration-file"></a>Ficheiro de configuração da Biblioteca de Autenticação do Microsoft Android
@@ -32,13 +32,13 @@ Este artigo irá ajudá-lo a compreender as várias definições no ficheiro de 
 
 | Propriedade | Tipo de Dados | Necessário | Notas |
 |-----------|------------|-------------|-------|
-| `client_id` | String | Sim | ID do cliente da sua aplicação a partir da página de registo da [Aplicação](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
-| `redirect_uri`   | String | Sim | A sua aplicação redireciona o URI da página de registo da [Aplicação](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
-| `broker_redirect_uri_registered` | Booleano | Não | Valores possíveis: `true` , `false` |
-| `authorities` | Lista\<Authority> | Não | A lista de autoridades que a sua app precisa |
-| `authorization_user_agent` | AutorizaçãoAgent (enum) | Não | Valores possíveis: `DEFAULT` `BROWSER` , `WEBVIEW` |
-| `http` | HttpConfiguration | Não | Configure `HttpUrlConnection` `connect_timeout` e `read_timeout` |
-| `logging` | Configuação de Registos | Não | Especifica o nível de registo de detalhes. As configurações opcionais incluem: `pii_enabled` , que tem um valor boolean, e , que leva , , ou `log_level` `ERROR` `WARNING` `INFO` `VERBOSE` . |
+| `client_id` | String | Yes | ID do cliente da sua aplicação a partir da página de registo da [Aplicação](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
+| `redirect_uri`   | String | Yes | A sua aplicação redireciona o URI da página de registo da [Aplicação](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
+| `broker_redirect_uri_registered` | Booleano | No | Valores possíveis: `true` , `false` |
+| `authorities` | Lista\<Authority> | No | A lista de autoridades que a sua app precisa |
+| `authorization_user_agent` | AutorizaçãoAgent (enum) | No | Valores possíveis: `DEFAULT` `BROWSER` , `WEBVIEW` |
+| `http` | HttpConfiguration | No | Configure `HttpUrlConnection` `connect_timeout` e `read_timeout` |
+| `logging` | Configuação de Registos | No | Especifica o nível de registo de detalhes. As configurações opcionais incluem: `pii_enabled` , que tem um valor boolean, e , que leva , , ou `log_level` `ERROR` `WARNING` `INFO` `VERBOSE` . |
 
 ### <a name="client_id"></a>client_id
 
@@ -109,17 +109,17 @@ A lista de autoridades que são conhecidas e confiadas por si. Além das autorid
 
 | Propriedade | Tipo de dados  | Necessário | Notas |
 |-----------|-------------|-----------|--------|
-| `type` | String | Sim | Espelha o público ou o tipo de conta os seus alvos de aplicação. Valores possíveis: `AAD` , `B2C` |
-| `audience` | Objeto | Não | Só se aplica quando o tipo= `AAD` . Especifica a identidade dos alvos da sua aplicação. Utilize o valor do registo da sua aplicação |
-| `authority_url` | String | Sim | Requerido apenas quando o tipo= `B2C` . Especifica o URL de autoridade ou a política que a sua aplicação deve usar  |
-| `default` | boolean | Sim | É necessário um único `"default":true` caso de especificação de uma ou mais autoridades. |
+| `type` | String | Yes | Espelha o público ou o tipo de conta os seus alvos de aplicação. Valores possíveis: `AAD` , `B2C` |
+| `audience` | Objeto | No | Só se aplica quando o tipo= `AAD` . Especifica a identidade dos alvos da sua aplicação. Utilize o valor do registo da sua aplicação |
+| `authority_url` | String | Yes | Requerido apenas quando o tipo= `B2C` . Especifica o URL de autoridade ou a política que a sua aplicação deve usar  |
+| `default` | boolean | Yes | É necessário um único `"default":true` caso de especificação de uma ou mais autoridades. |
 
 #### <a name="audience-properties"></a>Propriedades do Público
 
 | Propriedade | Tipo de Dados  | Necessário | Notas |
 |-----------|-------------|------------|-------|
-| `type` | String | Sim | Especifica o público que a sua aplicação quer atingir. Valores possíveis: `AzureADandPersonalMicrosoftAccount` `PersonalMicrosoftAccount` , `AzureADMultipleOrgs` , `AzureADMyOrg` |
-| `tenant_id` | String | Sim | Só é necessário quando `"type":"AzureADMyOrg"` . . Opcional para outros `type` valores. Este pode ser um domínio de inquilino, `contoso.com` como, ou um ID de inquilino `72f988bf-86f1-41af-91ab-2d7cd011db46` como) |
+| `type` | String | Yes | Especifica o público que a sua aplicação quer atingir. Valores possíveis: `AzureADandPersonalMicrosoftAccount` `PersonalMicrosoftAccount` , `AzureADMultipleOrgs` , `AzureADMyOrg` |
+| `tenant_id` | String | Yes | Só é necessário quando `"type":"AzureADMyOrg"` . . Opcional para outros `type` valores. Este pode ser um domínio de inquilino, `contoso.com` como, ou um ID de inquilino `72f988bf-86f1-41af-91ab-2d7cd011db46` como) |
 
 ### <a name="authorization_user_agent"></a>authorization_user_agent
 
@@ -146,8 +146,8 @@ Configure as definições globais para intervalos http, tais como:
 
 | Propriedade | Tipo de dados | Necessário | Notas |
 | ---------|-----------|------------|--------|
-| `connect_timeout` | int | Não | Tempo em milissegundos |
-| `read_timeout` | int | Não | Tempo em milissegundos |
+| `connect_timeout` | int | No | Tempo em milissegundos |
+| `read_timeout` | int | No | Tempo em milissegundos |
 
 ### <a name="logging"></a>registos
 
@@ -155,9 +155,9 @@ As seguintes configurações globais são para a exploração madeireira:
 
 | Propriedade | Tipo de Dados  | Necessário | Notas |
 | ----------|-------------|-----------|---------|
-| `pii_enabled`  | boolean | Não | Se emitir dados pessoais |
+| `pii_enabled`  | boolean | No | Se emitir dados pessoais |
 | `log_level`   | cadeia (de carateres) | No | Que registar mensagens para a saída. Os níveis de registo suportados `ERROR` `WARNING` incluem, `INFO` `VERBOSE` e. |
-| `logcat_enabled` | boolean | Não | Se a saída para registar o gato, além da interface de registo |
+| `logcat_enabled` | boolean | No | Se a saída para registar o gato, além da interface de registo |
 
 ### <a name="account_mode"></a>account_mode
 

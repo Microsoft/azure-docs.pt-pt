@@ -1,5 +1,5 @@
 ---
-title: Gerencie a sua conta Azure Maps no portal Azure ! Microsoft Azure Maps
+title: Gerencie a sua conta Azure Maps no portal Azure | Microsoft Azure Maps
 description: Saiba como usar o portal Azure para gerir uma conta Azure Maps. Veja como criar uma nova conta e como apagar uma conta existente.
 author: anastasia-ms
 ms.author: v-stharr
@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.openlocfilehash: c618e8193bed1f35cbbe884d5725c4ecfb25dd75
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96013093"
 ---
 # <a name="manage-your-azure-maps-account"></a>Gerencie a sua conta Azure Maps

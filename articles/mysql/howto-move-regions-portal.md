@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 06/26/2020
 ms.openlocfilehash: 279526d31adf25d1f4cd5a6d9b15519679bd88b9
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94540234"
 ---
 # <a name="move-an-azure-database-for-mysql-server-to-another-region-by-using-the-azure-portal"></a>Mover uma base de dados Azure para o servidor MySQL para outra região utilizando o portal Azure
@@ -33,7 +33,7 @@ Você pode usar uma [réplica de leitura de azure para a região transversal](co
 
 Para criar um servidor de réplica de leitura transversal na região alvo utilizando o portal Azure, utilize os seguintes passos:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 1. Selecione a base de dados Azure existente para o servidor MySQL que pretende utilizar como servidor de origem. Esta ação abre a página **de visão geral.**
 1. Selecione **a replicação** do menu, em **DEFINIÇÕES**.
 1. Selecione **Adicionar Réplica**.

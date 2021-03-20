@@ -1,5 +1,5 @@
 ---
-title: Envie notificações push localizadas para o iOS usando os Hubs de Notificação Azure Microsoft Docs
+title: Envie notificações push localizadas para o iOS usando os Hubs de Notificação Azure | Microsoft Docs
 description: Saiba como utilizar notificações localizadas para dispositivos iOS utilizando os Hubs de Notificação Azure.
 services: notification-hubs
 documentationcenter: ios
@@ -17,10 +17,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: a78d3a76e2b13a120e9e744e181c95bfcb330f27
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92313916"
 ---
 # <a name="tutorial-send-localized-push-notifications-to-ios-using-azure-notification-hubs"></a>Tutorial: Enviar notificações push localizadas para o iOS usando hubs de notificação do Azure
