@@ -13,10 +13,10 @@ ms.date: 05/06/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.openlocfilehash: 4dd4a40233fc1c030581fd1ae2827061435a0ab3
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98753537"
 ---
 # <a name="single-page-application-call-a-web-api"></a>Aplicação de uma página: Ligue para uma API web
@@ -51,6 +51,6 @@ O invólucro ANGULAR MSAL aproveita o intercetor HTTP para adquirir automaticame
 
 ---
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Passe para o próximo artigo neste cenário, [passe para a produção](scenario-spa-production.md).

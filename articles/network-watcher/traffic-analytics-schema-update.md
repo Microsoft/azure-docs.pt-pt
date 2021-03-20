@@ -1,5 +1,5 @@
 ---
-title: Azure Traffic Analytics atualização de esquema - março 2020 Microsoft Docs
+title: A atualização de esquemas Azure Traffic Analytics - março 2020 | Microsoft Docs
 description: Consultas de amostra com novos campos no esquema traffic Analytics.
 services: network-watcher
 documentationcenter: na
@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: vinigam
 ms.openlocfilehash: d7c4f1853ff8dcb9249ab6ec4f536e1f8cfa10e5
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98018229"
 ---
 # <a name="sample-queries-with-new-fields-in-the-traffic-analytics-schema-august-2019-schema-update"></a>Consultas de amostra com novos campos no esquema traffic Analytics (agosto de 2019 atualização de esquema)
@@ -120,7 +120,7 @@ Para ilustrar estas condições:
 
 Dependendo das condições, sabemos qual dos quatro campos será povoado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter respostas a perguntas frequentes, consulte [o Traffic Analytics FAQ](traffic-analytics-faq.md).
 - Para ver detalhes sobre a funcionalidade, consulte [a documentação do Traffic Analytics](traffic-analytics.md).

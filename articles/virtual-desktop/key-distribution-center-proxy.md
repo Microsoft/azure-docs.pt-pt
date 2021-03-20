@@ -7,10 +7,10 @@ ms.date: 01/30/2021
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 102ddc1c8937c66a92416ddb6d5f2d25f2a3c349
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99219660"
 ---
 # <a name="configure-a-kerberos-key-distribution-center-proxy-preview"></a>Configure um proxy do Centro de Distribuição de Chaves Kerberos (pré-visualização)

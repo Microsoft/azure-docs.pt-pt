@@ -1,13 +1,13 @@
 ---
-title: Laboratórios em Serviços de Laboratório Azure — FAQ / Microsoft Docs
+title: Laboratórios em Serviços de Laboratório Azure - FAQ | Microsoft Docs
 description: Este artigo fornece respostas a perguntas frequentes (FAQ) sobre laboratórios em Azure Lab Services.
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 757af8f30e9a71a3889d9f625c87a002af2e1302
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96437189"
 ---
 # <a name="labs-in-azure-lab-services--frequently-asked-questions-faq"></a>Laboratórios em Serviços de Laboratório Azure — Perguntas frequentes (FAQ)
@@ -19,12 +19,12 @@ Obtenha respostas para algumas das perguntas mais comuns sobre laboratórios nos
 A quota que definiu para um laboratório é para cada aluno durante toda a duração do laboratório. E o [tempo de funcionamento programado dos VM não](how-to-create-schedules.md) conta com a quota atribuída a um utilizador. A quota é para o tempo fora do horário horário que um aluno gasta em VMs.  Para obter mais informações sobre quotas, consulte [Definição de quotas para utilizadores.](how-to-configure-student-usage.md#set-quotas-for-users)
 
 ### <a name="if-educator-turns-on-a-student-vm-does-that-affect-the-student-quota"></a>Se a educadora liga um VM estudantil, isso afeta a quota de estudante? 
-Não. Nenhum. Quando a educadora liga o VM do aluno, não afeta a quota atribuída ao aluno. 
+N.º Nenhum. Quando a educadora liga o VM do aluno, não afeta a quota atribuída ao aluno. 
 
 ## <a name="schedules"></a>Agendas
 
 ### <a name="do-all-vms-in-the-lab-start-automatically-when-a-schedule-is-set"></a>Todos os VMs no laboratório começam automaticamente quando um horário é definido? 
-Não. Nem todos os VMs. Apenas os VMs que são atribuídos aos utilizadores num horário. Os VMs que não são atribuídos a um utilizador não são iniciados automaticamente. É por desígnio. 
+N.º Nem todos os VMs. Apenas os VMs que são atribuídos aos utilizadores num horário. Os VMs que não são atribuídos a um utilizador não são iniciados automaticamente. É por desígnio. 
 
 ## <a name="lab-accounts"></a>Contas de laboratório
 
@@ -50,7 +50,7 @@ Consulte [gamas IP Azure e Tags de Serviço — Public Cloud](https://www.micros
 Quando um administrador te adiciona como criador de laboratório a uma conta de laboratório, é-te dada a permissão para criar laboratórios. Mas não tem as permissões para editar quaisquer definições dentro da conta do laboratório, incluindo a lista de imagens de máquinas virtuais ativadas. Para ativar imagens adicionais, contacte o administrador da conta de laboratório para o fazer por si, ou peça ao administrador para o adicionar como contribuinte à conta de laboratório. A função Colaborador dará-lhe as permissões para editar a lista de imagens de máquina virtual na conta de laboratório.
 
 ### <a name="can-i-attach-additional-disks-to-a-virtual-machine"></a>Posso anexar discos adicionais a uma máquina virtual?
-Não. não é possível anexar discos adicionais a um VM num laboratório de sala de aula. 
+N.º não é possível anexar discos adicionais a um VM num laboratório de sala de aula. 
 
 ## <a name="users"></a>Utilizadores
 

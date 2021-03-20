@@ -1,5 +1,5 @@
 ---
-title: StorSimple Snapshot Manager MMC ações de menu / Microsoft Docs
+title: StorSimple Snapshot Manager MMC ações de menu | Microsoft Docs
 description: Descreve como utilizar as ações padrão do menu microsoft Management Console (MMC) no StorSimple Snapshot Manager.
 services: storsimple
 documentationcenter: NA
@@ -15,15 +15,15 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
 ms.openlocfilehash: 01064c3668b673baea7aedd9a65c92b03c48dc10
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90056008"
 ---
 # <a name="use-the-mmc-menu-actions-in-storsimple-snapshot-manager"></a>Utilize as ações do menu MMC no StorSimple Snapshot Manager
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 No StorSimple Snapshot Manager, você verá as seguintes ações listadas em todos os menus de ação e todas as variações do painel **de Ações.**
 
 * Vista
@@ -53,7 +53,7 @@ Pode utilizar a opção **Ver** para alterar a vista do **painel de resultados**
 
 #### <a name="to-change-the-console-window-view"></a>Para alterar a vista da janela da consola
 1. Clique no ícone do ambiente de trabalho para iniciar o StorSimple Snapshot Manager.
-2. No painel **Scope,** clique com o botão direito em qualquer nó, clique em **Ver**e, em seguida, clique em **Personalizar**. Aparece a caixa de diálogo **de personalizar.**
+2. No painel **Scope,** clique com o botão direito em qualquer nó, clique em **Ver** e, em seguida, clique em **Personalizar**. Aparece a caixa de diálogo **de personalizar.**
    
     ![Personalize a janela da consola](./media/storsimple-snapshot-manager-mmc-menu/HCS_SSM_Customize.png) 
 3. Selecione ou limpe as caixas de verificação para mostrar ou esconder itens na janela da consola. Quando terminar as suas seleções, clique **em OK**.

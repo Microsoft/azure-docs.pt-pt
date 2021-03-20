@@ -1,5 +1,5 @@
 ---
-title: Azure AD Connect Health - Catálogo de Alertas Microsoft Docs
+title: Azure AD Connect Health - Catálogo de Alerta | Microsoft Docs
 description: Este documento mostra o catálogo de todos os alertas em Azure AD Connect Health.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 03/15/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8637c691f946c02176c441cfcf5ad5abbea10396
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98016886"
 ---
 # <a name="azure-active-directory-connect-health-alert-catalog"></a>Catálogo de alerta de saúde Azure Ative Directory Connect 
@@ -30,13 +30,13 @@ Os alertas Azure AD Connect Health são resolvidos com uma condição de sucesso
 
 ## <a name="general-alerts"></a>Alertas Gerais
 
-| Nome do Alerta | Descrição | Remediação |
+| Nome do Alerta | Description | Remediação |
 | --- | --- | ----- |
 | Os dados do serviço de estado de funcionamento não estão atualizados | O(s) Agente de Saúde que está a funcionar num ou mais servidores não está ligado ao Serviço de Saúde e o Serviço de Saúde não está a receber os dados mais recentes deste servidor. Os últimos dados tratados pelo Serviço de Saúde são superiores a 2 Horas. | Certifique-se de que os agentes de saúde têm conectividade de saída com os pontos finais de serviço necessários. [Ler Mais](how-to-connect-health-data-freshness.md) |
 
 ## <a name="alerts-for-azure-ad-connect-sync"></a>Alertas para Azure AD Connect (Sync)
 
-| Nome do Alerta | Descrição | Remediação |
+| Nome do Alerta | Description | Remediação |
 | --- | --- | ----- |
 | O Serviço de Sincronização do Azure AD Connect não está em execução | O serviço Windows de Sincronização do Microsoft Azure AD não está em execução ou não conseguiu iniciar. Como resultado, os objetos não serão sincronizados com o Azure Active Directory. | Inicie os serviços de sincronização de diretório ativos do Microsoft Azure</b> <ol> <li>Clique <b>em Iniciar,</b>clique em <b>Executar,</b> <b>digite Services.msc</b>e, em seguida, clique <b>em OK</b>.</li> <li>Localize o <b>serviço Microsoft Azure AD Sync</b>e verifique se o serviço foi iniciado. Se o serviço não for iniciado, clique com o botão direito e, em seguida, clique em <b>Iniciar</b>. | 
 | Falha na importação a partir do Azure Active Directory | A operação de importação a partir do Conector Active Directory do Azure falhou. |  Investigue os erros da operação de importação no registo de eventos para obter mais detalhes.  |
@@ -51,7 +51,7 @@ Os alertas Azure AD Connect Health são resolvidos com uma condição de sucesso
 | A exportação para o Diretório Ativo Azure foi interrompida. Foi atingido o limiar de eliminação acidental | A operação de exportação para o Azure Ative Directory falhou. Havia mais objetos a serem eliminados do que o limiar configurado. Como resultado, nenhum objeto foi exportado. | <li> O número de objetos marcados para a supressão é superior ao limiar definido. Certifique-se de que este resultado é desejado.</li> <li> Para permitir que a exportação continue, execute os seguintes passos: <ol type="a"> <li>Desativar limiar executando Disable-ADSyncExportDeletionThreshold</li> <li>Iniciar Gestor de Serviços de Sincronização</li> <li>Executar Exportação em Conector com tipo = Diretório Ativo Azure</li> <li>Depois de exportar com sucesso os objetos, ative o Threshold em execução: Enable-ADSyncExportDeletionThreshold</li> </ol> </li> |
 
 ## <a name="alerts-for-active-directory-federation-services"></a>Alertas para Serviços da Federação De Diretórios Ativos
-| Nome do Alerta | Descrição | Remediação |
+| Nome do Alerta | Description | Remediação |
 | --- | --- | ----- |
 |Pedido de Autenticação de Teste (Transação Sintética) não obteve um token | Os pedidos de autenticação de teste (Transações Sintéticas) iniciados a partir deste servidor não conseguiram obter um token após 5 retrações. Isto pode ser causado devido a problemas de rede transitórios, disponibilidade do Controlador de Domínio AD DS ou um servidor AD FS mal configurado.  Como resultado, os pedidos de autenticação processados pelo serviço da federação podem falhar. O agente utiliza o contexto da Conta Informática Local para obter um símbolo do Serviço da Federação. | Certifique-se de que são tomadas as seguintes medidas para validar a saúde do servidor.<ol><li>Valide que não existem alertas adicionais por resolver para este ou outros servidores AD FS na sua fazenda.</li><li>Valide que esta condição não é uma falha transitória ao iniciar sessão com um utilizador de teste a partir da página de login da AD FS disponível em https://{your_adfs_server_name}/adfs/ls/idpinitiatedsignon.aspx</li><li>Vá <a href="https://testconnectivity.microsoft.com">https://testconnectivity.microsoft.com</a> e escolha o separador 'Office 365'. Realize o 'Office 365 Single Sign-On Test'.</li><li>Verifique se o nome de serviço AD FS pode ser resolvido a partir deste servidor executando o seguinte comando a partir de uma solicitação de comando neste servidor. nslookup your_adfs_server_name</li></ol><p>Se o nome de serviço não puder ser resolvido, consulte a secção FAQ para obter instruções de adicionar uma entrada de ficheiro HOST do seu serviço AD FS com o endereço IP deste servidor. Isto permitirá que o módulo de transação sintética em execução neste servidor solicite um token</p> | 
 | O servidor proxy não pode chegar ao servidor da federação | Este servidor de procuração AD FS não consegue entrar em contacto com o serviço AD FS. Como resultado, os pedidos de autenticação processados por este servidor falharão. | Execute os seguintes passos para validar a conectividade entre este servidor e o serviço AD FS. <ol><li> Certifique-se de que a firewall entre este servidor e o serviço AD FS está configurada com precisão. </li><li> Certifique-se de que a resolução do DNS para o nome do serviço AD FS aponta adequadamente para o serviço AD FS que reside dentro da rede corporativa. Isto pode ser alcançado através de um servidor DNS que serve este servidor na rede de perímetro ou através de entradas nos ficheiros HOSTS para o nome de serviço AD FS. </li><li> Validar a conectividade da rede abrindo o navegador neste servidor e acedendo ao ponto final de metadados da federação, que está em `https://<your-adfs-service-name>/federationmetadata/2007-06/federationmetadata.xml` </li> | 
@@ -78,7 +78,7 @@ Os alertas Azure AD Connect Health são resolvidos com uma condição de sucesso
 
 ## <a name="alerts-for-active-directory-domain-services"></a>Alertas para Serviços de Domínio de Diretório Ativo
 
-| Nome do Alerta | Descrição | Remediação |
+| Nome do Alerta | Description | Remediação |
 | --- | --- | ----- |
 | O controlador de domínio é inacessível através do ping LDAP | O controlador de domínio não é acessível através do Ping LDAP. Isto pode ser causado devido a problemas de rede ou problemas com a máquina. Como resultado, os Pings LDAP falharão. |  <li>Examine a lista de alertas para alertas relacionados, tais como: O Controlador de Domínio não é publicidade. </li><li>Certifique-se de que o controlador de domínio afetado tem espaço suficiente em disco. Ficar sem espaço impedirá o DC de se publicitar como um servidor LDAP. </li><li> Tentativa de encontrar o PDC: Correr <br> <i>netdom consulta fsmo </i> </br> no controlador de domínio afetado. <li> Certifique-se de que a rede física está corretamente configurada/ligada. </li> |
 | Erro de replicação do Diretório Ativo encontrado | Este controlador de domínio está a ter problemas de replicação, que podem ser encontrados indo para o Painel de Estado de Replicação. Erros de replicação podem ser devidos a configurações inadequadas ou outros problemas relacionados. Erros de replicação não tratados podem levar à inconsistência dos dados. | Consulte detalhes adicionais sobre os nomes dos DCs de origem e destino afetados. Navegue para o painel de instrumentos de estado de replicação e procure os erros ativos nos DCs afetados. Clique no erro para abrir uma lâmina com mais detalhes sobre como remediar esse erro em particular.| 
@@ -89,7 +89,7 @@ Os alertas Azure AD Connect Health são resolvidos com uma condição de sucesso
 | Controlador de domínio não é publicidade | Este controlador de domínio não está a publicitar adequadamente os papéis que é capaz de desempenhar. Isto pode ser causado por problemas com replicação, configuração errada do DNS, serviços críticos não em funcionamento, ou por não estar totalmente inicializado o servidor.  Como resultado, controladores de domínio, membros de domínio e outros dispositivos não serão capazes de localizar este controlador de domínio. Além disso, outros controladores de domínio podem não ser capazes de se replicar a partir deste controlador de domínio. | Examine a lista de alertas para outros alertas relacionados, tais como: A replicação está quebrada. O tempo do controlador de domínio está fora de sincronização. O serviço Netlogon não está a funcionar. Os serviços DFSR e/ou NTFRS não estão a funcionar. Identificar e resolver problemas relacionados com o DNS: Logon ao controlador de domínio afetado. Registo de eventos do sistema aberto. Se os eventos 5774, 5775 ou 5781 estiverem presentes, consulte <a href="/previous-versions/windows/it-pro/windows-2000-server/bb727055(v=technet.10)#ECAA">o localizador de controlo de controlo de problemas DNS Records Falha</a> de registo Identificar e resolver problemas relacionados com problemas problemas relacionados serviços de tempo do Windows: Certifique-se de que o serviço de tempo do Windows está em execução: Executar ' net start<b>w32time</b>' no controlador de domínio afetado. Reiniciar o Serviço de Tempo do Windows: Executar '<b>net stop w32time</b>' em seguida '<b>net start w32time</b>' no controlador de domínio afetado. | 
 | O serviço GPSVC não está a funcionar | Se o serviço for interrompido ou desativado, as definições configuradas pelo administrador não serão aplicadas e as aplicações e componentes não serão geríveis através da Política de Grupo. Quaisquer componentes ou aplicações que dependam do componente Política de Grupo podem não estar funcionais se o serviço estiver desativado.  | Executar <br><i>gpsvc de início líquido </i></br> no controlador de domínio afetado. | 
 | Os serviços DFSR e/ou NTFRS não estão a funcionar | Se os serviços DFSR e NTFRS forem interrompidos, os Controladores de Domínio não poderão replicar dados SYSVOL. Os dados da SYSVOL ficarão sem consistência. | <li>Se utilizar o DFSR:<ol type="1" > Executar<b>'net start dfsr</b>' no controlador de domínio afetado. </li><li>Se utilizar o NTFRS:<ol type="1" >Executar<b>'net start ntfrs</b>' no controlador de domínio afetado. </li>| 
-| O serviço Netlogon não está a funcionar | Os pedidos de início de súns, registo, autenticação e localização dos controladores de domínio não estarão disponíveis neste DC. | Executar '<b>net netlogon</b>' no controlador de domínio afetado | 
+| O serviço Netlogon não está a funcionar | Os pedidos de início de súns, registo, autenticação e localização dos controladores de domínio não estarão disponíveis neste DC. | Executar '<b>net net net netlogon</b>' no controlador de domínio afetado | 
 | O serviço W32Time não está a funcionar | Se o Serviço de Tempo do Windows estiver parado, a sincronização da data e da hora não estará disponível. Se este serviço for desativado, todos os serviços que dependem explicitamente dele não conseguirão arrancar. | Executar<b>'net start win32Time</b>' no controlador de domínio afetado | 
 | O serviço ADWS não está a funcionar | Se o serviço de Serviços Web ative Directy for interrompido ou desativado, as aplicações do cliente, como o Ative Directory PowerShell, não poderão aceder ou gerir quaisquer instâncias de serviço de diretório que estejam a ser executadas localmente neste servidor. | Executar '<b>net adws</b>' no controlador de domínio afetado | 
 | Root PDC não está sincronizando a partir do servidor NTP | Se não configurar o PDC para sincronizar o tempo a partir de uma fonte de tempo externa ou interna, o emulador PDC utiliza o seu relógio interno e é, por si só, a fonte de tempo fiável para a floresta. Se o tempo não for exato no próprio PDC, todos os computadores terão definições de tempo incorretas. | No controlador de domínio afetado, abra um aviso de comando. Parar o serviço Time: paragem líquida w32time</li> <li>Configure a fonte de tempo externa: <br> <i>w32tm \/ config \/ manualpeerlist: time.windows.com \/ syncfromflags:manual \/ fiável:sim </i></br><br>Nota: Substitua time.windows.com pelo endereço da fonte de tempo externa desejada. Iniciar o serviço Time: <br> <i>início líquido w32time </i></br> | 
@@ -109,5 +109,5 @@ Os alertas Azure AD Connect Health são resolvidos com uma condição de sucesso
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [FAQ do Azure AD Connect Health](reference-connect-health-faq.md)

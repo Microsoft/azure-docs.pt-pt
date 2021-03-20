@@ -6,10 +6,10 @@ ms.topic: tutorial
 ms.custom: hdinsightactive, devx-track-azurecli
 ms.date: 04/15/2020
 ms.openlocfilehash: 7d026d93ebe6f6a0bd9afbd277294d58d7a2a69b
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98932041"
 ---
 # <a name="tutorial-create-an-end-to-end-data-pipeline-to-derive-sales-insights-in-azure-hdinsight"></a>Tutorial: Criar um pipeline de dados de ponta a ponta para obter insights de vendas em Azure HDInsight
@@ -285,7 +285,7 @@ Se não vai continuar a utilizar esta aplicação, elimine todos os recursos uti
     az ad sp delete --id $servicePrincipal
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Extrair, transformar e carregar (ETL) em escala](./hadoop/apache-hadoop-etl-at-scale.md)

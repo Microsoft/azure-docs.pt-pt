@@ -4,10 +4,10 @@ description: Descreve as funções disponíveis para utilização com artefactos
 ms.date: 01/27/2021
 ms.topic: reference
 ms.openlocfilehash: 92cb906e87179073b7a69aa0bd4eab22c77087f9
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98919279"
 ---
 # <a name="functions-for-use-with-azure-blueprints"></a>Funções para utilização com Plantas Azure
@@ -34,7 +34,7 @@ Devolve um objeto de propriedades povoadas com as saídas de artefactos de plant
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
 | nome de artefactos |Yes |string |O nome de um artefacto de planta. |
 
@@ -123,7 +123,7 @@ Combina vários valores de corda e devolve a corda concatenated.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
 | string1 |Yes |string |O primeiro valor para a concatenação. |
 | argumentos adicionais |No |string |Valores adicionais na ordem sequencial para a concatenação |
@@ -148,7 +148,7 @@ Devolve um valor de parâmetro de planta. O nome do parâmetro especificado deve
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
 | nome de parâmetroName |Yes |string |O nome do parâmetro para voltar. |
 
@@ -269,7 +269,7 @@ Devolve um objeto que representa o artefacto do grupo de recursos especificado. 
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
 | nome de espaço reservado |Yes |string |O nome reservado do artefacto do grupo de recursos para regressar. |
 

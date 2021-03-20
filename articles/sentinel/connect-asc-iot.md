@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/20/2021
 ms.author: yelevin
 ms.openlocfilehash: 67bc104434dc0db30f5973bec0979afb7480fe4c
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98621384"
 ---
 # <a name="connect-your-data-from-azure-defender-formerly-azure-security-center-for-iot-to-azure-sentinel"></a>Ligue os seus dados do Azure Defender (anteriormente Azure Security Center) para IoT a Azure Sentinel 

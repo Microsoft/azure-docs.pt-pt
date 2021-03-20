@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: storage
 author: codemillmatt
 ms.service: storage
@@ -9,10 +9,10 @@ ms.date: 11/23/2019
 ms.author: masoucou
 ms.custom: include file
 ms.openlocfilehash: 02586d38903c60ba8982753ca0bd3e15192d5deb
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "83006238"
 ---
 ### <a name="copy-your-credentials-from-the-azure-portal"></a>Copiar as credenciais do Portal do Azure
@@ -28,7 +28,7 @@ Quando o pedido de amostra fizer um pedido ao Azure Storage, deve ser autorizado
 
 ### <a name="configure-your-storage-connection-string"></a>Configurar a cadeia de ligação de armazenamento
 
-Depois de copiar a sua cadeia de ligação, coloque-a numa variável de nível de classe no seu ficheiro *MainPage.xaml.cs.* Abra *MainPaage.xaml.cs* e encontre a `storageConnectionString` variável. `<yourconnectionstring>`Substitua-a pela sua verdadeira cadeia de ligação.
+Depois de copiar a sua cadeia de ligação, coloque-a numa variável de nível de classe no ficheiro *mainPage.xaml.cs.* Abra *o MainPaage.xaml.cs* e encontre a `storageConnectionString` variável. `<yourconnectionstring>`Substitua-a pela sua verdadeira cadeia de ligação.
 
 Aqui está o código:
 

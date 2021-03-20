@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 5/18/2020
 ms.author: derekol
 ms.openlocfilehash: 22cb179925f95fd0762371cc904fcbd02675339a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91540273"
 ---
 # <a name="associate-peer-asn-to-azure-subscription-using-the-portal"></a>Associar o ASN do elemento de rede à subscrição do Azure com o portal
@@ -39,7 +39,7 @@ Registe-se para o fornecedor de recursos de espreguiçadamento na sua subscriç�
     > [!div class="mx-imgBorder"]
     > ![Assinatura de lançamento](./media/rp-subscriptions-launch.png)
 
-1. Assim que a subscrição abrir, à esquerda, clique nos **fornecedores de Recursos**. Em seguida, no painel direito, procure *espreitar* na janela de pesquisa, ou use a barra de deslocamento para encontrar **microsoft.Peering** e olhar para o **Estado**. Se o estado estiver ***registado,*** salte os passos abaixo e proceda à secção **Criar PeerAsn**. Se o estado não estiver ***registado,*** selecione **Microsoft.Peering** e clique em **Registar**.
+1. Assim que a subscrição abrir, à esquerda, clique nos **fornecedores de Recursos**. Em seguida, no painel direito, procure *espreitar* na janela de pesquisa, ou use a barra de deslocamento para encontrar **microsoft.Peering** e olhar para o **Estado**. Se o estado estiver **_registado_*_, salte os passos abaixo e proceda à secção _* Create PeerAsn**. Se o estado não for **_Registado_*_, selecione _* Microsoft.Peering** e clique no **Registo**.
 
     > [!div class="mx-imgBorder"]
     > ![Início das inscrições](./media/rp-register-start.png)
@@ -49,7 +49,7 @@ Registe-se para o fornecedor de recursos de espreguiçadamento na sua subscriç�
     > [!div class="mx-imgBorder"]
     > ![Registo em curso](./media/rp-register-progress.png)
 
-1. Aguarde um minuto ou mais para que complete o registo. Em seguida, clique em **Refresh** e verifique se o estado está ***registado***.
+1. Aguarde um minuto ou mais para que complete o registo. Em seguida, clique em **Refresh** e verifique se o estado está **_registado_**.
 
     > [!div class="mx-imgBorder"]
     > ![Inscrição concluída](./media/rp-register-completed.png)

@@ -6,10 +6,10 @@ ms.service: data-lake-analytics
 ms.topic: troubleshooting
 ms.date: 10/11/2019
 ms.openlocfilehash: ab03ea8a88187289f5dce55f8a396a9d51346a3f
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92217682"
 ---
 # <a name="azure-data-lake-analytics-is-upgrading-to-the-net-framework-v472"></a>A Azure Data Lake Analytics está a atualizar para o .NET Framework v4.7.2
@@ -61,7 +61,7 @@ As incompatibilidades mais comuns que o verificador é suscetível de identifica
   - Ação sugerida: Garantir a TaskFactory.FromAsync retorna corretamente
 
 - DataObject.GetData agora recupera dados como UTF-8
-  - Para aplicações que direcionem o Quadro .NET 4 ou que funcionam nas versões .NET Framework 4.5.1 ou anteriores, o DataObject.GetData recupera dados formatados com HTML como uma cadeia ASCII. Como resultado, os caracteres não ASCII (caracteres cujos códigos ASCII são superiores a 0x7F) são representados por dois caracteres aleatórios.#N##N#Para aplicações que visam o Quadro .NET 4.5 ou posterior e executados no Quadro .NET 4.5.2, `DataObject.GetData` recupera dados com formato HTML como UTF-8, o que representa caracteres maiores do que 0x7F corretamente.
+  - Para aplicações que direcionem o Quadro .NET 4 ou que funcionam nas versões .NET Framework 4.5.1 ou anteriores, o DataObject.GetData recupera dados formatados com HTML como uma cadeia ASCII. Como resultado, os caracteres não ASCII (caracteres cujos códigos ASCII são superiores a 0x7F) são representados por duas aplicações aleatórias caracteres.#N##N#For que visam o Quadro .NET 4.5 ou posterior e funcionam no Quadro .NET 4.5.2, `DataObject.GetData` recupera dados com formato HTML como UTF-8, que representa caracteres superiores a 0x7F corretamente.
   - Bibliotecas impactadas: Glo
   - Ação Sugerida: Garantir que os dados recuperados é o formato que pretende
 

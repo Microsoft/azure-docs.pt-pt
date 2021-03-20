@@ -8,10 +8,10 @@ ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
 ms.openlocfilehash: c585cedce677599528e036525dead13a85c8b102
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98012381"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>Início Rápido: Criar uma tarefa do Stream Analytics com o portal do Azure
@@ -38,7 +38,7 @@ Antes de definir o trabalho stream Analytics, deve preparar os dados de entrada.
    |---------|---------|---------|
    |Subscrição  | \<Your subscription\> |  Selecione a subscrição do Azure que pretende utilizar. |
    |Grupo de recursos   |   asaquickstart-resourcegroup  |   Selecione **Criar Novo** e introduza um novo nome de grupo de recursos para a sua conta. |
-   |Região  |  \<Select the region that is closest to your users\> | Selecione uma localização geográfica onde pode hospedar o seu Hub IoT. Utilize o local mais próximo dos seus utilizadores. |
+   |Region  |  \<Select the region that is closest to your users\> | Selecione uma localização geográfica onde pode hospedar o seu Hub IoT. Utilize o local mais próximo dos seus utilizadores. |
    |Nome do hub IoT  | MyASAIotHub  |   Selecione um nome para o seu Hub IoT.   |
 
    ![Criar um Hub IoT](./media/stream-analytics-quick-create-portal/create-iot-hub.png)
@@ -77,7 +77,7 @@ Antes de definir o trabalho stream Analytics, deve preparar os dados de entrada.
 
 ## <a name="create-a-stream-analytics-job"></a>Criar uma tarefa do Stream Analytics
 
-1. Inicie sessão no Portal do Azure.
+1. Inicie sessão no portal do Azure.
 
 2. Selecione **Criar um recurso** no canto superior esquerdo do portal do Azure.  
 
@@ -152,7 +152,7 @@ Nesta secção, irá configurar uma entrada de dispositivo IoT Hub para o trabal
    HAVING Temperature > 27
    ```
 
-3. Neste exemplo, a consulta lê os dados do IoT Hub e copia-os para um novo ficheiro na bolha. Selecione **Save** (Guardar).  
+3. Neste exemplo, a consulta lê os dados do IoT Hub e copia-os para um novo ficheiro na bolha. Selecione **Guardar**.  
 
    ![Configurar a transformação da tarefa](./media/stream-analytics-quick-create-portal/add-asa-query.png)
 
@@ -184,7 +184,7 @@ Quando já não for necessário, elimine o grupo de recursos, o trabalho stream 
 
 2. Na página do grupo de recursos, selecione **Eliminar**, escreva o nome do recurso a eliminar na caixa de texto e, em seguida, selecione **Eliminar**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste início rápido, implementou uma tarefa simples do Stream Analytics com o portal do Azure. Também pode implementar trabalhos stream Analytics usando [PowerShell,](stream-analytics-quick-create-powershell.md) [Visual Studio](stream-analytics-quick-create-vs.md)e Visual [Studio Code](quick-create-visual-studio-code.md).
 

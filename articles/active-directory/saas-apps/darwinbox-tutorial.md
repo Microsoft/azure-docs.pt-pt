@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Directy integração única (SSO) com darwinbox Microsoft Docs'
+title: 'Tutorial: Azure Ative Directory integração única de sign-on (SSO) com darwinbox | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Darwinbox.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 08/23/2019
 ms.author: jeedes
 ms.openlocfilehash: 70c77caebfd8f9bfd36c7384255cf7b66416a379
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96012038"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-darwinbox"></a>Tutorial: Azure Ative Directory integração única (SSO) com Darwinbox

@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: denisgun
 ms.openlocfilehash: fa7b80b021e00d25dea4f96432ae922c15474058
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95023059"
 ---
 # <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop-classic"></a>Configure a aceleração da unidade de processamento de gráficos (GPU) para o Windows Virtual Desktop (clássico)
@@ -87,7 +87,7 @@ Para verificar se o Ambiente de Trabalho Remoto está a utilizar codificação a
 3. Para determinar se a codificação acelerada da GPU é usada, procure o ID 170 do evento. Se vir "AVC hardware codificador: 1" então a codificação da GPU é utilizada.
 4. Para determinar se o modo AVC 444 é utilizado, procure o ID 162 do evento. Se vir "AVC Disponível: 1 Perfil Inicial: 2048" então é utilizado AVC 444.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Estas instruções devem tê-lo a funcionar com a aceleração da GPU num anfitrião de uma sessão (um VM). Algumas considerações adicionais para permitir a aceleração da GPU através de um pool de hospedeiro maior:
 

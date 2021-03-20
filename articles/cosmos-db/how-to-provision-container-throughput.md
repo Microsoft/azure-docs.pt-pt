@@ -9,10 +9,10 @@ ms.date: 10/14/2020
 ms.author: mjbrown
 ms.custom: devx-track-js, devx-track-azurecli, devx-track-csharp
 ms.openlocfilehash: 4caf43cb972b44dd1482b9e6e467e41cae294708
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93100104"
 ---
 # <a name="provision-standard-manual-throughput-on-an-azure-cosmos-container---sql-api"></a>Produção padrão de provisão (manual) num recipiente Azure Cosmos - SQL API
@@ -28,13 +28,13 @@ Se estiver a utilizar uma API diferente, consulte [a API para a MongoDB,](how-to
 
 1. [Crie uma nova conta Azure Cosmos,](create-sql-api-dotnet.md#create-account)ou selecione uma conta Azure Cosmos existente.
 
-1. Abra o painel **do Explorador de Dados** e selecione **Novo Recipiente** . Em seguida, forneça os seguintes detalhes:
+1. Abra o painel **do Explorador de Dados** e selecione **Novo Recipiente**. Em seguida, forneça os seguintes detalhes:
 
    * Indique se está a criar uma nova base de dados ou a utilizar uma existente.
    * Introduza uma identificação do contentor.
    * Introduza um valor chave de partição (por exemplo, `/ItemID` ).
    * Introduza uma produção que pretende prever (por exemplo, 1000 RUs).
-   * Selecione **OK** .
+   * Selecione **OK**.
 
     :::image type="content" source="./media/how-to-provision-container-throughput/provision-container-throughput-portal-sql-api.png" alt-text="Screenshot do Data Explorer, com nova coleção em destaque":::
 

@@ -7,10 +7,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.openlocfilehash: 51043f0a1009994528783a1b56ec5ccec68e99b3
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98931778"
 ---
 # <a name="selecting-the-right-vm-size-for-your-azure-hdinsight-cluster"></a>Selecionando o tamanho VM certo para o seu cluster Azure HDInsight
@@ -68,7 +68,7 @@ O benchmarking é o processo de execução de cargas de trabalho simuladas em di
 
 Para obter mais informações sobre o benchmarking para SKUs VM e tamanhos de cluster, consulte [o planeamento da capacidade do Cluster em Azure HDInsight ](hdinsight-capacity-planning.md#choose-the-vm-size-and-type).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Configurações de nó suportado por Azure HDInsight](hdinsight-supported-node-configuration.md)
 - [Sizes for Linux virtual machines in Azure](../virtual-machines/sizes.md)

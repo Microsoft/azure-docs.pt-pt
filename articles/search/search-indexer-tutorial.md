@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 01/23/2021
 ms.custom: devx-track-csharp
 ms.openlocfilehash: e2ca5f42120661b887d07e697596f41cb7a7fce4
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98745771"
 ---
 # <a name="tutorial-index-azure-sql-data-using-the-net-sdk"></a>Tutorial: Índice Azure SQL dados usando o .NET SDK
@@ -41,7 +41,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="download-files"></a>Transferir ficheiros
 
-O código fonte para este tutorial está na pasta [DotNetHowToIndexer](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToIndexers) no repositório GitHub da [Azure-Samples/search-dotnet-start-](https://github.com/Azure-Samples/search-dotnet-getting-started) GitHub.
+O código fonte para este tutorial está na pasta [DotNetHowToIndexer](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToIndexers) no repositório GitHub da [Azure-Samples/search-dotnet-start-start-start-](https://github.com/Azure-Samples/search-dotnet-getting-started) GitHub.
 
 ## <a name="1---create-services"></a>1 - Criar serviços
 
@@ -126,7 +126,7 @@ As chamadas da API requerem o URL de serviço e uma chave de acesso. Um serviço
 Os indexantes requerem um objeto de origem de dados e um índice. O código relevante está em dois ficheiros:
 
   + **hotel.cs,** contendo um esquema que define o índice
-  + **Program.cs,** contendo funções para criar e gerir estruturas no seu serviço
+  + **Programa.cs,** contendo funções para criar e gerir estruturas no seu serviço
 
 ### <a name="in-hotelcs"></a>Em hotel.cs
 
@@ -264,7 +264,7 @@ Quando se está a trabalhar na sua própria subscrição, no final de um projeto
 
 Pode encontrar e gerir recursos no portal, utilizando a ligação de todos os recursos ou grupos de recursos no painel de navegação à esquerda.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que está familiarizado com o básico da indexação da base de dados SQL, vamos olhar mais de perto para a configuração do indexante.
 

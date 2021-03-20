@@ -1,5 +1,5 @@
 ---
-title: O que é a aplicação Microsoft Authenticator? - Diretório Ativo Azure / Microsoft Docs
+title: O que é a aplicação Microsoft Authenticator? - Azure Ative Directory | Microsoft Docs
 description: Conheça a aplicação microsoft Authenticator, incluindo o que é, como funciona e que informações estão incluídas nesta secção do conteúdo.
 services: active-directory
 author: curtand
@@ -12,10 +12,10 @@ ms.topic: end-user-help
 ms.date: 01/15/2020
 ms.author: curtand
 ms.openlocfilehash: 7f4c09a32794e13b0e0041ee916401b714d8509e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90055236"
 ---
 # <a name="what-is-the-microsoft-authenticator-app"></a>O que é a aplicação Microsoft Authenticator?
@@ -49,7 +49,7 @@ Pode utilizar a aplicação Microsoft Authenticator de várias formas, incluindo
 
 Duas verificações de fator funcionam com a aplicação Microsoft Authenticator das seguintes formas:
 
-- **Notificação.** Digite o seu nome de utilizador e palavra-passe no dispositivo em que está a iniciar sessão para a sua conta de trabalho ou escola ou para a sua conta pessoal da Microsoft, e, em seguida, a aplicação Microsoft Authenticator envia uma notificação **pedindo-lhe**para aprovar o login . Escolha **Aprovar** se reconhecer a tentativa de inscrição. Caso contrário, escolha **Deny.** Se escolher **o Deny,** também pode marcar o pedido como fraudulento.
+- **Notificação.** Digite o seu nome de utilizador e palavra-passe no dispositivo em que está a iniciar sessão para a sua conta de trabalho ou escola ou para a sua conta pessoal da Microsoft, e, em seguida, a aplicação Microsoft Authenticator envia uma notificação **pedindo-lhe** para aprovar o login . Escolha **Aprovar** se reconhecer a tentativa de inscrição. Caso contrário, escolha **Deny.** Se escolher **o Deny,** também pode marcar o pedido como fraudulento.
 
 - **Código de verificação.** Digite o seu nome de utilizador e palavra-passe no dispositivo em que está a iniciar sessão para a sua conta de trabalho ou escola ou para a sua conta pessoal da Microsoft e, em seguida, copie o código de verificação associado a partir do ecrã de **Contas** da app Microsoft Authenticator. O código de verificação também é conhecido como autenticação de código de acesso único (OTP).
 
@@ -71,7 +71,7 @@ Dependendo do seu tipo de conta, a sua organização pode decidir que deve usar 
 
 ## <a name="in-this-section"></a>Nesta secção
 
-| Artigo | Descrição |
+| Artigo | Description |
 | ------ | ------------ |
 | [Transferir e instalar a aplicação](user-help-auth-app-download-install.md) | Descreve onde e como obter e instalar a aplicação Microsoft Authenticator para dispositivos que executam Android e iOS. |
 | [Adicione o seu trabalho ou contas escolares](user-help-auth-app-add-work-school-account.md) | Descreve como adicionar as suas várias contas de trabalho ou escola e pessoais à aplicação Microsoft Authenticator. |

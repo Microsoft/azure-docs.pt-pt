@@ -1,5 +1,5 @@
 ---
-title: Sobre as ligações VPN ponto-a-local do Azure VPN Gateway
+title: Sobre as ligações VPN Azure Point-to-Site | VPN Gateway
 description: Este artigo ajuda-o a compreender as ligações Ponto-a-Local e ajuda-o a decidir qual tipo de autenticação de gateway P2S VPN a utilizar.
 services: vpn-gateway
 author: cherylmc
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/02/2020
 ms.author: cherylmc
 ms.openlocfilehash: 795b6f13913590041b463115c0be65a6201fedab
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97654069"
 ---
 # <a name="about-point-to-site-vpn"></a>Sobre a VPN ponto-a-local

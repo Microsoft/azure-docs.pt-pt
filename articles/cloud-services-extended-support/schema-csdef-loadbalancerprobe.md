@@ -9,10 +9,10 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.custom: ''
 ms.openlocfilehash: 10e42e502a1f435d06d52d22d5c1e1924a46e575
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98744803"
 ---
 # <a name="azure-cloud-services-extended-support-definition-loadbalancerprobe-schema"></a>Azure Cloud Services (suporte alargado) definição LoadBalancerProbe schema
@@ -55,7 +55,7 @@ O `LoadBalancerProbe` elemento define a sonda de saúde para um modelo. Pode def
 
 A tabela a seguir descreve os atributos do `LoadBalancerProbe` elemento:
 
-|Atributo|Tipo|Descrição|
+|Atributo|Tipo|Description|
 | ------------------- | -------- | -----------------|
 | `name`              | `string` | Obrigatório. O nome da sonda do balançador de carga. O nome tem de ser exclusivo.|
 | `protocol`          | `string` | Obrigatório. Especifica o protocolo do ponto final. Os valores possíveis são `http` ou `tcp`. Se `tcp` for especificado, é necessário um ACK recebido para que a sonda tenha sucesso. Se `http` for especificado, é necessária uma resposta de 200 OK do URI especificado para que a sonda seja bem sucedida.|
@@ -64,5 +64,5 @@ A tabela a seguir descreve os atributos do `LoadBalancerProbe` elemento:
 | `intervalInSeconds` | `integer` | Opcional. O intervalo, em segundos, para a frequência com que sondar o ponto final para o estado de saúde. Normalmente, o intervalo é ligeiramente inferior a metade do período de tempo atribuído (em segundos) que permite duas sondas completas antes de tirar o exemplo da rotação.<br /><br /> O valor predefinido é 15, o valor mínimo é 5.|
 | `timeoutInSeconds`  | `integer` | Opcional. O período de tempo limite, em segundos, aplicado à sonda onde nenhuma resposta resultará em impedir que o tráfego adicional seja entregue no ponto final. Este valor permite que os pontos finais sejam retirados da rotação mais rápido ou mais lento do que os tempos típicos utilizados em Azure (que são os padrão).<br /><br /> O valor predefinido é 31, o valor mínimo é 11.|
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 [Sistema de Definição do Serviço de Nuvem (suporte alargado) Definição](schema-csdef-file.md).

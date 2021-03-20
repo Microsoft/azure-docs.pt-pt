@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Próximos passos e como gerir a Azure AD Connect Microsoft Docs'
+title: 'Azure AD Connect: Próximos passos e como gerir o Azure AD Connect | Microsoft Docs'
 description: Saiba como estender a configuração predefinida e as tarefas operacionais para Azure AD Connect.
 services: active-directory
 documentationcenter: ''
@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7d6689b4b67b8462e983ae9b111e0fbc60c422b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89657112"
 ---
 # <a name="next-steps-and-how-to-manage-azure-ad-connect"></a>Próximos passos e como gerir a Azure AD Connect
@@ -72,7 +72,7 @@ A tabela seguinte fornece um resumo destas tarefas e uma breve descrição de ca
 
 ![Lista de tarefas adicionais](./media/how-to-connect-post-installation/addtasks2.png)
 
-| Tarefa adicional | Descrição |
+| Tarefa adicional | Description |
 | --- | --- |
 |**Definições de Privacidade**|Veja quais os dados de telemetria que estão a ser partilhados com a Microsoft.|
 |**Ver configuração atual**|Veja a sua solução atual Azure AD Connect.  Isto inclui configurações gerais, diretórios sincronizados e configurações de sincronização. |

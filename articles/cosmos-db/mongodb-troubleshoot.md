@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 07/15/2020
 ms.author: chrande
 ms.openlocfilehash: de39aee73a6f4b422af4524d3302f8858f8b060b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101692241"
 ---
 # <a name="troubleshoot-common-issues-in-azure-cosmos-dbs-api-for-mongodb"></a>Resolução de problemas comuns na API da Azure Cosmos DB para a MongoDB
@@ -27,14 +27,14 @@ O seguinte artigo descreve erros e soluções comuns para implementações usand
 | Código       | Erro                | Descrição  | Solução  |
 |------------|----------------------|--------------|-----------|
 | 2 | BadValue | Uma causa comum é um caminho de índice correspondente à ordem especificada por item ter sido excluído ou a ordem por consulta não ter um índice composto correspondente a partir do qual possa ser servida. A consulta pede uma ordenação num campo que não está indexado. | Crie um índice correspondente (ou índice composto) para a consulta de ordenação que está a ser tentada. |
-| 2 | A transação não está ativa | A transação multi-documento ultrapassou o prazo fixado de 5 segundos. | Recandidutar a transação multi-documento ou limitar o âmbito de funcionação no âmbito da transação multi-documento para a completar dentro do prazo de 5 segundos. |
+| 2 | A transação não está ativa | A transação multidocumentos ultrapassou o limite de tempo fixado de 5 segundos. | Repita a transação multidocumentos ou limite o âmbito das operações na transação multidocumentos para a completar no limite de tempo de 5 segundos. |
 | 13 | Não autorizado | O pedido não tem as permissões para ser concluído. | Verifique se está a utilizar as chaves corretas.  |
 | 26 | NamespaceNotFound | Não é possível encontrar a base de dados ou a coleção que está a ser referenciada na consulta. | Verifique se o nome da base de dados/coleção corresponde exatamente ao nome na consulta.|
 | 50 | ExceededTimeLimit | O pedido excedeu o tempo limite de 60 segundos de execução. |  Pode haver muitas causas para este erro. Uma das causas é quando a capacidade das unidades de pedido atualmente alocadas não é suficiente para concluir o pedido. Isto pode ser resolvido ao aumentar as unidades de pedido dessa coleção ou base de dados. Noutros casos, este erro pode ser solucionado através da divisão de um pedido grande em partes menores. Repetir uma operação de escrita que recebeu este erro pode resultar numa escrita duplicada. <br><br>Se estiver a tentar eliminar grandes quantidades de dados sem que isto tenha impacto sobre as RUs: <br>- Considere a utilização de TTL (com base no Carimbo de Data/Hora): [Dados de expiração com a API do Azure Cosmos DB para MongoDB](mongodb-time-to-live.md) <br>- Utilize o tamanho do Cursor/Lote para executar a eliminação. Pode obter um único documento de cada vez e eliminá-lo através de um ciclo. Esta operação ajudará a eliminar dados lentamente sem afetar a aplicação de produção.|
 | 61 | ShardKeyNotFound | O documento no pedido não continha a chave shard da coleção (chave de partição do Azure Cosmos DB). | Verifique se a chave shard da coleção está a ser utilizada no pedido.|
 | 66 | ImmutableField | O pedido está a tentar alterar um campo imutável | Os campos de "_id" são imutáveis. Verifique se o pedido não está a tentar atualizar esse campo ou o campo da chave shard. |
 | 67 | CannotCreateIndex | Não é possível concluir o pedido para criar um índice. | Podem ser criados até 500 índices de campo único num contentor. Podem ser incluídos até oito campos num índice composto (os índices compostos são suportados na versão 3.6e superior). |
-| 112 | EscreverConflito | A transação multi-documento falhou devido a uma transação multi-documento conflituosa | Repremia a transação multi-documento até ter sucesso. |
+| 112 | WriteConflict | A transação multidocumentos falhou devido a uma transação multidocumentos em conflito | Repita a transação multidocumentos até ser concluída com êxito. |
 | 115 | CommandNotSupported | O pedido tentado não é suportado. | Deve indicar detalhes adicionais sobre o erro. Se esta funcionalidade for importante para as suas implementações, crie um bilhete de apoio no [portal Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) e a equipa DB do Azure Cosmos irá entrar em contato consigo. |
 | 11000 | DuplicateKey | A chave shard (chave de partição do Azure Cosmos DB) do documento que está a inserir já existe na coleção ou foi violada uma restrição de campo do índice exclusivo. | Utilize a função update() para atualizar um documento existente. Se a restrição de campo do índice exclusivo tiver sido violada, insira ou atualize o documento com um valor de campo que ainda não exista na partição/shard. Outra opção seria utilizar um campo com uma combinação do ID e dos campos da chave shard. |
 | 16500 | TooManyRequests  | O número total de unidades de pedido consumidas é maior do que a taxa pedido/unidade aprovisionada para a coleção e foi limitada. | Pondere dimensionar o débito atribuído a um contentor ou a um conjunto de contentores do portal do Azure ou pode repetir a operação. Se ativar o SSR (repetição do lado do servidor), o Azure Cosmos DB repete automaticamente os pedidos que falham devido a este erro. |

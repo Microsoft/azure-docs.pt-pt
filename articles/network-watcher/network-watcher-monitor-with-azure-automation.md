@@ -13,17 +13,17 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: af671996722524de9af1a90ae8dfde27f814c8c2
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96011817"
 ---
 # <a name="monitor-vpn-gateways-with-network-watcher-troubleshooting"></a>Monitorar gateways VPN com resolução de problemas do Observador de Rede
 
 Obter informações profundas sobre o desempenho da sua rede é fundamental para fornecer serviços fiáveis aos clientes. Por isso, é fundamental detetar rapidamente as condições de paragem da rede e tomar medidas corretivas para mitigar o estado de paragem. A Azure Automation permite-lhe implementar e executar uma tarefa de forma programática através de runbooks. A utilização da Azure Automation cria uma receita perfeita para a monitorização e alerta contínuas de rede.
 
-## <a name="scenario"></a>Cenário
+## <a name="scenario"></a>Scenario
 
 O cenário na imagem seguinte é uma aplicação multi-camadas, com conectividade nas instalações estabelecida usando um Gateway VPN e túnel. Garantir que o Gateway VPN está em funcionamento é fundamental para o desempenho das aplicações.
 
@@ -36,7 +36,7 @@ Este cenário:
 - Criar um livro de bordo chamando o `Start-AzureRmNetworkWatcherResourceTroubleshooting` cmdlet para o estado de ligação de resolução de problemas
 - Ligue um horário ao livro de corridas
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Antes de iniciar este cenário, deve ter os seguintes pré-requisitos:
 

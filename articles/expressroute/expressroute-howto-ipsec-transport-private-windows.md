@@ -9,10 +9,10 @@ ms.date: 01/07/2021
 ms.author: duau
 ms.custom: seodec18
 ms.openlocfilehash: cfcc515787cee2bc90a2100e84337a3c96219d8a
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98017277"
 ---
 # <a name="configure-ipsec-transport-mode-for-expressroute-private-peering"></a>Configure o modo de transporte IPsec para o espremiamento privado ExpressRoute
@@ -312,7 +312,7 @@ A seguinte captura de rede mostra os resultados do anfitrião no local1 com o fi
 
 Se executar o script PowerShell no local (cliente HTTP), a captura de rede no Azure VM mostra um traço semelhante.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre o ExpressRoute, consulte as [FAQ ExpressRoute.](expressroute-faqs.md)
 

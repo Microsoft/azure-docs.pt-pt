@@ -5,10 +5,10 @@ services: container-service
 ms.topic: conceptual
 ms.date: 08/24/2020
 ms.openlocfilehash: 781a1ffebb40b0cce9f18699d308db90633e8626
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89490110"
 ---
 # <a name="azure-kubernetes-service-aks-node-auto-repair"></a>Serviço Azure Kubernetes (AKS) autorreparação do nó
@@ -31,7 +31,7 @@ kubectl get nodes
 ## <a name="how-automatic-repair-works"></a>Como funciona a reparação automática
 
 > [!Note]
-> A AKS inicia operações de reparação com o **aks-correcttor de**conta de utilizador .
+> A AKS inicia operações de reparação com o **aks-correcttor de** conta de utilizador .
 
 Se um nó não for saudável com base nas regras acima referidas e permanecer insalubre durante 10 minutos consecutivos, serão tomadas as seguintes medidas.
 

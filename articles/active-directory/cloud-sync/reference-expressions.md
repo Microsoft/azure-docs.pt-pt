@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 869d60d4ccb3bae58924fe4221f83b1b0125ae04
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98613537"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Expressãos de escrita para mapeamentos de atributos no Azure Ative Directory
@@ -47,7 +47,7 @@ A sintaxe para expressões para mapeamentos de atributos faz lembrar as funçõe
 |[ConverterFromBase64](#convertfrombase64)|A função ConvertFromBase64 converte o valor codificado base 64 especificado para uma cadeia regular.|
 |[ConvertToBase64](#converttobase64)|A função ConvertToBase64 converte uma corda numa cadeia base Unicode64. |
 |[ConvertToUTF8Hex](#converttoutf8hex)|A função ConvertToUTF8Hex converte uma cadeia para um valor codificado utf8 Hex.|
-|[de palavras](#count)|A função Contagem devolve o número de elementos num atributo multi-valor|
+|[Contagem](#count)|A função Contagem devolve o número de elementos num atributo multi-valor|
 |[Cstr](#cstr)|A função CStr converte-se num tipo de dados de cadeia.|
 |[DataFromNum](#datefromnum)|A função DataFromNum converte um valor no formato de data da AD para um tipo DateTime.|
 |[DNComponente](#dncomponent)|A função DNComponent devolve o valor de um componente DN especificado que vai da esquerda.|
@@ -87,7 +87,7 @@ A sintaxe para expressões para mapeamentos de atributos faz lembrar as funçõe
 
 **Parâmetros:**<br> 
 
-   | Nome | Obrigatório/ Repetição | Tipo | Notas |
+   | Name | Obrigatório/ Repetição | Tipo | Notas |
    | --- | --- | --- | --- |
    | **fonte** |Necessário |String |Normalmente o nome do atributo do objeto de origem. |
    | **sufixo** |Necessário |String |A corda que quer anexar ao fim do valor de origem. |
@@ -250,7 +250,7 @@ Se a conta de atributosName não estiver presente, atire um erro no objeto.
 
 **Parâmetros:**<br> 
 
-   | Nome | Obrigatório/ Repetição | Tipo | Notas |
+   | Name | Obrigatório/ Repetição | Tipo | Notas |
    | --- | --- | --- | --- |
    | **fonte** |Necessário |String |Normalmente o nome do atributo do objeto de origem. |
    | **inputFormat** |Necessário |String |Formato esperado do valor da origem. Para formatos suportados, consulte [/dotnet/standard/base-tipos/custom-date-and-time-format-strings](/dotnet/standard/base-types/custom-date-and-time-format-strings). |
@@ -383,7 +383,7 @@ Se a expressão pode ser avaliada para um tipo de corda, então a função IsStr
 Usado para determinar se o CStr() pode ser bem sucedido para analisar a expressão.
 
 ---
-### <a name="join"></a>Associar
+### <a name="join"></a>Participar
 **Função:**<br> Junte-se(separador, fonte1, fonte2, ...)
 
 **Description:**<br> A junção é semelhante ao Apêndice,), exceto que pode combinar múltiplos valores de cadeia de **origem** numa única corda, e cada valor será separado por uma corda **separador.**
@@ -392,7 +392,7 @@ Se um dos valores de origem for um atributo de vários valores, então todos os 
 
 **Parâmetros:**<br> 
 
-   | Nome | Obrigatório/ Repetição | Tipo | Notas |
+   | Name | Obrigatório/ Repetição | Tipo | Notas |
    | --- | --- | --- | --- |
    | **separador** |Necessário |String |A corda usada para separar os valores de origem quando são concatenadas numa única corda. Pode ser "" se não for necessário um separador. |
    | **fonte1 ... fonteN** |Obrigatório, número variável de vezes |String |Valores de cordas a serem unidos. |
@@ -429,7 +429,7 @@ Devoluções `Joh` .
 
 **Parâmetros:**<br> 
 
-   | Nome | Obrigatório/ Repetição | Tipo | Notas |
+   | Name | Obrigatório/ Repetição | Tipo | Notas |
    | --- | --- | --- | --- |
    | **fonte** |Necessário |String |Normalmente o nome do atributo. |
    | **começar** |Necessário |número inteiro |Índice na cadeia **de origem** onde o sublpeso deve começar. O primeiro personagem da cadeia terá índice de 1, o segundo personagem terá índice 2, e assim por diante. |
@@ -443,7 +443,7 @@ Devoluções `Joh` .
 
 **Parâmetros:**<br> 
 
-   | Nome | Obrigatório/ Repetição | Tipo | Notas |
+   | Name | Obrigatório/ Repetição | Tipo | Notas |
    | --- | --- | --- | --- |
    | **fonte** |Necessário |String | Normalmente um primeiro nome ou atributo de apelido. |
 
@@ -455,7 +455,7 @@ Devoluções `Joh` .
 
 **Parâmetros:**<br> 
 
-   | Nome | Obrigatório/ Repetição | Tipo | Notas |
+   | Name | Obrigatório/ Repetição | Tipo | Notas |
    | --- | --- | --- | --- |
    | **fonte** |Necessário |Corda Booleana |Os valores de **origem** esperados são "Verdadeiro" ou "Falso". |
 
@@ -497,7 +497,7 @@ Substitui valores dentro de uma corda. Funciona de forma diferente dependendo do
 
 **Parâmetros:**<br> 
 
-   | Nome | Obrigatório/ Repetição | Tipo | Notas |
+   | Name | Obrigatório/ Repetição | Tipo | Notas |
    | --- | --- | --- | --- |
    | **fonte** |Necessário |String |Normalmente o nome do atributo do objeto **de origem.** |
    | **oldValue** |Opcional |String |Valor a ser substituído na **fonte** ou **no modelo.** |
@@ -522,7 +522,7 @@ Substitui valores dentro de uma corda. Funciona de forma diferente dependendo do
 
 **Parâmetros:**<br> 
 
-   | Nome | Obrigatório/ Repetição | Tipo | Notas |
+   | Name | Obrigatório/ Repetição | Tipo | Notas |
    | --- | --- | --- | --- |
    | **únicoValueRule1 ... únicoValueRuleN** |Pelo menos 2 são necessários, sem limite superior |String | Lista de regras únicas de geração de valor para avaliar. |
 
@@ -535,7 +535,7 @@ Substitui valores dentro de uma corda. Funciona de forma diferente dependendo do
 
 **Parâmetros:**<br> 
 
-  | Nome | Obrigatório/ Repetição | Tipo | Notas |
+  | Name | Obrigatório/ Repetição | Tipo | Notas |
   |--- | --- | --- | --- |
   | **[appRoleAssignments]** |Necessário |String |**[appRoleAssignments]** objeto. |
 
@@ -547,7 +547,7 @@ Substitui valores dentro de uma corda. Funciona de forma diferente dependendo do
 
 **Parâmetros:**<br> 
 
-   | Nome | Obrigatório/ Repetição | Tipo | Notas |
+   | Name | Obrigatório/ Repetição | Tipo | Notas |
    | --- | --- | --- | --- |
    | **fonte** |Necessário |String |valor **de origem** para atualizar. |
    | **delimiter** |Necessário |String |Especifica o carácter que será usado para dividir a corda (exemplo: "") |
@@ -568,7 +568,7 @@ A função StringFromSid converte uma matriz de byte contendo um identificador d
 
 **Parâmetros:**<br> 
 
-   | Nome | Obrigatório/ Repetição | Tipo | Notas |
+   | Name | Obrigatório/ Repetição | Tipo | Notas |
    | --- | --- | --- | --- |
    | **fonte** |Necessário |String |valor **de origem** para atualizar. |
 
@@ -580,7 +580,7 @@ A função StringFromSid converte uma matriz de byte contendo um identificador d
 
 **Parâmetros:**<br> 
 
-   | Nome | Obrigatório/ Repetição | Tipo | Notas |
+   | Name | Obrigatório/ Repetição | Tipo | Notas |
    | --- | --- | --- | --- |
    | **fonte** |Necessário |String |**Valor de origem** para verificar. |
    | **padrãoValue** |Opcional |String |Valor predefinido a ser utilizado quando a fonte não corresponde a nenhuma tecla. Pode ser corda vazia (""). |
@@ -595,7 +595,7 @@ A função StringFromSid converte uma matriz de byte contendo um identificador d
 
 **Parâmetros:**<br> 
 
-   | Nome | Obrigatório/ Repetição | Tipo | Notas |
+   | Name | Obrigatório/ Repetição | Tipo | Notas |
    | --- | --- | --- | --- |
    | **fonte** |Necessário |String |Normalmente o nome do atributo a partir do objeto de origem |
    | **cultura** |Opcional |String |O formato para o nome da cultura baseado no RFC 4646 é *languagecode2-country/regioncode2,* onde o *languagecode2* é o código linguístico de duas letras e *o código de duas letras* e o código de duas letras e o código de duas letras. Exemplos incluem ja-JP para japonês (Japão) e en-US para inglês (Estados Unidos). Nos casos em que não esteja disponível um código linguístico de duas letras, é utilizado um código de três letras derivado da ISO 639-2.|
@@ -609,7 +609,7 @@ A função StringFromSid converte uma matriz de byte contendo um identificador d
 
 **Parâmetros:**<br> 
 
-  | Nome | Obrigatório/ Repetição | Tipo | Notas |
+  | Name | Obrigatório/ Repetição | Tipo | Notas |
   | --- | --- | --- | --- |
   | **fonte** |Necessário |String |Normalmente o nome do atributo do objeto de origem. |
   | **cultura** |Opcional |String |O formato para o nome da cultura baseado no RFC 4646 é *languagecode2-country/regioncode2,* onde o *languagecode2* é o código linguístico de duas letras e *o código de duas letras* e o código de duas letras e o código de duas letras. Exemplos incluem ja-JP para japonês (Japão) e en-US para inglês (Estados Unidos). Nos casos em que não esteja disponível um código linguístico de duas letras, é utilizado um código de três letras derivado da ISO 639-2.|

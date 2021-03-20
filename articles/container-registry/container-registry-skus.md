@@ -4,17 +4,17 @@ description: Conheça as funcionalidades e limites (quotas) nos níveis básico,
 ms.topic: article
 ms.date: 05/18/2020
 ms.openlocfilehash: b55fc16dcd6dcb544ed4597ce4bdc6ba17b52646
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98015673"
 ---
 # <a name="azure-container-registry-service-tiers"></a>Níveis de serviço de registo de contentores Azure
 
 O Registo de Contentores Azure está disponível em vários níveis de serviço (também conhecidos como SKUs). Estes níveis fornecem preços previsíveis e várias opções para se alinhar com a capacidade e padrões de utilização do seu registo privado de Docker em Azure.
 
-| Escalão de serviço | Descrição |
+| Escalão de serviço | Description |
 | --- | ----------- |
 | **Básica** | Um ponto de entrada com otimização de custos para os programadores que estão a aprender sobre o Azure Container Registry. Os registos básicos têm as mesmas capacidades programáticas que o Standard e o Premium (como [a integração de autenticação](container-registry-authentication.md#individual-login-with-azure-ad)do Azure Ative Directory, [a eliminação de imagens][container-registry-delete]e [os webhooks).][container-registry-webhook] No entanto, o armazenamento incluído e a produção de imagem são mais adequados para cenários de menor utilização. |
 | **Standard** | Os registos padrão oferecem as mesmas capacidades que o Basic, com o aumento do armazenamento incluído e produção de imagem. Os registos Standard devem satisfazer as necessidades da maioria dos cenários de produção. |
@@ -54,7 +54,7 @@ Para obter informações sobre preços em cada um dos níveis de serviço de reg
 
 Para obter mais informações sobre os preços das transferências de dados, consulte [detalhes de preços da largura de banda](https://azure.microsoft.com/pricing/details/bandwidth/). 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 **Roteiro do Registo de Contentores de Azure**
 

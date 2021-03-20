@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Web app acede ao armazenamento utilizando identidades geridas Rio Azure
+title: Tutorial - Web app acede ao armazenamento utilizando identidades geridas | Rio Azure
 description: Neste tutorial, aprende-se a aceder ao Azure Storage para uma aplicação utilizando identidades geridas.
 services: storage, app-service-web
 author: rwike77
@@ -12,10 +12,10 @@ ms.author: ryanwi
 ms.reviewer: stsoneff
 ms.custom: azureday1
 ms.openlocfilehash: 72b1d4fe864c23c0ac065e47d96ab0c78866defa
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96435846"
 ---
 # <a name="tutorial-access-azure-storage-from-a-web-app"></a>Tutorial: Access Azure Storage a partir de uma aplicação web
@@ -172,7 +172,7 @@ Tem de conceder acesso à conta de armazenamento da sua aplicação web antes de
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-No [portal Azure,](https://portal.azure.com)entre na sua conta de armazenamento para garantir o acesso à sua aplicação web. Selecione **o controlo de acesso (IAM)** no painel esquerdo e, em seguida, selecione **atribuições de funções**. Verá uma lista de quem tem acesso à conta de armazenamento. Agora quer adicionar uma atribuição de funções a um robô, o serviço de aplicações que precisa de acesso à conta de armazenamento. Selecione **Add**  >  **Adicionar Ação de função**.
+No [portal Azure,](https://portal.azure.com)entre na sua conta de armazenamento para garantir o acesso à sua aplicação web. Selecione **o controlo de acesso (IAM)** no painel esquerdo e, em seguida, selecione **atribuições de funções**. Verá uma lista de quem tem acesso à conta de armazenamento. Agora quer adicionar uma atribuição de funções a um robô, o serviço de aplicações que precisa de acesso à conta de armazenamento. Selecione   >  **Adicionar Ação de função**.
 
 In **Role**, selecione **Storage Blob Data Contributor** para dar à sua aplicação web acesso a bolhas de armazenamento de leitura. No **Acesso a Atribuir acesso a**, selecione Serviço de **Aplicações**. Na **Subscrição,** selecione a sua subscrição. Em seguida, selecione o serviço de aplicações a que pretende fornecer acesso. Selecione **Guardar**.
 

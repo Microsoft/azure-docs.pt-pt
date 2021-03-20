@@ -4,10 +4,10 @@ description: Aprenda a criar laboratórios para ensinar as aulas do Project Lead
 ms.topic: article
 ms.date: 10/28/2020
 ms.openlocfilehash: ca4fdae2372895c17c4a98dd3959935108846744
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95024624"
 ---
 # <a name="set-up-labs-for-project-lead-the-way-classes"></a>Configurar laboratórios para as aulas de Project Lead The Way
@@ -147,7 +147,7 @@ Vamos cobrir uma estimativa de custos por exemplo para as classes PLTW.  Esta es
 > [!NOTE] 
 > Muitas das classes PLTW usam aplicações que são acedidas através de um navegador, como o MIT App Inventor.  Estas aplicações baseadas no navegador não requerem um CPU ou GPU rápido, e você pode acessá-las a partir de qualquer dispositivo que tenha uma ligação à Internet.  Quando os estudantes estão a usar este tipo de aplicações, recomendamos que utilizem o navegador no seu dispositivo físico, em vez do navegador no seu VM de laboratório. Os alunos podem ajudar a reduzir os custos usando o seu VM de laboratório apenas para aplicações que requerem um CPU rápido ou GPU.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Ao configurar o seu laboratório, veja os seguintes artigos:
 

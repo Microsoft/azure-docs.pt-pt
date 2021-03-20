@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com a SilkRoad Life Suite Microsoft Docs'
+title: 'Tutorial: Integração do Azure Ative Directory com SilkRoad Life Suite | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e a SilkRoad Life Suite.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
 ms.openlocfilehash: 89d086ce136885e203e300f04bdbf3ade0affeb3
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92516057"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-silkroad-life-suite"></a>Tutorial: Integração do Azure Ative Directory com a SilkRoad Life Suite
@@ -159,11 +159,11 @@ Para configurar o Azure AD single sign-on com SilkRoad Life Suite, execute os se
     > [!NOTE]
     > Para obter acesso ao pedido de autenticação SilkRoad Life Suite para configurar a federação com o Microsoft Azure AD, contacte a SilkRoad Support ou o seu representante da SilkRoad Services.
 
-1. Vá ao **Fornecedor de Serviços**e, em seguida, clique em **Detalhes da Federação**.
+1. Vá ao **Fornecedor de Serviços** e, em seguida, clique em **Detalhes da Federação**.
 
     ![A screenshot mostra detalhes da Federação selecionados do Fornecedor de Serviços.](./media/silkroad-life-suite-tutorial/tutorial_silkroad_06.png)
 
-1. Clique **em Baixar Metadados da Federação**e, em seguida, guarde o ficheiro de metadados no seu computador. Utilize metadados da Federação Descarregada como **ficheiro de metadados do Fornecedor de Serviços** na secção **de Configuração Básica SAML** no portal Azure.
+1. Clique **em Baixar Metadados da Federação** e, em seguida, guarde o ficheiro de metadados no seu computador. Utilize metadados da Federação Descarregada como **ficheiro de metadados do Fornecedor de Serviços** na secção **de Configuração Básica SAML** no portal Azure.
 
     ![A screenshot mostra a ligação de metadados da Federação de Descarregamento.](./media/silkroad-life-suite-tutorial/tutorial_silkroad_07.png)
 

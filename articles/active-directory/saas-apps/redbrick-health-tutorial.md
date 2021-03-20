@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Directy integração única (SSO) com a RedBrick Health Microsoft Docs'
+title: 'Tutorial: Azure Ative Directory integração única de sign-on (SSO) com a RedBrick Health | Microsoft Docs'
 description: Saiba como configurar um único sinal entre o Azure Ative Directory e o RedBrick Health.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: jeedes
 ms.openlocfilehash: 9612a45d61e2bab03516699f661e8404fef6b7d1
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92515086"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-redbrick-health"></a>Tutorial: Azure Ative Directory integração única (SSO) com a RedBrick Health
@@ -99,7 +99,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Na secção **'Reclamações** de Utilizador' no diálogo **'Atributos do Utilizador',** configurar o atributo de ficha SAML como mostrado na imagem acima e executar os seguintes passos:
 
-    | Nome | Atributo de origem|
+    | Name | Atributo de origem|
     | ----------- | --------- |
     | nome principal | ********** |
     | id cliente | ********** |
@@ -150,7 +150,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
 
 Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso à RedBrick Health.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de candidaturas, selecione **RedBrick Health**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 

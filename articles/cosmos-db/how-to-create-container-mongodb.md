@@ -9,10 +9,10 @@ ms.date: 10/16/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli, devx-track-csharp
 ms.openlocfilehash: a5669b15c041f663605a62ef8d02b206928d0c14
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93101600"
 ---
 # <a name="create-a-container-in-azure-cosmos-db-api-for-mongodb"></a>Criar um recipiente em Azure Cosmos DB API para MongoDB
@@ -31,13 +31,13 @@ Este artigo explica as diferentes formas de criar um recipiente em Azure Cosmos 
 
 1. [Crie uma nova conta Azure Cosmos,](create-mongodb-dotnet.md#create-a-database-account)ou selecione uma conta existente.
 
-1. Abra o painel **do Explorador de Dados** e selecione **Novo Recipiente** . Em seguida, forneça os seguintes detalhes:
+1. Abra o painel **do Explorador de Dados** e selecione **Novo Recipiente**. Em seguida, forneça os seguintes detalhes:
 
    * Indique se está a criar uma nova base de dados ou a utilizar uma existente.
    * Introduza a identificação do contentor.
    * Introduza uma chave de fragmentos.
    * Introduza uma produção a ser a provisionada (por exemplo, 1000 RUs).
-   * Selecione **OK** .
+   * Selecione **OK**.
 
     :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-mongodb.png" alt-text="Screenshot de Azure Cosmos DB API para MongoDB, adicionar caixa de diálogo de recipiente":::
 

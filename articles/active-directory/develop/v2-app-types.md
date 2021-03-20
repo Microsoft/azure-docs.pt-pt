@@ -13,10 +13,10 @@ ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev, fasttrack-edit, contperf-fy21q2
 ms.openlocfilehash: 7ec309f016e73642262399bd75e7b5146bc5e497
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98752777"
 ---
 # <a name="application-types-for-the-microsoft-identity-platform"></a>Tipos de aplicações para a plataforma de identidade da Microsoft
@@ -130,6 +130,6 @@ Neste fluxo, a app interage diretamente com o `/token` ponto final para obter ac
 
 Para construir uma app Daemon, consulte a [documentação](v2-oauth2-client-creds-grant-flow.md)das credenciais do cliente, ou experimente uma [aplicação de amostra .NET](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que está familiarizado com os tipos de aplicações suportadas pela plataforma de identidade da Microsoft, saiba mais sobre [o OAuth 2.0 e o OpenID Connect](active-directory-v2-protocols.md) para obter uma compreensão dos componentes do protocolo utilizados pelos diferentes cenários.

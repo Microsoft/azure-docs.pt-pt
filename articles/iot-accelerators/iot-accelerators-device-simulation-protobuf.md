@@ -1,5 +1,5 @@
 ---
-title: Utilizar buffers de protocolo com simulação de dispositivo - Azure / Microsoft Docs
+title: Utilize tampão de protocolo com simulação de dispositivo - Azure| Microsoft Docs
 description: Neste guia de como fazer, aprende a utilizar tampões de protocolo para serializar a telemetria enviada a partir do acelerador de solução de simulação do dispositivo.
 author: dominicbetts
 manager: timlt
@@ -10,10 +10,10 @@ ms.custom: mvc, amqp, devx-track-csharp
 ms.date: 11/06/2018
 ms.author: dobett
 ms.openlocfilehash: 77a795b8f704084b612a2dcbd364b8d5be0a3333
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96852155"
 ---
 # <a name="serialize-telemetry-using-protocol-buffers"></a>Serialize telemetria usando tampão de protocolo
@@ -180,7 +180,7 @@ quando se tem um ficheiro **proto,** o próximo passo é gerar as classes necess
     protoc -I c:\temp\device-simulation-dotnet-master\Services\Models\Protobuf\proto --csharp_out=C:\temp\device-simulation-dotnet-master\Services\Models\Protobuf assettracker.proto
     ```
 
-    Este comando gera um ficheiro **Assettracker.cs** na pasta **Serviços\Modelos\Protobuf.**
+    Este comando gera um ficheiro **.cs Ativo** na pasta **Serviços\Modelos\Protobuf.**
 
 ## <a name="test-protobuf-locally"></a>Teste Protobuf localmente
 

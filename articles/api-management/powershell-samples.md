@@ -15,17 +15,17 @@ ms.date: 10/09/2017
 ms.author: apimpm
 ms.custom: mvc
 ms.openlocfilehash: 531c42b763f234baaf6a93924979b8c7dca57423
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87905810"
 ---
 # <a name="azure-powershell-samples-for-api-management"></a>Exemplos do Azure PowerShell para Gestão de API
 
 A tabela seguinte contém scripts de exemplo para utilizar o serviço Gestão de API a partir do PowerShell.
 
-| Aprovisionar e gerir | Descrição |
+| Aprovisionar e gerir | Description |
 | -------------------- | ----------- |
 |[Adicionar um utilizador](./scripts/powershell-add-user-and-get-subscription-key.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Cria um utilizador na Gestão de API e obtém uma chave de subscrição.|
 |[Configurar um serviço do APIM](./scripts/powershell-create-apim-service.md?toc=%2fpowershell%2fmodule%2ftoc.json)|Cria um Serviço de Gestão de API de SKU de Programador.|

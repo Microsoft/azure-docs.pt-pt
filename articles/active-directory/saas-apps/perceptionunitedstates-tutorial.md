@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com a Perception United States (Non-UltiPro) Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com Perception United States (Non-UltiPro) | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e a Perception United States (Non-UltiPro).
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
 ms.openlocfilehash: 3fc16a869c176074467a0b21880937d7753602b2
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92515530"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-perception-united-states-non-ultipro"></a>Tutorial: Integração do Diretório Ativo Azure com a Perception United States (Non-UltiPro)
@@ -143,7 +143,7 @@ Para configurar o Azure AD um único sinal de insuflação com Perception United
     
     b. Na caixa de texto **'Nome** da Conta', digite o nome da **Conta**.
 
-    c. Na **caixa de texto Reply-To Por email,** digite o **e-mail**válido.
+    c. Na **caixa de texto Reply-To Por email,** digite o **e-mail** válido.
 
     d. Selecione **O Fornecedor de Identidade SSO** como **SAML 2.0**.
 

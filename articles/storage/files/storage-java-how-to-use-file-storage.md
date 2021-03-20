@@ -1,5 +1,5 @@
 ---
-title: Desenvolver para Azure Files com Java Microsoft Docs
+title: Desenvolver para arquivos Azure com Java | Microsoft Docs
 description: Saiba como desenvolver aplicações e serviços Java que usam ficheiros Azure para armazenar dados de ficheiros.
 author: roygara
 ms.service: storage
@@ -9,10 +9,10 @@ ms.custom: devx-track-java
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 25baa278961b93b04e60f2e997b98753cb6cf3ab
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95024114"
 ---
 # <a name="develop-for-azure-files-with-java"></a>Programar para os Ficheiros do Azure com Java
@@ -346,7 +346,7 @@ if ( file.deleteIfExists() ) {
 
 ---
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se você gostaria de saber mais sobre outras APIs de armazenamento Azure, siga estes links.
 

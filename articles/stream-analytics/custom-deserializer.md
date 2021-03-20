@@ -7,10 +7,10 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 12/17/2020
 ms.openlocfilehash: 6db65d85b5d5d72e7b4764949abcffed004cae85
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98018212"
 ---
 # <a name="tutorial-custom-net-deserializers-for-azure-stream-analytics"></a>Tutorial: Deserializadores personalizados .NET para Azure Stream Analytics
@@ -97,7 +97,7 @@ O contentor que criar será utilizado para armazenar ativos relacionados com o s
 
    |Definição|Valor sugerido|
    |-------|---------------|
-   |Alias de Entrada|Input|
+   |Alias de Entrada|Entrada|
    |Tipo de Fonte|Fluxo de Dados|
    |Formato de Serialização de Eventos|Outros (Protobuf, XML, proprietário...)|
    |Nome da montagem do CSharp|ProtobufDeserializer.dll|
@@ -130,7 +130,7 @@ Quando já não for necessário, elimine o grupo de recursos, a tarefa de transm
 
 2. Na página do grupo de recursos, selecione **Eliminar**, escreva o nome do recurso a eliminar na caixa de texto e, em seguida, selecione **Eliminar**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, aprendeu a implementar um deserializador personalizado .NET para a serialização da entrada de tampão protocolar. Para saber mais sobre a criação de deserializadores personalizados, continue ao seguinte artigo:
 

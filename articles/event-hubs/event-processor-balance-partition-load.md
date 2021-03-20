@@ -1,13 +1,13 @@
 ---
-title: Equilibrar a carga de partição em vários casos - Azure Event Hubs Microsoft Docs
+title: Equilibrar a carga de partição em vários casos - Azure Event Hubs | Microsoft Docs
 description: Descreve como equilibrar a carga de partição em várias instâncias da sua aplicação usando um processador de eventos e o Azure Event Hubs SDK.
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: af307058d0eda6b96c0811bccc245c09e2bdd27d
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95025049"
 ---
 # <a name="balance-partition-load-across-multiple-instances-of-your-application"></a>Equilibrar a carga de partição em vários casos da sua aplicação
@@ -85,7 +85,7 @@ Quando o ponto de verificação é realizado para marcar um evento como processa
 
 Por predefinição, a função que processa os eventos é chamada sequencialmente para uma determinada partição. Eventos subsequentes e chamadas para esta função a partir da mesma fila de partição nos bastidores, à medida que a bomba de evento continua a funcionar em segundo plano em outros fios. Eventos de diferentes divisórias podem ser processados simultaneamente e qualquer estado partilhado que seja acedido através de divisórias tem de ser sincronizado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Consulte os seguintes arranques rápidos:
 
 - [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)

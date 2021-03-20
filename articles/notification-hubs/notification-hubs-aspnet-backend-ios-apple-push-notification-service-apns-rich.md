@@ -16,15 +16,15 @@ ms.reviewer: thsomasu
 ms.lastreviewed: 01/04/2019
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 33626b7aee615d07ef88dd9fbca46e6512e2cafc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90090368"
 ---
 # <a name="azure-notification-hubs-rich-push"></a>Azure Notification Hubs Rich Push
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Para envolver os utilizadores com conteúdos instantâneos e ricos, uma aplicação pode querer ir além do texto simples. Estas notificações promovem interações de utilizadores e apresentam conteúdos como URLs, sons, imagens/cupões, entre outros. Este tutorial baseia-se no tutorial de [Notificação dos Utilizadores](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) e mostra como enviar notificações push que incorporam cargas (por exemplo, imagens).
 
@@ -142,7 +142,7 @@ A um nível elevado:
 Agora que modificou o seu backend da app para enviar apenas o *ID* de uma notificação, altere a sua aplicação iOS para lidar com esse ID e recupere a mensagem rica do seu backend:
 
 1. Abra o seu projeto iOS e permita notificações remotas indo para o seu alvo principal de aplicação na secção **Alvos.**
-2. Selecione **Capabilites**, ative **os modos de fundo**e verifique a caixa de **verificação de Notificações Remotas.**
+2. Selecione **Capabilites**, ative **os modos de fundo** e verifique a caixa de **verificação de Notificações Remotas.**
 
     ![Screenshot do projeto iOS mostrando o ecrã Capabilities. Os modos de fundo estão ligados e a caixa de verificação de notificações remotas é selecionada.][IOS3]
 3. Abra `Main.storyboard` , e certifique-se de que tem um Controlador de Visualização (designado controlador de visualização doméstica neste tutorial) do tutorial do [Utilizador notificado.](notification-hubs-aspnet-backend-ios-apple-apns-notification.md)

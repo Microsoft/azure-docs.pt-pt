@@ -4,10 +4,10 @@ description: Neste arranque rápido, siga os passos para ligar para o ponto fina
 ms.date: 01/27/2021
 ms.topic: quickstart
 ms.openlocfilehash: 670ceba95d937be278c44c34704cb844eead480d
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98920076"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-rest-api"></a>Quickstart: Execute a sua primeira consulta de Gráfico de Recursos usando a API REST
@@ -131,7 +131,7 @@ Para obter mais exemplos de pedidos de API de REST para Gráfico de Recursos [Az
 
 Rest A API não tem bibliotecas ou módulos para desinstalar. Se instalar uma ferramenta como _ARMClient_ ou _Carteiro_ para escruissar as chamadas e deixar de precisar, pode desinstalar a ferramenta agora.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste arranque rápido, você chamou o ponto final do Recurso Graph REST API e executou a sua primeira consulta. Para saber mais sobre a linguagem Resource Graph, continue na página de detalhes da linguagem de consulta.
 

@@ -1,5 +1,5 @@
 ---
-title: Criar um modelo avançado de dispositivo simulado - Azure/ Microsoft Docs
+title: Crie um modelo avançado de dispositivo simulado - Azure| Microsoft Docs
 description: Neste guia de como fazer, aprende-se a criar um modelo avançado de dispositivo para utilização com o acelerador de solução de simulação de dispositivo.
 author: troyhopwood
 manager: timlt
@@ -14,10 +14,10 @@ ms.custom:
 - mqtt
 - devx-track-js
 ms.openlocfilehash: 58891bdb4601744129c97454f43202d3ba07b709
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96852562"
 ---
 # <a name="create-an-advanced-device-model"></a>Create an advanced device model (Criar um modelo de dispositivo avançado)
@@ -56,7 +56,7 @@ Um modelo de dispositivo típico tem:
 Cada ficheiro de definição de dispositivo contém detalhes de um modelo de dispositivo simulado, incluindo as seguintes informações:
 
 * Nome do modelo do dispositivo: string.
-* Protocolo: AMQP / MQTT ! HTTP.
+* Protocolo: AMQP | | MQTT HTTP.
 * O estado do dispositivo inicial.
 * Quantas vezes é para refrescar o estado do dispositivo.
 * Que ficheiro JavaScript utilizar para refrescar o estado do dispositivo.

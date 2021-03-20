@@ -15,10 +15,10 @@ ms.reviewer: jmprieur
 ms.custom: aaddev, seoapril2019
 ROBOTS: NOINDEX
 ms.openlocfilehash: b7ee283ff61753a060e49a3340cd0a795b04faf9
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98755925"
 ---
 # <a name="integrating-with-the-microsoft-identity-platform"></a>Integração na plataforma de identidade da Microsoft
@@ -89,7 +89,7 @@ A integração com a plataforma de identidade da Microsoft vem com benefícios q
 
 **O Azure AD é implantado em datacenters em todo o mundo e é gerido e monitorizado 24 horas por dia.**  Azure AD é o sistema de gestão de identidade do Microsoft Azure e Microsoft 365 e está implantado em 28 datacenters em todo o mundo. É garantido que os dados do diretório sejam replicados em pelo menos três centros de dados. Os equilibradores de carga globais garantem que os utilizadores acedem à cópia mais próxima do AZure AD contendo os seus dados e reencaminham automaticamente os pedidos para outros centros de dados se for detetado um problema.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Começa a escrever código.](v2-overview.md#getting-started)
 

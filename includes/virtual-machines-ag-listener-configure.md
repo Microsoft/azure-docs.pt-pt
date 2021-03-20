@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: fd635d4c0563c35979f8d85c33dfbde35f05f9e6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91401093"
 ---
 O ouvinte do grupo de disponibilidade é um endereço IP e nome de rede que o grupo de disponibilidade do SQL Server ouve. Para criar o ouvinte do grupo de disponibilidade, faça o seguinte:
@@ -28,7 +28,7 @@ O ouvinte do grupo de disponibilidade é um endereço IP e nome de rede que o gr
 
     a. Expanda o nome do cluster e, em seguida, clique em **Funções**.
 
-    b. No painel **Roles,** clique com o botão direito no nome do grupo de disponibilidade e, em seguida, **selecione Adicionar**Ponto de Acesso ao Cliente de Recurso  >  **Client Access Point**.
+    b. No painel **Roles,** clique com o botão direito no nome do grupo de disponibilidade e, em seguida, **selecione Adicionar** Ponto de Acesso ao Cliente de Recurso  >  .
 
    ![Screenshot que mostra a opção do menu Ponto de Acesso ao Cliente.](./media/virtual-machines-ag-listener-configure/92-addclientaccesspoint.png)
 
@@ -58,7 +58,7 @@ O ouvinte do grupo de disponibilidade é um endereço IP e nome de rede que o gr
 
 1. <a name = "dependencyGroup"></a>Tornar o recurso de grupo de disponibilidade SQL dependente do ponto de acesso do cliente.
 
-    a. Em Failover Cluster Manager, clique em **Roles**e, em seguida, clique no seu grupo de disponibilidade.
+    a. Em Failover Cluster Manager, clique em **Roles** e, em seguida, clique no seu grupo de disponibilidade.
 
     b. No separador **Recursos,** em **Outros Recursos,** clique com o botão certo no grupo de recursos de disponibilidade e, em seguida, clique em **Propriedades.** 
 
@@ -70,9 +70,9 @@ O ouvinte do grupo de disponibilidade é um endereço IP e nome de rede que o gr
 
 1. <a name="listname"></a>Tornar o recurso do ponto de acesso do cliente dependente do endereço IP.
 
-    a. Em Failover Cluster Manager, clique em **Roles**e, em seguida, clique no seu grupo de disponibilidade. 
+    a. Em Failover Cluster Manager, clique em **Roles** e, em seguida, clique no seu grupo de disponibilidade. 
 
-    b. No separador **Recursos,** clique com o botão direito no recurso ponto de acesso do cliente sob **o Nome do Servidor**e, em seguida, clique em **Propriedades**. 
+    b. No separador **Recursos,** clique com o botão direito no recurso ponto de acesso do cliente sob **o Nome do Servidor** e, em seguida, clique em **Propriedades**. 
 
    ![Screenshot que mostra a opção do menu Propriedades para o nome do servidor.](./media/virtual-machines-ag-listener-configure/98-dependencies.png) 
 
@@ -81,7 +81,7 @@ O ouvinte do grupo de disponibilidade é um endereço IP e nome de rede que o gr
    ![Recurso IP](./media/virtual-machines-ag-listener-configure/98-propertiesdependencies.png) 
 
     >[!TIP]
-    >Pode validar que as dependências estão corretamente configuradas. Em Failover Cluster Manager, vá a Roles, clique com o botão direito no grupo de disponibilidade, clique em **Mais Ações**e, em seguida, clique em  **Mostrar Relatório de Dependência**. Quando as dependências estão corretamente configuradas, o grupo de disponibilidade depende do nome da rede e o nome da rede depende do endereço IP. 
+    >Pode validar que as dependências estão corretamente configuradas. Em Failover Cluster Manager, vá a Roles, clique com o botão direito no grupo de disponibilidade, clique em **Mais Ações** e, em seguida, clique em  **Mostrar Relatório de Dependência**. Quando as dependências estão corretamente configuradas, o grupo de disponibilidade depende do nome da rede e o nome da rede depende do endereço IP. 
 
 
 1. <a name="setparam"></a>Desa estale os parâmetros do cluster no PowerShell.
@@ -114,7 +114,7 @@ Se necessário, repita os passos acima para definir os parâmetros de cluster pa
 
 1. Obtenha o nome do endereço IP do endereço IP do Cluster WSFC. In **Failover Cluster Manager** under Cluster Core **Resources**, localizar o nome **do servidor**.
 
-1. Clique no **endereço IP**com direito e selecione **Propriedades.**
+1. Clique no **endereço IP** com direito e selecione **Propriedades.**
 
 1. Copie o **Nome** do endereço IP. Pode ser `Cluster IP Address` que. 
 

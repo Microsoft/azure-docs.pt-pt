@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 10/18/2019
 ms.openlocfilehash: bf8b20dadd2fcd78657aa6877e796b645332dd94
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88213450"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-timeouts"></a>Resolver problemas de limites de tempo da Cache do Azure para Redis
@@ -48,7 +48,7 @@ Esta mensagem de erro contém métricas que podem ajudar a indicar-lhe a causa e
 | qs |67 das operações em curso foram enviadas para o servidor, mas ainda não há uma resposta disponível. A resposta pode ser `Not yet sent by the server` ou `sent by the server but not yet processed by the client.` |
 | qc |0 das operações em curso viram respostas, mas ainda não foram marcadas como completas porque estão à espera do ciclo de conclusão |
 | wr |Há um escritor ativo (o que significa que os 6 pedidos não solicitados não estão a ser ignorados) bytes/activewriters |
-| no |Não há leitores ativos e zero bytes estão disponíveis para serem lidos nos bytes/activereaders do NIC |
+| para dentro |Não há leitores ativos e zero bytes estão disponíveis para serem lidos nos bytes/activereaders do NIC |
 
 Pode utilizar os seguintes passos para investigar possíveis causas de raiz.
 

@@ -6,23 +6,23 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 4682eee93b5ff9f01e65611e8d5e0920930776a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86257234"
 ---
 # <a name="sfctl-mesh"></a>sfctl mesh
 Eliminar e gerir aplicações de malha de tecido de serviço.
 
 ## <a name="subgroups"></a>Subgrupos
-|Subgrupo|Descrição|
+|Subgrupo|Description|
 | --- | --- |
 | [app](service-fabric-sfctl-mesh-app.md) | Obter e apagar recursos de aplicação. |
 | [código-pacote-log](service-fabric-sfctl-mesh-code-package-log.md) | Obtenha os registos do recipiente do pacote de código especificado para a réplica de serviço dada. |
 | [implantação](service-fabric-sfctl-mesh-deployment.md) | Criar recursos de malha de tecido de serviço. |
 | [porta de entrada](service-fabric-sfctl-mesh-gateway.md) | Obter e apagar recursos de gateway de malha. |
-| [rede](service-fabric-sfctl-mesh-network.md) | Obter e apagar recursos de rede de malha. |
+| [network](service-fabric-sfctl-mesh-network.md) | Obter e apagar recursos de rede de malha. |
 | [segredo](service-fabric-sfctl-mesh-secret.md) | Obter e apagar recursos secretos de malha. |
 | [secretvalue](service-fabric-sfctl-mesh-secretvalue.md) | Obter e apagar recursos de valor secreto de malha. |
 | [serviço](service-fabric-sfctl-mesh-service.md) | Obtenha detalhes de serviço e serviços de lista de um recurso de aplicação. |

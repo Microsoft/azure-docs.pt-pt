@@ -10,10 +10,10 @@ ms.topic: quickstart
 ms.date: 08/13/2020
 ms.custom: devx-track-python
 ms.openlocfilehash: 8a76a37de64733ba3e0126c7885d8690d2d83c1b
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93099728"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-python-sdk-and-azure-cosmos-db"></a>Quickstart: Construa uma app Cassandra com Python SDK e Azure Cosmos DB
@@ -97,7 +97,7 @@ Este passo é opcional. Se estiver interessado em saber de que forma o código c
 
 Agora, regresse ao portal do Azure para obter as informações da cadeia de ligação e copie-as para a aplicação. A cadeia de ligação permite que a aplicação comunique com a base de dados alojada.
 
-1. Na sua conta DB Azure Cosmos no [portal Azure,](https://portal.azure.com/)selecione **Connection String** . 
+1. Na sua conta DB Azure Cosmos no [portal Azure,](https://portal.azure.com/)selecione **Connection String**. 
 
 1. Utilize o :::image type="icon" source="./media/create-cassandra-python/copy.png"::: botão no lado direito do ecrã para copiar o valor superior, o PONTO DE CONTACTO. 
 
@@ -127,7 +127,7 @@ Agora, regresse ao portal do Azure para obter as informações da cadeia de liga
     
 ## <a name="use-the-x509-certificate"></a>Utilizar o certificado X509
 
-1. Descarregue o certificado Baltimore CyberTrust Root localmente a partir de [https://cacert.omniroot.com/bc2025.crt](https://cacert.omniroot.com/bc2025.crt) . Mude o nome do ficheiro utilizando a extensão do ficheiro *.cer* .
+1. Descarregue o certificado Baltimore CyberTrust Root localmente a partir de [https://cacert.omniroot.com/bc2025.crt](https://cacert.omniroot.com/bc2025.crt) . Mude o nome do ficheiro utilizando a extensão do ficheiro *.cer*.
 
    O certificado tem o número de série `02:00:00:b9` e a identificação digital SHA1 `d4:de:20:d0:5e:66:fc:53:fe:1a:50:88:2c:78:db:28:52:ca:e4:74`.
 
@@ -158,17 +158,17 @@ Agora, regresse ao portal do Azure para obter as informações da cadeia de liga
 
     Prima CTRL+C para parar a execução do programa e feche a janela da consola. 
 
-    :::image type="content" source="./media/create-cassandra-python/output.png" alt-text="Ver e copiar um nome de utilizador de acesso, palavra-passe e ponto de contacto no portal do Azure, painel da cadeia de ligação":::
+    :::image type="content" source="./media/create-cassandra-python/output.png" alt-text="Ver e verificar a saída":::
     
 4. No portal do Azure, abra o **Data Explorer** para consultar, modificar e trabalhar com estes dados novos. 
 
-    :::image type="content" source="./media/create-cassandra-python/data-explorer.png" alt-text="Ver e copiar um nome de utilizador de acesso, palavra-passe e ponto de contacto no portal do Azure, painel da cadeia de ligação":::
+    :::image type="content" source="./media/create-cassandra-python/data-explorer.png" alt-text="Ver os dados no Data Explorer":::
 
 ## <a name="review-slas-in-the-azure-portal"></a>Rever os SLAs no portal do Azure
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 

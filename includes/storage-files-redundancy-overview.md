@@ -9,10 +9,10 @@ ms.date: 12/27/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: b7c097306ba46d4f0024aecc55994508e2d8a090
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96011725"
 ---
 Para proteger os dados nas suas ações de ficheiroS Azure contra perda de dados ou corrupção, todas as ações de ficheiros Azure armazenam várias cópias de cada ficheiro à medida que estão escritas. Dependendo dos requisitos da sua carga de trabalho, pode selecionar graus adicionais de redundância. A Azure Files suporta atualmente as seguintes opções de redundância de dados:

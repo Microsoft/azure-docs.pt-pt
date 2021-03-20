@@ -7,10 +7,10 @@ ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 03/01/2017
 ms.openlocfilehash: 8fb60e62a63bfc4562f19d483dc84c99c37676b0
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92215540"
 ---
 # <a name="run-and-test-u-sql-with-azure-data-lake-u-sql-sdk"></a>Executar e testar U-SQL com Azure Data Lake U-SQL SDK
@@ -63,7 +63,7 @@ Você pode usar um caminho relativo e um caminho absoluto local em scripts U-SQL
 
 Ao executar o script U-SQL localmente, um diretório de trabalho é criado durante a compilação sob o diretório atual. Além das saídas de compilação, os ficheiros de tempo de execução necessários para a execução local serão copiados para este diretório de trabalho. A pasta raiz do diretório de trabalho chama-se "ScopeWorkDir" e os ficheiros no diretório de trabalho são os seguintes:
 
-|Diretório/arquivo|Diretório/arquivo|Diretório/arquivo|Definição|Descrição|
+|Diretório/arquivo|Diretório/arquivo|Diretório/arquivo|Definição|Description|
 |--------------|--------------|--------------|----------|-----------|
 |C6A101DDCB470506| | |Cadeia de haxixe da versão runtime|Cópia-sombra dos ficheiros de tempo de execução necessários para a execução local|
 | |Script_66AE4909AA0ED06C| |Nome do script + cadeia de haxixe do caminho do script|Saídas de compilação e registo de etapas de execução|
@@ -72,7 +72,7 @@ Ao executar o script U-SQL localmente, um diretório de trabalho é criado duran
 | | |\_ScopeCodeGenEngine \_ .*|Saída do compilador|Código nativo gerado|
 | | |conjuntos referenciados|Referência de montagem|Ficheiros de montagem referenciados|
 | | |deployed_resources|Implantação de recursos|Ficheiros de implementação de recursos|
-| | |xxxxxxx.xxx[1..n] \_ \* .*|Registo de execução|Registo das etapas de execução|
+| | |xxxxxxxx.xxx[1.n] \_ \* .*|Registo de execução|Registo das etapas de execução|
 
 ## <a name="use-the-sdk-from-the-command-line"></a>Utilize o SDK a partir da linha de comando
 
@@ -140,9 +140,9 @@ LocalRunHelper run -Script path_to_usql_script.usql [optional_arguments]
 
 Seguem-se argumentos opcionais a **executar:**
 
-|Argumento|Valor predefinido|Descrição|
+|Argumento|Valor predefinido|Description|
 |--------|-------------|-----------|
-|-CodeBehind|Falso|O script tem código .cs por trás|
+|-CodeBehind|Falso|O guião tem .cs código por trás|
 |-CppSDK| |Diretório CppSDK|
 |- DataRoot| Variável do ambiente DataRoot|DataRoot para execução local, padrão para variável ambiente 'LOCALRUN_DATAROOT'|
 |-MensagemOut| |Despeje mensagens na consola para um ficheiro|
@@ -172,9 +172,9 @@ LocalRunHelper compile -Script path_to_usql_script.usql [optional_arguments]
 
 Seguem-se argumentos opcionais para **a compilação:**
 
-|Argumento|Descrição|
+|Argumento|Description|
 |--------|-----------|
-| -CodeBehind [valor predefinido 'Falso']|O script tem código .cs por trás|
+| -CodeBehind [valor predefinido 'Falso']|O guião tem .cs código por trás|
 | -CppSDK [valor predefinido '']|Diretório CppSDK|
 | -DataRoot [valor predefinido 'DataRoot ambiente variável']|DataRoot para execução local, padrão para variável ambiente 'LOCALRUN_DATAROOT'|
 | -MessageOut [valor predefinido '']|Despeje mensagens na consola para um ficheiro|
@@ -217,7 +217,7 @@ LocalRunHelper execute -Algebra path_to_compiled_algebra_file [optional_argument
 
 Seguem-se argumentos opcionais para **execução:**
 
-|Argumento|Valor predefinido|Descrição|
+|Argumento|Valor predefinido|Description|
 |--------|-------------|-----------|
 |- DataRoot | '' |Raiz de dados para a execução de metadados. Está em incumprimento da variável **ambiente LOCALRUN_DATAROOT.**|
 |-MensagemOut | '' |Despeje mensagens na consola para um ficheiro.|
@@ -330,13 +330,13 @@ LocalRunHelper.exe fornece as interfaces de programação para compilação loca
 
 público LocalRunHelper ([System.IO.TextWriter messageOutput = nulo])
 
-|Parâmetro|Tipo|Descrição|
+|Parâmetro|Tipo|Description|
 |---------|----|-----------|
 |saída de mensagens|System.io.TextWriter|para mensagens de saída, definido para nula para usar consola|
 
 ### <a name="properties"></a>Propriedades
 
-|Propriedade|Tipo|Descrição|
+|Propriedade|Tipo|Description|
 |--------|----|-----------|
 |AlgebraPath|string|O caminho para o ficheiro de álgebra (o ficheiro de álgebra é um dos resultados da compilação)|
 |CodeBehindReferences|string|Se o guião tiver código adicional por trás de referências, especifique os caminhos separados com ';'|
@@ -374,7 +374,7 @@ público LocalRunHelper ([System.IO.TextWriter messageOutput = nulo])
 
 E_CSC_SYSTEM_INTERNAL: Erro interno! Não foi possível carregar ficheiros ou montagem 'ScopeEngineManaged.dll' ou uma das suas dependências. O módulo especificado não foi encontrado.
 
-Por favor, verifique o seguinte:
+Verifique o seguinte:
 
 - Certifique-se de que tem ambiente x64. A plataforma-alvo de construção e o ambiente de teste devem ser x64, consulte o **Passo 1: Criar projeto de teste de unidade C# e configuração** acima.
 - Certifique-se de que copiou todos os ficheiros de dependência no âmbito do NugetPackage\build\runtime\ para projetar o diretório de trabalho.

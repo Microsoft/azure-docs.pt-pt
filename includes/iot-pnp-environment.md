@@ -5,10 +5,10 @@ ms.service: iot-pnp
 ms.topic: include
 ms.date: 09/08/2020
 ms.openlocfilehash: 2e53c9d7c7328ef631bd1ba3d678f31dd12e1f28
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91574037"
 ---
 Na [Configuração do seu ambiente,](../articles/iot-pnp/set-up-environment.md)criou quatro variáveis ambientais para configurar a amostra para utilizar o Serviço de Provisionamento de Dispositivos (DPS) para ligar ao seu hub IoT:

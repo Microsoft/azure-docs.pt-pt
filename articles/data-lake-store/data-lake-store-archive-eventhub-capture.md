@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 8be242369ecae2c809a38428284c9ddcad440e3f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91578245"
 ---
 # <a name="use-azure-data-lake-storage-gen1-to-capture-data-from-event-hubs"></a>Use a Azure Data Lake Storage Gen1 para capturar dados de Centros de Eventos
@@ -44,7 +44,7 @@ Nesta secção, cria-se uma pasta dentro da conta onde pretende capturar os dado
 
     ![Screenshot do explorador de dados com a raiz da conta e a opção Access chamada.](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-permissions-to-root.png "Atribuir permissões para a raiz gen1 de armazenamento de data lake")
 
-    b. In **Access**, clique em **Adicionar**, clique em Selecionar Utilizador **ou Grupo**e, em seguida, procure `Microsoft.EventHubs` . 
+    b. In **Access**, clique em **Adicionar**, clique em Selecionar Utilizador **ou Grupo** e, em seguida, procure `Microsoft.EventHubs` . 
 
     ![Screenshot da página Access com a opção Adicionar, Selecione User ou Group e a opção Microsoft Eventhubs chamada.](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp.png "Atribuir permissões para a raiz gen1 de armazenamento de data lake")
     
@@ -65,7 +65,7 @@ Nesta secção, cria-se uma pasta dentro da conta onde pretende capturar os dado
 
     ![Screenshot do explorador de dados com uma pasta na conta e a opção Access chamada.](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-permissions-to-folder.png "Atribuir permissões para a pasta Gen1 de armazenamento de dados")
 
-    b. In **Access**, clique em **Adicionar**, clique em Selecionar Utilizador **ou Grupo**e, em seguida, procure `Microsoft.EventHubs` . 
+    b. In **Access**, clique em **Adicionar**, clique em Selecionar Utilizador **ou Grupo** e, em seguida, procure `Microsoft.EventHubs` . 
 
     ![Screenshot da página de Acesso ao explorador de dados com a opção Adicionar, Selecione User ou Group e a opção Microsoft Eventhubs chamada.](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp.png "Atribuir permissões para a pasta Gen1 de armazenamento de dados")
     
@@ -95,7 +95,7 @@ Nesta secção, você cria um Centro de Eventos dentro de um espaço de nomes de
     
     c. Definir **captura** para **on**. Desa ajuste a **janela de tempo** (com que frequência capturar) e Janela de **Tamanho** (tamanho de dados para capturar). 
     
-    d. Para **Obter Provedor**de Captura , selecione **Azure Data Lake Store** e, em seguida, selecione a conta de Data Lake Storage Gen1 que criou anteriormente. Para **Data Lake Path,** insira o nome da pasta que criou na conta Desema de Armazenamento de Data Lake Gen1. Só precisa de fornecer o caminho relativo para a pasta.
+    d. Para **Obter Provedor** de Captura , selecione **Azure Data Lake Store** e, em seguida, selecione a conta de Data Lake Storage Gen1 que criou anteriormente. Para **Data Lake Path,** insira o nome da pasta que criou na conta Desema de Armazenamento de Data Lake Gen1. Só precisa de fornecer o caminho relativo para a pasta.
 
     e. Deixe os **formatos de nome do ficheiro de captura de amostra** para o valor predefinido. Esta opção rege a estrutura da pasta que é criada sob a pasta de captura.
 
@@ -117,6 +117,6 @@ Agora pode testar a solução enviando dados para o Azure Event Hub. Siga as ins
 Uma vez que os dados estão na Data Lake Storage Gen1, você pode executar trabalhos analíticos para processar e recolher os dados. Consulte [o USQL Avro Exemplo](https://github.com/Azure/usql/tree/master/Examples/AvroExamples) sobre como fazê-lo usando a Azure Data Lake Analytics.
   
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 * [Proteger dados no Armazenamento do Data Lake Ger1](data-lake-store-secure-data.md)
 * [Copiar dados de Azure Storage Blobs para Data Lake Storage Gen1](data-lake-store-copy-data-azure-storage-blob.md)

@@ -11,10 +11,10 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.date: 03/12/2020
 ms.openlocfilehash: 67b398194d9094cd99fccaa85ed0df3be362ce2b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91618034"
 ---
 # <a name="enabling-service-aided-subnet-configuration-for-azure-sql-managed-instance"></a>Habilitação da configuração da sub-rede ajudada pelo serviço para a Azure SQL Gestdited Instance
@@ -22,7 +22,7 @@ ms.locfileid: "91618034"
 
 A configuração da sub-rede ajudada pelo serviço fornece uma gestão automatizada da configuração da rede para sub-redes que hospedam instâncias geridas. Com a configuração da sub-rede ajudada pelo serviço, o utilizador permanece em pleno controlo do acesso aos dados (fluxos de tráfego TDS), enquanto a instância gerida assume a responsabilidade de garantir um fluxo ininterrupto de tráfego de gestão para cumprir o SLA.
 
-Os grupos de segurança de rede configurados automaticamente e as regras de tabela de rotas são visíveis para o cliente e anotadas com prefixo _Microsoft.Sql-managedInstances_UseOnly__.
+Os grupos de segurança de rede configurados automaticamente e as regras de tabela de rotas são visíveis para o cliente e anotadas com prefixo _Microsoft.Sql-managedInstances_UseOnly_ _.
 
 A configuração ajudada pelo serviço é ativada automaticamente assim que ligar [a sub-delegação](../../virtual-network/subnet-delegation-overview.md) para o fornecedor de `Microsoft.Sql/managedInstances` recursos.
 
@@ -33,7 +33,7 @@ A configuração ajudada pelo serviço é ativada automaticamente assim que liga
 > Uma vez que a configuração da sub-rede ajudada pelo serviço é uma característica essencial para manter o SLA, a partir de 1 de maio de 2020, não será possível implementar instâncias geridas em sub-redes que não são delegadas para o fornecedor de recursos de instância gerido. No dia 1 de julho de 2020, todas as sub-redes que contenham instâncias geridas serão automaticamente delegadas para o fornecedor de recursos de instância gerido. 
 
 ## <a name="enabling-subnet-delegation-for-new-deployments"></a>Habilitação da sub-delegação para novas implantações
-Para implementar a instância gerida na sub-rede vazia, é necessário deledetá-la ao `Microsoft.Sql/managedInstances` fornecedor de recursos, conforme descrito no artigo seguinte. [article](../../virtual-network/manage-subnet-delegation.md) _Por favor, note que o artigo referenciado utiliza `Microsoft.DBforPostgreSQL/serversv2` o fornecedor de recursos, por exemplo. Em vez disso, terá de utilizar o `Microsoft.Sql/managedInstances` fornecedor de recursos._
+Para implementar a instância gerida na sub-rede vazia, é necessário deledetá-la ao `Microsoft.Sql/managedInstances` fornecedor de recursos, conforme descrito no artigo seguinte. [](../../virtual-network/manage-subnet-delegation.md) _Por favor, note que o artigo referenciado utiliza `Microsoft.DBforPostgreSQL/serversv2` o fornecedor de recursos, por exemplo. Em vez disso, terá de utilizar o `Microsoft.Sql/managedInstances` fornecedor de recursos._
 
 ## <a name="enabling-subnet-delegation-for-existing-deployments"></a>Habilitação da sub-delegação para as implantações existentes
 
@@ -62,7 +62,7 @@ $mi = Get-AzSqlInstance -ResourceGroupName {rg-name} -Name {mi-name}
 $mi.SubnetId
 ```
 
-Uma vez que encontre a sub-rede de instância gerida, precisa delerá-la ao `Microsoft.Sql/managedInstances` fornecedor de recursos, conforme descrito no artigo seguinte. [article](../../virtual-network/manage-subnet-delegation.md) _Por favor, note que o artigo referenciado utiliza `Microsoft.DBforPostgreSQL/serversv2` o fornecedor de recursos, por exemplo. Em vez disso, terá de utilizar o `Microsoft.Sql/managedInstances` fornecedor de recursos._
+Uma vez que encontre a sub-rede de instância gerida, precisa delerá-la ao `Microsoft.Sql/managedInstances` fornecedor de recursos, conforme descrito no artigo seguinte. [](../../virtual-network/manage-subnet-delegation.md) _Por favor, note que o artigo referenciado utiliza `Microsoft.DBforPostgreSQL/serversv2` o fornecedor de recursos, por exemplo. Em vez disso, terá de utilizar o `Microsoft.Sql/managedInstances` fornecedor de recursos._
 
 
 > [!IMPORTANT]

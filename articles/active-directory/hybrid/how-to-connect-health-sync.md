@@ -17,10 +17,10 @@ ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e803614a02e76d179579a2258abd563b5c58e63a
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98016988"
 ---
 # <a name="monitor-azure-ad-connect-sync-with-azure-ad-connect-health"></a>Monitorizar a sincronização do Azure AD Connect com o Azure AD Connect Health
@@ -88,7 +88,7 @@ O relatório categoriza os erros de sincronização existentes nas seguintes cat
 | Falha de Validação de Dados |Erros devido a dados inválidos, tais como carateres não suportados em atributos críticos, como UserPrincipalName, erros de formatação que falham a validação antes de serem escritos no Azure AD. |
 | Alteração do Domínio Federado | Erros quando as contas utilizam um domínio federado diferente. |
 | Atributo Grande |Erros quando um ou mais atributos são maiores do que o tamanho, o comprimento ou a contagem permitida. |
-| Outros |Todos os outros erros que não se ajustam às categorias acima. Com base em feedback, esta categoria será dividida em sub-categorias. |
+| Outro |Todos os outros erros que não se ajustam às categorias acima. Com base em feedback, esta categoria será dividida em sub-categorias. |
 
 ![Resumo do Relatório de Erros de Sincronização](./media/how-to-connect-health-sync/errorreport01.png)
 ![Categorias do Relatório de Erros de Sincronização](./media/how-to-connect-health-sync/SyncErrorByTypes.PNG)
