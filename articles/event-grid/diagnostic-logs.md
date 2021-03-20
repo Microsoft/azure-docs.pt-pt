@@ -4,10 +4,10 @@ description: Este artigo fornece informações conceptuais sobre registos de dia
 ms.topic: conceptual
 ms.date: 12/03/2020
 ms.openlocfilehash: 36ade14932b5d25c7a1fe05632da671de68ba3bb
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96574991"
 ---
 #  <a name="diagnostic-logs-for-azure-event-grid-topicsdomains"></a>Registos de diagnóstico para tópicos/domínios da Grelha de Eventos Azure
@@ -19,11 +19,11 @@ As definições de diagnóstico permitem aos utilizadores da Grade de Eventos ca
 | Nome da propriedade | Tipo de dados | Descrição |
 | ------------- | --------- | ----------- | 
 | Hora | DateTime | O tempo em que a entrada de registo foi gerada <p>**Valor do exemplo:**  01-29-2020 09:52:02.700</p> |
-| Nome de subscrição de eventos | Cadeia | O nome da subscrição do evento <p>**Valor de exemplo:** "EVENTSUB1"</p> <p>Esta propriedade existe apenas para registos de falha de entrega.</p>  |
-| Categoria | Cadeia | O nome da categoria de registo. <p>**Valores de exemplo:** "DeliveryFailures" ou "PublishFailures" | 
-| OperationName | Cadeia | O nome da operação causou a falha.<p>**Valores de exemplo:** "Entregar" para falhas de entrega. |
-| Mensagem | Cadeia | A mensagem de registo para o utilizador explicando o motivo da falha e outros detalhes adicionais. |
-| ResourceId | Cadeia | O ID de recursos para o tópico/recurso de domínio<p>**Valores de exemplo:**`/SUBSCRIPTIONS/SAMPLE-SUBSCRIPTION-ID/RESOURCEGROUPS/SAMPLE-RESOURCEGROUP/PROVIDERS/MICROSOFT.EVENTGRID/TOPICS/TOPIC1` |
+| Nome de subscrição de eventos | String | O nome da subscrição do evento <p>**Valor de exemplo:** "EVENTSUB1"</p> <p>Esta propriedade existe apenas para registos de falha de entrega.</p>  |
+| Categoria | String | O nome da categoria de registo. <p>**Valores de exemplo:** "DeliveryFailures" ou "PublishFailures" | 
+| OperationName | String | O nome da operação causou a falha.<p>**Valores de exemplo:** "Entregar" para falhas de entrega. |
+| Mensagem | String | A mensagem de registo para o utilizador explicando o motivo da falha e outros detalhes adicionais. |
+| ResourceId | String | O ID de recursos para o tópico/recurso de domínio<p>**Valores de exemplo:**`/SUBSCRIPTIONS/SAMPLE-SUBSCRIPTION-ID/RESOURCEGROUPS/SAMPLE-RESOURCEGROUP/PROVIDERS/MICROSOFT.EVENTGRID/TOPICS/TOPIC1` |
 
 ## <a name="example"></a>Exemplo
 

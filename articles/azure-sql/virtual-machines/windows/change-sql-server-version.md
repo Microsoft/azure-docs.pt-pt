@@ -16,10 +16,10 @@ ms.author: RamaKoni
 ms.reviewer: sqlblt, daleche
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 5dbd5725c666afe04d57d4432f0a4798fcb34c03
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97358848"
 ---
 # <a name="in-place-change-of-sql-server-version-on-azure-vm"></a>Mudança no local da versão do servidor SQL em Azure VM
@@ -49,7 +49,7 @@ Recomendamos que reveja os seguintes itens antes de alterar a versão:
 1. Recomendamos que verifique a certificação de [compatibilidade](/sql/database-engine/install-windows/compatibility-certification) para a versão a que vai alterar para que possa utilizar os modos de compatibilidade da base de dados para minimizar o efeito da atualização.
 1. Pode rever os seguintes artigos para ajudar a garantir um resultado bem sucedido:
 
-   - [Vídeo: Modernizar o SQL Server Pam Lahoud & Pedro Lopes 20 Anos de PASS](https://www.youtube.com/watch?v=5RPkuQHcxxs&feature=youtu.be)
+   - [Vídeo: Modernização do | do servidor SQL Pam Lahoud & Pedro Lopes | 20 Anos de PASS](https://www.youtube.com/watch?v=5RPkuQHcxxs&feature=youtu.be)
    - [Assistente de experimentação de base de dados para testes de AB](/sql/dea/database-experimentation-assistant-overview)
    - [Atualizar bases de dados utilizando o Assistente de Afinação de Consultas](/sql/relational-databases/performance/upgrade-dbcompat-using-qta)
    - [Alterar o Nível de Compatibilidade da Base de Dados e utilizar a Loja de Consultas](/sql/database-engine/install-windows/change-the-database-compatibility-mode-and-use-the-query-store)

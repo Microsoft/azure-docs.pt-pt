@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure Zoom para fornecimento automático de utilizadores com Diretório Ativo Azure / Microsoft Docs'
+title: 'Tutorial: Configurar Zoom para fornecimento automático de utilizadores com Azure Ative Directory | Microsoft Docs'
 description: Saiba como provisão e desavisagem automática de contas de utilizadores do Azure AD ao Zoom.
 services: active-directory
 author: zchia
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 06/3/2019
 ms.author: Zhchia
 ms.openlocfilehash: c87c3692d7e1106e0952b85791da663e03c6001d
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96182483"
 ---
 # <a name="tutorial-configure-zoom-for-automatic-user-provisioning"></a>Tutorial: Configure Zoom para o fornecimento automático de utilizadores

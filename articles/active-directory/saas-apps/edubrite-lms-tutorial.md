@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com a EduBrite LMS Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com EduBrite LMS | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o EduBrite LMS.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.openlocfilehash: 835b6d7c98654f6f7a3375020cfe5f81f6fe186c
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92454276"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-edubrite-lms"></a>Tutorial: Integração do Diretório Ativo Azure com EduBrite LMS

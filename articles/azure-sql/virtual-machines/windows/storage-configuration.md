@@ -1,5 +1,5 @@
 ---
-title: Configuração de armazenamento para VMs do servidor SQL Microsoft Docs
+title: Configuração de armazenamento para VMs do servidor SQL | Microsoft Docs
 description: Este tópico descreve como o Azure configura o armazenamento para VMs do servidor SQL durante o fornecimento (modelo de implementação do Gestor de Recursos Azure). Também explica como pode configurar o armazenamento para os VMs do seu servidor SQL existente.
 services: virtual-machines-windows
 documentationcenter: na
@@ -14,10 +14,10 @@ ms.workload: iaas-sql-server
 ms.date: 12/26/2019
 ms.author: mathoma
 ms.openlocfilehash: d713faf7062f82110be5fa8378faca368b9bb7a2
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97356728"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Configuração de armazenamento das VMs do SQL Server
@@ -141,7 +141,7 @@ O Azure utiliza as seguintes definições para criar a piscina de armazenamento 
 
 O quadro a seguir descreve as três opções de tipo de carga de trabalho disponíveis e as respetivas otimizações:
 
-| Tipo de carga de trabalho | Descrição | Otimizações |
+| Tipo de carga de trabalho | Description | Otimizações |
 | --- | --- | --- |
 | **Geral** |Definição padrão que suporta a maioria das cargas de trabalho |Nenhum |
 | **Processamento transacional** |Otimiza o armazenamento para as cargas de trabalho tradicionais da base de dados OLTP |Bandeira de traço 1117<br/>Bandeira de traço 1118 |

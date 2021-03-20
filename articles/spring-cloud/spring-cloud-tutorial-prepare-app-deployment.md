@@ -9,10 +9,10 @@ ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
 ms.openlocfilehash: 4e9c84efe7b96cf61a69c54e3f5ecbc469ac7d8d
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98874147"
 ---
 # <a name="prepare-an-application-for-deployment-in-azure-spring-cloud"></a>Preparar uma aplicação para implantação em Azure Spring Cloud
@@ -57,7 +57,7 @@ Para steeltoe 3.0, adicione o mais recente pacote [Microsoft.Azure.SpringCloud.C
 </ItemGroup>
 ```
 
-## <a name="update-programcs"></a>Atualizar Program.cs
+## <a name="update-programcs"></a>Programa de atualização.cs
 
 No `Program.Main` método, chame o `UseAzureSpringCloudService` método.
 
@@ -310,14 +310,14 @@ Inclua a seguinte `spring-cloud-sleuth-zipkin` dependência na secção de depen
 </dependency>
 ```
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 * [Analisar registos de aplicações e métricas](./diagnostic-services.md)
 * [Configurar o Servidor de Configuração](./spring-cloud-tutorial-config-server.md)
 * [Use rastreio distribuído com Azure Spring Cloud](./spring-cloud-tutorial-distributed-tracing.md)
 * [Guia de arranque rápido de primavera](https://spring.io/quickstart)
 * [Documentação do Boot de primavera](https://spring.io/projects/spring-boot)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tópico, aprendeu a configurar a sua aplicação Java Spring para implantação na Azure Spring Cloud. Para aprender a configurar uma instância do Servidor Config, consulte [configurar uma instância do Servidor Config](spring-cloud-tutorial-config-server.md).
 

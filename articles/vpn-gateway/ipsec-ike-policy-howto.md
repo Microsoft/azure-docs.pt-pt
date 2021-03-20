@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/18/2020
 ms.author: yushwang
 ms.openlocfilehash: 2b298185866d16da02fe8d3b3fdb41f0b0b1f726
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98878549"
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections-azure-portal"></a>Configure a política IPsec/IKE para as ligações S2S VPN ou VNet-to-VNet: Portal Azure
@@ -28,8 +28,10 @@ Este artigo fornece instruções para criar e configurar uma política IPsec/IKE
 ### <a name="considerations"></a>Considerações
 
 * A política IPsec/IKE funciona apenas nos seguintes SKUs de gateway:
-  * ***VpnGw1~5 e VpnGw1AZ~5AZ** _ _ _ _ **Standard** _ e _*_HighPerformance_*_ _ Só pode especificar ***uma** _ combinação de política para uma determinada ligação.
-  _ Deve especificar todos os algoritmos e parâmetros tanto para o IKE (Modo Principal) como para o IPsec (Modo Rápido). Não é permitida a especificação da política parcial.
+  * ***VpnGw1~5 e VpnGw1AZ~5AZ***
+  * ***Standard** _ e _ *_HighPerformance_**
+* Só pode especificar ***uma*** combinação de políticas para uma determinada ligação.
+* Deve especificar todos os algoritmos e parâmetros tanto para o IKE (Modo Principal) como para o IPsec (Modo Rápido). Não é permitida a especificação da política parcial.
 * Consulte as especificações do seu fornecedor de dispositivos VPN para garantir que a política é suportada nos seus dispositivos VPN no local. As ligações S2S ou VNet-to-VNet não podem determinar se as políticas são incompatíveis.
 
 ## <a name="workflow"></a><a name ="workflow"></a>Fluxo de trabalho
@@ -205,6 +207,6 @@ Os passos para criar uma ligação VNet-vNet com uma política IPsec/IKE são se
 
 3. **Selecione Guardar** para remover a política personalizada e restaurar as definições IPsec/IKE predefinidos na ligação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte [os dispositivos VPN baseados em políticas para ligar vários dispositivos VPN baseados em políticas](vpn-gateway-connect-multiple-policybased-rm-ps.md) para obter mais detalhes sobre os seletores de tráfego baseados em políticas.

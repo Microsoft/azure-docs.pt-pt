@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 04/20/2020
 ms.custom: devx-track-js
 ms.openlocfilehash: c1a64bff8b81735d9c4c9a14d2c1e12bd0bfe57e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91296166"
 ---
 # <a name="writing-plugins-for-azure-media-player"></a>Escrevendo plugins para Azure Media Player #
@@ -50,7 +50,7 @@ Exemplo:
 ## <a name="step-2"></a>Passo 2 ##
 Inicialize o plugin com JavaScript de uma de duas maneiras:
 
-Método 1:
+Método 1:
 
 ```javascript
     var myOptions = {
@@ -68,7 +68,7 @@ Método 1:
     var myPlayer = amp([videotag id], myOptions);
 ```
 
-Método 2:
+Método 2:
 
 ```javascript
     var video = amp([videotag id]);

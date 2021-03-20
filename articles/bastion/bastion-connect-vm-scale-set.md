@@ -1,5 +1,5 @@
 ---
-title: Ligue-se a um conjunto de balanças de máquinas virtuais do Windows utilizando o Azure Bastion Microsoft Docs
+title: Ligue-se a um conjunto de escala de máquina virtual do Windows utilizando o Azure Bastion | Microsoft Docs
 description: Neste artigo, aprenda a ligar-se a um conjunto de escala de máquina virtual Azure utilizando Azure Bastion.
 services: bastion
 author: charwen
@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: charwen
 ms.openlocfilehash: 001d2ff6789ec4cfcc391171f0859b67ab1ee0a5
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92077784"
 ---
 # <a name="connect-to-a-virtual-machine-scale-set-using-azure-bastion"></a>Ligue-se a um conjunto de escala de máquina virtual usando Azure Bastion

@@ -1,5 +1,5 @@
 ---
-title: Tipos de aplicação em v1.0 ! Rio Azure
+title: Tipos de aplicação em v1.0 | Rio Azure
 description: Descreve os tipos de apps e cenários suportados pelo Azure Ative Directory v2.0 endpoint.
 services: active-directory
 author: rwike77
@@ -14,10 +14,10 @@ ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 5ff2858dd8b91ba036c517cbff07be96a729ef8c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88116449"
 ---
 # <a name="application-types-in-v10"></a>Tipos de aplicação em v1.0
@@ -47,7 +47,7 @@ Pode desenvolver qualquer uma das aplicações e cenários descritos aqui usando
 
 Além disso, se a sua aplicação necessitar de uma peça ou segmento específico de um cenário de ponta a ponta, na maioria dos casos essa funcionalidade pode ser adicionada de forma independente. Por exemplo, se tiver uma aplicação nativa que chama uma API web, pode facilmente adicionar uma aplicação web que também chama a API web.
 
-## <a name="app-registration"></a>Registo da aplicação
+## <a name="app-registration"></a>Registo de aplicações
 
 ### <a name="registering-an-app-that-uses-the-azure-ad-v10-endpoint"></a>Registar uma aplicação que utiliza o ponto final Azure AD v1.0
 

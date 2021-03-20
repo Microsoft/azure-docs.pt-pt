@@ -5,10 +5,10 @@ ms.topic: quickstart
 ms.date: 03/27/2020
 ms.custom: mvc
 ms.openlocfilehash: 8681ccaac30402927005e5e8802d7da2bddc2c5c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86135699"
 ---
 # <a name="quickstart-set-up-disaster-recovery-to-a-secondary-azure-region-for-an-azure-vm"></a>Quickstart: Criar recuperação de desastres para uma região secundária de Azure para um Azure VM
@@ -48,9 +48,9 @@ Após o fim do trabalho de replicação, pode verificar o estado de replicação
 1. Em **Operações** selecione **recuperação de desastres**.
 1. Para ver os detalhes de replicação da **visão geral,** selecione **Essentials**. Mais detalhes são mostrados na **Saúde e estado,** **prontidão failover,** e no mapa de **vista da Infraestrutura.**
 
-   :::image type="content" source="media/azure-to-azure-quickstart/replication-status.png" alt-text="Ativar a replicação.":::
+   :::image type="content" source="media/azure-to-azure-quickstart/replication-status.png" alt-text="Estado de replicação.":::
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Para parar a replicação do VM na região primária, deve desativar a replicação:
 
@@ -63,9 +63,9 @@ Para desativar a replicação, faça estes passos:
 1. No menu do portal Azure, selecione **máquinas Virtuais** e selecione o VM que replicou.
 1. Em **Operações** selecione **recuperação de desastres**.
 1. A partir do **Resumo,** selecione **Replicação de Desativação.**
-1. Para desinstalar a extensão de recuperação do site, aceda às extensões de **definições**do VM  >  **Extensions**.
+1. Para desinstalar a extensão de recuperação do site, aceda às extensões de **definições** do VM  >  .
 
-   :::image type="content" source="media/azure-to-azure-quickstart/disable2-replication.png" alt-text="Ativar a replicação.":::
+   :::image type="content" source="media/azure-to-azure-quickstart/disable2-replication.png" alt-text="Desativar a replicação.":::
 
 ## <a name="next-steps"></a>Passos seguintes
 

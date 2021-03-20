@@ -1,5 +1,5 @@
 ---
-title: Ver relatório de auditoria para atribuições de grupos de acesso privilegiado em Gestão de Identidade Privilegiada (PIM) - Azure AD ! Microsoft Docs
+title: Ver relatório de auditoria para atribuições privilegiadas de grupos de acesso em Gestão de Identidade Privilegiada (PIM) - Azure AD | Microsoft Docs
 description: Ver histórico de atividades e auditorias para atribuições privilegiadas de grupos de acesso em Azure AD Gestão de Identidade Privilegiada (PIM).
 services: active-directory
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.author: curtand
 ms.reviewer: shaunliu
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 94dd5c2579eb7ce96dea70c6354df8ec84125bd9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88141674"
 ---
 # <a name="audit-activity-history-for-privileged-access-group-assignments-preview-in-privileged-identity-management"></a>Histórico de atividades de auditoria para atribuições privilegiadas de grupos de acesso (pré-visualização) em Gestão de Identidade Privilegiada

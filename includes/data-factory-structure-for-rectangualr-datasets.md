@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
 ms.openlocfilehash: 1ab404b838af65dcb75395dfeee1ca0553e497a1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "67184929"
 ---
 ## <a name="specifying-structure-definition-for-rectangular-datasets"></a>Especificar a definição de estrutura para conjuntos de dados retangulares
@@ -16,12 +16,12 @@ A secção de estrutura nos conjuntos de dados JSON é uma secção **opcional**
 
 Cada coluna contém as seguintes propriedades:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| name |O nome da coluna. |Sim |
-| tipo |Tipo de dados da coluna. Consulte a secção de conversões de tipo abaixo para obter mais detalhes sobre quando deve especificar as informações do tipo |Não |
-| cultura |.CULTURA baseada em NET a ser utilizada quando o tipo é especificado e é .NET tipo Datatime ou Datetimeoffset. O padrão é "en-us". |Não |
-| formato |Cadeia de formato a utilizar quando o tipo é especificado e é .NET tipo Datatime ou Datetimeoffset. |Não |
+| name |O nome da coluna. |Yes |
+| tipo |Tipo de dados da coluna. Consulte a secção de conversões de tipo abaixo para obter mais detalhes sobre quando deve especificar as informações do tipo |No |
+| cultura |.CULTURA baseada em NET a ser utilizada quando o tipo é especificado e é .NET tipo Datatime ou Datetimeoffset. O padrão é "en-us". |No |
+| formato |Cadeia de formato a utilizar quando o tipo é especificado e é .NET tipo Datatime ou Datetimeoffset. |No |
 
 A amostra a seguir mostra a secção de estrutura JSON para uma tabela que tem três colunas userid, nome e lastlogindate.
 
@@ -54,7 +54,7 @@ A fábrica de dados suporta os seguintes valores de tipo cls .NET compatíveis c
 * Decimal
 * Byte[]
 * Booleano
-* Cadeia 
+* String 
 * GUID
 * Datetime
 * Datatimeoff

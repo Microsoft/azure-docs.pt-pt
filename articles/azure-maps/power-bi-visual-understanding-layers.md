@@ -1,5 +1,5 @@
 ---
-title: Compreender camadas no Azure Maps Power BI visual Microsoft Azure Maps
+title: Compreender camadas no Azure Maps Power BI | Microsoft Azure Maps
 description: Neste artigo, você vai aprender sobre as diferentes camadas disponíveis no Microsoft Azure Maps visual para Power BI.
 author: rbrundritt
 ms.author: richbrun
@@ -10,10 +10,10 @@ services: azure-maps
 manager: cpendle
 ms.custom: ''
 ms.openlocfilehash: a5c7296a0e7b7f6ea33c1f4a669675efd90f9e9a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86261848"
 ---
 # <a name="understanding-layers-in-the-azure-maps-power-bi-visual"></a>Compreender camadas no Azure Maps Power BI visual

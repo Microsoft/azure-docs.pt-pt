@@ -12,10 +12,10 @@ ms.author: sstein
 ms.date: 10/15/2020
 ms.reviewer: ''
 ms.openlocfilehash: 19178359d1eeb935499a01828f7c53b123e17571
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92793182"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Escalões de serviço no modelo de compra baseado em DTU
@@ -38,12 +38,12 @@ A escolha de um nível de serviço depende principalmente da continuidade do neg
 | :-- | --: |--:| --:|
 |**Carga de trabalho de destino**|Desenvolvimento e produção|Desenvolvimento e produção|Desenvolvimento e produção|
 |**Uptime SLA**|99,99%|99,99%|99,99%|
-|**Retenção máxima de backup**|7 dias|35 dias|35 dias|
+|**Retenção máxima de backup**|7 dias|35 dias|35 dias|
 |**CPU**|Baixo|Baixo, Médio, Alto|Médio, Alto|
 |**IOPS (aproximadamente)**\* |1-4 IOPS por DTU| 1-4 IOPS por DTU | 25 IOPS por DTU|
 |**Latência IO (aproximada)**|5 ms (ler), 10 ms (escrever)|5 ms (ler), 10 ms (escrever)|2 ms (ler/escrever)|
 |**Indexação de colunas** |N/D|S3 e acima|Suportado|
-|**OLTP dentro da memória**|N/D|N/D|Suportado|
+|**OLTP na memória**|N/D|N/D|Suportado|
 
 \* Todos leiam e escrevam IOPS contra ficheiros de dados, incluindo IO de fundo (checkpoint e escritor preguiçoso)
 
@@ -114,7 +114,7 @@ A base de dados é dimensionada com base num "fator de escala". O fator de escal
 
 A carga de trabalho consiste em nove tipos de transações, conforme indicado no quadro abaixo. Cada transação foi concebida para destacar um conjunto específico de características do sistema no motor de base de dados e hardware do sistema, com elevado contraste das outras transações. Esta abordagem facilita a avaliação do impacto dos diferentes componentes no desempenho global. Por exemplo, a transação "Read Heavy" produz um número significativo de operações de leitura a partir do disco.
 
-| Tipo de Transação | Descrição |
+| Tipo de Transação | Description |
 | --- | --- |
 | Ler Lite |SELECIONE; na memória; read-only |
 | Ler Médio |SELECIONE; principalmente na memória; read-only |

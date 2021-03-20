@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/27/2020
 ms.custom: devx-track-java
 ms.openlocfilehash: 0c90062f1968cc7be5a742a67363f57b9632fdfa
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92090680"
 ---
 # <a name="java-and-base-os-for-spring-microservice-apps"></a>Java e Base OS para Aplicações de Microsserviços Spring
@@ -20,10 +20,10 @@ ms.locfileid: "92090680"
 
 Seguem-se os princípios para a manutenção de java saudável e sistema operativo base para aplicações de microserviços da primavera.
 ## <a name="principles-for-healthy-java-and-base-os"></a>Princípios para java saudável e base OS
-* Deve ser o mesmo sistema operativo base em níveis - Básico Standard / Premium, prémio.
+* Deve ser o mesmo sistema operativo de base entre os níveis - | básicos | padrão Premium, prémio.
     * Atualmente, as aplicações em Azure Spring Cloud usam uma mistura de Debian 10 e Ubuntu 18.04.
     * O serviço de construção VMware utiliza ubuntu 18.04.
-* Deve ser o mesmo sistema operativo de base, independentemente dos pontos de partida de implantação - fonte RIO JAR
+* Deve ser o mesmo sistema operativo de base, independentemente dos pontos de partida de implantação - fonte | RIO JAR
     * Atualmente, as aplicações em Azure Spring Cloud usam uma mistura de Debian 10 e Ubuntu 18.04.
 * O sistema operativo de base deve estar livre de vulnerabilidades de segurança.
     * O sistema operativo base Debian 10 tem 147 CVEs abertos.

@@ -8,10 +8,10 @@ ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: 835e4f681d514bb6b92caa5ee076e3794ed59236
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94698823"
 ---
 # <a name="security-control-data-recovery"></a>Controlo de Segurança: Recuperação de Dados
@@ -32,7 +32,7 @@ Ativar o Azure Backup e configurar a fonte de backup (Azure VMs, SQL Server ou F
 
 | Azure ID | CIS IDs | Responsabilidade |
 |--|--|--|
-| 9.2 | 10.2 | Cliente |
+| 9,2 | 10.2 | Cliente |
 
 Ativar o Azure Backup e os VM(s) alvo, bem como os períodos de frequência e retenção pretendidos. O cliente de reserva geriu as chaves dentro do Cofre da Chave Azure.
 
@@ -44,7 +44,7 @@ Ativar o Azure Backup e os VM(s) alvo, bem como os períodos de frequência e re
 
 | Azure ID | CIS IDs | Responsabilidade |
 |--|--|--|
-| 9.3 | 10.3 | Cliente |
+| 9,3 | 10,3 | Cliente |
 
 Garantir a capacidade de realizar periodicamente a restauração de dados de conteúdos dentro da Cópia de Segurança Azure. Teste de restauração de chaves geridas pelo cliente.
 

@@ -1,5 +1,5 @@
 ---
-title: Encriptação em Azure Data Lake Storage Gen1 Microsoft Docs
+title: Encriptação em Azure Data Lake Storage Gen1 | Microsoft Docs
 description: A encriptação no Azure Data Lake Storage Gen1 ajuda-o a proteger os seus dados, a implementar políticas de segurança da empresa e a cumprir os requisitos de conformidade regulamentar. Este artigo apresenta uma descrição geral da estrutura e descreve alguns dos aspetos técnicos da implementação.
 services: data-lake-store
 documentationcenter: ''
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: yagupta
 ms.openlocfilehash: f924cb7462f7f8c9939ec261b7ef200ceb8ea70b
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92109158"
 ---
 # <a name="encryption-of-data-in-azure-data-lake-storage-gen1"></a>Encriptação de dados em Azure Data Lake Storage Gen1
@@ -55,9 +55,9 @@ Segue-se uma breve comparação das capacidades proporcionadas pelos dois modos 
 | Pergunta | Chaves geridas por serviços | Chaves geridas pelo cliente |
 | -------- | -------------------- | --------------------- |
 |Como são armazenados os dados?|São sempre encriptados antes de serem armazenados.|São sempre encriptados antes de serem armazenados.|
-|Onde é armazenada a Chave de Encriptação Mestra?|Cofre de Chaves|Cofre de Chaves|
-|As chaves de encriptação são armazenadas de forma desprotegida, fora do Key Vault? |Não|Não|
-|É possível obter a MEK a partir do Key Vault?|Não. Depois de a MEK ser armazenada no Key Vault, só pode ser utilizada para encriptação e desencriptação.|Não. Depois de a MEK ser armazenada no Key Vault, só pode ser utilizada para encriptação e desencriptação.|
+|Onde é armazenada a Chave de Encriptação Mestra?|Key Vault|Key Vault|
+|As chaves de encriptação são armazenadas de forma desprotegida, fora do Key Vault? |No|No|
+|É possível obter a MEK a partir do Key Vault?|N.º Depois de a MEK ser armazenada no Key Vault, só pode ser utilizada para encriptação e desencriptação.|N.º Depois de a MEK ser armazenada no Key Vault, só pode ser utilizada para encriptação e desencriptação.|
 |Quem é o proprietário da instância do Key Vault e da MEK?|O serviço de armazenamento de dados Lake Gen1|O utilizador é o proprietário da instância do Key Vault, que pertence à sua própria subscrição do Azure. A MEK no Key Vault pode ser gerida por software ou hardware.|
 |Pode revogar o acesso ao MEK para o serviço Desarrumação gen1 do Data Lake?|Não|Yes. Pode gerir as listas de controlo de acesso no Key Vault e remover as entradas de controlo de acesso à identidade do serviço para o serviço Data Lake Storage Gen1.|
 |Pode eliminar permanentemente a MEK?|Não|Yes. Se eliminar o MEK do Key Vault, os dados da conta Descodificar a Gen1 de Armazenamento de Dados não podem ser desencriptados por ninguém, incluindo o serviço Desemboado Desembose de Armazenamento de Dados Gen1. <br><br> Se tiver criado explicitamente uma cópia de segurança da MEK antes de a eliminar do Key Vault, a MEK pode ser restaurada e os dados recuperados. No entanto, se não tiver feito o back up do MEK antes de o eliminar do Key Vault, os dados na conta de Data Lake Storage Gen1 nunca poderão ser desencriptados posteriormente.|
@@ -76,7 +76,7 @@ São utilizados três tipos de chaves no design da encriptação de dados. A tab
 
 | Chave                   | Abreviatura | Associada a | Localização do armazenamento                             | Tipo       | Notas                                                                                                   |
 |-----------------------|--------------|-----------------|----------------------------------------------|------------|---------------------------------------------------------------------------------------------------------|
-| Chave de Encriptação Mestra | MEK          | Uma conta Gen1 de armazenamento de data lake | Cofre de Chaves                              | Assimétrica | Pode ser gerido pela Data Lake Storage Gen1 ou por si.                                                              |
+| Chave de Encriptação Mestra | MEK          | Uma conta Gen1 de armazenamento de data lake | Key Vault                              | Assimétrica | Pode ser gerido pela Data Lake Storage Gen1 ou por si.                                                              |
 | Chave de Encriptação de Dados   | DEK          | Uma conta Gen1 de armazenamento de data lake | Armazenamento persistente, gerido pelo serviço Data Lake Storage Gen1 | Simétrica  | O DEK é encriptado pela MEK. O DEK encriptado é o que é armazenado no suporte de dados persistente. |
 | Chave de Encriptação de Blocos  | BEK          | Um bloco de dados | Nenhum                                         | Simétrica  | A BEK é obtida a partir da DEK e do bloco de dados.                                                      |
 

@@ -5,10 +5,10 @@ services: container-service
 ms.topic: article
 ms.date: 12/07/2018
 ms.openlocfilehash: e8f9c1946567ac3c3ea1045a216d6b0486fd959a
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94686264"
 ---
 # <a name="cluster-operator-and-developer-best-practices-to-build-and-manage-applications-on-azure-kubernetes-service-aks"></a>Operador de cluster e desenvolvedor de boas práticas para construir e gerir aplicações no Serviço Azure Kubernetes (AKS)
@@ -73,6 +73,6 @@ Para ajudar a compreender algumas das funcionalidades e componentes destas melho
 * [Opções de armazenamento](concepts-storage.md)
 * [Opções de escala](concepts-scale.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se precisar de começar com a AKS, siga um dos quickstarts para implantar um cluster Azure Kubernetes Service (AKS) utilizando o portal [Azure CLI](kubernetes-walkthrough.md) ou [Azure](kubernetes-walkthrough-portal.md).

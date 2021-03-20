@@ -8,10 +8,10 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 33b1ad381b3f7865768f9e39295a2985f8aa5234
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100375107"
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory - Considerações de segurança para o movimento de dados
@@ -140,7 +140,7 @@ As imagens que se seguem mostram a utilização do Data Management Gateway para 
 
 ### <a name="firewall-configurations-and-filtering-ip-address-of-gateway"></a>Configurações de firewall e endereço IP filtrante do gateway
 
-#### <a name="firewall-requirements-for-on-premisesprivate-network"></a>Requisitos de firewall para as redes no local/rede privada    
+#### <a name="firewall-requirements-for-on-premisesprivate-network"></a>Requisitos de firewall para rede no local/privada    
 Numa empresa, uma **firewall corporativa** funciona no router central da organização. E a **firewall do Windows** funciona como um daemon na máquina local na qual o portal está instalado. 
 
 A tabela seguinte fornece requisitos **de porta** e domínio de saída para a **firewall corporativa**.

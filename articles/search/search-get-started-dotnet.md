@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 11/20/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: f0d912d5b14932c43d109f8f955d5f16381cf773
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98180103"
 ---
 # <a name="quickstart-create-a-search-index-using-the-azuresearchdocuments-client-library"></a>Quickstart: Criar um índice de pesquisa utilizando a biblioteca de clientes Azure.Search.Documents
@@ -74,7 +74,7 @@ Após a criação do projeto, adicione a biblioteca do cliente. O [ pacoteAzure.
 
 ### <a name="create-a-search-client"></a>Criar um cliente de pesquisa
 
-1. Em **Program.cs,** altere o espaço de nome para `AzureSearch.SDK.Quickstart.v11` e, em seguida, adicione as `using` seguintes diretivas.
+1. No **Programa.cs**, altere o espaço de nome para `AzureSearch.SDK.Quickstart.v11` e, em seguida, adicione as `using` seguintes diretivas.
 
    ```csharp
    using Azure;
@@ -110,7 +110,7 @@ Neste exemplo, os métodos sincronizados da biblioteca Azure.Search.Documents s�
 
 1. Adicione uma definição de classe vazia ao seu projeto: **Hotel.cs**
 
-1. Copie o seguinte código em **Hotel.cs** para definir a estrutura de um documento de hotel. Os atributos no campo determinam como é usado numa aplicação. Por exemplo, o `IsFilterable` atributo deve ser atribuído a todos os campos que suportem uma expressão de filtro.
+1. Copie o seguinte código para **o Hotel.cs** para definir a estrutura de um documento de hotel. Os atributos no campo determinam como é usado numa aplicação. Por exemplo, o `IsFilterable` atributo deve ser atribuído a todos os campos que suportem uma expressão de filtro.
 
     ```csharp
     using System;
@@ -158,9 +158,9 @@ Neste exemplo, os métodos sincronizados da biblioteca Azure.Search.Documents s�
 
    Na biblioteca de clientes Azure.Search.Doc, pode utilizar [SearchableField](/dotnet/api/azure.search.documents.indexes.models.searchablefield) e [SimpleField](/dotnet/api/azure.search.documents.indexes.models.simplefield) para simplificar definições de campo. Ambos são derivados de um [SearchField](/dotnet/api/azure.search.documents.indexes.models.searchfield) e podem potencialmente simplificar o seu código:
 
-   + `SimpleField` pode ser qualquer tipo de dados, é sempre não pesmável (é ignorado para consultas completas de pesquisa de texto), e é recuperável (não está escondido). Outros atributos estão desligados por padrão, mas podem ser ativados. Pode utilizar um `SimpleField` para identificação de documentos ou campos utilizados apenas em filtros, facetas ou perfis de pontuação. Em caso afirmativo, certifique-se de aplicar quaisquer atributos necessários para o cenário, como `IsKey = true` para um documento ID. Para mais informações, consulte [SimpleFieldAttribute.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/src/Indexes/SimpleFieldAttribute.cs) no código fonte.
+   + `SimpleField` pode ser qualquer tipo de dados, é sempre não pesmável (é ignorado para consultas completas de pesquisa de texto), e é recuperável (não está escondido). Outros atributos estão desligados por padrão, mas podem ser ativados. Pode utilizar um `SimpleField` para identificação de documentos ou campos utilizados apenas em filtros, facetas ou perfis de pontuação. Em caso afirmativo, certifique-se de aplicar quaisquer atributos necessários para o cenário, como `IsKey = true` para um documento ID. Para mais informações, consulte [SimpleFieldAttribute.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/src/Indexes/SimpleFieldAttribute.cs) em código fonte.
 
-   + `SearchableField` deve ser uma corda, e é sempre pescaizável e recuperável. Outros atributos estão desligados por padrão, mas podem ser ativados. Como este tipo de campo é pesjável, suporta sinónimos e o complemento completo das propriedades do analisador. Para mais informações, consulte a [SearchableFieldAttribute.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/src/Indexes/SearchableFieldAttribute.cs) no código fonte.
+   + `SearchableField` deve ser uma corda, e é sempre pescaizável e recuperável. Outros atributos estão desligados por padrão, mas podem ser ativados. Como este tipo de campo é pesjável, suporta sinónimos e o complemento completo das propriedades do analisador. Para mais informações, consulte o [SearchableFieldAttribute.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/src/Indexes/SearchableFieldAttribute.cs) em código fonte.
 
    Quer utilize a `SearchField` API básica ou qualquer um dos modelos auxiliares, tem de ativar explicitamente os atributos de filtro, faceta e classificação. Por exemplo, [IsFilterable](/dotnet/api/azure.search.documents.indexes.models.searchfield.isfilterable), [IsSortable](/dotnet/api/azure.search.documents.indexes.models.searchfield.issortable)e [IsFacetable](/dotnet/api/azure.search.documents.indexes.models.searchfield.isfacetable) devem ser explicitamente atribuídos, como mostrado na amostra acima. 
 
@@ -191,9 +191,9 @@ Neste exemplo, os métodos sincronizados da biblioteca Azure.Search.Documents s�
     }
    ```
 
-1. Crie mais duas classes: **Hotel.Methods.cs** e **Address.Methods.cs** para substituições de ToString.). Estas classes são usadas para tornar os resultados da pesquisa na saída da consola.  O conteúdo destas aulas não é fornecido neste artigo, mas pode copiar o código a partir de [ficheiros no GitHub](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart/v11/AzureSearchQuickstart-v11).
+1. Crie mais duas aulas: **Hotel.Methods.cs** e **Address.Methods.cs** para substituições de ToString.. Estas classes são usadas para tornar os resultados da pesquisa na saída da consola.  O conteúdo destas aulas não é fornecido neste artigo, mas pode copiar o código a partir de [ficheiros no GitHub](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart/v11/AzureSearchQuickstart-v11).
 
-1. Em **Program.cs,** crie um objeto [SearchIndex](/dotnet/api/azure.search.documents.indexes.models.searchindex) e, em seguida, ligue para o método [CreateIndex](/dotnet/api/azure.search.documents.indexes.searchindexclient.createindex) para expressar o índice no seu serviço de pesquisa. O índice também inclui um [SearchSuggester](/dotnet/api/azure.search.documents.indexes.models.searchsuggester) para permitir o preconto automático nos campos especificados.
+1. No **Programa.cs,** crie um objeto [SearchIndex](/dotnet/api/azure.search.documents.indexes.models.searchindex) e, em seguida, ligue para o método [CreateIndex](/dotnet/api/azure.search.documents.indexes.searchindexclient.createindex) para expressar o índice no seu serviço de pesquisa. O índice também inclui um [SearchSuggester](/dotnet/api/azure.search.documents.indexes.models.searchsuggester) para permitir o preconto automático nos campos especificados.
 
    ```csharp
     // Create hotels-quickstart index
@@ -221,7 +221,7 @@ Na Pesquisa Cognitiva Azure, os documentos de pesquisa são estruturas de dados 
 
 Ao carregar documentos, deve utilizar um objeto [IndexDocumentsBatch.](/dotnet/api/azure.search.documents.models.indexdocumentsbatch-1) Um `IndexDocumentsBatch` objeto contém uma coleção de [Ações,](/dotnet/api/azure.search.documents.models.indexdocumentsbatch-1.actions)cada uma das quais contém um documento e uma propriedade que diz à Azure Cognitive Search que ação a executar ([upload, fusão, exclusão e fusãoOrUpload).](search-what-is-data-import.md#indexing-actions)
 
-1. Em **Program.cs,** crie uma série de documentos e ações de índice, e depois passe a matriz para `IndexDocumentsBatch` . Os documentos abaixo estão em conformidade com o índice hotéis-quickstart, conforme definido pela classe hoteleira.
+1. No **Programa.cs,** crie uma série de documentos e ações de índice e, em seguida, passe a matriz para `IndexDocumentsBatch` . Os documentos abaixo estão em conformidade com o índice hotéis-quickstart, conforme definido pela classe hoteleira.
 
     ```csharp
     // Upload documents in a single Upload request.
@@ -357,7 +357,7 @@ Esta secção adiciona duas peças de funcionalidade: lógica de consulta e resu
 
 A classe [SearchResults](/dotnet/api/azure.search.documents.models.searchresults-1) representa os resultados.
 
-1. Em **Program.cs**, crie um método **WriteDocuments** que imprime os resultados de pesquisa para a consola.
+1. No **Programa.cs**, crie um método **WriteDocuments** que imprime os resultados de pesquisa para a consola.
 
     ```csharp
     // Write search results to console

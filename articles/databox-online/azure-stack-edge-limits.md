@@ -1,5 +1,5 @@
 ---
-title: Limites Azure Stack Edge Pro / Microsoft Docs
+title: Azure Stack Edge Pro limita | Microsoft Docs
 description: Saiba mais sobre os limites e tamanhos recomendados à medida que implementa e opera o Azure Stack Edge Pro, incluindo limites de serviço, limites de dispositivos e limites de armazenamento.
 services: databox
 author: alkohli
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 10/12/2020
 ms.author: alkohli
 ms.openlocfilehash: f1bb5662b48765c08ec58d1f7fa9d341de4937bc
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91992760"
 ---
 # <a name="azure-stack-edge-pro-limits"></a>Limites do Azure Stack Edge Pro
@@ -31,8 +31,8 @@ A tabela seguinte descreve os limites para o dispositivo Azure Stack Edge.
 
 | Description | Valor |
 |---|---|
-|Não. de ficheiros por dispositivo |100 milhões |
-|Não. de ações por contentor |1 |
+|N.º de ficheiros por dispositivo |100 milhões |
+|N.º de ações por contentor |1 |
 |Máximo não. de pontos finais de ações e pontos finais DE REST por dispositivo| 24 |
 |Máximo não. de contas de armazenamento hierárquico por dispositivo| 24|
 |Tamanho máximo do ficheiro escrito para uma partilha| 5 TB |

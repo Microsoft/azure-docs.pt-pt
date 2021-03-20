@@ -5,10 +5,10 @@ services: container-service
 ms.topic: conceptual
 ms.date: 08/17/2020
 ms.openlocfilehash: bf910c66694a62505f259c0a95a88f7dfed05d19
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98127962"
 ---
 # <a name="storage-options-for-applications-in-azure-kubernetes-service-aks"></a>Opções de armazenamento para aplicações no Serviço Azure Kubernetes (AKS)
@@ -60,7 +60,7 @@ Em AKS, são criados quatro iniciais `StorageClasses` para o cluster utilizando 
 - `azurefile` - Utiliza o armazenamento Azure Standard para criar uma partilha de ficheiros Azure. A política de recuperação garante que a partilha de ficheiros Azure subjacente é eliminada quando o volume persistente que a usou for eliminado.
 - `azurefile-premium` - Utiliza o armazenamento Azure Premium para criar uma partilha de ficheiros Azure. A política de recuperação garante que a partilha de ficheiros Azure subjacente é eliminada quando o volume persistente que a usou for eliminado.
 
-Para os clusters que utilizam os novos plugins externos (CSI) da Interface de Armazenamento de Contentores (CSI), são criados os seguintes `StorageClasses` :
+Para os clusters que utilizam os novos plugins externos (CSI) da Interface de Armazenamento de Contentores (CSI), são criados os seguintes seguintes `StorageClasses` seguintes:
 - `managed-csi` - Utiliza o armazenamento localmente redundante (LRS) da Azure StandardSSD para criar um Disco Gerido. A política de recuperação garante que o Disco Azure subjacente é eliminado quando o volume persistente que o utilizou for eliminado. A classe de armazenamento também configura os volumes persistentes para serem expansíveis, basta editar a reivindicação de volume persistente com o novo tamanho.
 - `managed-csi-premium` - Utiliza o armazenamento localmente redundante (LRS) do Azure Premium para criar um Disco Gerido. A política de recuperação garante novamente que o Disco Azure subjacente é eliminado quando o volume persistente que o utilizou for eliminado. Da mesma forma, esta classe de armazenamento permite expandir volumes persistentes.
 - `azurefile-csi` - Utiliza o armazenamento Azure Standard para criar uma partilha de ficheiros Azure. A política de recuperação garante que a partilha de ficheiros Azure subjacente é eliminada quando o volume persistente que a usou for eliminado.

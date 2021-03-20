@@ -1,5 +1,5 @@
 ---
-title: Copiar dados entre Data Lake Storage Gen1 e Azure SQL - Sqoop Microsoft Docs
+title: Copiar dados entre Data Lake Storage Gen1 e Azure SQL - Sqoop | Microsoft Docs
 description: Utilize o Sqoop para copiar dados entre a Base de Dados Azure SQL e a Azure Data Lake Storage Gen1
 services: data-lake-store
 author: twooley
@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 07/30/2019
 ms.author: twooley
 ms.openlocfilehash: 9bb787138267fd8a9fab4dea233c1c828b457d67
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92109192"
 ---
 # <a name="copy-data-between-data-lake-storage-gen1-and-azure-sql-database-using-sqoop"></a>Copiar dados entre data lake storage Gen1 e Azure SQL Database usando Sqoop
@@ -158,7 +158,7 @@ Um cluster HDInsight já tem os pacotes Sqoop disponíveis. Se configurar o clus
 
 Para obter informações sobre o desempenho que ajusta o seu trabalho sqoop para copiar dados para Data Lake Storage Gen1, consulte o post do [blog de desempenho sqoop](/archive/blogs/shanyu/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Copiar dados de Azure Storage Blobs para Data Lake Storage Gen1](data-lake-store-copy-data-azure-storage-blob.md)
 * [Proteger dados no Armazenamento do Data Lake Ger1](data-lake-store-secure-data.md)

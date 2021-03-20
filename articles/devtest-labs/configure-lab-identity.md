@@ -4,10 +4,10 @@ description: Aprenda a configurar uma identidade de laboratório em Azure DevTes
 ms.topic: article
 ms.date: 08/20/2020
 ms.openlocfilehash: a652eb5751f9b723911a1c1baaaaf9860febc5b6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88719683"
 ---
 # <a name="configure-a-lab-identity"></a>Configure uma identidade de laboratório
@@ -20,7 +20,7 @@ Existem dois tipos de identidades geridas:
 
 ## <a name="system-assigned-managed-identity"></a>Identidade gerida atribuída pelo sistema  
 
-Uma **identidade gerida atribuída pelo sistema**é ativada diretamente numa instância de serviço   Azure. Quando ativada, o Azure cria uma identidade para a instância no inquilino do Azure AD no qual a subscrição da instância confia. Assim que a identidade for criada, as credenciais são aprovisionadas na instância. O ciclo de vida de uma identidade atribuída ao sistema está diretamente ligado à instância de serviço do Azure em que está ativada. Se a instância for eliminada, o Azure limpa automaticamente as credenciais e a identidade no Azure AD. 
+Uma **identidade gerida atribuída pelo sistema** é ativada diretamente numa instância de serviço   Azure. Quando ativada, o Azure cria uma identidade para a instância no inquilino do Azure AD no qual a subscrição da instância confia. Assim que a identidade for criada, as credenciais são aprovisionadas na instância. O ciclo de vida de uma identidade atribuída ao sistema está diretamente ligado à instância de serviço do Azure em que está ativada. Se a instância for eliminada, o Azure limpa automaticamente as credenciais e a identidade no Azure AD. 
 
 ### <a name="scenarios-for-using-labs-system-assigned-identity"></a>Cenários para usar o sistema de laboratório atribuído identidade  
 

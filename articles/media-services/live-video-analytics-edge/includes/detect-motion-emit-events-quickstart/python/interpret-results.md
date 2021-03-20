@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 8bcef40dad9c67e9e2c6d6c4a051045999487027
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99531747"
 ---
 Quando executar o gráfico de mídia, os resultados do nó do processador de processador de movimento passam pelo nó da pia IoT Hub para o hub IoT. As mensagens que vê na janela **OUTPUT** do Código do Estúdio Visual contêm uma `body` secção e uma `applicationProperties` secção. Para obter mais informações, consulte [Criar e ler mensagens IoT Hub](../../../../../iot-hub/iot-hub-devguide-messages-construct.md).

@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Conecte serviços de análise do Azure com Power BI Desktop / Microsoft Docs
+title: Tutorial - Conecte os serviços de análise do Azure com o power BI desktop | Microsoft Docs
 author: minewiskan
 description: Neste tutorial, aprenda a obter um nome de servidor de Serviços de Análise a partir do portal Azure e, em seguida, conecte-se ao servidor utilizando o Power BI Desktop.
 ms.service: azure-analysis-services
@@ -8,10 +8,10 @@ ms.date: 08/31/2020
 ms.author: owend
 ms.reviewer: owend
 ms.openlocfilehash: 46805427e6d00e858cf869eef68bf68549f57fb9
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92018122"
 ---
 # <a name="tutorial-connect-with-power-bi-desktop"></a>Tutorial: Ligar com o Power BI Desktop
@@ -32,7 +32,7 @@ Neste tutorial, utiliza o Power BI Desktop para ligar à base de dados do modelo
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 Neste tutorial, você canta no portal para obter apenas o nome do servidor. Normalmente, os utilizadores iriam obter o nome do servidor a partir do administrador do servidor.
 
-Inicie sessão no [portal](https://portal.azure.com/).
+Inscreva-se no [portal.](https://portal.azure.com/)
 
 ## <a name="get-server-name"></a>Obter nome do servidor
 Para ligar ao seu servidor do Power BI Desktop, primeiro precisa do nome do servidor. Pode obter o nome do servidor a partir do portal.
@@ -65,7 +65,7 @@ No **portal do Azure** > servidor > **Descrição geral** > **Nome do servidor**
 
     Dispense alguns minutos para explorar o modelo de exemplo adventureworks ao criar visualizações diferentes e repartir em dados e métricas. Quando estiver satisfeito com o relatório, não se esqueça de o guardar.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se já não for preciso, não guarde o relatório ou elimine o ficheiro se o tiver guardado.
 

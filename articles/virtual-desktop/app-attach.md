@@ -7,10 +7,10 @@ ms.date: 12/14/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 5e45c51735e0b7ab4b263d3f3047b5848c82439d
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98185772"
 ---
 # <a name="create-powershell-scripts-for-msix-app-attach-preview"></a>Criar scripts PowerShell para anexação de aplicações MSIX (pré-visualização)
@@ -87,7 +87,7 @@ Antes de atualizar os scripts PowerShell, certifique-se de que tem o volume GUID
     Possible values for VolumeName along with current mount points are:
 
     \\?\Volume{a12b3456-0000-0000-0000-10000000000}\
-    **_ NO MOUNT POINTS _*_
+    *** NO MOUNT POINTS ***
 
     \\?\Volume{c78d9012-0000-0000-0000-20000000000}\
         E:\
@@ -98,7 +98,7 @@ Antes de atualizar os scripts PowerShell, certifique-se de que tem o volume GUID
     ```
 
 
-6.  Atualize a variável _ *$volumeGuid** com o volume GUID que acabou de copiar.
+6.  Atualize a variável **$volumeGuid** com o volume GUID que acabou de copiar.
 
 7. Abra um pedido de Admin PowerShell e atualize o seguinte script PowerShell com as variáveis que se aplicam ao seu ambiente.
 

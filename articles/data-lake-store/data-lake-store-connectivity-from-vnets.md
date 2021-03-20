@@ -1,5 +1,5 @@
 ---
-title: Ligue-se ao Azure Data Lake Storage Gen1 a partir de VNETs Microsoft Docs
+title: Ligue-se ao Azure Data Lake Storage Gen1 a partir de VNETs | Microsoft Docs
 description: Saiba como permitir o acesso ao Azure Data Lake Storage Gen1 a partir de máquinas virtuais Azure que têm acesso restrito a recursos.
 services: data-lake-store,data-catalog
 documentationcenter: ''
@@ -13,10 +13,10 @@ ms.topic: how-to
 ms.date: 01/31/2018
 ms.author: elsung
 ms.openlocfilehash: e319cf9dfc01546607e20572c5bf4930fd974c75
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92104041"
 ---
 # <a name="access-azure-data-lake-storage-gen1-from-vms-within-an-azure-vnet"></a>Acesso Azure Data Lake Storage Gen1 a partir de VMs dentro de um Azure VNET

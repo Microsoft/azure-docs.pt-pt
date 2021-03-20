@@ -6,10 +6,10 @@ ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 01/02/2020
 ms.openlocfilehash: ddc48025de164ff68fb539a293e06bae09171742
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98943902"
 ---
 # <a name="azure-storage-solutions-for-ml-services-on-azure-hdinsight"></a>Soluções de armazenamento Azure para Serviços ML em Azure HDInsight
@@ -171,7 +171,7 @@ Um dos principais benefícios do Azure Files é que as ações de ficheiros pode
 - [How to use Azure File Storage with Linux (Como utilizar o Armazenamento de Ficheiros do Azure com o Linux)](../../storage/files/storage-how-to-use-files-linux.md)
 - [Como utilizar o armazenamento de ficheiros Azure no Windows](../../storage/files/storage-dotnet-how-to-use-files.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Visão geral do cluster de serviços ML em HDInsight](r-server-overview.md)
 - [Opções do contexto de cálculo para o cluster dos Serviços ML no HDInsight](r-server-compute-contexts.md)

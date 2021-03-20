@@ -10,10 +10,10 @@ ms.date: 11/20/2020
 author: nelgson
 ms.author: negust
 ms.openlocfilehash: 08d5e53facce172c2287c2e341895f0ee38571f0
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98943708"
 ---
 # <a name="tutorial-sentiment-analysis-with-cognitive-services-preview"></a>Tutorial: Análise de sentimento com Serviços Cognitivos (pré-visualização)
@@ -108,7 +108,7 @@ Os sentimentos são devolvidos como **positivos,** **negativos,** **neutros** ou
 
 ![Screenshot que mostra análise de sentimento.](media/tutorial-cognitive-services/tutorial-cognitive-services-sentiment-00h.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - [Tutorial: Deteção de anomalias com serviços cognitivos Azure](tutorial-cognitive-services-sentiment.md)
 - [Tutorial: Modelo de machine learning pontuação em piscinas SQL dedicadas Azure Synapse](tutorial-sql-pool-model-scoring-wizard.md)
-- [Capacidades de aprendizagem automática em Azure Synapse Analytics](what-is-machine-learning.md)
+- [Capacidades de Machine Learning no Azure Synapse Analytics](what-is-machine-learning.md)

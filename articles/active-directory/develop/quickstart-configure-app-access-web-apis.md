@@ -14,10 +14,10 @@ ms.author: marsma
 ms.custom: aaddev, contperf-fy21q1
 ms.reviewer: lenalepa, aragra, sureshja
 ms.openlocfilehash: 0b064e8491b5d4fa988e9f476143cc0711e3934a
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100651379"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-a-web-api"></a>Quickstart: Configurar uma aplicação do cliente para aceder a uma API web

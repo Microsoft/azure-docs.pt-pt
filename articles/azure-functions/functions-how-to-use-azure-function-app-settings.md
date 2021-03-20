@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 04/13/2020
 ms.custom: cc996988-fb4f-47, devx-track-azurecli
 ms.openlocfilehash: 5080d16a7b14506b24e07e2ee4ba862c645f83a8
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98875454"
 ---
 # <a name="manage-your-function-app"></a>Gerir a sua aplicação de função 
@@ -277,7 +277,7 @@ Utilize o [`az functionapp cors show`](/cli/azure/functionapp/cors#az-functionap
 Quando as funções utilizarem um gatilho HTTP, pode exigir que as chamadas sejam autenticadas primeiro. O App Service suporta a autenticação e o sômposições do Azure Ative Directory com fornecedores sociais, como facebook, Microsoft e Twitter. Para obter detalhes sobre a configuração de fornecedores de autenticação específica, consulte [a visão geral da autenticação do Azure App Service](../app-service/overview-authentication-authorization.md). 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 + [Configurações de serviço de aplicações Azure configurações](../app-service/configure-common.md)
 + [Implementação contínua para Funções do Azure](functions-continuous-deployment.md)

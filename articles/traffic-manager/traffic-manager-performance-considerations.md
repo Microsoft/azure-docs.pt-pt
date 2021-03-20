@@ -1,5 +1,5 @@
 ---
-title: Considerações de desempenho para Azure Traffic Manager Microsoft Docs
+title: Considerações de desempenho para a Azure Traffic Manager | Microsoft Docs
 description: Compreenda o desempenho no Traffic Manager e como testar o desempenho do seu website ao utilizar o Traffic Manager
 services: traffic-manager
 documentationcenter: ''
@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: duau
 ms.openlocfilehash: 5a0de772598877029649f8a985c79e28f5264535
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98186180"
 ---
 # <a name="performance-considerations-for-traffic-manager"></a>Considerações de desempenho para o Gestor de Tráfego

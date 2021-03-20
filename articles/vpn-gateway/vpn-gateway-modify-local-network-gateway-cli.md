@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: cherylmc
 ms.openlocfilehash: aadb2107cd009ac58cf8edb12853b10a5a0e3677
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94660003"
 ---
 # <a name="modify-local-network-gateway-settings-using-the-azure-cli"></a>Modificar as definições de gateway de rede local utilizando o Azure CLI
@@ -25,7 +25,7 @@ Por vezes, as definições para a alteração do Prefixo do Endereço de Endere�
 >
 >
 
-## <a name="before-you-begin"></a><a name="before"></a>Before you begin
+## <a name="before-you-begin"></a><a name="before"></a>Antes de começar
 
 Instale a versão mais recente dos comandos CLI (2.0 ou mais tarde). Para obter informações sobre como instalar os comandos da CLI, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
@@ -39,6 +39,6 @@ Instale a versão mais recente dos comandos CLI (2.0 ou mais tarde). Para obter 
 
 [!INCLUDE [modify-gateway-IP](../../includes/vpn-gateway-modify-lng-gateway-ip-cli-include.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Pode verificar a sua ligação de gateway. Ver [Verificar uma ligação de gateway](vpn-gateway-verify-connection-resource-manager.md).

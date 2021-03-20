@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/13/2020
 ms.openlocfilehash: 392cb9b4c2ded1b98b79ce8dcd780ac59e96b78a
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91998477"
 ---
 # <a name="group-data-into-bins-module"></a>Dados do grupo no módulo Bins
@@ -107,7 +107,7 @@ Como há tantas formas de agrupar dados, todos personalizáveis, recomendamos qu
 
 11. Envie o oleoduto.
 
-## <a name="results"></a>Results
+## <a name="results"></a>Resultados
 
 O módulo Dese de Grupo em Bins devolve um conjunto de dados no qual cada elemento foi ligado de acordo com o modo especificado. 
 

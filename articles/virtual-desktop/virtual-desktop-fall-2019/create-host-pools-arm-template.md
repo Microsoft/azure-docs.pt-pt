@@ -7,10 +7,10 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: b9999ae92840d79bb19464216c0f28504011b3f3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88008326"
 ---
 # <a name="create-a-host-pool-in-windows-virtual-desktop-classic-with-an-azure-resource-manager-template"></a>Crie uma piscina de anfitriões no Windows Virtual Desktop (clássico) com um modelo de Gestor de Recursos Azure
@@ -42,7 +42,7 @@ Se estiver a implementar uma subscrição da Enterprise, desloque-se para baixo 
 
 Se estiver a implementar uma subscrição do Cloud Solution Provider, siga estes passos para implementar para o Azure:
 
-1. Desloque-se para baixo e clique no botão direito **Implementar para Azure**e, em seguida, selecione **Copy Link Location**.
+1. Desloque-se para baixo e clique no botão direito **Implementar para Azure** e, em seguida, selecione **Copy Link Location**.
 2. Abra um editor de texto como o Bloco de Notas e cole o link lá.
 3. Logo a seguir https://portal.azure.com/ " e antes da hashtag (#) insira um sinal (@) seguido pelo nome de domínio do inquilino. Aqui está um exemplo do formato que deve utilizar: `https://portal.azure.com/@Contoso.onmicrosoft.com#create/` .
 4. Inscreva-se no portal Azure como utilizador com permissões Admin/Contribuinte para a subscrição do Cloud Solution Provider.

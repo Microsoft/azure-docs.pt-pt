@@ -8,10 +8,10 @@ author: keferna
 ms.author: keferna
 ms.date: 04/16/2020
 ms.openlocfilehash: 465f00400c28de9642a95ebcb7bc6b2349d64bc5
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98878719"
 ---
 # <a name="how-to-get-featured-in-appsource-and-azure-marketplace"></a>Como ser apresentado no AppSource e no Azure Marketplace
@@ -42,7 +42,7 @@ As promoções de Apps em destaque operam separadamente do algoritmo de pesquisa
 
 O seu suporte GTM também inclui uma biblioteca completa de modelos de autoajuda, conteúdos web, formação e ferramentas para ajudá-lo a promover ainda mais as suas listas e o seu negócio.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre os seus [benefícios no mercado comercial.](gtm-your-marketplace-benefits.md)
 

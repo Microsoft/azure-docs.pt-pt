@@ -9,10 +9,10 @@ ms.custom: subject-armqs
 ms.date: 08/28/2020
 ms.author: victorh
 ms.openlocfilehash: 33d110f327a381241fd9dbf55996a6e3f9fd3a43
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92057982"
 ---
 # <a name="quickstart-create-an-azure-firewall-with-multiple-public-ip-addresses---arm-template"></a>Quickstart: Criar uma Firewall Azure com vários endereços IP públicos - modelo ARM
@@ -74,7 +74,7 @@ No portal Azure, reveja os recursos mobilizados. Observe os endereços IP públi
 
 Utilize ligação de ambiente de trabalho remoto para ligar aos endereços IP públicos da firewall. As ligações bem sucedidas demonstram as regras DE NA de firewall que permitem a ligação aos servidores backend.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não precisar dos recursos que criou com a firewall, elimine o grupo de recursos. Isto remove a firewall e todos os recursos relacionados.
 

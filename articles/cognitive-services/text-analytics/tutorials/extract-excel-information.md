@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 02/27/2019
 ms.author: aahi
 ms.openlocfilehash: 197d28b2ac3d94b6639a6611b2919bdeb2b182e2
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93359906"
 ---
 # <a name="extract-information-in-excel-using-text-analytics-and-power-automate"></a>Extrair informações no Excel usando Análise de Texto e Automatizar Energia 
@@ -182,7 +182,7 @@ Minimize a **Aplicação a cada ação de 2** clicando no nome. Em seguida, adic
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/add-apply-action-3.png" alt-text="Adicione credenciais de Análise de Texto ao seu fluxo. 8":::
 
-Dentro **Aplicar a cada 3** , adicionar um controlo de **condição.** Será nomeado **Condição 2.** Na primeira caixa de texto, procure e adicione **o Tipo de Entidades** a partir da janela de conteúdo Dinâmico. Certifique-se de que a caixa central está definida para ser **igual a**. Em seguida, na caixa de texto certa, `var_phone` insira. 
+Dentro **Aplicar a cada 3**, adicionar um controlo de **condição.** Será nomeado **Condição 2.** Na primeira caixa de texto, procure e adicione **o Tipo de Entidades** a partir da janela de conteúdo Dinâmico. Certifique-se de que a caixa central está definida para ser **igual a**. Em seguida, na caixa de texto certa, `var_phone` insira. 
 
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/condition-2-options.png" alt-text="Adicione credenciais de Análise de Texto ao seu fluxo. 9":::
@@ -225,7 +225,7 @@ O ficheiro Excel será atualizado na sua conta OneDrive. Vai parecer o que está
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/updated-excel-sheet.png" alt-text="A folha de cálculo atualizada do excel.":::
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Explore mais soluções](../text-analytics-user-scenarios.md)

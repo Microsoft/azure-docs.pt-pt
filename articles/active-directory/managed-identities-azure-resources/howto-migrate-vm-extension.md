@@ -16,10 +16,10 @@ ms.date: 02/03/2020
 ms.author: barclayn
 ROBOTS: NOINDEX
 ms.openlocfilehash: dca5f9ed2911ae3042fb9871f849212ec18b1b58
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99539388"
 ---
 # <a name="how-to-stop-using-the-virtual-machine-managed-identities-extension-and-start-using-the-azure-instance-metadata-service"></a>Como parar de usar a extensão de identidades geridas pela máquina virtual e começar a usar o Serviço de Metadados de Instância Azure

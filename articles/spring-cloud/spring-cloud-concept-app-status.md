@@ -8,10 +8,10 @@ ms.date: 04/10/2020
 ms.author: brendm
 ms.custom: devx-track-java
 ms.openlocfilehash: ec87c5523d6f608363ca615037f20365705609df
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90892867"
 ---
 # <a name="understanding-app-status-in-azure-spring-cloud"></a>Compreender o estado das aplicações no Azure Spring Cloud
@@ -73,5 +73,5 @@ Para ver o estado de uma instância específica de uma aplicação implementada,
 | PARA BAIXO | A aplicação não está registada em Eureka ou está registada, mas não pode receber tráfego. |
 
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 * [Prepare uma aplicação de Spring ou Steeltoe para implantação em Azure Spring Cloud](spring-cloud-tutorial-prepare-app-deployment.md)

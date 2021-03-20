@@ -6,16 +6,16 @@ ms.topic: conceptual
 ms.date: 8/10/2017
 ms.author: maburlik
 ms.openlocfilehash: fb9a52510788a275bdeea67cd5c1fdd2e894738d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86261027"
 ---
 # <a name="contents-of-service-fabric-standalone-package-for-windows-server"></a>Conteúdo do pacote autónomo de tecido de serviço para windows server
 No pacote De Serviço Is Autónomo de Serviço [descarregado,](https://go.microsoft.com/fwlink/?LinkId=730690) encontrará os seguintes ficheiros:
 
-| **Nome do arquivo** | **Breve descrição** |
+| **Nome de ficheiro** | **Breve descrição** |
 | --- | --- |
 | CreateServiceFabricCluster.ps1 |Um script PowerShell que cria o cluster utilizando as definições ClusterConfig.jsligado. |
 | RemoveServiceFabricCluster.ps1 |Um script PowerShell que remove um cluster utilizando as definições ClusterConfig.jsligado. |
@@ -27,13 +27,13 @@ No pacote De Serviço Is Autónomo de Serviço [descarregado,](https://go.micros
 | DeploymentComponentsAutoextractor.exe |Arquivo de auto-extracção contendo Componentes de Implantação utilizados pelos scripts do pacote Autónomo. |
 | EULA_ENU.txt |Os termos de licença para a utilização do pacote autónomo do Microsoft Azure Service Fabric Windows Server. Já pode [descarregar uma cópia do EULA.](https://go.microsoft.com/fwlink/?LinkID=733084) |
 | Readme.txt |Uma ligação com as notas de desbloqueio e instruções básicas de instalação. É um subconjunto das instruções deste documento. |
-| ThirdPartyNotice.rtf |Aviso de software de terceiros que está no pacote. |
+| TerceiroPartyNotice.rtf |Aviso de software de terceiros que está no pacote. |
 | Tools\Microsoft.Azure.ServiceFabric.WindowsServer.SupportPackage.zip |StandaloneLogCollector.exe que é executado a pedido para recolher e carregar registos de vestígios para a Microsoft para fins de suporte. |
 | Tools\ServiceFabricUpdateService.zip |Uma ferramenta usada para permitir o upgrade de código automático para clusters que não têm acesso à Internet. Estão disponíveis mais detalhes [aqui](service-fabric-cluster-upgrade-windows-server.md)|
 
 **Modelos** 
 
-| **Nome do arquivo** | **Breve descrição** |
+| **Nome de ficheiro** | **Breve descrição** |
 | --- | --- |
 | ClusterConfig.Unsecure.DevCluster.jsem |Um ficheiro de amostra de configuração de cluster que contém as definições para um cluster de desenvolvimento de tipo não seguro, de três nós, de uma máquina única (ou de uma máquina virtual), incluindo as informações para cada nó no cluster. |
 | ClusterConfig.Unsecure.MultiMachine.jsem |Um ficheiro de amostra de configuração de cluster que contém as definições de um cluster não seguro, multi-máquina (ou máquina virtual), incluindo as informações para cada máquina no cluster. |
