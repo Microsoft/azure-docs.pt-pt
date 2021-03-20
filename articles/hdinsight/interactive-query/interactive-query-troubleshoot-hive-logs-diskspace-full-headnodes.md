@@ -7,10 +7,10 @@ author: nisgoel
 ms.author: nisgoel
 ms.date: 10/05/2020
 ms.openlocfilehash: cd7e6a7f13f6cccb5be5d23d69c2a44fc655cf55
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98930953"
 ---
 # <a name="scenario-apache-hive-logs-are-filling-up-the-disk-space-on-the-head-nodes-in-azure-hdinsight"></a>Cenário: Os troncos da Colmeia Apache estão a encher o espaço do disco nos nos nos acenos da cabeça em Azure HDInsight
@@ -68,6 +68,6 @@ Nas configurações avançadas do log4j da Hive, o atual crono de eliminação p
 
 6. Guarde as configurações e reinicie os componentes necessários.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [!INCLUDE [troubleshooting next steps](../../../includes/hdinsight-troubleshooting-next-steps.md)]

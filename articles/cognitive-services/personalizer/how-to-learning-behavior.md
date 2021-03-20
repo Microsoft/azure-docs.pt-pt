@@ -6,10 +6,10 @@ ms.subservice: personalizer
 ms.topic: how-to
 ms.date: 05/01/2020
 ms.openlocfilehash: 57a03b107678f83200b11f408784f6455cbceffd
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94579296"
 ---
 # <a name="configure-the-personalizer-learning-behavior"></a>Configure o comportamento de aprendizagem do Personaler
@@ -53,9 +53,9 @@ No portal Azure, na página **avaliações** para o seu recurso Personalizer, re
 > ![Screenshot de revisão da avaliação do comportamento de aprendizagem do modo de aprendiz no portal Azure](media/settings/evaluate-apprentice-mode.png)
 
 O modo aprendiz fornece as seguintes **métricas de avaliação:**
-* **Linha de base – recompensa média** : Recompensas médias do padrão da aplicação (linha de base).
-* **Personalização – recompensa média** : Média de recompensas totais O Personalizador teria potencialmente atingido.
-* **Rácio de realização de recompensas ao longo dos mais recentes 1000 eventos** - Rácio de Base e Recompensa Personalizada - normalizado ao longo dos mais recentes 1000 eventos.
+* **Linha de base – recompensa média**: Recompensas médias do padrão da aplicação (linha de base).
+* **Personalização – recompensa média**: Média de recompensas totais O Personalizador teria potencialmente atingido.
+* **Rácio de realização de recompensas ao longo dos mais recentes 1000 eventos**- Rácio de Base e Recompensa Personalizada - normalizado ao longo dos mais recentes 1000 eventos.
 
 ## <a name="switch-behavior-to-online-mode"></a>Mude o comportamento para o modo Online
 

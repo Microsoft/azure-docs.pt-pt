@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/12/2020
 ms.author: thvankra
 ms.openlocfilehash: 1368a3174af08f557b6d08f298fba015601d568c
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96030837"
 ---
 # <a name="frequently-asked-questions-about-the-cassandra-api-in-azure-cosmos-db"></a>Perguntas frequentes sobre a API cassandra em Azure Cosmos DB
@@ -71,7 +71,7 @@ A Azure Cosmos DB oferece garantias de desempenho e latência, com limites super
 
 Quando se ultrapassa esta capacidade, obtém-se a seguinte mensagem de erro que indica que a sua capacidade foi utilizada:
 
-**0x1001 Sobrecarregado: o pedido não pode ser processado porque "Taxa de Pedido é grande"** 
+**0x1001 sobrecarregado: o pedido não pode ser processado porque "Taxa de Pedido é grande"** 
 
 É essencial ver que operações (e seu volume) causam esta questão. Pode ter uma ideia sobre a capacidade consumida que ultrapassa a capacidade a provisionada com métricas no portal Azure. Então você precisa garantir que a capacidade é consumida quase igualmente em todas as divisórias subjacentes. Se vires que uma partição está a consumir a maior parte da produção, tens uma distorção da carga de trabalho.
 
@@ -171,7 +171,7 @@ Pode adicionar quantas regiões quiser para a conta e controlo onde pode falhar,
 
 ### <a name="does-the-cassandra-api-index-all-attributes-of-an-entity-by-default"></a>A API Cassandra indexa todos os atributos de uma entidade por defeito?
 
-Não. A API cassandra suporta [índices secundários,](cassandra-secondary-index.md)que se comportam de forma semelhante à De Apache Cassandra. A API não indexa todos os atributos por defeito.  
+N.º A API cassandra suporta [índices secundários,](cassandra-secondary-index.md)que se comportam de forma semelhante à De Apache Cassandra. A API não indexa todos os atributos por defeito.  
 
 
 ### <a name="can-i-use-the-new-cassandra-api-sdk-locally-with-the-emulator"></a>Posso usar a nova Cassandra API SDK localmente com o emulador?

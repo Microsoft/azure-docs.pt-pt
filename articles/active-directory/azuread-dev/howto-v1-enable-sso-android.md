@@ -1,5 +1,5 @@
 ---
-title: Como permitir o SSO cross-app no Android usando a ADAL Microsoft Docs
+title: Como ativar o SSO cross-app no Android usando | ADAL Microsoft Docs
 description: Como utilizar as funcionalidades do ADAL SDK para permitir um único sinal de s-on em todas as suas aplicações.
 services: active-directory
 author: rwike77
@@ -16,10 +16,10 @@ ms.reviewer: brandwe, jmprieur
 ms.custom: aaddev, devx-track-java
 ROBOTS: NOINDEX
 ms.openlocfilehash: 9d1faf7aed5cf4c4975925c7a56d169dc99a7bd5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87313596"
 ---
 # <a name="how-to-enable-cross-app-sso-on-android-using-adal"></a>Como: Ativar sSO cross-app no Android usando ADAL

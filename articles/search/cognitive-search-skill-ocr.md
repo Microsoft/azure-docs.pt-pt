@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.openlocfilehash: 8b6a7c3e05b26cbda80ebf1a3fc0d4fed8255e6b
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91950810"
 ---
 # <a name="ocr-cognitive-skill"></a>Habilidade cognitiva OCR
@@ -51,13 +51,13 @@ Anteriormente, havia um parâmetro chamado "textExtractionAlgorithm" para especi
 
 ## <a name="skill-inputs"></a>Entradas de habilidades
 
-| Nome de entrada      | Descrição                                          |
+| Nome de entrada      | Description                                          |
 |---------------|------------------------------------------------------|
 | `image`         | Tipo complexo. Atualmente, apenas funciona com o campo "/document/normalized_images", produzido pelo indexante Azure Blob quando ```imageAction``` é definido para um valor diferente de ```none``` . Consulte a [amostra](#sample-output) para mais informações.|
 
 
 ## <a name="skill-outputs"></a>Saídas de competências
-| Nome de saída     | Descrição                   |
+| Nome de saída     | Description                   |
 |---------------|-------------------------------|
 | `text`            | Texto simples extraído da imagem.   |
 | `layoutText`    | Tipo complexo que descreve o texto extraído e o local onde o texto foi encontrado.|
@@ -208,7 +208,7 @@ O exemplo de skillset acima pressupõe que existe um campo de imagens normalizad
 }
 ```
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 + [Competências incorporadas](cognitive-search-predefined-skills.md)
 + [Habilidade TextMerger](cognitive-search-skill-textmerger.md)
 + [Como definir um skillset](cognitive-search-defining-skillset.md)

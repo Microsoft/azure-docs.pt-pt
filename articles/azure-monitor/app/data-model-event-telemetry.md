@@ -1,14 +1,14 @@
 ---
-title: Azure Application Insights Telemetria Data Model - Telemetria de Eventos Microsoft Docs
+title: Azure Application Insights Telemetria Data Model - | de Telemetria de Eventos Microsoft Docs
 description: Modelo de dados de Insights de Aplicação para telemetria de eventos
 ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
 ms.openlocfilehash: 69685afa14352a22b58bccbea342038e4273696e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87320617"
 ---
 # <a name="event-telemetry-application-insights-data-model"></a>Telemetria de eventos: Modelo de dados de Insights de Aplicação
@@ -17,7 +17,7 @@ Pode criar itens de telemetria de eventos (in [Application Insights)](./app-insi
 
 Semântica, os acontecimentos podem ou não estar correlacionados com pedidos. No entanto, se for utilizada corretamente, a telemetria de eventos é mais importante do que pedidos ou vestígios. Os eventos representam a telemetria empresarial e devem ser sujeitos a [amostragem](./api-filtering-sampling.md)separada e menos agressiva.
 
-## <a name="name"></a>Nome
+## <a name="name"></a>Name
 
 Nome do evento. Para permitir o agrupamento adequado e métricas úteis, restringir a sua aplicação de modo a gerar um pequeno número de nomes de eventos separados. Por exemplo, não use um nome separado para cada instância gerada de um evento.
 

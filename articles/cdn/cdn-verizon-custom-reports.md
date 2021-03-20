@@ -1,5 +1,5 @@
 ---
-title: Relatórios Personalizados de Verizon ! Microsoft Docs
+title: Relatórios Personalizados da Verizon | Microsoft Docs
 description: 'Pode ver os padrões de utilização do seu CDN utilizando os seguintes relatórios: Largura de banda, dados transferidos, acessos, estados de cache, relação de impacto de cache, ipv4/IPV6 Dados transferidos.'
 services: cdn
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 10/11/2017
 ms.author: allensu
 ms.openlocfilehash: cff355aeb74efc9dec2780840ae57fea4c5764cc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84888713"
 ---
 # <a name="custom-reports-from-verizon"></a>Relatórios Personalizados da Verizon
@@ -77,7 +77,7 @@ Pode exportar os dados em formato Excel clicando no símbolo Excel à direita do
 | Cache Hit %               | Indica a percentagem de pedidos cacheable que foram servidos diretamente da cache para o solicitador. |
 | Acertos na Cache                | Indica o número total de pedidos ou dados transferidos (MB) para a borda CNAME que resulta num sucesso de cache (por exemplo, TCP_EXPIRED_HIT, TCP_HIT ou TCP_PARTIAL_HIT). Um golpe de cache ocorre quando uma versão em cache do conteúdo solicitado é encontrada. |
 | Dados transferidos (MB)     | Indica a quantidade total de dados transferidos (MB) dos servidores de borda para clientes HTTP (navegadores web) para a borda CNAME. A quantidade de dados transferidos é calculada adicionando os cabeçalhos de resposta HTTP ao organismo de resposta. Como resultado, a quantidade de dados transferidos para cada ativo é maior do que o seu tamanho real de ficheiro. |
-| Descrição               | Identifica uma borda CNAME pelo seu nome de anfitrião |
+| Description               | Identifica uma borda CNAME pelo seu nome de anfitrião |
 | Acertos                      | Indica o número total de pedidos à borda CNAME |
 | Misses                    | Indica o número total de pedidos ou dados transferidos (MB) para a borda CNAME que resulta numa falha de cache (por exemplo, TCP_CLIENT_REFRESH_MISS, TCP_EXPIRED_MISS ou TCP_MISS). Uma falha de cache ocorre quando o conteúdo solicitado não foi colocado no servidor de borda que honrou o pedido. | 
 | Sem Cache                  | Indica o número total de pedidos ou dados transferidos (MB) para a borda CNAME que resulta num código de estado de cache CONFIG_NOCACHE.  |

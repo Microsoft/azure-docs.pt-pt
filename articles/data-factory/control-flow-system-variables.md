@@ -7,12 +7,12 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 06/12/2018
-ms.openlocfilehash: 119ecb3ec9c208340f09f513bf10b3ad24312cb5
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: a5d2043c29db87876cc0d5ddb5b3708abad033c5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102201231"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104591984"
 ---
 # <a name="system-variables-supported-by-azure-data-factory"></a>Variáveis do sistema suportadas pela Azure Data Factory
 
@@ -24,7 +24,7 @@ Este artigo descreve variáveis do sistema suportadas pela Azure Data Factory. P
 
 Estas variáveis do sistema podem ser referenciadas em qualquer lugar do gasoduto JSON.
 
-| Nome da Variável | Descrição |
+| Nome da Variável | Description |
 | --- | --- |
 | @pipeline(). DataFactory |Nome da fábrica de dados o gasoduto está em execução |
 | @pipeline(). Gasoduto |Nome do oleoduto |
@@ -41,7 +41,7 @@ Estas variáveis do sistema podem ser referenciadas em qualquer lugar do gasodut
 
 Estas variáveis do sistema podem ser referenciadas em qualquer lugar do gatilho JSON para gatilhos do tipo [ScheduleTrigger](concepts-pipeline-execution-triggers.md#schedule-trigger).
 
-| Nome da Variável | Descrição |
+| Nome da Variável | Description |
 | --- | --- |
 | @trigger().Horário programado |Hora em que o gatilho estava programado para invocar o gasoduto. |
 | @trigger().startTime |Hora em que o gatilho **disparou** para invocar o gasoduto. Isto pode diferir ligeiramente da hora programada do gatilho. |
@@ -50,7 +50,7 @@ Estas variáveis do sistema podem ser referenciadas em qualquer lugar do gatilho
 
 Estas variáveis do sistema podem ser referenciadas em qualquer lugar do gatilho JSON para gatilhos do tipo [TumblingWindowTrigger](concepts-pipeline-execution-triggers.md#tumbling-window-trigger).
 
-| Nome da Variável | Descrição |
+| Nome da Variável | Description |
 | --- | --- |
 | @trigger().outputs.windowStartTime |Início da janela associada ao acionador. |
 | @trigger().outputs.windowEndTime |Extremidade da janela associada ao acionador. |
@@ -61,11 +61,25 @@ Estas variáveis do sistema podem ser referenciadas em qualquer lugar do gatilho
 
 Estas variáveis do sistema podem ser referenciadas em qualquer lugar do gatilho JSON para gatilhos do tipo [BlobEventsTrigger](concepts-pipeline-execution-triggers.md#event-based-trigger).
 
-| Nome da Variável | Descrição |
+| Nome da Variável | Description |
 | --- | --- |
 | @triggerBody().fileName  |Nome do ficheiro cuja criação ou supressão causou o disparo.   |
 | @triggerBody().Nome de pasta  |Caminho para a pasta que contém o ficheiro especificado por `@triggerBody().fileName` . O primeiro segmento do caminho da pasta é o nome do recipiente de armazenamento Azure Blob.  |
 | @trigger().startTime |Hora em que o gatilho disparou para invocar o gasoduto. |
+
+## <a name="custom-event-trigger-scope"></a>Âmbito de disparo de evento personalizado
+
+Estas variáveis do sistema podem ser referenciadas em qualquer lugar do gatilho JSON para gatilhos do tipo [CustomEventsTrigger](concepts-pipeline-execution-triggers.md#event-based-trigger).
+
+>[!NOTE]
+>A Azure Data Factory espera que o evento personalizado seja formatado com [o esquema de eventos Azure Event Grid](../event-grid/event-schema.md).
+
+| Nome da Variável | Description
+| --- | --- |
+| @triggerBody().event.eventType | Tipo de eventos que desencadearam a execução do Trigger de Evento Personalizado. O tipo de evento é o campo definido pelo cliente e assume quaisquer valores do tipo de corda. |
+| @triggerBody().event.subject | Objeto do evento personalizado que causou o disparo. |
+| @triggerBody().event.data. _nome chave_ | O campo de dados em evento personalizado é gratuito da bolha JSON, que o cliente pode usar para enviar mensagens e dados. Por favor, use dados. _nome chave_ para referência a cada campo. Por exemplo, @triggerBody (.event.data.callback devolve o valor do campo _de retorno_ armazenado nos _dados_. |
+| @trigger().startTime | Hora em que o gatilho disparou para invocar o gasoduto. |
 
 ## <a name="next-steps"></a>Passos seguintes
 

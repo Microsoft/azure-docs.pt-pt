@@ -4,14 +4,14 @@ description: Saiba como executar uma aplicação de Tecido de Serviço sob siste
 ms.topic: conceptual
 ms.date: 03/29/2018
 ms.openlocfilehash: 53212f8636602705899834b6db1d3f0d80b5fe4f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "75610131"
 ---
 # <a name="run-a-service-as-a-local-user-account-or-local-system-account"></a>Executar um serviço como uma conta de utilizador local ou conta do sistema local
-Ao utilizar o Azure Service Fabric, pode proteger aplicações que estão a ser executadas no cluster sob diferentes contas de utilizador. Por predefinição, as aplicações do Service Fabric são executadas sob a conta que o processo de Fabric.exe é executado. O Service Fabric também fornece a capacidade de executar aplicações numa conta de utilizador ou sistema local. Os tipos de conta de sistema local suportados são **LocalUser,** **NetworkService,** **LocalService**e **LocalSystem.**  Se estiver a executar o Service Fabric num cluster autónomo do Windows, pode executar um serviço em [contas de domínio do Ative Directory](service-fabric-run-service-as-ad-user-or-group.md) ou contas de serviço [geridas pelo grupo.](service-fabric-run-service-as-gmsa.md)
+Ao utilizar o Azure Service Fabric, pode proteger aplicações que estão a ser executadas no cluster sob diferentes contas de utilizador. Por predefinição, as aplicações do Service Fabric são executadas sob a conta que o processo de Fabric.exe é executado. O Service Fabric também fornece a capacidade de executar aplicações numa conta de utilizador ou sistema local. Os tipos de conta de sistema local suportados são **LocalUser,** **NetworkService,** **LocalService** e **LocalSystem.**  Se estiver a executar o Service Fabric num cluster autónomo do Windows, pode executar um serviço em [contas de domínio do Ative Directory](service-fabric-run-service-as-ad-user-or-group.md) ou contas de serviço [geridas pelo grupo.](service-fabric-run-service-as-gmsa.md)
 
 No manifesto de aplicação, define as contas de utilizador necessárias para executar serviços ou recursos seguros na secção **Principais.** Também pode definir e criar grupos de utilizadores para que um ou mais utilizadores possam ser geridos em conjunto. Isto é útil quando há vários utilizadores para diferentes pontos de entrada de serviço e eles precisam de privilégios comuns que estão disponíveis a nível de grupo.  Os utilizadores são então referenciados numa política de RunAs, que é aplicada a um serviço específico ou a todos os serviços da aplicação. 
 

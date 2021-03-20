@@ -1,5 +1,5 @@
 ---
-title: Lista de membros do grupo de descarregamento a granel - Portal Azure Ative Directory / Microsoft Docs
+title: Lista de membros do grupo de descarregamento a granel - Azure Ative Directory portal | Microsoft Docs
 description: Adicione utilizadores a granel no centro de administração Azure.
 services: active-directory
 author: curtand
@@ -14,10 +14,10 @@ ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d4055fb3bfdbcfd7e4a74d9290017a6193578146
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96547701"
 ---
 # <a name="bulk-download-members-of-a-group-in-azure-active-directory"></a>Membros de descarregamento em massa de um grupo em Azure Ative Directory

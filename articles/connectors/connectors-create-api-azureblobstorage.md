@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/21/2020
 tags: connectors
 ms.openlocfilehash: cd23ff0f5ad9912440d38903a344011b069aaf16
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92677716"
 ---
 # <a name="create-and-manage-blobs-in-azure-blob-storage-by-using-azure-logic-apps"></a>Criar e gerir blobs no Azure Blob Storage utilizando apps Azure Logic
@@ -29,11 +29,11 @@ Se é novo em aplicações lógicas, [reveja o que é Azure Logic Apps](../logic
 
 ## <a name="limits"></a>Limites
 
-* Por predefinição, as ações de Armazenamento Azure Blob podem ler ou escrever ficheiros que sejam *de 50 MB ou menores* . Para lidar com ficheiros maiores do que 50 MB mas até 1024 MB, as ações de armazenamento Azure Blob [suportam a mensagem em pedaços](../logic-apps/logic-apps-handle-large-messages.md). A ação **de conteúdo sonoro Get blob** usa implicitamente o chunking.
+* Por predefinição, as ações de Armazenamento Azure Blob podem ler ou escrever ficheiros que sejam *de 50 MB ou menores*. Para lidar com ficheiros maiores do que 50 MB mas até 1024 MB, as ações de armazenamento Azure Blob [suportam a mensagem em pedaços](../logic-apps/logic-apps-handle-large-messages.md). A ação **de conteúdo sonoro Get blob** usa implicitamente o chunking.
 
 * Os gatilhos de armazenamento Azure Blob não suportam o chunking. Ao solicitar o conteúdo do ficheiro, os gatilhos selecionam apenas ficheiros com 50 MB ou menores. Para obter ficheiros maiores que 50 MB, siga este padrão:
 
-  * Utilize um gatilho de armazenamento Azure Blob que devolva propriedades de ficheiros, tais como **Quando uma bolha é adicionada ou modificada (apenas propriedades)** .
+  * Utilize um gatilho de armazenamento Azure Blob que devolva propriedades de ficheiros, tais como **Quando uma bolha é adicionada ou modificada (apenas propriedades)**.
 
   * Siga o gatilho com o Azure Blob Storage **Get blob content** action, que lê o ficheiro completo e usa implicitamente o chunking.
 
@@ -73,7 +73,7 @@ Este exemplo mostra como pode iniciar um fluxo de trabalho de aplicações lógi
 
    3. Selecione o intervalo e a frequência para a frequência com que pretende que o gatilho verifique se a pasta se verifica.
 
-4. Quando terminar, na barra de ferramentas do designer, escolha **Save** .
+4. Quando terminar, na barra de ferramentas do designer, escolha **Save**.
 
 5. Agora continue a adicionar uma ou mais ações à sua aplicação lógica para as tarefas que pretende executar com os resultados do gatilho.
 
@@ -85,11 +85,11 @@ Nas Azure Logic Apps, uma [ação](../logic-apps/logic-apps-overview.md#logic-ap
 
 1. No [portal Azure](https://portal.azure.com) ou Visual Studio, abra a sua aplicação lógica no Logic App Designer. Este exemplo utiliza o portal Azure.
 
-2. No Logic App Designer, sob o gatilho ou ação, escolha **Novo passo** .
+2. No Logic App Designer, sob o gatilho ou ação, escolha **Novo passo**.
 
    ![Adicione um novo passo ao fluxo de trabalho de aplicações lógicas](./media/connectors-create-api-azureblobstorage/add-new-step-logic-app-workflow.png) 
 
-   Para adicionar uma ação entre os passos existentes, mova o rato sobre a seta de ligação. Escolha o sinal de mais **+** () que aparece e selecione **Adicione uma ação** .
+   Para adicionar uma ação entre os passos existentes, mova o rato sobre a seta de ligação. Escolha o sinal de mais **+** () que aparece e selecione **Adicione uma ação**.
 
 3. Na caixa de pesquisa, introduza "azure blob" como filtro. Na lista de ações, selecione a ação desejada.
 
@@ -108,7 +108,7 @@ Ou, se a sua ligação já existir, forneça as informações necessárias para 
 
    2. Encontre e selecione o ficheiro que deseja com base no número de **identificação** da bolha. Pode encontrar este número **de identificação** nos metadados da bolha que é devolvido pelo gatilho de armazenamento de bolhas previamente descrito.
 
-5. Quando terminar, na barra de ferramentas do designer, escolha **Save** .
+5. Quando terminar, na barra de ferramentas do designer, escolha **Save**.
 Para testar a sua aplicação lógica, certifique-se de que a pasta selecionada contém uma bolha.
 
 Este exemplo só obtém o conteúdo de uma bolha. Para visualizar o conteúdo, adicione outra ação que cria um ficheiro com a bolha utilizando outro conector. Por exemplo, adicione uma ação OneDrive que cria um ficheiro baseado no conteúdo da bolha.
@@ -123,8 +123,8 @@ Este exemplo só obtém o conteúdo de uma bolha. Para visualizar o conteúdo, a
 
    | Propriedade | Necessário | Valor | Descrição |
    |----------|----------|-------|-------------|
-   | **Nome de conexão** | Sim | <*nome de conexão*> | O nome para criar para a sua ligação |
-   | **Conta de Armazenamento** | Sim | <*conta de armazenamento*> | Selecione a sua conta de armazenamento na lista. |
+   | **Nome de conexão** | Yes | <*nome de conexão*> | O nome para criar para a sua ligação |
+   | **Conta de Armazenamento** | Yes | <*conta de armazenamento*> | Selecione a sua conta de armazenamento na lista. |
    ||||
 
    Por exemplo:
@@ -183,9 +183,9 @@ Para dar à Microsoft acesso a uma conta de armazenamento através de uma firewa
 
 Para estabelecer a exceção e o apoio à identidade gerido, siga estes passos gerais:
 
-1. Na sua conta de armazenamento, em **Definições,** selecione **Firewalls e redes virtuais** . In **Allow access from** , selecione a opção redes **selecionadas** para que apareçam as definições relacionadas.
+1. Na sua conta de armazenamento, em **Definições,** selecione **Firewalls e redes virtuais**. In **Allow access from**, selecione a opção redes **selecionadas** para que apareçam as definições relacionadas.
 
-1. Em **Exceções** , **selecione Permita que os serviços fidedignos da Microsoft acedam a esta conta de armazenamento** e, em seguida, selecione **Save** .
+1. Em **Exceções**, **selecione Permita que os serviços fidedignos da Microsoft acedam a esta conta de armazenamento** e, em seguida, selecione **Save**.
 
    ![Selecione exceção que permite serviços fidedignos da Microsoft](./media/connectors-create-api-azureblobstorage/allow-trusted-services-firewall.png)
 

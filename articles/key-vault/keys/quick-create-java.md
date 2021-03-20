@@ -9,10 +9,10 @@ ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
 ms.openlocfilehash: cb5abf59c446ef0835375bac45d1e852144a6f28
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97935279"
 ---
 # <a name="quickstart-azure-key-vault-key-client-library-for-java"></a>Quickstart: Azure Key Vault Key Key Biblioteca de clientes para Java
@@ -20,7 +20,7 @@ Começa com a biblioteca de clientes Azure Key Vault Key para a Java. Siga os pa
 
 Recursos adicionais:
 
-* [Código de origem](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault/azure-security-keyvault-keys)
+* [Código fonte](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault/azure-security-keyvault-keys)
 * [Documentação de referência da API](https://azure.github.io/azure-sdk-for-java/keyvault.html)
 * [Documentação do produto](index.yml)
 * [Amostras](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault/azure-security-keyvault-keys/src/samples/java/com/azure/security/keyvault/keys)

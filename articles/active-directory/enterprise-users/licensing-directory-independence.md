@@ -1,5 +1,5 @@
 ---
-title: Características da interação múltiplo de inquilino - Azure AD / Microsoft Docs
+title: Características da interação múltiplo do inquilino - Azure AD | Microsoft Docs
 description: Compreender a independência de dados das suas organizações do Azure Ative Directory
 services: active-directory
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.custom: it-pro
 ms.reviewer: sumitp
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9ce3e4c6a7708fba15560564577c9b01722c8aec
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96548057"
 ---
 # <a name="understand-how-multiple-azure-active-directory-organizations-interact"></a>Entenda como várias organizações de Diretório Ativo Azure interagem

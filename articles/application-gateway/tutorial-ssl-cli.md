@@ -9,13 +9,13 @@ ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc, devx-track-azurecli
 ms.openlocfilehash: 24dafd63de1a37140c6a56547c4701729df1c8fb
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94566559"
 ---
-# <a name="create-an-application-gateway-with-tls-termination-using-the-azure-cli"></a>Criar um gateway de aplicações com rescisão de TLS usando o Azure CLI
+# <a name="create-an-application-gateway-with-tls-termination-using-the-azure-cli"></a>Criar um gateway de aplicação com a terminação TLS com a CLI do Azure
 
 Pode utilizar o CLI Azure para criar um [gateway de aplicação](overview.md) com um certificado de [rescisão de TLS](ssl-overview.md). Para servidores backend, pode utilizar um [conjunto de escala de máquina virtual](../virtual-machine-scale-sets/overview.md) . Neste exemplo, o conjunto de dimensionamento contém duas instâncias de máquina virtual que foram adicionadas ao conjunto de back-end predefinido do gateway de aplicação.
 
@@ -173,7 +173,7 @@ Para aceitar o aviso de segurança se usou um certificado auto-assinado, selecio
 
 ![Testar o URL base no gateway de aplicação](./media/tutorial-ssl-cli/application-gateway-nginx.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não forem necessários, remova o grupo de recursos, o gateway de aplicação e todos os recursos relacionados.
 

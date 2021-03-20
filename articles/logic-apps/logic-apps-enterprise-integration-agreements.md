@@ -9,16 +9,16 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 06/22/2019
 ms.openlocfilehash: c8cbfb619c9eed325161503f705bf5c4c0746265
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95992946"
 ---
 # <a name="create-and-manage-trading-partner-agreements-in-azure-logic-apps"></a>Criar e gerir contratos de parceiros comerciais no Azure Logic Apps
 
 Um acordo [de parceiro comercial](../logic-apps/logic-apps-enterprise-integration-partners.md)ajuda as  
- *agreement* organizações e as empresas a comunicarem-se perfeitamente entre si, definindo o protocolo específico padrão da indústria para utilizar na troca de mensagens business-to-business (B2B). Os acordos proporcionam benefícios comuns, por exemplo:
+  organizações e as empresas a comunicarem-se perfeitamente entre si, definindo o protocolo específico padrão da indústria para utilizar na troca de mensagens business-to-business (B2B). Os acordos proporcionam benefícios comuns, por exemplo:
 
 * Permitir que as organizações troquem informações utilizando um formato bem conhecido.
 * Melhorar a eficiência na realização de transações B2B.
@@ -59,12 +59,12 @@ No menu Azure principal, selecione **Todos os serviços**. Na caixa de pesquisa,
 
    | Propriedade | Necessário | Valor | Descrição |
    |----------|----------|-------|-------------|
-   | **Nome** | Sim | <*nome de acordo*> | O nome do seu acordo |
-   | **Tipo de acordo** | Sim | **AS2**, **X12,** ou **EDIFACT** | O tipo de protocolo para o seu acordo. Quando criar o seu ficheiro de acordo, o conteúdo desse ficheiro deve corresponder ao tipo de contrato. | |  
-   | **Parceiro anfitrião** | Sim | <*nome-parceiro anfitrião*> | O parceiro anfitrião representa a organização que especifica o acordo |
-   | **Identidade do anfitrião** | Sim | <*host-partner-identificador*> | O identificador do parceiro anfitrião |
-   | **Parceiro Convidado** | Sim | <*nome de parceiro convidado*> | O parceiro convidado representa a organização que está a fazer negócios com o parceiro anfitrião |
-   | **Identidade do Hóspede** | Sim | <*guest-partner-identificador*> | O identificador do parceiro convidado |
+   | **Nome** | Yes | <*nome de acordo*> | O nome do seu acordo |
+   | **Tipo de acordo** | Yes | **AS2**, **X12,** ou **EDIFACT** | O tipo de protocolo para o seu acordo. Quando criar o seu ficheiro de acordo, o conteúdo desse ficheiro deve corresponder ao tipo de contrato. | |  
+   | **Parceiro anfitrião** | Yes | <*nome-parceiro anfitrião*> | O parceiro anfitrião representa a organização que especifica o acordo |
+   | **Identidade do anfitrião** | Yes | <*host-partner-identificador*> | O identificador do parceiro anfitrião |
+   | **Parceiro Convidado** | Yes | <*nome de parceiro convidado*> | O parceiro convidado representa a organização que está a fazer negócios com o parceiro anfitrião |
+   | **Identidade do Hóspede** | Yes | <*guest-partner-identificador*> | O identificador do parceiro convidado |
    | **Receber Definições** | Varia | Varia | Estas propriedades especificam como o parceiro anfitrião recebe todas as mensagens recebidas do parceiro convidado no acordo. Para mais informações, consulte o respetivo tipo de acordo: <p>- [Definições de mensagens AS2](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [Definições de mensagens EDIFACT](logic-apps-enterprise-integration-edifact.md) <br>- [Definições de mensagens X12](logic-apps-enterprise-integration-x12.md) |
    | **Enviar Definições** | Varia | Varia | Estas propriedades especificam como o parceiro anfitrião envia todas as mensagens de saída para o parceiro convidado no acordo. Para mais informações, consulte o respetivo tipo de acordo: <p>- [Definições de mensagens AS2](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [Definições de mensagens EDIFACT](logic-apps-enterprise-integration-edifact.md) <br>- [Definições de mensagens X12](logic-apps-enterprise-integration-x12.md) |
    |||||

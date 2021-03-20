@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: mbullwin
 ms.openlocfilehash: bcedef4a1339dacaff3fe841e97f985c42320819
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92043158"
 ---
 # <a name="how-to-build-a-metrics-graph-to-analyze-related-metrics"></a>Como fazer: Construir um gráfico de métricas para analisar métricas relacionadas
@@ -35,7 +35,7 @@ Em seguida, precisa adicionar outro nó e especificar uma relação com um nó(s
 
 Clique **em Adicionar a relação**, e poderá escolher outra métrica e especificar o tipo de relação entre os dois nós. Também pode aplicar filtros de dimensão específica. 
 
-:::image type="content" source="../media/graph/metrics-graph-node-action.png" alt-text="Selecionar métrica":::
+:::image type="content" source="../media/graph/metrics-graph-node-action.png" alt-text="Adicione um nó e uma relação":::
 
 Depois de repetir os passos acima, terá um gráfico de métricas descrevendo as relações entre todas as métricas relacionadas.
 **Dica sobre as cores do nó**
@@ -50,7 +50,7 @@ Quando o gráfico de métricas é construído, sempre que uma anomalia é deteta
 
 Clique num incidente dentro do gráfico e desloque-se para baixo para cruzar a **análise de métricas,** abaixo da informação de diagnóstico.
 
-:::image type="content" source="../media/graph/metrics-graph-cross-metrics-analysis.png" alt-text="Selecionar métrica":::
+:::image type="content" source="../media/graph/metrics-graph-cross-metrics-analysis.png" alt-text="Ver métricas e anomalias relacionadas":::
 
 ## <a name="next-steps"></a>Passos seguintes
 

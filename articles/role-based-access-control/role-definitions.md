@@ -16,10 +16,10 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
 ms.openlocfilehash: f6ae9ff27e773c36626812387b1284d660cbf39d
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98602462"
 ---
 # <a name="understand-azure-role-definitions"></a>Compreender definições de função Azure
@@ -80,7 +80,7 @@ As operações são especificadas com cordas que têm o seguinte formato:
 
 A `{action}` parte de uma cadeia de operação especifica o tipo de operações que pode executar num tipo de recurso. Por exemplo, verá os seguintes sublpementos em `{action}` :
 
-| Substring de ação    | Descrição         |
+| Substring de ação    | Description         |
 | ------------------- | ------------------- |
 | `*` | O personagem wildcard dá acesso a todas as operações que correspondam à corda. |
 | `read` | Permite operações de leitura (GET). |
@@ -281,7 +281,7 @@ Para visualizar e utilizar as operações de dados na API REST, tem de definir o
 A `Actions` permissão especifica as operações de gestão que o papel permite ser desempenhado. Trata-se de uma coleção de cadeias de operação que identificam operações securáveis de fornecedores de recursos Azure. Aqui estão alguns exemplos de operações de gestão que podem ser usadas em `Actions` .
 
 > [!div class="mx-tableFixed"]
-> | Cadeia de operação    | Descrição         |
+> | Cadeia de operação    | Description         |
 > | ------------------- | ------------------- |
 > | `*/read` | Concede acesso a operações de leitura para todos os tipos de recursos de todos os fornecedores de recursos Azure.|
 > | `Microsoft.Compute/*` | Concede acesso a todas as operações para todos os tipos de recursos no fornecedor de recursos Microsoft.Compute.|
@@ -318,7 +318,7 @@ Negar que as atribuições bloqueiam os utilizadores de realizarem ações espec
 A `DataActions` permissão especifica as operações de dados que a função permite ser realizada aos seus dados dentro desse objeto. Por exemplo, se um utilizador tiver lido o acesso de dados blob a uma conta de armazenamento, então pode ler as bolhas dentro dessa conta de armazenamento. Aqui estão alguns exemplos de operações de dados que podem ser usadas em `DataActions` .
 
 > [!div class="mx-tableFixed"]
-> | Cadeia de operação    | Descrição         |
+> | Cadeia de operação    | Description         |
 > | ------------------- | ------------------- |
 > | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` | Devolve uma bolha ou uma lista de bolhas. |
 > | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` | Devolve o resultado de escrever uma bolha. |

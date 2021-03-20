@@ -1,5 +1,5 @@
 ---
-title: O que é o Azure AD Connect Admin Agent - Azure AD Connect / Microsoft Docs
+title: O que é o Azure AD Connect Admin Agent - Azure AD Connect | Microsoft Docs
 description: Descreve as ferramentas usadas para sincronizar e monitorizar o ambiente no local com a Azure AD.
 services: active-directory
 author: billmath
@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: da4e1cfc68dff4ad2bc0552c6d35fe1230779306
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91312963"
 ---
 # <a name="what-is-the-azure-ad-connect-admin-agent"></a>O que é o Agente de Administração do Azure AD Connect? 

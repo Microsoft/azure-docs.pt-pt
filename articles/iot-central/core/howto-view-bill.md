@@ -1,5 +1,5 @@
 ---
-title: Gerencie a sua conta e converta-se do plano de preços gratuitos na aplicação Azure IoT Central / Microsoft Docs
+title: Gerencie a sua conta e converta-se a partir do plano de preços gratuitos na aplicação Azure IoT Central | Microsoft Docs
 description: Como administrador, aprenda a gerir a sua conta e passe do plano de preços gratuitos para um plano de preços padrão na sua aplicação Azure IoT Central
 author: dominicbetts
 ms.author: dobett
@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: philmea
 ms.openlocfilehash: 50d0119b08d2c76a5f6111e485408ebcdace83c6
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96549026"
 ---
 # <a name="manage-your-bill-in-an-iot-central-application"></a>Gerencie a sua conta numa aplicação IoT Central

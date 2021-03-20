@@ -6,10 +6,10 @@ ms.author: jobreen
 author: jjbfour
 ms.date: 09/17/2019
 ms.openlocfilehash: 22d1dcd997a4ddb94aba184c5dace4c00509054d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "75649940"
 ---
 # <a name="tutorial-resource-onboarding-with-azure-custom-providers"></a>Tutorial: Embarque de recursos com fornecedores personalizados Azure
@@ -209,7 +209,7 @@ A primeira parte do modelo implementa a infraestrutura de fornecedores personali
 
 Vamos implantar a infraestrutura de fornecedores personalizados. Ou copie, guarde e implemente o modelo anterior, ou siga e implemente a infraestrutura utilizando o portal Azure.
 
-1. Aceda ao [portal do Azure](https://portal.azure.com).
+1. Aceda ao [Portal do Azure](https://portal.azure.com).
 
 2. Procure **modelos** em **Todos os Serviços** ou utilizando a caixa de pesquisa principal:
 
@@ -235,13 +235,13 @@ Vamos implantar a infraestrutura de fornecedores personalizados. Ou copie, guard
 
 8. Introduza as definições para os campos necessários e, em seguida, selecione o grupo de subscrição e recursos. Pode deixar a caixa **de identificação do fornecedor de recursos personalizado** vazia.
 
-   | Nome da definição | Necessário? | Descrição |
+   | Nome da definição | Necessário? | Description |
    | ------------ | -------- | ----------- |
    | Localização | Sim | A localização dos recursos no modelo. |
-   | Nome de aplicativo lógica | Não | O nome da aplicação lógica. |
-   | Nome do fornecedor de recursos personalizados | Não | O nome do fornecedor de recursos personalizado. |
-   | Id do fornecedor de recursos personalizados | Não | Um fornecedor de recursos personalizados existente que suporta o recurso de associação. Se especificar um valor aqui, a aplicação lógica e a implementação do fornecedor personalizado serão ignorados. |
-   | Nome da Associação | Não | O nome do recurso da associação. |
+   | Nome de aplicativo lógica | No | O nome da aplicação lógica. |
+   | Nome do fornecedor de recursos personalizados | No | O nome do fornecedor de recursos personalizado. |
+   | Id do fornecedor de recursos personalizados | No | Um fornecedor de recursos personalizados existente que suporta o recurso de associação. Se especificar um valor aqui, a aplicação lógica e a implementação do fornecedor personalizado serão ignorados. |
+   | Nome da Associação | No | O nome do recurso da associação. |
 
    Parâmetros da amostra:
 

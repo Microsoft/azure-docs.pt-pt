@@ -1,5 +1,5 @@
 ---
-title: Azure Stack Edge Pro gere horários de largura de banda Microsoft Docs
+title: Azure Stack Edge Pro gere horários de largura de banda | Microsoft Docs
 description: Descreve como usar o portal Azure para gerir os horários de largura de banda no seu Azure Stack Edge Pro.
 services: databox
 author: alkohli
@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 03/22/2019
 ms.author: alkohli
 ms.openlocfilehash: e73a02c93807072e30c8ce2a1a7feb30e9d3c8c6
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91978973"
 ---
 # <a name="use-the-azure-portal-to-manage-bandwidth-schedules-on-your-azure-stack-edge-pro"></a>Utilize o portal Azure para gerir os horários de largura de banda no seu Azure Stack Edge Pro  
@@ -40,7 +40,7 @@ Faça os seguintes passos no portal Azure para adicionar um horário.
 
 3. Em **Adicionar agenda**: 
 
-   1. Forneça o **dia de início,** **o fim do dia,** **a hora**de início e a hora de **fim** da programação.
+   1. Forneça o **dia de início,** **o fim do dia,** **a hora** de início e a hora de **fim** da programação.
    2. Verifique a opção **Todos os dias** se este horário deve funcionar durante todo o dia.
    3. **A taxa de largura de** banda é a largura de banda em Megabits por segundo (Mbps) usada pelo seu dispositivo em operações que envolvam a nuvem (tanto uploads como downloads). Indique um número entre 20 e 1 000 000 007 neste campo.
    4. Marque a largura de banda como **Ilimitada** se não quiser limitar o carregamento e a transferência de dados.

@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: how-to
-ms.date: 03/09/2021
+ms.date: 03/18/2021
 ms.author: victorh
-ms.openlocfilehash: fba95214a6bbb0482166eab8f77f30911986fbb7
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 38d83186c06eac0fc3a49834172c2a4b8542caff
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102525500"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104590471"
 ---
 # <a name="deploy-and-configure-enterprise-ca-certificates-for-azure-firewall-preview"></a>Implementar e configurar certificados enterprise CA para pré-visualização do Firewall Azure
 
@@ -42,7 +42,7 @@ Para utilizar uma Empresa CA para gerar um certificado para utilizar com a pré-
 1. Aceda ao site de inscrição na Web no Root CA, normalmente `https://<servername>/certsrv` e selecione **Solicite um Certificado.**
 1. Selecione **Pedido de Certificado Avançado.**
 1. Selecione **Criar e Submeter um Pedido a este CA.**
-1. Preencha o formulário utilizando o modelo da Autoridade de Certificação Subordinada, conforme mostrado:
+1. Preencha o formulário utilizando o modelo da Autoridade de Certificação Subordinada.
 1. Envie o pedido e instale o certificado.
 1. Assumindo que este pedido é feito a partir de um Servidor do Windows utilizando o Internet Explorer, abra **as Opções de Internet**.
 1. Navegue no separador **Conteúdo** e selecione **Certificados.**

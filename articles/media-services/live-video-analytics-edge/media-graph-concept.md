@@ -4,10 +4,10 @@ description: Um gráfico mediático permite definir de onde os meios de comunica
 ms.topic: conceptual
 ms.date: 05/01/2020
 ms.openlocfilehash: 6f23e7db8cecb46106a63fdecdb6ba04dbd99682
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97401105"
 ---
 # <a name="media-graph"></a>Grafo do suporte de dados
@@ -17,7 +17,7 @@ ms.locfileid: "97401105"
 * [Análise de vídeo ao vivo na visão geral do IoT Edge](overview.md)
 * [Análise de vídeo ao vivo na terminologia IoT Edge](terminology.md)
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 Um gráfico mediático permite definir de onde os meios de comunicação devem ser capturados, como deve ser processado e onde os resultados devem ser entregues. Consegue-o ligando componentes, ou nós, da maneira desejada. O diagrama abaixo fornece uma representação gráfica de um gráfico mediático.  
 

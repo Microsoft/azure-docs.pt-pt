@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 9/22/2020
 ms.openlocfilehash: 2ea07e2bc12e6fc0d62abd462b8537c6a93689f9
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97935806"
 ---
 # <a name="manage-an-azure-database-for-postgresql-single-server-using-the-azure-cli"></a>Gerir uma base de dados de Azure para servidor single postgresQL utilizando o Azure CLI
@@ -62,7 +62,7 @@ storage-size | 6144 | A capacidade de armazenamento do servidor (a unidade é me
 ## <a name="manage-postgresql-databases-on-a-server"></a>Gerir bases de dados PostgreSQL num servidor.
 Pode utilizar qualquer um destes comandos para criar, eliminar, listar e visualizar propriedades da base de dados de uma base de dados no seu servidor
 
-| Cmdlet | Utilização| Descrição |
+| Cmdlet | Utilização| Description |
 | --- | ---| --- |
 |[az postgres db criar](/cli/azure/sql/db#az-mysql-db-create)|```az postgres db create -g myresourcegroup -s mydemoserver -n mydatabasename``` |Cria uma base de dados|
 |[az postgres db excluir](/cli/azure/sql/db#az-mysql-db-delete)|```az postgres db delete -g myresourcegroup -s mydemoserver -n mydatabasename```|Elimine a sua base de dados do seu servidor. Este comando não apaga o seu servidor. |

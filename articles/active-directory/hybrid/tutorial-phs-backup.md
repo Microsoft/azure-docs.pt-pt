@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configuração do PHS como backup para AD FS em Azure AD Connect / Microsoft Docs'
+title: 'Tutorial: Configurar o PHS como backup para AD FS em Azure AD Connect | Microsoft Docs'
 description: Demonstra como ligar a sincronização de haxixe de palavra-passe como uma cópia de segurança e para o AD FS.
 services: active-directory
 documentationcenter: ''
@@ -13,10 +13,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3d9f59906c566d80344891c0796a85b0a4972e68
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91313098"
 ---
 # <a name="tutorial--setting-up-phs-as-backup-for-ad-fs-in-azure-ad-connect"></a>Tutorial: Configuração phs como backup para AD FS em Azure AD Connect
@@ -50,7 +50,7 @@ Faça o seguinte:
 ![Selecionar](media/tutorial-phs-backup/backup1.png)</br>
 8.  No ecrã **pronto a configurar** clique em **Configurar**.
 9.  Assim que a configuração estiver concluída, clique em **Sair**.
-10. Já está.  Acabou-se.  A sincronização de hash de palavra-passe ocorrerá agora e pode ser usada como uma cópia de segurança se o FS AD ficar indisponível.
+10. Já está!  Acabou-se.  A sincronização de hash de palavra-passe ocorrerá agora e pode ser usada como uma cópia de segurança se o FS AD ficar indisponível.
 
 ## <a name="switch-to-password-hash-synchronization"></a>Mude para a sincronização de haxixe de palavra-passe
 Agora, vamos mostrar-lhe como mudar para a sincronização de hash password. Antes de começar, considere em que condições deve escame a troca. Não faça a troca por razões temporárias, como uma falha de rede, um pequeno problema de AD FS, ou um problema que afeta um subconjunto dos seus utilizadores. Se decidir fazer a troca porque a correção do problema demorará muito tempo, faça o seguinte:

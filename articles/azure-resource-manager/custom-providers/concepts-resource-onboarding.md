@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: jobreen
 ms.openlocfilehash: 1846b036f12fe7e691021ec0248782cad946d9b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "75650412"
 ---
 # <a name="azure-custom-providers-resource-onboarding-overview"></a>Azure Custom Providers recurso onboarding overview
@@ -23,7 +23,7 @@ O recurso Azure Custom Providers no embarque é um modelo de extensibilidade par
 > [!IMPORTANT]
 > Os Fornecedores Personalizados estão atualmente em pré-visualização pública.
 > Esta versão de pré-visualização é fornecida sem um acordo de nível de serviço, e não recomendamos para cargas de trabalho de produção. Certas funcionalidades podem não ser suportadas ou podem ter capacidades restritas.
-> Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="what-can-resource-onboarding-do"></a>O que os recursos de bordo podem fazer?
 
@@ -54,11 +54,11 @@ Aqui está uma amostra Azure fornecedor personalizado:
 }
 ```
 
-Propriedade | Necessário? | Descrição
+Propriedade | Necessário? | Description
 ---|---|---
-name | Sim | O nome da definição de ponto final. Para o recurso a bordo, o nome deve ser "associações".
-roteamentoType | Sim | Determina o tipo de contrato com o ponto final. Para o embarque de recursos, os tipos de **encaminhamento válidos** são "Proxy,Cache,Extension" e "Webhook,Cache,Extension".
-endpoint | Sim | O ponto final para encaminhar os pedidos para. Isto irá lidar com a resposta e quaisquer efeitos secundários do pedido.
+name | Yes | O nome da definição de ponto final. Para o recurso a bordo, o nome deve ser "associações".
+roteamentoType | Yes | Determina o tipo de contrato com o ponto final. Para o embarque de recursos, os tipos de **encaminhamento válidos** são "Proxy,Cache,Extension" e "Webhook,Cache,Extension".
+endpoint | Yes | O ponto final para encaminhar os pedidos para. Isto irá lidar com a resposta e quaisquer efeitos secundários do pedido.
 
 Depois de criar o fornecedor personalizado com o tipo de recurso de associações, pode ser alvo através do Microsoft.CustomProviders/associations. Microsoft.CustomProviders/associations é um recurso de extensão que pode estender qualquer outro recurso Azure. Quando um caso de Microsoft.CustomProviders/associations for criado, tomará um target de **propriedadeResourceId**, que deve ser um Microsoft.CustomProviders/resourceProviders ou Microsoft.Solutions/applications resource ID. Nestes casos, o pedido será encaminhado para o tipo de recurso das associações na instância Microsoft.CustomProviders/resourceProviders que criou.
 
@@ -76,9 +76,9 @@ Associação de Fornecedores Personalizados Azure:
 }
 ```
 
-Propriedade | Necessário? | Descrição
+Propriedade | Necessário? | Description
 ---|---|---
-targetResourceId | Sim | O ID de recursos dos Microsoft.CustomProviders/resourceProviders ou Microsoft.Solutions/applications.
+targetResourceId | Yes | O ID de recursos dos Microsoft.CustomProviders/resourceProviders ou Microsoft.Solutions/applications.
 
 ## <a name="how-to-use-resource-onboarding"></a>Como utilizar recursos a bordo
 

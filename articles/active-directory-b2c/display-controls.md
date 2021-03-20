@@ -12,10 +12,10 @@ ms.date: 12/11/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 441a77823c77305e567e9e1436715bc51ca48c11
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97387059"
 ---
 # <a name="display-controls"></a>Controlos de exibição
@@ -46,12 +46,12 @@ O elemento **DisplayControl** contém os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Id | Sim | Um identificador que é usado para o controlo de exibição. Pode ser [referenciado.](#referencing-display-controls) |
-| UserInterfaceControlType | Sim | O tipo de controlo de visualização. Atualmente suportado é [Controle de Verificação](display-control-verification.md) |
+| Id | Yes | Um identificador que é usado para o controlo de exibição. Pode ser [referenciado.](#referencing-display-controls) |
+| UserInterfaceControlType | Yes | O tipo de controlo de visualização. Atualmente suportado é [Controle de Verificação](display-control-verification.md) |
 
 O elemento **DisplayControl** contém os seguintes elementos:
 
-| Elemento | Ocorrências | Descrição |
+| Elemento | Ocorrências | Description |
 | ------- | ----------- | ----------- |
 | InputClaims | 0:1 | **InputClaims** são utilizados para pré-povoar o valor das reclamações a recolher junto do utilizador. Para mais informações, consulte o elemento [InputClaims.](technicalprofiles.md#input-claims) |
 | DisplayClaims | 0:1 | **DisplayClaims** são utilizados para representar alegações a serem recolhidas junto do utilizador. Para mais informações, consulte o elemento [DisplayClaim.](technicalprofiles.md#displayclaim)|
@@ -110,11 +110,11 @@ O elemento **ação** contém o seguinte atributo:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Id | Sim | O tipo de operação. Valores possíveis: `SendCode` ou `VerifyCode` . O `SendCode` valor envia um código ao utilizador. Esta ação pode conter dois perfis técnicos de validação: um para gerar um código e outro para o enviar. O `VerifyCode` valor verifica o código que o utilizador escreveu na caixa de texto de entrada. |
+| Id | Yes | O tipo de operação. Valores possíveis: `SendCode` ou `VerifyCode` . O `SendCode` valor envia um código ao utilizador. Esta ação pode conter dois perfis técnicos de validação: um para gerar um código e outro para o enviar. O `VerifyCode` valor verifica o código que o utilizador escreveu na caixa de texto de entrada. |
 
 O elemento **ação** contém o seguinte elemento:
 
-| Elemento | Ocorrências | Descrição |
+| Elemento | Ocorrências | Description |
 | ------- | ----------- | ----------- |
 | ValidaçãoClaimsExchange | 1:1 | Os identificadores de perfis técnicos que são utilizados para validar algumas ou todas as alegações de exibição do perfil técnico de referência. Todas as alegações de entrada do perfil técnico referenciado devem figurar nas alegações de visualização do perfil técnico de referência. |
 
@@ -122,7 +122,7 @@ O elemento **ação** contém o seguinte elemento:
 
 O elemento **ValidationClaimsExchange** contém o seguinte elemento:
 
-| Elemento | Ocorrências | Descrição |
+| Elemento | Ocorrências | Description |
 | ------- | ----------- | ----------- |
 | ValidaçãoTechnicalProfile | 1:n | Um perfil técnico a utilizar para validar algumas ou todas as reivindicações do perfil técnico de referência. |
 
@@ -130,13 +130,13 @@ O elemento **ValidationTechnicalProfile** contém os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| ReferenceId | Sim | Um identificador de um perfil técnico já definido na política ou na política dos pais. |
-|ContinueOnError|Não| Indica se a validação de quaisquer perfis técnicos de validação subsequentes deve continuar se este perfil técnico de validação levantar um erro. Valores possíveis: `true` ou `false` (por defeito, o processamento de perfis de validação adicionais irá parar e um erro será devolvido). |
-|ContinueOnSuccess | Não | Indica se a validação de quaisquer perfis de validação subsequentes deve continuar se este perfil técnico de validação for bem sucedido. Valores possíveis: `true` ou `false` . O padrão é `true` , o que significa que o processamento de perfis de validação adicionais continuará. |
+| ReferenceId | Yes | Um identificador de um perfil técnico já definido na política ou na política dos pais. |
+|ContinueOnError|No| Indica se a validação de quaisquer perfis técnicos de validação subsequentes deve continuar se este perfil técnico de validação levantar um erro. Valores possíveis: `true` ou `false` (por defeito, o processamento de perfis de validação adicionais irá parar e um erro será devolvido). |
+|ContinueOnSuccess | No | Indica se a validação de quaisquer perfis de validação subsequentes deve continuar se este perfil técnico de validação for bem sucedido. Valores possíveis: `true` ou `false` . O padrão é `true` , o que significa que o processamento de perfis de validação adicionais continuará. |
 
 O elemento **ValidationTechnicalProfile** contém o seguinte elemento:
 
-| Elemento | Ocorrências | Descrição |
+| Elemento | Ocorrências | Description |
 | ------- | ----------- | ----------- |
 | Condições prévias | 0:1 | Uma lista de pré-condições que devem ser satisfeitas para que o perfil técnico de validação seja executado. |
 
@@ -145,11 +145,11 @@ O **elemento pré-condição** contém os seguintes atributos:
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
 | `Type` | Sim | O tipo de verificação ou consulta a efetuar para a pré-condição. Valores possíveis: `ClaimsExist` ou `ClaimEquals` . `ClaimsExist` especifica que as ações devem ser executadas se as alegações especificadas existirem no conjunto de reclamações atuais do utilizador. `ClaimEquals` especifica que as ações devem ser executadas se a reclamação especificada existir e o seu valor for igual ao valor especificado. |
-| `ExecuteActionsIf` | Sim | Indica se as ações na condição prévia devem ser executadas se o teste for verdadeiro ou falso. |
+| `ExecuteActionsIf` | Yes | Indica se as ações na condição prévia devem ser executadas se o teste for verdadeiro ou falso. |
 
 O **elemento pré-condição** contém os seguintes elementos:
 
-| Elemento | Ocorrências | Descrição |
+| Elemento | Ocorrências | Description |
 | ------- | ----------- | ----------- |
 | Valor | 1:n | Os dados que são utilizados pelo cheque. Se o tipo desta verificação `ClaimsExist` for, este campo especifica uma ClaimTypeReferenceId para consulta. Se o tipo de verificação `ClaimEquals` for, este campo especifica uma ClaimTypeReferenceId para consulta. Especifique o valor a verificar noutro elemento de valor.|
 | Ação | 1:1 | A ação que deve ser tomada se o controlo de pré-condição dentro de um passo de orquestração for verdadeiro. O valor da **Ação** é definido para `SkipThisValidationTechnicalProfile` , que especifica que o perfil técnico de validação associado não deve ser executado. |
@@ -223,7 +223,7 @@ Por exemplo:
     <DisplayClaim ClaimTypeReferenceId="surName" Required="true" />
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter amostras de controlo de visualização, consulte: 
 

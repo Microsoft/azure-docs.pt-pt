@@ -1,20 +1,20 @@
 ---
 title: Tipos de entidades - LUIS
-description: Uma entidade extrai dados de uma expressão do utilizador no tempo de execução da previsão. Um propósito _opcional_e secundário é impulsionar a previsão da intenção ou de outras entidades utilizando a entidade como recurso.
+description: Uma entidade extrai dados de uma expressão do utilizador no tempo de execução da previsão. Um propósito _opcional_ e secundário é impulsionar a previsão da intenção ou de outras entidades utilizando a entidade como recurso.
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.openlocfilehash: 398d18642052726af4d4920443bad515ec0b5bef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91316567"
 ---
 # <a name="extract-data-with-entities"></a>Extrair dados com entidades
 
-Uma entidade extrai dados de uma expressão do utilizador no tempo de execução da previsão. Um propósito _opcional_e secundário é impulsionar a previsão da intenção ou de outras entidades utilizando a entidade como recurso.
+Uma entidade extrai dados de uma expressão do utilizador no tempo de execução da previsão. Um propósito _opcional_ e secundário é impulsionar a previsão da intenção ou de outras entidades utilizando a entidade como recurso.
 
 Existem vários tipos de entidades:
 

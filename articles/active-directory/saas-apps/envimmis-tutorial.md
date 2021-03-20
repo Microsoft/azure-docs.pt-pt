@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com a Envi MMIS Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com a Envi MMIS | Microsoft Docs'
 description: Saiba como configurar um único sinal entre o Azure Ative Directory e o Envi MMIS.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
 ms.openlocfilehash: 6ccf755a73cafa4b855f602aa18246d710e5e1ff
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92454016"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-envi-mmis"></a>Tutorial: Integração do Diretório Ativo Azure com a Envi MMIS
@@ -158,7 +158,7 @@ Para configurar o Azure AD com a Envi MMIS, execute os seguintes passos:
 
     c. Clique em **OK**.
 
-7. Depois de carregar o ficheiro de metadados descarregado, os campos serão preenchidos automaticamente. Clique **em Atualização**
+7. Depois de carregar o ficheiro de metadados descarregado, os campos serão preenchidos automaticamente. Clique em **Atualizar**
 
     ![Configure botão de poupança de Sign-On único](./media/envimmis-tutorial/configure6.png)
 
@@ -233,7 +233,7 @@ Para permitir que os utilizadores da Azure AD inscrevam-se na Envi MMIS, devem s
 
     ![Adicionar Empregado](./media/envimmis-tutorial/user3.png)
 
-    a. Na caixa de texto **do Nome do Utilizador,** digite o nome de utilizador da conta Britta Simon como ** \@ brittasimon contoso.com**.
+    a. Na caixa de texto **do Nome do Utilizador,** digite o nome de utilizador da conta Britta Simon como **\@ brittasimon contoso.com**.
     
     b. Na caixa de texto **First Name,** digite o primeiro nome de BrittaSimon como **Britta**.
 
@@ -241,9 +241,9 @@ Para permitir que os utilizadores da Azure AD inscrevam-se na Envi MMIS, devem s
 
     d. Introduza o título do utilizador no **título** da caixa de texto.
     
-    e. Na caixa de sms do **Endereço de E-mail,** digite o endereço de e-mail da conta Britta Simon como ** \@ brittasimon contoso.com**.
+    e. Na caixa de sms do **Endereço de E-mail,** digite o endereço de e-mail da conta Britta Simon como **\@ brittasimon contoso.com**.
 
-    f. Na caixa de texto **SSO User Name,** digite o nome de utilizador da conta Britta Simon como ** \@ brittasimon contoso.com**.
+    f. Na caixa de texto **SSO User Name,** digite o nome de utilizador da conta Britta Simon como **\@ brittasimon contoso.com**.
 
     exemplo, Clique em **Guardar**.
 

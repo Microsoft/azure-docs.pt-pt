@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com Ficheiros Lisonjeiros Microsoft Docs'
+title: 'Tutorial: Integração do Azure Ative Directory com | de Ficheiros Lisos Microsoft Docs'
 description: Saiba como configurar um único sinal de inscrição entre o Azure Ative Directory e os Ficheiros Flatter.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.openlocfilehash: fae21c98c7340614a96b6e85aa79bdea7889a807
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92453249"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-flatter-files"></a>Tutorial: Integração do Azure Ative Directory com Ficheiros Lisos
@@ -123,7 +123,7 @@ Para configurar o Azure AD com ficheiros flatter, execute os seguintes passos:
    
     ![Screenshot que mostra "DASHBOARD" selecionado na aplicação "Flatter Files".](./media/flatter-files-tutorial/tutorial_flatter_files_05.png)  
 
-3. Clique **em Definições**e, em seguida, execute os seguintes passos no separador **Empresa:** 
+3. Clique **em Definições** e, em seguida, execute os seguintes passos no separador **Empresa:** 
    
     ![Screenshot que mostra o separador "Empresa" com "Use S A M L 2.0 for Authentication" verificado e o botão "Configure S A M L" selecionado.](./media/flatter-files-tutorial/tutorial_flatter_files_06.png)  
     
@@ -175,7 +175,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
 Nesta secção, você permite que Britta Simon utilize o Azure single sign-on, concedendo acesso a Ficheiros Lisos.
 
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Ficheiros Lisos**.
+1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações** e, em seguida, selecione **Ficheiros Lisos**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
@@ -205,7 +205,7 @@ O objetivo desta secção é criar um utilizador chamado Britta Simon in Flatter
 
 1. Inscreva-se no site da empresa **Flatter Files** como administrador.
 
-2. No painel de navegação à esquerda, clique em **Definições**e, em seguida, clique no **separador Utilizadores.**
+2. No painel de navegação à esquerda, clique em **Definições** e, em seguida, clique no **separador Utilizadores.**
    
     ![Screenshot que mostra a página "Definições" com o separador "Utilizadores" selecionado.](./media/flatter-files-tutorial/tutorial_flatter_files_09.png)
 

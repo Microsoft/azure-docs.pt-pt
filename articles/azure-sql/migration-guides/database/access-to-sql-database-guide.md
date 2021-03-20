@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
 ms.date: 03/19/2021
-ms.openlocfilehash: 9b64dc95c6ee00a834c2741b30026df7350780c0
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.openlocfilehash: e323b1c15d78da4e8c1a82ae8848df7f59b0dd87
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103565347"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104657361"
 ---
 # <a name="migration-guide-access-to-azure-sql-database"></a>Guia de migração: Acesso à Base de Dados Azure SQL
 
@@ -42,17 +42,58 @@ Para criar uma avaliação, siga estes passos:
 
 1. Abra o Assistente de Migração do Servidor SQL para acesso. 
 1. Selecione **File** e, em seguida, escolha **Novo Projeto**. Forneça um nome para o seu projeto de migração. 
-1. Selecione **Adicionar Bases de Dados** e escolha bases de dados para adicionar ao seu novo projeto
+
+   ![Escolha novo projeto](./media/access-to-sql-database-guide/new-project.png)
+
+1. Selecione **Adicionar Bases de Dados** e escolha bases de dados para adicionar ao seu novo projeto. 
+
+   ![Escolha bases de dados de adicionar](./media/access-to-sql-database-guide/add-databases.png)
+
 1. No **Access Metadata Explorer,** clique com o botão direito na base de dados e, em seguida, escolha **'Relatório'.** 
+
+   ![Clique com o botão direito na base de dados e escolha Criar Relatório](./media/access-to-sql-database-guide/create-report.png)
+
 1. Reveja a avaliação da amostra. Por exemplo: 
+
+   ![Rever a avaliação do relatório da amostra](./media/access-to-sql-database-guide/sample-assessment.png)
+
+### <a name="validate-data-types"></a>Validar tipos de dados
+
+Valide os mapeamentos do tipo de dados predefinidos e altere-os com base nos requisitos, se necessário. Para tal, siga estes passos:
+
+1. Selecione **Ferramentas** do menu. 
+1. Selecione **Definições de projetos**. 
+1. Selecione o **separador de mapeamentos Tipo.** 
+
+   ![Mapeamentos de tipo](./media/access-to-sql-database-guide/type-mappings.png)
+
+1. Pode alterar o mapeamento de tipo para cada tabela selecionando a tabela no **Access Metadata Explorer**.
+
 
 ### <a name="convert-schema"></a>Converter esquema
 
 Para converter objetos de base de dados, siga estes passos: 
 
 1. Selecione **Connect to Azure SQL Database** e forneça detalhes de ligação.
-1. Clique com o botão direito na base de dados **no Access Metadata Explorer** e escolha Converter o **esquema.**  
-1. (Opcional) Para converter um objeto individual, clique com o botão direito do objeto e escolha **Converter o esquema**. Um objeto que foi convertido aparece arrojado no **Access Metadata Explorer:** 
+
+   ![Ligar à Base de Dados SQL do Azure](./media/access-to-sql-database-guide/connect-to-sqldb.png)
+
+1. Clique com o botão direito na base de dados **no Access Metadata Explorer** e escolha Converter o **esquema.** Em alternativa, pode escolher **Converter o Schema** da barra de navegação superior depois de selecionar a sua base de dados.
+
+   ![Clique com o botão direito na base de dados e escolha converter o esquema](./media/access-to-sql-database-guide/convert-schema.png)
+
+   Compare consultas convertidas com consultas originais: 
+
+   ![Consultas convertidas podem ser comparadas com código fonte](./media/access-to-sql-database-guide/query-comparison.png)
+
+   Compare objetos convertidos com objetos originais: 
+
+   ![Objetos convertidos podem ser comparados com fonte](./media/access-to-sql-database-guide/table-comparison.png)
+
+1. (Opcional) Para converter um objeto individual, clique com o botão direito do objeto e escolha **Converter o esquema**. Os objetos convertidos aparecem em negrito no **Access Metadata Explorer:** 
+
+   ![Objetos arrojados no explorador de metadados foram convertidos](./media/access-to-sql-database-guide/converted-items.png)
+ 
 1. Selecione **Os resultados** da Revisão no painel de saída e os erros de revisão no painel **da lista de erros.** 
 
 
@@ -64,9 +105,28 @@ Para migrar dados utilizando o SSMA para acesso, siga estes passos:
 
 1. Se ainda não o fez, selecione **Connect to Azure SQL Database** e forneça detalhes de ligação. 
 1. Clique com o botão direito na base de dados a partir do **Azure SQL Database Metadata Explorer** e escolha **Sincronizar com Base de Dados**. Esta ação publica o esquema MySQL para a Base de Dados Azure SQL.
+
+   ![Sincronizar com base de dados](./media/access-to-sql-database-guide/synchronize-with-database.png)
+
+   Reveja o mapeamento entre o seu projeto de origem e o seu alvo:
+
+   ![Reveja a sincronização com a base de dados](./media/access-to-sql-database-guide/synchronize-with-database-review.png)
+
 1. Utilize **o Access Metadata Explorer** para verificar caixas junto aos itens que pretende migrar. Se quiser migrar toda a base de dados, verifique a caixa ao lado da base de dados. 
 1. Clique com o botão direito na base de dados ou no objeto que pretende migrar e escolha **dados migratórios**. 
    Para migrar dados para uma base de dados inteira, selecione a caixa de verificação ao lado do nome da base de dados. Para migrar dados de tabelas individuais, expandir a base de dados, expandir tabelas e, em seguida, selecionar a caixa de verificação ao lado da tabela. Para omitir dados de tabelas individuais, limpe a caixa de verificação.
+
+    ![Dados migratórios](./media/access-to-sql-database-guide/migrate-data.png)
+
+    Reveja os dados migrados: 
+
+    ![Revisão de Dados Migratórios](./media/access-to-sql-database-guide/migrate-data-review.png)
+
+1. Conecte-se à sua Base de Dados Azure SQL utilizando o [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) e valide a migração através da revisão dos dados e esquemas.
+
+   ![Validar em SSMA](./media/access-to-sql-database-guide/validate-data.png)
+
+
 
 ## <a name="post-migration"></a>Pós-migração 
 

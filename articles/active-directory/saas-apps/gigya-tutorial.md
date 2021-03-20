@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com Gigya Microsoft Docs'
+title: 'Tutorial: Integração do Azure Ative Directory com Gigya | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Gigya.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/18/2019
 ms.author: jeedes
 ms.openlocfilehash: 849b54e6d96b8f6f33f2a0925b9a1b9c3eebd56b
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92450089"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-gigya"></a>Tutorial: Integração do Azure Ative Directory com Gigya
@@ -126,7 +126,7 @@ Para configurar o Azure AD single sign-on com Gigya, execute os seguintes passos
 
 1. Numa janela diferente do navegador web, inicie sessão no site da empresa Gigya como administrador.
 
-2. Vá ao **Início \> de Sessão SAML de Definições**e, em seguida, clique no botão **Adicionar.**
+2. Vá ao **Início \> de Sessão SAML de Definições** e, em seguida, clique no botão **Adicionar.**
    
     ![SAML Login](./media/gigya-tutorial/ic789532.png "SAML Login")
 
@@ -175,7 +175,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
 Nesta secção, você permite que Britta Simon use a Azure single sign-on, concedendo acesso a Gigya.
 
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Gigya**.
+1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações** e, em seguida, selecione **Gigya**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
@@ -205,7 +205,7 @@ Para permitir que os utilizadores de Azure AD acedam a Gigya, eles devem ser a p
 
 1. Faça login no seu site da empresa **Gigya** como administrador.
 
-2. Vá ao **Administrador \> Gerir utilizadores**e, em seguida, clique em **Convidar utilizadores**.
+2. Vá ao **Administrador \> Gerir utilizadores** e, em seguida, clique em **Convidar utilizadores**.
    
     ![Gerir utilizadores](./media/gigya-tutorial/ic789535.png "Gerir Utilizadores")
 

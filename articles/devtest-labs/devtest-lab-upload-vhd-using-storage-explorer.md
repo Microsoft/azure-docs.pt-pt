@@ -4,10 +4,10 @@ description: Faça upload do ficheiro VHD para a conta de armazenamento do labor
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: d4e421932ebba5d4f389000c12bcf44ac2f37599
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91282532"
 ---
 # <a name="upload-vhd-file-to-labs-storage-account-using-microsoft-azure-storage-explorer"></a>Faça upload do ficheiro VHD para a conta de armazenamento do laboratório usando o Microsoft Azure Storage Explorer
@@ -26,7 +26,7 @@ Os passos seguintes acompanham-no através do upload de um ficheiro VHD para a D
 
     1. Inicie sessão no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
     
-    1. Selecione **Todos os serviços**e, em seguida, selecione **DevTest Labs** da lista.
+    1. Selecione **Todos os serviços** e, em seguida, selecione **DevTest Labs** da lista.
     
     1. Da lista de laboratórios, selecione o laboratório desejado.  
     
@@ -78,7 +78,7 @@ Os passos seguintes acompanham-no através do upload de um ficheiro VHD para a D
     
     1. Sob o nó da subscrição, expanda **as Contas de Armazenamento.**
 
-    1. Expanda o nó de conta de armazenamento do laboratório para revelar nós para **recipientes Blob, Partilhas**de **Ficheiros, Filas**e **File Shares** **Tabelas**.
+    1. Expanda o nó de conta de armazenamento do laboratório para revelar nós para **recipientes Blob, Partilhas** de **Ficheiros, Filas** e  **Tabelas**.
     
     1. Expanda o nó **de recipientes Blob.**
     

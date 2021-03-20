@@ -4,17 +4,17 @@ titleSuffix: Azure Kubernetes Service
 description: Saiba como criar e utilizar um endereço IP público estático para tráfego de saídas num cluster Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 03/04/2019
-ms.openlocfilehash: 2eefeecfa550683dafcf66d936837e2a891c4c84
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/16/2021
+ms.openlocfilehash: e1f81bf4c4d35108557449a8bebd126bdf744191
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101726551"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104592375"
 ---
 # <a name="use-a-static-public-ip-address-for-egress-traffic-with-a-basic-sku-load-balancer-in-azure-kubernetes-service-aks"></a>Utilize um endereço IP público estático para tráfego de saída com um balanceador de carga *SKU básico* no Serviço Azure Kubernetes (AKS)
 
-Por predefinição, o endereço IP de saída de um cluster Azure Kubernetes Service (AKS) é atribuído aleatoriamente. Esta configuração não é ideal quando precisa de identificar um endereço IP para acesso a serviços externos, por exemplo. Em vez disso, poderá ter de atribuir um endereço IP estático para ser adicionado a uma lista de permitis de acesso ao serviço.
+Por predefinição, o endereço IP de saída de um cluster Azure Kubernetes Service (AKS) é atribuído aleatoriamente. Esta configuração não é ideal quando precisa de identificar um endereço IP para acesso a serviços externos, por exemplo. Em vez disso, poderá ter de atribuir um endereço IP estático para ser adicionado a uma lista de admissões para acesso ao serviço.
 
 Este artigo mostra-lhe como criar e usar um endereço IP público estático para uso com tráfego de saída num cluster AKS.
 
@@ -107,7 +107,7 @@ Para verificar se o endereço IP público estático está a ser utilizado, pode 
 Iniciar e anexar a uma cápsula *de debian* básica:
 
 ```console
-kubectl run -it --rm aks-ip --image=debian
+kubectl run -it --rm aks-ip --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11
 ```
 
 Para aceder a um web site a partir do recipiente, utilize `apt-get` para instalar `curl` no recipiente.

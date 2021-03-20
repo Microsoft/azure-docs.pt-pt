@@ -4,13 +4,13 @@ description: Descreve como definir um recurso Azure como dependente de outro rec
 ms.topic: conceptual
 ms.date: 12/21/2020
 ms.openlocfilehash: f6b63b066da06a17c3a2e51ab0f3ab9bf521a144
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97934752"
 ---
-# <a name="define-the-order-for-deploying-resources-in-arm-templates"></a>Definir a ordem para a implantação de recursos em modelos ARM
+# <a name="define-the-order-for-deploying-resources-in-arm-templates"></a>Definir a ordem de implementação dos recursos nos modelos do ARM
 
 Ao mobilizar recursos, poderá ter de se certificar de que existem alguns recursos antes de outros recursos. Por exemplo, precisa de um servidor SQL lógico antes de implementar uma base de dados. Estabelece-se esta relação marcando um recurso como dependente do outro recurso. Use o `dependsOn` elemento para definir uma dependência explícita. Utilize as funções **de referência** ou **lista** para definir uma dependência implícita.
 

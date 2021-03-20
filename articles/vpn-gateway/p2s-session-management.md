@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/23/2020
 ms.author: cherylmc
 ms.openlocfilehash: 2f2184507e17e3ecae40bb33be4202c183d32b77
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91274238"
 ---
 # <a name="point-to-site-vpn-session-management"></a>Gestão de sessão VPN ponto-a-local
@@ -26,7 +26,7 @@ Os gateways de rede virtuais Azure proporcionam uma maneira fácil de visualizar
 
 Para visualizar e desligar uma sessão no portal:
 
-1. Navegue até ao portal VPN.
+1. Navegue até ao Gateway de VPN.
 1. Na secção **de Monitorização,** selecione **Sessões ponto a local**.
 
    :::image type="content" source="./media/p2s-session-management/portal.png" alt-text="Exemplo do portal":::
@@ -44,7 +44,7 @@ Para visualizar e desligar uma sessão utilizando o PowerShell:
    ```
 1. Copie o **VpnConnectionId** da sessão que pretende desligar.
 
-   :::image type="content" source="./media/p2s-session-management/powershell.png" alt-text="Exemplo do portal":::
+   :::image type="content" source="./media/p2s-session-management/powershell.png" alt-text="Exemplo do PowerShell":::
 1. Para desligar a sessão, executar o seguinte comando:
 
    ```azurepowershell-interactive

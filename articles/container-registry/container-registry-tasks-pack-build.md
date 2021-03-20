@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 10/24/2019
 ms.custom: devx-track-js, devx-track-azurecli
 ms.openlocfilehash: 264fc7314c78088ebfefb9ddb8edbe38fa16581a
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92736637"
 ---
 # <a name="build-and-push-an-image-from-an-app-using-a-cloud-native-buildpack"></a>Construa e empurre uma imagem a partir de uma aplicação usando um Cloud Native Buildpack
@@ -85,7 +85,7 @@ Depois de a imagem ser construída com sucesso, pode executá-la com o Docker, s
 az acr login --name myregistry
 ```
 
-Executar a imagem, substituindo a sua etiqueta de imagem por *runid* :
+Executar a imagem, substituindo a sua etiqueta de imagem por *runid*:
 
 ```console
 docker run --rm -p 8080:8080 myregistry.azurecr.io/java-app:runid

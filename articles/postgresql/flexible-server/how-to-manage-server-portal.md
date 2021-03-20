@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.custom: mvc
 ms.openlocfilehash: 1ac418d855696138341115412dc7e2601d4cf3a1
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91961413"
 ---
 # <a name="manage-an-azure-database-for-postgresql---flexible-server-using-the-azure-portal"></a>Gerir uma base de dados de Azure para PostgreSQL - Servidor Flexível utilizando o portal Azure
@@ -27,7 +27,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com). Aceda ao seu recu
 
 ## <a name="scale-compute-and-storage"></a>Cálculo e armazenamento em escala
 
-Após a criação do servidor, pode escalar entre os [vários níveis de preços à](https://azure.microsoft.com/pricing/details/postgresql/) medida que as suas necessidades mudam. Também pode escalar o seu cálculo e memória aumentando ou diminuindo os vCores.
+Após a criação do servidor, pode escalar entre os [vários níveis de preços à](https://azure.microsoft.com/pricing/details/postgresql/) medida que as suas necessidades mudam. Também pode aumentar ou reduzir verticalmente a computação e a memória ao aumentar ou diminuir os vCores.
 
 > [!NOTE]
 > O armazenamento não pode ser reduzido para um valor mais baixo.
@@ -52,7 +52,7 @@ Pode alterar a palavra-passe da função do administrador utilizando o portal Az
 2. Introduza uma nova senha e confirme a senha. A caixa de texto irá instruí-lo sobre os requisitos de complexidade da palavra-passe.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/howto-manage-server-portal/reset-password.png" alt-text="servidor flexível de armazenamento de escala":::
+> :::image type="content" source="./media/howto-manage-server-portal/reset-password.png" alt-text="redefinir a sua palavra-passe para servidor flexível":::
 
 3. **Selecione Guardar** para guardar a nova palavra-passe.
 
@@ -63,7 +63,7 @@ Pode eliminar o seu servidor se já não precisar dele.
 1. Selecione o seu servidor no portal Azure. Na janela **'Vista Geral'** selecione **Eliminar**.
 2. Digite o nome do servidor na caixa de entrada para confirmar que pretende eliminar o servidor.
 
-   :::image type="content" source="./media/howto-manage-server-portal/delete-server.png" alt-text="servidor flexível de armazenamento de escala":::
+   :::image type="content" source="./media/howto-manage-server-portal/delete-server.png" alt-text="eliminar o servidor flexível":::
 
    > [!IMPORTANT]
    > Apagar um servidor é irreversível.

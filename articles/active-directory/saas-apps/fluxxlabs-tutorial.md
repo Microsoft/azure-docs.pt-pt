@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com a Fluxx Labs Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com a Fluxx Labs | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Fluxx Labs.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 05/21/2020
 ms.author: jeedes
 ms.openlocfilehash: d201f80aea2c22e1bee06c776d2a84fb69f2bd7d
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92452605"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-fluxx-labs"></a>Tutorial: Azure Ative Directory integração única (SSO) com Fluxx Labs
@@ -119,7 +119,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
 
 Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso a Fluxx Labs.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de aplicações, selecione **Fluxx Labs**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 
@@ -141,7 +141,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
     ![Screenshot que mostra a secção "Definições" com "Administrador" selecionado.](./media/fluxxlabs-tutorial/config1.png)
 
-3. No Painel De Administração, selecione **integrações de plug-ins**e, em  >  **Integrations** seguida, selecione **SSO-(Desativado)**
+3. No Painel De Administração, selecione **integrações de plug-ins** e, em  >   seguida, selecione **SSO-(Desativado)**
 
     ![Screenshot que mostra o separador "Integrações" com "S A M L S S S O- (Desativado) selecionado.](./media/fluxxlabs-tutorial/config2.png)
 
@@ -178,7 +178,7 @@ Para permitir que os utilizadores de Azure AD inscrevam-se no Fluxx Labs, devem 
 
 1. Inscreva-se no site da empresa Fluxx Labs como administrador.
 
-2. Clique no **ícone**apresentado abaixo.
+2. Clique no **ícone** apresentado abaixo.
 
     ![Screenshot que mostra opções de administrador com o ícone "Plus" selecionado em "Your Dashboard is Empty".](./media/fluxxlabs-tutorial/config6.png)
 

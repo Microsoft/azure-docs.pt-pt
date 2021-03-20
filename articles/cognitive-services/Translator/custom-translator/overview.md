@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 12/09/2019
 ms.author: lajanuar
 ms.topic: overview
-ms.openlocfilehash: 37d31d753812924607c4d31df6d4f4d5e7b32d69
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 89ab25f45cd35a86d2ff4416ceb851ae6cd5e115
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98890718"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104657166"
 ---
 # <a name="what-is-custom-translator"></a>O que é o Tradutor Personalizado?
 
@@ -24,13 +24,20 @@ Os sistemas de tradução construídos com [Tradutor Personalizado](https://port
 
 O Custom Tradutor suporta mais de três dezenas de idiomas, e mapeia diretamente para as línguas disponíveis para NMT. Para obter uma lista completa, consulte [os idiomas do tradutor da Microsoft.](../language-support.md#customization)
 
+Esta documentação contém os seguintes tipos de artigos:
+
+* [**Os quickstarts**](quickstart-build-deploy-custom-model.md) estão a iniciar instruções para guiá-lo através da realização de pedidos ao serviço.  
+* [**Os guias de como**](how-to-create-project.md) fazer contêm instruções para utilizar a funcionalidade de formas mais específicas ou personalizadas.  
+* [**Os conceitos**](workspace-and-project.md) fornecem explicações aprofundadas sobre a funcionalidade.  
+
+
 ## <a name="features"></a>Funcionalidades
 
-O Custom Tradutor fornece diferentes funcionalidades para construir um sistema de tradução personalizado e, posteriormente, aceder ao mesmo.
+O Custom Tradutor fornece diferentes funcionalidades para construir um sistema de tradução personalizado e, mais tarde, acede-lo.
 
 |Funcionalidade  |Descrição  |
 |---------|---------|
-|[Alavancar a tecnologia de tradução de máquinas neurais](https://www.microsoft.com/translator/blog/2016/11/15/microsoft-translator-launching-neural-network-based-translations-for-all-its-speech-languages/)     |  Melhore a sua tradução aproveitando a tradução da máquina neural (NMT) fornecida pelo tradutor personalizado.       |
+|[Aplicar tecnologia de tradução de máquinas neurais](https://www.microsoft.com/translator/blog/2016/11/15/microsoft-translator-launching-neural-network-based-translations-for-all-its-speech-languages/)     |  Melhore a sua tradução aplicando a tradução de máquinas neurais (NMT) fornecida pelo tradutor personalizado.       |
 |[Construa sistemas que conheçam a sua terminologia de negócio](what-are-parallel-documents.md)     |  Personalize e construa sistemas de tradução usando documentos paralelos, que compreendam as terminologias utilizadas no seu próprio negócio e indústria.       |
 |[Use um dicionário para construir os seus modelos](what-is-dictionary.md)     |   Se não tiver um conjunto de dados de treino, pode treinar um modelo apenas com dados de dicionário.       |
 |[Colaborar com outros](how-to-manage-settings.md#share-your-workspace)     |   Colabore com a sua equipa partilhando o seu trabalho com pessoas diferentes.     |
@@ -52,7 +59,7 @@ Com [o Custom Tradutor,](https://portal.customtranslator.azure.ai)treinar e impl
 
 Utilizando o portal [secure Custom Tradutor,](https://portal.customtranslator.azure.ai) os utilizadores podem carregar dados de treino, sistemas de comboio, sistemas de teste e implantá-los num ambiente de produção através de uma interface de utilizador intuitiva. O sistema estará então disponível para ser utilizado à escala dentro de algumas horas (o tempo real depende do tamanho dos dados de treino).
 
-[O Tradutor Personalizado](https://portal.customtranslator.azure.ai) também pode ser acedido programáticamente através de uma [API dedicada](https://custom-api.cognitive.microsofttranslator.com/swagger/) (atualmente em pré-visualização). A API permite que os utilizadores gerem a criação ou atualização regular da formação através da sua própria app ou webservice.
+[O Tradutor Personalizado](https://portal.customtranslator.azure.ai) também pode ser acedido programáticamente através de uma [API dedicada](https://custom-api.cognitive.microsofttranslator.com/swagger/) (atualmente em pré-visualização). A API permite que os utilizadores consigam gerir a criação ou atualização da formação através da sua própria app ou webservice.
 
 O custo da utilização de um modelo personalizado para traduzir conteúdo baseia-se no nível de preços da API de texto do utilizador. Consulte a página de preços da [API do Tradutor](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/) de Serviços Cognitivos para obter detalhes do nível de preços.
 
@@ -60,7 +67,7 @@ O custo da utilização de um modelo personalizado para traduzir conteúdo basei
 
 Os sistemas personalizados podem ser acedidos e integrados perfeitamente em qualquer produto ou fluxo de trabalho de negócio, e em qualquer dispositivo, através da API de Texto do Microsoft Tradutor através da tecnologia padrão REST.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Leia sobre os [detalhes dos preços](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/).
 

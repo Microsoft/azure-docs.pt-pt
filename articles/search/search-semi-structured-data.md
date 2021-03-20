@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 01/25/2021
 ms.openlocfilehash: a7a010e3c60d6b96947597878fcd870e9845b2b3
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98746141"
 ---
 # <a name="tutorial-index-json-blobs-from-azure-storage-using-rest"></a>Tutorial: Blobs índice JSON do Azure Storage usando REST
@@ -344,7 +344,7 @@ Quando se está a trabalhar na sua própria subscrição, no final de um projeto
 
 Pode encontrar e gerir recursos no portal, utilizando a ligação de todos os recursos ou grupos de recursos no painel de navegação à esquerda.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que está familiarizado com o básico da indexação Azure Blob, vamos olhar mais de perto a configuração do indexante para as bolhas JSON no Azure Storage.
 

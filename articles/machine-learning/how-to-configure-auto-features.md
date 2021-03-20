@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: how-to,automl,contperf-fy21q2
 ms.date: 12/18/2020
 ms.openlocfilehash: c90ef9fe49a87c18c7f4f55175bafaebfd31d722
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98610306"
 ---
 # <a name="data-featurization-in-automated-machine-learning"></a>A participação de dados na aprendizagem automática de máquinas
@@ -48,7 +48,7 @@ Para experiências que configura com o Python SDK, pode ativar ou desativar a de
 
 A tabela seguinte mostra as definições aceites para `featurization` a [classe AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig):
 
-|Configuração de exibição | Descrição|
+|Configuração de exibição | Description|
 ------------- | ------------- |
 |`"featurization": 'auto'`| Especifica que, como parte do pré-processamento, [os guarda-dados](#data-guardrails) e [as etapas de exibição](#featurization) devem ser feitos automaticamente. Esta é a predefinição.|
 |`"featurization": 'off'`| Especifica que os passos de caracterização não devem ser feitos automaticamente.|
@@ -63,13 +63,13 @@ A tabela seguinte resume técnicas que são automaticamente aplicadas aos seus d
 > [!NOTE]
 > Se pretende exportar os seus modelos criados pela AutoML para um [modelo ONNX,](concept-onnx.md)apenas as opções de exibição indicadas com um asterisco ("*") são suportadas no formato ONNX. Saiba mais sobre [a conversão de modelos para ONNX](how-to-use-automl-onnx-model-dotnet.md).
 
-|Etapas de exibição &nbsp;| Descrição |
+|Etapas de exibição &nbsp;| Description |
 | ------------- | ------------- |
-|**Largar altas características de cardinalidade ou nenhuma variação** _ |Largue estas funcionalidades dos conjuntos de treino e validação. Aplica-se a características com todos os valores em falta, com o mesmo valor em todas as linhas, ou com elevado cardinalício (por exemplo, hashes, IDs ou GUIDs).|
-|_*Imputar valores em falta**_ |Para características numéricas, imputar com a média de valores na coluna.<br/><br/>Para características categóricas, imputar com o valor mais frequente.|
-|_*Gerar mais funcionalidades**_ |Para as características datetime: Ano, mês, dia, dia da semana, dia do ano, quarto, semana do ano, Hora, Minuto, Segundo.<br><br> _For tarefas de previsão,* estas funcionalidades adicionais do DateTime são criadas: ISO ano, meio - semestre, mês civil como string, Semana, Dia da semana como string, Dia do trimestre, Dia do ano, AM/PM (0 se a hora é antes do meio-dia (12 horas), 1 de outra forma), AM/PM como corda, Hora do Dia (12 horas por dia)<br/><br/>Para funcionalidades de texto: Frequência de prazo baseada em unigramas, bigrams e trigramas. Saiba mais sobre [como isto é feito com o BERT.](#bert-integration)|
-|**Transformar e codificar** _|Transforme características numéricas que têm poucos valores únicos em características categóricas.<br/><br/>A codificação de um só calor é usada para características categóricas de baixa cardinalidade. A codificação de haxixe é usada para características categóricas de alto cardeal.|
-|_ *Incorporações de palavras**|Um text featurizer converte vetores de fichas de texto em vetores de frase usando um modelo pré-treinado. O vetor incorporado de cada palavra em um documento é agregado com o resto para produzir um vetor de recursos documentais.|
+|**Largar altas características de cardinalidade ou nenhuma variação*** |Largue estas funcionalidades dos conjuntos de treino e validação. Aplica-se a características com todos os valores em falta, com o mesmo valor em todas as linhas, ou com elevado cardinalício (por exemplo, hashes, IDs ou GUIDs).|
+|**Imputar valores em falta*** |Para características numéricas, imputar com a média de valores na coluna.<br/><br/>Para características categóricas, imputar com o valor mais frequente.|
+|**Gerar mais funcionalidades** _ |Para as características datetime: Ano, mês, dia, dia da semana, dia do ano, quarto, semana do ano, Hora, Minuto, Segundo.<br><br> _For tarefas de previsão,* estas funcionalidades adicionais do DateTime são criadas: ISO ano, meio - semestre, mês civil como string, Semana, Dia da semana como string, Dia do trimestre, Dia do ano, AM/PM (0 se a hora é antes do meio-dia (12 horas), 1 de outra forma), AM/PM como corda, Hora do Dia (12 horas por dia)<br/><br/>Para funcionalidades de texto: Frequência de prazo baseada em unigramas, bigrams e trigramas. Saiba mais sobre [como isto é feito com o BERT.](#bert-integration)|
+|**Transformar e codificar***|Transforme características numéricas que têm poucos valores únicos em características categóricas.<br/><br/>A codificação de um só calor é usada para características categóricas de baixa cardinalidade. A codificação de haxixe é usada para características categóricas de alto cardeal.|
+|**Incorporações de palavras**|Um text featurizer converte vetores de fichas de texto em vetores de frase usando um modelo pré-treinado. O vetor incorporado de cada palavra em um documento é agregado com o resto para produzir um vetor de recursos documentais.|
 |**Distância cluster**|Treina um modelo de agrupamento de meios K em todas as colunas numéricas. Produz *k* novas funcionalidades (uma nova característica numérica por cluster) que contêm a distância de cada amostra ao centroíid de cada cluster.|
 
 ## <a name="data-guardrails"></a>Guarda-dados

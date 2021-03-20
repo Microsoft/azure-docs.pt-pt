@@ -1,5 +1,5 @@
 ---
-title: Alterar planos de licença para utilizadores e grupos - Azure AD ! Microsoft Docs
+title: Alterar planos de licença para utilizadores e grupos - Azure AD | Microsoft Docs
 description: Como migrar os utilizadores dentro de um grupo para diferentes planos de serviço usando o licenciamento do grupo no Azure Ative Directory
 services: active-directory
 keywords: Licenciamento do Azure AD
@@ -17,17 +17,17 @@ ms.reviewer: sumitp
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 050ae95c79e7ecb98f8508c2fdb41b90fc1b1da0
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96546544"
 ---
 # <a name="change-license-assignments-for-a-user-or-group-in-azure-active-directory"></a>Alterar atribuições de licença para um utilizador ou grupo no Azure Ative Directory
 
 Este artigo descreve como mover utilizadores e grupos entre planos de licença de serviço no Azure Ative Directory (Azure AD). O objetivo Azure AD é garantir que não há perda de serviço ou dados durante a mudança de licença. Os utilizadores devem alternar entre os serviços sem problemas. As etapas de atribuição do plano de licença neste artigo descrevem a alteração de um utilizador ou grupo no Office 365 E1 para o Office 365 E3, mas os passos aplicam-se a todos os planos de licença. Quando atualiza as atribuições de licenças para um utilizador ou grupo, as remoção da atribuição de licenças e novas atribuições são feitas simultaneamente para que os utilizadores não percam o acesso aos seus serviços durante as alterações de licença ou vejam conflitos de licença entre planos.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Antes de atualizar as atribuições de licença, é importante verificar que certos pressupostos são verdadeiros para todos os utilizadores ou grupos serem atualizados. Se os pressupostos não forem verdadeiros para todos os utilizadores de um grupo, a migração pode falhar para alguns. Como resultado, alguns dos utilizadores podem perder acesso a serviços ou dados. Certifique-se de que:
 
@@ -46,7 +46,7 @@ Antes de atualizar as atribuições de licença, é importante verificar que cer
 Na página de **atribuição de licenças de atualização,** se vir que algumas caixas de verificação estão indisponíveis, indica serviços que não podem ser alterados porque são herdados de uma licença de grupo.
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com/) utilizando uma conta de administrador de licença na sua organização Azure AD.
-1. Selecione **Utilizadores de Diretório Ativo Azure**  >  **Users** e, em seguida, abra a página **de Perfil** para um utilizador.
+1. Selecione **Utilizadores de Diretório Ativo Azure**  >  e, em seguida, abra a página **de Perfil** para um utilizador.
 1. Selecione **Licenças**.
 1. Selecione **Atribuições** para editar a atribuição de licença para o utilizador ou grupo. A página **atribuições** é onde pode resolver conflitos de atribuição de licenças.
 1. Selecione a caixa de verificação para o Office 365 E3 e certifique-se de que, no mínimo, todos os serviços E1 atribuídos ao utilizador são selecionados.

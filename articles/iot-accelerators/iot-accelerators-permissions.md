@@ -1,5 +1,5 @@
 ---
-title: Utilize o site Azure IoT Solutions - Azure / Microsoft Docs
+title: Utilize o site Azure IoT Solutions - Azure | Microsoft Docs
 description: Descreve como usar o website AzureIoTSolutions.com para implementar o seu acelerador de solução.
 author: dominicbetts
 manager: philmea
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: dobett
 ms.openlocfilehash: 5a088cb07fa74b65e497de54be8c97bd51d31c16
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97387841"
 ---
 # <a name="use-the-azureiotsolutionscom-site-to-deploy-your-solution-accelerator"></a>Utilize o site azureiotsolutions.com para implantar o seu acelerador de solução
@@ -62,6 +62,6 @@ O catálogo lista centenas de dispositivos de hardware IoT certificados que pode
 
 Se for um fabricante de hardware, clique em **Tornar-se um Parceiro** para aprender a fazer parceria com a Microsoft no programa Certified for IoT.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para experimentar um dos aceleradores de solução IoT, confira o arranque rápido: [Experimente uma solução de fábrica conectada](quickstart-connected-factory-deploy.md).

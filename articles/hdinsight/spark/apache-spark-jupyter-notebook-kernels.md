@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 04/24/2020
 ms.openlocfilehash: a16ec623d7475a80e546df43495db1a357a5fa66
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98930389"
 ---
 # <a name="kernels-for-jupyter-notebook-on-apache-spark-clusters-in-azure-hdinsight"></a>Kernels para Jupyter Notebook em aglomerados Apache Spark em Azure HDInsight
@@ -75,7 +75,7 @@ Aqui estão alguns benefícios de usar os novos núcleos com o Jupyter Notebook 
    | sql |`%%sql -o <variable name>`<br> `SHOW TABLES` |Executa uma consulta de Colmeia contra o sqlContext. Se o `-o` parâmetro for aprovado, o resultado da consulta é persistido no contexto python %%local como um dataframe [pandas.](https://pandas.pydata.org/) |
    | local |`%%local`<br>`a=1` |Todo o código em linhas posteriores é executado localmente. O código deve ser o código Python2 válido, independentemente do núcleo que estiver a usar. Assim, mesmo que tenha selecionado **miolos PySpark3** ou **Spark** enquanto cria o caderno, se usar a `%%local` magia numa célula, essa célula deve ter apenas um código Python2 válido. |
    | registos |`%%logs` |Outputs os registos para a atual sessão livy. |
-   | eliminação |`%%delete -f -s <session number>` |Elimina uma sessão específica do atual ponto final da Livy. Não pode apagar a sessão que começa para o próprio núcleo. |
+   | delete |`%%delete -f -s <session number>` |Elimina uma sessão específica do atual ponto final da Livy. Não pode apagar a sessão que começa para o próprio núcleo. |
    | limpeza |`%%cleanup -f` |Elimina todas as sessões para o atual ponto final da Livy, incluindo a sessão deste caderno. A bandeira da força -f é obrigatória. |
 
    > [!NOTE]  
@@ -138,7 +138,7 @@ Os cadernos Jupyter em clusters Spark HDInsight são suportados apenas no Google
 
 Os novos núcleos estão em evolução e irão amadurecer com o tempo. Assim, as APIs podem mudar à medida que estes núcleos amadurecem. Agradecemos qualquer feedback que tenha enquanto utiliza estes novos núcleos. O feedback é útil na formação da libertação final destes núcleos. Pode deixar os seus comentários/feedback na secção **De Feedback** na parte inferior deste artigo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Descrição geral: Apache Spark no Azure HDInsight](apache-spark-overview.md)
 - [Use cadernos Apache Zeppelin com um cluster Apache Spark em HDInsight](apache-spark-zeppelin-notebook.md)

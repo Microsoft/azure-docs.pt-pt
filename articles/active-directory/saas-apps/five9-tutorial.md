@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com o Adaptador Five9 Plus (CTI, Contact Center Agents) / Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com o Adaptador Five9 Plus (CTI, Contact Center Agents) | Microsoft Docs'
 description: Saiba como configurar um único sinal entre o Azure Ative Directory e o Five9 Plus Adapter (CTI, Contact Center Agents).
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/04/2019
 ms.author: jeedes
 ms.openlocfilehash: 68de5b11c131fe33252178ebecdeb9c3855fe239
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92453438"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-five9-plus-adapter-cti-contact-center-agents"></a>Tutorial: Integração do Azure Ative Directory com o Adaptador Five9 Plus (CTI, Contact Center Agents)

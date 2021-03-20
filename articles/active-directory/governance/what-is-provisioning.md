@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 640367d1b833f61e8a83fe9ce6b14d6d799cf9b9
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96172457"
 ---
 # <a name="what-is-provisioning"></a>O que é o aprovisionamento?
@@ -26,7 +26,7 @@ O provisionamento e a desprovisionamento são os processos que garantem a consis
 
 Por exemplo, quando um novo empregado se junta à sua organização, esse funcionário é inscrito no sistema de RH.  Nessa altura, o fornecimento **de** RH **para** Azure Ative Directory (Azure AD) pode criar uma conta de utilizador correspondente em Azure AD. As aplicações que consultam a Azure AD podem ver a conta do novo empregado.  Se existirem aplicações que não utilizem o Azure AD, então o fornecimento do AZure AD **às** bases **de** dados dessas aplicações, garante que o utilizador poderá aceder a todas as aplicações a que o utilizador precisa de acesso.  Este processo permite ao utilizador iniciar o seu trabalho e ter acesso às aplicações e sistemas de que necessita no primeiro dia.  Da mesma forma, quando as suas propriedades, como o seu departamento ou o seu estatuto laboral, mudam no sistema de RH, a sincronização dessas atualizações do sistema de RH para a Azure AD e, além disso, para outras aplicações e bases de dados-alvo, garante a coerência.
 
-A Azure AD fornece atualmente três áreas de provisão automatizada.  São:  
+A Azure AD fornece atualmente três áreas de provisão automatizada.  A saber:  
 
 - Provisionamento de um sistema de registo não-directório externo para Azure AD, através **[de provisão orientada para os recursos humanos](#hr-driven-provisioning)**  
 - Provisionamento da Azure AD às aplicações, através do **[provisionamento de aplicações](#app-provisioning)**  

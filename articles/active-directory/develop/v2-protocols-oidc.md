@@ -14,10 +14,10 @@ ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms.openlocfilehash: de1fcdc259de3f72e35feb411bcc836354352eb4
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98752599"
 ---
 # <a name="microsoft-identity-platform-and-openid-connect-protocol"></a>Plataforma de identidade da Microsoft e protocolo OpenID Connect
@@ -172,7 +172,7 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 
 A tabela a seguir descreve códigos de erro que podem ser devolvidos no `error` parâmetro da resposta de erro:
 
-| Código de erro | Descrição | Ação do cliente |
+| Código de erro | Description | Ação do cliente |
 | --- | --- | --- |
 | `invalid_request` | Erro de protocolo, como um parâmetro em falta, exigido. |Corrija e reenvia o pedido. Este é um erro de desenvolvimento que normalmente é apanhado durante os testes iniciais. |
 | `unauthorized_client` | O pedido do cliente não pode solicitar um código de autorização. |Isto ocorre geralmente quando a aplicação do cliente não está registada no Azure AD ou não é adicionada ao inquilino AZure AD do utilizador. A aplicação pode solicitar ao utilizador instruções para instalar a aplicação e adicioná-la ao Azure AD. |
@@ -292,7 +292,7 @@ GET https://login.microsoftonline.com/common/oauth2/v2.0/logout?
 post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 ```
 
-| Parâmetro | Condição | Descrição |
+| Parâmetro | Condição | Description |
 | ----------------------- | ------------------------------- | ------------ |
 | `post_logout_redirect_uri` | Recomendado | O URL para o qual o utilizador é redirecionado após a assinatura com sucesso. Se o parâmetro não estiver incluído, o utilizador é mostrado uma mensagem genérica que é gerada pela plataforma de identidade da Microsoft. Este URL deve corresponder a um dos URIs de redirecionamento registados para a sua aplicação no portal de registo de aplicações. |
 
@@ -300,7 +300,7 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 
 Quando redireciona o utilizador para o `end_session_endpoint` , a plataforma de identidade da Microsoft limpa a sessão do utilizador a partir do navegador. No entanto, o utilizador pode ainda ser inscrito noutras aplicações que utilizem as contas da Microsoft para autenticação. Para permitir que essas aplicações assinem o utilizador simultaneamente, a plataforma de identidade da Microsoft envia um pedido HTTP GET ao registo `LogoutUrl` de todas as aplicações a que o utilizador se encontra atualmente inscrito. As aplicações devem responder a este pedido, limpando qualquer sessão que identifique o utilizador e devolvendo uma `200` resposta. Se pretender apoiar uma única sinseção na sua aplicação, tem de implementar tal `LogoutUrl` no código da sua aplicação. Pode definir o `LogoutUrl` portal de registo de aplicações.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Reveja a [documentação Do UtilizadorInfo](userinfo.md)
 * Saiba como [personalizar os valores num token](active-directory-claims-mapping.md) com dados dos seus sistemas no local. 

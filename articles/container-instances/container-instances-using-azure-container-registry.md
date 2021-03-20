@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 07/02/2020
 ms.custom: mvc, devx-track-azurecli
 ms.openlocfilehash: cca1001f0f84f4e4fc87df233f872fc1efdb3267
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92736727"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Implementar no Azure Container Instances a partir do Azure Container Registry
@@ -18,9 +18,9 @@ ms.locfileid: "92736727"
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-**Registo do contentor Azure** : É necessário um registo de contentores Azure e pelo menos uma imagem de contentor no registo para completar as etapas deste artigo. Se precisar de um registo, consulte [criar um registo de contentores utilizando o Azure CLI](../container-registry/container-registry-get-started-azure-cli.md).
+**Registo do contentor Azure**: É necessário um registo de contentores Azure e pelo menos uma imagem de contentor no registo para completar as etapas deste artigo. Se precisar de um registo, consulte [criar um registo de contentores utilizando o Azure CLI](../container-registry/container-registry-get-started-azure-cli.md).
 
-**Azure CLI** : Os exemplos da linha de comando neste artigo utilizam o [Azure CLI](/cli/azure/) e são formatados para a casca bash. Pode [instalar o Azure CLI](/cli/azure/install-azure-cli) localmente ou utilizar a [Azure Cloud Shell][cloud-shell-bash].
+**Azure CLI**: Os exemplos da linha de comando neste artigo utilizam o [Azure CLI](/cli/azure/) e são formatados para a casca bash. Pode [instalar o Azure CLI](/cli/azure/install-azure-cli) localmente ou utilizar a [Azure Cloud Shell][cloud-shell-bash].
 
 ## <a name="limitations"></a>Limitações
 
@@ -70,7 +70,7 @@ az keyvault secret set \
                 --output tsv)
 ```
 
-O `--role` argumento no comando anterior configura o diretor de serviço com a função *acrpull,* que lhe concede acesso apenas ao registo. Para conceder tanto o impulso como o acesso, mude o `--role` argumento para *acrpush* .
+O `--role` argumento no comando anterior configura o diretor de serviço com a função *acrpull,* que lhe concede acesso apenas ao registo. Para conceder tanto o impulso como o acesso, mude o `--role` argumento para *acrpush*.
 
 Em seguida, guarde o *appId* do diretor de serviço no cofre, que é o **nome de utilizador** que você passa para O Registo de Contentores Azure para autenticação.
 
@@ -147,9 +147,9 @@ Se mantiver imagens de contentores num registo de contentores Azure, pode facilm
 
 1. No portal Azure, navegue para o seu registo de contentores.
 
-1. Para confirmar que a conta de administração está ativada, selecione **as teclas de acesso** e no utilizador de **Administração** selecione **Enable** .
+1. Para confirmar que a conta de administração está ativada, selecione **as teclas de acesso** e no utilizador de **Administração** selecione **Enable**.
 
-1. Selecione **Repositórios** , em seguida, selecione o repositório a partir do quais pretende implantar, clique à direita na etiqueta para a imagem do recipiente que pretende implantar e selecione **a instância de execução** .
+1. Selecione **Repositórios**, em seguida, selecione o repositório a partir do quais pretende implantar, clique à direita na etiqueta para a imagem do recipiente que pretende implantar e selecione **a instância de execução**.
 
     !["Instância de execução" no Registo de Contentores Azure no portal Azure][acr-runinstance-contextmenu]
 

@@ -9,10 +9,10 @@ ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
 ms.openlocfilehash: 3baea92d78cf15c35d2fb36692dab1edfd950699
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98744765"
 ---
 # <a name="what-is-the-azure-cloud-service-model-and-how-do-i-package-it"></a>O que é o modelo do Azure Cloud Service e como o embalo?
@@ -274,7 +274,7 @@ Quando as variáveis forem definidas da seguinte forma:
 | \[CaminhoFísico\] |Os diretórios físicos dos conteúdos para cada caminho virtual definido no nó do site da definição de serviço. |
 | \[RoleAssemblyName\] |O nome do ficheiro binário para o papel. |
 
-## <a name="next-steps"></a>Próximos passos 
+## <a name="next-steps"></a>Passos seguintes 
 - Reveja os [pré-requisitos](deploy-prerequisite.md) de implantação para serviços em nuvem (suporte alargado).
 - Implementar um Serviço de Cloud (suporte alargado) utilizando o [portal Azure](deploy-portal.md), [PowerShell,](deploy-powershell.md) [Modelo](deploy-template.md) ou [Estúdio Visual](deploy-visual-studio.md).
 - Reveja [perguntas frequentes](faq.md) para serviços cloud (suporte alargado).

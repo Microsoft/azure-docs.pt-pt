@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 53a0da5b5db21c9a543d39d1b252b0b4c64e2a56
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91306366"
 ---
 # <a name="multiple-domain-support-for-federating-with-azure-ad"></a>Suporte para Vários Domínios para Federação com o Azure AD
@@ -65,7 +65,7 @@ Olhando para as definições para o domínio bmfabrikam.com pode ver o seguinte:
 
 `-SupportMultipleDomain` não altera os outros pontos finais, que ainda estão configurados para apontar para o serviço da federação em adfs.bmcontoso.com.
 
-Outra coisa que `-SupportMultipleDomain` faz é garantir que o sistema AD FS inclui o valor adequado do Emitente em fichas emitidas para a Azure AD. Este valor é definido tomando a parte de domínio dos utilizadores UPN e definindo-o como o domínio no EmiterUri, ou seja, https://{upn sfixix}/adfs/services/trust.
+Outra coisa que `-SupportMultipleDomain` faz é garantir que o sistema AD FS inclui o valor adequado do Emitente em fichas emitidas para a Azure AD. Este valor é definido tomando a parte de domínio dos utilizadores UPN e definindo-o como o domínio no EmiterUri, ou seja, https://{upn sufixix}/adfs/services/trust.
 
 Assim, durante a autenticação para Azure AD ou Microsoft 365, o elemento EmiterUri no token do utilizador é utilizado para localizar o domínio em Azure AD. Se não for possível encontrar uma correspondência, a autenticação falhará.
 

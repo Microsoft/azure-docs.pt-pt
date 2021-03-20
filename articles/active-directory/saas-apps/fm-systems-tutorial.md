@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com FM:Systems Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com a FM:Systems | Microsoft Docs'
 description: Saiba como configurar um único sinal entre o Azure Ative Directory e o FM:Systems.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/05/2019
 ms.author: jeedes
 ms.openlocfilehash: a43c1092cd916877b24fc145ed05c92f50127cca
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92452734"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fmsystems"></a>Tutorial: Integração do Diretório Ativo Azure com FM:Sistemas
@@ -152,7 +152,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
 Nesta secção, você permite que Britta Simon utilize o Azure single sign-on, concedendo acesso a FM:Systems.
 
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **FM:Systems**.
+1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações** e, em seguida, selecione **FM:Systems**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
@@ -178,7 +178,7 @@ Nesta secção, você permite que Britta Simon utilize o Azure single sign-on, c
 
 1. Numa janela do navegador web, inscreva-se no site da empresa FM:Systems como administrador.
 
-2. Vá à ** \> lista de \> \> utilizadores de segurança da administração do sistema.**
+2. Vá à **\> lista de \> \> utilizadores de segurança da administração do sistema.**
    
     ![Administração de Sistema](./media/fm-systems-tutorial/ic795905.png "Administração de Sistema")
 
@@ -190,7 +190,7 @@ Nesta secção, você permite que Britta Simon utilize o Azure single sign-on, c
    
     ![Criar Utilizador](./media/fm-systems-tutorial/ic795907.png "Criar Utilizador")
    
-    a. Digite o **Nome**de Utilizador , **a Palavra-passe**, **Confirme a Palavra-passe,** o **E-mail** e o **ID do Colaborador** de uma conta de Diretório Ativo Azure válida que pretende apresentar nas caixas de texto relacionadas.
+    a. Digite o **Nome** de Utilizador , **a Palavra-passe**, **Confirme a Palavra-passe,** o **E-mail** e o **ID do Colaborador** de uma conta de Diretório Ativo Azure válida que pretende apresentar nas caixas de texto relacionadas.
    
     b. Clique em **Seguinte**.
 

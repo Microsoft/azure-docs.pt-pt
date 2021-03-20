@@ -1,5 +1,5 @@
 ---
-title: Planear e gerir os custos do armazenamento da Azure Blob
+title: Planear e gerir os custos do Armazenamento de blobs do Azure
 description: Saiba como planear e gerir os custos para o armazenamento da Azure Blob utilizando a análise de custos no portal Azure.
 services: storage
 author: normesta
@@ -10,13 +10,13 @@ ms.author: normesta
 ms.subservice: common
 ms.custom: subject-cost-optimization
 ms.openlocfilehash: 0bad4637f13bbcf02047416499e4f82fdc53eb4f
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98601315"
 ---
-# <a name="plan-and-manage-costs-for-azure-blob-storage"></a>Planear e gerir os custos do armazenamento da Azure Blob
+# <a name="plan-and-manage-costs-for-azure-blob-storage"></a>Planear e gerir os custos do Armazenamento de blobs do Azure
 
 Este artigo ajuda-o a planear e gerir os custos para o armazenamento da Azure Blob. Em primeiro lugar, calcule os custos utilizando a calculadora de preços Azure. Depois de criar a sua conta de armazenamento, otimize a conta para que pague apenas pelo que precisa. Utilize funcionalidades de gestão de custos para definir orçamentos e monitorizar os custos. Também pode rever os custos previstos e monitorizar as tendências de gastos para identificar áreas onde possa querer agir.
 
@@ -88,7 +88,7 @@ Quando utiliza a análise de custos, pode ver os custos de Armazenamento Azure e
 
 Para ver os custos de armazenamento da Azure na análise de custos:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
 2. Abra a janela **De Gestão de Custos + Faturação,** selecione **a gestão** de custos do menu e, em seguida, selecione **análise de custos**. Em seguida, pode alterar o âmbito de uma subscrição específica a partir do **dropdown** scope.
 
