@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 08/20/2020
 ms.openlocfilehash: 6783db6b9bb1c7d48b308234a179925d6f30e281
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89086210"
 ---
 # <a name="move-azure-event-grid-partner-namespaces-to-another-region"></a>Mover espaços de nomes parceiros da Azure Event Grid para outra região
@@ -31,9 +31,9 @@ Aqui estão os passos de alto nível abrangidos por este artigo:
 Para começar, exporte um modelo de Gestor de Recursos para o espaço de nome do parceiro. 
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. Na barra de pesquisa no topo, digite **os espaços de nome do parceiro Event Grid**e selecione Os Espaços de Nome do Parceiro de Grelha de Eventos na lista de **resultados.** 
+2. Na barra de pesquisa no topo, digite **os espaços de nome do parceiro Event Grid** e selecione Os Espaços de Nome do Parceiro de Grelha de Eventos na lista de **resultados.** 
 3. Selecione o **espaço de nome do parceiro** que pretende exportar para um modelo de Gestor de Recursos. 
-4. Na página **'Espaço nome do parceiro' '' '' '' '' ''** **'' 'Designar' 'Exportação'** **no** menu esquerdo e, em seguida, selecione **Descarregue** na barra de ferramentas. 
+4. Na página **'Espaço nome do parceiro'** **'Designar' 'Exportação'** **no** menu esquerdo e, em seguida, selecione **Descarregue** na barra de ferramentas. 
 
     :::image type="content" source="./media/move-partner-namespaces-across-regions/download-template.png" alt-text="Modelo de exportação -> Download" lightbox="./media/move-partner-namespaces-across-regions/download-template.png":::   
 5. Localize o ficheiro **.zip** que descarregou do portal e desaperte esse ficheiro para uma pasta à sua escolha. Este ficheiro zip contém ficheiros JSON de modelo e parâmetros. 
@@ -57,11 +57,11 @@ Para começar, exporte um modelo de Gestor de Recursos para o espaço de nome do
 Implemente o modelo para criar um espaço de nome de parceiro na região alvo. 
 
 1. No portal Azure, selecione **Criar um recurso**.
-2. Em **Search the Marketplace**, **digitar a implementação do modelo**e, em seguida, premir **ENTER**.
+2. Em **Search the Marketplace**, **digitar a implementação do modelo** e, em seguida, premir **ENTER**.
 3. Selecione **a implementação do modelo**.
 4. Selecione **Criar**.
 5. Selecione **Construa o seu próprio modelo no editor.**
-6. Selecione **carregar o ficheiro**e, em seguida, siga as instruções para carregar otemplate.js** no** ficheiro que descarregou na última secção.
+6. Selecione **carregar o ficheiro** e, em seguida, siga as instruções para carregar otemplate.js **no** ficheiro que descarregou na última secção.
 7. **Selecione Guardar** para guardar o modelo. 
 8. Na página **de implementação personalizada,** siga estes passos: 
     1. Selecione uma **subscrição Azure**. 
@@ -80,7 +80,7 @@ Se quiser recomeçar, elimine o espaço de nome do parceiro na região alvo e re
 
 Para eliminar um espaço de nome de parceiro utilizando o portal Azure:
 
-1. Na janela de pesquisa no topo do portal Azure, **digite Os espaços de nome do parceiro de grelha**de eventos e selecione os espaços de **nomes de parceiros de grelha** de evento a partir dos resultados da pesquisa. 
+1. Na janela de pesquisa no topo do portal Azure, **digite Os espaços de nome do parceiro de grelha** de eventos e selecione os espaços de **nomes de parceiros de grelha** de evento a partir dos resultados da pesquisa. 
 2. Selecione o espaço de nome do parceiro para eliminar e **selecione Eliminar** a partir da barra de ferramentas. 
 3. **Confirme** a eliminação para eliminar o espaço de nome do parceiro. 
 

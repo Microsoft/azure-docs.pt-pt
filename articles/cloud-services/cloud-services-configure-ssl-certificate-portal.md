@@ -9,10 +9,10 @@ author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
 ms.openlocfilehash: 33aa088efd7768153d4a17472d82e0826f4ffa6b
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98742646"
 ---
 # <a name="configuring-tls-for-an-application-in-azure"></a>Configurar TLS para uma aplicação em Azure
@@ -79,7 +79,7 @@ O seu pedido deve ser configurado para utilizar o certificado, e um ponto final 
 
    As permissões `permissionLevel` (atributo) podem ser definidas com um dos seguintes valores:
 
-   | Valor da Permissão | Descrição |
+   | Valor da Permissão | Description |
    | --- | --- |
    | limitedOrElevated |**(Predefinição)** Todos os processos de função podem aceder à chave privada. |
    | elevado |Só os processos elevados podem aceder à chave privada. |
@@ -174,7 +174,7 @@ Agora que a sua implantação está a funcionar em Azure, pode ligar-se a ele ut
    > Criar um certificado com o nome comum (CN) igual ao URL baseado em GUID (por exemplo, **328187776e774ceda8fc57609d404462.cloudapp.net**). Utilize o portal para adicionar o certificado ao seu serviço de nuvem encenada. Em seguida, adicione as informações do certificado aos seus ficheiros CSDEF e CSCFG, reembale a sua aplicação e atualize a sua implementação encenada para utilizar o novo pacote.
    >
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Configuração geral do seu serviço na nuvem](cloud-services-how-to-configure-portal.md).
 * Saiba como [implementar um serviço de cloud](cloud-services-how-to-create-deploy-portal.md).
 * Configure um [nome de domínio personalizado.](cloud-services-custom-domain-name-portal.md)

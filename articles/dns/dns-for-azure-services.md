@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 09/21/2016
 ms.author: rohink
 ms.openlocfilehash: fa2c1ced6405c967ca33562d6215b304b8507e5a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "76937239"
 ---
 # <a name="how-azure-dns-works-with-other-azure-services"></a>Como o Azure DNS trabalha com outros serviços da Azure
@@ -31,7 +31,7 @@ Azure DNS é um serviço de gestão e resolução de nomes hospedado. Pode usá-
 
 A tabela a seguir descreve os tipos de registo suportados que pode utilizar para vários serviços Azure. Como mostra a tabela, o Azure DNS suporta apenas registos DNS para recursos de rede virados para a Internet. O Azure DNS não pode ser usado para a resolução de nomes de endereços internos e privados.
 
-| Serviço do Azure | Interface de rede | Descrição |
+| Serviço do Azure | Interface de rede | Description |
 | --- | --- | --- |
 | Gateway de Aplicação do Azure |[IP público frontal](dns-custom-domain.md#public-ip-address) |Pode criar um registo DNS A ou CNAME. |
 | Balanceador de Carga do Azure |[IP público frontal](dns-custom-domain.md#public-ip-address) |Pode criar um registo DNS A ou CNAME. O Balancer de Carga pode ter um endereço IP público IPv6 que é atribuído dinamicamente. Crie um registo CNAME para um endereço IPv6. |

@@ -1,5 +1,5 @@
 ---
-title: Azure Media Services fragmentou a especificação de ingestão ao vivo da MP4 Microsoft Docs
+title: Azure Media Services fragmentou a especificação de ingestão ao vivo mp4 | Microsoft Docs
 description: Esta especificação descreve o protocolo e o formato para a ingestão de streaming ao vivo fragmentada baseada em MP4 para a Azure Media Services. Este documento também discute as melhores práticas para a construção de mecanismos de ingestão viva altamente redundantes e robustos.
 services: media-services
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 7323ae611431e1d91fd1a8471914be388fcc4712
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92019516"
 ---
 # <a name="azure-media-services-fragmented-mp4-live-ingest-specification"></a>Azure Media Services fragmentou a especificação de ingestão ao vivo mp4 
@@ -54,7 +54,7 @@ A lista que se segue descreve definições de formato especial que se aplicam à
 1. Os índices e os índices de tempo de fragmentos MP4 **(TrackFragmentExtendedHeaderBox** `fragment_ absolute_ time` e ) devem chegar em ordem `fragment_index` crescente. Embora os Serviços de Comunicação Social sejam resistentes a duplicar fragmentos, tem capacidade limitada de reordenar fragmentos de acordo com a linha temporal dos meios de comunicação.
 
 ## <a name="4-protocol-format--http"></a>4. Formato protocolar – HTTP
-A ingeria ao vivo fragmentada da MP4 para serviços de mídia utiliza um pedido padrão de longa duração HTTP POST para transmitir dados codificados de mídia que é embalado em formato MP4 fragmentado para o serviço. Cada HTTP POST envia um bitstream mp4 fragmentado completo ("stream"), começando desde o início com caixas de cabeçalho **(ftyp**, **Live Server Manifest Box**, e caixas **moov),** e continuando com uma sequência de fragmentos (caixas**de moof** e **mdat).** Para a sintaxe URL para o pedido HTTP POST, consulte a secção 9.2 em [1]. Um exemplo do URL post é: 
+A ingeria ao vivo fragmentada da MP4 para serviços de mídia utiliza um pedido padrão de longa duração HTTP POST para transmitir dados codificados de mídia que é embalado em formato MP4 fragmentado para o serviço. Cada HTTP POST envia um bitstream mp4 fragmentado completo ("stream"), começando desde o início com caixas de cabeçalho **(ftyp**, **Live Server Manifest Box**, e caixas **moov),** e continuando com uma sequência de fragmentos (caixas **de moof** e **mdat).** Para a sintaxe URL para o pedido HTTP POST, consulte a secção 9.2 em [1]. Um exemplo do URL post é: 
 
 `http://customer.channel.mediaservices.windows.net/ingest.isml/streams(720p)`
 

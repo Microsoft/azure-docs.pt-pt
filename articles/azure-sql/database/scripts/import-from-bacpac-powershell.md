@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/24/2019
 ms.openlocfilehash: 66ebb81f28727c954d3b47bac6829d456d03024f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91319491"
 ---
 # <a name="use-powershell-to-import-a-bacpac-file-into-a-database-in-sql-database"></a>Utilize o PowerShell para importar um ficheiro BACPAC numa base de dados na Base de Dados SQL

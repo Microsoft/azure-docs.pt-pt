@@ -7,10 +7,10 @@ description: Aprenda a usar segredos kubernetes em execução ou construa tempo 
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, contentores
 ms.custom: devx-track-js
 ms.openlocfilehash: 8791480f420dfd76d5291ce82e8ebf7412a41326
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91972973"
 ---
 # <a name="how-to-manage-secrets-when-working-with-an-azure-dev-space"></a>Como gerir segredos ao trabalhar com um Azure Dev Space
@@ -143,7 +143,7 @@ configurations:
 No exemplo acima, *o menugetsecret* é um segredo existente e *pattoken* é uma chave existente.
 
 >[!NOTE]
-> Nomes e chaves secretos podem conter o `.` personagem. Use `\` para escapar ao passar `.` segredos como argumentos de construção. Por exemplo, para passar um segredo chamado *foo.bar* com a chave do *símbolo*: `MYTOKEN: ${secret.foo\.bar.token}` . Além disso, os segredos podem ser avaliados com prefixo e texto pós-fix. Por exemplo, `MYURL: eus-${secret.foo\.bar.token}-version1`. Além disso, os segredos disponíveis nos espaços dos pais e avós podem ser passados como argumentos de construção.
+> Nomes e chaves secretos podem conter o `.` personagem. Use `\` para escapar ao passar `.` segredos como argumentos de construção. Por exemplo, para passar um segredo chamado *foo.bar* com a chave do *símbolo:* `MYTOKEN: ${secret.foo\.bar.token}` . Além disso, os segredos podem ser avaliados com prefixo e texto pós-fix. Por exemplo, `MYURL: eus-${secret.foo\.bar.token}-version1`. Além disso, os segredos disponíveis nos espaços dos pais e avós podem ser passados como argumentos de construção.
 
 No seu Dockerfile, use a diretiva *ARG* para consumir o segredo e use a mesma variável mais tarde no Dockerfile. Por exemplo:
 

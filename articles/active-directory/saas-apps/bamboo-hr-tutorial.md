@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com o BambooHR Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com | de BambooHR Microsoft Docs'
 description: Saiba como configurar um único sinal entre o Azure Ative Directory e o BambooHR.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 11/02/2020
 ms.author: jeedes
 ms.openlocfilehash: 3926e98cb55d1afd80caf4af5d67910b66c09cdd
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96180343"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bamboohr"></a>Tutorial: Integração do Diretório Ativo Azure com o BambooHR
@@ -161,7 +161,7 @@ Para permitir que os utilizadores da Azure AD inscrevam-se no BambooHR, instale-
 
 3. Selecione **Descrição geral**.
 
-4. No painel esquerdo, selecione **Utilizadores de Segurança**  >  **Users**.
+4. No painel esquerdo, selecione **Utilizadores de Segurança**  >  .
 
 5. Digite o nome de utilizador, palavra-passe e endereço de e-mail da conta Azure AD válida que pretende configurar.
 

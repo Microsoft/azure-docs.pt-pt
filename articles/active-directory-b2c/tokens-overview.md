@@ -11,10 +11,10 @@ ms.date: 08/31/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: b4e268d35a2e31db0ce92ff61e66fd23bce68e38
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97516350"
 ---
 # <a name="overview-of-tokens-in-azure-active-directory-b2c"></a>Visão geral dos tokens no Azure Ative Directory B2C
@@ -50,7 +50,7 @@ As reclamações em fichas de identificação não são devolvidas em nenhuma or
 
 A tabela que se segue lista as alegações que pode esperar em fichas de identificação e fichas de acesso emitidas pela Azure AD B2C.
 
-| Name | Afirmação | Valor de exemplo | Descrição |
+| Name | Afirmação | Valor de exemplo | Description |
 | ---- | ----- | ------------- | ----------- |
 | Audiência | `aud` | `90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` | Identifica o destinatário pretendido do token. Para Azure AD B2C, o público é o ID da aplicação. A sua aplicação deve validar este valor e rejeitar o token se não corresponder. O público é sinónimo de recurso. |
 | Emissor | `iss` |`https://<tenant-name>.b2clogin.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` | Identifica o serviço de símbolos de segurança (STS) que constrói e devolve o token. Identifica também o diretório em que o utilizador foi autenticado. A sua aplicação deverá validar a alegação do emitente para garantir que o token provém do ponto final apropriado. |
@@ -64,7 +64,7 @@ A tabela que se segue lista as alegações que pode esperar em fichas de identif
 | Assunto | `sub` | `884408e1-2918-4cz0-b12d-3aa027d7563b` | O principal sobre o qual o símbolo afirma informações, como o utilizador de uma aplicação. Este valor é imutável e não pode ser reatribuído ou reutilizado. Pode ser usado para efetuar verificações de autorização com segurança, como quando o token é usado para aceder a um recurso. Por predefinição, a reclamação do sujeito é povoada com o ID do objeto do utilizador no diretório. |
 | Referência de classe de contexto de autenticação | `acr` | Não aplicável | Usado apenas com políticas mais antigas. |
 | Política de enquadramento de confiança | `tfp` | `b2c_1_signupsignin1` | O nome da apólice que foi usada para adquirir o símbolo de identificação. |
-| Tempo de autenticação | `auth_time` | `1438535543` | O momento em que um utilizador inseriu credenciais pela última vez, representadas em tempo de época. Não há discriminação entre essa autenticação ser um novo sinal, uma sessão de sso ou outro tipo de inscrição. Esta `auth_time` é a última vez que a aplicação (ou utilizador) iniciou uma tentativa de autenticação contra o Azure AD B2C. O método utilizado para autenticar não é diferenciado. |
+| Tempo de autenticação | `auth_time` | `1438535543` | O momento em que um utilizador inseriu credenciais pela última vez, representadas em tempo de época. Não há discriminação entre essa autenticação ser um novo sinal, uma sessão de sessão de sessão de sso ou outro tipo de inscrição. Esta `auth_time` é a última vez que a aplicação (ou utilizador) iniciou uma tentativa de autenticação contra o Azure AD B2C. O método utilizado para autenticar não é diferenciado. |
 | Âmbito | `scp` | `Read`| As permissões concedidas ao recurso para um token de acesso. Várias permissões concedidas são separadas por um espaço. |
 | Parte Autorizada | `azp` | `975251ed-e4f5-4efd-abcb-5f1a8f566ab7` | A **identificação** do pedido de cliente que iniciou o pedido. |
 

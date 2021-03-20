@@ -4,10 +4,10 @@ description: Conheça as novas funcionalidades no Azure Backup Server. Este arti
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.openlocfilehash: b077296e58e1193e454a686a392d802e905500a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91292902"
 ---
 # <a name="add-storage-to-azure-backup-server"></a>Adicionar armazenamento ao Azure Backup Server
@@ -36,7 +36,7 @@ Backup Server V2 ou mais tarde aceita volumes de armazenamento. Quando adiciona 
 
 A utilização do Backup Server V2 ou mais tarde com volumes como armazenamento de disco pode ajudá-lo a manter o controlo sobre o armazenamento. Um volume pode ser um único disco. No entanto, se pretender prolongar o armazenamento no futuro, crie um volume a partir de um disco criado utilizando espaços de armazenamento. Isto pode ajudar se quiser expandir o volume para armazenamento de cópias de segurança. Esta secção oferece as melhores práticas para criar um volume com esta configuração.
 
-1. No Gestor do Servidor, selecione **Conjuntos**de armazenamento de  >  **volumes de serviços**de arquivo  >  **e**armazenamento . Em **DISCOS FÍSICOS,** selecione **New Storage Pool**.
+1. No Gestor do Servidor, selecione **Conjuntos** de armazenamento de  >  **volumes de serviços** de arquivo  >  **e** armazenamento . Em **DISCOS FÍSICOS,** selecione **New Storage Pool**.
 
     ![Criar uma nova piscina de armazenamento](./media/backup-mabs-add-storage/mabs-add-storage-1.png)
 
@@ -132,5 +132,5 @@ Adicionar armazenamento no disco:
 Depois de instalar o Backup Server, aprenda a preparar o seu servidor ou comece a proteger uma carga de trabalho.
 
 - [Preparar cargas de trabalho do servidor de backup](backup-azure-microsoft-azure-backup.md)
-- [Utilize o Servidor de Backup para fazer backup de um servidor VMware](backup-azure-backup-server-vmware.md)
-- [Use o Servidor de Backup para fazer backup no SQL Server](backup-azure-sql-mabs.md)
+- [Utilizar o Backup Server para criar cópias de segurança de um servidor VMware](backup-azure-backup-server-vmware.md)
+- [Utilizar o Backup Server para criar cópias de segurança do SQL Server](backup-azure-sql-mabs.md)

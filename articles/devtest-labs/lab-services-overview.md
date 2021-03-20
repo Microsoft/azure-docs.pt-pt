@@ -4,10 +4,10 @@ description: Compare a Azure DevTest Labs e a Azure Lab Services.
 ms.topic: overview
 ms.date: 06/26/2020
 ms.openlocfilehash: b1cd476faf6c457033ffeace03cd2e37b51e8578
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85480087"
 ---
 # <a name="compare-azure-devtest-labs-and-azure-lab-services"></a>Compare Azure DevTest Labs e Azure Lab Services
@@ -66,9 +66,9 @@ As seguintes secções fornecem mais detalhes sobre estes laboratórios.
 ## <a name="managed-lab-types"></a>Tipos de laboratório geridos
 O Azure Lab Services permite-lhe criar laboratórios cuja infraestrutura é gerida pelo Azure. Este artigo refere-se a eles como tipos de laboratório geridos. Os tipos de laboratório geridos oferecem diferentes tipos de laboratórios que se adequam à sua necessidade específica. Atualmente, apenas o tipo de laboratório gerido que é suportado é **o laboratório de sala de aula.** 
 
-Os tipos de laboratório geridos permitem-lhe começar imediatamente, com a configuração mínima. O próprio serviço processa toda a gestão da infraestrutura do laboratório, desde gerar as VMs até processar os erros e dimensionar a infraestrutura.Para criar um laboratório gerido, como um laboratório de sala de aula, é preciso criar uma conta de laboratório para a sua organização primeiro. A conta de laboratório serve como a conta central em que são geridos todos os laboratórios na organização. 
+Os tipos de laboratório geridos permitem-lhe começar imediatamente, com a configuração mínima. O próprio serviço processa toda a gestão da infraestrutura do laboratório, desde gerar as VMs até processar os erros e dimensionar a infraestrutura. Para criar um laboratório gerido, como um laboratório de sala de aula, é preciso criar uma conta de laboratório para a sua organização primeiro. A conta de laboratório serve como a conta central em que são geridos todos os laboratórios na organização. 
 
-Quando cria e utiliza recursos Azure nestes tipos de laboratório geridos, o serviço cria e gere recursos em subscrições internas da Microsoft. Não são criados na sua própria subscrição do Azure. O serviço mantém um registo da utilização destes recursos nas subscrições internas da Microsoft. A utilização é faturada na sua subscrição do Azure que contém a conta de laboratório.   
+Quando cria e utiliza recursos Azure nestes tipos de laboratório geridos, o serviço cria e gere recursos em subscrições internas da Microsoft. Não são criados na sua própria subscrição do Azure. O serviço mantém um registo da utilização destes recursos nas subscrições internas da Microsoft. A utilização é faturada na sua subscrição do Azure que contém a conta de laboratório.   
 
 Aqui estão alguns dos casos de **utilização para tipos de laboratório geridos:** 
 
@@ -79,7 +79,7 @@ Aqui estão alguns dos casos de **utilização para tipos de laboratório gerido
 
 
 ## <a name="devtest-labs"></a>DevTest Labs
-Poderá ter cenários em que pretende gerir toda a infraestrutura e configuração, na sua própria subscrição. Para o fazer, pode criar um laboratório com o Azure DevTest Labs no portal do Azure.Para estes laboratórios, não tem de criar uma conta de laboratório. Estes laboratórios não aparecem na conta de laboratório (que existe para os tipos de laboratório geridos).  
+Poderá ter cenários em que pretende gerir toda a infraestrutura e configuração, na sua própria subscrição. Para o fazer, pode criar um laboratório com o Azure DevTest Labs no portal do Azure. Para estes laboratórios, não tem de criar uma conta de laboratório. Estes laboratórios não aparecem na conta de laboratório (que existe para os tipos de laboratório geridos).  
 
 Aqui estão alguns dos casos de **utilização para a utilização de Laboratórios DevTest:** 
 
@@ -96,10 +96,10 @@ A seguinte tabela compara dois tipos de laboratórios suportados pelo Azure Lab 
 
 | Funcionalidades | Tipos de laboratório geridos | DevTest Labs |
 | -------- | ----------------- | ---------- |
-| Gestão da infraestrutura do Azure no laboratório. |  Gerido automaticamente pelo serviço | Gerido por conta própria  |
-| Resiliência incorporada para problemas de infraestrutura | Processado automaticamente pelo serviço | Gerido por conta própria  |
+| Gestão da infraestrutura do Azure no laboratório. |  Gerido automaticamente pelo serviço | Gerido por conta própria  |
+| Resiliência incorporada para problemas de infraestrutura | Processado automaticamente pelo serviço | Gerido por conta própria  |
 | Gestão de subscrições | O serviço processa a alocação de recursos nas subscrições da Microsoft que suportam o serviço. O dimensionamento é processado automaticamente pelo serviço. | Pode gerir por conta própria na sua subscrição do Azure. Sem autoscalagem de assinaturas. |
-| Implementação do Azure Resource Manager no laboratório | Não disponível | Disponível |
+| Implementação do Azure Resource Manager no laboratório | Não disponível | Disponível |
 
 ## <a name="next-steps"></a>Passos seguintes
 

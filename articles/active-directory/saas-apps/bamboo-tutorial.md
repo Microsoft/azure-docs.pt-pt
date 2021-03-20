@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/12/2021
 ms.author: jeedes
 ms.openlocfilehash: 8ec834d76692f78d1d7bc60ddbd4c73fe4adaede
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101646120"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-bamboo-by-resolution-gmbh"></a>Tutorial: Integração do Azure Ative Directory com SAML SSO para Bambu por resolução GmbH

@@ -1,5 +1,5 @@
 ---
-title: Azure Ative Directory Reports FAQ / Microsoft Docs
+title: Azure Ative Directory Reportes FAQ | Microsoft Docs
 description: Perguntas frequentes em torno de relatórios do Azure Ative Directory.
 services: active-directory
 documentationcenter: ''
@@ -17,10 +17,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 45b6b182d030c267dcec7ed57c0c0dd1901b0cb1
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97935092"
 ---
 # <a name="frequently-asked-questions-around-azure-active-directory-reports"></a>Perguntas frequentes em torno de relatórios do Azure Ative Directory

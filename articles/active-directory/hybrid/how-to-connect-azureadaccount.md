@@ -1,5 +1,5 @@
 ---
-title: Alterar a senha da conta do Conector AZure AD ! Microsoft Docs
+title: Alterar a palavra-passe da conta do conector AZure AD | Microsoft Docs
 description: Este tópico documenta como restaurar a conta Azure AD Connector.
 services: active-directory
 documentationcenter: ''
@@ -18,10 +18,10 @@ ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 ms.openlocfilehash: e4f31c560fe3dd91689b361ed520e466fd52da1c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85360015"
 ---
 # <a name="change-the-azure-ad-connector-account-password"></a>Alterar a palavra-passe da conta do Conector do Azure AD

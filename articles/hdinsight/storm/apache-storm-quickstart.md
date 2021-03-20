@@ -6,10 +6,10 @@ ms.topic: quickstart
 ms.date: 06/14/2019
 ms.custom: mvc
 ms.openlocfilehash: fe7b1cdc96ae95ac361183342ea491432c3ab4b4
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98928861"
 ---
 # <a name="quickstart-create-and-monitor-an-apache-storm-topology-in-azure-hdinsight"></a>Quickstart: Criar e monitorizar uma topologia da Tempestade Apache em Azure HDInsight
@@ -102,7 +102,7 @@ Depois de completar o arranque rápido, é possível que queira eliminar o clust
 
 Para eliminar um cluster, consulte [Eliminar um cluster HDInsight utilizando o seu navegador, PowerShell ou o Azure CLI](../hdinsight-delete-cluster.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste quickstart, você usou um exemplo do projeto de arranque da [tempestade](https://github.com/apache/storm/tree/v2.0.0/examples/storm-starter) Apache para criar e monitorizar uma topologia da Tempestade Apache para um aglomerado de tempestade Apache existente. Avance para o próximo artigo para aprender os fundamentos da gestão e monitorização das topologias da Tempestade Apache.
 

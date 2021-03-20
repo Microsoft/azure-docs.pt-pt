@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/05/2020
 ms.openlocfilehash: f666cc2f9d11b1e05d11ba266897e6fca3cd287e
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92057625"
 ---
 # <a name="debug-sessions-in-azure-cognitive-search"></a>Sessões de Debug em Pesquisa Cognitiva Azure
@@ -20,7 +20,7 @@ ms.locfileid: "92057625"
 A Debug Sessions é uma editora visual que trabalha com uma habilidade existente no portal Azure. Numa sessão de depuração pode identificar e resolver erros, validar alterações e impulsionar alterações a uma habilidade de produção no pipeline de enriquecimento de IA.
 
 > [!Important]
-> As sessões de depuração são uma funcionalidade de pré-visualização fornecida sem um acordo de nível de serviço, e não é recomendada para cargas de trabalho de produção. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> As sessões de depuração são uma funcionalidade de pré-visualização fornecida sem um acordo de nível de serviço, e não é recomendada para cargas de trabalho de produção. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
 
 ## <a name="using-debug-sessions"></a>Usando sessões de depuro
@@ -51,7 +51,7 @@ A **visão Skill Graph** proporciona uma representação visuais hierárquica do
 
 A seleção de uma habilidade no gráfico irá destacar as habilidades ligadas a ele, os nós que criam as suas entradas e os nós que aceitam as suas saídas. Cada nó de habilidade apresenta o seu tipo, erros ou avisos, e a execução conta. O **Gráfico de Habilidade** é onde irá selecionar qual a habilidade para depurar ou melhorar. Quando selecionar uma habilidade, os seus detalhes serão apresentados no painel de detalhes de habilidades à direita do gráfico.
 
-> :::image type="content" source="media/cognitive-search-debug/skills-graph.png" alt-text="Criar uma sessão de depurar":::
+> :::image type="content" source="media/cognitive-search-debug/skills-graph.png" alt-text="Gráfico de habilidade":::
 
 ## <a name="skill-details"></a>Detalhes de habilidades
 
@@ -73,7 +73,7 @@ Ao construir uma habilidade personalizada ou depurar um erro com uma habilidade 
 
 O painel **da Estrutura de Dados Enriquecido** mostra os enriquecimentos do documento através do skillset, detalhando o contexto para cada enriquecimento e a habilidade de origem. O **avaliador de expressão** também pode ser usado para visualizar o conteúdo para cada enriquecimento.
 
-> :::image type="content" source="media/cognitive-search-debug/enriched-data-structure-display.png" alt-text="Criar uma sessão de depurar":::
+> :::image type="content" source="media/cognitive-search-debug/enriched-data-structure-display.png" alt-text="Estrutura de Dados Enriquecida":::
 
 ## <a name="expression-evaluator"></a>Avaliador de expressão
 

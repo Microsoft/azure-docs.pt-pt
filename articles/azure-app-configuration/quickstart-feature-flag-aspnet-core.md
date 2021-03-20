@@ -8,10 +8,10 @@ ms.topic: quickstart
 ms.date: 09/28/2020
 ms.author: alkemper
 ms.openlocfilehash: 8ca4a6e78ab3c6ccf492869bb68c5296ae91de21
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99806075"
 ---
 # <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>Quickstart: Adicione bandeiras de recurso a uma aplicação core ASP.NET
@@ -70,7 +70,7 @@ dotnet new mvc --no-https --output TestFeatureFlags
 
     Aceda a este segredo utilizando a API de Configuração de Núcleo .NET. Um cólon `:` () funciona no nome de configuração com a API de configuração em todas as plataformas suportadas. Para obter mais informações, consulte [as teclas e valores de Configuração](/aspnet/core/fundamentals/configuration#configuration-keys-and-values).
 
-1. Em *Program.cs,* atualize o `CreateWebHostBuilder` método para utilizar a Configuração da Aplicação, chamando o `AddAzureAppConfiguration` método.
+1. No *Programa.cs*, atualize o `CreateWebHostBuilder` método para utilizar a Configuração da Aplicação, chamando o `AddAzureAppConfiguration` método.
 
     > [!IMPORTANT]
     > `CreateHostBuilder` substitui `CreateWebHostBuilder` em .NET Core 3.x. Selecione a sintaxe correta com base no seu ambiente.
@@ -123,7 +123,7 @@ dotnet new mvc --no-https --output TestFeatureFlags
 
     Com a alteração anterior, o [fornecedor de configuração para configuração de aplicações](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration) foi registado na API de Configuração de Núcleo .NET.
 
-1. Em *Startup.cs*, adicione uma referência ao gestor de recurso .NET Core:
+1. No *Startup.cs*, adicione uma referência ao gestor de funcionalidades .NET Core:
 
     ```csharp
     using Microsoft.FeatureManagement;
@@ -175,7 +175,7 @@ dotnet new mvc --no-https --output TestFeatureFlags
     }
     ```
 
-1. Adicione um ficheiro *BetaController.cs* ao *diretório dos Controladores* com o seguinte código:
+1. Adicione um ficheiro *BetaController.cs* ao *diretório de controladores* com o seguinte código:
 
     ```csharp
     using Microsoft.AspNetCore.Mvc;

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure Zscaler Dois para fornecimento automático de utilizadores com Diretório Ativo Azure / Microsoft Docs'
+title: 'Tutorial: Configure Zscaler Dois para fornecimento automático de utilizadores com Azure Ative Directory | Microsoft Docs'
 description: Neste tutorial, você aprenderá a configurar o Azure Ative Directory para provisões e desprovisionar automaticamente contas de utilizadores para zscaler Dois.
 services: active-directory
 author: zchia
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.openlocfilehash: 1c63639321966cbb73f5c47524f408d17ba46c3a
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97936571"
 ---
 # <a name="tutorial-configure-zscaler-two-for-automatic-user-provisioning"></a>Tutorial: Configure Zscaler Dois para fornecimento automático de utilizadores

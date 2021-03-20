@@ -4,14 +4,14 @@ description: Saiba como copiar dados de uma fonte hdfs em nuvem ou no local para
 author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 12/18/2020
+ms.date: 03/17/2021
 ms.author: jingwang
-ms.openlocfilehash: 3ee1b1f48d91ba1245c0173d2e00a20778932d35
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 9c274bdfb5854529dbb82bd2d8b7cefdf07390b1
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100367089"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104588907"
 ---
 # <a name="copy-data-from-the-hdfs-server-by-using-azure-data-factory"></a>Copie os dados do servidor HDFS utilizando a Azure Data Factory
 
@@ -172,7 +172,7 @@ As seguintes propriedades são suportadas para HDFS `storeSettings` em definiç�
 | modificadoDatetimeEnd      | Mesmo que acima.  
 | permitirPartitionDiscovery | Para os ficheiros que são divididos, especifique se analisar as divisórias do caminho do ficheiro e adicioná-las como colunas de origem adicionais.<br/>Os valores permitidos são **falsos** (padrão) e **verdadeiros.** | No                                            |
 | partitionRootPath | Quando a descoberta da partição estiver ativada, especifique o caminho da raiz absoluta para ler as pastas partidas como colunas de dados.<br/><br/>Se não for especificado, por defeito,<br/>- Quando utiliza o caminho do ficheiro no conjunto de dados ou na lista de ficheiros na fonte, o caminho da raiz da partição é o caminho configurado no conjunto de dados.<br/>- Quando utiliza o filtro de pasta wildcard, o caminho da raiz da partição é o sub-caminho antes do primeiro wildcard.<br/><br/>Por exemplo, assumindo que configura o caminho no conjunto de dados como "raiz/pasta/ano=2020/mês=08/dia=27":<br/>- Se especificar o caminho da raiz da partição como "raiz/pasta/ano=2020", a atividade da cópia gerará mais duas colunas `month` e com o valor `day` "08" e "27", respectivamente, para além das colunas dentro dos ficheiros.<br/>- Se não for especificado o caminho da raiz da partição, não será gerada nenhuma coluna extra. | No                                            |
-| maxConcurrentConnections | O número de ligações que podem ligar-se ao armazém simultaneamente. Especifique um valor apenas quando pretende limitar a ligação simultânea à loja de dados. | No                                            |
+| maxConcurrentConnections | O limite superior das ligações simultâneas estabelecidas na loja de dados durante a atividade. Especifique um valor apenas quando pretende limitar ligações simultâneas.| No                                            |
 | ***Definições de DistCp*** |  | |
 | distcpSettings | O grupo de propriedades para usar quando você usar HDFS DistCp. | No |
 | resourceManagerEndpoint | O ponto final do YARN (Mais Um Negociador de Recursos) | Sim, se usar o DistCp |
@@ -533,7 +533,7 @@ Para obter informações sobre as propriedades da atividade de Apagar, consulte 
 | resourceManagerEndpoint | O ponto final do Gestor de Recursos YARN | Sim, se usar o DistCp |
 | tempScriptPath | Um caminho de pasta que é usado para armazenar o script de comando DistCp temporário. O ficheiro de script é gerado pela Data Factory e será removido após o fim da função Copy. | Sim, se usar o DistCp |
 | distcpOptions | Opções adicionais são fornecidas ao comando DistCp. | No |
-| maxConcurrentConnections | O número de ligações que podem ligar-se ao armazém simultaneamente. Especifique um valor apenas quando pretende limitar a ligação simultânea à loja de dados. | No |
+| maxConcurrentConnections | O limite superior das ligações simultâneas estabelecidas na loja de dados durante a atividade. Especifique um valor apenas quando pretende limitar ligações simultâneas.| No |
 
 **Exemplo: Fonte hdfs na atividade copy usando DistCp**
 

@@ -4,10 +4,10 @@ description: Utilize o Azure Backup para fazer backup e recuperar ficheiros e ap
 ms.topic: conceptual
 ms.date: 06/05/2018
 ms.openlocfilehash: cae95c10c510969cc0553a54a506789d6be427d7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89180988"
 ---
 # <a name="back-up-files-and-applications-on-azure-stack"></a>Fazer o back up ficheiros e aplicações no Azure Stack
@@ -104,10 +104,10 @@ Utilize a consola Azure Backup Server para recuperar dados para a sua máquina v
 
 6. Especificar as opções de recuperação:
 
-    * Para **o comportamento de recuperação da versão existente**, selecione Criar **cópia,** **saltar**ou **substituir**. O overwrite só está disponível quando se recupera para o local original.
+    * Para **o comportamento de recuperação da versão existente**, selecione Criar **cópia,** **saltar** ou **substituir**. O overwrite só está disponível quando se recupera para o local original.
     * Para **restaurar a segurança,** escolha **Aplicar as definições do computador de destino** ou aplicar as **definições de segurança da versão ponto de recuperação**.
     * Para **o estrangulamento da largura de banda da rede,** selecione **Modificar** para permitir o estrangulamento da largura de banda da rede.
-    * **Notificação** Selecione **Enviar um e-mail quando a recuperação estiver concluída**e especificar os destinatários que receberão a notificação. Separe os endereços de correio eletrónico por vírgulas.
+    * **Notificação** Selecione **Enviar um e-mail quando a recuperação estiver concluída** e especificar os destinatários que receberão a notificação. Separe os endereços de correio eletrónico por vírgulas.
     * Depois de fazer as seleções, selecione **Next**
 
 7. Reveja as definições de recuperação e selecione **Recuperar**.

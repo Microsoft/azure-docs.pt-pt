@@ -1,5 +1,5 @@
 ---
-title: Suporte protocolar para cabeçalhos HTTP na Porta frontal Azure / Microsoft Docs
+title: Suporte de protocolo para cabeçalhos HTTP em Azure Front Door | Microsoft Docs
 description: Este artigo descreve protocolos de cabeçalho HTTP que a Porta frontal suporta.
 services: frontdoor
 documentationcenter: ''
@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 12/04/2020
 ms.author: duau
 ms.openlocfilehash: 7f40b48473c04238d504288307039948fcacf90a
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97511149"
 ---
 # <a name="protocol-support-for-http-headers-in-azure-front-door"></a>Suporte de protocolo para cabeçalhos HTTP na Porta frontal Azure
@@ -62,7 +62,7 @@ Tem de enviar o cabeçalho de pedido "X-Azure-DebugInfo: 1" para ativar os segui
 | ------------- | ------------- |
 | X-Azure-OriginStatusCode |  *X-Azure-OriginStatusCode: 503* </br> Este cabeçalho contém o código de estado HTTP devolvido pelo backend. Utilizando este cabeçalho, pode identificar o código de estado HTTP devolvido pela aplicação que está a correr no seu backend sem passar por registos de backend. Este código de estado pode ser diferente do código de estado HTTP na resposta enviada ao cliente pela Porta da Frente. Este cabeçalho permite-lhe determinar se o backend está a porta errada ou se o problema está com o serviço porta da frente. |
 | X-Azure-InternalError | Este cabeçalho conterá o código de erro que a Porta frontal encontra ao processar o pedido. Este erro indica que o problema é interno para o serviço/infraestrutura da Porta frontal. Assunto de relatório para apoio.  |
-| X-Azure-ExternalError | *X-Azure-ExternalError: 0x830c1011, A autoridade do certificado não é familiar.* </br> Este cabeçalho mostra o código de erro que os servidores da Porta Frontal deparam enquanto estabelecem conectividade com o servidor backend para processar um pedido. Este cabeçalho ajudará a identificar problemas na ligação entre a Porta Frontal e a aplicação backend. Este cabeçalho incluirá uma mensagem de erro detalhada para ajudá-lo a identificar problemas de conectividade no seu backend (por exemplo, resolução DNS, cert inválido, e assim por diante). |
+| X-Azure-ExternalError | *X-Azure-ExternalError: 0x830c1011, a autoridade do certificado não é familiar.* </br> Este cabeçalho mostra o código de erro que os servidores da Porta Frontal deparam enquanto estabelecem conectividade com o servidor backend para processar um pedido. Este cabeçalho ajudará a identificar problemas na ligação entre a Porta Frontal e a aplicação backend. Este cabeçalho incluirá uma mensagem de erro detalhada para ajudá-lo a identificar problemas de conectividade no seu backend (por exemplo, resolução DNS, cert inválido, e assim por diante). |
 
 ## <a name="next-steps"></a>Passos seguintes
 

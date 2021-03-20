@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/14/2020
 ms.author: mbullwin
 ms.openlocfilehash: fe3b87c733f54d8bd52c4d973977e3c8cbfefe19
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92043218"
 ---
 # <a name="how-to-onboard-your-metric-data-to-metrics-advisor"></a>Como fazer: A bordo dos seus dados métricos ao Metrics Advisor
@@ -75,14 +75,14 @@ Se o ponto de datação de um ponto de dados for omitido, o Metrics Advisor util
 |Seleção  |Descrição  |Notas  |
 |---------|---------|---------|
 | **Nome do visor** | Nome a ser exibido no seu espaço de trabalho em vez do nome original da coluna. | |
-|**Timestamp**     | O tempo de datata de um ponto de dados. Se omitido, o Metrics Advisor utilizará a estamp de tempo quando o ponto de dados for ingerido. Para cada feed de dados, pode especificar no máximo uma coluna como se o tempotamp.        | Opcional. Deve ser especificado com no máximo uma coluna. Se obter uma coluna não pode ser especificada como erro **do Timestamp,** verifique a sua consulta ou fonte de dados para obter os tempos duplicados.      |
+|**Tempotamp**     | O tempo de datata de um ponto de dados. Se omitido, o Metrics Advisor utilizará a estamp de tempo quando o ponto de dados for ingerido. Para cada feed de dados, pode especificar no máximo uma coluna como se o tempotamp.        | Opcional. Deve ser especificado com no máximo uma coluna. Se obter uma coluna não pode ser especificada como erro **do Timestamp,** verifique a sua consulta ou fonte de dados para obter os tempos duplicados.      |
 |**Medir**     |  Os valores numéricos no feed de dados. Para cada feed de dados, pode especificar várias medidas, mas pelo menos uma coluna deve ser selecionada como medida.        | Deve ser especificado com pelo menos uma coluna.        |
-|**Dimensão**     | Valores categóricos. Uma combinação de diferentes valores identifica uma série de tempo de dimensão única específica, por exemplo: país, língua, inquilino. Pode selecionar zero ou mais colunas como dimensões. Nota: tenha cuidado ao selecionar uma coluna de não-cordas como uma dimensão. | Opcional.        |
+|**dimensão**     | Valores categóricos. Uma combinação de diferentes valores identifica uma série de tempo de dimensão única específica, por exemplo: país, língua, inquilino. Pode selecionar zero ou mais colunas como dimensões. Nota: tenha cuidado ao selecionar uma coluna de não-cordas como uma dimensão. | Opcional.        |
 |**Ignorar**     | Ignore a coluna selecionada.        | Opcional. Veja o texto abaixo.       |
 
 Se pretender ignorar as colunas, recomendamos atualizar a sua consulta ou fonte de dados para excluir essas colunas. Também pode ignorar colunas usando **colunas Ignore** e, em seguida, **ignorar** nas colunas específicas. Se uma coluna deve ser uma dimensão e é erroneamente definida como *ignorada,* o Metrics Advisor pode acabar por ingerir dados parciais. Por exemplo, assuma que os dados da sua consulta são os seguintes:
 
-| ID de linha | Timestamp | País | Linguagem | Receita |
+| ID de linha | CarimboDeDataEHora | País | Linguagem | Receita |
 | --- | --- | --- | --- | --- |
 | 1 | 2019/11/10 | China | ZH-CN | 10000 |
 | 2 | 2019/11/10 | China | EN-US | 1000 |
@@ -188,7 +188,7 @@ Para verificar detalhes da falha de ingestão:
 2. Clique em **Estado** de clique e escolha **Falha ou** **Erro**.
 3. Paire sobre uma ingestão falhada, e veja a mensagem de detalhes que aparece.
 
-:::image type="content" source="../media/datafeeds/check-failed-ingestion.png" alt-text="Barra de progresso de ingestão":::
+:::image type="content" source="../media/datafeeds/check-failed-ingestion.png" alt-text="Verifique a ingestão falhada":::
 
 Um estado *falhado* indica que a ingestão desta fonte de dados será novamente julgada mais tarde.
 Um *estado de erro* indica que o Metrics Advisor não voltará a tentar a fonte de dados. Para recarregar os dados, é necessário acionar manualmente um enchimento/recarga.

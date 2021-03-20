@@ -1,5 +1,5 @@
 ---
-title: Depreciação da recuperação de desastres entre sites geridos pelo cliente (com VMM) usando Azure Site Recovery / Microsoft Docs
+title: Depreciação da recuperação de desastres entre sites geridos pelo cliente (com VMM) usando Azure Site Recovery | Microsoft Docs
 description: Detalhes sobre a depreciação futura de DR entre sites de propriedade do cliente usando Hyper-V e entre sites geridos pela SCVMM para Azure e opções alternativas
 services: site-recovery
 author: Sharmistha-Rai
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 02/25/2020
 ms.author: sharrai
 ms.openlocfilehash: 9ffe7a3158b1de6828350947dcf81ef41d08708d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87421846"
 ---
 # <a name="deprecation-of-disaster-recovery-between-customer-managed-sites-with-vmm-using-azure-site-recovery"></a>Depreciação da recuperação de desastres entre sites geridos pelo cliente (com VMM) usando a recuperação do site Azure
@@ -42,7 +42,7 @@ Abaixo estão as alternativas que o cliente pode escolher para garantir que a su
 - Opção 2: Opte por continuar com a replicação site-to-site utilizando a [solução de réplica Hiper-V](/windows-server/virtualization/hyper-v/manage/set-up-hyper-v-replica)subjacente , mas não será capaz de gerir as configurações de DR utilizando a Recuperação do Site Azure no portal Azure. 
 
 
-## <a name="remediation-steps"></a>Medidas de reparação
+## <a name="remediation-steps"></a>Passos de remediação
 
 Se optar por escolher escolher a Opção 1, execute os seguintes passos:
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure Juno Journey para fornecimento automático de utilizadores com Diretório Ativo Azure / Microsoft Docs'
+title: 'Tutorial: Configurar a Viagem de Juno para o fornecimento automático de utilizadores com o Azure Ative Directory | Microsoft Docs'
 description: Saiba como providenciar e desa provisionar automaticamente as contas de utilizadores de Azure AD a Juno Journey.
 services: active-directory
 author: zchia
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/16/2020
 ms.author: Zhchia
 ms.openlocfilehash: 0efb451997b0ed842e6757a7e6b30dd88b33f4aa
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96177893"
 ---
 # <a name="tutorial-configure-juno-journey-for-automatic-user-provisioning"></a>Tutorial: Configurar a Viagem juno para o fornecimento automático de utilizadores

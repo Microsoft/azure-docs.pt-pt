@@ -1,5 +1,5 @@
 ---
-title: Alertas de segurança para funções da AD Azure na PIM - Azure AD ! Microsoft Docs
+title: Alertas de segurança para funções de Ad Azure em PIM - Azure AD | Microsoft Docs
 description: Configure alertas de segurança para funções Azure AD Gestão de Identidade Privilegiada em Diretório Ativo Azure.
 services: active-directory
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a632c0e31de1c2d7e5417656d537e5f9f82ecfbe
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96180494"
 ---
 # <a name="configure-security-alerts-for-azure-ad-roles-in-privileged-identity-management"></a>Configure alertas de segurança para funções de Ad Azure em Gestão de Identidade Privilegiada

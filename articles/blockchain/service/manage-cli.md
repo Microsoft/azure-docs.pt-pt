@@ -5,10 +5,10 @@ ms.date: 07/23/2020
 ms.topic: how-to
 ms.reviewer: ravastra
 ms.openlocfilehash: 36b012c486c0c7d3303a81998e88f1605999c899
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87170852"
 ---
 # <a name="manage-azure-blockchain-service-using-azure-cli"></a>Gerir o Serviço Azure Blockchain utilizando o Azure CLI
@@ -216,7 +216,7 @@ az role assignment create \
 
 **Exemplo:**
 
-Conceder acesso ao nó para utilizador Azure AD para **membro**blockchain:
+Conceder acesso ao nó para utilizador Azure AD para **membro** blockchain:
 
 ```azurecli
 az role assignment create \
@@ -227,7 +227,7 @@ az role assignment create \
 
 **Exemplo:**
 
-Conceder acesso ao nó para o utilizador Azure AD para **o nó de transação**blockchain:
+Conceder acesso ao nó para o utilizador Azure AD para **o nó de transação** blockchain:
 
 ```azurecli
 az role assignment create \

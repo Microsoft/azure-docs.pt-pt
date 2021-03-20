@@ -7,10 +7,10 @@ ms.topic: quickstart
 ms.custom: subject-armqs, references_regions
 ms.date: 09/16/2020
 ms.openlocfilehash: e9893336f2e6633519853aceecc945ee6bf0bf4b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91292766"
 ---
 # <a name="quickstart-create-an-azure-blockchain-service-member-using-an-arm-template"></a>Quickstart: Criar um membro do Serviço Azure Blockchain usando um modelo ARM
@@ -68,7 +68,7 @@ Pode utilizar o portal Azure para visualizar detalhes do membro do Serviço Azur
 
 ![Implementado Azure Blockchain Membro resumo detalhes no portal Azure](./media/create-member-template/deployed-member.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Pode utilizar o membro blockchain que criou para o próximo quickstart ou tutorial. Quando já não é necessário, pode eliminar os recursos eliminando o grupo de recursos que criou para o arranque rápido.
 

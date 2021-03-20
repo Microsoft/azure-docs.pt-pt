@@ -11,10 +11,10 @@ ms.date: 02/16/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: eaf58b964517162ee7f7eb925e1e64830eedc087
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85202556"
 ---
 # <a name="date-claims-transformations"></a>Data reclama transformações
@@ -91,7 +91,7 @@ Converte **umTip** de reclamação de data para umTip de reclamação **de data.
 
 | Item | TransformaçãoClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputClaim | date | O ClaimType a ser convertido. |
+| InputClaim | inputClaim | data | O ClaimType a ser convertido. |
 | OutputClaim | outputClaim | dataTime | O ClaimType que é produzido após esta ReclamaçãoTransformação foi invocado. |
 
 O exemplo a seguir demonstra a conversão da reclamação `dateOfBirth` (tipo de dados de data) para outra reclamação `dateOfBirthWithTime` (tipo de dados dataTime).
@@ -121,7 +121,7 @@ Converte **umTip de reclamação de datatime** para umTip de reclamação de **d
 | Item | TransformaçãoClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim | dataTime | O ClaimType a ser convertido. |
-| OutputClaim | outputClaim | date | O ClaimType que é produzido após esta ReclamaçãoTransformação foi invocado. |
+| OutputClaim | outputClaim | data | O ClaimType que é produzido após esta ReclamaçãoTransformação foi invocado. |
 
 O exemplo a seguir demonstra a conversão da reclamação `systemDateTime` (tipo de dados dataTime) para outra reclamação `systemDate` (tipo de dados de data).
 

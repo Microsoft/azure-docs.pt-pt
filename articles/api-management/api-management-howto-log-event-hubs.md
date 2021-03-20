@@ -1,5 +1,5 @@
 ---
-title: Como registar eventos para Azure Event Hubs na Azure API Management Microsoft Docs
+title: Como registar eventos para Azure Event Hubs na Azure API Management | Microsoft Docs
 description: Saiba como registar eventos no Azure Event Hubs na Azure API Management. O Event Hubs é um serviço de entrada de dados altamente escalável.
 services: api-management
 documentationcenter: ''
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/29/2018
 ms.author: apimpm
 ms.openlocfilehash: 5066169951409fa86aa75a64e8fc6d4189947f27
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92072412"
 ---
 # <a name="how-to-log-events-to-azure-event-hubs-in-azure-api-management"></a>Como registar eventos para Azure Event Hubs na Azure API Management
@@ -46,7 +46,7 @@ Uma vez configurado o seu madeireiro na Gestão da API, pode configurar a sua po
 6. Na janela de processamento de entrada ou saída, clique no triângulo (junto ao lápis).
 7. Selecione o editor de código. Para obter mais informações, consulte [como definir ou editar políticas.](set-edit-policies.md)
 8. Posicione o cursor na `inbound` secção ou na secção `outbound` política.
-9. Na janela à direita, selecione **Advanced policies**Log  >  **to EventHub**. Isto insere o `log-to-eventhub` modelo de declaração de política.
+9. Na janela à direita, selecione **Advanced policies** Log  >  **to EventHub**. Isto insere o `log-to-eventhub` modelo de declaração de política.
 
 ```xml
 <log-to-eventhub logger-id="logger-id">

@@ -9,10 +9,10 @@ ms.date: 07/31/2019
 ms.author: sharrai
 ms.custom: MVC
 ms.openlocfilehash: a8cb5ec782b5932c13e321b2ba2d6513597fef52
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87422645"
 ---
 # <a name="move-a-recovery-services-vault-and-azure-site-recovery-configuration-to-another-azure-region"></a>Mova um cofre de serviços de recuperação e configuração de recuperação do local de Azure para outra região do Azure
@@ -45,9 +45,9 @@ Neste documento, irá:
 ## <a name="identify-the-resources-that-were-used-by-azure-site-recovery"></a>Identificar os recursos que foram usados pela Recuperação do Sítio Azure
 Recomendamos que faça este passo antes de avançar para o próximo. É mais fácil identificar os recursos relevantes enquanto os VMs estão a ser replicados.
 
-Para cada Azure VM que está a ser replicado, vá a **Itens Protegidos**  >  **Propriedades de Itens Replicados**  >  **Properties** e identifique os seguintes recursos:
+Para cada Azure VM que está a ser replicado, vá a **Itens Protegidos**  >  **Propriedades de Itens Replicados**  >   e identifique os seguintes recursos:
 
-- Grupo de recursos-alvo
+- Grupo de recursos de destino
 - Conta de armazenamento de cache
 - Conta de armazenamento alvo (no caso de um Azure VM não gerido baseado em disco) 
 - Rede alvo

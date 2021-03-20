@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
 ms.openlocfilehash: 64db4e5451425002eeaac11695ac011a96047d9b
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92076186"
 ---
 # <a name="add-capabilities-to-a-backend-service"></a>Adicionar capacidades a um serviço de backend
@@ -35,4 +35,4 @@ Cole o código no bloco **de entrada.**
 Saiba mais sobre as políticas da APIM:
 
 + [Políticas de transformação](../api-management-transformation-policies.md)
-+ [Amostras de política](../policy-reference.md)
++ [Exemplos de Políticas](../policy-reference.md)

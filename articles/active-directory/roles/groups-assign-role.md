@@ -14,10 +14,10 @@ ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 816009abb688525cd7663311c79300a6d12cf146
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98742952"
 ---
 # <a name="assign-a-role-to-a-cloud-group-in-azure-active-directory"></a>Atribuir um papel a um grupo de nuvem no Azure Ative Directory
@@ -32,7 +32,7 @@ Atribuir um grupo a uma função AD Azure é semelhante à atribuição de utili
 
 1. Selecione **Azure Ative Directory**  >  **Roles and administrators**, e selecione a função que pretende atribuir.
 
-1. Na **página _do nome da função_*_, selecione > _* Adicionar a atribuição**.
+1. Na página ***nome de função** _, selecione > _*Adicionar a atribuição**.
 
    ![Adicione a nova atribuição de funções](./media/groups-assign-role/add-assignment.png)
 
@@ -99,7 +99,7 @@ POST https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
 "directoryScopeId":"/"
 }
 ```
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Utilizar os grupos da cloud para gerir atribuições de funções](groups-concept.md)
 - [Resolver problemas de funções atribuídas a grupos de cloud](groups-faq-troubleshooting.md)

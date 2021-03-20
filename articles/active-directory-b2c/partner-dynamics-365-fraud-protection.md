@@ -12,10 +12,10 @@ ms.date: 02/10/2021
 ms.author: gasinh
 ms.subservice: B2C
 ms.openlocfilehash: cf441108c9fd0ae87f265604f6f0706d92516746
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101646559"
 ---
 # <a name="tutorial-configure-microsoft-dynamics-365-fraud-protection-with-azure-active-directory-b2c"></a>Tutorial: Configurar a Proteção contra fraudes Microsoft Dynamics 365 com O Diretório Ativo B2C
@@ -56,7 +56,7 @@ O seguinte diagrama de arquitetura mostra a implementação.
 
 ![Imagem mostra diagrama de arquitetura de proteção à fraude microsoft dynamics365](./media/partner-dynamics365-fraud-protection/microsoft-dynamics-365-fraud-protection-diagram.png)
 
-|Passo | Descrição |
+|Passo | Description |
 |:-----| :-----------|
 | 1. | O utilizador chega a uma página de login. Os utilizadores selecionam o sesurá-se para criar uma nova conta e introduzir informações na página. Azure AD B2C recolhe atributos do utilizador.
 | 2. | Azure AD B2C chama a API de camada média e transmite os atributos do utilizador.

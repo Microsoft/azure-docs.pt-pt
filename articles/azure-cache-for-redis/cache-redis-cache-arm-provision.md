@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: subject-armqs
 ms.date: 08/18/2020
 ms.openlocfilehash: 8bd9a45ec7c43d9338dec184afd784d2b163c410
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92735977"
 ---
 # <a name="quickstart-create-an-azure-cache-for-redis-using-an-arm-template"></a>Quickstart: Criar uma cache Azure para redis usando um modelo ARM
@@ -20,14 +20,14 @@ Saiba como criar um modelo de Gestor de Recursos Azure (modelo ARM) que implemen
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Se o seu ambiente cumpre os pré-requisitos e se está familiarizado com a utilização de modelos ARM, selecione o botão **Implementar no Azure** . O modelo será aberto no portal do Azure.
+Se o seu ambiente cumpre os pré-requisitos e se está familiarizado com a utilização de modelos ARM, selecione o botão **Implementar no Azure**. O modelo será aberto no portal do Azure.
 
 [![Implementar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-redis-cache%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Subscrição do Azure** : se não tem uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
-* **Uma conta de armazenamento** : Para criar uma, consulte [criar uma conta de Armazenamento Azure](../storage/common/storage-account-create.md?tabs=azure-portal). A conta de armazenamento é utilizada para dados de diagnóstico.
+* **Subscrição do Azure**: se não tem uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+* **Uma conta de armazenamento**: Para criar uma, consulte [criar uma conta de Armazenamento Azure](../storage/common/storage-account-create.md?tabs=azure-portal). A conta de armazenamento é utilizada para dados de diagnóstico.
 
 ## <a name="review-the-template"></a>Rever o modelo
 
@@ -46,7 +46,7 @@ Os modelos de Gestor de Recursos para o novo [nível Premium](cache-overview.md#
 * [Criar Cache Premium Azure para Redis com persistência de dados](https://azure.microsoft.com/resources/templates/201-redis-premium-persistence/)
 * [Criar Cache Premium Redis implantado numa Rede Virtual](https://azure.microsoft.com/resources/templates/201-redis-premium-vnet/)
 
-Para verificar os modelos mais recentes, consulte [os modelos Azure Quickstart](https://azure.microsoft.com/documentation/templates/) e procure _por Azure Cache for Redis_ .
+Para verificar os modelos mais recentes, consulte [os modelos Azure Quickstart](https://azure.microsoft.com/documentation/templates/) e procure _por Azure Cache for Redis_.
 
 ## <a name="deploy-the-template"></a>Implementar o modelo
 
@@ -55,10 +55,10 @@ Para verificar os modelos mais recentes, consulte [os modelos Azure Quickstart](
     [![Implementar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-redis-cache%2Fazuredeploy.json)
 1. Selecione ou introduza os seguintes valores:
 
-    * **Subscrição** : selecione uma subscrição Azure usada para criar a partilha de dados e os outros recursos.
-    * **Grupo de recursos** : selecione **Criar novos** para criar um novo grupo de recursos ou selecionar um grupo de recursos existente.
-    * **Localização** : selecione uma localização para o grupo de recursos. A conta de armazenamento e a cache Redis devem estar na mesma região. Por predefinição, a cache Redis utiliza a mesma localização que o grupo de recursos. Então, especifique o mesmo local que a conta de armazenamento.
-    * **Nome redis Cache** : insira um nome para a cache Redis.
+    * **Subscrição**: selecione uma subscrição Azure usada para criar a partilha de dados e os outros recursos.
+    * **Grupo de recursos**: selecione **Criar novos** para criar um novo grupo de recursos ou selecionar um grupo de recursos existente.
+    * **Localização**: selecione uma localização para o grupo de recursos. A conta de armazenamento e a cache Redis devem estar na mesma região. Por predefinição, a cache Redis utiliza a mesma localização que o grupo de recursos. Então, especifique o mesmo local que a conta de armazenamento.
+    * **Nome redis Cache**: insira um nome para a cache Redis.
     * **Conta de Armazenamento de Diagnósticos Existente:** introduza o ID de recurso de uma conta de armazenamento. A sintaxe é `/subscriptions/&lt;SUBSCRIPTION ID>/resourceGroups/&lt;RESOURCE GROUP NAME>/providers/Microsoft.Storage/storageAccounts/&lt;STORAGE ACCOUNT NAME>`.
 
     Utilize o valor predefinido para o resto das definições.
@@ -66,7 +66,7 @@ Para verificar os modelos mais recentes, consulte [os modelos Azure Quickstart](
 
 ## <a name="review-deployed-resources"></a>Revisão dos recursos implantados
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Abra a cache Redis que criou.
 
 ## <a name="clean-up-resources"></a>Limpar os recursos

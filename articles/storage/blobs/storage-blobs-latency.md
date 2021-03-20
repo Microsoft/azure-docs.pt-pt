@@ -9,10 +9,10 @@ ms.date: 09/05/2019
 ms.author: tamram
 ms.subservice: blobs
 ms.openlocfilehash: 78440b8150a0992bed2e2a3e597fdac8e7a1c7b0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "75749720"
 ---
 # <a name="latency-in-blob-storage"></a>Latência no Armazenamento de blobs

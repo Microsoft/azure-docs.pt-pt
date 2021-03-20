@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 10/28/2020
 ms.author: yitoh
 ms.openlocfilehash: 89685d1b8c3a57fa142bbbfd1114f9aa0ff0c400
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98611122"
 ---
 # <a name="azure-ddos-protection-standard-frequent-asked-questions"></a>Azure DDoS Protection Standard perguntas frequentes
@@ -36,7 +36,7 @@ Sob um inquilino, um único plano de proteção DDoS pode ser usado em várias s
 Consulte [o preço padrão de proteção do Azure DDoS](https://azure.microsoft.com/pricing/details/ddos-protection/) para obter mais detalhes.
 
 ## <a name="is-the-service-zone-resilient"></a>A zona de serviço é resistente?
-Yes. A proteção Azure DDoS é resistente à zona por defeito.
+Sim. A proteção Azure DDoS é resistente à zona por defeito.
 
 ## <a name="how-do-i-configure-the-service-to-be-zone-resilient"></a>Como posso configurar o serviço para ser resistente à zona?
 Não é necessária nenhuma configuração do cliente para permitir a resiliência da zona. A resiliência da zona para os recursos de proteção DDoS Azure está disponível por padrão e gerida pelo próprio serviço.

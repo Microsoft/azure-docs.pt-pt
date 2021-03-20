@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com a Sciforma Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com a Sciforma | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Sciforma.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: 469cfcd39ff606c6ed828d490f26e6e3e027993e
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95993196"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sciforma"></a>Tutorial: Integração do Diretório Ativo Azure com a Sciforma

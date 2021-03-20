@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: victorh
 ms.openlocfilehash: 5d2760415e4f4ef3b181f2fb69802659fec3ef66
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95975960"
 ---
 # <a name="create-a-custom-probe-for-application-gateway-by-using-the-portal"></a>Crie uma sonda personalizada para o Application Gateway utilizando o portal
@@ -24,7 +24,7 @@ ms.locfileid: "95975960"
 
 Neste artigo, você adiciona uma sonda de saúde personalizada a uma porta de entrada de aplicação existente através do portal Azure. Utilizando as sondas de saúde, o Azure Application Gateway monitoriza a saúde dos recursos na piscina traseira.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Se ainda não tiver um gateway de aplicações, visite [Criar um Gateway de Aplicação](./quick-create-portal.md) para criar uma porta de aplicação para trabalhar.
 
@@ -46,7 +46,7 @@ As sondas são configuradas num processo de duas etapas através do portal. O pr
 
    |**Definição** | **Valor** | **Detalhes**|
    |---|---|---|
-   |**Name**|customProbe|Este valor é um nome amigável dado à sonda que é acessível no portal.|
+   |**Nome**|customProbe|Este valor é um nome amigável dado à sonda que é acessível no portal.|
    |**Protocolo**|HTTP OU HTTPS | O protocolo que a sonda usa. |
    |**Anfitrião**|i.e contoso.com|Este valor é o nome do anfitrião virtual (diferente do nome do anfitrião VM) que está a ser gerido no servidor de aplicações. A sonda é enviada para \<protocol\> \<host name\> :\<port\>/\<urlPath\>|
    |**Escolha o nome do anfitrião a partir das definições HTTP backend**|Sim ou Não|Define o cabeçalho do *anfitrião* na sonda para o nome do anfitrião a partir das definições HTTP às quais esta sonda está associada. Especialmente necessário no caso de apoios multi-inquilinos, como o serviço de aplicações Azure. [Saiba mais](./configuration-http-settings.md#pick-host-name-from-back-end-address)|
@@ -57,7 +57,7 @@ As sondas são configuradas num processo de duas etapas através do portal. O pr
    |**Intervalo (segs)**|30|A quantidade de tempo que a sonda espera antes do tempo de 20 minutos. Se não for recebida uma resposta válida dentro deste período de tempo, a sonda será marcada como falhada. O intervalo de tempo tem de ser alto o suficiente para que uma chamada http possa ser feita para garantir que a página de saúde de backend está disponível. Note que o valor de tempo de desatado não deve ser mais do que o valor 'Intervalo' utilizado nesta definição de sonda ou o valor 'Tempo de pedido' na definição HTTP que estará associado a esta sonda.|
    |**Limiar com funcionamento incorreto**|3|Número de tentativas falhadas consecutivas para ser considerado insalubre. O limiar pode ser definido para 1 ou mais.|
    |**Utilize condições de correspondência da sonda**|Sim ou Não|Por predefinição, uma resposta HTTP(S) com código de estado entre 200 e 399 é considerada saudável. Pode alterar o intervalo aceitável de código de resposta de backend ou do corpo de resposta de backend. [Saiba mais](./application-gateway-probe-overview.md#probe-matching)|
-   |**Definições HTTP**|seleção de dropdown|A sonda ficará associada com a definição(s) HTTP selecionada aqui e, portanto, monitorizará a saúde desse pool de backend que está associado à definição http selecionada. Utilizará a mesma porta para o pedido de sonda que o que está a ser utilizado na definição HTTP selecionada. Só pode escolher as definições HTTP que não estão associadas a qualquer outra sonda personalizada. <br>Note que apenas as definições HTTP(s) estão disponíveis para associação que têm o mesmo protocolo que o protocolo escolhido nesta configuração de sonda e têm o mesmo estado para o interruptor *de definição de Nome de Anfitrião Pick From Backend HTTP.*|
+   |**Definições de HTTP**|seleção de dropdown|A sonda ficará associada com a definição(s) HTTP selecionada aqui e, portanto, monitorizará a saúde desse pool de backend que está associado à definição http selecionada. Utilizará a mesma porta para o pedido de sonda que o que está a ser utilizado na definição HTTP selecionada. Só pode escolher as definições HTTP que não estão associadas a qualquer outra sonda personalizada. <br>Note que apenas as definições HTTP(s) estão disponíveis para associação que têm o mesmo protocolo que o protocolo escolhido nesta configuração de sonda e têm o mesmo estado para o interruptor *de definição de Nome de Anfitrião Pick From Backend HTTP.*|
    
    > [!IMPORTANT]
    > A sonda monitorizará a saúde do backend apenas quando estiver associada a uma ou mais definições HTTP. Monitorizará os recursos de back-end das piscinas de back-end que estão associadas à definição(s) HTTP(s) à qual esta sonda está associada. O pedido de sonda será enviado como \<protocol\> \<hostName\> : . \<port\> / \<urlPath\> .
@@ -97,7 +97,7 @@ As sondas são configuradas num processo de duas etapas através do portal. O pr
 
    |**Definição** | **Valor** | **Detalhes**|
    |---|---|---|
-   |**Name**|customProbe|Este valor é um nome amigável dado à sonda que é acessível no portal.|
+   |**Nome**|customProbe|Este valor é um nome amigável dado à sonda que é acessível no portal.|
    |**Protocolo**|HTTP OU HTTPS | O protocolo que a sonda usa. |
    |**Anfitrião**|i.e contoso.com|Este valor é o nome do anfitrião virtual (diferente do nome do anfitrião VM) que está a ser gerido no servidor de aplicações. A sonda é enviada para (protocolo)://(nome de anfitrião):(port from httpsetting)/urlPath.  Isto é aplicável quando vários sites são configurados no Gateway de aplicação. Se o Gateway de Aplicação estiver configurado para um único local, insira '127.0.0.1'.|
    |**Escolha o nome do anfitrião a partir das definições HTTP backend**|Sim ou Não|Define o cabeçalho do *anfitrião* na sonda para o nome de anfitrião do recurso back-end na piscina de back-end associada à definição HTTP à qual esta sonda está associada. Especialmente necessário no caso de apoios multi-inquilinos, como o serviço de aplicações Azure. [Saiba mais](./configuration-http-settings.md#pick-host-name-from-back-end-address)|

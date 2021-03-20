@@ -1,5 +1,5 @@
 ---
-title: Como corrigir regras padrão modificadas - Azure AD Connect Microsoft Docs
+title: Como corrigir regras padrão modificadas - Azure AD Connect | Microsoft Docs
 description: Saiba como corrigir regras padrão modificadas que vêm com Azure AD Connect.
 services: active-directory
 author: billmath
@@ -14,10 +14,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a0fc1bc3158e04c9b1f677af7ef2375ac3ed2ce7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91320052"
 ---
 # <a name="fix-modified-default-rules-in-azure-ad-connect"></a>Corrigir regras padrão modificadas no Azure AD Connect
@@ -28,7 +28,7 @@ Azure Ative Directory (Azure AD) Connect utiliza regras padrão para sincroniza�
 > Modificar as regras padrão existentes para obter uma personalização necessária não é suportado. Se o fizer, evita atualizar estas regras para a versão mais recente em futuras versões. Não conseguirá as correções de bug que precisa, ou novas funcionalidades. Este documento explica como obter o mesmo resultado sem modificar as regras de incumprimento existentes. 
 
 ## <a name="how-to-identify-modified-default-rules"></a>Como identificar regras padrão modificadas
-Começando pela versão 1.3.7.0 do Azure AD Connect, é fácil identificar a regra padrão modificada. Vá a **Apps on Desktop**e selecione **Synchronization Rules Editor**.
+Começando pela versão 1.3.7.0 do Azure AD Connect, é fácil identificar a regra padrão modificada. Vá a **Apps on Desktop** e selecione **Synchronization Rules Editor**.
 
 ![Azure AD Connect, com o Editor de Regras de Sincronização em destaque](media/how-to-connect-fix-default-rules/default1.png)
 
@@ -81,9 +81,9 @@ Siga a sua própria convenção de nomeação para nomear a regra. Aqui, utiliza
 
 Forneça a sua própria descrição da regra, para que a manutenção futura da regra seja fácil. Por exemplo, a descrição pode basear-se no que o objetivo da regra é, e por que é necessário.
 
-Faça as suas seleções para os campos **Connected System**, Connected System **Object Type**e **Metaverse Object Type.**
+Faça as suas seleções para os campos **Connected System**, Connected System **Object Type** e **Metaverse Object Type.**
 
-Especificar o valor de precedência de 0 a 99 (quanto menor o número, maior a precedência). Para a **Tag**, Ative os campos **Desativação de Palavras-Passe**e **Desativados,** utilize as seleções predefinidoras.
+Especificar o valor de precedência de 0 a 99 (quanto menor o número, maior a precedência). Para a **Tag**, Ative os campos **Desativação de Palavras-Passe** e **Desativados,** utilize as seleções predefinidoras.
 
 Mantenha **o filtro de scoping** vazio. Isto significa que a regra se aplica a todos os objetos ligados entre o Sistema Ligado ao Diretório Ativo e o metaverso.
 
@@ -92,7 +92,7 @@ Mantenha **as regras de junção vazias.** Isto significa que esta regra utiliza
 Adicione transformações apropriadas para o seu atributo. Pode atribuir uma constante, para fazer um fluxo de valor constante para o seu atributo alvo. Pode utilizar o mapeamento direto entre o atributo de origem ou alvo. Ou pode usar uma expressão para o atributo. Aqui estão [várias funções de expressão](./reference-connect-sync-functions-reference.md) que pode usar.
 
 #### <a name="add-an-outbound-sync-rule"></a>Adicione uma regra de sincronização de saída
-Para ligar o atributo ao directório-alvo, é necessário criar uma regra de saída. Isto significa que a fonte é o metaverso, e o alvo é o sistema ligado. Para criar uma regra de saída, lance o **Editor de Regras de Sincronização,** altere a **Direção** para **Saída**e selecione Adicionar **nova regra**. 
+Para ligar o atributo ao directório-alvo, é necessário criar uma regra de saída. Isto significa que a fonte é o metaverso, e o alvo é o sistema ligado. Para criar uma regra de saída, lance o **Editor de Regras de Sincronização,** altere a **Direção** para **Saída** e selecione Adicionar **nova regra**. 
 
 ![Editor de Regras de Sincronização](media/how-to-connect-fix-default-rules/default3c.png)
 
@@ -162,7 +162,7 @@ Pode validar a regra de sincronização recentemente adicionada utilizando a fun
 
 ![Azure AD Connect, com Serviço de Sincronização em destaque](media/how-to-connect-fix-default-rules/default10.png)
 
-Selecione **Metaverse Search**. Selecione o objeto de âmbito como **pessoa,** **selecione 'Adicionar Cláusula'** e mencione os seus critérios de pesquisa. Em seguida, **selecione Search**e clique duas vezes no objeto nos resultados da pesquisa. Certifique-se de que os seus dados no Azure AD Connect estão atualizados para esse objeto, executando a importação e sincronização na floresta antes de executar este passo.
+Selecione **Metaverse Search**. Selecione o objeto de âmbito como **pessoa,** **selecione 'Adicionar Cláusula'** e mencione os seus critérios de pesquisa. Em seguida, **selecione Search** e clique duas vezes no objeto nos resultados da pesquisa. Certifique-se de que os seus dados no Azure AD Connect estão atualizados para esse objeto, executando a importação e sincronização na floresta antes de executar este passo.
 
 ![Synchronization Service Manager](media/how-to-connect-fix-default-rules/default11.png)
 

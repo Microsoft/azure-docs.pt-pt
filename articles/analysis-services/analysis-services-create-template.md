@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 08/31/2020
 ms.custom: subject-armqs, references_regions
 ms.openlocfilehash: 3e776bf41420d38a1b208ce11a6a34e97fa92a15
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89230794"
 ---
 # <a name="quickstart-create-a-server---arm-template"></a>Quickstart: Criar um servidor - modelo ARM
@@ -49,11 +49,11 @@ Um único recurso [Microsoft.AnalysisServices/servidores](/azure/templates/micro
     Salvo especificação em contrário, utilize valores predefinidos.
 
     * **Assinatura**: Selecione uma subscrição Azure.
-    * **Grupo de recursos**: Clique em **Criar novo**e, em seguida, insira um nome único para o novo grupo de recursos.
+    * **Grupo de recursos**: Clique em **Criar novo** e, em seguida, insira um nome único para o novo grupo de recursos.
     * **Localização**: Selecione uma localização predefinitiva para os recursos criados no grupo de recursos.
     * **Nome do servidor**: Introduza um nome para o recurso do servidor. 
     * **Localização**: Ignore para serviços de análise. A localização é especificada na localização do servidor.
-    * **Localização**do servidor : Introduza a localização do servidor Serviços de Análise. Esta é frequentemente a mesma região que a Localização padrão especificada para o Grupo de Recursos, mas não é necessária. Por **exemplo, North Central US**. Para regiões apoiadas, consulte [a disponibilidade de Serviços de Análise por região.](analysis-services-overview.md#availability-by-region)
+    * **Localização** do servidor : Introduza a localização do servidor Serviços de Análise. Esta é frequentemente a mesma região que a Localização padrão especificada para o Grupo de Recursos, mas não é necessária. Por **exemplo, North Central US**. Para regiões apoiadas, consulte [a disponibilidade de Serviços de Análise por região.](analysis-services-overview.md#availability-by-region)
     * **Nome Sku**: Introduza o nome sku para o servidor de Serviços de Análise para criar. Escolha: B1, B2, D1, S0, S1, S2, S3, S4, S8v2, S9v2. A disponibilidade de Sku depende da região. S0 ou D1 é recomendado para avaliação e teste.
     * **Capacidade**: Introduza o número total de casos de replicação de replicação de consulta. A escala de mais de um caso é apoiada apenas em regiões selecionadas.
     * **Definições de firewall**: Introduza as regras de firewall de entrada para definir para o servidor. Se não for especificado, a firewall é desativada.
@@ -78,7 +78,7 @@ $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
 
 ---
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não for necessário, utilize o portal Azure CLI ou a Azure PowerShell para eliminar o grupo de recursos e o recurso do servidor.
 
@@ -106,4 +106,4 @@ Write-Host "Press [ENTER] to continue..."
 Neste arranque rápido, usou um modelo ARM para criar um novo grupo de recursos e um recurso de servidor Azure Analysis Services. Depois de criar um recurso de servidor utilizando o modelo, considere o seguinte:
 
 > [!div class="nextstepaction"]
-> [Início Rápido: Configurar a firewall do servidor - Portal](analysis-services-qs-firewall.md)   
+> [Quickstart: Configurar a firewall do servidor – Portal](analysis-services-qs-firewall.md)   

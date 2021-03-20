@@ -4,10 +4,10 @@ description: Saiba como utilizar o serviço Azure Batch para cargas de trabalho 
 ms.topic: overview
 ms.date: 07/30/2020
 ms.openlocfilehash: dbd27dc1a00966a2d71952335cfb47c7ca55bc24
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98743105"
 ---
 # <a name="what-is-azure-batch"></a>O que é o Azure Batch?
@@ -62,7 +62,7 @@ O diagrama seguinte mostra os passos num fluxo de trabalho comum do Batch, com u
 
 ![Diagrama dos passos numa solução de Lote.](./media/batch-technical-overview/tech_overview_03.png)
 
-|Passo  |Descrição  |
+|Passo  |Description  |
 |---------|---------|
 |1. Faça upload dos **ficheiros de entrada** e das aplicações para processar esses **ficheiros** na sua conta de Armazenamento Azure.     |Os ficheiros de entrada podem ser quaisquer dados que a sua aplicação processa, tais como dados de modelação financeira ou ficheiros de vídeo para transcodificação. Os ficheiros da aplicação podem incluir scripts ou aplicações que processam os dados, como um transcodificador multimédia.|
 |2. Crie um **lote** de nós computacional na sua conta Batch, um **trabalho** para executar a carga de trabalho na piscina e **tarefas** no trabalho.     | [Os nós computacional](nodes-and-pools.md) são os VMs que executam as suas [tarefas](jobs-and-tasks.md). Especifique propriedades para a sua piscina, como o número e o tamanho dos nós, uma imagem VM Windows ou Linux, e uma aplicação para instalar quando os nós se juntam à piscina. Gerencie o custo e o tamanho da piscina utilizando [VMs de baixa prioridade](batch-low-pri-vms.md) ou [escalando automaticamente](batch-automatic-scaling.md) o número de nós à medida que a carga de trabalho muda. <br/><br/>Ao adicionar tarefas a um trabalho, o serviço Batch agenda automaticamente as tarefas para execução nos nós de computação do conjunto. Cada tarefa utiliza a aplicação que carregou para processar os ficheiros de entrada. |
@@ -78,7 +78,7 @@ Consulte [o fluxo de trabalho do serviço Batch e os recursos](batch-service-wor
 ## <a name="in-region-data-residency"></a>Residência de dados na região
 O Azure Batch não move nem armazena os dados dos clientes para fora da região em que é implantado. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Introdução ao Azure Batch com um dos seguintes inícios rápidos:
 - [Executar a primeira tarefa do Batch com a CLI do Azure](quick-create-cli.md)

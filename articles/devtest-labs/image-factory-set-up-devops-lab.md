@@ -4,10 +4,10 @@ description: Este artigo abrange todos os preparativos necessários para gerir a
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: fa7050bae1ff8681e04b6ab38220be9eaf38a64a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85476143"
 ---
 # <a name="run-an-image-factory-from-azure-devops"></a>Executar uma fábrica de imagens a partir do Azure DevOps
@@ -104,7 +104,7 @@ Se selecionar a tarefa de construção, verá todos os detalhes no painel certo 
 
 1. Primeiro, nomeie a tarefa de construção: **Criar Máquinas Virtuais**.
 2. Escolha o **principal de serviço** que criou escolhendo o Gestor de Recursos **Azure**
-3. Escolha o **ponto final**de serviço .
+3. Escolha o **ponto final** de serviço .
 4. Para **Caminho do Script**, selecione **... (elipse)** à direita.
 5. Navegue para **MakeGoldenImageVMs.ps1** roteiro.
 6. Os parâmetros do script devem ser assim: `-ConfigurationLocation $(System.DefaultWorkingDirectory)$(ConfigurationLocation) -DevTestLabName $(DevTestLabName) -vmSize $(VMSize) -machineUserName $(MachineUserName) -machinePassword (ConvertTo-SecureString -string '$(MachinePassword)' -AsPlainText -Force) -StandardTimeoutMinutes $(StandardTimeoutMinutes)`

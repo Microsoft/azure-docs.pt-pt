@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/10/2021
 ms.author: duau
-ms.openlocfilehash: 0133d6cc54038a56847556a83242114c78e09321
-ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
+ms.openlocfilehash: 4a75931017bbde24c17ecdc0da498547c6088682
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103574413"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104581529"
 ---
 # <a name="expressroute-connectivity-partners-and-peering-locations"></a>Parceiros de conectividade e localizações de peering do ExpressRoute
 
@@ -87,6 +87,7 @@ A tabela seguinte mostra as localizações por fornecedor de serviços. Se quise
 | **[BCX](https://www.bcx.co.za/solutions/connectivity/data-networks)** |Suportado |Suportado |Cidade do Cabo, Joanesburgo|
 | **[Bell Canada](https://business.bell.ca/shop/enterprise/cloud-connect-access-to-cloud-partner-services)** |Suportado |Suportado |Montreal, Toronto, Cidade do Quebeque |
 | **[British Telecom](https://www.globalservices.bt.com/en/solutions/products/cloud-connect-azure)** |Suportado |Suportado |Amesterdão, Amesterdão2, Chicago, Hong Kong SAR, Joanesburgo, Londres, Londres2, Newport (País de Gales), Paris, São Paulo, Silicon Valley, Singapura, Sydney, Tóquio, Washington DC |
+| **[BSNL](https://www.bsnl.co.in/opencms/bsnl/BSNL/services/enterprises/cloudway.html)** |Suportado |Suportado |Chennai, Mumbai |
 | **[C3ntro](https://www.c3ntro.com/data1/express-route1.php)** |Suportado |Suportado |Miami |
 | **CDC** | Suportado | Suportado | Camberra, Camberra2 |
 | **[CenturyLink Cloud Connect](https://www.centurylink.com/cloudconnect)** |Suportado |Suportado |Amesterdão2, Chicago, Dublin, Frankfurt, Hong Kong, Las Vegas, Londres2, Nova Iorque, Paris, San Antonio, Silicon Valley, Tóquio, Toronto, Washington DC, Washington DC2 |
@@ -148,7 +149,7 @@ A tabela seguinte mostra as localizações por fornecedor de serviços. Se quise
 | **[Optus](https://www.optus.com.au/enterprise/)** |Suportado |Suportado |Melbourne, Sydney |
 | **[Laranja](https://www.orange-business.com/en/products/business-vpn-galerie)** |Suportado |Suportado |Amesterdão, Amesterdão2, Dubai2, Frankfurt, Hong Kong SAR, Joanesburgo, Londres, Paris, São Paulo, Silicon Valley, Singapura, Sydney, Tóquio, Washington DC |
 | **[Orixcom](https://www.orixcom.com/cloud-solutions/)** | Suportado | Suportado | Dubai2 |
-| **[PacketFabric](https://www.packetfabric.com/cloud-connectivity/microsoft-azure)** |Suportado |Suportado |Chicago, Las Vegas, Silicon Valley, Washington DC |
+| **[PacketFabric](https://www.packetfabric.com/cloud-connectivity/microsoft-azure)** |Suportado |Suportado |Chicago, Dallas, Las Vegas, Silicon Valley, Washington DC |
 | **[PCCW Global Limited](https://consoleconnect.com/clouds/#azureRegions)** |Suportado |Suportado |Chicago, Hong Kong, Hong Kong2, Londres, Singapura2 |
 | **[REANNZ](https://www.reannz.co.nz/products-and-services/cloud-connect/)** | Suportado | Suportado | Auckland |
 | **[Retelit](https://www.retelit.it/EN/Home.aspx)** | Suportado | Suportado | Milão | 

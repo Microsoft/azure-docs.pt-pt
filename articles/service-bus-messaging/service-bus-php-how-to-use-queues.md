@@ -6,10 +6,10 @@ ms.devlang: PHP
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.openlocfilehash: a7e0d1fa321f1b7c1295b5a640fe78b46adf1c72
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85341114"
 ---
 # <a name="quickstart-how-to-use-service-bus-queues-with-php"></a>Quickstart: Como usar as filas de Service Bus com PHP
@@ -20,7 +20,7 @@ Neste tutorial, aprende-se a criar aplicações PHP para enviar mensagens e rece
 ## <a name="prerequisites"></a>Pré-requisitos
 1. Uma subscrição do Azure. Para concluir este tutorial, precisa de uma conta do Azure. Pode ativar os [benefícios do seu assinante MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) ou inscrever-se numa [conta gratuita.](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)
 2. Se não tiver uma fila para trabalhar, siga os passos no [portal Use Azure para criar um](service-bus-quickstart-portal.md) artigo de fila de Service Bus para criar uma fila.
-    1. Leia a **visão geral** rápida das filas de **autocarros**de serviço. 
+    1. Leia a **visão geral** rápida das filas de **autocarros** de serviço. 
     2. Crie um espaço de nomes de **autocarro de serviço.** 
     3. Obtenha a **cadeia de ligação.** 
 
@@ -48,7 +48,7 @@ Para utilizar as APIs da fila de autocarros de serviço, faça o seguinte:
 O exemplo a seguir mostra como incluir o ficheiro do carregador automático e fazer referência à `ServicesBuilder` classe.
 
 > [!NOTE]
-> Este exemplo (e outros exemplos neste artigo) pressupõe que instalou as Bibliotecas de Clientes PHP para Azure via Compositor. Se instalou as bibliotecas manualmente ou como um pacote PEAR, deve fazer referência ao ficheiro autoloader **WindowsAzure.php.**
+> Este exemplo (e outros exemplos neste artigo) pressupõe que instalou as Bibliotecas de Clientes PHP para Azure via Compositor. Se instalou as bibliotecas manualmente ou como um pacote PEAR, deve fazer referência ao ficheiro autoloader **.php WindowsAzure.**
 > 
 > 
 

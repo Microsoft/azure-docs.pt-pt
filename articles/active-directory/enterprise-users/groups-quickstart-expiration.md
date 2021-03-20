@@ -1,5 +1,5 @@
 ---
-title: Quickstart política de expiração do grupo - Azure AD / Microsoft Docs
+title: Quickstart da política de expiração do grupo - Azure AD | Microsoft Docs
 description: Expiração para grupos Microsoft 365 - Azure Ative Directory
 services: active-directory
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a6bc76214ca2bedfc66ad3165cafe904584d42db
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96546323"
 ---
 # <a name="quickstart-set-microsoft-365-groups-to-expire-in-azure-active-directory"></a>Quickstart: Desconfiem dos grupos Microsoft 365 para expirar no Azure Ative Directory

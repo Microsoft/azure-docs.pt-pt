@@ -5,10 +5,10 @@ services: service-fabric
 ms.topic: conceptual
 ms.date: 01/09/2020
 ms.openlocfilehash: 972700dded1841994de9252b4aa4bbc8eaefeaf8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "76024706"
 ---
 # <a name="service-fabric-architecture"></a>Arquitetura do Service Fabric
@@ -36,7 +36,7 @@ Para raciocinar sobre um conjunto de nós num sistema distribuído, é necessár
 
 ## <a name="reliability-subsystem"></a>Subsistema de fiabilidade
 
-O subsistema de fiabilidade fornece o mecanismo para tornar o estado de um serviço de tecido de serviço altamente disponível através da utilização do *Replicador,* *Gestor de Falhas*e *Balanceador de Recursos.*
+O subsistema de fiabilidade fornece o mecanismo para tornar o estado de um serviço de tecido de serviço altamente disponível através da utilização do *Replicador,* *Gestor de Falhas* e *Balanceador de Recursos.*
 
 * O Replicador garante que as mudanças de estado na réplica do serviço primário serão automaticamente replicadas em réplicas secundárias, mantendo a consistência entre as réplicas primárias e secundárias num conjunto de réplicas de serviço. O replicador é responsável pela gestão do quórum entre as réplicas no conjunto de réplicas. Interage com a unidade de failover para obter a lista de operações para replicar, e o agente de reconfiguração fornece-lhe a configuração do conjunto de réplicas. Esta configuração indica quais as réplicas que as operações precisam de ser replicadas. O Service Fabric fornece um replicador padrão chamado Replicador de Tecido, que pode ser usado pelo modelo de programação API para tornar o estado de serviço altamente disponível e fiável.
 * O Gestor failover garante que quando os nós são adicionados ou removidos do cluster, a carga é automaticamente redistribuída através dos nós disponíveis. Se um nó no cluster falhar, o cluster reconfigurará automaticamente as réplicas de serviço para manter a disponibilidade.

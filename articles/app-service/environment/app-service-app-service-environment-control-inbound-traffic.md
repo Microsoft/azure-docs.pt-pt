@@ -8,14 +8,14 @@ ms.date: 01/11/2017
 ms.author: stefsch
 ms.custom: seodec18
 ms.openlocfilehash: fe9326ea9ebd5afe981b7ba6c34b1a5d51e084b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88962065"
 ---
 # <a name="how-to-control-inbound-traffic-to-an-app-service-environment"></a>Como controlar o tráfego de entrada para um ambiente de serviço de aplicações
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Um Ambiente de Serviço de Aplicações pode ser criado **numa** rede virtual Azure Resource Manager **ou** numa [rede virtual][virtualnetwork]de modelos de implementação clássica.  Uma nova rede virtual e uma nova sub-rede podem ser definidas no momento em que um Ambiente de Serviço de Aplicações é criado. Em vez disso, um Ambiente de Serviço de Aplicações pode ser criado numa rede virtual pré-existente e numa sub-rede pré-existente.  A partir de junho de 2016, as ASEs também podem ser implantadas em redes virtuais que utilizam tanto as gamas de endereços públicos como os espaços de endereços RFC1918 (endereços privados).  Para obter mais informações, consulte [Como Criar um Ambiente de Serviço de Aplicações.][HowToCreateAnAppServiceEnvironment]
 
 Crie sempre um Ambiente de Serviço de Aplicações dentro de uma sub-rede. Uma sub-rede fornece uma fronteira de rede que pode ser usada para bloquear o tráfego de entrada por trás de dispositivos e serviços a montante. Esta configuração permite apenas endereços IP a montante específicos para aceitar tráfego HTTP e HTTPS.
@@ -118,7 +118,7 @@ Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Remove-AzureNetworkSecuri
 ## <a name="special-considerations-for-explicit-ip-ssl"></a>Considerações Especiais para IP-SSL explícito
 Se uma aplicação for configurada com um endereço IP-SSL explícito (aplicável *apenas* às ASEs que têm um VIP público), em vez de utilizar o endereço IP predefinido do Ambiente de Serviço de Aplicações, tanto o tráfego HTTP como HTTPS flui para a sub-rede sobre portas que não as portas 80 e 443.
 
-Para encontrar o par individual de portas que é usado por cada endereço IP-SSL, vá ao portal e veja os detalhes do Ambiente de Serviço de Aplicação.  Selecione **Todos os**  >  **endereços IP**de definições .  A lâmina **de endereços IP** mostra uma tabela de todos os endereços IP-SSL explicitamente configurados para o Ambiente de Serviço de Aplicações. A lâmina também mostra o par de portas especial que é usado para o tráfego HTTP e HTTPS associado a cada endereço IP-SSL.  Utilize este par de portas para os parâmetros DestinationPortRange ao configurar as regras num grupo de segurança de rede.
+Para encontrar o par individual de portas que é usado por cada endereço IP-SSL, vá ao portal e veja os detalhes do Ambiente de Serviço de Aplicação.  Selecione **Todos os**  >  **endereços IP** de definições .  A lâmina **de endereços IP** mostra uma tabela de todos os endereços IP-SSL explicitamente configurados para o Ambiente de Serviço de Aplicações. A lâmina também mostra o par de portas especial que é usado para o tráfego HTTP e HTTPS associado a cada endereço IP-SSL.  Utilize este par de portas para os parâmetros DestinationPortRange ao configurar as regras num grupo de segurança de rede.
 
 Quando uma aplicação num ASE é configurada para usar IP-SSL, os clientes externos não verão ou precisam de se preocupar com o mapeamento especial do par de portas.  O tráfego para as aplicações fluirá normalmente para o endereço IP-SSL configurado.  A tradução para o par especial da porta ocorre automaticamente internamente, durante a última etapa do tráfego de encaminhamento para a sub-rede que contém o ASE. 
 

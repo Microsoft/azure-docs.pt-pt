@@ -4,10 +4,10 @@ description: Este artigo descreve como um administrador de conta de laboratório
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 3b6c2d83414b1abc763755fbf15402b122c2186b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85444204"
 ---
 # <a name="allow-lab-creator-to-pick-location-for-the-lab-in-azure-lab-services"></a>Permitir que o criador do laboratório escolha a localização para o laboratório nos Serviços de Laboratório Azure
@@ -41,7 +41,7 @@ Neste cenário, não permitiu que o criador do laboratório permitisse escolher 
 
 ![Sem localização de laboratório](./media/allow-lab-creator-pick-lab-location/lab-no-location.png)
 
-Depois, os criadores de laboratório (educadores) não vêem uma opção para escolher um local para o laboratório. Eles verão o preço por hora para cada opção de tamanho disponível para eles. Quando criarem um laboratório, será criado numa região do Azure que está no mesmo local que a região de Azure em que a sua conta de laboratório está. Por exemplo, se a conta de laboratório estiver nos **EUA**ocidentais, então o laboratório pode ser criado no **Centro Sul dos EUA,** mas não seria criado no **Canadá Leste.** Não garantimos nada sobre a região que escolhemos, além de estar no local. Se um tamanho está atualmente limitado, então o criador do laboratório verá uma caixa de verificação onde eles podem ver os tamanhos que normalmente suportamos, mas estão atualmente indisponíveis. 
+Depois, os criadores de laboratório (educadores) não vêem uma opção para escolher um local para o laboratório. Eles verão o preço por hora para cada opção de tamanho disponível para eles. Quando criarem um laboratório, será criado numa região do Azure que está no mesmo local que a região de Azure em que a sua conta de laboratório está. Por exemplo, se a conta de laboratório estiver nos **EUA** ocidentais, então o laboratório pode ser criado no **Centro Sul dos EUA,** mas não seria criado no **Canadá Leste.** Não garantimos nada sobre a região que escolhemos, além de estar no local. Se um tamanho está atualmente limitado, então o criador do laboratório verá uma caixa de verificação onde eles podem ver os tamanhos que normalmente suportamos, mas estão atualmente indisponíveis. 
 
 ## <a name="in-virtual-network-and-location-selection-isnt-allowed"></a>Na rede virtual e na seleção de localização não é permitido
 Neste cenário, o criador do laboratório allow para escolher a opção **de localização do laboratório** é desativado porque selecionou uma rede virtual de pares para a conta de laboratório. Em seguida, os criadores de laboratório verão o mesmo ecrã que com a opção anterior. Como todos os VMs têm de estar na mesma região do Azure que a rede virtual, o laboratório será criado na mesma região do Azure em que a rede virtual se encontra. Se essa região em particular for limitada por um tamanho, o tamanho aparecerá como indisponível. 
@@ -57,7 +57,7 @@ Se uma localização é limitada, não é mostrada na lista por defeito. Expanda
 
 ![Mostrar locais indisponíveis](./media/allow-lab-creator-pick-lab-location/show-unavailable-locations.png)
 
-## <a name="cost"></a>Cost
+## <a name="cost"></a>Custo
 Anteriormente, o preço baseava-se no tamanho de VM que escolheste para o laboratório. Agora, o preço baseia-se na combinação do Sistema Operativo (SISTEMA), Tamanho e localização. 
 
 ## <a name="next-steps"></a>Passos seguintes

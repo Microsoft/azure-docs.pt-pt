@@ -12,10 +12,10 @@ ms.custom: seo-lt-2019
 ms.topic: how-to
 ms.date: 02/20/2020
 ms.openlocfilehash: dc9123735ef65bec89e99a14d25cba881be306fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91297475"
 ---
 # <a name="monitor-migration-activity-using-the-azure-database-migration-service"></a>Monitorizar a atividade de migração utilizando o Serviço de Migração da Base de Dados de Azure
@@ -71,7 +71,7 @@ A tabela que se segue lista os campos na lâmina de nível de base de dados e de
       <td>A migração falhou. Clique em detalhes de migração para ver erros de migração.</td>
     </tr>
     <tr>
-      <td rowspan="5" class="migration-details"><strong>Detalhes de migração</strong></td>
+      <td rowspan="5" class="migration-details"><strong>Detalhes da migração</strong></td>
       <td>Início do oleoduto de migração</td>
       <td>O DMS está a montar o oleoduto de migração.</td>
     </tr>
@@ -108,7 +108,7 @@ A parte inferior da lâmina lista as tabelas e mostra um resumo rápido do progr
 
 A tabela seguinte descreve os campos indicados nos detalhes do nível de tabela.
 
-| Nome do campo        | Descrição       |
+| Nome do campo        | Description       |
 | ------------- | ------------- |
 | **Carga completa concluída**      | Número de tabelas preenchidas com carga completa de dados. |
 | **Carga completa em fila**      | Número de mesas em fila para a carga completa.      |
@@ -129,7 +129,7 @@ Existem dois separadores que mostram o progresso da migração na sincronizaçã
 
 O quadro que se segue descreve os campos indicados no progresso migratório ao nível da tabela.
 
-| Nome do campo        | Descrição       |
+| Nome do campo        | Description       |
 | ------------- | ------------- |
 | **Estado - Sincronização**      | A sincronização contínua está a funcionar. |
 | **Inserir**      | Número de inserções de CDC em linhas aplicadas ao alvo.      |

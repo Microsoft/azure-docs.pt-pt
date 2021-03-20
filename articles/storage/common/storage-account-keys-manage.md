@@ -10,10 +10,10 @@ ms.date: 04/24/2020
 ms.author: tamram
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.openlocfilehash: e5ea94fea00771b64634d6c28a7879fabb195f09
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89069664"
 ---
 # <a name="manage-storage-account-access-keys"></a>Gerir chaves de acesso à conta de armazenamento
@@ -34,8 +34,8 @@ Para visualizar e copiar as chaves de acesso à sua conta de armazenamento ou ca
 
 1. Navegue para a sua conta de armazenamento no [portal Azure.](https://portal.azure.com)
 1. Em **Definições**, selecione **Chaves de acesso**. As chaves de acesso da conta são apresentadas, bem como a cadeia de ligação completa para cada chave.
-1. Localize o valor **chave** na **tecla1**e clique no botão **Copiar** para copiar a tecla da conta.
-1. Alternadamente, pode copiar toda a cadeia de ligação. Encontre o valor da **Cadeia de ligação** em **key1**e clique no botão **Copiar** para copiar a cadeia de ligação.
+1. Localize o valor **chave** na **tecla1** e clique no botão **Copiar** para copiar a tecla da conta.
+1. Alternadamente, pode copiar toda a cadeia de ligação. Encontre o valor da **Cadeia de ligação** em **key1** e clique no botão **Copiar** para copiar a cadeia de ligação.
 
     :::image type="content" source="media/storage-account-keys-manage/portal-connection-string.png" alt-text="Screenshot mostrando como ver as chaves de acesso no portal Azure":::
 
@@ -66,7 +66,7 @@ az storage account keys list \
 
 Pode utilizar qualquer uma das duas teclas para aceder ao Azure Storage, mas em geral é uma boa prática usar a primeira chave e reservar a utilização da segunda chave para quando estiver a rodar as teclas.
 
-Para ver ou ler as chaves de acesso de uma conta, o utilizador deve ser administrador de serviço ou deve ser atribuído a uma função Azure que inclua o **Microsoft.Storage/storageAcounts/listkeys/action**. Algumas funções incorporadas da Azure que incluem esta ação são as funções **de Proprietário,** **Contribuinte**e **Serviço de Serviço chave de armazenamento.** Para obter mais informações sobre a função de Administrador de Serviço, consulte [as funções de administrador de subscrição clássica, funções de Azure e AD AZure](../../role-based-access-control/rbac-and-directory-admin-roles.md). Para obter informações detalhadas sobre funções incorporadas para o Armazenamento Azure, consulte a secção **de armazenamento** em [funções incorporadas Azure para o Azure RBAC](../../role-based-access-control/built-in-roles.md#storage).
+Para ver ou ler as chaves de acesso de uma conta, o utilizador deve ser administrador de serviço ou deve ser atribuído a uma função Azure que inclua o **Microsoft.Storage/storageAcounts/listkeys/action**. Algumas funções incorporadas da Azure que incluem esta ação são as funções **de Proprietário,** **Contribuinte** e **Serviço de Serviço chave de armazenamento.** Para obter mais informações sobre a função de Administrador de Serviço, consulte [as funções de administrador de subscrição clássica, funções de Azure e AD AZure](../../role-based-access-control/rbac-and-directory-admin-roles.md). Para obter informações detalhadas sobre funções incorporadas para o Armazenamento Azure, consulte a secção **de armazenamento** em [funções incorporadas Azure para o Azure RBAC](../../role-based-access-control/built-in-roles.md#storage).
 
 ## <a name="use-azure-key-vault-to-manage-your-access-keys"></a>Use o Cofre de Chaves Azure para gerir as suas chaves de acesso
 
@@ -133,7 +133,7 @@ Para rodar as chaves de acesso à sua conta de armazenamento com o Azure CLI:
 > [!NOTE]
 > A Microsoft recomenda a utilização de apenas uma das chaves em todas as suas aplicações ao mesmo tempo. Se utilizar a Chave 1 em alguns lugares e a Chave 2 noutros, não poderá rodar as chaves sem que alguma aplicação perca acesso.
 
-Para rodar as teclas de acesso de uma conta, o utilizador deve ser administrador de serviço ou deve ser atribuído a uma função Azure que inclua o **Microsoft.Storage/storageAccounts/regeneratekey/action**. Algumas funções incorporadas da Azure que incluem esta ação são as funções **de Proprietário,** **Contribuinte**e **Serviço de Serviço chave de armazenamento.** Para obter mais informações sobre a função de Administrador de Serviço, consulte [as funções de administrador de subscrição clássica, funções de Azure e AD AZure](../../role-based-access-control/rbac-and-directory-admin-roles.md). Para obter informações detalhadas sobre as funções incorporadas do Azure para o Armazenamento Azure, consulte a secção **de armazenamento** em [funções incorporadas Azure para o Azure RBAC](../../role-based-access-control/built-in-roles.md#storage).
+Para rodar as teclas de acesso de uma conta, o utilizador deve ser administrador de serviço ou deve ser atribuído a uma função Azure que inclua o **Microsoft.Storage/storageAccounts/regeneratekey/action**. Algumas funções incorporadas da Azure que incluem esta ação são as funções **de Proprietário,** **Contribuinte** e **Serviço de Serviço chave de armazenamento.** Para obter mais informações sobre a função de Administrador de Serviço, consulte [as funções de administrador de subscrição clássica, funções de Azure e AD AZure](../../role-based-access-control/rbac-and-directory-admin-roles.md). Para obter informações detalhadas sobre as funções incorporadas do Azure para o Armazenamento Azure, consulte a secção **de armazenamento** em [funções incorporadas Azure para o Azure RBAC](../../role-based-access-control/built-in-roles.md#storage).
 
 ## <a name="next-steps"></a>Passos seguintes
 

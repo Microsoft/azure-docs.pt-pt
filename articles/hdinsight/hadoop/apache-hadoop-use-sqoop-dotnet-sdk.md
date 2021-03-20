@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive, hdiseo17may2017, devx-track-csharp
 ms.date: 01/14/2020
 ms.openlocfilehash: a06326f5b4cf34a06475c10e368c6dcbb49ca9e4
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98928340"
 ---
 # <a name="run-apache-sqoop-jobs-by-using-net-sdk-for-apache-hadoop-in-hdinsight"></a>Executar apaches sqoop empregos usando .NET SDK para Apache Hadoop em HDInsight
@@ -44,7 +44,7 @@ O HDInsight .NET SDK fornece bibliotecas de clientes .NET, de modo que é mais f
 
 Da Colmeia ao SQL Server.  Este exemplo exporta dados da tabela Hive `hivesampletable` para a tabela na Base de `mobiledata` Dados SQL.
 
-1. Utilize o seguinte código no ficheiro Program.cs. Editar o código para definir os valores para `ExistingClusterName` , e `ExistingClusterPassword` .
+1. Utilize o seguinte código no ficheiro .cs Programa. Editar o código para definir os valores para `ExistingClusterName` , e `ExistingClusterPassword` .
 
     ```csharp
     using Microsoft.Azure.Management.HDInsight.Job;
@@ -136,7 +136,7 @@ A HDInsight baseada em Linux apresenta as seguintes limitações:
 
 * Lote: Ao utilizar o interruptor, a `-batch` Sqoop executa múltiplas inserções em vez de emqualamento das operações de inserção.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora aprendeste a usar o Sqoop. Para saber mais, veja:
 

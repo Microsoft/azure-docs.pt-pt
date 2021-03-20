@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
 ms.openlocfilehash: f45c3def84c548ba12221efa59e9ebbd4699df71
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91316074"
 ---
 # <a name="tutorial-configure-cloud-resources-for-device-provisioning-with-the-iot-hub-device-provisioning-service"></a>Tutorial: Configurar recursos em nuvem para o fornecimento de dispositivos com o Serviço de Provisionamento de Dispositivos IoT Hub
@@ -21,7 +21,7 @@ Este tutorial mostra como configurar a cloud para o aprovisionamento de disposit
 
 > [!div class="checklist"]
 > * Utilizar o portal do Azure para criar um Serviço Aprovisionamento de Dispositivos no Hub IoT e obter o âmbito do ID
-> * Criar um hub IoT
+> * Criar um hub IoT
 > * Ligar o hub IoT ao Serviço Aprovisionamento de Dispositivos
 > * Definir a política de alocação no Serviço Aprovisionamento de Dispositivos
 
@@ -58,7 +58,7 @@ Siga estes passos para criar uma nova instância do Serviço Aprovisionamento de
 
 7. Além disso, copie o valor **Ponto final de serviço** para utilização posterior. 
 
-## <a name="create-an-iot-hub"></a>Criar um hub IoT
+## <a name="create-an-iot-hub"></a>Criar um hub IoT
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
@@ -90,11 +90,11 @@ O passo seguinte é ligar o Serviço Aprovisionamento de Dispositivos e de hub I
 
 ## <a name="set-the-allocation-policy-on-the-device-provisioning-service"></a>Definir a política de alocação no Serviço Aprovisionamento de Dispositivos
 
-A política de atribuição é uma definição de Serviço de Provisionamento de Dispositivos IoT Hub que determina como os dispositivos são atribuídos a um hub IoT. Existem três políticas de alocação suportadas: 
+A política de atribuição é uma definição de Serviço de Provisionamento de Dispositivos IoT Hub que determina como os dispositivos são atribuídos a um hub IoT. Existem três políticas de alocação suportadas: 
 
 1. **Latência mais baixa**: os dispositivos são aprovisionados para um hub IoT com base no hub com a latência mais baixa para o dispositivo.
 
-2. **Distribuição ponderada uniformemente** (predefinição): os hubs IoT associados são igualmente suscetíveis de ter dispositivos aprovisionados para eles. Esta é a predefinição. Se estiver a aprovisionar dispositivos apenas para um hub IoT, pode manter esta definição. 
+2. **Distribuição ponderada uniformemente** (predefinição): os hubs IoT associados são igualmente suscetíveis de ter dispositivos aprovisionados para eles. Esta é a predefinição. Se estiver a aprovisionar dispositivos apenas para um hub IoT, pode manter esta definição. 
 
 3. **Configuração estática através da lista de inscrição**: a especificação do hub IoT pretendido na lista de inscrição tem prioridade sobre a política de alocação ao nível do Serviço Aprovisionamento de Dispositivos.
 
@@ -116,7 +116,7 @@ Neste tutorial, ficou a saber como:
 
 > [!div class="checklist"]
 > * Utilizar o portal do Azure para criar um Serviço Aprovisionamento de Dispositivos no Hub IoT e obter o âmbito do ID
-> * Criar um hub IoT
+> * Criar um hub IoT
 > * Ligar o hub IoT ao Serviço Aprovisionamento de Dispositivos
 > * Definir a política de alocação no Serviço Aprovisionamento de Dispositivos
 

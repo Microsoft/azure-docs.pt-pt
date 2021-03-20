@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: conceptual
-ms.date: 03/15/2021
+ms.date: 03/17/2021
 ms.author: inhenkel
-ms.openlocfilehash: 198abf70ae4350a3b410c11d8360e44a37555d8e
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.openlocfilehash: 002f900f03f7bd08753313cde0e6bd46b097a858
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103564376"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104581155"
 ---
 # <a name="analyze-video-and-audio-files-with-azure-media-services"></a>Analise ficheiros de vídeo e áudio com a Azure Media Services
 
@@ -41,10 +41,10 @@ Como um lembrete importante, deve cumprir todas as leis aplicáveis na sua utili
 
 Atualmente, os Serviços de Comunicação Social suportam as seguintes predefinições de analisador incorporadas:  
 
-|**Nome predefinido**|**Cenário**|**Detalhes**|
+|**Nome predefinido**|**Cenário / Modo**|**Detalhes**|
 |---|---|---|
-|[AudioAnalyzerPreset](/rest/api/media/transforms/createorupdate#audioanalyzerpreset)|Análise de Padrão áudio|A predefinição aplica um conjunto predefinido de operações de análise baseadas em IA, incluindo a transcrição da fala. Atualmente, a predefinição suporta o processamento de conteúdos com uma única faixa áudio que contém a fala numa única língua. Pode especificar o idioma para a carga áudio na entrada utilizando o formato BCP-47 de "região de identificação linguística". As línguas apoiadas são o inglês ('en-US', 'en-GB' e 'en-AU'), espanhol ('es-ES' e 'es-MX'), francês ('fr-FR' e 'fr-CA'), italiano ('it-IT'), japonês ('ja-JP'), português ('pt-BR'), chinês ('zh-CN'), alemão ('de-DE'De'Árabe), ('ja-JP'), português ('pt-BR'), chinês ('zh-CN'), alemão ('de-de-árabe), ('ja-JP'), português ('pt-BR'), chinês ('zh-CN'), alemão ('de--DE'De'Árabe), ('ja-JP'), português ('pt-BR'), chinês ('zh-CN'), alemão ('de--DE') 'ar-EG', 'ar-QI', 'ar-JO', 'ar-KW', 'ar-LB', 'ar-OM', 'ar-QA', 'ar-SA' e 'ar-SY'), russo ('ru-RU'), Hindi ('hi-IN'), coreano ('ko-ko-KR'), dinamarquês ('da-DK'), norueguês ('nb-NO'), sueco(sv-SE'), finlandês ('fi-FI'), tailandês ('th-TH') e turco ('tr-TR').<br/><br/> Se o idioma não for especificado ou definido como nulo, a deteção automática da linguagem escolhe o primeiro idioma detetado e continua com o idioma selecionado durante a duração do ficheiro. A funcionalidade de deteção automática de idiomas suporta atualmente inglês, chinês, francês, alemão, italiano, japonês, espanhol, russo e português. Não suporta a troca dinâmica entre línguas após a deteção da primeira língua. A funcionalidade de deteção automática de linguagem funciona melhor com gravações áudio com um discurso claramente percetível. Se a deteção automática de idiomas não encontrar o idioma, a transcrição volta ao inglês.|
-|[AudioAnalyzerPreset](/rest/api/media/transforms/createorupdate#audioanalyzerpreset)|Análise áudio Básico|Este modo executa a transcrição de discurso-a-texto e a geração de um ficheiro de legenda/legenda VTT. A saída deste modo inclui um ficheiro Insights JSON, incluindo apenas as palavras-chave, transcrição e informações de tempo. A deteção automática de idiomas e a diarização dos altifalantes não estão incluídas neste modo. A lista de línguas apoiadas está disponível [aqui](#built-in-presets)|
+|[AudioAnalyzerPreset](/rest/api/media/transforms/createorupdate#audioanalyzerpreset)|Analisar o modo padrão áudio|A predefinição aplica um conjunto predefinido de operações de análise baseadas em IA, incluindo a transcrição da fala. Atualmente, a predefinição suporta o processamento de conteúdos com uma única faixa áudio que contém a fala numa única língua. Pode especificar o idioma para a carga áudio na entrada utilizando o formato BCP-47 de "região de identificação linguística". As línguas apoiadas são o inglês ('en-US', 'en-GB' e 'en-AU'), espanhol ('es-ES' e 'es-MX'), francês ('fr-FR' e 'fr-CA'), italiano ('it-IT'), japonês ('ja-JP'), português ('pt-BR'), chinês ('zh-CN'), alemão ('de-DE'De'Árabe), ('ja-JP'), português ('pt-BR'), chinês ('zh-CN'), alemão ('de-de-árabe), ('ja-JP'), português ('pt-BR'), chinês ('zh-CN'), alemão ('de--DE'De'Árabe), ('ja-JP'), português ('pt-BR'), chinês ('zh-CN'), alemão ('de--DE') 'ar-EG', 'ar-QI', 'ar-JO', 'ar-KW', 'ar-LB', 'ar-OM', 'ar-QA', 'ar-SA' e 'ar-SY'), russo ('ru-RU'), Hindi ('hi-IN'), coreano ('ko-ko-KR'), dinamarquês ('da-DK'), norueguês ('nb-NO'), sueco(sv-SE'), finlandês ('fi-FI'), tailandês ('th-TH') e turco ('tr-TR').<br/><br/> Se o idioma não for especificado ou definido como nulo, a deteção automática da linguagem escolhe o primeiro idioma detetado e continua com o idioma selecionado durante a duração do ficheiro. A funcionalidade de deteção automática de idiomas suporta atualmente inglês, chinês, francês, alemão, italiano, japonês, espanhol, russo e português. Não suporta a troca dinâmica entre línguas após a deteção da primeira língua. A funcionalidade de deteção automática de linguagem funciona melhor com gravações áudio com um discurso claramente percetível. Se a deteção automática de idiomas não encontrar o idioma, a transcrição volta ao inglês.|
+|[AudioAnalyzerPreset](/rest/api/media/transforms/createorupdate#audioanalyzerpreset)|Análise do modo básico de áudio|Este modo predefinido executa transcrição de discurso-texto e geração de um ficheiro de legenda/legenda VTT. A saída deste modo inclui um ficheiro Insights JSON, incluindo apenas as palavras-chave, transcrição e informações de tempo. A deteção automática de idiomas e a diarização dos altifalantes não estão incluídas neste modo. A lista de línguas suportadas é idêntica ao modo Standard acima.|
 |[VídeoAnalyzerPreset](/rest/api/media/transforms/createorupdate#videoanalyzerpreset)|Análise de áudio e vídeo|Extrai insights (metadados ricos) tanto de áudio como de vídeo, e produz um ficheiro de formato JSON. Pode especificar se pretende apenas extrair informações áudio ao processar um ficheiro de vídeo. Para mais informações, consulte [o vídeo da Análise.](analyze-videos-tutorial-with-api.md)|
 |[FaceDetectorPreset](/rest/api/media/transforms/createorupdate#facedetectorpreset)|Deteção de rostos presentes em vídeo|Descreve as definições a serem usadas ao analisar um vídeo para detetar todos os rostos presentes.|
 

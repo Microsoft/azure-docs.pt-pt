@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com o Mind Tools Toolkit Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com o Kit de Ferramentas de Ferramentas Mentes | Microsoft Docs'
 description: Saiba como configurar um único sinal de entrada entre o Azure Ative Directory e o Mind Tools Toolkit.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/12/2020
 ms.author: jeedes
 ms.openlocfilehash: 57598ea22874cfba772f6cf0e6b2ba779ef7c482
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92448440"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mind-tools-toolkit"></a>Tutorial: Integração do Diretório Ativo Azure com o Mind Tools Toolkit
@@ -51,7 +51,7 @@ Para configurar a integração do Mind Tools Toolkit no AD Azure, é necessário
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) utilizando uma conta de trabalho ou escola ou uma conta pessoal da Microsoft.
 1. No painel de navegação mais à esquerda, selecione o serviço **Azure Ative Directory.**
-1. Vá a **Aplicações Empresariais**e, em seguida, selecione **Todas as Aplicações**.
+1. Vá a **Aplicações Empresariais** e, em seguida, selecione **Todas as Aplicações**.
 1. Para adicionar uma nova aplicação, selecione **Nova aplicação**.
 1. Na secção Adicionar a partir da secção **de galeria,** insira o **Conjunto de Ferramentas Mind Tools** na caixa de pesquisa.
 1. Selecione o Conjunto de **Ferramentas de Mente** a partir dos resultados da pesquisa e, em seguida, adicione a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
@@ -108,7 +108,7 @@ Nesta secção, configurar o Azure AD com o Mind Tools Toolkit seguindo estes pa
 
 Nesta secção, cria-se um utilizador de teste chamado B.Simon no portal Azure:
 
-1. No lado mais à esquerda do portal Azure, selecione **Utilizadores do Diretório Ativo Azure**  >  **Users**  >  **Todos os utilizadores**.
+1. No lado mais à esquerda do portal Azure, selecione **Utilizadores do Diretório Ativo Azure**  >    >  **Todos os utilizadores**.
 1. Na parte superior do ecrã, selecione **Novo utilizador**.
 1. Nas propriedades do **Utilizador,** siga estes passos:
    1. No campo **Nome,** insira **B.Simon**.  

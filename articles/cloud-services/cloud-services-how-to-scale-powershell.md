@@ -9,10 +9,10 @@ author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
 ms.openlocfilehash: a090da1933b0fcd6edb5b2415c773f9efcb27387
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98743309"
 ---
 # <a name="how-to-scale-an-azure-cloud-service-classic-in-powershell"></a>Como escalar um Azure Cloud Service (clássico) em PowerShell
@@ -74,6 +74,6 @@ Uma vez iniciadas as novas instâncias, o cmdlet regressará com sucesso:
 
 Pode escalar um papel removendo os casos da mesma forma. Desfiza o parâmetro **Contagem** no **Set-AzureRole** para o número de casos que deseja ter após a escala em funcionamento estar completa.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Não é possível configurar a escala automática para serviços em nuvem da PowerShell. Para isso, consulte [como escalar automaticamente um serviço de nuvem](cloud-services-how-to-scale-portal.md).

@@ -1,5 +1,5 @@
 ---
-title: Porquê atualizar para a plataforma de identidade da Microsoft (v2.0) Rio Azure
+title: Porquê atualizar para a plataforma de identidade da Microsoft (v2.0) | Rio Azure
 description: Conheça as diferenças entre a plataforma de identidade da Microsoft (v2.0) e o Azure Ative Directory (Azure AD) v1.0 e aprenda os benefícios da atualização para v2.0.
 services: active-directory
 author: rwike77
@@ -14,10 +14,10 @@ ms.reviewer: saeeda, hirsin, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, n
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 8f6170de65ae5e1ca8ecb5f7cc8a78f4f194ac41
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92055295"
 ---
 # <a name="why-update-to-microsoft-identity-platform-v20"></a>Porquê atualizar a plataforma de identidade da Microsoft (v2.0)?
@@ -89,7 +89,7 @@ Aqui, o parâmetro de **âmbito** indica qual o recurso e permissões que a app 
 
 ### <a name="offline-access"></a>Acesso offline
 
-As aplicações que utilizam o ponto final da plataforma de identidade da Microsoft podem exigir o uso de uma nova permissão bem conhecida para apps - o `offline_access` âmbito. Todas as aplicações terão de solicitar esta permissão caso necessitem de aceder a recursos em nome de um utilizador por um período prolongado de tempo, mesmo quando o utilizador possa não estar a utilizar ativamente a app. O `offline_access` âmbito de aplicação aparecerá para o utilizador em diálogos de consentimento como **Access os seus dados**a qualquer momento , o que o utilizador deve concordar. O pedido de `offline_access` permissão permitirá que a sua aplicação web receba refresh_tokens OAuth 2.0 do ponto final da plataforma de identidade da Microsoft. Os tokens de atualização são de longa duração, e podem ser trocados por novos tokens de acesso OAuth 2.0 por longos períodos de acesso.
+As aplicações que utilizam o ponto final da plataforma de identidade da Microsoft podem exigir o uso de uma nova permissão bem conhecida para apps - o `offline_access` âmbito. Todas as aplicações terão de solicitar esta permissão caso necessitem de aceder a recursos em nome de um utilizador por um período prolongado de tempo, mesmo quando o utilizador possa não estar a utilizar ativamente a app. O `offline_access` âmbito de aplicação aparecerá para o utilizador em diálogos de consentimento como **Access os seus dados** a qualquer momento , o que o utilizador deve concordar. O pedido de `offline_access` permissão permitirá que a sua aplicação web receba refresh_tokens OAuth 2.0 do ponto final da plataforma de identidade da Microsoft. Os tokens de atualização são de longa duração, e podem ser trocados por novos tokens de acesso OAuth 2.0 por longos períodos de acesso.
 
 Se a sua aplicação não solicitar o `offline_access` âmbito, não receberá fichas de atualização. Isto significa que quando resgatar um código de autorização no fluxo de código de autorização OAuth 2.0, só receberá um sinal de acesso a partir do `/token` ponto final. Esse sinal de acesso permanece válido por um curto período de tempo (normalmente uma hora), mas acabará por expirar. Nessa altura, a sua aplicação terá de redirecionar o utilizador para o `/authorize` ponto final para recuperar um novo código de autorização. Durante este redirecionamento, o utilizador pode ou não precisar de introduzir as suas credenciais novamente ou reconsenciar as permissões, dependendo do tipo de aplicação.
 
@@ -97,7 +97,7 @@ Para saber mais sobre o OAuth 2.0, `refresh_tokens` `access_tokens` e, consulte 
 
 ### <a name="openid-profile-and-email"></a>OpenID, perfil e e-mail
 
-Historicamente, o fluxo de entrada de acesso OpenID Connect mais básico com a plataforma de identidade da Microsoft forneceria muita informação sobre o utilizador na *id_token*resultante . As reclamações num id_token podem incluir o nome do utilizador, nome de utilizador preferido, endereço de e-mail, ID do objeto, entre outros.
+Historicamente, o fluxo de entrada de acesso OpenID Connect mais básico com a plataforma de identidade da Microsoft forneceria muita informação sobre o utilizador na *id_token* resultante . As reclamações num id_token podem incluir o nome do utilizador, nome de utilizador preferido, endereço de e-mail, ID do objeto, entre outros.
 
 A informação a que o `openid` âmbito dá acesso à sua app é agora restrita. O `openid` âmbito apenas permitirá que a sua aplicação assine no utilizador e receba um identificador específico da aplicação para o utilizador. Se pretender obter dados pessoais sobre o utilizador na sua aplicação, a sua aplicação necessita de solicitar permissões adicionais ao utilizador. Dois novos `email` âmbitos, `profile` e, permitir-lhe-á solicitar permissões adicionais.
 
@@ -128,7 +128,7 @@ O ponto final da plataforma de identidade da Microsoft irá evoluir para elimina
 
 ### <a name="restrictions-on-app-registrations"></a>Restrições aos registos de aplicações
 
-Para cada aplicação que pretende integrar com o ponto final da plataforma de identidade da Microsoft, pode criar um registo de aplicações na experiência de [ **registos** ](https://aka.ms/appregistrations) de novas Apps no portal Azure. As aplicações de conta microsoft existentes não são compatíveis com o portal, mas todas as aplicações AD do Azure são, independentemente de onde ou quando foram registadas.
+Para cada aplicação que pretende integrar com o ponto final da plataforma de identidade da Microsoft, pode criar um registo de aplicações na experiência de [ **registos**](https://aka.ms/appregistrations) de novas Apps no portal Azure. As aplicações de conta microsoft existentes não são compatíveis com o portal, mas todas as aplicações AD do Azure são, independentemente de onde ou quando foram registadas.
 
 As inscrições de aplicativos que suportam o trabalho e as contas escolares e contas pessoais têm as seguintes ressalvas:
 

@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 01/01/2020
 ms.openlocfilehash: c82f9cbfaf2e23ddaa5e4b05f4aac4795d3e16a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "76903062"
 ---
 # <a name="create-custom-tracking-schemas-that-monitor-end-to-end-workflows-in-azure-logic-a"></a>Crie esquemas de rastreio personalizados que monitorizem fluxos de trabalho de ponta a ponta na Lógica A do Azure
@@ -51,22 +51,22 @@ O Azure Logic Apps tem um rastreio incorporado que pode ativar para partes do se
 }
 ```
 
-| Propriedade | Necessário | Tipo | Descrição |
+| Propriedade | Necessário | Tipo | Description |
 |----------|----------|------|-------------|
 | origemType | Sim | String | Tipo de fonte de execução com estes valores `Microsoft.Logic/workflows` permitidos: `custom` |
-| source | Sim | String ou JToken | Se o tipo de origem `Microsoft.Logic/workflows` for, a informação de origem tem de seguir este esquema. Se o tipo de origem `custom` for, o esquema é um JToken. |
+| source | Yes | String ou JToken | Se o tipo de origem `Microsoft.Logic/workflows` for, a informação de origem tem de seguir este esquema. Se o tipo de origem `custom` for, o esquema é um JToken. |
 | systemId | Sim | String | ID do sistema de aplicativos lógico |
 | runId | Sim | String | ID de execução de aplicativo lógico |
 | operationName | Sim | String | Nome da operação, por exemplo, ação ou gatilho |
 | nome do repetóstaIteoScope | Sim | String | Repita o nome do item se a ação estiver dentro de um `foreach` `until` ou loop |
-| repeatItemIndex | Sim | Número inteiro | Indica que a ação está dentro de um `foreach` ou loop e é o número de índice de item `until` repetido. |
+| repeatItemIndex | Yes | Número inteiro | Indica que a ação está dentro de um `foreach` ou loop e é o número de índice de item `until` repetido. |
 | trackingId | Não | String | ID de rastreio para correlacionar as mensagens |
 | correlationId | Não | String | ID de correlação para correlacionar as mensagens |
 | clienteRequestId | Não | String | O cliente pode povoar esta propriedade para correlacionar mensagens |
 | eventoLevel | Sim | String | Nível do evento |
-| eventTime | Sim | DateTime | Hora do evento em formato UTC: *YYYY-MM-DDTHH:MM:SS.0000Z* |
+| eventTime | Yes | DateTime | Hora do evento em formato UTC: *YYYY-MM-DDTHH:MM:SS.0000Z* |
 | gravarType | Sim | String | Tipo de registo de faixa com este valor permitido apenas: `custom` |
-| gravar | Sim | JToken | Tipo de gravação personalizado apenas com formato JToken |
+| gravar | Yes | JToken | Tipo de gravação personalizado apenas com formato JToken |
 |||||
 
 ## <a name="b2b-protocol-tracking-schemas"></a>Esquemas de rastreio do protocolo B2B

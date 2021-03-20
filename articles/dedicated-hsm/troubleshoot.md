@@ -1,5 +1,5 @@
 ---
-title: Resolução de problemas Dedicado HSM - Azure Dedicado HSM / Microsoft Docs
+title: Resolução de problemas Dedicado HSM - Azure Dedicado HSM | Microsoft Docs
 description: Visão geral do Azure Dedicado HSM fornece capacidades de armazenamento chave dentro do Azure que cumpre a certificação FIPS 140-2 Nível 3
 services: dedicated-hsm
 author: msmbaldwin
@@ -14,10 +14,10 @@ ms.custom: mvc, seodec18
 ms.date: 12/07/2018
 ms.author: mbaldwin
 ms.openlocfilehash: 42bfa52721160a469db2aa0507dadfa85ff41389
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97508276"
 ---
 # <a name="troubleshooting-the-azure-dedicated-hsm-service"></a>Resolução de problemas do serviço Azure Dedicado HSM
@@ -126,7 +126,7 @@ Algumas alterações de configuração requerem que o HSM seja ciclo de potênci
 Um cliente pode perder a conectividade com um HSM quando um certificado expira ou foi substituído através de atualizações de configuração. A configuração do cliente de troca de certificados deve ser reaplicada com cada HSM.
 Registo de NTLS com certificado inválido:
 
-> NTLS[8508]: informação: 0 : Pedido de ligação de entrada... 192.168.50.2/59415 NTLS[8508]: Mensagem de erro de S O SLAccept é: error:14094418:Rotinas SSL:ssl3_read_bytes:tlsv1 alerta desconhecido ca NTLS[8508]: Erro durante a aceitação SSL (RC_SSL_ERROR ) NTLS[8508]: informação: 0xc0000711 : Não estabelecer um canal seguro com o cliente: 192.168.50.2/59415 : RC_SSL_FAILED_HANDSHAKE NTLS[8508]: informações: 0 : NTLS Cliente "Nome de anfitrião desconhecido" Instância de conexão removida : 192.168.50.2/59415
+> NTLS[8508]: informação: 0 : Pedido de ligação de entrada... 192.168.50.2/59415 NTLS[8508]: Mensagem de erro de SSLAccept é: erro:14094418:Rotinas SSL:ssl3_read_bytes:tlsv1 alerta desconhecido ca NTLS[8508]: Erro durante a aceitação SSL ( RC_SSL_ERROR ) NTLS[8508]: info: 0xc0000711 : Não conseguir estabelecer um canal seguro com o cliente: 192.168.50.2/59415 : RC_SSL_FAILED_HANDSHAKE 0xc0000711 instância de ligação removida: 192.168.50.2/59415 do cliente NTLS
 
 ### <a name="failed-tcp-communication"></a>Falha na comunicação da TCP
 

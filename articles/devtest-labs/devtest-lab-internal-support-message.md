@@ -4,10 +4,10 @@ description: Saiba como publicar uma declaração de apoio interno a um laborat�
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 1c9920e6fe7fbfe2a8d0aeacb896150b342981b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85480478"
 ---
 # <a name="add-an-internal-support-statement-to-a-lab-in-azure-devtest-labs"></a>Adicione uma declaração de apoio interno a um laboratório em Azure DevTest Labs
@@ -21,7 +21,7 @@ Pode desativar ou editar facilmente uma declaração de suporte depois de deixar
 ## <a name="steps-to-add-a-support-statement-to-an-existing-lab"></a>Passos para adicionar uma declaração de apoio a um laboratório existente
 
 1. Inicie sessão no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
-1. Se necessário, selecione **Todos os Serviços**e, em seguida, selecione **DevTest Labs** da lista. (O seu laboratório pode já estar no Painel de Instrumentos em **Todos os Recursos**).
+1. Se necessário, selecione **Todos os Serviços** e, em seguida, selecione **DevTest Labs** da lista. (O seu laboratório pode já estar no Painel de Instrumentos em **Todos os Recursos**).
 1. Na lista de laboratórios, selecione o laboratório no qual pretende adicionar uma declaração de apoio.  
 1. Na área de **visão geral** do laboratório, selecione **Configuração e políticas**.  
 

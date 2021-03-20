@@ -9,10 +9,10 @@ ms.date: 12/18/2019
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: e7fb118dbc53b36e01c8188b9013a3f739bf0c59
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "75747791"
 ---
 # <a name="scalability-and-performance-targets-for-the-azure-storage-resource-provider"></a>Metas de escalabilidade e desempenho para o fornecedor de recursos de armazenamento Azure
@@ -23,7 +23,7 @@ ms.locfileid: "75747791"
 
 [!INCLUDE [azure-storage-limits-azure-resource-manager](../../../includes/azure-storage-limits-azure-resource-manager.md)]
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 - [Metas de escalabilidade e desempenho para contas de armazenamento padrão](scalability-targets-standard-account.md)
 - [Limites e quotas de subscrição do Azure](../../azure-resource-manager/management/azure-subscription-service-limits.md)
