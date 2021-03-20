@@ -14,10 +14,10 @@ ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6d476be7a417cfc31cca76d3409074aaaa281a56
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98724615"
 ---
 # <a name="build-resilience-with-device-states"></a>Construir resiliência com estados de dispositivo
@@ -48,7 +48,7 @@ Quando um PRT é usado para solicitar o acesso a uma aplicação, o seu disposit
 
 * [Utilize o plug-in Microsoft Enterprise SSO para dispositivos Apple (pré-visualização)](../develop/apple-sso-plugin.md). Este regista o dispositivo e fornece SSO em todo o navegador e aplicações AD nativas do Azure. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Recursos de resiliência para administradores e arquitetos
  
 * [Construir resiliência com gestão credencial](resilience-in-credentials.md)

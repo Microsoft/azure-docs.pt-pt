@@ -8,10 +8,10 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: kinect, firmware, atualização, recuperação
 ms.openlocfilehash: 71557798a584635356cc47fd7c4a0309df4d018a
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94356231"
 ---
 # <a name="update-azure-kinect-dk-firmware"></a>Atualizar firmware Azure Kinect DK
@@ -27,7 +27,7 @@ A Azure Kinect DK não atualiza o firmware automaticamente. Pode utilizar [a Fer
 3. No local de instalação SDK sob (localização de instalação SDK)\ferramentas\ deve encontrar:
 
     - AzureKinectFirmwareTool.exe
-    - Um ficheiro Firmware .bin na pasta firmware, tal como *AzureKinectDK_Fw_1.5.926614.bin*.
+    - Um ficheiro firmware .bin na pasta firmware, como *AzureKinectDK_Fw_1.5.926614.bin*.
 
 4. Ligue o seu dispositivo ao PC anfitrião e ligue-o também.
 

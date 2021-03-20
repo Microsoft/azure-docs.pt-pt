@@ -1,5 +1,5 @@
 ---
-title: Design de identidade híbrida - estratégia de adoção Azure / Microsoft Docs
+title: Design de identidade híbrida - estratégia de adoção Azure | Microsoft Docs
 description: Com o controlo de acesso condicional, a Azure AD verifica as condições específicas que escolhe ao autenticar o utilizador e antes de permitir o acesso à aplicação.
 documentationcenter: ''
 services: active-directory
@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7f52e46ff9cab7d3d150af9fd7b4f1c432bec74b
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94836194"
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Definir uma estratégia híbrida de adoção de identidade

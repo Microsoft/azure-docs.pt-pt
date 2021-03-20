@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Directy integração única (SSO) com MilEyes Microsoft Docs'
+title: 'Tutorial: Azure Ative Directory integração única de sign-on (SSO) com MilEyes | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o ThousandEyes.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 10/04/2019
 ms.author: jeedes
 ms.openlocfilehash: aa3c5115a5255d30decbc66691878ffbe2579a06
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92514593"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-thousandeyes"></a>Tutorial: Azure Ative Directory integração única (SSO) com ThousandEyes
@@ -109,7 +109,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
 
 Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso a ThousandEyes.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de candidaturas, selecione **ThousandEyes**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 
@@ -151,7 +151,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
     d. Caixa de texto **emitente de fornecedor** de identidade, pasta **Azure AD Identifier**, que copiou do portal Azure.
 
-    e. No **Certificado de Verificação,** clique em **Escolher o ficheiro**e, em seguida, faça o upload do certificado que descarregou a partir do portal Azure.
+    e. No **Certificado de Verificação,** clique em **Escolher o ficheiro** e, em seguida, faça o upload do certificado que descarregou a partir do portal Azure.
 
     f. Clique em **Guardar**.
 

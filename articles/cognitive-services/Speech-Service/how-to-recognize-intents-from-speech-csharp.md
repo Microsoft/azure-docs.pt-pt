@@ -12,10 +12,10 @@ ms.date: 02/10/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 93a3adf00203e317be912e3e72de7a3f7ca666c6
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96001111"
 ---
 # <a name="how-to-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>Como reconhecer as intenções da fala usando o Discurso SDK para C #
@@ -86,7 +86,7 @@ Na página **de definições de Chaves e Ponto final:**
 
 Em seguida, adicione código ao projeto.
 
-1. A partir do **Solution Explorer,** abra o ficheiro **Program.cs**.
+1. A partir do **Solution Explorer,** abra o **programa de ficheiros.cs**.
 
 1. Substitua o bloco de `using` declarações no início do processo com as seguintes declarações:
 

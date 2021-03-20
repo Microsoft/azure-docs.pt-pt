@@ -1,5 +1,5 @@
 ---
-title: Configure a topologia da fábrica conectada - Azure / Microsoft Docs
+title: Configurar a topologia da fábrica conectada - Azure | Microsoft Docs
 description: Este artigo descreve como configurar o acelerador de solução Connected Factory, incluindo a sua topologia.
 author: dominicbetts
 manager: timlt
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
 ms.openlocfilehash: e015c6761b920ef37af2bbfd67ced5fc3218d532
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96002243"
 ---
 # <a name="configure-the-connected-factory-solution-accelerator"></a>Configure o acelerador de solução de fábrica conectado

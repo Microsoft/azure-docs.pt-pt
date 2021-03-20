@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
 ms.openlocfilehash: 77a2a32b9a6358c39a14cfe37eeb44f7cb90af0a
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94841993"
 ---
 # <a name="securing-paas-deployments"></a>Proteger implementações PaaS
@@ -157,7 +157,7 @@ Neste artigo, focamo-nos nas vantagens de segurança de uma implementação do A
 - [Azure SQL Database e Azure Synapse Analytics](paas-applications-using-sql.md)
 - [Armazenamento do Azure](paas-applications-using-storage.md)
 - Cache do Azure para Redis
-- Azure Service Bus
+- Service Bus do Azure
 - Firewalls de aplicações web
 
 Consulte [o Desenvolvimento de aplicações seguras no Azure](https://azure.microsoft.com/resources/develop-secure-applications-on-azure/) para questões de segurança e controlos que deve considerar em cada fase do ciclo de vida do desenvolvimento do software ao desenvolver aplicações para a nuvem.

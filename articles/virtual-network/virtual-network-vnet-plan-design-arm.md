@@ -1,5 +1,5 @@
 ---
-title: Plano Azure redes virtuais / Microsoft Docs
+title: Plano Azure redes virtuais | Microsoft Docs
 description: Saiba como planear as redes virtuais com base nos requisitos de isolamento, de conectividade e de localização.
 services: virtual-network
 documentationcenter: na
@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 04/08/2020
 ms.author: kumud
 ms.openlocfilehash: 9ed060c1f3fc47aa7050c0f9b25c757953fa22fe
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98220342"
 ---
 # <a name="plan-virtual-networks"></a>Planear redes virtuais

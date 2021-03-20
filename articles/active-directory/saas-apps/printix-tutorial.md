@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com a Printix Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com a Printix | Microsoft Docs'
 description: Saiba como configurar um único sinal de inscrição entre o Azure Ative Directory e o Printix.
 services: active-directory
 author: jeevansd
@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 06/29/2017
 ms.author: jeedes
 ms.openlocfilehash: dfde9bbbeb7f6b349ecbdc4c2da605d39a0708da
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94357883"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-printix"></a>Tutorial: Integração do Diretório Ativo Azure com a Printix
@@ -55,7 +55,7 @@ Para configurar a integração do Printix no Azure AD, é necessário adicionar 
 
 **Para adicionar Printix da galeria, execute os seguintes passos:**
 
-1. No **[portal Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.** 
+1. No **[portal Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.** 
 
     ![Active Directory][1]
 
@@ -123,7 +123,7 @@ Nesta secção, ativa o único sinal de Azure AD no portal Azure e configura um 
 
 1. Inscreva-se no seu inquilino printix como administrador.
 
-1. No menu em cima, clique no ícone no canto superior direito e selecione " **Autenticação** ".
+1. No menu em cima, clique no ícone no canto superior direito e selecione "**Autenticação**".
    
     ![A screenshot mostra autenticação selecionada no menu.](./media/printix-tutorial/tutorial_printix_06.png)
 
@@ -131,19 +131,19 @@ Nesta secção, ativa o único sinal de Azure AD no portal Azure e configura um 
    
     ![A screenshot mostra a página Printix.net onde pode selecionar a autenticação Enable Azure/Office 365.](./media/printix-tutorial/tutorial_printix_07.png)
 
-1. No **separador Azure,** introduza o URL de metadados da federação para a caixa de texto do " documento de **metadados da Federação** ". 
+1. No **separador Azure,** introduza o URL de metadados da federação para a caixa de texto do " documento de **metadados da Federação**". 
 
     Anexe o ficheiro xml de metadados que descarregou da equipa de suporte AZure AD para [a equipa de suporte printix](mailto:support@printix.net). Depois carregam o ficheiro XML e fornecem um URL de metadados da federação.
    
     ![A screenshot mostra a página Printix.net onde pode especificar um documento de metadados da Federação.](./media/printix-tutorial/tutorial_printix_08.png)
    
-1. Clique no botão " **Test** " e clique no botão " **OK** " se o teste tiver sido bem sucedido.
+1. Clique no botão "**Test**" e clique no botão "**OK**" se o teste tiver sido bem sucedido.
    
      A página de diretório ativo Azure mostrará depois de clicar no botão **de teste.** "O teste foi bem sucedido" aqui significa que depois de introduzir as credenciais da sua conta de teste Azure, aparecerá uma mensagem "Definições testadas OK". Em seguida, clique no botão **OK.**
    
     ![A imagem mostra os resultados do teste.](./media/printix-tutorial/tutorial_printix_09.png)
 
-1. Clique no botão **Guardar** na página " **Autenticação".**
+1. Clique no botão **Guardar** na página "**Autenticação".**
 
 
 > [!TIP]
@@ -157,7 +157,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
 **Para criar um utilizador de teste em Azure AD, execute os seguintes passos:**
 
-1. No **portal Azure** , no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.**
+1. No **portal Azure**, no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.**
 
     ![A screenshot mostra um nome e nome de utilizador a ser criado.](./media/printix-tutorial/create_aaduser_01.png) 
 

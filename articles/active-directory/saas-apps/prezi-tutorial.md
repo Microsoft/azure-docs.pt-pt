@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Directy integração única (SSO) com Prezi Microsoft Docs'
+title: 'Tutorial: Azure Ative Directory integração única (SSO) com Prezi | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Prezi.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 08/20/2020
 ms.author: jeedes
 ms.openlocfilehash: 4ff8196ff4e30aa6ed036cabe00a72bfa8a5c51f
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92515326"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-prezi"></a>Tutorial: Azure Ative Directy integração única com Prezi
@@ -52,7 +52,7 @@ Para configurar a integração do Prezi no AD Azure, precisa adicionar Prezi da 
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) utilizando uma conta de trabalho ou escola ou uma conta pessoal da Microsoft.
 1. No painel mais à esquerda, selecione **Azure Ative Directory**.
-1. Vá às **aplicações da Enterprise**e, em seguida, selecione **Todas as aplicações**.
+1. Vá às **aplicações da Enterprise** e, em seguida, selecione **Todas as aplicações**.
 1. Para adicionar uma nova aplicação, selecione **Nova aplicação**.
 1. Na secção Adicionar a partir da secção **da galeria,** insira **Prezi** na caixa de pesquisa.
 1. Selecione **Prezi** do painel de resultados e, em seguida, adicione a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
@@ -82,7 +82,7 @@ Para ativar o Azure AD SSO no portal Azure:
 
 1. Na secção **De Configuração Básica saml,** o utilizador não tem de dar qualquer passo porque a aplicação já está pré-enraizada com o Azure.
 
-1. Selecione **Definir URLs adicionais**e faça o seguinte passo se quiser configurar a aplicação no modo iniciado por **SP:**
+1. Selecione **Definir URLs adicionais** e faça o seguinte passo se quiser configurar a aplicação no modo iniciado por **SP:**
 
     Na caixa **URL de inscrição,** insira o URL: `https://prezi.com/login/sso/` .
 
@@ -94,7 +94,7 @@ Para ativar o Azure AD SSO no portal Azure:
 
 1. A aplicação Prezi também espera que mais alguns atributos sejam repercutidos na resposta SAML, como mostra aqui. Estes atributos também são pré-gastos, mas pode revê-los com base nos seus requisitos.
     
-    | Nome | Atributo de origem|
+    | Name | Atributo de origem|
     | ---------------| --------------- |
     | given_name | user.givenname |
     | family_name | utilizador.sobrenome |
@@ -111,7 +111,7 @@ Para ativar o Azure AD SSO no portal Azure:
 
 Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simon.
 
-1. No portal Azure, no painel mais à esquerda, selecione **Azure Ative Directory**. Vá aos **Utilizadores**e, em seguida, selecione **Todos os utilizadores**.
+1. No portal Azure, no painel mais à esquerda, selecione **Azure Ative Directory**. Vá aos **Utilizadores** e, em seguida, selecione **Todos os utilizadores**.
 1. Selecione **Novo utilizador** na parte superior do ecrã.
 1. Nas propriedades do utilizador, siga estes passos:
    1. Na caixa **Nome,** insira **B.Simon**.
@@ -129,7 +129,7 @@ Nesta secção, você permite que B.Simon utilize o Azure SSO, concedendo acesso
 
    ![A ligação de Utilizadores e Grupos](common/users-groups-blade.png)
 
-1. **Selecione Adicionar utilizador**e, em seguida, selecione **Utilizadores e grupos** na caixa de diálogo **'Adicionar Atribuição'.**
+1. **Selecione Adicionar utilizador** e, em seguida, selecione **Utilizadores e grupos** na caixa de diálogo **'Adicionar Atribuição'.**
 
     ![O link de utilizador Adicionar](common/add-assign-user.png)
 

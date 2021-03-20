@@ -7,10 +7,10 @@ ms.subservice: dsc
 ms.date: 08/21/2018
 ms.topic: conceptual
 ms.openlocfilehash: 1b1bbb12412deec6ecac8cf1ffd47a00f778862e
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98894733"
 ---
 # <a name="compose-dsc-configurations"></a>Compor configurações DSC
@@ -40,7 +40,7 @@ Uma vez guardada a nova configuração, é submetida para compilação. Pode ver
 
 Quando a compilação tiver sido concluída com sucesso, a nova configuração aparece no separador **configurações compiladas.** Em seguida, pode atribuir a configuração a um nó gerido, utilizando os passos na [reatribuição de um nó para uma configuração diferente do nó](automation-dsc-getting-started.md#reassign-a-node-to-a-different-node-configuration).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para aprender a ativar os nós, consulte [Ativar a Configuração do Estado da Automação Azure](automation-dsc-onboarding.md).
 - Para saber sobre a compilação de configurações de DSC para que possa atribuí-las aos nós-alvo, consulte [as configurações do Compile DSC na Configuração do Estado da Automação Azure](automation-dsc-compile.md).

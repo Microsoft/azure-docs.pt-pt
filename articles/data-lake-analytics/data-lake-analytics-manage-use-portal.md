@@ -6,10 +6,10 @@ ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 12/05/2016
 ms.openlocfilehash: c1057478d9ae7d63bef9477a0b1297fa2c507ffa
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92218430"
 ---
 # <a name="manage-azure-data-lake-analytics-using-the-azure-portal"></a>Gerir o Azure Data Lake Analytics com o portal do Azure
@@ -26,7 +26,7 @@ Este artigo descreve como gerir as contas do Azure Data Lake Analytics, fontes d
 ### <a name="create-an-account"></a>Criar uma conta
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. Clique **em Criar um recurso**Intelligence +  >  **analytics**Data Lake  >  **Analytics**.
+2. Clique **em Criar um recurso** Intelligence +  >  **analytics** Data Lake  >  **Analytics**.
 3. Selecione os valores para os seguintes itens: 
    1. **Nome**: O nome da conta Data Lake Analytics.
    2. **Subscrição**: A assinatura Azure utilizada para a conta.
@@ -137,7 +137,7 @@ Utilize o papel de Desenvolvedor de Análise de Data Lake analytics para permiti
 
 1. No portal Azure, aceda à sua conta Data Lake Analytics.
 2. Clique **em Ver Todos os Empregos**. É mostrada uma lista de todos os empregos ativos e recentemente acabados na conta.
-3. Opcionalmente, clique em **Filtro** para ajudá-lo a encontrar os trabalhos por **Time Range,** **Job Name**e **Author** values. 
+3. Opcionalmente, clique em **Filtro** para ajudá-lo a encontrar os trabalhos por **Time Range,** **Job Name** e **Author** values. 
 
 ### <a name="monitoring-pipeline-jobs"></a>Monitorização de postos de trabalho em gasodutos
 Empregos que fazem parte de um oleoduto trabalham em conjunto, geralmente sequencialmente, para realizar um cenário específico. Por exemplo, pode ter um oleoduto que limpa, extrai, transforma, agrega o uso para insights do cliente. Os trabalhos de gasoduto são identificados utilizando a propriedade "Pipeline" quando o trabalho foi submetido. Os postos de trabalho programados com a ADF V2 terão automaticamente esta propriedade povoada. 

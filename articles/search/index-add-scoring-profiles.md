@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.openlocfilehash: 97797e309c32c6ea996d5ae1901b9a266a683173
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91537638"
 ---
 # <a name="add-scoring-profiles-to-an-azure-cognitive-search-index"></a>Adicionar perfis de classificação a um índice do Azure Cognitive Search
@@ -36,24 +36,24 @@ ms.locfileid: "91537638"
 "scoringProfiles": [
   {  
     "name":"geo",
-    "text": {  
-      "weights": {  
-        "hotelName": 5
-      }                              
+    "text": {  
+      "weights": {  
+        "hotelName": 5
+      }                              
     },
     "functions": [
       {  
         "type": "distance",
-        "boost": 5,
-        "fieldName": "location",
-        "interpolation": "logarithmic",
-        "distance": {
-          "referencePointParameter": "currentLocation",
-          "boostingDistance": 10
-        }                        
-      }                                      
-    ]                     
-  }            
+        "boost": 5,
+        "fieldName": "location",
+        "interpolation": "logarithmic",
+        "distance": {
+          "referencePointParameter": "currentLocation",
+          "boostingDistance": 10
+        }                        
+      }                                      
+    ]                     
+  }            
 ]
 ```  
 
@@ -231,7 +231,7 @@ A pontuação de pesquisa é calculada com base nas propriedades estatísticas d
 |---------------|-----------------|  
 |`name`|Obrigatório. Este é o nome do perfil de pontuação. Segue as mesmas convenções de nomeação de um campo. Deve começar com uma letra, não pode conter pontos, cólons ou símbolos @, e não pode começar com a frase 'azureSearch' (sensível a maiúsculas).|  
 |`text`|Contém a propriedade dos pesos.|  
-|`weights`|Opcional. Contém pares de valor de nome que cada um especifica um nome de campo e peso relativo. O peso relativo deve ser um número inteiro ou de ponto flutuante positivo.<br /><br /> Os pesos são usados para indicar a importância de um campo pes pes pes pes pes pesculável em relação a outro.|  
+|`weights`|Opcional. Contém pares de valor de nome que cada um especifica um nome de campo e peso relativo. O peso relativo deve ser um número inteiro ou de ponto flutuante positivo.<br /><br /> Os pesos são usados para indicar a importância de um campo pesculável em relação a outro.|  
 |`functions`|Opcional. Uma função de pontuação só pode ser aplicada em campos que são filtrados.|  
 |`type`|Necessário para as funções de pontuação. Indica o tipo de função a utilizar. Valores válidos incluem magnitude, frescura, distância e etiqueta. Pode incluir mais de uma função em cada perfil de pontuação. O nome da função deve ser mais baixo.|  
 |`boost`|Necessário para as funções de pontuação. Um número positivo usado como multiplicador para pontuação bruta. Não pode ser igual a 1.|  
@@ -254,7 +254,7 @@ A pontuação de pesquisa é calculada com base nas propriedades estatísticas d
 ##  <a name="set-interpolations"></a><a name="bkmk_interpolation"></a> Definir interpolações  
  As interpolações permitem definir a forma da inclinação utilizada para a pontuação. Como a pontuação é alta a baixa, a inclinação está sempre a diminuir, mas a interpolação determina a curva da inclinação descendente. Podem ser utilizadas as seguintes interpolações:  
 
-| Interpolação | Descrição |  
+| Interpolação | Description |  
 |-|-|  
 |`linear`|Para itens que se encontrem dentro da gama max e min, o impulso aplicado ao item será feito numa quantidade constantemente decrescente. Linear é a interpolação padrão para um perfil de pontuação.|  
 |`constant`|Para itens que estão dentro do intervalo de início e fim, será aplicado um impulso constante aos resultados do ranking.|  
@@ -279,7 +279,7 @@ A pontuação de pesquisa é calculada com base nas propriedades estatísticas d
 
  Para mais exemplos, consulte [XML Schema: Datatypes (W3.org web site)](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration).  
 
-## <a name="see-also"></a>Consulte também  
+## <a name="see-also"></a>Ver também  
 
 + [Referência API DE REPOUSO](/rest/api/searchservice/)
 + [Criar API de Índice](/rest/api/searchservice/create-index)

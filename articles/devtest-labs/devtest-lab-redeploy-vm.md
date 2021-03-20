@@ -1,13 +1,13 @@
 ---
-title: Recolocar um VM num laboratório em Azure DevTest Labs Microsoft Docs
+title: Recolocar um VM num laboratório em Azure DevTest Labs | Microsoft Docs
 description: Aprenda a recolocar uma máquina virtual (passe de um nó Azure para outro) em Azure DevTest Labs.
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: a38b112165b893d877733b967c21bb62b20ca2f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90530323"
 ---
 # <a name="redeploy-a-vm-in-a-lab-in-azure-devtest-labs"></a>Recolocar um VM num laboratório em Azure DevTest Labs
@@ -17,7 +17,7 @@ Se não conseguir ligar-se a uma máquina virtual (VM) num laboratório através
 Para recolocar um VM num laboratório em Azure DevTest Labs, tome os seguintes passos: 
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. Selecione **Todos os Serviços**e, em seguida, selecione **DevTest Labs** da lista.
+2. Selecione **Todos os Serviços** e, em seguida, selecione **DevTest Labs** da lista.
 3. Na lista de laboratórios, selecione o laboratório que inclui o VM que pretende recolocar.  
 4. No painel esquerdo, selecione **As Minhas Máquinas Virtuais.** 
 5. Na lista de VMs, selecione um VM.

@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 10/23/2020
 ms.author: dech
 ms.openlocfilehash: 1cee4d2ad1bc7f362a045a5991624ec43521b8d2
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96341653"
 ---
 # <a name="tutorial-use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>Tutorial: Utilizar a ferramenta de Migração de dados para migrar os dados para o Azure Cosmos DB
@@ -315,7 +315,7 @@ Pode recuperar a cadeia de conexão de conta Azure Cosmos DB a partir da página
 > [!NOTE]
 > Utilize o comando Verificar para garantir que a instância do Azure Cosmos DB especificada no campo de cadeia de ligação pode ser acedida.
 
-Para importar de um único contentor Azure Cosmos, insira o nome da coleção para importar dados de. Para importar de mais de um contentor Azure Cosmos, forneça uma expressão regular para combinar com um ou mais nomes de coleção (por exemplo, coleção01 / coleção02 / coleção03). Pode especificar opcionalmente, ou fornecer um ficheiro para, uma consulta para filtrar e moldar os dados que está a importar.
+Para importar de um único contentor Azure Cosmos, insira o nome da coleção para importar dados de. Para importar de mais de um contentor Azure Cosmos, forneça uma expressão regular para combinar com um ou mais nomes de coleção (por exemplo, coleção01 | coleção02 | coleção03). Pode especificar opcionalmente, ou fornecer um ficheiro para, uma consulta para filtrar e moldar os dados que está a importar.
 
 > [!NOTE]
 > Uma vez que o campo de recolha aceita expressões regulares, se você está importando de uma única coleção cujo nome tem caracteres de expressão regular, então esses caracteres devem ser escapados em conformidade.

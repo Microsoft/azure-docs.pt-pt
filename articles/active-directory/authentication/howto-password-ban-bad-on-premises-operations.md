@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f2e11fa1bb9f1d3a3986a19da8ed44229829ec81
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96741784"
 ---
 # <a name="enable-on-premises-azure-active-directory-password-protection"></a>Ativar no local Azure Ative Directory Password Protection
@@ -26,7 +26,7 @@ Para proteger o ambiente de Serviços de Domínio de Diretório Ativo (AD DS) no
 
 Para obter mais informações sobre como a Proteção de Passwords AD AZure funciona num ambiente no local, consulte como impor a proteção de [senha azure AD para o Windows Server Ative Directory](concept-password-ban-bad-on-premises.md).
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Este artigo mostra-lhe como ativar a Proteção de PasswordS AZure AD para o seu ambiente no local. Antes de concluir este artigo, [instale e registe o serviço de procuração de senhas Azure AD e agentes dc](howto-password-ban-bad-on-premises-deploy.md) no seu ambiente de DS AD no local.
 

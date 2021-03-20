@@ -10,10 +10,10 @@ ms.date: 06/25/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
 ms.openlocfilehash: 26cfdf05847b01d28a8574483acc89cfeced0ffa
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101717745"
 ---
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>Configuração avançada de autoescalação utilizando modelos de gestor de recursos para conjuntos de escala VM
@@ -36,7 +36,7 @@ Nesta passagem de walkthrough, utilizamos [o Azure Resource Explorer](https://re
 
 3. Pode agora adicionar mais perfis e regras com base no horário ou requisitos específicos. Criamos uma definição de autoescala com três perfis. Para compreender perfis e regras em autoescala, reveja [as Melhores Práticas de Autoscale.](autoscale-best-practices.md)  
 
-    | Regras & perfis | Descrição |
+    | Regras & perfis | Description |
     |--- | --- |
     | **Perfil** |**Baseado em desempenho/métrica** |
     | Regra |Contagem de mensagens de ônibus de serviço > x |

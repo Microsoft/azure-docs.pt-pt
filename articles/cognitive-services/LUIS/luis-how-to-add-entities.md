@@ -9,10 +9,10 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/17/2020
 ms.openlocfilehash: c5c6836c2d68036bf2b9c5abe191943537349b8d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91540970"
 ---
 # <a name="add-entities-to-extract-data"></a>Adicionar entidades para extrair dados
@@ -62,7 +62,7 @@ Este processo funciona para entidades de aprendizagem automática, entidades de 
 1. Inscreva-se no [portal LUIS](https://www.luis.ai)e selecione o seu recurso **de Subscrição** e **Autoria** para ver as aplicações atribuídas a esse recurso de autoria.
 1. Abra a sua aplicação selecionando o seu nome na página **My Apps.**
 1. Selecione a página **Entidades.**
-1. Selecione **+ Criar**e, em seguida, selecione o tipo de entidade.
+1. Selecione **+ Criar** e, em seguida, selecione o tipo de entidade.
 1. Continue a configurar a entidade e, em seguida, **selecione Criar** quando terminar.
 
 ## <a name="create-a-machine-learned-entity"></a>Criar uma entidade aprendida com máquinas

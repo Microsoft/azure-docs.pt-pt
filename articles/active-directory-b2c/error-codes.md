@@ -12,10 +12,10 @@ ms.date: 10/02/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: f6ae806b7666d83652e6b82bac16d89f2f9ce7aa
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92215438"
 ---
 # <a name="error-codes-azure-active-directory-b2c"></a>Códigos de erro: Azure Ative Directory B2C
@@ -138,7 +138,7 @@ Os seguintes erros podem ser devolvidos pelo serviço Azure Ative Directory B2C.
 | `AADB2C90272` | O parâmetro id_token_hint não foi especificado no pedido. Por favor, forneça o símbolo e tente de novo. |
 | `AADB2C90273` | Uma resposta inválida foi recebida: {0} ' |
 | `AADB2C90274` | Os metadados do fornecedor não especificam um único serviço de logout ou a ligação ao ponto final não é um dos 'urn:oasis:names:tc:2.0:bindings:HTTP-Redirect' ou 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST'. |
-| `AADB2C90276` | O pedido não é coerente com a definição de controlo {0} ' ' ' ' ' ' ' ' em técnica {1} {2} '' ' para a política ' {3} ' ' inquilino {4} '. |
+| `AADB2C90276` | O pedido não é coerente com a definição de controlo {0} ' ' ' em técnica {1} {2} '' ' para a política ' {3} ' ' inquilino {4} '. |
 | `AADB2C90277` | O passo de orquestração {0} ' da viagem de utilizador {1} ' ' da política ' ' não contém uma referência de {2} definição de conteúdo. |
 | `AADB2C90279` | O id '' do cliente fornecido {0} não corresponde ao id cliente que emitiu a subvenção. |
 | `AADB2C90284` | O pedido com identificador {0} » não foi autorizado e não pode ser utilizado para contas locais. |

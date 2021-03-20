@@ -1,5 +1,5 @@
 ---
-title: Configure Google Firebase Cloud Messaging em Azure Notification Hubs / Microsoft Docs
+title: Configure mensagens em nuvem de fogo do Google em Azure Notification Hubs | Microsoft Docs
 description: Saiba como configurar um centro de notificação Azure com as definições de Mensagens Cloud do Google Firebase.
 services: notification-hubs
 author: sethmanheim
@@ -12,10 +12,10 @@ ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 03/25/2019
 ms.openlocfilehash: 0da103c11e2412108535ca322917632f5d95559d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96003570"
 ---
 # <a name="configure-google-firebase-settings-for-a-notification-hub-in-the-azure-portal"></a>Configurar as configurações da Base de Fogo do Google para um centro de notificação no portal Azure

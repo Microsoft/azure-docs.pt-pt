@@ -1,5 +1,5 @@
 ---
-title: Fluxos de utilizador no Azure Ative Directory B2C Microsoft Docs
+title: Fluxos de utilizador em Azure Ative Directory B2C | Microsoft Docs
 titleSuffix: Azure AD B2C
 description: Saiba mais sobre o quadro de política extensível do Azure Ative Directory B2C e como criar vários fluxos de utilizador.
 services: active-directory-b2c
@@ -13,19 +13,19 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 06253b571fd71623501c27fd5b0d9d4013727fc2
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94840197"
 ---
-# <a name="user-flows-in-azure-active-directory-b2c"></a>Fluxos de utilizadores no Azure Ative Directory B2C
+# <a name="user-flows-in-azure-active-directory-b2c"></a>Fluxos de utilizador no Azure Active Directory B2C
 
-Para ajudá-lo a configurar as tarefas de identidade mais comuns para as suas aplicações, o portal Azure AD B2C inclui políticas predefinidas e configuráveis chamadas **fluxos de utilizador.** Um fluxo de utilizador permite-lhe determinar como os utilizadores interagem com a sua aplicação quando fazem coisas como iniciar sessão, iniciar sessão, editar um perfil ou redefinir uma palavra-passe. Com os fluxos do utilizador, pode controlar as seguintes capacidades:
+Para ajudar a configurar os trabalhos de identidade mais comuns para as aplicações, o portal do Azure AD B2C inclui políticas predefinidas e configuráveis denominadas **fluxos de utilizador**. Um fluxo de utilizador permite-lhe determinar como os utilizadores interagem com a sua aplicação quando fazem coisas como iniciar sessão, iniciar sessão, editar um perfil ou redefinir uma palavra-passe. Com os fluxos do utilizador, pode controlar as seguintes capacidades:
 
 - Tipos de conta utilizados para o s-in, tais como contas sociais como um Facebook ou contas locais
 - Atributos a serem recolhidos junto do consumidor, como o primeiro nome, código postal e tamanho do sapato
-- Autenticação de vários fatores Azure Ad
+- Multi-Factor Authentication do Azure AD
 - Personalização da interface de utilizador
 - Informação que o pedido recebe como reclamações num token
 
@@ -68,7 +68,7 @@ O Azure AD B2C inclui vários tipos de fluxos de utilizador:
 A maioria dos tipos de fluxo de utilizador tem uma versão **recomendada** e uma versão **Standard.** Para mais informações, consulte [as versões de fluxo do utilizador](user-flow-versions.md).
 
 > [!IMPORTANT]
-> Se já trabalhou com fluxos de utilizadores em Azure AD B2C antes, irá notar que mudamos a forma como referimos as versões de fluxo do utilizador. Anteriormente, oferecemos versões V1 (prontas para produção) e versões V1.1 e V2 (pré-visualização). Agora, consolidamos fluxos de utilizadores em duas versões:
+> Se já trabalhou com fluxos de utilizadores em Azure AD B2C antes, irá notar que mudamos a forma como referimos as versões de fluxo do utilizador. Anteriormente, disponibilizávamos versões V1 (prontas para produção) e versões V1.1 e V2 (pré-visualização). Agora, consolidamos fluxos de utilizadores em duas versões:
 >
 >- Os fluxos **recomendados** para o utilizador são as novas versões de pré-visualização dos fluxos dos utilizadores. São completamente testados e combinam todas as características das versões **legados V2** e **V1.1.** Daqui para a frente, os novos fluxos recomendados de utilizador serão mantidos e atualizados. Assim que se deslocar para estes novos fluxos recomendados de utilizador, terá acesso a novas funcionalidades à medida que forem lançadas.
 >- Os fluxos **padrão** do utilizador, anteriormente conhecidos como **V1,** estão geralmente disponíveis, fluxos de utilizador prontos para a produção. Se os fluxos dos seus utilizadores forem críticos da missão e dependerem de versões altamente estáveis, pode continuar a utilizar fluxos padrão de utilizador, percebendo que estas versões não serão mantidas e atualizadas.

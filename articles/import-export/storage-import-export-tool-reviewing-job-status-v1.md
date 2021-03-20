@@ -9,10 +9,10 @@ ms.date: 01/19/2021
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: f634ceb60ae78d4d825c73bd2e98da2fb951b374
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98706702"
 ---
 # <a name="reviewing-azure-importexport-job-status-with-copy-log-files"></a>Rever o estado do trabalho de importação/exportação do Azure com ficheiros de registo de cópias
@@ -28,7 +28,7 @@ Seguem-se urls exemplo para ficheiros de registo de cópias para uma tarefa de i
 
  Consulte o formato de ficheiro de registo de [serviço de importação/exportação](/previous-versions/azure/storage/common/storage-import-export-file-format-log) para o formato de registos de cópias e a lista completa de códigos de estado.  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
  * [Criação da ferramenta de importação/exportação Azure](storage-import-export-tool-setup-v1.md)   
  * [Preparar as unidades de disco rígido para uma tarefa de importação](storage-import-export-data-to-blobs.md#step-1-prepare-the-drives)   

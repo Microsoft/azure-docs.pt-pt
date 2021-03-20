@@ -9,10 +9,10 @@ ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
 ms.openlocfilehash: 4a2c717601747e15556608559450b35bb934410b
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98879110"
 ---
 # <a name="azcopy-jobs-clean"></a>azcopy jobs clean
@@ -40,7 +40,7 @@ azcopy jobs clean [flags]
 
 **...-ajuda**                Ajuda para limpar.
 
-**--com o status** string Apenas remova os postos de trabalho com este estatuto, valores disponíveis: `Canceled` , `Completed` `Failed` `InProgress` `All` (padrão `All` )
+**--com o status** string Apenas remova os postos de trabalho com este estatuto, valores disponíveis: `Canceled` , , , , `Completed` `Failed` `InProgress` `All` (padrão `All` )
 
 ## <a name="options-inherited-from-parent-commands"></a>Opções herdadas dos comandos dos pais
 
@@ -50,6 +50,6 @@ azcopy jobs clean [flags]
 
 **--cadeia de sufixos fidedignos-microsoft-sufixos** Especifica sufixos de domínio adicionais onde podem ser enviados tokens de login do Azure Ative Directory.  O padrão é '*.core.windows.net;*. core.chinacloudapi.cn; *.core.cloudapi.de;* core.usgovcloudapi.net.' Qualquer listado aqui é adicionado ao padrão. Para a segurança, só deve colocar os domínios microsoft Azure aqui. Separe várias entradas com pontos e vírgulas.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 - [azcopy jobs](storage-ref-azcopy-jobs.md)

@@ -14,10 +14,10 @@ ms.reviewer: vanto
 ms.date: 09/28/2020
 tags: azure-synapse
 ms.openlocfilehash: 9afad44bcf67478a81e75c17d0ff8ffc6d8c65aa
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94841136"
 ---
 # <a name="using-multi-factor-azure-active-directory-authentication"></a>Utilização de autenticação de diretório ativo Azure multi-factor
@@ -45,10 +45,10 @@ O método interativo que também suporta a autenticação multi-factor Azure AD 
 
 - `Azure Active Directory - Universal with MFA`
 
-O Azure AD MFA ajuda a salvaguardar o acesso a dados e aplicações, ao mesmo tempo que satisfaz a procura do utilizador por um simples processo de inscrição. Oferece uma autenticação forte com um leque de opções de verificação fáceis (chamada telefónica, mensagem de texto, cartões inteligentes com pin ou notificação de aplicações móveis), permitindo que os utilizadores escolham o método que preferem. O MFA interativo com Azure AD pode resultar numa caixa de diálogo pop-up para validação.
+A MFA do Azure AD ajuda a salvaguardar o acesso a dados e aplicações, satisfazendo, em simultâneo, a necessidade dos utilizadores de terem um processo de início de sessão simples. Oferece uma autenticação forte com um leque de opções de verificação fáceis (chamada telefónica, mensagem de texto, cartões inteligentes com pin ou notificação de aplicações móveis), permitindo que os utilizadores escolham o método que preferem. O MFA interativo com Azure AD pode resultar numa caixa de diálogo pop-up para validação.
 
 Para obter uma descrição da autenticação multi-factor Azure AD, consulte [a autenticação multi-factor](../../active-directory/authentication/concept-mfa-howitworks.md).
-Para etapas de configuração, consulte a [autenticação multi-factor Configure Azure SQL Database para o SQL Server Management Studio](authentication-mfa-ssms-configure.md).
+Para obter os passos de configuração, veja [Configurar a autenticação multifator da Base de Dados SQL do Azure para o SQL Server Management Studio](authentication-mfa-ssms-configure.md).
 
 ### <a name="azure-ad-domain-name-or-tenant-id-parameter"></a>Nome de domínio AD azul ou parâmetro de identificação do inquilino
 
@@ -90,7 +90,7 @@ Após a criação do utilizador da base de dados, o utilizador `steve@gmail.com`
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para etapas de configuração, consulte a [autenticação multi-factor Configure Azure SQL Database para o SQL Server Management Studio](authentication-mfa-ssms-configure.md).
+- Para obter os passos de configuração, veja [Configurar a autenticação multifator da Base de Dados SQL do Azure para o SQL Server Management Studio](authentication-mfa-ssms-configure.md).
 - Concede acesso à sua base de dados: [Autenticação e Autorização de Dados sql: Concessão de Acesso](logins-create-manage.md)  
 - Certifique-se de que outros podem ligar através da firewall: [Configurar uma regra de firewall ao nível do servidor utilizando o portal Azure](firewall-configure.md)  
 - [Configurar e gerir a autenticação do Azure Ative Directory com base de dados SQL ou Azure Synapse](authentication-aad-configure.md)

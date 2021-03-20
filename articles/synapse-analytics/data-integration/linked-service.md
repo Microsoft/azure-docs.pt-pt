@@ -10,10 +10,10 @@ ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
 ms.openlocfilehash: af6afa2b0285fe741241183ed99712a132953a30
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98220121"
 ---
 # <a name="secure-a-linked-service-with-private-links"></a>Garantir um serviço ligado com links privados
@@ -62,7 +62,7 @@ Se não selecionou para a hiperligação ao testar a ligação acima, siga o seg
 ## <a name="check-the-connection-works"></a>Verifique os trabalhos de ligação
 1. Vá ao **separador Gerir** e selecione o serviço ligado que criou.
 1. Certifique-se de que **a autoria interativa** está ativa.
-1. Selecione **a ligação de teste**. Devia ver se a ligação tinha sucesso.
+1. Selecione **Testar ligação**. Devia ver se a ligação tinha sucesso.
 
 Estabeleceu agora uma ligação segura e privada entre a Synapse e o seu serviço ligado.
 

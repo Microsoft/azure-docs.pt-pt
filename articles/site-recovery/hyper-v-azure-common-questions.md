@@ -4,10 +4,10 @@ description: Este artigo resume questões comuns sobre a criação de recuperaç
 ms.date: 11/12/2019
 ms.topic: conceptual
 ms.openlocfilehash: 649bd69f14cdf8d81fe05d3a5f5cac3389419fc3
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98879449"
 ---
 # <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>Perguntas comuns: recuperação após desastre de Hyper-V para o Azure
@@ -46,12 +46,12 @@ Se pretender replicar-se num centro de dados secundário, então os VMs Hiper-V 
 
 
 ### <a name="can-i-replicate-hyper-v-generation-2-virtual-machines-to-azure"></a>Pode replicar máquinas virtuais de 2.ª geração do Hyper-V para o Azure?
-Yes. A Recuperação do Site converte-se da geração 2 para a geração 1 durante o failover. No failback, a máquina é convertida de volta para a geração 2. [Leia mais.](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/)
+Sim. A Recuperação do Site converte-se da geração 2 para a geração 1 durante o failover. No failback, a máquina é convertida de volta para a geração 2. [Leia mais.](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/)
 
 
 ### <a name="can-i-deploy-site-recovery-with-vmm-if-i-only-have-one-vmm-server"></a>Posso implementar a Recuperação de Sites com o VMM se tiver apenas um servidor VMM?
 
-Yes. Pode replicar VMs em servidores Hiper-V na nuvem VMM para Azure, ou pode replicar-se entre nuvens VMM no mesmo servidor. Para a replicação no local, recomendamos que tenha um servidor VMM nos locais primários e secundários. 
+Sim. Pode replicar VMs em servidores Hiper-V na nuvem VMM para Azure, ou pode replicar-se entre nuvens VMM no mesmo servidor. Para a replicação no local, recomendamos que tenha um servidor VMM nos locais primários e secundários. 
 
 ### <a name="what-do-i-need-in-azure"></a>O que preciso em Azure?
 Precisa de uma assinatura Azure, um cofre dos Serviços de Recuperação, uma conta de armazenamento e uma rede virtual. O cofre, a conta de armazenamento e a rede devem estar na mesma região.
@@ -68,7 +68,7 @@ Não, a Recuperação do Site não interceta dados replicados, e não tem nenhum
 A Recuperação do Local é ISO 27001:2013, 27018, HIPAA, DPA certificada, e está em processo de avaliações SOC2 e FedRAMP JAB.
 
 ### <a name="can-we-keep-on-premises-metadata-within-a-geographic-region"></a>Podemos manter no local metadados dentro de uma região geográfica?
-Yes. Quando cria um cofre numa região, garantimos que todos os metadados utilizados pela Recuperação do Site permanecem dentro do limite geográfico daquela região.
+Sim. Quando cria um cofre numa região, garantimos que todos os metadados utilizados pela Recuperação do Site permanecem dentro do limite geográfico daquela região.
 
 ### <a name="does-site-recovery-encrypt-replication"></a>A Recuperação de Sites faz encriptação de replicação?
 Sim, tanto a encriptação em trânsito como [a encriptação em Azure](../storage/common/storage-service-encryption.md) são suportadas.
@@ -108,10 +108,10 @@ Sim, a Recuperação do Site suporta anfitriões hiper-V agrupados. Tenha em ate
 Não, as VMs têm de estar localizadas num servidor de anfitrião Hyper-V que está a ser executado na máquina do servidor Windows suportada. Se precisar de proteger um computador cliente, pode [replicá-lo como uma máquina física](physical-azure-disaster-recovery.md) para o Azure.
 
 ### <a name="can-i-replicate-hyper-v-generation-2-virtual-machines-to-azure"></a>Pode replicar máquinas virtuais de 2.ª geração do Hyper-V para o Azure?
-Yes. A Recuperação do Site converte-se da geração 2 para a geração 1 durante o failover. No failback, a máquina é convertida de volta para a geração 2.
+Sim. A Recuperação do Site converte-se da geração 2 para a geração 1 durante o failover. No failback, a máquina é convertida de volta para a geração 2.
 
 ### <a name="can-i-automate-site-recovery-scenarios-with-an-sdk"></a>Posso automatizar cenários de recuperação de sítios com um SDK?
-Yes. Pode automatizar fluxos de trabalho da Recuperação de Sites utilizando a API REST, PowerShell ou o SDK do Azure. Atualmente, os cenários suportados para replicar o Hyper-V para O Azure utilizando o PowerShell:
+Sim. Pode automatizar fluxos de trabalho da Recuperação de Sites utilizando a API REST, PowerShell ou o SDK do Azure. Atualmente, os cenários suportados para replicar o Hyper-V para O Azure utilizando o PowerShell:
 
 - [Replicar Hiper-V sem VMM usando PowerShell](hyper-v-azure-powershell-resource-manager.md)
 - [Replicação do Hiper-V com VMM utilizando PowerShell](hyper-v-vmm-powershell-resource-manager.md)

@@ -9,10 +9,10 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/06/2020
 ms.openlocfilehash: 694f501efc565ed498c1c8d8e2e38326277e8605
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96621421"
 ---
 # <a name="plan-an-azure-managed-application-for-an-azure-application-offer"></a>Planeie um pedido gerido pela Azure para uma oferta de candidatura da Azure
@@ -32,7 +32,7 @@ Utilize uma Aplicação Azure: Plano de candidatura gerido quando forem necessá
 | ------------ | ------------- |
 | Uma subscrição do Azure | As aplicações geridas devem ser implementadas na subscrição de um cliente, mas podem ser geridas por terceiros. |
 | Faturação e medição | Os recursos são fornecidos na subscrição Azure de um cliente. Os VMs que utilizam o modelo de pagamento pay-as-you-go são transacionados com o cliente através da Microsoft e faturados através da subscrição Azure do cliente. <br><br> Para os VMs de sua própria licença, a Microsoft fatura quaisquer custos de infraestrutura que sejam incorridos na subscrição do cliente, mas você transaciona diretamente as taxas de licenciamento de software com o cliente. |
-| Disco rígido virtual compatível com Azure (VHD) | Os VMs devem ser construídos em Windows ou Linux. Para obter mais informações, veja:<br> • [Criar um ativo técnico Azure VM](./azure-vm-create-certification-faq.md#address-a-vulnerability-or-an-exploit-in-a-vm-offer) (para VHDs windows).<br> •  [Distribuição linux endossada no Azure](../virtual-machines/linux/endorsed-distros.md) (para Os VHDs Linux). |
+| Disco rígido virtual compatível com Azure (VHD) | Os VMs devem ser construídos em Windows ou Linux. Para obter mais informações, consulte:<br> • [Criar um ativo técnico Azure VM](./azure-vm-create-certification-faq.md#address-a-vulnerability-or-an-exploit-in-a-vm-offer) (para VHDs windows).<br> •  [Distribuição linux endossada no Azure](../virtual-machines/linux/endorsed-distros.md) (para Os VHDs Linux). |
 | Atribuição de utilização dos clientes | Todas as novas ofertas de aplicações da Azure também devem incluir uma [atribuição de utilização do cliente parceiro Azure](azure-partner-customer-usage-attribution.md) GUID. Para obter mais informações sobre a atribuição de utilização do cliente e como a capacitar, consulte a [atribuição de utilização do cliente do parceiro Azure](azure-partner-customer-usage-attribution.md). |
 | Pacote de implantação | Vai precisar de um pacote de implementação que permitirá aos clientes implementarem o seu plano. Se criar vários planos que exijam a mesma configuração técnica, pode utilizar o mesmo pacote. Para mais detalhes, consulte a secção seguinte: Pacote de implementação. |
 |||
@@ -92,7 +92,7 @@ O acesso ao JIT permite-lhe solicitar um acesso elevado aos recursos de uma apli
 > [!NOTE]
 > Certifique-se de atualizar o seu `createUiDefinition.json` ficheiro de forma a suportar esta funcionalidade.
 
-## <a name="deployment-mode"></a>Modo de implantação
+## <a name="deployment-mode"></a>Modo de Implementação
 
 Pode configurar um plano de aplicação gerido para utilizar o modo de implementação **Completo** ou **Incremental.** Em modo completo, uma redistribuição da aplicação pelo cliente resulta na remoção de recursos no grupo de recursos geridos se os recursos não forem definidos no [mainTemplate.jsem](../azure-resource-manager/managed-applications/publish-service-catalog-app.md?tabs=azure-powershell#create-the-arm-template). Em modo incremental, uma redistribuição da aplicação deixa os recursos existentes inalterados. Para saber mais, consulte [os modos de implementação do Gestor de Recursos Azure](../azure-resource-manager/templates/deployment-modes.md).
 

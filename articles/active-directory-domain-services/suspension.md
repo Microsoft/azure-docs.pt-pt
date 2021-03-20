@@ -1,5 +1,5 @@
 ---
-title: Domínios suspensos nos Serviços de Domínio AD Azure / Microsoft Docs
+title: Domínios suspensos nos serviços de domínio Azure AD | Microsoft Docs
 description: Conheça os diferentes estados de saúde para um domínio gerido Azure AD DS e como restaurar um domínio suspenso.
 services: active-directory-ds
 author: justinha
@@ -12,10 +12,10 @@ ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: justinha
 ms.openlocfilehash: b0b48e7ad494386052e6d94c32d7215b3f4f0202
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96618829"
 ---
 # <a name="understand-the-health-states-and-resolve-suspended-domains-in-azure-active-directory-domain-services"></a>Compreenda os estados de saúde e resolva domínios suspensos nos Serviços de Domínio do Diretório Ativo do Azure

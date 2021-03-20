@@ -1,5 +1,5 @@
 ---
-title: MFA ou 2FA e Gestão de Identidade Privilegiada - AZure AD ! Microsoft Docs
+title: MFA ou 2FA e Gestão de Identidade Privilegiada - Azure AD | Microsoft Docs
 description: Saiba como a Azure AD Privileged Identity Management (PIM) valida a autenticação de vários fatores (MFA).
 services: active-directory
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4344e769cc8466287dab1e98e95cc3fbe705ffbd
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94835004"
 ---
 # <a name="multi-factor-authentication-and-privileged-identity-management"></a>Autenticação multi-factor e Gestão de Identidade Privilegiada

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com a Predictix Price Reporting / Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com | de Reporte de Preços da Predictix Microsoft Docs'
 description: Neste tutorial, você aprenderá a configurar um único sign-on entre O Diretório Ativo Azure e Relatório de Preços da Predictix.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
 ms.openlocfilehash: 801197a171b5be2cfe46c249398381e1b25857ff
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92515360"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-predictix-price-reporting"></a>Tutorial: Integração do Diretório Ativo Azure com Relatório de Preços da Predictix
@@ -151,9 +151,9 @@ Nesta secção, irá criar um utilizador de teste chamado Britta Simon no portal
 
     1. Na caixa **Nome,** **insira BrittaSimon**.
   
-    1. Na caixa **do nome do utilizador,** **introduza BrittaSimon@ . \<yourcompanydomain> . \<extension> ** (Por exemplo, BrittaSimon@contoso.com .)
+    1. Na caixa **do nome do utilizador,** **introduza BrittaSimon@ . \<yourcompanydomain> . \<extension>** (Por exemplo, BrittaSimon@contoso.com .)
 
-    1. Selecione **Mostrar Palavra-Passe**e, em seguida, anotar o valor que está na caixa **de palavra-passe.**
+    1. Selecione **Mostrar Palavra-Passe** e, em seguida, anotar o valor que está na caixa **de palavra-passe.**
 
     1. Selecione **Criar**.
 
@@ -161,7 +161,7 @@ Nesta secção, irá criar um utilizador de teste chamado Britta Simon no portal
 
 Nesta secção, você permitirá que Britta Simon use a Azure AD um único sinal de acesso, concedendo-lhe acesso a Predictix Price Reporting.
 
-1. No portal Azure, selecione **aplicações Enterprise**, selecione **Todas as aplicações**e, em seguida, selecione **Predictix Price Reporting**.
+1. No portal Azure, selecione **aplicações Enterprise**, selecione **Todas as aplicações** e, em seguida, selecione **Predictix Price Reporting**.
 
     ![Aplicações Empresariais](common/enterprise-applications.png)
 
@@ -173,7 +173,7 @@ Nesta secção, você permitirá que Britta Simon use a Azure AD um único sinal
 
     ![Selecionar Utilizadores e grupos](common/users-groups-blade.png)
 
-4. **Selecione Adicionar utilizador**e, em seguida, selecione **Utilizadores e grupos** na caixa de diálogo **'Adicionar Atribuição'.**
+4. **Selecione Adicionar utilizador** e, em seguida, selecione **Utilizadores e grupos** na caixa de diálogo **'Adicionar Atribuição'.**
 
     ![Selecione Adicionar utilizador](common/add-assign-user.png)
 

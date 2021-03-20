@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configurar Foodee para fornecimento automático de utilizadores através do Azure Ative Directory Microsoft Docs'
+title: 'Tutorial: Configurar foodee para o fornecimento automático de utilizadores utilizando o Azure Ative Directory | Microsoft Docs'
 description: Saiba como configurar o Azure Ative Directory para provisão automática e desprovisionar as contas dos utilizadores à Foodee.
 services: active-directory
 author: zchia
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 08/30/2019
 ms.author: Zhchia
 ms.openlocfilehash: 8b4bfa7e9bf457d79c6c4a0b5255bce4fe36dff4
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94358691"
 ---
 # <a name="tutorial-configure-foodee-for-automatic-user-provisioning"></a>Tutorial: Configurar Foodee para o fornecimento automático de utilizadores
@@ -57,7 +57,7 @@ Antes de configurar a Foodee para o fornecimento automático de utilizadores uti
 
     :::image type="content" source="media/Foodee-provisioning-tutorial/tenant.png" alt-text="Screenshot do menu principal do portal da empresa Foodee. Um espaço reservado para inquilinos é visível no menu." border="false":::
 
-1. No **portal Enterprise** , selecione Single Sign **On**.
+1. No **portal Enterprise**, selecione Single Sign **On**.
 
     ![O menu de painéis de esquerda do Foodee Enterprise Portal](media/Foodee-provisioning-tutorial/scim.png)
 
@@ -126,9 +126,9 @@ Configure o fornecimento automático de utilizadores para a Foodee em Azure AD, 
 
     ![A caixa de texto de e-mail de notificação](common/provisioning-notification-email.png)
 
-1. Selecione **Save** (Guardar).
+1. Selecione **Guardar**.
 
-1. Em **Mappings** , **selecione Synchronize Azure Ative Directory Users to Foodee**.
+1. Em **Mappings**, **selecione Synchronize Azure Ative Directory Users to Foodee**.
 
     :::image type="content" source="media/Foodee-provisioning-tutorial/usermapping.png" alt-text="Screenshot da secção mappings. Em Nome, destaca-se o Synchronize Azure Ative Directory Users to Foodee." border="false":::
 
@@ -137,7 +137,7 @@ Configure o fornecimento automático de utilizadores para a Foodee em Azure AD, 
     :::image type="content" source="media/Foodee-provisioning-tutorial/userattribute.png" alt-text="Screenshot da página De mapeamentos de atributos. Uma tabela lista os atributos Azure Ative Directory e Foodee e a precedência correspondente." border="false":::
 
 1. Para cometer as suas alterações, **selecione Guardar**.
-1. Em **Mappings** , **selecione Synchronize Azure Ative Directory Groups to Foodee**.
+1. Em **Mappings**, **selecione Synchronize Azure Ative Directory Groups to Foodee**.
 
     :::image type="content" source="media/Foodee-provisioning-tutorial/groupmapping.png" alt-text="Screenshot da secção mappings. Em Nome, é destacado o Synchronize Azure Ative Directory Groups to Foodee." border="false":::
 
@@ -152,7 +152,7 @@ Configure o fornecimento automático de utilizadores para a Foodee em Azure AD, 
 
     ![O interruptor de estado de provisionamento](common/provisioning-toggle-on.png)
 
-1. Em **Definições** , na lista de drop-down **scope,** defina os utilizadores ou grupos que pretende providenciar à Foodee.
+1. Em **Definições**, na lista de drop-down **scope,** defina os utilizadores ou grupos que pretende providenciar à Foodee.
 
     ![A lista de abandono do âmbito de provisão](common/provisioning-scope.png)
 
@@ -160,7 +160,7 @@ Configure o fornecimento automático de utilizadores para a Foodee em Azure AD, 
 
     ![O botão de poupança de configuração de provisionamento](common/provisioning-configuration-save.png)
 
-A operação anterior inicia a sincronização inicial dos utilizadores ou **Scope** grupos que definiu na lista de drop-down scope. A sincronização inicial demora mais tempo a ser efetua do que as sincronizações subsequentes. Para obter mais informações, veja [quanto tempo demorará a providenciar aos utilizadores?](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users)
+A operação anterior inicia a sincronização inicial dos utilizadores ou  grupos que definiu na lista de drop-down scope. A sincronização inicial demora mais tempo a ser efetua do que as sincronizações subsequentes. Para obter mais informações, veja [quanto tempo demorará a providenciar aos utilizadores?](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users)
 
 Pode utilizar a secção **Estado Atual** para monitorizar o progresso e seguir links para o seu relatório de atividade de provisionamento. O relatório descreve todas as ações realizadas pelo serviço de fornecimento de Azure AD na Foodee. Para obter mais informações, [consulte verifique o estado do fornecimento do utilizador](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md). Para ler os registos de provisionamento da AD Azure, consulte [reportar sobre o provisionamento automático da conta de utilizador](../app-provisioning/check-status-user-account-provisioning.md).
 

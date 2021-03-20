@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 12/03/2018
 ms.custom: seodec18
 ms.openlocfilehash: bd2d27addb6860e49ac12eb36d8b625b8bf92001
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93100410"
 ---
 # <a name="tutorial-migrate-your-data-to-cassandra-api-account-in-azure-cosmos-db"></a>Tutorial: Migrar os seus dados para a conta da API cassandra no Azure Cosmos DB
@@ -104,7 +104,7 @@ Utilize os seguintes passos para migrar dados para a conta da API de Cassandra c
 
 A migração de dados utilizando trabalhos spark é uma opção recomendada se tiver dados que residam num cluster existente em máquinas virtuais Azure ou em qualquer outra nuvem. Esta opção requer que a Spark seja configurada como intermediário por uma vez ou ingestão regular. Você pode acelerar esta migração usando a conectividade Azure ExpressRoute entre as instalações e Azure. 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não são necessários, pode apagar o grupo de recursos, a conta Azure Cosmos e todos os recursos relacionados. Para tal, selecione o grupo de recursos para a máquina virtual, selecione **Delete** e, em seguida, confirme o nome do grupo de recursos para eliminar.
 

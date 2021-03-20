@@ -1,5 +1,5 @@
 ---
-title: Tráfego de rede de rotas - Azure CLI / Microsoft Docs
+title: Tráfego de rede de rotas - Azure CLI | Microsoft Docs
 description: Neste artigo, aprenda a encaminhar o tráfego de rede com uma tabela de rota usando o CLI Azure.
 services: virtual-network
 documentationcenter: virtual-network
@@ -18,10 +18,10 @@ ms.date: 03/13/2018
 ms.author: kumud
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 043d450a1b968174ad263579d39de06a296a98e4
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94741490"
 ---
 # <a name="route-network-traffic-with-a-route-table-using-the-azure-cli"></a>Tráfego de rede de rotas com uma tabela de rotas usando o Azure CLI

@@ -1,5 +1,5 @@
 ---
-title: Visão geral do HSM gerido Azure - Azure Managed HSM / Microsoft Docs
+title: Visão geral do HSM gerido Azure - Azure Managed HSM | Microsoft Docs
 description: O Azure Managed HSM é um serviço de nuvem que protege as suas chaves criptográficas para aplicações em nuvem.
 services: key-vault
 tags: azure-resource-manager
@@ -11,10 +11,10 @@ ms.date: 09/15/2020
 ms.author: mbaldwin
 author: msmbaldwin
 ms.openlocfilehash: 95feeebf009cae22cf3952df80596c12e75cbe4b
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94357577"
 ---
 # <a name="what-is-azure-key-vault-managed-hsm-preview"></a>O que é Azure Key Vault Gerido HSM (pré-visualização)?
@@ -25,16 +25,16 @@ Azure Key Vault Managed HSM é um serviço de nuvem totalmente gerido, altamente
 
 ### <a name="fully-managed-highly-available-single-tenant-hsm-as-a-service"></a>Totalmente gerido, altamente disponível, único inquilino HSM como um serviço
 
-- **Totalmente gerido** : O fornecimento, configuração, remendos e manutenção do HSM são manuseados pelo serviço. 
+- **Totalmente gerido**: O fornecimento, configuração, remendos e manutenção do HSM são manuseados pelo serviço. 
 - **Altamente disponível e zona resiliente** (onde as zonas de disponibilidade são suportadas): Cada cluster HSM é composto por múltiplas divisórias HSM que se estendem por pelo menos duas zonas de disponibilidade. Se o hardware falhar, as divisórias dos membros do seu cluster HSM serão automaticamente migradas para nós saudáveis.
-- **Inquilino único** : Cada instância gerida do HSM é dedicada a um único cliente e consiste num aglomerado de múltiplas divisórias HSM. Cada cluster HSM utiliza um domínio de segurança específico do cliente que isola criptograficamente o cluster HSM de cada cliente.
+- **Inquilino único**: Cada instância gerida do HSM é dedicada a um único cliente e consiste num aglomerado de múltiplas divisórias HSM. Cada cluster HSM utiliza um domínio de segurança específico do cliente que isola criptograficamente o cluster HSM de cada cliente.
 
 
 ### <a name="access-control-enhanced-data-protection--compliance"></a>Controlo de acesso, proteção de dados melhorada & conformidade
 
-- **Gestão centralizada de chaves** : Gerencie chaves críticas e de alto valor em toda a sua organização num só local. Com permissões granulares por chave, controle o acesso a cada chave no princípio do "acesso menos privilegiado".
-- **Controlo de acesso isolado** : O modelo de controlo de acesso "local RBAC" gerido do HSM permite que os administradores de cluster hsm designados tenham controlo total sobre os HSMs que mesmo os administradores do grupo de gestão, subscrição ou grupo de recursos não podem sobrepor-se.
-- **HSMs validados de nível 3 FIPS 140-2** : Proteja os seus dados e cumpra os requisitos de conformidade com o FIPS ((Federal Information Protection Standard)) 140-2 Nível 3 HSMs validados. Os HSMs geridos utilizam adaptadores HSM da Marvell LiquidSecurity.
+- **Gestão centralizada de chaves**: Gerencie chaves críticas e de alto valor em toda a sua organização num só local. Com permissões granulares por chave, controle o acesso a cada chave no princípio do "acesso menos privilegiado".
+- **Controlo de acesso isolado**: O modelo de controlo de acesso "local RBAC" gerido do HSM permite que os administradores de cluster hsm designados tenham controlo total sobre os HSMs que mesmo os administradores do grupo de gestão, subscrição ou grupo de recursos não podem sobrepor-se.
+- **HSMs validados de nível 3 FIPS 140-2**: Proteja os seus dados e cumpra os requisitos de conformidade com o FIPS ((Federal Information Protection Standard)) 140-2 Nível 3 HSMs validados. Os HSMs geridos utilizam adaptadores HSM da Marvell LiquidSecurity.
 - **Monitor e auditoria:** totalmente integrado com monitor Azure. Obtenha registos completos de toda a atividade através do Azure Monitor. Utilize a Azure Log Analytics para análise e alertas.
 
 ### <a name="integrated-with-azure-and-microsoft-paassaas-services"></a>Integrado com serviços Azure e Microsoft PaaS/SaaS 

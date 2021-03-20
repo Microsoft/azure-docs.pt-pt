@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 10/02/2019
 ms.author: sngun
 ms.openlocfilehash: e7d6a67f5322c5bb640430f66ccb0917f6faada1
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96003502"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Ligue-se ao Azure Cosmos DB utilizando ferramentas de análise de BI com o controlador ODBC
@@ -107,7 +107,7 @@ Existem dois tipos de métodos de amostragem que pode utilizar: mapeamento de **
     - Pode definir **a Coluna de Ocultação** como **verdadeira** se pretender excluir essa coluna dos resultados da consulta. Colunas marcadas Hide Column = verdade não são devolvidas para seleção e projeção, embora ainda sejam parte do esquema. Por exemplo, pode esconder todas as propriedades necessárias para o sistema Azure Cosmos, a partir de "_".
     - A coluna **de id** é o único campo que não pode ser ocultado, uma vez que é usado como a chave primária no esquema normalizado. 
 
-1. Uma vez terminado de definir o esquema, clique em **'Guardar ficheiros',**  |  **Save** navegue no diretório para guardar o esquema e, em seguida, clique em **Guardar**.
+1. Uma vez terminado de definir o esquema, clique em **'Guardar ficheiros',**  |  navegue no diretório para guardar o esquema e, em seguida, clique em **Guardar**.
 
 1. Para utilizar este esquema com um DSN, abra a **janela de configuração DSN do controlador DB ODBC do Azure Cosmos** (através do Administrador de Fonte de Dados ODBC), clique em **Opções Avançadas**, e, em seguida, na caixa **de ficheiros Schema,** navegue para o esquema guardado. Guardar um ficheiro de esquema para um DSN existente modifica a ligação DSN ao âmbito dos dados e estrutura definidos por esquema.
 
@@ -137,7 +137,7 @@ Os passos seguintes criam um esquema para os dados em um ou mais recipientes uti
     - Pode definir **a Coluna de Ocultação** como **verdadeira** se pretender excluir essa coluna dos resultados da consulta. Colunas marcadas Hide Column = verdade não são devolvidas para seleção e projeção, embora ainda sejam parte do esquema. Por exemplo, pode esconder todas as propriedades necessárias para o sistema Azure Cosmos. `_`
     - A coluna **de id** é o único campo que não pode ser ocultado, uma vez que é usado como a chave primária no esquema normalizado. 
 
-1. Uma vez terminado de definir o esquema, clique em **'Guardar ficheiros',**  |  **Save** navegue no diretório para guardar o esquema e, em seguida, clique em **Guardar**.
+1. Uma vez terminado de definir o esquema, clique em **'Guardar ficheiros',**  |  navegue no diretório para guardar o esquema e, em seguida, clique em **Guardar**.
 
 1. De volta à janela de **configuração DSN do condutor DB ODBC do Azure Cosmos,** clique em **Opções Avançadas**. Em seguida, na caixa **de Ficheiros Schema,** navegue para o ficheiro de esquemas guardados e clique **em OK**. Clique **em OK** novamente para salvar o DSN. Isto salva o esquema que criaste para o DSN. 
 
@@ -222,7 +222,7 @@ Pode utilizar o seu novo DSN para ligar ao Azure Cosmos DB com quaisquer ferrame
 
     :::image type="content" source="./media/odbc-driver/odbc-driver-power-bi-get-data.png" alt-text="Obtenha dados no power BI Desktop":::
 
-1. Na janela **Obter Dados,** clique em **Other**  |  **Other ODBC**  |  **Connect**.
+1. Na janela **Obter Dados,** clique em   |  **Other ODBC**  |  **Connect**.
 
     :::image type="content" source="./media/odbc-driver/odbc-driver-power-bi-get-data-2.png" alt-text="Escolha a fonte de dados ODBC no Power BI Obter Dados":::
 

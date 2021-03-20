@@ -1,5 +1,5 @@
 ---
-title: Persistir estado no Windows - Azure Event Grid IoT Edge / Microsoft Docs
+title: Persistir estado no Windows - Azure Event Grid IoT Edge | Microsoft Docs
 description: Persistir estado no Windows
 author: VidyaKukke
 manager: rajarv
@@ -8,10 +8,10 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: f38e23a3af1e2c81ee012a4f3c268cbff3fc1bee
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96002822"
 ---
 # <a name="persist-state-in-windows"></a>Persistir estado no Windows

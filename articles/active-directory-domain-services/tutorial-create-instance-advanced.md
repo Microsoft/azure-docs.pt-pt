@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Criar um domínio de domínio do Azure Ative Directory Services personalizado Microsoft Docs
+title: Tutorial - Crie um Azure Ative Directory Domain Services gerido domínio | Microsoft Docs
 description: Neste tutorial, aprende a criar e configurar um domínio gerido por Azure Ative Directory Domain Services e especificar opções de configuração avançadas utilizando o portal Azure.
 author: justinha
 manager: daveba
@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 07/06/2020
 ms.author: justinha
 ms.openlocfilehash: 4d03edac98329d7c47b8bfafbf4d30cfca18863c
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96618234"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-managed-domain-with-advanced-configuration-options"></a>Tutorial: Criar e configurar um Azure Ative Directory Domain Services gerido domínio com opções de configuração avançadas

@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 02/01/2019
 ms.author: lajanuar
 ms.openlocfilehash: 0d5a7f8df0c722ca52780ba254e9af9608f26b54
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98895429"
 ---
 # <a name="translator-30-transliterate"></a>Tradutor 3.0: Transliterado
@@ -58,7 +58,7 @@ Os cabeçalhos de pedido incluem:
 
 <table width="100%">
   <th width="20%">Cabeçalhos</th>
-  <th>Descrição</th>
+  <th>Description</th>
   <tr>
     <td>Cabeçalho de autenticação</td>
     <td><em>Cabeçalho de pedido necessário</em>.<br/>Consulte <a href="/azure/cognitive-services/translator/reference/v3-0-reference#authentication">as opções disponíveis para autenticação.</a></td>
@@ -115,7 +115,7 @@ Um exemplo de resposta JSON é:
 
 <table width="100%">
   <th width="20%">Cabeçalhos</th>
-  <th>Descrição</th>
+  <th>Description</th>
   <tr>
     <td>X-RequestId</td>
     <td>Valor gerado pelo serviço para identificar o pedido. É utilizado para resolução de problemas.</td>
@@ -128,7 +128,7 @@ Seguem-se os possíveis códigos de estado HTTP que um pedido devolve.
 
 <table width="100%">
   <th width="20%">Código de Estado</th>
-  <th>Descrição</th>
+  <th>Description</th>
   <tr>
     <td>200</td>
     <td>Com êxito.</td>

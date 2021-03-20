@@ -1,5 +1,5 @@
 ---
-title: Utilização de DNS dinâmicos para registar os hostnames no Azure Microsoft Docs
+title: Utilização de DNS dinâmicos para registar os hostnames em Azure | Microsoft Docs
 description: Saiba como configurar DNS dinâmicos para registar nomes de anfitriões nos seus próprios servidores DNS.
 services: dns
 documentationcenter: na
@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/23/2017
 ms.author: subsarma
 ms.openlocfilehash: ad91eb94aedcdd0e4e715162e3ae064a1d2fb1ea
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98220427"
 ---
 # <a name="use-dynamic-dns-to-register-hostnames-in-your-own-dns-server"></a>Utilizar o DNS dinâmico para registar nomes de anfitrião no seu próprio servidor DNS

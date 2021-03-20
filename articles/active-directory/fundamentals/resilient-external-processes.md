@@ -14,10 +14,10 @@ ms.date: 11/30/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 58ef522f5b048db0ef120625d9e894c8e14c070e
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98724412"
 ---
 # <a name="resilient-interfaces-with-external-processes"></a>Interfaces resilientes com processos externos
@@ -66,7 +66,7 @@ Enquanto implementa as APIs REST e configura o perfil técnico RESTful, seguindo
 
 - Recomendação é obter o símbolo certo no início da viagem do utilizador em vez de ligar várias vezes para cada API e [garantir um API AZURE APIM](../../active-directory-b2c/secure-api-management.md?tabs=app-reg-ga).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Recursos de resiliência para desenvolvedores Azure AD B2C](resilience-b2c.md)
   - [Experiência resiliente do utilizador final](resilient-end-user-experience.md)

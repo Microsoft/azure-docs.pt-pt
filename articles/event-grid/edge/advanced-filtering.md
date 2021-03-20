@@ -1,5 +1,5 @@
 ---
-title: Filtragem avançada - Azure Event Grid IoT Edge / Microsoft Docs
+title: Filtragem avançada - Azure Event Grid IoT Edge | Microsoft Docs
 description: Filtragem avançada em Grade de Eventos na Borda IoT.
 author: HiteshMadan
 manager: rajarv
@@ -8,10 +8,10 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: 64b8956c47cbdbf31bb8253dac0c1e1f12833bf7
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96001053"
 ---
 # <a name="advanced-filtering"></a>Filtragem avançada

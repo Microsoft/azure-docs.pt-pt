@@ -9,10 +9,10 @@ ms.date: 01/14/2021
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: 03d953bd534595e47702642403626a05b7f67aba
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98706922"
 ---
 # <a name="open-a-support-ticket-for-an-importexport-job"></a>Abrir um bilhete de apoio para uma tarefa de importação/exportação
@@ -28,7 +28,7 @@ Execute os seguintes passos para criar um pedido de apoio:
 
 1. Vá para o seu trabalho de importação/exportação. Navegue para **apoiar + resolução de problemas** e, em seguida, selecione **Novo pedido de suporte**.
      
-    ![Informações básicas](./media/storage-import-export-contact-microsoft-support/import-export-support1.png)
+    ![Noções básicas](./media/storage-import-export-contact-microsoft-support/import-export-support1.png)
    
 2. No **novo pedido de apoio,** selecione **Basics**. No Básico, faça os **seguintes** passos:
     
@@ -85,6 +85,6 @@ Depois de criar um pedido de suporte, pode gerir o ciclo de vida do mesmo no por
     ![A screenshot mostra nova mensagem selecionada para este pedido.](./media/storage-import-export-contact-microsoft-support/manage-support-ticket3.png) 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como [utilizar a Importação/Exportação Azure para transferir dados de e para o Azure Storage](storage-import-export-service.md).

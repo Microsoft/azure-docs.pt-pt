@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Directy integração única (SSO) com pymetrics Microsoft Docs'
+title: 'Tutorial: Azure Ative Directory integração única de sign-on (SSO) com pymetrics | Microsoft Docs'
 description: Saiba como configurar um único sinal entre o Azure Ative Directory e a pymetrics.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 06/10/2020
 ms.author: jeedes
 ms.openlocfilehash: 1e4466efde2d05abe80904307c500c0049d99521
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92515173"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-pymetrics"></a>Tutorial: Azure Ative Directory integração única (SSO) com pymetrics
@@ -94,7 +94,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. A aplicação pymetrics espera as afirmações DE SAML num formato específico, o que requer que adicione mapeamentos de atributos personalizados à configuração de atributos de token SAML. A tabela seguinte mostra a lista de atributos predefinidos. Estes atributos são pré-voados, mas pode revê-los de acordo com os seus requisitos.
     
-    | Nome | Atributo de origem|
+    | Name | Atributo de origem|
     | --------------- | --------- |
     | Nome userFirst | user.givenname |
     | Nome do UtilizadorLastName | utilizador.sobrenome |
@@ -123,7 +123,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
 
 Nesta secção, você permitirá que B.Simon use a Azure single sign-on, permitindo o acesso à pymetrics.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de candidaturas, selecione **pymetrics**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 

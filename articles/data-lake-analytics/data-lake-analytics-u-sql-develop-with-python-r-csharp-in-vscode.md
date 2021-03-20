@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 11/22/2017
 ms.custom: devx-track-python
 ms.openlocfilehash: d6066bd6ec2a4c986ae17ad0cce3e7f6f73b21e7
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92219977"
 ---
 # <a name="develop-u-sql-with-python-r-and-c-for-azure-data-lake-analytics-in-visual-studio-code"></a>Desenvolver U-SQL com Python, R e C# para Azure Data Lake Analytics em Código de Estúdio Visual
@@ -123,7 +123,7 @@ Registe os conjuntos de extensões R para a sua conta ADL.
 5. Clique com o botão direito no ficheiro **USQL,** pode clicar em **Compile Script** ou **submeter Job** a executar trabalho.
 
 ## <a name="develop-c-file"></a>Desenvolver ficheiro C#
-Um ficheiro por trás de código é um ficheiro C# associado a um único script U-SQL. Pode definir um script dedicado à UDO, UDA, UDT e UDF no ficheiro code-behind. O UDO, UDA, UDT e UDF podem ser usados diretamente no script sem registar primeiro a montagem. O ficheiro por detrás de código é colocado na mesma pasta que o seu ficheiro de script U-SQL. Se o script for nomeado xxx.usql, o código-traseiro é nomeado como xxx.usql.cs. Se eliminar manualmente o ficheiro por trás do código, a função de código-de-trás é desativada para o seu script U-SQL associado. Para obter mais informações sobre a escrita do código do cliente para script U-SQL, consulte [escrita e utilização de código personalizado em U-SQL: User-Defined Funções]( https://blogs.msdn.microsoft.com/visualstudio/2015/10/28/writing-and-using-custom-code-in-u-sql-user-defined-functions/).
+Um ficheiro por trás de código é um ficheiro C# associado a um único script U-SQL. Pode definir um script dedicado à UDO, UDA, UDT e UDF no ficheiro code-behind. O UDO, UDA, UDT e UDF podem ser usados diretamente no script sem registar primeiro a montagem. O ficheiro por detrás de código é colocado na mesma pasta que o seu ficheiro de script U-SQL. Se o script for nomeado xxx.usql, o code-behind é nomeado como xxx.usql.cs. Se eliminar manualmente o ficheiro por trás do código, a função de código-de-trás é desativada para o seu script U-SQL associado. Para obter mais informações sobre a escrita do código do cliente para script U-SQL, consulte [escrita e utilização de código personalizado em U-SQL: User-Defined Funções]( https://blogs.msdn.microsoft.com/visualstudio/2015/10/28/writing-and-using-custom-code-in-u-sql-user-defined-functions/).
 
 1. Clique no **Novo Arquivo** no seu espaço de trabalho.
 2. Escreva o seu código no ficheiro U-SQL. O seguinte é uma amostra de código.
@@ -156,7 +156,7 @@ Um ficheiro por trás de código é um ficheiro C# associado a um único script 
         USING Outputters.Tsv();
     ```
 3. Clique com o botão direito no ficheiro **USQL** e, em seguida, selecione **ADL: Gere o código CS por trás do ficheiro**. 
-4. O **ficheiro xxx.usql.cs** é gerado na sua pasta de trabalho. Escreva o seu código no ficheiro CS. O seguinte é uma amostra de código.
+4. O ficheiro **xxx.usql.cs** é gerado na sua pasta de trabalho. Escreva o seu código no ficheiro CS. O seguinte é uma amostra de código.
 
     ```CS
     namespace USQLApplication_codebehind

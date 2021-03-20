@@ -1,6 +1,6 @@
 ---
 title: Adicione utilizadores de colaboração B2B como um trabalhador da informação - Azure AD
-description: A colaboração B2B permite aos trabalhadores da informação e proprietários de aplicações adicionar utilizadores convidados à Azure AD para acesso Microsoft Docs
+description: A colaboração B2B permite que os trabalhadores da informação e os proprietários de aplicações adicionem utilizadores convidados à Azure AD para acesso | Microsoft Docs
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 345cbe2efb644fe2b84d4a6021ff962337e29285
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98219917"
 ---
 # <a name="how-users-in-your-organization-can-invite-guest-users-to-an-app"></a>Como os utilizadores da sua organização podem convidar utilizadores convidados para uma aplicação

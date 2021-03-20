@@ -9,16 +9,16 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.openlocfilehash: acacf617d3f1d9ab891d08b32fc2dfb14deb64a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91540528"
 ---
 # <a name="pii-detection-cognitive-skill"></a>Competência cognitiva de deteção de PII
 
 > [!IMPORTANT] 
-> Esta habilidade está atualmente em visualização pública. A funcionalidade de pré-visualização é fornecida sem um contrato de nível de serviço, e não é recomendada para cargas de trabalho de produção. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Atualmente não existe porta ou suporte .NET SDK.
+> Esta habilidade está atualmente em visualização pública. A funcionalidade de pré-visualização é fornecida sem um contrato de nível de serviço, e não é recomendada para cargas de trabalho de produção. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Atualmente não existe porta ou suporte .NET SDK.
 
 A habilidade **de Deteção PII** extrai informações pessoais de um texto de entrada e dá-lhe a opção de mascar. Esta habilidade utiliza os modelos de aprendizagem automática fornecidos pela [Text Analytics](../cognitive-services/text-analytics/overview.md) em Serviços Cognitivos.
 
@@ -48,14 +48,14 @@ Os parâmetros são sensíveis a casos e todos são opcionais.
 
 ## <a name="skill-inputs"></a>Entradas de habilidades
 
-| Nome de entrada      | Descrição                   |
+| Nome de entrada      | Description                   |
 |---------------|-------------------------------|
 | `languageCode`    | Opcional. A predefinição é `en`.  |
 | `text`          | O texto para analisar.          |
 
 ## <a name="skill-outputs"></a>Saídas de competências
 
-| Nome de saída      | Descrição                   |
+| Nome de saída      | Description                   |
 |---------------|-------------------------------|
 | `piiEntities` | Uma variedade de tipos complexos que contém os seguintes campos: <ul><li>texto (O PII real extraído)</li> <li>tipo</li><li>subtiType</li><li>pontuação (Maior valor significa que é mais provável ser uma entidade real)</li><li>compensação (no texto de entrada)</li><li>length</li></ul> </br> [Possíveis tipos e subtiTypes podem ser encontrados aqui.](../cognitive-services/text-analytics/named-entity-types.md?tabs=personal) |
 | `maskedText` | Se `maskingMode` for definida para um valor `none` diferente, esta saída será o resultado da máscara realizada no texto de entrada, tal como descrito pelo selecionado `maskingMode` .  Se `maskingMode` estiver programado para , esta saída não estará `none` presente. |
@@ -138,7 +138,7 @@ Se o seu texto for superior a 50.000 caracteres, apenas os primeiros 50.000 cara
 
 Se a habilidade devolver um aviso, a saída pode estar vazia, o `maskedText` que pode afetar quaisquer habilidades a jusante que esperam a saída. Por esta razão, certifique-se de investigar todos os avisos relacionados com a falta de saída ao escrever a sua definição de skillset.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 + [Competências incorporadas](cognitive-search-predefined-skills.md)
 + [Como definir um skillset](cognitive-search-defining-skillset.md)

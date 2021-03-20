@@ -14,10 +14,10 @@ ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bd4d42e1cafa58aaf6a47188c9e86c24ac175047
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92514394"
 ---
 # <a name="restore-or-remove-a-recently-deleted-user-using-azure-active-directory"></a>Restaurar ou remover um utilizador recentemente eliminado usando o Azure Ative Directory
@@ -45,7 +45,7 @@ Pode ver todos os utilizadores que foram apagados há menos de 30 dias. Estes ut
 ### <a name="to-view-your-restorable-users"></a>Para ver os seus utilizadores restauradores
 1. Inscreva-se no [portal Azure](https://portal.azure.com/) usando uma conta de administrador global para a organização.
 
-2. Selecione **Azure Ative Directory**, selecione **Utilizadores**e, em seguida, **selecione utilizadores eliminados**.
+2. Selecione **Azure Ative Directory**, selecione **Utilizadores** e, em seguida, **selecione utilizadores eliminados**.
 
     Reveja a lista de utilizadores que estão disponíveis para restaurar.
 

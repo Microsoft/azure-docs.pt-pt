@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 50a1656fcb92d9777d4a9476ef2a4c1fd2f2efc6
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96002753"
 ---
 # <a name="full-text-search-in-azure-cognitive-search"></a>Pesquisa de texto completo em Azure Cognitive Search
@@ -309,7 +309,7 @@ Durante a execução de consultas, as consultas individuais são executadas cont
 + A FraseQuery, "vista para o mar", olha para os termos "oceano" e "vista" e verifica a proximidade dos termos no documento original. Os documentos 1, 2 e 3 correspondem a esta consulta no campo de descrição. O documento de aviso 4 tem o termo oceano no título, mas não é considerado um fósforo, pois estamos à procura da frase "vista para o mar" em vez de palavras individuais. 
 
 > [!Note]
-> Uma consulta de pesquisa é executada independentemente contra todos os campos pes pes pes pesjáveis no índice de Pesquisa Cognitiva Azure, a menos que limite os campos definidos com o `searchFields` parâmetro, como ilustrado no pedido de pesquisa de exemplo. Os documentos que correspondam em qualquer um dos campos selecionados são devolvidos. 
+> Uma consulta de pesquisa é executada independentemente contra todos os campos pes pesjáveis no índice de Pesquisa Cognitiva Azure, a menos que limite os campos definidos com o `searchFields` parâmetro, como ilustrado no pedido de pesquisa de exemplo. Os documentos que correspondam em qualquer um dos campos selecionados são devolvidos. 
 
 No geral, para a consulta em questão, os documentos que correspondem são 1, 2, 3. 
 
@@ -362,7 +362,7 @@ Um exemplo ilustra por que razão isto importa. As pesquisas de wildcard, inclui
 Existem duas formas de sintonizar pontuações de relevância na Pesquisa Cognitiva Azure:
 
 1. **Os perfis de pontuação** promovem documentos na lista de resultados classificados com base num conjunto de regras. No nosso exemplo, poderíamos considerar documentos que correspondam no campo do título mais relevantes do que documentos que correspondam no campo da descrição. Além disso, se o nosso índice tivesse um campo de preços para cada hotel, poderíamos promover documentos com um preço mais baixo. Saiba mais como [adicionar Perfis de Pontuação a um índice de pesquisa.](/rest/api/searchservice/add-scoring-profiles-to-a-search-index)
-2. **O reforço de prazos** (disponível apenas na sintaxe de consulta Lucene completa) fornece um operador impulsionador `^` que pode ser aplicado a qualquer parte da árvore de consulta. No nosso exemplo, em vez de procurar no *pré-ar condicionado, pode-se* \* procurar o termo exato de ar *condicionado* ou o prefixo, mas os documentos que correspondem ao termo exato são classificados mais alto aplicando aumento ao termo consulta: *ar condicionado^2] ar condicionado**. Saiba mais sobre [o aumento de mandatos.](/rest/api/searchservice/lucene-query-syntax-in-azure-search#bkmk_termboost)
+2. **O reforço de prazos** (disponível apenas na sintaxe de consulta Lucene completa) fornece um operador impulsionador `^` que pode ser aplicado a qualquer parte da árvore de consulta. No nosso exemplo, em vez de procurar no *pré-ar condicionado, pode-se* \* procurar o termo exato de ar *condicionado* ou o prefixo, mas os documentos que correspondem ao termo exato são classificados mais alto aplicando aumento à consulta do termo: *ar-condicionado^2|| ar condicionado**. Saiba mais sobre [o aumento de mandatos.](/rest/api/searchservice/lucene-query-syntax-in-azure-search#bkmk_termboost)
 
 
 ### <a name="scoring-in-a-distributed-index"></a>Pontuação num índice distribuído
@@ -399,7 +399,7 @@ Este artigo explorou a pesquisa completa de texto no contexto da Pesquisa Cognit
 
 [Sintaxe de consulta simples](/rest/api/searchservice/simple-query-syntax-in-azure-search) 
 
-[Sintaxe de consulta lucene completa](/rest/api/searchservice/lucene-query-syntax-in-azure-search) 
+[Sintaxe de consulta Lucene completa](/rest/api/searchservice/lucene-query-syntax-in-azure-search) 
 
 [Processar os resultados da pesquisa](./search-pagination-page-layout.md)
 

@@ -6,10 +6,10 @@ ms.date: 12/14/2020
 ms.topic: quickstart
 ms.author: tomfitz
 ms.openlocfilehash: 1d3e7c6ee6d19d4d2cd3828d5abf95ccb5457e76
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97511353"
 ---
 # <a name="quickstart-create-and-deploy-template-spec-preview"></a>Quickstart: Criar e implementar especificações de modelo (Pré-visualização)
@@ -103,10 +103,10 @@ A especificação do modelo é um tipo de recurso chamado `Microsoft.Resources/t
     - **Localização**: selecione uma localização para o grupo de recursos. Por exemplo,  **West US 2**.
     - **Versão**: introduza uma versão para a especificação do modelo. Use **1.0**.
 
-1. Selecione **Review + Criar**.
+1. Selecione **Rever + Criar**.
 1. Selecione **Criar**.
 
-# <a name="arm-template"></a>[Modelo ARM](#tab/azure-resource-manager)
+# <a name="arm-template"></a>[Modelo do ARM](#tab/azure-resource-manager)
 
 > [!NOTE]
 > Em vez de utilizar um modelo ARM, recomendamos que utilize o PowerShell ou o CLI para criar a especificação do seu modelo. Essas ferramentas convertem automaticamente os modelos ligados a artefactos ligados ao seu modelo principal. Quando utilizar um modelo ARM para criar a especificação do modelo, deve adicionar manualmente os modelos ligados como artefactos, o que pode ser complicado.
@@ -321,7 +321,7 @@ Para implementar uma especificação de modelo, use os mesmos comandos de implem
 1. Selecione **Rever + criar**.
 1. Selecione **Criar**.
 
-# <a name="arm-template"></a>[Modelo ARM](#tab/azure-resource-manager)
+# <a name="arm-template"></a>[Modelo do ARM](#tab/azure-resource-manager)
 
 1. Copie o modelo seguinte e guarde-o localmente para um ficheiro nomeado **storage.jsem**.
 
@@ -476,7 +476,7 @@ Em vez de criar uma nova especificação de modelo para o modelo revisto, adicio
 1. Selecione **Rever + criar**.
 1. Selecione **Criar**.
 
-# <a name="arm-template"></a>[Modelo ARM](#tab/azure-resource-manager)
+# <a name="arm-template"></a>[Modelo do ARM](#tab/azure-resource-manager)
 
 1. Mais uma vez, você deve fazer algumas alterações no seu modelo local para fazê-lo funcionar com especificações de modelo. Copie o modelo seguinte e guarde-o localmente à medida que azuredeploy.js.
 

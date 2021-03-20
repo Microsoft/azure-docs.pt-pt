@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 11/24/2020
 ms.custom: devx-track-js, devx-track-csharp
 ms.openlocfilehash: 25c87971455ed3c5f59c92748794720d61e599e3
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96339613"
 ---
 # <a name="add-autocomplete-and-suggestions-to-client-apps-using-azure-cognitive-search"></a>Adicionar autocompleto e sugestões a aplicativos de clientes usando Azure Cognitive Search
@@ -117,7 +117,7 @@ $(function () {
 });
 ```
 
-O `source` jQuery UI Autocomplete função onde obter a lista de itens para mostrar sob a caixa de pesquisa. Uma vez que este projeto é um projeto de MVC, chama a função **Sugerir** em **HomeController.cs** que contém a lógica para sugestões de consulta de retorno. Esta função também passa alguns parâmetros para controlar destaques, correspondências difusas e termo. A API JavaScript auto-completa adiciona o parâmetro do termo.
+O `source` jQuery UI Autocomplete função onde obter a lista de itens para mostrar sob a caixa de pesquisa. Uma vez que este projeto é um projeto MVC, chama a função **Sugerir** no **HomeController.cs** que contém a lógica para sugestões de consulta de retorno. Esta função também passa alguns parâmetros para controlar destaques, correspondências difusas e termo. A API JavaScript auto-completa adiciona o parâmetro do termo.
 
 As `minLength: 3` recomendações só serão apresentadas quando houver pelo menos três caracteres na caixa de pesquisa.
 
@@ -139,7 +139,7 @@ source: "/home/suggest?highlights=true&fuzzy=true&",
 
 ### <a name="suggest-function"></a>Sugerir função
 
-Se estiver a utilizar C# e uma aplicação MVC, **HomeController.cs** ficheiro no diretório dos Controladores é onde poderá criar uma classe para resultados sugeridos. Em .NET, a função Sugerir baseia-se no [método SuggestAsync](/dotnet/api/azure.search.documents.searchclient.suggestasync). Para obter mais informações sobre o .NET SDK, consulte [Como utilizar a Azure Cognitive Search a partir de uma aplicação .NET](search-howto-dotnet-sdk.md).
+Se estiver a utilizar C# e uma aplicação MVC, o ficheiro **HomeController.cs** sob o diretório de controladores é onde poderá criar uma classe para resultados sugeridos. Em .NET, a função Sugerir baseia-se no [método SuggestAsync](/dotnet/api/azure.search.documents.searchclient.suggestasync). Para obter mais informações sobre o .NET SDK, consulte [Como utilizar a Azure Cognitive Search a partir de uma aplicação .NET](search-howto-dotnet-sdk.md).
 
 O `InitSearch` método cria um cliente índice HTTP autenticado para o serviço de Pesquisa Cognitiva Azure. As propriedades na classe [Sugestoptions](/dotnet/api/azure.search.documents.suggestoptions) determinam quais os campos que são pesquisados e devolvidos nos resultados, o número de partidas e se é utilizada correspondência difusa. 
 
@@ -218,7 +218,7 @@ $(function () {
 
 ### <a name="autocomplete-function"></a>Função autocompleta
 
-O autocomplete baseia-se no [método AutocompleteAsync](/dotnet/api/azure.search.documents.searchclient.autocompleteasync). Tal como nas sugestões, este bloco de códigos entraria no **ficheiro HomeController.cs.**
+O autocomplete baseia-se no [método AutocompleteAsync](/dotnet/api/azure.search.documents.searchclient.autocompleteasync). Tal como nas sugestões, este bloco de código iria para o ficheiro **HomeController.cs.**
 
 ```csharp
 public async Task<ActionResult> AutoCompleteAsync(string term)

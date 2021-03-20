@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 090b7711ab061b989eae13113fe7048e8dd875ee
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97895194"
 ---
 # <a name="manage-your-cloudsimple-private-cloud-virtual-machines-in-azure"></a>Gerencie as suas máquinas virtuais CloudSimple Cloud em Azure
@@ -23,7 +23,7 @@ Para gerir as máquinas virtuais que [criou para a sua CloudSimple Private Cloud
 
 Os seguintes controlos estão disponíveis na página **'Vista Geral'** para a sua máquina virtual selecionada.
 
-| Controlo | Descrição |
+| Controlar | Description |
 | ------------ | ------------- |
 | Ligar | Ligue-se ao VM especificado.  |
 | Iniciar | Inicie o VM especificado.  |
@@ -74,7 +74,7 @@ Para alterar a capacidade do VM, abra a página **Tamanho** para o VM selecionad
 
 Para adicionar uma interface, clique em **Adicionar interface de rede**. Configure cada uma das seguintes definições introduzindo ou selecione uma opção inline. Clique em **Guardar**.
 
-   | Controlo | Descrição |
+   | Controlar | Descrição |
    | ------------ | ------------- |
    | Nome | Insira um nome para identificar a interface.  |
    | Rede | Selecione a partir da lista de redes configuradas na sua Nuvem Privada vSphere.  |
