@@ -1,5 +1,5 @@
 ---
-title: Esquemas de eventos — Azure Event Grid IoT Edge / Microsoft Docs
+title: Esquemas de eventos - Azure Event Grid IoT Edge | Microsoft Docs
 description: Esquemas de eventos em Grade de Eventos em IoT Edge.
 author: VidyaKukke
 manager: rajarv
@@ -8,10 +8,10 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: ea36c40f2038d016afb0c45944a98d4d90df6240
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86171572"
 ---
 # <a name="event-schemas"></a>Esquemas de eventos
@@ -55,12 +55,12 @@ Todos os eventos têm os seguintes dados de alto nível:
 | Propriedade | Tipo | Necessário | Descrição |
 | -------- | ---- | ----------- |-----------
 | tópico | cadeia (de carateres) | No | Deve coincidir com o tópico em que é publicado. O Event Grid povoa-o com o nome do tópico sobre o qual é publicado se não for especificado. |
-| Assunto | string | Sim | Caminho definido pelo publicador para o assunto do evento. |
-| eventType | string | Sim | Tipo de evento para esta fonte de evento, por exemplo, BlobCreated. |
-| eventTime | string | Sim | O tempo que o evento é gerado com base no tempo UTC do fornecedor. |
+| subject | string | Yes | Caminho definido pelo publicador para o assunto do evento. |
+| eventType | string | Yes | Tipo de evento para esta fonte de evento, por exemplo, BlobCreated. |
+| eventTime | string | Yes | O tempo que o evento é gerado com base no tempo UTC do fornecedor. |
 | ID | cadeia (de carateres) | No | Identificador único para o evento. |
-| dados | objeto | Não | Usado para capturar dados de eventos específicos da entidade editorial. |
-| dataVersion | string | Sim | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
+| dados | objeto | No | Usado para capturar dados de eventos específicos da entidade editorial. |
+| dataVersion | string | Yes | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
 | metadataVersion | cadeia (de carateres) | No | A versão do esquema dos metadados do evento. O Event Grid define o esquema das propriedades de nível superior. O Event Grid fornece este valor. |
 
 ### <a name="example--eventgrid-schema-event"></a>Exemplo — EventoGrid schema event

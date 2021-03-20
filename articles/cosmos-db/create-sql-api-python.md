@@ -14,13 +14,13 @@ ms.custom:
 - seo-python-october2019
 - devx-track-python
 ms.openlocfilehash: c74da5e612609ce6a0525b24e5868059f06da179
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93078786"
 ---
-# <a name="quickstart-build-a-python-application-using-an-azure-cosmos-db-sql-api-account"></a>Quickstart: Construa uma aplicação Python utilizando uma conta API API API AZure Cosmos DB SQL
+# <a name="quickstart-build-a-python-application-using-an-azure-cosmos-db-sql-api-account"></a>Quickstart: Construa uma aplicação Python utilizando uma conta API AZure Cosmos DB SQL
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
@@ -58,7 +58,7 @@ Neste quickstart, você cria e gere uma conta API API AZURE Cosmos DB SQL a part
 
 Pode agora utilizar a ferramenta Data Explorer no portal Azure para criar uma base de dados e um recipiente. 
 
-1. Selecione **data explorer**  >  **novo recipiente** . 
+1. Selecione **data explorer**  >  **novo recipiente**. 
     
     A área **do Recipiente Adicionar** é apresentada na extrema direita, pode ser necessário deslocar-se para a frente para o ver.
 
@@ -68,14 +68,14 @@ Pode agora utilizar a ferramenta Data Explorer no portal Azure para criar uma ba
 
     |Definição|Valor sugerido|Descrição
     |---|---|---|
-    |**ID da Base de Dados**|Tarefas|Designe a nova base de dados como *Tarefas* . Os nomes da base de dados devem conter de 1 a 255 caracteres, não podendo conter `/, \\, #, ?` , ou um espaço de fuga. Consulte a opção **de produção da base de dados Provision,** que lhe permite partilhar o produto que está previsto na base de dados em todos os contentores da base de dados. Esta opção também ajuda na poupança de custos. |
+    |**ID da Base de Dados**|Tarefas|Designe a nova base de dados como *Tarefas*. Os nomes da base de dados devem conter de 1 a 255 caracteres, não podendo conter `/, \\, #, ?` , ou um espaço de fuga. Consulte a opção **de produção da base de dados Provision,** que lhe permite partilhar o produto que está previsto na base de dados em todos os contentores da base de dados. Esta opção também ajuda na poupança de custos. |
     |**Débito**|400|Deixe a produção a 400 unidades de pedido por segundo (RU/s). Se pretender reduzir a latência, pode aumentar verticalmente o débito mais tarde.| 
     |**ID do Contentor**|Itens|*Insira os Itens* como o nome do seu novo recipiente. Os IDs dos contentores têm os mesmos requisitos em termos de carateres que os nomes das bases de dados.|
     |**Chave de partição**| /categoria| A amostra descrita neste artigo *utiliza/categoria* como chave de partição.|
     
     Além das definições anteriores, pode opcionalmente adicionar **teclas Únicas** para o recipiente. Vamos deixar o campo vazio neste exemplo. As chaves exclusivas oferecem aos programadores a capacidade de adicionar uma camada de integridade dos dados na base de dados. Ao criar uma política chave única ao criar um recipiente, garante a singularidade de um ou mais valores por chave de partição. Para saber mais, consulte o artigo [Chaves exclusivas no Azure Cosmos DB](unique-keys.md).
     
-    Selecione **OK** . O Data Explorer mostra a base de dados e o contentor novos.
+    Selecione **OK**. O Data Explorer mostra a base de dados e o contentor novos.
 
 ## <a name="add-sample-data"></a>Adicionar dados de exemplo
 
@@ -116,17 +116,17 @@ Agora vamos clonar uma aplicação API SQL a partir do GitHub, definir a cadeia 
 
 Agora, regresse ao portal do Azure para obter as informações da cadeia de ligação e copie-as para a aplicação.
 
-1. Na sua conta DB Azure Cosmos no [portal Azure,](https://portal.azure.com/)selecione **Keys** a partir da navegação à esquerda. Utilize os botões de cópia no lado direito do ecrã para copiar a **URI** e a **Chave Primária** no ficheiro *cosmos_get_started.py* no passo seguinte.
+1. Na sua conta DB Azure Cosmos no [portal Azure,](https://portal.azure.com/)selecione **Keys** a partir da navegação à esquerda. Utilize os botões de cópia no lado direito do ecrã para copiar a **URI** e a **Chave Primária** para o ficheiro *cosmos_get_started.py* no passo seguinte.
 
-    :::image type="content" source="./media/create-sql-api-dotnet/access-key-and-uri-in-keys-settings-in-the-azure-portal.png" alt-text="O Data Explorer no portal do Azure, painel Adicionar Contentor":::
+    :::image type="content" source="./media/create-sql-api-dotnet/access-key-and-uri-in-keys-settings-in-the-azure-portal.png" alt-text="Obtenha uma chave de acesso e URI nas definições de Chaves no portal Azure":::
 
 2. No Código do Estúdio Visual, abra o ficheiro *cosmos_get_started.py* em *\git-samples\azure-cosmos-db-python-start-start-start.*
 
-3. Copie o seu valor **URI** a partir do portal (utilizando o botão de cópia) e faça com que o valor da variável **ponto final** em *cosmos_get_started.py* . 
+3. Copie o seu valor **URI** a partir do portal (utilizando o botão de cópia) e faça com que o valor da variável **ponto final** em *cosmos_get_started.py*. 
 
     `endpoint = 'https://FILLME.documents.azure.com',`
 
-4. Em seguida, copie o seu valor **PRINCIPAL DO** portal e faça dele o valor da **chave** em *cosmos_get_started.py* . Atualizou agora a sua aplicação com todas as informações necessárias para comunicar com o Azure Cosmos DB. 
+4. Em seguida, copie o seu valor **PRINCIPAL do** portal e faça dele o valor da **chave** em *cosmos_get_started.py*. Atualizou agora a sua aplicação com todas as informações necessárias para comunicar com o Azure Cosmos DB. 
 
     `key = 'FILLME'`
 
@@ -164,7 +164,7 @@ Os seguintes cortes são todos retirados do ficheiro *cosmos_get_started.py.*
    
 ## <a name="run-the-app"></a>Executar a aplicação
 
-1. No Código do **View** Estúdio Visual, selecione  >  **'View Command Palette'.** 
+1. No Código do Estúdio Visual, selecione  >  **'View Command Palette'.** 
 
 2. Na linha de comandos, introduza **Python: Selecione o Interpretador** e, em seguida, selecione a versão do Python a utilizar.
 
@@ -172,7 +172,7 @@ Os seguintes cortes são todos retirados do ficheiro *cosmos_get_started.py.*
 
 3. Selecione **Ver**  >  **Terminal Integrado** para abrir o terminal integrado do Código do Estúdio Visual.
 
-4. Na janela do terminal integrado, certifique-se de que está na pasta *azure-cosmos-db-python-start-start-start-starter.* Caso contrário, execute o seguinte comando para mudar para a pasta de exemplo. 
+4. Na janela do terminal integrado, certifique-se de que está na pasta *azure-cosmos-db-python-start-starter.* Caso contrário, execute o seguinte comando para mudar para a pasta de exemplo. 
 
     ```cmd
     cd "\git-samples\azure-cosmos-db-python-getting-started"`
@@ -192,7 +192,7 @@ Os seguintes cortes são todos retirados do ficheiro *cosmos_get_started.py.*
     python cosmos_get_started.py
     ```
 
-7. Para confirmar que os novos itens foram criados e guardados, no portal Azure, selecione **Data Explorer**  >  **AzureSampleFamilyDatabase**  >  **Itens** . Veja os itens que foram criados. Por exemplo, aqui está uma amostra do documento JSON para a família Andersen:
+7. Para confirmar que os novos itens foram criados e guardados, no portal Azure, selecione **Data Explorer**  >  **AzureSampleFamilyDatabase**  >  **Itens**. Veja os itens que foram criados. Por exemplo, aqui está uma amostra do documento JSON para a família Andersen:
    
    ```json
    {
@@ -228,7 +228,7 @@ Os seguintes cortes são todos retirados do ficheiro *cosmos_get_started.py.*
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 

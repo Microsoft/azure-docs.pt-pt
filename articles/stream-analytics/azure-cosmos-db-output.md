@@ -7,10 +7,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
 ms.openlocfilehash: 9382ac8dc71d1ccb3a85dc0a7a027c8e99296cc6
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98016582"
 ---
 # <a name="azure-cosmos-db-output-from-azure-stream-analytics"></a>Saída DB do Azure Cosmos da Azure Stream Analytics
@@ -25,7 +25,7 @@ A produção de DB Azure Cosmos da Stream Analytics não está atualmente dispon
 
 A tabela seguinte descreve as propriedades para criar uma saída DB Azure Cosmos.
 
-| Nome da propriedade | Descrição |
+| Nome da propriedade | Description |
 | --- | --- |
 | Alias de saída | Um pseudónimo para remeter esta saída na sua consulta Stream Analytics. |
 | Sink | Azure Cosmos DB. |
@@ -44,7 +44,7 @@ A chave de partição baseia-se na cláusula PARTITION BY na consulta. O número
 
 Para obter o tamanho máximo da mensagem, consulte [os limites de DB Azure Cosmos](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-cosmos-db-limits). O tamanho do lote e a frequência de escrita são ajustados dinamicamente com base nas respostas DB do Azure Cosmos. Não existem limitações pré-determinadas da Stream Analytics.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Início Rápido: Criar uma tarefa do Stream Analytics com o portal do Azure](stream-analytics-quick-create-portal.md)
 * [Quickstart: Criar um trabalho Azure Stream Analytics utilizando o Azure CLI](quick-create-azure-cli.md)

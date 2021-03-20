@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/6/2019
 ms.openlocfilehash: 377f8eba179253ca6187b10a22970d0eadcda2f6
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92489834"
 ---
 # <a name="create-and-manage-vnet-service-endpoints-and-vnet-rules-in-azure-database-for-postgresql---single-server-by-using-the-azure-portal"></a>Criar e gerir os pontos finais do serviço VNet e as regras VNet na Base de Dados Azure para PostgreSQL - Servidor Único utilizando o portal Azure
@@ -34,9 +34,15 @@ Os pontos finais e regras dos serviços da Rede Virtual (VNet) estendem o espaç
 
    :::image type="content" source="./media/howto-manage-vnet-using-portal/1-connection-security.png" alt-text="Portal Azure - clique na segurança de conexão":::
 
-4. Introduza um nome de regra VNet, selecione a subscrição, o nome da rede virtual e sub-rede e, em seguida, clique em **Enable**. Isto ativa automaticamente os pontos finais do serviço VNet na sub-rede utilizando a etiqueta de serviço **Microsoft.SQL.**
+4. Introduza um nome de regra VNet, selecione a subscrição, o nome da rede virtual e sub-rede e, em seguida, clique em **Enable**. Isto ativa automaticamente os pontos finais do serviço VNet na sub-rede utilizando a etiqueta de serviço **.SQL Microsoft.**
 
-   :::image type="content" source="./media/howto-manage-vnet-using-portal/2-configure-vnet.png" alt-text="Portal Azure - clique na segurança de conexão" para a adição das sub-redes. Esta permissão está incluída por predefinição nas funções incorporadas de administrador de serviço e podem ser modificadas mediante a criação de funções personalizadas.
+   :::image type="content" source="./media/howto-manage-vnet-using-portal/2-configure-vnet.png" alt-text="Portal Azure - configurar vNet":::
+
+    A conta deve ter as permissões necessárias para criar uma rede virtual e o ponto final de serviço.
+
+    Os pontos finais de serviço podem ser configurados em redes virtuais de forma independente, por um utilizador com acesso por escrito à rede virtual.
+    
+    Para garantir os recursos de serviço da Azure a um VNet, o utilizador deve ter permissão para "Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/" para a adição das sub-redes. Esta permissão está incluída por predefinição nas funções incorporadas de administrador de serviço e podem ser modificadas mediante a criação de funções personalizadas.
     
     Saiba mais sobre [funções incorporadas](../role-based-access-control/built-in-roles.md) e a atribuição de permissões específicas a [funções personalizadas](../role-based-access-control/custom-roles.md).
     
@@ -48,7 +54,7 @@ Os pontos finais e regras dos serviços da Rede Virtual (VNet) estendem o espaç
 
 5. Uma vez ativados, clique em **OK** e verá que os pontos finais do serviço VNet estão ativados juntamente com uma regra VNet.
 
-   :::image type="content" source="./media/howto-manage-vnet-using-portal/3-vnet-service-endpoints-enabled-vnet-rule-created.png" alt-text="Portal Azure - clique na segurança de conexão":::
+   :::image type="content" source="./media/howto-manage-vnet-using-portal/3-vnet-service-endpoints-enabled-vnet-rule-created.png" alt-text="Pontos finais de serviço VNet ativados e regra VNet criada":::
 
 ## <a name="next-steps"></a>Passos seguintes
 - Da mesma forma, pode escrever para [ativar pontos finais de serviço VNet e criar uma regra VNET para Azure Database for PostgreSQL usando Azure CLI](howto-manage-vnet-using-cli.md).

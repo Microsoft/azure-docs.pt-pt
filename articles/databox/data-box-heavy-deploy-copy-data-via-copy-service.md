@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
 ms.openlocfilehash: 601e5cf15c47b16c53ff9ca81a56cb613bcfc3f5
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96006564"
 ---
 # <a name="tutorial-use-the-data-copy-service-to-copy-data-into-azure-data-box-heavy-preview"></a>Tutorial: Utilize o serviço de cópia de dados para copiar dados em Azure Data Box Heavy (pré-visualização)
@@ -24,7 +24,7 @@ Utilize o serviço de cópia de dados:
 - Em ambientes NAS onde hospedeiros intermédios podem não estar disponíveis.
 - Com pequenos ficheiros que demoram semanas para ingestão e upload de dados. O serviço de cópia de dados melhora significativamente o tempo de ingestão e upload para pequenos ficheiros.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Copiar dados para o Data Box Heavy
@@ -58,7 +58,7 @@ Para copiar dados utilizando o serviço de cópia de dados, é necessário criar
     |Campo                          |Valor    |
     |-------------------------------|---------|
     |**Nome da tarefa**                       |Um nome único com menos de 230 caracteres para o trabalho. Estes caracteres não são permitidos no nome do trabalho: \<, \> , , , , , , \| \? \* \\ \: \/ e \\\.         |
-    |**Localização da fonte**                |Fornecer o caminho SMB para a fonte de dados no formato: `\\<ServerIPAddress>\<ShareName>` ou `\\<ServerName>\<ShareName>` .        |
+    |**Localização da origem**                |Fornecer o caminho SMB para a fonte de dados no formato: `\\<ServerIPAddress>\<ShareName>` ou `\\<ServerName>\<ShareName>` .        |
     |**Nome de Utilizador**                       |Nome de utilizador em `\\<DomainName><UserName>` formato para aceder à fonte de dados. Se um administrador local estiver a ligar-se, precisarão de permissões explícitas de segurança. Clique com o botão direito na pasta, selecione **Propriedades** e, em seguida, selecione **Security**. Isto deve adicionar o administrador local no separador **Segurança.**       |
     |**Palavra-passe**                       |Senha para aceder à fonte de dados.           |
     |**Conta de armazenamento de destino**    |Selecione a conta de armazenamento alvo para carregar os dados para a lista.         |

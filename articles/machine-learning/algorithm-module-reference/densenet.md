@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 09/26/2020
 ms.openlocfilehash: d21c7443f6b30d0b7d6e8295c0c9b060a80d9a62
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93421333"
 ---
 # <a name="densenet"></a>DenseNet
@@ -35,9 +35,9 @@ Para obter mais informações sobre a DenseNet, consulte o artigo de investigaç
 
 1.  Adicione o módulo **DenseNet** ao seu oleoduto no designer.  
 
-2.  Para **o nome do modelo** , especifique o nome de uma determinada estrutura DenseNet e pode selecionar a partir de DenseNet suportado: 'densenet121', 'densenet161', 'densenet169', 'densenet201'.
+2.  Para **o nome do modelo**, especifique o nome de uma determinada estrutura DenseNet e pode selecionar a partir de DenseNet suportado: 'densenet121', 'densenet161', 'densenet169', 'densenet201'.
 
-3.  Para **pré-treinado** , especifique se deve utilizar um modelo pré-treinado no ImageNet. Se selecionado, pode afinar o modelo com base no modelo pré-treinado selecionado; se desescolhido, pode treinar do zero.
+3.  Para **pré-treinado**, especifique se deve utilizar um modelo pré-treinado no ImageNet. Se selecionado, pode afinar o modelo com base no modelo pré-treinado selecionado; se desescolhido, pode treinar do zero.
 
 4.  Para **a memória eficiente,** especifique se deve utilizar o checkpointing, que é muito mais eficiente em termos de memória, mas mais lento. Para obter mais informações, consulte o trabalho de investigação, [Implementação eficiente da memória das Densanets.](https://arxiv.org/pdf/1707.06990.pdf)
 

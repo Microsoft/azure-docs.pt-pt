@@ -7,10 +7,10 @@ ms.service: media-services
 ms.topic: article
 ms.date: 04/24/2020
 ms.openlocfilehash: 584748b23f526e6f03b543b8298927e3f202f743
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "82139306"
 ---
 # <a name="azure-media-player-demos"></a>Demonstrações do Leitor de Multimédia do Azure
@@ -19,7 +19,7 @@ Segue-se uma lista de links para demos do Azure Media Player. Você pode baixar 
 
 ## <a name="demo-listing"></a>Listagem de demonstração
 
-| Nome da amostra | Programático via JavaScript | Estático via elemento de vídeo HTML5 | Descrição |
+| Nome da amostra | Programático via JavaScript | Estático via elemento de vídeo HTML5 | Description |
 | ------------|----------------------------|-------------------------------------|--------------|
 | Básico |
 | Definir Origem | [Dinâmico](https://amp.azure.net/libs/amp/latest/samples/dynamic_setsource.html) | [Estático](https://amp.azure.net/libs/amp/latest/samples/videotag_setsource.html) |Reproduzir conteúdo desprotegido.|

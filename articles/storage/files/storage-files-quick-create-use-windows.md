@@ -8,10 +8,10 @@ ms.date: 02/01/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 4c5629f80c37c9f79dc9a39c4d8304acbee9679d
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92489579"
 ---
 # <a name="quickstart-create-and-manage-azure-files-share-with-windows-virtual-machines"></a>Quickstart: Criar e gerir ficheiros Azure partilhar com máquinas virtuais do Windows
@@ -56,7 +56,7 @@ Depois, crie uma partilha de ficheiros.
 
     ![Carregar um ficheiro](./media/storage-files-quick-create-use-windows/create-file-share-portal5.png)
 
-1. Navegue no local onde criou o seu ficheiro .txt > selecionar *qsTestFile.txt* > selecione **Upload**.
+1. Navegue no local onde criou o seu ficheiro .txt > selecione *qsTestFile.txt* > selecione **Upload**.
 
 Até agora, criou uma conta de armazenamento Azure e uma partilha de ficheiros com um ficheiro no Azure. Em seguida, irá criar o Azure VM com o Windows Server 2016 Datacenter para representar o servidor no local neste arranque rápido.
 
@@ -68,7 +68,7 @@ Até agora, criou uma conta de armazenamento Azure e uma partilha de ficheiros c
 
    ![Introduza as informações básicas sobre a VM no painel do portal](./media/storage-files-quick-create-use-windows/vm-resource-group-and-subscription.png)
 
-1. Em **exemplo, os detalhes**, nomeie o *QM qsVM*V .
+1. Em **exemplo, os detalhes**, nomeie o *QM qsVM* V .
 1. Mantenha as predefinições para **Região**, **Opções de disponibilidade**, **Imagem** e **Tamanho**.
 1. Na **conta de Administrador**, adicione *VMadmin* como **nome de utilizador** e introduza uma **palavra-passe** para o VM.
 1. Em **Regras da porta de entrada**, selecione **Permitir portas selecionadas** e, em seguida, selecione **RDP (3389)** e **HTTP** na lista pendente.
@@ -101,7 +101,7 @@ Nesta fase, já criou uma máquina virtual nova e anexou um disco de dados. Agor
    ![Screenshot que mostra o conteúdo da caixa de segundos que deve copiar e colar no Bloco de Notas.](./media/storage-files-quick-create-use-windows/portal_netuse_connect2.png)
 
 1. No VM, abra o **File Explorer** e selecione **Este PC** na janela. Esta seleção altera os menus disponíveis na fita. No menu **Computador,** selecione **a unidade de rede do mapa.**
-1. Selecione a letra de unidade e introduza o caminho UNC. Se tiver seguido as sugestões de nomeação neste arranque rápido, copie * \\ qsstorageacct.file.core.windows.net\qsfileshare* do **Notepad**.
+1. Selecione a letra de unidade e introduza o caminho UNC. Se seguiu as sugestões de nomeação neste arranque rápido, copie *\\ qsstorageacct.file.core.windows.net\qsfileshare* do **Notepad**.
 
    Certifique-se de que ambas as caixas de verificação estão verificadas.
 
@@ -137,7 +137,7 @@ Agora que mapeou a unidade, pode criar uma foto.
 
 ## <a name="restore-from-a-snapshot"></a>Restaurar a partir de um instantâneo
 
-1. A partir da lâmina de instantâneo de partilha de ficheiro, clique com o botão *qsTestFile*e selecione o botão **Restaurar.**
+1. A partir da lâmina de instantâneo de partilha de ficheiro, clique com o botão *qsTestFile* e selecione o botão **Restaurar.**
 1. Selecione **Overwrite original file**.
 
    ![Botões de descarregamento e restauro](./media/storage-files-quick-create-use-windows/snapshot-download-restore-portal.png)

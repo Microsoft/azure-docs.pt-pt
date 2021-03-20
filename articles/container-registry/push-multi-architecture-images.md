@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 02/07/2021
 ms.custom: ''
 ms.openlocfilehash: f8467cd3108ae4faea9ecb4c9d9ae339f476c311
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100012340"
 ---
 # <a name="multi-architecture-images-in-your-azure-container-registry"></a>Imagens multi-arquitetura no seu registo de contentores Azure

@@ -1,13 +1,13 @@
 ---
-title: Criar horários para laboratórios nos Serviços Azure Lab Microsoft Docs
+title: Criar horários para laboratórios em Azure Lab Services | Microsoft Docs
 description: Aprenda a criar horários para laboratórios em Azure Lab Services para que os VMs nos laboratórios comecem e desliguem num momento especificado.
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 2a827c3d9f3022cb7d27ee43c9c95227c44f97e7
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96434030"
 ---
 # <a name="create-and-manage-schedules-for-labs-in-azure-lab-services"></a>Criar e gerir horários para laboratórios em Serviços Azure Lab 

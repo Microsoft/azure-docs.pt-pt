@@ -1,5 +1,5 @@
 ---
-title: Inscreva-se na sua organização - Azure Ative Directory / Microsoft Docs
+title: Inscreva-se na sua organização - Azure Ative Directory | Microsoft Docs
 description: Instruções sobre como inscrever a sua organização para usar o Diretório Ativo Azure e Azure.
 services: active-directory
 author: ajburnle
@@ -14,10 +14,10 @@ ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9cc6f0a6325aabae18460d696c2c1b1b2c8f7f74
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89568851"
 ---
 # <a name="sign-up-your-organization-to-use-azure-active-directory"></a>Inscreva-se na sua organização para utilizar o Azure Ative Directory

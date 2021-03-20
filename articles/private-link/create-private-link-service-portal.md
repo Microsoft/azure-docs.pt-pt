@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 01/18/2021
 ms.author: allensu
 ms.openlocfilehash: d394a475c5121607f70c03437382e104a5d0cbee
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98746412"
 ---
 # <a name="quickstart-create-a-private-link-service-by-using-the-azure-portal"></a>Quickstart: Criar um serviço de ligação privada utilizando o portal Azure

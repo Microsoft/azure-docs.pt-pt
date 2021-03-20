@@ -1,5 +1,5 @@
 ---
-title: Criar um Hub Azure IoT usando um modelo (.NET) / Microsoft Docs
+title: Crie um Hub Azure IoT utilizando um modelo (.NET) | Microsoft Docs
 description: Como utilizar um modelo de Gestor de Recursos Azure para criar um Hub IoT com um programa C#.
 author: robinsh
 manager: philmea
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 08/08/2017
 ms.custom: devx-track-csharp
 ms.openlocfilehash: db4b676e65d36a9476fd72b66cc8ccfa38af4d85
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92144493"
 ---
 # <a name="create-an-iot-hub-using-azure-resource-manager-template-net"></a>Crie um hub IoT utilizando o modelo de Gestor de Recursos Azure (.NET)
@@ -43,11 +43,11 @@ Para concluir este tutorial, precisa do seguinte:
 
 2. No Solution Explorer, clique com o botão direito no seu projeto e, em seguida, clique em **Gerir Pacotes NuGet**.
 
-3. No NuGet Package Manager, consulte **incluir pré-relançação,** e na pesquisa de página **Browse** para **Microsoft.Azure.Management.ResourceManager**. Selecione o pacote, clique em **Instalar,** em **Alterações de Revisão** clique em **OK**e clique em **I Accept** to accept the licenses.
+3. No NuGet Package Manager, consulte **incluir pré-relançação,** e na pesquisa de página **Browse** para **Microsoft.Azure.Management.ResourceManager**. Selecione o pacote, clique em **Instalar,** em **Alterações de Revisão** clique em **OK** e clique em **I Accept** to accept the licenses.
 
-4. No NuGet Package Manager, procure **microsoft.IdentityModel.Clients.ActiveDirectory**.  Clique em **Instalar**, em **Alterações de Revisão** clique **EM OK**e clique em **I Accept** to accept the license.
+4. No NuGet Package Manager, procure **microsoft.IdentityModel.Clients.ActiveDirectory**.  Clique em **Instalar**, em **Alterações de Revisão** clique **EM OK** e clique em **I Accept** to accept the license.
 
-5. Em Program.cs, substitua as declarações **existentes com** o seguinte código:
+5. No Programa.cs, substitua as declarações **existentes com** o seguinte código:
 
     ```csharp
     using System;
@@ -57,7 +57,7 @@ Para concluir este tutorial, precisa do seguinte:
     using Microsoft.Rest;
     ```
 
-6. Em Program.cs, adicione as seguintes variáveis estáticas substituindo os valores do espaço reservado. Fez uma nota de **ApplicationId,** **SubscriptionId,** **TenantId**e **Password** no início deste tutorial. **O nome da sua conta Azure Storage** é o nome da conta Azure Storage onde armazena os seus ficheiros de modelo de Gestor de Recursos Azure. **O nome** do grupo de recursos é o nome do grupo de recursos que utiliza quando cria o hub IoT. O nome pode ser um grupo de recursos pré-existente ou novo. **O nome de implantação** é um nome para a implantação, como **Deployment_01**.
+6. No Programa.cs, adicione as seguintes variáveis estáticas substituindo os valores do espaço reservado. Fez uma nota de **ApplicationId,** **SubscriptionId,** **TenantId** e **Password** no início deste tutorial. **O nome da sua conta Azure Storage** é o nome da conta Azure Storage onde armazena os seus ficheiros de modelo de Gestor de Recursos Azure. **O nome** do grupo de recursos é o nome do grupo de recursos que utiliza quando cria o hub IoT. O nome pode ser um grupo de recursos pré-existente ou novo. **O nome de implantação** é um nome para a implantação, como **Deployment_01**.
 
     ```csharp
     static string applicationId = "{Your ApplicationId}";
@@ -75,7 +75,7 @@ Para concluir este tutorial, precisa do seguinte:
 
 Utilize um modelo JSON e um ficheiro de parâmetros para criar um hub IoT no seu grupo de recursos. Também pode utilizar um modelo de Gestor de Recursos Azure para fazer alterações num hub IoT existente.
 
-1. No Solution Explorer, clique com o botão direito no seu projeto, clique em **Adicionar**e, em seguida, clique em **Novo Item**. Adicione um ficheiro JSON chamado **template.jsao** seu projeto.
+1. No Solution Explorer, clique com o botão direito no seu projeto, clique em **Adicionar** e, em seguida, clique em **Novo Item**. Adicione um ficheiro JSON chamado **template.jsao** seu projeto.
 
 2. Para adicionar um hub IoT padrão à região **leste dos EUA,** substitua o conteúdo de **template.js** pela seguinte definição de recursos. Para a lista atual de regiões que suportam o IoT Hub ver [Estado de Azure:][lnk-status]
 
@@ -113,7 +113,7 @@ Utilize um modelo JSON e um ficheiro de parâmetros para criar um hub IoT no seu
     }
     ```
 
-3. No Solution Explorer, clique com o botão direito no seu projeto, clique em **Adicionar**e, em seguida, clique em **Novo Item**. Adicione um ficheiro JSON chamado **parameters.jsao** seu projeto.
+3. No Solution Explorer, clique com o botão direito no seu projeto, clique em **Adicionar** e, em seguida, clique em **Novo Item**. Adicione um ficheiro JSON chamado **parameters.jsao** seu projeto.
 
 4. Substitua o conteúdo de **parameters.js** por uma informação de parâmetro que define um nome para o novo hub IoT, tal como **{your initials}mynewiothub**. O nome do hub IoT deve ser globalmente único, por isso deve incluir o seu nome ou iniciais:
 
@@ -130,13 +130,13 @@ Utilize um modelo JSON e um ficheiro de parâmetros para criar um hub IoT no seu
 
 5. No **Server Explorer,** ligue-se à sua subscrição Azure e na sua conta de Armazenamento Azure crie um recipiente chamado **modelos**. No painel **Propriedades,** deite as permissões **de Acesso ao Público** para o recipiente de **modelos** para **Blob**.
 
-6. No **Server Explorer,** clique com o botão direito no recipiente dos **modelos** e, em seguida, clique **em Ver Ver Blob Container**. Clique no botão **'Carregar Blob',** selecione os dois ficheiros, **parameters.js** e **templates.js**ligados e, em seguida, clique em **Abrir** para carregar os ficheiros JSON para o recipiente de **modelos.** Os URLs das bolhas que contêm os dados JSON são:
+6. No **Server Explorer,** clique com o botão direito no recipiente dos **modelos** e, em seguida, clique **em Ver Ver Blob Container**. Clique no botão **'Carregar Blob',** selecione os dois ficheiros, **parameters.js** e **templates.js** ligados e, em seguida, clique em **Abrir** para carregar os ficheiros JSON para o recipiente de **modelos.** Os URLs das bolhas que contêm os dados JSON são:
 
     ```csharp
     https://{Your storage account name}.blob.core.windows.net/templates/parameters.json
     https://{Your storage account name}.blob.core.windows.net/templates/template.json
     ```
-7. Adicione o seguinte método à Program.cs:
+7. Adicione o seguinte método ao Programa.cs:
 
     ```csharp
     static void CreateIoTHub(ResourceManagementClient client)

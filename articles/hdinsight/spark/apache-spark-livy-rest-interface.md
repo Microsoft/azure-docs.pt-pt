@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 02/28/2020
 ms.openlocfilehash: ff63f4fbadd7cb9e7584e2aa045583a35e0363fd
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98930117"
 ---
 # <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>Utilizar a API REST do Apache Spark para submeter trabalhos remotos para um cluster do HDInsight Spark
@@ -206,7 +206,7 @@ HdInsight 3.5 clusters e acima, por padrão, desativar a utilização de caminho
 
 Se ligar a um cluster HDInsight Spark dentro de uma Rede Virtual Azure, pode ligar-se diretamente à Livy no cluster. Neste caso, o URL para livy endpoint é `http://<IP address of the headnode>:8998/batches` . Aqui, **8998** é o porto onde Livy corre no cabeçado do cluster. Para obter mais informações sobre o acesso a serviços em portos não públicos, consulte [os portos utilizados pelos serviços Apache Hadoop em HDInsight.](../hdinsight-hadoop-port-settings-for-services.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Documentação da API Apache Livy REST](https://livy.incubator.apache.org/docs/latest/rest-api.html)
 * [Gerir recursos para o cluster do Apache Spark no Azure HDInsight](apache-spark-resource-manager.md)

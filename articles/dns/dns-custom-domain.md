@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 7/13/2019
 ms.author: rohink
 ms.openlocfilehash: 4d8af5815e544698ab833001e5ce6d0f4a30a264
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92487403"
 ---
 # <a name="use-azure-dns-to-provide-custom-domain-settings-for-an-azure-service"></a>Utilize o Azure DNS para fornecer definições de domínio personalizadas para um serviço Azure
@@ -46,7 +46,7 @@ Navegue para a sua Zona DNS e clique **em + Conjunto de registos.** Preencha as 
 |Unidade de TTL     | Horas        | As horas são usadas como a medição do tempo         |
 |Alias     | adatumfunction.azurewebsites.net        | O nome DNS que está a criar é para, neste exemplo, o nome adatumfunction.azurewebsites.net DNS fornecido por padrão à aplicação de função.        |
 
-Volte para a sua aplicação de função, clique nas **funcionalidades da Plataforma**e em **Rede** clique em **domínios personalizados**, em seguida, em **Hostnames personalizados** clique **+ Adicionar nome de anfitrião**.
+Volte para a sua aplicação de função, clique nas **funcionalidades da Plataforma** e em **Rede** clique em **domínios personalizados**, em seguida, em **Hostnames personalizados** clique **+ Adicionar nome de anfitrião**.
 
 Na lâmina **de nome de anfitrião** Adicionar, introduza o registo CNAME no campo de texto do **nome anfitrião** e clique em **Validar**. Se o registo for encontrado, aparece o botão **addname.** Clique **em Adicionar nome de anfitrião** para adicionar o pseudónimo.
 
@@ -56,7 +56,7 @@ Na lâmina **de nome de anfitrião** Adicionar, introduza o registo CNAME no cam
 
 Para configurar um domínio personalizado para serviços que utilizem um recurso de endereço IP público, como Application Gateway, Load Balancer, Cloud Service, Resource Manager VMs e, Classic VMs, é utilizado um registo A.
 
-Navegue para o endereço IP público **em rede,**  >  **Public IP address**selecione o recurso IP público e clique em **Configuração**. Notiem o endereço IP mostrado.
+Navegue para o endereço IP público **em rede,**  >  selecione o recurso IP público e clique em **Configuração**. Notiem o endereço IP mostrado.
 
 ![lâmina ip público](./media/dns-custom-domain/publicip.png)
 
@@ -101,7 +101,7 @@ Navegue para a sua Zona DNS e clique **em + Conjunto de registos.** Preencha as 
 
 ![criar um registo CNAME](./media/dns-custom-domain/createcnamerecord.png)
 
-Volte para o serviço de aplicações configurado para o nome de domínio personalizado. Clique **em domínios personalizados**e, em seguida, clique em **Hostnames**. Para adicionar o registo CNAME que criou, clique **em + Adicione o nome de anfitrião**.
+Volte para o serviço de aplicações configurado para o nome de domínio personalizado. Clique **em domínios personalizados** e, em seguida, clique em **Hostnames**. Para adicionar o registo CNAME que criou, clique **em + Adicione o nome de anfitrião**.
 
 ![Screenshot que realça o botão + Adicionar nome de anfitrião.](./media/dns-custom-domain/figure1.png)
 
@@ -119,7 +119,7 @@ Se precisar de adquirir um domínio personalizado, visite [Compre um nome de dom
 
 Os seguintes passos levam-no através da configuração de um registo CNAME para uma conta de armazenamento de bolhas utilizando o método de asverificar. Este método garante que não há tempo de inatividade.
 
-Navegue **Storage**para  >  **contas de armazenamento,** selecione a sua conta de armazenamento e clique no domínio **personalizado**. Notate o FQDN no passo 2, este valor é usado para criar o primeiro recorde CNAME
+Navegue para  >  **contas de armazenamento,** selecione a sua conta de armazenamento e clique no domínio **personalizado**. Notate o FQDN no passo 2, este valor é usado para criar o primeiro recorde CNAME
 
 ![domínio personalizado de armazenamento de blob](./media/dns-custom-domain/blobcustomdomain.png)
 
@@ -134,7 +134,7 @@ Navegue para a sua Zona DNS e clique **em + Conjunto de registos.** Preencha as 
 |Unidade de TTL     | Horas        | As horas são usadas como a medição do tempo         |
 |Alias     | asverify.adatumfunctiona9ed.blob.core.windows.net        | O nome DNS que está a criar é para, neste exemplo, o nome dns asverify.adatumfunctiona9ed.blob.core.windows.net fornecido por padrão na conta de armazenamento.        |
 
-Volte para a sua conta **Storage**de armazenamento clicando em  >  **Contas de Armazenamento,** selecione a sua conta de armazenamento e clique no domínio **personalizado.** Digite o pseudónimo que criou sem o prefixo de asverificar na caixa de texto, verifique **a validação indireta do CNAME**e clique em **Guardar**. Uma vez concluído este passo, volte à sua zona de DNS e crie um registo CNAME sem o prefixo de asverificar.  Depois desse ponto, é seguro apagar o registo CNAME com o prefixo cdnver.
+Volte para a sua conta de armazenamento clicando em  >  **Contas de Armazenamento,** selecione a sua conta de armazenamento e clique no domínio **personalizado.** Digite o pseudónimo que criou sem o prefixo de asverificar na caixa de texto, verifique **a validação indireta do CNAME** e clique em **Guardar**. Uma vez concluído este passo, volte à sua zona de DNS e crie um registo CNAME sem o prefixo de asverificar.  Depois desse ponto, é seguro apagar o registo CNAME com o prefixo cdnver.
 
 ![Screenshot que mostra a página de Domínio Personalizado.](./media/dns-custom-domain/indirectvalidate.png)
 
@@ -162,7 +162,7 @@ Navegue para a sua Zona DNS e clique **em + Conjunto de registos.** Preencha as 
 |Unidade de TTL     | Horas        | As horas são usadas como a medição do tempo         |
 |Alias     | cdnverify.adatumcdnendpoint.azureedge.net        | O nome DNS que está a criar é para, neste exemplo, o nome dns cdnverify.adatumcdnendpoint.azureedge.net fornecido por padrão na conta de armazenamento.        |
 
-Volte a navegar para o seu ponto final cdn clicando em Perfis CDN **de rede**e  >  **CDN Profiles**selecione o seu perfil CDN. Clique **+ Domínio personalizado** e introduza o seu pseudónimo de registo CNAME sem o prefixo cdnver e clique em **Adicionar**.
+Volte a navegar para o seu ponto final cdn clicando em Perfis CDN **de rede** e  >  selecione o seu perfil CDN. Clique **+ Domínio personalizado** e introduza o seu pseudónimo de registo CNAME sem o prefixo cdnver e clique em **Adicionar**.
 
 Uma vez concluído este passo, volte à sua zona de DNS e crie um registo CNAME sem o prefixo cdnver.  Depois desse ponto, é seguro apagar o registo CNAME com o prefixo cdnver. Para obter mais informações sobre a CDN e como configurar um domínio personalizado sem a etapa de registo intermédio visite o [conteúdo do Map Azure CDN para um domínio personalizado.](../cdn/cdn-map-content-to-custom-domain.md?toc=%dns%2ftoc.json)
 

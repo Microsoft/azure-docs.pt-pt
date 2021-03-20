@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com a Forma como fazemos Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com a Forma como fazemos | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Way We Do.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 06/20/2019
 ms.author: jeedes
 ms.openlocfilehash: 0205617198ec8e57cb891d2415d2b5413a945f1b
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97608940"
 ---
 # <a name="tutorial-integrate-way-we-do-with-azure-active-directory"></a>Tutorial: Integrar a forma de fazer com o Diretório Ativo Azure

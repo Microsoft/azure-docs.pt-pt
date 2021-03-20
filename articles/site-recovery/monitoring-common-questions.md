@@ -9,10 +9,10 @@ ms.date: 07/31/2019
 ms.topic: conceptual
 ms.author: raynew
 ms.openlocfilehash: 66ce267581d4748ea51a3dcbd7caa61907115cc1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "82131149"
 ---
 # <a name="common-questions-about-site-recovery-monitoring"></a>Questões comuns sobre monitorização da recuperação do local
@@ -62,7 +62,7 @@ Apenas as máquinas para as quais a replicação inicial foi concluída estão i
 
 ### <a name="how-long-is-data-kept-in-azure-monitor-logs"></a>Quanto tempo os dados são mantidos nos registos do Azure Monitor? 
 
-Por predefinição, a retenção é de 31 dias. Pode aumentar o período na secção **De Utilização e Custo Estimado** no espaço de trabalho Log Analytics. Clique em **Retenção de Dados**e escolha o intervalo.
+Por predefinição, a retenção é de 31 dias. Pode aumentar o período na secção **De Utilização e Custo Estimado** no espaço de trabalho Log Analytics. Clique em **Retenção de Dados** e escolha o intervalo.
 
 ### <a name="whats-the-size-of-the-resource-logs"></a>Qual é o tamanho dos registos de recursos? 
 

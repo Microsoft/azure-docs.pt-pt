@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: app-service
 author: ggailey777
 ms.service: app-service
@@ -9,17 +9,17 @@ ms.date: 06/26/2020
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: e208b52c67f173bd0d289715b63562df656b1ec9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88009798"
 ---
 1. No **Explorador de Soluções**, clique com o botão direito do rato no projeto e selecione **Publicar**.
 
-1. Na caixa de diálogo **publicar,** selecione **Azure** for **Target**e, em seguida, selecione **Seguinte**. 
+1. Na caixa de diálogo **publicar,** selecione **Azure** for **Target** e, em seguida, selecione **Seguinte**. 
 
-1. Selecione **Azure WebJobs** para **alvo específico**e, em seguida, selecione **Next**.
+1. Selecione **Azure WebJobs** para **alvo específico** e, em seguida, selecione **Next**.
 
 1. Selecione **Criar um novo Azure WebJob**.
 

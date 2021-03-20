@@ -4,10 +4,10 @@ description: Saiba como pode utilizar a Caixa de Dados do Azure para semear dado
 ms.topic: conceptual
 ms.date: 1/27/2020
 ms.openlocfilehash: e789b6c9f4ff2e8cd168e6b5c138d423911d4743
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96752588"
 ---
 # <a name="azure-backup-offline-backup-by-using-azure-data-box"></a>Backup Azure backup offline usando Azure Data Box
@@ -281,10 +281,10 @@ Faça o sômis no PowerShell que aparece no UI MAB utilizando uma conta diferent
 
 #### <a name="step-2-of-workaround"></a>Passo 2 da solução alternativa
 
-Se nenhum outro servidor tiver sementeira offline configurada e nenhum outro servidor depender da `AzureOfflineBackup_<Azure User Id>` aplicação, elimine esta aplicação. Selecione **registos** de aplicações do portal  >  **Azure Ative Directory**  >  **App registrations**.
+Se nenhum outro servidor tiver sementeira offline configurada e nenhum outro servidor depender da `AzureOfflineBackup_<Azure User Id>` aplicação, elimine esta aplicação. Selecione **registos** de aplicações do portal  >  **Azure Ative Directory**  >  .
 
 >[!NOTE]
-> Verifique se a `AzureOfflineBackup_<Azure User Id>` aplicação não tem nenhuma outra semente offline configurada e também se nenhum outro servidor depende desta aplicação. Aceda às **teclas de definições**  >  **Keys** na secção **Chaves Públicas.** Não deve ter outras chaves públicas adicionadas. Consulte a seguinte imagem de referência.
+> Verifique se a `AzureOfflineBackup_<Azure User Id>` aplicação não tem nenhuma outra semente offline configurada e também se nenhum outro servidor depende desta aplicação. Aceda às **teclas de definições**  >   na secção **Chaves Públicas.** Não deve ter outras chaves públicas adicionadas. Consulte a seguinte imagem de referência.
 >
 >![Chaves públicas](./media/offline-backup-azure-data-box/public-keys.png)
 

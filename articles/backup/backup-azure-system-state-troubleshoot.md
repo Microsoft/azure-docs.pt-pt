@@ -5,10 +5,10 @@ ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/22/2019
 ms.openlocfilehash: 7c8e68da1c5da7b25d1385a82bf7dcc2f876306d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89376286"
 ---
 # <a name="troubleshoot-system-state-backup"></a>Backup do Estado do Sistema de Resolução de Problemas
@@ -22,7 +22,7 @@ Recomendamos que execute os seguintes passos de validação, antes de começar a
 - [Certifique-se de que o Agente dos Serviços de Recuperação do Microsoft Azure (MARS) está atualizado](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)
 - [Certifique-se de que há conectividade de rede entre o agente MARS e o Azure](./backup-azure-mars-troubleshoot.md#the-microsoft-azure-recovery-service-agent-was-unable-to-connect-to-microsoft-azure-backup)
 - Certifique-se de que os Serviços de Recuperação do Microsoft Azure estão em execução (na consola do Serviço). Se necessário, reinicie e relemque a operação
-- [Certifique-se de que 5 a 10% de espaço livre do volume está disponível na localização da pasta de rascunho](./backup-azure-file-folder-backup-faq.md#whats-the-minimum-size-requirement-for-the-cache-folder)
+- [Certifique-se de que o espaço de volume gratuito de 5 a 10% está disponível na localização da pasta de risco](./backup-azure-file-folder-backup-faq.md#whats-the-minimum-size-requirement-for-the-cache-folder)
 - [Verifique se outro processo ou software antivírus está a interferir com o Azure Backup](./backup-azure-troubleshoot-slow-backup-performance-issue.md#cause-another-process-or-antivirus-software-interfering-with-azure-backup)
 - [A cópia de segurança agendada falha, mas a cópia de segurança manual funciona](./backup-azure-mars-troubleshoot.md#backups-dont-run-according-to-schedule)
 - Certifique-se de que o seu SO tem as atualizações mais recentes
@@ -92,7 +92,7 @@ Certifique-se de que o SISTEMA Local tem controlo total na pasta **informação 
 
 Certifique-se de que os serviços abaixo estão no estado de funcionamento:
 
-**Nome do Serviço** | **Tipo de Arranque**
+**Nome de serviço** | **Tipo de Arranque**
 --- | ---
 Chamada de Procedimento Remoto (RPC) | Automático
 Sistema de Eventos COM+(Sistema de Eventos) | Automático
@@ -131,7 +131,7 @@ Se o trabalho falhar, indica um problema WSB que resultaria na falha de backups 
 
 | Sintoma | Causa | Resolução
 | -- | -- | --
-| - O agente MARS falha com a mensagem de erro: "O trabalho da WSB falhou com erros vss. Verifique os registos de eventos vss para resolver a falha"<br/><br/> - Após registo de erro está presente nos registos de eventos da VSS Application: "Um escritor vss rejeitou um evento com erro 0x800423f2, o tempo limite do escritor expirou entre os eventos DeGelo e Descongelamento."| Escritor da VSS é incapaz de completar a tempo devido à falta de CPU e recursos de memória na máquina <br/><br/> Outro software de backup já está a usar o escritor VSS, como resultado, a operação snapshot não poderia ser completada para esta cópia de segurança | Aguarde que o CPU/memória seja libertado no sistema ou aborte os processos que tomam demasiada memória/CPU e tentem novamente a operação. <br/><br/>  Aguarde que a cópia de segurança em curso esteja concluída e tente a operação mais tarde quando não houver cópias de segurança na máquina.
+| - O agente MARS falha com a mensagem de erro: "O trabalho da WSB falhou com erros vss. Verifique os registos de eventos vss para resolver a falha"<br/><br/> - Após registo de erros está presente nos registos de eventos da VSS Application: "Um escritor vss rejeitou um evento com erro 0x800423f2, o tempo limite do escritor expirou entre os eventos DeGelo e Descongelamento."| Escritor da VSS é incapaz de completar a tempo devido à falta de CPU e recursos de memória na máquina <br/><br/> Outro software de backup já está a usar o escritor VSS, como resultado, a operação snapshot não poderia ser completada para esta cópia de segurança | Aguarde que o CPU/memória seja libertado no sistema ou aborte os processos que tomam demasiada memória/CPU e tentem novamente a operação. <br/><br/>  Aguarde que a cópia de segurança em curso esteja concluída e tente a operação mais tarde quando não houver cópias de segurança na máquina.
 
 ### <a name="insufficient-disk-space-to-grow-shadow-copies"></a>Espaço de disco insuficiente para cultivar cópias de sombra
 

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: db1b559bb4f6a1f8866116c287df5b814500210b
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101647477"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-on-premises-resources-with-azure-active-directory"></a>Ativar o acesso à chave de segurança sem palavras-passe para os recursos no local com o Azure Ative Directory 
@@ -106,7 +106,7 @@ Get-AzureADKerberosServer -Domain $domain -CloudCredential $cloudCred -DomainCre
 
 Este comando produz as propriedades do Azure AD Kerberos Server. Pode rever as propriedades para verificar se está tudo em ordem.
 
-| Propriedade | Descrição |
+| Propriedade | Description |
 | --- | --- |
 | ID | A identificação única do objeto DS DC. Esta identificação é por vezes referida como "slot" ou "branch ID". |
 | DomainDnsName | O nome de domínio DNS do Domínio do Diretório Ativo. |

@@ -5,10 +5,10 @@ ms.topic: quickstart
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: ea3ad7e90a947269833a03a4cacf3d4fe76a6620
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91334281"
 ---
 # <a name="quickstart-send-events-to-or-receive-events-from-azure-event-hubs-using-net-framework"></a>Quickstart: Enviar eventos para ou receber eventos de Azure Event Hubs usando .NET Framework
@@ -42,7 +42,7 @@ No Visual Studio, crie um novo projeto de Aplicação de Ambiente de Trabalho do
 
 ### <a name="write-code-to-send-messages-to-the-event-hub"></a>Escrever códigos para enviar mensagens ao hub de eventos
 
-1. Adicione as `using` seguintes declarações no topo do ficheiro **Program.cs:**
+1. Adicione as `using` seguintes declarações no topo do ficheiro **.cs Programa:**
    
     ```csharp
     using System.Threading;

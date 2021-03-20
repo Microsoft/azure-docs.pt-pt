@@ -13,10 +13,10 @@ ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.openlocfilehash: 1af7f2918af7071320244dd35882a8de9717654f
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92913250"
 ---
 # <a name="switching-organizations-in-a-portal"></a>Mudar organizações num portal
@@ -39,7 +39,7 @@ Eis como mudar para outra organização. Este exemplo utiliza o portal **My Acco
 1. Inscreva-se na sua conta de trabalho ou escola e, em seguida, abra a página [Minha Conta.](https://myaccount.microsoft.com)
 1. Selecione o comutador de organização :::image type="content" source="media/cross-tenant-switcher/switcher-icon.png" alt-text="O ícone para o comutador"::: de organização no topo da página, ao lado da foto da sua conta.
 
-    :::image type="content" source="media/cross-tenant-switcher/switcher-location.png" alt-text="O ícone para o comutador":::
+    :::image type="content" source="media/cross-tenant-switcher/switcher-location.png" alt-text="O menu de organizações para as seguintes":::
 
 1. Selecione a organização para a qual pretende mudar. Será automaticamente mudado para a organização que selecionou.
 

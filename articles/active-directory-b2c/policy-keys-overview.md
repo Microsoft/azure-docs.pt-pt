@@ -11,10 +11,10 @@ ms.date: 09/08/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 30348d7ca12ded2d1f4b0522a7cabeadf0553a07
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94953360"
 ---
 # <a name="overview-of-policy-keys-in-azure-active-directory-b2c"></a>Visão geral das chaves de política no Azure Ative Directory B2C
@@ -62,7 +62,7 @@ Se um conjunto de teclas AD B2C Azure tiver várias teclas, apenas uma das tecla
   - As teclas são classificadas por data de ativação por ordem ascendente. As teclas com datas de ativação mais para o futuro aparecem mais baixas na lista. As chaves sem data de ativação estão localizadas na parte inferior da lista.
   - Quando a data e hora atuais for maior do que a data de ativação de uma chave, o Azure AD B2C ativará a tecla e deixará de utilizar a tecla ativa anterior.
 - Quando o tempo de validade da tecla atual tiver decorrido e o recipiente de teclas contiver uma nova chave com prazos válidos *e não antes* e prazos de *validade,* a nova tecla ficará ativa automaticamente.
-- Quando o tempo de validade da tecla atual tiver decorrido e o recipiente-chave *não* conter uma nova chave com prazos válidos e *expirados,* o Azure AD B2C não poderá utilizar a chave caducada. *not before* O Azure AD B2C levantará uma mensagem de erro dentro de um componente dependente da sua política personalizada. Para evitar este problema, pode criar uma chave predefinida sem datas de ativação e validade como uma rede de segurança.
+- Quando o tempo de validade da tecla atual tiver decorrido e o recipiente-chave *não* conter uma nova chave com prazos válidos e *expirados,* o Azure AD B2C não poderá utilizar a chave caducada.  O Azure AD B2C levantará uma mensagem de erro dentro de um componente dependente da sua política personalizada. Para evitar este problema, pode criar uma chave predefinida sem datas de ativação e validade como uma rede de segurança.
 - O ponto final da chave (JWKS URI) do ponto final de configuração bem conhecido do OpenId Connect reflete as teclas configuradas no Recipiente chave, quando a chave é referenciada no [Perfil Técnico JwtIssuer](./jwt-issuer-technical-profile.md). Uma aplicação que utilize uma biblioteca OIDC irá automaticamente buscar estes metadados para garantir que utiliza as chaves corretas para validar fichas. Para mais informações, saiba como utilizar a [Microsoft Authentication Library](../active-directory/develop/msal-b2c-overview.md), que sempre recolhe automaticamente as teclas de assinatura de token mais recentes.
 
 ## <a name="policy-key-management"></a>Gestão de chaves de política

@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 06/21/2019
 ms.custom: seodec18
 ms.openlocfilehash: 31812ac805bd3465b1b735842b45adb372286d66
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98016070"
 ---
 # <a name="stop-or-delete-your-azure-stream-analytics-job"></a>Pare ou elimine o seu trabalho Azure Stream Analytics
@@ -39,7 +39,7 @@ Quando se para um emprego, os recursos são desprovisionados e para de processar
 >[!WARNING] 
 >Um trabalho stream Analytics não pode ser recuperado uma vez que tenha sido eliminado.
 
-1. Inicie sessão no Portal do Azure. 
+1. Inicie sessão no portal do Azure. 
 
 2. Localize o seu trabalho stream analytics existente e selecione-o.
 

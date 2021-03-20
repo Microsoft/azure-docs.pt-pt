@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/01/2020
 ms.author: glenga
 ms.openlocfilehash: 2ccff72be66a88b9bf0a5e9eb9c29ade8397804b
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96356198"
 ---
 Os erros levantados numa Função Azure podem vir de qualquer uma das seguintes origens:
@@ -293,7 +293,7 @@ Aqui está a política de repetição no *function.jsarquivado:*
 ```
 ---
 
-|function.jsna propriedade  |Propriedade atributo | Descrição |
+|function.jsna propriedade  |Propriedade atributo | Description |
 |---------|---------|---------| 
 |estratégia|n/a|Obrigatório. A estratégia de repetição a utilizar. Valores válidos são `fixedDelay` ou `exponentialBackoff` .|
 |maxRetryCount|n/a|Obrigatório. O número máximo de retrós assim que é permitido por execução de função. `-1` significa voltar a tentar indefinidamente.|
@@ -321,7 +321,7 @@ Por exemplo, se usou a contagem de entregas de 10 padrão do Service Bus e defin
 Os seguintes aciona as recauchutagens de suporte na fonte do gatilho:
 
 * [Armazenamento de Blobs do Azure](../articles/azure-functions/functions-bindings-storage-blob.md)
-* [Armazenamento da fila Azure](../articles/azure-functions/functions-bindings-storage-queue.md)
+* [Armazenamento de Filas do Azure](../articles/azure-functions/functions-bindings-storage-queue.md)
 * [Autocarro de serviço Azure (fila/tópico)](../articles/azure-functions/functions-bindings-service-bus.md)
 
 Por padrão, a maioria dos pedidos de repetição de pedidos até cinco vezes. Após a quinta repetição, ambos os armazenamentos da Fila Azure escreverão uma mensagem para uma [fila de venenos](../articles/azure-functions/functions-bindings-storage-queue-trigger.md#poison-messages).  A fila padrão do Service Bus e a política de tópicos escreverão uma mensagem para uma [fila de letras mortas](../articles/service-bus-messaging/service-bus-dead-letter-queues.md) após 10 tentativas.

@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 12/4/2019
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 0e524bfe090f0d67b76c13e876f44e83986aeb9e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91334808"
 ---
 # <a name="tutorial-restore-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>Tutorial: Restaurar as bases de dados SAP HANA num Azure VM usando Azure CLI
@@ -136,7 +136,7 @@ A resposta vai dar-lhe o nome do trabalho. Este nome de trabalho pode ser usado 
 
 Para restaurar a localização original, usaremos **a OrignialWorkloadRestore** como o modo de restauro. Em seguida, deve escolher o ponto de restauro, que pode ser um ponto no tempo anterior ou qualquer um dos pontos de restauro anteriores.
 
-Para este tutorial, escolheremos o ponto anterior no tempo "28-11-2019-09:53:00" para restaurar. You can provide this restore point in the following formats: dd-mm-yyyy, dd-mm-yyyy-hh:mm:ss. Para escolher um ponto-a-tempo válido para restaurar, utilize o cmdlet [de série de registo de registo de registo de cópias de segurança az,](/cli/azure/backup/recoverypoint#az-backup-recoverypoint-show-log-chain) que lista os intervalos de backups ininterruptos da cadeia de registos.
+Para este tutorial, escolheremos o ponto anterior no tempo "28-11-2019-09:53:00" para restaurar. Pode fornecer este ponto de restauro nos seguintes formatos: dd-mm-yyyy, dd-mm-yyyy-hh:mm:mm:mm:mm:mm:ss. Para escolher um ponto-a-tempo válido para restaurar, utilize o cmdlet [de série de registo de cópias de segurança az,](/cli/azure/backup/recoverypoint#az-backup-recoverypoint-show-log-chain) que lista os intervalos de backups ininterruptos da cadeia de registos.
 
 ```azurecli-interactive
 az backup recoveryconfig show --resource-group saphanaResourceGroup \
@@ -177,7 +177,7 @@ A resposta vai dar-lhe o nome do trabalho. Este nome de trabalho pode ser usado 
 
 Para restaurar os dados de cópia de segurança como ficheiros em vez de uma base de dados, usaremos **o RestoreAsFiles** como o modo de restauro. Em seguida, escolha o ponto de restauro, que pode ser um ponto no tempo anterior ou qualquer um dos pontos de restauro anteriores. Uma vez que os ficheiros são despejados para um caminho especificado, pode levar estes ficheiros a qualquer máquina SAP HANA onde pretenda restaurá-los como base de dados. Como pode mover estes ficheiros para qualquer máquina, pode agora restaurar os dados através de subscrições e regiões.
 
-Para este tutorial, escolheremos o ponto de tempo anterior `28-11-2019-09:53:00` para restaurar e a localização para despejar ficheiros de backup como no mesmo servidor SAP `/home/saphana/restoreasfiles` HANA. Pode fornecer este ponto de restauro em qualquer um dos seguintes formatos: **dd-mm-yyyyy** ou **dd-mm-yyy-hh:mm:mm:mm:ss**. Para escolher um ponto-a-tempo válido para restaurar, utilize o cmdlet [de série de registo de registo de registo de cópias de segurança az,](/cli/azure/backup/recoverypoint#az-backup-recoverypoint-show-log-chain) que lista os intervalos de backups ininterruptos da cadeia de registos.
+Para este tutorial, escolheremos o ponto de tempo anterior `28-11-2019-09:53:00` para restaurar e a localização para despejar ficheiros de backup como no mesmo servidor SAP `/home/saphana/restoreasfiles` HANA. Pode fornecer este ponto de restauro em qualquer um dos seguintes formatos: **dd-mm-yyyyy** ou **dd-mm-yyy-hh:mm:mm:mm:ss**. Para escolher um ponto-a-tempo válido para restaurar, utilize o cmdlet [de série de registo de cópias de segurança az,](/cli/azure/backup/recoverypoint#az-backup-recoverypoint-show-log-chain) que lista os intervalos de backups ininterruptos da cadeia de registos.
 
 Utilizando o nome do ponto de restauro acima e o modo de restauro, vamos criar o objeto config de recuperação de recuperação utilizando o cmdlet [de recuperação de backup az.](/cli/azure/backup/recoveryconfig#az-backup-recoveryconfig-show) Vamos ver o que cada um dos parâmetros restantes neste cmdlet significa:
 

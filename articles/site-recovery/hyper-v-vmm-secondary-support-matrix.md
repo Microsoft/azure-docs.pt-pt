@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/06/2019
 ms.author: raynew
 ms.openlocfilehash: af7baf413c9054ef3e5bf527851ac06c113cdce7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86131173"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-hyper-v-vms-to-a-secondary-site"></a>Matriz de suporte para recuperação após desastre de VMs Hyper-V para um site secundário
@@ -53,14 +53,14 @@ Apenas as máquinas Linux com o seguinte armazenamento podem ser replicadas:
 
 **Configuração** | **Suportado**  
 --- | --- 
-Anfitrião - EQUIPA NIC | Sim 
-Anfitrião - VLAN | Sim 
-Anfitrião - IPv4 | Sim 
-Anfitrião - IPv6 | Não 
-VM convidado - EQUIPA NIC | Não
-VM convidado - IPv4 | Sim
-VM convidado - IPv6 | Não
-VM convidado - Windows/Linux - Endereço IP estático | Sim
+Anfitrião - EQUIPA NIC | Yes 
+Anfitrião - VLAN | Yes 
+Anfitrião - IPv4 | Yes 
+Anfitrião - IPv6 | No 
+VM convidado - EQUIPA NIC | No
+VM convidado - IPv4 | Yes
+VM convidado - IPv6 | No
+VM convidado - Windows/Linux - Endereço IP estático | Yes
 VM convidado - Multi-NIC | Sim
 
 
@@ -71,9 +71,9 @@ VM convidado - Multi-NIC | Sim
 **Armazenamento (hospedeiro)** | **Suportado**
 --- | --- 
 NFS | N/D
-SMB 3.0 |  Sim
-SAN (ISCSI) | Sim
-Multi-caminhos (MPIO) | Sim
+SMB 3.0 |  Yes
+SAN (ISCSI) | Yes
+Multi-caminhos (MPIO) | Yes
 
 ### <a name="guest-or-physical-server-storage"></a>Armazenamento de servidores físicos ou de hóspedes
 
@@ -81,32 +81,32 @@ Multi-caminhos (MPIO) | Sim
 --- | --- | 
 VMDK |  N/D
 VHD/VHDX | Sim (até 16 discos)
-Gen 2 VM | Sim
-Disco de cluster compartilhado | Não
-Disco encriptado | Não
+Gen 2 VM | Yes
+Disco de cluster compartilhado | No
+Disco encriptado | No
 UEFI| N/D
-NFS | Não
-SMB 3.0 | Não
+NFS | No
+SMB 3.0 | No
 RDM | N/D
-Disco > 1 TB | Sim
-Volume com disco listrado > 1 TB<br/><br/> LVM | Sim
-Espaços de Armazenamento | Sim
-Disco de adicionar/remover quente | Não
-Excluir o disco | Sim
-Multi-caminhos (MPIO) | Sim
+Disco > 1 TB | Yes
+Volume com disco listrado > 1 TB<br/><br/> LVM | Yes
+Espaços de Armazenamento | Yes
+Disco de adicionar/remover quente | No
+Excluir o disco | Yes
+Multi-caminhos (MPIO) | Yes
 
 ## <a name="vaults"></a>Cofres
 
 **Ação** | **Suportado**
 --- | --- 
-Mover cofres através de grupos de recursos (dentro ou em todas as subscrições) |  Não
-Mover armazenamento, rede, VMs Azure em grupos de recursos (dentro ou em todas as subscrições) | Não
+Mover cofres através de grupos de recursos (dentro ou em todas as subscrições) |  No
+Mover armazenamento, rede, VMs Azure em grupos de recursos (dentro ou em todas as subscrições) | No
 
 ## <a name="azure-site-recovery-provider"></a>Fornecedor de recuperação do site Azure
 
 O Fornecedor coordena as comunicações entre servidores VMM. 
 
-**Mais Recente** | **Updates**
+**Últimas** | **Updates**
 --- | --- 
 5.1.19 ([disponível no portal](https://aka.ms/downloaddra) | [Funcionalidades e correções mais recentes](https://support.microsoft.com/kb/3155002)
 

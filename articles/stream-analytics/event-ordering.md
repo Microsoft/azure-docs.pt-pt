@@ -7,10 +7,10 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 08/06/2020
 ms.openlocfilehash: f7ec6f32b48a93a29210311c7ba6747eb2e2d066
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98014300"
 ---
 # <a name="configuring-event-ordering-policies-for-azure-stream-analytics"></a>Configurar políticas de encomendas de eventos para Azure Stream Analytics
@@ -80,6 +80,6 @@ Isto acontece quando há uma partição de entrada que nunca recebeu qualquer en
 
 Quando uma partição não tem dados para mais do que o limiar de chegada tardio configurado, a análise de fluxo avança o tempo de aplicação como explicado na secção de considerações de encomenda de eventos. Isto requer a hora estimada de chegada. Se a partição nunca teve dados, a análise do fluxo estima a hora de chegada como *hora local - 5 segundos*. Devido a estas divisórias que nunca tiveram dados poderiam mostrar um atraso de 5 segundos.  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Considerações de processamento de tempo](stream-analytics-time-handling.md)
 * [Métricas disponíveis em Stream Analytics](./stream-analytics-monitoring.md#metrics-available-for-stream-analytics)

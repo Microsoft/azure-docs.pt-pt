@@ -1,5 +1,5 @@
 ---
-title: StorSimple 8000 Series Update 2.2 notas de lançamento Microsoft Docs
+title: StorSimple 8000 Series Update 2.2 notas de lançamento | Microsoft Docs
 description: Descreve as novas funcionalidades, problemas e soluções alternativas para StorSimple 8000 Series Update 2.2.
 services: storsimple
 documentationcenter: NA
@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: alkohli
 ms.openlocfilehash: 73b9ecd03875b60ed2d9b9d4c8e8a3a0c8de3cfa
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94956607"
 ---
 # <a name="storsimple-8000-series-update-22-release-notes"></a>StorSimple 8000 Series Update 2.2 notas de lançamento
@@ -63,7 +63,7 @@ As tabelas que se seguem fornecem um resumo das questões que foram corrigidas n
 ## <a name="known-issues-in-update-22"></a>Emissões conhecidas na Atualização 2.2
 A tabela seguinte fornece um resumo de questões conhecidas nesta versão.
 
-| Não. | Funcionalidade | Problema | Comentários / solução alternativa | Aplica-se ao dispositivo físico | Aplica-se a dispositivo virtual |
+| N.º | Funcionalidade | Problema | Comentários / solução alternativa | Aplica-se ao dispositivo físico | Aplica-se a dispositivo virtual |
 | --- | --- | --- | --- | --- | --- |
 | 1 |Quórum de disco |Em casos raros, se a maioria dos discos no recinto EBOD de um dispositivo 8600 forem desligados, resultando em nenhum quórum de disco, então a piscina de armazenamento ficará offline. Permanecerá offline mesmo que os discos estejam novamente ligados. |Terá de reiniciar o dispositivo. Se o problema persistir, contacte o Microsoft Support para os próximos passos. |Yes |No |
 | 2 |ID do controlador incorreto |Quando uma substituição do controlador é efetuada, o controlador 0 pode aparecer como controlador 1. Durante a substituição do controlador, quando a imagem é carregada a partir do nó de pares, o ID do controlador pode aparecer inicialmente como ID do controlador de pares. Em casos raros, este comportamento também pode ser visto após um reboot do sistema. |Não é necessária qualquer ação do utilizador. Esta situação resolver-se-á após a substituição do controlador. |Yes |No |

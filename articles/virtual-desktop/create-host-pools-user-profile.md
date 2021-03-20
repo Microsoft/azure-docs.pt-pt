@@ -7,10 +7,10 @@ ms.date: 08/20/2019
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 35b692033cc16f276b48bc6d973b27d994c1082a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88002575"
 ---
 # <a name="create-a-profile-container-for-a-host-pool-using-a-file-share"></a>Criar um contentor de perfis para um conjunto de anfitriões através de uma partilha de ficheiros
@@ -34,7 +34,7 @@ Depois de criar a máquina virtual, junte-a ao domínio fazendo as seguintes coi
 
 1. [Ligue-se à máquina virtual](../virtual-machines/windows/quick-create-portal.md#connect-to-virtual-machine) com as credenciais fornecidas ao criar a máquina virtual.
 2. Na máquina virtual, lance o **Painel de Controlo** e selecione **Sistema.**
-3. Selecione **nome de computador**, selecione Alterar as **definições**e, em seguida, selecione **Alterar...**
+3. Selecione **nome de computador**, selecione Alterar as **definições** e, em seguida, selecione **Alterar...**
 4. Selecione **Domínio** e, em seguida, introduza o domínio Ative Directory na rede virtual.
 5. Autenticar com uma conta de domínio que tem privilégios para máquinas de união de domínios.
 
@@ -48,7 +48,7 @@ Seguem-se instruções gerais sobre como preparar uma máquina virtual para func
 4. Clique com o botão direito na nova pasta, selecione **Propriedades,** selecione **Partilhar,** em seguida, selecione **Partilha Avançada...**.
 5. **Selecione Partilhe esta pasta,** selecione **Permissões...** e, em seguida, selecione **Adicionar...**.
 6. Procure o grupo de segurança ao qual adicionou os utilizadores do Windows Virtual Desktop e, em seguida, certifique-se de que o grupo tem **Controlo Total**.
-7. Depois de adicionar o grupo de segurança, clique com o botão direito na pasta, selecione **Propriedades**, selecione **Partilhar**e, em seguida, copie o Caminho da **Rede** para usar para mais tarde.
+7. Depois de adicionar o grupo de segurança, clique com o botão direito na pasta, selecione **Propriedades**, selecione **Partilhar** e, em seguida, copie o Caminho da **Rede** para usar para mais tarde.
 
 Para obter mais informações sobre permissões, consulte a [documentação FSLogix](/fslogix/fslogix-storage-config-ht/).
 
@@ -58,7 +58,7 @@ Para configurar as máquinas virtuais com o software FSLogix, faça o seguinte e
 
 1. [Ligue-se à máquina virtual](../virtual-machines/windows/quick-create-portal.md#connect-to-virtual-machine) com as credenciais fornecidas ao criar a máquina virtual.
 2. Lance um navegador de internet e navegue [para este link](https://go.microsoft.com/fwlink/?linkid=2084562) para descarregar o agente FSLogix.
-3. Navegue para \\ \\ o Lançamento win32 \\ ou \\ \\ X64 no ficheiro \\ .zip e executar **FSLogixAppsSetup** para instalar o agente FSLogix.  Para saber mais sobre como instalar o FSLogix, consulte [Download e instale o FSLogix](/fslogix/install-ht/).
+3. Navegue para \\ \\ o Lançamento win32 \\ ou \\ \\ X64 no ficheiro .zip e executar \\ **fSLogixAppsSetup** para instalar o agente FSLogix.  Para saber mais sobre como instalar o FSLogix, consulte [Download e instale o FSLogix](/fslogix/install-ht/).
 4. Navegue para **ficheiros de programa**  >  **FSLogix**  >  **Apps** para confirmar o agente instalado.
 5. A partir do menu inicial, executar **RegEdit** como administrador. Navegue para **o software de HKEY_LOCAL_MACHINE de computador \\ \\ \\ FSLogix**.
 6. Crie uma chave chamada **Perfis.**

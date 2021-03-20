@@ -1,5 +1,5 @@
 ---
-title: Persista ficheiros em Azure Cloud Shell Microsoft Docs
+title: Persistir ficheiros em Azure Cloud Shell | Microsoft Docs
 description: Adida em como a Azure Cloud Shell persiste nos ficheiros.
 services: azure
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/24/2020
 ms.author: damaerte
 ms.openlocfilehash: f1846c126e81ca5851cfbb1d782e5315ae10a82a
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92152263"
 ---
 # <a name="persist-files-in-azure-cloud-shell"></a>Persistir ficheiros em Azure Cloud Shell
@@ -66,7 +66,7 @@ Para encontrar a sua região atual pode correr `env` em Bash e localizar a vari�
 
 As máquinas Cloud Shell existem nas seguintes regiões:
 
-|Área|Região|
+|Área|Region|
 |---|---|
 |Américas|Leste dos EUA, Centro Sul dos EUA, Oeste dos EUA|
 |Europa|Europa do Norte, Europa Ocidental|
@@ -150,7 +150,7 @@ A sua partilha de ficheiros continuará a existir a menos que a elimine manualme
 ![Executando o comando 'clouddrive unmount'](media/persisting-shell-storage/unmount-h.png)
 
 > [!WARNING]
-> Embora executar este comando não eliminará quaisquer recursos, eliminando manualmente um grupo de recursos, uma conta de armazenamento ou uma partilha de ficheiros que está mapeada para a Cloud Shell apaga a imagem do disco de `$Home` diretório e quaisquer ficheiros na sua partilha de ficheiros. Esta ação não pode ser desfeita.
+> Embora executar este comando não eliminará quaisquer recursos, eliminando manualmente um grupo de recursos, uma conta de armazenamento ou uma partilha de ficheiros que está mapeada para a Cloud Shell apaga a imagem do disco de `$Home` diretório e quaisquer ficheiros na sua partilha de ficheiros. Esta ação não pode ser anulada.
 ## <a name="powershell-specific-commands"></a>Comandos específicos powerShell
 
 ### <a name="list-clouddrive-azure-file-shares"></a>Lista `clouddrive` ações de ficheiros Azure

@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 06/29/2020
 ms.openlocfilehash: d237d5709f8d2bb47de3e89b0b7103b195376e11
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92489749"
 ---
 # <a name="move-an-azure-database-for-azure-database-for-postgresql---single-server-to-another-region-by-using-the-azure-portal"></a>Mover uma base de dados Azure para a base de dados de Azure para PostgreSQL - Servidor Único para outra região utilizando o portal Azure
@@ -33,7 +33,7 @@ Você pode usar uma base de dados Azure para [a réplica de leitura de região p
 
 Para preparar o servidor de origem para a replicação utilizando o portal Azure, utilize os seguintes passos: 
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 1. Selecione a base de dados Azure existente para o servidor PostgreSQL que pretende utilizar como servidor de origem. Esta ação abre a página **de visão geral.**
 1. A partir do menu do servidor, selecione **Replication**. Se o suporte de replicação do Azure estiver definido para pelo menos **replica,** pode criar réplicas de leitura. 
 1. Se o suporte de replicação do Azure não estiver definido para, pelo menos, **replicar,** desate-o. Selecione **Guardar**.
@@ -69,7 +69,7 @@ Para impedir a replicação da réplica do portal Azure, utilize os seguintes pa
 
 ## <a name="clean-up-source-server"></a>Limpar servidor de fonte
 
-Pode querer eliminar a base de dados Azure de origem para o servidor PostgreSQL. Para isso, siga os seguintes passos:
+Pode querer eliminar a base de dados Azure de origem para o servidor PostgreSQL. Para fazê-lo, siga os seguintes passos:
 
 1. Uma vez criada a réplica, localize e selecione a sua Base de Dados Azure para o servidor de origem PostgreSQL.
 1. Na janela **'Vista Geral',** selecione **Delete**.

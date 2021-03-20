@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 12f134a11b6d0a561a8b53156c927906afe2874a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87906143"
 ---
 # <a name="quickstart-add-guest-users-to-your-directory-in-the-azure-portal"></a>Guia de Início Rápido: Adicionar utilizadores convidados ao seu diretório no portal do Azure
@@ -84,7 +84,7 @@ Agora inicie sessão como utilizador convidado para ver o convite.
 
 4. Selecione **Aceitar**. É apresentado o Painel de Acesso, que enumera as aplicações a que o utilizador convidado pode aceder.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 Quando já não forem necessários, elimine o utilizador convidado de teste e a aplicação de teste.
 1.  Inicie sessão no portal do Azure como administrador do Azure Active Directory.
 2.  No painel esquerdo, selecione **Azure Active Directory**.

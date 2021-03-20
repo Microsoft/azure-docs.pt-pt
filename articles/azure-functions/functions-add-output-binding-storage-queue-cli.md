@@ -6,10 +6,10 @@ ms.topic: quickstart
 ms.custom: devx-track-python
 zone_pivot_groups: programming-languages-set-functions
 ms.openlocfilehash: 6d0d559579e841553e04c26bf4dcc78934de3e95
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94920207"
 ---
 # <a name="connect-azure-functions-to-azure-storage-using-command-line-tools"></a>Ligue as funções Azure ao Armazenamento Azure utilizando ferramentas de linha de comando
@@ -122,7 +122,7 @@ mvn azure-functions:deploy
 
     ![A saída da função funciona no Azure num browser](./media/functions-add-output-binding-storage-queue-cli/function-test-cloud-browser.png)
 
-    # <a name="curl"></a>[caracóis](#tab/curl)
+    # <a name="curl"></a>[curl](#tab/curl)
     
     Corra [`curl`](https://curl.haxx.se/) com o URL **invocado,** anexando o parâmetro `&name=Functions` . A saída do comando deve ser o texto"Olá Funções".
     

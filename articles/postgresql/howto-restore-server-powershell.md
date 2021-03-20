@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 63fffb5998b0b6a245db3f1c8fcf16f2d576936e
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92489766"
 ---
 # <a name="how-to-back-up-and-restore-an-azure-database-for-postgresql-server-using-powershell"></a>Como fazer o back up e restaurar uma Base de Dados Azure para servidor PostgreSQL usando PowerShell
@@ -78,7 +78,7 @@ O conjunto de **parâmetros PointInTimeRestore** do `Restore-AzPostgreSqlServer`
 | Definição | Valor sugerido | Descrição  |
 | --- | --- | --- |
 | ResourceGroupName |  myResourceGroup |  O grupo de recursos onde existe o servidor de origem.  |
-| Nome | mydemoserver-restored | O nome do novo servidor que é criado pelo comando restore. |
+| Name | mydemoserver-restored | O nome do novo servidor que é criado pelo comando restore. |
 | RestaurarPointInTime | 2020-03-13T13:59:00Z | Selecione um ponto no tempo para restaurar. Esta data e hora têm de estar dentro do período de retenção de cópias de segurança do servidor de origem. Utilize o formato de data e hora ISO8601. Por exemplo, pode utilizar o seu próprio fuso horário local, como **2020-03-13T05:59:00-08:00**. Também pode utilizar o formato UTC Zulu, por exemplo, **2018-03-13T13:59:00Z**. |
 | UsePointInTimeRestore | `<SwitchParameter>` | Utilize o modo ponto-a-tempo para restaurar. |
 
@@ -120,7 +120,7 @@ O conjunto de **parâmetros GeoRestore** do `Restore-AzPostgreSqlServer` cmdlet 
 | Definição | Valor sugerido | Descrição  |
 | --- | --- | --- |
 |ResourceGroupName | myResourceGroup | O nome do grupo de recursos a que pertence o novo servidor pertence.|
-|Nome | mydemoserver-georestored | O nome do novo servidor. |
+|Name | mydemoserver-georestored | O nome do novo servidor. |
 |Localização | eastus | A localização do novo servidor. |
 |UseGeoRestore | `<SwitchParameter>` | Utilize o modo geo para restaurar. |
 

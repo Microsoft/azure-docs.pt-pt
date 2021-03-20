@@ -8,10 +8,10 @@ ms.date: 09/10/2019
 author: SnehaGunda
 ms.author: sngun
 ms.openlocfilehash: 61814082ebe9828a08da1e8786890b500c239082
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93081846"
 ---
 # <a name="system-document-properties"></a>Propriedades de documento do sistema
@@ -35,7 +35,7 @@ g.withStrategies(ProjectionStrategy.build().IncludeSystemProperties('_etag').cre
 
 Se a recolha tiver expiração de documento ativada e os documentos tiverem ```ttl``` propriedade definida sobre eles, então esta propriedade estará disponível em Gremlin traversal como um vértice regular ou propriedade de borda. ```ProjectionStrategy``` não é necessário para permitir a exposição de propriedades de tempo para viver.
 
-O vértice criado com o percurso abaixo será eliminado automaticamente em **123 segundos** .
+O vértice criado com o percurso abaixo será eliminado automaticamente em **123 segundos**.
 
 ```
 g.addV('vertex-one').property('ttl', 123)

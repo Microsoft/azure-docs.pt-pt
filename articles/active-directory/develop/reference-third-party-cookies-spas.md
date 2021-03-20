@@ -14,10 +14,10 @@ ms.author: hirsin
 ms.reviewer: kkrishna
 ms.custom: aaddev
 ms.openlocfilehash: eed4e919684575bb2c63170d91517b661fac4acf
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98753963"
 ---
 # <a name="handle-itp-in-safari-and-other-browsers-where-third-party-cookies-are-blocked"></a>Lide com o ITP no Safari e noutros navegadores onde os cookies de terceiros estão bloqueados
@@ -79,7 +79,7 @@ A emissão de fichas de atualização para o navegador é considerada um problem
 
 Este padrão de token de renovação de vida limitada foi escolhido como um equilíbrio entre segurança e UX degradado. Sem tokens de atualização ou cookies de terceiros, o fluxo de código de autorização (conforme recomendado pelo [projeto de boas práticas de segurança OAuth](https://tools.ietf.org/html/draft-ietf-oauth-security-topics-14)) torna-se onerosa quando são necessárias fichas novas ou adicionais. Um redirecionamento de página inteira ou popup é necessário para cada token, cada vez que um token expira (a cada hora normalmente, para os tokens da plataforma de identidade da Microsoft).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre o fluxo de [código de autorização.](v2-oauth2-auth-code-flow.md)
 

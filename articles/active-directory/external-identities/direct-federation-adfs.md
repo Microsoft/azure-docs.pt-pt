@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1b3d7c47ff0a2c533bf12a67958a913b22915f75
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87909565"
 ---
 # <a name="example-direct-federation-with-active-directory-federation-services-ad-fs-preview"></a>Exemplo: Federação direta com Serviços da Federação de Diretórios Ativos (AD FS) (pré-visualização)
@@ -58,7 +58,7 @@ Um servidor AD FS já deve ser configurado e funcionando antes de iniciar este p
 ### <a name="add-the-claim-description"></a>Adicione a descrição da reclamação
 
 1. No seu servidor AD FS, selecione **Tools**  >  **AD FS management**.
-2. No painel de navegação, selecione **Service**  >  **Descrições de Reclamações de**Serviço .
+2. No painel de navegação, selecione   >  **Descrições de Reclamações de** Serviço .
 3. Em **Ações**, **selecione Adicionar Descrição de Reclamações**.
 4. Na janela **Adicionar uma Descrição de Reclamação,** especifique os seguintes valores:
 
@@ -71,7 +71,7 @@ Um servidor AD FS já deve ser configurado e funcionando antes de iniciar este p
 
 ### <a name="add-the-relying-party-trust-and-claim-rules"></a>Adicione a confiança do partido confiando e reivindicando regras
 
-1. No servidor AD FS, **Tools**aceda à  >  **gestão de FS AD ferramentas**.
+1. No servidor AD FS, aceda à  >  **gestão de FS AD ferramentas**.
 2. No painel de navegação, selecione **Trust Relationships**  >  **Relying Party Trusts**.
 3. Under **Actions**, selecione **Add Relying Party Trust**. 
 4. No adding relying party trust wizard for **Select Data Source**, use a opção Importar **dados sobre a parte que conta publicada online ou numa rede local**. Especifique este URL de metadados da https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml federação. Deixe outras seleções predefinidos. Selecione **Fechar**.
@@ -127,7 +127,7 @@ Um servidor AD FS já deve ser configurado e funcionando antes de iniciar este p
 
 
 ### <a name="add-the-relying-party-trust-and-claim-rules"></a>Adicione a confiança do partido confiando e reivindicando regras 
-1. No servidor AD FS, **Tools**aceda à  >  **gestão de FS AD ferramentas**. 
+1. No servidor AD FS, aceda à  >  **gestão de FS AD ferramentas**. 
 1. No painel de navegação, selecione **Trust Relationships**  >  **Relying Party Trusts**. 
 1. Under **Actions**, selecione **Add Relying Party Trust**.  
 1. No assistente de confiança do partido, para **Select Data Source,** utilize a opção **Importar dados sobre a parte que conta publicada online ou numa rede local.** Especifique este URL de metadados da federação: `https://nexus.microsoftonline-p.com/federationmetadata/2007-06/federationmetadata.xml` .  Deixe outras seleções predefinidos. Selecione **Fechar**.

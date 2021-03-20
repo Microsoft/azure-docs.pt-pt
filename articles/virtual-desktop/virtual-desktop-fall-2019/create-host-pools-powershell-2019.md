@@ -7,10 +7,10 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: c035a7fbafe9b3a42fbd16e3f8377014010ddd49
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88003553"
 ---
 # <a name="create-a-host-pool-in-windows-virtual-desktop-classic-with-powershell"></a>Crie uma piscina de anfitriões no Windows Virtual Desktop (clássico) com PowerShell
@@ -82,7 +82,7 @@ Para conseguir juntar o domínio, faça as seguintes coisas em cada máquina vir
 
 1. [Ligue-se à máquina virtual](../../virtual-machines/windows/quick-create-portal.md#connect-to-virtual-machine) com as credenciais fornecidas ao criar a máquina virtual.
 2. Na máquina virtual, lance o **Painel de Controlo** e selecione **Sistema.**
-3. Selecione **nome de computador**, selecione Alterar as **definições**e, em seguida, selecione **Alterar...**
+3. Selecione **nome de computador**, selecione Alterar as **definições** e, em seguida, selecione **Alterar...**
 4. Selecione **Domínio** e, em seguida, introduza o domínio Ative Directory na rede virtual.
 5. Autenticar com uma conta de domínio que tem privilégios para máquinas de união de domínios.
 
@@ -98,11 +98,11 @@ Para registar os agentes do Windows Virtual Desktop, faça o seguinte em cada m�
 1. [Ligue-se à máquina virtual](../../virtual-machines/windows/quick-create-portal.md#connect-to-virtual-machine) com as credenciais fornecidas ao criar a máquina virtual.
 2. Faça o download e instale o Windows Virtual Desktop Agent.
    - Descarregue o [Windows Virtual Desktop Agent](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrmXv).
-   - Clique com o botão direito no instalador descarregado, selecione **Propriedades,** selecione **Desbloqueie**e, em seguida, selecione **OK**. Isto permitirá ao seu sistema confiar no instalador.
+   - Clique com o botão direito no instalador descarregado, selecione **Propriedades,** selecione **Desbloqueie** e, em seguida, selecione **OK**. Isto permitirá ao seu sistema confiar no instalador.
    - Execute o instalador. Quando o instalador lhe pedir o token de registo, insira o valor que obteve do cmdlet **Export-RdsRegistrationInfo.**
 3. Descarregue e instale o Bootloader do Agente virtual de ambiente de trabalho do Windows.
    - Descarregue o [Bootloader do Agente virtual de Ambiente de Trabalho](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrxrH)do Windows .
-   - Clique com o botão direito no instalador descarregado, selecione **Propriedades,** selecione **Desbloqueie**e, em seguida, selecione **OK**. Isto permitirá ao seu sistema confiar no instalador.
+   - Clique com o botão direito no instalador descarregado, selecione **Propriedades,** selecione **Desbloqueie** e, em seguida, selecione **OK**. Isto permitirá ao seu sistema confiar no instalador.
    - Execute o instalador.
 
 >[!IMPORTANT]

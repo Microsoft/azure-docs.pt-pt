@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com Insignia SAML SSO / Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com Insignia SAML SSO | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Insignia SAML SSO.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
 ms.openlocfilehash: 1cd781358a8dea740a7e89203c61b7112acb9efd
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92460075"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insignia-saml-sso"></a>Tutorial: Integração do Diretório Ativo Azure com Insignia SAML SSO

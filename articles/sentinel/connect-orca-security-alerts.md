@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
 ms.openlocfilehash: 18a50e3d06135f2c17b7e7c5b2969be33f408c62
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/10/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100093085"
 ---
 # <a name="connect-your-orca-security-alerts-to-azure-sentinel"></a>Ligue os seus alertas de Segurança Orca ao Azure Sentinel 

@@ -4,10 +4,10 @@ description: Este artigo fornece informações sobre a autorização de acesso a
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: d794b03fdbb5429983788c74cbb05a7c13bf2d76
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92910802"
 ---
 # <a name="authorize-access-to-event-hubs-resources-using-azure-active-directory"></a>Autorizar o acesso aos recursos do Event Hubs utilizando o Azure Ative Directory
@@ -33,7 +33,7 @@ Quando um papel de Azure é atribuído a um diretor de segurança da AZure, a Az
 ## <a name="azure-built-in-roles-for-azure-event-hubs"></a>Azure papéis incorporados para Azure Event Hubs
 A Azure fornece as seguintes funções incorporadas do Azure para autorizar o acesso aos dados do Event Hubs utilizando Azure AD e OAuth:
 
-| Função | Descrição | 
+| Função | Description | 
 | ---- | ----------- | 
 | [Proprietário de dados Azure Event Hubs](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner) | Use esta função para dar acesso completo aos recursos do Event Hubs. |
 | [Remetente de dados do Azure Event Hubs](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender) | Use esta função para dar acesso ao envio aos recursos do Event Hubs. |
@@ -46,11 +46,11 @@ Antes de atribuir um papel de Azure a um diretor de segurança, determine o âmb
 
 A lista a seguir descreve os níveis em que pode estender o acesso aos recursos do Event Hubs, começando pelo âmbito mais restrito:
 
-- **Grupo de consumidores** : Neste âmbito, a atribuição de funções aplica-se apenas a esta entidade. Atualmente, o portal Azure não suporta a atribuição de um papel de Azure a um diretor de segurança a este nível. 
-- **Centro de eventos** : A atribuição de funções aplica-se à entidade Event Hub e ao grupo de consumidores ao seu abrigo.
-- **Namespace** : A atribuição de funções abrange toda a topologia dos Centros de Eventos sob o espaço de nome e para o grupo de consumidores que lhe está associado.
-- **Grupo de recursos** : A atribuição de funções aplica-se a todos os recursos do Event Hubs no âmbito do grupo de recursos.
-- **Subscrição** : A atribuição de funções aplica-se a todos os recursos do Event Hubs em todos os grupos de recursos da subscrição.
+- **Grupo de consumidores**: Neste âmbito, a atribuição de funções aplica-se apenas a esta entidade. Atualmente, o portal Azure não suporta a atribuição de um papel de Azure a um diretor de segurança a este nível. 
+- **Centro de eventos**: A atribuição de funções aplica-se à entidade Event Hub e ao grupo de consumidores ao seu abrigo.
+- **Namespace**: A atribuição de funções abrange toda a topologia dos Centros de Eventos sob o espaço de nome e para o grupo de consumidores que lhe está associado.
+- **Grupo de recursos**: A atribuição de funções aplica-se a todos os recursos do Event Hubs no âmbito do grupo de recursos.
+- **Subscrição**: A atribuição de funções aplica-se a todos os recursos do Event Hubs em todos os grupos de recursos da subscrição.
 
 > [!NOTE]
 > - Tenha em mente que as atribuições de funções do Azure podem demorar até cinco minutos a propagar-se. 

@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: victorh
 ms.openlocfilehash: ba9f42bc932a37e1052f17db2ae00413e0769d59
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91355742"
 ---
 # <a name="azure-application-gateway-features"></a>Funcionalidades do Gateway de Aplicações Azure
 
-O [Gateway de Aplicação do Azure](overview.md) é um balanceador de carga do tráfego da Web que lhe permite gerir o tráfego das suas aplicações Web.
+[O Azure Application Gateway](overview.md) é um equilibrador de carga de tráfego web que lhe permite gerir o tráfego para as suas aplicações web.
 
 ![Aplicação Gateway conceptual](media/overview/figure1-720.png)
 
@@ -58,7 +58,7 @@ Um Gateway de aplicação Standard_v2 pode abranger várias Zonas de Disponibili
 
 A porta de entrada de aplicação Standard_v2 SKU suporta exclusivamente o tipo VIP estático. Isto garante que o VIP associado ao gateway de aplicações não muda mesmo ao longo da vida útil do Gateway de aplicações.
 
-## <a name="web-application-firewall"></a>Firewall de Aplicação Web
+## <a name="web-application-firewall"></a>Firewall de Aplicações Web
 
 Web Application Firewall (WAF) é um serviço que fornece proteção centralizada das suas aplicações web contra explorações e vulnerabilidades comuns. A WAF baseia-se nas regras do [OWASP (Open Web Application Security Project) que define](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.1 (apenas WAF_v2), 3.0 e 2.2.9. 
 
@@ -149,7 +149,7 @@ Para obter mais informações, consulte [os cabeçalhos HTTP e URL](rewrite-http
 
 O Gateway de aplicação Standard_v2 pode ser configurado para implantações de autoscaling ou de tamanho fixo. O V2 SKU não oferece diferentes tamanhos de instância. Para obter mais informações sobre o desempenho e preços v2, consulte o [preço de Autoscaling V2](application-gateway-autoscaling-zone-redundant.md) e [Understanding](understanding-pricing.md).
 
-A Aplicação Gateway Standard (v1) é oferecida em três tamanhos: **Pequeno,** **Médio**e **Grande**. Os tamanhos de instâncias pequenas destinam-se a cenários de testes e desenvolvimento.
+A Aplicação Gateway Standard (v1) é oferecida em três tamanhos: **Pequeno,** **Médio** e **Grande**. Os tamanhos de instâncias pequenas destinam-se a cenários de testes e desenvolvimento.
 
 Para obter uma lista completa dos limites do gateway de aplicação, veja [limites do serviço Gateway de Aplicação](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits).
 

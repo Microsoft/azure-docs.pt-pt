@@ -1,5 +1,5 @@
 ---
-title: Cobertura de renderização / Microsoft Azure Maps
+title: Render | de cobertura Microsoft Azure Maps
 description: Saiba se o Azure Maps torna várias regiões com dados detalhados ou simplificados. Veja o nível que usa para mapas de azulejos raster e vector-azulejos nessas regiões.
 author: anastasia-ms
 ms.author: v-stharr
@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: 69b122196cbeb7508cddf3a890768f83fdcd4727
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88030933"
 ---
 # <a name="azure-maps-render-coverage"></a>Azure Maps render cobertura
@@ -135,11 +135,11 @@ No entanto, o Maps não tem o mesmo nível de informação e precisão para toda
 | Peru                      | ✓ | ✓ |
 | Porto Rico               | ✓ | ✓ |
 | Quebeque (Canadá)           | ✓ | ✓ |
-| São Barthélemy          | ✓ | ✓ |
+| São Bartolomeu          | ✓ | ✓ |
 | São Cristóvão e Neves     | ✓ | ✓ |
 | Santa Lúcia               | ✓ | ✓ |
 | São Martinho (Francês)     | ✓ | ✓ |
-| São Pedro e Miquelon | ✓ | ✓ |
+| São Pedro e Miquelão | ✓ | ✓ |
 | São Vicente e Granadinas | ✓ | ✓ |
 | Sint Maarten (Holandês)      | ✓ | ✓ |
 | Ilhas Geórgia do Sul e Sandwich do Sul | ✓ | ✓ |

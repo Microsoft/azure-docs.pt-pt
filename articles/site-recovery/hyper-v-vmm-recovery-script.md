@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: sharrai
 ms.openlocfilehash: 3217c30737a133c1c1092fc4a8a8caaa0338e980
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89425879"
 ---
 # <a name="add-a-vmm-script-to-a-recovery-plan"></a>Adicione um script VMM a um plano de recuperação
@@ -41,11 +41,11 @@ Pode utilizar scripts PowerShell nos seus planos de recuperação. Para estar ac
     Para obter mais informações, consulte [Começar com o Windows PowerShell e vMM](/previous-versions/system-center/system-center-2012-R2/hh875013(v=sc.12)).
 * Certifique-se de que tem pelo menos um servidor de biblioteca na sua implementação VMM. Por predefinição, o caminho de partilha da biblioteca para um servidor VMM está localizado localmente no servidor VMM. O nome da pasta é MSCVMMLibrary.
 
-  Se o seu caminho de partilha da biblioteca for remoto (ou se for local mas não partilhado com a MSCVMMLibrary), configurar a partilha da seguinte forma, utilizando \\ libserver2.contoso.com\share\ como exemplo:
+  Se o seu caminho de partilha da biblioteca for remoto (ou se for local mas não partilhado com a MSCVMMLibrary), configur a partilha da seguinte forma, utilizando \\ libserver2.contoso.com\share\ como exemplo:
   
   1. Abra o Editor de Registos e, em seguida, vá para **HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\Azure Site Recovery\Registration**.
 
-  1. Altere o valor **para ScriptLibraryPath** para ** \\ \libserver2.contoso.com\share \\ **. Especifique o FQDN completo. Fornecer permissões para a localização da partilha. Este é o nó raiz da parte. Para verificar o nó de raiz, em VMM, vá ao nó de raiz na biblioteca. O caminho que se abre é a raiz do caminho. Este é o caminho que deve usar na variável.
+  1. Altere o valor **do ScriptLibraryPath** para **\\ \libserver2.contoso.com\share \\**. Especifique o FQDN completo. Fornecer permissões para a localização da partilha. Este é o nó raiz da parte. Para verificar o nó de raiz, em VMM, vá ao nó de raiz na biblioteca. O caminho que se abre é a raiz do caminho. Este é o caminho que deve usar na variável.
 
   1. Teste o script utilizando uma conta de utilizador que tenha o mesmo nível de direitos de utilizador que a conta de serviço VMM. A utilização destes direitos de utilizador verifica que scripts autónomos e testados funcionam da mesma forma que funcionam nos planos de recuperação. No servidor VMM, desagravar a política de execução para contornar, da seguinte forma:
 
@@ -71,7 +71,7 @@ Depois de adicionar VMs ou grupos de replicação a um plano de recuperação e 
 1. Abra o plano de recuperação.
 1. Na lista **Step,** selecione um item. Em seguida, selecione **script** ou **Ação Manual**.
 1. Especificar se deve adicionar o script ou ação antes ou depois do item selecionado. Para mover a posição do script para cima ou para baixo, selecione os botões **Move Up** e **Move Down.**
-1. Se adicionar um script VMM, selecione **Failover para o script VMM**. Em **Script Path,** insira o caminho relativo para a partilha. Por exemplo, ** introduza\RPScripts\RPScript.PS1**.
+1. Se adicionar um script VMM, selecione **Failover para o script VMM**. Em **Script Path,** insira o caminho relativo para a partilha. Por exemplo, **introduza\RPScripts\RPScript.PS1**.
 1. Se adicionar um runbook Azure Automation, especifique a conta Automation em que o livro de execução está localizado. Em seguida, selecione o script do livro de execução Azure que pretende utilizar.
 1. Para garantir que o script funciona como esperado, faça um teste de failover do plano de recuperação.
 

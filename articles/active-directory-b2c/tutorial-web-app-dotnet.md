@@ -12,17 +12,17 @@ ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
 ms.openlocfilehash: 9c3c63b6116e02e8a742b69e90c11e182d72ab2e
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94953037"
 ---
 # <a name="tutorial-enable-authentication-in-a-web-application-using-azure-active-directory-b2c"></a>Tutorial: Ativar a autenticação numa aplicação web utilizando o Azure Ative Directory B2C
 
 Este tutorial mostra-lhe como usar o Azure Ative Directory B2C (Azure AD B2C) para iniciar seduções e inscrever utilizadores numa aplicação web ASP.NET. O Azure AD B2C permite que as suas aplicações autentem para as contas sociais, contas empresariais e contas do Azure Ative Directory utilizando protocolos de série aberta.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Atualizar a aplicação em Azure AD B2C
@@ -95,7 +95,7 @@ Atualize as definições no ficheiro Web.config para funcionar com o fluxo do ut
 1. Abra a solução **B2C-WebAPI-DotNet** no Visual Studio.
 1. No projeto **TaskWebApp,** abra o ficheiro **Web.config.**
     1. Atualize o valor `ida:Tenant` e com o nome do inquilino `ida:AadInstance` Azure AD B2C que criou. Por exemplo, `fabrikamb2c` substitua-o por `contoso` .
-    1. Substitua o valor do ID do `ida:TenantId` diretório, que pode encontrar nos imóveis para o seu inquilino Azure B2C (no portal Azure sob o ID do **Diretório Azure Ative**  >  **Directory**  >  **Directory ID** Properties).
+    1. Substitua o valor do ID do `ida:TenantId` diretório, que pode encontrar nos imóveis para o seu inquilino Azure B2C (no portal Azure sob o ID do **Diretório Azure Ative**  >  **Directory**  >  Properties).
     1. Substitua o valor do `ida:ClientId` ID da aplicação que registou.
     1. Substitua o valor de `ida:ClientSecret` pela chave que registou. Se o segredo do cliente contiver quaisquer entidades XML predefinidas, por exemplo menos do que `<` ( , superiores a ( `>` ) ampersand ( `&` ) ou citação dupla `"` (), você deve escapar desses caracteres codificando o segredo do cliente antes de adicioná-lo ao seu Web.config.
     1. Substitua o valor de `ida:SignUpSignInPolicyId` `b2c_1_signupsignin1` .

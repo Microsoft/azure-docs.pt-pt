@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com Huddle / Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com a Huddle | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Huddle.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.openlocfilehash: 481b11305ff99661487b83c7588b184ef502d7ad
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92460721"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-huddle"></a>Tutorial: Integração do Diretório Ativo Azure com Huddle

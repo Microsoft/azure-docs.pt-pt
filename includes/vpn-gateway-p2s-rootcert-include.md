@@ -9,13 +9,13 @@ ms.date: 10/28/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 59d18c89a8f66f781f01d1dace9d8968df17a626
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93041584"
 ---
-Obtenha o ficheiro .cer para o certificado raiz. Pode utilizar um certificado de raiz que foi gerado com uma solução de empresa (recomendada) ou gerar um certificado auto-assinado. Depois de criar o certificado raiz, exporte os dados do certificado público (não a chave privada) como um ficheiro X.509 codificado por Base64.cer. Faça o upload deste ficheiro mais tarde para O Azure.
+Obtenha o ficheiro .cer para o certificado raiz. Pode utilizar um certificado de raiz que foi gerado com uma solução de empresa (recomendada) ou gerar um certificado auto-assinado. Depois de criar o certificado raiz, exporte os dados do certificado público (não a chave privada) como um ficheiro de .cer X.509 codificado base64. Faça o upload deste ficheiro mais tarde para O Azure.
 
 * **Certificado de empresa:** Se estiver a utilizar uma solução de empresa, pode utilizar a sua cadeia de certificados existente. Adquira o ficheiro .cer para o certificado raiz que pretende utilizar.
 * **Certificado de raiz auto-assinado:** Se não estiver a usar uma solução de certificado empresarial, crie um certificado de raiz auto-assinado. Caso contrário, os certificados que criar não serão compatíveis com as suas ligações P2S e os clientes receberão um erro de ligação quando tentarem ligar.. Pode utilizar o Azure PowerShell, MakeCert ou OpenSSL. Os passos dos seguintes artigos descrevem como gerar um certificado de raiz auto-assinado compatível:

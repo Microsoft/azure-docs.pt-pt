@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com o Infor Retail – Gestão de Informação ; Microsoft Docs'
+title: 'Tutorial: Integração do Azure Ative Directory com o Infor Retail – Information Management | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Infor Retail – Information Management.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
 ms.openlocfilehash: 1b23ee92fb691af6152d16c94dad59f0751810fc
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92460180"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infor-retail--information-management"></a>Tutorial: Integração do Azure Ative Directory com o Infor Retail – Information Management

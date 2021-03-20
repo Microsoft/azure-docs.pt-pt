@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
 ms.openlocfilehash: 9a7028dfaeb94e87366de7acfa8cebc4c2f4c767
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98746833"
 ---
 # <a name="extend-the-iot-plug-and-play-bridge"></a>Estender a ponte IoT Plug and Play
@@ -495,6 +495,6 @@ static int SampleEnvironmentalSensor_BlinkCallback(
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre a ponte IoT Plug and Play, visite o repositório [IoT Plug e Play Bridge](https://github.com/Azure/iot-plug-and-play-bridge) GitHub.

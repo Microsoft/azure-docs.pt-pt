@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Stream logs para um centro de eventos Azure / Microsoft Docs
+title: Tutorial - Stream logs para um centro de eventos Azure | Microsoft Docs
 description: Saiba como configurar o Azure Diagnostics para empurrar os registos do Azure Ative Directory para um centro de eventos
 services: active-directory
 documentationcenter: ''
@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0443dcb2bf3bd58f2474c507c9f9594fb6d8a7f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89469189"
 ---
 # <a name="tutorial-stream-azure-active-directory-logs-to-an-azure-event-hub"></a>Tutorial: Stream Azure Ative Directory registra-se para um centro de eventos Azure
@@ -41,7 +41,7 @@ Para utilizar esta funcionalidade, precisa de:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com). 
 
-2. Selecione registos de auditoria de monitorização **do diretório ativo Azure**  >  **Monitoring**  >  **Audit logs**. 
+2. Selecione registos de auditoria de monitorização **do diretório ativo Azure**  >    >  . 
 
 3. Selecione **Exportar Definições**.  
     
@@ -65,7 +65,7 @@ Para utilizar esta funcionalidade, precisa de:
 
 9. Selecione **Guardar** para guardar a definição.
 
-    ![Definições de diagnósticos](./media/quickstart-azure-monitor-stream-logs-to-event-hub/DiagnosticSettings.png)
+    ![Definições de diagnóstico](./media/quickstart-azure-monitor-stream-logs-to-event-hub/DiagnosticSettings.png)
 
 10. Depois de cerca de 15 minutos, verifique se os eventos são apresentados no seu hub de eventos. Para tal, aceda ao hub de eventos a partir do portal e confirme que a contagem das **mensagens de entrada** é superior a zero. 
 

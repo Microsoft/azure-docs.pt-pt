@@ -10,10 +10,10 @@ ms.author: keli19
 ms.custom: seodec18, devx-track-csharp
 ms.date: 02/14/2019
 ms.openlocfilehash: a4fe9e54e5e03a8dbf2a727b22f784c36d6c65f9
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100517591"
 ---
 # <a name="retrain-and-deploy-a-machine-learning-model"></a>Retreine e implemente um modelo de aprendizagem automática
@@ -66,7 +66,7 @@ Utilize os seguintes passos para chamar as APIs de reconversão:
 1. Clique no serviço web com o qual está a trabalhar.
 1. Clique **em Consumir**.
 1. Na parte inferior da página **Consumir,** na secção **Código amostra,** clique em **Lote**.
-1. Copie o código da amostra C# para a execução do lote e cole-o no ficheiro Program.cs. Certifique-se de que o espaço de nome permanece intacto.
+1. Copie o código da amostra C# para a execução do lote e cole-o no ficheiro .cs Programa. Certifique-se de que o espaço de nome permanece intacto.
 
 Adicione o pacote NuGet Microsoft.AspNet.WebApi.Client, conforme especificado nos comentários. Para adicionar a referência a Microsoft.WindowsAzure.Storage.dll, poderá ser necessário instalar a biblioteca do [cliente para serviços de Armazenamento Azure](https://www.nuget.org/packages/WindowsAzure.Storage).
 

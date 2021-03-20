@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 08/20/2019
 ms.custom: amqp, devx-track-csharp
 ms.openlocfilehash: 0d16d7a6dbf903ae790015c12e3d34e4a2a553d3
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92139340"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-the-portal-and-net-device"></a>Introdução à identidade de módulo e ao módulo duplo do Hub IoT com o portal e o dispositivo .NET
@@ -85,7 +85,7 @@ A identidade do módulo e o módulo gémeo estão em pré-visualização públic
 
 1. No Estúdio Visual, open **Tools**  >  **NuGet Package Manager**  >  **Gerencie pacotes nuget para solução**.
 
-1. **Selecione Procurar**e, em seguida, selecione **Incluir pré-relançar**. Pesquisa rumo *a Microsoft.Azure.Devices.Client*. Selecione a versão mais recente e instale.
+1. **Selecione Procurar** e, em seguida, selecione **Incluir pré-relançar**. Pesquisa rumo *a Microsoft.Azure.Devices.Client*. Selecione a versão mais recente e instale.
 
     ![Instalar pré-visualização do serviço SDK do Azure IoT Hub .NET](./media/iot-hub-csharp-csharp-module-twin-getstarted/install-sdk.png)
 
@@ -107,7 +107,7 @@ Precisa da cadeia de ligação do módulo para a sua aplicação de consola. Sig
 
 Para criar a sua aplicação, siga estes passos:
 
-1. Adicione as `using` seguintes declarações no topo do ficheiro **Program.cs:**
+1. Adicione as `using` seguintes declarações no topo do ficheiro **.cs Programa:**
 
   ```csharp
   using Microsoft.Azure.Devices.Client;

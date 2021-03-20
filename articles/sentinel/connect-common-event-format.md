@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
 ms.openlocfilehash: 6010242e7fbd14aa117c481dee0d05e92928ef1b
-ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98747496"
 ---
 # <a name="connect-your-external-solution-using-common-event-format"></a>Ligue a sua solução externa utilizando o Formato Comum de Eventos
@@ -90,7 +90,7 @@ Certifique-se de que a sua máquina também cumpre os seguintes requisitos:
 - Requisitos de software
   - Certifique-se de que tem a pitão 2.7 ou 3 a funcionar na sua máquina.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste documento, ficou a saber como a Azure Sentinel recolhe registos CEF a partir de soluções de segurança e aparelhos. Para aprender a ligar a sua solução ao Azure Sentinel, consulte os seguintes artigos:
 
