@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: 177215775c9e83286aa98872eed0ab211a8f36ff
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94948753"
 ---
 # <a name="automate-nsg-auditing-with-azure-network-watcher-security-group-view"></a>Automatizar a auditoria da NSG com a visão do grupo de segurança do observador da rede Azure
@@ -28,13 +28,13 @@ Se não estiver familiarizado com os Grupos de Segurança da Rede, consulte [a V
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Neste cenário, compara-se uma boa linha de base conhecida com os resultados de visualização do grupo de segurança devolvidos para uma máquina virtual.
 
 Este cenário pressupõe que já seguiu os passos na [Criação de um Observador de Rede](network-watcher-create.md) para criar um Observador de Rede. O cenário pressupõe ainda que exista um Grupo de Recursos com uma máquina virtual válida.
 
-## <a name="scenario"></a>Cenário
+## <a name="scenario"></a>Scenario
 
 O cenário abordado neste artigo obtém a visão do grupo de segurança para uma máquina virtual.
 

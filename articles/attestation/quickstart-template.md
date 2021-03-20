@@ -9,10 +9,10 @@ ms.custom: subject-armqs
 ms.author: mbaldwin
 ms.date: 10/16/2020
 ms.openlocfilehash: 8c56a37ebcc799b0170785666212eb4e3b00a5f0
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92144969"
 ---
 # <a name="quickstart-create-an-azure-attestation-provider-with-an-arm-template"></a>Quickstart: Criar um fornecedor de atestado Azure com um modelo ARM
@@ -23,7 +23,7 @@ ms.locfileid: "92144969"
 
 Se o seu ambiente cumpre os pré-requisitos e se está familiarizado com a utilização de modelos ARM, selecione o botão **Implementar no Azure**. O modelo será aberto no portal do Azure.
 
-[![Implementar para Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-attestation-provider-create%2Fazuredeploy.json)
+[![Implementar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-attestation-provider-create%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -43,7 +43,7 @@ Recursos azuis definidos no modelo:
 
 1. Selecione a seguinte imagem para iniciar seduca e abrir o modelo.
 
-    [![Implementar para Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-attestation-provider-create%2Fazuredeploy.json)
+    [![Implementar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-attestation-provider-create%2Fazuredeploy.json)
 
 1. Selecione ou introduza os seguintes valores.
 
@@ -61,7 +61,7 @@ O portal do Azure é utilizado para implementar o modelo. Além do portal Azure,
 
 Pode utilizar o portal Azure para verificar o recurso de atestado.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Outros Azure Attestation constroem-se sobre este arranque rápido. Se quiser continuar a trabalhar com os inícios rápidos e tutoriais subsequentes, pode manter estes recursos.
 

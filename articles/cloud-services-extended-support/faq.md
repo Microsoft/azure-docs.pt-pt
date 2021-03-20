@@ -9,10 +9,10 @@ ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
 ms.openlocfilehash: 3338f7b6bd418cea2bfdbbcd40692b9342f48cfa
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98744814"
 ---
 # <a name="frequently-asked-questions-for-azure-cloud-services-extended-support"></a>Perguntas frequentes dos Serviços Cloud do Azure (suporte alargado)
@@ -109,7 +109,7 @@ Os Serviços cloud (suporte alargado) suportam métodos dinâmicos de alocação
 Os clientes são faturados para utilização de endereços IP em Serviços cloud (suporte alargado), assim como os utilizadores são faturados para endereços IP associados a máquinas virtuais. 
 
 ### <a name="can-i-use-a-dns-name-with-cloud-services-extended-support"></a>Posso usar um nome DNS com Serviços cloud (suporte alargado)? 
-Yes. Os Serviços cloud (suporte alargado) também podem receber um nome DNS. Com o Azure Resource Manager, a etiqueta DNS é uma propriedade opcional do endereço IP público que é atribuído ao Serviço de Cloud. O formato do nome DNS para implementações baseadas em Recursos Azure é `<userlabel>.<region>.cloudapp.azure.com`
+Sim. Os Serviços cloud (suporte alargado) também podem receber um nome DNS. Com o Azure Resource Manager, a etiqueta DNS é uma propriedade opcional do endereço IP público que é atribuído ao Serviço de Cloud. O formato do nome DNS para implementações baseadas em Recursos Azure é `<userlabel>.<region>.cloudapp.azure.com`
 
 ## <a name="certificates--key-vault"></a>Certificados & Cofre chave
 
@@ -117,7 +117,7 @@ Yes. Os Serviços cloud (suporte alargado) também podem receber um nome DNS. Co
 A Cloud Services (suporte alargado) adotou o mesmo processo que outras ofertas de computação onde os certificados residem dentro dos Cofres Chave geridos pelo cliente. Isto permite que os clientes tenham controlo total sobre os seus segredos & certificados. 
 
 ### <a name="can-i-use-one-key-vault-for-all-my-deployments-in-all-regions"></a>Posso usar um Cofre-Chave para todos os meus destacamentos em todas as regiões?
-Não. Key Vault é um recurso regional e os clientes precisam de um Cofre Chave em cada região. No entanto, um Cofre-Chave pode ser usado para todas as implementações dentro de uma determinada região.
+N.º Key Vault é um recurso regional e os clientes precisam de um Cofre Chave em cada região. No entanto, um Cofre-Chave pode ser usado para todas as implementações dentro de uma determinada região.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para começar a utilizar serviços cloud (suporte alargado), consulte [implementar um Serviço de Nuvem (suporte alargado) utilizando o PowerShell](deploy-powershell.md)

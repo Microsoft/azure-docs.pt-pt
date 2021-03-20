@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 39d1554fd1b6cac1a90a794cfd93def97e494bfe
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98613528"
 ---
 # <a name="azure-active-directory-connect-cloud-sync-faq"></a>Azure Ative Directory Connect cloud sync FAQ
@@ -42,7 +42,7 @@ Com a sincronização Azure AD Connect, o fornecimento é executado no servidor 
 
 **P: Posso usar sincronização de nuvem para sincronizar a partir de múltiplas florestas de Diretório Ativo?**
 
-Yes. O fornecimento de nuvens pode ser usado para sincronizar a partir de múltiplas florestas de Ative Directory. No ambiente multi-florestal, todas as referências (exemplo, gestor) devem estar dentro do domínio.  
+Sim. O fornecimento de nuvens pode ser usado para sincronizar a partir de múltiplas florestas de Ative Directory. No ambiente multi-florestal, todas as referências (exemplo, gestor) devem estar dentro do domínio.  
 
 **P: Como é que o agente é atualizado?**
 
@@ -98,7 +98,7 @@ Nada.  Os utilizadores não serão eliminados se a U for renomeada ou movida.
 
 **P: A azure AD Connect sincronização de nuvem suporta grandes grupos?**
 
-Yes. Hoje apoiamos até 50K membros do grupo sincronizados usando a filtragem de âmbito OU. Ao mesmo tempo, quando utilizar a filtragem do âmbito de grupo, recomendamos que mantenha o tamanho do grupo a menos de 1500 membros. A razão para isso é que, mesmo que possa sincronizar um grande grupo como parte do filtro de deteção de grupo, quando adicionar membros a esse grupo por lotes superiores a 1500, a sincronização delta falhará. 
+Sim. Hoje apoiamos até 50K membros do grupo sincronizados usando a filtragem de âmbito OU. Ao mesmo tempo, quando utilizar a filtragem do âmbito de grupo, recomendamos que mantenha o tamanho do grupo a menos de 1500 membros. A razão para isso é que, mesmo que possa sincronizar um grande grupo como parte do filtro de deteção de grupo, quando adicionar membros a esse grupo por lotes superiores a 1500, a sincronização delta falhará. 
 
 ## <a name="next-steps"></a>Passos seguintes 
 

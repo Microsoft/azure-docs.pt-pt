@@ -1,5 +1,5 @@
 ---
-title: Começa com os gémeos Azure IoT Hub (Nó) Microsoft Docs
+title: Começa com os gémeos do dispositivo Azure IoT Hub (Nó) | Microsoft Docs
 description: Como usar gémeos de dispositivo Azure IoT Hub para adicionar tags e, em seguida, usar uma consulta IoT Hub. Utiliza os SDKs Azure IoT para Node.js implementar a aplicação simulada do dispositivo e uma aplicação de serviço que adiciona as etiquetas e executa a consulta IoT Hub.
 author: fsautomata
 ms.service: iot-hub
@@ -10,10 +10,10 @@ ms.date: 08/26/2019
 ms.author: elioda
 ms.custom: mqtt, devx-track-js
 ms.openlocfilehash: 65ced3812072bd2650fc36bbb7a7b0f3f75e0def
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91336790"
 ---
 # <a name="get-started-with-device-twins-nodejs"></a>Começar com os gémeos do dispositivo (Node.js)
@@ -40,7 +40,7 @@ Para concluir este tutorial, precisa de:
 
 * Certifique-se de que a porta 8883 está aberta na sua firewall. A amostra do dispositivo neste artigo utiliza o protocolo MQTT, que comunica sobre a porta 8883. Este porto pode ser bloqueado em alguns ambientes de rede corporativa e educacional. Para obter mais informações e formas de contornar esta questão, consulte [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
-## <a name="create-an-iot-hub"></a>Criar um hub IoT
+## <a name="create-an-iot-hub"></a>Criar um hub IoT
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
@@ -159,7 +159,7 @@ Nesta secção, cria-se uma aplicação de consola Node.js que se conecta ao seu
     npm init --yes
     ```
 
-2. No seu comando, na pasta de **reportecividade,** executar o seguinte comando para instalar os **pacotes azure-iot-device-mqtt:** **azure-iot-device-mqtt**
+2. No seu comando, na pasta de **reportecividade,** executar o seguinte comando para instalar os **pacotes azure-iot-device-mqtt:** 
 
     ```cmd/sh
     npm install azure-iot-device azure-iot-device-mqtt --save

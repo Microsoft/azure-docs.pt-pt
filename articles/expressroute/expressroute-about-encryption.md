@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 10/12/2020
 ms.author: duau
 ms.openlocfilehash: 693d2304324bdfcac298b3e20ddd0d882a16533c
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92899860"
 ---
 # <a name="expressroute-encryption"></a>Encriptação ExpressRoute
@@ -42,7 +42,7 @@ Sim. Se adotar a Azure Virtual WAN, pode seguir [estes passos](../virtual-wan/vp
 ### <a name="what-is-the-throughput-i-will-get-after-enabling-ipsec-on-my-expressroute-connection"></a>Qual é a produção que vou ter depois de permitir o IPsec na minha ligação ExpressRoute?
 Se o gateway Azure VPN for utilizado, verifique os [números](../vpn-gateway/vpn-gateway-about-vpngateways.md)de desempenho aqui . Se for utilizado um gateway VPN de terceiros, verifique com o fornecedor os números de desempenho.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 Consulte [o CONFIGURAR MACsec](expressroute-howto-macsec.md) para obter mais informações sobre a configuração do MACsec.
 
 Consulte [o IPsec configurar](site-to-site-vpn-over-microsoft-peering.md) para obter mais informações sobre a configuração do IPsec.

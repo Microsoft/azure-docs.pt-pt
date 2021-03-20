@@ -1,5 +1,5 @@
 ---
-title: Azure AD Connect Health - Os dados do serviço de saúde não estão atualizados / Microsoft Docs
+title: Azure AD Connect Health - Os dados do serviço de saúde não estão atualizados | Microsoft Docs
 description: Este documento descreve a causa do alerta "Os dados do serviço de saúde não estão atualizados" e como resolvê-lo.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 02/26/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 00518eb91e57efaacb7abc63b6ad4531619be2ce
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98012874"
 ---
 # <a name="health-service-data-is-not-up-to-date-alert"></a>Dados do serviço de saúde não estão atualizados alerta
@@ -67,7 +67,7 @@ Os passos necessários para diagnosticar o problema são dados abaixo. O primeir
 * Se tiver um HTTP Proxy, siga estes [passos de configuração](how-to-connect-health-agent-install.md#configure-azure-ad-connect-health-agents-to-use-http-proxy). 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Se algum dos passos acima identificados um problema, corrija-o e aguarde que o alerta seja resolvido. O processo de fundo de alerta decorre a cada 2 horas, pelo que levará até 2 horas para resolver o alerta. 
 
 * [Política de retenção de dados Azure AD Connect Health](reference-connect-health-user-privacy.md#data-retention-policy)

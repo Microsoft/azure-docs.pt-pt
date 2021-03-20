@@ -1,5 +1,5 @@
 ---
-title: Track and log Azure Data Box, Azure Data Box Eventos pesados para encomenda de importação/ Microsoft Docs
+title: Rastrear e registar Azure Data Box, Azure Data Box Eventos pesados para encomenda de importação| Microsoft Docs
 description: Descreve como rastrear e registar eventos nas várias fases da sua caixa de dados Azure e da encomenda de importação pesada da Caixa de Dados Azure.
 services: databox
 author: alkohli
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/10/2020
 ms.author: alkohli
 ms.openlocfilehash: a9304936f746b82b59550d62e8b60a9e0035d188
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92147930"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy-import-order"></a>Rastreio e registo de eventos para a sua Caixa de Dados Azure e Azure Data Box Encomenda pesada de importação
@@ -26,7 +26,7 @@ O quadro seguinte mostra um resumo das etapas de encomenda pesada da Caixa de Da
 | Criar encomenda               | [Configurar o controlo de acesso na encomenda via Azure RBAC](#set-up-access-control-on-the-order)                                                    |
 | Encomenda processada            | [Acompanhe a encomenda](#track-the-order) através <ul><li> Portal do Azure </li><li> Site da transportadora de envio </li><li>Notificações por e-mail</ul> |
 | Configurar dispositivo              | Acesso de credenciais de dispositivo registado em [registos de atividade](#query-activity-logs-during-setup)                                              |
-| Cópia de dados para dispositivo        | [Ver * ficheiroserror.xml* ](#view-error-log-during-data-copy) para cópia de dados                                                             |
+| Cópia de dados para dispositivo        | [Ver *ficheiroserror.xml*](#view-error-log-during-data-copy) para cópia de dados                                                             |
 | Preparar para enviar            | [Inspecione os ficheiros BOM](#inspect-bom-during-prepare-to-ship) ou os ficheiros manifestos do dispositivo                                      |
 | Upload de dados para Azure       | [Reveja os registos de cópias](#review-copy-log-during-upload-to-azure) de erros durante o upload de dados no Azure datacenter                         |
 | Apagamento de dados do dispositivo   | [Ver cadeia de registos de custódia,](#get-chain-of-custody-logs-after-data-erasure) incluindo registos de auditoria e histórico de encomendas                |
@@ -360,7 +360,7 @@ Se percorrer o histórico da ordem, verá:
 
 - Informação de rastreio do seu dispositivo.
 - Eventos com atividade *SecureErase.* Estes eventos correspondem ao apagamento dos dados no disco.
-- Links de registo de caixa de dados. São apresentados os caminhos dos registos de *auditoria,* *registos de cópias*e ficheiros *BOM.*
+- Links de registo de caixa de dados. São apresentados os caminhos dos registos de *auditoria,* *registos de cópias* e ficheiros *BOM.*
 
 Aqui está uma amostra do registo de histórico de encomendas do portal Azure:
 

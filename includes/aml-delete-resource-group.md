@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: machine-learning
 ms.service: machine-learning
 ms.custom: include file
@@ -9,10 +9,10 @@ author: j-martens
 ms.author: jmartens
 ms.date: 12/04/2018
 ms.openlocfilehash: 9c6d29287f86cd6334692e2be5376caf9dd98bdd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91372578"
 ---
 >[!IMPORTANT]
@@ -27,6 +27,6 @@ Se não planeia utilizar os recursos que criou, elimine-os para não incorrer em
 
 1. Selecione **Eliminar grupo de recursos**.
 
-   ![Screenshot das seleções para eliminar um grupo de recursos no portal Azure.](./media/aml-delete-resource-group/delete-resources.png)
+   ![Captura de ecrã a mostrar as seleções para eliminar um grupo de recursos no portal do Azure.](./media/aml-delete-resource-group/delete-resources.png)
 
-1. Insira o nome do grupo de recursos. Em seguida, selecione **Eliminar**.
+1. Introduza o nome do grupo de recursos. Em seguida, selecione **Eliminar**.

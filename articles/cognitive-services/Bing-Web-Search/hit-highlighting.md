@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: scottwhi
 ms.openlocfilehash: 32c3279cacddf10e77e8d245ba525ab766efd6fd
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96351883"
 ---
 # <a name="using-decoration-markers-to-highlight-text"></a>Usando marcadores de decoração para destacar texto
@@ -56,7 +56,7 @@ Se o pedido não especificar decorações, o `expression` campo conterá `log10(
 
 Se `textDecorations` for `true` , Bing pode incluir os seguintes marcadores nas cadeias de respostas do visor. Se não houver uma etiqueta HTML equivalente, a célula de mesa está vazia.
 
-|Unicode|HTML|Descrição
+|Unicode|HTML|Description
 |-|-|-
 |U+E000|\<b>|Marca o início do termo de consulta (destaque de sucesso)
 |U+E001|\</b>|Marca o fim do termo de consulta

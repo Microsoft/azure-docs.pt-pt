@@ -1,13 +1,13 @@
 ---
-title: Mover um cluster dedicado a Azure Event Hubs para outra região Microsoft Docs
+title: Mova um cluster dedicado a Azure Event Hubs para outra região | Microsoft Docs
 description: Este artigo mostra-lhe como mover um cluster dedicado a Azure Event Hubs da região atual para outra região.
 ms.topic: how-to
 ms.date: 09/01/2020
 ms.openlocfilehash: 94be44ee8f9442a3a65e899d7a58524b2570f194
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89380836"
 ---
 # <a name="move-an-azure-event-hubs-dedicated-cluster-to-another-region"></a>Mover um cluster dedicado a Azure Event Hubs para outra região
@@ -38,9 +38,9 @@ Implemente o modelo para criar um cluster dedicado ao Event Hubs na região alvo
 
 
 1. No portal Azure, selecione **Criar um recurso**.
-2. Em **Search the Marketplace**, design de design de **modelos**e selecione **a implementação do modelo (implementar usando modelos personalizados)**.
+2. Em **Search the Marketplace**, design de design de **modelos** e selecione **a implementação do modelo (implementar usando modelos personalizados)**.
 5. Selecione **Construa o seu próprio modelo no editor.**
-6. Selecione **carregar o ficheiro**e, em seguida, siga as instruções para carregar otemplate.js** no** ficheiro que descarregou na última secção.
+6. Selecione **carregar o ficheiro** e, em seguida, siga as instruções para carregar otemplate.js **no** ficheiro que descarregou na última secção.
 1. Atualizar o valor do `location` imóvel para apontar para a nova região. Para obter códigos de localização, consulte [as localizações do Azure.](https://azure.microsoft.com/global-infrastructure/locations/) O código para uma região é o nome da região sem espaços, por exemplo, `West US` é igual a `westus` .
 1. **Selecione Guardar** para guardar o modelo. 
 1. Na página **de implementação personalizada,** siga estes passos: 
@@ -50,20 +50,20 @@ Implemente o modelo para criar um cluster dedicado ao Event Hubs na região alvo
     4. Na secção **DEFINIÇÕES,** faça os seguintes passos:    
         1. Introduza o novo **nome de cluster**. 
 
-            :::image type="content" source="./media/move-cluster-across-regions/deploy-template.png" alt-text="Baixar modelo de Gestor de Recursos":::
+            :::image type="content" source="./media/move-cluster-across-regions/deploy-template.png" alt-text="Implementar o modelo do Gestor de Recursos":::
     5. Selecione **'Rever + criar'** na parte inferior da página. 
     1. Na página **'Rever + criar',** rever as definições e, em seguida, selecionar **Criar**.  
 
 ## <a name="discard-or-clean-up"></a>Eliminar ou limpar
-Após a implementação, se quiser recomeçar, pode eliminar o cluster dedicado do **Event Hubs**e repetir os passos descritos nas secções [Preparar](#prepare) e [Mover](#move) deste artigo.
+Após a implementação, se quiser recomeçar, pode eliminar o cluster dedicado do **Event Hubs** e repetir os passos descritos nas secções [Preparar](#prepare) e [Mover](#move) deste artigo.
 
 Para comprometer as alterações e completar o movimento de um cluster Event Hubs, elimine o **cluster Event Hubs** na região original. 
 
 Para eliminar um cluster Desateia de Centros de Eventos (fonte ou alvo) utilizando o portal Azure:
 
-1. Na janela de pesquisa no topo do portal Azure, escreva **Clusters De Eventos**e selecione **Clusters De Eventos** a partir dos resultados da pesquisa. Você vê o cluster Event Hubs numa lista.
+1. Na janela de pesquisa no topo do portal Azure, escreva **Clusters De Eventos** e selecione **Clusters De Eventos** a partir dos resultados da pesquisa. Você vê o cluster Event Hubs numa lista.
 2. Selecione o cluster para eliminar e **selecione Eliminar** a partir da barra de ferramentas. 
-3. Na página **Eliminar Cluster,** confirme a eliminação digitando o nome do **cluster**e, em seguida, selecione **Delete**. 
+3. Na página **Eliminar Cluster,** confirme a eliminação digitando o nome do **cluster** e, em seguida, selecione **Delete**. 
 
 ## <a name="next-steps"></a>Passos seguintes
 Neste tutorial, aprendeu a mover um cluster dedicado ao Event Hubs de uma região para outra. 

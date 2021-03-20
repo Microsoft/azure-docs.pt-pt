@@ -9,10 +9,10 @@ ms.date: 04/11/2019
 ms.author: asrastog
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 90b7b6aebfce1c37bef76d371d829048d755e39e
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92147270"
 ---
 # <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>Ordenar eventos de ligação do dispositivo do Hub IoT com o Azure Cosmos DB
@@ -201,7 +201,7 @@ Um acionador é um evento específico que inicia a sua aplicação lógica. Nest
 
 No seu fluxo de trabalho de aplicativos de lógica, as condições ajudam a executar ações específicas depois de passar essa condição específica. Uma vez que a condição é satisfeita, uma ação desejada pode ser definida. Para este tutorial, a condição é verificar se o EventType está ligado ao dispositivo ou se o dispositivo está desligado. A ação será executar o procedimento armazenado na sua base de dados.
 
-1. Selecione **+ Novo passo** em **seguida, incorporado, em**seguida, encontrar e selecionar **Condição**. Clique em **Escolher um valor** e aparecerá uma caixa mostrando o conteúdo Dynamic -- os campos que podem ser selecionados. Preencha os campos como mostrado abaixo para apenas executá-lo para eventos ligados ao dispositivo e desligados do dispositivo:
+1. Selecione **+ Novo passo** em **seguida, incorporado, em** seguida, encontrar e selecionar **Condição**. Clique em **Escolher um valor** e aparecerá uma caixa mostrando o conteúdo Dynamic -- os campos que podem ser selecionados. Preencha os campos como mostrado abaixo para apenas executá-lo para eventos ligados ao dispositivo e desligados do dispositivo:
 
    * Escolha um valor: **eventType** -- selecione isto a partir dos campos no conteúdo dinâmico que aparecem quando clica neste campo.
    * A mudança "é igual" a **termina com**.
@@ -337,7 +337,7 @@ Pode ver os resultados do procedimento armazenado executado no seu documento Cos
 
 Em vez de utilizar o [portal Azure,](https://portal.azure.com)pode realizar os passos do Hub IoT utilizando o Azure CLI. Para mais detalhes, consulte as páginas do Azure CLI para [criar uma subscrição de eventos](/cli/azure/eventgrid/event-subscription) e [criar um dispositivo IoT](/cli/azure/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-create).
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Este tutorial utilizou recursos que incorrem em custos na sua subscrição do Azure. Quando terminar de experimentar o tutorial e testar os seus resultados, desative ou elimine recursos que não quer manter.
 

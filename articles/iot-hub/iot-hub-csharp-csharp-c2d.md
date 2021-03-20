@@ -1,5 +1,5 @@
 ---
-title: Mensagens nuvem-para-dispositivo com Azure IoT Hub (.NET) Microsoft Docs
+title: Mensagens nuvem-para-dispositivo com Azure IoT Hub (.NET) | Microsoft Docs
 description: Como enviar mensagens nuvem-para-dispositivo para um dispositivo a partir de um hub Azure IoT usando os SDKs Azure IoT para .NET. Modifica uma aplicação de dispositivo para receber mensagens cloud-to-device e modificar uma aplicação de back-end para enviar as mensagens cloud-to-device.
 author: robinsh
 manager: philmea
@@ -16,10 +16,10 @@ ms.custom:
 - 'Role: IoT Device'
 - devx-track-csharp
 ms.openlocfilehash: d8df9884c0104792240d85d9ebd4235ef2a18741
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92142352"
 ---
 # <a name="send-messages-from-the-cloud-to-your-device-with-iot-hub-net"></a>Envie mensagens da nuvem para o seu dispositivo com IoT Hub (.NET)
@@ -124,11 +124,11 @@ Nesta secção, cria-se uma aplicação de consola .NET que envia mensagens nuve
 
 1. No Solution Explorer, clique com o botão direito no novo projeto e, em seguida, **selecione Gerir Pacotes NuGet**.
 
-1. In **Manage NuGet Packages**, selecione **Procurar**e, em seguida, procurar e selecionar **Dispositivos Microsoft.Azure..** **Selecione instalar**.
+1. In **Manage NuGet Packages**, selecione **Procurar** e, em seguida, procurar e selecionar **Dispositivos Microsoft.Azure..** **Selecione instalar**.
 
    Este passo descarrega, instala e adiciona uma referência ao [pacote SDK NuGet do serviço Azure IoT](https://www.nuget.org/packages/Microsoft.Azure.Devices/).
 
-1. Adicione a seguinte `using` declaração no topo do ficheiro **Program.cs.**
+1. Adicione a seguinte `using` declaração no topo do ficheiro .cs **Programa.**
 
    ``` csharp
    using Microsoft.Azure.Devices;
@@ -167,7 +167,7 @@ Nesta secção, cria-se uma aplicação de consola .NET que envia mensagens nuve
 
 1. No Solutions Explorer, clique com o botão direito na sua solução e selecione **set StartUp Projects**.
 
-1. No **Common Properties**Startup  >  **Project**, selecione **vários projetos de startups,** em seguida, selecione a ação **Iniciar** para **SimulatedDevice** e **SendCloudToDevice**. Selecione **OK** para guardar as alterações.
+1. No **Common Properties** Startup  >  **Project**, selecione **vários projetos de startups,** em seguida, selecione a ação **Iniciar** para **SimulatedDevice** e **SendCloudToDevice**. Selecione **OK** para guardar as alterações.
 
 1. Prima **F5**. Ambas as aplicações devem começar. Selecione a janela **SendCloudToDevice** e prima **Enter**. Deverá ver a mensagem a ser recebida pela aplicação do dispositivo.
 

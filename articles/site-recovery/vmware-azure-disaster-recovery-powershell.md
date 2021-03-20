@@ -8,10 +8,10 @@ ms.date: 01/10/2020
 ms.topic: conceptual
 ms.author: sutalasi
 ms.openlocfilehash: de25a3f9df04b09a7337dc889a688a171d98db28
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86129905"
 ---
 # <a name="set-up-disaster-recovery-of-vmware-vms-to-azure-with-powershell"></a>Configurar a recuperação após desastre de VMs do VMware para o Azure com o PowerShell
@@ -105,7 +105,7 @@ Select-AzSubscription -SubscriptionName "ASR Test Subscription"
 Desa estabaia o contexto do cofre utilizando o Set-ASRVaultContext cmdlet. Uma vez definidas, as operações subsequentes de Recuperação do Local de Azure na sessão PowerShell são realizadas no contexto do cofre selecionado.
 
 > [!TIP]
-> O módulo PowerShell de Recuperação do Local Azure (módulo Az.RecoveryServices) vem com pseudónimos fáceis de usar para a maioria dos cmdlets. Os cmdlets do módulo assumem a forma * \<Operation> - **AzRecoveryServicesAsr** \<Object> * e têm pseudónimos equivalentes que assumem o formulário * \<Operation> - **ASR** \<Object> *. Pode substituir os pseudónimos cmdlet para facilitar a utilização.
+> O módulo PowerShell de Recuperação do Local Azure (módulo Az.RecoveryServices) vem com pseudónimos fáceis de usar para a maioria dos cmdlets. Os cmdlets do módulo assumem a forma *\<Operation> - **AzRecoveryServicesAsr** \<Object>* e têm pseudónimos equivalentes que assumem o formulário *\<Operation> - **ASR** \<Object>*. Pode substituir os pseudónimos cmdlet para facilitar a utilização.
 
 No exemplo abaixo, os detalhes do cofre da variável $vault são usados para especificar o contexto do cofre para a sessão PowerShell.
 
@@ -172,7 +172,7 @@ Para este exemplo, temos o seguinte:
    1     ConfigurationServer
    ```
 
-   Da saída acima ***$ProcessServers[0]*** corresponde ao *ScaleOut-ProcessServer* e ***$ProcessServers[1]*** corresponde à função do Servidor de Processo no *ConfigurationServer*
+   Da saída acima ***$ProcessServers[0]** _ corresponde ao _ScaleOut-ProcessServer* e ***$ProcessServers[1]**_ corresponde à função do Servidor de Processos no _ConfigurationServer*
 
 3. Identifique as contas que foram criadas no Servidor de Configuração.
 
@@ -189,7 +189,7 @@ Para este exemplo, temos o seguinte:
    3         LinuxAccount
    ```
 
-   Da produção acima ***$AccountHandles[0]*** corresponde à *conta vCenter_account,* ***$AccountHandles[1]*** à conta *do WindowsAccount*e ***$AccountHandles[2]*** à conta *linuxAccount*
+   Da saída acima ***$AccountHandles[0]** _ corresponde à conta _vCenter_account*, ***$AccountHandles[1]**_ à conta _do WindowsAccount*, e ***$AccountHandles[2]**_ para prestar contas _LinuxAccount*
 
 ## <a name="create-a-replication-policy"></a>Criar uma política de replicação
 
@@ -342,7 +342,7 @@ Necessitará dos seguintes detalhes para proteger uma máquina virtual descobert
 * O item protecível a ser replicado.
 * A conta de armazenamento para replicar a máquina virtual (apenas se estiver a replicar a conta de armazenamento). 
 * É necessário um armazenamento de registos para proteger as máquinas virtuais a uma conta de armazenamento premium ou a um disco gerido.
-* O Servidor de Processo a ser utilizado para a replicação. A lista de servidores de processo disponíveis foi recuperada e guardada nas variáveis ***$ProcessServers[0]****(ScaleOut-ProcessServer)* e ***$ProcessServers[1]*** *(ConfigurationServer).*  
+* O Servidor de Processo a ser utilizado para a replicação. A lista de servidores de processo disponíveis foi recuperada e guardada nas variáveis ***$ProcessServers[0]** _ _(ScaleOut-ProcessServer)* e ***$ProcessServers[1]**_ _(ConfigurationServer)* variáveis.
 * A conta a utilizar para instalar o software de serviço de mobilidade nas máquinas. A lista de contas disponíveis foi recuperada e armazenada na variável ***$AccountHandles.***
 * O mapeamento do contentor de proteção para a política de replicação a utilizar para a replicação.
 * O grupo de recursos em que as máquinas virtuais devem ser criadas em falha.
@@ -351,7 +351,7 @@ Necessitará dos seguintes detalhes para proteger uma máquina virtual descobert
 Agora replique as seguintes máquinas virtuais usando as definições especificadas nesta tabela
 
 
-|Máquina virtual  |Servidor de Processo        |Conta de Armazenamento              |Conta de Armazenamento de Registo  |Política           |Conta para instalação de serviço de mobilidade|Grupo de recursos-alvo  | Rede virtual de destino  |Sub-rede-alvo  |
+|Máquina virtual  |Servidor de Processo        |Conta de Armazenamento              |Conta de Armazenamento de Registo  |Política           |Conta para instalação de serviço de mobilidade|Grupo de recursos de destino  | Rede virtual de destino  |Sub-rede-alvo  |
 |-----------------|----------------------|-----------------------------|---------------------|-----------------|-----------------------------------------|-----------------------|-------------------------|---------------|
 |CentOSVM1       |ConfiguraçãoServer   |N/D| logstorageaccount1                 |ReplicaçãoPolícia|LinuxAccount                             |VMwareDRToAzurePs      |ASR-vnet                 |Sub-rede 1       |
 |Win2K12VM1       |ScaleOut-ProcessServer|contas premiumtorageac1       |logstorageaccount1   |ReplicaçãoPolícia|Contas do Windows                           |VMwareDRToAzurePs      |ASR-vnet                 |Sub-rede 1       |   

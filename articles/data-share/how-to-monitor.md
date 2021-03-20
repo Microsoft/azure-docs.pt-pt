@@ -7,10 +7,10 @@ ms.service: data-share
 ms.topic: how-to
 ms.date: 07/30/2020
 ms.openlocfilehash: cc400922115f348090677661cd1b30434be19b72
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92910479"
 ---
 # <a name="monitor-azure-data-share"></a>Monitorizar o Azure Data Share  
@@ -50,7 +50,7 @@ São apresentados até 30 dias de história instantânea. Se precisar de poupar 
 
 ## <a name="diagnostic-setting"></a>Definição de diagnóstico
 
-Pode configurar a definição de diagnóstico para guardar dados ou eventos de registo. Navegue para monitorizar as definições de diagnóstico de > e selecione **Adicionar a definição de diagnóstico** . Selecione os dados de registo ou eventos em que está interessado e para onde pretende armazenar ou enviar. 
+Pode configurar a definição de diagnóstico para guardar dados ou eventos de registo. Navegue para monitorizar as definições de diagnóstico de > e selecione **Adicionar a definição de diagnóstico**. Selecione os dados de registo ou eventos em que está interessado e para onde pretende armazenar ou enviar. 
 
 ![A screenshot mostra a página de definições de Diagnóstico no portal Azure.](./media/diagnostic-settings.png "Definições de diagnóstico") 
 

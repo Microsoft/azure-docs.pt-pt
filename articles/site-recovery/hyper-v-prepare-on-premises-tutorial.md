@@ -8,10 +8,10 @@ ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: 6f24a259d2d71aa6599f6dd417d5e9fc99734e99
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86135661"
 ---
 # <a name="prepare-on-premises-hyper-v-servers-for-disaster-recovery-to-azure"></a>Preparar servidores Hyper-V no local para a recuperação após desastre para o Azure
@@ -84,10 +84,10 @@ Durante um cenário de falha, poderá querer ligar-se à sua rede replicada no l
 
 Para ligar aos VM do Windows utilizando RDP após falha, permita o acesso da seguinte forma:
 
-1. Para aceder através da Internet, ative o protocolo RDP na VM local antes da ativação pós-falha. Certifique-se de que as regras TCP e UDP são adicionadas para o perfil **público,** e que o RDP é permitido em **Windows Firewall**  >  **Apps permitidas para** windows firewall para todos os perfis.
-2. Para aceder através da rede de VPNs, ative o protocolo RDP na máquina local. O RDP deve **Windows Firewall**ser permitido nas  ->  **aplicações e funcionalidades permitidas** para o Windows Firewall e para redes **de domínio e privado.**
+1. Para aceder através da Internet, ative o protocolo RDP na VM local antes da ativação pós-falha. Certifique-se de que as regras TCP e UDP são adicionadas para o perfil **público,** e que o RDP é permitido em   >  **Apps permitidas para** windows firewall para todos os perfis.
+2. Para aceder através da rede de VPNs, ative o protocolo RDP na máquina local. O RDP deve ser permitido nas  ->  **aplicações e funcionalidades permitidas** para o Windows Firewall e para redes **de domínio e privado.**
    Verifique se a política de SAN do sistema operativo está definida como **OnlineAll**. [Saiba mais](https://support.microsoft.com/kb/3031135). Não devem haver atualizações do Windows pendentes na VM quando aciona uma ativação pós-falha. Se houver, não poderá iniciar sôs na máquina virtual até que a atualização esteja concluída.
-3. Na VM do Azure do Windows após a ativação pós-falha, consulte o **Diagnóstico de arranque ** para ver uma captura de ecrã da VM. Se não conseguir ligar-se, verifique se a VM está em execução e reveja estas [sugestões de resolução de problemas](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
+3. Na VM do Azure do Windows após a ativação pós-falha, consulte o **Diagnóstico de arranque** para ver uma captura de ecrã da VM. Se não conseguir ligar-se, verifique se a VM está em execução e reveja estas [sugestões de resolução de problemas](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 
 Após o failover, pode aceder aos VMs Azure utilizando o mesmo endereço IP que o VM replicado no local, ou um endereço IP diferente. [Saiba mais](concepts-on-premises-to-azure-networking.md) sobre a configuração do endereço IP para failover.
 

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 2d3f382635e9a8b8a562f7a7f60f256d68b90b8f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91363210"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Autorizar as contas de programador ao utilizar o Azure Active Directory na Gestão de API do Azure
@@ -87,8 +87,8 @@ Depois de ativar o acesso dos utilizadores num inquilino AZure AD, pode adiciona
 Para adicionar um grupo AD Azure externo à APIM, tem primeiro de completar a secção anterior. Além disso, a aplicação que registou deve ter acesso à API do Microsoft Graph com `Directory.Read.All` permissão seguindo estes passos: 
 
 1. Volte ao registo da sua App que foi criado na secção anterior.
-2. Selecione **permissões API**e, em seguida, clique **em +Adicionar uma permissão**. 
-3. No painel de permissões da **API do Pedido,** selecione o separador APIs da **Microsoft,** desloque-se para baixo e, em seguida, selecione o azulejo **Azure Ative Directory Graph.** Selecione **permissões de aplicação,** procure por **Diretório**e, em seguida, selecione a permissão **Do Diretório.Read.All.** 
+2. Selecione **permissões API** e, em seguida, clique **em +Adicionar uma permissão**. 
+3. No painel de permissões da **API do Pedido,** selecione o separador APIs da **Microsoft,** desloque-se para baixo e, em seguida, selecione o azulejo **Azure Ative Directory Graph.** Selecione **permissões de aplicação,** procure por **Diretório** e, em seguida, selecione a permissão **Do Diretório.Read.All.** 
 4. Clique em **Adicionar permissões** na parte inferior do painel e, em seguida, clique em **Grant consentimento de administração para {tenantname}** para que você conceda acesso a todos os utilizadores neste diretório. 
 
 Agora pode adicionar grupos AD externos do separador **Grupos** da sua instância de Gestão de API.

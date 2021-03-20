@@ -6,10 +6,10 @@ ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 11/15/2018
 ms.openlocfilehash: 4ba7df665b24a3eba2cd185d85a17bd0ef456b0b
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98929662"
 ---
 # <a name="create-apache-spark-streaming-jobs-with-exactly-once-event-processing"></a>Criar empregos em streaming de Faíscas Apache Com processamento de eventos exatamente uma vez
@@ -84,7 +84,7 @@ Por exemplo, pode utilizar um procedimento armazenado com base de dados Azure SQ
 
 Outro exemplo é usar um sistema de ficheiros dividido, como bolhas de armazenamento Azure ou armazenamento de data de Azure. Neste caso, a sua lógica de sumidouro não precisa de verificar a existência de um ficheiro. Se o ficheiro que representa o evento existir, é simplesmente substituído com os mesmos dados. Caso contrário, um novo ficheiro é criado no caminho calculado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Visão geral do fluxo de faíscas de Apache Spark](apache-spark-streaming-overview.md)
 * [Criação de empregos altamente disponíveis em Apache Spark Streaming em Apache Hadoop YARN](apache-spark-streaming-high-availability.md)

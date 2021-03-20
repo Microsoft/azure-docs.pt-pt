@@ -8,10 +8,10 @@ ms.date: 06/17/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
 ms.openlocfilehash: 09dbe0fbefb8b90b4c4e1ddef57abf3b13856183
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92148081"
 ---
 # <a name="security-recommendations-for-app-service"></a>Recomendações de segurança para o Serviço de Aplicações
@@ -43,7 +43,7 @@ Este artigo contém recomendações de segurança para o Azure App Service. A im
 | Utilizar FTPS | O Serviço de Aplicações suporta tanto o FTP como o FTPS para a implementação dos seus ficheiros. Utilize FTPS em vez de FTP quando possível. Quando um ou ambos os protocolos não estiverem a ser utilizados, deve [desativá-los](deploy-ftp.md#enforce-ftps). |
 | Proteger os dados das aplicações | Não guarde segredos de aplicações, tais como credenciais de base de dados, fichas API ou chaves privadas nos seus ficheiros de código ou configuração. A abordagem geralmente aceite é aceder-lhes como [variáveis ambientais](https://wikipedia.org/wiki/Environment_variable) usando o padrão padrão na sua linguagem de eleição. No Azure App Service, pode definir variáveis ambientais através de [configurações de aplicações](./configure-common.md) e [cadeias de conexão.](./configure-common.md) As definições de aplicações e as cadeias de ligação são armazenadas encriptadas no Azure. As definições da aplicação são desencriptadas apenas antes de serem injetadas na memória de processo da sua aplicação quando a aplicação começar. As chaves de encriptação são rodadas regularmente. Em alternativa, pode integrar a sua aplicação Azure App Service com [a Azure Key Vault](../key-vault/index.yml) para gestão de segredos avançados. Ao [aceder ao Cofre-Chave com uma identidade gerida,](../key-vault/general/tutorial-net-create-vault-azure-web-app.md)a sua aplicação App Service pode aceder de forma segura aos segredos de que necessita. |
 
-## <a name="networking"></a>Redes
+## <a name="networking"></a>Rede
 
 | Recomendação | Comentários |
 |-|-|

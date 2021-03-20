@@ -5,10 +5,10 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 12/13/2019
 ms.openlocfilehash: 4087341a9a96ae56c00972f886ce3cc8891750a5
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98929738"
 ---
 # <a name="run-azure-machine-learning-workloads-with-automated-machine-learning-on-apache-spark-in-hdinsight"></a>Executar cargas de trabalho de aprendizagem automática da Azure Machine Learning com aprendizagem automática de máquinas em Apache Spark em HDInsight
@@ -70,7 +70,7 @@ Também pode registar a datastore com o espaço de trabalho usando um registo ú
 
 Na [configuração automatizada de machine learning,](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig)a propriedade `spark_context` deve ser definida para que a embalagem seja executada no modo distribuído. A propriedade `concurrent_iterations` , que é o número máximo de iterações executadas em paralelo, deve ser definida como um número inferior aos núcleos executor da app Spark.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter mais informações sobre a motivação por trás da aprendizagem automática de [máquinas, consulte os modelos De lançamento ao ritmo utilizando a aprendizagem automática de máquinas da Microsoft!](https://azure.microsoft.com/blog/release-models-at-pace-using-microsoft-s-automl/)
 * Para obter mais informações sobre a utilização de capacidades ML automatizadas Azure ML, consulte [novas capacidades automatizadas de aprendizagem automática em Azure Machine Learning](https://azure.microsoft.com/blog/new-automated-machine-learning-capabilities-in-azure-machine-learning-service/)

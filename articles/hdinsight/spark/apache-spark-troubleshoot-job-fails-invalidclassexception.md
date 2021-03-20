@@ -5,10 +5,10 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 07/29/2019
 ms.openlocfilehash: 0b0889ac1e71ce33406e89ead62370a0c0168763
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98929260"
 ---
 # <a name="apache-spark-job-fails-with-invalidclassexception-class-version-mismatch-in-azure-hdinsight"></a>Apache Spark job falha com InvalidClassException, incompatibilidade da versão de classe, em Azure HDInsight
@@ -40,6 +40,6 @@ Este erro pode ser causado adicionando um frasco adicional ao `spark.yarn.jars` 
 
 Remova o jarro ou recompile o frasco personalizado (AzureLogAppender) e use [plugin de sombra de maven](https://maven.apache.org/plugins/maven-shade-plugin/examples/class-relocation.html) para realojar as aulas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [!INCLUDE [troubleshooting next steps](../../../includes/hdinsight-troubleshooting-next-steps.md)]

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
 ms.openlocfilehash: 19d762a55127af34e84185b11518aa6584acb5bd
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98012415"
 ---
 # <a name="azure-stream-analytics-output-error-policy"></a>Política de erro de saída do Azure Stream Analytics
@@ -32,5 +32,5 @@ O Azure Stream Analytics ignorará todos os eventos de saída que resultem em er
 Todos os erros transitórios (por exemplo, erros de rede) são novamente julgados independentemente da configuração da política de manipulação de erros de saída.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 [Guia de resolução de problemas para Azure Stream Analytics](./stream-analytics-troubleshoot-query.md)

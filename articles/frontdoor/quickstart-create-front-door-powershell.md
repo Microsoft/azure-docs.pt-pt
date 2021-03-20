@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 09/21/2020
 ms.author: duau
 ms.openlocfilehash: 8ccc50dfc4c53f1ee207a04d7d7775775f13cb65
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91349030"
 ---
 # <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application-using-azure-powershell"></a>Quickstart: Criar uma porta frontal para uma aplicação web global altamente disponível usando Azure PowerShell
@@ -168,7 +168,7 @@ Abra um navegador web e introduza o nome anfitrião obtido a partir dos comandos
 
 :::image type="content" source="./media/quickstart-create-front-door-powershell/front-door-test-page.png" alt-text="Página de teste da porta da frente":::
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não precisar dos recursos que criou com a Porta da Frente, elimine o grupo de recursos. Quando elimina o grupo de recursos, também elimina a Porta frontal e todos os seus recursos relacionados. 
 

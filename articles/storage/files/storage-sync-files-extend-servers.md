@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Alargar servidores de ficheiros do Windows com Azure File Sync / Microsoft Docs
+title: Tutorial - Alargar os servidores de ficheiros do Windows com a Azure File Sync | Microsoft Docs
 description: Saiba como estender os servidores de ficheiros do Windows com o Azure File Sync, do início ao fim.
 author: roygara
 ms.service: storage
@@ -8,10 +8,10 @@ ms.date: 10/23/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 1d2a0d79a5cdd53f8376c088fc986c20908575eb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91329466"
 ---
 # <a name="tutorial-extend-windows-file-servers-with-azure-file-sync"></a>Tutorial: Expandir os servidores de ficheiros do Windows com o Azure File Sync
@@ -61,7 +61,7 @@ Depois de implementar uma conta de armazenamento Azure, cria uma partilha de fic
 
     ![Selecione o botão de partilha de ficheiros adicionar](./media/storage-sync-files-extend-servers/create-file-share-portal2.png)
 
-1. Nomeie o novo ficheiro de partilha _de ações._ Introduza "1" para a **quota**e, em seguida, selecione **Criar**. A quota pode ter um máximo de 5 TiB, mas só precisa de 1 GB neste tutorial.
+1. Nomeie o novo ficheiro de partilha _de ações._ Introduza "1" para a **quota** e, em seguida, selecione **Criar**. A quota pode ter um máximo de 5 TiB, mas só precisa de 1 GB neste tutorial.
 
     ![Indique um nome e uma quota para a partilha de ficheiros nova](./media/storage-sync-files-extend-servers/create-file-share-portal3.png)
 
@@ -69,7 +69,7 @@ Depois de implementar uma conta de armazenamento Azure, cria uma partilha de fic
 
     ![Carregar um ficheiro](./media/storage-sync-files-extend-servers/create-file-share-portal5.png)
 
-1. Navegue na pasta _FicheirosToSync_ onde criou o seu ficheiro .txt, selecione _mytestdoc.txt_ e selecione **Upload**.
+1. Navegue na pasta _FicheirosToSync_ onde criou o ficheiro .txt, selecione _mytestdoc.txt_ e selecione **Upload**.
 
     ![Navegar para a partilha de ficheiros](./media/storage-sync-files-extend-servers/create-file-share-portal6.png)
 
@@ -84,7 +84,7 @@ Neste momento, criou uma conta de armazenamento e uma partilha de ficheiros com 
    ![Introduza informações básicas sobre o seu VM na lâmina do portal](./media/storage-sync-files-extend-servers/vm-resource-group-and-subscription.png)
 
 1. De acordo com **os detalhes de exemplo,** forneça um nome VM. Por exemplo, use _o myVM_.
-1. Não altere as definições predefinidos para **Região,** **Opções de Disponibilidade,** **Imagem**e **Tamanho**.
+1. Não altere as definições predefinidos para **Região,** **Opções de Disponibilidade,** **Imagem** e **Tamanho**.
 1. Em **Conta de administrador**, indique um **Nome de utilizador** e uma **palavra-passe** para a VM.
 1. De acordo com **as regras da porta de entrada**, escolha Permitir portas **selecionadas** e, em seguida, selecione **RDP (3389)** e **HTTP** do menu suspenso.
 
@@ -119,7 +119,7 @@ Nesta fase, já criou uma máquina virtual nova e anexou um disco de dados. Em s
 
    ![Ligar a uma VM do Azure a partir do portal](./media/storage-sync-files-extend-servers/connect-vm.png)
 
-1. Na página **'Ligar à máquina virtual',** mantenha as opções predefinidos para ligar por **endereço IP** sobre a porta 3389. Selecione **Download FICHEIRO RDP**.
+1. Na página **'Ligar à máquina virtual',** mantenha as opções predefinidos para ligar por **endereço IP** sobre a porta 3389. Selecione **Transferir ficheiro RDP**.
 
    ![Transferir o ficheiro RDP](./media/storage-sync-files-extend-servers/download-rdp.png)
 
@@ -152,7 +152,7 @@ Agora, pode adicionar o disco de dados à VM
 
 ### <a name="add-the-data-disk"></a>Adicionar o disco de dados
 
-1. Enquanto ainda estiver no VM do **Datacenter 2016** do Windows Server, selecione **Ficheiros e serviços de armazenamento**  >  **Volumes**  >  **Volumes Discos**.
+1. Enquanto ainda estiver no VM do **Datacenter 2016** do Windows Server, selecione **Ficheiros e serviços de armazenamento**  >    >  **Volumes Discos**.
 
     ![Disco de dados](media/storage-sync-files-extend-servers/your-disk.png)
 
@@ -238,7 +238,7 @@ O agente do Azure File Sync é um pacote transferível que permite a sincroniza�
 
    ![Selecionar o agente](media/storage-sync-files-extend-servers/select-agent.png)
 
-1. Selecione **Deixe abrir uma**  >  **Run**  >  **vez.**
+1. Selecione **Deixe abrir uma**  >    >  **vez.**
 1. Se ainda não tiver fechado a janela do PowerShell, feche-a.
 1. Aceite as predefinições do **Assistente de Configuração do Agente de Sincronização de Armazenamento**.
 1. Selecione **Instalar**.
@@ -261,7 +261,7 @@ O UI de Registo do Servidor deve abrir-se automaticamente depois de instalar o a
 
    | Valor | Descrição |
    | ----- | ----- |
-   | **Subscrição do Azure** | A subscrição que contém o Serviço de Sincronização de Armazenamento neste tutorial. |
+   | **Assinatura Azure** | A subscrição que contém o Serviço de Sincronização de Armazenamento neste tutorial. |
    | **Grupo de Recursos** | O grupo de recursos que contém o Serviço de Sincronização de Armazenamento. Use _o afsresgroup101918_ para este tutorial. |
    | **Serviço de Sincronização de Armazenamento** | O nome do Serviço de Sincronização de Armazenamento. Use _afssyncservice02_ para este tutorial. |
 
@@ -281,7 +281,7 @@ Os grupos de sincronização definem a topologia da sincronização para um conj
 
    | Valor | Descrição |
    | ----- | ----- |
-   | **Nome do grupo de sincronização** | Este nome tem de ser exclusivo no Serviço de Sincronização de Armazenamento, mas pode ser qualquer nome que lhe pareça lógico. Use *o grupo afssyncgroup* para este tutorial.|
+   | **Sync nome de grupo** | Este nome tem de ser exclusivo no Serviço de Sincronização de Armazenamento, mas pode ser qualquer nome que lhe pareça lógico. Use *o grupo afssyncgroup* para este tutorial.|
    | **Subscrição** | A subscrição na qual implementou o Serviço de Sincronização de Armazenamento neste tutorial. |
    | **Conta de armazenamento** | Escolha **Selecione a conta de armazenamento**. No painel que aparece, selecione a conta de armazenamento que tem a partilha de ficheiros Azure que criou. Use *afsstoracct101918* para este tutorial. |
    | **Azure partilha de ficheiros** | O nome do ficheiro Azure partilha-o. Use *afsfileshare* para este tutorial. |

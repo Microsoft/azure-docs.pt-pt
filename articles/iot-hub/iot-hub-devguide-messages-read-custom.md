@@ -1,5 +1,5 @@
 ---
-title: Compreenda os pontos finais personalizados do Azure IoT Hub Microsoft Docs
+title: Compreenda os pontos finais personalizados do Azure IoT Hub | Microsoft Docs
 description: Guia do desenvolvedor - usando consultas de encaminhamento para encaminhar mensagens dispositivo-a-nuvem para pontos finais personalizados.
 author: wesmc7777
 manager: philmea
@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/09/2018
 ms.openlocfilehash: 8aebb5b6f6a3ac53bc49fd1d2f75de88667865fb
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92147640"
 ---
 # <a name="use-message-routes-and-custom-endpoints-for-device-to-cloud-messages"></a>Utilize rotas de mensagens e pontos finais personalizados para mensagens dispositivo-a-nuvem

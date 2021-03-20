@@ -1,5 +1,5 @@
 ---
-title: Resolução de problemas - Azure Event Grid IoT Edge / Microsoft Docs
+title: Resolução de problemas - Azure Event Grid IoT Edge | Microsoft Docs
 description: Resolução de problemas em Grade de Eventos em IoT Edge.
 author: VidyaKukke
 manager: rajarv
@@ -8,10 +8,10 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: 0196522618d4b61f615f7cc6faeacbe9a8c7c5b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86171351"
 ---
 # <a name="common-issues"></a>Problemas Comuns

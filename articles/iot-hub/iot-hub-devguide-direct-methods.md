@@ -1,5 +1,5 @@
 ---
-title: Compreenda os métodos diretos do Azure IoT Hub ! Microsoft Docs
+title: Compreenda os métodos diretos do Azure IoT Hub | Microsoft Docs
 description: Developer guide - use métodos diretos para invocar código nos seus dispositivos a partir de uma aplicação de serviço.
 author: philmea
 ms.service: iot-hub
@@ -13,15 +13,15 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 ms.openlocfilehash: b75e859fc1237bc88bee464cef423b7289810fa8
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92147796"
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Compreender e invocar métodos diretos a partir do Hub IoT
 
-O IoT Hub dá-lhe a capacidade de invocar métodos diretos em dispositivos a partir da nuvem. Os métodos diretos representam uma interação de resposta de pedido com um dispositivo semelhante a uma chamada HTTP na medida em que eles sucedem ou falham imediatamente (após um tempo limite especificado pelo utilizador). Esta abordagem é útil para cenários em que o curso de ação imediata é diferente dependendo se o dispositivo foi capaz de responder.
+O IoT Hub dá-lhe a capacidade de invocar métodos diretos em dispositivos a partir da nuvem. Os métodos diretos representam uma interação de resposta de pedido com um dispositivo semelhante a uma chamada HTTP na medida em que eles sucedem ou falham imediatamente (após um tempo limite especificado pelo utilizador). Esta abordagem é útil para cenários onde as medidas imediatas variam consoante a capacidade de resposta do dispositivo.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 

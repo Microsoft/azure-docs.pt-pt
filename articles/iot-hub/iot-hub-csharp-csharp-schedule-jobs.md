@@ -1,5 +1,5 @@
 ---
-title: Agendar postos de trabalho com o Azure IoT Hub (.NET/.NET) / Microsoft Docs
+title: Agendar postos de trabalho com a Azure IoT Hub (.NET/.NET) | Microsoft Docs
 description: Como agendar um trabalho do Azure IoT Hub para invocar um método direto em vários dispositivos. Utiliza o dispositivo Azure IoT SDK para .NET para implementar as aplicações simuladas do dispositivo e uma aplicação de serviço para executar o trabalho.
 author: robinsh
 manager: philmea
@@ -10,10 +10,10 @@ ms.date: 08/20/2019
 ms.author: robinsh
 ms.custom: mqtt, devx-track-csharp
 ms.openlocfilehash: 0391afe5562238f488fde7e50d914c46a5c32944
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92142465"
 ---
 # <a name="schedule-and-broadcast-jobs-net"></a>Horários e trabalhos de transmissão (.NET)
@@ -70,9 +70,9 @@ No final deste tutorial, tem duas aplicações de consola .NET (C#):
 
 Nesta secção, cria-se uma aplicação de consola .NET que responde a um método direto chamado pela solução back end.
 
-1. No Visual Studio, **selecione Criar um novo projeto**e, em seguida, escolha o modelo de projeto da App consola **(.NET Framework).** Selecione **Seguinte** para continuar.
+1. No Visual Studio, **selecione Criar um novo projeto** e, em seguida, escolha o modelo de projeto da App consola **(.NET Framework).** Selecione **Seguinte** para continuar.
 
-1. Em **Configurar o seu novo projeto**, nomeie o projeto *SimulateDeviceMethods*e, em seguida, selecione **Create**.
+1. Em **Configurar o seu novo projeto**, nomeie o projeto *SimulateDeviceMethods* e, em seguida, selecione **Create**.
 
     ![Configure o seu projeto SimulateDeviceMethods](./media/iot-hub-csharp-csharp-schedule-jobs/configure-device-app.png)
 
@@ -84,7 +84,7 @@ Nesta secção, cria-se uma aplicação de consola .NET que responde a um métod
 
     Este passo descarrega, instala e adiciona uma referência ao pacote SDK NuGet [do dispositivo Azure IoT](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/) e às suas dependências.
 
-1. Adicione as `using` seguintes declarações no topo do ficheiro **Program.cs:**
+1. Adicione as `using` seguintes declarações no topo do ficheiro **.cs Programa:**
 
     ```csharp
     using Microsoft.Azure.Devices.Client;
@@ -169,7 +169,7 @@ Nesta secção, cria-se uma aplicação de consola .NET (utilizando C#) que util
 
 1. No Estúdio Visual, selecione **File**  >  **New**  >  **Project**. In **Create a new project**, escolha a App consola **(.NET Framework)** e, em seguida, selecione **Next**.
 
-1. Em **Configurar o seu novo projeto**, nomeie o projeto *ScheduleJob*. Para **solução**, escolha **Adicionar à solução**e, em seguida, selecione **Criar**.
+1. Em **Configurar o seu novo projeto**, nomeie o projeto *ScheduleJob*. Para **solução**, escolha **Adicionar à solução** e, em seguida, selecione **Criar**.
 
     ![Nome e configuração do projeto ScheduleJob](./media/iot-hub-csharp-csharp-schedule-jobs/config-schedule-job-app.png)
 
@@ -179,7 +179,7 @@ Nesta secção, cria-se uma aplicação de consola .NET (utilizando C#) que util
 
    Este passo descarrega, instala e adiciona uma referência ao pacote SDK NuGet [do serviço Azure IoT](https://www.nuget.org/packages/Microsoft.Azure.Devices/) e às suas dependências.
 
-1. Adicione as `using` seguintes declarações no topo do ficheiro **Program.cs:**
+1. Adicione as `using` seguintes declarações no topo do ficheiro **.cs Programa:**
 
     ```csharp
     using Microsoft.Azure.Devices;
@@ -295,7 +295,7 @@ Já está pronto para executar as aplicações.
 
 1. No Visual Studio Solution Explorer, clique com o botão direito na sua solução e, em seguida, selecione **set StartUp Projects**.
 
-1. Selecione **o Common Properties**Startup  >  **Project**e, em seguida, selecione **Vários projetos de startups**.
+1. Selecione **o Common Properties** Startup  >  **Project** e, em seguida, selecione **Vários projetos de startups**.
 
 1. Certifique-se de que `SimulateDeviceMethods` está no topo da lista seguido por `ScheduleJob` . Desacione ambas as suas ações para **Iniciar** e selecionar **OK**.
 

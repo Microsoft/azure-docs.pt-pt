@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
 ms.openlocfilehash: 01c2f61dcf024e8c9dbbd5b2ee11a479b3c16305
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86130278"
 ---
 # <a name="set-up-public-ip-addresses-after-failover"></a>Configurar endereços IP públicos após falha
@@ -36,7 +36,7 @@ O endereço IP público do pedido de produção **não pode ser mantido em insum
 
 A configuração é a seguinte:
 - Crie um [plano de recuperação](../site-recovery/site-recovery-create-recovery-plans.md#create-a-recovery-plan) e agrupe as suas cargas de trabalho conforme necessário no plano.
-- Personalize o plano adicionando um passo para anexar um endereço IP público utilizando scripts de scripts de scripts de [scripts Azure Automation](../site-recovery/site-recovery-runbook-automation.md#customize-the-recovery-plan) para o falhado sobre VM.
+- Personalize o plano adicionando um passo para anexar um endereço IP público utilizando [scripts de scripts Azure Automation](../site-recovery/site-recovery-runbook-automation.md#customize-the-recovery-plan) para o falhado sobre VM.
 
  
 ## <a name="public-endpoint-switching-with-dns-level-routing"></a>Commutação de ponto final público com encaminhamento de nível DNS

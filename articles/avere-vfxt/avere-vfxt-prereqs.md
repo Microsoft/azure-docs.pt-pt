@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 01/21/2020
 ms.author: rohogue
 ms.openlocfilehash: d87f57873a4bb84b20df3da3880017d9ef2484a5
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96008417"
 ---
 # <a name="prepare-to-create-the-avere-vfxt"></a>Preparar para criar o vFXT Avere
@@ -34,7 +34,7 @@ Um utilizador com permissões do proprietário para a subscrição deve criar o 
 
 Existem algumas soluções alternativas para permitir que um não proprietário crie um Avere vFXT para cluster Azure. Estes cenários envolvem restringir recursos e atribuir papéis adicionais de Azure ao criador. Em todos estes casos, um proprietário de subscrição também deve aceitar os termos de [software Avere vFXT](#accept-software-terms) antes do tempo.
 
-| Cenário | Restrições | Funções de acesso necessárias para criar o cluster Avere vFXT |
+| Scenario | Restrições | Funções de acesso necessárias para criar o cluster Avere vFXT |
 |----------|--------|-------|
 | Administrador de grupo de recursos cria o vFXT | A rede virtual, o controlador de clusters e os nós de cluster devem ser criados dentro do grupo de recursos. | [Funções de Administrador de Acesso ao Utilizador](../role-based-access-control/built-in-roles.md#user-access-administrator) e [colaborador,](../role-based-access-control/built-in-roles.md#contributor) ambas com o âmbito do grupo de recursos-alvo. |
 | Utilize uma rede virtual externa existente | O controlador de cluster e os nós de cluster são criados dentro do grupo de recursos vFXT, mas utilizam uma rede virtual existente num grupo de recursos diferente. | (1) [Funções de administrador](../role-based-access-control/built-in-roles.md#user-access-administrator) de acesso ao utilizador e [colaboradores](../role-based-access-control/built-in-roles.md#contributor) no âmbito do grupo de recursos vFXT; e (2) [Contribuinte de Máquinas Virtuais,](../role-based-access-control/built-in-roles.md#virtual-machine-contributor) [Administrador de Acesso ao Utilizador](../role-based-access-control/built-in-roles.md#user-access-administrator)e [Contribuidores Avere,](../role-based-access-control/built-in-roles.md#avere-contributor) com o âmbito do grupo de recursos da rede virtual. |

@@ -1,5 +1,5 @@
 ---
-title: Azure Ative Directy Acesso Condicionado FAQs / Microsoft Docs
+title: Azure Ative Directy Conditional Access FAQs | Microsoft Docs
 description: Obtenha respostas para perguntas frequentes sobre acesso condicional no Diretório Ativo Azure.
 services: active-directory
 ms.service: active-directory
@@ -13,10 +13,10 @@ ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 ms.openlocfilehash: 8043e85db1ee1aadc814e98db12cab10ec17e129
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92145234"
 ---
 # <a name="azure-active-directory-conditional-access-faqs"></a>Perguntas de acesso condicionado a Azure Ative

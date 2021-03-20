@@ -12,15 +12,15 @@ ms.workload: infrastructure-services
 ms.date: 12/28/2020
 ms.author: yitoh
 ms.openlocfilehash: cc5b3b85d6d13fda532da0993fa7f733126b8eae
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100591872"
 ---
 # <a name="view-and-configure-ddos-diagnostic-logging"></a>Ver e configurar o registo de diagnósticos do DDoS
 
-A padrão de proteção DDoS Azure fornece informações detalhadas sobre ataque e visualização com DDoS Attack Analytics. Os clientes que protegem as suas redes virtuais contra ataques de DDoS têm uma visibilidade detalhada no tráfego de ataques e as ações tomadas para mitigar o ataque através de relatórios de mitigação de ataques & registos de fluxo de mitigação. A telemetria rica é exposta através do Azure Monitor, incluindo métricas detalhadas durante a duração de um ataque DDoS. O alerta pode ser configurado para qualquer uma das métricas do Monitor Azure expostas pela Proteção DDoS. O registo pode ser integrado com [Azure Sentinel,](../sentinel/connect-azure-ddos-protection.md)Splunk (Azure Event Hubs), OMS Log Analytics e Azure Storage para análise avançada através da interface Azure Monitor Diagnostics.
+A padrão de proteção DDoS Azure fornece informações detalhadas sobre ataque e visualização com DDoS Attack Analytics. Os clientes que protegem as suas redes virtuais contra ataques de DDoS têm uma visibilidade detalhada no tráfego de ataques e as ações tomadas para mitigar o ataque através de relatórios de mitigação de ataques & registos de fluxo de mitigação. A telemetria rica é exposta através do Azure Monitor, incluindo métricas detalhadas durante a duração de um ataque DDoS. Os alertas podem ser configurados para qualquer uma das métricas do Azure Monitor expostas pelo DDoS Protection. O registo pode ser integrado com [Azure Sentinel,](../sentinel/connect-azure-ddos-protection.md)Splunk (Azure Event Hubs), OMS Log Analytics e Azure Storage para análise avançada através da interface Azure Monitor Diagnostics.
 
 Estão disponíveis os seguintes registos de diagnóstico para a Norma de Proteção DDoS Azure: 
 
@@ -40,18 +40,18 @@ Neste tutorial, irá aprender a:
 
 - Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 - Antes de poder completar os passos neste tutorial, tem primeiro de criar um [plano de proteção Azure DDoS Standard](manage-ddos-protection.md) e o DDoS Protection Standard deve ser ativado numa rede virtual.
-- O DDoS monitoriza endereços IP públicos atribuídos a recursos dentro de uma rede virtual. Se não tiver recursos com endereços IP públicos na rede virtual, tem primeiro de criar um recurso com um endereço IP público. Pode monitorizar o endereço IP público de todos os recursos implantados através do Gestor de Recursos (não clássico) listados na [rede Virtual para serviços Azure](../virtual-network/virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network) (incluindo Equiliadores de Carga Azure onde as máquinas virtuais de backend estão na rede virtual), exceto para Ambientes de Serviço de Aplicações Azure. Para continuar com este tutorial, pode rapidamente criar uma máquina virtual [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Linux.](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)    
+- O DDoS monitoriza endereços IP públicos atribuídos a recursos dentro de uma rede virtual. Se não tiver recursos com endereços IP públicos na rede virtual, terá primeiro de criar um recurso com um endereço IP público. Pode monitorizar o endereço IP público de todos os recursos implantados através do Gestor de Recursos (não clássico) listados na [rede Virtual para serviços Azure](../virtual-network/virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network) (incluindo Equiliadores de Carga Azure onde as máquinas virtuais de backend estão na rede virtual), exceto para Ambientes de Serviço de Aplicações Azure. Para continuar com este tutorial, pode rapidamente criar uma máquina virtual [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Linux.](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)    
 
 ## <a name="configure-ddos-diagnostic-logs"></a>Configurar registos de diagnóstico DDoS
 
 Se pretender ativar automaticamente o registo de diagnóstico em todos os IPs públicos dentro de um ambiente, ignore para ativar a [sessão de diagnóstico em todos os IPs públicos](#enable-diagnostic-logging-on-all-public-ips).
 
-1. Selecione **Todos os serviços** em cima, à esquerda do portal.
-2. Introduza o *Monitor* na caixa **do filtro.** Quando **o Monitor** aparecer nos resultados, selecione-o.
-3. Em **Definições**, selecione **Definições de diagnóstico**.
-4. Selecione o grupo **de Subscrição** e **Recursos** que contenha o endereço IP público que pretende registar.
+1. No canto superior esquerdo do portal, selecione **Todos os serviços**.
+2. Introduza *Monitor* na caixa **Filtro**. Quando **Monitor** aparecer nos resultados, selecione-o.
+3. Em **Definições**, selecione **Definições de Diagnóstico**.
+4. Selecione a **Subscrição** e o **Grupo de Recursos** que contêm o endereço IP público que quer registar.
 5. Selecione **endereço IP público** para o tipo de **recurso,** em seguida, selecione o endereço IP público específico para o seguinte para ativar registos.
-6. Selecione **Adicionar definição de diagnóstico**. Em **Detalhes de Categoria**, selecione quantas das seguintes opções necessita e, em seguida, selecione **Guardar**.
+6. Selecione **Adicionar definição de diagnóstico**. Em **Detalhes da Categoria**, selecione quantas das seguintes opções quiser e, em seguida, selecione **Guardar**.
 
     ![Definições de diagnóstico DDoS](./media/ddos-attack-telemetry/ddos-diagnostic-settings.png)
 

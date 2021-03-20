@@ -14,10 +14,10 @@ ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 179034533d90dbbb6ca362fc6f72996f32873729
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "80154768"
 ---
 # <a name="service-to-service-apps"></a>Aplicativos de serviço para serviço
@@ -59,9 +59,9 @@ O fluxo discutido abaixo pressupõe que um utilizador foi autenticado noutra apl
 
 Consulte as amostras de código para Daemon ou Servidor Application para cenários de API Web: [Servidor ou Aplicação Daemon para API Web](sample-v1-code.md#daemon-applications-accessing-web-apis-with-the-applications-identity)
 
-## <a name="app-registration"></a>Registo da aplicação
+## <a name="app-registration"></a>Registo de aplicações
 
-* Inquilino único - Tanto para a identidade da aplicação como para casos de identidade de utilizador delegados, a aplicação da daemon ou servidor deve ser registada no mesmo diretório em Azure AD. A API web pode ser configurada para expor um conjunto de permissões, que são usadas para limitar o acesso do daemon ou servidor aos seus recursos. Se estiver a ser utilizado um tipo de identidade de utilizador delegado, a aplicação do servidor tem de selecionar as permissões desejadas. Na página **API Permission** para o registo de candidaturas, depois de ter selecionado **Adicionar uma permissão** e escolher a família API, escolher **permissões delegadas**e, em seguida, selecionar as suas permissões. Este passo não é necessário se o tipo de identidade de aplicação estiver a ser utilizado.
+* Inquilino único - Tanto para a identidade da aplicação como para casos de identidade de utilizador delegados, a aplicação da daemon ou servidor deve ser registada no mesmo diretório em Azure AD. A API web pode ser configurada para expor um conjunto de permissões, que são usadas para limitar o acesso do daemon ou servidor aos seus recursos. Se estiver a ser utilizado um tipo de identidade de utilizador delegado, a aplicação do servidor tem de selecionar as permissões desejadas. Na página **API Permission** para o registo de candidaturas, depois de ter selecionado **Adicionar uma permissão** e escolher a família API, escolher **permissões delegadas** e, em seguida, selecionar as suas permissões. Este passo não é necessário se o tipo de identidade de aplicação estiver a ser utilizado.
 * Multi-inquilino - Primeiro, a aplicação da daemon ou servidor está configurada para indicar as permissões que necessita para ser funcional. Esta lista de permissões necessárias é mostrada num diálogo quando um utilizador ou administrador no diretório de destino dá consentimento à aplicação, o que a coloca à disposição da sua organização. Algumas aplicações apenas requerem permissões ao nível do utilizador, que qualquer utilizador da organização pode consentir. Outras aplicações requerem permissões ao nível do administrador, que um utilizador na organização não pode consentir. Apenas um administrador de diretório pode dar consentimento a aplicações que requerem este nível de permissões. Quando o utilizador ou administrador consente, ambas as APIs da web estão registadas no seu diretório.
 
 ## <a name="token-expiration"></a>Expiração simbólica

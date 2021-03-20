@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 11/05/2020
 ms.author: mbullwin
 ms.openlocfilehash: 0c4c296cb1454ed89eef102732533589b1c8ca0d
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93420964"
 ---
 # <a name="metrics-advisor-frequently-asked-questions"></a>O Assessor de Métricas frequentemente fez perguntas
@@ -150,7 +150,7 @@ A ferramenta **da árvore incidente** na página de diagnóstico apenas mostra n
  
 Por exemplo, quando ocorre uma `Service = S2 | Data Center = DC2 | Machine = M5` anomalia, o desvio da anomalia afeta o nó-mãe `Service= S2` que também detetou a anomalia, mas a anomalia não afeta todo o centro de dados `DC2` em e todos os serviços em `M5` . A árvore incidente seria construída como na imagem abaixo, a anomalia superior é capturada `Service = S2` , e a causa raiz poderia ser analisada em dois caminhos que ambos levam a `Service = S2 | Data Center = DC2 | Machine = M5` .
 
- :::image type="content" source="media/root-cause-paths.png" alt-text="5 vértices rotulados com dois caminhos distintos ligados por bordas com um nó comum marcado como S2. A anomalia superior é capturada no Serviço = S2, e a causa raiz pode ser analisada pelos dois caminhos que ambos levam ao Serviço = S2 ! Data Center = DC2 Máquina = M5" lightbox="media/root-cause-paths.png":::
+ :::image type="content" source="media/root-cause-paths.png" alt-text="5 vértices rotulados com dois caminhos distintos ligados por bordas com um nó comum marcado como S2. A anomalia superior é capturada no Serviço = S2, e a causa raiz pode ser analisada pelos dois caminhos que ambos levam ao Serviço = S2 | Data Center = DC2 | Máquina = M5" lightbox="media/root-cause-paths.png":::
 
 ## <a name="next-steps"></a>Passos Seguintes
 - [Métricas Conselheiro Visão Geral](overview.md)

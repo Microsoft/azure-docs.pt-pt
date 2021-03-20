@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/18/2020
 ms.custom: contperf-fy21q2
 ms.openlocfilehash: c2a062b75caa84a0e3c342ca1ce45ccce12f2bb7
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98012619"
 ---
 # <a name="azure-stream-analytics-on-iot-edge"></a>Azure Stream Analytics no IoT Edge
@@ -125,7 +125,7 @@ Esta informação da versão foi atualizada pela última vez em 2020-09-21:
 ## <a name="get-help"></a>Obter ajuda
 Para obter mais assistência, experimente a [página de perguntas do Microsoft Q&A para o Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Mais informações sobre Azure IoT Edge](../iot-edge/about-iot-edge.md)
 * [Stream Analytics no tutorial IoT Edge](../iot-edge/tutorial-deploy-stream-analytics.md)

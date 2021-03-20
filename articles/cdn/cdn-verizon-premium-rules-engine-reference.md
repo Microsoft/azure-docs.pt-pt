@@ -1,5 +1,5 @@
 ---
-title: Azure CDN regras referência do motor / Microsoft Docs
+title: Azure CDN regras referência do motor | Microsoft Docs
 description: Documentação de referência para Azure CDN regras condições e funcionalidades de correspondência do motor.
 services: cdn
 author: asudbring
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 05/26/2020
 ms.author: allensu
 ms.openlocfilehash: 295bc0a20a547bf944f48af6711b18af34571b02
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91362585"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-reference"></a>Azure CDN da Verizon Premium regras referência do motor
@@ -67,7 +67,7 @@ O fluxo de trabalho através do qual uma política pode ser aplicada quer ao amb
 
 ![Fluxo de trabalho de implementação de políticas](./media/cdn-verizon-premium-rules-engine-reference/policy-deployment-workflow.png)
 
-|Passo |Descrição |
+|Passo |Description |
 |---------|---------|
 |[Criar Rascunho](https://docs.vdms.com/cdn/index.html#HRE/AdministeringDraftsandRules.htm#Create)    |    Um rascunho consiste num conjunto de regras que definem como os pedidos para o seu conteúdo devem ser tratados pela CDN.     |
 |Rascunho de bloqueio   |     Uma vez finalizado um projeto, este deve ser bloqueado e convertido numa política apenas de leitura.    |
@@ -99,13 +99,13 @@ Caráter | Descrição
 % | É utilizado um símbolo percentual para indicar a codificação de URL (por exemplo, `%20` ).
 \* | Um asterisco é um wildcard que representa um ou mais caracteres.
 Espaço | Um caractere espacial indica que uma condição de correspondência pode ser satisfeita por qualquer um dos valores ou padrões especificados.
-'valor' | Uma única citação não tem um significado especial. No entanto, um conjunto de cotações individuais é usado para indicar que um valor deve ser tratado como um valor literal. Pode ser utilizado das seguintes formas:<br><br/>- Permite que uma condição de correspondência seja satisfeita sempre que o valor especificado corresponda a qualquer parte do valor de comparação.  Por exemplo, `'ma'` corresponderia a qualquer uma das seguintes cordas: <br/><br/>/business/**ma**rathon/asset.htm<br/>**ma**p.gif<br/>/business/template. **ma**p<br /><br />- Permite que um carácter especial seja especificado como um carácter literal. Por exemplo, pode especificar um personagem de espaço literal, encerrando um personagem espacial dentro de um conjunto de citações individuais (isto é, `' '` ou `'sample value'` .<br/>- Permite especificar um valor em branco. Especifique um valor em branco especificando um conjunto de cotações individuais (isto é, '').<br /><br/>**Importante:**<br/>- Se o valor especificado não contiver um wildcard, então é automaticamente considerado um valor literal, o que significa que não é necessário especificar um conjunto de cotações únicas.<br/>- Se uma lomassa não escapar a outro personagem desta tabela, é ignorada quando é especificada dentro de um conjunto de citações individuais.<br/>- Outra forma de especificar um personagem especial como personagem literal é escapar-lhe usando um backslash (isto é, `\` ).
+'valor' | Uma única citação não tem um significado especial. No entanto, um conjunto de cotações individuais é usado para indicar que um valor deve ser tratado como um valor literal. Pode ser utilizado das seguintes formas:<br><br/>- Permite que uma condição de correspondência seja satisfeita sempre que o valor especificado corresponda a qualquer parte do valor de comparação.  Por exemplo, `'ma'` corresponderia a qualquer uma das seguintes cordas: <br/><br/>/business/**ma** rathon/asset.htm<br/>**ma** p.gif<br/>/business/template. **ma** p<br /><br />- Permite que um carácter especial seja especificado como um carácter literal. Por exemplo, pode especificar um personagem de espaço literal, encerrando um personagem espacial dentro de um conjunto de citações individuais (isto é, `' '` ou `'sample value'` .<br/>- Permite especificar um valor em branco. Especifique um valor em branco especificando um conjunto de cotações individuais (isto é, '').<br /><br/>**Importante:**<br/>- Se o valor especificado não contiver um wildcard, então é automaticamente considerado um valor literal, o que significa que não é necessário especificar um conjunto de cotações únicas.<br/>- Se uma lomassa não escapar a outro personagem desta tabela, é ignorada quando é especificada dentro de um conjunto de citações individuais.<br/>- Outra forma de especificar um personagem especial como personagem literal é escapar-lhe usando um backslash (isto é, `\` ).
 
 ### <a name="regular-expressions"></a>Expressões regulares
 
 Expressões regulares definem um padrão que é procurado dentro de um valor de texto. A notação de expressão regular define significados específicos para uma variedade de símbolos. A tabela a seguir indica como os caracteres especiais são tratados por condições de correspondência e funcionalidades que suportam expressões regulares.
 
-Personagem Especial | Descrição
+Personagem Especial | Description
 ------------------|------------
 \ | Uma retrocesso escapa ao personagem que o segue, o que faz com que esse personagem seja tratado como um valor literal em vez de assumir o seu significado de expressão regular. Por exemplo, a seguinte sintaxe escapa a um asterisco: `\*`
 % | O significado de um símbolo percentual depende da sua utilização.<br/><br/> `%{HTTPVariable}`: Esta sintaxe identifica uma variável HTTP.<br/>`%{HTTPVariable%Pattern}`: Esta sintaxe utiliza um símbolo percentual para identificar uma variável HTTP e como um delimiter.<br />`\%`: Escapar de um símbolo percentual permite-lhe ser utilizado como um valor literal ou para indicar codificação de URL (por exemplo, `\%20` ).
@@ -119,7 +119,7 @@ Condições de correspondência e funcionalidades que suportam expressões regul
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Regras condições de correspondência do motor](cdn-verizon-premium-rules-engine-reference-match-conditions.md)
+- [Condições de correspondência do motor de regras](cdn-verizon-premium-rules-engine-reference-match-conditions.md)
 - [Expressões condicionais do motor de regras](cdn-verizon-premium-rules-engine-reference-conditional-expressions.md)
 - [Funcionalidades do motor de regras](cdn-verizon-premium-rules-engine-reference-features.md)
 - [Anular o comportamento http usando o motor de regras](cdn-verizon-premium-rules-engine.md)

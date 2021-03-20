@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb, martinco
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 12f722977329bd5d79d4d0e410a29c730faf00c5
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92145091"
 ---
 # <a name="troubleshooting-sign-in-problems-with-conditional-access"></a>Resolver problemas de início de sessão com Acesso Condicional
@@ -71,7 +71,7 @@ Para saber qual a política ou políticas de acesso condicional aplicadas e por 
 1. Uma vez encontrada a inscrição no caso de corresponder à falha de inscrição do utilizador, selecione o separador **Acesso Condicional.** O separador acesso condicional mostrará a política ou políticas específicas que resultaram na interrupção do acesso.
    1. As informações no **separador de resolução de problemas e suporte** podem fornecer uma razão clara para que uma sessão falhou, tal como um dispositivo que não cumpriu os requisitos de conformidade.
    1. Para investigar mais aprofundadamente, aprofundar a configuração das políticas clicando no **Nome de Política**. Clicar no **Nome de Política** mostrará a interface de utilizador de configuração de política para a política selecionada para revisão e edição.
-   1. Os **dados do** **utilizador** e do dispositivo que foram utilizados para a avaliação da política de acesso condicional também estão disponíveis nos separadores **de Informação Básica,** **Localização,** **Informação do Dispositivo,** Detalhes de **Autenticação**e **Detalhes Adicionais** do evento de inscrição.
+   1. Os **dados do** **utilizador** e do dispositivo que foram utilizados para a avaliação da política de acesso condicional também estão disponíveis nos separadores **de Informação Básica,** **Localização,** **Informação do Dispositivo,** Detalhes de **Autenticação** e **Detalhes Adicionais** do evento de inscrição.
 
 ### <a name="policy-details"></a>Detalhes da política
 
@@ -95,7 +95,7 @@ Ao submeter o incidente, forneça o ID do pedido e a hora e data do evento de in
 | --- | --- |
 | 53000 | DispositivoNotCompliant |
 | 53001 | DeviceNotDomainJoined |
-| 53002 | AplicaçãoUsedIsNotAnApprovedAppedAppedAppedAppedApped |
+| 53002 | AplicaçãoUsedIsNotAnApprovedApp |
 | 53003 | BlockedByConditionalAccess |
 | 53004 | ProofUpBlockedDueToRisk |
 

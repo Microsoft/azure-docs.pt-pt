@@ -1,5 +1,5 @@
 ---
-title: Criar um hub Azure IoT utilizando o fornecedor de recursos REST API ; Microsoft Docs
+title: Crie um hub Azure IoT utilizando o fornecedor de recursos REST API | Microsoft Docs
 description: Saiba como utilizar o fornecedor de recursos C# REST API para criar e gerir programaticamente um Hub IoT.
 author: robinsh
 ms.author: robinsh
@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 08/08/2017
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 2f393701b97be76acab49a627a195b337018fa29
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92144423"
 ---
 # <a name="create-an-iot-hub-using-the-resource-provider-rest-api-net"></a>Criar um hub IoT utilizando o fornecedor de recursos REST API (.NET)
@@ -40,11 +40,11 @@ Para concluir este tutorial, precisa do seguinte:
 
 2. No Solution Explorer, clique com o botão direito no seu projeto e, em seguida, clique em **Gerir Pacotes NuGet**.
 
-3. No NuGet Package Manager, consulte **incluir pré-relançação,** e na pesquisa de página **Browse** para **Microsoft.Azure.Management.ResourceManager**. Selecione o pacote, clique em **Instalar,** em **Alterações de Revisão** clique em **OK**e clique em **I Accept** to accept the licenses.
+3. No NuGet Package Manager, consulte **incluir pré-relançação,** e na pesquisa de página **Browse** para **Microsoft.Azure.Management.ResourceManager**. Selecione o pacote, clique em **Instalar,** em **Alterações de Revisão** clique em **OK** e clique em **I Accept** to accept the licenses.
 
-4. No NuGet Package Manager, procure **microsoft.IdentityModel.Clients.ActiveDirectory**.  Clique em **Instalar**, em **Alterações de Revisão** clique **EM OK**e clique em **I Accept** to accept the license.
+4. No NuGet Package Manager, procure **microsoft.IdentityModel.Clients.ActiveDirectory**.  Clique em **Instalar**, em **Alterações de Revisão** clique **EM OK** e clique em **I Accept** to accept the license.
 
-5. Em Program.cs, substitua as declarações **existentes com** o seguinte código:
+5. No Programa.cs, substitua as declarações **existentes com** o seguinte código:
 
     ```csharp
     using System;
@@ -60,7 +60,7 @@ Para concluir este tutorial, precisa do seguinte:
     using System.Threading;
     ```
 
-6. Em Program.cs, adicione as seguintes variáveis estáticas substituindo os valores do espaço reservado. Fez uma nota de **ApplicationId,** **SubscriptionId,** **TenantId**e **Password** no início deste tutorial. **O nome** do grupo de recursos é o nome do grupo de recursos que utiliza quando cria o hub IoT. Pode utilizar um grupo de recursos pré-existente ou novo. **IoT Hub é** o nome do IoT Hub que cria, como **MyIoTHub**. O nome do seu hub IoT deve ser globalmente único. **O nome de implantação** é um nome para a implantação, como **Deployment_01**.
+6. No Programa.cs, adicione as seguintes variáveis estáticas substituindo os valores do espaço reservado. Fez uma nota de **ApplicationId,** **SubscriptionId,** **TenantId** e **Password** no início deste tutorial. **O nome** do grupo de recursos é o nome do grupo de recursos que utiliza quando cria o hub IoT. Pode utilizar um grupo de recursos pré-existente ou novo. **IoT Hub é** o nome do IoT Hub que cria, como **MyIoTHub**. O nome do seu hub IoT deve ser globalmente único. **O nome de implantação** é um nome para a implantação, como **Deployment_01**.
 
     ```csharp
     static string applicationId = "{Your ApplicationId}";
@@ -80,7 +80,7 @@ Para concluir este tutorial, precisa do seguinte:
 
 Utilize o [fornecedor de recursos IoT Hub REST API](/rest/api/iothub/iothubresource) para criar um hub IoT no seu grupo de recursos. Também pode utilizar o fornecedor de recursos REST API para escruquisar alterações num hub IoT existente.
 
-1. Adicione o seguinte método à Program.cs:
+1. Adicione o seguinte método ao Programa.cs:
 
     ```csharp
     static void CreateIoTHub(string token)

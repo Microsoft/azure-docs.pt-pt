@@ -4,10 +4,10 @@ description: Utilize os registos de atividade para rever as ações e erros do u
 ms.topic: conceptual
 ms.date: 05/13/2019
 ms.openlocfilehash: 14015e9b2792515e6818af551b8bd9f54c686bee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91371597"
 ---
 # <a name="view-activity-logs-to-monitor-actions-on-resources"></a>Ver registos de atividades para monitorizar ações em recursos
@@ -30,7 +30,7 @@ Pode obter informações dos registos de atividade através do portal, PowerShel
 
 Para ver os registos de atividade através do portal, siga estes passos:
 
-1. No menu do portal Azure, selecione **Monitor**ou procure e selecione **Monitor** em qualquer página.
+1. No menu do portal Azure, selecione **Monitor** ou procure e selecione **Monitor** em qualquer página.
 
     ![Selecione monitor](./media/view-activity-logs/select-monitor-from-menu.png)
 

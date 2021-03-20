@@ -8,10 +8,10 @@ ms.custom:
 - seodec18
 - fasttrack-edit
 ms.openlocfilehash: b6aad323c0d6fa8f59c9fad203640c477b162503
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "80519965"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-facebook-login"></a>Configure o seu Serviço de Aplicações ou app Azure Functions para usar o login do Facebook
@@ -35,7 +35,7 @@ Para completar o procedimento neste artigo, precisa de uma conta no Facebook que
    1. Complete a verificação de segurança.
 
    Abre o painel de desenvolvedores da sua nova aplicação do Facebook.
-1. Selecione **o Início de**  >  **Sessão do Facebook**do Dashboard  >  **Configurar**a  >  **Web**.
+1. Selecione **o Início de**  >  **Sessão do Facebook** do Dashboard  >  **Configurar** a  >  **Web**.
 1. Na navegação à esquerda no **Facebook Login**, selecione **Definições**.
 1. No campo **DE REorção de IU** válido, insira `https://<app-name>.azurewebsites.net/.auth/login/facebook/callback` . Lembre-se de substituir `<app-name>` pelo nome da sua aplicação Azure App Service.
 1. Selecione **Guardar alterações**.
@@ -48,13 +48,13 @@ Para completar o procedimento neste artigo, precisa de uma conta no Facebook que
 
 1. A conta do Facebook que usou para registar a aplicação é administradora da aplicação. Neste momento, apenas os administradores podem inscrever-se nesta aplicação.
 
-   Para autenticar outras contas do Facebook, selecione **App Review** e permita tornar ** \<your-app-name> público** o acesso do público em geral à aplicação através da autenticação do Facebook.
+   Para autenticar outras contas do Facebook, selecione **App Review** e permita tornar **\<your-app-name> público** o acesso do público em geral à aplicação através da autenticação do Facebook.
 
 ## <a name="add-facebook-information-to-your-application"></a><a name="secrets"> </a>Adicione informações do Facebook à sua aplicação
 
 1. Inscreva-se no [portal Azure] e navegue para a sua aplicação De Serviço de Aplicações.
 1. Selecione **Definições**  >  **Autenticação / Autorização**, e certifique-se de que a **autenticação do serviço de aplicações** está **acesa**.
-1. Selecione **o Facebook**e, em seguida, cole nos valores de ID da App e App Secret que obteve anteriormente. Ativar todos os âmbitos necessários à sua aplicação.
+1. Selecione **o Facebook** e, em seguida, cole nos valores de ID da App e App Secret que obteve anteriormente. Ativar todos os âmbitos necessários à sua aplicação.
 1. Selecione **OK**.
 
    ![Screenshot das definições do Facebook da aplicação móvel][0]

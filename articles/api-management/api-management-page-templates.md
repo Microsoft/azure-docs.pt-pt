@@ -1,5 +1,5 @@
 ---
-title: Modelos de página na Azure API Management / Microsoft Docs
+title: Modelos de página em Azure API Management | Microsoft Docs
 description: Saiba como personalizar o conteúdo dos modelos de página do portal do programador na Azure API Management.
 services: api-management
 documentationcenter: ''
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 24d026785025dba4ae45de404edec67c2cf3871a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91335590"
 ---
 # <a name="page-templates-in-azure-api-management"></a>Modelos de página na Gestão API da Azure
@@ -27,7 +27,7 @@ A Azure API Management fornece-lhe a capacidade de personalizar o conteúdo das 
   
 -   [Iniciar sessão](#SignIn)  
   
--   [Registar-me](#SignUp)  
+-   [Inscrever-se](#SignUp)  
   
 -   [Página não encontrada](#PageNotFound)  
   
@@ -227,7 +227,7 @@ A Azure API Management fornece-lhe a capacidade de personalizar o conteúdo das 
   
 ### <a name="data-model"></a>Modelo de dados  
   
-|Propriedade|Tipo|Descrição|  
+|Propriedade|Tipo|Description|  
 |--------------|----------|-----------------|  
 |referênciasCódigo|string|Código gerado se esta página foi apresentada como resultado de um erro interno.|  
 |errorCode|string|Código gerado se esta página foi apresentada como resultado de um erro interno.|  

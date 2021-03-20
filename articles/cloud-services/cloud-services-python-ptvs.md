@@ -9,10 +9,10 @@ author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
 ms.openlocfilehash: 16aa6918c0f4b0df5ebf23f28268f8cbe5223fce
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98743292"
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Funções da Web e de trabalho do Python com Ferramentas de Python para Visual Studio
@@ -327,7 +327,7 @@ A implementação demora alguns minutos a ser concluída. Em seguida, as funçõ
 ### <a name="investigate-logs"></a>Investigar registos
 Depois de a máquina virtual do serviço de nuvem arrancar e instalar o Python, pode procurar nos registos para localizar todas as mensagens de falha. Estes registos estão localizados na pasta **C:\Resources\Directory\\{role}\LogFiles**. **PrepPython.err.txt** tem, pelo menos, um erro quando o script tenta detetar se o Python está instalado e o **PipInstaller.err.txt** pode queixar-se de uma versão desatualizada do pip.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para obter informações mais detalhadas sobre como trabalhar com funções da Web e de trabalho nas Ferramentas do Python para Visual Studio, consulte a documentação das PTVS:
 
 * [Projetos de Serviço Cloud][Cloud Service Projects]

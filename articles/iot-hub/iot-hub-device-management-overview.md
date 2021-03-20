@@ -1,5 +1,5 @@
 ---
-title: Visão geral da gestão de dispositivos com o Azure IoT Hub Microsoft Docs
+title: Visão geral da gestão de dispositivos com a Azure IoT Hub | Microsoft Docs
 description: Visão geral da gestão de dispositivos em Azure IoT Hu -- ciclo de vida de dispositivos empresariais e padrões de gestão de dispositivos como, reboot, reset de fábrica, atualização de firmware, configuração, gémeos de dispositivo, consultas, empregos.
 author: bzurcher
 ms.service: iot-hub
@@ -12,10 +12,10 @@ ms.custom:
 - 'Role: IoT Device'
 - 'Role: System Architecture'
 ms.openlocfilehash: 9ff8ebeaf7c4a219bc403c81dfea62f4657a1fd8
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92148344"
 ---
 # <a name="overview-of-device-management-with-iot-hub"></a>Descrição geral da gestão de dispositivos com o Hub IoT

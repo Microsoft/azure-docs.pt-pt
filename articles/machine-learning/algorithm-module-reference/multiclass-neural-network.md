@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
 ms.openlocfilehash: a4f7f8a7793f31ffbf2099cbfb314fc5097319f5
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93421265"
 ---
 # <a name="multiclass-neural-network-module"></a>Módulo multiclasse de rede neural
@@ -42,15 +42,15 @@ Para calcular a saída da rede para uma determinada entrada, calcula-se um valor
 
 1. Adicione o módulo **MultiClass Neural Network** ao seu pipeline no designer. Pode encontrar este módulo na categoria **Machine Learning,** **Initialize,** na categoria **Classificação.**
 
-2. **Criar o modo de treinador** : Utilize esta opção para especificar como pretende que o modelo seja treinado:
+2. **Criar o modo de treinador**: Utilize esta opção para especificar como pretende que o modelo seja treinado:
 
-    - **Parâmetro único** : Escolha esta opção se já sabe como pretende configurar o modelo.
+    - **Parâmetro único**: Escolha esta opção se já sabe como pretende configurar o modelo.
 
-    - **Intervalo de parâmetros** : Selecione esta opção se não tiver a certeza dos melhores parâmetros e pretender fazer uma varredura de parâmetros. Selecione uma gama de valores para iterar e o [Tune Model Hyperparameters](tune-model-hyperparameters.md) itera sobre todas as combinações possíveis das configurações fornecidas para determinar os hiperparmetros que produzem os melhores resultados.  
+    - **Intervalo de parâmetros**: Selecione esta opção se não tiver a certeza dos melhores parâmetros e pretender fazer uma varredura de parâmetros. Selecione uma gama de valores para iterar e o [Tune Model Hyperparameters](tune-model-hyperparameters.md) itera sobre todas as combinações possíveis das configurações fornecidas para determinar os hiperparmetros que produzem os melhores resultados.  
 
-3. **Especificação de camada escondida** : Selecione o tipo de arquitetura de rede para criar.
+3. **Especificação de camada escondida**: Selecione o tipo de arquitetura de rede para criar.
 
-    - **Caso totalmente ligado** : Selecione esta opção para criar um modelo utilizando a arquitetura de rede neural padrão. Para os modelos de rede neural multiclasse, os padrão são os seguintes:
+    - **Caso totalmente ligado**: Selecione esta opção para criar um modelo utilizando a arquitetura de rede neural padrão. Para os modelos de rede neural multiclasse, os padrão são os seguintes:
 
         - Uma camada escondida
         - A camada de saída está totalmente ligada à camada oculta.
@@ -61,21 +61,21 @@ Para calcular a saída da rede para uma determinada entrada, calcula-se um valor
   
    
 
-5. **Número de nós ocultos** : Esta opção permite personalizar o número de nós ocultos na arquitetura padrão. Digite o número de nós escondidos. O padrão é uma camada escondida com 100 nós.
+5. **Número de nós ocultos**: Esta opção permite personalizar o número de nós ocultos na arquitetura padrão. Digite o número de nós escondidos. O padrão é uma camada escondida com 100 nós.
 
-6. **Taxa de aprendizagem** : Definir o tamanho do passo dado em cada iteração, antes da correção. Um valor maior para a taxa de aprendizagem pode fazer com que o modelo converjam mais rapidamente, mas pode ultrapassar o minima local.
+6. **Taxa de aprendizagem**: Definir o tamanho do passo dado em cada iteração, antes da correção. Um valor maior para a taxa de aprendizagem pode fazer com que o modelo converjam mais rapidamente, mas pode ultrapassar o minima local.
 
-7. **Número de iterações de aprendizagem** : Especifique o número máximo de vezes que o algoritmo deve processar os casos de treino.
+7. **Número de iterações de aprendizagem**: Especifique o número máximo de vezes que o algoritmo deve processar os casos de treino.
 
-8. **O diâmetro dos pesos de aprendizagem inicial** : Especifique os pesos dos nós no início do processo de aprendizagem.
+8. **O diâmetro dos pesos de aprendizagem inicial**: Especifique os pesos dos nós no início do processo de aprendizagem.
 
-9. **O impulso** : Especifique um peso a aplicar durante a aprendizagem aos nós de iterações anteriores.
+9. **O impulso**: Especifique um peso a aplicar durante a aprendizagem aos nós de iterações anteriores.
   
-11. **Shuffle exemplos** : Selecione esta opção para baralhar casos entre iterações.
+11. **Shuffle exemplos**: Selecione esta opção para baralhar casos entre iterações.
 
     Se desmarcar esta opção, os casos são processados exatamente da mesma ordem sempre que o oleoduto.
 
-12. **Semente de número aleatório** : Digite um valor a utilizar como semente, se quiser garantir a repetibilidade através de percursos do mesmo oleoduto.
+12. **Semente de número aleatório**: Digite um valor a utilizar como semente, se quiser garantir a repetibilidade através de percursos do mesmo oleoduto.
 
 14. Treine o modelo:
 

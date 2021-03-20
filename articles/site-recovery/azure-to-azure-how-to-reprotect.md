@@ -1,5 +1,5 @@
 ---
-title: Reprotect Azure VMs para a região primária com Recuperação do Sítio Azure Microsoft Docs
+title: Reprotect Azure VMs para a região primária com Azure Site Recovery | Microsoft Docs
 description: Descreve como reprotegir os VMs Azure após o failover, o secundário para a região primária, usando a recuperação do local de Azure.
 services: site-recovery
 author: Rajeswari-Mamilla
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 11/27/2018
 ms.author: ramamill
 ms.openlocfilehash: 3b9edab6e908b4506a92c78aa8f3f53277b9c17b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91360876"
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>A operação “proteger novamente” falhou nas VMs do Azure para a região primária
@@ -29,7 +29,7 @@ Quando [falha sobre](site-recovery-failover.md) os VMs Azure de uma região para
 
 ## <a name="reprotect-a-vm"></a>Reprotegir um VM
 
-1. Em **Vault**  >  **Itens Replicados**de Cofre, clique à direita no falhado sobre VM e selecione **Re-Protect**. A direção de reprotecção deve mostrar do secundário ao primário.
+1. Em   >  **Itens Replicados** de Cofre, clique à direita no falhado sobre VM e selecione **Re-Protect**. A direção de reprotecção deve mostrar do secundário ao primário.
 
    ![O screenshot mostra uma máquina virtual com um menu contextual com re-protect selecionado.](./media/site-recovery-how-to-reprotect-azure-to-azure/reprotect.png)
 
@@ -46,7 +46,7 @@ Pode personalizar as seguintes propriedades do VM alvo durante a reproteção.
 
 |Propriedade |Notas  |
 |---------|---------|
-|Grupo de recursos-alvo | Modificar o grupo de recursos-alvo no qual o VM é criado. Como parte da reproteção, o VM alvo é eliminado. Pode escolher um novo grupo de recursos para criar o VM após o failover. |
+|Grupo de recursos de destino | Modificar o grupo de recursos-alvo no qual o VM é criado. Como parte da reproteção, o VM alvo é eliminado. Pode escolher um novo grupo de recursos para criar o VM após o failover. |
 |Rede virtual de destino | A rede alvo não pode ser alterada durante o trabalho de reprotegido. Para alterar a rede, refaça o mapeamento da rede. |
 |Armazenamento de alvos (VM secundário não utiliza discos geridos) | Pode alterar a conta de armazenamento que o VM utiliza após a falha. |
 |Discos geridos por réplica (VM secundário utiliza discos geridos) | A Recuperação do Site cria discos geridos por réplicas na região primária para espelhar os discos geridos pelo VM secundário. |

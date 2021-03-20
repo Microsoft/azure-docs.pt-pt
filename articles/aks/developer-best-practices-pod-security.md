@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: zarhoads
 ms.openlocfilehash: 1c7143b6d3479cf3083cfc730301c68dcf4eb705
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92900826"
 ---
 # <a name="best-practices-for-pod-security-in-azure-kubernetes-service-aks"></a>Melhores práticas para a segurança do pod no Serviço Azure Kubernetes (AKS)
@@ -29,13 +29,13 @@ Também pode ler as melhores práticas para [a segurança][best-practices-cluste
 
 **Orientação de boas práticas** - Para funcionar como um utilizador ou grupo diferente e limitar o acesso aos processos e serviços do nó subjacente, defina as definições de contexto de segurança do pod. Atribua o menor número de privilégios necessários.
 
-Para que as suas aplicações sejam executadas corretamente, as cápsulas devem funcionar como um utilizador ou grupo definido e não como *raiz* . O `securityContext` para uma cápsula ou recipiente permite definir configurações como *runAsUser* ou *fsGroup* para assumir as permissões apropriadas. Apenas atribua as permissões necessárias ao utilizador ou grupo, e não utilize o contexto de segurança como meio para assumir permissões adicionais. As *configurações de runAsUser,* privilege, e outras definições de capacidades Linux só estão disponíveis em nós e pods Linux.
+Para que as suas aplicações sejam executadas corretamente, as cápsulas devem funcionar como um utilizador ou grupo definido e não como *raiz*. O `securityContext` para uma cápsula ou recipiente permite definir configurações como *runAsUser* ou *fsGroup* para assumir as permissões apropriadas. Apenas atribua as permissões necessárias ao utilizador ou grupo, e não utilize o contexto de segurança como meio para assumir permissões adicionais. As *configurações de runAsUser,* privilege, e outras definições de capacidades Linux só estão disponíveis em nós e pods Linux.
 
 Quando funciona como utilizador não-raiz, os contentores não podem ligar-se às portas privilegiadas abaixo de 1024. Neste cenário, os Serviços Kubernetes podem ser utilizados para disfarçar o facto de uma aplicação estar a funcionar numa determinada porta.
 
 Um contexto de segurança do pod também pode definir capacidades ou permissões adicionais para aceder a processos e serviços. Podem ser definidas as seguintes definições de contexto de segurança comuns:
 
-* **permitir que a MelhorvilegeEscalation** defina se a cápsula pode assumir privilégios *de raiz.* Desenhe as suas aplicações de modo a que esta definição seja sempre definida como *falsa* .
+* **permitir que a MelhorvilegeEscalation** defina se a cápsula pode assumir privilégios *de raiz.* Desenhe as suas aplicações de modo a que esta definição seja sempre definida como *falsa*.
 * **As capacidades do Linux** permitem ao pod aceder aos processos subjacentes ao nó. Cuide de atribuir estas capacidades. Atribua o menor número de privilégios necessários. Para mais informações, consulte [as capacidades do Linux.][linux-capabilities]
 * **As etiquetas SELinux** são um módulo de segurança do kernel Linux que permite definir políticas de acesso para serviços, processos e acesso ao sistema de ficheiros. Mais uma vez, atribua o menor número de privilégios necessários. Para mais informações, consulte [as opções SELinux em Kubernetes][selinux-labels]
 
@@ -97,13 +97,13 @@ A utilização do projeto de identidade pod permite a autenticação contra o ap
 
 Quando as aplicações precisam de uma credencial, comunicam com o cofre digital, recuperam os conteúdos secretos mais recentes e ligam-se ao serviço necessário. Azure Key Vault pode ser este cofre digital. O fluxo de trabalho simplificado para a recuperação de uma credencial do Azure Key Vault utilizando identidades geridas por cápsulas é mostrado no seguinte diagrama:
 
-:::image type="content" source="media/developer-best-practices-pod-security/basic-key-vault.svg" alt-text="Fluxo de trabalho simplificado para identidade gerida em Azure":::
+:::image type="content" source="media/developer-best-practices-pod-security/basic-key-vault.svg" alt-text="Fluxo de trabalho simplificado para recuperar uma credencial do Key Vault usando uma identidade gerida por cápsulas":::
 
 Com o Key Vault, armazena e gira regularmente segredos como credenciais, chaves de conta de armazenamento ou certificados. Pode integrar o Azure Key Vault com um cluster AKS utilizando o [fornecedor Azure Key Vault para o Controlador CSI Secrets Store](https://github.com/Azure/secrets-store-csi-driver-provider-azure#usage). O controlador CSI Secrets Store permite ao cluster AKS recuperar conteúdos secretos do Key Vault e fornecê-los de forma segura apenas à cápsula de pedido. Trabalhe com o seu operador de cluster para implantar o motorista CSI Secrets Store em nós de trabalhadores AKS. Pode utilizar uma identidade gerida por um pod para solicitar acesso ao Key Vault e recuperar os conteúdos secretos necessários através do Controlador CSI Secrets Store.
 
 Azure Key Vault com Secrets Store CSI Driver pode ser usado para nós e cápsulas Linux que requerem uma versão Kubernetes de 1.16 ou maior. Para os nós e cápsulas windows é necessária uma versão Kubernetes de 1.18 ou superior.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 Este artigo focou-se em como proteger as suas cápsulas. Para implementar algumas destas áreas, consulte os seguintes artigos:
 

@@ -4,10 +4,10 @@ description: Descreve como resolver erros quando o tamanho ou o modelo do trabal
 ms.topic: troubleshooting
 ms.date: 01/19/2021
 ms.openlocfilehash: 1fde4918aff6e3bf494876f83c5b4313b3c5f3d2
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98610408"
 ---
 # <a name="resolve-errors-for-job-size-exceeded"></a>Resolver erros para o tamanho do trabalho excedidos
@@ -22,10 +22,10 @@ Ao implementar um modelo, recebe um erro indicando que a implementação excedeu
 
 Obtém-se este erro quando a implantação excede um dos limites permitidos. Normalmente, vê-se este erro quando o seu modelo ou o trabalho que executa a implementação é demasiado grande.
 
-O trabalho de destacamento não pode exceder 1 MB. O trabalho inclui metadados sobre o pedido. Para modelos grandes, os metadados combinados com o modelo podem exceder o tamanho permitido para um trabalho.
+O trabalho de destacamento não pode exceder 1 MB. O trabalho inclui metadados sobre o pedido. Nos modelos grandes, os metadados combinados com o modelo podem exceder o tamanho permitido num trabalho.
 
 
-O modelo não pode exceder 4 MB. O limite de 4-MB aplica-se ao estado final do modelo depois de ter sido expandido para definições de recursos que usam [cópia](copy-resources.md) para criar muitas instâncias. O estado final também inclui os valores resolvidos para variáveis e parâmetros.
+O modelo não pode exceder 4 MB. O limite de 4-MB aplica-se ao estado final do modelo depois de ter sido expandido para definições de recursos que usam [cópia](copy-resources.md) para criar muitas instâncias. O estado final também inclui os valores resolvidos das variáveis e dos parâmetros.
 
 Outros limites para o modelo são:
 

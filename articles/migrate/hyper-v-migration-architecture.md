@@ -7,10 +7,10 @@ ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.openlocfilehash: 239918cc19eefbef9e3c3f12d5ddd3bb5434b490
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96751024"
 ---
 # <a name="how-does-hyper-v-replication-work"></a>Como funciona a replicação do Hiper-V?

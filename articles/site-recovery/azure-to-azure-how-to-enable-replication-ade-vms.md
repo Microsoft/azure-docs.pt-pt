@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/08/2019
 ms.author: sutalasi
 ms.openlocfilehash: fa4d61599e102f9a2580e704ee7a02486067daa2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86135786"
 ---
 # <a name="replicate-azure-disk-encryption-enabled-virtual-machines-to-another-azure-region"></a>Replicar máquinas virtuais com o Azure Disk Encryption ativado para outra região do Azure
@@ -98,8 +98,8 @@ Por exemplo, a principal região de Azure é a Ásia Oriental, e a região secun
     - **Replica discos geridos (se a sua fonte VM utiliza discos geridos)**: A Recuperação do Local cria novos discos geridos por réplicas na região alvo para espelhar os discos geridos da fonte VM do mesmo tipo de armazenamento (padrão ou premium) que os discos geridos pela VM de origem.
     - **Contas de armazenamento de cache**: A Recuperação do Local necessita de uma conta de armazenamento extra chamada armazenamento *cache* na região de origem. Todas as alterações nos VMs de origem são rastreadas e enviadas para a conta de armazenamento de cache. Depois são replicados no local do alvo.
     - **Conjunto de disponibilidade**: Por predefinição, a Recuperação do Site cria uma nova disponibilidade definida na região alvo. O nome tem o sufixo "asr". Se já existe um conjunto de disponibilidade que foi criado pela Recuperação do Site, é reutilizado.
-    - **Cofres-chave de encriptação do**disco : Por padrão, a Recuperação do Local cria um novo cofre chave na região alvo. Tem um sufixo "asr" que é baseado nas chaves de encriptação do disco VM de origem. Se um cofre chave que foi criado pela Azure Site Recovery já existe, é reutilizado.
-    - **Cofres chave de encriptação**chave : Por padrão, a Recuperação do Local cria um novo cofre chave na região alvo. O nome tem um sufixo "asr" que é baseado nas chaves de encriptação da chave VM de origem. Se um cofre-chave criado pela Azure Site Recovery já existe, é reutilizado.
+    - **Cofres-chave de encriptação do** disco : Por padrão, a Recuperação do Local cria um novo cofre chave na região alvo. Tem um sufixo "asr" que é baseado nas chaves de encriptação do disco VM de origem. Se um cofre chave que foi criado pela Azure Site Recovery já existe, é reutilizado.
+    - **Cofres chave de encriptação** chave : Por padrão, a Recuperação do Local cria um novo cofre chave na região alvo. O nome tem um sufixo "asr" que é baseado nas chaves de encriptação da chave VM de origem. Se um cofre-chave criado pela Azure Site Recovery já existe, é reutilizado.
     - **Política de replicação**: Define as definições para o histórico de retenção de pontos de recuperação e frequência de instantâneo consistente com aplicações. Por predefinição, a Recuperação do Site cria uma nova política de replicação com definições predefinidos de *24 horas* para a retenção de pontos de recuperação e *60 minutos* para a frequência de instantâneo consistente com aplicações.
 
 ## <a name="customize-target-resources"></a>Personalizar recursos-alvo
@@ -115,7 +115,7 @@ Siga estes passos para modificar as definições de alvo padrão de recuperaçã
     - Para **contas de Armazenamento Alvo,** selecione a conta a utilizar.
 
 2. **Selecione Personalizar** ao lado de "Definições de encriptação" para modificar as seguintes definições predefinidos:
-   - Para **o cofre da chave de encriptação**do disco Target, selecione o cofre da chave de encriptação do disco alvo a partir da lista de cofres-chave na localização alvo da subscrição.
+   - Para **o cofre da chave de encriptação** do disco Target, selecione o cofre da chave de encriptação do disco alvo a partir da lista de cofres-chave na localização alvo da subscrição.
    - Para **o cofre da chave de encriptação do target,** selecione o cofre da chave de encriptação do alvo a partir da lista de cofres-chave na localização alvo da subscrição.
 
 3. **Selecione Criar recurso-alvo**  >  **Ativar a replicação**.
@@ -129,7 +129,7 @@ Nos seguintes cenários, será necessário atualizar as definições de encripta
   - Ativou a replicação da recuperação do local no VM. Mais tarde, ativou a encriptação do disco na fonte VM.
   - Ativou a replicação da recuperação do local no VM. Mais tarde, alterou a chave de encriptação do disco ou chave de encriptação na fonte VM.
 
-Pode utilizar [um script](#copy-disk-encryption-keys-to-the-dr-region-by-using-the-powershell-script) para copiar as chaves de encriptação para a região alvo e, em seguida, atualizar as definições de encriptação alvo no cofre de **serviços recoverysesso**  >  *replicated item*  >  **item Properties**  >  **Compute e Network**.
+Pode utilizar [um script](#copy-disk-encryption-keys-to-the-dr-region-by-using-the-powershell-script) para copiar as chaves de encriptação para a região alvo e, em seguida, atualizar as definições de encriptação alvo no cofre de **serviços recoverysesso**  >    >  **item Properties**  >  **Compute e Network**.
 
 ![Atualizar janela de diálogo de definições ADE](./media/azure-to-azure-how-to-enable-replication-ade-vms/update-ade-settings.png)
 
@@ -153,7 +153,7 @@ Tem todas as permissões no cofre da região. Mas durante a proteção, selecion
 
 Permissão necessária no [cofre da chave alvo](#required-user-permissions)
 
-**Como corrigir:** Vá a **casa**  >  **Keyvaults**  >  **ContosotargetKeyvault**As políticas de  >  **acesso** e adicione as permissões apropriadas.
+**Como corrigir:** Vá a **casa**  >  **Keyvaults**  >  **ContosotargetKeyvault** As políticas de  >  **acesso** e adicione as permissões apropriadas.
 
 ## <a name="next-steps"></a>Passos seguintes
 

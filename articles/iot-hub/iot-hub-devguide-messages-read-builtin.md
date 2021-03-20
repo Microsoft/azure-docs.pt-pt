@@ -1,5 +1,5 @@
 ---
-title: Compreenda o Azure IoT Hub embutido no ponto final Microsoft Docs
+title: Compreenda o Azure IoT Hub embutido no ponto final | Microsoft Docs
 description: Developer guide - descreve como usar o ponto final incorporado, compatível com o Event Hub para ler mensagens dispositivo-a-nuvem.
 author: wesmc7777
 manager: philmea
@@ -12,15 +12,15 @@ ms.custom:
 - amqp
 - 'Role: Cloud Development'
 ms.openlocfilehash: 4bb33721625f4fc752745ce2b43051c90b3aaa74
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92147679"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Ler mensagens de dispositivo para cloud a partir do ponto final incorporado
 
-Por predefinição, as mensagens são encaminhadas para o ponto final incorporado **(mensagens/eventos)** que é compatível com [os Centros de Eventos.](https://azure.microsoft.com/documentation/services/event-hubs/) Este ponto final só está atualmente exposto utilizando o protocolo [AMQP](https://www.amqp.org/) na porta 5671. Um hub IoT expõe as seguintes propriedades para permitir controlar as **mensagens/eventos**de mensagens compatíveis com o Event Hub.
+Por predefinição, as mensagens são encaminhadas para o ponto final incorporado **(mensagens/eventos)** que é compatível com [os Centros de Eventos.](https://azure.microsoft.com/documentation/services/event-hubs/) Este ponto final só está atualmente exposto utilizando o protocolo [AMQP](https://www.amqp.org/) na porta 5671. Um hub IoT expõe as seguintes propriedades para permitir controlar as **mensagens/eventos** de mensagens compatíveis com o Event Hub.
 
 | Propriedade            | Descrição |
 | ------------------- | ----------- |
@@ -47,13 +47,13 @@ Quando utilizar SDKs de Centros de Eventos ou integrações de produtos que não
 
 2. Clique **em pontos finais incorporados.**
 
-3. A secção **Eventos** contém os **seguintes valores: Partições,** **nome compatível com o Event Hub,** **ponto final compatível com o Event Hub,** Tempo de **Retenção**e **Grupos de Consumidores**.
+3. A secção **Eventos** contém os **seguintes valores: Partições,** **nome compatível com o Event Hub,** **ponto final compatível com o Event Hub,** Tempo de **Retenção** e **Grupos de Consumidores**.
 
     ![Configurações dispositivo-a-nuvem](./media/iot-hub-devguide-messages-read-builtin/eventhubcompatible.png)
 
 No portal, o campo de ponto final compatível com o Event Hub contém uma cadeia completa de conexão Event Hubs que se parece **com: Endpoint=sb://abcd1234namespace.servicebus.windows.net/; SharedAccessKeyName=iothubowner; SharedAccessKey=keykeykeykeykeykey=; EntityPath=iothub-ehub-abcd-1234-123456**. Se o SDK que está a usar requer outros valores, então eles seriam:
 
-| Nome | Valor |
+| Name | Valor |
 | ---- | ----- |
 | Ponto final | sb://abcd1234namespace.servicebus.windows.net/ |
 | Hostname (Nome do anfitrião) | abcd1234namespace.servicebus.windows.net |

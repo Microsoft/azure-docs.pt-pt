@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 06/13/2020
 ms.author: mbaldwin
 ms.openlocfilehash: 85f17897c0e3089a2d2bc5b172e98fa24e8085ff
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94920445"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Introdução aos certificados do Key Vault
@@ -46,7 +46,7 @@ Os certificados são compostos por três recursos interligados ligados entre si 
 **Passo 3** - Um administrador contoso, juntamente com um funcionário da Contoso (utilizador do Cofre-Chave) que detém certificados, dependendo da AC, pode obter um certificado da administração ou diretamente da conta com a AC.  
 
 - Inicie uma operação de credencial adicionada a um cofre de [chaves, definindo um recurso emitente de certificado.](/rest/api/keyvault/setcertificateissuer/setcertificateissuer) Um emitente de certificado é uma entidade representada no Azure Key Vault (KV) como recurso CertificateIssuer. É utilizado para fornecer informações sobre a origem de um certificado KV; nome do emitente, fornecedor, credenciais e outros detalhes administrativos.
-  - Por exemplo: MyDigiCertIssuer  
+  - Ex. MyDigiCertIssuer  
     -   Fornecedor  
     -   Credenciais – Credenciais de conta CA. Cada AC tem os seus próprios dados específicos.  
 
@@ -96,7 +96,7 @@ O serviço Key Vault envia pedidos para a AC (tráfego de saída). Portanto, é 
 
 -   Se não houver mais operações, a primeira coisa que o Cofre-Chave faz é enviar um aviso de expiração. 
 
--   Além disso, o utilizador pode editar a política, que é funcional no momento da importação, mas que contém incumprimentos onde nenhuma informação foi especificada na importação. Por exemplo: nenhuma informação emitente  
+-   Além disso, o utilizador pode editar a política, que é funcional no momento da importação, mas que contém incumprimentos onde nenhuma informação foi especificada na importação. Ex. nenhuma informação emitente  
 
 ### <a name="formats-of-import-we-support"></a>Formatos de Importação que apoiamos
 O Azure Key Vault suporta ficheiros de certificados .pem e .pfx para importar certificados para o cofre Key.

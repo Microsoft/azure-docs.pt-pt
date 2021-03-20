@@ -15,10 +15,10 @@ ms.date: 01/07/2021
 ms.author: damendo
 ms.custom: mvc
 ms.openlocfilehash: 1a556ea66bb54f994349ce9ba4d12fb486827edf
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98013301"
 ---
 # <a name="tutorial-diagnose-a-communication-problem-between-networks-using-the-azure-portal"></a>Tutorial: Diagnosticar um problema de comunicação entre redes com o Portal do Azure
@@ -109,7 +109,7 @@ Se tiver criado um gateway de VPN com o script nos [pré-requisitos](#prerequisi
 2. Selecione **Eliminar grupo de recursos**.
 3. Introduza *TestRG1* em **ESCREVER O NOME DO GRUPO DE RECURSOS:** e selecione **Eliminar**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, aprendeu a diagnosticar um problema com o gateway de rede virtual. É recomendável registar a comunicação de rede de e para uma VM para que possa rever o registo para saber se existem anomalias. Para saber como, avance para o próximo tutorial.
 

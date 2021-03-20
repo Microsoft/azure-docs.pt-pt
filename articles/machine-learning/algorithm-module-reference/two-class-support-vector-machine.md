@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
 ms.openlocfilehash: 46cfdd319fc89e569d165dc2e11303e67c6dd54e
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93420568"
 ---
 # <a name="two-class-support-vector-machine-module"></a>módulo de máquina de vetor de suporte Two-Class
@@ -42,9 +42,9 @@ Para este tipo de modelo, recomenda-se que normalize o conjunto de dados antes d
   
 2.  Especifique como pretende que o modelo seja treinado, definindo a opção **modo de formação Create.**  
   
-    -   **Parâmetro único** : Se souber como pretende configurar o modelo, pode fornecer um conjunto específico de valores como argumentos.  
+    -   **Parâmetro único**: Se souber como pretende configurar o modelo, pode fornecer um conjunto específico de valores como argumentos.  
 
-    -   **Intervalo de parâmetros** : Se não tiver a certeza dos melhores parâmetros, pode encontrar os parâmetros ideais utilizando o módulo [De Hiperparametros Tune Model.](tune-model-hyperparameters.md) Fornece alguma gama de valores, e o treinador itera sobre várias combinações das definições para determinar a combinação de valores que produz o melhor resultado.
+    -   **Intervalo de parâmetros**: Se não tiver a certeza dos melhores parâmetros, pode encontrar os parâmetros ideais utilizando o módulo [De Hiperparametros Tune Model.](tune-model-hyperparameters.md) Fornece alguma gama de valores, e o treinador itera sobre várias combinações das definições para determinar a combinação de valores que produz o melhor resultado.
 
 3.  Para **o número de iterações,** escreva um número que denota o número de iterações utilizadas na construção do modelo.  
   

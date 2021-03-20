@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: cherylmc
 ms.openlocfilehash: 4ff4f1238764d7bdab6e74d29254a6388ea76d78
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92143136"
 ---
 # <a name="modify-local-network-gateway-settings-using-the-azure-portal"></a>Modificar as definições do gateway de rede local com o portal do Azure
@@ -32,7 +32,7 @@ A imagem abaixo mostra a página de **Configuração** de um recurso de gateway 
 
 Esta é a página de configuração com um ponto final FQDN:
 
-:::image type="content" source="./media/vpn-gateway-modify-local-network-gateway-portal/name.png" alt-text="Definições de endereços IP":::
+:::image type="content" source="./media/vpn-gateway-modify-local-network-gateway-portal/name.png" alt-text="Definições de FQDN":::
 
 ## <a name="to-modify-the-gateway-ip-address-or-fqdn"></a><a name="ip"></a>Para modificar o endereço IP do gateway ou FQDN
 

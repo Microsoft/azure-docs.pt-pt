@@ -1,18 +1,18 @@
 ---
 title: Esquema de eventos Azure Event Grid
-description: Descreve as propriedades e esquemas que estão presentes para todos os eventos.Os eventos consistem num conjunto de cinco propriedades de cordas necessárias e um objeto de dados necessário.
+description: Descreve as propriedades e esquemas que estão presentes para todos os eventos. Os eventos consistem num conjunto de cinco propriedades de cordas necessárias e um objeto de dados necessário.
 ms.topic: reference
 ms.date: 07/07/2020
 ms.openlocfilehash: 7ddc7c78c5a9e5ba2a57b21c45fb9fab65056ee9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86105885"
 ---
 # <a name="azure-event-grid-event-schema"></a>Esquema de eventos Azure Event Grid
 
-Este artigo descreve as propriedades e esquemas que estão presentes para todos os eventos.Os eventos consistem num conjunto de cinco propriedades de cordas necessárias e um objeto de dados necessário. As propriedades são comuns a todos os eventos de qualquer editor. O objeto de dados tem propriedades específicas de cada editor. Para tópicos do sistema, estas propriedades são específicas para o fornecedor de recursos, como Azure Storage ou Azure Event Hubs.
+Este artigo descreve as propriedades e esquemas que estão presentes para todos os eventos. Os eventos consistem num conjunto de cinco propriedades de cordas necessárias e um objeto de dados necessário. As propriedades são comuns a todos os eventos de qualquer editor. O objeto de dados tem propriedades específicas de cada editor. Para tópicos do sistema, estas propriedades são específicas para o fornecedor de recursos, como Azure Storage ou Azure Event Hubs.
 
 Fontes do evento enviam eventos para a Azure Event Grid numa matriz, que pode ter vários objetos de evento. Ao publicar eventos num tópico de grelha de evento, a matriz pode ter um tamanho total de até 1 MB. Cada evento na matriz é limitado a 1 MB. Se um evento ou a matriz for maior do que os limites de tamanho, receberá a resposta **413 Payload Too Large**. No entanto, as operações são cobradas em incrementos de 64 KB. Assim, eventos acima de 64 KB incorrerão em cargas de operações como se fossem múltiplos eventos. Por exemplo, um evento de 130 KB incorreria em operações como se fossem 3 eventos separados.
 
@@ -78,11 +78,11 @@ Todos os eventos têm os mesmos dados de alto nível:
 | Propriedade | Tipo | Necessário | Descrição |
 | -------- | ---- | -------- | ----------- |
 | tópico | string | Não, mas se incluído, deve corresponder ao tópico de Classificação de Eventos Azure Resource Manager ID exatamente. Se não estiver incluído, a Grade de Eventos irá carimbar o evento. | Caminho completo de recursos para a fonte do evento. Este campo não é escrito. O Event Grid fornece este valor. |
-| subject | string | Sim | Caminho definido pelo publicador para o assunto do evento. |
-| eventType | string | Sim | Um dos tipos de eventos registados para esta origem de evento. |
-| eventTime | string | Sim | O tempo que o evento é gerado com base no tempo UTC do fornecedor. |
-| ID | string | Sim | Identificador único para o evento. |
-| dados | objeto | Não | Dados do evento específicos para o fornecedor de recursos. |
+| subject | string | Yes | Caminho definido pelo publicador para o assunto do evento. |
+| eventType | string | Yes | Um dos tipos de eventos registados para esta origem de evento. |
+| eventTime | string | Yes | O tempo que o evento é gerado com base no tempo UTC do fornecedor. |
+| ID | string | Yes | Identificador único para o evento. |
+| dados | objeto | No | Dados do evento específicos para o fornecedor de recursos. |
 | dataVersion | string | Não, mas será carimbado com um valor vazio. | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
 | metadataVersion | string | Não é necessário, mas se incluído, deve corresponder exatamente ao Esquema de Grelha de Evento `metadataVersion` (atualmente, `1` apenas). Se não estiver incluído, a Grade de Eventos irá carimbar o evento. | A versão do esquema dos metadados do evento. O Event Grid define o esquema das propriedades de nível superior. O Event Grid fornece este valor. |
 

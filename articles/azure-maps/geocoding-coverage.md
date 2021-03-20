@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 3cf27319fa84ff5d693e74e90664b7a86f4d934a
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92897216"
 ---
 # <a name="azure-maps-geocoding-coverage"></a>Cobertura de geocoding Azure Maps
@@ -72,11 +72,11 @@ A capacidade de geocódificar num país/região depende da cobertura de dados ro
 | Paraguai                                            |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Peru                                                |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Porto Rico                                         |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| São Barthélemy                                    |                 |                |       ✓      |      ✓     |          ✓         |
+| São Bartolomeu                                    |                 |                |       ✓      |      ✓     |          ✓         |
 | São Cristóvão e Neves                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Santa Lúcia                                         |                 |                |              |      ✓     |          ✓         |
 | São Martinho (Saint Martin)                                        |                 |                |       ✓      |      ✓     |          ✓         |
-| São Pedro e Miquelon                           |                 |                |       ✓      |      ✓     |          ✓         |
+| São Pedro e Miquelão                           |                 |                |       ✓      |      ✓     |          ✓         |
 | São Vicente e Granadinas                    |                 |                |              |      ✓     |          ✓         |
 | São Martinho (Sint Maarten)                                        |                 |                |       ✓      |      ✓     |          ✓         |
 | Ilhas Geórgia do Sul e Sandwich do Sul        |                 |                |              |      ✓     |          ✓         |
@@ -107,7 +107,7 @@ A capacidade de geocódificar num país/região depende da cobertura de dados ro
 | Ilhas Cook                                        |                 |                |              |      ✓     |          ✓         |
 | Fiji                                                |                  |                |              |      ✓     |          ✓        |
 | Polinésia Francesa                                    |                 |                |              |      ✓     |          ✓         |
-| Ilha Heard e Ilhas McDonald                   |                 |                |              |      ✓     |          ✓         |
+| Ilhas Heard e McDonald                   |                 |                |              |      ✓     |          ✓         |
 | R.A.E. de Hong Kong                                       |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Indonésia                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Índia                                               |        ✓        |        ✓       |       ✓      |      ✓     |                   |
@@ -148,7 +148,7 @@ A capacidade de geocódificar num país/região depende da cobertura de dados ro
 | Vietname                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Wallis e Futuna                                   |                 |                |              |      ✓     |          ✓         |
 
-## <a name="europe"></a>Europe
+## <a name="europe"></a>Europa
 
 | País/Região                                      | Pontos de endereço |Números da casa | Nível de rua | Nível da cidade | Pontos de interesse |
 |-----------------------------------------------------|:---------------:|:--------------:|:------------:|:----------:|:------------------:|

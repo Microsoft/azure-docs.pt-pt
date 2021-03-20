@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: db87887fc2b51c7cb8cb300eb8e711d3ae9b6ac8
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98610794"
 ---
 # <a name="troubleshooting-combined-security-information-registration"></a>Resolução de problemas combinado de registo de informações de segurança
@@ -30,7 +30,7 @@ Os eventos registados para registo combinado estão no serviço Métodos de Aute
 
 O quadro que se segue lista todos os eventos de auditoria gerados pelo registo combinado:
 
-| Atividade | Estado | Razão | Descrição |
+| Atividade | Estado | Razão | Description |
 | --- | --- | --- | --- |
 | Utilizador registou todas as informações de segurança necessárias | Com êxito | O utilizador registou todas as informações de segurança necessárias. | Este evento ocorre quando um utilizador completou o registo com sucesso.|
 | Utilizador registou todas as informações de segurança necessárias | Falha | O utilizador cancelou o registo de informações de segurança. | Este evento ocorre quando um utilizador cancela o registo do modo de interrupção.|

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: mayg
 ms.openlocfilehash: 528a24bb64aa8d323b5d63a27af0a52ccdf1abb6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86132320"
 ---
 # <a name="set-up-disaster-recovery-for-active-directory-and-dns"></a>Configurar a recuperação de desastres para o Ative Directory e DNS
@@ -79,7 +79,7 @@ A maioria das aplicações requer a presença de um controlador de domínio ou d
 1. Criar uma rede isolada. Qualquer rede virtual que crie no Azure está isolada de outras redes por padrão. Recomendamos que utilize a mesma gama de endereços IP para esta rede que utiliza na sua rede de produção. Não ative a conectividade site-to-site nesta rede.
 1. Forneça um endereço IP DNS na rede isolada. Utilize o endereço IP que espera que a máquina virtual DNS obtenha. Se estiver a replicar o Azure, forneça o endereço IP para a máquina virtual que é usada no failover. Para introduzir o endereço IP, na máquina virtual replicada, nas definições **de Computação e Rede,** selecione as definições **IP do Target.**
 
-   :::image type="content" source="./media/site-recovery-active-directory/azure-test-network.png" alt-text="Rede do Azure":::
+   :::image type="content" source="./media/site-recovery-active-directory/azure-test-network.png" alt-text="Rede de testes Azure":::
 
    > [!TIP]
    > A Recuperação do Site tenta criar máquinas virtuais de teste numa sub-rede com o mesmo nome e utilizando o mesmo endereço IP fornecido nas definições de **Computação e Rede** da máquina virtual. Se uma sub-rede com o mesmo nome não estiver disponível na rede virtual Azure que está prevista para o teste de failover, a máquina virtual de teste é criada na primeira sub-rede alfabeticamente.
@@ -118,21 +118,21 @@ Se as salvaguardas de virtualização forem ativadas após um teste falhado, pod
 
 - O valor **GenerationID** muda:
 
-  :::image type="content" source="./media/site-recovery-active-directory/Event2170.png" alt-text="Rede do Azure":::
+  :::image type="content" source="./media/site-recovery-active-directory/Event2170.png" alt-text="Mudança de ID de geração":::
 
 - O **valor invocaçãoID** altera:
 
-  :::image type="content" source="./media/site-recovery-active-directory/Event1109.png" alt-text="Rede do Azure":::
+  :::image type="content" source="./media/site-recovery-active-directory/Event1109.png" alt-text="Alteração do ID de invocação":::
 
 - `SYSVOL` pasta e `NETLOGON` ações não estão disponíveis.
 
-  :::image type="content" source="./media/site-recovery-active-directory/sysvolshare.png" alt-text="Rede do Azure":::
+  :::image type="content" source="./media/site-recovery-active-directory/sysvolshare.png" alt-text="Partilha de pasta SYSVOL":::
 
-  :::image type="content" source="./media/site-recovery-active-directory/Event13565.png" alt-text="Rede do Azure":::
+  :::image type="content" source="./media/site-recovery-active-directory/Event13565.png" alt-text="Pasta NtFrs SYSVOL":::
 
 - As bases de dados dfsr são eliminadas.
 
-  :::image type="content" source="./media/site-recovery-active-directory/Event2208.png" alt-text="Rede do Azure":::
+  :::image type="content" source="./media/site-recovery-active-directory/Event2208.png" alt-text="As bases de dados do DFSR são eliminadas":::
 
 ### <a name="troubleshoot-domain-controller-issues-during-test-failover"></a>Problemas no controlador de domínio de resolução de problemas durante a falha do teste
 

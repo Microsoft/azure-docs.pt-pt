@@ -10,10 +10,10 @@ ms.date: 08/07/2019
 ms.author: menchi
 ms.custom: amqp, devx-track-csharp
 ms.openlocfilehash: daba400b9daadf464c4c125ad266745237e71367
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92142509"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-net"></a>Começa com a identidade do módulo IoT Hub e módulo twin (.NET)
@@ -64,15 +64,15 @@ Antes de começar, obtenha a cadeia de ligação do módulo. Inicie sessão no [
 
     ![Criar um projeto do Visual Studio](./media/iot-hub-csharp-csharp-module-twin-getstarted/configure-update-twins-csharp1.png)
 
-1. Selecione **Criar** para criar o seu projeto.
+1. Selecione **Create** (Criar) para criar o seu projeto.
 
 1. No Estúdio Visual, open **Tools**  >  **NuGet Package Manager**  >  **Gerencie pacotes nuget para solução**. Selecione o separador **Procurar**.
 
-1. Procure e selecione **Microsoft.Azure.Devices.Client**e, em seguida, **selecione Instalar**.
+1. Procure e selecione **Microsoft.Azure.Devices.Client** e, em seguida, **selecione Instalar**.
 
     ![Screenshot que mostra o "Microsoft.Azure.Devices.Client" selecionado e o botão "Instalar" realçado.](./media/iot-hub-csharp-csharp-module-twin-getstarted/install-client-sdk.png)
 
-1. Adicione as `using` seguintes declarações no topo do ficheiro **Program.cs:**
+1. Adicione as `using` seguintes declarações no topo do ficheiro **.cs Programa:**
 
     ```csharp
     using Microsoft.Azure.Devices.Client;
@@ -171,7 +171,7 @@ Agora pode executar as aplicações.
 
 1. No âmbito **de Propriedades Comuns,** selecione **Startup Project.**
 
-1. Selecione **vários projetos de startups**e, em seguida, selecione **Iniciar** como ação para as aplicações, e **OK** para aceitar as suas alterações.
+1. Selecione **vários projetos de startups** e, em seguida, selecione **Iniciar** como ação para as aplicações, e **OK** para aceitar as suas alterações.
 
 1. Prima **F5** para iniciar as aplicações.
 

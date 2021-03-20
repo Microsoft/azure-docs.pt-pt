@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com Learning Seat LMS Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com | de Learning Seat LMS Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Learning Seat LMS.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.openlocfilehash: edf9df1777c4ab1d204cfc8058ec22c2d4e3f663
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97631793"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learning-seat-lms"></a>Tutorial: Integração do Diretório Ativo Azure com Learning Seat LMS

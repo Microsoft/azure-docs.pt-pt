@@ -13,10 +13,10 @@ ms.author: qiohu
 zone_pivot_groups: programming-languages-set-two
 ms.custom: devx-track-js, devx-track-csharp
 ms.openlocfilehash: 1b134fd3d09eeda340e7323638a36b68336242c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91362032"
 ---
 # <a name="specify-source-language-for-speech-to-text"></a>Especifique a linguagem de origem para a fala para o texto
@@ -199,7 +199,7 @@ SPXSpeechRecognizer* speechRecognizer = [[SPXSpeechRecognizer alloc] initWithSpe
 
 ::: zone-end
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 * Para obter uma lista de línguas e locais apoiados para falar a texto, consulte [o suporte linguístico](language-support.md).
 

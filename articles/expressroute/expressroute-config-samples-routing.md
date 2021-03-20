@@ -1,5 +1,5 @@
 ---
-title: 'Azure ExpressRoute: Amostras de configuração do router'
+title: 'Azure ExpressRoute: exemplos de configuração de router'
 description: Utilize estas amostras de configuração de interface e encaminhamento para os routers da série Cisco IOS-XE e Juniper MX como exemplos para trabalhar com o Azure ExpressRoute.
 services: expressroute
 author: duongau
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/26/2020
 ms.author: duau
 ms.openlocfilehash: 3bc850f02884ae0547c2ecf56a46a57a4e66a752
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89397411"
 ---
 # <a name="router-configuration-samples-to-set-up-and-manage-routing"></a>Amostras de configuração do router para configurar e gerir o encaminhamento
@@ -57,7 +57,7 @@ interface GigabitEthernet<Interface_Number>.<Number>
 ```
 
 ### <a name="set-up-ebgp-sessions"></a>Configurar sessões eBGP
-Tem de marcar uma sessão de BGP com a Microsoft para cada um dos seus olhos. Configurar uma sessão de BGP utilizando a seguinte amostra. Se o endereço IPv4 que usou para o seu subinterface foi a.b.c.d, então o endereço IP do vizinho BGP (Microsoft) será a.b.c.d+1. O último octeto do endereço IPv4 do vizinho BGP será sempre um número par.
+Tem de marcar uma sessão de BGP com a Microsoft para cada um dos seus olhos. Configurar uma sessão de BGP utilizando a seguinte amostra. Se o endereço IPv4 que usou para o seu subinterface fosse a.b.c.d., então o endereço IP do vizinho BGP (Microsoft) será a.b.c.d+1. O último octeto do endereço IPv4 do vizinho BGP será sempre um número par.
 
 ```console
 router bgp <Customer_ASN>
@@ -169,7 +169,7 @@ Esta amostra fornece a definição de subinterface para um subinterfácio com do
 ```
 
 ### <a name="set-up-ebgp-sessions"></a>Configurar sessões eBGP
-Tem de marcar uma sessão de BGP com a Microsoft para cada um dos seus olhos. Configurar uma sessão de BGP utilizando a seguinte amostra. Se o endereço IPv4 que usou para o seu subinterface foi a.b.c.d, então o endereço IP do vizinho BGP (Microsoft) será a.b.c.d+1. O último octeto do endereço IPv4 do vizinho BGP será sempre um número par.
+Tem de marcar uma sessão de BGP com a Microsoft para cada um dos seus olhos. Configurar uma sessão de BGP utilizando a seguinte amostra. Se o endereço IPv4 que usou para o seu subinterface fosse a.b.c.d., então o endereço IP do vizinho BGP (Microsoft) será a.b.c.d+1. O último octeto do endereço IPv4 do vizinho BGP será sempre um número par.
 
 ```console
     routing-options {

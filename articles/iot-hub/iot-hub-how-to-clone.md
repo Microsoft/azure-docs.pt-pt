@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: robinsh
 ms.openlocfilehash: 370ea2f16632ae18142f0770742e5a52d3cabae0
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92151650"
 ---
 # <a name="how-to-clone-an-azure-iot-hub-to-another-region"></a>Como clonar um hub Azure IoT para outra região
@@ -107,7 +107,7 @@ Esta secção fornece instruções específicas para migrar o hub.
 
 ### <a name="find-the-original-hub-and-export-it-to-a-resource-template"></a>Encontre o hub original e exporte-o para um modelo de recurso.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). 
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com). 
 
 1. Vá a **Grupos de Recursos** e selecione o grupo de recursos que contém o hub que pretende mover. Você também pode ir a **Recursos** e encontrar o centro assim. Selecione o centro.
 
@@ -300,7 +300,7 @@ Ao exportar o modelo de Gestor de Recursos para um hub que tenha o encaminhament
 
 1. Recupere as teclas necessárias para qualquer um dos recursos de encaminhamento e coloque-as no modelo. Pode recuperar as teclas do recurso no [portal Azure](https://portal.azure.com). 
 
-   Por exemplo, se estiver a encaminhar mensagens para um recipiente de armazenamento, encontre a conta de armazenamento no portal. Na secção Definições, selecione **as teclas de acesso**e, em seguida, copie uma das teclas. Aqui está como é a chave quando você exporta o modelo pela primeira vez:
+   Por exemplo, se estiver a encaminhar mensagens para um recipiente de armazenamento, encontre a conta de armazenamento no portal. Na secção Definições, selecione **as teclas de acesso** e, em seguida, copie uma das teclas. Aqui está como é a chave quando você exporta o modelo pela primeira vez:
 
    ```json
    "connectionString": "DefaultEndpointsProtocol=https;
@@ -347,7 +347,7 @@ Agora você tem um modelo que vai criar um novo hub que se parece quase exatamen
 
 Crie o novo hub na nova localização utilizando o modelo. Se tiver recursos de encaminhamento que se vão mover, os recursos devem ser configurado na nova localização e as referências no modelo atualizado para combinar. Se não estiver a mover os recursos de encaminhamento, eles devem estar no modelo com as teclas atualizadas.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
 1. Selecione **Criar um recurso**. 
 
@@ -357,7 +357,7 @@ Crie o novo hub na nova localização utilizando o modelo. Se tiver recursos de 
 
    ![Screenshot mostrando o comando para construir o seu próprio modelo](./media/iot-hub-how-to-clone/iot-hub-custom-deployment.png)
 
-1. **Selecione Construa o seu próprio modelo no editor, o**que lhe permite carregar o seu modelo a partir de um ficheiro. 
+1. **Selecione Construa o seu próprio modelo no editor, o** que lhe permite carregar o seu modelo a partir de um ficheiro. 
 
 1. Selecione **O ficheiro de carga**. 
 
@@ -526,7 +526,7 @@ Agora tem as variáveis ambientais num ficheiro com os comandos SET, e sabe quai
     
 1. Clique com o botão direito no projeto *ImportExportDevicesSample* e selecione **set como projeto de arranque**.    
     
-1. Coloque as variáveis no topo da Program.cs na pasta ImportExportDevicesSample para as cinco opções.
+1. Coloque as variáveis no topo do Programa.cs na pasta ImportExportDevicesSample para as cinco opções.
 
    ``` csharp
    // Add randomly created devices to the source hub.

@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 07/18/2019
 ms.author: alkohli
 ms.openlocfilehash: b00a944b69b8492d4aa00258154bf00f1c66ad33
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92127119"
 ---
 # <a name="use-the-azure-data-box-heavy-to-migrate-your-file-share-content-to-sharepoint-online"></a>Utilize a Caixa de Dados Azure Heavy para migrar o conteúdo da partilha de ficheiros para o SharePoint Online
@@ -83,7 +83,7 @@ Para melhor desempenho e conectividade, recomendamos que crie uma Máquina Virtu
 2. [Monte a partilha de ficheiros Azure no VM](../storage/files/storage-how-to-use-files-windows.md#mount-the-azure-file-share-with-file-explorer).
 3. [Descarregue a ferramenta De migração SharePoint](https://spmtreleasescus.blob.core.windows.net/install/default.htm) e instale-a no seu Azure VM.
 4. Inicie a Ferramenta de Migração SharePoint. Clique **em Iniciar sômed** e insira o nome de utilizador e a palavra-passe para o seu trabalho ou conta escolar.
-5. Quando solicitado **Onde estão os seus dados?** **File share** Insira o caminho para a sua partilha de ficheiros Azure onde os seus dados estão localizados.
+5. Quando solicitado **Onde estão os seus dados?**  Insira o caminho para a sua partilha de ficheiros Azure onde os seus dados estão localizados.
 6. Siga as indicações restantes normalmente, incluindo a localização do alvo. Para mais informações, [aceda a Como utilizar a Ferramenta de Migração SharePoint](/sharepointmigration/how-to-use-the-sharepoint-migration-tool).
 
 > [!IMPORTANT]
