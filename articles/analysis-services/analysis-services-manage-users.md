@@ -1,5 +1,5 @@
 ---
-title: Autenticação dos Serviços de Análise Azure e permissões do utilizador. Microsoft Docs
+title: Autenticação de Serviços de Análise Azure e permissões do utilizador| Microsoft Docs
 description: Este artigo descreve como a Azure Analysis Services utiliza o Azure Ative Directory (Azure AD) para gestão de identidade e autenticação do utilizador.
 author: minewiskan
 ms.service: azure-analysis-services
@@ -8,10 +8,10 @@ ms.date: 12/01/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 551bae56565140da3754e74a23b1cc18087f1171
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96487444"
 ---
 # <a name="authentication-and-user-permissions"></a>Autenticação e permissões de utilizador

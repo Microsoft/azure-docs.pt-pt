@@ -1,5 +1,5 @@
 ---
-title: Amostra de script do Azure CLI - Integrar o Serviço de Aplicações com Gateway de Aplicação Microsoft Docs
+title: Amostra de script Azure CLI - Integre o Serviço de Aplicações com gateway de aplicação | Microsoft Docs
 description: Amostra de script Azure CLI - Integrar o Serviço de Aplicações com Gateway de Aplicação
 services: appservice
 documentationcenter: appservice
@@ -17,10 +17,10 @@ ms.date: 12/09/2019
 ms.author: madsd
 ms.custom: seodec18, devx-track-azurecli
 ms.openlocfilehash: 3820e7bf00f99a846dd2be0edeaf4248e0dfd8ad
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97006091"
 ---
 # <a name="integrate-app-service-with-application-gateway-using-cli"></a>Integrar o Serviço de Aplicações com o Gateway de Aplicações utilizando o CLI

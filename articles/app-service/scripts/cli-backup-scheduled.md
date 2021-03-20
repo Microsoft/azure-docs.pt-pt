@@ -10,10 +10,10 @@ ms.author: msangapu
 ms.reviewer: cephalin
 ms.custom: mvc, seodec18, devx-track-azurecli
 ms.openlocfilehash: 500ac99cd35cfdf601be75a19a1d43f84795cbe8
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97006434"
 ---
 # <a name="create-a-scheduled-backup-for-an-app-service-app-using-cli"></a>Crie uma cópia de segurança programada para uma aplicação do Serviço de Aplicações utilizando o CLI

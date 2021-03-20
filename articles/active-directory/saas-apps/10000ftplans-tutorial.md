@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com Planos de 10.000 pés Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com planos de 10.000 pés | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e os Planos de 10.000 pés.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.openlocfilehash: fc2a2c557ff9738051b9d9f38ad8947d2edd6a36
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92319256"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-10000ft-plans"></a>Tutorial: Integração do Diretório Ativo Azure com planos de 10.000 pés
@@ -42,7 +42,7 @@ Para configurar a integração AZure AD com planos de 10.000 pés, precisa dos s
 Neste tutorial, você configura e testa Azure AD um único sinal de acesso em um ambiente de teste.
 
 * Planos de 10.000 ft apoiam **SP** iniciado SSO
-* Suporte de planos de 10.000 pés **Just In Time**
+* Suporte de planos de 10.000 pés 
 
 ## <a name="adding-10000ft-plans-from-the-gallery"></a>Adicionando planos de 10.000 pés da galeria
 

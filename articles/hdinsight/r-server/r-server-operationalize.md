@@ -6,10 +6,10 @@ ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 06/27/2018
 ms.openlocfilehash: c90642e58c026c78ce854e7fe74dd36963d48b67
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98944008"
 ---
 # <a name="operationalize-ml-services-cluster-on-azure-hdinsight"></a>Operacionalizar o cluster de Serviços ML em Azure HDInsight
@@ -186,7 +186,7 @@ Uma vez configurados todos os nós de trabalhador desativados para executar o n�
 
 1. Aceda através de SSH ao nó de extremidade.
 
-1. Execute o `vi /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Server.WebAPI/appsettings.json`.
+1. Execute `vi /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Server.WebAPI/appsettings.json`.
 
 1. Procure a secção "Uris" e adicione o IP do nó do trabalhador e detalhes do porto.
 
@@ -199,7 +199,7 @@ Uma vez configurados todos os nós de trabalhador desativados para executar o n�
     }
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Gerir cluster dos Serviços ML no HDInsight](r-server-hdinsight-manage.md)
 * [Opções do contexto de cálculo para o cluster dos Serviços ML no HDInsight](r-server-compute-contexts.md)

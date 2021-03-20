@@ -1,5 +1,5 @@
 ---
-title: Desempenho da base de dados da Oracle no Azure NetApp Files volume único / Microsoft Docs
+title: Desempenho da base de dados da Oracle no Azure NetApp Files volume único | Microsoft Docs
 description: Descreve os resultados dos testes de desempenho de um volume único dos Ficheiros Azure NetApp na base de dados da Oracle.
 services: azure-netapp-files
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: b-juche
 ms.openlocfilehash: c6cdf2f6dada0aa4dea2f70f18237b7ee39e3ea1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91571414"
 ---
 # <a name="oracle-database-performance-on-azure-netapp-files-single-volumes"></a>Desempenho da base de dados Oracle em volumes individuais do Azure NetApp Files
@@ -65,7 +65,7 @@ O SLOB 2.5.4.2 não suporta a base de dados pluggable (PDB). Como tal, foi adici
 
 As variáveis SLOB utilizadas nos ensaios são descritas nas seguintes secções.
 
-#### <a name="workload-80-select-20-update--random-io--slobconf-variables"></a>Carga de trabalho 80% SELECT, 20% UPDATE / I/O aleatório – `slob.conf` variáveis   
+#### <a name="workload-80-select-20-update--random-io--slobconf-variables"></a>Carga de trabalho 80% SELECT, 20% UPDATE | I/O aleatório – `slob.conf` variáveis   
 
 `UPDATE_PCT=20`   
 `SCAN_PCT=0`   
@@ -77,7 +77,7 @@ As variáveis SLOB utilizadas nos ensaios são descritas nas seguintes secções
 `REDO_STRESS=LITE`   
 `LOAD_PARALLEL_DEGREE=12`   
 
-#### <a name="workload-100-select--sequential-io--slobconf-variables"></a>Carga de trabalho 100% SELECT / I/O sequencial – `slob.conf` variáveis
+#### <a name="workload-100-select--sequential-io--slobconf-variables"></a>Carga de trabalho 100% SELECT | I/O sequencial – `slob.conf` variáveis
 
 `UPDATE_PCT=0`   
 `SCAN_PCT=100`   

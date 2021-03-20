@@ -1,5 +1,5 @@
 ---
-title: Azure Ative Directy reportando latências Microsoft Docs
+title: Diretório Ativo Azure reportando latências | Microsoft Docs
 description: Saiba mais sobre o tempo que leva para reportar eventos para aparecer no seu portal Azure
 services: active-directory
 documentationcenter: ''
@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0498ee1c57cfa661884fe3209d4e089b54996fae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89231066"
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Latências dos relatórios do Azure Active Directory
@@ -54,8 +54,8 @@ Se já tem dados de atividades com a sua licença gratuita, então pode vê-lo i
 
 Existem dois tipos de relatórios de segurança:
 
-- [Inícios de sessão de risco](../identity-protection/overview-identity-protection.md) – Um início de sessão de risco é um indicador de uma tentativa de início de sessão que pode ter sido efetuada por alguém que não é o proprietário legítimo de uma conta de utilizador. 
-- [Utilizadores sinalizados para risco](../identity-protection/overview-identity-protection.md) – Um utilizador de risco é um indicador de uma conta de utilizador que pode ter sido comprometida. 
+- [Entradas arriscadas](../identity-protection/overview-identity-protection.md) - Um sinal de risco é um indicador para uma tentativa de inscrição que pode ter sido realizada por alguém que não é o legítimo proprietário de uma conta de utilizador. 
+- [Utilizadores sinalizados para o risco](../identity-protection/overview-identity-protection.md) - Um utilizador de risco é um indicador para uma conta de utilizador que pode ter sido comprometida. 
 
 A tabela que se segue lista as informações de latência para relatórios de segurança.
 

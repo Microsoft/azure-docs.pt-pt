@@ -12,13 +12,13 @@ ms.topic: end-user-help
 ms.date: 02/13/2018
 ms.author: curtand
 ms.openlocfilehash: 84588130788e9be8d3be52a8ea0f3988dce7b952
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91537009"
 ---
-# <a name="create-app-passwords-from-the-security-info-preview-page"></a>Crie senhas de aplicação a partir da página de informações de Segurança (pré-visualização)
+# <a name="create-app-passwords-from-the-security-info-preview-page"></a>Criar palavras-passe da aplicação na página Informações de segurança (pré-visualização)
 
 Algumas aplicações, como o Outlook 2010, não suportam a verificação em duas etapas. Esta falta de suporte significa que se estiver a utilizar uma verificação em duas etapas na sua organização, a aplicação não funcionará. Para contornar este problema, pode criar uma palavra-passe gerada automaticamente para usar com cada aplicação não-browser, separada da sua senha normal.
 

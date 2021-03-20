@@ -1,5 +1,5 @@
 ---
-title: 'FAQ: SRE e Codificação / Microsoft Docs'
+title: 'FAQ: SRE e | de codificação Microsoft Docs'
 titleSuffix: Azure
 description: 'FAQ: Compreender a relação entre sRE e codificação'
 author: dnblankedelman
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 09/14/2020
 ms.author: dnb
 ms.openlocfilehash: b8865fdd53f4947b17a3621a128fc83f3d93d3e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90089076"
 ---
 # <a name="frequently-asked-questions-do-i-need-to-know-how-to-code-to-get-involved-with-sre"></a>Perguntas frequentes: Preciso de saber codificar para me envolver com a SRE?
@@ -31,7 +31,7 @@ Por exemplo, se um serviço exigir que a equipa SRE reinicie algo todas as seman
 
 As equipas de SRE odeiam este tipo de tarefas. Trabalham para eliminá-las sempre que possível e apropriado. Esta é uma das áreas em que a automatização entra em cena na SRE. Se estes pedidos puderem ser tratados automaticamente, isso liberta a equipa para trabalhar em coisas mais gratificantes e impactantes.
 
-*Conhecimentos de codificação: a*automatização requer alguma experiência de codificação, mas não tem de requerer competências completas de engenharia de software. Se conseguires escrever pequenos scripts (talvez na concha powerShell ou Bourne) ou mesmo se criares um [https://docs.microsoft.com/azure/logic-apps/logic-apps-overview](Azure Logic app) código com quase nenhum código, esta aplicação ainda pode ajudar a eliminar a labuta.
+*Conhecimentos de codificação: a* automatização requer alguma experiência de codificação, mas não tem de requerer competências completas de engenharia de software. Se conseguires escrever pequenos scripts (talvez na concha powerShell ou Bourne) ou mesmo se criares um [https://docs.microsoft.com/azure/logic-apps/logic-apps-overview](Azure Logic app) código com quase nenhum código, esta aplicação ainda pode ajudar a eliminar a labuta.
 
 ## <a name="scenario-2-control-through-apisdomain-specific-languages-dslstemplates"></a>Cenário 2: Controlo através de APIs/linguagens específicas de domínio (DSLs)/modelos
 

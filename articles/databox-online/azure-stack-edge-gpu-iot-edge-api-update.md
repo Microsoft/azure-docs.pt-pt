@@ -1,5 +1,5 @@
 ---
-title: Impacto da atualização Azure Stack Edge janeiro 2021 Microsoft Docs
+title: Azure Stack Edge Impacto de atualização janeiro de 2021 | Microsoft Docs
 description: Este artigo descreve o impacto da gestão de funções IoT Edge nos dispositivos Azure Stack Edge depois de instalar a atualização de janeiro de 2021.
 services: databox
 author: alkohli
@@ -9,10 +9,10 @@ ms.topic: overview
 ms.date: 10/26/2020
 ms.author: alkohli
 ms.openlocfilehash: f16f33e9aadcc01427602a1bd81f81cb0710e4dd
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94578744"
 ---
 # <a name="iot-edge-role-management-changes-for-your-azure-stack-edge-device"></a>Mudanças de gestão de função IoT Edge para o seu dispositivo Azure Stack Edge
@@ -323,11 +323,11 @@ Se está a utilizar o `Get-AzStackEdgeRole` `New-AzStackEdgeRole` , ou `Set-AzSt
 
 **Estou a usar o Azure Stack Edge Pro - FPGA. A atualização de janeiro de 2021 afeta o modelo FPGA?**
 
-Não. A atualização de janeiro de 2021 aplica-se apenas aos dispositivos Azure Stack Edge Pro - FPGA, Azure Stack Edge Pro R e Azure Stack Edge Mini R. Azure Stack Edge Pro - FPGA não é afetado por esta atualização e não requer alterações na gestão de funções IoT Edge.
+N.º A atualização de janeiro de 2021 aplica-se apenas aos dispositivos Azure Stack Edge Pro - FPGA, Azure Stack Edge Pro R e Azure Stack Edge Mini R. Azure Stack Edge Pro - FPGA não é afetado por esta atualização e não requer alterações na gestão de funções IoT Edge.
 
 **Depois de atualizar o Azure Stack Edge Pro - GPU para o novo software de dispositivos em janeiro de 2021, algum dos serviços existentes é afetado?**
 
-Não. Os seus serviços configurados não serão afetados depois de instalar a atualização do dispositivo de janeiro de 2021.
+N.º Os seus serviços configurados não serão afetados depois de instalar a atualização do dispositivo de janeiro de 2021.
 
 **Quais são as alterações de alto nível na API, SDK ou cmdlet de gestão IoT Edge?**
 

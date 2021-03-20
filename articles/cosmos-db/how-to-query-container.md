@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 3/18/2019
 ms.author: mjbrown
 ms.openlocfilehash: 0f08ca84597b08b9a236b7bfb0fc9c849423a752
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93335896"
 ---
 # <a name="query-an-azure-cosmos-container"></a>Consulta de um recipiente Azure Cosmos
@@ -59,9 +59,9 @@ O Azure Cosmos DB SDKs 1.9.0 e posteriormente suporta opções de execução de 
 
 Pode gerir a execução paralela da consulta ao otimizar os parâmetros abaixo:
 
-- **MaxConcurrency** : Define o número máximo de ligações de rede simultâneas às divisórias do contentor. Se você definir esta propriedade `-1` para, o SDK gere o grau de paralelismo. Se o  `MaxConcurrency` conjunto for , existe uma única `0` ligação de rede às divisórias do recipiente.
+- **MaxConcurrency**: Define o número máximo de ligações de rede simultâneas às divisórias do contentor. Se você definir esta propriedade `-1` para, o SDK gere o grau de paralelismo. Se o  `MaxConcurrency` conjunto for , existe uma única `0` ligação de rede às divisórias do recipiente.
 
-- **MaxBufferedItemCount** : negoceia a latência da consulta em relação à utilização da memória do lado do cliente. Se esta opção for omitida ou definida para -1, o SDK gere o número de itens tamponados durante a execução de consultas paralelas.
+- **MaxBufferedItemCount**: negoceia a latência da consulta em relação à utilização da memória do lado do cliente. Se esta opção for omitida ou definida para -1, o SDK gere o número de itens tamponados durante a execução de consultas paralelas.
 
 Devido à capacidade do Azure Cosmos DB de paralelizar consultas de partição cruzada, a latência da consulta irá geralmente escalar, assim como o sistema adiciona [divisórias físicas](partitioning-overview.md#physical-partitions). No entanto, a carga RU aumentará significativamente à medida que o número total de divisórias físicas aumenta.
 

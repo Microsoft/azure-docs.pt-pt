@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 02/25/2016
 ms.custom: seodec18
 ms.openlocfilehash: 040f84288c66f4506919e775b9ea41324b617cfa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "80437888"
 ---
 # <a name="controlling-azure-app-service-traffic-with-azure-traffic-manager"></a>Controle o tráfego do Serviço de Aplicações Azure com o Gestor de Tráfego Azure
@@ -24,10 +24,10 @@ Pode utilizar o Gestor de Tráfego do Azure para controlar como os pedidos de cl
 ## <a name="routing-methods"></a>Métodos de encaminhamento
 O Gestor de Tráfego Azure utiliza quatro métodos de encaminhamento diferentes. Estes métodos são descritos na seguinte lista, uma vez que dizem respeito ao Serviço de Aplicações Azure.
 
-* ** [Prioridade](../traffic-manager/traffic-manager-routing-methods.md#priority-traffic-routing-method):** utilize uma aplicação primária para todo o tráfego e forneça cópias de segurança caso as aplicações primárias ou de backup não estejam disponíveis.
-* ** [Ponderado](../traffic-manager/traffic-manager-routing-methods.md#weighted):** distribuir o tráfego por um conjunto de aplicações, quer uniformemente, quer de acordo com os pesos, que define.
-* ** [Desempenho](../traffic-manager/traffic-manager-routing-methods.md#performance):** quando tiver aplicações em diferentes localizações geográficas, utilize a aplicação "mais próxima" em termos da latência da rede mais baixa.
-* ** [Geográfico:](../traffic-manager/traffic-manager-routing-methods.md#geographic)** utilizadores diretos para aplicações específicas com base na localização geográfica da sua consulta DNS. 
+* **[Prioridade](../traffic-manager/traffic-manager-routing-methods.md#priority-traffic-routing-method):** utilize uma aplicação primária para todo o tráfego e forneça cópias de segurança caso as aplicações primárias ou de backup não estejam disponíveis.
+* **[Ponderado](../traffic-manager/traffic-manager-routing-methods.md#weighted):** distribuir o tráfego por um conjunto de aplicações, quer uniformemente, quer de acordo com os pesos, que define.
+* **[Desempenho](../traffic-manager/traffic-manager-routing-methods.md#performance):** quando tiver aplicações em diferentes localizações geográficas, utilize a aplicação "mais próxima" em termos da latência da rede mais baixa.
+* **[Geográfico:](../traffic-manager/traffic-manager-routing-methods.md#geographic)** utilizadores diretos para aplicações específicas com base na localização geográfica da sua consulta DNS. 
 
 Para obter mais informações, consulte [os métodos de encaminhamento do Gestor de Tráfego.](../traffic-manager/traffic-manager-routing-methods.md)
 

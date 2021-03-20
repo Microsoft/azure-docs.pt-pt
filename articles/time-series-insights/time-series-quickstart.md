@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Azure Time Series Insights Explorer - Azure Time Series Insights / Microsoft Docs'
+title: 'Quickstart: Azure Time Series Insights Explorer - Azure Time Series Insights | Microsoft Docs'
 description: Saiba como começar com o Azure Time Series Insights Explorer. Visualize grandes volumes de dados IoT e as principais características do seu ambiente.
 ms.service: time-series-insights
 services: time-series-insights
@@ -11,10 +11,10 @@ ms.workload: big-data
 ms.custom: mvc seodec18
 ms.date: 09/30/2020
 ms.openlocfilehash: dd5ed52187a7cd23142b59e20c91c6d125946a72
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91613786"
 ---
 # <a name="quickstart-explore-azure-time-series-insights-gen1"></a>Quickstart: Explore Azure Time Series Insights Gen1
@@ -85,7 +85,7 @@ Este Azure Time Series Insights Explorer quickstart oferece uma visita guiada à
 
 Depois de concluir o guia de introdução, pode experimentar com o conjunto de dados de exemplo para criar visualizações diferentes.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Agora que completou o tutorial, limpe os recursos que criou:
 

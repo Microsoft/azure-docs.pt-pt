@@ -4,10 +4,10 @@ description: Este padrão de Política Azure fornece um exemplo de como usar par
 ms.date: 08/17/2020
 ms.topic: sample
 ms.openlocfilehash: 7bb991c43a1deee39dd047aa7d814c124712fe69
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89649948"
 ---
 # <a name="azure-policy-pattern-parameters"></a>Padrão de política azul: parâmetros
@@ -46,7 +46,7 @@ Esta definição de política utiliza um único parâmetro, **listOfBandwidthinM
 Nesta parte da definição de política, o parâmetro **listOfBandwidthinMbps** é definido como um _array_ e uma descrição é fornecida para a sua utilização. Como _matriz,_ tem múltiplos valores a condizer.
 
 O parâmetro é então utilizado na **apóliceRule.se** bloquear. Como parâmetro _de matriz,_ deve ser utilizada uma condição de _matriz_ 
- [condition](../concepts/definition-structure.md#conditions) **dentro** ou **não.**
+ [](../concepts/definition-structure.md#conditions) **dentro** ou **não.**
 Aqui, é usado contra o **serviçoProvider.bandwidthInMbps** pseudónimo como um dos valores definidos.
 
 :::code language="json" source="~/policy-templates/patterns/pattern-parameters-2.json" range="21-24" highlight="3":::

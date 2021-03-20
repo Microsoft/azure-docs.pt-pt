@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Directory integração única (SSO) com o Michigan Data Hub Single Sign-On [ Microsoft Docs'
+title: 'Tutorial: Azure Ative Directory integração única de sign-on (SSO) com Michigan Data Hub Single Sign-On | Microsoft Docs'
 description: Saiba como configurar um único sinal entre o Azure Ative Directory e o Michigan Data Hub Single Sign-On.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 07/23/2020
 ms.author: jeedes
 ms.openlocfilehash: acdfd8b6c57ad2005f116ffb1e5a3c94a5cb87f2
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92522636"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-michigan-data-hub-single-sign-on"></a>Tutorial: Azure Ative Directory integração única de sign-on (SSO) com Michigan Data Hub Single Sign-On
@@ -101,7 +101,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
 
 Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso ao Michigan Data Hub Single Sign-On.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de aplicações, selecione **Michigan Data Hub Single Sign-On**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 

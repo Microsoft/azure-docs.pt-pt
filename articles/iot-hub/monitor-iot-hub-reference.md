@@ -8,10 +8,10 @@ ms.service: iot-hub
 ms.custom: subject-monitoring
 ms.date: 10/22/2020
 ms.openlocfilehash: 6c7fd0a310663b664d33027951ade885b83d458a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100570966"
 ---
 # <a name="monitoring-azure-iot-hub-data-reference"></a>Referência de dados do Azure IoT Hub

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Directy integração única (SSO) com o MyVR Microsoft Docs'
+title: 'Tutorial: Azure Ative Directory integração única de sign-on (SSO) com myVR | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o MyVR.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 10/31/2019
 ms.author: jeedes
 ms.openlocfilehash: 7893d0fa113408378b832779d7ca2c38032e6f58
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92522551"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-myvr"></a>Tutorial: Azure Ative Directy integração única (SSO) com o MyVR
@@ -94,7 +94,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Além de acima, a aplicação MyVR espera que alguns mais atributos sejam repercutidos na resposta SAML que são mostrados abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com o seu requisito.
 
-   | Nome | Atributo de origem|
+   | Name | Atributo de origem|
    | ---------------| --------------- |
    | empregado | utilizador.employeeid |
 
@@ -122,7 +122,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
 
 Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso ao MyVR.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de candidaturas, selecione **MyVR**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 

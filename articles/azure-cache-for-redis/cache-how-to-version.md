@@ -7,10 +7,10 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.openlocfilehash: d9f48de7ef5d9525a995af4ebbd12c5f14f40189
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93349142"
 ---
 # <a name="set-redis-version-for-azure-cache-for-redis-preview"></a>Definir versão Redis para Azure Cache para Redis (Pré-visualização)

@@ -10,14 +10,14 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 10/14/2019
 ms.openlocfilehash: 1fa86c8960ea9f32163ebd7991260a19ef7a5d79
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91535462"
 ---
 # <a name="ordinal-prebuilt-entity-for-a-luis-app"></a>Entidade pré-construída ordinal para uma aplicação LUIS
-Número ordinal é uma representação numérica de um objeto dentro de um conjunto: `first` . . . . . . . . . . `second` `third` . Como esta entidade já está treinada, não precisa de adicionar palavras de exemplo contendo ordinal às intenções de aplicação. A entidade ordinal é apoiada em [muitas culturas.](luis-reference-prebuilt-entities.md)
+Número ordinal é uma representação numérica de um objeto dentro de um conjunto: `first` `second` . . `third` Como esta entidade já está treinada, não precisa de adicionar palavras de exemplo contendo ordinal às intenções de aplicação. A entidade ordinal é apoiada em [muitas culturas.](luis-reference-prebuilt-entities.md)
 
 ## <a name="types-of-ordinal"></a>Tipos de ordinal
 Ordinal é gerido a partir do repositório GitHub [de texto recognisers](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml#L45)

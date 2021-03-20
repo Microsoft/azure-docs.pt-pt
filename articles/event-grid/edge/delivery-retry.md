@@ -1,5 +1,5 @@
 ---
-title: Entrega e retenção - Azure Event Grid IoT Edge / Microsoft Docs
+title: Entrega e retenção - Azure Event Grid IoT Edge | Microsoft Docs
 description: Entrega e repetição em Grade de Eventos em IoT Edge.
 author: VidyaKukke
 manager: rajarv
@@ -8,10 +8,10 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: aa0b3a05fb26f6be951b697145d7b22e03b7792d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86171623"
 ---
 # <a name="delivery-and-retry"></a>Entrega e tentativa
@@ -27,7 +27,7 @@ A Grade de Eventos aguarda até 60 segundos para uma resposta depois de entregar
 
 Há duas filas pré-configuradas que determinam o horário em que uma nova tentativa será tentada. A saber:
 
-| Agenda | Descrição |
+| Agenda | Description |
 | ---------| ------------ |
 | 1 minuto | As mensagens que acabam aqui são tentadas a cada minuto.
 | 10 minutos | As mensagens que acabam aqui são tentadas a cada 10 minutos.
@@ -52,7 +52,7 @@ Um evento será eliminado se um dos limites da política de recandidologia for a
 
 Existem duas propriedades: `brokers__defaultMaxDeliveryAttempts` e que podem ser `broker__defaultEventTimeToLiveInSeconds` configuradas como parte da implementação da Grade de Eventos, que controla os incumprimentos de políticas de retenção para todos os subscritores.
 
-| Nome da Propriedade | Descrição |
+| Nome da Propriedade | Description |
 | ---------------- | ------------ |
 | `broker__defaultMaxDeliveryAttempts` | Número máximo de tentativas para entregar um evento. Valor predefinido: 30.
 | `broker__defaultEventTimeToLiveInSeconds` | Evento TTL em segundos após o qual um evento será retirado se não for entregue. Valor predefinido: **7200** segundos

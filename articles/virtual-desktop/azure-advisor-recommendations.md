@@ -7,10 +7,10 @@ ms.date: 08/28/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 760e0212d2d863e6b869c23c2e523a0e056a28ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90033035"
 ---
 # <a name="how-to-resolve-azure-advisor-recommendations"></a>Como resolver as recomendações do Azure Advisor
@@ -34,7 +34,7 @@ Para permitir um ambiente de validação:
 
 2. Em seguida, selecione a piscina hospedeira que pretende mudar de um ambiente de produção para um ambiente de validação.
 
-3. Na sua piscina de anfitriões, selecione **Propriedades** na coluna esquerda. Em seguida, desça até ver "Ambiente de validação". Selecione **Sim**e, em seguida, selecione **Aplicar**.
+3. Na sua piscina de anfitriões, selecione **Propriedades** na coluna esquerda. Em seguida, desça até ver "Ambiente de validação". Selecione **Sim** e, em seguida, selecione **Aplicar**.
 
 >[!div class="mx-imgBorder"]
 >![Uma imagem do menu Propriedades. "Ambiente de validação" é realçado a vermelho, e a bolha "Sim" é selecionada.](media/validation-yes.png)
@@ -58,7 +58,7 @@ Para resolver este aviso:
 
 2. Selecione as piscinas hospedeiras que deseja alterar de validação para produção.
 
-3. Na sua piscina de anfitrião, selecione o **separador Propriedades** na coluna do lado direito do ecrã. Em seguida, desça até ver "Ambiente de validação". Selecione **Não**e, em seguida, selecione **Aplicar**.
+3. Na sua piscina de anfitrião, selecione o **separador Propriedades** na coluna do lado direito do ecrã. Em seguida, desça até ver "Ambiente de validação". Selecione **Não** e, em seguida, selecione **Aplicar**.
 
 >[!div class="mx-imgBorder"]
 >![Uma imagem do menu Propriedades. "Ambiente de validação" é realçado a vermelho, e a bolha "Não" é selecionada.](media/validation-no.png)

@@ -9,10 +9,10 @@ ms.date: 09/17/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 649c5805c600b6282be6d05fefb59cecaf249f4f
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92526122"
 ---
 ### <a name="is-bgp-supported-on-all-azure-vpn-gateway-skus"></a>O BGP é suportado em todos os SKUs do VPN Gateway do Azure?
@@ -45,7 +45,7 @@ Estas ASNs não são reservadas pela IANA ou pela Azure para utilização, pelo 
 
 ### <a name="what-address-does-vpn-gateway-use-for-bgp-peer-ip"></a>Que endereço utiliza o Gateway VPN para o IP peer peer BGP?
 
-Por predefinição, o VPN Gateway atribui um único endereço IP da gama *GatewaySubnet* para gateways VPN de standby ativo, ou dois endereços IP para gateways VPN ativos. Estes endereços são atribuídos automaticamente quando cria o gateway VPN. Pode obter o endereço IP real do BGP atribuído utilizando o PowerShell ou localizando-o no portal Azure. Em PowerShell, use **Get-AzVirtualNetworkGateway**e procure a propriedade **bgpPeeringAddress.** No portal Azure, na página **de Configuração Gateway,** consulte a propriedade **Configure BGP ASN.**
+Por predefinição, o VPN Gateway atribui um único endereço IP da gama *GatewaySubnet* para gateways VPN de standby ativo, ou dois endereços IP para gateways VPN ativos. Estes endereços são atribuídos automaticamente quando cria o gateway VPN. Pode obter o endereço IP real do BGP atribuído utilizando o PowerShell ou localizando-o no portal Azure. Em PowerShell, use **Get-AzVirtualNetworkGateway** e procure a propriedade **bgpPeeringAddress.** No portal Azure, na página **de Configuração Gateway,** consulte a propriedade **Configure BGP ASN.**
 
 Se os seus routers VPN no local utilizarem endereços **IP APIPA** (169.254.x.x) como endereços IP BGP, deve especificar um **endereço IP Azure APIPA BGP** adicional no seu gateway Azure VPN. A Azure VPN Gateway seleciona o endereço APIPA para utilizar com o par APIPA BGP no local especificado no gateway de rede local, ou o endereço IP privado para um par BGP não APIPA, no local. Para mais informações, consulte [o Configure BGP](../articles/vpn-gateway/bgp-howto.md).
 
@@ -105,6 +105,6 @@ Sim.
 Adicione uma rota de anfitrião do endereço IP peer Azure BGP no seu dispositivo VPN. Esta rota aponta para o túnel VPN IPsec S2S. Por exemplo, se o Azure VPN peer IP for 10.12.255.30, adicione uma rota de anfitrião para 10.12.255.30 com uma interface de próximo lúpulo da interface do túnel IPsec correspondente no seu dispositivo VPN.
 
 ### <a name="does-the-virtual-network-gateway-support-bfd-for-s2s-connections-with-bgp"></a>A porta de entrada de rede virtual suporta BFD para ligações S2S com BGP?
-Não. O Bidirectional Forwarding Detection (BFD) é um protocolo que pode usar com o BGP para detetar o tempo de inatividade do vizinho mais rapidamente do que pode, utilizando "keepalives" padrão do BGP. O BFD utiliza temporizadores de subsegundos concebidos para trabalhar em ambientes LAN, mas não em toda a internet pública ou ligações de Rede de Vastas Áreas.
+N.º O Bidirectional Forwarding Detection (BFD) é um protocolo que pode usar com o BGP para detetar o tempo de inatividade do vizinho mais rapidamente do que pode, utilizando "keepalives" padrão do BGP. O BFD utiliza temporizadores de subsegundos concebidos para trabalhar em ambientes LAN, mas não em toda a internet pública ou ligações de Rede de Vastas Áreas.
 
 Para ligações através da internet pública, ter certos pacotes atrasados ou mesmo largados não é incomum, por isso introduzir estes temporizadores agressivos pode acrescentar instabilidade. Esta instabilidade pode fazer com que as rotas sejam atenuadas pelo BGP. Como alternativa, pode configurar o seu dispositivo no local com temporizadores inferiores ao padrão, intervalo "keepalive" de 60 segundos e o temporizador de 180 segundos. Isto resulta num tempo de convergência mais rápido.

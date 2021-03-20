@@ -1,5 +1,5 @@
 ---
-title: Ligue-se aos Serviços de Análise Azure com um ficheiro .odc Microsoft Docs
+title: Ligue-se aos Serviços de Análise Azure com um ficheiro .odc | Microsoft Docs
 description: Saiba como criar um ficheiro de Ligação de Dados do Office para ligar e obter dados de um servidor de Serviços de Análise em Azure.
 author: minewiskan
 ms.service: azure-analysis-services
@@ -8,10 +8,10 @@ ms.date: 12/01/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 8fa657f3b343cdf49723dc68601bb1c9513ff504
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96487342"
 ---
 # <a name="create-an-office-data-connection-file"></a>Criar um ficheiro de ligação de dados do Office
@@ -29,7 +29,7 @@ As informações neste artigo descrevem como pode criar um ficheiro de Ligação
 
 3. Em `<odc:CommandText>Model</odc:CommandText>` mudança para o nome do seu modelo ou `Model` perspetiva. 
 
-4. Guarde o ficheiro com uma `.odc` extensão do nome de utilizador C:\Users \\ *username*\Documentos\A minha pasta de Fontes de Dados.
+4. Guarde o ficheiro com uma `.odc` extensão do nome de utilizador C:\Users \\ \Documentos\A minha pasta de Fontes de Dados.
 
 5. Clique com o botão direito no ficheiro e, em seguida, clique **em Abrir no Excel**. Ou no Excel, na fita **Data,** clique em **Conexões Existentes,** selecione o seu ficheiro e, em seguida, clique em **Abrir**.
 

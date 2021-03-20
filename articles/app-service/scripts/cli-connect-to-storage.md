@@ -10,10 +10,10 @@ ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: mvc, seodec18
 ms.openlocfilehash: 508fef1a7467af6874271b5ef37c30a9a16dec95
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97006321"
 ---
 # <a name="connect-an-app-service-app-to-a-storage-account-using-cli"></a>Conecte uma aplicação de Serviço de Aplicações a uma conta de armazenamento usando o CLI

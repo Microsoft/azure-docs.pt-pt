@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.openlocfilehash: d0e79e42c7c004638336ada23de663bbe74b7e48
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92532650"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql---flexible-server"></a>Backup e restauro na Base de Dados Azure para PostgreSQL - Servidor Flexível
@@ -71,9 +71,9 @@ A restauração pontual é útil em vários cenários. Por exemplo, quando um ut
 
 Pode escolher entre um ponto de restauro mais antigo e um ponto de restauro personalizado.
 
--   **Ponto de restauro mais precoce** : Dependendo do seu período de retenção, será o momento mais cedo para restaurar. O tempo de cópia de segurança mais antigo será selecionado automaticamente e é apresentado no portal. Isto é útil se quiser investigar ou fazer alguns testes a partir desse ponto no tempo.
+-   **Ponto de restauro mais precoce**: Dependendo do seu período de retenção, será o momento mais cedo para restaurar. O tempo de cópia de segurança mais antigo será selecionado automaticamente e é apresentado no portal. Isto é útil se quiser investigar ou fazer alguns testes a partir desse ponto no tempo.
 
--   **Ponto de restauração personalizado** : Esta opção permite-lhe escolher qualquer ponto no tempo dentro do período de retenção definido para este servidor flexível. Por predefinição, a última vez na UTC é selecionada automaticamente e útil se quiser restaurar a última transação comprometida para os seus fins de teste. Pode escolher opcionalmente outros dias e horas. 
+-   **Ponto de restauração personalizado**: Esta opção permite-lhe escolher qualquer ponto no tempo dentro do período de retenção definido para este servidor flexível. Por predefinição, a última vez na UTC é selecionada automaticamente e útil se quiser restaurar a última transação comprometida para os seus fins de teste. Pode escolher opcionalmente outros dias e horas. 
 
 O tempo estimado para recuperar depende de vários fatores, incluindo o tamanho da base de dados, o volume de registos de transações para processar, a largura de banda da rede e o número total de bases de dados que se recuperam na mesma região ao mesmo tempo. O tempo geral de recuperação geralmente demora de poucos minutos até poucas horas.
 

@@ -9,17 +9,17 @@ ms.date: 09/15/2018
 ms.author: alkohli
 ms.custom: include file
 ms.openlocfilehash: 1be6a654962b513cfcf755d45e562b86067e7b25
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95995025"
 ---
 #### <a name="to-create-a-new-service"></a>Para criar um novo serviço
 
 1.  Utilizando as credenciais de conta da Microsoft, inscreva-se no portal Azure neste URL: <https://portal.azure.com/> . Se colocar o dispositivo no portal do Governo, inscreva-se em: <https://portal.azure.us/>
 
-2.  No portal Azure, clique **+ Crie um armazenamento** de recursos &gt; **Storage** &gt; **StorSimple Série Virtual.**
+2.  No portal Azure, clique **+ Crie um armazenamento** de recursos &gt;  &gt; **StorSimple Série Virtual.**
 
     ![Criar novo serviço](./media/storsimple-virtual-array-create-new-service/createnewservice2.png) 
 

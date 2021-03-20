@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
 ms.openlocfilehash: 52a4dbc4ff01515af8cd7d2503877184a09f7e64
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94566100"
 ---
 # <a name="send-custom-commands-activity-to-client-application"></a>Enviar atividade de Comandos Personalizados para a aplicação do cliente
@@ -57,7 +57,7 @@ Completa as seguintes tarefas:
 
 Em [Como-a: Configurar a aplicação do cliente com a Speech SDK (Preview)](./how-to-custom-commands-setup-speech-sdk.md)criou uma aplicação de cliente UWP com a Speech SDK que manuseava comandos `turn on the tv` como, `turn off the fan` . . Com alguns visuais adicionados, pode ver o resultado desses comandos.
 
-Para adicionar caixas etiquetadas com texto indicando **dentro** ou **fora** , adicione o seguinte bloco XML do StackPanel a `MainPage.xaml` .
+Para adicionar caixas etiquetadas com texto indicando **dentro** ou **fora**, adicione o seguinte bloco XML do StackPanel a `MainPage.xaml` .
 
 ```xml
 <StackPanel Orientation="Vertical" H......>

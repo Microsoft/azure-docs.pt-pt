@@ -1,16 +1,16 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
 ms.date: 09/30/2020
 ms.author: dacoulte
 ms.openlocfilehash: f3f706789e14cb20214bf17fd91f6ec1e503848f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91606033"
 ---
 Há uma contagem máxima para cada tipo de objeto para Azure Policy. Para definições, uma entrada de _Scope_ significa o grupo de [gestão](../articles/governance/management-groups/overview.md) ou subscrição.

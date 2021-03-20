@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 09/03/2020
 ms.author: msmbaldwin
 ms.openlocfilehash: 5e912b76c2ef68aa01dae57d1b42abc386a8e67b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89482144"
 ---
 1. Utilize o `az group create` comando para criar um grupo de recursos:

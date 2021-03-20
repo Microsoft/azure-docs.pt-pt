@@ -14,10 +14,10 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.openlocfilehash: 743412b7602e5781911cdf190e41a5ee15bfddd4
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96487682"
 ---
 # <a name="design-secure-applications-on-azure"></a>Design aplicações seguras em Azure
@@ -158,7 +158,7 @@ Modelar o design da aplicação e enumerar ameaças [de STRIDE](https://docs.goo
 | Rejeição            | Não rejeição       | Ativar [a monitorização e diagnósticos do](/azure/architecture/best-practices/monitoring)Azure .|
 | Divulgação de Informações | Confidencialidade       | Criptografe dados sensíveis [em repouso](../fundamentals/encryption-atrest.md) e [em trânsito.](../fundamentals/data-encryption-best-practices.md#protect-data-in-transit) |
 | Negação de Serviço      | Disponibilidade          | Monitorize as métricas de desempenho para potenciais condições de negação de serviço. Implementar filtros de ligação. [A proteção Azure DDoS,](../../ddos-protection/ddos-protection-overview.md#next-steps)combinada com as melhores práticas de design de aplicações, fornece defesa contra ataques DDoS.|
-| Elevação de Privilégios | Autorização         | Utilizar a Azure <span class="underline"> </span> Ative Directory [Gestão de Identidade Privilegiada](../../active-directory/privileged-identity-management/pim-configure.md).|
+| Elevação de Privilégios | Autorização         | Utilizar a Azure <span class="underline"></span> Ative Directory [Gestão de Identidade Privilegiada](../../active-directory/privileged-identity-management/pim-configure.md).|
 
 ### <a name="reduce-your-attack-surface"></a>Reduza a sua superfície de ataque
 

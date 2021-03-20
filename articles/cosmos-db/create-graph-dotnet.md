@@ -10,10 +10,10 @@ ms.date: 02/21/2020
 ms.author: chrande
 ms.custom: devx-track-dotnet
 ms.openlocfilehash: 1953f4a21df6f550320592fbe009834a7b573887
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93360535"
 ---
 # <a name="quickstart-build-a-net-framework-or-core-application-using-the-azure-cosmos-db-gremlin-api-account"></a>Quickstart: Construir uma aplicação .NET Framework ou Core utilizando a conta API API AZure Cosmos DB Gremlin
@@ -34,7 +34,7 @@ Este quickstart demonstra como criar uma conta API AZure Cosmos DB [Gremlin,](gr
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Se ainda não tiver o Visual Studio 2019 instalado, **free** pode baixar e utilizar a [Edição Comunitária visual 2019 gratuita do Visual Studio 2019.](https://www.visualstudio.com/downloads/) Confirme que ativa o **desenvolvimento do Azure** durante a configuração do Visual Studio.
+Se ainda não tiver o Visual Studio 2019 instalado,  pode baixar e utilizar a [Edição Comunitária visual 2019 gratuita do Visual Studio 2019.](https://www.visualstudio.com/downloads/) Confirme que ativa o **desenvolvimento do Azure** durante a configuração do Visual Studio.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -105,7 +105,7 @@ Os seguintes fragmentos são retirados do ficheiro Program.cs.
 
 Agora, regresse ao portal do Azure para obter as informações da cadeia de ligação e copie-as para a aplicação.
 
-1. A partir do [portal do Azure](https://portal.azure.com/), navegue até à sua conta da base de dados de gráficos. No separador **Descrição geral** , pode ver dois pontos finais- 
+1. A partir do [portal do Azure](https://portal.azure.com/), navegue até à sua conta da base de dados de gráficos. No separador **Descrição geral**, pode ver dois pontos finais- 
  
    **.NET SDK URI** - Este valor é utilizado quando se liga à conta de gráfico utilizando a biblioteca Microsoft.Azure.Graphs. 
 
@@ -124,7 +124,7 @@ Agora, regresse ao portal do Azure para obter as informações da cadeia de liga
    setx PrimaryKey "<Your_Azure_Cosmos_account_PRIMARY_KEY>"
    ```
 
-1. Abra o ficheiro *Program.cs* e atualize as variáveis "base de dados e contentores" com os nomes da base de dados e do recipiente (que também é o nome do gráfico) criado acima.
+1. Abra o ficheiro *.cs Programa* e atualize as variáveis "base de dados e contentores" com os nomes da base de dados e do recipiente (que também é o nome do gráfico) criado acima.
 
     `private static string database = "your-database-name";` `private static string container = "your-container-or-graph-name";`
 
@@ -158,7 +158,7 @@ Agora, pode voltar ao Data Explorer no portal do Azure e procurar e consultar os
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste guia rápido, aprendeu a criar uma conta do Azure Cosmos DB, a criar um gráfico com o Data Explorer e a executar uma aplicação. Agora, pode criar consultas mais complexas e implementar lógica poderosa para percorrer gráficos com Gremlin. 
 

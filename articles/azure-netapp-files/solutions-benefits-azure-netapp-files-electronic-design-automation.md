@@ -1,5 +1,5 @@
 ---
-title: Benefícios da utilização de Ficheiros Azure NetApp para automatização de design eletrónico Microsoft Docs
+title: Benefícios da utilização de ficheiros Azure NetApp para automatização de design eletrónico | Microsoft Docs
 description: Explica a solução que o Azure NetApp Files fornece para satisfazer as necessidades da indústria de design de semicondutores e chips. Apresenta cenários de teste que executam um referencial padrão da indústria para a automatização de design eletrónico (EDA) usando ficheiros Azure NetApp.
 services: azure-netapp-files
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 04/24/2020
 ms.author: b-juche
 ms.openlocfilehash: fcede16619e8488796adc6f4c60af30643c1aadf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "82160158"
 ---
 # <a name="benefits-of-using-azure-netapp-files-for-electronic-design-automation"></a>Benefícios da utilização do Azure NetApp Files para a automatização de design eletrónico
@@ -29,7 +29,7 @@ O time-to-market (TTM) é uma consideração crítica para a indústria de semic
 
 Os testes envolvem três cenários com as seguintes configurações. 
 
-|    Cenário    |    Volumes    |    Clientes<br> SLES15 D16s_v3  |
+|    Scenario    |    Volumes    |    Clientes<br> SLES15 D16s_v3  |
 |----------------|---------------|--------------------------------|
 |    Um         |    1          |    1                           |
 |    Dois         |    6          |    24                          |
@@ -43,7 +43,7 @@ O segundo e o terceiro cenários avaliam os limites de um único ponto final do 
 
 A tabela seguinte resume os resultados dos cenários de teste.
 
-|    Cenário       |    Taxa de I/O<br>  às 2 ms     |    Taxa de I/O<br>  na borda     |    Débito<br>  às 2 ms     |    Débito<br>  na borda     |
+|    Scenario       |    Taxa de I/O<br>  às 2 ms     |    Taxa de I/O<br>  na borda     |    Débito<br>  às 2 ms     |    Débito<br>  na borda     |
 |-------------------|---------------------------|--------------------------------|-----------------------------|----------------------------------|
 |    1 volume       |    39,601                 |    49,502                      |    692 MiB/s                 |    866 MiB/s                      |
 |    6 volumes      |    255,613                |    317,000                     |    4,577 MiB/s               |    5.568 MiB/s                    |

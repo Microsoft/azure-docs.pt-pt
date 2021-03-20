@@ -1,5 +1,5 @@
 ---
-title: Como monitorizar e reduzir o estrangulamento - Azure Time Series Insights Microsoft Docs
+title: Como monitorizar e reduzir o estrangulamento - Azure Time Series Insights | Microsoft Docs
 description: Aprenda a monitorizar, diagnosticar e mitigar problemas de desempenho que causam latência e estrangulamento em Azure Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
@@ -13,10 +13,10 @@ ms.topic: troubleshooting
 ms.date: 09/29/2020
 ms.custom: seodec18
 ms.openlocfilehash: e89189b22b144d9e92ee8315bc6fd9aabe699eec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91531654"
 ---
 # <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights-gen1"></a>Monitorize e mitige o estrangulamento para reduzir a latência em Azure Time Series Insights Gen1
@@ -59,15 +59,15 @@ Os alertas podem ajudá-lo a diagnosticar e mitigar problemas de latência que o
 
    A partir daí, pode configurar alertas utilizando algumas das seguintes condições:
 
-   |Métrica  |Descrição  |
+   |Metric  |Descrição  |
    |---------|---------|
    |**Ingress Recebido Bytes**     | Contagem de bytes crus lidos de fontes de evento. A contagem bruta geralmente inclui o nome e o valor da propriedade.  |  
    |**Ingress recebeu mensagens inválidas**     | Contagem de mensagens inválidas lidas de todos os hubs de eventos Azure ou fontes de eventos Azure IoT Hub.      |
    |**Mensagens Recebidas Ingress**   | Contagem de mensagens lidas de todos os Centros de Eventos ou fontes de eventos IoT Hubs.        |
    |**Ingress Stored Bytes**     | Tamanho total dos eventos armazenados e disponíveis para consulta. O tamanho é calculado apenas sobre o valor da propriedade.        |
-   |**Eventos Armazenados ingress**    |   Contagem de eventos achatados armazenados e disponíveis para consulta.      |
-   |**Ingress recebeu atraso de tempo da mensagem**   |  Diferença de segundos entre o tempo em que a mensagem é encosa na fonte do evento e o tempo que é processado em Ingress.      |
-   |**Ingress Recebeu Mensagem Contagem DeSfasamento**   |  Diferença entre o número de sequência da última mensagem encosa na partição de fonte de evento e o número de sequência de mensagem a ser processada em Ingress.      |
+   |**Eventos Armazenados ingress**     |   Contagem de eventos achatados armazenados e disponíveis para consulta.      |
+   |**Ingress recebeu atraso de tempo da mensagem**    |  Diferença de segundos entre o tempo em que a mensagem é encosa na fonte do evento e o tempo que é processado em Ingress.      |
+   |**Ingress Recebeu Mensagem Contagem DeSfasamento**    |  Diferença entre o número de sequência da última mensagem encosa na partição de fonte de evento e o número de sequência de mensagem a ser processada em Ingress.      |
 
    Selecione **Concluído**.
 

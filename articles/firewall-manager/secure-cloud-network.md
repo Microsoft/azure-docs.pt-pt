@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 09/08/2020
 ms.author: victorh
 ms.openlocfilehash: 9d1e2d257074555e7a2e78930e1f9be6cd4d90fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89536008"
 ---
 # <a name="tutorial-secure-your-virtual-hub-using-azure-firewall-manager"></a>Tutorial: Proteja o seu hub virtual usando o Azure Firewall Manager
@@ -74,7 +74,7 @@ Crie o seu hub virtual seguro utilizando o Gestor de Firewall.
 1. A partir da página inicial do portal Azure, selecione **Todos os serviços**.
 2. Na caixa de pesquisa, escreva **O Gestor de Firewall** e selecione O Gestor de **Firewall**.
 3. Na página **'Gestor de Firewall',** selecione **Ver centros virtuais protegidos**.
-4. No Gestor de **Firewall ! Página de centros virtuais protegidos,** **selecione Criar um novo hub virtual seguro**.
+4. No **| do Gestor de Firewall Página de centros virtuais protegidos,** **selecione Criar um novo hub virtual seguro**.
 5. Para **o grupo de recursos**, selecione **fw-manager**.
 7. Para **a Região**, selecione **East US**.
 1. Para o **nome do hub virtual Secured**, escreva **Hub-01**.
@@ -120,7 +120,7 @@ Repita para ligar a rede virtual **Spoke-02:** nome de ligação - **hub-spoke-0
    |---------|---------|
    |Grupo de recursos     |**fw-manager**|
    |Nome da máquina virtual     |**Srv-workload-01**|
-   |Região     |**(EUA) Leste dos EUA)**|
+   |Region     |**(EUA) Leste dos EUA)**|
    |Nome do utilizador do administrador     |escrever um nome de utilizador|
    |Palavra-passe     |escrever uma senha|
 
@@ -148,7 +148,7 @@ Uma política de firewall define coleções de regras para direcionar o tráfego
 
 1. A partir do Gestor de Firewall, **selecione Ver as políticas de Firewall**.
 2. Selecione **Criar Azure Firewall Policy**.
-3. De acordo com **os detalhes da Política**, para a Política do tipo **Nome-01** e para a **Região** selecione **East US**. **Name**
+3. De acordo com **os detalhes da Política**, para a Política do tipo **Nome-01** e para a **Região** selecione **East US**. 
 4. Selecione **Seguinte: Definições DE DNS (pré-visualização)**.
 1. Selecione **Seguinte: Regras**.
 2. No **separador Regras,** **selecione Adicione uma coleção de regras**.
@@ -161,7 +161,7 @@ Uma política de firewall define coleções de regras para direcionar o tráfego
 9. Para **fonte**, tipo **\*** .
 10. Para **protocolo**, **escreva http,https**.
 11. Certifique-se de que **o tipo de destino** é **FQDN.**
-12. Para **destino**, ** \* escreva .microsoft.com**.
+12. Para **destino**, **\* escreva .microsoft.com**.
 13. Selecione **Adicionar**.
 
 Adicione uma regra de DNAT para que possa ligar um ambiente de trabalho remoto à máquina virtual **Srv-Workload-01.**

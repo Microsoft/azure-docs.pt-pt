@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 12/06/2019
 ms.assetid: 9aafa5a0-1e57-4644-bf79-97124db27aa2
 ms.openlocfilehash: 19a335d17ee0aa5ff9f989556656f5cf20d2b1a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91567830"
 ---
 # <a name="update-azure-recovery-services-vault-configurations-using-rest-api"></a>Atualizar configurações de cofre de serviços de recuperação de Azure usando REST API
@@ -43,7 +43,7 @@ GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 
 A resposta bem sucedida para a operação 'GET' é mostrada abaixo:
 
-|Nome  |Tipo  |Descrição  |
+|Nome  |Tipo  |Description  |
 |---------|---------|---------|
 |200 OK     |   [BackupResourceVaultConfig](/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | OK        |
 
@@ -83,10 +83,10 @@ THe seguindo definições comuns são usados para criar um corpo de pedido
 
 Para mais detalhes, consulte [a documentação da API REST](/rest/api/backup/backupresourcevaultconfigs/update#request-body)
 
-|Nome  |Necessário  |Tipo  |Descrição  |
+|Name  |Necessário  |Tipo  |Description  |
 |---------|---------|---------|---------|
-|eTag     |         |   Cadeia      |  ETag opcional       |
-|localização     |  true       |Cadeia         |   Localização do recurso      |
+|eTag     |         |   String      |  ETag opcional       |
+|localização     |  true       |String         |   Localização do recurso      |
 |propriedades     |         | [VaultProperties](/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  Propriedades do cofre       |
 |etiquetas     |         | Objeto        |     Etiquetas de recursos    |
 
@@ -107,7 +107,7 @@ O exemplo a seguir é utilizado para atualizar o estado de eliminação suave pa
 
 A resposta bem sucedida para a operação 'PATCH' é mostrada abaixo:
 
-|Nome  |Tipo  |Descrição  |
+|Nome  |Tipo  |Description  |
 |---------|---------|---------|
 |200 OK     |   [BackupResourceVaultConfig](/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | OK        |
 

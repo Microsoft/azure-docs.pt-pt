@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com a Allbound SSO Microsoft Docs'
+title: 'Tutorial: Integração do Azure Ative Directory com a Allbound SSO | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Allbound SSO.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.openlocfilehash: f6030e209b06dc7ae9acd8a13e6dcdf22b58f8c5
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92318882"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-allbound-sso"></a>Tutorial: Integração do Azure Ative Directory com a Allbound SSO
@@ -189,7 +189,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 Nesta secção, um utilizador chamado Britta Simon é criado em Allbound SSO. O Allbound SSO suporta o provisionamento do utilizador just-in-time, o que é ativado por padrão. Não há nenhum item de ação para si nesta secção. Se um utilizador já não existir no Allbound SSO, um novo é criado após a autenticação.
 
 > [!Note]
-> Se precisar de criar um utilizador manualmente, contacte [a equipa de suporte allbound SSO](mailto:engineering@allbound.com).
+> Se precisar de criar um utilizador manualmente, contacte [a equipa de suporte allbound SSO](mailto:engineering@allbound.com).
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único
 

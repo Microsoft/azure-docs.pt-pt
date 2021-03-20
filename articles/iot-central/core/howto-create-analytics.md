@@ -1,5 +1,5 @@
 ---
-title: Analise os dados do dispositivo na sua aplicação Azure IoT Central / Microsoft Docs
+title: Analise os dados do dispositivo na sua aplicação Azure IoT Central | Microsoft Docs
 description: Analise os dados do dispositivo na sua aplicação Azure IoT Central.
 author: ankitscribbles
 ms.author: ankitgup
@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: abjork
 ms.openlocfilehash: 8f329b6377915a3df6e3f3e212cbd8d41f9ed80d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90017665"
 ---
 # <a name="how-to-use-analytics-to-analyze-device-data"></a>Como usar a análise para analisar dados do dispositivo
@@ -35,7 +35,7 @@ A interface do utilizador analítico é feita de três componentes principais:
 
 ## <a name="querying-your-data"></a>Consulta dos seus dados
 
-Terá de começar por escolher um grupo de **dispositivos**e a telemetria que pretende analisar. Uma vez feito, **selecione Analisar** para começar a visualizar os seus dados.
+Terá de começar por escolher um grupo de **dispositivos** e a telemetria que pretende analisar. Uma vez feito, **selecione Analisar** para começar a visualizar os seus dados.
 
 - **Grupo de dispositivos:** Um [grupo de dispositivos](tutorial-use-device-groups.md) é um grupo definido pelo utilizador dos seus dispositivos. Por exemplo, todos os Frigoríficos em Oakland, ou Todas as turbinas eólicas da versão 2.0.
 
@@ -59,9 +59,9 @@ Uma vez consultados os seus dados, pode começar a visualizá-lo na tabela de li
    
     - **Controlo do deslizamento de gama de datas exteriores**: Utilize os comandos de ponto final para selecionar o intervalo de datas exteriores, que estará disponível para o controlo da gama de datas interiores.
 
-    - **Aumentar e diminuir os botões de intervalo**de datas : Aumente ou diminua o seu tempo selecionando qualquer um dos botões para o intervalo que deseja.
+    - **Aumentar e diminuir os botões de intervalo** de datas : Aumente ou diminua o seu tempo selecionando qualquer um dos botões para o intervalo que deseja.
 
-    - **Slider de tamanho de intervalo : Use-o**para ampliar dentro e fora de intervalos ao longo do mesmo período de tempo. Esta ação proporciona um controlo mais preciso do movimento entre grandes fatias de tempo. Você pode usá-lo para ver visões granulares e de alta resolução dos seus dados, mesmo até milissegundos. O ponto de partida padrão do slider é definido como a visão mais ideal dos dados da sua seleção, que equilibra a resolução, a velocidade de consulta e a granularidade.
+    - **Slider de tamanho de intervalo : Use-o** para ampliar dentro e fora de intervalos ao longo do mesmo período de tempo. Esta ação proporciona um controlo mais preciso do movimento entre grandes fatias de tempo. Você pode usá-lo para ver visões granulares e de alta resolução dos seus dados, mesmo até milissegundos. O ponto de partida padrão do slider é definido como a visão mais ideal dos dados da sua seleção, que equilibra a resolução, a velocidade de consulta e a granularidade.
     
     - **Selecionador de datas**: Com este controlo web, pode selecionar facilmente as faixas de data e hora desejada. Também pode utilizar o controlo para alternar entre diferentes fusos horários. Depois de escoar as alterações a aplicar no seu espaço de trabalho atual, selecione Save.
 

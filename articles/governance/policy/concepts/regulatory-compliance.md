@@ -4,10 +4,10 @@ description: Descreve como usar uma definição de iniciativa para agrupar polí
 ms.date: 08/17/2020
 ms.topic: conceptual
 ms.openlocfilehash: 15b03b5a40cba1290859b02883df70e3df54c5cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89645535"
 ---
 # <a name="regulatory-compliance-in-azure-policy"></a>Conformidade Regulamentar na Política Azure
@@ -35,16 +35,16 @@ Um novo separador, **Controls** é adicionado à página. A filtragem está disp
 
 :::image type="content" source="../media/regulatory-compliance/regulatory-compliance-overview.png" alt-text="Screenshot da visão geral da conformidade regulamentar para a definição incorporada NIST SP 800-53 R4 mostrando controlos compatíveis e não conformes.":::
 
-A seleção de um **controlo** abre uma página de detalhes sobre esse controlo. A **visão geral** contém a informação de `description` e `requirements` . No âmbito do separador **Políticas** estão todas as definições políticas individuais na iniciativa que contribuem para este **controlo.** O **separador de conformidade de recursos** fornece uma visão granular de cada recurso que é avaliado por uma política de membros do **controlo**atualmente visualizado .
+A seleção de um **controlo** abre uma página de detalhes sobre esse controlo. A **visão geral** contém a informação de `description` e `requirements` . No âmbito do separador **Políticas** estão todas as definições políticas individuais na iniciativa que contribuem para este **controlo.** O **separador de conformidade de recursos** fornece uma visão granular de cada recurso que é avaliado por uma política de membros do **controlo** atualmente visualizado .
 
 > [!NOTE]
 > Um tipo de avaliação gerida **pela Microsoft** é para uma definição de política [estática.](./definition-structure.md#type) `type`
 
-:::image type="content" source="../media/regulatory-compliance/regulatory-compliance-policies.png" alt-text="Screenshot da visão geral da conformidade regulamentar para a definição incorporada NIST SP 800-53 R4 mostrando controlos compatíveis e não conformes.":::
+:::image type="content" source="../media/regulatory-compliance/regulatory-compliance-policies.png" alt-text="Screenshot dos detalhes da conformidade regulamentar para o controlo de proteção de fronteiras da definição incorporada NIST SP 800-53 R4.":::
 
-A partir da mesma página **de controlo,** a alteração para o **separador de conformidade de Recursos** mostra todos os recursos que as definições de política do **controlo**incluem. Os filtros estão disponíveis para nome ou ID, estado de conformidade, tipo de recurso e localização.
+A partir da mesma página **de controlo,** a alteração para o **separador de conformidade de Recursos** mostra todos os recursos que as definições de política do **controlo** incluem. Os filtros estão disponíveis para nome ou ID, estado de conformidade, tipo de recurso e localização.
 
-:::image type="content" source="../media/regulatory-compliance/regulatory-compliance-resources.png" alt-text="Screenshot da visão geral da conformidade regulamentar para a definição incorporada NIST SP 800-53 R4 mostrando controlos compatíveis e não conformes.":::
+:::image type="content" source="../media/regulatory-compliance/regulatory-compliance-resources.png" alt-text="Screenshot da conformidade dos recursos com o controlo de proteção de fronteiras da definição incorporada NIST SP 800-53 R4.":::
 
 ## <a name="regulatory-compliance-in-sdk"></a>Conformidade Regulamentar em SDK
 

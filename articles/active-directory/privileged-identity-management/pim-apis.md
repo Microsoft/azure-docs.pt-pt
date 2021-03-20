@@ -1,5 +1,5 @@
 ---
-title: APIs de Gráfico microsoft para PIM (Pré-visualização) - Azure AD / Microsoft Docs
+title: APIs de Gráfico microsoft para PIM (pré-visualização) - Azure AD | Microsoft Docs
 description: Fornece informações sobre a utilização das APIs do Gráfico da Microsoft para Azure AD Gestão de Identidade Privilegiada (PIM) (Preview).
 services: active-directory
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bb102c23d80095b8eb79fc25d1c1fd9d7f374fce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91529699"
 ---
 # <a name="microsoft-graph-apis-for-privileged-identity-management-preview"></a>APIs do Gráfico da Microsoft para Gestão de Identidade Privilegiada (Pré-visualização)

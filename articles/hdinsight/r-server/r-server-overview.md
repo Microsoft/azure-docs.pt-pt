@@ -6,10 +6,10 @@ ms.topic: overview
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/20/2020
 ms.openlocfilehash: 87f4181e820b1c6ecdeb0fda85a88e80db248dd2
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98943926"
 ---
 # <a name="what-is-ml-services-in-azure-hdinsight"></a>O que são os Serviços ML em Azure HDInsight
@@ -55,7 +55,7 @@ Os serviços ML em HDInsight proporcionam os seguintes benefícios:
 
 As seguintes funcionalidades estão incluídas nos Serviços ML em HDInsight.
 
-| Categoria de recurso | Descrição |
+| Categoria de recurso | Description |
 |------------------|-------------|
 | Ativado por R | [Pacotes R](/machine-learning-server/r-reference/introducing-r-server-r-package-reference) para soluções escritas em R, com uma distribuição de código aberto de R, e infraestruturas de tempo de execução para execução de scripts. |
 | Ativado por python | [Módulos Python](/machine-learning-server/python-reference/introducing-python-package-reference) para soluções escritas em Python, com uma distribuição de código aberto de Python, e infraestruturas de tempo de execução para execução de scripts.
@@ -137,7 +137,7 @@ Aceda à consola R no nó de borda digitando **R** na origem do comando. Ao util
 
 Os preços associados a um cluster ML Services HDInsight são estruturados de forma semelhante a outros tipos de cluster HDInsight. Baseiam-se no tamanho dos VMs subjacentes através do nome, dados e nós de borda. Elevações de horas de núcleo também. Para obter mais informações, consulte [os preços da HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre como utilizar os Serviços ML em clusters HDInsight, consulte os seguintes artigos:
 

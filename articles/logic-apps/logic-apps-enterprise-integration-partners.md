@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 06/22/2019
 ms.openlocfilehash: 8e3805fae5bf6cc5ad8cf759d3ba75220c6ddbd8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91565076"
 ---
 # <a name="add-trading-partners-to-integration-accounts-for-azure-logic-apps"></a>Adicionar parceiros comerciais às contas de integração do Azure Logic Apps
@@ -55,9 +55,9 @@ Num acordo, especifica os detalhes para lidar com mensagens recebidas e saídas 
 
    | Propriedade | Necessário | Descrição |
    |----------|----------|-------------|
-   | **Nome** | Sim | O nome do parceiro |
-   | **Eliminatória** | Sim | O organismo autenticante que fornece identidades empresariais únicas a organizações, por exemplo, **D-U-N-S (Dun & Bradstreet)**. <p>Os parceiros podem optar por uma identidade de negócio mutuamente definida. Para estes cenários, selecione **Mutually Defined** for EDIFACT ou **Mutually Defined (X12)** para X12. <p>Para a RosettaNet, selecione **apenas DUNS,** que é o padrão. |
-   | **Valor** | Sim | Um valor que identifica os documentos que as suas aplicações lógicas recebem. <p>Para a RosettaNet, este valor deve ser um número de nove dígitos que corresponde ao número DUNS. |
+   | **Nome** | Yes | O nome do parceiro |
+   | **Eliminatória** | Yes | O organismo autenticante que fornece identidades empresariais únicas a organizações, por exemplo, **D-U-N-S (Dun & Bradstreet)**. <p>Os parceiros podem optar por uma identidade de negócio mutuamente definida. Para estes cenários, selecione **Mutually Defined** for EDIFACT ou **Mutually Defined (X12)** para X12. <p>Para a RosettaNet, selecione **apenas DUNS,** que é o padrão. |
+   | **Valor** | Yes | Um valor que identifica os documentos que as suas aplicações lógicas recebem. <p>Para a RosettaNet, este valor deve ser um número de nove dígitos que corresponde ao número DUNS. |
    ||||
 
    > [!NOTE]
@@ -86,12 +86,12 @@ Escolha o azulejo dos **Parceiros.**
 
    | Propriedade | Necessário | Descrição |
    |----------|----------|-------------|
-   | **Classificação de Parceiros** | Não | Tipo de organização do parceiro |
-   | **Código da cadeia de abastecimento** | Não | O código da cadeia de fornecimento do parceiro, por exemplo, "Tecnologias de Informação" ou "Componentes Eletrónicos" |
-   | **Nome de contato** | Não | O nome de contacto do parceiro |
-   | **E-mail** | Não | O endereço de e-mail do parceiro |
-   | **Fax** | Não | O número do fax do parceiro |
-   | **Telefone** | Não | O número de telefone do parceiro |
+   | **Classificação de Parceiros** | No | Tipo de organização do parceiro |
+   | **Código da cadeia de abastecimento** | No | O código da cadeia de fornecimento do parceiro, por exemplo, "Tecnologias de Informação" ou "Componentes Eletrónicos" |
+   | **Nome de contato** | No | O nome de contacto do parceiro |
+   | **E-mail** | No | O endereço de e-mail do parceiro |
+   | **Fax** | No | O número do fax do parceiro |
+   | **Telefone** | No | O número de telefone do parceiro |
    ||||
 
 1. Quando terminar, escolha **OK** para guardar as suas alterações.

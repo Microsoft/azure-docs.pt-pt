@@ -11,10 +11,10 @@ ms.service: machine-learning
 ms.subservice: core
 ms.custom: how-to, automl
 ms.openlocfilehash: 4fb147dc5c57c3a98607a025f566fa583bf87460
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93358818"
 ---
 # <a name="make-predictions-with-an-automl-onnx-model-in-net"></a>Faça previsões com um modelo AutoML ONNX em .NET
@@ -50,7 +50,7 @@ Nesta amostra, utiliza o CLI .NET Core para construir a sua aplicação, mas pod
 
 ## <a name="add-software-packages"></a>Adicionar pacotes de software
 
-1. Instale os pacotes **nuGet do Microsoft.ML** , **Microsoft.ML.OnnxRuntime** e **Microsoft.ML.OnnxTransformer** NuGet utilizando o .NET Core CLI.
+1. Instale os pacotes **nuGet do Microsoft.ML**, **Microsoft.ML.OnnxRuntime** e **Microsoft.ML.OnnxTransformer** NuGet utilizando o .NET Core CLI.
 
     ```dotnetcli
     dotnet add package Microsoft.ML
@@ -60,7 +60,7 @@ Nesta amostra, utiliza o CLI .NET Core para construir a sua aplicação, mas pod
 
     Estas embalagens contêm as dependências necessárias para utilizar um modelo ONNX numa aplicação .NET. ML.NET fornece uma API que usa o [tempo de execução ONNX](https://github.com/Microsoft/onnxruntime) para previsões.
 
-1. Abra o ficheiro *Program.cs* e adicione as `using` seguintes declarações no topo para fazer referência aos pacotes apropriados.
+1. Abra o ficheiro *.cs Programa* e adicione as `using` seguintes declarações no topo para fazer referência aos pacotes apropriados.
 
     ```csharp
     using System.Linq;
@@ -88,7 +88,7 @@ Adicione uma referência ao seu ficheiro modelo ONNX na sua aplicação
 
     Neste caso, o nome do ficheiro modelo ONNX é *automl-model.onnx*.
 
-1. Abra o ficheiro *Program.cs* e adicione a seguinte linha dentro da `Program` classe.
+1. Abra o ficheiro *.cs Programa* e adicione a seguinte linha dentro da `Program` classe.
 
     ```csharp
     static string ONNX_MODEL_PATH = "automl-model.onnx";
@@ -112,9 +112,9 @@ O modelo utilizado nesta amostra utiliza dados do conjunto de dados da NyC TLC T
 
 |vendor_id|rate_code|passenger_count|trip_time_in_secs|trip_distance|payment_type|fare_amount|
 |---|---|---|---|---|---|---|
-|VTS|1|1|1140|3,75|CRD|15.5|
-|VTS|1|1|480|2.72|CRD|10.0|
-|VTS|1|1|1680|7.8|CSH|26.5|
+|VTS|1|1|1140|3,75|CRD|15,5|
+|VTS|1|1|480|2.72|CRD|10,0|
+|VTS|1|1|1680|7.8|CSH|26,5|
 
 ### <a name="inspect-the-onnx-model-optional"></a>Inspecione o modelo ONNX (opcional)
 
@@ -286,7 +286,7 @@ Agora que tens um oleoduto, está na altura de o usares para fazer previsões. M
 
 Para saber mais sobre fazer previsões em ML.NET, consulte o [uso de um modelo para fazer guia de previsões.](/dotnet/machine-learning/how-to-guides/machine-learning-model-predictions-ml-net)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Implemente o seu modelo como um ASP.NET Core Web API](/dotnet/machine-learning/how-to-guides/serve-model-web-api-ml-net)
 - [Implemente o seu modelo como uma função de azure sem servidor .NET](/dotnet/machine-learning/how-to-guides/serve-model-serverless-azure-functions-ml-net)

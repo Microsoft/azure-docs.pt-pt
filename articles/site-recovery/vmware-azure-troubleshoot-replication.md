@@ -1,5 +1,5 @@
 ---
-title: Problemas de replicação para recuperação de desastres de VMware VMs e servidores físicos para Azure através da recuperação do site Azure Microsoft Docs
+title: Problemas de replicação para recuperação de desastres de VMware VMs e servidores físicos para Azure, utilizando a Azure Site Recovery | Microsoft Docs
 description: Este artigo fornece informações de resolução de problemas para problemas comuns de replicação durante a recuperação de VMware vMs e servidores físicos para Azure, utilizando a Recuperação do Site Azure.
 author: mayurigupta13
 manager: rochakm
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/2/2019
 ms.author: mayg
 ms.openlocfilehash: 8b44a1d6119cc658b9460e0a52fa0629f759964a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91336210"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>Resolver problemas de replicação para VMs VMware e servidores físicos
@@ -164,7 +164,7 @@ No exemplo acima **2147754994** está o código de erro que lhe diz sobre a falh
 
 #### <a name="vss-writer-is-not-installed---error-2147221164"></a>O escritor VSS não está instalado - Erro 2147221164
 
-*Como corrigir*: Para gerar a etiqueta de consistência da aplicação, a Azure Site Recovery utiliza o Microsoft Volume Shadow copy Service (VSS). Instala um VSS Provider para o seu funcionamento para tirar fotografias de consistência da aplicação. Este VSS Provider está instalado como um serviço. Caso o serviço VSS Provider não esteja instalado, a criação de snapshot de consistência da aplicação falha com o erro ID 0x80040154 "Classe não registada". </br>
+*Como corrigir*: Para gerar a etiqueta de consistência da aplicação, a Azure Site Recovery utiliza o Microsoft Volume Shadow copy Service (VSS). Instala um VSS Provider para o seu funcionamento para tirar fotografias de consistência da aplicação. Este VSS Provider está instalado como um serviço. Caso o serviço VSS Provider não esteja instalado, a criação de instantâneo de consistência da aplicação falha com o erro de ID 0x80040154 "Classe não registada". </br>
 Consulte [o artigo para a resolução de problemas de instalação de escritores vss](./vmware-azure-troubleshoot-push-install.md#vss-installation-failures)
 
 #### <a name="vss-writer-is-disabled---error-2147943458"></a>O escritor vss está desativado - Erro 2147943458

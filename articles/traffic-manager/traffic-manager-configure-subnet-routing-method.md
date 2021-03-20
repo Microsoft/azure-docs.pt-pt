@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: duau
 ms.openlocfilehash: b1901ddce2eb9c8ff5ec9ac90a56379e74c11aa6
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95994898"
 ---
 # <a name="direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>Direcionar tráfego para pontos finais específicos com base na sub-rede do utilizador com o Gestor de Tráfego
@@ -65,7 +65,7 @@ Nesta secção, você cria dois VMs *myEndpointVMEastUS* e *myEndpointVMWEurope*
     |---|---|
     |Rede virtual| Selecione **Rede virtual** em **Criar rede virtual**. Para **Nome**, introduza *myVNet1*; para sub-rede, introduza *mySubnet*.|
     |Grupo de Segurança de Rede|Selecione **Básico** e, no menu pendente **Selecionar portas de entrada públicas**, selecione **HTTP** e **RDP** |
-    |Diagnósticos de arranque|Selecione **Desativado**.|
+    |Diagnósticos de arranque.|Selecione **Desativado**.|
     |||
 
 6. Em **Criar** no **Resumo**, selecione **Criar** para iniciar a implementação da VM.
@@ -93,7 +93,7 @@ Nesta secção, instale o servidor IIS nos dois VMs - *myIISVMEastUS*   &  *myII
 3. Abra o ficheiro rdp transferido. Se lhe for pedido, selecione **Ligar**. Introduza o nome de utilizador e a palavra-passe que especificou ao criar a VM. Poderá ter de selecionar **Mais opções** e **Utilizar uma conta diferente** para especificar as credenciais que introduziu quando criou a VM.
 4. Selecione **OK**.
 5. Poderá receber um aviso de certificado durante o processo de início de sessão. Se receber o aviso, selecione **Sim** ou **Continuar** para prosseguir com a ligação.
-6. No ambiente de trabalho do servidor, navegue para o Gestor do Servidor **de Ferramentas Administrativas** do Windows > **Server Manager**.
+6. No ambiente de trabalho do servidor, navegue para o Gestor do Servidor **de Ferramentas Administrativas** do Windows > .
 7. Lançar o Windows PowerShell no *myIISVMEastUS* e utilizar os seguintes comandos para instalar o servidor IIS e atualizar o ficheiro HTM predefinido.
     ```powershell-interactive
     # Install IIS
@@ -150,7 +150,7 @@ Nesta secção, você cria um VM *(mVMEastUS* e *myVMWestEurope*) em cada regiã
     |---|---|
     |Rede virtual| Selecione **Rede virtual** em **Criar rede virtual**. Para **Nome**, introduza *myVNet3*; para sub-rede, introduza *mySubnet3*.|
     |Grupo de Segurança de Rede|Selecione **Básico** e, no menu pendente **Selecionar portas de entrada públicas**, selecione **HTTP** e **RDP** |
-    |Diagnósticos de arranque|Selecione **Desativado**.|
+    |Diagnósticos de arranque.|Selecione **Desativado**.|
     |||
 
 6. Em **Criar** no **Resumo**, selecione **Criar** para iniciar a implementação da VM.
@@ -169,7 +169,7 @@ Nesta secção, você cria um VM *(mVMEastUS* e *myVMWestEurope*) em cada regiã
 ## <a name="create-a-traffic-manager-profile"></a>Criar um perfil do Gestor de Tráfego
 Crie um perfil para o Gestor de Tráfego que lhe permita devolver determinados pontos finais com base no IP de origem do pedido.
 
-1. No lado superior esquerdo do ecrã, selecione Criar um perfil de Gestor de Tráfego de Rede de **Recursos**  >  **Networking**  >  **Traffic Manager profile**  >  **Criar**.
+1. No lado superior esquerdo do ecrã, selecione Criar um perfil de Gestor de Tráfego de Rede de **Recursos**  >    >    >  **Criar**.
 2. Em **Criar perfil do Gestor de Tráfego**, introduza ou selecione as informações seguintes, aceite as predefinições das definições restantes e selecione **Criar**:
 
     | Definição                 | Valor                                              |
@@ -194,7 +194,7 @@ Adicione os dois VMs que executam os servidores IIS - *myIISVMEastUS*  &  *myIIS
     | Definição                 | Valor                                              |
     | ---                     | ---                                                |
     | Tipo                    | Ponto final do Azure                                   |
-    | Nome           | myTestWebSiteEndpoint                                        |
+    | Name           | myTestWebSiteEndpoint                                        |
     | Tipo de recurso de destino           | Endereço IP Público                          |
     | Recurso de destino          | **Escolha um endereço IP público** para mostrar a lista de recursos com endereços IP públicos na mesma subscrição. Em **Recurso**, selecione o endereço IP público com o nome *myIISVMEastUS-ip*. Este é o endereço IP público da VM do servidor do IIS na região E.U.A. Leste.|
     |  Definições de encaminhamento de sub-rede    |   Adicione o endereço IP do VM de teste *myVMEastUS.* Qualquer consulta do utilizador originária deste VM será direcionada para o *myTestWebSiteEndpoint*.    |

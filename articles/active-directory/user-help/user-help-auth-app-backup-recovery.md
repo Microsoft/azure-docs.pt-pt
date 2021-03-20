@@ -12,10 +12,10 @@ ms.date: 06/03/2020
 ms.author: curtand
 ms.reviewer: olhaun
 ms.openlocfilehash: e7608196c962a6918a90b91457f856f3e11b04f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91530906"
 ---
 # <a name="back-up-and-recover-account-credentials-using-the-microsoft-authenticator-app"></a>Fazer o back up e recuperar as credenciais de conta usando a app Microsoft Authenticator
@@ -43,7 +43,7 @@ Antes de poder apoiar as suas credenciais, deve ter:
 
 ### <a name="to-turn-on-cloud-backup-for-ios-devices"></a>Para ligar a cópia de segurança em nuvem para dispositivos iOS
 
-- No seu dispositivo iOS, selecione **Definições**, selecione **Backup**e, em seguida, ligue **a cópia de segurança do iCloud**.
+- No seu dispositivo iOS, selecione **Definições**, selecione **Backup** e, em seguida, ligue **a cópia de segurança do iCloud**.
 
     As credenciais da sua conta são ressaradas na sua conta iCloud.
 
@@ -51,7 +51,7 @@ Antes de poder apoiar as suas credenciais, deve ter:
 
 ### <a name="to-turn-on-cloud-backup-for-android-devices"></a>Para ligar a cópia de segurança em nuvem para dispositivos Android
 
-- No seu dispositivo Android, selecione **Definições**, selecione **Backup**e, em seguida, ligue **a cópia de segurança cloud**.
+- No seu dispositivo Android, selecione **Definições**, selecione **Backup** e, em seguida, ligue **a cópia de segurança cloud**.
 
     As credenciais da sua conta estão na sua conta na nuvem.
 
@@ -87,17 +87,17 @@ Para contas pessoais da Microsoft, pode provar a sua identidade introduzindo a s
 
 1. Toque no azulejo para a conta que está a recuperar e toque na opção de iniciar sing para recuperar. Introduza a sua palavra-passe e, em seguida, confirme o seu endereço de e-mail ou número de telefone como verificação adicional.
 
-    :::image type="content" source="media/user-help-auth-app-backup-recovery/backup-and-recovery-codes.png" alt-text="Screenshot que mostra a aplicação Microsoft Authenticator com os azulejos de conta disponíveis." border="true":::
+    :::image type="content" source="media/user-help-auth-app-backup-recovery/backup-and-recovery-codes.png" alt-text="Screenshot que mostra o código de senha de uma vez do Microsoft Authenticator." border="true":::
 
 ### <a name="to-provide-more-verification-for-work-or-school-accounts"></a>Para fornecer mais verificação para contas de trabalho ou escola
 
 1. No ecrã **contas** da aplicação Microsoft Authenticator, toque na conta que pretende recuperar para abrir a vista completa do ecrã da conta.
 
-    :::image type="content" source="media/user-help-auth-app-backup-recovery/work-or-school-recovery-arrow.png" alt-text="Screenshot que mostra a aplicação Microsoft Authenticator com os azulejos de conta disponíveis." border="true":::
+    :::image type="content" source="media/user-help-auth-app-backup-recovery/work-or-school-recovery-arrow.png" alt-text="App Microsoft Authenticator, mostrando os azulejos de conta disponíveis" border="true":::
 
 1. Na vista completa do ecrã, toque na opção de digitalizar um código QR para recuperar totalmente.
 
-    :::image type="content" source="media/user-help-auth-app-backup-recovery/work-or-school-recovery-qr-code.png" alt-text="Screenshot que mostra a aplicação Microsoft Authenticator com os azulejos de conta disponíveis." border="true":::
+    :::image type="content" source="media/user-help-auth-app-backup-recovery/work-or-school-recovery-qr-code.png" alt-text="Autenticador apresenta uma senha única como código de verificação" border="true":::
 
 >[!NOTE]
 >Para obter mais informações sobre os códigos QR e como obter um, consulte [Começar com a aplicação Microsoft Authenticator](./user-help-auth-app-download-install.md) ou [configurar informações de segurança para utilizar uma aplicação autenticadora](./security-info-setup-auth-app.md), com base no facto de o seu administrador ter ligado as informações de segurança.

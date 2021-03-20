@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Autenticação pass-through / Microsoft Docs'
+title: 'Azure AD Connect: | de autenticação pass-through Microsoft Docs'
 description: Este artigo descreve a autenticação pass-through do Azure Ative (Azure AD) e como permite a entrada de Azure AD, validando as palavras-passe dos utilizadores contra o Ative Directory no local.
 services: active-directory
 keywords: o que é Azure AD Connect Authentication Pass-through, instalar Ative Directory, componentes necessários para Azure AD, SSO, Single Sign-on
@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0b8f613cb7c75d9dd6af1fcf62f9d484398072c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89279470"
 ---
 # <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>Início de sessão do utilizador com a Autenticação Pass-through do Azure Active Directory

@@ -1,5 +1,5 @@
 ---
-title: Envie notificações push para dispositivos específicos usando hubs de notificação Azure e Mensagens cloud do Google Firebase Microsoft Docs
+title: Envie notificações push para dispositivos específicos usando hubs de notificação Azure e Mensagens cloud do Google Firebase | Microsoft Docs
 description: Saiba como usar os Centros de Notificação para empurrar notificações para dispositivos Android específicos, utilizando os Hubs de Notificação do Azure e as Mensagens cloud do Google Firebase (FCM).
 services: notification-hubs
 documentationcenter: android
@@ -18,10 +18,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 04/30/2019
 ms.openlocfilehash: be83471681948cbb9fe85f0d135343ab73bd72bd
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92315091"
 ---
 # <a name="tutorial-send-notifications-to-specific-devices-using-notification-hubs-and-google-firebase-cloud-messaging"></a>Tutorial: Enviar notificações para dispositivos específicos usando Centros de Notificação e Mensagens cloud do Google Firebase
